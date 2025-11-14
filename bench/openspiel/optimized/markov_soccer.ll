@@ -2745,26 +2745,26 @@ _ZNSt12_Vector_baseISt4pairIldESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
   %28 = shl nuw nsw i64 %25, 1
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #29
   store ptr %29, ptr %0, align 8
-  %30 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %29, i64 %26
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %30, ptr %31, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw %"struct.std::pair.30", ptr %29, i64 %26
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %31, ptr %32, align 8
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EEC2EmRKS2_.exit.i
-  %.09.i.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i.i ], [ %29, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EEC2EmRKS2_.exit.i ]
-  %.068.i.i.i.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i ], [ %26, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EEC2EmRKS2_.exit.i ]
+  %.09.i.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i.i ], [ %29, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EEC2EmRKS2_.exit.i ]
+  %.068.i.i.i.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i.i.i.i ], [ %26, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EEC2EmRKS2_.exit.i ]
   store i64 -1, ptr %.09.i.i.i.i.i.i, align 8
   %.sroa.221.0..09.i.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   store double -1.000000e+00, ptr %.sroa.221.0..09.i.i.i.i.i.i.sroa_idx, align 8
-  %32 = add i64 %.068.i.i.i.i.i.i, -1
-  %33 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq i64 %32, 0
+  %33 = add i64 %.068.i.i.i.i.i.i, -1
+  %34 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i.i.i.i, label %.lr.ph.preheader, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !9
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %33, ptr %34, align 8
-  %35 = ptrtoint ptr %33 to i64
+  store ptr %34, ptr %30, align 8
+  %35 = ptrtoint ptr %34 to i64
   %36 = ptrtoint ptr %29 to i64
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 4
@@ -6215,8 +6215,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %30 = getelementptr inbounds nuw double, ptr %28, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc4, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i

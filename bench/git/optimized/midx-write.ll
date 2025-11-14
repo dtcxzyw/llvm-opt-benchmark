@@ -2181,72 +2181,72 @@ find_commits_for_midx_bitmap.exit:                ; preds = %920
   %937 = call ptr @hash_to_hex_algop(ptr noundef nonnull %23, ptr noundef %936) #19
   %938 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.67, ptr noundef %933, ptr noundef %937) #19
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.16, i32 noundef 847, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.68, ptr noundef %0) #19
-  %939 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %940 = load i32, ptr %939, align 8, !tbaa !173
-  %941 = zext i32 %940 to i64
-  %942 = shl nuw nsw i64 %941, 3
-  %943 = call ptr @xmalloc(i64 noundef %942) #19
-  %944 = load i32, ptr %939, align 8, !tbaa !173
-  %.not.i393 = icmp eq i32 %944, 0
-  br i1 %.not.i393, label %._crit_edge.i398, label %.lr.ph.i394
+  %939 = trunc i32 %.0195 to i16
+  %940 = lshr i16 %939, 1
+  %spec.select.i393 = and i16 %940, 4
+  %941 = and i16 %939, 16
+  %.139.i = or disjoint i16 %spec.select.i393, %941
+  %942 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %943 = load i32, ptr %942, align 8, !tbaa !173
+  %944 = zext i32 %943 to i64
+  %945 = shl nuw nsw i64 %944, 3
+  %946 = call ptr @xmalloc(i64 noundef %945) #19
+  %947 = load i32, ptr %942, align 8, !tbaa !173
+  %.not.i394 = icmp eq i32 %947, 0
+  br i1 %.not.i394, label %._crit_edge.i399, label %.lr.ph.i395
 
-.lr.ph.i394:                                      ; preds = %find_commits_for_midx_bitmap.exit
-  %945 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %946 = load ptr, ptr %945, align 8, !tbaa !123
-  %wide.trip.count.i = zext i32 %944 to i64
-  br label %947
+.lr.ph.i395:                                      ; preds = %find_commits_for_midx_bitmap.exit
+  %948 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %949 = load ptr, ptr %948, align 8, !tbaa !123
+  %wide.trip.count.i = zext i32 %947 to i64
+  br label %950
 
-947:                                              ; preds = %947, %.lr.ph.i394
-  %indvars.iv.i395 = phi i64 [ 0, %.lr.ph.i394 ], [ %indvars.iv.next.i396, %947 ]
-  %948 = getelementptr inbounds nuw %struct.object_entry, ptr %946, i64 %indvars.iv.i395
-  %949 = getelementptr inbounds nuw ptr, ptr %943, i64 %indvars.iv.i395
-  store ptr %948, ptr %949, align 8, !tbaa !174
-  %indvars.iv.next.i396 = add nuw nsw i64 %indvars.iv.i395, 1
-  %exitcond.not.i397 = icmp eq i64 %indvars.iv.next.i396, %wide.trip.count.i
-  br i1 %exitcond.not.i397, label %._crit_edge.i398, label %947, !llvm.loop !176
+950:                                              ; preds = %950, %.lr.ph.i395
+  %indvars.iv.i396 = phi i64 [ 0, %.lr.ph.i395 ], [ %indvars.iv.next.i397, %950 ]
+  %951 = getelementptr inbounds nuw %struct.object_entry, ptr %949, i64 %indvars.iv.i396
+  %952 = getelementptr inbounds nuw ptr, ptr %946, i64 %indvars.iv.i396
+  store ptr %951, ptr %952, align 8, !tbaa !174
+  %indvars.iv.next.i397 = add nuw nsw i64 %indvars.iv.i396, 1
+  %exitcond.not.i398 = icmp eq i64 %indvars.iv.next.i397, %wide.trip.count.i
+  br i1 %exitcond.not.i398, label %._crit_edge.i399, label %950, !llvm.loop !176
 
-._crit_edge.i398:                                 ; preds = %947, %find_commits_for_midx_bitmap.exit
+._crit_edge.i399:                                 ; preds = %950, %find_commits_for_midx_bitmap.exit
   call void @bitmap_writer_init(ptr noundef nonnull %9, ptr noundef nonnull %0, ptr noundef nonnull %28) #19
-  %950 = and i32 %.0195, 1
-  call void @bitmap_writer_show_progress(ptr noundef nonnull %9, i32 noundef %950) #19
-  call void @bitmap_writer_build_type_index(ptr noundef nonnull %9, ptr noundef %943) #19
-  %951 = load i32, ptr %939, align 8, !tbaa !173
-  %.not47.i = icmp eq i32 %951, 0
+  %953 = and i32 %.0195, 1
+  call void @bitmap_writer_show_progress(ptr noundef nonnull %9, i32 noundef %953) #19
+  call void @bitmap_writer_build_type_index(ptr noundef nonnull %9, ptr noundef %946) #19
+  %954 = load i32, ptr %942, align 8, !tbaa !173
+  %.not47.i = icmp eq i32 %954, 0
   br i1 %.not47.i, label %._crit_edge46.i, label %.lr.ph45.i
 
-.lr.ph45.i:                                       ; preds = %._crit_edge.i398
-  %952 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %953 = load ptr, ptr %952, align 8, !tbaa !123
-  %wide.trip.count52.i = zext i32 %951 to i64
-  br label %954
+.lr.ph45.i:                                       ; preds = %._crit_edge.i399
+  %955 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %956 = load ptr, ptr %955, align 8, !tbaa !123
+  %wide.trip.count52.i = zext i32 %954 to i64
+  br label %957
 
-954:                                              ; preds = %954, %.lr.ph45.i
-  %indvars.iv49.i = phi i64 [ 0, %.lr.ph45.i ], [ %indvars.iv.next50.i, %954 ]
-  %955 = getelementptr inbounds nuw %struct.object_entry, ptr %953, i64 %indvars.iv49.i
-  %956 = getelementptr inbounds nuw i32, ptr %935, i64 %indvars.iv49.i
-  %957 = load i32, ptr %956, align 4, !tbaa !40
-  %958 = zext i32 %957 to i64
-  %959 = getelementptr inbounds nuw ptr, ptr %943, i64 %958
-  store ptr %955, ptr %959, align 8, !tbaa !174
+957:                                              ; preds = %957, %.lr.ph45.i
+  %indvars.iv49.i = phi i64 [ 0, %.lr.ph45.i ], [ %indvars.iv.next50.i, %957 ]
+  %958 = getelementptr inbounds nuw %struct.object_entry, ptr %956, i64 %indvars.iv49.i
+  %959 = getelementptr inbounds nuw i32, ptr %935, i64 %indvars.iv49.i
+  %960 = load i32, ptr %959, align 4, !tbaa !40
+  %961 = zext i32 %960 to i64
+  %962 = getelementptr inbounds nuw ptr, ptr %946, i64 %961
+  store ptr %958, ptr %962, align 8, !tbaa !174
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
-  br i1 %exitcond53.not.i, label %._crit_edge46.i, label %954, !llvm.loop !177
+  br i1 %exitcond53.not.i, label %._crit_edge46.i, label %957, !llvm.loop !177
 
-._crit_edge46.i:                                  ; preds = %954, %._crit_edge.i398
+._crit_edge46.i:                                  ; preds = %957, %._crit_edge.i399
   call void @bitmap_writer_select_commits(ptr noundef nonnull %9, ptr noundef %931, i32 noundef %929) #19
-  %960 = call i32 @bitmap_writer_build(ptr noundef nonnull %9) #19
-  %961 = icmp slt i32 %960, 0
-  br i1 %961, label %.critedge436, label %write_midx_bitmap.exit
+  %963 = call i32 @bitmap_writer_build(ptr noundef nonnull %9) #19
+  %964 = icmp slt i32 %963, 0
+  br i1 %964, label %.critedge436, label %write_midx_bitmap.exit
 
 write_midx_bitmap.exit:                           ; preds = %._crit_edge46.i
-  %962 = trunc i32 %.0195 to i16
-  %963 = lshr i16 %962, 1
-  %spec.select.i399 = and i16 %963, 4
-  %964 = and i16 %962, 16
-  %.139.i = or disjoint i16 %spec.select.i399, %964
   call void @bitmap_writer_set_checksum(ptr noundef nonnull %9, ptr noundef nonnull %23) #19
-  call void @bitmap_writer_finish(ptr noundef nonnull %9, ptr noundef %943, ptr noundef %938, i16 noundef zeroext %.139.i) #19
-  call void @free(ptr noundef %943) #19
+  call void @bitmap_writer_finish(ptr noundef nonnull %9, ptr noundef %946, ptr noundef %938, i16 noundef zeroext %.139.i) #19
+  call void @free(ptr noundef %946) #19
   call void @free(ptr noundef %938) #19
   call void @bitmap_writer_free(ptr noundef nonnull %9) #19
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.16, i32 noundef 897, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.68, ptr noundef nonnull %0) #19
@@ -2257,7 +2257,7 @@ write_midx_bitmap.exit:                           ; preds = %._crit_edge46.i
   br label %970
 
 .critedge436:                                     ; preds = %._crit_edge46.i
-  call void @free(ptr noundef %943) #19
+  call void @free(ptr noundef %946) #19
   call void @free(ptr noundef %938) #19
   call void @bitmap_writer_free(ptr noundef nonnull %9) #19
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.16, i32 noundef 897, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.68, ptr noundef nonnull %0) #19

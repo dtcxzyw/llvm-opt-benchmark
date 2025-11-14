@@ -8110,23 +8110,23 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableINS_7AstNameE
   %9 = shl i64 %spec.select, 3
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #28
   %.pre.i.i = load i64, ptr %6, align 8
+  %11 = inttoptr i64 %.pre.i.i to ptr
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.05.i.i = phi i64 [ %12, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %11 = getelementptr inbounds nuw %"struct.Luau::AstName", ptr %10, i64 %.05.i.i
-  store i64 %.pre.i.i, ptr %11, align 8, !tbaa !33
-  %12 = add nuw i64 %.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %12, %spec.select
+  %.05.i.i = phi i64 [ %13, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %12 = getelementptr inbounds nuw %"struct.Luau::AstName", ptr %10, i64 %.05.i.i
+  store i64 %.pre.i.i, ptr %12, align 8, !tbaa !33
+  %13 = add nuw i64 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %13, %spec.select
   br i1 %exitcond.not.i.i, label %_ZN4Luau6detail14DenseHashTableINS_7AstNameES2_S2_NS0_16ItemInterfaceSetIS2_EESt4hashIS2_ESt8equal_toIS2_EEC2ERKS2_m.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !361
 
 _ZN4Luau6detail14DenseHashTableINS_7AstNameES2_S2_NS0_16ItemInterfaceSetIS2_EESt4hashIS2_ESt8equal_toIS2_EEC2ERKS2_m.exit.loopexit: ; preds = %.lr.ph.i.i
-  %13 = inttoptr i64 %.pre.i.i to ptr
   %.pre = load i64, ptr %2, align 8, !tbaa !299
   br label %_ZN4Luau6detail14DenseHashTableINS_7AstNameES2_S2_NS0_16ItemInterfaceSetIS2_EESt4hashIS2_ESt8equal_toIS2_EEC2ERKS2_m.exit
 
 _ZN4Luau6detail14DenseHashTableINS_7AstNameES2_S2_NS0_16ItemInterfaceSetIS2_EESt4hashIS2_ESt8equal_toIS2_EEC2ERKS2_m.exit: ; preds = %_ZN4Luau6detail14DenseHashTableINS_7AstNameES2_S2_NS0_16ItemInterfaceSetIS2_EESt4hashIS2_ESt8equal_toIS2_EEC2ERKS2_m.exit.loopexit, %1
-  %14 = phi ptr [ %8, %1 ], [ %13, %_ZN4Luau6detail14DenseHashTableINS_7AstNameES2_S2_NS0_16ItemInterfaceSetIS2_EESt4hashIS2_ESt8equal_toIS2_EEC2ERKS2_m.exit.loopexit ]
+  %14 = phi ptr [ %8, %1 ], [ %11, %_ZN4Luau6detail14DenseHashTableINS_7AstNameES2_S2_NS0_16ItemInterfaceSetIS2_EESt4hashIS2_ESt8equal_toIS2_EEC2ERKS2_m.exit.loopexit ]
   %15 = phi i64 [ %3, %1 ], [ %.pre, %_ZN4Luau6detail14DenseHashTableINS_7AstNameES2_S2_NS0_16ItemInterfaceSetIS2_EESt4hashIS2_ESt8equal_toIS2_EEC2ERKS2_m.exit.loopexit ]
   %.sroa.0.0 = phi ptr [ null, %1 ], [ %10, %_ZN4Luau6detail14DenseHashTableINS_7AstNameES2_S2_NS0_16ItemInterfaceSetIS2_EESt4hashIS2_ESt8equal_toIS2_EEC2ERKS2_m.exit.loopexit ]
   %.not = icmp eq i64 %15, 0

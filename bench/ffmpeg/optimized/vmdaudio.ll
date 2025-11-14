@@ -239,9 +239,9 @@ define internal i32 @vmdaudio_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
 
 .lr.ph:                                           ; preds = %.preheader
   %95 = sext i32 %94 to i64
-  %96 = icmp sgt i32 %13, 0
+  %96 = add nsw i32 %13, -1
+  %97 = icmp sgt i32 %13, 0
   %wide.trip.count.i = zext nneg i32 %13 to i64
-  %97 = add nsw i32 %13, -1
   br label %99
 
 98:                                               ; preds = %85
@@ -260,13 +260,13 @@ define internal i32 @vmdaudio_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %103, label %104, label %144
 
 104:                                              ; preds = %99
+  %105 = getelementptr inbounds i8, ptr %.2114, i64 %101
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %96, label %.lr.ph.i, label %.preheader.i
+  br i1 %97, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %104
   %.024.lcssa.i = phi ptr [ %.2114, %104 ], [ %110, %.lr.ph.i ]
   %.0.lcssa.i = phi ptr [ %.289113, %104 ], [ %111, %.lr.ph.i ]
-  %105 = getelementptr inbounds i8, ptr %.2114, i64 %101
   %106 = icmp ult ptr %.024.lcssa.i, %105
   br i1 %106, label %.lr.ph35.i, label %decode_audio_s16.exit
 
@@ -329,7 +329,7 @@ define internal i32 @vmdaudio_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %137, ptr %135, align 4, !tbaa !38
   %138 = getelementptr inbounds nuw i8, ptr %.134.i, i64 2
   store i16 %.0.i.i, ptr %.134.i, align 2, !tbaa !46
-  %139 = xor i32 %.12732.i, %97
+  %139 = xor i32 %.12732.i, %96
   %140 = icmp ult ptr %112, %105
   br i1 %140, label %.lr.ph35.i, label %decode_audio_s16.exit, !llvm.loop !50
 

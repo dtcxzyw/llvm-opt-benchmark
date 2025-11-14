@@ -30755,6 +30755,8 @@ _ZN5clang18SemaCodeCompletion26CodeCompleteExpressionDataD2Ev.exit: ; preds = %4
 59:                                               ; preds = %35
   %60 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %44) #31
   %61 = tail call noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(156) %60) #31
+  %.not26 = icmp eq ptr %61, null
+  %spec.select = select i1 %.not26, ptr %60, ptr %61
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %62, ptr %4, align 8, !tbaa !1501
@@ -30774,8 +30776,6 @@ _ZN5clang18SemaCodeCompletion26CodeCompleteExpressionDataD2Ev.exit: ; preds = %4
   br i1 %.not2765, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %151, %59
-  %.not26 = icmp eq ptr %61, null
-  %spec.select = select i1 %.not26, ptr %60, ptr %61
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %69 = load ptr, ptr %0, align 8, !tbaa !1483
   %70 = load ptr, ptr %19, align 8, !tbaa !1484

@@ -8471,10 +8471,10 @@ define internal fastcc noundef zeroext i1 @_ZL24compareCrossTUSourceLocsN5clang1
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %4
-  br i1 %.not, label %16, label %73
+  br i1 %.not, label %16, label %74
 
 15:                                               ; preds = %4
-  br i1 %.not, label %73, label %16
+  br i1 %.not, label %74, label %16
 
 16:                                               ; preds = %14, %15
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -8491,7 +8491,7 @@ define internal fastcc noundef zeroext i1 @_ZL24compareCrossTUSourceLocsN5clang1
 22:                                               ; preds = %16
   %.sroa.04.0.copyload = load i32, ptr %6, align 8
   %23 = call noundef zeroext i1 @_ZNK5clang13FullSourceLoc29isBeforeInTranslationUnitThanENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 %.sroa.04.0.copyload) #25
-  br label %72
+  br label %73
 
 24:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -8540,19 +8540,19 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit15: ; preds = %_
   %48 = load i64, ptr %47, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not44 = icmp eq ptr %.sroa.0.1.i, null
-  br i1 %.not44, label %72, label %49
+  br i1 %.not44, label %73, label %49
 
 _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit15.thread: ; preds = %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not46 = icmp eq ptr %.sroa.0.1.i, null
-  br i1 %.not46, label %72, label %.thread36
+  br i1 %.not46, label %73, label %.thread36
 
 49:                                               ; preds = %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit15
   %.not45 = icmp eq i64 %48, 0
   br i1 %.not45, label %.thread36, label %.preheader
 
 .thread36:                                        ; preds = %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit15.thread, %49
-  br label %72
+  br label %73
 
 .preheader:                                       ; preds = %49, %.preheader
   %.05.i.i = phi ptr [ %53, %.preheader ], [ %.sroa.0.1.i, %49 ]
@@ -8566,63 +8566,66 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit15.thread: ; pre
   %.not.i.i = or i1 %.not.i.i.i.i.i.i, %.not7.i.i
   br i1 %.not.i.i, label %_ZNK5clang12FileEntryRef7getNameEv.exit, label %.preheader
 
-_ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %.preheader, %_ZNK5clang12FileEntryRef7getNameEv.exit
-  %.05.i.i16.in = phi i64 [ %56, %_ZNK5clang12FileEntryRef7getNameEv.exit ], [ %48, %.preheader ]
-  %.05.i.i16 = inttoptr i64 %.05.i.i16.in to ptr
-  %54 = getelementptr inbounds nuw i8, ptr %.05.i.i16, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i17 = load i64, ptr %54, align 8
-  %55 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i17, 4
-  %.not.i.i.i.i.i.i18 = icmp eq i64 %55, 0
-  %56 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i17, -8
-  %.not7.i.i19 = icmp eq i64 %56, 0
-  %.not.i.i20 = or i1 %.not.i.i.i.i.i.i18, %.not7.i.i19
-  br i1 %.not.i.i20, label %_ZNK5clang12FileEntryRef7getNameEv.exit23, label %_ZNK5clang12FileEntryRef7getNameEv.exit
+_ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %.preheader
+  %54 = load i64, ptr %.05.i.i, align 8, !tbaa !501
+  br label %55
 
-_ZNK5clang12FileEntryRef7getNameEv.exit23:        ; preds = %_ZNK5clang12FileEntryRef7getNameEv.exit
-  %57 = load i64, ptr %.05.i.i, align 8, !tbaa !501
-  %58 = load i64, ptr %.05.i.i16, align 8, !tbaa !501
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %58, i64 %57)
-  %59 = icmp eq i64 %.sroa.speculated.i, 0
-  br i1 %59, label %.thread.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i
+55:                                               ; preds = %55, %_ZNK5clang12FileEntryRef7getNameEv.exit
+  %.05.i.i16.in = phi i64 [ %48, %_ZNK5clang12FileEntryRef7getNameEv.exit ], [ %58, %55 ]
+  %.05.i.i16 = inttoptr i64 %.05.i.i16.in to ptr
+  %56 = getelementptr inbounds nuw i8, ptr %.05.i.i16, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i17 = load i64, ptr %56, align 8
+  %57 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i17, 4
+  %.not.i.i.i.i.i.i18 = icmp eq i64 %57, 0
+  %58 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i17, -8
+  %.not7.i.i19 = icmp eq i64 %58, 0
+  %.not.i.i20 = or i1 %.not.i.i.i.i.i.i18, %.not7.i.i19
+  br i1 %.not.i.i20, label %_ZNK5clang12FileEntryRef7getNameEv.exit23, label %55
+
+_ZNK5clang12FileEntryRef7getNameEv.exit23:        ; preds = %55
+  %59 = load i64, ptr %.05.i.i16, align 8, !tbaa !501
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %59, i64 %54)
+  %60 = icmp eq i64 %.sroa.speculated.i, 0
+  br i1 %60, label %.thread.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %_ZNK5clang12FileEntryRef7getNameEv.exit23
-  %60 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 32
-  %61 = getelementptr inbounds nuw i8, ptr %.05.i.i16, i64 32
-  %62 = call i32 @memcmp(ptr noundef nonnull %60, ptr noundef nonnull %61, i64 noundef %.sroa.speculated.i) #29
-  %.fr.i = freeze i32 %62
+  %61 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %.05.i.i16, i64 32
+  %63 = call i32 @memcmp(ptr noundef nonnull %61, ptr noundef nonnull %62, i64 noundef %.sroa.speculated.i) #29
+  %.fr.i = freeze i32 %63
   %.not.not.i24 = icmp eq i32 %.fr.i, 0
   %.inv.i = icmp sgt i32 %.fr.i, -1
   %spec.select.i = select i1 %.inv.i, i32 1, i32 -1
-  br i1 %.not.not.i24, label %.thread.i, label %67
+  br i1 %.not.not.i24, label %.thread.i, label %68
 
 .thread.i:                                        ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i, %_ZNK5clang12FileEntryRef7getNameEv.exit23
-  %63 = icmp eq i64 %57, %58
-  br i1 %63, label %_ZNK4llvm9StringRef7compareES0_.exit, label %64
+  %64 = icmp eq i64 %54, %59
+  br i1 %64, label %_ZNK4llvm9StringRef7compareES0_.exit, label %65
 
-64:                                               ; preds = %.thread.i
-  %65 = icmp ult i64 %57, %58
-  %66 = select i1 %65, i32 -1, i32 1
-  br label %67
+65:                                               ; preds = %.thread.i
+  %66 = icmp ult i64 %54, %59
+  %67 = select i1 %66, i32 -1, i32 1
+  br label %68
 
-67:                                               ; preds = %64, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i
-  %.1.i.ph = phi i32 [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ %66, %64 ]
-  %68 = icmp slt i32 %.1.i.ph, 0
-  br label %72
-
-_ZNK4llvm9StringRef7compareES0_.exit:             ; preds = %.thread.i
-  %69 = call i32 @_ZNK5clang13FullSourceLoc9getFileIDEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
-  %70 = call i32 @_ZNK5clang13FullSourceLoc9getFileIDEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #25
-  %71 = icmp slt i32 %69, %70
-  br label %72
-
-72:                                               ; preds = %.thread36, %_ZNK4llvm9StringRef7compareES0_.exit, %67, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit15.thread, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit15, %22
-  %.1 = phi i1 [ %23, %22 ], [ true, %.thread36 ], [ %68, %67 ], [ %71, %_ZNK4llvm9StringRef7compareES0_.exit ], [ false, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit15.thread ], [ false, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit15 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+68:                                               ; preds = %65, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i
+  %.1.i.ph = phi i32 [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ %67, %65 ]
+  %69 = icmp slt i32 %.1.i.ph, 0
   br label %73
 
-73:                                               ; preds = %15, %14, %72
-  %.0 = phi i1 [ %.1, %72 ], [ true, %14 ], [ false, %15 ]
+_ZNK4llvm9StringRef7compareES0_.exit:             ; preds = %.thread.i
+  %70 = call i32 @_ZNK5clang13FullSourceLoc9getFileIDEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
+  %71 = call i32 @_ZNK5clang13FullSourceLoc9getFileIDEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #25
+  %72 = icmp slt i32 %70, %71
+  br label %73
+
+73:                                               ; preds = %.thread36, %_ZNK4llvm9StringRef7compareES0_.exit, %68, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit15.thread, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit15, %22
+  %.1 = phi i1 [ %23, %22 ], [ true, %.thread36 ], [ %69, %68 ], [ %72, %_ZNK4llvm9StringRef7compareES0_.exit ], [ false, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit15.thread ], [ false, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit15 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %74
+
+74:                                               ; preds = %15, %14, %73
+  %.0 = phi i1 [ %.1, %73 ], [ true, %14 ], [ false, %15 ]
   ret i1 %.0
 }
 

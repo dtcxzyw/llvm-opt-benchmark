@@ -95,10 +95,10 @@ define internal range(i32 -1, 1) i32 @aes_ctr_update(ptr noundef %0, ptr noundef
   %.073 = phi i32 [ 0, %.lr.ph ], [ %65, %55 ]
   %.04072 = phi i32 [ %10, %.lr.ph ], [ %59, %55 ]
   %17 = icmp eq i32 %.04072, 16
-  br i1 %17, label %.preheader79, label %55
+  br i1 %17, label %.preheader78, label %55
 
-.preheader79:                                     ; preds = %16, %.preheader79
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader79 ], [ 0, %16 ]
+.preheader78:                                     ; preds = %16, %.preheader78
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader78 ], [ 0, %16 ]
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i
   %19 = load i8, ptr %18, align 1, !tbaa !17
   %20 = add i8 %19, 1
@@ -107,9 +107,9 @@ define internal range(i32 -1, 1) i32 @aes_ctr_update(ptr noundef %0, ptr noundef
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   %or.cond.i = select i1 %.not.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %aes_ctr_increase_counter.exit, label %.preheader79, !llvm.loop !18
+  br i1 %or.cond.i, label %aes_ctr_increase_counter.exit, label %.preheader78, !llvm.loop !18
 
-aes_ctr_increase_counter.exit:                    ; preds = %.preheader79
+aes_ctr_increase_counter.exit:                    ; preds = %.preheader78
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !20
   %21 = load ptr, ptr %0, align 8, !tbaa !4
@@ -152,10 +152,10 @@ aes_ctr_encrypt_counter.exit:                     ; preds = %aes_ctr_increase_co
   store i8 %39, ptr %40, align 1, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader78, label %.preheader, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader88, label %.preheader, !llvm.loop !21
 
-.preheader78:                                     ; preds = %.preheader, %.preheader78
-  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i52, %.preheader78 ], [ 0, %.preheader ]
+.preheader88:                                     ; preds = %.preheader, %.preheader88
+  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i52, %.preheader88 ], [ 0, %.preheader ]
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i50
   %42 = load i8, ptr %41, align 1, !tbaa !17
   %43 = add i8 %42, 1
@@ -164,9 +164,9 @@ aes_ctr_encrypt_counter.exit:                     ; preds = %aes_ctr_increase_co
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, 8
   %or.cond.i54 = select i1 %.not.i51, i1 true, i1 %exitcond.not.i53
-  br i1 %or.cond.i54, label %aes_ctr_increase_counter.exit55, label %.preheader78, !llvm.loop !18
+  br i1 %or.cond.i54, label %aes_ctr_increase_counter.exit55, label %.preheader88, !llvm.loop !18
 
-aes_ctr_increase_counter.exit55:                  ; preds = %.preheader78
+aes_ctr_increase_counter.exit55:                  ; preds = %.preheader88
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !20
   %44 = load ptr, ptr %0, align 8, !tbaa !4

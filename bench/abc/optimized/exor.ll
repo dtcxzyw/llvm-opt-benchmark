@@ -641,12 +641,13 @@ define void @AddCubesToStartingCover(ptr noundef readonly captures(none) %0) loc
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i32, ptr %16, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !14
-  %23 = load i32, ptr @g_CoverInfo, align 8, !tbaa !16
-  %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph83.preheader, label %.preheader78
+  %23 = xor i32 %22, -1
+  %24 = load i32, ptr @g_CoverInfo, align 8, !tbaa !16
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %.lr.ph83.preheader, label %.preheader78
 
 .lr.ph83.preheader:                               ; preds = %13
-  %wide.trip.count100 = zext nneg i32 %23 to i64
+  %wide.trip.count100 = zext nneg i32 %24 to i64
   br label %.lr.ph83
 
 .preheader78.loopexit:                            ; preds = %.lr.ph83
@@ -655,35 +656,34 @@ define void @AddCubesToStartingCover(ptr noundef readonly captures(none) %0) loc
 
 .preheader78:                                     ; preds = %.preheader78.loopexit, %13
   %.val6084 = phi i32 [ %.val6084.pre, %.preheader78.loopexit ], [ %19, %13 ]
-  %25 = icmp sgt i32 %.val6084, 0
-  br i1 %25, label %.lr.ph86, label %.critedge2
+  %26 = icmp sgt i32 %.val6084, 0
+  br i1 %26, label %.lr.ph86, label %.critedge2
 
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
   %indvars.iv97 = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next98, %.lr.ph83 ]
-  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv97
-  store i32 3, ptr %26, align 4, !tbaa !14
+  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv97
+  store i32 3, ptr %27, align 4, !tbaa !14
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
   br i1 %exitcond101.not, label %.preheader78.loopexit, label %.lr.ph83, !llvm.loop !31
 
 .lr.ph86:                                         ; preds = %.preheader78, %.lr.ph86
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %.lr.ph86 ], [ 0, %.preheader78 ]
-  %27 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv102
-  %28 = load i32, ptr %27, align 4, !tbaa !14
-  %29 = and i32 %28, 1
-  %30 = ashr i32 %28, 1
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i32, ptr %6, i64 %31
-  %. = sub nuw nsw i32 2, %29
-  store i32 %., ptr %32, align 4, !tbaa !14
+  %28 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv102
+  %29 = load i32, ptr %28, align 4, !tbaa !14
+  %30 = and i32 %29, 1
+  %31 = ashr i32 %29, 1
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds i32, ptr %6, i64 %32
+  %. = sub nuw nsw i32 2, %30
+  store i32 %., ptr %33, align 4, !tbaa !14
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %.val60 = load i32, ptr %17, align 4, !tbaa !6
-  %33 = sext i32 %.val60 to i64
-  %34 = icmp slt i64 %indvars.iv.next103, %33
-  br i1 %34, label %.lr.ph86, label %.critedge2, !llvm.loop !32
+  %34 = sext i32 %.val60 to i64
+  %35 = icmp slt i64 %indvars.iv.next103, %34
+  br i1 %35, label %.lr.ph86, label %.critedge2, !llvm.loop !32
 
 .critedge2:                                       ; preds = %.lr.ph86, %.preheader78
-  %35 = xor i32 %22, -1
   %36 = tail call ptr (...) @GetFreeCube() #17
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !33
@@ -728,7 +728,7 @@ define void @AddCubesToStartingCover(ptr noundef readonly captures(none) %0) loc
 
 .loopexit:                                        ; preds = %50, %.preheader, %.critedge2
   %55 = load i32, ptr @g_CoverInfo, align 8, !tbaa !16
-  tail call void @InsertVarsWithoutClearing(ptr noundef nonnull %36, ptr noundef %5, i32 noundef %55, ptr noundef %6, i32 noundef %35) #17
+  tail call void @InsertVarsWithoutClearing(ptr noundef nonnull %36, ptr noundef %5, i32 noundef %55, ptr noundef %6, i32 noundef %23) #17
   %.val59 = load i32, ptr %17, align 4, !tbaa !6
   %56 = trunc i32 %.val59 to i16
   %57 = getelementptr inbounds nuw i8, ptr %36, i64 2

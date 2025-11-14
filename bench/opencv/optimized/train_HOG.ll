@@ -398,8 +398,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %86
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc31
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %99, 2
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %98, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !36
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i
 
 _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc31

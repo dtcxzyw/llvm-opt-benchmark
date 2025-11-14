@@ -742,49 +742,49 @@ define void @ff_aac_search_for_tns(ptr noundef %0, ptr noundef %1) local_unnamed
   %70 = load ptr, ptr %29, align 8, !tbaa !75
   %71 = getelementptr inbounds i16, ptr %70, i64 %35
   %72 = load i16, ptr %71, align 2, !tbaa !38
-  %73 = load i32, ptr %20, align 8, !tbaa !74
-  %74 = icmp slt i32 %..i, %73
-  %75 = and i1 %45, %74
-  br i1 %75, label %.lr.ph, label %94
+  %73 = zext i16 %72 to i64
+  %74 = load i32, ptr %20, align 8, !tbaa !74
+  %75 = icmp slt i32 %..i, %74
+  %76 = and i1 %45, %75
+  br i1 %76, label %.lr.ph, label %95
 
 .lr.ph:                                           ; preds = %69
-  %76 = load ptr, ptr %46, align 16, !tbaa !76
-  %77 = load i32, ptr %47, align 16, !tbaa !77
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %struct.FFPsyChannel, ptr %76, i64 %78
-  %80 = sext i32 %73 to i64
+  %77 = load ptr, ptr %46, align 16, !tbaa !76
+  %78 = load i32, ptr %47, align 16, !tbaa !77
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds %struct.FFPsyChannel, ptr %77, i64 %79
+  %81 = sext i32 %74 to i64
   %.idx = shl i64 %indvars.iv135, 8
-  %invariant.gep = getelementptr i8, ptr %79, i64 %.idx
-  br label %81
+  %invariant.gep = getelementptr i8, ptr %80, i64 %.idx
+  br label %82
 
-81:                                               ; preds = %.lr.ph, %81
-  %indvars.iv = phi i64 [ %smin131, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %82 = phi float [ 0.000000e+00, %.lr.ph ], [ %89, %81 ]
-  %83 = phi float [ 0.000000e+00, %.lr.ph ], [ %90, %81 ]
+82:                                               ; preds = %.lr.ph, %82
+  %indvars.iv = phi i64 [ %smin131, %.lr.ph ], [ %indvars.iv.next, %82 ]
+  %83 = phi float [ 0.000000e+00, %.lr.ph ], [ %90, %82 ]
+  %84 = phi float [ 0.000000e+00, %.lr.ph ], [ %91, %82 ]
   %gep = getelementptr %struct.FFPsyBand, ptr %invariant.gep, i64 %indvars.iv
-  %84 = icmp sgt i64 %indvars.iv, %63
-  %85 = getelementptr inbounds nuw i8, ptr %gep, i64 4
-  %86 = load float, ptr %85, align 4, !tbaa !78
-  %87 = fadd nsz float %86, %83
-  %88 = fadd nsz float %86, %82
-  %89 = select i1 %84, float %88, float %82
-  %90 = select i1 %84, float %83, float %87
+  %85 = icmp sgt i64 %indvars.iv, %63
+  %86 = getelementptr inbounds nuw i8, ptr %gep, i64 4
+  %87 = load float, ptr %86, align 4, !tbaa !78
+  %88 = fadd nsz float %87, %84
+  %89 = fadd nsz float %87, %83
+  %90 = select i1 %85, float %89, float %83
+  %91 = select i1 %85, float %84, float %88
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %91 = icmp slt i64 %indvars.iv.next, %80
-  %92 = icmp slt i64 %indvars.iv, %31
-  %93 = and i1 %92, %91
-  br i1 %93, label %81, label %._crit_edge, !llvm.loop !80
+  %92 = icmp slt i64 %indvars.iv.next, %81
+  %93 = icmp slt i64 %indvars.iv, %31
+  %94 = and i1 %93, %92
+  br i1 %94, label %82, label %._crit_edge, !llvm.loop !80
 
-._crit_edge:                                      ; preds = %81
-  store float %89, ptr %.sroa.6, align 4
-  br label %94
+._crit_edge:                                      ; preds = %82
+  store float %90, ptr %.sroa.6, align 4
+  br label %95
 
-94:                                               ; preds = %._crit_edge, %69
-  %.lcssa = phi float [ %90, %._crit_edge ], [ 0.000000e+00, %69 ]
+95:                                               ; preds = %._crit_edge, %69
+  %.lcssa = phi float [ %91, %._crit_edge ], [ 0.000000e+00, %69 ]
   store float %.lcssa, ptr %.sroa.0, align 8
-  %95 = zext i16 %72 to i64
   %96 = shl i64 %indvars.iv135, 7
-  %97 = add i64 %96, %95
+  %97 = add i64 %96, %73
   %98 = and i64 %97, 4294967295
   %99 = getelementptr inbounds nuw float, ptr %51, i64 %98
   %100 = call nsz double @ff_lpc_calc_ref_coefs_f(ptr noundef nonnull %50, ptr noundef nonnull %99, i32 noundef %39, i32 noundef %23, ptr noundef nonnull %3) #6
@@ -796,7 +796,7 @@ define void @ff_aac_search_for_tns(ptr noundef %0, ptr noundef %1) local_unnamed
   %or.cond5 = select i1 %102, i1 true, i1 %105
   br i1 %or.cond5, label %144, label %.lr.ph122
 
-.lr.ph122:                                        ; preds = %94
+.lr.ph122:                                        ; preds = %95
   %106 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv135
   store i32 %52, ptr %106, align 4, !tbaa !4
   %107 = getelementptr inbounds nuw [4 x i32], ptr %54, i64 %indvars.iv135
@@ -879,8 +879,8 @@ quantize_coefs.exit:                              ; preds = %quant_array_idx.exi
   %143 = add nsw i32 %.0105124, 1
   br label %144
 
-144:                                              ; preds = %94, %._crit_edge123
-  %.1106 = phi i32 [ %143, %._crit_edge123 ], [ %.0105124, %94 ]
+144:                                              ; preds = %95, %._crit_edge123
+  %.1106 = phi i32 [ %143, %._crit_edge123 ], [ %.0105124, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1

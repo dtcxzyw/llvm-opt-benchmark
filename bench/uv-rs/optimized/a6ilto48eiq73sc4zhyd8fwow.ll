@@ -9460,14 +9460,14 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   %105 = load i32, ptr %99, align 8, !alias.scope !3481, !noalias !3482, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3483
   call void @llvm.experimental.noalias.scope.decl(metadata !3486)
+  %106 = icmp sgt i32 %105, -1
   %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = call i32 @llvm.abs.i32(i32 %105, i1 false)
-  %106 = icmp ugt i32 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, 9999
-  br i1 %106, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i
+  %107 = icmp ugt i32 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, 9999
+  br i1 %107, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %104
   %.sroa.09.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 11, %104 ], [ %117, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, %104 ], [ %110, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
-  %107 = icmp sgt i32 %105, -1
   %108 = icmp samesign ugt i32 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i, 99
   br i1 %108, label %126, label %135
 
@@ -9536,7 +9536,7 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
 
 149:                                              ; preds = %144, %137
   %.sroa.09.2.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %145, %144 ], [ %140, %137 ]
-  br i1 %107, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17hc07ef0c0aa4baee3E.exit.i.i.i.i.i.i.i.i.i.i", label %150
+  br i1 %106, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17hc07ef0c0aa4baee3E.exit.i.i.i.i.i.i.i.i.i.i", label %150
 
 150:                                              ; preds = %149
   %151 = add i64 %.sroa.09.2.i.i.i.i.i.i.i.i.i.i.i, -1
@@ -9774,14 +9774,14 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h3ac73f968eae34bfE.exit.i.i.i
   %80 = load i32, ptr %74, align 8, !alias.scope !3614, !noalias !3615, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3616
   call void @llvm.experimental.noalias.scope.decl(metadata !3619)
+  %81 = icmp sgt i32 %80, -1
   %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = call i32 @llvm.abs.i32(i32 %80, i1 false)
-  %81 = icmp ugt i32 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, 9999
-  br i1 %81, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i
+  %82 = icmp ugt i32 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, 9999
+  br i1 %82, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %79
   %.sroa.09.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 11, %79 ], [ %92, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, %79 ], [ %85, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
-  %82 = icmp sgt i32 %80, -1
   %83 = icmp samesign ugt i32 %.sroa.0.1.lcssa.i.i.i.i.i.i.i.i.i.i.i, 99
   br i1 %83, label %101, label %110
 
@@ -9850,7 +9850,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h3ac73f968eae34bfE.exit.i.i.i
 
 124:                                              ; preds = %119, %112
   %.sroa.09.2.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %120, %119 ], [ %115, %112 ]
-  br i1 %82, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17hc07ef0c0aa4baee3E.exit.i.i.i.i.i.i.i.i.i.i", label %125
+  br i1 %81, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17hc07ef0c0aa4baee3E.exit.i.i.i.i.i.i.i.i.i.i", label %125
 
 125:                                              ; preds = %124
   %126 = add i64 %.sroa.09.2.i.i.i.i.i.i.i.i.i.i.i, -1

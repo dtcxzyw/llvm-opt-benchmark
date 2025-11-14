@@ -96543,8 +96543,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %9
 
 24:                                               ; preds = %.noexc4.i
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %22, 2
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !81, !noalias !3167
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.noexc4.i, %24

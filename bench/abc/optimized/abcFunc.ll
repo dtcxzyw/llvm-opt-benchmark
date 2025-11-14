@@ -97,52 +97,52 @@ define ptr @Abc_ConvertSopToBdd2_rec(ptr noundef %0, ptr noundef readonly captur
   br i1 %18, label %.lr.ph.i, label %Abc_ConvertSopToBdd2Count.exit
 
 .lr.ph.i:                                         ; preds = %17
-  %19 = sext i32 %4 to i64
-  %20 = sext i32 %5 to i64
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %21 = sext i32 %4 to i64
+  %22 = sext i32 %5 to i64
   %wide.trip.count.i = zext nneg i32 %3 to i64
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 %20
-  br label %21
+  %invariant.gep.i = getelementptr i8, ptr %1, i64 %22
+  br label %23
 
-21:                                               ; preds = %33, %.lr.ph.i
-  %22 = phi i32 [ 0, %.lr.ph.i ], [ %34, %33 ]
-  %23 = phi i32 [ 0, %.lr.ph.i ], [ %35, %33 ]
-  %24 = phi i32 [ 0, %.lr.ph.i ], [ %36, %33 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
-  %25 = mul nsw i64 %indvars.iv.i, %19
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %25
-  %26 = load i8, ptr %gep.i, align 1, !tbaa !3
-  switch i8 %26, label %33 [
-    i8 45, label %27
-    i8 48, label %29
-    i8 49, label %31
+23:                                               ; preds = %35, %.lr.ph.i
+  %24 = phi i32 [ 0, %.lr.ph.i ], [ %36, %35 ]
+  %25 = phi i32 [ 0, %.lr.ph.i ], [ %37, %35 ]
+  %26 = phi i32 [ 0, %.lr.ph.i ], [ %38, %35 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
+  %27 = mul nsw i64 %indvars.iv.i, %21
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %27
+  %28 = load i8, ptr %gep.i, align 1, !tbaa !3
+  switch i8 %28, label %35 [
+    i8 45, label %29
+    i8 48, label %31
+    i8 49, label %33
   ]
 
-27:                                               ; preds = %21
-  %28 = add nsw i32 %22, 1
-  br label %33
+29:                                               ; preds = %23
+  %30 = add nsw i32 %24, 1
+  br label %35
 
-29:                                               ; preds = %21
-  %30 = add nsw i32 %23, 1
-  br label %33
+31:                                               ; preds = %23
+  %32 = add nsw i32 %25, 1
+  br label %35
 
-31:                                               ; preds = %21
-  %32 = add nsw i32 %24, 1
-  br label %33
+33:                                               ; preds = %23
+  %34 = add nsw i32 %26, 1
+  br label %35
 
-33:                                               ; preds = %31, %29, %27, %21
-  %34 = phi i32 [ %22, %31 ], [ %22, %29 ], [ %28, %27 ], [ %22, %21 ]
-  %35 = phi i32 [ %23, %31 ], [ %30, %29 ], [ %23, %27 ], [ %23, %21 ]
-  %36 = phi i32 [ %32, %31 ], [ %24, %29 ], [ %24, %27 ], [ %24, %21 ]
+35:                                               ; preds = %33, %31, %29, %23
+  %36 = phi i32 [ %24, %33 ], [ %24, %31 ], [ %30, %29 ], [ %24, %23 ]
+  %37 = phi i32 [ %25, %33 ], [ %32, %31 ], [ %25, %29 ], [ %25, %23 ]
+  %38 = phi i32 [ %34, %33 ], [ %26, %31 ], [ %26, %29 ], [ %26, %23 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Abc_ConvertSopToBdd2Count.exit.loopexit, label %21, !llvm.loop !8
+  br i1 %exitcond.not.i, label %Abc_ConvertSopToBdd2Count.exit.loopexit, label %23, !llvm.loop !8
 
-Abc_ConvertSopToBdd2Count.exit.loopexit:          ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %36, ptr %37, align 4
-  store i32 %35, ptr %38, align 4
-  store i32 %34, ptr %8, align 4
+Abc_ConvertSopToBdd2Count.exit.loopexit:          ; preds = %35
+  store i32 %38, ptr %19, align 4
+  store i32 %37, ptr %20, align 4
+  store i32 %36, ptr %8, align 4
   br label %Abc_ConvertSopToBdd2Count.exit
 
 Abc_ConvertSopToBdd2Count.exit:                   ; preds = %Abc_ConvertSopToBdd2Count.exit.loopexit, %17

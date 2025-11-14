@@ -3997,17 +3997,17 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc76, %_ZNK2cv1
   %58 = add nsw i32 %48, -1
   %59 = sitofp i32 %58 to double
   %60 = fdiv double 0x401921FB54442D18, %59
-  %61 = icmp sgt i32 %48, 0
-  br i1 %61, label %.lr.ph.preheader, label %._crit_edge
+  %61 = add nsw i32 %46, -1
+  %62 = sitofp i32 %61 to double
+  %63 = fdiv double 0x401921FB54442D18, %62
+  %64 = icmp sgt i32 %48, 0
+  br i1 %64, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
   %wide.trip.count = zext nneg i32 %48 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
-  %62 = add nsw i32 %46, -1
-  %63 = sitofp i32 %62 to double
-  %64 = fdiv double 0x401921FB54442D18, %63
   %65 = load i32, ptr %9, align 8, !tbaa !16
   %66 = and i32 %65, 7
   %67 = icmp eq i32 %66, 5
@@ -4023,7 +4023,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc76, %_ZNK2cv1
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %72 = load ptr, ptr %71, align 8, !tbaa !116
   %73 = load i64, ptr %72, align 8, !tbaa !37
-  br i1 %61, label %.lr.ph85.us.preheader, label %.lr.ph88.split
+  br i1 %64, label %.lr.ph85.us.preheader, label %.lr.ph88.split
 
 .lr.ph85.us.preheader:                            ; preds = %.lr.ph88
   %wide.trip.count108 = zext nneg i32 %46 to i64
@@ -4036,7 +4036,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc76, %_ZNK2cv1
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 %74
   %76 = trunc nuw nsw i64 %indvars.iv105 to i32
   %77 = uitofp nneg i32 %76 to double
-  %78 = fmul double %64, %77
+  %78 = fmul double %63, %77
   %79 = call double @cos(double noundef %78) #17, !tbaa !28
   %80 = fsub double 1.000000e+00, %79
   %81 = fmul double %80, 5.000000e-01
@@ -4067,7 +4067,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc76, %_ZNK2cv1
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %90 = load ptr, ptr %89, align 8, !tbaa !116
   %91 = load i64, ptr %90, align 8, !tbaa !37
-  br i1 %61, label %.lr.ph91.us.preheader, label %.lr.ph94.split
+  br i1 %64, label %.lr.ph91.us.preheader, label %.lr.ph94.split
 
 .lr.ph91.us.preheader:                            ; preds = %.lr.ph94
   %wide.trip.count119 = zext nneg i32 %46 to i64
@@ -4080,7 +4080,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc76, %_ZNK2cv1
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 %92
   %94 = trunc nuw nsw i64 %indvars.iv116 to i32
   %95 = uitofp nneg i32 %94 to double
-  %96 = fmul double %64, %95
+  %96 = fmul double %63, %95
   %97 = call double @cos(double noundef %96) #17, !tbaa !28
   %98 = fsub double 1.000000e+00, %97
   %99 = fmul double %98, 5.000000e-01
@@ -4135,7 +4135,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc76, %_ZNK2cv1
 .lr.ph94.split:                                   ; preds = %.lr.ph94, %.lr.ph94.split
   %.06093 = phi i32 [ %122, %.lr.ph94.split ], [ 0, %.lr.ph94 ]
   %119 = uitofp nneg i32 %.06093 to double
-  %120 = fmul double %64, %119
+  %120 = fmul double %63, %119
   %121 = call double @cos(double noundef %120) #17, !tbaa !28
   %122 = add nuw nsw i32 %.06093, 1
   %exitcond110.not = icmp eq i32 %122, %46
@@ -4144,7 +4144,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc76, %_ZNK2cv1
 .lr.ph88.split:                                   ; preds = %.lr.ph88, %.lr.ph88.split
   %.05787 = phi i32 [ %126, %.lr.ph88.split ], [ 0, %.lr.ph88 ]
   %123 = uitofp nneg i32 %.05787 to double
-  %124 = fmul double %64, %123
+  %124 = fmul double %63, %123
   %125 = call double @cos(double noundef %124) #17, !tbaa !28
   %126 = add nuw nsw i32 %.05787, 1
   %exitcond99.not = icmp eq i32 %126, %46

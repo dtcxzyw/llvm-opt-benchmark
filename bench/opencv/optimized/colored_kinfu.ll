@@ -240,25 +240,25 @@ define void @_ZN2cv13colored_kinfu6Params13defaultParamsEv(ptr dead_on_unwind no
   %3 = alloca %"class.cv::Vec.1", align 4
   %4 = alloca %"class.cv::Affine3", align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, i8 0, i64 12, i1 false), !tbaa !9
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 132
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %6, i8 0, i64 64, i1 false), !tbaa !3, !alias.scope !11
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %7, align 8
-  br label %8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %6, i8 0, i64 12, i1 false), !tbaa !9
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 132
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %7, i8 0, i64 64, i1 false), !tbaa !3, !alias.scope !11
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 0, ptr %8, align 8
+  br label %9
 
-8:                                                ; preds = %8, %1
-  %indvars.iv.i.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i.i, %8 ]
+9:                                                ; preds = %9, %1
+  %indvars.iv.i.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i.i, %9 ]
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv.i.i.i, 20
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i.i
-  store float 1.000000e+00, ptr %9, align 4, !tbaa !3, !alias.scope !11
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i.i.i
+  store float 1.000000e+00, ptr %10, align 4, !tbaa !3, !alias.scope !11
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit, label %8, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i, label %_ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit, label %9, !llvm.loop !14
 
-_ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %8
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 20
+_ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 208
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %11, i8 0, i64 12, i1 false), !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 232
@@ -266,7 +266,7 @@ _ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %8
   store i64 2061584302720, ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %13, align 8, !tbaa !16
-  store float 5.250000e+02, ptr %10, align 4
+  store float 5.250000e+02, ptr %5, align 4
   %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store float 0.000000e+00, ptr %.sroa.436.0..sroa_idx, align 8
   %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -342,7 +342,7 @@ _ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %8
   br i1 %exitcond.not.i, label %_ZN2cv3VecIiLi3EE3allEi.exit, label %27, !llvm.loop !47
 
 _ZN2cv3VecIiLi3EE3allEi.exit:                     ; preds = %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 124
   store float 0x3F78000000000000, ptr %29, align 4, !tbaa !48
@@ -360,7 +360,7 @@ _ZN2cv3VecIiLi3EE3allEi.exit:                     ; preds = %27
   br i1 %exitcond.not.i.i, label %_ZN2cv3VecIfLi3EE3allEf.exit, label %30, !llvm.loop !14
 
 _ZN2cv3VecIfLi3EE3allEf.exit:                     ; preds = %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..sroa_idx.i, i64 12, i1 false)
@@ -399,7 +399,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; 
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %39, ptr noundef nonnull readonly align 8 dereferenceable(260) %2, i64 112, i1 false), !noalias !61
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %40, ptr noundef nonnull readonly align 8 dereferenceable(12) %5, i64 12, i1 false), !tbaa !9, !noalias !61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %40, ptr noundef nonnull readonly align 8 dereferenceable(12) %6, i64 12, i1 false), !tbaa !9, !noalias !61
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %41, ptr noundef nonnull readonly align 4 dereferenceable(84) %29, i64 84, i1 false), !noalias !61
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 224

@@ -3168,6 +3168,10 @@ for.body.preheader:                               ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %textifiedCallees_, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %conv = trunc i64 %sub.ptr.sub.i to i32
   tail call void @_ZN6hermes18appendSignedLEB128ERSt6vectorIhSaIhEEl(ptr noundef nonnull align 8 dereferenceable(24) %textifiedCallees_, i64 noundef %textifiedCallees.coerce1) #16
   %add.ptr.i.idx = shl nsw i64 %textifiedCallees.coerce1, 4
   %add.ptr.i = getelementptr inbounds i8, ptr %textifiedCallees.coerce0, i64 %add.ptr.i.idx
@@ -3183,17 +3187,10 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call void @_ZN6hermes3hbc18DebugInfoGenerator12appendStringERSt6vectorIhSaIhEENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(24) %textifiedCallees_, ptr %agg.tmp.sroa.0.0.copyload)
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.011, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %return.loopexit, label %for.body
+  br i1 %cmp.not, label %return, label %for.body
 
-return.loopexit:                                  ; preds = %for.body
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %conv = trunc i64 %sub.ptr.sub.i to i32
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %conv, %return.loopexit ]
+return:                                           ; preds = %for.body, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %conv, %for.body ]
   ret i32 %retval.0
 }
 
@@ -3233,6 +3230,7 @@ cond.end:                                         ; preds = %if.end, %cond.false
   %conv20.in = phi i64 [ %sub.ptr.sub.i16, %cond.false ], [ %sub.ptr.sub.i, %if.end ]
   %scopeDescData_18 = phi ptr [ %scopeDescData_12, %cond.false ], [ %scopeDescData_, %if.end ]
   %cond = phi i64 [ %5, %cond.false ], [ 4294967295, %if.end ]
+  %conv20 = trunc i64 %conv20.in to i32
   tail call void @_ZN6hermes18appendSignedLEB128ERSt6vectorIhSaIhEEl(ptr noundef nonnull align 8 dereferenceable(24) %scopeDescData_18, i64 noundef %cond) #16
   %6 = and i16 %flags.coerce, 1
   %7 = lshr i16 %flags.coerce, 7
@@ -3244,7 +3242,7 @@ cond.end:                                         ; preds = %if.end, %cond.false
   %add.ptr.i.idx = shl nsw i64 %names.coerce1, 3
   %add.ptr.i = getelementptr inbounds i8, ptr %names.coerce0, i64 %add.ptr.i.idx
   %cmp.not23 = icmp eq i64 %names.coerce1, 0
-  br i1 %cmp.not23, label %return.loopexit, label %for.body
+  br i1 %cmp.not23, label %return, label %for.body
 
 for.body:                                         ; preds = %cond.end, %for.body
   %__begin1.024 = phi ptr [ %incdec.ptr, %for.body ], [ %names.coerce0, %cond.end ]
@@ -3252,14 +3250,10 @@ for.body:                                         ; preds = %cond.end, %for.body
   tail call void @_ZN6hermes3hbc18DebugInfoGenerator12appendStringERSt6vectorIhSaIhEENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(24) %scopeDescData_18, ptr %name.sroa.0.0.copyload)
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.024, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %return.loopexit, label %for.body
+  br i1 %cmp.not, label %return, label %for.body
 
-return.loopexit:                                  ; preds = %for.body, %cond.end
-  %conv20 = trunc i64 %conv20.in to i32
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %land.lhs.true
-  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ %conv20, %return.loopexit ]
+return:                                           ; preds = %for.body, %cond.end, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ %conv20, %cond.end ], [ %conv20, %for.body ]
   ret i32 %retval.0
 }
 

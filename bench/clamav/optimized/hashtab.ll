@@ -392,34 +392,34 @@ hash.exit.us:                                     ; preds = %14, %36
 .lr.ph.i.preheader:                               ; preds = %14, %88
   %.054 = phi ptr [ %.256, %88 ], [ null, %14 ]
   %.052 = phi i64 [ %.2, %88 ], [ 1, %14 ]
+  %37 = load i64, ptr %15, align 8, !tbaa !10
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.010.i = phi i64 [ %52, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.089.i = phi i32 [ %51, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %.010.i
-  %38 = load i8, ptr %37, align 1, !tbaa !19
-  %39 = zext i8 %38 to i32
-  %40 = add i32 %.089.i, %39
-  %41 = xor i32 %40, -1
-  %42 = shl i32 %40, 15
-  %43 = add i32 %42, %41
-  %44 = lshr i32 %43, 12
-  %45 = xor i32 %44, %43
-  %46 = mul i32 %45, 5
-  %47 = lshr i32 %46, 4
-  %48 = xor i32 %47, %46
-  %49 = mul i32 %48, 2057
-  %50 = lshr i32 %49, 16
-  %51 = xor i32 %50, %49
-  %52 = add nuw i64 %.010.i, 1
-  %exitcond.not.i = icmp eq i64 %52, %2
+  %.010.i = phi i64 [ %53, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.089.i = phi i32 [ %52, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 %.010.i
+  %39 = load i8, ptr %38, align 1, !tbaa !19
+  %40 = zext i8 %39 to i32
+  %41 = add i32 %.089.i, %40
+  %42 = xor i32 %41, -1
+  %43 = shl i32 %41, 15
+  %44 = add i32 %43, %42
+  %45 = lshr i32 %44, 12
+  %46 = xor i32 %45, %44
+  %47 = mul i32 %46, 5
+  %48 = lshr i32 %47, 4
+  %49 = xor i32 %48, %47
+  %50 = mul i32 %49, 2057
+  %51 = lshr i32 %50, 16
+  %52 = xor i32 %51, %50
+  %53 = add nuw i64 %.010.i, 1
+  %exitcond.not.i = icmp eq i64 %53, %2
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %53 = load i64, ptr %15, align 8, !tbaa !10
-  %54 = zext i32 %51 to i64
-  %55 = add i64 %53, 4294967295
+  %54 = zext i32 %52 to i64
+  %55 = add i64 %37, 4294967295
   %56 = and i64 %55, %54
   %57 = load ptr, ptr %0, align 8, !tbaa !3
   %58 = getelementptr inbounds nuw %struct.cli_element, ptr %57, i64 %56
@@ -490,7 +490,7 @@ hash.exit.us:                                     ; preds = %14, %36
 82:                                               ; preds = %78, %74
   %83 = add i64 %.153, 1
   %84 = add i64 %.050, %.153
-  %85 = urem i64 %84, %53
+  %85 = urem i64 %84, %37
   %86 = getelementptr inbounds nuw %struct.cli_element, ptr %57, i64 %85
   br label %87
 
@@ -499,11 +499,11 @@ hash.exit.us:                                     ; preds = %14, %36
   %.256 = phi ptr [ %.057, %73 ], [ %.155, %82 ]
   %.2 = phi i64 [ %.153, %73 ], [ %83, %82 ]
   %.151 = phi i64 [ %.050, %73 ], [ %85, %82 ]
-  %.not68 = icmp ugt i64 %.2, %53
+  %.not68 = icmp ugt i64 %.2, %37
   br i1 %.not68, label %88, label %59
 
 88:                                               ; preds = %87
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %0, i64 noundef %53) #19
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %0, i64 noundef %37) #19
   tail call fastcc void @cli_hashtab_grow(ptr noundef %0)
   br label %.lr.ph.i.preheader
 
@@ -1630,6 +1630,8 @@ cli_hashset_init_pool.exit.i:                     ; preds = %46, %31
   %.sroa.0.0.i = phi ptr [ %30, %31 ], [ %45, %46 ]
   %.sroa.14.0.i = trunc i64 %.sroa.14.0.in.i to i32
   %.sroa.16.0.i = add i32 %.sroa.14.0.i, -1
+  %.sroa.23.0.in.i = udiv i64 %.sroa.23.0.in.in.i, 100
+  %.sroa.23.0.i = trunc i64 %.sroa.23.0.in.i to i32
   %52 = load i32, ptr %10, align 8, !tbaa !37
   %.not55.i = icmp eq i32 %52, 0
   br i1 %.not55.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1744,8 +1746,6 @@ cli_hashset_addkey_internal.exit.i:               ; preds = %104, %cli_hashset_s
 ._crit_edge.i:                                    ; preds = %cli_hashset_addkey_internal.exit.i, %cli_hashset_init_pool.exit.i
   %.sroa.19.1.lcssa.i = phi i32 [ 0, %cli_hashset_init_pool.exit.i ], [ %.sroa.19.2.i, %cli_hashset_addkey_internal.exit.i ]
   %.lcssa51.i = phi i32 [ 0, %cli_hashset_init_pool.exit.i ], [ %110, %cli_hashset_addkey_internal.exit.i ]
-  %.sroa.23.0.in.i = udiv i64 %.sroa.23.0.in.in.i, 100
-  %.sroa.23.0.i = trunc i64 %.sroa.23.0.in.i to i32
   %114 = load i32, ptr %3, align 8, !tbaa !39
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21, i32 noundef %114, i32 noundef %.lcssa51.i) #19
   %115 = load ptr, ptr %12, align 8, !tbaa !41

@@ -978,37 +978,38 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6engine8executor44_$LT$impl$u20$was
 .noexc42:                                         ; preds = %.noexc41
   %200 = extractvalue { ptr, ptr } %199, 0
   %201 = extractvalue { ptr, ptr } %199, 1
+  %202 = add i64 %153, %.sroa.5.sroa.4.0.copyload.i
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !71
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !45
   store ptr %200, ptr %26, align 8, !noalias !45
-  %202 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %201, ptr %202, align 8, !noalias !45
-  %203 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %3, i64 %4
+  %203 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store ptr %201, ptr %203, align 8, !noalias !45
+  %204 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %3, i64 %4
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !45
   store ptr %3, ptr %25, align 8, !noalias !45
-  %204 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %203, ptr %204, align 8, !noalias !45
+  %205 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store ptr %204, ptr %205, align 8, !noalias !45
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !45
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !106
   invoke void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0919c2689aba44a6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 dereferenceable(16) %25)
           to label %.noexc43 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc43:                                         ; preds = %.noexc42
-  %205 = load i8, ptr %13, align 8, !range !110, !noalias !106, !noundef !3
-  %.not.i8599.i = icmp eq i8 %205, 7
+  %206 = load i8, ptr %13, align 8, !range !110, !noalias !106, !noundef !3
+  %.not.i8599.i = icmp eq i8 %206, 7
   br i1 %.not.i8599.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc43, %.noexc46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !106
-  %206 = invoke { i64, i64 } @"_ZN5wasmi5value106_$LT$impl$u20$core..convert..From$LT$wasmi..value..Val$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h12d4afd44d02a1f0E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
+  %207 = invoke { i64, i64 } @"_ZN5wasmi5value106_$LT$impl$u20$core..convert..From$LT$wasmi..value..Val$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h12d4afd44d02a1f0E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %.noexc44 unwind label %.loopexit.split-lp.loopexit
 
 .noexc44:                                         ; preds = %.lr.ph.i
-  %207 = extractvalue { i64, i64 } %206, 0
-  %208 = extractvalue { i64, i64 } %206, 1
+  %208 = extractvalue { i64, i64 } %207, 0
+  %209 = extractvalue { i64, i64 } %207, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !106
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !45
-  invoke void @_ZN5wasmi6engine8executor5stack6values11FrameParams9init_next17h66d3576668d4c0acE(ptr noalias noundef nonnull align 8 dereferenceable(16) %26, i64 noundef %207, i64 noundef %208)
+  invoke void @_ZN5wasmi6engine8executor5stack6values11FrameParams9init_next17h66d3576668d4c0acE(ptr noalias noundef nonnull align 8 dereferenceable(16) %26, i64 noundef %208, i64 noundef %209)
           to label %.noexc45 unwind label %.loopexit.split-lp.loopexit
 
 .noexc45:                                         ; preds = %.noexc44
@@ -1018,23 +1019,22 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6engine8executor44_$LT$impl$u20$was
           to label %.noexc46 unwind label %.loopexit.split-lp.loopexit
 
 .noexc46:                                         ; preds = %.noexc45
-  %209 = load i8, ptr %13, align 8, !range !110, !noalias !106, !noundef !3
-  %.not.i85.i = icmp eq i8 %209, 7
+  %210 = load i8, ptr %13, align 8, !range !110, !noalias !106, !noundef !3
+  %.not.i85.i = icmp eq i8 %210, 7
   br i1 %.not.i85.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.noexc46
   %.pre102.i = load ptr, ptr %26, align 8, !noalias !45
-  %.pre103.i = load ptr, ptr %202, align 8, !noalias !45
+  %.pre103.i = load ptr, ptr %203, align 8, !noalias !45
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.noexc43
-  %210 = phi ptr [ %.pre103.i, %._crit_edge.loopexit.i ], [ %201, %.noexc43 ]
-  %211 = phi ptr [ %.pre102.i, %._crit_edge.loopexit.i ], [ %200, %.noexc43 ]
-  %212 = add i64 %153, %.sroa.5.sroa.4.0.copyload.i
+  %211 = phi ptr [ %.pre103.i, %._crit_edge.loopexit.i ], [ %201, %.noexc43 ]
+  %212 = phi ptr [ %.pre102.i, %._crit_edge.loopexit.i ], [ %200, %.noexc43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !106
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !45
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !45
-  invoke void @_ZN5wasmi6engine8executor5stack6values11FrameParams11init_zeroes17h567995fd68679c02E(ptr noundef %211, ptr noundef %210)
+  invoke void @_ZN5wasmi6engine8executor5stack6values11FrameParams11init_zeroes17h567995fd68679c02E(ptr noundef %212, ptr noundef %211)
           to label %.noexc47 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc47:                                         ; preds = %._crit_edge.i
@@ -1047,7 +1047,7 @@ define hidden noundef align 8 ptr @"_ZN5wasmi6engine8executor44_$LT$impl$u20$was
           to label %.noexc49 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc49:                                         ; preds = %.noexc48
-  invoke void @_ZN5wasmi6engine8executor5stack5calls9CallFrame3new17he2f927a57f23772cE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %24, ptr noundef nonnull %152, i64 noundef %212, i64 noundef %153, i16 noundef %214)
+  invoke void @_ZN5wasmi6engine8executor5stack5calls9CallFrame3new17he2f927a57f23772cE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %24, ptr noundef nonnull %152, i64 noundef %202, i64 noundef %153, i16 noundef %214)
           to label %.noexc50 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc50:                                         ; preds = %.noexc49

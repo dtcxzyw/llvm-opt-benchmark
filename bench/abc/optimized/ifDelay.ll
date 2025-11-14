@@ -2252,69 +2252,69 @@ define i32 @If_CutLutBalanceEval(ptr noundef readonly captures(none) %0, ptr nou
   %.val.i = load ptr, ptr %36, align 8, !tbaa !72
   %37 = sext i32 %35 to i64
   %38 = getelementptr inbounds i8, ptr %.val.i, i64 %37
-  %39 = getelementptr i8, ptr %0, i64 40
-  %.val = load ptr, ptr %39, align 8, !tbaa !3
-  %40 = getelementptr i8, ptr %.val, i64 8
-  %.val.val = load ptr, ptr %40, align 8, !tbaa !24
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !38
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 200
+  %42 = load ptr, ptr %41, align 8, !tbaa !74
+  %43 = load i8, ptr %42, align 1, !tbaa !49
+  %44 = sext i8 %43 to i32
+  %45 = add nsw i32 %44, -48
+  %46 = getelementptr i8, ptr %0, i64 40
+  %.val = load ptr, ptr %46, align 8, !tbaa !3
+  %47 = getelementptr i8, ptr %.val, i64 8
+  %.val.val = load ptr, ptr %47, align 8, !tbaa !24
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %wide.trip.count = zext nneg i32 %33 to i64
-  br label %42
+  br label %49
 
-42:                                               ; preds = %.lr.ph, %66
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %.075 = phi i32 [ 0, %.lr.ph ], [ %.1, %66 ]
-  %.04974 = phi i32 [ 0, %.lr.ph ], [ %.150, %66 ]
-  %.05173 = phi i32 [ -1, %.lr.ph ], [ %.152, %66 ]
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 %indvars.iv
-  %44 = load i8, ptr %43, align 1, !tbaa !49
-  %45 = ashr i8 %44, 1
-  %46 = sext i8 %45 to i64
-  %47 = getelementptr inbounds i32, ptr %41, i64 %46
-  %48 = load i32, ptr %47, align 4, !tbaa !26
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %.val.val, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !27
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 92
-  %53 = load float, ptr %52, align 4, !tbaa !28
-  %54 = fptosi float %53 to i32
-  %55 = icmp slt i32 %.05173, %54
-  br i1 %55, label %56, label %59
+49:                                               ; preds = %.lr.ph, %73
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
+  %.075 = phi i32 [ 0, %.lr.ph ], [ %.1, %73 ]
+  %.04974 = phi i32 [ 0, %.lr.ph ], [ %.150, %73 ]
+  %.05173 = phi i32 [ -1, %.lr.ph ], [ %.152, %73 ]
+  %50 = getelementptr inbounds nuw i8, ptr %38, i64 %indvars.iv
+  %51 = load i8, ptr %50, align 1, !tbaa !49
+  %52 = ashr i8 %51, 1
+  %53 = sext i8 %52 to i64
+  %54 = getelementptr inbounds i32, ptr %48, i64 %53
+  %55 = load i32, ptr %54, align 4, !tbaa !26
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds ptr, ptr %.val.val, i64 %56
+  %58 = load ptr, ptr %57, align 8, !tbaa !27
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 92
+  %60 = load float, ptr %59, align 4, !tbaa !28
+  %61 = fptosi float %60 to i32
+  %62 = icmp slt i32 %.05173, %61
+  br i1 %62, label %63, label %66
 
-56:                                               ; preds = %42
+63:                                               ; preds = %49
   %indvars.iv.tr86 = trunc i64 %indvars.iv to i32
-  %57 = shl i32 %indvars.iv.tr86, 1
-  %58 = shl nuw i32 1, %57
-  br label %66
+  %64 = shl i32 %indvars.iv.tr86, 1
+  %65 = shl nuw i32 1, %64
+  br label %73
 
-59:                                               ; preds = %42
-  %60 = icmp eq i32 %.05173, %54
-  br i1 %60, label %61, label %66
+66:                                               ; preds = %49
+  %67 = icmp eq i32 %.05173, %61
+  br i1 %67, label %68, label %73
 
-61:                                               ; preds = %59
-  %62 = add nsw i32 %.04974, 1
+68:                                               ; preds = %66
+  %69 = add nsw i32 %.04974, 1
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %63 = shl i32 %indvars.iv.tr, 1
-  %64 = shl nuw i32 1, %63
-  %65 = or i32 %.075, %64
-  br label %66
+  %70 = shl i32 %indvars.iv.tr, 1
+  %71 = shl nuw i32 1, %70
+  %72 = or i32 %.075, %71
+  br label %73
 
-66:                                               ; preds = %56, %61, %59
-  %.152 = phi i32 [ %54, %56 ], [ %.05173, %61 ], [ %.05173, %59 ]
-  %.150 = phi i32 [ 1, %56 ], [ %62, %61 ], [ %.04974, %59 ]
-  %.1 = phi i32 [ %58, %56 ], [ %65, %61 ], [ %.075, %59 ]
+73:                                               ; preds = %63, %68, %66
+  %.152 = phi i32 [ %61, %63 ], [ %.05173, %68 ], [ %.05173, %66 ]
+  %.150 = phi i32 [ 1, %63 ], [ %69, %68 ], [ %.04974, %66 ]
+  %.1 = phi i32 [ %65, %63 ], [ %72, %68 ], [ %.075, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !78
 
-._crit_edge:                                      ; preds = %66
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !38
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 200
-  %70 = load ptr, ptr %69, align 8, !tbaa !74
-  %71 = load i8, ptr %70, align 1, !tbaa !49
-  %72 = sext i8 %71 to i32
-  %73 = add nsw i32 %72, -48
-  %.not60 = icmp sgt i32 %33, %73
+._crit_edge:                                      ; preds = %73
+  %.not60 = icmp sgt i32 %33, %45
   br i1 %.not60, label %76, label %74
 
 74:                                               ; preds = %._crit_edge
@@ -2325,7 +2325,7 @@ define i32 @If_CutLutBalanceEval(ptr noundef readonly captures(none) %0, ptr nou
   %77 = and i64 %9, -4096
   %78 = or disjoint i64 %77, 2
   store i64 %78, ptr %3, align 4
-  %79 = add nsw i32 %72, -49
+  %79 = add nsw i32 %44, -49
   %.not61 = icmp sgt i32 %.150, %79
   br i1 %.not61, label %96, label %80
 
@@ -2342,7 +2342,7 @@ define i32 @If_CutLutBalanceEval(ptr noundef readonly captures(none) %0, ptr nou
   %89 = load i32, ptr %88, align 4, !tbaa !26
   %90 = and i32 %.val65, 1
   %91 = xor i32 %89, %90
-  %92 = tail call i32 @If_DsdManCheckXY(ptr noundef %82, i32 noundef %91, i32 noundef %73, i32 noundef 1, i32 noundef %.1, i32 noundef 0, i32 noundef 0) #14
+  %92 = tail call i32 @If_DsdManCheckXY(ptr noundef %82, i32 noundef %91, i32 noundef %45, i32 noundef 1, i32 noundef %.1, i32 noundef 0, i32 noundef 0) #14
   store i32 %92, ptr %10, align 4, !tbaa !75
   %93 = icmp sgt i32 %92, 0
   br i1 %93, label %94, label %._crit_edge80
@@ -2375,7 +2375,7 @@ define i32 @If_CutLutBalanceEval(ptr noundef readonly captures(none) %0, ptr nou
   %107 = load i32, ptr %106, align 4, !tbaa !26
   %108 = and i32 %.val69, 1
   %109 = xor i32 %107, %108
-  %110 = tail call i32 @If_DsdManCheckXY(ptr noundef %98, i32 noundef %109, i32 noundef %73, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %110 = tail call i32 @If_DsdManCheckXY(ptr noundef %98, i32 noundef %109, i32 noundef %45, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   store i32 %110, ptr %10, align 4, !tbaa !75
   %111 = icmp eq i32 %110, 0
   %112 = add nsw i32 %.152, 2

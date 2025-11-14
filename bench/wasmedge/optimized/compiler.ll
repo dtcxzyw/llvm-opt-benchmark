@@ -18788,8 +18788,8 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; 
   %80 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %79) #20
   %81 = add i64 %61, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %80, i8 0, i64 %81, i1 false)
-  %scevgep = getelementptr i8, ptr %80, i64 %81
   %82 = getelementptr inbounds nuw %"class.WasmEdge::LLVM::Value", ptr %80, i64 %76
+  %scevgep = getelementptr i8, ptr %80, i64 %81
   %83 = ptrtoint ptr %scevgep to i64
   %84 = ptrtoint ptr %82 to i64
   br label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit
@@ -19689,8 +19689,8 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; 
   %70 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %69) #20
   %71 = add i64 %51, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %70, i8 0, i64 %71, i1 false)
-  %scevgep = getelementptr i8, ptr %70, i64 %71
   %72 = getelementptr inbounds nuw %"class.WasmEdge::LLVM::Value", ptr %70, i64 %66
+  %scevgep = getelementptr i8, ptr %70, i64 %71
   %73 = ptrtoint ptr %scevgep to i64
   %74 = ptrtoint ptr %72 to i64
   br label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit
@@ -20324,8 +20324,8 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; 
   %164 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %163) #20
   %165 = add i64 %145, 8
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %164, i8 0, i64 %165, i1 false)
-  %scevgep = getelementptr i8, ptr %164, i64 %165
   %166 = getelementptr inbounds nuw %"class.WasmEdge::LLVM::Value", ptr %164, i64 %160
+  %scevgep = getelementptr i8, ptr %164, i64 %165
   %167 = ptrtoint ptr %scevgep to i64
   %168 = ptrtoint ptr %166 to i64
   br label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit
@@ -21176,8 +21176,8 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; 
   %154 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %153) #20
   %155 = add i64 %135, 8
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %154, i8 0, i64 %155, i1 false)
-  %scevgep = getelementptr i8, ptr %154, i64 %155
   %156 = getelementptr inbounds nuw %"class.WasmEdge::LLVM::Value", ptr %154, i64 %150
+  %scevgep = getelementptr i8, ptr %154, i64 %155
   %157 = ptrtoint ptr %scevgep to i64
   %158 = ptrtoint ptr %156 to i64
   br label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit
@@ -21586,8 +21586,8 @@ _ZNSt6vectorIP15LLVMOpaqueValueSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; pred
 
 _ZSt6fill_nIPP15LLVMOpaqueValuemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %7
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %12, 3
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %7, %_ZSt6fill_nIPP15LLVMOpaqueValuemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -24291,8 +24291,8 @@ _ZNSt6vectorIP15LLVMOpaqueValueSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; pred
 
 _ZSt6fill_nIPP15LLVMOpaqueValuemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %7
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %12, 3
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %7, %_ZSt6fill_nIPP15LLVMOpaqueValuemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -25430,8 +25430,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZZN12_GLOBAL__N_11
   store i32 0, ptr %102, align 4
   %103 = getelementptr i8, ptr %102, i64 4
   %.idx.i.i.i.i.i.i.i = add nsw i64 %101, -4
-  %104 = getelementptr i8, ptr %102, i64 %101
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %103, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %104 = getelementptr i8, ptr %102, i64 %101
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, %.lr.ph.i
@@ -27176,8 +27176,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorE
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %18
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %24, 2
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, %18
@@ -27410,8 +27410,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.thread:        ; preds = %4
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %25
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %32, 2
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %31, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %25, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
@@ -28148,8 +28148,8 @@ _ZNSt6vectorIP15LLVMOpaqueValueSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; pred
 
 _ZSt6fill_nIPP15LLVMOpaqueValuemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %7
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %12, 3
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %7, %_ZSt6fill_nIPP15LLVMOpaqueValuemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -29527,8 +29527,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i:           ; preds = %66
   store i32 0, ptr %70, align 4, !noalias !5925
   %71 = getelementptr i8, ptr %70, i64 4
   %.idx.i.i.i.i.i.i.i.i.i = add nsw i64 %69, -4
-  %72 = getelementptr i8, ptr %70, i64 %69
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %71, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !noalias !5925
+  %72 = getelementptr i8, ptr %70, i64 %69
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i
@@ -29680,8 +29680,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i:           ; preds = %59
   store i32 0, ptr %66, align 4, !noalias !5995
   %67 = getelementptr i8, ptr %66, i64 4
   %.idx.i.i.i.i.i.i.i.i.i = add nsw i64 %65, -4
-  %68 = getelementptr i8, ptr %66, i64 %65
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %67, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !noalias !5995
+  %68 = getelementptr i8, ptr %66, i64 %65
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i
@@ -29775,8 +29775,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileVectorC
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i:           ; preds = %15
   %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %22, 2
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !noalias !6059
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i, %15
@@ -29870,8 +29870,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileVectorC
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i:           ; preds = %15
   %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %22, 2
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !noalias !6077
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i, %15

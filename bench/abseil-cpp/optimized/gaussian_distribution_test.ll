@@ -4196,17 +4196,17 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %82
           to label %.noexc73.i unwind label %.loopexit16
 
 .noexc73.i:                                       ; preds = %89
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %90
-  %93 = and i64 %90, -4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %91, i8 0, i64 %93, i1 false), !tbaa !49
-  %94 = getelementptr inbounds nuw i32, ptr %91, i64 %86
-  %95 = ptrtoint ptr %94 to i64
+  %92 = and i64 %90, -4
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %91, i8 0, i64 %92, i1 false), !tbaa !49
+  %93 = getelementptr inbounds nuw i32, ptr %91, i64 %86
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 %90
+  %95 = ptrtoint ptr %93 to i64
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i:          ; preds = %.noexc73.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
   %.sroa.17.0.i = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %95, %.noexc73.i ]
   %.sroa.0114.0.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %91, %.noexc73.i ]
-  %.0.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %92, %.noexc73.i ]
+  %.0.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %94, %.noexc73.i ]
   br label %104
 
 96:                                               ; preds = %.loopexit.i

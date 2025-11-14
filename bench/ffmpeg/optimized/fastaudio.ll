@@ -394,14 +394,14 @@ bytestream2_get_le32.exit:                        ; preds = %45, %49
   br i1 %exitcond155.not, label %.preheader111, label %.preheader112, !llvm.loop !61
 
 .preheader:                                       ; preds = %113
-  %96 = sext i32 %spec.select to i64
-  %97 = getelementptr inbounds float, ptr %33, i64 %96
-  %98 = load float, ptr %97, align 4, !tbaa !28
-  store float %98, ptr %34, align 8, !tbaa !28
-  %99 = getelementptr inbounds nuw %struct.ChannelItems, ptr %44, i64 %indvars.iv169
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 28
-  %102 = getelementptr inbounds nuw i8, ptr %99, i64 32
+  %96 = getelementptr inbounds nuw %struct.ChannelItems, ptr %44, i64 %indvars.iv169
+  %97 = sext i32 %spec.select to i64
+  %98 = getelementptr inbounds float, ptr %33, i64 %97
+  %99 = load float, ptr %98, align 4, !tbaa !28
+  store float %99, ptr %34, align 8, !tbaa !28
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 28
+  %102 = getelementptr inbounds nuw i8, ptr %96, i64 32
   br label %171
 
 .preheader111:                                    ; preds = %.preheader112, %113
@@ -516,7 +516,7 @@ bytestream2_get_le32.exit:                        ; preds = %45, %49
   br label %178
 
 174:                                              ; preds = %178
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %99, ptr noundef nonnull align 4 dereferenceable(28) %100, i64 28, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %96, ptr noundef nonnull align 4 dereferenceable(28) %100, i64 28, i1 false)
   store float %184, ptr %101, align 4, !tbaa !28
   %175 = load float, ptr %102, align 4, !tbaa !66
   %176 = tail call nsz float @llvm.fmuladd.f32(float %175, float 0x3FEB851EC0000000, float %184)
@@ -532,7 +532,7 @@ bytestream2_get_le32.exit:                        ; preds = %45, %49
   %.079131 = phi float [ %173, %171 ], [ %184, %178 ]
   %179 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv161
   %180 = load float, ptr %179, align 4, !tbaa !28
-  %181 = getelementptr inbounds nuw float, ptr %99, i64 %indvars.iv161
+  %181 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv161
   %182 = load float, ptr %181, align 4, !tbaa !28
   %183 = fneg nsz float %180
   %184 = tail call nsz float @llvm.fmuladd.f32(float %183, float %182, float %.079131)

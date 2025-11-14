@@ -341,9 +341,9 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #2 {
   %138 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %139 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %140 = getelementptr i8, ptr %.val52, i64 4304
-  %141 = getelementptr inbounds nuw i8, ptr %.val52, i64 4200
-  %142 = getelementptr i8, ptr %.val52, i64 41296
-  %143 = getelementptr inbounds nuw i8, ptr %.val52, i64 41840
+  %141 = getelementptr i8, ptr %.val52, i64 41296
+  %142 = getelementptr inbounds nuw i8, ptr %.val52, i64 41840
+  %143 = getelementptr inbounds nuw i8, ptr %.val52, i64 4200
   br label %.preheader16.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
@@ -844,7 +844,7 @@ gauss_solve_triangular.exit.i:                    ; preds = %355
 
 385:                                              ; preds = %385, %.preheader6.i
   %indvars.iv68.i = phi i64 [ %indvars.iv66.i, %.preheader6.i ], [ %indvars.iv.next69.i, %385 ]
-  %386 = load ptr, ptr %141, align 8, !tbaa !50
+  %386 = load ptr, ptr %143, align 8, !tbaa !50
   %387 = getelementptr inbounds nuw [4 x float], ptr %92, i64 %indvars.iv68.i
   %388 = call nsz float %386(ptr noundef nonnull %387, ptr noundef nonnull %382) #12
   %389 = fpext nsz float %388 to double
@@ -964,7 +964,7 @@ gauss_solve_triangular.exit.i:                    ; preds = %355
   br i1 %435, label %.preheader.i, label %436, !llvm.loop !77
 
 436:                                              ; preds = %.preheader.i
-  %437 = call fastcc i32 @gauss_make_triangular(ptr noundef nonnull %140, ptr noundef nonnull %143, i32 noundef %378)
+  %437 = call fastcc i32 @gauss_make_triangular(ptr noundef nonnull %140, ptr noundef nonnull %142, i32 noundef %378)
   %.not286.i = icmp eq i32 %437, 0
   br i1 %.not286.i, label %.loopexit.i, label %.preheader9.i
 
@@ -979,16 +979,16 @@ gauss_solve_triangular.exit.i:                    ; preds = %355
 .preheader8.i:                                    ; preds = %.preheader9.i
   %438 = sext i32 %154 to i64
   %439 = shl nsw i64 %438, 3
-  %scevgep109.i = getelementptr i8, ptr %142, i64 %439
+  %scevgep109.i = getelementptr i8, ptr %141, i64 %439
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep109.i, i8 0, i64 %421, i1 false), !tbaa !64
   %440 = icmp sgt i32 %154, -3
   br i1 %440, label %.lr.ph53.preheader.i.i, label %gauss_solve_triangular.exit333.thread.i
 
 gauss_solve_triangular.exit333.thread.i:          ; preds = %.preheader8.i
   %441 = load double, ptr %140, align 8, !tbaa !64
-  %442 = load double, ptr %142, align 8, !tbaa !64
+  %442 = load double, ptr %141, align 8, !tbaa !64
   %443 = fdiv nsz double %442, %441
-  store double %443, ptr %142, align 8, !tbaa !64
+  store double %443, ptr %141, align 8, !tbaa !64
   br label %.preheader7.i
 
 444:                                              ; preds = %444, %.lr.ph38.i
@@ -996,7 +996,7 @@ gauss_solve_triangular.exit333.thread.i:          ; preds = %.preheader8.i
   %gep40.i = getelementptr inbounds nuw [4 x float], ptr %invariant.gep39.i, i64 %indvars.iv103.i
   %445 = load float, ptr %gep40.i, align 4, !tbaa !58
   %446 = fpext nsz float %445 to double
-  %447 = getelementptr inbounds nuw double, ptr %142, i64 %indvars.iv103.i
+  %447 = getelementptr inbounds nuw double, ptr %141, i64 %indvars.iv103.i
   store double %446, ptr %447, align 8, !tbaa !64
   %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 1
   %exitcond107.not.i = icmp eq i64 %indvars.iv.next104.i, %wide.trip.count106.i
@@ -1004,7 +1004,7 @@ gauss_solve_triangular.exit333.thread.i:          ; preds = %.preheader8.i
 
 .preheader8.thread.i:                             ; preds = %444
   %448 = shl nuw nsw i64 %wide.trip.count106.i, 3
-  %scevgep109130.i = getelementptr i8, ptr %142, i64 %448
+  %scevgep109130.i = getelementptr i8, ptr %141, i64 %448
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep109130.i, i8 0, i64 %421, i1 false), !tbaa !64
   br label %.lr.ph53.preheader.i.i
 
@@ -1015,49 +1015,49 @@ gauss_solve_triangular.exit333.thread.i:          ; preds = %.preheader8.i
   %wide.trip.count63.i.i = zext nneg i32 %450 to i64
   br label %.lr.ph.preheader.i312.i
 
-.loopexit.i321.i:                                 ; preds = %.lr.ph.i316.i
-  %indvars.iv.next61.i322.i = add nuw nsw i64 %indvars.iv60.i313.i, 1
+.loopexit.i322.i:                                 ; preds = %.lr.ph.i317.i
+  %indvars.iv.next61.i315.i = add nuw nsw i64 %indvars.iv60.i313.i, 1
   %indvars.iv.next.i323.i = add nuw nsw i64 %indvars.iv.i314.i, 1
-  %exitcond64.not.i324.i = icmp eq i64 %indvars.iv.next61.i322.i, %wide.trip.count63.i.i
+  %exitcond64.not.i324.i = icmp eq i64 %indvars.iv.next61.i315.i, %wide.trip.count63.i.i
   br i1 %exitcond64.not.i324.i, label %.preheader.i325.i, label %.lr.ph.preheader.i312.i, !llvm.loop !67
 
-.lr.ph.preheader.i312.i:                          ; preds = %.loopexit.i321.i, %.lr.ph53.preheader.i.i
-  %indvars.iv60.i313.i = phi i64 [ 0, %.lr.ph53.preheader.i.i ], [ %indvars.iv.next61.i322.i, %.loopexit.i321.i ]
-  %indvars.iv.i314.i = phi i64 [ 1, %.lr.ph53.preheader.i.i ], [ %indvars.iv.next.i323.i, %.loopexit.i321.i ]
-  %452 = getelementptr inbounds nuw i32, ptr %143, i64 %indvars.iv60.i313.i
+.lr.ph.preheader.i312.i:                          ; preds = %.loopexit.i322.i, %.lr.ph53.preheader.i.i
+  %indvars.iv60.i313.i = phi i64 [ 0, %.lr.ph53.preheader.i.i ], [ %indvars.iv.next61.i315.i, %.loopexit.i322.i ]
+  %indvars.iv.i314.i = phi i64 [ 1, %.lr.ph53.preheader.i.i ], [ %indvars.iv.next.i323.i, %.loopexit.i322.i ]
+  %452 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv60.i313.i
   %453 = load i32, ptr %452, align 4, !tbaa !55
   %454 = sext i32 %453 to i64
-  %455 = getelementptr inbounds double, ptr %142, i64 %454
+  %455 = getelementptr inbounds double, ptr %141, i64 %454
   %456 = load double, ptr %455, align 8, !tbaa !64
-  %457 = getelementptr inbounds nuw double, ptr %142, i64 %indvars.iv60.i313.i
+  %457 = getelementptr inbounds nuw double, ptr %141, i64 %indvars.iv60.i313.i
   %458 = load double, ptr %457, align 8, !tbaa !64
   store double %458, ptr %455, align 8, !tbaa !64
   store double %456, ptr %457, align 8, !tbaa !64
-  %invariant.gep.i315.i = getelementptr inbounds nuw double, ptr %140, i64 %indvars.iv60.i313.i
-  br label %.lr.ph.i316.i
+  %invariant.gep.i316.i = getelementptr inbounds nuw double, ptr %140, i64 %indvars.iv60.i313.i
+  br label %.lr.ph.i317.i
 
-.lr.ph.i316.i:                                    ; preds = %.lr.ph.i316.i, %.lr.ph.preheader.i312.i
-  %indvars.iv57.i317.i = phi i64 [ %indvars.iv.i314.i, %.lr.ph.preheader.i312.i ], [ %indvars.iv.next58.i319.i, %.lr.ph.i316.i ]
-  %459 = mul nuw nsw i64 %indvars.iv57.i317.i, %451
-  %gep.i318.i = getelementptr inbounds nuw double, ptr %invariant.gep.i315.i, i64 %459
-  %460 = load double, ptr %gep.i318.i, align 8, !tbaa !64
-  %461 = getelementptr inbounds nuw double, ptr %142, i64 %indvars.iv57.i317.i
+.lr.ph.i317.i:                                    ; preds = %.lr.ph.i317.i, %.lr.ph.preheader.i312.i
+  %indvars.iv57.i318.i = phi i64 [ %indvars.iv.i314.i, %.lr.ph.preheader.i312.i ], [ %indvars.iv.next58.i320.i, %.lr.ph.i317.i ]
+  %459 = mul nuw nsw i64 %indvars.iv57.i318.i, %451
+  %gep.i319.i = getelementptr inbounds nuw double, ptr %invariant.gep.i316.i, i64 %459
+  %460 = load double, ptr %gep.i319.i, align 8, !tbaa !64
+  %461 = getelementptr inbounds nuw double, ptr %141, i64 %indvars.iv57.i318.i
   %462 = load double, ptr %461, align 8, !tbaa !64
   %463 = call nsz double @llvm.fmuladd.f64(double %460, double %456, double %462)
   store double %463, ptr %461, align 8, !tbaa !64
-  %indvars.iv.next58.i319.i = add nuw nsw i64 %indvars.iv57.i317.i, 1
-  %exitcond.not.i320.i = icmp eq i64 %indvars.iv.next58.i319.i, %451
-  br i1 %exitcond.not.i320.i, label %.loopexit.i321.i, label %.lr.ph.i316.i, !llvm.loop !68
+  %indvars.iv.next58.i320.i = add nuw nsw i64 %indvars.iv57.i318.i, 1
+  %exitcond.not.i321.i = icmp eq i64 %indvars.iv.next58.i320.i, %451
+  br i1 %exitcond.not.i321.i, label %.loopexit.i322.i, label %.lr.ph.i317.i, !llvm.loop !68
 
-.preheader.i325.i:                                ; preds = %.loopexit.i321.i, %472
-  %indvars.iv70.in.i326.i = phi i64 [ %indvars.iv70.i327.i, %472 ], [ %451, %.loopexit.i321.i ]
+.preheader.i325.i:                                ; preds = %.loopexit.i322.i, %472
+  %indvars.iv70.in.i326.i = phi i64 [ %indvars.iv70.i327.i, %472 ], [ %451, %.loopexit.i322.i ]
   %indvars.iv70.i327.i = add nsw i64 %indvars.iv70.in.i326.i, -1
   %464 = trunc nuw nsw i64 %indvars.iv70.i327.i to i32
   %465 = mul i32 %415, %464
   %466 = sext i32 %465 to i64
   %467 = getelementptr inbounds double, ptr %140, i64 %466
   %468 = load double, ptr %467, align 8, !tbaa !64
-  %469 = getelementptr inbounds nuw double, ptr %142, i64 %indvars.iv70.i327.i
+  %469 = getelementptr inbounds nuw double, ptr %141, i64 %indvars.iv70.i327.i
   %470 = load double, ptr %469, align 8, !tbaa !64
   %471 = fdiv nsz double %470, %468
   store double %471, ptr %469, align 8, !tbaa !64
@@ -1073,7 +1073,7 @@ gauss_solve_triangular.exit333.thread.i:          ; preds = %.preheader8.i
   %475 = mul nuw nsw i64 %indvars.iv65.i329.i, %451
   %gep74.i330.i = getelementptr double, ptr %invariant.gep73.i328.i, i64 %475
   %476 = load double, ptr %gep74.i330.i, align 8, !tbaa !64
-  %477 = getelementptr inbounds nuw double, ptr %142, i64 %indvars.iv65.i329.i
+  %477 = getelementptr inbounds nuw double, ptr %141, i64 %indvars.iv65.i329.i
   %478 = load double, ptr %477, align 8, !tbaa !64
   %479 = fneg nsz double %476
   %480 = call nsz double @llvm.fmuladd.f64(double %479, double %471, double %478)
@@ -1084,9 +1084,9 @@ gauss_solve_triangular.exit333.thread.i:          ; preds = %.preheader8.i
 
 gauss_solve_triangular.exit333.i:                 ; preds = %472
   %481 = load double, ptr %140, align 8, !tbaa !64
-  %482 = load double, ptr %142, align 8, !tbaa !64
+  %482 = load double, ptr %141, align 8, !tbaa !64
   %483 = fdiv nsz double %482, %481
-  store double %483, ptr %142, align 8, !tbaa !64
+  store double %483, ptr %141, align 8, !tbaa !64
   br i1 %155, label %.lr.ph43.i, label %.preheader7.i
 
 .lr.ph43.i:                                       ; preds = %gauss_solve_triangular.exit333.i
@@ -1096,12 +1096,12 @@ gauss_solve_triangular.exit333.i:                 ; preds = %472
 
 .preheader7.i:                                    ; preds = %485, %gauss_solve_triangular.exit333.i, %gauss_solve_triangular.exit333.thread.i
   %484 = phi i64 [ %438, %gauss_solve_triangular.exit333.thread.i ], [ %449, %gauss_solve_triangular.exit333.i ], [ %449, %485 ]
-  %invariant.gep152.i = getelementptr double, ptr %142, i64 %484
+  %invariant.gep152.i = getelementptr double, ptr %141, i64 %484
   br label %489
 
 485:                                              ; preds = %485, %.lr.ph43.i
   %indvars.iv114.i = phi i64 [ 0, %.lr.ph43.i ], [ %indvars.iv.next115.i, %485 ]
-  %486 = getelementptr inbounds nuw double, ptr %142, i64 %indvars.iv114.i
+  %486 = getelementptr inbounds nuw double, ptr %141, i64 %indvars.iv114.i
   %487 = load double, ptr %486, align 8, !tbaa !64
   %488 = fptrunc nsz double %487 to float
   %gep45.i = getelementptr inbounds nuw [4 x float], ptr %invariant.gep44.i, i64 %indvars.iv114.i

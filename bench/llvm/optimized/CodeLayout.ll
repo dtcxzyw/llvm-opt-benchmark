@@ -6223,15 +6223,12 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit.i.i.i: ; preds = %10
   %.pre.pre = phi ptr [ %12, %.lr.ph.preheader.i.i.i ], [ %.pre.pre.pre, %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i.i.i ]
   %16 = trunc i64 %1 to i32
   store i32 %16, ptr %7, align 8, !tbaa !26
+  %17 = and i64 %1, 4294967295
   br label %23
 
-._crit_edge.loopexit:                             ; preds = %23
-  %17 = and i64 %1, 4294967295
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %18 = phi i64 [ 0, %4 ], [ %17, %._crit_edge.loopexit ]
-  %.pre17 = phi ptr [ %6, %4 ], [ %.pre.pre, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %23, %4
+  %18 = phi i64 [ 0, %4 ], [ %17, %23 ]
+  %.pre17 = phi ptr [ %6, %4 ], [ %.pre.pre, %23 ]
   %19 = call noundef double @_ZN4llvm10codelayout15calcExtTspScoreENS_8ArrayRefImEES2_NS1_INS0_9EdgeCountEEE(ptr nonnull %.pre17, i64 %18, ptr %0, i64 %1, ptr %2, i64 %3)
   %20 = load ptr, ptr %5, align 8, !tbaa !25
   %21 = icmp eq ptr %20, %6
@@ -6251,7 +6248,7 @@ _ZN4llvm11SmallVectorImLj6EED2Ev.exit:            ; preds = %._crit_edge, %22
   store i64 %.012, ptr %24, align 8, !tbaa !55
   %25 = add nuw i64 %.012, 1
   %exitcond.not = icmp eq i64 %25, %1
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %23, !llvm.loop !316
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !316
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8893,6 +8890,7 @@ _ZNSt6vectorIPKN12_GLOBAL__N_16ChainTESaIS3_EE9push_backEOS3_.exit.i.i: ; preds 
   %.sroa.13.2.i.i = phi ptr [ %1066, %_ZNSt6vectorIPKN12_GLOBAL__N_16ChainTESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i ], [ %.sroa.13.0100.i.i, %1047 ]
   %.pn.i.i = phi ptr [ %1062, %_ZNSt6vectorIPKN12_GLOBAL__N_16ChainTESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i ], [ %.sroa.8.0101.i.i, %1047 ]
   %.sroa.067.2.i.i = phi ptr [ %1061, %_ZNSt6vectorIPKN12_GLOBAL__N_16ChainTESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i ], [ %.sroa.067.0102.i.i, %1047 ]
+  %.sroa.8.2.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 8
   %.not7093.i.i = icmp eq ptr %.val29.i.i, %.val30.i.i
   br i1 %.not7093.i.i, label %._crit_edge.i4.i, label %.lr.ph.i3.i
 
@@ -8902,7 +8900,6 @@ _ZNSt6vectorIPKN12_GLOBAL__N_16ChainTESaIS3_EE9push_backEOS3_.exit.i.i: ; preds 
 
 ._crit_edge.i4.i:                                 ; preds = %._crit_edge.loopexit.i.i, %_ZNSt6vectorIPKN12_GLOBAL__N_16ChainTESaIS3_EE9push_backEOS3_.exit.i.i
   %1068 = phi double [ 0x7FF8000000000000, %_ZNSt6vectorIPKN12_GLOBAL__N_16ChainTESaIS3_EE9push_backEOS3_.exit.i.i ], [ %1067, %._crit_edge.loopexit.i.i ]
-  %.sroa.8.2.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 8
   %1069 = icmp eq i32 %.val4.i.i.i, 0
   br i1 %1069, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_16ChainTEdNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_dEEEES5_dS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i.i, label %1070
 

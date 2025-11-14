@@ -1512,14 +1512,14 @@ _ZN10serde_json3ser9Formatter9write_u6417h5111748a90a25f9cE.exit.i: ; preds = %4
   %63 = load i64, ptr %7, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
+  %64 = icmp sgt i64 %63, -1
   %.sroa.0.0.i.i.i = tail call i64 @llvm.abs.i64(i64 %63, i1 false)
-  %64 = icmp ugt i64 %.sroa.0.0.i.i.i, 9999
-  br i1 %64, label %.lr.ph.i.i.i11, label %._crit_edge.i.i.i6
+  %65 = icmp ugt i64 %.sroa.0.0.i.i.i, 9999
+  br i1 %65, label %.lr.ph.i.i.i11, label %._crit_edge.i.i.i6
 
 ._crit_edge.i.i.i6:                               ; preds = %.lr.ph.i.i.i11, %62
   %.sroa.09.0.lcssa.i.i.i = phi i64 [ 20, %62 ], [ %75, %.lr.ph.i.i.i11 ]
   %.sroa.0.1.lcssa.i.i.i7 = phi i64 [ %.sroa.0.0.i.i.i, %62 ], [ %68, %.lr.ph.i.i.i11 ]
-  %65 = icmp sgt i64 %63, -1
   %66 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i7, 99
   br i1 %66, label %84, label %93
 
@@ -1587,7 +1587,7 @@ _ZN10serde_json3ser9Formatter9write_u6417h5111748a90a25f9cE.exit.i: ; preds = %4
 
 106:                                              ; preds = %101, %95
   %.sroa.09.2.i.i.i = phi i64 [ %102, %101 ], [ %97, %95 ]
-  br i1 %65, label %_ZN10serde_json3ser9Formatter9write_i6417h1ec716a8b45ef3fcE.exit.i, label %107
+  br i1 %64, label %_ZN10serde_json3ser9Formatter9write_i6417h1ec716a8b45ef3fcE.exit.i, label %107
 
 107:                                              ; preds = %106
   %108 = add i64 %.sroa.09.2.i.i.i, -1
@@ -1779,14 +1779,14 @@ _ZN10serde_json3ser9Formatter9write_u6417h44a1738d62307f95E.exit.i: ; preds = %4
   %63 = load i64, ptr %7, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
+  %64 = icmp sgt i64 %63, -1
   %.sroa.0.0.i.i.i = tail call i64 @llvm.abs.i64(i64 %63, i1 false)
-  %64 = icmp ugt i64 %.sroa.0.0.i.i.i, 9999
-  br i1 %64, label %.lr.ph.i.i.i11, label %._crit_edge.i.i.i6
+  %65 = icmp ugt i64 %.sroa.0.0.i.i.i, 9999
+  br i1 %65, label %.lr.ph.i.i.i11, label %._crit_edge.i.i.i6
 
 ._crit_edge.i.i.i6:                               ; preds = %.lr.ph.i.i.i11, %62
   %.sroa.09.0.lcssa.i.i.i = phi i64 [ 20, %62 ], [ %75, %.lr.ph.i.i.i11 ]
   %.sroa.0.1.lcssa.i.i.i7 = phi i64 [ %.sroa.0.0.i.i.i, %62 ], [ %68, %.lr.ph.i.i.i11 ]
-  %65 = icmp sgt i64 %63, -1
   %66 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i7, 99
   br i1 %66, label %84, label %93
 
@@ -1854,7 +1854,7 @@ _ZN10serde_json3ser9Formatter9write_u6417h44a1738d62307f95E.exit.i: ; preds = %4
 
 106:                                              ; preds = %101, %95
   %.sroa.09.2.i.i.i = phi i64 [ %102, %101 ], [ %97, %95 ]
-  br i1 %65, label %_ZN10serde_json3ser9Formatter9write_i6417h00778863a092e5a8E.exit.i, label %107
+  br i1 %64, label %_ZN10serde_json3ser9Formatter9write_i6417h00778863a092e5a8E.exit.i, label %107
 
 107:                                              ; preds = %106
   %108 = add i64 %.sroa.09.2.i.i.i, -1

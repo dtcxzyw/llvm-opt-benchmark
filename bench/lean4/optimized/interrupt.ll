@@ -376,32 +376,32 @@ define void @_ZN4lean9sleep_forEjj(i32 noundef %0, i32 noundef %1) local_unnamed
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %1, i32 1)
+  %5 = urem i32 %0, %spec.store.select
+  %6 = udiv i32 %0, %spec.store.select
+  %7 = zext i32 %5 to i64
   %.not = icmp ugt i32 %spec.store.select, %0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = udiv i32 %0, %spec.store.select
-  %6 = zext i32 %spec.store.select to i64
-  %7 = udiv i32 %spec.store.select, 1000
-  %.zext14 = zext nneg i32 %7 to i64
-  %.neg.i.i5 = mul nsw i64 %.zext14, -1000
-  %8 = add nsw i64 %.neg.i.i5, %6
-  %9 = mul nsw i64 %8, 1000000
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax = tail call i32 @llvm.umax.i32(i32 %5, i32 1)
+  %8 = zext i32 %spec.store.select to i64
+  %9 = udiv i32 %spec.store.select, 1000
+  %.zext13 = zext nneg i32 %9 to i64
+  %.neg.i.i5 = mul nsw i64 %.zext13, -1000
+  %10 = add nsw i64 %.neg.i.i5, %8
+  %11 = mul nsw i64 %10, 1000000
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %umax = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
   br label %26
 
 ._crit_edge:                                      ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit7, %2
-  %11 = urem i32 %0, %spec.store.select
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, label %13
+  %13 = icmp eq i32 %5, 0
+  br i1 %13, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, label %14
 
-13:                                               ; preds = %._crit_edge
-  %14 = zext i32 %11 to i64
-  %15 = udiv i32 %11, 1000
+14:                                               ; preds = %._crit_edge
+  %15 = udiv i32 %5, 1000
   %.zext = zext nneg i32 %15 to i64
   %.neg.i.i = mul nsw i64 %.zext, -1000
-  %16 = add nsw i64 %.neg.i.i, %14
+  %16 = add nsw i64 %.neg.i.i, %7
   %17 = mul nsw i64 %16, 1000000
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.zext, ptr %4, align 8, !tbaa !32
@@ -409,7 +409,7 @@ define void @_ZN4lean9sleep_forEjj(i32 noundef %0, i32 noundef %1) local_unnamed
   store i64 %17, ptr %18, align 8, !tbaa !34
   br label %19
 
-19:                                               ; preds = %22, %13
+19:                                               ; preds = %22, %14
   %20 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4)
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %22, label %.critedge.i
@@ -431,8 +431,8 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0
 26:                                               ; preds = %.lr.ph, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit7
   %.011 = phi i32 [ 0, %.lr.ph ], [ %34, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit7 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %.zext14, ptr %3, align 8, !tbaa !32
-  store i64 %9, ptr %10, align 8, !tbaa !34
+  store i64 %.zext13, ptr %3, align 8, !tbaa !32
+  store i64 %11, ptr %12, align 8, !tbaa !34
   br label %27
 
 27:                                               ; preds = %30, %26

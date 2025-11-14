@@ -1157,14 +1157,14 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %34, %52, %65, %_ZNS
           to label %.preheader.preheader unwind label %132
 
 .preheader.preheader:                             ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %109
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %110, i8 0, i64 %109, i1 false)
-  %112 = getelementptr inbounds nuw i32, ptr %110, i64 %108
+  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %108
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 %109
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %110, ptr %75, align 8
-  store ptr %111, ptr %113, align 8
-  store ptr %112, ptr %114, align 8
+  store ptr %112, ptr %113, align 8
+  store ptr %111, ptr %114, align 8
   br label %.preheader
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader
@@ -2014,15 +2014,15 @@ _ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EE17_S_check_init_lenEmRKS3_.
           to label %.noexc31 unwind label %219
 
 .noexc31:                                         ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 %162
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %163, i8 0, i64 %162, i1 false)
-  %165 = getelementptr inbounds nuw i32, ptr %163, i64 %159
+  %164 = getelementptr inbounds nuw i32, ptr %163, i64 %159
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 %162
   br label %_ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EEC2EmRKS2_RKS3_.exit
 
 _ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.noexc31, %_ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %.sroa.10.0 = phi ptr [ null, %_ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %165, %.noexc31 ]
+  %.sroa.10.0 = phi ptr [ null, %_ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %164, %.noexc31 ]
   %.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %163, %.noexc31 ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %164, %.noexc31 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN10open_spiel7clobber9CellStateESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %165, %.noexc31 ]
   %166 = load ptr, ptr %92, align 8
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -6204,8 +6204,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %30 = getelementptr inbounds nuw double, ptr %28, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc4, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i

@@ -432,26 +432,26 @@ _ZN4llvm15SmallVectorImplIjE6resizeEm.exit:       ; preds = %2, %.sink.split.i.i
   %51 = lshr exact i32 %43, %50
   %52 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %46, i1 true)
   %53 = lshr exact i32 %46, %52
+  %54 = tail call i32 @llvm.umin.i32(i32 %50, i32 %52)
   %spec.select3334.i.i = tail call i32 @llvm.umin.i32(i32 %51, i32 %53)
-  %54 = icmp eq i32 %51, %53
-  br i1 %54, label %_ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i, label %.lr.ph.i.i
+  %55 = icmp eq i32 %51, %53
+  br i1 %55, label %_ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %49, %.lr.ph.i.i
   %spec.select3337.i.i = phi i32 [ %spec.select33.i.i, %.lr.ph.i.i ], [ %spec.select3334.i.i, %49 ]
   %.02736.i.i = phi i32 [ %spec.select3337.i.i, %.lr.ph.i.i ], [ %51, %49 ]
-  %.02835.i.i = phi i32 [ %57, %.lr.ph.i.i ], [ %53, %49 ]
+  %.02835.i.i = phi i32 [ %58, %.lr.ph.i.i ], [ %53, %49 ]
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
-  %55 = sub i32 %spec.select.i.i, %spec.select3337.i.i
-  %56 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %55, i1 true)
-  %57 = lshr exact i32 %55, %56
-  %spec.select33.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %57)
-  %58 = icmp eq i32 %spec.select3337.i.i, %57
-  br i1 %58, label %_ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i, label %.lr.ph.i.i, !llvm.loop !110
+  %56 = sub i32 %spec.select.i.i, %spec.select3337.i.i
+  %57 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %56, i1 true)
+  %58 = lshr exact i32 %56, %57
+  %spec.select33.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %58)
+  %59 = icmp eq i32 %spec.select3337.i.i, %58
+  br i1 %59, label %_ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i, label %.lr.ph.i.i, !llvm.loop !110
 
 _ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i:          ; preds = %.lr.ph.i.i, %49
   %spec.select33.lcssa.i.i = phi i32 [ %spec.select3334.i.i, %49 ], [ %spec.select33.i.i, %.lr.ph.i.i ]
-  %59 = tail call i32 @llvm.umin.i32(i32 %50, i32 %52)
-  %60 = shl i32 %spec.select33.lcssa.i.i, %59
+  %60 = shl i32 %spec.select33.lcssa.i.i, %54
   %61 = udiv i32 %43, %60
   %62 = mul i32 %61, %46
   br label %_ZSt3lcmIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit

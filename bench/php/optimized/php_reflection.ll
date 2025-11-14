@@ -24595,7 +24595,7 @@ define hidden void @zim_ReflectionProperty_setRawValueWithoutLazyInitialization(
 
 20:                                               ; preds = %17
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #13
-  br label %44
+  br label %45
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -24632,23 +24632,24 @@ thread-pre-split:                                 ; preds = %instanceof_function
 34:                                               ; preds = %thread-pre-split, %21
   %35 = phi ptr [ %.pr, %thread-pre-split ], [ %24, %21 ]
   %.not76 = icmp eq ptr %35, null
-  br i1 %.not76, label %44, label %36
+  br i1 %.not76, label %45, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !34
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  br label %44
+  br label %45
 
 .critedge82.critedge:                             ; preds = %instanceof_function.exit.i..critedge82.critedge_crit_edge, %29, %28
   %40 = phi ptr [ %.pre, %instanceof_function.exit.i..critedge82.critedge_crit_edge ], [ %.pre112, %29 ], [ %.pre112, %28 ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  %42 = load i32, ptr %41, align 4, !tbaa !228
-  %43 = and i32 %42, -1073741824
-  %or.cond105109 = icmp eq i32 %43, 1073741824
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 12
+  %43 = load i32, ptr %42, align 4, !tbaa !228
+  %44 = and i32 %43, -1073741824
+  %or.cond105109 = icmp eq i32 %44, 1073741824
   br i1 %or.cond105109, label %.lr.ph, label %.critedge
 
-44:                                               ; preds = %20, %36, %34
+45:                                               ; preds = %20, %36, %34
   %.071 = phi ptr [ null, %20 ], [ %39, %36 ], [ null, %34 ]
   %.070 = phi i32 [ 0, %20 ], [ 0, %36 ], [ 18, %34 ]
   %.069 = phi ptr [ null, %20 ], [ %22, %36 ], [ %22, %34 ]
@@ -24658,17 +24659,16 @@ thread-pre-split:                                 ; preds = %instanceof_function
   br label %116
 
 .lr.ph:                                           ; preds = %.critedge82.critedge, %.lr.ph
-  %.0110 = phi ptr [ %45, %.lr.ph ], [ %40, %.critedge82.critedge ]
-  %45 = tail call ptr @zend_lazy_object_get_instance(ptr noundef nonnull %.0110) #13
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
-  %47 = load i32, ptr %46, align 4, !tbaa !228
-  %48 = and i32 %47, -1073741824
-  %or.cond105 = icmp eq i32 %48, 1073741824
+  %.0110 = phi ptr [ %46, %.lr.ph ], [ %40, %.critedge82.critedge ]
+  %46 = tail call ptr @zend_lazy_object_get_instance(ptr noundef nonnull %.0110) #13
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
+  %48 = load i32, ptr %47, align 4, !tbaa !228
+  %49 = and i32 %48, -1073741824
+  %or.cond105 = icmp eq i32 %49, 1073741824
   br i1 %or.cond105, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge82.critedge
-  %.0.lcssa108 = phi ptr [ %40, %.critedge82.critedge ], [ %45, %.lr.ph ]
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %.0.lcssa108 = phi ptr [ %40, %.critedge82.critedge ], [ %46, %.lr.ph ]
   %50 = getelementptr inbounds nuw i8, ptr %.0.lcssa108, i64 12
   %51 = load ptr, ptr %23, align 8, !tbaa !33
   %52 = getelementptr i8, ptr %.0.lcssa108, i64 16
@@ -24739,14 +24739,14 @@ reflection_property_get_effective_prop.exit:      ; preds = %.critedge, %55, %59
   %90 = load ptr, ptr %89, align 8, !tbaa !112
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %92 = load ptr, ptr %91, align 8, !tbaa !246
-  %93 = tail call ptr %92(ptr noundef nonnull %.0.lcssa108, ptr noundef %79, ptr noundef nonnull %49, ptr noundef nonnull %80) #13
+  %93 = tail call ptr %92(ptr noundef nonnull %.0.lcssa108, ptr noundef %79, ptr noundef nonnull %41, ptr noundef nonnull %80) #13
   store ptr %87, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 520), align 8, !tbaa !209
   br label %reflection_property_set_raw_value.exit
 
 94:                                               ; preds = %83
   %95 = tail call ptr @zend_get_property_hook_trampoline(ptr noundef nonnull %.0.i88, i32 noundef 1, ptr noundef %79) #13
   %96 = load ptr, ptr %52, align 8, !tbaa !43
-  tail call void @zend_call_known_function(ptr noundef %95, ptr noundef nonnull %.0.lcssa108, ptr noundef %96, ptr noundef null, i32 noundef 1, ptr noundef nonnull %49, ptr noundef null) #13
+  tail call void @zend_call_known_function(ptr noundef %95, ptr noundef nonnull %.0.lcssa108, ptr noundef %96, ptr noundef null, i32 noundef 1, ptr noundef nonnull %41, ptr noundef null) #13
   br label %reflection_property_set_raw_value.exit
 
 reflection_property_set_raw_value.exit:           ; preds = %86, %94
@@ -24794,7 +24794,7 @@ reflection_property_set_raw_value.exit:           ; preds = %86, %94
   tail call void @zend_lazy_object_realize(ptr noundef nonnull %.0.lcssa108) #13
   br label %116
 
-116:                                              ; preds = %reflection_property_get_effective_prop.exit, %44, %113, %115, %111, %.thread, %108, %11, %16
+116:                                              ; preds = %reflection_property_get_effective_prop.exit, %45, %113, %115, %111, %.thread, %108, %11, %16
   ret void
 }
 

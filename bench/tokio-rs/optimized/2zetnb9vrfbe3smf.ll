@@ -4926,12 +4926,12 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_schedule
   br i1 %55, label %.lr.ph9.i.i, label %"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$22close_and_shutdown_all17h9794a27c3921210cE.exit.i"
 
 .loopexit.i.i:                                    ; preds = %.noexc35, %.noexc33
-  %56 = add i64 %.sroa.01.08.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %56, %54
   br i1 %exitcond.not.i.i, label %"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$22close_and_shutdown_all17h9794a27c3921210cE.exit.i", label %.lr.ph9.i.i
 
 .lr.ph9.i.i:                                      ; preds = %.noexc, %.loopexit.i.i
   %.sroa.01.08.i.i = phi i64 [ %56, %.loopexit.i.i ], [ %51, %.noexc ]
+  %56 = add i64 %.sroa.01.08.i.i, 1
   %57 = invoke noundef ptr @"_ZN5tokio4util12sharded_list82ShardedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$8pop_back17h4e46d3278368f835E"(ptr noundef nonnull align 8 %44, i64 noundef %.sroa.01.08.i.i)
           to label %.noexc33 unwind label %.loopexit.split-lp.loopexit
 

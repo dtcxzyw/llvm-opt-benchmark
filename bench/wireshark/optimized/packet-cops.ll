@@ -2475,24 +2475,23 @@ define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef
   %98 = shl nuw nsw i64 %97, 2
   %99 = call noalias ptr @wmem_alloc(ptr noundef %95, i64 noundef %98) #10
   store ptr %99, ptr %11, align 8
+  %100 = zext i32 %.035.lcssa.i.i to i64
+  %101 = getelementptr i32, ptr %99, i64 %100
+  %102 = zext i32 %91 to i64
+  %103 = getelementptr i32, ptr %101, i64 %102
   %.not57.i.i = icmp eq i32 %91, 0
   br i1 %.not57.i.i, label %._crit_edge49.i.i, label %.lr.ph48.preheader.i.i
 
 .lr.ph48.preheader.i.i:                           ; preds = %._crit_edge.i.i
-  %100 = zext i32 %91 to i64
-  %101 = shl nuw nsw i64 %100, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %99, ptr nonnull readonly align 4 %88, i64 %101, i1 false)
+  %104 = shl nuw nsw i64 %102, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %99, ptr nonnull readonly align 4 %88, i64 %104, i1 false)
   br label %._crit_edge49.i.i
 
 ._crit_edge49.i.i:                                ; preds = %.lr.ph48.preheader.i.i, %._crit_edge.i.i
-  %.pre-phi.i.i = phi i64 [ %100, %.lr.ph48.preheader.i.i ], [ 0, %._crit_edge.i.i ]
-  %102 = zext i32 %.035.lcssa.i.i to i64
-  %103 = getelementptr i32, ptr %99, i64 %102
-  %104 = getelementptr i32, ptr %103, i64 %.pre-phi.i.i
   br i1 %.not56.i.i, label %redecode_oid.exit.i, label %.lr.ph54.preheader.i.i
 
 .lr.ph54.preheader.i.i:                           ; preds = %._crit_edge49.i.i
-  %105 = getelementptr i32, ptr %99, i64 %.pre-phi.i.i
+  %105 = getelementptr i32, ptr %99, i64 %102
   %wide.trip.count66.i.i = zext i32 %89 to i64
   br label %.lr.ph54.i.i
 
@@ -2510,7 +2509,7 @@ define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef
   br i1 %.not.i.i, label %112, label %117
 
 112:                                              ; preds = %.lr.ph54.i.i
-  %113 = icmp ult ptr %.03751.i.i, %104
+  %113 = icmp ult ptr %.03751.i.i, %103
   br i1 %113, label %115, label %114
 
 114:                                              ; preds = %112

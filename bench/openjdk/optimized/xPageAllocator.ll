@@ -2746,18 +2746,18 @@ define hidden void @_ZNK14XPageAllocator8pages_doEP12XPageClosure(ptr noundef no
   br i1 %.not.i.not25, label %_ZN17XListIteratorImplI15XPageAllocationLb1EE4nextEPPS0_.exit, label %.lr.ph27
 
 select.unfold.loopexit:                           ; preds = %select.unfold15, %.lr.ph27
-  %10 = icmp eq ptr %14, %3
-  %11 = ptrtoint ptr %14 to i64
-  %12 = add i64 %11, -64
-  %.not.i.not31 = icmp eq i64 %12, 0
-  %.not.i.not = select i1 %10, i1 true, i1 %.not.i.not31
+  %.not.i.not31 = icmp eq i64 %14, 0
+  %.not.i.not = select i1 %12, i1 true, i1 %.not.i.not31
   br i1 %.not.i.not, label %_ZN17XListIteratorImplI15XPageAllocationLb1EE4nextEPPS0_.exit, label %.lr.ph27, !llvm.loop !15
 
 .lr.ph27:                                         ; preds = %2, %select.unfold.loopexit
-  %.sroa.27.026.in = phi i64 [ %12, %select.unfold.loopexit ], [ %9, %2 ]
+  %.sroa.27.026.in = phi i64 [ %14, %select.unfold.loopexit ], [ %9, %2 ]
   %.sroa.27.026 = inttoptr i64 %.sroa.27.026.in to ptr
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.27.026, i64 64
-  %14 = load ptr, ptr %13, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.27.026, i64 64
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, %3
+  %13 = ptrtoint ptr %11 to i64
+  %14 = add i64 %13, -64
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.27.026, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.27.026, i64 56
   %17 = load i64, ptr %16, align 8

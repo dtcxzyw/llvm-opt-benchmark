@@ -2140,7 +2140,7 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %936 = shl i32 %.9.i.i.i, 1
   %937 = add i32 %.9363.i.i.i, -1
   %938 = icmp ult i32 %935, 32768
-  br i1 %938, label %913, label %.loopexit471.i.loopexit13.i.i, !llvm.loop !126
+  br i1 %938, label %913, label %.loopexit471.i.loopexit74.i.i, !llvm.loop !126
 
 939:                                              ; preds = %903
   %940 = getelementptr inbounds nuw i8, ptr %867, i64 4
@@ -2153,17 +2153,17 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %.0389.i.i.i = select i1 %873, i32 %875, i32 %942
   br label %.loopexit471.i.i.i
 
-.loopexit471.i.loopexit13.i.i:                    ; preds = %934
+.loopexit471.i.loopexit74.i.i:                    ; preds = %934
   %.not438.i.i.i = icmp eq i32 %911, 0
   %943 = zext i1 %.not438.i.i.i to i32
   %.2391.i.i.i = select i1 %909, i32 %943, i32 %911
   br label %.loopexit471.i.i.i
 
-.loopexit471.i.i.i:                               ; preds = %.loopexit471.i.loopexit13.i.i, %.loopexit471.i.loopexit.i.i, %939
-  %.1390.i.i.i = phi i32 [ %941, %939 ], [ %.0389.i.i.i, %.loopexit471.i.loopexit.i.i ], [ %.2391.i.i.i, %.loopexit471.i.loopexit13.i.i ]
-  %.7361.i.i.i = phi i32 [ %.1355496.i.i.i, %939 ], [ %901, %.loopexit471.i.loopexit.i.i ], [ %937, %.loopexit471.i.loopexit13.i.i ]
-  %.6337.i.i.i = phi i32 [ %869, %939 ], [ %899, %.loopexit471.i.loopexit.i.i ], [ %935, %.loopexit471.i.loopexit13.i.i ]
-  %.7.i.i.i = phi i32 [ %905, %939 ], [ %900, %.loopexit471.i.loopexit.i.i ], [ %936, %.loopexit471.i.loopexit13.i.i ]
+.loopexit471.i.i.i:                               ; preds = %.loopexit471.i.loopexit74.i.i, %.loopexit471.i.loopexit.i.i, %939
+  %.1390.i.i.i = phi i32 [ %941, %939 ], [ %.0389.i.i.i, %.loopexit471.i.loopexit.i.i ], [ %.2391.i.i.i, %.loopexit471.i.loopexit74.i.i ]
+  %.7361.i.i.i = phi i32 [ %.1355496.i.i.i, %939 ], [ %901, %.loopexit471.i.loopexit.i.i ], [ %937, %.loopexit471.i.loopexit74.i.i ]
+  %.6337.i.i.i = phi i32 [ %869, %939 ], [ %899, %.loopexit471.i.loopexit.i.i ], [ %935, %.loopexit471.i.loopexit74.i.i ]
+  %.7.i.i.i = phi i32 [ %905, %939 ], [ %900, %.loopexit471.i.loopexit.i.i ], [ %936, %.loopexit471.i.loopexit74.i.i ]
   %944 = load i32, ptr %.1317501.i.i.i, align 4, !tbaa !59
   %.lobit.i.i.i = lshr i32 %944, 31
   %.not441.i.i.i = icmp eq i32 %.1390.i.i.i, %.lobit.i.i.i
@@ -2319,7 +2319,7 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %1026 = shl i32 %.17.i.i.i, 1
   %1027 = add i32 %.17371.i.i.i, -1
   %1028 = icmp ult i32 %1025, 32768
-  br i1 %1028, label %1003, label %.loopexit469.i.loopexit12.i.i, !llvm.loop !128
+  br i1 %1028, label %1003, label %.loopexit469.i.loopexit73.i.i, !llvm.loop !128
 
 1029:                                             ; preds = %993
   %1030 = getelementptr inbounds nuw i8, ptr %957, i64 4
@@ -2332,17 +2332,17 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %.3392.i.i.i = select i1 %963, i32 %965, i32 %1032
   br label %.loopexit469.i.i.i
 
-.loopexit469.i.loopexit12.i.i:                    ; preds = %1024
+.loopexit469.i.loopexit73.i.i:                    ; preds = %1024
   %.not443.i.i.i = icmp eq i32 %1001, 0
   %1033 = zext i1 %.not443.i.i.i to i32
   %.5394.i.i.i = select i1 %999, i32 %1033, i32 %1001
   br label %.loopexit469.i.i.i
 
-.loopexit469.i.i.i:                               ; preds = %.loopexit469.i.loopexit12.i.i, %.loopexit469.i.loopexit.i.i, %1029
-  %.4393.i.i.i = phi i32 [ %1031, %1029 ], [ %.3392.i.i.i, %.loopexit469.i.loopexit.i.i ], [ %.5394.i.i.i, %.loopexit469.i.loopexit12.i.i ]
-  %.15369.i.i.i = phi i32 [ %.3357.i.i.i, %1029 ], [ %991, %.loopexit469.i.loopexit.i.i ], [ %1027, %.loopexit469.i.loopexit12.i.i ]
-  %.11342.i.i.i = phi i32 [ %959, %1029 ], [ %989, %.loopexit469.i.loopexit.i.i ], [ %1025, %.loopexit469.i.loopexit12.i.i ]
-  %.15.i.i.i = phi i32 [ %995, %1029 ], [ %990, %.loopexit469.i.loopexit.i.i ], [ %1026, %.loopexit469.i.loopexit12.i.i ]
+.loopexit469.i.i.i:                               ; preds = %.loopexit469.i.loopexit73.i.i, %.loopexit469.i.loopexit.i.i, %1029
+  %.4393.i.i.i = phi i32 [ %1031, %1029 ], [ %.3392.i.i.i, %.loopexit469.i.loopexit.i.i ], [ %.5394.i.i.i, %.loopexit469.i.loopexit73.i.i ]
+  %.15369.i.i.i = phi i32 [ %.3357.i.i.i, %1029 ], [ %991, %.loopexit469.i.loopexit.i.i ], [ %1027, %.loopexit469.i.loopexit73.i.i ]
+  %.11342.i.i.i = phi i32 [ %959, %1029 ], [ %989, %.loopexit469.i.loopexit.i.i ], [ %1025, %.loopexit469.i.loopexit73.i.i ]
+  %.15.i.i.i = phi i32 [ %995, %1029 ], [ %990, %.loopexit469.i.loopexit.i.i ], [ %1026, %.loopexit469.i.loopexit73.i.i ]
   %1034 = getelementptr inbounds nuw i8, ptr %.1317501.i.i.i, i64 256
   %1035 = load i32, ptr %1034, align 4, !tbaa !59
   %.lobit446.i.i.i = lshr i32 %1035, 31
@@ -2499,7 +2499,7 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %1117 = shl i32 %.25.i.i.i, 1
   %1118 = add i32 %.25379.i.i.i, -1
   %1119 = icmp ult i32 %1116, 32768
-  br i1 %1119, label %1094, label %.loopexit467.i.loopexit11.i.i, !llvm.loop !130
+  br i1 %1119, label %1094, label %.loopexit467.i.loopexit72.i.i, !llvm.loop !130
 
 1120:                                             ; preds = %1084
   %1121 = getelementptr inbounds nuw i8, ptr %1048, i64 4
@@ -2512,17 +2512,17 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %.6395.i.i.i = select i1 %1054, i32 %1056, i32 %1123
   br label %.loopexit467.i.i.i
 
-.loopexit467.i.loopexit11.i.i:                    ; preds = %1115
+.loopexit467.i.loopexit72.i.i:                    ; preds = %1115
   %.not449.i.i.i = icmp eq i32 %1092, 0
   %1124 = zext i1 %.not449.i.i.i to i32
   %.8397.i.i.i = select i1 %1090, i32 %1124, i32 %1092
   br label %.loopexit467.i.i.i
 
-.loopexit467.i.i.i:                               ; preds = %.loopexit467.i.loopexit11.i.i, %.loopexit467.i.loopexit.i.i, %1120
-  %.7396.i.i.i = phi i32 [ %1122, %1120 ], [ %.6395.i.i.i, %.loopexit467.i.loopexit.i.i ], [ %.8397.i.i.i, %.loopexit467.i.loopexit11.i.i ]
-  %.23377.i.i.i = phi i32 [ %.11365.i.i.i, %1120 ], [ %1082, %.loopexit467.i.loopexit.i.i ], [ %1118, %.loopexit467.i.loopexit11.i.i ]
-  %.16347.i.i.i = phi i32 [ %1050, %1120 ], [ %1080, %.loopexit467.i.loopexit.i.i ], [ %1116, %.loopexit467.i.loopexit11.i.i ]
-  %.23.i.i.i = phi i32 [ %1086, %1120 ], [ %1081, %.loopexit467.i.loopexit.i.i ], [ %1117, %.loopexit467.i.loopexit11.i.i ]
+.loopexit467.i.i.i:                               ; preds = %.loopexit467.i.loopexit72.i.i, %.loopexit467.i.loopexit.i.i, %1120
+  %.7396.i.i.i = phi i32 [ %1122, %1120 ], [ %.6395.i.i.i, %.loopexit467.i.loopexit.i.i ], [ %.8397.i.i.i, %.loopexit467.i.loopexit72.i.i ]
+  %.23377.i.i.i = phi i32 [ %.11365.i.i.i, %1120 ], [ %1082, %.loopexit467.i.loopexit.i.i ], [ %1118, %.loopexit467.i.loopexit72.i.i ]
+  %.16347.i.i.i = phi i32 [ %1050, %1120 ], [ %1080, %.loopexit467.i.loopexit.i.i ], [ %1116, %.loopexit467.i.loopexit72.i.i ]
+  %.23.i.i.i = phi i32 [ %1086, %1120 ], [ %1081, %.loopexit467.i.loopexit.i.i ], [ %1117, %.loopexit467.i.loopexit72.i.i ]
   %1125 = getelementptr inbounds nuw i8, ptr %.1317501.i.i.i, i64 512
   %1126 = load i32, ptr %1125, align 4, !tbaa !59
   %.lobit452.i.i.i = lshr i32 %1126, 31
@@ -2679,7 +2679,7 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %1208 = shl i32 %.33.i.i.i, 1
   %1209 = add i32 %.33387.i.i.i, -1
   %1210 = icmp ult i32 %1207, 32768
-  br i1 %1210, label %1185, label %.loopexit.i.loopexit10.i.i, !llvm.loop !132
+  br i1 %1210, label %1185, label %.loopexit.i.loopexit71.i.i, !llvm.loop !132
 
 1211:                                             ; preds = %1175
   %1212 = getelementptr inbounds nuw i8, ptr %1139, i64 4
@@ -2692,17 +2692,17 @@ opj_t1_dec_refpass_step_raw.exit84.i.i:           ; preds = %opj_mqc_raw_decode.
   %.9398.i.i.i = select i1 %1145, i32 %1147, i32 %1214
   br label %.loopexit.i.i.i
 
-.loopexit.i.loopexit10.i.i:                       ; preds = %1206
+.loopexit.i.loopexit71.i.i:                       ; preds = %1206
   %.not455.i.i.i = icmp eq i32 %1183, 0
   %1215 = zext i1 %.not455.i.i.i to i32
   %.11400.i.i.i = select i1 %1181, i32 %1215, i32 %1183
   br label %.loopexit.i.i.i
 
-.loopexit.i.i.i:                                  ; preds = %.loopexit.i.loopexit10.i.i, %.loopexit.i.loopexit.i.i, %1211
-  %.10399.i.i.i = phi i32 [ %1213, %1211 ], [ %.9398.i.i.i, %.loopexit.i.loopexit.i.i ], [ %.11400.i.i.i, %.loopexit.i.loopexit10.i.i ]
-  %.31385.i.i.i = phi i32 [ %.19373.i.i.i, %1211 ], [ %1173, %.loopexit.i.loopexit.i.i ], [ %1209, %.loopexit.i.loopexit10.i.i ]
-  %.21352.i.i.i = phi i32 [ %1141, %1211 ], [ %1171, %.loopexit.i.loopexit.i.i ], [ %1207, %.loopexit.i.loopexit10.i.i ]
-  %.31.i.i.i = phi i32 [ %1177, %1211 ], [ %1172, %.loopexit.i.loopexit.i.i ], [ %1208, %.loopexit.i.loopexit10.i.i ]
+.loopexit.i.i.i:                                  ; preds = %.loopexit.i.loopexit71.i.i, %.loopexit.i.loopexit.i.i, %1211
+  %.10399.i.i.i = phi i32 [ %1213, %1211 ], [ %.9398.i.i.i, %.loopexit.i.loopexit.i.i ], [ %.11400.i.i.i, %.loopexit.i.loopexit71.i.i ]
+  %.31385.i.i.i = phi i32 [ %.19373.i.i.i, %1211 ], [ %1173, %.loopexit.i.loopexit.i.i ], [ %1209, %.loopexit.i.loopexit71.i.i ]
+  %.21352.i.i.i = phi i32 [ %1141, %1211 ], [ %1171, %.loopexit.i.loopexit.i.i ], [ %1207, %.loopexit.i.loopexit71.i.i ]
+  %.31.i.i.i = phi i32 [ %1177, %1211 ], [ %1172, %.loopexit.i.loopexit.i.i ], [ %1208, %.loopexit.i.loopexit71.i.i ]
   %1216 = getelementptr inbounds nuw i8, ptr %.1317501.i.i.i, i64 768
   %1217 = load i32, ptr %1216, align 4, !tbaa !59
   %.lobit458.i.i.i = lshr i32 %1217, 31
@@ -2880,14 +2880,14 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %1298 = shl i32 %.9.us.i.i.i, 1
   %1299 = add i32 %.9380.us.i.i.i, -1
   %1300 = icmp ult i32 %1297, 32768
-  br i1 %1300, label %1275, label %.loopexit495.us.i.loopexit17.i.i, !llvm.loop !135
+  br i1 %1300, label %1275, label %.loopexit495.us.i.loopexit78.i.i, !llvm.loop !135
 
 1301:                                             ; preds = %1251
   %1302 = icmp ult i32 %1259, %1258
   %1303 = getelementptr inbounds nuw i8, ptr %1257, i64 4
   %1304 = load i32, ptr %1303, align 4, !tbaa !123
-  %.sink674.i.i.i = select i1 %1302, i64 8, i64 16
-  %1305 = getelementptr inbounds nuw i8, ptr %1257, i64 %.sink674.i.i.i
+  %.sink675.i.i.i = select i1 %1302, i64 8, i64 16
+  %1305 = getelementptr inbounds nuw i8, ptr %1257, i64 %.sink675.i.i.i
   %storemerge460.us.i.i.i = load ptr, ptr %1305, align 8, !tbaa !119
   store ptr %storemerge460.us.i.i.i, ptr %1256, align 8, !tbaa !119
   br label %1306
@@ -2946,17 +2946,17 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %.0406.us.i.i.i = select i1 %1302, i32 %1304, i32 %1332
   br label %.loopexit495.us.i.i.i
 
-.loopexit495.us.i.loopexit17.i.i:                 ; preds = %1296
+.loopexit495.us.i.loopexit78.i.i:                 ; preds = %1296
   %.not458.us.i.i.i = icmp eq i32 %1273, 0
   %1333 = zext i1 %.not458.us.i.i.i to i32
   %.2408.us.i.i.i = select i1 %1271, i32 %1333, i32 %1273
   br label %.loopexit495.us.i.i.i
 
-.loopexit495.us.i.i.i:                            ; preds = %.loopexit495.us.i.loopexit17.i.i, %.loopexit495.us.i.loopexit.i.i, %1267
-  %.1407.us.i.i.i = phi i32 [ %1269, %1267 ], [ %.0406.us.i.i.i, %.loopexit495.us.i.loopexit.i.i ], [ %.2408.us.i.i.i, %.loopexit495.us.i.loopexit17.i.i ]
-  %.7378.us.i.i.i = phi i32 [ %.1372523.us.i.i.i, %1267 ], [ %1330, %.loopexit495.us.i.loopexit.i.i ], [ %1299, %.loopexit495.us.i.loopexit17.i.i ]
-  %.6354.us.i.i.i = phi i32 [ %1259, %1267 ], [ %1328, %.loopexit495.us.i.loopexit.i.i ], [ %1297, %.loopexit495.us.i.loopexit17.i.i ]
-  %.7.us.i.i.i = phi i32 [ %1264, %1267 ], [ %1329, %.loopexit495.us.i.loopexit.i.i ], [ %1298, %.loopexit495.us.i.loopexit17.i.i ]
+.loopexit495.us.i.i.i:                            ; preds = %.loopexit495.us.i.loopexit78.i.i, %.loopexit495.us.i.loopexit.i.i, %1267
+  %.1407.us.i.i.i = phi i32 [ %1269, %1267 ], [ %.0406.us.i.i.i, %.loopexit495.us.i.loopexit.i.i ], [ %.2408.us.i.i.i, %.loopexit495.us.i.loopexit78.i.i ]
+  %.7378.us.i.i.i = phi i32 [ %.1372523.us.i.i.i, %1267 ], [ %1330, %.loopexit495.us.i.loopexit.i.i ], [ %1299, %.loopexit495.us.i.loopexit78.i.i ]
+  %.6354.us.i.i.i = phi i32 [ %1259, %1267 ], [ %1328, %.loopexit495.us.i.loopexit.i.i ], [ %1297, %.loopexit495.us.i.loopexit78.i.i ]
+  %.7.us.i.i.i = phi i32 [ %1264, %1267 ], [ %1329, %.loopexit495.us.i.loopexit.i.i ], [ %1298, %.loopexit495.us.i.loopexit78.i.i ]
   %1334 = load i32, ptr %.1334528.us.i.i.i, align 4, !tbaa !59
   %.lobit.us.i.i.i = lshr i32 %1334, 31
   %.not461.us.i.i.i = icmp eq i32 %.1407.us.i.i.i, %.lobit.us.i.i.i
@@ -3007,8 +3007,8 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %1361 = icmp ult i32 %1349, %1348
   %1362 = getelementptr inbounds nuw i8, ptr %1347, i64 4
   %1363 = load i32, ptr %1362, align 4, !tbaa !123
-  %.sink675.i.i.i = select i1 %1361, i64 16, i64 8
-  %1364 = getelementptr inbounds nuw i8, ptr %1347, i64 %.sink675.i.i.i
+  %.sink676.i.i.i = select i1 %1361, i64 16, i64 8
+  %1364 = getelementptr inbounds nuw i8, ptr %1347, i64 %.sink676.i.i.i
   %storemerge462.us.i.i.i = load ptr, ptr %1364, align 8, !tbaa !119
   store ptr %storemerge462.us.i.i.i, ptr %1346, align 8, !tbaa !119
   br label %1365
@@ -3059,14 +3059,14 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %1388 = shl i32 %.17.us.i.i.i, 1
   %1389 = add i32 %.17388.us.i.i.i, -1
   %1390 = icmp ult i32 %1387, 32768
-  br i1 %1390, label %1365, label %.loopexit493.us.i.loopexit16.i.i, !llvm.loop !137
+  br i1 %1390, label %1365, label %.loopexit493.us.i.loopexit77.i.i, !llvm.loop !137
 
 1391:                                             ; preds = %1341
   %1392 = icmp ult i32 %1349, %1348
   %1393 = getelementptr inbounds nuw i8, ptr %1347, i64 4
   %1394 = load i32, ptr %1393, align 4, !tbaa !123
-  %.sink676.i.i.i = select i1 %1392, i64 8, i64 16
-  %1395 = getelementptr inbounds nuw i8, ptr %1347, i64 %.sink676.i.i.i
+  %.sink677.i.i.i = select i1 %1392, i64 8, i64 16
+  %1395 = getelementptr inbounds nuw i8, ptr %1347, i64 %.sink677.i.i.i
   %storemerge465.us.i.i.i = load ptr, ptr %1395, align 8, !tbaa !119
   store ptr %storemerge465.us.i.i.i, ptr %1346, align 8, !tbaa !119
   br label %1396
@@ -3125,17 +3125,17 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %.3409.us.i.i.i = select i1 %1392, i32 %1394, i32 %1422
   br label %.loopexit493.us.i.i.i
 
-.loopexit493.us.i.loopexit16.i.i:                 ; preds = %1386
+.loopexit493.us.i.loopexit77.i.i:                 ; preds = %1386
   %.not463.us.i.i.i = icmp eq i32 %1363, 0
   %1423 = zext i1 %.not463.us.i.i.i to i32
   %.5411.us.i.i.i = select i1 %1361, i32 %1423, i32 %1363
   br label %.loopexit493.us.i.i.i
 
-.loopexit493.us.i.i.i:                            ; preds = %.loopexit493.us.i.loopexit16.i.i, %.loopexit493.us.i.loopexit.i.i, %1357
-  %.4410.us.i.i.i = phi i32 [ %1359, %1357 ], [ %.3409.us.i.i.i, %.loopexit493.us.i.loopexit.i.i ], [ %.5411.us.i.i.i, %.loopexit493.us.i.loopexit16.i.i ]
-  %.15386.us.i.i.i = phi i32 [ %.3374.us.i.i.i, %1357 ], [ %1420, %.loopexit493.us.i.loopexit.i.i ], [ %1389, %.loopexit493.us.i.loopexit16.i.i ]
-  %.11359.us.i.i.i = phi i32 [ %1349, %1357 ], [ %1418, %.loopexit493.us.i.loopexit.i.i ], [ %1387, %.loopexit493.us.i.loopexit16.i.i ]
-  %.15.us.i.i.i = phi i32 [ %1354, %1357 ], [ %1419, %.loopexit493.us.i.loopexit.i.i ], [ %1388, %.loopexit493.us.i.loopexit16.i.i ]
+.loopexit493.us.i.i.i:                            ; preds = %.loopexit493.us.i.loopexit77.i.i, %.loopexit493.us.i.loopexit.i.i, %1357
+  %.4410.us.i.i.i = phi i32 [ %1359, %1357 ], [ %.3409.us.i.i.i, %.loopexit493.us.i.loopexit.i.i ], [ %.5411.us.i.i.i, %.loopexit493.us.i.loopexit77.i.i ]
+  %.15386.us.i.i.i = phi i32 [ %.3374.us.i.i.i, %1357 ], [ %1420, %.loopexit493.us.i.loopexit.i.i ], [ %1389, %.loopexit493.us.i.loopexit77.i.i ]
+  %.11359.us.i.i.i = phi i32 [ %1349, %1357 ], [ %1418, %.loopexit493.us.i.loopexit.i.i ], [ %1387, %.loopexit493.us.i.loopexit77.i.i ]
+  %.15.us.i.i.i = phi i32 [ %1354, %1357 ], [ %1419, %.loopexit493.us.i.loopexit.i.i ], [ %1388, %.loopexit493.us.i.loopexit77.i.i ]
   %1424 = getelementptr inbounds nuw i32, ptr %.1334528.us.i.i.i, i64 %1241
   %1425 = load i32, ptr %1424, align 4, !tbaa !59
   %.lobit466.us.i.i.i = lshr i32 %1425, 31
@@ -3187,8 +3187,8 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %1452 = icmp ult i32 %1440, %1439
   %1453 = getelementptr inbounds nuw i8, ptr %1438, i64 4
   %1454 = load i32, ptr %1453, align 4, !tbaa !123
-  %.sink677.i.i.i = select i1 %1452, i64 16, i64 8
-  %1455 = getelementptr inbounds nuw i8, ptr %1438, i64 %.sink677.i.i.i
+  %.sink678.i.i.i = select i1 %1452, i64 16, i64 8
+  %1455 = getelementptr inbounds nuw i8, ptr %1438, i64 %.sink678.i.i.i
   %storemerge468.us.i.i.i = load ptr, ptr %1455, align 8, !tbaa !119
   store ptr %storemerge468.us.i.i.i, ptr %1437, align 8, !tbaa !119
   br label %1456
@@ -3239,14 +3239,14 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %1479 = shl i32 %.25.us.i.i.i, 1
   %1480 = add i32 %.25396.us.i.i.i, -1
   %1481 = icmp ult i32 %1478, 32768
-  br i1 %1481, label %1456, label %.loopexit491.us.i.loopexit15.i.i, !llvm.loop !139
+  br i1 %1481, label %1456, label %.loopexit491.us.i.loopexit76.i.i, !llvm.loop !139
 
 1482:                                             ; preds = %1432
   %1483 = icmp ult i32 %1440, %1439
   %1484 = getelementptr inbounds nuw i8, ptr %1438, i64 4
   %1485 = load i32, ptr %1484, align 4, !tbaa !123
-  %.sink678.i.i.i = select i1 %1483, i64 8, i64 16
-  %1486 = getelementptr inbounds nuw i8, ptr %1438, i64 %.sink678.i.i.i
+  %.sink679.i.i.i = select i1 %1483, i64 8, i64 16
+  %1486 = getelementptr inbounds nuw i8, ptr %1438, i64 %.sink679.i.i.i
   %storemerge471.us.i.i.i = load ptr, ptr %1486, align 8, !tbaa !119
   store ptr %storemerge471.us.i.i.i, ptr %1437, align 8, !tbaa !119
   br label %1487
@@ -3305,17 +3305,17 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %.6412.us.i.i.i = select i1 %1483, i32 %1485, i32 %1513
   br label %.loopexit491.us.i.i.i
 
-.loopexit491.us.i.loopexit15.i.i:                 ; preds = %1477
+.loopexit491.us.i.loopexit76.i.i:                 ; preds = %1477
   %.not469.us.i.i.i = icmp eq i32 %1454, 0
   %1514 = zext i1 %.not469.us.i.i.i to i32
   %.8414.us.i.i.i = select i1 %1452, i32 %1514, i32 %1454
   br label %.loopexit491.us.i.i.i
 
-.loopexit491.us.i.i.i:                            ; preds = %.loopexit491.us.i.loopexit15.i.i, %.loopexit491.us.i.loopexit.i.i, %1448
-  %.7413.us.i.i.i = phi i32 [ %1450, %1448 ], [ %.6412.us.i.i.i, %.loopexit491.us.i.loopexit.i.i ], [ %.8414.us.i.i.i, %.loopexit491.us.i.loopexit15.i.i ]
-  %.23394.us.i.i.i = phi i32 [ %.11382.us.i.i.i, %1448 ], [ %1511, %.loopexit491.us.i.loopexit.i.i ], [ %1480, %.loopexit491.us.i.loopexit15.i.i ]
-  %.16364.us.i.i.i = phi i32 [ %1440, %1448 ], [ %1509, %.loopexit491.us.i.loopexit.i.i ], [ %1478, %.loopexit491.us.i.loopexit15.i.i ]
-  %.23.us.i.i.i = phi i32 [ %1445, %1448 ], [ %1510, %.loopexit491.us.i.loopexit.i.i ], [ %1479, %.loopexit491.us.i.loopexit15.i.i ]
+.loopexit491.us.i.i.i:                            ; preds = %.loopexit491.us.i.loopexit76.i.i, %.loopexit491.us.i.loopexit.i.i, %1448
+  %.7413.us.i.i.i = phi i32 [ %1450, %1448 ], [ %.6412.us.i.i.i, %.loopexit491.us.i.loopexit.i.i ], [ %.8414.us.i.i.i, %.loopexit491.us.i.loopexit76.i.i ]
+  %.23394.us.i.i.i = phi i32 [ %.11382.us.i.i.i, %1448 ], [ %1511, %.loopexit491.us.i.loopexit.i.i ], [ %1480, %.loopexit491.us.i.loopexit76.i.i ]
+  %.16364.us.i.i.i = phi i32 [ %1440, %1448 ], [ %1509, %.loopexit491.us.i.loopexit.i.i ], [ %1478, %.loopexit491.us.i.loopexit76.i.i ]
+  %.23.us.i.i.i = phi i32 [ %1445, %1448 ], [ %1510, %.loopexit491.us.i.loopexit.i.i ], [ %1479, %.loopexit491.us.i.loopexit76.i.i ]
   %1515 = getelementptr inbounds nuw i32, ptr %.1334528.us.i.i.i, i64 %1243
   %1516 = load i32, ptr %1515, align 4, !tbaa !59
   %.lobit472.us.i.i.i = lshr i32 %1516, 31
@@ -3367,8 +3367,8 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %1543 = icmp ult i32 %1531, %1530
   %1544 = getelementptr inbounds nuw i8, ptr %1529, i64 4
   %1545 = load i32, ptr %1544, align 4, !tbaa !123
-  %.sink679.i.i.i = select i1 %1543, i64 16, i64 8
-  %1546 = getelementptr inbounds nuw i8, ptr %1529, i64 %.sink679.i.i.i
+  %.sink680.i.i.i = select i1 %1543, i64 16, i64 8
+  %1546 = getelementptr inbounds nuw i8, ptr %1529, i64 %.sink680.i.i.i
   %storemerge474.us.i.i.i = load ptr, ptr %1546, align 8, !tbaa !119
   store ptr %storemerge474.us.i.i.i, ptr %1528, align 8, !tbaa !119
   br label %1547
@@ -3419,14 +3419,14 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %1570 = shl i32 %.33.us.i.i.i, 1
   %1571 = add i32 %.33404.us.i.i.i, -1
   %1572 = icmp ult i32 %1569, 32768
-  br i1 %1572, label %1547, label %.loopexit489.us.i.loopexit14.i.i, !llvm.loop !141
+  br i1 %1572, label %1547, label %.loopexit489.us.i.loopexit75.i.i, !llvm.loop !141
 
 1573:                                             ; preds = %1523
   %1574 = icmp ult i32 %1531, %1530
   %1575 = getelementptr inbounds nuw i8, ptr %1529, i64 4
   %1576 = load i32, ptr %1575, align 4, !tbaa !123
-  %.sink680.i.i.i = select i1 %1574, i64 8, i64 16
-  %1577 = getelementptr inbounds nuw i8, ptr %1529, i64 %.sink680.i.i.i
+  %.sink681.i.i.i = select i1 %1574, i64 8, i64 16
+  %1577 = getelementptr inbounds nuw i8, ptr %1529, i64 %.sink681.i.i.i
   %storemerge477.us.i.i.i = load ptr, ptr %1577, align 8, !tbaa !119
   store ptr %storemerge477.us.i.i.i, ptr %1528, align 8, !tbaa !119
   br label %1578
@@ -3485,17 +3485,17 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %.9415.us.i.i.i = select i1 %1574, i32 %1576, i32 %1604
   br label %.loopexit489.us.i.i.i
 
-.loopexit489.us.i.loopexit14.i.i:                 ; preds = %1568
+.loopexit489.us.i.loopexit75.i.i:                 ; preds = %1568
   %.not475.us.i.i.i = icmp eq i32 %1545, 0
   %1605 = zext i1 %.not475.us.i.i.i to i32
   %.11417.us.i.i.i = select i1 %1543, i32 %1605, i32 %1545
   br label %.loopexit489.us.i.i.i
 
-.loopexit489.us.i.i.i:                            ; preds = %.loopexit489.us.i.loopexit14.i.i, %.loopexit489.us.i.loopexit.i.i, %1539
-  %.10416.us.i.i.i = phi i32 [ %1541, %1539 ], [ %.9415.us.i.i.i, %.loopexit489.us.i.loopexit.i.i ], [ %.11417.us.i.i.i, %.loopexit489.us.i.loopexit14.i.i ]
-  %.31402.us.i.i.i = phi i32 [ %.19390.us.i.i.i, %1539 ], [ %1602, %.loopexit489.us.i.loopexit.i.i ], [ %1571, %.loopexit489.us.i.loopexit14.i.i ]
-  %.21369.us.i.i.i = phi i32 [ %1531, %1539 ], [ %1600, %.loopexit489.us.i.loopexit.i.i ], [ %1569, %.loopexit489.us.i.loopexit14.i.i ]
-  %.31.us.i.i.i = phi i32 [ %1536, %1539 ], [ %1601, %.loopexit489.us.i.loopexit.i.i ], [ %1570, %.loopexit489.us.i.loopexit14.i.i ]
+.loopexit489.us.i.i.i:                            ; preds = %.loopexit489.us.i.loopexit75.i.i, %.loopexit489.us.i.loopexit.i.i, %1539
+  %.10416.us.i.i.i = phi i32 [ %1541, %1539 ], [ %.9415.us.i.i.i, %.loopexit489.us.i.loopexit.i.i ], [ %.11417.us.i.i.i, %.loopexit489.us.i.loopexit75.i.i ]
+  %.31402.us.i.i.i = phi i32 [ %.19390.us.i.i.i, %1539 ], [ %1602, %.loopexit489.us.i.loopexit.i.i ], [ %1571, %.loopexit489.us.i.loopexit75.i.i ]
+  %.21369.us.i.i.i = phi i32 [ %1531, %1539 ], [ %1600, %.loopexit489.us.i.loopexit.i.i ], [ %1569, %.loopexit489.us.i.loopexit75.i.i ]
+  %.31.us.i.i.i = phi i32 [ %1536, %1539 ], [ %1601, %.loopexit489.us.i.loopexit.i.i ], [ %1570, %.loopexit489.us.i.loopexit75.i.i ]
   %1606 = getelementptr inbounds nuw i32, ptr %.1334528.us.i.i.i, i64 %1245
   %1607 = load i32, ptr %1606, align 4, !tbaa !59
   %.lobit478.us.i.i.i = lshr i32 %1607, 31
@@ -3548,7 +3548,7 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %scevgep.i.i.i = getelementptr i8, ptr %845, i64 %1630
   %1631 = shl nuw nsw i64 %1627, 3
   %1632 = getelementptr i8, ptr %846, i64 %1631
-  %scevgep600.i.i.i = getelementptr i8, ptr %1632, i64 20
+  %scevgep601.i.i.i = getelementptr i8, ptr %1632, i64 20
   br label %._crit_edge542.i.i.i
 
 ._crit_edge542.i.i.i:                             ; preds = %._crit_edge.us.i.i.i, %.preheader497.lr.ph.split.i.i.i, %._crit_edge.i200.i
@@ -3556,7 +3556,7 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %.0348.lcssa.i.i.i = phi i32 [ %1236, %._crit_edge.i200.i ], [ %1236, %.preheader497.lr.ph.split.i.i.i ], [ %.2350.us.i.i.i, %._crit_edge.us.i.i.i ]
   %.0341.lcssa.i.i.i = phi i32 [ %1235, %._crit_edge.i200.i ], [ %1235, %.preheader497.lr.ph.split.i.i.i ], [ %.2343.us.i.i.i, %._crit_edge.us.i.i.i ]
   %.0338.lcssa.i.i.i = phi ptr [ %1234, %._crit_edge.i200.i ], [ %1234, %.preheader497.lr.ph.split.i.i.i ], [ %.2340.us.i.i.i, %._crit_edge.us.i.i.i ]
-  %.0335.lcssa.i.i.i = phi ptr [ %1233, %._crit_edge.i200.i ], [ %scevgep600.i.i.i, %.preheader497.lr.ph.split.i.i.i ], [ %1618, %._crit_edge.us.i.i.i ]
+  %.0335.lcssa.i.i.i = phi ptr [ %1233, %._crit_edge.i200.i ], [ %scevgep601.i.i.i, %.preheader497.lr.ph.split.i.i.i ], [ %1618, %._crit_edge.us.i.i.i ]
   %.0333.lcssa.i.i.i = phi ptr [ %845, %._crit_edge.i200.i ], [ %scevgep.i.i.i, %.preheader497.lr.ph.split.i.i.i ], [ %1617, %._crit_edge.us.i.i.i ]
   %.0332.lcssa.i.i.i = phi i32 [ 0, %._crit_edge.i200.i ], [ %1625, %.preheader497.lr.ph.split.i.i.i ], [ %1616, %._crit_edge.us.i.i.i ]
   %.lcssa521.i.i.i = phi i32 [ %843, %._crit_edge.i200.i ], [ %843, %.preheader497.lr.ph.split.i.i.i ], [ %1619, %._crit_edge.us.i.i.i ]
@@ -3752,7 +3752,7 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %1738 = add i32 %1735, -1
   store i32 %1738, ptr %202, align 8, !tbaa !106
   %1739 = icmp ult i32 %1736, 32768
-  br i1 %1739, label %1709, label %.loopexit.i.loopexit487.i.i.i, !llvm.loop !146
+  br i1 %1739, label %1709, label %.loopexit.i.loopexit564.i.i.i, !llvm.loop !146
 
 1740:                                             ; preds = %1699
   %1741 = getelementptr inbounds nuw i8, ptr %1656, i64 4
@@ -3765,14 +3765,14 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %.0.i.i.i.i = select i1 %1664, i32 %1666, i32 %1743
   br label %.loopexit.i.i.i.i
 
-.loopexit.i.loopexit487.i.i.i:                    ; preds = %1733
+.loopexit.i.loopexit564.i.i.i:                    ; preds = %1733
   %.not.i486.i.i.i = icmp eq i32 %1707, 0
   %1744 = zext i1 %.not.i486.i.i.i to i32
   %.2.i.i.i.i = select i1 %1705, i32 %1744, i32 %1707
   br label %.loopexit.i.i.i.i
 
-.loopexit.i.i.i.i:                                ; preds = %.loopexit.i.loopexit487.i.i.i, %.loopexit.i.loopexit.i.i.i, %1740
-  %.1.i.i.i.i = phi i32 [ %1742, %1740 ], [ %.0.i.i.i.i, %.loopexit.i.loopexit.i.i.i ], [ %.2.i.i.i.i, %.loopexit.i.loopexit487.i.i.i ]
+.loopexit.i.i.i.i:                                ; preds = %.loopexit.i.loopexit564.i.i.i, %.loopexit.i.loopexit.i.i.i, %1740
+  %.1.i.i.i.i = phi i32 [ %1742, %1740 ], [ %.0.i.i.i.i, %.loopexit.i.loopexit.i.i.i ], [ %.2.i.i.i.i, %.loopexit.i.loopexit564.i.i.i ]
   %1745 = load i32, ptr %1643, align 4, !tbaa !59
   %.lobit.i.i.i.i = lshr i32 %1745, 31
   %.not87.i.i.i.i = icmp eq i32 %.1.i.i.i.i, %.lobit.i.i.i.i
@@ -3783,11 +3783,11 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1226
   %1749 = load i32, ptr %.2337559.i.i.i, align 4, !tbaa !59
   %1750 = or i32 %1749, %1748
   store i32 %1750, ptr %.2337559.i.i.i, align 4, !tbaa !59
-  %.pre603.i.i.i = load i32, ptr %201, align 4, !tbaa !105
+  %.pre604.i.i.i = load i32, ptr %201, align 4, !tbaa !105
   br label %opj_t1_dec_refpass_step_mqc.exit.i.i.i
 
 opj_t1_dec_refpass_step_mqc.exit.i.i.i:           ; preds = %.loopexit.i.i.i.i, %.lr.ph.i.i.i
-  %1751 = phi i32 [ %1638, %.lr.ph.i.i.i ], [ %.pre603.i.i.i, %.loopexit.i.i.i.i ]
+  %1751 = phi i32 [ %1638, %.lr.ph.i.i.i ], [ %.pre604.i.i.i, %.loopexit.i.i.i.i ]
   %1752 = phi i32 [ %1639, %.lr.ph.i.i.i ], [ %1750, %.loopexit.i.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %1753 = sub i32 %1751, %.0332.lcssa.i.i.i
@@ -3801,8 +3801,8 @@ opj_t1_dec_refpass_step_mqc.exit.i.i.i:           ; preds = %.loopexit.i.i.i.i, 
   %1758 = add nuw i32 %.1561.i.i.i, 1
   %1759 = getelementptr inbounds nuw i8, ptr %.2560.i.i.i, i64 4
   %1760 = getelementptr inbounds nuw i8, ptr %.2337559.i.i.i, i64 4
-  %exitcond602.not.i.i.i = icmp eq i32 %1758, %841
-  br i1 %exitcond602.not.i.i.i, label %opj_t1_dec_sigpass_raw.exit.i, label %.preheader.i8.i.i, !llvm.loop !148
+  %exitcond603.not.i.i.i = icmp eq i32 %1758, %841
+  br i1 %exitcond603.not.i.i.i, label %opj_t1_dec_sigpass_raw.exit.i, label %.preheader.i8.i.i, !llvm.loop !148
 
 1761:                                             ; preds = %230
   tail call fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %.0254, i32 noundef %.1153282.i, i32 noundef %94)
@@ -9974,7 +9974,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %114 = shl i32 %.9632.i, 1
   %115 = add i32 %.9686.i, -1
   %116 = icmp ult i32 %113, 32768
-  br i1 %116, label %91, label %.loopexit912.i.loopexit240, !llvm.loop !306
+  br i1 %116, label %91, label %.loopexit912.i.loopexit476, !llvm.loop !306
 
 117:                                              ; preds = %81
   %118 = getelementptr inbounds nuw i8, ptr %45, i64 4
@@ -9987,17 +9987,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.0744.i = select i1 %51, i32 %53, i32 %120
   br label %.loopexit912.i
 
-.loopexit912.i.loopexit240:                       ; preds = %112
+.loopexit912.i.loopexit476:                       ; preds = %112
   %.not842.i = icmp eq i32 %89, 0
   %121 = zext i1 %.not842.i to i32
   %.2746.i = select i1 %87, i32 %121, i32 %89
   br label %.loopexit912.i
 
-.loopexit912.i:                                   ; preds = %.loopexit912.i.loopexit240, %.loopexit912.i.loopexit, %117
-  %.1745.i = phi i32 [ %119, %117 ], [ %.0744.i, %.loopexit912.i.loopexit ], [ %.2746.i, %.loopexit912.i.loopexit240 ]
-  %.7684.i = phi i32 [ %.1678961.i, %117 ], [ %79, %.loopexit912.i.loopexit ], [ %115, %.loopexit912.i.loopexit240 ]
-  %.6640.i = phi i32 [ %47, %117 ], [ %77, %.loopexit912.i.loopexit ], [ %113, %.loopexit912.i.loopexit240 ]
-  %.7630.i = phi i32 [ %83, %117 ], [ %78, %.loopexit912.i.loopexit ], [ %114, %.loopexit912.i.loopexit240 ]
+.loopexit912.i:                                   ; preds = %.loopexit912.i.loopexit476, %.loopexit912.i.loopexit, %117
+  %.1745.i = phi i32 [ %119, %117 ], [ %.0744.i, %.loopexit912.i.loopexit ], [ %.2746.i, %.loopexit912.i.loopexit476 ]
+  %.7684.i = phi i32 [ %.1678961.i, %117 ], [ %79, %.loopexit912.i.loopexit ], [ %115, %.loopexit912.i.loopexit476 ]
+  %.6640.i = phi i32 [ %47, %117 ], [ %77, %.loopexit912.i.loopexit ], [ %113, %.loopexit912.i.loopexit476 ]
+  %.7630.i = phi i32 [ %83, %117 ], [ %78, %.loopexit912.i.loopexit ], [ %114, %.loopexit912.i.loopexit476 ]
   %.not845.i = icmp eq i32 %.1745.i, 0
   br i1 %.not845.i, label %231, label %122
 
@@ -10155,7 +10155,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %214 = shl i32 %.17.i, 1
   %215 = add i32 %.17694.i, -1
   %216 = icmp ult i32 %213, 32768
-  br i1 %216, label %191, label %.loopexit910.i.loopexit239, !llvm.loop !308
+  br i1 %216, label %191, label %.loopexit910.i.loopexit475, !llvm.loop !308
 
 217:                                              ; preds = %181
   %218 = getelementptr inbounds nuw i8, ptr %145, i64 4
@@ -10168,17 +10168,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.3747.i = select i1 %151, i32 %153, i32 %220
   br label %.loopexit910.i
 
-.loopexit910.i.loopexit239:                       ; preds = %212
+.loopexit910.i.loopexit475:                       ; preds = %212
   %.not847.i = icmp eq i32 %189, 0
   %221 = zext i1 %.not847.i to i32
   %.5749.i = select i1 %187, i32 %221, i32 %189
   br label %.loopexit910.i
 
-.loopexit910.i:                                   ; preds = %.loopexit910.i.loopexit239, %.loopexit910.i.loopexit, %217
-  %.4748.i = phi i32 [ %219, %217 ], [ %.3747.i, %.loopexit910.i.loopexit ], [ %.5749.i, %.loopexit910.i.loopexit239 ]
-  %.15692.i = phi i32 [ %.7684.i, %217 ], [ %179, %.loopexit910.i.loopexit ], [ %215, %.loopexit910.i.loopexit239 ]
-  %.11645.i = phi i32 [ %147, %217 ], [ %177, %.loopexit910.i.loopexit ], [ %213, %.loopexit910.i.loopexit239 ]
-  %.15.i = phi i32 [ %183, %217 ], [ %178, %.loopexit910.i.loopexit ], [ %214, %.loopexit910.i.loopexit239 ]
+.loopexit910.i:                                   ; preds = %.loopexit910.i.loopexit475, %.loopexit910.i.loopexit, %217
+  %.4748.i = phi i32 [ %219, %217 ], [ %.3747.i, %.loopexit910.i.loopexit ], [ %.5749.i, %.loopexit910.i.loopexit475 ]
+  %.15692.i = phi i32 [ %.7684.i, %217 ], [ %179, %.loopexit910.i.loopexit ], [ %215, %.loopexit910.i.loopexit475 ]
+  %.11645.i = phi i32 [ %147, %217 ], [ %177, %.loopexit910.i.loopexit ], [ %213, %.loopexit910.i.loopexit475 ]
+  %.15.i = phi i32 [ %183, %217 ], [ %178, %.loopexit910.i.loopexit ], [ %214, %.loopexit910.i.loopexit475 ]
   %222 = xor i32 %.4748.i, %142
   %.not850.i = icmp eq i32 %.4748.i, %142
   %223 = select i1 %.not850.i, i32 %27, i32 %32
@@ -10353,7 +10353,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %314 = shl i32 %.25.i, 1
   %315 = add i32 %.25702.i, -1
   %316 = icmp ult i32 %313, 32768
-  br i1 %316, label %291, label %.loopexit908.i.loopexit238, !llvm.loop !310
+  br i1 %316, label %291, label %.loopexit908.i.loopexit474, !llvm.loop !310
 
 317:                                              ; preds = %281
   %318 = getelementptr inbounds nuw i8, ptr %245, i64 4
@@ -10366,17 +10366,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.6750.i = select i1 %251, i32 %253, i32 %320
   br label %.loopexit908.i
 
-.loopexit908.i.loopexit238:                       ; preds = %312
+.loopexit908.i.loopexit474:                       ; preds = %312
   %.not853.i = icmp eq i32 %289, 0
   %321 = zext i1 %.not853.i to i32
   %.8752.i = select i1 %287, i32 %321, i32 %289
   br label %.loopexit908.i
 
-.loopexit908.i:                                   ; preds = %.loopexit908.i.loopexit238, %.loopexit908.i.loopexit, %317
-  %.7751.i = phi i32 [ %319, %317 ], [ %.6750.i, %.loopexit908.i.loopexit ], [ %.8752.i, %.loopexit908.i.loopexit238 ]
-  %.23700.i = phi i32 [ %.3680.i, %317 ], [ %279, %.loopexit908.i.loopexit ], [ %315, %.loopexit908.i.loopexit238 ]
-  %.16650.i = phi i32 [ %247, %317 ], [ %277, %.loopexit908.i.loopexit ], [ %313, %.loopexit908.i.loopexit238 ]
-  %.23.i = phi i32 [ %283, %317 ], [ %278, %.loopexit908.i.loopexit ], [ %314, %.loopexit908.i.loopexit238 ]
+.loopexit908.i:                                   ; preds = %.loopexit908.i.loopexit474, %.loopexit908.i.loopexit, %317
+  %.7751.i = phi i32 [ %319, %317 ], [ %.6750.i, %.loopexit908.i.loopexit ], [ %.8752.i, %.loopexit908.i.loopexit474 ]
+  %.23700.i = phi i32 [ %.3680.i, %317 ], [ %279, %.loopexit908.i.loopexit ], [ %315, %.loopexit908.i.loopexit474 ]
+  %.16650.i = phi i32 [ %247, %317 ], [ %277, %.loopexit908.i.loopexit ], [ %313, %.loopexit908.i.loopexit474 ]
+  %.23.i = phi i32 [ %283, %317 ], [ %278, %.loopexit908.i.loopexit ], [ %314, %.loopexit908.i.loopexit474 ]
   %.not856.i = icmp eq i32 %.7751.i, 0
   br i1 %.not856.i, label %432, label %322
 
@@ -10534,7 +10534,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %414 = shl i32 %.33.i, 1
   %415 = add i32 %.33710.i, -1
   %416 = icmp ult i32 %413, 32768
-  br i1 %416, label %391, label %.loopexit906.i.loopexit237, !llvm.loop !312
+  br i1 %416, label %391, label %.loopexit906.i.loopexit473, !llvm.loop !312
 
 417:                                              ; preds = %381
   %418 = getelementptr inbounds nuw i8, ptr %345, i64 4
@@ -10547,17 +10547,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.9753.i = select i1 %351, i32 %353, i32 %420
   br label %.loopexit906.i
 
-.loopexit906.i.loopexit237:                       ; preds = %412
+.loopexit906.i.loopexit473:                       ; preds = %412
   %.not858.i = icmp eq i32 %389, 0
   %421 = zext i1 %.not858.i to i32
   %.11755.i = select i1 %387, i32 %421, i32 %389
   br label %.loopexit906.i
 
-.loopexit906.i:                                   ; preds = %.loopexit906.i.loopexit237, %.loopexit906.i.loopexit, %417
-  %.10754.i = phi i32 [ %419, %417 ], [ %.9753.i, %.loopexit906.i.loopexit ], [ %.11755.i, %.loopexit906.i.loopexit237 ]
-  %.31708.i = phi i32 [ %.23700.i, %417 ], [ %379, %.loopexit906.i.loopexit ], [ %415, %.loopexit906.i.loopexit237 ]
-  %.21655.i = phi i32 [ %347, %417 ], [ %377, %.loopexit906.i.loopexit ], [ %413, %.loopexit906.i.loopexit237 ]
-  %.31.i = phi i32 [ %383, %417 ], [ %378, %.loopexit906.i.loopexit ], [ %414, %.loopexit906.i.loopexit237 ]
+.loopexit906.i:                                   ; preds = %.loopexit906.i.loopexit473, %.loopexit906.i.loopexit, %417
+  %.10754.i = phi i32 [ %419, %417 ], [ %.9753.i, %.loopexit906.i.loopexit ], [ %.11755.i, %.loopexit906.i.loopexit473 ]
+  %.31708.i = phi i32 [ %.23700.i, %417 ], [ %379, %.loopexit906.i.loopexit ], [ %415, %.loopexit906.i.loopexit473 ]
+  %.21655.i = phi i32 [ %347, %417 ], [ %377, %.loopexit906.i.loopexit ], [ %413, %.loopexit906.i.loopexit473 ]
+  %.31.i = phi i32 [ %383, %417 ], [ %378, %.loopexit906.i.loopexit ], [ %414, %.loopexit906.i.loopexit473 ]
   %422 = xor i32 %.10754.i, %342
   %.not861.i = icmp eq i32 %.10754.i, %342
   %423 = select i1 %.not861.i, i32 %27, i32 %32
@@ -10733,7 +10733,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %515 = shl i32 %.41.i, 1
   %516 = add i32 %.41718.i, -1
   %517 = icmp ult i32 %514, 32768
-  br i1 %517, label %492, label %.loopexit904.i.loopexit236, !llvm.loop !314
+  br i1 %517, label %492, label %.loopexit904.i.loopexit472, !llvm.loop !314
 
 518:                                              ; preds = %482
   %519 = getelementptr inbounds nuw i8, ptr %446, i64 4
@@ -10746,17 +10746,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.12756.i = select i1 %452, i32 %454, i32 %521
   br label %.loopexit904.i
 
-.loopexit904.i.loopexit236:                       ; preds = %513
+.loopexit904.i.loopexit472:                       ; preds = %513
   %.not864.i = icmp eq i32 %490, 0
   %522 = zext i1 %.not864.i to i32
   %.14758.i = select i1 %488, i32 %522, i32 %490
   br label %.loopexit904.i
 
-.loopexit904.i:                                   ; preds = %.loopexit904.i.loopexit236, %.loopexit904.i.loopexit, %518
-  %.13757.i = phi i32 [ %520, %518 ], [ %.12756.i, %.loopexit904.i.loopexit ], [ %.14758.i, %.loopexit904.i.loopexit236 ]
-  %.39716.i = phi i32 [ %.19696.i, %518 ], [ %480, %.loopexit904.i.loopexit ], [ %516, %.loopexit904.i.loopexit236 ]
-  %.26660.i = phi i32 [ %448, %518 ], [ %478, %.loopexit904.i.loopexit ], [ %514, %.loopexit904.i.loopexit236 ]
-  %.39.i = phi i32 [ %484, %518 ], [ %479, %.loopexit904.i.loopexit ], [ %515, %.loopexit904.i.loopexit236 ]
+.loopexit904.i:                                   ; preds = %.loopexit904.i.loopexit472, %.loopexit904.i.loopexit, %518
+  %.13757.i = phi i32 [ %520, %518 ], [ %.12756.i, %.loopexit904.i.loopexit ], [ %.14758.i, %.loopexit904.i.loopexit472 ]
+  %.39716.i = phi i32 [ %.19696.i, %518 ], [ %480, %.loopexit904.i.loopexit ], [ %516, %.loopexit904.i.loopexit472 ]
+  %.26660.i = phi i32 [ %448, %518 ], [ %478, %.loopexit904.i.loopexit ], [ %514, %.loopexit904.i.loopexit472 ]
+  %.39.i = phi i32 [ %484, %518 ], [ %479, %.loopexit904.i.loopexit ], [ %515, %.loopexit904.i.loopexit472 ]
   %.not867.i = icmp eq i32 %.13757.i, 0
   br i1 %.not867.i, label %633, label %523
 
@@ -10914,7 +10914,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %615 = shl i32 %.49.i, 1
   %616 = add i32 %.49726.i, -1
   %617 = icmp ult i32 %614, 32768
-  br i1 %617, label %592, label %.loopexit902.i.loopexit235, !llvm.loop !316
+  br i1 %617, label %592, label %.loopexit902.i.loopexit471, !llvm.loop !316
 
 618:                                              ; preds = %582
   %619 = getelementptr inbounds nuw i8, ptr %546, i64 4
@@ -10927,17 +10927,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.15759.i = select i1 %552, i32 %554, i32 %621
   br label %.loopexit902.i
 
-.loopexit902.i.loopexit235:                       ; preds = %613
+.loopexit902.i.loopexit471:                       ; preds = %613
   %.not869.i = icmp eq i32 %590, 0
   %622 = zext i1 %.not869.i to i32
   %.17761.i = select i1 %588, i32 %622, i32 %590
   br label %.loopexit902.i
 
-.loopexit902.i:                                   ; preds = %.loopexit902.i.loopexit235, %.loopexit902.i.loopexit, %618
-  %.16760.i = phi i32 [ %620, %618 ], [ %.15759.i, %.loopexit902.i.loopexit ], [ %.17761.i, %.loopexit902.i.loopexit235 ]
-  %.47724.i = phi i32 [ %.39716.i, %618 ], [ %580, %.loopexit902.i.loopexit ], [ %616, %.loopexit902.i.loopexit235 ]
-  %.31665.i = phi i32 [ %548, %618 ], [ %578, %.loopexit902.i.loopexit ], [ %614, %.loopexit902.i.loopexit235 ]
-  %.47.i = phi i32 [ %584, %618 ], [ %579, %.loopexit902.i.loopexit ], [ %615, %.loopexit902.i.loopexit235 ]
+.loopexit902.i:                                   ; preds = %.loopexit902.i.loopexit471, %.loopexit902.i.loopexit, %618
+  %.16760.i = phi i32 [ %620, %618 ], [ %.15759.i, %.loopexit902.i.loopexit ], [ %.17761.i, %.loopexit902.i.loopexit471 ]
+  %.47724.i = phi i32 [ %.39716.i, %618 ], [ %580, %.loopexit902.i.loopexit ], [ %616, %.loopexit902.i.loopexit471 ]
+  %.31665.i = phi i32 [ %548, %618 ], [ %578, %.loopexit902.i.loopexit ], [ %614, %.loopexit902.i.loopexit471 ]
+  %.47.i = phi i32 [ %584, %618 ], [ %579, %.loopexit902.i.loopexit ], [ %615, %.loopexit902.i.loopexit471 ]
   %623 = xor i32 %.16760.i, %543
   %.not872.i = icmp eq i32 %.16760.i, %543
   %624 = select i1 %.not872.i, i32 %27, i32 %32
@@ -11113,7 +11113,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %716 = shl i32 %.57.i, 1
   %717 = add i32 %.57734.i, -1
   %718 = icmp ult i32 %715, 32768
-  br i1 %718, label %693, label %.loopexit900.i.loopexit234, !llvm.loop !318
+  br i1 %718, label %693, label %.loopexit900.i.loopexit470, !llvm.loop !318
 
 719:                                              ; preds = %683
   %720 = getelementptr inbounds nuw i8, ptr %647, i64 4
@@ -11126,17 +11126,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.18762.i = select i1 %653, i32 %655, i32 %722
   br label %.loopexit900.i
 
-.loopexit900.i.loopexit234:                       ; preds = %714
+.loopexit900.i.loopexit470:                       ; preds = %714
   %.not875.i = icmp eq i32 %691, 0
   %723 = zext i1 %.not875.i to i32
   %.20764.i = select i1 %689, i32 %723, i32 %691
   br label %.loopexit900.i
 
-.loopexit900.i:                                   ; preds = %.loopexit900.i.loopexit234, %.loopexit900.i.loopexit, %719
-  %.19763.i = phi i32 [ %721, %719 ], [ %.18762.i, %.loopexit900.i.loopexit ], [ %.20764.i, %.loopexit900.i.loopexit234 ]
-  %.55732.i = phi i32 [ %.35712.i, %719 ], [ %681, %.loopexit900.i.loopexit ], [ %717, %.loopexit900.i.loopexit234 ]
-  %.36670.i = phi i32 [ %649, %719 ], [ %679, %.loopexit900.i.loopexit ], [ %715, %.loopexit900.i.loopexit234 ]
-  %.55.i = phi i32 [ %685, %719 ], [ %680, %.loopexit900.i.loopexit ], [ %716, %.loopexit900.i.loopexit234 ]
+.loopexit900.i:                                   ; preds = %.loopexit900.i.loopexit470, %.loopexit900.i.loopexit, %719
+  %.19763.i = phi i32 [ %721, %719 ], [ %.18762.i, %.loopexit900.i.loopexit ], [ %.20764.i, %.loopexit900.i.loopexit470 ]
+  %.55732.i = phi i32 [ %.35712.i, %719 ], [ %681, %.loopexit900.i.loopexit ], [ %717, %.loopexit900.i.loopexit470 ]
+  %.36670.i = phi i32 [ %649, %719 ], [ %679, %.loopexit900.i.loopexit ], [ %715, %.loopexit900.i.loopexit470 ]
+  %.55.i = phi i32 [ %685, %719 ], [ %680, %.loopexit900.i.loopexit ], [ %716, %.loopexit900.i.loopexit470 ]
   %.not878.i = icmp eq i32 %.19763.i, 0
   br i1 %.not878.i, label %845, label %724
 
@@ -11294,7 +11294,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %816 = shl i32 %.65.i, 1
   %817 = add i32 %.65742.i, -1
   %818 = icmp ult i32 %815, 32768
-  br i1 %818, label %793, label %.loopexit.i.loopexit233, !llvm.loop !320
+  br i1 %818, label %793, label %.loopexit.i.loopexit469, !llvm.loop !320
 
 819:                                              ; preds = %783
   %820 = getelementptr inbounds nuw i8, ptr %747, i64 4
@@ -11307,17 +11307,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.21765.i = select i1 %753, i32 %755, i32 %822
   br label %.loopexit.i
 
-.loopexit.i.loopexit233:                          ; preds = %814
+.loopexit.i.loopexit469:                          ; preds = %814
   %.not880.i = icmp eq i32 %791, 0
   %823 = zext i1 %.not880.i to i32
   %.23767.i = select i1 %789, i32 %823, i32 %791
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.i.loopexit233, %.loopexit.i.loopexit, %819
-  %.22766.i = phi i32 [ %821, %819 ], [ %.21765.i, %.loopexit.i.loopexit ], [ %.23767.i, %.loopexit.i.loopexit233 ]
-  %.63740.i = phi i32 [ %.55732.i, %819 ], [ %781, %.loopexit.i.loopexit ], [ %817, %.loopexit.i.loopexit233 ]
-  %.41675.i = phi i32 [ %749, %819 ], [ %779, %.loopexit.i.loopexit ], [ %815, %.loopexit.i.loopexit233 ]
-  %.63.i = phi i32 [ %785, %819 ], [ %780, %.loopexit.i.loopexit ], [ %816, %.loopexit.i.loopexit233 ]
+.loopexit.i:                                      ; preds = %.loopexit.i.loopexit469, %.loopexit.i.loopexit, %819
+  %.22766.i = phi i32 [ %821, %819 ], [ %.21765.i, %.loopexit.i.loopexit ], [ %.23767.i, %.loopexit.i.loopexit469 ]
+  %.63740.i = phi i32 [ %.55732.i, %819 ], [ %781, %.loopexit.i.loopexit ], [ %817, %.loopexit.i.loopexit469 ]
+  %.41675.i = phi i32 [ %749, %819 ], [ %779, %.loopexit.i.loopexit ], [ %815, %.loopexit.i.loopexit469 ]
+  %.63.i = phi i32 [ %785, %819 ], [ %780, %.loopexit.i.loopexit ], [ %816, %.loopexit.i.loopexit469 ]
   %824 = xor i32 %.22766.i, %744
   %.not883.i = icmp eq i32 %.22766.i, %744
   %825 = select i1 %.not883.i, i32 %27, i32 %32
@@ -11549,7 +11549,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %938 = shl i32 %.9637.i, 1
   %939 = add i32 %.9691.i, -1
   %940 = icmp ult i32 %937, 32768
-  br i1 %940, label %915, label %.loopexit917.i.loopexit232, !llvm.loop !324
+  br i1 %940, label %915, label %.loopexit917.i.loopexit468, !llvm.loop !324
 
 941:                                              ; preds = %905
   %942 = getelementptr inbounds nuw i8, ptr %869, i64 4
@@ -11562,17 +11562,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.0749.i = select i1 %875, i32 %877, i32 %944
   br label %.loopexit917.i
 
-.loopexit917.i.loopexit232:                       ; preds = %936
+.loopexit917.i.loopexit468:                       ; preds = %936
   %.not847.i102 = icmp eq i32 %913, 0
   %945 = zext i1 %.not847.i102 to i32
   %.2751.i = select i1 %911, i32 %945, i32 %913
   br label %.loopexit917.i
 
-.loopexit917.i:                                   ; preds = %.loopexit917.i.loopexit232, %.loopexit917.i.loopexit, %941
-  %.1750.i = phi i32 [ %943, %941 ], [ %.0749.i, %.loopexit917.i.loopexit ], [ %.2751.i, %.loopexit917.i.loopexit232 ]
-  %.7689.i = phi i32 [ %.1683966.i, %941 ], [ %903, %.loopexit917.i.loopexit ], [ %939, %.loopexit917.i.loopexit232 ]
-  %.6645.i = phi i32 [ %871, %941 ], [ %901, %.loopexit917.i.loopexit ], [ %937, %.loopexit917.i.loopexit232 ]
-  %.7635.i = phi i32 [ %907, %941 ], [ %902, %.loopexit917.i.loopexit ], [ %938, %.loopexit917.i.loopexit232 ]
+.loopexit917.i:                                   ; preds = %.loopexit917.i.loopexit468, %.loopexit917.i.loopexit, %941
+  %.1750.i = phi i32 [ %943, %941 ], [ %.0749.i, %.loopexit917.i.loopexit ], [ %.2751.i, %.loopexit917.i.loopexit468 ]
+  %.7689.i = phi i32 [ %.1683966.i, %941 ], [ %903, %.loopexit917.i.loopexit ], [ %939, %.loopexit917.i.loopexit468 ]
+  %.6645.i = phi i32 [ %871, %941 ], [ %901, %.loopexit917.i.loopexit ], [ %937, %.loopexit917.i.loopexit468 ]
+  %.7635.i = phi i32 [ %907, %941 ], [ %902, %.loopexit917.i.loopexit ], [ %938, %.loopexit917.i.loopexit468 ]
   %.not850.i16 = icmp eq i32 %.1750.i, 0
   br i1 %.not850.i16, label %1066, label %946
 
@@ -11730,7 +11730,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1038 = shl i32 %.17.i97, 1
   %1039 = add i32 %.17699.i, -1
   %1040 = icmp ult i32 %1037, 32768
-  br i1 %1040, label %1015, label %.loopexit915.i.loopexit231, !llvm.loop !326
+  br i1 %1040, label %1015, label %.loopexit915.i.loopexit467, !llvm.loop !326
 
 1041:                                             ; preds = %1005
   %1042 = getelementptr inbounds nuw i8, ptr %969, i64 4
@@ -11743,17 +11743,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.3752.i = select i1 %975, i32 %977, i32 %1044
   br label %.loopexit915.i
 
-.loopexit915.i.loopexit231:                       ; preds = %1036
+.loopexit915.i.loopexit467:                       ; preds = %1036
   %.not852.i = icmp eq i32 %1013, 0
   %1045 = zext i1 %.not852.i to i32
   %.5754.i = select i1 %1011, i32 %1045, i32 %1013
   br label %.loopexit915.i
 
-.loopexit915.i:                                   ; preds = %.loopexit915.i.loopexit231, %.loopexit915.i.loopexit, %1041
-  %.4753.i = phi i32 [ %1043, %1041 ], [ %.3752.i, %.loopexit915.i.loopexit ], [ %.5754.i, %.loopexit915.i.loopexit231 ]
-  %.15697.i = phi i32 [ %.7689.i, %1041 ], [ %1003, %.loopexit915.i.loopexit ], [ %1039, %.loopexit915.i.loopexit231 ]
-  %.11650.i = phi i32 [ %971, %1041 ], [ %1001, %.loopexit915.i.loopexit ], [ %1037, %.loopexit915.i.loopexit231 ]
-  %.15.i20 = phi i32 [ %1007, %1041 ], [ %1002, %.loopexit915.i.loopexit ], [ %1038, %.loopexit915.i.loopexit231 ]
+.loopexit915.i:                                   ; preds = %.loopexit915.i.loopexit467, %.loopexit915.i.loopexit, %1041
+  %.4753.i = phi i32 [ %1043, %1041 ], [ %.3752.i, %.loopexit915.i.loopexit ], [ %.5754.i, %.loopexit915.i.loopexit467 ]
+  %.15697.i = phi i32 [ %.7689.i, %1041 ], [ %1003, %.loopexit915.i.loopexit ], [ %1039, %.loopexit915.i.loopexit467 ]
+  %.11650.i = phi i32 [ %971, %1041 ], [ %1001, %.loopexit915.i.loopexit ], [ %1037, %.loopexit915.i.loopexit467 ]
+  %.15.i20 = phi i32 [ %1007, %1041 ], [ %1002, %.loopexit915.i.loopexit ], [ %1038, %.loopexit915.i.loopexit467 ]
   %1046 = xor i32 %.4753.i, %966
   %.not855.i = icmp eq i32 %.4753.i, %966
   %1047 = select i1 %.not855.i, i32 %27, i32 %32
@@ -11942,7 +11942,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1149 = shl i32 %.25.i89, 1
   %1150 = add i32 %.25707.i, -1
   %1151 = icmp ult i32 %1148, 32768
-  br i1 %1151, label %1126, label %.loopexit913.i.loopexit230, !llvm.loop !328
+  br i1 %1151, label %1126, label %.loopexit913.i.loopexit466, !llvm.loop !328
 
 1152:                                             ; preds = %1116
   %1153 = getelementptr inbounds nuw i8, ptr %1080, i64 4
@@ -11955,17 +11955,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.6755.i = select i1 %1086, i32 %1088, i32 %1155
   br label %.loopexit913.i
 
-.loopexit913.i.loopexit230:                       ; preds = %1147
+.loopexit913.i.loopexit466:                       ; preds = %1147
   %.not858.i85 = icmp eq i32 %1124, 0
   %1156 = zext i1 %.not858.i85 to i32
   %.8757.i = select i1 %1122, i32 %1156, i32 %1124
   br label %.loopexit913.i
 
-.loopexit913.i:                                   ; preds = %.loopexit913.i.loopexit230, %.loopexit913.i.loopexit, %1152
-  %.7756.i = phi i32 [ %1154, %1152 ], [ %.6755.i, %.loopexit913.i.loopexit ], [ %.8757.i, %.loopexit913.i.loopexit230 ]
-  %.23705.i = phi i32 [ %.3685.i, %1152 ], [ %1114, %.loopexit913.i.loopexit ], [ %1150, %.loopexit913.i.loopexit230 ]
-  %.16655.i = phi i32 [ %1082, %1152 ], [ %1112, %.loopexit913.i.loopexit ], [ %1148, %.loopexit913.i.loopexit230 ]
-  %.23.i25 = phi i32 [ %1118, %1152 ], [ %1113, %.loopexit913.i.loopexit ], [ %1149, %.loopexit913.i.loopexit230 ]
+.loopexit913.i:                                   ; preds = %.loopexit913.i.loopexit466, %.loopexit913.i.loopexit, %1152
+  %.7756.i = phi i32 [ %1154, %1152 ], [ %.6755.i, %.loopexit913.i.loopexit ], [ %.8757.i, %.loopexit913.i.loopexit466 ]
+  %.23705.i = phi i32 [ %.3685.i, %1152 ], [ %1114, %.loopexit913.i.loopexit ], [ %1150, %.loopexit913.i.loopexit466 ]
+  %.16655.i = phi i32 [ %1082, %1152 ], [ %1112, %.loopexit913.i.loopexit ], [ %1148, %.loopexit913.i.loopexit466 ]
+  %.23.i25 = phi i32 [ %1118, %1152 ], [ %1113, %.loopexit913.i.loopexit ], [ %1149, %.loopexit913.i.loopexit466 ]
   %.not861.i26 = icmp eq i32 %.7756.i, 0
   br i1 %.not861.i26, label %1267, label %1157
 
@@ -12123,7 +12123,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1249 = shl i32 %.33.i80, 1
   %1250 = add i32 %.33715.i, -1
   %1251 = icmp ult i32 %1248, 32768
-  br i1 %1251, label %1226, label %.loopexit911.i.loopexit229, !llvm.loop !330
+  br i1 %1251, label %1226, label %.loopexit911.i.loopexit465, !llvm.loop !330
 
 1252:                                             ; preds = %1216
   %1253 = getelementptr inbounds nuw i8, ptr %1180, i64 4
@@ -12136,17 +12136,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.9758.i = select i1 %1186, i32 %1188, i32 %1255
   br label %.loopexit911.i
 
-.loopexit911.i.loopexit229:                       ; preds = %1247
+.loopexit911.i.loopexit465:                       ; preds = %1247
   %.not863.i = icmp eq i32 %1224, 0
   %1256 = zext i1 %.not863.i to i32
   %.11760.i = select i1 %1222, i32 %1256, i32 %1224
   br label %.loopexit911.i
 
-.loopexit911.i:                                   ; preds = %.loopexit911.i.loopexit229, %.loopexit911.i.loopexit, %1252
-  %.10759.i = phi i32 [ %1254, %1252 ], [ %.9758.i, %.loopexit911.i.loopexit ], [ %.11760.i, %.loopexit911.i.loopexit229 ]
-  %.31713.i = phi i32 [ %.23705.i, %1252 ], [ %1214, %.loopexit911.i.loopexit ], [ %1250, %.loopexit911.i.loopexit229 ]
-  %.21660.i = phi i32 [ %1182, %1252 ], [ %1212, %.loopexit911.i.loopexit ], [ %1248, %.loopexit911.i.loopexit229 ]
-  %.31.i27 = phi i32 [ %1218, %1252 ], [ %1213, %.loopexit911.i.loopexit ], [ %1249, %.loopexit911.i.loopexit229 ]
+.loopexit911.i:                                   ; preds = %.loopexit911.i.loopexit465, %.loopexit911.i.loopexit, %1252
+  %.10759.i = phi i32 [ %1254, %1252 ], [ %.9758.i, %.loopexit911.i.loopexit ], [ %.11760.i, %.loopexit911.i.loopexit465 ]
+  %.31713.i = phi i32 [ %.23705.i, %1252 ], [ %1214, %.loopexit911.i.loopexit ], [ %1250, %.loopexit911.i.loopexit465 ]
+  %.21660.i = phi i32 [ %1182, %1252 ], [ %1212, %.loopexit911.i.loopexit ], [ %1248, %.loopexit911.i.loopexit465 ]
+  %.31.i27 = phi i32 [ %1218, %1252 ], [ %1213, %.loopexit911.i.loopexit ], [ %1249, %.loopexit911.i.loopexit465 ]
   %1257 = xor i32 %.10759.i, %1177
   %.not866.i = icmp eq i32 %.10759.i, %1177
   %1258 = select i1 %.not866.i, i32 %27, i32 %32
@@ -12322,7 +12322,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1350 = shl i32 %.41.i72, 1
   %1351 = add i32 %.41723.i, -1
   %1352 = icmp ult i32 %1349, 32768
-  br i1 %1352, label %1327, label %.loopexit909.i.loopexit228, !llvm.loop !332
+  br i1 %1352, label %1327, label %.loopexit909.i.loopexit464, !llvm.loop !332
 
 1353:                                             ; preds = %1317
   %1354 = getelementptr inbounds nuw i8, ptr %1281, i64 4
@@ -12335,17 +12335,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.12761.i = select i1 %1287, i32 %1289, i32 %1356
   br label %.loopexit909.i
 
-.loopexit909.i.loopexit228:                       ; preds = %1348
+.loopexit909.i.loopexit464:                       ; preds = %1348
   %.not869.i68 = icmp eq i32 %1325, 0
   %1357 = zext i1 %.not869.i68 to i32
   %.14763.i = select i1 %1323, i32 %1357, i32 %1325
   br label %.loopexit909.i
 
-.loopexit909.i:                                   ; preds = %.loopexit909.i.loopexit228, %.loopexit909.i.loopexit, %1353
-  %.13762.i = phi i32 [ %1355, %1353 ], [ %.12761.i, %.loopexit909.i.loopexit ], [ %.14763.i, %.loopexit909.i.loopexit228 ]
-  %.39721.i = phi i32 [ %.19701.i, %1353 ], [ %1315, %.loopexit909.i.loopexit ], [ %1351, %.loopexit909.i.loopexit228 ]
-  %.26665.i = phi i32 [ %1283, %1353 ], [ %1313, %.loopexit909.i.loopexit ], [ %1349, %.loopexit909.i.loopexit228 ]
-  %.39.i33 = phi i32 [ %1319, %1353 ], [ %1314, %.loopexit909.i.loopexit ], [ %1350, %.loopexit909.i.loopexit228 ]
+.loopexit909.i:                                   ; preds = %.loopexit909.i.loopexit464, %.loopexit909.i.loopexit, %1353
+  %.13762.i = phi i32 [ %1355, %1353 ], [ %.12761.i, %.loopexit909.i.loopexit ], [ %.14763.i, %.loopexit909.i.loopexit464 ]
+  %.39721.i = phi i32 [ %.19701.i, %1353 ], [ %1315, %.loopexit909.i.loopexit ], [ %1351, %.loopexit909.i.loopexit464 ]
+  %.26665.i = phi i32 [ %1283, %1353 ], [ %1313, %.loopexit909.i.loopexit ], [ %1349, %.loopexit909.i.loopexit464 ]
+  %.39.i33 = phi i32 [ %1319, %1353 ], [ %1314, %.loopexit909.i.loopexit ], [ %1350, %.loopexit909.i.loopexit464 ]
   %.not872.i34 = icmp eq i32 %.13762.i, 0
   br i1 %.not872.i34, label %1468, label %1358
 
@@ -12503,7 +12503,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1450 = shl i32 %.49.i63, 1
   %1451 = add i32 %.49731.i, -1
   %1452 = icmp ult i32 %1449, 32768
-  br i1 %1452, label %1427, label %.loopexit907.i.loopexit227, !llvm.loop !334
+  br i1 %1452, label %1427, label %.loopexit907.i.loopexit463, !llvm.loop !334
 
 1453:                                             ; preds = %1417
   %1454 = getelementptr inbounds nuw i8, ptr %1381, i64 4
@@ -12516,17 +12516,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.15764.i = select i1 %1387, i32 %1389, i32 %1456
   br label %.loopexit907.i
 
-.loopexit907.i.loopexit227:                       ; preds = %1448
+.loopexit907.i.loopexit463:                       ; preds = %1448
   %.not874.i = icmp eq i32 %1425, 0
   %1457 = zext i1 %.not874.i to i32
   %.17766.i = select i1 %1423, i32 %1457, i32 %1425
   br label %.loopexit907.i
 
-.loopexit907.i:                                   ; preds = %.loopexit907.i.loopexit227, %.loopexit907.i.loopexit, %1453
-  %.16765.i = phi i32 [ %1455, %1453 ], [ %.15764.i, %.loopexit907.i.loopexit ], [ %.17766.i, %.loopexit907.i.loopexit227 ]
-  %.47729.i = phi i32 [ %.39721.i, %1453 ], [ %1415, %.loopexit907.i.loopexit ], [ %1451, %.loopexit907.i.loopexit227 ]
-  %.31670.i = phi i32 [ %1383, %1453 ], [ %1413, %.loopexit907.i.loopexit ], [ %1449, %.loopexit907.i.loopexit227 ]
-  %.47.i35 = phi i32 [ %1419, %1453 ], [ %1414, %.loopexit907.i.loopexit ], [ %1450, %.loopexit907.i.loopexit227 ]
+.loopexit907.i:                                   ; preds = %.loopexit907.i.loopexit463, %.loopexit907.i.loopexit, %1453
+  %.16765.i = phi i32 [ %1455, %1453 ], [ %.15764.i, %.loopexit907.i.loopexit ], [ %.17766.i, %.loopexit907.i.loopexit463 ]
+  %.47729.i = phi i32 [ %.39721.i, %1453 ], [ %1415, %.loopexit907.i.loopexit ], [ %1451, %.loopexit907.i.loopexit463 ]
+  %.31670.i = phi i32 [ %1383, %1453 ], [ %1413, %.loopexit907.i.loopexit ], [ %1449, %.loopexit907.i.loopexit463 ]
+  %.47.i35 = phi i32 [ %1419, %1453 ], [ %1414, %.loopexit907.i.loopexit ], [ %1450, %.loopexit907.i.loopexit463 ]
   %1458 = xor i32 %.16765.i, %1378
   %.not877.i = icmp eq i32 %.16765.i, %1378
   %1459 = select i1 %.not877.i, i32 %27, i32 %32
@@ -12702,7 +12702,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1551 = shl i32 %.57.i57, 1
   %1552 = add i32 %.57739.i, -1
   %1553 = icmp ult i32 %1550, 32768
-  br i1 %1553, label %1528, label %.loopexit905.i.loopexit226, !llvm.loop !336
+  br i1 %1553, label %1528, label %.loopexit905.i.loopexit462, !llvm.loop !336
 
 1554:                                             ; preds = %1518
   %1555 = getelementptr inbounds nuw i8, ptr %1482, i64 4
@@ -12715,17 +12715,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.18767.i = select i1 %1488, i32 %1490, i32 %1557
   br label %.loopexit905.i
 
-.loopexit905.i.loopexit226:                       ; preds = %1549
+.loopexit905.i.loopexit462:                       ; preds = %1549
   %.not880.i54 = icmp eq i32 %1526, 0
   %1558 = zext i1 %.not880.i54 to i32
   %.20769.i = select i1 %1524, i32 %1558, i32 %1526
   br label %.loopexit905.i
 
-.loopexit905.i:                                   ; preds = %.loopexit905.i.loopexit226, %.loopexit905.i.loopexit, %1554
-  %.19768.i = phi i32 [ %1556, %1554 ], [ %.18767.i, %.loopexit905.i.loopexit ], [ %.20769.i, %.loopexit905.i.loopexit226 ]
-  %.55737.i = phi i32 [ %.35717.i, %1554 ], [ %1516, %.loopexit905.i.loopexit ], [ %1552, %.loopexit905.i.loopexit226 ]
-  %.36675.i = phi i32 [ %1484, %1554 ], [ %1514, %.loopexit905.i.loopexit ], [ %1550, %.loopexit905.i.loopexit226 ]
-  %.55.i41 = phi i32 [ %1520, %1554 ], [ %1515, %.loopexit905.i.loopexit ], [ %1551, %.loopexit905.i.loopexit226 ]
+.loopexit905.i:                                   ; preds = %.loopexit905.i.loopexit462, %.loopexit905.i.loopexit, %1554
+  %.19768.i = phi i32 [ %1556, %1554 ], [ %.18767.i, %.loopexit905.i.loopexit ], [ %.20769.i, %.loopexit905.i.loopexit462 ]
+  %.55737.i = phi i32 [ %.35717.i, %1554 ], [ %1516, %.loopexit905.i.loopexit ], [ %1552, %.loopexit905.i.loopexit462 ]
+  %.36675.i = phi i32 [ %1484, %1554 ], [ %1514, %.loopexit905.i.loopexit ], [ %1550, %.loopexit905.i.loopexit462 ]
+  %.55.i41 = phi i32 [ %1520, %1554 ], [ %1515, %.loopexit905.i.loopexit ], [ %1551, %.loopexit905.i.loopexit462 ]
   %.not883.i42 = icmp eq i32 %.19768.i, 0
   br i1 %.not883.i42, label %1680, label %1559
 
@@ -12883,7 +12883,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1651 = shl i32 %.65.i51, 1
   %1652 = add i32 %.65747.i, -1
   %1653 = icmp ult i32 %1650, 32768
-  br i1 %1653, label %1628, label %.loopexit.i43.loopexit225, !llvm.loop !338
+  br i1 %1653, label %1628, label %.loopexit.i43.loopexit461, !llvm.loop !338
 
 1654:                                             ; preds = %1618
   %1655 = getelementptr inbounds nuw i8, ptr %1582, i64 4
@@ -12896,17 +12896,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.21770.i = select i1 %1588, i32 %1590, i32 %1657
   br label %.loopexit.i43
 
-.loopexit.i43.loopexit225:                        ; preds = %1649
+.loopexit.i43.loopexit461:                        ; preds = %1649
   %.not885.i = icmp eq i32 %1626, 0
   %1658 = zext i1 %.not885.i to i32
   %.23772.i = select i1 %1624, i32 %1658, i32 %1626
   br label %.loopexit.i43
 
-.loopexit.i43:                                    ; preds = %.loopexit.i43.loopexit225, %.loopexit.i43.loopexit, %1654
-  %.22771.i = phi i32 [ %1656, %1654 ], [ %.21770.i, %.loopexit.i43.loopexit ], [ %.23772.i, %.loopexit.i43.loopexit225 ]
-  %.63745.i = phi i32 [ %.55737.i, %1654 ], [ %1616, %.loopexit.i43.loopexit ], [ %1652, %.loopexit.i43.loopexit225 ]
-  %.41680.i = phi i32 [ %1584, %1654 ], [ %1614, %.loopexit.i43.loopexit ], [ %1650, %.loopexit.i43.loopexit225 ]
-  %.63.i44 = phi i32 [ %1620, %1654 ], [ %1615, %.loopexit.i43.loopexit ], [ %1651, %.loopexit.i43.loopexit225 ]
+.loopexit.i43:                                    ; preds = %.loopexit.i43.loopexit461, %.loopexit.i43.loopexit, %1654
+  %.22771.i = phi i32 [ %1656, %1654 ], [ %.21770.i, %.loopexit.i43.loopexit ], [ %.23772.i, %.loopexit.i43.loopexit461 ]
+  %.63745.i = phi i32 [ %.55737.i, %1654 ], [ %1616, %.loopexit.i43.loopexit ], [ %1652, %.loopexit.i43.loopexit461 ]
+  %.41680.i = phi i32 [ %1584, %1654 ], [ %1614, %.loopexit.i43.loopexit ], [ %1650, %.loopexit.i43.loopexit461 ]
+  %.63.i44 = phi i32 [ %1620, %1654 ], [ %1615, %.loopexit.i43.loopexit ], [ %1651, %.loopexit.i43.loopexit461 ]
   %1659 = xor i32 %.22771.i, %1579
   %.not888.i = icmp eq i32 %.22771.i, %1579
   %1660 = select i1 %.not888.i, i32 %27, i32 %32
@@ -13127,7 +13127,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1777 = shl i32 %.9647.us.i, 1
   %1778 = add i32 %.9701.us.i, -1
   %1779 = icmp ult i32 %1776, 32768
-  br i1 %1779, label %1754, label %.loopexit932.us.i.loopexit257, !llvm.loop !341
+  br i1 %1779, label %1754, label %.loopexit932.us.i.loopexit493, !llvm.loop !341
 
 1780:                                             ; preds = %1730
   %1781 = icmp ult i32 %1738, %1737
@@ -13193,17 +13193,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.0759.us.i = select i1 %1781, i32 %1783, i32 %1811
   br label %.loopexit932.us.i
 
-.loopexit932.us.i.loopexit257:                    ; preds = %1775
+.loopexit932.us.i.loopexit493:                    ; preds = %1775
   %.not860.us.i = icmp eq i32 %1752, 0
   %1812 = zext i1 %.not860.us.i to i32
   %.2761.us.i = select i1 %1750, i32 %1812, i32 %1752
   br label %.loopexit932.us.i
 
-.loopexit932.us.i:                                ; preds = %.loopexit932.us.i.loopexit257, %.loopexit932.us.i.loopexit, %1746
-  %.1760.us.i = phi i32 [ %1748, %1746 ], [ %.0759.us.i, %.loopexit932.us.i.loopexit ], [ %.2761.us.i, %.loopexit932.us.i.loopexit257 ]
-  %.7699.us.i = phi i32 [ %.1693984.us.i, %1746 ], [ %1809, %.loopexit932.us.i.loopexit ], [ %1778, %.loopexit932.us.i.loopexit257 ]
-  %.6655.us.i = phi i32 [ %1738, %1746 ], [ %1807, %.loopexit932.us.i.loopexit ], [ %1776, %.loopexit932.us.i.loopexit257 ]
-  %.7645.us.i = phi i32 [ %1743, %1746 ], [ %1808, %.loopexit932.us.i.loopexit ], [ %1777, %.loopexit932.us.i.loopexit257 ]
+.loopexit932.us.i:                                ; preds = %.loopexit932.us.i.loopexit493, %.loopexit932.us.i.loopexit, %1746
+  %.1760.us.i = phi i32 [ %1748, %1746 ], [ %.0759.us.i, %.loopexit932.us.i.loopexit ], [ %.2761.us.i, %.loopexit932.us.i.loopexit493 ]
+  %.7699.us.i = phi i32 [ %.1693984.us.i, %1746 ], [ %1809, %.loopexit932.us.i.loopexit ], [ %1778, %.loopexit932.us.i.loopexit493 ]
+  %.6655.us.i = phi i32 [ %1738, %1746 ], [ %1807, %.loopexit932.us.i.loopexit ], [ %1776, %.loopexit932.us.i.loopexit493 ]
+  %.7645.us.i = phi i32 [ %1743, %1746 ], [ %1808, %.loopexit932.us.i.loopexit ], [ %1777, %.loopexit932.us.i.loopexit493 ]
   %.not863.us.i = icmp eq i32 %.1760.us.i, 0
   br i1 %.not863.us.i, label %1922, label %1813
 
@@ -13308,7 +13308,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1877 = shl i32 %.17.us.i, 1
   %1878 = add i32 %.17709.us.i, -1
   %1879 = icmp ult i32 %1876, 32768
-  br i1 %1879, label %1854, label %.loopexit930.us.i.loopexit256, !llvm.loop !343
+  br i1 %1879, label %1854, label %.loopexit930.us.i.loopexit492, !llvm.loop !343
 
 1880:                                             ; preds = %1813
   %1881 = icmp ult i32 %1838, %1837
@@ -13374,17 +13374,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.3762.us.i = select i1 %1881, i32 %1883, i32 %1911
   br label %.loopexit930.us.i
 
-.loopexit930.us.i.loopexit256:                    ; preds = %1875
+.loopexit930.us.i.loopexit492:                    ; preds = %1875
   %.not865.us.i = icmp eq i32 %1852, 0
   %1912 = zext i1 %.not865.us.i to i32
   %.5764.us.i = select i1 %1850, i32 %1912, i32 %1852
   br label %.loopexit930.us.i
 
-.loopexit930.us.i:                                ; preds = %.loopexit930.us.i.loopexit256, %.loopexit930.us.i.loopexit, %1846
-  %.4763.us.i = phi i32 [ %1848, %1846 ], [ %.3762.us.i, %.loopexit930.us.i.loopexit ], [ %.5764.us.i, %.loopexit930.us.i.loopexit256 ]
-  %.15707.us.i = phi i32 [ %.7699.us.i, %1846 ], [ %1909, %.loopexit930.us.i.loopexit ], [ %1878, %.loopexit930.us.i.loopexit256 ]
-  %.11660.us.i = phi i32 [ %1838, %1846 ], [ %1907, %.loopexit930.us.i.loopexit ], [ %1876, %.loopexit930.us.i.loopexit256 ]
-  %.15.us.i = phi i32 [ %1843, %1846 ], [ %1908, %.loopexit930.us.i.loopexit ], [ %1877, %.loopexit930.us.i.loopexit256 ]
+.loopexit930.us.i:                                ; preds = %.loopexit930.us.i.loopexit492, %.loopexit930.us.i.loopexit, %1846
+  %.4763.us.i = phi i32 [ %1848, %1846 ], [ %.3762.us.i, %.loopexit930.us.i.loopexit ], [ %.5764.us.i, %.loopexit930.us.i.loopexit492 ]
+  %.15707.us.i = phi i32 [ %.7699.us.i, %1846 ], [ %1909, %.loopexit930.us.i.loopexit ], [ %1878, %.loopexit930.us.i.loopexit492 ]
+  %.11660.us.i = phi i32 [ %1838, %1846 ], [ %1907, %.loopexit930.us.i.loopexit ], [ %1876, %.loopexit930.us.i.loopexit492 ]
+  %.15.us.i = phi i32 [ %1843, %1846 ], [ %1908, %.loopexit930.us.i.loopexit ], [ %1877, %.loopexit930.us.i.loopexit492 ]
   %1913 = xor i32 %.4763.us.i, %1833
   %.not868.us.i = icmp eq i32 %.4763.us.i, %1833
   %1914 = select i1 %.not868.us.i, i32 %1710, i32 %1718
@@ -13506,7 +13506,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1977 = shl i32 %.25.us.i, 1
   %1978 = add i32 %.25717.us.i, -1
   %1979 = icmp ult i32 %1976, 32768
-  br i1 %1979, label %1954, label %.loopexit928.us.i.loopexit255, !llvm.loop !345
+  br i1 %1979, label %1954, label %.loopexit928.us.i.loopexit491, !llvm.loop !345
 
 1980:                                             ; preds = %1928
   %1981 = icmp ult i32 %1938, %1937
@@ -13572,17 +13572,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.6765.us.i = select i1 %1981, i32 %1983, i32 %2011
   br label %.loopexit928.us.i
 
-.loopexit928.us.i.loopexit255:                    ; preds = %1975
+.loopexit928.us.i.loopexit491:                    ; preds = %1975
   %.not871.us.i = icmp eq i32 %1952, 0
   %2012 = zext i1 %.not871.us.i to i32
   %.8767.us.i = select i1 %1950, i32 %2012, i32 %1952
   br label %.loopexit928.us.i
 
-.loopexit928.us.i:                                ; preds = %.loopexit928.us.i.loopexit255, %.loopexit928.us.i.loopexit, %1946
-  %.7766.us.i = phi i32 [ %1948, %1946 ], [ %.6765.us.i, %.loopexit928.us.i.loopexit ], [ %.8767.us.i, %.loopexit928.us.i.loopexit255 ]
-  %.23715.us.i = phi i32 [ %.3695.us.i, %1946 ], [ %2009, %.loopexit928.us.i.loopexit ], [ %1978, %.loopexit928.us.i.loopexit255 ]
-  %.16665.us.i = phi i32 [ %1938, %1946 ], [ %2007, %.loopexit928.us.i.loopexit ], [ %1976, %.loopexit928.us.i.loopexit255 ]
-  %.23.us.i = phi i32 [ %1943, %1946 ], [ %2008, %.loopexit928.us.i.loopexit ], [ %1977, %.loopexit928.us.i.loopexit255 ]
+.loopexit928.us.i:                                ; preds = %.loopexit928.us.i.loopexit491, %.loopexit928.us.i.loopexit, %1946
+  %.7766.us.i = phi i32 [ %1948, %1946 ], [ %.6765.us.i, %.loopexit928.us.i.loopexit ], [ %.8767.us.i, %.loopexit928.us.i.loopexit491 ]
+  %.23715.us.i = phi i32 [ %.3695.us.i, %1946 ], [ %2009, %.loopexit928.us.i.loopexit ], [ %1978, %.loopexit928.us.i.loopexit491 ]
+  %.16665.us.i = phi i32 [ %1938, %1946 ], [ %2007, %.loopexit928.us.i.loopexit ], [ %1976, %.loopexit928.us.i.loopexit491 ]
+  %.23.us.i = phi i32 [ %1943, %1946 ], [ %2008, %.loopexit928.us.i.loopexit ], [ %1977, %.loopexit928.us.i.loopexit491 ]
   %.not874.us.i = icmp eq i32 %.7766.us.i, 0
   br i1 %.not874.us.i, label %2123, label %2013
 
@@ -13687,7 +13687,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2077 = shl i32 %.33.us.i, 1
   %2078 = add i32 %.33725.us.i, -1
   %2079 = icmp ult i32 %2076, 32768
-  br i1 %2079, label %2054, label %.loopexit926.us.i.loopexit254, !llvm.loop !347
+  br i1 %2079, label %2054, label %.loopexit926.us.i.loopexit490, !llvm.loop !347
 
 2080:                                             ; preds = %2013
   %2081 = icmp ult i32 %2038, %2037
@@ -13753,17 +13753,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.9768.us.i = select i1 %2081, i32 %2083, i32 %2111
   br label %.loopexit926.us.i
 
-.loopexit926.us.i.loopexit254:                    ; preds = %2075
+.loopexit926.us.i.loopexit490:                    ; preds = %2075
   %.not876.us.i = icmp eq i32 %2052, 0
   %2112 = zext i1 %.not876.us.i to i32
   %.11770.us.i = select i1 %2050, i32 %2112, i32 %2052
   br label %.loopexit926.us.i
 
-.loopexit926.us.i:                                ; preds = %.loopexit926.us.i.loopexit254, %.loopexit926.us.i.loopexit, %2046
-  %.10769.us.i = phi i32 [ %2048, %2046 ], [ %.9768.us.i, %.loopexit926.us.i.loopexit ], [ %.11770.us.i, %.loopexit926.us.i.loopexit254 ]
-  %.31723.us.i = phi i32 [ %.23715.us.i, %2046 ], [ %2109, %.loopexit926.us.i.loopexit ], [ %2078, %.loopexit926.us.i.loopexit254 ]
-  %.21670.us.i = phi i32 [ %2038, %2046 ], [ %2107, %.loopexit926.us.i.loopexit ], [ %2076, %.loopexit926.us.i.loopexit254 ]
-  %.31.us.i = phi i32 [ %2043, %2046 ], [ %2108, %.loopexit926.us.i.loopexit ], [ %2077, %.loopexit926.us.i.loopexit254 ]
+.loopexit926.us.i:                                ; preds = %.loopexit926.us.i.loopexit490, %.loopexit926.us.i.loopexit, %2046
+  %.10769.us.i = phi i32 [ %2048, %2046 ], [ %.9768.us.i, %.loopexit926.us.i.loopexit ], [ %.11770.us.i, %.loopexit926.us.i.loopexit490 ]
+  %.31723.us.i = phi i32 [ %.23715.us.i, %2046 ], [ %2109, %.loopexit926.us.i.loopexit ], [ %2078, %.loopexit926.us.i.loopexit490 ]
+  %.21670.us.i = phi i32 [ %2038, %2046 ], [ %2107, %.loopexit926.us.i.loopexit ], [ %2076, %.loopexit926.us.i.loopexit490 ]
+  %.31.us.i = phi i32 [ %2043, %2046 ], [ %2108, %.loopexit926.us.i.loopexit ], [ %2077, %.loopexit926.us.i.loopexit490 ]
   %2113 = xor i32 %.10769.us.i, %2033
   %.not879.us.i = icmp eq i32 %.10769.us.i, %2033
   %2114 = select i1 %.not879.us.i, i32 %1710, i32 %1718
@@ -13886,7 +13886,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2178 = shl i32 %.41.us.i, 1
   %2179 = add i32 %.41733.us.i, -1
   %2180 = icmp ult i32 %2177, 32768
-  br i1 %2180, label %2155, label %.loopexit924.us.i.loopexit253, !llvm.loop !349
+  br i1 %2180, label %2155, label %.loopexit924.us.i.loopexit489, !llvm.loop !349
 
 2181:                                             ; preds = %2129
   %2182 = icmp ult i32 %2139, %2138
@@ -13952,17 +13952,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.12771.us.i = select i1 %2182, i32 %2184, i32 %2212
   br label %.loopexit924.us.i
 
-.loopexit924.us.i.loopexit253:                    ; preds = %2176
+.loopexit924.us.i.loopexit489:                    ; preds = %2176
   %.not882.us.i = icmp eq i32 %2153, 0
   %2213 = zext i1 %.not882.us.i to i32
   %.14773.us.i = select i1 %2151, i32 %2213, i32 %2153
   br label %.loopexit924.us.i
 
-.loopexit924.us.i:                                ; preds = %.loopexit924.us.i.loopexit253, %.loopexit924.us.i.loopexit, %2147
-  %.13772.us.i = phi i32 [ %2149, %2147 ], [ %.12771.us.i, %.loopexit924.us.i.loopexit ], [ %.14773.us.i, %.loopexit924.us.i.loopexit253 ]
-  %.39731.us.i = phi i32 [ %.19711.us.i, %2147 ], [ %2210, %.loopexit924.us.i.loopexit ], [ %2179, %.loopexit924.us.i.loopexit253 ]
-  %.26675.us.i = phi i32 [ %2139, %2147 ], [ %2208, %.loopexit924.us.i.loopexit ], [ %2177, %.loopexit924.us.i.loopexit253 ]
-  %.39.us.i = phi i32 [ %2144, %2147 ], [ %2209, %.loopexit924.us.i.loopexit ], [ %2178, %.loopexit924.us.i.loopexit253 ]
+.loopexit924.us.i:                                ; preds = %.loopexit924.us.i.loopexit489, %.loopexit924.us.i.loopexit, %2147
+  %.13772.us.i = phi i32 [ %2149, %2147 ], [ %.12771.us.i, %.loopexit924.us.i.loopexit ], [ %.14773.us.i, %.loopexit924.us.i.loopexit489 ]
+  %.39731.us.i = phi i32 [ %.19711.us.i, %2147 ], [ %2210, %.loopexit924.us.i.loopexit ], [ %2179, %.loopexit924.us.i.loopexit489 ]
+  %.26675.us.i = phi i32 [ %2139, %2147 ], [ %2208, %.loopexit924.us.i.loopexit ], [ %2177, %.loopexit924.us.i.loopexit489 ]
+  %.39.us.i = phi i32 [ %2144, %2147 ], [ %2209, %.loopexit924.us.i.loopexit ], [ %2178, %.loopexit924.us.i.loopexit489 ]
   %.not885.us.i = icmp eq i32 %.13772.us.i, 0
   br i1 %.not885.us.i, label %2324, label %2214
 
@@ -14067,7 +14067,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2278 = shl i32 %.49.us.i, 1
   %2279 = add i32 %.49741.us.i, -1
   %2280 = icmp ult i32 %2277, 32768
-  br i1 %2280, label %2255, label %.loopexit922.us.i.loopexit252, !llvm.loop !351
+  br i1 %2280, label %2255, label %.loopexit922.us.i.loopexit488, !llvm.loop !351
 
 2281:                                             ; preds = %2214
   %2282 = icmp ult i32 %2239, %2238
@@ -14133,17 +14133,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.15774.us.i = select i1 %2282, i32 %2284, i32 %2312
   br label %.loopexit922.us.i
 
-.loopexit922.us.i.loopexit252:                    ; preds = %2276
+.loopexit922.us.i.loopexit488:                    ; preds = %2276
   %.not887.us.i = icmp eq i32 %2253, 0
   %2313 = zext i1 %.not887.us.i to i32
   %.17776.us.i = select i1 %2251, i32 %2313, i32 %2253
   br label %.loopexit922.us.i
 
-.loopexit922.us.i:                                ; preds = %.loopexit922.us.i.loopexit252, %.loopexit922.us.i.loopexit, %2247
-  %.16775.us.i = phi i32 [ %2249, %2247 ], [ %.15774.us.i, %.loopexit922.us.i.loopexit ], [ %.17776.us.i, %.loopexit922.us.i.loopexit252 ]
-  %.47739.us.i = phi i32 [ %.39731.us.i, %2247 ], [ %2310, %.loopexit922.us.i.loopexit ], [ %2279, %.loopexit922.us.i.loopexit252 ]
-  %.31680.us.i = phi i32 [ %2239, %2247 ], [ %2308, %.loopexit922.us.i.loopexit ], [ %2277, %.loopexit922.us.i.loopexit252 ]
-  %.47.us.i = phi i32 [ %2244, %2247 ], [ %2309, %.loopexit922.us.i.loopexit ], [ %2278, %.loopexit922.us.i.loopexit252 ]
+.loopexit922.us.i:                                ; preds = %.loopexit922.us.i.loopexit488, %.loopexit922.us.i.loopexit, %2247
+  %.16775.us.i = phi i32 [ %2249, %2247 ], [ %.15774.us.i, %.loopexit922.us.i.loopexit ], [ %.17776.us.i, %.loopexit922.us.i.loopexit488 ]
+  %.47739.us.i = phi i32 [ %.39731.us.i, %2247 ], [ %2310, %.loopexit922.us.i.loopexit ], [ %2279, %.loopexit922.us.i.loopexit488 ]
+  %.31680.us.i = phi i32 [ %2239, %2247 ], [ %2308, %.loopexit922.us.i.loopexit ], [ %2277, %.loopexit922.us.i.loopexit488 ]
+  %.47.us.i = phi i32 [ %2244, %2247 ], [ %2309, %.loopexit922.us.i.loopexit ], [ %2278, %.loopexit922.us.i.loopexit488 ]
   %2314 = xor i32 %.16775.us.i, %2234
   %.not890.us.i = icmp eq i32 %.16775.us.i, %2234
   %2315 = select i1 %.not890.us.i, i32 %1710, i32 %1718
@@ -14266,7 +14266,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2379 = shl i32 %.57.us.i, 1
   %2380 = add i32 %.57749.us.i, -1
   %2381 = icmp ult i32 %2378, 32768
-  br i1 %2381, label %2356, label %.loopexit920.us.i.loopexit251, !llvm.loop !353
+  br i1 %2381, label %2356, label %.loopexit920.us.i.loopexit487, !llvm.loop !353
 
 2382:                                             ; preds = %2330
   %2383 = icmp ult i32 %2340, %2339
@@ -14332,17 +14332,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.18777.us.i = select i1 %2383, i32 %2385, i32 %2413
   br label %.loopexit920.us.i
 
-.loopexit920.us.i.loopexit251:                    ; preds = %2377
+.loopexit920.us.i.loopexit487:                    ; preds = %2377
   %.not893.us.i = icmp eq i32 %2354, 0
   %2414 = zext i1 %.not893.us.i to i32
   %.20779.us.i = select i1 %2352, i32 %2414, i32 %2354
   br label %.loopexit920.us.i
 
-.loopexit920.us.i:                                ; preds = %.loopexit920.us.i.loopexit251, %.loopexit920.us.i.loopexit, %2348
-  %.19778.us.i = phi i32 [ %2350, %2348 ], [ %.18777.us.i, %.loopexit920.us.i.loopexit ], [ %.20779.us.i, %.loopexit920.us.i.loopexit251 ]
-  %.55747.us.i = phi i32 [ %.35727.us.i, %2348 ], [ %2411, %.loopexit920.us.i.loopexit ], [ %2380, %.loopexit920.us.i.loopexit251 ]
-  %.36685.us.i = phi i32 [ %2340, %2348 ], [ %2409, %.loopexit920.us.i.loopexit ], [ %2378, %.loopexit920.us.i.loopexit251 ]
-  %.55.us.i = phi i32 [ %2345, %2348 ], [ %2410, %.loopexit920.us.i.loopexit ], [ %2379, %.loopexit920.us.i.loopexit251 ]
+.loopexit920.us.i:                                ; preds = %.loopexit920.us.i.loopexit487, %.loopexit920.us.i.loopexit, %2348
+  %.19778.us.i = phi i32 [ %2350, %2348 ], [ %.18777.us.i, %.loopexit920.us.i.loopexit ], [ %.20779.us.i, %.loopexit920.us.i.loopexit487 ]
+  %.55747.us.i = phi i32 [ %.35727.us.i, %2348 ], [ %2411, %.loopexit920.us.i.loopexit ], [ %2380, %.loopexit920.us.i.loopexit487 ]
+  %.36685.us.i = phi i32 [ %2340, %2348 ], [ %2409, %.loopexit920.us.i.loopexit ], [ %2378, %.loopexit920.us.i.loopexit487 ]
+  %.55.us.i = phi i32 [ %2345, %2348 ], [ %2410, %.loopexit920.us.i.loopexit ], [ %2379, %.loopexit920.us.i.loopexit487 ]
   %.not896.us.i = icmp eq i32 %.19778.us.i, 0
   br i1 %.not896.us.i, label %2539, label %2415
 
@@ -14447,7 +14447,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2479 = shl i32 %.65.us.i, 1
   %2480 = add i32 %.65757.us.i, -1
   %2481 = icmp ult i32 %2478, 32768
-  br i1 %2481, label %2456, label %.loopexit918.us.i.loopexit250, !llvm.loop !355
+  br i1 %2481, label %2456, label %.loopexit918.us.i.loopexit486, !llvm.loop !355
 
 2482:                                             ; preds = %2415
   %2483 = icmp ult i32 %2440, %2439
@@ -14513,17 +14513,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.21780.us.i = select i1 %2483, i32 %2485, i32 %2513
   br label %.loopexit918.us.i
 
-.loopexit918.us.i.loopexit250:                    ; preds = %2477
+.loopexit918.us.i.loopexit486:                    ; preds = %2477
   %.not898.us.i = icmp eq i32 %2454, 0
   %2514 = zext i1 %.not898.us.i to i32
   %.23782.us.i = select i1 %2452, i32 %2514, i32 %2454
   br label %.loopexit918.us.i
 
-.loopexit918.us.i:                                ; preds = %.loopexit918.us.i.loopexit250, %.loopexit918.us.i.loopexit, %2448
-  %.22781.us.i = phi i32 [ %2450, %2448 ], [ %.21780.us.i, %.loopexit918.us.i.loopexit ], [ %.23782.us.i, %.loopexit918.us.i.loopexit250 ]
-  %.63755.us.i = phi i32 [ %.55747.us.i, %2448 ], [ %2511, %.loopexit918.us.i.loopexit ], [ %2480, %.loopexit918.us.i.loopexit250 ]
-  %.41690.us.i = phi i32 [ %2440, %2448 ], [ %2509, %.loopexit918.us.i.loopexit ], [ %2478, %.loopexit918.us.i.loopexit250 ]
-  %.63.us.i = phi i32 [ %2445, %2448 ], [ %2510, %.loopexit918.us.i.loopexit ], [ %2479, %.loopexit918.us.i.loopexit250 ]
+.loopexit918.us.i:                                ; preds = %.loopexit918.us.i.loopexit486, %.loopexit918.us.i.loopexit, %2448
+  %.22781.us.i = phi i32 [ %2450, %2448 ], [ %.21780.us.i, %.loopexit918.us.i.loopexit ], [ %.23782.us.i, %.loopexit918.us.i.loopexit486 ]
+  %.63755.us.i = phi i32 [ %.55747.us.i, %2448 ], [ %2511, %.loopexit918.us.i.loopexit ], [ %2480, %.loopexit918.us.i.loopexit486 ]
+  %.41690.us.i = phi i32 [ %2440, %2448 ], [ %2509, %.loopexit918.us.i.loopexit ], [ %2478, %.loopexit918.us.i.loopexit486 ]
+  %.63.us.i = phi i32 [ %2445, %2448 ], [ %2510, %.loopexit918.us.i.loopexit ], [ %2479, %.loopexit918.us.i.loopexit486 ]
   %2515 = xor i32 %.22781.us.i, %2435
   %.not901.us.i = icmp eq i32 %.22781.us.i, %2435
   %2516 = select i1 %.not901.us.i, i32 %1710, i32 %1718
@@ -14790,7 +14790,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2644 = shl i32 %.9653.us.i, 1
   %2645 = add i32 %.9707.us.i, -1
   %2646 = icmp ult i32 %2643, 32768
-  br i1 %2646, label %2621, label %.loopexit938.us.i.loopexit248, !llvm.loop !361
+  br i1 %2646, label %2621, label %.loopexit938.us.i.loopexit484, !llvm.loop !361
 
 2647:                                             ; preds = %2597
   %2648 = icmp ult i32 %2605, %2604
@@ -14856,17 +14856,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.0765.us.i = select i1 %2648, i32 %2650, i32 %2678
   br label %.loopexit938.us.i
 
-.loopexit938.us.i.loopexit248:                    ; preds = %2642
+.loopexit938.us.i.loopexit484:                    ; preds = %2642
   %.not866.us.i220 = icmp eq i32 %2619, 0
   %2679 = zext i1 %.not866.us.i220 to i32
   %.2767.us.i = select i1 %2617, i32 %2679, i32 %2619
   br label %.loopexit938.us.i
 
-.loopexit938.us.i:                                ; preds = %.loopexit938.us.i.loopexit248, %.loopexit938.us.i.loopexit, %2613
-  %.1766.us.i = phi i32 [ %2615, %2613 ], [ %.0765.us.i, %.loopexit938.us.i.loopexit ], [ %.2767.us.i, %.loopexit938.us.i.loopexit248 ]
-  %.7705.us.i = phi i32 [ %.1699990.us.i, %2613 ], [ %2676, %.loopexit938.us.i.loopexit ], [ %2645, %.loopexit938.us.i.loopexit248 ]
-  %.6661.us.i = phi i32 [ %2605, %2613 ], [ %2674, %.loopexit938.us.i.loopexit ], [ %2643, %.loopexit938.us.i.loopexit248 ]
-  %.7651.us.i = phi i32 [ %2610, %2613 ], [ %2675, %.loopexit938.us.i.loopexit ], [ %2644, %.loopexit938.us.i.loopexit248 ]
+.loopexit938.us.i:                                ; preds = %.loopexit938.us.i.loopexit484, %.loopexit938.us.i.loopexit, %2613
+  %.1766.us.i = phi i32 [ %2615, %2613 ], [ %.0765.us.i, %.loopexit938.us.i.loopexit ], [ %.2767.us.i, %.loopexit938.us.i.loopexit484 ]
+  %.7705.us.i = phi i32 [ %.1699990.us.i, %2613 ], [ %2676, %.loopexit938.us.i.loopexit ], [ %2645, %.loopexit938.us.i.loopexit484 ]
+  %.6661.us.i = phi i32 [ %2605, %2613 ], [ %2674, %.loopexit938.us.i.loopexit ], [ %2643, %.loopexit938.us.i.loopexit484 ]
+  %.7651.us.i = phi i32 [ %2610, %2613 ], [ %2675, %.loopexit938.us.i.loopexit ], [ %2644, %.loopexit938.us.i.loopexit484 ]
   %.not869.us.i119 = icmp eq i32 %.1766.us.i, 0
   br i1 %.not869.us.i119, label %2804, label %2680
 
@@ -14971,7 +14971,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2744 = shl i32 %.17.us.i214, 1
   %2745 = add i32 %.17715.us.i, -1
   %2746 = icmp ult i32 %2743, 32768
-  br i1 %2746, label %2721, label %.loopexit936.us.i.loopexit247, !llvm.loop !363
+  br i1 %2746, label %2721, label %.loopexit936.us.i.loopexit483, !llvm.loop !363
 
 2747:                                             ; preds = %2680
   %2748 = icmp ult i32 %2705, %2704
@@ -15037,17 +15037,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.3768.us.i = select i1 %2748, i32 %2750, i32 %2778
   br label %.loopexit936.us.i
 
-.loopexit936.us.i.loopexit247:                    ; preds = %2742
+.loopexit936.us.i.loopexit483:                    ; preds = %2742
   %.not871.us.i210 = icmp eq i32 %2719, 0
   %2779 = zext i1 %.not871.us.i210 to i32
   %.5770.us.i = select i1 %2717, i32 %2779, i32 %2719
   br label %.loopexit936.us.i
 
-.loopexit936.us.i:                                ; preds = %.loopexit936.us.i.loopexit247, %.loopexit936.us.i.loopexit, %2713
-  %.4769.us.i = phi i32 [ %2715, %2713 ], [ %.3768.us.i, %.loopexit936.us.i.loopexit ], [ %.5770.us.i, %.loopexit936.us.i.loopexit247 ]
-  %.15713.us.i = phi i32 [ %.7705.us.i, %2713 ], [ %2776, %.loopexit936.us.i.loopexit ], [ %2745, %.loopexit936.us.i.loopexit247 ]
-  %.11666.us.i = phi i32 [ %2705, %2713 ], [ %2774, %.loopexit936.us.i.loopexit ], [ %2743, %.loopexit936.us.i.loopexit247 ]
-  %.15.us.i123 = phi i32 [ %2710, %2713 ], [ %2775, %.loopexit936.us.i.loopexit ], [ %2744, %.loopexit936.us.i.loopexit247 ]
+.loopexit936.us.i:                                ; preds = %.loopexit936.us.i.loopexit483, %.loopexit936.us.i.loopexit, %2713
+  %.4769.us.i = phi i32 [ %2715, %2713 ], [ %.3768.us.i, %.loopexit936.us.i.loopexit ], [ %.5770.us.i, %.loopexit936.us.i.loopexit483 ]
+  %.15713.us.i = phi i32 [ %.7705.us.i, %2713 ], [ %2776, %.loopexit936.us.i.loopexit ], [ %2745, %.loopexit936.us.i.loopexit483 ]
+  %.11666.us.i = phi i32 [ %2705, %2713 ], [ %2774, %.loopexit936.us.i.loopexit ], [ %2743, %.loopexit936.us.i.loopexit483 ]
+  %.15.us.i123 = phi i32 [ %2710, %2713 ], [ %2775, %.loopexit936.us.i.loopexit ], [ %2744, %.loopexit936.us.i.loopexit483 ]
   %2780 = xor i32 %.4769.us.i, %2700
   %.not874.us.i124 = icmp eq i32 %.4769.us.i, %2700
   %2781 = select i1 %.not874.us.i124, i32 %1710, i32 %2585
@@ -15187,7 +15187,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2859 = shl i32 %.25.us.i206, 1
   %2860 = add i32 %.25723.us.i, -1
   %2861 = icmp ult i32 %2858, 32768
-  br i1 %2861, label %2836, label %.loopexit934.us.i.loopexit246, !llvm.loop !365
+  br i1 %2861, label %2836, label %.loopexit934.us.i.loopexit482, !llvm.loop !365
 
 2862:                                             ; preds = %2810
   %2863 = icmp ult i32 %2820, %2819
@@ -15253,17 +15253,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.6771.us.i = select i1 %2863, i32 %2865, i32 %2893
   br label %.loopexit934.us.i
 
-.loopexit934.us.i.loopexit246:                    ; preds = %2857
+.loopexit934.us.i.loopexit482:                    ; preds = %2857
   %.not877.us.i203 = icmp eq i32 %2834, 0
   %2894 = zext i1 %.not877.us.i203 to i32
   %.8773.us.i = select i1 %2832, i32 %2894, i32 %2834
   br label %.loopexit934.us.i
 
-.loopexit934.us.i:                                ; preds = %.loopexit934.us.i.loopexit246, %.loopexit934.us.i.loopexit, %2828
-  %.7772.us.i = phi i32 [ %2830, %2828 ], [ %.6771.us.i, %.loopexit934.us.i.loopexit ], [ %.8773.us.i, %.loopexit934.us.i.loopexit246 ]
-  %.23721.us.i = phi i32 [ %.3701.us.i, %2828 ], [ %2891, %.loopexit934.us.i.loopexit ], [ %2860, %.loopexit934.us.i.loopexit246 ]
-  %.16671.us.i = phi i32 [ %2820, %2828 ], [ %2889, %.loopexit934.us.i.loopexit ], [ %2858, %.loopexit934.us.i.loopexit246 ]
-  %.23.us.i128 = phi i32 [ %2825, %2828 ], [ %2890, %.loopexit934.us.i.loopexit ], [ %2859, %.loopexit934.us.i.loopexit246 ]
+.loopexit934.us.i:                                ; preds = %.loopexit934.us.i.loopexit482, %.loopexit934.us.i.loopexit, %2828
+  %.7772.us.i = phi i32 [ %2830, %2828 ], [ %.6771.us.i, %.loopexit934.us.i.loopexit ], [ %.8773.us.i, %.loopexit934.us.i.loopexit482 ]
+  %.23721.us.i = phi i32 [ %.3701.us.i, %2828 ], [ %2891, %.loopexit934.us.i.loopexit ], [ %2860, %.loopexit934.us.i.loopexit482 ]
+  %.16671.us.i = phi i32 [ %2820, %2828 ], [ %2889, %.loopexit934.us.i.loopexit ], [ %2858, %.loopexit934.us.i.loopexit482 ]
+  %.23.us.i128 = phi i32 [ %2825, %2828 ], [ %2890, %.loopexit934.us.i.loopexit ], [ %2859, %.loopexit934.us.i.loopexit482 ]
   %.not880.us.i129 = icmp eq i32 %.7772.us.i, 0
   br i1 %.not880.us.i129, label %3005, label %2895
 
@@ -15368,7 +15368,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2959 = shl i32 %.33.us.i197, 1
   %2960 = add i32 %.33731.us.i, -1
   %2961 = icmp ult i32 %2958, 32768
-  br i1 %2961, label %2936, label %.loopexit932.us.i133.loopexit245, !llvm.loop !367
+  br i1 %2961, label %2936, label %.loopexit932.us.i133.loopexit481, !llvm.loop !367
 
 2962:                                             ; preds = %2895
   %2963 = icmp ult i32 %2920, %2919
@@ -15434,17 +15434,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.9774.us.i = select i1 %2963, i32 %2965, i32 %2993
   br label %.loopexit932.us.i133
 
-.loopexit932.us.i133.loopexit245:                 ; preds = %2957
+.loopexit932.us.i133.loopexit481:                 ; preds = %2957
   %.not882.us.i193 = icmp eq i32 %2934, 0
   %2994 = zext i1 %.not882.us.i193 to i32
   %.11776.us.i = select i1 %2932, i32 %2994, i32 %2934
   br label %.loopexit932.us.i133
 
-.loopexit932.us.i133:                             ; preds = %.loopexit932.us.i133.loopexit245, %.loopexit932.us.i133.loopexit, %2928
-  %.10775.us.i = phi i32 [ %2930, %2928 ], [ %.9774.us.i, %.loopexit932.us.i133.loopexit ], [ %.11776.us.i, %.loopexit932.us.i133.loopexit245 ]
-  %.31729.us.i = phi i32 [ %.23721.us.i, %2928 ], [ %2991, %.loopexit932.us.i133.loopexit ], [ %2960, %.loopexit932.us.i133.loopexit245 ]
-  %.21676.us.i = phi i32 [ %2920, %2928 ], [ %2989, %.loopexit932.us.i133.loopexit ], [ %2958, %.loopexit932.us.i133.loopexit245 ]
-  %.31.us.i134 = phi i32 [ %2925, %2928 ], [ %2990, %.loopexit932.us.i133.loopexit ], [ %2959, %.loopexit932.us.i133.loopexit245 ]
+.loopexit932.us.i133:                             ; preds = %.loopexit932.us.i133.loopexit481, %.loopexit932.us.i133.loopexit, %2928
+  %.10775.us.i = phi i32 [ %2930, %2928 ], [ %.9774.us.i, %.loopexit932.us.i133.loopexit ], [ %.11776.us.i, %.loopexit932.us.i133.loopexit481 ]
+  %.31729.us.i = phi i32 [ %.23721.us.i, %2928 ], [ %2991, %.loopexit932.us.i133.loopexit ], [ %2960, %.loopexit932.us.i133.loopexit481 ]
+  %.21676.us.i = phi i32 [ %2920, %2928 ], [ %2989, %.loopexit932.us.i133.loopexit ], [ %2958, %.loopexit932.us.i133.loopexit481 ]
+  %.31.us.i134 = phi i32 [ %2925, %2928 ], [ %2990, %.loopexit932.us.i133.loopexit ], [ %2959, %.loopexit932.us.i133.loopexit481 ]
   %2995 = xor i32 %.10775.us.i, %2915
   %.not885.us.i135 = icmp eq i32 %.10775.us.i, %2915
   %2996 = select i1 %.not885.us.i135, i32 %1710, i32 %2585
@@ -15567,7 +15567,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3060 = shl i32 %.41.us.i189, 1
   %3061 = add i32 %.41739.us.i, -1
   %3062 = icmp ult i32 %3059, 32768
-  br i1 %3062, label %3037, label %.loopexit930.us.i140.loopexit244, !llvm.loop !369
+  br i1 %3062, label %3037, label %.loopexit930.us.i140.loopexit480, !llvm.loop !369
 
 3063:                                             ; preds = %3011
   %3064 = icmp ult i32 %3021, %3020
@@ -15633,17 +15633,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.12777.us.i = select i1 %3064, i32 %3066, i32 %3094
   br label %.loopexit930.us.i140
 
-.loopexit930.us.i140.loopexit244:                 ; preds = %3058
+.loopexit930.us.i140.loopexit480:                 ; preds = %3058
   %.not888.us.i186 = icmp eq i32 %3035, 0
   %3095 = zext i1 %.not888.us.i186 to i32
   %.14779.us.i = select i1 %3033, i32 %3095, i32 %3035
   br label %.loopexit930.us.i140
 
-.loopexit930.us.i140:                             ; preds = %.loopexit930.us.i140.loopexit244, %.loopexit930.us.i140.loopexit, %3029
-  %.13778.us.i = phi i32 [ %3031, %3029 ], [ %.12777.us.i, %.loopexit930.us.i140.loopexit ], [ %.14779.us.i, %.loopexit930.us.i140.loopexit244 ]
-  %.39737.us.i = phi i32 [ %.19717.us.i, %3029 ], [ %3092, %.loopexit930.us.i140.loopexit ], [ %3061, %.loopexit930.us.i140.loopexit244 ]
-  %.26681.us.i = phi i32 [ %3021, %3029 ], [ %3090, %.loopexit930.us.i140.loopexit ], [ %3059, %.loopexit930.us.i140.loopexit244 ]
-  %.39.us.i141 = phi i32 [ %3026, %3029 ], [ %3091, %.loopexit930.us.i140.loopexit ], [ %3060, %.loopexit930.us.i140.loopexit244 ]
+.loopexit930.us.i140:                             ; preds = %.loopexit930.us.i140.loopexit480, %.loopexit930.us.i140.loopexit, %3029
+  %.13778.us.i = phi i32 [ %3031, %3029 ], [ %.12777.us.i, %.loopexit930.us.i140.loopexit ], [ %.14779.us.i, %.loopexit930.us.i140.loopexit480 ]
+  %.39737.us.i = phi i32 [ %.19717.us.i, %3029 ], [ %3092, %.loopexit930.us.i140.loopexit ], [ %3061, %.loopexit930.us.i140.loopexit480 ]
+  %.26681.us.i = phi i32 [ %3021, %3029 ], [ %3090, %.loopexit930.us.i140.loopexit ], [ %3059, %.loopexit930.us.i140.loopexit480 ]
+  %.39.us.i141 = phi i32 [ %3026, %3029 ], [ %3091, %.loopexit930.us.i140.loopexit ], [ %3060, %.loopexit930.us.i140.loopexit480 ]
   %.not891.us.i142 = icmp eq i32 %.13778.us.i, 0
   br i1 %.not891.us.i142, label %3206, label %3096
 
@@ -15748,7 +15748,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3160 = shl i32 %.49.us.i181, 1
   %3161 = add i32 %.49747.us.i, -1
   %3162 = icmp ult i32 %3159, 32768
-  br i1 %3162, label %3137, label %.loopexit928.us.i143.loopexit243, !llvm.loop !371
+  br i1 %3162, label %3137, label %.loopexit928.us.i143.loopexit479, !llvm.loop !371
 
 3163:                                             ; preds = %3096
   %3164 = icmp ult i32 %3121, %3120
@@ -15814,17 +15814,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.15780.us.i = select i1 %3164, i32 %3166, i32 %3194
   br label %.loopexit928.us.i143
 
-.loopexit928.us.i143.loopexit243:                 ; preds = %3158
+.loopexit928.us.i143.loopexit479:                 ; preds = %3158
   %.not893.us.i178 = icmp eq i32 %3135, 0
   %3195 = zext i1 %.not893.us.i178 to i32
   %.17782.us.i = select i1 %3133, i32 %3195, i32 %3135
   br label %.loopexit928.us.i143
 
-.loopexit928.us.i143:                             ; preds = %.loopexit928.us.i143.loopexit243, %.loopexit928.us.i143.loopexit, %3129
-  %.16781.us.i = phi i32 [ %3131, %3129 ], [ %.15780.us.i, %.loopexit928.us.i143.loopexit ], [ %.17782.us.i, %.loopexit928.us.i143.loopexit243 ]
-  %.47745.us.i = phi i32 [ %.39737.us.i, %3129 ], [ %3192, %.loopexit928.us.i143.loopexit ], [ %3161, %.loopexit928.us.i143.loopexit243 ]
-  %.31686.us.i = phi i32 [ %3121, %3129 ], [ %3190, %.loopexit928.us.i143.loopexit ], [ %3159, %.loopexit928.us.i143.loopexit243 ]
-  %.47.us.i144 = phi i32 [ %3126, %3129 ], [ %3191, %.loopexit928.us.i143.loopexit ], [ %3160, %.loopexit928.us.i143.loopexit243 ]
+.loopexit928.us.i143:                             ; preds = %.loopexit928.us.i143.loopexit479, %.loopexit928.us.i143.loopexit, %3129
+  %.16781.us.i = phi i32 [ %3131, %3129 ], [ %.15780.us.i, %.loopexit928.us.i143.loopexit ], [ %.17782.us.i, %.loopexit928.us.i143.loopexit479 ]
+  %.47745.us.i = phi i32 [ %.39737.us.i, %3129 ], [ %3192, %.loopexit928.us.i143.loopexit ], [ %3161, %.loopexit928.us.i143.loopexit479 ]
+  %.31686.us.i = phi i32 [ %3121, %3129 ], [ %3190, %.loopexit928.us.i143.loopexit ], [ %3159, %.loopexit928.us.i143.loopexit479 ]
+  %.47.us.i144 = phi i32 [ %3126, %3129 ], [ %3191, %.loopexit928.us.i143.loopexit ], [ %3160, %.loopexit928.us.i143.loopexit479 ]
   %3196 = xor i32 %.16781.us.i, %3116
   %.not896.us.i145 = icmp eq i32 %.16781.us.i, %3116
   %3197 = select i1 %.not896.us.i145, i32 %1710, i32 %2585
@@ -15947,7 +15947,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3261 = shl i32 %.57.us.i175, 1
   %3262 = add i32 %.57755.us.i, -1
   %3263 = icmp ult i32 %3260, 32768
-  br i1 %3263, label %3238, label %.loopexit926.us.i150.loopexit242, !llvm.loop !373
+  br i1 %3263, label %3238, label %.loopexit926.us.i150.loopexit478, !llvm.loop !373
 
 3264:                                             ; preds = %3212
   %3265 = icmp ult i32 %3222, %3221
@@ -16013,17 +16013,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.18783.us.i = select i1 %3265, i32 %3267, i32 %3295
   br label %.loopexit926.us.i150
 
-.loopexit926.us.i150.loopexit242:                 ; preds = %3259
+.loopexit926.us.i150.loopexit478:                 ; preds = %3259
   %.not899.us.i173 = icmp eq i32 %3236, 0
   %3296 = zext i1 %.not899.us.i173 to i32
   %.20785.us.i = select i1 %3234, i32 %3296, i32 %3236
   br label %.loopexit926.us.i150
 
-.loopexit926.us.i150:                             ; preds = %.loopexit926.us.i150.loopexit242, %.loopexit926.us.i150.loopexit, %3230
-  %.19784.us.i = phi i32 [ %3232, %3230 ], [ %.18783.us.i, %.loopexit926.us.i150.loopexit ], [ %.20785.us.i, %.loopexit926.us.i150.loopexit242 ]
-  %.55753.us.i = phi i32 [ %.35733.us.i, %3230 ], [ %3293, %.loopexit926.us.i150.loopexit ], [ %3262, %.loopexit926.us.i150.loopexit242 ]
-  %.36691.us.i = phi i32 [ %3222, %3230 ], [ %3291, %.loopexit926.us.i150.loopexit ], [ %3260, %.loopexit926.us.i150.loopexit242 ]
-  %.55.us.i151 = phi i32 [ %3227, %3230 ], [ %3292, %.loopexit926.us.i150.loopexit ], [ %3261, %.loopexit926.us.i150.loopexit242 ]
+.loopexit926.us.i150:                             ; preds = %.loopexit926.us.i150.loopexit478, %.loopexit926.us.i150.loopexit, %3230
+  %.19784.us.i = phi i32 [ %3232, %3230 ], [ %.18783.us.i, %.loopexit926.us.i150.loopexit ], [ %.20785.us.i, %.loopexit926.us.i150.loopexit478 ]
+  %.55753.us.i = phi i32 [ %.35733.us.i, %3230 ], [ %3293, %.loopexit926.us.i150.loopexit ], [ %3262, %.loopexit926.us.i150.loopexit478 ]
+  %.36691.us.i = phi i32 [ %3222, %3230 ], [ %3291, %.loopexit926.us.i150.loopexit ], [ %3260, %.loopexit926.us.i150.loopexit478 ]
+  %.55.us.i151 = phi i32 [ %3227, %3230 ], [ %3292, %.loopexit926.us.i150.loopexit ], [ %3261, %.loopexit926.us.i150.loopexit478 ]
   %.not902.us.i = icmp eq i32 %.19784.us.i, 0
   br i1 %.not902.us.i, label %3421, label %3297
 
@@ -16128,7 +16128,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3361 = shl i32 %.65.us.i170, 1
   %3362 = add i32 %.65763.us.i, -1
   %3363 = icmp ult i32 %3360, 32768
-  br i1 %3363, label %3338, label %.loopexit924.us.i152.loopexit241, !llvm.loop !375
+  br i1 %3363, label %3338, label %.loopexit924.us.i152.loopexit477, !llvm.loop !375
 
 3364:                                             ; preds = %3297
   %3365 = icmp ult i32 %3322, %3321
@@ -16194,17 +16194,17 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.21786.us.i = select i1 %3365, i32 %3367, i32 %3395
   br label %.loopexit924.us.i152
 
-.loopexit924.us.i152.loopexit241:                 ; preds = %3359
+.loopexit924.us.i152.loopexit477:                 ; preds = %3359
   %.not904.us.i = icmp eq i32 %3336, 0
   %3396 = zext i1 %.not904.us.i to i32
   %.23788.us.i = select i1 %3334, i32 %3396, i32 %3336
   br label %.loopexit924.us.i152
 
-.loopexit924.us.i152:                             ; preds = %.loopexit924.us.i152.loopexit241, %.loopexit924.us.i152.loopexit, %3330
-  %.22787.us.i = phi i32 [ %3332, %3330 ], [ %.21786.us.i, %.loopexit924.us.i152.loopexit ], [ %.23788.us.i, %.loopexit924.us.i152.loopexit241 ]
-  %.63761.us.i = phi i32 [ %.55753.us.i, %3330 ], [ %3393, %.loopexit924.us.i152.loopexit ], [ %3362, %.loopexit924.us.i152.loopexit241 ]
-  %.41696.us.i = phi i32 [ %3322, %3330 ], [ %3391, %.loopexit924.us.i152.loopexit ], [ %3360, %.loopexit924.us.i152.loopexit241 ]
-  %.63.us.i153 = phi i32 [ %3327, %3330 ], [ %3392, %.loopexit924.us.i152.loopexit ], [ %3361, %.loopexit924.us.i152.loopexit241 ]
+.loopexit924.us.i152:                             ; preds = %.loopexit924.us.i152.loopexit477, %.loopexit924.us.i152.loopexit, %3330
+  %.22787.us.i = phi i32 [ %3332, %3330 ], [ %.21786.us.i, %.loopexit924.us.i152.loopexit ], [ %.23788.us.i, %.loopexit924.us.i152.loopexit477 ]
+  %.63761.us.i = phi i32 [ %.55753.us.i, %3330 ], [ %3393, %.loopexit924.us.i152.loopexit ], [ %3362, %.loopexit924.us.i152.loopexit477 ]
+  %.41696.us.i = phi i32 [ %3322, %3330 ], [ %3391, %.loopexit924.us.i152.loopexit ], [ %3360, %.loopexit924.us.i152.loopexit477 ]
+  %.63.us.i153 = phi i32 [ %3327, %3330 ], [ %3392, %.loopexit924.us.i152.loopexit ], [ %3361, %.loopexit924.us.i152.loopexit477 ]
   %3397 = xor i32 %.22787.us.i, %3317
   %.not907.us.i = icmp eq i32 %.22787.us.i, %3317
   %3398 = select i1 %.not907.us.i, i32 %1710, i32 %2585
@@ -16548,7 +16548,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %108 = shl i32 %.71295.i, 1
   %109 = add i32 %.71393.i, -1
   %110 = icmp ult i32 %107, 32768
-  br i1 %110, label %85, label %.loopexit1923.i.loopexit425, !llvm.loop !382
+  br i1 %110, label %85, label %.loopexit1923.i.loopexit955, !llvm.loop !382
 
 111:                                              ; preds = %75
   %112 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -16561,17 +16561,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.01529.i = select i1 %45, i32 %47, i32 %114
   br label %.loopexit1923.i
 
-.loopexit1923.i.loopexit425:                      ; preds = %106
+.loopexit1923.i.loopexit955:                      ; preds = %106
   %.not1791.i = icmp eq i32 %83, 0
   %115 = zext i1 %.not1791.i to i32
   %.21531.i = select i1 %81, i32 %115, i32 %83
   br label %.loopexit1923.i
 
-.loopexit1923.i:                                  ; preds = %.loopexit1923.i.loopexit425, %.loopexit1923.i.loopexit, %111
-  %.11530.i = phi i32 [ %113, %111 ], [ %.01529.i, %.loopexit1923.i.loopexit ], [ %.21531.i, %.loopexit1923.i.loopexit425 ]
-  %.51391.i = phi i32 [ %.113872048.i, %111 ], [ %73, %.loopexit1923.i.loopexit ], [ %109, %.loopexit1923.i.loopexit425 ]
-  %.41301.i = phi i32 [ %41, %111 ], [ %71, %.loopexit1923.i.loopexit ], [ %107, %.loopexit1923.i.loopexit425 ]
-  %.51293.i = phi i32 [ %77, %111 ], [ %72, %.loopexit1923.i.loopexit ], [ %108, %.loopexit1923.i.loopexit425 ]
+.loopexit1923.i:                                  ; preds = %.loopexit1923.i.loopexit955, %.loopexit1923.i.loopexit, %111
+  %.11530.i = phi i32 [ %113, %111 ], [ %.01529.i, %.loopexit1923.i.loopexit ], [ %.21531.i, %.loopexit1923.i.loopexit955 ]
+  %.51391.i = phi i32 [ %.113872048.i, %111 ], [ %73, %.loopexit1923.i.loopexit ], [ %109, %.loopexit1923.i.loopexit955 ]
+  %.41301.i = phi i32 [ %41, %111 ], [ %71, %.loopexit1923.i.loopexit ], [ %107, %.loopexit1923.i.loopexit955 ]
+  %.51293.i = phi i32 [ %77, %111 ], [ %72, %.loopexit1923.i.loopexit ], [ %108, %.loopexit1923.i.loopexit955 ]
   %.not1794.not.i = icmp eq i32 %.11530.i, 0
   br i1 %.not1794.not.i, label %.thread1900.i, label %116
 
@@ -16704,7 +16704,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %186 = shl i32 %.15.i, 1
   %187 = add i32 %.151401.i, -1
   %188 = icmp ult i32 %185, 32768
-  br i1 %188, label %163, label %.loopexit1921.i.loopexit424, !llvm.loop !384
+  br i1 %188, label %163, label %.loopexit1921.i.loopexit954, !llvm.loop !384
 
 189:                                              ; preds = %153
   %190 = getelementptr inbounds nuw i8, ptr %117, i64 4
@@ -16717,18 +16717,18 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.0.i = select i1 %123, i32 %125, i32 %192
   br label %.loopexit1921.i
 
-.loopexit1921.i.loopexit424:                      ; preds = %184
+.loopexit1921.i.loopexit954:                      ; preds = %184
   %.not1796.i = icmp eq i32 %161, 0
   %193 = zext i1 %.not1796.i to i32
   %.2.i = select i1 %159, i32 %193, i32 %161
   br label %.loopexit1921.i
 
-.loopexit1921.i:                                  ; preds = %.loopexit1921.i.loopexit424, %.loopexit1921.i.loopexit, %189
-  %194 = phi ptr [ %117, %189 ], [ %storemerge1798.i, %.loopexit1921.i.loopexit ], [ %storemerge1795.i, %.loopexit1921.i.loopexit424 ]
-  %.131399.i = phi i32 [ %.51391.i, %189 ], [ %151, %.loopexit1921.i.loopexit ], [ %187, %.loopexit1921.i.loopexit424 ]
-  %.91306.i = phi i32 [ %119, %189 ], [ %149, %.loopexit1921.i.loopexit ], [ %185, %.loopexit1921.i.loopexit424 ]
-  %.13.i = phi i32 [ %155, %189 ], [ %150, %.loopexit1921.i.loopexit ], [ %186, %.loopexit1921.i.loopexit424 ]
-  %.1.i = phi i32 [ %191, %189 ], [ %.0.i, %.loopexit1921.i.loopexit ], [ %.2.i, %.loopexit1921.i.loopexit424 ]
+.loopexit1921.i:                                  ; preds = %.loopexit1921.i.loopexit954, %.loopexit1921.i.loopexit, %189
+  %194 = phi ptr [ %117, %189 ], [ %storemerge1798.i, %.loopexit1921.i.loopexit ], [ %storemerge1795.i, %.loopexit1921.i.loopexit954 ]
+  %.131399.i = phi i32 [ %.51391.i, %189 ], [ %151, %.loopexit1921.i.loopexit ], [ %187, %.loopexit1921.i.loopexit954 ]
+  %.91306.i = phi i32 [ %119, %189 ], [ %149, %.loopexit1921.i.loopexit ], [ %185, %.loopexit1921.i.loopexit954 ]
+  %.13.i = phi i32 [ %155, %189 ], [ %150, %.loopexit1921.i.loopexit ], [ %186, %.loopexit1921.i.loopexit954 ]
+  %.1.i = phi i32 [ %191, %189 ], [ %.0.i, %.loopexit1921.i.loopexit ], [ %.2.i, %.loopexit1921.i.loopexit954 ]
   %195 = load i32, ptr %194, align 8, !tbaa !121
   %196 = sub i32 %.91306.i, %195
   %197 = lshr i32 %.13.i, 16
@@ -16856,7 +16856,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %263 = shl i32 %.22.i, 1
   %264 = add i32 %.221408.i, -1
   %265 = icmp ult i32 %262, 32768
-  br i1 %265, label %240, label %.loopexit1919.i.loopexit423, !llvm.loop !386
+  br i1 %265, label %240, label %.loopexit1919.i.loopexit953, !llvm.loop !386
 
 266:                                              ; preds = %230
   %267 = getelementptr inbounds nuw i8, ptr %194, i64 4
@@ -16869,17 +16869,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.31532.i = select i1 %200, i32 %202, i32 %269
   br label %.loopexit1919.i
 
-.loopexit1919.i.loopexit423:                      ; preds = %261
+.loopexit1919.i.loopexit953:                      ; preds = %261
   %.not1800.i = icmp eq i32 %238, 0
   %270 = zext i1 %.not1800.i to i32
   %.51534.i = select i1 %236, i32 %270, i32 %238
   br label %.loopexit1919.i
 
-.loopexit1919.i:                                  ; preds = %.loopexit1919.i.loopexit423, %.loopexit1919.i.loopexit, %266
-  %.41533.i = phi i32 [ %268, %266 ], [ %.31532.i, %.loopexit1919.i.loopexit ], [ %.51534.i, %.loopexit1919.i.loopexit423 ]
-  %.201406.i = phi i32 [ %.131399.i, %266 ], [ %228, %.loopexit1919.i.loopexit ], [ %264, %.loopexit1919.i.loopexit423 ]
-  %.131310.i = phi i32 [ %196, %266 ], [ %226, %.loopexit1919.i.loopexit ], [ %262, %.loopexit1919.i.loopexit423 ]
-  %.20.i = phi i32 [ %232, %266 ], [ %227, %.loopexit1919.i.loopexit ], [ %263, %.loopexit1919.i.loopexit423 ]
+.loopexit1919.i:                                  ; preds = %.loopexit1919.i.loopexit953, %.loopexit1919.i.loopexit, %266
+  %.41533.i = phi i32 [ %268, %266 ], [ %.31532.i, %.loopexit1919.i.loopexit ], [ %.51534.i, %.loopexit1919.i.loopexit953 ]
+  %.201406.i = phi i32 [ %.131399.i, %266 ], [ %228, %.loopexit1919.i.loopexit ], [ %264, %.loopexit1919.i.loopexit953 ]
+  %.131310.i = phi i32 [ %196, %266 ], [ %226, %.loopexit1919.i.loopexit ], [ %262, %.loopexit1919.i.loopexit953 ]
+  %.20.i = phi i32 [ %232, %266 ], [ %227, %.loopexit1919.i.loopexit ], [ %263, %.loopexit1919.i.loopexit953 ]
   %271 = shl i32 %.1.i, 1
   %272 = or i32 %.41533.i, %271
   switch i32 %272, label %1752 [
@@ -17032,7 +17032,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %357 = shl i32 %.30.i, 1
   %358 = add i32 %.301416.i, -1
   %359 = icmp ult i32 %356, 32768
-  br i1 %359, label %334, label %.loopexit1917.i.loopexit422, !llvm.loop !388
+  br i1 %359, label %334, label %.loopexit1917.i.loopexit952, !llvm.loop !388
 
 360:                                              ; preds = %324
   %361 = getelementptr inbounds nuw i8, ptr %288, i64 4
@@ -17045,17 +17045,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.61535.i = select i1 %294, i32 %296, i32 %363
   br label %.loopexit1917.i
 
-.loopexit1917.i.loopexit422:                      ; preds = %355
+.loopexit1917.i.loopexit952:                      ; preds = %355
   %.not1804.i = icmp eq i32 %332, 0
   %364 = zext i1 %.not1804.i to i32
   %.81537.i = select i1 %330, i32 %364, i32 %332
   br label %.loopexit1917.i
 
-.loopexit1917.i:                                  ; preds = %.loopexit1917.i.loopexit422, %.loopexit1917.i.loopexit, %360
-  %.71536.i = phi i32 [ %362, %360 ], [ %.61535.i, %.loopexit1917.i.loopexit ], [ %.81537.i, %.loopexit1917.i.loopexit422 ]
-  %.281414.i = phi i32 [ %.201406.i, %360 ], [ %322, %.loopexit1917.i.loopexit ], [ %358, %.loopexit1917.i.loopexit422 ]
-  %.181315.i = phi i32 [ %290, %360 ], [ %320, %.loopexit1917.i.loopexit ], [ %356, %.loopexit1917.i.loopexit422 ]
-  %.28.i = phi i32 [ %326, %360 ], [ %321, %.loopexit1917.i.loopexit ], [ %357, %.loopexit1917.i.loopexit422 ]
+.loopexit1917.i:                                  ; preds = %.loopexit1917.i.loopexit952, %.loopexit1917.i.loopexit, %360
+  %.71536.i = phi i32 [ %362, %360 ], [ %.61535.i, %.loopexit1917.i.loopexit ], [ %.81537.i, %.loopexit1917.i.loopexit952 ]
+  %.281414.i = phi i32 [ %.201406.i, %360 ], [ %322, %.loopexit1917.i.loopexit ], [ %358, %.loopexit1917.i.loopexit952 ]
+  %.181315.i = phi i32 [ %290, %360 ], [ %320, %.loopexit1917.i.loopexit ], [ %356, %.loopexit1917.i.loopexit952 ]
+  %.28.i = phi i32 [ %326, %360 ], [ %321, %.loopexit1917.i.loopexit ], [ %357, %.loopexit1917.i.loopexit952 ]
   %365 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %283
   %366 = load i8, ptr %365, align 1, !tbaa !47
   %367 = zext i8 %366 to i32
@@ -17204,7 +17204,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %449 = shl i32 %.39.i, 1
   %450 = add i32 %.391425.i, -1
   %451 = icmp ult i32 %448, 32768
-  br i1 %451, label %426, label %.loopexit1915.i.loopexit421, !llvm.loop !390
+  br i1 %451, label %426, label %.loopexit1915.i.loopexit951, !llvm.loop !390
 
 452:                                              ; preds = %416
   %453 = getelementptr inbounds nuw i8, ptr %380, i64 4
@@ -17217,17 +17217,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.91538.i = select i1 %386, i32 %388, i32 %455
   br label %.loopexit1915.i
 
-.loopexit1915.i.loopexit421:                      ; preds = %447
+.loopexit1915.i.loopexit951:                      ; preds = %447
   %.not1810.i = icmp eq i32 %424, 0
   %456 = zext i1 %.not1810.i to i32
   %.111540.i = select i1 %422, i32 %456, i32 %424
   br label %.loopexit1915.i
 
-.loopexit1915.i:                                  ; preds = %.loopexit1915.i.loopexit421, %.loopexit1915.i.loopexit, %452
-  %.101539.i = phi i32 [ %454, %452 ], [ %.91538.i, %.loopexit1915.i.loopexit ], [ %.111540.i, %.loopexit1915.i.loopexit421 ]
-  %.371423.i = phi i32 [ %.281414.i, %452 ], [ %414, %.loopexit1915.i.loopexit ], [ %450, %.loopexit1915.i.loopexit421 ]
-  %.241321.i = phi i32 [ %382, %452 ], [ %412, %.loopexit1915.i.loopexit ], [ %448, %.loopexit1915.i.loopexit421 ]
-  %.37.i = phi i32 [ %418, %452 ], [ %413, %.loopexit1915.i.loopexit ], [ %449, %.loopexit1915.i.loopexit421 ]
+.loopexit1915.i:                                  ; preds = %.loopexit1915.i.loopexit951, %.loopexit1915.i.loopexit, %452
+  %.101539.i = phi i32 [ %454, %452 ], [ %.91538.i, %.loopexit1915.i.loopexit ], [ %.111540.i, %.loopexit1915.i.loopexit951 ]
+  %.371423.i = phi i32 [ %.281414.i, %452 ], [ %414, %.loopexit1915.i.loopexit ], [ %450, %.loopexit1915.i.loopexit951 ]
+  %.241321.i = phi i32 [ %382, %452 ], [ %412, %.loopexit1915.i.loopexit ], [ %448, %.loopexit1915.i.loopexit951 ]
+  %.37.i = phi i32 [ %418, %452 ], [ %413, %.loopexit1915.i.loopexit ], [ %449, %.loopexit1915.i.loopexit951 ]
   %.not1813.i = icmp eq i32 %.101539.i, 0
   br i1 %.not1813.i, label %567, label %.thread.i
 
@@ -17387,7 +17387,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %546 = shl i32 %.47.i, 1
   %547 = add i32 %.471433.i, -1
   %548 = icmp ult i32 %545, 32768
-  br i1 %548, label %523, label %.loopexit1913.i.loopexit420, !llvm.loop !392
+  br i1 %548, label %523, label %.loopexit1913.i.loopexit950, !llvm.loop !392
 
 549:                                              ; preds = %513
   %550 = getelementptr inbounds nuw i8, ptr %477, i64 4
@@ -17400,17 +17400,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.121541.i = select i1 %483, i32 %485, i32 %552
   br label %.loopexit1913.i
 
-.loopexit1913.i.loopexit420:                      ; preds = %544
+.loopexit1913.i.loopexit950:                      ; preds = %544
   %.not1815.i = icmp eq i32 %521, 0
   %553 = zext i1 %.not1815.i to i32
   %.141543.i = select i1 %519, i32 %553, i32 %521
   br label %.loopexit1913.i
 
-.loopexit1913.i:                                  ; preds = %.loopexit1913.i.loopexit420, %.loopexit1913.i.loopexit, %549
-  %.131542.i = phi i32 [ %551, %549 ], [ %.121541.i, %.loopexit1913.i.loopexit ], [ %.141543.i, %.loopexit1913.i.loopexit420 ]
-  %.451431.i = phi i32 [ %.331419.i, %549 ], [ %511, %.loopexit1913.i.loopexit ], [ %547, %.loopexit1913.i.loopexit420 ]
-  %.291326.i = phi i32 [ %479, %549 ], [ %509, %.loopexit1913.i.loopexit ], [ %545, %.loopexit1913.i.loopexit420 ]
-  %.45.i = phi i32 [ %515, %549 ], [ %510, %.loopexit1913.i.loopexit ], [ %546, %.loopexit1913.i.loopexit420 ]
+.loopexit1913.i:                                  ; preds = %.loopexit1913.i.loopexit950, %.loopexit1913.i.loopexit, %549
+  %.131542.i = phi i32 [ %551, %549 ], [ %.121541.i, %.loopexit1913.i.loopexit ], [ %.141543.i, %.loopexit1913.i.loopexit950 ]
+  %.451431.i = phi i32 [ %.331419.i, %549 ], [ %511, %.loopexit1913.i.loopexit ], [ %547, %.loopexit1913.i.loopexit950 ]
+  %.291326.i = phi i32 [ %479, %549 ], [ %509, %.loopexit1913.i.loopexit ], [ %545, %.loopexit1913.i.loopexit950 ]
+  %.45.i = phi i32 [ %515, %549 ], [ %510, %.loopexit1913.i.loopexit ], [ %546, %.loopexit1913.i.loopexit950 ]
   %554 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %472
   %555 = load i8, ptr %554, align 1, !tbaa !47
   %556 = zext i8 %555 to i32
@@ -17572,7 +17572,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %644 = shl i32 %.56.i, 1
   %645 = add i32 %.561442.i, -1
   %646 = icmp ult i32 %643, 32768
-  br i1 %646, label %621, label %.loopexit1911.i.loopexit419, !llvm.loop !394
+  br i1 %646, label %621, label %.loopexit1911.i.loopexit949, !llvm.loop !394
 
 647:                                              ; preds = %611
   %648 = getelementptr inbounds nuw i8, ptr %575, i64 4
@@ -17585,17 +17585,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.151544.i = select i1 %581, i32 %583, i32 %650
   br label %.loopexit1911.i
 
-.loopexit1911.i.loopexit419:                      ; preds = %642
+.loopexit1911.i.loopexit949:                      ; preds = %642
   %.not1821.i = icmp eq i32 %619, 0
   %651 = zext i1 %.not1821.i to i32
   %.171546.i = select i1 %617, i32 %651, i32 %619
   br label %.loopexit1911.i
 
-.loopexit1911.i:                                  ; preds = %.loopexit1911.i.loopexit419, %.loopexit1911.i.loopexit, %647
-  %.161545.i = phi i32 [ %649, %647 ], [ %.151544.i, %.loopexit1911.i.loopexit ], [ %.171546.i, %.loopexit1911.i.loopexit419 ]
-  %.541440.i = phi i32 [ %.491435.ph.i, %647 ], [ %609, %.loopexit1911.i.loopexit ], [ %645, %.loopexit1911.i.loopexit419 ]
-  %.351332.i = phi i32 [ %577, %647 ], [ %607, %.loopexit1911.i.loopexit ], [ %643, %.loopexit1911.i.loopexit419 ]
-  %.54.i = phi i32 [ %613, %647 ], [ %608, %.loopexit1911.i.loopexit ], [ %644, %.loopexit1911.i.loopexit419 ]
+.loopexit1911.i:                                  ; preds = %.loopexit1911.i.loopexit949, %.loopexit1911.i.loopexit, %647
+  %.161545.i = phi i32 [ %649, %647 ], [ %.151544.i, %.loopexit1911.i.loopexit ], [ %.171546.i, %.loopexit1911.i.loopexit949 ]
+  %.541440.i = phi i32 [ %.491435.ph.i, %647 ], [ %609, %.loopexit1911.i.loopexit ], [ %645, %.loopexit1911.i.loopexit949 ]
+  %.351332.i = phi i32 [ %577, %647 ], [ %607, %.loopexit1911.i.loopexit ], [ %643, %.loopexit1911.i.loopexit949 ]
+  %.54.i = phi i32 [ %613, %647 ], [ %608, %.loopexit1911.i.loopexit ], [ %644, %.loopexit1911.i.loopexit949 ]
   %.not1824.i = icmp eq i32 %.161545.i, 0
   br i1 %.not1824.i, label %762, label %.loopexit1919._crit_edge.i
 
@@ -17755,7 +17755,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %741 = shl i32 %.64.i, 1
   %742 = add i32 %.641450.i, -1
   %743 = icmp ult i32 %740, 32768
-  br i1 %743, label %718, label %.loopexit1909.i.loopexit418, !llvm.loop !396
+  br i1 %743, label %718, label %.loopexit1909.i.loopexit948, !llvm.loop !396
 
 744:                                              ; preds = %708
   %745 = getelementptr inbounds nuw i8, ptr %672, i64 4
@@ -17768,17 +17768,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.181547.i = select i1 %678, i32 %680, i32 %747
   br label %.loopexit1909.i
 
-.loopexit1909.i.loopexit418:                      ; preds = %739
+.loopexit1909.i.loopexit948:                      ; preds = %739
   %.not1826.i = icmp eq i32 %716, 0
   %748 = zext i1 %.not1826.i to i32
   %.201549.i = select i1 %714, i32 %748, i32 %716
   br label %.loopexit1909.i
 
-.loopexit1909.i:                                  ; preds = %.loopexit1909.i.loopexit418, %.loopexit1909.i.loopexit, %744
-  %.191548.i = phi i32 [ %746, %744 ], [ %.181547.i, %.loopexit1909.i.loopexit ], [ %.201549.i, %.loopexit1909.i.loopexit418 ]
-  %.621448.i = phi i32 [ %.501436.i, %744 ], [ %706, %.loopexit1909.i.loopexit ], [ %742, %.loopexit1909.i.loopexit418 ]
-  %.401337.i = phi i32 [ %674, %744 ], [ %704, %.loopexit1909.i.loopexit ], [ %740, %.loopexit1909.i.loopexit418 ]
-  %.62.i = phi i32 [ %710, %744 ], [ %705, %.loopexit1909.i.loopexit ], [ %741, %.loopexit1909.i.loopexit418 ]
+.loopexit1909.i:                                  ; preds = %.loopexit1909.i.loopexit948, %.loopexit1909.i.loopexit, %744
+  %.191548.i = phi i32 [ %746, %744 ], [ %.181547.i, %.loopexit1909.i.loopexit ], [ %.201549.i, %.loopexit1909.i.loopexit948 ]
+  %.621448.i = phi i32 [ %.501436.i, %744 ], [ %706, %.loopexit1909.i.loopexit ], [ %742, %.loopexit1909.i.loopexit948 ]
+  %.401337.i = phi i32 [ %674, %744 ], [ %704, %.loopexit1909.i.loopexit ], [ %740, %.loopexit1909.i.loopexit948 ]
+  %.62.i = phi i32 [ %710, %744 ], [ %705, %.loopexit1909.i.loopexit ], [ %741, %.loopexit1909.i.loopexit948 ]
   %749 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %667
   %750 = load i8, ptr %749, align 1, !tbaa !47
   %751 = zext i8 %750 to i32
@@ -17940,7 +17940,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %839 = shl i32 %.73.i, 1
   %840 = add i32 %.731459.i, -1
   %841 = icmp ult i32 %838, 32768
-  br i1 %841, label %816, label %.loopexit1907.i.loopexit417, !llvm.loop !398
+  br i1 %841, label %816, label %.loopexit1907.i.loopexit947, !llvm.loop !398
 
 842:                                              ; preds = %806
   %843 = getelementptr inbounds nuw i8, ptr %770, i64 4
@@ -17953,17 +17953,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.211550.i = select i1 %776, i32 %778, i32 %845
   br label %.loopexit1907.i
 
-.loopexit1907.i.loopexit417:                      ; preds = %837
+.loopexit1907.i.loopexit947:                      ; preds = %837
   %.not1832.i = icmp eq i32 %814, 0
   %846 = zext i1 %.not1832.i to i32
   %.231552.i = select i1 %812, i32 %846, i32 %814
   br label %.loopexit1907.i
 
-.loopexit1907.i:                                  ; preds = %.loopexit1907.i.loopexit417, %.loopexit1907.i.loopexit, %842
-  %.221551.i = phi i32 [ %844, %842 ], [ %.211550.i, %.loopexit1907.i.loopexit ], [ %.231552.i, %.loopexit1907.i.loopexit417 ]
-  %.711457.i = phi i32 [ %.661452.ph.i, %842 ], [ %804, %.loopexit1907.i.loopexit ], [ %840, %.loopexit1907.i.loopexit417 ]
-  %.461343.i = phi i32 [ %772, %842 ], [ %802, %.loopexit1907.i.loopexit ], [ %838, %.loopexit1907.i.loopexit417 ]
-  %.71.i = phi i32 [ %808, %842 ], [ %803, %.loopexit1907.i.loopexit ], [ %839, %.loopexit1907.i.loopexit417 ]
+.loopexit1907.i:                                  ; preds = %.loopexit1907.i.loopexit947, %.loopexit1907.i.loopexit, %842
+  %.221551.i = phi i32 [ %844, %842 ], [ %.211550.i, %.loopexit1907.i.loopexit ], [ %.231552.i, %.loopexit1907.i.loopexit947 ]
+  %.711457.i = phi i32 [ %.661452.ph.i, %842 ], [ %804, %.loopexit1907.i.loopexit ], [ %840, %.loopexit1907.i.loopexit947 ]
+  %.461343.i = phi i32 [ %772, %842 ], [ %802, %.loopexit1907.i.loopexit ], [ %838, %.loopexit1907.i.loopexit947 ]
+  %.71.i = phi i32 [ %808, %842 ], [ %803, %.loopexit1907.i.loopexit ], [ %839, %.loopexit1907.i.loopexit947 ]
   %.not1835.i = icmp eq i32 %.221551.i, 0
   br i1 %.not1835.i, label %1752, label %.loopexit1919._crit_edge2189.i
 
@@ -18123,7 +18123,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %936 = shl i32 %.80.i, 1
   %937 = add i32 %.801466.i, -1
   %938 = icmp ult i32 %935, 32768
-  br i1 %938, label %913, label %.loopexit.i.loopexit416, !llvm.loop !400
+  br i1 %938, label %913, label %.loopexit.i.loopexit946, !llvm.loop !400
 
 939:                                              ; preds = %903
   %940 = getelementptr inbounds nuw i8, ptr %867, i64 4
@@ -18136,17 +18136,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.241553.i = select i1 %873, i32 %875, i32 %942
   br label %.loopexit.i
 
-.loopexit.i.loopexit416:                          ; preds = %934
+.loopexit.i.loopexit946:                          ; preds = %934
   %.not1837.i = icmp eq i32 %911, 0
   %943 = zext i1 %.not1837.i to i32
   %.261555.i = select i1 %909, i32 %943, i32 %911
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.i.loopexit416, %.loopexit.i.loopexit, %939
-  %.251554.i = phi i32 [ %941, %939 ], [ %.241553.i, %.loopexit.i.loopexit ], [ %.261555.i, %.loopexit.i.loopexit416 ]
-  %.781464.i = phi i32 [ %.671453.i, %939 ], [ %901, %.loopexit.i.loopexit ], [ %937, %.loopexit.i.loopexit416 ]
-  %.501347.i = phi i32 [ %869, %939 ], [ %899, %.loopexit.i.loopexit ], [ %935, %.loopexit.i.loopexit416 ]
-  %.78.i = phi i32 [ %905, %939 ], [ %900, %.loopexit.i.loopexit ], [ %936, %.loopexit.i.loopexit416 ]
+.loopexit.i:                                      ; preds = %.loopexit.i.loopexit946, %.loopexit.i.loopexit, %939
+  %.251554.i = phi i32 [ %941, %939 ], [ %.241553.i, %.loopexit.i.loopexit ], [ %.261555.i, %.loopexit.i.loopexit946 ]
+  %.781464.i = phi i32 [ %.671453.i, %939 ], [ %901, %.loopexit.i.loopexit ], [ %937, %.loopexit.i.loopexit946 ]
+  %.501347.i = phi i32 [ %869, %939 ], [ %899, %.loopexit.i.loopexit ], [ %935, %.loopexit.i.loopexit946 ]
+  %.78.i = phi i32 [ %905, %939 ], [ %900, %.loopexit.i.loopexit ], [ %936, %.loopexit.i.loopexit946 ]
   %944 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %862
   %945 = load i8, ptr %944, align 1, !tbaa !47
   %946 = zext i8 %945 to i32
@@ -18306,7 +18306,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1034 = shl i32 %.90.i, 1
   %1035 = add i32 %.901476.i, -1
   %1036 = icmp ult i32 %1033, 32768
-  br i1 %1036, label %1011, label %.loopexit1939.i.loopexit433, !llvm.loop !402
+  br i1 %1036, label %1011, label %.loopexit1939.i.loopexit963, !llvm.loop !402
 
 1037:                                             ; preds = %1001
   %1038 = getelementptr inbounds nuw i8, ptr %965, i64 4
@@ -18319,17 +18319,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.271556.i = select i1 %971, i32 %973, i32 %1040
   br label %.loopexit1939.i
 
-.loopexit1939.i.loopexit433:                      ; preds = %1032
+.loopexit1939.i.loopexit963:                      ; preds = %1032
   %.not1748.i = icmp eq i32 %1009, 0
   %1041 = zext i1 %.not1748.i to i32
   %.291558.i = select i1 %1007, i32 %1041, i32 %1009
   br label %.loopexit1939.i
 
-.loopexit1939.i:                                  ; preds = %.loopexit1939.i.loopexit433, %.loopexit1939.i.loopexit, %1037
-  %.281557.i = phi i32 [ %1039, %1037 ], [ %.271556.i, %.loopexit1939.i.loopexit ], [ %.291558.i, %.loopexit1939.i.loopexit433 ]
-  %.881474.i = phi i32 [ %.113872048.i, %1037 ], [ %999, %.loopexit1939.i.loopexit ], [ %1035, %.loopexit1939.i.loopexit433 ]
-  %.571354.i = phi i32 [ %967, %1037 ], [ %997, %.loopexit1939.i.loopexit ], [ %1033, %.loopexit1939.i.loopexit433 ]
-  %.88.i = phi i32 [ %1003, %1037 ], [ %998, %.loopexit1939.i.loopexit ], [ %1034, %.loopexit1939.i.loopexit433 ]
+.loopexit1939.i:                                  ; preds = %.loopexit1939.i.loopexit963, %.loopexit1939.i.loopexit, %1037
+  %.281557.i = phi i32 [ %1039, %1037 ], [ %.271556.i, %.loopexit1939.i.loopexit ], [ %.291558.i, %.loopexit1939.i.loopexit963 ]
+  %.881474.i = phi i32 [ %.113872048.i, %1037 ], [ %999, %.loopexit1939.i.loopexit ], [ %1035, %.loopexit1939.i.loopexit963 ]
+  %.571354.i = phi i32 [ %967, %1037 ], [ %997, %.loopexit1939.i.loopexit ], [ %1033, %.loopexit1939.i.loopexit963 ]
+  %.88.i = phi i32 [ %1003, %1037 ], [ %998, %.loopexit1939.i.loopexit ], [ %1034, %.loopexit1939.i.loopexit963 ]
   %.not1751.i = icmp eq i32 %.281557.i, 0
   br i1 %.not1751.i, label %1151, label %1042
 
@@ -18484,7 +18484,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1131 = shl i32 %.97.i, 1
   %1132 = add i32 %.971483.i, -1
   %1133 = icmp ult i32 %1130, 32768
-  br i1 %1133, label %1108, label %.loopexit1937.i.loopexit432, !llvm.loop !404
+  br i1 %1133, label %1108, label %.loopexit1937.i.loopexit962, !llvm.loop !404
 
 1134:                                             ; preds = %1098
   %1135 = getelementptr inbounds nuw i8, ptr %1062, i64 4
@@ -18497,17 +18497,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.301559.i = select i1 %1068, i32 %1070, i32 %1137
   br label %.loopexit1937.i
 
-.loopexit1937.i.loopexit432:                      ; preds = %1129
+.loopexit1937.i.loopexit962:                      ; preds = %1129
   %.not1753.i = icmp eq i32 %1106, 0
   %1138 = zext i1 %.not1753.i to i32
   %.321561.i = select i1 %1104, i32 %1138, i32 %1106
   br label %.loopexit1937.i
 
-.loopexit1937.i:                                  ; preds = %.loopexit1937.i.loopexit432, %.loopexit1937.i.loopexit, %1134
-  %.311560.i = phi i32 [ %1136, %1134 ], [ %.301559.i, %.loopexit1937.i.loopexit ], [ %.321561.i, %.loopexit1937.i.loopexit432 ]
-  %.951481.i = phi i32 [ %.881474.i, %1134 ], [ %1096, %.loopexit1937.i.loopexit ], [ %1132, %.loopexit1937.i.loopexit432 ]
-  %.611358.i = phi i32 [ %1064, %1134 ], [ %1094, %.loopexit1937.i.loopexit ], [ %1130, %.loopexit1937.i.loopexit432 ]
-  %.95.i = phi i32 [ %1100, %1134 ], [ %1095, %.loopexit1937.i.loopexit ], [ %1131, %.loopexit1937.i.loopexit432 ]
+.loopexit1937.i:                                  ; preds = %.loopexit1937.i.loopexit962, %.loopexit1937.i.loopexit, %1134
+  %.311560.i = phi i32 [ %1136, %1134 ], [ %.301559.i, %.loopexit1937.i.loopexit ], [ %.321561.i, %.loopexit1937.i.loopexit962 ]
+  %.951481.i = phi i32 [ %.881474.i, %1134 ], [ %1096, %.loopexit1937.i.loopexit ], [ %1132, %.loopexit1937.i.loopexit962 ]
+  %.611358.i = phi i32 [ %1064, %1134 ], [ %1094, %.loopexit1937.i.loopexit ], [ %1130, %.loopexit1937.i.loopexit962 ]
+  %.95.i = phi i32 [ %1100, %1134 ], [ %1095, %.loopexit1937.i.loopexit ], [ %1131, %.loopexit1937.i.loopexit962 ]
   %1139 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %1057
   %1140 = load i8, ptr %1139, align 1, !tbaa !47
   %1141 = zext i8 %1140 to i32
@@ -18673,7 +18673,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1230 = shl i32 %.105.i, 1
   %1231 = add i32 %.1051491.i, -1
   %1232 = icmp ult i32 %1229, 32768
-  br i1 %1232, label %1207, label %.loopexit1935.i.loopexit431, !llvm.loop !406
+  br i1 %1232, label %1207, label %.loopexit1935.i.loopexit961, !llvm.loop !406
 
 1233:                                             ; preds = %1197
   %1234 = getelementptr inbounds nuw i8, ptr %1161, i64 4
@@ -18686,17 +18686,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.331562.i = select i1 %1167, i32 %1169, i32 %1236
   br label %.loopexit1935.i
 
-.loopexit1935.i.loopexit431:                      ; preds = %1228
+.loopexit1935.i.loopexit961:                      ; preds = %1228
   %.not1759.i = icmp eq i32 %1205, 0
   %1237 = zext i1 %.not1759.i to i32
   %.351564.i = select i1 %1203, i32 %1237, i32 %1205
   br label %.loopexit1935.i
 
-.loopexit1935.i:                                  ; preds = %.loopexit1935.i.loopexit431, %.loopexit1935.i.loopexit, %1233
-  %.341563.i = phi i32 [ %1235, %1233 ], [ %.331562.i, %.loopexit1935.i.loopexit ], [ %.351564.i, %.loopexit1935.i.loopexit431 ]
-  %.1031489.i = phi i32 [ %.841470.i, %1233 ], [ %1195, %.loopexit1935.i.loopexit ], [ %1231, %.loopexit1935.i.loopexit431 ]
-  %.661363.i = phi i32 [ %1163, %1233 ], [ %1193, %.loopexit1935.i.loopexit ], [ %1229, %.loopexit1935.i.loopexit431 ]
-  %.103.i = phi i32 [ %1199, %1233 ], [ %1194, %.loopexit1935.i.loopexit ], [ %1230, %.loopexit1935.i.loopexit431 ]
+.loopexit1935.i:                                  ; preds = %.loopexit1935.i.loopexit961, %.loopexit1935.i.loopexit, %1233
+  %.341563.i = phi i32 [ %1235, %1233 ], [ %.331562.i, %.loopexit1935.i.loopexit ], [ %.351564.i, %.loopexit1935.i.loopexit961 ]
+  %.1031489.i = phi i32 [ %.841470.i, %1233 ], [ %1195, %.loopexit1935.i.loopexit ], [ %1231, %.loopexit1935.i.loopexit961 ]
+  %.661363.i = phi i32 [ %1163, %1233 ], [ %1193, %.loopexit1935.i.loopexit ], [ %1229, %.loopexit1935.i.loopexit961 ]
+  %.103.i = phi i32 [ %1199, %1233 ], [ %1194, %.loopexit1935.i.loopexit ], [ %1230, %.loopexit1935.i.loopexit961 ]
   %.not1762.i = icmp eq i32 %.341563.i, 0
   br i1 %.not1762.i, label %1348, label %1238
 
@@ -18851,7 +18851,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1327 = shl i32 %.112.i, 1
   %1328 = add i32 %.1121498.i, -1
   %1329 = icmp ult i32 %1326, 32768
-  br i1 %1329, label %1304, label %.loopexit1933.i.loopexit430, !llvm.loop !408
+  br i1 %1329, label %1304, label %.loopexit1933.i.loopexit960, !llvm.loop !408
 
 1330:                                             ; preds = %1294
   %1331 = getelementptr inbounds nuw i8, ptr %1258, i64 4
@@ -18864,17 +18864,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.361565.i = select i1 %1264, i32 %1266, i32 %1333
   br label %.loopexit1933.i
 
-.loopexit1933.i.loopexit430:                      ; preds = %1325
+.loopexit1933.i.loopexit960:                      ; preds = %1325
   %.not1764.i = icmp eq i32 %1302, 0
   %1334 = zext i1 %.not1764.i to i32
   %.381567.i = select i1 %1300, i32 %1334, i32 %1302
   br label %.loopexit1933.i
 
-.loopexit1933.i:                                  ; preds = %.loopexit1933.i.loopexit430, %.loopexit1933.i.loopexit, %1330
-  %.371566.i = phi i32 [ %1332, %1330 ], [ %.361565.i, %.loopexit1933.i.loopexit ], [ %.381567.i, %.loopexit1933.i.loopexit430 ]
-  %.1101496.i = phi i32 [ %.1031489.i, %1330 ], [ %1292, %.loopexit1933.i.loopexit ], [ %1328, %.loopexit1933.i.loopexit430 ]
-  %.701367.i = phi i32 [ %1260, %1330 ], [ %1290, %.loopexit1933.i.loopexit ], [ %1326, %.loopexit1933.i.loopexit430 ]
-  %.110.i = phi i32 [ %1296, %1330 ], [ %1291, %.loopexit1933.i.loopexit ], [ %1327, %.loopexit1933.i.loopexit430 ]
+.loopexit1933.i:                                  ; preds = %.loopexit1933.i.loopexit960, %.loopexit1933.i.loopexit, %1330
+  %.371566.i = phi i32 [ %1332, %1330 ], [ %.361565.i, %.loopexit1933.i.loopexit ], [ %.381567.i, %.loopexit1933.i.loopexit960 ]
+  %.1101496.i = phi i32 [ %.1031489.i, %1330 ], [ %1292, %.loopexit1933.i.loopexit ], [ %1328, %.loopexit1933.i.loopexit960 ]
+  %.701367.i = phi i32 [ %1260, %1330 ], [ %1290, %.loopexit1933.i.loopexit ], [ %1326, %.loopexit1933.i.loopexit960 ]
+  %.110.i = phi i32 [ %1296, %1330 ], [ %1291, %.loopexit1933.i.loopexit ], [ %1327, %.loopexit1933.i.loopexit960 ]
   %1335 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %1253
   %1336 = load i8, ptr %1335, align 1, !tbaa !47
   %1337 = zext i8 %1336 to i32
@@ -19041,7 +19041,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1427 = shl i32 %.120.i, 1
   %1428 = add i32 %.1201506.i, -1
   %1429 = icmp ult i32 %1426, 32768
-  br i1 %1429, label %1404, label %.loopexit1931.i.loopexit429, !llvm.loop !410
+  br i1 %1429, label %1404, label %.loopexit1931.i.loopexit959, !llvm.loop !410
 
 1430:                                             ; preds = %1394
   %1431 = getelementptr inbounds nuw i8, ptr %1358, i64 4
@@ -19054,17 +19054,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.391568.i = select i1 %1364, i32 %1366, i32 %1433
   br label %.loopexit1931.i
 
-.loopexit1931.i.loopexit429:                      ; preds = %1425
+.loopexit1931.i.loopexit959:                      ; preds = %1425
   %.not1770.i = icmp eq i32 %1402, 0
   %1434 = zext i1 %.not1770.i to i32
   %.411570.i = select i1 %1400, i32 %1434, i32 %1402
   br label %.loopexit1931.i
 
-.loopexit1931.i:                                  ; preds = %.loopexit1931.i.loopexit429, %.loopexit1931.i.loopexit, %1430
-  %.401569.i = phi i32 [ %1432, %1430 ], [ %.391568.i, %.loopexit1931.i.loopexit ], [ %.411570.i, %.loopexit1931.i.loopexit429 ]
-  %.1181504.i = phi i32 [ %.991485.i, %1430 ], [ %1392, %.loopexit1931.i.loopexit ], [ %1428, %.loopexit1931.i.loopexit429 ]
-  %.751372.i = phi i32 [ %1360, %1430 ], [ %1390, %.loopexit1931.i.loopexit ], [ %1426, %.loopexit1931.i.loopexit429 ]
-  %.118.i = phi i32 [ %1396, %1430 ], [ %1391, %.loopexit1931.i.loopexit ], [ %1427, %.loopexit1931.i.loopexit429 ]
+.loopexit1931.i:                                  ; preds = %.loopexit1931.i.loopexit959, %.loopexit1931.i.loopexit, %1430
+  %.401569.i = phi i32 [ %1432, %1430 ], [ %.391568.i, %.loopexit1931.i.loopexit ], [ %.411570.i, %.loopexit1931.i.loopexit959 ]
+  %.1181504.i = phi i32 [ %.991485.i, %1430 ], [ %1392, %.loopexit1931.i.loopexit ], [ %1428, %.loopexit1931.i.loopexit959 ]
+  %.751372.i = phi i32 [ %1360, %1430 ], [ %1390, %.loopexit1931.i.loopexit ], [ %1426, %.loopexit1931.i.loopexit959 ]
+  %.118.i = phi i32 [ %1396, %1430 ], [ %1391, %.loopexit1931.i.loopexit ], [ %1427, %.loopexit1931.i.loopexit959 ]
   %.not1773.i = icmp eq i32 %.401569.i, 0
   br i1 %.not1773.i, label %1545, label %1435
 
@@ -19219,7 +19219,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1524 = shl i32 %.127.i, 1
   %1525 = add i32 %.1271513.i, -1
   %1526 = icmp ult i32 %1523, 32768
-  br i1 %1526, label %1501, label %.loopexit1929.i.loopexit428, !llvm.loop !412
+  br i1 %1526, label %1501, label %.loopexit1929.i.loopexit958, !llvm.loop !412
 
 1527:                                             ; preds = %1491
   %1528 = getelementptr inbounds nuw i8, ptr %1455, i64 4
@@ -19232,17 +19232,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.421571.i = select i1 %1461, i32 %1463, i32 %1530
   br label %.loopexit1929.i
 
-.loopexit1929.i.loopexit428:                      ; preds = %1522
+.loopexit1929.i.loopexit958:                      ; preds = %1522
   %.not1775.i = icmp eq i32 %1499, 0
   %1531 = zext i1 %.not1775.i to i32
   %.441573.i = select i1 %1497, i32 %1531, i32 %1499
   br label %.loopexit1929.i
 
-.loopexit1929.i:                                  ; preds = %.loopexit1929.i.loopexit428, %.loopexit1929.i.loopexit, %1527
-  %.431572.i = phi i32 [ %1529, %1527 ], [ %.421571.i, %.loopexit1929.i.loopexit ], [ %.441573.i, %.loopexit1929.i.loopexit428 ]
-  %.1251511.i = phi i32 [ %.1181504.i, %1527 ], [ %1489, %.loopexit1929.i.loopexit ], [ %1525, %.loopexit1929.i.loopexit428 ]
-  %.791376.i = phi i32 [ %1457, %1527 ], [ %1487, %.loopexit1929.i.loopexit ], [ %1523, %.loopexit1929.i.loopexit428 ]
-  %.125.i = phi i32 [ %1493, %1527 ], [ %1488, %.loopexit1929.i.loopexit ], [ %1524, %.loopexit1929.i.loopexit428 ]
+.loopexit1929.i:                                  ; preds = %.loopexit1929.i.loopexit958, %.loopexit1929.i.loopexit, %1527
+  %.431572.i = phi i32 [ %1529, %1527 ], [ %.421571.i, %.loopexit1929.i.loopexit ], [ %.441573.i, %.loopexit1929.i.loopexit958 ]
+  %.1251511.i = phi i32 [ %.1181504.i, %1527 ], [ %1489, %.loopexit1929.i.loopexit ], [ %1525, %.loopexit1929.i.loopexit958 ]
+  %.791376.i = phi i32 [ %1457, %1527 ], [ %1487, %.loopexit1929.i.loopexit ], [ %1523, %.loopexit1929.i.loopexit958 ]
+  %.125.i = phi i32 [ %1493, %1527 ], [ %1488, %.loopexit1929.i.loopexit ], [ %1524, %.loopexit1929.i.loopexit958 ]
   %1532 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %1450
   %1533 = load i8, ptr %1532, align 1, !tbaa !47
   %1534 = zext i8 %1533 to i32
@@ -19409,7 +19409,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1624 = shl i32 %.134.i, 1
   %1625 = add i32 %.1341520.i, -1
   %1626 = icmp ult i32 %1623, 32768
-  br i1 %1626, label %1601, label %.loopexit1927.i.loopexit427, !llvm.loop !414
+  br i1 %1626, label %1601, label %.loopexit1927.i.loopexit957, !llvm.loop !414
 
 1627:                                             ; preds = %1591
   %1628 = getelementptr inbounds nuw i8, ptr %1555, i64 4
@@ -19422,17 +19422,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.451574.i = select i1 %1561, i32 %1563, i32 %1630
   br label %.loopexit1927.i
 
-.loopexit1927.i.loopexit427:                      ; preds = %1622
+.loopexit1927.i.loopexit957:                      ; preds = %1622
   %.not1781.i = icmp eq i32 %1599, 0
   %1631 = zext i1 %.not1781.i to i32
   %.471576.i = select i1 %1597, i32 %1631, i32 %1599
   br label %.loopexit1927.i
 
-.loopexit1927.i:                                  ; preds = %.loopexit1927.i.loopexit427, %.loopexit1927.i.loopexit, %1627
-  %.461575.i = phi i32 [ %1629, %1627 ], [ %.451574.i, %.loopexit1927.i.loopexit ], [ %.471576.i, %.loopexit1927.i.loopexit427 ]
-  %.1321518.i = phi i32 [ %.1141500.i, %1627 ], [ %1589, %.loopexit1927.i.loopexit ], [ %1625, %.loopexit1927.i.loopexit427 ]
-  %.831380.i = phi i32 [ %1557, %1627 ], [ %1587, %.loopexit1927.i.loopexit ], [ %1623, %.loopexit1927.i.loopexit427 ]
-  %.132.i = phi i32 [ %1593, %1627 ], [ %1588, %.loopexit1927.i.loopexit ], [ %1624, %.loopexit1927.i.loopexit427 ]
+.loopexit1927.i:                                  ; preds = %.loopexit1927.i.loopexit957, %.loopexit1927.i.loopexit, %1627
+  %.461575.i = phi i32 [ %1629, %1627 ], [ %.451574.i, %.loopexit1927.i.loopexit ], [ %.471576.i, %.loopexit1927.i.loopexit957 ]
+  %.1321518.i = phi i32 [ %.1141500.i, %1627 ], [ %1589, %.loopexit1927.i.loopexit ], [ %1625, %.loopexit1927.i.loopexit957 ]
+  %.831380.i = phi i32 [ %1557, %1627 ], [ %1587, %.loopexit1927.i.loopexit ], [ %1623, %.loopexit1927.i.loopexit957 ]
+  %.132.i = phi i32 [ %1593, %1627 ], [ %1588, %.loopexit1927.i.loopexit ], [ %1624, %.loopexit1927.i.loopexit957 ]
   %.not1784.i = icmp eq i32 %.461575.i, 0
   br i1 %.not1784.i, label %1752, label %1632
 
@@ -19587,7 +19587,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1721 = shl i32 %.141.i, 1
   %1722 = add i32 %.1411527.i, -1
   %1723 = icmp ult i32 %1720, 32768
-  br i1 %1723, label %1698, label %.loopexit1925.i.loopexit426, !llvm.loop !416
+  br i1 %1723, label %1698, label %.loopexit1925.i.loopexit956, !llvm.loop !416
 
 1724:                                             ; preds = %1688
   %1725 = getelementptr inbounds nuw i8, ptr %1652, i64 4
@@ -19600,17 +19600,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.481577.i = select i1 %1658, i32 %1660, i32 %1727
   br label %.loopexit1925.i
 
-.loopexit1925.i.loopexit426:                      ; preds = %1719
+.loopexit1925.i.loopexit956:                      ; preds = %1719
   %.not1786.i = icmp eq i32 %1696, 0
   %1728 = zext i1 %.not1786.i to i32
   %.501579.i = select i1 %1694, i32 %1728, i32 %1696
   br label %.loopexit1925.i
 
-.loopexit1925.i:                                  ; preds = %.loopexit1925.i.loopexit426, %.loopexit1925.i.loopexit, %1724
-  %.491578.i = phi i32 [ %1726, %1724 ], [ %.481577.i, %.loopexit1925.i.loopexit ], [ %.501579.i, %.loopexit1925.i.loopexit426 ]
-  %.1391525.i = phi i32 [ %.1321518.i, %1724 ], [ %1686, %.loopexit1925.i.loopexit ], [ %1722, %.loopexit1925.i.loopexit426 ]
-  %.871384.i = phi i32 [ %1654, %1724 ], [ %1684, %.loopexit1925.i.loopexit ], [ %1720, %.loopexit1925.i.loopexit426 ]
-  %.139.i = phi i32 [ %1690, %1724 ], [ %1685, %.loopexit1925.i.loopexit ], [ %1721, %.loopexit1925.i.loopexit426 ]
+.loopexit1925.i:                                  ; preds = %.loopexit1925.i.loopexit956, %.loopexit1925.i.loopexit, %1724
+  %.491578.i = phi i32 [ %1726, %1724 ], [ %.481577.i, %.loopexit1925.i.loopexit ], [ %.501579.i, %.loopexit1925.i.loopexit956 ]
+  %.1391525.i = phi i32 [ %.1321518.i, %1724 ], [ %1686, %.loopexit1925.i.loopexit ], [ %1722, %.loopexit1925.i.loopexit956 ]
+  %.871384.i = phi i32 [ %1654, %1724 ], [ %1684, %.loopexit1925.i.loopexit ], [ %1720, %.loopexit1925.i.loopexit956 ]
+  %.139.i = phi i32 [ %1690, %1724 ], [ %1685, %.loopexit1925.i.loopexit ], [ %1721, %.loopexit1925.i.loopexit956 ]
   %1729 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %1647
   %1730 = load i8, ptr %1729, align 1, !tbaa !47
   %1731 = zext i8 %1730 to i32
@@ -19832,7 +19832,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1835 = shl i32 %.71305.i, 1
   %1836 = add i32 %.71403.i, -1
   %1837 = icmp ult i32 %1834, 32768
-  br i1 %1837, label %1812, label %.loopexit1933.i98.loopexit407, !llvm.loop !420
+  br i1 %1837, label %1812, label %.loopexit1933.i98.loopexit937, !llvm.loop !420
 
 1838:                                             ; preds = %1802
   %1839 = getelementptr inbounds nuw i8, ptr %1766, i64 4
@@ -19845,17 +19845,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.01539.i = select i1 %1772, i32 %1774, i32 %1841
   br label %.loopexit1933.i98
 
-.loopexit1933.i98.loopexit407:                    ; preds = %1833
+.loopexit1933.i98.loopexit937:                    ; preds = %1833
   %.not1801.i193 = icmp eq i32 %1810, 0
   %1842 = zext i1 %.not1801.i193 to i32
   %.21541.i = select i1 %1808, i32 %1842, i32 %1810
   br label %.loopexit1933.i98
 
-.loopexit1933.i98:                                ; preds = %.loopexit1933.i98.loopexit407, %.loopexit1933.i98.loopexit, %1838
-  %.11540.i = phi i32 [ %1840, %1838 ], [ %.01539.i, %.loopexit1933.i98.loopexit ], [ %.21541.i, %.loopexit1933.i98.loopexit407 ]
-  %.51401.i = phi i32 [ %.113972058.i, %1838 ], [ %1800, %.loopexit1933.i98.loopexit ], [ %1836, %.loopexit1933.i98.loopexit407 ]
-  %.41311.i = phi i32 [ %1768, %1838 ], [ %1798, %.loopexit1933.i98.loopexit ], [ %1834, %.loopexit1933.i98.loopexit407 ]
-  %.51303.i = phi i32 [ %1804, %1838 ], [ %1799, %.loopexit1933.i98.loopexit ], [ %1835, %.loopexit1933.i98.loopexit407 ]
+.loopexit1933.i98:                                ; preds = %.loopexit1933.i98.loopexit937, %.loopexit1933.i98.loopexit, %1838
+  %.11540.i = phi i32 [ %1840, %1838 ], [ %.01539.i, %.loopexit1933.i98.loopexit ], [ %.21541.i, %.loopexit1933.i98.loopexit937 ]
+  %.51401.i = phi i32 [ %.113972058.i, %1838 ], [ %1800, %.loopexit1933.i98.loopexit ], [ %1836, %.loopexit1933.i98.loopexit937 ]
+  %.41311.i = phi i32 [ %1768, %1838 ], [ %1798, %.loopexit1933.i98.loopexit ], [ %1834, %.loopexit1933.i98.loopexit937 ]
+  %.51303.i = phi i32 [ %1804, %1838 ], [ %1799, %.loopexit1933.i98.loopexit ], [ %1835, %.loopexit1933.i98.loopexit937 ]
   %.not1804.not.i = icmp eq i32 %.11540.i, 0
   br i1 %.not1804.not.i, label %.thread1910.i, label %1843
 
@@ -19988,7 +19988,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1913 = shl i32 %.15.i187, 1
   %1914 = add i32 %.151411.i, -1
   %1915 = icmp ult i32 %1912, 32768
-  br i1 %1915, label %1890, label %.loopexit1931.i99.loopexit406, !llvm.loop !422
+  br i1 %1915, label %1890, label %.loopexit1931.i99.loopexit936, !llvm.loop !422
 
 1916:                                             ; preds = %1880
   %1917 = getelementptr inbounds nuw i8, ptr %1844, i64 4
@@ -20001,18 +20001,18 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.0.i190 = select i1 %1850, i32 %1852, i32 %1919
   br label %.loopexit1931.i99
 
-.loopexit1931.i99.loopexit406:                    ; preds = %1911
+.loopexit1931.i99.loopexit936:                    ; preds = %1911
   %.not1806.i = icmp eq i32 %1888, 0
   %1920 = zext i1 %.not1806.i to i32
   %.2.i185 = select i1 %1886, i32 %1920, i32 %1888
   br label %.loopexit1931.i99
 
-.loopexit1931.i99:                                ; preds = %.loopexit1931.i99.loopexit406, %.loopexit1931.i99.loopexit, %1916
-  %1921 = phi ptr [ %1844, %1916 ], [ %storemerge1808.i, %.loopexit1931.i99.loopexit ], [ %storemerge1805.i, %.loopexit1931.i99.loopexit406 ]
-  %.131409.i = phi i32 [ %.51401.i, %1916 ], [ %1878, %.loopexit1931.i99.loopexit ], [ %1914, %.loopexit1931.i99.loopexit406 ]
-  %.91316.i = phi i32 [ %1846, %1916 ], [ %1876, %.loopexit1931.i99.loopexit ], [ %1912, %.loopexit1931.i99.loopexit406 ]
-  %.13.i100 = phi i32 [ %1882, %1916 ], [ %1877, %.loopexit1931.i99.loopexit ], [ %1913, %.loopexit1931.i99.loopexit406 ]
-  %.1.i101 = phi i32 [ %1918, %1916 ], [ %.0.i190, %.loopexit1931.i99.loopexit ], [ %.2.i185, %.loopexit1931.i99.loopexit406 ]
+.loopexit1931.i99:                                ; preds = %.loopexit1931.i99.loopexit936, %.loopexit1931.i99.loopexit, %1916
+  %1921 = phi ptr [ %1844, %1916 ], [ %storemerge1808.i, %.loopexit1931.i99.loopexit ], [ %storemerge1805.i, %.loopexit1931.i99.loopexit936 ]
+  %.131409.i = phi i32 [ %.51401.i, %1916 ], [ %1878, %.loopexit1931.i99.loopexit ], [ %1914, %.loopexit1931.i99.loopexit936 ]
+  %.91316.i = phi i32 [ %1846, %1916 ], [ %1876, %.loopexit1931.i99.loopexit ], [ %1912, %.loopexit1931.i99.loopexit936 ]
+  %.13.i100 = phi i32 [ %1882, %1916 ], [ %1877, %.loopexit1931.i99.loopexit ], [ %1913, %.loopexit1931.i99.loopexit936 ]
+  %.1.i101 = phi i32 [ %1918, %1916 ], [ %.0.i190, %.loopexit1931.i99.loopexit ], [ %.2.i185, %.loopexit1931.i99.loopexit936 ]
   %1922 = load i32, ptr %1921, align 8, !tbaa !121
   %1923 = sub i32 %.91316.i, %1922
   %1924 = lshr i32 %.13.i100, 16
@@ -20140,7 +20140,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1990 = shl i32 %.22.i178, 1
   %1991 = add i32 %.221418.i, -1
   %1992 = icmp ult i32 %1989, 32768
-  br i1 %1992, label %1967, label %.loopexit1929.i102.loopexit405, !llvm.loop !424
+  br i1 %1992, label %1967, label %.loopexit1929.i102.loopexit935, !llvm.loop !424
 
 1993:                                             ; preds = %1957
   %1994 = getelementptr inbounds nuw i8, ptr %1921, i64 4
@@ -20153,17 +20153,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.31542.i = select i1 %1927, i32 %1929, i32 %1996
   br label %.loopexit1929.i102
 
-.loopexit1929.i102.loopexit405:                   ; preds = %1988
+.loopexit1929.i102.loopexit935:                   ; preds = %1988
   %.not1810.i174 = icmp eq i32 %1965, 0
   %1997 = zext i1 %.not1810.i174 to i32
   %.51544.i = select i1 %1963, i32 %1997, i32 %1965
   br label %.loopexit1929.i102
 
-.loopexit1929.i102:                               ; preds = %.loopexit1929.i102.loopexit405, %.loopexit1929.i102.loopexit, %1993
-  %.41543.i = phi i32 [ %1995, %1993 ], [ %.31542.i, %.loopexit1929.i102.loopexit ], [ %.51544.i, %.loopexit1929.i102.loopexit405 ]
-  %.201416.i = phi i32 [ %.131409.i, %1993 ], [ %1955, %.loopexit1929.i102.loopexit ], [ %1991, %.loopexit1929.i102.loopexit405 ]
-  %.131320.i = phi i32 [ %1923, %1993 ], [ %1953, %.loopexit1929.i102.loopexit ], [ %1989, %.loopexit1929.i102.loopexit405 ]
-  %.20.i103 = phi i32 [ %1959, %1993 ], [ %1954, %.loopexit1929.i102.loopexit ], [ %1990, %.loopexit1929.i102.loopexit405 ]
+.loopexit1929.i102:                               ; preds = %.loopexit1929.i102.loopexit935, %.loopexit1929.i102.loopexit, %1993
+  %.41543.i = phi i32 [ %1995, %1993 ], [ %.31542.i, %.loopexit1929.i102.loopexit ], [ %.51544.i, %.loopexit1929.i102.loopexit935 ]
+  %.201416.i = phi i32 [ %.131409.i, %1993 ], [ %1955, %.loopexit1929.i102.loopexit ], [ %1991, %.loopexit1929.i102.loopexit935 ]
+  %.131320.i = phi i32 [ %1923, %1993 ], [ %1953, %.loopexit1929.i102.loopexit ], [ %1989, %.loopexit1929.i102.loopexit935 ]
+  %.20.i103 = phi i32 [ %1959, %1993 ], [ %1954, %.loopexit1929.i102.loopexit ], [ %1990, %.loopexit1929.i102.loopexit935 ]
   %1998 = shl i32 %.1.i101, 1
   %1999 = or i32 %.41543.i, %1998
   switch i32 %1999, label %3501 [
@@ -20316,7 +20316,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2084 = shl i32 %.30.i169, 1
   %2085 = add i32 %.301426.i, -1
   %2086 = icmp ult i32 %2083, 32768
-  br i1 %2086, label %2061, label %.loopexit1927.i156.loopexit404, !llvm.loop !426
+  br i1 %2086, label %2061, label %.loopexit1927.i156.loopexit934, !llvm.loop !426
 
 2087:                                             ; preds = %2051
   %2088 = getelementptr inbounds nuw i8, ptr %2015, i64 4
@@ -20329,17 +20329,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.61545.i = select i1 %2021, i32 %2023, i32 %2090
   br label %.loopexit1927.i156
 
-.loopexit1927.i156.loopexit404:                   ; preds = %2082
+.loopexit1927.i156.loopexit934:                   ; preds = %2082
   %.not1814.i = icmp eq i32 %2059, 0
   %2091 = zext i1 %.not1814.i to i32
   %.81547.i = select i1 %2057, i32 %2091, i32 %2059
   br label %.loopexit1927.i156
 
-.loopexit1927.i156:                               ; preds = %.loopexit1927.i156.loopexit404, %.loopexit1927.i156.loopexit, %2087
-  %.71546.i = phi i32 [ %2089, %2087 ], [ %.61545.i, %.loopexit1927.i156.loopexit ], [ %.81547.i, %.loopexit1927.i156.loopexit404 ]
-  %.281424.i = phi i32 [ %.201416.i, %2087 ], [ %2049, %.loopexit1927.i156.loopexit ], [ %2085, %.loopexit1927.i156.loopexit404 ]
-  %.181325.i = phi i32 [ %2017, %2087 ], [ %2047, %.loopexit1927.i156.loopexit ], [ %2083, %.loopexit1927.i156.loopexit404 ]
-  %.28.i157 = phi i32 [ %2053, %2087 ], [ %2048, %.loopexit1927.i156.loopexit ], [ %2084, %.loopexit1927.i156.loopexit404 ]
+.loopexit1927.i156:                               ; preds = %.loopexit1927.i156.loopexit934, %.loopexit1927.i156.loopexit, %2087
+  %.71546.i = phi i32 [ %2089, %2087 ], [ %.61545.i, %.loopexit1927.i156.loopexit ], [ %.81547.i, %.loopexit1927.i156.loopexit934 ]
+  %.281424.i = phi i32 [ %.201416.i, %2087 ], [ %2049, %.loopexit1927.i156.loopexit ], [ %2085, %.loopexit1927.i156.loopexit934 ]
+  %.181325.i = phi i32 [ %2017, %2087 ], [ %2047, %.loopexit1927.i156.loopexit ], [ %2083, %.loopexit1927.i156.loopexit934 ]
+  %.28.i157 = phi i32 [ %2053, %2087 ], [ %2048, %.loopexit1927.i156.loopexit ], [ %2084, %.loopexit1927.i156.loopexit934 ]
   %2092 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %2010
   %2093 = load i8, ptr %2092, align 1, !tbaa !47
   %2094 = zext i8 %2093 to i32
@@ -20502,7 +20502,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2187 = shl i32 %.39.i162, 1
   %2188 = add i32 %.391435.i, -1
   %2189 = icmp ult i32 %2186, 32768
-  br i1 %2189, label %2164, label %.loopexit1925.i158.loopexit403, !llvm.loop !428
+  br i1 %2189, label %2164, label %.loopexit1925.i158.loopexit933, !llvm.loop !428
 
 2190:                                             ; preds = %2154
   %2191 = getelementptr inbounds nuw i8, ptr %2118, i64 4
@@ -20515,17 +20515,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.91548.i = select i1 %2124, i32 %2126, i32 %2193
   br label %.loopexit1925.i158
 
-.loopexit1925.i158.loopexit403:                   ; preds = %2185
+.loopexit1925.i158.loopexit933:                   ; preds = %2185
   %.not1820.i = icmp eq i32 %2162, 0
   %2194 = zext i1 %.not1820.i to i32
   %.111550.i = select i1 %2160, i32 %2194, i32 %2162
   br label %.loopexit1925.i158
 
-.loopexit1925.i158:                               ; preds = %.loopexit1925.i158.loopexit403, %.loopexit1925.i158.loopexit, %2190
-  %.101549.i = phi i32 [ %2192, %2190 ], [ %.91548.i, %.loopexit1925.i158.loopexit ], [ %.111550.i, %.loopexit1925.i158.loopexit403 ]
-  %.371433.i = phi i32 [ %.281424.i, %2190 ], [ %2152, %.loopexit1925.i158.loopexit ], [ %2188, %.loopexit1925.i158.loopexit403 ]
-  %.241331.i = phi i32 [ %2120, %2190 ], [ %2150, %.loopexit1925.i158.loopexit ], [ %2186, %.loopexit1925.i158.loopexit403 ]
-  %.37.i159 = phi i32 [ %2156, %2190 ], [ %2151, %.loopexit1925.i158.loopexit ], [ %2187, %.loopexit1925.i158.loopexit403 ]
+.loopexit1925.i158:                               ; preds = %.loopexit1925.i158.loopexit933, %.loopexit1925.i158.loopexit, %2190
+  %.101549.i = phi i32 [ %2192, %2190 ], [ %.91548.i, %.loopexit1925.i158.loopexit ], [ %.111550.i, %.loopexit1925.i158.loopexit933 ]
+  %.371433.i = phi i32 [ %.281424.i, %2190 ], [ %2152, %.loopexit1925.i158.loopexit ], [ %2188, %.loopexit1925.i158.loopexit933 ]
+  %.241331.i = phi i32 [ %2120, %2190 ], [ %2150, %.loopexit1925.i158.loopexit ], [ %2186, %.loopexit1925.i158.loopexit933 ]
+  %.37.i159 = phi i32 [ %2156, %2190 ], [ %2151, %.loopexit1925.i158.loopexit ], [ %2187, %.loopexit1925.i158.loopexit933 ]
   %.not1823.i = icmp eq i32 %.101549.i, 0
   br i1 %.not1823.i, label %2305, label %.thread.i132
 
@@ -20685,7 +20685,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2284 = shl i32 %.47.i151, 1
   %2285 = add i32 %.471443.i, -1
   %2286 = icmp ult i32 %2283, 32768
-  br i1 %2286, label %2261, label %.loopexit1923.i137.loopexit402, !llvm.loop !430
+  br i1 %2286, label %2261, label %.loopexit1923.i137.loopexit932, !llvm.loop !430
 
 2287:                                             ; preds = %2251
   %2288 = getelementptr inbounds nuw i8, ptr %2215, i64 4
@@ -20698,17 +20698,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.121551.i = select i1 %2221, i32 %2223, i32 %2290
   br label %.loopexit1923.i137
 
-.loopexit1923.i137.loopexit402:                   ; preds = %2282
+.loopexit1923.i137.loopexit932:                   ; preds = %2282
   %.not1825.i = icmp eq i32 %2259, 0
   %2291 = zext i1 %.not1825.i to i32
   %.141553.i = select i1 %2257, i32 %2291, i32 %2259
   br label %.loopexit1923.i137
 
-.loopexit1923.i137:                               ; preds = %.loopexit1923.i137.loopexit402, %.loopexit1923.i137.loopexit, %2287
-  %.131552.i = phi i32 [ %2289, %2287 ], [ %.121551.i, %.loopexit1923.i137.loopexit ], [ %.141553.i, %.loopexit1923.i137.loopexit402 ]
-  %.451441.i = phi i32 [ %.331429.i, %2287 ], [ %2249, %.loopexit1923.i137.loopexit ], [ %2285, %.loopexit1923.i137.loopexit402 ]
-  %.291336.i = phi i32 [ %2217, %2287 ], [ %2247, %.loopexit1923.i137.loopexit ], [ %2283, %.loopexit1923.i137.loopexit402 ]
-  %.45.i138 = phi i32 [ %2253, %2287 ], [ %2248, %.loopexit1923.i137.loopexit ], [ %2284, %.loopexit1923.i137.loopexit402 ]
+.loopexit1923.i137:                               ; preds = %.loopexit1923.i137.loopexit932, %.loopexit1923.i137.loopexit, %2287
+  %.131552.i = phi i32 [ %2289, %2287 ], [ %.121551.i, %.loopexit1923.i137.loopexit ], [ %.141553.i, %.loopexit1923.i137.loopexit932 ]
+  %.451441.i = phi i32 [ %.331429.i, %2287 ], [ %2249, %.loopexit1923.i137.loopexit ], [ %2285, %.loopexit1923.i137.loopexit932 ]
+  %.291336.i = phi i32 [ %2217, %2287 ], [ %2247, %.loopexit1923.i137.loopexit ], [ %2283, %.loopexit1923.i137.loopexit932 ]
+  %.45.i138 = phi i32 [ %2253, %2287 ], [ %2248, %.loopexit1923.i137.loopexit ], [ %2284, %.loopexit1923.i137.loopexit932 ]
   %2292 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %2210
   %2293 = load i8, ptr %2292, align 1, !tbaa !47
   %2294 = zext i8 %2293 to i32
@@ -20870,7 +20870,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2382 = shl i32 %.56.i144, 1
   %2383 = add i32 %.561452.i, -1
   %2384 = icmp ult i32 %2381, 32768
-  br i1 %2384, label %2359, label %.loopexit1921.i140.loopexit401, !llvm.loop !432
+  br i1 %2384, label %2359, label %.loopexit1921.i140.loopexit931, !llvm.loop !432
 
 2385:                                             ; preds = %2349
   %2386 = getelementptr inbounds nuw i8, ptr %2313, i64 4
@@ -20883,17 +20883,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.151554.i = select i1 %2319, i32 %2321, i32 %2388
   br label %.loopexit1921.i140
 
-.loopexit1921.i140.loopexit401:                   ; preds = %2380
+.loopexit1921.i140.loopexit931:                   ; preds = %2380
   %.not1831.i = icmp eq i32 %2357, 0
   %2389 = zext i1 %.not1831.i to i32
   %.171556.i = select i1 %2355, i32 %2389, i32 %2357
   br label %.loopexit1921.i140
 
-.loopexit1921.i140:                               ; preds = %.loopexit1921.i140.loopexit401, %.loopexit1921.i140.loopexit, %2385
-  %.161555.i = phi i32 [ %2387, %2385 ], [ %.151554.i, %.loopexit1921.i140.loopexit ], [ %.171556.i, %.loopexit1921.i140.loopexit401 ]
-  %.541450.i = phi i32 [ %.491445.ph.i, %2385 ], [ %2347, %.loopexit1921.i140.loopexit ], [ %2383, %.loopexit1921.i140.loopexit401 ]
-  %.351342.i = phi i32 [ %2315, %2385 ], [ %2345, %.loopexit1921.i140.loopexit ], [ %2381, %.loopexit1921.i140.loopexit401 ]
-  %.54.i141 = phi i32 [ %2351, %2385 ], [ %2346, %.loopexit1921.i140.loopexit ], [ %2382, %.loopexit1921.i140.loopexit401 ]
+.loopexit1921.i140:                               ; preds = %.loopexit1921.i140.loopexit931, %.loopexit1921.i140.loopexit, %2385
+  %.161555.i = phi i32 [ %2387, %2385 ], [ %.151554.i, %.loopexit1921.i140.loopexit ], [ %.171556.i, %.loopexit1921.i140.loopexit931 ]
+  %.541450.i = phi i32 [ %.491445.ph.i, %2385 ], [ %2347, %.loopexit1921.i140.loopexit ], [ %2383, %.loopexit1921.i140.loopexit931 ]
+  %.351342.i = phi i32 [ %2315, %2385 ], [ %2345, %.loopexit1921.i140.loopexit ], [ %2381, %.loopexit1921.i140.loopexit931 ]
+  %.54.i141 = phi i32 [ %2351, %2385 ], [ %2346, %.loopexit1921.i140.loopexit ], [ %2382, %.loopexit1921.i140.loopexit931 ]
   %.not1834.i = icmp eq i32 %.161555.i, 0
   br i1 %.not1834.i, label %2500, label %.loopexit1929._crit_edge.i
 
@@ -21053,7 +21053,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2479 = shl i32 %.64.i127, 1
   %2480 = add i32 %.641460.i, -1
   %2481 = icmp ult i32 %2478, 32768
-  br i1 %2481, label %2456, label %.loopexit1919.i114.loopexit400, !llvm.loop !434
+  br i1 %2481, label %2456, label %.loopexit1919.i114.loopexit930, !llvm.loop !434
 
 2482:                                             ; preds = %2446
   %2483 = getelementptr inbounds nuw i8, ptr %2410, i64 4
@@ -21066,17 +21066,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.181557.i = select i1 %2416, i32 %2418, i32 %2485
   br label %.loopexit1919.i114
 
-.loopexit1919.i114.loopexit400:                   ; preds = %2477
+.loopexit1919.i114.loopexit930:                   ; preds = %2477
   %.not1836.i = icmp eq i32 %2454, 0
   %2486 = zext i1 %.not1836.i to i32
   %.201559.i = select i1 %2452, i32 %2486, i32 %2454
   br label %.loopexit1919.i114
 
-.loopexit1919.i114:                               ; preds = %.loopexit1919.i114.loopexit400, %.loopexit1919.i114.loopexit, %2482
-  %.191558.i = phi i32 [ %2484, %2482 ], [ %.181557.i, %.loopexit1919.i114.loopexit ], [ %.201559.i, %.loopexit1919.i114.loopexit400 ]
-  %.621458.i = phi i32 [ %.501446.i, %2482 ], [ %2444, %.loopexit1919.i114.loopexit ], [ %2480, %.loopexit1919.i114.loopexit400 ]
-  %.401347.i = phi i32 [ %2412, %2482 ], [ %2442, %.loopexit1919.i114.loopexit ], [ %2478, %.loopexit1919.i114.loopexit400 ]
-  %.62.i115 = phi i32 [ %2448, %2482 ], [ %2443, %.loopexit1919.i114.loopexit ], [ %2479, %.loopexit1919.i114.loopexit400 ]
+.loopexit1919.i114:                               ; preds = %.loopexit1919.i114.loopexit930, %.loopexit1919.i114.loopexit, %2482
+  %.191558.i = phi i32 [ %2484, %2482 ], [ %.181557.i, %.loopexit1919.i114.loopexit ], [ %.201559.i, %.loopexit1919.i114.loopexit930 ]
+  %.621458.i = phi i32 [ %.501446.i, %2482 ], [ %2444, %.loopexit1919.i114.loopexit ], [ %2480, %.loopexit1919.i114.loopexit930 ]
+  %.401347.i = phi i32 [ %2412, %2482 ], [ %2442, %.loopexit1919.i114.loopexit ], [ %2478, %.loopexit1919.i114.loopexit930 ]
+  %.62.i115 = phi i32 [ %2448, %2482 ], [ %2443, %.loopexit1919.i114.loopexit ], [ %2479, %.loopexit1919.i114.loopexit930 ]
   %2487 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %2405
   %2488 = load i8, ptr %2487, align 1, !tbaa !47
   %2489 = zext i8 %2488 to i32
@@ -21238,7 +21238,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2577 = shl i32 %.73.i121, 1
   %2578 = add i32 %.731469.i, -1
   %2579 = icmp ult i32 %2576, 32768
-  br i1 %2579, label %2554, label %.loopexit1917.i117.loopexit399, !llvm.loop !436
+  br i1 %2579, label %2554, label %.loopexit1917.i117.loopexit929, !llvm.loop !436
 
 2580:                                             ; preds = %2544
   %2581 = getelementptr inbounds nuw i8, ptr %2508, i64 4
@@ -21251,17 +21251,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.211560.i = select i1 %2514, i32 %2516, i32 %2583
   br label %.loopexit1917.i117
 
-.loopexit1917.i117.loopexit399:                   ; preds = %2575
+.loopexit1917.i117.loopexit929:                   ; preds = %2575
   %.not1842.i = icmp eq i32 %2552, 0
   %2584 = zext i1 %.not1842.i to i32
   %.231562.i = select i1 %2550, i32 %2584, i32 %2552
   br label %.loopexit1917.i117
 
-.loopexit1917.i117:                               ; preds = %.loopexit1917.i117.loopexit399, %.loopexit1917.i117.loopexit, %2580
-  %.221561.i = phi i32 [ %2582, %2580 ], [ %.211560.i, %.loopexit1917.i117.loopexit ], [ %.231562.i, %.loopexit1917.i117.loopexit399 ]
-  %.711467.i = phi i32 [ %.661462.ph.i, %2580 ], [ %2542, %.loopexit1917.i117.loopexit ], [ %2578, %.loopexit1917.i117.loopexit399 ]
-  %.461353.i = phi i32 [ %2510, %2580 ], [ %2540, %.loopexit1917.i117.loopexit ], [ %2576, %.loopexit1917.i117.loopexit399 ]
-  %.71.i118 = phi i32 [ %2546, %2580 ], [ %2541, %.loopexit1917.i117.loopexit ], [ %2577, %.loopexit1917.i117.loopexit399 ]
+.loopexit1917.i117:                               ; preds = %.loopexit1917.i117.loopexit929, %.loopexit1917.i117.loopexit, %2580
+  %.221561.i = phi i32 [ %2582, %2580 ], [ %.211560.i, %.loopexit1917.i117.loopexit ], [ %.231562.i, %.loopexit1917.i117.loopexit929 ]
+  %.711467.i = phi i32 [ %.661462.ph.i, %2580 ], [ %2542, %.loopexit1917.i117.loopexit ], [ %2578, %.loopexit1917.i117.loopexit929 ]
+  %.461353.i = phi i32 [ %2510, %2580 ], [ %2540, %.loopexit1917.i117.loopexit ], [ %2576, %.loopexit1917.i117.loopexit929 ]
+  %.71.i118 = phi i32 [ %2546, %2580 ], [ %2541, %.loopexit1917.i117.loopexit ], [ %2577, %.loopexit1917.i117.loopexit929 ]
   %.not1845.i = icmp eq i32 %.221561.i, 0
   br i1 %.not1845.i, label %3501, label %.loopexit1929._crit_edge2199.i
 
@@ -21421,7 +21421,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2674 = shl i32 %.80.i109, 1
   %2675 = add i32 %.801476.i, -1
   %2676 = icmp ult i32 %2673, 32768
-  br i1 %2676, label %2651, label %.loopexit.i105.loopexit398, !llvm.loop !438
+  br i1 %2676, label %2651, label %.loopexit.i105.loopexit928, !llvm.loop !438
 
 2677:                                             ; preds = %2641
   %2678 = getelementptr inbounds nuw i8, ptr %2605, i64 4
@@ -21434,17 +21434,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.241563.i = select i1 %2611, i32 %2613, i32 %2680
   br label %.loopexit.i105
 
-.loopexit.i105.loopexit398:                       ; preds = %2672
+.loopexit.i105.loopexit928:                       ; preds = %2672
   %.not1847.i = icmp eq i32 %2649, 0
   %2681 = zext i1 %.not1847.i to i32
   %.261565.i = select i1 %2647, i32 %2681, i32 %2649
   br label %.loopexit.i105
 
-.loopexit.i105:                                   ; preds = %.loopexit.i105.loopexit398, %.loopexit.i105.loopexit, %2677
-  %.251564.i = phi i32 [ %2679, %2677 ], [ %.241563.i, %.loopexit.i105.loopexit ], [ %.261565.i, %.loopexit.i105.loopexit398 ]
-  %.781474.i = phi i32 [ %.671463.i, %2677 ], [ %2639, %.loopexit.i105.loopexit ], [ %2675, %.loopexit.i105.loopexit398 ]
-  %.501357.i = phi i32 [ %2607, %2677 ], [ %2637, %.loopexit.i105.loopexit ], [ %2673, %.loopexit.i105.loopexit398 ]
-  %.78.i106 = phi i32 [ %2643, %2677 ], [ %2638, %.loopexit.i105.loopexit ], [ %2674, %.loopexit.i105.loopexit398 ]
+.loopexit.i105:                                   ; preds = %.loopexit.i105.loopexit928, %.loopexit.i105.loopexit, %2677
+  %.251564.i = phi i32 [ %2679, %2677 ], [ %.241563.i, %.loopexit.i105.loopexit ], [ %.261565.i, %.loopexit.i105.loopexit928 ]
+  %.781474.i = phi i32 [ %.671463.i, %2677 ], [ %2639, %.loopexit.i105.loopexit ], [ %2675, %.loopexit.i105.loopexit928 ]
+  %.501357.i = phi i32 [ %2607, %2677 ], [ %2637, %.loopexit.i105.loopexit ], [ %2673, %.loopexit.i105.loopexit928 ]
+  %.78.i106 = phi i32 [ %2643, %2677 ], [ %2638, %.loopexit.i105.loopexit ], [ %2674, %.loopexit.i105.loopexit928 ]
   %2682 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %2600
   %2683 = load i8, ptr %2682, align 1, !tbaa !47
   %2684 = zext i8 %2683 to i32
@@ -21604,7 +21604,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2772 = shl i32 %.90.i93, 1
   %2773 = add i32 %.901486.i, -1
   %2774 = icmp ult i32 %2771, 32768
-  br i1 %2774, label %2749, label %.loopexit1949.i.loopexit415, !llvm.loop !440
+  br i1 %2774, label %2749, label %.loopexit1949.i.loopexit945, !llvm.loop !440
 
 2775:                                             ; preds = %2739
   %2776 = getelementptr inbounds nuw i8, ptr %2703, i64 4
@@ -21617,17 +21617,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.271566.i = select i1 %2709, i32 %2711, i32 %2778
   br label %.loopexit1949.i
 
-.loopexit1949.i.loopexit415:                      ; preds = %2770
+.loopexit1949.i.loopexit945:                      ; preds = %2770
   %.not1758.i = icmp eq i32 %2747, 0
   %2779 = zext i1 %.not1758.i to i32
   %.291568.i = select i1 %2745, i32 %2779, i32 %2747
   br label %.loopexit1949.i
 
-.loopexit1949.i:                                  ; preds = %.loopexit1949.i.loopexit415, %.loopexit1949.i.loopexit, %2775
-  %.281567.i = phi i32 [ %2777, %2775 ], [ %.271566.i, %.loopexit1949.i.loopexit ], [ %.291568.i, %.loopexit1949.i.loopexit415 ]
-  %.881484.i = phi i32 [ %.113972058.i, %2775 ], [ %2737, %.loopexit1949.i.loopexit ], [ %2773, %.loopexit1949.i.loopexit415 ]
-  %.571364.i = phi i32 [ %2705, %2775 ], [ %2735, %.loopexit1949.i.loopexit ], [ %2771, %.loopexit1949.i.loopexit415 ]
-  %.88.i81 = phi i32 [ %2741, %2775 ], [ %2736, %.loopexit1949.i.loopexit ], [ %2772, %.loopexit1949.i.loopexit415 ]
+.loopexit1949.i:                                  ; preds = %.loopexit1949.i.loopexit945, %.loopexit1949.i.loopexit, %2775
+  %.281567.i = phi i32 [ %2777, %2775 ], [ %.271566.i, %.loopexit1949.i.loopexit ], [ %.291568.i, %.loopexit1949.i.loopexit945 ]
+  %.881484.i = phi i32 [ %.113972058.i, %2775 ], [ %2737, %.loopexit1949.i.loopexit ], [ %2773, %.loopexit1949.i.loopexit945 ]
+  %.571364.i = phi i32 [ %2705, %2775 ], [ %2735, %.loopexit1949.i.loopexit ], [ %2771, %.loopexit1949.i.loopexit945 ]
+  %.88.i81 = phi i32 [ %2741, %2775 ], [ %2736, %.loopexit1949.i.loopexit ], [ %2772, %.loopexit1949.i.loopexit945 ]
   %.not1761.i = icmp eq i32 %.281567.i, 0
   br i1 %.not1761.i, label %2900, label %2780
 
@@ -21782,7 +21782,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2869 = shl i32 %.97.i85, 1
   %2870 = add i32 %.971493.i, -1
   %2871 = icmp ult i32 %2868, 32768
-  br i1 %2871, label %2846, label %.loopexit1947.i.loopexit414, !llvm.loop !442
+  br i1 %2871, label %2846, label %.loopexit1947.i.loopexit944, !llvm.loop !442
 
 2872:                                             ; preds = %2836
   %2873 = getelementptr inbounds nuw i8, ptr %2800, i64 4
@@ -21795,17 +21795,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.301569.i = select i1 %2806, i32 %2808, i32 %2875
   br label %.loopexit1947.i
 
-.loopexit1947.i.loopexit414:                      ; preds = %2867
+.loopexit1947.i.loopexit944:                      ; preds = %2867
   %.not1763.i = icmp eq i32 %2844, 0
   %2876 = zext i1 %.not1763.i to i32
   %.321571.i = select i1 %2842, i32 %2876, i32 %2844
   br label %.loopexit1947.i
 
-.loopexit1947.i:                                  ; preds = %.loopexit1947.i.loopexit414, %.loopexit1947.i.loopexit, %2872
-  %.311570.i = phi i32 [ %2874, %2872 ], [ %.301569.i, %.loopexit1947.i.loopexit ], [ %.321571.i, %.loopexit1947.i.loopexit414 ]
-  %.951491.i = phi i32 [ %.881484.i, %2872 ], [ %2834, %.loopexit1947.i.loopexit ], [ %2870, %.loopexit1947.i.loopexit414 ]
-  %.611368.i = phi i32 [ %2802, %2872 ], [ %2832, %.loopexit1947.i.loopexit ], [ %2868, %.loopexit1947.i.loopexit414 ]
-  %.95.i82 = phi i32 [ %2838, %2872 ], [ %2833, %.loopexit1947.i.loopexit ], [ %2869, %.loopexit1947.i.loopexit414 ]
+.loopexit1947.i:                                  ; preds = %.loopexit1947.i.loopexit944, %.loopexit1947.i.loopexit, %2872
+  %.311570.i = phi i32 [ %2874, %2872 ], [ %.301569.i, %.loopexit1947.i.loopexit ], [ %.321571.i, %.loopexit1947.i.loopexit944 ]
+  %.951491.i = phi i32 [ %.881484.i, %2872 ], [ %2834, %.loopexit1947.i.loopexit ], [ %2870, %.loopexit1947.i.loopexit944 ]
+  %.611368.i = phi i32 [ %2802, %2872 ], [ %2832, %.loopexit1947.i.loopexit ], [ %2868, %.loopexit1947.i.loopexit944 ]
+  %.95.i82 = phi i32 [ %2838, %2872 ], [ %2833, %.loopexit1947.i.loopexit ], [ %2869, %.loopexit1947.i.loopexit944 ]
   %2877 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %2795
   %2878 = load i8, ptr %2877, align 1, !tbaa !47
   %2879 = zext i8 %2878 to i32
@@ -21985,7 +21985,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2979 = shl i32 %.105.i76, 1
   %2980 = add i32 %.1051501.i, -1
   %2981 = icmp ult i32 %2978, 32768
-  br i1 %2981, label %2956, label %.loopexit1945.i.loopexit413, !llvm.loop !444
+  br i1 %2981, label %2956, label %.loopexit1945.i.loopexit943, !llvm.loop !444
 
 2982:                                             ; preds = %2946
   %2983 = getelementptr inbounds nuw i8, ptr %2910, i64 4
@@ -21998,17 +21998,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.331572.i = select i1 %2916, i32 %2918, i32 %2985
   br label %.loopexit1945.i
 
-.loopexit1945.i.loopexit413:                      ; preds = %2977
+.loopexit1945.i.loopexit943:                      ; preds = %2977
   %.not1769.i = icmp eq i32 %2954, 0
   %2986 = zext i1 %.not1769.i to i32
   %.351574.i = select i1 %2952, i32 %2986, i32 %2954
   br label %.loopexit1945.i
 
-.loopexit1945.i:                                  ; preds = %.loopexit1945.i.loopexit413, %.loopexit1945.i.loopexit, %2982
-  %.341573.i = phi i32 [ %2984, %2982 ], [ %.331572.i, %.loopexit1945.i.loopexit ], [ %.351574.i, %.loopexit1945.i.loopexit413 ]
-  %.1031499.i = phi i32 [ %.841480.i, %2982 ], [ %2944, %.loopexit1945.i.loopexit ], [ %2980, %.loopexit1945.i.loopexit413 ]
-  %.661373.i = phi i32 [ %2912, %2982 ], [ %2942, %.loopexit1945.i.loopexit ], [ %2978, %.loopexit1945.i.loopexit413 ]
-  %.103.i67 = phi i32 [ %2948, %2982 ], [ %2943, %.loopexit1945.i.loopexit ], [ %2979, %.loopexit1945.i.loopexit413 ]
+.loopexit1945.i:                                  ; preds = %.loopexit1945.i.loopexit943, %.loopexit1945.i.loopexit, %2982
+  %.341573.i = phi i32 [ %2984, %2982 ], [ %.331572.i, %.loopexit1945.i.loopexit ], [ %.351574.i, %.loopexit1945.i.loopexit943 ]
+  %.1031499.i = phi i32 [ %.841480.i, %2982 ], [ %2944, %.loopexit1945.i.loopexit ], [ %2980, %.loopexit1945.i.loopexit943 ]
+  %.661373.i = phi i32 [ %2912, %2982 ], [ %2942, %.loopexit1945.i.loopexit ], [ %2978, %.loopexit1945.i.loopexit943 ]
+  %.103.i67 = phi i32 [ %2948, %2982 ], [ %2943, %.loopexit1945.i.loopexit ], [ %2979, %.loopexit1945.i.loopexit943 ]
   %.not1772.i = icmp eq i32 %.341573.i, 0
   br i1 %.not1772.i, label %3097, label %2987
 
@@ -22163,7 +22163,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3076 = shl i32 %.112.i70, 1
   %3077 = add i32 %.1121508.i, -1
   %3078 = icmp ult i32 %3075, 32768
-  br i1 %3078, label %3053, label %.loopexit1943.i.loopexit412, !llvm.loop !446
+  br i1 %3078, label %3053, label %.loopexit1943.i.loopexit942, !llvm.loop !446
 
 3079:                                             ; preds = %3043
   %3080 = getelementptr inbounds nuw i8, ptr %3007, i64 4
@@ -22176,17 +22176,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.361575.i = select i1 %3013, i32 %3015, i32 %3082
   br label %.loopexit1943.i
 
-.loopexit1943.i.loopexit412:                      ; preds = %3074
+.loopexit1943.i.loopexit942:                      ; preds = %3074
   %.not1774.i = icmp eq i32 %3051, 0
   %3083 = zext i1 %.not1774.i to i32
   %.381577.i = select i1 %3049, i32 %3083, i32 %3051
   br label %.loopexit1943.i
 
-.loopexit1943.i:                                  ; preds = %.loopexit1943.i.loopexit412, %.loopexit1943.i.loopexit, %3079
-  %.371576.i = phi i32 [ %3081, %3079 ], [ %.361575.i, %.loopexit1943.i.loopexit ], [ %.381577.i, %.loopexit1943.i.loopexit412 ]
-  %.1101506.i = phi i32 [ %.1031499.i, %3079 ], [ %3041, %.loopexit1943.i.loopexit ], [ %3077, %.loopexit1943.i.loopexit412 ]
-  %.701377.i = phi i32 [ %3009, %3079 ], [ %3039, %.loopexit1943.i.loopexit ], [ %3075, %.loopexit1943.i.loopexit412 ]
-  %.110.i68 = phi i32 [ %3045, %3079 ], [ %3040, %.loopexit1943.i.loopexit ], [ %3076, %.loopexit1943.i.loopexit412 ]
+.loopexit1943.i:                                  ; preds = %.loopexit1943.i.loopexit942, %.loopexit1943.i.loopexit, %3079
+  %.371576.i = phi i32 [ %3081, %3079 ], [ %.361575.i, %.loopexit1943.i.loopexit ], [ %.381577.i, %.loopexit1943.i.loopexit942 ]
+  %.1101506.i = phi i32 [ %.1031499.i, %3079 ], [ %3041, %.loopexit1943.i.loopexit ], [ %3077, %.loopexit1943.i.loopexit942 ]
+  %.701377.i = phi i32 [ %3009, %3079 ], [ %3039, %.loopexit1943.i.loopexit ], [ %3075, %.loopexit1943.i.loopexit942 ]
+  %.110.i68 = phi i32 [ %3045, %3079 ], [ %3040, %.loopexit1943.i.loopexit ], [ %3076, %.loopexit1943.i.loopexit942 ]
   %3084 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %3002
   %3085 = load i8, ptr %3084, align 1, !tbaa !47
   %3086 = zext i8 %3085 to i32
@@ -22353,7 +22353,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3176 = shl i32 %.120.i63, 1
   %3177 = add i32 %.1201516.i, -1
   %3178 = icmp ult i32 %3175, 32768
-  br i1 %3178, label %3153, label %.loopexit1941.i.loopexit411, !llvm.loop !448
+  br i1 %3178, label %3153, label %.loopexit1941.i.loopexit941, !llvm.loop !448
 
 3179:                                             ; preds = %3143
   %3180 = getelementptr inbounds nuw i8, ptr %3107, i64 4
@@ -22366,17 +22366,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.391578.i = select i1 %3113, i32 %3115, i32 %3182
   br label %.loopexit1941.i
 
-.loopexit1941.i.loopexit411:                      ; preds = %3174
+.loopexit1941.i.loopexit941:                      ; preds = %3174
   %.not1780.i = icmp eq i32 %3151, 0
   %3183 = zext i1 %.not1780.i to i32
   %.411580.i = select i1 %3149, i32 %3183, i32 %3151
   br label %.loopexit1941.i
 
-.loopexit1941.i:                                  ; preds = %.loopexit1941.i.loopexit411, %.loopexit1941.i.loopexit, %3179
-  %.401579.i = phi i32 [ %3181, %3179 ], [ %.391578.i, %.loopexit1941.i.loopexit ], [ %.411580.i, %.loopexit1941.i.loopexit411 ]
-  %.1181514.i = phi i32 [ %.991495.i, %3179 ], [ %3141, %.loopexit1941.i.loopexit ], [ %3177, %.loopexit1941.i.loopexit411 ]
-  %.751382.i = phi i32 [ %3109, %3179 ], [ %3139, %.loopexit1941.i.loopexit ], [ %3175, %.loopexit1941.i.loopexit411 ]
-  %.118.i54 = phi i32 [ %3145, %3179 ], [ %3140, %.loopexit1941.i.loopexit ], [ %3176, %.loopexit1941.i.loopexit411 ]
+.loopexit1941.i:                                  ; preds = %.loopexit1941.i.loopexit941, %.loopexit1941.i.loopexit, %3179
+  %.401579.i = phi i32 [ %3181, %3179 ], [ %.391578.i, %.loopexit1941.i.loopexit ], [ %.411580.i, %.loopexit1941.i.loopexit941 ]
+  %.1181514.i = phi i32 [ %.991495.i, %3179 ], [ %3141, %.loopexit1941.i.loopexit ], [ %3177, %.loopexit1941.i.loopexit941 ]
+  %.751382.i = phi i32 [ %3109, %3179 ], [ %3139, %.loopexit1941.i.loopexit ], [ %3175, %.loopexit1941.i.loopexit941 ]
+  %.118.i54 = phi i32 [ %3145, %3179 ], [ %3140, %.loopexit1941.i.loopexit ], [ %3176, %.loopexit1941.i.loopexit941 ]
   %.not1783.i = icmp eq i32 %.401579.i, 0
   br i1 %.not1783.i, label %3294, label %3184
 
@@ -22531,7 +22531,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3273 = shl i32 %.127.i58, 1
   %3274 = add i32 %.1271523.i, -1
   %3275 = icmp ult i32 %3272, 32768
-  br i1 %3275, label %3250, label %.loopexit1939.i55.loopexit410, !llvm.loop !450
+  br i1 %3275, label %3250, label %.loopexit1939.i55.loopexit940, !llvm.loop !450
 
 3276:                                             ; preds = %3240
   %3277 = getelementptr inbounds nuw i8, ptr %3204, i64 4
@@ -22544,17 +22544,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.421581.i = select i1 %3210, i32 %3212, i32 %3279
   br label %.loopexit1939.i55
 
-.loopexit1939.i55.loopexit410:                    ; preds = %3271
+.loopexit1939.i55.loopexit940:                    ; preds = %3271
   %.not1785.i = icmp eq i32 %3248, 0
   %3280 = zext i1 %.not1785.i to i32
   %.441583.i = select i1 %3246, i32 %3280, i32 %3248
   br label %.loopexit1939.i55
 
-.loopexit1939.i55:                                ; preds = %.loopexit1939.i55.loopexit410, %.loopexit1939.i55.loopexit, %3276
-  %.431582.i = phi i32 [ %3278, %3276 ], [ %.421581.i, %.loopexit1939.i55.loopexit ], [ %.441583.i, %.loopexit1939.i55.loopexit410 ]
-  %.1251521.i = phi i32 [ %.1181514.i, %3276 ], [ %3238, %.loopexit1939.i55.loopexit ], [ %3274, %.loopexit1939.i55.loopexit410 ]
-  %.791386.i = phi i32 [ %3206, %3276 ], [ %3236, %.loopexit1939.i55.loopexit ], [ %3272, %.loopexit1939.i55.loopexit410 ]
-  %.125.i56 = phi i32 [ %3242, %3276 ], [ %3237, %.loopexit1939.i55.loopexit ], [ %3273, %.loopexit1939.i55.loopexit410 ]
+.loopexit1939.i55:                                ; preds = %.loopexit1939.i55.loopexit940, %.loopexit1939.i55.loopexit, %3276
+  %.431582.i = phi i32 [ %3278, %3276 ], [ %.421581.i, %.loopexit1939.i55.loopexit ], [ %.441583.i, %.loopexit1939.i55.loopexit940 ]
+  %.1251521.i = phi i32 [ %.1181514.i, %3276 ], [ %3238, %.loopexit1939.i55.loopexit ], [ %3274, %.loopexit1939.i55.loopexit940 ]
+  %.791386.i = phi i32 [ %3206, %3276 ], [ %3236, %.loopexit1939.i55.loopexit ], [ %3272, %.loopexit1939.i55.loopexit940 ]
+  %.125.i56 = phi i32 [ %3242, %3276 ], [ %3237, %.loopexit1939.i55.loopexit ], [ %3273, %.loopexit1939.i55.loopexit940 ]
   %3281 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %3199
   %3282 = load i8, ptr %3281, align 1, !tbaa !47
   %3283 = zext i8 %3282 to i32
@@ -22721,7 +22721,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3373 = shl i32 %.134.i49, 1
   %3374 = add i32 %.1341530.i, -1
   %3375 = icmp ult i32 %3372, 32768
-  br i1 %3375, label %3350, label %.loopexit1937.i31.loopexit409, !llvm.loop !452
+  br i1 %3375, label %3350, label %.loopexit1937.i31.loopexit939, !llvm.loop !452
 
 3376:                                             ; preds = %3340
   %3377 = getelementptr inbounds nuw i8, ptr %3304, i64 4
@@ -22734,17 +22734,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.451584.i = select i1 %3310, i32 %3312, i32 %3379
   br label %.loopexit1937.i31
 
-.loopexit1937.i31.loopexit409:                    ; preds = %3371
+.loopexit1937.i31.loopexit939:                    ; preds = %3371
   %.not1791.i46 = icmp eq i32 %3348, 0
   %3380 = zext i1 %.not1791.i46 to i32
   %.471586.i = select i1 %3346, i32 %3380, i32 %3348
   br label %.loopexit1937.i31
 
-.loopexit1937.i31:                                ; preds = %.loopexit1937.i31.loopexit409, %.loopexit1937.i31.loopexit, %3376
-  %.461585.i = phi i32 [ %3378, %3376 ], [ %.451584.i, %.loopexit1937.i31.loopexit ], [ %.471586.i, %.loopexit1937.i31.loopexit409 ]
-  %.1321528.i = phi i32 [ %.1141510.i, %3376 ], [ %3338, %.loopexit1937.i31.loopexit ], [ %3374, %.loopexit1937.i31.loopexit409 ]
-  %.831390.i = phi i32 [ %3306, %3376 ], [ %3336, %.loopexit1937.i31.loopexit ], [ %3372, %.loopexit1937.i31.loopexit409 ]
-  %.132.i32 = phi i32 [ %3342, %3376 ], [ %3337, %.loopexit1937.i31.loopexit ], [ %3373, %.loopexit1937.i31.loopexit409 ]
+.loopexit1937.i31:                                ; preds = %.loopexit1937.i31.loopexit939, %.loopexit1937.i31.loopexit, %3376
+  %.461585.i = phi i32 [ %3378, %3376 ], [ %.451584.i, %.loopexit1937.i31.loopexit ], [ %.471586.i, %.loopexit1937.i31.loopexit939 ]
+  %.1321528.i = phi i32 [ %.1141510.i, %3376 ], [ %3338, %.loopexit1937.i31.loopexit ], [ %3374, %.loopexit1937.i31.loopexit939 ]
+  %.831390.i = phi i32 [ %3306, %3376 ], [ %3336, %.loopexit1937.i31.loopexit ], [ %3372, %.loopexit1937.i31.loopexit939 ]
+  %.132.i32 = phi i32 [ %3342, %3376 ], [ %3337, %.loopexit1937.i31.loopexit ], [ %3373, %.loopexit1937.i31.loopexit939 ]
   %.not1794.i = icmp eq i32 %.461585.i, 0
   br i1 %.not1794.i, label %3501, label %3381
 
@@ -22899,7 +22899,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3470 = shl i32 %.141.i41, 1
   %3471 = add i32 %.1411537.i, -1
   %3472 = icmp ult i32 %3469, 32768
-  br i1 %3472, label %3447, label %.loopexit1935.i33.loopexit408, !llvm.loop !454
+  br i1 %3472, label %3447, label %.loopexit1935.i33.loopexit938, !llvm.loop !454
 
 3473:                                             ; preds = %3437
   %3474 = getelementptr inbounds nuw i8, ptr %3401, i64 4
@@ -22912,17 +22912,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.481587.i = select i1 %3407, i32 %3409, i32 %3476
   br label %.loopexit1935.i33
 
-.loopexit1935.i33.loopexit408:                    ; preds = %3468
+.loopexit1935.i33.loopexit938:                    ; preds = %3468
   %.not1796.i38 = icmp eq i32 %3445, 0
   %3477 = zext i1 %.not1796.i38 to i32
   %.501589.i = select i1 %3443, i32 %3477, i32 %3445
   br label %.loopexit1935.i33
 
-.loopexit1935.i33:                                ; preds = %.loopexit1935.i33.loopexit408, %.loopexit1935.i33.loopexit, %3473
-  %.491588.i = phi i32 [ %3475, %3473 ], [ %.481587.i, %.loopexit1935.i33.loopexit ], [ %.501589.i, %.loopexit1935.i33.loopexit408 ]
-  %.1391535.i = phi i32 [ %.1321528.i, %3473 ], [ %3435, %.loopexit1935.i33.loopexit ], [ %3471, %.loopexit1935.i33.loopexit408 ]
-  %.871394.i = phi i32 [ %3403, %3473 ], [ %3433, %.loopexit1935.i33.loopexit ], [ %3469, %.loopexit1935.i33.loopexit408 ]
-  %.139.i34 = phi i32 [ %3439, %3473 ], [ %3434, %.loopexit1935.i33.loopexit ], [ %3470, %.loopexit1935.i33.loopexit408 ]
+.loopexit1935.i33:                                ; preds = %.loopexit1935.i33.loopexit938, %.loopexit1935.i33.loopexit, %3473
+  %.491588.i = phi i32 [ %3475, %3473 ], [ %.481587.i, %.loopexit1935.i33.loopexit ], [ %.501589.i, %.loopexit1935.i33.loopexit938 ]
+  %.1391535.i = phi i32 [ %.1321528.i, %3473 ], [ %3435, %.loopexit1935.i33.loopexit ], [ %3471, %.loopexit1935.i33.loopexit938 ]
+  %.871394.i = phi i32 [ %3403, %3473 ], [ %3433, %.loopexit1935.i33.loopexit ], [ %3469, %.loopexit1935.i33.loopexit938 ]
+  %.139.i34 = phi i32 [ %3439, %3473 ], [ %3434, %.loopexit1935.i33.loopexit ], [ %3470, %.loopexit1935.i33.loopexit938 ]
   %3478 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %3396
   %3479 = load i8, ptr %3478, align 1, !tbaa !47
   %3480 = zext i8 %3479 to i32
@@ -23147,7 +23147,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3598 = shl i32 %.90.us.i, 1
   %3599 = add i32 %.901495.us.i, -1
   %3600 = icmp ult i32 %3597, 32768
-  br i1 %3600, label %3575, label %.loopexit1963.us.i.loopexit470, !llvm.loop !457
+  br i1 %3600, label %3575, label %.loopexit1963.us.i.loopexit1000, !llvm.loop !457
 
 3601:                                             ; preds = %3550
   %3602 = icmp ult i32 %3559, %3558
@@ -23213,17 +23213,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.271575.us.i = select i1 %3602, i32 %3604, i32 %3632
   br label %.loopexit1963.us.i
 
-.loopexit1963.us.i.loopexit470:                   ; preds = %3596
+.loopexit1963.us.i.loopexit1000:                  ; preds = %3596
   %.not1770.us.i = icmp eq i32 %3573, 0
   %3633 = zext i1 %.not1770.us.i to i32
   %.291577.us.i = select i1 %3571, i32 %3633, i32 %3573
   br label %.loopexit1963.us.i
 
-.loopexit1963.us.i:                               ; preds = %.loopexit1963.us.i.loopexit470, %.loopexit1963.us.i.loopexit, %3567
-  %.281576.us.i = phi i32 [ %3569, %3567 ], [ %.271575.us.i, %.loopexit1963.us.i.loopexit ], [ %.291577.us.i, %.loopexit1963.us.i.loopexit470 ]
-  %.881493.us.i = phi i32 [ %.114062075.us.i, %3567 ], [ %3630, %.loopexit1963.us.i.loopexit ], [ %3599, %.loopexit1963.us.i.loopexit470 ]
-  %.571373.us.i = phi i32 [ %3559, %3567 ], [ %3628, %.loopexit1963.us.i.loopexit ], [ %3597, %.loopexit1963.us.i.loopexit470 ]
-  %.88.us.i = phi i32 [ %3564, %3567 ], [ %3629, %.loopexit1963.us.i.loopexit ], [ %3598, %.loopexit1963.us.i.loopexit470 ]
+.loopexit1963.us.i:                               ; preds = %.loopexit1963.us.i.loopexit1000, %.loopexit1963.us.i.loopexit, %3567
+  %.281576.us.i = phi i32 [ %3569, %3567 ], [ %.271575.us.i, %.loopexit1963.us.i.loopexit ], [ %.291577.us.i, %.loopexit1963.us.i.loopexit1000 ]
+  %.881493.us.i = phi i32 [ %.114062075.us.i, %3567 ], [ %3630, %.loopexit1963.us.i.loopexit ], [ %3599, %.loopexit1963.us.i.loopexit1000 ]
+  %.571373.us.i = phi i32 [ %3559, %3567 ], [ %3628, %.loopexit1963.us.i.loopexit ], [ %3597, %.loopexit1963.us.i.loopexit1000 ]
+  %.88.us.i = phi i32 [ %3564, %3567 ], [ %3629, %.loopexit1963.us.i.loopexit ], [ %3598, %.loopexit1963.us.i.loopexit1000 ]
   %.not1773.us.i = icmp eq i32 %.281576.us.i, 0
   br i1 %.not1773.us.i, label %3743, label %3634
 
@@ -23325,7 +23325,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3695 = shl i32 %.97.us.i, 1
   %3696 = add i32 %.971502.us.i, -1
   %3697 = icmp ult i32 %3694, 32768
-  br i1 %3697, label %3672, label %.loopexit1961.us.i.loopexit469, !llvm.loop !459
+  br i1 %3697, label %3672, label %.loopexit1961.us.i.loopexit999, !llvm.loop !459
 
 3698:                                             ; preds = %3634
   %3699 = icmp ult i32 %3656, %3655
@@ -23391,17 +23391,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.301578.us.i = select i1 %3699, i32 %3701, i32 %3729
   br label %.loopexit1961.us.i
 
-.loopexit1961.us.i.loopexit469:                   ; preds = %3693
+.loopexit1961.us.i.loopexit999:                   ; preds = %3693
   %.not1775.us.i = icmp eq i32 %3670, 0
   %3730 = zext i1 %.not1775.us.i to i32
   %.321580.us.i = select i1 %3668, i32 %3730, i32 %3670
   br label %.loopexit1961.us.i
 
-.loopexit1961.us.i:                               ; preds = %.loopexit1961.us.i.loopexit469, %.loopexit1961.us.i.loopexit, %3664
-  %.311579.us.i = phi i32 [ %3666, %3664 ], [ %.301578.us.i, %.loopexit1961.us.i.loopexit ], [ %.321580.us.i, %.loopexit1961.us.i.loopexit469 ]
-  %.951500.us.i = phi i32 [ %.881493.us.i, %3664 ], [ %3727, %.loopexit1961.us.i.loopexit ], [ %3696, %.loopexit1961.us.i.loopexit469 ]
-  %.611377.us.i = phi i32 [ %3656, %3664 ], [ %3725, %.loopexit1961.us.i.loopexit ], [ %3694, %.loopexit1961.us.i.loopexit469 ]
-  %.95.us.i = phi i32 [ %3661, %3664 ], [ %3726, %.loopexit1961.us.i.loopexit ], [ %3695, %.loopexit1961.us.i.loopexit469 ]
+.loopexit1961.us.i:                               ; preds = %.loopexit1961.us.i.loopexit999, %.loopexit1961.us.i.loopexit, %3664
+  %.311579.us.i = phi i32 [ %3666, %3664 ], [ %.301578.us.i, %.loopexit1961.us.i.loopexit ], [ %.321580.us.i, %.loopexit1961.us.i.loopexit999 ]
+  %.951500.us.i = phi i32 [ %.881493.us.i, %3664 ], [ %3727, %.loopexit1961.us.i.loopexit ], [ %3696, %.loopexit1961.us.i.loopexit999 ]
+  %.611377.us.i = phi i32 [ %3656, %3664 ], [ %3725, %.loopexit1961.us.i.loopexit ], [ %3694, %.loopexit1961.us.i.loopexit999 ]
+  %.95.us.i = phi i32 [ %3661, %3664 ], [ %3726, %.loopexit1961.us.i.loopexit ], [ %3695, %.loopexit1961.us.i.loopexit999 ]
   %3731 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %3649
   %3732 = load i8, ptr %3731, align 1, !tbaa !47
   %3733 = zext i8 %3732 to i32
@@ -23514,7 +23514,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3794 = shl i32 %.105.us.i, 1
   %3795 = add i32 %.1051510.us.i, -1
   %3796 = icmp ult i32 %3793, 32768
-  br i1 %3796, label %3771, label %.loopexit1959.us.i.loopexit468, !llvm.loop !461
+  br i1 %3796, label %3771, label %.loopexit1959.us.i.loopexit998, !llvm.loop !461
 
 3797:                                             ; preds = %3745
   %3798 = icmp ult i32 %3755, %3754
@@ -23580,17 +23580,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.331581.us.i = select i1 %3798, i32 %3800, i32 %3828
   br label %.loopexit1959.us.i
 
-.loopexit1959.us.i.loopexit468:                   ; preds = %3792
+.loopexit1959.us.i.loopexit998:                   ; preds = %3792
   %.not1781.us.i = icmp eq i32 %3769, 0
   %3829 = zext i1 %.not1781.us.i to i32
   %.351583.us.i = select i1 %3767, i32 %3829, i32 %3769
   br label %.loopexit1959.us.i
 
-.loopexit1959.us.i:                               ; preds = %.loopexit1959.us.i.loopexit468, %.loopexit1959.us.i.loopexit, %3763
-  %.341582.us.i = phi i32 [ %3765, %3763 ], [ %.331581.us.i, %.loopexit1959.us.i.loopexit ], [ %.351583.us.i, %.loopexit1959.us.i.loopexit468 ]
-  %.1031508.us.i = phi i32 [ %.841489.us.i, %3763 ], [ %3826, %.loopexit1959.us.i.loopexit ], [ %3795, %.loopexit1959.us.i.loopexit468 ]
-  %.661382.us.i = phi i32 [ %3755, %3763 ], [ %3824, %.loopexit1959.us.i.loopexit ], [ %3793, %.loopexit1959.us.i.loopexit468 ]
-  %.103.us.i = phi i32 [ %3760, %3763 ], [ %3825, %.loopexit1959.us.i.loopexit ], [ %3794, %.loopexit1959.us.i.loopexit468 ]
+.loopexit1959.us.i:                               ; preds = %.loopexit1959.us.i.loopexit998, %.loopexit1959.us.i.loopexit, %3763
+  %.341582.us.i = phi i32 [ %3765, %3763 ], [ %.331581.us.i, %.loopexit1959.us.i.loopexit ], [ %.351583.us.i, %.loopexit1959.us.i.loopexit998 ]
+  %.1031508.us.i = phi i32 [ %.841489.us.i, %3763 ], [ %3826, %.loopexit1959.us.i.loopexit ], [ %3795, %.loopexit1959.us.i.loopexit998 ]
+  %.661382.us.i = phi i32 [ %3755, %3763 ], [ %3824, %.loopexit1959.us.i.loopexit ], [ %3793, %.loopexit1959.us.i.loopexit998 ]
+  %.103.us.i = phi i32 [ %3760, %3763 ], [ %3825, %.loopexit1959.us.i.loopexit ], [ %3794, %.loopexit1959.us.i.loopexit998 ]
   %.not1784.us.i = icmp eq i32 %.341582.us.i, 0
   br i1 %.not1784.us.i, label %3940, label %3830
 
@@ -23692,7 +23692,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3891 = shl i32 %.112.us.i, 1
   %3892 = add i32 %.1121517.us.i, -1
   %3893 = icmp ult i32 %3890, 32768
-  br i1 %3893, label %3868, label %.loopexit1957.us.i.loopexit467, !llvm.loop !463
+  br i1 %3893, label %3868, label %.loopexit1957.us.i.loopexit997, !llvm.loop !463
 
 3894:                                             ; preds = %3830
   %3895 = icmp ult i32 %3852, %3851
@@ -23758,17 +23758,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.361584.us.i = select i1 %3895, i32 %3897, i32 %3925
   br label %.loopexit1957.us.i
 
-.loopexit1957.us.i.loopexit467:                   ; preds = %3889
+.loopexit1957.us.i.loopexit997:                   ; preds = %3889
   %.not1786.us.i = icmp eq i32 %3866, 0
   %3926 = zext i1 %.not1786.us.i to i32
   %.381586.us.i = select i1 %3864, i32 %3926, i32 %3866
   br label %.loopexit1957.us.i
 
-.loopexit1957.us.i:                               ; preds = %.loopexit1957.us.i.loopexit467, %.loopexit1957.us.i.loopexit, %3860
-  %.371585.us.i = phi i32 [ %3862, %3860 ], [ %.361584.us.i, %.loopexit1957.us.i.loopexit ], [ %.381586.us.i, %.loopexit1957.us.i.loopexit467 ]
-  %.1101515.us.i = phi i32 [ %.1031508.us.i, %3860 ], [ %3923, %.loopexit1957.us.i.loopexit ], [ %3892, %.loopexit1957.us.i.loopexit467 ]
-  %.701386.us.i = phi i32 [ %3852, %3860 ], [ %3921, %.loopexit1957.us.i.loopexit ], [ %3890, %.loopexit1957.us.i.loopexit467 ]
-  %.110.us.i = phi i32 [ %3857, %3860 ], [ %3922, %.loopexit1957.us.i.loopexit ], [ %3891, %.loopexit1957.us.i.loopexit467 ]
+.loopexit1957.us.i:                               ; preds = %.loopexit1957.us.i.loopexit997, %.loopexit1957.us.i.loopexit, %3860
+  %.371585.us.i = phi i32 [ %3862, %3860 ], [ %.361584.us.i, %.loopexit1957.us.i.loopexit ], [ %.381586.us.i, %.loopexit1957.us.i.loopexit997 ]
+  %.1101515.us.i = phi i32 [ %.1031508.us.i, %3860 ], [ %3923, %.loopexit1957.us.i.loopexit ], [ %3892, %.loopexit1957.us.i.loopexit997 ]
+  %.701386.us.i = phi i32 [ %3852, %3860 ], [ %3921, %.loopexit1957.us.i.loopexit ], [ %3890, %.loopexit1957.us.i.loopexit997 ]
+  %.110.us.i = phi i32 [ %3857, %3860 ], [ %3922, %.loopexit1957.us.i.loopexit ], [ %3891, %.loopexit1957.us.i.loopexit997 ]
   %3927 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %3845
   %3928 = load i8, ptr %3927, align 1, !tbaa !47
   %3929 = zext i8 %3928 to i32
@@ -23882,7 +23882,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3991 = shl i32 %.120.us.i, 1
   %3992 = add i32 %.1201525.us.i, -1
   %3993 = icmp ult i32 %3990, 32768
-  br i1 %3993, label %3968, label %.loopexit1955.us.i.loopexit466, !llvm.loop !465
+  br i1 %3993, label %3968, label %.loopexit1955.us.i.loopexit996, !llvm.loop !465
 
 3994:                                             ; preds = %3942
   %3995 = icmp ult i32 %3952, %3951
@@ -23948,17 +23948,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.391587.us.i = select i1 %3995, i32 %3997, i32 %4025
   br label %.loopexit1955.us.i
 
-.loopexit1955.us.i.loopexit466:                   ; preds = %3989
+.loopexit1955.us.i.loopexit996:                   ; preds = %3989
   %.not1792.us.i = icmp eq i32 %3966, 0
   %4026 = zext i1 %.not1792.us.i to i32
   %.411589.us.i = select i1 %3964, i32 %4026, i32 %3966
   br label %.loopexit1955.us.i
 
-.loopexit1955.us.i:                               ; preds = %.loopexit1955.us.i.loopexit466, %.loopexit1955.us.i.loopexit, %3960
-  %.401588.us.i = phi i32 [ %3962, %3960 ], [ %.391587.us.i, %.loopexit1955.us.i.loopexit ], [ %.411589.us.i, %.loopexit1955.us.i.loopexit466 ]
-  %.1181523.us.i = phi i32 [ %.991504.us.i, %3960 ], [ %4023, %.loopexit1955.us.i.loopexit ], [ %3992, %.loopexit1955.us.i.loopexit466 ]
-  %.751391.us.i = phi i32 [ %3952, %3960 ], [ %4021, %.loopexit1955.us.i.loopexit ], [ %3990, %.loopexit1955.us.i.loopexit466 ]
-  %.118.us.i = phi i32 [ %3957, %3960 ], [ %4022, %.loopexit1955.us.i.loopexit ], [ %3991, %.loopexit1955.us.i.loopexit466 ]
+.loopexit1955.us.i:                               ; preds = %.loopexit1955.us.i.loopexit996, %.loopexit1955.us.i.loopexit, %3960
+  %.401588.us.i = phi i32 [ %3962, %3960 ], [ %.391587.us.i, %.loopexit1955.us.i.loopexit ], [ %.411589.us.i, %.loopexit1955.us.i.loopexit996 ]
+  %.1181523.us.i = phi i32 [ %.991504.us.i, %3960 ], [ %4023, %.loopexit1955.us.i.loopexit ], [ %3992, %.loopexit1955.us.i.loopexit996 ]
+  %.751391.us.i = phi i32 [ %3952, %3960 ], [ %4021, %.loopexit1955.us.i.loopexit ], [ %3990, %.loopexit1955.us.i.loopexit996 ]
+  %.118.us.i = phi i32 [ %3957, %3960 ], [ %4022, %.loopexit1955.us.i.loopexit ], [ %3991, %.loopexit1955.us.i.loopexit996 ]
   %.not1795.us.i = icmp eq i32 %.401588.us.i, 0
   br i1 %.not1795.us.i, label %4137, label %4027
 
@@ -24060,7 +24060,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4088 = shl i32 %.127.us.i, 1
   %4089 = add i32 %.1271532.us.i, -1
   %4090 = icmp ult i32 %4087, 32768
-  br i1 %4090, label %4065, label %.loopexit1953.us.i.loopexit465, !llvm.loop !467
+  br i1 %4090, label %4065, label %.loopexit1953.us.i.loopexit995, !llvm.loop !467
 
 4091:                                             ; preds = %4027
   %4092 = icmp ult i32 %4049, %4048
@@ -24126,17 +24126,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.421590.us.i = select i1 %4092, i32 %4094, i32 %4122
   br label %.loopexit1953.us.i
 
-.loopexit1953.us.i.loopexit465:                   ; preds = %4086
+.loopexit1953.us.i.loopexit995:                   ; preds = %4086
   %.not1797.us.i = icmp eq i32 %4063, 0
   %4123 = zext i1 %.not1797.us.i to i32
   %.441592.us.i = select i1 %4061, i32 %4123, i32 %4063
   br label %.loopexit1953.us.i
 
-.loopexit1953.us.i:                               ; preds = %.loopexit1953.us.i.loopexit465, %.loopexit1953.us.i.loopexit, %4057
-  %.431591.us.i = phi i32 [ %4059, %4057 ], [ %.421590.us.i, %.loopexit1953.us.i.loopexit ], [ %.441592.us.i, %.loopexit1953.us.i.loopexit465 ]
-  %.1251530.us.i = phi i32 [ %.1181523.us.i, %4057 ], [ %4120, %.loopexit1953.us.i.loopexit ], [ %4089, %.loopexit1953.us.i.loopexit465 ]
-  %.791395.us.i = phi i32 [ %4049, %4057 ], [ %4118, %.loopexit1953.us.i.loopexit ], [ %4087, %.loopexit1953.us.i.loopexit465 ]
-  %.125.us.i = phi i32 [ %4054, %4057 ], [ %4119, %.loopexit1953.us.i.loopexit ], [ %4088, %.loopexit1953.us.i.loopexit465 ]
+.loopexit1953.us.i:                               ; preds = %.loopexit1953.us.i.loopexit995, %.loopexit1953.us.i.loopexit, %4057
+  %.431591.us.i = phi i32 [ %4059, %4057 ], [ %.421590.us.i, %.loopexit1953.us.i.loopexit ], [ %.441592.us.i, %.loopexit1953.us.i.loopexit995 ]
+  %.1251530.us.i = phi i32 [ %.1181523.us.i, %4057 ], [ %4120, %.loopexit1953.us.i.loopexit ], [ %4089, %.loopexit1953.us.i.loopexit995 ]
+  %.791395.us.i = phi i32 [ %4049, %4057 ], [ %4118, %.loopexit1953.us.i.loopexit ], [ %4087, %.loopexit1953.us.i.loopexit995 ]
+  %.125.us.i = phi i32 [ %4054, %4057 ], [ %4119, %.loopexit1953.us.i.loopexit ], [ %4088, %.loopexit1953.us.i.loopexit995 ]
   %4124 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %4042
   %4125 = load i8, ptr %4124, align 1, !tbaa !47
   %4126 = zext i8 %4125 to i32
@@ -24250,7 +24250,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4188 = shl i32 %.134.us.i, 1
   %4189 = add i32 %.1341539.us.i, -1
   %4190 = icmp ult i32 %4187, 32768
-  br i1 %4190, label %4165, label %.loopexit1951.us.i.loopexit464, !llvm.loop !469
+  br i1 %4190, label %4165, label %.loopexit1951.us.i.loopexit994, !llvm.loop !469
 
 4191:                                             ; preds = %4139
   %4192 = icmp ult i32 %4149, %4148
@@ -24316,17 +24316,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.451593.us.i = select i1 %4192, i32 %4194, i32 %4222
   br label %.loopexit1951.us.i
 
-.loopexit1951.us.i.loopexit464:                   ; preds = %4186
+.loopexit1951.us.i.loopexit994:                   ; preds = %4186
   %.not1803.us.i = icmp eq i32 %4163, 0
   %4223 = zext i1 %.not1803.us.i to i32
   %.471595.us.i = select i1 %4161, i32 %4223, i32 %4163
   br label %.loopexit1951.us.i
 
-.loopexit1951.us.i:                               ; preds = %.loopexit1951.us.i.loopexit464, %.loopexit1951.us.i.loopexit, %4157
-  %.461594.us.i = phi i32 [ %4159, %4157 ], [ %.451593.us.i, %.loopexit1951.us.i.loopexit ], [ %.471595.us.i, %.loopexit1951.us.i.loopexit464 ]
-  %.1321537.us.i = phi i32 [ %.1141519.us.i, %4157 ], [ %4220, %.loopexit1951.us.i.loopexit ], [ %4189, %.loopexit1951.us.i.loopexit464 ]
-  %.831399.us.i = phi i32 [ %4149, %4157 ], [ %4218, %.loopexit1951.us.i.loopexit ], [ %4187, %.loopexit1951.us.i.loopexit464 ]
-  %.132.us.i = phi i32 [ %4154, %4157 ], [ %4219, %.loopexit1951.us.i.loopexit ], [ %4188, %.loopexit1951.us.i.loopexit464 ]
+.loopexit1951.us.i:                               ; preds = %.loopexit1951.us.i.loopexit994, %.loopexit1951.us.i.loopexit, %4157
+  %.461594.us.i = phi i32 [ %4159, %4157 ], [ %.451593.us.i, %.loopexit1951.us.i.loopexit ], [ %.471595.us.i, %.loopexit1951.us.i.loopexit994 ]
+  %.1321537.us.i = phi i32 [ %.1141519.us.i, %4157 ], [ %4220, %.loopexit1951.us.i.loopexit ], [ %4189, %.loopexit1951.us.i.loopexit994 ]
+  %.831399.us.i = phi i32 [ %4149, %4157 ], [ %4218, %.loopexit1951.us.i.loopexit ], [ %4187, %.loopexit1951.us.i.loopexit994 ]
+  %.132.us.i = phi i32 [ %4154, %4157 ], [ %4219, %.loopexit1951.us.i.loopexit ], [ %4188, %.loopexit1951.us.i.loopexit994 ]
   %.not1806.us.i = icmp eq i32 %.461594.us.i, 0
   br i1 %.not1806.us.i, label %5265, label %4224
 
@@ -24428,7 +24428,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4285 = shl i32 %.141.us.i, 1
   %4286 = add i32 %.1411546.us.i, -1
   %4287 = icmp ult i32 %4284, 32768
-  br i1 %4287, label %4262, label %.loopexit1949.us.i.loopexit463, !llvm.loop !471
+  br i1 %4287, label %4262, label %.loopexit1949.us.i.loopexit993, !llvm.loop !471
 
 4288:                                             ; preds = %4224
   %4289 = icmp ult i32 %4246, %4245
@@ -24494,17 +24494,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.481596.us.i = select i1 %4289, i32 %4291, i32 %4319
   br label %.loopexit1949.us.i
 
-.loopexit1949.us.i.loopexit463:                   ; preds = %4283
+.loopexit1949.us.i.loopexit993:                   ; preds = %4283
   %.not1808.us.i = icmp eq i32 %4260, 0
   %4320 = zext i1 %.not1808.us.i to i32
   %.501598.us.i = select i1 %4258, i32 %4320, i32 %4260
   br label %.loopexit1949.us.i
 
-.loopexit1949.us.i:                               ; preds = %.loopexit1949.us.i.loopexit463, %.loopexit1949.us.i.loopexit, %4254
-  %.491597.us.i = phi i32 [ %4256, %4254 ], [ %.481596.us.i, %.loopexit1949.us.i.loopexit ], [ %.501598.us.i, %.loopexit1949.us.i.loopexit463 ]
-  %.1391544.us.i = phi i32 [ %.1321537.us.i, %4254 ], [ %4317, %.loopexit1949.us.i.loopexit ], [ %4286, %.loopexit1949.us.i.loopexit463 ]
-  %.871403.us.i = phi i32 [ %4246, %4254 ], [ %4315, %.loopexit1949.us.i.loopexit ], [ %4284, %.loopexit1949.us.i.loopexit463 ]
-  %.139.us.i = phi i32 [ %4251, %4254 ], [ %4316, %.loopexit1949.us.i.loopexit ], [ %4285, %.loopexit1949.us.i.loopexit463 ]
+.loopexit1949.us.i:                               ; preds = %.loopexit1949.us.i.loopexit993, %.loopexit1949.us.i.loopexit, %4254
+  %.491597.us.i = phi i32 [ %4256, %4254 ], [ %.481596.us.i, %.loopexit1949.us.i.loopexit ], [ %.501598.us.i, %.loopexit1949.us.i.loopexit993 ]
+  %.1391544.us.i = phi i32 [ %.1321537.us.i, %4254 ], [ %4317, %.loopexit1949.us.i.loopexit ], [ %4286, %.loopexit1949.us.i.loopexit993 ]
+  %.871403.us.i = phi i32 [ %4246, %4254 ], [ %4315, %.loopexit1949.us.i.loopexit ], [ %4284, %.loopexit1949.us.i.loopexit993 ]
+  %.139.us.i = phi i32 [ %4251, %4254 ], [ %4316, %.loopexit1949.us.i.loopexit ], [ %4285, %.loopexit1949.us.i.loopexit993 ]
   %4321 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %4239
   %4322 = load i8, ptr %4321, align 1, !tbaa !47
   %4323 = zext i8 %4322 to i32
@@ -24599,7 +24599,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4375 = shl i32 %.71314.us.i, 1
   %4376 = add i32 %.71412.us.i, -1
   %4377 = icmp ult i32 %4374, 32768
-  br i1 %4377, label %4352, label %.loopexit1947.us.i.loopexit462, !llvm.loop !473
+  br i1 %4377, label %4352, label %.loopexit1947.us.i.loopexit992, !llvm.loop !473
 
 4378:                                             ; preds = %4333
   %4379 = icmp ult i32 %4336, %4335
@@ -24665,17 +24665,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.01548.us.i = select i1 %4379, i32 %4381, i32 %4409
   br label %.loopexit1947.us.i
 
-.loopexit1947.us.i.loopexit462:                   ; preds = %4373
+.loopexit1947.us.i.loopexit992:                   ; preds = %4373
   %.not1813.us.i = icmp eq i32 %4350, 0
   %4410 = zext i1 %.not1813.us.i to i32
   %.21550.us.i = select i1 %4348, i32 %4410, i32 %4350
   br label %.loopexit1947.us.i
 
-.loopexit1947.us.i:                               ; preds = %.loopexit1947.us.i.loopexit462, %.loopexit1947.us.i.loopexit, %4344
-  %.11549.us.i = phi i32 [ %4346, %4344 ], [ %.01548.us.i, %.loopexit1947.us.i.loopexit ], [ %.21550.us.i, %.loopexit1947.us.i.loopexit462 ]
-  %.51410.us.i = phi i32 [ %.114062075.us.i, %4344 ], [ %4407, %.loopexit1947.us.i.loopexit ], [ %4376, %.loopexit1947.us.i.loopexit462 ]
-  %.41320.us.i = phi i32 [ %4336, %4344 ], [ %4405, %.loopexit1947.us.i.loopexit ], [ %4374, %.loopexit1947.us.i.loopexit462 ]
-  %.51312.us.i = phi i32 [ %4341, %4344 ], [ %4406, %.loopexit1947.us.i.loopexit ], [ %4375, %.loopexit1947.us.i.loopexit462 ]
+.loopexit1947.us.i:                               ; preds = %.loopexit1947.us.i.loopexit992, %.loopexit1947.us.i.loopexit, %4344
+  %.11549.us.i = phi i32 [ %4346, %4344 ], [ %.01548.us.i, %.loopexit1947.us.i.loopexit ], [ %.21550.us.i, %.loopexit1947.us.i.loopexit992 ]
+  %.51410.us.i = phi i32 [ %.114062075.us.i, %4344 ], [ %4407, %.loopexit1947.us.i.loopexit ], [ %4376, %.loopexit1947.us.i.loopexit992 ]
+  %.41320.us.i = phi i32 [ %4336, %4344 ], [ %4405, %.loopexit1947.us.i.loopexit ], [ %4374, %.loopexit1947.us.i.loopexit992 ]
+  %.51312.us.i = phi i32 [ %4341, %4344 ], [ %4406, %.loopexit1947.us.i.loopexit ], [ %4375, %.loopexit1947.us.i.loopexit992 ]
   %.not1816.not.us.i = icmp eq i32 %.11549.us.i, 0
   br i1 %.not1816.not.us.i, label %.thread1922.us.i, label %4411
 
@@ -24755,7 +24755,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4453 = shl i32 %.15.us.i, 1
   %4454 = add i32 %.151420.us.i, -1
   %4455 = icmp ult i32 %4452, 32768
-  br i1 %4455, label %4430, label %.loopexit1945.us.i.loopexit461, !llvm.loop !475
+  br i1 %4455, label %4430, label %.loopexit1945.us.i.loopexit991, !llvm.loop !475
 
 4456:                                             ; preds = %4411
   %4457 = icmp ult i32 %4414, %4413
@@ -24821,18 +24821,18 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.0.us.i = select i1 %4457, i32 %4459, i32 %4487
   br label %.loopexit1945.us.i
 
-.loopexit1945.us.i.loopexit461:                   ; preds = %4451
+.loopexit1945.us.i.loopexit991:                   ; preds = %4451
   %.not1818.us.i = icmp eq i32 %4428, 0
   %4488 = zext i1 %.not1818.us.i to i32
   %.2.us.i = select i1 %4426, i32 %4488, i32 %4428
   br label %.loopexit1945.us.i
 
-.loopexit1945.us.i:                               ; preds = %.loopexit1945.us.i.loopexit461, %.loopexit1945.us.i.loopexit, %4422
-  %4489 = phi ptr [ %4412, %4422 ], [ %storemerge1820.us.i, %.loopexit1945.us.i.loopexit ], [ %storemerge1817.us.i, %.loopexit1945.us.i.loopexit461 ]
-  %.131418.us.i = phi i32 [ %.51410.us.i, %4422 ], [ %4485, %.loopexit1945.us.i.loopexit ], [ %4454, %.loopexit1945.us.i.loopexit461 ]
-  %.91325.us.i = phi i32 [ %4414, %4422 ], [ %4483, %.loopexit1945.us.i.loopexit ], [ %4452, %.loopexit1945.us.i.loopexit461 ]
-  %.13.us.i = phi i32 [ %4419, %4422 ], [ %4484, %.loopexit1945.us.i.loopexit ], [ %4453, %.loopexit1945.us.i.loopexit461 ]
-  %.1.us.i = phi i32 [ %4424, %4422 ], [ %.0.us.i, %.loopexit1945.us.i.loopexit ], [ %.2.us.i, %.loopexit1945.us.i.loopexit461 ]
+.loopexit1945.us.i:                               ; preds = %.loopexit1945.us.i.loopexit991, %.loopexit1945.us.i.loopexit, %4422
+  %4489 = phi ptr [ %4412, %4422 ], [ %storemerge1820.us.i, %.loopexit1945.us.i.loopexit ], [ %storemerge1817.us.i, %.loopexit1945.us.i.loopexit991 ]
+  %.131418.us.i = phi i32 [ %.51410.us.i, %4422 ], [ %4485, %.loopexit1945.us.i.loopexit ], [ %4454, %.loopexit1945.us.i.loopexit991 ]
+  %.91325.us.i = phi i32 [ %4414, %4422 ], [ %4483, %.loopexit1945.us.i.loopexit ], [ %4452, %.loopexit1945.us.i.loopexit991 ]
+  %.13.us.i = phi i32 [ %4419, %4422 ], [ %4484, %.loopexit1945.us.i.loopexit ], [ %4453, %.loopexit1945.us.i.loopexit991 ]
+  %.1.us.i = phi i32 [ %4424, %4422 ], [ %.0.us.i, %.loopexit1945.us.i.loopexit ], [ %.2.us.i, %.loopexit1945.us.i.loopexit991 ]
   %4490 = load i32, ptr %4489, align 8, !tbaa !121
   %4491 = sub i32 %.91325.us.i, %4490
   %4492 = lshr i32 %.13.us.i, 16
@@ -24907,7 +24907,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4530 = shl i32 %.22.us.i, 1
   %4531 = add i32 %.221427.us.i, -1
   %4532 = icmp ult i32 %4529, 32768
-  br i1 %4532, label %4507, label %.loopexit1943.us.i.loopexit460, !llvm.loop !477
+  br i1 %4532, label %4507, label %.loopexit1943.us.i.loopexit990, !llvm.loop !477
 
 4533:                                             ; preds = %.loopexit1945.us.i
   %4534 = icmp ult i32 %4491, %4490
@@ -24973,17 +24973,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.31551.us.i = select i1 %4534, i32 %4536, i32 %4564
   br label %.loopexit1943.us.i
 
-.loopexit1943.us.i.loopexit460:                   ; preds = %4528
+.loopexit1943.us.i.loopexit990:                   ; preds = %4528
   %.not1822.us.i = icmp eq i32 %4505, 0
   %4565 = zext i1 %.not1822.us.i to i32
   %.51553.us.i = select i1 %4503, i32 %4565, i32 %4505
   br label %.loopexit1943.us.i
 
-.loopexit1943.us.i:                               ; preds = %.loopexit1943.us.i.loopexit460, %.loopexit1943.us.i.loopexit, %4499
-  %.41552.us.i = phi i32 [ %4501, %4499 ], [ %.31551.us.i, %.loopexit1943.us.i.loopexit ], [ %.51553.us.i, %.loopexit1943.us.i.loopexit460 ]
-  %.201425.us.i = phi i32 [ %.131418.us.i, %4499 ], [ %4562, %.loopexit1943.us.i.loopexit ], [ %4531, %.loopexit1943.us.i.loopexit460 ]
-  %.131329.us.i = phi i32 [ %4491, %4499 ], [ %4560, %.loopexit1943.us.i.loopexit ], [ %4529, %.loopexit1943.us.i.loopexit460 ]
-  %.20.us.i = phi i32 [ %4496, %4499 ], [ %4561, %.loopexit1943.us.i.loopexit ], [ %4530, %.loopexit1943.us.i.loopexit460 ]
+.loopexit1943.us.i:                               ; preds = %.loopexit1943.us.i.loopexit990, %.loopexit1943.us.i.loopexit, %4499
+  %.41552.us.i = phi i32 [ %4501, %4499 ], [ %.31551.us.i, %.loopexit1943.us.i.loopexit ], [ %.51553.us.i, %.loopexit1943.us.i.loopexit990 ]
+  %.201425.us.i = phi i32 [ %.131418.us.i, %4499 ], [ %4562, %.loopexit1943.us.i.loopexit ], [ %4531, %.loopexit1943.us.i.loopexit990 ]
+  %.131329.us.i = phi i32 [ %4491, %4499 ], [ %4560, %.loopexit1943.us.i.loopexit ], [ %4529, %.loopexit1943.us.i.loopexit990 ]
+  %.20.us.i = phi i32 [ %4496, %4499 ], [ %4561, %.loopexit1943.us.i.loopexit ], [ %4530, %.loopexit1943.us.i.loopexit990 ]
   %4566 = shl i32 %.1.us.i, 1
   %4567 = or i32 %.41552.us.i, %4566
   switch i32 %4567, label %5265 [
@@ -25083,7 +25083,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4624 = shl i32 %.30.us.i, 1
   %4625 = add i32 %.301435.us.i, -1
   %4626 = icmp ult i32 %4623, 32768
-  br i1 %4626, label %4601, label %.loopexit1941.us.i.loopexit459, !llvm.loop !479
+  br i1 %4626, label %4601, label %.loopexit1941.us.i.loopexit989, !llvm.loop !479
 
 4627:                                             ; preds = %4568
   %4628 = icmp ult i32 %4585, %4584
@@ -25149,17 +25149,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.61554.us.i = select i1 %4628, i32 %4630, i32 %4658
   br label %.loopexit1941.us.i
 
-.loopexit1941.us.i.loopexit459:                   ; preds = %4622
+.loopexit1941.us.i.loopexit989:                   ; preds = %4622
   %.not1826.us.i = icmp eq i32 %4599, 0
   %4659 = zext i1 %.not1826.us.i to i32
   %.81556.us.i = select i1 %4597, i32 %4659, i32 %4599
   br label %.loopexit1941.us.i
 
-.loopexit1941.us.i:                               ; preds = %.loopexit1941.us.i.loopexit459, %.loopexit1941.us.i.loopexit, %4593
-  %.71555.us.i = phi i32 [ %4595, %4593 ], [ %.61554.us.i, %.loopexit1941.us.i.loopexit ], [ %.81556.us.i, %.loopexit1941.us.i.loopexit459 ]
-  %.281433.us.i = phi i32 [ %.201425.us.i, %4593 ], [ %4656, %.loopexit1941.us.i.loopexit ], [ %4625, %.loopexit1941.us.i.loopexit459 ]
-  %.181334.us.i = phi i32 [ %4585, %4593 ], [ %4654, %.loopexit1941.us.i.loopexit ], [ %4623, %.loopexit1941.us.i.loopexit459 ]
-  %.28.us.i = phi i32 [ %4590, %4593 ], [ %4655, %.loopexit1941.us.i.loopexit ], [ %4624, %.loopexit1941.us.i.loopexit459 ]
+.loopexit1941.us.i:                               ; preds = %.loopexit1941.us.i.loopexit989, %.loopexit1941.us.i.loopexit, %4593
+  %.71555.us.i = phi i32 [ %4595, %4593 ], [ %.61554.us.i, %.loopexit1941.us.i.loopexit ], [ %.81556.us.i, %.loopexit1941.us.i.loopexit989 ]
+  %.281433.us.i = phi i32 [ %.201425.us.i, %4593 ], [ %4656, %.loopexit1941.us.i.loopexit ], [ %4625, %.loopexit1941.us.i.loopexit989 ]
+  %.181334.us.i = phi i32 [ %4585, %4593 ], [ %4654, %.loopexit1941.us.i.loopexit ], [ %4623, %.loopexit1941.us.i.loopexit989 ]
+  %.28.us.i = phi i32 [ %4590, %4593 ], [ %4655, %.loopexit1941.us.i.loopexit ], [ %4624, %.loopexit1941.us.i.loopexit989 ]
   %4660 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %4578
   %4661 = load i8, ptr %4660, align 1, !tbaa !47
   %4662 = zext i8 %4661 to i32
@@ -25255,7 +25255,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4716 = shl i32 %.39.us.i, 1
   %4717 = add i32 %.391444.us.i, -1
   %4718 = icmp ult i32 %4715, 32768
-  br i1 %4718, label %4693, label %.loopexit1939.us.i.loopexit458, !llvm.loop !481
+  br i1 %4718, label %4693, label %.loopexit1939.us.i.loopexit988, !llvm.loop !481
 
 4719:                                             ; preds = %.loopexit1941.us.i
   %4720 = icmp ult i32 %4677, %4676
@@ -25321,17 +25321,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.91557.us.i = select i1 %4720, i32 %4722, i32 %4750
   br label %.loopexit1939.us.i
 
-.loopexit1939.us.i.loopexit458:                   ; preds = %4714
+.loopexit1939.us.i.loopexit988:                   ; preds = %4714
   %.not1832.us.i = icmp eq i32 %4691, 0
   %4751 = zext i1 %.not1832.us.i to i32
   %.111559.us.i = select i1 %4689, i32 %4751, i32 %4691
   br label %.loopexit1939.us.i
 
-.loopexit1939.us.i:                               ; preds = %.loopexit1939.us.i.loopexit458, %.loopexit1939.us.i.loopexit, %4685
-  %.101558.us.i = phi i32 [ %4687, %4685 ], [ %.91557.us.i, %.loopexit1939.us.i.loopexit ], [ %.111559.us.i, %.loopexit1939.us.i.loopexit458 ]
-  %.371442.us.i = phi i32 [ %.281433.us.i, %4685 ], [ %4748, %.loopexit1939.us.i.loopexit ], [ %4717, %.loopexit1939.us.i.loopexit458 ]
-  %.241340.us.i = phi i32 [ %4677, %4685 ], [ %4746, %.loopexit1939.us.i.loopexit ], [ %4715, %.loopexit1939.us.i.loopexit458 ]
-  %.37.us.i = phi i32 [ %4682, %4685 ], [ %4747, %.loopexit1939.us.i.loopexit ], [ %4716, %.loopexit1939.us.i.loopexit458 ]
+.loopexit1939.us.i:                               ; preds = %.loopexit1939.us.i.loopexit988, %.loopexit1939.us.i.loopexit, %4685
+  %.101558.us.i = phi i32 [ %4687, %4685 ], [ %.91557.us.i, %.loopexit1939.us.i.loopexit ], [ %.111559.us.i, %.loopexit1939.us.i.loopexit988 ]
+  %.371442.us.i = phi i32 [ %.281433.us.i, %4685 ], [ %4748, %.loopexit1939.us.i.loopexit ], [ %4717, %.loopexit1939.us.i.loopexit988 ]
+  %.241340.us.i = phi i32 [ %4677, %4685 ], [ %4746, %.loopexit1939.us.i.loopexit ], [ %4715, %.loopexit1939.us.i.loopexit988 ]
+  %.37.us.i = phi i32 [ %4682, %4685 ], [ %4747, %.loopexit1939.us.i.loopexit ], [ %4716, %.loopexit1939.us.i.loopexit988 ]
   %.not1835.us.i = icmp eq i32 %.101558.us.i, 0
   br i1 %.not1835.us.i, label %4862, label %.thread.us.i
 
@@ -25438,7 +25438,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4813 = shl i32 %.47.us.i, 1
   %4814 = add i32 %.471452.us.i, -1
   %4815 = icmp ult i32 %4812, 32768
-  br i1 %4815, label %4790, label %.loopexit1937.us.i.loopexit457, !llvm.loop !483
+  br i1 %4815, label %4790, label %.loopexit1937.us.i.loopexit987, !llvm.loop !483
 
 4816:                                             ; preds = %.thread.us.i
   %4817 = icmp ult i32 %4774, %4773
@@ -25504,17 +25504,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.121560.us.i = select i1 %4817, i32 %4819, i32 %4847
   br label %.loopexit1937.us.i
 
-.loopexit1937.us.i.loopexit457:                   ; preds = %4811
+.loopexit1937.us.i.loopexit987:                   ; preds = %4811
   %.not1837.us.i = icmp eq i32 %4788, 0
   %4848 = zext i1 %.not1837.us.i to i32
   %.141562.us.i = select i1 %4786, i32 %4848, i32 %4788
   br label %.loopexit1937.us.i
 
-.loopexit1937.us.i:                               ; preds = %.loopexit1937.us.i.loopexit457, %.loopexit1937.us.i.loopexit, %4782
-  %.131561.us.i = phi i32 [ %4784, %4782 ], [ %.121560.us.i, %.loopexit1937.us.i.loopexit ], [ %.141562.us.i, %.loopexit1937.us.i.loopexit457 ]
-  %.451450.us.i = phi i32 [ %.331438.us.i, %4782 ], [ %4845, %.loopexit1937.us.i.loopexit ], [ %4814, %.loopexit1937.us.i.loopexit457 ]
-  %.291345.us.i = phi i32 [ %4774, %4782 ], [ %4843, %.loopexit1937.us.i.loopexit ], [ %4812, %.loopexit1937.us.i.loopexit457 ]
-  %.45.us.i = phi i32 [ %4779, %4782 ], [ %4844, %.loopexit1937.us.i.loopexit ], [ %4813, %.loopexit1937.us.i.loopexit457 ]
+.loopexit1937.us.i:                               ; preds = %.loopexit1937.us.i.loopexit987, %.loopexit1937.us.i.loopexit, %4782
+  %.131561.us.i = phi i32 [ %4784, %4782 ], [ %.121560.us.i, %.loopexit1937.us.i.loopexit ], [ %.141562.us.i, %.loopexit1937.us.i.loopexit987 ]
+  %.451450.us.i = phi i32 [ %.331438.us.i, %4782 ], [ %4845, %.loopexit1937.us.i.loopexit ], [ %4814, %.loopexit1937.us.i.loopexit987 ]
+  %.291345.us.i = phi i32 [ %4774, %4782 ], [ %4843, %.loopexit1937.us.i.loopexit ], [ %4812, %.loopexit1937.us.i.loopexit987 ]
+  %.45.us.i = phi i32 [ %4779, %4782 ], [ %4844, %.loopexit1937.us.i.loopexit ], [ %4813, %.loopexit1937.us.i.loopexit987 ]
   %4849 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %4767
   %4850 = load i8, ptr %4849, align 1, !tbaa !47
   %4851 = zext i8 %4850 to i32
@@ -25623,7 +25623,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4911 = shl i32 %.56.us.i, 1
   %4912 = add i32 %.561461.us.i, -1
   %4913 = icmp ult i32 %4910, 32768
-  br i1 %4913, label %4888, label %.loopexit1935.us.i.loopexit456, !llvm.loop !485
+  br i1 %4913, label %4888, label %.loopexit1935.us.i.loopexit986, !llvm.loop !485
 
 4914:                                             ; preds = %4862
   %4915 = icmp ult i32 %4872, %4871
@@ -25689,17 +25689,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.151563.us.i = select i1 %4915, i32 %4917, i32 %4945
   br label %.loopexit1935.us.i
 
-.loopexit1935.us.i.loopexit456:                   ; preds = %4909
+.loopexit1935.us.i.loopexit986:                   ; preds = %4909
   %.not1843.us.i = icmp eq i32 %4886, 0
   %4946 = zext i1 %.not1843.us.i to i32
   %.171565.us.i = select i1 %4884, i32 %4946, i32 %4886
   br label %.loopexit1935.us.i
 
-.loopexit1935.us.i:                               ; preds = %.loopexit1935.us.i.loopexit456, %.loopexit1935.us.i.loopexit, %4880
-  %.161564.us.i = phi i32 [ %4882, %4880 ], [ %.151563.us.i, %.loopexit1935.us.i.loopexit ], [ %.171565.us.i, %.loopexit1935.us.i.loopexit456 ]
-  %.541459.us.i = phi i32 [ %.491454.ph.us.i, %4880 ], [ %4943, %.loopexit1935.us.i.loopexit ], [ %4912, %.loopexit1935.us.i.loopexit456 ]
-  %.351351.us.i = phi i32 [ %4872, %4880 ], [ %4941, %.loopexit1935.us.i.loopexit ], [ %4910, %.loopexit1935.us.i.loopexit456 ]
-  %.54.us.i = phi i32 [ %4877, %4880 ], [ %4942, %.loopexit1935.us.i.loopexit ], [ %4911, %.loopexit1935.us.i.loopexit456 ]
+.loopexit1935.us.i:                               ; preds = %.loopexit1935.us.i.loopexit986, %.loopexit1935.us.i.loopexit, %4880
+  %.161564.us.i = phi i32 [ %4882, %4880 ], [ %.151563.us.i, %.loopexit1935.us.i.loopexit ], [ %.171565.us.i, %.loopexit1935.us.i.loopexit986 ]
+  %.541459.us.i = phi i32 [ %.491454.ph.us.i, %4880 ], [ %4943, %.loopexit1935.us.i.loopexit ], [ %4912, %.loopexit1935.us.i.loopexit986 ]
+  %.351351.us.i = phi i32 [ %4872, %4880 ], [ %4941, %.loopexit1935.us.i.loopexit ], [ %4910, %.loopexit1935.us.i.loopexit986 ]
+  %.54.us.i = phi i32 [ %4877, %4880 ], [ %4942, %.loopexit1935.us.i.loopexit ], [ %4911, %.loopexit1935.us.i.loopexit986 ]
   %.not1846.us.i = icmp eq i32 %.161564.us.i, 0
   br i1 %.not1846.us.i, label %5057, label %.loopexit1943.us._crit_edge.i
 
@@ -25806,7 +25806,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5008 = shl i32 %.64.us.i, 1
   %5009 = add i32 %.641469.us.i, -1
   %5010 = icmp ult i32 %5007, 32768
-  br i1 %5010, label %4985, label %.loopexit1933.us.i.loopexit455, !llvm.loop !487
+  br i1 %5010, label %4985, label %.loopexit1933.us.i.loopexit985, !llvm.loop !487
 
 5011:                                             ; preds = %.loopexit1943.us._crit_edge.i
   %5012 = icmp ult i32 %4969, %4968
@@ -25872,17 +25872,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.181566.us.i = select i1 %5012, i32 %5014, i32 %5042
   br label %.loopexit1933.us.i
 
-.loopexit1933.us.i.loopexit455:                   ; preds = %5006
+.loopexit1933.us.i.loopexit985:                   ; preds = %5006
   %.not1848.us.i = icmp eq i32 %4983, 0
   %5043 = zext i1 %.not1848.us.i to i32
   %.201568.us.i = select i1 %4981, i32 %5043, i32 %4983
   br label %.loopexit1933.us.i
 
-.loopexit1933.us.i:                               ; preds = %.loopexit1933.us.i.loopexit455, %.loopexit1933.us.i.loopexit, %4977
-  %.191567.us.i = phi i32 [ %4979, %4977 ], [ %.181566.us.i, %.loopexit1933.us.i.loopexit ], [ %.201568.us.i, %.loopexit1933.us.i.loopexit455 ]
-  %.621467.us.i = phi i32 [ %.501455.us.i, %4977 ], [ %5040, %.loopexit1933.us.i.loopexit ], [ %5009, %.loopexit1933.us.i.loopexit455 ]
-  %.401356.us.i = phi i32 [ %4969, %4977 ], [ %5038, %.loopexit1933.us.i.loopexit ], [ %5007, %.loopexit1933.us.i.loopexit455 ]
-  %.62.us.i = phi i32 [ %4974, %4977 ], [ %5039, %.loopexit1933.us.i.loopexit ], [ %5008, %.loopexit1933.us.i.loopexit455 ]
+.loopexit1933.us.i:                               ; preds = %.loopexit1933.us.i.loopexit985, %.loopexit1933.us.i.loopexit, %4977
+  %.191567.us.i = phi i32 [ %4979, %4977 ], [ %.181566.us.i, %.loopexit1933.us.i.loopexit ], [ %.201568.us.i, %.loopexit1933.us.i.loopexit985 ]
+  %.621467.us.i = phi i32 [ %.501455.us.i, %4977 ], [ %5040, %.loopexit1933.us.i.loopexit ], [ %5009, %.loopexit1933.us.i.loopexit985 ]
+  %.401356.us.i = phi i32 [ %4969, %4977 ], [ %5038, %.loopexit1933.us.i.loopexit ], [ %5007, %.loopexit1933.us.i.loopexit985 ]
+  %.62.us.i = phi i32 [ %4974, %4977 ], [ %5039, %.loopexit1933.us.i.loopexit ], [ %5008, %.loopexit1933.us.i.loopexit985 ]
   %5044 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %4962
   %5045 = load i8, ptr %5044, align 1, !tbaa !47
   %5046 = zext i8 %5045 to i32
@@ -25991,7 +25991,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5106 = shl i32 %.73.us.i, 1
   %5107 = add i32 %.731478.us.i, -1
   %5108 = icmp ult i32 %5105, 32768
-  br i1 %5108, label %5083, label %.loopexit1931.us.i.loopexit454, !llvm.loop !489
+  br i1 %5108, label %5083, label %.loopexit1931.us.i.loopexit984, !llvm.loop !489
 
 5109:                                             ; preds = %5057
   %5110 = icmp ult i32 %5067, %5066
@@ -26057,17 +26057,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.211569.us.i = select i1 %5110, i32 %5112, i32 %5140
   br label %.loopexit1931.us.i
 
-.loopexit1931.us.i.loopexit454:                   ; preds = %5104
+.loopexit1931.us.i.loopexit984:                   ; preds = %5104
   %.not1854.us.i = icmp eq i32 %5081, 0
   %5141 = zext i1 %.not1854.us.i to i32
   %.231571.us.i = select i1 %5079, i32 %5141, i32 %5081
   br label %.loopexit1931.us.i
 
-.loopexit1931.us.i:                               ; preds = %.loopexit1931.us.i.loopexit454, %.loopexit1931.us.i.loopexit, %5075
-  %.221570.us.i = phi i32 [ %5077, %5075 ], [ %.211569.us.i, %.loopexit1931.us.i.loopexit ], [ %.231571.us.i, %.loopexit1931.us.i.loopexit454 ]
-  %.711476.us.i = phi i32 [ %.661471.ph.us.i, %5075 ], [ %5138, %.loopexit1931.us.i.loopexit ], [ %5107, %.loopexit1931.us.i.loopexit454 ]
-  %.461362.us.i = phi i32 [ %5067, %5075 ], [ %5136, %.loopexit1931.us.i.loopexit ], [ %5105, %.loopexit1931.us.i.loopexit454 ]
-  %.71.us.i = phi i32 [ %5072, %5075 ], [ %5137, %.loopexit1931.us.i.loopexit ], [ %5106, %.loopexit1931.us.i.loopexit454 ]
+.loopexit1931.us.i:                               ; preds = %.loopexit1931.us.i.loopexit984, %.loopexit1931.us.i.loopexit, %5075
+  %.221570.us.i = phi i32 [ %5077, %5075 ], [ %.211569.us.i, %.loopexit1931.us.i.loopexit ], [ %.231571.us.i, %.loopexit1931.us.i.loopexit984 ]
+  %.711476.us.i = phi i32 [ %.661471.ph.us.i, %5075 ], [ %5138, %.loopexit1931.us.i.loopexit ], [ %5107, %.loopexit1931.us.i.loopexit984 ]
+  %.461362.us.i = phi i32 [ %5067, %5075 ], [ %5136, %.loopexit1931.us.i.loopexit ], [ %5105, %.loopexit1931.us.i.loopexit984 ]
+  %.71.us.i = phi i32 [ %5072, %5075 ], [ %5137, %.loopexit1931.us.i.loopexit ], [ %5106, %.loopexit1931.us.i.loopexit984 ]
   %.not1857.us.i = icmp eq i32 %.221570.us.i, 0
   br i1 %.not1857.us.i, label %5265, label %.loopexit1943.us._crit_edge2255.i
 
@@ -26174,7 +26174,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5203 = shl i32 %.80.us.i, 1
   %5204 = add i32 %.801485.us.i, -1
   %5205 = icmp ult i32 %5202, 32768
-  br i1 %5205, label %5180, label %.loopexit1929.us.i.loopexit453, !llvm.loop !491
+  br i1 %5205, label %5180, label %.loopexit1929.us.i.loopexit983, !llvm.loop !491
 
 5206:                                             ; preds = %.loopexit1943.us._crit_edge2255.i
   %5207 = icmp ult i32 %5164, %5163
@@ -26240,17 +26240,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.241572.us.i = select i1 %5207, i32 %5209, i32 %5237
   br label %.loopexit1929.us.i
 
-.loopexit1929.us.i.loopexit453:                   ; preds = %5201
+.loopexit1929.us.i.loopexit983:                   ; preds = %5201
   %.not1859.us.i = icmp eq i32 %5178, 0
   %5238 = zext i1 %.not1859.us.i to i32
   %.261574.us.i = select i1 %5176, i32 %5238, i32 %5178
   br label %.loopexit1929.us.i
 
-.loopexit1929.us.i:                               ; preds = %.loopexit1929.us.i.loopexit453, %.loopexit1929.us.i.loopexit, %5172
-  %.251573.us.i = phi i32 [ %5174, %5172 ], [ %.241572.us.i, %.loopexit1929.us.i.loopexit ], [ %.261574.us.i, %.loopexit1929.us.i.loopexit453 ]
-  %.781483.us.i = phi i32 [ %.671472.us.i, %5172 ], [ %5235, %.loopexit1929.us.i.loopexit ], [ %5204, %.loopexit1929.us.i.loopexit453 ]
-  %.501366.us.i = phi i32 [ %5164, %5172 ], [ %5233, %.loopexit1929.us.i.loopexit ], [ %5202, %.loopexit1929.us.i.loopexit453 ]
-  %.78.us.i = phi i32 [ %5169, %5172 ], [ %5234, %.loopexit1929.us.i.loopexit ], [ %5203, %.loopexit1929.us.i.loopexit453 ]
+.loopexit1929.us.i:                               ; preds = %.loopexit1929.us.i.loopexit983, %.loopexit1929.us.i.loopexit, %5172
+  %.251573.us.i = phi i32 [ %5174, %5172 ], [ %.241572.us.i, %.loopexit1929.us.i.loopexit ], [ %.261574.us.i, %.loopexit1929.us.i.loopexit983 ]
+  %.781483.us.i = phi i32 [ %.671472.us.i, %5172 ], [ %5235, %.loopexit1929.us.i.loopexit ], [ %5204, %.loopexit1929.us.i.loopexit983 ]
+  %.501366.us.i = phi i32 [ %5164, %5172 ], [ %5233, %.loopexit1929.us.i.loopexit ], [ %5202, %.loopexit1929.us.i.loopexit983 ]
+  %.78.us.i = phi i32 [ %5169, %5172 ], [ %5234, %.loopexit1929.us.i.loopexit ], [ %5203, %.loopexit1929.us.i.loopexit983 ]
   %5239 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %5157
   %5240 = load i8, ptr %5239, align 1, !tbaa !47
   %5241 = zext i8 %5240 to i32
@@ -26521,7 +26521,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5369 = shl i32 %.90.us.i296, 1
   %5370 = add i32 %.901507.us.i, -1
   %5371 = icmp ult i32 %5368, 32768
-  br i1 %5371, label %5346, label %.loopexit1975.us.i.loopexit451, !llvm.loop !497
+  br i1 %5371, label %5346, label %.loopexit1975.us.i.loopexit981, !llvm.loop !497
 
 5372:                                             ; preds = %5321
   %5373 = icmp ult i32 %5330, %5329
@@ -26587,17 +26587,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.271587.us.i = select i1 %5373, i32 %5375, i32 %5403
   br label %.loopexit1975.us.i
 
-.loopexit1975.us.i.loopexit451:                   ; preds = %5367
+.loopexit1975.us.i.loopexit981:                   ; preds = %5367
   %.not1782.us.i292 = icmp eq i32 %5344, 0
   %5404 = zext i1 %.not1782.us.i292 to i32
   %.291589.us.i = select i1 %5342, i32 %5404, i32 %5344
   br label %.loopexit1975.us.i
 
-.loopexit1975.us.i:                               ; preds = %.loopexit1975.us.i.loopexit451, %.loopexit1975.us.i.loopexit, %5338
-  %.281588.us.i = phi i32 [ %5340, %5338 ], [ %.271587.us.i, %.loopexit1975.us.i.loopexit ], [ %.291589.us.i, %.loopexit1975.us.i.loopexit451 ]
-  %.881505.us.i = phi i32 [ %.114182087.us.i, %5338 ], [ %5401, %.loopexit1975.us.i.loopexit ], [ %5370, %.loopexit1975.us.i.loopexit451 ]
-  %.571385.us.i = phi i32 [ %5330, %5338 ], [ %5399, %.loopexit1975.us.i.loopexit ], [ %5368, %.loopexit1975.us.i.loopexit451 ]
-  %.88.us.i282 = phi i32 [ %5335, %5338 ], [ %5400, %.loopexit1975.us.i.loopexit ], [ %5369, %.loopexit1975.us.i.loopexit451 ]
+.loopexit1975.us.i:                               ; preds = %.loopexit1975.us.i.loopexit981, %.loopexit1975.us.i.loopexit, %5338
+  %.281588.us.i = phi i32 [ %5340, %5338 ], [ %.271587.us.i, %.loopexit1975.us.i.loopexit ], [ %.291589.us.i, %.loopexit1975.us.i.loopexit981 ]
+  %.881505.us.i = phi i32 [ %.114182087.us.i, %5338 ], [ %5401, %.loopexit1975.us.i.loopexit ], [ %5370, %.loopexit1975.us.i.loopexit981 ]
+  %.571385.us.i = phi i32 [ %5330, %5338 ], [ %5399, %.loopexit1975.us.i.loopexit ], [ %5368, %.loopexit1975.us.i.loopexit981 ]
+  %.88.us.i282 = phi i32 [ %5335, %5338 ], [ %5400, %.loopexit1975.us.i.loopexit ], [ %5369, %.loopexit1975.us.i.loopexit981 ]
   %.not1785.us.i = icmp eq i32 %.281588.us.i, 0
   br i1 %.not1785.us.i, label %5529, label %5405
 
@@ -26699,7 +26699,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5466 = shl i32 %.97.us.i288, 1
   %5467 = add i32 %.971514.us.i, -1
   %5468 = icmp ult i32 %5465, 32768
-  br i1 %5468, label %5443, label %.loopexit1973.us.i.loopexit450, !llvm.loop !499
+  br i1 %5468, label %5443, label %.loopexit1973.us.i.loopexit980, !llvm.loop !499
 
 5469:                                             ; preds = %5405
   %5470 = icmp ult i32 %5427, %5426
@@ -26765,17 +26765,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.301590.us.i = select i1 %5470, i32 %5472, i32 %5500
   br label %.loopexit1973.us.i
 
-.loopexit1973.us.i.loopexit450:                   ; preds = %5464
+.loopexit1973.us.i.loopexit980:                   ; preds = %5464
   %.not1787.us.i285 = icmp eq i32 %5441, 0
   %5501 = zext i1 %.not1787.us.i285 to i32
   %.321592.us.i = select i1 %5439, i32 %5501, i32 %5441
   br label %.loopexit1973.us.i
 
-.loopexit1973.us.i:                               ; preds = %.loopexit1973.us.i.loopexit450, %.loopexit1973.us.i.loopexit, %5435
-  %.311591.us.i = phi i32 [ %5437, %5435 ], [ %.301590.us.i, %.loopexit1973.us.i.loopexit ], [ %.321592.us.i, %.loopexit1973.us.i.loopexit450 ]
-  %.951512.us.i = phi i32 [ %.881505.us.i, %5435 ], [ %5498, %.loopexit1973.us.i.loopexit ], [ %5467, %.loopexit1973.us.i.loopexit450 ]
-  %.611389.us.i = phi i32 [ %5427, %5435 ], [ %5496, %.loopexit1973.us.i.loopexit ], [ %5465, %.loopexit1973.us.i.loopexit450 ]
-  %.95.us.i283 = phi i32 [ %5432, %5435 ], [ %5497, %.loopexit1973.us.i.loopexit ], [ %5466, %.loopexit1973.us.i.loopexit450 ]
+.loopexit1973.us.i:                               ; preds = %.loopexit1973.us.i.loopexit980, %.loopexit1973.us.i.loopexit, %5435
+  %.311591.us.i = phi i32 [ %5437, %5435 ], [ %.301590.us.i, %.loopexit1973.us.i.loopexit ], [ %.321592.us.i, %.loopexit1973.us.i.loopexit980 ]
+  %.951512.us.i = phi i32 [ %.881505.us.i, %5435 ], [ %5498, %.loopexit1973.us.i.loopexit ], [ %5467, %.loopexit1973.us.i.loopexit980 ]
+  %.611389.us.i = phi i32 [ %5427, %5435 ], [ %5496, %.loopexit1973.us.i.loopexit ], [ %5465, %.loopexit1973.us.i.loopexit980 ]
+  %.95.us.i283 = phi i32 [ %5432, %5435 ], [ %5497, %.loopexit1973.us.i.loopexit ], [ %5466, %.loopexit1973.us.i.loopexit980 ]
   %5502 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %5420
   %5503 = load i8, ptr %5502, align 1, !tbaa !47
   %5504 = zext i8 %5503 to i32
@@ -26906,7 +26906,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5580 = shl i32 %.105.us.i278, 1
   %5581 = add i32 %.1051522.us.i, -1
   %5582 = icmp ult i32 %5579, 32768
-  br i1 %5582, label %5557, label %.loopexit1971.us.i.loopexit449, !llvm.loop !501
+  br i1 %5582, label %5557, label %.loopexit1971.us.i.loopexit979, !llvm.loop !501
 
 5583:                                             ; preds = %5531
   %5584 = icmp ult i32 %5541, %5540
@@ -26972,17 +26972,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.331593.us.i = select i1 %5584, i32 %5586, i32 %5614
   br label %.loopexit1971.us.i
 
-.loopexit1971.us.i.loopexit449:                   ; preds = %5578
+.loopexit1971.us.i.loopexit979:                   ; preds = %5578
   %.not1793.us.i275 = icmp eq i32 %5555, 0
   %5615 = zext i1 %.not1793.us.i275 to i32
   %.351595.us.i = select i1 %5553, i32 %5615, i32 %5555
   br label %.loopexit1971.us.i
 
-.loopexit1971.us.i:                               ; preds = %.loopexit1971.us.i.loopexit449, %.loopexit1971.us.i.loopexit, %5549
-  %.341594.us.i = phi i32 [ %5551, %5549 ], [ %.331593.us.i, %.loopexit1971.us.i.loopexit ], [ %.351595.us.i, %.loopexit1971.us.i.loopexit449 ]
-  %.1031520.us.i = phi i32 [ %.841501.us.i, %5549 ], [ %5612, %.loopexit1971.us.i.loopexit ], [ %5581, %.loopexit1971.us.i.loopexit449 ]
-  %.661394.us.i = phi i32 [ %5541, %5549 ], [ %5610, %.loopexit1971.us.i.loopexit ], [ %5579, %.loopexit1971.us.i.loopexit449 ]
-  %.103.us.i265 = phi i32 [ %5546, %5549 ], [ %5611, %.loopexit1971.us.i.loopexit ], [ %5580, %.loopexit1971.us.i.loopexit449 ]
+.loopexit1971.us.i:                               ; preds = %.loopexit1971.us.i.loopexit979, %.loopexit1971.us.i.loopexit, %5549
+  %.341594.us.i = phi i32 [ %5551, %5549 ], [ %.331593.us.i, %.loopexit1971.us.i.loopexit ], [ %.351595.us.i, %.loopexit1971.us.i.loopexit979 ]
+  %.1031520.us.i = phi i32 [ %.841501.us.i, %5549 ], [ %5612, %.loopexit1971.us.i.loopexit ], [ %5581, %.loopexit1971.us.i.loopexit979 ]
+  %.661394.us.i = phi i32 [ %5541, %5549 ], [ %5610, %.loopexit1971.us.i.loopexit ], [ %5579, %.loopexit1971.us.i.loopexit979 ]
+  %.103.us.i265 = phi i32 [ %5546, %5549 ], [ %5611, %.loopexit1971.us.i.loopexit ], [ %5580, %.loopexit1971.us.i.loopexit979 ]
   %.not1796.us.i = icmp eq i32 %.341594.us.i, 0
   br i1 %.not1796.us.i, label %5726, label %5616
 
@@ -27084,7 +27084,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5677 = shl i32 %.112.us.i271, 1
   %5678 = add i32 %.1121529.us.i, -1
   %5679 = icmp ult i32 %5676, 32768
-  br i1 %5679, label %5654, label %.loopexit1969.us.i.loopexit448, !llvm.loop !503
+  br i1 %5679, label %5654, label %.loopexit1969.us.i.loopexit978, !llvm.loop !503
 
 5680:                                             ; preds = %5616
   %5681 = icmp ult i32 %5638, %5637
@@ -27150,17 +27150,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.361596.us.i = select i1 %5681, i32 %5683, i32 %5711
   br label %.loopexit1969.us.i
 
-.loopexit1969.us.i.loopexit448:                   ; preds = %5675
+.loopexit1969.us.i.loopexit978:                   ; preds = %5675
   %.not1798.us.i268 = icmp eq i32 %5652, 0
   %5712 = zext i1 %.not1798.us.i268 to i32
   %.381598.us.i = select i1 %5650, i32 %5712, i32 %5652
   br label %.loopexit1969.us.i
 
-.loopexit1969.us.i:                               ; preds = %.loopexit1969.us.i.loopexit448, %.loopexit1969.us.i.loopexit, %5646
-  %.371597.us.i = phi i32 [ %5648, %5646 ], [ %.361596.us.i, %.loopexit1969.us.i.loopexit ], [ %.381598.us.i, %.loopexit1969.us.i.loopexit448 ]
-  %.1101527.us.i = phi i32 [ %.1031520.us.i, %5646 ], [ %5709, %.loopexit1969.us.i.loopexit ], [ %5678, %.loopexit1969.us.i.loopexit448 ]
-  %.701398.us.i = phi i32 [ %5638, %5646 ], [ %5707, %.loopexit1969.us.i.loopexit ], [ %5676, %.loopexit1969.us.i.loopexit448 ]
-  %.110.us.i266 = phi i32 [ %5643, %5646 ], [ %5708, %.loopexit1969.us.i.loopexit ], [ %5677, %.loopexit1969.us.i.loopexit448 ]
+.loopexit1969.us.i:                               ; preds = %.loopexit1969.us.i.loopexit978, %.loopexit1969.us.i.loopexit, %5646
+  %.371597.us.i = phi i32 [ %5648, %5646 ], [ %.361596.us.i, %.loopexit1969.us.i.loopexit ], [ %.381598.us.i, %.loopexit1969.us.i.loopexit978 ]
+  %.1101527.us.i = phi i32 [ %.1031520.us.i, %5646 ], [ %5709, %.loopexit1969.us.i.loopexit ], [ %5678, %.loopexit1969.us.i.loopexit978 ]
+  %.701398.us.i = phi i32 [ %5638, %5646 ], [ %5707, %.loopexit1969.us.i.loopexit ], [ %5676, %.loopexit1969.us.i.loopexit978 ]
+  %.110.us.i266 = phi i32 [ %5643, %5646 ], [ %5708, %.loopexit1969.us.i.loopexit ], [ %5677, %.loopexit1969.us.i.loopexit978 ]
   %5713 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %5631
   %5714 = load i8, ptr %5713, align 1, !tbaa !47
   %5715 = zext i8 %5714 to i32
@@ -27274,7 +27274,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5777 = shl i32 %.120.us.i261, 1
   %5778 = add i32 %.1201537.us.i, -1
   %5779 = icmp ult i32 %5776, 32768
-  br i1 %5779, label %5754, label %.loopexit1967.us.i.loopexit447, !llvm.loop !505
+  br i1 %5779, label %5754, label %.loopexit1967.us.i.loopexit977, !llvm.loop !505
 
 5780:                                             ; preds = %5728
   %5781 = icmp ult i32 %5738, %5737
@@ -27340,17 +27340,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.391599.us.i = select i1 %5781, i32 %5783, i32 %5811
   br label %.loopexit1967.us.i
 
-.loopexit1967.us.i.loopexit447:                   ; preds = %5775
+.loopexit1967.us.i.loopexit977:                   ; preds = %5775
   %.not1804.us.i258 = icmp eq i32 %5752, 0
   %5812 = zext i1 %.not1804.us.i258 to i32
   %.411601.us.i = select i1 %5750, i32 %5812, i32 %5752
   br label %.loopexit1967.us.i
 
-.loopexit1967.us.i:                               ; preds = %.loopexit1967.us.i.loopexit447, %.loopexit1967.us.i.loopexit, %5746
-  %.401600.us.i = phi i32 [ %5748, %5746 ], [ %.391599.us.i, %.loopexit1967.us.i.loopexit ], [ %.411601.us.i, %.loopexit1967.us.i.loopexit447 ]
-  %.1181535.us.i = phi i32 [ %.991516.us.i, %5746 ], [ %5809, %.loopexit1967.us.i.loopexit ], [ %5778, %.loopexit1967.us.i.loopexit447 ]
-  %.751403.us.i = phi i32 [ %5738, %5746 ], [ %5807, %.loopexit1967.us.i.loopexit ], [ %5776, %.loopexit1967.us.i.loopexit447 ]
-  %.118.us.i249 = phi i32 [ %5743, %5746 ], [ %5808, %.loopexit1967.us.i.loopexit ], [ %5777, %.loopexit1967.us.i.loopexit447 ]
+.loopexit1967.us.i:                               ; preds = %.loopexit1967.us.i.loopexit977, %.loopexit1967.us.i.loopexit, %5746
+  %.401600.us.i = phi i32 [ %5748, %5746 ], [ %.391599.us.i, %.loopexit1967.us.i.loopexit ], [ %.411601.us.i, %.loopexit1967.us.i.loopexit977 ]
+  %.1181535.us.i = phi i32 [ %.991516.us.i, %5746 ], [ %5809, %.loopexit1967.us.i.loopexit ], [ %5778, %.loopexit1967.us.i.loopexit977 ]
+  %.751403.us.i = phi i32 [ %5738, %5746 ], [ %5807, %.loopexit1967.us.i.loopexit ], [ %5776, %.loopexit1967.us.i.loopexit977 ]
+  %.118.us.i249 = phi i32 [ %5743, %5746 ], [ %5808, %.loopexit1967.us.i.loopexit ], [ %5777, %.loopexit1967.us.i.loopexit977 ]
   %.not1807.us.i = icmp eq i32 %.401600.us.i, 0
   br i1 %.not1807.us.i, label %5923, label %5813
 
@@ -27452,7 +27452,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5874 = shl i32 %.127.us.i254, 1
   %5875 = add i32 %.1271544.us.i, -1
   %5876 = icmp ult i32 %5873, 32768
-  br i1 %5876, label %5851, label %.loopexit1965.us.i.loopexit446, !llvm.loop !507
+  br i1 %5876, label %5851, label %.loopexit1965.us.i.loopexit976, !llvm.loop !507
 
 5877:                                             ; preds = %5813
   %5878 = icmp ult i32 %5835, %5834
@@ -27518,17 +27518,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.421602.us.i = select i1 %5878, i32 %5880, i32 %5908
   br label %.loopexit1965.us.i
 
-.loopexit1965.us.i.loopexit446:                   ; preds = %5872
+.loopexit1965.us.i.loopexit976:                   ; preds = %5872
   %.not1809.us.i251 = icmp eq i32 %5849, 0
   %5909 = zext i1 %.not1809.us.i251 to i32
   %.441604.us.i = select i1 %5847, i32 %5909, i32 %5849
   br label %.loopexit1965.us.i
 
-.loopexit1965.us.i:                               ; preds = %.loopexit1965.us.i.loopexit446, %.loopexit1965.us.i.loopexit, %5843
-  %.431603.us.i = phi i32 [ %5845, %5843 ], [ %.421602.us.i, %.loopexit1965.us.i.loopexit ], [ %.441604.us.i, %.loopexit1965.us.i.loopexit446 ]
-  %.1251542.us.i = phi i32 [ %.1181535.us.i, %5843 ], [ %5906, %.loopexit1965.us.i.loopexit ], [ %5875, %.loopexit1965.us.i.loopexit446 ]
-  %.791407.us.i = phi i32 [ %5835, %5843 ], [ %5904, %.loopexit1965.us.i.loopexit ], [ %5873, %.loopexit1965.us.i.loopexit446 ]
-  %.125.us.i250 = phi i32 [ %5840, %5843 ], [ %5905, %.loopexit1965.us.i.loopexit ], [ %5874, %.loopexit1965.us.i.loopexit446 ]
+.loopexit1965.us.i:                               ; preds = %.loopexit1965.us.i.loopexit976, %.loopexit1965.us.i.loopexit, %5843
+  %.431603.us.i = phi i32 [ %5845, %5843 ], [ %.421602.us.i, %.loopexit1965.us.i.loopexit ], [ %.441604.us.i, %.loopexit1965.us.i.loopexit976 ]
+  %.1251542.us.i = phi i32 [ %.1181535.us.i, %5843 ], [ %5906, %.loopexit1965.us.i.loopexit ], [ %5875, %.loopexit1965.us.i.loopexit976 ]
+  %.791407.us.i = phi i32 [ %5835, %5843 ], [ %5904, %.loopexit1965.us.i.loopexit ], [ %5873, %.loopexit1965.us.i.loopexit976 ]
+  %.125.us.i250 = phi i32 [ %5840, %5843 ], [ %5905, %.loopexit1965.us.i.loopexit ], [ %5874, %.loopexit1965.us.i.loopexit976 ]
   %5910 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %5828
   %5911 = load i8, ptr %5910, align 1, !tbaa !47
   %5912 = zext i8 %5911 to i32
@@ -27642,7 +27642,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5974 = shl i32 %.134.us.i244, 1
   %5975 = add i32 %.1341551.us.i, -1
   %5976 = icmp ult i32 %5973, 32768
-  br i1 %5976, label %5951, label %.loopexit1963.us.i227.loopexit445, !llvm.loop !509
+  br i1 %5976, label %5951, label %.loopexit1963.us.i227.loopexit975, !llvm.loop !509
 
 5977:                                             ; preds = %5925
   %5978 = icmp ult i32 %5935, %5934
@@ -27708,17 +27708,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.451605.us.i = select i1 %5978, i32 %5980, i32 %6008
   br label %.loopexit1963.us.i227
 
-.loopexit1963.us.i227.loopexit445:                ; preds = %5972
+.loopexit1963.us.i227.loopexit975:                ; preds = %5972
   %.not1815.us.i = icmp eq i32 %5949, 0
   %6009 = zext i1 %.not1815.us.i to i32
   %.471607.us.i = select i1 %5947, i32 %6009, i32 %5949
   br label %.loopexit1963.us.i227
 
-.loopexit1963.us.i227:                            ; preds = %.loopexit1963.us.i227.loopexit445, %.loopexit1963.us.i227.loopexit, %5943
-  %.461606.us.i = phi i32 [ %5945, %5943 ], [ %.451605.us.i, %.loopexit1963.us.i227.loopexit ], [ %.471607.us.i, %.loopexit1963.us.i227.loopexit445 ]
-  %.1321549.us.i = phi i32 [ %.1141531.us.i, %5943 ], [ %6006, %.loopexit1963.us.i227.loopexit ], [ %5975, %.loopexit1963.us.i227.loopexit445 ]
-  %.831411.us.i = phi i32 [ %5935, %5943 ], [ %6004, %.loopexit1963.us.i227.loopexit ], [ %5973, %.loopexit1963.us.i227.loopexit445 ]
-  %.132.us.i228 = phi i32 [ %5940, %5943 ], [ %6005, %.loopexit1963.us.i227.loopexit ], [ %5974, %.loopexit1963.us.i227.loopexit445 ]
+.loopexit1963.us.i227:                            ; preds = %.loopexit1963.us.i227.loopexit975, %.loopexit1963.us.i227.loopexit, %5943
+  %.461606.us.i = phi i32 [ %5945, %5943 ], [ %.451605.us.i, %.loopexit1963.us.i227.loopexit ], [ %.471607.us.i, %.loopexit1963.us.i227.loopexit975 ]
+  %.1321549.us.i = phi i32 [ %.1141531.us.i, %5943 ], [ %6006, %.loopexit1963.us.i227.loopexit ], [ %5975, %.loopexit1963.us.i227.loopexit975 ]
+  %.831411.us.i = phi i32 [ %5935, %5943 ], [ %6004, %.loopexit1963.us.i227.loopexit ], [ %5973, %.loopexit1963.us.i227.loopexit975 ]
+  %.132.us.i228 = phi i32 [ %5940, %5943 ], [ %6005, %.loopexit1963.us.i227.loopexit ], [ %5974, %.loopexit1963.us.i227.loopexit975 ]
   %.not1818.us.i229 = icmp eq i32 %.461606.us.i, 0
   br i1 %.not1818.us.i229, label %7066, label %6010
 
@@ -27820,7 +27820,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6071 = shl i32 %.141.us.i238, 1
   %6072 = add i32 %.1411558.us.i, -1
   %6073 = icmp ult i32 %6070, 32768
-  br i1 %6073, label %6048, label %.loopexit1961.us.i230.loopexit444, !llvm.loop !511
+  br i1 %6073, label %6048, label %.loopexit1961.us.i230.loopexit974, !llvm.loop !511
 
 6074:                                             ; preds = %6010
   %6075 = icmp ult i32 %6032, %6031
@@ -27886,17 +27886,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.481608.us.i = select i1 %6075, i32 %6077, i32 %6105
   br label %.loopexit1961.us.i230
 
-.loopexit1961.us.i230.loopexit444:                ; preds = %6069
+.loopexit1961.us.i230.loopexit974:                ; preds = %6069
   %.not1820.us.i = icmp eq i32 %6046, 0
   %6106 = zext i1 %.not1820.us.i to i32
   %.501610.us.i = select i1 %6044, i32 %6106, i32 %6046
   br label %.loopexit1961.us.i230
 
-.loopexit1961.us.i230:                            ; preds = %.loopexit1961.us.i230.loopexit444, %.loopexit1961.us.i230.loopexit, %6040
-  %.491609.us.i = phi i32 [ %6042, %6040 ], [ %.481608.us.i, %.loopexit1961.us.i230.loopexit ], [ %.501610.us.i, %.loopexit1961.us.i230.loopexit444 ]
-  %.1391556.us.i = phi i32 [ %.1321549.us.i, %6040 ], [ %6103, %.loopexit1961.us.i230.loopexit ], [ %6072, %.loopexit1961.us.i230.loopexit444 ]
-  %.871415.us.i = phi i32 [ %6032, %6040 ], [ %6101, %.loopexit1961.us.i230.loopexit ], [ %6070, %.loopexit1961.us.i230.loopexit444 ]
-  %.139.us.i231 = phi i32 [ %6037, %6040 ], [ %6102, %.loopexit1961.us.i230.loopexit ], [ %6071, %.loopexit1961.us.i230.loopexit444 ]
+.loopexit1961.us.i230:                            ; preds = %.loopexit1961.us.i230.loopexit974, %.loopexit1961.us.i230.loopexit, %6040
+  %.491609.us.i = phi i32 [ %6042, %6040 ], [ %.481608.us.i, %.loopexit1961.us.i230.loopexit ], [ %.501610.us.i, %.loopexit1961.us.i230.loopexit974 ]
+  %.1391556.us.i = phi i32 [ %.1321549.us.i, %6040 ], [ %6103, %.loopexit1961.us.i230.loopexit ], [ %6072, %.loopexit1961.us.i230.loopexit974 ]
+  %.871415.us.i = phi i32 [ %6032, %6040 ], [ %6101, %.loopexit1961.us.i230.loopexit ], [ %6070, %.loopexit1961.us.i230.loopexit974 ]
+  %.139.us.i231 = phi i32 [ %6037, %6040 ], [ %6102, %.loopexit1961.us.i230.loopexit ], [ %6071, %.loopexit1961.us.i230.loopexit974 ]
   %6107 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %6025
   %6108 = load i8, ptr %6107, align 1, !tbaa !47
   %6109 = zext i8 %6108 to i32
@@ -27991,7 +27991,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6161 = shl i32 %.71326.us.i, 1
   %6162 = add i32 %.71424.us.i, -1
   %6163 = icmp ult i32 %6160, 32768
-  br i1 %6163, label %6138, label %.loopexit1959.us.i300.loopexit443, !llvm.loop !513
+  br i1 %6163, label %6138, label %.loopexit1959.us.i300.loopexit973, !llvm.loop !513
 
 6164:                                             ; preds = %6119
   %6165 = icmp ult i32 %6122, %6121
@@ -28057,17 +28057,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.01560.us.i = select i1 %6165, i32 %6167, i32 %6195
   br label %.loopexit1959.us.i300
 
-.loopexit1959.us.i300.loopexit443:                ; preds = %6159
+.loopexit1959.us.i300.loopexit973:                ; preds = %6159
   %.not1825.us.i = icmp eq i32 %6136, 0
   %6196 = zext i1 %.not1825.us.i to i32
   %.21562.us.i = select i1 %6134, i32 %6196, i32 %6136
   br label %.loopexit1959.us.i300
 
-.loopexit1959.us.i300:                            ; preds = %.loopexit1959.us.i300.loopexit443, %.loopexit1959.us.i300.loopexit, %6130
-  %.11561.us.i = phi i32 [ %6132, %6130 ], [ %.01560.us.i, %.loopexit1959.us.i300.loopexit ], [ %.21562.us.i, %.loopexit1959.us.i300.loopexit443 ]
-  %.51422.us.i = phi i32 [ %.114182087.us.i, %6130 ], [ %6193, %.loopexit1959.us.i300.loopexit ], [ %6162, %.loopexit1959.us.i300.loopexit443 ]
-  %.41332.us.i = phi i32 [ %6122, %6130 ], [ %6191, %.loopexit1959.us.i300.loopexit ], [ %6160, %.loopexit1959.us.i300.loopexit443 ]
-  %.51324.us.i = phi i32 [ %6127, %6130 ], [ %6192, %.loopexit1959.us.i300.loopexit ], [ %6161, %.loopexit1959.us.i300.loopexit443 ]
+.loopexit1959.us.i300:                            ; preds = %.loopexit1959.us.i300.loopexit973, %.loopexit1959.us.i300.loopexit, %6130
+  %.11561.us.i = phi i32 [ %6132, %6130 ], [ %.01560.us.i, %.loopexit1959.us.i300.loopexit ], [ %.21562.us.i, %.loopexit1959.us.i300.loopexit973 ]
+  %.51422.us.i = phi i32 [ %.114182087.us.i, %6130 ], [ %6193, %.loopexit1959.us.i300.loopexit ], [ %6162, %.loopexit1959.us.i300.loopexit973 ]
+  %.41332.us.i = phi i32 [ %6122, %6130 ], [ %6191, %.loopexit1959.us.i300.loopexit ], [ %6160, %.loopexit1959.us.i300.loopexit973 ]
+  %.51324.us.i = phi i32 [ %6127, %6130 ], [ %6192, %.loopexit1959.us.i300.loopexit ], [ %6161, %.loopexit1959.us.i300.loopexit973 ]
   %.not1828.not.us.i = icmp eq i32 %.11561.us.i, 0
   br i1 %.not1828.not.us.i, label %.thread1934.us.i, label %6197
 
@@ -28147,7 +28147,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6239 = shl i32 %.15.us.i381, 1
   %6240 = add i32 %.151432.us.i, -1
   %6241 = icmp ult i32 %6238, 32768
-  br i1 %6241, label %6216, label %.loopexit1957.us.i301.loopexit442, !llvm.loop !515
+  br i1 %6241, label %6216, label %.loopexit1957.us.i301.loopexit972, !llvm.loop !515
 
 6242:                                             ; preds = %6197
   %6243 = icmp ult i32 %6200, %6199
@@ -28213,18 +28213,18 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.0.us.i383 = select i1 %6243, i32 %6245, i32 %6273
   br label %.loopexit1957.us.i301
 
-.loopexit1957.us.i301.loopexit442:                ; preds = %6237
+.loopexit1957.us.i301.loopexit972:                ; preds = %6237
   %.not1830.us.i = icmp eq i32 %6214, 0
   %6274 = zext i1 %.not1830.us.i to i32
   %.2.us.i379 = select i1 %6212, i32 %6274, i32 %6214
   br label %.loopexit1957.us.i301
 
-.loopexit1957.us.i301:                            ; preds = %.loopexit1957.us.i301.loopexit442, %.loopexit1957.us.i301.loopexit, %6208
-  %6275 = phi ptr [ %6198, %6208 ], [ %storemerge1832.us.i, %.loopexit1957.us.i301.loopexit ], [ %storemerge1829.us.i, %.loopexit1957.us.i301.loopexit442 ]
-  %.131430.us.i = phi i32 [ %.51422.us.i, %6208 ], [ %6271, %.loopexit1957.us.i301.loopexit ], [ %6240, %.loopexit1957.us.i301.loopexit442 ]
-  %.91337.us.i = phi i32 [ %6200, %6208 ], [ %6269, %.loopexit1957.us.i301.loopexit ], [ %6238, %.loopexit1957.us.i301.loopexit442 ]
-  %.13.us.i302 = phi i32 [ %6205, %6208 ], [ %6270, %.loopexit1957.us.i301.loopexit ], [ %6239, %.loopexit1957.us.i301.loopexit442 ]
-  %.1.us.i303 = phi i32 [ %6210, %6208 ], [ %.0.us.i383, %.loopexit1957.us.i301.loopexit ], [ %.2.us.i379, %.loopexit1957.us.i301.loopexit442 ]
+.loopexit1957.us.i301:                            ; preds = %.loopexit1957.us.i301.loopexit972, %.loopexit1957.us.i301.loopexit, %6208
+  %6275 = phi ptr [ %6198, %6208 ], [ %storemerge1832.us.i, %.loopexit1957.us.i301.loopexit ], [ %storemerge1829.us.i, %.loopexit1957.us.i301.loopexit972 ]
+  %.131430.us.i = phi i32 [ %.51422.us.i, %6208 ], [ %6271, %.loopexit1957.us.i301.loopexit ], [ %6240, %.loopexit1957.us.i301.loopexit972 ]
+  %.91337.us.i = phi i32 [ %6200, %6208 ], [ %6269, %.loopexit1957.us.i301.loopexit ], [ %6238, %.loopexit1957.us.i301.loopexit972 ]
+  %.13.us.i302 = phi i32 [ %6205, %6208 ], [ %6270, %.loopexit1957.us.i301.loopexit ], [ %6239, %.loopexit1957.us.i301.loopexit972 ]
+  %.1.us.i303 = phi i32 [ %6210, %6208 ], [ %.0.us.i383, %.loopexit1957.us.i301.loopexit ], [ %.2.us.i379, %.loopexit1957.us.i301.loopexit972 ]
   %6276 = load i32, ptr %6275, align 8, !tbaa !121
   %6277 = sub i32 %.91337.us.i, %6276
   %6278 = lshr i32 %.13.us.i302, 16
@@ -28299,7 +28299,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6316 = shl i32 %.22.us.i372, 1
   %6317 = add i32 %.221439.us.i, -1
   %6318 = icmp ult i32 %6315, 32768
-  br i1 %6318, label %6293, label %.loopexit1955.us.i304.loopexit441, !llvm.loop !517
+  br i1 %6318, label %6293, label %.loopexit1955.us.i304.loopexit971, !llvm.loop !517
 
 6319:                                             ; preds = %.loopexit1957.us.i301
   %6320 = icmp ult i32 %6277, %6276
@@ -28365,17 +28365,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.31563.us.i = select i1 %6320, i32 %6322, i32 %6350
   br label %.loopexit1955.us.i304
 
-.loopexit1955.us.i304.loopexit441:                ; preds = %6314
+.loopexit1955.us.i304.loopexit971:                ; preds = %6314
   %.not1834.us.i = icmp eq i32 %6291, 0
   %6351 = zext i1 %.not1834.us.i to i32
   %.51565.us.i = select i1 %6289, i32 %6351, i32 %6291
   br label %.loopexit1955.us.i304
 
-.loopexit1955.us.i304:                            ; preds = %.loopexit1955.us.i304.loopexit441, %.loopexit1955.us.i304.loopexit, %6285
-  %.41564.us.i = phi i32 [ %6287, %6285 ], [ %.31563.us.i, %.loopexit1955.us.i304.loopexit ], [ %.51565.us.i, %.loopexit1955.us.i304.loopexit441 ]
-  %.201437.us.i = phi i32 [ %.131430.us.i, %6285 ], [ %6348, %.loopexit1955.us.i304.loopexit ], [ %6317, %.loopexit1955.us.i304.loopexit441 ]
-  %.131341.us.i = phi i32 [ %6277, %6285 ], [ %6346, %.loopexit1955.us.i304.loopexit ], [ %6315, %.loopexit1955.us.i304.loopexit441 ]
-  %.20.us.i305 = phi i32 [ %6282, %6285 ], [ %6347, %.loopexit1955.us.i304.loopexit ], [ %6316, %.loopexit1955.us.i304.loopexit441 ]
+.loopexit1955.us.i304:                            ; preds = %.loopexit1955.us.i304.loopexit971, %.loopexit1955.us.i304.loopexit, %6285
+  %.41564.us.i = phi i32 [ %6287, %6285 ], [ %.31563.us.i, %.loopexit1955.us.i304.loopexit ], [ %.51565.us.i, %.loopexit1955.us.i304.loopexit971 ]
+  %.201437.us.i = phi i32 [ %.131430.us.i, %6285 ], [ %6348, %.loopexit1955.us.i304.loopexit ], [ %6317, %.loopexit1955.us.i304.loopexit971 ]
+  %.131341.us.i = phi i32 [ %6277, %6285 ], [ %6346, %.loopexit1955.us.i304.loopexit ], [ %6315, %.loopexit1955.us.i304.loopexit971 ]
+  %.20.us.i305 = phi i32 [ %6282, %6285 ], [ %6347, %.loopexit1955.us.i304.loopexit ], [ %6316, %.loopexit1955.us.i304.loopexit971 ]
   %6352 = shl i32 %.1.us.i303, 1
   %6353 = or i32 %.41564.us.i, %6352
   switch i32 %6353, label %7066 [
@@ -28475,7 +28475,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6410 = shl i32 %.30.us.i366, 1
   %6411 = add i32 %.301447.us.i, -1
   %6412 = icmp ult i32 %6409, 32768
-  br i1 %6412, label %6387, label %.loopexit1953.us.i354.loopexit440, !llvm.loop !519
+  br i1 %6412, label %6387, label %.loopexit1953.us.i354.loopexit970, !llvm.loop !519
 
 6413:                                             ; preds = %6354
   %6414 = icmp ult i32 %6371, %6370
@@ -28541,17 +28541,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.61566.us.i = select i1 %6414, i32 %6416, i32 %6444
   br label %.loopexit1953.us.i354
 
-.loopexit1953.us.i354.loopexit440:                ; preds = %6408
+.loopexit1953.us.i354.loopexit970:                ; preds = %6408
   %.not1838.us.i363 = icmp eq i32 %6385, 0
   %6445 = zext i1 %.not1838.us.i363 to i32
   %.81568.us.i = select i1 %6383, i32 %6445, i32 %6385
   br label %.loopexit1953.us.i354
 
-.loopexit1953.us.i354:                            ; preds = %.loopexit1953.us.i354.loopexit440, %.loopexit1953.us.i354.loopexit, %6379
-  %.71567.us.i = phi i32 [ %6381, %6379 ], [ %.61566.us.i, %.loopexit1953.us.i354.loopexit ], [ %.81568.us.i, %.loopexit1953.us.i354.loopexit440 ]
-  %.281445.us.i = phi i32 [ %.201437.us.i, %6379 ], [ %6442, %.loopexit1953.us.i354.loopexit ], [ %6411, %.loopexit1953.us.i354.loopexit440 ]
-  %.181346.us.i = phi i32 [ %6371, %6379 ], [ %6440, %.loopexit1953.us.i354.loopexit ], [ %6409, %.loopexit1953.us.i354.loopexit440 ]
-  %.28.us.i355 = phi i32 [ %6376, %6379 ], [ %6441, %.loopexit1953.us.i354.loopexit ], [ %6410, %.loopexit1953.us.i354.loopexit440 ]
+.loopexit1953.us.i354:                            ; preds = %.loopexit1953.us.i354.loopexit970, %.loopexit1953.us.i354.loopexit, %6379
+  %.71567.us.i = phi i32 [ %6381, %6379 ], [ %.61566.us.i, %.loopexit1953.us.i354.loopexit ], [ %.81568.us.i, %.loopexit1953.us.i354.loopexit970 ]
+  %.281445.us.i = phi i32 [ %.201437.us.i, %6379 ], [ %6442, %.loopexit1953.us.i354.loopexit ], [ %6411, %.loopexit1953.us.i354.loopexit970 ]
+  %.181346.us.i = phi i32 [ %6371, %6379 ], [ %6440, %.loopexit1953.us.i354.loopexit ], [ %6409, %.loopexit1953.us.i354.loopexit970 ]
+  %.28.us.i355 = phi i32 [ %6376, %6379 ], [ %6441, %.loopexit1953.us.i354.loopexit ], [ %6410, %.loopexit1953.us.i354.loopexit970 ]
   %6446 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %6364
   %6447 = load i8, ptr %6446, align 1, !tbaa !47
   %6448 = zext i8 %6447 to i32
@@ -28665,7 +28665,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6517 = shl i32 %.39.us.i360, 1
   %6518 = add i32 %.391456.us.i, -1
   %6519 = icmp ult i32 %6516, 32768
-  br i1 %6519, label %6494, label %.loopexit1951.us.i356.loopexit439, !llvm.loop !521
+  br i1 %6519, label %6494, label %.loopexit1951.us.i356.loopexit969, !llvm.loop !521
 
 6520:                                             ; preds = %.loopexit1953.us.i354
   %6521 = icmp ult i32 %6478, %6477
@@ -28731,17 +28731,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.91569.us.i = select i1 %6521, i32 %6523, i32 %6551
   br label %.loopexit1951.us.i356
 
-.loopexit1951.us.i356.loopexit439:                ; preds = %6515
+.loopexit1951.us.i356.loopexit969:                ; preds = %6515
   %.not1844.us.i358 = icmp eq i32 %6492, 0
   %6552 = zext i1 %.not1844.us.i358 to i32
   %.111571.us.i = select i1 %6490, i32 %6552, i32 %6492
   br label %.loopexit1951.us.i356
 
-.loopexit1951.us.i356:                            ; preds = %.loopexit1951.us.i356.loopexit439, %.loopexit1951.us.i356.loopexit, %6486
-  %.101570.us.i = phi i32 [ %6488, %6486 ], [ %.91569.us.i, %.loopexit1951.us.i356.loopexit ], [ %.111571.us.i, %.loopexit1951.us.i356.loopexit439 ]
-  %.371454.us.i = phi i32 [ %.281445.us.i, %6486 ], [ %6549, %.loopexit1951.us.i356.loopexit ], [ %6518, %.loopexit1951.us.i356.loopexit439 ]
-  %.241352.us.i = phi i32 [ %6478, %6486 ], [ %6547, %.loopexit1951.us.i356.loopexit ], [ %6516, %.loopexit1951.us.i356.loopexit439 ]
-  %.37.us.i357 = phi i32 [ %6483, %6486 ], [ %6548, %.loopexit1951.us.i356.loopexit ], [ %6517, %.loopexit1951.us.i356.loopexit439 ]
+.loopexit1951.us.i356:                            ; preds = %.loopexit1951.us.i356.loopexit969, %.loopexit1951.us.i356.loopexit, %6486
+  %.101570.us.i = phi i32 [ %6488, %6486 ], [ %.91569.us.i, %.loopexit1951.us.i356.loopexit ], [ %.111571.us.i, %.loopexit1951.us.i356.loopexit969 ]
+  %.371454.us.i = phi i32 [ %.281445.us.i, %6486 ], [ %6549, %.loopexit1951.us.i356.loopexit ], [ %6518, %.loopexit1951.us.i356.loopexit969 ]
+  %.241352.us.i = phi i32 [ %6478, %6486 ], [ %6547, %.loopexit1951.us.i356.loopexit ], [ %6516, %.loopexit1951.us.i356.loopexit969 ]
+  %.37.us.i357 = phi i32 [ %6483, %6486 ], [ %6548, %.loopexit1951.us.i356.loopexit ], [ %6517, %.loopexit1951.us.i356.loopexit969 ]
   %.not1847.us.i = icmp eq i32 %.101570.us.i, 0
   br i1 %.not1847.us.i, label %6663, label %.thread.us.i334
 
@@ -28848,7 +28848,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6614 = shl i32 %.47.us.i351, 1
   %6615 = add i32 %.471464.us.i, -1
   %6616 = icmp ult i32 %6613, 32768
-  br i1 %6616, label %6591, label %.loopexit1949.us.i339.loopexit438, !llvm.loop !523
+  br i1 %6616, label %6591, label %.loopexit1949.us.i339.loopexit968, !llvm.loop !523
 
 6617:                                             ; preds = %.thread.us.i334
   %6618 = icmp ult i32 %6575, %6574
@@ -28914,17 +28914,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.121572.us.i = select i1 %6618, i32 %6620, i32 %6648
   br label %.loopexit1949.us.i339
 
-.loopexit1949.us.i339.loopexit438:                ; preds = %6612
+.loopexit1949.us.i339.loopexit968:                ; preds = %6612
   %.not1849.us.i349 = icmp eq i32 %6589, 0
   %6649 = zext i1 %.not1849.us.i349 to i32
   %.141574.us.i = select i1 %6587, i32 %6649, i32 %6589
   br label %.loopexit1949.us.i339
 
-.loopexit1949.us.i339:                            ; preds = %.loopexit1949.us.i339.loopexit438, %.loopexit1949.us.i339.loopexit, %6583
-  %.131573.us.i = phi i32 [ %6585, %6583 ], [ %.121572.us.i, %.loopexit1949.us.i339.loopexit ], [ %.141574.us.i, %.loopexit1949.us.i339.loopexit438 ]
-  %.451462.us.i = phi i32 [ %.331450.us.i, %6583 ], [ %6646, %.loopexit1949.us.i339.loopexit ], [ %6615, %.loopexit1949.us.i339.loopexit438 ]
-  %.291357.us.i = phi i32 [ %6575, %6583 ], [ %6644, %.loopexit1949.us.i339.loopexit ], [ %6613, %.loopexit1949.us.i339.loopexit438 ]
-  %.45.us.i340 = phi i32 [ %6580, %6583 ], [ %6645, %.loopexit1949.us.i339.loopexit ], [ %6614, %.loopexit1949.us.i339.loopexit438 ]
+.loopexit1949.us.i339:                            ; preds = %.loopexit1949.us.i339.loopexit968, %.loopexit1949.us.i339.loopexit, %6583
+  %.131573.us.i = phi i32 [ %6585, %6583 ], [ %.121572.us.i, %.loopexit1949.us.i339.loopexit ], [ %.141574.us.i, %.loopexit1949.us.i339.loopexit968 ]
+  %.451462.us.i = phi i32 [ %.331450.us.i, %6583 ], [ %6646, %.loopexit1949.us.i339.loopexit ], [ %6615, %.loopexit1949.us.i339.loopexit968 ]
+  %.291357.us.i = phi i32 [ %6575, %6583 ], [ %6644, %.loopexit1949.us.i339.loopexit ], [ %6613, %.loopexit1949.us.i339.loopexit968 ]
+  %.45.us.i340 = phi i32 [ %6580, %6583 ], [ %6645, %.loopexit1949.us.i339.loopexit ], [ %6614, %.loopexit1949.us.i339.loopexit968 ]
   %6650 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %6568
   %6651 = load i8, ptr %6650, align 1, !tbaa !47
   %6652 = zext i8 %6651 to i32
@@ -29033,7 +29033,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6712 = shl i32 %.56.us.i346, 1
   %6713 = add i32 %.561473.us.i, -1
   %6714 = icmp ult i32 %6711, 32768
-  br i1 %6714, label %6689, label %.loopexit1947.us.i342.loopexit437, !llvm.loop !525
+  br i1 %6714, label %6689, label %.loopexit1947.us.i342.loopexit967, !llvm.loop !525
 
 6715:                                             ; preds = %6663
   %6716 = icmp ult i32 %6673, %6672
@@ -29099,17 +29099,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.151575.us.i = select i1 %6716, i32 %6718, i32 %6746
   br label %.loopexit1947.us.i342
 
-.loopexit1947.us.i342.loopexit437:                ; preds = %6710
+.loopexit1947.us.i342.loopexit967:                ; preds = %6710
   %.not1855.us.i344 = icmp eq i32 %6687, 0
   %6747 = zext i1 %.not1855.us.i344 to i32
   %.171577.us.i = select i1 %6685, i32 %6747, i32 %6687
   br label %.loopexit1947.us.i342
 
-.loopexit1947.us.i342:                            ; preds = %.loopexit1947.us.i342.loopexit437, %.loopexit1947.us.i342.loopexit, %6681
-  %.161576.us.i = phi i32 [ %6683, %6681 ], [ %.151575.us.i, %.loopexit1947.us.i342.loopexit ], [ %.171577.us.i, %.loopexit1947.us.i342.loopexit437 ]
-  %.541471.us.i = phi i32 [ %.491466.ph.us.i, %6681 ], [ %6744, %.loopexit1947.us.i342.loopexit ], [ %6713, %.loopexit1947.us.i342.loopexit437 ]
-  %.351363.us.i = phi i32 [ %6673, %6681 ], [ %6742, %.loopexit1947.us.i342.loopexit ], [ %6711, %.loopexit1947.us.i342.loopexit437 ]
-  %.54.us.i343 = phi i32 [ %6678, %6681 ], [ %6743, %.loopexit1947.us.i342.loopexit ], [ %6712, %.loopexit1947.us.i342.loopexit437 ]
+.loopexit1947.us.i342:                            ; preds = %.loopexit1947.us.i342.loopexit967, %.loopexit1947.us.i342.loopexit, %6681
+  %.161576.us.i = phi i32 [ %6683, %6681 ], [ %.151575.us.i, %.loopexit1947.us.i342.loopexit ], [ %.171577.us.i, %.loopexit1947.us.i342.loopexit967 ]
+  %.541471.us.i = phi i32 [ %.491466.ph.us.i, %6681 ], [ %6744, %.loopexit1947.us.i342.loopexit ], [ %6713, %.loopexit1947.us.i342.loopexit967 ]
+  %.351363.us.i = phi i32 [ %6673, %6681 ], [ %6742, %.loopexit1947.us.i342.loopexit ], [ %6711, %.loopexit1947.us.i342.loopexit967 ]
+  %.54.us.i343 = phi i32 [ %6678, %6681 ], [ %6743, %.loopexit1947.us.i342.loopexit ], [ %6712, %.loopexit1947.us.i342.loopexit967 ]
   %.not1858.us.i = icmp eq i32 %.161576.us.i, 0
   br i1 %.not1858.us.i, label %6858, label %.loopexit1955.us._crit_edge.i
 
@@ -29216,7 +29216,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6809 = shl i32 %.64.us.i331, 1
   %6810 = add i32 %.641481.us.i, -1
   %6811 = icmp ult i32 %6808, 32768
-  br i1 %6811, label %6786, label %.loopexit1945.us.i320.loopexit436, !llvm.loop !527
+  br i1 %6811, label %6786, label %.loopexit1945.us.i320.loopexit966, !llvm.loop !527
 
 6812:                                             ; preds = %.loopexit1955.us._crit_edge.i
   %6813 = icmp ult i32 %6770, %6769
@@ -29282,17 +29282,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.181578.us.i = select i1 %6813, i32 %6815, i32 %6843
   br label %.loopexit1945.us.i320
 
-.loopexit1945.us.i320.loopexit436:                ; preds = %6807
+.loopexit1945.us.i320.loopexit966:                ; preds = %6807
   %.not1860.us.i329 = icmp eq i32 %6784, 0
   %6844 = zext i1 %.not1860.us.i329 to i32
   %.201580.us.i = select i1 %6782, i32 %6844, i32 %6784
   br label %.loopexit1945.us.i320
 
-.loopexit1945.us.i320:                            ; preds = %.loopexit1945.us.i320.loopexit436, %.loopexit1945.us.i320.loopexit, %6778
-  %.191579.us.i = phi i32 [ %6780, %6778 ], [ %.181578.us.i, %.loopexit1945.us.i320.loopexit ], [ %.201580.us.i, %.loopexit1945.us.i320.loopexit436 ]
-  %.621479.us.i = phi i32 [ %.501467.us.i, %6778 ], [ %6841, %.loopexit1945.us.i320.loopexit ], [ %6810, %.loopexit1945.us.i320.loopexit436 ]
-  %.401368.us.i = phi i32 [ %6770, %6778 ], [ %6839, %.loopexit1945.us.i320.loopexit ], [ %6808, %.loopexit1945.us.i320.loopexit436 ]
-  %.62.us.i321 = phi i32 [ %6775, %6778 ], [ %6840, %.loopexit1945.us.i320.loopexit ], [ %6809, %.loopexit1945.us.i320.loopexit436 ]
+.loopexit1945.us.i320:                            ; preds = %.loopexit1945.us.i320.loopexit966, %.loopexit1945.us.i320.loopexit, %6778
+  %.191579.us.i = phi i32 [ %6780, %6778 ], [ %.181578.us.i, %.loopexit1945.us.i320.loopexit ], [ %.201580.us.i, %.loopexit1945.us.i320.loopexit966 ]
+  %.621479.us.i = phi i32 [ %.501467.us.i, %6778 ], [ %6841, %.loopexit1945.us.i320.loopexit ], [ %6810, %.loopexit1945.us.i320.loopexit966 ]
+  %.401368.us.i = phi i32 [ %6770, %6778 ], [ %6839, %.loopexit1945.us.i320.loopexit ], [ %6808, %.loopexit1945.us.i320.loopexit966 ]
+  %.62.us.i321 = phi i32 [ %6775, %6778 ], [ %6840, %.loopexit1945.us.i320.loopexit ], [ %6809, %.loopexit1945.us.i320.loopexit966 ]
   %6845 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %6763
   %6846 = load i8, ptr %6845, align 1, !tbaa !47
   %6847 = zext i8 %6846 to i32
@@ -29401,7 +29401,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6907 = shl i32 %.73.us.i326, 1
   %6908 = add i32 %.731490.us.i, -1
   %6909 = icmp ult i32 %6906, 32768
-  br i1 %6909, label %6884, label %.loopexit1943.us.i323.loopexit435, !llvm.loop !529
+  br i1 %6909, label %6884, label %.loopexit1943.us.i323.loopexit965, !llvm.loop !529
 
 6910:                                             ; preds = %6858
   %6911 = icmp ult i32 %6868, %6867
@@ -29467,17 +29467,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.211581.us.i = select i1 %6911, i32 %6913, i32 %6941
   br label %.loopexit1943.us.i323
 
-.loopexit1943.us.i323.loopexit435:                ; preds = %6905
+.loopexit1943.us.i323.loopexit965:                ; preds = %6905
   %.not1866.us.i = icmp eq i32 %6882, 0
   %6942 = zext i1 %.not1866.us.i to i32
   %.231583.us.i = select i1 %6880, i32 %6942, i32 %6882
   br label %.loopexit1943.us.i323
 
-.loopexit1943.us.i323:                            ; preds = %.loopexit1943.us.i323.loopexit435, %.loopexit1943.us.i323.loopexit, %6876
-  %.221582.us.i = phi i32 [ %6878, %6876 ], [ %.211581.us.i, %.loopexit1943.us.i323.loopexit ], [ %.231583.us.i, %.loopexit1943.us.i323.loopexit435 ]
-  %.711488.us.i = phi i32 [ %.661483.ph.us.i, %6876 ], [ %6939, %.loopexit1943.us.i323.loopexit ], [ %6908, %.loopexit1943.us.i323.loopexit435 ]
-  %.461374.us.i = phi i32 [ %6868, %6876 ], [ %6937, %.loopexit1943.us.i323.loopexit ], [ %6906, %.loopexit1943.us.i323.loopexit435 ]
-  %.71.us.i324 = phi i32 [ %6873, %6876 ], [ %6938, %.loopexit1943.us.i323.loopexit ], [ %6907, %.loopexit1943.us.i323.loopexit435 ]
+.loopexit1943.us.i323:                            ; preds = %.loopexit1943.us.i323.loopexit965, %.loopexit1943.us.i323.loopexit, %6876
+  %.221582.us.i = phi i32 [ %6878, %6876 ], [ %.211581.us.i, %.loopexit1943.us.i323.loopexit ], [ %.231583.us.i, %.loopexit1943.us.i323.loopexit965 ]
+  %.711488.us.i = phi i32 [ %.661483.ph.us.i, %6876 ], [ %6939, %.loopexit1943.us.i323.loopexit ], [ %6908, %.loopexit1943.us.i323.loopexit965 ]
+  %.461374.us.i = phi i32 [ %6868, %6876 ], [ %6937, %.loopexit1943.us.i323.loopexit ], [ %6906, %.loopexit1943.us.i323.loopexit965 ]
+  %.71.us.i324 = phi i32 [ %6873, %6876 ], [ %6938, %.loopexit1943.us.i323.loopexit ], [ %6907, %.loopexit1943.us.i323.loopexit965 ]
   %.not1869.us.i = icmp eq i32 %.221582.us.i, 0
   br i1 %.not1869.us.i, label %7066, label %.loopexit1955.us._crit_edge2267.i
 
@@ -29584,7 +29584,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %7004 = shl i32 %.80.us.i313, 1
   %7005 = add i32 %.801497.us.i, -1
   %7006 = icmp ult i32 %7003, 32768
-  br i1 %7006, label %6981, label %.loopexit1941.us.i310.loopexit434, !llvm.loop !531
+  br i1 %7006, label %6981, label %.loopexit1941.us.i310.loopexit964, !llvm.loop !531
 
 7007:                                             ; preds = %.loopexit1955.us._crit_edge2267.i
   %7008 = icmp ult i32 %6965, %6964
@@ -29650,17 +29650,17 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.241584.us.i = select i1 %7008, i32 %7010, i32 %7038
   br label %.loopexit1941.us.i310
 
-.loopexit1941.us.i310.loopexit434:                ; preds = %7002
+.loopexit1941.us.i310.loopexit964:                ; preds = %7002
   %.not1871.us.i = icmp eq i32 %6979, 0
   %7039 = zext i1 %.not1871.us.i to i32
   %.261586.us.i = select i1 %6977, i32 %7039, i32 %6979
   br label %.loopexit1941.us.i310
 
-.loopexit1941.us.i310:                            ; preds = %.loopexit1941.us.i310.loopexit434, %.loopexit1941.us.i310.loopexit, %6973
-  %.251585.us.i = phi i32 [ %6975, %6973 ], [ %.241584.us.i, %.loopexit1941.us.i310.loopexit ], [ %.261586.us.i, %.loopexit1941.us.i310.loopexit434 ]
-  %.781495.us.i = phi i32 [ %.671484.us.i, %6973 ], [ %7036, %.loopexit1941.us.i310.loopexit ], [ %7005, %.loopexit1941.us.i310.loopexit434 ]
-  %.501378.us.i = phi i32 [ %6965, %6973 ], [ %7034, %.loopexit1941.us.i310.loopexit ], [ %7003, %.loopexit1941.us.i310.loopexit434 ]
-  %.78.us.i311 = phi i32 [ %6970, %6973 ], [ %7035, %.loopexit1941.us.i310.loopexit ], [ %7004, %.loopexit1941.us.i310.loopexit434 ]
+.loopexit1941.us.i310:                            ; preds = %.loopexit1941.us.i310.loopexit964, %.loopexit1941.us.i310.loopexit, %6973
+  %.251585.us.i = phi i32 [ %6975, %6973 ], [ %.241584.us.i, %.loopexit1941.us.i310.loopexit ], [ %.261586.us.i, %.loopexit1941.us.i310.loopexit964 ]
+  %.781495.us.i = phi i32 [ %.671484.us.i, %6973 ], [ %7036, %.loopexit1941.us.i310.loopexit ], [ %7005, %.loopexit1941.us.i310.loopexit964 ]
+  %.501378.us.i = phi i32 [ %6965, %6973 ], [ %7034, %.loopexit1941.us.i310.loopexit ], [ %7003, %.loopexit1941.us.i310.loopexit964 ]
+  %.78.us.i311 = phi i32 [ %6970, %6973 ], [ %7035, %.loopexit1941.us.i310.loopexit ], [ %7004, %.loopexit1941.us.i310.loopexit964 ]
   %7040 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %6958
   %7041 = load i8, ptr %7040, align 1, !tbaa !47
   %7042 = zext i8 %7041 to i32
@@ -30449,168 +30449,162 @@ define internal fastcc void @opj_t1_dec_sigpass_step_mqc(ptr noundef nonnull %0,
   %32 = load i32, ptr %0, align 8, !tbaa !107
   %33 = lshr i32 %32, 16
   %34 = icmp ult i32 %33, %28
-  br i1 %34, label %35, label %74
+  br i1 %34, label %35, label %75
 
 35:                                               ; preds = %16
   %36 = icmp ult i32 %31, %28
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !123
-  %.sink = select i1 %36, i64 8, i64 16
-  %39 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink
-  store i32 %28, ptr %29, align 4, !tbaa !118
-  %storemerge199 = load ptr, ptr %39, align 8, !tbaa !119
-  store ptr %storemerge199, ptr %25, align 8, !tbaa !119
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.promoted206 = load i32, ptr %40, align 8, !tbaa !106
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  br label %43
-
-43:                                               ; preds = %67, %35
-  %44 = phi i32 [ %70, %67 ], [ %28, %35 ]
-  %45 = phi i32 [ %71, %67 ], [ %32, %35 ]
-  %46 = phi i32 [ %72, %67 ], [ %.promoted206, %35 ]
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %67
-
-48:                                               ; preds = %43
-  %49 = load ptr, ptr %41, align 8, !tbaa !108
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %51 = load i8, ptr %50, align 1, !tbaa !47
-  %52 = zext i8 %51 to i32
-  %53 = load i8, ptr %49, align 1, !tbaa !47
-  %54 = icmp eq i8 %53, -1
-  br i1 %54, label %55, label %64
-
-55:                                               ; preds = %48
-  %56 = icmp ugt i8 %51, -113
-  br i1 %56, label %57, label %61
-
-57:                                               ; preds = %55
-  %58 = add i32 %45, 65280
-  %59 = load i32, ptr %42, align 4, !tbaa !124
-  %60 = add i32 %59, 1
-  store i32 %60, ptr %42, align 4, !tbaa !124
-  br label %67
-
-61:                                               ; preds = %55
-  store ptr %50, ptr %41, align 8, !tbaa !108
-  %62 = shl nuw nsw i32 %52, 9
-  %63 = add i32 %45, %62
-  br label %67
-
-64:                                               ; preds = %48
-  store ptr %50, ptr %41, align 8, !tbaa !108
-  %65 = shl nuw nsw i32 %52, 8
-  %66 = add i32 %45, %65
-  br label %67
-
-67:                                               ; preds = %64, %61, %57, %43
-  %68 = phi i32 [ %66, %64 ], [ %63, %61 ], [ %58, %57 ], [ %45, %43 ]
-  %69 = phi i32 [ 8, %64 ], [ 7, %61 ], [ 8, %57 ], [ %46, %43 ]
-  %70 = shl i32 %44, 1
-  store i32 %70, ptr %29, align 4, !tbaa !118
-  %71 = shl i32 %68, 1
-  store i32 %71, ptr %0, align 8, !tbaa !107
-  %72 = add i32 %69, -1
-  store i32 %72, ptr %40, align 8, !tbaa !106
-  %73 = icmp ult i32 %70, 32768
-  br i1 %73, label %43, label %.loopexit202.loopexit, !llvm.loop !545
-
-74:                                               ; preds = %16
-  %75 = shl nuw i32 %28, 16
-  %76 = sub i32 %32, %75
-  store i32 %76, ptr %0, align 8, !tbaa !107
-  %77 = and i32 %31, 32768
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %118
-
-79:                                               ; preds = %74
-  %80 = icmp ult i32 %31, %28
-  %81 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %82 = load i32, ptr %81, align 4, !tbaa !123
-  %.sink236 = select i1 %80, i64 16, i64 8
-  %83 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink236
-  %storemerge = load ptr, ptr %83, align 8, !tbaa !119
-  store ptr %storemerge, ptr %25, align 8, !tbaa !119
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.promoted = load i32, ptr %84, align 8, !tbaa !106
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  br label %87
-
-87:                                               ; preds = %111, %79
-  %88 = phi i32 [ %114, %111 ], [ %31, %79 ]
-  %89 = phi i32 [ %115, %111 ], [ %76, %79 ]
-  %90 = phi i32 [ %116, %111 ], [ %.promoted, %79 ]
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %111
-
-92:                                               ; preds = %87
-  %93 = load ptr, ptr %85, align 8, !tbaa !108
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1
-  %95 = load i8, ptr %94, align 1, !tbaa !47
-  %96 = zext i8 %95 to i32
-  %97 = load i8, ptr %93, align 1, !tbaa !47
-  %98 = icmp eq i8 %97, -1
-  br i1 %98, label %99, label %108
-
-99:                                               ; preds = %92
-  %100 = icmp ugt i8 %95, -113
-  br i1 %100, label %101, label %105
-
-101:                                              ; preds = %99
-  %102 = add i32 %89, 65280
-  %103 = load i32, ptr %86, align 4, !tbaa !124
-  %104 = add i32 %103, 1
-  store i32 %104, ptr %86, align 4, !tbaa !124
-  br label %111
-
-105:                                              ; preds = %99
-  store ptr %94, ptr %85, align 8, !tbaa !108
-  %106 = shl nuw nsw i32 %96, 9
-  %107 = add i32 %89, %106
-  br label %111
-
-108:                                              ; preds = %92
-  store ptr %94, ptr %85, align 8, !tbaa !108
-  %109 = shl nuw nsw i32 %96, 8
-  %110 = add i32 %89, %109
-  br label %111
-
-111:                                              ; preds = %108, %105, %101, %87
-  %112 = phi i32 [ %110, %108 ], [ %107, %105 ], [ %102, %101 ], [ %89, %87 ]
-  %113 = phi i32 [ 8, %108 ], [ 7, %105 ], [ 8, %101 ], [ %90, %87 ]
-  %114 = shl i32 %88, 1
-  store i32 %114, ptr %29, align 4, !tbaa !118
-  %115 = shl i32 %112, 1
-  store i32 %115, ptr %0, align 8, !tbaa !107
-  %116 = add i32 %113, -1
-  store i32 %116, ptr %84, align 8, !tbaa !106
-  %117 = icmp ult i32 %114, 32768
-  br i1 %117, label %87, label %.loopexit202.loopexit246, !llvm.loop !546
-
-118:                                              ; preds = %74
-  %119 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %120 = load i32, ptr %119, align 4, !tbaa !123
-  br label %.loopexit202
-
-.loopexit202.loopexit:                            ; preds = %67
   %.not193 = icmp eq i32 %38, 0
-  %121 = zext i1 %.not193 to i32
-  %.0 = select i1 %36, i32 %38, i32 %121
+  %39 = zext i1 %.not193 to i32
+  %.sink = select i1 %36, i64 8, i64 16
+  %.0 = select i1 %36, i32 %38, i32 %39
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink
+  store i32 %28, ptr %29, align 4, !tbaa !118
+  %storemerge199 = load ptr, ptr %40, align 8, !tbaa !119
+  store ptr %storemerge199, ptr %25, align 8, !tbaa !119
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.promoted206 = load i32, ptr %41, align 8, !tbaa !106
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  br label %44
+
+44:                                               ; preds = %68, %35
+  %45 = phi i32 [ %71, %68 ], [ %28, %35 ]
+  %46 = phi i32 [ %72, %68 ], [ %32, %35 ]
+  %47 = phi i32 [ %73, %68 ], [ %.promoted206, %35 ]
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %68
+
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %42, align 8, !tbaa !108
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  %52 = load i8, ptr %51, align 1, !tbaa !47
+  %53 = zext i8 %52 to i32
+  %54 = load i8, ptr %50, align 1, !tbaa !47
+  %55 = icmp eq i8 %54, -1
+  br i1 %55, label %56, label %65
+
+56:                                               ; preds = %49
+  %57 = icmp ugt i8 %52, -113
+  br i1 %57, label %58, label %62
+
+58:                                               ; preds = %56
+  %59 = add i32 %46, 65280
+  %60 = load i32, ptr %43, align 4, !tbaa !124
+  %61 = add i32 %60, 1
+  store i32 %61, ptr %43, align 4, !tbaa !124
+  br label %68
+
+62:                                               ; preds = %56
+  store ptr %51, ptr %42, align 8, !tbaa !108
+  %63 = shl nuw nsw i32 %53, 9
+  %64 = add i32 %46, %63
+  br label %68
+
+65:                                               ; preds = %49
+  store ptr %51, ptr %42, align 8, !tbaa !108
+  %66 = shl nuw nsw i32 %53, 8
+  %67 = add i32 %46, %66
+  br label %68
+
+68:                                               ; preds = %65, %62, %58, %44
+  %69 = phi i32 [ %67, %65 ], [ %64, %62 ], [ %59, %58 ], [ %46, %44 ]
+  %70 = phi i32 [ 8, %65 ], [ 7, %62 ], [ 8, %58 ], [ %47, %44 ]
+  %71 = shl i32 %45, 1
+  store i32 %71, ptr %29, align 4, !tbaa !118
+  %72 = shl i32 %69, 1
+  store i32 %72, ptr %0, align 8, !tbaa !107
+  %73 = add i32 %70, -1
+  store i32 %73, ptr %41, align 8, !tbaa !106
+  %74 = icmp ult i32 %71, 32768
+  br i1 %74, label %44, label %.loopexit202, !llvm.loop !545
+
+75:                                               ; preds = %16
+  %76 = shl nuw i32 %28, 16
+  %77 = sub i32 %32, %76
+  store i32 %77, ptr %0, align 8, !tbaa !107
+  %78 = and i32 %31, 32768
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %80, label %120
+
+80:                                               ; preds = %75
+  %81 = icmp ult i32 %31, %28
+  %82 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %83 = load i32, ptr %82, align 4, !tbaa !123
+  %.not192 = icmp eq i32 %83, 0
+  %84 = zext i1 %.not192 to i32
+  %.sink236 = select i1 %81, i64 16, i64 8
+  %.2 = select i1 %81, i32 %84, i32 %83
+  %85 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink236
+  %storemerge = load ptr, ptr %85, align 8, !tbaa !119
+  store ptr %storemerge, ptr %25, align 8, !tbaa !119
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.promoted = load i32, ptr %86, align 8, !tbaa !106
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  br label %89
+
+89:                                               ; preds = %113, %80
+  %90 = phi i32 [ %116, %113 ], [ %31, %80 ]
+  %91 = phi i32 [ %117, %113 ], [ %77, %80 ]
+  %92 = phi i32 [ %118, %113 ], [ %.promoted, %80 ]
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %94, label %113
+
+94:                                               ; preds = %89
+  %95 = load ptr, ptr %87, align 8, !tbaa !108
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 1
+  %97 = load i8, ptr %96, align 1, !tbaa !47
+  %98 = zext i8 %97 to i32
+  %99 = load i8, ptr %95, align 1, !tbaa !47
+  %100 = icmp eq i8 %99, -1
+  br i1 %100, label %101, label %110
+
+101:                                              ; preds = %94
+  %102 = icmp ugt i8 %97, -113
+  br i1 %102, label %103, label %107
+
+103:                                              ; preds = %101
+  %104 = add i32 %91, 65280
+  %105 = load i32, ptr %88, align 4, !tbaa !124
+  %106 = add i32 %105, 1
+  store i32 %106, ptr %88, align 4, !tbaa !124
+  br label %113
+
+107:                                              ; preds = %101
+  store ptr %96, ptr %87, align 8, !tbaa !108
+  %108 = shl nuw nsw i32 %98, 9
+  %109 = add i32 %91, %108
+  br label %113
+
+110:                                              ; preds = %94
+  store ptr %96, ptr %87, align 8, !tbaa !108
+  %111 = shl nuw nsw i32 %98, 8
+  %112 = add i32 %91, %111
+  br label %113
+
+113:                                              ; preds = %110, %107, %103, %89
+  %114 = phi i32 [ %112, %110 ], [ %109, %107 ], [ %104, %103 ], [ %91, %89 ]
+  %115 = phi i32 [ 8, %110 ], [ 7, %107 ], [ 8, %103 ], [ %92, %89 ]
+  %116 = shl i32 %90, 1
+  store i32 %116, ptr %29, align 4, !tbaa !118
+  %117 = shl i32 %114, 1
+  store i32 %117, ptr %0, align 8, !tbaa !107
+  %118 = add i32 %115, -1
+  store i32 %118, ptr %86, align 8, !tbaa !106
+  %119 = icmp ult i32 %116, 32768
+  br i1 %119, label %89, label %.loopexit202, !llvm.loop !546
+
+120:                                              ; preds = %75
+  %121 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %122 = load i32, ptr %121, align 4, !tbaa !123
   br label %.loopexit202
 
-.loopexit202.loopexit246:                         ; preds = %111
-  %.not192 = icmp eq i32 %82, 0
-  %122 = zext i1 %.not192 to i32
-  %.2 = select i1 %80, i32 %122, i32 %82
-  br label %.loopexit202
-
-.loopexit202:                                     ; preds = %.loopexit202.loopexit246, %.loopexit202.loopexit, %118
-  %.promoted213 = phi i32 [ %76, %118 ], [ %71, %.loopexit202.loopexit ], [ %115, %.loopexit202.loopexit246 ]
-  %123 = phi i32 [ %31, %118 ], [ %70, %.loopexit202.loopexit ], [ %114, %.loopexit202.loopexit246 ]
-  %.1 = phi i32 [ %120, %118 ], [ %.0, %.loopexit202.loopexit ], [ %.2, %.loopexit202.loopexit246 ]
+.loopexit202:                                     ; preds = %113, %68, %120
+  %.promoted213 = phi i32 [ %77, %120 ], [ %72, %68 ], [ %117, %113 ]
+  %123 = phi i32 [ %31, %120 ], [ %71, %68 ], [ %116, %113 ]
+  %.1 = phi i32 [ %122, %120 ], [ %.0, %68 ], [ %.2, %113 ]
   %.not194 = icmp eq i32 %.1, 0
   br i1 %.not194, label %291, label %124
 
@@ -30655,166 +30649,160 @@ define internal fastcc void @opj_t1_dec_sigpass_step_mqc(ptr noundef nonnull %0,
   store i32 %156, ptr %29, align 4, !tbaa !118
   %157 = lshr i32 %.promoted213, 16
   %158 = icmp ult i32 %157, %155
-  br i1 %158, label %159, label %198
+  br i1 %158, label %159, label %199
 
 159:                                              ; preds = %124
   %160 = icmp ult i32 %156, %155
   %161 = getelementptr inbounds nuw i8, ptr %154, i64 4
   %162 = load i32, ptr %161, align 4, !tbaa !123
-  %.sink237 = select i1 %160, i64 8, i64 16
-  %163 = getelementptr inbounds nuw i8, ptr %154, i64 %.sink237
-  store i32 %155, ptr %29, align 4, !tbaa !118
-  %storemerge200 = load ptr, ptr %163, align 8, !tbaa !119
-  store ptr %storemerge200, ptr %153, align 8, !tbaa !119
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.promoted212 = load i32, ptr %164, align 8, !tbaa !106
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  br label %167
-
-167:                                              ; preds = %191, %159
-  %168 = phi i32 [ %194, %191 ], [ %155, %159 ]
-  %169 = phi i32 [ %195, %191 ], [ %.promoted213, %159 ]
-  %170 = phi i32 [ %196, %191 ], [ %.promoted212, %159 ]
-  %171 = icmp eq i32 %170, 0
-  br i1 %171, label %172, label %191
-
-172:                                              ; preds = %167
-  %173 = load ptr, ptr %165, align 8, !tbaa !108
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 1
-  %175 = load i8, ptr %174, align 1, !tbaa !47
-  %176 = zext i8 %175 to i32
-  %177 = load i8, ptr %173, align 1, !tbaa !47
-  %178 = icmp eq i8 %177, -1
-  br i1 %178, label %179, label %188
-
-179:                                              ; preds = %172
-  %180 = icmp ugt i8 %175, -113
-  br i1 %180, label %181, label %185
-
-181:                                              ; preds = %179
-  %182 = add i32 %169, 65280
-  %183 = load i32, ptr %166, align 4, !tbaa !124
-  %184 = add i32 %183, 1
-  store i32 %184, ptr %166, align 4, !tbaa !124
-  br label %191
-
-185:                                              ; preds = %179
-  store ptr %174, ptr %165, align 8, !tbaa !108
-  %186 = shl nuw nsw i32 %176, 9
-  %187 = add i32 %169, %186
-  br label %191
-
-188:                                              ; preds = %172
-  store ptr %174, ptr %165, align 8, !tbaa !108
-  %189 = shl nuw nsw i32 %176, 8
-  %190 = add i32 %169, %189
-  br label %191
-
-191:                                              ; preds = %188, %185, %181, %167
-  %192 = phi i32 [ %190, %188 ], [ %187, %185 ], [ %182, %181 ], [ %169, %167 ]
-  %193 = phi i32 [ 8, %188 ], [ 7, %185 ], [ 8, %181 ], [ %170, %167 ]
-  %194 = shl i32 %168, 1
-  store i32 %194, ptr %29, align 4, !tbaa !118
-  %195 = shl i32 %192, 1
-  store i32 %195, ptr %0, align 8, !tbaa !107
-  %196 = add i32 %193, -1
-  store i32 %196, ptr %164, align 8, !tbaa !106
-  %197 = icmp ult i32 %194, 32768
-  br i1 %197, label %167, label %.loopexit.loopexit, !llvm.loop !547
-
-198:                                              ; preds = %124
-  %199 = shl nuw i32 %155, 16
-  %200 = sub i32 %.promoted213, %199
-  store i32 %200, ptr %0, align 8, !tbaa !107
-  %201 = and i32 %156, 32768
-  %202 = icmp eq i32 %201, 0
-  br i1 %202, label %203, label %242
-
-203:                                              ; preds = %198
-  %204 = icmp ult i32 %156, %155
-  %205 = getelementptr inbounds nuw i8, ptr %154, i64 4
-  %206 = load i32, ptr %205, align 4, !tbaa !123
-  %.sink238 = select i1 %204, i64 16, i64 8
-  %207 = getelementptr inbounds nuw i8, ptr %154, i64 %.sink238
-  %storemerge195 = load ptr, ptr %207, align 8, !tbaa !119
-  store ptr %storemerge195, ptr %153, align 8, !tbaa !119
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.promoted209 = load i32, ptr %208, align 8, !tbaa !106
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  br label %211
-
-211:                                              ; preds = %235, %203
-  %212 = phi i32 [ %238, %235 ], [ %156, %203 ]
-  %213 = phi i32 [ %239, %235 ], [ %200, %203 ]
-  %214 = phi i32 [ %240, %235 ], [ %.promoted209, %203 ]
-  %215 = icmp eq i32 %214, 0
-  br i1 %215, label %216, label %235
-
-216:                                              ; preds = %211
-  %217 = load ptr, ptr %209, align 8, !tbaa !108
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 1
-  %219 = load i8, ptr %218, align 1, !tbaa !47
-  %220 = zext i8 %219 to i32
-  %221 = load i8, ptr %217, align 1, !tbaa !47
-  %222 = icmp eq i8 %221, -1
-  br i1 %222, label %223, label %232
-
-223:                                              ; preds = %216
-  %224 = icmp ugt i8 %219, -113
-  br i1 %224, label %225, label %229
-
-225:                                              ; preds = %223
-  %226 = add i32 %213, 65280
-  %227 = load i32, ptr %210, align 4, !tbaa !124
-  %228 = add i32 %227, 1
-  store i32 %228, ptr %210, align 4, !tbaa !124
-  br label %235
-
-229:                                              ; preds = %223
-  store ptr %218, ptr %209, align 8, !tbaa !108
-  %230 = shl nuw nsw i32 %220, 9
-  %231 = add i32 %213, %230
-  br label %235
-
-232:                                              ; preds = %216
-  store ptr %218, ptr %209, align 8, !tbaa !108
-  %233 = shl nuw nsw i32 %220, 8
-  %234 = add i32 %213, %233
-  br label %235
-
-235:                                              ; preds = %232, %229, %225, %211
-  %236 = phi i32 [ %234, %232 ], [ %231, %229 ], [ %226, %225 ], [ %213, %211 ]
-  %237 = phi i32 [ 8, %232 ], [ 7, %229 ], [ 8, %225 ], [ %214, %211 ]
-  %238 = shl i32 %212, 1
-  store i32 %238, ptr %29, align 4, !tbaa !118
-  %239 = shl i32 %236, 1
-  store i32 %239, ptr %0, align 8, !tbaa !107
-  %240 = add i32 %237, -1
-  store i32 %240, ptr %208, align 8, !tbaa !106
-  %241 = icmp ult i32 %238, 32768
-  br i1 %241, label %211, label %.loopexit.loopexit244, !llvm.loop !548
-
-242:                                              ; preds = %198
-  %243 = getelementptr inbounds nuw i8, ptr %154, i64 4
-  %244 = load i32, ptr %243, align 4, !tbaa !123
-  br label %.loopexit
-
-.loopexit.loopexit:                               ; preds = %191
   %.not197 = icmp eq i32 %162, 0
-  %245 = zext i1 %.not197 to i32
-  %.3 = select i1 %160, i32 %162, i32 %245
+  %163 = zext i1 %.not197 to i32
+  %.sink237 = select i1 %160, i64 8, i64 16
+  %.3 = select i1 %160, i32 %162, i32 %163
+  %164 = getelementptr inbounds nuw i8, ptr %154, i64 %.sink237
+  store i32 %155, ptr %29, align 4, !tbaa !118
+  %storemerge200 = load ptr, ptr %164, align 8, !tbaa !119
+  store ptr %storemerge200, ptr %153, align 8, !tbaa !119
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.promoted212 = load i32, ptr %165, align 8, !tbaa !106
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  br label %168
+
+168:                                              ; preds = %192, %159
+  %169 = phi i32 [ %195, %192 ], [ %155, %159 ]
+  %170 = phi i32 [ %196, %192 ], [ %.promoted213, %159 ]
+  %171 = phi i32 [ %197, %192 ], [ %.promoted212, %159 ]
+  %172 = icmp eq i32 %171, 0
+  br i1 %172, label %173, label %192
+
+173:                                              ; preds = %168
+  %174 = load ptr, ptr %166, align 8, !tbaa !108
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 1
+  %176 = load i8, ptr %175, align 1, !tbaa !47
+  %177 = zext i8 %176 to i32
+  %178 = load i8, ptr %174, align 1, !tbaa !47
+  %179 = icmp eq i8 %178, -1
+  br i1 %179, label %180, label %189
+
+180:                                              ; preds = %173
+  %181 = icmp ugt i8 %176, -113
+  br i1 %181, label %182, label %186
+
+182:                                              ; preds = %180
+  %183 = add i32 %170, 65280
+  %184 = load i32, ptr %167, align 4, !tbaa !124
+  %185 = add i32 %184, 1
+  store i32 %185, ptr %167, align 4, !tbaa !124
+  br label %192
+
+186:                                              ; preds = %180
+  store ptr %175, ptr %166, align 8, !tbaa !108
+  %187 = shl nuw nsw i32 %177, 9
+  %188 = add i32 %170, %187
+  br label %192
+
+189:                                              ; preds = %173
+  store ptr %175, ptr %166, align 8, !tbaa !108
+  %190 = shl nuw nsw i32 %177, 8
+  %191 = add i32 %170, %190
+  br label %192
+
+192:                                              ; preds = %189, %186, %182, %168
+  %193 = phi i32 [ %191, %189 ], [ %188, %186 ], [ %183, %182 ], [ %170, %168 ]
+  %194 = phi i32 [ 8, %189 ], [ 7, %186 ], [ 8, %182 ], [ %171, %168 ]
+  %195 = shl i32 %169, 1
+  store i32 %195, ptr %29, align 4, !tbaa !118
+  %196 = shl i32 %193, 1
+  store i32 %196, ptr %0, align 8, !tbaa !107
+  %197 = add i32 %194, -1
+  store i32 %197, ptr %165, align 8, !tbaa !106
+  %198 = icmp ult i32 %195, 32768
+  br i1 %198, label %168, label %.loopexit, !llvm.loop !547
+
+199:                                              ; preds = %124
+  %200 = shl nuw i32 %155, 16
+  %201 = sub i32 %.promoted213, %200
+  store i32 %201, ptr %0, align 8, !tbaa !107
+  %202 = and i32 %156, 32768
+  %203 = icmp eq i32 %202, 0
+  br i1 %203, label %204, label %244
+
+204:                                              ; preds = %199
+  %205 = icmp ult i32 %156, %155
+  %206 = getelementptr inbounds nuw i8, ptr %154, i64 4
+  %207 = load i32, ptr %206, align 4, !tbaa !123
+  %.not196 = icmp eq i32 %207, 0
+  %208 = zext i1 %.not196 to i32
+  %.sink238 = select i1 %205, i64 16, i64 8
+  %.5 = select i1 %205, i32 %208, i32 %207
+  %209 = getelementptr inbounds nuw i8, ptr %154, i64 %.sink238
+  %storemerge195 = load ptr, ptr %209, align 8, !tbaa !119
+  store ptr %storemerge195, ptr %153, align 8, !tbaa !119
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.promoted209 = load i32, ptr %210, align 8, !tbaa !106
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  br label %213
+
+213:                                              ; preds = %237, %204
+  %214 = phi i32 [ %240, %237 ], [ %156, %204 ]
+  %215 = phi i32 [ %241, %237 ], [ %201, %204 ]
+  %216 = phi i32 [ %242, %237 ], [ %.promoted209, %204 ]
+  %217 = icmp eq i32 %216, 0
+  br i1 %217, label %218, label %237
+
+218:                                              ; preds = %213
+  %219 = load ptr, ptr %211, align 8, !tbaa !108
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 1
+  %221 = load i8, ptr %220, align 1, !tbaa !47
+  %222 = zext i8 %221 to i32
+  %223 = load i8, ptr %219, align 1, !tbaa !47
+  %224 = icmp eq i8 %223, -1
+  br i1 %224, label %225, label %234
+
+225:                                              ; preds = %218
+  %226 = icmp ugt i8 %221, -113
+  br i1 %226, label %227, label %231
+
+227:                                              ; preds = %225
+  %228 = add i32 %215, 65280
+  %229 = load i32, ptr %212, align 4, !tbaa !124
+  %230 = add i32 %229, 1
+  store i32 %230, ptr %212, align 4, !tbaa !124
+  br label %237
+
+231:                                              ; preds = %225
+  store ptr %220, ptr %211, align 8, !tbaa !108
+  %232 = shl nuw nsw i32 %222, 9
+  %233 = add i32 %215, %232
+  br label %237
+
+234:                                              ; preds = %218
+  store ptr %220, ptr %211, align 8, !tbaa !108
+  %235 = shl nuw nsw i32 %222, 8
+  %236 = add i32 %215, %235
+  br label %237
+
+237:                                              ; preds = %234, %231, %227, %213
+  %238 = phi i32 [ %236, %234 ], [ %233, %231 ], [ %228, %227 ], [ %215, %213 ]
+  %239 = phi i32 [ 8, %234 ], [ 7, %231 ], [ 8, %227 ], [ %216, %213 ]
+  %240 = shl i32 %214, 1
+  store i32 %240, ptr %29, align 4, !tbaa !118
+  %241 = shl i32 %238, 1
+  store i32 %241, ptr %0, align 8, !tbaa !107
+  %242 = add i32 %239, -1
+  store i32 %242, ptr %210, align 8, !tbaa !106
+  %243 = icmp ult i32 %240, 32768
+  br i1 %243, label %213, label %.loopexit, !llvm.loop !548
+
+244:                                              ; preds = %199
+  %245 = getelementptr inbounds nuw i8, ptr %154, i64 4
+  %246 = load i32, ptr %245, align 4, !tbaa !123
   br label %.loopexit
 
-.loopexit.loopexit244:                            ; preds = %235
-  %.not196 = icmp eq i32 %206, 0
-  %246 = zext i1 %.not196 to i32
-  %.5 = select i1 %204, i32 %246, i32 %206
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit244, %.loopexit.loopexit, %242
-  %.4 = phi i32 [ %244, %242 ], [ %.3, %.loopexit.loopexit ], [ %.5, %.loopexit.loopexit244 ]
+.loopexit:                                        ; preds = %237, %192, %244
+  %.4 = phi i32 [ %246, %244 ], [ %.3, %192 ], [ %.5, %237 ]
   %247 = xor i32 %.4, %151
   %.not198 = icmp eq i32 %.4, %151
   %248 = sub nsw i32 0, %3
@@ -30921,168 +30909,162 @@ define internal fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr
   %27 = load i32, ptr %0, align 8, !tbaa !107
   %28 = lshr i32 %27, 16
   %29 = icmp ult i32 %28, %23
-  br i1 %29, label %30, label %69
+  br i1 %29, label %30, label %70
 
 30:                                               ; preds = %11
   %31 = icmp ult i32 %26, %23
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !123
-  %.sink = select i1 %31, i64 8, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %22, i64 %.sink
-  store i32 %23, ptr %24, align 4, !tbaa !118
-  %storemerge195 = load ptr, ptr %34, align 8, !tbaa !119
-  store ptr %storemerge195, ptr %20, align 8, !tbaa !119
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.promoted202 = load i32, ptr %35, align 8, !tbaa !106
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  br label %38
-
-38:                                               ; preds = %62, %30
-  %39 = phi i32 [ %65, %62 ], [ %23, %30 ]
-  %40 = phi i32 [ %66, %62 ], [ %27, %30 ]
-  %41 = phi i32 [ %67, %62 ], [ %.promoted202, %30 ]
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %62
-
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %36, align 8, !tbaa !108
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
-  %46 = load i8, ptr %45, align 1, !tbaa !47
-  %47 = zext i8 %46 to i32
-  %48 = load i8, ptr %44, align 1, !tbaa !47
-  %49 = icmp eq i8 %48, -1
-  br i1 %49, label %50, label %59
-
-50:                                               ; preds = %43
-  %51 = icmp ugt i8 %46, -113
-  br i1 %51, label %52, label %56
-
-52:                                               ; preds = %50
-  %53 = add i32 %40, 65280
-  %54 = load i32, ptr %37, align 4, !tbaa !124
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %37, align 4, !tbaa !124
-  br label %62
-
-56:                                               ; preds = %50
-  store ptr %45, ptr %36, align 8, !tbaa !108
-  %57 = shl nuw nsw i32 %47, 9
-  %58 = add i32 %40, %57
-  br label %62
-
-59:                                               ; preds = %43
-  store ptr %45, ptr %36, align 8, !tbaa !108
-  %60 = shl nuw nsw i32 %47, 8
-  %61 = add i32 %40, %60
-  br label %62
-
-62:                                               ; preds = %59, %56, %52, %38
-  %63 = phi i32 [ %61, %59 ], [ %58, %56 ], [ %53, %52 ], [ %40, %38 ]
-  %64 = phi i32 [ 8, %59 ], [ 7, %56 ], [ 8, %52 ], [ %41, %38 ]
-  %65 = shl i32 %39, 1
-  store i32 %65, ptr %24, align 4, !tbaa !118
-  %66 = shl i32 %63, 1
-  store i32 %66, ptr %0, align 8, !tbaa !107
-  %67 = add i32 %64, -1
-  store i32 %67, ptr %35, align 8, !tbaa !106
-  %68 = icmp ult i32 %65, 32768
-  br i1 %68, label %38, label %.loopexit198.loopexit, !llvm.loop !549
-
-69:                                               ; preds = %11
-  %70 = shl nuw i32 %23, 16
-  %71 = sub i32 %27, %70
-  store i32 %71, ptr %0, align 8, !tbaa !107
-  %72 = and i32 %26, 32768
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %113
-
-74:                                               ; preds = %69
-  %75 = icmp ult i32 %26, %23
-  %76 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %77 = load i32, ptr %76, align 4, !tbaa !123
-  %.sink232 = select i1 %75, i64 16, i64 8
-  %78 = getelementptr inbounds nuw i8, ptr %22, i64 %.sink232
-  %storemerge = load ptr, ptr %78, align 8, !tbaa !119
-  store ptr %storemerge, ptr %20, align 8, !tbaa !119
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.promoted = load i32, ptr %79, align 8, !tbaa !106
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  br label %82
-
-82:                                               ; preds = %106, %74
-  %83 = phi i32 [ %109, %106 ], [ %26, %74 ]
-  %84 = phi i32 [ %110, %106 ], [ %71, %74 ]
-  %85 = phi i32 [ %111, %106 ], [ %.promoted, %74 ]
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %106
-
-87:                                               ; preds = %82
-  %88 = load ptr, ptr %80, align 8, !tbaa !108
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1
-  %90 = load i8, ptr %89, align 1, !tbaa !47
-  %91 = zext i8 %90 to i32
-  %92 = load i8, ptr %88, align 1, !tbaa !47
-  %93 = icmp eq i8 %92, -1
-  br i1 %93, label %94, label %103
-
-94:                                               ; preds = %87
-  %95 = icmp ugt i8 %90, -113
-  br i1 %95, label %96, label %100
-
-96:                                               ; preds = %94
-  %97 = add i32 %84, 65280
-  %98 = load i32, ptr %81, align 4, !tbaa !124
-  %99 = add i32 %98, 1
-  store i32 %99, ptr %81, align 4, !tbaa !124
-  br label %106
-
-100:                                              ; preds = %94
-  store ptr %89, ptr %80, align 8, !tbaa !108
-  %101 = shl nuw nsw i32 %91, 9
-  %102 = add i32 %84, %101
-  br label %106
-
-103:                                              ; preds = %87
-  store ptr %89, ptr %80, align 8, !tbaa !108
-  %104 = shl nuw nsw i32 %91, 8
-  %105 = add i32 %84, %104
-  br label %106
-
-106:                                              ; preds = %103, %100, %96, %82
-  %107 = phi i32 [ %105, %103 ], [ %102, %100 ], [ %97, %96 ], [ %84, %82 ]
-  %108 = phi i32 [ 8, %103 ], [ 7, %100 ], [ 8, %96 ], [ %85, %82 ]
-  %109 = shl i32 %83, 1
-  store i32 %109, ptr %24, align 4, !tbaa !118
-  %110 = shl i32 %107, 1
-  store i32 %110, ptr %0, align 8, !tbaa !107
-  %111 = add i32 %108, -1
-  store i32 %111, ptr %79, align 8, !tbaa !106
-  %112 = icmp ult i32 %109, 32768
-  br i1 %112, label %82, label %.loopexit198.loopexit242, !llvm.loop !550
-
-113:                                              ; preds = %69
-  %114 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %115 = load i32, ptr %114, align 4, !tbaa !123
-  br label %.loopexit198
-
-.loopexit198.loopexit:                            ; preds = %62
   %.not189 = icmp eq i32 %33, 0
-  %116 = zext i1 %.not189 to i32
-  %.0 = select i1 %31, i32 %33, i32 %116
+  %34 = zext i1 %.not189 to i32
+  %.sink = select i1 %31, i64 8, i64 16
+  %.0 = select i1 %31, i32 %33, i32 %34
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 %.sink
+  store i32 %23, ptr %24, align 4, !tbaa !118
+  %storemerge195 = load ptr, ptr %35, align 8, !tbaa !119
+  store ptr %storemerge195, ptr %20, align 8, !tbaa !119
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.promoted202 = load i32, ptr %36, align 8, !tbaa !106
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  br label %39
+
+39:                                               ; preds = %63, %30
+  %40 = phi i32 [ %66, %63 ], [ %23, %30 ]
+  %41 = phi i32 [ %67, %63 ], [ %27, %30 ]
+  %42 = phi i32 [ %68, %63 ], [ %.promoted202, %30 ]
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %63
+
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %37, align 8, !tbaa !108
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
+  %47 = load i8, ptr %46, align 1, !tbaa !47
+  %48 = zext i8 %47 to i32
+  %49 = load i8, ptr %45, align 1, !tbaa !47
+  %50 = icmp eq i8 %49, -1
+  br i1 %50, label %51, label %60
+
+51:                                               ; preds = %44
+  %52 = icmp ugt i8 %47, -113
+  br i1 %52, label %53, label %57
+
+53:                                               ; preds = %51
+  %54 = add i32 %41, 65280
+  %55 = load i32, ptr %38, align 4, !tbaa !124
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %38, align 4, !tbaa !124
+  br label %63
+
+57:                                               ; preds = %51
+  store ptr %46, ptr %37, align 8, !tbaa !108
+  %58 = shl nuw nsw i32 %48, 9
+  %59 = add i32 %41, %58
+  br label %63
+
+60:                                               ; preds = %44
+  store ptr %46, ptr %37, align 8, !tbaa !108
+  %61 = shl nuw nsw i32 %48, 8
+  %62 = add i32 %41, %61
+  br label %63
+
+63:                                               ; preds = %60, %57, %53, %39
+  %64 = phi i32 [ %62, %60 ], [ %59, %57 ], [ %54, %53 ], [ %41, %39 ]
+  %65 = phi i32 [ 8, %60 ], [ 7, %57 ], [ 8, %53 ], [ %42, %39 ]
+  %66 = shl i32 %40, 1
+  store i32 %66, ptr %24, align 4, !tbaa !118
+  %67 = shl i32 %64, 1
+  store i32 %67, ptr %0, align 8, !tbaa !107
+  %68 = add i32 %65, -1
+  store i32 %68, ptr %36, align 8, !tbaa !106
+  %69 = icmp ult i32 %66, 32768
+  br i1 %69, label %39, label %.loopexit198, !llvm.loop !549
+
+70:                                               ; preds = %11
+  %71 = shl nuw i32 %23, 16
+  %72 = sub i32 %27, %71
+  store i32 %72, ptr %0, align 8, !tbaa !107
+  %73 = and i32 %26, 32768
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %115
+
+75:                                               ; preds = %70
+  %76 = icmp ult i32 %26, %23
+  %77 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %78 = load i32, ptr %77, align 4, !tbaa !123
+  %.not188 = icmp eq i32 %78, 0
+  %79 = zext i1 %.not188 to i32
+  %.sink232 = select i1 %76, i64 16, i64 8
+  %.2 = select i1 %76, i32 %79, i32 %78
+  %80 = getelementptr inbounds nuw i8, ptr %22, i64 %.sink232
+  %storemerge = load ptr, ptr %80, align 8, !tbaa !119
+  store ptr %storemerge, ptr %20, align 8, !tbaa !119
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.promoted = load i32, ptr %81, align 8, !tbaa !106
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  br label %84
+
+84:                                               ; preds = %108, %75
+  %85 = phi i32 [ %111, %108 ], [ %26, %75 ]
+  %86 = phi i32 [ %112, %108 ], [ %72, %75 ]
+  %87 = phi i32 [ %113, %108 ], [ %.promoted, %75 ]
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %108
+
+89:                                               ; preds = %84
+  %90 = load ptr, ptr %82, align 8, !tbaa !108
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 1
+  %92 = load i8, ptr %91, align 1, !tbaa !47
+  %93 = zext i8 %92 to i32
+  %94 = load i8, ptr %90, align 1, !tbaa !47
+  %95 = icmp eq i8 %94, -1
+  br i1 %95, label %96, label %105
+
+96:                                               ; preds = %89
+  %97 = icmp ugt i8 %92, -113
+  br i1 %97, label %98, label %102
+
+98:                                               ; preds = %96
+  %99 = add i32 %86, 65280
+  %100 = load i32, ptr %83, align 4, !tbaa !124
+  %101 = add i32 %100, 1
+  store i32 %101, ptr %83, align 4, !tbaa !124
+  br label %108
+
+102:                                              ; preds = %96
+  store ptr %91, ptr %82, align 8, !tbaa !108
+  %103 = shl nuw nsw i32 %93, 9
+  %104 = add i32 %86, %103
+  br label %108
+
+105:                                              ; preds = %89
+  store ptr %91, ptr %82, align 8, !tbaa !108
+  %106 = shl nuw nsw i32 %93, 8
+  %107 = add i32 %86, %106
+  br label %108
+
+108:                                              ; preds = %105, %102, %98, %84
+  %109 = phi i32 [ %107, %105 ], [ %104, %102 ], [ %99, %98 ], [ %86, %84 ]
+  %110 = phi i32 [ 8, %105 ], [ 7, %102 ], [ 8, %98 ], [ %87, %84 ]
+  %111 = shl i32 %85, 1
+  store i32 %111, ptr %24, align 4, !tbaa !118
+  %112 = shl i32 %109, 1
+  store i32 %112, ptr %0, align 8, !tbaa !107
+  %113 = add i32 %110, -1
+  store i32 %113, ptr %81, align 8, !tbaa !106
+  %114 = icmp ult i32 %111, 32768
+  br i1 %114, label %84, label %.loopexit198, !llvm.loop !550
+
+115:                                              ; preds = %70
+  %116 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %117 = load i32, ptr %116, align 4, !tbaa !123
   br label %.loopexit198
 
-.loopexit198.loopexit242:                         ; preds = %106
-  %.not188 = icmp eq i32 %77, 0
-  %117 = zext i1 %.not188 to i32
-  %.2 = select i1 %75, i32 %117, i32 %77
-  br label %.loopexit198
-
-.loopexit198:                                     ; preds = %.loopexit198.loopexit242, %.loopexit198.loopexit, %113
-  %.promoted209 = phi i32 [ %71, %113 ], [ %66, %.loopexit198.loopexit ], [ %110, %.loopexit198.loopexit242 ]
-  %118 = phi i32 [ %26, %113 ], [ %65, %.loopexit198.loopexit ], [ %109, %.loopexit198.loopexit242 ]
-  %.1 = phi i32 [ %115, %113 ], [ %.0, %.loopexit198.loopexit ], [ %.2, %.loopexit198.loopexit242 ]
+.loopexit198:                                     ; preds = %108, %63, %115
+  %.promoted209 = phi i32 [ %72, %115 ], [ %67, %63 ], [ %112, %108 ]
+  %118 = phi i32 [ %26, %115 ], [ %66, %63 ], [ %111, %108 ]
+  %.1 = phi i32 [ %117, %115 ], [ %.0, %63 ], [ %.2, %108 ]
   %.not190 = icmp eq i32 %.1, 0
   br i1 %.not190, label %292, label %119
 
@@ -31124,166 +31106,160 @@ define internal fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr
   store i32 %148, ptr %24, align 4, !tbaa !118
   %149 = lshr i32 %.promoted209, 16
   %150 = icmp ult i32 %149, %147
-  br i1 %150, label %151, label %190
+  br i1 %150, label %151, label %191
 
 151:                                              ; preds = %119
   %152 = icmp ult i32 %148, %147
   %153 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %154 = load i32, ptr %153, align 4, !tbaa !123
-  %.sink233 = select i1 %152, i64 8, i64 16
-  %155 = getelementptr inbounds nuw i8, ptr %146, i64 %.sink233
-  store i32 %147, ptr %24, align 4, !tbaa !118
-  %storemerge196 = load ptr, ptr %155, align 8, !tbaa !119
-  store ptr %storemerge196, ptr %145, align 8, !tbaa !119
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.promoted208 = load i32, ptr %156, align 8, !tbaa !106
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  br label %159
-
-159:                                              ; preds = %183, %151
-  %160 = phi i32 [ %186, %183 ], [ %147, %151 ]
-  %161 = phi i32 [ %187, %183 ], [ %.promoted209, %151 ]
-  %162 = phi i32 [ %188, %183 ], [ %.promoted208, %151 ]
-  %163 = icmp eq i32 %162, 0
-  br i1 %163, label %164, label %183
-
-164:                                              ; preds = %159
-  %165 = load ptr, ptr %157, align 8, !tbaa !108
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 1
-  %167 = load i8, ptr %166, align 1, !tbaa !47
-  %168 = zext i8 %167 to i32
-  %169 = load i8, ptr %165, align 1, !tbaa !47
-  %170 = icmp eq i8 %169, -1
-  br i1 %170, label %171, label %180
-
-171:                                              ; preds = %164
-  %172 = icmp ugt i8 %167, -113
-  br i1 %172, label %173, label %177
-
-173:                                              ; preds = %171
-  %174 = add i32 %161, 65280
-  %175 = load i32, ptr %158, align 4, !tbaa !124
-  %176 = add i32 %175, 1
-  store i32 %176, ptr %158, align 4, !tbaa !124
-  br label %183
-
-177:                                              ; preds = %171
-  store ptr %166, ptr %157, align 8, !tbaa !108
-  %178 = shl nuw nsw i32 %168, 9
-  %179 = add i32 %161, %178
-  br label %183
-
-180:                                              ; preds = %164
-  store ptr %166, ptr %157, align 8, !tbaa !108
-  %181 = shl nuw nsw i32 %168, 8
-  %182 = add i32 %161, %181
-  br label %183
-
-183:                                              ; preds = %180, %177, %173, %159
-  %184 = phi i32 [ %182, %180 ], [ %179, %177 ], [ %174, %173 ], [ %161, %159 ]
-  %185 = phi i32 [ 8, %180 ], [ 7, %177 ], [ 8, %173 ], [ %162, %159 ]
-  %186 = shl i32 %160, 1
-  store i32 %186, ptr %24, align 4, !tbaa !118
-  %187 = shl i32 %184, 1
-  store i32 %187, ptr %0, align 8, !tbaa !107
-  %188 = add i32 %185, -1
-  store i32 %188, ptr %156, align 8, !tbaa !106
-  %189 = icmp ult i32 %186, 32768
-  br i1 %189, label %159, label %.loopexit.loopexit, !llvm.loop !551
-
-190:                                              ; preds = %119
-  %191 = shl nuw i32 %147, 16
-  %192 = sub i32 %.promoted209, %191
-  store i32 %192, ptr %0, align 8, !tbaa !107
-  %193 = and i32 %148, 32768
-  %194 = icmp eq i32 %193, 0
-  br i1 %194, label %195, label %234
-
-195:                                              ; preds = %190
-  %196 = icmp ult i32 %148, %147
-  %197 = getelementptr inbounds nuw i8, ptr %146, i64 4
-  %198 = load i32, ptr %197, align 4, !tbaa !123
-  %.sink234 = select i1 %196, i64 16, i64 8
-  %199 = getelementptr inbounds nuw i8, ptr %146, i64 %.sink234
-  %storemerge191 = load ptr, ptr %199, align 8, !tbaa !119
-  store ptr %storemerge191, ptr %145, align 8, !tbaa !119
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.promoted205 = load i32, ptr %200, align 8, !tbaa !106
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  br label %203
-
-203:                                              ; preds = %227, %195
-  %204 = phi i32 [ %230, %227 ], [ %148, %195 ]
-  %205 = phi i32 [ %231, %227 ], [ %192, %195 ]
-  %206 = phi i32 [ %232, %227 ], [ %.promoted205, %195 ]
-  %207 = icmp eq i32 %206, 0
-  br i1 %207, label %208, label %227
-
-208:                                              ; preds = %203
-  %209 = load ptr, ptr %201, align 8, !tbaa !108
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 1
-  %211 = load i8, ptr %210, align 1, !tbaa !47
-  %212 = zext i8 %211 to i32
-  %213 = load i8, ptr %209, align 1, !tbaa !47
-  %214 = icmp eq i8 %213, -1
-  br i1 %214, label %215, label %224
-
-215:                                              ; preds = %208
-  %216 = icmp ugt i8 %211, -113
-  br i1 %216, label %217, label %221
-
-217:                                              ; preds = %215
-  %218 = add i32 %205, 65280
-  %219 = load i32, ptr %202, align 4, !tbaa !124
-  %220 = add i32 %219, 1
-  store i32 %220, ptr %202, align 4, !tbaa !124
-  br label %227
-
-221:                                              ; preds = %215
-  store ptr %210, ptr %201, align 8, !tbaa !108
-  %222 = shl nuw nsw i32 %212, 9
-  %223 = add i32 %205, %222
-  br label %227
-
-224:                                              ; preds = %208
-  store ptr %210, ptr %201, align 8, !tbaa !108
-  %225 = shl nuw nsw i32 %212, 8
-  %226 = add i32 %205, %225
-  br label %227
-
-227:                                              ; preds = %224, %221, %217, %203
-  %228 = phi i32 [ %226, %224 ], [ %223, %221 ], [ %218, %217 ], [ %205, %203 ]
-  %229 = phi i32 [ 8, %224 ], [ 7, %221 ], [ 8, %217 ], [ %206, %203 ]
-  %230 = shl i32 %204, 1
-  store i32 %230, ptr %24, align 4, !tbaa !118
-  %231 = shl i32 %228, 1
-  store i32 %231, ptr %0, align 8, !tbaa !107
-  %232 = add i32 %229, -1
-  store i32 %232, ptr %200, align 8, !tbaa !106
-  %233 = icmp ult i32 %230, 32768
-  br i1 %233, label %203, label %.loopexit.loopexit240, !llvm.loop !552
-
-234:                                              ; preds = %190
-  %235 = getelementptr inbounds nuw i8, ptr %146, i64 4
-  %236 = load i32, ptr %235, align 4, !tbaa !123
-  br label %.loopexit
-
-.loopexit.loopexit:                               ; preds = %183
   %.not193 = icmp eq i32 %154, 0
-  %237 = zext i1 %.not193 to i32
-  %.3 = select i1 %152, i32 %154, i32 %237
+  %155 = zext i1 %.not193 to i32
+  %.sink233 = select i1 %152, i64 8, i64 16
+  %.3 = select i1 %152, i32 %154, i32 %155
+  %156 = getelementptr inbounds nuw i8, ptr %146, i64 %.sink233
+  store i32 %147, ptr %24, align 4, !tbaa !118
+  %storemerge196 = load ptr, ptr %156, align 8, !tbaa !119
+  store ptr %storemerge196, ptr %145, align 8, !tbaa !119
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.promoted208 = load i32, ptr %157, align 8, !tbaa !106
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  br label %160
+
+160:                                              ; preds = %184, %151
+  %161 = phi i32 [ %187, %184 ], [ %147, %151 ]
+  %162 = phi i32 [ %188, %184 ], [ %.promoted209, %151 ]
+  %163 = phi i32 [ %189, %184 ], [ %.promoted208, %151 ]
+  %164 = icmp eq i32 %163, 0
+  br i1 %164, label %165, label %184
+
+165:                                              ; preds = %160
+  %166 = load ptr, ptr %158, align 8, !tbaa !108
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 1
+  %168 = load i8, ptr %167, align 1, !tbaa !47
+  %169 = zext i8 %168 to i32
+  %170 = load i8, ptr %166, align 1, !tbaa !47
+  %171 = icmp eq i8 %170, -1
+  br i1 %171, label %172, label %181
+
+172:                                              ; preds = %165
+  %173 = icmp ugt i8 %168, -113
+  br i1 %173, label %174, label %178
+
+174:                                              ; preds = %172
+  %175 = add i32 %162, 65280
+  %176 = load i32, ptr %159, align 4, !tbaa !124
+  %177 = add i32 %176, 1
+  store i32 %177, ptr %159, align 4, !tbaa !124
+  br label %184
+
+178:                                              ; preds = %172
+  store ptr %167, ptr %158, align 8, !tbaa !108
+  %179 = shl nuw nsw i32 %169, 9
+  %180 = add i32 %162, %179
+  br label %184
+
+181:                                              ; preds = %165
+  store ptr %167, ptr %158, align 8, !tbaa !108
+  %182 = shl nuw nsw i32 %169, 8
+  %183 = add i32 %162, %182
+  br label %184
+
+184:                                              ; preds = %181, %178, %174, %160
+  %185 = phi i32 [ %183, %181 ], [ %180, %178 ], [ %175, %174 ], [ %162, %160 ]
+  %186 = phi i32 [ 8, %181 ], [ 7, %178 ], [ 8, %174 ], [ %163, %160 ]
+  %187 = shl i32 %161, 1
+  store i32 %187, ptr %24, align 4, !tbaa !118
+  %188 = shl i32 %185, 1
+  store i32 %188, ptr %0, align 8, !tbaa !107
+  %189 = add i32 %186, -1
+  store i32 %189, ptr %157, align 8, !tbaa !106
+  %190 = icmp ult i32 %187, 32768
+  br i1 %190, label %160, label %.loopexit, !llvm.loop !551
+
+191:                                              ; preds = %119
+  %192 = shl nuw i32 %147, 16
+  %193 = sub i32 %.promoted209, %192
+  store i32 %193, ptr %0, align 8, !tbaa !107
+  %194 = and i32 %148, 32768
+  %195 = icmp eq i32 %194, 0
+  br i1 %195, label %196, label %236
+
+196:                                              ; preds = %191
+  %197 = icmp ult i32 %148, %147
+  %198 = getelementptr inbounds nuw i8, ptr %146, i64 4
+  %199 = load i32, ptr %198, align 4, !tbaa !123
+  %.not192 = icmp eq i32 %199, 0
+  %200 = zext i1 %.not192 to i32
+  %.sink234 = select i1 %197, i64 16, i64 8
+  %.5 = select i1 %197, i32 %200, i32 %199
+  %201 = getelementptr inbounds nuw i8, ptr %146, i64 %.sink234
+  %storemerge191 = load ptr, ptr %201, align 8, !tbaa !119
+  store ptr %storemerge191, ptr %145, align 8, !tbaa !119
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.promoted205 = load i32, ptr %202, align 8, !tbaa !106
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  br label %205
+
+205:                                              ; preds = %229, %196
+  %206 = phi i32 [ %232, %229 ], [ %148, %196 ]
+  %207 = phi i32 [ %233, %229 ], [ %193, %196 ]
+  %208 = phi i32 [ %234, %229 ], [ %.promoted205, %196 ]
+  %209 = icmp eq i32 %208, 0
+  br i1 %209, label %210, label %229
+
+210:                                              ; preds = %205
+  %211 = load ptr, ptr %203, align 8, !tbaa !108
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 1
+  %213 = load i8, ptr %212, align 1, !tbaa !47
+  %214 = zext i8 %213 to i32
+  %215 = load i8, ptr %211, align 1, !tbaa !47
+  %216 = icmp eq i8 %215, -1
+  br i1 %216, label %217, label %226
+
+217:                                              ; preds = %210
+  %218 = icmp ugt i8 %213, -113
+  br i1 %218, label %219, label %223
+
+219:                                              ; preds = %217
+  %220 = add i32 %207, 65280
+  %221 = load i32, ptr %204, align 4, !tbaa !124
+  %222 = add i32 %221, 1
+  store i32 %222, ptr %204, align 4, !tbaa !124
+  br label %229
+
+223:                                              ; preds = %217
+  store ptr %212, ptr %203, align 8, !tbaa !108
+  %224 = shl nuw nsw i32 %214, 9
+  %225 = add i32 %207, %224
+  br label %229
+
+226:                                              ; preds = %210
+  store ptr %212, ptr %203, align 8, !tbaa !108
+  %227 = shl nuw nsw i32 %214, 8
+  %228 = add i32 %207, %227
+  br label %229
+
+229:                                              ; preds = %226, %223, %219, %205
+  %230 = phi i32 [ %228, %226 ], [ %225, %223 ], [ %220, %219 ], [ %207, %205 ]
+  %231 = phi i32 [ 8, %226 ], [ 7, %223 ], [ 8, %219 ], [ %208, %205 ]
+  %232 = shl i32 %206, 1
+  store i32 %232, ptr %24, align 4, !tbaa !118
+  %233 = shl i32 %230, 1
+  store i32 %233, ptr %0, align 8, !tbaa !107
+  %234 = add i32 %231, -1
+  store i32 %234, ptr %202, align 8, !tbaa !106
+  %235 = icmp ult i32 %232, 32768
+  br i1 %235, label %205, label %.loopexit, !llvm.loop !552
+
+236:                                              ; preds = %191
+  %237 = getelementptr inbounds nuw i8, ptr %146, i64 4
+  %238 = load i32, ptr %237, align 4, !tbaa !123
   br label %.loopexit
 
-.loopexit.loopexit240:                            ; preds = %227
-  %.not192 = icmp eq i32 %198, 0
-  %238 = zext i1 %.not192 to i32
-  %.5 = select i1 %196, i32 %238, i32 %198
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit240, %.loopexit.loopexit, %234
-  %.4 = phi i32 [ %236, %234 ], [ %.3, %.loopexit.loopexit ], [ %.5, %.loopexit.loopexit240 ]
+.loopexit:                                        ; preds = %229, %184, %236
+  %.4 = phi i32 [ %238, %236 ], [ %.3, %184 ], [ %.5, %229 ]
   %239 = getelementptr inbounds nuw i8, ptr @lut_spb, i64 %141
   %240 = load i8, ptr %239, align 1, !tbaa !47
   %241 = zext i8 %240 to i32

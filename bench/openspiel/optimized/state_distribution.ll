@@ -7784,23 +7784,26 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
 
 20:                                               ; preds = %2
   %21 = icmp eq i8 %6, 0
-  br i1 %21, label %.loopexit.sink.split, label %.lr.ph
+  br i1 %21, label %.loopexit.sink.split, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %20, %.lr.ph
-  %.04976 = phi ptr [ %23, %.lr.ph ], [ %0, %20 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.04976, i64 256
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 11
-  %25 = load i8, ptr %24, align 1
-  %.not68 = icmp eq i8 %25, 0
+.lr.ph.preheader:                                 ; preds = %20
+  %22 = load ptr, ptr %0, align 8
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.04976 = phi ptr [ %24, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %23 = getelementptr inbounds nuw i8, ptr %.04976, i64 256
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 11
+  %26 = load i8, ptr %25, align 1
+  %.not68 = icmp eq i8 %26, 0
   br i1 %.not68, label %.lr.ph, label %._crit_edge, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
-  %30 = load ptr, ptr %23, align 8
+  %30 = load ptr, ptr %24, align 8
   br label %31
 
 31:                                               ; preds = %.backedge, %._crit_edge
@@ -7895,7 +7898,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
 
 _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElSt4lessIS9_ESaISt4pairIKS9_lEELi256ELb0EEEE15value_destroy_nEhhPSF_.exit66: ; preds = %.lr.ph.i63, %.preheader71
   tail call void @_ZdlPvm(ptr noundef nonnull %.3, i64 noundef 312) #23
-  %74 = icmp eq ptr %68, %26
+  %74 = icmp eq ptr %68, %22
   br i1 %74, label %.loopexit, label %75
 
 75:                                               ; preds = %_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElSt4lessIS9_ESaISt4pairIKS9_lEELi256ELb0EEEE15value_destroy_nEhhPSF_.exit66

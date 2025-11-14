@@ -2658,8 +2658,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %213
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc24.i
   %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %224, 2
-  %226 = getelementptr inbounds nuw i8, ptr %223, i64 %.idx.i.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %223, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !74, !noalias !140
+  %226 = getelementptr inbounds nuw i8, ptr %223, i64 %.idx.i.i.i.i.i.i.i.i.i
   br label %227
 
 227:                                              ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i, %.noexc24.i
@@ -2675,8 +2675,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc24.
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i28.i.i: ; preds = %.noexc33.i.i
   %.idx.i.i.i.i.i.i.i29.i.i = shl nuw nsw i64 %224, 2
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 %.idx.i.i.i.i.i.i.i29.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %230, i8 0, i64 %.idx.i.i.i.i.i.i.i29.i.i, i1 false), !tbaa !74, !noalias !140
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 %.idx.i.i.i.i.i.i.i29.i.i
   br label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i28.i.i, %.noexc33.i.i
@@ -3646,8 +3646,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc22.i.i
   %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %39, 2
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %38, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !74, !noalias !179
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i, %.noexc22.i.i
@@ -3769,8 +3769,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc22.i.i
   %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %39, 2
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %38, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !89, !noalias !191
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i, %.noexc22.i.i

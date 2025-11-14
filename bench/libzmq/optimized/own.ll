@@ -2116,14 +2116,14 @@ define void @_ZN3zmq5own_t12process_termEi(ptr noundef nonnull align 8 dereferen
   br label %11
 
 11:                                               ; preds = %2, %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1416
-  %13 = load ptr, ptr %12, align 8, !tbaa !63
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  %.not4 = icmp eq ptr %13, %14
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1392
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1416
+  %14 = load ptr, ptr %13, align 8, !tbaa !63
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1400
+  %.not4 = icmp eq ptr %14, %15
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %17 = load i64, ptr %16, align 8, !tbaa !65
   %18 = trunc i64 %17 to i32
@@ -2133,7 +2133,7 @@ define void @_ZN3zmq5own_t12process_termEi(ptr noundef nonnull align 8 dereferen
   store i32 %21, ptr %19, align 8, !tbaa !66
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %23 = load ptr, ptr %22, align 8, !tbaa !62
-  invoke void @_ZNSt8_Rb_treeIPN3zmq5own_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %23)
+  invoke void @_ZNSt8_Rb_treeIPN3zmq5own_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %23)
           to label %27 unwind label %24
 
 24:                                               ; preds = %._crit_edge
@@ -2145,9 +2145,9 @@ define void @_ZN3zmq5own_t12process_termEi(ptr noundef nonnull align 8 dereferen
 
 27:                                               ; preds = %._crit_edge
   store ptr null, ptr %22, align 8, !tbaa !62
-  store ptr %14, ptr %12, align 8, !tbaa !63
+  store ptr %15, ptr %13, align 8, !tbaa !63
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1424
-  store ptr %14, ptr %28, align 8, !tbaa !64
+  store ptr %15, ptr %28, align 8, !tbaa !64
   store i64 0, ptr %16, align 8, !tbaa !65
   store i8 1, ptr %3, align 8, !tbaa !6
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1376
@@ -2195,12 +2195,12 @@ _ZN3zmq5own_t15check_term_acksEv.exit:            ; preds = %27, %49
   ret void
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
-  %.sroa.01.05 = phi ptr [ %55, %.lr.ph ], [ %13, %11 ]
+  %.sroa.01.05 = phi ptr [ %55, %.lr.ph ], [ %14, %11 ]
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.01.05, i64 32
   %54 = load ptr, ptr %53, align 8, !tbaa !108
   tail call void @_ZN3zmq8object_t9send_termEPNS_5own_tEi(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %54, i32 noundef %1)
   %55 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.01.05) #25
-  %.not = icmp eq ptr %55, %14
+  %.not = icmp eq ptr %55, %15
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !110
 }
 

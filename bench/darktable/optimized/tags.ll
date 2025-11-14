@@ -2668,19 +2668,22 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
 .preheader94:                                     ; preds = %dt_sort_tag.exit
   br i1 %.not66109, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader94, %.lr.ph
-  %.05998 = phi ptr [ %93, %.lr.ph ], [ %91, %.preheader94 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.05998, i64 8
-  %93 = load ptr, ptr %92, align 8, !tbaa !62
-  %.not65 = icmp eq ptr %93, null
-  br i1 %.not65, label %.loopexit95.thread, label %.lr.ph
+.lr.ph:                                           ; preds = %.preheader94
+  %92 = load ptr, ptr %91, align 8, !tbaa !58
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
+  %.promoted = load i32, ptr %93, align 8, !tbaa !72
+  br label %94
 
-.loopexit95.thread:                               ; preds = %.lr.ph
-  %94 = load ptr, ptr %91, align 8, !tbaa !58
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
-  %.promoted = load i32, ptr %95, align 8, !tbaa !72
-  %96 = and i32 %.promoted, -3
-  store i32 %96, ptr %95, align 8, !tbaa !72
+94:                                               ; preds = %.lr.ph, %94
+  %.05998 = phi ptr [ %91, %.lr.ph ], [ %96, %94 ]
+  %95 = getelementptr inbounds nuw i8, ptr %.05998, i64 8
+  %96 = load ptr, ptr %95, align 8, !tbaa !62
+  %.not65 = icmp eq ptr %96, null
+  br i1 %.not65, label %.loopexit95.thread, label %94
+
+.loopexit95.thread:                               ; preds = %94
+  %97 = and i32 %.promoted, -3
+  store i32 %97, ptr %93, align 8, !tbaa !72
   br label %.lr.ph112
 
 .loopexit95:                                      ; preds = %dt_sort_tag.exit
@@ -2689,165 +2692,165 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
 .lr.ph112:                                        ; preds = %.loopexit95.thread, %.loopexit95
   %.not69 = icmp eq i32 %4, 0
   %.not74 = icmp eq i32 %5, 0
-  br label %97
+  br label %98
 
-97:                                               ; preds = %.lr.ph112, %152
-  %.056111 = phi ptr [ null, %.lr.ph112 ], [ %.1, %152 ]
-  %.058110 = phi ptr [ %91, %.lr.ph112 ], [ %154, %152 ]
-  %98 = load ptr, ptr %.058110, align 8, !tbaa !58
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  %100 = load i32, ptr %99, align 8, !tbaa !72
-  %101 = and i32 %100, 2
-  %.not67 = icmp eq i32 %101, 0
+98:                                               ; preds = %.lr.ph112, %153
+  %.056111 = phi ptr [ null, %.lr.ph112 ], [ %.1, %153 ]
+  %.058110 = phi ptr [ %91, %.lr.ph112 ], [ %155, %153 ]
+  %99 = load ptr, ptr %.058110, align 8, !tbaa !58
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
+  %101 = load i32, ptr %100, align 8, !tbaa !72
+  %102 = and i32 %101, 2
+  %.not67 = icmp eq i32 %102, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not67
-  %102 = and i32 %100, 1
-  %.not68 = icmp eq i32 %102, 0
+  %103 = and i32 %101, 1
+  %.not68 = icmp eq i32 %103, 0
   %or.cond141 = select i1 %or.cond, i1 %.not68, i1 false
-  br i1 %or.cond141, label %103, label %152
+  br i1 %or.cond141, label %104, label %153
 
-103:                                              ; preds = %97
-  %104 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %105 = load ptr, ptr %104, align 8, !tbaa !71
-  %106 = call noalias ptr @g_strdup(ptr noundef %105) #11
-  %107 = call ptr @g_list_prepend(ptr noundef %.056111, ptr noundef %106) #11
-  br i1 %.not69, label %108, label %.loopexit93
+104:                                              ; preds = %98
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %106 = load ptr, ptr %105, align 8, !tbaa !71
+  %107 = call noalias ptr @g_strdup(ptr noundef %106) #11
+  %108 = call ptr @g_list_prepend(ptr noundef %.056111, ptr noundef %107) #11
+  br i1 %.not69, label %109, label %.loopexit93
 
-108:                                              ; preds = %103
-  %109 = getelementptr inbounds nuw i8, ptr %.058110, i64 8
-  %110 = load ptr, ptr %109, align 8, !tbaa !62
-  %.fr = freeze ptr %110
-  %111 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !70
-  %113 = call ptr @g_strrstr(ptr noundef %112, ptr noundef nonnull @.str.31) #11
-  %.not70100 = icmp eq ptr %113, null
+109:                                              ; preds = %104
+  %110 = getelementptr inbounds nuw i8, ptr %.058110, i64 8
+  %111 = load ptr, ptr %110, align 8, !tbaa !62
+  %.fr = freeze ptr %111
+  %112 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %113 = load ptr, ptr %112, align 8, !tbaa !70
+  %114 = call ptr @g_strrstr(ptr noundef %113, ptr noundef nonnull @.str.31) #11
+  %.not70100 = icmp eq ptr %114, null
   br i1 %.not70100, label %.loopexit93, label %.lr.ph103
 
-.lr.ph103:                                        ; preds = %108
+.lr.ph103:                                        ; preds = %109
   %.not71 = icmp eq ptr %.fr, null
   br i1 %.not71, label %.lr.ph103.split.us, label %.lr.ph103.split
 
-.lr.ph103.split.us:                               ; preds = %.lr.ph103, %120
-  %.3102.us = phi ptr [ %123, %120 ], [ %107, %.lr.ph103 ]
-  %.057101.us = phi ptr [ %115, %120 ], [ %113, %.lr.ph103 ]
+.lr.ph103.split.us:                               ; preds = %.lr.ph103, %121
+  %.3102.us = phi ptr [ %124, %121 ], [ %108, %.lr.ph103 ]
+  %.057101.us = phi ptr [ %116, %121 ], [ %114, %.lr.ph103 ]
   store i8 0, ptr %.057101.us, align 1, !tbaa !6
-  %114 = load ptr, ptr %111, align 8, !tbaa !70
-  %115 = call ptr @g_strrstr(ptr noundef %114, ptr noundef nonnull @.str.31) #11
-  %.not73.us = icmp eq ptr %115, null
-  br i1 %.not73.us, label %118, label %116
+  %115 = load ptr, ptr %112, align 8, !tbaa !70
+  %116 = call ptr @g_strrstr(ptr noundef %115, ptr noundef nonnull @.str.31) #11
+  %.not73.us = icmp eq ptr %116, null
+  br i1 %.not73.us, label %119, label %117
 
-116:                                              ; preds = %.lr.ph103.split.us
-  %117 = getelementptr inbounds nuw i8, ptr %115, i64 1
-  br label %120
+117:                                              ; preds = %.lr.ph103.split.us
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 1
+  br label %121
 
-118:                                              ; preds = %.lr.ph103.split.us
-  %119 = load ptr, ptr %111, align 8, !tbaa !70
-  br label %120
+119:                                              ; preds = %.lr.ph103.split.us
+  %120 = load ptr, ptr %112, align 8, !tbaa !70
+  br label %121
 
-120:                                              ; preds = %118, %116
-  %121 = phi ptr [ %117, %116 ], [ %119, %118 ]
-  %122 = call noalias ptr @g_strdup(ptr noundef %121) #11
-  %123 = call ptr @g_list_prepend(ptr noundef %.3102.us, ptr noundef %122) #11
+121:                                              ; preds = %119, %117
+  %122 = phi ptr [ %118, %117 ], [ %120, %119 ]
+  %123 = call noalias ptr @g_strdup(ptr noundef %122) #11
+  %124 = call ptr @g_list_prepend(ptr noundef %.3102.us, ptr noundef %123) #11
   br i1 %.not73.us, label %.loopexit93, label %.lr.ph103.split.us
 
-.lr.ph103.split:                                  ; preds = %.lr.ph103, %136
-  %.3102 = phi ptr [ %.4, %136 ], [ %107, %.lr.ph103 ]
-  %.057101 = phi ptr [ %125, %136 ], [ %113, %.lr.ph103 ]
+.lr.ph103.split:                                  ; preds = %.lr.ph103, %137
+  %.3102 = phi ptr [ %.4, %137 ], [ %108, %.lr.ph103 ]
+  %.057101 = phi ptr [ %126, %137 ], [ %114, %.lr.ph103 ]
   store i8 0, ptr %.057101, align 1, !tbaa !6
-  %124 = load ptr, ptr %111, align 8, !tbaa !70
-  %125 = call ptr @g_strrstr(ptr noundef %124, ptr noundef nonnull @.str.31) #11
-  %126 = call ptr @g_list_find_custom(ptr noundef nonnull %.fr, ptr noundef nonnull %98, ptr noundef nonnull @_is_not_exportable_tag) #11
-  %.not72 = icmp eq ptr %126, null
-  br i1 %.not72, label %127, label %136
+  %125 = load ptr, ptr %112, align 8, !tbaa !70
+  %126 = call ptr @g_strrstr(ptr noundef %125, ptr noundef nonnull @.str.31) #11
+  %127 = call ptr @g_list_find_custom(ptr noundef nonnull %.fr, ptr noundef nonnull %99, ptr noundef nonnull @_is_not_exportable_tag) #11
+  %.not72 = icmp eq ptr %127, null
+  br i1 %.not72, label %128, label %137
 
-127:                                              ; preds = %.lr.ph103.split
-  %.not73 = icmp eq ptr %125, null
-  br i1 %.not73, label %130, label %128
+128:                                              ; preds = %.lr.ph103.split
+  %.not73 = icmp eq ptr %126, null
+  br i1 %.not73, label %131, label %129
 
-128:                                              ; preds = %127
-  %129 = getelementptr inbounds nuw i8, ptr %125, i64 1
-  br label %132
+129:                                              ; preds = %128
+  %130 = getelementptr inbounds nuw i8, ptr %126, i64 1
+  br label %133
 
-130:                                              ; preds = %127
-  %131 = load ptr, ptr %111, align 8, !tbaa !70
-  br label %132
+131:                                              ; preds = %128
+  %132 = load ptr, ptr %112, align 8, !tbaa !70
+  br label %133
 
-132:                                              ; preds = %130, %128
-  %133 = phi ptr [ %129, %128 ], [ %131, %130 ]
-  %134 = call noalias ptr @g_strdup(ptr noundef %133) #11
-  %135 = call ptr @g_list_prepend(ptr noundef %.3102, ptr noundef %134) #11
-  br label %136
+133:                                              ; preds = %131, %129
+  %134 = phi ptr [ %130, %129 ], [ %132, %131 ]
+  %135 = call noalias ptr @g_strdup(ptr noundef %134) #11
+  %136 = call ptr @g_list_prepend(ptr noundef %.3102, ptr noundef %135) #11
+  br label %137
 
-136:                                              ; preds = %132, %.lr.ph103.split
-  %.4 = phi ptr [ %.3102, %.lr.ph103.split ], [ %135, %132 ]
-  %.not70 = icmp eq ptr %125, null
+137:                                              ; preds = %133, %.lr.ph103.split
+  %.4 = phi ptr [ %.3102, %.lr.ph103.split ], [ %136, %133 ]
+  %.not70 = icmp eq ptr %126, null
   br i1 %.not70, label %.loopexit93, label %.lr.ph103.split
 
-.loopexit93:                                      ; preds = %136, %120, %108, %103
-  %.2 = phi ptr [ %107, %103 ], [ %107, %108 ], [ %123, %120 ], [ %.4, %136 ]
-  br i1 %.not74, label %152, label %137
+.loopexit93:                                      ; preds = %137, %121, %109, %104
+  %.2 = phi ptr [ %108, %104 ], [ %108, %109 ], [ %124, %121 ], [ %.4, %137 ]
+  br i1 %.not74, label %153, label %138
 
-137:                                              ; preds = %.loopexit93
-  %138 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %139 = load ptr, ptr %138, align 8, !tbaa !73
-  %.not75 = icmp eq ptr %139, null
-  br i1 %.not75, label %152, label %140
+138:                                              ; preds = %.loopexit93
+  %139 = getelementptr inbounds nuw i8, ptr %99, i64 24
+  %140 = load ptr, ptr %139, align 8, !tbaa !73
+  %.not75 = icmp eq ptr %140, null
+  br i1 %.not75, label %153, label %141
 
-140:                                              ; preds = %137
-  %141 = load i8, ptr %139, align 1, !tbaa !6
-  %.not76 = icmp eq i8 %141, 0
-  br i1 %.not76, label %152, label %142
+141:                                              ; preds = %138
+  %142 = load i8, ptr %140, align 1, !tbaa !6
+  %.not76 = icmp eq i8 %142, 0
+  br i1 %.not76, label %153, label %143
 
-142:                                              ; preds = %140
-  %143 = call ptr @g_strsplit(ptr noundef nonnull %139, ptr noundef nonnull @.str.19, i32 noundef 0) #11
-  %.not77 = icmp eq ptr %143, null
+143:                                              ; preds = %141
+  %144 = call ptr @g_strsplit(ptr noundef nonnull %140, ptr noundef nonnull @.str.19, i32 noundef 0) #11
+  %.not77 = icmp eq ptr %144, null
   br i1 %.not77, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %142
-  %144 = load ptr, ptr %143, align 8, !tbaa !57
-  %.not78104 = icmp eq ptr %144, null
+.preheader:                                       ; preds = %143
+  %145 = load ptr, ptr %144, align 8, !tbaa !57
+  %.not78104 = icmp eq ptr %145, null
   br i1 %.not78104, label %.loopexit, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.preheader, %.lr.ph107
-  %145 = phi ptr [ %151, %.lr.ph107 ], [ %144, %.preheader ]
-  %.054106 = phi ptr [ %150, %.lr.ph107 ], [ %143, %.preheader ]
-  %.8105 = phi ptr [ %149, %.lr.ph107 ], [ %.2, %.preheader ]
-  %146 = load i8, ptr %145, align 1, !tbaa !6
-  %147 = icmp eq i8 %146, 32
-  %spec.select.idx = zext i1 %147 to i64
-  %spec.select = getelementptr inbounds nuw i8, ptr %145, i64 %spec.select.idx
-  %148 = call noalias ptr @g_strdup(ptr noundef nonnull %spec.select) #11
-  %149 = call ptr @g_list_append(ptr noundef %.8105, ptr noundef %148) #11
-  %150 = getelementptr inbounds nuw i8, ptr %.054106, i64 8
-  %151 = load ptr, ptr %150, align 8, !tbaa !57
-  %.not78 = icmp eq ptr %151, null
+  %146 = phi ptr [ %152, %.lr.ph107 ], [ %145, %.preheader ]
+  %.054106 = phi ptr [ %151, %.lr.ph107 ], [ %144, %.preheader ]
+  %.8105 = phi ptr [ %150, %.lr.ph107 ], [ %.2, %.preheader ]
+  %147 = load i8, ptr %146, align 1, !tbaa !6
+  %148 = icmp eq i8 %147, 32
+  %spec.select.idx = zext i1 %148 to i64
+  %spec.select = getelementptr inbounds nuw i8, ptr %146, i64 %spec.select.idx
+  %149 = call noalias ptr @g_strdup(ptr noundef nonnull %spec.select) #11
+  %150 = call ptr @g_list_append(ptr noundef %.8105, ptr noundef %149) #11
+  %151 = getelementptr inbounds nuw i8, ptr %.054106, i64 8
+  %152 = load ptr, ptr %151, align 8, !tbaa !57
+  %.not78 = icmp eq ptr %152, null
   br i1 %.not78, label %.loopexit, label %.lr.ph107
 
-.loopexit:                                        ; preds = %.lr.ph107, %.preheader, %142
-  %.7 = phi ptr [ %.2, %142 ], [ %.2, %.preheader ], [ %149, %.lr.ph107 ]
-  call void @g_strfreev(ptr noundef %143) #11
-  br label %152
+.loopexit:                                        ; preds = %.lr.ph107, %.preheader, %143
+  %.7 = phi ptr [ %.2, %143 ], [ %.2, %.preheader ], [ %150, %.lr.ph107 ]
+  call void @g_strfreev(ptr noundef %144) #11
+  br label %153
 
-152:                                              ; preds = %97, %.loopexit93, %.loopexit, %140, %137
-  %.1 = phi ptr [ %.2, %.loopexit93 ], [ %.7, %.loopexit ], [ %.2, %140 ], [ %.2, %137 ], [ %.056111, %97 ]
-  %153 = getelementptr inbounds nuw i8, ptr %.058110, i64 8
-  %154 = load ptr, ptr %153, align 8, !tbaa !62
-  %.not66 = icmp eq ptr %154, null
-  br i1 %.not66, label %._crit_edge, label %97
+153:                                              ; preds = %98, %.loopexit93, %.loopexit, %141, %138
+  %.1 = phi ptr [ %.2, %.loopexit93 ], [ %.7, %.loopexit ], [ %.2, %141 ], [ %.2, %138 ], [ %.056111, %98 ]
+  %154 = getelementptr inbounds nuw i8, ptr %.058110, i64 8
+  %155 = load ptr, ptr %154, align 8, !tbaa !62
+  %.not66 = icmp eq ptr %155, null
+  br i1 %.not66, label %._crit_edge, label %98
 
-._crit_edge:                                      ; preds = %152, %.preheader94, %.loopexit95
-  %.056.lcssa = phi ptr [ null, %.loopexit95 ], [ null, %.preheader94 ], [ %.1, %152 ]
-  br i1 %.not35.i, label %dt_tag_free_result.exit, label %155
+._crit_edge:                                      ; preds = %153, %.preheader94, %.loopexit95
+  %.056.lcssa = phi ptr [ null, %.loopexit95 ], [ null, %.preheader94 ], [ %.1, %153 ]
+  br i1 %.not35.i, label %dt_tag_free_result.exit, label %156
 
-155:                                              ; preds = %._crit_edge
+156:                                              ; preds = %._crit_edge
   call void @g_list_free_full(ptr noundef nonnull %58, ptr noundef nonnull @_free_result_item) #11
   br label %dt_tag_free_result.exit
 
-dt_tag_free_result.exit:                          ; preds = %._crit_edge, %155
-  %156 = call ptr @dt_util_glist_uniq(ptr noundef %.056.lcssa) #11
+dt_tag_free_result.exit:                          ; preds = %._crit_edge, %156
+  %157 = call ptr @dt_util_glist_uniq(ptr noundef %.056.lcssa) #11
   br label %_tag_get_attached_export.exit.thread
 
 _tag_get_attached_export.exit.thread:             ; preds = %2, %_tag_get_attached_export.exit.thread90, %_tag_get_attached_export.exit, %dt_tag_free_result.exit
-  %.055 = phi ptr [ %156, %dt_tag_free_result.exit ], [ null, %_tag_get_attached_export.exit ], [ null, %_tag_get_attached_export.exit.thread90 ], [ null, %2 ]
+  %.055 = phi ptr [ %157, %dt_tag_free_result.exit ], [ null, %_tag_get_attached_export.exit ], [ null, %_tag_get_attached_export.exit.thread90 ], [ null, %2 ]
   ret ptr %.055
 }
 
@@ -4456,6 +4459,9 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
   %.173.ph = phi ptr [ %.072, %24 ], [ %.072, %.critedge2 ], [ %27, %26 ], [ %.072, %28 ]
   %.not89.ph = phi i1 [ true, %24 ], [ true, %.critedge2 ], [ false, %26 ], [ true, %28 ]
   %.066.ph = phi i32 [ 0, %24 ], [ 0, %.critedge2 ], [ 1, %26 ], [ 0, %28 ]
+  %.not87102 = icmp eq i8 %39, 126
+  %spec.select103.idx = zext i1 %.not87102 to i64
+  %spec.select103 = getelementptr inbounds nuw i8, ptr %.173.ph, i64 %spec.select103.idx
   %40 = call ptr @g_list_nth(ptr noundef %.064139, i32 noundef %16) #11
   %.not85131 = icmp eq ptr %40, null
   br i1 %.not85131, label %._crit_edge, label %.lr.ph
@@ -4471,9 +4477,6 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread
   %.2.lcssa = phi ptr [ %.064139, %.thread ], [ %43, %.lr.ph ]
-  %.not87102 = icmp eq i8 %39, 126
-  %spec.select103.idx = zext i1 %.not87102 to i64
-  %spec.select103 = getelementptr inbounds nuw i8, ptr %.173.ph, i64 %spec.select103.idx
   %44 = call noalias ptr @g_strdup(ptr noundef nonnull %spec.select103) #11
   %45 = call ptr @g_list_append(ptr noundef %.2.lcssa, ptr noundef %44) #11
   br i1 %.not87102, label %59, label %46

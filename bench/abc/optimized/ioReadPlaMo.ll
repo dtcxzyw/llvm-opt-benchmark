@@ -816,34 +816,34 @@ define void @Mop_ManPrintOne(ptr noundef readonly captures(none) %0, i32 noundef
   %.val17 = load ptr, ptr %10, align 8, !tbaa !20
   %11 = getelementptr i8, ptr %.val17, i64 8
   %.val17.val = load ptr, ptr %11, align 8, !tbaa !17
-  %12 = load i32, ptr %0, align 8, !tbaa !3
-  %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph, label %._crit_edge
+  %12 = mul nsw i32 %.val16, %1
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds i64, ptr %.val17.val, i64 %13
+  %15 = load i32, ptr %0, align 8, !tbaa !3
+  %16 = icmp sgt i32 %15, 0
+  br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.018 = phi i32 [ %26, %.lr.ph ], [ 0, %2 ]
-  %14 = lshr i32 %.018, 5
-  %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %8, i64 %15
-  %17 = load i64, ptr %16, align 8, !tbaa !39
-  %18 = shl nuw i32 %.018, 1
-  %19 = and i32 %18, 62
-  %20 = zext nneg i32 %19 to i64
-  %21 = lshr i64 %17, %20
-  %22 = and i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr @__const.Mop_ManDerive.Symb, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !34
-  %25 = sext i8 %24 to i32
-  %putchar14 = tail call i32 @putchar(i32 %25)
-  %26 = add nuw nsw i32 %.018, 1
-  %27 = load i32, ptr %0, align 8, !tbaa !3
-  %28 = icmp slt i32 %26, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+  %.018 = phi i32 [ %29, %.lr.ph ], [ 0, %2 ]
+  %17 = lshr i32 %.018, 5
+  %18 = zext nneg i32 %17 to i64
+  %19 = getelementptr inbounds nuw i64, ptr %8, i64 %18
+  %20 = load i64, ptr %19, align 8, !tbaa !39
+  %21 = shl nuw i32 %.018, 1
+  %22 = and i32 %21, 62
+  %23 = zext nneg i32 %22 to i64
+  %24 = lshr i64 %20, %23
+  %25 = and i64 %24, 3
+  %26 = getelementptr inbounds nuw i8, ptr @__const.Mop_ManDerive.Symb, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !34
+  %28 = sext i8 %27 to i32
+  %putchar14 = tail call i32 @putchar(i32 %28)
+  %29 = add nuw nsw i32 %.018, 1
+  %30 = load i32, ptr %0, align 8, !tbaa !3
+  %31 = icmp slt i32 %29, %30
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %29 = mul nsw i32 %.val16, %1
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i64, ptr %.val17.val, i64 %30
   %putchar = tail call i32 @putchar(i32 32)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !11
@@ -854,7 +854,7 @@ define void @Mop_ManPrintOne(ptr noundef readonly captures(none) %0, i32 noundef
   %.119 = phi i32 [ %45, %.lr.ph21 ], [ 0, %._crit_edge ]
   %35 = lshr i32 %.119, 6
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %31, i64 %36
+  %37 = getelementptr inbounds nuw i64, ptr %14, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !39
   %39 = and i32 %.119, 63
   %40 = zext nneg i32 %39 to i64

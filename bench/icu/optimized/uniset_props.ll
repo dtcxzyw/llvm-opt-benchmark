@@ -3338,7 +3338,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit87:    ; preds = %._ZNK6icu_7713Unico
   invoke void %128(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %125, i32 noundef %.049, ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %_ZN6icu_7713UnicodeStringaSIA3_DsvEERS0_RKT_.exit unwind label %129
 
-129:                                              ; preds = %.noexc.preheader, %135, %151, %149, %_ZN6icu_7713UnicodeStringaSIA3_DsvEERS0_RKT_.exit, %133, %131, %124, %123
+129:                                              ; preds = %.noexc, %135, %151, %149, %_ZN6icu_7713UnicodeStringaSIA3_DsvEERS0_RKT_.exit, %133, %131, %124, %123
   %130 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #17
@@ -3361,9 +3361,9 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit87:    ; preds = %._ZNK6icu_7713Unico
 
 135:                                              ; preds = %133
   invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %6)
-          to label %.noexc.preheader unwind label %129
+          to label %.noexc unwind label %129
 
-.noexc.preheader:                                 ; preds = %135
+.noexc:                                           ; preds = %135
   %136 = load i16, ptr %116, align 8, !tbaa !17
   %137 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %138 = load i32, ptr %137, align 4
@@ -3374,7 +3374,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit87:    ; preds = %._ZNK6icu_7713Unico
   %143 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiSt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef 0, i32 noundef %142, i64 2, ptr nonnull @_ZN12_GLOBAL__N_19NAME_PROPE)
           to label %_ZN6icu_7713UnicodeStringaSIA3_DsvEERS0_RKT_.exit unwind label %129
 
-_ZN6icu_7713UnicodeStringaSIA3_DsvEERS0_RKT_.exit: ; preds = %.noexc.preheader, %132, %124
+_ZN6icu_7713UnicodeStringaSIA3_DsvEERS0_RKT_.exit: ; preds = %.noexc, %132, %124
   %144 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet18applyPropertyAliasERKNS_13UnicodeStringES3_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %145 unwind label %129
 

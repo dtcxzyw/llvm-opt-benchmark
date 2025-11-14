@@ -290,47 +290,47 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr noundef nonnull read
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #8 align 2 {
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8
-  %14 = mul i32 %13, %13
-  %15 = zext i32 %14 to i64
-  %16 = shl nuw nsw i64 %15, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %16, i1 false)
-  %17 = load i32, ptr %12, align 8
-  %.not49 = icmp ugt i32 %17, 128
+  %10 = icmp eq i32 %6, 0
+  %spec.select = select i1 %10, i32 %1, i32 %6
+  %11 = icmp eq i32 %8, 0
+  %.033 = select i1 %11, i32 %2, i32 %8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load i32, ptr %14, align 8
+  %16 = mul i32 %15, %15
+  %17 = zext i32 %16 to i64
+  %18 = shl nuw nsw i64 %17, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %13, i8 0, i64 %18, i1 false)
+  %19 = load i32, ptr %14, align 8
+  %.not49 = icmp ugt i32 %19, 128
   br i1 %.not49, label %.lr.ph55.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %9
-  %.rhs.trunc = trunc nuw i32 %17 to i16
-  %18 = udiv i16 256, %.rhs.trunc
-  %.zext = zext nneg i16 %18 to i32
+  %.rhs.trunc = trunc nuw i32 %19 to i16
+  %20 = udiv i16 256, %.rhs.trunc
+  %.zext = zext nneg i16 %20 to i32
   br label %.lr.ph
 
 .preheader48:                                     ; preds = %.lr.ph
-  %.not4552 = icmp samesign ult i32 %17, 2
+  %.not4552 = icmp samesign ult i32 %19, 2
   br i1 %.not4552, label %.preheader47, label %.lr.ph55.preheader
 
 .lr.ph55.preheader:                               ; preds = %9, %.preheader48
-  %.039.lcssa80 = phi i32 [ %20, %.preheader48 ], [ 0, %9 ]
+  %.039.lcssa80 = phi i32 [ %22, %.preheader48 ], [ 0, %9 ]
   br label %.lr.ph55
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.03951 = phi i32 [ %20, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.04050 = phi i32 [ %19, %.lr.ph ], [ %.zext, %.lr.ph.preheader ]
-  %19 = lshr i32 %.04050, 1
-  %20 = add nuw nsw i32 %.03951, 1
+  %.03951 = phi i32 [ %22, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.04050 = phi i32 [ %21, %.lr.ph ], [ %.zext, %.lr.ph.preheader ]
+  %21 = lshr i32 %.04050, 1
+  %22 = add nuw nsw i32 %.03951, 1
   %.not = icmp samesign ult i32 %.04050, 4
   br i1 %.not, label %.preheader48, label %.lr.ph, !llvm.loop !11
 
 .preheader47:                                     ; preds = %.lr.ph55, %.preheader48
-  %.039.lcssa81 = phi i32 [ %20, %.preheader48 ], [ %.039.lcssa80, %.lr.ph55 ]
+  %.039.lcssa81 = phi i32 [ %22, %.preheader48 ], [ %.039.lcssa80, %.lr.ph55 ]
   %.037.lcssa = phi i32 [ 0, %.preheader48 ], [ %47, %.lr.ph55 ]
-  %21 = icmp eq i32 %6, 0
-  %spec.select = select i1 %21, i32 %1, i32 %6
-  %22 = icmp eq i32 %8, 0
-  %.033 = select i1 %22, i32 %2, i32 %8
   %23 = icmp slt i32 %7, %.033
   %24 = icmp slt i32 %5, %spec.select
   %or.cond = and i1 %23, %24
@@ -358,7 +358,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly 
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = lshr i32 %35, %.039.lcssa81
-  %37 = load ptr, ptr %10, align 8
+  %37 = load ptr, ptr %12, align 8
   %38 = shl i32 %36, %.037.lcssa
   %39 = add nsw i32 %38, %32
   %40 = sext i32 %39 to i64
@@ -379,7 +379,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly 
 
 .lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph55
   %.03754 = phi i32 [ %47, %.lr.ph55 ], [ 0, %.lr.ph55.preheader ]
-  %.03853 = phi i32 [ %46, %.lr.ph55 ], [ %17, %.lr.ph55.preheader ]
+  %.03853 = phi i32 [ %46, %.lr.ph55 ], [ %19, %.lr.ph55.preheader ]
   %46 = ashr i32 %.03853, 1
   %47 = add nuw nsw i32 %.03754, 1
   %.not45 = icmp ult i32 %46, 2
@@ -391,27 +391,27 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly 
   br i1 %.not46, label %58, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge62
-  %49 = load i32, ptr %12, align 8
+  %49 = load i32, ptr %14, align 8
   %.not65 = icmp eq i32 %49, 0
   br i1 %.not65, label %.loopexit, label %.lr.ph64
 
 .lr.ph64:                                         ; preds = %.preheader, %.lr.ph64
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.lr.ph64 ], [ 0, %.preheader ]
   %50 = load i32, ptr %0, align 8
-  %51 = load ptr, ptr %10, align 8
+  %51 = load ptr, ptr %12, align 8
   %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv72
   %53 = load i32, ptr %52, align 4
   %54 = udiv i32 %53, %50
   store i32 %54, ptr %52, align 4
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %55 = load i32, ptr %12, align 8
+  %55 = load i32, ptr %14, align 8
   %56 = zext i32 %55 to i64
   %57 = icmp samesign ult i64 %indvars.iv.next73, %56
   br i1 %57, label %.lr.ph64, label %.loopexit, !llvm.loop !15
 
 58:                                               ; preds = %._crit_edge62
-  %59 = load ptr, ptr %10, align 8
-  %60 = load i32, ptr %12, align 8
+  %59 = load ptr, ptr %12, align 8
+  %60 = load i32, ptr %14, align 8
   %61 = zext i32 %60 to i64
   %62 = shl nuw nsw i64 %61, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %59, i8 0, i64 %62, i1 false)

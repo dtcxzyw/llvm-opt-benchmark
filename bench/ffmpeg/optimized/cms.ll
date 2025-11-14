@@ -1765,38 +1765,46 @@ define internal void @generate_slice(ptr noundef readonly captures(none) %0, i32
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 944
   %23 = load i32, ptr %22, align 8, !tbaa !31
   %24 = mul nsw i32 %23, %17
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 928
-  %26 = load ptr, ptr %25, align 8, !tbaa !28
-  %.not = icmp eq ptr %26, null
-  %27 = mul nsw i32 %24, %21
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %struct.v3u16_t, ptr %26, i64 %28
-  %30 = select i1 %.not, ptr null, ptr %29
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 212
-  %33 = load float, ptr %32, align 4, !tbaa !79
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 208
-  %35 = load float, ptr %34, align 8, !tbaa !70
-  %36 = fsub nsz float %33, %35
-  %37 = fdiv nsz float 1.000000e+00, %36
-  %38 = fneg nsz float %35
-  %39 = fmul nsz float %37, %38
-  %40 = add nsw i32 %13, -1
-  %41 = sitofp i32 %40 to float
-  %42 = fdiv nsz float 1.000000e+00, %41
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 428
-  %44 = load float, ptr %43, align 4, !tbaa !46
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 424
-  %46 = load float, ptr %45, align 8, !tbaa !44
-  %47 = icmp slt i32 %11, %.
-  br i1 %47, label %.lr.ph222, label %._crit_edge223
+  %25 = mul i32 %20, %14
+  %26 = tail call i32 @llvm.smin.i32(i32 %25, i32 %17)
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 928
+  %28 = load ptr, ptr %27, align 8, !tbaa !28
+  %.not = icmp eq ptr %28, null
+  %29 = mul nsw i32 %24, %21
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds %struct.v3u16_t, ptr %28, i64 %30
+  %32 = select i1 %.not, ptr null, ptr %31
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 212
+  %35 = load float, ptr %34, align 4, !tbaa !79
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 208
+  %37 = load float, ptr %36, align 8, !tbaa !70
+  %38 = fsub nsz float %35, %37
+  %39 = fdiv nsz float 1.000000e+00, %38
+  %40 = fneg nsz float %37
+  %41 = fmul nsz float %39, %40
+  %42 = add nsw i32 %13, -1
+  %43 = sitofp i32 %42 to float
+  %44 = fdiv nsz float 1.000000e+00, %43
+  %45 = sitofp i32 %18 to float
+  %46 = fdiv nsz float 1.000000e+00, %45
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 428
+  %48 = load float, ptr %47, align 4, !tbaa !46
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 424
+  %50 = load float, ptr %49, align 8, !tbaa !44
+  %51 = fsub nsz float %48, %50
+  %52 = add nsw i32 %23, -1
+  %53 = sitofp i32 %52 to float
+  %54 = fdiv nsz float %51, %53
+  %55 = icmp slt i32 %11, %.
+  br i1 %55, label %.lr.ph222, label %._crit_edge223
 
 .lr.ph222:                                        ; preds = %5
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 184
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 220
-  %52 = getelementptr inbounds nuw i8, ptr %6, i64 216
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 184
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 220
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 44
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 52
@@ -1805,24 +1813,24 @@ define internal void @generate_slice(ptr noundef readonly captures(none) %0, i32
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 64
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 68
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %.not141 = icmp eq ptr %30, null
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 900
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 256
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 456
+  %.not141 = icmp eq ptr %32, null
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 900
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 256
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 456
   %.sroa.47.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 464
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 472
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 672
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 472
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 672
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 680
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 912
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 508
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 912
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 508
   %.sroa.0191.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 512
   %.sroa.0191.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 516
   %.sroa.0191.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 520
@@ -1831,32 +1839,24 @@ define internal void @generate_slice(ptr noundef readonly captures(none) %0, i32
   %.sroa.0191.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 532
   %.sroa.0191.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 536
   %.sroa.0191.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 540
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 624
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 652
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 648
-  %71 = icmp sgt i32 %13, 0
-  br i1 %71, label %.lr.ph222.split.preheader, label %._crit_edge223
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 624
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 652
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 648
+  %79 = icmp sgt i32 %13, 0
+  br i1 %79, label %.lr.ph222.split.preheader, label %._crit_edge223
 
 .lr.ph222.split.preheader:                        ; preds = %.lr.ph222
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 920
-  %73 = load ptr, ptr %72, align 8, !tbaa !20
-  %74 = mul nuw nsw i32 %13, %13
-  %75 = mul nsw i32 %74, %11
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds %struct.v3u16_t, ptr %73, i64 %76
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 920
+  %81 = load ptr, ptr %80, align 8, !tbaa !20
+  %82 = mul nuw nsw i32 %13, %13
+  %83 = mul nsw i32 %82, %11
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds %struct.v3u16_t, ptr %81, i64 %84
   br label %.lr.ph222.split
 
 ._crit_edge223:                                   ; preds = %._crit_edge217, %.lr.ph222, %5
-  %78 = mul i32 %20, %14
-  %79 = tail call i32 @llvm.smin.i32(i32 %78, i32 %17)
-  %80 = sitofp i32 %18 to float
-  %81 = fdiv nsz float 1.000000e+00, %80
-  %82 = fsub nsz float %44, %46
-  %83 = add nsw i32 %23, -1
-  %84 = sitofp i32 %83 to float
-  %85 = fdiv nsz float %82, %84
-  %.not140 = icmp ne ptr %30, null
-  %86 = icmp slt i32 %21, %79
+  %.not140 = icmp ne ptr %32, null
+  %86 = icmp slt i32 %21, %26
   %or.cond = select i1 %.not140, i1 %86, i1 false
   br i1 %or.cond, label %.lr.ph237, label %.loopexit
 
@@ -1891,14 +1891,14 @@ define internal void @generate_slice(ptr noundef readonly captures(none) %0, i32
   %101 = phi i32 [ %109, %._crit_edge217 ], [ %13, %.lr.ph222.split.preheader ]
   %102 = phi i32 [ %110, %._crit_edge217 ], [ %13, %.lr.ph222.split.preheader ]
   %103 = phi i32 [ %111, %._crit_edge217 ], [ %13, %.lr.ph222.split.preheader ]
-  %.0220 = phi ptr [ %.1.lcssa, %._crit_edge217 ], [ %77, %.lr.ph222.split.preheader ]
+  %.0220 = phi ptr [ %.1.lcssa, %._crit_edge217 ], [ %85, %.lr.ph222.split.preheader ]
   %.0128219 = phi i32 [ %112, %._crit_edge217 ], [ %11, %.lr.ph222.split.preheader ]
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.lr.ph216, label %._crit_edge217
 
 .lr.ph216:                                        ; preds = %.lr.ph222.split
   %105 = sitofp i32 %.0128219 to float
-  %106 = fmul nsz float %42, %105
+  %106 = fmul nsz float %44, %105
   %107 = fpext nsz float %106 to double
   %108 = icmp sgt i32 %102, 0
   br i1 %108, label %.lr.ph216.split, label %._crit_edge217
@@ -1922,7 +1922,7 @@ define internal void @generate_slice(ptr noundef readonly captures(none) %0, i32
 
 .lr.ph:                                           ; preds = %.lr.ph216.split
   %116 = uitofp nneg i32 %.0129213 to float
-  %117 = fmul nsz float %42, %116
+  %117 = fmul nsz float %44, %116
   %118 = fpext nsz float %117 to double
   br label %122
 
@@ -1938,24 +1938,24 @@ define internal void @generate_slice(ptr noundef readonly captures(none) %0, i32
   %.0130211 = phi i32 [ 0, %.lr.ph ], [ %319, %314 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %123 = uitofp nneg i32 %.0130211 to float
-  %124 = fmul nsz float %42, %123
+  %124 = fmul nsz float %44, %123
   %125 = fpext nsz float %124 to double
   store double %125, ptr %7, align 16, !tbaa !83
-  store double %118, ptr %48, align 8, !tbaa !83
-  store double %107, ptr %49, align 16, !tbaa !83
-  %126 = load ptr, ptr %50, align 8, !tbaa !85
-  %127 = load float, ptr %51, align 4, !tbaa !86
+  store double %118, ptr %56, align 8, !tbaa !83
+  store double %107, ptr %57, align 16, !tbaa !83
+  %126 = load ptr, ptr %58, align 8, !tbaa !85
+  %127 = load float, ptr %59, align 4, !tbaa !86
   %128 = fpext nsz float %127 to double
-  %129 = load float, ptr %52, align 8, !tbaa !87
+  %129 = load float, ptr %60, align 8, !tbaa !87
   %130 = fpext nsz float %129 to double
   call void %126(double noundef %128, double noundef %130, ptr noundef nonnull %7) #15
   %131 = load double, ptr %7, align 16, !tbaa !83
   %132 = fptrunc nsz double %131 to float
-  %133 = load double, ptr %48, align 8, !tbaa !83
+  %133 = load double, ptr %56, align 8, !tbaa !83
   %134 = fptrunc nsz double %133 to float
-  %135 = load double, ptr %49, align 16, !tbaa !83
+  %135 = load double, ptr %57, align 16, !tbaa !83
   %136 = fptrunc nsz double %135 to float
-  %.sroa.0192.0.copyload = load float, ptr %31, align 8
+  %.sroa.0192.0.copyload = load float, ptr %33, align 8
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
@@ -2006,7 +2006,7 @@ define internal void @generate_slice(ptr noundef readonly captures(none) %0, i32
   br i1 %.not141, label %188, label %176
 
 176:                                              ; preds = %122
-  %177 = call nsz float @llvm.fmuladd.f32(float %37, float %169, float %39)
+  %177 = call nsz float @llvm.fmuladd.f32(float %39, float %169, float %41)
   %178 = call nsz float @llvm.fmuladd.f32(float %177, float 6.553400e+04, float 5.000000e-01)
   %179 = fptosi float %178 to i32
   %.not.i164 = icmp ult i32 %179, 65536
@@ -2027,7 +2027,7 @@ define internal void @generate_slice(ptr noundef readonly captures(none) %0, i32
 
 188:                                              ; preds = %122
   %189 = call nsz float @llvm.atan2.f32(float %175, float %172)
-  %190 = load i32, ptr %53, align 4, !tbaa !33
+  %190 = load i32, ptr %61, align 4, !tbaa !33
   switch i32 %190, label %update_hue_peaks.exit.thread [
     i32 0, label %191
     i32 1, label %update_hue_peaks.exit
@@ -2035,52 +2035,52 @@ define internal void @generate_slice(ptr noundef readonly captures(none) %0, i32
   ]
 
 191:                                              ; preds = %188
-  %192 = call fastcc { <2 x float>, float } @saturate(float noundef %189, ptr noundef nonnull byval(%struct.Gamut) align 8 %54)
+  %192 = call fastcc { <2 x float>, float } @saturate(float noundef %189, ptr noundef nonnull byval(%struct.Gamut) align 8 %62)
   %.fca.0.extract2.i = extractvalue { <2 x float>, float } %192, 0
   %.fca.1.extract3.i = extractvalue { <2 x float>, float } %192, 1
-  store <2 x float> %.fca.0.extract2.i, ptr %55, align 8
+  store <2 x float> %.fca.0.extract2.i, ptr %63, align 8
   store float %.fca.1.extract3.i, ptr %.sroa.47.0..sroa_idx.i, align 8, !tbaa !38
   br label %update_hue_peaks.exit
 
 update_hue_peaks.exit:                            ; preds = %188, %188, %191
-  %193 = call fastcc { <2 x float>, float } @saturate(float noundef %189, ptr noundef nonnull byval(%struct.Gamut) align 8 %56)
+  %193 = call fastcc { <2 x float>, float } @saturate(float noundef %189, ptr noundef nonnull byval(%struct.Gamut) align 8 %64)
   %.fca.0.extract.i = extractvalue { <2 x float>, float } %193, 0
   %.fca.1.extract.i = extractvalue { <2 x float>, float } %193, 1
-  store <2 x float> %.fca.0.extract.i, ptr %57, align 8
+  store <2 x float> %.fca.0.extract.i, ptr %65, align 8
   store float %.fca.1.extract.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !38
   %194 = icmp eq i32 %190, 0
   br i1 %194, label %195, label %update_hue_peaks.exit.thread
 
 195:                                              ; preds = %update_hue_peaks.exit
-  %196 = load float, ptr %58, align 4, !tbaa !88
+  %196 = load float, ptr %66, align 4, !tbaa !88
   %197 = fsub nsz float %169, %196
   %198 = fcmp nsz ogt float %197, 0.000000e+00
   br i1 %198, label %199, label %205
 
 199:                                              ; preds = %195
-  %200 = load float, ptr %61, align 8, !tbaa !89
-  %201 = load float, ptr %62, align 4, !tbaa !75
+  %200 = load float, ptr %69, align 8, !tbaa !89
+  %201 = load float, ptr %70, align 4, !tbaa !75
   %202 = load float, ptr %6, align 8, !tbaa !74
   %203 = call nsz float @llvm.fmuladd.f32(float %202, float %197, float %201)
   %204 = call nsz float @llvm.fmuladd.f32(float %203, float %197, float %200)
   br label %209
 
 205:                                              ; preds = %195
-  %206 = load float, ptr %59, align 8, !tbaa !73
-  %207 = load float, ptr %60, align 4, !tbaa !72
+  %206 = load float, ptr %67, align 8, !tbaa !73
+  %207 = load float, ptr %68, align 4, !tbaa !72
   %208 = call nsz float @llvm.fmuladd.f32(float %207, float %197, float %206)
   br label %209
 
 209:                                              ; preds = %205, %199
   %.pn.i = phi float [ %204, %199 ], [ %208, %205 ]
   %210 = fmul nsz float %197, %.pn.i
-  %211 = load float, ptr %63, align 8, !tbaa !90
+  %211 = load float, ptr %71, align 8, !tbaa !90
   %212 = fadd nsz float %210, %211
   br label %tone_map_apply.exit
 
 update_hue_peaks.exit.thread:                     ; preds = %188, %update_hue_peaks.exit
-  %213 = load float, ptr %64, align 4, !tbaa !76
-  %214 = load float, ptr %65, align 8, !tbaa !91
+  %213 = load float, ptr %72, align 4, !tbaa !76
+  %214 = load float, ptr %73, align 8, !tbaa !91
   %215 = call nsz float @llvm.fmuladd.f32(float %213, float %169, float %214)
   br label %tone_map_apply.exit
 
@@ -2099,11 +2099,11 @@ tone_map_apply.exit:                              ; preds = %209, %update_hue_pe
   %225 = fmul nsz float %172, %224
   %.sroa.036.4.vec.insert.i = insertelement <2 x float> %.sroa.036.0.vec.insert.i, float %225, i64 1
   %226 = fmul nsz float %175, %224
-  %227 = load ptr, ptr %66, align 8, !tbaa !34
+  %227 = load ptr, ptr %74, align 8, !tbaa !34
   %228 = call { <2 x float>, float } %227(ptr noundef nonnull %6, <2 x float> %.sroa.036.4.vec.insert.i, float %226) #15
   %.fca.0.extract39 = extractvalue { <2 x float>, float } %228, 0
   %.fca.1.extract40 = extractvalue { <2 x float>, float } %228, 1
-  %.sroa.0191.sroa.0.0.copyload = load float, ptr %67, align 4
+  %.sroa.0191.sroa.0.0.copyload = load float, ptr %75, align 4
   %.sroa.0191.sroa.4.0.copyload = load float, ptr %.sroa.0191.sroa.4.0..sroa_idx, align 8
   %.sroa.0191.sroa.5.0.copyload = load float, ptr %.sroa.0191.sroa.5.0..sroa_idx, align 4
   %.sroa.0191.sroa.6.0.copyload = load float, ptr %.sroa.0191.sroa.6.0..sroa_idx, align 8
@@ -2183,13 +2183,13 @@ tone_map_apply.exit:                              ; preds = %209, %update_hue_pe
   %292 = fpext nsz float %285 to double
   store double %292, ptr %7, align 16, !tbaa !83
   %293 = fpext nsz float %288 to double
-  store double %293, ptr %48, align 8, !tbaa !83
+  store double %293, ptr %56, align 8, !tbaa !83
   %294 = fpext nsz float %291 to double
-  store double %294, ptr %49, align 16, !tbaa !83
-  %295 = load ptr, ptr %68, align 8, !tbaa !92
-  %296 = load float, ptr %69, align 4, !tbaa !41
+  store double %294, ptr %57, align 16, !tbaa !83
+  %295 = load ptr, ptr %76, align 8, !tbaa !92
+  %296 = load float, ptr %77, align 4, !tbaa !41
   %297 = fpext nsz float %296 to double
-  %298 = load float, ptr %70, align 8, !tbaa !39
+  %298 = load float, ptr %78, align 8, !tbaa !39
   %299 = fpext nsz float %298 to double
   call void %295(double noundef %297, double noundef %299, ptr noundef nonnull %7) #15
   %300 = load double, ptr %7, align 16, !tbaa !83
@@ -2201,7 +2201,7 @@ tone_map_apply.exit:                              ; preds = %209, %update_hue_pe
   %304 = sext i1 %isnotneg.i156 to i16
   %305 = trunc nuw i32 %303 to i16
   %.0.i157 = select i1 %.not.i155, i16 %305, i16 %304
-  %306 = load double, ptr %48, align 8, !tbaa !83
+  %306 = load double, ptr %56, align 8, !tbaa !83
   %307 = fptrunc nsz double %306 to float
   %308 = call nsz float @llvm.fmuladd.f32(float %307, float 6.553400e+04, float 5.000000e-01)
   %309 = fptosi float %308 to i32
@@ -2210,7 +2210,7 @@ tone_map_apply.exit:                              ; preds = %209, %update_hue_pe
   %310 = sext i1 %isnotneg.i153 to i16
   %311 = trunc nuw i32 %309 to i16
   %.0.i154 = select i1 %.not.i152, i16 %311, i16 %310
-  %312 = load double, ptr %49, align 16, !tbaa !83
+  %312 = load double, ptr %57, align 16, !tbaa !83
   %313 = fptrunc nsz double %312 to float
   br label %314
 
@@ -2240,10 +2240,10 @@ tone_map_apply.exit:                              ; preds = %209, %update_hue_pe
 .lr.ph237.split:                                  ; preds = %.lr.ph237, %._crit_edge233
   %322 = phi i32 [ %327, %._crit_edge233 ], [ %99, %.lr.ph237 ]
   %323 = phi i32 [ %328, %._crit_edge233 ], [ %99, %.lr.ph237 ]
-  %.0125236 = phi ptr [ %.1126.lcssa, %._crit_edge233 ], [ %29, %.lr.ph237 ]
+  %.0125236 = phi ptr [ %.1126.lcssa, %._crit_edge233 ], [ %31, %.lr.ph237 ]
   %.0131235 = phi i32 [ %329, %._crit_edge233 ], [ %21, %.lr.ph237 ]
   %324 = sitofp i32 %.0131235 to float
-  %325 = call nsz float @llvm.fmuladd.f32(float %81, float %324, float 0xBFE0002000000000)
+  %325 = call nsz float @llvm.fmuladd.f32(float %46, float %324, float 0xBFE0002000000000)
   %326 = icmp sgt i32 %323, 0
   br i1 %326, label %.lr.ph232, label %._crit_edge233
 
@@ -2252,7 +2252,7 @@ tone_map_apply.exit:                              ; preds = %209, %update_hue_pe
   %328 = phi i32 [ %323, %.lr.ph237.split ], [ %341, %._crit_edge227 ]
   %.1126.lcssa = phi ptr [ %.0125236, %.lr.ph237.split ], [ %.2127.lcssa, %._crit_edge227 ]
   %329 = add i32 %.0131235, 1
-  %exitcond241.not = icmp eq i32 %329, %79
+  %exitcond241.not = icmp eq i32 %329, %26
   br i1 %exitcond241.not, label %.loopexit, label %.lr.ph237.split, !llvm.loop !96
 
 .lr.ph232:                                        ; preds = %.lr.ph237.split, %._crit_edge227
@@ -2260,7 +2260,7 @@ tone_map_apply.exit:                              ; preds = %209, %update_hue_pe
   %.1126230 = phi ptr [ %.2127.lcssa, %._crit_edge227 ], [ %.0125236, %.lr.ph237.split ]
   %.0132229 = phi i32 [ %342, %._crit_edge227 ], [ 0, %.lr.ph237.split ]
   %331 = uitofp nneg i32 %.0132229 to float
-  %332 = call nsz float @llvm.fmuladd.f32(float %81, float %331, float 0xBFE0002000000000)
+  %332 = call nsz float @llvm.fmuladd.f32(float %46, float %331, float 0xBFE0002000000000)
   %333 = call nsz float @llvm.atan2.f32(float %325, float %332)
   %334 = load i32, ptr %87, align 4, !tbaa !33
   switch i32 %334, label %update_hue_peaks.exit185 [
@@ -2305,8 +2305,8 @@ update_hue_peaks.exit185:                         ; preds = %.lr.ph232, %337
   %.2127225 = phi ptr [ %420, %.lr.ph226 ], [ %.1126230, %update_hue_peaks.exit185 ]
   %.0133224 = phi i32 [ %439, %.lr.ph226 ], [ 0, %update_hue_peaks.exit185 ]
   %344 = uitofp nneg i32 %.0133224 to float
-  %345 = load float, ptr %45, align 8, !tbaa !44
-  %346 = call nsz float @llvm.fmuladd.f32(float %85, float %344, float %345)
+  %345 = load float, ptr %49, align 8, !tbaa !44
+  %346 = call nsz float @llvm.fmuladd.f32(float %54, float %344, float %345)
   %347 = load ptr, ptr %92, align 8, !tbaa !34
   %.sroa.012.0.vec.insert = insertelement <2 x float> poison, float %346, i64 0
   %.sroa.012.4.vec.insert = insertelement <2 x float> %.sroa.012.0.vec.insert, float %332, i64 1

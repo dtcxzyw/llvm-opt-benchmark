@@ -3275,8 +3275,8 @@ define void @_ZN6colvar12distance_inv10calc_valueEv(ptr noundef nonnull align 8 
   %23 = load i32, ptr %22, align 8
   %.fr = freeze i32 %23
   %.neg = sdiv i32 %.fr, -2
-  %24 = tail call i32 @llvm.abs.i32(i32 %.neg, i1 true)
-  %25 = icmp slt i32 %.fr, -1
+  %24 = icmp slt i32 %.fr, -1
+  %25 = tail call i32 @llvm.abs.i32(i32 %.neg, i1 true)
   %26 = sdiv i32 %.fr, 2
   %27 = sitofp i32 %26 to double
   %28 = fneg double %27
@@ -3393,7 +3393,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.us.us: ; preds = %_ZN12colvarmodule13
   br i1 %100, label %_ZN12colvarmodule13integer_powerERKdi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %83, %.lr.ph.i
-  %.023.i = phi i32 [ %103, %.lr.ph.i ], [ %24, %83 ]
+  %.023.i = phi i32 [ %103, %.lr.ph.i ], [ %25, %83 ]
   %.01522.i = phi double [ %104, %.lr.ph.i ], [ %99, %83 ]
   %.01621.i = phi double [ %.1.i, %.lr.ph.i ], [ 1.000000e+00, %83 ]
   %101 = and i32 %.023.i, 1
@@ -3407,7 +3407,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.us.us: ; preds = %_ZN12colvarmodule13
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
   %105 = fdiv double 1.000000e+00, %.1.i
-  %106 = select i1 %25, double %.1.i, double %105
+  %106 = select i1 %24, double %.1.i, double %105
   br label %_ZN12colvarmodule13integer_powerERKdi.exit
 
 _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %83, %._crit_edge.i.loopexit
@@ -3510,32 +3510,32 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %83, %._crit_edge.i.
   br i1 %165, label %_ZN12colvarmodule13integer_powerERKdi.exit25, label %166
 
 166:                                              ; preds = %156
+  %167 = icmp slt i32 %164, -1
   %.off95 = add i32 %164, 1
   %.not20.i13 = icmp ult i32 %.off95, 3
   br i1 %.not20.i13, label %._crit_edge.i22, label %.lr.ph.preheader.i14
 
 .lr.ph.preheader.i14:                             ; preds = %166
-  %167 = call i32 @llvm.abs.i32(i32 %.neg12, i1 true)
+  %168 = call i32 @llvm.abs.i32(i32 %.neg12, i1 true)
   br label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %.lr.ph.i15, %.lr.ph.preheader.i14
-  %.023.i16 = phi i32 [ %170, %.lr.ph.i15 ], [ %167, %.lr.ph.preheader.i14 ]
-  %.01522.i17 = phi double [ %171, %.lr.ph.i15 ], [ %163, %.lr.ph.preheader.i14 ]
+  %.023.i16 = phi i32 [ %171, %.lr.ph.i15 ], [ %168, %.lr.ph.preheader.i14 ]
+  %.01522.i17 = phi double [ %172, %.lr.ph.i15 ], [ %163, %.lr.ph.preheader.i14 ]
   %.01621.i18 = phi double [ %.1.i20, %.lr.ph.i15 ], [ 1.000000e+00, %.lr.ph.preheader.i14 ]
-  %168 = and i32 %.023.i16, 1
-  %.not19.i19 = icmp eq i32 %168, 0
-  %169 = fmul double %.01522.i17, %.01621.i18
-  %.1.i20 = select i1 %.not19.i19, double %.01621.i18, double %169
-  %170 = lshr i32 %.023.i16, 1
-  %171 = fmul double %.01522.i17, %.01522.i17
+  %169 = and i32 %.023.i16, 1
+  %.not19.i19 = icmp eq i32 %169, 0
+  %170 = fmul double %.01522.i17, %.01621.i18
+  %.1.i20 = select i1 %.not19.i19, double %.01621.i18, double %170
+  %171 = lshr i32 %.023.i16, 1
+  %172 = fmul double %.01522.i17, %.01522.i17
   %.not.i21 = icmp samesign ult i32 %.023.i16, 2
   br i1 %.not.i21, label %._crit_edge.i22, label %.lr.ph.i15, !llvm.loop !261
 
 ._crit_edge.i22:                                  ; preds = %.lr.ph.i15, %166
   %.016.lcssa.i23 = phi double [ 1.000000e+00, %166 ], [ %.1.i20, %.lr.ph.i15 ]
-  %172 = icmp slt i32 %164, -1
   %173 = fdiv double 1.000000e+00, %.016.lcssa.i23
-  %174 = select i1 %172, double %.016.lcssa.i23, double %173
+  %174 = select i1 %167, double %.016.lcssa.i23, double %173
   br label %_ZN12colvarmodule13integer_powerERKdi.exit25
 
 _ZN12colvarmodule13integer_powerERKdi.exit25:     ; preds = %156, %._crit_edge.i22
@@ -13934,8 +13934,8 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !93
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i

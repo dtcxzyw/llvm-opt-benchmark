@@ -5750,8 +5750,8 @@ _get_zoom_pos.exit:                               ; preds = %28
   store float %.pre, ptr %9, align 16, !tbaa !139
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float %.pre130, ptr %44, align 4, !tbaa !139
-  %scevgep = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 0, ptr %scevgep, align 8
+  %.ptr111 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 0, ptr %.ptr111, align 8
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %46 = load i32, ptr %45, align 8, !tbaa !217
   switch i32 %46, label %.thread [
@@ -5788,7 +5788,7 @@ _get_zoom_pos.exit:                               ; preds = %28
   %69 = fadd reassoc nsz arcp contract afn float %68, %51
   %70 = fcmp reassoc nsz arcp contract afn ogt float %69, 1.000000e+00
   %71 = select i1 %70, float 1.000000e+00, float %69
-  store float %71, ptr %scevgep, align 8, !tbaa !139
+  store float %71, ptr %.ptr111, align 8, !tbaa !139
   %72 = fcmp reassoc nsz arcp contract afn ogt float %60, %61
   %73 = select reassoc nsz arcp contract afn i1 %72, float %60, float %61
   %74 = fadd reassoc nsz arcp contract afn float %73, %49

@@ -3133,50 +3133,50 @@ define void @ff_vc1_mc_4mv_chroma4(ptr noundef readonly %0, i32 noundef %1, i32 
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !95
+  %14 = zext i8 %13 to i32
   %.not = icmp eq i8 %13, 0
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %15 = load i32, ptr %14, align 8, !tbaa !4
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1208
-  %17 = load ptr, ptr %16, align 8, !tbaa !47
-  %18 = load ptr, ptr %17, align 8, !tbaa !48
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 68
-  %20 = load i32, ptr %19, align 4, !tbaa !44
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2976
+  %15 = select i1 %.not, i32 4, i32 1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %17 = load i32, ptr %16, align 8, !tbaa !4
+  %18 = ashr i32 %17, 1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %20 = load ptr, ptr %19, align 8, !tbaa !47
+  %21 = load ptr, ptr %20, align 8, !tbaa !48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 68
+  %23 = load i32, ptr %22, align 4, !tbaa !44
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2976
   br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %4, %.split.us
   %indvars.iv265 = phi i64 [ %indvars.iv.next266, %.split.us ], [ 0, %4 ]
-  %22 = icmp samesign ult i64 %indvars.iv265, 2
-  %23 = select i1 %22, i32 %1, i32 %2
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [4 x [2 x i32]], ptr %21, i64 %24
-  %26 = getelementptr inbounds nuw [2 x i32], ptr %25, i64 %indvars.iv265
-  %27 = load i32, ptr %26, align 8, !tbaa !44
-  %28 = and i32 %27, 3
-  %29 = icmp eq i32 %28, 3
-  %30 = zext i1 %29 to i32
-  %31 = add nsw i32 %27, %30
-  %32 = ashr i32 %31, 1
-  %33 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv265
-  store i32 %32, ptr %33, align 4, !tbaa !44
-  %34 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %35 = load i32, ptr %34, align 4, !tbaa !44
-  %36 = and i32 %35, 3
-  %37 = icmp eq i32 %36, 3
-  %38 = zext i1 %37 to i32
-  %39 = add nsw i32 %35, %38
-  %40 = ashr i32 %39, 1
-  %41 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv265
-  store i32 %40, ptr %41, align 4, !tbaa !44
+  %25 = icmp samesign ult i64 %indvars.iv265, 2
+  %26 = select i1 %25, i32 %1, i32 %2
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds [4 x [2 x i32]], ptr %24, i64 %27
+  %29 = getelementptr inbounds nuw [2 x i32], ptr %28, i64 %indvars.iv265
+  %30 = load i32, ptr %29, align 8, !tbaa !44
+  %31 = and i32 %30, 3
+  %32 = icmp eq i32 %31, 3
+  %33 = zext i1 %32 to i32
+  %34 = add nsw i32 %30, %33
+  %35 = ashr i32 %34, 1
+  %36 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv265
+  store i32 %35, ptr %36, align 4, !tbaa !44
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %38 = load i32, ptr %37, align 4, !tbaa !44
+  %39 = and i32 %38, 3
+  %40 = icmp eq i32 %39, 3
+  %41 = zext i1 %40 to i32
+  %42 = add nsw i32 %38, %41
+  %43 = ashr i32 %42, 1
+  %44 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv265
+  store i32 %43, ptr %44, align 4, !tbaa !44
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %exitcond268.not = icmp eq i64 %indvars.iv.next266, 4
   br i1 %exitcond268.not, label %.preheader255, label %.split.us, !llvm.loop !111
 
 .preheader255:                                    ; preds = %.split, %.split.us
-  %42 = phi i64 [ 2, %.split.us ], [ 0, %.split ]
-  %43 = phi i32 [ 4, %.split.us ], [ 1, %.split ]
-  %44 = zext i8 %13 to i32
-  %45 = ashr i32 %15, 1
+  %45 = phi i64 [ 2, %.split.us ], [ 0, %.split ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 3348
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 3352
@@ -3195,17 +3195,17 @@ define void @ff_vc1_mc_4mv_chroma4(ptr noundef readonly %0, i32 noundef %1, i32 
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 10096
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 10120
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  %62 = shl i32 5, %44
-  %63 = icmp slt i32 %45, %62
-  %64 = sub nsw i32 %45, %62
+  %62 = shl i32 5, %14
+  %63 = icmp slt i32 %18, %62
+  %64 = sub nsw i32 %18, %62
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1440
-  %67 = shl i32 %20, 1
+  %67 = shl i32 %23, 1
   %68 = sext i32 %67 to i64
   %69 = add nuw nsw i32 %62, 1
   %70 = ashr i32 %69, 1
-  %71 = sext i32 %20 to i64
-  %72 = shl nuw i32 1, %44
+  %71 = sext i32 %23 to i64
+  %72 = shl nuw i32 1, %14
   %73 = zext i8 %13 to i64
   %.not245 = icmp eq i32 %3, 0
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 10128
@@ -3222,7 +3222,7 @@ define void @ff_vc1_mc_4mv_chroma4(ptr noundef readonly %0, i32 noundef %1, i32 
   %81 = icmp samesign ult i64 %indvars.iv, 2
   %82 = select i1 %81, i32 %1, i32 %2
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds [4 x [2 x i32]], ptr %21, i64 %83
+  %84 = getelementptr inbounds [4 x [2 x i32]], ptr %24, i64 %83
   %85 = getelementptr inbounds nuw [2 x i32], ptr %84, i64 %indvars.iv
   %86 = load i32, ptr %85, align 8, !tbaa !44
   %87 = and i32 %86, 3
@@ -3258,12 +3258,12 @@ define void @ff_vc1_mc_4mv_chroma4(ptr noundef readonly %0, i32 noundef %1, i32 
 
 107:                                              ; preds = %104
   %108 = load i64, ptr %46, align 8, !tbaa !89
-  %109 = shl i64 %108, %42
+  %109 = shl i64 %108, %45
   %110 = trunc i64 %109 to i32
   br label %111
 
 111:                                              ; preds = %104, %107
-  %112 = phi i32 [ %43, %107 ], [ 0, %104 ]
+  %112 = phi i32 [ %15, %107 ], [ 0, %104 ]
   %113 = phi i32 [ %110, %107 ], [ 0, %104 ]
   %114 = add i32 %113, %106
   %115 = load i32, ptr %47, align 4, !tbaa !58
@@ -3275,7 +3275,7 @@ define void @ff_vc1_mc_4mv_chroma4(ptr noundef readonly %0, i32 noundef %1, i32 
   %121 = add nsw i32 %117, %120
   %122 = load i32, ptr %48, align 8, !tbaa !68
   %123 = shl nsw i32 %122, 3
-  %124 = add nuw nsw i32 %123, %112
+  %124 = or disjoint i32 %123, %112
   %125 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv277
   %126 = load i32, ptr %125, align 4, !tbaa !44
   %127 = ashr i32 %126, 2
@@ -3377,7 +3377,7 @@ define void @ff_vc1_mc_4mv_chroma4(ptr noundef readonly %0, i32 noundef %1, i32 
   %177 = ashr i32 %.0.i, 1
   %178 = load i32, ptr %61, align 4, !tbaa !91
   %179 = ashr i32 %178, 1
-  %180 = load i32, ptr %14, align 8, !tbaa !4
+  %180 = load i32, ptr %16, align 8, !tbaa !4
   %181 = ashr i32 %180, 2
   tail call void %174(ptr noundef %175, ptr noundef nonnull %159, i64 noundef %68, i64 noundef %68, i32 noundef 5, i32 noundef %70, i32 noundef %.0.i252, i32 noundef %177, i32 noundef %179, i32 noundef %181) #4
   %182 = load ptr, ptr %65, align 8, !tbaa !94
@@ -3385,7 +3385,7 @@ define void @ff_vc1_mc_4mv_chroma4(ptr noundef readonly %0, i32 noundef %1, i32 
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %185 = load i32, ptr %61, align 4, !tbaa !91
   %186 = ashr i32 %185, 1
-  %187 = load i32, ptr %14, align 8, !tbaa !4
+  %187 = load i32, ptr %16, align 8, !tbaa !4
   %188 = ashr i32 %187, 2
   tail call void %182(ptr noundef nonnull %184, ptr noundef %160, i64 noundef %68, i64 noundef %68, i32 noundef 5, i32 noundef %70, i32 noundef %.0.i252, i32 noundef %177, i32 noundef %186, i32 noundef %188) #4
   br i1 %.not, label %189, label %221
@@ -3399,7 +3399,7 @@ define void @ff_vc1_mc_4mv_chroma4(ptr noundef readonly %0, i32 noundef %1, i32 
   %195 = ashr i32 %194, 1
   %196 = load i32, ptr %61, align 4, !tbaa !91
   %197 = ashr i32 %196, 1
-  %198 = load i32, ptr %14, align 8, !tbaa !4
+  %198 = load i32, ptr %16, align 8, !tbaa !4
   %199 = ashr i32 %198, 2
   tail call void %190(ptr noundef %192, ptr noundef nonnull %193, i64 noundef %68, i64 noundef %68, i32 noundef 5, i32 noundef 2, i32 noundef %.0.i252, i32 noundef %195, i32 noundef %197, i32 noundef %199) #4
   %200 = load ptr, ptr %65, align 8, !tbaa !94
@@ -3409,7 +3409,7 @@ define void @ff_vc1_mc_4mv_chroma4(ptr noundef readonly %0, i32 noundef %1, i32 
   %204 = getelementptr inbounds i8, ptr %160, i64 %71
   %205 = load i32, ptr %61, align 4, !tbaa !91
   %206 = ashr i32 %205, 1
-  %207 = load i32, ptr %14, align 8, !tbaa !4
+  %207 = load i32, ptr %16, align 8, !tbaa !4
   %208 = ashr i32 %207, 2
   tail call void %200(ptr noundef nonnull %203, ptr noundef %204, i64 noundef %68, i64 noundef %68, i32 noundef 5, i32 noundef 2, i32 noundef %.0.i252, i32 noundef %195, i32 noundef %206, i32 noundef %208) #4
   br label %221
@@ -3417,7 +3417,7 @@ define void @ff_vc1_mc_4mv_chroma4(ptr noundef readonly %0, i32 noundef %1, i32 
 209:                                              ; preds = %173
   %210 = load i32, ptr %61, align 4, !tbaa !91
   %211 = ashr i32 %210, 1
-  %212 = load i32, ptr %14, align 8, !tbaa !4
+  %212 = load i32, ptr %16, align 8, !tbaa !4
   %213 = ashr i32 %212, 1
   tail call void %174(ptr noundef %175, ptr noundef nonnull %159, i64 noundef %71, i64 noundef %71, i32 noundef 5, i32 noundef %62, i32 noundef %.0.i252, i32 noundef %.0.i, i32 noundef %211, i32 noundef %213) #4
   %214 = load ptr, ptr %65, align 8, !tbaa !94
@@ -3425,7 +3425,7 @@ define void @ff_vc1_mc_4mv_chroma4(ptr noundef readonly %0, i32 noundef %1, i32 
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %217 = load i32, ptr %61, align 4, !tbaa !91
   %218 = ashr i32 %217, 1
-  %219 = load i32, ptr %14, align 8, !tbaa !4
+  %219 = load i32, ptr %16, align 8, !tbaa !4
   %220 = ashr i32 %219, 1
   tail call void %214(ptr noundef nonnull %216, ptr noundef %160, i64 noundef %71, i64 noundef %71, i32 noundef 5, i32 noundef %62, i32 noundef %.0.i252, i32 noundef %.0.i, i32 noundef %218, i32 noundef %220) #4
   br label %221

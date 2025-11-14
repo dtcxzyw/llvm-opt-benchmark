@@ -2982,16 +2982,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   br label %275
 
 76:                                               ; preds = %58
-  %77 = icmp sgt i32 %43, 0
-  br i1 %77, label %.lr.ph, label %.preheader247
+  %77 = mul i32 %22, %17
+  %78 = icmp sgt i32 %43, 0
+  br i1 %78, label %.lr.ph, label %.preheader247
 
 .lr.ph:                                           ; preds = %76
-  %78 = shl nuw nsw i32 %22, 1
+  %79 = shl nuw nsw i32 %22, 1
   %wide.trip.count = zext nneg i32 %43 to i64
   br label %97
 
 .preheader247:                                    ; preds = %97, %76
-  %79 = mul i32 %22, %17
   %80 = icmp sgt i32 %13, 0
   br i1 %80, label %.lr.ph266, label %._crit_edge
 
@@ -3004,25 +3004,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   %86 = icmp eq i32 %43, %22
   %87 = sub i32 %43, %22
   %88 = shl nsw i32 %43, 1
-  %89 = icmp sgt i32 %79, %88
+  %89 = icmp sgt i32 %77, %88
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %91 = icmp slt i32 %22, %87
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %94 = icmp sgt i32 %79, 0
+  %94 = icmp sgt i32 %77, 0
   %95 = zext nneg i32 %22 to i64
   %96 = zext nneg i32 %22 to i64
   %wide.trip.count306 = zext nneg i32 %13 to i64
   %wide.trip.count282 = zext nneg i32 %87 to i64
-  %wide.trip.count296 = zext nneg i32 %79 to i64
-  %wide.trip.count301 = zext nneg i32 %79 to i64
+  %wide.trip.count296 = zext nneg i32 %77 to i64
+  %wide.trip.count301 = zext nneg i32 %77 to i64
   br label %105
 
 97:                                               ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
   %98 = trunc nuw nsw i64 %indvars.iv to i32
   %99 = udiv i32 %98, %22
-  %100 = mul i32 %78, %99
+  %100 = mul i32 %79, %99
   %101 = urem i32 %98, %22
   %102 = add nuw nsw i32 %100, %101
   %103 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
@@ -3302,11 +3302,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   %262 = sext i32 %59 to i64
   %263 = mul i64 %258, %262
   %264 = getelementptr inbounds nuw i8, ptr %255, i64 %263
-  %265 = icmp sgt i32 %79, 0
+  %265 = icmp sgt i32 %77, 0
   br i1 %265, label %.lr.ph269.preheader, label %.loopexit
 
 .lr.ph269.preheader:                              ; preds = %252
-  %wide.trip.count311 = zext nneg i32 %79 to i64
+  %wide.trip.count311 = zext nneg i32 %77 to i64
   br label %.lr.ph269
 
 .lr.ph269:                                        ; preds = %.lr.ph269.preheader, %.lr.ph269
@@ -3511,16 +3511,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   br label %275
 
 76:                                               ; preds = %58
-  %77 = icmp sgt i32 %43, 0
-  br i1 %77, label %.lr.ph, label %.preheader247
+  %77 = mul i32 %22, %17
+  %78 = icmp sgt i32 %43, 0
+  br i1 %78, label %.lr.ph, label %.preheader247
 
 .lr.ph:                                           ; preds = %76
-  %78 = shl nuw nsw i32 %22, 1
+  %79 = shl nuw nsw i32 %22, 1
   %wide.trip.count = zext nneg i32 %43 to i64
   br label %97
 
 .preheader247:                                    ; preds = %97, %76
-  %79 = mul i32 %22, %17
   %80 = icmp sgt i32 %13, 0
   br i1 %80, label %.lr.ph266, label %._crit_edge
 
@@ -3533,25 +3533,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   %86 = icmp eq i32 %43, %22
   %87 = sub i32 %43, %22
   %88 = shl nsw i32 %43, 1
-  %89 = icmp sgt i32 %79, %88
+  %89 = icmp sgt i32 %77, %88
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %91 = icmp slt i32 %22, %87
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %94 = icmp sgt i32 %79, 0
+  %94 = icmp sgt i32 %77, 0
   %95 = zext nneg i32 %22 to i64
   %96 = zext nneg i32 %22 to i64
   %wide.trip.count306 = zext nneg i32 %13 to i64
   %wide.trip.count282 = zext nneg i32 %87 to i64
-  %wide.trip.count296 = zext nneg i32 %79 to i64
-  %wide.trip.count301 = zext nneg i32 %79 to i64
+  %wide.trip.count296 = zext nneg i32 %77 to i64
+  %wide.trip.count301 = zext nneg i32 %77 to i64
   br label %105
 
 97:                                               ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
   %98 = trunc nuw nsw i64 %indvars.iv to i32
   %99 = udiv i32 %98, %22
-  %100 = mul i32 %78, %99
+  %100 = mul i32 %79, %99
   %101 = urem i32 %98, %22
   %102 = add nuw nsw i32 %100, %101
   %103 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
@@ -3831,11 +3831,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   %262 = sext i32 %59 to i64
   %263 = mul i64 %258, %262
   %264 = getelementptr inbounds nuw i8, ptr %255, i64 %263
-  %265 = icmp sgt i32 %79, 0
+  %265 = icmp sgt i32 %77, 0
   br i1 %265, label %.lr.ph269.preheader, label %.loopexit
 
 .lr.ph269.preheader:                              ; preds = %252
-  %wide.trip.count311 = zext nneg i32 %79 to i64
+  %wide.trip.count311 = zext nneg i32 %77 to i64
   br label %.lr.ph269
 
 .lr.ph269:                                        ; preds = %.lr.ph269.preheader, %.lr.ph269
@@ -4040,16 +4040,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   br label %275
 
 76:                                               ; preds = %58
-  %77 = icmp sgt i32 %43, 0
-  br i1 %77, label %.lr.ph, label %.preheader247
+  %77 = mul i32 %22, %17
+  %78 = icmp sgt i32 %43, 0
+  br i1 %78, label %.lr.ph, label %.preheader247
 
 .lr.ph:                                           ; preds = %76
-  %78 = shl nuw nsw i32 %22, 1
+  %79 = shl nuw nsw i32 %22, 1
   %wide.trip.count = zext nneg i32 %43 to i64
   br label %97
 
 .preheader247:                                    ; preds = %97, %76
-  %79 = mul i32 %22, %17
   %80 = icmp sgt i32 %13, 0
   br i1 %80, label %.lr.ph266, label %._crit_edge
 
@@ -4062,25 +4062,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   %86 = icmp eq i32 %43, %22
   %87 = sub i32 %43, %22
   %88 = shl nsw i32 %43, 1
-  %89 = icmp sgt i32 %79, %88
+  %89 = icmp sgt i32 %77, %88
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %91 = icmp slt i32 %22, %87
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %94 = icmp sgt i32 %79, 0
+  %94 = icmp sgt i32 %77, 0
   %95 = zext nneg i32 %22 to i64
   %96 = zext nneg i32 %22 to i64
   %wide.trip.count306 = zext nneg i32 %13 to i64
   %wide.trip.count282 = zext nneg i32 %87 to i64
-  %wide.trip.count296 = zext nneg i32 %79 to i64
-  %wide.trip.count301 = zext nneg i32 %79 to i64
+  %wide.trip.count296 = zext nneg i32 %77 to i64
+  %wide.trip.count301 = zext nneg i32 %77 to i64
   br label %105
 
 97:                                               ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
   %98 = trunc nuw nsw i64 %indvars.iv to i32
   %99 = udiv i32 %98, %22
-  %100 = mul i32 %78, %99
+  %100 = mul i32 %79, %99
   %101 = urem i32 %98, %22
   %102 = add nuw nsw i32 %100, %101
   %103 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
@@ -4360,11 +4360,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   %262 = sext i32 %59 to i64
   %263 = mul i64 %258, %262
   %264 = getelementptr inbounds nuw i8, ptr %255, i64 %263
-  %265 = icmp sgt i32 %79, 0
+  %265 = icmp sgt i32 %77, 0
   br i1 %265, label %.lr.ph269.preheader, label %.loopexit
 
 .lr.ph269.preheader:                              ; preds = %252
-  %wide.trip.count311 = zext nneg i32 %79 to i64
+  %wide.trip.count311 = zext nneg i32 %77 to i64
   br label %.lr.ph269
 
 .lr.ph269:                                        ; preds = %.lr.ph269.preheader, %.lr.ph269
@@ -4569,16 +4569,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   br label %255
 
 76:                                               ; preds = %58
-  %77 = icmp sgt i32 %43, 0
-  br i1 %77, label %.lr.ph, label %.preheader245
+  %77 = mul i32 %22, %17
+  %78 = icmp sgt i32 %43, 0
+  br i1 %78, label %.lr.ph, label %.preheader245
 
 .lr.ph:                                           ; preds = %76
-  %78 = shl nuw nsw i32 %22, 1
+  %79 = shl nuw nsw i32 %22, 1
   %wide.trip.count = zext nneg i32 %43 to i64
   br label %97
 
 .preheader245:                                    ; preds = %97, %76
-  %79 = mul i32 %22, %17
   %80 = icmp sgt i32 %13, 0
   br i1 %80, label %.lr.ph264, label %._crit_edge
 
@@ -4591,25 +4591,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   %86 = icmp eq i32 %43, %22
   %87 = sub i32 %43, %22
   %88 = shl nsw i32 %43, 1
-  %89 = icmp sgt i32 %79, %88
+  %89 = icmp sgt i32 %77, %88
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %91 = icmp slt i32 %22, %87
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %94 = icmp sgt i32 %79, 0
+  %94 = icmp sgt i32 %77, 0
   %95 = zext nneg i32 %22 to i64
   %96 = zext nneg i32 %22 to i64
   %wide.trip.count304 = zext nneg i32 %13 to i64
   %wide.trip.count280 = zext nneg i32 %87 to i64
-  %wide.trip.count294 = zext nneg i32 %79 to i64
-  %wide.trip.count299 = zext nneg i32 %79 to i64
+  %wide.trip.count294 = zext nneg i32 %77 to i64
+  %wide.trip.count299 = zext nneg i32 %77 to i64
   br label %105
 
 97:                                               ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
   %98 = trunc nuw nsw i64 %indvars.iv to i32
   %99 = udiv i32 %98, %22
-  %100 = mul i32 %78, %99
+  %100 = mul i32 %79, %99
   %101 = urem i32 %98, %22
   %102 = add nuw nsw i32 %100, %101
   %103 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
@@ -4870,11 +4870,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   %242 = sext i32 %59 to i64
   %243 = mul i64 %238, %242
   %244 = getelementptr inbounds nuw i8, ptr %235, i64 %243
-  %245 = icmp sgt i32 %79, 0
+  %245 = icmp sgt i32 %77, 0
   br i1 %245, label %.lr.ph267.preheader, label %.loopexit
 
 .lr.ph267.preheader:                              ; preds = %232
-  %wide.trip.count309 = zext nneg i32 %79 to i64
+  %wide.trip.count309 = zext nneg i32 %77 to i64
   br label %.lr.ph267
 
 .lr.ph267:                                        ; preds = %.lr.ph267.preheader, %.lr.ph267
@@ -5079,16 +5079,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   br label %255
 
 76:                                               ; preds = %58
-  %77 = icmp sgt i32 %43, 0
-  br i1 %77, label %.lr.ph, label %.preheader245
+  %77 = mul i32 %22, %17
+  %78 = icmp sgt i32 %43, 0
+  br i1 %78, label %.lr.ph, label %.preheader245
 
 .lr.ph:                                           ; preds = %76
-  %78 = shl nuw nsw i32 %22, 1
+  %79 = shl nuw nsw i32 %22, 1
   %wide.trip.count = zext nneg i32 %43 to i64
   br label %97
 
 .preheader245:                                    ; preds = %97, %76
-  %79 = mul i32 %22, %17
   %80 = icmp sgt i32 %13, 0
   br i1 %80, label %.lr.ph264, label %._crit_edge
 
@@ -5101,25 +5101,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   %86 = icmp eq i32 %43, %22
   %87 = sub i32 %43, %22
   %88 = shl nsw i32 %43, 1
-  %89 = icmp sgt i32 %79, %88
+  %89 = icmp sgt i32 %77, %88
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %91 = icmp slt i32 %22, %87
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %94 = icmp sgt i32 %79, 0
+  %94 = icmp sgt i32 %77, 0
   %95 = zext nneg i32 %22 to i64
   %96 = zext nneg i32 %22 to i64
   %wide.trip.count304 = zext nneg i32 %13 to i64
   %wide.trip.count280 = zext nneg i32 %87 to i64
-  %wide.trip.count294 = zext nneg i32 %79 to i64
-  %wide.trip.count299 = zext nneg i32 %79 to i64
+  %wide.trip.count294 = zext nneg i32 %77 to i64
+  %wide.trip.count299 = zext nneg i32 %77 to i64
   br label %105
 
 97:                                               ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
   %98 = trunc nuw nsw i64 %indvars.iv to i32
   %99 = udiv i32 %98, %22
-  %100 = mul i32 %78, %99
+  %100 = mul i32 %79, %99
   %101 = urem i32 %98, %22
   %102 = add nuw nsw i32 %100, %101
   %103 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
@@ -5380,11 +5380,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
   %242 = sext i32 %59 to i64
   %243 = mul i64 %238, %242
   %244 = getelementptr inbounds nuw i8, ptr %235, i64 %243
-  %245 = icmp sgt i32 %79, 0
+  %245 = icmp sgt i32 %77, 0
   br i1 %245, label %.lr.ph267.preheader, label %.loopexit
 
 .lr.ph267.preheader:                              ; preds = %232
-  %wide.trip.count309 = zext nneg i32 %79 to i64
+  %wide.trip.count309 = zext nneg i32 %77 to i64
   br label %.lr.ph267
 
 .lr.ph267:                                        ; preds = %.lr.ph267.preheader, %.lr.ph267

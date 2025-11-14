@@ -229,35 +229,35 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %11
   br i1 %.not30, label %._crit_edge, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph, %Aig_RManTableLookup.exit
-  %.02743.sink = phi ptr [ %36, %Aig_RManTableLookup.exit ], [ %20, %.lr.ph ]
-  %21 = getelementptr inbounds nuw i8, ptr %.02743.sink, i64 16
-  %22 = getelementptr inbounds nuw i8, ptr %.02743.sink, i64 12
-  %23 = load i32, ptr %22, align 4
-  %24 = lshr i32 %23, 27
-  %25 = icmp ult i32 %23, 805306368
-  %26 = add nsw i32 %24, -5
-  %27 = shl nuw nsw i32 1, %26
-  %28 = select i1 %25, i32 1, i32 %27
-  %wide.trip.count.i.i = zext nneg i32 %28 to i64
+  %.02743.sink = phi ptr [ %21, %Aig_RManTableLookup.exit ], [ %20, %.lr.ph ]
+  %21 = load ptr, ptr %.02743.sink, align 8, !tbaa !30
+  %22 = getelementptr inbounds nuw i8, ptr %.02743.sink, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.02743.sink, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = lshr i32 %24, 27
+  %26 = icmp ult i32 %24, 805306368
+  %27 = add nsw i32 %25, -5
+  %28 = shl nuw nsw i32 1, %27
+  %29 = select i1 %26, i32 1, i32 %28
+  %wide.trip.count.i.i = zext nneg i32 %29 to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %.02.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %35, %.lr.ph.i.i ]
-  %29 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i.i
-  %30 = load i32, ptr %29, align 4, !tbaa !24
-  %31 = and i64 %indvars.iv.i.i, 15
-  %32 = getelementptr inbounds nuw i32, ptr @Aig_RManTableLookup.s_Primes, i64 %31
-  %33 = load i32, ptr %32, align 4, !tbaa !24
-  %34 = mul i32 %33, %30
-  %35 = xor i32 %34, %.02.i.i
+  %.02.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %36, %.lr.ph.i.i ]
+  %30 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i
+  %31 = load i32, ptr %30, align 4, !tbaa !24
+  %32 = and i64 %indvars.iv.i.i, 15
+  %33 = getelementptr inbounds nuw i32, ptr @Aig_RManTableLookup.s_Primes, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !24
+  %35 = mul i32 %34, %31
+  %36 = xor i32 %35, %.02.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %Aig_RManTableHash.exit.i, label %.lr.ph.i.i, !llvm.loop !25
 
 Aig_RManTableHash.exit.i:                         ; preds = %.lr.ph.i.i
-  %36 = load ptr, ptr %.02743.sink, align 8, !tbaa !30
-  %37 = urem i32 %35, %9
+  %37 = urem i32 %36, %9
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds ptr, ptr %17, i64 %38
   %.022.i = load ptr, ptr %39, align 8, !tbaa !26
@@ -279,7 +279,7 @@ select.unfold.i.i:                                ; preds = %42, %.lr.ph.i33
   %43 = add nsw i64 %indvars.iv.i16.i, -1
   %44 = getelementptr inbounds nuw i32, ptr %40, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !24
-  %46 = getelementptr inbounds nuw i32, ptr %21, i64 %43
+  %46 = getelementptr inbounds nuw i32, ptr %22, i64 %43
   %47 = load i32, ptr %46, align 4, !tbaa !24
   %.not.i.i = icmp eq i32 %45, %47
   br i1 %.not.i.i, label %select.unfold.i.i, label %Kit_TruthIsEqual.exit.i, !llvm.loop !28
@@ -293,7 +293,7 @@ Aig_RManTableLookup.exit:                         ; preds = %Kit_TruthIsEqual.ex
   %.01321.i = phi ptr [ %39, %Aig_RManTableHash.exit.i ], [ %.01324.i, %select.unfold.i.i ], [ %.025.i, %Kit_TruthIsEqual.exit.i ]
   store ptr %.02743.sink, ptr %.01321.i, align 8, !tbaa !26
   store ptr null, ptr %.02743.sink, align 8, !tbaa !30
-  %.not32 = icmp eq ptr %36, null
+  %.not32 = icmp eq ptr %21, null
   br i1 %.not32, label %._crit_edge, label %.lr.ph.preheader.i.i, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %Aig_RManTableLookup.exit, %.lr.ph
@@ -590,6 +590,7 @@ define void @Aig_RManSortNums(ptr noundef captures(none) %0, i32 noundef %1) loc
 .lr.ph.preheader:                                 ; preds = %._crit_edge, %.lr.ph27.preheader
   %indvars.iv32 = phi i64 [ 0, %.lr.ph27.preheader ], [ %indvars.iv.next33, %._crit_edge ]
   %indvars.iv = phi i64 [ 1, %.lr.ph27.preheader ], [ %indvars.iv.next, %._crit_edge ]
+  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %5 = trunc nuw nsw i64 %indvars.iv32 to i32
   br label %.lr.ph
 
@@ -609,7 +610,6 @@ define void @Aig_RManSortNums(ptr noundef captures(none) %0, i32 noundef %1) loc
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %13 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv32
   %14 = load i32, ptr %13, align 4, !tbaa !24
   %15 = sext i32 %spec.select to i64
@@ -812,41 +812,41 @@ Kit_TruthCountOnes.exit43:                        ; preds = %select.unfold.i39, 
   tail call void @Kit_TruthCountOnesInCofs0(ptr noundef %3, i32 noundef %1, ptr noundef nonnull %76) #16
   br i1 %.not, label %Aig_RManSortNums.exit60, label %.lr.ph.preheader.i47
 
-.lr.ph.preheader.i47:                             ; preds = %Kit_TruthCountOnes.exit43, %._crit_edge.i56
-  %indvars.iv32.i48 = phi i64 [ %indvars.iv.next33.i57, %._crit_edge.i56 ], [ 0, %Kit_TruthCountOnes.exit43 ]
-  %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i58, %._crit_edge.i56 ], [ 1, %Kit_TruthCountOnes.exit43 ]
+.lr.ph.preheader.i47:                             ; preds = %Kit_TruthCountOnes.exit43, %._crit_edge.i57
+  %indvars.iv32.i48 = phi i64 [ %indvars.iv.next33.i50, %._crit_edge.i57 ], [ 0, %Kit_TruthCountOnes.exit43 ]
+  %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i58, %._crit_edge.i57 ], [ 1, %Kit_TruthCountOnes.exit43 ]
   %77 = trunc nuw nsw i64 %indvars.iv32.i48 to i32
-  br label %.lr.ph.i50
+  br label %.lr.ph.i51
 
-.lr.ph.i50:                                       ; preds = %.lr.ph.i50, %.lr.ph.preheader.i47
-  %indvars.iv29.i51 = phi i64 [ %indvars.iv.i49, %.lr.ph.preheader.i47 ], [ %indvars.iv.next30.i54, %.lr.ph.i50 ]
-  %.02124.i52 = phi i32 [ %77, %.lr.ph.preheader.i47 ], [ %spec.select.i53, %.lr.ph.i50 ]
-  %78 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv29.i51
+.lr.ph.i51:                                       ; preds = %.lr.ph.i51, %.lr.ph.preheader.i47
+  %indvars.iv29.i52 = phi i64 [ %indvars.iv.i49, %.lr.ph.preheader.i47 ], [ %indvars.iv.next30.i55, %.lr.ph.i51 ]
+  %.02124.i53 = phi i32 [ %77, %.lr.ph.preheader.i47 ], [ %spec.select.i54, %.lr.ph.i51 ]
+  %78 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv29.i52
   %79 = load i32, ptr %78, align 4, !tbaa !24
-  %80 = sext i32 %.02124.i52 to i64
+  %80 = sext i32 %.02124.i53 to i64
   %81 = getelementptr inbounds i32, ptr %76, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !24
   %83 = icmp sgt i32 %79, %82
-  %84 = trunc nuw nsw i64 %indvars.iv29.i51 to i32
-  %spec.select.i53 = select i1 %83, i32 %84, i32 %.02124.i52
-  %indvars.iv.next30.i54 = add nuw nsw i64 %indvars.iv29.i51, 1
-  %exitcond.not.i55 = icmp eq i64 %indvars.iv.next30.i54, %wide.trip.count.i
-  br i1 %exitcond.not.i55, label %._crit_edge.i56, label %.lr.ph.i50, !llvm.loop !45
+  %84 = trunc nuw nsw i64 %indvars.iv29.i52 to i32
+  %spec.select.i54 = select i1 %83, i32 %84, i32 %.02124.i53
+  %indvars.iv.next30.i55 = add nuw nsw i64 %indvars.iv29.i52, 1
+  %exitcond.not.i56 = icmp eq i64 %indvars.iv.next30.i55, %wide.trip.count.i
+  br i1 %exitcond.not.i56, label %._crit_edge.i57, label %.lr.ph.i51, !llvm.loop !45
 
-._crit_edge.i56:                                  ; preds = %.lr.ph.i50
-  %indvars.iv.next33.i57 = add nuw nsw i64 %indvars.iv32.i48, 1
+._crit_edge.i57:                                  ; preds = %.lr.ph.i51
+  %indvars.iv.next33.i50 = add nuw nsw i64 %indvars.iv32.i48, 1
   %85 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv32.i48
   %86 = load i32, ptr %85, align 4, !tbaa !24
-  %87 = sext i32 %spec.select.i53 to i64
+  %87 = sext i32 %spec.select.i54 to i64
   %88 = getelementptr inbounds i32, ptr %76, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !24
   store i32 %89, ptr %85, align 4, !tbaa !24
   store i32 %86, ptr %88, align 4, !tbaa !24
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i49, 1
-  %exitcond36.not.i59 = icmp eq i64 %indvars.iv.next33.i57, %wide.trip.count35.i
+  %exitcond36.not.i59 = icmp eq i64 %indvars.iv.next33.i50, %wide.trip.count35.i
   br i1 %exitcond36.not.i59, label %Aig_RManSortNums.exit60, label %.lr.ph.preheader.i47, !llvm.loop !46
 
-Aig_RManSortNums.exit60:                          ; preds = %._crit_edge.i56, %Kit_TruthCountOnes.exit43
+Aig_RManSortNums.exit60:                          ; preds = %._crit_edge.i57, %Kit_TruthCountOnes.exit43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !53

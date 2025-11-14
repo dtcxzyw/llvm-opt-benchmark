@@ -468,39 +468,39 @@ gimme_gene.exit:                                  ; preds = %77, %51
   br label %edge_failure.exit
 
 .lr.ph.preheader.i43:                             ; preds = %remove_gene.exit
-  %83 = zext i32 %39 to i64
+  %83 = add i32 %.073, 1
+  %84 = zext i32 %39 to i64
   br label %.lr.ph.i45
 
-.lr.ph.i45:                                       ; preds = %93, %.lr.ph.preheader.i43
-  %indvars.iv.i46 = phi i64 [ 1, %.lr.ph.preheader.i43 ], [ %indvars.iv.next.i49, %93 ]
-  %.080.i = phi i32 [ 0, %.lr.ph.preheader.i43 ], [ %.1.i48, %93 ]
-  %.04979.i = phi i32 [ 0, %.lr.ph.preheader.i43 ], [ %.150.i, %93 ]
-  %84 = getelementptr inbounds nuw %struct.Edge, ptr %1, i64 %indvars.iv.i46
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 20
-  %86 = load i32, ptr %85, align 4
-  %.not70.i = icmp eq i32 %86, -1
-  %.not71.i = icmp eq i64 %indvars.iv.i46, %83
+.lr.ph.i45:                                       ; preds = %94, %.lr.ph.preheader.i43
+  %indvars.iv.i46 = phi i64 [ 1, %.lr.ph.preheader.i43 ], [ %indvars.iv.next.i49, %94 ]
+  %.080.i = phi i32 [ 0, %.lr.ph.preheader.i43 ], [ %.1.i48, %94 ]
+  %.04979.i = phi i32 [ 0, %.lr.ph.preheader.i43 ], [ %.150.i, %94 ]
+  %85 = getelementptr inbounds nuw %struct.Edge, ptr %1, i64 %indvars.iv.i46
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 20
+  %87 = load i32, ptr %86, align 4
+  %.not70.i = icmp eq i32 %87, -1
+  %.not71.i = icmp eq i64 %indvars.iv.i46, %84
   %or.cond.i = or i1 %.not71.i, %.not70.i
-  br i1 %or.cond.i, label %93, label %87
+  br i1 %or.cond.i, label %94, label %88
 
-87:                                               ; preds = %.lr.ph.i45
-  %88 = add i32 %.04979.i, 1
-  %89 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %90 = load i32, ptr %89, align 4
-  %91 = icmp eq i32 %90, 4
-  %92 = zext i1 %91 to i32
-  %spec.select.i47 = add i32 %.080.i, %92
-  br label %93
+88:                                               ; preds = %.lr.ph.i45
+  %89 = add i32 %.04979.i, 1
+  %90 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %91 = load i32, ptr %90, align 4
+  %92 = icmp eq i32 %91, 4
+  %93 = zext i1 %92 to i32
+  %spec.select.i47 = add i32 %.080.i, %93
+  br label %94
 
-93:                                               ; preds = %87, %.lr.ph.i45
-  %.150.i = phi i32 [ %.04979.i, %.lr.ph.i45 ], [ %88, %87 ]
-  %.1.i48 = phi i32 [ %.080.i, %.lr.ph.i45 ], [ %spec.select.i47, %87 ]
+94:                                               ; preds = %88, %.lr.ph.i45
+  %.150.i = phi i32 [ %.04979.i, %.lr.ph.i45 ], [ %89, %88 ]
+  %.1.i48 = phi i32 [ %.080.i, %.lr.ph.i45 ], [ %spec.select.i47, %88 ]
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i49, %wide.trip.count.i44
   br i1 %exitcond.i, label %._crit_edge.i50, label %.lr.ph.i45, !llvm.loop !12
 
-._crit_edge.i50:                                  ; preds = %93
-  %94 = add i32 %.073, 1
+._crit_edge.i50:                                  ; preds = %94
   %.not61.i = icmp eq i32 %.1.i48, 0
   br i1 %.not61.i, label %113, label %95
 
@@ -615,7 +615,7 @@ gimme_gene.exit:                                  ; preds = %77, %51
 
 edge_failure.exit:                                ; preds = %107, %122, %.lr.ph96.i, %gimme_gene.exit
   %.053.i.sink = phi i32 [ %.0.i, %gimme_gene.exit ], [ %.35795.i, %.lr.ph96.i ], [ %.25689.i, %122 ], [ %.15583.i, %107 ]
-  %.1 = phi i32 [ %.073, %gimme_gene.exit ], [ %94, %.lr.ph96.i ], [ %94, %122 ], [ %94, %107 ]
+  %.1 = phi i32 [ %.073, %gimme_gene.exit ], [ %83, %.lr.ph96.i ], [ %83, %122 ], [ %83, %107 ]
   %140 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %.053.i.sink, ptr %140, align 4
   %141 = load i32, ptr %14, align 4

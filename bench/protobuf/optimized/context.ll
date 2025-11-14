@@ -903,6 +903,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i
   store ptr %call5.i.i.i.i2.i.i47, ptr %conflict_reason, align 8
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %conflict_reason, i64 8
   %add.ptr.i.i.i46 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i2.i.i47, i64 %sub.ptr.div.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %conflict_reason, i64 16
   store ptr %add.ptr.i.i.i46, ptr %_M_end_of_storage.i.i.i, align 8
@@ -918,7 +919,6 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont5, label %for.body.i.i.i.i.i, !llvm.loop !12
 
 invoke.cont5:                                     ; preds = %for.body.i.i.i.i.i
-  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %conflict_reason, i64 8
   %.pre = load ptr, ptr %_M_finish.i, align 8
   %.pre296 = load ptr, ptr %fields, align 8
   %3 = icmp eq ptr %.pre, %.pre296

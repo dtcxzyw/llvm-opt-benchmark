@@ -169,39 +169,39 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
   %68 = load float, ptr %67, align 8, !tbaa !18
   %69 = getelementptr inbounds nuw i8, ptr %17, i64 76
   %70 = load float, ptr %69, align 4, !tbaa !17
-  %71 = call zeroext i16 @lv_atan2(i32 noundef %64, i32 noundef %62) #7
-  %72 = uitofp i16 %71 to float
-  %73 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  %74 = load i32, ptr %73, align 8, !tbaa !3
-  %75 = sitofp i32 %74 to float
-  %76 = fsub float %72, %75
-  %77 = load float, ptr %69, align 4, !tbaa !17
-  %78 = fsub float %76, %77
-  %79 = fcmp olt float %78, 0.000000e+00
-  br i1 %79, label %.lr.ph337, label %.preheader
+  %71 = fcmp olt float %68, %70
+  %72 = fadd float %68, 3.600000e+02
+  %.0255 = select i1 %71, float %72, float %68
+  %73 = call zeroext i16 @lv_atan2(i32 noundef %64, i32 noundef %62) #7
+  %74 = uitofp i16 %73 to float
+  %75 = getelementptr inbounds nuw i8, ptr %17, i64 64
+  %76 = load i32, ptr %75, align 8, !tbaa !3
+  %77 = sitofp i32 %76 to float
+  %78 = fsub float %74, %77
+  %79 = load float, ptr %69, align 4, !tbaa !17
+  %80 = fsub float %78, %79
+  %81 = fcmp olt float %80, 0.000000e+00
+  br i1 %81, label %.lr.ph337, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph337, %66
-  %.0251.lcssa = phi float [ %78, %66 ], [ %81, %.lr.ph337 ]
-  %80 = fcmp ult float %.0251.lcssa, 3.600000e+02
-  br i1 %80, label %._crit_edge341, label %.lr.ph340
+  %.0251.lcssa = phi float [ %80, %66 ], [ %83, %.lr.ph337 ]
+  %82 = fcmp ult float %.0251.lcssa, 3.600000e+02
+  br i1 %82, label %._crit_edge341, label %.lr.ph340
 
 .lr.ph337:                                        ; preds = %66, %.lr.ph337
-  %.0251335 = phi float [ %81, %.lr.ph337 ], [ %78, %66 ]
-  %81 = fadd float %.0251335, 3.600000e+02
-  %82 = fcmp olt float %81, 0.000000e+00
-  br i1 %82, label %.lr.ph337, label %.preheader, !llvm.loop !31
+  %.0251335 = phi float [ %83, %.lr.ph337 ], [ %80, %66 ]
+  %83 = fadd float %.0251335, 3.600000e+02
+  %84 = fcmp olt float %83, 0.000000e+00
+  br i1 %84, label %.lr.ph337, label %.preheader, !llvm.loop !31
 
 .lr.ph340:                                        ; preds = %.preheader, %.lr.ph340
-  %.1252339 = phi float [ %83, %.lr.ph340 ], [ %.0251.lcssa, %.preheader ]
-  %83 = fadd float %.1252339, -3.600000e+02
-  %84 = fcmp ult float %83, 3.600000e+02
-  br i1 %84, label %._crit_edge341, label %.lr.ph340, !llvm.loop !33
+  %.1252339 = phi float [ %85, %.lr.ph340 ], [ %.0251.lcssa, %.preheader ]
+  %85 = fadd float %.1252339, -3.600000e+02
+  %86 = fcmp ult float %85, 3.600000e+02
+  br i1 %86, label %._crit_edge341, label %.lr.ph340, !llvm.loop !33
 
 ._crit_edge341:                                   ; preds = %.lr.ph340, %.preheader
-  %.1252.lcssa = phi float [ %.0251.lcssa, %.preheader ], [ %83, %.lr.ph340 ]
-  %85 = fcmp olt float %68, %70
-  %86 = fadd float %68, 3.600000e+02
-  %.0255 = select i1 %85, float %86, float %68
+  %.1252.lcssa = phi float [ %.0251.lcssa, %.preheader ], [ %85, %.lr.ph340 ]
   %87 = load i32, ptr %10, align 4, !tbaa !30
   %88 = mul i32 %87, 628
   %89 = udiv i32 %88, 100

@@ -696,6 +696,7 @@ mi_segments_track_size.exit.i:                    ; preds = %81, %74
   br label %89
 
 89:                                               ; preds = %85, %mi_segments_track_size.exit.i
+  %.val13.i = load i64, ptr %60, align 8, !tbaa !56
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %91
 
@@ -729,10 +730,9 @@ mi_segments_track_size.exit.i:                    ; preds = %81, %74
   br i1 %exitcond.not.i.i, label %mi_segment_os_free.exit, label %91, !llvm.loop !9
 
 mi_segment_os_free.exit:                          ; preds = %.loopexit.i.i
-  %.val13.i = load i64, ptr %60, align 8, !tbaa !56
   %99 = shl i64 %.val13.i, 16
   %100 = lshr exact i64 %99, 9
-  %101 = mul i64 %100, %.1.i.i
+  %101 = mul i64 %.1.i.i, %100
   tail call void @_mi_arena_free(ptr noundef nonnull %0, i64 noundef %99, i64 noundef %101, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %0) #11
   br label %102
 

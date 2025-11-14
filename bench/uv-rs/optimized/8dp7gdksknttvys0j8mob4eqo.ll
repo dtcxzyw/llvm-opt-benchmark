@@ -18865,7 +18865,6 @@ define hidden void @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$11rem
 
 .loopexit41:                                      ; preds = %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$11remove_edge17h738f4dbca484ddf3E.exit", %23
   %21 = phi i64 [ %.promoted49, %23 ], [ %.promoted46, %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$11remove_edge17h738f4dbca484ddf3E.exit" ]
-  %.sroa.023.0.add = add nuw nsw i64 %.sroa.023.0.idx44, 8
   %22 = icmp eq i64 %.sroa.023.0.add, 16
   br i1 %22, label %28, label %23
 
@@ -18873,6 +18872,7 @@ define hidden void @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$11rem
   %.promoted49 = phi i64 [ %.promoted45, %.preheader ], [ %21, %.loopexit41 ]
   %.sroa.023.0.idx44 = phi i64 [ 0, %.preheader ], [ %.sroa.023.0.add, %.loopexit41 ]
   %.sroa.023.0.ptr = getelementptr inbounds nuw i8, ptr @anon.8614b607ead3c107f6d7afea705a406c.72, i64 %.sroa.023.0.idx44
+  %.sroa.023.0.add = add nuw nsw i64 %.sroa.023.0.idx44, 8
   %24 = load i64, ptr %.sroa.023.0.ptr, align 8, !range !10, !noundef !3
   %25 = getelementptr inbounds nuw i32, ptr %16, i64 %24
   %26 = load i32, ptr %25, align 4, !noundef !3
@@ -18908,7 +18908,6 @@ define hidden void @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$11rem
   br label %38
 
 .loopexit:                                        ; preds = %.lr.ph50, %38
-  %.sroa.031.0.add = add nuw nsw i64 %.sroa.031.0.idx51, 8
   %36 = icmp eq i64 %.sroa.031.0.add, 16
   br i1 %36, label %37, label %38
 
@@ -18921,6 +18920,7 @@ define hidden void @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$11rem
 38:                                               ; preds = %34, %.loopexit
   %.sroa.031.0.idx51 = phi i64 [ 0, %34 ], [ %.sroa.031.0.add, %.loopexit ]
   %.sroa.031.0.ptr = getelementptr inbounds nuw i8, ptr @anon.8614b607ead3c107f6d7afea705a406c.72, i64 %.sroa.031.0.idx51
+  %.sroa.031.0.add = add nuw nsw i64 %.sroa.031.0.idx51, 8
   %39 = load i64, ptr %.sroa.031.0.ptr, align 8, !range !10, !noundef !3
   %40 = getelementptr inbounds nuw i32, ptr %8, i64 %39
   %41 = load i32, ptr %40, align 4, !noundef !3
@@ -19125,7 +19125,6 @@ define hidden { i64, ptr } @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$
 
 .loopexit49:                                      ; preds = %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$11remove_edge17hc2a2fc7044476204E.exit", %23
   %18 = phi i64 [ %.promoted57, %23 ], [ %.promoted54, %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$11remove_edge17hc2a2fc7044476204E.exit" ]
-  %.sroa.025.0.add = add nuw nsw i64 %.sroa.025.0.idx52, 8
   %19 = icmp eq i64 %.sroa.025.0.add, 16
   br i1 %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h8d5982812d7a6ac5E.exit", label %23
 
@@ -19146,6 +19145,7 @@ define hidden { i64, ptr } @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$
   %.promoted57 = phi i64 [ %.promoted53, %.preheader ], [ %18, %.loopexit49 ]
   %.sroa.025.0.idx52 = phi i64 [ 0, %.preheader ], [ %.sroa.025.0.add, %.loopexit49 ]
   %.sroa.025.0.ptr = getelementptr inbounds nuw i8, ptr @anon.8614b607ead3c107f6d7afea705a406c.72, i64 %.sroa.025.0.idx52
+  %.sroa.025.0.add = add nuw nsw i64 %.sroa.025.0.idx52, 8
   %24 = load i64, ptr %.sroa.025.0.ptr, align 8, !range !10, !noundef !3
   %25 = getelementptr inbounds nuw i32, ptr %14, i64 %24
   %26 = load i32, ptr %25, align 4, !noundef !3
@@ -19169,13 +19169,13 @@ define hidden { i64, ptr } @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$
   ret { i64, ptr } %32
 
 .loopexit:                                        ; preds = %.lr.ph58, %34
-  %.sroa.035.0.add = add nuw nsw i64 %.sroa.035.0.idx59, 8
   %33 = icmp eq i64 %.sroa.035.0.add, 16
   br i1 %33, label %.sink.split, label %34
 
 34:                                               ; preds = %28, %.loopexit
   %.sroa.035.0.idx59 = phi i64 [ 0, %28 ], [ %.sroa.035.0.add, %.loopexit ]
   %.sroa.035.0.ptr = getelementptr inbounds nuw i8, ptr @anon.8614b607ead3c107f6d7afea705a406c.72, i64 %.sroa.035.0.idx59
+  %.sroa.035.0.add = add nuw nsw i64 %.sroa.035.0.idx59, 8
   %35 = load i64, ptr %.sroa.035.0.ptr, align 8, !range !10, !noundef !3
   %36 = getelementptr inbounds nuw i32, ptr %7, i64 %35
   %37 = load i32, ptr %36, align 4, !noundef !3

@@ -246,34 +246,34 @@ define linkonce_odr dso_local noundef double @_ZZN3igl15internal_anglesIN5Eigen6
   br i1 %exitcond.not.i.i.i.i.i, label %.lr.ph.i.i.i.i.i14.preheader, label %.lr.ph.i.i.i.i.i, !llvm.loop !46
 
 .lr.ph.i.i.i.i.i14.preheader:                     ; preds = %.lr.ph.i.i.i.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.copyload, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !42
-  %28 = load float, ptr %.sroa.0.0.copyload, align 4, !tbaa !43
-  %29 = fsub float %28, %12
-  %30 = fmul float %29, %29
+  %26 = tail call noundef float @llvm.sqrt.f32(float %24)
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.copyload, i64 8
+  %28 = load i64, ptr %27, align 8, !tbaa !42
+  %29 = load float, ptr %.sroa.0.0.copyload, align 4, !tbaa !43
+  %30 = fsub float %29, %12
+  %31 = fmul float %30, %30
   br label %.lr.ph.i.i.i.i.i14
 
 .lr.ph.i.i.i.i.i14:                               ; preds = %.lr.ph.i.i.i.i.i14.preheader, %.lr.ph.i.i.i.i.i14
-  %.01724.i.i.i.i.i15 = phi i64 [ %40, %.lr.ph.i.i.i.i.i14 ], [ 1, %.lr.ph.i.i.i.i.i14.preheader ]
-  %.02223.i.i.i.i.i16 = phi float [ %39, %.lr.ph.i.i.i.i.i14 ], [ %30, %.lr.ph.i.i.i.i.i14.preheader ]
-  %31 = mul nsw i64 %.01724.i.i.i.i.i15, %27
-  %32 = getelementptr float, ptr %.sroa.0.0.copyload, i64 %31
-  %33 = load float, ptr %32, align 4, !tbaa !43
-  %34 = mul nsw i64 %.01724.i.i.i.i.i15, %10
-  %35 = getelementptr float, ptr %.sroa.15147.56.copyload, i64 %34
-  %36 = load float, ptr %35, align 4, !tbaa !43
-  %37 = fsub float %33, %36
-  %38 = fmul float %37, %37
-  %39 = fadd float %.02223.i.i.i.i.i16, %38
-  %40 = add nuw nsw i64 %.01724.i.i.i.i.i15, 1
-  %exitcond.not.i.i.i.i.i17 = icmp eq i64 %40, %.sroa.22150.56.copyload
+  %.01724.i.i.i.i.i15 = phi i64 [ %41, %.lr.ph.i.i.i.i.i14 ], [ 1, %.lr.ph.i.i.i.i.i14.preheader ]
+  %.02223.i.i.i.i.i16 = phi float [ %40, %.lr.ph.i.i.i.i.i14 ], [ %31, %.lr.ph.i.i.i.i.i14.preheader ]
+  %32 = mul nsw i64 %.01724.i.i.i.i.i15, %28
+  %33 = getelementptr float, ptr %.sroa.0.0.copyload, i64 %32
+  %34 = load float, ptr %33, align 4, !tbaa !43
+  %35 = mul nsw i64 %.01724.i.i.i.i.i15, %10
+  %36 = getelementptr float, ptr %.sroa.15147.56.copyload, i64 %35
+  %37 = load float, ptr %36, align 4, !tbaa !43
+  %38 = fsub float %34, %37
+  %39 = fmul float %38, %38
+  %40 = fadd float %.02223.i.i.i.i.i16, %39
+  %41 = add nuw nsw i64 %.01724.i.i.i.i.i15, 1
+  %exitcond.not.i.i.i.i.i17 = icmp eq i64 %41, %.sroa.22150.56.copyload
   br i1 %exitcond.not.i.i.i.i.i17, label %.lr.ph.i.i.i.i.i20.preheader, label %.lr.ph.i.i.i.i.i14, !llvm.loop !46
 
 .lr.ph.i.i.i.i.i20.preheader:                     ; preds = %.lr.ph.i.i.i.i.i14
-  %41 = tail call noundef float @llvm.sqrt.f32(float %24)
-  %42 = tail call noundef float @llvm.sqrt.f32(float %39)
-  %43 = fdiv float %13, %41
-  %44 = fdiv float %29, %42
+  %42 = tail call noundef float @llvm.sqrt.f32(float %40)
+  %43 = fdiv float %13, %26
+  %44 = fdiv float %30, %42
   %45 = fsub float %43, %44
   %46 = fmul float %45, %45
   br label %.lr.ph.i.i.i.i.i20
@@ -288,8 +288,8 @@ define linkonce_odr dso_local noundef double @_ZZN3igl15internal_anglesIN5Eigen6
   %51 = getelementptr float, ptr %.sroa.15147.56.copyload, i64 %50
   %52 = load float, ptr %51, align 4, !tbaa !43
   %53 = fsub float %49, %52
-  %54 = fdiv float %53, %41
-  %55 = mul nsw i64 %.01724.i.i.i.i.i21, %27
+  %54 = fdiv float %53, %26
+  %55 = mul nsw i64 %.01724.i.i.i.i.i21, %28
   %56 = getelementptr float, ptr %.sroa.0.0.copyload, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !43
   %58 = fsub float %57, %52
@@ -299,7 +299,7 @@ define linkonce_odr dso_local noundef double @_ZZN3igl15internal_anglesIN5Eigen6
   %62 = fadd float %.02223.i.i.i.i.i22, %61
   %63 = add nuw nsw i64 %.01724.i.i.i.i.i21, 1
   %exitcond.not.i.i.i.i.i23 = icmp eq i64 %63, %.sroa.22150.56.copyload
-  br i1 %exitcond.not.i.i.i.i.i23, label %.lr.ph.i.i.i.i.i34, label %.lr.ph.i.i.i.i.i20, !llvm.loop !47
+  br i1 %exitcond.not.i.i.i.i.i23, label %.lr.ph.i.i.i.i.i34.preheader, label %.lr.ph.i.i.i.i.i20, !llvm.loop !47
 
 .loopexit:                                        ; preds = %6
   %64 = tail call noundef float @llvm.sqrt.f32(float %14)
@@ -311,101 +311,105 @@ define linkonce_odr dso_local noundef double @_ZZN3igl15internal_anglesIN5Eigen6
   %70 = fdiv float %66, %68
   %71 = fsub float %69, %70
   %72 = fmul float %71, %71
+  %73 = tail call noundef float @llvm.sqrt.f32(float %72)
   br label %.loopexit171
 
-.lr.ph.i.i.i.i.i34:                               ; preds = %.lr.ph.i.i.i.i.i20, %.lr.ph.i.i.i.i.i34
-  %.01724.i.i.i.i.i35 = phi i64 [ %82, %.lr.ph.i.i.i.i.i34 ], [ 1, %.lr.ph.i.i.i.i.i20 ]
-  %.02223.i.i.i.i.i36 = phi float [ %81, %.lr.ph.i.i.i.i.i34 ], [ %14, %.lr.ph.i.i.i.i.i20 ]
-  %73 = mul nsw i64 %.01724.i.i.i.i.i35, %8
-  %74 = getelementptr float, ptr %.sroa.0143.0.copyload, i64 %73
-  %75 = load float, ptr %74, align 4, !tbaa !43
-  %76 = mul nsw i64 %.01724.i.i.i.i.i35, %10
-  %77 = getelementptr float, ptr %.sroa.15147.56.copyload, i64 %76
-  %78 = load float, ptr %77, align 4, !tbaa !43
-  %79 = fsub float %75, %78
-  %80 = fmul float %79, %79
-  %81 = fadd float %.02223.i.i.i.i.i36, %80
-  %82 = add nuw nsw i64 %.01724.i.i.i.i.i35, 1
-  %exitcond.not.i.i.i.i.i37 = icmp eq i64 %82, %.sroa.22150.56.copyload
+.lr.ph.i.i.i.i.i34.preheader:                     ; preds = %.lr.ph.i.i.i.i.i20
+  %74 = tail call noundef float @llvm.sqrt.f32(float %62)
+  br label %.lr.ph.i.i.i.i.i34
+
+.lr.ph.i.i.i.i.i34:                               ; preds = %.lr.ph.i.i.i.i.i34.preheader, %.lr.ph.i.i.i.i.i34
+  %.01724.i.i.i.i.i35 = phi i64 [ %84, %.lr.ph.i.i.i.i.i34 ], [ 1, %.lr.ph.i.i.i.i.i34.preheader ]
+  %.02223.i.i.i.i.i36 = phi float [ %83, %.lr.ph.i.i.i.i.i34 ], [ %14, %.lr.ph.i.i.i.i.i34.preheader ]
+  %75 = mul nsw i64 %.01724.i.i.i.i.i35, %8
+  %76 = getelementptr float, ptr %.sroa.0143.0.copyload, i64 %75
+  %77 = load float, ptr %76, align 4, !tbaa !43
+  %78 = mul nsw i64 %.01724.i.i.i.i.i35, %10
+  %79 = getelementptr float, ptr %.sroa.15147.56.copyload, i64 %78
+  %80 = load float, ptr %79, align 4, !tbaa !43
+  %81 = fsub float %77, %80
+  %82 = fmul float %81, %81
+  %83 = fadd float %.02223.i.i.i.i.i36, %82
+  %84 = add nuw nsw i64 %.01724.i.i.i.i.i35, 1
+  %exitcond.not.i.i.i.i.i37 = icmp eq i64 %84, %.sroa.22150.56.copyload
   br i1 %exitcond.not.i.i.i.i.i37, label %.loopexit171, label %.lr.ph.i.i.i.i.i34, !llvm.loop !46
 
 .loopexit171:                                     ; preds = %.lr.ph.i.i.i.i.i34, %.loopexit
-  %.lcssa174.sink = phi float [ %72, %.loopexit ], [ %62, %.lr.ph.i.i.i.i.i34 ]
-  %.0.i.i.i33.ph = phi float [ %14, %.loopexit ], [ %81, %.lr.ph.i.i.i.i.i34 ]
-  %83 = tail call noundef float @llvm.sqrt.f32(float %.lcssa174.sink)
-  %84 = tail call noundef float @llvm.sqrt.f32(float %.0.i.i.i33.ph)
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.copyload, i64 8
-  %86 = load i64, ptr %85, align 8, !tbaa !42
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.26153.56.copyload, i64 8
-  %88 = load i64, ptr %87, align 8, !tbaa !42
-  %89 = load float, ptr %.sroa.0.0.copyload, align 4, !tbaa !43
-  %90 = load float, ptr %.sroa.15147.56.copyload, align 4, !tbaa !43
-  %91 = fsub float %89, %90
-  %92 = fmul float %91, %91
-  %93 = icmp sgt i64 %.sroa.22150.56.copyload, 1
-  br i1 %93, label %.lr.ph.i.i.i.i.i49, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit53
+  %.ph = phi float [ %73, %.loopexit ], [ %74, %.lr.ph.i.i.i.i.i34 ]
+  %.0.i.i.i33.ph = phi float [ %14, %.loopexit ], [ %83, %.lr.ph.i.i.i.i.i34 ]
+  %85 = tail call noundef float @llvm.sqrt.f32(float %.0.i.i.i33.ph)
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.copyload, i64 8
+  %87 = load i64, ptr %86, align 8, !tbaa !42
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.26153.56.copyload, i64 8
+  %89 = load i64, ptr %88, align 8, !tbaa !42
+  %90 = load float, ptr %.sroa.0.0.copyload, align 4, !tbaa !43
+  %91 = load float, ptr %.sroa.15147.56.copyload, align 4, !tbaa !43
+  %92 = fsub float %90, %91
+  %93 = fmul float %92, %92
+  %94 = icmp sgt i64 %.sroa.22150.56.copyload, 1
+  br i1 %94, label %.lr.ph.i.i.i.i.i49, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit53
 
 .lr.ph.i.i.i.i.i49:                               ; preds = %.loopexit171, %.lr.ph.i.i.i.i.i49
-  %.01724.i.i.i.i.i50 = phi i64 [ %103, %.lr.ph.i.i.i.i.i49 ], [ 1, %.loopexit171 ]
-  %.02223.i.i.i.i.i51 = phi float [ %102, %.lr.ph.i.i.i.i.i49 ], [ %92, %.loopexit171 ]
-  %94 = mul nsw i64 %.01724.i.i.i.i.i50, %86
-  %95 = getelementptr float, ptr %.sroa.0.0.copyload, i64 %94
-  %96 = load float, ptr %95, align 4, !tbaa !43
-  %97 = mul nsw i64 %.01724.i.i.i.i.i50, %88
-  %98 = getelementptr float, ptr %.sroa.15147.56.copyload, i64 %97
-  %99 = load float, ptr %98, align 4, !tbaa !43
-  %100 = fsub float %96, %99
-  %101 = fmul float %100, %100
-  %102 = fadd float %.02223.i.i.i.i.i51, %101
-  %103 = add nuw nsw i64 %.01724.i.i.i.i.i50, 1
-  %exitcond.not.i.i.i.i.i52 = icmp eq i64 %103, %.sroa.22150.56.copyload
+  %.01724.i.i.i.i.i50 = phi i64 [ %104, %.lr.ph.i.i.i.i.i49 ], [ 1, %.loopexit171 ]
+  %.02223.i.i.i.i.i51 = phi float [ %103, %.lr.ph.i.i.i.i.i49 ], [ %93, %.loopexit171 ]
+  %95 = mul nsw i64 %.01724.i.i.i.i.i50, %87
+  %96 = getelementptr float, ptr %.sroa.0.0.copyload, i64 %95
+  %97 = load float, ptr %96, align 4, !tbaa !43
+  %98 = mul nsw i64 %.01724.i.i.i.i.i50, %89
+  %99 = getelementptr float, ptr %.sroa.15147.56.copyload, i64 %98
+  %100 = load float, ptr %99, align 4, !tbaa !43
+  %101 = fsub float %97, %100
+  %102 = fmul float %101, %101
+  %103 = fadd float %.02223.i.i.i.i.i51, %102
+  %104 = add nuw nsw i64 %.01724.i.i.i.i.i50, 1
+  %exitcond.not.i.i.i.i.i52 = icmp eq i64 %104, %.sroa.22150.56.copyload
   br i1 %exitcond.not.i.i.i.i.i52, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit53, label %.lr.ph.i.i.i.i.i49, !llvm.loop !46
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit53: ; preds = %.lr.ph.i.i.i.i.i49, %.loopexit171
-  %.0.i.i.i48 = phi float [ %92, %.loopexit171 ], [ %102, %.lr.ph.i.i.i.i.i49 ]
-  %104 = tail call noundef float @llvm.sqrt.f32(float %.0.i.i.i48)
-  %105 = getelementptr inbounds nuw i8, ptr %.sroa.9145.0.copyload, i64 8
-  %106 = load i64, ptr %105, align 8, !tbaa !42
-  %107 = load float, ptr %.sroa.0143.0.copyload, align 4, !tbaa !43
-  %108 = fsub float %107, %90
-  %109 = fdiv float %108, %84
-  %110 = fdiv float %91, %104
-  %111 = fadd float %109, %110
-  %112 = fmul float %111, %111
-  br i1 %93, label %.lr.ph.i.i.i.i.i69, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIffEEKNS1_INS2_18scalar_quotient_opIffEEKNS1_INS2_20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESE_EEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIfEEKNSA_IfLi1ELin1ELi1ELi1ELin1EEEEEEESP_EEE4normEv.exit
+  %.0.i.i.i48 = phi float [ %93, %.loopexit171 ], [ %103, %.lr.ph.i.i.i.i.i49 ]
+  %105 = tail call noundef float @llvm.sqrt.f32(float %.0.i.i.i48)
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.9145.0.copyload, i64 8
+  %107 = load i64, ptr %106, align 8, !tbaa !42
+  %108 = load float, ptr %.sroa.0143.0.copyload, align 4, !tbaa !43
+  %109 = fsub float %108, %91
+  %110 = fdiv float %109, %85
+  %111 = fdiv float %92, %105
+  %112 = fadd float %110, %111
+  %113 = fmul float %112, %112
+  br i1 %94, label %.lr.ph.i.i.i.i.i69, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIffEEKNS1_INS2_18scalar_quotient_opIffEEKNS1_INS2_20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESE_EEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIfEEKNSA_IfLi1ELin1ELi1ELi1ELin1EEEEEEESP_EEE4normEv.exit
 
 .lr.ph.i.i.i.i.i69:                               ; preds = %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit53, %.lr.ph.i.i.i.i.i69
-  %.01724.i.i.i.i.i70 = phi i64 [ %129, %.lr.ph.i.i.i.i.i69 ], [ 1, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit53 ]
-  %.02223.i.i.i.i.i71 = phi float [ %128, %.lr.ph.i.i.i.i.i69 ], [ %112, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit53 ]
-  %113 = mul nsw i64 %.01724.i.i.i.i.i70, %106
-  %114 = getelementptr float, ptr %.sroa.0143.0.copyload, i64 %113
-  %115 = load float, ptr %114, align 4, !tbaa !43
-  %116 = mul nsw i64 %.01724.i.i.i.i.i70, %88
-  %117 = getelementptr float, ptr %.sroa.15147.56.copyload, i64 %116
-  %118 = load float, ptr %117, align 4, !tbaa !43
-  %119 = fsub float %115, %118
-  %120 = fdiv float %119, %84
-  %121 = mul nsw i64 %.01724.i.i.i.i.i70, %86
-  %122 = getelementptr float, ptr %.sroa.0.0.copyload, i64 %121
-  %123 = load float, ptr %122, align 4, !tbaa !43
-  %124 = fsub float %123, %118
-  %125 = fdiv float %124, %104
-  %126 = fadd float %120, %125
-  %127 = fmul float %126, %126
-  %128 = fadd float %.02223.i.i.i.i.i71, %127
-  %129 = add nuw nsw i64 %.01724.i.i.i.i.i70, 1
-  %exitcond.not.i.i.i.i.i72 = icmp eq i64 %129, %.sroa.22150.56.copyload
+  %.01724.i.i.i.i.i70 = phi i64 [ %130, %.lr.ph.i.i.i.i.i69 ], [ 1, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit53 ]
+  %.02223.i.i.i.i.i71 = phi float [ %129, %.lr.ph.i.i.i.i.i69 ], [ %113, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit53 ]
+  %114 = mul nsw i64 %.01724.i.i.i.i.i70, %107
+  %115 = getelementptr float, ptr %.sroa.0143.0.copyload, i64 %114
+  %116 = load float, ptr %115, align 4, !tbaa !43
+  %117 = mul nsw i64 %.01724.i.i.i.i.i70, %89
+  %118 = getelementptr float, ptr %.sroa.15147.56.copyload, i64 %117
+  %119 = load float, ptr %118, align 4, !tbaa !43
+  %120 = fsub float %116, %119
+  %121 = fdiv float %120, %85
+  %122 = mul nsw i64 %.01724.i.i.i.i.i70, %87
+  %123 = getelementptr float, ptr %.sroa.0.0.copyload, i64 %122
+  %124 = load float, ptr %123, align 4, !tbaa !43
+  %125 = fsub float %124, %119
+  %126 = fdiv float %125, %105
+  %127 = fadd float %121, %126
+  %128 = fmul float %127, %127
+  %129 = fadd float %.02223.i.i.i.i.i71, %128
+  %130 = add nuw nsw i64 %.01724.i.i.i.i.i70, 1
+  %exitcond.not.i.i.i.i.i72 = icmp eq i64 %130, %.sroa.22150.56.copyload
   br i1 %exitcond.not.i.i.i.i.i72, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIffEEKNS1_INS2_18scalar_quotient_opIffEEKNS1_INS2_20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESE_EEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIfEEKNSA_IfLi1ELin1ELi1ELi1ELin1EEEEEEESP_EEE4normEv.exit, label %.lr.ph.i.i.i.i.i69, !llvm.loop !48
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIffEEKNS1_INS2_18scalar_quotient_opIffEEKNS1_INS2_20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESE_EEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIfEEKNSA_IfLi1ELin1ELi1ELi1ELin1EEEEEEESP_EEE4normEv.exit: ; preds = %.lr.ph.i.i.i.i.i69, %4, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit53
-  %130 = phi float [ %83, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit53 ], [ 0.000000e+00, %4 ], [ %83, %.lr.ph.i.i.i.i.i69 ]
-  %.0.i.i.i68 = phi float [ %112, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit53 ], [ 0.000000e+00, %4 ], [ %128, %.lr.ph.i.i.i.i.i69 ]
-  %131 = tail call noundef float @llvm.sqrt.f32(float %.0.i.i.i68)
-  %132 = fdiv float %130, %131
-  %133 = fpext float %132 to double
-  %134 = tail call double @atan(double noundef %133) #13, !tbaa !18
-  %135 = fmul double %134, 2.000000e+00
-  ret double %135
+  %131 = phi float [ %.ph, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit53 ], [ 0.000000e+00, %4 ], [ %.ph, %.lr.ph.i.i.i.i.i69 ]
+  %.0.i.i.i68 = phi float [ %113, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffEEKNS_5BlockIKNS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit53 ], [ 0.000000e+00, %4 ], [ %129, %.lr.ph.i.i.i.i.i69 ]
+  %132 = tail call noundef float @llvm.sqrt.f32(float %.0.i.i.i68)
+  %133 = fdiv float %131, %132
+  %134 = fpext float %133 to double
+  %135 = tail call double @atan(double noundef %134) #13, !tbaa !18
+  %136 = fmul double %135, 2.000000e+00
+  ret double %136
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1012,6 +1016,7 @@ define linkonce_odr dso_local noundef double @_ZZN3igl15internal_anglesIN5Eigen6
   br i1 %exitcond.not.i.i.i.i.i, label %.lr.ph.i.i.i.i.i15.preheader, label %.lr.ph.i.i.i.i.i, !llvm.loop !102
 
 .lr.ph.i.i.i.i.i15.preheader:                     ; preds = %.lr.ph.i.i.i.i.i
+  %.scalar.i176 = tail call noundef double @llvm.sqrt.f64(double %24)
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.copyload, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !98
   %28 = load double, ptr %.sroa.0.0.copyload, align 8, !tbaa !99
@@ -1036,7 +1041,6 @@ define linkonce_odr dso_local noundef double @_ZZN3igl15internal_anglesIN5Eigen6
   br i1 %exitcond.not.i.i.i.i.i18, label %.lr.ph.i.i.i.i.i22.preheader, label %.lr.ph.i.i.i.i.i15, !llvm.loop !102
 
 .lr.ph.i.i.i.i.i22.preheader:                     ; preds = %.lr.ph.i.i.i.i.i15
-  %.scalar.i176 = tail call noundef double @llvm.sqrt.f64(double %24)
   %.scalar.i14181 = tail call noundef double @llvm.sqrt.f64(double %39)
   %41 = fdiv double %13, %.scalar.i176
   %42 = fdiv double %29, %.scalar.i14181
@@ -1065,7 +1069,7 @@ define linkonce_odr dso_local noundef double @_ZZN3igl15internal_anglesIN5Eigen6
   %60 = fadd double %.02223.i.i.i.i.i24, %59
   %61 = add nuw nsw i64 %.01724.i.i.i.i.i23, 1
   %exitcond.not.i.i.i.i.i25 = icmp eq i64 %61, %.sroa.22155.56.copyload
-  br i1 %exitcond.not.i.i.i.i.i25, label %.lr.ph.i.i.i.i.i37, label %.lr.ph.i.i.i.i.i22, !llvm.loop !103
+  br i1 %exitcond.not.i.i.i.i.i25, label %.lr.ph.i.i.i.i.i37.preheader, label %.lr.ph.i.i.i.i.i22, !llvm.loop !103
 
 .loopexit:                                        ; preds = %6
   %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %14)
@@ -1077,11 +1081,16 @@ define linkonce_odr dso_local noundef double @_ZZN3igl15internal_anglesIN5Eigen6
   %66 = fdiv double %63, %.scalar.i14
   %67 = fsub double %65, %66
   %68 = fmul double %67, %67
+  %.scalar.i21162 = tail call noundef double @llvm.sqrt.f64(double %68)
   br label %.loopexit193
 
-.lr.ph.i.i.i.i.i37:                               ; preds = %.lr.ph.i.i.i.i.i22, %.lr.ph.i.i.i.i.i37
-  %.01724.i.i.i.i.i38 = phi i64 [ %78, %.lr.ph.i.i.i.i.i37 ], [ 1, %.lr.ph.i.i.i.i.i22 ]
-  %.02223.i.i.i.i.i39 = phi double [ %77, %.lr.ph.i.i.i.i.i37 ], [ %14, %.lr.ph.i.i.i.i.i22 ]
+.lr.ph.i.i.i.i.i37.preheader:                     ; preds = %.lr.ph.i.i.i.i.i22
+  %.scalar.i21162185 = tail call noundef double @llvm.sqrt.f64(double %60)
+  br label %.lr.ph.i.i.i.i.i37
+
+.lr.ph.i.i.i.i.i37:                               ; preds = %.lr.ph.i.i.i.i.i37.preheader, %.lr.ph.i.i.i.i.i37
+  %.01724.i.i.i.i.i38 = phi i64 [ %78, %.lr.ph.i.i.i.i.i37 ], [ 1, %.lr.ph.i.i.i.i.i37.preheader ]
+  %.02223.i.i.i.i.i39 = phi double [ %77, %.lr.ph.i.i.i.i.i37 ], [ %14, %.lr.ph.i.i.i.i.i37.preheader ]
   %69 = mul nsw i64 %.01724.i.i.i.i.i38, %8
   %70 = getelementptr double, ptr %.sroa.0148.0.copyload, i64 %69
   %71 = load double, ptr %70, align 8, !tbaa !99
@@ -1096,9 +1105,8 @@ define linkonce_odr dso_local noundef double @_ZZN3igl15internal_anglesIN5Eigen6
   br i1 %exitcond.not.i.i.i.i.i40, label %.loopexit193, label %.lr.ph.i.i.i.i.i37, !llvm.loop !102
 
 .loopexit193:                                     ; preds = %.lr.ph.i.i.i.i.i37, %.loopexit
-  %.lcssa196.sink = phi double [ %68, %.loopexit ], [ %60, %.lr.ph.i.i.i.i.i37 ]
+  %.scalar.i21164.ph = phi double [ %.scalar.i21162, %.loopexit ], [ %.scalar.i21162185, %.lr.ph.i.i.i.i.i37 ]
   %.0.i.i.i35.ph = phi double [ %14, %.loopexit ], [ %77, %.lr.ph.i.i.i.i.i37 ]
-  %.scalar.i21162185 = tail call noundef double @llvm.sqrt.f64(double %.lcssa196.sink)
   %.scalar.i36189 = tail call noundef double @llvm.sqrt.f64(double %.0.i.i.i35.ph)
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.copyload, i64 8
   %80 = load i64, ptr %79, align 8, !tbaa !98
@@ -1164,7 +1172,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br i1 %exitcond.not.i.i.i.i.i77, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_INS2_18scalar_quotient_opIddEEKNS1_INS2_20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESE_EEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNSA_IdLi1ELin1ELi1ELi1ELin1EEEEEEESP_EEE4normEv.exit, label %.lr.ph.i.i.i.i.i74, !llvm.loop !104
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_INS2_18scalar_quotient_opIddEEKNS1_INS2_20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESE_EEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNSA_IdLi1ELin1ELi1ELi1ELin1EEEEEEESP_EEE4normEv.exit: ; preds = %.lr.ph.i.i.i.i.i74, %4, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit57
-  %.scalar.i21164191 = phi double [ %.scalar.i21162185, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit57 ], [ 0.000000e+00, %4 ], [ %.scalar.i21162185, %.lr.ph.i.i.i.i.i74 ]
+  %.scalar.i21164191 = phi double [ %.scalar.i21164.ph, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit57 ], [ 0.000000e+00, %4 ], [ %.scalar.i21164.ph, %.lr.ph.i.i.i.i.i74 ]
   %.0.i.i.i72 = phi double [ %105, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit57 ], [ 0.000000e+00, %4 ], [ %121, %.lr.ph.i.i.i.i.i74 ]
   %.scalar.i73 = tail call noundef double @llvm.sqrt.f64(double %.0.i.i.i72)
   %123 = fdiv double %.scalar.i21164191, %.scalar.i73
@@ -1646,6 +1654,7 @@ define linkonce_odr dso_local noundef double @_ZZN3igl15internal_anglesIN5Eigen6
   br i1 %exitcond.not.i.i.i.i.i, label %.lr.ph.i.i.i.i.i15.preheader, label %.lr.ph.i.i.i.i.i, !llvm.loop !102
 
 .lr.ph.i.i.i.i.i15.preheader:                     ; preds = %.lr.ph.i.i.i.i.i
+  %.scalar.i176 = tail call noundef double @llvm.sqrt.f64(double %24)
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.copyload, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !98
   %28 = load double, ptr %.sroa.0.0.copyload, align 8, !tbaa !99
@@ -1670,7 +1679,6 @@ define linkonce_odr dso_local noundef double @_ZZN3igl15internal_anglesIN5Eigen6
   br i1 %exitcond.not.i.i.i.i.i18, label %.lr.ph.i.i.i.i.i22.preheader, label %.lr.ph.i.i.i.i.i15, !llvm.loop !102
 
 .lr.ph.i.i.i.i.i22.preheader:                     ; preds = %.lr.ph.i.i.i.i.i15
-  %.scalar.i176 = tail call noundef double @llvm.sqrt.f64(double %24)
   %.scalar.i14181 = tail call noundef double @llvm.sqrt.f64(double %39)
   %41 = fdiv double %13, %.scalar.i176
   %42 = fdiv double %29, %.scalar.i14181
@@ -1699,7 +1707,7 @@ define linkonce_odr dso_local noundef double @_ZZN3igl15internal_anglesIN5Eigen6
   %60 = fadd double %.02223.i.i.i.i.i24, %59
   %61 = add nuw nsw i64 %.01724.i.i.i.i.i23, 1
   %exitcond.not.i.i.i.i.i25 = icmp eq i64 %61, %.sroa.22155.56.copyload
-  br i1 %exitcond.not.i.i.i.i.i25, label %.lr.ph.i.i.i.i.i37, label %.lr.ph.i.i.i.i.i22, !llvm.loop !103
+  br i1 %exitcond.not.i.i.i.i.i25, label %.lr.ph.i.i.i.i.i37.preheader, label %.lr.ph.i.i.i.i.i22, !llvm.loop !103
 
 .loopexit:                                        ; preds = %6
   %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %14)
@@ -1711,11 +1719,16 @@ define linkonce_odr dso_local noundef double @_ZZN3igl15internal_anglesIN5Eigen6
   %66 = fdiv double %63, %.scalar.i14
   %67 = fsub double %65, %66
   %68 = fmul double %67, %67
+  %.scalar.i21162 = tail call noundef double @llvm.sqrt.f64(double %68)
   br label %.loopexit193
 
-.lr.ph.i.i.i.i.i37:                               ; preds = %.lr.ph.i.i.i.i.i22, %.lr.ph.i.i.i.i.i37
-  %.01724.i.i.i.i.i38 = phi i64 [ %78, %.lr.ph.i.i.i.i.i37 ], [ 1, %.lr.ph.i.i.i.i.i22 ]
-  %.02223.i.i.i.i.i39 = phi double [ %77, %.lr.ph.i.i.i.i.i37 ], [ %14, %.lr.ph.i.i.i.i.i22 ]
+.lr.ph.i.i.i.i.i37.preheader:                     ; preds = %.lr.ph.i.i.i.i.i22
+  %.scalar.i21162185 = tail call noundef double @llvm.sqrt.f64(double %60)
+  br label %.lr.ph.i.i.i.i.i37
+
+.lr.ph.i.i.i.i.i37:                               ; preds = %.lr.ph.i.i.i.i.i37.preheader, %.lr.ph.i.i.i.i.i37
+  %.01724.i.i.i.i.i38 = phi i64 [ %78, %.lr.ph.i.i.i.i.i37 ], [ 1, %.lr.ph.i.i.i.i.i37.preheader ]
+  %.02223.i.i.i.i.i39 = phi double [ %77, %.lr.ph.i.i.i.i.i37 ], [ %14, %.lr.ph.i.i.i.i.i37.preheader ]
   %69 = mul nsw i64 %.01724.i.i.i.i.i38, %8
   %70 = getelementptr double, ptr %.sroa.0148.0.copyload, i64 %69
   %71 = load double, ptr %70, align 8, !tbaa !99
@@ -1730,9 +1743,8 @@ define linkonce_odr dso_local noundef double @_ZZN3igl15internal_anglesIN5Eigen6
   br i1 %exitcond.not.i.i.i.i.i40, label %.loopexit193, label %.lr.ph.i.i.i.i.i37, !llvm.loop !102
 
 .loopexit193:                                     ; preds = %.lr.ph.i.i.i.i.i37, %.loopexit
-  %.lcssa196.sink = phi double [ %68, %.loopexit ], [ %60, %.lr.ph.i.i.i.i.i37 ]
+  %.scalar.i21164.ph = phi double [ %.scalar.i21162, %.loopexit ], [ %.scalar.i21162185, %.lr.ph.i.i.i.i.i37 ]
   %.0.i.i.i35.ph = phi double [ %14, %.loopexit ], [ %77, %.lr.ph.i.i.i.i.i37 ]
-  %.scalar.i21162185 = tail call noundef double @llvm.sqrt.f64(double %.lcssa196.sink)
   %.scalar.i36189 = tail call noundef double @llvm.sqrt.f64(double %.0.i.i.i35.ph)
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.copyload, i64 8
   %80 = load i64, ptr %79, align 8, !tbaa !98
@@ -1798,7 +1810,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   br i1 %exitcond.not.i.i.i.i.i77, label %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_INS2_18scalar_quotient_opIddEEKNS1_INS2_20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESE_EEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNSA_IdLi1ELin1ELi1ELi1ELin1EEEEEEESP_EEE4normEv.exit, label %.lr.ph.i.i.i.i.i74, !llvm.loop !104
 
 _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS1_INS2_18scalar_quotient_opIddEEKNS1_INS2_20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESE_EEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNSA_IdLi1ELin1ELi1ELi1ELin1EEEEEEESP_EEE4normEv.exit: ; preds = %.lr.ph.i.i.i.i.i74, %4, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit57
-  %.scalar.i21164191 = phi double [ %.scalar.i21162185, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit57 ], [ 0.000000e+00, %4 ], [ %.scalar.i21162185, %.lr.ph.i.i.i.i.i74 ]
+  %.scalar.i21164191 = phi double [ %.scalar.i21164.ph, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit57 ], [ 0.000000e+00, %4 ], [ %.scalar.i21164.ph, %.lr.ph.i.i.i.i.i74 ]
   %.0.i.i.i72 = phi double [ %105, %_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EEE4normEv.exit57 ], [ 0.000000e+00, %4 ], [ %121, %.lr.ph.i.i.i.i.i74 ]
   %.scalar.i73 = tail call noundef double @llvm.sqrt.f64(double %.0.i.i.i72)
   %123 = fdiv double %.scalar.i21164191, %.scalar.i73

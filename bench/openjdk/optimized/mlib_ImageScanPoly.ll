@@ -255,75 +255,75 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   br i1 %or.cond956, label %150, label %570
 
 150:                                              ; preds = %135
-  %151 = fadd double %21, -5.000000e-01
-  %152 = fadd double %27, -5.000000e-01
-  %153 = fmul double %19, %.0803
-  %154 = tail call double @llvm.fmuladd.f64(double %.0801, double %17, double %153)
-  %155 = fadd double %151, %154
-  store double %155, ptr %14, align 16
-  %156 = fmul double %25, %.0803
-  %157 = tail call double @llvm.fmuladd.f64(double %.0801, double %23, double %156)
-  %158 = fadd double %152, %157
-  %159 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store double %158, ptr %159, align 8
-  %160 = fmul double %19, %.0809
-  %161 = tail call double @llvm.fmuladd.f64(double %.0807, double %17, double %160)
-  %162 = fadd double %151, %161
-  %163 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store double %162, ptr %163, align 16
-  %164 = fmul double %25, %.0809
-  %165 = tail call double @llvm.fmuladd.f64(double %.0807, double %23, double %164)
-  %166 = fadd double %152, %165
-  %167 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store double %166, ptr %167, align 8
-  %168 = fcmp ogt double %54, 0.000000e+00
-  %169 = tail call double @llvm.fmuladd.f64(double %.0807, double %17, double %153)
-  %170 = tail call double @llvm.fmuladd.f64(double %.0807, double %23, double %156)
-  %171 = tail call double @llvm.fmuladd.f64(double %.0801, double %17, double %160)
-  %172 = tail call double @llvm.fmuladd.f64(double %.0801, double %23, double %164)
-  %. = select i1 %168, double %169, double %171
-  %.1214 = select i1 %168, double %170, double %172
-  %.1215 = select i1 %168, double %171, double %169
-  %.1216 = select i1 %168, double %172, double %170
-  %.sink = fadd double %152, %.1216
-  %.sink1185 = fadd double %151, %.1215
-  %.sink1186 = fadd double %152, %.1214
-  %.sink1187 = fadd double %151, %.
-  %173 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store double %.sink1187, ptr %173, align 16
-  %174 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store double %.sink1186, ptr %174, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store double %.sink1185, ptr %175, align 16
-  %176 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  store double %.sink, ptr %176, align 8
-  br label %177
+  %151 = fneg double %19
+  %152 = fneg double %25
+  %153 = fmul double %19, %27
+  %154 = tail call double @llvm.fmuladd.f64(double %152, double %21, double %153)
+  %155 = fneg double %27
+  %156 = fmul double %17, %155
+  %157 = tail call double @llvm.fmuladd.f64(double %23, double %21, double %156)
+  %158 = fadd double %21, -5.000000e-01
+  %159 = fadd double %27, -5.000000e-01
+  %160 = fmul double %19, %.0803
+  %161 = tail call double @llvm.fmuladd.f64(double %.0801, double %17, double %160)
+  %162 = fadd double %158, %161
+  store double %162, ptr %14, align 16
+  %163 = fmul double %25, %.0803
+  %164 = tail call double @llvm.fmuladd.f64(double %.0801, double %23, double %163)
+  %165 = fadd double %159, %164
+  %166 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store double %165, ptr %166, align 8
+  %167 = fmul double %19, %.0809
+  %168 = tail call double @llvm.fmuladd.f64(double %.0807, double %17, double %167)
+  %169 = fadd double %158, %168
+  %170 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store double %169, ptr %170, align 16
+  %171 = fmul double %25, %.0809
+  %172 = tail call double @llvm.fmuladd.f64(double %.0807, double %23, double %171)
+  %173 = fadd double %159, %172
+  %174 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  store double %173, ptr %174, align 8
+  %175 = fcmp ogt double %54, 0.000000e+00
+  %176 = tail call double @llvm.fmuladd.f64(double %.0807, double %17, double %160)
+  %177 = tail call double @llvm.fmuladd.f64(double %.0807, double %23, double %163)
+  %178 = tail call double @llvm.fmuladd.f64(double %.0801, double %17, double %167)
+  %179 = tail call double @llvm.fmuladd.f64(double %.0801, double %23, double %171)
+  %. = select i1 %175, double %176, double %178
+  %.1214 = select i1 %175, double %177, double %179
+  %.1215 = select i1 %175, double %178, double %176
+  %.1216 = select i1 %175, double %179, double %177
+  %.sink = fadd double %159, %.1216
+  %.sink1185 = fadd double %158, %.1215
+  %.sink1186 = fadd double %159, %.1214
+  %.sink1187 = fadd double %158, %.
+  %180 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store double %.sink1187, ptr %180, align 16
+  %181 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store double %.sink1186, ptr %181, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  store double %.sink1185, ptr %182, align 16
+  %183 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  store double %.sink, ptr %183, align 8
+  br label %184
 
-177:                                              ; preds = %150, %177
-  %indvars.iv1153 = phi i64 [ 1, %150 ], [ %indvars.iv.next1154, %177 ]
-  %.08451103 = phi i32 [ 0, %150 ], [ %.1846, %177 ]
-  %178 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %indvars.iv1153
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %180 = load double, ptr %179, align 8
-  %181 = zext nneg i32 %.08451103 to i64
-  %182 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %181
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  %184 = load double, ptr %183, align 8
-  %185 = fcmp olt double %180, %184
-  %186 = trunc nuw nsw i64 %indvars.iv1153 to i32
-  %.1846 = select i1 %185, i32 %186, i32 %.08451103
+184:                                              ; preds = %150, %184
+  %indvars.iv1153 = phi i64 [ 1, %150 ], [ %indvars.iv.next1154, %184 ]
+  %.08451103 = phi i32 [ 0, %150 ], [ %.1846, %184 ]
+  %185 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %indvars.iv1153
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  %187 = load double, ptr %186, align 8
+  %188 = zext nneg i32 %.08451103 to i64
+  %189 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %188
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  %191 = load double, ptr %190, align 8
+  %192 = fcmp olt double %187, %191
+  %193 = trunc nuw nsw i64 %indvars.iv1153 to i32
+  %.1846 = select i1 %192, i32 %193, i32 %.08451103
   %indvars.iv.next1154 = add nuw nsw i64 %indvars.iv1153, 1
   %exitcond1156.not = icmp eq i64 %indvars.iv.next1154, 4
-  br i1 %exitcond1156.not, label %187, label %177, !llvm.loop !10
+  br i1 %exitcond1156.not, label %194, label %184, !llvm.loop !10
 
-187:                                              ; preds = %177
-  %188 = fneg double %19
-  %189 = fneg double %25
-  %190 = fmul double %19, %27
-  %191 = tail call double @llvm.fmuladd.f64(double %189, double %21, double %190)
-  %192 = fneg double %27
-  %193 = fmul double %17, %192
-  %194 = tail call double @llvm.fmuladd.f64(double %23, double %21, double %193)
+194:                                              ; preds = %184
   %195 = zext nneg i32 %.1846 to i64
   %196 = getelementptr inbounds nuw [2 x double], ptr %14, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
@@ -336,7 +336,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %.not = icmp sgt i32 %.val998, %199
   br i1 %.not, label %200, label %570
 
-200:                                              ; preds = %187
+200:                                              ; preds = %194
   %201 = fcmp ult double %198, 0.000000e+00
   br i1 %201, label %247, label %202
 
@@ -672,12 +672,12 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %386 = fadd double %385, 5.000000e-01
   %387 = sitofp i32 %381 to double
   %388 = fadd double %387, 5.000000e-01
-  %389 = fmul double %386, %188
+  %389 = fmul double %386, %151
   %390 = tail call double @llvm.fmuladd.f64(double %383, double %25, double %389)
-  %391 = fadd double %191, %390
+  %391 = fadd double %154, %390
   %392 = fmul double %17, %386
   %393 = tail call double @llvm.fmuladd.f64(double %383, double %52, double %392)
-  %394 = fadd double %194, %393
+  %394 = fadd double %157, %393
   %395 = fcmp uge double %391, %328
   %396 = fcmp ult double %391, %330
   %or.cond957.not1039.not1044 = select i1 %395, i1 %396, i1 false
@@ -709,9 +709,9 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %.0806 = phi double [ %391, %375 ], [ %400, %399 ]
   %.0805 = phi double [ %394, %375 ], [ %401, %399 ]
   %408 = tail call double @llvm.fmuladd.f64(double %388, double %25, double %389)
-  %409 = fadd double %191, %408
+  %409 = fadd double %154, %408
   %410 = tail call double @llvm.fmuladd.f64(double %388, double %52, double %392)
-  %411 = fadd double %194, %410
+  %411 = fadd double %157, %410
   %412 = fcmp uge double %409, %328
   %413 = fcmp ult double %409, %330
   %or.cond963.not1055.not1060 = select i1 %412, i1 %413, i1 false
@@ -836,12 +836,12 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %471 = fadd double %470, 5.000000e-01
   %472 = sitofp i32 %466 to double
   %473 = fadd double %472, 5.000000e-01
-  %474 = fmul double %471, %188
+  %474 = fmul double %471, %151
   %475 = tail call double @llvm.fmuladd.f64(double %468, double %25, double %474)
-  %476 = fadd double %191, %475
+  %476 = fadd double %154, %475
   %477 = fmul double %17, %471
   %478 = tail call double @llvm.fmuladd.f64(double %468, double %52, double %477)
-  %479 = fadd double %194, %478
+  %479 = fadd double %157, %478
   %480 = fcmp ule double %476, %328
   %481 = fcmp ugt double %476, %330
   %or.cond973.not1007.not1012 = select i1 %480, i1 %481, i1 false
@@ -873,9 +873,9 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %.0792 = phi double [ %476, %460 ], [ %485, %484 ]
   %.0791 = phi double [ %479, %460 ], [ %486, %484 ]
   %493 = tail call double @llvm.fmuladd.f64(double %473, double %25, double %474)
-  %494 = fadd double %191, %493
+  %494 = fadd double %154, %493
   %495 = tail call double @llvm.fmuladd.f64(double %473, double %52, double %477)
-  %496 = fadd double %194, %495
+  %496 = fadd double %157, %495
   %497 = fcmp ule double %494, %328
   %498 = fcmp ugt double %494, %330
   %or.cond980.not1023.not1028 = select i1 %497, i1 %498, i1 false
@@ -1037,8 +1037,8 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   store i32 %.2826, ptr %569, align 4
   br label %570
 
-570:                                              ; preds = %187, %135, %68, %51, %48, %13, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ 1, %13 ], [ 1, %48 ], [ 1, %51 ], [ 1, %68 ], [ 0, %135 ], [ 0, %187 ]
+570:                                              ; preds = %194, %135, %68, %51, %48, %13, %.loopexit
+  %.0 = phi i32 [ 0, %.loopexit ], [ 1, %13 ], [ 1, %48 ], [ 1, %51 ], [ 1, %68 ], [ 0, %135 ], [ 0, %194 ]
   ret i32 %.0
 }
 

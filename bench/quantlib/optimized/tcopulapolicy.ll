@@ -2007,8 +2007,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !23
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
@@ -18986,6 +18986,7 @@ for.body:                                         ; preds = %cond.end, %_ZN5boos
   %j.075 = phi x86_fp80 [ %div20, %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit ], [ %div62, %cond.end ]
   %sum.074 = phi x86_fp80 [ %2, %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit ], [ %add69, %cond.end ]
   %lxp.073 = phi x86_fp80 [ 0xK3FFF8000000000000000, %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit ], [ %mul63, %cond.end ]
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 2
   %arrayidx = getelementptr inbounds nuw x86_fp80, ptr %p, i64 %indvars.iv84
   store x86_fp80 0xK00000000000000000000, ptr %arrayidx, align 16, !tbaa !50
   %3 = trunc nuw nsw i64 %indvars.iv84 to i32
@@ -18999,7 +19000,6 @@ for.body33.lr.ph:                                 ; preds = %for.body
 
 for.cond.cleanup32:                               ; preds = %for.body33, %for.body
   %4 = phi x86_fp80 [ 0xK00000000000000000000, %for.body ], [ %add45, %for.body33 ]
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 2
   %div50 = fdiv x86_fp80 %4, %conv28
   %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %indvars.iv.next87
   %5 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !50
@@ -22518,6 +22518,7 @@ for.body:                                         ; preds = %cond.end, %_ZN5boos
   %j.075 = phi x86_fp80 [ %div20, %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeES8_S9_RKT1_.exit ], [ %div62, %cond.end ]
   %sum.074 = phi x86_fp80 [ %2, %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeES8_S9_RKT1_.exit ], [ %add69, %cond.end ]
   %lxp.073 = phi x86_fp80 [ 0xK3FFF8000000000000000, %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeES8_S9_RKT1_.exit ], [ %mul63, %cond.end ]
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 2
   %arrayidx = getelementptr inbounds nuw x86_fp80, ptr %p, i64 %indvars.iv84
   store x86_fp80 0xK00000000000000000000, ptr %arrayidx, align 16, !tbaa !50
   %3 = trunc nuw nsw i64 %indvars.iv84 to i32
@@ -22531,7 +22532,6 @@ for.body33.lr.ph:                                 ; preds = %for.body
 
 for.cond.cleanup32:                               ; preds = %for.body33, %for.body
   %4 = phi x86_fp80 [ 0xK00000000000000000000, %for.body ], [ %add45, %for.body33 ]
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 2
   %div50 = fdiv x86_fp80 %4, %conv28
   %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %indvars.iv.next87
   %5 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !50

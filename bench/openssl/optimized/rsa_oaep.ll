@@ -463,40 +463,40 @@ define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32
   %.0147.lcssa = phi i32 [ 0, %65 ], [ %83, %.lr.ph191 ]
   %.1145.lcssa = phi i32 [ %69, %65 ], [ %86, %.lr.ph191 ]
   %.0143.lcssa = phi i32 [ 0, %65 ], [ %84, %.lr.ph191 ]
-  %89 = add i32 %30, %29
-  %90 = sub i32 %89, %1
-  %91 = sub i32 %17, %30
-  %92 = and i32 %90, %91
-  %.neg.i.i168 = ashr i32 %92, 31
-  %93 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.neg.i.i168) #6, !srcloc !13
-  %94 = xor i32 %.neg.i.i168, -1
-  %95 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %94) #6, !srcloc !13
-  %96 = icmp sgt i32 %89, 1
-  br i1 %96, label %.lr.ph203, label %.preheader
+  %.neg = xor i32 %.0147.lcssa, -1
+  %89 = add i32 %30, %.neg
+  %90 = sub i32 %1, %89
+  %91 = or i32 %90, %89
+  %isnotneg.i.inv = icmp slt i32 %91, 0
+  %92 = select i1 %isnotneg.i.inv, i32 0, i32 %.0143.lcssa
+  %93 = and i32 %92, %.1145.lcssa
+  %94 = add i32 %30, %29
+  %95 = sub i32 %94, %1
+  %96 = sub i32 %17, %30
+  %97 = and i32 %95, %96
+  %.neg.i.i168 = ashr i32 %97, 31
+  %98 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.neg.i.i168) #6, !srcloc !13
+  %99 = and i32 %98, %94
+  %100 = xor i32 %.neg.i.i168, -1
+  %101 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %100) #6, !srcloc !13
+  %102 = and i32 %101, %1
+  %103 = or i32 %102, %99
+  %104 = icmp sgt i32 %94, 1
+  br i1 %104, label %.lr.ph203, label %.preheader
 
 .lr.ph203:                                        ; preds = %._crit_edge192
-  %97 = sub i32 %.0147.lcssa, %17
+  %105 = sub i32 %.0147.lcssa, %17
   %.4196 = add nuw nsw i32 %17, 1
-  %98 = zext nneg i32 %.4196 to i64
+  %106 = zext nneg i32 %.4196 to i64
   br label %109
 
 .preheader:                                       ; preds = %._crit_edge200, %._crit_edge192
-  %.neg = xor i32 %.0147.lcssa, -1
-  %99 = add i32 %30, %.neg
-  %100 = sub i32 %1, %99
-  %101 = or i32 %100, %99
-  %isnotneg.i.inv = icmp slt i32 %101, 0
-  %102 = select i1 %isnotneg.i.inv, i32 0, i32 %.0143.lcssa
-  %103 = and i32 %102, %.1145.lcssa
-  %104 = and i32 %93, %89
-  %105 = and i32 %95, %1
-  %106 = or i32 %105, %104
-  %107 = icmp sgt i32 %106, 0
+  %107 = icmp sgt i32 %103, 0
   br i1 %107, label %.lr.ph205, label %._crit_edge206
 
 .lr.ph205:                                        ; preds = %.preheader
-  %108 = and i32 %103, 255
-  %wide.trip.count226 = zext nneg i32 %106 to i64
+  %108 = and i32 %93, 255
+  %wide.trip.count226 = zext nneg i32 %103 to i64
   %invariant.gep246 = getelementptr inbounds nuw i8, ptr %32, i64 %48
   br label %132
 
@@ -507,7 +507,7 @@ define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32
   br i1 %111, label %.lr.ph199, label %._crit_edge200
 
 .lr.ph199:                                        ; preds = %109
-  %112 = and i32 %.0146201, %97
+  %112 = and i32 %.0146201, %105
   %.not171 = icmp eq i32 %112, 0
   %113 = select i1 %.not171, i32 0, i32 255
   %114 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %113) #6, !srcloc !13
@@ -519,7 +519,7 @@ define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32
   br label %119
 
 119:                                              ; preds = %.lr.ph199, %119
-  %indvars.iv220 = phi i64 [ %98, %.lr.ph199 ], [ %indvars.iv.next221, %119 ]
+  %indvars.iv220 = phi i64 [ %106, %.lr.ph199 ], [ %indvars.iv.next221, %119 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv220
   %120 = load i8, ptr %gep, align 1, !tbaa !3
   %121 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv220
@@ -537,14 +537,14 @@ define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32
 
 ._crit_edge200:                                   ; preds = %119, %109
   %130 = shl i32 %.0146201, 1
-  %131 = icmp slt i32 %130, %89
+  %131 = icmp slt i32 %130, %94
   br i1 %131, label %109, label %.preheader, !llvm.loop !16
 
 132:                                              ; preds = %.lr.ph205, %132
   %indvars.iv223 = phi i64 [ 0, %.lr.ph205 ], [ %indvars.iv.next224, %132 ]
   %133 = trunc nuw nsw i64 %indvars.iv223 to i32
-  %134 = sub i32 %133, %99
-  %135 = or i32 %134, %99
+  %134 = sub i32 %133, %89
+  %135 = or i32 %134, %89
   %isneg = icmp slt i32 %135, 0
   %gep247 = getelementptr inbounds nuw i8, ptr %invariant.gep246, i64 %indvars.iv223
   %136 = getelementptr inbounds nuw i8, ptr %gep247, i64 1
@@ -570,13 +570,13 @@ define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 332, ptr noundef nonnull @__func__.RSA_padding_check_PKCS1_OAEP_mgf1) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 121, ptr noundef null) #5
-  %150 = and i32 %103, 1
+  %150 = and i32 %93, 1
   call void @err_clear_last_constant_time(i32 noundef %150) #5
   br label %._crit_edge228
 
 ._crit_edge228:                                   ; preds = %28, %._crit_edge185, %._crit_edge182, %._crit_edge, %34, %._crit_edge206
-  %.0148 = phi i32 [ -1, %._crit_edge185 ], [ -1, %._crit_edge182 ], [ -1, %._crit_edge ], [ -1, %34 ], [ %99, %._crit_edge206 ], [ -1, %28 ]
-  %.0144 = phi i32 [ %.neg.i.i165, %._crit_edge185 ], [ %.neg.i.i165, %._crit_edge182 ], [ %.neg.i.i165, %._crit_edge ], [ 0, %34 ], [ %103, %._crit_edge206 ], [ 0, %28 ]
+  %.0148 = phi i32 [ -1, %._crit_edge185 ], [ -1, %._crit_edge182 ], [ -1, %._crit_edge ], [ -1, %34 ], [ %89, %._crit_edge206 ], [ -1, %28 ]
+  %.0144 = phi i32 [ %.neg.i.i165, %._crit_edge185 ], [ %.neg.i.i165, %._crit_edge182 ], [ %.neg.i.i165, %._crit_edge ], [ 0, %34 ], [ %93, %._crit_edge206 ], [ 0, %28 ]
   %.0140 = phi ptr [ %45, %._crit_edge185 ], [ %45, %._crit_edge182 ], [ %45, %._crit_edge ], [ null, %34 ], [ %45, %._crit_edge206 ], [ null, %28 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 64) #5
   call void @CRYPTO_clear_free(ptr noundef %32, i64 noundef %31, ptr noundef nonnull @.str, i32 noundef 337) #5

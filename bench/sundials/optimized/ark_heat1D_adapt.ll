@@ -266,8 +266,8 @@ check_flag.exit168:                               ; preds = %101
   br label %check_flag.exit194
 
 check_flag.exit194:                               ; preds = %213, %106
-  %.0114 = phi i64 [ 0, %106 ], [ %179, %213 ]
-  %.0113 = phi i64 [ 0, %106 ], [ %180, %213 ]
+  %.0114 = phi i64 [ 0, %106 ], [ %160, %213 ]
+  %.0113 = phi i64 [ 0, %106 ], [ %162, %213 ]
   %.0112 = phi i32 [ 0, %106 ], [ %148, %213 ]
   %.0111 = phi ptr [ %30, %106 ], [ %188, %213 ]
   %.0110 = phi ptr [ %92, %106 ], [ %204, %213 ]
@@ -348,42 +348,42 @@ check_flag.exit180:                               ; preds = %142
   %157 = load i64, ptr %2, align 8, !tbaa !23
   %158 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %148, double noundef %149, double noundef %150, double noundef %155, i64 noundef %152, i64 noundef %156, i64 noundef %157)
   %159 = load i64, ptr %1, align 8, !tbaa !23
-  %160 = load i64, ptr %2, align 8, !tbaa !23
-  %161 = call ptr @N_VGetArrayPointer(ptr noundef nonnull %.0111) #11
-  %162 = load i64, ptr %14, align 8, !tbaa !9
-  %163 = icmp sgt i64 %162, 0
-  br i1 %163, label %.lr.ph392, label %._crit_edge393
+  %160 = add nsw i64 %159, %.0114
+  %161 = load i64, ptr %2, align 8, !tbaa !23
+  %162 = add nsw i64 %161, %.0113
+  %163 = call ptr @N_VGetArrayPointer(ptr noundef nonnull %.0111) #11
+  %164 = load i64, ptr %14, align 8, !tbaa !9
+  %165 = icmp sgt i64 %164, 0
+  br i1 %165, label %.lr.ph392, label %._crit_edge393
 
 .lr.ph392:                                        ; preds = %147, %.lr.ph392
-  %.3390 = phi i64 [ %167, %.lr.ph392 ], [ 0, %147 ]
-  %164 = getelementptr inbounds nuw double, ptr %161, i64 %.3390
-  %165 = load double, ptr %164, align 8, !tbaa !17
-  %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.7, double noundef %165) #11
-  %167 = add nuw nsw i64 %.3390, 1
-  %168 = load i64, ptr %14, align 8, !tbaa !9
-  %169 = icmp slt i64 %167, %168
-  br i1 %169, label %.lr.ph392, label %._crit_edge393
+  %.3390 = phi i64 [ %169, %.lr.ph392 ], [ 0, %147 ]
+  %166 = getelementptr inbounds nuw double, ptr %163, i64 %.3390
+  %167 = load double, ptr %166, align 8, !tbaa !17
+  %168 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.7, double noundef %167) #11
+  %169 = add nuw nsw i64 %.3390, 1
+  %170 = load i64, ptr %14, align 8, !tbaa !9
+  %171 = icmp slt i64 %169, %170
+  br i1 %171, label %.lr.ph392, label %._crit_edge393
 
 ._crit_edge393:                                   ; preds = %.lr.ph392, %147
   %fputc138 = call i32 @fputc(i32 10, ptr %45)
-  %170 = load i64, ptr %14, align 8, !tbaa !9
-  %171 = icmp sgt i64 %170, 0
-  br i1 %171, label %.lr.ph396, label %._crit_edge397
+  %172 = load i64, ptr %14, align 8, !tbaa !9
+  %173 = icmp sgt i64 %172, 0
+  br i1 %173, label %.lr.ph396, label %._crit_edge397
 
 .lr.ph396:                                        ; preds = %._crit_edge393, %.lr.ph396
-  %.4394 = phi i64 [ %176, %.lr.ph396 ], [ 0, %._crit_edge393 ]
-  %172 = load ptr, ptr %18, align 8, !tbaa !16
-  %173 = getelementptr inbounds nuw double, ptr %172, i64 %.4394
-  %174 = load double, ptr %173, align 8, !tbaa !17
-  %175 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.7, double noundef %174) #11
-  %176 = add nuw nsw i64 %.4394, 1
-  %177 = load i64, ptr %14, align 8, !tbaa !9
-  %178 = icmp slt i64 %176, %177
-  br i1 %178, label %.lr.ph396, label %._crit_edge397
+  %.4394 = phi i64 [ %178, %.lr.ph396 ], [ 0, %._crit_edge393 ]
+  %174 = load ptr, ptr %18, align 8, !tbaa !16
+  %175 = getelementptr inbounds nuw double, ptr %174, i64 %.4394
+  %176 = load double, ptr %175, align 8, !tbaa !17
+  %177 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.7, double noundef %176) #11
+  %178 = add nuw nsw i64 %.4394, 1
+  %179 = load i64, ptr %14, align 8, !tbaa !9
+  %180 = icmp slt i64 %178, %179
+  br i1 %180, label %.lr.ph396, label %._crit_edge397
 
 ._crit_edge397:                                   ; preds = %.lr.ph396, %._crit_edge393
-  %179 = add nsw i64 %159, %.0114
-  %180 = add nsw i64 %160, %.0113
   %fputc139 = call i32 @fputc(i32 10, ptr %35)
   %181 = call ptr @adapt_mesh(ptr noundef nonnull %.0111, ptr noundef nonnull %7, ptr noundef nonnull %14)
   %182 = icmp eq ptr %181, null

@@ -839,18 +839,18 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
   br i1 %82, label %.lr.ph214, label %._crit_edge
 
 .lr.ph214:                                        ; preds = %64
-  %83 = trunc nuw i8 %66 to i1
-  %spec.select205 = select i1 %83, <2 x i64> splat (i64 5593221364105289010), <2 x i64> zeroinitializer
-  %84 = sub nsw i32 %12, %13
-  %85 = sitofp i32 %84 to float
-  %86 = fdiv float 6.553500e+04, %85
-  %87 = fmul float %86, 4.095000e+03
-  %88 = fptosi float %87 to i32
-  %89 = ashr i32 %88, 4
-  %90 = fmul float %86, 4.000000e+00
-  %91 = fptosi float %90 to i32
-  %92 = shl i32 %91, 16
-  %93 = or i32 %92, %91
+  %83 = sub nsw i32 %12, %13
+  %84 = sitofp i32 %83 to float
+  %85 = fdiv float 6.553500e+04, %84
+  %86 = fmul float %85, 4.095000e+03
+  %87 = fptosi float %86 to i32
+  %88 = fmul float %85, 4.000000e+00
+  %89 = fptosi float %88 to i32
+  %90 = trunc nuw i8 %66 to i1
+  %spec.select205 = select i1 %90, <2 x i64> splat (i64 5593221364105289010), <2 x i64> zeroinitializer
+  %91 = ashr i32 %87, 4
+  %92 = shl i32 %89, 16
+  %93 = or i32 %92, %89
   %94 = insertelement <4 x i32> poison, i32 %93, i64 0
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 596
@@ -864,7 +864,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
   %104 = bitcast <2 x i64> %spec.select205 to <8 x i16>
   %105 = bitcast <4 x i32> %94 to <8 x i16>
   %106 = shufflevector <8 x i16> %105, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 0, i32 1, i32 0, i32 1, i32 0, i32 1>
-  %.scalar = add nsw i32 %89, 512
+  %.scalar = add nsw i32 %91, 512
   %107 = insertelement <4 x i32> poison, i32 %.scalar, i64 0
   %108 = shufflevector <4 x i32> %107, <4 x i32> poison, <4 x i32> zeroinitializer
   %109 = zext nneg i32 %73 to i64
@@ -1026,27 +1026,27 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
   tail call void @llvm.assume(i1 %31)
   %32 = icmp sgt i32 %27, -1
   tail call void @llvm.assume(i1 %32)
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %34 = load ptr, ptr %33, align 8, !tbaa !130, !noalias !151, !nonnull !99, !noundef !99
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %36 = load i32, ptr %35, align 4, !tbaa !135, !noalias !151
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %38 = load i32, ptr %37, align 8, !tbaa !137, !noalias !151
-  %39 = mul nuw nsw i32 %38, %36
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %41 = load i32, ptr %40, align 8, !tbaa !104
-  %42 = load i32, ptr %34, align 4, !tbaa !104
+  %33 = icmp eq i32 %27, 0
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %35 = load ptr, ptr %34, align 8, !tbaa !130, !noalias !151, !nonnull !99, !noundef !99
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %37 = load i32, ptr %36, align 4, !tbaa !135, !noalias !151
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %39 = load i32, ptr %38, align 8, !tbaa !137, !noalias !151
+  %40 = mul nuw nsw i32 %39, %37
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %42 = load i32, ptr %41, align 8, !tbaa !104
+  %43 = load i32, ptr %35, align 4, !tbaa !104
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %43 = and i32 %21, 1
-  %44 = shl nuw i32 %24, 1
-  %45 = and i32 %44, 2
-  %46 = or disjoint i32 %45, %43
+  %44 = and i32 %21, 1
+  %45 = shl nuw i32 %24, 1
+  %46 = and i32 %45, 2
+  %47 = or disjoint i32 %46, %44
   br label %132
 
 .preheader:                                       ; preds = %132
-  %47 = icmp eq i32 %27, 0
-  %48 = sub nsw i32 %41, %42
+  %48 = sub nsw i32 %42, %43
   %49 = sitofp i32 %48 to float
   %50 = fdiv float 6.553500e+04, %49
   %51 = fmul float %50, 4.000000e+00
@@ -1054,7 +1054,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
   %53 = fmul float %50, 4.095000e+03
   %54 = fptosi float %53 to i32
   %55 = icmp sge i32 %1, %2
-  %brmerge = or i1 %55, %47
+  %brmerge = or i1 %55, %33
   br i1 %brmerge, label %._crit_edge75, label %.lr.ph74.split.us
 
 .lr.ph74.split.us:                                ; preds = %.preheader
@@ -1178,13 +1178,13 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
 132:                                              ; preds = %_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit, %132
   %indvars.iv = phi i64 [ 0, %_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit ], [ %indvars.iv.next, %132 ]
   %133 = trunc nuw nsw i64 %indvars.iv to i32
-  %.139 = xor i32 %46, %133
-  %134 = icmp samesign ult i32 %.139, %39
+  %.139 = xor i32 %47, %133
+  %134 = icmp samesign ult i32 %.139, %40
   tail call void @llvm.assume(i1 %134)
   %135 = zext nneg i32 %.139 to i64
-  %136 = getelementptr inbounds nuw i32, ptr %34, i64 %135
+  %136 = getelementptr inbounds nuw i32, ptr %35, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !104
-  %138 = sub nsw i32 %41, %137
+  %138 = sub nsw i32 %42, %137
   %139 = sitofp i32 %138 to float
   %140 = fdiv float 0x41CFFFE000000000, %139
   %141 = fptosi float %140 to i32

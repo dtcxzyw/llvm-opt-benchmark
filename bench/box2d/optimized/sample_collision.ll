@@ -3777,8 +3777,8 @@ define linkonce_odr dso_local void @_ZN12RayCastWorldC2ER8Settings(ptr noundef n
   %14 = alloca %struct.b2Polygon, align 4
   tail call void @_ZN6SampleC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV12RayCastWorld, i64 16), ptr %0, align 8, !tbaa !4
-  %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 252
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %scevgep, i8 0, i64 512, i1 false), !tbaa !63
+  %.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %.ptr55, i8 0, i64 512, i1 false), !tbaa !63
   br label %.preheader86
 
 .preheader86:                                     ; preds = %.preheader86.preheader, %.preheader86
@@ -3789,45 +3789,45 @@ define linkonce_odr dso_local void @_ZN12RayCastWorldC2ER8Settings(ptr noundef n
   store i8 0, ptr %15, align 4, !tbaa !201
   %.add57 = add nuw nsw i64 %.idx56, 8
   %16 = icmp eq i64 %.add57, 1276
-  br i1 %16, label %.preheader88, label %.preheader86
+  br i1 %16, label %17, label %.preheader86
 
-.preheader88:                                     ; preds = %.preheader86
-  %scevgep89 = getelementptr inbounds nuw i8, ptr %0, i64 1276
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(576) %scevgep89, i8 0, i64 576, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 43
-  %18 = load i8, ptr %17, align 1, !tbaa !7, !range !13, !noundef !14
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %20, label %21
+17:                                               ; preds = %.preheader86
+  %.ptr74 = getelementptr inbounds nuw i8, ptr %0, i64 1276
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(576) %.ptr74, i8 0, i64 576, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 43
+  %19 = load i8, ptr %18, align 1, !tbaa !7, !range !13, !noundef !14
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %.preheader88
+21:                                               ; preds = %17
   store float 2.000000e+00, ptr @g_camera, align 4, !tbaa !15
   store float 1.400000e+01, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 4), align 4, !tbaa !15
   store float 1.875000e+01, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 8), align 4, !tbaa !16
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %.preheader88
+22:                                               ; preds = %21, %17
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   invoke void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %2)
-          to label %22 unwind label %68
+          to label %23 unwind label %69
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %.sroa.035.0.copyload = load i32, ptr %23, align 4
-  %24 = invoke i64 @b2CreateBody(i32 %.sroa.035.0.copyload, ptr noundef nonnull %2)
-          to label %25 unwind label %70
+23:                                               ; preds = %22
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %.sroa.035.0.copyload = load i32, ptr %24, align 4
+  %25 = invoke i64 @b2CreateBody(i32 %.sroa.035.0.copyload, ptr noundef nonnull %2)
+          to label %26 unwind label %71
 
-25:                                               ; preds = %22
+26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %3)
-          to label %26 unwind label %72
+          to label %27 unwind label %73
 
-26:                                               ; preds = %25
+27:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) @__const.RayCastWorld.segment, i64 16, i1 false)
-  %27 = invoke i64 @b2CreateSegmentShape(i64 %24, ptr noundef nonnull %3, ptr noundef nonnull %4)
-          to label %28 unwind label %74
+  %28 = invoke i64 @b2CreateSegmentShape(i64 %25, ptr noundef nonnull %3, ptr noundef nonnull %4)
+          to label %29 unwind label %75
 
-28:                                               ; preds = %26
+29:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3835,15 +3835,15 @@ define linkonce_odr dso_local void @_ZN12RayCastWorldC2ER8Settings(ptr noundef n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, ptr noundef nonnull align 16 dereferenceable(24) @__const.OverlapWorld.vertices, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %6, ptr noundef nonnull %5, i32 noundef 3)
-          to label %29 unwind label %78
-
-29:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  invoke void @b2MakePolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %7, ptr noundef nonnull %6, float noundef 0.000000e+00)
-          to label %30 unwind label %80
+          to label %30 unwind label %79
 
 30:                                               ; preds = %29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %scevgep89, ptr noundef nonnull align 4 dereferenceable(144) %7, i64 144, i1 false), !tbaa.struct !79
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  invoke void @b2MakePolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %7, ptr noundef nonnull %6, float noundef 0.000000e+00)
+          to label %31 unwind label %81
+
+31:                                               ; preds = %30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %.ptr74, ptr noundef nonnull align 4 dereferenceable(144) %7, i64 144, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3851,78 +3851,78 @@ define linkonce_odr dso_local void @_ZN12RayCastWorldC2ER8Settings(ptr noundef n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, ptr noundef nonnull align 16 dereferenceable(24) @__const.OverlapWorld.vertices.101, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %9, ptr noundef nonnull %8, i32 noundef 3)
-          to label %31 unwind label %83
-
-31:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  invoke void @b2MakePolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %10, ptr noundef nonnull %9, float noundef 0.000000e+00)
-          to label %32 unwind label %85
+          to label %32 unwind label %84
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1420
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %33, ptr noundef nonnull align 4 dereferenceable(144) %10, i64 144, i1 false), !tbaa.struct !79
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  invoke void @b2MakePolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %10, ptr noundef nonnull %9, float noundef 0.000000e+00)
+          to label %33 unwind label %86
+
+33:                                               ; preds = %32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1420
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %34, ptr noundef nonnull align 4 dereferenceable(144) %10, i64 144, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1556
-  store float 5.000000e-01, ptr %34, align 4, !tbaa !202
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1556
+  store float 5.000000e-01, ptr %35, align 4, !tbaa !202
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float 0x3FCA827980000000, ptr %11, align 16, !tbaa !72
-  %35 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store float 0.000000e+00, ptr %35, align 4, !tbaa !73
-  %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store float 5.000000e-01, ptr %36, align 8, !tbaa !72
-  %37 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store float 0x3FD2BEC320000000, ptr %37, align 4, !tbaa !73
-  %38 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store float 5.000000e-01, ptr %38, align 16, !tbaa !72
-  %39 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  store float 0x3FE6A09E40000000, ptr %39, align 4, !tbaa !73
-  %40 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store float 0x3FCA827980000000, ptr %40, align 8, !tbaa !72
-  %41 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  store float 1.000000e+00, ptr %41, align 4, !tbaa !73
-  %42 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store float 0xBFCA827980000000, ptr %42, align 16, !tbaa !72
-  %43 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store float 1.000000e+00, ptr %43, align 4, !tbaa !73
-  %44 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store float -5.000000e-01, ptr %44, align 8, !tbaa !72
-  %45 = getelementptr inbounds nuw i8, ptr %11, i64 44
-  store float 0x3FE6A09E40000000, ptr %45, align 4, !tbaa !73
-  %46 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store float -5.000000e-01, ptr %46, align 16, !tbaa !72
-  %47 = getelementptr inbounds nuw i8, ptr %11, i64 52
-  store float 0x3FD2BEC320000000, ptr %47, align 4, !tbaa !73
-  %48 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store float 0xBFCA827980000000, ptr %48, align 8, !tbaa !72
-  %49 = getelementptr inbounds nuw i8, ptr %11, i64 60
-  store float 0.000000e+00, ptr %49, align 4, !tbaa !73
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store float 0.000000e+00, ptr %36, align 4, !tbaa !73
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store float 5.000000e-01, ptr %37, align 8, !tbaa !72
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store float 0x3FD2BEC320000000, ptr %38, align 4, !tbaa !73
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store float 5.000000e-01, ptr %39, align 16, !tbaa !72
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  store float 0x3FE6A09E40000000, ptr %40, align 4, !tbaa !73
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store float 0x3FCA827980000000, ptr %41, align 8, !tbaa !72
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 28
+  store float 1.000000e+00, ptr %42, align 4, !tbaa !73
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store float 0xBFCA827980000000, ptr %43, align 16, !tbaa !72
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 36
+  store float 1.000000e+00, ptr %44, align 4, !tbaa !73
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  store float -5.000000e-01, ptr %45, align 8, !tbaa !72
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 44
+  store float 0x3FE6A09E40000000, ptr %46, align 4, !tbaa !73
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  store float -5.000000e-01, ptr %47, align 16, !tbaa !72
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 52
+  store float 0x3FD2BEC320000000, ptr %48, align 4, !tbaa !73
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  store float 0xBFCA827980000000, ptr %49, align 8, !tbaa !72
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 60
+  store float 0.000000e+00, ptr %50, align 4, !tbaa !73
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %12, ptr noundef nonnull %11, i32 noundef 8)
-          to label %50 unwind label %88
+          to label %51 unwind label %89
 
-50:                                               ; preds = %32
+51:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @b2MakePolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %13, ptr noundef nonnull %12, float noundef 0.000000e+00)
-          to label %51 unwind label %90
+          to label %52 unwind label %91
 
-51:                                               ; preds = %50
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1564
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %52, ptr noundef nonnull align 4 dereferenceable(144) %13, i64 144, i1 false), !tbaa.struct !79
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1564
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %53, ptr noundef nonnull align 4 dereferenceable(144) %13, i64 144, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %14, float noundef 5.000000e-01, float noundef 5.000000e-01)
-          to label %53 unwind label %93
+          to label %54 unwind label %94
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1708
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %54, ptr noundef nonnull align 4 dereferenceable(144) %14, i64 144, i1 false), !tbaa.struct !79
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1708
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %55, ptr noundef nonnull align 4 dereferenceable(144) %14, i64 144, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1852
-  store float -5.000000e-01, ptr %55, align 4, !tbaa !15
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1852
+  store float -5.000000e-01, ptr %56, align 4, !tbaa !15
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1856
   store float 0.000000e+00, ptr %.sroa.413.0..sroa_idx, align 8, !tbaa !15
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1860
@@ -3931,136 +3931,136 @@ define linkonce_odr dso_local void @_ZN12RayCastWorldC2ER8Settings(ptr noundef n
   store float 0.000000e+00, ptr %.sroa.615.0..sroa_idx, align 8, !tbaa !15
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1868
   store float 2.500000e-01, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !15
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1872
-  store float 0.000000e+00, ptr %56, align 8, !tbaa !15
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1872
+  store float 0.000000e+00, ptr %57, align 8, !tbaa !15
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1876
   store float 0.000000e+00, ptr %.sroa.410.0..sroa_idx, align 4, !tbaa !15
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1880
   store float 5.000000e-01, ptr %.sroa.511.0..sroa_idx, align 8, !tbaa !15
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1884
-  store float -1.000000e+00, ptr %57, align 4, !tbaa !15
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1884
+  store float -1.000000e+00, ptr %58, align 4, !tbaa !15
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1888
   store float 0.000000e+00, ptr %.sroa.48.0..sroa_idx, align 8, !tbaa !15
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1892
   store float 1.000000e+00, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !15
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1896
   store float 0.000000e+00, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !15
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1904
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(516) %58, i8 0, i64 516, i1 false)
-  store i32 1, ptr %59, align 8, !tbaa !203
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 1908
-  store i32 7, ptr %60, align 4, !tbaa !206
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1912
-  store i32 0, ptr %61, align 8, !tbaa !207
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1916
-  store float 5.000000e-01, ptr %62, align 4, !tbaa !208
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1940
-  store float -2.000000e+01, ptr %63, align 4, !tbaa !15
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 1904
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(516) %59, i8 0, i64 516, i1 false)
+  store i32 1, ptr %60, align 8, !tbaa !203
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1908
+  store i32 7, ptr %61, align 4, !tbaa !206
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1912
+  store i32 0, ptr %62, align 8, !tbaa !207
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1916
+  store float 5.000000e-01, ptr %63, align 4, !tbaa !208
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1940
+  store float -2.000000e+01, ptr %64, align 4, !tbaa !15
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1944
   store float 1.000000e+01, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !15
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1948
-  store float 2.000000e+01, ptr %64, align 4, !tbaa !15
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1948
+  store float 2.000000e+01, ptr %65, align 4, !tbaa !15
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1952
   store float 1.000000e+01, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !15
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1956
-  store i8 0, ptr %65, align 4, !tbaa !209
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1920
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1900
-  store i8 0, ptr %67, align 4, !tbaa !210
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %66, i8 0, i64 17, i1 false)
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1956
+  store i8 0, ptr %66, align 4, !tbaa !209
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1920
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1900
+  store i8 0, ptr %68, align 4, !tbaa !210
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %67, i8 0, i64 17, i1 false)
   ret void
 
-68:                                               ; preds = %21
-  %69 = landingpad { ptr, i32 }
+69:                                               ; preds = %22
+  %70 = landingpad { ptr, i32 }
+          cleanup
+  br label %78
+
+71:                                               ; preds = %23
+  %72 = landingpad { ptr, i32 }
+          cleanup
+  br label %78
+
+73:                                               ; preds = %26
+  %74 = landingpad { ptr, i32 }
           cleanup
   br label %77
 
-70:                                               ; preds = %22
-  %71 = landingpad { ptr, i32 }
-          cleanup
-  br label %77
-
-72:                                               ; preds = %25
-  %73 = landingpad { ptr, i32 }
-          cleanup
-  br label %76
-
-74:                                               ; preds = %26
-  %75 = landingpad { ptr, i32 }
+75:                                               ; preds = %27
+  %76 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %76
-
-76:                                               ; preds = %74, %72
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %73, %72 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %77
 
-77:                                               ; preds = %70, %76, %68
-  %.pn.pn.pn = phi { ptr, i32 } [ %69, %68 ], [ %.pn, %76 ], [ %71, %70 ]
+77:                                               ; preds = %75, %73
+  %.pn = phi { ptr, i32 } [ %76, %75 ], [ %74, %73 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %78
+
+78:                                               ; preds = %71, %77, %69
+  %.pn.pn.pn = phi { ptr, i32 } [ %70, %69 ], [ %.pn, %77 ], [ %72, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %95
+  br label %96
 
-78:                                               ; preds = %28
-  %79 = landingpad { ptr, i32 }
+79:                                               ; preds = %29
+  %80 = landingpad { ptr, i32 }
           cleanup
-  br label %82
+  br label %83
 
-80:                                               ; preds = %29
-  %81 = landingpad { ptr, i32 }
+81:                                               ; preds = %30
+  %82 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %82
+  br label %83
 
-82:                                               ; preds = %80, %78
-  %.pn78 = phi { ptr, i32 } [ %81, %80 ], [ %79, %78 ]
+83:                                               ; preds = %81, %79
+  %.pn78 = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %95
+  br label %96
 
-83:                                               ; preds = %30
-  %84 = landingpad { ptr, i32 }
+84:                                               ; preds = %31
+  %85 = landingpad { ptr, i32 }
           cleanup
-  br label %87
+  br label %88
 
-85:                                               ; preds = %31
-  %86 = landingpad { ptr, i32 }
+86:                                               ; preds = %32
+  %87 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %87
+  br label %88
 
-87:                                               ; preds = %85, %83
-  %.pn80 = phi { ptr, i32 } [ %86, %85 ], [ %84, %83 ]
+88:                                               ; preds = %86, %84
+  %.pn80 = phi { ptr, i32 } [ %87, %86 ], [ %85, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %95
+  br label %96
 
-88:                                               ; preds = %32
-  %89 = landingpad { ptr, i32 }
+89:                                               ; preds = %33
+  %90 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %93
 
-90:                                               ; preds = %50
-  %91 = landingpad { ptr, i32 }
+91:                                               ; preds = %51
+  %92 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %92
+  br label %93
 
-92:                                               ; preds = %90, %88
-  %.pn82 = phi { ptr, i32 } [ %91, %90 ], [ %89, %88 ]
+93:                                               ; preds = %91, %89
+  %.pn82 = phi { ptr, i32 } [ %92, %91 ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %95
+  br label %96
 
-93:                                               ; preds = %51
-  %94 = landingpad { ptr, i32 }
+94:                                               ; preds = %52
+  %95 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %95
+  br label %96
 
-95:                                               ; preds = %93, %92, %87, %82, %77
-  %.pn84 = phi { ptr, i32 } [ %94, %93 ], [ %.pn82, %92 ], [ %.pn80, %87 ], [ %.pn78, %82 ], [ %.pn.pn.pn, %77 ]
+96:                                               ; preds = %94, %93, %88, %83, %78
+  %.pn84 = phi { ptr, i32 } [ %95, %94 ], [ %.pn82, %93 ], [ %.pn80, %88 ], [ %.pn78, %83 ], [ %.pn.pn.pn, %78 ]
   call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #24
   resume { ptr, i32 } %.pn84
 }

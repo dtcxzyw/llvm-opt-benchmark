@@ -2233,15 +2233,15 @@ define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__
   %7 = ptrtoint ptr %0 to i64
   %8 = sub i64 %6, %7
   %9 = icmp sgt i64 %8, 192
-  br i1 %9, label %.lr.ph.i.i.i.i.i.i.i.preheader.i.preheader, label %39
+  br i1 %9, label %.lr.ph.i.i.i.i.i.i.i.preheader.lr.ph.i, label %39
 
-.lr.ph.i.i.i.i.i.i.i.preheader.i.preheader:       ; preds = %2
+.lr.ph.i.i.i.i.i.i.i.preheader.lr.ph.i:           ; preds = %2
   %scevgep = getelementptr i8, ptr %0, i64 12
   br label %.lr.ph.i.i.i.i.i.i.i.preheader.i
 
-.lr.ph.i.i.i.i.i.i.i.preheader.i:                 ; preds = %.lr.ph.i.i.i.i.i.i.i.preheader.i.preheader, %29
-  %.sroa.0.019.i.idx = phi i64 [ %.sroa.0.019.i.add, %29 ], [ 12, %.lr.ph.i.i.i.i.i.i.i.preheader.i.preheader ]
-  %.pn18.i = phi ptr [ %.sroa.0.019.i.ptr, %29 ], [ %0, %.lr.ph.i.i.i.i.i.i.i.preheader.i.preheader ]
+.lr.ph.i.i.i.i.i.i.i.preheader.i:                 ; preds = %29, %.lr.ph.i.i.i.i.i.i.i.preheader.lr.ph.i
+  %.sroa.0.019.i.idx = phi i64 [ 12, %.lr.ph.i.i.i.i.i.i.i.preheader.lr.ph.i ], [ %.sroa.0.019.i.add, %29 ]
+  %.pn18.i = phi ptr [ %0, %.lr.ph.i.i.i.i.i.i.i.preheader.lr.ph.i ], [ %.sroa.0.019.i.ptr, %29 ]
   %.sroa.0.019.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.019.i.idx
   br label %.lr.ph.i.i.i.i.i.i.i.i
 

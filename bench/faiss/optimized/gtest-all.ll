@@ -42698,8 +42698,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   br i1 %31, label %33, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc92
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %20
   tail call void @llvm.memset.p0.i64(ptr align 8 %30, i8 0, i64 %20, i1 false), !tbaa !1167
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %20
   br label %33
 
 33:                                               ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc92, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
@@ -42814,8 +42814,8 @@ _ZNSt12_Vector_baseIN7testing8internal13edit_distance8EditTypeESaIS3_EEC2EmRKS4_
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc100
   %.idx.i.i.i.i.i.i.i = ashr exact i64 %66, 1
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %76, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !1178
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i.i.i.i.i.i.i
   br label %79
 
 79:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i, %.noexc100, %_ZNSt12_Vector_baseIN7testing8internal13edit_distance8EditTypeESaIS3_EEC2EmRKS4_.exit.thread.i

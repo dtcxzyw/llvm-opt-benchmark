@@ -141,8 +141,8 @@ quant_inter_differences.exit:                     ; preds = %._crit_edge.us.i, %
   %61 = shl nsw i64 %60, 2
   %scevgep83 = getelementptr i8, ptr %21, i64 %61
   %scevgep84 = getelementptr i8, ptr %0, i64 %61
-  %62 = trunc nuw nsw i64 %indvars.iv64.i to i32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep83, ptr noundef nonnull align 4 dereferenceable(12) %scevgep84, i64 12, i1 false), !tbaa !3
+  %62 = trunc nuw nsw i64 %indvars.iv64.i to i32
   %63 = mul i32 %1, %62
   br label %.preheader.us.i77
 
@@ -349,46 +349,46 @@ define internal fastcc void @determine_best_pos_initial_coding(ptr noundef %0, p
   br i1 %exitcond.not.i, label %determine_best_coding_triple.exit, label %22, !llvm.loop !14
 
 determine_best_coding_triple.exit:                ; preds = %28
+  %30 = add nsw i32 %20, 40
+  %31 = icmp ne i32 %.2.i, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @Ptngc_coder_deinit(ptr noundef %21) #13
-  %30 = call ptr @Ptngc_coder_init() #13
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br label %31
-
-31:                                               ; preds = %37, %determine_best_coding_triple.exit
-  %.026.i81 = phi i32 [ -1, %determine_best_coding_triple.exit ], [ %.2.i89, %37 ]
-  %.01725.i82 = phi i32 [ 0, %determine_best_coding_triple.exit ], [ %.219.i88, %37 ]
-  %.02124.i83 = phi i32 [ 1, %determine_best_coding_triple.exit ], [ %38, %37 ]
-  store i32 %18, ptr %11, align 4, !tbaa !3
-  %32 = call ptr @Ptngc_pack_array(ptr noundef %30, ptr noundef %0, ptr noundef nonnull %11, i32 noundef 2, i32 noundef %.02124.i83, i32 noundef %2, i32 noundef 0) #13
-  %.not.i84 = icmp eq ptr %32, null
-  br i1 %.not.i84, label %37, label %33
-
-33:                                               ; preds = %31
-  %34 = icmp eq i32 %.026.i81, -1
-  %35 = load i32, ptr %11, align 4
-  %36 = icmp slt i32 %35, %.01725.i82
-  %or.cond.i85 = select i1 %34, i1 true, i1 %36
-  %.118.i86 = select i1 %or.cond.i85, i32 %35, i32 %.01725.i82
-  %.1.i87 = select i1 %or.cond.i85, i32 %.02124.i83, i32 %.026.i81
-  call void @free(ptr noundef nonnull %32) #13
-  br label %37
-
-37:                                               ; preds = %33, %31
-  %.219.i88 = phi i32 [ %.118.i86, %33 ], [ %.01725.i82, %31 ]
-  %.2.i89 = phi i32 [ %.1.i87, %33 ], [ %.026.i81, %31 ]
-  %38 = add nuw nsw i32 %.02124.i83, 1
-  %exitcond.not.i90 = icmp eq i32 %38, 20
-  br i1 %exitcond.not.i90, label %determine_best_coding_triple.exit92, label %31, !llvm.loop !14
-
-determine_best_coding_triple.exit92:              ; preds = %37
-  %39 = add nsw i32 %20, 40
-  %40 = icmp ne i32 %.2.i, -1
-  %41 = icmp slt i32 %.219.i, %39
-  %or.cond = select i1 %40, i1 %41, i1 false
-  %.069 = select i1 %or.cond, i32 %.219.i, i32 %39
+  %32 = icmp slt i32 %.219.i, %30
+  %or.cond = select i1 %31, i1 %32, i1 false
+  %.069 = select i1 %or.cond, i32 %.219.i, i32 %30
   %.065 = select i1 %or.cond, i32 %.2.i, i32 0
   %.0 = select i1 %or.cond, i32 3, i32 5
+  call void @Ptngc_coder_deinit(ptr noundef %21) #13
+  %33 = call ptr @Ptngc_coder_init() #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  br label %34
+
+34:                                               ; preds = %40, %determine_best_coding_triple.exit
+  %.026.i81 = phi i32 [ -1, %determine_best_coding_triple.exit ], [ %.2.i89, %40 ]
+  %.01725.i82 = phi i32 [ 0, %determine_best_coding_triple.exit ], [ %.219.i88, %40 ]
+  %.02124.i83 = phi i32 [ 1, %determine_best_coding_triple.exit ], [ %41, %40 ]
+  store i32 %18, ptr %11, align 4, !tbaa !3
+  %35 = call ptr @Ptngc_pack_array(ptr noundef %33, ptr noundef %0, ptr noundef nonnull %11, i32 noundef 2, i32 noundef %.02124.i83, i32 noundef %2, i32 noundef 0) #13
+  %.not.i84 = icmp eq ptr %35, null
+  br i1 %.not.i84, label %40, label %36
+
+36:                                               ; preds = %34
+  %37 = icmp eq i32 %.026.i81, -1
+  %38 = load i32, ptr %11, align 4
+  %39 = icmp slt i32 %38, %.01725.i82
+  %or.cond.i85 = select i1 %37, i1 true, i1 %39
+  %.118.i86 = select i1 %or.cond.i85, i32 %38, i32 %.01725.i82
+  %.1.i87 = select i1 %or.cond.i85, i32 %.02124.i83, i32 %.026.i81
+  call void @free(ptr noundef nonnull %35) #13
+  br label %40
+
+40:                                               ; preds = %36, %34
+  %.219.i88 = phi i32 [ %.118.i86, %36 ], [ %.01725.i82, %34 ]
+  %.2.i89 = phi i32 [ %.1.i87, %36 ], [ %.026.i81, %34 ]
+  %41 = add nuw nsw i32 %.02124.i83, 1
+  %exitcond.not.i90 = icmp eq i32 %41, 20
+  br i1 %exitcond.not.i90, label %determine_best_coding_triple.exit92, label %34, !llvm.loop !14
+
+determine_best_coding_triple.exit92:              ; preds = %40
   %42 = icmp ne i32 %.2.i89, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %43 = icmp slt i32 %.219.i88, %.069
@@ -396,7 +396,7 @@ determine_best_coding_triple.exit92:              ; preds = %37
   %.170 = select i1 %or.cond160, i32 %.219.i88, i32 %.069
   %.166 = select i1 %or.cond160, i32 %.2.i89, i32 %.065
   %.1 = select i1 %or.cond160, i32 7, i32 %.0
-  call void @Ptngc_coder_deinit(ptr noundef %30) #13
+  call void @Ptngc_coder_deinit(ptr noundef %33) #13
   %44 = icmp sgt i32 %3, 1
   br i1 %44, label %45, label %.thread
 
@@ -616,55 +616,55 @@ define internal fastcc void @determine_best_pos_coding(ptr noundef %0, ptr nound
   br i1 %exitcond.not.i, label %determine_best_coding_stop_bits.exit, label %34, !llvm.loop !15
 
 determine_best_coding_stop_bits.exit:             ; preds = %40
+  %42 = add nsw i32 %27, 40
+  %43 = sub nsw i32 %28, %42
+  %44 = icmp ne i32 %.2.i, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  call void @Ptngc_coder_deinit(ptr noundef %29) #13
-  %42 = call ptr @Ptngc_coder_init() #13
-  call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  br label %43
-
-43:                                               ; preds = %49, %determine_best_coding_stop_bits.exit
-  %.026.i147 = phi i32 [ -1, %determine_best_coding_stop_bits.exit ], [ %.2.i155, %49 ]
-  %.01725.i148 = phi i32 [ 0, %determine_best_coding_stop_bits.exit ], [ %.219.i154, %49 ]
-  %.02124.i149 = phi i32 [ 1, %determine_best_coding_stop_bits.exit ], [ %50, %49 ]
-  store i32 %31, ptr %17, align 4, !tbaa !3
-  %44 = call ptr @Ptngc_pack_array(ptr noundef %42, ptr noundef %33, ptr noundef nonnull %17, i32 noundef 2, i32 noundef %.02124.i149, i32 noundef %3, i32 noundef 0) #13
-  %.not.i150 = icmp eq ptr %44, null
-  br i1 %.not.i150, label %49, label %45
-
-45:                                               ; preds = %43
-  %46 = icmp eq i32 %.026.i147, -1
-  %47 = load i32, ptr %17, align 4
-  %48 = icmp slt i32 %47, %.01725.i148
-  %or.cond.i151 = select i1 %46, i1 true, i1 %48
-  %.118.i152 = select i1 %or.cond.i151, i32 %47, i32 %.01725.i148
-  %.1.i153 = select i1 %or.cond.i151, i32 %.02124.i149, i32 %.026.i147
-  call void @free(ptr noundef nonnull %44) #13
-  br label %49
-
-49:                                               ; preds = %45, %43
-  %.219.i154 = phi i32 [ %.118.i152, %45 ], [ %.01725.i148, %43 ]
-  %.2.i155 = phi i32 [ %.1.i153, %45 ], [ %.026.i147, %43 ]
-  %50 = add nuw nsw i32 %.02124.i149, 1
-  %exitcond.not.i156 = icmp eq i32 %50, 20
-  br i1 %exitcond.not.i156, label %51, label %43, !llvm.loop !14
-
-51:                                               ; preds = %49
-  %52 = add nsw i32 %27, 40
-  %53 = sub nsw i32 %28, %52
-  %54 = icmp ne i32 %.2.i, -1
-  %55 = icmp slt i32 %.219.i, %53
-  %or.cond = select i1 %54, i1 %55, i1 false
-  %.0129 = select i1 %or.cond, i32 %.219.i, i32 %53
+  %45 = icmp slt i32 %.219.i, %43
+  %or.cond = select i1 %44, i1 %45, i1 false
+  %.0129 = select i1 %or.cond, i32 %.219.i, i32 %43
   %.0123 = select i1 %or.cond, i32 %.2.i, i32 0
   %.0 = select i1 %or.cond, i32 1, i32 5
+  call void @Ptngc_coder_deinit(ptr noundef %29) #13
+  %46 = call ptr @Ptngc_coder_init() #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  br label %47
+
+47:                                               ; preds = %53, %determine_best_coding_stop_bits.exit
+  %.026.i147 = phi i32 [ -1, %determine_best_coding_stop_bits.exit ], [ %.2.i155, %53 ]
+  %.01725.i148 = phi i32 [ 0, %determine_best_coding_stop_bits.exit ], [ %.219.i154, %53 ]
+  %.02124.i149 = phi i32 [ 1, %determine_best_coding_stop_bits.exit ], [ %54, %53 ]
+  store i32 %31, ptr %17, align 4, !tbaa !3
+  %48 = call ptr @Ptngc_pack_array(ptr noundef %46, ptr noundef %33, ptr noundef nonnull %17, i32 noundef 2, i32 noundef %.02124.i149, i32 noundef %3, i32 noundef 0) #13
+  %.not.i150 = icmp eq ptr %48, null
+  br i1 %.not.i150, label %53, label %49
+
+49:                                               ; preds = %47
+  %50 = icmp eq i32 %.026.i147, -1
+  %51 = load i32, ptr %17, align 4
+  %52 = icmp slt i32 %51, %.01725.i148
+  %or.cond.i151 = select i1 %50, i1 true, i1 %52
+  %.118.i152 = select i1 %or.cond.i151, i32 %51, i32 %.01725.i148
+  %.1.i153 = select i1 %or.cond.i151, i32 %.02124.i149, i32 %.026.i147
+  call void @free(ptr noundef nonnull %48) #13
+  br label %53
+
+53:                                               ; preds = %49, %47
+  %.219.i154 = phi i32 [ %.118.i152, %49 ], [ %.01725.i148, %47 ]
+  %.2.i155 = phi i32 [ %.1.i153, %49 ], [ %.026.i147, %47 ]
+  %54 = add nuw nsw i32 %.02124.i149, 1
+  %exitcond.not.i156 = icmp eq i32 %54, 20
+  br i1 %exitcond.not.i156, label %55, label %47, !llvm.loop !14
+
+55:                                               ; preds = %53
   %56 = icmp eq i32 %.2.i155, -1
   br i1 %56, label %determine_best_coding_triple.exit, label %57
 
-determine_best_coding_triple.exit:                ; preds = %51
+determine_best_coding_triple.exit:                ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %60
 
-57:                                               ; preds = %51
+57:                                               ; preds = %55
   store i32 %.219.i154, ptr %20, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %58 = icmp slt i32 %.219.i154, %.0129
@@ -677,7 +677,7 @@ determine_best_coding_triple.exit:                ; preds = %51
   %.1130 = phi i32 [ %.0129, %determine_best_coding_triple.exit ], [ %.219.i154, %59 ], [ %.0129, %57 ]
   %.1124 = phi i32 [ %.0123, %determine_best_coding_triple.exit ], [ %.2.i155, %59 ], [ %.0123, %57 ]
   %.1 = phi i32 [ %.0, %determine_best_coding_triple.exit ], [ 2, %59 ], [ %.0, %57 ]
-  call void @Ptngc_coder_deinit(ptr noundef %42) #13
+  call void @Ptngc_coder_deinit(ptr noundef %46) #13
   %61 = call ptr @Ptngc_coder_init() #13
   %62 = getelementptr inbounds i32, ptr %2, i64 %32
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -710,55 +710,55 @@ determine_best_coding_triple.exit:                ; preds = %51
   br i1 %exitcond.not.i167, label %determine_best_coding_triple.exit169, label %63, !llvm.loop !14
 
 determine_best_coding_triple.exit169:             ; preds = %69
+  %71 = icmp ne i32 %.2.i166, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  call void @Ptngc_coder_deinit(ptr noundef %61) #13
-  %71 = call ptr @Ptngc_coder_init() #13
-  store i32 %31, ptr %20, align 4, !tbaa !3
-  %72 = getelementptr inbounds i32, ptr %0, i64 %32
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  br label %73
-
-73:                                               ; preds = %79, %determine_best_coding_triple.exit169
-  %.026.i170 = phi i32 [ -1, %determine_best_coding_triple.exit169 ], [ %.2.i178, %79 ]
-  %.01725.i171 = phi i32 [ 0, %determine_best_coding_triple.exit169 ], [ %.219.i177, %79 ]
-  %.02124.i172 = phi i32 [ 1, %determine_best_coding_triple.exit169 ], [ %80, %79 ]
-  store i32 %31, ptr %15, align 4, !tbaa !3
-  %74 = call ptr @Ptngc_pack_array(ptr noundef %71, ptr noundef %72, ptr noundef nonnull %15, i32 noundef 2, i32 noundef %.02124.i172, i32 noundef %3, i32 noundef 0) #13
-  %.not.i173 = icmp eq ptr %74, null
-  br i1 %.not.i173, label %79, label %75
-
-75:                                               ; preds = %73
-  %76 = icmp eq i32 %.026.i170, -1
-  %77 = load i32, ptr %15, align 4
-  %78 = icmp slt i32 %77, %.01725.i171
-  %or.cond.i174 = select i1 %76, i1 true, i1 %78
-  %.118.i175 = select i1 %or.cond.i174, i32 %77, i32 %.01725.i171
-  %.1.i176 = select i1 %or.cond.i174, i32 %.02124.i172, i32 %.026.i170
-  call void @free(ptr noundef nonnull %74) #13
-  br label %79
-
-79:                                               ; preds = %75, %73
-  %.219.i177 = phi i32 [ %.118.i175, %75 ], [ %.01725.i171, %73 ]
-  %.2.i178 = phi i32 [ %.1.i176, %75 ], [ %.026.i170, %73 ]
-  %80 = add nuw nsw i32 %.02124.i172, 1
-  %exitcond.not.i179 = icmp eq i32 %80, 20
-  br i1 %exitcond.not.i179, label %81, label %73, !llvm.loop !14
-
-81:                                               ; preds = %79
-  %82 = icmp ne i32 %.2.i166, -1
-  %83 = icmp slt i32 %.219.i165, %.1130
-  %or.cond285 = select i1 %82, i1 %83, i1 false
+  %72 = icmp slt i32 %.219.i165, %.1130
+  %or.cond285 = select i1 %71, i1 %72, i1 false
   %.2131 = select i1 %or.cond285, i32 %.219.i165, i32 %.1130
   %.2125 = select i1 %or.cond285, i32 %.2.i166, i32 %.1124
   %.2 = select i1 %or.cond285, i32 3, i32 %.1
+  call void @Ptngc_coder_deinit(ptr noundef %61) #13
+  %73 = call ptr @Ptngc_coder_init() #13
+  store i32 %31, ptr %20, align 4, !tbaa !3
+  %74 = getelementptr inbounds i32, ptr %0, i64 %32
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  br label %75
+
+75:                                               ; preds = %81, %determine_best_coding_triple.exit169
+  %.026.i170 = phi i32 [ -1, %determine_best_coding_triple.exit169 ], [ %.2.i178, %81 ]
+  %.01725.i171 = phi i32 [ 0, %determine_best_coding_triple.exit169 ], [ %.219.i177, %81 ]
+  %.02124.i172 = phi i32 [ 1, %determine_best_coding_triple.exit169 ], [ %82, %81 ]
+  store i32 %31, ptr %15, align 4, !tbaa !3
+  %76 = call ptr @Ptngc_pack_array(ptr noundef %73, ptr noundef %74, ptr noundef nonnull %15, i32 noundef 2, i32 noundef %.02124.i172, i32 noundef %3, i32 noundef 0) #13
+  %.not.i173 = icmp eq ptr %76, null
+  br i1 %.not.i173, label %81, label %77
+
+77:                                               ; preds = %75
+  %78 = icmp eq i32 %.026.i170, -1
+  %79 = load i32, ptr %15, align 4
+  %80 = icmp slt i32 %79, %.01725.i171
+  %or.cond.i174 = select i1 %78, i1 true, i1 %80
+  %.118.i175 = select i1 %or.cond.i174, i32 %79, i32 %.01725.i171
+  %.1.i176 = select i1 %or.cond.i174, i32 %.02124.i172, i32 %.026.i170
+  call void @free(ptr noundef nonnull %76) #13
+  br label %81
+
+81:                                               ; preds = %77, %75
+  %.219.i177 = phi i32 [ %.118.i175, %77 ], [ %.01725.i171, %75 ]
+  %.2.i178 = phi i32 [ %.1.i176, %77 ], [ %.026.i170, %75 ]
+  %82 = add nuw nsw i32 %.02124.i172, 1
+  %exitcond.not.i179 = icmp eq i32 %82, 20
+  br i1 %exitcond.not.i179, label %83, label %75, !llvm.loop !14
+
+83:                                               ; preds = %81
   %84 = icmp eq i32 %.2.i178, -1
   br i1 %84, label %determine_best_coding_triple.exit181, label %85
 
-determine_best_coding_triple.exit181:             ; preds = %81
+determine_best_coding_triple.exit181:             ; preds = %83
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %88
 
-85:                                               ; preds = %81
+85:                                               ; preds = %83
   store i32 %.219.i177, ptr %20, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %86 = icmp slt i32 %.219.i177, %.2131
@@ -771,14 +771,14 @@ determine_best_coding_triple.exit181:             ; preds = %81
   %.3132 = phi i32 [ %.2131, %determine_best_coding_triple.exit181 ], [ %.219.i177, %87 ], [ %.2131, %85 ]
   %.3126 = phi i32 [ %.2125, %determine_best_coding_triple.exit181 ], [ %.2.i178, %87 ], [ %.2125, %85 ]
   %.3 = phi i32 [ %.2, %determine_best_coding_triple.exit181 ], [ 7, %87 ], [ %.2, %85 ]
-  call void @Ptngc_coder_deinit(ptr noundef %71) #13
+  call void @Ptngc_coder_deinit(ptr noundef %73) #13
   %89 = icmp sgt i32 %5, 3
   br i1 %89, label %90, label %.thread
 
 90:                                               ; preds = %88
   call fastcc void @compress_quantized_pos(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 5, i32 noundef 0, i32 noundef 8, i32 noundef 0, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %20, ptr noundef null)
   %91 = load i32, ptr %20, align 4, !tbaa !3
-  %92 = sub nsw i32 %91, %52
+  %92 = sub nsw i32 %91, %42
   store i32 %92, ptr %20, align 4, !tbaa !3
   %93 = icmp slt i32 %92, %.3132
   %.4127 = select i1 %93, i32 0, i32 %.3126
@@ -790,7 +790,7 @@ determine_best_coding_triple.exit181:             ; preds = %81
   %.4133 = call i32 @llvm.smin.i32(i32 %92, i32 %.3132)
   call fastcc void @compress_quantized_pos(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 5, i32 noundef 0, i32 noundef 9, i32 noundef 0, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %20, ptr noundef null)
   %96 = load i32, ptr %20, align 4, !tbaa !3
-  %97 = sub nsw i32 %96, %52
+  %97 = sub nsw i32 %96, %42
   %98 = icmp slt i32 %97, %.4133
   %spec.select = select i1 %98, i32 0, i32 %.4127
   %spec.select146 = select i1 %98, i32 9, i32 %.4
@@ -2069,51 +2069,51 @@ define internal fastcc void @determine_best_vel_coding(ptr noundef %0, ptr nound
   br i1 %exitcond.not.i, label %determine_best_coding_stop_bits.exit, label %31, !llvm.loop !15
 
 determine_best_coding_stop_bits.exit:             ; preds = %37
+  %39 = icmp eq i32 %.2.i, -1
+  %spec.select256 = select i1 %39, i32 %27, i32 %.219.i
+  %spec.select257 = select i1 %39, i32 0, i32 %.2.i
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @Ptngc_coder_deinit(ptr noundef %28) #13
-  %39 = call ptr @Ptngc_coder_init() #13
-  %40 = getelementptr inbounds i32, ptr %1, i64 %29
+  %40 = call ptr @Ptngc_coder_init() #13
+  %41 = getelementptr inbounds i32, ptr %1, i64 %29
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  br label %41
+  br label %42
 
-41:                                               ; preds = %47, %determine_best_coding_stop_bits.exit
-  %.026.i127 = phi i32 [ -1, %determine_best_coding_stop_bits.exit ], [ %.2.i135, %47 ]
-  %.01725.i128 = phi i32 [ 0, %determine_best_coding_stop_bits.exit ], [ %.219.i134, %47 ]
-  %.02124.i129 = phi i32 [ 1, %determine_best_coding_stop_bits.exit ], [ %48, %47 ]
+42:                                               ; preds = %48, %determine_best_coding_stop_bits.exit
+  %.026.i127 = phi i32 [ -1, %determine_best_coding_stop_bits.exit ], [ %.2.i135, %48 ]
+  %.01725.i128 = phi i32 [ 0, %determine_best_coding_stop_bits.exit ], [ %.219.i134, %48 ]
+  %.02124.i129 = phi i32 [ 1, %determine_best_coding_stop_bits.exit ], [ %49, %48 ]
   store i32 %27, ptr %16, align 4, !tbaa !3
-  %42 = call ptr @Ptngc_pack_array(ptr noundef %39, ptr noundef %40, ptr noundef nonnull %16, i32 noundef 2, i32 noundef %.02124.i129, i32 noundef %2, i32 noundef 0) #13
-  %.not.i130 = icmp eq ptr %42, null
-  br i1 %.not.i130, label %47, label %43
+  %43 = call ptr @Ptngc_pack_array(ptr noundef %40, ptr noundef %41, ptr noundef nonnull %16, i32 noundef 2, i32 noundef %.02124.i129, i32 noundef %2, i32 noundef 0) #13
+  %.not.i130 = icmp eq ptr %43, null
+  br i1 %.not.i130, label %48, label %44
 
-43:                                               ; preds = %41
-  %44 = icmp eq i32 %.026.i127, -1
-  %45 = load i32, ptr %16, align 4
-  %46 = icmp slt i32 %45, %.01725.i128
-  %or.cond.i131 = select i1 %44, i1 true, i1 %46
-  %.118.i132 = select i1 %or.cond.i131, i32 %45, i32 %.01725.i128
+44:                                               ; preds = %42
+  %45 = icmp eq i32 %.026.i127, -1
+  %46 = load i32, ptr %16, align 4
+  %47 = icmp slt i32 %46, %.01725.i128
+  %or.cond.i131 = select i1 %45, i1 true, i1 %47
+  %.118.i132 = select i1 %or.cond.i131, i32 %46, i32 %.01725.i128
   %.1.i133 = select i1 %or.cond.i131, i32 %.02124.i129, i32 %.026.i127
-  call void @free(ptr noundef nonnull %42) #13
-  br label %47
+  call void @free(ptr noundef nonnull %43) #13
+  br label %48
 
-47:                                               ; preds = %43, %41
-  %.219.i134 = phi i32 [ %.118.i132, %43 ], [ %.01725.i128, %41 ]
-  %.2.i135 = phi i32 [ %.1.i133, %43 ], [ %.026.i127, %41 ]
-  %48 = add nuw nsw i32 %.02124.i129, 1
-  %exitcond.not.i136 = icmp eq i32 %48, 20
-  br i1 %exitcond.not.i136, label %49, label %41, !llvm.loop !14
+48:                                               ; preds = %44, %42
+  %.219.i134 = phi i32 [ %.118.i132, %44 ], [ %.01725.i128, %42 ]
+  %.2.i135 = phi i32 [ %.1.i133, %44 ], [ %.026.i127, %42 ]
+  %49 = add nuw nsw i32 %.02124.i129, 1
+  %exitcond.not.i136 = icmp eq i32 %49, 20
+  br i1 %exitcond.not.i136, label %50, label %42, !llvm.loop !14
 
-49:                                               ; preds = %47
-  %50 = icmp eq i32 %.2.i, -1
-  %spec.select256 = select i1 %50, i32 %27, i32 %.219.i
-  %spec.select257 = select i1 %50, i32 0, i32 %.2.i
+50:                                               ; preds = %48
   %51 = icmp eq i32 %.2.i135, -1
   br i1 %51, label %determine_best_coding_triple.exit, label %52
 
-determine_best_coding_triple.exit:                ; preds = %49
+determine_best_coding_triple.exit:                ; preds = %50
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %55
 
-52:                                               ; preds = %49
+52:                                               ; preds = %50
   store i32 %.219.i134, ptr %19, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %53 = icmp slt i32 %.219.i134, %spec.select256
@@ -2126,7 +2126,7 @@ determine_best_coding_triple.exit:                ; preds = %49
   %.0113 = phi i32 [ %spec.select256, %determine_best_coding_triple.exit ], [ %.219.i134, %54 ], [ %spec.select256, %52 ]
   %.0108 = phi i32 [ %spec.select257, %determine_best_coding_triple.exit ], [ %.2.i135, %54 ], [ %spec.select257, %52 ]
   %.0 = phi i32 [ 1, %determine_best_coding_triple.exit ], [ 2, %54 ], [ 1, %52 ]
-  call void @Ptngc_coder_deinit(ptr noundef %39) #13
+  call void @Ptngc_coder_deinit(ptr noundef %40) #13
   %56 = call ptr @Ptngc_coder_init() #13
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br label %57
@@ -2158,54 +2158,54 @@ determine_best_coding_triple.exit:                ; preds = %49
   br i1 %exitcond.not.i147, label %determine_best_coding_triple.exit149, label %57, !llvm.loop !14
 
 determine_best_coding_triple.exit149:             ; preds = %63
+  %65 = icmp ne i32 %.2.i146, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  call void @Ptngc_coder_deinit(ptr noundef %56) #13
-  store i32 %27, ptr %19, align 4, !tbaa !3
-  %65 = call ptr @Ptngc_coder_init() #13
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  br label %66
-
-66:                                               ; preds = %72, %determine_best_coding_triple.exit149
-  %.026.i150 = phi i32 [ -1, %determine_best_coding_triple.exit149 ], [ %.2.i158, %72 ]
-  %.01725.i151 = phi i32 [ 0, %determine_best_coding_triple.exit149 ], [ %.219.i157, %72 ]
-  %.02124.i152 = phi i32 [ 1, %determine_best_coding_triple.exit149 ], [ %73, %72 ]
-  store i32 %27, ptr %14, align 4, !tbaa !3
-  %67 = call ptr @Ptngc_pack_array(ptr noundef %65, ptr noundef %40, ptr noundef nonnull %14, i32 noundef 1, i32 noundef %.02124.i152, i32 noundef %2, i32 noundef 0) #13
-  %.not.i153 = icmp eq ptr %67, null
-  br i1 %.not.i153, label %72, label %68
-
-68:                                               ; preds = %66
-  %69 = icmp eq i32 %.026.i150, -1
-  %70 = load i32, ptr %14, align 4
-  %71 = icmp slt i32 %70, %.01725.i151
-  %or.cond.i154 = select i1 %69, i1 true, i1 %71
-  %.118.i155 = select i1 %or.cond.i154, i32 %70, i32 %.01725.i151
-  %.1.i156 = select i1 %or.cond.i154, i32 %.02124.i152, i32 %.026.i150
-  call void @free(ptr noundef nonnull %67) #13
-  br label %72
-
-72:                                               ; preds = %68, %66
-  %.219.i157 = phi i32 [ %.118.i155, %68 ], [ %.01725.i151, %66 ]
-  %.2.i158 = phi i32 [ %.1.i156, %68 ], [ %.026.i150, %66 ]
-  %73 = add nuw nsw i32 %.02124.i152, 1
-  %exitcond.not.i159 = icmp eq i32 %73, 20
-  br i1 %exitcond.not.i159, label %74, label %66, !llvm.loop !15
-
-74:                                               ; preds = %72
-  %75 = icmp ne i32 %.2.i146, -1
-  %76 = icmp slt i32 %.219.i145, %.0113
-  %or.cond = select i1 %75, i1 %76, i1 false
+  %66 = icmp slt i32 %.219.i145, %.0113
+  %or.cond = select i1 %65, i1 %66, i1 false
   %.1114 = select i1 %or.cond, i32 %.219.i145, i32 %.0113
   %.1109 = select i1 %or.cond, i32 %.2.i146, i32 %.0108
   %.1 = select i1 %or.cond, i32 3, i32 %.0
+  call void @Ptngc_coder_deinit(ptr noundef %56) #13
+  store i32 %27, ptr %19, align 4, !tbaa !3
+  %67 = call ptr @Ptngc_coder_init() #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  br label %68
+
+68:                                               ; preds = %74, %determine_best_coding_triple.exit149
+  %.026.i150 = phi i32 [ -1, %determine_best_coding_triple.exit149 ], [ %.2.i158, %74 ]
+  %.01725.i151 = phi i32 [ 0, %determine_best_coding_triple.exit149 ], [ %.219.i157, %74 ]
+  %.02124.i152 = phi i32 [ 1, %determine_best_coding_triple.exit149 ], [ %75, %74 ]
+  store i32 %27, ptr %14, align 4, !tbaa !3
+  %69 = call ptr @Ptngc_pack_array(ptr noundef %67, ptr noundef %41, ptr noundef nonnull %14, i32 noundef 1, i32 noundef %.02124.i152, i32 noundef %2, i32 noundef 0) #13
+  %.not.i153 = icmp eq ptr %69, null
+  br i1 %.not.i153, label %74, label %70
+
+70:                                               ; preds = %68
+  %71 = icmp eq i32 %.026.i150, -1
+  %72 = load i32, ptr %14, align 4
+  %73 = icmp slt i32 %72, %.01725.i151
+  %or.cond.i154 = select i1 %71, i1 true, i1 %73
+  %.118.i155 = select i1 %or.cond.i154, i32 %72, i32 %.01725.i151
+  %.1.i156 = select i1 %or.cond.i154, i32 %.02124.i152, i32 %.026.i150
+  call void @free(ptr noundef nonnull %69) #13
+  br label %74
+
+74:                                               ; preds = %70, %68
+  %.219.i157 = phi i32 [ %.118.i155, %70 ], [ %.01725.i151, %68 ]
+  %.2.i158 = phi i32 [ %.1.i156, %70 ], [ %.026.i150, %68 ]
+  %75 = add nuw nsw i32 %.02124.i152, 1
+  %exitcond.not.i159 = icmp eq i32 %75, 20
+  br i1 %exitcond.not.i159, label %76, label %68, !llvm.loop !15
+
+76:                                               ; preds = %74
   %77 = icmp eq i32 %.2.i158, -1
   br i1 %77, label %determine_best_coding_stop_bits.exit161, label %78
 
-determine_best_coding_stop_bits.exit161:          ; preds = %74
+determine_best_coding_stop_bits.exit161:          ; preds = %76
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %81
 
-78:                                               ; preds = %74
+78:                                               ; preds = %76
   store i32 %.219.i157, ptr %19, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %79 = icmp slt i32 %.219.i157, %.1114
@@ -2218,7 +2218,7 @@ determine_best_coding_stop_bits.exit161:          ; preds = %74
   %.2115 = phi i32 [ %.1114, %determine_best_coding_stop_bits.exit161 ], [ %.219.i157, %80 ], [ %.1114, %78 ]
   %.2110 = phi i32 [ %.1109, %determine_best_coding_stop_bits.exit161 ], [ %.2.i158, %80 ], [ %.1109, %78 ]
   %.2 = phi i32 [ %.1, %determine_best_coding_stop_bits.exit161 ], [ 6, %80 ], [ %.1, %78 ]
-  call void @Ptngc_coder_deinit(ptr noundef %65) #13
+  call void @Ptngc_coder_deinit(ptr noundef %67) #13
   %82 = icmp sgt i32 %4, 3
   br i1 %82, label %83, label %91
 

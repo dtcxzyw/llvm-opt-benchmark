@@ -2258,8 +2258,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %113 = getelementptr inbounds nuw i32, ptr %111, i64 %105
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr %113, ptr %114, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %111, i64 %110
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %111, i8 0, i64 %110, i1 false)
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 %110
   br label %.loopexit182
 
 .loopexit182:                                     ; preds = %.noexc58, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i

@@ -185,8 +185,8 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i:      ; preds = %.noexc19.i
 
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc19.i
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %22, 3
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %21, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !28
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i.i.i.i.i.i.i.i
   %26 = load double, ptr %3, align 8, !tbaa !28
   store double %26, ptr %20, align 8, !tbaa !28
   %27 = icmp samesign ugt i64 %18, 1

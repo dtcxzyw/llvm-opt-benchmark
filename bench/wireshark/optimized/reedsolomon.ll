@@ -652,7 +652,7 @@ modnn.exit265:                                    ; preds = %.lr.ph.i263, %140
 .preheader307.preheader:                          ; preds = %154
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(192) %97, ptr noundef nonnull align 16 dereferenceable(192) %6, i64 192, i1 false)
   store i32 255, ptr %6, align 16
-  br label %.loopexit306.loopexit
+  br label %.loopexit308
 
 .preheader:                                       ; preds = %154, %modnn.exit269
   %indvars.iv436 = phi i64 [ %indvars.iv.next437, %modnn.exit269 ], [ 0, %154 ]
@@ -685,21 +685,21 @@ modnn.exit269:                                    ; preds = %.lr.ph.i267, %160, 
   store i32 %172, ptr %173, align 4
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
   %exitcond439.not = icmp eq i64 %indvars.iv.next437, 49
-  br i1 %exitcond439.not, label %.loopexit308, label %.preheader, !llvm.loop !24
+  br i1 %exitcond439.not, label %.loopexit308.loopexit, label %.preheader, !llvm.loop !24
 
-.loopexit308:                                     ; preds = %modnn.exit269
+.loopexit308.loopexit:                            ; preds = %modnn.exit269
   %174 = trunc nsw i64 %indvars.iv449 to i32
   %175 = add i32 %2, %174
   %176 = sub i32 %175, %.0197348
-  br label %.loopexit306.loopexit
+  br label %.loopexit308
 
-.loopexit306.loopexit:                            ; preds = %.loopexit308, %.preheader307.preheader
-  %.2199 = phi i32 [ %.0197348, %.preheader307.preheader ], [ %176, %.loopexit308 ]
+.loopexit308:                                     ; preds = %.loopexit308.loopexit, %.preheader307.preheader
+  %.2199 = phi i32 [ %.0197348, %.preheader307.preheader ], [ %176, %.loopexit308.loopexit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(196) %4, ptr noundef nonnull align 16 dereferenceable(196) %7, i64 196, i1 false)
   br label %.loopexit306
 
-.loopexit306:                                     ; preds = %.loopexit306.loopexit, %.preheader305.preheader
-  %.1198 = phi i32 [ %.0197348, %.preheader305.preheader ], [ %.2199, %.loopexit306.loopexit ]
+.loopexit306:                                     ; preds = %.loopexit308, %.preheader305.preheader
+  %.1198 = phi i32 [ %.0197348, %.preheader305.preheader ], [ %.2199, %.loopexit308 ]
   %indvars.iv.next450 = add nsw i64 %indvars.iv449, 1
   %177 = trunc nsw i64 %indvars.iv449 to i32
   %178 = and i64 %indvars.iv.next450, 4294967295

@@ -437,8 +437,8 @@ _ZN7rocksdb8Random644NextEv.exit:                 ; preds = %_ZN7rocksdb10WriteB
 
 _ZNSt6vectorItSaItEEC2EmRKS0_.exit:               ; preds = %.noexc
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %62, 1
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 2 %61, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !57
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZNSt6vectorItSaItEEC2EmRKS0_.exit, %.noexc
@@ -4260,8 +4260,8 @@ define void @_ZN7rocksdb25RandomTransactionInserter6VerifyEPNS_2DBEtmbPNS_8Rando
 
 _ZNSt6vectorItSaItEEC2EmRKS0_.exit:               ; preds = %.noexc
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %73, 1
-  %75 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 2 %72, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !57
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZNSt6vectorItSaItEEC2EmRKS0_.exit, %.noexc

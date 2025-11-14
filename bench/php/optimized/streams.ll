@@ -4815,6 +4815,7 @@ define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, p
   %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 443), align 1, !tbaa !155, !range !52, !noundef !39
   %18 = trunc nuw i8 %17 to i1
   %. = select i1 %18, i64 7, i64 1
+  %.str.28..str.29 = select i1 %18, ptr @.str.28, ptr @.str.29
   %19 = call ptr @zend_llist_get_first_ex(ptr noundef nonnull %14, ptr noundef nonnull %5) #27
   %.not8392 = icmp eq ptr %19, null
   br i1 %.not8392, label %._crit_edge, label %.lr.ph
@@ -4842,9 +4843,8 @@ define internal fastcc void @php_stream_display_wrapper_errors(ptr noundef %0, p
   %29 = add i64 %spec.select, 1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
+._crit_edge:                                      ; preds = %13, %._crit_edge.loopexit
   %.074.lcssa = phi i64 [ 1, %13 ], [ %29, %._crit_edge.loopexit ]
-  %.str.28..str.29 = select i1 %18, ptr @.str.28, ptr @.str.29
   %30 = call noalias ptr @_emalloc(i64 noundef %.074.lcssa) #29
   store i8 0, ptr %30, align 1, !tbaa !21
   %31 = call ptr @zend_llist_get_first_ex(ptr noundef nonnull %14, ptr noundef nonnull %5) #27

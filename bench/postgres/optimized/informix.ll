@@ -853,36 +853,36 @@ define range(i32 -1, 1) i32 @rfmtlong(i64 noundef %0, ptr noundef readonly %1, p
   br label %169
 
 10:                                               ; preds = %3
-  %11 = tail call i64 @llvm.abs.i64(i64 %0, i1 false)
-  br label %12
+  %11 = icmp sgt i64 %0, -1
+  %12 = tail call i64 @llvm.abs.i64(i64 %0, i1 false)
+  %13 = select i1 %11, i8 43, i8 45
+  br label %14
 
-12:                                               ; preds = %12, %10
-  %.024.i = phi i32 [ 0, %10 ], [ %13, %12 ]
-  %.022.i = phi i64 [ 1, %10 ], [ %14, %12 ]
-  %13 = add nuw nsw i32 %.024.i, 1
-  %14 = mul i64 %.022.i, 10
-  %15 = add i64 %14, -1
-  %16 = icmp slt i64 %15, %11
-  %17 = icmp slt i64 %14, 922337203685477581
-  %18 = and i1 %17, %16
-  br i1 %18, label %12, label %19, !llvm.loop !4
+14:                                               ; preds = %14, %10
+  %.024.i = phi i32 [ 0, %10 ], [ %15, %14 ]
+  %.022.i = phi i64 [ 1, %10 ], [ %16, %14 ]
+  %15 = add nuw nsw i32 %.024.i, 1
+  %16 = mul i64 %.022.i, 10
+  %17 = add i64 %16, -1
+  %18 = icmp slt i64 %17, %12
+  %19 = icmp slt i64 %16, 922337203685477581
+  %20 = and i1 %19, %18
+  br i1 %20, label %14, label %21, !llvm.loop !4
 
-19:                                               ; preds = %12
-  %20 = icmp sgt i64 %0, -1
-  %21 = select i1 %20, i8 43, i8 45
-  br i1 %17, label %22, label %24
+21:                                               ; preds = %14
+  br i1 %19, label %22, label %24
 
-22:                                               ; preds = %19
-  %23 = sdiv i64 %14, 10
+22:                                               ; preds = %21
+  %23 = sdiv i64 %16, 10
   br label %26
 
-24:                                               ; preds = %19
+24:                                               ; preds = %21
   %25 = add nuw i32 %.024.i, 2
   br label %26
 
 26:                                               ; preds = %24, %22
-  %.sink.i = phi i32 [ %13, %22 ], [ %25, %24 ]
-  %.1.i = phi i64 [ %23, %22 ], [ %14, %24 ]
+  %.sink.i = phi i32 [ %15, %22 ], [ %25, %24 ]
+  %.1.i = phi i64 [ %23, %22 ], [ %16, %24 ]
   %27 = add i32 %.sink.i, 1
   %28 = sext i32 %27 to i64
   %29 = tail call noalias ptr @malloc(i64 noundef %28) #19
@@ -900,7 +900,7 @@ define range(i32 -1, 1) i32 @rfmtlong(i64 noundef %0, ptr noundef readonly %1, p
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.034.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %36, %.lr.ph.i ]
+  %.034.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %36, %.lr.ph.i ]
   %.233.i = phi i64 [ %.1.i, %.lr.ph.preheader.i ], [ %37, %.lr.ph.i ]
   %32 = sdiv i64 %.034.i, %.233.i
   %33 = trunc i64 %32 to i8
@@ -970,8 +970,8 @@ getRightMostDot.exit:                             ; preds = %58, %54
   %.010.i = phi i64 [ %57, %54 ], [ 4294967295, %58 ]
   store i8 0, ptr %7, align 1
   %60 = add i32 %.sink.i, -1
-  %61 = select i1 %20, i8 32, i8 41
-  %not.175 = xor i1 %20, true
+  %61 = select i1 %11, i8 32, i8 41
+  %not.175 = xor i1 %11, true
   %or.cond26 = and i1 %47, %not.175
   %62 = zext nneg i32 %.0912.i to i64
   br label %63
@@ -1128,7 +1128,7 @@ getRightMostDot.exit:                             ; preds = %58, %54
 
 113:                                              ; preds = %92
   %not. = xor i1 %87, true
-  %or.cond14 = or i1 %20, %not.
+  %or.cond14 = or i1 %11, %not.
   %or.cond16 = select i1 %or.cond14, i1 true, i1 %88
   br i1 %or.cond16, label %115, label %114
 
@@ -1156,7 +1156,7 @@ getRightMostDot.exit:                             ; preds = %58, %54
   br i1 %or.cond18, label %124, label %123
 
 123:                                              ; preds = %121
-  store i8 %21, ptr %4, align 2
+  store i8 %13, ptr %4, align 2
   br label %155
 
 124:                                              ; preds = %121

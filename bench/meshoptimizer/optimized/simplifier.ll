@@ -243,23 +243,24 @@ _ZN7meshoptL16buildSparseRemapEPjmmPmR17meshopt_Allocator.exit: ; preds = %._cri
   store i64 %120, ptr %109, align 8, !tbaa !8
   %121 = getelementptr inbounds nuw ptr, ptr %18, i64 %119
   store ptr %117, ptr %121, align 8, !tbaa !4
-  %122 = getelementptr inbounds nuw i8, ptr %108, i64 4
-  %123 = shl i64 %.0624, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %122, i8 0, i64 %123, i1 false)
+  %122 = udiv i64 %2, 3
+  %123 = getelementptr inbounds nuw i8, ptr %108, i64 4
+  %124 = shl i64 %.0624, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %123, i8 0, i64 %124, i1 false)
   %.not87.i = icmp eq i64 %2, 0
   br i1 %.not87.i, label %.preheader80.i, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %118, %.lr.ph.split.us.i
-  %.07581.us.i = phi i64 [ %130, %.lr.ph.split.us.i ], [ 0, %118 ]
-  %124 = getelementptr inbounds nuw i32, ptr %0, i64 %.07581.us.i
-  %125 = load i32, ptr %124, align 4, !tbaa !13
-  %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw i32, ptr %122, i64 %126
-  %128 = load i32, ptr %127, align 4, !tbaa !13
-  %129 = add i32 %128, 1
-  store i32 %129, ptr %127, align 4, !tbaa !13
-  %130 = add nuw i64 %.07581.us.i, 1
-  %exitcond91.not.i = icmp eq i64 %130, %2
+  %.07581.us.i = phi i64 [ %131, %.lr.ph.split.us.i ], [ 0, %118 ]
+  %125 = getelementptr inbounds nuw i32, ptr %0, i64 %.07581.us.i
+  %126 = load i32, ptr %125, align 4, !tbaa !13
+  %127 = zext i32 %126 to i64
+  %128 = getelementptr inbounds nuw i32, ptr %123, i64 %127
+  %129 = load i32, ptr %128, align 4, !tbaa !13
+  %130 = add i32 %129, 1
+  store i32 %130, ptr %128, align 4, !tbaa !13
+  %131 = add nuw i64 %.07581.us.i, 1
+  %exitcond91.not.i = icmp eq i64 %131, %2
   br i1 %exitcond91.not.i, label %.preheader80.i, label %.lr.ph.split.us.i, !llvm.loop !18
 
 .preheader80.i:                                   ; preds = %.lr.ph.split.us.i, %118
@@ -267,14 +268,13 @@ _ZN7meshoptL16buildSparseRemapEPjmmPmR17meshopt_Allocator.exit: ; preds = %._cri
   br i1 %.not88.i, label %.preheader.i, label %.lr.ph84.i
 
 .preheader.i:                                     ; preds = %.lr.ph84.i, %.preheader80.i
-  %131 = udiv i64 %2, 3
   %.not89.i = icmp ult i64 %2, 3
   br i1 %.not89.i, label %_ZN7meshoptL19updateEdgeAdjacencyERNS_13EdgeAdjacencyEPKjmmS3_.exit, label %.lr.ph86.i
 
 .lr.ph84.i:                                       ; preds = %.preheader80.i, %.lr.ph84.i
   %.07683.i = phi i64 [ %135, %.lr.ph84.i ], [ 0, %.preheader80.i ]
   %.07782.i = phi i32 [ %134, %.lr.ph84.i ], [ 0, %.preheader80.i ]
-  %132 = getelementptr inbounds nuw i32, ptr %122, i64 %.07683.i
+  %132 = getelementptr inbounds nuw i32, ptr %123, i64 %.07683.i
   %133 = load i32, ptr %132, align 4, !tbaa !13
   store i32 %.07782.i, ptr %132, align 4, !tbaa !13
   %134 = add i32 %133, %.07782.i
@@ -292,7 +292,7 @@ _ZN7meshoptL16buildSparseRemapEPjmmPmR17meshopt_Allocator.exit: ; preds = %._cri
   %140 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %141 = load i32, ptr %140, align 4, !tbaa !13
   %142 = zext i32 %137 to i64
-  %143 = getelementptr inbounds nuw i32, ptr %122, i64 %142
+  %143 = getelementptr inbounds nuw i32, ptr %123, i64 %142
   %144 = load i32, ptr %143, align 4, !tbaa !13
   %145 = zext i32 %144 to i64
   %146 = getelementptr inbounds nuw %"struct.meshopt::EdgeAdjacency::Edge", ptr %117, i64 %145
@@ -306,7 +306,7 @@ _ZN7meshoptL16buildSparseRemapEPjmmPmR17meshopt_Allocator.exit: ; preds = %._cri
   %152 = add i32 %151, 1
   store i32 %152, ptr %143, align 4, !tbaa !13
   %153 = zext i32 %139 to i64
-  %154 = getelementptr inbounds nuw i32, ptr %122, i64 %153
+  %154 = getelementptr inbounds nuw i32, ptr %123, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !13
   %156 = zext i32 %155 to i64
   %157 = getelementptr inbounds nuw %"struct.meshopt::EdgeAdjacency::Edge", ptr %117, i64 %156
@@ -320,7 +320,7 @@ _ZN7meshoptL16buildSparseRemapEPjmmPmR17meshopt_Allocator.exit: ; preds = %._cri
   %163 = add i32 %162, 1
   store i32 %163, ptr %154, align 4, !tbaa !13
   %164 = zext i32 %141 to i64
-  %165 = getelementptr inbounds nuw i32, ptr %122, i64 %164
+  %165 = getelementptr inbounds nuw i32, ptr %123, i64 %164
   %166 = load i32, ptr %165, align 4, !tbaa !13
   %167 = zext i32 %166 to i64
   %168 = getelementptr inbounds nuw %"struct.meshopt::EdgeAdjacency::Edge", ptr %117, i64 %167
@@ -334,14 +334,14 @@ _ZN7meshoptL16buildSparseRemapEPjmmPmR17meshopt_Allocator.exit: ; preds = %._cri
   %174 = add i32 %173, 1
   store i32 %174, ptr %165, align 4, !tbaa !13
   %175 = add nuw nsw i64 %.07485.i, 1
-  %exitcond93.not.i = icmp eq i64 %175, %131
+  %exitcond93.not.i = icmp eq i64 %175, %122
   br i1 %exitcond93.not.i, label %_ZN7meshoptL19updateEdgeAdjacencyERNS_13EdgeAdjacencyEPKjmmS3_.exit, label %.lr.ph86.i, !llvm.loop !23
 
 _ZN7meshoptL19updateEdgeAdjacencyERNS_13EdgeAdjacencyEPKjmmS3_.exit: ; preds = %.lr.ph86.i, %.preheader.i
   store i32 0, ptr %108, align 4, !tbaa !13
   %176 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !4
   %177 = icmp ugt i64 %.0624, 4611686018427387903
-  %178 = select i1 %177, i64 -1, i64 %123
+  %178 = select i1 %177, i64 -1, i64 %124
   %179 = invoke noundef ptr %176(i64 noundef %178)
           to label %180 unwind label %491
 
@@ -588,8 +588,8 @@ _ZN7meshoptL11hashLookup2IjNS_14PositionHasherEEEPT_S3_mRKT0_RKS2_S8_.exit.i: ; 
   store i64 %309, ptr %109, align 8, !tbaa !8
   %310 = getelementptr inbounds nuw ptr, ptr %18, i64 %308
   store ptr %306, ptr %310, align 8, !tbaa !4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %300, i8 -1, i64 %123, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr align 4 %306, i8 -1, i64 %123, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %300, i8 -1, i64 %124, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %306, i8 -1, i64 %124, i1 false)
   br i1 %.not88.i, label %_ZN7meshoptL16classifyVerticesEPhPjS1_mRKNS_13EdgeAdjacencyEPKjS6_PKhS6_j.exit, label %.lr.ph199.i
 
 .loopexit196.i:                                   ; preds = %_ZN7meshoptL7hasEdgeERKNS_13EdgeAdjacencyEjj.exit.i, %.lr.ph199.i
@@ -2481,53 +2481,53 @@ _ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.exit: ; preds = %.loo
 
 .lr.ph.i459:                                      ; preds = %.lr.ph.i459.lr.ph, %_ZN7meshoptL15pruneComponentsEPjmPKjPKfmfRf.exit
   %.0303692 = phi i64 [ %2, %.lr.ph.i459.lr.ph ], [ %.2305, %_ZN7meshoptL15pruneComponentsEPjmPKjPKfmfRf.exit ]
-  %.0606691 = phi float [ 0.000000e+00, %.lr.ph.i459.lr.ph ], [ %2498, %_ZN7meshoptL15pruneComponentsEPjmPKjPKfmfRf.exit ]
+  %.0606691 = phi float [ 0.000000e+00, %.lr.ph.i459.lr.ph ], [ %2474, %_ZN7meshoptL15pruneComponentsEPjmPKjPKfmfRf.exit ]
   %.0607690 = phi float [ 0.000000e+00, %.lr.ph.i459.lr.ph ], [ %.8, %_ZN7meshoptL15pruneComponentsEPjmPKjPKfmfRf.exit ]
   %.2617689 = phi float [ %.0615, %.lr.ph.i459.lr.ph ], [ %.4619, %_ZN7meshoptL15pruneComponentsEPjmPKjPKfmfRf.exit ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %122, i8 0, i64 %123, i1 false)
+  %1500 = udiv i64 %.0303692, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %123, i8 0, i64 %124, i1 false)
   br i1 %.not79.i, label %.lr.ph.split.us.i475, label %.lr.ph.split.i
 
 .lr.ph.split.us.i475:                             ; preds = %.lr.ph.i459, %.lr.ph.split.us.i475
-  %.07581.us.i476 = phi i64 [ %1506, %.lr.ph.split.us.i475 ], [ 0, %.lr.ph.i459 ]
-  %1500 = getelementptr inbounds nuw i32, ptr %0, i64 %.07581.us.i476
-  %1501 = load i32, ptr %1500, align 4, !tbaa !13
-  %1502 = zext i32 %1501 to i64
-  %1503 = getelementptr inbounds nuw i32, ptr %122, i64 %1502
-  %1504 = load i32, ptr %1503, align 4, !tbaa !13
-  %1505 = add i32 %1504, 1
-  store i32 %1505, ptr %1503, align 4, !tbaa !13
-  %1506 = add nuw i64 %.07581.us.i476, 1
-  %exitcond91.not.i477 = icmp eq i64 %1506, %.0303692
+  %.07581.us.i476 = phi i64 [ %1507, %.lr.ph.split.us.i475 ], [ 0, %.lr.ph.i459 ]
+  %1501 = getelementptr inbounds nuw i32, ptr %0, i64 %.07581.us.i476
+  %1502 = load i32, ptr %1501, align 4, !tbaa !13
+  %1503 = zext i32 %1502 to i64
+  %1504 = getelementptr inbounds nuw i32, ptr %123, i64 %1503
+  %1505 = load i32, ptr %1504, align 4, !tbaa !13
+  %1506 = add i32 %1505, 1
+  store i32 %1506, ptr %1504, align 4, !tbaa !13
+  %1507 = add nuw i64 %.07581.us.i476, 1
+  %exitcond91.not.i477 = icmp eq i64 %1507, %.0303692
   br i1 %exitcond91.not.i477, label %.preheader80.i461, label %.lr.ph.split.us.i475, !llvm.loop !18
 
 .preheader80.i461:                                ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i475
   br i1 %.not88.i, label %.preheader.i467, label %.lr.ph84.i463
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i459, %.lr.ph.split.i
-  %.07581.i = phi i64 [ %1516, %.lr.ph.split.i ], [ 0, %.lr.ph.i459 ]
-  %1507 = getelementptr inbounds nuw i32, ptr %0, i64 %.07581.i
-  %1508 = load i32, ptr %1507, align 4, !tbaa !13
-  %1509 = zext i32 %1508 to i64
-  %1510 = getelementptr inbounds nuw i32, ptr %179, i64 %1509
-  %1511 = load i32, ptr %1510, align 4, !tbaa !13
-  %1512 = zext i32 %1511 to i64
-  %1513 = getelementptr inbounds nuw i32, ptr %122, i64 %1512
-  %1514 = load i32, ptr %1513, align 4, !tbaa !13
-  %1515 = add i32 %1514, 1
-  store i32 %1515, ptr %1513, align 4, !tbaa !13
-  %1516 = add nuw i64 %.07581.i, 1
-  %exitcond.not.i460 = icmp eq i64 %1516, %.0303692
+  %.07581.i = phi i64 [ %1517, %.lr.ph.split.i ], [ 0, %.lr.ph.i459 ]
+  %1508 = getelementptr inbounds nuw i32, ptr %0, i64 %.07581.i
+  %1509 = load i32, ptr %1508, align 4, !tbaa !13
+  %1510 = zext i32 %1509 to i64
+  %1511 = getelementptr inbounds nuw i32, ptr %179, i64 %1510
+  %1512 = load i32, ptr %1511, align 4, !tbaa !13
+  %1513 = zext i32 %1512 to i64
+  %1514 = getelementptr inbounds nuw i32, ptr %123, i64 %1513
+  %1515 = load i32, ptr %1514, align 4, !tbaa !13
+  %1516 = add i32 %1515, 1
+  store i32 %1516, ptr %1514, align 4, !tbaa !13
+  %1517 = add nuw i64 %.07581.i, 1
+  %exitcond.not.i460 = icmp eq i64 %1517, %.0303692
   br i1 %exitcond.not.i460, label %.preheader80.i461, label %.lr.ph.split.i, !llvm.loop !18
 
 .preheader.i467:                                  ; preds = %.lr.ph84.i463, %.preheader80.i461
-  %1517 = udiv i64 %.0303692, 3
   %.not89.i468 = icmp ult i64 %.0303692, 3
   br i1 %.not89.i468, label %_ZN7meshoptL19updateEdgeAdjacencyERNS_13EdgeAdjacencyEPKjmmS3_.exit478, label %.lr.ph86.i469
 
 .lr.ph84.i463:                                    ; preds = %.preheader80.i461, %.lr.ph84.i463
   %.07683.i464 = phi i64 [ %1521, %.lr.ph84.i463 ], [ 0, %.preheader80.i461 ]
   %.07782.i465 = phi i32 [ %1520, %.lr.ph84.i463 ], [ 0, %.preheader80.i461 ]
-  %1518 = getelementptr inbounds nuw i32, ptr %122, i64 %.07683.i464
+  %1518 = getelementptr inbounds nuw i32, ptr %123, i64 %.07683.i464
   %1519 = load i32, ptr %1518, align 4, !tbaa !13
   store i32 %.07782.i465, ptr %1518, align 4, !tbaa !13
   %1520 = add i32 %1519, %.07782.i465
@@ -2563,7 +2563,7 @@ _ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.exit: ; preds = %.loo
   %.072.i = phi i32 [ %1534, %1528 ], [ %1525, %.lr.ph86.i469 ]
   %.0.i = phi i32 [ %1537, %1528 ], [ %1527, %.lr.ph86.i469 ]
   %1539 = zext i32 %.073.i to i64
-  %1540 = getelementptr inbounds nuw i32, ptr %122, i64 %1539
+  %1540 = getelementptr inbounds nuw i32, ptr %123, i64 %1539
   %1541 = load i32, ptr %1540, align 4, !tbaa !13
   %1542 = zext i32 %1541 to i64
   %1543 = getelementptr inbounds nuw %"struct.meshopt::EdgeAdjacency::Edge", ptr %117, i64 %1542
@@ -2577,7 +2577,7 @@ _ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.exit: ; preds = %.loo
   %1549 = add i32 %1548, 1
   store i32 %1549, ptr %1540, align 4, !tbaa !13
   %1550 = zext i32 %.072.i to i64
-  %1551 = getelementptr inbounds nuw i32, ptr %122, i64 %1550
+  %1551 = getelementptr inbounds nuw i32, ptr %123, i64 %1550
   %1552 = load i32, ptr %1551, align 4, !tbaa !13
   %1553 = zext i32 %1552 to i64
   %1554 = getelementptr inbounds nuw %"struct.meshopt::EdgeAdjacency::Edge", ptr %117, i64 %1553
@@ -2591,7 +2591,7 @@ _ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.exit: ; preds = %.loo
   %1560 = add i32 %1559, 1
   store i32 %1560, ptr %1551, align 4, !tbaa !13
   %1561 = zext i32 %.0.i to i64
-  %1562 = getelementptr inbounds nuw i32, ptr %122, i64 %1561
+  %1562 = getelementptr inbounds nuw i32, ptr %123, i64 %1561
   %1563 = load i32, ptr %1562, align 4, !tbaa !13
   %1564 = zext i32 %1563 to i64
   %1565 = getelementptr inbounds nuw %"struct.meshopt::EdgeAdjacency::Edge", ptr %117, i64 %1564
@@ -2605,7 +2605,7 @@ _ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.exit: ; preds = %.loo
   %1571 = add i32 %1570, 1
   store i32 %1571, ptr %1562, align 4, !tbaa !13
   %1572 = add nuw nsw i64 %.07485.i471, 1
-  %exitcond93.not.i473 = icmp eq i64 %1572, %1517
+  %exitcond93.not.i473 = icmp eq i64 %1572, %1500
   br i1 %exitcond93.not.i473, label %_ZN7meshoptL19updateEdgeAdjacencyERNS_13EdgeAdjacencyEPKjmmS3_.exit478, label %.lr.ph86.i469, !llvm.loop !23
 
 _ZN7meshoptL19updateEdgeAdjacencyERNS_13EdgeAdjacencyEPKjmmS3_.exit478: ; preds = %1538, %.preheader.i467
@@ -3268,11 +3268,11 @@ _ZN7meshoptL17rankEdgeCollapsesEPNS_8CollapseEmPKNS_7Vector3EPKfPKNS_7QuadricES9
 
 _ZN7meshoptL17sortEdgeCollapsesEPjPKNS_8CollapseEm.exit: ; preds = %.preheader.i497
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  %2062 = sub i64 %.0303692, %11
+  %2063 = udiv i64 %2062, 3
   br i1 %.not88.i, label %._crit_edge, label %.lr.ph688
 
 ._crit_edge:                                      ; preds = %.lr.ph688, %_ZN7meshoptL17sortEdgeCollapsesEPjPKNS_8CollapseEm.exit
-  %2062 = sub i64 %.0303692, %11
-  %2063 = udiv i64 %2062, 3
   tail call void @llvm.memset.p0.i64(ptr align 1 %1488, i8 0, i64 %.0624, i1 false)
   %2064 = lshr i64 %2063, 1
   %2065 = udiv i64 %2062, 18
@@ -3871,54 +3871,54 @@ _ZN7meshoptL10quadricAddEPNS_11QuadricGradEPKS0_m.exit.i513: ; preds = %2366
 
 _ZN7meshoptL14remapEdgeLoopsEPjmPKj.exit529:      ; preds = %2472, %2235
   %.6.lcssa.sink = phi float [ %.0606691, %2235 ], [ %.6, %2472 ]
+  %2474 = select i1 %.not335, float %.8, float %.6.lcssa.sink
   br label %.lr.ph.i530
 
-.lr.ph.i530:                                      ; preds = %_ZN7meshoptL14remapEdgeLoopsEPjmPKj.exit529, %2495
-  %.036.i = phi i64 [ %.1.i534, %2495 ], [ 0, %_ZN7meshoptL14remapEdgeLoopsEPjmPKj.exit529 ]
-  %.02835.i = phi i64 [ %2496, %2495 ], [ 0, %_ZN7meshoptL14remapEdgeLoopsEPjmPKj.exit529 ]
-  %2474 = getelementptr inbounds nuw i32, ptr %0, i64 %.02835.i
-  %2475 = load i32, ptr %2474, align 4, !tbaa !13
-  %2476 = zext i32 %2475 to i64
-  %2477 = getelementptr inbounds nuw i32, ptr %1482, i64 %2476
-  %2478 = load i32, ptr %2477, align 4, !tbaa !13
-  %2479 = getelementptr i8, ptr %2474, i64 4
-  %2480 = load i32, ptr %2479, align 4, !tbaa !13
-  %2481 = zext i32 %2480 to i64
-  %2482 = getelementptr inbounds nuw i32, ptr %1482, i64 %2481
-  %2483 = load i32, ptr %2482, align 4, !tbaa !13
-  %2484 = getelementptr i8, ptr %2474, i64 8
-  %2485 = load i32, ptr %2484, align 4, !tbaa !13
-  %2486 = zext i32 %2485 to i64
-  %2487 = getelementptr inbounds nuw i32, ptr %1482, i64 %2486
-  %2488 = load i32, ptr %2487, align 4, !tbaa !13
-  %.not.i531 = icmp eq i32 %2478, %2483
-  %.not32.i532 = icmp eq i32 %2478, %2488
-  %.not33.i533 = icmp eq i32 %2483, %2488
-  %2489 = or i1 %.not32.i532, %.not33.i533
-  %or.cond34.i = select i1 %.not.i531, i1 true, i1 %2489
-  br i1 %or.cond34.i, label %2495, label %2490
+.lr.ph.i530:                                      ; preds = %_ZN7meshoptL14remapEdgeLoopsEPjmPKj.exit529, %2496
+  %.036.i = phi i64 [ %.1.i534, %2496 ], [ 0, %_ZN7meshoptL14remapEdgeLoopsEPjmPKj.exit529 ]
+  %.02835.i = phi i64 [ %2497, %2496 ], [ 0, %_ZN7meshoptL14remapEdgeLoopsEPjmPKj.exit529 ]
+  %2475 = getelementptr inbounds nuw i32, ptr %0, i64 %.02835.i
+  %2476 = load i32, ptr %2475, align 4, !tbaa !13
+  %2477 = zext i32 %2476 to i64
+  %2478 = getelementptr inbounds nuw i32, ptr %1482, i64 %2477
+  %2479 = load i32, ptr %2478, align 4, !tbaa !13
+  %2480 = getelementptr i8, ptr %2475, i64 4
+  %2481 = load i32, ptr %2480, align 4, !tbaa !13
+  %2482 = zext i32 %2481 to i64
+  %2483 = getelementptr inbounds nuw i32, ptr %1482, i64 %2482
+  %2484 = load i32, ptr %2483, align 4, !tbaa !13
+  %2485 = getelementptr i8, ptr %2475, i64 8
+  %2486 = load i32, ptr %2485, align 4, !tbaa !13
+  %2487 = zext i32 %2486 to i64
+  %2488 = getelementptr inbounds nuw i32, ptr %1482, i64 %2487
+  %2489 = load i32, ptr %2488, align 4, !tbaa !13
+  %.not.i531 = icmp eq i32 %2479, %2484
+  %.not32.i532 = icmp eq i32 %2479, %2489
+  %.not33.i533 = icmp eq i32 %2484, %2489
+  %2490 = or i1 %.not32.i532, %.not33.i533
+  %or.cond34.i = select i1 %.not.i531, i1 true, i1 %2490
+  br i1 %or.cond34.i, label %2496, label %2491
 
-2490:                                             ; preds = %.lr.ph.i530
-  %2491 = getelementptr inbounds nuw i32, ptr %0, i64 %.036.i
-  store i32 %2478, ptr %2491, align 4, !tbaa !13
-  %2492 = getelementptr i8, ptr %2491, i64 4
-  store i32 %2483, ptr %2492, align 4, !tbaa !13
-  %2493 = getelementptr i8, ptr %2491, i64 8
-  store i32 %2488, ptr %2493, align 4, !tbaa !13
-  %2494 = add i64 %.036.i, 3
-  br label %2495
+2491:                                             ; preds = %.lr.ph.i530
+  %2492 = getelementptr inbounds nuw i32, ptr %0, i64 %.036.i
+  store i32 %2479, ptr %2492, align 4, !tbaa !13
+  %2493 = getelementptr i8, ptr %2492, i64 4
+  store i32 %2484, ptr %2493, align 4, !tbaa !13
+  %2494 = getelementptr i8, ptr %2492, i64 8
+  store i32 %2489, ptr %2494, align 4, !tbaa !13
+  %2495 = add i64 %.036.i, 3
+  br label %2496
 
-2495:                                             ; preds = %2490, %.lr.ph.i530
-  %.1.i534 = phi i64 [ %2494, %2490 ], [ %.036.i, %.lr.ph.i530 ]
-  %2496 = add i64 %.02835.i, 3
-  %2497 = icmp ult i64 %2496, %.0303692
-  br i1 %2497, label %.lr.ph.i530, label %_ZN7meshoptL16remapIndexBufferEPjmPKj.exit, !llvm.loop !94
+2496:                                             ; preds = %2491, %.lr.ph.i530
+  %.1.i534 = phi i64 [ %2495, %2491 ], [ %.036.i, %.lr.ph.i530 ]
+  %2497 = add i64 %.02835.i, 3
+  %2498 = icmp ult i64 %2497, %.0303692
+  br i1 %2498, label %.lr.ph.i530, label %_ZN7meshoptL16remapIndexBufferEPjmPKj.exit, !llvm.loop !94
 
-_ZN7meshoptL16remapIndexBufferEPjmPKj.exit:       ; preds = %2495
-  %2498 = select i1 %.not335, float %.8, float %.6.lcssa.sink
+_ZN7meshoptL16remapIndexBufferEPjmPKj.exit:       ; preds = %2496
   %2499 = icmp ugt i64 %.1.i534, %11
   %or.cond356 = and i1 %.not336, %2499
-  %2500 = fcmp ole float %.2617689, %2498
+  %2500 = fcmp ole float %.2617689, %2474
   %or.cond651.not = select i1 %or.cond356, i1 %2500, i1 false
   br i1 %or.cond651.not, label %.lr.ph.i538, label %_ZN7meshoptL15pruneComponentsEPjmPKjPKfmfRf.exit
 
@@ -3936,7 +3936,7 @@ _ZN7meshoptL16remapIndexBufferEPjmPKj.exit:       ; preds = %2495
   %2506 = zext i32 %2505 to i64
   %2507 = getelementptr inbounds nuw float, ptr %.0311, i64 %2506
   %2508 = load float, ptr %2507, align 4, !tbaa !34
-  %2509 = fcmp ogt float %2508, %2498
+  %2509 = fcmp ogt float %2508, %2474
   br i1 %2509, label %2510, label %2519
 
 2510:                                             ; preds = %.lr.ph.i538
@@ -3965,7 +3965,7 @@ _ZN7meshoptL16remapIndexBufferEPjmPKj.exit:       ; preds = %2495
   %2522 = phi float [ %2527, %.lr.ph44.i ], [ 0x47EFFFFFE0000000, %._crit_edge.i540 ]
   %2523 = getelementptr inbounds nuw float, ptr %.0311, i64 %.042.i
   %2524 = load float, ptr %2523, align 4, !tbaa !34
-  %2525 = fcmp ogt float %2524, %2498
+  %2525 = fcmp ogt float %2524, %2474
   %2526 = fcmp ogt float %2522, %2524
   %..i542 = select i1 %2526, float %2524, float %2522
   %.7622 = select i1 %2525, float %..i542, float %.6621

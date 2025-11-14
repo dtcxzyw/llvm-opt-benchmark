@@ -7619,7 +7619,7 @@ define hidden noundef ptr @"_ZN19brotli_decompressor6writer89DecompressorWriterC
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 2192
-  %scevgep.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1792
+  %.ptr49.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1792
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1912
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 2152
@@ -8631,7 +8631,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17h3525518360f88c9cE.exit.i: ; 
 
 471:                                              ; preds = %219
   call void @llvm.experimental.noalias.scope.decl(metadata !1168)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep.i.i, i8 0, i64 32, i1 false), !alias.scope !1171, !noalias !1014
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr49.i.i, i8 0, i64 32, i1 false), !alias.scope !1171, !noalias !1014
   %472 = load i32, ptr %39, align 8, !alias.scope !1171, !noalias !1014, !noundef !7
   %.not.i159.i = icmp eq i32 %472, 0
   br i1 %.not.i159.i, label %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17hf8eff6aacaf062abE.exit.i, label %.lr.ph.i.i
@@ -8681,7 +8681,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17h3525518360f88c9cE.exit.i: ; 
   %494 = trunc nuw nsw i64 %.sroa.03.078.i.i to i32
   %495 = and i32 %494, 31
   %496 = shl nuw i32 1, %495
-  %497 = getelementptr inbounds nuw i32, ptr %scevgep.i.i, i64 %486
+  %497 = getelementptr inbounds nuw i32, ptr %.ptr49.i.i, i64 %486
   %498 = load i32, ptr %497, align 4, !alias.scope !1171, !noalias !1014, !noundef !7
   %499 = or i32 %498, %496
   store i32 %499, ptr %497, align 4, !alias.scope !1171, !noalias !1014

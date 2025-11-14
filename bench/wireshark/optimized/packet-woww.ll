@@ -7321,8 +7321,8 @@ define internal i32 @dissect_woww(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %41 = getelementptr inbounds nuw i8, ptr %.047, i64 80
   %42 = getelementptr inbounds nuw i8, ptr %.051, i64 8
-  %wide.trip.count.i = zext nneg i8 %.055 to i64
   %43 = zext nneg i8 %.055 to i16
+  %wide.trip.count.i = zext nneg i8 %.055 to i64
   %44 = getelementptr inbounds nuw i8, ptr %.051, i64 2
   %45 = getelementptr inbounds nuw i8, ptr %.047, i64 88
   %46 = getelementptr inbounds nuw i8, ptr %.047, i64 40

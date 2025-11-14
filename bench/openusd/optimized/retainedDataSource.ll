@@ -10916,9 +10916,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 .lr.ph.preheader.i.i:                             ; preds = %4
   %110 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #29, !noalias !8
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm2EEE, i64 16), ptr %110, align 8, !noalias !8
-  %scevgep.i.i = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %scevgep46.i.i = getelementptr inbounds nuw i8, ptr %110, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %scevgep.i.i, i8 0, i64 48, i1 false), !noalias !8
+  %.ptr24.i.i = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %.ptr29.i.i = getelementptr inbounds nuw i8, ptr %110, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.ptr24.i.i, i8 0, i64 48, i1 false), !noalias !8
   br label %.lr.ph.i.i74
 
 .lr.ph.i.i74:                                     ; preds = %189, %.lr.ph.preheader.i.i
@@ -10932,7 +10932,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 
 113:                                              ; preds = %.lr.ph.i.i74
   %114 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.043.i.i
-  %115 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %scevgep.i.i, i64 %.01742.i.i
+  %115 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.ptr24.i.i, i64 %.01742.i.i
   %.not.i.i.i75 = icmp eq ptr %114, %115
   br i1 %.not.i.i.i75, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i82, label %116
 
@@ -10980,7 +10980,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i80: ; pre
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i82: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i80, %113
   %138 = phi ptr [ %112, %113 ], [ %.pre.i.i81, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i80 ]
-  %139 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %scevgep46.i.i, i64 %.01742.i.i
+  %139 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %.ptr29.i.i, i64 %.01742.i.i
   store ptr %138, ptr %139, align 8, !noalias !8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = getelementptr inbounds nuw i8, ptr %111, i64 8
@@ -11145,9 +11145,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 .lr.ph.preheader.i.i110:                          ; preds = %4
   %209 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #29, !noalias !13
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm3EEE, i64 16), ptr %209, align 8, !noalias !13
-  %scevgep.i.i107 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  %scevgep46.i.i108 = getelementptr inbounds nuw i8, ptr %209, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %scevgep.i.i107, i8 0, i64 72, i1 false), !noalias !13
+  %.ptr24.i.i107 = getelementptr inbounds nuw i8, ptr %209, i64 8
+  %.ptr29.i.i108 = getelementptr inbounds nuw i8, ptr %209, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.ptr24.i.i107, i8 0, i64 72, i1 false), !noalias !13
   br label %.lr.ph.i.i112
 
 .lr.ph.i.i112:                                    ; preds = %288, %.lr.ph.preheader.i.i110
@@ -11160,7 +11160,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 
 212:                                              ; preds = %.lr.ph.i.i112
   %213 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.043.i.i113
-  %214 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %scevgep.i.i107, i64 %.01742.i.i114
+  %214 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.ptr24.i.i107, i64 %.01742.i.i114
   %.not.i.i.i116 = icmp eq ptr %213, %214
   br i1 %.not.i.i.i116, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i123, label %215
 
@@ -11208,7 +11208,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i121: ; pr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i123: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i121, %212
   %237 = phi ptr [ %211, %212 ], [ %.pre.i.i122, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i121 ]
-  %238 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %scevgep46.i.i108, i64 %.01742.i.i114
+  %238 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %.ptr29.i.i108, i64 %.01742.i.i114
   store ptr %237, ptr %238, align 8, !noalias !13
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %240 = getelementptr inbounds nuw i8, ptr %210, i64 8
@@ -11375,9 +11375,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 .lr.ph.preheader.i.i163:                          ; preds = %4
   %309 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #29, !noalias !17
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm4EEE, i64 16), ptr %309, align 8, !noalias !17
-  %scevgep.i.i160 = getelementptr inbounds nuw i8, ptr %309, i64 8
-  %scevgep46.i.i161 = getelementptr inbounds nuw i8, ptr %309, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %scevgep.i.i160, i8 0, i64 96, i1 false), !noalias !17
+  %.ptr24.i.i160 = getelementptr inbounds nuw i8, ptr %309, i64 8
+  %.ptr29.i.i161 = getelementptr inbounds nuw i8, ptr %309, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.ptr24.i.i160, i8 0, i64 96, i1 false), !noalias !17
   br label %.lr.ph.i.i165
 
 .lr.ph.i.i165:                                    ; preds = %388, %.lr.ph.preheader.i.i163
@@ -11390,7 +11390,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 
 312:                                              ; preds = %.lr.ph.i.i165
   %313 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.043.i.i166
-  %314 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %scevgep.i.i160, i64 %.01742.i.i167
+  %314 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.ptr24.i.i160, i64 %.01742.i.i167
   %.not.i.i.i169 = icmp eq ptr %313, %314
   br i1 %.not.i.i.i169, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i176, label %315
 
@@ -11438,7 +11438,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i174: ; pr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i176: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i174, %312
   %337 = phi ptr [ %311, %312 ], [ %.pre.i.i175, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i174 ]
-  %338 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %scevgep46.i.i161, i64 %.01742.i.i167
+  %338 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %.ptr29.i.i161, i64 %.01742.i.i167
   store ptr %337, ptr %338, align 8, !noalias !17
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 8
   %340 = getelementptr inbounds nuw i8, ptr %310, i64 8
@@ -11605,9 +11605,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 .lr.ph.preheader.i.i216:                          ; preds = %4
   %409 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #29, !noalias !21
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm5EEE, i64 16), ptr %409, align 8, !noalias !21
-  %scevgep.i.i213 = getelementptr inbounds nuw i8, ptr %409, i64 8
-  %scevgep46.i.i214 = getelementptr inbounds nuw i8, ptr %409, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %scevgep.i.i213, i8 0, i64 120, i1 false), !noalias !21
+  %.ptr24.i.i213 = getelementptr inbounds nuw i8, ptr %409, i64 8
+  %.ptr29.i.i214 = getelementptr inbounds nuw i8, ptr %409, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.ptr24.i.i213, i8 0, i64 120, i1 false), !noalias !21
   br label %.lr.ph.i.i218
 
 .lr.ph.i.i218:                                    ; preds = %488, %.lr.ph.preheader.i.i216
@@ -11620,7 +11620,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 
 412:                                              ; preds = %.lr.ph.i.i218
   %413 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.043.i.i219
-  %414 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %scevgep.i.i213, i64 %.01742.i.i220
+  %414 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.ptr24.i.i213, i64 %.01742.i.i220
   %.not.i.i.i222 = icmp eq ptr %413, %414
   br i1 %.not.i.i.i222, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i229, label %415
 
@@ -11668,7 +11668,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i227: ; pr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i229: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i227, %412
   %437 = phi ptr [ %411, %412 ], [ %.pre.i.i228, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i227 ]
-  %438 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %scevgep46.i.i214, i64 %.01742.i.i220
+  %438 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %.ptr29.i.i214, i64 %.01742.i.i220
   store ptr %437, ptr %438, align 8, !noalias !21
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 8
   %440 = getelementptr inbounds nuw i8, ptr %410, i64 8
@@ -11835,9 +11835,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 .lr.ph.preheader.i.i269:                          ; preds = %4
   %509 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #29, !noalias !25
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm6EEE, i64 16), ptr %509, align 8, !noalias !25
-  %scevgep.i.i266 = getelementptr inbounds nuw i8, ptr %509, i64 8
-  %scevgep46.i.i267 = getelementptr inbounds nuw i8, ptr %509, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %scevgep.i.i266, i8 0, i64 144, i1 false), !noalias !25
+  %.ptr24.i.i266 = getelementptr inbounds nuw i8, ptr %509, i64 8
+  %.ptr29.i.i267 = getelementptr inbounds nuw i8, ptr %509, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.ptr24.i.i266, i8 0, i64 144, i1 false), !noalias !25
   br label %.lr.ph.i.i271
 
 .lr.ph.i.i271:                                    ; preds = %588, %.lr.ph.preheader.i.i269
@@ -11850,7 +11850,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 
 512:                                              ; preds = %.lr.ph.i.i271
   %513 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.043.i.i272
-  %514 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %scevgep.i.i266, i64 %.01742.i.i273
+  %514 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.ptr24.i.i266, i64 %.01742.i.i273
   %.not.i.i.i275 = icmp eq ptr %513, %514
   br i1 %.not.i.i.i275, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i282, label %515
 
@@ -11898,7 +11898,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i280: ; pr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i282: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i280, %512
   %537 = phi ptr [ %511, %512 ], [ %.pre.i.i281, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i280 ]
-  %538 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %scevgep46.i.i267, i64 %.01742.i.i273
+  %538 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %.ptr29.i.i267, i64 %.01742.i.i273
   store ptr %537, ptr %538, align 8, !noalias !25
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 8
   %540 = getelementptr inbounds nuw i8, ptr %510, i64 8
@@ -12065,9 +12065,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 .lr.ph.preheader.i.i322:                          ; preds = %4
   %609 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #29, !noalias !29
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm7EEE, i64 16), ptr %609, align 8, !noalias !29
-  %scevgep.i.i319 = getelementptr inbounds nuw i8, ptr %609, i64 8
-  %scevgep46.i.i320 = getelementptr inbounds nuw i8, ptr %609, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %scevgep.i.i319, i8 0, i64 168, i1 false), !noalias !29
+  %.ptr24.i.i319 = getelementptr inbounds nuw i8, ptr %609, i64 8
+  %.ptr29.i.i320 = getelementptr inbounds nuw i8, ptr %609, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.ptr24.i.i319, i8 0, i64 168, i1 false), !noalias !29
   br label %.lr.ph.i.i324
 
 .lr.ph.i.i324:                                    ; preds = %688, %.lr.ph.preheader.i.i322
@@ -12080,7 +12080,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 
 612:                                              ; preds = %.lr.ph.i.i324
   %613 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.043.i.i325
-  %614 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %scevgep.i.i319, i64 %.01742.i.i326
+  %614 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.ptr24.i.i319, i64 %.01742.i.i326
   %.not.i.i.i328 = icmp eq ptr %613, %614
   br i1 %.not.i.i.i328, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i335, label %615
 
@@ -12128,7 +12128,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i333: ; pr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i335: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i333, %612
   %637 = phi ptr [ %611, %612 ], [ %.pre.i.i334, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i333 ]
-  %638 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %scevgep46.i.i320, i64 %.01742.i.i326
+  %638 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %.ptr29.i.i320, i64 %.01742.i.i326
   store ptr %637, ptr %638, align 8, !noalias !29
   %639 = getelementptr inbounds nuw i8, ptr %638, i64 8
   %640 = getelementptr inbounds nuw i8, ptr %610, i64 8
@@ -12295,9 +12295,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 .lr.ph.preheader.i.i375:                          ; preds = %4
   %709 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #29, !noalias !33
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm8EEE, i64 16), ptr %709, align 8, !noalias !33
-  %scevgep.i.i372 = getelementptr inbounds nuw i8, ptr %709, i64 8
-  %scevgep46.i.i373 = getelementptr inbounds nuw i8, ptr %709, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %scevgep.i.i372, i8 0, i64 192, i1 false), !noalias !33
+  %.ptr24.i.i372 = getelementptr inbounds nuw i8, ptr %709, i64 8
+  %.ptr29.i.i373 = getelementptr inbounds nuw i8, ptr %709, i64 72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.ptr24.i.i372, i8 0, i64 192, i1 false), !noalias !33
   br label %.lr.ph.i.i377
 
 .lr.ph.i.i377:                                    ; preds = %788, %.lr.ph.preheader.i.i375
@@ -12310,7 +12310,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 
 712:                                              ; preds = %.lr.ph.i.i377
   %713 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.043.i.i378
-  %714 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %scevgep.i.i372, i64 %.01742.i.i379
+  %714 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.ptr24.i.i372, i64 %.01742.i.i379
   %.not.i.i.i381 = icmp eq ptr %713, %714
   br i1 %.not.i.i.i381, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i388, label %715
 
@@ -12358,7 +12358,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i386: ; pr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i388: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i386, %712
   %737 = phi ptr [ %711, %712 ], [ %.pre.i.i387, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i386 ]
-  %738 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %scevgep46.i.i373, i64 %.01742.i.i379
+  %738 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %.ptr29.i.i373, i64 %.01742.i.i379
   store ptr %737, ptr %738, align 8, !noalias !33
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 8
   %740 = getelementptr inbounds nuw i8, ptr %710, i64 8
@@ -12525,9 +12525,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 .lr.ph.preheader.i.i428:                          ; preds = %4
   %809 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #29, !noalias !37
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm9EEE, i64 16), ptr %809, align 8, !noalias !37
-  %scevgep.i.i425 = getelementptr inbounds nuw i8, ptr %809, i64 8
-  %scevgep46.i.i426 = getelementptr inbounds nuw i8, ptr %809, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %scevgep.i.i425, i8 0, i64 216, i1 false), !noalias !37
+  %.ptr24.i.i425 = getelementptr inbounds nuw i8, ptr %809, i64 8
+  %.ptr29.i.i426 = getelementptr inbounds nuw i8, ptr %809, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.ptr24.i.i425, i8 0, i64 216, i1 false), !noalias !37
   br label %.lr.ph.i.i430
 
 .lr.ph.i.i430:                                    ; preds = %888, %.lr.ph.preheader.i.i428
@@ -12540,7 +12540,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 
 812:                                              ; preds = %.lr.ph.i.i430
   %813 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.043.i.i431
-  %814 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %scevgep.i.i425, i64 %.01742.i.i432
+  %814 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.ptr24.i.i425, i64 %.01742.i.i432
   %.not.i.i.i434 = icmp eq ptr %813, %814
   br i1 %.not.i.i.i434, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i441, label %815
 
@@ -12588,7 +12588,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i439: ; pr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i441: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i439, %812
   %837 = phi ptr [ %811, %812 ], [ %.pre.i.i440, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i439 ]
-  %838 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %scevgep46.i.i426, i64 %.01742.i.i432
+  %838 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %.ptr29.i.i426, i64 %.01742.i.i432
   store ptr %837, ptr %838, align 8, !noalias !37
   %839 = getelementptr inbounds nuw i8, ptr %838, i64 8
   %840 = getelementptr inbounds nuw i8, ptr %810, i64 8
@@ -12755,9 +12755,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 .lr.ph.preheader.i.i481:                          ; preds = %4
   %909 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #29, !noalias !41
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm10EEE, i64 16), ptr %909, align 8, !noalias !41
-  %scevgep.i.i478 = getelementptr inbounds nuw i8, ptr %909, i64 8
-  %scevgep46.i.i479 = getelementptr inbounds nuw i8, ptr %909, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i478, i8 0, i64 240, i1 false), !noalias !41
+  %.ptr24.i.i478 = getelementptr inbounds nuw i8, ptr %909, i64 8
+  %.ptr29.i.i479 = getelementptr inbounds nuw i8, ptr %909, i64 88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %.ptr24.i.i478, i8 0, i64 240, i1 false), !noalias !41
   br label %.lr.ph.i.i483
 
 .lr.ph.i.i483:                                    ; preds = %988, %.lr.ph.preheader.i.i481
@@ -12770,7 +12770,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 
 912:                                              ; preds = %.lr.ph.i.i483
   %913 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.043.i.i484
-  %914 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %scevgep.i.i478, i64 %.01742.i.i485
+  %914 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.ptr24.i.i478, i64 %.01742.i.i485
   %.not.i.i.i487 = icmp eq ptr %913, %914
   br i1 %.not.i.i.i487, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i494, label %915
 
@@ -12818,7 +12818,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i492: ; pr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i494: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i492, %912
   %937 = phi ptr [ %911, %912 ], [ %.pre.i.i493, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i492 ]
-  %938 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %scevgep46.i.i479, i64 %.01742.i.i485
+  %938 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %.ptr29.i.i479, i64 %.01742.i.i485
   store ptr %937, ptr %938, align 8, !noalias !41
   %939 = getelementptr inbounds nuw i8, ptr %938, i64 8
   %940 = getelementptr inbounds nuw i8, ptr %910, i64 8
@@ -12985,9 +12985,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 .lr.ph.preheader.i.i534:                          ; preds = %4
   %1009 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #29, !noalias !45
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm11EEE, i64 16), ptr %1009, align 8, !noalias !45
-  %scevgep.i.i531 = getelementptr inbounds nuw i8, ptr %1009, i64 8
-  %scevgep46.i.i532 = getelementptr inbounds nuw i8, ptr %1009, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %scevgep.i.i531, i8 0, i64 264, i1 false), !noalias !45
+  %.ptr24.i.i531 = getelementptr inbounds nuw i8, ptr %1009, i64 8
+  %.ptr29.i.i532 = getelementptr inbounds nuw i8, ptr %1009, i64 96
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %.ptr24.i.i531, i8 0, i64 264, i1 false), !noalias !45
   br label %.lr.ph.i.i536
 
 .lr.ph.i.i536:                                    ; preds = %1088, %.lr.ph.preheader.i.i534
@@ -13000,7 +13000,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 
 1012:                                             ; preds = %.lr.ph.i.i536
   %1013 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.043.i.i537
-  %1014 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %scevgep.i.i531, i64 %.01742.i.i538
+  %1014 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.ptr24.i.i531, i64 %.01742.i.i538
   %.not.i.i.i540 = icmp eq ptr %1013, %1014
   br i1 %.not.i.i.i540, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i547, label %1015
 
@@ -13048,7 +13048,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i545: ; pr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i547: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i545, %1012
   %1037 = phi ptr [ %1011, %1012 ], [ %.pre.i.i546, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i545 ]
-  %1038 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %scevgep46.i.i532, i64 %.01742.i.i538
+  %1038 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %.ptr29.i.i532, i64 %.01742.i.i538
   store ptr %1037, ptr %1038, align 8, !noalias !45
   %1039 = getelementptr inbounds nuw i8, ptr %1038, i64 8
   %1040 = getelementptr inbounds nuw i8, ptr %1010, i64 8
@@ -13215,9 +13215,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 .lr.ph.preheader.i.i587:                          ; preds = %4
   %1109 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #29, !noalias !49
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm12EEE, i64 16), ptr %1109, align 8, !noalias !49
-  %scevgep.i.i584 = getelementptr inbounds nuw i8, ptr %1109, i64 8
-  %scevgep46.i.i585 = getelementptr inbounds nuw i8, ptr %1109, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %scevgep.i.i584, i8 0, i64 288, i1 false), !noalias !49
+  %.ptr24.i.i584 = getelementptr inbounds nuw i8, ptr %1109, i64 8
+  %.ptr29.i.i585 = getelementptr inbounds nuw i8, ptr %1109, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %.ptr24.i.i584, i8 0, i64 288, i1 false), !noalias !49
   br label %.lr.ph.i.i589
 
 .lr.ph.i.i589:                                    ; preds = %1188, %.lr.ph.preheader.i.i587
@@ -13230,7 +13230,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 
 1112:                                             ; preds = %.lr.ph.i.i589
   %1113 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.043.i.i590
-  %1114 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %scevgep.i.i584, i64 %.01742.i.i591
+  %1114 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.ptr24.i.i584, i64 %.01742.i.i591
   %.not.i.i.i593 = icmp eq ptr %1113, %1114
   br i1 %.not.i.i.i593, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i600, label %1115
 
@@ -13278,7 +13278,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i598: ; pr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i600: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i598, %1112
   %1137 = phi ptr [ %1111, %1112 ], [ %.pre.i.i599, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i598 ]
-  %1138 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %scevgep46.i.i585, i64 %.01742.i.i591
+  %1138 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %.ptr29.i.i585, i64 %.01742.i.i591
   store ptr %1137, ptr %1138, align 8, !noalias !49
   %1139 = getelementptr inbounds nuw i8, ptr %1138, i64 8
   %1140 = getelementptr inbounds nuw i8, ptr %1110, i64 8
@@ -13445,9 +13445,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 .lr.ph.preheader.i.i640:                          ; preds = %4
   %1209 = tail call noalias noundef nonnull dereferenceable(328) ptr @_Znwm(i64 noundef 328) #29, !noalias !53
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm13EEE, i64 16), ptr %1209, align 8, !noalias !53
-  %scevgep.i.i637 = getelementptr inbounds nuw i8, ptr %1209, i64 8
-  %scevgep46.i.i638 = getelementptr inbounds nuw i8, ptr %1209, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %scevgep.i.i637, i8 0, i64 312, i1 false), !noalias !53
+  %.ptr24.i.i637 = getelementptr inbounds nuw i8, ptr %1209, i64 8
+  %.ptr29.i.i638 = getelementptr inbounds nuw i8, ptr %1209, i64 112
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %.ptr24.i.i637, i8 0, i64 312, i1 false), !noalias !53
   br label %.lr.ph.i.i642
 
 .lr.ph.i.i642:                                    ; preds = %1288, %.lr.ph.preheader.i.i640
@@ -13460,7 +13460,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 
 1212:                                             ; preds = %.lr.ph.i.i642
   %1213 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.043.i.i643
-  %1214 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %scevgep.i.i637, i64 %.01742.i.i644
+  %1214 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.ptr24.i.i637, i64 %.01742.i.i644
   %.not.i.i.i646 = icmp eq ptr %1213, %1214
   br i1 %.not.i.i.i646, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i653, label %1215
 
@@ -13508,7 +13508,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i651: ; pr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i653: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i651, %1212
   %1237 = phi ptr [ %1211, %1212 ], [ %.pre.i.i652, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i651 ]
-  %1238 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %scevgep46.i.i638, i64 %.01742.i.i644
+  %1238 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %.ptr29.i.i638, i64 %.01742.i.i644
   store ptr %1237, ptr %1238, align 8, !noalias !53
   %1239 = getelementptr inbounds nuw i8, ptr %1238, i64 8
   %1240 = getelementptr inbounds nuw i8, ptr %1210, i64 8
@@ -13675,9 +13675,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 .lr.ph.preheader.i.i693:                          ; preds = %4
   %1309 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #29, !noalias !57
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm14EEE, i64 16), ptr %1309, align 8, !noalias !57
-  %scevgep.i.i690 = getelementptr inbounds nuw i8, ptr %1309, i64 8
-  %scevgep46.i.i691 = getelementptr inbounds nuw i8, ptr %1309, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %scevgep.i.i690, i8 0, i64 336, i1 false), !noalias !57
+  %.ptr24.i.i690 = getelementptr inbounds nuw i8, ptr %1309, i64 8
+  %.ptr29.i.i691 = getelementptr inbounds nuw i8, ptr %1309, i64 120
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %.ptr24.i.i690, i8 0, i64 336, i1 false), !noalias !57
   br label %.lr.ph.i.i695
 
 .lr.ph.i.i695:                                    ; preds = %1388, %.lr.ph.preheader.i.i693
@@ -13690,7 +13690,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 
 1312:                                             ; preds = %.lr.ph.i.i695
   %1313 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.043.i.i696
-  %1314 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %scevgep.i.i690, i64 %.01742.i.i697
+  %1314 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.ptr24.i.i690, i64 %.01742.i.i697
   %.not.i.i.i699 = icmp eq ptr %1313, %1314
   br i1 %.not.i.i.i699, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i706, label %1315
 
@@ -13738,7 +13738,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i704: ; pr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i706: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i704, %1312
   %1337 = phi ptr [ %1311, %1312 ], [ %.pre.i.i705, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i704 ]
-  %1338 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %scevgep46.i.i691, i64 %.01742.i.i697
+  %1338 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %.ptr29.i.i691, i64 %.01742.i.i697
   store ptr %1337, ptr %1338, align 8, !noalias !57
   %1339 = getelementptr inbounds nuw i8, ptr %1338, i64 8
   %1340 = getelementptr inbounds nuw i8, ptr %1310, i64 8
@@ -13905,9 +13905,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 .lr.ph.preheader.i.i746:                          ; preds = %4
   %1409 = tail call noalias noundef nonnull dereferenceable(376) ptr @_Znwm(i64 noundef 376) #29, !noalias !61
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm15EEE, i64 16), ptr %1409, align 8, !noalias !61
-  %scevgep.i.i743 = getelementptr inbounds nuw i8, ptr %1409, i64 8
-  %scevgep46.i.i744 = getelementptr inbounds nuw i8, ptr %1409, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %scevgep.i.i743, i8 0, i64 360, i1 false), !noalias !61
+  %.ptr24.i.i743 = getelementptr inbounds nuw i8, ptr %1409, i64 8
+  %.ptr29.i.i744 = getelementptr inbounds nuw i8, ptr %1409, i64 128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %.ptr24.i.i743, i8 0, i64 360, i1 false), !noalias !61
   br label %.lr.ph.i.i748
 
 .lr.ph.i.i748:                                    ; preds = %1488, %.lr.ph.preheader.i.i746
@@ -13920,7 +13920,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 
 1412:                                             ; preds = %.lr.ph.i.i748
   %1413 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.043.i.i749
-  %1414 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %scevgep.i.i743, i64 %.01742.i.i750
+  %1414 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.ptr24.i.i743, i64 %.01742.i.i750
   %.not.i.i.i752 = icmp eq ptr %1413, %1414
   br i1 %.not.i.i.i752, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i759, label %1415
 
@@ -13968,7 +13968,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i757: ; pr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i759: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i757, %1412
   %1437 = phi ptr [ %1411, %1412 ], [ %.pre.i.i758, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i757 ]
-  %1438 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %scevgep46.i.i744, i64 %.01742.i.i750
+  %1438 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %.ptr29.i.i744, i64 %.01742.i.i750
   store ptr %1437, ptr %1438, align 8, !noalias !61
   %1439 = getelementptr inbounds nuw i8, ptr %1438, i64 8
   %1440 = getelementptr inbounds nuw i8, ptr %1410, i64 8
@@ -14135,9 +14135,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 .lr.ph.preheader.i.i799:                          ; preds = %4
   %1509 = tail call noalias noundef nonnull dereferenceable(400) ptr @_Znwm(i64 noundef 400) #29, !noalias !65
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRetainedContainerDataSourceILm16EEE, i64 16), ptr %1509, align 8, !noalias !65
-  %scevgep.i.i796 = getelementptr inbounds nuw i8, ptr %1509, i64 8
-  %scevgep46.i.i797 = getelementptr inbounds nuw i8, ptr %1509, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %scevgep.i.i796, i8 0, i64 384, i1 false), !noalias !65
+  %.ptr24.i.i796 = getelementptr inbounds nuw i8, ptr %1509, i64 8
+  %.ptr29.i.i797 = getelementptr inbounds nuw i8, ptr %1509, i64 136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %.ptr24.i.i796, i8 0, i64 384, i1 false), !noalias !65
   br label %.lr.ph.i.i801
 
 .lr.ph.i.i801:                                    ; preds = %1588, %.lr.ph.preheader.i.i799
@@ -14150,7 +14150,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_SmallRet
 
 1512:                                             ; preds = %.lr.ph.i.i801
   %1513 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %2, i64 %.043.i.i802
-  %1514 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %scevgep.i.i796, i64 %.01742.i.i803
+  %1514 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.ptr24.i.i796, i64 %.01742.i.i803
   %.not.i.i.i805 = icmp eq ptr %1513, %1514
   br i1 %.not.i.i.i805, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i812, label %1515
 
@@ -14198,7 +14198,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i810: ; pr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit.i.i812: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i810, %1512
   %1537 = phi ptr [ %1511, %1512 ], [ %.pre.i.i811, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i810 ]
-  %1538 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %scevgep46.i.i797, i64 %.01742.i.i803
+  %1538 = getelementptr inbounds %"class.std::shared_ptr.51", ptr %.ptr29.i.i797, i64 %.01742.i.i803
   store ptr %1537, ptr %1538, align 8, !noalias !65
   %1539 = getelementptr inbounds nuw i8, ptr %1538, i64 8
   %1540 = getelementptr inbounds nuw i8, ptr %1510, i64 8

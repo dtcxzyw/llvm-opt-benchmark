@@ -80,39 +80,39 @@ define hidden void @_ZN5boost6locale8impl_icu16formatters_cacheC2ERKN6icu_706Loc
   store ptr @_ZN5boost19thread_specific_ptrIN6icu_7012NumberFormatEE15default_deleterEPS2_, ptr %.ptr, align 8, !tbaa !10
   %.add = add nuw nsw i64 %.idx, 8
   %8 = icmp eq i64 %.add, 72
-  br i1 %8, label %.preheader155, label %7
+  br i1 %8, label %.preheader183, label %7
 
-.preheader155:                                    ; preds = %7, %.preheader155
-  %.idx47 = phi i64 [ %.add48, %.preheader155 ], [ 72, %7 ]
+.preheader183:                                    ; preds = %7, %.preheader183
+  %.idx47 = phi i64 [ %.add48, %.preheader183 ], [ 72, %7 ]
   %.ptr49.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx47
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %.ptr49.ptr, align 8, !tbaa !8
   %9 = getelementptr inbounds nuw i8, ptr %.ptr49.ptr, i64 8
   store i16 2, ptr %9, align 8, !tbaa !13
   %.add48 = add nuw nsw i64 %.idx47, 64
   %10 = icmp samesign eq i64 %.add48, 328
-  br i1 %10, label %.preheader154, label %.preheader155
+  br i1 %10, label %.preheader182, label %.preheader183
 
-.preheader154:                                    ; preds = %.preheader155, %.preheader154
-  %.idx56 = phi i64 [ %.add57, %.preheader154 ], [ 328, %.preheader155 ]
+.preheader182:                                    ; preds = %.preheader183, %.preheader182
+  %.idx56 = phi i64 [ %.add57, %.preheader182 ], [ 328, %.preheader183 ]
   %.ptr58.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx56
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %.ptr58.ptr, align 8, !tbaa !8
   %11 = getelementptr inbounds nuw i8, ptr %.ptr58.ptr, i64 8
   store i16 2, ptr %11, align 8, !tbaa !13
   %.add57 = add nuw nsw i64 %.idx56, 64
   %12 = icmp samesign eq i64 %.add57, 584
-  br i1 %12, label %.preheader153, label %.preheader154
+  br i1 %12, label %.preheader181, label %.preheader182
 
-.preheader153:                                    ; preds = %.preheader154, %.preheader153
-  %.idx65 = phi i64 [ %.add66, %.preheader153 ], [ 584, %.preheader154 ]
+.preheader181:                                    ; preds = %.preheader182, %.preheader181
+  %.idx65 = phi i64 [ %.add66, %.preheader181 ], [ 584, %.preheader182 ]
   %.ptr67.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx65
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %.ptr67.ptr, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %.ptr67.ptr, i64 8
   store i16 2, ptr %13, align 8, !tbaa !13
   %.add66 = add nuw nsw i64 %.idx65, 64
   %14 = icmp samesign eq i64 %.add66, 1608
-  br i1 %14, label %15, label %.preheader153
+  br i1 %14, label %15, label %.preheader181
 
-15:                                               ; preds = %.preheader153
+15:                                               ; preds = %.preheader181
   %.ptr51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.ptr60 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %.ptr69 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -226,14 +226,14 @@ _ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatER
   br label %.body
 
 .preheader145:                                    ; preds = %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit118
-  %indvars.iv162 = phi i64 [ %indvars.iv.next163, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit118 ], [ 0, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit ]
-  %63 = getelementptr inbounds nuw i32, ptr @__const.formatters_cache.styles, i64 %indvars.iv162
+  %indvars.iv159 = phi i64 [ %indvars.iv.next160, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit118 ], [ 0, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit ]
+  %63 = getelementptr inbounds nuw i32, ptr @__const.formatters_cache.styles, i64 %indvars.iv159
   %64 = load i32, ptr %63, align 4, !tbaa !16
   %65 = invoke noundef ptr @_ZN6icu_7010DateFormat18createTimeInstanceENS0_6EStyleERKNS_6LocaleE(i32 noundef %64, ptr noundef nonnull align 8 dereferenceable(217) %1)
           to label %66 unwind label %98
 
 66:                                               ; preds = %.preheader145
-  %67 = getelementptr inbounds nuw %"class.icu_70::UnicodeString", ptr %.ptr60, i64 %indvars.iv162
+  %67 = getelementptr inbounds nuw %"class.icu_70::UnicodeString", ptr %.ptr60, i64 %indvars.iv159
   %68 = icmp eq ptr %65, null
   br i1 %68, label %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.thread9.i113, label %73
 
@@ -302,9 +302,9 @@ _ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i106: 
   br label %.body
 
 _ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit118: ; preds = %_ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i.i107, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.thread9.i113
-  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %exitcond165.not = icmp eq i64 %indvars.iv.next163, 4
-  br i1 %exitcond165.not, label %.preheader143, label %.preheader145, !llvm.loop !20
+  %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
+  %exitcond162.not = icmp eq i64 %indvars.iv.next160, 4
+  br i1 %exitcond162.not, label %.preheader143, label %.preheader145, !llvm.loop !20
 
 98:                                               ; preds = %.preheader145
   %99 = landingpad { ptr, i32 }
@@ -312,10 +312,10 @@ _ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatER
   br label %.body
 
 .preheader143:                                    ; preds = %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit118, %110
-  %indvars.iv170 = phi i64 [ %indvars.iv.next171, %110 ], [ 0, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit118 ]
-  %100 = getelementptr inbounds nuw i32, ptr @__const.formatters_cache.styles, i64 %indvars.iv170
+  %indvars.iv167 = phi i64 [ %indvars.iv.next168, %110 ], [ 0, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit118 ]
+  %100 = getelementptr inbounds nuw i32, ptr @__const.formatters_cache.styles, i64 %indvars.iv167
   %101 = load i32, ptr %100, align 4, !tbaa !16
-  %102 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %.ptr69, i64 %indvars.iv170
+  %102 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %.ptr69, i64 %indvars.iv167
   br label %111
 
 103:                                              ; preds = %110
@@ -335,19 +335,19 @@ _ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatER
           to label %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit" unwind label %164
 
 110:                                              ; preds = %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit134
-  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
-  %exitcond173.not = icmp eq i64 %indvars.iv.next171, 4
-  br i1 %exitcond173.not, label %103, label %.preheader143, !llvm.loop !24
+  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
+  %exitcond170.not = icmp eq i64 %indvars.iv.next168, 4
+  br i1 %exitcond170.not, label %103, label %.preheader143, !llvm.loop !24
 
 111:                                              ; preds = %.preheader143, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit134
-  %indvars.iv166 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next167, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit134 ]
-  %112 = getelementptr inbounds nuw i32, ptr @__const.formatters_cache.styles, i64 %indvars.iv166
+  %indvars.iv163 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next164, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit134 ]
+  %112 = getelementptr inbounds nuw i32, ptr @__const.formatters_cache.styles, i64 %indvars.iv163
   %113 = load i32, ptr %112, align 4, !tbaa !16
   %114 = invoke noundef ptr @_ZN6icu_7010DateFormat22createDateTimeInstanceENS0_6EStyleES1_RKNS_6LocaleE(i32 noundef %101, i32 noundef %113, ptr noundef nonnull align 8 dereferenceable(217) %1)
           to label %115 unwind label %147
 
 115:                                              ; preds = %111
-  %116 = getelementptr inbounds nuw %"class.icu_70::UnicodeString", ptr %102, i64 %indvars.iv166
+  %116 = getelementptr inbounds nuw %"class.icu_70::UnicodeString", ptr %102, i64 %indvars.iv163
   %117 = icmp eq ptr %114, null
   br i1 %117, label %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.thread9.i129, label %122
 
@@ -416,9 +416,9 @@ _ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i122: 
   br label %.body
 
 _ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit134: ; preds = %_ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i.i123, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.thread9.i129
-  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
-  %exitcond169.not = icmp eq i64 %indvars.iv.next167, 4
-  br i1 %exitcond169.not, label %110, label %111, !llvm.loop !25
+  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
+  %exitcond166.not = icmp eq i64 %indvars.iv.next164, 4
+  br i1 %exitcond166.not, label %110, label %111, !llvm.loop !25
 
 147:                                              ; preds = %111
   %148 = landingpad { ptr, i32 }

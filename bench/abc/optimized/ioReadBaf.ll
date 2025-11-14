@@ -69,15 +69,15 @@ thread-pre-split:                                 ; preds = %.preheader192, %thr
   %scevgep246 = getelementptr i8, ptr %28, i64 3
   %29 = tail call i64 @strtol(ptr noundef nonnull captures(none) %scevgep246, ptr noundef null, i32 noundef 10) #9
   %strlen247 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %scevgep246)
-  %30 = getelementptr i8, ptr %.lcssa201, i64 %strlen241
-  %31 = getelementptr i8, ptr %30, i64 %strlen247
-  %32 = getelementptr i8, ptr %31, i64 %strlen243
-  %33 = getelementptr i8, ptr %32, i64 %strlen245
-  %scevgep248 = getelementptr i8, ptr %33, i64 4
-  %34 = trunc i64 %20 to i32
-  %35 = trunc i64 %22 to i32
-  %36 = trunc i64 %25 to i32
-  %37 = trunc i64 %29 to i32
+  %30 = trunc i64 %20 to i32
+  %31 = trunc i64 %22 to i32
+  %32 = trunc i64 %25 to i32
+  %33 = trunc i64 %29 to i32
+  %34 = getelementptr i8, ptr %.lcssa201, i64 %strlen241
+  %35 = getelementptr i8, ptr %34, i64 %strlen247
+  %36 = getelementptr i8, ptr %35, i64 %strlen243
+  %37 = getelementptr i8, ptr %36, i64 %strlen245
+  %scevgep248 = getelementptr i8, ptr %37, i64 4
   %38 = tail call ptr @Abc_NtkAlloc(i32 noundef 3, i32 noundef 3, i32 noundef 1) #9
   %39 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull %.0123.lcssa) #9
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -85,9 +85,9 @@ thread-pre-split:                                 ; preds = %.preheader192, %thr
   %41 = tail call ptr @Extra_UtilStrsav(ptr noundef %0) #9
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %41, ptr %42, align 8, !tbaa !29
-  %43 = add nsw i32 %34, 1
-  %44 = add nsw i32 %43, %36
-  %45 = add nsw i32 %44, %37
+  %43 = add nsw i32 %30, 1
+  %44 = add nsw i32 %43, %32
+  %45 = add nsw i32 %44, %33
   %46 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %47 = add i32 %45, -1
   %or.cond.i = icmp ult i32 %47, 7
@@ -120,12 +120,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %59 = phi ptr [ %51, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %56, %Vec_PtrGrow.exit.i ]
   store i32 1, ptr %48, align 4, !tbaa !33
   store ptr %57, ptr %59, align 8, !tbaa !34
-  %60 = icmp sgt i32 %34, 0
+  %60 = icmp sgt i32 %30, 0
   br i1 %60, label %.lr.ph, label %.preheader190
 
 .preheader190:                                    ; preds = %Vec_PtrPush.exit168, %Vec_PtrPush.exit
   %.7.lcssa = phi ptr [ %scevgep248, %Vec_PtrPush.exit ], [ %scevgep251, %Vec_PtrPush.exit168 ]
-  %61 = icmp sgt i32 %35, 0
+  %61 = icmp sgt i32 %31, 0
   br i1 %61, label %.lr.ph213, label %.preheader
 
 .lr.ph:                                           ; preds = %Vec_PtrPush.exit, %Vec_PtrPush.exit168
@@ -198,12 +198,12 @@ Vec_PtrPush.exit168:                              ; preds = %.Vec_PtrGrow.exit11
   %90 = getelementptr inbounds ptr, ptr %87, i64 %89
   store ptr %62, ptr %90, align 8, !tbaa !34
   %91 = add nuw nsw i32 %.0124208, 1
-  %exitcond.not = icmp eq i32 %91, %34
+  %exitcond.not = icmp eq i32 %91, %30
   br i1 %exitcond.not, label %.preheader190, label %.lr.ph, !llvm.loop !35
 
 .preheader:                                       ; preds = %.lr.ph213, %.preheader190
   %.9.lcssa = phi ptr [ %.7.lcssa, %.preheader190 ], [ %scevgep254, %.lr.ph213 ]
-  %92 = icmp sgt i32 %36, 0
+  %92 = icmp sgt i32 %32, 0
   br i1 %92, label %.lr.ph217, label %._crit_edge218
 
 .lr.ph213:                                        ; preds = %.preheader190, %.lr.ph213
@@ -215,7 +215,7 @@ Vec_PtrPush.exit168:                              ; preds = %.Vec_PtrGrow.exit11
   %scevgep253 = getelementptr i8, ptr %.9212, i64 1
   %scevgep254 = getelementptr i8, ptr %scevgep253, i64 %strlen252
   %95 = add nuw nsw i32 %.1125211, 1
-  %exitcond255.not = icmp eq i32 %95, %35
+  %exitcond255.not = icmp eq i32 %95, %31
   br i1 %exitcond255.not, label %.preheader, label %.lr.ph213, !llvm.loop !36
 
 .lr.ph217:                                        ; preds = %.preheader, %Vec_PtrPush.exit175
@@ -303,13 +303,13 @@ Vec_PtrPush.exit175:                              ; preds = %.Vec_PtrGrow.exit11
   tail call void @Abc_ObjAddFanin(ptr noundef %96, ptr noundef %98) #9
   tail call void @Abc_ObjAddFanin(ptr noundef %101, ptr noundef %96) #9
   %132 = add nuw nsw i32 %.2126215, 1
-  %exitcond265.not = icmp eq i32 %132, %36
+  %exitcond265.not = icmp eq i32 %132, %32
   br i1 %exitcond265.not, label %._crit_edge218, label %.lr.ph217, !llvm.loop !37
 
 ._crit_edge218:                                   ; preds = %Vec_PtrPush.exit175, %.preheader
   %.11.lcssa = phi ptr [ %.9.lcssa, %.preheader ], [ %scevgep264, %Vec_PtrPush.exit175 ]
-  %133 = shl nsw i32 %37, 1
-  %134 = add i32 %36, %35
+  %133 = shl nsw i32 %33, 1
+  %134 = add i32 %32, %31
   %135 = add i32 %134, %133
   %136 = sext i32 %135 to i64
   %137 = shl nsw i64 %136, 2
@@ -336,8 +336,8 @@ Vec_PtrFree.exit:                                 ; preds = %140, %142
 
 143:                                              ; preds = %._crit_edge218
   %144 = load ptr, ptr @stdout, align 8, !tbaa !38
-  %145 = tail call ptr @Extra_ProgressBarStart(ptr noundef %144, i32 noundef %37) #9
-  %146 = icmp sgt i32 %37, 0
+  %145 = tail call ptr @Extra_ProgressBarStart(ptr noundef %144, i32 noundef %33) #9
+  %146 = icmp sgt i32 %33, 0
   br i1 %146, label %.lr.ph222, label %._crit_edge223
 
 .lr.ph222:                                        ; preds = %143

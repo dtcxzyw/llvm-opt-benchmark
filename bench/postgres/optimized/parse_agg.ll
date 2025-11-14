@@ -2189,59 +2189,59 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @build_aggregate_transfn_expr(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(none) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #0 {
-  %11 = tail call noundef ptr @palloc0(i64 noundef 28) #10
-  store i32 8, ptr %11, align 4
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 1, ptr %12, align 4
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 -1, ptr %13, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 %4, ptr %14, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 -1, ptr %15, align 4
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  store i32 %5, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i32 -1, ptr %17, align 4
-  %18 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %11) #10
-  %19 = icmp slt i32 %2, %1
-  br i1 %19, label %.lr.ph.preheader, label %._crit_edge
+  %11 = zext i1 %3 to i8
+  %12 = tail call noundef ptr @palloc0(i64 noundef 28) #10
+  store i32 8, ptr %12, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 1, ptr %13, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 -1, ptr %14, align 4
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  store i32 %4, ptr %15, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i32 -1, ptr %16, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  store i32 %5, ptr %17, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i32 -1, ptr %18, align 4
+  %19 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12) #10
+  %20 = icmp slt i32 %2, %1
+  br i1 %20, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %10
-  %20 = sext i32 %2 to i64
+  %21 = sext i32 %2 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %20, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.033 = phi ptr [ %18, %.lr.ph.preheader ], [ %30, %.lr.ph ]
-  %21 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
-  %22 = load i32, ptr %21, align 4
-  %23 = tail call noundef ptr @palloc0(i64 noundef 28) #10
-  store i32 8, ptr %23, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store i32 1, ptr %24, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i32 -1, ptr %25, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  store i32 %22, ptr %26, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i32 -1, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  store i32 %5, ptr %28, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store i32 -1, ptr %29, align 4
-  %30 = tail call ptr @lappend(ptr noundef %.033, ptr noundef nonnull %23) #10
+  %indvars.iv = phi i64 [ %21, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %.033 = phi ptr [ %19, %.lr.ph.preheader ], [ %31, %.lr.ph ]
+  %22 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %23 = load i32, ptr %22, align 4
+  %24 = tail call noundef ptr @palloc0(i64 noundef 28) #10
+  store i32 8, ptr %24, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  store i32 1, ptr %25, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i32 -1, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  store i32 %23, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store i32 -1, ptr %28, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  store i32 %5, ptr %29, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store i32 -1, ptr %30, align 4
+  %31 = tail call ptr @lappend(ptr noundef %.033, ptr noundef nonnull %24) #10
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
-  %.0.lcssa = phi ptr [ %18, %10 ], [ %30, %.lr.ph ]
-  %31 = zext i1 %3 to i8
+  %.0.lcssa = phi ptr [ %19, %10 ], [ %31, %.lr.ph ]
   %32 = tail call ptr @makeFuncExpr(i32 noundef %6, i32 noundef %4, ptr noundef %.0.lcssa, i32 noundef 0, i32 noundef %5, i32 noundef 0) #10
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 13
-  store i8 %31, ptr %33, align 1
+  store i8 %11, ptr %33, align 1
   store ptr %32, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %38, label %34
@@ -2253,7 +2253,7 @@ define dso_local void @build_aggregate_transfn_expr(ptr noundef readonly capture
 35:                                               ; preds = %34
   %36 = tail call ptr @makeFuncExpr(i32 noundef %7, i32 noundef %4, ptr noundef %.0.lcssa, i32 noundef 0, i32 noundef %5, i32 noundef 0) #10
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 13
-  store i8 %31, ptr %37, align 1
+  store i8 %11, ptr %37, align 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %34, %35

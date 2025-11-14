@@ -1999,35 +1999,35 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN8QuantNet10save_tableEPKc(ptr 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %19 = load ptr, ptr %18, align 8, !tbaa !98
   %20 = load ptr, ptr %17, align 8, !tbaa !52
-  %21 = icmp sgt i32 %16, 0
-  br i1 %21, label %.lr.ph40, label %.preheader
+  %21 = ptrtoint ptr %19 to i64
+  %22 = ptrtoint ptr %20 to i64
+  %23 = sub i64 %21, %22
+  %24 = lshr i64 %23, 2
+  %25 = trunc i64 %24 to i32
+  %26 = icmp sgt i32 %16, 0
+  br i1 %26, label %.lr.ph40, label %.preheader
 
 .lr.ph40:                                         ; preds = %7
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %wide.trip.count = and i64 %15, 2147483647
   br label %32
 
 .preheader:                                       ; preds = %._crit_edge, %7
-  %24 = ptrtoint ptr %19 to i64
-  %25 = ptrtoint ptr %20 to i64
-  %26 = sub i64 %24, %25
-  %27 = lshr exact i64 %26, 2
-  %28 = trunc i64 %27 to i32
-  %29 = icmp sgt i32 %28, 0
+  %29 = icmp sgt i32 %25, 0
   br i1 %29, label %.lr.ph46, label %._crit_edge47
 
 .lr.ph46:                                         ; preds = %.preheader
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %wide.trip.count58 = and i64 %27, 2147483647
+  %wide.trip.count58 = and i64 %24, 2147483647
   br label %60
 
 32:                                               ; preds = %.lr.ph40, %._crit_edge
   %indvars.iv49 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next50, %._crit_edge ]
-  %33 = load ptr, ptr %22, align 8, !tbaa !53
+  %33 = load ptr, ptr %27, align 8, !tbaa !53
   %34 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %33, i64 %indvars.iv49
-  %35 = load ptr, ptr %23, align 8, !tbaa !90
+  %35 = load ptr, ptr %28, align 8, !tbaa !90
   %36 = load ptr, ptr %8, align 8, !tbaa !52
   %37 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv49
   %38 = load i32, ptr %37, align 4, !tbaa !100

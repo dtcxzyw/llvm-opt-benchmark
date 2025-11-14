@@ -1639,34 +1639,34 @@ define internal void @draw_sono(ptr noundef readonly captures(none) %0, ptr noun
   %6 = load i32, ptr %5, align 4, !tbaa !137
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %8 = load i32, ptr %7, align 4, !tbaa !142
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load i32, ptr %9, align 8, !tbaa !143
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %12 = load i32, ptr %11, align 8, !tbaa !143
-  %13 = tail call i32 @llvm.smin.i32(i32 %10, i32 %12)
-  %spec.select = tail call i32 @llvm.abs.i32(i32 %13, i1 true)
-  %14 = zext nneg i32 %spec.select to i64
-  %15 = icmp sgt i32 %8, 0
-  br i1 %15, label %.lr.ph, label %._crit_edge104
+  %.not = icmp eq i32 %6, 2
+  %9 = icmp eq i32 %6, 0
+  %10 = sdiv i32 %2, 2
+  %11 = select i1 %9, i32 2, i32 1
+  %12 = select i1 %9, i32 %10, i32 %2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %14 = load i32, ptr %13, align 8, !tbaa !143
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %16 = load i32, ptr %15, align 8, !tbaa !143
+  %17 = tail call i32 @llvm.smin.i32(i32 %14, i32 %16)
+  %spec.select = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
+  %18 = zext nneg i32 %spec.select to i64
+  %19 = icmp sgt i32 %8, 0
+  br i1 %19, label %.lr.ph, label %._crit_edge104
 
 .preheader:                                       ; preds = %.lr.ph
-  %.not = icmp eq i32 %6, 2
-  %16 = icmp eq i32 %6, 0
-  %17 = sdiv i32 %2, 2
-  %18 = select i1 %16, i32 2, i32 1
-  %19 = select i1 %16, i32 %17, i32 %2
   br i1 %.not, label %._crit_edge104, label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %.preheader
-  %20 = zext i1 %16 to i32
+  %20 = zext i1 %9 to i32
   br label %.lr.ph101.us
 
 .lr.ph101.us:                                     ; preds = %.lr.ph103, %._crit_edge.us
   %exitcond108.not = phi i1 [ true, %._crit_edge.us ], [ false, %.lr.ph103 ]
   %indvars.iv = phi i64 [ 2, %._crit_edge.us ], [ 1, %.lr.ph103 ]
-  %21 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !143
-  %23 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !143
   %.95.us = tail call i32 @llvm.smin.i32(i32 %22, i32 %24)
   %spec.select98.us = tail call i32 @llvm.abs.i32(i32 %.95.us, i1 true)
@@ -1679,7 +1679,7 @@ define internal void @draw_sono(ptr noundef readonly captures(none) %0, ptr noun
   %.1100.us = phi i32 [ 0, %.lr.ph101.us ], [ %43, %28 ]
   %29 = lshr i32 %.1100.us, %20
   %30 = load ptr, ptr %26, align 8, !tbaa !130
-  %31 = add nsw i32 %29, %19
+  %31 = add nsw i32 %29, %12
   %32 = load i32, ptr %21, align 4, !tbaa !143
   %33 = mul nsw i32 %32, %31
   %34 = sext i32 %33 to i64
@@ -1692,7 +1692,7 @@ define internal void @draw_sono(ptr noundef readonly captures(none) %0, ptr noun
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr %36, i64 %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %42, i64 %25, i1 false)
-  %43 = add nuw nsw i32 %.1100.us, %18
+  %43 = add nuw nsw i32 %.1100.us, %11
   %44 = icmp slt i32 %43, %8
   br i1 %44, label %28, label %._crit_edge.us, !llvm.loop !144
 
@@ -1703,18 +1703,18 @@ define internal void @draw_sono(ptr noundef readonly captures(none) %0, ptr noun
   %.099 = phi i32 [ %58, %.lr.ph ], [ 0, %4 ]
   %45 = load ptr, ptr %0, align 8, !tbaa !130
   %46 = add nsw i32 %.099, %2
-  %47 = load i32, ptr %9, align 8, !tbaa !143
+  %47 = load i32, ptr %13, align 8, !tbaa !143
   %48 = mul nsw i32 %47, %46
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %45, i64 %49
   %51 = load ptr, ptr %1, align 8, !tbaa !130
   %52 = add nsw i32 %.099, %3
   %53 = srem i32 %52, %8
-  %54 = load i32, ptr %11, align 8, !tbaa !143
+  %54 = load i32, ptr %15, align 8, !tbaa !143
   %55 = mul nsw i32 %54, %53
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %51, i64 %56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 1 %57, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 1 %57, i64 %18, i1 false)
   %58 = add nuw nsw i32 %.099, 1
   %exitcond.not = icmp eq i32 %58, %8
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !146

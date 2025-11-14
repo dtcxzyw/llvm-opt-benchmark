@@ -4222,8 +4222,8 @@ if.then.i.i.i.i.i36:                              ; preds = %_ZNSt6vectorIdSaIdE
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i36
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !123
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i36, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -4263,8 +4263,8 @@ if.then.i.i.i.i.i56:                              ; preds = %_ZNSt6vectorIdSaIdE
 
 if.end.i.i.i.i.i.i.i63:                           ; preds = %if.then.i.i.i.i.i56
   %add.ptr.idx.i.i.i.i.i.i.i64 = shl nuw nsw i64 %sub.i.i.i.i.i61, 3
-  %add.ptr.i.i.i.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i60, i64 %add.ptr.idx.i.i.i.i.i.i.i64
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i60, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i64, i1 false), !tbaa !123
+  %add.ptr.i.i.i.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i60, i64 %add.ptr.idx.i.i.i.i.i.i.i64
   br label %invoke.cont23
 
 invoke.cont23:                                    ; preds = %if.end.i.i.i.i.i.i.i63, %if.then.i.i.i.i.i56, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i54
@@ -4304,8 +4304,8 @@ if.then.i.i.i.i.i94:                              ; preds = %_ZNSt6vectorIdSaIdE
 
 if.end.i.i.i.i.i.i.i101:                          ; preds = %if.then.i.i.i.i.i94
   %add.ptr.idx.i.i.i.i.i.i.i102 = shl nuw nsw i64 %sub.i.i.i.i.i99, 3
-  %add.ptr.i.i.i.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i98, i64 %add.ptr.idx.i.i.i.i.i.i.i102
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i98, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i102, i1 false), !tbaa !123
+  %add.ptr.i.i.i.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i98, i64 %add.ptr.idx.i.i.i.i.i.i.i102
   br label %invoke.cont31
 
 invoke.cont31:                                    ; preds = %if.end.i.i.i.i.i.i.i101, %if.then.i.i.i.i.i94, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i92

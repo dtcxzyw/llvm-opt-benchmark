@@ -10027,8 +10027,8 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToList
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %66
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %68, 3
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %67, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !77
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN12_GLOBAL__N_116MergeCondVisitor9addToListEP11AstNodeStmtP11AstNodeExprEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i
 
 71:                                               ; preds = %55

@@ -3066,9 +3066,9 @@ _ZN12_GLOBAL__N_118SelectOptimizeImpl25convertProfitableSIGroupsERN4llvm11SmallV
   %564 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %.sroa.2.0..sroa_idx.i.i390.i = getelementptr inbounds nuw i8, ptr %23, i64 64
   %565 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %566 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %566 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %567 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %568 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %569 = getelementptr inbounds nuw i8, ptr %23, i64 128

@@ -6794,7 +6794,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8855768217806144362.exit.i: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !1749
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1749
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !1749
-  call void @llvm.experimental.noalias.scope.decl(metadata !1805)
   %100 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %101 = load ptr, ptr %100, align 8, !noalias !1749, !nonnull !49, !noundef !49
   %102 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -6802,6 +6801,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8855768217806144362.exit.i: ; pred
   %104 = load i32, ptr %18, align 4, !noalias !1749, !noundef !49
   %105 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %106 = load i32, ptr %105, align 4, !noalias !1749, !noundef !49
+  call void @llvm.experimental.noalias.scope.decl(metadata !1805)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1808
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1808
   %107 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h342c0b74897f23d5E"(i64 noundef %103, i1 noundef zeroext false)

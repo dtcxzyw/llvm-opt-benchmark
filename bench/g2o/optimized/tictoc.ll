@@ -625,18 +625,18 @@ _ZNSt6vectorIN3g2o13TicTocElementESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN
   %91 = load double, ptr %90, align 8, !tbaa !62
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.020.059, i64 16
   %93 = load i32, ptr %92, align 8, !tbaa !63
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.020.059, i64 48
-  %95 = load ptr, ptr %94, align 8, !tbaa !31
-  %96 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %95)
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.020.059, i64 56
-  %98 = load i64, ptr %97, align 8, !tbaa !34
-  %99 = trunc i64 %98 to i32
-  %100 = icmp sgt i32 %.044.lcssa89, %99
-  br i1 %100, label %.lr.ph56, label %._crit_edge57
+  %94 = sitofp i32 %93 to double
+  %95 = fdiv double %91, %94
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.020.059, i64 48
+  %97 = load ptr, ptr %96, align 8, !tbaa !31
+  %98 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %97)
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.020.059, i64 56
+  %100 = load i64, ptr %99, align 8, !tbaa !34
+  %101 = trunc i64 %100 to i32
+  %102 = icmp sgt i32 %.044.lcssa89, %101
+  br i1 %102, label %.lr.ph56, label %._crit_edge57
 
 ._crit_edge57:                                    ; preds = %.lr.ph56, %.lr.ph60
-  %101 = sitofp i32 %93 to double
-  %102 = fdiv double %91, %101
   %103 = load i32, ptr %92, align 8, !tbaa !63
   %104 = load double, ptr %90, align 8, !tbaa !62
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.020.059, i64 24
@@ -645,14 +645,14 @@ _ZNSt6vectorIN3g2o13TicTocElementESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN
   %108 = load double, ptr %107, align 8, !tbaa !64
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.020.059, i64 40
   %110 = load double, ptr %109, align 8, !tbaa !65
-  %111 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %103, double noundef %104, double noundef %102, double noundef %106, double noundef %108, double noundef %110)
+  %111 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %103, double noundef %104, double noundef %95, double noundef %106, double noundef %108, double noundef %110)
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.020.059, i64 88
   %113 = load ptr, ptr %72, align 8, !tbaa !58
   %.not46 = icmp eq ptr %112, %113
   br i1 %.not46, label %._crit_edge61, label %.lr.ph60, !llvm.loop !66
 
 .lr.ph56:                                         ; preds = %.lr.ph60, %.lr.ph56
-  %.054 = phi i32 [ %116, %.lr.ph56 ], [ %99, %.lr.ph60 ]
+  %.054 = phi i32 [ %116, %.lr.ph56 ], [ %101, %.lr.ph60 ]
   %114 = load ptr, ptr @stdout, align 8, !tbaa !67
   %115 = call i32 @putc(i32 noundef 32, ptr noundef %114)
   %116 = add nsw i32 %.054, 1

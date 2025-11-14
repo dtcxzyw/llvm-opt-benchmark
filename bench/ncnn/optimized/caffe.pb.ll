@@ -77124,24 +77124,24 @@ _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFie
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK5caffe15ResizeParameter12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i32, ptr %2, align 8, !tbaa !518
-  %.not55 = icmp eq i32 %3, 0
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load i32, ptr %2, align 8, !tbaa !463
+  %4 = zext i32 %3 to i64
+  %5 = mul nuw nsw i64 %4, 5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = load i32, ptr %6, align 8, !tbaa !518
+  %.not55 = icmp eq i32 %7, 0
   br i1 %.not55, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !513
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = load ptr, ptr %8, align 8, !tbaa !513
   br label %16
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit, %1
   %.034.lcssa = phi i64 [ 0, %1 ], [ %29, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit ]
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !463
-  %8 = zext i32 %7 to i64
-  %9 = mul nuw nsw i64 %8, 5
-  %10 = zext i32 %3 to i64
-  %11 = add nuw nsw i64 %9, %10
+  %10 = zext i32 %7 to i64
+  %11 = add nuw nsw i64 %5, %10
   %12 = add i64 %11, %.034.lcssa
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !468
@@ -77153,7 +77153,7 @@ define dso_local noundef i64 @_ZNK5caffe15ResizeParameter12ByteSizeLongEv(ptr no
   %.03254 = phi i32 [ 0, %.lr.ph ], [ %30, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit ]
   %.03453 = phi i64 [ 0, %.lr.ph ], [ %29, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit ]
   %17 = sext i32 %.03254 to i64
-  %18 = getelementptr inbounds i32, ptr %5, i64 %17
+  %18 = getelementptr inbounds i32, ptr %9, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !468
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit, label %21
@@ -77172,7 +77172,7 @@ _ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit: ; preds = %16, %21
   %.0.i.i = phi i64 [ %28, %21 ], [ 10, %16 ]
   %29 = add i64 %.0.i.i, %.03453
   %30 = add nuw i32 %.03254, 1
-  %exitcond.not = icmp eq i32 %30, %3
+  %exitcond.not = icmp eq i32 %30, %7
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !781
 
 31:                                               ; preds = %._crit_edge

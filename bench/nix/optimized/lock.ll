@@ -2150,8 +2150,8 @@ _ZNSt6vectorIjSaIjEE17_M_default_appendEm.exit163: ; preds = %276, %_ZSt27__unin
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %298
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %300, 2
-  %302 = getelementptr inbounds nuw i8, ptr %299, i64 %.idx.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %299, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false)
+  %302 = getelementptr inbounds nuw i8, ptr %299, i64 %.idx.i.i.i.i.i.i
   br label %_ZNSt6vectorIjSaIjEE17_M_default_appendEm.exit
 
 303:                                              ; preds = %290

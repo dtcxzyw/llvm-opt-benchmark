@@ -6571,22 +6571,22 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit65: ; preds = %_ZN5clang7Cod
   %.sroa.0.0.copyload.i66 = load i64, ptr %173, align 16, !tbaa !3
   %174 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %174, ptr %12, align 8, !tbaa !713
-  %175 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 4, ptr %175, align 4, !tbaa !764
+  %175 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  store i32 4, ptr %176, align 4, !tbaa !764
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit65
-  %.09.i.i.i.i.i = phi ptr [ %177, %.lr.ph.i.i.i.i.i ], [ %174, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit65 ]
-  %.068.i.i.i.i.i = phi i64 [ %176, %.lr.ph.i.i.i.i.i ], [ 4, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit65 ]
+  %.09.i.i.i.i.i = phi ptr [ %178, %.lr.ph.i.i.i.i.i ], [ %174, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit65 ]
+  %.068.i.i.i.i.i = phi i64 [ %177, %.lr.ph.i.i.i.i.i ], [ 4, %_ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit65 ]
   store i64 %.sroa.0.0.copyload.i66, ptr %.09.i.i.i.i.i, align 8, !tbaa !3
-  %176 = add nsw i64 %.068.i.i.i.i.i, -1
-  %177 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq i64 %176, 0
+  %177 = add nsw i64 %.068.i.i.i.i.i, -1
+  %178 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq i64 %177, 0
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm11SmallVectorIN5clang8QualTypeELj4EEC2EmRKS2_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !788
 
 _ZN4llvm11SmallVectorIN5clang8QualTypeELj4EEC2EmRKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %178 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 4, ptr %178, align 8, !tbaa !714
+  store i32 4, ptr %175, align 8, !tbaa !714
   %179 = load ptr, ptr %0, align 8, !tbaa !84
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 144
   %181 = load ptr, ptr %180, align 8, !tbaa !146

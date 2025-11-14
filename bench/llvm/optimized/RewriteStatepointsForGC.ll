@@ -7288,8 +7288,8 @@ _ZN4llvm13SmallDenseMapIPNS_5ValueEPNS_10BasicBlockELj8ENS_12DenseMapInfoIS2_vEE
   br label %_ZN4llvm13SmallDenseMapIPNS_5ValueEPNS_10BasicBlockELj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit.i.i
 
 .preheader..critedge33_crit_edge.i.i:             ; preds = %_ZN4llvm13SmallDenseMapIPNS_5ValueEPNS_10BasicBlockELj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit.preheader.i.i
-  %.pre63.i.i = load i32, ptr %62, align 8
-  %.pre55.i.i = and i32 %.pre63.i.i, 1
+  %.pre61.i.i = load i32, ptr %62, align 8
+  %.pre55.i.i = and i32 %.pre61.i.i, 1
   br label %.critedge33.i.i
 
 .lr.ph41.i.i:                                     ; preds = %_ZN4llvm13SmallDenseMapIPNS_5ValueEPNS_10BasicBlockELj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit.i.i

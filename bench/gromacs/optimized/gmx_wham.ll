@@ -3416,54 +3416,54 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222.i: ; preds = %
   %exitcond.not.i279 = icmp eq i64 %indvars.iv.next.i278, %1071
   br i1 %exitcond.not.i279, label %.lr.ph31.i280, label %.lr.ph.i276, !llvm.loop !154
 
-.preheader19.us.preheader.i:                      ; preds = %.lr.ph31.i280
-  %1090 = fdiv float %1089, %1069
-  br label %.preheader19.us.i
+.preheader19.us.i:                                ; preds = %.preheader19.us.i.preheader, %.critedge.us.i
+  %indvars.iv98.i = phi i64 [ %indvars.iv.next99.i, %.critedge.us.i ], [ 0, %.preheader19.us.i.preheader ]
+  %1090 = getelementptr inbounds float, ptr %1086, i64 %indvars.iv98.i
+  br label %1091
 
-.preheader19.us.i:                                ; preds = %.critedge.us.i, %.preheader19.us.preheader.i
-  %indvars.iv98.i = phi i64 [ 0, %.preheader19.us.preheader.i ], [ %indvars.iv.next99.i, %.critedge.us.i ]
-  %1091 = getelementptr inbounds float, ptr %1086, i64 %indvars.iv98.i
-  br label %1092
+1091:                                             ; preds = %1095, %.preheader19.us.i
+  %indvars.iv93.i = phi i64 [ 0, %.preheader19.us.i ], [ %indvars.iv.next94.i, %1095 ]
+  %1092 = add nsw i64 %indvars.iv93.i, %indvars.iv98.i
+  %1093 = icmp slt i64 %1092, %1071
+  br i1 %1093, label %1095, label %.critedge.us.i
 
-1092:                                             ; preds = %1096, %.preheader19.us.i
-  %indvars.iv93.i = phi i64 [ 0, %.preheader19.us.i ], [ %indvars.iv.next94.i, %1096 ]
-  %1093 = add nsw i64 %indvars.iv93.i, %indvars.iv98.i
-  %1094 = icmp slt i64 %1093, %1071
-  br i1 %1094, label %1096, label %.critedge.us.i
-
-.critedge.us.i:                                   ; preds = %1096, %1092
+.critedge.us.i:                                   ; preds = %1095, %1091
   %indvars.iv.next99.i = add nsw i64 %indvars.iv98.i, %1072
-  %1095 = icmp slt i64 %indvars.iv.next99.i, %1071
-  br i1 %1095, label %.preheader19.us.i, label %.lr.ph37.i, !llvm.loop !155
+  %1094 = icmp slt i64 %indvars.iv.next99.i, %1071
+  br i1 %1094, label %.preheader19.us.i, label %.lr.ph37.i, !llvm.loop !155
 
-1096:                                             ; preds = %1092
-  %1097 = load float, ptr %1091, align 4, !tbaa !107
-  %1098 = fsub float %1097, %1090
-  %1099 = getelementptr inbounds float, ptr %1086, i64 %1093
-  %1100 = load float, ptr %1099, align 4, !tbaa !107
-  %1101 = fsub float %1100, %1090
-  %1102 = fmul float %1098, %1101
-  %1103 = getelementptr inbounds nuw float, ptr %1053, i64 %indvars.iv93.i
-  %1104 = load float, ptr %1103, align 4, !tbaa !107
-  %1105 = fadd float %1104, %1102
-  store float %1105, ptr %1103, align 4, !tbaa !107
-  %1106 = getelementptr inbounds nuw i32, ptr %1054, i64 %indvars.iv93.i
-  %1107 = load i32, ptr %1106, align 4, !tbaa !4
-  %1108 = add nsw i32 %1107, 1
-  store i32 %1108, ptr %1106, align 4, !tbaa !4
+1095:                                             ; preds = %1091
+  %1096 = load float, ptr %1090, align 4, !tbaa !107
+  %1097 = fsub float %1096, %1110
+  %1098 = getelementptr inbounds float, ptr %1086, i64 %1092
+  %1099 = load float, ptr %1098, align 4, !tbaa !107
+  %1100 = fsub float %1099, %1110
+  %1101 = fmul float %1097, %1100
+  %1102 = getelementptr inbounds nuw float, ptr %1053, i64 %indvars.iv93.i
+  %1103 = load float, ptr %1102, align 4, !tbaa !107
+  %1104 = fadd float %1103, %1101
+  store float %1104, ptr %1102, align 4, !tbaa !107
+  %1105 = getelementptr inbounds nuw i32, ptr %1054, i64 %indvars.iv93.i
+  %1106 = load i32, ptr %1105, align 4, !tbaa !4
+  %1107 = add nsw i32 %1106, 1
+  store i32 %1107, ptr %1105, align 4, !tbaa !4
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond97.not.i = icmp eq i64 %indvars.iv.next94.i, %1052
-  br i1 %exitcond97.not.i, label %.critedge.us.i, label %1092, !llvm.loop !156
+  br i1 %exitcond97.not.i, label %.critedge.us.i, label %1091, !llvm.loop !156
 
 .lr.ph31.i280:                                    ; preds = %.lr.ph.i276, %.lr.ph31.i280
   %indvars.iv88.i = phi i64 [ %indvars.iv.next89.i, %.lr.ph31.i280 ], [ 0, %.lr.ph.i276 ]
-  %1109 = getelementptr inbounds nuw float, ptr %1053, i64 %indvars.iv88.i
-  store float 0.000000e+00, ptr %1109, align 4, !tbaa !107
-  %1110 = getelementptr inbounds nuw i32, ptr %1054, i64 %indvars.iv88.i
-  store i32 0, ptr %1110, align 4, !tbaa !4
+  %1108 = getelementptr inbounds nuw float, ptr %1053, i64 %indvars.iv88.i
+  store float 0.000000e+00, ptr %1108, align 4, !tbaa !107
+  %1109 = getelementptr inbounds nuw i32, ptr %1054, i64 %indvars.iv88.i
+  store i32 0, ptr %1109, align 4, !tbaa !4
   %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
   %exitcond92.not.i = icmp eq i64 %indvars.iv.next89.i, %1052
-  br i1 %exitcond92.not.i, label %.preheader19.us.preheader.i, label %.lr.ph31.i280, !llvm.loop !157
+  br i1 %exitcond92.not.i, label %.preheader19.us.i.preheader, label %.lr.ph31.i280, !llvm.loop !157
+
+.preheader19.us.i.preheader:                      ; preds = %.lr.ph31.i280
+  %1110 = fdiv float %1089, %1069
+  br label %.preheader19.us.i
 
 .lr.ph37.i:                                       ; preds = %.critedge.us.i, %.lr.ph37.i
   %indvars.iv101.i = phi i64 [ %indvars.iv.next102.i, %.lr.ph37.i ], [ 0, %.critedge.us.i ]
@@ -8548,9 +8548,9 @@ _ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit: ; preds = %._crit_edge.i296, 
   %840 = ptrtoint ptr %769 to i64
   call void @_ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef nonnull %769, ptr noundef nonnull %839, i64 noundef %551)
   %scevgep.i.i.i.i = getelementptr i8, ptr %769, i64 8
-  br i1 %552, label %.preheader.i.i.i.i, label %859
+  br i1 %552, label %.preheader.i.i, label %859
 
-.preheader.i.i.i.i:                               ; preds = %._crit_edge.i232, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i
+.preheader.i.i:                                   ; preds = %._crit_edge.i232, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i
   %.020.i.idx.i.i.i.i = phi i64 [ %.020.i.add.i.i.i.i, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i ], [ 8, %._crit_edge.i232 ]
   %.pn19.i.i.i.i.i = phi ptr [ %.020.i.ptr.i.i.i.i, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i ], [ %769, %._crit_edge.i232 ]
   %.020.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %769, i64 %.020.i.idx.i.i.i.i
@@ -8559,11 +8559,11 @@ _ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit: ; preds = %._crit_edge.i296, 
   %843 = fcmp olt double %841, %842
   br i1 %843, label %844, label %845
 
-844:                                              ; preds = %.preheader.i.i.i.i
+844:                                              ; preds = %.preheader.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %769, i64 %.020.i.idx.i.i.i.i, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i
 
-845:                                              ; preds = %.preheader.i.i.i.i
+845:                                              ; preds = %.preheader.i.i
   %846 = load double, ptr %.pn19.i.i.i.i.i, align 8, !tbaa !129
   %847 = fcmp olt double %841, %846
   br i1 %847, label %.lr.ph.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i
@@ -8583,7 +8583,7 @@ _ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   store double %841, ptr %.sink.i.i.i.i.i, align 8, !tbaa !129
   %.020.i.add.i.i.i.i = add nuw nsw i64 %.020.i.idx.i.i.i.i, 8
   %.not.i.i.i.i.i = icmp eq i64 %.020.i.add.i.i.i.i, 128
-  br i1 %.not.i.i.i.i.i, label %_ZSt16__insertion_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !257
+  br i1 %.not.i.i.i.i.i, label %_ZSt16__insertion_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i.i, label %.preheader.i.i, !llvm.loop !257
 
 _ZSt16__insertion_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i.i: ; preds = %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i
   %851 = getelementptr inbounds nuw i8, ptr %769, i64 128

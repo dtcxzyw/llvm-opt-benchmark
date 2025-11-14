@@ -1161,9 +1161,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir10BasicBlockENS_11SmallVectorI
   call fastcc void @"_ZSt16__introsort_loopIPPN4llvm9sandboxir11InstructionElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_11BottomUpVec18tryEraseDeadInstrsEvE3$_0EEEvT_SB_T0_T1_"(ptr noundef %.val, ptr noundef nonnull %78, i64 noundef %83)
   %84 = icmp ugt i32 %.val15, 16
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %.val, i64 8
-  br i1 %84, label %.preheader.i.i.i.i.i, label %106
+  br i1 %84, label %.preheader.i.i.i, label %106
 
-.preheader.i.i.i.i.i:                             ; preds = %79, %"_ZSt25__unguarded_linear_insertIPPN4llvm9sandboxir11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_11BottomUpVec18tryEraseDeadInstrsEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
+.preheader.i.i.i:                                 ; preds = %79, %"_ZSt25__unguarded_linear_insertIPPN4llvm9sandboxir11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_11BottomUpVec18tryEraseDeadInstrsEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
   %.020.i.idx.i.i.i.i.i = phi i64 [ %.020.i.add.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPN4llvm9sandboxir11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_11BottomUpVec18tryEraseDeadInstrsEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ], [ 8, %79 ]
   %.pn19.i.i.i.i.i.i = phi ptr [ %.020.i.ptr.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPN4llvm9sandboxir11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_11BottomUpVec18tryEraseDeadInstrsEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ], [ %.val, %79 ]
   %.020.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 %.020.i.idx.i.i.i.i.i
@@ -1177,11 +1177,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir10BasicBlockENS_11SmallVectorI
   %88 = load ptr, ptr %.020.i.ptr.i.i.i.i.i, align 8, !tbaa !141
   br i1 %87, label %89, label %90
 
-89:                                               ; preds = %.preheader.i.i.i.i.i
+89:                                               ; preds = %.preheader.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %.val, i64 %.020.i.idx.i.i.i.i.i, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPN4llvm9sandboxir11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_11BottomUpVec18tryEraseDeadInstrsEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
 
-90:                                               ; preds = %.preheader.i.i.i.i.i
+90:                                               ; preds = %.preheader.i.i.i
   %91 = getelementptr i8, ptr %88, i64 16
   %.0.val11.i.i.i.i.i.i.i = load ptr, ptr %.pn19.i.i.i.i.i.i, align 8, !tbaa !141
   %.val.val12.i.i.i.i.i.i.i = load ptr, ptr %91, align 8, !tbaa !133
@@ -1208,7 +1208,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir10BasicBlockENS_11SmallVectorI
   store ptr %88, ptr %.sink.i.i.i.i.i.i, align 8, !tbaa !141
   %.020.i.add.i.i.i.i.i = add nuw nsw i64 %.020.i.idx.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i = icmp eq i64 %.020.i.add.i.i.i.i.i, 128
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPPN4llvm9sandboxir11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_11BottomUpVec18tryEraseDeadInstrsEvE3$_0EEEvT_SB_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i.i.i, !llvm.loop !154
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPPN4llvm9sandboxir11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_11BottomUpVec18tryEraseDeadInstrsEvE3$_0EEEvT_SB_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i, !llvm.loop !154
 
 "_ZSt16__insertion_sortIPPN4llvm9sandboxir11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_11BottomUpVec18tryEraseDeadInstrsEvE3$_0EEEvT_SB_T0_.exit.i.i.i.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPPN4llvm9sandboxir11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_11BottomUpVec18tryEraseDeadInstrsEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
   %97 = getelementptr inbounds nuw i8, ptr %.val, i64 128

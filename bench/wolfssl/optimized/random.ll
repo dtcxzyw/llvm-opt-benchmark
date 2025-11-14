@@ -486,12 +486,12 @@ define void @wc_rng_free(ptr noundef %0) local_unnamed_addr #0 {
   %7 = trunc i64 %6 to i32
   %8 = sub i32 0, %7
   %9 = and i32 %8, 7
-  %.not24.i.i.i = icmp eq i32 %9, 0
-  br i1 %.not24.i.i.i, label %.lr.ph29.preheader.i.i.i, label %.lr.ph.i.i.i
-
-.lr.ph29.preheader.i.i.i:                         ; preds = %.lr.ph.i.i.i, %5
-  %.016.lcssa.i.i.i = phi ptr [ %4, %5 ], [ %12, %.lr.ph.i.i.i ]
   %10 = sub nuw nsw i32 128, %9
+  %.not24.i.i.i = icmp eq i32 %9, 0
+  br i1 %.not24.i.i.i, label %.lr.ph29.i.i.i.preheader, label %.lr.ph.i.i.i
+
+.lr.ph29.i.i.i.preheader:                         ; preds = %.lr.ph.i.i.i, %5
+  %.01528.i.i.i.ph = phi ptr [ %4, %5 ], [ %12, %.lr.ph.i.i.i ]
   br label %.lr.ph29.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %5, %.lr.ph.i.i.i
@@ -501,15 +501,15 @@ define void @wc_rng_free(ptr noundef %0) local_unnamed_addr #0 {
   %12 = getelementptr inbounds nuw i8, ptr %.01625.i.i.i, i64 1
   store volatile i8 0, ptr %.01625.i.i.i, align 1, !tbaa !15
   %.not.i.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i.i, label %.lr.ph29.preheader.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i, label %.lr.ph29.i.i.i.preheader, label %.lr.ph.i.i.i, !llvm.loop !27
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph29.i.i.i
   %.not2232.i.i.i = icmp eq i32 %14, 0
   br i1 %.not2232.i.i.i, label %ForceZero.exit.i.i, label %.lr.ph35.i.i.i
 
-.lr.ph29.i.i.i:                                   ; preds = %.lr.ph29.i.i.i, %.lr.ph29.preheader.i.i.i
-  %.01528.i.i.i = phi ptr [ %13, %.lr.ph29.i.i.i ], [ %.016.lcssa.i.i.i, %.lr.ph29.preheader.i.i.i ]
-  %.01827.i.i.i = phi i32 [ %14, %.lr.ph29.i.i.i ], [ %10, %.lr.ph29.preheader.i.i.i ]
+.lr.ph29.i.i.i:                                   ; preds = %.lr.ph29.i.i.i.preheader, %.lr.ph29.i.i.i
+  %.01528.i.i.i = phi ptr [ %13, %.lr.ph29.i.i.i ], [ %.01528.i.i.i.ph, %.lr.ph29.i.i.i.preheader ]
+  %.01827.i.i.i = phi i32 [ %14, %.lr.ph29.i.i.i ], [ %10, %.lr.ph29.i.i.i.preheader ]
   %13 = getelementptr inbounds nuw i8, ptr %.01528.i.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i.i, align 8, !tbaa !11
   %14 = add nsw i32 %.01827.i.i.i, -8
@@ -545,12 +545,12 @@ wc_FreeRng.exit:                                  ; preds = %2, %20
   %23 = trunc i64 %22 to i32
   %24 = sub i32 0, %23
   %25 = and i32 %24, 7
-  %.not24.i = icmp eq i32 %25, 0
-  br i1 %.not24.i, label %.lr.ph29.preheader.i, label %.lr.ph.i
-
-.lr.ph29.preheader.i:                             ; preds = %.lr.ph.i, %wc_FreeRng.exit
-  %.016.lcssa.i = phi ptr [ %0, %wc_FreeRng.exit ], [ %28, %.lr.ph.i ]
   %26 = sub nuw nsw i32 32, %25
+  %.not24.i = icmp eq i32 %25, 0
+  br i1 %.not24.i, label %.lr.ph29.i.preheader, label %.lr.ph.i
+
+.lr.ph29.i.preheader:                             ; preds = %.lr.ph.i, %wc_FreeRng.exit
+  %.01528.i.ph = phi ptr [ %0, %wc_FreeRng.exit ], [ %28, %.lr.ph.i ]
   br label %.lr.ph29.i
 
 .lr.ph.i:                                         ; preds = %wc_FreeRng.exit, %.lr.ph.i
@@ -560,15 +560,15 @@ wc_FreeRng.exit:                                  ; preds = %2, %20
   %28 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
   store volatile i8 0, ptr %.01625.i, align 1, !tbaa !15
   %.not.i7 = icmp eq i32 %27, 0
-  br i1 %.not.i7, label %.lr.ph29.preheader.i, label %.lr.ph.i, !llvm.loop !27
+  br i1 %.not.i7, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !27
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
   %.not2232.i = icmp eq i32 %30, 0
   br i1 %.not2232.i, label %ForceZero.exit, label %.lr.ph35.i
 
-.lr.ph29.i:                                       ; preds = %.lr.ph29.i, %.lr.ph29.preheader.i
-  %.01528.i = phi ptr [ %29, %.lr.ph29.i ], [ %.016.lcssa.i, %.lr.ph29.preheader.i ]
-  %.01827.i = phi i32 [ %30, %.lr.ph29.i ], [ %26, %.lr.ph29.preheader.i ]
+.lr.ph29.i:                                       ; preds = %.lr.ph29.i.preheader, %.lr.ph29.i
+  %.01528.i = phi ptr [ %29, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
+  %.01827.i = phi i32 [ %30, %.lr.ph29.i ], [ %26, %.lr.ph29.i.preheader ]
   %29 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !11
   %30 = add nsw i32 %.01827.i, -8
@@ -608,12 +608,12 @@ define range(i32 -199, 1) i32 @wc_FreeRng(ptr noundef captures(address_is_null) 
   %8 = trunc i64 %7 to i32
   %9 = sub i32 0, %8
   %10 = and i32 %9, 7
-  %.not24.i.i = icmp eq i32 %10, 0
-  br i1 %.not24.i.i, label %.lr.ph29.preheader.i.i, label %.lr.ph.i.i
-
-.lr.ph29.preheader.i.i:                           ; preds = %.lr.ph.i.i, %6
-  %.016.lcssa.i.i = phi ptr [ %5, %6 ], [ %13, %.lr.ph.i.i ]
   %11 = sub nuw nsw i32 128, %10
+  %.not24.i.i = icmp eq i32 %10, 0
+  br i1 %.not24.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i
+
+.lr.ph29.i.i.preheader:                           ; preds = %.lr.ph.i.i, %6
+  %.01528.i.i.ph = phi ptr [ %5, %6 ], [ %13, %.lr.ph.i.i ]
   br label %.lr.ph29.i.i
 
 .lr.ph.i.i:                                       ; preds = %6, %.lr.ph.i.i
@@ -623,15 +623,15 @@ define range(i32 -199, 1) i32 @wc_FreeRng(ptr noundef captures(address_is_null) 
   %13 = getelementptr inbounds nuw i8, ptr %.01625.i.i, i64 1
   store volatile i8 0, ptr %.01625.i.i, align 1, !tbaa !15
   %.not.i.i = icmp eq i32 %12, 0
-  br i1 %.not.i.i, label %.lr.ph29.preheader.i.i, label %.lr.ph.i.i, !llvm.loop !27
+  br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !27
 
 .preheader.i.i:                                   ; preds = %.lr.ph29.i.i
   %.not2232.i.i = icmp eq i32 %15, 0
   br i1 %.not2232.i.i, label %ForceZero.exit.i.preheader, label %.lr.ph35.i.i
 
-.lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i, %.lr.ph29.preheader.i.i
-  %.01528.i.i = phi ptr [ %14, %.lr.ph29.i.i ], [ %.016.lcssa.i.i, %.lr.ph29.preheader.i.i ]
-  %.01827.i.i = phi i32 [ %15, %.lr.ph29.i.i ], [ %11, %.lr.ph29.preheader.i.i ]
+.lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i.preheader, %.lr.ph29.i.i
+  %.01528.i.i = phi ptr [ %14, %.lr.ph29.i.i ], [ %.01528.i.i.ph, %.lr.ph29.i.i.preheader ]
+  %.01827.i.i = phi i32 [ %15, %.lr.ph29.i.i ], [ %11, %.lr.ph29.i.i.preheader ]
   %14 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !11
   %15 = add nsw i32 %.01827.i.i, -8
@@ -693,12 +693,12 @@ define internal fastcc void @ForceZero(ptr noundef nonnull %0, i32 noundef range
   %4 = trunc i64 %3 to i32
   %5 = sub i32 0, %4
   %6 = and i32 %5, 7
+  %7 = sub nuw nsw i32 %1, %6
   %.not24 = icmp eq i32 %6, 0
   br i1 %.not24, label %.lr.ph29.preheader, label %.lr.ph
 
 .lr.ph29.preheader:                               ; preds = %.lr.ph, %2
-  %.016.lcssa = phi ptr [ %0, %2 ], [ %9, %.lr.ph ]
-  %7 = sub nuw nsw i32 %1, %6
+  %.01528.ph = phi ptr [ %0, %2 ], [ %9, %.lr.ph ]
   br label %.lr.ph29
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -715,7 +715,7 @@ define internal fastcc void @ForceZero(ptr noundef nonnull %0, i32 noundef range
   br i1 %.not2232, label %._crit_edge, label %.lr.ph35
 
 .lr.ph29:                                         ; preds = %.lr.ph29.preheader, %.lr.ph29
-  %.01528 = phi ptr [ %10, %.lr.ph29 ], [ %.016.lcssa, %.lr.ph29.preheader ]
+  %.01528 = phi ptr [ %10, %.lr.ph29 ], [ %.01528.ph, %.lr.ph29.preheader ]
   %.01827 = phi i32 [ %11, %.lr.ph29 ], [ %7, %.lr.ph29.preheader ]
   %10 = getelementptr inbounds nuw i8, ptr %.01528, i64 8
   store volatile i64 0, ptr %.01528, align 8, !tbaa !11

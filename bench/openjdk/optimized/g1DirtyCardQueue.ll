@@ -2194,9 +2194,9 @@ _ZN9QuickSort10find_pivotIPhPFlPKhS3_EEEmPT_mT0_.exit: ; preds = %23, %28
   %33 = load ptr, ptr %7, align 8
   br label %34
 
-34:                                               ; preds = %47, %32
-  %.020.in.i = phi i64 [ %.tr1724, %32 ], [ %.121.i, %47 ]
-  %.0.i = phi i64 [ 0, %32 ], [ %40, %47 ]
+34:                                               ; preds = %48, %32
+  %.020.in.i = phi i64 [ %.tr1724, %32 ], [ %.121.i, %48 ]
+  %.0.i = phi i64 [ 0, %32 ], [ %40, %48 ]
   br label %35
 
 35:                                               ; preds = %35, %34
@@ -2206,31 +2206,34 @@ _ZN9QuickSort10find_pivotIPhPFlPKhS3_EEEmPT_mT0_.exit: ; preds = %23, %28
   %38 = tail call noundef i64 %2(ptr noundef %37, ptr noundef %33) #15
   %39 = icmp slt i64 %38, 0
   %40 = add i64 %.1.i, 1
-  br i1 %39, label %35, label %.preheader.i, !llvm.loop !21
+  br i1 %39, label %35, label %.preheader.i.preheader, !llvm.loop !21
 
-.preheader.i:                                     ; preds = %35, %.preheader.i
-  %.121.in.i = phi i64 [ %.121.i, %.preheader.i ], [ %.020.in.i, %35 ]
+.preheader.i.preheader:                           ; preds = %35
+  %41 = getelementptr inbounds ptr, ptr %.tr23, i64 %.1.i
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
+  %.121.in.i = phi i64 [ %.121.i, %.preheader.i ], [ %.020.in.i, %.preheader.i.preheader ]
   %.121.i = add i64 %.121.in.i, -1
-  %41 = getelementptr inbounds ptr, ptr %.tr23, i64 %.121.i
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef i64 %2(ptr noundef %42, ptr noundef %33) #15
-  %44 = icmp sgt i64 %43, 0
-  br i1 %44, label %.preheader.i, label %45, !llvm.loop !22
+  %42 = getelementptr inbounds ptr, ptr %.tr23, i64 %.121.i
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef i64 %2(ptr noundef %43, ptr noundef %33) #15
+  %45 = icmp sgt i64 %44, 0
+  br i1 %45, label %.preheader.i, label %46, !llvm.loop !22
 
-45:                                               ; preds = %.preheader.i
-  %46 = icmp ult i64 %.1.i, %.121.i
-  br i1 %46, label %47, label %_ZN9QuickSort9partitionIPhPFlPKhS3_EEEmPT_mmT0_.exit
+46:                                               ; preds = %.preheader.i
+  %47 = icmp ult i64 %.1.i, %.121.i
+  br i1 %47, label %48, label %_ZN9QuickSort9partitionIPhPFlPKhS3_EEEmPT_mmT0_.exit
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds ptr, ptr %.tr23, i64 %.121.i
-  %49 = getelementptr inbounds ptr, ptr %.tr23, i64 %.1.i
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %48, align 8
-  store ptr %51, ptr %49, align 8
-  store ptr %50, ptr %48, align 8
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds ptr, ptr %.tr23, i64 %.121.i
+  %50 = load ptr, ptr %41, align 8
+  %51 = load ptr, ptr %49, align 8
+  store ptr %51, ptr %41, align 8
+  store ptr %50, ptr %49, align 8
   br label %34, !llvm.loop !23
 
-_ZN9QuickSort9partitionIPhPFlPKhS3_EEEmPT_mmT0_.exit: ; preds = %45
+_ZN9QuickSort9partitionIPhPFlPKhS3_EEEmPT_mmT0_.exit: ; preds = %46
   tail call void @_ZN9QuickSort4sortIPhPFlPKhS3_EEEvPT_mT0_(ptr noundef nonnull %.tr23, i64 noundef %.121.in.i, ptr noundef %2)
   %52 = getelementptr inbounds ptr, ptr %.tr23, i64 %.121.in.i
   %53 = sub i64 %.tr1724, %.121.in.i

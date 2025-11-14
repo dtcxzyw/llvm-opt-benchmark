@@ -883,7 +883,7 @@ _ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit18.thread: 
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %.not.i.i.i.i.i = icmp eq ptr %31, %32
-  br i1 %.not.i.i.i.i.i, label %.thread.i, label %36
+  br i1 %.not.i.i.i.i.i, label %.loopexit, label %36
 
 36:                                               ; preds = %_ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit18.thread
   %37 = icmp ugt i64 %35, 9223372036854775800
@@ -908,9 +908,9 @@ _ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit18.thread: 
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %41, %31
-  br i1 %.not.i.i.i.i.i.i, label %.thread.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !18
 
-.thread.i:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit18.thread
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit18.thread
   %.sink = phi ptr [ null, %_ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit18.thread ], [ %39, %.lr.ph.i.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit18.thread ], [ %42, %.lr.ph.i.i.i.i.i.i ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -920,7 +920,7 @@ _ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit18.thread: 
   %47 = invoke ptr @_ZSt18__set_intersectionIN9__gnu_cxx17__normal_iteratorIPN10open_spiel17morpion_solitaire5PointESt6vectorIS4_SaIS4_EEEES9_St20back_insert_iteratorIS8_ENS0_5__ops15_Iter_less_iterEET1_T_SF_T0_SG_SE_T2_(ptr %.sink, ptr %.0.lcssa.i.i.i.i.i.i, ptr %44, ptr %46, ptr nonnull %3)
           to label %_ZSt16set_intersectionIN9__gnu_cxx17__normal_iteratorIPN10open_spiel17morpion_solitaire5PointESt6vectorIS4_SaIS4_EEEES9_St20back_insert_iteratorIS8_EET1_T_SD_T0_SE_SC_.exit unwind label %62
 
-_ZSt16set_intersectionIN9__gnu_cxx17__normal_iteratorIPN10open_spiel17morpion_solitaire5PointESt6vectorIS4_SaIS4_EEEES9_St20back_insert_iteratorIS8_EET1_T_SD_T0_SE_SC_.exit: ; preds = %.thread.i
+_ZSt16set_intersectionIN9__gnu_cxx17__normal_iteratorIPN10open_spiel17morpion_solitaire5PointESt6vectorIS4_SaIS4_EEEES9_St20back_insert_iteratorIS8_EET1_T_SD_T0_SE_SC_.exit: ; preds = %.loopexit
   %48 = load ptr, ptr %3, align 8
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %50 = load ptr, ptr %49, align 8
@@ -952,7 +952,7 @@ _ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit24: ; preds
           cleanup
   br label %_ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit28
 
-62:                                               ; preds = %.thread.i
+62:                                               ; preds = %.loopexit
   %63 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i27 = icmp eq ptr %.sink, null

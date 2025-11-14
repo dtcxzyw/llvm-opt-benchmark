@@ -127,8 +127,8 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
 
 invoke.cont:                                      ; preds = %call5.i.i.i.i2.i.i.noexc
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !27
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !28
   %cmp.i.i10 = icmp samesign ugt i64 %dimensionality, 1152921504606846975
@@ -163,8 +163,8 @@ call5.i.i.i.i2.i.i.noexc26:                       ; preds = %if.then.i.i.i.i.i12
 
 if.end.i.i.i.i.i.i.i19:                           ; preds = %call5.i.i.i.i2.i.i.noexc26
   %add.ptr.idx.i.i.i.i.i.i.i20 = shl nuw nsw i64 %sub.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i16, i64 %add.ptr.idx.i.i.i.i.i.i.i20
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i16, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i20, i1 false), !tbaa !29
+  %add.ptr.i.i.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i16, i64 %add.ptr.idx.i.i.i.i.i.i.i20
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i, %call5.i.i.i.i2.i.i.noexc26, %if.end.i.i.i.i.i.i.i19
@@ -748,6 +748,7 @@ do.body:                                          ; preds = %for.cond.cleanup, %
   %cmp19110 = phi i1 [ %18, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T_SB_SA_.exit ], [ true, %for.cond.cleanup ]
   %i.0 = phi i64 [ 0, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T_SB_SA_.exit ], [ %inc28, %for.cond.cleanup ]
   %group.0 = phi i64 [ 0, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T_SB_SA_.exit ], [ %inc, %for.cond.cleanup ]
+  %inc = add i64 %group.0, 1
   br i1 %cmp19110, label %for.body.preheader, label %do.body31
 
 for.body.preheader:                               ; preds = %do.body
@@ -757,7 +758,6 @@ for.body.preheader:                               ; preds = %do.body
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body
-  %inc = add i64 %group.0, 1
   br i1 %cmp19, label %do.body, label %do.body31, !llvm.loop !59
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -1221,8 +1221,8 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false), !tbaa !27
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i

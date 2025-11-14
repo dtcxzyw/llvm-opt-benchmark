@@ -1069,48 +1069,48 @@ Fraig_GetMaxLevel.exit34:                         ; preds = %40, %Fraig_MappingS
   %wide.trip.count = zext nneg i32 %51 to i64
   br label %55
 
-55:                                               ; preds = %.lr.ph43, %68
-  %indvars.iv = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next, %68 ]
-  %.01842 = phi i32 [ 0, %.lr.ph43 ], [ %.1, %68 ]
-  %.02040 = phi i32 [ 0, %.lr.ph43 ], [ %.2, %68 ]
+55:                                               ; preds = %.lr.ph43, %.loopexit
+  %indvars.iv = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next, %.loopexit ]
+  %.01842 = phi i32 [ 0, %.lr.ph43 ], [ %.1, %.loopexit ]
+  %.02040 = phi i32 [ 0, %.lr.ph43 ], [ %.2, %.loopexit ]
   %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !25
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 88
   %59 = load ptr, ptr %58, align 8, !tbaa !42
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %68
+  br i1 %60, label %61, label %.loopexit
 
 61:                                               ; preds = %55
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 80
   %63 = load ptr, ptr %62, align 8, !tbaa !32
   %.not = icmp eq ptr %63, null
-  br i1 %.not, label %68, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %61, %.lr.ph
-  %.039 = phi ptr [ %66, %.lr.ph ], [ %57, %61 ]
-  %.12138 = phi i32 [ %64, %.lr.ph ], [ %.02040, %61 ]
-  %64 = add nsw i32 %.12138, 1
-  %65 = getelementptr inbounds nuw i8, ptr %.039, i64 80
-  %66 = load ptr, ptr %65, align 8, !tbaa !32
-  %.not22 = icmp eq ptr %66, null
+.lr.ph.preheader:                                 ; preds = %61
+  %64 = add nsw i32 %.01842, 1
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.039 = phi ptr [ %67, %.lr.ph ], [ %57, %.lr.ph.preheader ]
+  %.12138 = phi i32 [ %65, %.lr.ph ], [ %.02040, %.lr.ph.preheader ]
+  %65 = add nsw i32 %.12138, 1
+  %66 = getelementptr inbounds nuw i8, ptr %.039, i64 80
+  %67 = load ptr, ptr %66, align 8, !tbaa !32
+  %.not22 = icmp eq ptr %67, null
   br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !54
 
-.loopexit:                                        ; preds = %.lr.ph
-  %67 = add nsw i32 %.01842, 1
-  br label %68
-
-68:                                               ; preds = %.loopexit, %55, %61
-  %.2 = phi i32 [ %.02040, %61 ], [ %.02040, %55 ], [ %64, %.loopexit ]
-  %.1 = phi i32 [ %.01842, %61 ], [ %.01842, %55 ], [ %67, %.loopexit ]
+.loopexit:                                        ; preds = %.lr.ph, %55, %61
+  %.2 = phi i32 [ %.02040, %61 ], [ %.02040, %55 ], [ %65, %.lr.ph ]
+  %.1 = phi i32 [ %.01842, %61 ], [ %.01842, %55 ], [ %64, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !55
 
-._crit_edge:                                      ; preds = %68, %Fraig_GetMaxLevel.exit34
-  %.020.lcssa = phi i32 [ 0, %Fraig_GetMaxLevel.exit34 ], [ %.2, %68 ]
-  %.018.lcssa = phi i32 [ 0, %Fraig_GetMaxLevel.exit34 ], [ %.1, %68 ]
-  %69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.09.lcssa.i3652, i32 noundef %.09.lcssa.i26)
-  %70 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.018.lcssa, i32 noundef %.020.lcssa)
+._crit_edge:                                      ; preds = %.loopexit, %Fraig_GetMaxLevel.exit34
+  %.020.lcssa = phi i32 [ 0, %Fraig_GetMaxLevel.exit34 ], [ %.2, %.loopexit ]
+  %.018.lcssa = phi i32 [ 0, %Fraig_GetMaxLevel.exit34 ], [ %.1, %.loopexit ]
+  %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.09.lcssa.i3652, i32 noundef %.09.lcssa.i26)
+  %69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.018.lcssa, i32 noundef %.020.lcssa)
   ret void
 }
 

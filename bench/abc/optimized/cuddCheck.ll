@@ -1188,8 +1188,8 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
 7:                                                ; preds = %.lr.ph225, %52
   %indvars.iv296 = phi i64 [ 0, %.lr.ph225 ], [ %indvars.iv.next297, %52 ]
   %.0144222 = phi i32 [ 0, %.lr.ph225 ], [ %.1145.lcssa, %52 ]
-  %.0147221 = phi i32 [ 0, %.lr.ph225 ], [ %41, %52 ]
-  %.0149220 = phi i32 [ 0, %.lr.ph225 ], [ %40, %52 ]
+  %.0147221 = phi i32 [ 0, %.lr.ph225 ], [ %31, %52 ]
+  %.0149220 = phi i32 [ 0, %.lr.ph225 ], [ %30, %52 ]
   %.0151219 = phi i32 [ 0, %.lr.ph225 ], [ %15, %52 ]
   %.0153218 = phi i32 [ 0, %.lr.ph225 ], [ %.1154, %52 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !29
@@ -1219,6 +1219,8 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   br label %29
 
 29:                                               ; preds = %23, %7
+  %30 = add i32 %17, %.0149220
+  %31 = add nsw i32 %14, %.0147221
   %.not284 = icmp eq i32 %17, 0
   br i1 %.not284, label %._crit_edge214, label %.lr.ph213.preheader
 
@@ -1231,32 +1233,32 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %.1145210 = phi i32 [ %.0144222, %.lr.ph213.preheader ], [ %spec.select, %._crit_edge ]
   %.0158209 = phi i32 [ %14, %.lr.ph213.preheader ], [ %.1159.lcssa, %._crit_edge ]
   %.0166208 = phi i32 [ %12, %.lr.ph213.preheader ], [ %.1167.lcssa, %._crit_edge ]
-  %30 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8, !tbaa !32
-  %.not197203 = icmp eq ptr %31, %0
+  %32 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %33 = load ptr, ptr %32, align 8, !tbaa !32
+  %.not196 = icmp ne ptr %33, %0
+  %34 = zext i1 %.not196 to i32
+  %spec.select = add nsw i32 %.1145210, %34
+  %.not197203 = icmp eq ptr %33, %0
   br i1 %.not197203, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph213, %.lr.ph
   %.1159206 = phi i32 [ %spec.select198, %.lr.ph ], [ %.0158209, %.lr.ph213 ]
-  %.1167205 = phi i32 [ %32, %.lr.ph ], [ %.0166208, %.lr.ph213 ]
-  %.0172204 = phi ptr [ %38, %.lr.ph ], [ %31, %.lr.ph213 ]
-  %32 = add nsw i32 %.1167205, -1
-  %33 = getelementptr inbounds nuw i8, ptr %.0172204, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !34
-  %35 = icmp eq i32 %34, 0
-  %36 = sext i1 %35 to i32
-  %spec.select198 = add nsw i32 %.1159206, %36
-  %37 = getelementptr inbounds nuw i8, ptr %.0172204, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !62
-  %.not197 = icmp eq ptr %38, %0
+  %.1167205 = phi i32 [ %35, %.lr.ph ], [ %.0166208, %.lr.ph213 ]
+  %.0172204 = phi ptr [ %41, %.lr.ph ], [ %33, %.lr.ph213 ]
+  %35 = add nsw i32 %.1167205, -1
+  %36 = getelementptr inbounds nuw i8, ptr %.0172204, i64 4
+  %37 = load i32, ptr %36, align 4, !tbaa !34
+  %38 = icmp eq i32 %37, 0
+  %39 = sext i1 %38 to i32
+  %spec.select198 = add nsw i32 %.1159206, %39
+  %40 = getelementptr inbounds nuw i8, ptr %.0172204, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !62
+  %.not197 = icmp eq ptr %41, %0
   br i1 %.not197, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph213
-  %.1167.lcssa = phi i32 [ %.0166208, %.lr.ph213 ], [ %32, %.lr.ph ]
+  %.1167.lcssa = phi i32 [ %.0166208, %.lr.ph213 ], [ %35, %.lr.ph ]
   %.1159.lcssa = phi i32 [ %.0158209, %.lr.ph213 ], [ %spec.select198, %.lr.ph ]
-  %.not196 = icmp ne ptr %31, %0
-  %39 = zext i1 %.not196 to i32
-  %spec.select = add nsw i32 %.1145210, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge214, label %.lr.ph213, !llvm.loop !64
@@ -1265,8 +1267,6 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %.0166.lcssa = phi i32 [ %12, %29 ], [ %.1167.lcssa, %._crit_edge ]
   %.0158.lcssa = phi i32 [ %14, %29 ], [ %.1159.lcssa, %._crit_edge ]
   %.1145.lcssa = phi i32 [ %.0144222, %29 ], [ %spec.select, %._crit_edge ]
-  %40 = add i32 %17, %.0149220
-  %41 = add nsw i32 %14, %.0147221
   %.not194 = icmp eq i32 %.0166.lcssa, 0
   br i1 %.not194, label %47, label %42
 
@@ -1296,8 +1296,8 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
 ._crit_edge226:                                   ; preds = %52, %1
   %.0153.lcssa = phi i32 [ 0, %1 ], [ %.1154, %52 ]
   %.0151.lcssa = phi i32 [ 0, %1 ], [ %15, %52 ]
-  %.0149.lcssa = phi i32 [ 0, %1 ], [ %40, %52 ]
-  %.0147.lcssa = phi i32 [ 0, %1 ], [ %41, %52 ]
+  %.0149.lcssa = phi i32 [ 0, %1 ], [ %30, %52 ]
+  %.0147.lcssa = phi i32 [ 0, %1 ], [ %31, %52 ]
   %.0144.lcssa = phi i32 [ 0, %1 ], [ %.1145.lcssa, %52 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %54 = load i32, ptr %53, align 4, !tbaa !24
@@ -1313,9 +1313,9 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
 58:                                               ; preds = %.lr.ph258, %91
   %indvars.iv306 = phi i64 [ 0, %.lr.ph258 ], [ %indvars.iv.next307, %91 ]
   %.3255 = phi i32 [ %.0144.lcssa, %.lr.ph258 ], [ %.4.lcssa, %91 ]
-  %.1148254 = phi i32 [ %.0147.lcssa, %.lr.ph258 ], [ %80, %91 ]
-  %.1150253 = phi i32 [ %.0149.lcssa, %.lr.ph258 ], [ %79, %91 ]
-  %.1152252 = phi i32 [ %.0151.lcssa, %.lr.ph258 ], [ %78, %91 ]
+  %.1148254 = phi i32 [ %.0147.lcssa, %.lr.ph258 ], [ %70, %91 ]
+  %.1150253 = phi i32 [ %.0149.lcssa, %.lr.ph258 ], [ %69, %91 ]
+  %.1152252 = phi i32 [ %.0151.lcssa, %.lr.ph258 ], [ %66, %91 ]
   %.2155251 = phi i32 [ %.0153.lcssa, %.lr.ph258 ], [ %.3156, %91 ]
   %59 = load ptr, ptr %56, align 8, !tbaa !44
   %60 = getelementptr inbounds nuw %struct.DdSubtable, ptr %59, i64 %indvars.iv306
@@ -1324,13 +1324,16 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %63 = load i32, ptr %62, align 8, !tbaa !39
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %65 = load i32, ptr %64, align 8, !tbaa !40
-  %66 = getelementptr inbounds nuw i8, ptr %60, i64 12
-  %67 = load i32, ptr %66, align 4, !tbaa !31
-  %.not285 = icmp eq i32 %67, 0
+  %66 = add nsw i32 %63, %.1152252
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 12
+  %68 = load i32, ptr %67, align 4, !tbaa !31
+  %69 = add i32 %68, %.1150253
+  %70 = add nsw i32 %65, %.1148254
+  %.not285 = icmp eq i32 %68, 0
   br i1 %.not285, label %._crit_edge247, label %.lr.ph246.preheader
 
 .lr.ph246.preheader:                              ; preds = %58
-  %wide.trip.count304 = zext i32 %67 to i64
+  %wide.trip.count304 = zext i32 %68 to i64
   br label %.lr.ph246
 
 .lr.ph246:                                        ; preds = %.lr.ph246.preheader, %._crit_edge238
@@ -1338,32 +1341,32 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %.4243 = phi i32 [ %.3255, %.lr.ph246.preheader ], [ %spec.select199, %._crit_edge238 ]
   %.3161242 = phi i32 [ %65, %.lr.ph246.preheader ], [ %.4162.lcssa, %._crit_edge238 ]
   %.2168241 = phi i32 [ %63, %.lr.ph246.preheader ], [ %.3169.lcssa, %._crit_edge238 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv301
-  %69 = load ptr, ptr %68, align 8, !tbaa !32
-  %.not192232 = icmp eq ptr %69, null
+  %71 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv301
+  %72 = load ptr, ptr %71, align 8, !tbaa !32
+  %.not191 = icmp ne ptr %72, null
+  %73 = zext i1 %.not191 to i32
+  %spec.select199 = add nsw i32 %.4243, %73
+  %.not192232 = icmp eq ptr %72, null
   br i1 %.not192232, label %._crit_edge238, label %.lr.ph237
 
 .lr.ph237:                                        ; preds = %.lr.ph246, %.lr.ph237
   %.4162235 = phi i32 [ %spec.select200, %.lr.ph237 ], [ %.3161242, %.lr.ph246 ]
-  %.3169234 = phi i32 [ %70, %.lr.ph237 ], [ %.2168241, %.lr.ph246 ]
-  %.1173233 = phi ptr [ %76, %.lr.ph237 ], [ %69, %.lr.ph246 ]
-  %70 = add nsw i32 %.3169234, -1
-  %71 = getelementptr inbounds nuw i8, ptr %.1173233, i64 4
-  %72 = load i32, ptr %71, align 4, !tbaa !34
-  %73 = icmp eq i32 %72, 0
-  %74 = sext i1 %73 to i32
-  %spec.select200 = add nsw i32 %.4162235, %74
-  %75 = getelementptr inbounds nuw i8, ptr %.1173233, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !62
-  %.not192 = icmp eq ptr %76, null
+  %.3169234 = phi i32 [ %74, %.lr.ph237 ], [ %.2168241, %.lr.ph246 ]
+  %.1173233 = phi ptr [ %80, %.lr.ph237 ], [ %72, %.lr.ph246 ]
+  %74 = add nsw i32 %.3169234, -1
+  %75 = getelementptr inbounds nuw i8, ptr %.1173233, i64 4
+  %76 = load i32, ptr %75, align 4, !tbaa !34
+  %77 = icmp eq i32 %76, 0
+  %78 = sext i1 %77 to i32
+  %spec.select200 = add nsw i32 %.4162235, %78
+  %79 = getelementptr inbounds nuw i8, ptr %.1173233, i64 8
+  %80 = load ptr, ptr %79, align 8, !tbaa !62
+  %.not192 = icmp eq ptr %80, null
   br i1 %.not192, label %._crit_edge238, label %.lr.ph237, !llvm.loop !66
 
 ._crit_edge238:                                   ; preds = %.lr.ph237, %.lr.ph246
-  %.3169.lcssa = phi i32 [ %.2168241, %.lr.ph246 ], [ %70, %.lr.ph237 ]
+  %.3169.lcssa = phi i32 [ %.2168241, %.lr.ph246 ], [ %74, %.lr.ph237 ]
   %.4162.lcssa = phi i32 [ %.3161242, %.lr.ph246 ], [ %spec.select200, %.lr.ph237 ]
-  %.not191 = icmp ne ptr %69, null
-  %77 = zext i1 %.not191 to i32
-  %spec.select199 = add nsw i32 %.4243, %77
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %exitcond305.not = icmp eq i64 %indvars.iv.next302, %wide.trip.count304
   br i1 %exitcond305.not, label %._crit_edge247, label %.lr.ph246, !llvm.loop !67
@@ -1372,9 +1375,6 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %.2168.lcssa = phi i32 [ %63, %58 ], [ %.3169.lcssa, %._crit_edge238 ]
   %.3161.lcssa = phi i32 [ %65, %58 ], [ %.4162.lcssa, %._crit_edge238 ]
   %.4.lcssa = phi i32 [ %.3255, %58 ], [ %spec.select199, %._crit_edge238 ]
-  %78 = add nsw i32 %63, %.1152252
-  %79 = add i32 %67, %.1150253
-  %80 = add nsw i32 %65, %.1148254
   %.not189 = icmp eq i32 %.2168.lcssa, 0
   br i1 %.not189, label %86, label %81
 
@@ -1403,9 +1403,9 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
 
 ._crit_edge259:                                   ; preds = %91, %._crit_edge226
   %.2155.lcssa = phi i32 [ %.0153.lcssa, %._crit_edge226 ], [ %.3156, %91 ]
-  %.1152.lcssa = phi i32 [ %.0151.lcssa, %._crit_edge226 ], [ %78, %91 ]
-  %.1150.lcssa = phi i32 [ %.0149.lcssa, %._crit_edge226 ], [ %79, %91 ]
-  %.1148.lcssa = phi i32 [ %.0147.lcssa, %._crit_edge226 ], [ %80, %91 ]
+  %.1152.lcssa = phi i32 [ %.0151.lcssa, %._crit_edge226 ], [ %66, %91 ]
+  %.1150.lcssa = phi i32 [ %.0149.lcssa, %._crit_edge226 ], [ %69, %91 ]
+  %.1148.lcssa = phi i32 [ %.0147.lcssa, %._crit_edge226 ], [ %70, %91 ]
   %.3.lcssa = phi i32 [ %.0144.lcssa, %._crit_edge226 ], [ %.4.lcssa, %91 ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %93 = load ptr, ptr %92, align 8, !tbaa !30
@@ -1413,13 +1413,16 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %95 = load i32, ptr %94, align 8, !tbaa !39
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %97 = load i32, ptr %96, align 8, !tbaa !40
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %99 = load i32, ptr %98, align 4, !tbaa !31
-  %.not286 = icmp eq i32 %99, 0
+  %98 = add nsw i32 %95, %.1152.lcssa
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %100 = load i32, ptr %99, align 4, !tbaa !31
+  %101 = add i32 %100, %.1150.lcssa
+  %102 = add nsw i32 %97, %.1148.lcssa
+  %.not286 = icmp eq i32 %100, 0
   br i1 %.not286, label %._crit_edge280, label %.lr.ph279.preheader
 
 .lr.ph279.preheader:                              ; preds = %._crit_edge259
-  %wide.trip.count314 = zext i32 %99 to i64
+  %wide.trip.count314 = zext i32 %100 to i64
   br label %.lr.ph279
 
 .lr.ph279:                                        ; preds = %.lr.ph279.preheader, %._crit_edge271
@@ -1427,32 +1430,32 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %.6276 = phi i32 [ %.3.lcssa, %.lr.ph279.preheader ], [ %spec.select201, %._crit_edge271 ]
   %.6164275 = phi i32 [ %97, %.lr.ph279.preheader ], [ %.7165.lcssa, %._crit_edge271 ]
   %.4170274 = phi i32 [ %95, %.lr.ph279.preheader ], [ %.5171.lcssa, %._crit_edge271 ]
-  %100 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv311
-  %101 = load ptr, ptr %100, align 8, !tbaa !32
-  %.not188265 = icmp eq ptr %101, null
+  %103 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv311
+  %104 = load ptr, ptr %103, align 8, !tbaa !32
+  %.not187 = icmp ne ptr %104, null
+  %105 = zext i1 %.not187 to i32
+  %spec.select201 = add nsw i32 %.6276, %105
+  %.not188265 = icmp eq ptr %104, null
   br i1 %.not188265, label %._crit_edge271, label %.lr.ph270
 
 .lr.ph270:                                        ; preds = %.lr.ph279, %.lr.ph270
   %.7165268 = phi i32 [ %spec.select202, %.lr.ph270 ], [ %.6164275, %.lr.ph279 ]
-  %.5171267 = phi i32 [ %102, %.lr.ph270 ], [ %.4170274, %.lr.ph279 ]
-  %.2174266 = phi ptr [ %108, %.lr.ph270 ], [ %101, %.lr.ph279 ]
-  %102 = add nsw i32 %.5171267, -1
-  %103 = getelementptr inbounds nuw i8, ptr %.2174266, i64 4
-  %104 = load i32, ptr %103, align 4, !tbaa !34
-  %105 = icmp eq i32 %104, 0
-  %106 = sext i1 %105 to i32
-  %spec.select202 = add nsw i32 %.7165268, %106
-  %107 = getelementptr inbounds nuw i8, ptr %.2174266, i64 8
-  %108 = load ptr, ptr %107, align 8, !tbaa !62
-  %.not188 = icmp eq ptr %108, null
+  %.5171267 = phi i32 [ %106, %.lr.ph270 ], [ %.4170274, %.lr.ph279 ]
+  %.2174266 = phi ptr [ %112, %.lr.ph270 ], [ %104, %.lr.ph279 ]
+  %106 = add nsw i32 %.5171267, -1
+  %107 = getelementptr inbounds nuw i8, ptr %.2174266, i64 4
+  %108 = load i32, ptr %107, align 4, !tbaa !34
+  %109 = icmp eq i32 %108, 0
+  %110 = sext i1 %109 to i32
+  %spec.select202 = add nsw i32 %.7165268, %110
+  %111 = getelementptr inbounds nuw i8, ptr %.2174266, i64 8
+  %112 = load ptr, ptr %111, align 8, !tbaa !62
+  %.not188 = icmp eq ptr %112, null
   br i1 %.not188, label %._crit_edge271, label %.lr.ph270, !llvm.loop !69
 
 ._crit_edge271:                                   ; preds = %.lr.ph270, %.lr.ph279
-  %.5171.lcssa = phi i32 [ %.4170274, %.lr.ph279 ], [ %102, %.lr.ph270 ]
+  %.5171.lcssa = phi i32 [ %.4170274, %.lr.ph279 ], [ %106, %.lr.ph270 ]
   %.7165.lcssa = phi i32 [ %.6164275, %.lr.ph279 ], [ %spec.select202, %.lr.ph270 ]
-  %.not187 = icmp ne ptr %101, null
-  %109 = zext i1 %.not187 to i32
-  %spec.select201 = add nsw i32 %.6276, %109
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %exitcond315.not = icmp eq i64 %indvars.iv.next312, %wide.trip.count314
   br i1 %exitcond315.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !70
@@ -1461,9 +1464,6 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %.4170.lcssa = phi i32 [ %95, %._crit_edge259 ], [ %.5171.lcssa, %._crit_edge271 ]
   %.6164.lcssa = phi i32 [ %97, %._crit_edge259 ], [ %.7165.lcssa, %._crit_edge271 ]
   %.6.lcssa = phi i32 [ %.3.lcssa, %._crit_edge259 ], [ %spec.select201, %._crit_edge271 ]
-  %110 = add nsw i32 %95, %.1152.lcssa
-  %111 = add i32 %99, %.1150.lcssa
-  %112 = add nsw i32 %97, %.1148.lcssa
   %.not = icmp eq i32 %.4170.lcssa, 0
   br i1 %.not, label %118, label %113
 
@@ -1491,32 +1491,32 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %127 = load i32, ptr %126, align 8, !tbaa !72
   %128 = add i32 %127, %125
-  %.not183 = icmp eq i32 %110, %128
+  %.not183 = icmp eq i32 %98, %128
   br i1 %.not183, label %134, label %129
 
 129:                                              ; preds = %123
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %131 = load ptr, ptr %130, align 8, !tbaa !28
-  %132 = sub i32 %110, %125
+  %132 = sub i32 %98, %125
   %133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.30, i32 noundef %132) #7
   br label %134
 
 134:                                              ; preds = %129, %123
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %136 = load i32, ptr %135, align 8, !tbaa !73
-  %.not184 = icmp eq i32 %111, %136
+  %.not184 = icmp eq i32 %101, %136
   br i1 %.not184, label %142, label %137
 
 137:                                              ; preds = %134
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %139 = load ptr, ptr %138, align 8, !tbaa !28
-  %140 = sub i32 %111, %136
+  %140 = sub i32 %101, %136
   %141 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.31, i32 noundef %140) #7
   %.pre = load i32, ptr %135, align 8, !tbaa !73
   br label %142
 
 142:                                              ; preds = %137, %134
-  %143 = phi i32 [ %.pre, %137 ], [ %111, %134 ]
+  %143 = phi i32 [ %.pre, %137 ], [ %101, %134 ]
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %145 = load i32, ptr %144, align 8, !tbaa !74
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -1539,13 +1539,13 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %159 = load i32, ptr %158, align 8, !tbaa !77
   %160 = add i32 %159, %157
-  %.not186 = icmp eq i32 %112, %160
+  %.not186 = icmp eq i32 %102, %160
   br i1 %.not186, label %166, label %161
 
 161:                                              ; preds = %155
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %163 = load ptr, ptr %162, align 8, !tbaa !28
-  %164 = sub i32 %112, %157
+  %164 = sub i32 %102, %157
   %165 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef nonnull @.str.33, i32 noundef %164) #7
   br label %166
 

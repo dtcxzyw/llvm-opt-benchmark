@@ -111,24 +111,26 @@ define internal i32 @imap_do(ptr noundef %0, ptr noundef captures(none) initiali
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   store i8 0, ptr %1, align 1, !tbaa !8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4616
-  %8 = load ptr, ptr %7, align 8, !tbaa !10
-  br label %9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %8 = load ptr, ptr %7, align 8, !tbaa !7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4616
+  %10 = load ptr, ptr %9, align 8, !tbaa !10
+  br label %11
 
-9:                                                ; preds = %imap_is_bchar.exit161.i, %2
+11:                                               ; preds = %imap_is_bchar.exit161.i, %2
   %.058.idx.i = phi i64 [ 1, %2 ], [ %.058.add.i, %imap_is_bchar.exit161.i ]
-  %.058.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 %.058.idx.i
-  %10 = load i8, ptr %.058.ptr.i, align 1, !tbaa !7
-  %11 = add i8 %10, -48
-  %or.cond.i159.i = icmp ult i8 %11, 10
-  %12 = and i8 %10, -33
-  %13 = add i8 %12, -65
-  %14 = icmp ult i8 %13, 26
-  %or.cond16.i160.i = or i1 %or.cond.i159.i, %14
-  br i1 %or.cond16.i160.i, label %imap_is_bchar.exit161.i, label %15
+  %.058.ptr.i = getelementptr inbounds nuw i8, ptr %10, i64 %.058.idx.i
+  %12 = load i8, ptr %.058.ptr.i, align 1, !tbaa !7
+  %13 = add i8 %12, -48
+  %or.cond.i159.i = icmp ult i8 %13, 10
+  %14 = and i8 %12, -33
+  %15 = add i8 %14, -65
+  %16 = icmp ult i8 %15, 26
+  %or.cond16.i160.i = or i1 %or.cond.i159.i, %16
+  br i1 %or.cond16.i160.i, label %imap_is_bchar.exit161.i, label %17
 
-15:                                               ; preds = %9
-  switch i8 %10, label %16 [
+17:                                               ; preds = %11
+  switch i8 %12, label %18 [
     i8 58, label %imap_is_bchar.exit161.i
     i8 64, label %imap_is_bchar.exit161.i
     i8 47, label %imap_is_bchar.exit161.i
@@ -149,19 +151,17 @@ define internal i32 @imap_do(ptr noundef %0, ptr noundef captures(none) initiali
     i8 37, label %imap_is_bchar.exit161.i
   ]
 
-imap_is_bchar.exit161.i:                          ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %9
+imap_is_bchar.exit161.i:                          ; preds = %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %11
   %.058.add.i = add nuw nsw i64 %.058.idx.i, 1
-  br label %9, !llvm.loop !79
+  br label %11, !llvm.loop !79
 
-16:                                               ; preds = %15
-  %.058.ptr.i.le = getelementptr inbounds nuw i8, ptr %8, i64 %.058.idx.i
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %18 = load ptr, ptr %17, align 8, !tbaa !7
+18:                                               ; preds = %17
+  %.058.ptr.i.le = getelementptr inbounds nuw i8, ptr %10, i64 %.058.idx.i
   %.not.i = icmp eq i64 %.058.idx.i, 1
   br i1 %.not.i, label %28, label %19
 
-19:                                               ; preds = %16
-  %.ptr74.i = getelementptr inbounds nuw i8, ptr %8, i64 1
+19:                                               ; preds = %18
+  %.ptr74.i = getelementptr inbounds nuw i8, ptr %10, i64 1
   %20 = getelementptr inbounds i8, ptr %.058.ptr.i.le, i64 -1
   %21 = load i8, ptr %20, align 1, !tbaa !7
   %22 = icmp eq i8 %21, 47
@@ -169,13 +169,13 @@ imap_is_bchar.exit161.i:                          ; preds = %15, %15, %15, %15, 
   %23 = ptrtoint ptr %spec.select.i to i64
   %24 = ptrtoint ptr %.ptr74.i to i64
   %25 = sub i64 %23, %24
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %27 = tail call i32 @Curl_urldecode(ptr noundef nonnull %.ptr74.i, i64 noundef %25, ptr noundef nonnull %26, ptr noundef null, i32 noundef 3) #7
   %.not75.i = icmp eq i32 %27, 0
   br i1 %.not75.i, label %30, label %imap_parse_custom_request.exit
 
-28:                                               ; preds = %16
-  %29 = getelementptr inbounds nuw i8, ptr %18, i64 8
+28:                                               ; preds = %18
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %29, align 8, !tbaa !81
   br label %30
 
@@ -185,11 +185,11 @@ imap_is_bchar.exit161.i:                          ; preds = %15, %15, %15, %15, 
   br i1 %32, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %35 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %36 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %37 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 48
   br label %38
 
 38:                                               ; preds = %144, %.lr.ph.i
@@ -478,19 +478,19 @@ imap_is_bchar.exit.i:                             ; preds = %57
 ._crit_edge.i:                                    ; preds = %144, %30
   %151 = phi i8 [ %31, %30 ], [ %149, %144 ]
   %.159.lcssa.i = phi ptr [ %.058.ptr.i.le, %30 ], [ %.4.i, %144 ]
-  %152 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %153 = load ptr, ptr %152, align 8, !tbaa !81
   %.not76.i = icmp eq ptr %153, null
   br i1 %.not76.i, label %165, label %154
 
 154:                                              ; preds = %._crit_edge.i
-  %155 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %156 = load ptr, ptr %155, align 8, !tbaa !88
   %.not77.i = icmp eq ptr %156, null
   br i1 %.not77.i, label %157, label %165
 
 157:                                              ; preds = %154
-  %158 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %159 = load ptr, ptr %158, align 8, !tbaa !89
   %.not78.i = icmp eq ptr %159, null
   br i1 %.not78.i, label %160, label %165
@@ -498,7 +498,7 @@ imap_is_bchar.exit.i:                             ; preds = %57
 160:                                              ; preds = %157
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 4560
   %162 = load ptr, ptr %161, align 8, !tbaa !93
-  %163 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %163 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %164 = call i32 @curl_url_get(ptr noundef %162, i32 noundef 8, ptr noundef nonnull %163, i32 noundef 64) #7
   %.pre135.i = load i8, ptr %.159.lcssa.i, align 1, !tbaa !7
   br label %165
@@ -509,7 +509,7 @@ imap_is_bchar.exit.i:                             ; preds = %57
   br i1 %.not79.i, label %imap_parse_url_path.exit, label %imap_parse_custom_request.exit
 
 imap_parse_url_path.exit:                         ; preds = %165
-  %.val = load ptr, ptr %17, align 8, !tbaa !7
+  %.val = load ptr, ptr %7, align 8, !tbaa !7
   %167 = getelementptr i8, ptr %0, i64 2024
   %.val13 = load ptr, ptr %167, align 8, !tbaa !85
   %.not.i14 = icmp eq ptr %.val13, null
@@ -561,7 +561,7 @@ imap_parse_url_path.exit:                         ; preds = %165
   call void @Curl_pgrsSetDownloadSize(ptr noundef %0, i64 noundef -1) #7
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %190 = load ptr, ptr %189, align 8, !tbaa !98
-  %191 = load ptr, ptr %17, align 8, !tbaa !7
+  %191 = load ptr, ptr %7, align 8, !tbaa !7
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 457
   %193 = load i32, ptr %192, align 1
   %194 = and i32 %193, 131072
@@ -625,7 +625,7 @@ imap_parse_url_path.exit:                         ; preds = %165
   br i1 %.not64.i.i, label %264, label %220
 
 220:                                              ; preds = %217, %213
-  %221 = load ptr, ptr %17, align 8, !tbaa !7
+  %221 = load ptr, ptr %7, align 8, !tbaa !7
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %223 = load ptr, ptr %222, align 8, !tbaa !81
   %.not.i.i.i = icmp eq ptr %223, null
@@ -732,7 +732,7 @@ imap_parse_url_path.exit:                         ; preds = %165
   br i1 %.not66.i.i, label %270, label %.thread106.i.i
 
 270:                                              ; preds = %268, %267
-  %271 = load ptr, ptr %17, align 8, !tbaa !7
+  %271 = load ptr, ptr %7, align 8, !tbaa !7
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 64
   %273 = load ptr, ptr %272, align 8, !tbaa !94
   %.not.i75.i.i = icmp eq ptr %273, null
@@ -837,7 +837,7 @@ imap_parse_url_path.exit:                         ; preds = %165
 
 .thread106.i.i:                                   ; preds = %315, %312, %.thread98.i.i, %268
   %318 = load ptr, ptr %189, align 8, !tbaa !98
-  %319 = load ptr, ptr %17, align 8, !tbaa !7
+  %319 = load ptr, ptr %7, align 8, !tbaa !7
   %320 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %321 = getelementptr inbounds nuw i8, ptr %318, i64 1312
   %322 = load ptr, ptr %321, align 8, !tbaa !100
@@ -876,7 +876,7 @@ imap_parse_url_path.exit:                         ; preds = %165
   br label %imap_perform_append.exit.thread102.i.i
 
 .thread96.i.i:                                    ; preds = %315, %.thread94.i.i, %303
-  %336 = load ptr, ptr %17, align 8, !tbaa !7
+  %336 = load ptr, ptr %7, align 8, !tbaa !7
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 64
   %338 = load ptr, ptr %337, align 8, !tbaa !94
   %.not.i80.i.i = icmp eq ptr %338, null
@@ -985,7 +985,7 @@ imap_perform.exit.i:                              ; preds = %374, %366
   br i1 %383, label %384, label %imap_parse_custom_request.exit
 
 384:                                              ; preds = %381
-  %385 = load ptr, ptr %17, align 8, !tbaa !7
+  %385 = load ptr, ptr %7, align 8, !tbaa !7
   %386 = load i32, ptr %385, align 8, !tbaa !99
   %.not.i11.i = icmp eq i32 %386, 0
   br i1 %.not.i11.i, label %imap_parse_custom_request.exit, label %387

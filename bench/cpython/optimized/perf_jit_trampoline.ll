@@ -1102,9 +1102,9 @@ elf_init_ehframe.exit:                            ; preds = %26
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 9
   store i8 1, ptr %35, align 8, !tbaa !196
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %36, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false), !tbaa !196
-  %scevgep88 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %37 = ptrtoint ptr %1 to i64
   %38 = zext i32 %2 to i64
+  %scevgep88 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 13
   store i8 1, ptr %scevgep88, align 4, !tbaa !196
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 14

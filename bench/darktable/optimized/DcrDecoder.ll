@@ -395,8 +395,8 @@ _ZNK8rawspeed6Buffer10getSubViewEj.exit:          ; preds = %2
   store i16 0, ptr %60, align 2, !tbaa !80, !noalias !78
   %63 = getelementptr i8, ptr %60, i64 2
   %.idx.i.i.i.i.i.i.i.i.i = add nsw i64 %59, -2
-  %64 = getelementptr i8, ptr %60, i64 %59
   call void @llvm.memset.p0.i64(ptr align 2 %63, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !80, !noalias !78
+  %64 = getelementptr i8, ptr %60, i64 %59
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %64, ptr %65, align 8, !tbaa !82, !alias.scope !78
   br label %66

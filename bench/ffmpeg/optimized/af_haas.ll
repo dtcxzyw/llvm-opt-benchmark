@@ -259,101 +259,101 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load i32, ptr %2, align 8, !tbaa !55
-  %4 = mul nsw i32 %3, 40
-  %5 = sitofp i32 %4 to double
-  %6 = fmul nsz double %5, 1.000000e-03
-  %7 = fptoui double %6 to i64
-  br label %8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %5 = load ptr, ptr %4, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %7 = load i32, ptr %6, align 8, !tbaa !55
+  %8 = mul nsw i32 %7, 40
+  %9 = sitofp i32 %8 to double
+  %10 = fmul nsz double %9, 1.000000e-03
+  %11 = fptoui double %10 to i64
+  br label %12
 
-8:                                                ; preds = %8, %1
-  %.0 = phi i64 [ 1, %1 ], [ %10, %8 ]
-  %9 = icmp ult i64 %.0, %7
-  %10 = shl i64 %.0, 1
-  br i1 %9, label %8, label %11, !llvm.loop !56
+12:                                               ; preds = %12, %1
+  %.0 = phi i64 [ 1, %1 ], [ %14, %12 ]
+  %13 = icmp ult i64 %.0, %11
+  %14 = shl i64 %.0, 1
+  br i1 %13, label %12, label %15, !llvm.loop !56
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !26
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %15 = load ptr, ptr %14, align 8, !tbaa !4
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 104
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 104
   tail call void @av_freep(ptr noundef nonnull %16) #5
   %17 = tail call noalias ptr @av_calloc(i64 noundef %.0, i64 noundef 8) #5
   store ptr %17, ptr %16, align 8, !tbaa !41
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %71, label %18
 
-18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 112
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store i64 %.0, ptr %19, align 8, !tbaa !20
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i32 0, ptr %20, align 8, !tbaa !49
-  %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load double, ptr %21, align 8, !tbaa !57
   %23 = fmul nsz double %22, 1.000000e-03
-  %24 = load i32, ptr %2, align 8, !tbaa !55
+  %24 = load i32, ptr %6, align 8, !tbaa !55
   %25 = sitofp i32 %24 to double
   %26 = fmul nsz double %23, %25
   %27 = fptoui double %26 to i32
-  %28 = getelementptr inbounds nuw i8, ptr %15, i64 124
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 124
   store i32 %27, ptr %28, align 4, !tbaa !50
-  %29 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = load double, ptr %29, align 8, !tbaa !58
   %31 = fmul nsz double %30, 1.000000e-03
-  %32 = load i32, ptr %2, align 8, !tbaa !55
+  %32 = load i32, ptr %6, align 8, !tbaa !55
   %33 = sitofp i32 %32 to double
   %34 = fmul nsz double %31, %33
   %35 = fptoui double %34 to i32
-  %36 = getelementptr inbounds nuw i8, ptr %15, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store i32 %35, ptr %36, align 8, !tbaa !50
-  %37 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %38 = load i32, ptr %37, align 8, !tbaa !59
   %.not40 = icmp eq i32 %38, 0
   %39 = select nsz i1 %.not40, double -1.000000e+00, double 1.000000e+00
-  %40 = getelementptr inbounds nuw i8, ptr %15, i64 168
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store double %39, ptr %40, align 8, !tbaa !60
-  %41 = getelementptr inbounds nuw i8, ptr %15, i64 36
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %42 = load i32, ptr %41, align 4, !tbaa !61
   %.not41 = icmp eq i32 %42, 0
   %43 = select nsz i1 %.not41, double -1.000000e+00, double 1.000000e+00
-  %44 = getelementptr inbounds nuw i8, ptr %15, i64 176
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 176
   store double %43, ptr %44, align 8, !tbaa !62
-  %45 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %46 = load double, ptr %45, align 8, !tbaa !63
   %47 = fadd nsz double %46, 1.000000e+00
   %48 = fmul nsz double %47, 5.000000e-01
-  %49 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %50 = load double, ptr %49, align 8, !tbaa !64
   %51 = fmul nsz double %50, %48
   %52 = fmul nsz double %39, %51
-  %53 = getelementptr inbounds nuw i8, ptr %15, i64 136
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store double %52, ptr %53, align 8, !tbaa !51
   %54 = fsub nsz double 1.000000e+00, %48
   %55 = fmul nsz double %50, %54
   %56 = fmul nsz double %39, %55
-  %57 = getelementptr inbounds nuw i8, ptr %15, i64 152
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store double %56, ptr %57, align 8, !tbaa !51
-  %58 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %59 = load double, ptr %58, align 8, !tbaa !65
   %60 = fadd nsz double %59, 1.000000e+00
   %61 = fmul nsz double %60, 5.000000e-01
-  %62 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %63 = load double, ptr %62, align 8, !tbaa !66
   %64 = fmul nsz double %63, %61
   %65 = fmul nsz double %43, %64
-  %66 = getelementptr inbounds nuw i8, ptr %15, i64 144
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store double %65, ptr %66, align 8, !tbaa !51
   %67 = fsub nsz double 1.000000e+00, %61
   %68 = fmul nsz double %63, %67
   %69 = fmul nsz double %43, %68
-  %70 = getelementptr inbounds nuw i8, ptr %15, i64 160
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 160
   store double %69, ptr %70, align 8, !tbaa !51
   br label %71
 
-71:                                               ; preds = %11, %18
-  %.039 = phi i32 [ 0, %18 ], [ -12, %11 ]
+71:                                               ; preds = %15, %18
+  %.039 = phi i32 [ 0, %18 ], [ -12, %15 ]
   ret i32 %.039
 }
 

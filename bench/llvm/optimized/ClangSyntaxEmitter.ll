@@ -2106,96 +2106,99 @@ define internal void @"_ZN4llvm12function_refIFvRKN12_GLOBAL__N_19Hierarchy8Node
 
 tailrecurse.i.preheader.i:                        ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %.val12.i = load ptr, ptr %1, align 8, !tbaa !37
+  %.val12.val.i = load ptr, ptr %.val12.i, align 8, !tbaa !43
+  %26 = getelementptr i8, ptr %.val12.val.i, i64 24
+  %.val12.val.val.i = load ptr, ptr %26, align 8, !tbaa !81
+  %27 = getelementptr i8, ptr %.val12.val.i, i64 32
+  %.val12.val.val18.i = load i64, ptr %27, align 8, !tbaa !82
+  %.val13.i = load ptr, ptr %7, align 8, !tbaa !37
+  %.val13.val.i = load ptr, ptr %.val13.i, align 8, !tbaa !43
+  %28 = getelementptr i8, ptr %.val13.val.i, i64 24
+  %.val13.val.val.i = load ptr, ptr %28, align 8, !tbaa !81
+  %29 = getelementptr i8, ptr %.val13.val.i, i64 32
+  %.val13.val.val19.i = load i64, ptr %29, align 8, !tbaa !82
   br label %tailrecurse.i.i
 
 tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %tailrecurse.i.preheader.i
   %.val7.i.i = phi ptr [ %.val.i.i, %tailrecurse.i.i ], [ %.val.i, %tailrecurse.i.preheader.i ]
-  %26 = load ptr, ptr %.val7.i.i, align 8, !tbaa !22
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %.val.i.i = load ptr, ptr %27, align 8, !tbaa !105
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %.val3.i.i = load ptr, ptr %28, align 8, !tbaa !105
-  %29 = icmp eq ptr %.val.i.i, %.val3.i.i
-  br i1 %29, label %tailrecurse.i32.i, label %tailrecurse.i.i
+  %30 = load ptr, ptr %.val7.i.i, align 8, !tbaa !22
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %.val.i.i = load ptr, ptr %31, align 8, !tbaa !105
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %.val3.i.i = load ptr, ptr %32, align 8, !tbaa !105
+  %33 = icmp eq ptr %.val.i.i, %.val3.i.i
+  br i1 %33, label %_ZN12_GLOBAL__N_113firstConcreteERKNS_9Hierarchy8NodeTypeE.exit.i, label %tailrecurse.i.i
 
-tailrecurse.i32.i:                                ; preds = %tailrecurse.i.i, %tailrecurse.i32.i
-  %.val37.i.i = phi ptr [ %.val3.i34.i, %tailrecurse.i32.i ], [ %.val9.i, %tailrecurse.i.i ]
-  %30 = getelementptr inbounds i8, ptr %.val37.i.i, i64 -8
-  %31 = load ptr, ptr %30, align 8, !tbaa !22
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %.val.i33.i = load ptr, ptr %32, align 8, !tbaa !105
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %.val3.i34.i = load ptr, ptr %33, align 8, !tbaa !105
-  %34 = icmp eq ptr %.val.i33.i, %.val3.i34.i
-  br i1 %34, label %_ZN12_GLOBAL__N_112lastConcreteERKNS_9Hierarchy8NodeTypeE.exit.i, label %tailrecurse.i32.i
+_ZN12_GLOBAL__N_113firstConcreteERKNS_9Hierarchy8NodeTypeE.exit.i: ; preds = %tailrecurse.i.i
+  %.val14.i = load ptr, ptr %30, align 8, !tbaa !37
+  %.val14.val.i = load ptr, ptr %.val14.i, align 8, !tbaa !43
+  %34 = getelementptr i8, ptr %.val14.val.i, i64 24
+  %.val14.val.val.i = load ptr, ptr %34, align 8, !tbaa !81
+  %35 = getelementptr i8, ptr %.val14.val.i, i64 32
+  %.val14.val.val20.i = load i64, ptr %35, align 8, !tbaa !82
+  br label %tailrecurse.i32.i
+
+tailrecurse.i32.i:                                ; preds = %tailrecurse.i32.i, %_ZN12_GLOBAL__N_113firstConcreteERKNS_9Hierarchy8NodeTypeE.exit.i
+  %.val37.i.i = phi ptr [ %.val3.i34.i, %tailrecurse.i32.i ], [ %.val9.i, %_ZN12_GLOBAL__N_113firstConcreteERKNS_9Hierarchy8NodeTypeE.exit.i ]
+  %36 = getelementptr inbounds i8, ptr %.val37.i.i, i64 -8
+  %37 = load ptr, ptr %36, align 8, !tbaa !22
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %.val.i33.i = load ptr, ptr %38, align 8, !tbaa !105
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %.val3.i34.i = load ptr, ptr %39, align 8, !tbaa !105
+  %40 = icmp eq ptr %.val.i33.i, %.val3.i34.i
+  br i1 %40, label %_ZN12_GLOBAL__N_112lastConcreteERKNS_9Hierarchy8NodeTypeE.exit.i, label %tailrecurse.i32.i
 
 _ZN12_GLOBAL__N_112lastConcreteERKNS_9Hierarchy8NodeTypeE.exit.i: ; preds = %tailrecurse.i32.i
-  %.val12.i = load ptr, ptr %1, align 8, !tbaa !37
-  %.val12.val.i = load ptr, ptr %.val12.i, align 8, !tbaa !43
-  %35 = getelementptr i8, ptr %.val12.val.i, i64 24
-  %.val12.val.val.i = load ptr, ptr %35, align 8, !tbaa !81
-  %36 = getelementptr i8, ptr %.val12.val.i, i64 32
-  %.val12.val.val18.i = load i64, ptr %36, align 8, !tbaa !82
-  %.val13.i = load ptr, ptr %7, align 8, !tbaa !37
-  %.val13.val.i = load ptr, ptr %.val13.i, align 8, !tbaa !43
-  %37 = getelementptr i8, ptr %.val13.val.i, i64 24
-  %.val13.val.val.i = load ptr, ptr %37, align 8, !tbaa !81
-  %38 = getelementptr i8, ptr %.val13.val.i, i64 32
-  %.val13.val.val19.i = load i64, ptr %38, align 8, !tbaa !82
-  %.val14.val13.pn.in.i = load ptr, ptr %26, align 8, !tbaa !37
-  %.val14.val13.pn.i = load ptr, ptr %.val14.val13.pn.in.i, align 8, !tbaa !43
-  %.val14.val.val18.in.i = getelementptr i8, ptr %.val14.val13.pn.i, i64 24
-  %.val14.val.val18.i = load ptr, ptr %.val14.val.val18.in.i, align 8, !tbaa !81
-  %.val14.val.val2019.in.i = getelementptr i8, ptr %.val14.val13.pn.i, i64 32
-  %.val14.val.val2019.i = load i64, ptr %.val14.val.val2019.in.i, align 8, !tbaa !82
-  %.val15.i = load ptr, ptr %31, align 8, !tbaa !37
+  %.val15.i = load ptr, ptr %37, align 8, !tbaa !37
   %.val15.val.i = load ptr, ptr %.val15.i, align 8, !tbaa !43
-  %39 = getelementptr i8, ptr %.val15.val.i, i64 24
-  %.val15.val.val.i = load ptr, ptr %39, align 8, !tbaa !81
-  %40 = getelementptr i8, ptr %.val15.val.i, i64 32
-  %.val15.val.val21.i = load i64, ptr %40, align 8, !tbaa !82
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %41 = getelementptr i8, ptr %.val15.val.i, i64 24
+  %.val15.val.val.i = load ptr, ptr %41, align 8, !tbaa !81
+  %42 = getelementptr i8, ptr %.val15.val.i, i64 32
+  %.val15.val.val21.i = load i64, ptr %42, align 8, !tbaa !82
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store ptr @.str.11, ptr %4, align 8, !tbaa !81, !alias.scope !151
   %.sroa.22.0..sroa_idx.i.i.i.i38.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 31, ptr %.sroa.22.0..sroa_idx.i.i.i.i38.i, align 8, !tbaa !82, !alias.scope !151
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %41, ptr %42, align 8, !tbaa !143, !alias.scope !151
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %43, ptr %44, align 8, !tbaa !143, !alias.scope !151
   %.sroa.2.0..sroa_idx.i.i.i.i39.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 4, ptr %.sroa.2.0..sroa_idx.i.i.i.i39.i, align 8, !tbaa !82, !alias.scope !151
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 1, ptr %43, align 8, !tbaa !145, !alias.scope !151
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %44, align 8, !tbaa !148, !alias.scope !151
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %.val15.val.val.i, ptr %45, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i8 1, ptr %45, align 8, !tbaa !145, !alias.scope !151
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %46, align 8, !tbaa !148, !alias.scope !151
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store ptr %.val15.val.val.i, ptr %47, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %.val15.val.val21.i, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %46, align 8, !tbaa !148, !alias.scope !151
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr %.val14.val.val18.i, ptr %47, align 8
-  %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i64 %.val14.val.val2019.i, ptr %.sroa.42.0..sroa_idx.i, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %48, align 8, !tbaa !148, !alias.scope !151
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store ptr %.val13.val.val.i, ptr %49, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr %.val14.val.val.i, ptr %49, align 8
+  %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i64 %.val14.val.val20.i, ptr %.sroa.42.0..sroa_idx.i, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %50, align 8, !tbaa !148, !alias.scope !151
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  store ptr %.val13.val.val.i, ptr %51, align 8
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i64 %.val13.val.val19.i, ptr %.sroa.44.0..sroa_idx.i, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %50, align 8, !tbaa !148, !alias.scope !151
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  store ptr %.val12.val.val.i, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %52, align 8, !tbaa !148, !alias.scope !151
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  store ptr %.val12.val.val.i, ptr %53, align 8
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 128
   store i64 %.val12.val.val18.i, ptr %.sroa.46.0..sroa_idx.i, align 8
-  store ptr %50, ptr %41, align 8, !alias.scope !151
+  store ptr %52, ptr %43, align 8, !alias.scope !151
   %.sroa.4.0..sroa_idx.i.i.i40.i = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store ptr %48, ptr %.sroa.4.0..sroa_idx.i.i.i40.i, align 8, !alias.scope !151
+  store ptr %50, ptr %.sroa.4.0..sroa_idx.i.i.i40.i, align 8, !alias.scope !151
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 152
-  store ptr %46, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !alias.scope !151
+  store ptr %48, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !alias.scope !151
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 160
-  store ptr %44, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8, !tbaa !150, !alias.scope !151
-  %52 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %.val, ptr noundef nonnull align 8 dereferenceable(33) %4) #16
+  store ptr %46, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8, !tbaa !150, !alias.scope !151
+  %54 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %.val, ptr noundef nonnull align 8 dereferenceable(33) %4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZZN5clang23EmitClangSyntaxNodeListERKN4llvm12RecordKeeperERNS0_11raw_ostreamEENK3$_0clERKN12_GLOBAL__N_19Hierarchy8NodeTypeE.exit"
 

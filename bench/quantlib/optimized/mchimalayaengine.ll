@@ -378,6 +378,7 @@ if.then.i.i42:                                    ; preds = %entry
   %22 = lshr i64 %sub.i.i.i.i, 3
   %add.ptr.i.idx.i = and i64 %22, 2305843009213693944
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i, i8 -1, i64 %add.ptr.i.idx.i, i1 false)
+  %sub = add nsw i64 %sub.ptr.div.i.i.i.i, -1
   %cmp34134 = icmp ugt i64 %sub.ptr.div.i.i.i.i, 1
   br i1 %cmp34134, label %for.cond36.preheader.us, label %for.cond.cleanup
 
@@ -446,7 +447,6 @@ for.cond36.invoke.cont66_crit_edge.us:            ; preds = %for.inc.us
 
 for.cond.cleanup:                                 ; preds = %for.cond36.invoke.cont66_crit_edge.us, %if.then.i.i42
   %averagePrice.0.lcssa = phi double [ 0.000000e+00, %if.then.i.i42 ], [ %add.us, %for.cond36.invoke.cont66_crit_edge.us ]
-  %sub = add nsw i64 %sub.ptr.div.i.i.i.i, -1
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub.ptr.div.i.i, i64 %sub)
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %30 = load ptr, ptr %payoff_, align 8, !tbaa !18

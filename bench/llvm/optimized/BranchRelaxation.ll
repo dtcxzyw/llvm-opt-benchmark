@@ -1475,17 +1475,17 @@ _ZNK12_GLOBAL__N_116BranchRelaxation16computeBlockSizeERKN4llvm17MachineBasicBlo
   %578 = getelementptr inbounds nuw %"struct.(anonymous namespace)::BranchRelaxation::BasicBlockInfo", ptr %.val58.i.i, i64 %577
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 4
   store i32 %.0.lcssa.i104.i.i, ptr %579, align 4, !tbaa !258
-  %580 = getelementptr inbounds nuw i8, ptr %549, i64 8
-  %581 = load ptr, ptr %580, align 8, !tbaa !211
-  %582 = load ptr, ptr %96, align 8, !tbaa !33
+  %580 = load ptr, ptr %96, align 8, !tbaa !33
+  %581 = getelementptr inbounds nuw i8, ptr %549, i64 8
+  %582 = load ptr, ptr %581, align 8, !tbaa !211
   %.val63.i.i = load ptr, ptr %73, align 8
-  %583 = getelementptr inbounds nuw i8, ptr %582, i64 8
+  %583 = getelementptr inbounds nuw i8, ptr %580, i64 8
   %584 = load ptr, ptr %583, align 8, !tbaa !211
-  %.not6.i116.i.i = icmp eq ptr %584, %581
+  %.not6.i116.i.i = icmp eq ptr %584, %582
   br i1 %.not6.i116.i.i, label %_ZN12_GLOBAL__N_116BranchRelaxation18adjustBlockOffsetsERN4llvm17MachineBasicBlockENS1_14ilist_iteratorINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEE.exit134.i.i, label %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb0EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit.preheader9.i117.i.i
 
 _ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb0EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit.preheader9.i117.i.i: ; preds = %_ZNK12_GLOBAL__N_116BranchRelaxation16computeBlockSizeERKN4llvm17MachineBasicBlockE.exit110.i.i
-  %585 = getelementptr inbounds nuw i8, ptr %582, i64 24
+  %585 = getelementptr inbounds nuw i8, ptr %580, i64 24
   %586 = load i32, ptr %585, align 8, !tbaa !214
   %.phi.trans.insert.i118.i.i = zext i32 %586 to i64
   %.phi.trans.insert10.i119.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::BranchRelaxation::BasicBlockInfo", ptr %.val63.i.i, i64 %.phi.trans.insert.i118.i.i
@@ -1528,7 +1528,7 @@ _ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineB
   store i32 %.0.i.i132.i.i, ptr %607, align 4, !tbaa !212
   %608 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i124.i.i, i64 8
   %609 = load ptr, ptr %608, align 8, !tbaa !211
-  %.not.i133.i.i = icmp eq ptr %609, %581
+  %.not.i133.i.i = icmp eq ptr %609, %582
   br i1 %.not.i133.i.i, label %_ZN12_GLOBAL__N_116BranchRelaxation18adjustBlockOffsetsERN4llvm17MachineBasicBlockENS1_14ilist_iteratorINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEE.exit134.i.i, label %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb0EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit.i121.i.i
 
 _ZN12_GLOBAL__N_116BranchRelaxation18adjustBlockOffsetsERN4llvm17MachineBasicBlockENS1_14ilist_iteratorINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEE.exit134.i.i: ; preds = %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb0EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit.i121.i.i, %_ZNK12_GLOBAL__N_116BranchRelaxation16computeBlockSizeERKN4llvm17MachineBasicBlockE.exit110.i.i

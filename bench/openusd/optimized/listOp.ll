@@ -65254,23 +65254,23 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_InsertIfUn
 
 .lr.ph.i.i.i:                                     ; preds = %3
   %.0.copyload.i2.i.i.i.i = load i64, ptr %0, align 4
-  br label %9
+  %9 = trunc i64 %.0.copyload.i2.i.i.i.i to i32
+  br label %10
 
-9:                                                ; preds = %9, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.1.i.i.i, %9 ]
-  %.0811.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.19.i.i.i, %9 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %.0.copyload.i.i.i.i.i = load i64, ptr %10, align 4
-  %11 = icmp ult i64 %.0.copyload.i.i.i.i.i, %.0.copyload.i2.i.i.i.i
-  %.19.i.i.i = select i1 %11, ptr %.0811.i.i.i, ptr %.012.i.i.i
-  %.1.in.v.i.i.i = select i1 %11, i64 24, i64 16
+10:                                               ; preds = %10, %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i ], [ %.1.i.i.i, %10 ]
+  %.0811.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.19.i.i.i, %10 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  %.0.copyload.i.i.i.i.i = load i64, ptr %11, align 4
+  %12 = icmp ult i64 %.0.copyload.i.i.i.i.i, %.0.copyload.i2.i.i.i.i
+  %.19.i.i.i = select i1 %12, ptr %.0811.i.i.i, ptr %.012.i.i.i
+  %.1.in.v.i.i.i = select i1 %12, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ENS1_12FastLessThanESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, label %9, !llvm.loop !245
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ENS1_12FastLessThanESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, label %10, !llvm.loop !245
 
-_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ENS1_12FastLessThanESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i: ; preds = %9
-  %12 = trunc i64 %.0.copyload.i2.i.i.i.i to i32
+_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ENS1_12FastLessThanESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i: ; preds = %10
   %13 = icmp eq ptr %.19.i.i.i, %8
   br i1 %13, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit.thread, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit
 
@@ -65281,7 +65281,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1
   br i1 %15, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit.thread, label %46
 
 _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit.thread: ; preds = %._ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit.thread_crit_edge, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ENS1_12FastLessThanESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit
-  %16 = phi i32 [ %.pre, %._ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit.thread_crit_edge ], [ %12, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ENS1_12FastLessThanESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ %12, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit ]
+  %16 = phi i32 [ %.pre, %._ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit.thread_crit_edge ], [ %9, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ENS1_12FastLessThanESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ %9, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit ]
   %17 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %16, ptr %18, align 4
@@ -65421,23 +65421,23 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_InsertOrMo
 
 .lr.ph.i.i.i:                                     ; preds = %4
   %.0.copyload.i2.i.i.i.i = load i64, ptr %0, align 4
-  br label %10
+  %10 = trunc i64 %.0.copyload.i2.i.i.i.i to i32
+  br label %11
 
-10:                                               ; preds = %10, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.1.i.i.i, %10 ]
-  %.0811.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i ], [ %.19.i.i.i, %10 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %.0.copyload.i.i.i.i.i = load i64, ptr %11, align 4
-  %12 = icmp ult i64 %.0.copyload.i.i.i.i.i, %.0.copyload.i2.i.i.i.i
-  %.19.i.i.i = select i1 %12, ptr %.0811.i.i.i, ptr %.012.i.i.i
-  %.1.in.v.i.i.i = select i1 %12, i64 24, i64 16
+11:                                               ; preds = %11, %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %.1.i.i.i, %11 ]
+  %.0811.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i ], [ %.19.i.i.i, %11 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  %.0.copyload.i.i.i.i.i = load i64, ptr %12, align 4
+  %13 = icmp ult i64 %.0.copyload.i.i.i.i.i, %.0.copyload.i2.i.i.i.i
+  %.19.i.i.i = select i1 %13, ptr %.0811.i.i.i, ptr %.012.i.i.i
+  %.1.in.v.i.i.i = select i1 %13, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ENS1_12FastLessThanESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, label %10, !llvm.loop !245
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ENS1_12FastLessThanESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, label %11, !llvm.loop !245
 
-_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ENS1_12FastLessThanESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i: ; preds = %10
-  %13 = trunc i64 %.0.copyload.i2.i.i.i.i to i32
+_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ENS1_12FastLessThanESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i: ; preds = %11
   %14 = icmp eq ptr %.19.i.i.i, %9
   br i1 %14, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit.thread, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit
 
@@ -65448,7 +65448,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1
   br i1 %16, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit.thread, label %47
 
 _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit.thread: ; preds = %._ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit.thread_crit_edge, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ENS1_12FastLessThanESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit
-  %17 = phi i32 [ %.pre, %._ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit.thread_crit_edge ], [ %13, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ENS1_12FastLessThanESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ %13, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit ]
+  %17 = phi i32 [ %.pre, %._ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit.thread_crit_edge ], [ %10, %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_St14_List_iteratorIS1_EESt10_Select1stIS6_ENS1_12FastLessThanESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ %10, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S3_EEE4findERS6_.exit ]
   %18 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 %17, ptr %19, align 4

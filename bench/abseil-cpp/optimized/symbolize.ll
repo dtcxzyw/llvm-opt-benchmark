@@ -2028,21 +2028,24 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i.i: ; preds = %340, %336, %_ZN4a
   %360 = getelementptr inbounds nuw ptr, ptr %357, i64 %.04067.i.i.i
   %361 = load ptr, ptr %360, align 8, !tbaa !32
   %362 = icmp eq ptr %361, null
-  br i1 %362, label %.preheader60.i.i.i, label %371
+  br i1 %362, label %.preheader60.i.i.i.preheader, label %371
 
-.preheader60.i.i.i:                               ; preds = %359, %.preheader60.i.i.i
-  %.0.idx1.i.i.i.i = phi i64 [ %.0.add.i.i.i.i, %.preheader60.i.i.i ], [ 64, %359 ]
+.preheader60.i.i.i.preheader:                     ; preds = %359
+  %363 = getelementptr inbounds nuw ptr, ptr %357, i64 %.04067.i.i.i
+  br label %.preheader60.i.i.i
+
+.preheader60.i.i.i:                               ; preds = %.preheader60.i.i.i.preheader, %.preheader60.i.i.i
+  %.0.idx1.i.i.i.i = phi i64 [ %.0.add.i.i.i.i, %.preheader60.i.i.i ], [ 64, %.preheader60.i.i.i.preheader ]
   %.0.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %357, i64 %.0.idx1.i.i.i.i
-  %363 = load i32, ptr %.0.ptr.i.i.i.i, align 4, !tbaa !10
-  %364 = add i32 %363, 1
-  store i32 %364, ptr %.0.ptr.i.i.i.i, align 4, !tbaa !10
+  %364 = load i32, ptr %.0.ptr.i.i.i.i, align 4, !tbaa !10
+  %365 = add i32 %364, 1
+  store i32 %365, ptr %.0.ptr.i.i.i.i, align 4, !tbaa !10
   %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx1.i.i.i.i, 4
   %.not.i.i78.i.i = icmp eq i64 %.0.add.i.i.i.i, 80
   br i1 %.not.i.i78.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i, label %.preheader60.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i: ; preds = %.preheader60.i.i.i
-  %365 = getelementptr inbounds nuw ptr, ptr %357, i64 %.04067.i.i.i
-  store ptr %0, ptr %365, align 8, !tbaa !32
+  store ptr %0, ptr %363, align 8, !tbaa !32
   %366 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %71) #26
   %367 = add i64 %366, 1
   %368 = load atomic i64, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_116g_sig_safe_arenaE acquire, align 8

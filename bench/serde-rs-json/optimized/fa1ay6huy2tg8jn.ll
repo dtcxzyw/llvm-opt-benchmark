@@ -186,14 +186,14 @@ define hidden noundef i128 @_ZN4core5error5Error7type_id17h18609f4dcea3b590E(ptr
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: write) uwtable
 define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167"(i64 noundef %0, ptr noalias noundef align 1 dereferenceable(20) %1) unnamed_addr #4 {
+  %3 = icmp sgt i64 %0, -1
   %.0 = tail call i64 @llvm.abs.i64(i64 %0, i1 false)
-  %3 = icmp ugt i64 %.0, 9999
-  br i1 %3, label %.lr.ph, label %._crit_edge
+  %4 = icmp ugt i64 %.0, 9999
+  br i1 %4, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.026.lcssa = phi i64 [ 20, %2 ], [ %14, %.lr.ph ]
   %.1.lcssa = phi i64 [ %.0, %2 ], [ %7, %.lr.ph ]
-  %4 = icmp sgt i64 %0, -1
   %5 = icmp samesign ugt i64 %.1.lcssa, 99
   br i1 %5, label %23, label %32
 
@@ -261,7 +261,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 
 45:                                               ; preds = %40, %34
   %.2 = phi i64 [ %41, %40 ], [ %36, %34 ]
-  br i1 %4, label %49, label %46
+  br i1 %3, label %49, label %46
 
 46:                                               ; preds = %45
   %47 = add i64 %.2, -1
@@ -832,14 +832,14 @@ default.unreachable20:                            ; preds = %2
   %55 = load i64, ptr %7, align 8, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  %56 = icmp sgt i64 %55, -1
   %.0.i = tail call i64 @llvm.abs.i64(i64 %55, i1 false)
-  %56 = icmp ugt i64 %.0.i, 9999
-  br i1 %56, label %.lr.ph.i11, label %._crit_edge.i6
+  %57 = icmp ugt i64 %.0.i, 9999
+  br i1 %57, label %.lr.ph.i11, label %._crit_edge.i6
 
 ._crit_edge.i6:                                   ; preds = %.lr.ph.i11, %54
   %.026.lcssa.i = phi i64 [ 20, %54 ], [ %67, %.lr.ph.i11 ]
   %.1.lcssa.i7 = phi i64 [ %.0.i, %54 ], [ %60, %.lr.ph.i11 ]
-  %57 = icmp sgt i64 %55, -1
   %58 = icmp samesign ugt i64 %.1.lcssa.i7, 99
   br i1 %58, label %76, label %85
 
@@ -907,7 +907,7 @@ default.unreachable20:                            ; preds = %2
 
 98:                                               ; preds = %93, %87
   %.2.i8 = phi i64 [ %94, %93 ], [ %89, %87 ]
-  br i1 %57, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167.exit", label %99
+  br i1 %56, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167.exit", label %99
 
 99:                                               ; preds = %98
   %100 = add i64 %.2.i8, -1

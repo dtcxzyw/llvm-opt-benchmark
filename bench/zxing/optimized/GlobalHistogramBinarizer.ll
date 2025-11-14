@@ -183,19 +183,19 @@ _ZSt11max_elementIPKtET_S2_S2_.exit.i:            ; preds = %.lr.ph.i.i.i
   %37 = ptrtoint ptr %6 to i64
   %38 = sub i64 %36, %37
   %39 = lshr exact i64 %38, 1
+  %40 = load i16, ptr %spec.select.i.i.i, align 2, !tbaa !23
   br label %46
 
-40:                                               ; preds = %46
-  %41 = trunc i64 %39 to i32
-  %42 = load i16, ptr %spec.select.i.i.i, align 2, !tbaa !23
-  %43 = zext i16 %42 to i32
-  %spec.select55.i = call i32 @llvm.smin.i32(i32 %spec.select57.i, i32 %41)
-  %spec.select56.i = call i32 @llvm.smax.i32(i32 %spec.select57.i, i32 %41)
+41:                                               ; preds = %46
+  %42 = trunc i64 %39 to i32
+  %43 = zext i16 %40 to i32
+  %spec.select55.i = call i32 @llvm.smin.i32(i32 %spec.select57.i, i32 %42)
+  %spec.select56.i = call i32 @llvm.smax.i32(i32 %spec.select57.i, i32 %42)
   %44 = sub nsw i32 %spec.select56.i, %spec.select55.i
   %45 = icmp slt i32 %44, 3
   br i1 %45, label %_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread, label %.lr.ph.preheader.i
 
-_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread: ; preds = %40
+_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread: ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %132
 
@@ -216,9 +216,9 @@ _ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread: ; preds = %40
   %spec.select58.i = call i32 @llvm.smax.i32(i32 %53, i32 %.03263.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %40, label %46, !llvm.loop !27
+  br i1 %exitcond.not.i, label %41, label %46, !llvm.loop !27
 
-.lr.ph.preheader.i:                               ; preds = %40
+.lr.ph.preheader.i:                               ; preds = %41
   %56 = add nsw i32 %spec.select56.i, -1
   %57 = sext i32 %56 to i64
   %58 = sext i32 %spec.select55.i to i64
@@ -682,14 +682,14 @@ _ZSt11max_elementIPKtET_S2_S2_.exit.i:            ; preds = %.lr.ph.i.i.i
   %37 = ptrtoint ptr %3 to i64
   %38 = sub i64 %36, %37
   %39 = lshr exact i64 %38, 1
+  %40 = load i16, ptr %spec.select.i.i.i, align 2, !tbaa !23
   br label %46
 
-40:                                               ; preds = %46
-  %41 = trunc i64 %39 to i32
-  %42 = load i16, ptr %spec.select.i.i.i, align 2, !tbaa !23
-  %43 = zext i16 %42 to i32
-  %spec.select55.i = call i32 @llvm.smin.i32(i32 %spec.select57.i, i32 %41)
-  %spec.select56.i = call i32 @llvm.smax.i32(i32 %spec.select57.i, i32 %41)
+41:                                               ; preds = %46
+  %42 = trunc i64 %39 to i32
+  %43 = zext i16 %40 to i32
+  %spec.select55.i = call i32 @llvm.smin.i32(i32 %spec.select57.i, i32 %42)
+  %spec.select56.i = call i32 @llvm.smax.i32(i32 %spec.select57.i, i32 %42)
   %44 = sub nsw i32 %spec.select56.i, %spec.select55.i
   %45 = icmp slt i32 %44, 3
   br i1 %45, label %_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread, label %.lr.ph.preheader.i
@@ -711,9 +711,9 @@ _ZSt11max_elementIPKtET_S2_S2_.exit.i:            ; preds = %.lr.ph.i.i.i
   %spec.select58.i = call i32 @llvm.smax.i32(i32 %53, i32 %.03263.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %40, label %46, !llvm.loop !27
+  br i1 %exitcond.not.i, label %41, label %46, !llvm.loop !27
 
-.lr.ph.preheader.i:                               ; preds = %40
+.lr.ph.preheader.i:                               ; preds = %41
   %56 = add nsw i32 %spec.select56.i, -1
   %57 = sext i32 %56 to i64
   %58 = sext i32 %spec.select55.i to i64
@@ -745,7 +745,7 @@ _ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit: ; preds = %.lr.ph.i
   %72 = icmp slt i32 %71, 1
   br i1 %72, label %_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread, label %73
 
-_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread: ; preds = %40, %_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit
+_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit.thread: ; preds = %41, %_ZN5ZXingL18EstimateBlackPointERKSt5arrayItLm32EE.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %100
 
@@ -1064,8 +1064,8 @@ define linkonce_odr void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 1
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 2 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !23
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i

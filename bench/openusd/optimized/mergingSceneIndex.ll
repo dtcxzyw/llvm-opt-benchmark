@@ -1284,8 +1284,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %435, %437, %4
   %461 = getelementptr inbounds nuw i8, ptr %458, i64 384
   %462 = load atomic i64, ptr %461 monotonic, align 8, !noalias !26
   store i64 %462, ptr %460, align 8, !alias.scope !26
-  %scevgep.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i.i.i, i8 0, i64 64, i1 false), !alias.scope !26
+  %.ptr11.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr11.i.i.i.i, i8 0, i64 64, i1 false), !alias.scope !26
   br label %463
 
 463:                                              ; preds = %463, %454
@@ -1293,7 +1293,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %435, %437, %4
   %464 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %458, i64 %.013.i.i.i.i
   %465 = load atomic i64, ptr %464 monotonic, align 8, !noalias !26
   %.0.i.i.i.i.i.i = inttoptr i64 %465 to ptr
-  %466 = getelementptr inbounds nuw ptr, ptr %scevgep.i.i.i.i, i64 %.013.i.i.i.i
+  %466 = getelementptr inbounds nuw ptr, ptr %.ptr11.i.i.i.i, i64 %.013.i.i.i.i
   store ptr %.0.i.i.i.i.i.i, ptr %466, align 8, !alias.scope !26
   %467 = add nuw nsw i64 %.013.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %467, 8
@@ -1312,7 +1312,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %435, %437, %4
 _ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i.i.i: ; preds = %468
   %475 = mul i64 %462, 3
   %476 = and i64 %475, 7
-  %477 = getelementptr inbounds nuw ptr, ptr %scevgep.i.i.i.i, i64 %476
+  %477 = getelementptr inbounds nuw ptr, ptr %.ptr11.i.i.i.i, i64 %476
   %478 = load ptr, ptr %477, align 8, !alias.scope !26
   %479 = lshr i64 %462, 3
   %480 = and i64 %479, 15
@@ -1335,7 +1335,7 @@ tailrecurse.i.i.i.i.i:                            ; preds = %_ZN3tbb6detail2d230
 490:                                              ; preds = %tailrecurse.i.i.i.i.i
   %491 = mul i64 %487, 3
   %492 = and i64 %491, 7
-  %493 = getelementptr inbounds nuw ptr, ptr %scevgep.i.i.i.i, i64 %492
+  %493 = getelementptr inbounds nuw ptr, ptr %.ptr11.i.i.i.i, i64 %492
   %494 = load ptr, ptr %493, align 8, !alias.scope !26
   %495 = load ptr, ptr %494, align 8, !noalias !26
   store ptr %495, ptr %493, align 8, !alias.scope !26
@@ -1353,7 +1353,7 @@ tailrecurse.i.i.i.i.i:                            ; preds = %_ZN3tbb6detail2d230
 _ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i.i.i.i: ; preds = %496
   %502 = mul i64 %497, 3
   %503 = and i64 %502, 7
-  %504 = getelementptr inbounds nuw ptr, ptr %scevgep.i.i.i.i, i64 %503
+  %504 = getelementptr inbounds nuw ptr, ptr %.ptr11.i.i.i.i, i64 %503
   %505 = load ptr, ptr %504, align 8, !alias.scope !26
   %506 = lshr i64 %497, 3
   %507 = and i64 %506, 15

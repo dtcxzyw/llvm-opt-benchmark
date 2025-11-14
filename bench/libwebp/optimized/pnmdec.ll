@@ -876,8 +876,8 @@ ReadHeader.exit:                                  ; preds = %222
   %.0107156.us162.us.us181 = phi ptr [ %385, %.lr.ph.us.us.us179 ], [ %267, %.lr.ph160.split.split.us.split.us.split.split.us ]
   %.0109155.us163.us.us182 = phi i32 [ %386, %.lr.ph.us.us.us179 ], [ 0, %.lr.ph160.split.split.us.split.us.split.split.us ]
   %scevgep = getelementptr i8, ptr %0, i64 %.0106159.us161.us.us180
-  %384 = add i64 %.0106159.us161.us.us180, %272
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0107156.us162.us.us181, ptr align 1 %scevgep, i64 %wide.trip.count258, i1 false), !tbaa !20
+  %384 = add i64 %.0106159.us161.us.us180, %272
   %385 = getelementptr inbounds nuw i8, ptr %.0107156.us162.us.us181, i64 %261
   %386 = add nuw nsw i32 %.0109155.us163.us.us182, 1
   %exitcond234.not = icmp eq i32 %386, %264

@@ -4739,40 +4739,40 @@ _ZL10print_probP8_IO_FILEPKciPf.exit93:           ; preds = %129, %_ZL9print_ind
   %.val = load i32, ptr %135, align 4, !tbaa !148
   %136 = getelementptr i8, ptr %1, i64 96
   %.val62 = load i32, ptr %136, align 8, !tbaa !148
+  %137 = add nsw i32 %.val62, %.val
   %fputc.i94 = call i32 @fputc(i32 10, ptr %0)
-  %137 = call i64 @fwrite(ptr nonnull @.str.109, i64 4, i64 1, ptr %0)
-  %138 = icmp sgt i32 %132, 0
-  br i1 %138, label %.lr.ph.i95, label %._crit_edge5.critedge.i
+  %138 = call i64 @fwrite(ptr nonnull @.str.109, i64 4, i64 1, ptr %0)
+  %139 = icmp sgt i32 %132, 0
+  br i1 %139, label %.lr.ph.i95, label %._crit_edge5.critedge.i
 
 .lr.ph.i95:                                       ; preds = %130, %.lr.ph.i95
-  %.0331.i = phi i32 [ %140, %.lr.ph.i95 ], [ 0, %130 ]
-  %139 = call i64 @fwrite(ptr nonnull @.str.110, i64 4, i64 1, ptr %0)
-  %140 = add nuw nsw i32 %.0331.i, 1
-  %exitcond.not.i96 = icmp eq i32 %140, %132
+  %.0331.i = phi i32 [ %141, %.lr.ph.i95 ], [ 0, %130 ]
+  %140 = call i64 @fwrite(ptr nonnull @.str.110, i64 4, i64 1, ptr %0)
+  %141 = add nuw nsw i32 %.0331.i, 1
+  %exitcond.not.i96 = icmp eq i32 %141, %132
   br i1 %exitcond.not.i96, label %._crit_edge.i, label %.lr.ph.i95, !llvm.loop !326
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i95
-  %141 = call i64 @fwrite(ptr nonnull @.str.111, i64 28, i64 1, ptr %0)
-  %142 = call i64 @fwrite(ptr nonnull @.str.109, i64 4, i64 1, ptr %0)
+  %142 = call i64 @fwrite(ptr nonnull @.str.111, i64 28, i64 1, ptr %0)
+  %143 = call i64 @fwrite(ptr nonnull @.str.109, i64 4, i64 1, ptr %0)
   br label %.lr.ph4.i
 
 .lr.ph4.i:                                        ; preds = %.lr.ph4.i, %._crit_edge.i
-  %.12.i = phi i32 [ %143, %.lr.ph4.i ], [ 0, %._crit_edge.i ]
-  %143 = add nuw nsw i32 %.12.i, 1
-  %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.112, i32 noundef %143) #22
-  %exitcond14.not.i = icmp eq i32 %143, %132
+  %.12.i = phi i32 [ %144, %.lr.ph4.i ], [ 0, %._crit_edge.i ]
+  %144 = add nuw nsw i32 %.12.i, 1
+  %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.112, i32 noundef %144) #22
+  %exitcond14.not.i = icmp eq i32 %144, %132
   br i1 %exitcond14.not.i, label %.lr.ph12.i, label %.lr.ph4.i, !llvm.loop !327
 
 ._crit_edge5.critedge.i:                          ; preds = %130
-  %145 = call i64 @fwrite(ptr nonnull @.str.111, i64 28, i64 1, ptr %0)
-  %146 = call i64 @fwrite(ptr nonnull @.str.109, i64 4, i64 1, ptr %0)
+  %146 = call i64 @fwrite(ptr nonnull @.str.111, i64 28, i64 1, ptr %0)
+  %147 = call i64 @fwrite(ptr nonnull @.str.109, i64 4, i64 1, ptr %0)
   %fputc37.i = call i32 @fputc(i32 10, ptr %0)
   br label %_ZL23print_transition_matrixP8_IO_FILEiPPiPKi.exit
 
 .lr.ph12.i:                                       ; preds = %.lr.ph4.i
   %fputc3722.i = call i32 @fputc(i32 10, ptr %0)
-  %147 = add nsw i32 %.val62, %.val
-  %148 = sitofp i32 %147 to double
+  %148 = sitofp i32 %137 to double
   %149 = fmul double %148, 2.000000e+00
   %wide.trip.count20.i = zext nneg i32 %132 to i64
   br label %.lr.ph8.us.i

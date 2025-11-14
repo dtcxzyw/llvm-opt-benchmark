@@ -1923,34 +1923,34 @@ define internal noundef i32 @str_pack(ptr noundef %0) #0 {
   br label %28
 
 28:                                               ; preds = %26, %19
+  %29 = add i64 %24, %.058134
   %.not66132 = icmp eq i32 %22, 0
   br i1 %.not66132, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %28, %35
-  %.in = phi i32 [ %29, %35 ], [ %22, %28 ]
-  %29 = add i32 %.in, -1
-  %30 = load i64, ptr %17, align 8, !tbaa !18
-  %31 = load i64, ptr %18, align 8, !tbaa !19
-  %32 = icmp ult i64 %30, %31
-  br i1 %32, label %35, label %33
+.lr.ph:                                           ; preds = %28, %36
+  %.in = phi i32 [ %30, %36 ], [ %22, %28 ]
+  %30 = add i32 %.in, -1
+  %31 = load i64, ptr %17, align 8, !tbaa !18
+  %32 = load i64, ptr %18, align 8, !tbaa !19
+  %33 = icmp ult i64 %31, %32
+  br i1 %33, label %36, label %34
 
-33:                                               ; preds = %.lr.ph
-  %34 = call ptr @luaL_prepbuffsize(ptr noundef nonnull %2, i64 noundef 1) #12
+34:                                               ; preds = %.lr.ph
+  %35 = call ptr @luaL_prepbuffsize(ptr noundef nonnull %2, i64 noundef 1) #12
   %.pre = load i64, ptr %17, align 8, !tbaa !18
-  br label %35
+  br label %36
 
-35:                                               ; preds = %33, %.lr.ph
-  %36 = phi i64 [ %.pre, %33 ], [ %30, %.lr.ph ]
-  %37 = load ptr, ptr %2, align 8, !tbaa !20
-  %38 = add i64 %36, 1
-  store i64 %38, ptr %17, align 8, !tbaa !18
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %36
-  store i8 0, ptr %39, align 1, !tbaa !9
-  %.not66 = icmp eq i32 %29, 0
+36:                                               ; preds = %34, %.lr.ph
+  %37 = phi i64 [ %.pre, %34 ], [ %31, %.lr.ph ]
+  %38 = load ptr, ptr %2, align 8, !tbaa !20
+  %39 = add i64 %37, 1
+  store i64 %39, ptr %17, align 8, !tbaa !18
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %37
+  store i8 0, ptr %40, align 1, !tbaa !9
+  %.not66 = icmp eq i32 %30, 0
   br i1 %.not66, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %35, %28
-  %40 = add i64 %24, %.058134
+._crit_edge:                                      ; preds = %36, %28
   %41 = add nsw i32 %.0135, 1
   switch i32 %20, label %default.unreachable156 [
     i32 0, label %42
@@ -2336,7 +2336,7 @@ packint.exit129:                                  ; preds = %.lr.ph.split.i108, 
   %207 = load i64, ptr %11, align 8, !tbaa !4
   call void @luaL_addlstring(ptr noundef nonnull %2, ptr noundef %176, i64 noundef %207) #12
   %208 = load i64, ptr %11, align 8, !tbaa !4
-  %209 = add i64 %208, %40
+  %209 = add i64 %208, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %243
 
@@ -2374,7 +2374,7 @@ packint.exit129:                                  ; preds = %.lr.ph.split.i108, 
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 %225
   store i8 0, ptr %228, align 1, !tbaa !9
   %229 = load i64, ptr %12, align 8, !tbaa !4
-  %230 = add i64 %40, 1
+  %230 = add i64 %29, 1
   %231 = add i64 %230, %229
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %243
@@ -2403,7 +2403,7 @@ default.unreachable156:                           ; preds = %._crit_edge
   unreachable
 
 243:                                              ; preds = %._crit_edge, %._crit_edge, %238, %224, %packint.exit129, %174, %copywithendian.exit105, %copywithendian.exit99, %copywithendian.exit, %packint.exit92, %packint.exit
-  %.159 = phi i64 [ %40, %packint.exit ], [ %40, %packint.exit92 ], [ %40, %copywithendian.exit ], [ %40, %copywithendian.exit99 ], [ %40, %copywithendian.exit105 ], [ %40, %174 ], [ %209, %packint.exit129 ], [ %231, %224 ], [ %40, %238 ], [ %40, %._crit_edge ], [ %40, %._crit_edge ]
+  %.159 = phi i64 [ %29, %packint.exit ], [ %29, %packint.exit92 ], [ %29, %copywithendian.exit ], [ %29, %copywithendian.exit99 ], [ %29, %copywithendian.exit105 ], [ %29, %174 ], [ %209, %packint.exit129 ], [ %231, %224 ], [ %29, %238 ], [ %29, %._crit_edge ], [ %29, %._crit_edge ]
   %.1 = phi i32 [ %41, %packint.exit ], [ %41, %packint.exit92 ], [ %41, %copywithendian.exit ], [ %41, %copywithendian.exit99 ], [ %41, %copywithendian.exit105 ], [ %41, %174 ], [ %41, %packint.exit129 ], [ %41, %224 ], [ %.0135, %238 ], [ %.0135, %._crit_edge ], [ %.0135, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

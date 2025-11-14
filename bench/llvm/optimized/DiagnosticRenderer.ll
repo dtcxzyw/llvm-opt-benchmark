@@ -1120,16 +1120,16 @@ _ZN4llvm15SmallVectorImplIN5clang14SourceLocationEE5eraseEPKS2_S5_.exit: ; preds
 
 117:                                              ; preds = %_ZN4llvm15SmallVectorImplIN5clang14SourceLocationEE5eraseEPKS2_S5_.exit
   %118 = lshr i32 %111, 1
-  %119 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %99, i64 %106
-  %120 = zext nneg i32 %118 to i64
-  %.neg = mul nsw i64 %120, -4
-  %121 = getelementptr inbounds i8, ptr %119, i64 %.neg
+  %119 = and i32 %111, 1
+  %120 = add nuw i32 %118, %119
+  %121 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %99, i64 %106
+  %122 = zext nneg i32 %118 to i64
+  %.neg = mul nsw i64 %122, -4
+  %123 = getelementptr inbounds i8, ptr %121, i64 %.neg
   %.not101 = icmp ult i32 %111, 2
   br i1 %.not101, label %._crit_edge105, label %.lr.ph104
 
 ._crit_edge105:                                   ; preds = %.lr.ph104, %117
-  %122 = and i32 %111, 1
-  %123 = add nuw i32 %118, %122
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %124 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %124, ptr %16, align 8, !tbaa !120
@@ -1213,21 +1213,21 @@ _ZN4llvm11raw_ostreamlsEPKc.exit61:               ; preds = %156, %158
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %168 = load ptr, ptr %15, align 8, !tbaa !25, !noalias !137
-  %.not93106 = icmp eq i32 %123, 0
+  %.not93106 = icmp eq i32 %120, 0
   br i1 %.not93106, label %._crit_edge109, label %.lr.ph108.preheader
 
 .lr.ph108.preheader:                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit61
-  %169 = zext i32 %123 to i64
+  %169 = zext i32 %120 to i64
   %.idx115 = shl nuw nsw i64 %169, 2
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 %.idx115
   br label %.lr.ph108
 
 .lr.ph104:                                        ; preds = %117, %.lr.ph104
-  %.sroa.071.0102 = phi ptr [ %171, %.lr.ph104 ], [ %119, %117 ]
+  %.sroa.071.0102 = phi ptr [ %171, %.lr.ph104 ], [ %121, %117 ]
   %171 = getelementptr inbounds i8, ptr %.sroa.071.0102, i64 -4
   %.sroa.07.0.copyload = load i32, ptr %171, align 4, !tbaa !89
   call void @_ZN5clang18DiagnosticRenderer24emitSingleMacroExpansionENS_13FullSourceLocENS_17DiagnosticsEngine5LevelEN4llvm8ArrayRefINS_15CharSourceRangeEEE(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 %.sroa.07.0.copyload, ptr %2, i32 poison, ptr %4, i64 %5)
-  %.not = icmp eq ptr %171, %121
+  %.not = icmp eq ptr %171, %123
   br i1 %.not, label %._crit_edge105, label %.lr.ph104, !llvm.loop !140
 
 ._crit_edge109:                                   ; preds = %.lr.ph108, %_ZN4llvm11raw_ostreamlsEPKc.exit61
@@ -1615,9 +1615,9 @@ define internal fastcc void @_ZL19mapDiagnosticRangesN5clang13FullSourceLocEN4ll
 
 .lr.ph187:                                        ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 408
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 184
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 256
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 208

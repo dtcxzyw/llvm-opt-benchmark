@@ -50343,14 +50343,14 @@ default.unreachable:                              ; preds = %43
   %106 = load i64, ptr %46, align 8, !alias.scope !13293, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !13293
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13316)
+  %107 = icmp sgt i64 %106, -1
   %.sroa.0.0.i.i.i.i = tail call i64 @llvm.abs.i64(i64 %106, i1 false)
-  %107 = icmp ugt i64 %.sroa.0.0.i.i.i.i, 9999
-  br i1 %107, label %.lr.ph.i.i.i6.i, label %._crit_edge.i.i.i3.i
+  %108 = icmp ugt i64 %.sroa.0.0.i.i.i.i, 9999
+  br i1 %108, label %.lr.ph.i.i.i6.i, label %._crit_edge.i.i.i3.i
 
 ._crit_edge.i.i.i3.i:                             ; preds = %.lr.ph.i.i.i6.i, %105
   %.sroa.010.0.lcssa.i.i.i.i = phi i64 [ 20, %105 ], [ %118, %.lr.ph.i.i.i6.i ]
   %.sroa.0.1.lcssa.i.i.i4.i = phi i64 [ %.sroa.0.0.i.i.i.i, %105 ], [ %111, %.lr.ph.i.i.i6.i ]
-  %108 = icmp sgt i64 %106, -1
   %109 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i4.i, 99
   br i1 %109, label %127, label %136
 
@@ -50418,7 +50418,7 @@ default.unreachable:                              ; preds = %43
 
 149:                                              ; preds = %144, %138
   %.sroa.010.2.i.i.i.i = phi i64 [ %145, %144 ], [ %140, %138 ]
-  br i1 %108, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h72e7b9e36ce973e9E.exit.i.i.i", label %150
+  br i1 %107, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h72e7b9e36ce973e9E.exit.i.i.i", label %150
 
 150:                                              ; preds = %149
   %151 = add i64 %.sroa.010.2.i.i.i.i, -1
@@ -51290,14 +51290,14 @@ default.unreachable:                              ; preds = %44
   %107 = load i64, ptr %47, align 8, !alias.scope !13818, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !13818
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13841)
+  %108 = icmp sgt i64 %107, -1
   %.sroa.0.0.i.i.i.i = tail call i64 @llvm.abs.i64(i64 %107, i1 false)
-  %108 = icmp ugt i64 %.sroa.0.0.i.i.i.i, 9999
-  br i1 %108, label %.lr.ph.i.i.i6.i, label %._crit_edge.i.i.i3.i
+  %109 = icmp ugt i64 %.sroa.0.0.i.i.i.i, 9999
+  br i1 %109, label %.lr.ph.i.i.i6.i, label %._crit_edge.i.i.i3.i
 
 ._crit_edge.i.i.i3.i:                             ; preds = %.lr.ph.i.i.i6.i, %106
   %.sroa.010.0.lcssa.i.i.i.i = phi i64 [ 20, %106 ], [ %119, %.lr.ph.i.i.i6.i ]
   %.sroa.0.1.lcssa.i.i.i4.i = phi i64 [ %.sroa.0.0.i.i.i.i, %106 ], [ %112, %.lr.ph.i.i.i6.i ]
-  %109 = icmp sgt i64 %107, -1
   %110 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i4.i, 99
   br i1 %110, label %128, label %137
 
@@ -51365,7 +51365,7 @@ default.unreachable:                              ; preds = %44
 
 150:                                              ; preds = %145, %139
   %.sroa.010.2.i.i.i.i = phi i64 [ %146, %145 ], [ %141, %139 ]
-  br i1 %109, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h72e7b9e36ce973e9E.exit.i.i.i", label %151
+  br i1 %108, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h72e7b9e36ce973e9E.exit.i.i.i", label %151
 
 151:                                              ; preds = %150
   %152 = add i64 %.sroa.010.2.i.i.i.i, -1
@@ -107963,83 +107963,83 @@ _ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit: ; preds = %25, %27
   %39 = or i64 %38, %36
   store i64 %39, ptr %37, align 8
   %40 = icmp ult i64 %2, %11
-  br i1 %40, label %72, label %48
+  br i1 %40, label %73, label %49
 
-41:                                               ; preds = %3, %48
-  %.sroa.01.0 = phi i64 [ 0, %3 ], [ %11, %48 ]
+41:                                               ; preds = %3, %49
+  %.sroa.01.0 = phi i64 [ 0, %3 ], [ %11, %49 ]
   %42 = sub i64 %2, %.sroa.01.0
-  %43 = and i64 %42, -8
-  %44 = icmp ult i64 %.sroa.01.0, %43
-  br i1 %44, label %.lr.ph, label %74
+  %43 = and i64 %42, 7
+  %44 = and i64 %42, -8
+  %45 = icmp ult i64 %.sroa.01.0, %44
+  br i1 %45, label %.lr.ph, label %75
 
 .lr.ph:                                           ; preds = %41
   %.promoted = load i64, ptr %0, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.promoted19 = load i64, ptr %45, align 8
-  %.promoted20 = load i64, ptr %46, align 8, !alias.scope !31087
-  %.promoted22 = load i64, ptr %47, align 8, !alias.scope !31087
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.promoted19 = load i64, ptr %46, align 8
+  %.promoted20 = load i64, ptr %47, align 8, !alias.scope !31087
+  %.promoted22 = load i64, ptr %48, align 8, !alias.scope !31087
   br label %103
 
-48:                                               ; preds = %_ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %50 = load i64, ptr %49, align 8, !noundef !5
-  %51 = xor i64 %50, %39
-  %52 = load i64, ptr %0, align 8, !alias.scope !31090, !noundef !5
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = load i64, ptr %53, align 8, !alias.scope !31090, !noundef !5
-  %55 = add i64 %54, %52
-  %56 = tail call i64 @llvm.fshl.i64(i64 %54, i64 %54, i64 13)
-  %57 = xor i64 %56, %55
-  %58 = tail call i64 @llvm.fshl.i64(i64 %55, i64 %55, i64 32)
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %60 = load i64, ptr %59, align 8, !alias.scope !31090, !noundef !5
-  %61 = add i64 %60, %51
-  %62 = tail call i64 @llvm.fshl.i64(i64 %51, i64 %51, i64 16)
-  %63 = xor i64 %61, %62
-  %64 = add i64 %63, %58
-  %65 = tail call i64 @llvm.fshl.i64(i64 %63, i64 %63, i64 21)
-  %66 = xor i64 %65, %64
-  store i64 %66, ptr %49, align 8, !alias.scope !31090
-  %67 = add i64 %61, %57
-  %68 = tail call i64 @llvm.fshl.i64(i64 %57, i64 %57, i64 17)
-  %69 = xor i64 %67, %68
-  store i64 %69, ptr %53, align 8, !alias.scope !31090
-  %70 = tail call i64 @llvm.fshl.i64(i64 %67, i64 %67, i64 32)
-  store i64 %70, ptr %59, align 8, !alias.scope !31090
-  %71 = xor i64 %64, %39
-  store i64 %71, ptr %0, align 8
+49:                                               ; preds = %_ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %51 = load i64, ptr %50, align 8, !noundef !5
+  %52 = xor i64 %51, %39
+  %53 = load i64, ptr %0, align 8, !alias.scope !31090, !noundef !5
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %55 = load i64, ptr %54, align 8, !alias.scope !31090, !noundef !5
+  %56 = add i64 %55, %53
+  %57 = tail call i64 @llvm.fshl.i64(i64 %55, i64 %55, i64 13)
+  %58 = xor i64 %57, %56
+  %59 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 32)
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %61 = load i64, ptr %60, align 8, !alias.scope !31090, !noundef !5
+  %62 = add i64 %61, %52
+  %63 = tail call i64 @llvm.fshl.i64(i64 %52, i64 %52, i64 16)
+  %64 = xor i64 %62, %63
+  %65 = add i64 %64, %59
+  %66 = tail call i64 @llvm.fshl.i64(i64 %64, i64 %64, i64 21)
+  %67 = xor i64 %66, %65
+  store i64 %67, ptr %50, align 8, !alias.scope !31090
+  %68 = add i64 %62, %58
+  %69 = tail call i64 @llvm.fshl.i64(i64 %58, i64 %58, i64 17)
+  %70 = xor i64 %68, %69
+  store i64 %70, ptr %54, align 8, !alias.scope !31090
+  %71 = tail call i64 @llvm.fshl.i64(i64 %68, i64 %68, i64 32)
+  store i64 %71, ptr %60, align 8, !alias.scope !31090
+  %72 = xor i64 %65, %39
+  store i64 %72, ptr %0, align 8
   br label %41
 
-72:                                               ; preds = %_ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit
-  %73 = add i64 %8, %2
+73:                                               ; preds = %_ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit
+  %74 = add i64 %8, %2
   br label %127
 
 ._crit_edge:                                      ; preds = %103
-  store i64 %119, ptr %45, align 8
-  store i64 %122, ptr %46, align 8, !alias.scope !31087
-  store i64 %123, ptr %47, align 8, !alias.scope !31087
+  store i64 %119, ptr %46, align 8
+  store i64 %122, ptr %47, align 8, !alias.scope !31087
+  store i64 %123, ptr %48, align 8, !alias.scope !31087
   store i64 %124, ptr %0, align 8
-  br label %74
+  br label %75
 
-74:                                               ; preds = %._crit_edge, %41
+75:                                               ; preds = %._crit_edge, %41
   %.sroa.01.1.lcssa = phi i64 [ %125, %._crit_edge ], [ %.sroa.01.0, %41 ]
-  %75 = and i64 %42, 7
-  %76 = icmp samesign ugt i64 %75, 3
+  %76 = icmp samesign ugt i64 %43, 3
   br i1 %76, label %77, label %80
 
-77:                                               ; preds = %74
+77:                                               ; preds = %75
   %78 = getelementptr inbounds i8, ptr %1, i64 %.sroa.01.1.lcssa
   %.sroa.014.0.copyload.i16 = load i32, ptr %78, align 1, !alias.scope !31093
   %79 = zext i32 %.sroa.014.0.copyload.i16 to i64
   br label %80
 
-80:                                               ; preds = %77, %74
-  %.sroa.03.0.i10 = phi i64 [ 4, %77 ], [ 0, %74 ]
-  %.sroa.0.0.i11 = phi i64 [ %79, %77 ], [ 0, %74 ]
+80:                                               ; preds = %77, %75
+  %.sroa.03.0.i10 = phi i64 [ 4, %77 ], [ 0, %75 ]
+  %.sroa.0.0.i11 = phi i64 [ %79, %77 ], [ 0, %75 ]
   %81 = or disjoint i64 %.sroa.03.0.i10, 1
-  %82 = icmp samesign ult i64 %81, %75
+  %82 = icmp samesign ult i64 %81, %43
   br i1 %82, label %83, label %91
 
 83:                                               ; preds = %80
@@ -108056,7 +108056,7 @@ _ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit: ; preds = %25, %27
 91:                                               ; preds = %83, %80
   %.sroa.03.1.i12 = phi i64 [ %90, %83 ], [ %.sroa.03.0.i10, %80 ]
   %.sroa.0.1.i13 = phi i64 [ %89, %83 ], [ %.sroa.0.0.i11, %80 ]
-  %92 = icmp samesign ult i64 %.sroa.03.1.i12, %75
+  %92 = icmp samesign ult i64 %.sroa.03.1.i12, %43
   br i1 %92, label %93, label %_ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit17
 
 93:                                               ; preds = %91
@@ -108102,11 +108102,11 @@ _ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit17: ; preds = %91, %93
   %123 = tail call i64 @llvm.fshl.i64(i64 %120, i64 %120, i64 32)
   %124 = xor i64 %117, %.sroa.0.0.copyload
   %125 = add nuw i64 %.sroa.01.118, 8
-  %126 = icmp ult i64 %125, %43
+  %126 = icmp ult i64 %125, %44
   br i1 %126, label %103, label %._crit_edge
 
-127:                                              ; preds = %_ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit17, %72
-  %storemerge = phi i64 [ %73, %72 ], [ %75, %_ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit17 ]
+127:                                              ; preds = %_ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit17, %73
+  %storemerge = phi i64 [ %74, %73 ], [ %43, %_ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit17 ]
   store i64 %storemerge, ptr %7, align 8
   ret void
 }
@@ -115460,22 +115460,22 @@ _ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit: ; pr
   br i1 %19, label %.thread.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit
-  %20 = udiv i16 %.val8, 10000
   %.lhs.trunc.i.i.i.i = urem i16 %.val8, 10000
-  %21 = udiv i16 %.lhs.trunc.i.i.i.i, 100
-  %22 = shl nuw nsw i16 %21, 1
-  %23 = zext nneg i16 %22 to i64
-  %24 = urem i16 %.lhs.trunc.i.i.i.i, 100
-  %25 = shl nuw nsw i16 %24, 1
-  %26 = zext nneg i16 %25 to i64
-  %27 = getelementptr inbounds nuw i8, ptr @anon.6e93f00919303b61ac3c464eac50b925.278, i64 %23
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %29 = load i16, ptr %27, align 1, !noalias !32631
-  store i16 %29, ptr %28, align 1, !alias.scope !32631
-  %30 = getelementptr inbounds nuw i8, ptr @anon.6e93f00919303b61ac3c464eac50b925.278, i64 %26
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %32 = load i16, ptr %30, align 1, !noalias !32631
-  store i16 %32, ptr %31, align 1, !alias.scope !32631
+  %20 = udiv i16 %.lhs.trunc.i.i.i.i, 100
+  %21 = shl nuw nsw i16 %20, 1
+  %22 = zext nneg i16 %21 to i64
+  %23 = urem i16 %.lhs.trunc.i.i.i.i, 100
+  %24 = shl nuw nsw i16 %23, 1
+  %25 = zext nneg i16 %24 to i64
+  %26 = getelementptr inbounds nuw i8, ptr @anon.6e93f00919303b61ac3c464eac50b925.278, i64 %22
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %28 = load i16, ptr %26, align 1, !noalias !32631
+  store i16 %28, ptr %27, align 1, !alias.scope !32631
+  %29 = getelementptr inbounds nuw i8, ptr @anon.6e93f00919303b61ac3c464eac50b925.278, i64 %25
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %31 = load i16, ptr %29, align 1, !noalias !32631
+  store i16 %31, ptr %30, align 1, !alias.scope !32631
+  %32 = udiv i16 %.val8, 10000
   br label %51
 
 ._crit_edge.i.i.i.i:                              ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit
@@ -115510,7 +115510,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17had2a80ce3a6ee112E.exit: ; pr
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u16$GT$5write17h56e90fb151226193E.exit.i.i.i"
 
 51:                                               ; preds = %42, %.thread.i.i.i.i
-  %.sroa.04.037.i.i.i.i = phi i16 [ %20, %.thread.i.i.i.i ], [ %.sroa.04.0.in.i.i.i.i, %42 ]
+  %.sroa.04.037.i.i.i.i = phi i16 [ %32, %.thread.i.i.i.i ], [ %.sroa.04.0.in.i.i.i.i, %42 ]
   %.sroa.010.136.i.i.i.i = phi i64 [ 1, %.thread.i.i.i.i ], [ %.sroa.010.1.i.i.i.i, %42 ]
   %52 = add nsw i64 %.sroa.010.136.i.i.i.i, -1
   %53 = trunc nuw nsw i16 %.sroa.04.037.i.i.i.i to i8

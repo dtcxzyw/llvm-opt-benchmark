@@ -303,104 +303,104 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, i8 0, i64 28, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %13
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %14
 
-13:                                               ; preds = %.preheader, %43
-  %14 = phi i64 [ 0, %.preheader ], [ %44, %43 ]
-  %15 = phi i32 [ 0, %.preheader ], [ %45, %43 ]
-  %16 = phi i32 [ 0, %.preheader ], [ %46, %43 ]
-  %17 = phi i32 [ 0, %.preheader ], [ %47, %43 ]
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %43 ]
-  %.06581 = phi i64 [ 0, %.preheader ], [ %.1, %43 ]
-  %18 = getelementptr inbounds nuw %struct.latencySample, ptr %12, i64 %indvars.iv
-  %19 = load i32, ptr %18, align 4, !tbaa !41
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %43, label %21
+14:                                               ; preds = %.preheader, %44
+  %15 = phi i64 [ 0, %.preheader ], [ %45, %44 ]
+  %16 = phi i32 [ 0, %.preheader ], [ %46, %44 ]
+  %17 = phi i32 [ 0, %.preheader ], [ %47, %44 ]
+  %18 = phi i32 [ 0, %.preheader ], [ %48, %44 ]
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %44 ]
+  %.06581 = phi i64 [ 0, %.preheader ], [ %.1, %44 ]
+  %19 = getelementptr inbounds nuw %struct.latencySample, ptr %13, i64 %indvars.iv
+  %20 = load i32, ptr %19, align 4, !tbaa !41
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %44, label %22
 
-21:                                               ; preds = %13
-  %22 = add i32 %17, 1
-  store i32 %22, ptr %10, align 4, !tbaa !48
-  %23 = icmp eq i32 %17, 0
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !43
-  br i1 %23, label %26, label %27
+22:                                               ; preds = %14
+  %23 = add i32 %18, 1
+  store i32 %23, ptr %11, align 4, !tbaa !48
+  %24 = icmp eq i32 %18, 0
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %26 = load i32, ptr %25, align 4, !tbaa !43
+  br i1 %24, label %27, label %28
 
-26:                                               ; preds = %21
-  store i32 %25, ptr %9, align 4, !tbaa !49
-  store i32 %25, ptr %8, align 8, !tbaa !50
-  br label %34
+27:                                               ; preds = %22
+  store i32 %26, ptr %9, align 4, !tbaa !49
+  store i32 %26, ptr %8, align 8, !tbaa !50
+  br label %35
 
-27:                                               ; preds = %21
-  %28 = icmp ugt i32 %16, %25
-  br i1 %28, label %29, label %30
+28:                                               ; preds = %22
+  %29 = icmp ugt i32 %17, %26
+  br i1 %29, label %30, label %31
 
-29:                                               ; preds = %27
-  store i32 %25, ptr %8, align 8, !tbaa !50
-  br label %30
+30:                                               ; preds = %28
+  store i32 %26, ptr %8, align 8, !tbaa !50
+  br label %31
 
-30:                                               ; preds = %29, %27
-  %31 = phi i32 [ %25, %29 ], [ %16, %27 ]
-  %32 = icmp ult i32 %15, %25
-  br i1 %32, label %33, label %34
+31:                                               ; preds = %30, %28
+  %32 = phi i32 [ %26, %30 ], [ %17, %28 ]
+  %33 = icmp ult i32 %16, %26
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %30
-  store i32 %25, ptr %9, align 4, !tbaa !49
-  br label %34
+34:                                               ; preds = %31
+  store i32 %26, ptr %9, align 4, !tbaa !49
+  br label %35
 
-34:                                               ; preds = %30, %33, %26
-  %35 = phi i32 [ %15, %30 ], [ %25, %33 ], [ %25, %26 ]
-  %36 = phi i32 [ %31, %30 ], [ %31, %33 ], [ %25, %26 ]
-  %37 = zext i32 %25 to i64
-  %38 = add i64 %.06581, %37
-  %39 = icmp eq i64 %14, 0
-  %40 = sext i32 %19 to i64
-  %41 = icmp sgt i64 %14, %40
-  %or.cond = or i1 %39, %41
-  br i1 %or.cond, label %42, label %43
+35:                                               ; preds = %31, %34, %27
+  %36 = phi i32 [ %16, %31 ], [ %26, %34 ], [ %26, %27 ]
+  %37 = phi i32 [ %32, %31 ], [ %32, %34 ], [ %26, %27 ]
+  %38 = zext i32 %26 to i64
+  %39 = add i64 %.06581, %38
+  %40 = icmp eq i64 %15, 0
+  %41 = sext i32 %20 to i64
+  %42 = icmp sgt i64 %15, %41
+  %or.cond = or i1 %40, %42
+  br i1 %or.cond, label %43, label %44
 
-42:                                               ; preds = %34
-  store i64 %40, ptr %11, align 8, !tbaa !51
-  br label %43
+43:                                               ; preds = %35
+  store i64 %41, ptr %12, align 8, !tbaa !51
+  br label %44
 
-43:                                               ; preds = %34, %42, %13
-  %44 = phi i64 [ %14, %13 ], [ %40, %42 ], [ %14, %34 ]
-  %45 = phi i32 [ %15, %13 ], [ %35, %42 ], [ %35, %34 ]
-  %46 = phi i32 [ %16, %13 ], [ %36, %42 ], [ %36, %34 ]
-  %47 = phi i32 [ %17, %13 ], [ %22, %42 ], [ %22, %34 ]
-  %.1 = phi i64 [ %.06581, %13 ], [ %38, %42 ], [ %38, %34 ]
+44:                                               ; preds = %35, %43, %14
+  %45 = phi i64 [ %15, %14 ], [ %41, %43 ], [ %15, %35 ]
+  %46 = phi i32 [ %16, %14 ], [ %36, %43 ], [ %36, %35 ]
+  %47 = phi i32 [ %17, %14 ], [ %37, %43 ], [ %37, %35 ]
+  %48 = phi i32 [ %18, %14 ], [ %23, %43 ], [ %23, %35 ]
+  %.1 = phi i64 [ %.06581, %14 ], [ %39, %43 ], [ %39, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 160
-  br i1 %exitcond.not, label %48, label %13, !llvm.loop !52
+  br i1 %exitcond.not, label %49, label %14, !llvm.loop !52
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.not77 = icmp eq i32 %47, 0
+49:                                               ; preds = %44
+  %.not77 = icmp eq i32 %48, 0
   br i1 %.not77, label %.preheader98, label %50
 
-50:                                               ; preds = %48
-  %51 = zext i32 %47 to i64
+50:                                               ; preds = %49
+  %51 = zext i32 %48 to i64
   %52 = udiv i64 %.1, %51
   %53 = trunc i64 %52 to i32
   store i32 %53, ptr %7, align 4, !tbaa !53
   %54 = tail call i64 @time(ptr noundef null) #15
-  %55 = load i64, ptr %11, align 8, !tbaa !51
+  %55 = load i64, ptr %12, align 8, !tbaa !51
   %56 = sub nsw i64 %54, %55
   %57 = icmp eq i64 %54, %55
   %spec.store.select = select i1 %57, i64 1, i64 %56
-  store i64 %spec.store.select, ptr %11, align 8
+  store i64 %spec.store.select, ptr %12, align 8
   br label %.preheader98
 
-.preheader98:                                     ; preds = %50, %48
+.preheader98:                                     ; preds = %50, %49
   br label %58
 
 58:                                               ; preds = %.preheader98, %70
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %70 ], [ 0, %.preheader98 ]
   %.283 = phi i64 [ %.3, %70 ], [ 0, %.preheader98 ]
-  %59 = getelementptr inbounds nuw %struct.latencySample, ptr %12, i64 %indvars.iv85
+  %59 = getelementptr inbounds nuw %struct.latencySample, ptr %13, i64 %indvars.iv85
   %60 = load i32, ptr %59, align 4, !tbaa !41
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %70, label %62
@@ -423,7 +423,7 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
   br i1 %exitcond88.not, label %71, label %58, !llvm.loop !54
 
 71:                                               ; preds = %70
-  %72 = load i32, ptr %10, align 4, !tbaa !48
+  %72 = load i32, ptr %11, align 4, !tbaa !48
   %.not78 = icmp eq i32 %72, 0
   br i1 %.not78, label %78, label %73
 
@@ -431,7 +431,7 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
   %74 = zext i32 %72 to i64
   %75 = udiv i64 %.3, %74
   %76 = trunc i64 %75 to i32
-  store i32 %76, ptr %49, align 8, !tbaa !55
+  store i32 %76, ptr %10, align 8, !tbaa !55
   br label %78
 
 .critedge:                                        ; preds = %2

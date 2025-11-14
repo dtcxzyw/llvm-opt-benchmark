@@ -417,46 +417,46 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
   %.fr = freeze i64 %5
   %6 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #10
   %7 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #10
-  %8 = icmp sgt i64 %.fr, 0
-  br i1 %8, label %.lr.ph58, label %._crit_edge59
+  %8 = add i64 %.fr, -1
+  %9 = icmp sgt i64 %.fr, 0
+  br i1 %9, label %.lr.ph58, label %._crit_edge59
 
 .lr.ph58:                                         ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.lr.ph58
-  %.04956.us = phi i64 [ 0, %.lr.ph58 ], [ %27, %._crit_edge.us ]
-  %10 = load double, ptr %9, align 8, !tbaa !17
-  %11 = uitofp nneg i64 %.04956.us to double
-  %12 = fmul double %10, %11
-  %13 = mul nuw nsw i64 %.04956.us, %.fr
-  %14 = fsub double 1.000000e+00, %12
-  %15 = getelementptr double, ptr %6, i64 %13
-  br label %16
+  %.04956.us = phi i64 [ 0, %.lr.ph58 ], [ %28, %._crit_edge.us ]
+  %11 = load double, ptr %10, align 8, !tbaa !17
+  %12 = uitofp nneg i64 %.04956.us to double
+  %13 = fmul double %11, %12
+  %14 = mul nuw nsw i64 %.04956.us, %.fr
+  %15 = fsub double 1.000000e+00, %13
+  %16 = getelementptr double, ptr %6, i64 %14
+  br label %17
 
-16:                                               ; preds = %.lr.ph.us, %16
-  %.055.us = phi i64 [ 0, %.lr.ph.us ], [ %26, %16 ]
-  %17 = load double, ptr %9, align 8, !tbaa !17
-  %18 = uitofp nneg i64 %.055.us to double
-  %19 = fmul double %17, %18
-  %20 = fmul double %19, 1.600000e+01
-  %21 = fsub double 1.000000e+00, %19
-  %22 = fmul double %20, %21
-  %23 = fmul double %12, %22
-  %24 = fmul double %14, %23
-  %25 = getelementptr double, ptr %15, i64 %.055.us
-  store double %24, ptr %25, align 8, !tbaa !20
-  %26 = add nuw nsw i64 %.055.us, 1
-  %exitcond.not = icmp eq i64 %26, %.fr
-  br i1 %exitcond.not, label %._crit_edge.us, label %16
+17:                                               ; preds = %.lr.ph.us, %17
+  %.055.us = phi i64 [ 0, %.lr.ph.us ], [ %27, %17 ]
+  %18 = load double, ptr %10, align 8, !tbaa !17
+  %19 = uitofp nneg i64 %.055.us to double
+  %20 = fmul double %18, %19
+  %21 = fmul double %20, 1.600000e+01
+  %22 = fsub double 1.000000e+00, %20
+  %23 = fmul double %21, %22
+  %24 = fmul double %13, %23
+  %25 = fmul double %15, %24
+  %26 = getelementptr double, ptr %16, i64 %.055.us
+  store double %25, ptr %26, align 8, !tbaa !20
+  %27 = add nuw nsw i64 %.055.us, 1
+  %exitcond.not = icmp eq i64 %27, %.fr
+  br i1 %exitcond.not, label %._crit_edge.us, label %17
 
-._crit_edge.us:                                   ; preds = %16
-  %27 = add nuw nsw i64 %.04956.us, 1
-  %exitcond74.not = icmp eq i64 %27, %.fr
+._crit_edge.us:                                   ; preds = %17
+  %28 = add nuw nsw i64 %.04956.us, 1
+  %exitcond74.not = icmp eq i64 %28, %.fr
   br i1 %exitcond74.not, label %._crit_edge59, label %.lr.ph.us
 
 ._crit_edge59:                                    ; preds = %._crit_edge.us, %4
-  %28 = add i64 %.fr, -1
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %2) #10
   %29 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #10
   %30 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #10
@@ -513,7 +513,7 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
 
 resHeat.exit:                                     ; preds = %._crit_edge.us.i, %._crit_edge59
   tail call void @N_VScale(double noundef -1.000000e+00, ptr noundef %3, ptr noundef %2) #10
-  br i1 %8, label %.lr.ph.us66.preheader, label %._crit_edge64
+  br i1 %9, label %.lr.ph.us66.preheader, label %._crit_edge64
 
 .lr.ph.us66.preheader:                            ; preds = %resHeat.exit
   %63 = shl i64 %.fr, 3
@@ -524,14 +524,14 @@ resHeat.exit:                                     ; preds = %._crit_edge.us.i, %
   %64 = mul nuw nsw i64 %.15062.us, %.fr
   %65 = icmp eq i64 %.15062.us, 0
   %66 = getelementptr double, ptr %7, i64 %64
-  %67 = icmp eq i64 %.15062.us, %28
+  %67 = icmp eq i64 %.15062.us, %8
   %or.cond = or i1 %65, %67
   br i1 %or.cond, label %._crit_edge.us69.sink.split, label %.lr.ph.split.split.us70
 
 .lr.ph.split.split.us70:                          ; preds = %.lr.ph.us66, %72
   %.160.us65 = phi i64 [ %73, %72 ], [ 0, %.lr.ph.us66 ]
   %68 = icmp eq i64 %.160.us65, 0
-  %69 = icmp eq i64 %.160.us65, %28
+  %69 = icmp eq i64 %.160.us65, %8
   %or.cond54.us = or i1 %69, %68
   br i1 %or.cond54.us, label %70, label %72
 

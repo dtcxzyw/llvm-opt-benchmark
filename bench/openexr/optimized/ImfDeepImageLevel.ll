@@ -182,17 +182,17 @@ define noundef nonnull align 8 dereferenceable(104) ptr @_ZNK7Imf_3_414DeepImage
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Imf_3_414DeepImageLevelD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN7Imf_3_414DeepImageLevelE, i64 16), ptr %0, align 8, !tbaa !3
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !tbaa !15
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.not4.i = icmp eq ptr %3, %4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %4 = load ptr, ptr %3, align 8, !tbaa !15
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.not4.i = icmp eq ptr %4, %5
   br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %18, %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !14
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7Imf_3_416DeepImageChannelEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7)
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7Imf_3_416DeepImageChannelEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
           to label %_ZN7Imf_3_414DeepImageLevel13clearChannelsEv.exit unwind label %8
 
 8:                                                ; preds = %._crit_edge.i
@@ -203,7 +203,7 @@ define hidden void @_ZN7Imf_3_414DeepImageLevelD2Ev(ptr noundef nonnull align 8 
   unreachable
 
 .lr.ph.i:                                         ; preds = %1, %18
-  %.sroa.01.05.i = phi ptr [ %19, %18 ], [ %3, %1 ]
+  %.sroa.01.05.i = phi ptr [ %19, %18 ], [ %4, %1 ]
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = icmp eq ptr %12, null
@@ -218,20 +218,20 @@ define hidden void @_ZN7Imf_3_414DeepImageLevelD2Ev(ptr noundef nonnull align 8 
 
 18:                                               ; preds = %14, %.lr.ph.i
   %19 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.05.i) #23
-  %.not.i = icmp eq ptr %19, %4
+  %.not.i = icmp eq ptr %19, %5
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !30
 
 _ZN7Imf_3_414DeepImageLevel13clearChannelsEv.exit: ; preds = %._crit_edge.i
   store ptr null, ptr %6, align 8, !tbaa !14
-  store ptr %4, ptr %2, align 8, !tbaa !15
+  store ptr %5, ptr %3, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %4, ptr %20, align 8, !tbaa !16
+  store ptr %5, ptr %20, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %21, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZN7Imf_3_418SampleCountChannelD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %22) #21
   %23 = load ptr, ptr %6, align 8, !tbaa !14
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7Imf_3_416DeepImageChannelEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %23)
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7Imf_3_416DeepImageChannelEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %23)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_416DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit unwind label %24
 
 24:                                               ; preds = %_ZN7Imf_3_414DeepImageLevel13clearChannelsEv.exit
@@ -882,17 +882,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Imf_3_414DeepImageLevel13clearChannelsEv(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !tbaa !15
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.not4 = icmp eq ptr %3, %4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %4 = load ptr, ptr %3, align 8, !tbaa !15
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.not4 = icmp eq ptr %4, %5
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %20, %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !14
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7Imf_3_416DeepImageChannelEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7)
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7Imf_3_416DeepImageChannelEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_416DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEE5clearEv.exit unwind label %8
 
 8:                                                ; preds = %._crit_edge
@@ -904,15 +904,15 @@ define hidden void @_ZN7Imf_3_414DeepImageLevel13clearChannelsEv(ptr noundef non
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_416DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEE5clearEv.exit: ; preds = %._crit_edge
   store ptr null, ptr %6, align 8, !tbaa !14
-  store ptr %4, ptr %2, align 8, !tbaa !15
+  store ptr %5, ptr %3, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %4, ptr %11, align 8, !tbaa !16
+  store ptr %5, ptr %11, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %12, align 8, !tbaa !17
   ret void
 
 .lr.ph:                                           ; preds = %1, %20
-  %.sroa.01.05 = phi ptr [ %21, %20 ], [ %3, %1 ]
+  %.sroa.01.05 = phi ptr [ %21, %20 ], [ %4, %1 ]
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.05, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !24
   %15 = icmp eq ptr %14, null
@@ -927,7 +927,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_416DeepIm
 
 20:                                               ; preds = %.lr.ph, %16
   %21 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.05) #23
-  %.not = icmp eq ptr %21, %4
+  %.not = icmp eq ptr %21, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 }
 

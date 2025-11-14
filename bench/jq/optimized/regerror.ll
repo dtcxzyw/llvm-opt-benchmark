@@ -744,9 +744,9 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 88
   br label %26
 
-26:                                               ; preds = %.lr.ph98, %.loopexit66
-  %.05197 = phi ptr [ %22, %.lr.ph98 ], [ %.4, %.loopexit66 ]
-  %.05396 = phi ptr [ %3, %.lr.ph98 ], [ %.356, %.loopexit66 ]
+26:                                               ; preds = %.lr.ph98, %.loopexit65
+  %.05197 = phi ptr [ %22, %.lr.ph98 ], [ %.4, %.loopexit65 ]
+  %.05396 = phi ptr [ %3, %.lr.ph98 ], [ %.356, %.loopexit65 ]
   %27 = load ptr, ptr %2, align 8, !tbaa !19
   %28 = call i32 %27(ptr noundef %.05396) #9
   %.not = icmp eq i32 %28, 1
@@ -761,10 +761,10 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   br i1 %33, label %.preheader, label %.preheader68
 
 .preheader68:                                     ; preds = %29
-  br i1 %34, label %.lr.ph75, label %.loopexit66
+  br i1 %34, label %.lr.ph75, label %.loopexit65
 
 .preheader:                                       ; preds = %29
-  br i1 %34, label %.lr.ph81, label %.loopexit66
+  br i1 %34, label %.lr.ph81, label %.loopexit65
 
 .lr.ph81:                                         ; preds = %.preheader, %.lr.ph81
   %.15280 = phi ptr [ %38, %.lr.ph81 ], [ %.05197, %.preheader ]
@@ -776,19 +776,19 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   %38 = getelementptr inbounds nuw i8, ptr %.15280, i64 1
   store i8 %37, ptr %.15280, align 1, !tbaa !18
   %39 = icmp samesign ugt i32 %.05878, 1
-  br i1 %39, label %.lr.ph81, label %.loopexit66, !llvm.loop !23
+  br i1 %39, label %.lr.ph81, label %.loopexit65, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph75
   %.3.lcssa = phi ptr [ %.274, %.lr.ph75 ], [ %52, %.lr.ph ]
-  %40 = getelementptr inbounds nuw i8, ptr %.25573, i64 1
-  %41 = icmp samesign ugt i32 %.in, 1
-  br i1 %41, label %.lr.ph75, label %.loopexit66, !llvm.loop !24
+  %40 = icmp samesign ugt i32 %.in, 1
+  br i1 %40, label %.lr.ph75, label %.loopexit65, !llvm.loop !24
 
 .lr.ph75:                                         ; preds = %.preheader68, %.loopexit
-  %.in = phi i32 [ %42, %.loopexit ], [ %31, %.preheader68 ]
+  %.in = phi i32 [ %41, %.loopexit ], [ %31, %.preheader68 ]
   %.274 = phi ptr [ %.3.lcssa, %.loopexit ], [ %.05197, %.preheader68 ]
-  %.25573 = phi ptr [ %40, %.loopexit ], [ %.05396, %.preheader68 ]
-  %42 = add nsw i32 %.in, -1
+  %.25573 = phi ptr [ %42, %.loopexit ], [ %.05396, %.preheader68 ]
+  %41 = add nsw i32 %.in, -1
+  %42 = getelementptr inbounds nuw i8, ptr %.25573, i64 1
   %43 = load i8, ptr %.25573, align 1, !tbaa !18
   %44 = zext i8 %43 to i32
   %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %44) #9
@@ -826,7 +826,7 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   %58 = call i32 %57(ptr noundef nonnull %56) #9
   %.584 = getelementptr inbounds nuw i8, ptr %.05197, i64 1
   %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.lr.ph88, label %.loopexit66
+  br i1 %59, label %.lr.ph88, label %.loopexit65
 
 .lr.ph88:                                         ; preds = %55, %.lr.ph88
   %.587 = phi ptr [ %.5, %.lr.ph88 ], [ %.584, %55 ]
@@ -838,7 +838,7 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   store i8 %62, ptr %.587, align 1, !tbaa !18
   %.5 = getelementptr inbounds nuw i8, ptr %.587, i64 1
   %63 = icmp samesign ugt i32 %.26085, 1
-  br i1 %63, label %.lr.ph88, label %.loopexit66, !llvm.loop !26
+  br i1 %63, label %.lr.ph88, label %.loopexit65, !llvm.loop !26
 
 64:                                               ; preds = %53
   %65 = getelementptr inbounds nuw i8, ptr %.05197, i64 1
@@ -847,14 +847,14 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   %67 = load i8, ptr %.05396, align 1, !tbaa !18
   %68 = getelementptr inbounds nuw i8, ptr %.05197, i64 2
   store i8 %67, ptr %65, align 1, !tbaa !18
-  br label %.loopexit66
+  br label %.loopexit65
 
 69:                                               ; preds = %53
   %70 = zext i8 %54 to i32
   %71 = load ptr, ptr %25, align 8, !tbaa !27
   %72 = call i32 %71(i32 noundef %70, i32 noundef 7) #9
   %.not63 = icmp eq i32 %72, 0
-  br i1 %.not63, label %73, label %89
+  br i1 %.not63, label %73, label %90
 
 73:                                               ; preds = %69
   %74 = load ptr, ptr %25, align 8, !tbaa !27
@@ -862,52 +862,48 @@ define dso_local void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1
   %76 = zext i8 %75 to i32
   %77 = call i32 %74(i32 noundef %76, i32 noundef 9) #9
   %.not64 = icmp eq i32 %77, 0
-  br i1 %.not64, label %78, label %89
+  br i1 %.not64, label %78, label %90
 
 78:                                               ; preds = %73
-  %79 = load i8, ptr %.05396, align 1, !tbaa !18
-  %80 = zext i8 %79 to i32
-  %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %80) #9
-  %82 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %7) #9
-  %83 = icmp sgt i32 %82, 0
-  br i1 %83, label %.lr.ph94.preheader, label %.loopexit65
+  %79 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
+  %80 = load i8, ptr %.05396, align 1, !tbaa !18
+  %81 = zext i8 %80 to i32
+  %82 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %81) #9
+  %83 = call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %7) #9
+  %84 = icmp sgt i32 %83, 0
+  br i1 %84, label %.lr.ph94.preheader, label %.loopexit65
 
 .lr.ph94.preheader:                               ; preds = %78
-  %84 = zext nneg i32 %82 to i64
-  %85 = getelementptr i8, ptr %7, i64 %84
-  %scevgep107 = getelementptr i8, ptr %85, i64 -1
+  %85 = zext nneg i32 %83 to i64
+  %86 = getelementptr i8, ptr %7, i64 %85
+  %scevgep108 = getelementptr i8, ptr %86, i64 -1
   br label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %.lr.ph94.preheader, %.lr.ph94
-  %.193 = phi ptr [ %86, %.lr.ph94 ], [ %7, %.lr.ph94.preheader ]
-  %.692 = phi ptr [ %88, %.lr.ph94 ], [ %.05197, %.lr.ph94.preheader ]
-  %86 = getelementptr inbounds nuw i8, ptr %.193, i64 1
-  %87 = load i8, ptr %.193, align 1, !tbaa !18
-  %88 = getelementptr inbounds nuw i8, ptr %.692, i64 1
-  store i8 %87, ptr %.692, align 1, !tbaa !18
-  %exitcond108.not = icmp eq ptr %.193, %scevgep107
-  br i1 %exitcond108.not, label %.loopexit65, label %.lr.ph94, !llvm.loop !28
+  %.193 = phi ptr [ %87, %.lr.ph94 ], [ %7, %.lr.ph94.preheader ]
+  %.692 = phi ptr [ %89, %.lr.ph94 ], [ %.05197, %.lr.ph94.preheader ]
+  %87 = getelementptr inbounds nuw i8, ptr %.193, i64 1
+  %88 = load i8, ptr %.193, align 1, !tbaa !18
+  %89 = getelementptr inbounds nuw i8, ptr %.692, i64 1
+  store i8 %88, ptr %.692, align 1, !tbaa !18
+  %exitcond109.not = icmp eq ptr %.193, %scevgep108
+  br i1 %exitcond109.not, label %.loopexit65, label %.lr.ph94, !llvm.loop !28
 
-89:                                               ; preds = %73, %69
-  %90 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
-  %91 = load i8, ptr %.05396, align 1, !tbaa !18
-  %92 = getelementptr inbounds nuw i8, ptr %.05197, i64 1
-  store i8 %91, ptr %.05197, align 1, !tbaa !18
-  br label %.loopexit66
+90:                                               ; preds = %73, %69
+  %91 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
+  %92 = load i8, ptr %.05396, align 1, !tbaa !18
+  %93 = getelementptr inbounds nuw i8, ptr %.05197, i64 1
+  store i8 %92, ptr %.05197, align 1, !tbaa !18
+  br label %.loopexit65
 
-.loopexit65:                                      ; preds = %.lr.ph94, %78
-  %.6.lcssa = phi ptr [ %.05197, %78 ], [ %88, %.lr.ph94 ]
-  %93 = getelementptr inbounds nuw i8, ptr %.05396, i64 1
-  br label %.loopexit66
-
-.loopexit66:                                      ; preds = %.loopexit, %.lr.ph81, %.lr.ph88, %.preheader68, %.preheader, %55, %.loopexit65, %89, %64
-  %.356 = phi ptr [ %66, %64 ], [ %90, %89 ], [ %93, %.loopexit65 ], [ %56, %55 ], [ %.05396, %.preheader ], [ %.05396, %.preheader68 ], [ %61, %.lr.ph88 ], [ %36, %.lr.ph81 ], [ %40, %.loopexit ]
-  %.4 = phi ptr [ %68, %64 ], [ %92, %89 ], [ %.6.lcssa, %.loopexit65 ], [ %.584, %55 ], [ %.05197, %.preheader ], [ %.05197, %.preheader68 ], [ %.5, %.lr.ph88 ], [ %38, %.lr.ph81 ], [ %.3.lcssa, %.loopexit ]
+.loopexit65:                                      ; preds = %.loopexit, %.lr.ph81, %.lr.ph88, %.lr.ph94, %.preheader68, %.preheader, %55, %78, %90, %64
+  %.356 = phi ptr [ %66, %64 ], [ %91, %90 ], [ %79, %78 ], [ %56, %55 ], [ %.05396, %.preheader ], [ %.05396, %.preheader68 ], [ %79, %.lr.ph94 ], [ %61, %.lr.ph88 ], [ %36, %.lr.ph81 ], [ %42, %.loopexit ]
+  %.4 = phi ptr [ %68, %64 ], [ %93, %90 ], [ %.05197, %78 ], [ %.584, %55 ], [ %.05197, %.preheader ], [ %.05197, %.preheader68 ], [ %89, %.lr.ph94 ], [ %.5, %.lr.ph88 ], [ %38, %.lr.ph81 ], [ %.3.lcssa, %.loopexit ]
   %94 = icmp ult ptr %.356, %4
   br i1 %94, label %26, label %._crit_edge, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %.loopexit66, %19
-  %.051.lcssa = phi ptr [ %22, %19 ], [ %.4, %.loopexit66 ]
+._crit_edge:                                      ; preds = %.loopexit65, %19
+  %.051.lcssa = phi ptr [ %22, %19 ], [ %.4, %.loopexit65 ]
   %95 = getelementptr inbounds nuw i8, ptr %.051.lcssa, i64 1
   store i8 47, ptr %.051.lcssa, align 1, !tbaa !18
   store i8 0, ptr %95, align 1, !tbaa !18

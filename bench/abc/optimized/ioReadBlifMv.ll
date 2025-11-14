@@ -7016,42 +7016,42 @@ Io_MvSplitIntoTokens.exit:                        ; preds = %36, %Io_MvFindArrow
 .loopexit:                                        ; preds = %44, %Io_MvSplitIntoTokens.exit
   %.074 = phi i32 [ %40, %Io_MvSplitIntoTokens.exit ], [ %.276, %44 ]
   %.071 = phi i32 [ 1, %Io_MvSplitIntoTokens.exit ], [ %.273, %44 ]
-  %51 = sext i32 %.val84 to i64
-  %52 = getelementptr ptr, ptr %.val87, i64 %51
-  %53 = getelementptr i8, ptr %52, i64 -8
-  %54 = load ptr, ptr %53, align 8, !tbaa !36
-  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #21
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
-  br label %57
+  %51 = getelementptr i8, ptr %7, i64 8
+  %52 = sext i32 %.val84 to i64
+  %53 = getelementptr ptr, ptr %.val87, i64 %52
+  %54 = getelementptr i8, ptr %53, i64 -8
+  %55 = load ptr, ptr %54, align 8, !tbaa !36
+  %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #21
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
+  br label %58
 
-57:                                               ; preds = %Io_MvCharIsSpace.exit.thread11.i, %.loopexit
-  %.0.i92 = phi ptr [ %56, %.loopexit ], [ %63, %Io_MvCharIsSpace.exit.thread11.i ]
-  %58 = load i8, ptr %.0.i92, align 1, !tbaa !37
-  switch i8 %58, label %Io_MvCharIsSpace.exit.thread11.i [
-    i8 46, label %59
+58:                                               ; preds = %Io_MvCharIsSpace.exit.thread11.i, %.loopexit
+  %.0.i92 = phi ptr [ %57, %.loopexit ], [ %64, %Io_MvCharIsSpace.exit.thread11.i ]
+  %59 = load i8, ptr %.0.i92, align 1, !tbaa !37
+  switch i8 %59, label %Io_MvCharIsSpace.exit.thread11.i [
+    i8 46, label %60
     i8 32, label %Io_MvCharIsSpace.exit.thread.i93
     i8 13, label %Io_MvCharIsSpace.exit.thread.i93
     i8 9, label %Io_MvCharIsSpace.exit.thread.i93
     i8 10, label %Io_MvCharIsSpace.exit.thread.i93
   ]
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 1
-  %61 = load i8, ptr %60, align 1, !tbaa !37
-  %62 = icmp eq i8 %61, 100
-  br i1 %62, label %Io_MvCharIsSpace.exit.thread11.i, label %Io_MvSplitIntoTokensMv.exit
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 1
+  %62 = load i8, ptr %61, align 1, !tbaa !37
+  %63 = icmp eq i8 %62, 100
+  br i1 %63, label %Io_MvCharIsSpace.exit.thread11.i, label %Io_MvSplitIntoTokensMv.exit
 
-Io_MvCharIsSpace.exit.thread.i93:                 ; preds = %57, %57, %57, %57
+Io_MvCharIsSpace.exit.thread.i93:                 ; preds = %58, %58, %58, %58
   store i8 0, ptr %.0.i92, align 1, !tbaa !37
   br label %Io_MvCharIsSpace.exit.thread11.i
 
-Io_MvCharIsSpace.exit.thread11.i:                 ; preds = %Io_MvCharIsSpace.exit.thread.i93, %59, %57
-  %63 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 1
-  br label %57, !llvm.loop !183
+Io_MvCharIsSpace.exit.thread11.i:                 ; preds = %Io_MvCharIsSpace.exit.thread.i93, %60, %58
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 1
+  br label %58, !llvm.loop !183
 
-Io_MvSplitIntoTokensMv.exit:                      ; preds = %59
-  %64 = getelementptr i8, ptr %7, i64 8
-  tail call fastcc void @Io_MvCollectTokens(ptr noundef %9, ptr noundef nonnull %56, ptr noundef nonnull %.0.i92)
+Io_MvSplitIntoTokensMv.exit:                      ; preds = %60
+  tail call fastcc void @Io_MvCollectTokens(ptr noundef %9, ptr noundef nonnull %57, ptr noundef nonnull %.0.i92)
   %65 = getelementptr i8, ptr %9, i64 8
   %.val86 = load ptr, ptr %65, align 8, !tbaa !10
   %66 = load ptr, ptr %.val86, align 8, !tbaa !36
@@ -7102,7 +7102,7 @@ Io_MvSplitIntoTokensMv.exit:                      ; preds = %59
 
 Io_MvGetLine.exit103:                             ; preds = %87, %75, %.critedge.loopexit.split.loop.exit14.i102
   %.08.i95 = phi i32 [ -1, %75 ], [ %88, %.critedge.loopexit.split.loop.exit14.i102 ], [ -1, %87 ]
-  %89 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) @.str.72, i32 noundef %.08.i95, ptr noundef nonnull %54) #22
+  %89 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) @.str.72, i32 noundef %.08.i95, ptr noundef nonnull %55) #22
   br label %Io_MvParseLineNamesMvOne.exit.thread
 
 90:                                               ; preds = %Io_MvSplitIntoTokensMv.exit
@@ -7134,7 +7134,7 @@ Io_MvGetLine.exit103:                             ; preds = %87, %75, %.critedge
   %.val = load i32, ptr %39, align 4, !tbaa !3
   %100 = sub i32 %.1143, %.071
   %101 = add i32 %100, %.val
-  %.val85 = load ptr, ptr %64, align 8, !tbaa !10
+  %.val85 = load ptr, ptr %51, align 8, !tbaa !10
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds ptr, ptr %.val85, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !36
@@ -7166,7 +7166,7 @@ Io_MvGetLine.exit103:                             ; preds = %87, %75, %.critedge
   %118 = trunc nuw nsw i64 %indvars.iv171 to i32
   %119 = sub i32 %118, %.071
   %120 = add i32 %119, %.val.i104
-  %.val42.i = load ptr, ptr %64, align 8, !tbaa !10
+  %.val42.i = load ptr, ptr %51, align 8, !tbaa !10
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds ptr, ptr %.val42.i, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !36
@@ -7219,7 +7219,7 @@ Io_MvGetLine.exit.i:                              ; preds = %140, %.critedge.loo
   %144 = tail call fastcc ptr @Io_MvParseAddResetCircuit(ptr noundef nonnull readonly %0, ptr noundef %123)
   %145 = load ptr, ptr %93, align 8, !tbaa !65
   %146 = tail call ptr @Abc_ObjName(ptr noundef %144) #22
-  %147 = load ptr, ptr %64, align 8, !tbaa !10
+  %147 = load ptr, ptr %51, align 8, !tbaa !10
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = tail call ptr @Io_ReadCreateNode(ptr noundef %145, ptr noundef %146, ptr noundef nonnull %148, i32 noundef range(i32 -2147483648, 2147483646) %.074) #22
   br label %174
@@ -7270,7 +7270,7 @@ Io_MvGetLine.exit53.i:                            ; preds = %166, %.critedge.loo
 
 169:                                              ; preds = %150
   %170 = load ptr, ptr %93, align 8, !tbaa !65
-  %171 = load ptr, ptr %64, align 8, !tbaa !10
+  %171 = load ptr, ptr %51, align 8, !tbaa !10
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %173 = tail call ptr @Io_ReadCreateNode(ptr noundef %170, ptr noundef %123, ptr noundef nonnull %172, i32 noundef range(i32 -2147483648, 2147483646) %.074) #22
   br label %174

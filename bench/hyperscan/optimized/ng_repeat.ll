@@ -1192,11 +1192,12 @@ _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_
   %243 = load ptr, ptr %242, align 8
   %244 = getelementptr inbounds i8, ptr %243, i64 -16
   %.sroa.030.0.copyload.i = load ptr, ptr %244, align 8
+  %245 = getelementptr inbounds nuw i8, ptr %.sroa.030.0.copyload.i, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, i8 0, i64 24, i1 false)
-  %245 = getelementptr inbounds nuw i8, ptr %.sroa.030.0.copyload.i, i64 136
-  %.sroa.026.041.i = load ptr, ptr %245, align 8
-  %.not42.i = icmp eq ptr %.sroa.026.041.i, %245
+  %246 = getelementptr inbounds nuw i8, ptr %.sroa.030.0.copyload.i, i64 136
+  %.sroa.026.041.i = load ptr, ptr %246, align 8
+  %.not42.i = icmp eq ptr %.sroa.026.041.i, %246
   br i1 %.not42.i, label %.preheader.i, label %.lr.ph.i119
 
 ..preheader_crit_edge.i:                          ; preds = %276
@@ -1206,25 +1207,24 @@ _ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %..preheader_crit_edge.i, %241
-  %246 = phi i64 [ %277, %..preheader_crit_edge.i ], [ 0, %241 ]
-  %247 = phi i64 [ %278, %..preheader_crit_edge.i ], [ 0, %241 ]
-  %248 = phi i64 [ %279, %..preheader_crit_edge.i ], [ 0, %241 ]
+  %247 = phi i64 [ %277, %..preheader_crit_edge.i ], [ 0, %241 ]
+  %248 = phi i64 [ %278, %..preheader_crit_edge.i ], [ 0, %241 ]
+  %249 = phi i64 [ %279, %..preheader_crit_edge.i ], [ 0, %241 ]
   %.lcssa.i = phi i64 [ %280, %..preheader_crit_edge.i ], [ 0, %241 ]
   store i64 %.lcssa.i, ptr %80, align 8
-  br label %249
+  br label %250
 
-249:                                              ; preds = %249, %.preheader.i
-  %.012.idx14.i.i.i = phi i64 [ %.012.add.i.i.i, %249 ], [ 0, %.preheader.i ]
+250:                                              ; preds = %250, %.preheader.i
+  %.012.idx14.i.i.i = phi i64 [ %.012.add.i.i.i, %250 ], [ 0, %.preheader.i ]
   %.012.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %80, i64 %.012.idx14.i.i.i
-  %250 = load i64, ptr %.012.ptr.i.i.i, align 8
-  %.not13.i.i.i = icmp eq i64 %250, 0
+  %251 = load i64, ptr %.012.ptr.i.i.i, align 8
+  %.not13.i.i.i = icmp eq i64 %251, 0
   %.012.add.i.i.i = add nuw nsw i64 %.012.idx14.i.i.i, 8
   %.not.i.i.i = icmp ne i64 %.012.add.i.i.i, 32
   %or.cond.not.i.i.i = select i1 %.not13.i.i.i, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %249, label %_ZNK3ue29CharReach4noneEv.exit.i
+  br i1 %or.cond.not.i.i.i, label %250, label %_ZNK3ue29CharReach4noneEv.exit.i
 
-_ZNK3ue29CharReach4noneEv.exit.i:                 ; preds = %249
-  %251 = getelementptr inbounds nuw i8, ptr %.sroa.030.0.copyload.i, i64 16
+_ZNK3ue29CharReach4noneEv.exit.i:                 ; preds = %250
   br i1 %.not13.i.i.i, label %281, label %282
 
 .lr.ph.i119:                                      ; preds = %241, %276
@@ -1265,11 +1265,11 @@ _ZNK3ue29CharReach4noneEv.exit.i:                 ; preds = %249
   %279 = phi i64 [ %254, %.lr.ph.i119 ], [ %254, %259 ], [ %269, %263 ]
   %280 = phi i64 [ %255, %.lr.ph.i119 ], [ %255, %259 ], [ %266, %263 ]
   %.sroa.026.0.i = load ptr, ptr %.sroa.026.043.i, align 8
-  %.not.i120 = icmp eq ptr %.sroa.026.0.i, %245
+  %.not.i120 = icmp eq ptr %.sroa.026.0.i, %246
   br i1 %.not.i120, label %..preheader_crit_edge.i, label %.lr.ph.i119
 
 281:                                              ; preds = %_ZNK3ue29CharReach4noneEv.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %251, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %245, i64 32, i1 false)
   %.pre.i = load i64, ptr %80, align 8
   %.pre60.i = load i64, ptr %127, align 8
   %.pre62.i = load i64, ptr %128, align 8
@@ -1277,9 +1277,9 @@ _ZNK3ue29CharReach4noneEv.exit.i:                 ; preds = %249
   br label %282
 
 282:                                              ; preds = %281, %_ZNK3ue29CharReach4noneEv.exit.i
-  %283 = phi i64 [ %246, %_ZNK3ue29CharReach4noneEv.exit.i ], [ %.pre64.i, %281 ]
-  %284 = phi i64 [ %247, %_ZNK3ue29CharReach4noneEv.exit.i ], [ %.pre62.i, %281 ]
-  %285 = phi i64 [ %248, %_ZNK3ue29CharReach4noneEv.exit.i ], [ %.pre60.i, %281 ]
+  %283 = phi i64 [ %247, %_ZNK3ue29CharReach4noneEv.exit.i ], [ %.pre64.i, %281 ]
+  %284 = phi i64 [ %248, %_ZNK3ue29CharReach4noneEv.exit.i ], [ %.pre62.i, %281 ]
+  %285 = phi i64 [ %249, %_ZNK3ue29CharReach4noneEv.exit.i ], [ %.pre60.i, %281 ]
   %286 = phi i64 [ %.lcssa.i, %_ZNK3ue29CharReach4noneEv.exit.i ], [ %.pre.i, %281 ]
   %287 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %286)
   %288 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %285)
@@ -1296,7 +1296,7 @@ _ZN3ue2L13repeatIsNastyERKNS_8NGHolderERKNS_12_GLOBAL__N_113ReachSubgraphERKSt13
   br label %_ZN3ue2L13repeatIsNastyERKNS_8NGHolderERKNS_12_GLOBAL__N_113ReachSubgraphERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEENS_14NFAVertexDepthESt4hashISE_ESt8equal_toISE_ESaISt4pairIKSE_SF_EEE.exit.thread
 
 _ZN3ue2L13repeatIsNastyERKNS_8NGHolderERKNS_12_GLOBAL__N_113ReachSubgraphERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEENS_14NFAVertexDepthESt4hashISE_ESt8equal_toISE_ESaISt4pairIKSE_SF_EEE.exit: ; preds = %282
-  %295 = load i64, ptr %251, align 8
+  %295 = load i64, ptr %245, align 8
   %296 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %295)
   %297 = getelementptr inbounds nuw i8, ptr %.sroa.030.0.copyload.i, i64 24
   %298 = load i64, ptr %297, align 8

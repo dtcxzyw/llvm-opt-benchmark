@@ -1877,38 +1877,38 @@ define internal fastcc i64 @ackm_get_pto_time_and_space(ptr noundef readonly cap
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8, !tbaa !29
   call void @ossl_statm_get_rtt_info(ptr noundef %5, ptr noundef nonnull %3) #12
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  br label %7
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %7 = load i64, ptr %6, align 8
+  %8 = load i64, ptr %3, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %10 = load i32, ptr %9, align 8, !tbaa !87
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  br label %12
 
-7:                                                ; preds = %7, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %7 ]
-  %.07.i = phi i64 [ 0, %2 ], [ %10, %7 ]
-  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i
-  %9 = load i64, ptr %8, align 8, !tbaa !3
-  %10 = add i64 %9, %.07.i
+12:                                               ; preds = %12, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %12 ]
+  %.07.i = phi i64 [ 0, %2 ], [ %15, %12 ]
+  %13 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i
+  %14 = load i64, ptr %13, align 8, !tbaa !3
+  %15 = add i64 %14, %.07.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %ackm_ack_eliciting_bytes_in_flight.exit, label %7, !llvm.loop !54
+  br i1 %exitcond.not.i, label %ackm_ack_eliciting_bytes_in_flight.exit, label %12, !llvm.loop !54
 
-ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp ugt i64 %12, 4611686018427387903
-  %14 = shl i64 %12, 2
-  %15 = call i64 @llvm.umax.i64(i64 %14, i64 1000000)
-  %16 = load i64, ptr %3, align 8
-  %17 = call i64 @llvm.uadd.sat.i64(i64 %16, i64 %15)
-  %.sroa.03.0.i = select i1 %13, i64 -1, i64 %17
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %19 = load i32, ptr %18, align 8, !tbaa !87
-  %20 = call noundef range(i32 0, 17) i32 @llvm.umin.i32(i32 %19, i32 16)
+ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %12
+  %16 = icmp ugt i64 %7, 4611686018427387903
+  %17 = shl i64 %7, 2
+  %18 = call i64 @llvm.umax.i64(i64 %17, i64 1000000)
+  %19 = call i64 @llvm.uadd.sat.i64(i64 %8, i64 %18)
+  %.sroa.03.0.i = select i1 %16, i64 -1, i64 %19
+  %20 = call noundef range(i32 0, 17) i32 @llvm.umin.i32(i32 %10, i32 16)
   %21 = zext nneg i32 %20 to i64
   %22 = shl nuw nsw i64 1, %21
   %23 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.03.0.i, i64 %22)
   %24 = extractvalue { i64, i1 } %23, 1
   %25 = extractvalue { i64, i1 } %23, 0
   %.sroa.02.0.i40 = select i1 %24, i64 -1, i64 %25
-  %26 = icmp eq i64 %10, 0
+  %26 = icmp eq i64 %15, 0
   br i1 %26, label %30, label %.preheader
 
 .preheader:                                       ; preds = %ackm_ack_eliciting_bytes_in_flight.exit
@@ -1936,7 +1936,7 @@ ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %7
   %.sroa.018.049 = phi i64 [ %.sroa.02.0.i40, %.preheader ], [ %.sroa.018.1, %59 ]
   %.sroa.017.048 = phi i64 [ -1, %.preheader ], [ %.sroa.017.1, %59 ]
   %.047 = phi i32 [ 0, %.preheader ], [ %.1, %59 ]
-  %40 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
   %41 = load i64, ptr %40, align 8, !tbaa !3
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %59, label %43

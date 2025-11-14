@@ -431,463 +431,463 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %88
   %105 = load ptr, ptr %104, align 8, !tbaa !38
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !27
-  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, ptr noundef %107, i32 noundef %.09.i.i, i32 noundef %.0155548.i) #11
+  %108 = add nsw i32 %.0155548.i, 1
+  %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, ptr noundef %107, i32 noundef %.09.i.i, i32 noundef %.0155548.i) #11
   %fputc175.i = tail call i32 @fputc(i32 40, ptr nonnull %0)
-  %109 = getelementptr i8, ptr %105, i64 40
-  %.val179538.i = load ptr, ptr %109, align 8, !tbaa !43
-  %110 = getelementptr i8, ptr %.val179538.i, i64 4
-  %.val179.val539.i = load i32, ptr %110, align 4, !tbaa !32
-  %111 = icmp sgt i32 %.val179.val539.i, 0
-  br i1 %111, label %.lr.ph.i61, label %.critedge2.preheader.i
+  %110 = getelementptr i8, ptr %105, i64 40
+  %.val179538.i = load ptr, ptr %110, align 8, !tbaa !43
+  %111 = getelementptr i8, ptr %.val179538.i, i64 4
+  %.val179.val539.i = load i32, ptr %111, align 4, !tbaa !32
+  %112 = icmp sgt i32 %.val179.val539.i, 0
+  br i1 %112, label %.lr.ph.i61, label %.critedge2.preheader.i
 
 .lr.ph.i61:                                       ; preds = %103
-  %112 = getelementptr i8, ptr %100, i64 32
-  br label %117
+  %113 = getelementptr i8, ptr %100, i64 32
+  br label %118
 
 .critedge2.preheader.i:                           ; preds = %Io_WriteVerilogGetName.exit259.i, %103
-  %113 = getelementptr i8, ptr %105, i64 48
-  %.val194542.i = load ptr, ptr %113, align 8, !tbaa !44
-  %114 = getelementptr i8, ptr %.val194542.i, i64 4
-  %.val194.val543.i = load i32, ptr %114, align 4, !tbaa !32
-  %115 = icmp sgt i32 %.val194.val543.i, 0
-  br i1 %115, label %.lr.ph546.i, label %.critedge4.i
+  %114 = getelementptr i8, ptr %105, i64 48
+  %.val194542.i = load ptr, ptr %114, align 8, !tbaa !44
+  %115 = getelementptr i8, ptr %.val194542.i, i64 4
+  %.val194.val543.i = load i32, ptr %115, align 4, !tbaa !32
+  %116 = icmp sgt i32 %.val194.val543.i, 0
+  br i1 %116, label %.lr.ph546.i, label %.critedge4.i
 
 .lr.ph546.i:                                      ; preds = %.critedge2.preheader.i
-  %116 = getelementptr i8, ptr %100, i64 48
-  br label %197
+  %117 = getelementptr i8, ptr %100, i64 48
+  br label %198
 
-117:                                              ; preds = %Io_WriteVerilogGetName.exit259.i, %.lr.ph.i61
+118:                                              ; preds = %Io_WriteVerilogGetName.exit259.i, %.lr.ph.i61
   %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i61 ], [ %indvars.iv.next.i63, %Io_WriteVerilogGetName.exit259.i ]
   %.val179541.i = phi ptr [ %.val179538.i, %.lr.ph.i61 ], [ %.val179.i, %Io_WriteVerilogGetName.exit259.i ]
-  %118 = getelementptr i8, ptr %.val179541.i, i64 8
-  %.val180.val.i = load ptr, ptr %118, align 8, !tbaa !34
-  %119 = getelementptr inbounds nuw ptr, ptr %.val180.val.i, i64 %indvars.iv.i62
-  %120 = load ptr, ptr %119, align 8, !tbaa !35
-  %.val191.i = load ptr, ptr %120, align 8, !tbaa !47
-  %121 = getelementptr i8, ptr %120, i64 48
-  %.val192.i = load ptr, ptr %121, align 8, !tbaa !50
-  %122 = getelementptr i8, ptr %.val191.i, i64 32
-  %.val191.val.i = load ptr, ptr %122, align 8, !tbaa !51
+  %119 = getelementptr i8, ptr %.val179541.i, i64 8
+  %.val180.val.i = load ptr, ptr %119, align 8, !tbaa !34
+  %120 = getelementptr inbounds nuw ptr, ptr %.val180.val.i, i64 %indvars.iv.i62
+  %121 = load ptr, ptr %120, align 8, !tbaa !35
+  %.val191.i = load ptr, ptr %121, align 8, !tbaa !47
+  %122 = getelementptr i8, ptr %121, i64 48
+  %.val192.i = load ptr, ptr %122, align 8, !tbaa !50
+  %123 = getelementptr i8, ptr %.val191.i, i64 32
+  %.val191.val.i = load ptr, ptr %123, align 8, !tbaa !51
   %.val192.val.i = load i32, ptr %.val192.i, align 4, !tbaa !41
-  %123 = getelementptr i8, ptr %.val191.val.i, i64 8
-  %.val191.val.val.i = load ptr, ptr %123, align 8, !tbaa !34
-  %124 = sext i32 %.val192.val.i to i64
-  %125 = getelementptr inbounds ptr, ptr %.val191.val.val.i, i64 %124
-  %126 = load ptr, ptr %125, align 8, !tbaa !35
-  %127 = tail call ptr @Abc_ObjName(ptr noundef %126) #11
-  %128 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %127) #12
-  %129 = trunc i64 %128 to i32
-  %130 = load i8, ptr %127, align 1, !tbaa !38
-  %131 = add i8 %130, -58
-  %or.cond.i.i = icmp ult i8 %131, -10
-  br i1 %or.cond.i.i, label %.preheader.i.i, label %143
+  %124 = getelementptr i8, ptr %.val191.val.i, i64 8
+  %.val191.val.val.i = load ptr, ptr %124, align 8, !tbaa !34
+  %125 = sext i32 %.val192.val.i to i64
+  %126 = getelementptr inbounds ptr, ptr %.val191.val.val.i, i64 %125
+  %127 = load ptr, ptr %126, align 8, !tbaa !35
+  %128 = tail call ptr @Abc_ObjName(ptr noundef %127) #11
+  %129 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %128) #12
+  %130 = trunc i64 %129 to i32
+  %131 = load i8, ptr %128, align 1, !tbaa !38
+  %132 = add i8 %131, -58
+  %or.cond.i.i = icmp ult i8 %132, -10
+  br i1 %or.cond.i.i, label %.preheader.i.i, label %144
 
-.preheader.i.i:                                   ; preds = %117
-  %132 = icmp sgt i32 %129, 0
-  br i1 %132, label %.lr.ph.preheader.i233.i, label %._crit_edge.i.i
+.preheader.i.i:                                   ; preds = %118
+  %133 = icmp sgt i32 %130, 0
+  br i1 %133, label %.lr.ph.preheader.i233.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i233.i:                          ; preds = %.preheader.i.i
-  %wide.trip.count.i.i = and i64 %128, 2147483647
+  %wide.trip.count.i.i = and i64 %129, 2147483647
   br label %.lr.ph.i234.i
 
-.lr.ph.i234.i:                                    ; preds = %140, %.lr.ph.preheader.i233.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i233.i ], [ %indvars.iv.next.i.i, %140 ]
-  %133 = getelementptr inbounds nuw i8, ptr %127, i64 %indvars.iv.i.i
-  %134 = load i8, ptr %133, align 1, !tbaa !38
-  %135 = and i8 %134, -33
-  %136 = add i8 %135, -65
-  %or.cond42.i.i = icmp ult i8 %136, 26
-  br i1 %or.cond42.i.i, label %140, label %137
+.lr.ph.i234.i:                                    ; preds = %141, %.lr.ph.preheader.i233.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i233.i ], [ %indvars.iv.next.i.i, %141 ]
+  %134 = getelementptr inbounds nuw i8, ptr %128, i64 %indvars.iv.i.i
+  %135 = load i8, ptr %134, align 1, !tbaa !38
+  %136 = and i8 %135, -33
+  %137 = add i8 %136, -65
+  %or.cond42.i.i = icmp ult i8 %137, 26
+  br i1 %or.cond42.i.i, label %141, label %138
 
-137:                                              ; preds = %.lr.ph.i234.i
-  %138 = add i8 %134, -48
-  %or.cond40.i.i = icmp ult i8 %138, 10
-  %139 = icmp eq i8 %134, 95
-  %or.cond41.i.i = or i1 %139, %or.cond40.i.i
-  br i1 %or.cond41.i.i, label %140, label %._crit_edge.loopexit.i.i
+138:                                              ; preds = %.lr.ph.i234.i
+  %139 = add i8 %135, -48
+  %or.cond40.i.i = icmp ult i8 %139, 10
+  %140 = icmp eq i8 %135, 95
+  %or.cond41.i.i = or i1 %140, %or.cond40.i.i
+  br i1 %or.cond41.i.i, label %141, label %._crit_edge.loopexit.i.i
 
-140:                                              ; preds = %137, %.lr.ph.i234.i
+141:                                              ; preds = %138, %.lr.ph.i234.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %Io_WriteVerilogGetName.exit.i, label %.lr.ph.i234.i, !llvm.loop !39
 
-._crit_edge.loopexit.i.i:                         ; preds = %137
-  %141 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+._crit_edge.loopexit.i.i:                         ; preds = %138
+  %142 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
-  %.031.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %141, %._crit_edge.loopexit.i.i ]
-  %142 = icmp eq i32 %.031.lcssa.i.i, %129
-  br i1 %142, label %Io_WriteVerilogGetName.exit.i, label %143
+  %.031.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %142, %._crit_edge.loopexit.i.i ]
+  %143 = icmp eq i32 %.031.lcssa.i.i, %130
+  br i1 %143, label %Io_WriteVerilogGetName.exit.i, label %144
 
-143:                                              ; preds = %._crit_edge.i.i, %117
+144:                                              ; preds = %._crit_edge.i.i, %118
   store i8 92, ptr @Io_WriteVerilogGetName.Buffer, align 16, !tbaa !38
-  %144 = icmp sgt i32 %129, 0
-  br i1 %144, label %.lr.ph48.preheader.i.i, label %._crit_edge49.i.i
+  %145 = icmp sgt i32 %130, 0
+  br i1 %145, label %.lr.ph48.preheader.i.i, label %._crit_edge49.i.i
 
-.lr.ph48.preheader.i.i:                           ; preds = %143
-  %wide.trip.count54.i.i = and i64 %128, 2147483647
+.lr.ph48.preheader.i.i:                           ; preds = %144
+  %wide.trip.count54.i.i = and i64 %129, 2147483647
   br label %.lr.ph48.i.i
 
 .lr.ph48.i.i:                                     ; preds = %.lr.ph48.i.i, %.lr.ph48.preheader.i.i
   %indvars.iv51.i.i = phi i64 [ 0, %.lr.ph48.preheader.i.i ], [ %indvars.iv.next52.i.i, %.lr.ph48.i.i ]
-  %145 = getelementptr inbounds nuw i8, ptr %127, i64 %indvars.iv51.i.i
-  %146 = load i8, ptr %145, align 1, !tbaa !38
+  %146 = getelementptr inbounds nuw i8, ptr %128, i64 %indvars.iv51.i.i
+  %147 = load i8, ptr %146, align 1, !tbaa !38
   %indvars.iv.next52.i.i = add nuw nsw i64 %indvars.iv51.i.i, 1
-  %147 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i.i
-  store i8 %146, ptr %147, align 1, !tbaa !38
+  %148 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i.i
+  store i8 %147, ptr %148, align 1, !tbaa !38
   %exitcond55.not.i.i = icmp eq i64 %indvars.iv.next52.i.i, %wide.trip.count54.i.i
   br i1 %exitcond55.not.i.i, label %._crit_edge49.i.i, label %.lr.ph48.i.i, !llvm.loop !40
 
-._crit_edge49.i.i:                                ; preds = %.lr.ph48.i.i, %143
-  %148 = shl i64 %128, 32
-  %sext.i.i = add i64 %148, 4294967296
-  %149 = ashr exact i64 %sext.i.i, 32
-  %150 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %149
-  store i8 32, ptr %150, align 1, !tbaa !38
-  %sext37.i.i = add i64 %148, 8589934592
-  %151 = ashr exact i64 %sext37.i.i, 32
-  %152 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %151
-  store i8 0, ptr %152, align 1, !tbaa !38
+._crit_edge49.i.i:                                ; preds = %.lr.ph48.i.i, %144
+  %149 = shl i64 %129, 32
+  %sext.i.i = add i64 %149, 4294967296
+  %150 = ashr exact i64 %sext.i.i, 32
+  %151 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %150
+  store i8 32, ptr %151, align 1, !tbaa !38
+  %sext37.i.i = add i64 %149, 8589934592
+  %152 = ashr exact i64 %sext37.i.i, 32
+  %153 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %152
+  store i8 0, ptr %153, align 1, !tbaa !38
   br label %Io_WriteVerilogGetName.exit.i
 
-Io_WriteVerilogGetName.exit.i:                    ; preds = %140, %._crit_edge49.i.i, %._crit_edge.i.i
-  %.0.i.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i.i ], [ %127, %._crit_edge.i.i ], [ %127, %140 ]
-  %153 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i.i) #11
+Io_WriteVerilogGetName.exit.i:                    ; preds = %141, %._crit_edge49.i.i, %._crit_edge.i.i
+  %.0.i.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i.i ], [ %128, %._crit_edge.i.i ], [ %128, %141 ]
+  %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i.i) #11
   %.val228.i = load ptr, ptr %100, align 8, !tbaa !47
-  %.val229.i = load ptr, ptr %112, align 8, !tbaa !52
-  %154 = getelementptr i8, ptr %.val228.i, i64 32
-  %.val228.val.i = load ptr, ptr %154, align 8, !tbaa !51
-  %155 = getelementptr i8, ptr %.val228.val.i, i64 8
-  %.val228.val.val.i = load ptr, ptr %155, align 8, !tbaa !34
-  %156 = getelementptr inbounds nuw i32, ptr %.val229.i, i64 %indvars.iv.i62
-  %157 = load i32, ptr %156, align 4, !tbaa !41
-  %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds ptr, ptr %.val228.val.val.i, i64 %158
-  %160 = load ptr, ptr %159, align 8, !tbaa !35
-  %.val202.i = load ptr, ptr %160, align 8, !tbaa !47
-  %161 = getelementptr i8, ptr %160, i64 32
-  %.val203.i = load ptr, ptr %161, align 8, !tbaa !52
-  %162 = getelementptr i8, ptr %.val202.i, i64 32
-  %.val202.val.i = load ptr, ptr %162, align 8, !tbaa !51
+  %.val229.i = load ptr, ptr %113, align 8, !tbaa !52
+  %155 = getelementptr i8, ptr %.val228.i, i64 32
+  %.val228.val.i = load ptr, ptr %155, align 8, !tbaa !51
+  %156 = getelementptr i8, ptr %.val228.val.i, i64 8
+  %.val228.val.val.i = load ptr, ptr %156, align 8, !tbaa !34
+  %157 = getelementptr inbounds nuw i32, ptr %.val229.i, i64 %indvars.iv.i62
+  %158 = load i32, ptr %157, align 4, !tbaa !41
+  %159 = sext i32 %158 to i64
+  %160 = getelementptr inbounds ptr, ptr %.val228.val.val.i, i64 %159
+  %161 = load ptr, ptr %160, align 8, !tbaa !35
+  %.val202.i = load ptr, ptr %161, align 8, !tbaa !47
+  %162 = getelementptr i8, ptr %161, i64 32
+  %.val203.i = load ptr, ptr %162, align 8, !tbaa !52
+  %163 = getelementptr i8, ptr %.val202.i, i64 32
+  %.val202.val.i = load ptr, ptr %163, align 8, !tbaa !51
   %.val203.val.i = load i32, ptr %.val203.i, align 4, !tbaa !41
-  %163 = getelementptr i8, ptr %.val202.val.i, i64 8
-  %.val202.val.val.i = load ptr, ptr %163, align 8, !tbaa !34
-  %164 = sext i32 %.val203.val.i to i64
-  %165 = getelementptr inbounds ptr, ptr %.val202.val.val.i, i64 %164
-  %166 = load ptr, ptr %165, align 8, !tbaa !35
-  %167 = tail call ptr @Abc_ObjName(ptr noundef %166) #11
-  %168 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %167) #12
-  %169 = trunc i64 %168 to i32
-  %170 = load i8, ptr %167, align 1, !tbaa !38
-  %171 = add i8 %170, -58
-  %or.cond.i235.i = icmp ult i8 %171, -10
-  br i1 %or.cond.i235.i, label %.preheader.i246.i, label %183
+  %164 = getelementptr i8, ptr %.val202.val.i, i64 8
+  %.val202.val.val.i = load ptr, ptr %164, align 8, !tbaa !34
+  %165 = sext i32 %.val203.val.i to i64
+  %166 = getelementptr inbounds ptr, ptr %.val202.val.val.i, i64 %165
+  %167 = load ptr, ptr %166, align 8, !tbaa !35
+  %168 = tail call ptr @Abc_ObjName(ptr noundef %167) #11
+  %169 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %168) #12
+  %170 = trunc i64 %169 to i32
+  %171 = load i8, ptr %168, align 1, !tbaa !38
+  %172 = add i8 %171, -58
+  %or.cond.i235.i = icmp ult i8 %172, -10
+  br i1 %or.cond.i235.i, label %.preheader.i246.i, label %184
 
 .preheader.i246.i:                                ; preds = %Io_WriteVerilogGetName.exit.i
-  %172 = icmp sgt i32 %169, 0
-  br i1 %172, label %.lr.ph.preheader.i249.i, label %._crit_edge.i247.i
+  %173 = icmp sgt i32 %170, 0
+  br i1 %173, label %.lr.ph.preheader.i249.i, label %._crit_edge.i247.i
 
 .lr.ph.preheader.i249.i:                          ; preds = %.preheader.i246.i
-  %wide.trip.count.i250.i = and i64 %168, 2147483647
+  %wide.trip.count.i250.i = and i64 %169, 2147483647
   br label %.lr.ph.i251.i
 
-.lr.ph.i251.i:                                    ; preds = %180, %.lr.ph.preheader.i249.i
-  %indvars.iv.i252.i = phi i64 [ 0, %.lr.ph.preheader.i249.i ], [ %indvars.iv.next.i257.i, %180 ]
-  %173 = getelementptr inbounds nuw i8, ptr %167, i64 %indvars.iv.i252.i
-  %174 = load i8, ptr %173, align 1, !tbaa !38
-  %175 = and i8 %174, -33
-  %176 = add i8 %175, -65
-  %or.cond42.i253.i = icmp ult i8 %176, 26
-  br i1 %or.cond42.i253.i, label %180, label %177
+.lr.ph.i251.i:                                    ; preds = %181, %.lr.ph.preheader.i249.i
+  %indvars.iv.i252.i = phi i64 [ 0, %.lr.ph.preheader.i249.i ], [ %indvars.iv.next.i257.i, %181 ]
+  %174 = getelementptr inbounds nuw i8, ptr %168, i64 %indvars.iv.i252.i
+  %175 = load i8, ptr %174, align 1, !tbaa !38
+  %176 = and i8 %175, -33
+  %177 = add i8 %176, -65
+  %or.cond42.i253.i = icmp ult i8 %177, 26
+  br i1 %or.cond42.i253.i, label %181, label %178
 
-177:                                              ; preds = %.lr.ph.i251.i
-  %178 = add i8 %174, -48
-  %or.cond40.i254.i = icmp ult i8 %178, 10
-  %179 = icmp eq i8 %174, 95
-  %or.cond41.i255.i = or i1 %179, %or.cond40.i254.i
-  br i1 %or.cond41.i255.i, label %180, label %._crit_edge.loopexit.i256.i
+178:                                              ; preds = %.lr.ph.i251.i
+  %179 = add i8 %175, -48
+  %or.cond40.i254.i = icmp ult i8 %179, 10
+  %180 = icmp eq i8 %175, 95
+  %or.cond41.i255.i = or i1 %180, %or.cond40.i254.i
+  br i1 %or.cond41.i255.i, label %181, label %._crit_edge.loopexit.i256.i
 
-180:                                              ; preds = %177, %.lr.ph.i251.i
+181:                                              ; preds = %178, %.lr.ph.i251.i
   %indvars.iv.next.i257.i = add nuw nsw i64 %indvars.iv.i252.i, 1
   %exitcond.not.i258.i = icmp eq i64 %indvars.iv.next.i257.i, %wide.trip.count.i250.i
   br i1 %exitcond.not.i258.i, label %Io_WriteVerilogGetName.exit259.i, label %.lr.ph.i251.i, !llvm.loop !39
 
-._crit_edge.loopexit.i256.i:                      ; preds = %177
-  %181 = trunc nuw nsw i64 %indvars.iv.i252.i to i32
+._crit_edge.loopexit.i256.i:                      ; preds = %178
+  %182 = trunc nuw nsw i64 %indvars.iv.i252.i to i32
   br label %._crit_edge.i247.i
 
 ._crit_edge.i247.i:                               ; preds = %._crit_edge.loopexit.i256.i, %.preheader.i246.i
-  %.031.lcssa.i248.i = phi i32 [ 0, %.preheader.i246.i ], [ %181, %._crit_edge.loopexit.i256.i ]
-  %182 = icmp eq i32 %.031.lcssa.i248.i, %169
-  br i1 %182, label %Io_WriteVerilogGetName.exit259.i, label %183
+  %.031.lcssa.i248.i = phi i32 [ 0, %.preheader.i246.i ], [ %182, %._crit_edge.loopexit.i256.i ]
+  %183 = icmp eq i32 %.031.lcssa.i248.i, %170
+  br i1 %183, label %Io_WriteVerilogGetName.exit259.i, label %184
 
-183:                                              ; preds = %._crit_edge.i247.i, %Io_WriteVerilogGetName.exit.i
+184:                                              ; preds = %._crit_edge.i247.i, %Io_WriteVerilogGetName.exit.i
   store i8 92, ptr @Io_WriteVerilogGetName.Buffer, align 16, !tbaa !38
-  %184 = icmp sgt i32 %169, 0
-  br i1 %184, label %.lr.ph48.preheader.i240.i, label %._crit_edge49.i236.i
+  %185 = icmp sgt i32 %170, 0
+  br i1 %185, label %.lr.ph48.preheader.i240.i, label %._crit_edge49.i236.i
 
-.lr.ph48.preheader.i240.i:                        ; preds = %183
-  %wide.trip.count54.i241.i = and i64 %168, 2147483647
+.lr.ph48.preheader.i240.i:                        ; preds = %184
+  %wide.trip.count54.i241.i = and i64 %169, 2147483647
   br label %.lr.ph48.i242.i
 
 .lr.ph48.i242.i:                                  ; preds = %.lr.ph48.i242.i, %.lr.ph48.preheader.i240.i
   %indvars.iv51.i243.i = phi i64 [ 0, %.lr.ph48.preheader.i240.i ], [ %indvars.iv.next52.i244.i, %.lr.ph48.i242.i ]
-  %185 = getelementptr inbounds nuw i8, ptr %167, i64 %indvars.iv51.i243.i
-  %186 = load i8, ptr %185, align 1, !tbaa !38
+  %186 = getelementptr inbounds nuw i8, ptr %168, i64 %indvars.iv51.i243.i
+  %187 = load i8, ptr %186, align 1, !tbaa !38
   %indvars.iv.next52.i244.i = add nuw nsw i64 %indvars.iv51.i243.i, 1
-  %187 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i244.i
-  store i8 %186, ptr %187, align 1, !tbaa !38
+  %188 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i244.i
+  store i8 %187, ptr %188, align 1, !tbaa !38
   %exitcond55.not.i245.i = icmp eq i64 %indvars.iv.next52.i244.i, %wide.trip.count54.i241.i
   br i1 %exitcond55.not.i245.i, label %._crit_edge49.i236.i, label %.lr.ph48.i242.i, !llvm.loop !40
 
-._crit_edge49.i236.i:                             ; preds = %.lr.ph48.i242.i, %183
-  %188 = shl i64 %168, 32
-  %sext.i237.i = add i64 %188, 4294967296
-  %189 = ashr exact i64 %sext.i237.i, 32
-  %190 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %189
-  store i8 32, ptr %190, align 1, !tbaa !38
-  %sext37.i238.i = add i64 %188, 8589934592
-  %191 = ashr exact i64 %sext37.i238.i, 32
-  %192 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %191
-  store i8 0, ptr %192, align 1, !tbaa !38
+._crit_edge49.i236.i:                             ; preds = %.lr.ph48.i242.i, %184
+  %189 = shl i64 %169, 32
+  %sext.i237.i = add i64 %189, 4294967296
+  %190 = ashr exact i64 %sext.i237.i, 32
+  %191 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %190
+  store i8 32, ptr %191, align 1, !tbaa !38
+  %sext37.i238.i = add i64 %189, 8589934592
+  %192 = ashr exact i64 %sext37.i238.i, 32
+  %193 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %192
+  store i8 0, ptr %193, align 1, !tbaa !38
   br label %Io_WriteVerilogGetName.exit259.i
 
-Io_WriteVerilogGetName.exit259.i:                 ; preds = %180, %._crit_edge49.i236.i, %._crit_edge.i247.i
-  %.0.i239.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i236.i ], [ %167, %._crit_edge.i247.i ], [ %167, %180 ]
-  %193 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0.i239.i) #11
+Io_WriteVerilogGetName.exit259.i:                 ; preds = %181, %._crit_edge49.i236.i, %._crit_edge.i247.i
+  %.0.i239.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i236.i ], [ %168, %._crit_edge.i247.i ], [ %168, %181 ]
+  %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0.i239.i) #11
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
-  %.val179.i = load ptr, ptr %109, align 8, !tbaa !43
-  %194 = getelementptr i8, ptr %.val179.i, i64 4
-  %.val179.val.i = load i32, ptr %194, align 4, !tbaa !32
-  %195 = sext i32 %.val179.val.i to i64
-  %196 = icmp slt i64 %indvars.iv.next.i63, %195
-  br i1 %196, label %117, label %.critedge2.preheader.i, !llvm.loop !53
+  %.val179.i = load ptr, ptr %110, align 8, !tbaa !43
+  %195 = getelementptr i8, ptr %.val179.i, i64 4
+  %.val179.val.i = load i32, ptr %195, align 4, !tbaa !32
+  %196 = sext i32 %.val179.val.i to i64
+  %197 = icmp slt i64 %indvars.iv.next.i63, %196
+  br i1 %197, label %118, label %.critedge2.preheader.i, !llvm.loop !53
 
-197:                                              ; preds = %Io_WriteVerilogGetName.exit309.i, %.lr.ph546.i
+198:                                              ; preds = %Io_WriteVerilogGetName.exit309.i, %.lr.ph546.i
   %indvars.iv582.i = phi i64 [ 0, %.lr.ph546.i ], [ %indvars.iv.next583.i, %Io_WriteVerilogGetName.exit309.i ]
   %.val194545.i = phi ptr [ %.val194542.i, %.lr.ph546.i ], [ %.val194.i, %Io_WriteVerilogGetName.exit309.i ]
-  %198 = getelementptr i8, ptr %.val194545.i, i64 8
-  %.val195.val.i = load ptr, ptr %198, align 8, !tbaa !34
-  %199 = getelementptr inbounds nuw ptr, ptr %.val195.val.i, i64 %indvars.iv582.i
-  %200 = load ptr, ptr %199, align 8, !tbaa !35
-  %.val200.i = load ptr, ptr %200, align 8, !tbaa !47
-  %201 = getelementptr i8, ptr %200, i64 32
-  %.val201.i = load ptr, ptr %201, align 8, !tbaa !52
-  %202 = getelementptr i8, ptr %.val200.i, i64 32
-  %.val200.val.i = load ptr, ptr %202, align 8, !tbaa !51
+  %199 = getelementptr i8, ptr %.val194545.i, i64 8
+  %.val195.val.i = load ptr, ptr %199, align 8, !tbaa !34
+  %200 = getelementptr inbounds nuw ptr, ptr %.val195.val.i, i64 %indvars.iv582.i
+  %201 = load ptr, ptr %200, align 8, !tbaa !35
+  %.val200.i = load ptr, ptr %201, align 8, !tbaa !47
+  %202 = getelementptr i8, ptr %201, i64 32
+  %.val201.i = load ptr, ptr %202, align 8, !tbaa !52
+  %203 = getelementptr i8, ptr %.val200.i, i64 32
+  %.val200.val.i = load ptr, ptr %203, align 8, !tbaa !51
   %.val201.val.i = load i32, ptr %.val201.i, align 4, !tbaa !41
-  %203 = getelementptr i8, ptr %.val200.val.i, i64 8
-  %.val200.val.val.i = load ptr, ptr %203, align 8, !tbaa !34
-  %204 = sext i32 %.val201.val.i to i64
-  %205 = getelementptr inbounds ptr, ptr %.val200.val.val.i, i64 %204
-  %206 = load ptr, ptr %205, align 8, !tbaa !35
-  %207 = tail call ptr @Abc_ObjName(ptr noundef %206) #11
-  %208 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %207) #12
-  %209 = trunc i64 %208 to i32
-  %210 = load i8, ptr %207, align 1, !tbaa !38
-  %211 = add i8 %210, -58
-  %or.cond.i260.i = icmp ult i8 %211, -10
-  br i1 %or.cond.i260.i, label %.preheader.i271.i, label %223
+  %204 = getelementptr i8, ptr %.val200.val.i, i64 8
+  %.val200.val.val.i = load ptr, ptr %204, align 8, !tbaa !34
+  %205 = sext i32 %.val201.val.i to i64
+  %206 = getelementptr inbounds ptr, ptr %.val200.val.val.i, i64 %205
+  %207 = load ptr, ptr %206, align 8, !tbaa !35
+  %208 = tail call ptr @Abc_ObjName(ptr noundef %207) #11
+  %209 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %208) #12
+  %210 = trunc i64 %209 to i32
+  %211 = load i8, ptr %208, align 1, !tbaa !38
+  %212 = add i8 %211, -58
+  %or.cond.i260.i = icmp ult i8 %212, -10
+  br i1 %or.cond.i260.i, label %.preheader.i271.i, label %224
 
-.preheader.i271.i:                                ; preds = %197
-  %212 = icmp sgt i32 %209, 0
-  br i1 %212, label %.lr.ph.preheader.i274.i, label %._crit_edge.i272.i
+.preheader.i271.i:                                ; preds = %198
+  %213 = icmp sgt i32 %210, 0
+  br i1 %213, label %.lr.ph.preheader.i274.i, label %._crit_edge.i272.i
 
 .lr.ph.preheader.i274.i:                          ; preds = %.preheader.i271.i
-  %wide.trip.count.i275.i = and i64 %208, 2147483647
+  %wide.trip.count.i275.i = and i64 %209, 2147483647
   br label %.lr.ph.i276.i
 
-.lr.ph.i276.i:                                    ; preds = %220, %.lr.ph.preheader.i274.i
-  %indvars.iv.i277.i = phi i64 [ 0, %.lr.ph.preheader.i274.i ], [ %indvars.iv.next.i282.i, %220 ]
-  %213 = getelementptr inbounds nuw i8, ptr %207, i64 %indvars.iv.i277.i
-  %214 = load i8, ptr %213, align 1, !tbaa !38
-  %215 = and i8 %214, -33
-  %216 = add i8 %215, -65
-  %or.cond42.i278.i = icmp ult i8 %216, 26
-  br i1 %or.cond42.i278.i, label %220, label %217
+.lr.ph.i276.i:                                    ; preds = %221, %.lr.ph.preheader.i274.i
+  %indvars.iv.i277.i = phi i64 [ 0, %.lr.ph.preheader.i274.i ], [ %indvars.iv.next.i282.i, %221 ]
+  %214 = getelementptr inbounds nuw i8, ptr %208, i64 %indvars.iv.i277.i
+  %215 = load i8, ptr %214, align 1, !tbaa !38
+  %216 = and i8 %215, -33
+  %217 = add i8 %216, -65
+  %or.cond42.i278.i = icmp ult i8 %217, 26
+  br i1 %or.cond42.i278.i, label %221, label %218
 
-217:                                              ; preds = %.lr.ph.i276.i
-  %218 = add i8 %214, -48
-  %or.cond40.i279.i = icmp ult i8 %218, 10
-  %219 = icmp eq i8 %214, 95
-  %or.cond41.i280.i = or i1 %219, %or.cond40.i279.i
-  br i1 %or.cond41.i280.i, label %220, label %._crit_edge.loopexit.i281.i
+218:                                              ; preds = %.lr.ph.i276.i
+  %219 = add i8 %215, -48
+  %or.cond40.i279.i = icmp ult i8 %219, 10
+  %220 = icmp eq i8 %215, 95
+  %or.cond41.i280.i = or i1 %220, %or.cond40.i279.i
+  br i1 %or.cond41.i280.i, label %221, label %._crit_edge.loopexit.i281.i
 
-220:                                              ; preds = %217, %.lr.ph.i276.i
+221:                                              ; preds = %218, %.lr.ph.i276.i
   %indvars.iv.next.i282.i = add nuw nsw i64 %indvars.iv.i277.i, 1
   %exitcond.not.i283.i = icmp eq i64 %indvars.iv.next.i282.i, %wide.trip.count.i275.i
   br i1 %exitcond.not.i283.i, label %Io_WriteVerilogGetName.exit284.i, label %.lr.ph.i276.i, !llvm.loop !39
 
-._crit_edge.loopexit.i281.i:                      ; preds = %217
-  %221 = trunc nuw nsw i64 %indvars.iv.i277.i to i32
+._crit_edge.loopexit.i281.i:                      ; preds = %218
+  %222 = trunc nuw nsw i64 %indvars.iv.i277.i to i32
   br label %._crit_edge.i272.i
 
 ._crit_edge.i272.i:                               ; preds = %._crit_edge.loopexit.i281.i, %.preheader.i271.i
-  %.031.lcssa.i273.i = phi i32 [ 0, %.preheader.i271.i ], [ %221, %._crit_edge.loopexit.i281.i ]
-  %222 = icmp eq i32 %.031.lcssa.i273.i, %209
-  br i1 %222, label %Io_WriteVerilogGetName.exit284.i, label %223
+  %.031.lcssa.i273.i = phi i32 [ 0, %.preheader.i271.i ], [ %222, %._crit_edge.loopexit.i281.i ]
+  %223 = icmp eq i32 %.031.lcssa.i273.i, %210
+  br i1 %223, label %Io_WriteVerilogGetName.exit284.i, label %224
 
-223:                                              ; preds = %._crit_edge.i272.i, %197
+224:                                              ; preds = %._crit_edge.i272.i, %198
   store i8 92, ptr @Io_WriteVerilogGetName.Buffer, align 16, !tbaa !38
-  %224 = icmp sgt i32 %209, 0
-  br i1 %224, label %.lr.ph48.preheader.i265.i, label %._crit_edge49.i261.i
+  %225 = icmp sgt i32 %210, 0
+  br i1 %225, label %.lr.ph48.preheader.i265.i, label %._crit_edge49.i261.i
 
-.lr.ph48.preheader.i265.i:                        ; preds = %223
-  %wide.trip.count54.i266.i = and i64 %208, 2147483647
+.lr.ph48.preheader.i265.i:                        ; preds = %224
+  %wide.trip.count54.i266.i = and i64 %209, 2147483647
   br label %.lr.ph48.i267.i
 
 .lr.ph48.i267.i:                                  ; preds = %.lr.ph48.i267.i, %.lr.ph48.preheader.i265.i
   %indvars.iv51.i268.i = phi i64 [ 0, %.lr.ph48.preheader.i265.i ], [ %indvars.iv.next52.i269.i, %.lr.ph48.i267.i ]
-  %225 = getelementptr inbounds nuw i8, ptr %207, i64 %indvars.iv51.i268.i
-  %226 = load i8, ptr %225, align 1, !tbaa !38
+  %226 = getelementptr inbounds nuw i8, ptr %208, i64 %indvars.iv51.i268.i
+  %227 = load i8, ptr %226, align 1, !tbaa !38
   %indvars.iv.next52.i269.i = add nuw nsw i64 %indvars.iv51.i268.i, 1
-  %227 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i269.i
-  store i8 %226, ptr %227, align 1, !tbaa !38
+  %228 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i269.i
+  store i8 %227, ptr %228, align 1, !tbaa !38
   %exitcond55.not.i270.i = icmp eq i64 %indvars.iv.next52.i269.i, %wide.trip.count54.i266.i
   br i1 %exitcond55.not.i270.i, label %._crit_edge49.i261.i, label %.lr.ph48.i267.i, !llvm.loop !40
 
-._crit_edge49.i261.i:                             ; preds = %.lr.ph48.i267.i, %223
-  %228 = shl i64 %208, 32
-  %sext.i262.i = add i64 %228, 4294967296
-  %229 = ashr exact i64 %sext.i262.i, 32
-  %230 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %229
-  store i8 32, ptr %230, align 1, !tbaa !38
-  %sext37.i263.i = add i64 %228, 8589934592
-  %231 = ashr exact i64 %sext37.i263.i, 32
-  %232 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %231
-  store i8 0, ptr %232, align 1, !tbaa !38
+._crit_edge49.i261.i:                             ; preds = %.lr.ph48.i267.i, %224
+  %229 = shl i64 %209, 32
+  %sext.i262.i = add i64 %229, 4294967296
+  %230 = ashr exact i64 %sext.i262.i, 32
+  %231 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %230
+  store i8 32, ptr %231, align 1, !tbaa !38
+  %sext37.i263.i = add i64 %229, 8589934592
+  %232 = ashr exact i64 %sext37.i263.i, 32
+  %233 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %232
+  store i8 0, ptr %233, align 1, !tbaa !38
   br label %Io_WriteVerilogGetName.exit284.i
 
-Io_WriteVerilogGetName.exit284.i:                 ; preds = %220, %._crit_edge49.i261.i, %._crit_edge.i272.i
-  %.0.i264.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i261.i ], [ %207, %._crit_edge.i272.i ], [ %207, %220 ]
-  %233 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i264.i) #11
+Io_WriteVerilogGetName.exit284.i:                 ; preds = %221, %._crit_edge49.i261.i, %._crit_edge.i272.i
+  %.0.i264.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i261.i ], [ %208, %._crit_edge.i272.i ], [ %208, %221 ]
+  %234 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i264.i) #11
   %.val216.i = load ptr, ptr %100, align 8, !tbaa !47
-  %.val217.i = load ptr, ptr %116, align 8, !tbaa !50
-  %234 = getelementptr i8, ptr %.val216.i, i64 32
-  %.val216.val.i = load ptr, ptr %234, align 8, !tbaa !51
-  %235 = getelementptr i8, ptr %.val216.val.i, i64 8
-  %.val216.val.val.i = load ptr, ptr %235, align 8, !tbaa !34
-  %236 = getelementptr inbounds nuw i32, ptr %.val217.i, i64 %indvars.iv582.i
-  %237 = load i32, ptr %236, align 4, !tbaa !41
-  %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds ptr, ptr %.val216.val.val.i, i64 %238
-  %240 = load ptr, ptr %239, align 8, !tbaa !35
-  %.val189.i = load ptr, ptr %240, align 8, !tbaa !47
-  %241 = getelementptr i8, ptr %240, i64 48
-  %.val190.i = load ptr, ptr %241, align 8, !tbaa !50
-  %242 = getelementptr i8, ptr %.val189.i, i64 32
-  %.val189.val.i = load ptr, ptr %242, align 8, !tbaa !51
+  %.val217.i = load ptr, ptr %117, align 8, !tbaa !50
+  %235 = getelementptr i8, ptr %.val216.i, i64 32
+  %.val216.val.i = load ptr, ptr %235, align 8, !tbaa !51
+  %236 = getelementptr i8, ptr %.val216.val.i, i64 8
+  %.val216.val.val.i = load ptr, ptr %236, align 8, !tbaa !34
+  %237 = getelementptr inbounds nuw i32, ptr %.val217.i, i64 %indvars.iv582.i
+  %238 = load i32, ptr %237, align 4, !tbaa !41
+  %239 = sext i32 %238 to i64
+  %240 = getelementptr inbounds ptr, ptr %.val216.val.val.i, i64 %239
+  %241 = load ptr, ptr %240, align 8, !tbaa !35
+  %.val189.i = load ptr, ptr %241, align 8, !tbaa !47
+  %242 = getelementptr i8, ptr %241, i64 48
+  %.val190.i = load ptr, ptr %242, align 8, !tbaa !50
+  %243 = getelementptr i8, ptr %.val189.i, i64 32
+  %.val189.val.i = load ptr, ptr %243, align 8, !tbaa !51
   %.val190.val.i = load i32, ptr %.val190.i, align 4, !tbaa !41
-  %243 = getelementptr i8, ptr %.val189.val.i, i64 8
-  %.val189.val.val.i = load ptr, ptr %243, align 8, !tbaa !34
-  %244 = sext i32 %.val190.val.i to i64
-  %245 = getelementptr inbounds ptr, ptr %.val189.val.val.i, i64 %244
-  %246 = load ptr, ptr %245, align 8, !tbaa !35
-  %247 = tail call ptr @Abc_ObjName(ptr noundef %246) #11
-  %248 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %247) #12
-  %249 = trunc i64 %248 to i32
-  %250 = load i8, ptr %247, align 1, !tbaa !38
-  %251 = add i8 %250, -58
-  %or.cond.i285.i = icmp ult i8 %251, -10
-  br i1 %or.cond.i285.i, label %.preheader.i296.i, label %263
+  %244 = getelementptr i8, ptr %.val189.val.i, i64 8
+  %.val189.val.val.i = load ptr, ptr %244, align 8, !tbaa !34
+  %245 = sext i32 %.val190.val.i to i64
+  %246 = getelementptr inbounds ptr, ptr %.val189.val.val.i, i64 %245
+  %247 = load ptr, ptr %246, align 8, !tbaa !35
+  %248 = tail call ptr @Abc_ObjName(ptr noundef %247) #11
+  %249 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %248) #12
+  %250 = trunc i64 %249 to i32
+  %251 = load i8, ptr %248, align 1, !tbaa !38
+  %252 = add i8 %251, -58
+  %or.cond.i285.i = icmp ult i8 %252, -10
+  br i1 %or.cond.i285.i, label %.preheader.i296.i, label %264
 
 .preheader.i296.i:                                ; preds = %Io_WriteVerilogGetName.exit284.i
-  %252 = icmp sgt i32 %249, 0
-  br i1 %252, label %.lr.ph.preheader.i299.i, label %._crit_edge.i297.i
+  %253 = icmp sgt i32 %250, 0
+  br i1 %253, label %.lr.ph.preheader.i299.i, label %._crit_edge.i297.i
 
 .lr.ph.preheader.i299.i:                          ; preds = %.preheader.i296.i
-  %wide.trip.count.i300.i = and i64 %248, 2147483647
+  %wide.trip.count.i300.i = and i64 %249, 2147483647
   br label %.lr.ph.i301.i
 
-.lr.ph.i301.i:                                    ; preds = %260, %.lr.ph.preheader.i299.i
-  %indvars.iv.i302.i = phi i64 [ 0, %.lr.ph.preheader.i299.i ], [ %indvars.iv.next.i307.i, %260 ]
-  %253 = getelementptr inbounds nuw i8, ptr %247, i64 %indvars.iv.i302.i
-  %254 = load i8, ptr %253, align 1, !tbaa !38
-  %255 = and i8 %254, -33
-  %256 = add i8 %255, -65
-  %or.cond42.i303.i = icmp ult i8 %256, 26
-  br i1 %or.cond42.i303.i, label %260, label %257
+.lr.ph.i301.i:                                    ; preds = %261, %.lr.ph.preheader.i299.i
+  %indvars.iv.i302.i = phi i64 [ 0, %.lr.ph.preheader.i299.i ], [ %indvars.iv.next.i307.i, %261 ]
+  %254 = getelementptr inbounds nuw i8, ptr %248, i64 %indvars.iv.i302.i
+  %255 = load i8, ptr %254, align 1, !tbaa !38
+  %256 = and i8 %255, -33
+  %257 = add i8 %256, -65
+  %or.cond42.i303.i = icmp ult i8 %257, 26
+  br i1 %or.cond42.i303.i, label %261, label %258
 
-257:                                              ; preds = %.lr.ph.i301.i
-  %258 = add i8 %254, -48
-  %or.cond40.i304.i = icmp ult i8 %258, 10
-  %259 = icmp eq i8 %254, 95
-  %or.cond41.i305.i = or i1 %259, %or.cond40.i304.i
-  br i1 %or.cond41.i305.i, label %260, label %._crit_edge.loopexit.i306.i
+258:                                              ; preds = %.lr.ph.i301.i
+  %259 = add i8 %255, -48
+  %or.cond40.i304.i = icmp ult i8 %259, 10
+  %260 = icmp eq i8 %255, 95
+  %or.cond41.i305.i = or i1 %260, %or.cond40.i304.i
+  br i1 %or.cond41.i305.i, label %261, label %._crit_edge.loopexit.i306.i
 
-260:                                              ; preds = %257, %.lr.ph.i301.i
+261:                                              ; preds = %258, %.lr.ph.i301.i
   %indvars.iv.next.i307.i = add nuw nsw i64 %indvars.iv.i302.i, 1
   %exitcond.not.i308.i = icmp eq i64 %indvars.iv.next.i307.i, %wide.trip.count.i300.i
   br i1 %exitcond.not.i308.i, label %Io_WriteVerilogGetName.exit309.i, label %.lr.ph.i301.i, !llvm.loop !39
 
-._crit_edge.loopexit.i306.i:                      ; preds = %257
-  %261 = trunc nuw nsw i64 %indvars.iv.i302.i to i32
+._crit_edge.loopexit.i306.i:                      ; preds = %258
+  %262 = trunc nuw nsw i64 %indvars.iv.i302.i to i32
   br label %._crit_edge.i297.i
 
 ._crit_edge.i297.i:                               ; preds = %._crit_edge.loopexit.i306.i, %.preheader.i296.i
-  %.031.lcssa.i298.i = phi i32 [ 0, %.preheader.i296.i ], [ %261, %._crit_edge.loopexit.i306.i ]
-  %262 = icmp eq i32 %.031.lcssa.i298.i, %249
-  br i1 %262, label %Io_WriteVerilogGetName.exit309.i, label %263
+  %.031.lcssa.i298.i = phi i32 [ 0, %.preheader.i296.i ], [ %262, %._crit_edge.loopexit.i306.i ]
+  %263 = icmp eq i32 %.031.lcssa.i298.i, %250
+  br i1 %263, label %Io_WriteVerilogGetName.exit309.i, label %264
 
-263:                                              ; preds = %._crit_edge.i297.i, %Io_WriteVerilogGetName.exit284.i
+264:                                              ; preds = %._crit_edge.i297.i, %Io_WriteVerilogGetName.exit284.i
   store i8 92, ptr @Io_WriteVerilogGetName.Buffer, align 16, !tbaa !38
-  %264 = icmp sgt i32 %249, 0
-  br i1 %264, label %.lr.ph48.preheader.i290.i, label %._crit_edge49.i286.i
+  %265 = icmp sgt i32 %250, 0
+  br i1 %265, label %.lr.ph48.preheader.i290.i, label %._crit_edge49.i286.i
 
-.lr.ph48.preheader.i290.i:                        ; preds = %263
-  %wide.trip.count54.i291.i = and i64 %248, 2147483647
+.lr.ph48.preheader.i290.i:                        ; preds = %264
+  %wide.trip.count54.i291.i = and i64 %249, 2147483647
   br label %.lr.ph48.i292.i
 
 .lr.ph48.i292.i:                                  ; preds = %.lr.ph48.i292.i, %.lr.ph48.preheader.i290.i
   %indvars.iv51.i293.i = phi i64 [ 0, %.lr.ph48.preheader.i290.i ], [ %indvars.iv.next52.i294.i, %.lr.ph48.i292.i ]
-  %265 = getelementptr inbounds nuw i8, ptr %247, i64 %indvars.iv51.i293.i
-  %266 = load i8, ptr %265, align 1, !tbaa !38
+  %266 = getelementptr inbounds nuw i8, ptr %248, i64 %indvars.iv51.i293.i
+  %267 = load i8, ptr %266, align 1, !tbaa !38
   %indvars.iv.next52.i294.i = add nuw nsw i64 %indvars.iv51.i293.i, 1
-  %267 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i294.i
-  store i8 %266, ptr %267, align 1, !tbaa !38
+  %268 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i294.i
+  store i8 %267, ptr %268, align 1, !tbaa !38
   %exitcond55.not.i295.i = icmp eq i64 %indvars.iv.next52.i294.i, %wide.trip.count54.i291.i
   br i1 %exitcond55.not.i295.i, label %._crit_edge49.i286.i, label %.lr.ph48.i292.i, !llvm.loop !40
 
-._crit_edge49.i286.i:                             ; preds = %.lr.ph48.i292.i, %263
-  %268 = shl i64 %248, 32
-  %sext.i287.i = add i64 %268, 4294967296
-  %269 = ashr exact i64 %sext.i287.i, 32
-  %270 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %269
-  store i8 32, ptr %270, align 1, !tbaa !38
-  %sext37.i288.i = add i64 %268, 8589934592
-  %271 = ashr exact i64 %sext37.i288.i, 32
-  %272 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %271
-  store i8 0, ptr %272, align 1, !tbaa !38
+._crit_edge49.i286.i:                             ; preds = %.lr.ph48.i292.i, %264
+  %269 = shl i64 %249, 32
+  %sext.i287.i = add i64 %269, 4294967296
+  %270 = ashr exact i64 %sext.i287.i, 32
+  %271 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %270
+  store i8 32, ptr %271, align 1, !tbaa !38
+  %sext37.i288.i = add i64 %269, 8589934592
+  %272 = ashr exact i64 %sext37.i288.i, 32
+  %273 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %272
+  store i8 0, ptr %273, align 1, !tbaa !38
   br label %Io_WriteVerilogGetName.exit309.i
 
-Io_WriteVerilogGetName.exit309.i:                 ; preds = %260, %._crit_edge49.i286.i, %._crit_edge.i297.i
-  %.0.i289.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i286.i ], [ %247, %._crit_edge.i297.i ], [ %247, %260 ]
-  %.val193.i = load ptr, ptr %113, align 8, !tbaa !44
-  %273 = getelementptr i8, ptr %.val193.i, i64 4
-  %.val193.val.i = load i32, ptr %273, align 4, !tbaa !32
-  %274 = add nsw i32 %.val193.val.i, -1
-  %275 = zext i32 %274 to i64
-  %276 = icmp eq i64 %indvars.iv582.i, %275
-  %277 = select i1 %276, ptr @.str.27, ptr @.str.28
-  %278 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %.0.i289.i, ptr noundef nonnull %277) #11
+Io_WriteVerilogGetName.exit309.i:                 ; preds = %261, %._crit_edge49.i286.i, %._crit_edge.i297.i
+  %.0.i289.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i286.i ], [ %248, %._crit_edge.i297.i ], [ %248, %261 ]
+  %.val193.i = load ptr, ptr %114, align 8, !tbaa !44
+  %274 = getelementptr i8, ptr %.val193.i, i64 4
+  %.val193.val.i = load i32, ptr %274, align 4, !tbaa !32
+  %275 = add nsw i32 %.val193.val.i, -1
+  %276 = zext i32 %275 to i64
+  %277 = icmp eq i64 %indvars.iv582.i, %276
+  %278 = select i1 %277, ptr @.str.27, ptr @.str.28
+  %279 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %.0.i289.i, ptr noundef nonnull %278) #11
   %indvars.iv.next583.i = add nuw nsw i64 %indvars.iv582.i, 1
-  %.val194.i = load ptr, ptr %113, align 8, !tbaa !44
-  %279 = getelementptr i8, ptr %.val194.i, i64 4
-  %.val194.val.i = load i32, ptr %279, align 4, !tbaa !32
-  %280 = sext i32 %.val194.val.i to i64
-  %281 = icmp slt i64 %indvars.iv.next583.i, %280
-  br i1 %281, label %197, label %.critedge4.i, !llvm.loop !54
+  %.val194.i = load ptr, ptr %114, align 8, !tbaa !44
+  %280 = getelementptr i8, ptr %.val194.i, i64 4
+  %.val194.val.i = load i32, ptr %280, align 4, !tbaa !32
+  %281 = sext i32 %.val194.val.i to i64
+  %282 = icmp slt i64 %indvars.iv.next583.i, %281
+  br i1 %282, label %198, label %.critedge4.i, !llvm.loop !54
 
 .critedge4.i:                                     ; preds = %Io_WriteVerilogGetName.exit309.i, %.critedge2.preheader.i
-  %282 = add nsw i32 %.0155548.i, 1
   %283 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 3, i64 1, ptr nonnull %0)
   %.pre.i = load ptr, ptr %89, align 8, !tbaa !45
   br label %284
 
 284:                                              ; preds = %.critedge4.i, %.lr.ph550.i
   %285 = phi ptr [ %97, %.lr.ph550.i ], [ %.pre.i, %.critedge4.i ]
-  %.1156.i = phi i32 [ %.0155548.i, %.lr.ph550.i ], [ %282, %.critedge4.i ]
+  %.1156.i = phi i32 [ %.0155548.i, %.lr.ph550.i ], [ %108, %.critedge4.i ]
   %indvars.iv.next586.i = add nuw nsw i64 %indvars.iv585.i, 1
   %286 = getelementptr i8, ptr %285, i64 4
   %.val178.i = load i32, ptr %286, align 4, !tbaa !32
@@ -1068,197 +1068,197 @@ Io_WriteVerilogGetName.exit341.i:                 ; preds = %341, %._crit_edge49
 
 358:                                              ; preds = %318, %310
   %359 = tail call ptr @Mio_GateReadName(ptr noundef %312) #11
-  %360 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.68, i32 noundef %292, ptr noundef %359, i32 noundef %.09.i315.i, i32 noundef %.2157565.i) #11
+  %360 = add nsw i32 %.2157565.i, 1
+  %361 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.68, i32 noundef %292, ptr noundef %359, i32 noundef %.09.i315.i, i32 noundef %.2157565.i) #11
   %fputc.i = tail call i32 @fputc(i32 40, ptr nonnull %0)
-  %361 = tail call ptr @Mio_GateReadPins(ptr noundef %312) #11
-  %.not173560.i = icmp eq ptr %361, null
+  %362 = tail call ptr @Mio_GateReadPins(ptr noundef %312) #11
+  %.not173560.i = icmp eq ptr %362, null
   br i1 %.not173560.i, label %._crit_edge.i60, label %.lr.ph563.i
 
 .lr.ph563.i:                                      ; preds = %358
-  %362 = getelementptr i8, ptr %305, i64 32
-  br label %363
+  %363 = getelementptr i8, ptr %305, i64 32
+  br label %364
 
-363:                                              ; preds = %Io_WriteVerilogGetName.exit391.i, %.lr.ph563.i
+364:                                              ; preds = %Io_WriteVerilogGetName.exit391.i, %.lr.ph563.i
   %indvars.iv594.i = phi i64 [ 0, %.lr.ph563.i ], [ %indvars.iv.next595.i, %Io_WriteVerilogGetName.exit391.i ]
-  %.1562.i = phi ptr [ %361, %.lr.ph563.i ], [ %425, %Io_WriteVerilogGetName.exit391.i ]
-  %364 = tail call ptr @Mio_PinReadName(ptr noundef nonnull %.1562.i) #11
-  %365 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %364) #12
-  %366 = trunc i64 %365 to i32
-  %367 = load i8, ptr %364, align 1, !tbaa !38
-  %368 = add i8 %367, -58
-  %or.cond.i342.i = icmp ult i8 %368, -10
-  br i1 %or.cond.i342.i, label %.preheader.i353.i, label %380
+  %.1562.i = phi ptr [ %362, %.lr.ph563.i ], [ %426, %Io_WriteVerilogGetName.exit391.i ]
+  %365 = tail call ptr @Mio_PinReadName(ptr noundef nonnull %.1562.i) #11
+  %366 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %365) #12
+  %367 = trunc i64 %366 to i32
+  %368 = load i8, ptr %365, align 1, !tbaa !38
+  %369 = add i8 %368, -58
+  %or.cond.i342.i = icmp ult i8 %369, -10
+  br i1 %or.cond.i342.i, label %.preheader.i353.i, label %381
 
-.preheader.i353.i:                                ; preds = %363
-  %369 = icmp sgt i32 %366, 0
-  br i1 %369, label %.lr.ph.preheader.i356.i, label %._crit_edge.i354.i
+.preheader.i353.i:                                ; preds = %364
+  %370 = icmp sgt i32 %367, 0
+  br i1 %370, label %.lr.ph.preheader.i356.i, label %._crit_edge.i354.i
 
 .lr.ph.preheader.i356.i:                          ; preds = %.preheader.i353.i
-  %wide.trip.count.i357.i = and i64 %365, 2147483647
+  %wide.trip.count.i357.i = and i64 %366, 2147483647
   br label %.lr.ph.i358.i
 
-.lr.ph.i358.i:                                    ; preds = %377, %.lr.ph.preheader.i356.i
-  %indvars.iv.i359.i = phi i64 [ 0, %.lr.ph.preheader.i356.i ], [ %indvars.iv.next.i364.i, %377 ]
-  %370 = getelementptr inbounds nuw i8, ptr %364, i64 %indvars.iv.i359.i
-  %371 = load i8, ptr %370, align 1, !tbaa !38
-  %372 = and i8 %371, -33
-  %373 = add i8 %372, -65
-  %or.cond42.i360.i = icmp ult i8 %373, 26
-  br i1 %or.cond42.i360.i, label %377, label %374
+.lr.ph.i358.i:                                    ; preds = %378, %.lr.ph.preheader.i356.i
+  %indvars.iv.i359.i = phi i64 [ 0, %.lr.ph.preheader.i356.i ], [ %indvars.iv.next.i364.i, %378 ]
+  %371 = getelementptr inbounds nuw i8, ptr %365, i64 %indvars.iv.i359.i
+  %372 = load i8, ptr %371, align 1, !tbaa !38
+  %373 = and i8 %372, -33
+  %374 = add i8 %373, -65
+  %or.cond42.i360.i = icmp ult i8 %374, 26
+  br i1 %or.cond42.i360.i, label %378, label %375
 
-374:                                              ; preds = %.lr.ph.i358.i
-  %375 = add i8 %371, -48
-  %or.cond40.i361.i = icmp ult i8 %375, 10
-  %376 = icmp eq i8 %371, 95
-  %or.cond41.i362.i = or i1 %376, %or.cond40.i361.i
-  br i1 %or.cond41.i362.i, label %377, label %._crit_edge.loopexit.i363.i
+375:                                              ; preds = %.lr.ph.i358.i
+  %376 = add i8 %372, -48
+  %or.cond40.i361.i = icmp ult i8 %376, 10
+  %377 = icmp eq i8 %372, 95
+  %or.cond41.i362.i = or i1 %377, %or.cond40.i361.i
+  br i1 %or.cond41.i362.i, label %378, label %._crit_edge.loopexit.i363.i
 
-377:                                              ; preds = %374, %.lr.ph.i358.i
+378:                                              ; preds = %375, %.lr.ph.i358.i
   %indvars.iv.next.i364.i = add nuw nsw i64 %indvars.iv.i359.i, 1
   %exitcond.not.i365.i = icmp eq i64 %indvars.iv.next.i364.i, %wide.trip.count.i357.i
   br i1 %exitcond.not.i365.i, label %Io_WriteVerilogGetName.exit366.i, label %.lr.ph.i358.i, !llvm.loop !39
 
-._crit_edge.loopexit.i363.i:                      ; preds = %374
-  %378 = trunc nuw nsw i64 %indvars.iv.i359.i to i32
+._crit_edge.loopexit.i363.i:                      ; preds = %375
+  %379 = trunc nuw nsw i64 %indvars.iv.i359.i to i32
   br label %._crit_edge.i354.i
 
 ._crit_edge.i354.i:                               ; preds = %._crit_edge.loopexit.i363.i, %.preheader.i353.i
-  %.031.lcssa.i355.i = phi i32 [ 0, %.preheader.i353.i ], [ %378, %._crit_edge.loopexit.i363.i ]
-  %379 = icmp eq i32 %.031.lcssa.i355.i, %366
-  br i1 %379, label %Io_WriteVerilogGetName.exit366.i, label %380
+  %.031.lcssa.i355.i = phi i32 [ 0, %.preheader.i353.i ], [ %379, %._crit_edge.loopexit.i363.i ]
+  %380 = icmp eq i32 %.031.lcssa.i355.i, %367
+  br i1 %380, label %Io_WriteVerilogGetName.exit366.i, label %381
 
-380:                                              ; preds = %._crit_edge.i354.i, %363
+381:                                              ; preds = %._crit_edge.i354.i, %364
   store i8 92, ptr @Io_WriteVerilogGetName.Buffer, align 16, !tbaa !38
-  %381 = icmp sgt i32 %366, 0
-  br i1 %381, label %.lr.ph48.preheader.i347.i, label %._crit_edge49.i343.i
+  %382 = icmp sgt i32 %367, 0
+  br i1 %382, label %.lr.ph48.preheader.i347.i, label %._crit_edge49.i343.i
 
-.lr.ph48.preheader.i347.i:                        ; preds = %380
-  %wide.trip.count54.i348.i = and i64 %365, 2147483647
+.lr.ph48.preheader.i347.i:                        ; preds = %381
+  %wide.trip.count54.i348.i = and i64 %366, 2147483647
   br label %.lr.ph48.i349.i
 
 .lr.ph48.i349.i:                                  ; preds = %.lr.ph48.i349.i, %.lr.ph48.preheader.i347.i
   %indvars.iv51.i350.i = phi i64 [ 0, %.lr.ph48.preheader.i347.i ], [ %indvars.iv.next52.i351.i, %.lr.ph48.i349.i ]
-  %382 = getelementptr inbounds nuw i8, ptr %364, i64 %indvars.iv51.i350.i
-  %383 = load i8, ptr %382, align 1, !tbaa !38
+  %383 = getelementptr inbounds nuw i8, ptr %365, i64 %indvars.iv51.i350.i
+  %384 = load i8, ptr %383, align 1, !tbaa !38
   %indvars.iv.next52.i351.i = add nuw nsw i64 %indvars.iv51.i350.i, 1
-  %384 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i351.i
-  store i8 %383, ptr %384, align 1, !tbaa !38
+  %385 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i351.i
+  store i8 %384, ptr %385, align 1, !tbaa !38
   %exitcond55.not.i352.i = icmp eq i64 %indvars.iv.next52.i351.i, %wide.trip.count54.i348.i
   br i1 %exitcond55.not.i352.i, label %._crit_edge49.i343.i, label %.lr.ph48.i349.i, !llvm.loop !40
 
-._crit_edge49.i343.i:                             ; preds = %.lr.ph48.i349.i, %380
-  %385 = shl i64 %365, 32
-  %sext.i344.i = add i64 %385, 4294967296
-  %386 = ashr exact i64 %sext.i344.i, 32
-  %387 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %386
-  store i8 32, ptr %387, align 1, !tbaa !38
-  %sext37.i345.i = add i64 %385, 8589934592
-  %388 = ashr exact i64 %sext37.i345.i, 32
-  %389 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %388
-  store i8 0, ptr %389, align 1, !tbaa !38
+._crit_edge49.i343.i:                             ; preds = %.lr.ph48.i349.i, %381
+  %386 = shl i64 %366, 32
+  %sext.i344.i = add i64 %386, 4294967296
+  %387 = ashr exact i64 %sext.i344.i, 32
+  %388 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %387
+  store i8 32, ptr %388, align 1, !tbaa !38
+  %sext37.i345.i = add i64 %386, 8589934592
+  %389 = ashr exact i64 %sext37.i345.i, 32
+  %390 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %389
+  store i8 0, ptr %390, align 1, !tbaa !38
   br label %Io_WriteVerilogGetName.exit366.i
 
-Io_WriteVerilogGetName.exit366.i:                 ; preds = %377, %._crit_edge49.i343.i, %._crit_edge.i354.i
-  %.0.i346.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i343.i ], [ %364, %._crit_edge.i354.i ], [ %364, %377 ]
-  %390 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i346.i) #11
+Io_WriteVerilogGetName.exit366.i:                 ; preds = %378, %._crit_edge49.i343.i, %._crit_edge.i354.i
+  %.0.i346.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i343.i ], [ %365, %._crit_edge.i354.i ], [ %365, %378 ]
+  %391 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i346.i) #11
   %.val226.i = load ptr, ptr %305, align 8, !tbaa !47
-  %.val227.i = load ptr, ptr %362, align 8, !tbaa !52
-  %391 = getelementptr i8, ptr %.val226.i, i64 32
-  %.val226.val.i = load ptr, ptr %391, align 8, !tbaa !51
-  %392 = getelementptr i8, ptr %.val226.val.i, i64 8
-  %.val226.val.val.i = load ptr, ptr %392, align 8, !tbaa !34
-  %393 = getelementptr inbounds nuw i32, ptr %.val227.i, i64 %indvars.iv594.i
-  %394 = load i32, ptr %393, align 4, !tbaa !41
-  %395 = sext i32 %394 to i64
-  %396 = getelementptr inbounds ptr, ptr %.val226.val.val.i, i64 %395
-  %397 = load ptr, ptr %396, align 8, !tbaa !35
-  %398 = tail call ptr @Abc_ObjName(ptr noundef %397) #11
-  %399 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %398) #12
-  %400 = trunc i64 %399 to i32
-  %401 = load i8, ptr %398, align 1, !tbaa !38
-  %402 = add i8 %401, -58
-  %or.cond.i367.i = icmp ult i8 %402, -10
-  br i1 %or.cond.i367.i, label %.preheader.i378.i, label %414
+  %.val227.i = load ptr, ptr %363, align 8, !tbaa !52
+  %392 = getelementptr i8, ptr %.val226.i, i64 32
+  %.val226.val.i = load ptr, ptr %392, align 8, !tbaa !51
+  %393 = getelementptr i8, ptr %.val226.val.i, i64 8
+  %.val226.val.val.i = load ptr, ptr %393, align 8, !tbaa !34
+  %394 = getelementptr inbounds nuw i32, ptr %.val227.i, i64 %indvars.iv594.i
+  %395 = load i32, ptr %394, align 4, !tbaa !41
+  %396 = sext i32 %395 to i64
+  %397 = getelementptr inbounds ptr, ptr %.val226.val.val.i, i64 %396
+  %398 = load ptr, ptr %397, align 8, !tbaa !35
+  %399 = tail call ptr @Abc_ObjName(ptr noundef %398) #11
+  %400 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %399) #12
+  %401 = trunc i64 %400 to i32
+  %402 = load i8, ptr %399, align 1, !tbaa !38
+  %403 = add i8 %402, -58
+  %or.cond.i367.i = icmp ult i8 %403, -10
+  br i1 %or.cond.i367.i, label %.preheader.i378.i, label %415
 
 .preheader.i378.i:                                ; preds = %Io_WriteVerilogGetName.exit366.i
-  %403 = icmp sgt i32 %400, 0
-  br i1 %403, label %.lr.ph.preheader.i381.i, label %._crit_edge.i379.i
+  %404 = icmp sgt i32 %401, 0
+  br i1 %404, label %.lr.ph.preheader.i381.i, label %._crit_edge.i379.i
 
 .lr.ph.preheader.i381.i:                          ; preds = %.preheader.i378.i
-  %wide.trip.count.i382.i = and i64 %399, 2147483647
+  %wide.trip.count.i382.i = and i64 %400, 2147483647
   br label %.lr.ph.i383.i
 
-.lr.ph.i383.i:                                    ; preds = %411, %.lr.ph.preheader.i381.i
-  %indvars.iv.i384.i = phi i64 [ 0, %.lr.ph.preheader.i381.i ], [ %indvars.iv.next.i389.i, %411 ]
-  %404 = getelementptr inbounds nuw i8, ptr %398, i64 %indvars.iv.i384.i
-  %405 = load i8, ptr %404, align 1, !tbaa !38
-  %406 = and i8 %405, -33
-  %407 = add i8 %406, -65
-  %or.cond42.i385.i = icmp ult i8 %407, 26
-  br i1 %or.cond42.i385.i, label %411, label %408
+.lr.ph.i383.i:                                    ; preds = %412, %.lr.ph.preheader.i381.i
+  %indvars.iv.i384.i = phi i64 [ 0, %.lr.ph.preheader.i381.i ], [ %indvars.iv.next.i389.i, %412 ]
+  %405 = getelementptr inbounds nuw i8, ptr %399, i64 %indvars.iv.i384.i
+  %406 = load i8, ptr %405, align 1, !tbaa !38
+  %407 = and i8 %406, -33
+  %408 = add i8 %407, -65
+  %or.cond42.i385.i = icmp ult i8 %408, 26
+  br i1 %or.cond42.i385.i, label %412, label %409
 
-408:                                              ; preds = %.lr.ph.i383.i
-  %409 = add i8 %405, -48
-  %or.cond40.i386.i = icmp ult i8 %409, 10
-  %410 = icmp eq i8 %405, 95
-  %or.cond41.i387.i = or i1 %410, %or.cond40.i386.i
-  br i1 %or.cond41.i387.i, label %411, label %._crit_edge.loopexit.i388.i
+409:                                              ; preds = %.lr.ph.i383.i
+  %410 = add i8 %406, -48
+  %or.cond40.i386.i = icmp ult i8 %410, 10
+  %411 = icmp eq i8 %406, 95
+  %or.cond41.i387.i = or i1 %411, %or.cond40.i386.i
+  br i1 %or.cond41.i387.i, label %412, label %._crit_edge.loopexit.i388.i
 
-411:                                              ; preds = %408, %.lr.ph.i383.i
+412:                                              ; preds = %409, %.lr.ph.i383.i
   %indvars.iv.next.i389.i = add nuw nsw i64 %indvars.iv.i384.i, 1
   %exitcond.not.i390.i = icmp eq i64 %indvars.iv.next.i389.i, %wide.trip.count.i382.i
   br i1 %exitcond.not.i390.i, label %Io_WriteVerilogGetName.exit391.i, label %.lr.ph.i383.i, !llvm.loop !39
 
-._crit_edge.loopexit.i388.i:                      ; preds = %408
-  %412 = trunc nuw nsw i64 %indvars.iv.i384.i to i32
+._crit_edge.loopexit.i388.i:                      ; preds = %409
+  %413 = trunc nuw nsw i64 %indvars.iv.i384.i to i32
   br label %._crit_edge.i379.i
 
 ._crit_edge.i379.i:                               ; preds = %._crit_edge.loopexit.i388.i, %.preheader.i378.i
-  %.031.lcssa.i380.i = phi i32 [ 0, %.preheader.i378.i ], [ %412, %._crit_edge.loopexit.i388.i ]
-  %413 = icmp eq i32 %.031.lcssa.i380.i, %400
-  br i1 %413, label %Io_WriteVerilogGetName.exit391.i, label %414
+  %.031.lcssa.i380.i = phi i32 [ 0, %.preheader.i378.i ], [ %413, %._crit_edge.loopexit.i388.i ]
+  %414 = icmp eq i32 %.031.lcssa.i380.i, %401
+  br i1 %414, label %Io_WriteVerilogGetName.exit391.i, label %415
 
-414:                                              ; preds = %._crit_edge.i379.i, %Io_WriteVerilogGetName.exit366.i
+415:                                              ; preds = %._crit_edge.i379.i, %Io_WriteVerilogGetName.exit366.i
   store i8 92, ptr @Io_WriteVerilogGetName.Buffer, align 16, !tbaa !38
-  %415 = icmp sgt i32 %400, 0
-  br i1 %415, label %.lr.ph48.preheader.i372.i, label %._crit_edge49.i368.i
+  %416 = icmp sgt i32 %401, 0
+  br i1 %416, label %.lr.ph48.preheader.i372.i, label %._crit_edge49.i368.i
 
-.lr.ph48.preheader.i372.i:                        ; preds = %414
-  %wide.trip.count54.i373.i = and i64 %399, 2147483647
+.lr.ph48.preheader.i372.i:                        ; preds = %415
+  %wide.trip.count54.i373.i = and i64 %400, 2147483647
   br label %.lr.ph48.i374.i
 
 .lr.ph48.i374.i:                                  ; preds = %.lr.ph48.i374.i, %.lr.ph48.preheader.i372.i
   %indvars.iv51.i375.i = phi i64 [ 0, %.lr.ph48.preheader.i372.i ], [ %indvars.iv.next52.i376.i, %.lr.ph48.i374.i ]
-  %416 = getelementptr inbounds nuw i8, ptr %398, i64 %indvars.iv51.i375.i
-  %417 = load i8, ptr %416, align 1, !tbaa !38
+  %417 = getelementptr inbounds nuw i8, ptr %399, i64 %indvars.iv51.i375.i
+  %418 = load i8, ptr %417, align 1, !tbaa !38
   %indvars.iv.next52.i376.i = add nuw nsw i64 %indvars.iv51.i375.i, 1
-  %418 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i376.i
-  store i8 %417, ptr %418, align 1, !tbaa !38
+  %419 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i376.i
+  store i8 %418, ptr %419, align 1, !tbaa !38
   %exitcond55.not.i377.i = icmp eq i64 %indvars.iv.next52.i376.i, %wide.trip.count54.i373.i
   br i1 %exitcond55.not.i377.i, label %._crit_edge49.i368.i, label %.lr.ph48.i374.i, !llvm.loop !40
 
-._crit_edge49.i368.i:                             ; preds = %.lr.ph48.i374.i, %414
-  %419 = shl i64 %399, 32
-  %sext.i369.i = add i64 %419, 4294967296
-  %420 = ashr exact i64 %sext.i369.i, 32
-  %421 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %420
-  store i8 32, ptr %421, align 1, !tbaa !38
-  %sext37.i370.i = add i64 %419, 8589934592
-  %422 = ashr exact i64 %sext37.i370.i, 32
-  %423 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %422
-  store i8 0, ptr %423, align 1, !tbaa !38
+._crit_edge49.i368.i:                             ; preds = %.lr.ph48.i374.i, %415
+  %420 = shl i64 %400, 32
+  %sext.i369.i = add i64 %420, 4294967296
+  %421 = ashr exact i64 %sext.i369.i, 32
+  %422 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %421
+  store i8 32, ptr %422, align 1, !tbaa !38
+  %sext37.i370.i = add i64 %420, 8589934592
+  %423 = ashr exact i64 %sext37.i370.i, 32
+  %424 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %423
+  store i8 0, ptr %424, align 1, !tbaa !38
   br label %Io_WriteVerilogGetName.exit391.i
 
-Io_WriteVerilogGetName.exit391.i:                 ; preds = %411, %._crit_edge49.i368.i, %._crit_edge.i379.i
-  %.0.i371.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i368.i ], [ %398, %._crit_edge.i379.i ], [ %398, %411 ]
-  %424 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0.i371.i) #11
-  %425 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.1562.i) #11
+Io_WriteVerilogGetName.exit391.i:                 ; preds = %412, %._crit_edge49.i368.i, %._crit_edge.i379.i
+  %.0.i371.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i368.i ], [ %399, %._crit_edge.i379.i ], [ %399, %412 ]
+  %425 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0.i371.i) #11
+  %426 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.1562.i) #11
   %indvars.iv.next595.i = add nuw nsw i64 %indvars.iv594.i, 1
-  %.not173.i = icmp eq ptr %425, null
-  br i1 %.not173.i, label %._crit_edge.i60, label %363, !llvm.loop !58
+  %.not173.i = icmp eq ptr %426, null
+  br i1 %.not173.i, label %._crit_edge.i60, label %364, !llvm.loop !58
 
 ._crit_edge.i60:                                  ; preds = %Io_WriteVerilogGetName.exit391.i, %358
-  %426 = add nsw i32 %.2157565.i, 1
   %427 = tail call ptr @Mio_GateReadOutName(ptr noundef %312) #11
   %428 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %427) #12
   %429 = trunc i64 %428 to i32
@@ -1434,7 +1434,7 @@ Io_WriteVerilogGetName.exit441.i:                 ; preds = %473, %._crit_edge49
   br label %488
 
 488:                                              ; preds = %Io_WriteVerilogGetName.exit441.i, %Io_WriteVerilogGetName.exit341.i, %307, %.lr.ph567.i
-  %.5.i = phi i32 [ %.2157565.i, %.lr.ph567.i ], [ %.2157565.i, %307 ], [ %426, %Io_WriteVerilogGetName.exit441.i ], [ %.2157565.i, %Io_WriteVerilogGetName.exit341.i ]
+  %.5.i = phi i32 [ %.2157565.i, %.lr.ph567.i ], [ %.2157565.i, %307 ], [ %360, %Io_WriteVerilogGetName.exit441.i ], [ %.2157565.i, %Io_WriteVerilogGetName.exit341.i ]
   %indvars.iv.next598.i = add nuw nsw i64 %indvars.iv597.i, 1
   %489 = load ptr, ptr %298, align 8, !tbaa !51
   %490 = getelementptr i8, ptr %489, i64 4
@@ -2127,463 +2127,463 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %4
   %26 = load ptr, ptr %25, align 8, !tbaa !38
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !27
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef %28, i32 noundef %.09.i, i32 noundef %.0159558) #11
+  %29 = add nsw i32 %.0159558, 1
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef %28, i32 noundef %.09.i, i32 noundef %.0159558) #11
   %fputc = tail call i32 @fputc(i32 40, ptr %0)
-  %30 = getelementptr i8, ptr %26, i64 40
-  %.val184548 = load ptr, ptr %30, align 8, !tbaa !43
-  %31 = getelementptr i8, ptr %.val184548, i64 4
-  %.val184.val549 = load i32, ptr %31, align 4, !tbaa !32
-  %32 = icmp sgt i32 %.val184.val549, 0
-  br i1 %32, label %.lr.ph, label %.critedge2.preheader
+  %31 = getelementptr i8, ptr %26, i64 40
+  %.val184548 = load ptr, ptr %31, align 8, !tbaa !43
+  %32 = getelementptr i8, ptr %.val184548, i64 4
+  %.val184.val549 = load i32, ptr %32, align 4, !tbaa !32
+  %33 = icmp sgt i32 %.val184.val549, 0
+  br i1 %33, label %.lr.ph, label %.critedge2.preheader
 
 .lr.ph:                                           ; preds = %24
-  %33 = getelementptr i8, ptr %21, i64 32
-  br label %38
+  %34 = getelementptr i8, ptr %21, i64 32
+  br label %39
 
 .critedge2.preheader:                             ; preds = %Io_WriteVerilogGetName.exit268, %24
-  %34 = getelementptr i8, ptr %26, i64 48
-  %.val198552 = load ptr, ptr %34, align 8, !tbaa !44
-  %35 = getelementptr i8, ptr %.val198552, i64 4
-  %.val198.val553 = load i32, ptr %35, align 4, !tbaa !32
-  %36 = icmp sgt i32 %.val198.val553, 0
-  br i1 %36, label %.lr.ph556, label %.critedge4
+  %35 = getelementptr i8, ptr %26, i64 48
+  %.val198552 = load ptr, ptr %35, align 8, !tbaa !44
+  %36 = getelementptr i8, ptr %.val198552, i64 4
+  %.val198.val553 = load i32, ptr %36, align 4, !tbaa !32
+  %37 = icmp sgt i32 %.val198.val553, 0
+  br i1 %37, label %.lr.ph556, label %.critedge4
 
 .lr.ph556:                                        ; preds = %.critedge2.preheader
-  %37 = getelementptr i8, ptr %21, i64 48
-  br label %118
+  %38 = getelementptr i8, ptr %21, i64 48
+  br label %119
 
-38:                                               ; preds = %.lr.ph, %Io_WriteVerilogGetName.exit268
+39:                                               ; preds = %.lr.ph, %Io_WriteVerilogGetName.exit268
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Io_WriteVerilogGetName.exit268 ]
   %.val184551 = phi ptr [ %.val184548, %.lr.ph ], [ %.val184, %Io_WriteVerilogGetName.exit268 ]
-  %39 = getelementptr i8, ptr %.val184551, i64 8
-  %.val185.val = load ptr, ptr %39, align 8, !tbaa !34
-  %40 = getelementptr inbounds nuw ptr, ptr %.val185.val, i64 %indvars.iv
-  %41 = load ptr, ptr %40, align 8, !tbaa !35
-  %.val186 = load ptr, ptr %41, align 8, !tbaa !47
-  %42 = getelementptr i8, ptr %41, i64 48
-  %.val187 = load ptr, ptr %42, align 8, !tbaa !50
-  %43 = getelementptr i8, ptr %.val186, i64 32
-  %.val186.val = load ptr, ptr %43, align 8, !tbaa !51
+  %40 = getelementptr i8, ptr %.val184551, i64 8
+  %.val185.val = load ptr, ptr %40, align 8, !tbaa !34
+  %41 = getelementptr inbounds nuw ptr, ptr %.val185.val, i64 %indvars.iv
+  %42 = load ptr, ptr %41, align 8, !tbaa !35
+  %.val186 = load ptr, ptr %42, align 8, !tbaa !47
+  %43 = getelementptr i8, ptr %42, i64 48
+  %.val187 = load ptr, ptr %43, align 8, !tbaa !50
+  %44 = getelementptr i8, ptr %.val186, i64 32
+  %.val186.val = load ptr, ptr %44, align 8, !tbaa !51
   %.val187.val = load i32, ptr %.val187, align 4, !tbaa !41
-  %44 = getelementptr i8, ptr %.val186.val, i64 8
-  %.val186.val.val = load ptr, ptr %44, align 8, !tbaa !34
-  %45 = sext i32 %.val187.val to i64
-  %46 = getelementptr inbounds ptr, ptr %.val186.val.val, i64 %45
-  %47 = load ptr, ptr %46, align 8, !tbaa !35
-  %48 = tail call ptr @Abc_ObjName(ptr noundef %47) #11
-  %49 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %48) #12
-  %50 = trunc i64 %49 to i32
-  %51 = load i8, ptr %48, align 1, !tbaa !38
-  %52 = add i8 %51, -58
-  %or.cond.i = icmp ult i8 %52, -10
-  br i1 %or.cond.i, label %.preheader.i, label %64
+  %45 = getelementptr i8, ptr %.val186.val, i64 8
+  %.val186.val.val = load ptr, ptr %45, align 8, !tbaa !34
+  %46 = sext i32 %.val187.val to i64
+  %47 = getelementptr inbounds ptr, ptr %.val186.val.val, i64 %46
+  %48 = load ptr, ptr %47, align 8, !tbaa !35
+  %49 = tail call ptr @Abc_ObjName(ptr noundef %48) #11
+  %50 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %49) #12
+  %51 = trunc i64 %50 to i32
+  %52 = load i8, ptr %49, align 1, !tbaa !38
+  %53 = add i8 %52, -58
+  %or.cond.i = icmp ult i8 %53, -10
+  br i1 %or.cond.i, label %.preheader.i, label %65
 
-.preheader.i:                                     ; preds = %38
-  %53 = icmp sgt i32 %50, 0
-  br i1 %53, label %.lr.ph.preheader.i242, label %._crit_edge.i
+.preheader.i:                                     ; preds = %39
+  %54 = icmp sgt i32 %51, 0
+  br i1 %54, label %.lr.ph.preheader.i242, label %._crit_edge.i
 
 .lr.ph.preheader.i242:                            ; preds = %.preheader.i
-  %wide.trip.count.i = and i64 %49, 2147483647
+  %wide.trip.count.i = and i64 %50, 2147483647
   br label %.lr.ph.i243
 
-.lr.ph.i243:                                      ; preds = %61, %.lr.ph.preheader.i242
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i242 ], [ %indvars.iv.next.i, %61 ]
-  %54 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv.i
-  %55 = load i8, ptr %54, align 1, !tbaa !38
-  %56 = and i8 %55, -33
-  %57 = add i8 %56, -65
-  %or.cond42.i = icmp ult i8 %57, 26
-  br i1 %or.cond42.i, label %61, label %58
+.lr.ph.i243:                                      ; preds = %62, %.lr.ph.preheader.i242
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i242 ], [ %indvars.iv.next.i, %62 ]
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv.i
+  %56 = load i8, ptr %55, align 1, !tbaa !38
+  %57 = and i8 %56, -33
+  %58 = add i8 %57, -65
+  %or.cond42.i = icmp ult i8 %58, 26
+  br i1 %or.cond42.i, label %62, label %59
 
-58:                                               ; preds = %.lr.ph.i243
-  %59 = add i8 %55, -48
-  %or.cond40.i = icmp ult i8 %59, 10
-  %60 = icmp eq i8 %55, 95
-  %or.cond41.i = or i1 %60, %or.cond40.i
-  br i1 %or.cond41.i, label %61, label %._crit_edge.loopexit.i
+59:                                               ; preds = %.lr.ph.i243
+  %60 = add i8 %56, -48
+  %or.cond40.i = icmp ult i8 %60, 10
+  %61 = icmp eq i8 %56, 95
+  %or.cond41.i = or i1 %61, %or.cond40.i
+  br i1 %or.cond41.i, label %62, label %._crit_edge.loopexit.i
 
-61:                                               ; preds = %58, %.lr.ph.i243
+62:                                               ; preds = %59, %.lr.ph.i243
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Io_WriteVerilogGetName.exit, label %.lr.ph.i243, !llvm.loop !39
 
-._crit_edge.loopexit.i:                           ; preds = %58
-  %62 = trunc nuw nsw i64 %indvars.iv.i to i32
+._crit_edge.loopexit.i:                           ; preds = %59
+  %63 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
-  %.031.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %62, %._crit_edge.loopexit.i ]
-  %63 = icmp eq i32 %.031.lcssa.i, %50
-  br i1 %63, label %Io_WriteVerilogGetName.exit, label %64
+  %.031.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %63, %._crit_edge.loopexit.i ]
+  %64 = icmp eq i32 %.031.lcssa.i, %51
+  br i1 %64, label %Io_WriteVerilogGetName.exit, label %65
 
-64:                                               ; preds = %._crit_edge.i, %38
+65:                                               ; preds = %._crit_edge.i, %39
   store i8 92, ptr @Io_WriteVerilogGetName.Buffer, align 16, !tbaa !38
-  %65 = icmp sgt i32 %50, 0
-  br i1 %65, label %.lr.ph48.preheader.i, label %._crit_edge49.i
+  %66 = icmp sgt i32 %51, 0
+  br i1 %66, label %.lr.ph48.preheader.i, label %._crit_edge49.i
 
-.lr.ph48.preheader.i:                             ; preds = %64
-  %wide.trip.count54.i = and i64 %49, 2147483647
+.lr.ph48.preheader.i:                             ; preds = %65
+  %wide.trip.count54.i = and i64 %50, 2147483647
   br label %.lr.ph48.i
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %.lr.ph48.preheader.i
   %indvars.iv51.i = phi i64 [ 0, %.lr.ph48.preheader.i ], [ %indvars.iv.next52.i, %.lr.ph48.i ]
-  %66 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv51.i
-  %67 = load i8, ptr %66, align 1, !tbaa !38
+  %67 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv51.i
+  %68 = load i8, ptr %67, align 1, !tbaa !38
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
-  %68 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i
-  store i8 %67, ptr %68, align 1, !tbaa !38
+  %69 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i
+  store i8 %68, ptr %69, align 1, !tbaa !38
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count54.i
   br i1 %exitcond55.not.i, label %._crit_edge49.i, label %.lr.ph48.i, !llvm.loop !40
 
-._crit_edge49.i:                                  ; preds = %.lr.ph48.i, %64
-  %69 = shl i64 %49, 32
-  %sext.i = add i64 %69, 4294967296
-  %70 = ashr exact i64 %sext.i, 32
-  %71 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %70
-  store i8 32, ptr %71, align 1, !tbaa !38
-  %sext37.i = add i64 %69, 8589934592
-  %72 = ashr exact i64 %sext37.i, 32
-  %73 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %72
-  store i8 0, ptr %73, align 1, !tbaa !38
+._crit_edge49.i:                                  ; preds = %.lr.ph48.i, %65
+  %70 = shl i64 %50, 32
+  %sext.i = add i64 %70, 4294967296
+  %71 = ashr exact i64 %sext.i, 32
+  %72 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %71
+  store i8 32, ptr %72, align 1, !tbaa !38
+  %sext37.i = add i64 %70, 8589934592
+  %73 = ashr exact i64 %sext37.i, 32
+  %74 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %73
+  store i8 0, ptr %74, align 1, !tbaa !38
   br label %Io_WriteVerilogGetName.exit
 
-Io_WriteVerilogGetName.exit:                      ; preds = %61, %._crit_edge.i, %._crit_edge49.i
-  %.0.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i ], [ %48, %._crit_edge.i ], [ %48, %61 ]
-  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i) #11
+Io_WriteVerilogGetName.exit:                      ; preds = %62, %._crit_edge.i, %._crit_edge49.i
+  %.0.i = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i ], [ %49, %._crit_edge.i ], [ %49, %62 ]
+  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i) #11
   %.val226 = load ptr, ptr %21, align 8, !tbaa !47
-  %.val227 = load ptr, ptr %33, align 8, !tbaa !52
-  %75 = getelementptr i8, ptr %.val226, i64 32
-  %.val226.val = load ptr, ptr %75, align 8, !tbaa !51
-  %76 = getelementptr i8, ptr %.val226.val, i64 8
-  %.val226.val.val = load ptr, ptr %76, align 8, !tbaa !34
-  %77 = getelementptr inbounds nuw i32, ptr %.val227, i64 %indvars.iv
-  %78 = load i32, ptr %77, align 4, !tbaa !41
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds ptr, ptr %.val226.val.val, i64 %79
-  %81 = load ptr, ptr %80, align 8, !tbaa !35
-  %.val201 = load ptr, ptr %81, align 8, !tbaa !47
-  %82 = getelementptr i8, ptr %81, i64 32
-  %.val202 = load ptr, ptr %82, align 8, !tbaa !52
-  %83 = getelementptr i8, ptr %.val201, i64 32
-  %.val201.val = load ptr, ptr %83, align 8, !tbaa !51
+  %.val227 = load ptr, ptr %34, align 8, !tbaa !52
+  %76 = getelementptr i8, ptr %.val226, i64 32
+  %.val226.val = load ptr, ptr %76, align 8, !tbaa !51
+  %77 = getelementptr i8, ptr %.val226.val, i64 8
+  %.val226.val.val = load ptr, ptr %77, align 8, !tbaa !34
+  %78 = getelementptr inbounds nuw i32, ptr %.val227, i64 %indvars.iv
+  %79 = load i32, ptr %78, align 4, !tbaa !41
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds ptr, ptr %.val226.val.val, i64 %80
+  %82 = load ptr, ptr %81, align 8, !tbaa !35
+  %.val201 = load ptr, ptr %82, align 8, !tbaa !47
+  %83 = getelementptr i8, ptr %82, i64 32
+  %.val202 = load ptr, ptr %83, align 8, !tbaa !52
+  %84 = getelementptr i8, ptr %.val201, i64 32
+  %.val201.val = load ptr, ptr %84, align 8, !tbaa !51
   %.val202.val = load i32, ptr %.val202, align 4, !tbaa !41
-  %84 = getelementptr i8, ptr %.val201.val, i64 8
-  %.val201.val.val = load ptr, ptr %84, align 8, !tbaa !34
-  %85 = sext i32 %.val202.val to i64
-  %86 = getelementptr inbounds ptr, ptr %.val201.val.val, i64 %85
-  %87 = load ptr, ptr %86, align 8, !tbaa !35
-  %88 = tail call ptr @Abc_ObjName(ptr noundef %87) #11
-  %89 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %88) #12
-  %90 = trunc i64 %89 to i32
-  %91 = load i8, ptr %88, align 1, !tbaa !38
-  %92 = add i8 %91, -58
-  %or.cond.i244 = icmp ult i8 %92, -10
-  br i1 %or.cond.i244, label %.preheader.i255, label %104
+  %85 = getelementptr i8, ptr %.val201.val, i64 8
+  %.val201.val.val = load ptr, ptr %85, align 8, !tbaa !34
+  %86 = sext i32 %.val202.val to i64
+  %87 = getelementptr inbounds ptr, ptr %.val201.val.val, i64 %86
+  %88 = load ptr, ptr %87, align 8, !tbaa !35
+  %89 = tail call ptr @Abc_ObjName(ptr noundef %88) #11
+  %90 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %89) #12
+  %91 = trunc i64 %90 to i32
+  %92 = load i8, ptr %89, align 1, !tbaa !38
+  %93 = add i8 %92, -58
+  %or.cond.i244 = icmp ult i8 %93, -10
+  br i1 %or.cond.i244, label %.preheader.i255, label %105
 
 .preheader.i255:                                  ; preds = %Io_WriteVerilogGetName.exit
-  %93 = icmp sgt i32 %90, 0
-  br i1 %93, label %.lr.ph.preheader.i258, label %._crit_edge.i256
+  %94 = icmp sgt i32 %91, 0
+  br i1 %94, label %.lr.ph.preheader.i258, label %._crit_edge.i256
 
 .lr.ph.preheader.i258:                            ; preds = %.preheader.i255
-  %wide.trip.count.i259 = and i64 %89, 2147483647
+  %wide.trip.count.i259 = and i64 %90, 2147483647
   br label %.lr.ph.i260
 
-.lr.ph.i260:                                      ; preds = %101, %.lr.ph.preheader.i258
-  %indvars.iv.i261 = phi i64 [ 0, %.lr.ph.preheader.i258 ], [ %indvars.iv.next.i266, %101 ]
-  %94 = getelementptr inbounds nuw i8, ptr %88, i64 %indvars.iv.i261
-  %95 = load i8, ptr %94, align 1, !tbaa !38
-  %96 = and i8 %95, -33
-  %97 = add i8 %96, -65
-  %or.cond42.i262 = icmp ult i8 %97, 26
-  br i1 %or.cond42.i262, label %101, label %98
+.lr.ph.i260:                                      ; preds = %102, %.lr.ph.preheader.i258
+  %indvars.iv.i261 = phi i64 [ 0, %.lr.ph.preheader.i258 ], [ %indvars.iv.next.i266, %102 ]
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 %indvars.iv.i261
+  %96 = load i8, ptr %95, align 1, !tbaa !38
+  %97 = and i8 %96, -33
+  %98 = add i8 %97, -65
+  %or.cond42.i262 = icmp ult i8 %98, 26
+  br i1 %or.cond42.i262, label %102, label %99
 
-98:                                               ; preds = %.lr.ph.i260
-  %99 = add i8 %95, -48
-  %or.cond40.i263 = icmp ult i8 %99, 10
-  %100 = icmp eq i8 %95, 95
-  %or.cond41.i264 = or i1 %100, %or.cond40.i263
-  br i1 %or.cond41.i264, label %101, label %._crit_edge.loopexit.i265
+99:                                               ; preds = %.lr.ph.i260
+  %100 = add i8 %96, -48
+  %or.cond40.i263 = icmp ult i8 %100, 10
+  %101 = icmp eq i8 %96, 95
+  %or.cond41.i264 = or i1 %101, %or.cond40.i263
+  br i1 %or.cond41.i264, label %102, label %._crit_edge.loopexit.i265
 
-101:                                              ; preds = %98, %.lr.ph.i260
+102:                                              ; preds = %99, %.lr.ph.i260
   %indvars.iv.next.i266 = add nuw nsw i64 %indvars.iv.i261, 1
   %exitcond.not.i267 = icmp eq i64 %indvars.iv.next.i266, %wide.trip.count.i259
   br i1 %exitcond.not.i267, label %Io_WriteVerilogGetName.exit268, label %.lr.ph.i260, !llvm.loop !39
 
-._crit_edge.loopexit.i265:                        ; preds = %98
-  %102 = trunc nuw nsw i64 %indvars.iv.i261 to i32
+._crit_edge.loopexit.i265:                        ; preds = %99
+  %103 = trunc nuw nsw i64 %indvars.iv.i261 to i32
   br label %._crit_edge.i256
 
 ._crit_edge.i256:                                 ; preds = %._crit_edge.loopexit.i265, %.preheader.i255
-  %.031.lcssa.i257 = phi i32 [ 0, %.preheader.i255 ], [ %102, %._crit_edge.loopexit.i265 ]
-  %103 = icmp eq i32 %.031.lcssa.i257, %90
-  br i1 %103, label %Io_WriteVerilogGetName.exit268, label %104
+  %.031.lcssa.i257 = phi i32 [ 0, %.preheader.i255 ], [ %103, %._crit_edge.loopexit.i265 ]
+  %104 = icmp eq i32 %.031.lcssa.i257, %91
+  br i1 %104, label %Io_WriteVerilogGetName.exit268, label %105
 
-104:                                              ; preds = %._crit_edge.i256, %Io_WriteVerilogGetName.exit
+105:                                              ; preds = %._crit_edge.i256, %Io_WriteVerilogGetName.exit
   store i8 92, ptr @Io_WriteVerilogGetName.Buffer, align 16, !tbaa !38
-  %105 = icmp sgt i32 %90, 0
-  br i1 %105, label %.lr.ph48.preheader.i249, label %._crit_edge49.i245
+  %106 = icmp sgt i32 %91, 0
+  br i1 %106, label %.lr.ph48.preheader.i249, label %._crit_edge49.i245
 
-.lr.ph48.preheader.i249:                          ; preds = %104
-  %wide.trip.count54.i250 = and i64 %89, 2147483647
+.lr.ph48.preheader.i249:                          ; preds = %105
+  %wide.trip.count54.i250 = and i64 %90, 2147483647
   br label %.lr.ph48.i251
 
 .lr.ph48.i251:                                    ; preds = %.lr.ph48.i251, %.lr.ph48.preheader.i249
   %indvars.iv51.i252 = phi i64 [ 0, %.lr.ph48.preheader.i249 ], [ %indvars.iv.next52.i253, %.lr.ph48.i251 ]
-  %106 = getelementptr inbounds nuw i8, ptr %88, i64 %indvars.iv51.i252
-  %107 = load i8, ptr %106, align 1, !tbaa !38
+  %107 = getelementptr inbounds nuw i8, ptr %89, i64 %indvars.iv51.i252
+  %108 = load i8, ptr %107, align 1, !tbaa !38
   %indvars.iv.next52.i253 = add nuw nsw i64 %indvars.iv51.i252, 1
-  %108 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i253
-  store i8 %107, ptr %108, align 1, !tbaa !38
+  %109 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i253
+  store i8 %108, ptr %109, align 1, !tbaa !38
   %exitcond55.not.i254 = icmp eq i64 %indvars.iv.next52.i253, %wide.trip.count54.i250
   br i1 %exitcond55.not.i254, label %._crit_edge49.i245, label %.lr.ph48.i251, !llvm.loop !40
 
-._crit_edge49.i245:                               ; preds = %.lr.ph48.i251, %104
-  %109 = shl i64 %89, 32
-  %sext.i246 = add i64 %109, 4294967296
-  %110 = ashr exact i64 %sext.i246, 32
-  %111 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %110
-  store i8 32, ptr %111, align 1, !tbaa !38
-  %sext37.i247 = add i64 %109, 8589934592
-  %112 = ashr exact i64 %sext37.i247, 32
-  %113 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %112
-  store i8 0, ptr %113, align 1, !tbaa !38
+._crit_edge49.i245:                               ; preds = %.lr.ph48.i251, %105
+  %110 = shl i64 %90, 32
+  %sext.i246 = add i64 %110, 4294967296
+  %111 = ashr exact i64 %sext.i246, 32
+  %112 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %111
+  store i8 32, ptr %112, align 1, !tbaa !38
+  %sext37.i247 = add i64 %110, 8589934592
+  %113 = ashr exact i64 %sext37.i247, 32
+  %114 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %113
+  store i8 0, ptr %114, align 1, !tbaa !38
   br label %Io_WriteVerilogGetName.exit268
 
-Io_WriteVerilogGetName.exit268:                   ; preds = %101, %._crit_edge.i256, %._crit_edge49.i245
-  %.0.i248 = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i245 ], [ %88, %._crit_edge.i256 ], [ %88, %101 ]
-  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0.i248) #11
+Io_WriteVerilogGetName.exit268:                   ; preds = %102, %._crit_edge.i256, %._crit_edge49.i245
+  %.0.i248 = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i245 ], [ %89, %._crit_edge.i256 ], [ %89, %102 ]
+  %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0.i248) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val184 = load ptr, ptr %30, align 8, !tbaa !43
-  %115 = getelementptr i8, ptr %.val184, i64 4
-  %.val184.val = load i32, ptr %115, align 4, !tbaa !32
-  %116 = sext i32 %.val184.val to i64
-  %117 = icmp slt i64 %indvars.iv.next, %116
-  br i1 %117, label %38, label %.critedge2.preheader, !llvm.loop !69
+  %.val184 = load ptr, ptr %31, align 8, !tbaa !43
+  %116 = getelementptr i8, ptr %.val184, i64 4
+  %.val184.val = load i32, ptr %116, align 4, !tbaa !32
+  %117 = sext i32 %.val184.val to i64
+  %118 = icmp slt i64 %indvars.iv.next, %117
+  br i1 %118, label %39, label %.critedge2.preheader, !llvm.loop !69
 
-118:                                              ; preds = %.lr.ph556, %Io_WriteVerilogGetName.exit318
+119:                                              ; preds = %.lr.ph556, %Io_WriteVerilogGetName.exit318
   %indvars.iv614 = phi i64 [ 0, %.lr.ph556 ], [ %indvars.iv.next615, %Io_WriteVerilogGetName.exit318 ]
   %.val198555 = phi ptr [ %.val198552, %.lr.ph556 ], [ %.val198, %Io_WriteVerilogGetName.exit318 ]
-  %119 = getelementptr i8, ptr %.val198555, i64 8
-  %.val200.val = load ptr, ptr %119, align 8, !tbaa !34
-  %120 = getelementptr inbounds nuw ptr, ptr %.val200.val, i64 %indvars.iv614
-  %121 = load ptr, ptr %120, align 8, !tbaa !35
-  %.val203 = load ptr, ptr %121, align 8, !tbaa !47
-  %122 = getelementptr i8, ptr %121, i64 32
-  %.val204 = load ptr, ptr %122, align 8, !tbaa !52
-  %123 = getelementptr i8, ptr %.val203, i64 32
-  %.val203.val = load ptr, ptr %123, align 8, !tbaa !51
+  %120 = getelementptr i8, ptr %.val198555, i64 8
+  %.val200.val = load ptr, ptr %120, align 8, !tbaa !34
+  %121 = getelementptr inbounds nuw ptr, ptr %.val200.val, i64 %indvars.iv614
+  %122 = load ptr, ptr %121, align 8, !tbaa !35
+  %.val203 = load ptr, ptr %122, align 8, !tbaa !47
+  %123 = getelementptr i8, ptr %122, i64 32
+  %.val204 = load ptr, ptr %123, align 8, !tbaa !52
+  %124 = getelementptr i8, ptr %.val203, i64 32
+  %.val203.val = load ptr, ptr %124, align 8, !tbaa !51
   %.val204.val = load i32, ptr %.val204, align 4, !tbaa !41
-  %124 = getelementptr i8, ptr %.val203.val, i64 8
-  %.val203.val.val = load ptr, ptr %124, align 8, !tbaa !34
-  %125 = sext i32 %.val204.val to i64
-  %126 = getelementptr inbounds ptr, ptr %.val203.val.val, i64 %125
-  %127 = load ptr, ptr %126, align 8, !tbaa !35
-  %128 = tail call ptr @Abc_ObjName(ptr noundef %127) #11
-  %129 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %128) #12
-  %130 = trunc i64 %129 to i32
-  %131 = load i8, ptr %128, align 1, !tbaa !38
-  %132 = add i8 %131, -58
-  %or.cond.i269 = icmp ult i8 %132, -10
-  br i1 %or.cond.i269, label %.preheader.i280, label %144
+  %125 = getelementptr i8, ptr %.val203.val, i64 8
+  %.val203.val.val = load ptr, ptr %125, align 8, !tbaa !34
+  %126 = sext i32 %.val204.val to i64
+  %127 = getelementptr inbounds ptr, ptr %.val203.val.val, i64 %126
+  %128 = load ptr, ptr %127, align 8, !tbaa !35
+  %129 = tail call ptr @Abc_ObjName(ptr noundef %128) #11
+  %130 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %129) #12
+  %131 = trunc i64 %130 to i32
+  %132 = load i8, ptr %129, align 1, !tbaa !38
+  %133 = add i8 %132, -58
+  %or.cond.i269 = icmp ult i8 %133, -10
+  br i1 %or.cond.i269, label %.preheader.i280, label %145
 
-.preheader.i280:                                  ; preds = %118
-  %133 = icmp sgt i32 %130, 0
-  br i1 %133, label %.lr.ph.preheader.i283, label %._crit_edge.i281
+.preheader.i280:                                  ; preds = %119
+  %134 = icmp sgt i32 %131, 0
+  br i1 %134, label %.lr.ph.preheader.i283, label %._crit_edge.i281
 
 .lr.ph.preheader.i283:                            ; preds = %.preheader.i280
-  %wide.trip.count.i284 = and i64 %129, 2147483647
+  %wide.trip.count.i284 = and i64 %130, 2147483647
   br label %.lr.ph.i285
 
-.lr.ph.i285:                                      ; preds = %141, %.lr.ph.preheader.i283
-  %indvars.iv.i286 = phi i64 [ 0, %.lr.ph.preheader.i283 ], [ %indvars.iv.next.i291, %141 ]
-  %134 = getelementptr inbounds nuw i8, ptr %128, i64 %indvars.iv.i286
-  %135 = load i8, ptr %134, align 1, !tbaa !38
-  %136 = and i8 %135, -33
-  %137 = add i8 %136, -65
-  %or.cond42.i287 = icmp ult i8 %137, 26
-  br i1 %or.cond42.i287, label %141, label %138
+.lr.ph.i285:                                      ; preds = %142, %.lr.ph.preheader.i283
+  %indvars.iv.i286 = phi i64 [ 0, %.lr.ph.preheader.i283 ], [ %indvars.iv.next.i291, %142 ]
+  %135 = getelementptr inbounds nuw i8, ptr %129, i64 %indvars.iv.i286
+  %136 = load i8, ptr %135, align 1, !tbaa !38
+  %137 = and i8 %136, -33
+  %138 = add i8 %137, -65
+  %or.cond42.i287 = icmp ult i8 %138, 26
+  br i1 %or.cond42.i287, label %142, label %139
 
-138:                                              ; preds = %.lr.ph.i285
-  %139 = add i8 %135, -48
-  %or.cond40.i288 = icmp ult i8 %139, 10
-  %140 = icmp eq i8 %135, 95
-  %or.cond41.i289 = or i1 %140, %or.cond40.i288
-  br i1 %or.cond41.i289, label %141, label %._crit_edge.loopexit.i290
+139:                                              ; preds = %.lr.ph.i285
+  %140 = add i8 %136, -48
+  %or.cond40.i288 = icmp ult i8 %140, 10
+  %141 = icmp eq i8 %136, 95
+  %or.cond41.i289 = or i1 %141, %or.cond40.i288
+  br i1 %or.cond41.i289, label %142, label %._crit_edge.loopexit.i290
 
-141:                                              ; preds = %138, %.lr.ph.i285
+142:                                              ; preds = %139, %.lr.ph.i285
   %indvars.iv.next.i291 = add nuw nsw i64 %indvars.iv.i286, 1
   %exitcond.not.i292 = icmp eq i64 %indvars.iv.next.i291, %wide.trip.count.i284
   br i1 %exitcond.not.i292, label %Io_WriteVerilogGetName.exit293, label %.lr.ph.i285, !llvm.loop !39
 
-._crit_edge.loopexit.i290:                        ; preds = %138
-  %142 = trunc nuw nsw i64 %indvars.iv.i286 to i32
+._crit_edge.loopexit.i290:                        ; preds = %139
+  %143 = trunc nuw nsw i64 %indvars.iv.i286 to i32
   br label %._crit_edge.i281
 
 ._crit_edge.i281:                                 ; preds = %._crit_edge.loopexit.i290, %.preheader.i280
-  %.031.lcssa.i282 = phi i32 [ 0, %.preheader.i280 ], [ %142, %._crit_edge.loopexit.i290 ]
-  %143 = icmp eq i32 %.031.lcssa.i282, %130
-  br i1 %143, label %Io_WriteVerilogGetName.exit293, label %144
+  %.031.lcssa.i282 = phi i32 [ 0, %.preheader.i280 ], [ %143, %._crit_edge.loopexit.i290 ]
+  %144 = icmp eq i32 %.031.lcssa.i282, %131
+  br i1 %144, label %Io_WriteVerilogGetName.exit293, label %145
 
-144:                                              ; preds = %._crit_edge.i281, %118
+145:                                              ; preds = %._crit_edge.i281, %119
   store i8 92, ptr @Io_WriteVerilogGetName.Buffer, align 16, !tbaa !38
-  %145 = icmp sgt i32 %130, 0
-  br i1 %145, label %.lr.ph48.preheader.i274, label %._crit_edge49.i270
+  %146 = icmp sgt i32 %131, 0
+  br i1 %146, label %.lr.ph48.preheader.i274, label %._crit_edge49.i270
 
-.lr.ph48.preheader.i274:                          ; preds = %144
-  %wide.trip.count54.i275 = and i64 %129, 2147483647
+.lr.ph48.preheader.i274:                          ; preds = %145
+  %wide.trip.count54.i275 = and i64 %130, 2147483647
   br label %.lr.ph48.i276
 
 .lr.ph48.i276:                                    ; preds = %.lr.ph48.i276, %.lr.ph48.preheader.i274
   %indvars.iv51.i277 = phi i64 [ 0, %.lr.ph48.preheader.i274 ], [ %indvars.iv.next52.i278, %.lr.ph48.i276 ]
-  %146 = getelementptr inbounds nuw i8, ptr %128, i64 %indvars.iv51.i277
-  %147 = load i8, ptr %146, align 1, !tbaa !38
+  %147 = getelementptr inbounds nuw i8, ptr %129, i64 %indvars.iv51.i277
+  %148 = load i8, ptr %147, align 1, !tbaa !38
   %indvars.iv.next52.i278 = add nuw nsw i64 %indvars.iv51.i277, 1
-  %148 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i278
-  store i8 %147, ptr %148, align 1, !tbaa !38
+  %149 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i278
+  store i8 %148, ptr %149, align 1, !tbaa !38
   %exitcond55.not.i279 = icmp eq i64 %indvars.iv.next52.i278, %wide.trip.count54.i275
   br i1 %exitcond55.not.i279, label %._crit_edge49.i270, label %.lr.ph48.i276, !llvm.loop !40
 
-._crit_edge49.i270:                               ; preds = %.lr.ph48.i276, %144
-  %149 = shl i64 %129, 32
-  %sext.i271 = add i64 %149, 4294967296
-  %150 = ashr exact i64 %sext.i271, 32
-  %151 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %150
-  store i8 32, ptr %151, align 1, !tbaa !38
-  %sext37.i272 = add i64 %149, 8589934592
-  %152 = ashr exact i64 %sext37.i272, 32
-  %153 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %152
-  store i8 0, ptr %153, align 1, !tbaa !38
+._crit_edge49.i270:                               ; preds = %.lr.ph48.i276, %145
+  %150 = shl i64 %130, 32
+  %sext.i271 = add i64 %150, 4294967296
+  %151 = ashr exact i64 %sext.i271, 32
+  %152 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %151
+  store i8 32, ptr %152, align 1, !tbaa !38
+  %sext37.i272 = add i64 %150, 8589934592
+  %153 = ashr exact i64 %sext37.i272, 32
+  %154 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %153
+  store i8 0, ptr %154, align 1, !tbaa !38
   br label %Io_WriteVerilogGetName.exit293
 
-Io_WriteVerilogGetName.exit293:                   ; preds = %141, %._crit_edge.i281, %._crit_edge49.i270
-  %.0.i273 = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i270 ], [ %128, %._crit_edge.i281 ], [ %128, %141 ]
-  %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i273) #11
+Io_WriteVerilogGetName.exit293:                   ; preds = %142, %._crit_edge.i281, %._crit_edge49.i270
+  %.0.i273 = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i270 ], [ %129, %._crit_edge.i281 ], [ %129, %142 ]
+  %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i273) #11
   %.val224 = load ptr, ptr %21, align 8, !tbaa !47
-  %.val225 = load ptr, ptr %37, align 8, !tbaa !50
-  %155 = getelementptr i8, ptr %.val224, i64 32
-  %.val224.val = load ptr, ptr %155, align 8, !tbaa !51
-  %156 = getelementptr i8, ptr %.val224.val, i64 8
-  %.val224.val.val = load ptr, ptr %156, align 8, !tbaa !34
-  %157 = getelementptr inbounds nuw i32, ptr %.val225, i64 %indvars.iv614
-  %158 = load i32, ptr %157, align 4, !tbaa !41
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds ptr, ptr %.val224.val.val, i64 %159
-  %161 = load ptr, ptr %160, align 8, !tbaa !35
-  %.val188 = load ptr, ptr %161, align 8, !tbaa !47
-  %162 = getelementptr i8, ptr %161, i64 48
-  %.val189 = load ptr, ptr %162, align 8, !tbaa !50
-  %163 = getelementptr i8, ptr %.val188, i64 32
-  %.val188.val = load ptr, ptr %163, align 8, !tbaa !51
+  %.val225 = load ptr, ptr %38, align 8, !tbaa !50
+  %156 = getelementptr i8, ptr %.val224, i64 32
+  %.val224.val = load ptr, ptr %156, align 8, !tbaa !51
+  %157 = getelementptr i8, ptr %.val224.val, i64 8
+  %.val224.val.val = load ptr, ptr %157, align 8, !tbaa !34
+  %158 = getelementptr inbounds nuw i32, ptr %.val225, i64 %indvars.iv614
+  %159 = load i32, ptr %158, align 4, !tbaa !41
+  %160 = sext i32 %159 to i64
+  %161 = getelementptr inbounds ptr, ptr %.val224.val.val, i64 %160
+  %162 = load ptr, ptr %161, align 8, !tbaa !35
+  %.val188 = load ptr, ptr %162, align 8, !tbaa !47
+  %163 = getelementptr i8, ptr %162, i64 48
+  %.val189 = load ptr, ptr %163, align 8, !tbaa !50
+  %164 = getelementptr i8, ptr %.val188, i64 32
+  %.val188.val = load ptr, ptr %164, align 8, !tbaa !51
   %.val189.val = load i32, ptr %.val189, align 4, !tbaa !41
-  %164 = getelementptr i8, ptr %.val188.val, i64 8
-  %.val188.val.val = load ptr, ptr %164, align 8, !tbaa !34
-  %165 = sext i32 %.val189.val to i64
-  %166 = getelementptr inbounds ptr, ptr %.val188.val.val, i64 %165
-  %167 = load ptr, ptr %166, align 8, !tbaa !35
-  %168 = tail call ptr @Abc_ObjName(ptr noundef %167) #11
-  %169 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %168) #12
-  %170 = trunc i64 %169 to i32
-  %171 = load i8, ptr %168, align 1, !tbaa !38
-  %172 = add i8 %171, -58
-  %or.cond.i294 = icmp ult i8 %172, -10
-  br i1 %or.cond.i294, label %.preheader.i305, label %184
+  %165 = getelementptr i8, ptr %.val188.val, i64 8
+  %.val188.val.val = load ptr, ptr %165, align 8, !tbaa !34
+  %166 = sext i32 %.val189.val to i64
+  %167 = getelementptr inbounds ptr, ptr %.val188.val.val, i64 %166
+  %168 = load ptr, ptr %167, align 8, !tbaa !35
+  %169 = tail call ptr @Abc_ObjName(ptr noundef %168) #11
+  %170 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %169) #12
+  %171 = trunc i64 %170 to i32
+  %172 = load i8, ptr %169, align 1, !tbaa !38
+  %173 = add i8 %172, -58
+  %or.cond.i294 = icmp ult i8 %173, -10
+  br i1 %or.cond.i294, label %.preheader.i305, label %185
 
 .preheader.i305:                                  ; preds = %Io_WriteVerilogGetName.exit293
-  %173 = icmp sgt i32 %170, 0
-  br i1 %173, label %.lr.ph.preheader.i308, label %._crit_edge.i306
+  %174 = icmp sgt i32 %171, 0
+  br i1 %174, label %.lr.ph.preheader.i308, label %._crit_edge.i306
 
 .lr.ph.preheader.i308:                            ; preds = %.preheader.i305
-  %wide.trip.count.i309 = and i64 %169, 2147483647
+  %wide.trip.count.i309 = and i64 %170, 2147483647
   br label %.lr.ph.i310
 
-.lr.ph.i310:                                      ; preds = %181, %.lr.ph.preheader.i308
-  %indvars.iv.i311 = phi i64 [ 0, %.lr.ph.preheader.i308 ], [ %indvars.iv.next.i316, %181 ]
-  %174 = getelementptr inbounds nuw i8, ptr %168, i64 %indvars.iv.i311
-  %175 = load i8, ptr %174, align 1, !tbaa !38
-  %176 = and i8 %175, -33
-  %177 = add i8 %176, -65
-  %or.cond42.i312 = icmp ult i8 %177, 26
-  br i1 %or.cond42.i312, label %181, label %178
+.lr.ph.i310:                                      ; preds = %182, %.lr.ph.preheader.i308
+  %indvars.iv.i311 = phi i64 [ 0, %.lr.ph.preheader.i308 ], [ %indvars.iv.next.i316, %182 ]
+  %175 = getelementptr inbounds nuw i8, ptr %169, i64 %indvars.iv.i311
+  %176 = load i8, ptr %175, align 1, !tbaa !38
+  %177 = and i8 %176, -33
+  %178 = add i8 %177, -65
+  %or.cond42.i312 = icmp ult i8 %178, 26
+  br i1 %or.cond42.i312, label %182, label %179
 
-178:                                              ; preds = %.lr.ph.i310
-  %179 = add i8 %175, -48
-  %or.cond40.i313 = icmp ult i8 %179, 10
-  %180 = icmp eq i8 %175, 95
-  %or.cond41.i314 = or i1 %180, %or.cond40.i313
-  br i1 %or.cond41.i314, label %181, label %._crit_edge.loopexit.i315
+179:                                              ; preds = %.lr.ph.i310
+  %180 = add i8 %176, -48
+  %or.cond40.i313 = icmp ult i8 %180, 10
+  %181 = icmp eq i8 %176, 95
+  %or.cond41.i314 = or i1 %181, %or.cond40.i313
+  br i1 %or.cond41.i314, label %182, label %._crit_edge.loopexit.i315
 
-181:                                              ; preds = %178, %.lr.ph.i310
+182:                                              ; preds = %179, %.lr.ph.i310
   %indvars.iv.next.i316 = add nuw nsw i64 %indvars.iv.i311, 1
   %exitcond.not.i317 = icmp eq i64 %indvars.iv.next.i316, %wide.trip.count.i309
   br i1 %exitcond.not.i317, label %Io_WriteVerilogGetName.exit318, label %.lr.ph.i310, !llvm.loop !39
 
-._crit_edge.loopexit.i315:                        ; preds = %178
-  %182 = trunc nuw nsw i64 %indvars.iv.i311 to i32
+._crit_edge.loopexit.i315:                        ; preds = %179
+  %183 = trunc nuw nsw i64 %indvars.iv.i311 to i32
   br label %._crit_edge.i306
 
 ._crit_edge.i306:                                 ; preds = %._crit_edge.loopexit.i315, %.preheader.i305
-  %.031.lcssa.i307 = phi i32 [ 0, %.preheader.i305 ], [ %182, %._crit_edge.loopexit.i315 ]
-  %183 = icmp eq i32 %.031.lcssa.i307, %170
-  br i1 %183, label %Io_WriteVerilogGetName.exit318, label %184
+  %.031.lcssa.i307 = phi i32 [ 0, %.preheader.i305 ], [ %183, %._crit_edge.loopexit.i315 ]
+  %184 = icmp eq i32 %.031.lcssa.i307, %171
+  br i1 %184, label %Io_WriteVerilogGetName.exit318, label %185
 
-184:                                              ; preds = %._crit_edge.i306, %Io_WriteVerilogGetName.exit293
+185:                                              ; preds = %._crit_edge.i306, %Io_WriteVerilogGetName.exit293
   store i8 92, ptr @Io_WriteVerilogGetName.Buffer, align 16, !tbaa !38
-  %185 = icmp sgt i32 %170, 0
-  br i1 %185, label %.lr.ph48.preheader.i299, label %._crit_edge49.i295
+  %186 = icmp sgt i32 %171, 0
+  br i1 %186, label %.lr.ph48.preheader.i299, label %._crit_edge49.i295
 
-.lr.ph48.preheader.i299:                          ; preds = %184
-  %wide.trip.count54.i300 = and i64 %169, 2147483647
+.lr.ph48.preheader.i299:                          ; preds = %185
+  %wide.trip.count54.i300 = and i64 %170, 2147483647
   br label %.lr.ph48.i301
 
 .lr.ph48.i301:                                    ; preds = %.lr.ph48.i301, %.lr.ph48.preheader.i299
   %indvars.iv51.i302 = phi i64 [ 0, %.lr.ph48.preheader.i299 ], [ %indvars.iv.next52.i303, %.lr.ph48.i301 ]
-  %186 = getelementptr inbounds nuw i8, ptr %168, i64 %indvars.iv51.i302
-  %187 = load i8, ptr %186, align 1, !tbaa !38
+  %187 = getelementptr inbounds nuw i8, ptr %169, i64 %indvars.iv51.i302
+  %188 = load i8, ptr %187, align 1, !tbaa !38
   %indvars.iv.next52.i303 = add nuw nsw i64 %indvars.iv51.i302, 1
-  %188 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i303
-  store i8 %187, ptr %188, align 1, !tbaa !38
+  %189 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i303
+  store i8 %188, ptr %189, align 1, !tbaa !38
   %exitcond55.not.i304 = icmp eq i64 %indvars.iv.next52.i303, %wide.trip.count54.i300
   br i1 %exitcond55.not.i304, label %._crit_edge49.i295, label %.lr.ph48.i301, !llvm.loop !40
 
-._crit_edge49.i295:                               ; preds = %.lr.ph48.i301, %184
-  %189 = shl i64 %169, 32
-  %sext.i296 = add i64 %189, 4294967296
-  %190 = ashr exact i64 %sext.i296, 32
-  %191 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %190
-  store i8 32, ptr %191, align 1, !tbaa !38
-  %sext37.i297 = add i64 %189, 8589934592
-  %192 = ashr exact i64 %sext37.i297, 32
-  %193 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %192
-  store i8 0, ptr %193, align 1, !tbaa !38
+._crit_edge49.i295:                               ; preds = %.lr.ph48.i301, %185
+  %190 = shl i64 %170, 32
+  %sext.i296 = add i64 %190, 4294967296
+  %191 = ashr exact i64 %sext.i296, 32
+  %192 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %191
+  store i8 32, ptr %192, align 1, !tbaa !38
+  %sext37.i297 = add i64 %190, 8589934592
+  %193 = ashr exact i64 %sext37.i297, 32
+  %194 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %193
+  store i8 0, ptr %194, align 1, !tbaa !38
   br label %Io_WriteVerilogGetName.exit318
 
-Io_WriteVerilogGetName.exit318:                   ; preds = %181, %._crit_edge.i306, %._crit_edge49.i295
-  %.0.i298 = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i295 ], [ %168, %._crit_edge.i306 ], [ %168, %181 ]
-  %.val199 = load ptr, ptr %34, align 8, !tbaa !44
-  %194 = getelementptr i8, ptr %.val199, i64 4
-  %.val199.val = load i32, ptr %194, align 4, !tbaa !32
-  %195 = add nsw i32 %.val199.val, -1
-  %196 = zext i32 %195 to i64
-  %197 = icmp eq i64 %indvars.iv614, %196
-  %198 = select i1 %197, ptr @.str.27, ptr @.str.28
-  %199 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %.0.i298, ptr noundef nonnull %198) #11
+Io_WriteVerilogGetName.exit318:                   ; preds = %182, %._crit_edge.i306, %._crit_edge49.i295
+  %.0.i298 = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i295 ], [ %169, %._crit_edge.i306 ], [ %169, %182 ]
+  %.val199 = load ptr, ptr %35, align 8, !tbaa !44
+  %195 = getelementptr i8, ptr %.val199, i64 4
+  %.val199.val = load i32, ptr %195, align 4, !tbaa !32
+  %196 = add nsw i32 %.val199.val, -1
+  %197 = zext i32 %196 to i64
+  %198 = icmp eq i64 %indvars.iv614, %197
+  %199 = select i1 %198, ptr @.str.27, ptr @.str.28
+  %200 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %.0.i298, ptr noundef nonnull %199) #11
   %indvars.iv.next615 = add nuw nsw i64 %indvars.iv614, 1
-  %.val198 = load ptr, ptr %34, align 8, !tbaa !44
-  %200 = getelementptr i8, ptr %.val198, i64 4
-  %.val198.val = load i32, ptr %200, align 4, !tbaa !32
-  %201 = sext i32 %.val198.val to i64
-  %202 = icmp slt i64 %indvars.iv.next615, %201
-  br i1 %202, label %118, label %.critedge4, !llvm.loop !70
+  %.val198 = load ptr, ptr %35, align 8, !tbaa !44
+  %201 = getelementptr i8, ptr %.val198, i64 4
+  %.val198.val = load i32, ptr %201, align 4, !tbaa !32
+  %202 = sext i32 %.val198.val to i64
+  %203 = icmp slt i64 %indvars.iv.next615, %202
+  br i1 %203, label %119, label %.critedge4, !llvm.loop !70
 
 .critedge4:                                       ; preds = %Io_WriteVerilogGetName.exit318, %.critedge2.preheader
-  %203 = add nsw i32 %.0159558, 1
   %204 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 3, i64 1, ptr %0)
   %.pre = load ptr, ptr %5, align 8, !tbaa !45
   br label %205
 
 205:                                              ; preds = %.lr.ph560, %.critedge4
   %206 = phi ptr [ %18, %.lr.ph560 ], [ %.pre, %.critedge4 ]
-  %.1160 = phi i32 [ %.0159558, %.lr.ph560 ], [ %203, %.critedge4 ]
+  %.1160 = phi i32 [ %.0159558, %.lr.ph560 ], [ %29, %.critedge4 ]
   %indvars.iv.next618 = add nuw nsw i64 %indvars.iv617, 1
   %207 = getelementptr i8, ptr %206, i64 4
   %.val183 = load i32, ptr %207, align 4, !tbaa !32
@@ -3429,130 +3429,130 @@ Io_WriteVerilogGetName.exit475:                   ; preds = %501, %._crit_edge.i
   br label %549
 
 549:                                              ; preds = %545, %540
-  %550 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef %.09.i374, i32 noundef %.4593) #11
+  %550 = add nsw i32 %.4593, 1
+  %551 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef %.09.i374, i32 noundef %.4593) #11
   %.val222583 = load i32, ptr %537, align 4, !tbaa !57
   %.not174.not584 = icmp sgt i32 %2, %.val222583
   br i1 %.not174.not584, label %.lr.ph587, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph587, %549
   %.val222.lcssa = phi i32 [ %.val222583, %549 ], [ %.val222, %.lr.ph587 ]
-  %551 = icmp sgt i32 %.val222.lcssa, 0
-  br i1 %551, label %.lr.ph590, label %._crit_edge591
+  %552 = icmp sgt i32 %.val222.lcssa, 0
+  br i1 %552, label %.lr.ph590, label %._crit_edge591
 
 .lr.ph590:                                        ; preds = %.preheader
-  %552 = getelementptr i8, ptr %529, i64 32
-  %553 = zext nneg i32 %.val222.lcssa to i64
-  br label %555
+  %553 = getelementptr i8, ptr %529, i64 32
+  %554 = zext nneg i32 %.val222.lcssa to i64
+  br label %556
 
 .lr.ph587:                                        ; preds = %549, %.lr.ph587
   %.6.in585 = phi i32 [ %.6, %.lr.ph587 ], [ %2, %549 ]
   %.6 = add nsw i32 %.6.in585, -1
-  %554 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.41, i32 noundef %.0156.lcssa, ptr noundef nonnull @.str.37) #11
+  %555 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.41, i32 noundef %.0156.lcssa, ptr noundef nonnull @.str.37) #11
   %.val222 = load i32, ptr %537, align 4, !tbaa !57
   %.not174.not = icmp sgt i32 %.6, %.val222
   br i1 %.not174.not, label %.lr.ph587, label %.preheader, !llvm.loop !78
 
-555:                                              ; preds = %.lr.ph590, %Io_WriteVerilogGetName.exit500
-  %indvars.iv635 = phi i64 [ %553, %.lr.ph590 ], [ %indvars.iv.next636, %Io_WriteVerilogGetName.exit500 ]
+556:                                              ; preds = %.lr.ph590, %Io_WriteVerilogGetName.exit500
+  %indvars.iv635 = phi i64 [ %554, %.lr.ph590 ], [ %indvars.iv.next636, %Io_WriteVerilogGetName.exit500 ]
   %indvars.iv.next636 = add nsw i64 %indvars.iv635, -1
   %.val238 = load ptr, ptr %529, align 8, !tbaa !47
-  %.val239 = load ptr, ptr %552, align 8, !tbaa !52
-  %556 = getelementptr i8, ptr %.val238, i64 32
-  %.val238.val = load ptr, ptr %556, align 8, !tbaa !51
-  %557 = getelementptr i8, ptr %.val238.val, i64 8
-  %.val238.val.val = load ptr, ptr %557, align 8, !tbaa !34
-  %558 = getelementptr inbounds nuw i32, ptr %.val239, i64 %indvars.iv.next636
-  %559 = load i32, ptr %558, align 4, !tbaa !41
-  %560 = sext i32 %559 to i64
-  %561 = getelementptr inbounds ptr, ptr %.val238.val.val, i64 %560
-  %562 = load ptr, ptr %561, align 8, !tbaa !35
-  %563 = tail call ptr @Abc_ObjName(ptr noundef %562) #11
-  %564 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %563) #12
-  %565 = trunc i64 %564 to i32
-  %566 = load i8, ptr %563, align 1, !tbaa !38
-  %567 = add i8 %566, -58
-  %or.cond.i476 = icmp ult i8 %567, -10
-  br i1 %or.cond.i476, label %.preheader.i487, label %579
+  %.val239 = load ptr, ptr %553, align 8, !tbaa !52
+  %557 = getelementptr i8, ptr %.val238, i64 32
+  %.val238.val = load ptr, ptr %557, align 8, !tbaa !51
+  %558 = getelementptr i8, ptr %.val238.val, i64 8
+  %.val238.val.val = load ptr, ptr %558, align 8, !tbaa !34
+  %559 = getelementptr inbounds nuw i32, ptr %.val239, i64 %indvars.iv.next636
+  %560 = load i32, ptr %559, align 4, !tbaa !41
+  %561 = sext i32 %560 to i64
+  %562 = getelementptr inbounds ptr, ptr %.val238.val.val, i64 %561
+  %563 = load ptr, ptr %562, align 8, !tbaa !35
+  %564 = tail call ptr @Abc_ObjName(ptr noundef %563) #11
+  %565 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %564) #12
+  %566 = trunc i64 %565 to i32
+  %567 = load i8, ptr %564, align 1, !tbaa !38
+  %568 = add i8 %567, -58
+  %or.cond.i476 = icmp ult i8 %568, -10
+  br i1 %or.cond.i476, label %.preheader.i487, label %580
 
-.preheader.i487:                                  ; preds = %555
-  %568 = icmp sgt i32 %565, 0
-  br i1 %568, label %.lr.ph.preheader.i490, label %._crit_edge.i488
+.preheader.i487:                                  ; preds = %556
+  %569 = icmp sgt i32 %566, 0
+  br i1 %569, label %.lr.ph.preheader.i490, label %._crit_edge.i488
 
 .lr.ph.preheader.i490:                            ; preds = %.preheader.i487
-  %wide.trip.count.i491 = and i64 %564, 2147483647
+  %wide.trip.count.i491 = and i64 %565, 2147483647
   br label %.lr.ph.i492
 
-.lr.ph.i492:                                      ; preds = %576, %.lr.ph.preheader.i490
-  %indvars.iv.i493 = phi i64 [ 0, %.lr.ph.preheader.i490 ], [ %indvars.iv.next.i498, %576 ]
-  %569 = getelementptr inbounds nuw i8, ptr %563, i64 %indvars.iv.i493
-  %570 = load i8, ptr %569, align 1, !tbaa !38
-  %571 = and i8 %570, -33
-  %572 = add i8 %571, -65
-  %or.cond42.i494 = icmp ult i8 %572, 26
-  br i1 %or.cond42.i494, label %576, label %573
+.lr.ph.i492:                                      ; preds = %577, %.lr.ph.preheader.i490
+  %indvars.iv.i493 = phi i64 [ 0, %.lr.ph.preheader.i490 ], [ %indvars.iv.next.i498, %577 ]
+  %570 = getelementptr inbounds nuw i8, ptr %564, i64 %indvars.iv.i493
+  %571 = load i8, ptr %570, align 1, !tbaa !38
+  %572 = and i8 %571, -33
+  %573 = add i8 %572, -65
+  %or.cond42.i494 = icmp ult i8 %573, 26
+  br i1 %or.cond42.i494, label %577, label %574
 
-573:                                              ; preds = %.lr.ph.i492
-  %574 = add i8 %570, -48
-  %or.cond40.i495 = icmp ult i8 %574, 10
-  %575 = icmp eq i8 %570, 95
-  %or.cond41.i496 = or i1 %575, %or.cond40.i495
-  br i1 %or.cond41.i496, label %576, label %._crit_edge.loopexit.i497
+574:                                              ; preds = %.lr.ph.i492
+  %575 = add i8 %571, -48
+  %or.cond40.i495 = icmp ult i8 %575, 10
+  %576 = icmp eq i8 %571, 95
+  %or.cond41.i496 = or i1 %576, %or.cond40.i495
+  br i1 %or.cond41.i496, label %577, label %._crit_edge.loopexit.i497
 
-576:                                              ; preds = %573, %.lr.ph.i492
+577:                                              ; preds = %574, %.lr.ph.i492
   %indvars.iv.next.i498 = add nuw nsw i64 %indvars.iv.i493, 1
   %exitcond.not.i499 = icmp eq i64 %indvars.iv.next.i498, %wide.trip.count.i491
   br i1 %exitcond.not.i499, label %Io_WriteVerilogGetName.exit500, label %.lr.ph.i492, !llvm.loop !39
 
-._crit_edge.loopexit.i497:                        ; preds = %573
-  %577 = trunc nuw nsw i64 %indvars.iv.i493 to i32
+._crit_edge.loopexit.i497:                        ; preds = %574
+  %578 = trunc nuw nsw i64 %indvars.iv.i493 to i32
   br label %._crit_edge.i488
 
 ._crit_edge.i488:                                 ; preds = %._crit_edge.loopexit.i497, %.preheader.i487
-  %.031.lcssa.i489 = phi i32 [ 0, %.preheader.i487 ], [ %577, %._crit_edge.loopexit.i497 ]
-  %578 = icmp eq i32 %.031.lcssa.i489, %565
-  br i1 %578, label %Io_WriteVerilogGetName.exit500, label %579
+  %.031.lcssa.i489 = phi i32 [ 0, %.preheader.i487 ], [ %578, %._crit_edge.loopexit.i497 ]
+  %579 = icmp eq i32 %.031.lcssa.i489, %566
+  br i1 %579, label %Io_WriteVerilogGetName.exit500, label %580
 
-579:                                              ; preds = %._crit_edge.i488, %555
+580:                                              ; preds = %._crit_edge.i488, %556
   store i8 92, ptr @Io_WriteVerilogGetName.Buffer, align 16, !tbaa !38
-  %580 = icmp sgt i32 %565, 0
-  br i1 %580, label %.lr.ph48.preheader.i481, label %._crit_edge49.i477
+  %581 = icmp sgt i32 %566, 0
+  br i1 %581, label %.lr.ph48.preheader.i481, label %._crit_edge49.i477
 
-.lr.ph48.preheader.i481:                          ; preds = %579
-  %wide.trip.count54.i482 = and i64 %564, 2147483647
+.lr.ph48.preheader.i481:                          ; preds = %580
+  %wide.trip.count54.i482 = and i64 %565, 2147483647
   br label %.lr.ph48.i483
 
 .lr.ph48.i483:                                    ; preds = %.lr.ph48.i483, %.lr.ph48.preheader.i481
   %indvars.iv51.i484 = phi i64 [ 0, %.lr.ph48.preheader.i481 ], [ %indvars.iv.next52.i485, %.lr.ph48.i483 ]
-  %581 = getelementptr inbounds nuw i8, ptr %563, i64 %indvars.iv51.i484
-  %582 = load i8, ptr %581, align 1, !tbaa !38
+  %582 = getelementptr inbounds nuw i8, ptr %564, i64 %indvars.iv51.i484
+  %583 = load i8, ptr %582, align 1, !tbaa !38
   %indvars.iv.next52.i485 = add nuw nsw i64 %indvars.iv51.i484, 1
-  %583 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i485
-  store i8 %582, ptr %583, align 1, !tbaa !38
+  %584 = getelementptr inbounds nuw i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %indvars.iv.next52.i485
+  store i8 %583, ptr %584, align 1, !tbaa !38
   %exitcond55.not.i486 = icmp eq i64 %indvars.iv.next52.i485, %wide.trip.count54.i482
   br i1 %exitcond55.not.i486, label %._crit_edge49.i477, label %.lr.ph48.i483, !llvm.loop !40
 
-._crit_edge49.i477:                               ; preds = %.lr.ph48.i483, %579
-  %584 = shl i64 %564, 32
-  %sext.i478 = add i64 %584, 4294967296
-  %585 = ashr exact i64 %sext.i478, 32
-  %586 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %585
-  store i8 32, ptr %586, align 1, !tbaa !38
-  %sext37.i479 = add i64 %584, 8589934592
-  %587 = ashr exact i64 %sext37.i479, 32
-  %588 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %587
-  store i8 0, ptr %588, align 1, !tbaa !38
+._crit_edge49.i477:                               ; preds = %.lr.ph48.i483, %580
+  %585 = shl i64 %565, 32
+  %sext.i478 = add i64 %585, 4294967296
+  %586 = ashr exact i64 %sext.i478, 32
+  %587 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %586
+  store i8 32, ptr %587, align 1, !tbaa !38
+  %sext37.i479 = add i64 %585, 8589934592
+  %588 = ashr exact i64 %sext37.i479, 32
+  %589 = getelementptr inbounds i8, ptr @Io_WriteVerilogGetName.Buffer, i64 %588
+  store i8 0, ptr %589, align 1, !tbaa !38
   br label %Io_WriteVerilogGetName.exit500
 
-Io_WriteVerilogGetName.exit500:                   ; preds = %576, %._crit_edge.i488, %._crit_edge49.i477
-  %.0.i480 = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i477 ], [ %563, %._crit_edge.i488 ], [ %563, %576 ]
-  %589 = icmp eq i64 %indvars.iv.next636, 0
-  %590 = select i1 %589, ptr @.str.27, ptr @.str.28
-  %591 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.42, i32 noundef %.0156.lcssa, ptr noundef nonnull %.0.i480, ptr noundef nonnull %590) #11
-  %592 = icmp sgt i64 %indvars.iv635, 1
-  br i1 %592, label %555, label %._crit_edge591, !llvm.loop !79
+Io_WriteVerilogGetName.exit500:                   ; preds = %577, %._crit_edge.i488, %._crit_edge49.i477
+  %.0.i480 = phi ptr [ @Io_WriteVerilogGetName.Buffer, %._crit_edge49.i477 ], [ %564, %._crit_edge.i488 ], [ %564, %577 ]
+  %590 = icmp eq i64 %indvars.iv.next636, 0
+  %591 = select i1 %590, ptr @.str.27, ptr @.str.28
+  %592 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.42, i32 noundef %.0156.lcssa, ptr noundef nonnull %.0.i480, ptr noundef nonnull %591) #11
+  %593 = icmp sgt i64 %indvars.iv635, 1
+  br i1 %593, label %556, label %._crit_edge591, !llvm.loop !79
 
 ._crit_edge591:                                   ; preds = %Io_WriteVerilogGetName.exit500, %.preheader
-  %593 = add nsw i32 %.4593, 1
   %.val196 = load ptr, ptr %529, align 8, !tbaa !47
   %594 = getelementptr i8, ptr %529, i64 48
   %.val197 = load ptr, ptr %594, align 8, !tbaa !50
@@ -3649,7 +3649,7 @@ Io_WriteVerilogGetName.exit525:                   ; preds = %613, %._crit_edge.i
 
 627:                                              ; preds = %Io_WriteVerilogGetName.exit525, %531, %525
   %628 = phi ptr [ %526, %525 ], [ %.pre642, %Io_WriteVerilogGetName.exit525 ], [ %526, %531 ]
-  %.5 = phi i32 [ %.4593, %525 ], [ %593, %Io_WriteVerilogGetName.exit525 ], [ %.4593, %531 ]
+  %.5 = phi i32 [ %.4593, %525 ], [ %550, %Io_WriteVerilogGetName.exit525 ], [ %.4593, %531 ]
   %indvars.iv.next639 = add nuw nsw i64 %indvars.iv638, 1
   %629 = getelementptr i8, ptr %628, i64 4
   %.val180 = load i32, ptr %629, align 4, !tbaa !32

@@ -19127,34 +19127,34 @@ _ZNSt6vectorIN4llvm8outliner9CandidateESaIS2_EE5clearEv.exit: ; preds = %_ZN4llv
   br i1 %117, label %205, label %118
 
 118:                                              ; preds = %_ZNSt6vectorIN4llvm8outliner9CandidateESaIS2_EE5clearEv.exit
-  %119 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %120 = load ptr, ptr %119, align 8, !tbaa !851
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
-  %122 = load ptr, ptr %121, align 8, !tbaa !279
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  %124 = load ptr, ptr %123, align 8, !tbaa !638
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 333
-  %126 = load i8, ptr %125, align 1, !tbaa !108, !range !69, !noundef !70
-  %127 = trunc nuw i8 %126 to i1
-  %128 = getelementptr inbounds nuw i8, ptr %124, i64 402
-  %129 = load i8, ptr %128, align 2, !range !69
-  %130 = trunc nuw i8 %129 to i1
-  %131 = select i1 %127, i1 true, i1 %130
-  %132 = select i1 %131, i32 2, i32 4
-  br i1 %107, label %_ZNRSt8optionalI29MachineOutlinerConstructionIDE5valueEv.exit, label %133
+  br i1 %107, label %_ZNRSt8optionalI29MachineOutlinerConstructionIDE5valueEv.exit, label %119
 
-133:                                              ; preds = %118
+119:                                              ; preds = %118
   tail call void @_ZSt27__throw_bad_optional_accessv() #30
   unreachable
 
 _ZNRSt8optionalI29MachineOutlinerConstructionIDE5valueEv.exit: ; preds = %118
-  %134 = add nuw nsw i32 %132, 4
+  %120 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %121 = load ptr, ptr %120, align 8, !tbaa !851
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 32
+  %123 = load ptr, ptr %122, align 8, !tbaa !279
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  %125 = load ptr, ptr %124, align 8, !tbaa !638
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 333
+  %127 = load i8, ptr %126, align 1, !tbaa !108, !range !69, !noundef !70
+  %128 = trunc nuw i8 %127 to i1
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 402
+  %130 = load i8, ptr %129, align 2, !range !69
+  %131 = trunc nuw i8 %130 to i1
+  %132 = select i1 %128, i1 true, i1 %131
+  %133 = select i1 %132, i32 2, i32 4
+  %134 = add nuw nsw i32 %133, 4
+  %.037 = select i1 %108, i32 %133, i32 0
   %.0 = select i1 %108, i32 8, i32 %134
   %.not51 = icmp eq ptr %111, %110
   br i1 %.not51, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNRSt8optionalI29MachineOutlinerConstructionIDE5valueEv.exit
-  %.037 = select i1 %108, i32 %132, i32 0
   %135 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %135, align 8
   %.sroa.0.0.copyload.i19 = load ptr, ptr %7, align 8

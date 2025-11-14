@@ -19532,8 +19532,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNKSt7__cxx11
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc111
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %99, 2
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %98, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !26
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 %.idx.i.i.i.i.i.i.i
   %102 = icmp ugt i64 %99, 15
   br label %.lr.ph.preheader
 
@@ -19541,10 +19541,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc111
   %103 = phi i64 [ %93, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ 1, %.noexc111 ]
   %104 = phi i1 [ %102, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ false, %.noexc111 ]
   %.0.i.i.i.i.i319 = phi ptr [ %101, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %98, %.noexc111 ]
+  %105 = ptrtoint ptr %97 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %105 = ptrtoint ptr %97 to i64
   %.not.i.i = icmp eq ptr %97, %.0.i.i.i.i.i319
   br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit, label %106
 
@@ -24555,8 +24555,8 @@ _ZN17opencv_tensorflow16TensorShapeProtoaSERKS0_.exit135: ; preds = %136, %_ZNKS
 
 169:                                              ; preds = %.noexc143
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %166, 2
-  %170 = getelementptr inbounds nuw i8, ptr %165, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %165, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !26
+  %170 = getelementptr inbounds nuw i8, ptr %165, i64 %.idx.i.i.i.i.i.i.i
   %171 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %170, ptr %171, align 8, !tbaa !353
   %172 = add nuw nsw i64 %.idx.i.i.i.i.i.i.i, 4
@@ -57064,8 +57064,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !26
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i

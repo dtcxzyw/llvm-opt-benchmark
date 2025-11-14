@@ -5351,7 +5351,7 @@ process_frame.exit:                               ; preds = %.loopexit286.thread
   %362 = phi i32 [ %.pr376, %.lr.ph307.splitthread-pre-split ], [ 1, %.lr.ph307.split.preheader ]
   %indvars.iv313 = phi i64 [ %indvars.iv.next314, %.lr.ph307.splitthread-pre-split ], [ 0, %.lr.ph307.split.preheader ]
   %363 = trunc nuw nsw i64 %indvars.iv313 to i32
-  store i32 %363, ptr %358, align 4, !tbaa !277
+  store i32 %363, ptr %357, align 4, !tbaa !277
   %.not143 = icmp eq i32 %362, 0
   br i1 %.not143, label %444, label %.preheader283
 
@@ -5363,7 +5363,7 @@ process_frame.exit:                               ; preds = %.loopexit286.thread
 .preheader283:                                    ; preds = %.lr.ph307.split, %.preheader283.backedge
   %364 = load ptr, ptr %1, align 8, !tbaa !87
   %365 = load ptr, ptr %354, align 8, !tbaa !97
-  %366 = load i32, ptr %357, align 4, !tbaa !277
+  %366 = load i32, ptr %358, align 4, !tbaa !277
   %367 = sext i32 %366 to i64
   %368 = getelementptr inbounds %struct.InputStream, ptr %365, i64 %367
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
@@ -5455,7 +5455,7 @@ clear_log.exit180:                                ; preds = %.lr.ph.i177, %.preh
   %405 = load i32, ptr %373, align 8, !tbaa !280
   %406 = icmp ne i32 %405, 3
   %407 = load ptr, ptr @nb_streams_frames, align 8, !tbaa !118
-  %408 = load i32, ptr %357, align 4, !tbaa !277
+  %408 = load i32, ptr %358, align 4, !tbaa !277
   %409 = sext i32 %408 to i64
   %410 = getelementptr inbounds i64, ptr %407, i64 %409
   %411 = load i64, ptr %410, align 8, !tbaa !147
@@ -5510,7 +5510,7 @@ clear_log.exit180:                                ; preds = %.lr.ph.i177, %.preh
 
 .sink.split381:                                   ; preds = %426, %430
   %.sink382 = phi ptr [ %424, %430 ], [ %425, %426 ]
-  %431 = load i32, ptr %357, align 4, !tbaa !277
+  %431 = load i32, ptr %358, align 4, !tbaa !277
   %432 = sext i32 %431 to i64
   %433 = getelementptr inbounds i32, ptr %.sink382, i64 %432
   store i32 1, ptr %433, align 4, !tbaa !11

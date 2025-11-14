@@ -40197,10 +40197,10 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_2
   br i1 %60, label %61, label %_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS3_12FastLessThanEEEET_SD_SD_SD_T0_.exit
 
 61:                                               ; preds = %59
-  %62 = trunc i64 %.0.copyload.i2.i.i9.i to i32
-  %63 = trunc i64 %.0.copyload.i.i.i.i14 to i32
-  store i32 %62, ptr %.sroa.012.1.i, align 4
-  store i32 %63, ptr %.sroa.0.1.i, align 4
+  %62 = trunc i64 %.0.copyload.i.i.i.i14 to i32
+  %63 = trunc i64 %.0.copyload.i2.i.i9.i to i32
+  store i32 %63, ptr %.sroa.012.1.i, align 4
+  store i32 %62, ptr %.sroa.0.1.i, align 4
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i, i64 4
   %65 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i, i64 -4
   %66 = load i32, ptr %64, align 4

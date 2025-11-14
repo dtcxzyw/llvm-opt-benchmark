@@ -121,29 +121,29 @@ define void @_ZN7rocksdb25DataBlockHashIndexBuilder6FinishERNSt7__cxx1112basic_s
   %8 = or i16 %7, 1
   %9 = zext i16 %8 to i64
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %10, i8 -1, i64 %9, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !37
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !37
-  %.not4749 = icmp eq ptr %12, %14
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !37
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = load ptr, ptr %14, align 8, !tbaa !37
+  %.not4749 = icmp eq ptr %13, %15
   br i1 %.not4749, label %.lr.ph53, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %15 = zext i16 %8 to i32
+  %16 = zext i16 %8 to i32
   br label %18
 
 .lr.ph53:                                         ; preds = %28, %2
-  %16 = getelementptr inbounds nuw i8, ptr %10, i64 %9
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %36
 
 18:                                               ; preds = %.lr.ph, %28
-  %.sroa.035.050 = phi ptr [ %12, %.lr.ph ], [ %29, %28 ]
+  %.sroa.035.050 = phi ptr [ %13, %.lr.ph ], [ %29, %28 ]
   %19 = load i32, ptr %.sroa.035.050, align 4, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.035.050, i64 4
   %21 = load i8, ptr %20, align 4, !tbaa !26
-  %22 = urem i32 %19, %15
+  %22 = urem i32 %19, %16
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !38
@@ -161,7 +161,7 @@ define void @_ZN7rocksdb25DataBlockHashIndexBuilder6FinishERNSt7__cxx1112basic_s
 
 28:                                               ; preds = %.sink.split, %27
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.035.050, i64 8
-  %.not47 = icmp eq ptr %29, %14
+  %.not47 = icmp eq ptr %29, %15
   br i1 %.not47, label %.lr.ph53, label %18
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
@@ -207,7 +207,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.031.052, i64 1
-  %.not48 = icmp eq ptr %42, %16
+  %.not48 = icmp eq ptr %42, %11
   br i1 %.not48, label %._crit_edge, label %36
 
 .loopexit:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i

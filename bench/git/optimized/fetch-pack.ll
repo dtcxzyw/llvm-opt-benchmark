@@ -1886,36 +1886,36 @@ for_each_cached_alternate.exit.i:                 ; preds = %insert_one_alternat
   %594 = load ptr, ptr %593, align 8, !tbaa !94
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 24
   %596 = load i64, ptr %595, align 8, !tbaa !111
-  %597 = call ptr @strvec_push(ptr noundef nonnull %39, ptr noundef nonnull @.str.42) #20
-  %598 = load ptr, ptr @the_repository, align 8, !tbaa !17
-  %599 = getelementptr inbounds nuw i8, ptr %598, i64 400
-  %600 = load ptr, ptr %599, align 8, !tbaa !94
-  %601 = getelementptr inbounds nuw i8, ptr %600, i64 24
-  %602 = load i64, ptr %601, align 8, !tbaa !111
-  %603 = trunc i64 %602 to i32
-  %604 = load ptr, ptr %37, align 8, !tbaa !63
-  %605 = getelementptr inbounds nuw %struct.string_list_item, ptr %604, i64 %indvars.iv253.i
-  %606 = load ptr, ptr %605, align 8, !tbaa !64
-  %607 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %39, ptr noundef nonnull @.str.43, i32 noundef %603, ptr noundef %606) #20
-  %608 = load i64, ptr %133, align 8, !tbaa !115
-  %.not234.i = icmp eq i64 %608, 0
+  %597 = getelementptr inbounds nuw i8, ptr %591, i64 %596
+  %598 = getelementptr inbounds nuw i8, ptr %597, i64 1
+  %599 = call ptr @strvec_push(ptr noundef nonnull %39, ptr noundef nonnull @.str.42) #20
+  %600 = load ptr, ptr @the_repository, align 8, !tbaa !17
+  %601 = getelementptr inbounds nuw i8, ptr %600, i64 400
+  %602 = load ptr, ptr %601, align 8, !tbaa !94
+  %603 = getelementptr inbounds nuw i8, ptr %602, i64 24
+  %604 = load i64, ptr %603, align 8, !tbaa !111
+  %605 = trunc i64 %604 to i32
+  %606 = load ptr, ptr %37, align 8, !tbaa !63
+  %607 = getelementptr inbounds nuw %struct.string_list_item, ptr %606, i64 %indvars.iv253.i
+  %608 = load ptr, ptr %607, align 8, !tbaa !64
+  %609 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %39, ptr noundef nonnull @.str.43, i32 noundef %605, ptr noundef %608) #20
+  %610 = load i64, ptr %133, align 8, !tbaa !115
+  %.not234.i = icmp eq i64 %610, 0
   br i1 %.not234.i, label %._crit_edge229.i, label %.lr.ph228.i
 
 .lr.ph228.i:                                      ; preds = %588, %.lr.ph228.i
   %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i50, %.lr.ph228.i ], [ 0, %588 ]
-  %609 = load ptr, ptr %38, align 8, !tbaa !118
-  %610 = getelementptr inbounds nuw ptr, ptr %609, i64 %indvars.iv.i49
-  %611 = load ptr, ptr %610, align 8, !tbaa !11
-  %612 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %39, ptr noundef nonnull @.str.44, ptr noundef %611) #20
+  %611 = load ptr, ptr %38, align 8, !tbaa !118
+  %612 = getelementptr inbounds nuw ptr, ptr %611, i64 %indvars.iv.i49
+  %613 = load ptr, ptr %612, align 8, !tbaa !11
+  %614 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %39, ptr noundef nonnull @.str.44, ptr noundef %613) #20
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
-  %613 = load i64, ptr %133, align 8, !tbaa !115
-  %614 = icmp ugt i64 %613, %indvars.iv.next.i50
-  br i1 %614, label %.lr.ph228.i, label %._crit_edge229.i, !llvm.loop !119
+  %615 = load i64, ptr %133, align 8, !tbaa !115
+  %616 = icmp ugt i64 %615, %indvars.iv.next.i50
+  br i1 %616, label %.lr.ph228.i, label %._crit_edge229.i, !llvm.loop !119
 
 ._crit_edge229.i:                                 ; preds = %.lr.ph228.i, %588
-  %615 = getelementptr inbounds nuw i8, ptr %591, i64 %596
-  %616 = getelementptr inbounds nuw i8, ptr %615, i64 1
-  %617 = call ptr @strvec_push(ptr noundef nonnull %39, ptr noundef nonnull %616) #20
+  %617 = call ptr @strvec_push(ptr noundef nonnull %39, ptr noundef nonnull %598) #20
   %618 = load i16, ptr %134, align 8
   %619 = or i16 %618, 9
   store i16 %619, ptr %134, align 8
@@ -1999,7 +1999,7 @@ for_each_cached_alternate.exit.i:                 ; preds = %insert_one_alternat
 
 662:                                              ; preds = %653
   %663 = trunc i64 %661 to i32
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.50, ptr noundef nonnull %616, i32 noundef %663, ptr noundef %656) #21
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.50, ptr noundef nonnull %598, i32 noundef %663, ptr noundef %656) #21
   unreachable
 
 664:                                              ; preds = %653
@@ -5332,6 +5332,7 @@ define internal fastcc void @filter_refs(ptr noundef readonly captures(none) %0,
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   %11 = load i32, ptr @allow_unadvertised_object_request, align 4, !tbaa !15
+  %.not = icmp eq i32 %11, 0
   %12 = load ptr, ptr %1, align 8, !tbaa !22
   %.not69102 = icmp eq ptr %12, null
   br i1 %.not69102, label %._crit_edge, label %.lr.ph107
@@ -5444,7 +5445,6 @@ define internal fastcc void @filter_refs(ptr noundef readonly captures(none) %0,
 ._crit_edge:                                      ; preds = %44, %4
   %.058.lcssa = phi ptr [ null, %4 ], [ %.159, %44 ]
   %.0.lcssa = phi ptr [ %9, %4 ], [ %.1, %44 ]
-  %.not = icmp eq i32 %11, 0
   %45 = icmp sgt i32 %3, 0
   %or.cond = and i1 %.not, %45
   br i1 %or.cond, label %.lr.ph111.preheader, label %add_refs_to_oidset.exit85

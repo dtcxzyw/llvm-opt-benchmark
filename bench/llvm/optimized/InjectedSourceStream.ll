@@ -183,29 +183,29 @@ _ZN4llvm5ErrorD2Ev.exit39:                        ; preds = %21
   br i1 %26, label %_ZN4llvm5ErrorD2Ev.exit89, label %27
 
 27:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit39
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  br label %29
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %29 = load i32, ptr %28, align 8, !tbaa !44
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  br label %31
 
-29:                                               ; preds = %29, %27
-  %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %29 ], [ 0, %27 ]
-  %30 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i, 2
-  call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv.i.i.i.i.i
-  %32 = load i64, ptr %31, align 8, !tbaa !44
-  %.not.i.i.i.i.i = icmp eq i64 %32, 0
+31:                                               ; preds = %31, %27
+  %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %31 ], [ 0, %27 ]
+  %32 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i, 2
+  call void @llvm.assume(i1 %32)
+  %33 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv.i.i.i.i.i
+  %34 = load i64, ptr %33, align 8, !tbaa !47
+  %.not.i.i.i.i.i = icmp eq i64 %34, 0
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  br i1 %.not.i.i.i.i.i, label %29, label %_ZNK4llvm3pdb20InjectedSourceStream5beginEv.exit, !llvm.loop !45
+  br i1 %.not.i.i.i.i.i, label %31, label %_ZNK4llvm3pdb20InjectedSourceStream5beginEv.exit, !llvm.loop !48
 
-_ZNK4llvm3pdb20InjectedSourceStream5beginEv.exit: ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %34 = load i32, ptr %33, align 8, !tbaa !47
-  %35 = shl i32 %34, 7
+_ZNK4llvm3pdb20InjectedSourceStream5beginEv.exit: ; preds = %31
+  %35 = shl i32 %29, 7
   %36 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i to i32
   %37 = shl nuw nsw i32 %36, 6
-  %38 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %32, i1 true)
+  %38 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %34, i1 true)
   %39 = trunc nuw nsw i64 %38 to i32
   %40 = or disjoint i32 %37, %39
-  %41 = or disjoint i32 %35, %40
+  %41 = or disjoint i32 %40, %35
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %_ZN4llvm5ErrorD2Ev.exit89, label %.lr.ph
 
@@ -462,7 +462,7 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i: ; preds = %.lr.ph.i, %_ZNK4
 139:                                              ; preds = %136, %.lr.ph.split.preheader.i
   %140 = phi ptr [ %138, %136 ], [ %131, %.lr.ph.split.preheader.i ]
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  %142 = load i32, ptr %141, align 8, !tbaa !47
+  %142 = load i32, ptr %141, align 8, !tbaa !44
   %143 = icmp eq i32 %142, %134
   br i1 %143, label %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i, label %144
 
@@ -481,7 +481,7 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i: ; preds = %.lr.ph.i, %_ZNK4
 .lr.ph24.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i, %149
   %.sroa.08.123.i.i.i.i = phi ptr [ %151, %149 ], [ %140, %.preheader.i.i.i.i ]
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i.i.i, i64 16
-  %147 = load i32, ptr %146, align 8, !tbaa !47
+  %147 = load i32, ptr %146, align 8, !tbaa !44
   %148 = icmp ugt i32 %147, %134
   br i1 %148, label %149, label %.sink.split.i.i.i.i
 
@@ -494,7 +494,7 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i: ; preds = %.lr.ph.i, %_ZNK4
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader16.i.i.i.i, %155
   %.sroa.08.219.i.i.i.i = phi ptr [ %156, %155 ], [ %140, %.preheader16.i.i.i.i ]
   %152 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i.i.i, i64 16
-  %153 = load i32, ptr %152, align 8, !tbaa !47
+  %153 = load i32, ptr %152, align 8, !tbaa !44
   %154 = icmp ult i32 %153, %134
   br i1 %154, label %155, label %.sink.split.i.i.i.i
 
@@ -518,7 +518,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i: ; preds = %.
 
 160:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i, i64 16
-  %162 = load i32, ptr %161, align 8, !tbaa !47
+  %162 = load i32, ptr %161, align 8, !tbaa !44
   %.not.i.i87 = icmp eq i32 %162, %134
   br i1 %.not.i.i87, label %163, label %.backedge.i
 
@@ -528,7 +528,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i: ; preds = %.
   %166 = and i32 %165, 1
   %167 = zext nneg i32 %166 to i64
   %168 = getelementptr inbounds nuw i64, ptr %164, i64 %167
-  %169 = load i64, ptr %168, align 8, !tbaa !44
+  %169 = load i64, ptr %168, align 8, !tbaa !47
   %170 = and i32 %133, 63
   %171 = zext nneg i32 %170 to i64
   %172 = shl nuw i64 1, %171
@@ -737,7 +737,7 @@ _ZN4llvm5ErrorD2Ev.exit47:                        ; preds = %_ZNSt6vectorISt4pai
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i ], [ 1, %51 ]
   %.056.i.i = phi i32 [ 0, %.lr.ph.i ], [ %57, %51 ]
   %53 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv.i.i
-  %54 = load i64, ptr %53, align 8, !tbaa !44
+  %54 = load i64, ptr %53, align 8, !tbaa !47
   %55 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %54)
   %56 = trunc nuw nsw i64 %55 to i32
   %57 = add i32 %.056.i.i, %56
@@ -805,32 +805,32 @@ _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %64
   br i1 %76, label %_ZN4llvm5ErrorD2Ev.exit57, label %77
 
 77:                                               ; preds = %69
-  %78 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  br label %79
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %79 = load i32, ptr %78, align 8, !tbaa !44, !noalias !113
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  br label %81
 
-79:                                               ; preds = %79, %77
-  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %79 ], [ 0, %77 ]
-  %80 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
-  call void @llvm.assume(i1 %80)
-  %81 = getelementptr inbounds nuw i64, ptr %78, i64 %indvars.iv.i.i.i.i
-  %82 = load i64, ptr %81, align 8, !tbaa !44, !noalias !113
-  %.not.i.i.i.i = icmp eq i64 %82, 0
+81:                                               ; preds = %81, %77
+  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %81 ], [ 0, %77 ]
+  %82 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
+  call void @llvm.assume(i1 %82)
+  %83 = getelementptr inbounds nuw i64, ptr %80, i64 %indvars.iv.i.i.i.i
+  %84 = load i64, ptr %83, align 8, !tbaa !47, !noalias !113
+  %.not.i.i.i.i = icmp eq i64 %84, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  br i1 %.not.i.i.i.i, label %79, label %.lr.ph, !llvm.loop !45
+  br i1 %.not.i.i.i.i, label %81, label %.lr.ph, !llvm.loop !48
 
-.lr.ph:                                           ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %84 = load i32, ptr %83, align 8, !tbaa !47, !noalias !113
-  %85 = shl i32 %84, 7
+.lr.ph:                                           ; preds = %81
+  %85 = shl i32 %79, 7
   %86 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %87 = shl nuw nsw i32 %86, 6
-  %88 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %82, i1 true)
+  %88 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %84, i1 true)
   %89 = trunc nuw nsw i64 %88 to i32
   %90 = or disjoint i32 %87, %89
-  %91 = or disjoint i32 %85, %90
+  %91 = or disjoint i32 %90, %85
   store i32 %91, ptr %73, align 8, !tbaa !122, !alias.scope !113
   store i32 %86, ptr %75, align 4, !tbaa !123, !alias.scope !113
-  %92 = lshr exact i64 %82, %88
+  %92 = lshr exact i64 %84, %88
   store i64 %92, ptr %74, align 8, !tbaa !124, !alias.scope !113
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %94
@@ -1292,9 +1292,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15SparseBitVectorILj128E
   %.sroa.012.021 = phi ptr [ %.sroa.012.1, %30 ], [ %3, %2 ]
   %.sroa.06.020 = phi ptr [ %.sroa.06.1, %30 ], [ %4, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.012.021, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !47
+  %8 = load i32, ptr %7, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.06.020, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !47
+  %10 = load i32, ptr %9, align 8, !tbaa !44
   %11 = icmp ugt i32 %8, %10
   br i1 %11, label %12, label %14
 
@@ -1315,9 +1315,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15SparseBitVectorILj128E
   %.not.i = phi i1 [ false, %16 ], [ true, %19 ]
   %indvars.iv.i = phi i64 [ 0, %16 ], [ 1, %19 ]
   %20 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i
-  %21 = load i64, ptr %20, align 8, !tbaa !44
+  %21 = load i64, ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv.i
-  %23 = load i64, ptr %22, align 8, !tbaa !44
+  %23 = load i64, ptr %22, align 8, !tbaa !47
   %24 = and i64 %23, %21
   %.not.not.i = icmp ne i64 %24, 0
   %or.cond.not.i = or i1 %.not.i, %.not.not.i
@@ -1432,7 +1432,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE23SparseBitVec
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %23 = zext nneg i32 %20 to i64
   %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
-  %25 = load i64, ptr %24, align 8, !tbaa !44
+  %25 = load i64, ptr %24, align 8, !tbaa !47
   %26 = zext nneg i32 %21 to i64
   %27 = shl nsw i64 -1, %26
   %28 = and i64 %27, %25
@@ -1481,37 +1481,37 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit: ; preds = %34, %42
   br label %80
 
 50:                                               ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  br label %52
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %52 = load i32, ptr %51, align 8, !tbaa !44
+  %53 = shl i32 %52, 7
+  %54 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  br label %55
 
-52:                                               ; preds = %52, %50
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %50 ]
-  %53 = icmp samesign ult i64 %indvars.iv.i, 2
-  tail call void @llvm.assume(i1 %53)
-  %54 = getelementptr inbounds nuw i64, ptr %51, i64 %indvars.iv.i
-  %55 = load i64, ptr %54, align 8, !tbaa !44
-  %.not.i9 = icmp eq i64 %55, 0
+55:                                               ; preds = %55, %50
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %50 ]
+  %56 = icmp samesign ult i64 %indvars.iv.i, 2
+  tail call void @llvm.assume(i1 %56)
+  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i
+  %58 = load i64, ptr %57, align 8, !tbaa !47
+  %.not.i9 = icmp eq i64 %58, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i9, label %52, label %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit, !llvm.loop !45
+  br i1 %.not.i9, label %55, label %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit, !llvm.loop !48
 
-_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %52
-  %56 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %57 = load i32, ptr %56, align 8, !tbaa !47
-  %58 = shl i32 %57, 7
+_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %55
   %59 = trunc nuw nsw i64 %indvars.iv.i to i32
   %60 = shl nuw nsw i32 %59, 6
-  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %55, i1 true)
+  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %58, i1 true)
   %.fr = freeze i64 %61
   %62 = trunc i64 %.fr to i32
   %63 = or i32 %60, %62
-  %64 = or disjoint i32 %63, %58
+  %64 = or disjoint i32 %63, %53
   store i32 %64, ptr %17, align 8, !tbaa !122
   store i32 %59, ptr %45, align 4, !tbaa !123
   %.urem = add i32 %63, -64
   %.cmp = icmp ult i32 %63, 64
   %65 = select i1 %.cmp, i32 %63, i32 %.urem
   %66 = zext nneg i32 %65 to i64
-  %67 = lshr i64 %55, %66
+  %67 = lshr i64 %58, %66
   store i64 %67, ptr %4, align 8, !tbaa !124
   br label %80
 
@@ -1522,14 +1522,14 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %52
   store i32 %69, ptr %70, align 4, !tbaa !123
   %71 = zext nneg i32 %69 to i64
   %72 = getelementptr inbounds nuw i64, ptr %22, i64 %71
-  %73 = load i64, ptr %72, align 8, !tbaa !44
+  %73 = load i64, ptr %72, align 8, !tbaa !47
   %.urem12 = add i32 %.018.i.ph.frozen, -64
   %.cmp13 = icmp ult i32 %.018.i.ph.frozen, 64
   %74 = select i1 %.cmp13, i32 %.018.i.ph.frozen, i32 %.urem12
   %75 = zext nneg i32 %74 to i64
   %76 = lshr i64 %73, %75
   store i64 %76, ptr %4, align 8, !tbaa !124
-  %77 = load i32, ptr %16, align 8, !tbaa !47
+  %77 = load i32, ptr %16, align 8, !tbaa !44
   %78 = shl i32 %77, 7
   %79 = add nuw i32 %78, %.018.i.ph.frozen
   store i32 %79, ptr %17, align 8, !tbaa !122
@@ -1621,12 +1621,12 @@ attributes #19 = { noreturn nounwind }
 !41 = !{!38, !39, i64 32}
 !42 = !{!43, !43, i64 0}
 !43 = !{!"vtable pointer", !7, i64 0}
-!44 = !{!14, !14, i64 0}
-!45 = distinct !{!45, !46}
-!46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!48, !49, i64 0}
-!48 = !{!"_ZTSN4llvm22SparseBitVectorElementILj128EEE", !49, i64 0, !6, i64 8}
-!49 = !{!"int", !6, i64 0}
+!44 = !{!45, !46, i64 0}
+!45 = !{!"_ZTSN4llvm22SparseBitVectorElementILj128EEE", !46, i64 0, !6, i64 8}
+!46 = !{!"int", !6, i64 0}
+!47 = !{!14, !14, i64 0}
+!48 = distinct !{!48, !49}
+!49 = !{!"llvm.loop.mustprogress"}
 !50 = !{!51}
 !51 = distinct !{!51, !52, !"_ZN4llvm10make_errorINS_3pdb8RawErrorEJNS1_14raw_error_codeERA30_KcEEENS_5ErrorEDpOT0_: argument 0"}
 !52 = distinct !{!52, !"_ZN4llvm10make_errorINS_3pdb8RawErrorEJNS1_14raw_error_codeERA30_KcEEENS_5ErrorEDpOT0_"}
@@ -1649,21 +1649,21 @@ attributes #19 = { noreturn nounwind }
 !69 = !{!70}
 !70 = distinct !{!70, !71, !"_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv: argument 0"}
 !71 = distinct !{!71, !"_ZN4llvm8ExpectedINS_9StringRefEE9takeErrorEv"}
-!72 = distinct !{!72, !46}
+!72 = distinct !{!72, !49}
 !73 = !{!74, !10, i64 0}
 !74 = !{!"_ZTSSt14_List_iteratorIN4llvm22SparseBitVectorElementILj128EEEE", !10, i64 0}
-!75 = distinct !{!75, !46}
-!76 = distinct !{!76, !46}
+!75 = distinct !{!75, !49}
+!76 = distinct !{!76, !49}
 !77 = !{!10, !10, i64 0}
-!78 = distinct !{!78, !46, !79}
+!78 = distinct !{!78, !49, !79}
 !79 = !{!"llvm.loop.unswitch.partial.disable"}
 !80 = !{!81, !82, i64 0}
 !81 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !82, i64 0}
 !82 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
-!83 = !{!84, !49, i64 8}
-!84 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !49, i64 8, !49, i64 12}
-!85 = !{!84, !49, i64 12}
-!86 = !{!49, !49, i64 0}
+!83 = !{!84, !46, i64 8}
+!84 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !46, i64 8, !46, i64 12}
+!85 = !{!84, !46, i64 12}
+!86 = !{!46, !46, i64 0}
 !87 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !88 = !{!89}
 !89 = distinct !{!89, !90, !"_ZN4llvm18BinaryStreamReader10readObjectINS_3pdb9HashTableINS2_19SrcHeaderBlockEntryEE6HeaderEEENS_5ErrorERPKT_: argument 0"}
@@ -1680,8 +1680,8 @@ attributes #19 = { noreturn nounwind }
 !100 = !{!101, !98}
 !101 = distinct !{!101, !102, !"_ZSt11make_uniqueIN4llvm3pdb8RawErrorEJNS1_14raw_error_codeERA24_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !102 = distinct !{!102, !"_ZSt11make_uniqueIN4llvm3pdb8RawErrorEJNS1_14raw_error_codeERA24_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!103 = distinct !{!103, !46}
-!104 = distinct !{!104, !46}
+!103 = distinct !{!103, !49}
+!104 = distinct !{!104, !49}
 !105 = !{!106}
 !106 = distinct !{!106, !107, !"_ZN4llvm10make_errorINS_3pdb8RawErrorEJNS1_14raw_error_codeERA40_KcEEENS_5ErrorEDpOT0_: argument 0"}
 !107 = distinct !{!107, !"_ZN4llvm10make_errorINS_3pdb8RawErrorEJNS1_14raw_error_codeERA40_KcEEENS_5ErrorEDpOT0_"}
@@ -1694,13 +1694,13 @@ attributes #19 = { noreturn nounwind }
 !114 = distinct !{!114, !115, !"_ZNK4llvm15SparseBitVectorILj128EE5beginEv: argument 0"}
 !115 = distinct !{!115, !"_ZNK4llvm15SparseBitVectorILj128EE5beginEv"}
 !116 = !{!117, !119, i64 8}
-!117 = !{!"_ZTSN4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorE", !118, i64 0, !119, i64 8, !120, i64 16, !49, i64 24, !49, i64 28, !14, i64 32}
+!117 = !{!"_ZTSN4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorE", !118, i64 0, !119, i64 8, !120, i64 16, !46, i64 24, !46, i64 28, !14, i64 32}
 !118 = !{!"bool", !6, i64 0}
 !119 = !{!"p1 _ZTSN4llvm15SparseBitVectorILj128EEE", !5, i64 0}
 !120 = !{!"_ZTSSt20_List_const_iteratorIN4llvm22SparseBitVectorElementILj128EEEE", !10, i64 0}
 !121 = !{!117, !118, i64 0}
-!122 = !{!117, !49, i64 24}
-!123 = !{!117, !49, i64 28}
+!122 = !{!117, !46, i64 24}
+!123 = !{!117, !46, i64 28}
 !124 = !{!117, !14, i64 32}
 !125 = !{!126}
 !126 = distinct !{!126, !127, !"_ZN4llvm18BinaryStreamReader11readIntegerIjEENS_5ErrorERT_: argument 0"}
@@ -1726,7 +1726,7 @@ attributes #19 = { noreturn nounwind }
 !146 = distinct !{!146, !147, !"_ZSt19__relocate_object_aISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
 !147 = distinct !{!147, !"_ZSt19__relocate_object_aISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEES4_SaIS4_EEvPT_PT0_RT1_"}
 !148 = distinct !{!148, !147, !"_ZSt19__relocate_object_aISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!149 = distinct !{!149, !46}
+!149 = distinct !{!149, !49}
 !150 = !{!151, !28, i64 0}
 !151 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !152, i64 0, !14, i64 8, !6, i64 16}
 !152 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !28, i64 0}
@@ -1740,11 +1740,11 @@ attributes #19 = { noreturn nounwind }
 !160 = !{!156, !158, i64 44}
 !161 = !{!162, !162, i64 0}
 !162 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
-!163 = distinct !{!163, !46}
-!164 = distinct !{!164, !46}
+!163 = distinct !{!163, !49}
+!164 = distinct !{!164, !49}
 !165 = !{!166}
 !166 = distinct !{!166, !167, !"_ZSt11make_uniqueIN4llvm3pdb8RawErrorEJNS1_14raw_error_codeERA39_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !167 = distinct !{!167, !"_ZSt11make_uniqueIN4llvm3pdb8RawErrorEJNS1_14raw_error_codeERA39_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!168 = distinct !{!168, !46}
+!168 = distinct !{!168, !49}
 !169 = !{!120, !10, i64 0}
-!170 = distinct !{!170, !46}
+!170 = distinct !{!170, !49}

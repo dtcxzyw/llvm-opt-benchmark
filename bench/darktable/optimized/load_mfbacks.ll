@@ -276,14 +276,14 @@ _ZN6LibRaw5p1rawEjj.exit60:                       ; preds = %3, %48, %49
   %62 = load ptr, ptr %61, align 8
   br label %66
 
-63:                                               ; preds = %105
+63:                                               ; preds = %106
   %64 = mul i32 %107, 3
   %65 = lshr i32 %64, 1
   br label %162
 
-66:                                               ; preds = %_ZN6LibRaw5p1rawEjj.exit60, %105
-  %indvars.iv78 = phi i64 [ 0, %_ZN6LibRaw5p1rawEjj.exit60 ], [ %indvars.iv.next79, %105 ]
-  %.05569 = phi i32 [ -1, %_ZN6LibRaw5p1rawEjj.exit60 ], [ %107, %105 ]
+66:                                               ; preds = %_ZN6LibRaw5p1rawEjj.exit60, %106
+  %indvars.iv78 = phi i64 [ 0, %_ZN6LibRaw5p1rawEjj.exit60 ], [ %indvars.iv.next79, %106 ]
+  %.05569 = phi i32 [ -1, %_ZN6LibRaw5p1rawEjj.exit60 ], [ %107, %106 ]
   %67 = getelementptr inbounds nuw [12 x [2 x i8]], ptr @_ZZN6LibRaw24phase_one_fix_pixel_gradEjjE9grad_sets, i64 %indvars.iv78
   %68 = load i8, ptr %67, align 8, !tbaa !77
   %69 = sext i8 %68 to i32
@@ -335,11 +335,11 @@ _ZN6LibRaw5p1rawEjj.exit62:                       ; preds = %_ZN6LibRaw5p1rawEjj
   %103 = add nuw nsw i32 %102, %84
   %104 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv78
   store i32 %103, ptr %104, align 4, !tbaa !6
+  %105 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv78
   br label %108
 
-105:                                              ; preds = %_ZN6LibRaw5p1rawEjj.exit64
-  %106 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv78
-  store i32 %148, ptr %106, align 4, !tbaa !6
+106:                                              ; preds = %_ZN6LibRaw5p1rawEjj.exit64
+  store i32 %148, ptr %105, align 4, !tbaa !6
   %107 = tail call noundef i32 @llvm.umin.i32(i32 %.05569, i32 %148)
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, 7
@@ -401,7 +401,7 @@ _ZN6LibRaw5p1rawEjj.exit64:                       ; preds = %_ZN6LibRaw5p1rawEjj
   %148 = add i32 %147, %109
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %149 = icmp samesign ult i64 %indvars.iv, 10
-  br i1 %149, label %108, label %105, !llvm.loop !80
+  br i1 %149, label %108, label %106, !llvm.loop !80
 
 150:                                              ; preds = %170
   %151 = lshr i32 %.1, 1
@@ -2971,18 +2971,18 @@ _ZN6LibRaw27phase_one_fix_col_pixel_avgEjj.exit:  ; preds = %788, %811
   br i1 %.not776, label %.split755, label %.preheader, !llvm.loop !148
 
 .split755:                                        ; preds = %.preheader
-  %993 = uitofp i16 %989 to double
-  %994 = fmul reassoc nsz arcp contract afn double %993, 5.000000e-01
-  %995 = fptrunc reassoc nsz arcp contract afn double %994 to float
-  %996 = sitofp i32 %984 to float
-  %997 = fsub reassoc nsz arcp contract afn float %983, %996
+  %993 = sitofp i32 %984 to float
+  %994 = fsub reassoc nsz arcp contract afn float %983, %993
+  %995 = uitofp i16 %989 to double
+  %996 = fmul reassoc nsz arcp contract afn double %995, 5.000000e-01
+  %997 = fptrunc reassoc nsz arcp contract afn double %996 to float
   %998 = load float, ptr %6, align 4, !tbaa !82
   %999 = load float, ptr %880, align 4, !tbaa !82
   %1000 = fsub reassoc nsz arcp contract afn float %999, %998
-  %1001 = fmul reassoc nsz arcp contract afn float %1000, %997
+  %1001 = fmul reassoc nsz arcp contract afn float %1000, %994
   %1002 = fadd reassoc nsz arcp contract afn float %1001, %998
   %1003 = fmul reassoc nsz arcp contract afn float %1002, %972
-  %1004 = fadd reassoc nsz arcp contract afn float %1003, %995
+  %1004 = fadd reassoc nsz arcp contract afn float %1003, %997
   %1005 = fmul reassoc nsz arcp contract afn float %1004, 2.000000e+00
   %1006 = fptosi float %1005 to i32
   %1007 = call i32 @llvm.smax.i32(i32 %1006, i32 0)

@@ -2406,15 +2406,15 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
   store float %942, ptr %943, align 4, !tbaa !65
   %indvars.iv.next.i366 = add nuw nsw i64 %indvars.iv.i365, 1
   %exitcond.not.i367 = icmp eq i64 %indvars.iv.next.i366, %wide.trip.count.i363
-  br i1 %exitcond.not.i367, label %._crit_edge.loopexit.i, label %.lr.ph.i364, !llvm.loop !104
+  br i1 %exitcond.not.i367, label %._crit_edge.i368.loopexit, label %.lr.ph.i364, !llvm.loop !104
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i364
+._crit_edge.i368.loopexit:                        ; preds = %.lr.ph.i364
   %944 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %928, i64 %923
   br label %._crit_edge.i368
 
-._crit_edge.i368:                                 ; preds = %._crit_edge.loopexit.i, %922
-  %.sroa.014.058.i = phi ptr [ null, %922 ], [ %928, %._crit_edge.loopexit.i ]
-  %.sroa.15.053.i = phi ptr [ null, %922 ], [ %944, %._crit_edge.loopexit.i ]
+._crit_edge.i368:                                 ; preds = %._crit_edge.i368.loopexit, %922
+  %.sroa.014.058.i = phi ptr [ null, %922 ], [ %928, %._crit_edge.i368.loopexit ]
+  %.sroa.15.053.i = phi ptr [ null, %922 ], [ %944, %._crit_edge.i368.loopexit ]
   %945 = invoke noundef float @_Z7sub_xcmPA3_fiPKiPK6t_atomPfb(ptr noundef %.sroa.014.058.i, i32 noundef %918, ptr noundef %.sroa.023.0.i, ptr noundef %.sroa.5416.0.copyload, ptr noundef nonnull %2, i1 noundef zeroext false)
           to label %946 unwind label %933
 

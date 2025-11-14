@@ -9049,8 +9049,8 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !125
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -10322,8 +10322,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !147
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -10421,8 +10421,8 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !44
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -12255,158 +12255,158 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_ite
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
   %7 = icmp sgt i64 %6, 128
-  br i1 %7, label %.lr.ph.i.preheader, label %46
+  br i1 %7, label %.lr.ph.i, label %47
 
-.lr.ph.i.preheader:                               ; preds = %3
+.lr.ph.i:                                         ; preds = %3
   %scevgep = getelementptr i8, ptr %0, i64 8
-  br label %.lr.ph.i
+  br label %8
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i
-  %.sroa.0.021.i.idx = phi i64 [ %.sroa.0.021.i.add, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i ], [ 8, %.lr.ph.i.preheader ]
-  %.pn20.i = phi ptr [ %.sroa.0.021.i.ptr, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i ], [ %0, %.lr.ph.i.preheader ]
+8:                                                ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i, %.lr.ph.i
+  %.sroa.0.021.i.idx = phi i64 [ 8, %.lr.ph.i ], [ %.sroa.0.021.i.add, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i ]
+  %.pn20.i = phi ptr [ %0, %.lr.ph.i ], [ %.sroa.0.021.i.ptr, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i ]
   %.sroa.0.021.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.021.i.idx
-  %8 = load i64, ptr %.sroa.0.021.i.ptr, align 8, !tbaa !44
-  %9 = load i64, ptr %0, align 8, !tbaa !44
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %8
-  %11 = load float, ptr %10, align 4, !tbaa !147
-  %12 = tail call noundef float @llvm.fabs.f32(float %11)
-  %13 = getelementptr inbounds nuw float, ptr %2, i64 %9
-  %14 = load float, ptr %13, align 4, !tbaa !147
-  %15 = tail call noundef float @llvm.fabs.f32(float %14)
-  %16 = fcmp ogt float %12, %15
-  br i1 %16, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i, label %17
+  %9 = load i64, ptr %.sroa.0.021.i.ptr, align 8, !tbaa !44
+  %10 = load i64, ptr %0, align 8, !tbaa !44
+  %11 = getelementptr inbounds nuw float, ptr %2, i64 %9
+  %12 = load float, ptr %11, align 4, !tbaa !147
+  %13 = tail call noundef float @llvm.fabs.f32(float %12)
+  %14 = getelementptr inbounds nuw float, ptr %2, i64 %10
+  %15 = load float, ptr %14, align 4, !tbaa !147
+  %16 = tail call noundef float @llvm.fabs.f32(float %15)
+  %17 = fcmp ogt float %13, %16
+  br i1 %17, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i, label %18
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %.lr.ph.i
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i: ; preds = %8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %.sroa.0.021.i.idx, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i
 
-17:                                               ; preds = %.lr.ph.i
-  %18 = load i64, ptr %.pn20.i, align 8, !tbaa !44
-  %19 = getelementptr inbounds nuw float, ptr %2, i64 %18
-  %20 = load float, ptr %19, align 4, !tbaa !147
-  %21 = tail call noundef float @llvm.fabs.f32(float %20)
-  %22 = fcmp ogt float %12, %21
-  br i1 %22, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i
+18:                                               ; preds = %8
+  %19 = load i64, ptr %.pn20.i, align 8, !tbaa !44
+  %20 = getelementptr inbounds nuw float, ptr %2, i64 %19
+  %21 = load float, ptr %20, align 4, !tbaa !147
+  %22 = tail call noundef float @llvm.fabs.f32(float %21)
+  %23 = fcmp ogt float %13, %22
+  br i1 %23, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i
 
-.lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
-  %23 = phi i64 [ %24, %.lr.ph.i.i ], [ %18, %17 ]
-  %.sroa.0.010.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.pn20.i, %17 ]
-  %.sroa.05.09.i.i = phi ptr [ %.sroa.0.010.i.i, %.lr.ph.i.i ], [ %.sroa.0.021.i.ptr, %17 ]
-  store i64 %23, ptr %.sroa.05.09.i.i, align 8, !tbaa !44
+.lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
+  %24 = phi i64 [ %25, %.lr.ph.i.i ], [ %19, %18 ]
+  %.sroa.0.010.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.pn20.i, %18 ]
+  %.sroa.05.09.i.i = phi ptr [ %.sroa.0.010.i.i, %.lr.ph.i.i ], [ %.sroa.0.021.i.ptr, %18 ]
+  store i64 %24, ptr %.sroa.05.09.i.i, align 8, !tbaa !44
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.010.i.i, i64 -8
-  %24 = load i64, ptr %.sroa.0.0.i.i, align 8, !tbaa !44
-  %25 = getelementptr inbounds nuw float, ptr %2, i64 %24
-  %26 = load float, ptr %25, align 4, !tbaa !147
-  %27 = tail call noundef float @llvm.fabs.f32(float %26)
-  %28 = fcmp ogt float %12, %27
-  br i1 %28, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i, !llvm.loop !460
+  %25 = load i64, ptr %.sroa.0.0.i.i, align 8, !tbaa !44
+  %26 = getelementptr inbounds nuw float, ptr %2, i64 %25
+  %27 = load float, ptr %26, align 4, !tbaa !147
+  %28 = tail call noundef float @llvm.fabs.f32(float %27)
+  %29 = fcmp ogt float %13, %28
+  br i1 %29, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i, !llvm.loop !460
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %17, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
-  %.sink.i = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i ], [ %.sroa.0.021.i.ptr, %17 ], [ %.sroa.0.010.i.i, %.lr.ph.i.i ]
-  store i64 %8, ptr %.sink.i, align 8, !tbaa !44
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %18, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i
+  %.sink.i = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i ], [ %.sroa.0.021.i.ptr, %18 ], [ %.sroa.0.010.i.i, %.lr.ph.i.i ]
+  store i64 %9, ptr %.sink.i, align 8, !tbaa !44
   %.sroa.0.021.i.add = add nuw nsw i64 %.sroa.0.021.i.idx, 8
   %.not.i = icmp eq i64 %.sroa.0.021.i.add, 128
-  br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_SU_T0_.exit, label %.lr.ph.i, !llvm.loop !461
+  br i1 %.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_SU_T0_.exit, label %8, !llvm.loop !461
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_SU_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.not7.i = icmp eq ptr %29, %1
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.not7.i = icmp eq ptr %30, %1
   br i1 %.not7.i, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_SU_T0_.exit, label %.lr.ph.i10
 
 .lr.ph.i10:                                       ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_SU_T0_.exit, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i11
-  %.sroa.0.08.i = phi ptr [ %45, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i11 ], [ %29, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_SU_T0_.exit ]
-  %30 = load i64, ptr %.sroa.0.08.i, align 8, !tbaa !44
-  %31 = getelementptr inbounds nuw float, ptr %2, i64 %30
-  %32 = load float, ptr %31, align 4, !tbaa !147
-  %33 = tail call noundef float @llvm.fabs.f32(float %32)
+  %.sroa.0.08.i = phi ptr [ %46, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i11 ], [ %30, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_SU_T0_.exit ]
+  %31 = load i64, ptr %.sroa.0.08.i, align 8, !tbaa !44
+  %32 = getelementptr inbounds nuw float, ptr %2, i64 %31
+  %33 = load float, ptr %32, align 4, !tbaa !147
+  %34 = tail call noundef float @llvm.fabs.f32(float %33)
   %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 -8
-  %34 = load i64, ptr %.sroa.0.08.i.i, align 8, !tbaa !44
-  %35 = getelementptr inbounds nuw float, ptr %2, i64 %34
-  %36 = load float, ptr %35, align 4, !tbaa !147
-  %37 = tail call noundef float @llvm.fabs.f32(float %36)
-  %38 = fcmp ogt float %33, %37
-  br i1 %38, label %.lr.ph.i.i13, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i11
+  %35 = load i64, ptr %.sroa.0.08.i.i, align 8, !tbaa !44
+  %36 = getelementptr inbounds nuw float, ptr %2, i64 %35
+  %37 = load float, ptr %36, align 4, !tbaa !147
+  %38 = tail call noundef float @llvm.fabs.f32(float %37)
+  %39 = fcmp ogt float %34, %38
+  br i1 %39, label %.lr.ph.i.i13, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i11
 
 .lr.ph.i.i13:                                     ; preds = %.lr.ph.i10, %.lr.ph.i.i13
-  %39 = phi i64 [ %40, %.lr.ph.i.i13 ], [ %34, %.lr.ph.i10 ]
+  %40 = phi i64 [ %41, %.lr.ph.i.i13 ], [ %35, %.lr.ph.i10 ]
   %.sroa.0.010.i.i14 = phi ptr [ %.sroa.0.0.i.i16, %.lr.ph.i.i13 ], [ %.sroa.0.08.i.i, %.lr.ph.i10 ]
   %.sroa.05.09.i.i15 = phi ptr [ %.sroa.0.010.i.i14, %.lr.ph.i.i13 ], [ %.sroa.0.08.i, %.lr.ph.i10 ]
-  store i64 %39, ptr %.sroa.05.09.i.i15, align 8, !tbaa !44
+  store i64 %40, ptr %.sroa.05.09.i.i15, align 8, !tbaa !44
   %.sroa.0.0.i.i16 = getelementptr inbounds i8, ptr %.sroa.0.010.i.i14, i64 -8
-  %40 = load i64, ptr %.sroa.0.0.i.i16, align 8, !tbaa !44
-  %41 = getelementptr inbounds nuw float, ptr %2, i64 %40
-  %42 = load float, ptr %41, align 4, !tbaa !147
-  %43 = tail call noundef float @llvm.fabs.f32(float %42)
-  %44 = fcmp ogt float %33, %43
-  br i1 %44, label %.lr.ph.i.i13, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i11, !llvm.loop !460
+  %41 = load i64, ptr %.sroa.0.0.i.i16, align 8, !tbaa !44
+  %42 = getelementptr inbounds nuw float, ptr %2, i64 %41
+  %43 = load float, ptr %42, align 4, !tbaa !147
+  %44 = tail call noundef float @llvm.fabs.f32(float %43)
+  %45 = fcmp ogt float %34, %44
+  br i1 %45, label %.lr.ph.i.i13, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i11, !llvm.loop !460
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i11: ; preds = %.lr.ph.i.i13, %.lr.ph.i10
   %.sroa.05.0.lcssa.i.i = phi ptr [ %.sroa.0.08.i, %.lr.ph.i10 ], [ %.sroa.0.010.i.i14, %.lr.ph.i.i13 ]
-  store i64 %30, ptr %.sroa.05.0.lcssa.i.i, align 8, !tbaa !44
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 8
-  %.not.i12 = icmp eq ptr %45, %1
+  store i64 %31, ptr %.sroa.05.0.lcssa.i.i, align 8, !tbaa !44
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 8
+  %.not.i12 = icmp eq ptr %46, %1
   br i1 %.not.i12, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_SU_T0_.exit, label %.lr.ph.i10, !llvm.loop !462
 
-46:                                               ; preds = %3
-  %47 = icmp eq ptr %0, %1
+47:                                               ; preds = %3
+  %48 = icmp eq ptr %0, %1
   %.sroa.0.018.i18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not19.i19 = icmp eq ptr %.sroa.0.018.i18, %1
-  %or.cond = select i1 %47, i1 true, i1 %.not19.i19
+  %or.cond = select i1 %48, i1 true, i1 %.not19.i19
   br i1 %or.cond, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_SU_T0_.exit, label %.lr.ph.i20
 
-.lr.ph.i20:                                       ; preds = %46, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i23
-  %.sroa.0.021.i21 = phi ptr [ %.sroa.0.0.i25, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i23 ], [ %.sroa.0.018.i18, %46 ]
-  %.pn20.i22 = phi ptr [ %.sroa.0.021.i21, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i23 ], [ %0, %46 ]
-  %48 = load i64, ptr %.sroa.0.021.i21, align 8, !tbaa !44
-  %49 = load i64, ptr %0, align 8, !tbaa !44
-  %50 = getelementptr inbounds nuw float, ptr %2, i64 %48
-  %51 = load float, ptr %50, align 4, !tbaa !147
-  %52 = tail call noundef float @llvm.fabs.f32(float %51)
-  %53 = getelementptr inbounds nuw float, ptr %2, i64 %49
-  %54 = load float, ptr %53, align 4, !tbaa !147
-  %55 = tail call noundef float @llvm.fabs.f32(float %54)
-  %56 = fcmp ogt float %52, %55
-  br i1 %56, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i31, label %63
+.lr.ph.i20:                                       ; preds = %47, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i23
+  %.sroa.0.021.i21 = phi ptr [ %.sroa.0.0.i25, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i23 ], [ %.sroa.0.018.i18, %47 ]
+  %.pn20.i22 = phi ptr [ %.sroa.0.021.i21, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i23 ], [ %0, %47 ]
+  %49 = load i64, ptr %.sroa.0.021.i21, align 8, !tbaa !44
+  %50 = load i64, ptr %0, align 8, !tbaa !44
+  %51 = getelementptr inbounds nuw float, ptr %2, i64 %49
+  %52 = load float, ptr %51, align 4, !tbaa !147
+  %53 = tail call noundef float @llvm.fabs.f32(float %52)
+  %54 = getelementptr inbounds nuw float, ptr %2, i64 %50
+  %55 = load float, ptr %54, align 4, !tbaa !147
+  %56 = tail call noundef float @llvm.fabs.f32(float %55)
+  %57 = fcmp ogt float %53, %56
+  br i1 %57, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i31, label %64
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i31: ; preds = %.lr.ph.i20
-  %57 = getelementptr inbounds nuw i8, ptr %.pn20.i22, i64 16
-  %58 = ptrtoint ptr %.sroa.0.021.i21 to i64
-  %59 = sub i64 %58, %5
-  %60 = ashr exact i64 %59, 3
-  %61 = sub nsw i64 0, %60
-  %62 = getelementptr inbounds i64, ptr %57, i64 %61
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %62, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %59, i1 false)
+  %58 = getelementptr inbounds nuw i8, ptr %.pn20.i22, i64 16
+  %59 = ptrtoint ptr %.sroa.0.021.i21 to i64
+  %60 = sub i64 %59, %5
+  %61 = ashr exact i64 %60, 3
+  %62 = sub nsw i64 0, %61
+  %63 = getelementptr inbounds i64, ptr %58, i64 %62
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %63, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %60, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i23
 
-63:                                               ; preds = %.lr.ph.i20
-  %64 = load i64, ptr %.pn20.i22, align 8, !tbaa !44
-  %65 = getelementptr inbounds nuw float, ptr %2, i64 %64
-  %66 = load float, ptr %65, align 4, !tbaa !147
-  %67 = tail call noundef float @llvm.fabs.f32(float %66)
-  %68 = fcmp ogt float %52, %67
-  br i1 %68, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i23
+64:                                               ; preds = %.lr.ph.i20
+  %65 = load i64, ptr %.pn20.i22, align 8, !tbaa !44
+  %66 = getelementptr inbounds nuw float, ptr %2, i64 %65
+  %67 = load float, ptr %66, align 4, !tbaa !147
+  %68 = tail call noundef float @llvm.fabs.f32(float %67)
+  %69 = fcmp ogt float %53, %68
+  br i1 %69, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i23
 
-.lr.ph.i.i27:                                     ; preds = %63, %.lr.ph.i.i27
-  %69 = phi i64 [ %70, %.lr.ph.i.i27 ], [ %64, %63 ]
-  %.sroa.0.010.i.i28 = phi ptr [ %.sroa.0.0.i.i30, %.lr.ph.i.i27 ], [ %.pn20.i22, %63 ]
-  %.sroa.05.09.i.i29 = phi ptr [ %.sroa.0.010.i.i28, %.lr.ph.i.i27 ], [ %.sroa.0.021.i21, %63 ]
-  store i64 %69, ptr %.sroa.05.09.i.i29, align 8, !tbaa !44
+.lr.ph.i.i27:                                     ; preds = %64, %.lr.ph.i.i27
+  %70 = phi i64 [ %71, %.lr.ph.i.i27 ], [ %65, %64 ]
+  %.sroa.0.010.i.i28 = phi ptr [ %.sroa.0.0.i.i30, %.lr.ph.i.i27 ], [ %.pn20.i22, %64 ]
+  %.sroa.05.09.i.i29 = phi ptr [ %.sroa.0.010.i.i28, %.lr.ph.i.i27 ], [ %.sroa.0.021.i21, %64 ]
+  store i64 %70, ptr %.sroa.05.09.i.i29, align 8, !tbaa !44
   %.sroa.0.0.i.i30 = getelementptr inbounds i8, ptr %.sroa.0.010.i.i28, i64 -8
-  %70 = load i64, ptr %.sroa.0.0.i.i30, align 8, !tbaa !44
-  %71 = getelementptr inbounds nuw float, ptr %2, i64 %70
-  %72 = load float, ptr %71, align 4, !tbaa !147
-  %73 = tail call noundef float @llvm.fabs.f32(float %72)
-  %74 = fcmp ogt float %52, %73
-  br i1 %74, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i23, !llvm.loop !460
+  %71 = load i64, ptr %.sroa.0.0.i.i30, align 8, !tbaa !44
+  %72 = getelementptr inbounds nuw float, ptr %2, i64 %71
+  %73 = load float, ptr %72, align 4, !tbaa !147
+  %74 = tail call noundef float @llvm.fabs.f32(float %73)
+  %75 = fcmp ogt float %53, %74
+  br i1 %75, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i23, !llvm.loop !460
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i23: ; preds = %.lr.ph.i.i27, %63, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i31
-  %.sink.i24 = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i31 ], [ %.sroa.0.021.i21, %63 ], [ %.sroa.0.010.i.i28, %.lr.ph.i.i27 ]
-  store i64 %48, ptr %.sink.i24, align 8, !tbaa !44
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i23: ; preds = %.lr.ph.i.i27, %64, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i31
+  %.sink.i24 = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i31 ], [ %.sroa.0.021.i21, %64 ], [ %.sroa.0.010.i.i28, %.lr.ph.i.i27 ]
+  store i64 %49, ptr %.sink.i24, align 8, !tbaa !44
   %.sroa.0.0.i25 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i21, i64 8
   %.not.i26 = icmp eq ptr %.sroa.0.0.i25, %1
   br i1 %.not.i26, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_SU_T0_.exit, label %.lr.ph.i20, !llvm.loop !461
 
-_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_SU_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i23, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i11, %46, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_SU_T0_.exit
+_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_SU_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i23, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_T0_.exit.i11, %47, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS9_7ContextERKNS9_3gbm13GBLinearModelERKS3_INS9_6detail20GradientPairInternalIfEESaISL_EEPNS9_7DMatrixEffiEUlmmE_EEEvT_SU_T0_.exit
   ret void
 }
 
@@ -14358,7 +14358,7 @@ define linkonce_odr { double, double } @_ZN7xgboost6linear23GetBiasGradientParal
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   %.not.i.i.i.i = icmp eq i32 %4, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i25, label %.noexc17
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i24, label %.noexc17
 
 .noexc17:                                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %18 = shl nuw nsw i64 %16, 3
@@ -14367,35 +14367,35 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   %20 = getelementptr inbounds nuw double, ptr %19, i64 %16
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %20, ptr %21, align 8, !tbaa !498
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %18
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %19, i8 0, i64 %18, i1 false), !tbaa !380
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %18
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %22, ptr %23, align 8, !tbaa !499
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #35
-          to label %.noexc27 unwind label %58
+          to label %.noexc26 unwind label %58
 
-_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i25: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i24: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  br label %.loopexit48
+  br label %.loopexit47
 
-.noexc27:                                         ; preds = %.noexc17
+.noexc26:                                         ; preds = %.noexc17
   store ptr %24, ptr %9, align 8, !tbaa !495
   %26 = getelementptr inbounds nuw double, ptr %24, i64 %16
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %26, ptr %27, align 8, !tbaa !498
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %18
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %24, i8 0, i64 %18, i1 false), !tbaa !380
-  br label %.loopexit48
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %18
+  br label %.loopexit47
 
-.loopexit48:                                      ; preds = %.noexc27, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i25
-  %29 = phi ptr [ %25, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i25 ], [ %23, %.noexc27 ]
-  %.0.i.i.i.i.i.i.i24 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i25 ], [ %28, %.noexc27 ]
+.loopexit47:                                      ; preds = %.noexc26, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i24
+  %29 = phi ptr [ %25, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i24 ], [ %23, %.noexc26 ]
+  %.0.i.i.i.i.i.i.i23 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i24 ], [ %28, %.noexc26 ]
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %.0.i.i.i.i.i.i.i24, ptr %30, align 8, !tbaa !499
+  store ptr %.0.i.i.i.i.i.i.i23, ptr %30, align 8, !tbaa !499
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !148
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -14409,7 +14409,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i25: ; preds = %_ZNSt6vectorIdS
   invoke void @_ZN7xgboost6common11ParallelForIjZNS_6linear23GetBiasGradientParallelEiiRKSt6vectorINS_6detail20GradientPairInternalIfEESaIS6_EEPNS_7DMatrixEiEUlT_E_EEvSD_iNS0_5SchedEOT0_(i32 noundef %15, i32 noundef %4, i32 2, i64 0, ptr noundef nonnull align 8 dereferenceable(40) %10)
           to label %_ZN7xgboost6common11ParallelForIjZNS_6linear23GetBiasGradientParallelEiiRKSt6vectorINS_6detail20GradientPairInternalIfEESaIS6_EEPNS_7DMatrixEiEUlT_E_EEvSD_iOT0_.exit unwind label %60
 
-_ZN7xgboost6common11ParallelForIjZNS_6linear23GetBiasGradientParallelEiiRKSt6vectorINS_6detail20GradientPairInternalIfEESaIS6_EEPNS_7DMatrixEiEUlT_E_EEvSD_iOT0_.exit: ; preds = %.loopexit48
+_ZN7xgboost6common11ParallelForIjZNS_6linear23GetBiasGradientParallelEiiRKSt6vectorINS_6detail20GradientPairInternalIfEESaIS6_EEPNS_7DMatrixEiEUlT_E_EEvSD_iOT0_.exit: ; preds = %.loopexit47
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %35 = load ptr, ptr %8, align 8, !tbaa !502
   %36 = load ptr, ptr %29, align 8, !tbaa !502
@@ -14429,20 +14429,20 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_
   %.0.lcssa.i = phi double [ 0.000000e+00, %_ZN7xgboost6common11ParallelForIjZNS_6linear23GetBiasGradientParallelEiiRKSt6vectorINS_6detail20GradientPairInternalIfEESaIS6_EEPNS_7DMatrixEiEUlT_E_EEvSD_iOT0_.exit ], [ %38, %.lr.ph.i ]
   %40 = load ptr, ptr %9, align 8, !tbaa !502
   %41 = load ptr, ptr %30, align 8, !tbaa !502
-  %.not5.i30 = icmp eq ptr %40, %41
-  br i1 %.not5.i30, label %.loopexit, label %.lr.ph.i31
+  %.not5.i29 = icmp eq ptr %40, %41
+  br i1 %.not5.i29, label %.loopexit, label %.lr.ph.i30
 
-.lr.ph.i31:                                       ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit, %.lr.ph.i31
-  %.07.i32 = phi double [ %43, %.lr.ph.i31 ], [ 0.000000e+00, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit ]
-  %.sroa.02.06.i33 = phi ptr [ %44, %.lr.ph.i31 ], [ %40, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit ]
-  %42 = load double, ptr %.sroa.02.06.i33, align 8, !tbaa !380
-  %43 = fadd double %.07.i32, %42
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i33, i64 8
-  %.not.i34 = icmp eq ptr %44, %41
-  br i1 %.not.i34, label %.loopexit, label %.lr.ph.i31, !llvm.loop !503
+.lr.ph.i30:                                       ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit, %.lr.ph.i30
+  %.07.i31 = phi double [ %43, %.lr.ph.i30 ], [ 0.000000e+00, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit ]
+  %.sroa.02.06.i32 = phi ptr [ %44, %.lr.ph.i30 ], [ %40, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit ]
+  %42 = load double, ptr %.sroa.02.06.i32, align 8, !tbaa !380
+  %43 = fadd double %.07.i31, %42
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i32, i64 8
+  %.not.i33 = icmp eq ptr %44, %41
+  br i1 %.not.i33, label %.loopexit, label %.lr.ph.i30, !llvm.loop !503
 
-.loopexit:                                        ; preds = %.lr.ph.i31, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit
-  %.0.lcssa.i35 = phi double [ 0.000000e+00, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit ], [ %43, %.lr.ph.i31 ]
+.loopexit:                                        ; preds = %.lr.ph.i30, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit
+  %.0.lcssa.i34 = phi double [ 0.000000e+00, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit ], [ %43, %.lr.ph.i30 ]
   %.not.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %45
 
@@ -14459,8 +14459,8 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.loopexit, %45
   %51 = phi ptr [ %35, %.loopexit ], [ %.pre, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.not.i.i.i37 = icmp eq ptr %51, null
-  br i1 %.not.i.i.i37, label %_ZNSt6vectorIdSaIdEED2Ev.exit38, label %52
+  %.not.i.i.i36 = icmp eq ptr %51, null
+  br i1 %.not.i.i.i36, label %_ZNSt6vectorIdSaIdEED2Ev.exit37, label %52
 
 52:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -14469,26 +14469,26 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.loopexit, %45
   %56 = ptrtoint ptr %51 to i64
   %57 = sub i64 %55, %56
   call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef %57) #36
-  br label %_ZNSt6vectorIdSaIdEED2Ev.exit38
+  br label %_ZNSt6vectorIdSaIdEED2Ev.exit37
 
-_ZNSt6vectorIdSaIdEED2Ev.exit38:                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %52
+_ZNSt6vectorIdSaIdEED2Ev.exit37:                  ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %52
   %.fca.0.insert.i = insertvalue { double, double } poison, double %.0.lcssa.i, 0
-  %.fca.1.insert.i = insertvalue { double, double } %.fca.0.insert.i, double %.0.lcssa.i35, 1
+  %.fca.1.insert.i = insertvalue { double, double } %.fca.0.insert.i, double %.0.lcssa.i34, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret { double, double } %.fca.1.insert.i
 
 58:                                               ; preds = %.noexc17
   %59 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
+  br label %_ZNSt6vectorIdSaIdEED2Ev.exit39
 
-60:                                               ; preds = %.loopexit48
+60:                                               ; preds = %.loopexit47
   %61 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %62 = load ptr, ptr %9, align 8, !tbaa !495
-  %.not.i.i.i39 = icmp eq ptr %62, null
-  br i1 %.not.i.i.i39, label %_ZNSt6vectorIdSaIdEED2Ev.exit40, label %63
+  %.not.i.i.i38 = icmp eq ptr %62, null
+  br i1 %.not.i.i.i38, label %_ZNSt6vectorIdSaIdEED2Ev.exit39, label %63
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -14497,25 +14497,25 @@ _ZNSt6vectorIdSaIdEED2Ev.exit38:                  ; preds = %_ZNSt6vectorIdSaIdE
   %67 = ptrtoint ptr %62 to i64
   %68 = sub i64 %66, %67
   call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #36
-  br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
+  br label %_ZNSt6vectorIdSaIdEED2Ev.exit39
 
-_ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %63, %60, %58
+_ZNSt6vectorIdSaIdEED2Ev.exit39:                  ; preds = %63, %60, %58
   %.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %61, %60 ], [ %61, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %69 = load ptr, ptr %8, align 8, !tbaa !495
-  %.not.i.i.i41 = icmp eq ptr %69, null
-  br i1 %.not.i.i.i41, label %_ZNSt6vectorIdSaIdEED2Ev.exit42, label %70
+  %.not.i.i.i40 = icmp eq ptr %69, null
+  br i1 %.not.i.i.i40, label %_ZNSt6vectorIdSaIdEED2Ev.exit41, label %70
 
-70:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit40
+70:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit39
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !498
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
   call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #36
-  br label %_ZNSt6vectorIdSaIdEED2Ev.exit42
+  br label %_ZNSt6vectorIdSaIdEED2Ev.exit41
 
-_ZNSt6vectorIdSaIdEED2Ev.exit42:                  ; preds = %70, %_ZNSt6vectorIdSaIdEED2Ev.exit40
+_ZNSt6vectorIdSaIdEED2Ev.exit41:                  ; preds = %70, %_ZNSt6vectorIdSaIdEED2Ev.exit39
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn.pn
 }

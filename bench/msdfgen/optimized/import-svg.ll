@@ -855,13 +855,22 @@ lpad153:                                          ; preds = %if.end145
   br label %common.resume
 
 sw.bb155:                                         ; preds = %while.body4, %while.body4
+  %47 = add i8 %prevNodeType.1829, -67
+  %48 = call i8 @llvm.fshl.i8(i8 %47, i8 %47, i8 4)
+  %switch = icmp ult i8 %48, 4
+  %add.i227 = fadd double %node.sroa.0.0825, %node.sroa.0.0825
+  %add3.i228 = fadd double %node.sroa.39.0824, %node.sroa.39.0824
+  %sub.i231 = fsub double %add.i227, %controlPoint.sroa.29.1
+  %sub3.i232 = fsub double %add3.i228, %controlPoint.sroa.36.1
+  %controlPoint.sroa.0.7 = select i1 %switch, double %sub.i231, double %node.sroa.0.0825
+  %controlPoint.sroa.14.7 = select i1 %switch, double %sub3.i232, double %node.sroa.39.0824
   call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i236)
   br label %while.cond.i.i.i238
 
 while.cond.i.i.i238:                              ; preds = %while.body.i.i.i239, %sw.bb155
-  %47 = phi i8 [ %4, %sw.bb155 ], [ %.pre1133, %while.body.i.i.i239 ]
+  %49 = phi i8 [ %4, %sw.bb155 ], [ %.pre1133, %while.body.i.i.i239 ]
   %pathDef.addr.42 = phi ptr [ %pathDef.addr.2827, %sw.bb155 ], [ %incdec.ptr.i.i.i240, %while.body.i.i.i239 ]
-  switch i8 %47, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241 [
+  switch i8 %49, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241 [
     i8 44, label %while.body.i.i.i239
     i8 32, label %while.body.i.i.i239
     i8 9, label %while.body.i.i.i239
@@ -875,15 +884,6 @@ while.body.i.i.i239:                              ; preds = %while.cond.i.i.i238
   br label %while.cond.i.i.i238, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241:    ; preds = %while.cond.i.i.i238
-  %48 = add i8 %prevNodeType.1829, -67
-  %49 = call i8 @llvm.fshl.i8(i8 %48, i8 %48, i8 4)
-  %switch = icmp ult i8 %49, 4
-  %add.i227 = fadd double %node.sroa.0.0825, %node.sroa.0.0825
-  %add3.i228 = fadd double %node.sroa.39.0824, %node.sroa.39.0824
-  %sub.i231 = fsub double %add.i227, %controlPoint.sroa.29.1
-  %sub3.i232 = fsub double %add3.i228, %controlPoint.sroa.36.1
-  %controlPoint.sroa.0.7 = select i1 %switch, double %sub.i231, double %node.sroa.0.0825
-  %controlPoint.sroa.14.7 = select i1 %switch, double %sub3.i232, double %node.sroa.39.0824
   store ptr null, ptr %end.i.i236, align 8
   %call.i.i242 = call double @strtod(ptr noundef nonnull %pathDef.addr.42, ptr noundef nonnull %end.i.i236) #17
   %50 = load ptr, ptr %end.i.i236, align 8

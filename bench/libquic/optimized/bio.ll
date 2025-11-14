@@ -1338,38 +1338,41 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %71 = call fastcc i32 @bio_io(ptr noundef nonnull %0, ptr noundef nonnull %70, i32 noundef %21, i64 noundef 24, i32 noundef 2, ptr noundef nonnull %6)
   %.not70 = icmp eq i32 %71, %21
-  br i1 %.not70, label %.lr.ph, label %bio_read_all.exit.thread
+  br i1 %.not70, label %.lr.ph.preheader, label %bio_read_all.exit.thread
 
-.lr.ph:                                           ; preds = %69, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %69 ]
-  %.05788 = phi i32 [ %77, %.lr.ph ], [ 0, %69 ]
-  %72 = shl i32 %.05788, 8
-  %73 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 2
-  %75 = load i8, ptr %74, align 1, !tbaa !41
-  %76 = zext i8 %75 to i32
-  %77 = or disjoint i32 %72, %76
+.lr.ph.preheader:                                 ; preds = %69
+  %72 = add nuw nsw i64 %22, 2
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %.05788 = phi i32 [ 0, %.lr.ph.preheader ], [ %78, %.lr.ph ]
+  %73 = shl i32 %.05788, 8
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 2
+  %76 = load i8, ptr %75, align 1, !tbaa !41
+  %77 = zext i8 %76 to i32
+  %78 = or disjoint i32 %73, %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %22
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %78 = icmp ult i32 %77, 128
-  br i1 %78, label %bio_read_all.exit.thread, label %bio_read_all.exit
+  %79 = icmp ult i32 %78, 128
+  br i1 %79, label %bio_read_all.exit.thread, label %bio_read_all.exit
 
 bio_read_all.exit:                                ; preds = %._crit_edge
-  %79 = add nuw nsw i64 %22, 2
   %80 = shl i8 %11, 3
   %81 = zext i8 %80 to i32
   %82 = add nsw i32 %81, -8
-  %83 = lshr i32 %77, %82
+  %83 = lshr i32 %78, %82
   %.not77 = icmp eq i32 %83, 0
-  %84 = zext i32 %77 to i64
+  %84 = zext i32 %78 to i64
   br i1 %.not77, label %bio_read_all.exit.thread, label %85
 
 85:                                               ; preds = %bio_read_all.exit, %17
   %.061 = phi i64 [ %18, %17 ], [ %84, %bio_read_all.exit ]
-  %.059 = phi i64 [ 2, %17 ], [ %79, %bio_read_all.exit ]
+  %.059 = phi i64 [ 2, %17 ], [ %72, %bio_read_all.exit ]
   %86 = add nuw nsw i64 %.059, %.061
   %87 = icmp ugt i64 %86, %3
   %88 = icmp samesign ugt i64 %.061, 2147483647

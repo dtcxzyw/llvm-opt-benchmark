@@ -1657,28 +1657,31 @@ if.end:                                           ; preds = %entry
   %arrayidx.i.i45 = getelementptr i8, ptr %node, i64 10
   %2 = load i8, ptr %arrayidx.i.i45, align 1
   %cmp = icmp eq i8 %2, 0
-  br i1 %cmp, label %if.then7, label %while.body
+  br i1 %cmp, label %if.then7, label %while.body.preheader
 
 if.then7:                                         ; preds = %if.end
   %3 = load ptr, ptr %alloc, align 8
   %cmp.i.i.i.i46 = icmp eq ptr %3, null
   br i1 %cmp.i.i.i.i46, label %return.sink.split, label %return
 
-while.body:                                       ; preds = %if.end, %while.body
-  %node.addr.080 = phi ptr [ %4, %while.body ], [ %node, %if.end ]
+while.body.preheader:                             ; preds = %if.end
+  %4 = load ptr, ptr %node, align 8
+  br label %while.body
+
+while.body:                                       ; preds = %while.body.preheader, %while.body
+  %node.addr.080 = phi ptr [ %5, %while.body ], [ %node, %while.body.preheader ]
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %node.addr.080, i64 256
-  %4 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %arrayidx.i.i49 = getelementptr i8, ptr %4, i64 11
-  %5 = load i8, ptr %arrayidx.i.i49, align 1
-  %cmp.i.not.i = icmp eq i8 %5, 0
+  %5 = load ptr, ptr %add.ptr.i.i.i.i, align 8
+  %arrayidx.i.i49 = getelementptr i8, ptr %5, i64 11
+  %6 = load i8, ptr %arrayidx.i.i49, align 1
+  %cmp.i.not.i = icmp eq i8 %6, 0
   br i1 %cmp.i.not.i, label %while.body, label %while.end, !llvm.loop !52
 
 while.end:                                        ; preds = %while.body
-  %6 = load ptr, ptr %node, align 8
-  %add.ptr.i.i.i = getelementptr i8, ptr %4, i64 8
+  %add.ptr.i.i.i = getelementptr i8, ptr %5, i64 8
   %7 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv14 = zext i8 %7 to i64
-  %8 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %while.end
@@ -1741,7 +1744,7 @@ do.body37.preheader:                              ; preds = %_ZN4absl12lts_20230
 do.body37.us:                                     ; preds = %do.body37.preheader, %if.end46.us
   %parent.3.us = phi ptr [ %19, %if.end46.us ], [ %parent.2, %do.body37.preheader ]
   %19 = load ptr, ptr %parent.3.us, align 8
-  %cmp44.us = icmp eq ptr %19, %6
+  %cmp44.us = icmp eq ptr %19, %4
   br i1 %cmp44.us, label %return, label %if.end46.us
 
 if.end46.us:                                      ; preds = %do.body37.us
@@ -1770,7 +1773,7 @@ if.then.i.i.i.i72:                                ; preds = %do.body37
   br label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10deallocateEmPSI_PSG_.exit73
 
 _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10deallocateEmPSI_PSG_.exit73: ; preds = %do.body37, %if.then.i.i.i.i72
-  %cmp44 = icmp eq ptr %24, %6
+  %cmp44 = icmp eq ptr %24, %4
   br i1 %cmp44, label %return, label %if.end46
 
 if.end46:                                         ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10deallocateEmPSI_PSG_.exit73

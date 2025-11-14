@@ -1011,105 +1011,102 @@ thread-pre-split:                                 ; preds = %snarf_refs.exit, %s
   %403 = call i64 @fwrite(ptr nonnull @.str.48, i64 21, i64 1, ptr %402) #20
   br label %show_merge_base.exit
 
-.preheader322:                                    ; preds = %437
+.preheader322:                                    ; preds = %438
+  %404 = trunc nuw nsw i64 %indvars.iv.next405 to i32
   %wide.trip.count = and i64 %indvars.iv.next405, 4294967295
   br label %.lr.ph358
 
-.lr.ph354:                                        ; preds = %.preheader323, %437
-  %indvars.iv404 = phi i64 [ %indvars.iv.next405, %437 ], [ 0, %.preheader323 ]
-  %404 = phi ptr [ %440, %437 ], [ %400, %.preheader323 ]
+.lr.ph354:                                        ; preds = %.preheader323, %438
+  %indvars.iv404 = phi i64 [ %indvars.iv.next405, %438 ], [ 0, %.preheader323 ]
+  %405 = phi ptr [ %441, %438 ], [ %400, %.preheader323 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  %405 = trunc nuw nsw i64 %indvars.iv404 to i32
-  %406 = shl nuw i32 4, %405
+  %406 = trunc nuw nsw i64 %indvars.iv404 to i32
+  %407 = shl nuw i32 4, %406
   %exitcond407 = icmp eq i64 %indvars.iv404, 26
-  br i1 %exitcond407, label %407, label %409
+  br i1 %exitcond407, label %408, label %410
 
-407:                                              ; preds = %.lr.ph354
-  %408 = call fastcc ptr @Q_(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50)
-  call void (ptr, ...) @die(ptr noundef %408, i32 noundef 26) #18
+408:                                              ; preds = %.lr.ph354
+  %409 = call fastcc ptr @Q_(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50)
+  call void (ptr, ...) @die(ptr noundef %409, i32 noundef 26) #18
   unreachable
 
-409:                                              ; preds = %.lr.ph354
-  %410 = load ptr, ptr @the_repository, align 8, !tbaa !28
-  %411 = call i32 @repo_get_oid(ptr noundef %410, ptr noundef nonnull %404, ptr noundef nonnull %32) #17
-  %.not204 = icmp eq i32 %411, 0
-  br i1 %.not204, label %416, label %412
+410:                                              ; preds = %.lr.ph354
+  %411 = load ptr, ptr @the_repository, align 8, !tbaa !28
+  %412 = call i32 @repo_get_oid(ptr noundef %411, ptr noundef nonnull %405, ptr noundef nonnull %32) #17
+  %.not204 = icmp eq i32 %412, 0
+  br i1 %.not204, label %417, label %413
 
-412:                                              ; preds = %409
-  %413 = getelementptr inbounds nuw ptr, ptr @ref_name, i64 %indvars.iv404
-  %414 = call fastcc ptr @_(ptr noundef nonnull @.str.51)
-  %415 = load ptr, ptr %413, align 8, !tbaa !11
-  call void (ptr, ...) @die(ptr noundef %414, ptr noundef %415) #18
+413:                                              ; preds = %410
+  %414 = getelementptr inbounds nuw ptr, ptr @ref_name, i64 %indvars.iv404
+  %415 = call fastcc ptr @_(ptr noundef nonnull @.str.51)
+  %416 = load ptr, ptr %414, align 8, !tbaa !11
+  call void (ptr, ...) @die(ptr noundef %415, ptr noundef %416) #18
   unreachable
 
-416:                                              ; preds = %409
-  %417 = load ptr, ptr @the_repository, align 8, !tbaa !28
-  %418 = call ptr @lookup_commit_reference(ptr noundef %417, ptr noundef nonnull %32) #17
-  %.not205 = icmp eq ptr %418, null
-  br i1 %.not205, label %419, label %424
+417:                                              ; preds = %410
+  %418 = load ptr, ptr @the_repository, align 8, !tbaa !28
+  %419 = call ptr @lookup_commit_reference(ptr noundef %418, ptr noundef nonnull %32) #17
+  %.not205 = icmp eq ptr %419, null
+  br i1 %.not205, label %420, label %425
 
-419:                                              ; preds = %416
-  %420 = getelementptr inbounds nuw ptr, ptr @ref_name, i64 %indvars.iv404
-  %421 = call fastcc ptr @_(ptr noundef nonnull @.str.52)
-  %422 = load ptr, ptr %420, align 8, !tbaa !11
-  %423 = call ptr @oid_to_hex(ptr noundef nonnull %32) #17
-  call void (ptr, ...) @die(ptr noundef %421, ptr noundef %422, ptr noundef %423) #18
+420:                                              ; preds = %417
+  %421 = getelementptr inbounds nuw ptr, ptr @ref_name, i64 %indvars.iv404
+  %422 = call fastcc ptr @_(ptr noundef nonnull @.str.52)
+  %423 = load ptr, ptr %421, align 8, !tbaa !11
+  %424 = call ptr @oid_to_hex(ptr noundef nonnull %32) #17
+  call void (ptr, ...) @die(ptr noundef %422, ptr noundef %423, ptr noundef %424) #18
   unreachable
 
-424:                                              ; preds = %416
-  %425 = load ptr, ptr @the_repository, align 8, !tbaa !28
-  %426 = call i32 @repo_parse_commit_gently(ptr noundef %425, ptr noundef nonnull %418, i32 noundef 0) #17
-  %427 = load i32, ptr %418, align 8
-  %.not.i212 = icmp ult i32 %427, 16
-  br i1 %.not.i212, label %428, label %mark_seen.exit
+425:                                              ; preds = %417
+  %426 = load ptr, ptr @the_repository, align 8, !tbaa !28
+  %427 = call i32 @repo_parse_commit_gently(ptr noundef %426, ptr noundef nonnull %419, i32 noundef 0) #17
+  %428 = load i32, ptr %419, align 8
+  %.not.i212 = icmp ult i32 %428, 16
+  br i1 %.not.i212, label %429, label %mark_seen.exit
 
-428:                                              ; preds = %424
-  %429 = call ptr @commit_list_insert(ptr noundef nonnull %418, ptr noundef nonnull %9) #17
-  %.pre423 = load i32, ptr %418, align 8
+429:                                              ; preds = %425
+  %430 = call ptr @commit_list_insert(ptr noundef nonnull %419, ptr noundef nonnull %9) #17
+  %.pre423 = load i32, ptr %419, align 8
   br label %mark_seen.exit
 
-mark_seen.exit:                                   ; preds = %424, %428
-  %430 = phi i32 [ %427, %424 ], [ %.pre423, %428 ]
-  %431 = shl nuw i32 64, %405
-  %432 = or i32 %430, %431
-  store i32 %432, ptr %418, align 8
-  %433 = lshr i32 %432, 4
-  %434 = icmp eq i32 %433, %406
-  br i1 %434, label %435, label %437
+mark_seen.exit:                                   ; preds = %425, %429
+  %431 = phi i32 [ %428, %425 ], [ %.pre423, %429 ]
+  %432 = shl nuw i32 64, %406
+  %433 = or i32 %431, %432
+  store i32 %433, ptr %419, align 8
+  %434 = lshr i32 %433, 4
+  %435 = icmp eq i32 %434, %407
+  br i1 %435, label %436, label %438
 
-435:                                              ; preds = %mark_seen.exit
-  %436 = call ptr @commit_list_insert_by_date(ptr noundef nonnull %418, ptr noundef nonnull %8) #17
-  br label %437
+436:                                              ; preds = %mark_seen.exit
+  %437 = call ptr @commit_list_insert_by_date(ptr noundef nonnull %419, ptr noundef nonnull %8) #17
+  br label %438
 
-437:                                              ; preds = %435, %mark_seen.exit
-  %438 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv404
-  store ptr %418, ptr %438, align 8, !tbaa !43
+438:                                              ; preds = %436, %mark_seen.exit
+  %439 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv404
+  store ptr %419, ptr %439, align 8, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %indvars.iv.next405 = add nuw nsw i64 %indvars.iv404, 1
-  %439 = getelementptr inbounds nuw ptr, ptr @ref_name, i64 %indvars.iv.next405
-  %440 = load ptr, ptr %439, align 8, !tbaa !11
-  %.not193 = icmp eq ptr %440, null
+  %440 = getelementptr inbounds nuw ptr, ptr @ref_name, i64 %indvars.iv.next405
+  %441 = load ptr, ptr %440, align 8, !tbaa !11
+  %.not193 = icmp eq ptr %441, null
   br i1 %.not193, label %.preheader322, label %.lr.ph354, !llvm.loop !45
 
 .lr.ph358:                                        ; preds = %.preheader322, %.lr.ph358
   %indvars.iv408 = phi i64 [ 0, %.preheader322 ], [ %indvars.iv.next409, %.lr.ph358 ]
-  %441 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv408
-  %442 = load ptr, ptr %441, align 8, !tbaa !43
-  %443 = load i32, ptr %442, align 8
-  %444 = lshr i32 %443, 4
-  %445 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv408
-  store i32 %444, ptr %445, align 4, !tbaa !9
+  %442 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv408
+  %443 = load ptr, ptr %442, align 8, !tbaa !43
+  %444 = load i32, ptr %443, align 8
+  %445 = lshr i32 %444, 4
+  %446 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv408
+  store i32 %445, ptr %446, align 4, !tbaa !9
   %indvars.iv.next409 = add nuw nsw i64 %indvars.iv408, 1
   %exitcond411.not = icmp eq i64 %indvars.iv.next409, %wide.trip.count
-  br i1 %exitcond411.not, label %._crit_edge359.loopexit, label %.lr.ph358, !llvm.loop !46
+  br i1 %exitcond411.not, label %._crit_edge359, label %.lr.ph358, !llvm.loop !46
 
-._crit_edge359.loopexit:                          ; preds = %.lr.ph358
-  %446 = trunc nuw nsw i64 %indvars.iv.next405 to i32
-  br label %._crit_edge359
-
-._crit_edge359:                                   ; preds = %._crit_edge359.loopexit, %.preheader323
-  %.lcssa333484 = phi i64 [ 0, %.preheader323 ], [ %indvars.iv.next405, %._crit_edge359.loopexit ]
-  %.0157.lcssa483 = phi i32 [ 0, %.preheader323 ], [ %446, %._crit_edge359.loopexit ]
+._crit_edge359:                                   ; preds = %.lr.ph358, %.preheader323
+  %.lcssa333484 = phi i64 [ 0, %.preheader323 ], [ %indvars.iv.next405, %.lr.ph358 ]
+  %.0157.lcssa483 = phi i32 [ 0, %.preheader323 ], [ %404, %.lr.ph358 ]
   %447 = load i32, ptr %11, align 4, !tbaa !9
   %448 = icmp sgt i32 %447, -1
   br i1 %448, label %449, label %join_revs.exit

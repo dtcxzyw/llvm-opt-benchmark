@@ -4090,7 +4090,7 @@ define i32 @Gia_ManDecomp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = tail call i32 @Gia_ManMuxTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %7)
-  br label %100
+  br label %102
 
 9:                                                ; preds = %4
   %10 = sext i32 %2 to i64
@@ -4115,207 +4115,208 @@ define i32 @Gia_ManDecomp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
   %spec.select13.i = select i1 %15, i32 %16, i32 %.016.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.i95, label %.lr.ph.i, !llvm.loop !84
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i93, label %.lr.ph.i, !llvm.loop !84
 
-.lr.ph.i95:                                       ; preds = %.lr.ph.i, %.lr.ph.i95
-  %indvars.iv.i96 = phi i64 [ %indvars.iv.next.i97, %.lr.ph.i95 ], [ 0, %.lr.ph.i ]
-  %.025.i = phi i32 [ %.1.i, %.lr.ph.i95 ], [ -1, %.lr.ph.i ]
-  %.01524.i = phi i32 [ %.116.i, %.lr.ph.i95 ], [ -1, %.lr.ph.i ]
-  %17 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i96
-  %18 = load i32, ptr %17, align 4, !tbaa !11
-  %19 = icmp sge i32 %.01524.i, %18
+.lr.ph.preheader.i93:                             ; preds = %.lr.ph.i
+  %17 = add nsw i32 %spec.select13.i, %2
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds i32, ptr %3, i64 %18
+  %20 = load i32, ptr %19, align 4, !tbaa !11
+  br label %.lr.ph.i95
+
+.lr.ph.i95:                                       ; preds = %.lr.ph.i95, %.lr.ph.preheader.i93
+  %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.preheader.i93 ], [ %indvars.iv.next.i97, %.lr.ph.i95 ]
+  %.025.i = phi i32 [ -1, %.lr.ph.preheader.i93 ], [ %.1.i, %.lr.ph.i95 ]
+  %.01524.i = phi i32 [ -1, %.lr.ph.preheader.i93 ], [ %.116.i, %.lr.ph.i95 ]
+  %21 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i96
+  %22 = load i32, ptr %21, align 4, !tbaa !11
+  %23 = icmp sge i32 %.01524.i, %22
   %.not.i = icmp eq i64 %indvars.iv.i96, 4294967295
-  %or.cond.i = or i1 %.not.i, %19
-  %.116.i = select i1 %or.cond.i, i32 %.01524.i, i32 %18
-  %20 = trunc nuw nsw i64 %indvars.iv.i96 to i32
-  %.1.i = select i1 %or.cond.i, i32 %.025.i, i32 %20
+  %or.cond.i = or i1 %.not.i, %23
+  %.116.i = select i1 %or.cond.i, i32 %.01524.i, i32 %22
+  %24 = trunc nuw nsw i64 %indvars.iv.i96 to i32
+  %.1.i = select i1 %or.cond.i, i32 %.025.i, i32 %24
   %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i96, 1
   %exitcond.not.i98 = icmp eq i64 %indvars.iv.next.i97, %wide.trip.count.i
   br i1 %exitcond.not.i98, label %.lr.ph.preheader.i100, label %.lr.ph.i95, !llvm.loop !83
 
 .lr.ph.preheader.i100:                            ; preds = %.lr.ph.i95
-  %21 = zext i32 %.1.i to i64
+  %25 = zext i32 %.1.i to i64
   br label %.lr.ph.i102
 
 .lr.ph.i102:                                      ; preds = %.lr.ph.i102, %.lr.ph.preheader.i100
   %indvars.iv.i103 = phi i64 [ 0, %.lr.ph.preheader.i100 ], [ %indvars.iv.next.i112, %.lr.ph.i102 ]
   %.025.i104 = phi i32 [ -1, %.lr.ph.preheader.i100 ], [ %.1.i111, %.lr.ph.i102 ]
   %.01524.i105 = phi i32 [ -1, %.lr.ph.preheader.i100 ], [ %.116.i110, %.lr.ph.i102 ]
-  %22 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i103
-  %23 = load i32, ptr %22, align 4, !tbaa !11
-  %24 = icmp sge i32 %.01524.i105, %23
-  %.not.i106 = icmp eq i64 %indvars.iv.i103, %21
-  %or.cond.i107 = or i1 %.not.i106, %24
+  %26 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i103
+  %27 = load i32, ptr %26, align 4, !tbaa !11
+  %28 = icmp sge i32 %.01524.i105, %27
+  %.not.i106 = icmp eq i64 %indvars.iv.i103, %25
+  %or.cond.i107 = or i1 %.not.i106, %28
   %.not19.i108 = icmp eq i64 %indvars.iv.i103, 4294967295
   %or.cond21.i = or i1 %.not19.i108, %or.cond.i107
-  %.116.i110 = select i1 %or.cond21.i, i32 %.01524.i105, i32 %23
-  %25 = trunc nuw nsw i64 %indvars.iv.i103 to i32
-  %.1.i111 = select i1 %or.cond21.i, i32 %.025.i104, i32 %25
+  %.116.i110 = select i1 %or.cond21.i, i32 %.01524.i105, i32 %27
+  %29 = trunc nuw nsw i64 %indvars.iv.i103 to i32
+  %.1.i111 = select i1 %or.cond21.i, i32 %.025.i104, i32 %29
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i103, 1
   %exitcond.not.i113 = icmp eq i64 %indvars.iv.next.i112, %wide.trip.count.i
   br i1 %exitcond.not.i113, label %.lr.ph.preheader.i116, label %.lr.ph.i102, !llvm.loop !83
 
 .lr.ph.preheader.i116:                            ; preds = %.lr.ph.i102
-  %26 = zext i32 %.1.i111 to i64
+  %30 = zext i32 %.1.i111 to i64
   br label %.lr.ph.i118
 
 .lr.ph.i118:                                      ; preds = %.lr.ph.i118, %.lr.ph.preheader.i116
   %indvars.iv.i119 = phi i64 [ 0, %.lr.ph.preheader.i116 ], [ %indvars.iv.next.i129, %.lr.ph.i118 ]
   %.025.i120 = phi i32 [ -1, %.lr.ph.preheader.i116 ], [ %.1.i128, %.lr.ph.i118 ]
   %.01524.i121 = phi i32 [ -1, %.lr.ph.preheader.i116 ], [ %.116.i127, %.lr.ph.i118 ]
-  %27 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i119
-  %28 = load i32, ptr %27, align 4, !tbaa !11
-  %29 = icmp sge i32 %.01524.i121, %28
-  %.not.i122 = icmp eq i64 %indvars.iv.i119, %21
-  %or.cond.i123 = or i1 %.not.i122, %29
-  %.not19.i124 = icmp eq i64 %indvars.iv.i119, %26
+  %31 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i119
+  %32 = load i32, ptr %31, align 4, !tbaa !11
+  %33 = icmp sge i32 %.01524.i121, %32
+  %.not.i122 = icmp eq i64 %indvars.iv.i119, %25
+  %or.cond.i123 = or i1 %.not.i122, %33
+  %.not19.i124 = icmp eq i64 %indvars.iv.i119, %30
   %or.cond21.i125 = or i1 %.not19.i124, %or.cond.i123
   %.not20.i126 = icmp eq i64 %indvars.iv.i119, 4294967295
   %or.cond22.i = or i1 %.not20.i126, %or.cond21.i125
-  %.116.i127 = select i1 %or.cond22.i, i32 %.01524.i121, i32 %28
-  %30 = trunc nuw nsw i64 %indvars.iv.i119 to i32
-  %.1.i128 = select i1 %or.cond22.i, i32 %.025.i120, i32 %30
+  %.116.i127 = select i1 %or.cond22.i, i32 %.01524.i121, i32 %32
+  %34 = trunc nuw nsw i64 %indvars.iv.i119 to i32
+  %.1.i128 = select i1 %or.cond22.i, i32 %.025.i120, i32 %34
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i119, 1
   %exitcond.not.i130 = icmp eq i64 %indvars.iv.next.i129, %wide.trip.count.i
   br i1 %exitcond.not.i130, label %.lr.ph.preheader.i133, label %.lr.ph.i118, !llvm.loop !83
 
 Gia_ManLatest.exit131:                            ; preds = %9
-  %31 = getelementptr i8, ptr %3, i64 120
+  %35 = getelementptr i8, ptr %3, i64 120
+  %36 = load i32, ptr %35, align 4, !tbaa !11
   br label %Gia_ManLatest.exit149
 
 .lr.ph.preheader.i133:                            ; preds = %.lr.ph.i118
-  %32 = zext i32 %.1.i128 to i64
+  %37 = zext i32 %.1.i128 to i64
   br label %.lr.ph.i135
 
 .lr.ph.i135:                                      ; preds = %.lr.ph.i135, %.lr.ph.preheader.i133
   %indvars.iv.i136 = phi i64 [ 0, %.lr.ph.preheader.i133 ], [ %indvars.iv.next.i147, %.lr.ph.i135 ]
   %.025.i137 = phi i32 [ -1, %.lr.ph.preheader.i133 ], [ %.1.i146, %.lr.ph.i135 ]
   %.01524.i138 = phi i32 [ -1, %.lr.ph.preheader.i133 ], [ %.116.i145, %.lr.ph.i135 ]
-  %33 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i136
-  %34 = load i32, ptr %33, align 4, !tbaa !11
-  %35 = icmp sge i32 %.01524.i138, %34
-  %.not.i139 = icmp eq i64 %indvars.iv.i136, %21
-  %or.cond.i140 = or i1 %.not.i139, %35
-  %.not19.i141 = icmp eq i64 %indvars.iv.i136, %26
+  %38 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i136
+  %39 = load i32, ptr %38, align 4, !tbaa !11
+  %40 = icmp sge i32 %.01524.i138, %39
+  %.not.i139 = icmp eq i64 %indvars.iv.i136, %25
+  %or.cond.i140 = or i1 %.not.i139, %40
+  %.not19.i141 = icmp eq i64 %indvars.iv.i136, %30
   %or.cond21.i142 = or i1 %.not19.i141, %or.cond.i140
-  %.not20.i143 = icmp eq i64 %indvars.iv.i136, %32
+  %.not20.i143 = icmp eq i64 %indvars.iv.i136, %37
   %or.cond22.i144 = or i1 %.not20.i143, %or.cond21.i142
-  %.116.i145 = select i1 %or.cond22.i144, i32 %.01524.i138, i32 %34
-  %36 = trunc nuw nsw i64 %indvars.iv.i136 to i32
-  %.1.i146 = select i1 %or.cond22.i144, i32 %.025.i137, i32 %36
+  %.116.i145 = select i1 %or.cond22.i144, i32 %.01524.i138, i32 %39
+  %41 = trunc nuw nsw i64 %indvars.iv.i136 to i32
+  %.1.i146 = select i1 %or.cond22.i144, i32 %.025.i137, i32 %41
   %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i136, 1
   %exitcond.not.i148 = icmp eq i64 %indvars.iv.next.i147, %wide.trip.count.i
-  br i1 %exitcond.not.i148, label %Gia_ManLatest.exit149.loopexit, label %.lr.ph.i135, !llvm.loop !83
+  br i1 %exitcond.not.i148, label %Gia_ManLatest.exit149, label %.lr.ph.i135, !llvm.loop !83
 
-Gia_ManLatest.exit149.loopexit:                   ; preds = %.lr.ph.i135
-  %37 = add nsw i32 %spec.select13.i, %2
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %3, i64 %38
-  br label %Gia_ManLatest.exit149
+Gia_ManLatest.exit149:                            ; preds = %.lr.ph.i135, %Gia_ManLatest.exit131
+  %.0.lcssa.i115167 = phi i32 [ -1, %Gia_ManLatest.exit131 ], [ %.1.i128, %.lr.ph.i135 ]
+  %.0.lcssa.i92152156165 = phi i32 [ -1, %Gia_ManLatest.exit131 ], [ %.1.i, %.lr.ph.i135 ]
+  %42 = phi i32 [ %36, %Gia_ManLatest.exit131 ], [ %20, %.lr.ph.i135 ]
+  %.0.lcssa.i99158163 = phi i32 [ -1, %Gia_ManLatest.exit131 ], [ %.1.i111, %.lr.ph.i135 ]
+  %.0.lcssa.i132 = phi i32 [ -1, %Gia_ManLatest.exit131 ], [ %.1.i146, %.lr.ph.i135 ]
+  %43 = add nsw i32 %.0.lcssa.i92152156165, %2
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i32, ptr %3, i64 %44
+  %46 = load i32, ptr %45, align 4, !tbaa !11
+  %47 = icmp sgt i32 %46, %42
+  br i1 %47, label %48, label %99
 
-Gia_ManLatest.exit149:                            ; preds = %Gia_ManLatest.exit149.loopexit, %Gia_ManLatest.exit131
-  %.0.lcssa.i115167 = phi i32 [ -1, %Gia_ManLatest.exit131 ], [ %.1.i128, %Gia_ManLatest.exit149.loopexit ]
-  %.0.lcssa.i92152156165 = phi i32 [ -1, %Gia_ManLatest.exit131 ], [ %.1.i, %Gia_ManLatest.exit149.loopexit ]
-  %.in = phi ptr [ %31, %Gia_ManLatest.exit131 ], [ %39, %Gia_ManLatest.exit149.loopexit ]
-  %.0.lcssa.i99158163 = phi i32 [ -1, %Gia_ManLatest.exit131 ], [ %.1.i111, %Gia_ManLatest.exit149.loopexit ]
-  %.0.lcssa.i132 = phi i32 [ -1, %Gia_ManLatest.exit131 ], [ %.1.i146, %Gia_ManLatest.exit149.loopexit ]
-  %40 = load i32, ptr %.in, align 4, !tbaa !11
-  %41 = add nsw i32 %.0.lcssa.i92152156165, %2
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %3, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !11
-  %45 = icmp sgt i32 %44, %40
-  br i1 %45, label %46, label %97
+48:                                               ; preds = %Gia_ManLatest.exit149
+  %49 = add nsw i32 %.0.lcssa.i99158163, %2
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds i32, ptr %3, i64 %50
+  %52 = load i32, ptr %51, align 4, !tbaa !11
+  %53 = icmp sgt i32 %52, %42
+  br i1 %53, label %54, label %76
 
-46:                                               ; preds = %Gia_ManLatest.exit149
-  %47 = add nsw i32 %.0.lcssa.i99158163, %2
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr %3, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !11
-  %51 = icmp sgt i32 %50, %40
-  br i1 %51, label %52, label %74
+54:                                               ; preds = %48
+  %55 = add nsw i32 %.0.lcssa.i115167, %2
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds i32, ptr %3, i64 %56
+  %58 = load i32, ptr %57, align 4, !tbaa !11
+  %59 = icmp sgt i32 %58, %42
+  br i1 %59, label %60, label %68
 
-52:                                               ; preds = %46
-  %53 = add nsw i32 %.0.lcssa.i115167, %2
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %3, i64 %54
-  %56 = load i32, ptr %55, align 4, !tbaa !11
-  %57 = icmp sgt i32 %56, %40
-  br i1 %57, label %58, label %66
+60:                                               ; preds = %54
+  %61 = add nsw i32 %.0.lcssa.i132, %2
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds i32, ptr %3, i64 %62
+  %64 = load i32, ptr %63, align 4, !tbaa !11
+  %65 = icmp eq i32 %64, %42
+  br i1 %65, label %66, label %68
 
-58:                                               ; preds = %52
-  %59 = add nsw i32 %.0.lcssa.i132, %2
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %3, i64 %60
-  %62 = load i32, ptr %61, align 4, !tbaa !11
-  %63 = icmp eq i32 %62, %40
-  br i1 %63, label %64, label %66
+66:                                               ; preds = %60
+  %67 = tail call i32 @Gia_ManDecompThree(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nonnull poison, i32 noundef %.0.lcssa.i92152156165, i32 noundef %.0.lcssa.i99158163, i32 noundef %.0.lcssa.i115167)
+  br label %102
 
-64:                                               ; preds = %58
-  %65 = tail call i32 @Gia_ManDecompThree(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nonnull poison, i32 noundef %.0.lcssa.i92152156165, i32 noundef %.0.lcssa.i99158163, i32 noundef %.0.lcssa.i115167)
-  br label %100
+68:                                               ; preds = %60, %54
+  %69 = add nsw i32 %.0.lcssa.i115167, %2
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i32, ptr %3, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !11
+  %73 = icmp eq i32 %72, %42
+  br i1 %73, label %74, label %76
 
-66:                                               ; preds = %58, %52
-  %67 = add nsw i32 %.0.lcssa.i115167, %2
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i32, ptr %3, i64 %68
-  %70 = load i32, ptr %69, align 4, !tbaa !11
-  %71 = icmp eq i32 %70, %40
-  br i1 %71, label %72, label %74
+74:                                               ; preds = %68
+  %75 = tail call i32 @Gia_ManDecompTwo(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nonnull poison, i32 noundef %.0.lcssa.i92152156165, i32 noundef %.0.lcssa.i99158163)
+  br label %102
 
-72:                                               ; preds = %66
-  %73 = tail call i32 @Gia_ManDecompTwo(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nonnull poison, i32 noundef %.0.lcssa.i92152156165, i32 noundef %.0.lcssa.i99158163)
-  br label %100
+76:                                               ; preds = %48, %68
+  %77 = icmp eq i32 %52, %42
+  br i1 %77, label %78, label %99
 
-74:                                               ; preds = %46, %66
-  %75 = icmp eq i32 %50, %40
-  br i1 %75, label %76, label %97
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds i32, ptr %1, i64 %44
+  %80 = load i32, ptr %79, align 4, !tbaa !11
+  %81 = xor i32 %.0.lcssa.i92152156165, 1
+  %82 = add nsw i32 %81, %2
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds i32, ptr %1, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !11
+  store i32 %85, ptr %79, align 4, !tbaa !11
+  %86 = getelementptr inbounds i32, ptr %1, i64 %10
+  %87 = tail call i32 @Gia_ManMuxTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %86)
+  %88 = icmp sgt i32 %2, 0
+  br i1 %88, label %.lr.ph.i.i, label %Gia_ManDecompOne.exit
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds i32, ptr %1, i64 %42
-  %78 = load i32, ptr %77, align 4, !tbaa !11
-  %79 = xor i32 %.0.lcssa.i92152156165, 1
-  %80 = add nsw i32 %79, %2
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i32, ptr %1, i64 %81
-  %83 = load i32, ptr %82, align 4, !tbaa !11
-  store i32 %83, ptr %77, align 4, !tbaa !11
-  %84 = getelementptr inbounds i32, ptr %1, i64 %10
-  %85 = tail call i32 @Gia_ManMuxTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %84)
-  %86 = icmp sgt i32 %2, 0
-  br i1 %86, label %.lr.ph.i.i, label %Gia_ManDecompOne.exit
-
-.lr.ph.i.i:                                       ; preds = %76
-  %87 = xor i32 %.0.lcssa.i92152156165, -1
+.lr.ph.i.i:                                       ; preds = %78
+  %89 = xor i32 %.0.lcssa.i92152156165, -1
   %wide.trip.count.i.i = zext nneg i32 %2 to i64
-  br label %88
+  br label %90
 
-88:                                               ; preds = %88, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %88 ]
-  %.011.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ %95, %88 ]
-  %89 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
-  %90 = load i32, ptr %89, align 4, !tbaa !11
-  %91 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %92 = lshr i32 %87, %91
-  %93 = and i32 %92, 1
-  %94 = xor i32 %93, %90
-  %95 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.011.i.i, i32 noundef %94)
+90:                                               ; preds = %90, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %90 ]
+  %.011.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ %97, %90 ]
+  %91 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
+  %92 = load i32, ptr %91, align 4, !tbaa !11
+  %93 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %94 = lshr i32 %89, %93
+  %95 = and i32 %94, 1
+  %96 = xor i32 %95, %92
+  %97 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.011.i.i, i32 noundef %96)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Gia_ManDecompOne.exit, label %88, !llvm.loop !78
+  br i1 %exitcond.not.i.i, label %Gia_ManDecompOne.exit, label %90, !llvm.loop !78
 
-Gia_ManDecompOne.exit:                            ; preds = %88, %76
-  %.0.lcssa.i.i = phi i32 [ 1, %76 ], [ %95, %88 ]
-  %96 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %.0.lcssa.i.i, i32 noundef %78, i32 noundef %85)
-  br label %100
+Gia_ManDecompOne.exit:                            ; preds = %90, %78
+  %.0.lcssa.i.i = phi i32 [ 1, %78 ], [ %97, %90 ]
+  %98 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %.0.lcssa.i.i, i32 noundef %80, i32 noundef %87)
+  br label %102
 
-97:                                               ; preds = %Gia_ManLatest.exit149, %74
-  %98 = getelementptr inbounds i32, ptr %1, i64 %10
-  %99 = tail call i32 @Gia_ManMuxTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %98)
-  br label %100
+99:                                               ; preds = %Gia_ManLatest.exit149, %76
+  %100 = getelementptr inbounds i32, ptr %1, i64 %10
+  %101 = tail call i32 @Gia_ManMuxTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %100)
+  br label %102
 
-100:                                              ; preds = %64, %72, %Gia_ManDecompOne.exit, %97, %6
-  %.0 = phi i32 [ %8, %6 ], [ %65, %64 ], [ %73, %72 ], [ %96, %Gia_ManDecompOne.exit ], [ %99, %97 ]
+102:                                              ; preds = %66, %74, %Gia_ManDecompOne.exit, %99, %6
+  %.0 = phi i32 [ %8, %6 ], [ %67, %66 ], [ %75, %74 ], [ %98, %Gia_ManDecompOne.exit ], [ %101, %99 ]
   ret i32 %.0
 }
 

@@ -523,43 +523,43 @@ _.exit:                                           ; preds = %132, %134
 145:                                              ; preds = %143
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, i8 0, i64 48, i1 false)
-  %146 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i8 1, ptr %146, align 8
-  %147 = call ptr @get_worktrees() #13
-  %148 = load ptr, ptr %147, align 8, !tbaa !36
-  %.not4166 = icmp eq ptr %148, null
+  %146 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store i8 1, ptr %147, align 8
+  %148 = call ptr @get_worktrees() #13
+  %149 = load ptr, ptr %148, align 8, !tbaa !36
+  %.not4166 = icmp eq ptr %149, null
   br i1 %.not4166, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %145, %158
-  %149 = phi ptr [ %160, %158 ], [ %148, %145 ]
-  %.067 = phi ptr [ %159, %158 ], [ %147, %145 ]
-  %150 = load i32, ptr %8, align 4, !tbaa !19
-  %.not44 = icmp eq i32 %150, 0
-  br i1 %.not44, label %154, label %151
+.lr.ph:                                           ; preds = %145, %159
+  %150 = phi ptr [ %161, %159 ], [ %149, %145 ]
+  %.067 = phi ptr [ %160, %159 ], [ %148, %145 ]
+  %151 = load i32, ptr %8, align 4, !tbaa !19
+  %.not44 = icmp eq i32 %151, 0
+  br i1 %.not44, label %155, label %152
 
-151:                                              ; preds = %.lr.ph
-  %152 = getelementptr inbounds nuw i8, ptr %149, i64 92
-  %153 = load i32, ptr %152, align 4, !tbaa !38
-  %.not45 = icmp eq i32 %153, 0
-  br i1 %.not45, label %158, label %154
+152:                                              ; preds = %.lr.ph
+  %153 = getelementptr inbounds nuw i8, ptr %150, i64 92
+  %154 = load i32, ptr %153, align 4, !tbaa !38
+  %.not45 = icmp eq i32 %154, 0
+  br i1 %.not45, label %159, label %155
 
-154:                                              ; preds = %151, %.lr.ph
-  store ptr %149, ptr %13, align 8, !tbaa !41
-  %155 = load ptr, ptr %.067, align 8, !tbaa !36
-  %156 = call ptr @get_worktree_ref_store(ptr noundef %155) #13
-  %157 = call i32 @refs_for_each_reflog(ptr noundef %156, ptr noundef nonnull @collect_reflog, ptr noundef nonnull %13) #13
-  br label %158
+155:                                              ; preds = %152, %.lr.ph
+  store ptr %150, ptr %13, align 8, !tbaa !41
+  %156 = load ptr, ptr %.067, align 8, !tbaa !36
+  %157 = call ptr @get_worktree_ref_store(ptr noundef %156) #13
+  %158 = call i32 @refs_for_each_reflog(ptr noundef %157, ptr noundef nonnull @collect_reflog, ptr noundef nonnull %13) #13
+  br label %159
 
-158:                                              ; preds = %151, %154
-  %159 = getelementptr inbounds nuw i8, ptr %.067, i64 8
-  %160 = load ptr, ptr %159, align 8, !tbaa !36
-  %.not41 = icmp eq ptr %160, null
+159:                                              ; preds = %152, %155
+  %160 = getelementptr inbounds nuw i8, ptr %.067, i64 8
+  %161 = load ptr, ptr %160, align 8, !tbaa !36
+  %.not41 = icmp eq ptr %161, null
   br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %158, %145
-  %161 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @free_worktrees(ptr noundef nonnull %147) #13
-  %162 = load ptr, ptr %161, align 8, !tbaa !47
+._crit_edge:                                      ; preds = %159, %145
+  call void @free_worktrees(ptr noundef nonnull %148) #13
+  %162 = load ptr, ptr %146, align 8, !tbaa !47
   %.not4268 = icmp eq ptr %162, null
   br i1 %.not4268, label %.critedge, label %.lr.ph72
 
@@ -572,7 +572,7 @@ _.exit:                                           ; preds = %132, %134
   %168 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %169 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %170 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %171 = load ptr, ptr %161, align 8, !tbaa !47
+  %171 = load ptr, ptr %146, align 8, !tbaa !47
   %172 = load i64, ptr %163, align 8, !tbaa !48
   %173 = getelementptr inbounds nuw %struct.string_list_item, ptr %171, i64 %172
   %174 = icmp ult ptr %162, %173
@@ -680,7 +680,7 @@ set_reflog_expiry_param.exit:                     ; preds = %.lr.ph93, %190, %20
   %215 = or i32 %214, %.16992
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %216 = getelementptr inbounds nuw i8, ptr %.0327091, i64 16
-  %217 = load ptr, ptr %161, align 8, !tbaa !47
+  %217 = load ptr, ptr %146, align 8, !tbaa !47
   %218 = load i64, ptr %163, align 8, !tbaa !48
   %219 = getelementptr inbounds nuw %struct.string_list_item, ptr %217, i64 %218
   %220 = icmp ult ptr %216, %219
@@ -688,7 +688,7 @@ set_reflog_expiry_param.exit:                     ; preds = %.lr.ph93, %190, %20
 
 .critedge:                                        ; preds = %set_reflog_expiry_param.exit, %.lr.ph72, %._crit_edge
   %.1.lcssa = phi i32 [ 0, %._crit_edge ], [ 0, %.lr.ph72 ], [ %215, %set_reflog_expiry_param.exit ]
-  call void @string_list_clear(ptr noundef nonnull %161, i32 noundef 0) #13
+  call void @string_list_clear(ptr noundef nonnull %146, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %221
 

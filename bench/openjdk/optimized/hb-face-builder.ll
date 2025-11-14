@@ -1845,71 +1845,71 @@ _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN22hb_serialize_context_t4finiEv(ptr noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #0 comdat align 2 {
 _ZNO9hb_iter_tI10hb_array_tIKPN22hb_serialize_context_t8object_tEERS4_EppEv.exit:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %.val = load i32, ptr %1, align 4
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.val11 = load ptr, ptr %2, align 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %.val = load i32, ptr %2, align 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %.val11 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq i32 %.val, 0
   %.sroa.0.0.copyload.i.idx = select i1 %.not.i.i, i64 0, i64 8
   %.sroa.0.0.copyload.i = getelementptr inbounds nuw i8, ptr %.val11, i64 %.sroa.0.0.copyload.i.idx
   %narrow = tail call i32 @llvm.usub.sat.i32(i32 %.val, i32 1)
   %.sroa.3.8.insert.insert = zext i32 %narrow to i64
   %.idx = shl nuw nsw i64 %.sroa.3.8.insert.insert, 3
-  %3 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx
   %.not22 = icmp ult i32 %.val, 2
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNO9hb_iter_tI10hb_array_tIKPN22hb_serialize_context_t8object_tEERS4_EppEv.exit, %_ZN22hb_serialize_context_t8object_t4finiEv.exit
-  %.023 = phi ptr [ %17, %_ZN22hb_serialize_context_t8object_t4finiEv.exit ], [ %.sroa.0.0.copyload.i, %_ZNO9hb_iter_tI10hb_array_tIKPN22hb_serialize_context_t8object_tEERS4_EppEv.exit ]
-  %4 = load ptr, ptr %.023, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load i32, ptr %5, align 8
-  %.not.i.i12 = icmp eq i32 %6, 0
-  br i1 %.not.i.i12, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i, label %7
+  %.023 = phi ptr [ %18, %_ZN22hb_serialize_context_t8object_t4finiEv.exit ], [ %.sroa.0.0.copyload.i, %_ZNO9hb_iter_tI10hb_array_tIKPN22hb_serialize_context_t8object_tEERS4_EppEv.exit ]
+  %5 = load ptr, ptr %.023, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = load i32, ptr %6, align 8
+  %.not.i.i12 = icmp eq i32 %7, 0
+  br i1 %.not.i.i12, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i, label %8
 
-7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %10 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %10) #22
+8:                                                ; preds = %.lr.ph
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i32 0, ptr %9, align 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %11 = load ptr, ptr %10, align 8
+  tail call void @free(ptr noundef %11) #22
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i
 
-_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i: ; preds = %7, %.lr.ph
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %12 = load i32, ptr %11, align 8
-  %.not.i1.i = icmp eq i32 %12, 0
-  br i1 %.not.i1.i, label %_ZN22hb_serialize_context_t8object_t4finiEv.exit, label %13
+_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i: ; preds = %8, %.lr.ph
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %13 = load i32, ptr %12, align 8
+  %.not.i1.i = icmp eq i32 %13, 0
+  br i1 %.not.i1.i, label %_ZN22hb_serialize_context_t8object_t4finiEv.exit, label %14
 
-13:                                               ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %16 = load ptr, ptr %15, align 8
-  tail call void @free(ptr noundef %16) #22
+14:                                               ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  store i32 0, ptr %15, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %17 = load ptr, ptr %16, align 8
+  tail call void @free(ptr noundef %17) #22
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit
 
-_ZN22hb_serialize_context_t8object_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i, %13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %.023, i64 8
-  %.not = icmp eq ptr %17, %3
+_ZN22hb_serialize_context_t8object_t4finiEv.exit: ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i, %14
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %.023, i64 8
+  %.not = icmp eq ptr %18, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN22hb_serialize_context_t8object_t4finiEv.exit, %_ZNO9hb_iter_tI10hb_array_tIKPN22hb_serialize_context_t8object_tEERS4_EppEv.exit
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %19 = load i32, ptr %18, align 8
+  %19 = load i32, ptr %1, align 8
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE4finiEv.exit, label %20
 
 20:                                               ; preds = %._crit_edge
-  store i32 0, ptr %1, align 4
-  %21 = load ptr, ptr %2, align 8
+  store i32 0, ptr %2, align 4
+  %21 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %21) #22
   br label %_ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE4finiEv.exit
 
 _ZN11hb_vector_tIPN22hb_serialize_context_t8object_tELb0EE4finiEv.exit: ; preds = %._crit_edge, %20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store atomic i32 -57005, ptr %22 monotonic, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104

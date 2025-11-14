@@ -575,27 +575,27 @@ define internal fastcc void @draw_line(ptr noundef captures(none) %0, i32 nounde
   store i32 %2, ptr %10, align 4, !tbaa !46
   store i32 %3, ptr %11, align 4, !tbaa !46
   store i32 %4, ptr %12, align 4, !tbaa !46
-  %13 = icmp sgt i32 %1, %3
-  br i1 %13, label %tailrecurse.ithread-pre-split, label %tailrecurse.i._crit_edge
+  %13 = add nsw i32 %5, -1
+  %14 = icmp sgt i32 %1, %3
+  br i1 %14, label %tailrecurse.ithread-pre-split, label %tailrecurse.i._crit_edge
 
 tailrecurse.ithread-pre-split:                    ; preds = %8, %tailrecurse.ithread-pre-split
   %.tr38.i131 = phi ptr [ %.tr36.i129, %tailrecurse.ithread-pre-split ], [ %12, %8 ]
   %.tr37.i130 = phi ptr [ %.tr.i128, %tailrecurse.ithread-pre-split ], [ %11, %8 ]
   %.tr36.i129 = phi ptr [ %.tr38.i131, %tailrecurse.ithread-pre-split ], [ %10, %8 ]
   %.tr.i128 = phi ptr [ %.tr37.i130, %tailrecurse.ithread-pre-split ], [ %9, %8 ]
-  %14 = phi i32 [ %.pr, %tailrecurse.ithread-pre-split ], [ %3, %8 ]
+  %15 = phi i32 [ %.pr, %tailrecurse.ithread-pre-split ], [ %3, %8 ]
   %.pr = load i32, ptr %.tr.i128, align 4, !tbaa !46
-  %15 = icmp sgt i32 %14, %.pr
-  br i1 %15, label %tailrecurse.ithread-pre-split, label %tailrecurse.i._crit_edge
+  %16 = icmp sgt i32 %15, %.pr
+  br i1 %16, label %tailrecurse.ithread-pre-split, label %tailrecurse.i._crit_edge
 
 tailrecurse.i._crit_edge:                         ; preds = %tailrecurse.ithread-pre-split, %8
   %.lcssa127 = phi i32 [ %3, %8 ], [ %.pr, %tailrecurse.ithread-pre-split ]
-  %.lcssa126 = phi i32 [ %1, %8 ], [ %14, %tailrecurse.ithread-pre-split ]
+  %.lcssa126 = phi i32 [ %1, %8 ], [ %15, %tailrecurse.ithread-pre-split ]
   %.tr.i.lcssa = phi ptr [ %9, %8 ], [ %.tr37.i130, %tailrecurse.ithread-pre-split ]
   %.tr36.i.lcssa = phi ptr [ %10, %8 ], [ %.tr38.i131, %tailrecurse.ithread-pre-split ]
   %.tr37.i.lcssa = phi ptr [ %11, %8 ], [ %.tr.i128, %tailrecurse.ithread-pre-split ]
   %.tr38.i.lcssa = phi ptr [ %12, %8 ], [ %.tr36.i129, %tailrecurse.ithread-pre-split ]
-  %16 = add nsw i32 %5, -1
   %17 = icmp slt i32 %.lcssa126, 0
   br i1 %17, label %18, label %32
 
@@ -633,7 +633,7 @@ tailrecurse.i._crit_edge:                         ; preds = %tailrecurse.ithread
   %37 = load i32, ptr %.tr38.i.lcssa, align 4, !tbaa !46
   %38 = sub nsw i32 %37, %36
   %39 = sext i32 %38 to i64
-  %40 = sub nsw i32 %16, %34
+  %40 = sub nsw i32 %13, %34
   %41 = zext nneg i32 %40 to i64
   %42 = mul nsw i64 %39, %41
   %43 = sub nsw i32 %.lcssa127, %34
@@ -642,7 +642,7 @@ tailrecurse.i._crit_edge:                         ; preds = %tailrecurse.ithread
   %46 = trunc i64 %45 to i32
   %47 = add i32 %36, %46
   store i32 %47, ptr %.tr38.i.lcssa, align 4, !tbaa !46
-  store i32 %16, ptr %.tr37.i.lcssa, align 4, !tbaa !46
+  store i32 %13, ptr %.tr37.i.lcssa, align 4, !tbaa !46
   br label %48
 
 48:                                               ; preds = %35, %32
@@ -713,7 +713,7 @@ tailrecurse.i78:                                  ; preds = %tailrecurse.i78, %4
 85:                                               ; preds = %72, %69
   %.0..0..0.109 = load i32, ptr %9, align 4, !tbaa !46
   %86 = icmp slt i32 %.0..0..0.109, 0
-  %..i74 = tail call i32 @llvm.smin.i32(i32 %.0..0..0.109, i32 %16)
+  %..i74 = tail call i32 @llvm.smin.i32(i32 %.0..0..0.109, i32 %13)
   %.0.i75 = select i1 %86, i32 0, i32 %..i74
   %.0..0..0.100 = load i32, ptr %10, align 4, !tbaa !46
   %87 = icmp slt i32 %.0..0..0.100, 0
@@ -721,7 +721,7 @@ tailrecurse.i78:                                  ; preds = %tailrecurse.i78, %4
   %.0.i73 = select i1 %87, i32 0, i32 %..i72
   %.0..0..0.93 = load i32, ptr %11, align 4, !tbaa !46
   %88 = icmp slt i32 %.0..0..0.93, 0
-  %..i70 = tail call i32 @llvm.smin.i32(i32 %.0..0..0.93, i32 %16)
+  %..i70 = tail call i32 @llvm.smin.i32(i32 %.0..0..0.93, i32 %13)
   %.0.i71 = select i1 %88, i32 0, i32 %..i70
   %.0..0..0. = load i32, ptr %12, align 4, !tbaa !46
   %89 = icmp slt i32 %.0..0..0., 0

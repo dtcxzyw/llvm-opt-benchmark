@@ -1237,16 +1237,16 @@ _ZNK15BrokenCntGlobal3getEv.exit:                 ; preds = %27
   %.2.ptr.i = getelementptr inbounds nuw i8, ptr %33, i64 %.2.idx.i
   %.2.add.i = add nuw nsw i64 %.2.idx.i, 8
   store ptr %63, ptr %.2.ptr.i, align 8, !tbaa !21
-  br label %.lr.ph.preheader.i.i
+  br label %.lr.ph.i.preheader.i
 
 .preheader65.i.i:                                 ; preds = %61
   %64 = icmp samesign ugt i64 %.2.idx.i, 16
-  br i1 %64, label %.lr.ph.preheader.i.i, label %"_ZN7AstNode7foreachIZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvOT_.exit", !prof !54
+  br i1 %64, label %.lr.ph.i.preheader.i, label %"_ZN7AstNode7foreachIZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvOT_.exit", !prof !54
 
-.lr.ph.preheader.i.i:                             ; preds = %.preheader65.i.i, %.preheader65.i.thread.i
+.lr.ph.i.preheader.i:                             ; preds = %.preheader65.i.i, %.preheader65.i.thread.i
   %.3.idx143.i = phi i64 [ %.2.add.i, %.preheader65.i.thread.i ], [ %.2.idx.i, %.preheader65.i.i ]
-  %.3.ptr.i = getelementptr inbounds nuw i8, ptr %33, i64 %.3.idx143.i
   %65 = getelementptr inbounds nuw i8, ptr %33, i64 232
+  %.3.ptr.i = getelementptr inbounds nuw i8, ptr %33, i64 %.3.idx143.i
   br label %.lr.ph.i.i
 
 66:                                               ; preds = %66, %_ZNK15BrokenCntGlobal3getEv.exit
@@ -1257,13 +1257,13 @@ _ZNK15BrokenCntGlobal3getEv.exit:                 ; preds = %27
   %68 = icmp eq i64 %indvars.iv.next.i.i, 0
   br i1 %68, label %34, label %66, !llvm.loop !55
 
-.lr.ph.i.i:                                       ; preds = %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i", %.lr.ph.preheader.i.i
-  %.sroa.0.1.i = phi ptr [ %33, %.lr.ph.preheader.i.i ], [ %.sroa.0.5.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ]
-  %.sroa.13.1.i = phi ptr [ %35, %.lr.ph.preheader.i.i ], [ %.sroa.13.4.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ]
-  %.sroa.21.1.i = phi ptr [ %35, %.lr.ph.preheader.i.i ], [ %.sroa.21.5.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ]
-  %.089.i.i = phi ptr [ %65, %.lr.ph.preheader.i.i ], [ %.1.i.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ]
-  %.06288.i.i = phi ptr [ %.ptr34.i, %.lr.ph.preheader.i.i ], [ %.163.i.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ]
-  %69 = phi ptr [ %.3.ptr.i, %.lr.ph.preheader.i.i ], [ %265, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ]
+.lr.ph.i.i:                                       ; preds = %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i", %.lr.ph.i.preheader.i
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.5.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ], [ %33, %.lr.ph.i.preheader.i ]
+  %.sroa.13.1.i = phi ptr [ %.sroa.13.4.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ], [ %35, %.lr.ph.i.preheader.i ]
+  %.sroa.21.1.i = phi ptr [ %.sroa.21.5.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ], [ %35, %.lr.ph.i.preheader.i ]
+  %.089.i.i = phi ptr [ %.1.i.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ], [ %65, %.lr.ph.i.preheader.i ]
+  %.06288.i.i = phi ptr [ %.163.i.i, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ], [ %.ptr34.i, %.lr.ph.i.preheader.i ]
+  %69 = phi ptr [ %265, %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESE_.exit.i.i" ], [ %.3.ptr.i, %.lr.ph.i.preheader.i ]
   %70 = getelementptr inbounds i8, ptr %69, i64 -8
   %71 = load ptr, ptr %70, align 8, !tbaa !21
   %72 = getelementptr inbounds i8, ptr %69, i64 -24
@@ -1306,8 +1306,8 @@ _ZNK15BrokenCntGlobal3getEv.exit:                 ; preds = %27
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %91
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %93, 3
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %92, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !21
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx.i.i.i.i.i.i.i
   br label %"_ZZN7AstNode11foreachImplIS_ZN8V3Broken9brokenAllEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i"
 
 96:                                               ; preds = %83

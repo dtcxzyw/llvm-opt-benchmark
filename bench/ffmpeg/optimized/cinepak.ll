@@ -833,7 +833,7 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
   %.097.us.i.i = phi ptr [ %.5.us.i.i, %.thread81.us.i.i ], [ %229, %.sink.split.i.i ]
   %.04696.us.i.i = phi i32 [ %.14778.us.i.i, %.thread81.us.i.i ], [ 0, %.sink.split.i.i ]
   %.04895.us.i.i = phi i32 [ %.14976.us.i.i, %.thread81.us.i.i ], [ 0, %.sink.split.i.i ]
-  %.05094.us.i.i = phi i32 [ %471, %.thread81.us.i.i ], [ 0, %.sink.split.i.i ]
+  %.05094.us.i.i = phi i32 [ %472, %.thread81.us.i.i ], [ 0, %.sink.split.i.i ]
   %.05193.us.i.i = phi ptr [ %.6.us.i.i, %.thread81.us.i.i ], [ %.sink.i.i, %.sink.split.i.i ]
   br i1 %.not63.i.i, label %.thread.us.i.i, label %448
 
@@ -874,7 +874,7 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
 
 462:                                              ; preds = %.preheader.us.i.i
   %463 = getelementptr inbounds nuw i8, ptr %.390.us.i.i, i64 2
-  %464 = load i8, ptr %496, align 1, !tbaa !45
+  %464 = load i8, ptr %497, align 1, !tbaa !45
   %465 = sext i8 %464 to i32
   %466 = load i8, ptr %463, align 1, !tbaa !45
   %467 = sext i8 %466 to i32
@@ -883,69 +883,69 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
   %.neg.us.sext.i.i = sext i8 %.neg.us145.i.i to i32
   %469 = sub nsw i32 %.neg.us.sext.i.i, %467
   %470 = shl nsw i32 %465, 1
-  br label %472
+  br label %473
 
-.thread81.us.i.i:                                 ; preds = %.thread81.loopexit.us.i.i, %458
-  %.14778.us.i.i = phi i32 [ %.147.us.i.i, %458 ], [ %.14779.us.i.i, %.thread81.loopexit.us.i.i ]
-  %.14976.us.i.i = phi i32 [ %.149.us.i.i, %458 ], [ %.14977.us.i.i, %.thread81.loopexit.us.i.i ]
-  %.6.us.i.i = phi ptr [ %459, %458 ], [ %493, %.thread81.loopexit.us.i.i ]
-  %.5.us.i.i = phi ptr [ %.1.us.i.i, %458 ], [ %498, %.thread81.loopexit.us.i.i ]
-  %471 = add nuw nsw i32 %.05094.us.i.i, 1
-  %exitcond140.not.i.i = icmp eq i32 %471, 256
+.thread81.us.loopexit.i.i:                        ; preds = %473
+  %471 = getelementptr inbounds nuw i8, ptr %.390.us.i.i, i64 3
+  br label %.thread81.us.i.i
+
+.thread81.us.i.i:                                 ; preds = %.thread81.us.loopexit.i.i, %458
+  %.14778.us.i.i = phi i32 [ %.147.us.i.i, %458 ], [ %.14779.us.i.i, %.thread81.us.loopexit.i.i ]
+  %.14976.us.i.i = phi i32 [ %.149.us.i.i, %458 ], [ %.14977.us.i.i, %.thread81.us.loopexit.i.i ]
+  %.6.us.i.i = phi ptr [ %459, %458 ], [ %494, %.thread81.us.loopexit.i.i ]
+  %.5.us.i.i = phi ptr [ %.1.us.i.i, %458 ], [ %471, %.thread81.us.loopexit.i.i ]
+  %472 = add nuw nsw i32 %.05094.us.i.i, 1
+  %exitcond140.not.i.i = icmp eq i32 %472, 256
   br i1 %exitcond140.not.i.i, label %cinepak_decode_codebook.exit.i, label %.split.us.i.i, !llvm.loop !64
 
-472:                                              ; preds = %472, %462
-  %.55692.us.i.i = phi ptr [ %.05193.us.i.i, %462 ], [ %493, %472 ]
-  %.15891.us.i.i = phi i32 [ 0, %462 ], [ %494, %472 ]
-  %473 = getelementptr inbounds nuw i8, ptr %.55692.us.i.i, i64 1
-  %474 = load i8, ptr %.55692.us.i.i, align 1, !tbaa !45
-  %475 = zext i8 %474 to i32
-  %476 = add nsw i32 %468, %475
-  %477 = getelementptr inbounds nuw i8, ptr %.55692.us.i.i, i64 2
-  %478 = load i8, ptr %473, align 1, !tbaa !45
-  %479 = zext i8 %478 to i32
-  %480 = add nsw i32 %469, %479
-  %481 = load i8, ptr %477, align 1, !tbaa !45
-  %482 = zext i8 %481 to i32
-  %483 = add nsw i32 %470, %482
-  %484 = icmp ugt i32 %476, 255
-  %isnotneg.i.us.i.i = icmp sgt i32 %476, -1
-  %485 = sext i1 %isnotneg.i.us.i.i to i8
-  %486 = trunc nuw i32 %476 to i8
-  %.0.i.us.i.i = select i1 %484, i8 %485, i8 %486
+473:                                              ; preds = %473, %462
+  %.55692.us.i.i = phi ptr [ %.05193.us.i.i, %462 ], [ %494, %473 ]
+  %.15891.us.i.i = phi i32 [ 0, %462 ], [ %495, %473 ]
+  %474 = getelementptr inbounds nuw i8, ptr %.55692.us.i.i, i64 1
+  %475 = load i8, ptr %.55692.us.i.i, align 1, !tbaa !45
+  %476 = zext i8 %475 to i32
+  %477 = add nsw i32 %468, %476
+  %478 = getelementptr inbounds nuw i8, ptr %.55692.us.i.i, i64 2
+  %479 = load i8, ptr %474, align 1, !tbaa !45
+  %480 = zext i8 %479 to i32
+  %481 = add nsw i32 %469, %480
+  %482 = load i8, ptr %478, align 1, !tbaa !45
+  %483 = zext i8 %482 to i32
+  %484 = add nsw i32 %470, %483
+  %485 = icmp ugt i32 %477, 255
+  %isnotneg.i.us.i.i = icmp sgt i32 %477, -1
+  %486 = sext i1 %isnotneg.i.us.i.i to i8
+  %487 = trunc nuw i32 %477 to i8
+  %.0.i.us.i.i = select i1 %485, i8 %486, i8 %487
   store i8 %.0.i.us.i.i, ptr %.55692.us.i.i, align 1, !tbaa !45
-  %487 = icmp ugt i32 %480, 255
-  %isnotneg.i66.us.i.i = icmp sgt i32 %480, -1
-  %488 = sext i1 %isnotneg.i66.us.i.i to i8
-  %489 = trunc nuw i32 %480 to i8
-  %.0.i67.us.i.i = select i1 %487, i8 %488, i8 %489
-  store i8 %.0.i67.us.i.i, ptr %473, align 1, !tbaa !45
-  %490 = icmp ugt i32 %483, 255
-  %isnotneg.i68.us.i.i = icmp sgt i32 %483, -1
-  %491 = sext i1 %isnotneg.i68.us.i.i to i8
-  %492 = trunc nuw i32 %483 to i8
-  %.0.i69.us.i.i = select i1 %490, i8 %491, i8 %492
-  %493 = getelementptr inbounds nuw i8, ptr %.55692.us.i.i, i64 3
-  store i8 %.0.i69.us.i.i, ptr %477, align 1, !tbaa !45
-  %494 = add nuw nsw i32 %.15891.us.i.i, 1
-  %exitcond139.not.i.i = icmp eq i32 %494, 4
-  br i1 %exitcond139.not.i.i, label %.thread81.loopexit.us.i.i, label %472, !llvm.loop !65
+  %488 = icmp ugt i32 %481, 255
+  %isnotneg.i66.us.i.i = icmp sgt i32 %481, -1
+  %489 = sext i1 %isnotneg.i66.us.i.i to i8
+  %490 = trunc nuw i32 %481 to i8
+  %.0.i67.us.i.i = select i1 %488, i8 %489, i8 %490
+  store i8 %.0.i67.us.i.i, ptr %474, align 1, !tbaa !45
+  %491 = icmp ugt i32 %484, 255
+  %isnotneg.i68.us.i.i = icmp sgt i32 %484, -1
+  %492 = sext i1 %isnotneg.i68.us.i.i to i8
+  %493 = trunc nuw i32 %484 to i8
+  %.0.i69.us.i.i = select i1 %491, i8 %492, i8 %493
+  %494 = getelementptr inbounds nuw i8, ptr %.55692.us.i.i, i64 3
+  store i8 %.0.i69.us.i.i, ptr %478, align 1, !tbaa !45
+  %495 = add nuw nsw i32 %.15891.us.i.i, 1
+  %exitcond139.not.i.i = icmp eq i32 %495, 4
+  br i1 %exitcond139.not.i.i, label %.thread81.us.loopexit.i.i, label %473, !llvm.loop !65
 
 .preheader.us.i.i:                                ; preds = %.thread.us.i.i, %.preheader.us.i.i
-  %.390.us.i.i = phi ptr [ %496, %.preheader.us.i.i ], [ %.180.us.i.i, %.thread.us.i.i ]
+  %.390.us.i.i = phi ptr [ %497, %.preheader.us.i.i ], [ %.180.us.i.i, %.thread.us.i.i ]
   %.25389.us.i.i = phi ptr [ %scevgep136.i.i, %.preheader.us.i.i ], [ %.05193.us.i.i, %.thread.us.i.i ]
-  %.05788.us.i.i = phi i32 [ %497, %.preheader.us.i.i ], [ 0, %.thread.us.i.i ]
-  %495 = load i8, ptr %.390.us.i.i, align 1, !tbaa !45
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.25389.us.i.i, i8 %495, i64 3, i1 false), !tbaa !45
+  %.05788.us.i.i = phi i32 [ %498, %.preheader.us.i.i ], [ 0, %.thread.us.i.i ]
+  %496 = load i8, ptr %.390.us.i.i, align 1, !tbaa !45
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.25389.us.i.i, i8 %496, i64 3, i1 false), !tbaa !45
+  %497 = getelementptr inbounds nuw i8, ptr %.390.us.i.i, i64 1
   %scevgep136.i.i = getelementptr i8, ptr %.25389.us.i.i, i64 3
-  %496 = getelementptr inbounds nuw i8, ptr %.390.us.i.i, i64 1
-  %497 = add nuw nsw i32 %.05788.us.i.i, 1
-  %exitcond138.not.i.i = icmp eq i32 %497, 4
+  %498 = add nuw nsw i32 %.05788.us.i.i, 1
+  %exitcond138.not.i.i = icmp eq i32 %498, 4
   br i1 %exitcond138.not.i.i, label %462, label %.preheader.us.i.i, !llvm.loop !66
-
-.thread81.loopexit.us.i.i:                        ; preds = %472
-  %498 = getelementptr inbounds nuw i8, ptr %.390.us.i.i, i64 3
-  br label %.thread81.us.i.i
 
 .split.i.i:                                       ; preds = %.sink.split.i.i
   br i1 %.not63.i.i, label %.thread.us105.i.i, label %.split.split.i.i
@@ -969,8 +969,8 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
   %.05788.us118.i.i = phi i32 [ %504, %.preheader.us122.i.i ], [ 0, %.thread.us105.i.i ]
   %502 = load i8, ptr %.390.us116.i.i, align 1, !tbaa !45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.25389.us117.i.i, i8 %502, i64 3, i1 false), !tbaa !45
-  %scevgep132.i.i = getelementptr i8, ptr %.25389.us117.i.i, i64 3
   %503 = getelementptr inbounds nuw i8, ptr %.390.us116.i.i, i64 1
+  %scevgep132.i.i = getelementptr i8, ptr %.25389.us117.i.i, i64 3
   %504 = add nuw nsw i32 %.05788.us118.i.i, 1
   %exitcond133.not.i.i = icmp eq i32 %504, 4
   br i1 %exitcond133.not.i.i, label %.thread81.us111.i.i, label %.preheader.us122.i.i, !llvm.loop !66
@@ -1014,8 +1014,8 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
   %.05788.i.i = phi i32 [ %518, %.preheader.i.i ], [ 0, %.thread.i.i ]
   %516 = load i8, ptr %.390.i.i, align 1, !tbaa !45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.25389.i.i, i8 %516, i64 3, i1 false), !tbaa !45
-  %scevgep.i.i = getelementptr i8, ptr %.25389.i.i, i64 3
   %517 = getelementptr inbounds nuw i8, ptr %.390.i.i, i64 1
+  %scevgep.i.i = getelementptr i8, ptr %.25389.i.i, i64 3
   %518 = add nuw nsw i32 %.05788.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %518, 4
   br i1 %exitcond.not.i.i, label %.thread81.i.i, label %.preheader.i.i, !llvm.loop !66

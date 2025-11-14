@@ -845,6 +845,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
 145:                                              ; preds = %141
   %146 = fcmp ogt double %56, %143
   %.0503 = select i1 %146, double %143, double %56
+  %.0500 = select i1 %146, double %136, double %62
   %147 = fcmp ugt double %134, %.0503
   br i1 %147, label %._crit_edge, label %.lr.ph
 
@@ -911,7 +912,6 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %.0488.lcssa = phi double [ %.0500671677, %145 ], [ %.0498597, %175 ]
   %.0444.lcssa = phi i32 [ 0, %145 ], [ %.1445, %175 ]
   %.0441.lcssa = phi i32 [ %51, %145 ], [ %.2, %175 ]
-  %.0500 = select i1 %146, double %136, double %62
   %179 = fadd double %.0500, %.0488.lcssa
   %180 = fmul double %179, 5.000000e-01
   %181 = fcmp ugt double %180, %68
@@ -980,6 +980,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
 218:                                              ; preds = %214
   %219 = fcmp ogt double %76, %216
   %.0523 = select i1 %219, double %216, double %76
+  %.0522 = select i1 %219, double %133, double %82
   %220 = fcmp ugt double %.0519.lcssa695, %.0523
   br i1 %220, label %._crit_edge615, label %.lr.ph614
 
@@ -1046,7 +1047,6 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %.0514.lcssa = phi double [ %.0522674676, %218 ], [ %.0518608, %248 ]
   %.4448.lcssa = phi i32 [ %.3447, %218 ], [ %.5449, %248 ]
   %.6.lcssa = phi i32 [ %.5, %218 ], [ %.8, %248 ]
-  %.0522 = select i1 %219, double %133, double %82
   %252 = fadd double %.0522, %.0514.lcssa
   %253 = fmul double %252, 5.000000e-01
   %254 = fcmp ugt double %253, %68
@@ -1114,6 +1114,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
 
 288:                                              ; preds = %284
   %289 = fcmp ogt double %94, %286
+  %.0509 = select i1 %289, double %132, double %100
   %.0508 = select i1 %289, double %286, double %94
   %290 = fcmp ugt double %.0510.lcssa705, %.0508
   br i1 %290, label %._crit_edge630, label %.lr.ph629
@@ -1181,7 +1182,6 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %.0510.lcssa = phi double [ %.0510.lcssa705, %288 ], [ %320, %318 ]
   %.0466.lcssa = phi i32 [ 0, %288 ], [ %.1467, %318 ]
   %.0454.lcssa = phi i32 [ %51, %288 ], [ %.2456, %318 ]
-  %.0509 = select i1 %289, double %132, double %100
   %322 = fadd double %.0509, %.0513.lcssa
   %323 = fmul double %322, 5.000000e-01
   %324 = fcmp ugt double %323, %68
@@ -1249,6 +1249,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
 
 359:                                              ; preds = %355
   %360 = fcmp ogt double %112, %357
+  %.0490 = select i1 %360, double %130, double %118
   %.0489 = select i1 %360, double %357, double %112
   %361 = fcmp ugt double %.0491.lcssa716, %.0489
   br i1 %361, label %._crit_edge645, label %.lr.ph644
@@ -1316,7 +1317,6 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %.0491.lcssa = phi double [ %.0491.lcssa716, %359 ], [ %391, %389 ]
   %.5471.lcssa = phi i32 [ %.3469, %359 ], [ %.6472, %389 ]
   %.7461.lcssa = phi i32 [ %.5459, %359 ], [ %.9463, %389 ]
-  %.0490 = select i1 %360, double %130, double %118
   %393 = fadd double %.0490, %.0494.lcssa
   %394 = fmul double %393, 5.000000e-01
   %395 = fcmp ugt double %394, %68
@@ -2101,6 +2101,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 250:                                              ; preds = %246
   %251 = fcmp ogt double %84, %248
   %.0902 = select i1 %251, double %248, double %84
+  %.0901 = select i1 %251, double %242, double %90
   %252 = fcmp ugt double %240, %.0902
   br i1 %252, label %._crit_edge, label %.lr.ph
 
@@ -2167,7 +2168,6 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %.0889.lcssa = phi double [ %.09011409, %250 ], [ %.08971092, %280 ]
   %.0814.lcssa = phi i32 [ 0, %250 ], [ %.1815, %280 ]
   %.0813.lcssa = phi i32 [ %79, %250 ], [ %.2, %280 ]
-  %.0901 = select i1 %251, double %242, double %90
   store double %.0900.lcssa, ptr %92, align 8
   store double %.0897.lcssa, ptr %91, align 16
   %284 = fadd double %.0901, %.0889.lcssa
@@ -2241,6 +2241,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 323:                                              ; preds = %319
   %324 = fcmp ogt double %104, %321
   %.0924 = select i1 %324, double %321, double %104
+  %.0921 = select i1 %324, double %239, double %110
   %325 = fcmp ugt double %.0920.lcssa1425, %.0924
   br i1 %325, label %._crit_edge1110, label %.lr.ph1109
 
@@ -2307,7 +2308,6 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %.0909.lcssa = phi double [ %.09211418, %323 ], [ %.09191103, %353 ]
   %.4818.lcssa = phi i32 [ %.3817, %323 ], [ %.5819, %353 ]
   %.6.lcssa = phi i32 [ %.5, %323 ], [ %.8, %353 ]
-  %.0921 = select i1 %324, double %239, double %110
   store double %.0920.lcssa, ptr %112, align 16
   store double %.0919.lcssa, ptr %111, align 8
   %357 = fadd double %.0921, %.0909.lcssa
@@ -2381,6 +2381,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 393:                                              ; preds = %389
   %394 = fcmp ogt double %122, %391
   %.0944 = select i1 %394, double %391, double %122
+  %.0943 = select i1 %394, double %237, double %128
   %395 = fcmp ugt double %.0940.lcssa1436, %.0944
   br i1 %395, label %._crit_edge1125, label %.lr.ph1124
 
@@ -2447,7 +2448,6 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %.0935.lcssa = phi double [ %238, %393 ], [ %.09391118, %423 ]
   %.8822.lcssa = phi i32 [ %.7821, %393 ], [ %.9823, %423 ]
   %.12.lcssa = phi i32 [ %.11, %393 ], [ %.14, %423 ]
-  %.0943 = select i1 %394, double %237, double %128
   store double %.0940.lcssa, ptr %130, align 8
   store double %.0939.lcssa, ptr %129, align 16
   %427 = fadd double %.0943, %.0935.lcssa
@@ -2521,6 +2521,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 464:                                              ; preds = %460
   %465 = fcmp ogt double %140, %462
   %.0964 = select i1 %465, double %462, double %140
+  %.0963 = select i1 %465, double %236, double %146
   %466 = fcmp ugt double %.0962.lcssa1449, %.0964
   br i1 %466, label %._crit_edge1140, label %.lr.ph1139
 
@@ -2587,7 +2588,6 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %.0957.lcssa = phi double [ %.09631442, %464 ], [ %.09591133, %494 ]
   %.12826.lcssa = phi i32 [ %.11825, %464 ], [ %.13827, %494 ]
   %.18.lcssa = phi i32 [ %.17, %464 ], [ %.20, %494 ]
-  %.0963 = select i1 %465, double %236, double %146
   store double %.0962.lcssa, ptr %148, align 16
   store double %.0959.lcssa, ptr %147, align 8
   %498 = fadd double %.0963, %.0957.lcssa
@@ -2660,6 +2660,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 
 534:                                              ; preds = %530
   %535 = fcmp ogt double %158, %532
+  %.0949 = select i1 %535, double %234, double %164
   %.0948 = select i1 %535, double %532, double %158
   %536 = fcmp ugt double %.0950.lcssa1460, %.0948
   br i1 %536, label %._crit_edge1155, label %.lr.ph1154
@@ -2727,7 +2728,6 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %.0950.lcssa = phi double [ %.0950.lcssa1460, %534 ], [ %566, %564 ]
   %.0858.lcssa = phi i32 [ 0, %534 ], [ %.1859, %564 ]
   %.0834.lcssa = phi i32 [ %79, %534 ], [ %.2836, %564 ]
-  %.0949 = select i1 %535, double %234, double %164
   store double %.0950.lcssa, ptr %166, align 8
   store double %.0951.lcssa, ptr %165, align 16
   %568 = fadd double %.0949, %.0953.lcssa
@@ -2800,6 +2800,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 
 605:                                              ; preds = %601
   %606 = fcmp ogt double %176, %603
+  %.0930 = select i1 %606, double %233, double %182
   %.0929 = select i1 %606, double %603, double %176
   %607 = fcmp ugt double %.0931.lcssa1473, %.0929
   br i1 %607, label %._crit_edge1170, label %.lr.ph1169
@@ -2867,7 +2868,6 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %.0931.lcssa = phi double [ %.0931.lcssa1473, %605 ], [ %637, %635 ]
   %.4862.lcssa = phi i32 [ %.3861, %605 ], [ %.5863, %635 ]
   %.6840.lcssa = phi i32 [ %.5839, %605 ], [ %.8842, %635 ]
-  %.0930 = select i1 %606, double %233, double %182
   store double %.0931.lcssa, ptr %184, align 16
   store double %.0932.lcssa, ptr %183, align 8
   %639 = fadd double %.0930, %.0934.lcssa
@@ -2940,6 +2940,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 
 675:                                              ; preds = %671
   %676 = fcmp ogt double %194, %673
+  %.0911 = select i1 %676, double %231, double %200
   %.0910 = select i1 %676, double %673, double %194
   %677 = fcmp ugt double %.0912.lcssa1484, %.0910
   br i1 %677, label %._crit_edge1185, label %.lr.ph1184
@@ -3007,7 +3008,6 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %.0912.lcssa = phi double [ %.0912.lcssa1484, %675 ], [ %707, %705 ]
   %.8866.lcssa = phi i32 [ %.7865, %675 ], [ %.9867, %705 ]
   %.12846.lcssa = phi i32 [ %.11845, %675 ], [ %.14848, %705 ]
-  %.0911 = select i1 %676, double %231, double %200
   store double %.0912.lcssa, ptr %202, align 8
   store double %.0913.lcssa, ptr %201, align 16
   %709 = fadd double %.0911, %.0915.lcssa
@@ -3080,6 +3080,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 
 746:                                              ; preds = %742
   %747 = fcmp ogt double %212, %744
+  %.0892 = select i1 %747, double %230, double %218
   %.0891 = select i1 %747, double %744, double %212
   %748 = fcmp ugt double %.0893.lcssa1497, %.0891
   br i1 %748, label %._crit_edge1200, label %.lr.ph1199
@@ -3147,7 +3148,6 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %.0893.lcssa = phi double [ %.0893.lcssa1497, %746 ], [ %778, %776 ]
   %.13871.lcssa = phi i32 [ %.11869, %746 ], [ %.14872, %776 ]
   %.19853.lcssa = phi i32 [ %.17851, %746 ], [ %.21855, %776 ]
-  %.0892 = select i1 %747, double %230, double %218
   store double %.0893.lcssa, ptr %220, align 16
   store double %.0894.lcssa, ptr %219, align 8
   %780 = fadd double %.0892, %.0896.lcssa

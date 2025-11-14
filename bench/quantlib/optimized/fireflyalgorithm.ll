@@ -133,6 +133,9 @@ invoke.cont3:
   %ref.tmp28 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib16FireflyAlgorithmE, i64 16), ptr %this, align 8, !tbaa !3
   %x_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %values_ = getelementptr inbounds nuw i8, ptr %this, i64 80
+  %lX_ = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %uX_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %mutation_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %x_, i8 0, i64 128, i1 false)
   store double %mutation, ptr %mutation_, align 8, !tbaa !6
@@ -181,9 +184,6 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %invo
   br i1 %exitcond.not.i.i, label %invoke.cont12, label %for.body.i.i, !llvm.loop !43
 
 invoke.cont12:                                    ; preds = %for.body.i.i
-  %values_ = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %lX_ = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %uX_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %_M_p.i.i = getelementptr inbounds nuw i8, ptr %this, i64 5208
   store i64 624, ptr %_M_p.i.i, align 8, !tbaa !45
   %distribution_ = getelementptr inbounds nuw i8, ptr %this, i64 5216
@@ -3305,6 +3305,7 @@ for.body7:                                        ; preds = %for.body7.lr.ph, %f
   %12 = load i64, ptr %second10, align 8, !tbaa !115
   %13 = load ptr, ptr %x_, align 8, !tbaa !121
   %14 = load ptr, ptr %13, align 8, !tbaa !57
+  %add.ptr.i18 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %14, i64 %12
   %15 = load ptr, ptr %xI_, align 8, !tbaa !123
   %16 = load ptr, ptr %15, align 8, !tbaa !57
   %add.ptr.i19 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %16, i64 %12
@@ -3319,7 +3320,6 @@ for.body20.lr.ph:                                 ; preds = %for.body7
   br label %for.cond.cleanup19
 
 for.cond.cleanup19:                               ; preds = %for.body20.lr.ph, %for.body7
-  %add.ptr.i18 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %14, i64 %12
   %20 = load double, ptr %add.ptr.i17, align 8, !tbaa !113
   %cmp2839.not = icmp eq i64 %i.042, 1
   br i1 %cmp2839.not, label %for.cond.cleanup29, label %for.body30

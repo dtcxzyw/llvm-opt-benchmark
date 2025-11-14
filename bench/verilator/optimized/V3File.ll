@@ -5275,27 +5275,27 @@ _ZN14V3OutFormatter10tokenMatchEPKcS1_.exit:      ; preds = %.lr.ph.i2, %22, %19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define dso_local noundef i32 @_ZN14V3OutFormatter9endLevelsEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(164) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 align 2 {
-  br label %3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %4 = load i32, ptr %3, align 4, !tbaa !176
+  br label %5
 
-3:                                                ; preds = %3, %2
-  %.029 = phi ptr [ %1, %2 ], [ %7, %3 ]
-  %4 = load i8, ptr %.029, align 1, !tbaa !43
-  %5 = sext i8 %4 to i32
-  %6 = tail call i32 @isspace(i32 noundef %5) #33
-  %.not = icmp eq i32 %6, 0
-  %7 = getelementptr inbounds nuw i8, ptr %.029, i64 1
-  br i1 %.not, label %8, label %3, !llvm.loop !176
+5:                                                ; preds = %5, %2
+  %.029 = phi ptr [ %1, %2 ], [ %9, %5 ]
+  %6 = load i8, ptr %.029, align 1, !tbaa !43
+  %7 = sext i8 %6 to i32
+  %8 = tail call i32 @isspace(i32 noundef %7) #33
+  %.not = icmp eq i32 %8, 0
+  %9 = getelementptr inbounds nuw i8, ptr %.029, i64 1
+  br i1 %.not, label %10, label %5, !llvm.loop !177
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %10 = load i32, ptr %9, align 4, !tbaa !177
-  switch i8 %4, label %.preheader [
+10:                                               ; preds = %5
+  switch i8 %6, label %.preheader [
     i8 10, label %.thread
     i8 35, label %.thread
   ]
 
-.preheader:                                       ; preds = %8
-  %11 = tail call i32 @isalnum(i32 noundef %5) #33
+.preheader:                                       ; preds = %10
+  %11 = tail call i32 @isalnum(i32 noundef %7) #33
   %.not3642 = icmp eq i32 %11, 0
   br i1 %.not3642, label %._crit_edge, label %.lr.ph
 
@@ -5309,7 +5309,7 @@ define dso_local noundef i32 @_ZN14V3OutFormatter9endLevelsEPKc(ptr noundef nonn
   br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !178
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.lcssa = phi i8 [ %4, %.preheader ], [ %.pr, %.lr.ph ]
+  %.lcssa = phi i8 [ %6, %.preheader ], [ %.pr, %.lr.ph ]
   %.027.lcssa = phi ptr [ %.029, %.preheader ], [ %12, %.lr.ph ]
   %15 = icmp eq i8 %.lcssa, 58
   br i1 %15, label %16, label %23
@@ -5324,7 +5324,7 @@ define dso_local noundef i32 @_ZN14V3OutFormatter9endLevelsEPKc(ptr noundef nonn
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4, !tbaa !173
   %.neg = sdiv i32 %21, -2
-  %22 = add i32 %.neg, %10
+  %22 = add i32 %.neg, %4
   br label %.thread
 
 23:                                               ; preds = %16, %._crit_edge
@@ -5339,7 +5339,7 @@ define dso_local noundef i32 @_ZN14V3OutFormatter9endLevelsEPKc(ptr noundef nonn
   ]
 
 .split.us.split:                                  ; preds = %23, %34
-  %.030.us = phi i32 [ %.131.us, %34 ], [ %10, %23 ]
+  %.030.us = phi i32 [ %.131.us, %34 ], [ %4, %23 ]
   %.0.us = phi ptr [ %35, %34 ], [ %1, %23 ]
   %28 = load i8, ptr %.0.us, align 1, !tbaa !43
   switch i8 %28, label %.thread [
@@ -5367,7 +5367,7 @@ define dso_local noundef i32 @_ZN14V3OutFormatter9endLevelsEPKc(ptr noundef nonn
   br label %.split.us.split, !llvm.loop !179
 
 .split.split.us:                                  ; preds = %23, %44
-  %.030.us45 = phi i32 [ %.131.us47, %44 ], [ %10, %23 ]
+  %.030.us45 = phi i32 [ %.131.us47, %44 ], [ %4, %23 ]
   %.0.us46 = phi ptr [ %45, %44 ], [ %1, %23 ]
   %36 = load i8, ptr %.0.us46, align 1, !tbaa !43
   switch i8 %36, label %.thread [
@@ -5397,7 +5397,7 @@ define dso_local noundef i32 @_ZN14V3OutFormatter9endLevelsEPKc(ptr noundef nonn
   br label %.split.split.us, !llvm.loop !179
 
 .split.split:                                     ; preds = %23, %49
-  %.030 = phi i32 [ %.131, %49 ], [ %10, %23 ]
+  %.030 = phi i32 [ %.131, %49 ], [ %4, %23 ]
   %.0 = phi ptr [ %50, %49 ], [ %1, %23 ]
   %46 = load i8, ptr %.0, align 1, !tbaa !43
   switch i8 %46, label %.thread [
@@ -5418,8 +5418,8 @@ define dso_local noundef i32 @_ZN14V3OutFormatter9endLevelsEPKc(ptr noundef nonn
   %50 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %.split.split, !llvm.loop !179
 
-.thread:                                          ; preds = %.split.split.us, %.split.us.split, %.split.split, %19, %8, %8
-  %.234 = phi i32 [ %22, %19 ], [ 0, %8 ], [ 0, %8 ], [ %.030, %.split.split ], [ %.030.us, %.split.us.split ], [ %.030.us45, %.split.split.us ]
+.thread:                                          ; preds = %.split.split.us, %.split.us.split, %.split.split, %19, %10, %10
+  %.234 = phi i32 [ %22, %19 ], [ 0, %10 ], [ 0, %10 ], [ %.030, %.split.split ], [ %.030.us, %.split.us.split ], [ %.030.us45, %.split.split.us ]
   ret i32 %.234
 }
 
@@ -6748,9 +6748,9 @@ _ZN14V3OutFormatter13tokenNotStartEPKc.exit:      ; preds = %.lr.ph.i2.i, %522, 
 
 530:                                              ; preds = %528
   %531 = load i32, ptr %464, align 4, !tbaa !173
-  %532 = load i32, ptr %465, align 4, !tbaa !177
+  %532 = load i32, ptr %465, align 4, !tbaa !176
   %533 = add nsw i32 %532, %531
-  store i32 %533, ptr %465, align 4, !tbaa !177
+  store i32 %533, ptr %465, align 4, !tbaa !176
   br label %.thread
 
 534:                                              ; preds = %526
@@ -6762,9 +6762,9 @@ _ZN14V3OutFormatter13tokenNotStartEPKc.exit:      ; preds = %.lr.ph.i2.i, %522, 
 
 536:                                              ; preds = %.thread
   %537 = load i32, ptr %464, align 4, !tbaa !173
-  %538 = load i32, ptr %465, align 4, !tbaa !177
+  %538 = load i32, ptr %465, align 4, !tbaa !176
   %539 = sub nsw i32 %538, %537
-  store i32 %539, ptr %465, align 4, !tbaa !177
+  store i32 %539, ptr %465, align 4, !tbaa !176
   %540 = icmp slt i32 %539, 0
   br i1 %540, label %541, label %.critedge113thread-pre-split, !prof !88
 
@@ -7106,7 +7106,7 @@ _ZN14V3OutFormatter14putcNoTrackingEc.exit258:    ; preds = %.critedge, %646, %6
 
 668:                                              ; preds = %666
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %669 = load i32, ptr %465, align 4, !tbaa !177
+  %669 = load i32, ptr %465, align 4, !tbaa !176
   %670 = load i32, ptr %464, align 4, !tbaa !173
   %671 = mul nsw i32 %670, %669
   store i32 %671, ptr %19, align 4, !tbaa !93
@@ -7135,9 +7135,9 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE4pushEOi.exit:      ; preds = %675, %677
 
 680:                                              ; preds = %666, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushEOi.exit, %663
   %681 = load i32, ptr %464, align 4, !tbaa !173
-  %682 = load i32, ptr %465, align 4, !tbaa !177
+  %682 = load i32, ptr %465, align 4, !tbaa !176
   %683 = add nsw i32 %682, %681
-  store i32 %683, ptr %465, align 4, !tbaa !177
+  store i32 %683, ptr %465, align 4, !tbaa !176
   br label %_ZN14V3OutFormatter9indentDecEv.exit259
 
 684:                                              ; preds = %.critedge113
@@ -7178,9 +7178,9 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit:        ; preds = %690, %692
 
 700:                                              ; preds = %_ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit, %684
   %701 = load i32, ptr %464, align 4, !tbaa !173
-  %702 = load i32, ptr %465, align 4, !tbaa !177
+  %702 = load i32, ptr %465, align 4, !tbaa !176
   %703 = sub nsw i32 %702, %701
-  store i32 %703, ptr %465, align 4, !tbaa !177
+  store i32 %703, ptr %465, align 4, !tbaa !176
   %704 = icmp slt i32 %703, 0
   br i1 %704, label %705, label %_ZN14V3OutFormatter9indentDecEv.exit259, !prof !88
 
@@ -7196,9 +7196,9 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit:        ; preds = %690, %692
 
 712:                                              ; preds = %.critedge113
   %713 = load i32, ptr %464, align 4, !tbaa !173
-  %714 = load i32, ptr %465, align 4, !tbaa !177
+  %714 = load i32, ptr %465, align 4, !tbaa !176
   %715 = add nsw i32 %714, %713
-  store i32 %715, ptr %465, align 4, !tbaa !177
+  store i32 %715, ptr %465, align 4, !tbaa !176
   %716 = load ptr, ptr %466, align 8, !tbaa !229
   %717 = load ptr, ptr %470, align 8, !tbaa !230
   %718 = getelementptr inbounds i8, ptr %717, i64 -4
@@ -7250,9 +7250,9 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit263:     ; preds = %729, %731
 
 737:                                              ; preds = %_ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit263, %723
   %738 = load i32, ptr %464, align 4, !tbaa !173
-  %739 = load i32, ptr %465, align 4, !tbaa !177
+  %739 = load i32, ptr %465, align 4, !tbaa !176
   %740 = sub nsw i32 %739, %738
-  store i32 %740, ptr %465, align 4, !tbaa !177
+  store i32 %740, ptr %465, align 4, !tbaa !176
   %741 = icmp slt i32 %740, 0
   br i1 %741, label %742, label %_ZN14V3OutFormatter9indentDecEv.exit259, !prof !88
 
@@ -7282,17 +7282,17 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit263:     ; preds = %729, %731
 
 755:                                              ; preds = %752, %752
   %756 = load i32, ptr %464, align 4, !tbaa !173
-  %757 = load i32, ptr %465, align 4, !tbaa !177
+  %757 = load i32, ptr %465, align 4, !tbaa !176
   %758 = add nsw i32 %757, %756
-  store i32 %758, ptr %465, align 4, !tbaa !177
+  store i32 %758, ptr %465, align 4, !tbaa !176
   br label %_ZN14V3OutFormatter9indentDecEv.exit259
 
 759:                                              ; preds = %752
   %760 = load i32, ptr %464, align 4, !tbaa !173
-  %761 = load i32, ptr %465, align 4, !tbaa !177
+  %761 = load i32, ptr %465, align 4, !tbaa !176
   %reass.add = shl i32 %760, 1
   %762 = add i32 %761, %reass.add
-  store i32 %762, ptr %465, align 4, !tbaa !177
+  store i32 %762, ptr %465, align 4, !tbaa !176
   br label %_ZN14V3OutFormatter9indentDecEv.exit259
 
 763:                                              ; preds = %.critedge113
@@ -7302,9 +7302,9 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit263:     ; preds = %729, %731
 
 766:                                              ; preds = %763
   %767 = load i32, ptr %464, align 4, !tbaa !173
-  %768 = load i32, ptr %465, align 4, !tbaa !177
+  %768 = load i32, ptr %465, align 4, !tbaa !176
   %769 = sub nsw i32 %768, %767
-  store i32 %769, ptr %465, align 4, !tbaa !177
+  store i32 %769, ptr %465, align 4, !tbaa !176
   %770 = icmp slt i32 %769, 0
   br i1 %770, label %771, label %_ZN14V3OutFormatter9indentDecEv.exit265, !prof !88
 
@@ -7330,7 +7330,7 @@ _ZN14V3OutFormatter9indentDecEv.exit265:          ; preds = %766
 
 783:                                              ; preds = %779
   %784 = sub nsw i32 %769, %767
-  store i32 %784, ptr %465, align 4, !tbaa !177
+  store i32 %784, ptr %465, align 4, !tbaa !176
   %785 = icmp slt i32 %784, 0
   br i1 %785, label %786, label %_ZN14V3OutFormatter9indentDecEv.exit259, !prof !88
 
@@ -20861,8 +20861,8 @@ attributes #36 = { cold nounwind }
 !173 = !{!157, !25, i64 44}
 !174 = !{!157, !25, i64 48}
 !175 = distinct !{!175, !82}
-!176 = distinct !{!176, !82}
-!177 = !{!157, !25, i64 76}
+!176 = !{!157, !25, i64 76}
+!177 = distinct !{!177, !82}
 !178 = distinct !{!178, !82}
 !179 = distinct !{!179, !82}
 !180 = !{!181}

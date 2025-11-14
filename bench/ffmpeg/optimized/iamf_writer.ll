@@ -1562,42 +1562,42 @@ flush_put_bits.exit.i52:                          ; preds = %109
 av_iamf_param_definition_get_subblock.exit.i:     ; preds = %172
   %176 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %177 = load i64, ptr %176, align 8, !tbaa !152
-  %178 = load ptr, ptr %9, align 8, !tbaa !148
-  call void @ffio_write_leb(ptr noundef %178, i32 noundef 1) #9
-  %179 = getelementptr inbounds nuw i8, ptr %171, i64 32
-  %180 = load i32, ptr %179, align 8, !tbaa !103
-  %181 = load i32, ptr %25, align 8, !tbaa !105
-  %182 = load ptr, ptr %26, align 8, !tbaa !106
-  %wide.trip.count.i.i = zext nneg i32 %181 to i64
-  %183 = load ptr, ptr %182, align 8, !tbaa !108
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %185 = load ptr, ptr %184, align 8, !tbaa !110
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 32
-  %187 = load i32, ptr %186, align 8, !tbaa !103
-  %188 = icmp eq i32 %187, %180
-  br i1 %188, label %._crit_edge159.i, label %.lr.ph158.i
+  %178 = getelementptr inbounds nuw i8, ptr %171, i64 %177
+  %179 = load ptr, ptr %9, align 8, !tbaa !148
+  call void @ffio_write_leb(ptr noundef %179, i32 noundef 1) #9
+  %180 = getelementptr inbounds nuw i8, ptr %171, i64 32
+  %181 = load i32, ptr %180, align 8, !tbaa !103
+  %182 = load i32, ptr %25, align 8, !tbaa !105
+  %183 = load ptr, ptr %26, align 8, !tbaa !106
+  %wide.trip.count.i.i = zext nneg i32 %182 to i64
+  %184 = load ptr, ptr %183, align 8, !tbaa !108
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %186 = load ptr, ptr %185, align 8, !tbaa !110
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 32
+  %188 = load i32, ptr %187, align 8, !tbaa !103
+  %189 = icmp eq i32 %188, %181
+  br i1 %189, label %._crit_edge159.i, label %.lr.ph158.i
 
 .lr.ph158.i:                                      ; preds = %av_iamf_param_definition_get_subblock.exit.i, %.lr.ph158.i
   %indvars.iv.i157.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph158.i ], [ 0, %av_iamf_param_definition_get_subblock.exit.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i157.i, 1
   %exitcond.not.i.i = icmp ne i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   call void @llvm.assume(i1 %exitcond.not.i.i)
-  %189 = getelementptr inbounds nuw ptr, ptr %182, i64 %indvars.iv.next.i.i
-  %190 = load ptr, ptr %189, align 8, !tbaa !108
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
-  %192 = load ptr, ptr %191, align 8, !tbaa !110
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 32
-  %194 = load i32, ptr %193, align 8, !tbaa !103
-  %195 = icmp eq i32 %194, %180
-  br i1 %195, label %._crit_edge159.i, label %.lr.ph158.i
+  %190 = getelementptr inbounds nuw ptr, ptr %183, i64 %indvars.iv.next.i.i
+  %191 = load ptr, ptr %190, align 8, !tbaa !108
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
+  %193 = load ptr, ptr %192, align 8, !tbaa !110
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 32
+  %195 = load i32, ptr %194, align 8, !tbaa !103
+  %196 = icmp eq i32 %195, %181
+  br i1 %196, label %._crit_edge159.i, label %.lr.ph158.i
 
 ._crit_edge159.i:                                 ; preds = %.lr.ph158.i, %av_iamf_param_definition_get_subblock.exit.i
-  %.val.i = phi ptr [ %185, %av_iamf_param_definition_get_subblock.exit.i ], [ %192, %.lr.ph158.i ]
-  %196 = getelementptr inbounds nuw i8, ptr %171, i64 %177
+  %.val.i = phi ptr [ %186, %av_iamf_param_definition_get_subblock.exit.i ], [ %193, %.lr.ph158.i ]
   %197 = load ptr, ptr %9, align 8, !tbaa !148
   call fastcc void @param_definition(ptr nonnull %.val.i, ptr noundef %197)
   %198 = load ptr, ptr %9, align 8, !tbaa !148
-  %199 = getelementptr inbounds nuw i8, ptr %196, i64 12
+  %199 = getelementptr inbounds nuw i8, ptr %178, i64 12
   %200 = load i32, ptr %199, align 4, !tbaa !153
   %201 = shl i32 %200, 5
   call void @avio_w8(ptr noundef %198, i32 noundef %201) #9

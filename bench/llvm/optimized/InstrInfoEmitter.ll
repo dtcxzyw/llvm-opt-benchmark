@@ -12008,18 +12008,18 @@ _ZN4llvm11raw_ostreamlsEPKc.exit434.i:            ; preds = %5482, %5480
 
 .lr.ph633.i:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit413.i, %_ZN4llvm11raw_ostreamlsEPKc.exit446.i
   %.sroa.0458.0632.i = phi ptr [ %5531, %_ZN4llvm11raw_ostreamlsEPKc.exit446.i ], [ %5404, %_ZN4llvm11raw_ostreamlsEPKc.exit413.i ]
-  %5497 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0632.i, i64 40
-  %5498 = load ptr, ptr %5497, align 8, !tbaa !25
-  %5499 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0632.i, i64 48
-  %5500 = load i32, ptr %5499, align 8, !tbaa !26
-  %5501 = zext i32 %5500 to i64
-  %.idx638.i = shl nuw nsw i64 %5501, 4
-  %5502 = getelementptr inbounds nuw i8, ptr %5498, i64 %.idx638.i
-  %.not174626.i = icmp eq i32 %5500, 0
+  %5497 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0632.i, i64 32
+  %5498 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0632.i, i64 40
+  %5499 = load ptr, ptr %5498, align 8, !tbaa !25
+  %5500 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0632.i, i64 48
+  %5501 = load i32, ptr %5500, align 8, !tbaa !26
+  %5502 = zext i32 %5501 to i64
+  %.idx638.i = shl nuw nsw i64 %5502, 4
+  %5503 = getelementptr inbounds nuw i8, ptr %5499, i64 %.idx638.i
+  %.not174626.i = icmp eq i32 %5501, 0
   br i1 %.not174626.i, label %._crit_edge630.i, label %.lr.ph629.i
 
 ._crit_edge630.i:                                 ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit457.i, %.lr.ph633.i
-  %5503 = getelementptr inbounds nuw i8, ptr %.sroa.0458.0632.i, i64 32
   %5504 = load ptr, ptr %78, align 8, !tbaa !63
   %5505 = load ptr, ptr %80, align 8, !tbaa !67
   %5506 = ptrtoint ptr %5504 to i64
@@ -12041,7 +12041,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit434.i:            ; preds = %5482, %5480
 
 _ZN4llvm11raw_ostreamlsEPKc.exit442.i:            ; preds = %5512, %5510
   %.0.i.i441.i = phi ptr [ %5511, %5510 ], [ %1, %5512 ]
-  %5515 = load i32, ptr %5503, align 8, !tbaa !434
+  %5515 = load i32, ptr %5497, align 8, !tbaa !434
   %5516 = sext i32 %5515 to i64
   %5517 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i441.i, i64 noundef %5516) #20
   %5518 = getelementptr inbounds nuw i8, ptr %5517, i64 24
@@ -12071,7 +12071,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit446.i:            ; preds = %5528, %5526
   br i1 %.not530.i, label %._crit_edge634.i, label %.lr.ph633.i
 
 .lr.ph629.i:                                      ; preds = %.lr.ph633.i, %_ZN4llvm11raw_ostreamlsEPKc.exit457.i
-  %.0162627.i = phi ptr [ %5570, %_ZN4llvm11raw_ostreamlsEPKc.exit457.i ], [ %5498, %.lr.ph633.i ]
+  %.0162627.i = phi ptr [ %5570, %_ZN4llvm11raw_ostreamlsEPKc.exit457.i ], [ %5499, %.lr.ph633.i ]
   %5532 = load ptr, ptr %78, align 8, !tbaa !63
   %5533 = load ptr, ptr %80, align 8, !tbaa !67
   %5534 = ptrtoint ptr %5532 to i64
@@ -12150,7 +12150,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit453.i: ; preds = %5554, %5553, %5551
 
 _ZN4llvm11raw_ostreamlsEPKc.exit457.i:            ; preds = %5566, %5564
   %5570 = getelementptr inbounds nuw i8, ptr %.0162627.i, i64 16
-  %.not174.i870 = icmp eq ptr %5570, %5502
+  %.not174.i870 = icmp eq ptr %5570, %5503
   br i1 %.not174.i870, label %._crit_edge630.i, label %.lr.ph629.i
 
 _ZN12_GLOBAL__N_116InstrInfoEmitter23emitOperandTypeMappingsERN4llvm11raw_ostreamERKNS1_13CodeGenTargetENS1_8ArrayRefIPKNS1_18CodeGenInstructionEEE.exit: ; preds = %5492, %5494
@@ -12811,8 +12811,8 @@ _ZNSt6vectorIPKS_IjSaIjEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i: ; preds = 
 
 _ZSt6fill_nIPPKSt6vectorIjSaIjEEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %5815
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %5820, 3
-  %5822 = getelementptr inbounds nuw i8, ptr %5819, i64 %.idx.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %5819, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !463
+  %5822 = getelementptr inbounds nuw i8, ptr %5819, i64 %.idx.i.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIPKS_IjSaIjEESaIS3_EEC2EmRKS4_.exit.i
 
 _ZNSt6vectorIPKS_IjSaIjEESaIS3_EEC2EmRKS4_.exit.i: ; preds = %_ZSt6fill_nIPPKSt6vectorIjSaIjEEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %5815, %_ZNSt6vectorIPKS_IjSaIjEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
@@ -14693,8 +14693,8 @@ _ZNSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESa
 
 _ZSt6fill_nIPPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEmSA_ET_SC_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %6616
   %.idx.i.i.i.i.i.i.i.i965 = shl nuw nsw i64 %6621, 3
-  %6623 = getelementptr inbounds nuw i8, ptr %6620, i64 %.idx.i.i.i.i.i.i.i.i965
   call void @llvm.memset.p0.i64(ptr align 8 %6620, i8 0, i64 %.idx.i.i.i.i.i.i.i.i965, i1 false), !tbaa !323
+  %6623 = getelementptr inbounds nuw i8, ptr %6620, i64 %.idx.i.i.i.i.i.i.i.i965
   br label %_ZNSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS9_EEC2EmRKSA_.exit.i
 
 _ZNSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS9_EEC2EmRKSA_.exit.i: ; preds = %_ZSt6fill_nIPPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEmSA_ET_SC_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %6616, %_ZNSt6vectorIPKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS9_EE17_S_check_init_lenEmRKSA_.exit.i.i
@@ -27961,10 +27961,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %15
 
 15:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEET_SO_SO_T0_.exit"
-  %16 = phi i64 [ %8, %.lr.ph ], [ %322, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEET_SO_SO_T0_.exit" ]
-  %.049 = phi i64 [ %2, %.lr.ph ], [ %61, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEET_SO_SO_T0_.exit" ]
-  %storemerge48 = phi ptr [ %1, %.lr.ph ], [ %.sroa.032.157119.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEET_SO_SO_T0_.exit" ]
-  %17 = icmp eq i64 %.049, 0
+  %16 = phi i64 [ %8, %.lr.ph ], [ %320, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEET_SO_SO_T0_.exit" ]
+  %.043 = phi i64 [ %2, %.lr.ph ], [ %61, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEET_SO_SO_T0_.exit" ]
+  %storemerge42 = phi ptr [ %1, %.lr.ph ], [ %.sroa.032.157119.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEET_SO_SO_T0_.exit" ]
+  %17 = icmp eq i64 %.043, 0
   br i1 %17, label %18, label %60
 
 18:                                               ; preds = %15
@@ -28013,7 +28013,7 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit10.i.i.i: ; preds = %32, %24
   br label %40
 
 40:                                               ; preds = %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_RT0_.exit.i11.i", %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_RT0_.exit.i.i"
-  %.sroa.0.03.i.i = phi ptr [ %storemerge48, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_RT0_.exit.i.i" ], [ %41, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_RT0_.exit.i11.i" ]
+  %.sroa.0.03.i.i = phi ptr [ %storemerge42, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_RT0_.exit.i.i" ], [ %41, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_RT0_.exit.i11.i" ]
   %41 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -24
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %42 = load ptr, ptr %41, align 8, !tbaa !309
@@ -28054,10 +28054,10 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit10.i.i.i: ; preds = %32, %24
   br i1 %59, label %40, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_T0_.exit", !llvm.loop !747
 
 60:                                               ; preds = %15
-  %61 = add nsw i64 %.049, -1
+  %61 = add nsw i64 %.043, -1
   %62 = udiv i64 %16, 48
   %63 = getelementptr inbounds nuw %"class.std::vector.81", ptr %0, i64 %62
-  %64 = getelementptr inbounds i8, ptr %storemerge48, i64 -24
+  %64 = getelementptr inbounds i8, ptr %storemerge42, i64 -24
   %65 = load ptr, ptr %10, align 8, !tbaa !309
   %66 = load ptr, ptr %11, align 8, !tbaa !308
   %67 = ptrtoint ptr %66 to i64
@@ -28135,7 +28135,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread116.i.i": ; preds = %.thread.i.i.thread.i.i.i.i, %.thread.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.i.i", %60
   %100 = load ptr, ptr %64, align 8, !tbaa !309
-  %101 = getelementptr inbounds i8, ptr %storemerge48, i64 -16
+  %101 = getelementptr inbounds i8, ptr %storemerge42, i64 -16
   %102 = load ptr, ptr %101, align 8, !tbaa !308
   %103 = ptrtoint ptr %102 to i64
   %104 = ptrtoint ptr %100 to i64
@@ -28286,7 +28286,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i58.i.i: ; preds = %.lr.ph.
   %158 = load ptr, ptr %13, align 8, !tbaa !310
   store ptr %100, ptr %0, align 8, !tbaa !309
   store ptr %102, ptr %12, align 8, !tbaa !308
-  %159 = getelementptr inbounds i8, ptr %storemerge48, i64 -8
+  %159 = getelementptr inbounds i8, ptr %storemerge42, i64 -8
   %160 = load ptr, ptr %159, align 8, !tbaa !310
   store ptr %160, ptr %13, align 8, !tbaa !310
   store ptr %156, ptr %64, align 8, !tbaa !309
@@ -28309,7 +28309,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i58.i.i: ; preds = %.lr.ph.
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.i.i": ; preds = %94, %.thread.i.i33.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.i.i", %81, %79
   %165 = load ptr, ptr %64, align 8, !tbaa !309
-  %166 = getelementptr inbounds i8, ptr %storemerge48, i64 -16
+  %166 = getelementptr inbounds i8, ptr %storemerge42, i64 -16
   %167 = load ptr, ptr %166, align 8, !tbaa !308
   %168 = ptrtoint ptr %167 to i64
   %169 = ptrtoint ptr %165 to i64
@@ -28459,7 +28459,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i102.i.i: ; preds = %.lr.ph
   %222 = load ptr, ptr %13, align 8, !tbaa !310
   store ptr %165, ptr %0, align 8, !tbaa !309
   store ptr %167, ptr %12, align 8, !tbaa !308
-  %223 = getelementptr inbounds i8, ptr %storemerge48, i64 -8
+  %223 = getelementptr inbounds i8, ptr %storemerge42, i64 -8
   %224 = load ptr, ptr %223, align 8, !tbaa !310
   store ptr %224, ptr %13, align 8, !tbaa !310
   store ptr %220, ptr %64, align 8, !tbaa !309
@@ -28484,9 +28484,9 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i102.i.i: ; preds = %.lr.ph
 "_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit113.thread.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit113.thread132.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit91.thread128.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit69.thread.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit69.thread124.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit47.thread120.i.i"
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_SO_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_SO_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader", %314
-  %.sroa.032.0.i.i = phi ptr [ %320, %314 ], [ %10, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.165.i.i, %314 ], [ %storemerge48, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_SO_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader", %311
+  %.sroa.032.0.i.i = phi ptr [ %318, %311 ], [ %10, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.165.i.i, %311 ], [ %storemerge42, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader" ]
   %230 = load ptr, ptr %0, align 8, !tbaa !309
   %.fr92.i.i = freeze ptr %230
   %231 = load ptr, ptr %12, align 8, !tbaa !308
@@ -28526,7 +28526,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i102.i.i: ; preds = %.lr.ph
   %253 = icmp ule i64 %250, %235
   %254 = icmp ne ptr %246, %244
   %or.cond.i.i = and i1 %254, %253
-  br i1 %or.cond.i.i, label %.lr.ph.i.i.i14.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.i13.i"
+  br i1 %or.cond.i.i, label %.lr.ph.i.i.i14.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.preheader"
 
 .lr.ph.i.i.i14.i:                                 ; preds = %252, %265
   %.sroa.7.034.i.i.i15.i = phi ptr [ %266, %265 ], [ %244, %252 ]
@@ -28563,7 +28563,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i22.i: ; preds = %.lr.ph.
 
 .thread.i.i33.i.i.i29.i:                          ; preds = %.thread.i.i.thread.i.i.i28.i, %.thread.i.i.i.i.i32.i
   %spec.select.i.i.i.i30.i = icmp ugt i64 %.sroa.2.0.copyload.i.i.i.i.i18.i, %.sroa.2.0.copyload.i.i14.i.i.i20.i
-  br i1 %spec.select.i.i.i.i30.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.i13.i", label %265
+  br i1 %spec.select.i.i.i.i30.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.preheader", label %265
 
 265:                                              ; preds = %.thread.i.i33.i.i.i29.i
   %266 = getelementptr inbounds nuw i8, ptr %.sroa.7.034.i.i.i15.i, i64 8
@@ -28571,140 +28571,135 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i22.i: ; preds = %.lr.ph.
   %268 = icmp ne ptr %266, %246
   %269 = icmp ne ptr %267, %.fr91.i.i
   %.not3.i.i.i.i31.i = select i1 %268, i1 %269, i1 false
-  br i1 %.not3.i.i.i.i31.i, label %.lr.ph.i.i.i14.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.i13.i"
+  br i1 %.not3.i.i.i.i31.i, label %.lr.ph.i.i.i14.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.preheader"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.i27.i": ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i22.i
   %270 = icmp slt i32 %.fr.i.i.i.i.i25.i, 0
-  br i1 %270, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread37.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.i13.i"
+  br i1 %270, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread37.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.preheader"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread37.i.i": ; preds = %.thread.i.i.thread.i.i.i28.i, %.thread.i.i.i.i.i32.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.i27.i", %.split.i.i
   %271 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i, i64 24
   br label %.split.i.i, !llvm.loop !748
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.i13.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.i27.i", %252, %265, %.thread.i.i33.i.i.i29.i
-  %272 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i"
-
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread41.us.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread37.us.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread41.us.i.i"
   %.sroa.0.0.pn.us.i.i = phi ptr [ %.sroa.0.1.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread41.us.i.i" ], [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread37.us.i.i" ]
   %.sroa.0.1.us.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.us.i.i, i64 -24
-  %273 = load ptr, ptr %.sroa.0.1.us.i.i, align 8, !tbaa !309
-  %274 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.us.i.i, i64 -16
-  %275 = load ptr, ptr %274, align 8, !tbaa !308
-  %276 = ptrtoint ptr %275 to i64
-  %277 = ptrtoint ptr %273 to i64
-  %278 = sub i64 %276, %277
-  %279 = icmp ult i64 %234, %278
-  br i1 %279, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread41.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i.loopexit119", !llvm.loop !749
+  %272 = load ptr, ptr %.sroa.0.1.us.i.i, align 8, !tbaa !309
+  %273 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.us.i.i, i64 -16
+  %274 = load ptr, ptr %273, align 8, !tbaa !308
+  %275 = ptrtoint ptr %274 to i64
+  %276 = ptrtoint ptr %272 to i64
+  %277 = sub i64 %275, %276
+  %278 = icmp ult i64 %234, %277
+  br i1 %278, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread41.us.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i", !llvm.loop !749
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.backedge", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.i13.i"
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.i13.i" ], [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.backedge" ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.preheader": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.i27.i", %252, %.thread.i.i33.i.i.i29.i, %265
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i"
+
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.backedge", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.preheader"
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.preheader" ], [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.backedge" ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -24
-  %280 = load ptr, ptr %.sroa.0.1.i.i, align 8, !tbaa !309
-  %281 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
-  %282 = load ptr, ptr %281, align 8, !tbaa !308
-  %283 = ptrtoint ptr %282 to i64
-  %284 = ptrtoint ptr %280 to i64
-  %285 = sub i64 %283, %284
-  %286 = ashr exact i64 %285, 3
-  %287 = icmp ult i64 %235, %286
-  br i1 %287, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.backedge", label %288
+  %279 = load ptr, ptr %.sroa.0.1.i.i, align 8, !tbaa !309
+  %280 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
+  %281 = load ptr, ptr %280, align 8, !tbaa !308
+  %282 = ptrtoint ptr %281 to i64
+  %283 = ptrtoint ptr %279 to i64
+  %284 = sub i64 %282, %283
+  %285 = ashr exact i64 %284, 3
+  %286 = icmp ult i64 %235, %285
+  br i1 %286, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.backedge", label %287
 
-288:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i"
-  %289 = icmp ule i64 %235, %286
-  %290 = icmp ne ptr %282, %280
-  %or.cond90.i.i = and i1 %290, %289
+287:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i"
+  %288 = icmp ule i64 %235, %285
+  %289 = icmp ne ptr %281, %279
+  %or.cond90.i.i = and i1 %289, %288
   br i1 %or.cond90.i.i, label %.lr.ph.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i"
 
-.lr.ph.i.i10.i.i:                                 ; preds = %288, %301
-  %.sroa.7.034.i.i11.i.i = phi ptr [ %302, %301 ], [ %.fr92.i.i, %288 ]
-  %.sroa.04.033.i.i12.i.i = phi ptr [ %303, %301 ], [ %280, %288 ]
-  %291 = load ptr, ptr %.sroa.7.034.i.i11.i.i, align 8, !tbaa !260
-  %292 = load ptr, ptr %291, align 8, !tbaa !222
-  %.sroa.2.0..sroa_idx.i.i.i.i13.i.i = getelementptr inbounds nuw i8, ptr %292, i64 32
+.lr.ph.i.i10.i.i:                                 ; preds = %287, %300
+  %.sroa.7.034.i.i11.i.i = phi ptr [ %301, %300 ], [ %.fr92.i.i, %287 ]
+  %.sroa.04.033.i.i12.i.i = phi ptr [ %302, %300 ], [ %279, %287 ]
+  %290 = load ptr, ptr %.sroa.7.034.i.i11.i.i, align 8, !tbaa !260
+  %291 = load ptr, ptr %290, align 8, !tbaa !222
+  %.sroa.2.0..sroa_idx.i.i.i.i13.i.i = getelementptr inbounds nuw i8, ptr %291, i64 32
   %.sroa.2.0.copyload.i.i.i.i14.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i13.i.i, align 8, !tbaa !45
-  %293 = load ptr, ptr %.sroa.04.033.i.i12.i.i, align 8, !tbaa !260
-  %294 = load ptr, ptr %293, align 8, !tbaa !222
-  %.sroa.2.0..sroa_idx.i.i13.i.i15.i.i = getelementptr inbounds nuw i8, ptr %294, i64 32
+  %292 = load ptr, ptr %.sroa.04.033.i.i12.i.i, align 8, !tbaa !260
+  %293 = load ptr, ptr %292, align 8, !tbaa !222
+  %.sroa.2.0..sroa_idx.i.i13.i.i15.i.i = getelementptr inbounds nuw i8, ptr %293, i64 32
   %.sroa.2.0.copyload.i.i14.i.i16.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i13.i.i15.i.i, align 8, !tbaa !45
   %.sroa.speculated.i.i.i.i17.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i14.i.i16.i.i, i64 %.sroa.2.0.copyload.i.i.i.i14.i.i)
-  %295 = icmp eq i64 %.sroa.speculated.i.i.i.i17.i.i, 0
-  br i1 %295, label %.thread.i.i.i.i28.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i18.i.i
+  %294 = icmp eq i64 %.sroa.speculated.i.i.i.i17.i.i, 0
+  br i1 %294, label %.thread.i.i.i.i28.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i18.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i18.i.i: ; preds = %.lr.ph.i.i10.i.i
-  %296 = getelementptr inbounds nuw i8, ptr %294, i64 24
-  %.sroa.0.0.copyload.i.i12.i.i19.i.i = load ptr, ptr %296, align 8, !tbaa !44
-  %297 = getelementptr inbounds nuw i8, ptr %292, i64 24
-  %.sroa.0.0.copyload.i.i.i.i20.i.i = load ptr, ptr %297, align 8, !tbaa !44
-  %298 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i.i.i20.i.i, ptr noundef %.sroa.0.0.copyload.i.i12.i.i19.i.i, i64 noundef %.sroa.speculated.i.i.i.i17.i.i) #24
-  %.fr.i.i.i.i21.i.i = freeze i32 %298
+  %295 = getelementptr inbounds nuw i8, ptr %293, i64 24
+  %.sroa.0.0.copyload.i.i12.i.i19.i.i = load ptr, ptr %295, align 8, !tbaa !44
+  %296 = getelementptr inbounds nuw i8, ptr %291, i64 24
+  %.sroa.0.0.copyload.i.i.i.i20.i.i = load ptr, ptr %296, align 8, !tbaa !44
+  %297 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i.i.i20.i.i, ptr noundef %.sroa.0.0.copyload.i.i12.i.i19.i.i, i64 noundef %.sroa.speculated.i.i.i.i17.i.i) #24
+  %.fr.i.i.i.i21.i.i = freeze i32 %297
   %.not.not.i.i.i.i22.i.i = icmp eq i32 %.fr.i.i.i.i21.i.i, 0
   br i1 %.not.not.i.i.i.i22.i.i, label %.thread.i.i.thread.i.i24.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i"
 
 .thread.i.i.i.i28.i.i:                            ; preds = %.lr.ph.i.i10.i.i
+  %298 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i14.i.i, %.sroa.2.0.copyload.i.i14.i.i16.i.i
+  br i1 %298, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.backedge", label %.thread.i.i33.i.i25.i.i, !llvm.loop !749
+
+.thread.i.i.thread.i.i24.i.i:                     ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i18.i.i
   %299 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i14.i.i, %.sroa.2.0.copyload.i.i14.i.i16.i.i
   br i1 %299, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.backedge", label %.thread.i.i33.i.i25.i.i, !llvm.loop !749
 
-.thread.i.i.thread.i.i24.i.i:                     ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i18.i.i
-  %300 = icmp ult i64 %.sroa.2.0.copyload.i.i.i.i14.i.i, %.sroa.2.0.copyload.i.i14.i.i16.i.i
-  br i1 %300, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.backedge", label %.thread.i.i33.i.i25.i.i, !llvm.loop !749
-
 .thread.i.i33.i.i25.i.i:                          ; preds = %.thread.i.i.thread.i.i24.i.i, %.thread.i.i.i.i28.i.i
   %spec.select.i.i.i26.i.i = icmp ugt i64 %.sroa.2.0.copyload.i.i.i.i14.i.i, %.sroa.2.0.copyload.i.i14.i.i16.i.i
-  br i1 %spec.select.i.i.i26.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i", label %301
+  br i1 %spec.select.i.i.i26.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i", label %300
 
-301:                                              ; preds = %.thread.i.i33.i.i25.i.i
-  %302 = getelementptr inbounds nuw i8, ptr %.sroa.7.034.i.i11.i.i, i64 8
-  %303 = getelementptr inbounds nuw i8, ptr %.sroa.04.033.i.i12.i.i, i64 8
-  %304 = icmp ne ptr %302, %.fr91.i.i
-  %305 = icmp ne ptr %303, %282
-  %.not3.i.i.i27.i.i = select i1 %304, i1 %305, i1 false
+300:                                              ; preds = %.thread.i.i33.i.i25.i.i
+  %301 = getelementptr inbounds nuw i8, ptr %.sroa.7.034.i.i11.i.i, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %.sroa.04.033.i.i12.i.i, i64 8
+  %303 = icmp ne ptr %301, %.fr91.i.i
+  %304 = icmp ne ptr %302, %281
+  %.not3.i.i.i27.i.i = select i1 %303, i1 %304, i1 false
   br i1 %.not3.i.i.i27.i.i, label %.lr.ph.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i": ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i18.i.i
-  %306 = icmp slt i32 %.fr.i.i.i.i21.i.i, 0
-  br i1 %306, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.backedge", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i"
+  %305 = icmp slt i32 %.fr.i.i.i.i21.i.i, 0
+  br i1 %305, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.backedge", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i.backedge": ; preds = %.thread.i.i.i.i28.i.i, %.thread.i.i.thread.i.i24.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i"
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit.thread.split.i.i", !llvm.loop !749
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i.loopexit119": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread41.us.i.i"
-  %307 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.us.i.i, i64 8
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i", %287, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread41.us.i.i", %300, %.thread.i.i33.i.i25.i.i
+  %306 = phi ptr [ %246, %.thread.i.i33.i.i25.i.i ], [ %246, %300 ], [ %238, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread41.us.i.i" ], [ %246, %287 ], [ %246, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i" ]
+  %307 = phi ptr [ %244, %.thread.i.i33.i.i25.i.i ], [ %244, %300 ], [ %236, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread41.us.i.i" ], [ %244, %287 ], [ %244, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i" ]
+  %.sroa.032.157119.i.i = phi ptr [ %.sroa.032.1.i.i, %.thread.i.i33.i.i25.i.i ], [ %.sroa.032.1.i.i, %300 ], [ %.sroa.032.1.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread41.us.i.i" ], [ %.sroa.032.1.i.i, %287 ], [ %.sroa.032.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i" ]
+  %.sroa.0.0.pn67.i.i = phi ptr [ %.sroa.0.0.pn.i.i, %.thread.i.i33.i.i25.i.i ], [ %.sroa.0.0.pn.i.i, %300 ], [ %.sroa.0.0.pn.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread41.us.i.i" ], [ %.sroa.0.0.pn.i.i, %287 ], [ %.sroa.0.0.pn.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i" ]
+  %.sroa.0.165.i.i = phi ptr [ %.sroa.0.1.i.i, %.thread.i.i33.i.i25.i.i ], [ %.sroa.0.1.i.i, %300 ], [ %.sroa.0.1.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread41.us.i.i" ], [ %.sroa.0.1.i.i, %287 ], [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i" ]
+  %308 = phi ptr [ %279, %.thread.i.i33.i.i25.i.i ], [ %279, %300 ], [ %272, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread41.us.i.i" ], [ %279, %287 ], [ %279, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i" ]
+  %309 = phi ptr [ %281, %.thread.i.i33.i.i25.i.i ], [ %281, %300 ], [ %274, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread41.us.i.i" ], [ %281, %287 ], [ %281, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i" ]
+  %310 = icmp ult ptr %.sroa.032.157119.i.i, %.sroa.0.165.i.i
+  br i1 %310, label %311, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEET_SO_SO_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i", %288, %301, %.thread.i.i33.i.i25.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i.loopexit119"
-  %308 = phi ptr [ %307, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i.loopexit119" ], [ %272, %.thread.i.i33.i.i25.i.i ], [ %272, %301 ], [ %272, %288 ], [ %272, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i" ]
-  %309 = phi ptr [ %238, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i.loopexit119" ], [ %246, %.thread.i.i33.i.i25.i.i ], [ %246, %301 ], [ %246, %288 ], [ %246, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i" ]
-  %310 = phi ptr [ %236, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i.loopexit119" ], [ %244, %.thread.i.i33.i.i25.i.i ], [ %244, %301 ], [ %244, %288 ], [ %244, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i" ]
-  %.sroa.032.157119.i.i = phi ptr [ %.sroa.032.1.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i.loopexit119" ], [ %.sroa.032.1.i.i, %.thread.i.i33.i.i25.i.i ], [ %.sroa.032.1.i.i, %301 ], [ %.sroa.032.1.i.i, %288 ], [ %.sroa.032.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i" ]
-  %.sroa.0.0.pn67.i.i = phi ptr [ %.sroa.0.0.pn.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i.loopexit119" ], [ %.sroa.0.0.pn.i.i, %.thread.i.i33.i.i25.i.i ], [ %.sroa.0.0.pn.i.i, %301 ], [ %.sroa.0.0.pn.i.i, %288 ], [ %.sroa.0.0.pn.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i" ]
-  %.sroa.0.165.i.i = phi ptr [ %.sroa.0.1.us.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i.loopexit119" ], [ %.sroa.0.1.i.i, %.thread.i.i33.i.i25.i.i ], [ %.sroa.0.1.i.i, %301 ], [ %.sroa.0.1.i.i, %288 ], [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i" ]
-  %311 = phi ptr [ %273, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i.loopexit119" ], [ %280, %.thread.i.i33.i.i25.i.i ], [ %280, %301 ], [ %280, %288 ], [ %280, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i" ]
-  %312 = phi ptr [ %275, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i.loopexit119" ], [ %282, %.thread.i.i33.i.i25.i.i ], [ %282, %301 ], [ %282, %288 ], [ %282, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.i.i" ]
-  %313 = icmp ult ptr %.sroa.032.157119.i.i, %.sroa.0.165.i.i
-  br i1 %313, label %314, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEET_SO_SO_T0_.exit"
-
-314:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i"
-  %315 = getelementptr inbounds i8, ptr %.sroa.0.0.pn67.i.i, i64 -16
-  %316 = getelementptr inbounds nuw i8, ptr %.sroa.032.157119.i.i, i64 16
+311:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i"
+  %312 = getelementptr inbounds nuw i8, ptr %.sroa.032.157119.i.i, i64 8
+  %313 = getelementptr inbounds i8, ptr %.sroa.0.0.pn67.i.i, i64 -16
+  %314 = getelementptr inbounds nuw i8, ptr %.sroa.032.157119.i.i, i64 16
+  %315 = load ptr, ptr %314, align 8, !tbaa !310
+  store ptr %308, ptr %.sroa.032.157119.i.i, align 8, !tbaa !309
+  store ptr %309, ptr %312, align 8, !tbaa !308
+  %316 = getelementptr inbounds i8, ptr %.sroa.0.0.pn67.i.i, i64 -8
   %317 = load ptr, ptr %316, align 8, !tbaa !310
-  store ptr %311, ptr %.sroa.032.157119.i.i, align 8, !tbaa !309
-  store ptr %312, ptr %308, align 8, !tbaa !308
-  %318 = getelementptr inbounds i8, ptr %.sroa.0.0.pn67.i.i, i64 -8
-  %319 = load ptr, ptr %318, align 8, !tbaa !310
-  store ptr %319, ptr %316, align 8, !tbaa !310
-  store ptr %310, ptr %.sroa.0.165.i.i, align 8, !tbaa !309
-  store ptr %309, ptr %315, align 8, !tbaa !308
-  store ptr %317, ptr %318, align 8, !tbaa !310
-  %320 = getelementptr inbounds nuw i8, ptr %.sroa.032.157119.i.i, i64 24
+  store ptr %317, ptr %314, align 8, !tbaa !310
+  store ptr %307, ptr %.sroa.0.165.i.i, align 8, !tbaa !309
+  store ptr %306, ptr %313, align 8, !tbaa !308
+  store ptr %315, ptr %316, align 8, !tbaa !310
+  %318 = getelementptr inbounds nuw i8, ptr %.sroa.032.157119.i.i, i64 24
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_SO_T0_.exit.i", !llvm.loop !750
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEET_SO_SO_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERN4llvm11raw_ostreamERKNS4_13CodeGenTargetEE3$_0EclINS_17__normal_iteratorIPSt6vectorIPKNS4_6RecordESaISH_EESE_ISJ_SaISJ_EEEESN_EEbT_T0_.exit29.thread.i.i"
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEElNS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_T0_T1_"(ptr nonnull %.sroa.032.157119.i.i, ptr %storemerge48, i64 noundef %61)
-  %321 = ptrtoint ptr %.sroa.032.157119.i.i to i64
-  %322 = sub i64 %321, %6
-  %323 = icmp sgt i64 %322, 384
-  br i1 %323, label %15, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_T0_.exit", !llvm.loop !751
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEElNS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_T0_T1_"(ptr nonnull %.sroa.032.157119.i.i, ptr %storemerge42, i64 noundef %61)
+  %319 = ptrtoint ptr %.sroa.032.157119.i.i to i64
+  %320 = sub i64 %319, %6
+  %321 = icmp sgt i64 %320, 384
+  br i1 %321, label %15, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_T0_.exit", !llvm.loop !751
 
 "_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEET_SO_SO_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4llvm6RecordESaIS6_EES2_IS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116InstrInfoEmitter19emitFeatureVerifierERNS3_11raw_ostreamERKNS3_13CodeGenTargetEE3$_0EEEvT_SO_SO_RT0_.exit.i11.i", %3
   ret void

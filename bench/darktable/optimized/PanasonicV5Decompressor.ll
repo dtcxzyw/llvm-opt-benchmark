@@ -938,21 +938,21 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
   br label %80
 
 .loopexit.i:                                      ; preds = %101
-  %74 = add nsw i32 %.047.i, 1
-  %75 = trunc nuw nsw i32 %.lcssa404245.i to i8
-  %.lhs.trunc.i = add nuw nsw i8 %75, 20
-  %76 = udiv i8 %.lhs.trunc.i, 12
-  %.zext.i = zext nneg i8 %76 to i32
-  %77 = add nsw i32 %74, %.zext.i
-  %78 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %79 = icmp slt i32 %77, 10
+  %74 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  %75 = add nsw i32 %.047.i, 1
+  %76 = trunc nuw nsw i32 %.lcssa404245.i to i8
+  %.lhs.trunc.i = add nuw nsw i8 %76, 20
+  %77 = udiv i8 %.lhs.trunc.i, 12
+  %.zext.i = zext nneg i8 %77 to i32
+  %78 = add nsw i32 %75, %.zext.i
+  %79 = icmp slt i32 %78, 10
   br i1 %79, label %80, label %110, !llvm.loop !162
 
 80:                                               ; preds = %.loopexit.i, %72
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit.i ], [ %73, %72 ]
   %.sroa.036.2 = phi i64 [ %106, %.loopexit.i ], [ %.sroa.036.145, %72 ]
-  %.047.i = phi i32 [ %77, %.loopexit.i ], [ 0, %72 ]
-  %.01146.i = phi i32 [ %78, %.loopexit.i ], [ %.147, %72 ]
+  %.047.i = phi i32 [ %78, %.loopexit.i ], [ 0, %72 ]
+  %.01146.i = phi i32 [ %74, %.loopexit.i ], [ %.147, %72 ]
   %.lcssa404245.i = phi i32 [ %107, %.loopexit.i ], [ 0, %72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
@@ -1473,21 +1473,21 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
   br label %80
 
 .loopexit.i:                                      ; preds = %101
-  %74 = add nsw i32 %.047.i, 1
-  %75 = trunc nuw nsw i32 %.lcssa404245.i to i8
-  %.lhs.trunc.i = add nuw nsw i8 %75, 18
-  %76 = udiv i8 %.lhs.trunc.i, 14
-  %.zext.i = zext nneg i8 %76 to i32
-  %77 = add nsw i32 %74, %.zext.i
-  %78 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %79 = icmp slt i32 %77, 9
+  %74 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  %75 = add nsw i32 %.047.i, 1
+  %76 = trunc nuw nsw i32 %.lcssa404245.i to i8
+  %.lhs.trunc.i = add nuw nsw i8 %76, 18
+  %77 = udiv i8 %.lhs.trunc.i, 14
+  %.zext.i = zext nneg i8 %77 to i32
+  %78 = add nsw i32 %75, %.zext.i
+  %79 = icmp slt i32 %78, 9
   br i1 %79, label %80, label %110, !llvm.loop !173
 
 80:                                               ; preds = %.loopexit.i, %72
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit.i ], [ %73, %72 ]
   %.sroa.036.2 = phi i64 [ %106, %.loopexit.i ], [ %.sroa.036.145, %72 ]
-  %.047.i = phi i32 [ %77, %.loopexit.i ], [ 0, %72 ]
-  %.01146.i = phi i32 [ %78, %.loopexit.i ], [ %.147, %72 ]
+  %.047.i = phi i32 [ %78, %.loopexit.i ], [ 0, %72 ]
+  %.01146.i = phi i32 [ %74, %.loopexit.i ], [ %.147, %72 ]
   %.lcssa404245.i = phi i32 [ %107, %.loopexit.i ], [ 0, %72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4

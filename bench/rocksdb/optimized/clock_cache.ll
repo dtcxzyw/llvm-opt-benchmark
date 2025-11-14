@@ -5496,43 +5496,43 @@ define noundef zeroext i1 @_ZN7rocksdb11clock_cache19AutoHyperClockTable4GrowERN
   %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 true)
   %12 = trunc nuw nsw i64 %11 to i32
   %13 = xor i32 %12, 63
-  %14 = sub nsw i64 62, %11
+  %14 = zext nneg i32 %13 to i64
   %15 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %4, i64 range(i64 -2147483648, 2147483648) %14)
-  %16 = load ptr, ptr %5, align 32, !tbaa !137
-  %17 = getelementptr inbounds nuw %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %16, i64 %15
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %19 = load atomic i64, ptr %18 acquire, align 8
-  %20 = trunc i64 %19 to i32
-  %21 = and i32 %20, 63
-  %.not2023 = icmp samesign ult i32 %21, %13
-  %22 = and i64 %19, 192
-  %.not2124 = icmp eq i64 %22, 128
+  %16 = sub nsw i64 62, %11
+  %17 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %4, i64 range(i64 -2147483648, 2147483648) %16)
+  %18 = load ptr, ptr %5, align 32, !tbaa !137
+  %19 = getelementptr inbounds nuw %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %18, i64 %17
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  %21 = load atomic i64, ptr %20 acquire, align 8
+  %22 = trunc i64 %21 to i32
+  %23 = and i32 %22, 63
+  %.not2023 = icmp samesign ult i32 %23, %13
+  %24 = and i64 %21, 192
+  %.not2124 = icmp eq i64 %24, 128
   %or.cond25 = or i1 %.not2124, %.not2023
   br i1 %or.cond25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %26
 
-24:                                               ; preds = %.lr.ph, %24
-  %25 = atomicrmw add ptr %23, i64 1 monotonic, align 8
-  %26 = tail call noundef i32 @sched_yield() #31
-  %27 = load ptr, ptr %5, align 32, !tbaa !137
-  %28 = getelementptr inbounds nuw %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %27, i64 %15
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %30 = load atomic i64, ptr %29 acquire, align 8
-  %31 = trunc i64 %30 to i32
-  %32 = and i32 %31, 63
-  %.not20 = icmp samesign ult i32 %32, %13
-  %33 = and i64 %30, 192
-  %.not21 = icmp eq i64 %33, 128
+26:                                               ; preds = %.lr.ph, %26
+  %27 = atomicrmw add ptr %25, i64 1 monotonic, align 8
+  %28 = tail call noundef i32 @sched_yield() #31
+  %29 = load ptr, ptr %5, align 32, !tbaa !137
+  %30 = getelementptr inbounds nuw %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %29, i64 %17
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  %32 = load atomic i64, ptr %31 acquire, align 8
+  %33 = trunc i64 %32 to i32
+  %34 = and i32 %33, 63
+  %.not20 = icmp samesign ult i32 %34, %13
+  %35 = and i64 %32, 192
+  %.not21 = icmp eq i64 %35, 128
   %or.cond = or i1 %.not21, %.not20
-  br i1 %or.cond, label %24, label %._crit_edge
+  br i1 %or.cond, label %26, label %._crit_edge
 
-._crit_edge:                                      ; preds = %24, %10
-  %34 = zext nneg i32 %13 to i64
-  %35 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %4, i64 range(i64 -2147483648, 2147483648) %34)
-  tail call void @_ZN7rocksdb11clock_cache19AutoHyperClockTable12SplitForGrowEmmi(ptr noundef nonnull align 64 dereferenceable(208) %0, i64 noundef %4, i64 noundef %35, i32 noundef %13)
+._crit_edge:                                      ; preds = %26, %10
+  tail call void @_ZN7rocksdb11clock_cache19AutoHyperClockTable12SplitForGrowEmmi(ptr noundef nonnull align 64 dereferenceable(208) %0, i64 noundef %4, i64 noundef %15, i32 noundef %13)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %37 = load atomic i64, ptr %36 acquire, align 16
   %38 = lshr i64 %37, 8

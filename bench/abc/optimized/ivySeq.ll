@@ -1421,7 +1421,7 @@ define internal fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr nound
 
 .critedge.preheader.i:                            ; preds = %._crit_edge.i
   %28 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %29 = load i32, ptr %52, align 8
+  %29 = load i32, ptr %57, align 8
   %.not83.i = icmp ult i32 %29, 134217728
   br i1 %.not83.i, label %.critedge._crit_edge.i, label %.critedge.i
 
@@ -1449,21 +1449,21 @@ define internal fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr nound
   %49 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val54.i, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !50
-  %52 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %53 = load i32, ptr %52, align 8
-  %54 = and i32 %53, 4063232
-  %.not81.i = icmp eq i32 %54, 0
+  %52 = and i32 %45, 1
+  %53 = ptrtoint ptr %51 to i64
+  %54 = zext nneg i32 %52 to i64
+  %55 = xor i64 %54, %53
+  %56 = inttoptr i64 %55 to ptr
+  %57 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = and i32 %58, 4063232
+  %.not81.i = icmp eq i32 %59, 0
   br i1 %.not81.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %30
-  %55 = phi i32 [ %53, %30 ], [ %64, %.lr.ph.i ]
+  %60 = phi i32 [ %58, %30 ], [ %64, %.lr.ph.i ]
   %.050.lcssa.i = phi ptr [ %43, %30 ], [ %62, %.lr.ph.i ]
-  %56 = and i32 %45, 1
-  %57 = ptrtoint ptr %51 to i64
-  %58 = zext nneg i32 %56 to i64
-  %59 = xor i64 %58, %57
-  %60 = inttoptr i64 %59 to ptr
-  %61 = and i32 %55, 130023424
+  %61 = and i32 %60, 130023424
   %.not82.i = icmp eq i32 %61, 0
   br i1 %.not82.i, label %._crit_edge.i, label %.lr.ph70.i
 
@@ -1472,7 +1472,7 @@ define internal fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr nound
   %.05066.i = phi ptr [ %62, %.lr.ph.i ], [ %43, %30 ]
   %62 = tail call ptr @Ivy_Latch(ptr noundef %0, ptr noundef %.05066.i, i32 noundef 3) #19
   %63 = add nuw nsw i32 %.167.i, 1
-  %64 = load i32, ptr %52, align 8
+  %64 = load i32, ptr %57, align 8
   %65 = lshr i32 %64, 17
   %66 = and i32 %65, 31
   %67 = icmp samesign ult i32 %63, %66
@@ -1480,17 +1480,17 @@ define internal fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr nound
 
 .lr.ph70.i:                                       ; preds = %.preheader.i, %.lr.ph70.i
   %.269.i = phi i32 [ %69, %.lr.ph70.i ], [ 0, %.preheader.i ]
-  %.04968.i = phi ptr [ %68, %.lr.ph70.i ], [ %60, %.preheader.i ]
+  %.04968.i = phi ptr [ %68, %.lr.ph70.i ], [ %56, %.preheader.i ]
   %68 = tail call ptr @Ivy_Latch(ptr noundef %0, ptr noundef %.04968.i, i32 noundef 3) #19
   %69 = add nuw nsw i32 %.269.i, 1
-  %70 = load i32, ptr %52, align 8
+  %70 = load i32, ptr %57, align 8
   %71 = lshr i32 %70, 22
   %72 = and i32 %71, 31
   %73 = icmp samesign ult i32 %69, %72
   br i1 %73, label %.lr.ph70.i, label %._crit_edge.i, !llvm.loop !100
 
 ._crit_edge.i:                                    ; preds = %.lr.ph70.i, %.preheader.i
-  %.049.lcssa.i = phi ptr [ %60, %.preheader.i ], [ %68, %.lr.ph70.i ]
+  %.049.lcssa.i = phi ptr [ %56, %.preheader.i ], [ %68, %.lr.ph70.i ]
   %74 = tail call ptr @Ivy_And(ptr noundef %0, ptr noundef %.050.lcssa.i, ptr noundef %.049.lcssa.i) #19
   %75 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %74, ptr %75, align 8, !tbaa !50
@@ -1506,7 +1506,7 @@ define internal fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr nound
   %80 = tail call ptr @Ivy_Latch(ptr noundef %0, ptr noundef %79, i32 noundef 3) #19
   store ptr %80, ptr %28, align 8, !tbaa !50
   %81 = add nuw nsw i32 %.375.i, 1
-  %82 = load i32, ptr %52, align 8
+  %82 = load i32, ptr %57, align 8
   %83 = lshr i32 %82, 27
   %84 = icmp samesign ult i32 %81, %83
   br i1 %84, label %.critedge.i, label %.critedge._crit_edge.i, !llvm.loop !102

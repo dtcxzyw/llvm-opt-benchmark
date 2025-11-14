@@ -2723,14 +2723,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit16:                  ; preds = %_ZNSt6vectorIiSaIiE
   %44 = lshr exact i32 %.0.i.i, %43
   %45 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
   %46 = lshr exact i32 %.0.i4.i, %45
+  %47 = tail call i32 @llvm.umin.i32(i32 %43, i32 %45)
   %spec.select3334.i.i = tail call i32 @llvm.umin.i32(i32 %44, i32 %46)
-  %47 = icmp eq i32 %44, %46
-  br i1 %47, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %48 = icmp eq i32 %44, %46
+  br i1 %48, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %42
   %spec.select33.lcssa.i.i = phi i32 [ %spec.select3334.i.i, %42 ], [ %spec.select33.i.i, %.lr.ph.i.i ]
-  %48 = tail call i32 @llvm.umin.i32(i32 %43, i32 %45)
-  %49 = shl i32 %spec.select33.lcssa.i.i, %48
+  %49 = shl i32 %spec.select33.lcssa.i.i, %47
   br label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit
 
 .lr.ph.i.i:                                       ; preds = %42, %.lr.ph.i.i
@@ -3577,14 +3577,14 @@ _Z13comm_box_fracRKN3gmx11BasicVectorIiEEfRK11gmx_ddbox_t.exit: ; preds = %.loop
   %307 = lshr exact i32 %.0.i.i, %306
   %308 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %indvars.iv332.sroa.phi.sroa.speculated, i1 true)
   %309 = lshr exact i32 %.0.i4.i, %308
+  %310 = tail call i32 @llvm.umin.i32(i32 %306, i32 %308)
   %spec.select3334.i.i = tail call i32 @llvm.umin.i32(i32 %307, i32 %309)
-  %310 = icmp eq i32 %307, %309
-  br i1 %310, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %311 = icmp eq i32 %307, %309
+  br i1 %311, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %305
   %spec.select33.lcssa.i.i = phi i32 [ %spec.select3334.i.i, %305 ], [ %spec.select33.i.i, %.lr.ph.i.i ]
-  %311 = tail call i32 @llvm.umin.i32(i32 %306, i32 %308)
-  %312 = shl i32 %spec.select33.lcssa.i.i, %311
+  %312 = shl i32 %spec.select33.lcssa.i.i, %310
   br label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit
 
 .lr.ph.i.i:                                       ; preds = %305, %.lr.ph.i.i

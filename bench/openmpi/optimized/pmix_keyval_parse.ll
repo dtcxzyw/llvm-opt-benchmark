@@ -249,32 +249,32 @@ save_param_name.exit.i:                           ; preds = %52
   br i1 %61, label %trim_name.exit35.i, label %62
 
 62:                                               ; preds = %59
-  %63 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(5) @.str.3, i64 noundef 4) #15
-  %64 = icmp eq i32 %63, 0
-  %spec.select.idx.i.i = select i1 %64, i64 4, i64 0
+  %63 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #15
+  %64 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(5) @.str.3, i64 noundef 4) #15
+  %65 = icmp eq i32 %64, 0
+  %spec.select.idx.i.i = select i1 %65, i64 4, i64 0
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %60, i64 %spec.select.idx.i.i
-  %65 = tail call ptr @__ctype_b_loc() #17
-  %66 = load ptr, ptr %65, align 8, !tbaa !31
-  br label %67
+  %66 = tail call ptr @__ctype_b_loc() #17
+  %67 = load ptr, ptr %66, align 8, !tbaa !31
+  br label %68
 
-67:                                               ; preds = %67, %62
-  %.2.i.i = phi ptr [ %spec.select.i.i, %62 ], [ %73, %67 ]
-  %68 = load i8, ptr %.2.i.i, align 1, !tbaa !33
-  %69 = sext i8 %68 to i64
-  %70 = getelementptr inbounds i16, ptr %66, i64 %69
-  %71 = load i16, ptr %70, align 2, !tbaa !34
-  %72 = and i16 %71, 8192
-  %.not42.i.i = icmp eq i16 %72, 0
-  %73 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 1
-  br i1 %.not42.i.i, label %74, label %67, !llvm.loop !36
+68:                                               ; preds = %68, %62
+  %.2.i.i = phi ptr [ %spec.select.i.i, %62 ], [ %74, %68 ]
+  %69 = load i8, ptr %.2.i.i, align 1, !tbaa !33
+  %70 = sext i8 %69 to i64
+  %71 = getelementptr inbounds i16, ptr %67, i64 %70
+  %72 = load i16, ptr %71, align 2, !tbaa !34
+  %73 = and i16 %72, 8192
+  %.not42.i.i = icmp eq i16 %73, 0
+  %74 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 1
+  br i1 %.not42.i.i, label %75, label %68, !llvm.loop !36
 
-74:                                               ; preds = %67
-  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #15
-  %76 = getelementptr inbounds nuw i8, ptr %60, i64 %75
+75:                                               ; preds = %68
+  %76 = getelementptr inbounds nuw i8, ptr %60, i64 %63
   br label %77
 
-77:                                               ; preds = %79, %74
-  %.036.i.i = phi ptr [ %76, %74 ], [ %80, %79 ]
+77:                                               ; preds = %79, %75
+  %.036.i.i = phi ptr [ %76, %75 ], [ %80, %79 ]
   %78 = icmp ugt ptr %.036.i.i, %60
   br i1 %78, label %79, label %.critedge.i.i
 
@@ -282,7 +282,7 @@ save_param_name.exit.i:                           ; preds = %52
   %80 = getelementptr inbounds i8, ptr %.036.i.i, i64 -1
   %81 = load i8, ptr %80, align 1, !tbaa !33
   %82 = sext i8 %81 to i64
-  %83 = getelementptr inbounds i16, ptr %66, i64 %82
+  %83 = getelementptr inbounds i16, ptr %67, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !34
   %85 = and i16 %84, 8192
   %.not43.i.i = icmp eq i16 %85, 0
@@ -300,31 +300,31 @@ save_param_name.exit.i:                           ; preds = %52
   br label %trim_name.exit.i
 
 trim_name.exit.i:                                 ; preds = %86, %.critedge.i.i
-  %89 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(6) @.str.4, i64 noundef 5) #15
-  %90 = icmp eq i32 %89, 0
-  %spec.select.idx.i27.i = select i1 %90, i64 5, i64 0
+  %89 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #15
+  %90 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(6) @.str.4, i64 noundef 5) #15
+  %91 = icmp eq i32 %90, 0
+  %spec.select.idx.i27.i = select i1 %91, i64 5, i64 0
   %spec.select.i28.i = getelementptr inbounds nuw i8, ptr %60, i64 %spec.select.idx.i27.i
-  %91 = load ptr, ptr %65, align 8, !tbaa !31
-  br label %92
+  %92 = load ptr, ptr %66, align 8, !tbaa !31
+  br label %93
 
-92:                                               ; preds = %92, %trim_name.exit.i
-  %.2.i29.i = phi ptr [ %spec.select.i28.i, %trim_name.exit.i ], [ %98, %92 ]
-  %93 = load i8, ptr %.2.i29.i, align 1, !tbaa !33
-  %94 = sext i8 %93 to i64
-  %95 = getelementptr inbounds i16, ptr %91, i64 %94
-  %96 = load i16, ptr %95, align 2, !tbaa !34
-  %97 = and i16 %96, 8192
-  %.not42.i30.i = icmp eq i16 %97, 0
-  %98 = getelementptr inbounds nuw i8, ptr %.2.i29.i, i64 1
-  br i1 %.not42.i30.i, label %99, label %92, !llvm.loop !36
+93:                                               ; preds = %93, %trim_name.exit.i
+  %.2.i29.i = phi ptr [ %spec.select.i28.i, %trim_name.exit.i ], [ %99, %93 ]
+  %94 = load i8, ptr %.2.i29.i, align 1, !tbaa !33
+  %95 = sext i8 %94 to i64
+  %96 = getelementptr inbounds i16, ptr %92, i64 %95
+  %97 = load i16, ptr %96, align 2, !tbaa !34
+  %98 = and i16 %97, 8192
+  %.not42.i30.i = icmp eq i16 %98, 0
+  %99 = getelementptr inbounds nuw i8, ptr %.2.i29.i, i64 1
+  br i1 %.not42.i30.i, label %100, label %93, !llvm.loop !36
 
-99:                                               ; preds = %92
-  %100 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #15
-  %101 = getelementptr inbounds nuw i8, ptr %60, i64 %100
+100:                                              ; preds = %93
+  %101 = getelementptr inbounds nuw i8, ptr %60, i64 %89
   br label %102
 
-102:                                              ; preds = %104, %99
-  %.036.i31.i = phi ptr [ %101, %99 ], [ %105, %104 ]
+102:                                              ; preds = %104, %100
+  %.036.i31.i = phi ptr [ %101, %100 ], [ %105, %104 ]
   %103 = icmp ugt ptr %.036.i31.i, %60
   br i1 %103, label %104, label %.critedge.i32.i
 
@@ -332,7 +332,7 @@ trim_name.exit.i:                                 ; preds = %86, %.critedge.i.i
   %105 = getelementptr inbounds i8, ptr %.036.i31.i, i64 -1
   %106 = load i8, ptr %105, align 1, !tbaa !33
   %107 = sext i8 %106 to i64
-  %108 = getelementptr inbounds i16, ptr %91, i64 %107
+  %108 = getelementptr inbounds i16, ptr %92, i64 %107
   %109 = load i16, ptr %108, align 2, !tbaa !34
   %110 = and i16 %109, 8192
   %.not43.i34.i = icmp eq i16 %110, 0

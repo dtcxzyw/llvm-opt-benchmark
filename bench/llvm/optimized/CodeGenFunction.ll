@@ -21729,11 +21729,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.loopexit:   ; preds = %10
   %11 = zext i32 %2 to i64
   %12 = shl nuw nsw i64 %11, 2
   %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #27
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %13, i8 -1, i64 %12, i1 false), !tbaa !16
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %11
-  %16 = ptrtoint ptr %14 to i64
-  %17 = ptrtoint ptr %15 to i64
+  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %11
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %12
+  %16 = ptrtoint ptr %15 to i64
+  %17 = ptrtoint ptr %14 to i64
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.loopexit, %10

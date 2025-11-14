@@ -3572,8 +3572,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %484
   store ptr %490, ptr %35, align 8
   %491 = getelementptr inbounds nuw double, ptr %490, i64 %485
   store ptr %491, ptr %71, align 8
-  %492 = getelementptr inbounds nuw i8, ptr %490, i64 %489
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %490, i8 0, i64 %489, i1 false)
+  %492 = getelementptr inbounds nuw i8, ptr %490, i64 %489
   br label %.loopexit175
 
 .loopexit175:                                     ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %.noexc95

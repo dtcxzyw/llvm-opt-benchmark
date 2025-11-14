@@ -1485,8 +1485,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %58
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %127
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %129, 3
-  %131 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %128, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !132
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx.i.i.i.i.i.i.i
   br label %"_ZZN7AstNode11foreachImplI9AstVarRefZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS2_12LogicRegionsEENK3$_0clENS3_11RegionFlagsEP8AstScopeP9AstActiveEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i"
 
 132:                                              ; preds = %116
@@ -1858,8 +1858,8 @@ _ZN12VNUser3InUseC2Ev.exit:                       ; preds = %_ZN12VNUser2InUseC2
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i38: ; preds = %266
   %.idx.i.i.i.i.i.i.i39 = shl nuw nsw i64 %268, 3
-  %270 = getelementptr inbounds nuw i8, ptr %267, i64 %.idx.i.i.i.i.i.i.i39
   call void @llvm.memset.p0.i64(ptr align 8 %267, i8 0, i64 %.idx.i.i.i.i.i.i.i39, i1 false), !tbaa !132
+  %270 = getelementptr inbounds nuw i8, ptr %267, i64 %.idx.i.i.i.i.i.i.i39
   br label %"_ZZN7AstNode11foreachImplI9AstVarRefZZN7V3Sched12_GLOBAL__N_110buildGraphERKNS2_12LogicRegionsEENK3$_0clENS3_11RegionFlagsEP8AstScopeP9AstActiveEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i"
 
 271:                                              ; preds = %258

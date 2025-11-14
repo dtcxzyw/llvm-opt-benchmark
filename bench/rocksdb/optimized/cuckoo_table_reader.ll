@@ -2685,12 +2685,12 @@ define void @_ZN7rocksdb19CuckooTableIteratorC2EPNS_17CuckooTableReaderE(ptr nou
   br i1 %31, label %_ZNSt6vectorIjSaIjEE5clearEv.exit, label %29
 
 _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr @.str, ptr %32, align 8, !tbaa !21
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr @.str, ptr %34, align 8, !tbaa !21
   store i64 0, ptr %33, align 8, !tbaa !105
-  store i64 0, ptr %34, align 8, !tbaa !252
+  store i64 0, ptr %32, align 8, !tbaa !252
   ret void
 }
 

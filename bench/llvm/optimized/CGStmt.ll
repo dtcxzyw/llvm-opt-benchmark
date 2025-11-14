@@ -1778,39 +1778,39 @@ define linkonce_odr hidden void @_ZN5clang7CodeGen15CodeGenFunction17EnsureInser
   br i1 %.not14.i, label %25, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %13
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %17 = load ptr, ptr %16, align 8, !tbaa !1033
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !1034
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %11) #19
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %22 = load ptr, ptr %17, align 8, !tbaa !1035
+  %22 = load ptr, ptr %19, align 8, !tbaa !1035
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr %17, ptr %23, align 8, !tbaa !1033
+  store ptr %19, ptr %23, align 8, !tbaa !1034
   store ptr %22, ptr %21, align 8, !tbaa !1035
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %21, ptr %24, align 8, !tbaa !1033
-  store ptr %21, ptr %17, align 8, !tbaa !1035
+  store ptr %21, ptr %24, align 8, !tbaa !1034
+  store ptr %21, ptr %19, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 25:                                               ; preds = %13, %5
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %27 = load ptr, ptr %26, align 8, !tbaa !1034
+  %27 = load ptr, ptr %26, align 8, !tbaa !1033
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull %11) #19
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %30 = load ptr, ptr %28, align 8, !tbaa !1035
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr %28, ptr %31, align 8, !tbaa !1033
+  store ptr %28, ptr %31, align 8, !tbaa !1034
   store ptr %30, ptr %29, align 8, !tbaa !1035
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %29, ptr %32, align 8, !tbaa !1033
+  store ptr %29, ptr %32, align 8, !tbaa !1034
   store ptr %29, ptr %28, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit: ; preds = %.preheader.i.i.i.i, %25
-  %.sink16.i = phi ptr [ %27, %25 ], [ %19, %.preheader.i.i.i.i ]
+  %.sink16.i = phi ptr [ %27, %25 ], [ %17, %.preheader.i.i.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 128
   %34 = load i8, ptr %33, align 8, !tbaa !1036, !range !280, !noundef !281
   %35 = trunc nuw i8 %34 to i1
@@ -2579,39 +2579,39 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   br i1 %.not14.i, label %307, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %295
-  %298 = getelementptr inbounds nuw i8, ptr %294, i64 32
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %299 = load ptr, ptr %298, align 8, !tbaa !1033
-  %300 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %300 = getelementptr inbounds nuw i8, ptr %294, i64 32
   %301 = load ptr, ptr %300, align 8, !tbaa !1034
-  %302 = getelementptr inbounds nuw i8, ptr %301, i64 72
+  %302 = getelementptr inbounds nuw i8, ptr %299, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %302, ptr noundef nonnull %192) #19
   %303 = getelementptr inbounds nuw i8, ptr %192, i64 24
-  %304 = load ptr, ptr %299, align 8, !tbaa !1035
+  %304 = load ptr, ptr %301, align 8, !tbaa !1035
   %305 = getelementptr inbounds nuw i8, ptr %192, i64 32
-  store ptr %299, ptr %305, align 8, !tbaa !1033
+  store ptr %301, ptr %305, align 8, !tbaa !1034
   store ptr %304, ptr %303, align 8, !tbaa !1035
   %306 = getelementptr inbounds nuw i8, ptr %304, i64 8
-  store ptr %303, ptr %306, align 8, !tbaa !1033
-  store ptr %303, ptr %299, align 8, !tbaa !1035
+  store ptr %303, ptr %306, align 8, !tbaa !1034
+  store ptr %303, ptr %301, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 307:                                              ; preds = %295, %292
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %309 = load ptr, ptr %308, align 8, !tbaa !1034
+  %309 = load ptr, ptr %308, align 8, !tbaa !1033
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %310, ptr noundef nonnull %192) #19
   %311 = getelementptr inbounds nuw i8, ptr %192, i64 24
   %312 = load ptr, ptr %310, align 8, !tbaa !1035
   %313 = getelementptr inbounds nuw i8, ptr %192, i64 32
-  store ptr %310, ptr %313, align 8, !tbaa !1033
+  store ptr %310, ptr %313, align 8, !tbaa !1034
   store ptr %312, ptr %311, align 8, !tbaa !1035
   %314 = getelementptr inbounds nuw i8, ptr %312, i64 8
-  store ptr %311, ptr %314, align 8, !tbaa !1033
+  store ptr %311, ptr %314, align 8, !tbaa !1034
   store ptr %311, ptr %310, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit: ; preds = %.preheader.i.i.i.i, %307
-  %.sink16.i = phi ptr [ %309, %307 ], [ %301, %.preheader.i.i.i.i ]
+  %.sink16.i = phi ptr [ %309, %307 ], [ %299, %.preheader.i.i.i.i ]
   %315 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 128
   %316 = load i8, ptr %315, align 8, !tbaa !1036, !range !280, !noundef !281
   %317 = trunc nuw i8 %316 to i1
@@ -2722,39 +2722,39 @@ _ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit104: ; preds = %329
   br i1 %.not14.i106, label %375, label %.preheader.i.i.i.i107
 
 .preheader.i.i.i.i107:                            ; preds = %363
-  %366 = getelementptr inbounds nuw i8, ptr %362, i64 32
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %367 = load ptr, ptr %366, align 8, !tbaa !1033
-  %368 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %368 = getelementptr inbounds nuw i8, ptr %362, i64 32
   %369 = load ptr, ptr %368, align 8, !tbaa !1034
-  %370 = getelementptr inbounds nuw i8, ptr %369, i64 72
+  %370 = getelementptr inbounds nuw i8, ptr %367, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %370, ptr noundef nonnull %.047) #19
   %371 = getelementptr inbounds nuw i8, ptr %.047, i64 24
-  %372 = load ptr, ptr %367, align 8, !tbaa !1035
+  %372 = load ptr, ptr %369, align 8, !tbaa !1035
   %373 = getelementptr inbounds nuw i8, ptr %.047, i64 32
-  store ptr %367, ptr %373, align 8, !tbaa !1033
+  store ptr %369, ptr %373, align 8, !tbaa !1034
   store ptr %372, ptr %371, align 8, !tbaa !1035
   %374 = getelementptr inbounds nuw i8, ptr %372, i64 8
-  store ptr %371, ptr %374, align 8, !tbaa !1033
-  store ptr %371, ptr %367, align 8, !tbaa !1035
+  store ptr %371, ptr %374, align 8, !tbaa !1034
+  store ptr %371, ptr %369, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit110
 
 375:                                              ; preds = %363, %361
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %377 = load ptr, ptr %376, align 8, !tbaa !1034
+  %377 = load ptr, ptr %376, align 8, !tbaa !1033
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %378, ptr noundef nonnull %.047) #19
   %379 = getelementptr inbounds nuw i8, ptr %.047, i64 24
   %380 = load ptr, ptr %378, align 8, !tbaa !1035
   %381 = getelementptr inbounds nuw i8, ptr %.047, i64 32
-  store ptr %378, ptr %381, align 8, !tbaa !1033
+  store ptr %378, ptr %381, align 8, !tbaa !1034
   store ptr %380, ptr %379, align 8, !tbaa !1035
   %382 = getelementptr inbounds nuw i8, ptr %380, i64 8
-  store ptr %379, ptr %382, align 8, !tbaa !1033
+  store ptr %379, ptr %382, align 8, !tbaa !1034
   store ptr %379, ptr %378, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit110
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit110: ; preds = %.preheader.i.i.i.i107, %375
-  %.sink16.i108 = phi ptr [ %377, %375 ], [ %369, %.preheader.i.i.i.i107 ]
+  %.sink16.i108 = phi ptr [ %377, %375 ], [ %367, %.preheader.i.i.i.i107 ]
   %383 = getelementptr inbounds nuw i8, ptr %.sink16.i108, i64 128
   %384 = load i8, ptr %383, align 8, !tbaa !1036, !range !280, !noundef !281
   %385 = trunc nuw i8 %384 to i1
@@ -2905,39 +2905,39 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction13EmitWhileStmtERKNS_9W
   br i1 %.not14.i, label %45, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %37 = load ptr, ptr %36, align 8, !tbaa !1033
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %39 = load ptr, ptr %38, align 8, !tbaa !1034
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull %26) #19
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %42 = load ptr, ptr %37, align 8, !tbaa !1035
+  %42 = load ptr, ptr %39, align 8, !tbaa !1035
   %43 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store ptr %37, ptr %43, align 8, !tbaa !1033
+  store ptr %39, ptr %43, align 8, !tbaa !1034
   store ptr %42, ptr %41, align 8, !tbaa !1035
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %41, ptr %44, align 8, !tbaa !1033
-  store ptr %41, ptr %37, align 8, !tbaa !1035
+  store ptr %41, ptr %44, align 8, !tbaa !1034
+  store ptr %41, ptr %39, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 45:                                               ; preds = %33, %4
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %47 = load ptr, ptr %46, align 8, !tbaa !1034
+  %47 = load ptr, ptr %46, align 8, !tbaa !1033
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull %26) #19
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %50 = load ptr, ptr %48, align 8, !tbaa !1035
   %51 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store ptr %48, ptr %51, align 8, !tbaa !1033
+  store ptr %48, ptr %51, align 8, !tbaa !1034
   store ptr %50, ptr %49, align 8, !tbaa !1035
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %49, ptr %52, align 8, !tbaa !1033
+  store ptr %49, ptr %52, align 8, !tbaa !1034
   store ptr %49, ptr %48, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit: ; preds = %.preheader.i.i.i.i, %45
-  %.sink16.i = phi ptr [ %47, %45 ], [ %39, %.preheader.i.i.i.i ]
+  %.sink16.i = phi ptr [ %47, %45 ], [ %37, %.preheader.i.i.i.i ]
   %53 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 128
   %54 = load i8, ptr %53, align 8, !tbaa !1036, !range !280, !noundef !281
   %55 = trunc nuw i8 %54 to i1
@@ -3385,39 +3385,39 @@ _ZN5clang7CodeGen15CodeGenFunction15getProfileCountEPKNS_4StmtE.exit: ; preds = 
   br i1 %.not14.i63, label %303, label %.preheader.i.i.i.i64
 
 .preheader.i.i.i.i64:                             ; preds = %291
-  %294 = getelementptr inbounds nuw i8, ptr %290, i64 32
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %295 = load ptr, ptr %294, align 8, !tbaa !1033
-  %296 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %296 = getelementptr inbounds nuw i8, ptr %290, i64 32
   %297 = load ptr, ptr %296, align 8, !tbaa !1034
-  %298 = getelementptr inbounds nuw i8, ptr %297, i64 72
+  %298 = getelementptr inbounds nuw i8, ptr %295, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %298, ptr noundef nonnull %.043) #19
   %299 = getelementptr inbounds nuw i8, ptr %.043, i64 24
-  %300 = load ptr, ptr %295, align 8, !tbaa !1035
+  %300 = load ptr, ptr %297, align 8, !tbaa !1035
   %301 = getelementptr inbounds nuw i8, ptr %.043, i64 32
-  store ptr %295, ptr %301, align 8, !tbaa !1033
+  store ptr %297, ptr %301, align 8, !tbaa !1034
   store ptr %300, ptr %299, align 8, !tbaa !1035
   %302 = getelementptr inbounds nuw i8, ptr %300, i64 8
-  store ptr %299, ptr %302, align 8, !tbaa !1033
-  store ptr %299, ptr %295, align 8, !tbaa !1035
+  store ptr %299, ptr %302, align 8, !tbaa !1034
+  store ptr %299, ptr %297, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit67
 
 303:                                              ; preds = %291, %289
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %305 = load ptr, ptr %304, align 8, !tbaa !1034
+  %305 = load ptr, ptr %304, align 8, !tbaa !1033
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %306, ptr noundef nonnull %.043) #19
   %307 = getelementptr inbounds nuw i8, ptr %.043, i64 24
   %308 = load ptr, ptr %306, align 8, !tbaa !1035
   %309 = getelementptr inbounds nuw i8, ptr %.043, i64 32
-  store ptr %306, ptr %309, align 8, !tbaa !1033
+  store ptr %306, ptr %309, align 8, !tbaa !1034
   store ptr %308, ptr %307, align 8, !tbaa !1035
   %310 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  store ptr %307, ptr %310, align 8, !tbaa !1033
+  store ptr %307, ptr %310, align 8, !tbaa !1034
   store ptr %307, ptr %306, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit67
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit67: ; preds = %.preheader.i.i.i.i64, %303
-  %.sink16.i65 = phi ptr [ %305, %303 ], [ %297, %.preheader.i.i.i.i64 ]
+  %.sink16.i65 = phi ptr [ %305, %303 ], [ %295, %.preheader.i.i.i.i64 ]
   %311 = getelementptr inbounds nuw i8, ptr %.sink16.i65, i64 128
   %312 = load i8, ptr %311, align 8, !tbaa !1036, !range !280, !noundef !281
   %313 = trunc nuw i8 %312 to i1
@@ -3734,39 +3734,39 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit83:          ; preds = %_ZNSt7__cxx1112basi
   br i1 %.not14.i85, label %460, label %.preheader.i.i.i.i86
 
 .preheader.i.i.i.i86:                             ; preds = %448
-  %451 = getelementptr inbounds nuw i8, ptr %447, i64 32
+  %451 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %452 = load ptr, ptr %451, align 8, !tbaa !1033
-  %453 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %453 = getelementptr inbounds nuw i8, ptr %447, i64 32
   %454 = load ptr, ptr %453, align 8, !tbaa !1034
-  %455 = getelementptr inbounds nuw i8, ptr %454, i64 72
+  %455 = getelementptr inbounds nuw i8, ptr %452, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %455, ptr noundef nonnull %211) #19
   %456 = getelementptr inbounds nuw i8, ptr %211, i64 24
-  %457 = load ptr, ptr %452, align 8, !tbaa !1035
+  %457 = load ptr, ptr %454, align 8, !tbaa !1035
   %458 = getelementptr inbounds nuw i8, ptr %211, i64 32
-  store ptr %452, ptr %458, align 8, !tbaa !1033
+  store ptr %454, ptr %458, align 8, !tbaa !1034
   store ptr %457, ptr %456, align 8, !tbaa !1035
   %459 = getelementptr inbounds nuw i8, ptr %457, i64 8
-  store ptr %456, ptr %459, align 8, !tbaa !1033
-  store ptr %456, ptr %452, align 8, !tbaa !1035
+  store ptr %456, ptr %459, align 8, !tbaa !1034
+  store ptr %456, ptr %454, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit89
 
 460:                                              ; preds = %448, %428
   %461 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %462 = load ptr, ptr %461, align 8, !tbaa !1034
+  %462 = load ptr, ptr %461, align 8, !tbaa !1033
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %463, ptr noundef nonnull %211) #19
   %464 = getelementptr inbounds nuw i8, ptr %211, i64 24
   %465 = load ptr, ptr %463, align 8, !tbaa !1035
   %466 = getelementptr inbounds nuw i8, ptr %211, i64 32
-  store ptr %463, ptr %466, align 8, !tbaa !1033
+  store ptr %463, ptr %466, align 8, !tbaa !1034
   store ptr %465, ptr %464, align 8, !tbaa !1035
   %467 = getelementptr inbounds nuw i8, ptr %465, i64 8
-  store ptr %464, ptr %467, align 8, !tbaa !1033
+  store ptr %464, ptr %467, align 8, !tbaa !1034
   store ptr %464, ptr %463, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit89
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit89: ; preds = %.preheader.i.i.i.i86, %460
-  %.sink16.i87 = phi ptr [ %462, %460 ], [ %454, %.preheader.i.i.i.i86 ]
+  %.sink16.i87 = phi ptr [ %462, %460 ], [ %452, %.preheader.i.i.i.i86 ]
   %468 = getelementptr inbounds nuw i8, ptr %.sink16.i87, i64 128
   %469 = load i8, ptr %468, align 8, !tbaa !1036, !range !280, !noundef !281
   %470 = trunc nuw i8 %469 to i1
@@ -4204,39 +4204,39 @@ _ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit: ; preds = %133, %
   br i1 %.not14.i, label %151, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %139
-  %142 = getelementptr inbounds nuw i8, ptr %138, i64 32
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %143 = load ptr, ptr %142, align 8, !tbaa !1033
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 32
   %145 = load ptr, ptr %144, align 8, !tbaa !1034
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 72
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %146, ptr noundef nonnull %30) #19
   %147 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %148 = load ptr, ptr %143, align 8, !tbaa !1035
+  %148 = load ptr, ptr %145, align 8, !tbaa !1035
   %149 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  store ptr %143, ptr %149, align 8, !tbaa !1033
+  store ptr %145, ptr %149, align 8, !tbaa !1034
   store ptr %148, ptr %147, align 8, !tbaa !1035
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  store ptr %147, ptr %150, align 8, !tbaa !1033
-  store ptr %147, ptr %143, align 8, !tbaa !1035
+  store ptr %147, ptr %150, align 8, !tbaa !1034
+  store ptr %147, ptr %145, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 151:                                              ; preds = %139, %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %153 = load ptr, ptr %152, align 8, !tbaa !1034
+  %153 = load ptr, ptr %152, align 8, !tbaa !1033
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %154, ptr noundef nonnull %30) #19
   %155 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %156 = load ptr, ptr %154, align 8, !tbaa !1035
   %157 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  store ptr %154, ptr %157, align 8, !tbaa !1033
+  store ptr %154, ptr %157, align 8, !tbaa !1034
   store ptr %156, ptr %155, align 8, !tbaa !1035
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  store ptr %155, ptr %158, align 8, !tbaa !1033
+  store ptr %155, ptr %158, align 8, !tbaa !1034
   store ptr %155, ptr %154, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit: ; preds = %.preheader.i.i.i.i, %151
-  %.sink16.i = phi ptr [ %153, %151 ], [ %145, %.preheader.i.i.i.i ]
+  %.sink16.i = phi ptr [ %153, %151 ], [ %143, %.preheader.i.i.i.i ]
   %159 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 128
   %160 = load i8, ptr %159, align 8, !tbaa !1036, !range !280, !noundef !281
   %161 = trunc nuw i8 %160 to i1
@@ -4436,39 +4436,39 @@ _ZN5clang7CodeGen15CodeGenFunction15getProfileCountEPKNS_4StmtE.exit: ; preds = 
   br i1 %.not14.i38, label %266, label %.preheader.i.i.i.i39
 
 .preheader.i.i.i.i39:                             ; preds = %254
-  %257 = getelementptr inbounds nuw i8, ptr %253, i64 32
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %258 = load ptr, ptr %257, align 8, !tbaa !1033
-  %259 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %259 = getelementptr inbounds nuw i8, ptr %253, i64 32
   %260 = load ptr, ptr %259, align 8, !tbaa !1034
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 72
+  %261 = getelementptr inbounds nuw i8, ptr %258, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %261, ptr noundef nonnull %19) #19
   %262 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %263 = load ptr, ptr %258, align 8, !tbaa !1035
+  %263 = load ptr, ptr %260, align 8, !tbaa !1035
   %264 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr %258, ptr %264, align 8, !tbaa !1033
+  store ptr %260, ptr %264, align 8, !tbaa !1034
   store ptr %263, ptr %262, align 8, !tbaa !1035
   %265 = getelementptr inbounds nuw i8, ptr %263, i64 8
-  store ptr %262, ptr %265, align 8, !tbaa !1033
-  store ptr %262, ptr %258, align 8, !tbaa !1035
+  store ptr %262, ptr %265, align 8, !tbaa !1034
+  store ptr %262, ptr %260, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit42
 
 266:                                              ; preds = %254, %_ZN5clang7CodeGen15CodeGenFunction15getProfileCountEPKNS_4StmtE.exit
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %268 = load ptr, ptr %267, align 8, !tbaa !1034
+  %268 = load ptr, ptr %267, align 8, !tbaa !1033
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %269, ptr noundef nonnull %19) #19
   %270 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %271 = load ptr, ptr %269, align 8, !tbaa !1035
   %272 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr %269, ptr %272, align 8, !tbaa !1033
+  store ptr %269, ptr %272, align 8, !tbaa !1034
   store ptr %271, ptr %270, align 8, !tbaa !1035
   %273 = getelementptr inbounds nuw i8, ptr %271, i64 8
-  store ptr %270, ptr %273, align 8, !tbaa !1033
+  store ptr %270, ptr %273, align 8, !tbaa !1034
   store ptr %270, ptr %269, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit42
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit42: ; preds = %.preheader.i.i.i.i39, %266
-  %.sink16.i40 = phi ptr [ %268, %266 ], [ %260, %.preheader.i.i.i.i39 ]
+  %.sink16.i40 = phi ptr [ %268, %266 ], [ %258, %.preheader.i.i.i.i39 ]
   %274 = getelementptr inbounds nuw i8, ptr %.sink16.i40, i64 128
   %275 = load i8, ptr %274, align 8, !tbaa !1036, !range !280, !noundef !281
   %276 = trunc nuw i8 %275 to i1
@@ -4493,39 +4493,39 @@ _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit42: ; pre
   br i1 %.not14.i44, label %291, label %.preheader.i.i.i.i45
 
 .preheader.i.i.i.i45:                             ; preds = %279
-  %282 = getelementptr inbounds nuw i8, ptr %278, i64 32
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %283 = load ptr, ptr %282, align 8, !tbaa !1033
-  %284 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %284 = getelementptr inbounds nuw i8, ptr %278, i64 32
   %285 = load ptr, ptr %284, align 8, !tbaa !1034
-  %286 = getelementptr inbounds nuw i8, ptr %285, i64 72
+  %286 = getelementptr inbounds nuw i8, ptr %283, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %286, ptr noundef nonnull %19) #19
   %287 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %288 = load ptr, ptr %283, align 8, !tbaa !1035
+  %288 = load ptr, ptr %285, align 8, !tbaa !1035
   %289 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr %283, ptr %289, align 8, !tbaa !1033
+  store ptr %285, ptr %289, align 8, !tbaa !1034
   store ptr %288, ptr %287, align 8, !tbaa !1035
   %290 = getelementptr inbounds nuw i8, ptr %288, i64 8
-  store ptr %287, ptr %290, align 8, !tbaa !1033
-  store ptr %287, ptr %283, align 8, !tbaa !1035
+  store ptr %287, ptr %290, align 8, !tbaa !1034
+  store ptr %287, ptr %285, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit48
 
 291:                                              ; preds = %279, %.critedge
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %293 = load ptr, ptr %292, align 8, !tbaa !1034
+  %293 = load ptr, ptr %292, align 8, !tbaa !1033
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %294, ptr noundef nonnull %19) #19
   %295 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %296 = load ptr, ptr %294, align 8, !tbaa !1035
   %297 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr %294, ptr %297, align 8, !tbaa !1033
+  store ptr %294, ptr %297, align 8, !tbaa !1034
   store ptr %296, ptr %295, align 8, !tbaa !1035
   %298 = getelementptr inbounds nuw i8, ptr %296, i64 8
-  store ptr %295, ptr %298, align 8, !tbaa !1033
+  store ptr %295, ptr %298, align 8, !tbaa !1034
   store ptr %295, ptr %294, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit48
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit48: ; preds = %.preheader.i.i.i.i45, %291
-  %.sink16.i46 = phi ptr [ %293, %291 ], [ %285, %.preheader.i.i.i.i45 ]
+  %.sink16.i46 = phi ptr [ %293, %291 ], [ %283, %.preheader.i.i.i.i45 ]
   %299 = getelementptr inbounds nuw i8, ptr %.sink16.i46, i64 128
   %300 = load i8, ptr %299, align 8, !tbaa !1036, !range !280, !noundef !281
   %301 = trunc nuw i8 %300 to i1
@@ -4740,39 +4740,39 @@ _ZN5clang7CodeGen15CodeGenFunction12LexicalScopeC2ERS1_NS_11SourceRangeE.exit: ;
   br i1 %.not14.i, label %97, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %85
-  %88 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %89 = load ptr, ptr %88, align 8, !tbaa !1033
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %91 = load ptr, ptr %90, align 8, !tbaa !1034
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 72
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull %80) #19
   %93 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %94 = load ptr, ptr %89, align 8, !tbaa !1035
+  %94 = load ptr, ptr %91, align 8, !tbaa !1035
   %95 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  store ptr %89, ptr %95, align 8, !tbaa !1033
+  store ptr %91, ptr %95, align 8, !tbaa !1034
   store ptr %94, ptr %93, align 8, !tbaa !1035
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store ptr %93, ptr %96, align 8, !tbaa !1033
-  store ptr %93, ptr %89, align 8, !tbaa !1035
+  store ptr %93, ptr %96, align 8, !tbaa !1034
+  store ptr %93, ptr %91, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 97:                                               ; preds = %85, %73
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %99 = load ptr, ptr %98, align 8, !tbaa !1034
+  %99 = load ptr, ptr %98, align 8, !tbaa !1033
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull %80) #19
   %101 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %102 = load ptr, ptr %100, align 8, !tbaa !1035
   %103 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  store ptr %100, ptr %103, align 8, !tbaa !1033
+  store ptr %100, ptr %103, align 8, !tbaa !1034
   store ptr %102, ptr %101, align 8, !tbaa !1035
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store ptr %101, ptr %104, align 8, !tbaa !1033
+  store ptr %101, ptr %104, align 8, !tbaa !1034
   store ptr %101, ptr %100, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit: ; preds = %.preheader.i.i.i.i, %97
-  %.sink16.i = phi ptr [ %99, %97 ], [ %91, %.preheader.i.i.i.i ]
+  %.sink16.i = phi ptr [ %99, %97 ], [ %89, %.preheader.i.i.i.i ]
   %105 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 128
   %106 = load i8, ptr %105, align 8, !tbaa !1036, !range !280, !noundef !281
   %107 = trunc nuw i8 %106 to i1
@@ -5252,39 +5252,39 @@ _ZN5clang7CodeGen15CodeGenFunction15getProfileCountEPKNS_4StmtE.exit: ; preds = 
   br i1 %.not14.i75, label %349, label %.preheader.i.i.i.i76
 
 .preheader.i.i.i.i76:                             ; preds = %337
-  %340 = getelementptr inbounds nuw i8, ptr %336, i64 32
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %341 = load ptr, ptr %340, align 8, !tbaa !1033
-  %342 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %342 = getelementptr inbounds nuw i8, ptr %336, i64 32
   %343 = load ptr, ptr %342, align 8, !tbaa !1034
-  %344 = getelementptr inbounds nuw i8, ptr %343, i64 72
+  %344 = getelementptr inbounds nuw i8, ptr %341, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %344, ptr noundef nonnull %.0) #19
   %345 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %346 = load ptr, ptr %341, align 8, !tbaa !1035
+  %346 = load ptr, ptr %343, align 8, !tbaa !1035
   %347 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  store ptr %341, ptr %347, align 8, !tbaa !1033
+  store ptr %343, ptr %347, align 8, !tbaa !1034
   store ptr %346, ptr %345, align 8, !tbaa !1035
   %348 = getelementptr inbounds nuw i8, ptr %346, i64 8
-  store ptr %345, ptr %348, align 8, !tbaa !1033
-  store ptr %345, ptr %341, align 8, !tbaa !1035
+  store ptr %345, ptr %348, align 8, !tbaa !1034
+  store ptr %345, ptr %343, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit79
 
 349:                                              ; preds = %337, %335
   %350 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %351 = load ptr, ptr %350, align 8, !tbaa !1034
+  %351 = load ptr, ptr %350, align 8, !tbaa !1033
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %352, ptr noundef nonnull %.0) #19
   %353 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %354 = load ptr, ptr %352, align 8, !tbaa !1035
   %355 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  store ptr %352, ptr %355, align 8, !tbaa !1033
+  store ptr %352, ptr %355, align 8, !tbaa !1034
   store ptr %354, ptr %353, align 8, !tbaa !1035
   %356 = getelementptr inbounds nuw i8, ptr %354, i64 8
-  store ptr %353, ptr %356, align 8, !tbaa !1033
+  store ptr %353, ptr %356, align 8, !tbaa !1034
   store ptr %353, ptr %352, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit79
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit79: ; preds = %.preheader.i.i.i.i76, %349
-  %.sink16.i77 = phi ptr [ %351, %349 ], [ %343, %.preheader.i.i.i.i76 ]
+  %.sink16.i77 = phi ptr [ %351, %349 ], [ %341, %.preheader.i.i.i.i76 ]
   %357 = getelementptr inbounds nuw i8, ptr %.sink16.i77, i64 128
   %358 = load i8, ptr %357, align 8, !tbaa !1036, !range !280, !noundef !281
   %359 = trunc nuw i8 %358 to i1
@@ -5314,39 +5314,39 @@ _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit79: ; pre
   br i1 %.not14.i81, label %375, label %.preheader.i.i.i.i82
 
 .preheader.i.i.i.i82:                             ; preds = %363
-  %366 = getelementptr inbounds nuw i8, ptr %362, i64 32
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %367 = load ptr, ptr %366, align 8, !tbaa !1033
-  %368 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %368 = getelementptr inbounds nuw i8, ptr %362, i64 32
   %369 = load ptr, ptr %368, align 8, !tbaa !1034
-  %370 = getelementptr inbounds nuw i8, ptr %369, i64 72
+  %370 = getelementptr inbounds nuw i8, ptr %367, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %370, ptr noundef nonnull %280) #19
   %371 = getelementptr inbounds nuw i8, ptr %280, i64 24
-  %372 = load ptr, ptr %367, align 8, !tbaa !1035
+  %372 = load ptr, ptr %369, align 8, !tbaa !1035
   %373 = getelementptr inbounds nuw i8, ptr %280, i64 32
-  store ptr %367, ptr %373, align 8, !tbaa !1033
+  store ptr %369, ptr %373, align 8, !tbaa !1034
   store ptr %372, ptr %371, align 8, !tbaa !1035
   %374 = getelementptr inbounds nuw i8, ptr %372, i64 8
-  store ptr %371, ptr %374, align 8, !tbaa !1033
-  store ptr %371, ptr %367, align 8, !tbaa !1035
+  store ptr %371, ptr %374, align 8, !tbaa !1034
+  store ptr %371, ptr %369, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit85
 
 375:                                              ; preds = %363, %361
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %377 = load ptr, ptr %376, align 8, !tbaa !1034
+  %377 = load ptr, ptr %376, align 8, !tbaa !1033
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %378, ptr noundef nonnull %280) #19
   %379 = getelementptr inbounds nuw i8, ptr %280, i64 24
   %380 = load ptr, ptr %378, align 8, !tbaa !1035
   %381 = getelementptr inbounds nuw i8, ptr %280, i64 32
-  store ptr %378, ptr %381, align 8, !tbaa !1033
+  store ptr %378, ptr %381, align 8, !tbaa !1034
   store ptr %380, ptr %379, align 8, !tbaa !1035
   %382 = getelementptr inbounds nuw i8, ptr %380, i64 8
-  store ptr %379, ptr %382, align 8, !tbaa !1033
+  store ptr %379, ptr %382, align 8, !tbaa !1034
   store ptr %379, ptr %378, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit85
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit85: ; preds = %.preheader.i.i.i.i82, %375
-  %.sink16.i83 = phi ptr [ %377, %375 ], [ %369, %.preheader.i.i.i.i82 ]
+  %.sink16.i83 = phi ptr [ %377, %375 ], [ %367, %.preheader.i.i.i.i82 ]
   %383 = getelementptr inbounds nuw i8, ptr %.sink16.i83, i64 128
   %384 = load i8, ptr %383, align 8, !tbaa !1036, !range !280, !noundef !281
   %385 = trunc nuw i8 %384 to i1
@@ -5434,39 +5434,39 @@ _ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit: ; preds = %387, %
   br i1 %.not14.i87, label %432, label %.preheader.i.i.i.i88
 
 .preheader.i.i.i.i88:                             ; preds = %420
-  %423 = getelementptr inbounds nuw i8, ptr %419, i64 32
+  %423 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %424 = load ptr, ptr %423, align 8, !tbaa !1033
-  %425 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %425 = getelementptr inbounds nuw i8, ptr %419, i64 32
   %426 = load ptr, ptr %425, align 8, !tbaa !1034
-  %427 = getelementptr inbounds nuw i8, ptr %426, i64 72
+  %427 = getelementptr inbounds nuw i8, ptr %424, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %427, ptr noundef %.sroa.0116.2) #19
   %428 = getelementptr inbounds nuw i8, ptr %.sroa.0116.2, i64 24
-  %429 = load ptr, ptr %424, align 8, !tbaa !1035
+  %429 = load ptr, ptr %426, align 8, !tbaa !1035
   %430 = getelementptr inbounds nuw i8, ptr %.sroa.0116.2, i64 32
-  store ptr %424, ptr %430, align 8, !tbaa !1033
+  store ptr %426, ptr %430, align 8, !tbaa !1034
   store ptr %429, ptr %428, align 8, !tbaa !1035
   %431 = getelementptr inbounds nuw i8, ptr %429, i64 8
-  store ptr %428, ptr %431, align 8, !tbaa !1033
-  store ptr %428, ptr %424, align 8, !tbaa !1035
+  store ptr %428, ptr %431, align 8, !tbaa !1034
+  store ptr %428, ptr %426, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit91
 
 432:                                              ; preds = %420, %418
   %433 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %434 = load ptr, ptr %433, align 8, !tbaa !1034
+  %434 = load ptr, ptr %433, align 8, !tbaa !1033
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %435, ptr noundef %.sroa.0116.2) #19
   %436 = getelementptr inbounds nuw i8, ptr %.sroa.0116.2, i64 24
   %437 = load ptr, ptr %435, align 8, !tbaa !1035
   %438 = getelementptr inbounds nuw i8, ptr %.sroa.0116.2, i64 32
-  store ptr %435, ptr %438, align 8, !tbaa !1033
+  store ptr %435, ptr %438, align 8, !tbaa !1034
   store ptr %437, ptr %436, align 8, !tbaa !1035
   %439 = getelementptr inbounds nuw i8, ptr %437, i64 8
-  store ptr %436, ptr %439, align 8, !tbaa !1033
+  store ptr %436, ptr %439, align 8, !tbaa !1034
   store ptr %436, ptr %435, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit91
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit91: ; preds = %.preheader.i.i.i.i88, %432
-  %.sink16.i89 = phi ptr [ %434, %432 ], [ %426, %.preheader.i.i.i.i88 ]
+  %.sink16.i89 = phi ptr [ %434, %432 ], [ %424, %.preheader.i.i.i.i88 ]
   %440 = getelementptr inbounds nuw i8, ptr %.sink16.i89, i64 128
   %441 = load i8, ptr %440, align 8, !tbaa !1036, !range !280, !noundef !281
   %442 = trunc nuw i8 %441 to i1
@@ -7206,39 +7206,39 @@ _ZN4llvm10SwitchInst14setDefaultDestEPNS_10BasicBlockE.exit: ; preds = %_ZN4llvm
   br i1 %.not14.i, label %365, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %353
-  %356 = getelementptr inbounds nuw i8, ptr %352, i64 32
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %357 = load ptr, ptr %356, align 8, !tbaa !1033
-  %358 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %358 = getelementptr inbounds nuw i8, ptr %352, i64 32
   %359 = load ptr, ptr %358, align 8, !tbaa !1034
-  %360 = getelementptr inbounds nuw i8, ptr %359, i64 72
+  %360 = getelementptr inbounds nuw i8, ptr %357, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %360, ptr noundef nonnull %182) #19
   %361 = getelementptr inbounds nuw i8, ptr %182, i64 24
-  %362 = load ptr, ptr %357, align 8, !tbaa !1035
+  %362 = load ptr, ptr %359, align 8, !tbaa !1035
   %363 = getelementptr inbounds nuw i8, ptr %182, i64 32
-  store ptr %357, ptr %363, align 8, !tbaa !1033
+  store ptr %359, ptr %363, align 8, !tbaa !1034
   store ptr %362, ptr %361, align 8, !tbaa !1035
   %364 = getelementptr inbounds nuw i8, ptr %362, i64 8
-  store ptr %361, ptr %364, align 8, !tbaa !1033
-  store ptr %361, ptr %357, align 8, !tbaa !1035
+  store ptr %361, ptr %364, align 8, !tbaa !1034
+  store ptr %361, ptr %359, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 365:                                              ; preds = %353, %351
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %367 = load ptr, ptr %366, align 8, !tbaa !1034
+  %367 = load ptr, ptr %366, align 8, !tbaa !1033
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %368, ptr noundef nonnull %182) #19
   %369 = getelementptr inbounds nuw i8, ptr %182, i64 24
   %370 = load ptr, ptr %368, align 8, !tbaa !1035
   %371 = getelementptr inbounds nuw i8, ptr %182, i64 32
-  store ptr %368, ptr %371, align 8, !tbaa !1033
+  store ptr %368, ptr %371, align 8, !tbaa !1034
   store ptr %370, ptr %369, align 8, !tbaa !1035
   %372 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  store ptr %369, ptr %372, align 8, !tbaa !1033
+  store ptr %369, ptr %372, align 8, !tbaa !1034
   store ptr %369, ptr %368, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit: ; preds = %.preheader.i.i.i.i, %365
-  %.sink16.i = phi ptr [ %367, %365 ], [ %359, %.preheader.i.i.i.i ]
+  %.sink16.i = phi ptr [ %367, %365 ], [ %357, %.preheader.i.i.i.i ]
   %373 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 128
   %374 = load i8, ptr %373, align 8, !tbaa !1036, !range !280, !noundef !281
   %375 = trunc nuw i8 %374 to i1
@@ -12134,39 +12134,39 @@ _ZN4llvm14FunctionCalleeC2INS_9InlineAsmEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: 
   br i1 %.not14.i, label %1968, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %1956
-  %1959 = getelementptr inbounds nuw i8, ptr %1955, i64 32
+  %1959 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %1960 = load ptr, ptr %1959, align 8, !tbaa !1033
-  %1961 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %1961 = getelementptr inbounds nuw i8, ptr %1955, i64 32
   %1962 = load ptr, ptr %1961, align 8, !tbaa !1034
-  %1963 = getelementptr inbounds nuw i8, ptr %1962, i64 72
+  %1963 = getelementptr inbounds nuw i8, ptr %1960, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %1963, ptr noundef %.0303) #19
   %1964 = getelementptr inbounds nuw i8, ptr %.0303, i64 24
-  %1965 = load ptr, ptr %1960, align 8, !tbaa !1035
+  %1965 = load ptr, ptr %1962, align 8, !tbaa !1035
   %1966 = getelementptr inbounds nuw i8, ptr %.0303, i64 32
-  store ptr %1960, ptr %1966, align 8, !tbaa !1033
+  store ptr %1962, ptr %1966, align 8, !tbaa !1034
   store ptr %1965, ptr %1964, align 8, !tbaa !1035
   %1967 = getelementptr inbounds nuw i8, ptr %1965, i64 8
-  store ptr %1964, ptr %1967, align 8, !tbaa !1033
-  store ptr %1964, ptr %1960, align 8, !tbaa !1035
+  store ptr %1964, ptr %1967, align 8, !tbaa !1034
+  store ptr %1964, ptr %1962, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 1968:                                             ; preds = %1956, %_ZN4llvm14FunctionCalleeC2INS_9InlineAsmEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit
   %1969 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %1970 = load ptr, ptr %1969, align 8, !tbaa !1034
+  %1970 = load ptr, ptr %1969, align 8, !tbaa !1033
   %1971 = getelementptr inbounds nuw i8, ptr %1970, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %1971, ptr noundef %.0303) #19
   %1972 = getelementptr inbounds nuw i8, ptr %.0303, i64 24
   %1973 = load ptr, ptr %1971, align 8, !tbaa !1035
   %1974 = getelementptr inbounds nuw i8, ptr %.0303, i64 32
-  store ptr %1971, ptr %1974, align 8, !tbaa !1033
+  store ptr %1971, ptr %1974, align 8, !tbaa !1034
   store ptr %1973, ptr %1972, align 8, !tbaa !1035
   %1975 = getelementptr inbounds nuw i8, ptr %1973, i64 8
-  store ptr %1972, ptr %1975, align 8, !tbaa !1033
+  store ptr %1972, ptr %1975, align 8, !tbaa !1034
   store ptr %1972, ptr %1971, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit: ; preds = %.preheader.i.i.i.i, %1968
-  %.sink16.i = phi ptr [ %1970, %1968 ], [ %1962, %.preheader.i.i.i.i ]
+  %.sink16.i = phi ptr [ %1970, %1968 ], [ %1960, %.preheader.i.i.i.i ]
   %1976 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 128
   %1977 = load i8, ptr %1976, align 8, !tbaa !1036, !range !280, !noundef !281
   %1978 = trunc nuw i8 %1977 to i1
@@ -12723,37 +12723,37 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit701: ; pred
   br i1 %.not14.i703, label %2258, label %.preheader.i.i.i.i704
 
 .preheader.i.i.i.i704:                            ; preds = %2247
-  %2250 = getelementptr inbounds nuw i8, ptr %2246, i64 32
-  %2251 = load ptr, ptr %2250, align 8, !tbaa !1033
-  %2252 = load ptr, ptr %2040, align 8, !tbaa !1034
-  %2253 = getelementptr inbounds nuw i8, ptr %2252, i64 72
+  %2250 = load ptr, ptr %2040, align 8, !tbaa !1033
+  %2251 = getelementptr inbounds nuw i8, ptr %2246, i64 32
+  %2252 = load ptr, ptr %2251, align 8, !tbaa !1034
+  %2253 = getelementptr inbounds nuw i8, ptr %2250, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %2253, ptr noundef %2245) #19
   %2254 = getelementptr inbounds nuw i8, ptr %2245, i64 24
-  %2255 = load ptr, ptr %2251, align 8, !tbaa !1035
+  %2255 = load ptr, ptr %2252, align 8, !tbaa !1035
   %2256 = getelementptr inbounds nuw i8, ptr %2245, i64 32
-  store ptr %2251, ptr %2256, align 8, !tbaa !1033
+  store ptr %2252, ptr %2256, align 8, !tbaa !1034
   store ptr %2255, ptr %2254, align 8, !tbaa !1035
   %2257 = getelementptr inbounds nuw i8, ptr %2255, i64 8
-  store ptr %2254, ptr %2257, align 8, !tbaa !1033
-  store ptr %2254, ptr %2251, align 8, !tbaa !1035
+  store ptr %2254, ptr %2257, align 8, !tbaa !1034
+  store ptr %2254, ptr %2252, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit707
 
 2258:                                             ; preds = %2247, %2244
-  %2259 = load ptr, ptr %2040, align 8, !tbaa !1034
+  %2259 = load ptr, ptr %2040, align 8, !tbaa !1033
   %2260 = getelementptr inbounds nuw i8, ptr %2259, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %2260, ptr noundef %2245) #19
   %2261 = getelementptr inbounds nuw i8, ptr %2245, i64 24
   %2262 = load ptr, ptr %2260, align 8, !tbaa !1035
   %2263 = getelementptr inbounds nuw i8, ptr %2245, i64 32
-  store ptr %2260, ptr %2263, align 8, !tbaa !1033
+  store ptr %2260, ptr %2263, align 8, !tbaa !1034
   store ptr %2262, ptr %2261, align 8, !tbaa !1035
   %2264 = getelementptr inbounds nuw i8, ptr %2262, i64 8
-  store ptr %2261, ptr %2264, align 8, !tbaa !1033
+  store ptr %2261, ptr %2264, align 8, !tbaa !1034
   store ptr %2261, ptr %2260, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit707
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit707: ; preds = %.preheader.i.i.i.i704, %2258
-  %.sink16.i705 = phi ptr [ %2259, %2258 ], [ %2252, %.preheader.i.i.i.i704 ]
+  %.sink16.i705 = phi ptr [ %2259, %2258 ], [ %2250, %.preheader.i.i.i.i704 ]
   %2265 = getelementptr inbounds nuw i8, ptr %.sink16.i705, i64 128
   %2266 = load i8, ptr %2265, align 8, !tbaa !1036, !range !280, !noundef !281
   %2267 = trunc nuw i8 %2266 to i1
@@ -13738,39 +13738,39 @@ _ZN5clang7CodeGen15CodeGenFunction12LexicalScopeC2ERS1_NS_11SourceRangeE.exit: ;
   br i1 %.not14.i, label %98, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %86
-  %89 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %90 = load ptr, ptr %89, align 8, !tbaa !1033
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %91 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %92 = load ptr, ptr %91, align 8, !tbaa !1034
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull %83) #19
   %94 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  %95 = load ptr, ptr %90, align 8, !tbaa !1035
+  %95 = load ptr, ptr %92, align 8, !tbaa !1035
   %96 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  store ptr %90, ptr %96, align 8, !tbaa !1033
+  store ptr %92, ptr %96, align 8, !tbaa !1034
   store ptr %95, ptr %94, align 8, !tbaa !1035
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store ptr %94, ptr %97, align 8, !tbaa !1033
-  store ptr %94, ptr %90, align 8, !tbaa !1035
+  store ptr %94, ptr %97, align 8, !tbaa !1034
+  store ptr %94, ptr %92, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 98:                                               ; preds = %86, %71
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %100 = load ptr, ptr %99, align 8, !tbaa !1034
+  %100 = load ptr, ptr %99, align 8, !tbaa !1033
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull %83) #19
   %102 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %103 = load ptr, ptr %101, align 8, !tbaa !1035
   %104 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  store ptr %101, ptr %104, align 8, !tbaa !1033
+  store ptr %101, ptr %104, align 8, !tbaa !1034
   store ptr %103, ptr %102, align 8, !tbaa !1035
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  store ptr %102, ptr %105, align 8, !tbaa !1033
+  store ptr %102, ptr %105, align 8, !tbaa !1034
   store ptr %102, ptr %101, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit: ; preds = %.preheader.i.i.i.i, %98
-  %.sink16.i = phi ptr [ %100, %98 ], [ %92, %.preheader.i.i.i.i ]
+  %.sink16.i = phi ptr [ %100, %98 ], [ %90, %.preheader.i.i.i.i ]
   %106 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 128
   %107 = load i8, ptr %106, align 8, !tbaa !1036, !range !280, !noundef !281
   %108 = trunc nuw i8 %107 to i1
@@ -14005,39 +14005,39 @@ _ZN5clang7CodeGen15CodeGenFunction15getProfileCountEPKNS_4StmtE.exit: ; preds = 
   br i1 %.not14.i51, label %239, label %.preheader.i.i.i.i52
 
 .preheader.i.i.i.i52:                             ; preds = %227
-  %230 = getelementptr inbounds nuw i8, ptr %226, i64 32
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %231 = load ptr, ptr %230, align 8, !tbaa !1033
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %232 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %233 = load ptr, ptr %232, align 8, !tbaa !1034
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 72
+  %234 = getelementptr inbounds nuw i8, ptr %231, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %234, ptr noundef nonnull %.0) #19
   %235 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %236 = load ptr, ptr %231, align 8, !tbaa !1035
+  %236 = load ptr, ptr %233, align 8, !tbaa !1035
   %237 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  store ptr %231, ptr %237, align 8, !tbaa !1033
+  store ptr %233, ptr %237, align 8, !tbaa !1034
   store ptr %236, ptr %235, align 8, !tbaa !1035
   %238 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  store ptr %235, ptr %238, align 8, !tbaa !1033
-  store ptr %235, ptr %231, align 8, !tbaa !1035
+  store ptr %235, ptr %238, align 8, !tbaa !1034
+  store ptr %235, ptr %233, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit55
 
 239:                                              ; preds = %227, %225
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %241 = load ptr, ptr %240, align 8, !tbaa !1034
+  %241 = load ptr, ptr %240, align 8, !tbaa !1033
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %242, ptr noundef nonnull %.0) #19
   %243 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %244 = load ptr, ptr %242, align 8, !tbaa !1035
   %245 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  store ptr %242, ptr %245, align 8, !tbaa !1033
+  store ptr %242, ptr %245, align 8, !tbaa !1034
   store ptr %244, ptr %243, align 8, !tbaa !1035
   %246 = getelementptr inbounds nuw i8, ptr %244, i64 8
-  store ptr %243, ptr %246, align 8, !tbaa !1033
+  store ptr %243, ptr %246, align 8, !tbaa !1034
   store ptr %243, ptr %242, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit55
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit55: ; preds = %.preheader.i.i.i.i52, %239
-  %.sink16.i53 = phi ptr [ %241, %239 ], [ %233, %.preheader.i.i.i.i52 ]
+  %.sink16.i53 = phi ptr [ %241, %239 ], [ %231, %.preheader.i.i.i.i52 ]
   %247 = getelementptr inbounds nuw i8, ptr %.sink16.i53, i64 128
   %248 = load i8, ptr %247, align 8, !tbaa !1036, !range !280, !noundef !281
   %249 = trunc nuw i8 %248 to i1
@@ -14067,39 +14067,39 @@ _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit55: ; pre
   br i1 %.not14.i57, label %265, label %.preheader.i.i.i.i58
 
 .preheader.i.i.i.i58:                             ; preds = %253
-  %256 = getelementptr inbounds nuw i8, ptr %252, i64 32
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %257 = load ptr, ptr %256, align 8, !tbaa !1033
-  %258 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %258 = getelementptr inbounds nuw i8, ptr %252, i64 32
   %259 = load ptr, ptr %258, align 8, !tbaa !1034
-  %260 = getelementptr inbounds nuw i8, ptr %259, i64 72
+  %260 = getelementptr inbounds nuw i8, ptr %257, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %260, ptr noundef nonnull %168) #19
   %261 = getelementptr inbounds nuw i8, ptr %168, i64 24
-  %262 = load ptr, ptr %257, align 8, !tbaa !1035
+  %262 = load ptr, ptr %259, align 8, !tbaa !1035
   %263 = getelementptr inbounds nuw i8, ptr %168, i64 32
-  store ptr %257, ptr %263, align 8, !tbaa !1033
+  store ptr %259, ptr %263, align 8, !tbaa !1034
   store ptr %262, ptr %261, align 8, !tbaa !1035
   %264 = getelementptr inbounds nuw i8, ptr %262, i64 8
-  store ptr %261, ptr %264, align 8, !tbaa !1033
-  store ptr %261, ptr %257, align 8, !tbaa !1035
+  store ptr %261, ptr %264, align 8, !tbaa !1034
+  store ptr %261, ptr %259, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit61
 
 265:                                              ; preds = %253, %251
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %267 = load ptr, ptr %266, align 8, !tbaa !1034
+  %267 = load ptr, ptr %266, align 8, !tbaa !1033
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %268, ptr noundef nonnull %168) #19
   %269 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %270 = load ptr, ptr %268, align 8, !tbaa !1035
   %271 = getelementptr inbounds nuw i8, ptr %168, i64 32
-  store ptr %268, ptr %271, align 8, !tbaa !1033
+  store ptr %268, ptr %271, align 8, !tbaa !1034
   store ptr %270, ptr %269, align 8, !tbaa !1035
   %272 = getelementptr inbounds nuw i8, ptr %270, i64 8
-  store ptr %269, ptr %272, align 8, !tbaa !1033
+  store ptr %269, ptr %272, align 8, !tbaa !1034
   store ptr %269, ptr %268, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit61
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit61: ; preds = %.preheader.i.i.i.i58, %265
-  %.sink16.i59 = phi ptr [ %267, %265 ], [ %259, %.preheader.i.i.i.i58 ]
+  %.sink16.i59 = phi ptr [ %267, %265 ], [ %257, %.preheader.i.i.i.i58 ]
   %273 = getelementptr inbounds nuw i8, ptr %.sink16.i59, i64 128
   %274 = load i8, ptr %273, align 8, !tbaa !1036, !range !280, !noundef !281
   %275 = trunc nuw i8 %274 to i1
@@ -14279,39 +14279,39 @@ _ZN5clang7CodeGen15CodeGenFunction13EmitStopPointEPKNS_4StmtE.exit: ; preds = %_
   br i1 %.not14.i71, label %367, label %.preheader.i.i.i.i72
 
 .preheader.i.i.i.i72:                             ; preds = %355
-  %358 = getelementptr inbounds nuw i8, ptr %354, i64 32
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %359 = load ptr, ptr %358, align 8, !tbaa !1033
-  %360 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %360 = getelementptr inbounds nuw i8, ptr %354, i64 32
   %361 = load ptr, ptr %360, align 8, !tbaa !1034
-  %362 = getelementptr inbounds nuw i8, ptr %361, i64 72
+  %362 = getelementptr inbounds nuw i8, ptr %359, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %362, ptr noundef nonnull %286) #19
   %363 = getelementptr inbounds nuw i8, ptr %286, i64 24
-  %364 = load ptr, ptr %359, align 8, !tbaa !1035
+  %364 = load ptr, ptr %361, align 8, !tbaa !1035
   %365 = getelementptr inbounds nuw i8, ptr %286, i64 32
-  store ptr %359, ptr %365, align 8, !tbaa !1033
+  store ptr %361, ptr %365, align 8, !tbaa !1034
   store ptr %364, ptr %363, align 8, !tbaa !1035
   %366 = getelementptr inbounds nuw i8, ptr %364, i64 8
-  store ptr %363, ptr %366, align 8, !tbaa !1033
-  store ptr %363, ptr %359, align 8, !tbaa !1035
+  store ptr %363, ptr %366, align 8, !tbaa !1034
+  store ptr %363, ptr %361, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit75
 
 367:                                              ; preds = %355, %_ZN5clang7CodeGen15CodeGenFunction13EmitStopPointEPKNS_4StmtE.exit
   %368 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %369 = load ptr, ptr %368, align 8, !tbaa !1034
+  %369 = load ptr, ptr %368, align 8, !tbaa !1033
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %370, ptr noundef nonnull %286) #19
   %371 = getelementptr inbounds nuw i8, ptr %286, i64 24
   %372 = load ptr, ptr %370, align 8, !tbaa !1035
   %373 = getelementptr inbounds nuw i8, ptr %286, i64 32
-  store ptr %370, ptr %373, align 8, !tbaa !1033
+  store ptr %370, ptr %373, align 8, !tbaa !1034
   store ptr %372, ptr %371, align 8, !tbaa !1035
   %374 = getelementptr inbounds nuw i8, ptr %372, i64 8
-  store ptr %371, ptr %374, align 8, !tbaa !1033
+  store ptr %371, ptr %374, align 8, !tbaa !1034
   store ptr %371, ptr %370, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit75
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit75: ; preds = %.preheader.i.i.i.i72, %367
-  %.sink16.i73 = phi ptr [ %369, %367 ], [ %361, %.preheader.i.i.i.i72 ]
+  %.sink16.i73 = phi ptr [ %369, %367 ], [ %359, %.preheader.i.i.i.i72 ]
   %375 = getelementptr inbounds nuw i8, ptr %.sink16.i73, i64 128
   %376 = load i8, ptr %375, align 8, !tbaa !1036, !range !280, !noundef !281
   %377 = trunc nuw i8 %376 to i1
@@ -16295,39 +16295,39 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %30, %37
   br i1 %.not14.i, label %80, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %68
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %72 = load ptr, ptr %71, align 8, !tbaa !1033
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %74 = load ptr, ptr %73, align 8, !tbaa !1034
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef %65) #19
   %76 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %77 = load ptr, ptr %72, align 8, !tbaa !1035
+  %77 = load ptr, ptr %74, align 8, !tbaa !1035
   %78 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  store ptr %72, ptr %78, align 8, !tbaa !1033
+  store ptr %74, ptr %78, align 8, !tbaa !1034
   store ptr %77, ptr %76, align 8, !tbaa !1035
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store ptr %76, ptr %79, align 8, !tbaa !1033
-  store ptr %76, ptr %72, align 8, !tbaa !1035
+  store ptr %76, ptr %79, align 8, !tbaa !1034
+  store ptr %76, ptr %74, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 80:                                               ; preds = %68, %64
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %82 = load ptr, ptr %81, align 8, !tbaa !1034
+  %82 = load ptr, ptr %81, align 8, !tbaa !1033
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef %65) #19
   %84 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %85 = load ptr, ptr %83, align 8, !tbaa !1035
   %86 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  store ptr %83, ptr %86, align 8, !tbaa !1033
+  store ptr %83, ptr %86, align 8, !tbaa !1034
   store ptr %85, ptr %84, align 8, !tbaa !1035
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store ptr %84, ptr %87, align 8, !tbaa !1033
+  store ptr %84, ptr %87, align 8, !tbaa !1034
   store ptr %84, ptr %83, align 8, !tbaa !1035
   br label %_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit
 
 _ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10BasicBlockEb.exit: ; preds = %.preheader.i.i.i.i, %80
-  %.sink16.i = phi ptr [ %82, %80 ], [ %74, %.preheader.i.i.i.i ]
+  %.sink16.i = phi ptr [ %82, %80 ], [ %72, %.preheader.i.i.i.i ]
   %88 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 128
   %89 = load i8, ptr %88, align 8, !tbaa !1036, !range !280, !noundef !281
   %90 = trunc nuw i8 %89 to i1
@@ -16460,39 +16460,39 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction9EmitBlockEPN4llvm10Bas
   br i1 %.not14, label %24, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %16 = load ptr, ptr %15, align 8, !tbaa !1033
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !1034
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 72
   tail call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef %1) #19
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = load ptr, ptr %16, align 8, !tbaa !1035
+  %21 = load ptr, ptr %18, align 8, !tbaa !1035
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %16, ptr %22, align 8, !tbaa !1033
+  store ptr %18, ptr %22, align 8, !tbaa !1034
   store ptr %21, ptr %20, align 8, !tbaa !1035
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %20, ptr %23, align 8, !tbaa !1033
-  store ptr %20, ptr %16, align 8, !tbaa !1035
+  store ptr %20, ptr %23, align 8, !tbaa !1034
+  store ptr %20, ptr %18, align 8, !tbaa !1035
   br label %32
 
 24:                                               ; preds = %12, %11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %26 = load ptr, ptr %25, align 8, !tbaa !1034
+  %26 = load ptr, ptr %25, align 8, !tbaa !1033
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
   tail call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef %1) #19
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %27, align 8, !tbaa !1035
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %27, ptr %30, align 8, !tbaa !1033
+  store ptr %27, ptr %30, align 8, !tbaa !1034
   store ptr %29, ptr %28, align 8, !tbaa !1035
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %28, ptr %31, align 8, !tbaa !1033
+  store ptr %28, ptr %31, align 8, !tbaa !1034
   store ptr %28, ptr %27, align 8, !tbaa !1035
   br label %32
 
 32:                                               ; preds = %24, %.preheader.i.i.i
-  %.sink16 = phi ptr [ %26, %24 ], [ %18, %.preheader.i.i.i ]
+  %.sink16 = phi ptr [ %26, %24 ], [ %16, %.preheader.i.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %.sink16, i64 128
   %34 = load i8, ptr %33, align 8, !tbaa !1036, !range !280, !noundef !281
   %35 = trunc nuw i8 %34 to i1
@@ -16603,41 +16603,41 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction18EmitBlockAfterUsesEPN
   br i1 %9, label %4, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !1498
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !1033
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %11 = load ptr, ptr %10, align 8, !tbaa !1033
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %13 = load ptr, ptr %12, align 8, !tbaa !1498
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !1034
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 72
   tail call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %1) #19
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load ptr, ptr %13, align 8, !tbaa !1035
+  %18 = load ptr, ptr %15, align 8, !tbaa !1035
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %13, ptr %19, align 8, !tbaa !1033
+  store ptr %15, ptr %19, align 8, !tbaa !1034
   store ptr %18, ptr %17, align 8, !tbaa !1035
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %17, ptr %20, align 8, !tbaa !1033
-  store ptr %17, ptr %13, align 8, !tbaa !1035
+  store ptr %17, ptr %20, align 8, !tbaa !1034
+  store ptr %17, ptr %15, align 8, !tbaa !1035
   br label %28
 
 ._crit_edge:                                      ; preds = %4, %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %22 = load ptr, ptr %21, align 8, !tbaa !1034
+  %22 = load ptr, ptr %21, align 8, !tbaa !1033
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 72
   tail call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %1) #19
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %23, align 8, !tbaa !1035
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %23, ptr %26, align 8, !tbaa !1033
+  store ptr %23, ptr %26, align 8, !tbaa !1034
   store ptr %25, ptr %24, align 8, !tbaa !1035
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %24, ptr %27, align 8, !tbaa !1033
+  store ptr %24, ptr %27, align 8, !tbaa !1034
   store ptr %24, ptr %23, align 8, !tbaa !1035
   br label %28
 
 28:                                               ; preds = %.preheader.i.i.i, %._crit_edge
-  %.sink38 = phi ptr [ %15, %.preheader.i.i.i ], [ %22, %._crit_edge ]
+  %.sink38 = phi ptr [ %11, %.preheader.i.i.i ], [ %22, %._crit_edge ]
   %29 = getelementptr inbounds nuw i8, ptr %.sink38, i64 128
   %30 = load i8, ptr %29, align 8, !tbaa !1036, !range !280, !noundef !281
   %31 = trunc nuw i8 %30 to i1
@@ -16858,12 +16858,12 @@ define linkonce_odr hidden void @_ZN5clang7CodeGen15CodeGenFunction23incrementPr
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %15 = load ptr, ptr %14, align 8, !tbaa !1034
+  %15 = load ptr, ptr %14, align 8, !tbaa !1033
   %16 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %15, i32 noundef 33) #19
   br i1 %16, label %23, label %17
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr %14, align 8, !tbaa !1034
+  %18 = load ptr, ptr %14, align 8, !tbaa !1033
   %19 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %18, i32 noundef 66) #19
   br i1 %19, label %23, label %20
 
@@ -17257,7 +17257,7 @@ _ZNK4llvm5APInt12getBoolValueEv.exit:             ; preds = %29, %32
 
 59:                                               ; preds = %58
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %61 = load ptr, ptr %60, align 8, !tbaa !1034
+  %61 = load ptr, ptr %60, align 8, !tbaa !1033
   call void @_ZN4llvm8Function12removeFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %61, i32 noundef 19) #19
   %.pre = load i32, ptr %16, align 8, !tbaa !1468
   br label %62
@@ -18204,16 +18204,16 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4Stmt10LikelihoodELb1EE9push_backES3_.e
   store ptr %171, ptr %164, align 8, !tbaa !1254
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 1832
-  %173 = load ptr, ptr %172, align 8, !tbaa !1034
+  %173 = load ptr, ptr %172, align 8, !tbaa !1033
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 72
   call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %174, ptr noundef nonnull %171) #19
   %175 = getelementptr inbounds nuw i8, ptr %171, i64 24
   %176 = load ptr, ptr %174, align 8, !tbaa !1035
   %177 = getelementptr inbounds nuw i8, ptr %171, i64 32
-  store ptr %174, ptr %177, align 8, !tbaa !1033
+  store ptr %174, ptr %177, align 8, !tbaa !1034
   store ptr %176, ptr %175, align 8, !tbaa !1035
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  store ptr %175, ptr %178, align 8, !tbaa !1033
+  store ptr %175, ptr %178, align 8, !tbaa !1034
   store ptr %175, ptr %174, align 8, !tbaa !1035
   %179 = getelementptr inbounds nuw i8, ptr %173, i64 128
   %180 = load i8, ptr %179, align 8, !tbaa !1036, !range !280, !noundef !281
@@ -22825,7 +22825,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction30getOrEmitConve
   %4 = alloca %"class.llvm::DebugLoc", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %7 = load ptr, ptr %6, align 8, !tbaa !1033
+  %7 = load ptr, ptr %6, align 8, !tbaa !1034
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.019.030.i = load ptr, ptr %8, align 8, !tbaa !1080
@@ -29129,8 +29129,8 @@ attributes #22 = { noreturn nounwind }
 !1030 = !{!"_ZTSN4llvm12ilist_detail18node_base_prevnextINS_15ilist_node_baseILb0ENS_10BasicBlockEEELb0EEE", !1031, i64 0, !1031, i64 8}
 !1031 = !{!"p1 _ZTSN4llvm15ilist_node_baseILb0ENS_10BasicBlockEEE", !7, i64 0}
 !1032 = !{!"_ZTSN4llvm12ilist_detail16node_base_parentINS_10BasicBlockEEE", !35, i64 0}
-!1033 = !{!1022, !1023, i64 8}
-!1034 = !{!4, !90, i64 1832}
+!1033 = !{!4, !90, i64 1832}
+!1034 = !{!1022, !1023, i64 8}
 !1035 = !{!1022, !1023, i64 0}
 !1036 = !{!1037, !19, i64 128}
 !1037 = !{!"_ZTSN4llvm8FunctionE", !1038, i64 0, !1043, i64 56, !1045, i64 72, !13, i64 88, !13, i64 92, !1049, i64 96, !47, i64 104, !1050, i64 112, !1057, i64 120, !19, i64 128, !1059, i64 132}

@@ -1662,8 +1662,8 @@ is_intra_more_likely.exit.thread752:              ; preds = %365, %367, %is_intr
   %indvars.iv964 = phi i64 [ %indvars.iv.next965, %._crit_edge871.us ], [ 0, %.preheader771.lr.ph.split.us ]
   %720 = mul i64 %indvars.iv964, %718
   %721 = shl nsw i64 %indvars.iv964, 4
-  %722 = shl nuw nsw i64 %indvars.iv964, 1
-  %723 = shl nsw i64 %indvars.iv964, 3
+  %722 = shl nsw i64 %indvars.iv964, 3
+  %723 = shl nuw nsw i64 %indvars.iv964, 1
   %724 = mul nsw i64 %718, %indvars.iv964
   br label %725
 
@@ -1700,7 +1700,7 @@ is_intra_more_likely.exit.thread752:              ; preds = %365, %367, %is_intr
   %747 = load i32, ptr %712, align 4, !tbaa !46
   %748 = load ptr, ptr %713, align 8, !tbaa !69
   %749 = load i64, ptr %3, align 8, !tbaa !54
-  %750 = mul nsw i64 %749, %722
+  %750 = mul nsw i64 %749, %723
   %751 = getelementptr i16, ptr %748, i64 %750
   %.idx1053 = shl i64 %indvars.iv959, 2
   %752 = getelementptr i8, ptr %751, i64 %.idx1053
@@ -1710,11 +1710,11 @@ is_intra_more_likely.exit.thread752:              ; preds = %365, %367, %is_intr
   %754 = shl nsw i64 %indvars.iv959, 3
   %755 = getelementptr inbounds nuw i8, ptr %743, i64 %754
   %756 = sext i32 %744 to i64
-  %757 = mul nsw i64 %723, %756
+  %757 = mul nsw i64 %722, %756
   %758 = getelementptr inbounds i8, ptr %755, i64 %757
   %759 = getelementptr inbounds nuw i8, ptr %746, i64 %754
   %760 = sext i32 %747 to i64
-  %761 = mul nsw i64 %723, %760
+  %761 = mul nsw i64 %722, %760
   %762 = getelementptr inbounds i8, ptr %759, i64 %761
   %.not669.us = icmp eq ptr %746, null
   br i1 %.not669.us, label %784, label %.preheader768.us
@@ -1965,8 +1965,8 @@ filter181.exit:                                   ; preds = %._crit_edge.us77.i,
 
 .lr.ph876:                                        ; preds = %.preheader
   %887 = shl nsw i64 %indvars.iv972, 4
-  %888 = shl nuw nsw i64 %indvars.iv972, 1
-  %889 = shl nsw i64 %indvars.iv972, 3
+  %888 = shl nsw i64 %indvars.iv972, 3
+  %889 = shl nuw nsw i64 %indvars.iv972, 1
   br label %890
 
 890:                                              ; preds = %.lr.ph876, %put_dc.exit
@@ -2019,7 +2019,7 @@ filter181.exit:                                   ; preds = %._crit_edge.us77.i,
   %925 = zext nneg i32 %924 to i64
   %926 = lshr i32 %.05164.i, 1
   %927 = zext nneg i32 %926 to i64
-  %928 = add nuw nsw i64 %888, %927
+  %928 = add nuw nsw i64 %889, %927
   %929 = load i64, ptr %3, align 8, !tbaa !54
   %930 = mul nsw i64 %929, %928
   %931 = getelementptr i16, ptr %922, i64 %930
@@ -2072,11 +2072,11 @@ filter181.exit:                                   ; preds = %._crit_edge.us77.i,
   %956 = shl nsw i64 %indvars.iv969, 3
   %957 = getelementptr inbounds nuw i8, ptr %914, i64 %956
   %958 = sext i32 %915 to i64
-  %959 = mul nsw i64 %889, %958
+  %959 = mul nsw i64 %888, %958
   %960 = getelementptr inbounds i8, ptr %957, i64 %959
   %961 = getelementptr inbounds nuw i8, ptr %917, i64 %956
   %962 = sext i32 %918 to i64
-  %963 = mul nsw i64 %889, %962
+  %963 = mul nsw i64 %888, %962
   %964 = getelementptr inbounds i8, ptr %961, i64 %963
   %965 = load ptr, ptr %822, align 8, !tbaa !69
   %966 = load i64, ptr %826, align 8, !tbaa !39

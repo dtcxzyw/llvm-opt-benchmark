@@ -28,8 +28,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define internal fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalias noundef nonnull writeonly align 4 captures(none) dereferenceable(12) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2, i64 %.0.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = xor i64 %.0.val, 7237128888997146499
   %5 = xor i64 %.0.val, 8387220255154660723
-  %6 = and i64 %2, -8
-  %.not = icmp eq i64 %6, 0
+  %6 = and i64 %2, 7
+  %7 = and i64 %2, -8
+  %.not = icmp eq i64 %7, 0
   br i1 %.not, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %3
@@ -38,8 +39,7 @@ define internal fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalia
   %.sroa.8.1 = phi i64 [ 7816392313619706465, %3 ], [ %53, %.lr.ph.i.i.i ]
   %.sroa.0.1 = phi i64 [ 8317987319222330741, %3 ], [ %54, %.lr.ph.i.i.i ]
   %.1.lcssa.i.i.i = phi i64 [ 0, %3 ], [ %55, %.lr.ph.i.i.i ]
-  %7 = and i64 %2, 7
-  %8 = icmp samesign ugt i64 %7, 3
+  %8 = icmp samesign ugt i64 %6, 3
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %._crit_edge.i.i.i
@@ -52,7 +52,7 @@ define internal fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalia
   %.017.i11.i.i.i = phi i64 [ 4, %9 ], [ 0, %._crit_edge.i.i.i ]
   %.0.i12.i.i.i = phi i64 [ %11, %9 ], [ 0, %._crit_edge.i.i.i ]
   %13 = or disjoint i64 %.017.i11.i.i.i, 1
-  %14 = icmp samesign ult i64 %13, %7
+  %14 = icmp samesign ult i64 %13, %6
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %12
@@ -69,7 +69,7 @@ define internal fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalia
 23:                                               ; preds = %15, %12
   %.118.i13.i.i.i = phi i64 [ %22, %15 ], [ %.017.i11.i.i.i, %12 ]
   %.1.i14.i.i.i = phi i64 [ %21, %15 ], [ %.0.i12.i.i.i, %12 ]
-  %24 = icmp samesign ult i64 %.118.i13.i.i.i, %7
+  %24 = icmp samesign ult i64 %.118.i13.i.i.i, %6
   br i1 %24, label %25, label %"_ZN43_$LT$str$u20$as$u20$phf_shared..PhfHash$GT$8phf_hash17h56fa4d7b0ff8d739E.exit"
 
 25:                                               ; preds = %23
@@ -109,7 +109,7 @@ define internal fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalia
   %53 = tail call i64 @llvm.fshl.i64(i64 %50, i64 %50, i64 32)
   %54 = xor i64 %47, %.0.copyload.i.i.i
   %55 = add nuw i64 %.119.i.i.i, 8
-  %56 = icmp ult i64 %55, %6
+  %56 = icmp ult i64 %55, %7
   br i1 %56, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 "_ZN43_$LT$str$u20$as$u20$phf_shared..PhfHash$GT$8phf_hash17h56fa4d7b0ff8d739E.exit": ; preds = %23, %25

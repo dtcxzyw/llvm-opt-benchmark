@@ -2112,34 +2112,34 @@ declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @virtual_popen(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8, !tbaa !13
-  %4 = trunc i64 %3 to i32
-  %5 = load ptr, ptr @cwd_globals, align 8, !tbaa !15
-  %6 = icmp sgt i32 %4, 0
-  br i1 %6, label %.lr.ph, label %._crit_edge
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 8), align 8, !tbaa !13
+  %5 = trunc i64 %4 to i32
+  %6 = load ptr, ptr @cwd_globals, align 8, !tbaa !15
+  %7 = icmp sgt i32 %5, 0
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.0142 = phi i32 [ %11, %.lr.ph ], [ %4, %2 ]
-  %.0133141 = phi ptr [ %10, %.lr.ph ], [ %5, %2 ]
+  %.0142 = phi i32 [ %12, %.lr.ph ], [ %5, %2 ]
+  %.0133141 = phi ptr [ %11, %.lr.ph ], [ %6, %2 ]
   %.0137140 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %2 ]
-  %7 = load i8, ptr %.0133141, align 1, !tbaa !11
-  %8 = icmp eq i8 %7, 39
-  %9 = add nsw i32 %.0137140, 3
-  %spec.select = select i1 %8, i32 %9, i32 %.0137140
-  %10 = getelementptr inbounds nuw i8, ptr %.0133141, i64 1
-  %11 = add nsw i32 %.0142, -1
-  %12 = icmp samesign ugt i32 %.0142, 1
-  br i1 %12, label %.lr.ph, label %._crit_edge.loopexit
+  %8 = load i8, ptr %.0133141, align 1, !tbaa !11
+  %9 = icmp eq i8 %8, 39
+  %10 = add nsw i32 %.0137140, 3
+  %spec.select = select i1 %9, i32 %10, i32 %.0137140
+  %11 = getelementptr inbounds nuw i8, ptr %.0133141, i64 1
+  %12 = add nsw i32 %.0142, -1
+  %13 = icmp samesign ugt i32 %.0142, 1
+  br i1 %13, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %13 = sext i32 %spec.select to i64
+  %14 = sext i32 %spec.select to i64
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.0137.lcssa = phi i64 [ 0, %2 ], [ %13, %._crit_edge.loopexit ]
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
-  %15 = add i64 %14, 11
-  %sext = shl i64 %3, 32
+._crit_edge:                                      ; preds = %2, %._crit_edge.loopexit
+  %.0137.lcssa = phi i64 [ 0, %2 ], [ %14, %._crit_edge.loopexit ]
+  %15 = add i64 %3, 11
+  %sext = shl i64 %4, 32
   %16 = ashr exact i64 %sext, 32
   %17 = add i64 %15, %16
   %18 = add i64 %17, %.0137.lcssa
@@ -2158,12 +2158,12 @@ define dso_local noalias noundef ptr @virtual_popen(ptr noundef readonly capture
 25:                                               ; preds = %._crit_edge
   store i8 39, ptr %20, align 1, !tbaa !11
   %.1136143 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  br i1 %6, label %.lr.ph149, label %._crit_edge150
+  br i1 %7, label %.lr.ph149, label %._crit_edge150
 
 .lr.ph149:                                        ; preds = %25, %31
   %.1136147 = phi ptr [ %.1136, %31 ], [ %.1136143, %25 ]
-  %.1146 = phi i32 [ %34, %31 ], [ %4, %25 ]
-  %.1134145 = phi ptr [ %33, %31 ], [ %5, %25 ]
+  %.1146 = phi i32 [ %34, %31 ], [ %5, %25 ]
+  %.1134145 = phi ptr [ %33, %31 ], [ %6, %25 ]
   %.pn144 = phi ptr [ %.2, %31 ], [ %20, %25 ]
   %26 = load i8, ptr %.1134145, align 1, !tbaa !11
   %cond = icmp eq i8 %26, 39
@@ -2204,7 +2204,7 @@ define dso_local noalias noundef ptr @virtual_popen(ptr noundef readonly capture
   store i8 59, ptr %38, align 1, !tbaa !11
   %40 = getelementptr inbounds nuw i8, ptr %.0135, i64 3
   store i8 32, ptr %39, align 1, !tbaa !11
-  %41 = add i64 %14, 1
+  %41 = add i64 %3, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull align 1 %0, i64 %41, i1 false)
   %42 = tail call noalias ptr @popen(ptr noundef nonnull %19, ptr noundef %1)
   tail call void @_efree(ptr noundef nonnull %19) #22

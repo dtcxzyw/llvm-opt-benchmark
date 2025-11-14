@@ -4741,8 +4741,8 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %1668
   store ptr %1673, ptr %49, align 8
   %1674 = getelementptr inbounds nuw i64, ptr %1673, i64 %1669
   store ptr %1674, ptr %1634, align 8
-  %1675 = getelementptr inbounds nuw i8, ptr %1673, i64 %1672
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %1673, i8 -1, i64 %1672, i1 false)
+  %1675 = getelementptr inbounds nuw i8, ptr %1673, i64 %1672
   store ptr %1675, ptr %1633, align 8
   %1676 = getelementptr inbounds nuw i64, ptr %1607, i64 %indvars.iv.i
   %1677 = load i64, ptr %1676, align 8

@@ -152,7 +152,7 @@ gv_calloc.exit45.preheader.i:                     ; preds = %gv_calloc.exit.i13
 
 .preheader.i:                                     ; preds = %gv_calloc.exit45.i, %.preheader.lr.ph.i
   %indvars.iv64.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next65.i, %gv_calloc.exit45.i ]
-  %.055.i = phi double [ 0.000000e+00, %.preheader.lr.ph.i ], [ %151, %gv_calloc.exit45.i ]
+  %.055.i = phi double [ 0.000000e+00, %.preheader.lr.ph.i ], [ %148, %gv_calloc.exit45.i ]
   br i1 %.not.i, label %.thread.i, label %.lr.ph.i15
 
 .thread.i:                                        ; preds = %.preheader.i
@@ -317,6 +317,7 @@ conjugate_gradient.exit.i:                        ; preds = %130, %gv_calloc.exi
   call void @free(ptr noundef %147) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %148 = fadd double %.055.i, %.048.lcssa.i.i
   br i1 %.not.i, label %gv_calloc.exit45.i, label %.lr.ph52.preheader.i
 
 .lr.ph52.preheader.i:                             ; preds = %conjugate_gradient.exit.i
@@ -325,23 +326,22 @@ conjugate_gradient.exit.i:                        ; preds = %130, %gv_calloc.exi
 
 .lr.ph52.i:                                       ; preds = %.lr.ph52.i, %.lr.ph52.preheader.i
   %indvars.iv59.i = phi i64 [ 0, %.lr.ph52.preheader.i ], [ %indvars.iv.next60.i, %.lr.ph52.i ]
-  %148 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv59.i
-  %149 = load double, ptr %148, align 8, !tbaa !17
-  %150 = mul nuw nsw i64 %indvars.iv59.i, %67
-  %gep.i = getelementptr inbounds nuw double, ptr %invariant.gep.i, i64 %150
-  store double %149, ptr %gep.i, align 8, !tbaa !17
+  %149 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv59.i
+  %150 = load double, ptr %149, align 8, !tbaa !17
+  %151 = mul nuw nsw i64 %indvars.iv59.i, %67
+  %gep.i = getelementptr inbounds nuw double, ptr %invariant.gep.i, i64 %151
+  store double %150, ptr %gep.i, align 8, !tbaa !17
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count.i14
   br i1 %exitcond63.not.i, label %gv_calloc.exit45.i, label %.lr.ph52.i, !llvm.loop !28
 
 gv_calloc.exit45.i:                               ; preds = %.lr.ph52.i, %conjugate_gradient.exit.i
-  %151 = fadd double %.055.i, %.048.lcssa.i.i
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond68.not.i = icmp eq i64 %indvars.iv.next65.i, %67
   br i1 %exitcond68.not.i, label %cg.exit, label %.preheader.i, !llvm.loop !29
 
 cg.exit:                                          ; preds = %gv_calloc.exit45.i, %gv_calloc.exit45.preheader.i
-  %.0.lcssa.i = phi double [ 0.000000e+00, %gv_calloc.exit45.preheader.i ], [ %151, %gv_calloc.exit45.i ]
+  %.0.lcssa.i = phi double [ 0.000000e+00, %gv_calloc.exit45.preheader.i ], [ %148, %gv_calloc.exit45.i ]
   call void @free(ptr noundef %55) #13
   call void @free(ptr noundef %61) #13
   call void @free(ptr noundef %23) #13

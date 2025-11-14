@@ -14533,6 +14533,7 @@ _ZNSt6vectorI12aiMatrix4x4tIfESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6ve
   %.0.lcssa.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNSt6vectorI12aiMatrix4x4tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.sroa.17.4, %928 ]
   %.sroa.29.7 = phi ptr [ %946, %_ZNSt6vectorI12aiMatrix4x4tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.sroa.29.4, %928 ]
   %.sroa.0766.7 = phi ptr [ %941, %_ZNSt6vectorI12aiMatrix4x4tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.sroa.0766.4, %928 ]
+  %.sroa.17.5 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.pn, i64 64
   %947 = load ptr, ptr %18, align 8
   %948 = load ptr, ptr %75, align 8
   %.not9031690 = icmp eq ptr %947, %948
@@ -14565,7 +14566,6 @@ _ZNSt6vectorI12aiMatrix4x4tIfESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6ve
 
 ._crit_edge1693:                                  ; preds = %1039, %_ZNSt6vectorI12aiMatrix4x4tIfESaIS1_EE9push_backERKS1_.exit
   %.0847.lcssa = phi float [ 0x4415AF1D80000000, %_ZNSt6vectorI12aiMatrix4x4tIfESaIS1_EE9push_backERKS1_.exit ], [ %.4, %1039 ]
-  %.sroa.17.5 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.pn, i64 64
   %961 = fpext float %.0847.lcssa to double
   %962 = fcmp ogt double %961, 1.000000e+19
   call void @llvm.lifetime.end.p0(ptr nonnull %34)

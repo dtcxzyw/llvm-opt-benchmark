@@ -621,11 +621,11 @@ inc_128.exit87:                                   ; preds = %.preheader
   %53 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %52) #8, !srcloc !39
   %54 = add i32 %53, %51
   %55 = icmp ult i32 %54, %51
-  br i1 %55, label %.preheader92, label %ctr96_inc.exit
+  br i1 %55, label %.preheader97, label %ctr96_inc.exit
 
-.preheader92:                                     ; preds = %47, %.preheader92
-  %indvars.iv.i88 = phi i64 [ %indvars.iv.next.i90, %.preheader92 ], [ 12, %47 ]
-  %.0.i89 = phi i32 [ %61, %.preheader92 ], [ 1, %47 ]
+.preheader97:                                     ; preds = %47, %.preheader97
+  %indvars.iv.i88 = phi i64 [ %indvars.iv.next.i90, %.preheader97 ], [ 12, %47 ]
+  %.0.i89 = phi i32 [ %61, %.preheader97 ], [ 1, %47 ]
   %indvars.iv.next.i90 = add nsw i64 %indvars.iv.i88, -1
   %56 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv.next.i90
   %57 = load i8, ptr %56, align 1, !tbaa !26
@@ -635,9 +635,9 @@ inc_128.exit87:                                   ; preds = %.preheader
   store i8 %60, ptr %56, align 1, !tbaa !26
   %61 = lshr i32 %59, 8
   %.not.i91 = icmp eq i64 %indvars.iv.next.i90, 0
-  br i1 %.not.i91, label %ctr96_inc.exit.loopexit, label %.preheader92, !llvm.loop !40
+  br i1 %.not.i91, label %ctr96_inc.exit.loopexit, label %.preheader97, !llvm.loop !40
 
-ctr96_inc.exit.loopexit:                          ; preds = %.preheader92
+ctr96_inc.exit.loopexit:                          ; preds = %.preheader97
   %.not68 = icmp eq i32 %54, 0
   %.neg = mul i32 %53, -16
   %spec.select75 = select i1 %.not68, i32 %49, i32 %.neg

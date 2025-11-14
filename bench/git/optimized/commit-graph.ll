@@ -7658,7 +7658,7 @@ define internal fastcc ptr @commit_graph_data_at(i32 %.64.val) unnamed_addr #0 {
   %2 = urem i32 %.64.val, 32766
   %3 = load i32, ptr @commit_graph_data_slab.2, align 8, !tbaa !55
   %.not.i.i = icmp ugt i32 %3, %1
-  br i1 %.not.i.i, label %4, label %8
+  br i1 %.not.i.i, label %4, label %10
 
 4:                                                ; preds = %0
   %.pre.i.i = load ptr, ptr @commit_graph_data_slab.3, align 8, !tbaa !58
@@ -7666,65 +7666,70 @@ define internal fastcc ptr @commit_graph_data_at(i32 %.64.val) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !59
   %.not35.i.i = icmp eq ptr %7, null
-  br i1 %.not35.i.i, label %.thread8.i.i, label %.loopexit
+  br i1 %.not35.i.i, label %.thread8.i.i, label %commit_graph_data_slab_peek.exit
 
-8:                                                ; preds = %0
-  %9 = add nuw nsw i32 %1, 1
-  %10 = load ptr, ptr @commit_graph_data_slab.3, align 8, !tbaa !58
-  %11 = shl nuw nsw i32 %9, 3
-  %12 = zext nneg i32 %11 to i64
-  %13 = tail call ptr @xrealloc(ptr noundef %10, i64 noundef %12) #24
-  store ptr %13, ptr @commit_graph_data_slab.3, align 8, !tbaa !58
-  %14 = load i32, ptr @commit_graph_data_slab.2, align 8, !tbaa !55
-  %.not342.i.i = icmp ugt i32 %14, %1
+commit_graph_data_slab_peek.exit:                 ; preds = %4
+  %8 = zext nneg i32 %2 to i64
+  %9 = getelementptr inbounds nuw %struct.commit_graph_data, ptr %7, i64 %8
+  br label %.loopexit
+
+10:                                               ; preds = %0
+  %11 = add nuw nsw i32 %1, 1
+  %12 = load ptr, ptr @commit_graph_data_slab.3, align 8, !tbaa !58
+  %13 = shl nuw nsw i32 %11, 3
+  %14 = zext nneg i32 %13 to i64
+  %15 = tail call ptr @xrealloc(ptr noundef %12, i64 noundef %14) #24
+  store ptr %15, ptr @commit_graph_data_slab.3, align 8, !tbaa !58
+  %16 = load i32, ptr @commit_graph_data_slab.2, align 8, !tbaa !55
+  %.not342.i.i = icmp ugt i32 %16, %1
   br i1 %.not342.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %8, %.lr.ph.i.i
-  %.0303.i.i = phi i32 [ %17, %.lr.ph.i.i ], [ %14, %8 ]
-  %15 = zext i32 %.0303.i.i to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
-  store ptr null, ptr %16, align 8, !tbaa !59
-  %17 = add i32 %.0303.i.i, 1
-  %.not34.i.i = icmp ugt i32 %17, %1
+.lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
+  %.0303.i.i = phi i32 [ %19, %.lr.ph.i.i ], [ %16, %10 ]
+  %17 = zext i32 %.0303.i.i to i64
+  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
+  store ptr null, ptr %18, align 8, !tbaa !59
+  %19 = add i32 %.0303.i.i, 1
+  %.not34.i.i = icmp ugt i32 %19, %1
   br i1 %.not34.i.i, label %.thread.i.i, label %.lr.ph.i.i, !llvm.loop !293
 
-.thread.i.i:                                      ; preds = %.lr.ph.i.i, %8
-  store i32 %9, ptr @commit_graph_data_slab.2, align 8, !tbaa !55
-  %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %13, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !59
-  %.not357.i.i = icmp eq ptr %20, null
-  br i1 %.not357.i.i, label %.thread8.i.i, label %.lr.ph
+.thread.i.i:                                      ; preds = %.lr.ph.i.i, %10
+  store i32 %11, ptr @commit_graph_data_slab.2, align 8, !tbaa !55
+  %20 = zext nneg i32 %1 to i64
+  %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %20
+  %22 = load ptr, ptr %21, align 8, !tbaa !59
+  %.not357.i.i = icmp eq ptr %22, null
+  br i1 %.not357.i.i, label %.thread8.i.i, label %commit_graph_data_slab_at.exit
 
 .thread8.i.i:                                     ; preds = %.thread.i.i, %4
-  %21 = phi i64 [ %5, %4 ], [ %18, %.thread.i.i ]
-  %22 = tail call ptr @xcalloc(i64 noundef 32766, i64 noundef 16) #24
-  %23 = load ptr, ptr @commit_graph_data_slab.3, align 8, !tbaa !58
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
-  store ptr %22, ptr %24, align 8, !tbaa !59
-  br label %.lr.ph
+  %23 = phi i64 [ %5, %4 ], [ %20, %.thread.i.i ]
+  %24 = tail call ptr @xcalloc(i64 noundef 32766, i64 noundef 16) #24
+  %25 = load ptr, ptr @commit_graph_data_slab.3, align 8, !tbaa !58
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  store ptr %24, ptr %26, align 8, !tbaa !59
+  br label %commit_graph_data_slab_at.exit
 
-.lr.ph:                                           ; preds = %.thread8.i.i, %.thread.i.i
-  %25 = phi ptr [ %23, %.thread8.i.i ], [ %13, %.thread.i.i ]
-  %26 = phi ptr [ %22, %.thread8.i.i ], [ %20, %.thread.i.i ]
-  %27 = zext nneg i32 %1 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
-  %29 = load ptr, ptr %28, align 8, !tbaa !59
-  br label %30
+commit_graph_data_slab_at.exit:                   ; preds = %.thread.i.i, %.thread8.i.i
+  %27 = phi ptr [ %25, %.thread8.i.i ], [ %15, %.thread.i.i ]
+  %28 = phi ptr [ %24, %.thread8.i.i ], [ %22, %.thread.i.i ]
+  %29 = zext nneg i32 %2 to i64
+  %30 = getelementptr inbounds nuw %struct.commit_graph_data, ptr %28, i64 %29
+  %31 = zext nneg i32 %1 to i64
+  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %31
+  %33 = load ptr, ptr %32, align 8, !tbaa !59
+  br label %34
 
-30:                                               ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw %struct.commit_graph_data, ptr %29, i64 %indvars.iv
-  store i32 -1, ptr %31, align 8, !tbaa !61
+34:                                               ; preds = %commit_graph_data_slab_at.exit, %34
+  %indvars.iv = phi i64 [ 0, %commit_graph_data_slab_at.exit ], [ %indvars.iv.next, %34 ]
+  %35 = getelementptr inbounds nuw %struct.commit_graph_data, ptr %33, i64 %indvars.iv
+  store i32 -1, ptr %35, align 8, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32766
-  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !294
+  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !294
 
-.loopexit:                                        ; preds = %30, %4
-  %.sink = phi ptr [ %7, %4 ], [ %26, %30 ]
-  %32 = zext nneg i32 %2 to i64
-  %33 = getelementptr inbounds nuw %struct.commit_graph_data, ptr %.sink, i64 %32
-  ret ptr %33
+.loopexit:                                        ; preds = %34, %commit_graph_data_slab_peek.exit
+  %.0 = phi ptr [ %9, %commit_graph_data_slab_peek.exit ], [ %30, %34 ]
+  ret ptr %.0
 }
 
 declare ptr @commit_list_insert(ptr noundef, ptr noundef) local_unnamed_addr #1

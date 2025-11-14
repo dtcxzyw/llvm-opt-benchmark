@@ -12234,13 +12234,10 @@ define internal void @_ZN12_GLOBAL__N_113ItaniumCXXABI24EmitThreadLocalInitFuncs
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit.preheader, label %.lr.ph.i.i.i, !llvm.loop !1623
 
 _ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit.preheader: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.not264 = icmp eq i64 %5, 0
-  br i1 %.not264, label %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit._crit_edge.thread, label %.lr.ph
-
-_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit._crit_edge.thread: ; preds = %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit.preheader
-  %.phi.trans.insert.i.i.ptr290 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.phi.trans.insert3.i.i291 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
+  br i1 %.not264, label %_ZNK4llvm6Triple10isOSDarwinEv.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit.preheader
   %41 = load ptr, ptr %6, align 8, !tbaa !1624
@@ -12249,8 +12246,6 @@ _ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4
 _ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit._crit_edge: ; preds = %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit
   %.pre = load i32, ptr %38, align 8, !tbaa !349
   %42 = icmp eq i32 %.pre, 0
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   br i1 %42, label %_ZNK4llvm6Triple10isOSDarwinEv.exit, label %73
 
 43:                                               ; preds = %.lr.ph, %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit
@@ -12392,10 +12387,8 @@ _ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4
   call void @_ZN4llvm8Function9addFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %81, i32 noundef 41) #22
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
-_ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit._crit_edge.thread, %114, %113, %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit._crit_edge
-  %.phi.trans.insert3.i.i293 = phi ptr [ %.phi.trans.insert3.i.i, %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit._crit_edge ], [ %.phi.trans.insert3.i.i, %113 ], [ %.phi.trans.insert3.i.i, %114 ], [ %.phi.trans.insert3.i.i291, %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit._crit_edge.thread ]
-  %.phi.trans.insert.i.i.ptr292 = phi ptr [ %.phi.trans.insert.i.i.ptr, %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit._crit_edge ], [ %.phi.trans.insert.i.i.ptr, %113 ], [ %.phi.trans.insert.i.i.ptr, %114 ], [ %.phi.trans.insert.i.i.ptr290, %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit._crit_edge.thread ]
-  %.0 = phi ptr [ null, %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit._crit_edge ], [ %81, %113 ], [ %81, %114 ], [ null, %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit._crit_edge.thread ]
+_ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit.preheader, %114, %113, %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit._crit_edge
+  %.0 = phi ptr [ null, %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit._crit_edge ], [ %81, %113 ], [ %81, %114 ], [ null, %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit.preheader ]
   %.idx = shl nuw nsw i64 %3, 3
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not151266 = icmp eq i64 %3, 0
@@ -12530,8 +12523,8 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %_ZN4llvm13SmallDens
   br i1 %.not.i.i, label %220, label %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEED2Ev.exit
 
 220:                                              ; preds = %._crit_edge273
-  %221 = load ptr, ptr %.phi.trans.insert.i.i.ptr292, align 8, !tbaa !1628
-  %222 = load i32, ptr %.phi.trans.insert3.i.i293, align 8, !tbaa !1631
+  %221 = load ptr, ptr %.phi.trans.insert.i.i.ptr, align 8, !tbaa !1628
+  %222 = load i32, ptr %.phi.trans.insert3.i.i, align 8, !tbaa !1631
   %223 = zext i32 %222 to i64
   %224 = shl nuw nsw i64 %223, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %221, i64 noundef %224, i64 noundef 8) #22
@@ -12671,9 +12664,9 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit160: ; preds = %_ZNK4l
   %280 = load i32, ptr %14, align 8
   %281 = and i32 %280, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %281, 0
-  %282 = load ptr, ptr %.phi.trans.insert.i.i.ptr292, align 8
-  %283 = select i1 %.not.i.i.i.i.i.i, ptr %282, ptr %.phi.trans.insert.i.i.ptr292
-  %284 = load i32, ptr %.phi.trans.insert3.i.i293, align 8
+  %282 = load ptr, ptr %.phi.trans.insert.i.i.ptr, align 8
+  %283 = select i1 %.not.i.i.i.i.i.i, ptr %282, ptr %.phi.trans.insert.i.i.ptr
+  %284 = load i32, ptr %.phi.trans.insert3.i.i, align 8
   %285 = select i1 %.not.i.i.i.i.i.i, i32 %284, i32 4
   %286 = icmp eq i32 %285, 0
   br i1 %286, label %.thread, label %287

@@ -1987,8 +1987,8 @@ define dso_local void @_ZN7V3Sched8scheduleEP10AstNetlist(ptr noundef %0) #3 per
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %213
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %215, 3
-  %217 = getelementptr inbounds nuw i8, ptr %214, i64 %.idx.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %214, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !91
+  %217 = getelementptr inbounds nuw i8, ptr %214, i64 %.idx.i.i.i.i.i.i.i.i
   br label %"_ZZN7AstNode11foreachImplI8AstScopeZN7V3Sched12_GLOBAL__N_118gatherLogicClassesEP10AstNetlistE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i.i"
 
 218:                                              ; preds = %205
@@ -15679,8 +15679,8 @@ _ZN10AstSenTree9cloneTreeEb.exit:                 ; preds = %21
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %57
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %59, 3
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %58, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !91
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i.i.i.i.i.i
   br label %"_ZZN7AstNode11foreachImplI9AstVarRefZZN7V3Sched8scheduleEP10AstNetlistENK3$_3clERKSt13unordered_mapIPK10AstSenTreePS7_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEEP11AstVarScopeEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i"
 
 62:                                               ; preds = %49
@@ -16757,8 +16757,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZN
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %306
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %308, 3
-  %310 = getelementptr inbounds nuw i8, ptr %307, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %307, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !91
+  %310 = getelementptr inbounds nuw i8, ptr %307, i64 %.idx.i.i.i.i.i.i.i
   br label %"_ZZN7AstNode11foreachImplI9AstVarRefZZN7V3Sched8scheduleEP10AstNetlistENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPNS2_12LogicByScopeESaISG_EEEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i"
 
 311:                                              ; preds = %298
@@ -17105,8 +17105,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17.i.i.i: ; preds 
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i108: ; preds = %432
   %.idx.i.i.i.i.i.i.i109 = shl nuw nsw i64 %434, 3
-  %436 = getelementptr inbounds nuw i8, ptr %433, i64 %.idx.i.i.i.i.i.i.i109
   call void @llvm.memset.p0.i64(ptr align 8 %433, i8 0, i64 %.idx.i.i.i.i.i.i.i109, i1 false), !tbaa !91
+  %436 = getelementptr inbounds nuw i8, ptr %433, i64 %.idx.i.i.i.i.i.i.i109
   br label %"_ZZN7AstNode11foreachImplI7AstTextZZN7V3Sched8scheduleEP10AstNetlistENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIPNS2_12LogicByScopeESaISG_EEEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i"
 
 437:                                              ; preds = %424
@@ -19287,8 +19287,8 @@ define internal fastcc void @"_ZZN7AstNode11foreachImplI8AstScopeZN7V3Sched12_GL
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %41
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %43, 3
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %42, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !91
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i.i.i.i.i.i.i.i
   br label %"_ZZN7AstNode11foreachImplI9AstActiveZZN7V3Sched12_GLOBAL__N_118gatherLogicClassesEP10AstNetlistENK3$_0clEP8AstScopeEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i.i"
 
 46:                                               ; preds = %33
@@ -19518,8 +19518,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_a
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !91
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
@@ -21004,8 +21004,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPK7AstNodeSaIS2_EE17_M_default_
 
 _ZSt6fill_nIPPK7AstNodemS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !91
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPK7AstNodemS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPK7AstNodemS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPK7AstNodemS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i
@@ -29650,8 +29650,8 @@ define internal void @"_ZNSt17_Function_handlerIFvP7AstNodeEZN7V3Sched12_GLOBAL_
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i: ; preds = %73
   %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %75, 3
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %74, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !91
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   br label %"_ZZN7AstNode11foreachImplI9AstVarRefZZN7V3Sched12_GLOBAL__N_119createInputCombLoopEP10AstNetlistP8AstCFuncR14SenExprBuilderRNS2_12LogicByScopeERKNS2_17VirtIfaceTriggersEENK3$_0clEPS_EUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i.i.i.i"
 
 78:                                               ; preds = %62

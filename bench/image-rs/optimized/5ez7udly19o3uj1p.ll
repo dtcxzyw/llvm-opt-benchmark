@@ -28235,15 +28235,15 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   unreachable
 
 121:                                              ; preds = %116
-  %122 = icmp samesign eq i64 %115, 0
-  br i1 %122, label %._crit_edge, label %.lr.ph.preheader
+  %122 = getelementptr i8, ptr %117, i64 %118
+  %123 = icmp samesign eq i64 %115, 0
+  br i1 %123, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %121
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %2, i8 0, i64 %115, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %121
-  %123 = getelementptr i8, ptr %117, i64 %118
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 376
@@ -28329,7 +28329,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd70b16e9dd7060c3E.exit217.preheader": ; preds = %141
   %144 = sub nsw i64 %3, %142
-  call void @llvm.memset.p0.i64(ptr align 1 %123, i8 0, i64 %144, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %122, i8 0, i64 %144, i1 false)
   br label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd70b16e9dd7060c3E.exit217.thread"
 
 145:                                              ; preds = %139, %.thread.i.i.i201
@@ -29223,15 +29223,15 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   unreachable
 
 122:                                              ; preds = %117
-  %123 = icmp samesign eq i64 %116, 0
-  br i1 %123, label %._crit_edge, label %.lr.ph.preheader
+  %123 = getelementptr i8, ptr %118, i64 %119
+  %124 = icmp samesign eq i64 %116, 0
+  br i1 %124, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %122
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %2, i8 0, i64 %116, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %122
-  %124 = getelementptr i8, ptr %118, i64 %119
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 352
@@ -29317,7 +29317,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd70b16e9dd7060c3E.exit218.preheader": ; preds = %142
   %145 = sub nsw i64 %3, %143
-  call void @llvm.memset.p0.i64(ptr align 1 %124, i8 0, i64 %145, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %123, i8 0, i64 %145, i1 false)
   br label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd70b16e9dd7060c3E.exit218.thread"
 
 146:                                              ; preds = %140, %.thread.i.i.i202

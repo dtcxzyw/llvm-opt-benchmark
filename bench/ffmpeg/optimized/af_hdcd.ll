@@ -1763,56 +1763,59 @@ hdcd_integrate.exit:                              ; preds = %144
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @hdcd_analyze(ptr noundef captures(address) %0, i32 noundef range(i32 -2147483648, 2147483647) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef range(i32 -1, 2) %8) unnamed_addr #1 {
-  %10 = icmp sgt i32 %1, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge
+  %10 = mul nsw i32 %2, %1
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %13 = icmp sgt i32 %1, 0
+  br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9
-  %11 = icmp eq i32 %6, 2
-  %12 = icmp eq i32 %6, 3
-  %13 = icmp ne i32 %7, 0
-  %or.cond3 = and i1 %12, %13
-  %14 = icmp ne i32 %5, 0
-  br i1 %11, label %.lr.ph.split.us.preheader, label %.lr.ph.split
+  %14 = icmp eq i32 %6, 2
+  %15 = icmp eq i32 %6, 3
+  %16 = icmp ne i32 %7, 0
+  %or.cond3 = and i1 %15, %16
+  %17 = icmp ne i32 %5, 0
+  br i1 %14, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %15 = sext i32 %2 to i64
+  %18 = sext i32 %2 to i64
   %wide.trip.count169 = zext nneg i32 %1 to i64
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv166 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next167, %.lr.ph.split.us ]
-  %16 = mul nsw i64 %indvars.iv166, %15
-  %17 = getelementptr inbounds i32, ptr %0, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !41
-  %19 = shl nsw i32 %18, 15
-  %20 = and i32 %18, 2
-  %21 = icmp ne i32 %20, 0
-  %22 = and i1 %14, %21
-  %23 = sext i32 %19 to i64
-  %24 = select i1 %22, i64 19456, i64 1024
-  %25 = mul nsw i64 %24, %23
-  %26 = lshr exact i64 %25, 10
-  %27 = trunc i64 %26 to i32
-  store i32 %27, ptr %17, align 4, !tbaa !41
+  %19 = mul nsw i64 %indvars.iv166, %18
+  %20 = getelementptr inbounds i32, ptr %0, i64 %19
+  %21 = load i32, ptr %20, align 4, !tbaa !41
+  %22 = shl nsw i32 %21, 15
+  %23 = and i32 %21, 2
+  %24 = icmp ne i32 %23, 0
+  %25 = and i1 %17, %24
+  %26 = sext i32 %22 to i64
+  %27 = select i1 %25, i64 19456, i64 1024
+  %28 = mul nsw i64 %27, %26
+  %29 = lshr exact i64 %28, 10
+  %30 = trunc i64 %29 to i32
+  store i32 %30, ptr %20, align 4, !tbaa !41
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
   br i1 %exitcond170.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !125
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %28 = icmp eq i32 %6, 4
-  %29 = icmp sgt i32 %8, 0
-  %or.cond = and i1 %28, %29
-  %30 = sext i32 %2 to i64
+  %31 = icmp eq i32 %6, 4
+  %32 = icmp sgt i32 %8, 0
+  %or.cond = and i1 %31, %32
+  %33 = sext i32 %2 to i64
   %wide.trip.count164 = zext nneg i32 %1 to i64
   br i1 %or.cond, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %31 = mul nsw i64 %indvars.iv161, %30
-  %32 = getelementptr inbounds i32, ptr %0, i64 %31
-  %33 = load i32, ptr %32, align 4, !tbaa !41
-  %34 = mul i32 %33, 622592
-  store i32 %34, ptr %32, align 4, !tbaa !41
+  %34 = mul nsw i64 %indvars.iv161, %33
+  %35 = getelementptr inbounds i32, ptr %0, i64 %34
+  %36 = load i32, ptr %35, align 4, !tbaa !41
+  %37 = mul i32 %36, 622592
+  store i32 %37, ptr %35, align 4, !tbaa !41
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count164
   br i1 %exitcond165.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !125
@@ -1822,30 +1825,27 @@ define internal fastcc i32 @hdcd_analyze(ptr noundef captures(address) %0, i32 n
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split.us
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split ]
-  %35 = mul nsw i64 %indvars.iv156, %30
-  %36 = getelementptr inbounds i32, ptr %0, i64 %35
-  %37 = load i32, ptr %36, align 4, !tbaa !41
-  %38 = mul i32 %37, 622592
-  store i32 %38, ptr %36, align 4, !tbaa !41
+  %38 = mul nsw i64 %indvars.iv156, %33
+  %39 = getelementptr inbounds i32, ptr %0, i64 %38
+  %40 = load i32, ptr %39, align 4, !tbaa !41
+  %41 = mul i32 %40, 622592
+  store i32 %41, ptr %39, align 4, !tbaa !41
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count164
   br i1 %exitcond160.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !125
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
-  %39 = mul nsw i64 %indvars.iv, %30
-  %40 = getelementptr inbounds i32, ptr %0, i64 %39
-  %41 = load i32, ptr %40, align 4, !tbaa !41
-  %42 = shl nsw i32 %41, 15
-  store i32 %42, ptr %40, align 4, !tbaa !41
+  %42 = mul nsw i64 %indvars.iv, %33
+  %43 = getelementptr inbounds i32, ptr %0, i64 %42
+  %44 = load i32, ptr %43, align 4, !tbaa !41
+  %45 = shl nsw i32 %44, 15
+  store i32 %45, ptr %43, align 4, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count164
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.us, %9
-  %43 = mul nsw i32 %2, %1
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %0, i64 %44
   %.not = icmp sgt i32 %3, %4
   br i1 %.not, label %70, label %46
 
@@ -1996,7 +1996,7 @@ define internal fastcc i32 @hdcd_analyze(ptr noundef captures(address) %0, i32 n
 
 .loopexit:                                        ; preds = %.lr.ph137.split.us, %.lr.ph137.split.preheader, %.preheader, %119, %118
   %.4 = phi ptr [ %122, %119 ], [ %.1, %118 ], [ %.1, %.preheader ], [ %scevgep174, %.lr.ph137.split.preheader ], [ %116, %.lr.ph137.split.us ]
-  %123 = icmp eq ptr %.4, %45
+  %123 = icmp eq ptr %.4, %12
   br i1 %123, label %125, label %124
 
 124:                                              ; preds = %.loopexit

@@ -5161,62 +5161,64 @@ _ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWrite
 
 .lr.ph460:                                        ; preds = %_ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterE.exit
   %202 = select i1 %.not420, i32 2, i32 3
-  br label %211
+  br label %213
 
 ._crit_edge461:                                   ; preds = %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit, %_ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterE.exit
-  %.5211.lcssa = phi i64 [ %.4210, %_ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterE.exit ], [ %227, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ]
-  %.5.lcssa = phi i32 [ %.4, %_ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterE.exit ], [ %212, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ]
-  %203 = load ptr, ptr %112, align 8, !tbaa !49
-  %204 = load i32, ptr %113, align 8, !tbaa !43
-  %205 = zext i32 %204 to i64
-  %.idx516 = shl nuw nsw i64 %205, 3
-  %206 = getelementptr inbounds nuw i8, ptr %203, i64 %.idx516
-  %.not422463 = icmp eq i32 %204, 0
+  %.5211.lcssa = phi i64 [ %.4210, %_ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterE.exit ], [ %229, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ]
+  %.5.lcssa = phi i32 [ %.4, %_ZNK4llvm14MCLOHContainer11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterE.exit ], [ %214, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ]
+  %203 = select i1 %.not420, i64 28, i64 32
+  %204 = add i64 %.5211.lcssa, %203
+  %205 = load ptr, ptr %112, align 8, !tbaa !49
+  %206 = load i32, ptr %113, align 8, !tbaa !43
+  %207 = zext i32 %206 to i64
+  %.idx516 = shl nuw nsw i64 %207, 3
+  %208 = getelementptr inbounds nuw i8, ptr %205, i64 %.idx516
+  %.not422463 = icmp eq i32 %206, 0
   br i1 %.not422463, label %._crit_edge470, label %.lr.ph469
 
 .lr.ph469:                                        ; preds = %._crit_edge461
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 232
   br label %253
 
-211:                                              ; preds = %.lr.ph460, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit
-  %.5459 = phi i32 [ %.4, %.lr.ph460 ], [ %212, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ]
-  %.5211458 = phi i64 [ %.4210, %.lr.ph460 ], [ %227, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ]
-  %.sroa.0391.0457 = phi ptr [ %199, %.lr.ph460 ], [ %228, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ]
-  %212 = add i32 %.5459, 1
+213:                                              ; preds = %.lr.ph460, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit
+  %.5459 = phi i32 [ %.4, %.lr.ph460 ], [ %214, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ]
+  %.5211458 = phi i64 [ %.4210, %.lr.ph460 ], [ %229, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ]
+  %.sroa.0391.0457 = phi ptr [ %199, %.lr.ph460 ], [ %230, %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit ]
+  %214 = add i32 %.5459, 1
   %.val = load ptr, ptr %.sroa.0391.0457, align 8, !tbaa !224
-  %213 = getelementptr i8, ptr %.sroa.0391.0457, i64 8
-  %.val241 = load ptr, ptr %213, align 8, !tbaa !224
+  %215 = getelementptr i8, ptr %.sroa.0391.0457, i64 8
+  %.val241 = load ptr, ptr %215, align 8, !tbaa !224
   %.not4.i = icmp eq ptr %.val, %.val241
   br i1 %.not4.i, label %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit, label %.lr.ph.i258
 
-.lr.ph.i258:                                      ; preds = %211, %.lr.ph.i258
-  %.06.i = phi i32 [ %218, %.lr.ph.i258 ], [ 12, %211 ]
-  %.sroa.01.05.i = phi ptr [ %219, %.lr.ph.i258 ], [ %.val, %211 ]
-  %214 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 8
-  %215 = load i64, ptr %214, align 8, !tbaa !225
-  %216 = trunc i64 %215 to i32
-  %217 = add i32 %.06.i, 1
-  %218 = add i32 %217, %216
-  %219 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 32
-  %.not.i259 = icmp eq ptr %219, %.val241
+.lr.ph.i258:                                      ; preds = %213, %.lr.ph.i258
+  %.06.i = phi i32 [ %220, %.lr.ph.i258 ], [ 12, %213 ]
+  %.sroa.01.05.i = phi ptr [ %221, %.lr.ph.i258 ], [ %.val, %213 ]
+  %216 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 8
+  %217 = load i64, ptr %216, align 8, !tbaa !225
+  %218 = trunc i64 %217 to i32
+  %219 = add i32 %.06.i, 1
+  %220 = add i32 %219, %218
+  %221 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 32
+  %.not.i259 = icmp eq ptr %221, %.val241
   br i1 %.not.i259, label %_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit, label %.lr.ph.i258
 
-_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit: ; preds = %.lr.ph.i258, %211
-  %.0.lcssa.i = phi i32 [ 12, %211 ], [ %218, %.lr.ph.i258 ]
-  %220 = icmp ne i32 %.0.lcssa.i, 0
-  %221 = zext i1 %220 to i32
-  %222 = sub i32 %.0.lcssa.i, %221
-  %223 = lshr i32 %222, %202
-  %224 = add nuw nsw i32 %223, %221
-  %225 = shl i32 %224, %202
-  %226 = zext i32 %225 to i64
-  %227 = add i64 %.5211458, %226
-  %228 = getelementptr inbounds nuw i8, ptr %.sroa.0391.0457, i64 24
-  %.not421 = icmp eq ptr %228, %201
-  br i1 %.not421, label %._crit_edge461, label %211
+_ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEb.exit: ; preds = %.lr.ph.i258, %213
+  %.0.lcssa.i = phi i32 [ 12, %213 ], [ %220, %.lr.ph.i258 ]
+  %222 = icmp ne i32 %.0.lcssa.i, 0
+  %223 = zext i1 %222 to i32
+  %224 = sub i32 %.0.lcssa.i, %223
+  %225 = lshr i32 %224, %202
+  %226 = add nuw nsw i32 %225, %223
+  %227 = shl i32 %226, %202
+  %228 = zext i32 %227 to i64
+  %229 = add i64 %.5211458, %228
+  %230 = getelementptr inbounds nuw i8, ptr %.sroa.0391.0457, i64 24
+  %.not421 = icmp eq ptr %230, %201
+  br i1 %.not421, label %._crit_edge461, label %213
 
 ._crit_edge470.loopexit:                          ; preds = %343
   %.pre531 = load ptr, ptr %44, align 8, !tbaa !200
@@ -5230,8 +5232,6 @@ _ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcS
   %.0406.lcssa = phi i64 [ %.sroa.speculated372, %._crit_edge470.loopexit ], [ 0, %._crit_edge461 ]
   %.0404.lcssa = phi i64 [ %.1405, %._crit_edge470.loopexit ], [ 0, %._crit_edge461 ]
   %.0402.lcssa = phi i64 [ %.1403, %._crit_edge470.loopexit ], [ 0, %._crit_edge461 ]
-  %229 = select i1 %.not420, i64 28, i64 32
-  %230 = add i64 %.5211.lcssa, %229
   %spec.select417 = or disjoint i8 %.pre-phi539, 2
   %231 = zext nneg i8 %spec.select417 to i64
   %232 = shl nuw nsw i64 1, %231
@@ -5247,8 +5247,8 @@ _ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcS
   %242 = load i8, ptr %241, align 1, !tbaa !474, !range !296, !noundef !472
   %243 = trunc nuw i8 %242 to i1
   call void @_ZN4llvm16MachObjectWriter11writeHeaderENS_5MachO14HeaderFileTypeEjjb(ptr noundef nonnull align 8 dereferenceable(2032) %0, i32 noundef 1, i32 noundef %.5.lcssa, i32 noundef %240, i1 noundef zeroext %243)
-  call void @_ZN4llvm16MachObjectWriter23writeSegmentLoadCommandENS_9StringRefEjmmmmjj(ptr noundef nonnull align 8 dereferenceable(2032) %0, ptr nonnull @.str.8, i64 0, i32 noundef %114, i64 noundef 0, i64 noundef %.0406.lcssa, i64 noundef %230, i64 noundef %.0402.lcssa, i32 noundef 7, i32 noundef 7)
-  %244 = add i64 %.0404.lcssa, %230
+  call void @_ZN4llvm16MachObjectWriter23writeSegmentLoadCommandENS_9StringRefEjmmmmjj(ptr noundef nonnull align 8 dereferenceable(2032) %0, ptr nonnull @.str.8, i64 0, i32 noundef %114, i64 noundef 0, i64 noundef %.0406.lcssa, i64 noundef %204, i64 noundef %.0402.lcssa, i32 noundef 7, i32 noundef 7)
+  %244 = add i64 %.0404.lcssa, %204
   %245 = add i64 %244, %239
   %246 = load ptr, ptr %112, align 8, !tbaa !49
   %247 = load i32, ptr %113, align 8, !tbaa !43
@@ -5268,10 +5268,10 @@ _ZL35ComputeLinkerOptionsLoadCommandSizeRKSt6vectorINSt7__cxx1112basic_stringIcS
   %.0402467 = phi i64 [ 0, %.lr.ph469 ], [ %.1403, %343 ]
   %.0404466 = phi i64 [ 0, %.lr.ph469 ], [ %.1405, %343 ]
   %.0406465 = phi i64 [ 0, %.lr.ph469 ], [ %.sroa.speculated372, %343 ]
-  %.sroa.0376.0464 = phi ptr [ %203, %.lr.ph469 ], [ %344, %343 ]
+  %.sroa.0376.0464 = phi ptr [ %205, %.lr.ph469 ], [ %344, %343 ]
   %254 = load ptr, ptr %.sroa.0376.0464, align 8, !tbaa !13
-  %255 = load ptr, ptr %207, align 8, !tbaa !40
-  %256 = load i32, ptr %208, align 8, !tbaa !39
+  %255 = load ptr, ptr %209, align 8, !tbaa !40
+  %256 = load i32, ptr %210, align 8, !tbaa !39
   %257 = icmp eq i32 %256, 0
   br i1 %257, label %_ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit, label %258
 
@@ -5317,8 +5317,8 @@ _ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit: ; preds = 
   %282 = phi i64 [ %281, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i.i ], [ 0, %253 ], [ 0, %.lr.ph.i.i.i.i ]
   %283 = call noundef i64 @_ZNK4llvm11MCAssembler21getSectionAddressSizeERKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(364) %1, ptr noundef nonnull align 8 dereferenceable(148) %254) #21
   %284 = call noundef i64 @_ZNK4llvm11MCAssembler18getSectionFileSizeERKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(364) %1, ptr noundef nonnull align 8 dereferenceable(148) %254) #21
-  %285 = load ptr, ptr %207, align 8, !tbaa !40
-  %286 = load i32, ptr %208, align 8, !tbaa !39
+  %285 = load ptr, ptr %209, align 8, !tbaa !40
+  %286 = load i32, ptr %210, align 8, !tbaa !39
   %287 = icmp eq i32 %286, 0
   br i1 %287, label %_ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit.i, label %288
 
@@ -5367,13 +5367,13 @@ _ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit.i: ; preds 
   %315 = getelementptr inbounds nuw i8, ptr %254, i64 172
   %316 = load i32, ptr %315, align 4, !tbaa !181
   %317 = add i32 %316, 1
-  %318 = load i32, ptr %209, align 8, !tbaa !43
+  %318 = load i32, ptr %211, align 8, !tbaa !43
   %.not.i260 = icmp ugt i32 %318, %317
   br i1 %.not.i260, label %319, label %_ZNK4llvm16MachObjectWriter14getPaddingSizeERKNS_11MCAssemblerEPKNS_9MCSectionE.exit
 
 319:                                              ; preds = %_ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit.i
   %320 = zext i32 %317 to i64
-  %321 = load ptr, ptr %210, align 8, !tbaa !49
+  %321 = load ptr, ptr %212, align 8, !tbaa !49
   %322 = getelementptr inbounds nuw ptr, ptr %321, i64 %320
   %323 = load ptr, ptr %322, align 8, !tbaa !13
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 48
@@ -5415,7 +5415,7 @@ _ZNK4llvm16MachObjectWriter14getPaddingSizeERKNS_11MCAssemblerEPKNS_9MCSectionE.
   %.1405 = phi i64 [ %.0404466, %_ZNK4llvm16MachObjectWriter14getPaddingSizeERKNS_11MCAssemblerEPKNS_9MCSectionE.exit ], [ %.sroa.speculated, %340 ]
   %.1403 = phi i64 [ %.0402467, %_ZNK4llvm16MachObjectWriter14getPaddingSizeERKNS_11MCAssemblerEPKNS_9MCSectionE.exit ], [ %.sroa.speculated368, %340 ]
   %344 = getelementptr inbounds nuw i8, ptr %.sroa.0376.0464, i64 8
-  %.not422 = icmp eq ptr %344, %206
+  %.not422 = icmp eq ptr %344, %208
   br i1 %.not422, label %._crit_edge470.loopexit, label %253
 
 345:                                              ; preds = %.lr.ph478, %456
@@ -5479,7 +5479,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS4_vEENS
 
 _ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit270: ; preds = %.lr.ph.i.i.i.i265, %345, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i.i269
   %383 = phi i64 [ %382, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i.i269 ], [ 0, %345 ], [ 0, %.lr.ph.i.i.i.i265 ]
-  %384 = add i64 %383, %230
+  %384 = add i64 %383, %204
   %385 = getelementptr inbounds nuw i8, ptr %346, i64 164
   %386 = load i32, ptr %385, align 4, !tbaa !256
   %387 = getelementptr inbounds nuw i8, ptr %346, i64 48

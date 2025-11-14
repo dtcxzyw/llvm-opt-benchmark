@@ -2905,6 +2905,8 @@ define range(i32 0, 2) i32 @stbhw_build_tileset_from_image(ptr noundef %0, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   %9 = mul nsw i32 %3, 3
+  %.sink74.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink74.sroa.gep78 = getelementptr inbounds nuw i8, ptr %6, i64 6
   br label %10
 
 10:                                               ; preds = %5, %10
@@ -2925,8 +2927,6 @@ define range(i32 0, 2) i32 @stbhw_build_tileset_from_image(ptr noundef %0, ptr n
   br i1 %exitcond.not, label %21, label %10, !llvm.loop !95
 
 21:                                               ; preds = %10
-  %.sink74.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink74.sroa.gep78 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 7
   %23 = load i8, ptr %22, align 1, !tbaa !58
   %.not = icmp eq i8 %23, -64
@@ -3211,33 +3211,33 @@ define void @stbhw__stbhw__set_pixel_whiten(ptr noundef writeonly captures(none)
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @stbhw__draw_hline(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #12 {
   %8 = alloca [3 x i8], align 1
-  %9 = icmp sgt i32 %5, 0
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  %9 = mul nsw i32 %5, 6
+  %10 = sdiv i32 %9, 16
+  %11 = mul nsw i32 %5, 10
+  %12 = sdiv i32 %11, 16
+  %13 = icmp sgt i32 %5, 0
+  br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
-  %10 = mul nsw i32 %3, %1
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 %11
-  %13 = sext i32 %2 to i64
+  %14 = mul nsw i32 %3, %1
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds i8, ptr %0, i64 %15
+  %17 = sext i32 %2 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  br label %14
+  br label %18
 
-14:                                               ; preds = %.lr.ph, %14
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = add nsw i64 %indvars.iv, %13
-  %16 = mul nsw i64 %15, 3
-  %17 = getelementptr inbounds i8, ptr %12, i64 %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %17, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+18:                                               ; preds = %.lr.ph, %18
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
+  %19 = add nsw i64 %indvars.iv, %17
+  %20 = mul nsw i64 %19, 3
+  %21 = getelementptr inbounds i8, ptr %16, i64 %20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %21, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !103
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !103
 
-._crit_edge:                                      ; preds = %14, %7
-  %18 = mul nsw i32 %5, 6
-  %19 = sdiv i32 %18, 16
-  %20 = mul nsw i32 %5, 10
-  %21 = sdiv i32 %20, 16
-  %22 = sub nsw i32 %21, %19
+._crit_edge:                                      ; preds = %18, %7
+  %22 = sub nsw i32 %12, %10
   %23 = icmp slt i32 %22, 2
   br i1 %23, label %24, label %28
 
@@ -3250,8 +3250,8 @@ define void @stbhw__draw_hline(ptr noundef writeonly captures(none) %0, i32 noun
   br label %28
 
 28:                                               ; preds = %24, %._crit_edge
-  %.026 = phi i32 [ %19, %._crit_edge ], [ %26, %24 ]
-  %.0 = phi i32 [ %21, %._crit_edge ], [ %spec.select, %24 ]
+  %.026 = phi i32 [ %10, %._crit_edge ], [ %26, %24 ]
+  %.0 = phi i32 [ %12, %._crit_edge ], [ %spec.select, %24 ]
   %29 = icmp slt i32 %.026, %.0
   br i1 %29, label %.lr.ph32, label %._crit_edge33
 
@@ -3305,34 +3305,34 @@ stbhw__stbhw__set_pixel_whiten.exit:              ; preds = %40
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @stbhw__draw_vline(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #12 {
   %8 = alloca [3 x i8], align 1
-  %9 = icmp sgt i32 %5, 0
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  %9 = mul nsw i32 %5, 6
+  %10 = sdiv i32 %9, 16
+  %11 = mul nsw i32 %5, 10
+  %12 = sdiv i32 %11, 16
+  %13 = icmp sgt i32 %5, 0
+  br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
-  %10 = mul nsw i32 %2, 3
-  %11 = sext i32 %10 to i64
-  %invariant.gep = getelementptr i8, ptr %0, i64 %11
-  %12 = sext i32 %3 to i64
-  %13 = sext i32 %1 to i64
+  %14 = mul nsw i32 %2, 3
+  %15 = sext i32 %14 to i64
+  %invariant.gep = getelementptr i8, ptr %0, i64 %15
+  %16 = sext i32 %3 to i64
+  %17 = sext i32 %1 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  br label %14
+  br label %18
 
-14:                                               ; preds = %.lr.ph, %14
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = add nsw i64 %indvars.iv, %12
-  %16 = mul nsw i64 %15, %13
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %16
+18:                                               ; preds = %.lr.ph, %18
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
+  %19 = add nsw i64 %indvars.iv, %16
+  %20 = mul nsw i64 %19, %17
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %gep, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !105
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !105
 
-._crit_edge:                                      ; preds = %14, %7
-  %17 = mul nsw i32 %5, 6
-  %18 = sdiv i32 %17, 16
-  %19 = mul nsw i32 %5, 10
-  %20 = sdiv i32 %19, 16
-  %21 = sub nsw i32 %20, %18
+._crit_edge:                                      ; preds = %18, %7
+  %21 = sub nsw i32 %12, %10
   %22 = icmp slt i32 %21, 2
   br i1 %22, label %23, label %27
 
@@ -3345,8 +3345,8 @@ define void @stbhw__draw_vline(ptr noundef writeonly captures(none) %0, i32 noun
   br label %27
 
 27:                                               ; preds = %23, %._crit_edge
-  %.026 = phi i32 [ %18, %._crit_edge ], [ %25, %23 ]
-  %.0 = phi i32 [ %20, %._crit_edge ], [ %spec.select, %23 ]
+  %.026 = phi i32 [ %10, %._crit_edge ], [ %25, %23 ]
+  %.0 = phi i32 [ %12, %._crit_edge ], [ %spec.select, %23 ]
   %28 = icmp slt i32 %.026, %.0
   br i1 %28, label %.lr.ph32, label %._crit_edge33
 
@@ -3503,33 +3503,33 @@ define void @stbhw__edge_process_h_rect(ptr noundef readonly captures(none) %0, 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i32, ptr %22, align 8, !tbaa !89
   %24 = add i32 %1, 1
-  %25 = icmp sgt i32 %19, 0
-  br i1 %25, label %.lr.ph.i, label %._crit_edge.i
+  %25 = mul nsw i32 %19, 6
+  %26 = sdiv i32 %25, 16
+  %27 = mul nsw i32 %19, 10
+  %28 = sdiv i32 %27, 16
+  %29 = icmp sgt i32 %19, 0
+  br i1 %29, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %9
-  %26 = mul nsw i32 %23, %2
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i8, ptr %21, i64 %27
-  %29 = sext i32 %24 to i64
+  %30 = mul nsw i32 %23, %2
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds i8, ptr %21, i64 %31
+  %33 = sext i32 %24 to i64
   %wide.trip.count.i = zext nneg i32 %19 to i64
-  br label %30
+  br label %34
 
-30:                                               ; preds = %30, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
-  %31 = add nsw i64 %indvars.iv.i, %29
-  %32 = mul nsw i64 %31, 3
-  %33 = getelementptr inbounds i8, ptr %28, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %33, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+34:                                               ; preds = %34, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
+  %35 = add nsw i64 %indvars.iv.i, %33
+  %36 = mul nsw i64 %35, 3
+  %37 = getelementptr inbounds i8, ptr %32, i64 %36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %37, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %30, !llvm.loop !103
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %34, !llvm.loop !103
 
-._crit_edge.i:                                    ; preds = %30, %9
-  %34 = mul nsw i32 %19, 6
-  %35 = sdiv i32 %34, 16
-  %36 = mul nsw i32 %19, 10
-  %37 = sdiv i32 %36, 16
-  %38 = sub nsw i32 %37, %35
+._crit_edge.i:                                    ; preds = %34, %9
+  %38 = sub nsw i32 %28, %26
   %39 = icmp slt i32 %38, 2
   br i1 %39, label %40, label %44
 
@@ -3542,8 +3542,8 @@ define void @stbhw__edge_process_h_rect(ptr noundef readonly captures(none) %0, 
   br label %44
 
 44:                                               ; preds = %40, %._crit_edge.i
-  %.026.i = phi i32 [ %35, %._crit_edge.i ], [ %42, %40 ]
-  %.0.i = phi i32 [ %37, %._crit_edge.i ], [ %spec.select.i, %40 ]
+  %.026.i = phi i32 [ %26, %._crit_edge.i ], [ %42, %40 ]
+  %.0.i = phi i32 [ %28, %._crit_edge.i ], [ %spec.select.i, %40 ]
   %45 = icmp slt i32 %.026.i, %.0.i
   br i1 %45, label %.lr.ph32.i, label %stbhw__draw_hline.exit
 
@@ -3592,7 +3592,7 @@ stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_p
   %66 = load ptr, ptr %20, align 8, !tbaa !88
   %67 = load i32, ptr %22, align 8, !tbaa !89
   %68 = add i32 %24, %19
-  br i1 %25, label %.lr.ph.i55, label %._crit_edge.i41
+  br i1 %29, label %.lr.ph.i55, label %._crit_edge.i41
 
 .lr.ph.i55:                                       ; preds = %stbhw__draw_hline.exit
   %69 = mul nsw i32 %67, %2
@@ -3624,8 +3624,8 @@ stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_p
   br label %81
 
 81:                                               ; preds = %77, %._crit_edge.i41
-  %.026.i42 = phi i32 [ %35, %._crit_edge.i41 ], [ %79, %77 ]
-  %.0.i43 = phi i32 [ %37, %._crit_edge.i41 ], [ %spec.select.i54, %77 ]
+  %.026.i42 = phi i32 [ %26, %._crit_edge.i41 ], [ %79, %77 ]
+  %.0.i43 = phi i32 [ %28, %._crit_edge.i41 ], [ %spec.select.i54, %77 ]
   %82 = icmp slt i32 %.026.i42, %.0.i43
   br i1 %82, label %.lr.ph32.i44, label %stbhw__draw_hline.exit60
 
@@ -3674,7 +3674,7 @@ stbhw__draw_hline.exit60:                         ; preds = %stbhw__stbhw__set_p
   %103 = load ptr, ptr %20, align 8, !tbaa !88
   %104 = load i32, ptr %22, align 8, !tbaa !89
   %105 = add i32 %2, 1
-  br i1 %25, label %.lr.ph.i71, label %._crit_edge.i61
+  br i1 %29, label %.lr.ph.i71, label %._crit_edge.i61
 
 .lr.ph.i71:                                       ; preds = %stbhw__draw_hline.exit60
   %106 = mul nsw i32 %1, 3
@@ -3707,8 +3707,8 @@ stbhw__draw_hline.exit60:                         ; preds = %stbhw__stbhw__set_p
   br label %117
 
 117:                                              ; preds = %113, %._crit_edge.i61
-  %.026.i62 = phi i32 [ %35, %._crit_edge.i61 ], [ %115, %113 ]
-  %.0.i63 = phi i32 [ %37, %._crit_edge.i61 ], [ %spec.select.i70, %113 ]
+  %.026.i62 = phi i32 [ %26, %._crit_edge.i61 ], [ %115, %113 ]
+  %.0.i63 = phi i32 [ %28, %._crit_edge.i61 ], [ %spec.select.i70, %113 ]
   %118 = icmp slt i32 %.026.i62, %.0.i63
   br i1 %118, label %.lr.ph32.i64, label %stbhw__draw_vline.exit
 
@@ -3759,7 +3759,7 @@ stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_p
   %139 = load i32, ptr %22, align 8, !tbaa !89
   %140 = shl nsw i32 %19, 1
   %141 = add i32 %24, %140
-  br i1 %25, label %.lr.ph.i92, label %._crit_edge.i76
+  br i1 %29, label %.lr.ph.i92, label %._crit_edge.i76
 
 .lr.ph.i92:                                       ; preds = %stbhw__draw_vline.exit
   %142 = mul nsw i32 %141, 3
@@ -3792,8 +3792,8 @@ stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_p
   br label %153
 
 153:                                              ; preds = %149, %._crit_edge.i76
-  %.026.i77 = phi i32 [ %35, %._crit_edge.i76 ], [ %151, %149 ]
-  %.0.i78 = phi i32 [ %37, %._crit_edge.i76 ], [ %spec.select.i91, %149 ]
+  %.026.i77 = phi i32 [ %26, %._crit_edge.i76 ], [ %151, %149 ]
+  %.0.i78 = phi i32 [ %28, %._crit_edge.i76 ], [ %spec.select.i91, %149 ]
   %154 = icmp slt i32 %.026.i77, %.0.i78
   br i1 %154, label %.lr.ph32.i79, label %stbhw__draw_vline.exit99
 
@@ -3843,7 +3843,7 @@ stbhw__draw_vline.exit99:                         ; preds = %stbhw__stbhw__set_p
   %174 = load ptr, ptr %20, align 8, !tbaa !88
   %175 = load i32, ptr %22, align 8, !tbaa !89
   %176 = add i32 %105, %19
-  br i1 %25, label %.lr.ph.i114, label %._crit_edge.i100
+  br i1 %29, label %.lr.ph.i114, label %._crit_edge.i100
 
 .lr.ph.i114:                                      ; preds = %stbhw__draw_vline.exit99
   %177 = mul nsw i32 %175, %176
@@ -3875,8 +3875,8 @@ stbhw__draw_vline.exit99:                         ; preds = %stbhw__stbhw__set_p
   br label %189
 
 189:                                              ; preds = %185, %._crit_edge.i100
-  %.026.i101 = phi i32 [ %35, %._crit_edge.i100 ], [ %187, %185 ]
-  %.0.i102 = phi i32 [ %37, %._crit_edge.i100 ], [ %spec.select.i113, %185 ]
+  %.026.i101 = phi i32 [ %26, %._crit_edge.i100 ], [ %187, %185 ]
+  %.0.i102 = phi i32 [ %28, %._crit_edge.i100 ], [ %spec.select.i113, %185 ]
   %190 = icmp slt i32 %.026.i101, %.0.i102
   br i1 %190, label %.lr.ph32.i103, label %stbhw__draw_hline.exit119
 
@@ -3924,7 +3924,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i109:         ; preds = %199
 stbhw__draw_hline.exit119:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i109, %189
   %211 = load ptr, ptr %20, align 8, !tbaa !88
   %212 = load i32, ptr %22, align 8, !tbaa !89
-  br i1 %25, label %.lr.ph.i134, label %._crit_edge.i120
+  br i1 %29, label %.lr.ph.i134, label %._crit_edge.i120
 
 .lr.ph.i134:                                      ; preds = %stbhw__draw_hline.exit119
   %213 = mul nsw i32 %212, %176
@@ -3956,8 +3956,8 @@ stbhw__draw_hline.exit119:                        ; preds = %stbhw__stbhw__set_p
   br label %225
 
 225:                                              ; preds = %221, %._crit_edge.i120
-  %.026.i121 = phi i32 [ %35, %._crit_edge.i120 ], [ %223, %221 ]
-  %.0.i122 = phi i32 [ %37, %._crit_edge.i120 ], [ %spec.select.i133, %221 ]
+  %.026.i121 = phi i32 [ %26, %._crit_edge.i120 ], [ %223, %221 ]
+  %.0.i122 = phi i32 [ %28, %._crit_edge.i120 ], [ %spec.select.i133, %221 ]
   %226 = icmp slt i32 %.026.i121, %.0.i122
   br i1 %226, label %.lr.ph32.i123, label %stbhw__draw_hline.exit139
 
@@ -4023,33 +4023,33 @@ define void @stbhw__edge_process_v_rect(ptr noundef readonly captures(none) %0, 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i32, ptr %22, align 8, !tbaa !89
   %24 = add i32 %1, 1
-  %25 = icmp sgt i32 %19, 0
-  br i1 %25, label %.lr.ph.i, label %._crit_edge.i
+  %25 = mul nsw i32 %19, 6
+  %26 = sdiv i32 %25, 16
+  %27 = mul nsw i32 %19, 10
+  %28 = sdiv i32 %27, 16
+  %29 = icmp sgt i32 %19, 0
+  br i1 %29, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %9
-  %26 = mul nsw i32 %23, %2
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i8, ptr %21, i64 %27
-  %29 = sext i32 %24 to i64
+  %30 = mul nsw i32 %23, %2
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds i8, ptr %21, i64 %31
+  %33 = sext i32 %24 to i64
   %wide.trip.count.i = zext nneg i32 %19 to i64
-  br label %30
+  br label %34
 
-30:                                               ; preds = %30, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
-  %31 = add nsw i64 %indvars.iv.i, %29
-  %32 = mul nsw i64 %31, 3
-  %33 = getelementptr inbounds i8, ptr %28, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %33, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+34:                                               ; preds = %34, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
+  %35 = add nsw i64 %indvars.iv.i, %33
+  %36 = mul nsw i64 %35, 3
+  %37 = getelementptr inbounds i8, ptr %32, i64 %36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %37, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %30, !llvm.loop !103
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %34, !llvm.loop !103
 
-._crit_edge.i:                                    ; preds = %30, %9
-  %34 = mul nsw i32 %19, 6
-  %35 = sdiv i32 %34, 16
-  %36 = mul nsw i32 %19, 10
-  %37 = sdiv i32 %36, 16
-  %38 = sub nsw i32 %37, %35
+._crit_edge.i:                                    ; preds = %34, %9
+  %38 = sub nsw i32 %28, %26
   %39 = icmp slt i32 %38, 2
   br i1 %39, label %40, label %44
 
@@ -4062,8 +4062,8 @@ define void @stbhw__edge_process_v_rect(ptr noundef readonly captures(none) %0, 
   br label %44
 
 44:                                               ; preds = %40, %._crit_edge.i
-  %.026.i = phi i32 [ %35, %._crit_edge.i ], [ %42, %40 ]
-  %.0.i = phi i32 [ %37, %._crit_edge.i ], [ %spec.select.i, %40 ]
+  %.026.i = phi i32 [ %26, %._crit_edge.i ], [ %42, %40 ]
+  %.0.i = phi i32 [ %28, %._crit_edge.i ], [ %spec.select.i, %40 ]
   %45 = icmp slt i32 %.026.i, %.0.i
   br i1 %45, label %.lr.ph32.i, label %stbhw__draw_hline.exit
 
@@ -4112,7 +4112,7 @@ stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_p
   %66 = load ptr, ptr %20, align 8, !tbaa !88
   %67 = load i32, ptr %22, align 8, !tbaa !89
   %68 = add i32 %2, 1
-  br i1 %25, label %.lr.ph.i51, label %._crit_edge.i41
+  br i1 %29, label %.lr.ph.i51, label %._crit_edge.i41
 
 .lr.ph.i51:                                       ; preds = %stbhw__draw_hline.exit
   %69 = mul nsw i32 %1, 3
@@ -4145,8 +4145,8 @@ stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_p
   br label %80
 
 80:                                               ; preds = %76, %._crit_edge.i41
-  %.026.i42 = phi i32 [ %35, %._crit_edge.i41 ], [ %78, %76 ]
-  %.0.i43 = phi i32 [ %37, %._crit_edge.i41 ], [ %spec.select.i50, %76 ]
+  %.026.i42 = phi i32 [ %26, %._crit_edge.i41 ], [ %78, %76 ]
+  %.0.i43 = phi i32 [ %28, %._crit_edge.i41 ], [ %spec.select.i50, %76 ]
   %81 = icmp slt i32 %.026.i42, %.0.i43
   br i1 %81, label %.lr.ph32.i44, label %stbhw__draw_vline.exit
 
@@ -4196,7 +4196,7 @@ stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_p
   %101 = load ptr, ptr %20, align 8, !tbaa !88
   %102 = load i32, ptr %22, align 8, !tbaa !89
   %103 = add i32 %24, %19
-  br i1 %25, label %.lr.ph.i72, label %._crit_edge.i56
+  br i1 %29, label %.lr.ph.i72, label %._crit_edge.i56
 
 .lr.ph.i72:                                       ; preds = %stbhw__draw_vline.exit
   %104 = mul nsw i32 %103, 3
@@ -4229,8 +4229,8 @@ stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_p
   br label %115
 
 115:                                              ; preds = %111, %._crit_edge.i56
-  %.026.i57 = phi i32 [ %35, %._crit_edge.i56 ], [ %113, %111 ]
-  %.0.i58 = phi i32 [ %37, %._crit_edge.i56 ], [ %spec.select.i71, %111 ]
+  %.026.i57 = phi i32 [ %26, %._crit_edge.i56 ], [ %113, %111 ]
+  %.0.i58 = phi i32 [ %28, %._crit_edge.i56 ], [ %spec.select.i71, %111 ]
   %116 = icmp slt i32 %.026.i57, %.0.i58
   br i1 %116, label %.lr.ph32.i59, label %stbhw__draw_vline.exit79
 
@@ -4280,7 +4280,7 @@ stbhw__draw_vline.exit79:                         ; preds = %stbhw__stbhw__set_p
   %136 = load ptr, ptr %20, align 8, !tbaa !88
   %137 = load i32, ptr %22, align 8, !tbaa !89
   %138 = add i32 %68, %19
-  br i1 %25, label %.lr.ph.i96, label %._crit_edge.i80
+  br i1 %29, label %.lr.ph.i96, label %._crit_edge.i80
 
 .lr.ph.i96:                                       ; preds = %stbhw__draw_vline.exit79
   %139 = mul nsw i32 %1, 3
@@ -4313,8 +4313,8 @@ stbhw__draw_vline.exit79:                         ; preds = %stbhw__stbhw__set_p
   br label %150
 
 150:                                              ; preds = %146, %._crit_edge.i80
-  %.026.i81 = phi i32 [ %35, %._crit_edge.i80 ], [ %148, %146 ]
-  %.0.i82 = phi i32 [ %37, %._crit_edge.i80 ], [ %spec.select.i95, %146 ]
+  %.026.i81 = phi i32 [ %26, %._crit_edge.i80 ], [ %148, %146 ]
+  %.0.i82 = phi i32 [ %28, %._crit_edge.i80 ], [ %spec.select.i95, %146 ]
   %151 = icmp slt i32 %.026.i81, %.0.i82
   br i1 %151, label %.lr.ph32.i83, label %stbhw__draw_vline.exit103
 
@@ -4363,7 +4363,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i90:          ; preds = %160
 stbhw__draw_vline.exit103:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i90, %150
   %171 = load ptr, ptr %20, align 8, !tbaa !88
   %172 = load i32, ptr %22, align 8, !tbaa !89
-  br i1 %25, label %.lr.ph.i120, label %._crit_edge.i104
+  br i1 %29, label %.lr.ph.i120, label %._crit_edge.i104
 
 .lr.ph.i120:                                      ; preds = %stbhw__draw_vline.exit103
   %173 = mul nsw i32 %103, 3
@@ -4396,8 +4396,8 @@ stbhw__draw_vline.exit103:                        ; preds = %stbhw__stbhw__set_p
   br label %184
 
 184:                                              ; preds = %180, %._crit_edge.i104
-  %.026.i105 = phi i32 [ %35, %._crit_edge.i104 ], [ %182, %180 ]
-  %.0.i106 = phi i32 [ %37, %._crit_edge.i104 ], [ %spec.select.i119, %180 ]
+  %.026.i105 = phi i32 [ %26, %._crit_edge.i104 ], [ %182, %180 ]
+  %.0.i106 = phi i32 [ %28, %._crit_edge.i104 ], [ %spec.select.i119, %180 ]
   %185 = icmp slt i32 %.026.i105, %.0.i106
   br i1 %185, label %.lr.ph32.i107, label %stbhw__draw_vline.exit127
 
@@ -4448,7 +4448,7 @@ stbhw__draw_vline.exit127:                        ; preds = %stbhw__stbhw__set_p
   %206 = load i32, ptr %22, align 8, !tbaa !89
   %207 = shl nsw i32 %19, 1
   %208 = add i32 %68, %207
-  br i1 %25, label %.lr.ph.i142, label %._crit_edge.i128
+  br i1 %29, label %.lr.ph.i142, label %._crit_edge.i128
 
 .lr.ph.i142:                                      ; preds = %stbhw__draw_vline.exit127
   %209 = mul nsw i32 %206, %208
@@ -4480,8 +4480,8 @@ stbhw__draw_vline.exit127:                        ; preds = %stbhw__stbhw__set_p
   br label %221
 
 221:                                              ; preds = %217, %._crit_edge.i128
-  %.026.i129 = phi i32 [ %35, %._crit_edge.i128 ], [ %219, %217 ]
-  %.0.i130 = phi i32 [ %37, %._crit_edge.i128 ], [ %spec.select.i141, %217 ]
+  %.026.i129 = phi i32 [ %26, %._crit_edge.i128 ], [ %219, %217 ]
+  %.0.i130 = phi i32 [ %28, %._crit_edge.i128 ], [ %spec.select.i141, %217 ]
   %222 = icmp slt i32 %.026.i129, %.0.i130
   br i1 %222, label %.lr.ph32.i131, label %stbhw__draw_hline.exit147
 
@@ -4552,33 +4552,33 @@ define void @stbhw__corner_process_h_rect(ptr noundef readonly captures(none) %0
   %27 = sext i32 %4 to i64
   %28 = getelementptr inbounds i32, ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !32
-  %30 = icmp sgt i32 %19, 0
-  br i1 %30, label %.lr.ph.i, label %._crit_edge.i
+  %30 = mul nsw i32 %19, 6
+  %31 = sdiv i32 %30, 16
+  %32 = mul nsw i32 %19, 10
+  %33 = sdiv i32 %32, 16
+  %34 = icmp sgt i32 %19, 0
+  br i1 %34, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %9
-  %31 = mul nsw i32 %23, %2
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %21, i64 %32
-  %34 = sext i32 %24 to i64
+  %35 = mul nsw i32 %23, %2
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds i8, ptr %21, i64 %36
+  %38 = sext i32 %24 to i64
   %wide.trip.count.i = zext nneg i32 %19 to i64
-  br label %35
+  br label %39
 
-35:                                               ; preds = %35, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
-  %36 = add nsw i64 %indvars.iv.i, %34
-  %37 = mul nsw i64 %36, 3
-  %38 = getelementptr inbounds i8, ptr %33, i64 %37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %38, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+39:                                               ; preds = %39, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
+  %40 = add nsw i64 %indvars.iv.i, %38
+  %41 = mul nsw i64 %40, 3
+  %42 = getelementptr inbounds i8, ptr %37, i64 %41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %42, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %35, !llvm.loop !103
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %39, !llvm.loop !103
 
-._crit_edge.i:                                    ; preds = %35, %9
-  %39 = mul nsw i32 %19, 6
-  %40 = sdiv i32 %39, 16
-  %41 = mul nsw i32 %19, 10
-  %42 = sdiv i32 %41, 16
-  %43 = sub nsw i32 %42, %40
+._crit_edge.i:                                    ; preds = %39, %9
+  %43 = sub nsw i32 %33, %31
   %44 = icmp slt i32 %43, 2
   br i1 %44, label %45, label %49
 
@@ -4591,8 +4591,8 @@ define void @stbhw__corner_process_h_rect(ptr noundef readonly captures(none) %0
   br label %49
 
 49:                                               ; preds = %45, %._crit_edge.i
-  %.026.i = phi i32 [ %40, %._crit_edge.i ], [ %47, %45 ]
-  %.0.i = phi i32 [ %42, %._crit_edge.i ], [ %spec.select.i, %45 ]
+  %.026.i = phi i32 [ %31, %._crit_edge.i ], [ %47, %45 ]
+  %.0.i = phi i32 [ %33, %._crit_edge.i ], [ %spec.select.i, %45 ]
   %50 = icmp slt i32 %.026.i, %.0.i
   br i1 %50, label %.lr.ph32.i, label %stbhw__draw_hline.exit
 
@@ -4646,7 +4646,7 @@ stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_p
   %76 = sext i32 %5 to i64
   %77 = getelementptr inbounds i32, ptr %75, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !32
-  br i1 %30, label %.lr.ph.i158, label %._crit_edge.i144
+  br i1 %34, label %.lr.ph.i158, label %._crit_edge.i144
 
 .lr.ph.i158:                                      ; preds = %stbhw__draw_hline.exit
   %79 = mul nsw i32 %72, %2
@@ -4678,8 +4678,8 @@ stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_p
   br label %91
 
 91:                                               ; preds = %87, %._crit_edge.i144
-  %.026.i145 = phi i32 [ %40, %._crit_edge.i144 ], [ %89, %87 ]
-  %.0.i146 = phi i32 [ %42, %._crit_edge.i144 ], [ %spec.select.i157, %87 ]
+  %.026.i145 = phi i32 [ %31, %._crit_edge.i144 ], [ %89, %87 ]
+  %.0.i146 = phi i32 [ %33, %._crit_edge.i144 ], [ %spec.select.i157, %87 ]
   %92 = icmp slt i32 %.026.i145, %.0.i146
   br i1 %92, label %.lr.ph32.i147, label %stbhw__draw_hline.exit163
 
@@ -4731,7 +4731,7 @@ stbhw__draw_hline.exit163:                        ; preds = %stbhw__stbhw__set_p
   %116 = sext i32 %6 to i64
   %117 = getelementptr inbounds i32, ptr %26, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !32
-  br i1 %30, label %.lr.ph.i174, label %._crit_edge.i164
+  br i1 %34, label %.lr.ph.i174, label %._crit_edge.i164
 
 .lr.ph.i174:                                      ; preds = %stbhw__draw_hline.exit163
   %119 = mul nsw i32 %1, 3
@@ -4764,8 +4764,8 @@ stbhw__draw_hline.exit163:                        ; preds = %stbhw__stbhw__set_p
   br label %130
 
 130:                                              ; preds = %126, %._crit_edge.i164
-  %.026.i165 = phi i32 [ %40, %._crit_edge.i164 ], [ %128, %126 ]
-  %.0.i166 = phi i32 [ %42, %._crit_edge.i164 ], [ %spec.select.i173, %126 ]
+  %.026.i165 = phi i32 [ %31, %._crit_edge.i164 ], [ %128, %126 ]
+  %.0.i166 = phi i32 [ %33, %._crit_edge.i164 ], [ %spec.select.i173, %126 ]
   %131 = icmp slt i32 %.026.i165, %.0.i166
   br i1 %131, label %.lr.ph32.i167, label %stbhw__draw_vline.exit
 
@@ -4820,7 +4820,7 @@ stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_p
   %156 = sext i32 %8 to i64
   %157 = getelementptr inbounds i32, ptr %155, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !32
-  br i1 %30, label %.lr.ph.i195, label %._crit_edge.i179
+  br i1 %34, label %.lr.ph.i195, label %._crit_edge.i179
 
 .lr.ph.i195:                                      ; preds = %stbhw__draw_vline.exit
   %159 = mul nsw i32 %154, 3
@@ -4853,8 +4853,8 @@ stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_p
   br label %170
 
 170:                                              ; preds = %166, %._crit_edge.i179
-  %.026.i180 = phi i32 [ %40, %._crit_edge.i179 ], [ %168, %166 ]
-  %.0.i181 = phi i32 [ %42, %._crit_edge.i179 ], [ %spec.select.i194, %166 ]
+  %.026.i180 = phi i32 [ %31, %._crit_edge.i179 ], [ %168, %166 ]
+  %.0.i181 = phi i32 [ %33, %._crit_edge.i179 ], [ %spec.select.i194, %166 ]
   %171 = icmp slt i32 %.026.i180, %.0.i181
   br i1 %171, label %.lr.ph32.i182, label %stbhw__draw_vline.exit202
 
@@ -4909,7 +4909,7 @@ stbhw__draw_vline.exit202:                        ; preds = %stbhw__stbhw__set_p
   %196 = sext i32 %7 to i64
   %197 = getelementptr inbounds i32, ptr %195, i64 %196
   %198 = load i32, ptr %197, align 4, !tbaa !32
-  br i1 %30, label %.lr.ph.i217, label %._crit_edge.i203
+  br i1 %34, label %.lr.ph.i217, label %._crit_edge.i203
 
 .lr.ph.i217:                                      ; preds = %stbhw__draw_vline.exit202
   %199 = mul nsw i32 %192, %194
@@ -4941,8 +4941,8 @@ stbhw__draw_vline.exit202:                        ; preds = %stbhw__stbhw__set_p
   br label %211
 
 211:                                              ; preds = %207, %._crit_edge.i203
-  %.026.i204 = phi i32 [ %40, %._crit_edge.i203 ], [ %209, %207 ]
-  %.0.i205 = phi i32 [ %42, %._crit_edge.i203 ], [ %spec.select.i216, %207 ]
+  %.026.i204 = phi i32 [ %31, %._crit_edge.i203 ], [ %209, %207 ]
+  %.0.i205 = phi i32 [ %33, %._crit_edge.i203 ], [ %spec.select.i216, %207 ]
   %212 = icmp slt i32 %.026.i204, %.0.i205
   br i1 %212, label %.lr.ph32.i206, label %stbhw__draw_hline.exit222
 
@@ -4993,7 +4993,7 @@ stbhw__draw_hline.exit222:                        ; preds = %stbhw__stbhw__set_p
   %235 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %196
   %236 = getelementptr inbounds i32, ptr %235, i64 %156
   %237 = load i32, ptr %236, align 4, !tbaa !32
-  br i1 %30, label %.lr.ph.i237, label %._crit_edge.i223
+  br i1 %34, label %.lr.ph.i237, label %._crit_edge.i223
 
 .lr.ph.i237:                                      ; preds = %stbhw__draw_hline.exit222
   %238 = mul nsw i32 %234, %194
@@ -5025,8 +5025,8 @@ stbhw__draw_hline.exit222:                        ; preds = %stbhw__stbhw__set_p
   br label %250
 
 250:                                              ; preds = %246, %._crit_edge.i223
-  %.026.i224 = phi i32 [ %40, %._crit_edge.i223 ], [ %248, %246 ]
-  %.0.i225 = phi i32 [ %42, %._crit_edge.i223 ], [ %spec.select.i236, %246 ]
+  %.026.i224 = phi i32 [ %31, %._crit_edge.i223 ], [ %248, %246 ]
+  %.0.i225 = phi i32 [ %33, %._crit_edge.i223 ], [ %spec.select.i236, %246 ]
   %251 = icmp slt i32 %.026.i224, %.0.i225
   br i1 %251, label %.lr.ph32.i226, label %stbhw__draw_hline.exit242
 
@@ -5717,33 +5717,33 @@ define void @stbhw__corner_process_v_rect(ptr noundef readonly captures(none) %0
   %27 = sext i32 %6 to i64
   %28 = getelementptr inbounds i32, ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !32
-  %30 = icmp sgt i32 %19, 0
-  br i1 %30, label %.lr.ph.i, label %._crit_edge.i
+  %30 = mul nsw i32 %19, 6
+  %31 = sdiv i32 %30, 16
+  %32 = mul nsw i32 %19, 10
+  %33 = sdiv i32 %32, 16
+  %34 = icmp sgt i32 %19, 0
+  br i1 %34, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %9
-  %31 = mul nsw i32 %23, %2
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %21, i64 %32
-  %34 = sext i32 %24 to i64
+  %35 = mul nsw i32 %23, %2
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds i8, ptr %21, i64 %36
+  %38 = sext i32 %24 to i64
   %wide.trip.count.i = zext nneg i32 %19 to i64
-  br label %35
+  br label %39
 
-35:                                               ; preds = %35, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
-  %36 = add nsw i64 %indvars.iv.i, %34
-  %37 = mul nsw i64 %36, 3
-  %38 = getelementptr inbounds i8, ptr %33, i64 %37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %38, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
+39:                                               ; preds = %39, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
+  %40 = add nsw i64 %indvars.iv.i, %38
+  %41 = mul nsw i64 %40, 3
+  %42 = getelementptr inbounds i8, ptr %37, i64 %41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %42, ptr noundef nonnull align 1 dereferenceable(3) @stbhw__black, i64 3, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %35, !llvm.loop !103
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %39, !llvm.loop !103
 
-._crit_edge.i:                                    ; preds = %35, %9
-  %39 = mul nsw i32 %19, 6
-  %40 = sdiv i32 %39, 16
-  %41 = mul nsw i32 %19, 10
-  %42 = sdiv i32 %41, 16
-  %43 = sub nsw i32 %42, %40
+._crit_edge.i:                                    ; preds = %39, %9
+  %43 = sub nsw i32 %33, %31
   %44 = icmp slt i32 %43, 2
   br i1 %44, label %45, label %49
 
@@ -5756,8 +5756,8 @@ define void @stbhw__corner_process_v_rect(ptr noundef readonly captures(none) %0
   br label %49
 
 49:                                               ; preds = %45, %._crit_edge.i
-  %.026.i = phi i32 [ %40, %._crit_edge.i ], [ %47, %45 ]
-  %.0.i = phi i32 [ %42, %._crit_edge.i ], [ %spec.select.i, %45 ]
+  %.026.i = phi i32 [ %31, %._crit_edge.i ], [ %47, %45 ]
+  %.0.i = phi i32 [ %33, %._crit_edge.i ], [ %spec.select.i, %45 ]
   %50 = icmp slt i32 %.026.i, %.0.i
   br i1 %50, label %.lr.ph32.i, label %stbhw__draw_hline.exit
 
@@ -5809,7 +5809,7 @@ stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_p
   %74 = sext i32 %4 to i64
   %75 = getelementptr inbounds i32, ptr %26, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !32
-  br i1 %30, label %.lr.ph.i154, label %._crit_edge.i144
+  br i1 %34, label %.lr.ph.i154, label %._crit_edge.i144
 
 .lr.ph.i154:                                      ; preds = %stbhw__draw_hline.exit
   %77 = mul nsw i32 %1, 3
@@ -5842,8 +5842,8 @@ stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_p
   br label %88
 
 88:                                               ; preds = %84, %._crit_edge.i144
-  %.026.i145 = phi i32 [ %40, %._crit_edge.i144 ], [ %86, %84 ]
-  %.0.i146 = phi i32 [ %42, %._crit_edge.i144 ], [ %spec.select.i153, %84 ]
+  %.026.i145 = phi i32 [ %31, %._crit_edge.i144 ], [ %86, %84 ]
+  %.0.i146 = phi i32 [ %33, %._crit_edge.i144 ], [ %spec.select.i153, %84 ]
   %89 = icmp slt i32 %.026.i145, %.0.i146
   br i1 %89, label %.lr.ph32.i147, label %stbhw__draw_vline.exit
 
@@ -5898,7 +5898,7 @@ stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_p
   %114 = sext i32 %7 to i64
   %115 = getelementptr inbounds i32, ptr %113, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !32
-  br i1 %30, label %.lr.ph.i175, label %._crit_edge.i159
+  br i1 %34, label %.lr.ph.i175, label %._crit_edge.i159
 
 .lr.ph.i175:                                      ; preds = %stbhw__draw_vline.exit
   %117 = mul nsw i32 %112, 3
@@ -5931,8 +5931,8 @@ stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_p
   br label %128
 
 128:                                              ; preds = %124, %._crit_edge.i159
-  %.026.i160 = phi i32 [ %40, %._crit_edge.i159 ], [ %126, %124 ]
-  %.0.i161 = phi i32 [ %42, %._crit_edge.i159 ], [ %spec.select.i174, %124 ]
+  %.026.i160 = phi i32 [ %31, %._crit_edge.i159 ], [ %126, %124 ]
+  %.0.i161 = phi i32 [ %33, %._crit_edge.i159 ], [ %spec.select.i174, %124 ]
   %129 = icmp slt i32 %.026.i160, %.0.i161
   br i1 %129, label %.lr.ph32.i162, label %stbhw__draw_vline.exit182
 
@@ -5987,7 +5987,7 @@ stbhw__draw_vline.exit182:                        ; preds = %stbhw__stbhw__set_p
   %154 = sext i32 %5 to i64
   %155 = getelementptr inbounds i32, ptr %153, i64 %154
   %156 = load i32, ptr %155, align 4, !tbaa !32
-  br i1 %30, label %.lr.ph.i199, label %._crit_edge.i183
+  br i1 %34, label %.lr.ph.i199, label %._crit_edge.i183
 
 .lr.ph.i199:                                      ; preds = %stbhw__draw_vline.exit182
   %157 = mul nsw i32 %1, 3
@@ -6020,8 +6020,8 @@ stbhw__draw_vline.exit182:                        ; preds = %stbhw__stbhw__set_p
   br label %168
 
 168:                                              ; preds = %164, %._crit_edge.i183
-  %.026.i184 = phi i32 [ %40, %._crit_edge.i183 ], [ %166, %164 ]
-  %.0.i185 = phi i32 [ %42, %._crit_edge.i183 ], [ %spec.select.i198, %164 ]
+  %.026.i184 = phi i32 [ %31, %._crit_edge.i183 ], [ %166, %164 ]
+  %.0.i185 = phi i32 [ %33, %._crit_edge.i183 ], [ %spec.select.i198, %164 ]
   %169 = icmp slt i32 %.026.i184, %.0.i185
   br i1 %169, label %.lr.ph32.i186, label %stbhw__draw_vline.exit206
 
@@ -6074,7 +6074,7 @@ stbhw__draw_vline.exit206:                        ; preds = %stbhw__stbhw__set_p
   %192 = sext i32 %8 to i64
   %193 = getelementptr inbounds i32, ptr %191, i64 %192
   %194 = load i32, ptr %193, align 4, !tbaa !32
-  br i1 %30, label %.lr.ph.i223, label %._crit_edge.i207
+  br i1 %34, label %.lr.ph.i223, label %._crit_edge.i207
 
 .lr.ph.i223:                                      ; preds = %stbhw__draw_vline.exit206
   %195 = mul nsw i32 %112, 3
@@ -6107,8 +6107,8 @@ stbhw__draw_vline.exit206:                        ; preds = %stbhw__stbhw__set_p
   br label %206
 
 206:                                              ; preds = %202, %._crit_edge.i207
-  %.026.i208 = phi i32 [ %40, %._crit_edge.i207 ], [ %204, %202 ]
-  %.0.i209 = phi i32 [ %42, %._crit_edge.i207 ], [ %spec.select.i222, %202 ]
+  %.026.i208 = phi i32 [ %31, %._crit_edge.i207 ], [ %204, %202 ]
+  %.0.i209 = phi i32 [ %33, %._crit_edge.i207 ], [ %spec.select.i222, %202 ]
   %207 = icmp slt i32 %.026.i208, %.0.i209
   br i1 %207, label %.lr.ph32.i210, label %stbhw__draw_vline.exit230
 
@@ -6162,7 +6162,7 @@ stbhw__draw_vline.exit230:                        ; preds = %stbhw__stbhw__set_p
   %231 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %154
   %232 = getelementptr inbounds i32, ptr %231, i64 %192
   %233 = load i32, ptr %232, align 4, !tbaa !32
-  br i1 %30, label %.lr.ph.i245, label %._crit_edge.i231
+  br i1 %34, label %.lr.ph.i245, label %._crit_edge.i231
 
 .lr.ph.i245:                                      ; preds = %stbhw__draw_vline.exit230
   %234 = mul nsw i32 %228, %230
@@ -6194,8 +6194,8 @@ stbhw__draw_vline.exit230:                        ; preds = %stbhw__stbhw__set_p
   br label %246
 
 246:                                              ; preds = %242, %._crit_edge.i231
-  %.026.i232 = phi i32 [ %40, %._crit_edge.i231 ], [ %244, %242 ]
-  %.0.i233 = phi i32 [ %42, %._crit_edge.i231 ], [ %spec.select.i244, %242 ]
+  %.026.i232 = phi i32 [ %31, %._crit_edge.i231 ], [ %244, %242 ]
+  %.0.i233 = phi i32 [ %33, %._crit_edge.i231 ], [ %spec.select.i244, %242 ]
   %247 = icmp slt i32 %.026.i232, %.0.i233
   br i1 %247, label %.lr.ph32.i234, label %stbhw__draw_hline.exit250
 

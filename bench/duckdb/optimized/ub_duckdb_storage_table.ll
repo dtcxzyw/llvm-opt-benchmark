@@ -16291,9 +16291,9 @@ _ZN6duckdb15SelectionVectorC2Em.exit.us.i:        ; preds = %_ZN6duckdb15Selecti
   call fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdbL19SortSelectionVectorERNS4_15SelectionVectorEmPlE3$_0EEEvT_SA_T0_T1_"(ptr noundef nonnull %66, ptr noundef nonnull %72, i64 noundef %76, ptr nonnull readonly %12)
   %77 = icmp ugt i64 %34, 16
   %scevgep.i.i.i.i = getelementptr i8, ptr %66, i64 4
-  br i1 %77, label %.preheader.i.i.i.i, label %.lr.ph.i21.i.i.i.i
+  br i1 %77, label %.preheader.i.i, label %.lr.ph.i21.i.i.i.i
 
-.preheader.i.i.i.i:                               ; preds = %.split61.us.i, %"_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN6duckdbL19SortSelectionVectorERNS4_15SelectionVectorEmPlE3$_0EEEvT_T0_.exit.i.i.i.i.i"
+.preheader.i.i:                                   ; preds = %.split61.us.i, %"_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN6duckdbL19SortSelectionVectorERNS4_15SelectionVectorEmPlE3$_0EEEvT_T0_.exit.i.i.i.i.i"
   %.021.i.idx.i.i.i.i = phi i64 [ %.021.i.add.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN6duckdbL19SortSelectionVectorERNS4_15SelectionVectorEmPlE3$_0EEEvT_T0_.exit.i.i.i.i.i" ], [ 4, %.split61.us.i ]
   %.pn20.i.i.i.i.i = phi ptr [ %.021.i.ptr.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN6duckdbL19SortSelectionVectorERNS4_15SelectionVectorEmPlE3$_0EEEvT_T0_.exit.i.i.i.i.i" ], [ %66, %.split61.us.i ]
   %.021.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %66, i64 %.021.i.idx.i.i.i.i
@@ -16308,11 +16308,11 @@ _ZN6duckdb15SelectionVectorC2Em.exit.us.i:        ; preds = %_ZN6duckdb15Selecti
   %84 = icmp slt i64 %80, %83
   br i1 %84, label %85, label %86
 
-85:                                               ; preds = %.preheader.i.i.i.i
+85:                                               ; preds = %.preheader.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %66, i64 %.021.i.idx.i.i.i.i, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN6duckdbL19SortSelectionVectorERNS4_15SelectionVectorEmPlE3$_0EEEvT_T0_.exit.i.i.i.i.i"
 
-86:                                               ; preds = %.preheader.i.i.i.i
+86:                                               ; preds = %.preheader.i.i
   %.0.val13.i.i.i.i.i.i = load i32, ptr %.pn20.i.i.i.i.i, align 4, !tbaa !59
   %87 = zext i32 %.0.val13.i.i.i.i.i.i to i64
   %88 = getelementptr inbounds nuw i64, ptr %4, i64 %87
@@ -16338,7 +16338,7 @@ _ZN6duckdb15SelectionVectorC2Em.exit.us.i:        ; preds = %_ZN6duckdb15Selecti
   store i32 %.0.val.i.i.i.i.i, ptr %.sink.i.i.i.i.i, align 4, !tbaa !59
   %.021.i.add.i.i.i.i = add nuw nsw i64 %.021.i.idx.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %.021.i.add.i.i.i.i, 64
-  br i1 %.not.i.i.i.i.i, label %"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdbL19SortSelectionVectorERNS4_15SelectionVectorEmPlE3$_0EEEvT_SA_T0_.exit.i.i.i.i", label %.preheader.i.i.i.i, !llvm.loop !1005
+  br i1 %.not.i.i.i.i.i, label %"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdbL19SortSelectionVectorERNS4_15SelectionVectorEmPlE3$_0EEEvT_SA_T0_.exit.i.i.i.i", label %.preheader.i.i, !llvm.loop !1005
 
 "_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdbL19SortSelectionVectorERNS4_15SelectionVectorEmPlE3$_0EEEvT_SA_T0_.exit.i.i.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIZN6duckdbL19SortSelectionVectorERNS4_15SelectionVectorEmPlE3$_0EEEvT_T0_.exit.i.i.i.i.i"
   %95 = getelementptr inbounds nuw i8, ptr %66, i64 64

@@ -2101,29 +2101,29 @@ get_unary.exit120.thread:                         ; preds = %109, %get_unary.exi
   br i1 %146, label %.loopexit, label %147
 
 147:                                              ; preds = %144
+  %148 = add i32 %.077, %76
   %.not37 = icmp eq i32 %.077, 0
   br i1 %.not37, label %._crit_edge, label %.lr.ph21
 
 .lr.ph21:                                         ; preds = %147, %.lr.ph21
   %.220 = phi i32 [ %spec.select103, %.lr.ph21 ], [ %spec.select101, %147 ]
-  %.08119 = phi i32 [ %152, %.lr.ph21 ], [ 0, %147 ]
+  %.08119 = phi i32 [ %153, %.lr.ph21 ], [ 0, %147 ]
   %.28518 = phi ptr [ %spec.select102, %.lr.ph21 ], [ %spec.select100, %147 ]
-  %148 = add i32 %.220, 1
-  %149 = zext i32 %.220 to i64
-  %150 = getelementptr inbounds nuw i16, ptr %.28518, i64 %149
-  store i16 0, ptr %150, align 2, !tbaa !42
-  %151 = icmp eq i32 %148, %2
-  %spec.select102.idx = select i1 %151, i64 %3, i64 0
+  %149 = add i32 %.220, 1
+  %150 = zext i32 %.220 to i64
+  %151 = getelementptr inbounds nuw i16, ptr %.28518, i64 %150
+  store i16 0, ptr %151, align 2, !tbaa !42
+  %152 = icmp eq i32 %149, %2
+  %spec.select102.idx = select i1 %152, i64 %3, i64 0
   %spec.select102 = getelementptr inbounds i16, ptr %.28518, i64 %spec.select102.idx
-  %spec.select103 = select i1 %151, i32 0, i32 %148
-  %152 = add nuw i32 %.08119, 1
-  %exitcond.not = icmp eq i32 %152, %.077
+  %spec.select103 = select i1 %152, i32 0, i32 %149
+  %153 = add nuw i32 %.08119, 1
+  %exitcond.not = icmp eq i32 %153, %.077
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph21, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.lr.ph21, %147
   %.285.lcssa = phi ptr [ %spec.select100, %147 ], [ %spec.select102, %.lr.ph21 ]
   %.2.lcssa = phi i32 [ %spec.select101, %147 ], [ %spec.select103, %.lr.ph21 ]
-  %153 = add i32 %.077, %76
   %154 = icmp slt i32 %.077, 65535
   %155 = zext i1 %154 to i32
   br label %.backedge
@@ -2132,7 +2132,7 @@ get_unary.exit120.thread:                         ; preds = %109, %get_unary.exi
   %.promoted.i33 = phi i32 [ %.promoted.i35, %._crit_edge ], [ %.promoted.i34, %63 ]
   %.083.be = phi ptr [ %.285.lcssa, %._crit_edge ], [ %spec.select100, %63 ]
   %.080.be = phi i32 [ %.2.lcssa, %._crit_edge ], [ %spec.select101, %63 ]
-  %.079.be = phi i32 [ %153, %._crit_edge ], [ %76, %63 ]
+  %.079.be = phi i32 [ %148, %._crit_edge ], [ %76, %63 ]
   %.078.be = phi i64 [ 0, %._crit_edge ], [ %83, %63 ]
   %.0.be = phi i32 [ %155, %._crit_edge ], [ 0, %63 ]
   %156 = icmp ult i32 %.079.be, %1

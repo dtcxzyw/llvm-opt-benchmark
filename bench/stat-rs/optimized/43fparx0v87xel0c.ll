@@ -785,8 +785,8 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$6unpack1
   %scevgep = getelementptr i8, ptr %.val.i, i64 %9
   %umin = tail call i64 @llvm.umin.i64(i64 %.val11.i, i64 %indvars.iv.i)
   %10 = shl nuw i64 %umin, 3
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %10, i1 false), !noalias !142
+  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %exitcond18.not.i = icmp eq i64 %indvars.iv.next.i, %.val12.i
   %indvar.next = add nuw i64 %indvar, 1
   br i1 %exitcond18.not.i, label %"_ZN8nalgebra4base7edition69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$19fill_upper_triangle17h5ffc3d0c37892b4aE.llvm.1230910081964842050.exit", label %.lr.ph.i

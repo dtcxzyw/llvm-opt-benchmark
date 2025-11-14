@@ -711,7 +711,11 @@ define hidden void @_ZN19hb_ot_map_builder_t7compileER11hb_ot_map_tRK22hb_ot_sha
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %indvars.iv485.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %indvars.iv480.sroa.gep646 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %indvars.iv495.sroa.gep647 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %indvars.iv.sroa.gep648 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %indvars.iv495.sroa.gep651 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %indvars.iv.sroa.gep654 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %19
 
@@ -740,10 +744,6 @@ define hidden void @_ZN19hb_ot_map_builder_t7compileER11hb_ot_map_tRK22hb_ot_sha
   br i1 %20, label %19, label %36, !llvm.loop !16
 
 36:                                               ; preds = %19
-  %indvars.iv485.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %indvars.iv480.sroa.gep646 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %indvars.iv495.sroa.gep647 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %indvars.iv495.sroa.gep651 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %39 = load i32, ptr %38, align 4

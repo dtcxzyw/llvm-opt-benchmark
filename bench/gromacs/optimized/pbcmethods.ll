@@ -464,6 +464,7 @@ define void @_Z16calc_pbc_clusteriiP10t_topology7PbcTypePA3_fPKiS3_(i32 noundef 
   br i1 %exitcond298.not, label %.split244.us, label %.lr.ph233.us, !llvm.loop !44
 
 .split244.us:                                     ; preds = %._crit_edge234.us
+  %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
   %214 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv304
   store i32 %.2150.us, ptr %214, align 4, !tbaa !28
   %215 = sext i32 %.2150.us to i64
@@ -541,7 +542,6 @@ define void @_Z16calc_pbc_clusteriiP10t_topology7PbcTypePA3_fPKiS3_(i32 noundef 
   br i1 %exitcond303.not, label %._crit_edge250, label %.lr.ph249, !llvm.loop !45
 
 ._crit_edge250:                                   ; preds = %.lr.ph249, %.split244.us
-  %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
   %266 = load ptr, ptr @stdout, align 8, !tbaa !41
   %267 = trunc nuw nsw i64 %indvars.iv.next305 to i32
   %268 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %266, ptr noundef nonnull @.str.11, i32 noundef %267, i32 noundef %.1) #15

@@ -1118,8 +1118,8 @@ _ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i: ; preds = %_ZNSt6vect
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %421
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %423, 2
-  %425 = getelementptr inbounds nuw i8, ptr %422, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %422, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !198, !noalias !116
+  %425 = getelementptr inbounds nuw i8, ptr %422, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
 
 426:                                              ; preds = %414

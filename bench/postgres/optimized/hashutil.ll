@@ -618,67 +618,69 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %.0.i.i = phi ptr [ %23, %18 ], [ %29, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %31 = load i16, ptr %30, align 4
-  %32 = getelementptr i8, ptr %.0.i.i, i64 12
-  %.val = load i16, ptr %32, align 4
-  %33 = icmp ult i16 %.val, 25
-  %34 = zext i16 %.val to i32
-  %35 = add nuw nsw i32 %34, 262120
-  %36 = lshr i32 %35, 2
-  %37 = trunc i32 %36 to i16
-  %.0.i = select i1 %33, i16 0, i16 %37
-  %38 = icmp sgt i32 %7, 0
-  br i1 %38, label %.lr.ph60, label %.critedge
+  %32 = zext i16 %31 to i64
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %32
+  %34 = getelementptr i8, ptr %.0.i.i, i64 12
+  %.val = load i16, ptr %34, align 4
+  %35 = icmp ult i16 %.val, 25
+  %36 = zext i16 %.val to i32
+  %37 = add nuw nsw i32 %36, 262120
+  %38 = lshr i32 %37, 2
+  %39 = trunc i32 %38 to i16
+  %.0.i = select i1 %35, i16 0, i16 %39
+  %40 = icmp sgt i32 %7, 0
+  br i1 %40, label %.lr.ph60, label %.critedge
 
 .lr.ph60:                                         ; preds = %BufferGetPage.exit
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %41 = getelementptr i8, ptr %.0.i.i, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %43 = getelementptr i8, ptr %.0.i.i, i64 20
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %.outer
 
 .outer:                                           ; preds = %.loopexit.thread, %.lr.ph60
   %indvars.iv.ph = phi i64 [ %indvars.iv.next66, %.loopexit.thread ], [ 0, %.lr.ph60 ]
   %.04658.ph = phi i1 [ true, %.loopexit.thread ], [ false, %.lr.ph60 ]
-  br label %42
+  br label %44
 
-42:                                               ; preds = %.outer, %.loopexit
+44:                                               ; preds = %.outer, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ %indvars.iv.ph, %.outer ]
-  %43 = load ptr, ptr %39, align 8
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
-  %45 = load i32, ptr %44, align 4
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds %struct.HashScanPosItem, ptr %40, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 6
-  %49 = load i16, ptr %48, align 2
-  %.not56 = icmp ugt i16 %49, %.0.i
+  %45 = load ptr, ptr %41, align 8
+  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
+  %47 = load i32, ptr %46, align 4
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds %struct.HashScanPosItem, ptr %42, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 6
+  %51 = load i16, ptr %50, align 2
+  %.not56 = icmp ugt i16 %51, %.0.i
   br i1 %.not56, label %.loopexit, label %.lr.ph
 
-50:                                               ; preds = %.lr.ph
-  %51 = add i16 %.04457, 1
-  %.not = icmp ugt i16 %51, %.0.i
+52:                                               ; preds = %.lr.ph
+  %53 = add i16 %.04457, 1
+  %.not = icmp ugt i16 %53, %.0.i
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %42, %50
-  %.04457 = phi i16 [ %51, %50 ], [ %49, %42 ]
-  %52 = zext i16 %.04457 to i64
-  %53 = getelementptr %struct.ItemIdData, ptr %41, i64 %52
-  %.val50 = load i32, ptr %53, align 4
-  %54 = and i32 %.val50, 32767
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %55
-  %57 = tail call zeroext i1 @ItemPointerEquals(ptr noundef %56, ptr noundef nonnull %47) #7
-  br i1 %57, label %.loopexit.thread, label %50
+.lr.ph:                                           ; preds = %44, %52
+  %.04457 = phi i16 [ %53, %52 ], [ %51, %44 ]
+  %54 = zext i16 %.04457 to i64
+  %55 = getelementptr %struct.ItemIdData, ptr %43, i64 %54
+  %.val50 = load i32, ptr %55, align 4
+  %56 = and i32 %.val50, 32767
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %57
+  %59 = tail call zeroext i1 @ItemPointerEquals(ptr noundef %58, ptr noundef nonnull %49) #7
+  br i1 %59, label %.loopexit.thread, label %52
 
-.loopexit:                                        ; preds = %50, %42
+.loopexit:                                        ; preds = %52, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !9
 
 .loopexit.thread:                                 ; preds = %.lr.ph
-  %58 = getelementptr %struct.ItemIdData, ptr %41, i64 %52
-  %59 = load i32, ptr %58, align 4
-  %60 = or i32 %59, 98304
-  store i32 %60, ptr %58, align 4
+  %60 = getelementptr %struct.ItemIdData, ptr %43, i64 %54
+  %61 = load i32, ptr %60, align 4
+  %62 = or i32 %61, 98304
+  store i32 %62, ptr %60, align 4
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not67 = icmp eq i64 %indvars.iv.next66, %wide.trip.count
   br i1 %exitcond.not67, label %._crit_edge.thread, label %.outer, !llvm.loop !9
@@ -687,9 +689,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
   br i1 %.04658.ph, label %._crit_edge.thread, label %.critedge
 
 ._crit_edge.thread:                               ; preds = %.loopexit.thread, %._crit_edge
-  %61 = zext i16 %31 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %61
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %64 = load i16, ptr %63, align 4
   %65 = or i16 %64, 128
   store i16 %65, ptr %63, align 4

@@ -2538,24 +2538,24 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit185.i:          ; preds = %_ZSt6fill_nIPimiET_
   %433 = fadd float %432, 1.000000e+00
   %434 = call float @llvm.floor.f32(float %433)
   %435 = fptosi float %434 to i32
+  %436 = call float @llvm.ceil.f32(float %432)
+  %437 = fptosi float %436 to i32
   %.not115.i = icmp slt i32 %435, 0
   br i1 %.not115.i, label %.preheader88.i, label %.lr.ph117.i
 
 .lr.ph117.i:                                      ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit185.i
-  %436 = sitofp i32 %419 to double
-  %437 = add nuw i32 %435, 1
-  %wide.trip.count164.i = zext i32 %437 to i64
+  %438 = sitofp i32 %419 to double
+  %439 = add nuw i32 %435, 1
+  %wide.trip.count164.i = zext i32 %439 to i64
   br label %442
 
 .preheader88.i:                                   ; preds = %442, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit185.i
-  %438 = call float @llvm.ceil.f32(float %432)
-  %439 = fptosi float %438 to i32
-  %.not153118.i = icmp slt i32 %419, %439
+  %.not153118.i = icmp slt i32 %419, %437
   br i1 %.not153118.i, label %._crit_edge121.i, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %.preheader88.i
   %440 = sext i32 %419 to i64
-  %441 = sext i32 %439 to i64
+  %441 = sext i32 %437 to i64
   br label %.preheader.i
 
 442:                                              ; preds = %442, %.lr.ph117.i
@@ -2564,7 +2564,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit185.i:          ; preds = %_ZSt6fill_nIPimiET_
   %444 = trunc nuw i64 %443 to i32
   %445 = uitofp nneg i32 %444 to double
   %446 = fneg double %445
-  %447 = call double @llvm.fmuladd.f64(double %436, double %436, double %446)
+  %447 = call double @llvm.fmuladd.f64(double %438, double %438, double %446)
   %448 = call double @sqrt(double noundef %447) #29, !tbaa !3
   %449 = insertelement <2 x double> poison, double %448, i64 0
   %450 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %449)

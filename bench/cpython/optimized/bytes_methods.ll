@@ -1728,19 +1728,19 @@ define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef 
 .lr.ph.preheader:
   %6 = alloca %struct.stringlib__pre, align 8
   %7 = alloca %struct.stringlib__pre, align 8
-  %8 = add nsw i64 %3, -1
-  %9 = getelementptr i8, ptr %2, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !4
+  %8 = sub nsw i64 %1, %3
+  %9 = add nsw i64 %3, -1
+  %10 = getelementptr i8, ptr %2, i64 %9
+  %11 = load i8, ptr %10, align 1, !tbaa !4
+  %12 = getelementptr i8, ptr %0, i64 %9
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %11 = sub nsw i64 %1, %3
-  %12 = getelementptr i8, ptr %0, i64 %8
-  %13 = and i8 %10, 63
+  %13 = and i8 %11, 63
   %14 = zext nneg i8 %13 to i64
   %15 = shl nuw i64 1, %14
   %16 = or i64 %52, %15
-  %.not137 = icmp slt i64 %11, 0
+  %.not137 = icmp slt i64 %8, 0
   br i1 %.not137, label %.loopexit, label %.lr.ph143.split.us.preheader
 
 .lr.ph143.split.us.preheader:                     ; preds = %._crit_edge
@@ -1754,7 +1754,7 @@ define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef 
   %.0100138.us = phi i64 [ %.2102.us, %42 ], [ 0, %.lr.ph143.split.us.preheader ]
   %18 = getelementptr i8, ptr %12, i64 %.088140.us
   %19 = load i8, ptr %18, align 1, !tbaa !4
-  %20 = icmp eq i8 %19, %10
+  %20 = icmp eq i8 %19, %11
   br i1 %20, label %.preheader.us, label %.sink.split
 
 21:                                               ; preds = %.preheader.us, %44
@@ -1767,16 +1767,16 @@ define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef 
   br i1 %.not113.us, label %44, label %._crit_edge133.us
 
 ._crit_edge133.us:                                ; preds = %21
-  %26 = icmp eq i64 %.0131.us, %8
+  %26 = icmp eq i64 %.0131.us, %9
   br i1 %26, label %._crit_edge133.us.thread, label %27
 
 27:                                               ; preds = %._crit_edge133.us
   %28 = add i64 %.0100138.us, 1
   %29 = add i64 %28, %.0131.us
   %30 = icmp sgt i64 %29, %17
-  %31 = sub i64 %11, %.088140.us
+  %31 = sub i64 %8, %.088140.us
   %32 = icmp sgt i64 %31, 2000
-  %or.cond.us = and i1 %30, %32
+  %or.cond.us = select i1 %30, i1 %32, i1 false
   br i1 %or.cond.us, label %.split.us, label %.sink.split
 
 ._crit_edge133.us.thread:                         ; preds = %44, %._crit_edge133.us
@@ -1803,15 +1803,15 @@ define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef 
 42:                                               ; preds = %.sink.split, %33
   %.2102.us = phi i64 [ %.0100138.us, %33 ], [ %.2102.us.ph, %.sink.split ]
   %.399.us = phi i64 [ %34, %33 ], [ %.096139.us, %.sink.split ]
-  %.pn.us = phi i64 [ %8, %33 ], [ %..0103.us, %.sink.split ]
+  %.pn.us = phi i64 [ %9, %33 ], [ %..0103.us, %.sink.split ]
   %.3.us = add i64 %.088140.us, 1
   %43 = add i64 %.3.us, %.pn.us
-  %.not.us = icmp sgt i64 %43, %11
+  %.not.us = icmp sgt i64 %43, %8
   br i1 %.not.us, label %.loopexit, label %.lr.ph143.split.us, !llvm.loop !61
 
 44:                                               ; preds = %21
   %45 = add nuw nsw i64 %.0131.us, 1
-  %exitcond216.not = icmp eq i64 %45, %8
+  %exitcond216.not = icmp eq i64 %45, %9
   br i1 %exitcond216.not, label %._crit_edge133.us.thread, label %21, !llvm.loop !62
 
 .preheader.us:                                    ; preds = %.lr.ph143.split.us
@@ -1821,19 +1821,19 @@ define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.090129 = phi i64 [ %56, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.091128 = phi i64 [ %52, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0103127 = phi i64 [ %.1104, %.lr.ph ], [ %8, %.lr.ph.preheader ]
+  %.0103127 = phi i64 [ %.1104, %.lr.ph ], [ %9, %.lr.ph.preheader ]
   %47 = getelementptr i8, ptr %2, i64 %.090129
   %48 = load i8, ptr %47, align 1, !tbaa !4
   %49 = and i8 %48, 63
   %50 = zext nneg i8 %49 to i64
   %51 = shl nuw i64 1, %50
   %52 = or i64 %51, %.091128
-  %53 = icmp eq i8 %48, %10
+  %53 = icmp eq i8 %48, %11
   %54 = xor i64 %.090129, -1
-  %55 = add nsw i64 %8, %54
+  %55 = add nsw i64 %9, %54
   %.1104 = select i1 %53, i64 %55, i64 %.0103127
   %56 = add nuw nsw i64 %.090129, 1
-  %exitcond.not = icmp eq i64 %56, %8
+  %exitcond.not = icmp eq i64 %56, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 .split.us:                                        ; preds = %27

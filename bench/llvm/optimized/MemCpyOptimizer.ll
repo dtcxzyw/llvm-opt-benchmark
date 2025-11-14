@@ -10324,33 +10324,33 @@ define dso_local noundef zeroext i1 @_ZN4llvm13MemCpyOptPass7runImplERNS_8Functi
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %5, ptr %36, align 8, !tbaa !440
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %38 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %38, i8 0, i64 20, i1 false)
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %39, i8 0, i64 20, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %37, i8 0, i64 28, i1 false)
-  store ptr %10, ptr %39, align 8, !tbaa !96
-  br label %40
+  store ptr %10, ptr %40, align 8, !tbaa !96
+  br label %41
 
-40:                                               ; preds = %40, %8
-  %.0 = phi i1 [ false, %8 ], [ true, %40 ]
-  %41 = call noundef zeroext i1 @_ZN4llvm13MemCpyOptPass17iterateOnFunctionERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(136) %1)
-  br i1 %41, label %40, label %42, !llvm.loop !441
+41:                                               ; preds = %41, %8
+  %.0 = phi i1 [ false, %8 ], [ true, %41 ]
+  %42 = call noundef zeroext i1 @_ZN4llvm13MemCpyOptPass17iterateOnFunctionERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(136) %1)
+  br i1 %42, label %41, label %43, !llvm.loop !441
 
-42:                                               ; preds = %40
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 24
+43:                                               ; preds = %41
   %44 = load i8, ptr @_ZN4llvm15VerifyMemorySSAE, align 1, !tbaa !331, !range !48, !noundef !49
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %46, label %47
 
-46:                                               ; preds = %42
+46:                                               ; preds = %43
   call void @_ZNK4llvm9MemorySSA15verifyMemorySSAENS0_17VerificationLevelE(ptr noundef nonnull align 8 dereferenceable(317) %7, i32 noundef 0) #20
   br label %47
 
-47:                                               ; preds = %46, %42
+47:                                               ; preds = %46, %43
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %49 = load i32, ptr %48, align 8, !tbaa !442
   %50 = icmp eq i32 %49, 0
-  %.pre1.i.i = load ptr, ptr %38, align 8, !tbaa !445
+  %.pre1.i.i = load ptr, ptr %39, align 8, !tbaa !445
   br i1 %50, label %_ZN4llvm22EarliestEscapeAnalysisD2Ev.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %47
@@ -10399,7 +10399,7 @@ _ZN4llvm13TinyPtrVectorIPKNS_5ValueEED2Ev.exit.i.i.i: ; preds = %_ZN4llvm11Small
   br i1 %.not.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_13TinyPtrVectorIPKNS_5ValueEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E10destroyAllEv.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !446
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_13TinyPtrVectorIPKNS_5ValueEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E10destroyAllEv.exit.loopexit.i.i: ; preds = %_ZN4llvm13TinyPtrVectorIPKNS_5ValueEED2Ev.exit.i.i.i
-  %.pre.i.i = load ptr, ptr %38, align 8, !tbaa !445
+  %.pre.i.i = load ptr, ptr %39, align 8, !tbaa !445
   %.pre2.i.i = load i32, ptr %48, align 8, !tbaa !442
   %65 = zext i32 %.pre2.i.i to i64
   %66 = shl nuw nsw i64 %65, 4
@@ -10409,7 +10409,7 @@ _ZN4llvm22EarliestEscapeAnalysisD2Ev.exit:        ; preds = %47, %_ZN4llvm12Dens
   %67 = phi i64 [ %66, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_13TinyPtrVectorIPKNS_5ValueEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E10destroyAllEv.exit.loopexit.i.i ], [ 0, %47 ]
   %68 = phi ptr [ %.pre.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_13TinyPtrVectorIPKNS_5ValueEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E10destroyAllEv.exit.loopexit.i.i ], [ %.pre1.i.i, %47 ]
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %68, i64 noundef %67, i64 noundef 8) #20
-  %69 = load ptr, ptr %43, align 8, !tbaa !447
+  %69 = load ptr, ptr %38, align 8, !tbaa !447
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %71 = load i32, ptr %70, align 8, !tbaa !450
   %72 = zext i32 %71 to i64

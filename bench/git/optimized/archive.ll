@@ -258,14 +258,14 @@ define dso_local i32 @write_archive_entries(ptr noundef %0, ptr noundef %1) loca
   %45 = load ptr, ptr %44, align 8, !tbaa !34
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %47 = call i32 @read_tree(ptr noundef %43, ptr noundef %45, ptr noundef nonnull %46, ptr noundef nonnull @queue_or_write_archive_entry, ptr noundef nonnull %3) #19
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !41
-  %.not6583 = icmp eq ptr %49, null
+  %48 = icmp eq i32 %47, 1
+  %spec.store.select = select i1 %48, i32 0, i32 %47
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %50 = load ptr, ptr %49, align 8, !tbaa !41
+  %.not6583 = icmp eq ptr %50, null
   br i1 %.not6583, label %.preheader, label %.lr.ph84
 
 .preheader:                                       ; preds = %.lr.ph84, %40
-  %50 = icmp eq i32 %47, 1
-  %spec.store.select = select i1 %50, i32 0, i32 %47
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %52 = load i64, ptr %51, align 8, !tbaa !42
   %.not91 = icmp eq i64 %52, 0
@@ -284,10 +284,10 @@ define dso_local i32 @write_archive_entries(ptr noundef %0, ptr noundef %1) loca
   br label %67
 
 .lr.ph84:                                         ; preds = %40, %.lr.ph84
-  %62 = phi ptr [ %63, %.lr.ph84 ], [ %49, %40 ]
+  %62 = phi ptr [ %63, %.lr.ph84 ], [ %50, %40 ]
   %63 = load ptr, ptr %62, align 8, !tbaa !43
   call void @free(ptr noundef nonnull %62) #19
-  store ptr %63, ptr %48, align 8, !tbaa !41
+  store ptr %63, ptr %49, align 8, !tbaa !41
   %.not65 = icmp eq ptr %63, null
   br i1 %.not65, label %.preheader, label %.lr.ph84, !llvm.loop !44
 

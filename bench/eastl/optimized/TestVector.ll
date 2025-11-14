@@ -2979,9 +2979,10 @@ _ZN5eastl10VectorBaseIbNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i: ; preds 
 
 for.body.i.i.i.preheader.i.i.i:                   ; preds = %entry
   %call.i.i.i.i.i1.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.preheader.i.i.i, %for.body.i.i.i.i.i.i
+for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.i.i.i.preheader.i.i.i
   %currentDest.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call.i.i.i.i.i1.i, %for.body.i.i.i.preheader.i.i.i ]
   %first.sroa.0.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %0, %for.body.i.i.i.preheader.i.i.i ]
   %2 = load i8, ptr %first.sroa.0.06.i.i.i.i.i.i, align 1
@@ -2993,7 +2994,6 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.preh
   br i1 %cmp.i.i.not.i.i.i.i.i.i, label %invoke.cont.loopexit, label %for.body.i.i.i.i.i.i, !llvm.loop !5
 
 invoke.cont.loopexit:                             ; preds = %for.body.i.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %.pre = load ptr, ptr %this, align 8
   %.pre3 = load ptr, ptr %mpEnd.i, align 8
   br label %invoke.cont
@@ -5679,9 +5679,10 @@ _ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i: ; preds 
 
 for.body.i.i.i.preheader.i.i.i:                   ; preds = %entry
   %call.i.i.i.i.i1.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.preheader.i.i.i, %for.body.i.i.i.i.i.i
+for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.i.i.i.preheader.i.i.i
   %currentDest.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call.i.i.i.i.i1.i, %for.body.i.i.i.preheader.i.i.i ]
   %first.sroa.0.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %0, %for.body.i.i.i.preheader.i.i.i ]
   %2 = load i32, ptr %first.sroa.0.06.i.i.i.i.i.i, align 4
@@ -5692,7 +5693,6 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.preh
   br i1 %cmp.i.i.not.i.i.i.i.i.i, label %invoke.cont.loopexit, label %for.body.i.i.i.i.i.i, !llvm.loop !36
 
 invoke.cont.loopexit:                             ; preds = %for.body.i.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %.pre = load ptr, ptr %this, align 8
   %.pre3 = load ptr, ptr %mpEnd.i, align 8
   br label %invoke.cont
@@ -8396,9 +8396,10 @@ _ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i: ;
 
 for.body.i.i.i.preheader.i.i.i:                   ; preds = %entry
   %call.i6.i.i.i.i1.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef %sub.ptr.sub.i.i.i.i.i.i, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.preheader.i.i.i, %for.body.i.i.i.i.i.i
+for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.i.i.i.preheader.i.i.i
   %currentDest.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call.i6.i.i.i.i1.i, %for.body.i.i.i.preheader.i.i.i ]
   %first.sroa.0.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %0, %for.body.i.i.i.preheader.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %currentDest.07.i.i.i.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %first.sroa.0.06.i.i.i.i.i.i, i64 64, i1 false)
@@ -8408,7 +8409,6 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.preh
   br i1 %cmp.i.i.not.i.i.i.i.i.i, label %invoke.cont.loopexit, label %for.body.i.i.i.i.i.i, !llvm.loop !67
 
 invoke.cont.loopexit:                             ; preds = %for.body.i.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %.pre = load ptr, ptr %this, align 8
   %.pre3 = load ptr, ptr %mpEnd.i, align 8
   br label %invoke.cont
@@ -12014,9 +12014,10 @@ _ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.
 
 for.body.i.i.i.preheader.i.i.i:                   ; preds = %entry
   %call.i.i.i.i.i1.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.preheader.i.i.i, %for.body.i.i.i.i.i.i
+for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.i.i.i.preheader.i.i.i
   %currentDest.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call.i.i.i.i.i1.i, %for.body.i.i.i.preheader.i.i.i ]
   %first.sroa.0.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %0, %for.body.i.i.i.preheader.i.i.i ]
   %2 = load i32, ptr %first.sroa.0.06.i.i.i.i.i.i, align 8
@@ -12048,7 +12049,6 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.preh
   br i1 %cmp.i.i.not.i.i.i.i.i.i, label %invoke.cont.loopexit, label %for.body.i.i.i.i.i.i, !llvm.loop !103
 
 invoke.cont.loopexit:                             ; preds = %for.body.i.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %.pre = load ptr, ptr %this, align 8
   %.pre3 = load ptr, ptr %mpEnd.i, align 8
   br label %invoke.cont
@@ -19657,6 +19657,7 @@ invoke.cont307:                                   ; preds = %land.end305
 call.i.i.i.i.noexc1123:                           ; preds = %invoke.cont307
   %mCapacityAllocator.i.i1111 = getelementptr inbounds nuw i8, ptr %vector4TO44, i64 16
   store ptr %call.i.i.i.i1124, ptr %vector4TO44, align 8
+  %mpEnd.i.i1112 = getelementptr inbounds nuw i8, ptr %vector4TO44, i64 8
   %add.ptr.i.i1113 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i1124, i64 96
   store ptr %add.ptr.i.i1113, ptr %mCapacityAllocator.i.i1111, align 8
   br label %for.body.i.i.i1114
@@ -19686,7 +19687,6 @@ for.body.i.i.i1114:                               ; preds = %for.body.i.i.i1114,
   br i1 %cmp.not.i.i.i1118, label %land.lhs.true323, label %for.body.i.i.i1114, !llvm.loop !95
 
 land.lhs.true323:                                 ; preds = %for.body.i.i.i1114
-  %mpEnd.i.i1112 = getelementptr inbounds nuw i8, ptr %vector4TO44, i64 8
   %.pre.i1119 = load ptr, ptr %vector4TO44, align 8
   %add.ptr.i1122 = getelementptr inbounds nuw i8, ptr %.pre.i1119, i64 96
   store i64 %331, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -31740,29 +31740,29 @@ _ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i: ; pred
 
 for.body.i.i.i.preheader.i.i.i.i:                 ; preds = %invoke.cont2830
   %call.i.i.i.i.i1.i.i5809 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %for.body.i.i.i.i.i.i.i5800 unwind label %lpad2820
+          to label %for.body.i.i.i.i.i.i.i5801 unwind label %lpad2820
 
-for.body.i.i.i.i.i.i.i5800:                       ; preds = %for.body.i.i.i.preheader.i.i.i.i, %for.body.i.i.i.i.i.i.i5800
-  %currentDest.07.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i5802, %for.body.i.i.i.i.i.i.i5800 ], [ %call.i.i.i.i.i1.i.i5809, %for.body.i.i.i.preheader.i.i.i.i ]
-  %first.sroa.0.06.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i5801, %for.body.i.i.i.i.i.i.i5800 ], [ %2238, %for.body.i.i.i.preheader.i.i.i.i ]
+for.body.i.i.i.i.i.i.i5801:                       ; preds = %for.body.i.i.i.preheader.i.i.i.i, %for.body.i.i.i.i.i.i.i5801
+  %currentDest.07.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i5803, %for.body.i.i.i.i.i.i.i5801 ], [ %call.i.i.i.i.i1.i.i5809, %for.body.i.i.i.preheader.i.i.i.i ]
+  %first.sroa.0.06.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i5802, %for.body.i.i.i.i.i.i.i5801 ], [ %2238, %for.body.i.i.i.preheader.i.i.i.i ]
   %2240 = load i32, ptr %first.sroa.0.06.i.i.i.i.i.i.i, align 4
   store i32 %2240, ptr %currentDest.07.i.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i.i.i5801 = getelementptr inbounds nuw i8, ptr %first.sroa.0.06.i.i.i.i.i.i.i, i64 4
-  %incdec.ptr.i.i.i.i.i.i.i5802 = getelementptr inbounds nuw i8, ptr %currentDest.07.i.i.i.i.i.i.i, i64 4
-  %cmp.i.i.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i5801, %2239
-  br i1 %cmp.i.i.not.i.i.i.i.i.i.i, label %invoke.cont.loopexit.i5803, label %for.body.i.i.i.i.i.i.i5800, !llvm.loop !36
+  %incdec.ptr.i.i.i.i.i.i.i.i5802 = getelementptr inbounds nuw i8, ptr %first.sroa.0.06.i.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i.i5803 = getelementptr inbounds nuw i8, ptr %currentDest.07.i.i.i.i.i.i.i, i64 4
+  %cmp.i.i.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i5802, %2239
+  br i1 %cmp.i.i.not.i.i.i.i.i.i.i, label %invoke.cont.loopexit.i5804, label %for.body.i.i.i.i.i.i.i5801, !llvm.loop !36
 
-invoke.cont.loopexit.i5803:                       ; preds = %for.body.i.i.i.i.i.i.i5800
-  %add.ptr.i.i.i.i5804 = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i.i5809, i64 %sub.ptr.sub.i.i.i.i.i.i.i
+invoke.cont.loopexit.i5804:                       ; preds = %for.body.i.i.i.i.i.i.i5801
+  %add.ptr.i.i.i.i5800 = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i.i5809, i64 %sub.ptr.sub.i.i.i.i.i.i.i
   %.pre.i5805 = load ptr, ptr %v2817, align 8
   %.pre3.i = load ptr, ptr %mpEnd.i5746, align 8
   br label %invoke.cont2832
 
-invoke.cont2832:                                  ; preds = %invoke.cont.loopexit.i5803, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i
-  %2241 = phi ptr [ %add.ptr.i.i.i.i5804, %invoke.cont.loopexit.i5803 ], [ %add.ptr4.i.i.i.i, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ]
-  %2242 = phi ptr [ %.pre3.i, %invoke.cont.loopexit.i5803 ], [ %2239, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ]
-  %2243 = phi ptr [ %call.i.i.i.i.i1.i.i5809, %invoke.cont.loopexit.i5803 ], [ null, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ]
-  %2244 = phi ptr [ %.pre.i5805, %invoke.cont.loopexit.i5803 ], [ %2238, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ]
+invoke.cont2832:                                  ; preds = %invoke.cont.loopexit.i5804, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i
+  %2241 = phi ptr [ %add.ptr.i.i.i.i5800, %invoke.cont.loopexit.i5804 ], [ %add.ptr4.i.i.i.i, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ]
+  %2242 = phi ptr [ %.pre3.i, %invoke.cont.loopexit.i5804 ], [ %2239, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ]
+  %2243 = phi ptr [ %call.i.i.i.i.i1.i.i5809, %invoke.cont.loopexit.i5804 ], [ null, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ]
+  %2244 = phi ptr [ %.pre.i5805, %invoke.cont.loopexit.i5804 ], [ %2238, %_ZN5eastl10VectorBaseIiNS_9allocatorEE10DoAllocateEm.exit.thread.i.i.i.i ]
   store ptr %2243, ptr %v2817, align 8
   store ptr %2244, ptr %temp.i, align 8
   %mpEnd3.i.i5807 = getelementptr inbounds nuw i8, ptr %temp.i, i64 8

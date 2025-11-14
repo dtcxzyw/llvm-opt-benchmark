@@ -4790,76 +4790,76 @@ define internal fastcc void @_ZL8print_plP8_IO_FILEN3gmx8ArrayRefIK18Interaction
   br label %.lr.ph45.split.us
 
 .lr.ph45.split.us:                                ; preds = %.lr.ph45.split.us.preheader, %._crit_edge.us
-  %.sroa.032.043.us = phi ptr [ %39, %._crit_edge.us ], [ %17, %.lr.ph45.split.us.preheader ]
+  %.sroa.032.043.us = phi ptr [ %38, %._crit_edge.us ], [ %17, %.lr.ph45.split.us.preheader ]
   %20 = load ptr, ptr %.sroa.032.043.us, align 8, !tbaa !138
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.032.043.us, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !189
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.032.043.us, i64 24
   %.not3738.us = icmp eq ptr %20, %22
-  br i1 %.not3738.us, label %.preheader.us, label %.lr.ph.us
+  br i1 %.not3738.us, label %.preheader.us.preheader, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph45.split.us, %.lr.ph.us
-  %.sroa.0.039.us = phi ptr [ %29, %.lr.ph.us ], [ %20, %.lr.ph45.split.us ]
-  %23 = load i32, ptr %.sroa.0.039.us, align 4, !tbaa !4
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %4, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !126
-  %27 = load ptr, ptr %26, align 8, !tbaa !72
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.97, ptr noundef %27) #24
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.039.us, i64 4
-  %.not37.us = icmp eq ptr %29, %22
-  br i1 %.not37.us, label %.preheader.us, label %.lr.ph.us
+  %.sroa.0.039.us = phi ptr [ %30, %.lr.ph.us ], [ %20, %.lr.ph45.split.us ]
+  %24 = load i32, ptr %.sroa.0.039.us, align 4, !tbaa !4
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds ptr, ptr %4, i64 %25
+  %27 = load ptr, ptr %26, align 8, !tbaa !126
+  %28 = load ptr, ptr %27, align 8, !tbaa !72
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.97, ptr noundef %28) #24
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.039.us, i64 4
+  %.not37.us = icmp eq ptr %30, %22
+  br i1 %.not37.us, label %.preheader.us.preheader, label %.lr.ph.us
 
-30:                                               ; preds = %.preheader.us, %37
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %37 ]
-  %31 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv
+.preheader.us.preheader:                          ; preds = %.lr.ph.us, %.lr.ph45.split.us
+  br label %.preheader.us
+
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %37
+  %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.preheader.us.preheader ]
+  %31 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !44
   %33 = fcmp une float %32, -4.092030e+05
   br i1 %33, label %34, label %37
 
-34:                                               ; preds = %30
+34:                                               ; preds = %.preheader.us
   %35 = fpext float %32 to double
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.98, double noundef %35) #24
   br label %37
 
-37:                                               ; preds = %34, %30
+37:                                               ; preds = %34, %.preheader.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !200
-
-.preheader.us:                                    ; preds = %.lr.ph.us, %.lr.ph45.split.us
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.032.043.us, i64 24
-  br label %30
+  br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !200
 
 ._crit_edge.us:                                   ; preds = %37
   %fputc23.us = tail call i32 @fputc(i32 10, ptr %0)
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.032.043.us, i64 112
-  %.not.us = icmp eq ptr %39, %18
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.032.043.us, i64 112
+  %.not.us = icmp eq ptr %38, %18
   br i1 %.not.us, label %.loopexit, label %.lr.ph45.split.us
 
 .lr.ph45.split:                                   ; preds = %.lr.ph45, %.preheader
-  %.sroa.032.043 = phi ptr [ %43, %.preheader ], [ %17, %.lr.ph45 ]
-  %40 = load ptr, ptr %.sroa.032.043, align 8, !tbaa !138
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.032.043, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !189
-  %.not3738 = icmp eq ptr %40, %42
+  %.sroa.032.043 = phi ptr [ %42, %.preheader ], [ %17, %.lr.ph45 ]
+  %39 = load ptr, ptr %.sroa.032.043, align 8, !tbaa !138
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.032.043, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !189
+  %.not3738 = icmp eq ptr %39, %41
   br i1 %.not3738, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %.lr.ph45.split
   %fputc23 = tail call i32 @fputc(i32 10, ptr %0)
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.032.043, i64 112
-  %.not = icmp eq ptr %43, %18
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.032.043, i64 112
+  %.not = icmp eq ptr %42, %18
   br i1 %.not, label %.loopexit, label %.lr.ph45.split
 
 .lr.ph:                                           ; preds = %.lr.ph45.split, %.lr.ph
-  %.sroa.0.039 = phi ptr [ %50, %.lr.ph ], [ %40, %.lr.ph45.split ]
-  %44 = load i32, ptr %.sroa.0.039, align 4, !tbaa !4
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %4, i64 %45
-  %47 = load ptr, ptr %46, align 8, !tbaa !126
-  %48 = load ptr, ptr %47, align 8, !tbaa !72
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.97, ptr noundef %48) #24
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.039, i64 4
-  %.not37 = icmp eq ptr %50, %42
+  %.sroa.0.039 = phi ptr [ %49, %.lr.ph ], [ %39, %.lr.ph45.split ]
+  %43 = load i32, ptr %.sroa.0.039, align 4, !tbaa !4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds ptr, ptr %4, i64 %44
+  %46 = load ptr, ptr %45, align 8, !tbaa !126
+  %47 = load ptr, ptr %46, align 8, !tbaa !72
+  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.97, ptr noundef %47) #24
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.039, i64 4
+  %.not37 = icmp eq ptr %49, %41
   br i1 %.not37, label %.preheader, label %.lr.ph
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge.us, %12, %5

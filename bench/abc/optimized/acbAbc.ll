@@ -121,44 +121,43 @@ define noundef ptr @Acb_NtkFromAbc2(ptr noundef readonly captures(none) %0) loca
   %.val98.val147177 = phi i32 [ %.val97.val136, %.critedge2.preheader ], [ %.val97.val, %.critedge4.preheader.loopexit ]
   %49 = phi ptr [ %30, %.critedge2.preheader ], [ %.pre173, %.critedge4.preheader.loopexit ]
   %.val97.lcssa134 = phi ptr [ %.val97135, %.critedge2.preheader ], [ %.val97, %.critedge4.preheader.loopexit ]
-  %50 = getelementptr i8, ptr %49, i64 4
-  %.val92144 = load i32, ptr %50, align 4, !tbaa !32
-  %51 = icmp sgt i32 %.val92144, 0
-  br i1 %51, label %.lr.ph146, label %.critedge6.preheader
+  %50 = getelementptr i8, ptr %.val97.lcssa134, i64 4
+  %51 = getelementptr i8, ptr %49, i64 4
+  %.val92144 = load i32, ptr %51, align 4, !tbaa !32
+  %52 = icmp sgt i32 %.val92144, 0
+  br i1 %52, label %.lr.ph146, label %.critedge6.preheader
 
 .lr.ph146:                                        ; preds = %.critedge4.preheader
-  %52 = getelementptr i8, ptr %49, i64 8
-  %.val102.val = load ptr, ptr %52, align 8, !tbaa !44
-  %53 = getelementptr i8, ptr %14, i64 136
-  %54 = getelementptr i8, ptr %14, i64 152
+  %53 = getelementptr i8, ptr %49, i64 8
+  %.val102.val = load ptr, ptr %53, align 8, !tbaa !44
+  %54 = getelementptr i8, ptr %14, i64 136
+  %55 = getelementptr i8, ptr %14, i64 152
   br label %68
 
 .critedge2:                                       ; preds = %.critedge2.preheader, %.critedge2
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.critedge2 ], [ 0, %.critedge2.preheader ]
   %.val97138 = phi ptr [ %.val97, %.critedge2 ], [ %.val97135, %.critedge2.preheader ]
-  %55 = getelementptr i8, ptr %.val97138, i64 8
-  %.val110.val = load ptr, ptr %55, align 8, !tbaa !44
-  %56 = getelementptr inbounds nuw ptr, ptr %.val110.val, i64 %indvars.iv158
-  %57 = load ptr, ptr %56, align 8, !tbaa !45
-  %58 = tail call fastcc i32 @Acb_ObjAlloc(ptr noundef %14, i32 noundef 4, i32 noundef 1)
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  store i32 %58, ptr %59, align 8, !tbaa !46
+  %56 = getelementptr i8, ptr %.val97138, i64 8
+  %.val110.val = load ptr, ptr %56, align 8, !tbaa !44
+  %57 = getelementptr inbounds nuw ptr, ptr %.val110.val, i64 %indvars.iv158
+  %58 = load ptr, ptr %57, align 8, !tbaa !45
+  %59 = tail call fastcc i32 @Acb_ObjAlloc(ptr noundef %14, i32 noundef 4, i32 noundef 1)
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 64
+  store i32 %59, ptr %60, align 8, !tbaa !46
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %.val97 = load ptr, ptr %11, align 8, !tbaa !33
-  %60 = getelementptr i8, ptr %.val97, i64 4
-  %.val97.val = load i32, ptr %60, align 4, !tbaa !32
-  %61 = sext i32 %.val97.val to i64
-  %62 = icmp slt i64 %indvars.iv.next159, %61
-  br i1 %62, label %.critedge2, label %.critedge4.preheader.loopexit, !llvm.loop !53
+  %61 = getelementptr i8, ptr %.val97, i64 4
+  %.val97.val = load i32, ptr %61, align 4, !tbaa !32
+  %62 = sext i32 %.val97.val to i64
+  %63 = icmp slt i64 %indvars.iv.next159, %62
+  br i1 %63, label %.critedge2, label %.critedge4.preheader.loopexit, !llvm.loop !53
 
 .critedge6.preheader.loopexit:                    ; preds = %.critedge8
-  %.phi.trans.insert = getelementptr i8, ptr %.val97.lcssa134, i64 4
-  %.val98.val147.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !32
+  %.val98.val147.pre = load i32, ptr %50, align 4, !tbaa !32
   br label %.critedge6.preheader
 
 .critedge6.preheader:                             ; preds = %.critedge6.preheader.loopexit, %.critedge4.preheader
   %.val98.val147 = phi i32 [ %.val98.val147.pre, %.critedge6.preheader.loopexit ], [ %.val98.val147177, %.critedge4.preheader ]
-  %63 = getelementptr i8, ptr %.val97.lcssa134, i64 4
   %64 = icmp sgt i32 %.val98.val147, 0
   br i1 %64, label %.lr.ph149, label %.critedge10
 
@@ -201,8 +200,8 @@ define noundef ptr @Acb_NtkFromAbc2(ptr noundef readonly captures(none) %0) loca
   %79 = getelementptr i8, ptr %.val112.val, i64 8
   %.val112.val.val = load ptr, ptr %79, align 8, !tbaa !44
   %80 = getelementptr inbounds nuw i8, ptr %70, i64 64
-  %.val116 = load ptr, ptr %53, align 8, !tbaa !54
-  %.val117 = load ptr, ptr %54, align 8, !tbaa !54
+  %.val116 = load ptr, ptr %54, align 8, !tbaa !54
+  %.val117 = load ptr, ptr %55, align 8, !tbaa !54
   br label %81
 
 81:                                               ; preds = %.lr.ph143, %81
@@ -233,7 +232,7 @@ define noundef ptr @Acb_NtkFromAbc2(ptr noundef readonly captures(none) %0) loca
   br i1 %100, label %81, label %.critedge8.loopexit, !llvm.loop !58
 
 .critedge8.loopexit:                              ; preds = %81
-  %.val92.pre = load i32, ptr %50, align 4, !tbaa !32
+  %.val92.pre = load i32, ptr %51, align 4, !tbaa !32
   br label %.critedge8
 
 .critedge8:                                       ; preds = %.critedge8.loopexit, %.preheader, %72, %68
@@ -274,7 +273,7 @@ define noundef ptr @Acb_NtkFromAbc2(ptr noundef readonly captures(none) %0) loca
   %124 = getelementptr inbounds i32, ptr %120, i64 %123
   store i32 %115, ptr %124, align 4, !tbaa !57
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %.val98.val = load i32, ptr %63, align 4, !tbaa !32
+  %.val98.val = load i32, ptr %50, align 4, !tbaa !32
   %125 = sext i32 %.val98.val to i64
   %126 = icmp slt i64 %indvars.iv.next168, %125
   br i1 %126, label %.critedge6, label %.critedge10, !llvm.loop !60

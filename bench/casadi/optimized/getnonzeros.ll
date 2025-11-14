@@ -869,8 +869,8 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEES6_ET0_T_S8_S7_.ex
 
 _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i117: ; preds = %75
   %.idx.i.i.i.i.i.i118 = shl nuw nsw i64 %77, 3
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i.i.i.i.i.i118
   call void @llvm.memset.p0.i64(ptr align 8 %76, i8 0, i64 %.idx.i.i.i.i.i.i118, i1 false), !tbaa !30
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i.i.i.i.i.i118
   br label %_ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit.i119
 
 _ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit.i119: ; preds = %_ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i117, %75
@@ -3370,8 +3370,8 @@ _ZNSt6vectorIxSaIxEED2Ev.exit95:                  ; preds = %160, %_ZNSt6vectorI
 
 _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %197
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %199, 3
-  %201 = getelementptr inbounds nuw i8, ptr %198, i64 %.idx.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %198, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !30
+  %201 = getelementptr inbounds nuw i8, ptr %198, i64 %.idx.i.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %197
@@ -3509,8 +3509,8 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEES6_ET0_T_S8_S7_.ex
 
 _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i143: ; preds = %252
   %.idx.i.i.i.i.i.i144 = shl nuw nsw i64 %254, 3
-  %256 = getelementptr inbounds nuw i8, ptr %253, i64 %.idx.i.i.i.i.i.i144
   call void @llvm.memset.p0.i64(ptr align 8 %253, i8 0, i64 %.idx.i.i.i.i.i.i144, i1 false), !tbaa !30
+  %256 = getelementptr inbounds nuw i8, ptr %253, i64 %.idx.i.i.i.i.i.i144
   br label %_ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit.i145
 
 _ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit.i145: ; preds = %_ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i143, %252
@@ -4666,8 +4666,8 @@ _ZNSt6vectorIxSaIxEED2Ev.exit88:                  ; preds = %170, %_ZNSt6vectorI
 
 _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %225
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %227, 3
-  %229 = getelementptr inbounds nuw i8, ptr %226, i64 %.idx.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %226, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !30
+  %229 = getelementptr inbounds nuw i8, ptr %226, i64 %.idx.i.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %225
@@ -13216,8 +13216,8 @@ define linkonce_odr void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !30
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i

@@ -3637,7 +3637,7 @@ define dso_local i64 @objectComputeSize(ptr noundef %0, ptr noundef %1, i64 noun
   %10 = lshr exact i32 %7, 4
   %11 = and i32 %10, 15
   switch i32 %11, label %19 [
-    i32 1, label %368
+    i32 1, label %._crit_edge215.thread
     i32 0, label %12
     i32 8, label %17
   ]
@@ -3647,11 +3647,11 @@ define dso_local i64 @objectComputeSize(ptr noundef %0, ptr noundef %1, i64 noun
   %14 = load ptr, ptr %13, align 8, !tbaa !5
   %15 = tail call i64 @sdsZmallocSize(ptr noundef %14) #17
   %16 = add i64 %15, 16
-  br label %368
+  br label %._crit_edge215.thread
 
 17:                                               ; preds = %9
   %18 = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %1) #17
-  br label %368
+  br label %._crit_edge215.thread
 
 19:                                               ; preds = %9
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1001, ptr noundef nonnull @.str.19) #17
@@ -3704,14 +3704,14 @@ define dso_local i64 @objectComputeSize(ptr noundef %0, ptr noundef %1, i64 noun
   %50 = uitofp i64 %49 to double
   %51 = tail call double @llvm.fmuladd.f64(double %47, double %50, double 5.600000e+01)
   %52 = fptoui double %51 to i64
-  br label %368
+  br label %._crit_edge215.thread
 
 53:                                               ; preds = %20
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !5
   %56 = tail call i64 @je_malloc_usable_size(ptr noundef %55) #17
   %57 = add i64 %56, 16
-  br label %368
+  br label %._crit_edge215.thread
 
 58:                                               ; preds = %20
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1017, ptr noundef nonnull @.str.36) #17
@@ -3733,81 +3733,76 @@ define dso_local i64 @objectComputeSize(ptr noundef %0, ptr noundef %1, i64 noun
   %65 = tail call ptr @dictGetIterator(ptr noundef %64) #17
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 50
   %67 = load i8, ptr %66, align 2, !tbaa !42
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 51
-  %69 = load i8, ptr %68, align 1, !tbaa !42
-  %70 = tail call ptr @dictNext(ptr noundef %65) #17
-  %71 = icmp ne ptr %70, null
-  %72 = icmp ne i64 %2, 0
-  %73 = and i1 %71, %72
-  br i1 %73, label %.lr.ph221, label %._crit_edge222
+  %68 = icmp eq i8 %67, -1
+  %69 = sext i8 %67 to i64
+  %70 = and i64 %69, 4294967295
+  %71 = shl nuw i64 1, %70
+  %72 = select i1 %68, i64 0, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 51
+  %74 = load i8, ptr %73, align 1, !tbaa !42
+  %75 = icmp eq i8 %74, -1
+  %76 = sext i8 %74 to i64
+  %77 = and i64 %76, 4294967295
+  %78 = shl nuw i64 1, %77
+  %79 = select i1 %75, i64 0, i64 %78
+  %80 = add i64 %79, %72
+  %81 = shl i64 %80, 3
+  %82 = add i64 %81, 72
+  %83 = tail call ptr @dictNext(ptr noundef %65) #17
+  %84 = icmp ne ptr %83, null
+  %85 = icmp ne i64 %2, 0
+  %86 = and i1 %84, %85
+  br i1 %86, label %.lr.ph221, label %._crit_edge222.thread
+
+._crit_edge222.thread:                            ; preds = %62
+  tail call void @dictReleaseIterator(ptr noundef %65) #17
+  br label %._crit_edge215.thread
 
 .lr.ph221:                                        ; preds = %62, %.lr.ph221
-  %74 = phi ptr [ %81, %.lr.ph221 ], [ %70, %62 ]
-  %.1151219 = phi i64 [ %79, %.lr.ph221 ], [ 0, %62 ]
-  %.1156218 = phi i64 [ %80, %.lr.ph221 ], [ 0, %62 ]
-  %75 = tail call ptr @dictGetKey(ptr noundef nonnull %74) #17
-  %76 = tail call i64 @dictEntryMemUsage() #17
-  %77 = tail call i64 @sdsZmallocSize(ptr noundef %75) #17
-  %78 = add i64 %76, %.1151219
-  %79 = add i64 %78, %77
-  %80 = add nuw i64 %.1156218, 1
-  %81 = tail call ptr @dictNext(ptr noundef %65) #17
-  %82 = icmp ne ptr %81, null
-  %83 = icmp ult i64 %80, %2
-  %84 = select i1 %82, i1 %83, i1 false
-  br i1 %84, label %.lr.ph221, label %._crit_edge222.loopexit, !llvm.loop !110
+  %87 = phi ptr [ %94, %.lr.ph221 ], [ %83, %62 ]
+  %.1151219 = phi i64 [ %92, %.lr.ph221 ], [ 0, %62 ]
+  %.1156218 = phi i64 [ %93, %.lr.ph221 ], [ 0, %62 ]
+  %88 = tail call ptr @dictGetKey(ptr noundef nonnull %87) #17
+  %89 = tail call i64 @dictEntryMemUsage() #17
+  %90 = tail call i64 @sdsZmallocSize(ptr noundef %88) #17
+  %91 = add i64 %89, %.1151219
+  %92 = add i64 %91, %90
+  %93 = add nuw i64 %.1156218, 1
+  %94 = tail call ptr @dictNext(ptr noundef %65) #17
+  %95 = icmp ne ptr %94, null
+  %96 = icmp ult i64 %93, %2
+  %97 = select i1 %95, i1 %96, i1 false
+  br i1 %97, label %.lr.ph221, label %98, !llvm.loop !110
 
-._crit_edge222.loopexit:                          ; preds = %.lr.ph221
-  %85 = uitofp i64 %79 to double
-  br label %._crit_edge222
-
-._crit_edge222:                                   ; preds = %._crit_edge222.loopexit, %62
-  %.1156.lcssa = phi i64 [ 0, %62 ], [ %80, %._crit_edge222.loopexit ]
-  %.1151.lcssa = phi double [ 0.000000e+00, %62 ], [ %85, %._crit_edge222.loopexit ]
-  %86 = icmp eq i8 %67, -1
-  %87 = sext i8 %67 to i64
-  %88 = and i64 %87, 4294967295
-  %89 = shl nuw i64 1, %88
-  %90 = select i1 %86, i64 0, i64 %89
-  %91 = icmp eq i8 %69, -1
-  %92 = sext i8 %69 to i64
-  %93 = and i64 %92, 4294967295
-  %94 = shl nuw i64 1, %93
-  %95 = select i1 %91, i64 0, i64 %94
-  %96 = add i64 %95, %90
-  %97 = shl i64 %96, 3
-  %98 = add i64 %97, 72
+98:                                               ; preds = %.lr.ph221
+  %99 = uitofp i64 %92 to double
   tail call void @dictReleaseIterator(ptr noundef %65) #17
-  %.not183 = icmp eq i64 %.1156.lcssa, 0
-  br i1 %.not183, label %368, label %99
-
-99:                                               ; preds = %._crit_edge222
-  %100 = uitofp i64 %.1156.lcssa to double
-  %101 = fdiv double %.1151.lcssa, %100
+  %100 = uitofp i64 %93 to double
+  %101 = fdiv double %99, %100
   %102 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %103 = load i64, ptr %102, align 8, !tbaa !50
   %104 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %105 = load i64, ptr %104, align 8, !tbaa !50
   %106 = add i64 %105, %103
   %107 = uitofp i64 %106 to double
-  %108 = uitofp i64 %98 to double
+  %108 = uitofp i64 %82 to double
   %109 = tail call double @llvm.fmuladd.f64(double %101, double %107, double %108)
   %110 = fptoui double %109 to i64
-  br label %368
+  br label %._crit_edge215.thread
 
 111:                                              ; preds = %59
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %113 = load ptr, ptr %112, align 8, !tbaa !5
   %114 = tail call i64 @je_malloc_usable_size(ptr noundef %113) #17
   %115 = add i64 %114, 16
-  br label %368
+  br label %._crit_edge215.thread
 
 116:                                              ; preds = %59
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !5
   %119 = tail call i64 @je_malloc_usable_size(ptr noundef %118) #17
   %120 = add i64 %119, 16
-  br label %368
+  br label %._crit_edge215.thread
 
 121:                                              ; preds = %59
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1036, ptr noundef nonnull @.str.37) #17
@@ -3827,7 +3822,7 @@ define dso_local i64 @objectComputeSize(ptr noundef %0, ptr noundef %1, i64 noun
   %127 = load ptr, ptr %126, align 8, !tbaa !5
   %128 = tail call i64 @je_malloc_usable_size(ptr noundef %127) #17
   %129 = add i64 %128, 16
-  br label %368
+  br label %._crit_edge215.thread
 
 130:                                              ; preds = %122
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3840,70 +3835,61 @@ define dso_local i64 @objectComputeSize(ptr noundef %0, ptr noundef %1, i64 noun
   %138 = load ptr, ptr %137, align 8, !tbaa !112
   %139 = getelementptr inbounds nuw i8, ptr %133, i64 50
   %140 = load i8, ptr %139, align 2, !tbaa !42
-  %141 = getelementptr inbounds nuw i8, ptr %133, i64 51
-  %142 = load i8, ptr %141, align 1, !tbaa !42
-  %143 = tail call i64 @je_malloc_usable_size(ptr noundef %136) #17
-  %144 = icmp ne ptr %138, null
-  %145 = icmp ne i64 %2, 0
-  %146 = and i1 %144, %145
-  br i1 %146, label %.lr.ph214, label %._crit_edge215
+  %141 = icmp eq i8 %140, -1
+  %142 = sext i8 %140 to i64
+  %143 = and i64 %142, 4294967295
+  %144 = shl nuw i64 1, %143
+  %145 = select i1 %141, i64 0, i64 %144
+  %146 = getelementptr inbounds nuw i8, ptr %133, i64 51
+  %147 = load i8, ptr %146, align 1, !tbaa !42
+  %148 = icmp eq i8 %147, -1
+  %149 = sext i8 %147 to i64
+  %150 = and i64 %149, 4294967295
+  %151 = shl nuw i64 1, %150
+  %152 = select i1 %148, i64 0, i64 %151
+  %153 = add i64 %152, %145
+  %154 = shl i64 %153, 3
+  %155 = tail call i64 @je_malloc_usable_size(ptr noundef %136) #17
+  %156 = add i64 %155, 120
+  %157 = add i64 %156, %154
+  %158 = icmp ne ptr %138, null
+  %159 = icmp ne i64 %2, 0
+  %160 = and i1 %158, %159
+  br i1 %160, label %.lr.ph214, label %._crit_edge215.thread
 
 .lr.ph214:                                        ; preds = %130, %.lr.ph214
-  %.2152212 = phi i64 [ %153, %.lr.ph214 ], [ 0, %130 ]
-  %.2157211 = phi i64 [ %154, %.lr.ph214 ], [ 0, %130 ]
-  %.0159210 = phi ptr [ %156, %.lr.ph214 ], [ %138, %130 ]
-  %147 = load ptr, ptr %.0159210, align 8, !tbaa !43
-  %148 = tail call i64 @sdsZmallocSize(ptr noundef %147) #17
-  %149 = tail call i64 @dictEntryMemUsage() #17
-  %150 = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %.0159210) #17
-  %151 = add i64 %148, %.2152212
-  %152 = add i64 %151, %149
-  %153 = add i64 %152, %150
-  %154 = add nuw i64 %.2157211, 1
-  %155 = getelementptr inbounds nuw i8, ptr %.0159210, i64 24
-  %156 = load ptr, ptr %155, align 8, !tbaa !112
-  %157 = icmp ne ptr %156, null
-  %158 = icmp ult i64 %154, %2
-  %159 = select i1 %157, i1 %158, i1 false
-  br i1 %159, label %.lr.ph214, label %._crit_edge215.loopexit, !llvm.loop !114
+  %.2152212 = phi i64 [ %167, %.lr.ph214 ], [ 0, %130 ]
+  %.2157211 = phi i64 [ %168, %.lr.ph214 ], [ 0, %130 ]
+  %.0159210 = phi ptr [ %170, %.lr.ph214 ], [ %138, %130 ]
+  %161 = load ptr, ptr %.0159210, align 8, !tbaa !43
+  %162 = tail call i64 @sdsZmallocSize(ptr noundef %161) #17
+  %163 = tail call i64 @dictEntryMemUsage() #17
+  %164 = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %.0159210) #17
+  %165 = add i64 %162, %.2152212
+  %166 = add i64 %165, %163
+  %167 = add i64 %166, %164
+  %168 = add nuw i64 %.2157211, 1
+  %169 = getelementptr inbounds nuw i8, ptr %.0159210, i64 24
+  %170 = load ptr, ptr %169, align 8, !tbaa !112
+  %171 = icmp ne ptr %170, null
+  %172 = icmp ult i64 %168, %2
+  %173 = select i1 %171, i1 %172, i1 false
+  br i1 %173, label %.lr.ph214, label %174, !llvm.loop !114
 
-._crit_edge215.loopexit:                          ; preds = %.lr.ph214
-  %160 = uitofp i64 %153 to double
-  br label %._crit_edge215
-
-._crit_edge215:                                   ; preds = %._crit_edge215.loopexit, %130
-  %.2157.lcssa = phi i64 [ 0, %130 ], [ %154, %._crit_edge215.loopexit ]
-  %.2152.lcssa = phi double [ 0.000000e+00, %130 ], [ %160, %._crit_edge215.loopexit ]
-  %161 = icmp eq i8 %140, -1
-  %162 = sext i8 %140 to i64
-  %163 = and i64 %162, 4294967295
-  %164 = shl nuw i64 1, %163
-  %165 = select i1 %161, i64 0, i64 %164
-  %166 = icmp eq i8 %142, -1
-  %167 = sext i8 %142 to i64
-  %168 = and i64 %167, 4294967295
-  %169 = shl nuw i64 1, %168
-  %170 = select i1 %166, i64 0, i64 %169
-  %171 = add i64 %170, %165
-  %172 = shl i64 %171, 3
-  %173 = add i64 %143, 120
-  %174 = add i64 %173, %172
-  %.not182 = icmp eq i64 %.2157.lcssa, 0
-  br i1 %.not182, label %368, label %175
-
-175:                                              ; preds = %._crit_edge215
-  %176 = uitofp i64 %.2157.lcssa to double
-  %177 = fdiv double %.2152.lcssa, %176
+174:                                              ; preds = %.lr.ph214
+  %175 = uitofp i64 %167 to double
+  %176 = uitofp i64 %168 to double
+  %177 = fdiv double %175, %176
   %178 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %179 = load i64, ptr %178, align 8, !tbaa !50
   %180 = getelementptr inbounds nuw i8, ptr %133, i64 32
   %181 = load i64, ptr %180, align 8, !tbaa !50
   %182 = add i64 %181, %179
   %183 = uitofp i64 %182 to double
-  %184 = uitofp i64 %174 to double
+  %184 = uitofp i64 %157 to double
   %185 = tail call double @llvm.fmuladd.f64(double %177, double %183, double %184)
   %186 = fptoui double %185 to i64
-  br label %368
+  br label %._crit_edge215.thread
 
 187:                                              ; preds = %122
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1056, ptr noundef nonnull @.str.6) #17
@@ -3924,7 +3910,7 @@ define dso_local i64 @objectComputeSize(ptr noundef %0, ptr noundef %1, i64 noun
   %193 = load ptr, ptr %192, align 8, !tbaa !5
   %194 = tail call i64 @je_malloc_usable_size(ptr noundef %193) #17
   %195 = add i64 %194, 16
-  br label %368
+  br label %._crit_edge215.thread
 
 196:                                              ; preds = %188
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3935,7 +3921,7 @@ define dso_local i64 @objectComputeSize(ptr noundef %0, ptr noundef %1, i64 noun
   %202 = load ptr, ptr %201, align 8, !tbaa !79
   %203 = tail call i64 @je_malloc_usable_size(ptr noundef %202) #17
   %204 = add i64 %200, %203
-  br label %368
+  br label %._crit_edge215.thread
 
 205:                                              ; preds = %188
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3943,70 +3929,65 @@ define dso_local i64 @objectComputeSize(ptr noundef %0, ptr noundef %1, i64 noun
   %208 = tail call ptr @dictGetIterator(ptr noundef %207) #17
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 50
   %210 = load i8, ptr %209, align 2, !tbaa !42
-  %211 = getelementptr inbounds nuw i8, ptr %207, i64 51
-  %212 = load i8, ptr %211, align 1, !tbaa !42
-  %213 = tail call ptr @dictNext(ptr noundef %208) #17
-  %214 = icmp ne ptr %213, null
-  %215 = icmp ne i64 %2, 0
-  %216 = and i1 %214, %215
-  br i1 %216, label %.lr.ph206, label %._crit_edge207
+  %211 = icmp eq i8 %210, -1
+  %212 = sext i8 %210 to i64
+  %213 = and i64 %212, 4294967295
+  %214 = shl nuw i64 1, %213
+  %215 = select i1 %211, i64 0, i64 %214
+  %216 = getelementptr inbounds nuw i8, ptr %207, i64 51
+  %217 = load i8, ptr %216, align 1, !tbaa !42
+  %218 = icmp eq i8 %217, -1
+  %219 = sext i8 %217 to i64
+  %220 = and i64 %219, 4294967295
+  %221 = shl nuw i64 1, %220
+  %222 = select i1 %218, i64 0, i64 %221
+  %223 = add i64 %222, %215
+  %224 = shl i64 %223, 3
+  %225 = add i64 %224, 72
+  %226 = tail call ptr @dictNext(ptr noundef %208) #17
+  %227 = icmp ne ptr %226, null
+  %228 = icmp ne i64 %2, 0
+  %229 = and i1 %227, %228
+  br i1 %229, label %.lr.ph206, label %._crit_edge207.thread
+
+._crit_edge207.thread:                            ; preds = %205
+  tail call void @dictReleaseIterator(ptr noundef %208) #17
+  br label %._crit_edge215.thread
 
 .lr.ph206:                                        ; preds = %205, %.lr.ph206
-  %217 = phi ptr [ %227, %.lr.ph206 ], [ %213, %205 ]
-  %.3153204 = phi i64 [ %225, %.lr.ph206 ], [ 0, %205 ]
-  %.3158203 = phi i64 [ %226, %.lr.ph206 ], [ 0, %205 ]
-  %218 = tail call ptr @dictGetKey(ptr noundef nonnull %217) #17
-  %219 = tail call ptr @dictGetVal(ptr noundef nonnull %217) #17
-  %220 = tail call i64 @hfieldZmallocSize(ptr noundef %218) #17
-  %221 = tail call i64 @sdsZmallocSize(ptr noundef %219) #17
-  %222 = tail call i64 @dictEntryMemUsage() #17
-  %223 = add i64 %220, %.3153204
-  %224 = add i64 %223, %221
-  %225 = add i64 %224, %222
-  %226 = add nuw i64 %.3158203, 1
-  %227 = tail call ptr @dictNext(ptr noundef %208) #17
-  %228 = icmp ne ptr %227, null
-  %229 = icmp ult i64 %226, %2
-  %230 = select i1 %228, i1 %229, i1 false
-  br i1 %230, label %.lr.ph206, label %._crit_edge207.loopexit, !llvm.loop !115
+  %230 = phi ptr [ %240, %.lr.ph206 ], [ %226, %205 ]
+  %.3153204 = phi i64 [ %238, %.lr.ph206 ], [ 0, %205 ]
+  %.3158203 = phi i64 [ %239, %.lr.ph206 ], [ 0, %205 ]
+  %231 = tail call ptr @dictGetKey(ptr noundef nonnull %230) #17
+  %232 = tail call ptr @dictGetVal(ptr noundef nonnull %230) #17
+  %233 = tail call i64 @hfieldZmallocSize(ptr noundef %231) #17
+  %234 = tail call i64 @sdsZmallocSize(ptr noundef %232) #17
+  %235 = tail call i64 @dictEntryMemUsage() #17
+  %236 = add i64 %233, %.3153204
+  %237 = add i64 %236, %234
+  %238 = add i64 %237, %235
+  %239 = add nuw i64 %.3158203, 1
+  %240 = tail call ptr @dictNext(ptr noundef %208) #17
+  %241 = icmp ne ptr %240, null
+  %242 = icmp ult i64 %239, %2
+  %243 = select i1 %241, i1 %242, i1 false
+  br i1 %243, label %.lr.ph206, label %244, !llvm.loop !115
 
-._crit_edge207.loopexit:                          ; preds = %.lr.ph206
-  %231 = uitofp i64 %225 to double
-  br label %._crit_edge207
-
-._crit_edge207:                                   ; preds = %._crit_edge207.loopexit, %205
-  %.3158.lcssa = phi i64 [ 0, %205 ], [ %226, %._crit_edge207.loopexit ]
-  %.3153.lcssa = phi double [ 0.000000e+00, %205 ], [ %231, %._crit_edge207.loopexit ]
-  %232 = icmp eq i8 %210, -1
-  %233 = sext i8 %210 to i64
-  %234 = and i64 %233, 4294967295
-  %235 = shl nuw i64 1, %234
-  %236 = select i1 %232, i64 0, i64 %235
-  %237 = icmp eq i8 %212, -1
-  %238 = sext i8 %212 to i64
-  %239 = and i64 %238, 4294967295
-  %240 = shl nuw i64 1, %239
-  %241 = select i1 %237, i64 0, i64 %240
-  %242 = add i64 %241, %236
-  %243 = shl i64 %242, 3
-  %244 = add i64 %243, 72
+244:                                              ; preds = %.lr.ph206
+  %245 = uitofp i64 %238 to double
   tail call void @dictReleaseIterator(ptr noundef %208) #17
-  %.not181 = icmp eq i64 %.3158.lcssa, 0
-  br i1 %.not181, label %368, label %245
-
-245:                                              ; preds = %._crit_edge207
-  %246 = uitofp i64 %.3158.lcssa to double
-  %247 = fdiv double %.3153.lcssa, %246
+  %246 = uitofp i64 %239 to double
+  %247 = fdiv double %245, %246
   %248 = getelementptr inbounds nuw i8, ptr %207, i64 24
   %249 = load i64, ptr %248, align 8, !tbaa !50
   %250 = getelementptr inbounds nuw i8, ptr %207, i64 32
   %251 = load i64, ptr %250, align 8, !tbaa !50
   %252 = add i64 %251, %249
   %253 = uitofp i64 %252 to double
-  %254 = uitofp i64 %244 to double
+  %254 = uitofp i64 %225 to double
   %255 = tail call double @llvm.fmuladd.f64(double %247, double %253, double %254)
   %256 = fptoui double %255 to i64
-  br label %368
+  br label %._crit_edge215.thread
 
 257:                                              ; preds = %188
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1078, ptr noundef nonnull @.str.38) #17
@@ -4063,12 +4044,12 @@ define dso_local i64 @objectComputeSize(ptr noundef %0, ptr noundef %1, i64 noun
   %281 = load ptr, ptr %260, align 8, !tbaa !82
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load i64, ptr %282, align 8, !tbaa !50
-  %.not176245.not = icmp eq i64 %283, 0
-  br i1 %.not176245.not, label %284, label %.thread
+  %.not176254.not = icmp eq i64 %283, 0
+  br i1 %.not176254.not, label %284, label %.thread
 
 284:                                              ; preds = %.critedge.thread, %.critedge
-  %.0147.lcssa247 = phi i64 [ 0, %.critedge.thread ], [ %.0147.lcssa, %.critedge ]
-  %285 = add i64 %.0147.lcssa247, %268
+  %.0147.lcssa256 = phi i64 [ 0, %.critedge.thread ], [ %.0147.lcssa, %.critedge ]
+  %285 = add i64 %.0147.lcssa256, %268
   br label %299
 
 286:                                              ; preds = %.critedge
@@ -4218,19 +4199,19 @@ sdslen.exit:                                      ; preds = %.lr.ph195, %333, %3
 364:                                              ; preds = %._crit_edge201, %299
   %.3 = phi i64 [ %.4.lcssa, %._crit_edge201 ], [ %.2, %299 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %368
+  br label %._crit_edge215.thread
 
 365:                                              ; preds = %4
   %366 = tail call i64 @moduleGetMemUsage(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %3) #17
-  br label %368
+  br label %._crit_edge215.thread
 
 367:                                              ; preds = %4
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1146, ptr noundef nonnull @.str.8) #17
   tail call void @abort() #18
   unreachable
 
-368:                                              ; preds = %._crit_edge215, %175, %9, %53, %44, %125, %364, %365, %191, %245, %._crit_edge207, %196, %99, %._crit_edge222, %116, %111, %17, %12
-  %.0148 = phi i64 [ %16, %12 ], [ %18, %17 ], [ %52, %44 ], [ %57, %53 ], [ %110, %99 ], [ %98, %._crit_edge222 ], [ %115, %111 ], [ %120, %116 ], [ %129, %125 ], [ %195, %191 ], [ %204, %196 ], [ %256, %245 ], [ %244, %._crit_edge207 ], [ %.3, %364 ], [ %366, %365 ], [ 16, %9 ], [ %186, %175 ], [ %174, %._crit_edge215 ]
+._crit_edge215.thread:                            ; preds = %130, %._crit_edge207.thread, %._crit_edge222.thread, %174, %9, %53, %44, %125, %364, %365, %191, %244, %196, %98, %116, %111, %17, %12
+  %.0148 = phi i64 [ %16, %12 ], [ %18, %17 ], [ %52, %44 ], [ %57, %53 ], [ %110, %98 ], [ %115, %111 ], [ %120, %116 ], [ %129, %125 ], [ %195, %191 ], [ %204, %196 ], [ %256, %244 ], [ %.3, %364 ], [ %366, %365 ], [ 16, %9 ], [ %186, %174 ], [ %82, %._crit_edge222.thread ], [ %225, %._crit_edge207.thread ], [ %157, %130 ]
   ret i64 %.0148
 }
 

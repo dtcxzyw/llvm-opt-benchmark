@@ -422,41 +422,41 @@ Mpm_CutIsContained.exit.thread:                   ; preds = %._crit_edge.loopexi
 
 222:                                              ; preds = %218, %._crit_edge
   %.179 = phi i32 [ %.078.in.lcssa189, %._crit_edge ], [ %spec.select, %218 ]
-  %223 = load i32, ptr %9, align 4, !tbaa !13
-  %224 = add nsw i32 %223, -1
-  store i32 %224, ptr %9, align 4, !tbaa !13
-  %225 = load i32, ptr %151, align 8, !tbaa !50
-  %226 = add nsw i32 %225, 1
-  store i32 %226, ptr %151, align 8, !tbaa !50
-  %227 = icmp sgt i32 %225, %.179
-  br i1 %227, label %.lr.ph140.preheader, label %.._crit_edge141_crit_edge
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 3248
+  %224 = load i32, ptr %9, align 4, !tbaa !13
+  %225 = add nsw i32 %224, -1
+  store i32 %225, ptr %9, align 4, !tbaa !13
+  %226 = load i32, ptr %151, align 8, !tbaa !50
+  %227 = add nsw i32 %226, 1
+  store i32 %227, ptr %151, align 8, !tbaa !50
+  %228 = icmp sgt i32 %226, %.179
+  br i1 %228, label %.lr.ph140.preheader, label %.._crit_edge141_crit_edge
 
 .._crit_edge141_crit_edge:                        ; preds = %222
   %.pre170 = sext i32 %.179 to i64
   br label %._crit_edge141
 
 .lr.ph140.preheader:                              ; preds = %222
-  %228 = sext i32 %225 to i64
-  %229 = sext i32 %.179 to i64
+  %229 = sext i32 %226 to i64
+  %230 = sext i32 %.179 to i64
   br label %.lr.ph140
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
-  %indvars.iv162 = phi i64 [ %228, %.lr.ph140.preheader ], [ %indvars.iv.next163, %.lr.ph140 ]
-  %230 = getelementptr ptr, ptr %175, i64 %indvars.iv162
-  %231 = getelementptr i8, ptr %230, i64 -8
-  %232 = load ptr, ptr %231, align 8, !tbaa !51
-  store ptr %232, ptr %230, align 8, !tbaa !51
+  %indvars.iv162 = phi i64 [ %229, %.lr.ph140.preheader ], [ %indvars.iv.next163, %.lr.ph140 ]
+  %231 = getelementptr ptr, ptr %175, i64 %indvars.iv162
+  %232 = getelementptr i8, ptr %231, i64 -8
+  %233 = load ptr, ptr %232, align 8, !tbaa !51
+  store ptr %233, ptr %231, align 8, !tbaa !51
   %indvars.iv.next163 = add nsw i64 %indvars.iv162, -1
-  %233 = icmp sgt i64 %indvars.iv.next163, %229
-  br i1 %233, label %.lr.ph140, label %._crit_edge141, !llvm.loop !59
+  %234 = icmp sgt i64 %indvars.iv.next163, %230
+  br i1 %234, label %.lr.ph140, label %._crit_edge141, !llvm.loop !59
 
 ._crit_edge141:                                   ; preds = %.lr.ph140, %.._crit_edge141_crit_edge
-  %.pre-phi = phi i64 [ %.pre170, %.._crit_edge141_crit_edge ], [ %229, %.lr.ph140 ]
-  %234 = getelementptr inbounds nuw i8, ptr %0, i64 3248
+  %.pre-phi = phi i64 [ %.pre170, %.._crit_edge141_crit_edge ], [ %230, %.lr.ph140 ]
   %235 = getelementptr inbounds ptr, ptr %175, i64 %.pre-phi
   store ptr %14, ptr %235, align 8, !tbaa !51
   %236 = add nsw i32 %.179, 1
-  %237 = icmp slt i32 %.179, %225
+  %237 = icmp slt i32 %.179, %226
   br i1 %237, label %.lr.ph145, label %._crit_edge146
 
 .lr.ph145:                                        ; preds = %._crit_edge141
@@ -466,8 +466,8 @@ Mpm_CutIsContained.exit.thread:                   ; preds = %._crit_edge.loopexi
   br label %241
 
 241:                                              ; preds = %.lr.ph145, %298
-  %242 = phi i32 [ %226, %.lr.ph145 ], [ %299, %298 ]
-  %243 = phi i32 [ %224, %.lr.ph145 ], [ %300, %298 ]
+  %242 = phi i32 [ %227, %.lr.ph145 ], [ %299, %298 ]
+  %243 = phi i32 [ %225, %.lr.ph145 ], [ %300, %298 ]
   %indvars.iv165 = phi i64 [ %240, %.lr.ph145 ], [ %indvars.iv.next166, %298 ]
   %.0143 = phi i32 [ %236, %.lr.ph145 ], [ %.1, %298 ]
   %244 = getelementptr inbounds ptr, ptr %175, i64 %indvars.iv165
@@ -532,7 +532,7 @@ Mpm_CutIsContained.exit.thread:                   ; preds = %._crit_edge.loopexi
   br i1 %267, label %Mpm_CutIsContained.exit114.thread, label %259
 
 Mpm_CutIsContained.exit114:                       ; preds = %259, %257
-  %268 = load i32, ptr %234, align 8, !tbaa !60
+  %268 = load i32, ptr %223, align 8, !tbaa !60
   %269 = icmp eq i32 %243, %268
   br i1 %269, label %270, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -560,7 +560,7 @@ Mpm_CutIsContained.exit114:                       ; preds = %259, %257
 Vec_PtrGrow.exit.i:                               ; preds = %276, %274
   %278 = phi ptr [ %275, %274 ], [ %277, %276 ]
   store ptr %278, ptr %10, align 8, !tbaa !15
-  store i32 16, ptr %234, align 8, !tbaa !60
+  store i32 16, ptr %223, align 8, !tbaa !60
   br label %Vec_PtrPush.exit
 
 279:                                              ; preds = %270
@@ -582,7 +582,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %276, %274
 288:                                              ; preds = %286, %284
   %289 = phi ptr [ %285, %284 ], [ %287, %286 ]
   store ptr %289, ptr %10, align 8, !tbaa !15
-  store i32 %280, ptr %234, align 8, !tbaa !60
+  store i32 %280, ptr %223, align 8, !tbaa !60
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %288
@@ -613,7 +613,7 @@ Mpm_CutIsContained.exit114.thread:                ; preds = %._crit_edge.loopexi
   br i1 %302, label %241, label %._crit_edge146, !llvm.loop !61
 
 ._crit_edge146:                                   ; preds = %298, %._crit_edge141
-  %303 = phi i32 [ %224, %._crit_edge141 ], [ %300, %298 ]
+  %303 = phi i32 [ %225, %._crit_edge141 ], [ %300, %298 ]
   %.0.lcssa = phi i32 [ %236, %._crit_edge141 ], [ %.1, %298 ]
   store i32 %.0.lcssa, ptr %151, align 8, !tbaa !50
   %304 = load i32, ptr %159, align 4, !tbaa !53
@@ -626,7 +626,7 @@ Mpm_CutIsContained.exit114.thread:                ; preds = %._crit_edge.loopexi
   %308 = sext i32 %307 to i64
   %309 = getelementptr inbounds ptr, ptr %175, i64 %308
   %310 = load ptr, ptr %309, align 8, !tbaa !51
-  %311 = load i32, ptr %234, align 8, !tbaa !60
+  %311 = load i32, ptr %223, align 8, !tbaa !60
   %312 = icmp eq i32 %303, %311
   br i1 %312, label %313, label %.Vec_PtrGrow.exit11_crit_edge.i116
 
@@ -654,7 +654,7 @@ Mpm_CutIsContained.exit114.thread:                ; preds = %._crit_edge.loopexi
 Vec_PtrGrow.exit.i121:                            ; preds = %319, %317
   %321 = phi ptr [ %318, %317 ], [ %320, %319 ]
   store ptr %321, ptr %10, align 8, !tbaa !15
-  store i32 16, ptr %234, align 8, !tbaa !60
+  store i32 16, ptr %223, align 8, !tbaa !60
   br label %Vec_PtrPush.exit122
 
 322:                                              ; preds = %313
@@ -676,7 +676,7 @@ Vec_PtrGrow.exit.i121:                            ; preds = %319, %317
 331:                                              ; preds = %329, %327
   %332 = phi ptr [ %328, %327 ], [ %330, %329 ]
   store ptr %332, ptr %10, align 8, !tbaa !15
-  store i32 %323, ptr %234, align 8, !tbaa !60
+  store i32 %323, ptr %223, align 8, !tbaa !60
   br label %Vec_PtrPush.exit122
 
 Vec_PtrPush.exit122:                              ; preds = %.Vec_PtrGrow.exit11_crit_edge.i116, %Vec_PtrGrow.exit.i121, %331

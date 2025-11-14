@@ -6201,19 +6201,19 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %197 = extractvalue { i64, ptr } %196, 0
   %198 = extractvalue { i64, ptr } %196, 1
   %199 = call { i64, ptr } @jv_object_set(i64 %187, ptr %188, i64 %190, ptr %191, i64 %197, ptr %198) #14
+  %200 = extractvalue { i64, ptr } %199, 0
+  %201 = extractvalue { i64, ptr } %199, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %200 = call { i64, ptr } @jv_array() #14
-  %201 = extractvalue { i64, ptr } %200, 0
-  store i64 %201, ptr %15, align 8
-  %202 = extractvalue { i64, ptr } %200, 1
-  store ptr %202, ptr %147, align 8
-  %203 = load i32, ptr %148, align 4, !tbaa !48
-  %204 = icmp sgt i32 %203, 1
-  br i1 %204, label %.lr.ph522.us, label %._crit_edge523.us
+  %202 = call { i64, ptr } @jv_array() #14
+  %203 = extractvalue { i64, ptr } %202, 0
+  store i64 %203, ptr %15, align 8
+  %204 = extractvalue { i64, ptr } %202, 1
+  store ptr %204, ptr %147, align 8
+  %205 = load i32, ptr %148, align 4, !tbaa !48
+  %206 = icmp sgt i32 %205, 1
+  br i1 %206, label %.lr.ph522.us, label %._crit_edge523.us
 
 ._crit_edge523.us:                                ; preds = %345, %._crit_edge.us
-  %205 = extractvalue { i64, ptr } %199, 0
-  %206 = extractvalue { i64, ptr } %199, 1
   %207 = load ptr, ptr %11, align 8, !tbaa !41
   %208 = call i32 @onig_foreach_name(ptr noundef %207, ptr noundef nonnull @f_match_name_iter, ptr noundef nonnull %15) #14
   %209 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.215) #14
@@ -6221,7 +6221,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %211 = extractvalue { i64, ptr } %209, 1
   %212 = load i64, ptr %15, align 8
   %213 = load ptr, ptr %147, align 8
-  %214 = call { i64, ptr } @jv_object_set(i64 %205, ptr %206, i64 %210, ptr %211, i64 %212, ptr %213) #14
+  %214 = call { i64, ptr } @jv_object_set(i64 %200, ptr %201, i64 %210, ptr %211, i64 %212, ptr %213) #14
   %215 = extractvalue { i64, ptr } %214, 0
   %216 = extractvalue { i64, ptr } %214, 1
   %217 = call { i64, ptr } @jv_array_append(i64 %.sroa.0353.1.us, ptr %.sroa.12.1.us, i64 %215, ptr %216) #14
@@ -6483,19 +6483,19 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %405 = extractvalue { i64, ptr } %404, 0
   %406 = extractvalue { i64, ptr } %404, 1
   %407 = call { i64, ptr } @jv_object_set(i64 %399, ptr %400, i64 %402, ptr %403, i64 %405, ptr %406) #14
+  %408 = extractvalue { i64, ptr } %407, 0
+  %409 = extractvalue { i64, ptr } %407, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %408 = call { i64, ptr } @jv_array() #14
-  %409 = extractvalue { i64, ptr } %408, 0
-  store i64 %409, ptr %14, align 8
-  %410 = extractvalue { i64, ptr } %408, 1
-  store ptr %410, ptr %149, align 8
-  %411 = load i32, ptr %148, align 4, !tbaa !48
-  %412 = icmp sgt i32 %411, 1
-  br i1 %412, label %.lr.ph531.us, label %._crit_edge532.us
+  %410 = call { i64, ptr } @jv_array() #14
+  %411 = extractvalue { i64, ptr } %410, 0
+  store i64 %411, ptr %14, align 8
+  %412 = extractvalue { i64, ptr } %410, 1
+  store ptr %412, ptr %149, align 8
+  %413 = load i32, ptr %148, align 4, !tbaa !48
+  %414 = icmp sgt i32 %413, 1
+  br i1 %414, label %.lr.ph531.us, label %._crit_edge532.us
 
 ._crit_edge532.us:                                ; preds = %472, %._crit_edge527.us
-  %413 = extractvalue { i64, ptr } %407, 0
-  %414 = extractvalue { i64, ptr } %407, 1
   %415 = load ptr, ptr %11, align 8, !tbaa !41
   %416 = call i32 @onig_foreach_name(ptr noundef %415, ptr noundef nonnull @f_match_name_iter, ptr noundef nonnull %14) #14
   %417 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.215) #14
@@ -6503,7 +6503,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %419 = extractvalue { i64, ptr } %417, 1
   %420 = load i64, ptr %14, align 8
   %421 = load ptr, ptr %149, align 8
-  %422 = call { i64, ptr } @jv_object_set(i64 %413, ptr %414, i64 %418, ptr %419, i64 %420, ptr %421) #14
+  %422 = call { i64, ptr } @jv_object_set(i64 %408, ptr %409, i64 %418, ptr %419, i64 %420, ptr %421) #14
   %423 = extractvalue { i64, ptr } %422, 0
   %424 = extractvalue { i64, ptr } %422, 1
   %425 = call { i64, ptr } @jv_array_append(i64 %.sroa.0353.1.us, ptr %.sroa.12.1.us, i64 %423, ptr %424) #14

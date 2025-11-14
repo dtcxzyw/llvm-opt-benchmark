@@ -424,32 +424,32 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
   %71 = sext i32 %70 to i64
   %72 = udiv i64 %68, %71
   %73 = trunc i64 %72 to i32
-  %74 = sub i32 0, %73
-  %75 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 0>, i32 %74, i64 0
-  %76 = insertelement <4 x i32> %75, i32 %74, i64 2
-  %77 = bitcast <4 x i32> %76 to <2 x i64>
-  %78 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 0>, i32 %73, i64 0
-  %79 = insertelement <4 x i32> %78, i32 %73, i64 2
-  %80 = bitcast <4 x i32> %79 to <2 x i64>
+  %74 = and i64 %72, 4294967295
+  %75 = sub i32 0, %73
+  %76 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 0>, i32 %75, i64 0
+  %77 = insertelement <4 x i32> %76, i32 %75, i64 2
+  %78 = bitcast <4 x i32> %77 to <2 x i64>
+  %79 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 0>, i32 %73, i64 0
+  %80 = insertelement <4 x i32> %79, i32 %73, i64 2
+  %81 = bitcast <4 x i32> %80 to <2 x i64>
   %.not116 = icmp slt i32 %10, 8
   br i1 %.not116, label %.preheader114, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %65
-  %81 = zext nneg i32 %10 to i64
+  %82 = zext nneg i32 %10 to i64
   br label %.lr.ph
 
 .preheader114.loopexit:                           ; preds = %.lr.ph
-  %82 = trunc nuw nsw i64 %indvars.iv to i32
+  %83 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.preheader114
 
 .preheader114:                                    ; preds = %.preheader114.loopexit, %65
-  %.2.lcssa = phi i32 [ 0, %65 ], [ %82, %.preheader114.loopexit ]
-  %83 = and i64 %72, 4294967295
+  %.2.lcssa = phi i32 [ 0, %65 ], [ %83, %.preheader114.loopexit ]
   %84 = icmp slt i32 %.2.lcssa, %10
   br i1 %84, label %.lr.ph119, label %.loopexit
 
 .lr.ph119:                                        ; preds = %.preheader114
-  %85 = zext i32 %74 to i64
+  %85 = zext i32 %75 to i64
   %86 = zext nneg i32 %.2.lcssa to i64
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %140
@@ -464,11 +464,11 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
   %89 = lshr <2 x i64> %.val74, splat (i64 32)
   %90 = lshr <2 x i64> %.val75, splat (i64 32)
   %91 = and <2 x i64> %.val74, splat (i64 4294967295)
-  %92 = mul nuw <2 x i64> %91, %77
+  %92 = mul nuw <2 x i64> %91, %78
   %93 = and <2 x i64> %.val75, splat (i64 4294967295)
-  %94 = mul nuw <2 x i64> %93, %77
-  %95 = mul nuw <2 x i64> %89, %77
-  %96 = mul nuw <2 x i64> %90, %77
+  %94 = mul nuw <2 x i64> %93, %78
+  %95 = mul nuw <2 x i64> %89, %78
+  %96 = mul nuw <2 x i64> %90, %78
   %97 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv128
   %.val76 = load <2 x i64>, ptr %97, align 1, !tbaa !16
   %98 = getelementptr i8, ptr %97, i64 16
@@ -476,11 +476,11 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
   %99 = lshr <2 x i64> %.val76, splat (i64 32)
   %100 = lshr <2 x i64> %.val77, splat (i64 32)
   %101 = and <2 x i64> %.val76, splat (i64 4294967295)
-  %102 = mul nuw <2 x i64> %101, %80
+  %102 = mul nuw <2 x i64> %101, %81
   %103 = and <2 x i64> %.val77, splat (i64 4294967295)
-  %104 = mul nuw <2 x i64> %103, %80
-  %105 = mul nuw <2 x i64> %99, %80
-  %106 = mul nuw <2 x i64> %100, %80
+  %104 = mul nuw <2 x i64> %103, %81
+  %105 = mul nuw <2 x i64> %99, %81
+  %106 = mul nuw <2 x i64> %100, %81
   %107 = add <2 x i64> %92, splat (i64 2147483648)
   %108 = add <2 x i64> %107, %102
   %109 = add <2 x i64> %94, splat (i64 2147483648)
@@ -516,7 +516,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
   %139 = extractelement <2 x i64> %138, i64 0
   store i64 %139, ptr %119, align 1, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %.not = icmp samesign ugt i64 %indvars.iv.next, %81
+  %.not = icmp samesign ugt i64 %indvars.iv.next, %82
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 8
   br i1 %.not, label %.preheader114.loopexit, label %.lr.ph, !llvm.loop !30
 
@@ -529,7 +529,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
   %145 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv133
   %146 = load i32, ptr %145, align 4, !tbaa !27
   %147 = zext i32 %146 to i64
-  %148 = mul nuw i64 %83, %147
+  %148 = mul nuw i64 %74, %147
   %149 = add nuw i64 %144, 2147483648
   %150 = add i64 %149, %148
   %151 = lshr i64 %150, 32

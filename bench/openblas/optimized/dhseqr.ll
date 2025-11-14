@@ -242,11 +242,11 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %120
 
 .preheader:                                       ; preds = %._crit_edge303
-  %118 = icmp sgt i32 %129, 0
+  %118 = icmp sgt i32 %122, 0
   br i1 %118, label %.lr.ph309.preheader, label %._crit_edge310
 
 .lr.ph309.preheader:                              ; preds = %.preheader
-  %119 = zext nneg i32 %129 to i64
+  %119 = zext nneg i32 %122 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %.1.lcssa, i8 32, i64 %119, i1 false), !tbaa !15
   br label %._crit_edge310
 
@@ -254,31 +254,31 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %121 = phi i1 [ true, %117 ], [ false, %._crit_edge303 ]
   %indvars.iv319.sroa.phi = phi ptr [ %.sroa.0337, %117 ], [ %.sroa.4338, %._crit_edge303 ]
   %.0306 = phi ptr [ %17, %117 ], [ %.1.lcssa, %._crit_edge303 ]
-  %.0234305 = phi i32 [ 2, %117 ], [ %129, %._crit_edge303 ]
+  %.0234305 = phi i32 [ 2, %117 ], [ %122, %._crit_edge303 ]
   %spec.select277 = tail call i32 @llvm.smin.i32(i32 %.0234305, i32 1)
-  %122 = icmp sgt i32 %.0234305, 0
-  br i1 %122, label %.lr.ph302.preheader, label %._crit_edge303
+  %122 = sub nsw i32 %.0234305, %spec.select277
+  %123 = icmp sgt i32 %.0234305, 0
+  br i1 %123, label %.lr.ph302.preheader, label %._crit_edge303
 
 .lr.ph302.preheader:                              ; preds = %120
-  %123 = load ptr, ptr %indvars.iv319.sroa.phi, align 8, !tbaa !12
-  %124 = zext nneg i32 %spec.select277 to i64
-  %125 = getelementptr i8, ptr %.0306, i64 %124
-  %scevgep = getelementptr i8, ptr %125, i64 -1
+  %124 = load ptr, ptr %indvars.iv319.sroa.phi, align 8, !tbaa !12
+  %125 = zext nneg i32 %spec.select277 to i64
+  %126 = getelementptr i8, ptr %.0306, i64 %125
+  %scevgep = getelementptr i8, ptr %126, i64 -1
   br label %.lr.ph302
 
 .lr.ph302:                                        ; preds = %.lr.ph302.preheader, %.lr.ph302
-  %.1300 = phi ptr [ %128, %.lr.ph302 ], [ %.0306, %.lr.ph302.preheader ]
-  %.0233299 = phi ptr [ %126, %.lr.ph302 ], [ %123, %.lr.ph302.preheader ]
-  %126 = getelementptr inbounds nuw i8, ptr %.0233299, i64 1
-  %127 = load i8, ptr %.0233299, align 1, !tbaa !15
-  %128 = getelementptr inbounds nuw i8, ptr %.1300, i64 1
-  store i8 %127, ptr %.1300, align 1, !tbaa !15
+  %.1300 = phi ptr [ %129, %.lr.ph302 ], [ %.0306, %.lr.ph302.preheader ]
+  %.0233299 = phi ptr [ %127, %.lr.ph302 ], [ %124, %.lr.ph302.preheader ]
+  %127 = getelementptr inbounds nuw i8, ptr %.0233299, i64 1
+  %128 = load i8, ptr %.0233299, align 1, !tbaa !15
+  %129 = getelementptr inbounds nuw i8, ptr %.1300, i64 1
+  store i8 %128, ptr %.1300, align 1, !tbaa !15
   %exitcond318.not = icmp eq ptr %.1300, %scevgep
   br i1 %exitcond318.not, label %._crit_edge303, label %.lr.ph302, !llvm.loop !16
 
 ._crit_edge303:                                   ; preds = %.lr.ph302, %120
-  %.1.lcssa = phi ptr [ %.0306, %120 ], [ %128, %.lr.ph302 ]
-  %129 = sub nsw i32 %.0234305, %spec.select277
+  %.1.lcssa = phi ptr [ %.0306, %120 ], [ %129, %.lr.ph302 ]
   br i1 %121, label %120, label %.preheader, !llvm.loop !17
 
 ._crit_edge310:                                   ; preds = %.lr.ph309.preheader, %.preheader

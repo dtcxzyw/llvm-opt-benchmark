@@ -3879,41 +3879,41 @@ get_nfd.exit:                                     ; preds = %288
   %.not807 = icmp eq i64 %indvars.iv985, 0
   br i1 %.not807, label %.critedge503, label %.lr.ph710
 
-.lr.ph710:                                        ; preds = %349, %358
-  %indvars.iv978 = phi i64 [ %indvars.iv.next979, %358 ], [ 0, %349 ]
+.lr.ph710:                                        ; preds = %349, %359
+  %indvars.iv978 = phi i64 [ %indvars.iv.next979, %359 ], [ 0, %349 ]
   %353 = getelementptr inbounds nuw %struct.anon, ptr %7, i64 %indvars.iv978
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 4
   %355 = load i32, ptr %354, align 4, !tbaa !82
   %356 = icmp sgt i32 %355, %346
-  br i1 %356, label %.lr.ph712.preheader, label %358
+  br i1 %356, label %.lr.ph712.preheader, label %359
 
 .lr.ph712.preheader:                              ; preds = %.lr.ph710
+  %357 = getelementptr inbounds nuw i8, ptr %353, i64 4
   %sext = shl i64 %indvars.iv978, 32
-  %357 = ashr exact i64 %sext, 32
+  %358 = ashr exact i64 %sext, 32
   br label %.lr.ph712
 
-358:                                              ; preds = %.lr.ph710
+359:                                              ; preds = %.lr.ph710
   %indvars.iv.next979 = add nuw nsw i64 %indvars.iv978, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next979, %indvars.iv985
   br i1 %exitcond.not, label %.critedge503, label %.lr.ph710, !llvm.loop !86
 
 .lr.ph712:                                        ; preds = %.lr.ph712.preheader, %.lr.ph712
   %indvars.iv987 = phi i64 [ %indvars.iv985, %.lr.ph712.preheader ], [ %indvars.iv.next988, %.lr.ph712 ]
-  %359 = getelementptr inbounds %struct.anon, ptr %7, i64 %indvars.iv987
-  %360 = getelementptr i8, ptr %359, i64 -8
-  %361 = load i64, ptr %360, align 8
-  store i64 %361, ptr %359, align 8
+  %360 = getelementptr inbounds %struct.anon, ptr %7, i64 %indvars.iv987
+  %361 = getelementptr i8, ptr %360, i64 -8
+  %362 = load i64, ptr %361, align 8
+  store i64 %362, ptr %360, align 8
   %indvars.iv.next988 = add nsw i64 %indvars.iv987, -1
-  %362 = icmp sgt i64 %indvars.iv.next988, %357
-  br i1 %362, label %.lr.ph712, label %._crit_edge713, !llvm.loop !87
+  %363 = icmp sgt i64 %indvars.iv.next988, %358
+  br i1 %363, label %.lr.ph712, label %._crit_edge713, !llvm.loop !87
 
 ._crit_edge713:                                   ; preds = %.lr.ph712
-  %363 = getelementptr inbounds nuw i8, ptr %353, i64 4
-  store i32 %346, ptr %363, align 4, !tbaa !82
+  store i32 %346, ptr %357, align 4, !tbaa !82
   store i32 %326, ptr %353, align 8, !tbaa !84
   br label %366
 
-.critedge503:                                     ; preds = %358, %349
+.critedge503:                                     ; preds = %359, %349
   %364 = getelementptr inbounds nuw %struct.anon, ptr %7, i64 %indvars.iv985
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 4
   store i32 %346, ptr %365, align 4, !tbaa !82

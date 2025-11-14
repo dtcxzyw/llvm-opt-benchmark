@@ -139,101 +139,101 @@ Abc_StatePush.exit:                               ; preds = %44
 48:                                               ; preds = %Abc_StatePush.exit, %Abc_StatePush.exit141
   %indvars.iv196 = phi i64 [ 1, %Abc_StatePush.exit ], [ %indvars.iv.next197, %Abc_StatePush.exit141 ]
   %indvar = phi i64 [ 0, %Abc_StatePush.exit ], [ %indvar.next, %Abc_StatePush.exit141 ]
-  %49 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvar
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 16 dereferenceable(24) %6, i64 24, i1 false)
-  %50 = getelementptr inbounds nuw [9 x [2 x i32]], ptr @__const.Abc_EnumerateCubeStates.pXYZ, i64 %indvar
-  br label %51
+  %49 = mul nuw nsw i64 %indvar, 24
+  %50 = getelementptr nuw i8, ptr %7, i64 %49
+  %scevgep195 = getelementptr nuw i8, ptr %50, i64 144
+  %51 = getelementptr nuw i8, ptr %7, i64 %49
+  %scevgep190 = getelementptr nuw i8, ptr %51, i64 72
+  %scevgep = getelementptr nuw i8, ptr %7, i64 %49
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvar
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 16 dereferenceable(24) %6, i64 24, i1 false)
+  %53 = getelementptr inbounds nuw [9 x [2 x i32]], ptr @__const.Abc_EnumerateCubeStates.pXYZ, i64 %indvar
+  br label %54
 
-51:                                               ; preds = %48, %51
-  %indvars.iv182 = phi i64 [ 0, %48 ], [ %indvars.iv.next183, %51 ]
-  %52 = getelementptr inbounds nuw [2 x i32], ptr %50, i64 %indvars.iv182
-  %53 = load i32, ptr %52, align 8, !tbaa !33
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr i8, ptr %49, i64 %54
-  %56 = getelementptr i8, ptr %55, i64 -1
-  %57 = load i8, ptr %56, align 1, !tbaa !31
-  %58 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %59 = load i32, ptr %58, align 4, !tbaa !33
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr i8, ptr %49, i64 %60
-  %62 = getelementptr i8, ptr %61, i64 -1
-  %63 = load i8, ptr %62, align 1, !tbaa !31
-  store i8 %63, ptr %56, align 1, !tbaa !31
-  store i8 %57, ptr %62, align 1, !tbaa !31
+54:                                               ; preds = %48, %54
+  %indvars.iv182 = phi i64 [ 0, %48 ], [ %indvars.iv.next183, %54 ]
+  %55 = getelementptr inbounds nuw [2 x i32], ptr %53, i64 %indvars.iv182
+  %56 = load i32, ptr %55, align 8, !tbaa !33
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr i8, ptr %52, i64 %57
+  %59 = getelementptr i8, ptr %58, i64 -1
+  %60 = load i8, ptr %59, align 1, !tbaa !31
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  %62 = load i32, ptr %61, align 4, !tbaa !33
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr i8, ptr %52, i64 %63
+  %65 = getelementptr i8, ptr %64, i64 -1
+  %66 = load i8, ptr %65, align 1, !tbaa !31
+  store i8 %66, ptr %59, align 1, !tbaa !31
+  store i8 %60, ptr %65, align 1, !tbaa !31
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next183, 9
-  br i1 %exitcond185.not, label %Abc_StatePush.exit127, label %51, !llvm.loop !34
+  br i1 %exitcond185.not, label %Abc_StatePush.exit127, label %54, !llvm.loop !34
 
-Abc_StatePush.exit127:                            ; preds = %51
-  %64 = mul nuw nsw i64 %indvar, 24
-  %scevgep = getelementptr nuw i8, ptr %7, i64 %64
+Abc_StatePush.exit127:                            ; preds = %54
   %.val.i122 = load ptr, ptr %10, align 8, !tbaa !10
   %invariant.gep.i.idx = mul i64 %indvars.iv196, 24
   %invariant.gep.i = getelementptr i8, ptr %.val.i122, i64 %invariant.gep.i.idx
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %invariant.gep.i, ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i64 24, i1 false), !tbaa !33
-  %65 = trunc nuw nsw i64 %indvars.iv196 to i32
-  %66 = call fastcc i32 @Hsh_IntManAdd(ptr noundef nonnull %11, i32 noundef %65)
-  %67 = getelementptr inbounds nuw i8, ptr %49, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false)
-  br label %68
+  %67 = trunc nuw nsw i64 %indvars.iv196 to i32
+  %68 = call fastcc i32 @Hsh_IntManAdd(ptr noundef nonnull %11, i32 noundef %67)
+  %69 = getelementptr inbounds nuw i8, ptr %52, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
+  br label %70
 
-68:                                               ; preds = %Abc_StatePush.exit127, %68
-  %indvars.iv186 = phi i64 [ 0, %Abc_StatePush.exit127 ], [ %indvars.iv.next187, %68 ]
-  %69 = getelementptr inbounds nuw [2 x i32], ptr %50, i64 %indvars.iv186
-  %70 = load i32, ptr %69, align 8, !tbaa !33
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr i8, ptr %67, i64 %71
-  %73 = getelementptr i8, ptr %72, i64 -1
-  %74 = load i8, ptr %73, align 1, !tbaa !31
-  %75 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %76 = load i32, ptr %75, align 4, !tbaa !33
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr i8, ptr %67, i64 %77
-  %79 = getelementptr i8, ptr %78, i64 -1
-  %80 = load i8, ptr %79, align 1, !tbaa !31
-  store i8 %80, ptr %73, align 1, !tbaa !31
-  store i8 %74, ptr %79, align 1, !tbaa !31
+70:                                               ; preds = %Abc_StatePush.exit127, %70
+  %indvars.iv186 = phi i64 [ 0, %Abc_StatePush.exit127 ], [ %indvars.iv.next187, %70 ]
+  %71 = getelementptr inbounds nuw [2 x i32], ptr %53, i64 %indvars.iv186
+  %72 = load i32, ptr %71, align 8, !tbaa !33
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr i8, ptr %69, i64 %73
+  %75 = getelementptr i8, ptr %74, i64 -1
+  %76 = load i8, ptr %75, align 1, !tbaa !31
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 4
+  %78 = load i32, ptr %77, align 4, !tbaa !33
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr i8, ptr %69, i64 %79
+  %81 = getelementptr i8, ptr %80, i64 -1
+  %82 = load i8, ptr %81, align 1, !tbaa !31
+  store i8 %82, ptr %75, align 1, !tbaa !31
+  store i8 %76, ptr %81, align 1, !tbaa !31
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next187, 9
-  br i1 %exitcond189.not, label %Abc_StatePush.exit134, label %68, !llvm.loop !35
+  br i1 %exitcond189.not, label %Abc_StatePush.exit134, label %70, !llvm.loop !35
 
-Abc_StatePush.exit134:                            ; preds = %68
-  %81 = getelementptr nuw i8, ptr %7, i64 %64
-  %scevgep190 = getelementptr nuw i8, ptr %81, i64 72
-  %82 = add nuw nsw i64 %indvars.iv196, 1
+Abc_StatePush.exit134:                            ; preds = %70
+  %83 = add nuw nsw i64 %indvars.iv196, 1
   %.val.i128 = load ptr, ptr %10, align 8, !tbaa !10
-  %invariant.gep.i129.idx = mul i64 %82, 24
+  %invariant.gep.i129.idx = mul i64 %83, 24
   %invariant.gep.i129 = getelementptr i8, ptr %.val.i128, i64 %invariant.gep.i129.idx
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %invariant.gep.i129, ptr noundef nonnull align 8 dereferenceable(24) %scevgep190, i64 24, i1 false), !tbaa !33
-  %83 = trunc nuw nsw i64 %82 to i32
-  %84 = call fastcc i32 @Hsh_IntManAdd(ptr noundef nonnull %11, i32 noundef %83)
-  %85 = getelementptr inbounds nuw i8, ptr %49, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %67, i64 24, i1 false)
-  br label %86
+  %84 = trunc nuw nsw i64 %83 to i32
+  %85 = call fastcc i32 @Hsh_IntManAdd(ptr noundef nonnull %11, i32 noundef %84)
+  %86 = getelementptr inbounds nuw i8, ptr %52, i64 144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %69, i64 24, i1 false)
+  br label %87
 
-86:                                               ; preds = %Abc_StatePush.exit134, %86
-  %indvars.iv191 = phi i64 [ 0, %Abc_StatePush.exit134 ], [ %indvars.iv.next192, %86 ]
-  %87 = getelementptr inbounds nuw [2 x i32], ptr %50, i64 %indvars.iv191
-  %88 = load i32, ptr %87, align 8, !tbaa !33
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr i8, ptr %85, i64 %89
-  %91 = getelementptr i8, ptr %90, i64 -1
-  %92 = load i8, ptr %91, align 1, !tbaa !31
-  %93 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %94 = load i32, ptr %93, align 4, !tbaa !33
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr i8, ptr %85, i64 %95
-  %97 = getelementptr i8, ptr %96, i64 -1
-  %98 = load i8, ptr %97, align 1, !tbaa !31
-  store i8 %98, ptr %91, align 1, !tbaa !31
-  store i8 %92, ptr %97, align 1, !tbaa !31
+87:                                               ; preds = %Abc_StatePush.exit134, %87
+  %indvars.iv191 = phi i64 [ 0, %Abc_StatePush.exit134 ], [ %indvars.iv.next192, %87 ]
+  %88 = getelementptr inbounds nuw [2 x i32], ptr %53, i64 %indvars.iv191
+  %89 = load i32, ptr %88, align 8, !tbaa !33
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr i8, ptr %86, i64 %90
+  %92 = getelementptr i8, ptr %91, i64 -1
+  %93 = load i8, ptr %92, align 1, !tbaa !31
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 4
+  %95 = load i32, ptr %94, align 4, !tbaa !33
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr i8, ptr %86, i64 %96
+  %98 = getelementptr i8, ptr %97, i64 -1
+  %99 = load i8, ptr %98, align 1, !tbaa !31
+  store i8 %99, ptr %92, align 1, !tbaa !31
+  store i8 %93, ptr %98, align 1, !tbaa !31
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next192, 9
-  br i1 %exitcond194.not, label %Abc_StatePush.exit141, label %86, !llvm.loop !36
+  br i1 %exitcond194.not, label %Abc_StatePush.exit141, label %87, !llvm.loop !36
 
-Abc_StatePush.exit141:                            ; preds = %86
-  %99 = getelementptr nuw i8, ptr %7, i64 %64
-  %scevgep195 = getelementptr nuw i8, ptr %99, i64 144
+Abc_StatePush.exit141:                            ; preds = %87
   %100 = add nuw nsw i64 %indvars.iv196, 2
   %.val.i135 = load ptr, ptr %10, align 8, !tbaa !10
   %invariant.gep.i136.idx = mul i64 %100, 24
@@ -930,275 +930,275 @@ Abc_Clock.exit:                                   ; preds = %0, %11
 
 108:                                              ; preds = %.preheader157.preheader, %Abc_StatePush.exit145
   %indvar = phi i64 [ 0, %.preheader157.preheader ], [ %indvar.next, %Abc_StatePush.exit145 ]
-  %109 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvar
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 16 dereferenceable(24) %6, i64 24, i1 false)
-  %110 = getelementptr inbounds nuw [9 x [2 x i32]], ptr @__const.Abc_EnumerateCubeStates.pXYZ, i64 %indvar
-  br label %111
+  %109 = mul nuw nsw i64 %indvar, 72
+  %110 = getelementptr i8, ptr %calloc.i, i64 %109
+  %scevgep191 = getelementptr i8, ptr %110, i64 72
+  %111 = mul nuw nsw i64 %indvar, 24
+  %112 = getelementptr nuw i8, ptr %7, i64 %111
+  %scevgep192 = getelementptr nuw i8, ptr %112, i64 144
+  %113 = getelementptr i8, ptr %calloc.i, i64 %109
+  %scevgep185 = getelementptr i8, ptr %113, i64 48
+  %114 = getelementptr nuw i8, ptr %7, i64 %111
+  %scevgep186 = getelementptr nuw i8, ptr %114, i64 72
+  %115 = getelementptr i8, ptr %calloc.i, i64 %109
+  %scevgep = getelementptr i8, ptr %115, i64 24
+  %scevgep180 = getelementptr nuw i8, ptr %7, i64 %111
+  %116 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvar
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull align 16 dereferenceable(24) %6, i64 24, i1 false)
+  %117 = getelementptr inbounds nuw [9 x [2 x i32]], ptr @__const.Abc_EnumerateCubeStates.pXYZ, i64 %indvar
+  br label %118
 
-111:                                              ; preds = %108, %111
-  %indvars.iv176 = phi i64 [ 0, %108 ], [ %indvars.iv.next177, %111 ]
-  %112 = getelementptr inbounds nuw [2 x i32], ptr %110, i64 %indvars.iv176
-  %113 = load i32, ptr %112, align 8, !tbaa !33
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr i8, ptr %109, i64 %114
-  %116 = getelementptr i8, ptr %115, i64 -1
-  %117 = load i8, ptr %116, align 1, !tbaa !31
-  %118 = getelementptr inbounds nuw i8, ptr %112, i64 4
-  %119 = load i32, ptr %118, align 4, !tbaa !33
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr i8, ptr %109, i64 %120
-  %122 = getelementptr i8, ptr %121, i64 -1
-  %123 = load i8, ptr %122, align 1, !tbaa !31
-  store i8 %123, ptr %116, align 1, !tbaa !31
-  store i8 %117, ptr %122, align 1, !tbaa !31
+118:                                              ; preds = %108, %118
+  %indvars.iv176 = phi i64 [ 0, %108 ], [ %indvars.iv.next177, %118 ]
+  %119 = getelementptr inbounds nuw [2 x i32], ptr %117, i64 %indvars.iv176
+  %120 = load i32, ptr %119, align 8, !tbaa !33
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr i8, ptr %116, i64 %121
+  %123 = getelementptr i8, ptr %122, i64 -1
+  %124 = load i8, ptr %123, align 1, !tbaa !31
+  %125 = getelementptr inbounds nuw i8, ptr %119, i64 4
+  %126 = load i32, ptr %125, align 4, !tbaa !33
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr i8, ptr %116, i64 %127
+  %129 = getelementptr i8, ptr %128, i64 -1
+  %130 = load i8, ptr %129, align 1, !tbaa !31
+  store i8 %130, ptr %123, align 1, !tbaa !31
+  store i8 %124, ptr %129, align 1, !tbaa !31
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next177, 9
-  br i1 %exitcond179.not, label %Abc_StatePush.exit131, label %111, !llvm.loop !50
+  br i1 %exitcond179.not, label %Abc_StatePush.exit131, label %118, !llvm.loop !50
 
-Abc_StatePush.exit131:                            ; preds = %111
-  %124 = mul nuw nsw i64 %indvar, 72
-  %125 = mul nuw nsw i64 %indvar, 24
-  %126 = getelementptr i8, ptr %calloc.i, i64 %124
-  %scevgep = getelementptr i8, ptr %126, i64 24
-  %scevgep180 = getelementptr nuw i8, ptr %7, i64 %125
+Abc_StatePush.exit131:                            ; preds = %118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %scevgep, ptr noundef nonnull align 8 dereferenceable(24) %scevgep180, i64 24, i1 false), !tbaa !33
-  %127 = load i8, ptr %109, align 8, !tbaa !31
-  %128 = sext i8 %127 to i64
-  %129 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %128
-  %130 = load i32, ptr %129, align 4, !tbaa !33
-  %131 = shl i32 %130, 2
-  %132 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %128
-  %133 = load i32, ptr %132, align 4, !tbaa !33
-  %134 = or i32 %131, %133
-  %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds nuw i8, ptr %109, i64 3
-  %137 = load i8, ptr %136, align 1, !tbaa !31
-  %138 = sext i8 %137 to i64
-  %139 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %138
-  %140 = load i32, ptr %139, align 4, !tbaa !33
-  %141 = shl i32 %140, 2
-  %142 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %138
-  %143 = load i32, ptr %142, align 4, !tbaa !33
-  %144 = or i32 %141, %143
-  %145 = sext i32 %144 to i64
-  %146 = shl nsw i64 %145, 5
-  %147 = xor i64 %146, %135
-  %148 = getelementptr inbounds nuw i8, ptr %109, i64 6
-  %149 = load i8, ptr %148, align 2, !tbaa !31
-  %150 = sext i8 %149 to i64
-  %151 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %150
-  %152 = load i32, ptr %151, align 4, !tbaa !33
-  %153 = shl i32 %152, 2
-  %154 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %150
-  %155 = load i32, ptr %154, align 4, !tbaa !33
-  %156 = or i32 %153, %155
-  %157 = sext i32 %156 to i64
-  %158 = shl nsw i64 %157, 10
-  %159 = getelementptr inbounds nuw i8, ptr %109, i64 9
-  %160 = load i8, ptr %159, align 1, !tbaa !31
-  %161 = sext i8 %160 to i64
-  %162 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %161
-  %163 = load i32, ptr %162, align 4, !tbaa !33
-  %164 = shl i32 %163, 2
-  %165 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %161
-  %166 = load i32, ptr %165, align 4, !tbaa !33
-  %167 = or i32 %164, %166
-  %168 = sext i32 %167 to i64
-  %169 = shl nsw i64 %168, 15
-  %170 = getelementptr inbounds nuw i8, ptr %109, i64 12
-  %171 = load i8, ptr %170, align 4, !tbaa !31
-  %172 = sext i8 %171 to i64
-  %173 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %172
-  %174 = load i32, ptr %173, align 4, !tbaa !33
-  %175 = shl i32 %174, 2
-  %176 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %172
-  %177 = load i32, ptr %176, align 4, !tbaa !33
-  %178 = or i32 %175, %177
-  %179 = sext i32 %178 to i64
-  %180 = shl nsw i64 %179, 20
-  %181 = getelementptr inbounds nuw i8, ptr %109, i64 15
-  %182 = load i8, ptr %181, align 1, !tbaa !31
-  %183 = sext i8 %182 to i64
-  %184 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %183
-  %185 = load i32, ptr %184, align 4, !tbaa !33
-  %186 = shl i32 %185, 2
-  %187 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %183
-  %188 = load i32, ptr %187, align 4, !tbaa !33
-  %189 = or i32 %186, %188
-  %190 = sext i32 %189 to i64
-  %191 = shl nsw i64 %190, 25
-  %192 = getelementptr inbounds nuw i8, ptr %109, i64 21
-  %193 = load i8, ptr %192, align 1, !tbaa !31
-  %194 = sext i8 %193 to i64
-  %195 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %194
-  %196 = load i32, ptr %195, align 4, !tbaa !33
-  %197 = shl i32 %196, 2
-  %198 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %194
-  %199 = load i32, ptr %198, align 4, !tbaa !33
-  %200 = or i32 %197, %199
-  %201 = sext i32 %200 to i64
-  %202 = shl nsw i64 %201, 30
-  %203 = xor i64 %158, %169
-  %204 = xor i64 %203, %180
-  %205 = xor i64 %204, %191
-  %206 = xor i64 %205, %202
-  %207 = xor i64 %206, %147
-  %208 = and i64 %147, 63
-  %209 = shl nuw i64 1, %208
-  %210 = lshr i64 %207, 6
-  %211 = getelementptr inbounds nuw i64, ptr %8, i64 %210
-  %212 = load i64, ptr %211, align 8, !tbaa !48
-  %213 = xor i64 %212, %209
-  store i64 %213, ptr %211, align 8, !tbaa !48
-  %214 = getelementptr inbounds nuw i8, ptr %109, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %214, ptr noundef nonnull align 8 dereferenceable(24) %109, i64 24, i1 false)
-  br label %215
+  %131 = load i8, ptr %116, align 8, !tbaa !31
+  %132 = sext i8 %131 to i64
+  %133 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %132
+  %134 = load i32, ptr %133, align 4, !tbaa !33
+  %135 = shl i32 %134, 2
+  %136 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %132
+  %137 = load i32, ptr %136, align 4, !tbaa !33
+  %138 = or i32 %135, %137
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr inbounds nuw i8, ptr %116, i64 3
+  %141 = load i8, ptr %140, align 1, !tbaa !31
+  %142 = sext i8 %141 to i64
+  %143 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %142
+  %144 = load i32, ptr %143, align 4, !tbaa !33
+  %145 = shl i32 %144, 2
+  %146 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %142
+  %147 = load i32, ptr %146, align 4, !tbaa !33
+  %148 = or i32 %145, %147
+  %149 = sext i32 %148 to i64
+  %150 = shl nsw i64 %149, 5
+  %151 = xor i64 %150, %139
+  %152 = getelementptr inbounds nuw i8, ptr %116, i64 6
+  %153 = load i8, ptr %152, align 2, !tbaa !31
+  %154 = sext i8 %153 to i64
+  %155 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %154
+  %156 = load i32, ptr %155, align 4, !tbaa !33
+  %157 = shl i32 %156, 2
+  %158 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %154
+  %159 = load i32, ptr %158, align 4, !tbaa !33
+  %160 = or i32 %157, %159
+  %161 = sext i32 %160 to i64
+  %162 = shl nsw i64 %161, 10
+  %163 = getelementptr inbounds nuw i8, ptr %116, i64 9
+  %164 = load i8, ptr %163, align 1, !tbaa !31
+  %165 = sext i8 %164 to i64
+  %166 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %165
+  %167 = load i32, ptr %166, align 4, !tbaa !33
+  %168 = shl i32 %167, 2
+  %169 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %165
+  %170 = load i32, ptr %169, align 4, !tbaa !33
+  %171 = or i32 %168, %170
+  %172 = sext i32 %171 to i64
+  %173 = shl nsw i64 %172, 15
+  %174 = getelementptr inbounds nuw i8, ptr %116, i64 12
+  %175 = load i8, ptr %174, align 4, !tbaa !31
+  %176 = sext i8 %175 to i64
+  %177 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %176
+  %178 = load i32, ptr %177, align 4, !tbaa !33
+  %179 = shl i32 %178, 2
+  %180 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %176
+  %181 = load i32, ptr %180, align 4, !tbaa !33
+  %182 = or i32 %179, %181
+  %183 = sext i32 %182 to i64
+  %184 = shl nsw i64 %183, 20
+  %185 = getelementptr inbounds nuw i8, ptr %116, i64 15
+  %186 = load i8, ptr %185, align 1, !tbaa !31
+  %187 = sext i8 %186 to i64
+  %188 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %187
+  %189 = load i32, ptr %188, align 4, !tbaa !33
+  %190 = shl i32 %189, 2
+  %191 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %187
+  %192 = load i32, ptr %191, align 4, !tbaa !33
+  %193 = or i32 %190, %192
+  %194 = sext i32 %193 to i64
+  %195 = shl nsw i64 %194, 25
+  %196 = getelementptr inbounds nuw i8, ptr %116, i64 21
+  %197 = load i8, ptr %196, align 1, !tbaa !31
+  %198 = sext i8 %197 to i64
+  %199 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %198
+  %200 = load i32, ptr %199, align 4, !tbaa !33
+  %201 = shl i32 %200, 2
+  %202 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %198
+  %203 = load i32, ptr %202, align 4, !tbaa !33
+  %204 = or i32 %201, %203
+  %205 = sext i32 %204 to i64
+  %206 = shl nsw i64 %205, 30
+  %207 = xor i64 %162, %173
+  %208 = xor i64 %207, %184
+  %209 = xor i64 %208, %195
+  %210 = xor i64 %209, %206
+  %211 = xor i64 %210, %151
+  %212 = and i64 %151, 63
+  %213 = shl nuw i64 1, %212
+  %214 = lshr i64 %211, 6
+  %215 = getelementptr inbounds nuw i64, ptr %8, i64 %214
+  %216 = load i64, ptr %215, align 8, !tbaa !48
+  %217 = xor i64 %216, %213
+  store i64 %217, ptr %215, align 8, !tbaa !48
+  %218 = getelementptr inbounds nuw i8, ptr %116, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %218, ptr noundef nonnull align 8 dereferenceable(24) %116, i64 24, i1 false)
+  br label %219
 
-215:                                              ; preds = %Abc_StatePush.exit131, %215
-  %indvars.iv181 = phi i64 [ 0, %Abc_StatePush.exit131 ], [ %indvars.iv.next182, %215 ]
-  %216 = getelementptr inbounds nuw [2 x i32], ptr %110, i64 %indvars.iv181
-  %217 = load i32, ptr %216, align 8, !tbaa !33
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr i8, ptr %214, i64 %218
-  %220 = getelementptr i8, ptr %219, i64 -1
-  %221 = load i8, ptr %220, align 1, !tbaa !31
-  %222 = getelementptr inbounds nuw i8, ptr %216, i64 4
-  %223 = load i32, ptr %222, align 4, !tbaa !33
-  %224 = sext i32 %223 to i64
-  %225 = getelementptr i8, ptr %214, i64 %224
-  %226 = getelementptr i8, ptr %225, i64 -1
-  %227 = load i8, ptr %226, align 1, !tbaa !31
-  store i8 %227, ptr %220, align 1, !tbaa !31
-  store i8 %221, ptr %226, align 1, !tbaa !31
+219:                                              ; preds = %Abc_StatePush.exit131, %219
+  %indvars.iv181 = phi i64 [ 0, %Abc_StatePush.exit131 ], [ %indvars.iv.next182, %219 ]
+  %220 = getelementptr inbounds nuw [2 x i32], ptr %117, i64 %indvars.iv181
+  %221 = load i32, ptr %220, align 8, !tbaa !33
+  %222 = sext i32 %221 to i64
+  %223 = getelementptr i8, ptr %218, i64 %222
+  %224 = getelementptr i8, ptr %223, i64 -1
+  %225 = load i8, ptr %224, align 1, !tbaa !31
+  %226 = getelementptr inbounds nuw i8, ptr %220, i64 4
+  %227 = load i32, ptr %226, align 4, !tbaa !33
+  %228 = sext i32 %227 to i64
+  %229 = getelementptr i8, ptr %218, i64 %228
+  %230 = getelementptr i8, ptr %229, i64 -1
+  %231 = load i8, ptr %230, align 1, !tbaa !31
+  store i8 %231, ptr %224, align 1, !tbaa !31
+  store i8 %225, ptr %230, align 1, !tbaa !31
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next182, 9
-  br i1 %exitcond184.not, label %Abc_StatePush.exit138, label %215, !llvm.loop !51
+  br i1 %exitcond184.not, label %Abc_StatePush.exit138, label %219, !llvm.loop !51
 
-Abc_StatePush.exit138:                            ; preds = %215
-  %228 = getelementptr i8, ptr %calloc.i, i64 %124
-  %scevgep185 = getelementptr i8, ptr %228, i64 48
-  %229 = getelementptr nuw i8, ptr %7, i64 %125
-  %scevgep186 = getelementptr nuw i8, ptr %229, i64 72
+Abc_StatePush.exit138:                            ; preds = %219
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %scevgep185, ptr noundef nonnull align 8 dereferenceable(24) %scevgep186, i64 24, i1 false), !tbaa !33
-  %230 = load i8, ptr %214, align 8, !tbaa !31
-  %231 = sext i8 %230 to i64
-  %232 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %231
-  %233 = load i32, ptr %232, align 4, !tbaa !33
-  %234 = shl i32 %233, 2
-  %235 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %231
-  %236 = load i32, ptr %235, align 4, !tbaa !33
-  %237 = or i32 %234, %236
-  %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds nuw i8, ptr %109, i64 75
-  %240 = load i8, ptr %239, align 1, !tbaa !31
-  %241 = sext i8 %240 to i64
-  %242 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %241
-  %243 = load i32, ptr %242, align 4, !tbaa !33
-  %244 = shl i32 %243, 2
-  %245 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %241
-  %246 = load i32, ptr %245, align 4, !tbaa !33
-  %247 = or i32 %244, %246
-  %248 = sext i32 %247 to i64
-  %249 = shl nsw i64 %248, 5
-  %250 = xor i64 %249, %238
-  %251 = getelementptr inbounds nuw i8, ptr %109, i64 78
-  %252 = load i8, ptr %251, align 2, !tbaa !31
-  %253 = sext i8 %252 to i64
-  %254 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %253
-  %255 = load i32, ptr %254, align 4, !tbaa !33
-  %256 = shl i32 %255, 2
-  %257 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %253
-  %258 = load i32, ptr %257, align 4, !tbaa !33
-  %259 = or i32 %256, %258
-  %260 = sext i32 %259 to i64
-  %261 = shl nsw i64 %260, 10
-  %262 = getelementptr inbounds nuw i8, ptr %109, i64 81
-  %263 = load i8, ptr %262, align 1, !tbaa !31
-  %264 = sext i8 %263 to i64
-  %265 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %264
-  %266 = load i32, ptr %265, align 4, !tbaa !33
-  %267 = shl i32 %266, 2
-  %268 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %264
-  %269 = load i32, ptr %268, align 4, !tbaa !33
-  %270 = or i32 %267, %269
-  %271 = sext i32 %270 to i64
-  %272 = shl nsw i64 %271, 15
-  %273 = getelementptr inbounds nuw i8, ptr %109, i64 84
-  %274 = load i8, ptr %273, align 4, !tbaa !31
-  %275 = sext i8 %274 to i64
-  %276 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %275
-  %277 = load i32, ptr %276, align 4, !tbaa !33
-  %278 = shl i32 %277, 2
-  %279 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %275
-  %280 = load i32, ptr %279, align 4, !tbaa !33
-  %281 = or i32 %278, %280
-  %282 = sext i32 %281 to i64
-  %283 = shl nsw i64 %282, 20
-  %284 = getelementptr inbounds nuw i8, ptr %109, i64 87
-  %285 = load i8, ptr %284, align 1, !tbaa !31
-  %286 = sext i8 %285 to i64
-  %287 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %286
-  %288 = load i32, ptr %287, align 4, !tbaa !33
-  %289 = shl i32 %288, 2
-  %290 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %286
-  %291 = load i32, ptr %290, align 4, !tbaa !33
-  %292 = or i32 %289, %291
-  %293 = sext i32 %292 to i64
-  %294 = shl nsw i64 %293, 25
-  %295 = getelementptr inbounds nuw i8, ptr %109, i64 93
-  %296 = load i8, ptr %295, align 1, !tbaa !31
-  %297 = sext i8 %296 to i64
-  %298 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %297
-  %299 = load i32, ptr %298, align 4, !tbaa !33
-  %300 = shl i32 %299, 2
-  %301 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %297
-  %302 = load i32, ptr %301, align 4, !tbaa !33
-  %303 = or i32 %300, %302
-  %304 = sext i32 %303 to i64
-  %305 = shl nsw i64 %304, 30
-  %306 = xor i64 %261, %272
-  %307 = xor i64 %306, %283
-  %308 = xor i64 %307, %294
-  %309 = xor i64 %308, %305
-  %310 = xor i64 %309, %250
-  %311 = and i64 %250, 63
-  %312 = shl nuw i64 1, %311
-  %313 = lshr i64 %310, 6
-  %314 = getelementptr inbounds nuw i64, ptr %8, i64 %313
-  %315 = load i64, ptr %314, align 8, !tbaa !48
-  %316 = xor i64 %315, %312
-  store i64 %316, ptr %314, align 8, !tbaa !48
-  %317 = getelementptr inbounds nuw i8, ptr %109, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %317, ptr noundef nonnull align 8 dereferenceable(24) %214, i64 24, i1 false)
-  br label %318
+  %232 = load i8, ptr %218, align 8, !tbaa !31
+  %233 = sext i8 %232 to i64
+  %234 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %233
+  %235 = load i32, ptr %234, align 4, !tbaa !33
+  %236 = shl i32 %235, 2
+  %237 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %233
+  %238 = load i32, ptr %237, align 4, !tbaa !33
+  %239 = or i32 %236, %238
+  %240 = sext i32 %239 to i64
+  %241 = getelementptr inbounds nuw i8, ptr %116, i64 75
+  %242 = load i8, ptr %241, align 1, !tbaa !31
+  %243 = sext i8 %242 to i64
+  %244 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %243
+  %245 = load i32, ptr %244, align 4, !tbaa !33
+  %246 = shl i32 %245, 2
+  %247 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %243
+  %248 = load i32, ptr %247, align 4, !tbaa !33
+  %249 = or i32 %246, %248
+  %250 = sext i32 %249 to i64
+  %251 = shl nsw i64 %250, 5
+  %252 = xor i64 %251, %240
+  %253 = getelementptr inbounds nuw i8, ptr %116, i64 78
+  %254 = load i8, ptr %253, align 2, !tbaa !31
+  %255 = sext i8 %254 to i64
+  %256 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %255
+  %257 = load i32, ptr %256, align 4, !tbaa !33
+  %258 = shl i32 %257, 2
+  %259 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %255
+  %260 = load i32, ptr %259, align 4, !tbaa !33
+  %261 = or i32 %258, %260
+  %262 = sext i32 %261 to i64
+  %263 = shl nsw i64 %262, 10
+  %264 = getelementptr inbounds nuw i8, ptr %116, i64 81
+  %265 = load i8, ptr %264, align 1, !tbaa !31
+  %266 = sext i8 %265 to i64
+  %267 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %266
+  %268 = load i32, ptr %267, align 4, !tbaa !33
+  %269 = shl i32 %268, 2
+  %270 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %266
+  %271 = load i32, ptr %270, align 4, !tbaa !33
+  %272 = or i32 %269, %271
+  %273 = sext i32 %272 to i64
+  %274 = shl nsw i64 %273, 15
+  %275 = getelementptr inbounds nuw i8, ptr %116, i64 84
+  %276 = load i8, ptr %275, align 4, !tbaa !31
+  %277 = sext i8 %276 to i64
+  %278 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %277
+  %279 = load i32, ptr %278, align 4, !tbaa !33
+  %280 = shl i32 %279, 2
+  %281 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %277
+  %282 = load i32, ptr %281, align 4, !tbaa !33
+  %283 = or i32 %280, %282
+  %284 = sext i32 %283 to i64
+  %285 = shl nsw i64 %284, 20
+  %286 = getelementptr inbounds nuw i8, ptr %116, i64 87
+  %287 = load i8, ptr %286, align 1, !tbaa !31
+  %288 = sext i8 %287 to i64
+  %289 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %288
+  %290 = load i32, ptr %289, align 4, !tbaa !33
+  %291 = shl i32 %290, 2
+  %292 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %288
+  %293 = load i32, ptr %292, align 4, !tbaa !33
+  %294 = or i32 %291, %293
+  %295 = sext i32 %294 to i64
+  %296 = shl nsw i64 %295, 25
+  %297 = getelementptr inbounds nuw i8, ptr %116, i64 93
+  %298 = load i8, ptr %297, align 1, !tbaa !31
+  %299 = sext i8 %298 to i64
+  %300 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %299
+  %301 = load i32, ptr %300, align 4, !tbaa !33
+  %302 = shl i32 %301, 2
+  %303 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Per, i64 %299
+  %304 = load i32, ptr %303, align 4, !tbaa !33
+  %305 = or i32 %302, %304
+  %306 = sext i32 %305 to i64
+  %307 = shl nsw i64 %306, 30
+  %308 = xor i64 %263, %274
+  %309 = xor i64 %308, %285
+  %310 = xor i64 %309, %296
+  %311 = xor i64 %310, %307
+  %312 = xor i64 %311, %252
+  %313 = and i64 %252, 63
+  %314 = shl nuw i64 1, %313
+  %315 = lshr i64 %312, 6
+  %316 = getelementptr inbounds nuw i64, ptr %8, i64 %315
+  %317 = load i64, ptr %316, align 8, !tbaa !48
+  %318 = xor i64 %317, %314
+  store i64 %318, ptr %316, align 8, !tbaa !48
+  %319 = getelementptr inbounds nuw i8, ptr %116, i64 144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %319, ptr noundef nonnull align 8 dereferenceable(24) %218, i64 24, i1 false)
+  br label %320
 
-318:                                              ; preds = %Abc_StatePush.exit138, %318
-  %indvars.iv187 = phi i64 [ 0, %Abc_StatePush.exit138 ], [ %indvars.iv.next188, %318 ]
-  %319 = getelementptr inbounds nuw [2 x i32], ptr %110, i64 %indvars.iv187
-  %320 = load i32, ptr %319, align 8, !tbaa !33
-  %321 = sext i32 %320 to i64
-  %322 = getelementptr i8, ptr %317, i64 %321
-  %323 = getelementptr i8, ptr %322, i64 -1
-  %324 = load i8, ptr %323, align 1, !tbaa !31
-  %325 = getelementptr inbounds nuw i8, ptr %319, i64 4
-  %326 = load i32, ptr %325, align 4, !tbaa !33
-  %327 = sext i32 %326 to i64
-  %328 = getelementptr i8, ptr %317, i64 %327
-  %329 = getelementptr i8, ptr %328, i64 -1
-  %330 = load i8, ptr %329, align 1, !tbaa !31
-  store i8 %330, ptr %323, align 1, !tbaa !31
-  store i8 %324, ptr %329, align 1, !tbaa !31
+320:                                              ; preds = %Abc_StatePush.exit138, %320
+  %indvars.iv187 = phi i64 [ 0, %Abc_StatePush.exit138 ], [ %indvars.iv.next188, %320 ]
+  %321 = getelementptr inbounds nuw [2 x i32], ptr %117, i64 %indvars.iv187
+  %322 = load i32, ptr %321, align 8, !tbaa !33
+  %323 = sext i32 %322 to i64
+  %324 = getelementptr i8, ptr %319, i64 %323
+  %325 = getelementptr i8, ptr %324, i64 -1
+  %326 = load i8, ptr %325, align 1, !tbaa !31
+  %327 = getelementptr inbounds nuw i8, ptr %321, i64 4
+  %328 = load i32, ptr %327, align 4, !tbaa !33
+  %329 = sext i32 %328 to i64
+  %330 = getelementptr i8, ptr %319, i64 %329
+  %331 = getelementptr i8, ptr %330, i64 -1
+  %332 = load i8, ptr %331, align 1, !tbaa !31
+  store i8 %332, ptr %325, align 1, !tbaa !31
+  store i8 %326, ptr %331, align 1, !tbaa !31
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next188, 9
-  br i1 %exitcond190.not, label %Abc_StatePush.exit145, label %318, !llvm.loop !52
+  br i1 %exitcond190.not, label %Abc_StatePush.exit145, label %320, !llvm.loop !52
 
-Abc_StatePush.exit145:                            ; preds = %318
-  %331 = getelementptr i8, ptr %calloc.i, i64 %124
-  %scevgep191 = getelementptr i8, ptr %331, i64 72
-  %332 = getelementptr nuw i8, ptr %7, i64 %125
-  %scevgep192 = getelementptr nuw i8, ptr %332, i64 144
+Abc_StatePush.exit145:                            ; preds = %320
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %scevgep191, ptr noundef nonnull align 8 dereferenceable(24) %scevgep192, i64 24, i1 false), !tbaa !33
-  %333 = load i8, ptr %317, align 8, !tbaa !31
+  %333 = load i8, ptr %319, align 8, !tbaa !31
   %334 = sext i8 %333 to i64
   %335 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %334
   %336 = load i32, ptr %335, align 4, !tbaa !33
@@ -1207,7 +1207,7 @@ Abc_StatePush.exit145:                            ; preds = %318
   %339 = load i32, ptr %338, align 4, !tbaa !33
   %340 = or i32 %337, %339
   %341 = sext i32 %340 to i64
-  %342 = getelementptr inbounds nuw i8, ptr %109, i64 147
+  %342 = getelementptr inbounds nuw i8, ptr %116, i64 147
   %343 = load i8, ptr %342, align 1, !tbaa !31
   %344 = sext i8 %343 to i64
   %345 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %344
@@ -1219,7 +1219,7 @@ Abc_StatePush.exit145:                            ; preds = %318
   %351 = sext i32 %350 to i64
   %352 = shl nsw i64 %351, 5
   %353 = xor i64 %352, %341
-  %354 = getelementptr inbounds nuw i8, ptr %109, i64 150
+  %354 = getelementptr inbounds nuw i8, ptr %116, i64 150
   %355 = load i8, ptr %354, align 2, !tbaa !31
   %356 = sext i8 %355 to i64
   %357 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %356
@@ -1230,7 +1230,7 @@ Abc_StatePush.exit145:                            ; preds = %318
   %362 = or i32 %359, %361
   %363 = sext i32 %362 to i64
   %364 = shl nsw i64 %363, 10
-  %365 = getelementptr inbounds nuw i8, ptr %109, i64 153
+  %365 = getelementptr inbounds nuw i8, ptr %116, i64 153
   %366 = load i8, ptr %365, align 1, !tbaa !31
   %367 = sext i8 %366 to i64
   %368 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %367
@@ -1241,7 +1241,7 @@ Abc_StatePush.exit145:                            ; preds = %318
   %373 = or i32 %370, %372
   %374 = sext i32 %373 to i64
   %375 = shl nsw i64 %374, 15
-  %376 = getelementptr inbounds nuw i8, ptr %109, i64 156
+  %376 = getelementptr inbounds nuw i8, ptr %116, i64 156
   %377 = load i8, ptr %376, align 4, !tbaa !31
   %378 = sext i8 %377 to i64
   %379 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %378
@@ -1252,7 +1252,7 @@ Abc_StatePush.exit145:                            ; preds = %318
   %384 = or i32 %381, %383
   %385 = sext i32 %384 to i64
   %386 = shl nsw i64 %385, 20
-  %387 = getelementptr inbounds nuw i8, ptr %109, i64 159
+  %387 = getelementptr inbounds nuw i8, ptr %116, i64 159
   %388 = load i8, ptr %387, align 1, !tbaa !31
   %389 = sext i8 %388 to i64
   %390 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %389
@@ -1263,7 +1263,7 @@ Abc_StatePush.exit145:                            ; preds = %318
   %395 = or i32 %392, %394
   %396 = sext i32 %395 to i64
   %397 = shl nsw i64 %396, 25
-  %398 = getelementptr inbounds nuw i8, ptr %109, i64 165
+  %398 = getelementptr inbounds nuw i8, ptr %116, i64 165
   %399 = load i8, ptr %398, align 1, !tbaa !31
   %400 = sext i8 %399 to i64
   %401 = getelementptr inbounds i32, ptr @Abc_CubeGenerateSign.Var2Cor, i64 %400

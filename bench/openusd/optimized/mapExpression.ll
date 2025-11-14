@@ -628,7 +628,7 @@ _ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %89, i64 16, i1 false)
   %90 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %90, 1
-  br i1 %.not, label %396, label %91
+  br i1 %.not, label %395, label %91
 
 91:                                               ; preds = %.loopexit55
   %92 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node13_nodeRegistryE seq_cst, align 8
@@ -644,160 +644,160 @@ _ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_E
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i64 1, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %scevgep.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %95, i64 24
+  %.ptr12.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %95, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %97, i8 0, i64 40, i1 false)
-  br label %100
+  br label %.preheader13.i.i.i.i.i.i.i.i
 
-.preheader.i.i.i.i.i.i.i.i:                       ; preds = %100
+.preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader13.i.i.i.i.i.i.i.i
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 56
-  %99 = ptrtoint ptr %scevgep.i.i.i.i.i.i.i.i to i64
-  br label %104
+  %99 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i to i64
+  br label %103
 
-100:                                              ; preds = %100, %.noexc
-  %.014.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc ], [ %103, %100 ]
-  %101 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %scevgep.i.i.i.i.i.i.i.i, i64 %.014.i.i.i.i.i.i.i.i
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store atomic i64 0, ptr %102 monotonic, align 8
-  %103 = add nuw nsw i64 %.014.i.i.i.i.i.i.i.i, 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %103, 2
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i, label %100, !llvm.loop !11
+.preheader13.i.i.i.i.i.i.i.i:                     ; preds = %.preheader13.i.i.i.i.i.i.i.i, %.noexc
+  %.014.i.i.i.i.i.i.i.i = phi i64 [ %102, %.preheader13.i.i.i.i.i.i.i.i ], [ 0, %.noexc ]
+  %100 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.ptr12.i.i.i.i.i.i.i.i, i64 %.014.i.i.i.i.i.i.i.i
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  store atomic i64 0, ptr %101 monotonic, align 8
+  %102 = add nuw nsw i64 %.014.i.i.i.i.i.i.i.i, 1
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %102, 2
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i, label %.preheader13.i.i.i.i.i.i.i.i, !llvm.loop !11
 
-104:                                              ; preds = %104, %.preheader.i.i.i.i.i.i.i.i
-  %.01015.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i ], [ %108, %104 ]
-  %105 = icmp eq i64 %.01015.i.i.i.i.i.i.i.i, 0
-  %106 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %98, i64 %.01015.i.i.i.i.i.i.i.i
-  %107 = select i1 %105, i64 %99, i64 0
-  store atomic i64 %107, ptr %106 monotonic, align 8
-  %108 = add nuw nsw i64 %.01015.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %108, 64
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i, label %104, !llvm.loop !12
+103:                                              ; preds = %103, %.preheader.i.i.i.i.i.i.i.i
+  %.01015.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i ], [ %107, %103 ]
+  %104 = icmp eq i64 %.01015.i.i.i.i.i.i.i.i, 0
+  %105 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %98, i64 %.01015.i.i.i.i.i.i.i.i
+  %106 = select i1 %104, i64 %99, i64 0
+  store atomic i64 %106, ptr %105 monotonic, align 8
+  %107 = add nuw nsw i64 %.01015.i.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %107, 64
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i, label %103, !llvm.loop !12
 
-_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i: ; preds = %104
-  %109 = ptrtoint ptr %95 to i64
-  %110 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node13_nodeRegistryE, i64 0, i64 %109 seq_cst seq_cst, align 8
-  %111 = extractvalue { i64, i1 } %110, 1
-  br i1 %111, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i, label %112
+_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i: ; preds = %103
+  %108 = ptrtoint ptr %95 to i64
+  %109 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node13_nodeRegistryE, i64 0, i64 %108 seq_cst seq_cst, align 8
+  %110 = extractvalue { i64, i1 } %109, 1
+  br i1 %110, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i, label %111
 
-112:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i
+111:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node8_NodeMapD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %95) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef 576) #21
-  %113 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node13_nodeRegistryE seq_cst, align 8
-  %114 = inttoptr i64 %113 to ptr
+  %112 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node13_nodeRegistryE seq_cst, align 8
+  %113 = inttoptr i64 %112 to ptr
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i: ; preds = %91, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i, %112
-  %115 = phi ptr [ %93, %91 ], [ %114, %112 ], [ %95, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i ]
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i: ; preds = %91, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i, %111
+  %114 = phi ptr [ %93, %91 ], [ %113, %111 ], [ %95, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %116 = load ptr, ptr %19, align 8
-  store ptr %116, ptr %6, align 8
-  %117 = load ptr, ptr %24, align 8
-  store ptr %117, ptr %7, align 8
-  %118 = invoke noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__6TfHash7CombineIJRKNS_16PcpMapExpression3_OpEPNS2_5_NodeES7_RKNS_14PcpMapFunctionEEEEmDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(56) %29)
+  %115 = load ptr, ptr %19, align 8
+  store ptr %115, ptr %6, align 8
+  %116 = load ptr, ptr %24, align 8
+  store ptr %116, ptr %7, align 8
+  %117 = invoke noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__6TfHash7CombineIJRKNS_16PcpMapExpression3_OpEPNS2_5_NodeES7_RKNS_14PcpMapFunctionEEEEmDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(56) %29)
           to label %.noexc28 unwind label %.loopexit.split-lp
 
 .noexc28:                                         ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %119 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %120 = load atomic i64, ptr %119 acquire, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %122 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %123 = getelementptr inbounds nuw i8, ptr %115, i64 56
-  %124 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  br label %125
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %119 = load atomic i64, ptr %118 acquire, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %114, i64 56
+  %123 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  br label %124
 
-125:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i, %.noexc28
+124:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i, %.noexc28
   %.sroa.9.2 = phi i8 [ 0, %.noexc28 ], [ %.sroa.9.3, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i ]
   %.sroa.0.3 = phi ptr [ null, %.noexc28 ], [ %.sroa.0.4, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i ]
-  %.05.i.i = phi i64 [ %120, %.noexc28 ], [ %.38.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i ]
+  %.05.i.i = phi i64 [ %119, %.noexc28 ], [ %.38.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i ]
   %.047.i.i = phi ptr [ null, %.noexc28 ], [ %.3.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i ]
   %.044.i.i = phi i64 [ 0, %.noexc28 ], [ %.246.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i ]
-  %126 = and i64 %.05.i.i, %118
-  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(569) %115, i64 noundef %126, i1 noundef zeroext false)
+  %125 = and i64 %.05.i.i, %117
+  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(569) %114, i64 noundef %125, i1 noundef zeroext false)
           to label %.noexc29 unwind label %.loopexit
 
-.noexc29:                                         ; preds = %125
-  %.val60.i.i = load ptr, ptr %121, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %.val60.i.i, i64 8
-  %128 = load atomic i64, ptr %127 monotonic, align 8
-  %.0.i.i.i.i = inttoptr i64 %128 to ptr
-  %129 = icmp ugt i64 %128, 63
-  br i1 %129, label %.lr.ph.i.i.i, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i
+.noexc29:                                         ; preds = %124
+  %.val60.i.i = load ptr, ptr %120, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %.val60.i.i, i64 8
+  %127 = load atomic i64, ptr %126 monotonic, align 8
+  %.0.i.i.i.i = inttoptr i64 %127 to ptr
+  %128 = icmp ugt i64 %127, 63
+  br i1 %128, label %.lr.ph.i.i.i, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc29, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
-  %.01.i.i.i = phi ptr [ %146, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i ], [ %.0.i.i.i.i, %.noexc29 ]
-  %130 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 16
-  %131 = load i32, ptr %10, align 8
-  %132 = load i32, ptr %130, align 8
-  %133 = icmp eq i32 %131, %132
-  br i1 %133, label %134, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
+  %.01.i.i.i = phi ptr [ %145, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i ], [ %.0.i.i.i.i, %.noexc29 ]
+  %129 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 16
+  %130 = load i32, ptr %10, align 8
+  %131 = load i32, ptr %129, align 8
+  %132 = icmp eq i32 %130, %131
+  br i1 %132, label %133, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
 
-134:                                              ; preds = %.lr.ph.i.i.i
-  %135 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 24
-  %136 = load ptr, ptr %19, align 8
-  %137 = load ptr, ptr %135, align 8
-  %138 = icmp eq ptr %136, %137
-  br i1 %138, label %139, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
+133:                                              ; preds = %.lr.ph.i.i.i
+  %134 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 24
+  %135 = load ptr, ptr %19, align 8
+  %136 = load ptr, ptr %134, align 8
+  %137 = icmp eq ptr %135, %136
+  br i1 %137, label %138, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
 
-139:                                              ; preds = %134
-  %140 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 32
-  %141 = load ptr, ptr %24, align 8
-  %142 = load ptr, ptr %140, align 8
-  %143 = icmp eq ptr %141, %142
-  br i1 %143, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
+138:                                              ; preds = %133
+  %139 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 32
+  %140 = load ptr, ptr %24, align 8
+  %141 = load ptr, ptr %139, align 8
+  %142 = icmp eq ptr %140, %141
+  br i1 %142, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i.i.i: ; preds = %139
-  %144 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 40
-  %145 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunctioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(56) %144)
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i.i.i: ; preds = %138
+  %143 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 40
+  %144 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunctioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(56) %143)
           to label %.noexc.i.i unwind label %.loopexit.split-lp.loopexit.i.i
 
 .noexc.i.i:                                       ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i.i.i
-  br i1 %145, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
+  br i1 %144, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i: ; preds = %.noexc.i.i, %139, %134, %.lr.ph.i.i.i
-  %146 = load ptr, ptr %.01.i.i.i, align 8
-  %147 = icmp ugt ptr %146, inttoptr (i64 63 to ptr)
-  br i1 %147, label %.lr.ph.i.i.i, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i, !llvm.loop !13
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i: ; preds = %.noexc.i.i, %138, %133, %.lr.ph.i.i.i
+  %145 = load ptr, ptr %.01.i.i.i, align 8
+  %146 = icmp ugt ptr %145, inttoptr (i64 63 to ptr)
+  br i1 %146, label %.lr.ph.i.i.i, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i, !llvm.loop !13
 
 _ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i, %.noexc29
-  %.0.lcssa.i.i.i = phi ptr [ %.0.i.i.i.i, %.noexc29 ], [ %146, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i ]
+  %.0.lcssa.i.i.i = phi ptr [ %.0.i.i.i.i, %.noexc29 ], [ %145, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i ]
   %.not.i4.i = icmp eq ptr %.0.lcssa.i.i.i, null
-  br i1 %.not.i4.i, label %148, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i
+  br i1 %.not.i4.i, label %147, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i
 
-148:                                              ; preds = %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i
+147:                                              ; preds = %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i
   %.not55.i.i = icmp eq ptr %.047.i.i, null
-  br i1 %.not55.i.i, label %149, label %167
+  br i1 %.not55.i.i, label %148, label %166
 
-149:                                              ; preds = %148
-  %150 = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 104)
+148:                                              ; preds = %147
+  %149 = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 104)
           to label %.noexc61.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i
 
-.noexc61.i.i:                                     ; preds = %149
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  store i64 0, ptr %151, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %150, i64 16
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %152, ptr noundef nonnull align 8 dereferenceable(80) %10)
-          to label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE20allocate_node_helperIS6_PFPNSH_4nodeERNSC_INS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketEEERSE_PKS7_EEESK_RKT_ST_T0_St17integral_constantIbLb1EE.exit.i.i unwind label %153
+.noexc61.i.i:                                     ; preds = %148
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  store i64 0, ptr %150, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %151, ptr noundef nonnull align 8 dereferenceable(80) %10)
+          to label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE20allocate_node_helperIS6_PFPNSH_4nodeERNSC_INS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketEEERSE_PKS7_EEESK_RKT_ST_T0_St17integral_constantIbLb1EE.exit.i.i unwind label %152
 
-153:                                              ; preds = %.noexc61.i.i
-  %154 = landingpad { ptr, i32 }
+152:                                              ; preds = %.noexc61.i.i
+  %153 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %150)
-          to label %.body.i.i unwind label %155
+  invoke void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %149)
+          to label %.body.i.i unwind label %154
 
-155:                                              ; preds = %153
-  %156 = landingpad { ptr, i32 }
+154:                                              ; preds = %152
+  %155 = landingpad { ptr, i32 }
           catch ptr null
-  %157 = extractvalue { ptr, i32 } %156, 0
-  call void @__clang_call_terminate(ptr %157) #23
+  %156 = extractvalue { ptr, i32 } %155, 0
+  call void @__clang_call_terminate(ptr %156) #23
   unreachable
 
 _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE20allocate_node_helperIS6_PFPNSH_4nodeERNSC_INS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketEEERSE_PKS7_EEESK_RKT_ST_T0_St17integral_constantIbLb1EE.exit.i.i: ; preds = %.noexc61.i.i
-  %158 = getelementptr inbounds nuw i8, ptr %150, i64 96
-  store ptr null, ptr %158, align 8
-  br label %167
+  %157 = getelementptr inbounds nuw i8, ptr %149, i64 96
+  store ptr null, ptr %157, align 8
+  br label %166
 
 .loopexit.i.i:                                    ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i68.i.i
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
@@ -809,688 +809,688 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpM
           cleanup
   br label %.body.i.i
 
-.loopexit.split-lp.loopexit.split-lp.i.i:         ; preds = %149
+.loopexit.split-lp.loopexit.split-lp.i.i:         ; preds = %148
   %lpad.loopexit.split-lp16.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
 
-.body.i.i:                                        ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i.i, %153
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %154, %153 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit15.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp16.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ]
-  %159 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %159, null
-  br i1 %.not.i.i.i.i, label %.body, label %160
+.body.i.i:                                        ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i.i, %152
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %153, %152 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit15.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp16.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ]
+  %158 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %158, null
+  br i1 %.not.i.i.i.i, label %.body, label %159
 
-160:                                              ; preds = %.body.i.i
+159:                                              ; preds = %.body.i.i
   store ptr null, ptr %8, align 8
-  %161 = load i8, ptr %122, align 8
-  %162 = trunc i8 %161 to i1
-  br i1 %162, label %163, label %165
+  %160 = load i8, ptr %121, align 8
+  %161 = trunc i8 %160 to i1
+  br i1 %161, label %162, label %164
 
-163:                                              ; preds = %160
-  %164 = atomicrmw and ptr %159, i64 -4 seq_cst, align 8
+162:                                              ; preds = %159
+  %163 = atomicrmw and ptr %158, i64 -4 seq_cst, align 8
   br label %.body
 
-165:                                              ; preds = %160
-  %166 = atomicrmw sub ptr %159, i64 4 seq_cst, align 8
+164:                                              ; preds = %159
+  %165 = atomicrmw sub ptr %158, i64 4 seq_cst, align 8
   br label %.body
 
-167:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE20allocate_node_helperIS6_PFPNSH_4nodeERNSC_INS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketEEERSE_PKS7_EEESK_RKT_ST_T0_St17integral_constantIbLb1EE.exit.i.i, %148
-  %.148.i.i = phi ptr [ %.047.i.i, %148 ], [ %150, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE20allocate_node_helperIS6_PFPNSH_4nodeERNSC_INS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketEEERSE_PKS7_EEESK_RKT_ST_T0_St17integral_constantIbLb1EE.exit.i.i ]
-  %168 = load i8, ptr %122, align 8
-  %169 = trunc i8 %168 to i1
-  br i1 %169, label %.critedge.i.i, label %.lr.ph.i.i
+166:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE20allocate_node_helperIS6_PFPNSH_4nodeERNSC_INS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketEEERSE_PKS7_EEESK_RKT_ST_T0_St17integral_constantIbLb1EE.exit.i.i, %147
+  %.148.i.i = phi ptr [ %.047.i.i, %147 ], [ %149, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE20allocate_node_helperIS6_PFPNSH_4nodeERNSC_INS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketEEERSE_PKS7_EEESK_RKT_ST_T0_St17integral_constantIbLb1EE.exit.i.i ]
+  %167 = load i8, ptr %121, align 8
+  %168 = trunc i8 %167 to i1
+  br i1 %168, label %.critedge.i.i, label %.lr.ph.i.i
 
-170:                                              ; preds = %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit70.i.i
-  br i1 %239, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !14
+169:                                              ; preds = %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit70.i.i
+  br i1 %238, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !14
 
-.lr.ph.i.i:                                       ; preds = %167, %170
-  %.04329.i.i = phi ptr [ %.0.lcssa.i64.i.i, %170 ], [ null, %167 ]
-  store i8 1, ptr %122, align 8
-  %171 = load ptr, ptr %8, align 8
-  %172 = load atomic i64, ptr %171 monotonic, align 8
-  br label %173
+.lr.ph.i.i:                                       ; preds = %166, %169
+  %.04329.i.i = phi ptr [ %.0.lcssa.i64.i.i, %169 ], [ null, %166 ]
+  store i8 1, ptr %121, align 8
+  %170 = load ptr, ptr %8, align 8
+  %171 = load atomic i64, ptr %170 monotonic, align 8
+  br label %172
 
-173:                                              ; preds = %178, %.lr.ph.i.i
-  %.055.i.i.i = phi i64 [ %172, %.lr.ph.i.i ], [ %182, %178 ]
-  %174 = and i64 %.055.i.i.i, -4
-  %175 = icmp eq i64 %174, 4
-  %176 = and i64 %.055.i.i.i, 2
-  %.not.i89.i.i = icmp eq i64 %176, 0
-  %177 = or i1 %175, %.not.i89.i.i
-  br i1 %177, label %178, label %196
+172:                                              ; preds = %177, %.lr.ph.i.i
+  %.055.i.i.i = phi i64 [ %171, %.lr.ph.i.i ], [ %181, %177 ]
+  %173 = and i64 %.055.i.i.i, -4
+  %174 = icmp eq i64 %173, 4
+  %175 = and i64 %.055.i.i.i, 2
+  %.not.i89.i.i = icmp eq i64 %175, 0
+  %176 = or i1 %174, %.not.i89.i.i
+  br i1 %176, label %177, label %195
 
-178:                                              ; preds = %173
-  %179 = or i64 %.055.i.i.i, 3
-  %180 = cmpxchg ptr %171, i64 %.055.i.i.i, i64 %179 seq_cst seq_cst, align 8
-  %181 = extractvalue { i64, i1 } %180, 1
-  %182 = extractvalue { i64, i1 } %180, 0
-  br i1 %181, label %.preheader.i.i.i, label %173, !llvm.loop !15
+177:                                              ; preds = %172
+  %178 = or i64 %.055.i.i.i, 3
+  %179 = cmpxchg ptr %170, i64 %.055.i.i.i, i64 %178 seq_cst seq_cst, align 8
+  %180 = extractvalue { i64, i1 } %179, 1
+  %181 = extractvalue { i64, i1 } %179, 0
+  br i1 %180, label %.preheader.i.i.i, label %172, !llvm.loop !15
 
-.preheader.i.i.i:                                 ; preds = %178
-  %183 = load atomic i64, ptr %171 monotonic, align 8
-  %184 = and i64 %183, -4
-  %.not5661.i.i.i = icmp eq i64 %184, 4
+.preheader.i.i.i:                                 ; preds = %177
+  %182 = load atomic i64, ptr %170 monotonic, align 8
+  %183 = and i64 %182, -4
+  %.not5661.i.i.i = icmp eq i64 %183, 4
   br i1 %.not5661.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i91.i.i
 
 .lr.ph.i91.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
   %.sroa.0.062.i.i.i = phi i32 [ %.sroa.0.1.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i ], [ 1, %.preheader.i.i.i ]
-  %185 = icmp slt i32 %.sroa.0.062.i.i.i, 17
-  br i1 %185, label %186, label %191
+  %184 = icmp slt i32 %.sroa.0.062.i.i.i, 17
+  br i1 %184, label %185, label %190
 
-186:                                              ; preds = %.lr.ph.i91.i.i
-  %187 = icmp sgt i32 %.sroa.0.062.i.i.i, 0
-  br i1 %187, label %.lr.ph.i.i.i92.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
+185:                                              ; preds = %.lr.ph.i91.i.i
+  %186 = icmp sgt i32 %.sroa.0.062.i.i.i, 0
+  br i1 %186, label %.lr.ph.i.i.i92.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
 
-.lr.ph.i.i.i92.i.i:                               ; preds = %186, %.lr.ph.i.i.i92.i.i
-  %.01.i.i.i.i.i = phi i32 [ %188, %.lr.ph.i.i.i92.i.i ], [ %.sroa.0.062.i.i.i, %186 ]
-  %188 = add nsw i32 %.01.i.i.i.i.i, -1
+.lr.ph.i.i.i92.i.i:                               ; preds = %185, %.lr.ph.i.i.i92.i.i
+  %.01.i.i.i.i.i = phi i32 [ %187, %.lr.ph.i.i.i92.i.i ], [ %.sroa.0.062.i.i.i, %185 ]
+  %187 = add nsw i32 %.01.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %189 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
-  br i1 %189, label %.lr.ph.i.i.i92.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !6
+  %188 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
+  br i1 %188, label %.lr.ph.i.i.i92.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !6
 
-_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i92.i.i, %186
-  %190 = shl nsw i32 %.sroa.0.062.i.i.i, 1
+_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i92.i.i, %185
+  %189 = shl nsw i32 %.sroa.0.062.i.i.i, 1
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
-191:                                              ; preds = %.lr.ph.i91.i.i
-  %192 = call noundef i32 @sched_yield() #18
+190:                                              ; preds = %.lr.ph.i91.i.i
+  %191 = call noundef i32 @sched_yield() #18
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i
 
-_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %191, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
-  %.sroa.0.1.i.i.i = phi i32 [ %190, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.062.i.i.i, %191 ]
-  %193 = load atomic i64, ptr %171 monotonic, align 8
-  %194 = and i64 %193, -4
-  %.not56.i.i.i = icmp eq i64 %194, 4
+_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %190, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i
+  %.sroa.0.1.i.i.i = phi i32 [ %189, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i ], [ %.sroa.0.062.i.i.i, %190 ]
+  %192 = load atomic i64, ptr %170 monotonic, align 8
+  %193 = and i64 %192, -4
+  %.not56.i.i.i = icmp eq i64 %193, 4
   br i1 %.not56.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i91.i.i, !llvm.loop !16
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %.preheader.i.i.i
-  %195 = atomicrmw sub ptr %171, i64 6 seq_cst, align 8
+  %194 = atomicrmw sub ptr %170, i64 6 seq_cst, align 8
   br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i
 
-196:                                              ; preds = %173
-  %197 = atomicrmw sub ptr %171, i64 4 seq_cst, align 8
+195:                                              ; preds = %172
+  %196 = atomicrmw sub ptr %170, i64 4 seq_cst, align 8
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.outer
 
-_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.outer: ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, %196
-  %.sroa.0.0.i.i.i.i.ph = phi i32 [ %212, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ 1, %196 ]
-  %198 = icmp slt i32 %.sroa.0.0.i.i.i.i.ph, 17
+_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.outer: ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, %195
+  %.sroa.0.0.i.i.i.i.ph = phi i32 [ %211, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ 1, %195 ]
+  %197 = icmp slt i32 %.sroa.0.0.i.i.i.i.ph, 17
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
 
-_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.outer, %213
-  %199 = load atomic i64, ptr %171 monotonic, align 8
-  %200 = and i64 %199, -3
-  %.not.i.i90.i.i = icmp eq i64 %200, 0
-  br i1 %.not.i.i90.i.i, label %201, label %204
+_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.outer, %212
+  %198 = load atomic i64, ptr %170 monotonic, align 8
+  %199 = and i64 %198, -3
+  %.not.i.i90.i.i = icmp eq i64 %199, 0
+  br i1 %.not.i.i90.i.i, label %200, label %203
 
-201:                                              ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
-  %202 = cmpxchg ptr %171, i64 %199, i64 1 seq_cst seq_cst, align 8
-  %203 = extractvalue { i64, i1 } %202, 1
-  br i1 %203, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
+200:                                              ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
+  %201 = cmpxchg ptr %170, i64 %198, i64 1 seq_cst seq_cst, align 8
+  %202 = extractvalue { i64, i1 } %201, 1
+  br i1 %202, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
-204:                                              ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
-  %205 = and i64 %199, 2
-  %.not47.i.i.i.i = icmp eq i64 %205, 0
-  br i1 %.not47.i.i.i.i, label %206, label %208
+203:                                              ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
+  %204 = and i64 %198, 2
+  %.not47.i.i.i.i = icmp eq i64 %204, 0
+  br i1 %.not47.i.i.i.i, label %205, label %207
 
-206:                                              ; preds = %204
-  %207 = atomicrmw or ptr %171, i64 2 seq_cst, align 8
-  br label %208
+205:                                              ; preds = %203
+  %206 = atomicrmw or ptr %170, i64 2 seq_cst, align 8
+  br label %207
 
-208:                                              ; preds = %206, %204
-  br i1 %198, label %.thread.i.i.i.i, label %213
+207:                                              ; preds = %205, %203
+  br i1 %197, label %.thread.i.i.i.i, label %212
 
-.thread.i.i.i.i:                                  ; preds = %208
-  %209 = icmp sgt i32 %.sroa.0.0.i.i.i.i.ph, 0
-  br i1 %209, label %.lr.ph.i.i.preheader.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
+.thread.i.i.i.i:                                  ; preds = %207
+  %208 = icmp sgt i32 %.sroa.0.0.i.i.i.i.ph, 0
+  br i1 %208, label %.lr.ph.i.i.preheader.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %.thread.i.i.i.i, %201
-  %.sroa.0.15053.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.ph, %.thread.i.i.i.i ], [ 1, %201 ]
+.lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %.thread.i.i.i.i, %200
+  %.sroa.0.15053.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.ph, %.thread.i.i.i.i ], [ 1, %200 ]
   br label %.lr.ph.i.i.i.i.i.i26
 
 .lr.ph.i.i.i.i.i.i26:                             ; preds = %.lr.ph.i.i.i.i.i.i26, %.lr.ph.i.i.preheader.i.i.i.i
-  %.01.i.i.i.i.i.i = phi i32 [ %210, %.lr.ph.i.i.i.i.i.i26 ], [ %.sroa.0.15053.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i ]
-  %210 = add nsw i32 %.01.i.i.i.i.i.i, -1
+  %.01.i.i.i.i.i.i = phi i32 [ %209, %.lr.ph.i.i.i.i.i.i26 ], [ %.sroa.0.15053.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i ]
+  %209 = add nsw i32 %.01.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %211 = icmp samesign ugt i32 %.01.i.i.i.i.i.i, 1
-  br i1 %211, label %.lr.ph.i.i.i.i.i.i26, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !6
+  %210 = icmp samesign ugt i32 %.01.i.i.i.i.i.i, 1
+  br i1 %210, label %.lr.ph.i.i.i.i.i.i26, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !6
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i26, %.thread.i.i.i.i
   %.sroa.0.15052.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.ph, %.thread.i.i.i.i ], [ %.sroa.0.15053.i.i.i.i, %.lr.ph.i.i.i.i.i.i26 ]
-  %212 = shl nsw i32 %.sroa.0.15052.i.i.i.i, 1
+  %211 = shl nsw i32 %.sroa.0.15052.i.i.i.i, 1
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.outer, !llvm.loop !17
 
-213:                                              ; preds = %208
-  %214 = call noundef i32 @sched_yield() #18
+212:                                              ; preds = %207
+  %213 = call noundef i32 @sched_yield() #18
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, !llvm.loop !17
 
-_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i: ; preds = %201, %._crit_edge.i.i.i
-  br i1 %177, label %.critedge.i.i, label %215
+_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i: ; preds = %200, %._crit_edge.i.i.i
+  br i1 %176, label %.critedge.i.i, label %214
 
-215:                                              ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i
-  %.val58.i.i = load ptr, ptr %121, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %.val58.i.i, i64 8
-  %217 = load atomic i64, ptr %216 monotonic, align 8
-  %.0.i.i63.i.i = inttoptr i64 %217 to ptr
-  %218 = icmp ugt i64 %217, 63
-  br i1 %218, label %.lr.ph.i65.i.i, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit70.i.i
+214:                                              ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i
+  %.val58.i.i = load ptr, ptr %120, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %.val58.i.i, i64 8
+  %216 = load atomic i64, ptr %215 monotonic, align 8
+  %.0.i.i63.i.i = inttoptr i64 %216 to ptr
+  %217 = icmp ugt i64 %216, 63
+  br i1 %217, label %.lr.ph.i65.i.i, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit70.i.i
 
-.lr.ph.i65.i.i:                                   ; preds = %215, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i
-  %.01.i66.i.i = phi ptr [ %235, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i ], [ %.0.i.i63.i.i, %215 ]
-  %219 = getelementptr inbounds nuw i8, ptr %.01.i66.i.i, i64 16
-  %220 = load i32, ptr %10, align 8
-  %221 = load i32, ptr %219, align 8
-  %222 = icmp eq i32 %220, %221
-  br i1 %222, label %223, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i
+.lr.ph.i65.i.i:                                   ; preds = %214, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i
+  %.01.i66.i.i = phi ptr [ %234, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i ], [ %.0.i.i63.i.i, %214 ]
+  %218 = getelementptr inbounds nuw i8, ptr %.01.i66.i.i, i64 16
+  %219 = load i32, ptr %10, align 8
+  %220 = load i32, ptr %218, align 8
+  %221 = icmp eq i32 %219, %220
+  br i1 %221, label %222, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i
 
-223:                                              ; preds = %.lr.ph.i65.i.i
-  %224 = getelementptr inbounds nuw i8, ptr %.01.i66.i.i, i64 24
-  %225 = load ptr, ptr %19, align 8
-  %226 = load ptr, ptr %224, align 8
-  %227 = icmp eq ptr %225, %226
-  br i1 %227, label %228, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i
+222:                                              ; preds = %.lr.ph.i65.i.i
+  %223 = getelementptr inbounds nuw i8, ptr %.01.i66.i.i, i64 24
+  %224 = load ptr, ptr %19, align 8
+  %225 = load ptr, ptr %223, align 8
+  %226 = icmp eq ptr %224, %225
+  br i1 %226, label %227, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i
 
-228:                                              ; preds = %223
-  %229 = getelementptr inbounds nuw i8, ptr %.01.i66.i.i, i64 32
-  %230 = load ptr, ptr %24, align 8
-  %231 = load ptr, ptr %229, align 8
-  %232 = icmp eq ptr %230, %231
-  br i1 %232, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i68.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i
+227:                                              ; preds = %222
+  %228 = getelementptr inbounds nuw i8, ptr %.01.i66.i.i, i64 32
+  %229 = load ptr, ptr %24, align 8
+  %230 = load ptr, ptr %228, align 8
+  %231 = icmp eq ptr %229, %230
+  br i1 %231, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i68.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i68.i.i: ; preds = %228
-  %233 = getelementptr inbounds nuw i8, ptr %.01.i66.i.i, i64 40
-  %234 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunctioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(56) %233)
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i68.i.i: ; preds = %227
+  %232 = getelementptr inbounds nuw i8, ptr %.01.i66.i.i, i64 40
+  %233 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunctioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(56) %232)
           to label %.noexc69.i.i unwind label %.loopexit.i.i
 
 .noexc69.i.i:                                     ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i68.i.i
-  br i1 %234, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit70.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i
+  br i1 %233, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit70.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i: ; preds = %.noexc69.i.i, %228, %223, %.lr.ph.i65.i.i
-  %235 = load ptr, ptr %.01.i66.i.i, align 8
-  %236 = icmp ugt ptr %235, inttoptr (i64 63 to ptr)
-  br i1 %236, label %.lr.ph.i65.i.i, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit70.i.i, !llvm.loop !13
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i: ; preds = %.noexc69.i.i, %227, %222, %.lr.ph.i65.i.i
+  %234 = load ptr, ptr %.01.i66.i.i, align 8
+  %235 = icmp ugt ptr %234, inttoptr (i64 63 to ptr)
+  br i1 %235, label %.lr.ph.i65.i.i, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit70.i.i, !llvm.loop !13
 
-_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit70.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i, %.noexc69.i.i, %215
-  %.0.lcssa.i64.i.i = phi ptr [ %.0.i.i63.i.i, %215 ], [ %.01.i66.i.i, %.noexc69.i.i ], [ %235, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i ]
-  %237 = icmp ugt ptr %.0.lcssa.i64.i.i, inttoptr (i64 63 to ptr)
-  %238 = load i8, ptr %122, align 8
-  %239 = trunc i8 %238 to i1
-  br i1 %237, label %240, label %170, !llvm.loop !14
+_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit70.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i, %.noexc69.i.i, %214
+  %.0.lcssa.i64.i.i = phi ptr [ %.0.i.i63.i.i, %214 ], [ %.01.i66.i.i, %.noexc69.i.i ], [ %234, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i67.i.i ]
+  %236 = icmp ugt ptr %.0.lcssa.i64.i.i, inttoptr (i64 63 to ptr)
+  %237 = load i8, ptr %121, align 8
+  %238 = trunc i8 %237 to i1
+  br i1 %236, label %239, label %169, !llvm.loop !14
 
-240:                                              ; preds = %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit70.i.i
-  br i1 %239, label %241, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i
+239:                                              ; preds = %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit70.i.i
+  br i1 %238, label %240, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i
 
-241:                                              ; preds = %240
-  %242 = load ptr, ptr %8, align 8
-  %243 = atomicrmw add ptr %242, i64 3 seq_cst, align 8
-  store i8 0, ptr %122, align 8
+240:                                              ; preds = %239
+  %241 = load ptr, ptr %8, align 8
+  %242 = atomicrmw add ptr %241, i64 3 seq_cst, align 8
+  store i8 0, ptr %121, align 8
   br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i
 
-.critedge.i.i:                                    ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i, %170, %167
-  %.043.lcssa.i.i = phi ptr [ null, %167 ], [ %.0.lcssa.i64.i.i, %170 ], [ %.04329.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i ]
-  %244 = load atomic i64, ptr %119 acquire, align 8
-  %.not.i.i.i27 = icmp eq i64 %.05.i.i, %244
-  br i1 %.not.i.i.i27, label %268, label %245
+.critedge.i.i:                                    ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i, %169, %166
+  %.043.lcssa.i.i = phi ptr [ null, %166 ], [ %.0.lcssa.i64.i.i, %169 ], [ %.04329.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i ]
+  %243 = load atomic i64, ptr %118 acquire, align 8
+  %.not.i.i.i27 = icmp eq i64 %.05.i.i, %243
+  br i1 %.not.i.i.i27, label %267, label %244
 
-245:                                              ; preds = %.critedge.i.i
-  %246 = xor i64 %244, %.05.i.i
-  %247 = and i64 %246, %118
-  %.not.i.i79.i.i = icmp eq i64 %247, 0
-  br i1 %.not.i.i79.i.i, label %268, label %248
+244:                                              ; preds = %.critedge.i.i
+  %245 = xor i64 %243, %.05.i.i
+  %246 = and i64 %245, %117
+  %.not.i.i79.i.i = icmp eq i64 %246, 0
+  br i1 %.not.i.i79.i.i, label %267, label %247
 
-248:                                              ; preds = %245
-  %249 = add i64 %.05.i.i, 1
-  br label %250
+247:                                              ; preds = %244
+  %248 = add i64 %.05.i.i, 1
+  br label %249
 
-250:                                              ; preds = %250, %248
-  %.012.i.i.i.i = phi i64 [ %249, %248 ], [ %252, %250 ]
-  %251 = and i64 %.012.i.i.i.i, %118
-  %.not13.i.i.i.i = icmp eq i64 %251, 0
-  %252 = shl i64 %.012.i.i.i.i, 1
-  br i1 %.not13.i.i.i.i, label %250, label %253, !llvm.loop !18
+249:                                              ; preds = %249, %247
+  %.012.i.i.i.i = phi i64 [ %248, %247 ], [ %251, %249 ]
+  %250 = and i64 %.012.i.i.i.i, %117
+  %.not13.i.i.i.i = icmp eq i64 %250, 0
+  %251 = shl i64 %.012.i.i.i.i, 1
+  br i1 %.not13.i.i.i.i, label %249, label %252, !llvm.loop !18
 
-253:                                              ; preds = %250
-  %254 = add i64 %252, -1
-  %255 = and i64 %254, %118
-  %256 = or i64 %255, 1
-  %257 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %256, i1 true)
-  %258 = xor i64 %257, 63
-  %259 = shl nuw i64 1, %258
-  %260 = and i64 %259, -2
-  %261 = sub i64 %255, %260
-  %262 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %123, i64 %258
-  %263 = load atomic i64, ptr %262 acquire, align 8
-  %.0.i.i.i.i.i.i = inttoptr i64 %263 to ptr
-  %264 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i.i, i64 %261
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
-  %266 = load atomic i64, ptr %265 acquire, align 8
-  %267 = icmp eq i64 %266, 3
-  br i1 %267, label %268, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i
+252:                                              ; preds = %249
+  %253 = add i64 %251, -1
+  %254 = and i64 %253, %117
+  %255 = or i64 %254, 1
+  %256 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %255, i1 true)
+  %257 = xor i64 %256, 63
+  %258 = shl nuw i64 1, %257
+  %259 = and i64 %258, -2
+  %260 = sub i64 %254, %259
+  %261 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %122, i64 %257
+  %262 = load atomic i64, ptr %261 acquire, align 8
+  %.0.i.i.i.i.i.i = inttoptr i64 %262 to ptr
+  %263 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i.i, i64 %260
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
+  %265 = load atomic i64, ptr %264 acquire, align 8
+  %266 = icmp eq i64 %265, 3
+  br i1 %266, label %267, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i
 
-268:                                              ; preds = %253, %245, %.critedge.i.i
-  %.16.ph.i.i = phi i64 [ %.05.i.i, %.critedge.i.i ], [ %244, %253 ], [ %244, %245 ]
-  %.val59.i.i = load ptr, ptr %121, align 8
-  %269 = atomicrmw add ptr %124, i64 1 seq_cst, align 8
-  %270 = add i64 %269, 1
-  %271 = getelementptr inbounds nuw i8, ptr %.val59.i.i, i64 8
-  %272 = load atomic i64, ptr %271 monotonic, align 8
-  %.0.i.i.i.i.i = inttoptr i64 %272 to ptr
+267:                                              ; preds = %252, %244, %.critedge.i.i
+  %.16.ph.i.i = phi i64 [ %.05.i.i, %.critedge.i.i ], [ %243, %252 ], [ %243, %244 ]
+  %.val59.i.i = load ptr, ptr %120, align 8
+  %268 = atomicrmw add ptr %123, i64 1 seq_cst, align 8
+  %269 = add i64 %268, 1
+  %270 = getelementptr inbounds nuw i8, ptr %.val59.i.i, i64 8
+  %271 = load atomic i64, ptr %270 monotonic, align 8
+  %.0.i.i.i.i.i = inttoptr i64 %271 to ptr
   store ptr %.0.i.i.i.i.i, ptr %.148.i.i, align 8
-  %273 = ptrtoint ptr %.148.i.i to i64
-  store atomic i64 %273, ptr %271 monotonic, align 8
-  %.not.i80.i.i = icmp ult i64 %270, %.16.ph.i.i
-  br i1 %.not.i80.i.i, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i, label %274
+  %272 = ptrtoint ptr %.148.i.i to i64
+  store atomic i64 %272, ptr %270 monotonic, align 8
+  %.not.i80.i.i = icmp ult i64 %269, %.16.ph.i.i
+  br i1 %.not.i80.i.i, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i, label %273
 
-274:                                              ; preds = %268
-  %275 = add i64 %.16.ph.i.i, 1
-  %276 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %275, i1 true)
-  %277 = xor i64 %276, 63
-  %278 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %123, i64 %277
-  %279 = load atomic i64, ptr %278 acquire, align 8
-  %.not10.i.i.i = icmp eq i64 %279, 0
-  br i1 %.not10.i.i.i, label %280, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i
+273:                                              ; preds = %267
+  %274 = add i64 %.16.ph.i.i, 1
+  %275 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %274, i1 true)
+  %276 = xor i64 %275, 63
+  %277 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %122, i64 %276
+  %278 = load atomic i64, ptr %277 acquire, align 8
+  %.not10.i.i.i = icmp eq i64 %278, 0
+  br i1 %.not10.i.i.i, label %279, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i
 
-280:                                              ; preds = %274
-  %281 = cmpxchg ptr %278, i64 0, i64 2 seq_cst seq_cst, align 8
-  %282 = extractvalue { i64, i1 } %281, 1
-  %spec.select.i.i.i = select i1 %282, i64 %277, i64 0
+279:                                              ; preds = %273
+  %280 = cmpxchg ptr %277, i64 0, i64 2 seq_cst seq_cst, align 8
+  %281 = extractvalue { i64, i1 } %280, 1
+  %spec.select.i.i.i = select i1 %281, i64 %276, i64 0
   br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i
 
-_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i: ; preds = %.noexc.i.i, %280, %274, %268, %241, %240, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i
-  %.27.i.i = phi i64 [ %.05.i.i, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i ], [ %.05.i.i, %241 ], [ %.05.i.i, %240 ], [ %.16.ph.i.i, %268 ], [ %.16.ph.i.i, %274 ], [ %.16.ph.i.i, %280 ], [ %.05.i.i, %.noexc.i.i ]
-  %.050.i.i = phi i1 [ false, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i ], [ false, %241 ], [ false, %240 ], [ true, %268 ], [ true, %274 ], [ true, %280 ], [ false, %.noexc.i.i ]
-  %.249.i.i = phi ptr [ %.047.i.i, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i ], [ %.148.i.i, %241 ], [ %.148.i.i, %240 ], [ null, %268 ], [ null, %274 ], [ null, %280 ], [ %.047.i.i, %.noexc.i.i ]
-  %.145.i.i = phi i64 [ %.044.i.i, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i ], [ %.044.i.i, %241 ], [ %.044.i.i, %240 ], [ 0, %268 ], [ 0, %274 ], [ %spec.select.i.i.i, %280 ], [ %.044.i.i, %.noexc.i.i ]
-  %.1.i.i = phi ptr [ %.0.lcssa.i.i.i, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i ], [ %.0.lcssa.i64.i.i, %241 ], [ %.0.lcssa.i64.i.i, %240 ], [ %.148.i.i, %268 ], [ %.148.i.i, %274 ], [ %.148.i.i, %280 ], [ %.01.i.i.i, %.noexc.i.i ]
-  %283 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  %284 = load atomic i64, ptr %283 monotonic, align 8
-  %285 = and i64 %284, -3
-  %.not.i.i82.i.i = icmp eq i64 %285, 0
-  br i1 %.not.i.i82.i.i, label %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i, label %288
+_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i: ; preds = %.noexc.i.i, %279, %273, %267, %240, %239, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i
+  %.27.i.i = phi i64 [ %.05.i.i, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i ], [ %.05.i.i, %240 ], [ %.05.i.i, %239 ], [ %.16.ph.i.i, %267 ], [ %.16.ph.i.i, %273 ], [ %.16.ph.i.i, %279 ], [ %.05.i.i, %.noexc.i.i ]
+  %.050.i.i = phi i1 [ false, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i ], [ false, %240 ], [ false, %239 ], [ true, %267 ], [ true, %273 ], [ true, %279 ], [ false, %.noexc.i.i ]
+  %.249.i.i = phi ptr [ %.047.i.i, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i ], [ %.148.i.i, %240 ], [ %.148.i.i, %239 ], [ null, %267 ], [ null, %273 ], [ null, %279 ], [ %.047.i.i, %.noexc.i.i ]
+  %.145.i.i = phi i64 [ %.044.i.i, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i ], [ %.044.i.i, %240 ], [ %.044.i.i, %239 ], [ 0, %267 ], [ 0, %273 ], [ %spec.select.i.i.i, %279 ], [ %.044.i.i, %.noexc.i.i ]
+  %.1.i.i = phi ptr [ %.0.lcssa.i.i.i, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i ], [ %.0.lcssa.i64.i.i, %240 ], [ %.0.lcssa.i64.i.i, %239 ], [ %.148.i.i, %267 ], [ %.148.i.i, %273 ], [ %.148.i.i, %279 ], [ %.01.i.i.i, %.noexc.i.i ]
+  %282 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  %283 = load atomic i64, ptr %282 monotonic, align 8
+  %284 = and i64 %283, -3
+  %.not.i.i82.i.i = icmp eq i64 %284, 0
+  br i1 %.not.i.i82.i.i, label %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i, label %287
 
 _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i: ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i
-  %286 = cmpxchg ptr %283, i64 %284, i64 1 seq_cst seq_cst, align 8
-  %287 = extractvalue { i64, i1 } %286, 1
-  br i1 %287, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i, label %288
+  %285 = cmpxchg ptr %282, i64 %283, i64 1 seq_cst seq_cst, align 8
+  %286 = extractvalue { i64, i1 } %285, 1
+  br i1 %286, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i, label %287
 
-288:                                              ; preds = %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i
+287:                                              ; preds = %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit.i.i
   call void @llvm.x86.sse2.pause()
-  br label %289
+  br label %288
 
-289:                                              ; preds = %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i, %288
-  %.sroa.0.0.i.i = phi i32 [ 2, %288 ], [ %299, %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i ]
-  %290 = load atomic i64, ptr %283 monotonic, align 8
-  %291 = and i64 %290, -3
-  %.not.i.i83.i.i = icmp eq i64 %291, 0
-  br i1 %.not.i.i83.i.i, label %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i, label %294
+288:                                              ; preds = %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i, %287
+  %.sroa.0.0.i.i = phi i32 [ 2, %287 ], [ %298, %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i ]
+  %289 = load atomic i64, ptr %282 monotonic, align 8
+  %290 = and i64 %289, -3
+  %.not.i.i83.i.i = icmp eq i64 %290, 0
+  br i1 %.not.i.i83.i.i, label %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i, label %293
 
-_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i: ; preds = %289
-  %292 = cmpxchg ptr %283, i64 %290, i64 1 seq_cst seq_cst, align 8
-  %293 = extractvalue { i64, i1 } %292, 1
-  br i1 %293, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i, label %294
+_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i: ; preds = %288
+  %291 = cmpxchg ptr %282, i64 %289, i64 1 seq_cst seq_cst, align 8
+  %292 = extractvalue { i64, i1 } %291, 1
+  br i1 %292, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i, label %293
 
-294:                                              ; preds = %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i, %289
-  %295 = icmp sgt i32 %.sroa.0.0.i.i, 0
-  br i1 %295, label %.lr.ph.i.i.i.i, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i
+293:                                              ; preds = %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i, %288
+  %294 = icmp sgt i32 %.sroa.0.0.i.i, 0
+  br i1 %294, label %.lr.ph.i.i.i.i, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %294, %.lr.ph.i.i.i.i
-  %.01.i.i.i.i = phi i32 [ %296, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i, %294 ]
-  %296 = add nsw i32 %.01.i.i.i.i, -1
+.lr.ph.i.i.i.i:                                   ; preds = %293, %.lr.ph.i.i.i.i
+  %.01.i.i.i.i = phi i32 [ %295, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i, %293 ]
+  %295 = add nsw i32 %.01.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %297 = icmp samesign ugt i32 %.01.i.i.i.i, 1
-  br i1 %297, label %.lr.ph.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, !llvm.loop !6
+  %296 = icmp samesign ugt i32 %.01.i.i.i.i, 1
+  br i1 %296, label %.lr.ph.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, !llvm.loop !6
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %.lr.ph.i.i.i.i
-  %298 = icmp samesign ult i32 %.sroa.0.0.i.i, 16
-  br i1 %298, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i, label %300
+  %297 = icmp samesign ult i32 %.sroa.0.0.i.i, 16
+  br i1 %297, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i, label %299
 
-_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i: ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, %294
-  %299 = shl nsw i32 %.sroa.0.0.i.i, 1
-  br label %289, !llvm.loop !19
+_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i: ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, %293
+  %298 = shl nsw i32 %.sroa.0.0.i.i, 1
+  br label %288, !llvm.loop !19
 
-300:                                              ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i
-  %301 = load ptr, ptr %8, align 8
+299:                                              ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i
+  %300 = load ptr, ptr %8, align 8
   store ptr null, ptr %8, align 8
-  %302 = load i8, ptr %122, align 8
-  %303 = trunc i8 %302 to i1
-  br i1 %303, label %304, label %306
+  %301 = load i8, ptr %121, align 8
+  %302 = trunc i8 %301 to i1
+  br i1 %302, label %303, label %305
 
-304:                                              ; preds = %300
-  %305 = atomicrmw and ptr %301, i64 -4 seq_cst, align 8
+303:                                              ; preds = %299
+  %304 = atomicrmw and ptr %300, i64 -4 seq_cst, align 8
   br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i
 
-306:                                              ; preds = %300
-  %307 = atomicrmw sub ptr %301, i64 4 seq_cst, align 8
+305:                                              ; preds = %299
+  %306 = atomicrmw sub ptr %300, i64 4 seq_cst, align 8
   br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i
 
-_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i: ; preds = %306, %304
-  %308 = call noundef i32 @sched_yield() #18
-  %309 = load atomic i64, ptr %119 acquire, align 8
+_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i: ; preds = %305, %303
+  %307 = call noundef i32 @sched_yield() #18
+  %308 = load atomic i64, ptr %118 acquire, align 8
   br label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i
 
-_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i: ; preds = %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i, %253
-  %.sroa.9.3 = phi i8 [ %.sroa.9.2, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ %.sroa.9.2, %253 ], [ 1, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ 1, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
-  %.sroa.0.4 = phi ptr [ %.sroa.0.3, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ %.sroa.0.3, %253 ], [ %283, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %283, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
-  %.38.i.i = phi i64 [ %309, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ %244, %253 ], [ %.27.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %.27.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
-  %.151.i.i = phi i1 [ %.050.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ false, %253 ], [ %.050.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %.050.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
-  %.3.i.i = phi ptr [ %.249.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ %.148.i.i, %253 ], [ %.249.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %.249.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
-  %.246.i.i = phi i64 [ %.145.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ %.044.i.i, %253 ], [ %.145.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %.145.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
-  %.2.i.i = phi ptr [ %.1.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ %.043.lcssa.i.i, %253 ], [ %.1.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %.1.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
-  %310 = phi i1 [ false, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ false, %253 ], [ true, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ true, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
-  %311 = load ptr, ptr %8, align 8
-  %.not.i.i87.i.i = icmp eq ptr %311, null
-  br i1 %.not.i.i87.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i, label %312
+_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i: ; preds = %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i, %252
+  %.sroa.9.3 = phi i8 [ %.sroa.9.2, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ %.sroa.9.2, %252 ], [ 1, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ 1, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.3, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ %.sroa.0.3, %252 ], [ %282, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %282, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
+  %.38.i.i = phi i64 [ %308, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ %243, %252 ], [ %.27.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %.27.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
+  %.151.i.i = phi i1 [ %.050.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ false, %252 ], [ %.050.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %.050.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
+  %.3.i.i = phi ptr [ %.249.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ %.148.i.i, %252 ], [ %.249.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %.249.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
+  %.246.i.i = phi i64 [ %.145.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ %.044.i.i, %252 ], [ %.145.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %.145.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
+  %.2.i.i = phi ptr [ %.1.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ %.043.lcssa.i.i, %252 ], [ %.1.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %.1.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
+  %309 = phi i1 [ false, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i5.i ], [ false, %252 ], [ true, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ true, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i ]
+  %310 = load ptr, ptr %8, align 8
+  %.not.i.i87.i.i = icmp eq ptr %310, null
+  br i1 %.not.i.i87.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i, label %311
 
-312:                                              ; preds = %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i
+311:                                              ; preds = %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i
   store ptr null, ptr %8, align 8
-  %313 = load i8, ptr %122, align 8
-  %314 = trunc i8 %313 to i1
-  br i1 %314, label %315, label %317
+  %312 = load i8, ptr %121, align 8
+  %313 = trunc i8 %312 to i1
+  br i1 %313, label %314, label %316
 
-315:                                              ; preds = %312
-  %316 = atomicrmw and ptr %311, i64 -4 seq_cst, align 8
+314:                                              ; preds = %311
+  %315 = atomicrmw and ptr %310, i64 -4 seq_cst, align 8
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i
 
-317:                                              ; preds = %312
-  %318 = atomicrmw sub ptr %311, i64 4 seq_cst, align 8
+316:                                              ; preds = %311
+  %317 = atomicrmw sub ptr %310, i64 4 seq_cst, align 8
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i: ; preds = %317, %315, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i
-  br i1 %310, label %319, label %125
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i: ; preds = %316, %314, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i
+  br i1 %309, label %318, label %124
 
-319:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i
+318:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit88.i.i
   %.not56.i.i = icmp eq i64 %.246.i.i, 0
-  br i1 %.not56.i.i, label %348, label %320
+  br i1 %.not56.i.i, label %347, label %319
 
-320:                                              ; preds = %319
-  %321 = icmp ugt i64 %.246.i.i, 7
-  br i1 %321, label %322, label %335
+319:                                              ; preds = %318
+  %320 = icmp ugt i64 %.246.i.i, 7
+  br i1 %320, label %321, label %334
 
-322:                                              ; preds = %320
-  %323 = shl nuw i64 1, %.246.i.i
-  %324 = shl i64 16, %.246.i.i
-  %325 = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %324)
+321:                                              ; preds = %319
+  %322 = shl nuw i64 1, %.246.i.i
+  %323 = shl i64 16, %.246.i.i
+  %324 = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef %323)
           to label %.lr.ph.i.i.i.i.i unwind label %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPSA_EEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit4.i.i.i.i
 
 common.resume.i.i.i:                              ; preds = %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPSA_EEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit4.i.i.i.i, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPSA_EEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit4.i.i.i.i
-  %common.resume.op.i.i.i = phi { ptr, i32 } [ %327, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPSA_EEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit4.i.i.i.i ], [ %337, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPSA_EEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit4.i.i.i.i ]
-  %326 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %123, i64 %.246.i.i
-  store atomic i64 0, ptr %326 monotonic, align 8
+  %common.resume.op.i.i.i = phi { ptr, i32 } [ %326, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPSA_EEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit4.i.i.i.i ], [ %336, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPSA_EEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit4.i.i.i.i ]
+  %325 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %122, i64 %.246.i.i
+  store atomic i64 0, ptr %325 monotonic, align 8
   br label %.body
 
-_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPSA_EEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit4.i.i.i.i: ; preds = %322
-  %327 = landingpad { ptr, i32 }
+_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPSA_EEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit4.i.i.i.i: ; preds = %321
+  %326 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %322, %.lr.ph.i.i.i.i.i
-  %.06.i.i.i.i.i = phi i64 [ %330, %.lr.ph.i.i.i.i.i ], [ 0, %322 ]
-  %328 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %325, i64 %.06.i.i.i.i.i
-  store i64 0, ptr %328, align 8
-  %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
-  store ptr inttoptr (i64 3 to ptr), ptr %329, align 8
-  %330 = add nuw i64 %.06.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %330, %323
+.lr.ph.i.i.i.i.i:                                 ; preds = %321, %.lr.ph.i.i.i.i.i
+  %.06.i.i.i.i.i = phi i64 [ %329, %.lr.ph.i.i.i.i.i ], [ 0, %321 ]
+  %327 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %324, i64 %.06.i.i.i.i.i
+  store i64 0, ptr %327, align 8
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
+  store ptr inttoptr (i64 3 to ptr), ptr %328, align 8
+  %329 = add nuw i64 %.06.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %329, %322
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !20
 
 _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %331 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %123, i64 %.246.i.i
-  %332 = ptrtoint ptr %325 to i64
-  store atomic i64 %332, ptr %331 release, align 8
-  %333 = shl i64 2, %.246.i.i
-  %334 = add i64 %333, -1
+  %330 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %122, i64 %.246.i.i
+  %331 = ptrtoint ptr %324 to i64
+  store atomic i64 %331, ptr %330 release, align 8
+  %332 = shl i64 2, %.246.i.i
+  %333 = add i64 %332, -1
   br label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit.i.i
 
-335:                                              ; preds = %320
-  %336 = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 4064)
+334:                                              ; preds = %319
+  %335 = invoke noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 4064)
           to label %.lr.ph.i.i17.i.i.i unwind label %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPSA_EEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit4.i.i.i.i
 
-_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPSA_EEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit4.i.i.i.i: ; preds = %335
-  %337 = landingpad { ptr, i32 }
+_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPSA_EEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit4.i.i.i.i: ; preds = %334
+  %336 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i.i
 
-.lr.ph.i.i17.i.i.i:                               ; preds = %335, %.lr.ph.i.i17.i.i.i
-  %.06.i.i18.i.i.i = phi i64 [ %340, %.lr.ph.i.i17.i.i.i ], [ 0, %335 ]
-  %338 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %336, i64 %.06.i.i18.i.i.i
-  store i64 0, ptr %338, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %338, i64 8
-  store ptr inttoptr (i64 3 to ptr), ptr %339, align 8
-  %340 = add nuw nsw i64 %.06.i.i18.i.i.i, 1
-  %exitcond.not.i.i19.i.i.i = icmp eq i64 %340, 254
+.lr.ph.i.i17.i.i.i:                               ; preds = %334, %.lr.ph.i.i17.i.i.i
+  %.06.i.i18.i.i.i = phi i64 [ %339, %.lr.ph.i.i17.i.i.i ], [ 0, %334 ]
+  %337 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %335, i64 %.06.i.i18.i.i.i
+  store i64 0, ptr %337, align 8
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
+  store ptr inttoptr (i64 3 to ptr), ptr %338, align 8
+  %339 = add nuw nsw i64 %.06.i.i18.i.i.i, 1
+  %exitcond.not.i.i19.i.i.i = icmp eq i64 %339, 254
   br i1 %exitcond.not.i.i19.i.i.i, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit21.i.i.i, label %.lr.ph.i.i17.i.i.i, !llvm.loop !20
 
 _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit21.i.i.i: ; preds = %.lr.ph.i.i17.i.i.i
-  %341 = getelementptr inbounds i8, ptr %336, i64 -32
-  br label %342
+  %340 = getelementptr inbounds i8, ptr %335, i64 -32
+  br label %341
 
-342:                                              ; preds = %342, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit21.i.i.i
-  %.047.i.i.i = phi i64 [ 1, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit21.i.i.i ], [ %347, %342 ]
-  %343 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %123, i64 %.047.i.i.i
-  %344 = shl nuw nsw i64 1, %.047.i.i.i
-  %345 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %341, i64 %344
-  %346 = ptrtoint ptr %345 to i64
-  store atomic i64 %346, ptr %343 release, align 8
-  %347 = add nuw nsw i64 %.047.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %347, 8
-  br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit.i.i, label %342, !llvm.loop !21
+341:                                              ; preds = %341, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit21.i.i.i
+  %.047.i.i.i = phi i64 [ 1, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit21.i.i.i ], [ %346, %341 ]
+  %342 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %122, i64 %.047.i.i.i
+  %343 = shl nuw nsw i64 1, %.047.i.i.i
+  %344 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %340, i64 %343
+  %345 = ptrtoint ptr %344 to i64
+  store atomic i64 %345, ptr %342 release, align 8
+  %346 = add nuw nsw i64 %.047.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %346, 8
+  br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit.i.i, label %341, !llvm.loop !21
 
-_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit.i.i: ; preds = %342, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit.i.i.i
-  %.046.i.i.i = phi i64 [ %334, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit.i.i.i ], [ 255, %342 ]
-  store atomic i64 %.046.i.i.i, ptr %119 release, align 8
-  br label %348
+_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit.i.i: ; preds = %341, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit.i.i.i
+  %.046.i.i.i = phi i64 [ %333, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE12init_bucketsEPNSF_6bucketEmb.exit.i.i.i ], [ 255, %341 ]
+  store atomic i64 %.046.i.i.i, ptr %118 release, align 8
+  br label %347
 
-348:                                              ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit.i.i, %319
+347:                                              ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit.i.i, %318
   %.not57.i.i = icmp eq ptr %.3.i.i, null
-  br i1 %.not57.i.i, label %363, label %349
+  br i1 %.not57.i.i, label %362, label %348
 
-349:                                              ; preds = %348
-  %350 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 40
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %350) #18
-  %351 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 32
-  %352 = load ptr, ptr %351, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i25 = icmp eq ptr %352, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i25, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i, label %353
+348:                                              ; preds = %347
+  %349 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 40
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %349) #18
+  %350 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 32
+  %351 = load ptr, ptr %350, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i25 = icmp eq ptr %351, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i25, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i, label %352
 
-353:                                              ; preds = %349
-  %354 = getelementptr inbounds nuw i8, ptr %352, i64 84
-  %355 = atomicrmw sub ptr %354, i32 1 seq_cst, align 4
-  %.not1.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %355, 1
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i, label %356, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i
+352:                                              ; preds = %348
+  %353 = getelementptr inbounds nuw i8, ptr %351, i64 84
+  %354 = atomicrmw sub ptr %353, i32 1 seq_cst, align 4
+  %.not1.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %354, 1
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i, label %355, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i
 
-356:                                              ; preds = %353
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %352) #18
-  call void @_ZdlPvm(ptr noundef nonnull %352, i64 noundef 256) #21
+355:                                              ; preds = %352
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %351) #18
+  call void @_ZdlPvm(ptr noundef nonnull %351, i64 noundef 256) #21
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %356, %353, %349
-  %357 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 24
-  %358 = load ptr, ptr %357, align 8
-  %.not.i.i1.i.i.i.i.i.i.i.i = icmp eq ptr %358, null
-  br i1 %.not.i.i1.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i, label %359
+_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %355, %352, %348
+  %356 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 24
+  %357 = load ptr, ptr %356, align 8
+  %.not.i.i1.i.i.i.i.i.i.i.i = icmp eq ptr %357, null
+  br i1 %.not.i.i1.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i, label %358
 
-359:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i
-  %360 = getelementptr inbounds nuw i8, ptr %358, i64 84
-  %361 = atomicrmw sub ptr %360, i32 1 seq_cst, align 4
-  %.not1.i.i2.i.i.i.i.i.i.i.i = icmp eq i32 %361, 1
-  br i1 %.not1.i.i2.i.i.i.i.i.i.i.i, label %362, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i
+358:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i
+  %359 = getelementptr inbounds nuw i8, ptr %357, i64 84
+  %360 = atomicrmw sub ptr %359, i32 1 seq_cst, align 4
+  %.not1.i.i2.i.i.i.i.i.i.i.i = icmp eq i32 %360, 1
+  br i1 %.not1.i.i2.i.i.i.i.i.i.i.i, label %361, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i
 
-362:                                              ; preds = %359
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %358) #18
-  call void @_ZdlPvm(ptr noundef nonnull %358, i64 noundef 256) #21
+361:                                              ; preds = %358
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %357) #18
+  call void @_ZdlPvm(ptr noundef nonnull %357, i64 noundef 256) #21
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i: ; preds = %362, %359, %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i: ; preds = %361, %358, %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i
   invoke void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %.3.i.i)
-          to label %363 unwind label %.loopexit.split-lp
+          to label %362 unwind label %.loopexit.split-lp
 
-363:                                              ; preds = %348, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i
+362:                                              ; preds = %347, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.151.i.i, label %370, label %364
+  br i1 %.151.i.i, label %369, label %363
 
-364:                                              ; preds = %363
-  %365 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 96
-  %366 = load ptr, ptr %365, align 8
-  %367 = getelementptr inbounds nuw i8, ptr %366, i64 84
-  %368 = atomicrmw add ptr %367, i32 1 seq_cst, align 4
-  %369 = icmp eq i32 %368, 0
-  br i1 %369, label %370, label %382
+363:                                              ; preds = %362
+  %364 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 96
+  %365 = load ptr, ptr %364, align 8
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 84
+  %367 = atomicrmw add ptr %366, i32 1 seq_cst, align 4
+  %368 = icmp eq i32 %367, 0
+  br i1 %368, label %369, label %381
 
-370:                                              ; preds = %364, %363
-  %371 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #22
-          to label %372 unwind label %.loopexit.split-lp
+369:                                              ; preds = %363, %362
+  %370 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #22
+          to label %371 unwind label %.loopexit.split-lp
 
-372:                                              ; preds = %370
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeC1ERKNS1_3KeyE(ptr noundef nonnull align 8 dereferenceable(250) %371, ptr noundef nonnull align 8 dereferenceable(80) %10)
-          to label %373 unwind label %380
+371:                                              ; preds = %369
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeC1ERKNS1_3KeyE(ptr noundef nonnull align 8 dereferenceable(250) %370, ptr noundef nonnull align 8 dereferenceable(80) %10)
+          to label %372 unwind label %379
 
-373:                                              ; preds = %372
-  store ptr %371, ptr %0, align 8
-  %374 = getelementptr inbounds nuw i8, ptr %371, i64 84
-  %375 = atomicrmw add ptr %374, i32 1 seq_cst, align 4
-  %376 = load ptr, ptr %0, align 8
-  %377 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 96
-  store ptr %376, ptr %377, align 8
-  br label %384
+372:                                              ; preds = %371
+  store ptr %370, ptr %0, align 8
+  %373 = getelementptr inbounds nuw i8, ptr %370, i64 84
+  %374 = atomicrmw add ptr %373, i32 1 seq_cst, align 4
+  %375 = load ptr, ptr %0, align 8
+  %376 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 96
+  store ptr %375, ptr %376, align 8
+  br label %383
 
-378:                                              ; preds = %396
-  %379 = landingpad { ptr, i32 }
+377:                                              ; preds = %395
+  %378 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit34
 
-.loopexit:                                        ; preds = %125
+.loopexit:                                        ; preds = %124
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %370, %94, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i
-  %.sroa.9.0.ph = phi i8 [ 0, %94 ], [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i ], [ %.sroa.9.3, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i ], [ %.sroa.9.3, %370 ]
-  %.sroa.0.0.ph = phi ptr [ null, %94 ], [ null, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i ], [ %.sroa.0.4, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i ], [ %.sroa.0.4, %370 ]
+.loopexit.split-lp:                               ; preds = %369, %94, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i
+  %.sroa.9.0.ph = phi i8 [ 0, %94 ], [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i ], [ %.sroa.9.3, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i ], [ %.sroa.9.3, %369 ]
+  %.sroa.0.0.ph = phi ptr [ null, %94 ], [ null, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i ], [ %.sroa.0.4, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i ], [ %.sroa.0.4, %369 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-380:                                              ; preds = %372
-  %381 = landingpad { ptr, i32 }
+379:                                              ; preds = %371
+  %380 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %371, i64 noundef 256) #21
+  call void @_ZdlPvm(ptr noundef nonnull %370, i64 noundef 256) #21
   br label %.body
 
-382:                                              ; preds = %364
-  %383 = load ptr, ptr %365, align 8
-  store ptr %383, ptr %0, align 8
-  br label %384
+381:                                              ; preds = %363
+  %382 = load ptr, ptr %364, align 8
+  store ptr %382, ptr %0, align 8
+  br label %383
 
-384:                                              ; preds = %373, %382
+383:                                              ; preds = %372, %381
   %.not.i.i.i32 = icmp eq ptr %.sroa.0.4, null
-  br i1 %.not.i.i.i32, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit, label %385
+  br i1 %.not.i.i.i32, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit, label %384
 
-385:                                              ; preds = %384
-  %386 = trunc nuw i8 %.sroa.9.3 to i1
-  br i1 %386, label %387, label %389
+384:                                              ; preds = %383
+  %385 = trunc nuw i8 %.sroa.9.3 to i1
+  br i1 %385, label %386, label %388
 
-387:                                              ; preds = %385
-  %388 = atomicrmw and ptr %.sroa.0.4, i64 -4 seq_cst, align 8
+386:                                              ; preds = %384
+  %387 = atomicrmw and ptr %.sroa.0.4, i64 -4 seq_cst, align 8
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit
 
-389:                                              ; preds = %385
-  %390 = atomicrmw sub ptr %.sroa.0.4, i64 4 seq_cst, align 8
+388:                                              ; preds = %384
+  %389 = atomicrmw sub ptr %.sroa.0.4, i64 4 seq_cst, align 8
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %common.resume.i.i.i, %165, %163, %.body.i.i, %380
-  %.sroa.9.1 = phi i8 [ %.sroa.9.3, %380 ], [ %.sroa.9.3, %common.resume.i.i.i ], [ %.sroa.9.2, %.body.i.i ], [ %.sroa.9.2, %163 ], [ %.sroa.9.2, %165 ], [ %.sroa.9.2, %.loopexit ], [ %.sroa.9.0.ph, %.loopexit.split-lp ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.4, %380 ], [ %.sroa.0.4, %common.resume.i.i.i ], [ %.sroa.0.3, %.body.i.i ], [ %.sroa.0.3, %163 ], [ %.sroa.0.3, %165 ], [ %.sroa.0.3, %.loopexit ], [ %.sroa.0.0.ph, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %381, %380 ], [ %common.resume.op.i.i.i, %common.resume.i.i.i ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body.i.i, %163 ], [ %eh.lpad-body.i.i, %165 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %common.resume.i.i.i, %164, %162, %.body.i.i, %379
+  %.sroa.9.1 = phi i8 [ %.sroa.9.3, %379 ], [ %.sroa.9.3, %common.resume.i.i.i ], [ %.sroa.9.2, %.body.i.i ], [ %.sroa.9.2, %162 ], [ %.sroa.9.2, %164 ], [ %.sroa.9.2, %.loopexit ], [ %.sroa.9.0.ph, %.loopexit.split-lp ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.4, %379 ], [ %.sroa.0.4, %common.resume.i.i.i ], [ %.sroa.0.3, %.body.i.i ], [ %.sroa.0.3, %162 ], [ %.sroa.0.3, %164 ], [ %.sroa.0.3, %.loopexit ], [ %.sroa.0.0.ph, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %380, %379 ], [ %common.resume.op.i.i.i, %common.resume.i.i.i ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body.i.i, %162 ], [ %eh.lpad-body.i.i, %164 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i33 = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not.i.i.i33, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit34, label %391
+  br i1 %.not.i.i.i33, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit34, label %390
 
-391:                                              ; preds = %.body
-  %392 = trunc nuw i8 %.sroa.9.1 to i1
-  br i1 %392, label %.thread, label %394
+390:                                              ; preds = %.body
+  %391 = trunc nuw i8 %.sroa.9.1 to i1
+  br i1 %391, label %.thread, label %393
 
-.thread:                                          ; preds = %391
-  %393 = atomicrmw and ptr %.sroa.0.1, i64 -4 seq_cst, align 8
+.thread:                                          ; preds = %390
+  %392 = atomicrmw and ptr %.sroa.0.1, i64 -4 seq_cst, align 8
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit34
 
-394:                                              ; preds = %391
-  %395 = atomicrmw sub ptr %.sroa.0.1, i64 4 seq_cst, align 8
+393:                                              ; preds = %390
+  %394 = atomicrmw sub ptr %.sroa.0.1, i64 4 seq_cst, align 8
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit34
 
-396:                                              ; preds = %.loopexit55
-  %397 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #22
-          to label %398 unwind label %378
+395:                                              ; preds = %.loopexit55
+  %396 = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #22
+          to label %397 unwind label %377
 
-398:                                              ; preds = %396
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeC1ERKNS1_3KeyE(ptr noundef nonnull align 8 dereferenceable(250) %397, ptr noundef nonnull align 8 dereferenceable(80) %10)
-          to label %399 unwind label %402
+397:                                              ; preds = %395
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeC1ERKNS1_3KeyE(ptr noundef nonnull align 8 dereferenceable(250) %396, ptr noundef nonnull align 8 dereferenceable(80) %10)
+          to label %398 unwind label %401
 
-399:                                              ; preds = %398
-  store ptr %397, ptr %0, align 8
-  %400 = getelementptr inbounds nuw i8, ptr %397, i64 84
-  %401 = atomicrmw add ptr %400, i32 1 seq_cst, align 4
+398:                                              ; preds = %397
+  store ptr %396, ptr %0, align 8
+  %399 = getelementptr inbounds nuw i8, ptr %396, i64 84
+  %400 = atomicrmw add ptr %399, i32 1 seq_cst, align 4
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit
 
-402:                                              ; preds = %398
-  %403 = landingpad { ptr, i32 }
+401:                                              ; preds = %397
+  %402 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %397, i64 noundef 256) #21
+  call void @_ZdlPvm(ptr noundef nonnull %396, i64 noundef 256) #21
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit34
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit: ; preds = %389, %387, %384, %399
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit: ; preds = %388, %386, %383, %398
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %29) #18
-  %404 = load ptr, ptr %24, align 8
-  %.not.i.i.i36 = icmp eq ptr %404, null
-  br i1 %.not.i.i.i36, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i, label %405
+  %403 = load ptr, ptr %24, align 8
+  %.not.i.i.i36 = icmp eq ptr %403, null
+  br i1 %.not.i.i.i36, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i, label %404
 
-405:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit
-  %406 = getelementptr inbounds nuw i8, ptr %404, i64 84
-  %407 = atomicrmw sub ptr %406, i32 1 seq_cst, align 4
-  %.not1.i.i.i = icmp eq i32 %407, 1
-  br i1 %.not1.i.i.i, label %408, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i
+404:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit
+  %405 = getelementptr inbounds nuw i8, ptr %403, i64 84
+  %406 = atomicrmw sub ptr %405, i32 1 seq_cst, align 4
+  %.not1.i.i.i = icmp eq i32 %406, 1
+  br i1 %.not1.i.i.i, label %407, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i
 
-408:                                              ; preds = %405
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %404) #18
-  call void @_ZdlPvm(ptr noundef nonnull %404, i64 noundef 256) #21
+407:                                              ; preds = %404
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %403) #18
+  call void @_ZdlPvm(ptr noundef nonnull %403, i64 noundef 256) #21
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i: ; preds = %408, %405, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit
-  %409 = load ptr, ptr %19, align 8
-  %.not.i.i1.i = icmp eq ptr %409, null
-  br i1 %.not.i.i1.i, label %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit, label %410
+_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i: ; preds = %407, %404, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit
+  %408 = load ptr, ptr %19, align 8
+  %.not.i.i1.i = icmp eq ptr %408, null
+  br i1 %.not.i.i1.i, label %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit, label %409
 
-410:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i
-  %411 = getelementptr inbounds nuw i8, ptr %409, i64 84
-  %412 = atomicrmw sub ptr %411, i32 1 seq_cst, align 4
-  %.not1.i.i2.i = icmp eq i32 %412, 1
-  br i1 %.not1.i.i2.i, label %413, label %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit
+409:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i
+  %410 = getelementptr inbounds nuw i8, ptr %408, i64 84
+  %411 = atomicrmw sub ptr %410, i32 1 seq_cst, align 4
+  %.not1.i.i2.i = icmp eq i32 %411, 1
+  br i1 %.not1.i.i2.i, label %412, label %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit
 
-413:                                              ; preds = %410
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %409) #18
-  call void @_ZdlPvm(ptr noundef nonnull %409, i64 noundef 256) #21
+412:                                              ; preds = %409
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %408) #18
+  call void @_ZdlPvm(ptr noundef nonnull %408, i64 noundef 256) #21
   br label %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i, %410, %413
-  %414 = load ptr, ptr %9, align 8
-  %.not.i.i37 = icmp eq ptr %414, null
-  br i1 %.not.i.i37, label %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit, label %415
+_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i, %409, %412
+  %413 = load ptr, ptr %9, align 8
+  %.not.i.i37 = icmp eq ptr %413, null
+  br i1 %.not.i.i37, label %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit, label %414
 
-415:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit
-  %416 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %417 = load i32, ptr %416, align 8
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4_EndEiPNS0_11_ThreadDataE(i32 noundef %417, ptr noundef nonnull %414)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit unwind label %418
+414:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit
+  %415 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %416 = load i32, ptr %415, align 8
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4_EndEiPNS0_11_ThreadDataE(i32 noundef %416, ptr noundef nonnull %413)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit unwind label %417
 
-418:                                              ; preds = %415
-  %419 = landingpad { ptr, i32 }
+417:                                              ; preds = %414
+  %418 = landingpad { ptr, i32 }
           catch ptr null
-  %420 = extractvalue { ptr, i32 } %419, 0
-  call void @__clang_call_terminate(ptr %420) #23
+  %419 = extractvalue { ptr, i32 } %418, 0
+  call void @__clang_call_terminate(ptr %419) #23
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit: ; preds = %415, %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit
+_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit: ; preds = %414, %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit
   ret void
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit34: ; preds = %394, %.thread, %.body, %402, %378
-  %.pn.pn = phi { ptr, i32 } [ %379, %378 ], [ %403, %402 ], [ %.pn, %.body ], [ %.pn, %.thread ], [ %.pn, %394 ]
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit34: ; preds = %393, %.thread, %.body, %401, %377
+  %.pn.pn = phi { ptr, i32 } [ %378, %377 ], [ %402, %401 ], [ %.pn, %.body ], [ %.pn, %.thread ], [ %.pn, %393 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #18
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #18
   resume { ptr, i32 } %.pn.pn
@@ -2140,35 +2140,35 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionC2ERKS0_.exit: ; preds = %_
 
 .lr.ph.i.i.i.i:                                   ; preds = %69
   %.0.copyload.i2.i.i.i.i.i = load i64, ptr %68, align 4
-  br label %73
+  %73 = trunc i64 %.0.copyload.i2.i.i.i.i.i to i32
+  br label %74
 
-73:                                               ; preds = %73, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %71, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %73 ]
-  %.0811.i.i.i.i = phi ptr [ %72, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %73 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %74, align 4
-  %75 = icmp ult i64 %.0.copyload.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i.i
-  %.19.i.i.i.i = select i1 %75, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.1.in.v.i.i.i.i = select i1 %75, i64 24, i64 16
+74:                                               ; preds = %74, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %71, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %74 ]
+  %.0811.i.i.i.i = phi ptr [ %72, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %74 ]
+  %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %75, align 4
+  %76 = icmp ult i64 %.0.copyload.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i.i
+  %.19.i.i.i.i = select i1 %76, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %76, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEE11lower_boundERS4_.exit.i, label %73, !llvm.loop !23
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEE11lower_boundERS4_.exit.i, label %74, !llvm.loop !23
 
-_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEE11lower_boundERS4_.exit.i: ; preds = %73
-  %76 = icmp eq ptr %.19.i.i.i.i, %72
-  br i1 %76, label %.critedge.i, label %77
+_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEE11lower_boundERS4_.exit.i: ; preds = %74
+  %77 = icmp eq ptr %.19.i.i.i.i, %72
+  br i1 %77, label %.critedge.i, label %78
 
-77:                                               ; preds = %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEE11lower_boundERS4_.exit.i
-  %78 = trunc i64 %.0.copyload.i2.i.i.i.i.i to i32
-  %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %75, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+78:                                               ; preds = %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEE11lower_boundERS4_.exit.i
+  %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %76, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %.0.copyload.i2.i.i = load i64, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %79 = icmp ult i64 %.0.copyload.i2.i.i.i.i.i, %.0.copyload.i2.i.i
   br i1 %79, label %.critedge.i, label %81
 
-.critedge.i:                                      ; preds = %77, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEE11lower_boundERS4_.exit.i, %69
-  %.08.lcssa.i.i.i10.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEE11lower_boundERS4_.exit.i ], [ %.19.i.i.i.i, %77 ], [ %72, %69 ]
+.critedge.i:                                      ; preds = %78, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEE11lower_boundERS4_.exit.i, %69
+  %.08.lcssa.i.i.i10.i = phi ptr [ %.19.i.i.i.i, %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEE11lower_boundERS4_.exit.i ], [ %.19.i.i.i.i, %78 ], [ %72, %69 ]
   store ptr %68, ptr %3, align 8
   %80 = invoke ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESE_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr %.08.lcssa.i.i.i10.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.critedge.i._crit_edge unwind label %126
@@ -2177,9 +2177,9 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaIS
   %.pre = load i32, ptr %68, align 4
   br label %81
 
-81:                                               ; preds = %.critedge.i._crit_edge, %77
-  %82 = phi i32 [ %78, %77 ], [ %.pre, %.critedge.i._crit_edge ]
-  %.sroa.05.0.i = phi ptr [ %.19.i.i.i.i, %77 ], [ %80, %.critedge.i._crit_edge ]
+81:                                               ; preds = %.critedge.i._crit_edge, %78
+  %82 = phi i32 [ %73, %78 ], [ %.pre, %.critedge.i._crit_edge ]
+  %.sroa.05.0.i = phi ptr [ %.19.i.i.i.i, %78 ], [ %80, %.critedge.i._crit_edge ]
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 40
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3021,8 +3021,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD2Ev(p
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %.not56 = icmp eq ptr %9, null
-  br i1 %.not56, label %27, label %10
+  %.not57 = icmp eq ptr %9, null
+  br i1 %.not57, label %27, label %10
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 248
@@ -3074,8 +3074,8 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %_Z
 27:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit, %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
-  %.not57 = icmp eq ptr %29, null
-  br i1 %.not57, label %47, label %30
+  %.not58 = icmp eq ptr %29, null
+  br i1 %.not58, label %47, label %30
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 248
@@ -3143,291 +3143,291 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit11: ; preds = %
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 1, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %scevgep.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %.ptr12.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %55, i8 0, i64 40, i1 false)
-  br label %58
+  br label %.preheader13.i.i.i.i.i.i.i.i
 
-.preheader.i.i.i.i.i.i.i.i:                       ; preds = %58
+.preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader13.i.i.i.i.i.i.i.i
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 56
-  %57 = ptrtoint ptr %scevgep.i.i.i.i.i.i.i.i to i64
-  br label %62
+  %57 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i to i64
+  br label %61
 
-58:                                               ; preds = %58, %.noexc
-  %.014.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc ], [ %61, %58 ]
-  %59 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %scevgep.i.i.i.i.i.i.i.i, i64 %.014.i.i.i.i.i.i.i.i
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store atomic i64 0, ptr %60 monotonic, align 8
-  %61 = add nuw nsw i64 %.014.i.i.i.i.i.i.i.i, 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %61, 2
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i, label %58, !llvm.loop !11
+.preheader13.i.i.i.i.i.i.i.i:                     ; preds = %.preheader13.i.i.i.i.i.i.i.i, %.noexc
+  %.014.i.i.i.i.i.i.i.i = phi i64 [ %60, %.preheader13.i.i.i.i.i.i.i.i ], [ 0, %.noexc ]
+  %58 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.ptr12.i.i.i.i.i.i.i.i, i64 %.014.i.i.i.i.i.i.i.i
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store atomic i64 0, ptr %59 monotonic, align 8
+  %60 = add nuw nsw i64 %.014.i.i.i.i.i.i.i.i, 1
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %60, 2
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i, label %.preheader13.i.i.i.i.i.i.i.i, !llvm.loop !11
 
-62:                                               ; preds = %62, %.preheader.i.i.i.i.i.i.i.i
-  %.01015.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i ], [ %66, %62 ]
-  %63 = icmp eq i64 %.01015.i.i.i.i.i.i.i.i, 0
-  %64 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %56, i64 %.01015.i.i.i.i.i.i.i.i
-  %65 = select i1 %63, i64 %57, i64 0
-  store atomic i64 %65, ptr %64 monotonic, align 8
-  %66 = add nuw nsw i64 %.01015.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %66, 64
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i, label %62, !llvm.loop !12
+61:                                               ; preds = %61, %.preheader.i.i.i.i.i.i.i.i
+  %.01015.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i ], [ %65, %61 ]
+  %62 = icmp eq i64 %.01015.i.i.i.i.i.i.i.i, 0
+  %63 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %56, i64 %.01015.i.i.i.i.i.i.i.i
+  %64 = select i1 %62, i64 %57, i64 0
+  store atomic i64 %64, ptr %63 monotonic, align 8
+  %65 = add nuw nsw i64 %.01015.i.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %65, 64
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i, label %61, !llvm.loop !12
 
-_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i: ; preds = %62
-  %67 = ptrtoint ptr %53 to i64
-  %68 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node13_nodeRegistryE, i64 0, i64 %67 seq_cst seq_cst, align 8
-  %69 = extractvalue { i64, i1 } %68, 1
-  br i1 %69, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i, label %70
+_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i: ; preds = %61
+  %66 = ptrtoint ptr %53 to i64
+  %67 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node13_nodeRegistryE, i64 0, i64 %66 seq_cst seq_cst, align 8
+  %68 = extractvalue { i64, i1 } %67, 1
+  br i1 %68, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i, label %69
 
-70:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i
+69:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node8_NodeMapD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %53) #18
   call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef 576) #21
-  %71 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node13_nodeRegistryE seq_cst, align 8
-  %72 = inttoptr i64 %71 to ptr
+  %70 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node13_nodeRegistryE seq_cst, align 8
+  %71 = inttoptr i64 %70 to ptr
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i: ; preds = %49, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i, %70
-  %73 = phi ptr [ %51, %49 ], [ %72, %70 ], [ %53, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i ]
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i: ; preds = %49, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i, %69
+  %72 = phi ptr [ %51, %49 ], [ %71, %69 ], [ %53, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %74 = load ptr, ptr %8, align 8
-  store ptr %74, ptr %3, align 8
-  %75 = load ptr, ptr %28, align 8
-  store ptr %75, ptr %4, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %77 = invoke noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__6TfHash7CombineIJRKNS_16PcpMapExpression3_OpEPNS2_5_NodeES7_RKNS_14PcpMapFunctionEEEEmDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(56) %76)
+  %73 = load ptr, ptr %8, align 8
+  store ptr %73, ptr %3, align 8
+  %74 = load ptr, ptr %28, align 8
+  store ptr %74, ptr %4, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %76 = invoke noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__6TfHash7CombineIJRKNS_16PcpMapExpression3_OpEPNS2_5_NodeES7_RKNS_14PcpMapFunctionEEEEmDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(56) %75)
           to label %.noexc14 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc14:                                         ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %78 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %79 = load atomic i64, ptr %78 acquire, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %81 = getelementptr inbounds nuw i8, ptr %73, i64 56
-  %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %83
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %78 = load atomic i64, ptr %77 acquire, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br label %82
 
-83:                                               ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i, %.noexc14
+82:                                               ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i, %.noexc14
   %.sroa.12.1 = phi i8 [ 0, %.noexc14 ], [ %.sroa.12.2, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i ]
   %.sroa.0.2 = phi ptr [ null, %.noexc14 ], [ %.sroa.0.3, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i ]
-  %.04.i.i = phi i64 [ %79, %.noexc14 ], [ %.25.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i ]
-  %84 = and i64 %.04.i.i, %77
-  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(569) %73, i64 noundef %84, i1 noundef zeroext false)
+  %.04.i.i = phi i64 [ %78, %.noexc14 ], [ %.25.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i ]
+  %83 = and i64 %.04.i.i, %76
+  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(569) %72, i64 noundef %83, i1 noundef zeroext false)
           to label %.noexc15 unwind label %.loopexit.split-lp.loopexit
 
-.noexc15:                                         ; preds = %83
-  %.val.i.i = load ptr, ptr %80, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
-  %86 = load atomic i64, ptr %85 monotonic, align 8
-  %.0.i.i.i.i = inttoptr i64 %86 to ptr
-  %87 = icmp ugt i64 %86, 63
-  br i1 %87, label %.lr.ph.i.i.i13, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i
+.noexc15:                                         ; preds = %82
+  %.val.i.i = load ptr, ptr %79, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
+  %85 = load atomic i64, ptr %84 monotonic, align 8
+  %.0.i.i.i.i = inttoptr i64 %85 to ptr
+  %86 = icmp ugt i64 %85, 63
+  br i1 %86, label %.lr.ph.i.i.i13, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i
 
 .lr.ph.i.i.i13:                                   ; preds = %.noexc15, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
-  %.01.i.i.i = phi ptr [ %104, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i ], [ %.0.i.i.i.i, %.noexc15 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 16
-  %89 = load i32, ptr %0, align 8
-  %90 = load i32, ptr %88, align 8
-  %91 = icmp eq i32 %89, %90
-  br i1 %91, label %92, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
+  %.01.i.i.i = phi ptr [ %103, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i ], [ %.0.i.i.i.i, %.noexc15 ]
+  %87 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 16
+  %88 = load i32, ptr %0, align 8
+  %89 = load i32, ptr %87, align 8
+  %90 = icmp eq i32 %88, %89
+  br i1 %90, label %91, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
 
-92:                                               ; preds = %.lr.ph.i.i.i13
-  %93 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 24
-  %94 = load ptr, ptr %8, align 8
-  %95 = load ptr, ptr %93, align 8
-  %96 = icmp eq ptr %94, %95
-  br i1 %96, label %97, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
+91:                                               ; preds = %.lr.ph.i.i.i13
+  %92 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 24
+  %93 = load ptr, ptr %8, align 8
+  %94 = load ptr, ptr %92, align 8
+  %95 = icmp eq ptr %93, %94
+  br i1 %95, label %96, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
 
-97:                                               ; preds = %92
-  %98 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 32
-  %99 = load ptr, ptr %28, align 8
-  %100 = load ptr, ptr %98, align 8
-  %101 = icmp eq ptr %99, %100
-  br i1 %101, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
+96:                                               ; preds = %91
+  %97 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 32
+  %98 = load ptr, ptr %28, align 8
+  %99 = load ptr, ptr %97, align 8
+  %100 = icmp eq ptr %98, %99
+  br i1 %100, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i.i.i: ; preds = %97
-  %102 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 40
-  %103 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunctioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %76, ptr noundef nonnull align 8 dereferenceable(56) %102)
-          to label %.noexc.i.i unwind label %131
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i.i.i: ; preds = %96
+  %101 = getelementptr inbounds nuw i8, ptr %.01.i.i.i, i64 40
+  %102 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14PcpMapFunctioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(56) %101)
+          to label %.noexc.i.i unwind label %130
 
 .noexc.i.i:                                       ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i.i.i
-  br i1 %103, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.thread.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
+  br i1 %102, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.thread.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i: ; preds = %.noexc.i.i, %97, %92, %.lr.ph.i.i.i13
-  %104 = load ptr, ptr %.01.i.i.i, align 8
-  %105 = icmp ugt ptr %104, inttoptr (i64 63 to ptr)
-  br i1 %105, label %.lr.ph.i.i.i13, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i, !llvm.loop !13
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i: ; preds = %.noexc.i.i, %96, %91, %.lr.ph.i.i.i13
+  %103 = load ptr, ptr %.01.i.i.i, align 8
+  %104 = icmp ugt ptr %103, inttoptr (i64 63 to ptr)
+  br i1 %104, label %.lr.ph.i.i.i13, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i, !llvm.loop !13
 
 _ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i, %.noexc15
-  %.0.lcssa.i.i.i = phi ptr [ %.0.i.i.i.i, %.noexc15 ], [ %104, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i ]
+  %.0.lcssa.i.i.i = phi ptr [ %.0.i.i.i.i, %.noexc15 ], [ %103, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.thread.i.i.i ]
   %.not.not.i.i = icmp eq ptr %.0.lcssa.i.i.i, null
-  br i1 %.not.not.i.i, label %106, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.thread.i.i
+  br i1 %.not.not.i.i, label %105, label %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.thread.i.i
 
-106:                                              ; preds = %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i
-  %107 = load atomic i64, ptr %78 acquire, align 8
-  %.not.i.i.i = icmp eq i64 %.04.i.i, %107
-  br i1 %.not.i.i.i, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i, label %108
+105:                                              ; preds = %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i
+  %106 = load atomic i64, ptr %77 acquire, align 8
+  %.not.i.i.i = icmp eq i64 %.04.i.i, %106
+  br i1 %.not.i.i.i, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i, label %107
 
-108:                                              ; preds = %106
-  %109 = xor i64 %107, %.04.i.i
-  %110 = and i64 %109, %77
-  %.not.i.i.i.i = icmp eq i64 %110, 0
-  br i1 %.not.i.i.i.i, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i, label %111
+107:                                              ; preds = %105
+  %108 = xor i64 %106, %.04.i.i
+  %109 = and i64 %108, %76
+  %.not.i.i.i.i = icmp eq i64 %109, 0
+  br i1 %.not.i.i.i.i, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i, label %110
 
-111:                                              ; preds = %108
-  %112 = add i64 %.04.i.i, 1
-  br label %113
+110:                                              ; preds = %107
+  %111 = add i64 %.04.i.i, 1
+  br label %112
 
-113:                                              ; preds = %113, %111
-  %.012.i.i.i.i = phi i64 [ %112, %111 ], [ %115, %113 ]
-  %114 = and i64 %.012.i.i.i.i, %77
-  %.not13.i.i.i.i = icmp eq i64 %114, 0
-  %115 = shl i64 %.012.i.i.i.i, 1
-  br i1 %.not13.i.i.i.i, label %113, label %116, !llvm.loop !18
+112:                                              ; preds = %112, %110
+  %.012.i.i.i.i = phi i64 [ %111, %110 ], [ %114, %112 ]
+  %113 = and i64 %.012.i.i.i.i, %76
+  %.not13.i.i.i.i = icmp eq i64 %113, 0
+  %114 = shl i64 %.012.i.i.i.i, 1
+  br i1 %.not13.i.i.i.i, label %112, label %115, !llvm.loop !18
 
-116:                                              ; preds = %113
-  %117 = add i64 %115, -1
-  %118 = and i64 %117, %77
-  %119 = or i64 %118, 1
-  %120 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %119, i1 true)
-  %121 = xor i64 %120, 63
-  %122 = shl nuw i64 1, %121
-  %123 = and i64 %122, -2
-  %124 = sub i64 %118, %123
-  %125 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %81, i64 %121
-  %126 = load atomic i64, ptr %125 acquire, align 8
-  %.0.i.i.i.i.i.i = inttoptr i64 %126 to ptr
-  %127 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i.i, i64 %124
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %129 = load atomic i64, ptr %128 acquire, align 8
-  %130 = icmp eq i64 %129, 3
-  %spec.select.i.i = select i1 %130, i32 1, i32 2
+115:                                              ; preds = %112
+  %116 = add i64 %114, -1
+  %117 = and i64 %116, %76
+  %118 = or i64 %117, 1
+  %119 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %118, i1 true)
+  %120 = xor i64 %119, 63
+  %121 = shl nuw i64 1, %120
+  %122 = and i64 %121, -2
+  %123 = sub i64 %117, %122
+  %124 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %80, i64 %120
+  %125 = load atomic i64, ptr %124 acquire, align 8
+  %.0.i.i.i.i.i.i = inttoptr i64 %125 to ptr
+  %126 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i.i, i64 %123
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %128 = load atomic i64, ptr %127 acquire, align 8
+  %129 = icmp eq i64 %128, 3
+  %spec.select.i.i = select i1 %129, i32 1, i32 2
   br label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i
 
-131:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i.i.i
-  %132 = landingpad { ptr, i32 }
+130:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_110_KeyHashEqINS_16PcpMapExpression5_Node3KeyEE5equalERKS4_S7_.exit.i.i.i
+  %131 = landingpad { ptr, i32 }
           catch ptr null
-  %133 = load ptr, ptr %5, align 8
-  %.not.i.i40.i.i = icmp eq ptr %133, null
-  br i1 %.not.i.i40.i.i, label %.body, label %134
+  %132 = load ptr, ptr %5, align 8
+  %.not.i.i40.i.i = icmp eq ptr %132, null
+  br i1 %.not.i.i40.i.i, label %.body, label %133
 
-134:                                              ; preds = %131
+133:                                              ; preds = %130
   store ptr null, ptr %5, align 8
-  %135 = load i8, ptr %82, align 8
-  %136 = trunc i8 %135 to i1
-  br i1 %136, label %137, label %139
+  %134 = load i8, ptr %81, align 8
+  %135 = trunc i8 %134 to i1
+  br i1 %135, label %136, label %138
 
-137:                                              ; preds = %134
-  %138 = atomicrmw and ptr %133, i64 -4 seq_cst, align 8
+136:                                              ; preds = %133
+  %137 = atomicrmw and ptr %132, i64 -4 seq_cst, align 8
   br label %.body
 
-139:                                              ; preds = %134
-  %140 = atomicrmw sub ptr %133, i64 4 seq_cst, align 8
+138:                                              ; preds = %133
+  %139 = atomicrmw sub ptr %132, i64 4 seq_cst, align 8
   br label %.body
 
 _ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.thread.i.i: ; preds = %.noexc.i.i, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i
   %.0.lcssa.i9.i.i = phi ptr [ %.0.lcssa.i.i.i, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.i.i ], [ %.01.i.i.i, %.noexc.i.i ]
-  %141 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i9.i.i, i64 8
-  %142 = load atomic i64, ptr %141 monotonic, align 8
-  %143 = and i64 %142, -3
-  %.not.i.i41.i.i = icmp eq i64 %143, 0
-  br i1 %.not.i.i41.i.i, label %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i, label %146
+  %140 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i9.i.i, i64 8
+  %141 = load atomic i64, ptr %140 monotonic, align 8
+  %142 = and i64 %141, -3
+  %.not.i.i41.i.i = icmp eq i64 %142, 0
+  br i1 %.not.i.i41.i.i, label %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i, label %145
 
 _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i: ; preds = %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.thread.i.i
-  %144 = cmpxchg ptr %141, i64 %142, i64 1 seq_cst seq_cst, align 8
-  %145 = extractvalue { i64, i1 } %144, 1
-  br i1 %145, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i, label %146
+  %143 = cmpxchg ptr %140, i64 %141, i64 1 seq_cst seq_cst, align 8
+  %144 = extractvalue { i64, i1 } %143, 1
+  br i1 %144, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i, label %145
 
-146:                                              ; preds = %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.thread.i.i
+145:                                              ; preds = %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i, %_ZNK3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit.thread.i.i
   call void @llvm.x86.sse2.pause()
-  br label %147
+  br label %146
 
-147:                                              ; preds = %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i, %146
-  %.sroa.0.0.i.i = phi i32 [ 2, %146 ], [ %157, %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i ]
-  %148 = load atomic i64, ptr %141 monotonic, align 8
-  %149 = and i64 %148, -3
-  %.not.i.i42.i.i = icmp eq i64 %149, 0
-  br i1 %.not.i.i42.i.i, label %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i, label %152
+146:                                              ; preds = %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i, %145
+  %.sroa.0.0.i.i = phi i32 [ 2, %145 ], [ %156, %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i ]
+  %147 = load atomic i64, ptr %140 monotonic, align 8
+  %148 = and i64 %147, -3
+  %.not.i.i42.i.i = icmp eq i64 %148, 0
+  br i1 %.not.i.i42.i.i, label %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i, label %151
 
-_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i: ; preds = %147
-  %150 = cmpxchg ptr %141, i64 %148, i64 1 seq_cst seq_cst, align 8
-  %151 = extractvalue { i64, i1 } %150, 1
-  br i1 %151, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i, label %152
+_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i: ; preds = %146
+  %149 = cmpxchg ptr %140, i64 %147, i64 1 seq_cst seq_cst, align 8
+  %150 = extractvalue { i64, i1 } %149, 1
+  br i1 %150, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i, label %151
 
-152:                                              ; preds = %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i, %147
-  %153 = icmp sgt i32 %.sroa.0.0.i.i, 0
-  br i1 %153, label %.lr.ph.i.i.i.i, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i
+151:                                              ; preds = %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i, %146
+  %152 = icmp sgt i32 %.sroa.0.0.i.i, 0
+  br i1 %152, label %.lr.ph.i.i.i.i, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %152, %.lr.ph.i.i.i.i
-  %.01.i.i.i.i = phi i32 [ %154, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i, %152 ]
-  %154 = add nsw i32 %.01.i.i.i.i, -1
+.lr.ph.i.i.i.i:                                   ; preds = %151, %.lr.ph.i.i.i.i
+  %.01.i.i.i.i = phi i32 [ %153, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i, %151 ]
+  %153 = add nsw i32 %.01.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %155 = icmp samesign ugt i32 %.01.i.i.i.i, 1
-  br i1 %155, label %.lr.ph.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, !llvm.loop !6
+  %154 = icmp samesign ugt i32 %.01.i.i.i.i, 1
+  br i1 %154, label %.lr.ph.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, !llvm.loop !6
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %.lr.ph.i.i.i.i
-  %156 = icmp samesign ult i32 %.sroa.0.0.i.i, 16
-  br i1 %156, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i, label %158
+  %155 = icmp samesign ult i32 %.sroa.0.0.i.i, 16
+  br i1 %155, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i, label %157
 
-_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i: ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, %152
-  %157 = shl nsw i32 %.sroa.0.0.i.i, 1
-  br label %147, !llvm.loop !25
+_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i: ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, %151
+  %156 = shl nsw i32 %.sroa.0.0.i.i, 1
+  br label %146, !llvm.loop !25
 
-158:                                              ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i
-  %159 = load ptr, ptr %5, align 8
+157:                                              ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i
+  %158 = load ptr, ptr %5, align 8
   store ptr null, ptr %5, align 8
-  %160 = load i8, ptr %82, align 8
-  %161 = trunc i8 %160 to i1
-  br i1 %161, label %162, label %164
+  %159 = load i8, ptr %81, align 8
+  %160 = trunc i8 %159 to i1
+  br i1 %160, label %161, label %163
 
-162:                                              ; preds = %158
-  %163 = atomicrmw and ptr %159, i64 -4 seq_cst, align 8
+161:                                              ; preds = %157
+  %162 = atomicrmw and ptr %158, i64 -4 seq_cst, align 8
   br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i
 
-164:                                              ; preds = %158
-  %165 = atomicrmw sub ptr %159, i64 4 seq_cst, align 8
+163:                                              ; preds = %157
+  %164 = atomicrmw sub ptr %158, i64 4 seq_cst, align 8
   br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i
 
-_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i: ; preds = %164, %162
-  %166 = call noundef i32 @sched_yield() #18
-  %167 = load atomic i64, ptr %78 acquire, align 8
+_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i: ; preds = %163, %161
+  %165 = call noundef i32 @sched_yield() #18
+  %166 = load atomic i64, ptr %77 acquire, align 8
   br label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i
 
-_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i: ; preds = %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i, %116, %108, %106
-  %.sroa.12.2 = phi i8 [ %.sroa.12.1, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i ], [ %.sroa.12.1, %106 ], [ %.sroa.12.1, %108 ], [ %.sroa.12.1, %116 ], [ 1, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ 1, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.2, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i ], [ %.sroa.0.2, %106 ], [ %.sroa.0.2, %108 ], [ %.sroa.0.2, %116 ], [ %141, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %141, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i ]
-  %.not10.i.i = phi i1 [ true, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i ], [ false, %106 ], [ false, %108 ], [ false, %116 ], [ true, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ true, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i ]
-  %.0.lcssa.i8.i.i = phi ptr [ %.0.lcssa.i9.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i ], [ null, %106 ], [ null, %108 ], [ null, %116 ], [ %.0.lcssa.i9.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %.0.lcssa.i9.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i ]
-  %.25.i.i = phi i64 [ %167, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i ], [ %.04.i.i, %106 ], [ %107, %108 ], [ %107, %116 ], [ %.04.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %.04.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i ]
-  %.0.i.i = phi i32 [ 2, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i ], [ 1, %106 ], [ 1, %108 ], [ %spec.select.i.i, %116 ], [ 0, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ 0, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i ]
-  %168 = load ptr, ptr %5, align 8
-  %.not.i.i46.i.i = icmp eq ptr %168, null
-  br i1 %.not.i.i46.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i, label %169
+_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i: ; preds = %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i, %115, %107, %105
+  %.sroa.12.2 = phi i8 [ %.sroa.12.1, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i ], [ %.sroa.12.1, %105 ], [ %.sroa.12.1, %107 ], [ %.sroa.12.1, %115 ], [ 1, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ 1, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.2, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i ], [ %.sroa.0.2, %105 ], [ %.sroa.0.2, %107 ], [ %.sroa.0.2, %115 ], [ %140, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %140, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i ]
+  %.not10.i.i = phi i1 [ true, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i ], [ false, %105 ], [ false, %107 ], [ false, %115 ], [ true, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ true, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i ]
+  %.0.lcssa.i8.i.i = phi ptr [ %.0.lcssa.i9.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i ], [ null, %105 ], [ null, %107 ], [ null, %115 ], [ %.0.lcssa.i9.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %.0.lcssa.i9.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i ]
+  %.25.i.i = phi i64 [ %166, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i ], [ %.04.i.i, %105 ], [ %106, %107 ], [ %106, %115 ], [ %.04.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ %.04.i.i, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i ]
+  %.0.i.i = phi i32 [ 2, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE7releaseEv.exit.i4.i ], [ 1, %105 ], [ 1, %107 ], [ %spec.select.i.i, %115 ], [ 0, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i.i.i ], [ 0, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i ]
+  %167 = load ptr, ptr %5, align 8
+  %.not.i.i46.i.i = icmp eq ptr %167, null
+  br i1 %.not.i.i46.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i, label %168
 
-169:                                              ; preds = %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i
+168:                                              ; preds = %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i
   store ptr null, ptr %5, align 8
-  %170 = load i8, ptr %82, align 8
-  %171 = trunc i8 %170 to i1
-  br i1 %171, label %172, label %174
+  %169 = load i8, ptr %81, align 8
+  %170 = trunc i8 %169 to i1
+  br i1 %170, label %171, label %173
 
-172:                                              ; preds = %169
-  %173 = atomicrmw and ptr %168, i64 -4 seq_cst, align 8
+171:                                              ; preds = %168
+  %172 = atomicrmw and ptr %167, i64 -4 seq_cst, align 8
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i
 
-174:                                              ; preds = %169
-  %175 = atomicrmw sub ptr %168, i64 4 seq_cst, align 8
+173:                                              ; preds = %168
+  %174 = atomicrmw sub ptr %167, i64 4 seq_cst, align 8
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i: ; preds = %174, %172, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i: ; preds = %173, %171, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i
   switch i32 %.0.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i.unreachabledefault [
-    i32 0, label %176
-    i32 2, label %83
+    i32 0, label %175
+    i32 2, label %82
     i32 1, label %.thread
   ]
 
 .thread:                                          ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %289
+  br label %287
 
 _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i.unreachabledefault: ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i
   unreachable
@@ -3435,271 +3435,271 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpM
 default.unreachable:                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i
   unreachable
 
-176:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i
+175:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit47.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not10.i.i, label %177, label %289
+  br i1 %.not10.i.i, label %176, label %287
 
-177:                                              ; preds = %176
-  %178 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i8.i.i, i64 96
-  %179 = load ptr, ptr %178, align 8
-  %180 = icmp eq ptr %179, %0
-  br i1 %180, label %181, label %289
+176:                                              ; preds = %175
+  %177 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i8.i.i, i64 96
+  %178 = load ptr, ptr %177, align 8
+  %179 = icmp eq ptr %178, %0
+  br i1 %179, label %180, label %287
 
-181:                                              ; preds = %177
-  %182 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node13_nodeRegistryE seq_cst, align 8
-  %183 = inttoptr i64 %182 to ptr
-  %.not.i.i16 = icmp eq i64 %182, 0
-  br i1 %.not.i.i16, label %184, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit25
+180:                                              ; preds = %176
+  %181 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node13_nodeRegistryE seq_cst, align 8
+  %182 = inttoptr i64 %181 to ptr
+  %.not.i.i16 = icmp eq i64 %181, 0
+  br i1 %.not.i.i16, label %183, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit26
 
-184:                                              ; preds = %181
-  %185 = invoke noalias noundef nonnull dereferenceable(576) ptr @_Znwm(i64 noundef 576) #22
-          to label %.noexc24 unwind label %.loopexit.split-lp.loopexit.split-lp
+183:                                              ; preds = %180
+  %184 = invoke noalias noundef nonnull dereferenceable(576) ptr @_Znwm(i64 noundef 576) #22
+          to label %.noexc25 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc24:                                         ; preds = %184
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  store i64 1, ptr %186, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %scevgep.i.i.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %185, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %187, i8 0, i64 40, i1 false)
-  br label %190
+.noexc25:                                         ; preds = %183
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  store i64 1, ptr %185, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %184, i64 16
+  %.ptr12.i.i.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %184, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %186, i8 0, i64 40, i1 false)
+  br label %.preheader13.i.i.i.i.i.i.i.i18
 
-.preheader.i.i.i.i.i.i.i.i20:                     ; preds = %190
-  %188 = getelementptr inbounds nuw i8, ptr %185, i64 56
-  %189 = ptrtoint ptr %scevgep.i.i.i.i.i.i.i.i17 to i64
-  br label %194
+.preheader.i.i.i.i.i.i.i.i21:                     ; preds = %.preheader13.i.i.i.i.i.i.i.i18
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 56
+  %188 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i17 to i64
+  br label %192
 
-190:                                              ; preds = %190, %.noexc24
-  %.014.i.i.i.i.i.i.i.i18 = phi i64 [ 0, %.noexc24 ], [ %193, %190 ]
-  %191 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %scevgep.i.i.i.i.i.i.i.i17, i64 %.014.i.i.i.i.i.i.i.i18
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
-  store atomic i64 0, ptr %192 monotonic, align 8
-  %193 = add nuw nsw i64 %.014.i.i.i.i.i.i.i.i18, 1
-  %.not.i.i.i.i.i.i.i.i19 = icmp eq i64 %193, 2
-  br i1 %.not.i.i.i.i.i.i.i.i19, label %.preheader.i.i.i.i.i.i.i.i20, label %190, !llvm.loop !11
+.preheader13.i.i.i.i.i.i.i.i18:                   ; preds = %.preheader13.i.i.i.i.i.i.i.i18, %.noexc25
+  %.014.i.i.i.i.i.i.i.i19 = phi i64 [ %191, %.preheader13.i.i.i.i.i.i.i.i18 ], [ 0, %.noexc25 ]
+  %189 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.ptr12.i.i.i.i.i.i.i.i17, i64 %.014.i.i.i.i.i.i.i.i19
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  store atomic i64 0, ptr %190 monotonic, align 8
+  %191 = add nuw nsw i64 %.014.i.i.i.i.i.i.i.i19, 1
+  %.not.i.i.i.i.i.i.i.i20 = icmp eq i64 %191, 2
+  br i1 %.not.i.i.i.i.i.i.i.i20, label %.preheader.i.i.i.i.i.i.i.i21, label %.preheader13.i.i.i.i.i.i.i.i18, !llvm.loop !11
 
-194:                                              ; preds = %194, %.preheader.i.i.i.i.i.i.i.i20
-  %.01015.i.i.i.i.i.i.i.i21 = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i20 ], [ %198, %194 ]
-  %195 = icmp eq i64 %.01015.i.i.i.i.i.i.i.i21, 0
-  %196 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %188, i64 %.01015.i.i.i.i.i.i.i.i21
-  %197 = select i1 %195, i64 %189, i64 0
-  store atomic i64 %197, ptr %196 monotonic, align 8
-  %198 = add nuw nsw i64 %.01015.i.i.i.i.i.i.i.i21, 1
-  %exitcond.not.i.i.i.i.i.i.i.i22 = icmp eq i64 %198, 64
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i22, label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i23, label %194, !llvm.loop !12
+192:                                              ; preds = %192, %.preheader.i.i.i.i.i.i.i.i21
+  %.01015.i.i.i.i.i.i.i.i22 = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i21 ], [ %196, %192 ]
+  %193 = icmp eq i64 %.01015.i.i.i.i.i.i.i.i22, 0
+  %194 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %187, i64 %.01015.i.i.i.i.i.i.i.i22
+  %195 = select i1 %193, i64 %188, i64 0
+  store atomic i64 %195, ptr %194 monotonic, align 8
+  %196 = add nuw nsw i64 %.01015.i.i.i.i.i.i.i.i22, 1
+  %exitcond.not.i.i.i.i.i.i.i.i23 = icmp eq i64 %196, 64
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i23, label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i24, label %192, !llvm.loop !12
 
-_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i23: ; preds = %194
-  %199 = ptrtoint ptr %185 to i64
-  %200 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node13_nodeRegistryE, i64 0, i64 %199 seq_cst seq_cst, align 8
-  %201 = extractvalue { i64, i1 } %200, 1
-  br i1 %201, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit25, label %202
+_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i24: ; preds = %192
+  %197 = ptrtoint ptr %184 to i64
+  %198 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node13_nodeRegistryE, i64 0, i64 %197 seq_cst seq_cst, align 8
+  %199 = extractvalue { i64, i1 } %198, 1
+  br i1 %199, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit26, label %200
 
-202:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i23
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node8_NodeMapD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %185) #18
-  call void @_ZdlPvm(ptr noundef nonnull %185, i64 noundef 576) #21
-  %203 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node13_nodeRegistryE seq_cst, align 8
-  %204 = inttoptr i64 %203 to ptr
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit25
+200:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i24
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node8_NodeMapD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %184) #18
+  call void @_ZdlPvm(ptr noundef nonnull %184, i64 noundef 576) #21
+  %201 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node13_nodeRegistryE seq_cst, align 8
+  %202 = inttoptr i64 %201 to ptr
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit26
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit25: ; preds = %202, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i23, %181
-  %205 = phi ptr [ %183, %181 ], [ %204, %202 ], [ %185, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i23 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit26: ; preds = %200, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i24, %180
+  %203 = phi ptr [ %182, %180 ], [ %202, %200 ], [ %184, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_16PcpMapExpression5_Node8_NodeMapEE3NewEv.exit.i.i.i24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  %207 = load atomic i64, ptr %206 acquire, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %209 = getelementptr inbounds nuw i8, ptr %205, i64 16
-  %210 = getelementptr inbounds nuw i8, ptr %205, i64 56
-  %211 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %212 = trunc nuw i8 %.sroa.12.2 to i1
-  br label %213
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
+  %205 = load atomic i64, ptr %204 acquire, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %203, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %203, i64 56
+  %209 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %210 = trunc nuw i8 %.sroa.12.2 to i1
+  br label %211
 
-213:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit25
-  %.sroa.21.2 = phi ptr [ %.0.lcssa.i8.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit25 ], [ %.sroa.21.3, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i ]
-  %.sroa.0.4 = phi ptr [ %.sroa.0.3, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit25 ], [ %.sroa.0.5, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i ]
-  %.042.i.i = phi i64 [ %207, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit25 ], [ %.1.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i ]
-  %214 = and i64 %.042.i.i, %77
-  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(569) %205, i64 noundef %214, i1 noundef zeroext true)
-          to label %.noexc35 unwind label %.loopexit
+211:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit26
+  %.sroa.21.2 = phi ptr [ %.0.lcssa.i8.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit26 ], [ %.sroa.21.3, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.3, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit26 ], [ %.sroa.0.5, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i ]
+  %.042.i.i = phi i64 [ %205, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16PcpMapExpression5_Node8_NodeMapENS_27Tf_StaticDataDefaultFactoryIS3_EEEptEv.exit26 ], [ %.1.i.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i ]
+  %212 = and i64 %.042.i.i, %76
+  invoke fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorC2EPSH_mb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(569) %203, i64 noundef %212, i1 noundef zeroext true)
+          to label %.noexc36 unwind label %.loopexit
 
-.noexc35:                                         ; preds = %213
-  %.val31.i.i = load ptr, ptr %208, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %.val31.i.i, i64 8
-  %216 = load atomic i64, ptr %215 monotonic, align 8
-  %.0.i.i.i = inttoptr i64 %216 to ptr
-  %217 = icmp ne i64 %216, 0
-  %218 = icmp ne ptr %.0.lcssa.i8.i.i, %.0.i.i.i
-  %219 = and i1 %217, %218
-  br i1 %219, label %.lr.ph.i.i, label %._crit_edge.thread.i.i
+.noexc36:                                         ; preds = %211
+  %.val31.i.i = load ptr, ptr %206, align 8
+  %213 = getelementptr inbounds nuw i8, ptr %.val31.i.i, i64 8
+  %214 = load atomic i64, ptr %213 monotonic, align 8
+  %.0.i.i.i = inttoptr i64 %214 to ptr
+  %215 = icmp ne i64 %214, 0
+  %216 = icmp ne ptr %.0.lcssa.i8.i.i, %.0.i.i.i
+  %217 = and i1 %215, %216
+  br i1 %217, label %.lr.ph.i.i, label %._crit_edge.thread.i.i
 
-.lr.ph.i.i:                                       ; preds = %.noexc35, %.lr.ph.i.i
-  %.02947.i.i = phi ptr [ %220, %.lr.ph.i.i ], [ %.0.i.i.i, %.noexc35 ]
-  %220 = load ptr, ptr %.02947.i.i, align 8
-  %221 = icmp ne ptr %220, null
-  %222 = icmp ne ptr %220, %.0.lcssa.i8.i.i
-  %223 = and i1 %221, %222
-  br i1 %223, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !26
+.lr.ph.i.i:                                       ; preds = %.noexc36, %.lr.ph.i.i
+  %.02947.i.i = phi ptr [ %218, %.lr.ph.i.i ], [ %.0.i.i.i, %.noexc36 ]
+  %218 = load ptr, ptr %.02947.i.i, align 8
+  %219 = icmp ne ptr %218, null
+  %220 = icmp ne ptr %218, %.0.lcssa.i8.i.i
+  %221 = and i1 %219, %220
+  br i1 %221, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !26
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %224 = icmp eq ptr %220, null
-  br i1 %224, label %226, label %260
+  %222 = icmp eq ptr %218, null
+  br i1 %222, label %224, label %258
 
-._crit_edge.thread.i.i:                           ; preds = %.noexc35
-  %225 = icmp eq i64 %216, 0
-  br i1 %225, label %226, label %257
+._crit_edge.thread.i.i:                           ; preds = %.noexc36
+  %223 = icmp eq i64 %214, 0
+  br i1 %223, label %224, label %255
 
-226:                                              ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i
-  %227 = load atomic i64, ptr %206 acquire, align 8
-  %.not.i.i.i30 = icmp eq i64 %.042.i.i, %227
-  br i1 %.not.i.i.i30, label %251, label %228
+224:                                              ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i
+  %225 = load atomic i64, ptr %204 acquire, align 8
+  %.not.i.i.i31 = icmp eq i64 %.042.i.i, %225
+  br i1 %.not.i.i.i31, label %249, label %226
 
-228:                                              ; preds = %226
-  %229 = xor i64 %227, %.042.i.i
-  %230 = and i64 %229, %77
-  %.not.i.i.i.i31 = icmp eq i64 %230, 0
-  br i1 %.not.i.i.i.i31, label %251, label %231
+226:                                              ; preds = %224
+  %227 = xor i64 %225, %.042.i.i
+  %228 = and i64 %227, %76
+  %.not.i.i.i.i32 = icmp eq i64 %228, 0
+  br i1 %.not.i.i.i.i32, label %249, label %229
 
-231:                                              ; preds = %228
-  %232 = add i64 %.042.i.i, 1
-  br label %233
+229:                                              ; preds = %226
+  %230 = add i64 %.042.i.i, 1
+  br label %231
 
-233:                                              ; preds = %233, %231
-  %.012.i.i.i.i32 = phi i64 [ %232, %231 ], [ %235, %233 ]
-  %234 = and i64 %.012.i.i.i.i32, %77
-  %.not13.i.i.i.i33 = icmp eq i64 %234, 0
-  %235 = shl i64 %.012.i.i.i.i32, 1
-  br i1 %.not13.i.i.i.i33, label %233, label %236, !llvm.loop !18
+231:                                              ; preds = %231, %229
+  %.012.i.i.i.i33 = phi i64 [ %230, %229 ], [ %233, %231 ]
+  %232 = and i64 %.012.i.i.i.i33, %76
+  %.not13.i.i.i.i34 = icmp eq i64 %232, 0
+  %233 = shl i64 %.012.i.i.i.i33, 1
+  br i1 %.not13.i.i.i.i34, label %231, label %234, !llvm.loop !18
 
-236:                                              ; preds = %233
-  %237 = add i64 %235, -1
-  %238 = and i64 %237, %77
-  %239 = or i64 %238, 1
-  %240 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %239, i1 true)
-  %241 = xor i64 %240, 63
-  %242 = shl nuw i64 1, %241
-  %243 = and i64 %242, -2
-  %244 = sub i64 %238, %243
-  %245 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %210, i64 %241
-  %246 = load atomic i64, ptr %245 acquire, align 8
-  %.0.i.i.i.i.i.i34 = inttoptr i64 %246 to ptr
-  %247 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i.i34, i64 %244
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
-  %249 = load atomic i64, ptr %248 acquire, align 8
-  %250 = icmp eq i64 %249, 3
-  br i1 %250, label %251, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i26
+234:                                              ; preds = %231
+  %235 = add i64 %233, -1
+  %236 = and i64 %235, %76
+  %237 = or i64 %236, 1
+  %238 = call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %237, i1 true)
+  %239 = xor i64 %238, 63
+  %240 = shl nuw i64 1, %239
+  %241 = and i64 %240, -2
+  %242 = sub i64 %236, %241
+  %243 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %208, i64 %239
+  %244 = load atomic i64, ptr %243 acquire, align 8
+  %.0.i.i.i.i.i.i35 = inttoptr i64 %244 to ptr
+  %245 = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node::Key, pxrInternal_v0_24__pxrReserved__::PcpMapExpression::_Node *>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.0.i.i.i.i.i.i35, i64 %242
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
+  %247 = load atomic i64, ptr %246 acquire, align 8
+  %248 = icmp eq i64 %247, 3
+  br i1 %248, label %249, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i27
 
-251:                                              ; preds = %236, %228, %226
-  %.243.ph.i.i = phi i64 [ %.042.i.i, %226 ], [ %227, %236 ], [ %227, %228 ]
+249:                                              ; preds = %234, %226, %224
+  %.243.ph.i.i = phi i64 [ %.042.i.i, %224 ], [ %225, %234 ], [ %225, %226 ]
   %.not.i34.i.i = icmp eq ptr %.sroa.21.2, null
-  br i1 %.not.i34.i.i, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i26, label %252
+  br i1 %.not.i34.i.i, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i27, label %250
 
-252:                                              ; preds = %251
-  br i1 %212, label %253, label %255
+250:                                              ; preds = %249
+  br i1 %210, label %251, label %253
 
-253:                                              ; preds = %252
-  %254 = atomicrmw and ptr %.sroa.0.4, i64 -4 seq_cst, align 8
-  br label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i26
+251:                                              ; preds = %250
+  %252 = atomicrmw and ptr %.sroa.0.4, i64 -4 seq_cst, align 8
+  br label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i27
 
-255:                                              ; preds = %252
-  %256 = atomicrmw sub ptr %.sroa.0.4, i64 4 seq_cst, align 8
-  br label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i26
+253:                                              ; preds = %250
+  %254 = atomicrmw sub ptr %.sroa.0.4, i64 4 seq_cst, align 8
+  br label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i27
 
-257:                                              ; preds = %._crit_edge.thread.i.i
-  %258 = load ptr, ptr %.0.i.i.i, align 8
-  %259 = ptrtoint ptr %258 to i64
-  store atomic i64 %259, ptr %215 monotonic, align 8
-  br label %262
+255:                                              ; preds = %._crit_edge.thread.i.i
+  %256 = load ptr, ptr %.0.i.i.i, align 8
+  %257 = ptrtoint ptr %256 to i64
+  store atomic i64 %257, ptr %213 monotonic, align 8
+  br label %260
 
-260:                                              ; preds = %._crit_edge.i.i
-  %261 = load ptr, ptr %220, align 8
-  store ptr %261, ptr %.02947.i.i, align 8
-  br label %262
+258:                                              ; preds = %._crit_edge.i.i
+  %259 = load ptr, ptr %218, align 8
+  store ptr %259, ptr %.02947.i.i, align 8
+  br label %260
 
-262:                                              ; preds = %260, %257
-  %263 = atomicrmw sub ptr %209, i64 1 seq_cst, align 8
-  br label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i26
+260:                                              ; preds = %258, %255
+  %261 = atomicrmw sub ptr %207, i64 1 seq_cst, align 8
+  br label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i27
 
-_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i26: ; preds = %253, %255, %262, %251, %236
-  %.sroa.21.3 = phi ptr [ null, %251 ], [ %.sroa.21.2, %236 ], [ %.sroa.21.2, %262 ], [ null, %255 ], [ null, %253 ]
-  %.sroa.0.5 = phi ptr [ %.sroa.0.4, %251 ], [ %.sroa.0.4, %236 ], [ %.sroa.0.4, %262 ], [ null, %255 ], [ null, %253 ]
-  %.1.i.i = phi i64 [ %.243.ph.i.i, %251 ], [ %227, %236 ], [ %.042.i.i, %262 ], [ %.243.ph.i.i, %255 ], [ %.243.ph.i.i, %253 ]
-  %.0.i.i27 = phi i32 [ 1, %251 ], [ 3, %236 ], [ 2, %262 ], [ 1, %255 ], [ 1, %253 ]
-  %264 = load ptr, ptr %2, align 8
-  %.not.i.i35.i.i = icmp eq ptr %264, null
-  br i1 %.not.i.i35.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i, label %265
+_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i27: ; preds = %251, %253, %260, %249, %234
+  %.sroa.21.3 = phi ptr [ null, %249 ], [ %.sroa.21.2, %234 ], [ %.sroa.21.2, %260 ], [ null, %253 ], [ null, %251 ]
+  %.sroa.0.5 = phi ptr [ %.sroa.0.4, %249 ], [ %.sroa.0.4, %234 ], [ %.sroa.0.4, %260 ], [ null, %253 ], [ null, %251 ]
+  %.1.i.i = phi i64 [ %.243.ph.i.i, %249 ], [ %225, %234 ], [ %.042.i.i, %260 ], [ %.243.ph.i.i, %253 ], [ %.243.ph.i.i, %251 ]
+  %.0.i.i28 = phi i32 [ 1, %249 ], [ 3, %234 ], [ 2, %260 ], [ 1, %253 ], [ 1, %251 ]
+  %262 = load ptr, ptr %2, align 8
+  %.not.i.i35.i.i = icmp eq ptr %262, null
+  br i1 %.not.i.i35.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i, label %263
 
-265:                                              ; preds = %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i26
+263:                                              ; preds = %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i27
   store ptr null, ptr %2, align 8
-  %266 = load i8, ptr %211, align 8
-  %267 = trunc i8 %266 to i1
-  br i1 %267, label %268, label %270
+  %264 = load i8, ptr %209, align 8
+  %265 = trunc i8 %264 to i1
+  br i1 %265, label %266, label %268
 
-268:                                              ; preds = %265
-  %269 = atomicrmw and ptr %264, i64 -4 seq_cst, align 8
+266:                                              ; preds = %263
+  %267 = atomicrmw and ptr %262, i64 -4 seq_cst, align 8
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i
 
-270:                                              ; preds = %265
-  %271 = atomicrmw sub ptr %264, i64 4 seq_cst, align 8
+268:                                              ; preds = %263
+  %269 = atomicrmw sub ptr %262, i64 4 seq_cst, align 8
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i: ; preds = %270, %268, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i26
-  switch i32 %.0.i.i27, label %default.unreachable [
-    i32 3, label %213
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i: ; preds = %268, %266, %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS8_EEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.i.i27
+  switch i32 %.0.i.i28, label %default.unreachable [
+    i32 3, label %211
     i32 1, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE5eraseERNSH_8accessorE.exit
-    i32 2, label %272
+    i32 2, label %270
   ], !llvm.loop !27
 
-272:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i
-  br i1 %212, label %.noexc36, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i
+270:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i
+  br i1 %210, label %.noexc37, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i
 
-_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i: ; preds = %272
-  %273 = invoke noundef zeroext i1 @_ZN3tbb6detail2d113spin_rw_mutex7upgradeEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.5)
-          to label %.noexc36 unwind label %.loopexit.split-lp.loopexit.split-lp
+_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i: ; preds = %270
+  %271 = invoke noundef zeroext i1 @_ZN3tbb6detail2d113spin_rw_mutex7upgradeEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.5)
+          to label %.noexc37 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc36:                                         ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i, %272
+.noexc37:                                         ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i, %270
   %.not.i38.i.i = icmp eq ptr %.sroa.21.3, null
-  br i1 %.not.i38.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit40.i.i, label %274
+  br i1 %.not.i38.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit40.i.i, label %272
 
-274:                                              ; preds = %.noexc36
-  %275 = atomicrmw and ptr %.sroa.0.5, i64 -4 seq_cst, align 8
+272:                                              ; preds = %.noexc37
+  %273 = atomicrmw and ptr %.sroa.0.5, i64 -4 seq_cst, align 8
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit40.i.i
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit40.i.i: ; preds = %274, %.noexc36
-  %.sroa.0.6 = phi ptr [ %.sroa.0.5, %.noexc36 ], [ null, %274 ]
-  %276 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i8.i.i, i64 40
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %276) #18
-  %277 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i8.i.i, i64 32
-  %278 = load ptr, ptr %277, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %278, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i, label %279
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit40.i.i: ; preds = %272, %.noexc37
+  %.sroa.0.6 = phi ptr [ %.sroa.0.5, %.noexc37 ], [ null, %272 ]
+  %274 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i8.i.i, i64 40
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %274) #18
+  %275 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i8.i.i, i64 32
+  %276 = load ptr, ptr %275, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %276, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i, label %277
 
-279:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit40.i.i
-  %280 = getelementptr inbounds nuw i8, ptr %278, i64 84
-  %281 = atomicrmw sub ptr %280, i32 1 seq_cst, align 4
-  %.not1.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %281, 1
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i, label %282, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i
+277:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit40.i.i
+  %278 = getelementptr inbounds nuw i8, ptr %276, i64 84
+  %279 = atomicrmw sub ptr %278, i32 1 seq_cst, align 4
+  %.not1.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %279, 1
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i, label %280, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i
 
-282:                                              ; preds = %279
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %278) #18
-  call void @_ZdlPvm(ptr noundef nonnull %278, i64 noundef 256) #21
+280:                                              ; preds = %277
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %276) #18
+  call void @_ZdlPvm(ptr noundef nonnull %276, i64 noundef 256) #21
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %282, %279, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit40.i.i
-  %283 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i8.i.i, i64 24
-  %284 = load ptr, ptr %283, align 8
-  %.not.i.i1.i.i.i.i.i.i.i.i = icmp eq ptr %284, null
-  br i1 %.not.i.i1.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i, label %285
+_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %280, %277, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit40.i.i
+  %281 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i8.i.i, i64 24
+  %282 = load ptr, ptr %281, align 8
+  %.not.i.i1.i.i.i.i.i.i.i.i = icmp eq ptr %282, null
+  br i1 %.not.i.i1.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i, label %283
 
-285:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i
-  %286 = getelementptr inbounds nuw i8, ptr %284, i64 84
-  %287 = atomicrmw sub ptr %286, i32 1 seq_cst, align 4
-  %.not1.i.i2.i.i.i.i.i.i.i.i = icmp eq i32 %287, 1
-  br i1 %.not1.i.i2.i.i.i.i.i.i.i.i, label %288, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i
+283:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i
+  %284 = getelementptr inbounds nuw i8, ptr %282, i64 84
+  %285 = atomicrmw sub ptr %284, i32 1 seq_cst, align 4
+  %.not1.i.i2.i.i.i.i.i.i.i.i = icmp eq i32 %285, 1
+  br i1 %.not1.i.i2.i.i.i.i.i.i.i.i, label %286, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i
 
-288:                                              ; preds = %285
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %284) #18
-  call void @_ZdlPvm(ptr noundef nonnull %284, i64 noundef 256) #21
+286:                                              ; preds = %283
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %282) #18
+  call void @_ZdlPvm(ptr noundef nonnull %282, i64 noundef 256) #21
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i: ; preds = %288, %285, %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i: ; preds = %286, %283, %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i.i.i.i.i.i.i.i
   invoke void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %.0.lcssa.i8.i.i)
           to label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE5eraseERNSH_8accessorE.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -3707,100 +3707,100 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpM
   %.sroa.12.4 = phi i8 [ 1, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i ], [ %.sroa.12.2, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i ]
   %.sroa.0.7 = phi ptr [ %.sroa.0.6, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i ], [ %.sroa.0.5, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE15bucket_accessorD2Ev.exit36.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %289
+  br label %287
 
-289:                                              ; preds = %.thread, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE5eraseERNSH_8accessorE.exit, %177, %176
-  %.sroa.12.0 = phi i8 [ %.sroa.12.4, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE5eraseERNSH_8accessorE.exit ], [ %.sroa.12.2, %177 ], [ %.sroa.12.2, %176 ], [ %.sroa.12.2, %.thread ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.7, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE5eraseERNSH_8accessorE.exit ], [ %.sroa.0.3, %177 ], [ %.sroa.0.3, %176 ], [ %.sroa.0.3, %.thread ]
-  %.not.i.i.i38 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i38, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit, label %290
+287:                                              ; preds = %.thread, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE5eraseERNSH_8accessorE.exit, %176, %175
+  %.sroa.12.0 = phi i8 [ %.sroa.12.4, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE5eraseERNSH_8accessorE.exit ], [ %.sroa.12.2, %176 ], [ %.sroa.12.2, %175 ], [ %.sroa.12.2, %.thread ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.7, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE5eraseERNSH_8accessorE.exit ], [ %.sroa.0.3, %176 ], [ %.sroa.0.3, %175 ], [ %.sroa.0.3, %.thread ]
+  %.not.i.i.i39 = icmp eq ptr %.sroa.0.0, null
+  br i1 %.not.i.i.i39, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit, label %288
 
-290:                                              ; preds = %289
-  %291 = trunc nuw i8 %.sroa.12.0 to i1
-  br i1 %291, label %292, label %294
+288:                                              ; preds = %287
+  %289 = trunc nuw i8 %.sroa.12.0 to i1
+  br i1 %289, label %290, label %292
 
-292:                                              ; preds = %290
-  %293 = atomicrmw and ptr %.sroa.0.0, i64 -4 seq_cst, align 8
+290:                                              ; preds = %288
+  %291 = atomicrmw and ptr %.sroa.0.0, i64 -4 seq_cst, align 8
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit
 
-294:                                              ; preds = %290
-  %295 = atomicrmw sub ptr %.sroa.0.0, i64 4 seq_cst, align 8
+292:                                              ; preds = %288
+  %293 = atomicrmw sub ptr %.sroa.0.0, i64 4 seq_cst, align 8
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit: ; preds = %294, %292, %289, %47
-  %296 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %296) #18
-  %297 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %298 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %299 = load ptr, ptr %298, align 8
-  invoke void @_ZNSt8_Rb_treeIPN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %297, ptr noundef %299)
-          to label %_ZNSt3setIPN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeESt4lessIS3_ESaIS3_EED2Ev.exit unwind label %300
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit: ; preds = %292, %290, %287, %47
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %294) #18
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %297 = load ptr, ptr %296, align 8
+  invoke void @_ZNSt8_Rb_treeIPN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %295, ptr noundef %297)
+          to label %_ZNSt3setIPN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeESt4lessIS3_ESaIS3_EED2Ev.exit unwind label %298
 
-300:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit
-  %301 = landingpad { ptr, i32 }
+298:                                              ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit
+  %299 = landingpad { ptr, i32 }
           catch ptr null
-  %302 = extractvalue { ptr, i32 } %301, 0
-  call void @__clang_call_terminate(ptr %302) #23
+  %300 = extractvalue { ptr, i32 } %299, 0
+  call void @__clang_call_terminate(ptr %300) #23
   unreachable
 
 _ZNSt3setIPN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE8accessorD2Ev.exit
-  %303 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %303) #18
-  %304 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %304) #18
-  %305 = load ptr, ptr %28, align 8
-  %.not.i.i.i39 = icmp eq ptr %305, null
-  br i1 %.not.i.i.i39, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i, label %306
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %301) #18
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %302) #18
+  %303 = load ptr, ptr %28, align 8
+  %.not.i.i.i40 = icmp eq ptr %303, null
+  br i1 %.not.i.i.i40, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i, label %304
 
-306:                                              ; preds = %_ZNSt3setIPN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeESt4lessIS3_ESaIS3_EED2Ev.exit
-  %307 = getelementptr inbounds nuw i8, ptr %305, i64 84
-  %308 = atomicrmw sub ptr %307, i32 1 seq_cst, align 4
-  %.not1.i.i.i = icmp eq i32 %308, 1
-  br i1 %.not1.i.i.i, label %309, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i
+304:                                              ; preds = %_ZNSt3setIPN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeESt4lessIS3_ESaIS3_EED2Ev.exit
+  %305 = getelementptr inbounds nuw i8, ptr %303, i64 84
+  %306 = atomicrmw sub ptr %305, i32 1 seq_cst, align 4
+  %.not1.i.i.i = icmp eq i32 %306, 1
+  br i1 %.not1.i.i.i, label %307, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i
 
-309:                                              ; preds = %306
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %305) #18
-  call void @_ZdlPvm(ptr noundef nonnull %305, i64 noundef 256) #21
+307:                                              ; preds = %304
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %303) #18
+  call void @_ZdlPvm(ptr noundef nonnull %303, i64 noundef 256) #21
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i: ; preds = %309, %306, %_ZNSt3setIPN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeESt4lessIS3_ESaIS3_EED2Ev.exit
-  %310 = load ptr, ptr %8, align 8
-  %.not.i.i1.i = icmp eq ptr %310, null
-  br i1 %.not.i.i1.i, label %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit, label %311
+_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i: ; preds = %307, %304, %_ZNSt3setIPN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeESt4lessIS3_ESaIS3_EED2Ev.exit
+  %308 = load ptr, ptr %8, align 8
+  %.not.i.i1.i = icmp eq ptr %308, null
+  br i1 %.not.i.i1.i, label %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit, label %309
 
-311:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i
-  %312 = getelementptr inbounds nuw i8, ptr %310, i64 84
-  %313 = atomicrmw sub ptr %312, i32 1 seq_cst, align 4
-  %.not1.i.i2.i = icmp eq i32 %313, 1
-  br i1 %.not1.i.i2.i, label %314, label %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit
+309:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i
+  %310 = getelementptr inbounds nuw i8, ptr %308, i64 84
+  %311 = atomicrmw sub ptr %310, i32 1 seq_cst, align 4
+  %.not1.i.i2.i = icmp eq i32 %311, 1
+  br i1 %.not1.i.i2.i, label %312, label %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit
 
-314:                                              ; preds = %311
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %310) #18
-  call void @_ZdlPvm(ptr noundef nonnull %310, i64 noundef 256) #21
+312:                                              ; preds = %309
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(250) %308) #18
+  call void @_ZdlPvm(ptr noundef nonnull %308, i64 noundef 256) #21
   br label %_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i, %311, %314
+_ZN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_16PcpMapExpression5_NodeEED2Ev.exit.i, %309, %312
   ret void
 
-.loopexit:                                        ; preds = %213
+.loopexit:                                        ; preds = %211
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
   br label %.body
 
-.loopexit.split-lp.loopexit:                      ; preds = %83
-  %lpad.loopexit58 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit:                      ; preds = %82
+  %lpad.loopexit59 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i, %184, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i, %52, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit8, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
-  %lpad.loopexit.split-lp59 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSB_13spin_rw_mutexEEE.exit.i.i, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit.i.i, %183, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__16PcpMapExpression5_Node3KeyEPS5_NS3_12_GLOBAL__N_110_KeyHashEqIS6_EENS0_2d113tbb_allocatorISt4pairIKS6_S7_EEEE14const_accessor7releaseEv.exit.i, %52, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit8, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
+  %lpad.loopexit.split-lp60 = landingpad { ptr, i32 }
           catch ptr null
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %131, %137, %139
-  %eh.lpad-body = phi { ptr, i32 } [ %132, %139 ], [ %132, %137 ], [ %132, %131 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit58, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp.loopexit.split-lp ]
-  %315 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %315) #23
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %130, %136, %138
+  %eh.lpad-body = phi { ptr, i32 } [ %131, %138 ], [ %131, %136 ], [ %131, %130 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit59, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp60, %.loopexit.split-lp.loopexit.split-lp ]
+  %313 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %313) #23
   unreachable
 }
 

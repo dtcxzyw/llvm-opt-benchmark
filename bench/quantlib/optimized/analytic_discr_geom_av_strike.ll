@@ -2494,59 +2494,59 @@ terminate.lpad.i.i.i.i366:                        ; preds = %if.then.i.i.i.i.i.i
 
 _ZN8QuantLib12InterestRateD2Ev.exit373:           ; preds = %invoke.cont426, %if.then.i.i.i.i360, %.noexc.i.i.i.i367, %if.then.i.i.i.i.i.i370
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp415)
+  %sub432 = fsub double %180, %168
+  %neg = fmul double %call3.i330, -5.000000e-01
+  %188 = call double @llvm.fmuladd.f64(double %neg, double %call3.i330, double %sub432)
   %cmp436632 = icmp ugt i64 %sub.ptr.div.i753, 1
   br i1 %cmp436632, label %for.body438, label %invoke.cont468
 
 lpad369:                                          ; preds = %cond.false.i318, %cond.false.i313, %invoke.cont372, %invoke.cont370
-  %188 = landingpad { ptr, i32 }
+  %189 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup585
 
 lpad381:                                          ; preds = %call.i.noexc, %.noexc328, %.noexc327, %invoke.cont384, %cond.false.i323, %invoke.cont382
-  %189 = landingpad { ptr, i32 }
+  %190 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp378)
   br label %ehcleanup585
 
 lpad392:                                          ; preds = %cond.false.i332, %invoke.cont393
-  %190 = landingpad { ptr, i32 }
+  %191 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup575
 
 lpad400:                                          ; preds = %cond.false.i342, %cond.false.i337, %invoke.cont407, %invoke.cont403, %invoke.cont401
-  %191 = landingpad { ptr, i32 }
+  %192 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp398)
   br label %ehcleanup575
 
 lpad417:                                          ; preds = %cond.false.i354, %cond.false.i349, %invoke.cont424, %invoke.cont420, %invoke.cont418
-  %192 = landingpad { ptr, i32 }
+  %193 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp415)
   br label %ehcleanup575
 
 for.body438:                                      ; preds = %_ZN8QuantLib12InterestRateD2Ev.exit373, %for.body438
   %i.0634 = phi i64 [ %inc, %for.body438 ], [ 1, %_ZN8QuantLib12InterestRateD2Ev.exit373 ]
-  %temp.0633 = phi double [ %195, %for.body438 ], [ 0.000000e+00, %_ZN8QuantLib12InterestRateD2Ev.exit373 ]
-  %193 = getelementptr double, ptr %fixingTimes.sroa.0.0.lcssa747, i64 %i.0634
-  %add.ptr.i = getelementptr i8, ptr %193, i64 -8
-  %194 = load double, ptr %add.ptr.i, align 8, !tbaa !98
+  %temp.0633 = phi double [ %196, %for.body438 ], [ 0.000000e+00, %_ZN8QuantLib12InterestRateD2Ev.exit373 ]
+  %194 = getelementptr double, ptr %fixingTimes.sroa.0.0.lcssa747, i64 %i.0634
+  %add.ptr.i = getelementptr i8, ptr %194, i64 -8
+  %195 = load double, ptr %add.ptr.i, align 8, !tbaa !98
   %conv442 = uitofp i64 %i.0634 to double
   %sub443 = fsub double %conv754, %conv442
-  %195 = call double @llvm.fmuladd.f64(double %194, double %sub443, double %temp.0633)
+  %196 = call double @llvm.fmuladd.f64(double %195, double %sub443, double %temp.0633)
   %inc = add nuw i64 %i.0634, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i753
   br i1 %exitcond.not, label %invoke.cont468, label %for.body438, !llvm.loop !109
 
 invoke.cont468:                                   ; preds = %for.body438, %_ZN8QuantLib12InterestRateD2Ev.exit373
-  %temp.0.lcssa = phi double [ 0.000000e+00, %_ZN8QuantLib12InterestRateD2Ev.exit373 ], [ %195, %for.body438 ]
-  %sub432 = fsub double %180, %168
-  %neg = fmul double %call3.i330, -5.000000e-01
-  %196 = call double @llvm.fmuladd.f64(double %neg, double %call3.i330, double %sub432)
+  %temp.0.lcssa = phi double [ 0.000000e+00, %_ZN8QuantLib12InterestRateD2Ev.exit373 ], [ %196, %for.body438 ]
   %call462 = call double @llvm.log.f64(double %call324), !tbaa !85
   %mul463 = fmul double %sub756, %call462
   %197 = call double @llvm.fmuladd.f64(double %div755, double %call117, double %mul463)
-  %mul464 = fmul double %__init.addr.0.lcssa.i, %196
+  %mul464 = fmul double %__init.addr.0.lcssa.i, %188
   %div465 = fdiv double %mul464, %conv754
   %add466 = fadd double %197, %div465
   call void @llvm.lifetime.start.p0(ptr nonnull %f)
@@ -2973,14 +2973,14 @@ ehcleanup564:                                     ; preds = %lpad481, %ehcleanup
   br label %ehcleanup575
 
 ehcleanup575:                                     ; preds = %lpad400, %ehcleanup564, %lpad417, %lpad392
-  %.pn85.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %190, %lpad392 ], [ %191, %lpad400 ], [ %.pn85.pn.pn.pn.pn.pn.pn, %ehcleanup564 ], [ %192, %lpad417 ]
+  %.pn85.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %191, %lpad392 ], [ %192, %lpad400 ], [ %.pn85.pn.pn.pn.pn.pn.pn, %ehcleanup564 ], [ %193, %lpad417 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %exDate)
   br label %ehcleanup585
 
 ehcleanup585:                                     ; preds = %lpad267.loopexit, %lpad267.loopexit.split-lp, %ehcleanup266, %ehcleanup310, %lpad369, %lpad381, %ehcleanup575, %ehcleanup364, %lpad312
   %fixingTimes.sroa.16.0618 = phi ptr [ %fixingTimes.sroa.16.0.lcssa742, %ehcleanup310 ], [ %fixingTimes.sroa.16.0.lcssa742, %ehcleanup364 ], [ %fixingTimes.sroa.16.0.lcssa742, %lpad312 ], [ %fixingTimes.sroa.16.0.lcssa742, %ehcleanup575 ], [ %fixingTimes.sroa.16.0.lcssa742, %lpad381 ], [ %fixingTimes.sroa.16.0.lcssa742, %lpad369 ], [ %fixingTimes.sroa.16.0626, %ehcleanup266 ], [ %fixingTimes.sroa.11.0628, %lpad267.loopexit ], [ %fixingTimes.sroa.11.0628, %lpad267.loopexit.split-lp ]
   %fixingTimes.sroa.0.0603 = phi ptr [ %fixingTimes.sroa.0.0.lcssa747, %ehcleanup310 ], [ %fixingTimes.sroa.0.0.lcssa747, %ehcleanup364 ], [ %fixingTimes.sroa.0.0.lcssa747, %lpad312 ], [ %fixingTimes.sroa.0.0.lcssa747, %ehcleanup575 ], [ %fixingTimes.sroa.0.0.lcssa747, %lpad381 ], [ %fixingTimes.sroa.0.0.lcssa747, %lpad369 ], [ %fixingTimes.sroa.0.0629, %ehcleanup266 ], [ %fixingTimes.sroa.0.0629, %lpad267.loopexit ], [ %fixingTimes.sroa.0.0629, %lpad267.loopexit.split-lp ]
-  %.pn101.pn.pn = phi { ptr, i32 } [ %.pn76.pn, %ehcleanup310 ], [ %.pn79.pn.pn.pn.pn, %ehcleanup364 ], [ %136, %lpad312 ], [ %.pn85.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup575 ], [ %189, %lpad381 ], [ %188, %lpad369 ], [ %.pn99, %ehcleanup266 ], [ %lpad.loopexit, %lpad267.loopexit ], [ %lpad.loopexit.split-lp, %lpad267.loopexit.split-lp ]
+  %.pn101.pn.pn = phi { ptr, i32 } [ %.pn76.pn, %ehcleanup310 ], [ %.pn79.pn.pn.pn.pn, %ehcleanup364 ], [ %136, %lpad312 ], [ %.pn85.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup575 ], [ %190, %lpad381 ], [ %189, %lpad369 ], [ %.pn99, %ehcleanup266 ], [ %lpad.loopexit, %lpad267.loopexit ], [ %lpad.loopexit.split-lp, %lpad267.loopexit.split-lp ]
   %tobool.not.i.i.i454 = icmp eq ptr %fixingTimes.sroa.0.0603, null
   br i1 %tobool.not.i.i.i454, label %_ZNSt6vectorIdSaIdEED2Ev.exit460, label %if.then.i.i.i455
 

@@ -1890,8 +1890,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %6
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %12, 2
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !31
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i.i.i.i
   br label %15
 
 15:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %6, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread
@@ -5667,15 +5667,15 @@ define internal void @_ZN4ncnnL20pooling2x2s2_max_avxERKNS_3MatERS0_RKNS_6Option
   %.066120 = phi i32 [ %83, %._crit_edge ], [ 0, %.lr.ph125.preheader ]
   %48 = load i32, ptr %7, align 4, !tbaa !31
   %49 = ashr i32 %48, 2
-  %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %.lr.ph, label %.preheader
+  %50 = and i32 %48, 3
+  %51 = icmp sgt i32 %49, 0
+  br i1 %51, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %.lr.ph125
   %.164.lcssa = phi ptr [ %.063121, %.lr.ph125 ], [ %59, %.lr.ph ]
   %.161.lcssa = phi ptr [ %.060122, %.lr.ph125 ], [ %58, %.lr.ph ]
   %.1.lcssa = phi ptr [ %.056124, %.lr.ph125 ], [ %60, %.lr.ph ]
-  %51 = and i32 %48, 3
-  %.not130 = icmp eq i32 %51, 0
+  %.not130 = icmp eq i32 %50, 0
   br i1 %.not130, label %._crit_edge, label %.lr.ph115
 
 .lr.ph:                                           ; preds = %.lr.ph125, %.lr.ph
@@ -5701,7 +5701,7 @@ define internal void @_ZN4ncnnL20pooling2x2s2_max_avxERKNS_3MatERS0_RKNS_6Option
   %.2114 = phi ptr [ %76, %.lr.ph115 ], [ %.1.lcssa, %.preheader ]
   %.262112 = phi ptr [ %74, %.lr.ph115 ], [ %.161.lcssa, %.preheader ]
   %.265111 = phi ptr [ %75, %.lr.ph115 ], [ %.164.lcssa, %.preheader ]
-  %.067110 = phi i32 [ %77, %.lr.ph115 ], [ %51, %.preheader ]
+  %.067110 = phi i32 [ %77, %.lr.ph115 ], [ %50, %.preheader ]
   %63 = getelementptr inbounds nuw i8, ptr %.262112, i64 4
   %64 = load float, ptr %.262112, align 4, !tbaa !256
   %65 = load float, ptr %63, align 4, !tbaa !256

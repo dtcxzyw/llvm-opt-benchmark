@@ -888,11 +888,11 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %8
 .noexc28.i:                                       ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i
   %13 = shl nuw nsw i64 %11, 1
   %14 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #23
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %13
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %14, i8 0, i64 %13, i1 false), !tbaa !15
-  %16 = getelementptr inbounds nuw i16, ptr %14, i64 %11
-  %17 = ptrtoint ptr %15 to i64
-  %18 = ptrtoint ptr %16 to i64
+  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %11
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %13
+  %17 = ptrtoint ptr %16 to i64
+  %18 = ptrtoint ptr %15 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i, %.noexc28.i
@@ -1106,11 +1106,11 @@ _ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %7
 .noexc28:                                         ; preds = %_ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i
   %15 = shl nuw nsw i64 %13, 1
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #23
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %15
   tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %16, i8 0, i64 %15, i1 false), !tbaa !15
-  %18 = getelementptr inbounds nuw i16, ptr %16, i64 %13
-  %19 = ptrtoint ptr %17 to i64
-  %20 = ptrtoint ptr %18 to i64
+  %17 = getelementptr inbounds nuw i16, ptr %16, i64 %13
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %15
+  %19 = ptrtoint ptr %18 to i64
+  %20 = ptrtoint ptr %17 to i64
   br label %_ZNSt6vectorIsSaIsEEC2EmRKsRKS0_.exit
 
 _ZNSt6vectorIsSaIsEEC2EmRKsRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6vectorIsSaIsEE17_S_check_init_lenEmRKS0_.exit.i

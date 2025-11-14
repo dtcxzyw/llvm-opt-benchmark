@@ -852,26 +852,26 @@ dv_guess_dct_mode.exit:                           ; preds = %dv_calculate_mb_xy.
   %.sink = phi i32 [ %90, %80 ], [ 0, %61 ], [ 0, %76 ], [ 0, %dv_calculate_mb_xy.exit ]
   %91 = getelementptr inbounds nuw i8, ptr %.0203992, i64 60
   store i32 %.sink, ptr %91, align 4, !tbaa !89
-  br label %92
+  %92 = getelementptr inbounds nuw i8, ptr %.0203992, i64 60
+  br label %93
 
-92:                                               ; preds = %dv_guess_dct_mode.exit, %92
-  %indvars.iv = phi i64 [ 1, %dv_guess_dct_mode.exit ], [ %indvars.iv.next, %92 ]
-  %93 = getelementptr inbounds nuw %struct.EncBlockInfo, ptr %.0203992, i64 %indvars.iv
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 60
-  store i32 %.sink, ptr %94, align 4, !tbaa !89
+93:                                               ; preds = %dv_guess_dct_mode.exit, %93
+  %indvars.iv = phi i64 [ 1, %dv_guess_dct_mode.exit ], [ %indvars.iv.next, %93 ]
+  %94 = getelementptr inbounds nuw %struct.EncBlockInfo, ptr %.0203992, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 60
+  store i32 %.sink, ptr %95, align 4, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %95, label %92, !llvm.loop !91
+  br i1 %exitcond.not, label %96, label %93, !llvm.loop !91
 
-95:                                               ; preds = %92
-  %96 = getelementptr inbounds nuw i8, ptr %.0203992, i64 60
+96:                                               ; preds = %93
   %97 = load ptr, ptr %27, align 8, !tbaa !37
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 56
   %99 = load i32, ptr %98, align 8, !tbaa !53
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %109, label %101
 
-101:                                              ; preds = %95
+101:                                              ; preds = %96
   %102 = icmp eq i32 %99, 7
   %103 = icmp samesign ugt i16 %39, 87
   %or.cond3 = select i1 %102, i1 %103, i1 false
@@ -891,7 +891,7 @@ dv_guess_dct_mode.exit:                           ; preds = %dv_calculate_mb_xy.
   %.pre1301 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !77
   br label %116
 
-109:                                              ; preds = %104, %101, %95
+109:                                              ; preds = %104, %101, %96
   %110 = load ptr, ptr %29, align 8, !tbaa !54
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 64
   %112 = load i32, ptr %111, align 8, !tbaa !77
@@ -973,10 +973,10 @@ dv_guess_dct_mode.exit:                           ; preds = %dv_calculate_mb_xy.
 
 dv_guess_dct_mode.exit.i:                         ; preds = %146, %140, %150
   %.1.i.i = phi i32 [ %160, %150 ], [ 0, %140 ], [ 0, %146 ]
-  store i32 %.1.i.i, ptr %96, align 4, !tbaa !89
+  store i32 %.1.i.i, ptr %92, align 4, !tbaa !89
   %161 = load ptr, ptr %32, align 8, !tbaa !44
   call void %161(ptr noundef nonnull %17, ptr noundef nonnull %124, i64 noundef %141) #9
-  %162 = load i32, ptr %96, align 4, !tbaa !89
+  %162 = load i32, ptr %92, align 4, !tbaa !89
   %163 = sext i32 %162 to i64
   %164 = getelementptr inbounds ptr, ptr %33, i64 %163
   %165 = load ptr, ptr %164, align 8, !tbaa !40
@@ -985,7 +985,7 @@ dv_guess_dct_mode.exit.i:                         ; preds = %146, %140, %150
 
 166:                                              ; preds = %131
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %17, i8 0, i64 128, i1 false)
-  store i32 0, ptr %96, align 4, !tbaa !89
+  store i32 0, ptr %92, align 4, !tbaa !89
   br label %167
 
 167:                                              ; preds = %166, %dv_guess_dct_mode.exit.i, %135
@@ -1076,7 +1076,7 @@ dv_set_class_number_hd.exit:                      ; preds = %178
   br label %dv_init_enc_block.exit
 
 225:                                              ; preds = %167
-  %226 = load i32, ptr %96, align 4, !tbaa !89
+  %226 = load i32, ptr %92, align 4, !tbaa !89
   %.not50.i = icmp eq i32 %226, 0
   %227 = select i1 %.not50.i, ptr @ff_zigzag_direct, ptr @ff_dv_zigzag248_direct
   %228 = select i1 %.not50.i, ptr @dv_weight_88, ptr @dv_weight_248
@@ -2299,10 +2299,10 @@ dv_init_enc_block.exit243:                        ; preds = %877, %843, %dv_set_
 
 dv_guess_dct_mode.exit.i251:                      ; preds = %919, %913, %923
   %.1.i.i252 = phi i32 [ %933, %923 ], [ 0, %913 ], [ 0, %919 ]
-  store i32 %.1.i.i252, ptr %96, align 4, !tbaa !89
+  store i32 %.1.i.i252, ptr %92, align 4, !tbaa !89
   %934 = load ptr, ptr %32, align 8, !tbaa !44
   call void %934(ptr noundef nonnull %13, ptr noundef nonnull %124, i64 noundef %914) #9
-  %935 = load i32, ptr %96, align 4, !tbaa !89
+  %935 = load i32, ptr %92, align 4, !tbaa !89
   %936 = sext i32 %935 to i64
   %937 = getelementptr inbounds ptr, ptr %33, i64 %936
   %938 = load ptr, ptr %937, align 8, !tbaa !40
@@ -2311,7 +2311,7 @@ dv_guess_dct_mode.exit.i251:                      ; preds = %919, %913, %923
 
 939:                                              ; preds = %904
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %13, i8 0, i64 128, i1 false)
-  store i32 0, ptr %96, align 4, !tbaa !89
+  store i32 0, ptr %92, align 4, !tbaa !89
   br label %940
 
 940:                                              ; preds = %939, %dv_guess_dct_mode.exit.i251, %908
@@ -2402,7 +2402,7 @@ dv_set_class_number_hd.exit538:                   ; preds = %951
   br label %dv_init_enc_block.exit253
 
 998:                                              ; preds = %940
-  %999 = load i32, ptr %96, align 4, !tbaa !89
+  %999 = load i32, ptr %92, align 4, !tbaa !89
   %.not50.i248 = icmp eq i32 %999, 0
   %1000 = select i1 %.not50.i248, ptr @ff_zigzag_direct, ptr @ff_dv_zigzag248_direct
   %1001 = select i1 %.not50.i248, ptr @dv_weight_88, ptr @dv_weight_248
@@ -5664,19 +5664,19 @@ dv_guess_qnos.exit:                               ; preds = %2814, %2872
   %.1212.lcssa1455 = phi ptr [ %2904, %._crit_edge ], [ %2889, %.lr.ph1014 ], [ %2904, %dv_encode_ac.exit315 ]
   %2880 = phi i32 [ %3026, %._crit_edge ], [ %2892, %.lr.ph1014 ], [ %3134, %dv_encode_ac.exit315 ]
   %2881 = phi ptr [ %3024, %._crit_edge ], [ %2890, %.lr.ph1014 ], [ %3132, %dv_encode_ac.exit315 ]
-  %2882 = getelementptr inbounds nuw i8, ptr %.01981011, i64 4
-  %2883 = mul nsw i32 %2880, 5
-  %2884 = icmp slt i32 %.2193.lcssa1456, %2883
-  br i1 %2884, label %.lr.ph1014, label %.preheader680, !llvm.loop !129
+  %2882 = mul nsw i32 %2880, 5
+  %2883 = icmp slt i32 %.2193.lcssa1456, %2882
+  br i1 %2883, label %.lr.ph1014, label %.preheader680, !llvm.loop !129
 
 .preheader680:                                    ; preds = %.loopexit
-  %2885 = icmp sgt i32 %2880, 0
-  br i1 %2885, label %.lr.ph1017, label %._crit_edge1021
+  %2884 = icmp sgt i32 %2880, 0
+  br i1 %2884, label %.lr.ph1017, label %._crit_edge1021
 
 .lr.ph1014:                                       ; preds = %2875, %.loopexit
   %.11921012 = phi i32 [ %.2193.lcssa1456, %.loopexit ], [ 0, %2875 ]
-  %.01981011 = phi ptr [ %2882, %.loopexit ], [ %21, %2875 ]
+  %.01981011 = phi ptr [ %2885, %.loopexit ], [ %21, %2875 ]
   %.02111010 = phi ptr [ %.1212.lcssa1455, %.loopexit ], [ %2285, %2875 ]
+  %2885 = getelementptr inbounds nuw i8, ptr %.01981011, i64 4
   %2886 = load i32, ptr %.01981011, align 4, !tbaa !77
   %2887 = trunc i32 %2886 to i8
   %2888 = getelementptr inbounds nuw i8, ptr %.02111010, i64 3
@@ -6150,7 +6150,7 @@ dv_encode_ac.exit315:                             ; preds = %put_bits.exit605, %
 
 .lr.ph1017:                                       ; preds = %.preheader680, %dv_encode_ac.exit324.thread
   %indvars.iv1294 = phi i64 [ %indvars.iv.next1295, %dv_encode_ac.exit324.thread ], [ 0, %.preheader680 ]
-  %3138 = phi i32 [ %3243, %dv_encode_ac.exit324.thread ], [ %2883, %.preheader680 ]
+  %3138 = phi i32 [ %3243, %dv_encode_ac.exit324.thread ], [ %2882, %.preheader680 ]
   %.22081015 = phi ptr [ %.3209676, %dv_encode_ac.exit324.thread ], [ %20, %.preheader680 ]
   %3139 = getelementptr inbounds nuw %struct.EncBlockInfo, ptr %19, i64 %indvars.iv1294
   %3140 = getelementptr inbounds nuw i8, ptr %3139, i64 320

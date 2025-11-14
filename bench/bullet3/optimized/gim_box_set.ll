@@ -12,114 +12,113 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef range(i32 0, 3) i32 @_ZN12GIM_BOX_TREE20_calc_splitting_axisER9gim_arrayI13GIM_AABB_DATAEjj(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = icmp ult i32 %2, %3
-  br i1 %5, label %.lr.ph, label %._crit_edge
+  %5 = sub i32 %3, %2
+  %6 = icmp ult i32 %2, %3
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %6 = load ptr, ptr %1, align 8, !tbaa !4
-  %7 = zext i32 %2 to i64
+  %7 = load ptr, ptr %1, align 8, !tbaa !4
+  %8 = zext i32 %2 to i64
   %wide.trip.count = zext i32 %3 to i64
-  br label %8
+  br label %9
 
-8:                                                ; preds = %.lr.ph, %8
-  %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %.sroa.1485.091 = phi float [ 0.000000e+00, %.lr.ph ], [ %29, %8 ]
-  %.sroa.882.090 = phi float [ 0.000000e+00, %.lr.ph ], [ %28, %8 ]
-  %.sroa.079.089 = phi float [ 0.000000e+00, %.lr.ph ], [ %27, %8 ]
-  %9 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %6, i64 %indvars.iv
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load float, ptr %10, align 4, !tbaa !11
-  %12 = load float, ptr %9, align 4, !tbaa !11
-  %13 = fadd float %11, %12
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  %15 = load float, ptr %14, align 4, !tbaa !11
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %17 = load float, ptr %16, align 4, !tbaa !11
-  %18 = fadd float %15, %17
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %20 = load float, ptr %19, align 4, !tbaa !11
-  %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %22 = load float, ptr %21, align 4, !tbaa !11
-  %23 = fadd float %20, %22
-  %24 = fmul float %13, 5.000000e-01
-  %25 = fmul float %18, 5.000000e-01
-  %26 = fmul float %23, 5.000000e-01
-  %27 = fadd float %.sroa.079.089, %24
-  %28 = fadd float %.sroa.882.090, %25
-  %29 = fadd float %.sroa.1485.091, %26
+9:                                                ; preds = %.lr.ph, %9
+  %indvars.iv = phi i64 [ %8, %.lr.ph ], [ %indvars.iv.next, %9 ]
+  %.sroa.1485.091 = phi float [ 0.000000e+00, %.lr.ph ], [ %30, %9 ]
+  %.sroa.882.090 = phi float [ 0.000000e+00, %.lr.ph ], [ %29, %9 ]
+  %.sroa.079.089 = phi float [ 0.000000e+00, %.lr.ph ], [ %28, %9 ]
+  %10 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load float, ptr %11, align 4, !tbaa !11
+  %13 = load float, ptr %10, align 4, !tbaa !11
+  %14 = fadd float %12, %13
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %16 = load float, ptr %15, align 4, !tbaa !11
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %18 = load float, ptr %17, align 4, !tbaa !11
+  %19 = fadd float %16, %18
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %21 = load float, ptr %20, align 4, !tbaa !11
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %23 = load float, ptr %22, align 4, !tbaa !11
+  %24 = fadd float %21, %23
+  %25 = fmul float %14, 5.000000e-01
+  %26 = fmul float %19, 5.000000e-01
+  %27 = fmul float %24, 5.000000e-01
+  %28 = fadd float %.sroa.079.089, %25
+  %29 = fadd float %.sroa.882.090, %26
+  %30 = fadd float %.sroa.1485.091, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph100, label %8, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph100, label %9, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %4
-  %30 = sub i32 %3, %2
-  %31 = uitofp i32 %30 to float
+  %31 = uitofp i32 %5 to float
   br label %._crit_edge101
 
-.lr.ph100:                                        ; preds = %8
-  %32 = sub i32 %3, %2
-  %33 = uitofp i32 %32 to float
-  %34 = fdiv float 1.000000e+00, %33
-  %35 = fmul float %34, %27
-  %36 = fmul float %34, %28
-  %37 = fmul float %34, %29
-  %38 = load ptr, ptr %1, align 8, !tbaa !4
-  %39 = zext i32 %2 to i64
+.lr.ph100:                                        ; preds = %9
+  %32 = uitofp i32 %5 to float
+  %33 = fdiv float 1.000000e+00, %32
+  %34 = fmul float %33, %28
+  %35 = fmul float %33, %29
+  %36 = fmul float %33, %30
+  %37 = load ptr, ptr %1, align 8, !tbaa !4
+  %38 = zext i32 %2 to i64
   %wide.trip.count114 = zext i32 %3 to i64
-  br label %40
+  br label %39
 
-40:                                               ; preds = %.lr.ph100, %40
-  %indvars.iv111 = phi i64 [ %39, %.lr.ph100 ], [ %indvars.iv.next112, %40 ]
-  %.sroa.14.097 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %67, %40 ]
-  %.sroa.8.096 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %66, %40 ]
-  %.sroa.069.095 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %65, %40 ]
-  %41 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %38, i64 %indvars.iv111
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load float, ptr %42, align 4, !tbaa !11
-  %44 = load float, ptr %41, align 4, !tbaa !11
-  %45 = fadd float %43, %44
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 20
-  %47 = load float, ptr %46, align 4, !tbaa !11
-  %48 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %49 = load float, ptr %48, align 4, !tbaa !11
-  %50 = fadd float %47, %49
-  %51 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %52 = load float, ptr %51, align 4, !tbaa !11
-  %53 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %54 = load float, ptr %53, align 4, !tbaa !11
-  %55 = fadd float %52, %54
-  %56 = fmul float %45, 5.000000e-01
-  %57 = fmul float %50, 5.000000e-01
-  %58 = fmul float %55, 5.000000e-01
+39:                                               ; preds = %.lr.ph100, %39
+  %indvars.iv111 = phi i64 [ %38, %.lr.ph100 ], [ %indvars.iv.next112, %39 ]
+  %.sroa.14.097 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %66, %39 ]
+  %.sroa.8.096 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %65, %39 ]
+  %.sroa.069.095 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %64, %39 ]
+  %40 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %37, i64 %indvars.iv111
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load float, ptr %41, align 4, !tbaa !11
+  %43 = load float, ptr %40, align 4, !tbaa !11
+  %44 = fadd float %42, %43
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 20
+  %46 = load float, ptr %45, align 4, !tbaa !11
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %48 = load float, ptr %47, align 4, !tbaa !11
+  %49 = fadd float %46, %48
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %51 = load float, ptr %50, align 4, !tbaa !11
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %53 = load float, ptr %52, align 4, !tbaa !11
+  %54 = fadd float %51, %53
+  %55 = fmul float %44, 5.000000e-01
+  %56 = fmul float %49, 5.000000e-01
+  %57 = fmul float %54, 5.000000e-01
+  %58 = fsub float %55, %34
   %59 = fsub float %56, %35
   %60 = fsub float %57, %36
-  %61 = fsub float %58, %37
+  %61 = fmul float %58, %58
   %62 = fmul float %59, %59
   %63 = fmul float %60, %60
-  %64 = fmul float %61, %61
-  %65 = fadd float %.sroa.069.095, %62
-  %66 = fadd float %.sroa.8.096, %63
-  %67 = fadd float %.sroa.14.097, %64
+  %64 = fadd float %.sroa.069.095, %61
+  %65 = fadd float %.sroa.8.096, %62
+  %66 = fadd float %.sroa.14.097, %63
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
-  br i1 %exitcond115.not, label %._crit_edge101, label %40, !llvm.loop !15
+  br i1 %exitcond115.not, label %._crit_edge101, label %39, !llvm.loop !15
 
-._crit_edge101:                                   ; preds = %40, %._crit_edge
-  %68 = phi float [ %31, %._crit_edge ], [ %33, %40 ]
-  %.sroa.069.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %65, %40 ]
-  %.sroa.8.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %66, %40 ]
-  %.sroa.14.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %67, %40 ]
-  %69 = fadd float %68, -1.000000e+00
-  %70 = fdiv float 1.000000e+00, %69
-  %71 = fmul float %70, %.sroa.069.0.lcssa
-  %72 = fmul float %70, %.sroa.8.0.lcssa
-  %73 = fmul float %70, %.sroa.14.0.lcssa
-  %74 = fcmp olt float %71, %72
-  %..i = select i1 %74, float %72, float %71
-  %.5.i = zext i1 %74 to i32
-  %75 = fcmp olt float %..i, %73
-  %76 = select i1 %75, i32 2, i32 %.5.i
-  ret i32 %76
+._crit_edge101:                                   ; preds = %39, %._crit_edge
+  %67 = phi float [ %31, %._crit_edge ], [ %32, %39 ]
+  %.sroa.069.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %64, %39 ]
+  %.sroa.8.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %65, %39 ]
+  %.sroa.14.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %66, %39 ]
+  %68 = fadd float %67, -1.000000e+00
+  %69 = fdiv float 1.000000e+00, %68
+  %70 = fmul float %69, %.sroa.069.0.lcssa
+  %71 = fmul float %69, %.sroa.8.0.lcssa
+  %72 = fmul float %69, %.sroa.14.0.lcssa
+  %73 = fcmp olt float %70, %71
+  %..i = select i1 %73, float %71, float %70
+  %.5.i = zext i1 %73 to i32
+  %74 = fcmp olt float %..i, %72
+  %75 = select i1 %74, i32 2, i32 %.5.i
+  ret i32 %75
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -128,95 +127,90 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 {
   %.sroa.0.i.i = alloca %class.GIM_AABB, align 8
-  %6 = icmp ult i32 %2, %3
-  br i1 %6, label %.lr.ph, label %._crit_edge
+  %6 = sub i32 %3, %2
+  %7 = icmp ult i32 %2, %3
+  br i1 %7, label %.lr.ph, label %._crit_edge52
 
 .lr.ph:                                           ; preds = %5
-  %7 = load ptr, ptr %1, align 8, !tbaa !4
-  %8 = zext i32 %4 to i64
-  %9 = zext i32 %2 to i64
+  %8 = load ptr, ptr %1, align 8, !tbaa !4
+  %9 = zext i32 %4 to i64
+  %10 = zext i32 %2 to i64
   %wide.trip.count = zext i32 %3 to i64
-  br label %10
+  br label %11
 
-10:                                               ; preds = %.lr.ph, %10
-  %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %.04446 = phi float [ 0.000000e+00, %.lr.ph ], [ %18, %10 ]
-  %11 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %7, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %8
-  %14 = load float, ptr %13, align 4, !tbaa !11
-  %15 = getelementptr inbounds nuw float, ptr %11, i64 %8
-  %16 = load float, ptr %15, align 4, !tbaa !11
-  %17 = fadd float %14, %16
-  %18 = tail call float @llvm.fmuladd.f32(float %17, float 5.000000e-01, float %.04446)
+11:                                               ; preds = %.lr.ph, %11
+  %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %11 ]
+  %.04446 = phi float [ 0.000000e+00, %.lr.ph ], [ %19, %11 ]
+  %12 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = getelementptr inbounds nuw float, ptr %13, i64 %9
+  %15 = load float, ptr %14, align 4, !tbaa !11
+  %16 = getelementptr inbounds nuw float, ptr %12, i64 %9
+  %17 = load float, ptr %16, align 4, !tbaa !11
+  %18 = fadd float %15, %17
+  %19 = tail call float @llvm.fmuladd.f32(float %18, float 5.000000e-01, float %.04446)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph51, label %10, !llvm.loop !16
+  br i1 %exitcond.not, label %.lr.ph51, label %11, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %5
-  %19 = sub i32 %3, %2
-  br label %._crit_edge52
-
-.lr.ph51:                                         ; preds = %10
-  %20 = sub i32 %3, %2
-  %21 = uitofp i32 %20 to float
-  %22 = fdiv float %18, %21
-  %23 = zext i32 %4 to i64
+.lr.ph51:                                         ; preds = %11
+  %20 = uitofp i32 %6 to float
+  %21 = fdiv float %19, %20
+  %22 = zext i32 %4 to i64
   %.sroa.0.16..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
-  %24 = zext i32 %2 to i64
+  %23 = zext i32 %2 to i64
   %wide.trip.count58 = zext i32 %3 to i64
-  br label %25
+  br label %24
 
-25:                                               ; preds = %.lr.ph51, %42
-  %indvars.iv55 = phi i64 [ %24, %.lr.ph51 ], [ %indvars.iv.next56, %42 ]
-  %.04248 = phi i32 [ %2, %.lr.ph51 ], [ %.143, %42 ]
-  %26 = load ptr, ptr %1, align 8, !tbaa !4
-  %27 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %26, i64 %indvars.iv55
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %29 = getelementptr inbounds nuw float, ptr %28, i64 %23
-  %30 = load float, ptr %29, align 4, !tbaa !11
-  %31 = getelementptr inbounds nuw float, ptr %27, i64 %23
-  %32 = load float, ptr %31, align 4, !tbaa !11
-  %33 = fadd float %30, %32
-  %34 = fmul float %33, 5.000000e-01
-  %35 = fcmp ogt float %34, %22
-  br i1 %35, label %36, label %42
+24:                                               ; preds = %.lr.ph51, %41
+  %indvars.iv55 = phi i64 [ %23, %.lr.ph51 ], [ %indvars.iv.next56, %41 ]
+  %.04248 = phi i32 [ %2, %.lr.ph51 ], [ %.143, %41 ]
+  %25 = load ptr, ptr %1, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %25, i64 %indvars.iv55
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = getelementptr inbounds nuw float, ptr %27, i64 %22
+  %29 = load float, ptr %28, align 4, !tbaa !11
+  %30 = getelementptr inbounds nuw float, ptr %26, i64 %22
+  %31 = load float, ptr %30, align 4, !tbaa !11
+  %32 = fadd float %29, %31
+  %33 = fmul float %32, 5.000000e-01
+  %34 = fcmp ogt float %33, %21
+  br i1 %34, label %35, label %41
 
-36:                                               ; preds = %25
-  %37 = zext i32 %.04248 to i64
+35:                                               ; preds = %24
+  %36 = zext i32 %.04248 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !17
-  %38 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %39 = load i32, ptr %38, align 4, !tbaa !19
-  %40 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %26, i64 %37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %27, ptr noundef nonnull align 4 dereferenceable(36) %40, i64 36, i1 false), !tbaa.struct !23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false), !tbaa.struct !23
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %40, i64 32
-  store i32 %39, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !tbaa !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !17
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %38 = load i32, ptr %37, align 4, !tbaa !19
+  %39 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %25, i64 %36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %26, ptr noundef nonnull align 4 dereferenceable(36) %39, i64 36, i1 false), !tbaa.struct !23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false), !tbaa.struct !23
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %39, i64 32
+  store i32 %38, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !tbaa !24
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
-  %41 = add i32 %.04248, 1
-  br label %42
+  %40 = add i32 %.04248, 1
+  br label %41
 
-42:                                               ; preds = %36, %25
-  %.143 = phi i32 [ %41, %36 ], [ %.04248, %25 ]
+41:                                               ; preds = %35, %24
+  %.143 = phi i32 [ %40, %35 ], [ %.04248, %24 ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge52, label %25, !llvm.loop !25
+  br i1 %exitcond59.not, label %._crit_edge52, label %24, !llvm.loop !25
 
-._crit_edge52:                                    ; preds = %42, %._crit_edge
-  %43 = phi i32 [ %19, %._crit_edge ], [ %20, %42 ]
-  %.042.lcssa = phi i32 [ %2, %._crit_edge ], [ %.143, %42 ]
-  %44 = udiv i32 %43, 3
-  %45 = add i32 %44, %2
-  %.not = icmp ule i32 %.042.lcssa, %45
-  %46 = xor i32 %44, -1
-  %47 = add i32 %3, %46
-  %48 = icmp uge i32 %.042.lcssa, %47
-  %49 = or i1 %.not, %48
-  %50 = lshr i32 %43, 1
-  %51 = add i32 %50, %2
-  %.2 = select i1 %49, i32 %51, i32 %.042.lcssa
+._crit_edge52:                                    ; preds = %41, %5
+  %.042.lcssa = phi i32 [ %2, %5 ], [ %.143, %41 ]
+  %42 = udiv i32 %6, 3
+  %43 = add i32 %42, %2
+  %.not = icmp ule i32 %.042.lcssa, %43
+  %44 = xor i32 %42, -1
+  %45 = add i32 %3, %44
+  %46 = icmp uge i32 %.042.lcssa, %45
+  %47 = or i1 %.not, %46
+  %48 = lshr i32 %6, 1
+  %49 = add i32 %48, %2
+  %.2 = select i1 %47, i32 %49, i32 %.042.lcssa
   ret i32 %.2
 }
 

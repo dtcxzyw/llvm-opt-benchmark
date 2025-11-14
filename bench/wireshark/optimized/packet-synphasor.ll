@@ -723,33 +723,36 @@ define internal i32 @dissect_common(ptr noundef %0, ptr noundef %1, ptr noundef 
   %93 = shl nuw nsw i32 %91, 4
   %94 = add i32 %93, %87
   %95 = add i32 %94, %92
+  %96 = add nuw nsw i32 %91, %88
+  %97 = shl nuw nsw i32 %96, 2
+  %98 = add i32 %95, %97
   %.not8387.i = icmp eq i16 %82, 0
   br i1 %.not8387.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %66
-  %.1.lcssa.i = phi i32 [ %87, %66 ], [ %97, %.lr.ph.i ]
+  %.1.lcssa.i = phi i32 [ %87, %66 ], [ %100, %.lr.ph.i ]
   %.not8490.i = icmp eq i16 %84, 0
   br i1 %.not8490.i, label %._crit_edge.i, label %.lr.ph93.i
 
 .lr.ph.i:                                         ; preds = %66, %.lr.ph.i
   %indvars.iv.i = phi i32 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %66 ]
-  %.189.i = phi i32 [ %97, %.lr.ph.i ], [ %87, %66 ]
+  %.189.i = phi i32 [ %100, %.lr.ph.i ], [ %87, %66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %96 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.189.i, i64 noundef 16)
-  %97 = add i32 %.189.i, 16
+  %99 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.189.i, i64 noundef 16)
+  %100 = add i32 %.189.i, 16
   store i8 0, ptr %56, align 4
-  %98 = shl nuw nsw i32 %indvars.iv.i, 2
-  %99 = add i32 %98, %95
-  %100 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %99)
-  %.not86.i = icmp ugt i32 %100, 16777215
-  %101 = zext i1 %.not86.i to i32
-  store i32 %101, ptr %57, align 4
-  %102 = and i32 %100, 16777215
-  store i32 %102, ptr %58, align 4
+  %101 = shl nuw nsw i32 %indvars.iv.i, 2
+  %102 = add i32 %101, %95
+  %103 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %102)
+  %.not86.i = icmp ugt i32 %103, 16777215
+  %104 = zext i1 %.not86.i to i32
+  store i32 %104, ptr %57, align 4
+  %105 = and i32 %103, 16777215
+  store i32 %105, ptr %58, align 4
   store float 1.000000e+00, ptr %59, align 4
   store float 0.000000e+00, ptr %60, align 4
-  %103 = load ptr, ptr %46, align 8
-  call void @wmem_array_append(ptr noundef %103, ptr noundef nonnull %8, i32 noundef 1)
+  %106 = load ptr, ptr %46, align 8
+  call void @wmem_array_append(ptr noundef %106, ptr noundef nonnull %8, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %.not83.i = icmp eq i32 %indvars.iv.next.i, %89
@@ -757,35 +760,32 @@ define internal i32 @dissect_common(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 .lr.ph93.i:                                       ; preds = %.preheader.i, %.lr.ph93.i
   %indvars.iv101.i = phi i32 [ %indvars.iv.next102.i, %.lr.ph93.i ], [ 0, %.preheader.i ]
-  %.292.i = phi i32 [ %105, %.lr.ph93.i ], [ %.1.lcssa.i, %.preheader.i ]
+  %.292.i = phi i32 [ %108, %.lr.ph93.i ], [ %.1.lcssa.i, %.preheader.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %104 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %9, i32 noundef %.292.i, i64 noundef 16)
-  %105 = add i32 %.292.i, 16
+  %107 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %9, i32 noundef %.292.i, i64 noundef 16)
+  %108 = add i32 %.292.i, 16
   store i8 0, ptr %61, align 4
-  %106 = add nuw nsw i32 %indvars.iv101.i, %89
-  %107 = shl nuw nsw i32 %106, 2
-  %108 = add i32 %107, %95
-  %109 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %108)
-  store i32 %109, ptr %62, align 4
+  %109 = add nuw nsw i32 %indvars.iv101.i, %89
+  %110 = shl nuw nsw i32 %109, 2
+  %111 = add i32 %110, %95
+  %112 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %111)
+  store i32 %112, ptr %62, align 4
   store float 1.000000e+00, ptr %63, align 4
   store float 0.000000e+00, ptr %64, align 4
-  %110 = load ptr, ptr %47, align 8
-  call void @wmem_array_append(ptr noundef %110, ptr noundef nonnull %9, i32 noundef 1)
+  %113 = load ptr, ptr %47, align 8
+  call void @wmem_array_append(ptr noundef %113, ptr noundef nonnull %9, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next102.i = add nuw nsw i32 %indvars.iv101.i, 1
   %.not84.i = icmp eq i32 %indvars.iv.next102.i, %90
   br i1 %.not84.i, label %._crit_edge.i, label %.lr.ph93.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph93.i, %.preheader.i
-  %111 = add nuw nsw i32 %91, %88
-  %112 = shl nuw nsw i32 %111, 2
-  %113 = add i32 %95, %112
-  %114 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %113)
+  %114 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %98)
   %115 = and i16 %114, 1
   %.not85.i = icmp eq i16 %115, 0
   %116 = select i1 %.not85.i, i32 60, i32 50
   store i32 %116, ptr %65, align 4
-  %117 = add i32 %113, 4
+  %117 = add i32 %98, 4
   call void @wmem_array_append(ptr noundef %39, ptr noundef nonnull %7, i32 noundef 1)
   %118 = add i16 %.096.i, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

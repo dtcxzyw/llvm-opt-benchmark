@@ -1517,8 +1517,9 @@ define hidden { ptr, ptr } @"_ZN3phf3map16Map$LT$K$C$V$GT$9get_entry17h14b7b4d90
   %.val = load i64, ptr %8, align 8, !noundef !7
   %9 = xor i64 %.val, 7237128888997146499
   %10 = xor i64 %.val, 8387220255154660723
-  %11 = and i64 %2, -8
-  %.not.i = icmp eq i64 %11, 0
+  %11 = and i64 %2, 7
+  %12 = and i64 %2, -8
+  %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %7
@@ -1527,8 +1528,7 @@ define hidden { ptr, ptr } @"_ZN3phf3map16Map$LT$K$C$V$GT$9get_entry17h14b7b4d90
   %.sroa.8.1.i = phi i64 [ 7816392313619706465, %7 ], [ %58, %.lr.ph.i.i.i.i ]
   %.sroa.0.1.i = phi i64 [ 8317987319222330741, %7 ], [ %59, %.lr.ph.i.i.i.i ]
   %.sroa.01.1.lcssa.i.i.i.i = phi i64 [ 0, %7 ], [ %60, %.lr.ph.i.i.i.i ]
-  %12 = and i64 %2, 7
-  %13 = icmp samesign ugt i64 %12, 3
+  %13 = icmp samesign ugt i64 %11, 3
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %._crit_edge.i.i.i.i
@@ -1541,7 +1541,7 @@ define hidden { ptr, ptr } @"_ZN3phf3map16Map$LT$K$C$V$GT$9get_entry17h14b7b4d90
   %.sroa.03.0.i10.i.i.i.i = phi i64 [ 4, %14 ], [ 0, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.i11.i.i.i.i = phi i64 [ %16, %14 ], [ 0, %._crit_edge.i.i.i.i ]
   %18 = or disjoint i64 %.sroa.03.0.i10.i.i.i.i, 1
-  %19 = icmp samesign ult i64 %18, %12
+  %19 = icmp samesign ult i64 %18, %11
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %17
@@ -1558,7 +1558,7 @@ define hidden { ptr, ptr } @"_ZN3phf3map16Map$LT$K$C$V$GT$9get_entry17h14b7b4d90
 28:                                               ; preds = %20, %17
   %.sroa.03.1.i12.i.i.i.i = phi i64 [ %27, %20 ], [ %.sroa.03.0.i10.i.i.i.i, %17 ]
   %.sroa.0.1.i13.i.i.i.i = phi i64 [ %26, %20 ], [ %.sroa.0.0.i11.i.i.i.i, %17 ]
-  %29 = icmp samesign ult i64 %.sroa.03.1.i12.i.i.i.i, %12
+  %29 = icmp samesign ult i64 %.sroa.03.1.i12.i.i.i.i, %11
   br i1 %29, label %30, label %_ZN10phf_shared4hash17h28652209a9ede281E.exit
 
 30:                                               ; preds = %28
@@ -1598,7 +1598,7 @@ define hidden { ptr, ptr } @"_ZN3phf3map16Map$LT$K$C$V$GT$9get_entry17h14b7b4d90
   %58 = tail call i64 @llvm.fshl.i64(i64 %55, i64 %55, i64 32)
   %59 = xor i64 %52, %.sroa.0.0.copyload.i.i.i.i
   %60 = add nuw i64 %.sroa.01.118.i.i.i.i, 8
-  %61 = icmp ult i64 %60, %11
+  %61 = icmp ult i64 %60, %12
   br i1 %61, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 _ZN10phf_shared4hash17h28652209a9ede281E.exit:    ; preds = %28, %30

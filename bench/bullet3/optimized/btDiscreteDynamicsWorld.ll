@@ -8113,52 +8113,52 @@ tailrecurse:                                      ; preds = %101, %4
   %16 = icmp sgt i32 %15, -1
   br i1 %16, label %.split.us.us, label %tailrecurse.split
 
-.split.us.us:                                     ; preds = %tailrecurse, %23
-  %.030.us = phi i32 [ %.232.us, %23 ], [ %3, %tailrecurse ]
-  %.0.us = phi i32 [ %.2.us, %23 ], [ %.tr39, %tailrecurse ]
+.split.us.us:                                     ; preds = %tailrecurse, %22
+  %.030.us = phi i32 [ %.232.us, %22 ], [ %3, %tailrecurse ]
+  %.0.us = phi i32 [ %.2.us, %22 ], [ %.tr39, %tailrecurse ]
   %17 = sext i32 %.0.us to i64
   br label %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us
 
 18:                                               ; preds = %.split54.us.us
   %19 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv84
-  %20 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv81
-  store ptr %41, ptr %20, align 8, !tbaa !168
-  store ptr %25, ptr %19, align 8, !tbaa !168
-  %21 = add nsw i32 %54, 1
-  %22 = add nsw i32 %55, -1
-  br label %23
+  store ptr %41, ptr %37, align 8, !tbaa !168
+  store ptr %24, ptr %19, align 8, !tbaa !168
+  %20 = add nsw i32 %54, 1
+  %21 = add nsw i32 %55, -1
+  br label %22
 
-23:                                               ; preds = %.split54.us.us, %18
-  %.232.us = phi i32 [ %22, %18 ], [ %55, %.split54.us.us ]
-  %.2.us = phi i32 [ %21, %18 ], [ %54, %.split54.us.us ]
+22:                                               ; preds = %.split54.us.us, %18
+  %.232.us = phi i32 [ %21, %18 ], [ %55, %.split54.us.us ]
+  %.2.us = phi i32 [ %20, %18 ], [ %54, %.split54.us.us ]
   %.not35.us = icmp sgt i32 %.2.us, %.232.us
   br i1 %.not35.us, label %.split66.us, label %.split.us.us, !llvm.loop !347
 
 _Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us: ; preds = %_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit.us.us, %.split.us.us
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit.us.us ], [ %17, %.split.us.us ]
-  %24 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv81
-  %25 = load ptr, ptr %24, align 8, !tbaa !168
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !171
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 228
-  %29 = load i32, ptr %28, align 4, !tbaa !186
-  %30 = icmp sgt i32 %29, -1
-  br i1 %30, label %_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit.us.us, label %31
+  %23 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv81
+  %24 = load ptr, ptr %23, align 8, !tbaa !168
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %26 = load ptr, ptr %25, align 8, !tbaa !171
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 228
+  %28 = load i32, ptr %27, align 4, !tbaa !186
+  %29 = icmp sgt i32 %28, -1
+  br i1 %29, label %_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit.us.us, label %30
 
-31:                                               ; preds = %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %33 = load ptr, ptr %32, align 8, !tbaa !175
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 228
-  %35 = load i32, ptr %34, align 4, !tbaa !186
+30:                                               ; preds = %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %32 = load ptr, ptr %31, align 8, !tbaa !175
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 228
+  %34 = load i32, ptr %33, align 4, !tbaa !186
   br label %_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit.us.us
 
-_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit.us.us: ; preds = %31, %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us
-  %36 = phi i32 [ %35, %31 ], [ %29, %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us ]
-  %37 = icmp slt i32 %36, %15
+_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit.us.us: ; preds = %30, %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us
+  %35 = phi i32 [ %34, %30 ], [ %28, %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us ]
+  %36 = icmp slt i32 %35, %15
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, 1
-  br i1 %37, label %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us, label %.preheader.split.us.us, !llvm.loop !348
+  br i1 %36, label %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us, label %.preheader.split.us.us, !llvm.loop !348
 
 .preheader.split.us.us:                           ; preds = %_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit.us.us
+  %37 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv81
   %38 = sext i32 %.030.us to i64
   br label %39
 
@@ -8190,7 +8190,7 @@ _Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36.us.us: ; preds = %47, 
   %54 = trunc nsw i64 %indvars.iv81 to i32
   %55 = trunc nsw i64 %indvars.iv84 to i32
   %.not.us = icmp sgt i64 %indvars.iv81, %indvars.iv84
-  br i1 %.not.us, label %23, label %18
+  br i1 %.not.us, label %22, label %18
 
 tailrecurse.split:                                ; preds = %tailrecurse
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -8230,57 +8230,57 @@ _ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit: ; preds
   br i1 %74, label %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i, label %.preheader.split, !llvm.loop !348
 
 .preheader.split:                                 ; preds = %_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit
-  %75 = sext i32 %.030 to i64
-  br label %76
+  %75 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %76 = sext i32 %.030 to i64
+  br label %77
 
-76:                                               ; preds = %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36, %.preheader.split
-  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36 ], [ %75, %.preheader.split ]
-  %77 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv78
-  %78 = load ptr, ptr %77, align 8, !tbaa !168
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
-  %80 = load ptr, ptr %79, align 8, !tbaa !171
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 228
-  %82 = load i32, ptr %81, align 4, !tbaa !186
-  %83 = icmp sgt i32 %82, -1
-  br i1 %83, label %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36, label %84
+77:                                               ; preds = %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36, %.preheader.split
+  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36 ], [ %76, %.preheader.split ]
+  %78 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv78
+  %79 = load ptr, ptr %78, align 8, !tbaa !168
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
+  %81 = load ptr, ptr %80, align 8, !tbaa !171
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 228
+  %83 = load i32, ptr %82, align 4, !tbaa !186
+  %84 = icmp sgt i32 %83, -1
+  br i1 %84, label %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36, label %85
 
-84:                                               ; preds = %76
-  %85 = getelementptr inbounds nuw i8, ptr %78, i64 48
-  %86 = load ptr, ptr %85, align 8, !tbaa !175
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 228
-  %88 = load i32, ptr %87, align 4, !tbaa !186
+85:                                               ; preds = %77
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 48
+  %87 = load ptr, ptr %86, align 8, !tbaa !175
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 228
+  %89 = load i32, ptr %88, align 4, !tbaa !186
   br label %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36
 
-_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36: ; preds = %84, %76
-  %89 = phi i32 [ %88, %84 ], [ %82, %76 ]
-  %90 = icmp slt i32 %59, %89
+_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36: ; preds = %85, %77
+  %90 = phi i32 [ %89, %85 ], [ %83, %77 ]
+  %91 = icmp slt i32 %59, %90
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, -1
-  br i1 %90, label %76, label %.split54, !llvm.loop !349
+  br i1 %91, label %77, label %.split54, !llvm.loop !349
 
 .split54:                                         ; preds = %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36
-  %91 = trunc nsw i64 %indvars.iv to i32
-  %92 = trunc nsw i64 %indvars.iv78 to i32
+  %92 = trunc nsw i64 %indvars.iv to i32
+  %93 = trunc nsw i64 %indvars.iv78 to i32
   %.not = icmp sgt i64 %indvars.iv, %indvars.iv78
-  br i1 %.not, label %98, label %93
+  br i1 %.not, label %98, label %94
 
-93:                                               ; preds = %.split54
-  %94 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv78
-  %95 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
-  store ptr %78, ptr %95, align 8, !tbaa !168
-  store ptr %62, ptr %94, align 8, !tbaa !168
-  %96 = add nsw i32 %91, 1
-  %97 = add nsw i32 %92, -1
+94:                                               ; preds = %.split54
+  %95 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv78
+  store ptr %79, ptr %75, align 8, !tbaa !168
+  store ptr %62, ptr %95, align 8, !tbaa !168
+  %96 = add nsw i32 %92, 1
+  %97 = add nsw i32 %93, -1
   br label %98
 
-98:                                               ; preds = %.split54, %93
-  %.232 = phi i32 [ %97, %93 ], [ %92, %.split54 ]
-  %.2 = phi i32 [ %96, %93 ], [ %91, %.split54 ]
+98:                                               ; preds = %.split54, %94
+  %.232 = phi i32 [ %97, %94 ], [ %93, %.split54 ]
+  %.2 = phi i32 [ %96, %94 ], [ %92, %.split54 ]
   %.not35 = icmp sgt i32 %.2, %.232
   br i1 %.not35, label %.split66.us, label %.split, !llvm.loop !347
 
-.split66.us:                                      ; preds = %98, %23
-  %.us-phi67 = phi i32 [ %.232.us, %23 ], [ %.232, %98 ]
-  %.us-phi68 = phi i32 [ %.2.us, %23 ], [ %.2, %98 ]
+.split66.us:                                      ; preds = %98, %22
+  %.us-phi67 = phi i32 [ %.232.us, %22 ], [ %.232, %98 ]
+  %.us-phi68 = phi i32 [ %.2.us, %22 ], [ %.2, %98 ]
   %99 = icmp slt i32 %.tr39, %.us-phi67
   br i1 %99, label %100, label %101
 

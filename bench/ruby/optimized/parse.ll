@@ -22578,44 +22578,44 @@ char_at_end.exit:                                 ; preds = %95, %99
 .thread:                                          ; preds = %89, %103, %char_at_end.exit, %108, %105
   %.not157175 = phi i1 [ true, %108 ], [ false, %105 ], [ false, %char_at_end.exit ], [ false, %103 ], [ false, %89 ]
   %.0126172 = phi i64 [ %107, %108 ], [ %107, %105 ], [ %90, %char_at_end.exit ], [ %90, %103 ], [ %90, %89 ]
-  %120 = ptrtoint ptr %.1128 to i64
-  %121 = icmp ult ptr %.0138, %.0132
-  %122 = select i1 %121, ptr %.0138, ptr %.0132
-  %123 = ptrtoint ptr %122 to i64
-  %124 = sub i64 %123, %120
-  %125 = shl i64 %124, 32
-  %sext = add i64 %125, 8589934592
-  %126 = ashr exact i64 %sext, 32
-  %127 = alloca i8, i64 %126, align 16
-  %128 = icmp ult ptr %.1128, %spec.select164
-  br i1 %128, label %.lr.ph188, label %._crit_edge
+  %120 = ptrtoint ptr %.1131 to i64
+  %121 = ptrtoint ptr %.1128 to i64
+  %122 = sub i64 %120, %121
+  %123 = icmp ult ptr %.0138, %.0132
+  %124 = select i1 %123, ptr %.0138, ptr %.0132
+  %125 = ptrtoint ptr %124 to i64
+  %126 = sub i64 %125, %121
+  %127 = shl i64 %126, 32
+  %sext = add i64 %127, 8589934592
+  %128 = ashr exact i64 %sext, 32
+  %129 = alloca i8, i64 %128, align 16
+  %130 = icmp ult ptr %.1128, %spec.select164
+  br i1 %130, label %.lr.ph188, label %._crit_edge
 
 .lr.ph188:                                        ; preds = %.thread, %.lr.ph188
-  %.1187 = phi ptr [ %133, %.lr.ph188 ], [ %127, %.thread ]
-  %.4186 = phi ptr [ %129, %.lr.ph188 ], [ %.1128, %.thread ]
-  %129 = getelementptr i8, ptr %.4186, i64 1
-  %130 = load i8, ptr %.4186, align 1, !tbaa !25
-  %131 = icmp eq i8 %130, 9
-  %132 = select i1 %131, i8 9, i8 32
-  %133 = getelementptr i8, ptr %.1187, i64 1
-  store i8 %132, ptr %.1187, align 1, !tbaa !25
-  %134 = icmp ult ptr %129, %spec.select164
-  br i1 %134, label %.lr.ph188, label %._crit_edge, !llvm.loop !479
+  %.1187 = phi ptr [ %135, %.lr.ph188 ], [ %129, %.thread ]
+  %.4186 = phi ptr [ %131, %.lr.ph188 ], [ %.1128, %.thread ]
+  %131 = getelementptr i8, ptr %.4186, i64 1
+  %132 = load i8, ptr %.4186, align 1, !tbaa !25
+  %133 = icmp eq i8 %132, 9
+  %134 = select i1 %133, i8 9, i8 32
+  %135 = getelementptr i8, ptr %.1187, i64 1
+  store i8 %134, ptr %.1187, align 1, !tbaa !25
+  %136 = icmp ult ptr %131, %spec.select164
+  br i1 %136, label %.lr.ph188, label %._crit_edge, !llvm.loop !479
 
 ._crit_edge:                                      ; preds = %.lr.ph188, %.thread
-  %.4.lcssa = phi ptr [ %.1128, %.thread ], [ %129, %.lr.ph188 ]
-  %.1.lcssa = phi ptr [ %127, %.thread ], [ %133, %.lr.ph188 ]
-  %135 = ptrtoint ptr %.1131 to i64
-  %136 = sub i64 %135, %120
+  %.4.lcssa = phi ptr [ %.1128, %.thread ], [ %131, %.lr.ph188 ]
+  %.1.lcssa = phi ptr [ %129, %.thread ], [ %135, %.lr.ph188 ]
   %137 = getelementptr i8, ptr %.1.lcssa, i64 1
   store i8 94, ptr %.1.lcssa, align 1, !tbaa !25
   %138 = getelementptr i8, ptr %.4.lcssa, i64 1
-  %139 = icmp ugt ptr %122, %138
+  %139 = icmp ugt ptr %124, %138
   br i1 %139, label %140, label %144
 
 140:                                              ; preds = %._crit_edge
   %141 = ptrtoint ptr %138 to i64
-  %142 = sub i64 %123, %141
+  %142 = sub i64 %125, %141
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %137, i8 noundef 126, i64 noundef %142, i1 noundef false) #34
   %143 = getelementptr i8, ptr %137, i64 %142
   br label %144
@@ -22623,8 +22623,8 @@ char_at_end.exit:                                 ; preds = %95, %99
 144:                                              ; preds = %._crit_edge, %140
   %.2 = phi ptr [ %143, %140 ], [ %137, %._crit_edge ]
   store i8 0, ptr %.2, align 1, !tbaa !25
-  %145 = trunc i64 %136 to i32
-  %146 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %.0126172, ptr noundef nonnull @.str.71, ptr noundef nonnull %.0134, i32 noundef %145, ptr noundef %.1128, ptr noundef nonnull %.0133, ptr noundef nonnull %.0134, ptr noundef nonnull %127) #34
+  %145 = trunc i64 %122 to i32
+  %146 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %.0126172, ptr noundef nonnull @.str.71, ptr noundef nonnull %.0134, i32 noundef %145, ptr noundef %.1128, ptr noundef nonnull %.0133, ptr noundef nonnull %.0134, ptr noundef nonnull %129) #34
   br i1 %.not157175, label %147, label %148
 
 147:                                              ; preds = %.thread176, %144

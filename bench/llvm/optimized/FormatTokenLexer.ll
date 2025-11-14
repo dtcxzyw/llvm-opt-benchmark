@@ -5150,52 +5150,52 @@ _ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.e
   %28 = load ptr, ptr %27, align 8, !tbaa !228
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 152
   %30 = load ptr, ptr %29, align 8, !tbaa !744
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 120
-  %32 = load ptr, ptr %31, align 8, !tbaa !745
-  %.not44 = icmp eq ptr %30, %32
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %33 = load i64, ptr %32, align 8, !tbaa !728
+  %34 = sub i64 0, %33
+  %35 = getelementptr inbounds i8, ptr %30, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 120
+  %37 = load ptr, ptr %36, align 8, !tbaa !745
+  %.not44 = icmp eq ptr %30, %37
   br i1 %.not44, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread, %39
-  %.02546 = phi i1 [ %.126, %39 ], [ false, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread ]
-  %.02945 = phi ptr [ %40, %39 ], [ %30, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread ]
-  %33 = load i8, ptr %.02945, align 1, !tbaa !721
-  switch i8 %33, label %39 [
-    i8 92, label %34
-    i8 91, label %36
-    i8 93, label %37
-    i8 47, label %38
+.lr.ph:                                           ; preds = %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread, %44
+  %.02546 = phi i1 [ %.126, %44 ], [ false, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread ]
+  %.02945 = phi ptr [ %45, %44 ], [ %30, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread ]
+  %38 = load i8, ptr %.02945, align 1, !tbaa !721
+  switch i8 %38, label %44 [
+    i8 92, label %39
+    i8 91, label %41
+    i8 93, label %42
+    i8 47, label %43
   ]
 
-34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds nuw i8, ptr %.02945, i64 1
-  br label %39
+39:                                               ; preds = %.lr.ph
+  %40 = getelementptr inbounds nuw i8, ptr %.02945, i64 1
+  br label %44
 
-36:                                               ; preds = %.lr.ph
-  br label %39
+41:                                               ; preds = %.lr.ph
+  br label %44
 
-37:                                               ; preds = %.lr.ph
-  br label %39
+42:                                               ; preds = %.lr.ph
+  br label %44
 
-38:                                               ; preds = %.lr.ph
+43:                                               ; preds = %.lr.ph
   %not..02546 = xor i1 %.02546, true
-  br label %39
+  br label %44
 
-39:                                               ; preds = %38, %.lr.ph, %34, %36, %37
-  %.130 = phi ptr [ %.02945, %.lr.ph ], [ %35, %34 ], [ %.02945, %36 ], [ %.02945, %37 ], [ %.02945, %38 ]
-  %.126 = phi i1 [ %.02546, %.lr.ph ], [ %.02546, %34 ], [ true, %36 ], [ false, %37 ], [ %.02546, %38 ]
-  %.1 = phi i1 [ false, %.lr.ph ], [ false, %34 ], [ false, %36 ], [ false, %37 ], [ %not..02546, %38 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.130, i64 1
-  %.not = icmp eq ptr %40, %32
+44:                                               ; preds = %43, %.lr.ph, %39, %41, %42
+  %.130 = phi ptr [ %.02945, %.lr.ph ], [ %40, %39 ], [ %.02945, %41 ], [ %.02945, %42 ], [ %.02945, %43 ]
+  %.126 = phi i1 [ %.02546, %.lr.ph ], [ %.02546, %39 ], [ true, %41 ], [ false, %42 ], [ %.02546, %43 ]
+  %.1 = phi i1 [ false, %.lr.ph ], [ false, %39 ], [ false, %41 ], [ false, %42 ], [ %not..02546, %43 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.130, i64 1
+  %.not = icmp eq ptr %45, %37
   %or.cond = select i1 %.1, i1 true, i1 %.not
   br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !746
 
-.critedge:                                        ; preds = %39, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread
-  %.029.lcssa = phi ptr [ %30, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread ], [ %40, %39 ]
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %42 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %43 = load i64, ptr %42, align 8, !tbaa !728
-  %44 = sub i64 0, %43
-  %45 = getelementptr inbounds i8, ptr %30, i64 %44
+.critedge:                                        ; preds = %44, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread
+  %.029.lcssa = phi ptr [ %30, %_ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.exit.thread ], [ %45, %44 ]
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 256
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 296
   %48 = load i8, ptr %47, align 8, !tbaa !718, !range !225, !noundef !255
@@ -5213,10 +5213,10 @@ _ZN5clang6format16FormatTokenLexer22canPrecedeRegexLiteralEPNS0_11FormatTokenE.e
 _ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit: ; preds = %.critedge, %52
   store i16 14, ptr %10, align 8, !tbaa !699
   %54 = ptrtoint ptr %.029.lcssa to i64
-  %55 = ptrtoint ptr %45 to i64
+  %55 = ptrtoint ptr %35 to i64
   %56 = sub i64 %54, %55
-  store ptr %45, ptr %41, align 8, !tbaa !227
-  store i64 %56, ptr %42, align 8, !tbaa !99
+  store ptr %35, ptr %31, align 8, !tbaa !227
+  store i64 %56, ptr %32, align 8, !tbaa !99
   %57 = trunc i64 %56 to i32
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 84
   store i32 %57, ptr %58, align 4, !tbaa !738

@@ -3497,7 +3497,7 @@ SkipEOLN.exit.i:                                  ; preds = %.lr.ph.i.i, %SetDat
 
 SkipEOLN.exit37.i:                                ; preds = %CheckEOLN.exit.i, %CheckEOLN.exit.i, %CheckEOLN.exit.i, %.lr.ph.i36.i
   %155 = phi i32 [ %153, %.lr.ph.i36.i ], [ %.pr.i, %CheckEOLN.exit.i ], [ %.pr.i, %CheckEOLN.exit.i ], [ %.pr.i, %CheckEOLN.exit.i ]
-  %156 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %156 = trunc i64 %indvars.iv.i to i32
   %157 = icmp eq i32 %155, 12
   br i1 %157, label %Skip.exit.i, label %SkipEOLN.exit39.i
 

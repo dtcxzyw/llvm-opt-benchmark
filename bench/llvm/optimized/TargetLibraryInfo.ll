@@ -4909,17 +4909,17 @@ define dso_local void @_ZN4llvm21TargetLibraryInfoImpl19disableAllFunctionsEv(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm21TargetLibraryInfoImpl24addVectorizableFunctionsENS_8ArrayRefINS_7VecDescEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
-  %.sroa.0296 = alloca %"class.llvm::StringRef", align 8
-  %.sroa.8301 = alloca { %"class.llvm::ElementCount", i8, %"class.llvm::StringRef" }, align 8
+  %.sroa.0295 = alloca %"class.llvm::StringRef", align 8
+  %.sroa.8300 = alloca { %"class.llvm::ElementCount", i8, %"class.llvm::StringRef" }, align 8
   %4 = alloca %"class.llvm::VecDesc", align 8
-  %.sroa.0290 = alloca %"class.llvm::StringRef", align 8
-  %.sroa.8295 = alloca { %"class.llvm::ElementCount", i8, %"class.llvm::StringRef" }, align 8
-  %.sroa.0285 = alloca %"class.llvm::StringRef", align 8
-  %.sroa.8289 = alloca { %"class.llvm::ElementCount", i8, %"class.llvm::StringRef" }, align 8
+  %.sroa.0289 = alloca %"class.llvm::StringRef", align 8
+  %.sroa.8294 = alloca { %"class.llvm::ElementCount", i8, %"class.llvm::StringRef" }, align 8
+  %.sroa.0284 = alloca %"class.llvm::StringRef", align 8
+  %.sroa.8288 = alloca { %"class.llvm::ElementCount", i8, %"class.llvm::StringRef" }, align 8
   %5 = alloca %"class.llvm::VecDesc", align 8
-  %.sroa.8284 = alloca { %"class.llvm::StringRef", %"class.llvm::ElementCount", i8, %"class.llvm::StringRef" }, align 8
+  %.sroa.8283 = alloca { %"class.llvm::StringRef", %"class.llvm::ElementCount", i8, %"class.llvm::StringRef" }, align 8
   %6 = alloca %"class.llvm::VecDesc", align 8
-  %.sroa.8279 = alloca { %"class.llvm::StringRef", %"class.llvm::ElementCount", i8, %"class.llvm::StringRef" }, align 8
+  %.sroa.8278 = alloca { %"class.llvm::StringRef", %"class.llvm::ElementCount", i8, %"class.llvm::StringRef" }, align 8
   %.sroa.8 = alloca { %"class.llvm::StringRef", %"class.llvm::ElementCount", i8, %"class.llvm::StringRef" }, align 8
   %7 = alloca %"class.llvm::VecDesc", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -4948,282 +4948,282 @@ define dso_local void @_ZN4llvm21TargetLibraryInfoImpl24addVectorizableFunctions
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %17, ptr %18, i64 noundef %26, ptr nonnull @_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_)
   %27 = icmp sgt i64 %22, 1024
   %scevgep.i = getelementptr i8, ptr %17, i64 64
-  br i1 %27, label %.lr.ph.i.preheader.i, label %51
+  br i1 %27, label %.lr.ph.i.i, label %52
 
-.lr.ph.i.preheader.i:                             ; preds = %19
-  %.sroa.2.0..sroa_idx.i5.i138 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  br label %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %19
+  %.sroa.2.0..sroa_idx.i5.i137 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  br label %28
 
-.lr.ph.i.i:                                       ; preds = %40, %.lr.ph.i.preheader.i
-  %.sroa.0.021.i.idx.i = phi i64 [ %.sroa.0.021.i.add.i, %40 ], [ 64, %.lr.ph.i.preheader.i ]
-  %.pn20.i.i = phi ptr [ %.sroa.0.021.i.ptr.i, %40 ], [ %17, %.lr.ph.i.preheader.i ]
+28:                                               ; preds = %41, %.lr.ph.i.i
+  %.sroa.0.021.i.idx.i = phi i64 [ 64, %.lr.ph.i.i ], [ %.sroa.0.021.i.add.i, %41 ]
+  %.pn20.i.i = phi ptr [ %17, %.lr.ph.i.i ], [ %.sroa.0.021.i.ptr.i, %41 ]
   %.sroa.0.021.i.ptr.i = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.0.021.i.idx.i
-  %.sroa.2.0..sroa_idx.i.i136 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i.ptr.i, i64 8
-  %.sroa.2.0.copyload.i.i137 = load i64, ptr %.sroa.2.0..sroa_idx.i.i136, align 8, !tbaa !50
-  %.sroa.2.0.copyload.i6.i139 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i138, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i140 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i139, i64 %.sroa.2.0.copyload.i.i137)
-  %28 = icmp eq i64 %.sroa.speculated.i.i.i140, 0
-  br i1 %28, label %.thread.i.i.i149, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i141
+  %.sroa.2.0..sroa_idx.i.i135 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i.ptr.i, i64 8
+  %.sroa.2.0.copyload.i.i136 = load i64, ptr %.sroa.2.0..sroa_idx.i.i135, align 8, !tbaa !50
+  %.sroa.2.0.copyload.i6.i138 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i137, align 8, !tbaa !50
+  %.sroa.speculated.i.i.i139 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i138, i64 %.sroa.2.0.copyload.i.i136)
+  %29 = icmp eq i64 %.sroa.speculated.i.i.i139, 0
+  br i1 %29, label %.thread.i.i.i148, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i140
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i141: ; preds = %.lr.ph.i.i
-  %.sroa.0.0.copyload.i4.i142 = load ptr, ptr %17, align 8, !tbaa !49
-  %.sroa.0.0.copyload.i.i143 = load ptr, ptr %.sroa.0.021.i.ptr.i, align 8, !tbaa !49
-  %29 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i143, ptr noundef %.sroa.0.0.copyload.i4.i142, i64 noundef %.sroa.speculated.i.i.i140) #28
-  %.fr.i.i.i144 = freeze i32 %29
-  %.not.not.i.i.i145 = icmp eq i32 %.fr.i.i.i144, 0
-  br i1 %.not.not.i.i.i145, label %.thread.i.i.i149, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit150
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i140: ; preds = %28
+  %.sroa.0.0.copyload.i4.i141 = load ptr, ptr %17, align 8, !tbaa !49
+  %.sroa.0.0.copyload.i.i142 = load ptr, ptr %.sroa.0.021.i.ptr.i, align 8, !tbaa !49
+  %30 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i142, ptr noundef %.sroa.0.0.copyload.i4.i141, i64 noundef %.sroa.speculated.i.i.i139) #28
+  %.fr.i.i.i143 = freeze i32 %30
+  %.not.not.i.i.i144 = icmp eq i32 %.fr.i.i.i143, 0
+  br i1 %.not.not.i.i.i144, label %.thread.i.i.i148, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit149
 
-.thread.i.i.i149:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i141, %.lr.ph.i.i
-  %30 = icmp ult i64 %.sroa.2.0.copyload.i.i137, %.sroa.2.0.copyload.i6.i139
-  br i1 %30, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i, label %.thread.i.i.i149._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit150.thread_crit_edge
+.thread.i.i.i148:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i140, %28
+  %31 = icmp ult i64 %.sroa.2.0.copyload.i.i136, %.sroa.2.0.copyload.i6.i138
+  br i1 %31, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i, label %.thread.i.i.i148._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit149.thread_crit_edge
 
-.thread.i.i.i149._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit150.thread_crit_edge: ; preds = %.thread.i.i.i149
-  %.sroa.0272.0.copyload.pre = load ptr, ptr %.sroa.0.021.i.ptr.i, align 8
-  br label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit150.thread
+.thread.i.i.i148._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit149.thread_crit_edge: ; preds = %.thread.i.i.i148
+  %.sroa.0271.0.copyload.pre = load ptr, ptr %.sroa.0.021.i.ptr.i, align 8
+  br label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit149.thread
 
-_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit150: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i141
-  %31 = icmp slt i32 %.fr.i.i.i144, 0
-  br i1 %31, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit150.thread
+_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit149: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i140
+  %32 = icmp slt i32 %.fr.i.i.i143, 0
+  br i1 %32, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit149.thread
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i: ; preds = %.thread.i.i.i149, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit150
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i: ; preds = %.thread.i.i.i148, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit149
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.021.i.ptr.i, i64 64, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 8 dereferenceable(1) %17, i64 %.sroa.0.021.i.idx.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %40
+  br label %41
 
-_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit150.thread: ; preds = %.thread.i.i.i149._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit150.thread_crit_edge, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit150
-  %.sroa.0272.0.copyload = phi ptr [ %.sroa.0272.0.copyload.pre, %.thread.i.i.i149._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit150.thread_crit_edge ], [ %.sroa.0.0.copyload.i.i143, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit150 ]
+_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit149.thread: ; preds = %.thread.i.i.i148._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit149.thread_crit_edge, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit149
+  %.sroa.0271.0.copyload = phi ptr [ %.sroa.0271.0.copyload.pre, %.thread.i.i.i148._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit149.thread_crit_edge ], [ %.sroa.0.0.copyload.i.i142, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit149 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %.sroa.8.0..sroa.0.021.i.ptr.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i.ptr.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8.0..sroa.0.021.i.ptr.i.sroa_idx, i64 48, i1 false)
-  %.sroa.2.0..sroa_idx.i5.i123 = getelementptr inbounds nuw i8, ptr %.pn20.i.i, i64 8
-  %.sroa.2.0.copyload.i6.i124 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i123, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i125 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i124, i64 %.sroa.2.0.copyload.i.i137)
-  %32 = icmp eq i64 %.sroa.speculated.i.i.i125, 0
-  br i1 %32, label %.thread.i.i.i134, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i126
+  %.sroa.2.0..sroa_idx.i5.i122 = getelementptr inbounds nuw i8, ptr %.pn20.i.i, i64 8
+  %.sroa.2.0.copyload.i6.i123 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i122, align 8, !tbaa !50
+  %.sroa.speculated.i.i.i124 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i123, i64 %.sroa.2.0.copyload.i.i136)
+  %33 = icmp eq i64 %.sroa.speculated.i.i.i124, 0
+  br i1 %33, label %.thread.i.i.i133, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i125
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i126: ; preds = %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit150.thread
-  %.sroa.0.0.copyload.i4.i127 = load ptr, ptr %.pn20.i.i, align 8, !tbaa !49
-  %33 = tail call i32 @memcmp(ptr noundef %.sroa.0272.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i127, i64 noundef %.sroa.speculated.i.i.i125) #28
-  %.fr.i.i.i129 = freeze i32 %33
-  %.not.not.i.i.i130 = icmp eq i32 %.fr.i.i.i129, 0
-  br i1 %.not.not.i.i.i130, label %.thread.i.i.i134, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit135
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i125: ; preds = %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit149.thread
+  %.sroa.0.0.copyload.i4.i126 = load ptr, ptr %.pn20.i.i, align 8, !tbaa !49
+  %34 = tail call i32 @memcmp(ptr noundef %.sroa.0271.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i126, i64 noundef %.sroa.speculated.i.i.i124) #28
+  %.fr.i.i.i128 = freeze i32 %34
+  %.not.not.i.i.i129 = icmp eq i32 %.fr.i.i.i128, 0
+  br i1 %.not.not.i.i.i129, label %.thread.i.i.i133, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit134
 
-.thread.i.i.i134:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i126, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit150.thread
-  %34 = icmp ult i64 %.sroa.2.0.copyload.i.i137, %.sroa.2.0.copyload.i6.i124
-  br i1 %34, label %.lr.ph.i.i.i.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i
-
-_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit135: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i126
-  %35 = icmp slt i32 %.fr.i.i.i129, 0
+.thread.i.i.i133:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i125, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit149.thread
+  %35 = icmp ult i64 %.sroa.2.0.copyload.i.i136, %.sroa.2.0.copyload.i6.i123
   br i1 %35, label %.lr.ph.i.i.i.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i
 
-.lr.ph.i.i.i.preheader:                           ; preds = %.thread.i.i.i134, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit135
+_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit134: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i125
+  %36 = icmp slt i32 %.fr.i.i.i128, 0
+  br i1 %36, label %.lr.ph.i.i.i.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i
+
+.lr.ph.i.i.i.preheader:                           ; preds = %.thread.i.i.i133, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit134
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit120
-  %.sroa.0.09.i.i.i = phi ptr [ %.sroa.0.0.i.i.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit120 ], [ %.pn20.i.i, %.lr.ph.i.i.i.preheader ]
-  %.sroa.04.08.i.i.i = phi ptr [ %.sroa.0.09.i.i.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit120 ], [ %.sroa.0.021.i.ptr.i, %.lr.ph.i.i.i.preheader ]
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit119
+  %.sroa.0.09.i.i.i = phi ptr [ %.sroa.0.0.i.i.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit119 ], [ %.pn20.i.i, %.lr.ph.i.i.i.preheader ]
+  %.sroa.04.08.i.i.i = phi ptr [ %.sroa.0.09.i.i.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit119 ], [ %.sroa.0.021.i.ptr.i, %.lr.ph.i.i.i.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.04.08.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.09.i.i.i, i64 64, i1 false)
   %.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i, i64 -64
-  %.sroa.2.0..sroa_idx.i5.i108 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i, i64 -56
-  %.sroa.2.0.copyload.i6.i109 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i108, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i110 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i109, i64 %.sroa.2.0.copyload.i.i137)
-  %36 = icmp eq i64 %.sroa.speculated.i.i.i110, 0
-  br i1 %36, label %.thread.i.i.i119, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i111
+  %.sroa.2.0..sroa_idx.i5.i107 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i, i64 -56
+  %.sroa.2.0.copyload.i6.i108 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i107, align 8, !tbaa !50
+  %.sroa.speculated.i.i.i109 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i108, i64 %.sroa.2.0.copyload.i.i136)
+  %37 = icmp eq i64 %.sroa.speculated.i.i.i109, 0
+  br i1 %37, label %.thread.i.i.i118, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i110
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i111: ; preds = %.lr.ph.i.i.i
-  %.sroa.0.0.copyload.i4.i112 = load ptr, ptr %.sroa.0.0.i.i.i, align 8, !tbaa !49
-  %37 = tail call i32 @memcmp(ptr noundef %.sroa.0272.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i112, i64 noundef %.sroa.speculated.i.i.i110) #28
-  %.fr.i.i.i114 = freeze i32 %37
-  %.not.not.i.i.i115 = icmp eq i32 %.fr.i.i.i114, 0
-  %.inv.i.i.i116 = icmp sgt i32 %.fr.i.i.i114, -1
-  %spec.select.i.i.i117 = select i1 %.inv.i.i.i116, i32 1, i32 -1
-  br i1 %.not.not.i.i.i115, label %.thread.i.i.i119, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit120
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i110: ; preds = %.lr.ph.i.i.i
+  %.sroa.0.0.copyload.i4.i111 = load ptr, ptr %.sroa.0.0.i.i.i, align 8, !tbaa !49
+  %38 = tail call i32 @memcmp(ptr noundef %.sroa.0271.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i111, i64 noundef %.sroa.speculated.i.i.i109) #28
+  %.fr.i.i.i113 = freeze i32 %38
+  %.not.not.i.i.i114 = icmp eq i32 %.fr.i.i.i113, 0
+  %.inv.i.i.i115 = icmp sgt i32 %.fr.i.i.i113, -1
+  %spec.select.i.i.i116 = select i1 %.inv.i.i.i115, i32 1, i32 -1
+  br i1 %.not.not.i.i.i114, label %.thread.i.i.i118, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit119
 
-.thread.i.i.i119:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i111, %.lr.ph.i.i.i
-  %38 = icmp ult i64 %.sroa.2.0.copyload.i.i137, %.sroa.2.0.copyload.i6.i109
-  br i1 %38, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit120, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i
+.thread.i.i.i118:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i110, %.lr.ph.i.i.i
+  %39 = icmp ult i64 %.sroa.2.0.copyload.i.i136, %.sroa.2.0.copyload.i6.i108
+  br i1 %39, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit119, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i
 
-_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit120: ; preds = %.thread.i.i.i119, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i111
-  %.1.i.i.i118 = phi i32 [ %spec.select.i.i.i117, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i111 ], [ -1, %.thread.i.i.i119 ]
-  %39 = icmp slt i32 %.1.i.i.i118, 0
-  br i1 %39, label %.lr.ph.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i, !llvm.loop !277
+_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit119: ; preds = %.thread.i.i.i118, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i110
+  %.1.i.i.i117 = phi i32 [ %spec.select.i.i.i116, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i110 ], [ -1, %.thread.i.i.i118 ]
+  %40 = icmp slt i32 %.1.i.i.i117, 0
+  br i1 %40, label %.lr.ph.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i, !llvm.loop !277
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i: ; preds = %.thread.i.i.i119, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit120, %.thread.i.i.i134, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit135
-  %.sroa.04.0.lcssa.i.i.i = phi ptr [ %.sroa.0.021.i.ptr.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit135 ], [ %.sroa.0.021.i.ptr.i, %.thread.i.i.i134 ], [ %.sroa.0.09.i.i.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit120 ], [ %.sroa.0.09.i.i.i, %.thread.i.i.i119 ]
-  store ptr %.sroa.0272.0.copyload, ptr %.sroa.04.0.lcssa.i.i.i, align 8
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i: ; preds = %.thread.i.i.i118, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit119, %.thread.i.i.i133, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit134
+  %.sroa.04.0.lcssa.i.i.i = phi ptr [ %.sroa.0.021.i.ptr.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit134 ], [ %.sroa.0.021.i.ptr.i, %.thread.i.i.i133 ], [ %.sroa.0.09.i.i.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit119 ], [ %.sroa.0.09.i.i.i, %.thread.i.i.i118 ]
+  store ptr %.sroa.0271.0.copyload, ptr %.sroa.04.0.lcssa.i.i.i, align 8
   %.sroa.6.0..sroa.04.0.lcssa.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i.i, i64 8
-  store i64 %.sroa.2.0.copyload.i.i137, ptr %.sroa.6.0..sroa.04.0.lcssa.i.i.i.sroa_idx, align 8
+  store i64 %.sroa.2.0.copyload.i.i136, ptr %.sroa.6.0..sroa.04.0.lcssa.i.i.i.sroa_idx, align 8
   %.sroa.8.0..sroa.04.0.lcssa.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8.0..sroa.04.0.lcssa.i.i.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
-  br label %40
+  br label %41
 
-40:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i
+41:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i
   %.sroa.0.021.i.add.i = add nuw nsw i64 %.sroa.0.021.i.idx.i, 64
   %.not.i.i = icmp eq i64 %.sroa.0.021.i.add.i, 1024
-  br i1 %.not.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i, label %.lr.ph.i.i, !llvm.loop !278
+  br i1 %.not.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i, label %28, !llvm.loop !278
 
-_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i: ; preds = %40
-  %41 = getelementptr inbounds nuw i8, ptr %17, i64 1024
-  %.not7.i.i = icmp eq ptr %41, %18
+_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i: ; preds = %41
+  %42 = getelementptr inbounds nuw i8, ptr %17, i64 1024
+  %.not7.i.i = icmp eq ptr %42, %18
   br i1 %.not7.i.i, label %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit, label %.lr.ph.i10.i
 
 .lr.ph.i10.i:                                     ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i
-  %.sroa.0.08.i.i = phi ptr [ %50, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i ], [ %41, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8279)
-  %.sroa.0275.0.copyload = load ptr, ptr %.sroa.0.08.i.i, align 8
-  %.sroa.6277.0..sroa.0.08.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 8
-  %.sroa.6277.0.copyload = load i64, ptr %.sroa.6277.0..sroa.0.08.i.i.sroa_idx, align 8
-  %.sroa.8279.0..sroa.0.08.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8279, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8279.0..sroa.0.08.i.i.sroa_idx, i64 48, i1 false)
+  %.sroa.0.08.i.i = phi ptr [ %51, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i ], [ %42, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8278)
+  %.sroa.0274.0.copyload = load ptr, ptr %.sroa.0.08.i.i, align 8
+  %.sroa.6276.0..sroa.0.08.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 8
+  %.sroa.6276.0.copyload = load i64, ptr %.sroa.6276.0..sroa.0.08.i.i.sroa_idx, align 8
+  %.sroa.8278.0..sroa.0.08.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8278, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8278.0..sroa.0.08.i.i.sroa_idx, i64 48, i1 false)
   %.sroa.0.07.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.08.i.i, i64 -64
-  %.sroa.2.0..sroa_idx.i5.i93 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i, i64 -56
-  %.sroa.2.0.copyload.i6.i94 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i93, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i95 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i94, i64 %.sroa.6277.0.copyload)
-  %42 = icmp eq i64 %.sroa.speculated.i.i.i95, 0
-  br i1 %42, label %.thread.i.i.i104, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i96
+  %.sroa.2.0..sroa_idx.i5.i92 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i, i64 -56
+  %.sroa.2.0.copyload.i6.i93 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i92, align 8, !tbaa !50
+  %.sroa.speculated.i.i.i94 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i93, i64 %.sroa.6276.0.copyload)
+  %43 = icmp eq i64 %.sroa.speculated.i.i.i94, 0
+  br i1 %43, label %.thread.i.i.i103, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i95
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i96: ; preds = %.lr.ph.i10.i
-  %.sroa.0.0.copyload.i4.i97 = load ptr, ptr %.sroa.0.07.i.i.i, align 8, !tbaa !49
-  %43 = tail call i32 @memcmp(ptr noundef %.sroa.0275.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i97, i64 noundef %.sroa.speculated.i.i.i95) #28
-  %.fr.i.i.i99 = freeze i32 %43
-  %.not.not.i.i.i100 = icmp eq i32 %.fr.i.i.i99, 0
-  br i1 %.not.not.i.i.i100, label %.thread.i.i.i104, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit105
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i95: ; preds = %.lr.ph.i10.i
+  %.sroa.0.0.copyload.i4.i96 = load ptr, ptr %.sroa.0.07.i.i.i, align 8, !tbaa !49
+  %44 = tail call i32 @memcmp(ptr noundef %.sroa.0274.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i96, i64 noundef %.sroa.speculated.i.i.i94) #28
+  %.fr.i.i.i98 = freeze i32 %44
+  %.not.not.i.i.i99 = icmp eq i32 %.fr.i.i.i98, 0
+  br i1 %.not.not.i.i.i99, label %.thread.i.i.i103, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit104
 
-.thread.i.i.i104:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i96, %.lr.ph.i10.i
-  %44 = icmp ult i64 %.sroa.6277.0.copyload, %.sroa.2.0.copyload.i6.i94
-  br i1 %44, label %.lr.ph.i.i14.i.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i
-
-_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit105: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i96
-  %45 = icmp slt i32 %.fr.i.i.i99, 0
+.thread.i.i.i103:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i95, %.lr.ph.i10.i
+  %45 = icmp ult i64 %.sroa.6276.0.copyload, %.sroa.2.0.copyload.i6.i93
   br i1 %45, label %.lr.ph.i.i14.i.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i
 
-.lr.ph.i.i14.i.preheader:                         ; preds = %.thread.i.i.i104, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit105
+_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit104: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i95
+  %46 = icmp slt i32 %.fr.i.i.i98, 0
+  br i1 %46, label %.lr.ph.i.i14.i.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i
+
+.lr.ph.i.i14.i.preheader:                         ; preds = %.thread.i.i.i103, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit104
   br label %.lr.ph.i.i14.i
 
-.lr.ph.i.i14.i:                                   ; preds = %.lr.ph.i.i14.i.preheader, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit90
-  %.sroa.0.09.i.i15.i = phi ptr [ %.sroa.0.0.i.i17.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit90 ], [ %.sroa.0.07.i.i.i, %.lr.ph.i.i14.i.preheader ]
-  %.sroa.04.08.i.i16.i = phi ptr [ %.sroa.0.09.i.i15.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit90 ], [ %.sroa.0.08.i.i, %.lr.ph.i.i14.i.preheader ]
+.lr.ph.i.i14.i:                                   ; preds = %.lr.ph.i.i14.i.preheader, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit89
+  %.sroa.0.09.i.i15.i = phi ptr [ %.sroa.0.0.i.i17.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit89 ], [ %.sroa.0.07.i.i.i, %.lr.ph.i.i14.i.preheader ]
+  %.sroa.04.08.i.i16.i = phi ptr [ %.sroa.0.09.i.i15.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit89 ], [ %.sroa.0.08.i.i, %.lr.ph.i.i14.i.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.04.08.i.i16.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.09.i.i15.i, i64 64, i1 false)
   %.sroa.0.0.i.i17.i = getelementptr inbounds i8, ptr %.sroa.0.09.i.i15.i, i64 -64
-  %.sroa.2.0..sroa_idx.i5.i78 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i15.i, i64 -56
-  %.sroa.2.0.copyload.i6.i79 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i78, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i80 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i79, i64 %.sroa.6277.0.copyload)
-  %46 = icmp eq i64 %.sroa.speculated.i.i.i80, 0
-  br i1 %46, label %.thread.i.i.i89, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i81
+  %.sroa.2.0..sroa_idx.i5.i77 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i15.i, i64 -56
+  %.sroa.2.0.copyload.i6.i78 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i77, align 8, !tbaa !50
+  %.sroa.speculated.i.i.i79 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i78, i64 %.sroa.6276.0.copyload)
+  %47 = icmp eq i64 %.sroa.speculated.i.i.i79, 0
+  br i1 %47, label %.thread.i.i.i88, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i80
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i81: ; preds = %.lr.ph.i.i14.i
-  %.sroa.0.0.copyload.i4.i82 = load ptr, ptr %.sroa.0.0.i.i17.i, align 8, !tbaa !49
-  %47 = tail call i32 @memcmp(ptr noundef %.sroa.0275.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i82, i64 noundef %.sroa.speculated.i.i.i80) #28
-  %.fr.i.i.i84 = freeze i32 %47
-  %.not.not.i.i.i85 = icmp eq i32 %.fr.i.i.i84, 0
-  %.inv.i.i.i86 = icmp sgt i32 %.fr.i.i.i84, -1
-  %spec.select.i.i.i87 = select i1 %.inv.i.i.i86, i32 1, i32 -1
-  br i1 %.not.not.i.i.i85, label %.thread.i.i.i89, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit90
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i80: ; preds = %.lr.ph.i.i14.i
+  %.sroa.0.0.copyload.i4.i81 = load ptr, ptr %.sroa.0.0.i.i17.i, align 8, !tbaa !49
+  %48 = tail call i32 @memcmp(ptr noundef %.sroa.0274.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i81, i64 noundef %.sroa.speculated.i.i.i79) #28
+  %.fr.i.i.i83 = freeze i32 %48
+  %.not.not.i.i.i84 = icmp eq i32 %.fr.i.i.i83, 0
+  %.inv.i.i.i85 = icmp sgt i32 %.fr.i.i.i83, -1
+  %spec.select.i.i.i86 = select i1 %.inv.i.i.i85, i32 1, i32 -1
+  br i1 %.not.not.i.i.i84, label %.thread.i.i.i88, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit89
 
-.thread.i.i.i89:                                  ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i81, %.lr.ph.i.i14.i
-  %48 = icmp ult i64 %.sroa.6277.0.copyload, %.sroa.2.0.copyload.i6.i79
-  br i1 %48, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit90, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i
+.thread.i.i.i88:                                  ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i80, %.lr.ph.i.i14.i
+  %49 = icmp ult i64 %.sroa.6276.0.copyload, %.sroa.2.0.copyload.i6.i78
+  br i1 %49, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit89, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i
 
-_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit90: ; preds = %.thread.i.i.i89, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i81
-  %.1.i.i.i88 = phi i32 [ %spec.select.i.i.i87, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i81 ], [ -1, %.thread.i.i.i89 ]
-  %49 = icmp slt i32 %.1.i.i.i88, 0
-  br i1 %49, label %.lr.ph.i.i14.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i, !llvm.loop !277
+_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit89: ; preds = %.thread.i.i.i88, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i80
+  %.1.i.i.i87 = phi i32 [ %spec.select.i.i.i86, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i80 ], [ -1, %.thread.i.i.i88 ]
+  %50 = icmp slt i32 %.1.i.i.i87, 0
+  br i1 %50, label %.lr.ph.i.i14.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i, !llvm.loop !277
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i: ; preds = %.thread.i.i.i89, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit90, %.thread.i.i.i104, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit105
-  %.sroa.04.0.lcssa.i.i12.i = phi ptr [ %.sroa.0.08.i.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit105 ], [ %.sroa.0.08.i.i, %.thread.i.i.i104 ], [ %.sroa.0.09.i.i15.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit90 ], [ %.sroa.0.09.i.i15.i, %.thread.i.i.i89 ]
-  store ptr %.sroa.0275.0.copyload, ptr %.sroa.04.0.lcssa.i.i12.i, align 8
-  %.sroa.6277.0..sroa.04.0.lcssa.i.i12.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i12.i, i64 8
-  store i64 %.sroa.6277.0.copyload, ptr %.sroa.6277.0..sroa.04.0.lcssa.i.i12.i.sroa_idx, align 8
-  %.sroa.8279.0..sroa.04.0.lcssa.i.i12.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i12.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8279.0..sroa.04.0.lcssa.i.i12.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8279, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8279)
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 64
-  %.not.i13.i = icmp eq ptr %50, %18
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i: ; preds = %.thread.i.i.i88, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit89, %.thread.i.i.i103, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit104
+  %.sroa.04.0.lcssa.i.i12.i = phi ptr [ %.sroa.0.08.i.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit104 ], [ %.sroa.0.08.i.i, %.thread.i.i.i103 ], [ %.sroa.0.09.i.i15.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit89 ], [ %.sroa.0.09.i.i15.i, %.thread.i.i.i88 ]
+  store ptr %.sroa.0274.0.copyload, ptr %.sroa.04.0.lcssa.i.i12.i, align 8
+  %.sroa.6276.0..sroa.04.0.lcssa.i.i12.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i12.i, i64 8
+  store i64 %.sroa.6276.0.copyload, ptr %.sroa.6276.0..sroa.04.0.lcssa.i.i12.i.sroa_idx, align 8
+  %.sroa.8278.0..sroa.04.0.lcssa.i.i12.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i12.i, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8278.0..sroa.04.0.lcssa.i.i12.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8278, i64 48, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8278)
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 64
+  %.not.i13.i = icmp eq ptr %51, %18
   br i1 %.not.i13.i, label %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit, label %.lr.ph.i10.i, !llvm.loop !279
 
-51:                                               ; preds = %19
+52:                                               ; preds = %19
   %.not19.i20.i = icmp eq ptr %scevgep.i, %18
   br i1 %.not19.i20.i, label %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit, label %.lr.ph.i21.i.preheader
 
-.lr.ph.i21.i.preheader:                           ; preds = %51
-  %.sroa.2.0..sroa_idx.i5.i63 = getelementptr inbounds nuw i8, ptr %17, i64 8
+.lr.ph.i21.i.preheader:                           ; preds = %52
+  %.sroa.2.0..sroa_idx.i5.i62 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %.lr.ph.i21.i
 
-.lr.ph.i21.i:                                     ; preds = %.lr.ph.i21.i.preheader, %70
-  %.sroa.0.021.i22.i = phi ptr [ %.sroa.0.0.i26.i, %70 ], [ %scevgep.i, %.lr.ph.i21.i.preheader ]
-  %.pn20.i23.i = phi ptr [ %.sroa.0.021.i22.i, %70 ], [ %17, %.lr.ph.i21.i.preheader ]
-  %.sroa.2.0..sroa_idx.i.i61 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i22.i, i64 8
-  %.sroa.2.0.copyload.i.i62 = load i64, ptr %.sroa.2.0..sroa_idx.i.i61, align 8, !tbaa !50
-  %.sroa.2.0.copyload.i6.i64 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i63, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i65 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i64, i64 %.sroa.2.0.copyload.i.i62)
-  %52 = icmp eq i64 %.sroa.speculated.i.i.i65, 0
-  br i1 %52, label %.thread.i.i.i74, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i66
+.lr.ph.i21.i:                                     ; preds = %.lr.ph.i21.i.preheader, %71
+  %.sroa.0.021.i22.i = phi ptr [ %.sroa.0.0.i26.i, %71 ], [ %scevgep.i, %.lr.ph.i21.i.preheader ]
+  %.pn20.i23.i = phi ptr [ %.sroa.0.021.i22.i, %71 ], [ %17, %.lr.ph.i21.i.preheader ]
+  %.sroa.2.0..sroa_idx.i.i60 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i22.i, i64 8
+  %.sroa.2.0.copyload.i.i61 = load i64, ptr %.sroa.2.0..sroa_idx.i.i60, align 8, !tbaa !50
+  %.sroa.2.0.copyload.i6.i63 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i62, align 8, !tbaa !50
+  %.sroa.speculated.i.i.i64 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i63, i64 %.sroa.2.0.copyload.i.i61)
+  %53 = icmp eq i64 %.sroa.speculated.i.i.i64, 0
+  br i1 %53, label %.thread.i.i.i73, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i65
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i66: ; preds = %.lr.ph.i21.i
-  %.sroa.0.0.copyload.i4.i67 = load ptr, ptr %17, align 8, !tbaa !49
-  %.sroa.0.0.copyload.i.i68 = load ptr, ptr %.sroa.0.021.i22.i, align 8, !tbaa !49
-  %53 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i68, ptr noundef %.sroa.0.0.copyload.i4.i67, i64 noundef %.sroa.speculated.i.i.i65) #28
-  %.fr.i.i.i69 = freeze i32 %53
-  %.not.not.i.i.i70 = icmp eq i32 %.fr.i.i.i69, 0
-  br i1 %.not.not.i.i.i70, label %.thread.i.i.i74, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit75
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i65: ; preds = %.lr.ph.i21.i
+  %.sroa.0.0.copyload.i4.i66 = load ptr, ptr %17, align 8, !tbaa !49
+  %.sroa.0.0.copyload.i.i67 = load ptr, ptr %.sroa.0.021.i22.i, align 8, !tbaa !49
+  %54 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i67, ptr noundef %.sroa.0.0.copyload.i4.i66, i64 noundef %.sroa.speculated.i.i.i64) #28
+  %.fr.i.i.i68 = freeze i32 %54
+  %.not.not.i.i.i69 = icmp eq i32 %.fr.i.i.i68, 0
+  br i1 %.not.not.i.i.i69, label %.thread.i.i.i73, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit74
 
-.thread.i.i.i74:                                  ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i66, %.lr.ph.i21.i
-  %54 = icmp ult i64 %.sroa.2.0.copyload.i.i62, %.sroa.2.0.copyload.i6.i64
-  br i1 %54, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i, label %.thread.i.i.i74._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit75.thread_crit_edge
+.thread.i.i.i73:                                  ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i65, %.lr.ph.i21.i
+  %55 = icmp ult i64 %.sroa.2.0.copyload.i.i61, %.sroa.2.0.copyload.i6.i63
+  br i1 %55, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i, label %.thread.i.i.i73._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit74.thread_crit_edge
 
-.thread.i.i.i74._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit75.thread_crit_edge: ; preds = %.thread.i.i.i74
-  %.sroa.0280.0.copyload.pre = load ptr, ptr %.sroa.0.021.i22.i, align 8
-  br label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit75.thread
+.thread.i.i.i73._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit74.thread_crit_edge: ; preds = %.thread.i.i.i73
+  %.sroa.0279.0.copyload.pre = load ptr, ptr %.sroa.0.021.i22.i, align 8
+  br label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit74.thread
 
-_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit75: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i66
-  %55 = icmp slt i32 %.fr.i.i.i69, 0
-  br i1 %55, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit75.thread
+_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit74: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i65
+  %56 = icmp slt i32 %.fr.i.i.i68, 0
+  br i1 %56, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit74.thread
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i: ; preds = %.thread.i.i.i74, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit75
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i: ; preds = %.thread.i.i.i73, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit74
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.021.i22.i, i64 64, i1 false)
-  %56 = getelementptr inbounds nuw i8, ptr %.pn20.i23.i, i64 128
-  %57 = ptrtoint ptr %.sroa.0.021.i22.i to i64
-  %58 = sub i64 %57, %21
-  %59 = ashr exact i64 %58, 6
-  %60 = sub nsw i64 0, %59
-  %61 = getelementptr inbounds %"class.llvm::VecDesc", ptr %56, i64 %60
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %61, ptr noundef nonnull align 8 dereferenceable(1) %17, i64 %58, i1 false)
+  %57 = getelementptr inbounds nuw i8, ptr %.pn20.i23.i, i64 128
+  %58 = ptrtoint ptr %.sroa.0.021.i22.i to i64
+  %59 = sub i64 %58, %21
+  %60 = ashr exact i64 %59, 6
+  %61 = sub nsw i64 0, %60
+  %62 = getelementptr inbounds %"class.llvm::VecDesc", ptr %57, i64 %61
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %62, ptr noundef nonnull align 8 dereferenceable(1) %17, i64 %59, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %70
+  br label %71
 
-_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit75.thread: ; preds = %.thread.i.i.i74._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit75.thread_crit_edge, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit75
-  %.sroa.0280.0.copyload = phi ptr [ %.sroa.0280.0.copyload.pre, %.thread.i.i.i74._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit75.thread_crit_edge ], [ %.sroa.0.0.copyload.i.i68, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit75 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8284)
-  %.sroa.8284.0..sroa.0.021.i22.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i22.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8284, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8284.0..sroa.0.021.i22.i.sroa_idx, i64 48, i1 false)
-  %.sroa.2.0..sroa_idx.i5.i48 = getelementptr inbounds nuw i8, ptr %.pn20.i23.i, i64 8
-  %.sroa.2.0.copyload.i6.i49 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i48, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i50 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i49, i64 %.sroa.2.0.copyload.i.i62)
-  %62 = icmp eq i64 %.sroa.speculated.i.i.i50, 0
-  br i1 %62, label %.thread.i.i.i59, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i51
+_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit74.thread: ; preds = %.thread.i.i.i73._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit74.thread_crit_edge, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit74
+  %.sroa.0279.0.copyload = phi ptr [ %.sroa.0279.0.copyload.pre, %.thread.i.i.i73._ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit74.thread_crit_edge ], [ %.sroa.0.0.copyload.i.i67, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit74 ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8283)
+  %.sroa.8283.0..sroa.0.021.i22.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i22.i, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8283, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8283.0..sroa.0.021.i22.i.sroa_idx, i64 48, i1 false)
+  %.sroa.2.0..sroa_idx.i5.i47 = getelementptr inbounds nuw i8, ptr %.pn20.i23.i, i64 8
+  %.sroa.2.0.copyload.i6.i48 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i47, align 8, !tbaa !50
+  %.sroa.speculated.i.i.i49 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i48, i64 %.sroa.2.0.copyload.i.i61)
+  %63 = icmp eq i64 %.sroa.speculated.i.i.i49, 0
+  br i1 %63, label %.thread.i.i.i58, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i50
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i51: ; preds = %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit75.thread
-  %.sroa.0.0.copyload.i4.i52 = load ptr, ptr %.pn20.i23.i, align 8, !tbaa !49
-  %63 = tail call i32 @memcmp(ptr noundef %.sroa.0280.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i52, i64 noundef %.sroa.speculated.i.i.i50) #28
-  %.fr.i.i.i54 = freeze i32 %63
-  %.not.not.i.i.i55 = icmp eq i32 %.fr.i.i.i54, 0
-  br i1 %.not.not.i.i.i55, label %.thread.i.i.i59, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit60
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i50: ; preds = %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit74.thread
+  %.sroa.0.0.copyload.i4.i51 = load ptr, ptr %.pn20.i23.i, align 8, !tbaa !49
+  %64 = tail call i32 @memcmp(ptr noundef %.sroa.0279.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i51, i64 noundef %.sroa.speculated.i.i.i49) #28
+  %.fr.i.i.i53 = freeze i32 %64
+  %.not.not.i.i.i54 = icmp eq i32 %.fr.i.i.i53, 0
+  br i1 %.not.not.i.i.i54, label %.thread.i.i.i58, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit59
 
-.thread.i.i.i59:                                  ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i51, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit75.thread
-  %64 = icmp ult i64 %.sroa.2.0.copyload.i.i62, %.sroa.2.0.copyload.i6.i49
-  br i1 %64, label %.lr.ph.i.i28.i.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i
-
-_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit60: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i51
-  %65 = icmp slt i32 %.fr.i.i.i54, 0
+.thread.i.i.i58:                                  ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i50, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit74.thread
+  %65 = icmp ult i64 %.sroa.2.0.copyload.i.i61, %.sroa.2.0.copyload.i6.i48
   br i1 %65, label %.lr.ph.i.i28.i.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i
 
-.lr.ph.i.i28.i.preheader:                         ; preds = %.thread.i.i.i59, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit60
+_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit59: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i50
+  %66 = icmp slt i32 %.fr.i.i.i53, 0
+  br i1 %66, label %.lr.ph.i.i28.i.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i
+
+.lr.ph.i.i28.i.preheader:                         ; preds = %.thread.i.i.i58, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit59
   br label %.lr.ph.i.i28.i
 
 .lr.ph.i.i28.i:                                   ; preds = %.lr.ph.i.i28.i.preheader, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit
@@ -5233,367 +5233,367 @@ _ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit60: ; preds = %_ZN4llvm9Strin
   %.sroa.0.0.i.i31.i = getelementptr inbounds i8, ptr %.sroa.0.09.i.i29.i, i64 -64
   %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %.sroa.0.09.i.i29.i, i64 -56
   %.sroa.2.0.copyload.i6.i = load i64, ptr %.sroa.2.0..sroa_idx.i5.i, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i, i64 %.sroa.2.0.copyload.i.i62)
-  %66 = icmp eq i64 %.sroa.speculated.i.i.i, 0
-  br i1 %66, label %.thread.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i, i64 %.sroa.2.0.copyload.i.i61)
+  %67 = icmp eq i64 %.sroa.speculated.i.i.i, 0
+  br i1 %67, label %.thread.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.i.i28.i
   %.sroa.0.0.copyload.i4.i = load ptr, ptr %.sroa.0.0.i.i31.i, align 8, !tbaa !49
-  %67 = tail call i32 @memcmp(ptr noundef %.sroa.0280.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i, i64 noundef %.sroa.speculated.i.i.i) #28
-  %.fr.i.i.i = freeze i32 %67
+  %68 = tail call i32 @memcmp(ptr noundef %.sroa.0279.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i, i64 noundef %.sroa.speculated.i.i.i) #28
+  %.fr.i.i.i = freeze i32 %68
   %.not.not.i.i.i = icmp eq i32 %.fr.i.i.i, 0
   %.inv.i.i.i = icmp sgt i32 %.fr.i.i.i, -1
   %spec.select.i.i.i = select i1 %.inv.i.i.i, i32 1, i32 -1
   br i1 %.not.not.i.i.i, label %.thread.i.i.i, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit
 
 .thread.i.i.i:                                    ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %.lr.ph.i.i28.i
-  %68 = icmp ult i64 %.sroa.2.0.copyload.i.i62, %.sroa.2.0.copyload.i6.i
-  br i1 %68, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i
+  %69 = icmp ult i64 %.sroa.2.0.copyload.i.i61, %.sroa.2.0.copyload.i6.i
+  br i1 %69, label %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i
 
 _ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit: ; preds = %.thread.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
   %.1.i.i.i = phi i32 [ %spec.select.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i ], [ -1, %.thread.i.i.i ]
-  %69 = icmp slt i32 %.1.i.i.i, 0
-  br i1 %69, label %.lr.ph.i.i28.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i, !llvm.loop !277
+  %70 = icmp slt i32 %.1.i.i.i, 0
+  br i1 %70, label %.lr.ph.i.i28.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i, !llvm.loop !277
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i: ; preds = %.thread.i.i.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit, %.thread.i.i.i59, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit60
-  %.sroa.04.0.lcssa.i.i25.i = phi ptr [ %.sroa.0.021.i22.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit60 ], [ %.sroa.0.021.i22.i, %.thread.i.i.i59 ], [ %.sroa.0.09.i.i29.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit ], [ %.sroa.0.09.i.i29.i, %.thread.i.i.i ]
-  store ptr %.sroa.0280.0.copyload, ptr %.sroa.04.0.lcssa.i.i25.i, align 8
-  %.sroa.6282.0..sroa.04.0.lcssa.i.i25.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i25.i, i64 8
-  store i64 %.sroa.2.0.copyload.i.i62, ptr %.sroa.6282.0..sroa.04.0.lcssa.i.i25.i.sroa_idx, align 8
-  %.sroa.8284.0..sroa.04.0.lcssa.i.i25.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i25.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8284.0..sroa.04.0.lcssa.i.i25.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8284, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8284)
-  br label %70
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i: ; preds = %.thread.i.i.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit, %.thread.i.i.i58, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit59
+  %.sroa.04.0.lcssa.i.i25.i = phi ptr [ %.sroa.0.021.i22.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit59 ], [ %.sroa.0.021.i22.i, %.thread.i.i.i58 ], [ %.sroa.0.09.i.i29.i, %_ZL21compareByScalarFnNameRKN4llvm7VecDescES2_.exit ], [ %.sroa.0.09.i.i29.i, %.thread.i.i.i ]
+  store ptr %.sroa.0279.0.copyload, ptr %.sroa.04.0.lcssa.i.i25.i, align 8
+  %.sroa.6281.0..sroa.04.0.lcssa.i.i25.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i25.i, i64 8
+  store i64 %.sroa.2.0.copyload.i.i61, ptr %.sroa.6281.0..sroa.04.0.lcssa.i.i25.i.sroa_idx, align 8
+  %.sroa.8283.0..sroa.04.0.lcssa.i.i25.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i25.i, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8283.0..sroa.04.0.lcssa.i.i25.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8283, i64 48, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8283)
+  br label %71
 
-70:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i
+71:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i
   %.sroa.0.0.i26.i = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i22.i, i64 64
   %.not.i27.i = icmp eq ptr %.sroa.0.0.i26.i, %18
   br i1 %.not.i27.i, label %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit, label %.lr.ph.i21.i, !llvm.loop !278
 
-_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit: ; preds = %70, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i, %51, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i, %3
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %73 = load ptr, ptr %72, align 8, !tbaa !276
-  %74 = load ptr, ptr %71, align 8, !tbaa !276
-  %75 = ptrtoint ptr %73 to i64
+_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit: ; preds = %71, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i, %52, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i, %3
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %74 = load ptr, ptr %73, align 8, !tbaa !276
+  %75 = load ptr, ptr %72, align 8, !tbaa !276
   %76 = ptrtoint ptr %74 to i64
-  %77 = sub i64 %75, %76
-  %78 = getelementptr inbounds i8, ptr %74, i64 %77
-  tail call void @_ZNSt6vectorIN4llvm7VecDescESaIS1_EE15_M_range_insertIPKS1_EEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EET_SB_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr %78, ptr noundef %1, ptr noundef %11)
-  %79 = load ptr, ptr %71, align 8, !tbaa !276
+  %77 = ptrtoint ptr %75 to i64
+  %78 = sub i64 %76, %77
+  %79 = getelementptr inbounds i8, ptr %75, i64 %78
+  tail call void @_ZNSt6vectorIN4llvm7VecDescESaIS1_EE15_M_range_insertIPKS1_EEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EET_SB_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr %79, ptr noundef %1, ptr noundef %11)
   %80 = load ptr, ptr %72, align 8, !tbaa !276
-  %.not.i.i.i.i1 = icmp eq ptr %79, %80
-  br i1 %.not.i.i.i.i1, label %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit2, label %81
+  %81 = load ptr, ptr %73, align 8, !tbaa !276
+  %.not.i.i.i.i1 = icmp eq ptr %80, %81
+  br i1 %.not.i.i.i.i1, label %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit2, label %82
 
-81:                                               ; preds = %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit
-  %82 = ptrtoint ptr %80 to i64
-  %83 = ptrtoint ptr %79 to i64
-  %84 = sub i64 %82, %83
-  %85 = ashr exact i64 %84, 6
-  %86 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %85, i1 true)
-  %87 = shl nuw nsw i64 %86, 1
-  %88 = xor i64 %87, 126
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %79, ptr %80, i64 noundef %88, ptr nonnull @_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_)
-  %89 = icmp sgt i64 %84, 1024
-  %scevgep.i19 = getelementptr i8, ptr %79, i64 64
-  br i1 %89, label %.lr.ph.i.preheader.i18, label %119
+82:                                               ; preds = %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit
+  %83 = ptrtoint ptr %81 to i64
+  %84 = ptrtoint ptr %80 to i64
+  %85 = sub i64 %83, %84
+  %86 = ashr exact i64 %85, 6
+  %87 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %86, i1 true)
+  %88 = shl nuw nsw i64 %87, 1
+  %89 = xor i64 %88, 126
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %80, ptr %81, i64 noundef %89, ptr nonnull @_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_)
+  %90 = icmp sgt i64 %85, 1024
+  %scevgep.i19 = getelementptr i8, ptr %80, i64 64
+  br i1 %90, label %.lr.ph.i.i18, label %121
 
-.lr.ph.i.preheader.i18:                           ; preds = %81
-  %.sroa.2.0..sroa_idx.i5.i257 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %90 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  br label %.lr.ph.i.i20
+.lr.ph.i.i18:                                     ; preds = %82
+  %.sroa.2.0..sroa_idx.i5.i256 = getelementptr inbounds nuw i8, ptr %80, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  br label %92
 
-.lr.ph.i.i20:                                     ; preds = %106, %.lr.ph.i.preheader.i18
-  %.sroa.0.021.i.idx.i21 = phi i64 [ %.sroa.0.021.i.add.i26, %106 ], [ 64, %.lr.ph.i.preheader.i18 ]
-  %.pn20.i.i22 = phi ptr [ %.sroa.0.021.i.ptr.i23, %106 ], [ %79, %.lr.ph.i.preheader.i18 ]
-  %.sroa.0.021.i.ptr.i23 = getelementptr inbounds nuw i8, ptr %79, i64 %.sroa.0.021.i.idx.i21
-  %.sroa.2.0..sroa_idx.i.i255 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i.ptr.i23, i64 24
-  %.sroa.2.0.copyload.i.i256 = load i64, ptr %.sroa.2.0..sroa_idx.i.i255, align 8, !tbaa !50
-  %.sroa.2.0.copyload.i6.i258 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i257, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i259 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i258, i64 %.sroa.2.0.copyload.i.i256)
-  %91 = icmp eq i64 %.sroa.speculated.i.i.i259, 0
-  br i1 %91, label %.thread.i.i.i268, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i260
+92:                                               ; preds = %108, %.lr.ph.i.i18
+  %.sroa.0.021.i.idx.i20 = phi i64 [ 64, %.lr.ph.i.i18 ], [ %.sroa.0.021.i.add.i25, %108 ]
+  %.pn20.i.i21 = phi ptr [ %80, %.lr.ph.i.i18 ], [ %.sroa.0.021.i.ptr.i22, %108 ]
+  %.sroa.0.021.i.ptr.i22 = getelementptr inbounds nuw i8, ptr %80, i64 %.sroa.0.021.i.idx.i20
+  %.sroa.2.0..sroa_idx.i.i254 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i.ptr.i22, i64 24
+  %.sroa.2.0.copyload.i.i255 = load i64, ptr %.sroa.2.0..sroa_idx.i.i254, align 8, !tbaa !50
+  %.sroa.2.0.copyload.i6.i257 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i256, align 8, !tbaa !50
+  %.sroa.speculated.i.i.i258 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i257, i64 %.sroa.2.0.copyload.i.i255)
+  %93 = icmp eq i64 %.sroa.speculated.i.i.i258, 0
+  br i1 %93, label %.thread.i.i.i267, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i259
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i260: ; preds = %.lr.ph.i.i20
-  %.sroa.0.0.copyload.i4.i261 = load ptr, ptr %90, align 8, !tbaa !49
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i.ptr.i23, i64 16
-  %.sroa.0.0.copyload.i.i262 = load ptr, ptr %92, align 8, !tbaa !49
-  %93 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i262, ptr noundef %.sroa.0.0.copyload.i4.i261, i64 noundef %.sroa.speculated.i.i.i259) #28
-  %.fr.i.i.i263 = freeze i32 %93
-  %.not.not.i.i.i264 = icmp eq i32 %.fr.i.i.i263, 0
-  br i1 %.not.not.i.i.i264, label %.thread.i.i.i268, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit269
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i259: ; preds = %92
+  %.sroa.0.0.copyload.i4.i260 = load ptr, ptr %91, align 8, !tbaa !49
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i.ptr.i22, i64 16
+  %.sroa.0.0.copyload.i.i261 = load ptr, ptr %94, align 8, !tbaa !49
+  %95 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i261, ptr noundef %.sroa.0.0.copyload.i4.i260, i64 noundef %.sroa.speculated.i.i.i258) #28
+  %.fr.i.i.i262 = freeze i32 %95
+  %.not.not.i.i.i263 = icmp eq i32 %.fr.i.i.i262, 0
+  br i1 %.not.not.i.i.i263, label %.thread.i.i.i267, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit268
 
-.thread.i.i.i268:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i260, %.lr.ph.i.i20
-  %94 = icmp ult i64 %.sroa.2.0.copyload.i.i256, %.sroa.2.0.copyload.i6.i258
-  br i1 %94, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i44, label %.thread.i.i.i268._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit269.thread_crit_edge
+.thread.i.i.i267:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i259, %92
+  %96 = icmp ult i64 %.sroa.2.0.copyload.i.i255, %.sroa.2.0.copyload.i6.i257
+  br i1 %96, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i43, label %.thread.i.i.i267._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit268.thread_crit_edge
 
-.thread.i.i.i268._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit269.thread_crit_edge: ; preds = %.thread.i.i.i268
-  %.sroa.4.0..sroa.0.021.i.ptr.i23.sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i.ptr.i23, i64 16
-  %.sroa.4.0.copyload.pre = load ptr, ptr %.sroa.4.0..sroa.0.021.i.ptr.i23.sroa_idx.phi.trans.insert, align 8
-  br label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit269.thread
+.thread.i.i.i267._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit268.thread_crit_edge: ; preds = %.thread.i.i.i267
+  %.sroa.4.0..sroa.0.021.i.ptr.i22.sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i.ptr.i22, i64 16
+  %.sroa.4.0.copyload.pre = load ptr, ptr %.sroa.4.0..sroa.0.021.i.ptr.i22.sroa_idx.phi.trans.insert, align 8
+  br label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit268.thread
 
-_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit269: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i260
-  %95 = icmp slt i32 %.fr.i.i.i263, 0
-  br i1 %95, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i44, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit269.thread
+_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit268: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i259
+  %97 = icmp slt i32 %.fr.i.i.i262, 0
+  br i1 %97, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i43, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit268.thread
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i44: ; preds = %.thread.i.i.i268, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit269
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i43: ; preds = %.thread.i.i.i267, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit268
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.021.i.ptr.i23, i64 64, i1 false)
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i19, ptr noundef nonnull align 8 dereferenceable(1) %79, i64 %.sroa.0.021.i.idx.i21, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %79, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.021.i.ptr.i22, i64 64, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i19, ptr noundef nonnull align 8 dereferenceable(1) %80, i64 %.sroa.0.021.i.idx.i20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %80, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %106
+  br label %108
 
-_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit269.thread: ; preds = %.thread.i.i.i268._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit269.thread_crit_edge, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit269
-  %.sroa.4.0.copyload = phi ptr [ %.sroa.4.0.copyload.pre, %.thread.i.i.i268._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit269.thread_crit_edge ], [ %.sroa.0.0.copyload.i.i262, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit269 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0285)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8289)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0285, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.021.i.ptr.i23, i64 16, i1 false)
-  %.sroa.8289.0..sroa.0.021.i.ptr.i23.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i.ptr.i23, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8289, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8289.0..sroa.0.021.i.ptr.i23.sroa_idx, i64 32, i1 false)
-  %.sroa.2.0..sroa_idx.i5.i242 = getelementptr inbounds nuw i8, ptr %.pn20.i.i22, i64 24
-  %.sroa.2.0.copyload.i6.i243 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i242, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i244 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i243, i64 %.sroa.2.0.copyload.i.i256)
-  %96 = icmp eq i64 %.sroa.speculated.i.i.i244, 0
-  br i1 %96, label %.thread.i.i.i253, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i245
+_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit268.thread: ; preds = %.thread.i.i.i267._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit268.thread_crit_edge, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit268
+  %.sroa.4.0.copyload = phi ptr [ %.sroa.4.0.copyload.pre, %.thread.i.i.i267._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit268.thread_crit_edge ], [ %.sroa.0.0.copyload.i.i261, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit268 ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0284)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8288)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0284, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.021.i.ptr.i22, i64 16, i1 false)
+  %.sroa.8288.0..sroa.0.021.i.ptr.i22.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i.ptr.i22, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8288, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8288.0..sroa.0.021.i.ptr.i22.sroa_idx, i64 32, i1 false)
+  %.sroa.2.0..sroa_idx.i5.i241 = getelementptr inbounds nuw i8, ptr %.pn20.i.i21, i64 24
+  %.sroa.2.0.copyload.i6.i242 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i241, align 8, !tbaa !50
+  %.sroa.speculated.i.i.i243 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i242, i64 %.sroa.2.0.copyload.i.i255)
+  %98 = icmp eq i64 %.sroa.speculated.i.i.i243, 0
+  br i1 %98, label %.thread.i.i.i252, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i244
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i245: ; preds = %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit269.thread
-  %97 = getelementptr inbounds nuw i8, ptr %.pn20.i.i22, i64 16
-  %.sroa.0.0.copyload.i4.i246 = load ptr, ptr %97, align 8, !tbaa !49
-  %98 = tail call i32 @memcmp(ptr noundef %.sroa.4.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i246, i64 noundef %.sroa.speculated.i.i.i244) #28
-  %.fr.i.i.i248 = freeze i32 %98
-  %.not.not.i.i.i249 = icmp eq i32 %.fr.i.i.i248, 0
-  br i1 %.not.not.i.i.i249, label %.thread.i.i.i253, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit254
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i244: ; preds = %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit268.thread
+  %99 = getelementptr inbounds nuw i8, ptr %.pn20.i.i21, i64 16
+  %.sroa.0.0.copyload.i4.i245 = load ptr, ptr %99, align 8, !tbaa !49
+  %100 = tail call i32 @memcmp(ptr noundef %.sroa.4.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i245, i64 noundef %.sroa.speculated.i.i.i243) #28
+  %.fr.i.i.i247 = freeze i32 %100
+  %.not.not.i.i.i248 = icmp eq i32 %.fr.i.i.i247, 0
+  br i1 %.not.not.i.i.i248, label %.thread.i.i.i252, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit253
 
-.thread.i.i.i253:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i245, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit269.thread
-  %99 = icmp ult i64 %.sroa.2.0.copyload.i.i256, %.sroa.2.0.copyload.i6.i243
-  br i1 %99, label %.lr.ph.i.i.i40.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i24
+.thread.i.i.i252:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i244, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit268.thread
+  %101 = icmp ult i64 %.sroa.2.0.copyload.i.i255, %.sroa.2.0.copyload.i6.i242
+  br i1 %101, label %.lr.ph.i.i.i39.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i23
 
-_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit254: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i245
-  %100 = icmp slt i32 %.fr.i.i.i248, 0
-  br i1 %100, label %.lr.ph.i.i.i40.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i24
+_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit253: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i244
+  %102 = icmp slt i32 %.fr.i.i.i247, 0
+  br i1 %102, label %.lr.ph.i.i.i39.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i23
 
-.lr.ph.i.i.i40.preheader:                         ; preds = %.thread.i.i.i253, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit254
-  br label %.lr.ph.i.i.i40
+.lr.ph.i.i.i39.preheader:                         ; preds = %.thread.i.i.i252, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit253
+  br label %.lr.ph.i.i.i39
 
-.lr.ph.i.i.i40:                                   ; preds = %.lr.ph.i.i.i40.preheader, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit239
-  %.sroa.0.09.i.i.i41 = phi ptr [ %.sroa.0.0.i.i.i43, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit239 ], [ %.pn20.i.i22, %.lr.ph.i.i.i40.preheader ]
-  %.sroa.04.08.i.i.i42 = phi ptr [ %.sroa.0.09.i.i.i41, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit239 ], [ %.sroa.0.021.i.ptr.i23, %.lr.ph.i.i.i40.preheader ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.04.08.i.i.i42, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.09.i.i.i41, i64 64, i1 false)
-  %.sroa.0.0.i.i.i43 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i41, i64 -64
-  %.sroa.2.0..sroa_idx.i5.i227 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i41, i64 -40
-  %.sroa.2.0.copyload.i6.i228 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i227, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i229 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i228, i64 %.sroa.2.0.copyload.i.i256)
-  %101 = icmp eq i64 %.sroa.speculated.i.i.i229, 0
-  br i1 %101, label %.thread.i.i.i238, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i230
+.lr.ph.i.i.i39:                                   ; preds = %.lr.ph.i.i.i39.preheader, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit238
+  %.sroa.0.09.i.i.i40 = phi ptr [ %.sroa.0.0.i.i.i42, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit238 ], [ %.pn20.i.i21, %.lr.ph.i.i.i39.preheader ]
+  %.sroa.04.08.i.i.i41 = phi ptr [ %.sroa.0.09.i.i.i40, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit238 ], [ %.sroa.0.021.i.ptr.i22, %.lr.ph.i.i.i39.preheader ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.04.08.i.i.i41, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.09.i.i.i40, i64 64, i1 false)
+  %.sroa.0.0.i.i.i42 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i40, i64 -64
+  %.sroa.2.0..sroa_idx.i5.i226 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i40, i64 -40
+  %.sroa.2.0.copyload.i6.i227 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i226, align 8, !tbaa !50
+  %.sroa.speculated.i.i.i228 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i227, i64 %.sroa.2.0.copyload.i.i255)
+  %103 = icmp eq i64 %.sroa.speculated.i.i.i228, 0
+  br i1 %103, label %.thread.i.i.i237, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i229
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i230: ; preds = %.lr.ph.i.i.i40
-  %102 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i41, i64 -48
-  %.sroa.0.0.copyload.i4.i231 = load ptr, ptr %102, align 8, !tbaa !49
-  %103 = tail call i32 @memcmp(ptr noundef %.sroa.4.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i231, i64 noundef %.sroa.speculated.i.i.i229) #28
-  %.fr.i.i.i233 = freeze i32 %103
-  %.not.not.i.i.i234 = icmp eq i32 %.fr.i.i.i233, 0
-  %.inv.i.i.i235 = icmp sgt i32 %.fr.i.i.i233, -1
-  %spec.select.i.i.i236 = select i1 %.inv.i.i.i235, i32 1, i32 -1
-  br i1 %.not.not.i.i.i234, label %.thread.i.i.i238, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit239
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i229: ; preds = %.lr.ph.i.i.i39
+  %104 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i40, i64 -48
+  %.sroa.0.0.copyload.i4.i230 = load ptr, ptr %104, align 8, !tbaa !49
+  %105 = tail call i32 @memcmp(ptr noundef %.sroa.4.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i230, i64 noundef %.sroa.speculated.i.i.i228) #28
+  %.fr.i.i.i232 = freeze i32 %105
+  %.not.not.i.i.i233 = icmp eq i32 %.fr.i.i.i232, 0
+  %.inv.i.i.i234 = icmp sgt i32 %.fr.i.i.i232, -1
+  %spec.select.i.i.i235 = select i1 %.inv.i.i.i234, i32 1, i32 -1
+  br i1 %.not.not.i.i.i233, label %.thread.i.i.i237, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit238
 
-.thread.i.i.i238:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i230, %.lr.ph.i.i.i40
-  %104 = icmp ult i64 %.sroa.2.0.copyload.i.i256, %.sroa.2.0.copyload.i6.i228
-  br i1 %104, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit239, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i24
+.thread.i.i.i237:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i229, %.lr.ph.i.i.i39
+  %106 = icmp ult i64 %.sroa.2.0.copyload.i.i255, %.sroa.2.0.copyload.i6.i227
+  br i1 %106, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit238, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i23
 
-_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit239: ; preds = %.thread.i.i.i238, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i230
-  %.1.i.i.i237 = phi i32 [ %spec.select.i.i.i236, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i230 ], [ -1, %.thread.i.i.i238 ]
-  %105 = icmp slt i32 %.1.i.i.i237, 0
-  br i1 %105, label %.lr.ph.i.i.i40, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i24, !llvm.loop !277
+_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit238: ; preds = %.thread.i.i.i237, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i229
+  %.1.i.i.i236 = phi i32 [ %spec.select.i.i.i235, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i229 ], [ -1, %.thread.i.i.i237 ]
+  %107 = icmp slt i32 %.1.i.i.i236, 0
+  br i1 %107, label %.lr.ph.i.i.i39, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i23, !llvm.loop !277
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i24: ; preds = %.thread.i.i.i238, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit239, %.thread.i.i.i253, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit254
-  %.sroa.04.0.lcssa.i.i.i25 = phi ptr [ %.sroa.0.021.i.ptr.i23, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit254 ], [ %.sroa.0.021.i.ptr.i23, %.thread.i.i.i253 ], [ %.sroa.0.09.i.i.i41, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit239 ], [ %.sroa.0.09.i.i.i41, %.thread.i.i.i238 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.0.lcssa.i.i.i25, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0285, i64 16, i1 false)
-  %.sroa.4.0..sroa.04.0.lcssa.i.i.i25.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i.i25, i64 16
-  store ptr %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa.04.0.lcssa.i.i.i25.sroa_idx, align 8
-  %.sroa.6287.0..sroa.04.0.lcssa.i.i.i25.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i.i25, i64 24
-  store i64 %.sroa.2.0.copyload.i.i256, ptr %.sroa.6287.0..sroa.04.0.lcssa.i.i.i25.sroa_idx, align 8
-  %.sroa.8289.0..sroa.04.0.lcssa.i.i.i25.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i.i25, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8289.0..sroa.04.0.lcssa.i.i.i25.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8289, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0285)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8289)
-  br label %106
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i23: ; preds = %.thread.i.i.i237, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit238, %.thread.i.i.i252, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit253
+  %.sroa.04.0.lcssa.i.i.i24 = phi ptr [ %.sroa.0.021.i.ptr.i22, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit253 ], [ %.sroa.0.021.i.ptr.i22, %.thread.i.i.i252 ], [ %.sroa.0.09.i.i.i40, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit238 ], [ %.sroa.0.09.i.i.i40, %.thread.i.i.i237 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.0.lcssa.i.i.i24, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0284, i64 16, i1 false)
+  %.sroa.4.0..sroa.04.0.lcssa.i.i.i24.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i.i24, i64 16
+  store ptr %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa.04.0.lcssa.i.i.i24.sroa_idx, align 8
+  %.sroa.6286.0..sroa.04.0.lcssa.i.i.i24.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i.i24, i64 24
+  store i64 %.sroa.2.0.copyload.i.i255, ptr %.sroa.6286.0..sroa.04.0.lcssa.i.i.i24.sroa_idx, align 8
+  %.sroa.8288.0..sroa.04.0.lcssa.i.i.i24.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i.i24, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8288.0..sroa.04.0.lcssa.i.i.i24.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8288, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0284)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8288)
+  br label %108
 
-106:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i24, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i44
-  %.sroa.0.021.i.add.i26 = add nuw nsw i64 %.sroa.0.021.i.idx.i21, 64
-  %.not.i.i27 = icmp eq i64 %.sroa.0.021.i.add.i26, 1024
-  br i1 %.not.i.i27, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i28, label %.lr.ph.i.i20, !llvm.loop !278
+108:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i.i23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i43
+  %.sroa.0.021.i.add.i25 = add nuw nsw i64 %.sroa.0.021.i.idx.i20, 64
+  %.not.i.i26 = icmp eq i64 %.sroa.0.021.i.add.i25, 1024
+  br i1 %.not.i.i26, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i27, label %92, !llvm.loop !278
 
-_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i28: ; preds = %106
-  %107 = getelementptr inbounds nuw i8, ptr %79, i64 1024
-  %.not7.i.i29 = icmp eq ptr %107, %80
-  br i1 %.not7.i.i29, label %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit2, label %.lr.ph.i10.i30
+_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i27: ; preds = %108
+  %109 = getelementptr inbounds nuw i8, ptr %80, i64 1024
+  %.not7.i.i28 = icmp eq ptr %109, %81
+  br i1 %.not7.i.i28, label %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit2, label %.lr.ph.i10.i29
 
-.lr.ph.i10.i30:                                   ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i28, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i33
-  %.sroa.0.08.i.i31 = phi ptr [ %118, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i33 ], [ %107, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i28 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0290)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8295)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0290, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.08.i.i31, i64 16, i1 false)
-  %.sroa.4291.0..sroa.0.08.i.i31.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i31, i64 16
-  %.sroa.4291.0.copyload = load ptr, ptr %.sroa.4291.0..sroa.0.08.i.i31.sroa_idx, align 8
-  %.sroa.6293.0..sroa.0.08.i.i31.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i31, i64 24
-  %.sroa.6293.0.copyload = load i64, ptr %.sroa.6293.0..sroa.0.08.i.i31.sroa_idx, align 8
-  %.sroa.8295.0..sroa.0.08.i.i31.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i31, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8295, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8295.0..sroa.0.08.i.i31.sroa_idx, i64 32, i1 false)
-  %.sroa.2.0..sroa_idx.i5.i212 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i31, i64 -40
-  %.sroa.2.0.copyload.i6.i213 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i212, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i214 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i213, i64 %.sroa.6293.0.copyload)
-  %108 = icmp eq i64 %.sroa.speculated.i.i.i214, 0
-  br i1 %108, label %.thread.i.i.i223, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i215
+.lr.ph.i10.i29:                                   ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i27, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i32
+  %.sroa.0.08.i.i30 = phi ptr [ %120, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i32 ], [ %109, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i27 ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0289)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8294)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0289, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.08.i.i30, i64 16, i1 false)
+  %.sroa.4290.0..sroa.0.08.i.i30.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i30, i64 16
+  %.sroa.4290.0.copyload = load ptr, ptr %.sroa.4290.0..sroa.0.08.i.i30.sroa_idx, align 8
+  %.sroa.6292.0..sroa.0.08.i.i30.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i30, i64 24
+  %.sroa.6292.0.copyload = load i64, ptr %.sroa.6292.0..sroa.0.08.i.i30.sroa_idx, align 8
+  %.sroa.8294.0..sroa.0.08.i.i30.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i30, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8294, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8294.0..sroa.0.08.i.i30.sroa_idx, i64 32, i1 false)
+  %.sroa.2.0..sroa_idx.i5.i211 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i30, i64 -40
+  %.sroa.2.0.copyload.i6.i212 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i211, align 8, !tbaa !50
+  %.sroa.speculated.i.i.i213 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i212, i64 %.sroa.6292.0.copyload)
+  %110 = icmp eq i64 %.sroa.speculated.i.i.i213, 0
+  br i1 %110, label %.thread.i.i.i222, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i214
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i215: ; preds = %.lr.ph.i10.i30
-  %109 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i31, i64 -48
-  %.sroa.0.0.copyload.i4.i216 = load ptr, ptr %109, align 8, !tbaa !49
-  %110 = tail call i32 @memcmp(ptr noundef %.sroa.4291.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i216, i64 noundef %.sroa.speculated.i.i.i214) #28
-  %.fr.i.i.i218 = freeze i32 %110
-  %.not.not.i.i.i219 = icmp eq i32 %.fr.i.i.i218, 0
-  br i1 %.not.not.i.i.i219, label %.thread.i.i.i223, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit224
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i214: ; preds = %.lr.ph.i10.i29
+  %111 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i30, i64 -48
+  %.sroa.0.0.copyload.i4.i215 = load ptr, ptr %111, align 8, !tbaa !49
+  %112 = tail call i32 @memcmp(ptr noundef %.sroa.4290.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i215, i64 noundef %.sroa.speculated.i.i.i213) #28
+  %.fr.i.i.i217 = freeze i32 %112
+  %.not.not.i.i.i218 = icmp eq i32 %.fr.i.i.i217, 0
+  br i1 %.not.not.i.i.i218, label %.thread.i.i.i222, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit223
 
-.thread.i.i.i223:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i215, %.lr.ph.i10.i30
-  %111 = icmp ult i64 %.sroa.6293.0.copyload, %.sroa.2.0.copyload.i6.i213
-  br i1 %111, label %.lr.ph.i.i14.i36.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i33
+.thread.i.i.i222:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i214, %.lr.ph.i10.i29
+  %113 = icmp ult i64 %.sroa.6292.0.copyload, %.sroa.2.0.copyload.i6.i212
+  br i1 %113, label %.lr.ph.i.i14.i35.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i32
 
-_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit224: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i215
-  %112 = icmp slt i32 %.fr.i.i.i218, 0
-  br i1 %112, label %.lr.ph.i.i14.i36.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i33
+_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit223: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i214
+  %114 = icmp slt i32 %.fr.i.i.i217, 0
+  br i1 %114, label %.lr.ph.i.i14.i35.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i32
 
-.lr.ph.i.i14.i36.preheader:                       ; preds = %.thread.i.i.i223, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit224
-  br label %.lr.ph.i.i14.i36
+.lr.ph.i.i14.i35.preheader:                       ; preds = %.thread.i.i.i222, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit223
+  br label %.lr.ph.i.i14.i35
 
-.lr.ph.i.i14.i36:                                 ; preds = %.lr.ph.i.i14.i36.preheader, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit209
-  %.sroa.04.08.i.i16.i38 = phi ptr [ %.sroa.0.09.i.i15.i37, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit209 ], [ %.sroa.0.08.i.i31, %.lr.ph.i.i14.i36.preheader ]
-  %.sroa.0.09.i.i15.i37 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i38, i64 -64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.04.08.i.i16.i38, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.09.i.i15.i37, i64 64, i1 false)
-  %.sroa.2.0..sroa_idx.i5.i197 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i38, i64 -104
-  %.sroa.2.0.copyload.i6.i198 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i197, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i199 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i198, i64 %.sroa.6293.0.copyload)
-  %113 = icmp eq i64 %.sroa.speculated.i.i.i199, 0
-  br i1 %113, label %.thread.i.i.i208, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i200
+.lr.ph.i.i14.i35:                                 ; preds = %.lr.ph.i.i14.i35.preheader, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit208
+  %.sroa.04.08.i.i16.i37 = phi ptr [ %.sroa.0.09.i.i15.i36, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit208 ], [ %.sroa.0.08.i.i30, %.lr.ph.i.i14.i35.preheader ]
+  %.sroa.0.09.i.i15.i36 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i37, i64 -64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.04.08.i.i16.i37, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.09.i.i15.i36, i64 64, i1 false)
+  %.sroa.2.0..sroa_idx.i5.i196 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i37, i64 -104
+  %.sroa.2.0.copyload.i6.i197 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i196, align 8, !tbaa !50
+  %.sroa.speculated.i.i.i198 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i197, i64 %.sroa.6292.0.copyload)
+  %115 = icmp eq i64 %.sroa.speculated.i.i.i198, 0
+  br i1 %115, label %.thread.i.i.i207, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i199
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i200: ; preds = %.lr.ph.i.i14.i36
-  %114 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i38, i64 -112
-  %.sroa.0.0.copyload.i4.i201 = load ptr, ptr %114, align 8, !tbaa !49
-  %115 = tail call i32 @memcmp(ptr noundef %.sroa.4291.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i201, i64 noundef %.sroa.speculated.i.i.i199) #28
-  %.fr.i.i.i203 = freeze i32 %115
-  %.not.not.i.i.i204 = icmp eq i32 %.fr.i.i.i203, 0
-  %.inv.i.i.i205 = icmp sgt i32 %.fr.i.i.i203, -1
-  %spec.select.i.i.i206 = select i1 %.inv.i.i.i205, i32 1, i32 -1
-  br i1 %.not.not.i.i.i204, label %.thread.i.i.i208, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit209
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i199: ; preds = %.lr.ph.i.i14.i35
+  %116 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i16.i37, i64 -112
+  %.sroa.0.0.copyload.i4.i200 = load ptr, ptr %116, align 8, !tbaa !49
+  %117 = tail call i32 @memcmp(ptr noundef %.sroa.4290.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i200, i64 noundef %.sroa.speculated.i.i.i198) #28
+  %.fr.i.i.i202 = freeze i32 %117
+  %.not.not.i.i.i203 = icmp eq i32 %.fr.i.i.i202, 0
+  %.inv.i.i.i204 = icmp sgt i32 %.fr.i.i.i202, -1
+  %spec.select.i.i.i205 = select i1 %.inv.i.i.i204, i32 1, i32 -1
+  br i1 %.not.not.i.i.i203, label %.thread.i.i.i207, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit208
 
-.thread.i.i.i208:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i200, %.lr.ph.i.i14.i36
-  %116 = icmp ult i64 %.sroa.6293.0.copyload, %.sroa.2.0.copyload.i6.i198
-  br i1 %116, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit209, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i33
+.thread.i.i.i207:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i199, %.lr.ph.i.i14.i35
+  %118 = icmp ult i64 %.sroa.6292.0.copyload, %.sroa.2.0.copyload.i6.i197
+  br i1 %118, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit208, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i32
 
-_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit209: ; preds = %.thread.i.i.i208, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i200
-  %.1.i.i.i207 = phi i32 [ %spec.select.i.i.i206, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i200 ], [ -1, %.thread.i.i.i208 ]
-  %117 = icmp slt i32 %.1.i.i.i207, 0
-  br i1 %117, label %.lr.ph.i.i14.i36, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i33, !llvm.loop !277
+_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit208: ; preds = %.thread.i.i.i207, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i199
+  %.1.i.i.i206 = phi i32 [ %spec.select.i.i.i205, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i199 ], [ -1, %.thread.i.i.i207 ]
+  %119 = icmp slt i32 %.1.i.i.i206, 0
+  br i1 %119, label %.lr.ph.i.i14.i35, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i32, !llvm.loop !277
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i33: ; preds = %.thread.i.i.i208, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit209, %.thread.i.i.i223, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit224
-  %.sroa.04.0.lcssa.i.i12.i34 = phi ptr [ %.sroa.0.08.i.i31, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit224 ], [ %.sroa.0.08.i.i31, %.thread.i.i.i223 ], [ %.sroa.0.09.i.i15.i37, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit209 ], [ %.sroa.0.09.i.i15.i37, %.thread.i.i.i208 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.0.lcssa.i.i12.i34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0290, i64 16, i1 false)
-  %.sroa.4291.0..sroa.04.0.lcssa.i.i12.i34.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i12.i34, i64 16
-  store ptr %.sroa.4291.0.copyload, ptr %.sroa.4291.0..sroa.04.0.lcssa.i.i12.i34.sroa_idx, align 8
-  %.sroa.6293.0..sroa.04.0.lcssa.i.i12.i34.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i12.i34, i64 24
-  store i64 %.sroa.6293.0.copyload, ptr %.sroa.6293.0..sroa.04.0.lcssa.i.i12.i34.sroa_idx, align 8
-  %.sroa.8295.0..sroa.04.0.lcssa.i.i12.i34.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i12.i34, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8295.0..sroa.04.0.lcssa.i.i12.i34.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8295, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0290)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8295)
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i31, i64 64
-  %.not.i13.i35 = icmp eq ptr %118, %80
-  br i1 %.not.i13.i35, label %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit2, label %.lr.ph.i10.i30, !llvm.loop !279
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i32: ; preds = %.thread.i.i.i207, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit208, %.thread.i.i.i222, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit223
+  %.sroa.04.0.lcssa.i.i12.i33 = phi ptr [ %.sroa.0.08.i.i30, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit223 ], [ %.sroa.0.08.i.i30, %.thread.i.i.i222 ], [ %.sroa.0.09.i.i15.i36, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit208 ], [ %.sroa.0.09.i.i15.i36, %.thread.i.i.i207 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.0.lcssa.i.i12.i33, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0289, i64 16, i1 false)
+  %.sroa.4290.0..sroa.04.0.lcssa.i.i12.i33.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i12.i33, i64 16
+  store ptr %.sroa.4290.0.copyload, ptr %.sroa.4290.0..sroa.04.0.lcssa.i.i12.i33.sroa_idx, align 8
+  %.sroa.6292.0..sroa.04.0.lcssa.i.i12.i33.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i12.i33, i64 24
+  store i64 %.sroa.6292.0.copyload, ptr %.sroa.6292.0..sroa.04.0.lcssa.i.i12.i33.sroa_idx, align 8
+  %.sroa.8294.0..sroa.04.0.lcssa.i.i12.i33.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i12.i33, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8294.0..sroa.04.0.lcssa.i.i12.i33.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8294, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0289)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8294)
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i30, i64 64
+  %.not.i13.i34 = icmp eq ptr %120, %81
+  br i1 %.not.i13.i34, label %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit2, label %.lr.ph.i10.i29, !llvm.loop !279
 
-119:                                              ; preds = %81
-  %.not19.i20.i4 = icmp eq ptr %scevgep.i19, %80
+121:                                              ; preds = %82
+  %.not19.i20.i4 = icmp eq ptr %scevgep.i19, %81
   br i1 %.not19.i20.i4, label %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit2, label %.lr.ph.i21.i6.preheader
 
-.lr.ph.i21.i6.preheader:                          ; preds = %119
-  %.sroa.2.0..sroa_idx.i5.i182 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %120 = getelementptr inbounds nuw i8, ptr %79, i64 16
+.lr.ph.i21.i6.preheader:                          ; preds = %121
+  %.sroa.2.0..sroa_idx.i5.i181 = getelementptr inbounds nuw i8, ptr %80, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %80, i64 16
   br label %.lr.ph.i21.i6
 
-.lr.ph.i21.i6:                                    ; preds = %.lr.ph.i21.i6.preheader, %142
-  %.sroa.0.021.i22.i7 = phi ptr [ %.sroa.0.0.i26.i11, %142 ], [ %scevgep.i19, %.lr.ph.i21.i6.preheader ]
-  %.pn20.i23.i8 = phi ptr [ %.sroa.0.021.i22.i7, %142 ], [ %79, %.lr.ph.i21.i6.preheader ]
-  %.sroa.2.0..sroa_idx.i.i180 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i22.i7, i64 24
-  %.sroa.2.0.copyload.i.i181 = load i64, ptr %.sroa.2.0..sroa_idx.i.i180, align 8, !tbaa !50
-  %.sroa.2.0.copyload.i6.i183 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i182, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i184 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i183, i64 %.sroa.2.0.copyload.i.i181)
-  %121 = icmp eq i64 %.sroa.speculated.i.i.i184, 0
-  br i1 %121, label %.thread.i.i.i193, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i185
+.lr.ph.i21.i6:                                    ; preds = %.lr.ph.i21.i6.preheader, %144
+  %.sroa.0.021.i22.i7 = phi ptr [ %.sroa.0.0.i26.i11, %144 ], [ %scevgep.i19, %.lr.ph.i21.i6.preheader ]
+  %.pn20.i23.i8 = phi ptr [ %.sroa.0.021.i22.i7, %144 ], [ %80, %.lr.ph.i21.i6.preheader ]
+  %.sroa.2.0..sroa_idx.i.i179 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i22.i7, i64 24
+  %.sroa.2.0.copyload.i.i180 = load i64, ptr %.sroa.2.0..sroa_idx.i.i179, align 8, !tbaa !50
+  %.sroa.2.0.copyload.i6.i182 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i181, align 8, !tbaa !50
+  %.sroa.speculated.i.i.i183 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i182, i64 %.sroa.2.0.copyload.i.i180)
+  %123 = icmp eq i64 %.sroa.speculated.i.i.i183, 0
+  br i1 %123, label %.thread.i.i.i192, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i184
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i185: ; preds = %.lr.ph.i21.i6
-  %.sroa.0.0.copyload.i4.i186 = load ptr, ptr %120, align 8, !tbaa !49
-  %122 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i22.i7, i64 16
-  %.sroa.0.0.copyload.i.i187 = load ptr, ptr %122, align 8, !tbaa !49
-  %123 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i187, ptr noundef %.sroa.0.0.copyload.i4.i186, i64 noundef %.sroa.speculated.i.i.i184) #28
-  %.fr.i.i.i188 = freeze i32 %123
-  %.not.not.i.i.i189 = icmp eq i32 %.fr.i.i.i188, 0
-  br i1 %.not.not.i.i.i189, label %.thread.i.i.i193, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit194
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i184: ; preds = %.lr.ph.i21.i6
+  %.sroa.0.0.copyload.i4.i185 = load ptr, ptr %122, align 8, !tbaa !49
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i22.i7, i64 16
+  %.sroa.0.0.copyload.i.i186 = load ptr, ptr %124, align 8, !tbaa !49
+  %125 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.copyload.i.i186, ptr noundef %.sroa.0.0.copyload.i4.i185, i64 noundef %.sroa.speculated.i.i.i183) #28
+  %.fr.i.i.i187 = freeze i32 %125
+  %.not.not.i.i.i188 = icmp eq i32 %.fr.i.i.i187, 0
+  br i1 %.not.not.i.i.i188, label %.thread.i.i.i192, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit193
 
-.thread.i.i.i193:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i185, %.lr.ph.i21.i6
-  %124 = icmp ult i64 %.sroa.2.0.copyload.i.i181, %.sroa.2.0.copyload.i6.i183
-  br i1 %124, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i17, label %.thread.i.i.i193._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit194.thread_crit_edge
+.thread.i.i.i192:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i184, %.lr.ph.i21.i6
+  %126 = icmp ult i64 %.sroa.2.0.copyload.i.i180, %.sroa.2.0.copyload.i6.i182
+  br i1 %126, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i17, label %.thread.i.i.i192._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit193.thread_crit_edge
 
-.thread.i.i.i193._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit194.thread_crit_edge: ; preds = %.thread.i.i.i193
-  %.sroa.4297.0..sroa.0.021.i22.i7.sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i22.i7, i64 16
-  %.sroa.4297.0.copyload.pre = load ptr, ptr %.sroa.4297.0..sroa.0.021.i22.i7.sroa_idx.phi.trans.insert, align 8
-  br label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit194.thread
+.thread.i.i.i192._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit193.thread_crit_edge: ; preds = %.thread.i.i.i192
+  %.sroa.4296.0..sroa.0.021.i22.i7.sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i22.i7, i64 16
+  %.sroa.4296.0.copyload.pre = load ptr, ptr %.sroa.4296.0..sroa.0.021.i22.i7.sroa_idx.phi.trans.insert, align 8
+  br label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit193.thread
 
-_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit194: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i185
-  %125 = icmp slt i32 %.fr.i.i.i188, 0
-  br i1 %125, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i17, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit194.thread
+_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit193: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i184
+  %127 = icmp slt i32 %.fr.i.i.i187, 0
+  br i1 %127, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i17, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit193.thread
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i17: ; preds = %.thread.i.i.i193, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit194
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i17: ; preds = %.thread.i.i.i192, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit193
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.021.i22.i7, i64 64, i1 false)
-  %126 = getelementptr inbounds nuw i8, ptr %.pn20.i23.i8, i64 128
-  %127 = ptrtoint ptr %.sroa.0.021.i22.i7 to i64
-  %128 = sub i64 %127, %83
-  %129 = ashr exact i64 %128, 6
-  %130 = sub nsw i64 0, %129
-  %131 = getelementptr inbounds %"class.llvm::VecDesc", ptr %126, i64 %130
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %131, ptr noundef nonnull align 8 dereferenceable(1) %79, i64 %128, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %79, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
+  %128 = getelementptr inbounds nuw i8, ptr %.pn20.i23.i8, i64 128
+  %129 = ptrtoint ptr %.sroa.0.021.i22.i7 to i64
+  %130 = sub i64 %129, %84
+  %131 = ashr exact i64 %130, 6
+  %132 = sub nsw i64 0, %131
+  %133 = getelementptr inbounds %"class.llvm::VecDesc", ptr %128, i64 %132
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %133, ptr noundef nonnull align 8 dereferenceable(1) %80, i64 %130, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %80, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %142
+  br label %144
 
-_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit194.thread: ; preds = %.thread.i.i.i193._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit194.thread_crit_edge, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit194
-  %.sroa.4297.0.copyload = phi ptr [ %.sroa.4297.0.copyload.pre, %.thread.i.i.i193._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit194.thread_crit_edge ], [ %.sroa.0.0.copyload.i.i187, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit194 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0296)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8301)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0296, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.021.i22.i7, i64 16, i1 false)
-  %.sroa.8301.0..sroa.0.021.i22.i7.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i22.i7, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8301, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8301.0..sroa.0.021.i22.i7.sroa_idx, i64 32, i1 false)
-  %.sroa.2.0..sroa_idx.i5.i167 = getelementptr inbounds nuw i8, ptr %.pn20.i23.i8, i64 24
-  %.sroa.2.0.copyload.i6.i168 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i167, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i169 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i168, i64 %.sroa.2.0.copyload.i.i181)
-  %132 = icmp eq i64 %.sroa.speculated.i.i.i169, 0
-  br i1 %132, label %.thread.i.i.i178, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i170
+_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit193.thread: ; preds = %.thread.i.i.i192._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit193.thread_crit_edge, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit193
+  %.sroa.4296.0.copyload = phi ptr [ %.sroa.4296.0.copyload.pre, %.thread.i.i.i192._ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit193.thread_crit_edge ], [ %.sroa.0.0.copyload.i.i186, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit193 ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0295)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8300)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0295, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.021.i22.i7, i64 16, i1 false)
+  %.sroa.8300.0..sroa.0.021.i22.i7.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i22.i7, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8300, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8300.0..sroa.0.021.i22.i7.sroa_idx, i64 32, i1 false)
+  %.sroa.2.0..sroa_idx.i5.i166 = getelementptr inbounds nuw i8, ptr %.pn20.i23.i8, i64 24
+  %.sroa.2.0.copyload.i6.i167 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i166, align 8, !tbaa !50
+  %.sroa.speculated.i.i.i168 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i167, i64 %.sroa.2.0.copyload.i.i180)
+  %134 = icmp eq i64 %.sroa.speculated.i.i.i168, 0
+  br i1 %134, label %.thread.i.i.i177, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i169
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i170: ; preds = %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit194.thread
-  %133 = getelementptr inbounds nuw i8, ptr %.pn20.i23.i8, i64 16
-  %.sroa.0.0.copyload.i4.i171 = load ptr, ptr %133, align 8, !tbaa !49
-  %134 = tail call i32 @memcmp(ptr noundef %.sroa.4297.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i171, i64 noundef %.sroa.speculated.i.i.i169) #28
-  %.fr.i.i.i173 = freeze i32 %134
-  %.not.not.i.i.i174 = icmp eq i32 %.fr.i.i.i173, 0
-  br i1 %.not.not.i.i.i174, label %.thread.i.i.i178, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit179
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i169: ; preds = %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit193.thread
+  %135 = getelementptr inbounds nuw i8, ptr %.pn20.i23.i8, i64 16
+  %.sroa.0.0.copyload.i4.i170 = load ptr, ptr %135, align 8, !tbaa !49
+  %136 = tail call i32 @memcmp(ptr noundef %.sroa.4296.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i170, i64 noundef %.sroa.speculated.i.i.i168) #28
+  %.fr.i.i.i172 = freeze i32 %136
+  %.not.not.i.i.i173 = icmp eq i32 %.fr.i.i.i172, 0
+  br i1 %.not.not.i.i.i173, label %.thread.i.i.i177, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit178
 
-.thread.i.i.i178:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i170, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit194.thread
-  %135 = icmp ult i64 %.sroa.2.0.copyload.i.i181, %.sroa.2.0.copyload.i6.i168
-  br i1 %135, label %.lr.ph.i.i28.i13.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i9
+.thread.i.i.i177:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i169, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit193.thread
+  %137 = icmp ult i64 %.sroa.2.0.copyload.i.i180, %.sroa.2.0.copyload.i6.i167
+  br i1 %137, label %.lr.ph.i.i28.i13.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i9
 
-_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit179: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i170
-  %136 = icmp slt i32 %.fr.i.i.i173, 0
-  br i1 %136, label %.lr.ph.i.i28.i13.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i9
+_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit178: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i169
+  %138 = icmp slt i32 %.fr.i.i.i172, 0
+  br i1 %138, label %.lr.ph.i.i28.i13.preheader, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i9
 
-.lr.ph.i.i28.i13.preheader:                       ; preds = %.thread.i.i.i178, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit179
+.lr.ph.i.i28.i13.preheader:                       ; preds = %.thread.i.i.i177, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit178
   br label %.lr.ph.i.i28.i13
 
 .lr.ph.i.i28.i13:                                 ; preds = %.lr.ph.i.i28.i13.preheader, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit
@@ -5601,50 +5601,50 @@ _ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit179: ; preds = %_ZN4llvm9Stri
   %.sroa.04.08.i.i30.i15 = phi ptr [ %.sroa.0.09.i.i29.i14, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit ], [ %.sroa.0.021.i22.i7, %.lr.ph.i.i28.i13.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.04.08.i.i30.i15, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.09.i.i29.i14, i64 64, i1 false)
   %.sroa.0.0.i.i31.i16 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i29.i14, i64 -64
-  %.sroa.2.0..sroa_idx.i5.i153 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i29.i14, i64 -40
-  %.sroa.2.0.copyload.i6.i154 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i153, align 8, !tbaa !50
-  %.sroa.speculated.i.i.i155 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i154, i64 %.sroa.2.0.copyload.i.i181)
-  %137 = icmp eq i64 %.sroa.speculated.i.i.i155, 0
-  br i1 %137, label %.thread.i.i.i164, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i156
+  %.sroa.2.0..sroa_idx.i5.i152 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i29.i14, i64 -40
+  %.sroa.2.0.copyload.i6.i153 = load i64, ptr %.sroa.2.0..sroa_idx.i5.i152, align 8, !tbaa !50
+  %.sroa.speculated.i.i.i154 = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i6.i153, i64 %.sroa.2.0.copyload.i.i180)
+  %139 = icmp eq i64 %.sroa.speculated.i.i.i154, 0
+  br i1 %139, label %.thread.i.i.i163, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i155
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i156: ; preds = %.lr.ph.i.i28.i13
-  %138 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i29.i14, i64 -48
-  %.sroa.0.0.copyload.i4.i157 = load ptr, ptr %138, align 8, !tbaa !49
-  %139 = tail call i32 @memcmp(ptr noundef %.sroa.4297.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i157, i64 noundef %.sroa.speculated.i.i.i155) #28
-  %.fr.i.i.i159 = freeze i32 %139
-  %.not.not.i.i.i160 = icmp eq i32 %.fr.i.i.i159, 0
-  %.inv.i.i.i161 = icmp sgt i32 %.fr.i.i.i159, -1
-  %spec.select.i.i.i162 = select i1 %.inv.i.i.i161, i32 1, i32 -1
-  br i1 %.not.not.i.i.i160, label %.thread.i.i.i164, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i155: ; preds = %.lr.ph.i.i28.i13
+  %140 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i29.i14, i64 -48
+  %.sroa.0.0.copyload.i4.i156 = load ptr, ptr %140, align 8, !tbaa !49
+  %141 = tail call i32 @memcmp(ptr noundef %.sroa.4296.0.copyload, ptr noundef %.sroa.0.0.copyload.i4.i156, i64 noundef %.sroa.speculated.i.i.i154) #28
+  %.fr.i.i.i158 = freeze i32 %141
+  %.not.not.i.i.i159 = icmp eq i32 %.fr.i.i.i158, 0
+  %.inv.i.i.i160 = icmp sgt i32 %.fr.i.i.i158, -1
+  %spec.select.i.i.i161 = select i1 %.inv.i.i.i160, i32 1, i32 -1
+  br i1 %.not.not.i.i.i159, label %.thread.i.i.i163, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit
 
-.thread.i.i.i164:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i156, %.lr.ph.i.i28.i13
-  %140 = icmp ult i64 %.sroa.2.0.copyload.i.i181, %.sroa.2.0.copyload.i6.i154
-  br i1 %140, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i9
+.thread.i.i.i163:                                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i155, %.lr.ph.i.i28.i13
+  %142 = icmp ult i64 %.sroa.2.0.copyload.i.i180, %.sroa.2.0.copyload.i6.i153
+  br i1 %142, label %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i9
 
-_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit: ; preds = %.thread.i.i.i164, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i156
-  %.1.i.i.i163 = phi i32 [ %spec.select.i.i.i162, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i156 ], [ -1, %.thread.i.i.i164 ]
-  %141 = icmp slt i32 %.1.i.i.i163, 0
-  br i1 %141, label %.lr.ph.i.i28.i13, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i9, !llvm.loop !277
+_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit: ; preds = %.thread.i.i.i163, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i155
+  %.1.i.i.i162 = phi i32 [ %spec.select.i.i.i161, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i155 ], [ -1, %.thread.i.i.i163 ]
+  %143 = icmp slt i32 %.1.i.i.i162, 0
+  br i1 %143, label %.lr.ph.i.i28.i13, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i9, !llvm.loop !277
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i9: ; preds = %.thread.i.i.i164, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit, %.thread.i.i.i178, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit179
-  %.sroa.04.0.lcssa.i.i25.i10 = phi ptr [ %.sroa.0.021.i22.i7, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit179 ], [ %.sroa.0.021.i22.i7, %.thread.i.i.i178 ], [ %.sroa.0.09.i.i29.i14, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit ], [ %.sroa.0.09.i.i29.i14, %.thread.i.i.i164 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.0.lcssa.i.i25.i10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0296, i64 16, i1 false)
-  %.sroa.4297.0..sroa.04.0.lcssa.i.i25.i10.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i25.i10, i64 16
-  store ptr %.sroa.4297.0.copyload, ptr %.sroa.4297.0..sroa.04.0.lcssa.i.i25.i10.sroa_idx, align 8
-  %.sroa.6299.0..sroa.04.0.lcssa.i.i25.i10.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i25.i10, i64 24
-  store i64 %.sroa.2.0.copyload.i.i181, ptr %.sroa.6299.0..sroa.04.0.lcssa.i.i25.i10.sroa_idx, align 8
-  %.sroa.8301.0..sroa.04.0.lcssa.i.i25.i10.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i25.i10, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8301.0..sroa.04.0.lcssa.i.i25.i10.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8301, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0296)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8301)
-  br label %142
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i9: ; preds = %.thread.i.i.i163, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit, %.thread.i.i.i177, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit178
+  %.sroa.04.0.lcssa.i.i25.i10 = phi ptr [ %.sroa.0.021.i22.i7, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit178 ], [ %.sroa.0.021.i22.i7, %.thread.i.i.i177 ], [ %.sroa.0.09.i.i29.i14, %_ZL21compareByVectorFnNameRKN4llvm7VecDescES2_.exit ], [ %.sroa.0.09.i.i29.i14, %.thread.i.i.i163 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.0.lcssa.i.i25.i10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0295, i64 16, i1 false)
+  %.sroa.4296.0..sroa.04.0.lcssa.i.i25.i10.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i25.i10, i64 16
+  store ptr %.sroa.4296.0.copyload, ptr %.sroa.4296.0..sroa.04.0.lcssa.i.i25.i10.sroa_idx, align 8
+  %.sroa.6298.0..sroa.04.0.lcssa.i.i25.i10.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i25.i10, i64 24
+  store i64 %.sroa.2.0.copyload.i.i180, ptr %.sroa.6298.0..sroa.04.0.lcssa.i.i25.i10.sroa_idx, align 8
+  %.sroa.8300.0..sroa.04.0.lcssa.i.i25.i10.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.04.0.lcssa.i.i25.i10, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8300.0..sroa.04.0.lcssa.i.i25.i10.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8300, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0295)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8300)
+  br label %144
 
-142:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i9, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i17
+144:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i24.i9, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i32.i17
   %.sroa.0.0.i26.i11 = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i22.i7, i64 64
-  %.not.i27.i12 = icmp eq ptr %.sroa.0.0.i26.i11, %80
+  %.not.i27.i12 = icmp eq ptr %.sroa.0.0.i26.i11, %81
   br i1 %.not.i27.i12, label %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit2, label %.lr.ph.i21.i6, !llvm.loop !278
 
-_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit2: ; preds = %142, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i33, %119, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i28, %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit
+_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit2: ; preds = %144, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i32, %121, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i27, %_ZN4llvm4sortIRSt6vectorINS_7VecDescESaIS2_EEPFbRKS2_S7_EEEvOT_T0_.exit
   ret void
 }
 

@@ -604,37 +604,37 @@ define void @Map_SuperTableSortSupergatesByDelay(ptr noundef readonly captures(n
   br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph
+  %15 = trunc nuw i64 %indvars.iv.next to i32
   store ptr null, ptr %12, align 8, !tbaa !34
-  %15 = and i64 %indvars.iv.next, 4294967295
-  tail call void @qsort(ptr noundef nonnull %5, i64 noundef %15, i64 noundef 8, ptr noundef nonnull @Map_SuperTableCompareGatesInList) #15
+  %16 = and i64 %indvars.iv.next, 4294967295
+  tail call void @qsort(ptr noundef nonnull %5, i64 noundef %16, i64 noundef 8, ptr noundef nonnull @Map_SuperTableCompareGatesInList) #15
   %.promoted = load ptr, ptr %12, align 8, !tbaa !34
-  br label %16
+  br label %17
 
-16:                                               ; preds = %._crit_edge, %16
-  %indvars.iv53 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next54, %16 ]
-  %17 = phi ptr [ %.promoted, %._crit_edge ], [ %21, %16 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv53
-  %19 = load ptr, ptr %18, align 8, !tbaa !44
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 248
-  store ptr %17, ptr %20, align 8, !tbaa !35
-  %21 = load ptr, ptr %18, align 8, !tbaa !44
-  store ptr %21, ptr %12, align 8, !tbaa !34
+17:                                               ; preds = %._crit_edge, %17
+  %indvars.iv53 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next54, %17 ]
+  %18 = phi ptr [ %.promoted, %._crit_edge ], [ %22, %17 ]
+  %19 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv53
+  %20 = load ptr, ptr %19, align 8, !tbaa !44
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 248
+  store ptr %18, ptr %21, align 8, !tbaa !35
+  %22 = load ptr, ptr %19, align 8, !tbaa !44
+  store ptr %22, ptr %12, align 8, !tbaa !34
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next54, %15
-  br i1 %exitcond.not, label %22, label %16, !llvm.loop !55
+  %exitcond.not = icmp eq i64 %indvars.iv.next54, %16
+  br i1 %exitcond.not, label %23, label %17, !llvm.loop !55
 
-22:                                               ; preds = %16
-  %23 = trunc nuw i64 %indvars.iv.next to i32
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 4
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4
-  %26 = shl i32 %23, 12
+  %26 = shl i32 %15, 12
   %27 = and i32 %26, 268431360
   %28 = and i32 %25, -268431361
   %29 = or disjoint i32 %28, %27
   store i32 %29, ptr %24, align 4
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.lr.ph46, %22
+._crit_edge.thread:                               ; preds = %.lr.ph46, %23
   %30 = getelementptr inbounds nuw i8, ptr %.03344, i64 24
   %.033 = load ptr, ptr %30, align 8, !tbaa !29
   %.not35 = icmp eq ptr %.033, null

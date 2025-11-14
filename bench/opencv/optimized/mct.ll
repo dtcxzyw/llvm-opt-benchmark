@@ -518,34 +518,34 @@ define hidden void @opj_calculate_norms(ptr noundef writeonly captures(none) %0,
   %wide.trip.count = zext i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %14
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %4 = trunc nuw i64 %indvars.iv to i32
-  br label %5
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %15
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
+  %4 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %5 = trunc nuw i64 %indvars.iv to i32
+  br label %6
 
-5:                                                ; preds = %.lr.ph, %5
-  %.02226 = phi i32 [ 0, %.lr.ph ], [ %13, %5 ]
-  %.02325 = phi i32 [ %4, %.lr.ph ], [ %10, %5 ]
-  %6 = phi double [ 0.000000e+00, %.lr.ph ], [ %12, %5 ]
-  %7 = zext i32 %.02325 to i64
-  %8 = getelementptr inbounds nuw float, ptr %2, i64 %7
-  %9 = load float, ptr %8, align 4, !tbaa !16
-  %10 = add i32 %.02325, %1
-  %11 = fpext float %9 to double
-  %12 = tail call double @llvm.fmuladd.f64(double %11, double %11, double %6)
-  %13 = add nuw i32 %.02226, 1
-  %exitcond.not = icmp eq i32 %13, %1
-  br i1 %exitcond.not, label %14, label %5, !llvm.loop !35
+6:                                                ; preds = %.lr.ph, %6
+  %.02226 = phi i32 [ 0, %.lr.ph ], [ %14, %6 ]
+  %.02325 = phi i32 [ %5, %.lr.ph ], [ %11, %6 ]
+  %7 = phi double [ 0.000000e+00, %.lr.ph ], [ %13, %6 ]
+  %8 = zext i32 %.02325 to i64
+  %9 = getelementptr inbounds nuw float, ptr %2, i64 %8
+  %10 = load float, ptr %9, align 4, !tbaa !16
+  %11 = add i32 %.02325, %1
+  %12 = fpext float %10 to double
+  %13 = tail call double @llvm.fmuladd.f64(double %12, double %12, double %7)
+  %14 = add nuw i32 %.02226, 1
+  %exitcond.not = icmp eq i32 %14, %1
+  br i1 %exitcond.not, label %15, label %6, !llvm.loop !35
 
-14:                                               ; preds = %5
-  %15 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
-  %16 = tail call double @sqrt(double noundef %12) #7, !tbaa !8
-  store double %16, ptr %15, align 8, !tbaa !13
+15:                                               ; preds = %6
+  %16 = tail call double @sqrt(double noundef %13) #7, !tbaa !8
+  store double %16, ptr %4, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %14, %3
+._crit_edge:                                      ; preds = %15, %3
   ret void
 }
 

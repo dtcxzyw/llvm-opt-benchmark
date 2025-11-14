@@ -44,23 +44,23 @@ define noundef i64 @_ZN3gmx10countWordsEPKc(ptr noundef readonly captures(none) 
   %.not15 = icmp eq i64 %2, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %13, %1
-  %.010.lcssa = phi i64 [ 0, %1 ], [ %.111, %13 ]
+._crit_edge:                                      ; preds = %.loopexit, %1
+  %.010.lcssa = phi i64 [ 0, %1 ], [ %.111, %.loopexit ]
   ret i64 %.010.lcssa
 
-.lr.ph:                                           ; preds = %1, %13
-  %.014 = phi i64 [ %.pre-phi, %13 ], [ 0, %1 ]
-  %.01013 = phi i64 [ %.111, %13 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %.loopexit
+  %.014 = phi i64 [ %.pre-phi, %.loopexit ], [ 0, %1 ]
+  %.01013 = phi i64 [ %.111, %.loopexit ], [ 0, %1 ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.014
   %4 = load i8, ptr %3, align 1, !tbaa !4
   %5 = sext i8 %4 to i32
   %6 = tail call i32 @isalnum(i32 noundef %5) #24
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %.lr.ph._crit_edge, label %.preheader
+  br i1 %.not, label %.lr.ph..loopexit_crit_edge, label %.preheader
 
-.lr.ph._crit_edge:                                ; preds = %.lr.ph
+.lr.ph..loopexit_crit_edge:                       ; preds = %.lr.ph
   %.pre = add nuw i64 %.014, 1
-  br label %13
+  br label %.loopexit
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader
   %.1 = phi i64 [ %11, %.preheader ], [ %.014, %.lr.ph ]
@@ -70,17 +70,17 @@ define noundef i64 @_ZN3gmx10countWordsEPKc(ptr noundef readonly captures(none) 
   %10 = tail call i32 @isalnum(i32 noundef %9) #24
   %.not12 = icmp eq i32 %10, 0
   %11 = add i64 %.1, 1
-  br i1 %.not12, label %.loopexit, label %.preheader, !llvm.loop !7
+  br i1 %.not12, label %.loopexit.loopexit, label %.preheader, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.preheader
+.loopexit.loopexit:                               ; preds = %.preheader
   %12 = add i64 %.01013, 1
-  br label %13
+  br label %.loopexit
 
-13:                                               ; preds = %.lr.ph._crit_edge, %.loopexit
-  %.pre-phi = phi i64 [ %.pre, %.lr.ph._crit_edge ], [ %11, %.loopexit ]
-  %.111 = phi i64 [ %.01013, %.lr.ph._crit_edge ], [ %12, %.loopexit ]
-  %14 = icmp ult i64 %.pre-phi, %2
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+.loopexit:                                        ; preds = %.lr.ph..loopexit_crit_edge, %.loopexit.loopexit
+  %.pre-phi = phi i64 [ %.pre, %.lr.ph..loopexit_crit_edge ], [ %11, %.loopexit.loopexit ]
+  %.111 = phi i64 [ %.01013, %.lr.ph..loopexit_crit_edge ], [ %12, %.loopexit.loopexit ]
+  %13 = icmp ult i64 %.pre-phi, %2
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -96,42 +96,42 @@ define noundef i64 @_ZN3gmx10countWordsERKNSt7__cxx1112basic_stringIcSt11char_tr
   %.not15.i = icmp eq i64 %3, 0
   br i1 %.not15.i, label %_ZN3gmx10countWordsEPKc.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %1, %14
-  %.014.i = phi i64 [ %.pre-phi.i, %14 ], [ 0, %1 ]
-  %.01013.i = phi i64 [ %.111.i, %14 ], [ 0, %1 ]
+.lr.ph.i:                                         ; preds = %1, %.loopexit.i
+  %.014.i = phi i64 [ %.pre-phi.i, %.loopexit.i ], [ 0, %1 ]
+  %.01013.i = phi i64 [ %.111.i, %.loopexit.i ], [ 0, %1 ]
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 %.014.i
   %5 = load i8, ptr %4, align 1, !tbaa !4
   %6 = sext i8 %5 to i32
   %7 = tail call i32 @isalnum(i32 noundef %6) #24
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.lr.ph._crit_edge.i, label %.preheader.i
+  br i1 %.not.i, label %.lr.ph..loopexit_crit_edge.i, label %.preheader
 
-.lr.ph._crit_edge.i:                              ; preds = %.lr.ph.i
+.lr.ph..loopexit_crit_edge.i:                     ; preds = %.lr.ph.i
   %.pre.i = add nuw i64 %.014.i, 1
-  br label %14
+  br label %.loopexit.i
 
-.preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i
-  %.1.i = phi i64 [ %12, %.preheader.i ], [ %.014.i, %.lr.ph.i ]
+.preheader:                                       ; preds = %.lr.ph.i, %.preheader
+  %.1.i = phi i64 [ %12, %.preheader ], [ %.014.i, %.lr.ph.i ]
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %.1.i
   %9 = load i8, ptr %8, align 1, !tbaa !4
   %10 = sext i8 %9 to i32
   %11 = tail call i32 @isalnum(i32 noundef %10) #24
   %.not12.i = icmp eq i32 %11, 0
   %12 = add i64 %.1.i, 1
-  br i1 %.not12.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !7
+  br i1 %.not12.i, label %.loopexit.loopexit.i, label %.preheader, !llvm.loop !7
 
-.loopexit.i:                                      ; preds = %.preheader.i
+.loopexit.loopexit.i:                             ; preds = %.preheader
   %13 = add i64 %.01013.i, 1
-  br label %14
+  br label %.loopexit.i
 
-14:                                               ; preds = %.loopexit.i, %.lr.ph._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %.lr.ph._crit_edge.i ], [ %12, %.loopexit.i ]
-  %.111.i = phi i64 [ %.01013.i, %.lr.ph._crit_edge.i ], [ %13, %.loopexit.i ]
-  %15 = icmp ult i64 %.pre-phi.i, %3
-  br i1 %15, label %.lr.ph.i, label %_ZN3gmx10countWordsEPKc.exit, !llvm.loop !9
+.loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.lr.ph..loopexit_crit_edge.i
+  %.pre-phi.i = phi i64 [ %.pre.i, %.lr.ph..loopexit_crit_edge.i ], [ %12, %.loopexit.loopexit.i ]
+  %.111.i = phi i64 [ %.01013.i, %.lr.ph..loopexit_crit_edge.i ], [ %13, %.loopexit.loopexit.i ]
+  %14 = icmp ult i64 %.pre-phi.i, %3
+  br i1 %14, label %.lr.ph.i, label %_ZN3gmx10countWordsEPKc.exit, !llvm.loop !9
 
-_ZN3gmx10countWordsEPKc.exit:                     ; preds = %14, %1
-  %.010.lcssa.i = phi i64 [ 0, %1 ], [ %.111.i, %14 ]
+_ZN3gmx10countWordsEPKc.exit:                     ; preds = %.loopexit.i, %1
+  %.010.lcssa.i = phi i64 [ 0, %1 ], [ %.111.i, %.loopexit.i ]
   ret i64 %.010.lcssa.i
 }
 

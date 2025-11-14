@@ -2349,9 +2349,9 @@ define internal fastcc void @CopyBW2Grey8(ptr noundef readonly captures(none) %0
   br i1 %.not51, label %._crit_edge56, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %6
-  %.not60 = icmp samesign ult i32 %4, 8
   %10 = sext i32 %1 to i64
   %11 = zext nneg i32 %3 to i64
+  %.not60 = icmp samesign ult i32 %4, 8
   %.not37 = icmp eq i32 %8, 0
   br i1 %.not60, label %.lr.ph55.split, label %.lr.ph55.split.us
 
@@ -2501,43 +2501,43 @@ define internal fastcc void @CopyGrey4ToGrey8(ptr noundef readonly captures(none
   br i1 %.not26, label %._crit_edge, label %.lr.ph29
 
 .lr.ph29:                                         ; preds = %6
-  %.not30 = icmp eq i32 %4, 0
   %7 = sext i32 %1 to i64
   %8 = zext nneg i32 %3 to i64
+  %.not30 = icmp eq i32 %4, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph29, %..loopexit_crit_edge.us
-  %.in = phi i32 [ %22, %..loopexit_crit_edge.us ], [ %5, %.lr.ph29 ]
+  %.in = phi i32 [ %9, %..loopexit_crit_edge.us ], [ %5, %.lr.ph29 ]
   %.02128.us = phi ptr [ %24, %..loopexit_crit_edge.us ], [ %2, %.lr.ph29 ]
   %.02227.us = phi ptr [ %23, %..loopexit_crit_edge.us ], [ %0, %.lr.ph29 ]
-  br label %9
+  %9 = add nsw i32 %.in, -1
+  br label %10
 
-9:                                                ; preds = %.lr.ph.us, %9
-  %.01825.us = phi ptr [ %.02128.us, %.lr.ph.us ], [ %20, %9 ]
-  %.01924.us = phi ptr [ %.02227.us, %.lr.ph.us ], [ %10, %9 ]
-  %.02023.us = phi i32 [ 0, %.lr.ph.us ], [ %21, %9 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.01924.us, i64 1
-  %11 = load i8, ptr %.01924.us, align 1
-  %12 = shl i8 %11, 4
-  %13 = lshr i8 %11, 3
-  %14 = and i8 %13, 1
-  %15 = or disjoint i8 %14, %12
-  %16 = getelementptr inbounds nuw i8, ptr %.01825.us, i64 1
-  store i8 %15, ptr %.01825.us, align 1
-  %17 = lshr i8 %11, 7
-  %18 = and i8 %11, -16
-  %19 = or disjoint i8 %18, %17
-  %20 = getelementptr inbounds nuw i8, ptr %.01825.us, i64 2
-  store i8 %19, ptr %16, align 1
-  %21 = add nuw nsw i32 %.02023.us, 1
-  %exitcond.not = icmp eq i32 %21, %4
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %9, !llvm.loop !13
+10:                                               ; preds = %.lr.ph.us, %10
+  %.01825.us = phi ptr [ %.02128.us, %.lr.ph.us ], [ %21, %10 ]
+  %.01924.us = phi ptr [ %.02227.us, %.lr.ph.us ], [ %11, %10 ]
+  %.02023.us = phi i32 [ 0, %.lr.ph.us ], [ %22, %10 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.01924.us, i64 1
+  %12 = load i8, ptr %.01924.us, align 1
+  %13 = shl i8 %12, 4
+  %14 = lshr i8 %12, 3
+  %15 = and i8 %14, 1
+  %16 = or disjoint i8 %15, %13
+  %17 = getelementptr inbounds nuw i8, ptr %.01825.us, i64 1
+  store i8 %16, ptr %.01825.us, align 1
+  %18 = lshr i8 %12, 7
+  %19 = and i8 %12, -16
+  %20 = or disjoint i8 %19, %18
+  %21 = getelementptr inbounds nuw i8, ptr %.01825.us, i64 2
+  store i8 %20, ptr %17, align 1
+  %22 = add nuw nsw i32 %.02023.us, 1
+  %exitcond.not = icmp eq i32 %22, %4
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %10, !llvm.loop !13
 
-..loopexit_crit_edge.us:                          ; preds = %9
-  %22 = add nsw i32 %.in, -1
+..loopexit_crit_edge.us:                          ; preds = %10
   %23 = getelementptr inbounds i8, ptr %.02227.us, i64 %7
   %24 = getelementptr inbounds nuw i8, ptr %.02128.us, i64 %8
-  %.not.us = icmp eq i32 %22, 0
+  %.not.us = icmp eq i32 %9, 0
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.us, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph29, %6

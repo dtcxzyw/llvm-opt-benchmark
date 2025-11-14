@@ -504,7 +504,6 @@ define i32 @Amap_CollectFormulaTokens(ptr noundef readonly captures(none) %0, pt
 
 .loopexit:                                        ; preds = %.lr.ph, %12
   %.1.lcssa = phi ptr [ %.114, %12 ], [ %.1, %.lr.ph ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %10 = getelementptr inbounds i8, ptr %.1.lcssa, i64 -1
   %11 = load i8, ptr %10, align 1, !tbaa !3
   %.not = icmp eq i8 %11, 59
@@ -514,6 +513,7 @@ define i32 @Amap_CollectFormulaTokens(ptr noundef readonly captures(none) %0, pt
   %indvars.iv = phi i64 [ %9, %.lr.ph21 ], [ %indvars.iv.next, %.loopexit ]
   %.020 = phi ptr [ %5, %.lr.ph21 ], [ %.1.lcssa, %.loopexit ]
   store i8 32, ptr %.020, align 1, !tbaa !3
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.val = load ptr, ptr %8, align 8, !tbaa !15
   %13 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !16
@@ -758,39 +758,39 @@ Amap_ParseStrsav.exit160:                         ; preds = %Amap_ParseStrsav.ex
   %107 = sext i32 %99 to i64
   br label %110
 
-.loopexit.i:                                      ; preds = %.lr.ph.i163, %110
-  %.1.lcssa.i = phi ptr [ %.114.i, %110 ], [ %.1.i164, %.lr.ph.i163 ]
-  %indvars.iv.next.i166 = add nsw i64 %indvars.iv.i161, 1
+.loopexit.i:                                      ; preds = %.lr.ph.i164, %110
+  %.1.lcssa.i = phi ptr [ %.114.i, %110 ], [ %.1.i165, %.lr.ph.i164 ]
   %108 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 -1
   %109 = load i8, ptr %108, align 1, !tbaa !3
   %.not.i167 = icmp eq i8 %109, 59
   br i1 %.not.i167, label %._crit_edge.loopexit.i, label %110, !llvm.loop !47
 
 110:                                              ; preds = %.loopexit.i, %.lr.ph21.i
-  %indvars.iv.i161 = phi i64 [ %107, %.lr.ph21.i ], [ %indvars.iv.next.i166, %.loopexit.i ]
+  %indvars.iv.i161 = phi i64 [ %107, %.lr.ph21.i ], [ %indvars.iv.next.i162, %.loopexit.i ]
   %.020.i = phi ptr [ %104, %.lr.ph21.i ], [ %.1.lcssa.i, %.loopexit.i ]
   store i8 32, ptr %.020.i, align 1, !tbaa !3
-  %.val.i162 = load ptr, ptr %5, align 8, !tbaa !15
-  %111 = getelementptr inbounds ptr, ptr %.val.i162, i64 %indvars.iv.i161
+  %indvars.iv.next.i162 = add nsw i64 %indvars.iv.i161, 1
+  %.val.i163 = load ptr, ptr %5, align 8, !tbaa !15
+  %111 = getelementptr inbounds ptr, ptr %.val.i163, i64 %indvars.iv.i161
   %112 = load ptr, ptr %111, align 8, !tbaa !16
   %.114.i = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
   %113 = load i8, ptr %112, align 1, !tbaa !3
   %.not1315.i = icmp eq i8 %113, 0
-  br i1 %.not1315.i, label %.loopexit.i, label %.lr.ph.i163
+  br i1 %.not1315.i, label %.loopexit.i, label %.lr.ph.i164
 
-.lr.ph.i163:                                      ; preds = %110, %.lr.ph.i163
-  %114 = phi i8 [ %116, %.lr.ph.i163 ], [ %113, %110 ]
-  %.117.i = phi ptr [ %.1.i164, %.lr.ph.i163 ], [ %.114.i, %110 ]
-  %.01016.i = phi ptr [ %115, %.lr.ph.i163 ], [ %112, %110 ]
+.lr.ph.i164:                                      ; preds = %110, %.lr.ph.i164
+  %114 = phi i8 [ %116, %.lr.ph.i164 ], [ %113, %110 ]
+  %.117.i = phi ptr [ %.1.i165, %.lr.ph.i164 ], [ %.114.i, %110 ]
+  %.01016.i = phi ptr [ %115, %.lr.ph.i164 ], [ %112, %110 ]
   %115 = getelementptr inbounds nuw i8, ptr %.01016.i, i64 1
   store i8 %114, ptr %.117.i, align 1, !tbaa !3
-  %.1.i164 = getelementptr inbounds nuw i8, ptr %.117.i, i64 1
+  %.1.i165 = getelementptr inbounds nuw i8, ptr %.117.i, i64 1
   %116 = load i8, ptr %115, align 1, !tbaa !3
-  %.not13.i165 = icmp eq i8 %116, 0
-  br i1 %.not13.i165, label %.loopexit.i, label %.lr.ph.i163, !llvm.loop !48
+  %.not13.i166 = icmp eq i8 %116, 0
+  br i1 %.not13.i166, label %.loopexit.i, label %.lr.ph.i164, !llvm.loop !48
 
 ._crit_edge.loopexit.i:                           ; preds = %.loopexit.i
-  %117 = trunc nsw i64 %indvars.iv.next.i166 to i32
+  %117 = trunc nsw i64 %indvars.iv.next.i162 to i32
   br label %Amap_ParseStrsav.exit170
 
 Amap_ParseStrsav.exit170:                         ; preds = %Amap_ParseStrsav.exit160, %._crit_edge.loopexit.i

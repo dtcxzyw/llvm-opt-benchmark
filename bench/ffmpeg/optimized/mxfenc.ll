@@ -1761,56 +1761,56 @@ mxf_write_klv_fill.exit202:                       ; preds = %817, %826
   %835 = load i32, ptr %834, align 4, !tbaa !130
   %836 = getelementptr inbounds nuw i8, ptr %832, i64 40
   %837 = load i32, ptr %836, align 8, !tbaa !47
+  %838 = add i32 %837, %835
   call void @avio_write(ptr noundef %833, ptr noundef nonnull @system_metadata_pack_key, i32 noundef 16) #14
   call void @avio_w8(ptr noundef %833, i32 noundef 131) #14
   call void @avio_wb24(ptr noundef %833, i32 noundef 57) #14
-  %838 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %839 = load i32, ptr %838, align 4, !tbaa !121
-  %.not.i203 = icmp eq i32 %839, 0
+  %839 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %840 = load i32, ptr %839, align 4, !tbaa !121
+  %.not.i203 = icmp eq i32 %840, 0
   br i1 %.not.i203, label %._crit_edge.i210, label %.lr.ph.i204
 
 .lr.ph.i204:                                      ; preds = %mxf_write_klv_fill.exit202
-  %840 = load ptr, ptr %11, align 8, !tbaa !25
-  %wide.trip.count.i205 = zext i32 %839 to i64
-  br label %841
+  %841 = load ptr, ptr %11, align 8, !tbaa !25
+  %wide.trip.count.i205 = zext i32 %840 to i64
+  br label %842
 
-841:                                              ; preds = %851, %.lr.ph.i204
-  %indvars.iv.i206 = phi i64 [ 0, %.lr.ph.i204 ], [ %indvars.iv.next.i208, %851 ]
-  %.04244.i = phi i32 [ 88, %.lr.ph.i204 ], [ %.1.i207, %851 ]
-  %842 = getelementptr inbounds nuw ptr, ptr %840, i64 %indvars.iv.i206
-  %843 = load ptr, ptr %842, align 8, !tbaa !31
-  %844 = getelementptr inbounds nuw i8, ptr %843, i64 16
-  %845 = load ptr, ptr %844, align 8, !tbaa !48
-  %846 = load i32, ptr %845, align 8, !tbaa !119
-  switch i32 %846, label %851 [
-    i32 1, label %847
-    i32 2, label %849
+842:                                              ; preds = %852, %.lr.ph.i204
+  %indvars.iv.i206 = phi i64 [ 0, %.lr.ph.i204 ], [ %indvars.iv.next.i208, %852 ]
+  %.04244.i = phi i32 [ 88, %.lr.ph.i204 ], [ %.1.i207, %852 ]
+  %843 = getelementptr inbounds nuw ptr, ptr %841, i64 %indvars.iv.i206
+  %844 = load ptr, ptr %843, align 8, !tbaa !31
+  %845 = getelementptr inbounds nuw i8, ptr %844, i64 16
+  %846 = load ptr, ptr %845, align 8, !tbaa !48
+  %847 = load i32, ptr %846, align 8, !tbaa !119
+  switch i32 %847, label %852 [
+    i32 1, label %848
+    i32 2, label %850
   ]
 
-847:                                              ; preds = %841
-  %848 = or i32 %.04244.i, 4
-  br label %851
+848:                                              ; preds = %842
+  %849 = or i32 %.04244.i, 4
+  br label %852
 
-849:                                              ; preds = %841
-  %850 = or i32 %.04244.i, 2
-  br label %851
+850:                                              ; preds = %842
+  %851 = or i32 %.04244.i, 2
+  br label %852
 
-851:                                              ; preds = %849, %847, %841
-  %.1.i207 = phi i32 [ %848, %847 ], [ %850, %849 ], [ %.04244.i, %841 ]
+852:                                              ; preds = %850, %848, %842
+  %.1.i207 = phi i32 [ %849, %848 ], [ %851, %850 ], [ %.04244.i, %842 ]
   %indvars.iv.next.i208 = add nuw nsw i64 %indvars.iv.i206, 1
   %exitcond.not.i209 = icmp eq i64 %indvars.iv.next.i208, %wide.trip.count.i205
-  br i1 %exitcond.not.i209, label %._crit_edge.i210, label %841, !llvm.loop !131
+  br i1 %exitcond.not.i209, label %._crit_edge.i210, label %842, !llvm.loop !131
 
-._crit_edge.i210:                                 ; preds = %851, %mxf_write_klv_fill.exit202
-  %.042.lcssa.i = phi i32 [ 88, %mxf_write_klv_fill.exit202 ], [ %.1.i207, %851 ]
-  %852 = add i32 %837, %835
+._crit_edge.i210:                                 ; preds = %852, %mxf_write_klv_fill.exit202
+  %.042.lcssa.i = phi i32 [ 88, %mxf_write_klv_fill.exit202 ], [ %.1.i207, %852 ]
   call void @avio_w8(ptr noundef %833, i32 noundef %.042.lcssa.i) #14
   %853 = getelementptr inbounds nuw i8, ptr %832, i64 128
   %854 = load i32, ptr %853, align 8, !tbaa !132
   call void @avio_w8(ptr noundef %833, i32 noundef %854) #14
   call void @avio_w8(ptr noundef %833, i32 noundef 0) #14
   call void @avio_wb16(ptr noundef %833, i32 noundef 0) #14
-  %855 = and i32 %852, 65535
+  %855 = and i32 %838, 65535
   call void @avio_wb16(ptr noundef %833, i32 noundef %855) #14
   %856 = getelementptr inbounds nuw i8, ptr %832, i64 16
   %857 = load i32, ptr %856, align 8, !tbaa !133
@@ -1834,7 +1834,7 @@ mxf_write_system_item.exit:                       ; preds = %._crit_edge.i210, %
   call void @avio_wb64(ptr noundef %833, i64 noundef 0) #14
   call void @avio_w8(ptr noundef %833, i32 noundef 129) #14
   %866 = getelementptr inbounds nuw i8, ptr %832, i64 88
-  %867 = call i32 @av_timecode_get_smpte_from_framenum(ptr noundef nonnull %866, i32 noundef %852) #14
+  %867 = call i32 @av_timecode_get_smpte_from_framenum(ptr noundef nonnull %866, i32 noundef %838) #14
   call void @avio_wb32(ptr noundef %833, i32 noundef %867) #14
   call void @avio_wb32(ptr noundef %833, i32 noundef 0) #14
   call void @avio_wb64(ptr noundef %833, i64 noundef 0) #14

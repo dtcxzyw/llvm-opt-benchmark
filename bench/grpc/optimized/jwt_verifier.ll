@@ -2818,25 +2818,25 @@ _ZN9grpc_core7ExecCtxC2Ev.exit.i:                 ; preds = %476, %_ZN9grpc_core
   br i1 %482, label %_ZN15verifier_cb_ctxC2Ev.exit.i, label %479
 
 _ZN15verifier_cb_ctxC2Ev.exit.i:                  ; preds = %479
-  %483 = getelementptr inbounds nuw i8, ptr %477, i64 240
-  store ptr null, ptr %483, align 8, !tbaa !120
+  %483 = getelementptr inbounds nuw i8, ptr %477, i64 8
+  %484 = getelementptr inbounds nuw i8, ptr %477, i64 240
+  store ptr null, ptr %484, align 8, !tbaa !120
   store ptr %0, ptr %477, align 8, !tbaa !121
-  %484 = invoke { ptr, i32 } @_Z39grpc_polling_entity_create_from_pollsetP12grpc_pollset(ptr noundef %1)
-          to label %485 unwind label %523
+  %485 = invoke { ptr, i32 } @_Z39grpc_polling_entity_create_from_pollsetP12grpc_pollset(ptr noundef %1)
+          to label %486 unwind label %523
 
-485:                                              ; preds = %_ZN15verifier_cb_ctxC2Ev.exit.i
-  %486 = getelementptr inbounds nuw i8, ptr %477, i64 16
-  %487 = getelementptr inbounds nuw i8, ptr %477, i64 8
-  %.fca.0.extract.i = extractvalue { ptr, i32 } %484, 0
-  %.fca.1.extract.i = extractvalue { ptr, i32 } %484, 1
-  store ptr %.fca.0.extract.i, ptr %487, align 8, !tbaa !40
-  store i32 %.fca.1.extract.i, ptr %486, align 8, !tbaa !122
+486:                                              ; preds = %_ZN15verifier_cb_ctxC2Ev.exit.i
+  %487 = getelementptr inbounds nuw i8, ptr %477, i64 16
+  %.fca.0.extract.i = extractvalue { ptr, i32 } %485, 0
+  %.fca.1.extract.i = extractvalue { ptr, i32 } %485, 1
+  store ptr %.fca.0.extract.i, ptr %483, align 8, !tbaa !40
+  store i32 %.fca.1.extract.i, ptr %487, align 8, !tbaa !122
   %488 = getelementptr inbounds nuw i8, ptr %477, i64 24
   store ptr %.0.i201, ptr %488, align 8, !tbaa !66
   %489 = invoke ptr @gpr_strdup(ptr noundef %3)
           to label %490 unwind label %521
 
-490:                                              ; preds = %485
+490:                                              ; preds = %486
   %491 = getelementptr inbounds nuw i8, ptr %477, i64 40
   store ptr %489, ptr %491, align 8, !tbaa !44
   %492 = getelementptr inbounds nuw i8, ptr %477, i64 32
@@ -2915,7 +2915,7 @@ _ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.
   call void @__clang_call_terminate(ptr %520) #35
   unreachable
 
-521:                                              ; preds = %485, %_ZN9grpc_core7ExecCtxC2Ev.exit.i
+521:                                              ; preds = %486, %_ZN9grpc_core7ExecCtxC2Ev.exit.i
   %522 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
@@ -4023,14 +4023,14 @@ _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i: ; preds = %947, %944, %941, 
 949:                                              ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i
   %950 = getelementptr inbounds nuw i8, ptr %477, i64 128
   %951 = getelementptr inbounds nuw %struct.grpc_http_response, ptr %950, i64 %.151.i
-  invoke void @_ZN9grpc_core11HttpRequest3GetENS_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS_9TimestampEP12grpc_closureP18grpc_http_responseNS_13RefCountedPtrI24grpc_channel_credentialsEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.20") align 8 %26, ptr noundef nonnull %27, ptr noundef null, ptr noundef nonnull %487, ptr noundef nonnull %12, i64 %.0.i.i.i, ptr noundef nonnull %.1.i, ptr noundef nonnull %951, ptr noundef nonnull %28)
+  invoke void @_ZN9grpc_core11HttpRequest3GetENS_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS_9TimestampEP12grpc_closureP18grpc_http_responseNS_13RefCountedPtrI24grpc_channel_credentialsEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.20") align 8 %26, ptr noundef nonnull %27, ptr noundef null, ptr noundef nonnull %483, ptr noundef nonnull %12, i64 %.0.i.i.i, ptr noundef nonnull %.1.i, ptr noundef nonnull %951, ptr noundef nonnull %28)
           to label %952 unwind label %982
 
 952:                                              ; preds = %949
   %953 = load ptr, ptr %26, align 8, !tbaa !67
   store ptr null, ptr %26, align 8, !tbaa !67
-  %954 = load ptr, ptr %483, align 8, !tbaa !67
-  store ptr %953, ptr %483, align 8, !tbaa !67
+  %954 = load ptr, ptr %484, align 8, !tbaa !67
+  store ptr %953, ptr %484, align 8, !tbaa !67
   %.not.i.i.i.i149.i = icmp eq ptr %954, null
   br i1 %.not.i.i.i.i149.i, label %_ZNSt10unique_ptrIN9grpc_core11HttpRequestENS0_16OrphanableDeleteEED2Ev.exit.i, label %955
 
@@ -4087,7 +4087,7 @@ _ZNSt10unique_ptrIN9grpc_core11HttpRequestENS0_16OrphanableDeleteEED2Ev.exit.i: 
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit.i: ; preds = %972, %968, %_ZNSt10unique_ptrIN9grpc_core11HttpRequestENS0_16OrphanableDeleteEED2Ev.exit.i
   call void @_ZN9grpc_core3URID2Ev(ptr noundef nonnull align 8 dereferenceable(200) %27) #36
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  %976 = load ptr, ptr %483, align 8, !tbaa !67
+  %976 = load ptr, ptr %484, align 8, !tbaa !67
   invoke void @_ZN9grpc_core11HttpRequest5StartEv(ptr noundef nonnull align 8 dereferenceable(5248) %976)
           to label %977 unwind label %574
 

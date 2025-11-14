@@ -6073,6 +6073,7 @@ for.body309.preheader.for.body309.preheader1038_crit_edge: ; preds = %for.body30
 vector.ph990:                                     ; preds = %for.body309.preheader
   %n.vec992 = and i64 %sub.ptr.div.i.i715, 4294967292
   %broadcast.splatinsert1003 = insertelement <2 x i32> poison, i32 %195, i64 0
+  %broadcast.splat1004 = shufflevector <2 x i32> %broadcast.splatinsert1003, <2 x i32> poison, <2 x i32> zeroinitializer
   %198 = shufflevector <2 x i32> %broadcast.splatinsert1003, <2 x i32> poison, <4 x i32> zeroinitializer
   %199 = shufflevector <2 x i32> %broadcast.splatinsert1003, <2 x i32> poison, <4 x i32> zeroinitializer
   br label %vector.body995
@@ -6092,7 +6093,6 @@ vector.body995:                                   ; preds = %vector.body995, %ve
   br i1 %202, label %middle.block987, label %vector.body995, !llvm.loop !275
 
 middle.block987:                                  ; preds = %vector.body995
-  %broadcast.splat1004 = shufflevector <2 x i32> %broadcast.splatinsert1003, <2 x i32> poison, <2 x i32> zeroinitializer
   %203 = and i64 %sub.ptr.sub.i.i714, 24
   %cmp.n994 = icmp eq i64 %203, 0
   br i1 %cmp.n994, label %invoke.cont337, label %for.body309.preheader1038
@@ -6156,6 +6156,7 @@ for.body358.lr.ph.for.body358.preheader_crit_edge: ; preds = %for.body358.lr.ph
 vector.ph974:                                     ; preds = %for.body358.lr.ph
   %n.vec976 = and i64 %sub.ptr.div.i.i726, 4294967292
   %broadcast.splatinsert = insertelement <2 x i32> poison, i32 %215, i64 0
+  %broadcast.splat = shufflevector <2 x i32> %broadcast.splatinsert, <2 x i32> poison, <2 x i32> zeroinitializer
   %216 = shufflevector <2 x i32> %broadcast.splatinsert, <2 x i32> poison, <4 x i32> zeroinitializer
   %217 = shufflevector <2 x i32> %broadcast.splatinsert, <2 x i32> poison, <4 x i32> zeroinitializer
   br label %vector.body979
@@ -6175,7 +6176,6 @@ vector.body979:                                   ; preds = %vector.body979, %ve
   br i1 %220, label %middle.block971, label %vector.body979, !llvm.loop !277
 
 middle.block971:                                  ; preds = %vector.body979
-  %broadcast.splat = shufflevector <2 x i32> %broadcast.splatinsert, <2 x i32> poison, <2 x i32> zeroinitializer
   %221 = and i64 %sub.ptr.sub.i.i725, 24
   %cmp.n978 = icmp eq i64 %221, 0
   br i1 %cmp.n978, label %if.end377, label %for.body358.preheader

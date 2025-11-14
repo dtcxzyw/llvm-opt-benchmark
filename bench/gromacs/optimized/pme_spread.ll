@@ -1140,19 +1140,19 @@ _ZL21make_thread_local_indPK11PmeAtomCommiP12splinedata_t.exit: ; preds = %._cri
   %158 = load float, ptr %157, align 4, !tbaa !145
   store float 0.000000e+00, ptr %30, align 4, !tbaa !145
   %159 = fsub float 1.000000e+00, %158
-  %160 = fadd float %158, 1.000000e+00
-  %161 = fsub float 2.000000e+00, %158
-  %162 = fmul float %159, 5.000000e-01
-  %163 = fmul float %158, %161
-  %164 = call float @llvm.fmuladd.f32(float %160, float %159, float %163)
-  %165 = fmul float %164, 5.000000e-01
-  %166 = fmul float %159, %162
-  %167 = fmul float %158, 5.000000e-01
-  %168 = fmul float %158, %167
+  %160 = fmul float %158, 5.000000e-01
+  %161 = fadd float %158, 1.000000e+00
+  %162 = fsub float 2.000000e+00, %158
+  %163 = fmul float %159, 5.000000e-01
+  %164 = fmul float %158, %162
+  %165 = call float @llvm.fmuladd.f32(float %161, float %159, float %164)
+  %166 = fmul float %165, 5.000000e-01
+  %167 = fmul float %159, %163
+  %168 = fmul float %158, %160
   store float %168, ptr %32, align 8, !tbaa !145
-  store float %166, ptr %14, align 16, !tbaa !145
-  store float %165, ptr %31, align 4
-  %169 = fneg float %166
+  store float %167, ptr %14, align 16, !tbaa !145
+  store float %166, ptr %31, align 4
+  %169 = fneg float %167
   %170 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv320.i
   %171 = load ptr, ptr %170, align 8, !tbaa !230
   %172 = getelementptr inbounds nuw float, ptr %171, i64 %154

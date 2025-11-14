@@ -16529,23 +16529,26 @@ for.body.i:                                       ; preds = %if.then, %for.body.
 
 if.end:                                           ; preds = %entry
   %cmp = icmp eq i8 %1, 0
-  br i1 %cmp, label %return.sink.split, label %while.body
+  br i1 %cmp, label %return.sink.split, label %while.body.preheader
 
-while.body:                                       ; preds = %if.end, %while.body
-  %node.addr.0101 = phi ptr [ %3, %while.body ], [ %node, %if.end ]
+while.body.preheader:                             ; preds = %if.end
+  %3 = load ptr, ptr %node, align 8
+  br label %while.body
+
+while.body:                                       ; preds = %while.body.preheader, %while.body
+  %node.addr.0101 = phi ptr [ %4, %while.body ], [ %node, %while.body.preheader ]
   %add.ptr.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %node.addr.0101, i64 560
-  %3 = load ptr, ptr %add.ptr.i.i.i.i48, align 8
-  %arrayidx.i.i47 = getelementptr i8, ptr %3, i64 11
-  %4 = load i8, ptr %arrayidx.i.i47, align 1
-  %cmp.i.not.i = icmp eq i8 %4, 0
+  %4 = load ptr, ptr %add.ptr.i.i.i.i48, align 8
+  %arrayidx.i.i47 = getelementptr i8, ptr %4, i64 11
+  %5 = load i8, ptr %arrayidx.i.i47, align 1
+  %cmp.i.not.i = icmp eq i8 %5, 0
   br i1 %cmp.i.not.i, label %while.body, label %while.end, !llvm.loop !266
 
 while.end:                                        ; preds = %while.body
-  %5 = load ptr, ptr %node, align 8
-  %add.ptr.i.i.i = getelementptr i8, ptr %3, i64 8
+  %add.ptr.i.i.i = getelementptr i8, ptr %4, i64 8
   %6 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv14 = zext i8 %6 to i64
-  %7 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %while.end
@@ -16643,7 +16646,7 @@ for.body.i87:                                     ; preds = %do.body37, %for.bod
 
 _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf8compiler20CommandLineInterface13GeneratorInfoESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE15value_destroy_nEhhPSK_.exit94: ; preds = %for.body.i87, %do.body37
   tail call void @_ZdlPv(ptr noundef nonnull %parent.3) #33
-  %cmp44 = icmp eq ptr %19, %5
+  %cmp44 = icmp eq ptr %19, %3
   br i1 %cmp44, label %return, label %if.end46
 
 if.end46:                                         ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf8compiler20CommandLineInterface13GeneratorInfoESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE15value_destroy_nEhhPSK_.exit94
@@ -19323,23 +19326,26 @@ if.end.i:                                         ; preds = %if.then
   %arrayidx.i.i45.i = getelementptr i8, ptr %1, i64 10
   %3 = load i8, ptr %arrayidx.i.i45.i, align 1
   %cmp.i1 = icmp eq i8 %3, 0
-  br i1 %cmp.i1, label %return.sink.split.i, label %while.body.i
+  br i1 %cmp.i1, label %return.sink.split.i, label %while.body.preheader.i
 
-while.body.i:                                     ; preds = %if.end.i, %while.body.i
-  %node.addr.070.i = phi ptr [ %4, %while.body.i ], [ %1, %if.end.i ]
+while.body.preheader.i:                           ; preds = %if.end.i
+  %4 = load ptr, ptr %1, align 8
+  br label %while.body.i
+
+while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
+  %node.addr.070.i = phi ptr [ %5, %while.body.i ], [ %1, %while.body.preheader.i ]
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %node.addr.070.i, i64 256
-  %4 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
-  %arrayidx.i.i46.i = getelementptr i8, ptr %4, i64 11
-  %5 = load i8, ptr %arrayidx.i.i46.i, align 1
-  %cmp.i.not.i.i = icmp eq i8 %5, 0
+  %5 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
+  %arrayidx.i.i46.i = getelementptr i8, ptr %5, i64 11
+  %6 = load i8, ptr %arrayidx.i.i46.i, align 1
+  %cmp.i.not.i.i = icmp eq i8 %6, 0
   br i1 %cmp.i.not.i.i, label %while.body.i, label %while.end.i, !llvm.loop !306
 
 while.end.i:                                      ; preds = %while.body.i
-  %6 = load ptr, ptr %1, align 8
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %4, i64 8
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 8
   %7 = load i8, ptr %add.ptr.i.i.i.i, align 1
   %conv14.i = zext i8 %7 to i64
-  %8 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i.backedge, %while.end.i
@@ -19392,7 +19398,7 @@ do.body37.i:                                      ; preds = %if.end28.i, %if.end
   %16 = load i8, ptr %add.ptr.i.i.i62.i, align 1
   %17 = load ptr, ptr %parent.3.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %parent.3.i) #33
-  %cmp44.i = icmp eq ptr %17, %6
+  %cmp44.i = icmp eq ptr %17, %4
   br i1 %cmp44.i, label %if.end, label %if.end46.i
 
 if.end46.i:                                       ; preds = %do.body37.i
@@ -19446,23 +19452,26 @@ for.body.i:                                       ; preds = %if.then, %for.body.
 
 if.end:                                           ; preds = %entry
   %cmp = icmp eq i8 %1, 0
-  br i1 %cmp, label %return.sink.split, label %while.body
+  br i1 %cmp, label %return.sink.split, label %while.body.preheader
 
-while.body:                                       ; preds = %if.end, %while.body
-  %node.addr.096 = phi ptr [ %3, %while.body ], [ %node, %if.end ]
+while.body.preheader:                             ; preds = %if.end
+  %3 = load ptr, ptr %node, align 8
+  br label %while.body
+
+while.body:                                       ; preds = %while.body.preheader, %while.body
+  %node.addr.096 = phi ptr [ %4, %while.body ], [ %node, %while.body.preheader ]
   %add.ptr.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %node.addr.096, i64 272
-  %3 = load ptr, ptr %add.ptr.i.i.i.i48, align 8
-  %arrayidx.i.i47 = getelementptr i8, ptr %3, i64 11
-  %4 = load i8, ptr %arrayidx.i.i47, align 1
-  %cmp.i.not.i = icmp eq i8 %4, 0
+  %4 = load ptr, ptr %add.ptr.i.i.i.i48, align 8
+  %arrayidx.i.i47 = getelementptr i8, ptr %4, i64 11
+  %5 = load i8, ptr %arrayidx.i.i47, align 1
+  %cmp.i.not.i = icmp eq i8 %5, 0
   br i1 %cmp.i.not.i, label %while.body, label %while.end, !llvm.loop !311
 
 while.end:                                        ; preds = %while.body
-  %5 = load ptr, ptr %node, align 8
-  %add.ptr.i.i.i = getelementptr i8, ptr %3, i64 8
+  %add.ptr.i.i.i = getelementptr i8, ptr %4, i64 8
   %6 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv14 = zext i8 %6 to i64
-  %7 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %while.end
@@ -19552,7 +19561,7 @@ for.body.i84:                                     ; preds = %do.body37, %for.bod
 
 _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15value_destroy_nEhhPSF_.exit89: ; preds = %for.body.i84, %do.body37
   tail call void @_ZdlPv(ptr noundef nonnull %parent.3) #33
-  %cmp44 = icmp eq ptr %19, %5
+  %cmp44 = icmp eq ptr %19, %3
   br i1 %cmp44, label %return, label %if.end46
 
 if.end46:                                         ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15value_destroy_nEhhPSF_.exit89

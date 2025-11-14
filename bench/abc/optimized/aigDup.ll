@@ -5817,9 +5817,9 @@ define ptr @Aig_ManDupArray(ptr noundef readonly captures(none) %0) local_unname
   %2 = getelementptr i8, ptr %0, i64 4
   %.val73 = load i32, ptr %2, align 4, !tbaa !21
   %3 = icmp eq i32 %.val73, 0
-  br i1 %3, label %122, label %.preheader
+  br i1 %3, label %122, label %.critedge
 
-.preheader:                                       ; preds = %1
+.critedge:                                        ; preds = %1
   %4 = getelementptr i8, ptr %0, i64 8
   %.val82 = load ptr, ptr %4, align 8, !tbaa !36
   %5 = load ptr, ptr %.val82, align 8, !tbaa !37
@@ -5828,15 +5828,15 @@ define ptr @Aig_ManDupArray(ptr noundef readonly captures(none) %0) local_unname
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %8
 
-8:                                                ; preds = %.preheader
+8:                                                ; preds = %.critedge
   %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #12
   %10 = add i64 %9, 1
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #13
   %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %7) #11
   br label %Abc_UtilStrsav.exit
 
-Abc_UtilStrsav.exit:                              ; preds = %.preheader, %8
-  %13 = phi ptr [ %11, %8 ], [ null, %.preheader ]
+Abc_UtilStrsav.exit:                              ; preds = %.critedge, %8
+  %13 = phi ptr [ %11, %8 ], [ null, %.critedge ]
   store ptr %13, ptr %6, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !35

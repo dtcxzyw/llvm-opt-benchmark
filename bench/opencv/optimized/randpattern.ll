@@ -854,23 +854,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %62, %
 .noexc:                                           ; preds = %3
   %67 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #23
   store ptr %67, ptr %0, align 8, !tbaa !44
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 192
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %68, ptr %69, align 8, !tbaa !65
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 192
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %69, ptr %70, align 8, !tbaa !65
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.noexc
-  %.08.i.i.i.i.i = phi ptr [ %71, %.lr.ph.i.i.i.i.i ], [ %67, %.noexc ]
-  %.057.i.i.i.i.i = phi i64 [ %70, %.lr.ph.i.i.i.i.i ], [ 2, %.noexc ]
+  %.08.i.i.i.i.i = phi ptr [ %72, %.lr.ph.i.i.i.i.i ], [ %67, %.noexc ]
+  %.057.i.i.i.i.i = phi i64 [ %71, %.lr.ph.i.i.i.i.i ], [ 2, %.noexc ]
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.08.i.i.i.i.i) #20
-  %70 = add nsw i64 %.057.i.i.i.i.i, -1
-  %71 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i = icmp eq i64 %70, 0
-  br i1 %.not.i.i.i.i.i, label %72, label %.lr.ph.i.i.i.i.i, !llvm.loop !67
+  %71 = add nsw i64 %.057.i.i.i.i.i, -1
+  %72 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
+  %.not.i.i.i.i.i = icmp eq i64 %71, 0
+  br i1 %.not.i.i.i.i.i, label %73, label %.lr.ph.i.i.i.i.i, !llvm.loop !67
 
-72:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %71, ptr %73, align 8, !tbaa !43
+73:                                               ; preds = %.lr.ph.i.i.i.i.i
+  store ptr %72, ptr %68, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -888,7 +888,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %62, %
   %.not = icmp eq i32 %75, 0
   br i1 %.not, label %82, label %76
 
-76:                                               ; preds = %72
+76:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %77 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -908,7 +908,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %62, %
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %693
 
-82:                                               ; preds = %79, %72
+82:                                               ; preds = %79, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %14)

@@ -469,8 +469,8 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit:                ; preds = %69, %71
   store i32 0, ptr %91, align 4, !tbaa !91
   %96 = getelementptr i8, ptr %91, i64 4
   %.idx.i.i.i.i.i.i.i.i = add nsw i64 %90, -4
-  %97 = getelementptr i8, ptr %91, i64 %90
   tail call void @llvm.memset.p0.i64(ptr align 4 %96, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !91
+  %97 = getelementptr i8, ptr %91, i64 %90
   %98 = getelementptr inbounds nuw i8, ptr %75, i64 368
   store ptr %97, ptr %98, align 8, !tbaa !79
   %99 = getelementptr inbounds nuw i8, ptr %75, i64 384
@@ -2453,8 +2453,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   br label %.lr.ph.preheader
 
 25:                                               ; preds = %.noexc13
-  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %12
   tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %12, i1 false), !tbaa !91
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %12
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %26, ptr %27, align 8, !tbaa !79
   %28 = ptrtoint ptr %18 to i64

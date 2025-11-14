@@ -3358,12 +3358,12 @@ makeMaps_d.exit:                                  ; preds = %1943
   br label %2106, !llvm.loop !66
 
 2198:                                             ; preds = %2106
+  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %.111509, i32 18002)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %2199 = icmp sgt i32 %.121488, 0
   br i1 %2199, label %.lr.ph2264, label %.preheader1930
 
 .preheader1930:                                   ; preds = %.lr.ph2264, %2198
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %.111509, i32 18002)
   %2200 = icmp sgt i32 %.111509, 0
   br i1 %2200, label %.lr.ph2271, label %._crit_edge2272
 

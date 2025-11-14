@@ -5502,69 +5502,69 @@ define internal fastcc ptr @deque_inplace_repeat_lock_held(ptr noundef %0, i64 n
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load i64, ptr %36, align 8, !tbaa !50
-  br label %43
+  br label %42
 
-.loopexit:                                        ; preds = %_Py_NewRef.exit103, %57
-  %40 = phi i64 [ %58, %57 ], [ %68, %_Py_NewRef.exit103 ]
-  %41 = add i64 %spec.select, %.074123
-  %42 = icmp slt i64 %41, %34
-  br i1 %42, label %43, label %._crit_edge127.loopexit, !llvm.loop !92
+.loopexit:                                        ; preds = %_Py_NewRef.exit103, %56
+  %40 = phi i64 [ %57, %56 ], [ %68, %_Py_NewRef.exit103 ]
+  %41 = icmp slt i64 %60, %34
+  br i1 %41, label %42, label %._crit_edge127.loopexit, !llvm.loop !92
 
-43:                                               ; preds = %.lr.ph126, %.loopexit
-  %44 = phi i64 [ %.pre, %.lr.ph126 ], [ %40, %.loopexit ]
-  %.074123 = phi i64 [ 0, %.lr.ph126 ], [ %41, %.loopexit ]
-  %45 = icmp eq i64 %44, 63
-  br i1 %45, label %46, label %57
+42:                                               ; preds = %.lr.ph126, %.loopexit
+  %43 = phi i64 [ %.pre, %.lr.ph126 ], [ %40, %.loopexit ]
+  %.074123 = phi i64 [ 0, %.lr.ph126 ], [ %60, %.loopexit ]
+  %44 = icmp eq i64 %43, 63
+  br i1 %44, label %45, label %56
 
-46:                                               ; preds = %43
-  %47 = load i64, ptr %37, align 8, !tbaa !40
-  %.not.i102 = icmp eq i64 %47, 0
-  br i1 %.not.i102, label %48, label %newblock.exit
+45:                                               ; preds = %42
+  %46 = load i64, ptr %37, align 8, !tbaa !40
+  %.not.i102 = icmp eq i64 %46, 0
+  br i1 %.not.i102, label %47, label %newblock.exit
 
-48:                                               ; preds = %46
-  %49 = tail call ptr @PyMem_Malloc(i64 noundef 528) #9
-  %.not9.i = icmp eq ptr %49, null
+47:                                               ; preds = %45
+  %48 = tail call ptr @PyMem_Malloc(i64 noundef 528) #9
+  %.not9.i = icmp eq ptr %48, null
   br i1 %.not9.i, label %newblock.exit.thread, label %newblock.exit.thread109
 
-newblock.exit.thread:                             ; preds = %48
-  %50 = tail call ptr @PyErr_NoMemory() #9
+newblock.exit.thread:                             ; preds = %47
+  %49 = tail call ptr @PyErr_NoMemory() #9
   br label %.thread
 
-newblock.exit:                                    ; preds = %46
-  %51 = add i64 %47, -1
-  store i64 %51, ptr %37, align 8, !tbaa !40
-  %52 = getelementptr ptr, ptr %38, i64 %51
-  %53 = load ptr, ptr %52, align 8, !tbaa !41
-  %.not = icmp eq ptr %53, null
+newblock.exit:                                    ; preds = %45
+  %50 = add i64 %46, -1
+  store i64 %50, ptr %37, align 8, !tbaa !40
+  %51 = getelementptr ptr, ptr %38, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !41
+  %.not = icmp eq ptr %52, null
   br i1 %.not, label %.thread, label %newblock.exit.thread109
 
 .thread:                                          ; preds = %newblock.exit, %newblock.exit.thread
   %.val99 = load i64, ptr %3, align 8, !tbaa !52
-  %54 = add i64 %.val99, %.074123
-  store i64 %54, ptr %3, align 8, !tbaa !52
+  %53 = add i64 %.val99, %.074123
+  store i64 %53, ptr %3, align 8, !tbaa !52
   br label %_Py_NewRef.exit
 
-newblock.exit.thread109:                          ; preds = %48, %newblock.exit
-  %.0.i112 = phi ptr [ %53, %newblock.exit ], [ %49, %48 ]
-  %55 = load ptr, ptr %39, align 8, !tbaa !47
-  store ptr %55, ptr %.0.i112, align 8, !tbaa !56
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 520
-  store ptr %.0.i112, ptr %56, align 8, !tbaa !54
+newblock.exit.thread109:                          ; preds = %47, %newblock.exit
+  %.0.i112 = phi ptr [ %52, %newblock.exit ], [ %48, %47 ]
+  %54 = load ptr, ptr %39, align 8, !tbaa !47
+  store ptr %54, ptr %.0.i112, align 8, !tbaa !56
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 520
+  store ptr %.0.i112, ptr %55, align 8, !tbaa !54
   store ptr %.0.i112, ptr %39, align 8, !tbaa !47
   store i64 -1, ptr %36, align 8, !tbaa !50
-  br label %57
+  br label %56
 
-57:                                               ; preds = %newblock.exit.thread109, %43
-  %58 = phi i64 [ -1, %newblock.exit.thread109 ], [ %44, %43 ]
-  %59 = sub i64 %34, %.074123
-  %60 = sub i64 63, %58
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %59, i64 %60)
+56:                                               ; preds = %newblock.exit.thread109, %42
+  %57 = phi i64 [ -1, %newblock.exit.thread109 ], [ %43, %42 ]
+  %58 = sub i64 %34, %.074123
+  %59 = sub i64 63, %57
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %58, i64 %59)
+  %60 = add i64 %spec.select, %.074123
   %.not89119 = icmp eq i64 %spec.select, 0
   br i1 %.not89119, label %.loopexit, label %.lr.ph122
 
-.lr.ph122:                                        ; preds = %57, %_Py_NewRef.exit103
-  %61 = phi i64 [ %68, %_Py_NewRef.exit103 ], [ %58, %57 ]
-  %.177120 = phi i64 [ %62, %_Py_NewRef.exit103 ], [ %spec.select, %57 ]
+.lr.ph122:                                        ; preds = %56, %_Py_NewRef.exit103
+  %61 = phi i64 [ %68, %_Py_NewRef.exit103 ], [ %57, %56 ]
+  %.177120 = phi i64 [ %62, %_Py_NewRef.exit103 ], [ %spec.select, %56 ]
   %62 = add i64 %.177120, -1
   %63 = add i64 %61, 1
   store i64 %63, ptr %36, align 8, !tbaa !50
@@ -5589,7 +5589,7 @@ _Py_NewRef.exit103:                               ; preds = %.lr.ph122, %66
 
 ._crit_edge127.loopexit:                          ; preds = %.loopexit
   %.val.pre = load i64, ptr %3, align 8, !tbaa !52
-  %72 = add i64 %.val.pre, %41
+  %72 = add i64 %.val.pre, %60
   br label %._crit_edge127
 
 ._crit_edge127:                                   ; preds = %._crit_edge127.loopexit, %21

@@ -420,87 +420,87 @@ define hidden range(i32 -4, 1) i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef readonly c
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_unpaddingPhmS_mPm(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
-  %6 = icmp ugt i64 %1, 2
-  br i1 %6, label %.lr.ph, label %._crit_edge
+  %6 = add i64 %1, -11
+  %7 = tail call i64 @llvm.umin.i64(i64 %3, i64 %6)
+  %8 = load i8, ptr %0, align 1, !tbaa !3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %10 = load i8, ptr %9, align 1, !tbaa !3
+  %.fr71 = freeze i8 %10
+  %11 = xor i8 %.fr71, 2
+  %.fr72 = freeze i8 %8
+  %12 = or i8 %11, %.fr72
+  %13 = icmp ugt i64 %1, 2
+  br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.065 = phi i8 [ %11, %.lr.ph ], [ 0, %5 ]
-  %.05664 = phi i64 [ %17, %.lr.ph ], [ 0, %5 ]
-  %.05763 = phi i64 [ %18, %.lr.ph ], [ 2, %5 ]
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.05763
-  %8 = load i8, ptr %7, align 1, !tbaa !3
-  %.fr = freeze i8 %8
-  %9 = icmp eq i8 %.fr, 0
-  %10 = zext i1 %9 to i8
-  %11 = or i8 %.065, %10
-  %12 = add i8 %11, -1
-  %13 = xor i8 %.065, -1
-  %14 = and i8 %12, %13
-  %15 = lshr i8 %14, 7
-  %16 = zext nneg i8 %15 to i64
-  %17 = add i64 %.05664, %16
-  %18 = add nuw i64 %.05763, 1
-  %exitcond.not = icmp eq i64 %18, %1
+  %.065 = phi i8 [ %18, %.lr.ph ], [ 0, %5 ]
+  %.05664 = phi i64 [ %24, %.lr.ph ], [ 0, %5 ]
+  %.05763 = phi i64 [ %25, %.lr.ph ], [ 2, %5 ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.05763
+  %15 = load i8, ptr %14, align 1, !tbaa !3
+  %.fr = freeze i8 %15
+  %16 = icmp eq i8 %.fr, 0
+  %17 = zext i1 %16 to i8
+  %18 = or i8 %.065, %17
+  %19 = add i8 %18, -1
+  %20 = xor i8 %.065, -1
+  %21 = and i8 %19, %20
+  %22 = lshr i8 %21, 7
+  %23 = zext nneg i8 %22 to i64
+  %24 = add i64 %.05664, %23
+  %25 = add nuw i64 %.05763, 1
+  %exitcond.not = icmp eq i64 %25, %1
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %19 = icmp eq i8 %11, 0
-  %20 = zext i1 %19 to i8
+  %26 = icmp eq i8 %18, 0
+  %27 = zext i1 %26 to i8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
-  %.056.lcssa = phi i64 [ 0, %5 ], [ %17, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i8 [ 1, %5 ], [ %20, %._crit_edge.loopexit ]
-  %21 = add i64 %1, -11
-  %22 = tail call i64 @llvm.umin.i64(i64 %3, i64 %21)
-  %23 = load i8, ptr %0, align 1, !tbaa !3
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %25 = load i8, ptr %24, align 1, !tbaa !3
-  %.fr71 = freeze i8 %25
-  %26 = xor i8 %.fr71, 2
-  %.fr72 = freeze i8 %23
-  %27 = or i8 %26, %.fr72
-  %28 = or i8 %27, %.0.lcssa
+  %.056.lcssa = phi i64 [ 0, %5 ], [ %24, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i8 [ 1, %5 ], [ %27, %._crit_edge.loopexit ]
+  %28 = or i8 %12, %.0.lcssa
   %29 = zext i8 %28 to i32
   %30 = add i64 %.056.lcssa, -8
   %31 = lshr i64 %30, 63
   %32 = trunc nuw nsw i64 %31 to i32
   %33 = or i32 %29, %32
-  %34 = trunc i64 %22 to i32
+  %34 = trunc i64 %7 to i32
   %35 = sub i64 %1, %.056.lcssa
   %36 = trunc i64 %35 to i32
   %37 = add i32 %36, -3
   %38 = icmp eq i32 %33, 0
   %39 = select i1 %38, i32 %37, i32 %34
   %40 = zext i32 %39 to i64
-  %41 = sub i64 %22, %40
-  %42 = icmp ugt i64 %1, 11
-  br i1 %42, label %.lr.ph69, label %._crit_edge70
+  %41 = sub i64 %7, %40
+  %42 = icmp sgt i64 %41, -1
+  %43 = icmp ugt i64 %1, 11
+  br i1 %43, label %.lr.ph69, label %._crit_edge70
 
 .lr.ph69:                                         ; preds = %._crit_edge
-  %43 = lshr i64 %41, 63
-  %44 = trunc nuw nsw i64 %43 to i32
-  %45 = or i32 %33, %44
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %._crit_edge70, label %.lr.ph69.split.preheader
+  %44 = lshr i64 %41, 63
+  %45 = trunc nuw nsw i64 %44 to i32
+  %46 = or i32 %33, %45
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %._crit_edge70, label %.lr.ph69.split.preheader
 
 .lr.ph69.split.preheader:                         ; preds = %.lr.ph69
   %scevgep = getelementptr i8, ptr %0, i64 11
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %21, i1 false), !tbaa !3
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %6, i1 false), !tbaa !3
   br label %._crit_edge70
 
 ._crit_edge70:                                    ; preds = %.lr.ph69, %.lr.ph69.split.preheader, %._crit_edge
-  %47 = icmp sgt i64 %41, -1
-  %48 = select i1 %47, i32 %39, i32 %34
+  %48 = select i1 %42, i32 %39, i32 %34
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %51 = sub i64 0, %22
+  %51 = sub i64 0, %7
   %52 = getelementptr inbounds i8, ptr %50, i64 %51
-  %53 = icmp eq i64 %22, 0
+  %53 = icmp eq i64 %7, 0
   br i1 %53, label %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge70
-  %54 = add i64 %22, -1
+  %54 = add i64 %7, -1
   %.not.i = icmp eq i64 %54, 0
   %55 = getelementptr inbounds i8, ptr %50, i64 -1
   br i1 %.not.i, label %.preheader.split.i, label %.lr.ph.us.i
@@ -528,7 +528,7 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   %65 = select i1 %64, i8 0, i8 %63
   store volatile i8 %65, ptr %55, align 1, !tbaa !3
   %66 = add nuw i64 %.028.us.i, 1
-  %exitcond35.not.i = icmp eq i64 %66, %22
+  %exitcond35.not.i = icmp eq i64 %66, %7
   br i1 %exitcond35.not.i, label %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit, label %.lr.ph.us.i, !llvm.loop !24
 
 .lr.ph.split.us.us.i:                             ; preds = %.lr.ph.us.i, %.lr.ph.split.us.us.i
@@ -550,7 +550,7 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   %75 = select i1 %74, i8 0, i8 %73
   store volatile i8 %75, ptr %55, align 1, !tbaa !3
   %76 = add nuw i64 %.028.i, 1
-  %exitcond36.not.i = icmp eq i64 %76, %22
+  %exitcond36.not.i = icmp eq i64 %76, %7
   br i1 %exitcond36.not.i, label %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit, label %.preheader.split.i, !llvm.loop !24
 
 _ZL27mbedtls_ct_mem_move_to_leftPvmm.exit:        ; preds = %._crit_edge.us.i, %.preheader.split.i, %._crit_edge70
@@ -558,11 +558,11 @@ _ZL27mbedtls_ct_mem_move_to_leftPvmm.exit:        ; preds = %._crit_edge.us.i, %
   br i1 %.not, label %78, label %77
 
 77:                                               ; preds = %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %52, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %52, i64 %7, i1 false)
   br label %78
 
 78:                                               ; preds = %77, %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit
-  %.neg = select i1 %47, i32 0, i32 -17408
+  %.neg = select i1 %42, i32 0, i32 -17408
   %.neg60 = select i1 %38, i32 %.neg, i32 -16640
   store i64 %49, ptr %4, align 8, !tbaa !8
   ret i32 %.neg60

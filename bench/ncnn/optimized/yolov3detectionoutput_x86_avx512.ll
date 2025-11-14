@@ -948,23 +948,23 @@ _ZN4ncnn3MatD2Ev.exit154:                         ; preds = %.preheader289.lr.ph
   %134 = getelementptr inbounds float, ptr %64, i64 %133
   %135 = getelementptr inbounds nuw float, ptr %134, i64 %indvars.iv
   %136 = load i32, ptr %32, align 8, !tbaa !41
-  %137 = and i32 %136, -8
-  %138 = mul nsw i32 %137, %74
-  %139 = sext i32 %138 to i64
-  %.idx = shl nsw i64 %139, 2
-  %140 = getelementptr inbounds i8, ptr %135, i64 %.idx
-  %141 = icmp sgt i32 %138, 0
-  br i1 %141, label %.lr.ph, label %.preheader
+  %137 = mul nsw i32 %136, %74
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds float, ptr %135, i64 %138
+  %140 = and i32 %136, -8
+  %141 = mul nsw i32 %140, %74
+  %142 = sext i32 %141 to i64
+  %.idx = shl nsw i64 %142, 2
+  %143 = getelementptr inbounds i8, ptr %135, i64 %.idx
+  %144 = icmp sgt i32 %141, 0
+  br i1 %144, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %160, %130
   %.0136.lcssa = phi i32 [ 0, %130 ], [ %162, %160 ]
   %.0134.lcssa = phi ptr [ %135, %130 ], [ %161, %160 ]
   %.0130.lcssa = phi float [ 0xC7EFFFFFE0000000, %130 ], [ %.1131, %160 ]
   %.0128.lcssa = phi i32 [ 0, %130 ], [ %.1129, %160 ]
-  %142 = mul nsw i32 %136, %74
-  %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds float, ptr %135, i64 %143
-  %145 = icmp ult ptr %.0134.lcssa, %144
+  %145 = icmp ult ptr %.0134.lcssa, %139
   br i1 %145, label %.lr.ph311, label %._crit_edge
 
 .lr.ph:                                           ; preds = %130, %160
@@ -996,7 +996,7 @@ _ZN4ncnn3MatD2Ev.exit154:                         ; preds = %.preheader289.lr.ph
   %.1129 = phi i32 [ %narrow, %155 ], [ %.0128303, %.lr.ph ]
   %161 = getelementptr inbounds float, ptr %.0134301, i64 %90
   %162 = add nuw nsw i32 %.0136300, 8
-  %163 = icmp ult ptr %161, %140
+  %163 = icmp ult ptr %161, %143
   br i1 %163, label %.lr.ph, label %.preheader, !llvm.loop !84
 
 .lr.ph311:                                        ; preds = %.preheader, %.lr.ph311
@@ -1010,7 +1010,7 @@ _ZN4ncnn3MatD2Ev.exit154:                         ; preds = %.preheader289.lr.ph
   %.3 = select i1 %165, i32 %.1137307, i32 %.2310
   %166 = getelementptr inbounds i8, ptr %.1135308, i64 %91
   %167 = add nuw nsw i32 %.1137307, 1
-  %168 = icmp ult ptr %166, %144
+  %168 = icmp ult ptr %166, %139
   br i1 %168, label %.lr.ph311, label %._crit_edge, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph311, %.preheader

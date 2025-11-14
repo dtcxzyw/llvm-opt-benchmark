@@ -1175,8 +1175,8 @@ _ZN27LibRaw_SonyYCC_DecompressorC2EPhj.exit:      ; preds = %157
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %186
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %188, 1
-  %190 = getelementptr inbounds nuw i8, ptr %187, i64 %.idx.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 2 %187, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !61
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 %.idx.i.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %186

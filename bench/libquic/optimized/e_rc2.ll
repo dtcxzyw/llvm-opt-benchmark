@@ -28,8 +28,11 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
   %9 = load i32, ptr %6, align 4, !tbaa !13
   store i8 0, ptr %7, align 4, !tbaa !16
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %8, i32 128)
-  %10 = icmp sgt i32 %8, 0
-  br i1 %10, label %.lr.ph.preheader.i, label %.lr.ph59.preheader.i
+  %10 = icmp slt i32 %9, 1
+  %11 = tail call i32 @llvm.umin.i32(i32 %9, i32 1024)
+  %spec.store.select1.i = select i1 %10, i32 1024, i32 %11
+  %12 = icmp sgt i32 %8, 0
+  br i1 %12, label %.lr.ph.preheader.i, label %.lr.ph59.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %4
   %wide.trip.count.i = zext nneg i32 %spec.store.select.i to i64
@@ -37,49 +40,46 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %12 = load i8, ptr %11, align 1, !tbaa !16
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
-  store i8 %12, ptr %13, align 1, !tbaa !16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
+  %14 = load i8, ptr %13, align 1, !tbaa !16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
+  store i8 %14, ptr %15, align 1, !tbaa !16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %14 = icmp samesign ult i32 %8, 128
-  br i1 %14, label %.lr.ph59.preheader.i, label %._crit_edge60.i
+  %16 = icmp samesign ult i32 %8, 128
+  br i1 %16, label %.lr.ph59.preheader.i, label %._crit_edge60.i
 
 .lr.ph59.preheader.i:                             ; preds = %._crit_edge.i, %4
-  %15 = sext i32 %spec.store.select.i to i64
-  %16 = getelementptr i8, ptr %7, i64 %15
-  %17 = getelementptr i8, ptr %16, i64 -1
-  %18 = load i8, ptr %17, align 1, !tbaa !16
-  %19 = sext i32 %8 to i64
-  %20 = sub i32 128, %spec.store.select.i
-  %wide.trip.count74.i = zext i32 %20 to i64
+  %17 = sext i32 %spec.store.select.i to i64
+  %18 = getelementptr i8, ptr %7, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 -1
+  %20 = load i8, ptr %19, align 1, !tbaa !16
+  %21 = sext i32 %8 to i64
+  %22 = sub i32 128, %spec.store.select.i
+  %wide.trip.count74.i = zext i32 %22 to i64
   br label %.lr.ph59.i
 
 .lr.ph59.i:                                       ; preds = %.lr.ph59.i, %.lr.ph59.preheader.i
-  %indvars.iv72.i = phi i64 [ %19, %.lr.ph59.preheader.i ], [ %indvars.iv.next73.i, %.lr.ph59.i ]
+  %indvars.iv72.i = phi i64 [ %21, %.lr.ph59.preheader.i ], [ %indvars.iv.next73.i, %.lr.ph59.i ]
   %indvars.iv70.i = phi i64 [ 0, %.lr.ph59.preheader.i ], [ %indvars.iv.next71.i, %.lr.ph59.i ]
-  %.0.in57.i = phi i8 [ %18, %.lr.ph59.preheader.i ], [ %25, %.lr.ph59.i ]
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv70.i
-  %22 = load i8, ptr %21, align 1, !tbaa !16
-  %.narrow.i = add i8 %22, %.0.in57.i
-  %23 = zext i8 %.narrow.i to i64
-  %24 = getelementptr inbounds nuw i8, ptr @key_table, i64 %23
-  %25 = load i8, ptr %24, align 1, !tbaa !16
-  %26 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv72.i
-  store i8 %25, ptr %26, align 1, !tbaa !16
+  %.0.in57.i = phi i8 [ %20, %.lr.ph59.preheader.i ], [ %27, %.lr.ph59.i ]
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv70.i
+  %24 = load i8, ptr %23, align 1, !tbaa !16
+  %.narrow.i = add i8 %24, %.0.in57.i
+  %25 = zext i8 %.narrow.i to i64
+  %26 = getelementptr inbounds nuw i8, ptr @key_table, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !16
+  %28 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv72.i
+  store i8 %27, ptr %28, align 1, !tbaa !16
   %indvars.iv.next73.i = add nsw i64 %indvars.iv72.i, 1
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count74.i
   br i1 %exitcond75.not.i, label %._crit_edge60.i, label %.lr.ph59.i, !llvm.loop !19
 
 ._crit_edge60.i:                                  ; preds = %.lr.ph59.i, %._crit_edge.i
-  %27 = icmp slt i32 %9, 1
-  %28 = tail call i32 @llvm.umin.i32(i32 %9, i32 1024)
-  %spec.store.select1.i = select i1 %27, i32 1024, i32 %28
   %29 = add nuw nsw i32 %spec.store.select1.i, 7
   %30 = lshr i32 %29, 3
   %31 = sub nuw nsw i32 128, %30

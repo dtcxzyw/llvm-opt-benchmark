@@ -39774,22 +39774,22 @@ pm_token_is_numbered_parameter.exit:              ; preds = %70
   br i1 %exitcond.not.i, label %parse_target_implicit_parameter.exit, label %84, !llvm.loop !456
 
 parse_target_implicit_parameter.exit:             ; preds = %97, %58, %67, %70, %96, %74, %pm_token_is_numbered_parameter.exit
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %100 = load i32, ptr %99, align 4, !tbaa !308
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  br label %102
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %100 = load i32, ptr %99, align 8, !tbaa !311
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %102 = load i32, ptr %101, align 4, !tbaa !308
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  br label %104
 
-102:                                              ; preds = %102, %parse_target_implicit_parameter.exit
-  %.03.i = phi i32 [ %100, %parse_target_implicit_parameter.exit ], [ %103, %102 ]
-  %.0.in.i = phi ptr [ %101, %parse_target_implicit_parameter.exit ], [ %.0.i131, %102 ]
+104:                                              ; preds = %104, %parse_target_implicit_parameter.exit
+  %.03.i = phi i32 [ %102, %parse_target_implicit_parameter.exit ], [ %105, %104 ]
+  %.0.in.i = phi ptr [ %103, %parse_target_implicit_parameter.exit ], [ %.0.i131, %104 ]
   %.0.i131 = load ptr, ptr %.0.in.i, align 8, !tbaa !64
   %.not.i132 = icmp eq i32 %.03.i, 0
-  %103 = add i32 %.03.i, -1
-  br i1 %.not.i132, label %pm_parser_scope_find.exit, label %102, !llvm.loop !310
+  %105 = add i32 %.03.i, -1
+  br i1 %.not.i132, label %pm_parser_scope_find.exit, label %104, !llvm.loop !310
 
-pm_parser_scope_find.exit:                        ; preds = %102
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %105 = load i32, ptr %104, align 8, !tbaa !311
+pm_parser_scope_find.exit:                        ; preds = %104
   %106 = getelementptr inbounds nuw i8, ptr %.0.i131, i64 12
   %107 = load i32, ptr %106, align 4, !tbaa !91
   %108 = icmp ult i32 %107, 9
@@ -39811,7 +39811,7 @@ pm_parser_scope_find.exit:                        ; preds = %102
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %114 ]
   %112 = getelementptr %struct.pm_local_t, ptr %.pre.i133, i64 %indvars.iv.i.i
   %113 = load i32, ptr %112, align 8, !tbaa !154
-  %.not39.i.i = icmp eq i32 %113, %105
+  %.not39.i.i = icmp eq i32 %113, %100
   br i1 %.not39.i.i, label %.thread.loopexit.split.loop.exit66.i.i, label %114
 
 114:                                              ; preds = %111
@@ -39821,8 +39821,8 @@ pm_parser_scope_find.exit:                        ; preds = %102
 
 115:                                              ; preds = %pm_parser_scope_find.exit
   %116 = add i32 %107, -1
-  %117 = lshr i32 %105, 16
-  %118 = xor i32 %117, %105
+  %117 = lshr i32 %100, 16
+  %118 = xor i32 %117, %100
   %119 = mul i32 %118, 73244475
   %120 = lshr i32 %119, 16
   %121 = xor i32 %120, %119
@@ -39843,7 +39843,7 @@ pm_parser_scope_find.exit:                        ; preds = %102
   br i1 %132, label %pm_locals_unread.exit, label %133
 
 133:                                              ; preds = %127
-  %134 = icmp eq i32 %131, %105
+  %134 = icmp eq i32 %131, %100
   br i1 %134, label %pm_locals_unread.exit, label %135
 
 135:                                              ; preds = %133
@@ -51425,26 +51425,26 @@ pm_global_variable_write_node_create.exit:        ; preds = %pm_global_variable_
   br label %parse_shareable_constant_write.exit
 
 180:                                              ; preds = %4
-  %181 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %182 = load i32, ptr %181, align 4, !tbaa !308
-  %183 = getelementptr i8, ptr %0, i64 496
-  br label %184
-
-184:                                              ; preds = %184, %180
-  %.03.i = phi i32 [ %182, %180 ], [ %185, %184 ]
-  %.0.in.i = phi ptr [ %183, %180 ], [ %.0.i238, %184 ]
-  %.0.i238 = load ptr, ptr %.0.in.i, align 8, !tbaa !64
-  %.not.i239 = icmp eq i32 %.03.i, 0
-  %185 = add i32 %.03.i, -1
-  br i1 %.not.i239, label %pm_parser_scope_find.exit, label %184, !llvm.loop !310
-
-pm_parser_scope_find.exit:                        ; preds = %184
-  %186 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %187 = load i32, ptr %186, align 8, !tbaa !311
-  %188 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %188, align 8, !tbaa !14
+  %181 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %182 = load i32, ptr %181, align 8, !tbaa !311
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0.0.copyload = load ptr, ptr %183, align 8, !tbaa !14
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !14
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %185 = load i32, ptr %184, align 4, !tbaa !308
+  %186 = getelementptr i8, ptr %0, i64 496
+  br label %187
+
+187:                                              ; preds = %187, %180
+  %.03.i = phi i32 [ %185, %180 ], [ %188, %187 ]
+  %.0.in.i = phi ptr [ %186, %180 ], [ %.0.i238, %187 ]
+  %.0.i238 = load ptr, ptr %.0.in.i, align 8, !tbaa !64
+  %.not.i239 = icmp eq i32 %.03.i, 0
+  %188 = add i32 %.03.i, -1
+  br i1 %.not.i239, label %pm_parser_scope_find.exit, label %187, !llvm.loop !310
+
+pm_parser_scope_find.exit:                        ; preds = %187
   %189 = ptrtoint ptr %.sroa.5.0.copyload to i64
   %190 = ptrtoint ptr %.sroa.0.0.copyload to i64
   %191 = sub i64 %189, %190
@@ -51473,10 +51473,10 @@ pm_token_is_numbered_parameter.exit:              ; preds = %196
   %.not174 = icmp eq i8 %203, 0
   %204 = select i1 %.not174, i32 208, i32 118
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %206 = load ptr, ptr %188, align 8, !tbaa !131
+  %206 = load ptr, ptr %183, align 8, !tbaa !131
   %207 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !132
   %208 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %205, ptr noundef %206, ptr noundef %207, i32 noundef %204, ptr noundef %206) #32
-  %.val181 = load ptr, ptr %183, align 8, !tbaa !58
+  %.val181 = load ptr, ptr %186, align 8, !tbaa !58
   %209 = getelementptr inbounds nuw i8, ptr %.val181, i64 24
   %210 = load i64, ptr %209, align 8, !tbaa !136
   %.not5.i = icmp eq i64 %210, 0
@@ -51542,7 +51542,7 @@ parse_target_implicit_parameter.exit:             ; preds = %226, %pm_parser_sco
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %236 ]
   %234 = getelementptr %struct.pm_local_t, ptr %.pre.i244, i64 %indvars.iv.i.i
   %235 = load i32, ptr %234, align 8, !tbaa !154
-  %.not39.i.i = icmp eq i32 %235, %187
+  %.not39.i.i = icmp eq i32 %235, %182
   br i1 %.not39.i.i, label %.thread.loopexit.split.loop.exit66.i.i, label %236
 
 236:                                              ; preds = %233
@@ -51552,8 +51552,8 @@ parse_target_implicit_parameter.exit:             ; preds = %226, %pm_parser_sco
 
 237:                                              ; preds = %parse_target_implicit_parameter.exit
   %238 = add i32 %229, -1
-  %239 = lshr i32 %187, 16
-  %240 = xor i32 %239, %187
+  %239 = lshr i32 %182, 16
+  %240 = xor i32 %239, %182
   %241 = mul i32 %240, 73244475
   %242 = lshr i32 %241, 16
   %243 = xor i32 %242, %241
@@ -51574,7 +51574,7 @@ parse_target_implicit_parameter.exit:             ; preds = %226, %pm_parser_sco
   br i1 %254, label %pm_locals_unread.exit, label %255
 
 255:                                              ; preds = %249
-  %256 = icmp eq i32 %253, %187
+  %256 = icmp eq i32 %253, %182
   br i1 %256, label %pm_locals_unread.exit, label %257
 
 257:                                              ; preds = %255
@@ -51653,9 +51653,9 @@ pm_local_variable_write_node_create.exit:         ; preds = %pm_implicit_array_w
   %.sroa.5.0..sroa_idx.i253 = getelementptr inbounds nuw i8, ptr %268, i64 16
   store ptr %283, ptr %.sroa.5.0..sroa_idx.i253, align 8, !tbaa !14
   %.sroa.6.0..sroa_idx.i254 = getelementptr inbounds nuw i8, ptr %268, i64 24
-  store i32 %187, ptr %.sroa.6.0..sroa_idx.i254, align 8, !tbaa !7
+  store i32 %182, ptr %.sroa.6.0..sroa_idx.i254, align 8, !tbaa !7
   %.sroa.7.0..sroa_idx.i255 = getelementptr inbounds nuw i8, ptr %268, i64 28
-  store i32 %182, ptr %.sroa.7.0..sroa_idx.i255, align 4, !tbaa !7
+  store i32 %185, ptr %.sroa.7.0..sroa_idx.i255, align 4, !tbaa !7
   %.sroa.8.0..sroa_idx.i256 = getelementptr inbounds nuw i8, ptr %268, i64 32
   store ptr %.sroa.0.0.copyload, ptr %.sroa.8.0..sroa_idx.i256, align 8
   %.sroa.5.0..sroa.8.0..sroa_idx.i256.sroa_idx = getelementptr inbounds nuw i8, ptr %268, i64 40

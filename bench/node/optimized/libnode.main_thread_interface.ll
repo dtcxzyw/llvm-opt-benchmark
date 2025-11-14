@@ -978,8 +978,8 @@ if.then3:                                         ; preds = %do.body
 if.end5:                                          ; preds = %if.then3, %do.body
   %12 = phi ptr [ %.pre14, %if.then3 ], [ %2, %do.body ]
   %13 = phi ptr [ %.pre13, %if.then3 ], [ %3, %do.body ]
-  %cmp.i.i611 = icmp eq ptr %13, %12
-  br i1 %cmp.i.i611, label %do.end, label %while.body
+  %cmp.i.i3 = icmp eq ptr %13, %12
+  br i1 %cmp.i.i3, label %do.end, label %while.body
 
 while.body:                                       ; preds = %if.end5, %_ZNSt10unique_ptrIN4node9inspector7RequestESt14default_deleteIS2_EED2Ev.exit
   %14 = phi ptr [ %31, %_ZNSt10unique_ptrIN4node9inspector7RequestESt14default_deleteIS2_EED2Ev.exit ], [ %12, %if.end5 ]

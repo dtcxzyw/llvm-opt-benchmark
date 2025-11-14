@@ -74,37 +74,37 @@ define ptr @cJSONUtils_FindPointerFromObjectTo(ptr noundef %0, ptr noundef readn
   br i1 %.not43, label %48, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %.03552, i64 56
-  %25 = load ptr, ptr %24, align 8, !tbaa !8
-  br label %26
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #15
+  %25 = getelementptr inbounds nuw i8, ptr %.03552, i64 56
+  %26 = load ptr, ptr %25, align 8, !tbaa !8
+  br label %27
 
-26:                                               ; preds = %30, %23
-  %.06.i = phi ptr [ %25, %23 ], [ %31, %30 ]
-  %.0.i = phi i64 [ 0, %23 ], [ %32, %30 ]
-  %27 = load i8, ptr %.06.i, align 1, !tbaa !13
-  switch i8 %27, label %30 [
+27:                                               ; preds = %31, %23
+  %.06.i = phi ptr [ %26, %23 ], [ %32, %31 ]
+  %.0.i = phi i64 [ 0, %23 ], [ %33, %31 ]
+  %28 = load i8, ptr %.06.i, align 1, !tbaa !13
+  switch i8 %28, label %31 [
     i8 0, label %pointer_encoded_length.exit
-    i8 126, label %28
-    i8 47, label %28
+    i8 126, label %29
+    i8 47, label %29
   ]
 
-28:                                               ; preds = %26, %26
-  %29 = add i64 %.0.i, 1
-  br label %30
+29:                                               ; preds = %27, %27
+  %30 = add i64 %.0.i, 1
+  br label %31
 
-30:                                               ; preds = %28, %26
-  %.1.i = phi i64 [ %29, %28 ], [ %.0.i, %26 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.06.i, i64 1
-  %32 = add i64 %.1.i, 1
-  br label %26
+31:                                               ; preds = %29, %27
+  %.1.i = phi i64 [ %30, %29 ], [ %.0.i, %27 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.06.i, i64 1
+  %33 = add i64 %.1.i, 1
+  br label %27
 
-pointer_encoded_length.exit:                      ; preds = %26
-  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #15
-  %34 = add i64 %33, 2
+pointer_encoded_length.exit:                      ; preds = %27
+  %34 = add i64 %24, 2
   %35 = add i64 %34, %.0.i
   %36 = tail call ptr @cJSON_malloc(i64 noundef %35) #14
   store i8 47, ptr %36, align 1, !tbaa !13
-  %37 = load ptr, ptr %24, align 8, !tbaa !8
+  %37 = load ptr, ptr %25, align 8, !tbaa !8
   br label %38
 
 38:                                               ; preds = %45, %pointer_encoded_length.exit
@@ -1176,9 +1176,9 @@ sort_object.exit112:                              ; preds = %.split
   %.not.i = icmp eq i32 %4, 0
   br label %76
 
-76:                                               ; preds = %.lr.ph, %145
-  %.0100127 = phi ptr [ %71, %.lr.ph ], [ %.1101, %145 ]
-  %.0102126 = phi ptr [ %72, %.lr.ph ], [ %.1103, %145 ]
+76:                                               ; preds = %.lr.ph, %146
+  %.0100127 = phi ptr [ %71, %.lr.ph ], [ %.1101, %146 ]
+  %.0102126 = phi ptr [ %72, %.lr.ph ], [ %.1103, %146 ]
   %77 = icmp eq ptr %.0102126, null
   br i1 %77, label %.compare_strings.exit.thread.thread_crit_edge, label %78
 
@@ -1203,7 +1203,7 @@ sort_object.exit112:                              ; preds = %.split
 
 85:                                               ; preds = %80
   %86 = icmp eq ptr %.pre, %82
-  br i1 %86, label %compare_strings.exit.thread119.preheader, label %87
+  br i1 %86, label %compare_strings.exit.thread119, label %87
 
 87:                                               ; preds = %85
   br i1 %.not.i, label %.preheader.i, label %99
@@ -1231,7 +1231,7 @@ sort_object.exit112:                              ; preds = %.split
   %.02333.i = phi ptr [ %104, %103 ], [ %.pre, %.preheader.i ]
   %.02432.i = phi ptr [ %105, %103 ], [ %82, %.preheader.i ]
   %102 = icmp eq i8 %101, 0
-  br i1 %102, label %compare_strings.exit.thread119.preheader, label %103
+  br i1 %102, label %compare_strings.exit.thread119, label %103
 
 103:                                              ; preds = %.lr.ph.i
   %104 = getelementptr inbounds nuw i8, ptr %.02333.i, i64 1
@@ -1256,105 +1256,105 @@ sort_object.exit112:                              ; preds = %.split
 compare_strings.exit:                             ; preds = %._crit_edge.i, %99
   %.099 = phi i32 [ %100, %99 ], [ %115, %._crit_edge.i ]
   %116 = icmp eq i32 %.099, 0
-  br i1 %116, label %compare_strings.exit.thread119.preheader, label %compare_strings.exit.thread
+  br i1 %116, label %compare_strings.exit.thread119, label %compare_strings.exit.thread
 
-compare_strings.exit.thread119.preheader:         ; preds = %.lr.ph.i, %85, %compare_strings.exit
-  br label %compare_strings.exit.thread119
+compare_strings.exit.thread119:                   ; preds = %.lr.ph.i, %85, %compare_strings.exit
+  %117 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
+  br label %118
 
-compare_strings.exit.thread119:                   ; preds = %compare_strings.exit.thread119.preheader, %120
-  %.06.i = phi ptr [ %121, %120 ], [ %.pre, %compare_strings.exit.thread119.preheader ]
-  %.0.i113 = phi i64 [ %122, %120 ], [ 0, %compare_strings.exit.thread119.preheader ]
-  %117 = load i8, ptr %.06.i, align 1, !tbaa !13
-  switch i8 %117, label %120 [
+118:                                              ; preds = %122, %compare_strings.exit.thread119
+  %.06.i = phi ptr [ %.pre, %compare_strings.exit.thread119 ], [ %123, %122 ]
+  %.0.i113 = phi i64 [ 0, %compare_strings.exit.thread119 ], [ %124, %122 ]
+  %119 = load i8, ptr %.06.i, align 1, !tbaa !13
+  switch i8 %119, label %122 [
     i8 0, label %pointer_encoded_length.exit
-    i8 126, label %118
-    i8 47, label %118
+    i8 126, label %120
+    i8 47, label %120
   ]
 
-118:                                              ; preds = %compare_strings.exit.thread119, %compare_strings.exit.thread119
-  %119 = add i64 %.0.i113, 1
-  br label %120
+120:                                              ; preds = %118, %118
+  %121 = add i64 %.0.i113, 1
+  br label %122
 
-120:                                              ; preds = %118, %compare_strings.exit.thread119
-  %.1.i = phi i64 [ %119, %118 ], [ %.0.i113, %compare_strings.exit.thread119 ]
-  %121 = getelementptr inbounds nuw i8, ptr %.06.i, i64 1
-  %122 = add i64 %.1.i, 1
-  br label %compare_strings.exit.thread119
+122:                                              ; preds = %120, %118
+  %.1.i = phi i64 [ %121, %120 ], [ %.0.i113, %118 ]
+  %123 = getelementptr inbounds nuw i8, ptr %.06.i, i64 1
+  %124 = add i64 %.1.i, 1
+  br label %118
 
-pointer_encoded_length.exit:                      ; preds = %compare_strings.exit.thread119
-  %123 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
-  %124 = add i64 %123, 2
-  %125 = add i64 %124, %.0.i113
-  %126 = tail call ptr @cJSON_malloc(i64 noundef %125) #14
-  %127 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %126, ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %1) #14
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 %123
-  %129 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !8
-  br label %130
+pointer_encoded_length.exit:                      ; preds = %118
+  %125 = add i64 %117, 2
+  %126 = add i64 %125, %.0.i113
+  %127 = tail call ptr @cJSON_malloc(i64 noundef %126) #14
+  %128 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %127, ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %1) #14
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 %117
+  %130 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !8
+  br label %131
 
-130:                                              ; preds = %137, %pointer_encoded_length.exit
-  %.pn = phi ptr [ %128, %pointer_encoded_length.exit ], [ %.1.i115, %137 ]
-  %.0.i114 = phi ptr [ %129, %pointer_encoded_length.exit ], [ %138, %137 ]
+131:                                              ; preds = %138, %pointer_encoded_length.exit
+  %.pn = phi ptr [ %129, %pointer_encoded_length.exit ], [ %.1.i115, %138 ]
+  %.0.i114 = phi ptr [ %130, %pointer_encoded_length.exit ], [ %139, %138 ]
   %.014.i = getelementptr inbounds nuw i8, ptr %.pn, i64 1
-  %131 = load i8, ptr %.0.i114, align 1, !tbaa !13
-  switch i8 %131, label %136 [
+  %132 = load i8, ptr %.0.i114, align 1, !tbaa !13
+  switch i8 %132, label %137 [
     i8 0, label %encode_string_as_pointer.exit
-    i8 47, label %132
-    i8 126, label %134
+    i8 47, label %133
+    i8 126, label %135
   ]
 
-132:                                              ; preds = %130
+133:                                              ; preds = %131
   store i8 126, ptr %.014.i, align 1, !tbaa !13
-  %133 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
-  store i8 49, ptr %133, align 1, !tbaa !13
-  br label %137
+  %134 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
+  store i8 49, ptr %134, align 1, !tbaa !13
+  br label %138
 
-134:                                              ; preds = %130
+135:                                              ; preds = %131
   store i8 126, ptr %.014.i, align 1, !tbaa !13
-  %135 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
-  store i8 48, ptr %135, align 1, !tbaa !13
-  br label %137
+  %136 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
+  store i8 48, ptr %136, align 1, !tbaa !13
+  br label %138
 
-136:                                              ; preds = %130
-  store i8 %131, ptr %.014.i, align 1, !tbaa !13
-  br label %137
+137:                                              ; preds = %131
+  store i8 %132, ptr %.014.i, align 1, !tbaa !13
+  br label %138
 
-137:                                              ; preds = %136, %134, %132
-  %.1.i115 = phi ptr [ %133, %132 ], [ %135, %134 ], [ %.014.i, %136 ]
-  %138 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 1
-  br label %130
+138:                                              ; preds = %137, %135, %133
+  %.1.i115 = phi ptr [ %134, %133 ], [ %136, %135 ], [ %.014.i, %137 ]
+  %139 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 1
+  br label %131
 
-encode_string_as_pointer.exit:                    ; preds = %130
+encode_string_as_pointer.exit:                    ; preds = %131
   store i8 0, ptr %.014.i, align 1, !tbaa !13
-  tail call fastcc void @create_patches(ptr noundef %0, ptr noundef nonnull %126, ptr noundef nonnull %.0102126, ptr noundef nonnull %.0100127, i32 noundef %4)
-  tail call void @cJSON_free(ptr noundef nonnull %126) #14
-  %139 = load ptr, ptr %.0102126, align 8, !tbaa !18
-  %140 = load ptr, ptr %.0100127, align 8, !tbaa !18
-  br label %145
+  tail call fastcc void @create_patches(ptr noundef %0, ptr noundef nonnull %127, ptr noundef nonnull %.0102126, ptr noundef nonnull %.0100127, i32 noundef %4)
+  tail call void @cJSON_free(ptr noundef nonnull %127) #14
+  %140 = load ptr, ptr %.0102126, align 8, !tbaa !18
+  %141 = load ptr, ptr %.0100127, align 8, !tbaa !18
+  br label %146
 
 compare_strings.exit.thread:                      ; preds = %compare_strings.exit
-  %141 = icmp slt i32 %.099, 0
-  br i1 %141, label %compare_strings.exit.thread.thread122, label %compare_strings.exit.thread.thread
+  %142 = icmp slt i32 %.099, 0
+  br i1 %142, label %compare_strings.exit.thread.thread122, label %compare_strings.exit.thread.thread
 
 compare_strings.exit.thread.thread122:            ; preds = %78, %compare_strings.exit.thread
   tail call fastcc void @compose_patch(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %1, ptr noundef %.pre, ptr noundef null)
-  %142 = load ptr, ptr %.0102126, align 8, !tbaa !18
-  br label %145
+  %143 = load ptr, ptr %.0102126, align 8, !tbaa !18
+  br label %146
 
 compare_strings.exit.thread.thread:               ; preds = %.compare_strings.exit.thread.thread_crit_edge, %80, %compare_strings.exit.thread
-  %143 = phi ptr [ %.pre145, %.compare_strings.exit.thread.thread_crit_edge ], [ %82, %80 ], [ %82, %compare_strings.exit.thread ]
-  tail call fastcc void @compose_patch(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef %1, ptr noundef %143, ptr noundef %.0100127)
-  %144 = load ptr, ptr %.0100127, align 8, !tbaa !18
-  br label %145
+  %144 = phi ptr [ %.pre145, %.compare_strings.exit.thread.thread_crit_edge ], [ %82, %80 ], [ %82, %compare_strings.exit.thread ]
+  tail call fastcc void @compose_patch(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef %1, ptr noundef %144, ptr noundef %.0100127)
+  %145 = load ptr, ptr %.0100127, align 8, !tbaa !18
+  br label %146
 
-145:                                              ; preds = %compare_strings.exit.thread.thread122, %compare_strings.exit.thread.thread, %encode_string_as_pointer.exit
-  %.1103 = phi ptr [ %139, %encode_string_as_pointer.exit ], [ %142, %compare_strings.exit.thread.thread122 ], [ %.0102126, %compare_strings.exit.thread.thread ]
-  %.1101 = phi ptr [ %140, %encode_string_as_pointer.exit ], [ %.0100127, %compare_strings.exit.thread.thread122 ], [ %144, %compare_strings.exit.thread.thread ]
-  %146 = icmp ne ptr %.1103, null
-  %147 = icmp ne ptr %.1101, null
-  %148 = select i1 %146, i1 true, i1 %147
-  br i1 %148, label %76, label %.loopexit
+146:                                              ; preds = %compare_strings.exit.thread.thread122, %compare_strings.exit.thread.thread, %encode_string_as_pointer.exit
+  %.1103 = phi ptr [ %140, %encode_string_as_pointer.exit ], [ %143, %compare_strings.exit.thread.thread122 ], [ %.0102126, %compare_strings.exit.thread.thread ]
+  %.1101 = phi ptr [ %141, %encode_string_as_pointer.exit ], [ %.0100127, %compare_strings.exit.thread.thread122 ], [ %145, %compare_strings.exit.thread.thread ]
+  %147 = icmp ne ptr %.1103, null
+  %148 = icmp ne ptr %.1101, null
+  %149 = select i1 %147, i1 true, i1 %148
+  br i1 %149, label %76, label %.loopexit
 
-.loopexit:                                        ; preds = %145, %sort_object.exit112, %.split, %16, %38, %44, %25, %37, %5, %._crit_edge, %15
+.loopexit:                                        ; preds = %146, %sort_object.exit112, %.split, %16, %38, %44, %25, %37, %5, %._crit_edge, %15
   ret void
 }
 

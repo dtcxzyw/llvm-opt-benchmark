@@ -26731,40 +26731,40 @@ define dso_local i64 @_ZNK5clang10ImportDecl14getSourceRangeEv(ptr noundef nonnu
   %.0.copyload.i.i.i.i = load i64, ptr %2, align 8
   %3 = and i64 %.0.copyload.i.i.i.i, 4
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %6
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.0.0.copyload.i = load i32, ptr %4, align 8, !tbaa !18
+  br i1 %.not, label %5, label %7
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  br label %16
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  br label %17
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !1102
-  br label %9
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = load ptr, ptr %8, align 8, !tbaa !1102
+  br label %10
 
-9:                                                ; preds = %9, %6
-  %.03.i.i = phi ptr [ %8, %6 ], [ %11, %9 ]
-  %.0.i.i = phi i32 [ 1, %6 ], [ %12, %9 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !696
-  %.not.i.i = icmp eq ptr %11, null
-  %12 = add i32 %.0.i.i, 1
-  br i1 %.not.i.i, label %_ZNK5clang10ImportDecl17getIdentifierLocsEv.exit, label %9, !llvm.loop !1107
+10:                                               ; preds = %10, %7
+  %.03.i.i = phi ptr [ %9, %7 ], [ %12, %10 ]
+  %.0.i.i = phi i32 [ 1, %7 ], [ %13, %10 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 40
+  %12 = load ptr, ptr %11, align 8, !tbaa !696
+  %.not.i.i = icmp eq ptr %12, null
+  %13 = add i32 %.0.i.i, 1
+  br i1 %.not.i.i, label %_ZNK5clang10ImportDecl17getIdentifierLocsEv.exit, label %10, !llvm.loop !1107
 
-_ZNK5clang10ImportDecl17getIdentifierLocsEv.exit: ; preds = %9
-  %13 = zext i32 %.0.i.i to i64
-  %14 = getelementptr %"class.clang::SourceLocation", ptr %0, i64 %13
-  %15 = getelementptr i8, ptr %14, i64 52
-  br label %16
+_ZNK5clang10ImportDecl17getIdentifierLocsEv.exit: ; preds = %10
+  %14 = zext i32 %.0.i.i to i64
+  %15 = getelementptr %"class.clang::SourceLocation", ptr %0, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 52
+  br label %17
 
-16:                                               ; preds = %_ZNK5clang10ImportDecl17getIdentifierLocsEv.exit, %4
-  %.sroa.3.0.in = phi ptr [ %15, %_ZNK5clang10ImportDecl17getIdentifierLocsEv.exit ], [ %5, %4 ]
-  %.sroa.05.0.in = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.05.0 = load i32, ptr %.sroa.05.0.in, align 8, !tbaa !18
+17:                                               ; preds = %_ZNK5clang10ImportDecl17getIdentifierLocsEv.exit, %5
+  %.sroa.3.0.in = phi ptr [ %16, %_ZNK5clang10ImportDecl17getIdentifierLocsEv.exit ], [ %6, %5 ]
   %.sroa.3.0 = load i32, ptr %.sroa.3.0.in, align 4, !tbaa !18
   %.sroa.3.0.insert.ext = zext i32 %.sroa.3.0 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
-  %.sroa.05.0.insert.ext = zext i32 %.sroa.05.0 to i64
+  %.sroa.05.0.insert.ext = zext i32 %.sroa.0.0.copyload.i to i64
   %.sroa.05.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.05.0.insert.ext
   ret i64 %.sroa.05.0.insert.insert
 }

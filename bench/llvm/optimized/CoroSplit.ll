@@ -10206,11 +10206,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
   %187 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %188 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %189 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %190 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %191 = getelementptr inbounds nuw i8, ptr %47, i64 80
-  %192 = getelementptr inbounds nuw i8, ptr %47, i64 88
   %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %47, i64 80
+  %191 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %47, i64 88
   %193 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %194 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %195 = getelementptr inbounds nuw i8, ptr %19, i64 12
@@ -12377,7 +12377,7 @@ _ZN4llvm13SmallDenseMapIPNS_8ArgumentEPNS_10AllocaInstELj4ENS_12DenseMapInfoIS2_
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call fastcc void @_ZL28collectDbgVariableIntrinsicsRN4llvm8FunctionE(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(136) %269)
   %1163 = load ptr, ptr %47, align 8, !tbaa !88
-  %1164 = load i32, ptr %190, align 8, !tbaa !89
+  %1164 = load i32, ptr %191, align 8, !tbaa !89
   %1165 = zext i32 %1164 to i64
   %.idx.i = shl nuw nsw i64 %1165, 3
   %1166 = getelementptr inbounds nuw i8, ptr %1163, i64 %.idx.i
@@ -12385,7 +12385,7 @@ _ZN4llvm13SmallDenseMapIPNS_8ArgumentEPNS_10AllocaInstELj4ENS_12DenseMapInfoIS2_
   br i1 %.not97.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZN4llvm13SmallDenseMapIPNS_8ArgumentEPNS_10AllocaInstELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit.i
-  %1167 = load ptr, ptr %191, align 8, !tbaa !88
+  %1167 = load ptr, ptr %190, align 8, !tbaa !88
   %1168 = load i32, ptr %192, align 8, !tbaa !89
   %1169 = zext i32 %1168 to i64
   %.idx104.i = shl nuw nsw i64 %1169, 3
@@ -12925,7 +12925,7 @@ _ZN12_GLOBAL__N_123SwitchCoroutineSplitter20createNoAllocVariantERN4llvm8Functio
   br label %1394
 
 1394:                                             ; preds = %_ZN12_GLOBAL__N_123SwitchCoroutineSplitter20createNoAllocVariantERN4llvm8FunctionERNS1_4coro5ShapeERNS1_15SmallVectorImplIPS2_EE.exit.i, %_ZL30removeCoroEndsFromRampFunctionRKN4llvm4coro5ShapeE.exit.i
-  %1395 = load ptr, ptr %191, align 8, !tbaa !88
+  %1395 = load ptr, ptr %190, align 8, !tbaa !88
   %1396 = icmp eq ptr %1395, %215
   br i1 %1396, label %_ZN4llvm11SmallVectorIPNS_17DbgVariableRecordELj6EED2Ev.exit.i.i, label %1397
 

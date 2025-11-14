@@ -1034,22 +1034,19 @@ _ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exi
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 64
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef %3)
-  %57 = load ptr, ptr %37, align 8, !tbaa !15
-  %58 = ptrtoint ptr %43 to i64
-  %59 = ptrtoint ptr %57 to i64
-  %60 = sub i64 %58, %59
-  %61 = lshr exact i64 %60, 5
-  %62 = trunc i64 %61 to i32
-  %63 = load ptr, ptr %33, align 8, !tbaa !28
-  %64 = getelementptr inbounds i32, ptr %63, i64 %35
-  %.04369 = load i32, ptr %64, align 4, !tbaa !41
-  %.not70 = icmp eq i32 %.04369, %62
+  %57 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %58 = load ptr, ptr %57, align 8, !tbaa !37
+  %59 = load ptr, ptr %37, align 8, !tbaa !15
+  %60 = ptrtoint ptr %43 to i64
+  %61 = ptrtoint ptr %59 to i64
+  %62 = sub i64 %60, %61
+  %63 = lshr exact i64 %62, 5
+  %64 = trunc i64 %63 to i32
+  %65 = load ptr, ptr %33, align 8, !tbaa !28
+  %66 = getelementptr inbounds i32, ptr %65, i64 %35
+  %.04369 = load i32, ptr %66, align 4, !tbaa !41
+  %.not70 = icmp eq i32 %.04369, %64
   br i1 %.not70, label %._crit_edge.thread, label %.lr.ph
-
-._crit_edge.thread:                               ; preds = %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit
-  %65 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %66 = load ptr, ptr %65, align 8, !tbaa !37
-  br label %80
 
 .lr.ph:                                           ; preds = %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit
   %67 = load ptr, ptr %39, align 8, !tbaa !28
@@ -1060,147 +1057,143 @@ _ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exi
   %69 = sext i32 %.04371 to i64
   %70 = getelementptr inbounds i32, ptr %67, i64 %69
   %.043 = load i32, ptr %70, align 4, !tbaa !41
-  %.not = icmp eq i32 %.043, %62
+  %.not = icmp eq i32 %.043, %64
   br i1 %.not, label %._crit_edge, label %68, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %68
-  %71 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %72 = load ptr, ptr %71, align 8, !tbaa !37
   %.not51 = icmp eq i32 %.04371, -1
-  br i1 %.not51, label %80, label %73
+  br i1 %.not51, label %._crit_edge.thread, label %71
 
-73:                                               ; preds = %._crit_edge
-  %74 = load ptr, ptr %39, align 8, !tbaa !28
-  %sext = shl i64 %60, 27
-  %75 = ashr i64 %sext, 32
-  %76 = getelementptr inbounds i32, ptr %74, i64 %75
-  %77 = load i32, ptr %76, align 4, !tbaa !41
-  %78 = sext i32 %.04371 to i64
-  %79 = getelementptr inbounds i32, ptr %74, i64 %78
-  store i32 %77, ptr %79, align 4, !tbaa !41
-  br label %86
+71:                                               ; preds = %._crit_edge
+  %72 = load ptr, ptr %39, align 8, !tbaa !28
+  %sext = shl i64 %62, 27
+  %73 = ashr i64 %sext, 32
+  %74 = getelementptr inbounds i32, ptr %72, i64 %73
+  %75 = load i32, ptr %74, align 4, !tbaa !41
+  %76 = sext i32 %.04371 to i64
+  %77 = getelementptr inbounds i32, ptr %72, i64 %76
+  store i32 %75, ptr %77, align 4, !tbaa !41
+  br label %82
 
-80:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %81 = phi ptr [ %66, %._crit_edge.thread ], [ %72, %._crit_edge ]
-  %82 = load ptr, ptr %39, align 8, !tbaa !28
-  %sext66 = shl i64 %60, 27
-  %83 = ashr i64 %sext66, 32
-  %84 = getelementptr inbounds i32, ptr %82, i64 %83
-  %85 = load i32, ptr %84, align 4, !tbaa !41
-  store i32 %85, ptr %64, align 4, !tbaa !41
-  br label %86
+._crit_edge.thread:                               ; preds = %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit, %._crit_edge
+  %78 = load ptr, ptr %39, align 8, !tbaa !28
+  %sext66 = shl i64 %62, 27
+  %79 = ashr i64 %sext66, 32
+  %80 = getelementptr inbounds i32, ptr %78, i64 %79
+  %81 = load i32, ptr %80, align 4, !tbaa !41
+  store i32 %81, ptr %66, align 4, !tbaa !41
+  br label %82
 
-86:                                               ; preds = %80, %73
-  %87 = phi ptr [ %81, %80 ], [ %72, %73 ]
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %89 = load i32, ptr %88, align 4, !tbaa !16
-  %90 = add nsw i32 %89, -1
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %92 = load ptr, ptr %91, align 8, !tbaa !31
-  %.not52 = icmp eq ptr %92, null
-  br i1 %.not52, label %98, label %93
+82:                                               ; preds = %._crit_edge.thread, %71
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %84 = load i32, ptr %83, align 4, !tbaa !16
+  %85 = add nsw i32 %84, -1
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %87 = load ptr, ptr %86, align 8, !tbaa !31
+  %.not52 = icmp eq ptr %87, null
+  br i1 %.not52, label %93, label %88
 
-93:                                               ; preds = %86
-  %94 = load ptr, ptr %92, align 8, !tbaa !4
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  %97 = tail call noundef ptr %96(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef %spec.select, ptr noundef %spec.select65, ptr noundef %3)
-  br label %98
+88:                                               ; preds = %82
+  %89 = load ptr, ptr %87, align 8, !tbaa !4
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  %91 = load ptr, ptr %90, align 8
+  %92 = tail call noundef ptr %91(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef %spec.select, ptr noundef %spec.select65, ptr noundef %3)
+  br label %93
 
-98:                                               ; preds = %93, %86
-  %99 = icmp eq i32 %90, %62
-  br i1 %99, label %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit.thread.sink.split, label %100
+93:                                               ; preds = %88, %82
+  %94 = icmp eq i32 %85, %64
+  br i1 %94, label %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit.thread.sink.split, label %95
 
-100:                                              ; preds = %98
-  %101 = load ptr, ptr %37, align 8, !tbaa !15
-  %102 = sext i32 %90 to i64
-  %103 = getelementptr inbounds %struct.btBroadphasePair, ptr %101, i64 %102
-  %104 = load ptr, ptr %103, align 8, !tbaa !44
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  %106 = load i32, ptr %105, align 8, !tbaa !46
-  %107 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %108 = load ptr, ptr %107, align 8, !tbaa !49
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %110 = load i32, ptr %109, align 8, !tbaa !46
-  %111 = shl i32 %110, 16
-  %112 = or i32 %111, %106
-  %113 = shl i32 %112, 15
-  %114 = xor i32 %113, -1
-  %115 = add i32 %112, %114
-  %116 = lshr i32 %115, 10
-  %117 = xor i32 %116, %115
-  %118 = mul i32 %117, 9
-  %119 = lshr i32 %118, 6
+95:                                               ; preds = %93
+  %96 = load ptr, ptr %37, align 8, !tbaa !15
+  %97 = sext i32 %85 to i64
+  %98 = getelementptr inbounds %struct.btBroadphasePair, ptr %96, i64 %97
+  %99 = load ptr, ptr %98, align 8, !tbaa !44
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %101 = load i32, ptr %100, align 8, !tbaa !46
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %103 = load ptr, ptr %102, align 8, !tbaa !49
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
+  %105 = load i32, ptr %104, align 8, !tbaa !46
+  %106 = shl i32 %105, 16
+  %107 = or i32 %106, %101
+  %108 = shl i32 %107, 15
+  %109 = xor i32 %108, -1
+  %110 = add i32 %107, %109
+  %111 = lshr i32 %110, 10
+  %112 = xor i32 %111, %110
+  %113 = mul i32 %112, 9
+  %114 = lshr i32 %113, 6
+  %115 = xor i32 %114, %113
+  %116 = shl i32 %115, 11
+  %117 = xor i32 %116, -1
+  %118 = add i32 %115, %117
+  %119 = lshr i32 %118, 16
   %120 = xor i32 %119, %118
-  %121 = shl i32 %120, 11
-  %122 = xor i32 %121, -1
-  %123 = add i32 %120, %122
-  %124 = lshr i32 %123, 16
-  %125 = xor i32 %124, %123
-  %126 = load i32, ptr %29, align 8, !tbaa !17
-  %127 = add nsw i32 %126, -1
-  %128 = and i32 %125, %127
-  %129 = load ptr, ptr %33, align 8, !tbaa !28
-  %130 = sext i32 %128 to i64
-  %131 = getelementptr inbounds i32, ptr %129, i64 %130
-  %.14472 = load i32, ptr %131, align 4, !tbaa !41
-  %.not5373 = icmp eq i32 %.14472, %90
+  %121 = load i32, ptr %29, align 8, !tbaa !17
+  %122 = add nsw i32 %121, -1
+  %123 = and i32 %120, %122
+  %124 = load ptr, ptr %33, align 8, !tbaa !28
+  %125 = sext i32 %123 to i64
+  %126 = getelementptr inbounds i32, ptr %124, i64 %125
+  %.14472 = load i32, ptr %126, align 4, !tbaa !41
+  %.not5373 = icmp eq i32 %.14472, %85
   br i1 %.not5373, label %._crit_edge77.thread, label %.lr.ph76
 
-.lr.ph76:                                         ; preds = %100
-  %132 = load ptr, ptr %39, align 8, !tbaa !28
-  br label %133
+.lr.ph76:                                         ; preds = %95
+  %127 = load ptr, ptr %39, align 8, !tbaa !28
+  br label %128
 
-133:                                              ; preds = %.lr.ph76, %133
-  %.14474 = phi i32 [ %.14472, %.lr.ph76 ], [ %.144, %133 ]
-  %134 = sext i32 %.14474 to i64
-  %135 = getelementptr inbounds i32, ptr %132, i64 %134
-  %.144 = load i32, ptr %135, align 4, !tbaa !41
-  %.not53 = icmp eq i32 %.144, %90
-  br i1 %.not53, label %._crit_edge77, label %133, !llvm.loop !64
+128:                                              ; preds = %.lr.ph76, %128
+  %.14474 = phi i32 [ %.14472, %.lr.ph76 ], [ %.144, %128 ]
+  %129 = sext i32 %.14474 to i64
+  %130 = getelementptr inbounds i32, ptr %127, i64 %129
+  %.144 = load i32, ptr %130, align 4, !tbaa !41
+  %.not53 = icmp eq i32 %.144, %85
+  br i1 %.not53, label %._crit_edge77, label %128, !llvm.loop !64
 
-._crit_edge77:                                    ; preds = %133
+._crit_edge77:                                    ; preds = %128
   %.not54 = icmp eq i32 %.14474, -1
-  br i1 %.not54, label %._crit_edge77.thread, label %136
+  br i1 %.not54, label %._crit_edge77.thread, label %131
 
-136:                                              ; preds = %._crit_edge77
+131:                                              ; preds = %._crit_edge77
+  %132 = load ptr, ptr %39, align 8, !tbaa !28
+  %133 = getelementptr inbounds i32, ptr %132, i64 %97
+  %134 = load i32, ptr %133, align 4, !tbaa !41
+  %135 = sext i32 %.14474 to i64
+  %136 = getelementptr inbounds i32, ptr %132, i64 %135
+  store i32 %134, ptr %136, align 4, !tbaa !41
+  br label %140
+
+._crit_edge77.thread:                             ; preds = %95, %._crit_edge77
   %137 = load ptr, ptr %39, align 8, !tbaa !28
-  %138 = getelementptr inbounds i32, ptr %137, i64 %102
+  %138 = getelementptr inbounds i32, ptr %137, i64 %97
   %139 = load i32, ptr %138, align 4, !tbaa !41
-  %140 = sext i32 %.14474 to i64
-  %141 = getelementptr inbounds i32, ptr %137, i64 %140
-  store i32 %139, ptr %141, align 4, !tbaa !41
-  br label %145
+  store i32 %139, ptr %126, align 4, !tbaa !41
+  br label %140
 
-._crit_edge77.thread:                             ; preds = %100, %._crit_edge77
-  %142 = load ptr, ptr %39, align 8, !tbaa !28
-  %143 = getelementptr inbounds i32, ptr %142, i64 %102
-  %144 = load i32, ptr %143, align 4, !tbaa !41
-  store i32 %144, ptr %131, align 4, !tbaa !41
-  br label %145
-
-145:                                              ; preds = %._crit_edge77.thread, %136
-  %sext67 = shl i64 %60, 27
-  %146 = ashr i64 %sext67, 32
-  %147 = getelementptr inbounds %struct.btBroadphasePair, ptr %101, i64 %146
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(32) %103, i64 32, i1 false), !tbaa.struct !32
-  %148 = load ptr, ptr %33, align 8, !tbaa !28
-  %149 = getelementptr inbounds i32, ptr %148, i64 %130
-  %150 = load i32, ptr %149, align 4, !tbaa !41
-  %151 = load ptr, ptr %39, align 8, !tbaa !28
-  %152 = getelementptr inbounds i32, ptr %151, i64 %146
-  store i32 %150, ptr %152, align 4, !tbaa !41
-  store i32 %62, ptr %149, align 4, !tbaa !41
+140:                                              ; preds = %._crit_edge77.thread, %131
+  %sext67 = shl i64 %62, 27
+  %141 = ashr i64 %sext67, 32
+  %142 = getelementptr inbounds %struct.btBroadphasePair, ptr %96, i64 %141
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef nonnull align 8 dereferenceable(32) %98, i64 32, i1 false), !tbaa.struct !32
+  %143 = load ptr, ptr %33, align 8, !tbaa !28
+  %144 = getelementptr inbounds i32, ptr %143, i64 %125
+  %145 = load i32, ptr %144, align 4, !tbaa !41
+  %146 = load ptr, ptr %39, align 8, !tbaa !28
+  %147 = getelementptr inbounds i32, ptr %146, i64 %141
+  store i32 %145, ptr %147, align 4, !tbaa !41
+  store i32 %64, ptr %144, align 4, !tbaa !41
   br label %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit.thread.sink.split
 
-_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit.thread.sink.split: ; preds = %98, %145
-  %153 = load i32, ptr %88, align 4, !tbaa !16
-  %154 = add nsw i32 %153, -1
-  store i32 %154, ptr %88, align 4, !tbaa !16
+_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit.thread.sink.split: ; preds = %93, %140
+  %148 = load i32, ptr %83, align 4, !tbaa !16
+  %149 = add nsw i32 %148, -1
+  store i32 %149, ptr %83, align 4, !tbaa !16
   br label %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit.thread
 
 _ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit.thread: ; preds = %_ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.thread.i, %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit.thread.sink.split, %4
-  %.0 = phi ptr [ null, %4 ], [ %87, %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit.thread.sink.split ], [ null, %_ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.thread.i ]
+  %.0 = phi ptr [ null, %4 ], [ %58, %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit.thread.sink.split ], [ null, %_ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.thread.i ]
   ret ptr %.0
 }
 

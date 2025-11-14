@@ -5962,6 +5962,7 @@ define internal range(i32 -22, 2) i32 @snd_pcm_hw_rule_format(ptr noundef captur
   %12 = getelementptr i8, ptr %0, i64 36
   store i64 -1, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %.sroa.gep2 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %14
 
 14:                                               ; preds = %38, %2
@@ -6005,7 +6006,6 @@ define internal range(i32 -22, 2) i32 @snd_pcm_hw_rule_format(ptr noundef captur
   br i1 %40, label %.preheader.preheader.critedge, label %14, !llvm.loop !54
 
 .preheader.preheader.critedge:                    ; preds = %38
-  %.sroa.gep2 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef align 4 dereferenceable(32) %12, i64 32, i1 false)
   %41 = load i32, ptr %4, align 8
@@ -6086,10 +6086,10 @@ define internal i32 @snd_pcm_hw_rule_sample_bits(ptr noundef %0, ptr noundef rea
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %27, align 4, !annotation !13
+  store i32 0, ptr %29, align 4, !annotation !13
   store i32 %23, ptr %3, align 4
   store i32 %22, ptr %28, align 4
-  store i8 4, ptr %29, align 4
+  store i8 4, ptr %27, align 4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 260

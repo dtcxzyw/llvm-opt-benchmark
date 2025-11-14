@@ -4390,13 +4390,13 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr noundef readonly captures
 10:                                               ; preds = %.lr.ph47, %._crit_edge44
   %indvars.iv = phi i64 [ %9, %.lr.ph47 ], [ %indvars.iv.next, %._crit_edge44 ]
   %.045 = phi i64 [ 0, %.lr.ph47 ], [ %50, %._crit_edge44 ]
-  %11 = load ptr, ptr @ssl_debug_file, align 8
-  %12 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %11, i32 noundef 2, ptr noundef nonnull @.str.704)
+  %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv, i64 15)
+  %11 = add nuw nsw i64 %umin, 1
+  %12 = load ptr, ptr @ssl_debug_file, align 8
+  %13 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %12, i32 noundef 2, ptr noundef nonnull @.str.704)
   br label %14
 
 .preheader34:                                     ; preds = %14
-  %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv, i64 15)
-  %13 = add nuw nsw i64 %umin, 1
   br i1 %22, label %.lr.ph, label %.lr.ph41.preheader
 
 14:                                               ; preds = %10, %14
@@ -4453,7 +4453,7 @@ define hidden void @ssl_print_data(ptr noundef %0, ptr noundef readonly captures
   br i1 %exitcond.not, label %.preheader, label %.lr.ph41, !llvm.loop !66
 
 .lr.ph43:                                         ; preds = %.preheader, %.lr.ph43
-  %.342 = phi i64 [ %47, %.lr.ph43 ], [ %13, %.preheader ]
+  %.342 = phi i64 [ %47, %.lr.ph43 ], [ %11, %.preheader ]
   %45 = load ptr, ptr @ssl_debug_file, align 8
   %46 = tail call i32 @fputc(i32 noundef 32, ptr noundef %45)
   %47 = add nuw nsw i64 %.342, 1
@@ -11357,52 +11357,52 @@ ssl_dissect_hnd_hello_ext_srp.exit:               ; preds = %397, %400
 445:                                              ; preds = %442
   %446 = add i32 %.0417548, 5
   %447 = load i32, ptr %57, align 4
-  %448 = load i32, ptr %263, align 4
-  %449 = lshr i32 %447, 1
-  %450 = icmp eq i32 %449, 1
-  %451 = select i1 %450, ptr @.str.513, ptr @.str.723
-  %452 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %306, i32 noundef %448, ptr noundef %1, i32 noundef %446, i32 noundef %447, ptr noundef nonnull @.str.1669, i32 noundef %449, ptr noundef nonnull %451)
-  %453 = load i32, ptr %90, align 4
-  %454 = call ptr @proto_item_add_subtree(ptr noundef %452, i32 noundef %453)
-  %455 = add i32 %.0417548, 7
-  %.not34.i = icmp ugt i32 %455, %323
+  %448 = add i32 %447, %446
+  %449 = load i32, ptr %263, align 4
+  %450 = lshr i32 %447, 1
+  %451 = icmp eq i32 %450, 1
+  %452 = select i1 %451, ptr @.str.513, ptr @.str.723
+  %453 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %306, i32 noundef %449, ptr noundef %1, i32 noundef %446, i32 noundef %447, ptr noundef nonnull @.str.1669, i32 noundef %450, ptr noundef nonnull %452)
+  %454 = load i32, ptr %90, align 4
+  %455 = call ptr @proto_item_add_subtree(ptr noundef %453, i32 noundef %454)
+  %456 = add i32 %.0417548, 7
+  %.not34.i = icmp ugt i32 %456, %323
   br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i435
 
 .lr.ph.i435:                                      ; preds = %445, %.lr.ph.i435
-  %456 = phi i32 [ %459, %.lr.ph.i435 ], [ %455, %445 ]
-  %.03135.i = phi i32 [ %456, %.lr.ph.i435 ], [ %446, %445 ]
-  %457 = load i32, ptr %91, align 4
-  %458 = call ptr @proto_tree_add_item(ptr noundef %454, i32 noundef %457, ptr noundef %1, i32 noundef %.03135.i, i32 noundef 2, i32 noundef 0)
-  %459 = add i32 %456, 2
-  %.not.i = icmp ugt i32 %459, %323
+  %457 = phi i32 [ %460, %.lr.ph.i435 ], [ %456, %445 ]
+  %.03135.i = phi i32 [ %457, %.lr.ph.i435 ], [ %446, %445 ]
+  %458 = load i32, ptr %91, align 4
+  %459 = call ptr @proto_tree_add_item(ptr noundef %455, i32 noundef %458, ptr noundef %1, i32 noundef %.03135.i, i32 noundef 2, i32 noundef 0)
+  %460 = add i32 %457, 2
+  %.not.i = icmp ugt i32 %460, %323
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i435, !llvm.loop !133
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i435, %445
-  %.031.lcssa.i = phi i32 [ %446, %445 ], [ %456, %.lr.ph.i435 ]
-  %460 = add i32 %447, %446
-  %461 = icmp ult i32 %.031.lcssa.i, %460
+  %.031.lcssa.i = phi i32 [ %446, %445 ], [ %457, %.lr.ph.i435 ]
+  %461 = icmp ult i32 %.031.lcssa.i, %448
   br i1 %461, label %462, label %467
 
 462:                                              ; preds = %._crit_edge.i
-  %463 = sub nuw i32 %460, %.031.lcssa.i
+  %463 = sub nuw i32 %448, %.031.lcssa.i
   %464 = icmp eq i32 %463, 1
   %465 = select i1 %464, ptr @.str.720, ptr @.str.721
-  %466 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %454, ptr noundef %3, ptr noundef nonnull %103, ptr noundef %1, i32 noundef %.031.lcssa.i, i32 noundef %463, ptr noundef nonnull @.str.719, i32 noundef %463, ptr noundef nonnull %465)
+  %466 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %455, ptr noundef %3, ptr noundef nonnull %103, ptr noundef %1, i32 noundef %.031.lcssa.i, i32 noundef %463, ptr noundef nonnull @.str.719, i32 noundef %463, ptr noundef nonnull %465)
   br label %ssl_dissect_hnd_ech_outer_ext.exit
 
 467:                                              ; preds = %._crit_edge.i
-  %468 = icmp ugt i32 %.031.lcssa.i, %460
+  %468 = icmp ugt i32 %.031.lcssa.i, %448
   br i1 %468, label %469, label %ssl_dissect_hnd_ech_outer_ext.exit
 
 469:                                              ; preds = %467
-  %470 = sub nuw i32 %.031.lcssa.i, %460
+  %470 = sub nuw i32 %.031.lcssa.i, %448
   %471 = icmp eq i32 %470, 1
   %472 = select i1 %471, ptr @.str.513, ptr @.str.723
-  %473 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %454, ptr noundef %3, ptr noundef nonnull %102, ptr noundef %1, i32 noundef %460, i32 noundef %470, ptr noundef nonnull @.str.722, i32 noundef %470, ptr noundef nonnull %472)
+  %473 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %455, ptr noundef %3, ptr noundef nonnull %102, ptr noundef %1, i32 noundef %448, i32 noundef %470, ptr noundef nonnull @.str.722, i32 noundef %470, ptr noundef nonnull %472)
   br label %ssl_dissect_hnd_ech_outer_ext.exit
 
 ssl_dissect_hnd_ech_outer_ext.exit:               ; preds = %442, %462, %467, %469
-  %.0.i434 = phi i32 [ %323, %442 ], [ %.031.lcssa.i, %467 ], [ %460, %462 ], [ %460, %469 ]
+  %.0.i434 = phi i32 [ %323, %442 ], [ %.031.lcssa.i, %467 ], [ %448, %462 ], [ %448, %469 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %ssl_dissect_hnd_ext_delegated_credentials.exit
 

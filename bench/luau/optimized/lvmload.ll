@@ -137,11 +137,11 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
   %36 = tail call noundef i64 @_Z9luaC_stepP9lua_Stateb(ptr noundef nonnull %0, i1 noundef zeroext true)
   %.pre = load ptr, ptr %29, align 8, !tbaa !22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 64
-  %.pre1029 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !37
+  %.pre1028 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !37
   br label %37
 
 37:                                               ; preds = %28, %35
-  %38 = phi i64 [ %34, %28 ], [ %.pre1029, %35 ]
+  %38 = phi i64 [ %34, %28 ], [ %.pre1028, %35 ]
   %39 = phi ptr [ %30, %28 ], [ %.pre, %35 ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
   store i64 -1, ptr %40, align 8, !tbaa !37
@@ -371,11 +371,11 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit: ; preds = %115, %_ZL10readVa
   br i1 %.not473, label %.loopexit775.preheader, label %.lr.ph, !llvm.loop !49
 
 .loopexit775.preheader:                           ; preds = %138, %103, %._crit_edge
-  %.ph1262 = phi i64 [ %.3860, %103 ], [ %.1739.lcssa, %._crit_edge ], [ %.3, %138 ]
+  %.ph1251 = phi i64 [ %.3860, %103 ], [ %.1739.lcssa, %._crit_edge ], [ %.3, %138 ]
   br label %.loopexit775
 
 .loopexit775:                                     ; preds = %.loopexit775.preheader, %.loopexit775
-  %139 = phi i64 [ %141, %.loopexit775 ], [ %.ph1262, %.loopexit775.preheader ]
+  %139 = phi i64 [ %141, %.loopexit775 ], [ %.ph1251, %.loopexit775.preheader ]
   %.08.i532 = phi i32 [ %146, %.loopexit775 ], [ 0, %.loopexit775.preheader ]
   %.0.i533 = phi i32 [ %145, %.loopexit775 ], [ 0, %.loopexit775.preheader ]
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 %139
@@ -440,7 +440,7 @@ _ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit:     ; preds = %_ZL10readVarIntPKcm
   br label %748
 
 168:                                              ; preds = %.lr.ph910, %.loopexit
-  %indvars.iv1023 = phi i64 [ 0, %.lr.ph910 ], [ %indvars.iv.next1024, %.loopexit ]
+  %indvars.iv1022 = phi i64 [ 0, %.lr.ph910 ], [ %indvars.iv.next1023, %.loopexit ]
   %.4908 = phi i64 [ %141, %.lr.ph910 ], [ %.14, %.loopexit ]
   %169 = invoke noundef ptr @_Z13luaF_newprotoP9lua_State(ptr noundef nonnull %0)
           to label %170 unwind label %204
@@ -449,7 +449,7 @@ _ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit:     ; preds = %_ZL10readVarIntPKcm
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 88
   store ptr %49, ptr %171, align 8, !tbaa !55
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 168
-  %173 = trunc nuw i64 %indvars.iv1023 to i32
+  %173 = trunc nuw i64 %indvars.iv1022 to i32
   store i32 %173, ptr %172, align 8, !tbaa !60
   %174 = getelementptr i8, ptr %2, i64 %.4908
   %.0.copyload.i543 = load i8, ptr %174, align 1
@@ -541,13 +541,13 @@ _ZL10readVarIntPKcmRm.exit553:                    ; preds = %.preheader752
   br label %219
 
 219:                                              ; preds = %218, %212
-  %.sink1145 = phi i64 [ 1, %218 ], [ 2, %212 ]
-  %.sink1143 = phi i64 [ 2, %218 ], [ 3, %212 ]
+  %.sink1133 = phi i64 [ 1, %218 ], [ 2, %212 ]
+  %.sink1131 = phi i64 [ 2, %218 ], [ 3, %212 ]
   %220 = load ptr, ptr %209, align 8, !tbaa !67
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %.sink1145
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %.sink1133
   store i8 0, ptr %221, align 1, !tbaa !19
   %222 = load ptr, ptr %209, align 8, !tbaa !67
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 %.sink1143
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 %.sink1131
   store i8 0, ptr %223, align 1, !tbaa !19
   %224 = load ptr, ptr %209, align 8, !tbaa !67
   %225 = zext nneg i32 %198 to i64
@@ -772,11 +772,11 @@ _ZL10readVarIntPKcmRm.exit80.i:                   ; preds = %_ZL10readVarIntPKcm
   br i1 %exitcond119.not.i, label %_ZL18remapUserdataTypesPcmPhj.exit.preheader, label %.preheader.i, !llvm.loop !71
 
 _ZL18remapUserdataTypesPcmPhj.exit.preheader:     ; preds = %_ZL10readVarIntPKcmRm.exit80.i, %307, %_ZL10readVarIntPKcmRm.exit559, %245, %_ZL10readVarIntPKcmRm.exit553._crit_edge, %229, %170
-  %.ph1210 = phi i64 [ %249, %307 ], [ %181, %170 ], [ %185, %229 ], [ %249, %245 ], [ %232, %_ZL10readVarIntPKcmRm.exit559 ], [ %228, %_ZL10readVarIntPKcmRm.exit553._crit_edge ], [ %249, %_ZL10readVarIntPKcmRm.exit80.i ]
+  %.ph1199 = phi i64 [ %249, %307 ], [ %181, %170 ], [ %185, %229 ], [ %249, %245 ], [ %232, %_ZL10readVarIntPKcmRm.exit559 ], [ %228, %_ZL10readVarIntPKcmRm.exit553._crit_edge ], [ %249, %_ZL10readVarIntPKcmRm.exit80.i ]
   br label %_ZL18remapUserdataTypesPcmPhj.exit
 
 _ZL18remapUserdataTypesPcmPhj.exit:               ; preds = %_ZL18remapUserdataTypesPcmPhj.exit.preheader, %_ZL18remapUserdataTypesPcmPhj.exit
-  %327 = phi i64 [ %329, %_ZL18remapUserdataTypesPcmPhj.exit ], [ %.ph1210, %_ZL18remapUserdataTypesPcmPhj.exit.preheader ]
+  %327 = phi i64 [ %329, %_ZL18remapUserdataTypesPcmPhj.exit ], [ %.ph1199, %_ZL18remapUserdataTypesPcmPhj.exit.preheader ]
   %.08.i567 = phi i32 [ %334, %_ZL18remapUserdataTypesPcmPhj.exit ], [ 0, %_ZL18remapUserdataTypesPcmPhj.exit.preheader ]
   %.0.i568 = phi i32 [ %333, %_ZL18remapUserdataTypesPcmPhj.exit ], [ 0, %_ZL18remapUserdataTypesPcmPhj.exit.preheader ]
   %328 = getelementptr inbounds nuw i8, ptr %2, i64 %327
@@ -849,17 +849,17 @@ _ZL10readVarIntPKcmRm.exit571:                    ; preds = %_ZL18remapUserdataT
   br i1 %.not.i576, label %_ZL10readVarIntPKcmRm.exit577, label %348, !llvm.loop !38
 
 .lr.ph869:                                        ; preds = %344, %.lr.ph869
-  %indvars.iv984 = phi i64 [ %indvars.iv.next985, %.lr.ph869 ], [ 0, %344 ]
+  %indvars.iv983 = phi i64 [ %indvars.iv.next984, %.lr.ph869 ], [ 0, %344 ]
   %.6866 = phi i64 [ %358, %.lr.ph869 ], [ %329, %344 ]
   %357 = getelementptr inbounds nuw i8, ptr %2, i64 %.6866
   %.0.copyload.i578 = load i32, ptr %357, align 1
   %358 = add i64 %.6866, 4
-  %359 = getelementptr inbounds nuw i32, ptr %341, i64 %indvars.iv984
+  %359 = getelementptr inbounds nuw i32, ptr %341, i64 %indvars.iv983
   store i32 %.0.copyload.i578, ptr %359, align 4, !tbaa !75
-  %indvars.iv.next985 = add nuw nsw i64 %indvars.iv984, 1
+  %indvars.iv.next984 = add nuw nsw i64 %indvars.iv983, 1
   %360 = load i32, ptr %346, align 8, !tbaa !73
   %361 = sext i32 %360 to i64
-  %362 = icmp slt i64 %indvars.iv.next985, %361
+  %362 = icmp slt i64 %indvars.iv.next984, %361
   br i1 %362, label %.lr.ph869, label %._crit_edge870, !llvm.loop !76
 
 _ZL10readVarIntPKcmRm.exit577:                    ; preds = %348
@@ -899,20 +899,20 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %348
   br i1 %.not916, label %.preheader750.preheader, label %.lr.ph874
 
 .preheader750.preheader:                          ; preds = %516, %371
-  %.ph1209 = phi i64 [ %351, %371 ], [ %.9, %516 ]
+  %.ph1198 = phi i64 [ %351, %371 ], [ %.9, %516 ]
   br label %.preheader750
 
 .lr.ph874:                                        ; preds = %371, %.lr.ph874
-  %indvars.iv987 = phi i64 [ %indvars.iv.next988, %.lr.ph874 ], [ 0, %371 ]
-  %374 = getelementptr inbounds nuw %struct.lua_TValue, ptr %368, i64 %indvars.iv987
+  %indvars.iv986 = phi i64 [ %indvars.iv.next987, %.lr.ph874 ], [ 0, %371 ]
+  %374 = getelementptr inbounds nuw %struct.lua_TValue, ptr %368, i64 %indvars.iv986
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 12
   store i32 0, ptr %375, align 4, !tbaa !20
-  %indvars.iv.next988 = add nuw nsw i64 %indvars.iv987, 1
-  %exitcond992.not = icmp eq i64 %indvars.iv.next988, %365
-  br i1 %exitcond992.not, label %.lr.ph881, label %.lr.ph874, !llvm.loop !79
+  %indvars.iv.next987 = add nuw nsw i64 %indvars.iv986, 1
+  %exitcond991.not = icmp eq i64 %indvars.iv.next987, %365
+  br i1 %exitcond991.not, label %.lr.ph881, label %.lr.ph874, !llvm.loop !79
 
 .preheader750:                                    ; preds = %.preheader750.preheader, %.preheader750
-  %376 = phi i64 [ %378, %.preheader750 ], [ %.ph1209, %.preheader750.preheader ]
+  %376 = phi i64 [ %378, %.preheader750 ], [ %.ph1198, %.preheader750.preheader ]
   %.08.i580 = phi i32 [ %383, %.preheader750 ], [ 0, %.preheader750.preheader ]
   %.0.i581 = phi i32 [ %382, %.preheader750 ], [ 0, %.preheader750.preheader ]
   %377 = getelementptr inbounds nuw i8, ptr %2, i64 %376
@@ -927,7 +927,7 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %348
   br i1 %.not.i583, label %_ZL10readVarIntPKcmRm.exit584, label %.preheader750, !llvm.loop !38
 
 .lr.ph881:                                        ; preds = %.lr.ph874, %516
-  %indvars.iv995 = phi i64 [ %indvars.iv.next996, %516 ], [ 0, %.lr.ph874 ]
+  %indvars.iv994 = phi i64 [ %indvars.iv.next995, %516 ], [ 0, %.lr.ph874 ]
   %.7879 = phi i64 [ %.9, %516 ], [ %351, %.lr.ph874 ]
   %384 = getelementptr i8, ptr %2, i64 %.7879
   %.0.copyload.i585 = load i8, ptr %384, align 1
@@ -937,7 +937,7 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %348
     i8 1, label %386
     i8 2, label %393
     i8 7, label %399
-    i8 3, label %.preheader920
+    i8 3, label %.preheader1134
     i8 4, label %427
     i8 5, label %.preheader744
   ]
@@ -947,7 +947,7 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %348
   %.0.copyload.i586 = load i8, ptr %387, align 1
   %388 = add i64 %.7879, 2
   %389 = load ptr, ptr %372, align 8, !tbaa !77
-  %390 = getelementptr inbounds nuw %struct.lua_TValue, ptr %389, i64 %indvars.iv995
+  %390 = getelementptr inbounds nuw %struct.lua_TValue, ptr %389, i64 %indvars.iv994
   %391 = zext i8 %.0.copyload.i586 to i32
   store i32 %391, ptr %390, align 8, !tbaa !19
   %392 = getelementptr inbounds nuw i8, ptr %390, i64 12
@@ -959,7 +959,7 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %348
   %.0.copyload.i587 = load double, ptr %394, align 1
   %395 = add i64 %.7879, 9
   %396 = load ptr, ptr %372, align 8, !tbaa !77
-  %397 = getelementptr inbounds nuw %struct.lua_TValue, ptr %396, i64 %indvars.iv995
+  %397 = getelementptr inbounds nuw %struct.lua_TValue, ptr %396, i64 %indvars.iv994
   store double %.0.copyload.i587, ptr %397, align 8, !tbaa !19
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 12
   store i32 3, ptr %398, align 4, !tbaa !20
@@ -974,7 +974,7 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %348
   %.0.copyload.i590 = load float, ptr %402, align 1
   %403 = add i64 %.7879, 17
   %404 = load ptr, ptr %372, align 8, !tbaa !77
-  %405 = getelementptr inbounds nuw %struct.lua_TValue, ptr %404, i64 %indvars.iv995
+  %405 = getelementptr inbounds nuw %struct.lua_TValue, ptr %404, i64 %indvars.iv994
   store float %.0.copyload.i588, ptr %405, align 4, !tbaa !80
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 4
   store float %.0.copyload.i589, ptr %406, align 4, !tbaa !80
@@ -984,10 +984,10 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %348
   store i32 4, ptr %408, align 4, !tbaa !20
   br label %516
 
-.preheader920:                                    ; preds = %.lr.ph881, %.preheader920
-  %409 = phi i64 [ %411, %.preheader920 ], [ %385, %.lr.ph881 ]
-  %.08.i.i593 = phi i32 [ %416, %.preheader920 ], [ 0, %.lr.ph881 ]
-  %.0.i.i594 = phi i32 [ %415, %.preheader920 ], [ 0, %.lr.ph881 ]
+.preheader1134:                                   ; preds = %.lr.ph881, %.preheader1134
+  %409 = phi i64 [ %411, %.preheader1134 ], [ %385, %.lr.ph881 ]
+  %.08.i.i593 = phi i32 [ %416, %.preheader1134 ], [ 0, %.lr.ph881 ]
+  %.0.i.i594 = phi i32 [ %415, %.preheader1134 ], [ 0, %.lr.ph881 ]
   %410 = getelementptr inbounds nuw i8, ptr %2, i64 %409
   %.0.copyload.i.i.i595 = load i8, ptr %410, align 1
   %411 = add i64 %409, 1
@@ -997,9 +997,9 @@ _ZL10readVarIntPKcmRm.exit577:                    ; preds = %348
   %415 = or i32 %414, %.0.i.i594
   %416 = add i32 %.08.i.i593, 7
   %.not.i.i596 = icmp sgt i8 %.0.copyload.i.i.i595, -1
-  br i1 %.not.i.i596, label %_ZL10readVarIntPKcmRm.exit.i597, label %.preheader920, !llvm.loop !38
+  br i1 %.not.i.i596, label %_ZL10readVarIntPKcmRm.exit.i597, label %.preheader1134, !llvm.loop !38
 
-_ZL10readVarIntPKcmRm.exit.i597:                  ; preds = %.preheader920
+_ZL10readVarIntPKcmRm.exit.i597:                  ; preds = %.preheader1134
   %417 = icmp eq i32 %415, 0
   br i1 %417, label %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit598, label %418
 
@@ -1013,7 +1013,7 @@ _ZL10readVarIntPKcmRm.exit.i597:                  ; preds = %.preheader920
 _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit598: ; preds = %418, %_ZL10readVarIntPKcmRm.exit.i597
   %423 = phi ptr [ %422, %418 ], [ null, %_ZL10readVarIntPKcmRm.exit.i597 ]
   %424 = load ptr, ptr %372, align 8, !tbaa !77
-  %425 = getelementptr inbounds nuw %struct.lua_TValue, ptr %424, i64 %indvars.iv995
+  %425 = getelementptr inbounds nuw %struct.lua_TValue, ptr %424, i64 %indvars.iv994
   store ptr %423, ptr %425, align 8, !tbaa !19
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 12
   store i32 5, ptr %426, align 4, !tbaa !20
@@ -1048,11 +1048,11 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit598: ; preds = %418, %_ZL10rea
 
 .noexc601:                                        ; preds = %.noexc
   %.not10.i = icmp eq i32 %441, 0
-  %.pre1030 = load ptr, ptr %156, align 8, !tbaa !89
+  %.pre1029 = load ptr, ptr %156, align 8, !tbaa !89
   br i1 %.not10.i, label %448, label %442
 
 442:                                              ; preds = %.noexc601
-  %443 = getelementptr inbounds i8, ptr %.pre1030, i64 -4
+  %443 = getelementptr inbounds i8, ptr %.pre1029, i64 -4
   store i32 0, ptr %443, align 4, !tbaa !20
   br label %448
 
@@ -1065,11 +1065,11 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit598: ; preds = %418, %_ZL10rea
   br label %448
 
 448:                                              ; preds = %444, %442, %.noexc601
-  %449 = phi ptr [ %447, %444 ], [ %.pre1030, %442 ], [ %.pre1030, %.noexc601 ]
+  %449 = phi ptr [ %447, %444 ], [ %.pre1029, %442 ], [ %.pre1029, %.noexc601 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %450 = getelementptr inbounds i8, ptr %449, i64 -16
   %451 = load ptr, ptr %372, align 8, !tbaa !77
-  %452 = getelementptr inbounds nuw %struct.lua_TValue, ptr %451, i64 %indvars.iv995
+  %452 = getelementptr inbounds nuw %struct.lua_TValue, ptr %451, i64 %indvars.iv994
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %452, ptr noundef nonnull align 8 dereferenceable(16) %450, i64 16, i1 false), !tbaa.struct !90
   %453 = load ptr, ptr %156, align 8, !tbaa !89
   %454 = getelementptr inbounds i8, ptr %453, i64 -16
@@ -1112,7 +1112,7 @@ _ZL10readVarIntPKcmRm.exit607:                    ; preds = %.preheader744
 ._crit_edge877:                                   ; preds = %485, %.preheader743
   %.8.lcssa = phi i64 [ %459, %.preheader743 ], [ %475, %485 ]
   %467 = load ptr, ptr %372, align 8, !tbaa !77
-  %468 = getelementptr inbounds nuw %struct.lua_TValue, ptr %467, i64 %indvars.iv995
+  %468 = getelementptr inbounds nuw %struct.lua_TValue, ptr %467, i64 %indvars.iv994
   store ptr %465, ptr %468, align 8, !tbaa !19
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 12
   store i32 6, ptr %469, align 4, !tbaa !20
@@ -1150,8 +1150,8 @@ _ZL10readVarIntPKcmRm.exit613:                    ; preds = %472
   %486 = getelementptr inbounds nuw i8, ptr %484, i64 12
   store i32 3, ptr %486, align 4, !tbaa !20
   %487 = add nuw nsw i32 %.0458876, 1
-  %exitcond994.not = icmp eq i32 %487, %463
-  br i1 %exitcond994.not, label %._crit_edge877, label %.preheader740, !llvm.loop !91
+  %exitcond993.not = icmp eq i32 %487, %463
+  br i1 %exitcond993.not, label %._crit_edge877, label %.preheader740, !llvm.loop !91
 
 488:                                              ; preds = %_ZL10readVarIntPKcmRm.exit613
   %489 = landingpad { ptr, i32 }
@@ -1191,7 +1191,7 @@ _ZL10readVarIntPKcmRm.exit619:                    ; preds = %.preheader742
   %510 = getelementptr inbounds nuw i8, ptr %504, i64 6
   store i8 %509, ptr %510, align 2, !tbaa !96
   %511 = load ptr, ptr %372, align 8, !tbaa !77
-  %512 = getelementptr inbounds nuw %struct.lua_TValue, ptr %511, i64 %indvars.iv995
+  %512 = getelementptr inbounds nuw %struct.lua_TValue, ptr %511, i64 %indvars.iv994
   store ptr %504, ptr %512, align 8, !tbaa !19
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 12
   store i32 7, ptr %513, align 4, !tbaa !20
@@ -1204,10 +1204,10 @@ _ZL10readVarIntPKcmRm.exit619:                    ; preds = %.preheader742
 
 516:                                              ; preds = %386, %393, %399, %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit598, %448, %._crit_edge877, %505, %.lr.ph881
   %.9 = phi i64 [ %385, %.lr.ph881 ], [ %492, %505 ], [ %388, %386 ], [ %395, %393 ], [ %403, %399 ], [ %411, %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit598 ], [ %429, %448 ], [ %.8.lcssa, %._crit_edge877 ]
-  %indvars.iv.next996 = add nuw nsw i64 %indvars.iv995, 1
+  %indvars.iv.next995 = add nuw nsw i64 %indvars.iv994, 1
   %517 = load i32, ptr %373, align 8, !tbaa !78
   %518 = sext i32 %517 to i64
-  %519 = icmp slt i64 %indvars.iv.next996, %518
+  %519 = icmp slt i64 %indvars.iv.next995, %518
   br i1 %519, label %.lr.ph881, label %.preheader750.preheader, !llvm.loop !97
 
 _ZL10readVarIntPKcmRm.exit584:                    ; preds = %.preheader750
@@ -1247,16 +1247,16 @@ _ZL10readVarIntPKcmRm.exit584:                    ; preds = %.preheader750
   br i1 %.not917, label %.preheader749.preheader, label %.preheader741
 
 .preheader749.preheader:                          ; preds = %_ZL10readVarIntPKcmRm.exit631, %528
-  %.ph1208 = phi i64 [ %378, %528 ], [ %542, %_ZL10readVarIntPKcmRm.exit631 ]
+  %.ph1197 = phi i64 [ %378, %528 ], [ %542, %_ZL10readVarIntPKcmRm.exit631 ]
   br label %.preheader749
 
 .preheader741:                                    ; preds = %528, %_ZL10readVarIntPKcmRm.exit631
-  %indvars.iv998 = phi i64 [ %indvars.iv.next999, %_ZL10readVarIntPKcmRm.exit631 ], [ 0, %528 ]
+  %indvars.iv997 = phi i64 [ %indvars.iv.next998, %_ZL10readVarIntPKcmRm.exit631 ], [ 0, %528 ]
   %.10883 = phi i64 [ %542, %_ZL10readVarIntPKcmRm.exit631 ], [ %378, %528 ]
   br label %539
 
 .preheader749:                                    ; preds = %.preheader749.preheader, %.preheader749
-  %531 = phi i64 [ %533, %.preheader749 ], [ %.ph1208, %.preheader749.preheader ]
+  %531 = phi i64 [ %533, %.preheader749 ], [ %.ph1197, %.preheader749.preheader ]
   %.08.i621 = phi i32 [ %538, %.preheader749 ], [ 0, %.preheader749.preheader ]
   %.0.i622 = phi i32 [ %537, %.preheader749 ], [ 0, %.preheader749.preheader ]
   %532 = getelementptr inbounds nuw i8, ptr %2, i64 %531
@@ -1289,11 +1289,11 @@ _ZL10readVarIntPKcmRm.exit631:                    ; preds = %539
   %548 = zext i32 %546 to i64
   %549 = getelementptr inbounds nuw ptr, ptr %149, i64 %548
   %550 = load ptr, ptr %549, align 8, !tbaa !92
-  %551 = getelementptr inbounds nuw ptr, ptr %525, i64 %indvars.iv998
+  %551 = getelementptr inbounds nuw ptr, ptr %525, i64 %indvars.iv997
   store ptr %550, ptr %551, align 8, !tbaa !92
-  %indvars.iv.next999 = add nuw nsw i64 %indvars.iv998, 1
-  %exitcond1003.not = icmp eq i64 %indvars.iv.next999, %522
-  br i1 %exitcond1003.not, label %.preheader749.preheader, label %.preheader741, !llvm.loop !100
+  %indvars.iv.next998 = add nuw nsw i64 %indvars.iv997, 1
+  %exitcond1002.not = icmp eq i64 %indvars.iv.next998, %522
+  br i1 %exitcond1002.not, label %.preheader749.preheader, label %.preheader741, !llvm.loop !100
 
 _ZL10readVarIntPKcmRm.exit625:                    ; preds = %.preheader749
   %552 = getelementptr inbounds nuw i8, ptr %169, i64 164
@@ -1382,11 +1382,11 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit638: ; preds = %563, %_ZL10rea
 .lr.ph896:                                        ; preds = %.preheader747
   %598 = load ptr, ptr %595, align 8, !tbaa !106
   %599 = add nuw nsw i32 %578, 1
-  %wide.trip.count1009 = zext nneg i32 %599 to i64
+  %wide.trip.count1008 = zext nneg i32 %599 to i64
   br label %608
 
 .lr.ph890:                                        ; preds = %589, %.lr.ph890
-  %indvars.iv1004 = phi i64 [ %indvars.iv.next1005, %.lr.ph890 ], [ 0, %589 ]
+  %indvars.iv1003 = phi i64 [ %indvars.iv.next1004, %.lr.ph890 ], [ 0, %589 ]
   %.0453887 = phi i8 [ %602, %.lr.ph890 ], [ 0, %589 ]
   %.12886 = phi i64 [ %601, %.lr.ph890 ], [ %591, %589 ]
   %600 = getelementptr inbounds nuw i8, ptr %2, i64 %.12886
@@ -1394,27 +1394,27 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit638: ; preds = %563, %_ZL10rea
   %601 = add i64 %.12886, 1
   %602 = add i8 %.0.copyload.i641, %.0453887
   %603 = load ptr, ptr %592, align 8, !tbaa !104
-  %604 = getelementptr inbounds nuw i8, ptr %603, i64 %indvars.iv1004
+  %604 = getelementptr inbounds nuw i8, ptr %603, i64 %indvars.iv1003
   store i8 %602, ptr %604, align 1, !tbaa !19
-  %indvars.iv.next1005 = add nuw nsw i64 %indvars.iv1004, 1
+  %indvars.iv.next1004 = add nuw nsw i64 %indvars.iv1003, 1
   %605 = load i32, ptr %346, align 8, !tbaa !73
   %606 = sext i32 %605 to i64
-  %607 = icmp slt i64 %indvars.iv.next1005, %606
+  %607 = icmp slt i64 %indvars.iv.next1004, %606
   br i1 %607, label %.lr.ph890, label %.preheader747, !llvm.loop !107
 
 608:                                              ; preds = %.lr.ph896, %608
-  %indvars.iv1006 = phi i64 [ 0, %.lr.ph896 ], [ %indvars.iv.next1007, %608 ]
+  %indvars.iv1005 = phi i64 [ 0, %.lr.ph896 ], [ %indvars.iv.next1006, %608 ]
   %.0451894 = phi i32 [ 0, %.lr.ph896 ], [ %611, %608 ]
   %.13893 = phi i64 [ %.12.lcssa, %.lr.ph896 ], [ %610, %608 ]
   %609 = getelementptr inbounds nuw i8, ptr %2, i64 %.13893
   %.0.copyload.i642 = load i32, ptr %609, align 1
   %610 = add i64 %.13893, 4
   %611 = add nsw i32 %.0.copyload.i642, %.0451894
-  %612 = getelementptr inbounds nuw i32, ptr %598, i64 %indvars.iv1006
+  %612 = getelementptr inbounds nuw i32, ptr %598, i64 %indvars.iv1005
   store i32 %611, ptr %612, align 4, !tbaa !75
-  %indvars.iv.next1007 = add nuw nsw i64 %indvars.iv1006, 1
-  %exitcond1010.not = icmp eq i64 %indvars.iv.next1007, %wide.trip.count1009
-  br i1 %exitcond1010.not, label %.loopexit748, label %608, !llvm.loop !108
+  %indvars.iv.next1006 = add nuw nsw i64 %indvars.iv1005, 1
+  %exitcond1009.not = icmp eq i64 %indvars.iv.next1006, %wide.trip.count1008
+  br i1 %exitcond1009.not, label %.loopexit748, label %608, !llvm.loop !108
 
 .loopexit748:                                     ; preds = %608, %.preheader747, %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit638
   %.11 = phi i64 [ %571, %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit638 ], [ %.12.lcssa, %.preheader747 ], [ %610, %608 ]
@@ -1476,11 +1476,11 @@ _ZL10readVarIntPKcmRm.exit649:                    ; preds = %.preheader746
   br i1 %.not918, label %.preheader745.preheader, label %.lr.ph901
 
 .preheader745.preheader:                          ; preds = %_ZL10readVarIntPKcmRm.exit674, %631
-  %.ph1207 = phi i64 [ %617, %631 ], [ %680, %_ZL10readVarIntPKcmRm.exit674 ]
+  %.ph1196 = phi i64 [ %617, %631 ], [ %680, %_ZL10readVarIntPKcmRm.exit674 ]
   br label %.preheader745
 
 .preheader745:                                    ; preds = %.preheader745.preheader, %.preheader745
-  %634 = phi i64 [ %636, %.preheader745 ], [ %.ph1207, %.preheader745.preheader ]
+  %634 = phi i64 [ %636, %.preheader745 ], [ %.ph1196, %.preheader745.preheader ]
   %.08.i651 = phi i32 [ %641, %.preheader745 ], [ 0, %.preheader745.preheader ]
   %.0.i652 = phi i32 [ %640, %.preheader745 ], [ 0, %.preheader745.preheader ]
   %635 = getelementptr inbounds nuw i8, ptr %2, i64 %634
@@ -1495,7 +1495,7 @@ _ZL10readVarIntPKcmRm.exit649:                    ; preds = %.preheader746
   br i1 %.not.i654, label %_ZL10readVarIntPKcmRm.exit655, label %.preheader745, !llvm.loop !38
 
 .lr.ph901:                                        ; preds = %631, %_ZL10readVarIntPKcmRm.exit674
-  %indvars.iv1011 = phi i64 [ %indvars.iv.next1012, %_ZL10readVarIntPKcmRm.exit674 ], [ 0, %631 ]
+  %indvars.iv1010 = phi i64 [ %indvars.iv.next1011, %_ZL10readVarIntPKcmRm.exit674 ], [ 0, %631 ]
   %.15898 = phi i64 [ %680, %_ZL10readVarIntPKcmRm.exit674 ], [ %617, %631 ]
   br label %642
 
@@ -1527,7 +1527,7 @@ _ZL10readVarIntPKcmRm.exit.i661:                  ; preds = %642
 
 _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit662: ; preds = %652, %_ZL10readVarIntPKcmRm.exit.i661
   %657 = phi ptr [ %656, %652 ], [ null, %_ZL10readVarIntPKcmRm.exit.i661 ]
-  %658 = getelementptr inbounds nuw %struct.LocVar, ptr %628, i64 %indvars.iv1011
+  %658 = getelementptr inbounds nuw %struct.LocVar, ptr %628, i64 %indvars.iv1010
   store ptr %657, ptr %658, align 8, !tbaa !111
   br label %659
 
@@ -1574,9 +1574,9 @@ _ZL10readVarIntPKcmRm.exit674:                    ; preds = %669
   %680 = add i64 %670, 2
   %681 = getelementptr inbounds nuw i8, ptr %658, i64 16
   store i8 %.0.copyload.i675, ptr %681, align 8, !tbaa !115
-  %indvars.iv.next1012 = add nuw nsw i64 %indvars.iv1011, 1
-  %exitcond1016.not = icmp eq i64 %indvars.iv.next1012, %625
-  br i1 %exitcond1016.not, label %.preheader745.preheader, label %.lr.ph901, !llvm.loop !116
+  %indvars.iv.next1011 = add nuw nsw i64 %indvars.iv1010, 1
+  %exitcond1015.not = icmp eq i64 %indvars.iv.next1011, %625
+  br i1 %exitcond1015.not, label %.preheader745.preheader, label %.lr.ph901, !llvm.loop !116
 
 _ZL10readVarIntPKcmRm.exit655:                    ; preds = %.preheader745
   %682 = icmp sgt i32 %640, -1
@@ -1615,7 +1615,7 @@ _ZL10readVarIntPKcmRm.exit655:                    ; preds = %.preheader745
   br i1 %.not919, label %.loopexit, label %.lr.ph906
 
 .lr.ph906:                                        ; preds = %690, %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit682
-  %indvars.iv1017 = phi i64 [ %indvars.iv.next1018, %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit682 ], [ 0, %690 ]
+  %indvars.iv1016 = phi i64 [ %indvars.iv.next1017, %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit682 ], [ 0, %690 ]
   %.16903 = phi i64 [ %696, %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit682 ], [ %636, %690 ]
   br label %693
 
@@ -1647,19 +1647,19 @@ _ZL10readVarIntPKcmRm.exit.i681:                  ; preds = %693
 
 _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit682: ; preds = %703, %_ZL10readVarIntPKcmRm.exit.i681
   %708 = phi ptr [ %707, %703 ], [ null, %_ZL10readVarIntPKcmRm.exit.i681 ]
-  %709 = getelementptr inbounds nuw ptr, ptr %687, i64 %indvars.iv1017
+  %709 = getelementptr inbounds nuw ptr, ptr %687, i64 %indvars.iv1016
   store ptr %708, ptr %709, align 8, !tbaa !44
-  %indvars.iv.next1018 = add nuw nsw i64 %indvars.iv1017, 1
-  %exitcond1022.not = icmp eq i64 %indvars.iv.next1018, %684
-  br i1 %exitcond1022.not, label %.loopexit, label %.lr.ph906, !llvm.loop !119
+  %indvars.iv.next1017 = add nuw nsw i64 %indvars.iv1016, 1
+  %exitcond1021.not = icmp eq i64 %indvars.iv.next1017, %684
+  br i1 %exitcond1021.not, label %.loopexit, label %.lr.ph906, !llvm.loop !119
 
 .loopexit:                                        ; preds = %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit682, %690, %.loopexit748
   %.14 = phi i64 [ %614, %.loopexit748 ], [ %636, %690 ], [ %696, %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit682 ]
-  %710 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv1023
+  %710 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv1022
   store ptr %169, ptr %710, align 8, !tbaa !92
-  %indvars.iv.next1024 = add nuw nsw i64 %indvars.iv1023, 1
-  %exitcond1028.not = icmp eq i64 %indvars.iv.next1024, %147
-  br i1 %exitcond1028.not, label %.preheader.preheader, label %168, !llvm.loop !120
+  %indvars.iv.next1023 = add nuw nsw i64 %indvars.iv1022, 1
+  %exitcond1027.not = icmp eq i64 %indvars.iv.next1023, %147
+  br i1 %exitcond1027.not, label %.preheader.preheader, label %168, !llvm.loop !120
 
 _ZL10readVarIntPKcmRm.exit542:                    ; preds = %.preheader
   %711 = zext i32 %164 to i64
@@ -1702,10 +1702,10 @@ _ZL10readVarIntPKcmRm.exit542:                    ; preds = %.preheader
 
 734:                                              ; preds = %723
   invoke void @_Z14luaD_growstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef 1)
-          to label %._crit_edge1050 unwind label %735
+          to label %._crit_edge1038 unwind label %735
 
-._crit_edge1050:                                  ; preds = %734
-  %.pre1051 = load ptr, ptr %724, align 8, !tbaa !89
+._crit_edge1038:                                  ; preds = %734
+  %.pre1039 = load ptr, ptr %724, align 8, !tbaa !89
   br label %737
 
 735:                                              ; preds = %734, %721
@@ -1713,8 +1713,8 @@ _ZL10readVarIntPKcmRm.exit542:                    ; preds = %.preheader
           cleanup
   br label %747
 
-737:                                              ; preds = %._crit_edge1050, %723
-  %738 = phi ptr [ %.pre1051, %._crit_edge1050 ], [ %729, %723 ]
+737:                                              ; preds = %._crit_edge1038, %723
+  %738 = phi ptr [ %.pre1039, %._crit_edge1038 ], [ %729, %723 ]
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 16
   store ptr %739, ptr %724, align 8, !tbaa !89
   invoke void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef nonnull %0, ptr noundef nonnull %149, i64 noundef %148, i8 noundef zeroext 0)

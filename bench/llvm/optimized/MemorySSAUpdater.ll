@@ -4856,6 +4856,7 @@ _ZN4llvm15ValueHandleBaseD2Ev.exit198:            ; preds = %_ZN4llvm23SmallVect
   %.pr292 = phi i32 [ %182, %_ZN4llvm11SmallVectorINS_6WeakVHELj8EEC2IPS1_vEET_S5_.exit ], [ %.pr292.pre, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit ]
   %581 = phi i32 [ %191, %_ZN4llvm11SmallVectorINS_6WeakVHELj8EEC2IPS1_vEET_S5_.exit ], [ %.pre374, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit ]
   %.081.in.in = phi i32 [ %191, %_ZN4llvm11SmallVectorINS_6WeakVHELj8EEC2IPS1_vEET_S5_.exit ], [ %475, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit ]
+  %.081.in = zext i32 %.081.in.in to i64
   %.not.i199340 = icmp eq i32 %.pr292, 0
   br i1 %.not.i199340, label %._crit_edge343, label %.lr.ph342
 
@@ -4974,7 +4975,6 @@ _ZN4llvm15SmallVectorImplINS_6WeakVHEE6appendIPS1_vEEvT_S5_.exit: ; preds = %_ZN
   br i1 %.not100, label %_ZN4llvm16MemorySSAUpdater20tryRemoveTrivialPhisENS_8ArrayRefINS_6WeakVHEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge343
-  %.081.in = zext i32 %.081.in.in to i64
   %617 = load ptr, ptr %81, align 8, !tbaa !119
   %618 = getelementptr inbounds nuw %"class.llvm::WeakVH", ptr %617, i64 %.081.in
   %.narrow = sub i32 %581, %.081.in.in
@@ -8290,18 +8290,15 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorIKPNS_10BasicBlockEJSt16reve
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPNS_9MemoryPhiEPNS_12MemoryAccessELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !386
 
 _ZN4llvm13SmallDenseMapIPNS_9MemoryPhiEPNS_12MemoryAccessELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   %42 = load ptr, ptr %18, align 8, !tbaa !119
   %43 = load i32, ptr %20, align 8, !tbaa !118
   %44 = zext i32 %43 to i64
   %.idx = shl nuw nsw i64 %44, 3
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
   %.not88 = icmp eq i32 %43, 0
-  br i1 %.not88, label %._crit_edge.thread, label %.lr.ph
-
-._crit_edge.thread:                               ; preds = %_ZN4llvm13SmallDenseMapIPNS_9MemoryPhiEPNS_12MemoryAccessELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit
-  %.phi.trans.insert.i.i.ptr153 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.phi.trans.insert3.i.i154 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  br label %._crit_edge94
+  br i1 %.not88, label %._crit_edge94, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm13SmallDenseMapIPNS_9MemoryPhiEPNS_12MemoryAccessELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -8391,8 +8388,6 @@ _ZN4llvm15concat_iteratorIKPNS_10BasicBlockEJSt16reverse_iteratorIN9__gnu_cxx17_
 ._crit_edge:                                      ; preds = %"_ZZN4llvm16MemorySSAUpdater19updateForClonedLoopERKNS_13LoopBlocksRPOENS_8ArrayRefIPNS_10BasicBlockEEERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigISB_NS_3sys10SmartMutexILb0EEEEEEEbENK3$_2clES6_.exit"
   %.pre112 = load ptr, ptr %18, align 8, !tbaa !119
   %.pre113 = load i32, ptr %20, align 8, !tbaa !118
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   %79 = zext i32 %.pre113 to i64
   %.idx95 = shl nuw nsw i64 %79, 3
   %80 = getelementptr inbounds nuw i8, ptr %.pre112, i64 %.idx95
@@ -8584,17 +8579,15 @@ _ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_10BasicBlockE.exit.thread.i: ; preds =
   %.not = icmp eq ptr %169, %45
   br i1 %.not, label %._crit_edge, label %94
 
-._crit_edge94:                                    ; preds = %_ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_10BasicBlockE.exit.thread, %.lr.ph93, %._crit_edge.thread, %._crit_edge
-  %.phi.trans.insert3.i.i158 = phi ptr [ %.phi.trans.insert3.i.i154, %._crit_edge.thread ], [ %.phi.trans.insert3.i.i, %._crit_edge ], [ %.phi.trans.insert3.i.i, %.lr.ph93 ], [ %.phi.trans.insert3.i.i, %_ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_10BasicBlockE.exit.thread ]
-  %.phi.trans.insert.i.i.ptr157 = phi ptr [ %.phi.trans.insert.i.i.ptr153, %._crit_edge.thread ], [ %.phi.trans.insert.i.i.ptr, %._crit_edge ], [ %.phi.trans.insert.i.i.ptr, %.lr.ph93 ], [ %.phi.trans.insert.i.i.ptr, %_ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_10BasicBlockE.exit.thread ]
+._crit_edge94:                                    ; preds = %_ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_10BasicBlockE.exit.thread, %_ZN4llvm13SmallDenseMapIPNS_9MemoryPhiEPNS_12MemoryAccessELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit, %.lr.ph93, %._crit_edge
   %170 = load i32, ptr %17, align 8
   %171 = and i32 %170, 1
   %.not.i.i35 = icmp eq i32 %171, 0
   br i1 %.not.i.i35, label %172, label %_ZN4llvm13SmallDenseMapIPNS_9MemoryPhiEPNS_12MemoryAccessELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit
 
 172:                                              ; preds = %._crit_edge94
-  %173 = load ptr, ptr %.phi.trans.insert.i.i.ptr157, align 8, !tbaa !396
-  %174 = load i32, ptr %.phi.trans.insert3.i.i158, align 8, !tbaa !399
+  %173 = load ptr, ptr %.phi.trans.insert.i.i.ptr, align 8, !tbaa !396
+  %174 = load i32, ptr %.phi.trans.insert3.i.i, align 8, !tbaa !399
   %175 = zext i32 %174 to i64
   %176 = shl nuw nsw i64 %175, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %173, i64 noundef %176, i64 noundef 8) #17
@@ -11722,9 +11715,9 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEZNS_16MemorySSAUpdate
   br i1 %.not10071160, label %._crit_edge1163, label %.lr.ph1162
 
 .lr.ph1162:                                       ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEZNS_16MemorySSAUpdater18applyInsertUpdatesENS_8ArrayRefINS_3cfg6UpdateIS3_EEEERNS_13DominatorTreeEPKNS_9GraphDiffIS3_Lb0EEEE8PredInfoLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SG_EEEES3_SG_SI_SL_E5beginEv.exit285
-  %476 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.phi.trans.insert.i.i300.ptr = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.phi.trans.insert3.i.i302 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %476 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %477 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %478 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %479 = getelementptr inbounds nuw i8, ptr %3, i64 32

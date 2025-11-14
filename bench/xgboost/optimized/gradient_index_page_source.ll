@@ -17686,8 +17686,8 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   %14 = getelementptr inbounds nuw i64, ptr %13, i64 %10
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %14, ptr %15, align 8, !tbaa !218
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %13, i8 0, i64 %12, i1 false), !tbaa !109
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc10, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i
@@ -19530,8 +19530,8 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !82
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -24279,8 +24279,8 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   %13 = getelementptr inbounds nuw i64, ptr %12, i64 %9
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %13, ptr %14, align 8, !tbaa !218
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %12, i8 0, i64 %11, i1 false), !tbaa !109
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc10, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i
@@ -29220,8 +29220,8 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK7xgboost4d
   %18 = getelementptr inbounds nuw i64, ptr %17, i64 %14
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %18, ptr %19, align 8, !tbaa !218
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %16
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %17, i8 0, i64 %16, i1 false), !tbaa !109
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %16
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %20, ptr %21, align 8, !tbaa !138
   br label %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit12

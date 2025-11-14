@@ -646,45 +646,45 @@ tree_link_any.exit.i:                             ; preds = %223, %._crit_edge.i
   br label %.loopexit.i27.i
 
 .loopexit.i27.i:                                  ; preds = %.loopexit.i27.i.backedge, %.loopexit.i27.i.preheader
-  %.033.i.i = phi ptr [ %.01649.i, %.loopexit.i27.i.preheader ], [ %267, %.loopexit.i27.i.backedge ]
-  %248 = getelementptr inbounds i8, ptr %.033.i.i, i64 -24
-  %249 = load ptr, ptr %248, align 8, !tbaa !22
-  %250 = tail call i64 @sk_num(ptr noundef %249) #8
-  %251 = trunc i64 %250 to i32
-  %.145.i.i = add i32 %251, -1
-  %252 = icmp sgt i32 %.145.i.i, -1
-  br i1 %252, label %.lr.ph47.preheader.i.i, label %._crit_edge.i28.i
+  %.033.i.i = phi ptr [ %.01649.i, %.loopexit.i27.i.preheader ], [ %248, %.loopexit.i27.i.backedge ]
+  %248 = getelementptr inbounds i8, ptr %.033.i.i, i64 -32
+  %249 = getelementptr inbounds i8, ptr %.033.i.i, i64 -24
+  %250 = load ptr, ptr %249, align 8, !tbaa !22
+  %251 = tail call i64 @sk_num(ptr noundef %250) #8
+  %252 = trunc i64 %251 to i32
+  %.145.i.i = add i32 %252, -1
+  %253 = icmp sgt i32 %.145.i.i, -1
+  br i1 %253, label %.lr.ph47.preheader.i.i, label %._crit_edge.i28.i
 
 .lr.ph47.preheader.i.i:                           ; preds = %.loopexit.i27.i
-  %253 = zext nneg i32 %.145.i.i to i64
+  %254 = zext nneg i32 %.145.i.i to i64
   br label %.lr.ph47.i.i
 
-.lr.ph47.i.i:                                     ; preds = %265, %.lr.ph47.preheader.i.i
-  %indvars.iv49.i.i = phi i64 [ %253, %.lr.ph47.preheader.i.i ], [ %indvars.iv.next50.i.i, %265 ]
-  %254 = tail call ptr @sk_value(ptr noundef %249, i64 noundef %indvars.iv49.i.i) #8
-  %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
-  %256 = load i32, ptr %255, align 8, !tbaa !67
-  %257 = icmp eq i32 %256, 0
-  br i1 %257, label %258, label %265
+.lr.ph47.i.i:                                     ; preds = %266, %.lr.ph47.preheader.i.i
+  %indvars.iv49.i.i = phi i64 [ %254, %.lr.ph47.preheader.i.i ], [ %indvars.iv.next50.i.i, %266 ]
+  %255 = tail call ptr @sk_value(ptr noundef %250, i64 noundef %indvars.iv49.i.i) #8
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 16
+  %257 = load i32, ptr %256, align 8, !tbaa !67
+  %258 = icmp eq i32 %257, 0
+  br i1 %258, label %259, label %266
 
-258:                                              ; preds = %.lr.ph47.i.i
-  %259 = getelementptr inbounds nuw i8, ptr %254, i64 8
-  %260 = load ptr, ptr %259, align 8, !tbaa !72
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 16
-  %262 = load i32, ptr %261, align 8, !tbaa !67
-  %263 = add nsw i32 %262, -1
-  store i32 %263, ptr %261, align 8, !tbaa !67
-  tail call void @free(ptr noundef nonnull %254) #8
-  %264 = tail call ptr @sk_delete(ptr noundef %249, i64 noundef %indvars.iv49.i.i) #8
-  br label %265
+259:                                              ; preds = %.lr.ph47.i.i
+  %260 = getelementptr inbounds nuw i8, ptr %255, i64 8
+  %261 = load ptr, ptr %260, align 8, !tbaa !72
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 16
+  %263 = load i32, ptr %262, align 8, !tbaa !67
+  %264 = add nsw i32 %263, -1
+  store i32 %264, ptr %262, align 8, !tbaa !67
+  tail call void @free(ptr noundef nonnull %255) #8
+  %265 = tail call ptr @sk_delete(ptr noundef %250, i64 noundef %indvars.iv49.i.i) #8
+  br label %266
 
-265:                                              ; preds = %258, %.lr.ph47.i.i
+266:                                              ; preds = %259, %.lr.ph47.i.i
   %indvars.iv.next50.i.i = add nsw i64 %indvars.iv49.i.i, -1
-  %266 = icmp sgt i64 %indvars.iv49.i.i, 0
-  br i1 %266, label %.lr.ph47.i.i, label %._crit_edge.i28.i, !llvm.loop !74
+  %267 = icmp sgt i64 %indvars.iv49.i.i, 0
+  br i1 %267, label %.lr.ph47.i.i, label %._crit_edge.i28.i, !llvm.loop !74
 
-._crit_edge.i28.i:                                ; preds = %265, %.loopexit.i27.i
-  %267 = getelementptr inbounds i8, ptr %.033.i.i, i64 -32
+._crit_edge.i28.i:                                ; preds = %266, %.loopexit.i27.i
   %268 = getelementptr inbounds i8, ptr %.033.i.i, i64 -16
   %269 = load ptr, ptr %268, align 8, !tbaa !23
   %.not38.i.i = icmp eq ptr %269, null
@@ -716,12 +716,12 @@ tree_link_any.exit.i:                             ; preds = %223, %._crit_edge.i
 
 281:                                              ; preds = %280, %._crit_edge.i28.i
   %282 = load ptr, ptr %48, align 8, !tbaa !17
-  %283 = icmp eq ptr %267, %282
+  %283 = icmp eq ptr %248, %282
   br i1 %283, label %tree_evaluate.exit, label %.loopexit.i27.i.backedge
 
 .thread.i:                                        ; preds = %270
   %284 = load ptr, ptr %48, align 8, !tbaa !17
-  %285 = icmp eq ptr %267, %284
+  %285 = icmp eq ptr %248, %284
   br i1 %285, label %286, label %.loopexit.i27.i.backedge
 
 .loopexit.i27.i.backedge:                         ; preds = %.thread.i, %281

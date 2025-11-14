@@ -75,58 +75,58 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %14
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph47, %Aig_TableFind.exit
-  %.02842.sink = phi ptr [ %58, %Aig_TableFind.exit ], [ %23, %.lr.ph47 ]
+  %.02842.sink = phi ptr [ %24, %Aig_TableFind.exit ], [ %23, %.lr.ph47 ]
+  %24 = load ptr, ptr %.02842.sink, align 8, !tbaa !27
   %.val35 = load ptr, ptr %3, align 8, !tbaa !3
   %.val36 = load i32, ptr %5, align 8, !tbaa !21
-  %24 = getelementptr i8, ptr %.02842.sink, i64 24
-  %.val.i.i = load i64, ptr %24, align 8
-  %25 = and i64 %.val.i.i, 7
-  %26 = icmp eq i64 %25, 6
-  %27 = select i1 %26, i64 1699, i64 0
-  %28 = getelementptr i8, ptr %.02842.sink, i64 8
-  %.val10.i.i = load ptr, ptr %28, align 8, !tbaa !27
-  %29 = ptrtoint ptr %.val10.i.i to i64
-  %30 = and i64 %29, -2
-  %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 36
-  %33 = load i32, ptr %32, align 4, !tbaa !28
-  %34 = mul nsw i32 %33, 7937
-  %35 = sext i32 %34 to i64
-  %36 = xor i64 %27, %35
-  %37 = getelementptr i8, ptr %.02842.sink, i64 16
-  %.val11.i.i = load ptr, ptr %37, align 8, !tbaa !29
-  %38 = ptrtoint ptr %.val11.i.i to i64
-  %39 = and i64 %38, -2
-  %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 36
-  %42 = load i32, ptr %41, align 4, !tbaa !28
-  %43 = mul nsw i32 %42, 2971
-  %44 = sext i32 %43 to i64
-  %45 = trunc i64 %29 to i1
-  %46 = select i1 %45, i64 911, i64 0
-  %47 = trunc i64 %38 to i1
-  %48 = select i1 %47, i64 353, i64 0
-  %49 = xor i64 %36, %46
-  %50 = xor i64 %49, %44
-  %51 = xor i64 %50, %48
-  %52 = sext i32 %.val36 to i64
-  %53 = urem i64 %51, %52
-  %54 = getelementptr inbounds nuw ptr, ptr %.val35, i64 %53
-  br label %55
+  %25 = getelementptr i8, ptr %.02842.sink, i64 24
+  %.val.i.i = load i64, ptr %25, align 8
+  %26 = and i64 %.val.i.i, 7
+  %27 = icmp eq i64 %26, 6
+  %28 = select i1 %27, i64 1699, i64 0
+  %29 = getelementptr i8, ptr %.02842.sink, i64 8
+  %.val10.i.i = load ptr, ptr %29, align 8, !tbaa !28
+  %30 = ptrtoint ptr %.val10.i.i to i64
+  %31 = and i64 %30, -2
+  %32 = inttoptr i64 %31 to ptr
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 36
+  %34 = load i32, ptr %33, align 4, !tbaa !29
+  %35 = mul nsw i32 %34, 7937
+  %36 = sext i32 %35 to i64
+  %37 = xor i64 %28, %36
+  %38 = getelementptr i8, ptr %.02842.sink, i64 16
+  %.val11.i.i = load ptr, ptr %38, align 8, !tbaa !30
+  %39 = ptrtoint ptr %.val11.i.i to i64
+  %40 = and i64 %39, -2
+  %41 = inttoptr i64 %40 to ptr
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 36
+  %43 = load i32, ptr %42, align 4, !tbaa !29
+  %44 = mul nsw i32 %43, 2971
+  %45 = sext i32 %44 to i64
+  %46 = trunc i64 %30 to i1
+  %47 = select i1 %46, i64 911, i64 0
+  %48 = trunc i64 %39 to i1
+  %49 = select i1 %48, i64 353, i64 0
+  %50 = xor i64 %37, %47
+  %51 = xor i64 %50, %45
+  %52 = xor i64 %51, %49
+  %53 = sext i32 %.val36 to i64
+  %54 = urem i64 %52, %53
+  %55 = getelementptr inbounds nuw ptr, ptr %.val35, i64 %54
+  br label %56
 
-55:                                               ; preds = %55, %.lr.ph
-  %.0.i37 = phi ptr [ %54, %.lr.ph ], [ %56, %55 ]
-  %56 = load ptr, ptr %.0.i37, align 8, !tbaa !26
-  %.not.i38 = icmp eq ptr %56, null
-  %57 = icmp eq ptr %56, %.02842.sink
-  %or.cond.i = or i1 %.not.i38, %57
-  br i1 %or.cond.i, label %Aig_TableFind.exit, label %55, !llvm.loop !30
+56:                                               ; preds = %56, %.lr.ph
+  %.0.i37 = phi ptr [ %55, %.lr.ph ], [ %57, %56 ]
+  %57 = load ptr, ptr %.0.i37, align 8, !tbaa !26
+  %.not.i38 = icmp eq ptr %57, null
+  %58 = icmp eq ptr %57, %.02842.sink
+  %or.cond.i = or i1 %.not.i38, %58
+  br i1 %or.cond.i, label %Aig_TableFind.exit, label %56, !llvm.loop !31
 
-Aig_TableFind.exit:                               ; preds = %55
-  %58 = load ptr, ptr %.02842.sink, align 8, !tbaa !31
+Aig_TableFind.exit:                               ; preds = %56
   store ptr %.02842.sink, ptr %.0.i37, align 8, !tbaa !26
-  store ptr null, ptr %.02842.sink, align 8, !tbaa !31
-  %.not33 = icmp eq ptr %58, null
+  store ptr null, ptr %.02842.sink, align 8, !tbaa !27
+  %.not33 = icmp eq ptr %24, null
   br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %Aig_TableFind.exit, %.lr.ph47
@@ -158,7 +158,7 @@ define ptr @Aig_TableLookup(ptr noundef readonly captures(none) %0, ptr noundef 
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %7, align 8, !tbaa !27
+  %.val = load ptr, ptr %7, align 8, !tbaa !28
   %8 = ptrtoint ptr %.val to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
@@ -170,7 +170,7 @@ define ptr @Aig_TableLookup(ptr noundef readonly captures(none) %0, ptr noundef 
 
 13:                                               ; preds = %6
   %14 = getelementptr i8, ptr %1, i64 16
-  %.val19 = load ptr, ptr %14, align 8, !tbaa !29
+  %.val19 = load ptr, ptr %14, align 8, !tbaa !30
   %15 = ptrtoint ptr %.val19 to i64
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
@@ -189,11 +189,11 @@ define ptr @Aig_TableLookup(ptr noundef readonly captures(none) %0, ptr noundef 
   %25 = icmp eq i64 %24, 6
   %26 = select i1 %25, i64 1699, i64 0
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  %28 = load i32, ptr %27, align 4, !tbaa !28
+  %28 = load i32, ptr %27, align 4, !tbaa !29
   %29 = mul nsw i32 %28, 7937
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 36
-  %32 = load i32, ptr %31, align 4, !tbaa !28
+  %32 = load i32, ptr %31, align 4, !tbaa !29
   %33 = mul nsw i32 %32, 2971
   %34 = sext i32 %33 to i64
   %35 = trunc i64 %8 to i1
@@ -207,20 +207,20 @@ define ptr @Aig_TableLookup(ptr noundef readonly captures(none) %0, ptr noundef 
   %43 = sext i32 %22 to i64
   %44 = urem i64 %42, %43
   %45 = getelementptr inbounds nuw ptr, ptr %4, i64 %44
-  %.027 = load ptr, ptr %45, align 8, !tbaa !31
+  %.027 = load ptr, ptr %45, align 8, !tbaa !27
   %.not1828 = icmp eq ptr %.027, null
   br i1 %.not1828, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %56
   %.029 = phi ptr [ %.0, %56 ], [ %.027, %20 ]
   %46 = getelementptr i8, ptr %.029, i64 8
-  %.0.val = load ptr, ptr %46, align 8, !tbaa !27
+  %.0.val = load ptr, ptr %46, align 8, !tbaa !28
   %47 = icmp eq ptr %.0.val, %.val
   br i1 %47, label %48, label %56
 
 48:                                               ; preds = %.lr.ph
   %49 = getelementptr i8, ptr %.029, i64 16
-  %.0.val23 = load ptr, ptr %49, align 8, !tbaa !29
+  %.0.val23 = load ptr, ptr %49, align 8, !tbaa !30
   %50 = icmp eq ptr %.0.val23, %.val19
   br i1 %50, label %51, label %56
 
@@ -233,7 +233,7 @@ define ptr @Aig_TableLookup(ptr noundef readonly captures(none) %0, ptr noundef 
   br i1 %55, label %.loopexit, label %56
 
 56:                                               ; preds = %.lr.ph, %48, %51
-  %.0 = load ptr, ptr %.029, align 8, !tbaa !31
+  %.0 = load ptr, ptr %.029, align 8, !tbaa !27
   %.not18 = icmp eq ptr %.0, null
   br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
@@ -307,9 +307,9 @@ define ptr @Aig_TableLookupTwo(ptr noundef captures(none) %0, ptr noundef %1, pt
 
 42:                                               ; preds = %36
   %43 = getelementptr inbounds nuw i8, ptr %18, i64 36
-  %44 = load i32, ptr %43, align 4, !tbaa !28
+  %44 = load i32, ptr %43, align 4, !tbaa !29
   %45 = getelementptr inbounds nuw i8, ptr %28, i64 36
-  %46 = load i32, ptr %45, align 4, !tbaa !28
+  %46 = load i32, ptr %45, align 4, !tbaa !29
   %47 = icmp slt i32 %44, %46
   %spec.select.i = select i1 %47, ptr %1, ptr %2
   %spec.select17.i = select i1 %47, ptr %2, ptr %1
@@ -319,9 +319,9 @@ Aig_ObjCreateGhost.exit:                          ; preds = %36, %42
   %.val.i = phi ptr [ %1, %36 ], [ %spec.select.i, %42 ]
   %.val19.i = phi ptr [ null, %36 ], [ %spec.select17.i, %42 ]
   %48 = getelementptr i8, ptr %0, i64 64
-  store ptr %.val.i, ptr %48, align 8, !tbaa !27
+  store ptr %.val.i, ptr %48, align 8, !tbaa !28
   %49 = getelementptr i8, ptr %0, i64 72
-  store ptr %.val19.i, ptr %49, align 8, !tbaa !29
+  store ptr %.val19.i, ptr %49, align 8, !tbaa !30
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %51 = load ptr, ptr %50, align 8, !tbaa !3
   %52 = icmp eq ptr %51, null
@@ -351,11 +351,11 @@ Aig_ObjCreateGhost.exit:                          ; preds = %36, %42
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %67 = load i32, ptr %66, align 8, !tbaa !21
   %68 = getelementptr inbounds nuw i8, ptr %56, i64 36
-  %69 = load i32, ptr %68, align 4, !tbaa !28
+  %69 = load i32, ptr %68, align 4, !tbaa !29
   %70 = mul nsw i32 %69, 7937
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds nuw i8, ptr %62, i64 36
-  %73 = load i32, ptr %72, align 4, !tbaa !28
+  %73 = load i32, ptr %72, align 4, !tbaa !29
   %74 = mul nsw i32 %73, 2971
   %75 = sext i32 %74 to i64
   %76 = trunc i64 %54 to i1
@@ -368,20 +368,20 @@ Aig_ObjCreateGhost.exit:                          ; preds = %36, %42
   %83 = sext i32 %67 to i64
   %84 = urem i64 %82, %83
   %85 = getelementptr inbounds nuw ptr, ptr %51, i64 %84
-  %.027.i = load ptr, ptr %85, align 8, !tbaa !31
+  %.027.i = load ptr, ptr %85, align 8, !tbaa !27
   %.not1828.i = icmp eq ptr %.027.i, null
   br i1 %.not1828.i, label %Aig_TableLookup.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %65, %95
   %.029.i = phi ptr [ %.0.i, %95 ], [ %.027.i, %65 ]
   %86 = getelementptr i8, ptr %.029.i, i64 8
-  %.0.val.i = load ptr, ptr %86, align 8, !tbaa !27
+  %.0.val.i = load ptr, ptr %86, align 8, !tbaa !28
   %87 = icmp eq ptr %.0.val.i, %.val.i
   br i1 %87, label %88, label %95
 
 88:                                               ; preds = %.lr.ph.i
   %89 = getelementptr i8, ptr %.029.i, i64 16
-  %.0.val23.i = load ptr, ptr %89, align 8, !tbaa !29
+  %.0.val23.i = load ptr, ptr %89, align 8, !tbaa !30
   %90 = icmp eq ptr %.0.val23.i, %.val19.i
   br i1 %90, label %91, label %95
 
@@ -393,7 +393,7 @@ Aig_ObjCreateGhost.exit:                          ; preds = %36, %42
   br i1 %94, label %Aig_TableLookup.exit, label %95
 
 95:                                               ; preds = %91, %88, %.lr.ph.i
-  %.0.i = load ptr, ptr %.029.i, align 8, !tbaa !31
+  %.0.i = load ptr, ptr %.029.i, align 8, !tbaa !27
   %.not18.i = icmp eq ptr %.0.i, null
   br i1 %.not18.i, label %Aig_TableLookup.exit, label %.lr.ph.i, !llvm.loop !34
 
@@ -405,7 +405,7 @@ Aig_TableLookup.exit:                             ; preds = %95, %91, %65, %59, 
 ; Function Attrs: nounwind uwtable
 define void @Aig_TableInsert(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %4 = load i32, ptr %3, align 4, !tbaa !28
+  %4 = load i32, ptr %3, align 4, !tbaa !29
   %5 = and i32 %4, 255
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %16
@@ -437,22 +437,22 @@ define void @Aig_TableInsert(ptr noundef captures(none) %0, ptr noundef %1) loca
   %21 = icmp eq i64 %20, 6
   %22 = select i1 %21, i64 1699, i64 0
   %23 = getelementptr i8, ptr %1, i64 8
-  %.val10.i.i = load ptr, ptr %23, align 8, !tbaa !27
+  %.val10.i.i = load ptr, ptr %23, align 8, !tbaa !28
   %24 = ptrtoint ptr %.val10.i.i to i64
   %25 = and i64 %24, -2
   %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 36
-  %28 = load i32, ptr %27, align 4, !tbaa !28
+  %28 = load i32, ptr %27, align 4, !tbaa !29
   %29 = mul nsw i32 %28, 7937
   %30 = sext i32 %29 to i64
   %31 = xor i64 %22, %30
   %32 = getelementptr i8, ptr %1, i64 16
-  %.val11.i.i = load ptr, ptr %32, align 8, !tbaa !29
+  %.val11.i.i = load ptr, ptr %32, align 8, !tbaa !30
   %33 = ptrtoint ptr %.val11.i.i to i64
   %34 = and i64 %33, -2
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
-  %37 = load i32, ptr %36, align 4, !tbaa !28
+  %37 = load i32, ptr %36, align 4, !tbaa !29
   %38 = mul nsw i32 %37, 2971
   %39 = sext i32 %38 to i64
   %40 = trunc i64 %24 to i1
@@ -473,7 +473,7 @@ define void @Aig_TableInsert(ptr noundef captures(none) %0, ptr noundef %1) loca
   %.not.i = icmp eq ptr %51, null
   %52 = icmp eq ptr %51, %1
   %or.cond.i = or i1 %.not.i, %52
-  br i1 %or.cond.i, label %Aig_TableFind.exit, label %50, !llvm.loop !30
+  br i1 %or.cond.i, label %Aig_TableFind.exit, label %50, !llvm.loop !31
 
 Aig_TableFind.exit:                               ; preds = %50
   store ptr %1, ptr %.0.i, align 8, !tbaa !26
@@ -492,22 +492,22 @@ define void @Aig_TableDelete(ptr noundef readonly captures(none) %0, ptr noundef
   %7 = icmp eq i64 %6, 6
   %8 = select i1 %7, i64 1699, i64 0
   %9 = getelementptr i8, ptr %1, i64 8
-  %.val10.i.i = load ptr, ptr %9, align 8, !tbaa !27
+  %.val10.i.i = load ptr, ptr %9, align 8, !tbaa !28
   %10 = ptrtoint ptr %.val10.i.i to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 36
-  %14 = load i32, ptr %13, align 4, !tbaa !28
+  %14 = load i32, ptr %13, align 4, !tbaa !29
   %15 = mul nsw i32 %14, 7937
   %16 = sext i32 %15 to i64
   %17 = xor i64 %8, %16
   %18 = getelementptr i8, ptr %1, i64 16
-  %.val11.i.i = load ptr, ptr %18, align 8, !tbaa !29
+  %.val11.i.i = load ptr, ptr %18, align 8, !tbaa !30
   %19 = ptrtoint ptr %.val11.i.i to i64
   %20 = and i64 %19, -2
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 36
-  %23 = load i32, ptr %22, align 4, !tbaa !28
+  %23 = load i32, ptr %22, align 4, !tbaa !29
   %24 = mul nsw i32 %23, 2971
   %25 = sext i32 %24 to i64
   %26 = trunc i64 %10 to i1
@@ -528,12 +528,12 @@ define void @Aig_TableDelete(ptr noundef readonly captures(none) %0, ptr noundef
   %.not.i = icmp eq ptr %37, null
   %38 = icmp eq ptr %37, %1
   %or.cond.i = or i1 %.not.i, %38
-  br i1 %or.cond.i, label %Aig_TableFind.exit, label %36, !llvm.loop !30
+  br i1 %or.cond.i, label %Aig_TableFind.exit, label %36, !llvm.loop !31
 
 Aig_TableFind.exit:                               ; preds = %36
-  %39 = load ptr, ptr %1, align 8, !tbaa !31
+  %39 = load ptr, ptr %1, align 8, !tbaa !27
   store ptr %39, ptr %.0.i, align 8, !tbaa !26
-  store ptr null, ptr %1, align 8, !tbaa !31
+  store ptr null, ptr %1, align 8, !tbaa !27
   ret void
 }
 
@@ -559,7 +559,7 @@ define i32 @Aig_TableCountEntries(ptr noundef readonly captures(none) %0) local_
 9:                                                ; preds = %9, %7
   %.09.in = phi ptr [ %8, %7 ], [ %.09, %9 ]
   %.1 = phi i32 [ %.011, %7 ], [ %10, %9 ]
-  %.09 = load ptr, ptr %.09.in, align 8, !tbaa !31
+  %.09 = load ptr, ptr %.09.in, align 8, !tbaa !27
   %.not = icmp eq ptr %.09, null
   %10 = add nsw i32 %.1, 1
   br i1 %.not, label %11, label %9, !llvm.loop !36
@@ -602,7 +602,7 @@ define void @Aig_TableProfile(ptr noundef readonly captures(none) %0) local_unna
 15:                                               ; preds = %15, %11
   %.012.in = phi ptr [ %14, %11 ], [ %.012, %15 ]
   %.0 = phi i32 [ 0, %11 ], [ %16, %15 ]
-  %.012 = load ptr, ptr %.012.in, align 8, !tbaa !31
+  %.012 = load ptr, ptr %.012.in, align 8, !tbaa !27
   %.not = icmp eq ptr %.012, null
   %16 = add nuw nsw i32 %.0, 1
   br i1 %.not, label %17, label %15, !llvm.loop !38
@@ -702,11 +702,11 @@ attributes #11 = { nounwind }
 !24 = !{!"llvm.loop.mustprogress"}
 !25 = distinct !{!25, !24}
 !26 = !{!10, !10, i64 0}
-!27 = !{!11, !10, i64 8}
-!28 = !{!11, !12, i64 36}
-!29 = !{!11, !10, i64 16}
-!30 = distinct !{!30, !24}
-!31 = !{!7, !7, i64 0}
+!27 = !{!7, !7, i64 0}
+!28 = !{!11, !10, i64 8}
+!29 = !{!11, !12, i64 36}
+!30 = !{!11, !10, i64 16}
+!31 = distinct !{!31, !24}
 !32 = distinct !{!32, !24}
 !33 = distinct !{!33, !24}
 !34 = distinct !{!34, !24}

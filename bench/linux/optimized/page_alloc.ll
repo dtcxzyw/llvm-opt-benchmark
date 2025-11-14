@@ -9764,15 +9764,15 @@ define internal fastcc void @setup_per_zone_lowmem_reserve() unnamed_addr #0 ali
   %2 = icmp eq ptr %1, null
   br i1 %2, label %.loopexit8, label %.preheader7
 
-.preheader7:                                      ; preds = %0, %36
-  %3 = phi ptr [ %37, %36 ], [ %1, %0 ]
+.preheader7:                                      ; preds = %0, %39
+  %3 = phi ptr [ %40, %39 ], [ %1, %0 ]
   br label %7
 
 .split12:                                         ; preds = %.split10, %.split10.us
-  %4 = add nuw nsw i64 %8, 1
+  %4 = phi i64 [ %22, %.split10.us ], [ %19, %.split10 ]
   %5 = add nuw nsw i64 %9, 1
   %6 = icmp eq i64 %4, 3
-  br i1 %6, label %36, label %7, !llvm.loop !219
+  br i1 %6, label %39, label %7, !llvm.loop !219
 
 7:                                                ; preds = %.split12, %.preheader7
   %8 = phi i64 [ 0, %.preheader7 ], [ %4, %.split12 ]
@@ -9781,105 +9781,111 @@ define internal fastcc void @setup_per_zone_lowmem_reserve() unnamed_addr #0 ali
   %11 = getelementptr i32, ptr @sysctl_lowmem_reserve_ratio, i64 %8
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.split10.us.preheader, label %14
+  br i1 %13, label %.thread, label %15
 
-14:                                               ; preds = %7
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 136
-  %16 = load volatile i64, ptr %15, align 8
-  %17 = icmp eq i64 %16, 0
-  %18 = sext i32 %12 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  br i1 %17, label %.split10.us.preheader, label %.split10
+.thread:                                          ; preds = %7
+  %14 = add nuw nsw i64 %8, 1
+  br label %.split10.us.preheader
 
-.split10.us.preheader:                            ; preds = %7, %14
-  %20 = getelementptr inbounds nuw i8, ptr %10, i64 48
+15:                                               ; preds = %7
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 136
+  %17 = load volatile i64, ptr %16, align 8
+  %18 = icmp eq i64 %17, 0
+  %19 = add nuw nsw i64 %8, 1
+  %20 = sext i32 %12 to i64
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  br i1 %18, label %.split10.us.preheader, label %.split10
+
+.split10.us.preheader:                            ; preds = %.thread, %15
+  %22 = phi i64 [ %14, %.thread ], [ %19, %15 ]
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 48
   br label %.split10.us
 
 .split10.us:                                      ; preds = %.split10.us.preheader, %.split10.us
-  %21 = phi i64 [ %25, %.split10.us ], [ %9, %.split10.us.preheader ]
-  %.split.us = getelementptr %struct.zone, ptr %3, i64 %21
-  %22 = getelementptr i8, ptr %.split.us, i64 136
-  %23 = load volatile i64, ptr %22, align 8
-  %24 = getelementptr i64, ptr %20, i64 %21
-  store i64 0, ptr %24, align 8
-  %25 = add nuw nsw i64 %21, 1
-  %26 = icmp eq i64 %25, 4
-  br i1 %26, label %.split12, label %.split10.us, !llvm.loop !220
+  %24 = phi i64 [ %28, %.split10.us ], [ %9, %.split10.us.preheader ]
+  %.split.us = getelementptr %struct.zone, ptr %3, i64 %24
+  %25 = getelementptr i8, ptr %.split.us, i64 136
+  %26 = load volatile i64, ptr %25, align 8
+  %27 = getelementptr i64, ptr %23, i64 %24
+  store i64 0, ptr %27, align 8
+  %28 = add nuw nsw i64 %24, 1
+  %29 = icmp eq i64 %28, 4
+  br i1 %29, label %.split12, label %.split10.us, !llvm.loop !220
 
-.split10:                                         ; preds = %14, %.split10
-  %27 = phi i64 [ %34, %.split10 ], [ %9, %14 ]
-  %28 = phi i64 [ %31, %.split10 ], [ 0, %14 ]
-  %.split = getelementptr %struct.zone, ptr %3, i64 %27
-  %29 = getelementptr i8, ptr %.split, i64 136
-  %30 = load volatile i64, ptr %29, align 8
-  %31 = add i64 %30, %28
-  %32 = udiv i64 %31, %18
-  %33 = getelementptr i64, ptr %19, i64 %27
-  store i64 %32, ptr %33, align 8
-  %34 = add nuw nsw i64 %27, 1
-  %35 = icmp eq i64 %34, 4
-  br i1 %35, label %.split12, label %.split10, !llvm.loop !220
+.split10:                                         ; preds = %15, %.split10
+  %30 = phi i64 [ %37, %.split10 ], [ %9, %15 ]
+  %31 = phi i64 [ %34, %.split10 ], [ 0, %15 ]
+  %.split = getelementptr %struct.zone, ptr %3, i64 %30
+  %32 = getelementptr i8, ptr %.split, i64 136
+  %33 = load volatile i64, ptr %32, align 8
+  %34 = add i64 %33, %31
+  %35 = udiv i64 %34, %20
+  %36 = getelementptr i64, ptr %21, i64 %30
+  store i64 %35, ptr %36, align 8
+  %37 = add nuw nsw i64 %30, 1
+  %38 = icmp eq i64 %37, 4
+  br i1 %38, label %.split12, label %.split10, !llvm.loop !220
 
-36:                                               ; preds = %.split12
-  %37 = tail call ptr @next_online_pgdat(ptr noundef nonnull %3) #22
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %.loopexit8, label %.preheader7, !llvm.loop !221
+39:                                               ; preds = %.split12
+  %40 = tail call ptr @next_online_pgdat(ptr noundef nonnull %3) #22
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %.loopexit8, label %.preheader7, !llvm.loop !221
 
-.loopexit8:                                       ; preds = %36, %0
-  %39 = tail call ptr @first_online_pgdat() #22
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %.loopexit, label %.preheader
+.loopexit8:                                       ; preds = %39, %0
+  %42 = tail call ptr @first_online_pgdat() #22
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit8, %72
-  %41 = phi i64 [ %69, %72 ], [ 0, %.loopexit8 ]
-  %42 = phi ptr [ %73, %72 ], [ %39, %.loopexit8 ]
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 13360
-  store i64 0, ptr %43, align 16
-  br label %44
+.preheader:                                       ; preds = %.loopexit8, %75
+  %44 = phi i64 [ %72, %75 ], [ 0, %.loopexit8 ]
+  %45 = phi ptr [ %76, %75 ], [ %42, %.loopexit8 ]
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 13360
+  store i64 0, ptr %46, align 16
+  br label %47
 
-44:                                               ; preds = %60, %.preheader
-  %45 = phi i64 [ 0, %.preheader ], [ %70, %60 ]
-  %46 = phi i64 [ %41, %.preheader ], [ %69, %60 ]
-  %47 = phi i64 [ 0, %.preheader ], [ %68, %60 ]
-  %48 = getelementptr %struct.zone, ptr %42, i64 %45
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 136
-  %50 = load volatile i64, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  br label %52
+47:                                               ; preds = %63, %.preheader
+  %48 = phi i64 [ 0, %.preheader ], [ %73, %63 ]
+  %49 = phi i64 [ %44, %.preheader ], [ %72, %63 ]
+  %50 = phi i64 [ 0, %.preheader ], [ %71, %63 ]
+  %51 = getelementptr %struct.zone, ptr %45, i64 %48
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 136
+  %53 = load volatile i64, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 48
+  br label %55
 
-52:                                               ; preds = %52, %44
-  %53 = phi i64 [ %45, %44 ], [ %58, %52 ]
-  %54 = phi i64 [ 0, %44 ], [ %57, %52 ]
-  %55 = getelementptr i64, ptr %51, i64 %53
-  %56 = load i64, ptr %55, align 8
-  %57 = tail call i64 @llvm.smax.i64(i64 %56, i64 %54)
-  %58 = add nuw nsw i64 %53, 1
-  %59 = icmp eq i64 %58, 4
-  br i1 %59, label %60, label %52, !llvm.loop !211
+55:                                               ; preds = %55, %47
+  %56 = phi i64 [ %48, %47 ], [ %61, %55 ]
+  %57 = phi i64 [ 0, %47 ], [ %60, %55 ]
+  %58 = getelementptr i64, ptr %54, i64 %56
+  %59 = load i64, ptr %58, align 8
+  %60 = tail call i64 @llvm.smax.i64(i64 %59, i64 %57)
+  %61 = add nuw nsw i64 %56, 1
+  %62 = icmp eq i64 %61, 4
+  br i1 %62, label %63, label %55, !llvm.loop !211
 
-60:                                               ; preds = %52
-  %61 = getelementptr i8, ptr %48, i64 16
-  %62 = load i64, ptr %61, align 16
-  %63 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %64 = load i64, ptr %63, align 32
-  %65 = add i64 %62, %57
-  %66 = add i64 %65, %64
-  %67 = tail call i64 @llvm.umin.i64(i64 %66, i64 %50)
-  %68 = add i64 %67, %47
-  store i64 %68, ptr %43, align 16
-  %69 = add i64 %67, %46
-  %70 = add nuw nsw i64 %45, 1
-  %71 = icmp eq i64 %70, 4
-  br i1 %71, label %72, label %44, !llvm.loop !212
+63:                                               ; preds = %55
+  %64 = getelementptr i8, ptr %51, i64 16
+  %65 = load i64, ptr %64, align 16
+  %66 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  %67 = load i64, ptr %66, align 32
+  %68 = add i64 %65, %60
+  %69 = add i64 %68, %67
+  %70 = tail call i64 @llvm.umin.i64(i64 %69, i64 %53)
+  %71 = add i64 %70, %50
+  store i64 %71, ptr %46, align 16
+  %72 = add i64 %70, %49
+  %73 = add nuw nsw i64 %48, 1
+  %74 = icmp eq i64 %73, 4
+  br i1 %74, label %75, label %47, !llvm.loop !212
 
-72:                                               ; preds = %60
-  %73 = tail call ptr @next_online_pgdat(ptr noundef nonnull %42) #22
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %.loopexit, label %.preheader, !llvm.loop !213
+75:                                               ; preds = %63
+  %76 = tail call ptr @next_online_pgdat(ptr noundef nonnull %45) #22
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %.loopexit, label %.preheader, !llvm.loop !213
 
-.loopexit:                                        ; preds = %72, %.loopexit8
-  %75 = phi i64 [ 0, %.loopexit8 ], [ %69, %72 ]
-  store i64 %75, ptr @totalreserve_pages, align 8
+.loopexit:                                        ; preds = %75, %.loopexit8
+  %78 = phi i64 [ 0, %.loopexit8 ], [ %72, %75 ]
+  store i64 %78, ptr @totalreserve_pages, align 8
   ret void
 }
 

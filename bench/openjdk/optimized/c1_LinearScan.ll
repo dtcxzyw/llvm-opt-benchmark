@@ -5461,13 +5461,13 @@ _ZN10LinearScan7reg_numE7LIR_Opr.exit137:         ; preds = %125, %130, %133, %1
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %172 = icmp sgt i32 %.1, 0
-  %173 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %174 = getelementptr inbounds nuw i8, ptr %3, i64 360
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %177 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %178 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  %179 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %3, i64 360
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %178 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %179 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %180 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %181 = getelementptr inbounds nuw i8, ptr %3, i64 536
   %182 = zext nneg i32 %166 to i64
@@ -6130,7 +6130,7 @@ _ZN10LinearScan8add_tempEii15IntervalUseKind9BasicType.exit.i: ; preds = %529, %
   br i1 %exitcond.not.i146, label %_ZN10LinearScan12pd_add_tempsEP6LIR_Op.exit, label %403, !llvm.loop !37
 
 _ZN10LinearScan12pd_add_tempsEP6LIR_Op.exit:      ; preds = %_ZN10LinearScan8add_tempEii15IntervalUseKind9BasicType.exit.i, %.loopexit
-  %530 = load i32, ptr %173, align 8
+  %530 = load i32, ptr %174, align 8
   %531 = icmp sgt i32 %530, 0
   br i1 %531, label %.lr.ph230, label %._crit_edge
 
@@ -6142,7 +6142,7 @@ _ZN10LinearScan12pd_add_tempsEP6LIR_Op.exit:      ; preds = %_ZN10LinearScan8add
 
 534:                                              ; preds = %.lr.ph230, %_ZN10LinearScan26use_kind_of_output_operandEP6LIR_Op7LIR_Opr.exit
   %indvars.iv298 = phi i64 [ 0, %.lr.ph230 ], [ %indvars.iv.next299, %_ZN10LinearScan26use_kind_of_output_operandEP6LIR_Op7LIR_Opr.exit ]
-  %535 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv298
+  %535 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv298
   %536 = load ptr, ptr %535, align 8
   %.sroa.0.0.copyload.i148 = load i64, ptr %536, align 8
   %537 = load i16, ptr %394, align 8
@@ -6158,7 +6158,7 @@ _ZN10LinearScan12pd_add_tempsEP6LIR_Op.exit:      ; preds = %_ZN10LinearScan8add
   ]
 
 541:                                              ; preds = %539, %539
-  %542 = load ptr, ptr %175, align 8
+  %542 = load ptr, ptr %176, align 8
   %543 = trunc i64 %.sroa.0.0.copyload.i.i150 to i32
   %544 = lshr i32 %543, 14
   %545 = call noundef zeroext i1 @_ZN12LIRGenerator16is_vreg_flag_setEiNS_8VregFlagE(ptr noundef nonnull align 8 dereferenceable(232) %542, i32 noundef %544, i32 noundef 0) #22
@@ -6184,7 +6184,7 @@ _ZN10LinearScan12pd_add_tempsEP6LIR_Op.exit:      ; preds = %_ZN10LinearScan8add
 549:                                              ; preds = %547, %547
   %550 = load i32, ptr %297, align 8
   %551 = ashr i32 %550, 1
-  %552 = load ptr, ptr %176, align 8
+  %552 = load ptr, ptr %177, align 8
   %553 = sext i32 %551 to i64
   %554 = getelementptr inbounds ptr, ptr %552, i64 %553
   %555 = load ptr, ptr %554, align 8
@@ -6202,7 +6202,7 @@ _ZN10LinearScan12pd_add_tempsEP6LIR_Op.exit:      ; preds = %_ZN10LinearScan8add
   ]
 
 560:                                              ; preds = %.critedge.i, %.critedge.i
-  %561 = load ptr, ptr %175, align 8
+  %561 = load ptr, ptr %176, align 8
   %562 = trunc i64 %.sroa.0.0.copyload.i148 to i32
   %563 = lshr i32 %562, 14
   %564 = call noundef zeroext i1 @_ZN12LIRGenerator16is_vreg_flag_setEiNS_8VregFlagE(ptr noundef nonnull align 8 dereferenceable(232) %561, i32 noundef %563, i32 noundef 0) #22
@@ -6219,7 +6219,7 @@ _ZN10LinearScan26use_kind_of_output_operandEP6LIR_Op7LIR_Opr.exit: ; preds = %54
   br i1 %exitcond302.not, label %._crit_edge, label %534, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %_ZN10LinearScan26use_kind_of_output_operandEP6LIR_Op7LIR_Opr.exit, %_ZN10LinearScan12pd_add_tempsEP6LIR_Op.exit
-  %566 = load i32, ptr %177, align 4
+  %566 = load i32, ptr %178, align 4
   %567 = icmp sgt i32 %566, 0
   br i1 %567, label %.lr.ph233.preheader, label %._crit_edge234
 
@@ -6229,7 +6229,7 @@ _ZN10LinearScan26use_kind_of_output_operandEP6LIR_Op7LIR_Opr.exit: ; preds = %54
 
 .lr.ph233:                                        ; preds = %.lr.ph233.preheader, %.lr.ph233
   %indvars.iv303 = phi i64 [ 0, %.lr.ph233.preheader ], [ %indvars.iv.next304, %.lr.ph233 ]
-  %568 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv303
+  %568 = getelementptr inbounds nuw ptr, ptr %179, i64 %indvars.iv303
   %569 = load ptr, ptr %568, align 8
   %.sroa.0.0.copyload.i152 = load i64, ptr %569, align 8
   call void @_ZN10LinearScan8add_tempE7LIR_Opri15IntervalUseKind(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 %.sroa.0.0.copyload.i152, i32 noundef %298, i32 noundef 3)
@@ -6238,7 +6238,7 @@ _ZN10LinearScan26use_kind_of_output_operandEP6LIR_Op7LIR_Opr.exit: ; preds = %54
   br i1 %exitcond307.not, label %._crit_edge234, label %.lr.ph233, !llvm.loop !39
 
 ._crit_edge234:                                   ; preds = %.lr.ph233, %._crit_edge
-  %570 = load i32, ptr %179, align 8
+  %570 = load i32, ptr %173, align 8
   %571 = icmp sgt i32 %570, 0
   br i1 %571, label %.lr.ph237, label %._crit_edge238
 
@@ -6268,7 +6268,7 @@ _ZN10LinearScan26use_kind_of_output_operandEP6LIR_Op7LIR_Opr.exit: ; preds = %54
   ]
 
 583:                                              ; preds = %581, %581
-  %584 = load ptr, ptr %175, align 8
+  %584 = load ptr, ptr %176, align 8
   %585 = trunc i64 %.sroa.0.0.copyload.i.i157 to i32
   %586 = lshr i32 %585, 14
   %587 = call noundef zeroext i1 @_ZN12LIRGenerator16is_vreg_flag_setEiNS_8VregFlagE(ptr noundef nonnull align 8 dereferenceable(232) %584, i32 noundef %586, i32 noundef 0) #22
@@ -6293,7 +6293,7 @@ _ZN10LinearScan26use_kind_of_output_operandEP6LIR_Op7LIR_Opr.exit: ; preds = %54
 591:                                              ; preds = %589, %589
   %592 = load i32, ptr %297, align 8
   %593 = ashr i32 %592, 1
-  %594 = load ptr, ptr %176, align 8
+  %594 = load ptr, ptr %177, align 8
   %595 = sext i32 %593 to i64
   %596 = getelementptr inbounds ptr, ptr %594, i64 %595
   %597 = load ptr, ptr %596, align 8
@@ -23519,7 +23519,6 @@ _ZN17EdgeMoveOptimizer19append_instructionsEP13GrowableArrayIP6LIR_OpEi.exit: ; 
   br i1 %exitcond.not, label %.preheader, label %41, !llvm.loop !139
 
 .loopexit:                                        ; preds = %_ZN17EdgeMoveOptimizer22remove_cur_instructionEib.exit, %_ZN8LIR_List13insert_beforeEiP6LIR_Op.exit
-  %indvars.iv.next72 = add i64 %indvars.iv71, 1
   br label %86, !llvm.loop !140
 
 86:                                               ; preds = %.preheader, %.loopexit
@@ -23700,6 +23699,7 @@ _ZN8LIR_List13insert_beforeEiP6LIR_Op.exit:       ; preds = %171, %._crit_edge.l
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds ptr, ptr %183, i64 %indvars.iv71
   store ptr %.0.i88, ptr %184, align 8
+  %indvars.iv.next72 = add i64 %indvars.iv71, 1
   br i1 %33, label %.lr.ph58, label %.loopexit
 
 .lr.ph58:                                         ; preds = %_ZN8LIR_List13insert_beforeEiP6LIR_Op.exit, %_ZN17EdgeMoveOptimizer22remove_cur_instructionEib.exit

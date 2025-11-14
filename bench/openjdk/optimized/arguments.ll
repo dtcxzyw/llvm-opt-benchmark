@@ -1497,20 +1497,20 @@ _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63: ; preds = %_ZN9Arg
   br label %.preheader.i68.preheader
 
 .preheader.i68.preheader:                         ; preds = %155, %152
-  %.0.i69.ph = phi ptr [ %.pr75100, %155 ], [ %118, %152 ]
+  %157 = phi ptr [ %118, %152 ], [ %.pr75100, %155 ]
+  %158 = load ptr, ptr @_ZN9Arguments8_vm_infoE, align 8
   br label %.preheader.i68
 
 .preheader.i68:                                   ; preds = %.preheader.i68.preheader, %.preheader.i68
-  %.0.i69 = phi ptr [ %158, %.preheader.i68 ], [ %.0.i69.ph, %.preheader.i68.preheader ]
-  %157 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 16
-  %158 = load ptr, ptr %157, align 8
-  %.not.i70 = icmp eq ptr %158, null
+  %.0.i69 = phi ptr [ %160, %.preheader.i68 ], [ %157, %.preheader.i68.preheader ]
+  %159 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 16
+  %160 = load ptr, ptr %159, align 8
+  %.not.i70 = icmp eq ptr %160, null
   br i1 %.not.i70, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit71, label %.preheader.i68, !llvm.loop !8
 
 _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit71: ; preds = %.preheader.i68
-  %159 = load ptr, ptr @_ZN9Arguments8_vm_infoE, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 16
-  store ptr %159, ptr %160, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 16
+  store ptr %158, ptr %161, align 8
   tail call void @_ZN2os29init_system_properties_valuesEv() #32
   ret void
 }

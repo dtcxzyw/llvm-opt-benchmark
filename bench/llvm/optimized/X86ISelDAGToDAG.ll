@@ -10511,28 +10511,28 @@ _ZN4llvm5SDLocC2ERKS0_.exit2118:                  ; preds = %2368, %2389
   %2439 = load ptr, ptr %2425, align 8, !tbaa !341
   %2440 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %2439, i64 noundef %2437, ptr noundef nonnull align 8 dereferenceable(12) %24, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #27
   %2441 = load ptr, ptr %2431, align 8, !tbaa !603
+  %2442 = getelementptr inbounds nuw i8, ptr %2441, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %210)
-  br label %2442
+  br label %2443
 
-2442:                                             ; preds = %2442, %2424
-  %.idx = phi i64 [ 0, %2424 ], [ %.add, %2442 ]
+2443:                                             ; preds = %2443, %2424
+  %.idx = phi i64 [ 0, %2424 ], [ %.add, %2443 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %210, i64 %.idx
   store ptr null, ptr %.ptr, align 16, !tbaa !456
-  %2443 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
-  store i32 0, ptr %2443, align 8, !tbaa !457
+  %2444 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
+  store i32 0, ptr %2444, align 8, !tbaa !457
   %.add = add nuw nsw i64 %.idx, 16
-  %2444 = icmp eq i64 %.add, 48
-  br i1 %2444, label %2445, label %2442
+  %2445 = icmp eq i64 %.add, 48
+  br i1 %2445, label %2446, label %2443
 
-2445:                                             ; preds = %2442
-  %2446 = getelementptr inbounds nuw i8, ptr %2441, i64 80
+2446:                                             ; preds = %2443
   %.fca.0.extract313 = extractvalue { ptr, i32 } %2440, 0
   %.fca.1.extract314 = extractvalue { ptr, i32 } %2440, 1
   store ptr %.fca.0.extract313, ptr %210, align 16, !tbaa !463
   %.sroa.4318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %210, i64 8
   store i32 %.fca.1.extract314, ptr %.sroa.4318.0..sroa_idx, align 8, !tbaa !464
   %2447 = getelementptr inbounds nuw i8, ptr %210, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %2447, ptr noundef nonnull align 8 dereferenceable(12) %2446, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %2447, ptr noundef nonnull align 8 dereferenceable(12) %2442, i64 12, i1 false)
   %2448 = getelementptr inbounds nuw i8, ptr %210, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %2448, ptr noundef nonnull align 8 dereferenceable(12) %209, i64 12, i1 false), !tbaa.struct !607
   %2449 = load ptr, ptr %2425, align 8, !tbaa !341
@@ -10740,7 +10740,7 @@ switch.lookup3483:                                ; preds = %2467
   call void @_ZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS_6SDNodeEPKhj(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull %1, ptr noundef nonnull @_ZZN12_GLOBAL__N_115X86DAGToDAGISel10SelectCodeEPN4llvm6SDNodeEE12MatcherTable, i32 noundef 716055) #27
   br label %.critedge1838
 
-.critedge1838:                                    ; preds = %1218, %1195, %1723, %1864, %2397, %2270, %.thread3222, %1703, %887, %895, %378, %2484, %898, %273, %switch.lookup, %2036, %2034, %1083, %1081, %1079, %_ZN12_GLOBAL__N_115X86DAGToDAGISel20tryShrinkShlLogicImmEPN4llvm6SDNodeE.exit, %906, %.critedge1848, %868, %_ZN12_GLOBAL__N_115X86DAGToDAGISel17tryShiftAmountModEPN4llvm6SDNodeE.exit, %569, %383, %482, %switch.lookup3479, %853, %.critedge1842, %2445, %2403, %2091, %2066, %2029, %1986, %1632, %1473, %1290, %.critedge, %555, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit, %241
+.critedge1838:                                    ; preds = %1218, %1195, %1723, %1864, %2397, %2270, %.thread3222, %1703, %887, %895, %378, %2484, %898, %273, %switch.lookup, %2036, %2034, %1083, %1081, %1079, %_ZN12_GLOBAL__N_115X86DAGToDAGISel20tryShrinkShlLogicImmEPN4llvm6SDNodeE.exit, %906, %.critedge1848, %868, %_ZN12_GLOBAL__N_115X86DAGToDAGISel17tryShiftAmountModEPN4llvm6SDNodeE.exit, %569, %383, %482, %switch.lookup3479, %853, %.critedge1842, %2446, %2403, %2091, %2066, %2029, %1986, %1632, %1473, %1290, %.critedge, %555, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit, %241
   %2534 = load ptr, ptr %24, align 8, !tbaa !459
   %.not.i.i.i.i.i2141 = icmp eq ptr %2534, null
   br i1 %.not.i.i.i.i.i2141, label %_ZN4llvm5SDLocD2Ev.exit2142, label %2535

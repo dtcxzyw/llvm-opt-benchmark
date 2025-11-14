@@ -1453,8 +1453,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %17 = getelementptr inbounds nuw double, ptr %15, i64 %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %14
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %15, i8 0, i64 %14, i1 false)
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %14
   %20 = ptrtoint ptr %17 to i64
   br label %.loopexit
 
@@ -6681,8 +6681,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %90 = getelementptr inbounds nuw double, ptr %88, i64 %82
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %90, ptr %91, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %88, i64 %87
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %88, i8 0, i64 %87, i1 false)
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 %87
   %93 = ptrtoint ptr %90 to i64
   br label %.loopexit115
 
@@ -6732,8 +6732,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i61: ; preds = %_ZNSt6vectorIdS
   %111 = getelementptr inbounds nuw double, ptr %109, i64 %103
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %111, ptr %112, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %109, i64 %108
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %109, i8 0, i64 %108, i1 false)
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 %108
   %114 = ptrtoint ptr %111 to i64
   br label %.loopexit114
 
@@ -6783,8 +6783,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i71: ; preds = %_ZNSt6vectorIdS
   %133 = getelementptr inbounds nuw double, ptr %131, i64 %125
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %133, ptr %134, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %131, i64 %130
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %131, i8 0, i64 %130, i1 false)
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 %130
   %136 = ptrtoint ptr %133 to i64
   br label %.loopexit113
 
@@ -7700,8 +7700,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %116 = getelementptr inbounds nuw double, ptr %114, i64 %108
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %116, ptr %117, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %114, i64 %113
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %114, i8 0, i64 %113, i1 false)
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 %113
   br label %.loopexit229
 
 .loopexit229:                                     ; preds = %.noexc75, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
@@ -7748,8 +7748,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i82: ; preds = %_ZNSt6vectorIdS
   %134 = getelementptr inbounds nuw double, ptr %132, i64 %126
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %134, ptr %135, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 %131
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %132, i8 0, i64 %131, i1 false)
+  %136 = getelementptr inbounds nuw i8, ptr %132, i64 %131
   br label %.loopexit228
 
 .loopexit228:                                     ; preds = %.noexc84, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i82
@@ -7796,8 +7796,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i92: ; preds = %_ZNSt6vectorIdS
   %152 = getelementptr inbounds nuw double, ptr %150, i64 %144
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %152, ptr %153, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %150, i64 %149
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %150, i8 0, i64 %149, i1 false)
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 %149
   br label %.loopexit227
 
 .loopexit227:                                     ; preds = %.noexc94, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i92
@@ -13607,23 +13607,26 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIlSt4pairIdSt10
 
 20:                                               ; preds = %2
   %21 = icmp eq i8 %6, 0
-  br i1 %21, label %.loopexit.sink.split, label %.lr.ph88
+  br i1 %21, label %.loopexit.sink.split, label %.lr.ph88.preheader
 
-.lr.ph88:                                         ; preds = %20, %.lr.ph88
-  %.04987 = phi ptr [ %23, %.lr.ph88 ], [ %0, %20 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.04987, i64 256
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 11
-  %25 = load i8, ptr %24, align 1
-  %.not74 = icmp eq i8 %25, 0
+.lr.ph88.preheader:                               ; preds = %20
+  %22 = load ptr, ptr %0, align 8
+  br label %.lr.ph88
+
+.lr.ph88:                                         ; preds = %.lr.ph88.preheader, %.lr.ph88
+  %.04987 = phi ptr [ %24, %.lr.ph88 ], [ %0, %.lr.ph88.preheader ]
+  %23 = getelementptr inbounds nuw i8, ptr %.04987, i64 256
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 11
+  %26 = load i8, ptr %25, align 1
+  %.not74 = icmp eq i8 %26, 0
   br i1 %.not74, label %.lr.ph88, label %._crit_edge, !llvm.loop !138
 
 ._crit_edge:                                      ; preds = %.lr.ph88
-  %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
-  %30 = load ptr, ptr %23, align 8
+  %30 = load ptr, ptr %24, align 8
   br label %31
 
 31:                                               ; preds = %.backedge, %._crit_edge
@@ -13854,7 +13857,7 @@ _ZNSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS2_E
 
 _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS8_EEESt4lessIlESaIS4_IKlSC_EELi256ELb0EEEE15value_destroy_nEhhPSH_.exit60: ; preds = %_ZNSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS2_EED2Ev.exit72, %.preheader77
   tail call void @_ZdlPvm(ptr noundef nonnull %.3, i64 noundef 344) #26
-  %128 = icmp eq ptr %95, %26
+  %128 = icmp eq ptr %95, %22
   br i1 %128, label %.loopexit, label %129
 
 129:                                              ; preds = %_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS8_EEESt4lessIlESaIS4_IKlSC_EELi256ELb0EEEE15value_destroy_nEhhPSH_.exit60

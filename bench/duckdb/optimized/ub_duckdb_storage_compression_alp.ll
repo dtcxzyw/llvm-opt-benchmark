@@ -532,8 +532,8 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
   %43 = getelementptr inbounds nuw i16, ptr %42, i64 %.sroa.0.0.insert.ext.i
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %43, ptr %44, align 8, !tbaa !124
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %41
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %42, i8 0, i64 %41, i1 false), !tbaa !125
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %41
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %45, ptr %46, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -546,8 +546,8 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
   %49 = getelementptr inbounds nuw float, ptr %48, i64 %.sroa.0.0.insert.ext.i
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %49, ptr %50, align 8, !tbaa !130
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %47
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %48, i8 0, i64 %47, i1 false), !tbaa !131
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %47
   br label %.loopexit113
 
 .loopexit113:                                     ; preds = %.noexc78, %.thread
@@ -570,8 +570,8 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
   %57 = getelementptr inbounds nuw float, ptr %56, i64 %53
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %57, ptr %58, align 8, !tbaa !130
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %55
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %56, i8 0, i64 %55, i1 false), !tbaa !131
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %55
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc84, %.loopexit113
@@ -1478,16 +1478,16 @@ define linkonce_odr void @_ZN6duckdb11AlpFetchRowIfEEvRNS_13ColumnSegmentERNS_16
 
 .lr.ph.i:                                         ; preds = %16
   %.promoted.i = load i64, ptr %7, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 18528
-  %19 = load i64, ptr %18, align 8, !tbaa !207
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 18528
+  %20 = load i64, ptr %19, align 8, !tbaa !207
+  %.promoted16.i = load ptr, ptr %18, align 8, !tbaa !208
   br label %25
 
 ._crit_edge.i:                                    ; preds = %25
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.promoted16.i = load ptr, ptr %20, align 8, !tbaa !208
   %21 = mul nsw i64 %17, -4
   %scevgep.i = getelementptr i8, ptr %.promoted16.i, i64 %21
-  store ptr %scevgep.i, ptr %20, align 8, !tbaa !208
+  store ptr %scevgep.i, ptr %18, align 8, !tbaa !208
   store i64 %29, ptr %7, align 8, !tbaa !201
   br label %22
 
@@ -1499,7 +1499,7 @@ define linkonce_odr void @_ZN6duckdb11AlpFetchRowIfEEvRNS_13ColumnSegmentERNS_16
 25:                                               ; preds = %25, %.lr.ph.i
   %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %25 ]
   %26 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %29, %25 ]
-  %27 = sub i64 %19, %26
+  %27 = sub i64 %20, %26
   %28 = call noundef i64 @llvm.umin.i64(i64 %27, i64 1024)
   %29 = add i64 %28, %26
   %30 = add nuw nsw i64 %.015.i, 1
@@ -1596,16 +1596,16 @@ define linkonce_odr void @_ZN6duckdb7AlpSkipIfEEvRNS_13ColumnSegmentERNS_15Colum
 
 .lr.ph.i:                                         ; preds = %15
   %.promoted.i = load i64, ptr %6, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 18528
-  %18 = load i64, ptr %17, align 8, !tbaa !207
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 18528
+  %19 = load i64, ptr %18, align 8, !tbaa !207
+  %.promoted16.i = load ptr, ptr %17, align 8, !tbaa !208
   br label %24
 
 ._crit_edge.i:                                    ; preds = %24
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.promoted16.i = load ptr, ptr %19, align 8, !tbaa !208
   %20 = mul nsw i64 %16, -4
   %scevgep.i = getelementptr i8, ptr %.promoted16.i, i64 %20
-  store ptr %scevgep.i, ptr %19, align 8, !tbaa !208
+  store ptr %scevgep.i, ptr %17, align 8, !tbaa !208
   store i64 %28, ptr %6, align 8, !tbaa !201
   br label %21
 
@@ -1617,7 +1617,7 @@ define linkonce_odr void @_ZN6duckdb7AlpSkipIfEEvRNS_13ColumnSegmentERNS_15Colum
 24:                                               ; preds = %24, %.lr.ph.i
   %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %29, %24 ]
   %25 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %28, %24 ]
-  %26 = sub i64 %18, %25
+  %26 = sub i64 %19, %25
   %27 = tail call noundef i64 @llvm.umin.i64(i64 %26, i64 1024)
   %28 = add i64 %27, %25
   %29 = add nuw nsw i64 %.015.i, 1
@@ -1768,8 +1768,8 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
   %43 = getelementptr inbounds nuw i16, ptr %42, i64 %.sroa.0.0.insert.ext.i
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %43, ptr %44, align 8, !tbaa !124
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %41
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %42, i8 0, i64 %41, i1 false), !tbaa !125
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %41
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %45, ptr %46, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1782,8 +1782,8 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
   %49 = getelementptr inbounds nuw double, ptr %48, i64 %.sroa.0.0.insert.ext.i
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %49, ptr %50, align 8, !tbaa !227
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %47
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %48, i8 0, i64 %47, i1 false), !tbaa !228
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %47
   br label %.loopexit113
 
 .loopexit113:                                     ; preds = %.noexc78, %.thread
@@ -1806,8 +1806,8 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
   %57 = getelementptr inbounds nuw double, ptr %56, i64 %53
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %57, ptr %58, align 8, !tbaa !227
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %55
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %56, i8 0, i64 %55, i1 false), !tbaa !228
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 %55
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc84, %.loopexit113
@@ -2714,16 +2714,16 @@ define linkonce_odr void @_ZN6duckdb11AlpFetchRowIdEEvRNS_13ColumnSegmentERNS_16
 
 .lr.ph.i:                                         ; preds = %16
   %.promoted.i = load i64, ptr %7, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 26720
-  %19 = load i64, ptr %18, align 8, !tbaa !259
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 26720
+  %20 = load i64, ptr %19, align 8, !tbaa !259
+  %.promoted16.i = load ptr, ptr %18, align 8, !tbaa !260
   br label %25
 
 ._crit_edge.i:                                    ; preds = %25
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.promoted16.i = load ptr, ptr %20, align 8, !tbaa !260
   %21 = mul nsw i64 %17, -4
   %scevgep.i = getelementptr i8, ptr %.promoted16.i, i64 %21
-  store ptr %scevgep.i, ptr %20, align 8, !tbaa !260
+  store ptr %scevgep.i, ptr %18, align 8, !tbaa !260
   store i64 %29, ptr %7, align 8, !tbaa !254
   br label %22
 
@@ -2735,7 +2735,7 @@ define linkonce_odr void @_ZN6duckdb11AlpFetchRowIdEEvRNS_13ColumnSegmentERNS_16
 25:                                               ; preds = %25, %.lr.ph.i
   %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %25 ]
   %26 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %29, %25 ]
-  %27 = sub i64 %19, %26
+  %27 = sub i64 %20, %26
   %28 = call noundef i64 @llvm.umin.i64(i64 %27, i64 1024)
   %29 = add i64 %28, %26
   %30 = add nuw nsw i64 %.015.i, 1
@@ -2832,16 +2832,16 @@ define linkonce_odr void @_ZN6duckdb7AlpSkipIdEEvRNS_13ColumnSegmentERNS_15Colum
 
 .lr.ph.i:                                         ; preds = %15
   %.promoted.i = load i64, ptr %6, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 26720
-  %18 = load i64, ptr %17, align 8, !tbaa !259
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 26720
+  %19 = load i64, ptr %18, align 8, !tbaa !259
+  %.promoted16.i = load ptr, ptr %17, align 8, !tbaa !260
   br label %24
 
 ._crit_edge.i:                                    ; preds = %24
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.promoted16.i = load ptr, ptr %19, align 8, !tbaa !260
   %20 = mul nsw i64 %16, -4
   %scevgep.i = getelementptr i8, ptr %.promoted16.i, i64 %20
-  store ptr %scevgep.i, ptr %19, align 8, !tbaa !260
+  store ptr %scevgep.i, ptr %17, align 8, !tbaa !260
   store i64 %28, ptr %6, align 8, !tbaa !254
   br label %21
 
@@ -2853,7 +2853,7 @@ define linkonce_odr void @_ZN6duckdb7AlpSkipIdEEvRNS_13ColumnSegmentERNS_15Colum
 24:                                               ; preds = %24, %.lr.ph.i
   %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %29, %24 ]
   %25 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %28, %24 ]
-  %26 = sub i64 %18, %25
+  %26 = sub i64 %19, %25
   %27 = tail call noundef i64 @llvm.umin.i64(i64 %26, i64 1024)
   %28 = add i64 %27, %25
   %29 = add nuw nsw i64 %.015.i, 1
@@ -4729,98 +4729,98 @@ _ZN6duckdb3alp19AlpCompressionStateIfLb1EE17ResetCombinationsEv.exit: ; preds = 
   %indvars.iv120 = phi i64 [ %indvars.iv, %.preheader ], [ %indvars.iv.next121, %_ZN6duckdb3alp14AlpCompressionIfLb1EE22CompareALPCombinationsERKNS0_14AlpCombinationES5_.exit.thread ]
   %47 = load ptr, ptr %30, align 8, !tbaa !133
   %48 = load ptr, ptr %.sroa.086.0107, align 8, !tbaa !127
+  %49 = ptrtoint ptr %47 to i64
+  %50 = ptrtoint ptr %48 to i64
+  %51 = sub i64 %49, %50
+  %52 = ashr exact i64 %51, 2
   %.not41.i = icmp eq ptr %48, %47
   br i1 %.not41.i, label %101, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %46
-  %49 = load float, ptr %38, align 4, !tbaa !131
-  %50 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %indvars.iv120
-  %51 = load float, ptr %50, align 4, !tbaa !131
-  %52 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %indvars.iv120
-  br label %54
+  %53 = load float, ptr %38, align 4, !tbaa !131
+  %54 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %indvars.iv120
+  %55 = load float, ptr %54, align 4, !tbaa !131
+  %56 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %indvars.iv120
+  br label %58
 
-._crit_edge.i:                                    ; preds = %85
-  %53 = icmp ult i64 %.130.i, 2
-  br i1 %53, label %101, label %87
+._crit_edge.i:                                    ; preds = %89
+  %57 = icmp ult i64 %.130.i, 2
+  br i1 %57, label %101, label %91
 
-54:                                               ; preds = %85, %.lr.ph.i
-  %.02846.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %85 ]
-  %.02945.i = phi i64 [ 0, %.lr.ph.i ], [ %.130.i, %85 ]
-  %.03144.i = phi i64 [ -9223372036854775808, %.lr.ph.i ], [ %.132.i, %85 ]
-  %.03443.i = phi i64 [ 9223372036854775807, %.lr.ph.i ], [ %.135.i, %85 ]
-  %.sroa.038.042.i = phi ptr [ %48, %.lr.ph.i ], [ %86, %85 ]
-  %55 = load float, ptr %.sroa.038.042.i, align 4, !tbaa !131
-  %56 = fmul float %49, %55
-  %57 = fmul float %51, %56
-  %58 = invoke noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIfEEbT_(float noundef %57)
+58:                                               ; preds = %89, %.lr.ph.i
+  %.02846.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %89 ]
+  %.02945.i = phi i64 [ 0, %.lr.ph.i ], [ %.130.i, %89 ]
+  %.03144.i = phi i64 [ -9223372036854775808, %.lr.ph.i ], [ %.132.i, %89 ]
+  %.03443.i = phi i64 [ 9223372036854775807, %.lr.ph.i ], [ %.135.i, %89 ]
+  %.sroa.038.042.i = phi ptr [ %48, %.lr.ph.i ], [ %90, %89 ]
+  %59 = load float, ptr %.sroa.038.042.i, align 4, !tbaa !131
+  %60 = fmul float %53, %59
+  %61 = fmul float %55, %60
+  %62 = invoke noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIfEEbT_(float noundef %61)
           to label %.noexc unwind label %119
 
-.noexc:                                           ; preds = %54
-  br i1 %58, label %59, label %_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit.i
+.noexc:                                           ; preds = %58
+  br i1 %62, label %63, label %_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit.i
 
-59:                                               ; preds = %.noexc
-  %60 = invoke noundef zeroext i1 @_ZN6duckdb5Value5IsNanIfEEbT_(float noundef %57)
+63:                                               ; preds = %.noexc
+  %64 = invoke noundef zeroext i1 @_ZN6duckdb5Value5IsNanIfEEbT_(float noundef %61)
           to label %.noexc40 unwind label %119
 
-.noexc40:                                         ; preds = %59
-  br i1 %60, label %_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit.i, label %61
+.noexc40:                                         ; preds = %63
+  br i1 %64, label %_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit.i, label %65
 
-61:                                               ; preds = %.noexc40
-  %62 = call float @llvm.fabs.f32(float %57)
-  %63 = fpext float %62 to double
-  %or.cond.i.i.i.i = fcmp ogt double %63, 0x43DFFFFFFFFFFFFF
-  br i1 %or.cond.i.i.i.i, label %_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit.i, label %64
+65:                                               ; preds = %.noexc40
+  %66 = call float @llvm.fabs.f32(float %61)
+  %67 = fpext float %66 to double
+  %or.cond.i.i.i.i = fcmp ogt double %67, 0x43DFFFFFFFFFFFFF
+  br i1 %or.cond.i.i.i.i, label %_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit.i, label %68
 
-64:                                               ; preds = %61
-  %65 = fcmp oeq float %57, 0.000000e+00
-  %66 = bitcast float %57 to i32
-  %67 = icmp slt i32 %66, 0
-  %or.cond.i.i.i = and i1 %65, %67
+68:                                               ; preds = %65
+  %69 = fcmp oeq float %61, 0.000000e+00
+  %70 = bitcast float %61 to i32
+  %71 = icmp slt i32 %70, 0
+  %or.cond.i.i.i = and i1 %69, %71
   br i1 %or.cond.i.i.i, label %_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit.i, label %_ZN6duckdb3alp14AlpCompressionIfLb1EE20IsImpossibleToEncodeEf.exit.thread3.i.i.i
 
-_ZN6duckdb3alp14AlpCompressionIfLb1EE20IsImpossibleToEncodeEf.exit.thread3.i.i.i: ; preds = %64
-  %68 = fadd float %57, 0x4168000000000000
-  %69 = fadd float %68, 0xC168000000000000
-  %70 = fptosi float %69 to i64
+_ZN6duckdb3alp14AlpCompressionIfLb1EE20IsImpossibleToEncodeEf.exit.thread3.i.i.i: ; preds = %68
+  %72 = fadd float %61, 0x4168000000000000
+  %73 = fadd float %72, 0xC168000000000000
+  %74 = fptosi float %73 to i64
   br label %_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit.i
 
-_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit.i: ; preds = %_ZN6duckdb3alp14AlpCompressionIfLb1EE20IsImpossibleToEncodeEf.exit.thread3.i.i.i, %64, %61, %.noexc40, %.noexc
-  %.0.i.i.i = phi i64 [ %70, %_ZN6duckdb3alp14AlpCompressionIfLb1EE20IsImpossibleToEncodeEf.exit.thread3.i.i.i ], [ 9223372036854774784, %61 ], [ 9223372036854774784, %.noexc40 ], [ 9223372036854774784, %.noexc ], [ 9223372036854774784, %64 ]
-  %71 = sitofp i64 %.0.i.i.i to float
-  %72 = load i64, ptr %52, align 8, !tbaa !77
-  %73 = sitofp i64 %72 to float
-  %74 = fmul float %71, %73
-  %75 = load float, ptr %39, align 4, !tbaa !131
-  %76 = fmul float %75, %74
-  %77 = load float, ptr %.sroa.038.042.i, align 4, !tbaa !131
-  %78 = fcmp oeq float %76, %77
-  br i1 %78, label %79, label %83
-
-79:                                               ; preds = %_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit.i
-  %80 = add i64 %.02945.i, 1
-  %81 = call noundef i64 @llvm.smax.i64(i64 %.0.i.i.i, i64 %.03144.i)
-  %82 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i, i64 %.03443.i)
-  br label %85
+_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit.i: ; preds = %_ZN6duckdb3alp14AlpCompressionIfLb1EE20IsImpossibleToEncodeEf.exit.thread3.i.i.i, %68, %65, %.noexc40, %.noexc
+  %.0.i.i.i = phi i64 [ %74, %_ZN6duckdb3alp14AlpCompressionIfLb1EE20IsImpossibleToEncodeEf.exit.thread3.i.i.i ], [ 9223372036854774784, %65 ], [ 9223372036854774784, %.noexc40 ], [ 9223372036854774784, %.noexc ], [ 9223372036854774784, %68 ]
+  %75 = sitofp i64 %.0.i.i.i to float
+  %76 = load i64, ptr %56, align 8, !tbaa !77
+  %77 = sitofp i64 %76 to float
+  %78 = fmul float %75, %77
+  %79 = load float, ptr %39, align 4, !tbaa !131
+  %80 = fmul float %79, %78
+  %81 = load float, ptr %.sroa.038.042.i, align 4, !tbaa !131
+  %82 = fcmp oeq float %80, %81
+  br i1 %82, label %83, label %87
 
 83:                                               ; preds = %_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit.i
-  %84 = add i64 %.02846.i, 1
-  br label %85
+  %84 = add i64 %.02945.i, 1
+  %85 = call noundef i64 @llvm.smax.i64(i64 %.0.i.i.i, i64 %.03144.i)
+  %86 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i, i64 %.03443.i)
+  br label %89
 
-85:                                               ; preds = %83, %79
-  %.135.i = phi i64 [ %82, %79 ], [ %.03443.i, %83 ]
-  %.132.i = phi i64 [ %81, %79 ], [ %.03144.i, %83 ]
-  %.130.i = phi i64 [ %80, %79 ], [ %.02945.i, %83 ]
-  %.1.i = phi i64 [ %.02846.i, %79 ], [ %84, %83 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.038.042.i, i64 4
-  %.not.i = icmp eq ptr %86, %47
-  br i1 %.not.i, label %._crit_edge.i, label %54
+87:                                               ; preds = %_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit.i
+  %88 = add i64 %.02846.i, 1
+  br label %89
 
-87:                                               ; preds = %._crit_edge.i
-  %88 = mul i64 %.1.i, 48
-  %89 = ptrtoint ptr %47 to i64
-  %90 = ptrtoint ptr %48 to i64
-  %91 = sub i64 %89, %90
-  %92 = ashr exact i64 %91, 2
+89:                                               ; preds = %87, %83
+  %.135.i = phi i64 [ %86, %83 ], [ %.03443.i, %87 ]
+  %.132.i = phi i64 [ %85, %83 ], [ %.03144.i, %87 ]
+  %.130.i = phi i64 [ %84, %83 ], [ %.02945.i, %87 ]
+  %.1.i = phi i64 [ %.02846.i, %83 ], [ %88, %87 ]
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.038.042.i, i64 4
+  %.not.i = icmp eq ptr %90, %47
+  br i1 %.not.i, label %._crit_edge.i, label %58
+
+91:                                               ; preds = %._crit_edge.i
+  %92 = mul i64 %.1.i, 48
   %reass.sub = sub i64 %.132.i, %.135.i
   %93 = add i64 %reass.sub, 1
   %94 = uitofp i64 %93 to double
@@ -4828,12 +4828,12 @@ _ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
   %96 = call double @llvm.ceil.f64(double %95)
   %97 = fptoui double %96 to i32
   %98 = zext i32 %97 to i64
-  %99 = mul i64 %92, %98
-  %100 = add i64 %99, %88
+  %99 = mul i64 %52, %98
+  %100 = add i64 %99, %92
   br label %101
 
-101:                                              ; preds = %46, %._crit_edge.i, %87
-  %.0.i = phi i64 [ %100, %87 ], [ -1, %._crit_edge.i ], [ -1, %46 ]
+101:                                              ; preds = %46, %._crit_edge.i, %91
+  %.0.i = phi i64 [ %100, %91 ], [ -1, %._crit_edge.i ], [ -1, %46 ]
   %102 = load i64, ptr %24, align 8, !tbaa !319
   %103 = icmp eq i64 %102, 0
   br i1 %103, label %104, label %_ZN6duckdb3alp14AlpCompressionIfLb1EE22CompareALPCombinationsERKNS0_14AlpCombinationES5_.exit.thread
@@ -4870,7 +4870,7 @@ _ZN6duckdb3alp14AlpCompressionIfLb1EE22CompareALPCombinationsERKNS0_14AlpCombina
   store i64 %.0.i, ptr %25, align 8, !tbaa !77
   br label %_ZN6duckdb3alp14AlpCompressionIfLb1EE22CompareALPCombinationsERKNS0_14AlpCombinationES5_.exit.thread
 
-119:                                              ; preds = %59, %54
+119:                                              ; preds = %63, %58
   %120 = landingpad { ptr, i32 }
           cleanup
   br label %125
@@ -7900,8 +7900,11 @@ _ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
   br i1 %exitcond135.not, label %._crit_edge, label %82, !llvm.loop !433
 
 .preheader:                                       ; preds = %92, %._crit_edge
+  br i1 %.not125, label %_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit, label %.lr.ph117
+
+.lr.ph117:                                        ; preds = %.preheader
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  br i1 %.not125, label %.preheader.preheader.i.i, label %.lr.ph117
+  br label %100
 
 92:                                               ; preds = %.lr.ph113, %92
   %.097111 = phi i64 [ 0, %.lr.ph113 ], [ %97, %92 ]
@@ -7914,90 +7917,86 @@ _ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
   %exitcond136.not = icmp eq i64 %97, %3
   br i1 %exitcond136.not, label %.preheader, label %92, !llvm.loop !434
 
-.lr.ph123.preheader:                              ; preds = %.lr.ph117
-  %98 = getelementptr inbounds nuw i8, ptr %4, i64 24
+.lr.ph123.preheader:                              ; preds = %100
+  %98 = sub i64 %103, %104
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %.lr.ph123
 
-.lr.ph117:                                        ; preds = %.preheader, %.lr.ph117
-  %.093116 = phi i64 [ %103, %.lr.ph117 ], [ 0, %.preheader ]
-  %.094115 = phi i64 [ %101, %.lr.ph117 ], [ -9223372036854775808, %.preheader ]
-  %.095114 = phi i64 [ %102, %.lr.ph117 ], [ 9223372036854775807, %.preheader ]
-  %99 = getelementptr inbounds nuw i64, ptr %91, i64 %.093116
-  %100 = load i64, ptr %99, align 8, !tbaa !77
-  %101 = tail call noundef i64 @llvm.smax.i64(i64 %.094115, i64 %100)
-  %102 = tail call noundef i64 @llvm.smin.i64(i64 %.095114, i64 %100)
-  %103 = add nuw i64 %.093116, 1
-  %exitcond137.not = icmp eq i64 %103, %1
-  br i1 %exitcond137.not, label %.lr.ph123.preheader, label %.lr.ph117, !llvm.loop !435
+100:                                              ; preds = %.lr.ph117, %100
+  %.093116 = phi i64 [ 0, %.lr.ph117 ], [ %105, %100 ]
+  %.094115 = phi i64 [ -9223372036854775808, %.lr.ph117 ], [ %103, %100 ]
+  %.095114 = phi i64 [ 9223372036854775807, %.lr.ph117 ], [ %104, %100 ]
+  %101 = getelementptr inbounds nuw i64, ptr %91, i64 %.093116
+  %102 = load i64, ptr %101, align 8, !tbaa !77
+  %103 = tail call noundef i64 @llvm.smax.i64(i64 %.094115, i64 %102)
+  %104 = tail call noundef i64 @llvm.smin.i64(i64 %.095114, i64 %102)
+  %105 = add nuw i64 %.093116, 1
+  %exitcond137.not = icmp eq i64 %105, %1
+  br i1 %exitcond137.not, label %.lr.ph123.preheader, label %100, !llvm.loop !435
 
 ._crit_edge124:                                   ; preds = %.lr.ph123
-  %104 = icmp eq i64 %101, %102
-  br i1 %104, label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit, label %.preheader.preheader.i.i
+  %106 = icmp eq i64 %103, %104
+  br i1 %106, label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit, label %.preheader.preheader.i.i
 
-.preheader.preheader.i.i:                         ; preds = %.preheader, %._crit_edge124
-  %.095.lcssa155160 = phi i64 [ %102, %._crit_edge124 ], [ 9223372036854775807, %.preheader ]
-  %.094.lcssa156159 = phi i64 [ %101, %._crit_edge124 ], [ -9223372036854775808, %.preheader ]
-  %105 = phi ptr [ %98, %._crit_edge124 ], [ %91, %.preheader ]
-  %106 = sub i64 %.094.lcssa156159, %.095.lcssa155160
-  %107 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %106, i1 true)
+.preheader.preheader.i.i:                         ; preds = %._crit_edge124
+  %107 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %98, i1 true)
   %108 = trunc nuw nsw i64 %107 to i8
   %109 = sub nuw nsw i8 64, %108
-  %110 = icmp ugt i64 %106, 72057594037927935
-  %..i.i.i = select i1 %110, i8 64, i8 %109
+  %110 = icmp ugt i64 %98, 72057594037927935
+  %spec.select = select i1 %110, i8 64, i8 %109
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit
 
-_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit: ; preds = %._crit_edge124, %.preheader.preheader.i.i
-  %.095.lcssa155161 = phi i64 [ %.095.lcssa155160, %.preheader.preheader.i.i ], [ %102, %._crit_edge124 ]
-  %111 = phi ptr [ %105, %.preheader.preheader.i.i ], [ %98, %._crit_edge124 ]
-  %.09.i.i = phi i8 [ %..i.i.i, %.preheader.preheader.i.i ], [ 0, %._crit_edge124 ]
-  %112 = trunc i64 %1 to i32
-  %113 = and i32 %112, 31
-  %114 = icmp eq i32 %113, 0
-  br i1 %114, label %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit, label %115
+_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit: ; preds = %.preheader.preheader.i.i, %._crit_edge124
+  %.09.i.i = phi i8 [ 0, %._crit_edge124 ], [ %spec.select, %.preheader.preheader.i.i ]
+  %111 = trunc i64 %1 to i32
+  %112 = and i32 %111, 31
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit, label %114
 
-115:                                              ; preds = %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit
-  %116 = add i64 %1, 32
-  %117 = tail call noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %113)
-  %118 = sub i64 %116, %117
+114:                                              ; preds = %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit
+  %115 = add i64 %1, 32
+  %116 = tail call noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %112)
+  %117 = sub i64 %115, %116
   br label %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit
 
-_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit, %115
-  %.0.i.i102 = phi i64 [ %118, %115 ], [ %1, %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit ]
-  %119 = zext nneg i8 %.09.i.i to i64
+_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit, %114
+  %.0.i.i102 = phi i64 [ %117, %114 ], [ %1, %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit ]
+  %118 = zext nneg i8 %.09.i.i to i64
   %.not99 = icmp eq i8 %.09.i.i, 0
-  br i1 %.not99, label %_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit, label %124
+  br i1 %.not99, label %_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit, label %123
 
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %.lr.ph123
-  %.090121 = phi i64 [ %123, %.lr.ph123 ], [ 0, %.lr.ph123.preheader ]
-  %120 = getelementptr inbounds nuw i64, ptr %98, i64 %.090121
-  %121 = load i64, ptr %120, align 8, !tbaa !77
-  %122 = sub i64 %121, %102
-  store i64 %122, ptr %120, align 8, !tbaa !77
-  %123 = add nuw i64 %.090121, 1
-  %exitcond138.not = icmp eq i64 %123, %1
+  %.090121 = phi i64 [ %122, %.lr.ph123 ], [ 0, %.lr.ph123.preheader ]
+  %119 = getelementptr inbounds nuw i64, ptr %99, i64 %.090121
+  %120 = load i64, ptr %119, align 8, !tbaa !77
+  %121 = sub i64 %120, %104
+  store i64 %121, ptr %119, align 8, !tbaa !77
+  %122 = add nuw i64 %.090121, 1
+  %exitcond138.not = icmp eq i64 %122, %1
   br i1 %exitcond138.not, label %._crit_edge124, label %.lr.ph123, !llvm.loop !436
 
-124:                                              ; preds = %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit
-  %125 = getelementptr inbounds nuw i8, ptr %4, i64 14384
+123:                                              ; preds = %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 14384
+  %125 = and i64 %1, 31
   %126 = and i64 %1, -32
   %.not22.i = icmp eq i64 %126, 0
   br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %124
+.lr.ph.i:                                         ; preds = %123
   %127 = zext nneg i8 %.09.i.i to i32
   br label %129
 
-._crit_edge.i:                                    ; preds = %129, %124
-  %128 = and i64 %1, 31
-  %.not.i = icmp eq i64 %128, 0
+._crit_edge.i:                                    ; preds = %129, %123
+  %128 = phi i64 [ 0, %123 ], [ %126, %129 ]
+  %.not.i = icmp eq i64 %125, 0
   br i1 %.not.i, label %_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit, label %136
 
 129:                                              ; preds = %129, %.lr.ph.i
   %.021.i = phi i64 [ 0, %.lr.ph.i ], [ %134, %129 ]
-  %130 = mul i64 %.021.i, %119
+  %130 = mul i64 %.021.i, %118
   %131 = lshr exact i64 %130, 3
-  %132 = getelementptr inbounds nuw i8, ptr %125, i64 %131
-  %133 = getelementptr inbounds nuw i64, ptr %111, i64 %.021.i
+  %132 = getelementptr inbounds nuw i8, ptr %124, i64 %131
+  %133 = getelementptr inbounds nuw i64, ptr %99, i64 %.021.i
   tail call void @_ZN18duckdb_fastpforlib8fastpackEPKmPjj(ptr noundef nonnull %133, ptr noundef nonnull %132, i32 noundef %127)
   %134 = add nuw i64 %.021.i, 32
   %135 = icmp ult i64 %134, %126
@@ -8005,30 +8004,34 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
 
 136:                                              ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %137 = getelementptr inbounds nuw i64, ptr %111, i64 %126
-  %138 = shl nuw nsw i64 %128, 3
+  %137 = getelementptr inbounds nuw i64, ptr %99, i64 %128
+  %138 = shl nuw nsw i64 %125, 3
   %139 = sub nuw nsw i64 256, %138
   %140 = getelementptr i8, ptr %6, i64 %138
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %140, i8 0, i64 %139, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 8 %137, i64 %138, i1 false)
-  %141 = mul i64 %126, %119
+  %141 = mul i64 %128, %118
   %142 = lshr exact i64 %141, 3
-  %143 = getelementptr inbounds nuw i8, ptr %125, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr %124, i64 %142
   %144 = zext nneg i8 %.09.i.i to i32
   call void @_ZN18duckdb_fastpforlib8fastpackEPKmPjj(ptr noundef nonnull %6, ptr noundef nonnull %143, i32 noundef %144)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit
 
-_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit: ; preds = %136, %._crit_edge.i, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit
-  %145 = mul i64 %.0.i.i102, %119
-  %146 = lshr i64 %145, 3
-  %147 = zext nneg i8 %.09.i.i to i16
-  %148 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i16 %147, ptr %148, align 4, !tbaa !438
-  %149 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %146, ptr %149, align 8, !tbaa !439
-  %150 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.095.lcssa155161, ptr %150, align 8, !tbaa !440
+_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit: ; preds = %.preheader, %136, %._crit_edge.i, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit
+  %145 = phi i64 [ %118, %136 ], [ %118, %._crit_edge.i ], [ 0, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 1, %.preheader ]
+  %.0.i.i102176 = phi i64 [ %.0.i.i102, %136 ], [ %.0.i.i102, %._crit_edge.i ], [ %.0.i.i102, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 0, %.preheader ]
+  %.095.lcssa155160165174 = phi i64 [ %104, %136 ], [ %104, %._crit_edge.i ], [ %104, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 9223372036854775807, %.preheader ]
+  %.09.i.i166172 = phi i8 [ %.09.i.i, %136 ], [ %.09.i.i, %._crit_edge.i ], [ 0, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 1, %.preheader ]
+  %146 = mul i64 %.0.i.i102176, %145
+  %147 = lshr i64 %146, 3
+  %148 = zext nneg i8 %.09.i.i166172 to i16
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i16 %148, ptr %149, align 4, !tbaa !438
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %147, ptr %150, align 8, !tbaa !439
+  %151 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %.095.lcssa155160165174, ptr %151, align 8, !tbaa !440
   ret void
 }
 
@@ -10416,95 +10419,95 @@ _ZN6duckdb3alp19AlpCompressionStateIdLb1EE17ResetCombinationsEv.exit: ; preds = 
   %indvars.iv120 = phi i64 [ %indvars.iv, %.preheader ], [ %indvars.iv.next121, %_ZN6duckdb3alp14AlpCompressionIdLb1EE22CompareALPCombinationsERKNS0_14AlpCombinationES5_.exit.thread ]
   %47 = load ptr, ptr %30, align 8, !tbaa !230
   %48 = load ptr, ptr %.sroa.086.0107, align 8, !tbaa !224
+  %49 = ptrtoint ptr %47 to i64
+  %50 = ptrtoint ptr %48 to i64
+  %51 = sub i64 %49, %50
+  %52 = ashr exact i64 %51, 3
   %.not41.i = icmp eq ptr %48, %47
   br i1 %.not41.i, label %100, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %46
-  %49 = load double, ptr %38, align 8, !tbaa !228
-  %50 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %indvars.iv120
-  %51 = load double, ptr %50, align 8, !tbaa !228
-  %52 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %indvars.iv120
-  br label %54
+  %53 = load double, ptr %38, align 8, !tbaa !228
+  %54 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %indvars.iv120
+  %55 = load double, ptr %54, align 8, !tbaa !228
+  %56 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %indvars.iv120
+  br label %58
 
-._crit_edge.i:                                    ; preds = %84
-  %53 = icmp ult i64 %.130.i, 2
-  br i1 %53, label %100, label %86
+._crit_edge.i:                                    ; preds = %88
+  %57 = icmp ult i64 %.130.i, 2
+  br i1 %57, label %100, label %90
 
-54:                                               ; preds = %84, %.lr.ph.i
-  %.02846.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %84 ]
-  %.02945.i = phi i64 [ 0, %.lr.ph.i ], [ %.130.i, %84 ]
-  %.03144.i = phi i64 [ -9223372036854775808, %.lr.ph.i ], [ %.132.i, %84 ]
-  %.03443.i = phi i64 [ 9223372036854775807, %.lr.ph.i ], [ %.135.i, %84 ]
-  %.sroa.038.042.i = phi ptr [ %48, %.lr.ph.i ], [ %85, %84 ]
-  %55 = load double, ptr %.sroa.038.042.i, align 8, !tbaa !228
-  %56 = fmul double %49, %55
-  %57 = fmul double %51, %56
-  %58 = invoke noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIdEEbT_(double noundef %57)
+58:                                               ; preds = %88, %.lr.ph.i
+  %.02846.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %88 ]
+  %.02945.i = phi i64 [ 0, %.lr.ph.i ], [ %.130.i, %88 ]
+  %.03144.i = phi i64 [ -9223372036854775808, %.lr.ph.i ], [ %.132.i, %88 ]
+  %.03443.i = phi i64 [ 9223372036854775807, %.lr.ph.i ], [ %.135.i, %88 ]
+  %.sroa.038.042.i = phi ptr [ %48, %.lr.ph.i ], [ %89, %88 ]
+  %59 = load double, ptr %.sroa.038.042.i, align 8, !tbaa !228
+  %60 = fmul double %53, %59
+  %61 = fmul double %55, %60
+  %62 = invoke noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIdEEbT_(double noundef %61)
           to label %.noexc unwind label %118
 
-.noexc:                                           ; preds = %54
-  br i1 %58, label %59, label %_ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit.i
+.noexc:                                           ; preds = %58
+  br i1 %62, label %63, label %_ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit.i
 
-59:                                               ; preds = %.noexc
-  %60 = invoke noundef zeroext i1 @_ZN6duckdb5Value5IsNanIdEEbT_(double noundef %57)
+63:                                               ; preds = %.noexc
+  %64 = invoke noundef zeroext i1 @_ZN6duckdb5Value5IsNanIdEEbT_(double noundef %61)
           to label %.noexc40 unwind label %118
 
-.noexc40:                                         ; preds = %59
-  %61 = call double @llvm.fabs.f64(double %57)
-  %62 = fcmp ogt double %61, 0x43DFFFFFFFFFFFFF
-  %or.cond3.i.i.i.i = or i1 %62, %60
-  br i1 %or.cond3.i.i.i.i, label %_ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit.i, label %63
+.noexc40:                                         ; preds = %63
+  %65 = call double @llvm.fabs.f64(double %61)
+  %66 = fcmp ogt double %65, 0x43DFFFFFFFFFFFFF
+  %or.cond3.i.i.i.i = or i1 %66, %64
+  br i1 %or.cond3.i.i.i.i, label %_ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit.i, label %67
 
-63:                                               ; preds = %.noexc40
-  %64 = fcmp oeq double %57, 0.000000e+00
-  %65 = bitcast double %57 to i64
-  %66 = icmp slt i64 %65, 0
-  %or.cond.i.i.i = and i1 %64, %66
+67:                                               ; preds = %.noexc40
+  %68 = fcmp oeq double %61, 0.000000e+00
+  %69 = bitcast double %61 to i64
+  %70 = icmp slt i64 %69, 0
+  %or.cond.i.i.i = and i1 %68, %70
   br i1 %or.cond.i.i.i, label %_ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit.i, label %_ZN6duckdb3alp14AlpCompressionIdLb1EE20IsImpossibleToEncodeEd.exit.thread3.i.i.i
 
-_ZN6duckdb3alp14AlpCompressionIdLb1EE20IsImpossibleToEncodeEd.exit.thread3.i.i.i: ; preds = %63
-  %67 = fadd double %57, 0x4338000000000000
-  %68 = fadd double %67, 0xC338000000000000
-  %69 = fptosi double %68 to i64
+_ZN6duckdb3alp14AlpCompressionIdLb1EE20IsImpossibleToEncodeEd.exit.thread3.i.i.i: ; preds = %67
+  %71 = fadd double %61, 0x4338000000000000
+  %72 = fadd double %71, 0xC338000000000000
+  %73 = fptosi double %72 to i64
   br label %_ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit.i
 
-_ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit.i: ; preds = %_ZN6duckdb3alp14AlpCompressionIdLb1EE20IsImpossibleToEncodeEd.exit.thread3.i.i.i, %63, %.noexc40, %.noexc
-  %.0.i.i.i = phi i64 [ %69, %_ZN6duckdb3alp14AlpCompressionIdLb1EE20IsImpossibleToEncodeEd.exit.thread3.i.i.i ], [ 9223372036854774784, %.noexc40 ], [ 9223372036854774784, %.noexc ], [ 9223372036854774784, %63 ]
-  %70 = sitofp i64 %.0.i.i.i to double
-  %71 = load i64, ptr %52, align 8, !tbaa !77
-  %72 = sitofp i64 %71 to double
-  %73 = fmul double %70, %72
-  %74 = load double, ptr %39, align 8, !tbaa !228
-  %75 = fmul double %74, %73
-  %76 = load double, ptr %.sroa.038.042.i, align 8, !tbaa !228
-  %77 = fcmp oeq double %75, %76
-  br i1 %77, label %78, label %82
-
-78:                                               ; preds = %_ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit.i
-  %79 = add i64 %.02945.i, 1
-  %80 = call noundef i64 @llvm.smax.i64(i64 %.0.i.i.i, i64 %.03144.i)
-  %81 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i, i64 %.03443.i)
-  br label %84
+_ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit.i: ; preds = %_ZN6duckdb3alp14AlpCompressionIdLb1EE20IsImpossibleToEncodeEd.exit.thread3.i.i.i, %67, %.noexc40, %.noexc
+  %.0.i.i.i = phi i64 [ %73, %_ZN6duckdb3alp14AlpCompressionIdLb1EE20IsImpossibleToEncodeEd.exit.thread3.i.i.i ], [ 9223372036854774784, %.noexc40 ], [ 9223372036854774784, %.noexc ], [ 9223372036854774784, %67 ]
+  %74 = sitofp i64 %.0.i.i.i to double
+  %75 = load i64, ptr %56, align 8, !tbaa !77
+  %76 = sitofp i64 %75 to double
+  %77 = fmul double %74, %76
+  %78 = load double, ptr %39, align 8, !tbaa !228
+  %79 = fmul double %78, %77
+  %80 = load double, ptr %.sroa.038.042.i, align 8, !tbaa !228
+  %81 = fcmp oeq double %79, %80
+  br i1 %81, label %82, label %86
 
 82:                                               ; preds = %_ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit.i
-  %83 = add i64 %.02846.i, 1
-  br label %84
+  %83 = add i64 %.02945.i, 1
+  %84 = call noundef i64 @llvm.smax.i64(i64 %.0.i.i.i, i64 %.03144.i)
+  %85 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i, i64 %.03443.i)
+  br label %88
 
-84:                                               ; preds = %82, %78
-  %.135.i = phi i64 [ %81, %78 ], [ %.03443.i, %82 ]
-  %.132.i = phi i64 [ %80, %78 ], [ %.03144.i, %82 ]
-  %.130.i = phi i64 [ %79, %78 ], [ %.02945.i, %82 ]
-  %.1.i = phi i64 [ %.02846.i, %78 ], [ %83, %82 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.038.042.i, i64 8
-  %.not.i = icmp eq ptr %85, %47
-  br i1 %.not.i, label %._crit_edge.i, label %54
+86:                                               ; preds = %_ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit.i
+  %87 = add i64 %.02846.i, 1
+  br label %88
 
-86:                                               ; preds = %._crit_edge.i
-  %87 = mul i64 %.1.i, 80
-  %88 = ptrtoint ptr %47 to i64
-  %89 = ptrtoint ptr %48 to i64
-  %90 = sub i64 %88, %89
-  %91 = ashr exact i64 %90, 3
+88:                                               ; preds = %86, %82
+  %.135.i = phi i64 [ %85, %82 ], [ %.03443.i, %86 ]
+  %.132.i = phi i64 [ %84, %82 ], [ %.03144.i, %86 ]
+  %.130.i = phi i64 [ %83, %82 ], [ %.02945.i, %86 ]
+  %.1.i = phi i64 [ %.02846.i, %82 ], [ %87, %86 ]
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.038.042.i, i64 8
+  %.not.i = icmp eq ptr %89, %47
+  br i1 %.not.i, label %._crit_edge.i, label %58
+
+90:                                               ; preds = %._crit_edge.i
+  %91 = mul i64 %.1.i, 80
   %reass.sub = sub i64 %.132.i, %.135.i
   %92 = add i64 %reass.sub, 1
   %93 = uitofp i64 %92 to double
@@ -10512,12 +10515,12 @@ _ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
   %95 = call double @llvm.ceil.f64(double %94)
   %96 = fptoui double %95 to i32
   %97 = zext i32 %96 to i64
-  %98 = mul i64 %91, %97
-  %99 = add i64 %98, %87
+  %98 = mul i64 %52, %97
+  %99 = add i64 %98, %91
   br label %100
 
-100:                                              ; preds = %46, %._crit_edge.i, %86
-  %.0.i = phi i64 [ %99, %86 ], [ -1, %._crit_edge.i ], [ -1, %46 ]
+100:                                              ; preds = %46, %._crit_edge.i, %90
+  %.0.i = phi i64 [ %99, %90 ], [ -1, %._crit_edge.i ], [ -1, %46 ]
   %101 = load i64, ptr %24, align 8, !tbaa !319
   %102 = icmp eq i64 %101, 0
   br i1 %102, label %103, label %_ZN6duckdb3alp14AlpCompressionIdLb1EE22CompareALPCombinationsERKNS0_14AlpCombinationES5_.exit.thread
@@ -10554,7 +10557,7 @@ _ZN6duckdb3alp14AlpCompressionIdLb1EE22CompareALPCombinationsERKNS0_14AlpCombina
   store i64 %.0.i, ptr %25, align 8, !tbaa !77
   br label %_ZN6duckdb3alp14AlpCompressionIdLb1EE22CompareALPCombinationsERKNS0_14AlpCombinationES5_.exit.thread
 
-118:                                              ; preds = %59, %54
+118:                                              ; preds = %63, %58
   %119 = landingpad { ptr, i32 }
           cleanup
   br label %124
@@ -12350,8 +12353,11 @@ _ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
   br i1 %exitcond135.not, label %._crit_edge, label %81, !llvm.loop !507
 
 .preheader:                                       ; preds = %91, %._crit_edge
+  br i1 %.not125, label %_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit, label %.lr.ph117
+
+.lr.ph117:                                        ; preds = %.preheader
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  br i1 %.not125, label %.preheader.preheader.i.i, label %.lr.ph117
+  br label %99
 
 91:                                               ; preds = %.lr.ph113, %91
   %.097111 = phi i64 [ 0, %.lr.ph113 ], [ %96, %91 ]
@@ -12364,90 +12370,86 @@ _ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
   %exitcond136.not = icmp eq i64 %96, %3
   br i1 %exitcond136.not, label %.preheader, label %91, !llvm.loop !508
 
-.lr.ph123.preheader:                              ; preds = %.lr.ph117
-  %97 = getelementptr inbounds nuw i8, ptr %4, i64 24
+.lr.ph123.preheader:                              ; preds = %99
+  %97 = sub i64 %102, %103
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %.lr.ph123
 
-.lr.ph117:                                        ; preds = %.preheader, %.lr.ph117
-  %.093116 = phi i64 [ %102, %.lr.ph117 ], [ 0, %.preheader ]
-  %.094115 = phi i64 [ %100, %.lr.ph117 ], [ -9223372036854775808, %.preheader ]
-  %.095114 = phi i64 [ %101, %.lr.ph117 ], [ 9223372036854775807, %.preheader ]
-  %98 = getelementptr inbounds nuw i64, ptr %90, i64 %.093116
-  %99 = load i64, ptr %98, align 8, !tbaa !77
-  %100 = tail call noundef i64 @llvm.smax.i64(i64 %.094115, i64 %99)
-  %101 = tail call noundef i64 @llvm.smin.i64(i64 %.095114, i64 %99)
-  %102 = add nuw i64 %.093116, 1
-  %exitcond137.not = icmp eq i64 %102, %1
-  br i1 %exitcond137.not, label %.lr.ph123.preheader, label %.lr.ph117, !llvm.loop !509
+99:                                               ; preds = %.lr.ph117, %99
+  %.093116 = phi i64 [ 0, %.lr.ph117 ], [ %104, %99 ]
+  %.094115 = phi i64 [ -9223372036854775808, %.lr.ph117 ], [ %102, %99 ]
+  %.095114 = phi i64 [ 9223372036854775807, %.lr.ph117 ], [ %103, %99 ]
+  %100 = getelementptr inbounds nuw i64, ptr %90, i64 %.093116
+  %101 = load i64, ptr %100, align 8, !tbaa !77
+  %102 = tail call noundef i64 @llvm.smax.i64(i64 %.094115, i64 %101)
+  %103 = tail call noundef i64 @llvm.smin.i64(i64 %.095114, i64 %101)
+  %104 = add nuw i64 %.093116, 1
+  %exitcond137.not = icmp eq i64 %104, %1
+  br i1 %exitcond137.not, label %.lr.ph123.preheader, label %99, !llvm.loop !509
 
 ._crit_edge124:                                   ; preds = %.lr.ph123
-  %103 = icmp eq i64 %100, %101
-  br i1 %103, label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit, label %.preheader.preheader.i.i
+  %105 = icmp eq i64 %102, %103
+  br i1 %105, label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit, label %.preheader.preheader.i.i
 
-.preheader.preheader.i.i:                         ; preds = %.preheader, %._crit_edge124
-  %.095.lcssa155160 = phi i64 [ %101, %._crit_edge124 ], [ 9223372036854775807, %.preheader ]
-  %.094.lcssa156159 = phi i64 [ %100, %._crit_edge124 ], [ -9223372036854775808, %.preheader ]
-  %104 = phi ptr [ %97, %._crit_edge124 ], [ %90, %.preheader ]
-  %105 = sub i64 %.094.lcssa156159, %.095.lcssa155160
-  %106 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %105, i1 true)
+.preheader.preheader.i.i:                         ; preds = %._crit_edge124
+  %106 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %97, i1 true)
   %107 = trunc nuw nsw i64 %106 to i8
   %108 = sub nuw nsw i8 64, %107
-  %109 = icmp ugt i64 %105, 72057594037927935
-  %..i.i.i = select i1 %109, i8 64, i8 %108
+  %109 = icmp ugt i64 %97, 72057594037927935
+  %spec.select = select i1 %109, i8 64, i8 %108
   br label %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit
 
-_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit: ; preds = %._crit_edge124, %.preheader.preheader.i.i
-  %.095.lcssa155161 = phi i64 [ %.095.lcssa155160, %.preheader.preheader.i.i ], [ %101, %._crit_edge124 ]
-  %110 = phi ptr [ %104, %.preheader.preheader.i.i ], [ %97, %._crit_edge124 ]
-  %.09.i.i = phi i8 [ %..i.i.i, %.preheader.preheader.i.i ], [ 0, %._crit_edge124 ]
-  %111 = trunc i64 %1 to i32
-  %112 = and i32 %111, 31
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit, label %114
+_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit: ; preds = %.preheader.preheader.i.i, %._crit_edge124
+  %.09.i.i = phi i8 [ 0, %._crit_edge124 ], [ %spec.select, %.preheader.preheader.i.i ]
+  %110 = trunc i64 %1 to i32
+  %111 = and i32 %110, 31
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit, label %113
 
-114:                                              ; preds = %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit
-  %115 = add i64 %1, 32
-  %116 = tail call noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %112)
-  %117 = sub i64 %115, %116
+113:                                              ; preds = %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit
+  %114 = add i64 %1, 32
+  %115 = tail call noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %111)
+  %116 = sub i64 %114, %115
   br label %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit
 
-_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit, %114
-  %.0.i.i102 = phi i64 [ %117, %114 ], [ %1, %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit ]
-  %118 = zext nneg i8 %.09.i.i to i64
+_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit, %113
+  %.0.i.i102 = phi i64 [ %116, %113 ], [ %1, %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit ]
+  %117 = zext nneg i8 %.09.i.i to i64
   %.not99 = icmp eq i8 %.09.i.i, 0
-  br i1 %.not99, label %_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit, label %123
+  br i1 %.not99, label %_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit, label %122
 
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %.lr.ph123
-  %.090121 = phi i64 [ %122, %.lr.ph123 ], [ 0, %.lr.ph123.preheader ]
-  %119 = getelementptr inbounds nuw i64, ptr %97, i64 %.090121
-  %120 = load i64, ptr %119, align 8, !tbaa !77
-  %121 = sub i64 %120, %101
-  store i64 %121, ptr %119, align 8, !tbaa !77
-  %122 = add nuw i64 %.090121, 1
-  %exitcond138.not = icmp eq i64 %122, %1
+  %.090121 = phi i64 [ %121, %.lr.ph123 ], [ 0, %.lr.ph123.preheader ]
+  %118 = getelementptr inbounds nuw i64, ptr %98, i64 %.090121
+  %119 = load i64, ptr %118, align 8, !tbaa !77
+  %120 = sub i64 %119, %103
+  store i64 %120, ptr %118, align 8, !tbaa !77
+  %121 = add nuw i64 %.090121, 1
+  %exitcond138.not = icmp eq i64 %121, %1
   br i1 %exitcond138.not, label %._crit_edge124, label %.lr.ph123, !llvm.loop !510
 
-123:                                              ; preds = %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit
-  %124 = getelementptr inbounds nuw i8, ptr %4, i64 18480
+122:                                              ; preds = %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 18480
+  %124 = and i64 %1, 31
   %125 = and i64 %1, -32
   %.not22.i = icmp eq i64 %125, 0
   br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %123
+.lr.ph.i:                                         ; preds = %122
   %126 = zext nneg i8 %.09.i.i to i32
   br label %128
 
-._crit_edge.i:                                    ; preds = %128, %123
-  %127 = and i64 %1, 31
-  %.not.i = icmp eq i64 %127, 0
+._crit_edge.i:                                    ; preds = %128, %122
+  %127 = phi i64 [ 0, %122 ], [ %125, %128 ]
+  %.not.i = icmp eq i64 %124, 0
   br i1 %.not.i, label %_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit, label %135
 
 128:                                              ; preds = %128, %.lr.ph.i
   %.021.i = phi i64 [ 0, %.lr.ph.i ], [ %133, %128 ]
-  %129 = mul i64 %.021.i, %118
+  %129 = mul i64 %.021.i, %117
   %130 = lshr exact i64 %129, 3
-  %131 = getelementptr inbounds nuw i8, ptr %124, i64 %130
-  %132 = getelementptr inbounds nuw i64, ptr %110, i64 %.021.i
+  %131 = getelementptr inbounds nuw i8, ptr %123, i64 %130
+  %132 = getelementptr inbounds nuw i64, ptr %98, i64 %.021.i
   tail call void @_ZN18duckdb_fastpforlib8fastpackEPKmPjj(ptr noundef nonnull %132, ptr noundef nonnull %131, i32 noundef %126)
   %133 = add nuw i64 %.021.i, 32
   %134 = icmp ult i64 %133, %125
@@ -12455,30 +12457,34 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
 
 135:                                              ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %136 = getelementptr inbounds nuw i64, ptr %110, i64 %125
-  %137 = shl nuw nsw i64 %127, 3
+  %136 = getelementptr inbounds nuw i64, ptr %98, i64 %127
+  %137 = shl nuw nsw i64 %124, 3
   %138 = sub nuw nsw i64 256, %137
   %139 = getelementptr i8, ptr %6, i64 %137
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %139, i8 0, i64 %138, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 8 %136, i64 %137, i1 false)
-  %140 = mul i64 %125, %118
+  %140 = mul i64 %127, %117
   %141 = lshr exact i64 %140, 3
-  %142 = getelementptr inbounds nuw i8, ptr %124, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr %123, i64 %141
   %143 = zext nneg i8 %.09.i.i to i32
   call void @_ZN18duckdb_fastpforlib8fastpackEPKmPjj(ptr noundef nonnull %6, ptr noundef nonnull %142, i32 noundef %143)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit
 
-_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit: ; preds = %135, %._crit_edge.i, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit
-  %144 = mul i64 %.0.i.i102, %118
-  %145 = lshr i64 %144, 3
-  %146 = zext nneg i8 %.09.i.i to i16
-  %147 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i16 %146, ptr %147, align 4, !tbaa !511
-  %148 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %145, ptr %148, align 8, !tbaa !512
-  %149 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.095.lcssa155161, ptr %149, align 8, !tbaa !513
+_ZN6duckdb20BitpackingPrimitives10PackBufferImLb0EEEvPhPT_mh.exit: ; preds = %.preheader, %135, %._crit_edge.i, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit
+  %144 = phi i64 [ %117, %135 ], [ %117, %._crit_edge.i ], [ 0, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 1, %.preheader ]
+  %.0.i.i102176 = phi i64 [ %.0.i.i102, %135 ], [ %.0.i.i102, %._crit_edge.i ], [ %.0.i.i102, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 0, %.preheader ]
+  %.095.lcssa155160165174 = phi i64 [ %103, %135 ], [ %103, %._crit_edge.i ], [ %103, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 9223372036854775807, %.preheader ]
+  %.09.i.i166172 = phi i8 [ %.09.i.i, %135 ], [ %.09.i.i, %._crit_edge.i ], [ 0, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit ], [ 1, %.preheader ]
+  %145 = mul i64 %.0.i.i102176, %144
+  %146 = lshr i64 %145, 3
+  %147 = zext nneg i8 %.09.i.i166172 to i16
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i16 %147, ptr %148, align 4, !tbaa !511
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %146, ptr %149, align 8, !tbaa !512
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %.095.lcssa155160165174, ptr %150, align 8, !tbaa !513
   ret void
 }
 

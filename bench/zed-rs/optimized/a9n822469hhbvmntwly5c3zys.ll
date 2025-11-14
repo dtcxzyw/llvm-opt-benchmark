@@ -2998,7 +2998,7 @@ define internal fastcc void @_ZN4text7History14group_trailing17h2cb5bcd59960a52a
 .lr.ph24:                                         ; preds = %17
   %22 = getelementptr i8, ptr %16, i64 -104
   %23 = getelementptr i8, ptr %16, i64 -112
-  br label %40
+  br label %39
 
 24:                                               ; preds = %47, %._crit_edge, %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !533)
@@ -3045,17 +3045,17 @@ define internal fastcc void @_ZN4text7History14group_trailing17h2cb5bcd59960a52a
   %.not13 = icmp eq i64 %6, %2
   br i1 %.not13, label %62, label %54
 
-.loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5bcab3f852ba3c94E.exit", %40
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.023, i64 120
-  %39 = icmp eq ptr %38, %19
-  br i1 %39, label %._crit_edge, label %40
+.loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5bcab3f852ba3c94E.exit", %39
+  %38 = icmp eq ptr %40, %19
+  br i1 %38, label %._crit_edge, label %39
 
 ._crit_edge:                                      ; preds = %.loopexit, %17
   %.not12 = icmp eq i64 %2, 0
   br i1 %.not12, label %24, label %47
 
-40:                                               ; preds = %.lr.ph24, %.loopexit
-  %.sroa.0.023 = phi ptr [ %16, %.lr.ph24 ], [ %38, %.loopexit ]
+39:                                               ; preds = %.lr.ph24, %.loopexit
+  %.sroa.0.023 = phi ptr [ %16, %.lr.ph24 ], [ %40, %.loopexit ]
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.023, i64 120
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.023, i64 8
   %42 = load ptr, ptr %41, align 8, !nonnull !9, !noundef !9
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.023, i64 16
@@ -3065,7 +3065,7 @@ define internal fastcc void @_ZN4text7History14group_trailing17h2cb5bcd59960a52a
   %46 = icmp eq i64 %44, 0
   br i1 %46, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %40
+.lr.ph.preheader:                                 ; preds = %39
   %.pre = load i64, ptr %22, align 8, !alias.scope !536
   br label %.lr.ph
 

@@ -4319,8 +4319,8 @@ _ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIc
   store i32 0, ptr %126, align 4, !tbaa !112
   %127 = getelementptr i8, ptr %126, i64 4
   %.idx.i.i.i.i.i.i.i = add i64 %125, -4
-  %128 = getelementptr i8, ptr %126, i64 %125
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %127, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !112
+  %128 = getelementptr i8, ptr %126, i64 %125
   %129 = ptrtoint ptr %128 to i64
   br label %_ZNSt6vectorIwSaIwEEC2EmRKS0_.exit
 

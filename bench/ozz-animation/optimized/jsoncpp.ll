@@ -794,13 +794,13 @@ _ZN4Json6Reader17skipCommentTokensERNS0_5TokenE.exit: ; preds = %.preheader.i, %
 101:                                              ; preds = %97
   %102 = call noalias noundef nonnull dereferenceable(32) ptr @_Znam(i64 noundef 32) #47
   store i64 3, ptr %102, align 8
-  %scevgep.i.i = getelementptr inbounds nuw i8, ptr %102, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i.i, i8 0, i64 24, i1 false), !tbaa !85
-  store ptr %scevgep.i.i, ptr %99, align 8, !tbaa !81
+  %.ptr13.i.i = getelementptr inbounds nuw i8, ptr %102, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr13.i.i, i8 0, i64 24, i1 false), !tbaa !85
+  store ptr %.ptr13.i.i, ptr %99, align 8, !tbaa !81
   br label %_ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16CommentPlacementE.exit
 
 _ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16CommentPlacementE.exit: ; preds = %101, %97
-  %103 = phi ptr [ %scevgep.i.i, %101 ], [ %100, %97 ]
+  %103 = phi ptr [ %.ptr13.i.i, %101 ], [ %100, %97 ]
   %104 = add i64 %95, -1
   %105 = getelementptr inbounds nuw i8, ptr %98, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !17
@@ -1060,13 +1060,13 @@ _ZN4Json6Reader12currentValueEv.exit:             ; preds = %43, %49
 61:                                               ; preds = %_ZN4Json6Reader12currentValueEv.exit
   %62 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znam(i64 noundef 32) #47
   store i64 3, ptr %62, align 8
-  %scevgep.i.i = getelementptr inbounds nuw i8, ptr %62, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i.i, i8 0, i64 24, i1 false), !tbaa !85
-  store ptr %scevgep.i.i, ptr %59, align 8, !tbaa !81
+  %.ptr13.i.i = getelementptr inbounds nuw i8, ptr %62, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr13.i.i, i8 0, i64 24, i1 false), !tbaa !85
+  store ptr %.ptr13.i.i, ptr %59, align 8, !tbaa !81
   br label %_ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16CommentPlacementE.exit
 
 _ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16CommentPlacementE.exit: ; preds = %61, %_ZN4Json6Reader12currentValueEv.exit
-  %63 = phi ptr [ %scevgep.i.i, %61 ], [ %60, %_ZN4Json6Reader12currentValueEv.exit ]
+  %63 = phi ptr [ %.ptr13.i.i, %61 ], [ %60, %_ZN4Json6Reader12currentValueEv.exit ]
   %64 = add i64 %41, -1
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !17
@@ -1423,13 +1423,13 @@ define dso_local void @_ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcS
 9:                                                ; preds = %3
   %10 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znam(i64 noundef 32) #47
   store i64 3, ptr %10, align 8
-  %scevgep.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i, i8 0, i64 24, i1 false), !tbaa !85
-  store ptr %scevgep.i, ptr %7, align 8, !tbaa !81
+  %.ptr13.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr13.i, i8 0, i64 24, i1 false), !tbaa !85
+  store ptr %.ptr13.i, ptr %7, align 8, !tbaa !81
   br label %11
 
 11:                                               ; preds = %9, %3
-  %12 = phi ptr [ %scevgep.i, %9 ], [ %8, %3 ]
+  %12 = phi ptr [ %.ptr13.i, %9 ], [ %8, %3 ]
   %.not14.i = icmp eq i64 %6, 0
   br i1 %.not14.i, label %_ZN4Json5Value10setCommentEPKcmNS_16CommentPlacementE.exit, label %13
 
@@ -3963,13 +3963,13 @@ define dso_local void @_ZN4Json6Reader10addCommentEPKcS2_NS_16CommentPlacementE(
 
 .noexc:                                           ; preds = %15
   store i64 3, ptr %16, align 8
-  %scevgep.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i.i, i8 0, i64 24, i1 false), !tbaa !85
-  store ptr %scevgep.i.i, ptr %13, align 8, !tbaa !81
+  %.ptr13.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr13.i.i, i8 0, i64 24, i1 false), !tbaa !85
+  store ptr %.ptr13.i.i, ptr %13, align 8, !tbaa !81
   br label %17
 
 17:                                               ; preds = %.noexc, %7
-  %18 = phi ptr [ %scevgep.i.i, %.noexc ], [ %14, %7 ]
+  %18 = phi ptr [ %.ptr13.i.i, %.noexc ], [ %14, %7 ]
   %.not14.i.i = icmp eq i64 %12, 0
   br i1 %.not14.i.i, label %_ZN4Json5Value10setCommentEPKcmNS_16CommentPlacementE.exit.i, label %19
 
@@ -7754,13 +7754,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %114
 130:                                              ; preds = %126
   %131 = call noalias noundef nonnull dereferenceable(32) ptr @_Znam(i64 noundef 32) #47
   store i64 3, ptr %131, align 8
-  %scevgep.i.i = getelementptr inbounds nuw i8, ptr %131, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i.i, i8 0, i64 24, i1 false), !tbaa !85
-  store ptr %scevgep.i.i, ptr %128, align 8, !tbaa !81
+  %.ptr13.i.i = getelementptr inbounds nuw i8, ptr %131, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr13.i.i, i8 0, i64 24, i1 false), !tbaa !85
+  store ptr %.ptr13.i.i, ptr %128, align 8, !tbaa !81
   br label %_ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16CommentPlacementE.exit
 
 _ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16CommentPlacementE.exit: ; preds = %130, %126
-  %132 = phi ptr [ %scevgep.i.i, %130 ], [ %129, %126 ]
+  %132 = phi ptr [ %.ptr13.i.i, %130 ], [ %129, %126 ]
   %133 = add i64 %124, -1
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 %133
   %135 = load i8, ptr %134, align 1, !tbaa !17
@@ -7980,13 +7980,13 @@ _ZN4Json9OurReader12currentValueEv.exit:          ; preds = %49, %55
 67:                                               ; preds = %_ZN4Json9OurReader12currentValueEv.exit
   %68 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znam(i64 noundef 32) #47
   store i64 3, ptr %68, align 8
-  %scevgep.i.i = getelementptr inbounds nuw i8, ptr %68, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i.i, i8 0, i64 24, i1 false), !tbaa !85
-  store ptr %scevgep.i.i, ptr %65, align 8, !tbaa !81
+  %.ptr13.i.i = getelementptr inbounds nuw i8, ptr %68, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr13.i.i, i8 0, i64 24, i1 false), !tbaa !85
+  store ptr %.ptr13.i.i, ptr %65, align 8, !tbaa !81
   br label %_ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16CommentPlacementE.exit
 
 _ZN4Json5Value10setCommentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16CommentPlacementE.exit: ; preds = %67, %_ZN4Json9OurReader12currentValueEv.exit
-  %69 = phi ptr [ %scevgep.i.i, %67 ], [ %66, %_ZN4Json9OurReader12currentValueEv.exit ]
+  %69 = phi ptr [ %.ptr13.i.i, %67 ], [ %66, %_ZN4Json9OurReader12currentValueEv.exit ]
   %70 = add i64 %47, -1
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !17
@@ -11645,13 +11645,13 @@ define dso_local void @_ZN4Json9OurReader10addCommentEPKcS2_NS_16CommentPlacemen
 
 .noexc:                                           ; preds = %15
   store i64 3, ptr %16, align 8
-  %scevgep.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i.i, i8 0, i64 24, i1 false), !tbaa !85
-  store ptr %scevgep.i.i, ptr %13, align 8, !tbaa !81
+  %.ptr13.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr13.i.i, i8 0, i64 24, i1 false), !tbaa !85
+  store ptr %.ptr13.i.i, ptr %13, align 8, !tbaa !81
   br label %17
 
 17:                                               ; preds = %.noexc, %7
-  %18 = phi ptr [ %scevgep.i.i, %.noexc ], [ %14, %7 ]
+  %18 = phi ptr [ %.ptr13.i.i, %.noexc ], [ %14, %7 ]
   %.not14.i.i = icmp eq i64 %12, 0
   br i1 %.not14.i.i, label %_ZN4Json5Value10setCommentEPKcmNS_16CommentPlacementE.exit.i, label %19
 
@@ -20461,9 +20461,9 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEEC2ERKS9_.exi
 51:                                               ; preds = %48
   %52 = call noalias noundef nonnull dereferenceable(32) ptr @_Znam(i64 noundef 32) #47
   store i64 3, ptr %52, align 8
-  %scevgep = getelementptr inbounds nuw i8, ptr %52, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i8 0, i64 24, i1 false), !tbaa !85
-  store ptr %scevgep, ptr %11, align 8, !tbaa !81
+  %.ptr28 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr28, i8 0, i64 24, i1 false), !tbaa !85
+  store ptr %.ptr28, ptr %11, align 8, !tbaa !81
   br label %53
 
 53:                                               ; preds = %51, %61
@@ -25501,13 +25501,13 @@ define dso_local void @_ZN4Json5Value10setCommentEPKcmNS_16CommentPlacementE(ptr
 7:                                                ; preds = %4
   %8 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znam(i64 noundef 32) #47
   store i64 3, ptr %8, align 8
-  %scevgep = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i8 0, i64 24, i1 false), !tbaa !85
-  store ptr %scevgep, ptr %5, align 8, !tbaa !81
+  %.ptr13 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr13, i8 0, i64 24, i1 false), !tbaa !85
+  store ptr %.ptr13, ptr %5, align 8, !tbaa !81
   br label %9
 
 9:                                                ; preds = %7, %4
-  %10 = phi ptr [ %scevgep, %7 ], [ %6, %4 ]
+  %10 = phi ptr [ %.ptr13, %7 ], [ %6, %4 ]
   %.not14 = icmp eq i64 %2, 0
   br i1 %.not14, label %16, label %11
 
@@ -25538,13 +25538,13 @@ define dso_local void @_ZN4Json5Value10setCommentEPKcNS_16CommentPlacementE(ptr 
 7:                                                ; preds = %3
   %8 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znam(i64 noundef 32) #47
   store i64 3, ptr %8, align 8
-  %scevgep.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i, i8 0, i64 24, i1 false), !tbaa !85
-  store ptr %scevgep.i, ptr %5, align 8, !tbaa !81
+  %.ptr13.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr13.i, i8 0, i64 24, i1 false), !tbaa !85
+  store ptr %.ptr13.i, ptr %5, align 8, !tbaa !81
   br label %9
 
 9:                                                ; preds = %7, %3
-  %10 = phi ptr [ %scevgep.i, %7 ], [ %6, %3 ]
+  %10 = phi ptr [ %.ptr13.i, %7 ], [ %6, %3 ]
   %.not14.i = icmp eq i64 %4, 0
   br i1 %.not14.i, label %_ZN4Json5Value10setCommentEPKcmNS_16CommentPlacementE.exit, label %11
 

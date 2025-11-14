@@ -17768,29 +17768,29 @@ define linkonce_odr void @_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloat
   %.v = select i1 %37, i32 3, i32 2
   %38 = icmp ne i32 %2, %.v
   %39 = trunc i32 %.0 to i16
-  %40 = icmp sgt i16 %39, -15
-  %41 = lshr i16 %11, 1
-  %42 = or i16 %41, 512
-  %.025.i = select i1 %40, i16 %11, i16 %42
-  %43 = icmp slt i16 %39, -15
-  br i1 %43, label %.lr.ph.i, label %._crit_edge.i
+  %40 = icmp eq i16 %11, 0
+  %41 = icmp sgt i16 %39, -15
+  %42 = lshr i16 %11, 1
+  %43 = or i16 %42, 512
+  %.025.i = select i1 %41, i16 %11, i16 %43
+  %.024.i = and i1 %40, %41
+  %44 = icmp slt i16 %39, -15
+  br i1 %44, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.critedge, %.lr.ph.i
-  %.029.i = phi i16 [ %45, %.lr.ph.i ], [ %39, %.critedge ]
-  %.128.i = phi i16 [ %44, %.lr.ph.i ], [ %.025.i, %.critedge ]
-  %44 = lshr i16 %.128.i, 1
-  %45 = add i16 %.029.i, 1
-  %exitcond.not.i = icmp eq i16 %45, -15
+  %.029.i = phi i16 [ %46, %.lr.ph.i ], [ %39, %.critedge ]
+  %.128.i = phi i16 [ %45, %.lr.ph.i ], [ %.025.i, %.critedge ]
+  %45 = lshr i16 %.128.i, 1
+  %46 = add i16 %.029.i, 1
+  %exitcond.not.i = icmp eq i16 %46, -15
   br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %.lr.ph.i, !llvm.loop !334
 
 ._crit_edge.i:                                    ; preds = %.critedge
-  %46 = icmp eq i16 %39, -15
-  br i1 %46, label %._crit_edge.thread.i, label %_ZN8spvutils8HexFloatINS_10FloatProxyINS_7Float16EEENS_14HexFloatTraitsIS3_EEE51setFromSignUnbiasedExponentAndNormalizedSignificandEbstb.exit
+  %47 = icmp eq i16 %39, -15
+  br i1 %47, label %._crit_edge.thread.i, label %_ZN8spvutils8HexFloatINS_10FloatProxyINS_7Float16EEENS_14HexFloatTraitsIS3_EEE51setFromSignUnbiasedExponentAndNormalizedSignificandEbstb.exit
 
 ._crit_edge.thread.i:                             ; preds = %.lr.ph.i, %._crit_edge.i
-  %.1.lcssa34.i = phi i16 [ %.025.i, %._crit_edge.i ], [ %44, %.lr.ph.i ]
-  %47 = icmp eq i16 %11, 0
-  %.024.i = and i1 %47, %40
+  %.1.lcssa34.i = phi i16 [ %.025.i, %._crit_edge.i ], [ %45, %.lr.ph.i ]
   %48 = icmp ne i16 %.1.lcssa34.i, 0
   %or.cond.i = or i1 %.024.i, %48
   %or.cond3.i.not = or i1 %38, %or.cond.i
@@ -27169,29 +27169,29 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaI
   %53 = shl nuw nsw i64 %48, 2
   %54 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %53) #23
   store ptr %54, ptr %7, align 8
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %48
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %56 = getelementptr inbounds nuw i32, ptr %54, i64 %48
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %56, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 %53
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %52
-  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %54, %52 ]
+  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %59, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %54, %52 ]
   store i32 %2, ptr %.06.i.i.i.i.i.i.i.i.i, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %58, %57
+  %59 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %59, %58
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !484
 
 _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.loopexit:   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %59 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %60 = ptrtoint ptr %55 to i64
+  %60 = ptrtoint ptr %56 to i64
   br label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.loopexit, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i
   %61 = phi i64 [ 0, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %60, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.loopexit ]
   %62 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %54, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.loopexit ]
-  %63 = phi ptr [ %51, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %59, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.loopexit ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %57, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.loopexit ]
+  %63 = phi ptr [ %51, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %55, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.loopexit ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %58, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.loopexit ]
   store ptr %.0.i.i.i.i.i.i.i, ptr %63, align 8
   %64 = zext i32 %2 to i64
   %65 = getelementptr inbounds nuw ptr, ptr %11, i64 %64
@@ -38000,8 +38000,8 @@ define linkonce_odr void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_
 
 _ZSt6fill_nIPPN3spv11InstructionEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPN3spv11InstructionEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN3spv11InstructionEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN3spv11InstructionEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i

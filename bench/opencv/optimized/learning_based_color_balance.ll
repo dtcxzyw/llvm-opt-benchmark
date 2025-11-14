@@ -1600,7 +1600,6 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit109:       ; preds = %_ZNSt6vectorIfSaIfE
   br label %205
 
 .loopexit:                                        ; preds = %154
-  %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 1
   %indvars.iv.next443 = add nuw nsw i64 %indvars.iv442, 1
   %exitcond451.not = icmp eq i64 %indvars.iv.next449, 3
   br i1 %exitcond451.not, label %139, label %.lr.ph, !llvm.loop !81
@@ -1613,6 +1612,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit109:       ; preds = %_ZNSt6vectorIfSaIfE
   %indvars.iv448 = phi i64 [ 0, %.preheader244 ], [ %indvars.iv.next449, %.loopexit ]
   %indvars.iv442 = phi i64 [ 1, %.preheader244 ], [ %indvars.iv.next443, %.loopexit ]
   %.072363 = phi i32 [ 0, %.preheader244 ], [ %.274, %.loopexit ]
+  %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 1
   %141 = getelementptr inbounds nuw %"class.cv::Vec", ptr %3, i64 %indvars.iv448
   %142 = load float, ptr %141, align 8, !tbaa !39, !noalias !82
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 4

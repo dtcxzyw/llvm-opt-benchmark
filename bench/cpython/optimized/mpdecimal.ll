@@ -27010,45 +27010,45 @@ _mpd_get_msdigits.exit99.i:                       ; preds = %243, %241, %236
 261:                                              ; preds = %.sink.split.i, %_mpd_get_msdigits.exit99.i, %_mpd_get_msdigits.exit.i
   %262 = phi i64 [ %230, %_mpd_get_msdigits.exit99.i ], [ %203, %_mpd_get_msdigits.exit.i ], [ %.ph.i, %.sink.split.i ]
   %.2.i = phi i64 [ %.1.i, %_mpd_get_msdigits.exit99.i ], [ %.05.i, %_mpd_get_msdigits.exit.i ], [ %260, %.sink.split.i ]
+  %263 = load i64, ptr %117, align 8, !tbaa !7
   br label %.outer
 
-.outer:                                           ; preds = %273, %261
-  %.017.i.i.ph = phi i64 [ %274, %273 ], [ 10000, %261 ]
-  %.0.i.i.ph = phi i64 [ %.0.i.i, %273 ], [ 1000, %261 ]
-  br label %263
+.outer:                                           ; preds = %274, %261
+  %.017.i.i.ph = phi i64 [ %275, %274 ], [ 10000, %261 ]
+  %.0.i.i.ph = phi i64 [ %.0.i.i, %274 ], [ 1000, %261 ]
+  br label %264
 
-263:                                              ; preds = %.outer, %271
-  %.0.i.i = phi i64 [ %272, %271 ], [ %.0.i.i.ph, %.outer ]
-  %264 = add i64 %.0.i.i, %.017.i.i.ph
-  %265 = lshr i64 %264, 1
-  %266 = mul i64 %265, %265
-  %.not.i100.i = icmp ult i64 %.2.i, %266
-  br i1 %.not.i100.i, label %273, label %267
+264:                                              ; preds = %.outer, %272
+  %.0.i.i = phi i64 [ %273, %272 ], [ %.0.i.i.ph, %.outer ]
+  %265 = add i64 %.0.i.i, %.017.i.i.ph
+  %266 = lshr i64 %265, 1
+  %267 = mul i64 %266, %266
+  %.not.i100.i = icmp ult i64 %.2.i, %267
+  br i1 %.not.i100.i, label %274, label %268
 
-267:                                              ; preds = %263
-  %268 = or i64 %264, 1
-  %269 = add i64 %266, %268
-  %270 = icmp ult i64 %.2.i, %269
-  br i1 %270, label %275, label %271
+268:                                              ; preds = %264
+  %269 = or i64 %265, 1
+  %270 = add i64 %267, %269
+  %271 = icmp ult i64 %.2.i, %270
+  br i1 %271, label %276, label %272
 
-271:                                              ; preds = %267
-  %272 = add nuw i64 %265, 1
-  br label %263
+272:                                              ; preds = %268
+  %273 = add nuw i64 %266, 1
+  br label %264
 
-273:                                              ; preds = %263
-  %274 = add nsw i64 %265, -1
+274:                                              ; preds = %264
+  %275 = add nsw i64 %266, -1
   br label %.outer
 
-275:                                              ; preds = %267
-  %276 = load i64, ptr %117, align 8, !tbaa !7
-  %277 = sub i64 %276, %262
+276:                                              ; preds = %268
+  %277 = sub i64 %263, %262
   %.neg.i = sdiv i64 %277, -2
   %278 = load i8, ptr %0, align 8, !tbaa !19
   %279 = and i8 %278, 32
   %.not.i.i101.i = icmp eq i8 %279, 0
   br i1 %.not.i.i101.i, label %280, label %mpd_minalloc.exit.i.i
 
-280:                                              ; preds = %275
+280:                                              ; preds = %276
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %282 = load i64, ptr %281, align 8, !tbaa !21
   %283 = load i64, ptr @MPD_MINALLOC, align 8, !tbaa !3
@@ -27076,11 +27076,11 @@ _mpd_get_msdigits.exit99.i:                       ; preds = %243, %241, %236
   %.pre.i103.i = load i8, ptr %0, align 8, !tbaa !19
   br label %mpd_minalloc.exit.i.i
 
-mpd_minalloc.exit.i.i:                            ; preds = %292, %280, %275
-  %293 = phi i8 [ %278, %275 ], [ %278, %280 ], [ %.pre.i103.i, %292 ]
+mpd_minalloc.exit.i.i:                            ; preds = %292, %280, %276
+  %293 = phi i8 [ %278, %276 ], [ %278, %280 ], [ %.pre.i103.i, %292 ]
   %294 = and i8 %293, -16
   store i8 %294, ptr %0, align 8, !tbaa !19
-  %295 = udiv i64 1000000000, %265
+  %295 = udiv i64 1000000000, %266
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %297 = load ptr, ptr %296, align 8, !tbaa !17
   store i64 %295, ptr %297, align 8, !tbaa !3

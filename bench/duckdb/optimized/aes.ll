@@ -617,7 +617,7 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_dec(ptr noundef %0, ptr 
 66:                                               ; preds = %28
   %.03644 = add nsw i32 %.03644.in, -1
   %67 = getelementptr inbounds i8, ptr %.140, i64 -28
-  %68 = icmp samesign ugt i32 %.03644.in, 2
+  %68 = icmp sgt i32 %.03644.in, 2
   br i1 %68, label %.preheader, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %66, %8

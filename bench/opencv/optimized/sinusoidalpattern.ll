@@ -1535,18 +1535,19 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i276: ; preds = %.lr.ph.i.i.
 
 .noexc284:                                        ; preds = %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i276
   store ptr %206, ptr %35, align 8, !tbaa !69
-  %207 = getelementptr inbounds nuw %"class.cv::Mat", ptr %206, i64 %196
-  %208 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %207, ptr %208, align 8, !tbaa !117
+  %207 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %208 = getelementptr inbounds nuw %"class.cv::Mat", ptr %206, i64 %196
+  %209 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  store ptr %208, ptr %209, align 8, !tbaa !117
   br label %.lr.ph.i.i.i.i.i277
 
 .lr.ph.i.i.i.i.i277:                              ; preds = %.lr.ph.i.i.i.i.i277, %.noexc284
-  %.08.i.i.i.i.i278 = phi ptr [ %210, %.lr.ph.i.i.i.i.i277 ], [ %206, %.noexc284 ]
-  %.057.i.i.i.i.i279 = phi i64 [ %209, %.lr.ph.i.i.i.i.i277 ], [ %196, %.noexc284 ]
+  %.08.i.i.i.i.i278 = phi ptr [ %211, %.lr.ph.i.i.i.i.i277 ], [ %206, %.noexc284 ]
+  %.057.i.i.i.i.i279 = phi i64 [ %210, %.lr.ph.i.i.i.i.i277 ], [ %196, %.noexc284 ]
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.08.i.i.i.i.i278) #32
-  %209 = add i64 %.057.i.i.i.i.i279, -1
-  %210 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i278, i64 96
-  %.not.i.i.i.i.i280 = icmp eq i64 %209, 0
+  %210 = add i64 %.057.i.i.i.i.i279, -1
+  %211 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i278, i64 96
+  %.not.i.i.i.i.i280 = icmp eq i64 %210, 0
   br i1 %.not.i.i.i.i.i280, label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i288, label %.lr.ph.i.i.i.i.i277, !llvm.loop !118
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.thread.i294: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
@@ -1554,13 +1555,12 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.thread.i294: ; preds = %_ZNS
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %211 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %36, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   br label %.loopexit
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i288: ; preds = %.lr.ph.i.i.i.i.i277
-  %212 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %210, ptr %212, align 8, !tbaa !66
+  store ptr %211, ptr %207, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %213 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %199) #30
           to label %.noexc296 unwind label %263
@@ -1584,10 +1584,10 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i288: ; preds = %.lr.ph.i.i.
   br i1 %.not.i.i.i.i.i292, label %.loopexit, label %.lr.ph.i.i.i.i.i289, !llvm.loop !118
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i289, %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.thread.i294
-  %219 = phi ptr [ null, %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.thread.i294 ], [ %210, %.lr.ph.i.i.i.i.i289 ]
+  %219 = phi ptr [ null, %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.thread.i294 ], [ %211, %.lr.ph.i.i.i.i.i289 ]
   %.pr.i = phi ptr [ null, %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.thread.i294 ], [ %213, %.lr.ph.i.i.i.i.i289 ]
   %.pr.i306 = phi ptr [ null, %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.thread.i294 ], [ %206, %.lr.ph.i.i.i.i.i289 ]
-  %220 = phi ptr [ %211, %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.thread.i294 ], [ %214, %.lr.ph.i.i.i.i.i289 ]
+  %220 = phi ptr [ %212, %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.thread.i294 ], [ %214, %.lr.ph.i.i.i.i.i289 ]
   %221 = phi ptr [ null, %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.thread.i294 ], [ %218, %.lr.ph.i.i.i.i.i289 ]
   store ptr %221, ptr %220, align 8, !tbaa !66
   %222 = sdiv i32 %101, 2

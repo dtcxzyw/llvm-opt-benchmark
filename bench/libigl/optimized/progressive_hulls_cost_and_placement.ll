@@ -230,14 +230,14 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i142: ; preds = %
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !27
   %79 = load ptr, ptr %1, align 8, !tbaa !14, !noalias !28
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %81 = load i64, ptr %80, align 8, !tbaa !18
-  %.idx.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %81, 4
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %82 = load i64, ptr %81, align 8, !tbaa !18
+  %.idx.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %82, 4
   %.idx = shl i64 %78, 3
-  %82 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %83 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %85 = load i64, ptr %84, align 8, !tbaa !19, !noalias !31
+  %83 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %85 = load i64, ptr %80, align 8, !tbaa !19, !noalias !31
   %86 = icmp sgt i64 %85, 0
   %87 = icmp eq i64 %85, 3
   %spec.select = zext i1 %87 to i64
@@ -287,9 +287,9 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i142: ; preds = %
   %114 = load double, ptr %110, align 8, !tbaa !22
   %115 = load double, ptr %113, align 8, !tbaa !22
   %116 = fsub double %114, %115
-  %117 = getelementptr inbounds double, ptr %110, i64 %81
+  %117 = getelementptr inbounds double, ptr %110, i64 %82
   %118 = load double, ptr %117, align 8, !tbaa !22
-  %119 = getelementptr inbounds double, ptr %113, i64 %81
+  %119 = getelementptr inbounds double, ptr %113, i64 %82
   %120 = load double, ptr %119, align 8, !tbaa !22
   %121 = fsub double %118, %120
   %122 = getelementptr inbounds i8, ptr %110, i64 %.idx.i.i.i.i.i.i.i.i.i.i
@@ -303,7 +303,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i142: ; preds = %
   %130 = getelementptr inbounds double, ptr %79, i64 %129
   %131 = load double, ptr %130, align 8, !tbaa !22
   %132 = fsub double %131, %115
-  %133 = getelementptr inbounds double, ptr %130, i64 %81
+  %133 = getelementptr inbounds double, ptr %130, i64 %82
   %134 = load double, ptr %133, align 8, !tbaa !22
   %135 = fsub double %134, %120
   %136 = getelementptr inbounds i8, ptr %130, i64 %.idx.i.i.i.i.i.i.i.i.i.i
@@ -320,8 +320,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i142: ; preds = %
   %146 = fmul double %121, %145
   %147 = call double @llvm.fmuladd.f64(double %116, double %135, double %146)
   store double %141, ptr %16, align 8, !tbaa !22, !alias.scope !36
-  store double %144, ptr %82, align 8, !tbaa !22, !alias.scope !36
-  store double %147, ptr %83, align 8, !tbaa !22, !alias.scope !36
+  store double %144, ptr %83, align 8, !tbaa !22, !alias.scope !36
+  store double %147, ptr %84, align 8, !tbaa !22, !alias.scope !36
   %148 = getelementptr inbounds nuw double, ptr %.sink.i582, i64 %indvars.iv
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
@@ -346,7 +346,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i142: ; preds = %
 .lr.ph.i.i.i.i.i:                                 ; preds = %154, %.lr.ph.i.i.i.i.i
   %.01724.i.i.i.i.i = phi i64 [ %166, %.lr.ph.i.i.i.i.i ], [ 1, %154 ]
   %.02223.i.i.i.i.i = phi double [ %165, %.lr.ph.i.i.i.i.i ], [ %157, %154 ]
-  %158 = mul nsw i64 %.01724.i.i.i.i.i, %81
+  %158 = mul nsw i64 %.01724.i.i.i.i.i, %82
   %159 = getelementptr double, ptr %113, i64 %158
   %160 = load double, ptr %159, align 8, !tbaa !22
   %161 = mul nsw i64 %.01724.i.i.i.i.i, %47
@@ -368,7 +368,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i142: ; preds = %
   %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %173, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %167 ]
   %.idx.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i = mul i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i, 24
   %169 = getelementptr i8, ptr %17, i64 %.idx.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i
-  %170 = mul nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i, %81
+  %170 = mul nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i, %82
   %171 = getelementptr double, ptr %113, i64 %170
   %172 = load double, ptr %171, align 8, !tbaa !22, !noalias !42
   store double %172, ptr %169, align 8, !tbaa !22, !noalias !42
@@ -380,7 +380,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i142: ; preds = %
   %.05.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %178, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i, 24
   %174 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %175 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i, %81
+  %175 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i, %82
   %176 = getelementptr inbounds double, ptr %110, i64 %175
   %177 = load double, ptr %176, align 8, !tbaa !22
   store double %177, ptr %174, align 8, !tbaa !22
@@ -414,7 +414,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i142: ; preds = %
   %.05.i.i.i.i.i.i.i.i.i.i.i153 = phi i64 [ %192, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i152 ], [ 0, %._crit_edge.i150 ]
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i154 = mul nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i153, 24
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i154
-  %189 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i153, %81
+  %189 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i153, %82
   %190 = getelementptr inbounds double, ptr %130, i64 %189
   %191 = load double, ptr %190, align 8, !tbaa !22
   store double %191, ptr %188, align 8, !tbaa !22

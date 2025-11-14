@@ -4241,18 +4241,18 @@ _ZNK12_GLOBAL__N_115VirtRegRewriter16readsUndefSubregERKN4llvm14MachineOperandE.
   store i32 2, ptr %514, align 4, !tbaa !177
   store ptr %.sroa.0273.0358.i, ptr %512, align 8
   store i32 1, ptr %513, align 8, !tbaa !167
+  %1254 = getelementptr inbounds nuw i8, ptr %.sroa.0273.0358.i, i64 24
+  %1255 = load ptr, ptr %1254, align 8, !tbaa !577
   %.0.copyload.i.i.i.i.i.i.i.i.i.i182.i = load i64, ptr %.sroa.0273.0358.i, align 8
-  %1254 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i182.i, -8
-  %1255 = inttoptr i64 %1254 to ptr
-  %1256 = getelementptr inbounds nuw i8, ptr %.sroa.0273.0358.i, i64 24
-  %1257 = load ptr, ptr %1256, align 8, !tbaa !577
-  %1258 = getelementptr inbounds nuw i8, ptr %1257, i64 48
-  %.not8288.i.i = icmp eq ptr %1258, %1255
+  %1256 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i182.i, -8
+  %1257 = inttoptr i64 %1256 to ptr
+  %1258 = getelementptr inbounds nuw i8, ptr %1255, i64 48
+  %.not8288.i.i = icmp eq ptr %1258, %1257
   br i1 %.not8288.i.i, label %.critedge57.i.i, label %.lr.ph.i183.i
 
 .lr.ph.i183.i:                                    ; preds = %.preheader.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i.i
   %1259 = phi i32 [ %1277, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i.i ], [ 1, %.preheader.i.i.i.i.i ]
-  %.sroa.072.089.i.i = phi ptr [ %1279, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i.i ], [ %1255, %.preheader.i.i.i.i.i ]
+  %.sroa.072.089.i.i = phi ptr [ %1279, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i.i ], [ %1257, %.preheader.i.i.i.i.i ]
   %1260 = getelementptr inbounds nuw i8, ptr %.sroa.072.089.i.i, i64 44
   %1261 = load i32, ptr %1260, align 4
   %1262 = and i32 %1261, 8
@@ -4421,7 +4421,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i.i: ; preds 
   %1336 = zext i32 %1335 to i64
   %.idx.i187.i = shl nuw nsw i64 %1336, 3
   %1337 = getelementptr inbounds nuw i8, ptr %1334, i64 %.idx.i187.i
-  %1338 = getelementptr inbounds nuw i8, ptr %1257, i64 40
+  %1338 = getelementptr inbounds nuw i8, ptr %1255, i64 40
   br label %1339
 
 1339:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_9SlotIndexENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E11try_emplaceIJS5_EEESt4pairINS_16DenseMapIteratorIS4_S5_S7_SA_Lb0EEEbEOS4_DpOT_.exit.i, %.lr.ph96.i.i

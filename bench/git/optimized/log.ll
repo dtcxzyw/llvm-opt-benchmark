@@ -5170,29 +5170,30 @@ prepare_cover_text.exit.i:                        ; preds = %.sink.split.i.i, %r
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %1349 = getelementptr inbounds nuw i8, ptr %30, i64 1912
-  %1350 = load ptr, ptr %1349, align 8, !tbaa !108
-  %1351 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %1352 = load ptr, ptr %1351, align 8, !tbaa !131
-  %1353 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1350, ptr noundef nonnull @.str.264, ptr noundef %1352) #23
+  %1349 = getelementptr inbounds nuw i8, ptr %30, i64 1472
+  %1350 = getelementptr inbounds nuw i8, ptr %30, i64 1912
+  %1351 = load ptr, ptr %1350, align 8, !tbaa !108
+  %1352 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %1353 = load ptr, ptr %1352, align 8, !tbaa !131
+  %1354 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1351, ptr noundef nonnull @.str.264, ptr noundef %1353) #23
   call void @free(ptr noundef %.053.i) #23
-  %1354 = load ptr, ptr %1250, align 8, !tbaa !290
-  call void @free(ptr noundef %1354) #23
+  %1355 = load ptr, ptr %1250, align 8, !tbaa !290
+  call void @free(ptr noundef %1355) #23
   call void @strbuf_release(ptr noundef nonnull %15) #23
   call void @shortlog_init(ptr noundef nonnull %14) #23
-  %1355 = getelementptr inbounds nuw i8, ptr %14, i64 44
-  store i32 1, ptr %1355, align 4, !tbaa !291
-  %1356 = getelementptr inbounds nuw i8, ptr %14, i64 52
-  store i32 72, ptr %1356, align 4, !tbaa !293
-  %1357 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  store i32 2, ptr %1357, align 8, !tbaa !294
-  %1358 = getelementptr inbounds nuw i8, ptr %14, i64 60
-  store i32 4, ptr %1358, align 4, !tbaa !295
-  %1359 = load ptr, ptr %1349, align 8, !tbaa !108
-  %1360 = getelementptr inbounds nuw i8, ptr %14, i64 224
-  store ptr %1359, ptr %1360, align 8, !tbaa !296
-  %1361 = getelementptr inbounds nuw i8, ptr %14, i64 88
-  store i32 1, ptr %1361, align 8, !tbaa !297
+  %1356 = getelementptr inbounds nuw i8, ptr %14, i64 44
+  store i32 1, ptr %1356, align 4, !tbaa !291
+  %1357 = getelementptr inbounds nuw i8, ptr %14, i64 52
+  store i32 72, ptr %1357, align 4, !tbaa !293
+  %1358 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  store i32 2, ptr %1358, align 8, !tbaa !294
+  %1359 = getelementptr inbounds nuw i8, ptr %14, i64 60
+  store i32 4, ptr %1359, align 4, !tbaa !295
+  %1360 = load ptr, ptr %1350, align 8, !tbaa !108
+  %1361 = getelementptr inbounds nuw i8, ptr %14, i64 224
+  store ptr %1360, ptr %1361, align 8, !tbaa !296
+  %1362 = getelementptr inbounds nuw i8, ptr %14, i64 88
+  store i32 1, ptr %1362, align 8, !tbaa !297
   call void @shortlog_finish_setup(ptr noundef nonnull %14) #23
   br i1 %1252, label %.lr.ph77.preheader.i, label %._crit_edge78.i
 
@@ -5202,22 +5203,21 @@ prepare_cover_text.exit.i:                        ; preds = %.sink.split.i.i, %r
 
 .lr.ph77.i:                                       ; preds = %.lr.ph77.i, %.lr.ph77.preheader.i
   %indvars.iv86.i = phi i64 [ 0, %.lr.ph77.preheader.i ], [ %indvars.iv.next87.i, %.lr.ph77.i ]
-  %1362 = getelementptr inbounds nuw ptr, ptr %.0.ph343, i64 %indvars.iv86.i
-  %1363 = load ptr, ptr %1362, align 8, !tbaa !239
-  call void @shortlog_add_commit(ptr noundef nonnull %14, ptr noundef %1363) #23
+  %1363 = getelementptr inbounds nuw ptr, ptr %.0.ph343, i64 %indvars.iv86.i
+  %1364 = load ptr, ptr %1363, align 8, !tbaa !239
+  call void @shortlog_add_commit(ptr noundef nonnull %14, ptr noundef %1364) #23
   %indvars.iv.next87.i = add nuw nsw i64 %indvars.iv86.i, 1
   %exitcond.not.i298 = icmp eq i64 %indvars.iv.next87.i, %wide.trip.count.i
   br i1 %exitcond.not.i298, label %._crit_edge78.i, label %.lr.ph77.i, !llvm.loop !298
 
 ._crit_edge78.i:                                  ; preds = %.lr.ph77.i, %prepare_cover_text.exit.i
-  %1364 = getelementptr inbounds nuw i8, ptr %30, i64 1472
   call void @shortlog_output(ptr noundef nonnull %14) #23
   %.not62.i = icmp eq ptr %.0143.ph, null
   br i1 %.not62.i, label %1370, label %1365
 
 1365:                                             ; preds = %._crit_edge78.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %7, ptr noundef nonnull readonly align 8 dereferenceable(592) %1364, i64 592, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(592) %7, ptr noundef nonnull readonly align 8 dereferenceable(592) %1349, i64 592, i1 false)
   %1366 = getelementptr inbounds nuw i8, ptr %7, i64 276
   store i32 10, ptr %1366, align 4, !tbaa !299
   call void @diff_setup_done(ptr noundef nonnull %7) #23
@@ -5226,7 +5226,7 @@ prepare_cover_text.exit.i:                        ; preds = %.sink.split.i.i, %r
   call void @diff_tree_oid(ptr noundef %1367, ptr noundef %1368, ptr noundef nonnull @.str.117, ptr noundef nonnull %7) #23
   call void @diffcore_std(ptr noundef nonnull %7) #23
   call void @diff_flush(ptr noundef nonnull %7) #23
-  %1369 = load ptr, ptr %1349, align 8, !tbaa !108
+  %1369 = load ptr, ptr %1350, align 8, !tbaa !108
   %fputc.i.i = call i32 @fputc(i32 10, ptr %1369)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %1370
@@ -5238,14 +5238,14 @@ prepare_cover_text.exit.i:                        ; preds = %.sink.split.i.i, %r
   br i1 %.not63.i, label %1381, label %1373
 
 1373:                                             ; preds = %1370
-  %1374 = load ptr, ptr %1349, align 8, !tbaa !108
+  %1374 = load ptr, ptr %1350, align 8, !tbaa !108
   %1375 = getelementptr inbounds nuw i8, ptr %30, i64 2800
   %1376 = load ptr, ptr %1375, align 8, !tbaa !248
   %1377 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %1374, ptr noundef nonnull @.str.161, ptr noundef %1376) #23
   %1378 = load ptr, ptr %1371, align 8, !tbaa !246
   %1379 = getelementptr inbounds nuw i8, ptr %30, i64 2792
   %1380 = load ptr, ptr %1379, align 8, !tbaa !247
-  call void @show_interdiff(ptr noundef %1378, ptr noundef %1380, i32 noundef 0, ptr noundef nonnull %1364) #23
+  call void @show_interdiff(ptr noundef %1378, ptr noundef %1380, i32 noundef 0, ptr noundef nonnull %1349) #23
   br label %1381
 
 1381:                                             ; preds = %1373, %1370
@@ -5272,7 +5272,7 @@ prepare_cover_text.exit.i:                        ; preds = %.sink.split.i.i, %r
   store ptr %19, ptr %1390, align 8, !tbaa !305
   %1391 = load ptr, ptr @the_repository, align 8, !tbaa !16
   call void @repo_diff_setup(ptr noundef %1391, ptr noundef nonnull %18) #23
-  %1392 = load ptr, ptr %1349, align 8, !tbaa !108
+  %1392 = load ptr, ptr %1350, align 8, !tbaa !108
   %1393 = getelementptr inbounds nuw i8, ptr %18, i64 440
   store ptr %1392, ptr %1393, align 8, !tbaa !306
   %1394 = getelementptr inbounds nuw i8, ptr %30, i64 1716
@@ -5280,7 +5280,7 @@ prepare_cover_text.exit.i:                        ; preds = %.sink.split.i.i, %r
   %1396 = getelementptr inbounds nuw i8, ptr %18, i64 244
   store i32 %1395, ptr %1396, align 4, !tbaa !307
   call void @diff_setup_done(ptr noundef nonnull %18) #23
-  %1397 = load ptr, ptr %1349, align 8, !tbaa !108
+  %1397 = load ptr, ptr %1350, align 8, !tbaa !108
   %1398 = getelementptr inbounds nuw i8, ptr %30, i64 2832
   %1399 = load ptr, ptr %1398, align 8, !tbaa !252
   %1400 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %1397, ptr noundef nonnull @.str.161, ptr noundef %1399) #23
@@ -5330,10 +5330,10 @@ make_cover_letter.exit:                           ; preds = %1381, %get_notes_ar
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %1420 = load ptr, ptr %1349, align 8, !tbaa !108
+  %1420 = load ptr, ptr %1350, align 8, !tbaa !108
   call fastcc void @print_bases(ptr noundef %47, ptr noundef %1420)
   %1421 = load ptr, ptr %58, align 8, !tbaa !114
-  %1422 = load ptr, ptr %1349, align 8, !tbaa !108
+  %1422 = load ptr, ptr %1350, align 8, !tbaa !108
   %.not.i302 = icmp eq ptr %1421, null
   br i1 %.not.i302, label %print_signature.exit, label %1423
 

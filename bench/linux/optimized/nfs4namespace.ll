@@ -471,35 +471,35 @@ select.unfold:                                    ; preds = %81, %77
   br i1 %157, label %.thread56, label %158
 
 158:                                              ; preds = %154
-  %159 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %160 = zext i32 %152 to i64
-  br label %161
+  %159 = load ptr, ptr %4, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %161 = zext i32 %152 to i64
+  br label %162
 
-161:                                              ; preds = %161, %158
-  %162 = phi i64 [ 0, %158 ], [ %167, %161 ]
-  %163 = phi i32 [ 0, %158 ], [ %166, %161 ]
-  %164 = getelementptr %struct.nfs4_string, ptr %159, i64 %162
-  %165 = load i32, ptr %164, align 8
-  %166 = call i32 @llvm.umax.i32(i32 %165, i32 %163)
-  %167 = add nuw nsw i64 %162, 1
-  %168 = icmp eq i64 %167, %160
-  br i1 %168, label %169, label %161, !llvm.loop !14
+162:                                              ; preds = %162, %158
+  %163 = phi i64 [ 0, %158 ], [ %168, %162 ]
+  %164 = phi i32 [ 0, %158 ], [ %167, %162 ]
+  %165 = getelementptr %struct.nfs4_string, ptr %160, i64 %163
+  %166 = load i32, ptr %165, align 8
+  %167 = call i32 @llvm.umax.i32(i32 %166, i32 %164)
+  %168 = add nuw nsw i64 %163, 1
+  %169 = icmp eq i64 %168, %161
+  br i1 %169, label %170, label %162, !llvm.loop !14
 
-169:                                              ; preds = %161
-  %170 = load ptr, ptr %4, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 312
-  %172 = getelementptr inbounds nuw i8, ptr %170, i64 448
+170:                                              ; preds = %162
+  %171 = getelementptr inbounds nuw i8, ptr %159, i64 312
+  %172 = getelementptr inbounds nuw i8, ptr %159, i64 448
   %173 = load ptr, ptr %172, align 8
   call void @kfree(ptr noundef %173) #9
-  %174 = add i32 %166, 1
+  %174 = add i32 %167, 1
   %175 = zext i32 %174 to i64
   %176 = call noalias align 8 ptr @__kmalloc(i64 noundef %175, i32 noundef 3264) #10
   store ptr %176, ptr %172, align 8
   %177 = icmp eq ptr %176, null
   br i1 %177, label %.thread56, label %178
 
-178:                                              ; preds = %169
-  %179 = getelementptr inbounds nuw i8, ptr %170, i64 474
+178:                                              ; preds = %170
+  %179 = getelementptr inbounds nuw i8, ptr %159, i64 474
   %180 = load i32, ptr %155, align 8
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %.loopexit65, label %182
@@ -575,11 +575,11 @@ select.unfold:                                    ; preds = %81, %77
   br label %.loopexit
 
 226:                                              ; preds = %.loopexit64
-  %227 = getelementptr inbounds nuw i8, ptr %170, i64 456
+  %227 = getelementptr inbounds nuw i8, ptr %159, i64 456
   %228 = load ptr, ptr %227, align 8
   call void @kfree(ptr noundef %228) #9
   store ptr %201, ptr %227, align 8
-  %229 = add i32 %166, 2
+  %229 = add i32 %167, 2
   %230 = load i16, ptr %179, align 2
   %231 = zext i16 %230 to i32
   %232 = add i32 %229, %231
@@ -597,14 +597,14 @@ select.unfold:                                    ; preds = %81, %77
   br i1 %239, label %.thread56, label %240
 
 240:                                              ; preds = %236
-  %241 = getelementptr inbounds nuw i8, ptr %170, i64 440
-  %242 = getelementptr inbounds nuw i8, ptr %170, i64 314
+  %241 = getelementptr inbounds nuw i8, ptr %159, i64 440
+  %242 = getelementptr inbounds nuw i8, ptr %159, i64 314
   br label %243
 
 243:                                              ; preds = %.thread54, %240
   %244 = phi i64 [ 0, %240 ], [ %289, %.thread54 ]
   %245 = phi i32 [ -2, %240 ], [ %288, %.thread54 ]
-  %246 = getelementptr %struct.nfs4_string, ptr %159, i64 %244
+  %246 = getelementptr %struct.nfs4_string, ptr %160, i64 %244
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %248 = load ptr, ptr %247, align 16
   %249 = load i32, ptr %246, align 8
@@ -690,8 +690,8 @@ select.unfold:                                    ; preds = %81, %77
   %.not62 = icmp eq i32 %293, 0
   br i1 %.not62, label %.thread44, label %.thread56
 
-.thread56:                                        ; preds = %.loopexit, %236, %226, %169, %146, %151, %154
-  %294 = phi i32 [ %293, %.loopexit ], [ %148, %154 ], [ %148, %151 ], [ %148, %146 ], [ -2, %236 ], [ -12, %226 ], [ -12, %169 ]
+.thread56:                                        ; preds = %.loopexit, %236, %226, %170, %146, %151, %154
+  %294 = phi i32 [ %293, %.loopexit ], [ %148, %154 ], [ %148, %151 ], [ %148, %146 ], [ -2, %236 ], [ -12, %226 ], [ -12, %170 ]
   %295 = add nuw nsw i64 %147, 1
   %296 = load i32, ptr %50, align 8
   %297 = sext i32 %296 to i64

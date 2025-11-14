@@ -4297,7 +4297,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h5fe
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   %55 = icmp ult i64 %8, 256
-  br i1 %55, label %101, label %97
+  br i1 %55, label %102, label %97
 
 56:                                               ; preds = %54, %92
   %.sroa.020.1102 = phi i64 [ 0, %54 ], [ %96, %92 ]
@@ -4343,8 +4343,8 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h5fe
   %.pre = load i32, ptr %80, align 4
   br label %82
 
-81:                                               ; preds = %23, %41, %60, %2, %12, %107
-  %.sroa.0.1 = phi float [ %117, %107 ], [ %25, %23 ], [ %52, %41 ], [ %77, %60 ], [ 1.200000e+01, %2 ], [ 1.200000e+01, %12 ]
+81:                                               ; preds = %23, %41, %60, %2, %12, %108
+  %.sroa.0.1 = phi float [ %117, %108 ], [ %25, %23 ], [ %52, %41 ], [ %77, %60 ], [ 1.200000e+01, %2 ], [ 1.200000e+01, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret float %.sroa.0.1
 
@@ -4385,29 +4385,29 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h5fe
   %99 = tail call float @llvm.log2.f32(float %98)
   br label %100
 
-100:                                              ; preds = %101, %97
-  %.sroa.043.0 = phi float [ %103, %101 ], [ %99, %97 ]
-  br label %104
+100:                                              ; preds = %102, %97
+  %.sroa.043.0 = phi float [ %104, %102 ], [ %99, %97 ]
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 68
+  br label %105
 
-101:                                              ; preds = %.thread
-  %102 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util10kLog2Table17hd3967b7c903f064fE, i64 %8
-  %103 = load float, ptr %102, align 4, !noundef !3
+102:                                              ; preds = %.thread
+  %103 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util10kLog2Table17hd3967b7c903f064fE, i64 %8
+  %104 = load float, ptr %103, align 4, !noundef !3
   br label %100
 
-104:                                              ; preds = %100, %122
+105:                                              ; preds = %100, %122
   %.lcssa109119 = phi i32 [ 0, %100 ], [ %.lcssa109117, %122 ]
   %.sroa.063.0.add114 = phi i64 [ 4, %100 ], [ %.sroa.063.0.add, %122 ]
   %.sroa.063.0.ptr113 = phi ptr [ %0, %100 ], [ %.sroa.063.0.ptr, %122 ]
   %.sroa.0.2112 = phi float [ 0.000000e+00, %100 ], [ %.sroa.0.3, %122 ]
   %.sroa.046.0111 = phi i32 [ 0, %100 ], [ %.sroa.046.1, %122 ]
   %.sroa.059.0110 = phi i64 [ 1, %100 ], [ %.sroa.059.1, %122 ]
-  %105 = load i32, ptr %.sroa.063.0.ptr113, align 4, !noundef !3
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %118, label %120
+  %106 = load i32, ptr %.sroa.063.0.ptr113, align 4, !noundef !3
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %118, label %120
 
-107:                                              ; preds = %122
-  %108 = getelementptr inbounds nuw i8, ptr %4, i64 68
-  store i32 %.lcssa109117, ptr %108, align 4
+108:                                              ; preds = %122
+  store i32 %.lcssa109117, ptr %101, align 4
   %109 = shl nuw nsw i64 %.sroa.059.1, 1
   %110 = add nuw nsw i64 %109, 18
   %111 = uitofp nneg i64 %110 to float
@@ -4424,11 +4424,11 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h5fe
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %81
 
-118:                                              ; preds = %104
+118:                                              ; preds = %105
   %119 = add i32 %.sroa.046.0111, 1
   br label %122
 
-120:                                              ; preds = %104
+120:                                              ; preds = %105
   %121 = icmp eq i32 %.sroa.046.0111, 0
   br i1 %121, label %.loopexit, label %124
 
@@ -4441,7 +4441,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h5fe
   %123 = icmp eq i64 %.sroa.063.0.add114, 1024
   %.sroa.063.1.idx = select i1 %123, i64 0, i64 4
   %.sroa.063.0.add = add nuw nsw i64 %.sroa.063.1.idx, %.sroa.063.0.add114
-  br i1 %123, label %107, label %104
+  br i1 %123, label %108, label %105
 
 124:                                              ; preds = %120
   %125 = icmp ult i32 %.sroa.046.0111, 3
@@ -4470,7 +4470,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h5fe
 .loopexit:                                        ; preds = %.lr.ph108, %120, %127
   %.lcssa109118 = phi i32 [ %.lcssa109119, %120 ], [ %.lcssa109119, %127 ], [ %131, %.lr.ph108 ]
   %.sroa.0.4 = phi float [ %.sroa.0.2112, %120 ], [ %.sroa.0.2112, %127 ], [ %132, %.lr.ph108 ]
-  %134 = and i32 %105, 65535
+  %134 = and i32 %106, 65535
   %135 = zext nneg i32 %134 to i64
   %136 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17hafbed44a546612c4E, i64 %135
   %137 = load float, ptr %136, align 4, !noundef !3
@@ -4479,7 +4479,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h5fe
   %140 = tail call i64 @llvm.fptoui.sat.i64.f32(float %139)
   %.sroa.0.0.sroa.speculated.i91 = tail call noundef i64 @llvm.umin.i64(i64 %140, i64 15)
   %.sroa.0.0.sroa.speculated.i92 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.059.0110, i64 %.sroa.0.0.sroa.speculated.i91)
-  %141 = uitofp i32 %105 to float
+  %141 = uitofp i32 %106 to float
   %142 = fmul float %138, %141
   %143 = fadd float %.sroa.0.4, %142
   %144 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.0.0.sroa.speculated.i91
@@ -4601,7 +4601,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h6ab
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   %55 = icmp ult i64 %8, 256
-  br i1 %55, label %101, label %97
+  br i1 %55, label %102, label %97
 
 56:                                               ; preds = %54, %92
   %.sroa.020.1102 = phi i64 [ 0, %54 ], [ %96, %92 ]
@@ -4647,8 +4647,8 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h6ab
   %.pre = load i32, ptr %80, align 4
   br label %82
 
-81:                                               ; preds = %23, %41, %60, %2, %12, %107
-  %.sroa.0.1 = phi float [ %117, %107 ], [ %25, %23 ], [ %52, %41 ], [ %77, %60 ], [ 1.200000e+01, %2 ], [ 1.200000e+01, %12 ]
+81:                                               ; preds = %23, %41, %60, %2, %12, %108
+  %.sroa.0.1 = phi float [ %117, %108 ], [ %25, %23 ], [ %52, %41 ], [ %77, %60 ], [ 1.200000e+01, %2 ], [ 1.200000e+01, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret float %.sroa.0.1
 
@@ -4689,29 +4689,29 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h6ab
   %99 = tail call float @llvm.log2.f32(float %98)
   br label %100
 
-100:                                              ; preds = %101, %97
-  %.sroa.043.0 = phi float [ %103, %101 ], [ %99, %97 ]
-  br label %104
+100:                                              ; preds = %102, %97
+  %.sroa.043.0 = phi float [ %104, %102 ], [ %99, %97 ]
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 68
+  br label %105
 
-101:                                              ; preds = %.thread
-  %102 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util10kLog2Table17hd3967b7c903f064fE, i64 %8
-  %103 = load float, ptr %102, align 4, !noundef !3
+102:                                              ; preds = %.thread
+  %103 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util10kLog2Table17hd3967b7c903f064fE, i64 %8
+  %104 = load float, ptr %103, align 4, !noundef !3
   br label %100
 
-104:                                              ; preds = %100, %122
+105:                                              ; preds = %100, %122
   %.lcssa109119 = phi i32 [ 0, %100 ], [ %.lcssa109117, %122 ]
   %.sroa.063.0.add114 = phi i64 [ 4, %100 ], [ %.sroa.063.0.add, %122 ]
   %.sroa.063.0.ptr113 = phi ptr [ %0, %100 ], [ %.sroa.063.0.ptr, %122 ]
   %.sroa.0.2112 = phi float [ 0.000000e+00, %100 ], [ %.sroa.0.3, %122 ]
   %.sroa.046.0111 = phi i32 [ 0, %100 ], [ %.sroa.046.1, %122 ]
   %.sroa.059.0110 = phi i64 [ 1, %100 ], [ %.sroa.059.1, %122 ]
-  %105 = load i32, ptr %.sroa.063.0.ptr113, align 4, !noundef !3
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %118, label %120
+  %106 = load i32, ptr %.sroa.063.0.ptr113, align 4, !noundef !3
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %118, label %120
 
-107:                                              ; preds = %122
-  %108 = getelementptr inbounds nuw i8, ptr %4, i64 68
-  store i32 %.lcssa109117, ptr %108, align 4
+108:                                              ; preds = %122
+  store i32 %.lcssa109117, ptr %101, align 4
   %109 = shl nuw nsw i64 %.sroa.059.1, 1
   %110 = add nuw nsw i64 %109, 18
   %111 = uitofp nneg i64 %110 to float
@@ -4728,11 +4728,11 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h6ab
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %81
 
-118:                                              ; preds = %104
+118:                                              ; preds = %105
   %119 = add i32 %.sroa.046.0111, 1
   br label %122
 
-120:                                              ; preds = %104
+120:                                              ; preds = %105
   %121 = icmp eq i32 %.sroa.046.0111, 0
   br i1 %121, label %.loopexit, label %124
 
@@ -4745,7 +4745,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h6ab
   %123 = icmp eq i64 %.sroa.063.0.add114, 2176
   %.sroa.063.1.idx = select i1 %123, i64 0, i64 4
   %.sroa.063.0.add = add nuw nsw i64 %.sroa.063.1.idx, %.sroa.063.0.add114
-  br i1 %123, label %107, label %104
+  br i1 %123, label %108, label %105
 
 124:                                              ; preds = %120
   %125 = icmp ult i32 %.sroa.046.0111, 3
@@ -4774,7 +4774,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h6ab
 .loopexit:                                        ; preds = %.lr.ph108, %120, %127
   %.lcssa109118 = phi i32 [ %.lcssa109119, %120 ], [ %.lcssa109119, %127 ], [ %131, %.lr.ph108 ]
   %.sroa.0.4 = phi float [ %.sroa.0.2112, %120 ], [ %.sroa.0.2112, %127 ], [ %132, %.lr.ph108 ]
-  %134 = and i32 %105, 65535
+  %134 = and i32 %106, 65535
   %135 = zext nneg i32 %134 to i64
   %136 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17hafbed44a546612c4E, i64 %135
   %137 = load float, ptr %136, align 4, !noundef !3
@@ -4783,7 +4783,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17h6ab
   %140 = tail call i64 @llvm.fptoui.sat.i64.f32(float %139)
   %.sroa.0.0.sroa.speculated.i91 = tail call noundef i64 @llvm.umin.i64(i64 %140, i64 15)
   %.sroa.0.0.sroa.speculated.i92 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.059.0110, i64 %.sroa.0.0.sroa.speculated.i91)
-  %141 = uitofp i32 %105 to float
+  %141 = uitofp i32 %106 to float
   %142 = fmul float %138, %141
   %143 = fadd float %.sroa.0.4, %142
   %144 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.0.0.sroa.speculated.i91
@@ -4905,7 +4905,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17hd2b
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   %55 = icmp ult i64 %8, 256
-  br i1 %55, label %101, label %97
+  br i1 %55, label %102, label %97
 
 56:                                               ; preds = %54, %92
   %.sroa.020.1102 = phi i64 [ 0, %54 ], [ %96, %92 ]
@@ -4951,8 +4951,8 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17hd2b
   %.pre = load i32, ptr %80, align 4
   br label %82
 
-81:                                               ; preds = %23, %41, %60, %2, %12, %107
-  %.sroa.0.1 = phi float [ %117, %107 ], [ %25, %23 ], [ %52, %41 ], [ %77, %60 ], [ 1.200000e+01, %2 ], [ 1.200000e+01, %12 ]
+81:                                               ; preds = %23, %41, %60, %2, %12, %108
+  %.sroa.0.1 = phi float [ %117, %108 ], [ %25, %23 ], [ %52, %41 ], [ %77, %60 ], [ 1.200000e+01, %2 ], [ 1.200000e+01, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret float %.sroa.0.1
 
@@ -4993,29 +4993,29 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17hd2b
   %99 = tail call float @llvm.log2.f32(float %98)
   br label %100
 
-100:                                              ; preds = %101, %97
-  %.sroa.043.0 = phi float [ %103, %101 ], [ %99, %97 ]
-  br label %104
+100:                                              ; preds = %102, %97
+  %.sroa.043.0 = phi float [ %104, %102 ], [ %99, %97 ]
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 68
+  br label %105
 
-101:                                              ; preds = %.thread
-  %102 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util10kLog2Table17hd3967b7c903f064fE, i64 %8
-  %103 = load float, ptr %102, align 4, !noundef !3
+102:                                              ; preds = %.thread
+  %103 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util10kLog2Table17hd3967b7c903f064fE, i64 %8
+  %104 = load float, ptr %103, align 4, !noundef !3
   br label %100
 
-104:                                              ; preds = %100, %122
+105:                                              ; preds = %100, %122
   %.lcssa109119 = phi i32 [ 0, %100 ], [ %.lcssa109117, %122 ]
   %.sroa.063.0.add114 = phi i64 [ 4, %100 ], [ %.sroa.063.0.add, %122 ]
   %.sroa.063.0.ptr113 = phi ptr [ %0, %100 ], [ %.sroa.063.0.ptr, %122 ]
   %.sroa.0.2112 = phi float [ 0.000000e+00, %100 ], [ %.sroa.0.3, %122 ]
   %.sroa.046.0111 = phi i32 [ 0, %100 ], [ %.sroa.046.1, %122 ]
   %.sroa.059.0110 = phi i64 [ 1, %100 ], [ %.sroa.059.1, %122 ]
-  %105 = load i32, ptr %.sroa.063.0.ptr113, align 4, !noundef !3
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %118, label %120
+  %106 = load i32, ptr %.sroa.063.0.ptr113, align 4, !noundef !3
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %118, label %120
 
-107:                                              ; preds = %122
-  %108 = getelementptr inbounds nuw i8, ptr %4, i64 68
-  store i32 %.lcssa109117, ptr %108, align 4
+108:                                              ; preds = %122
+  store i32 %.lcssa109117, ptr %101, align 4
   %109 = shl nuw nsw i64 %.sroa.059.1, 1
   %110 = add nuw nsw i64 %109, 18
   %111 = uitofp nneg i64 %110 to float
@@ -5032,11 +5032,11 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17hd2b
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %81
 
-118:                                              ; preds = %104
+118:                                              ; preds = %105
   %119 = add i32 %.sroa.046.0111, 1
   br label %122
 
-120:                                              ; preds = %104
+120:                                              ; preds = %105
   %121 = icmp eq i32 %.sroa.046.0111, 0
   br i1 %121, label %.loopexit, label %124
 
@@ -5049,7 +5049,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17hd2b
   %123 = icmp eq i64 %.sroa.063.0.add114, 2816
   %.sroa.063.1.idx = select i1 %123, i64 0, i64 4
   %.sroa.063.0.add = add nuw nsw i64 %.sroa.063.1.idx, %.sroa.063.0.add114
-  br i1 %123, label %107, label %104
+  br i1 %123, label %108, label %105
 
 124:                                              ; preds = %120
   %125 = icmp ult i32 %.sroa.046.0111, 3
@@ -5078,7 +5078,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17hd2b
 .loopexit:                                        ; preds = %.lr.ph108, %120, %127
   %.lcssa109118 = phi i32 [ %.lcssa109119, %120 ], [ %.lcssa109119, %127 ], [ %131, %.lr.ph108 ]
   %.sroa.0.4 = phi float [ %.sroa.0.2112, %120 ], [ %.sroa.0.2112, %127 ], [ %132, %.lr.ph108 ]
-  %134 = and i32 %105, 65535
+  %134 = and i32 %106, 65535
   %135 = zext nneg i32 %134 to i64
   %136 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util6log64k17hafbed44a546612c4E, i64 %135
   %137 = load float, ptr %136, align 4, !noundef !3
@@ -5087,7 +5087,7 @@ define hidden noundef float @_ZN6brotli3enc8bit_cost20BrotliPopulationCost17hd2b
   %140 = tail call i64 @llvm.fptoui.sat.i64.f32(float %139)
   %.sroa.0.0.sroa.speculated.i91 = tail call noundef i64 @llvm.umin.i64(i64 %140, i64 15)
   %.sroa.0.0.sroa.speculated.i92 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.059.0110, i64 %.sroa.0.0.sroa.speculated.i91)
-  %141 = uitofp i32 %105 to float
+  %141 = uitofp i32 %106 to float
   %142 = fmul float %138, %141
   %143 = fadd float %.sroa.0.4, %142
   %144 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.0.0.sroa.speculated.i91
@@ -7327,8 +7327,8 @@ define internal fastcc void @_ZN6brotli3enc9metablock31ContextBlockSplitterFinis
   br i1 %153, label %154, label %.invoke
 
 154:                                              ; preds = %151
-  %155 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %3, i64 %152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %scevgep, i8 0, i64 1024, i1 false)
+  %155 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %3, i64 %152
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 1024
   store i64 0, ptr %156, align 8, !alias.scope !367
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 1032
@@ -7437,8 +7437,8 @@ define internal fastcc void @_ZN6brotli3enc9metablock31ContextBlockSplitterFinis
   br i1 %207, label %208, label %.invoke
 
 208:                                              ; preds = %200
-  %209 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %3, i64 %206
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %scevgep375, i8 0, i64 1024, i1 false)
+  %209 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %3, i64 %206
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 1024
   store i64 0, ptr %210, align 8, !alias.scope !373
   %211 = getelementptr inbounds nuw i8, ptr %209, i64 1032

@@ -1473,10 +1473,10 @@ rb_array_len.exit.i:                              ; preds = %62, %59
   br i1 %exitcond.not.i.i.i, label %145, label %130, !llvm.loop !85
 
 145:                                              ; preds = %130
-  br i1 %.not60.not.i.i.i, label %process_options.exit, label %.preheader.i.i.i
+  br i1 %.not60.not.i.i.i, label %process_options.exit, label %.preheader.i.i
 
-.preheader.i.i.i:                                 ; preds = %145, %.preheader.i.i.i
-  %indvars.iv67.i.i.i = phi i64 [ %indvars.iv.next68.i.i.i, %.preheader.i.i.i ], [ 0, %145 ]
+.preheader.i.i:                                   ; preds = %145, %.preheader.i.i
+  %indvars.iv67.i.i.i = phi i64 [ %indvars.iv.next68.i.i.i, %.preheader.i.i ], [ 0, %145 ]
   %146 = getelementptr %struct.ruby_opt_message, ptr @usage.help_msg, i64 %indvars.iv67.i.i.i
   %147 = load ptr, ptr %146, align 16, !tbaa !80
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
@@ -1494,9 +1494,9 @@ rb_array_len.exit.i:                              ; preds = %62, %59
   call fastcc void @show_usage_part(ptr noundef %147, i32 noundef %158, ptr noundef %155, i32 noundef %159, ptr noundef %157, i32 noundef range(i32 0, 129) %79, i32 noundef %80, i32 noundef range(i32 16, 1073741801) %spec.select71, i32 noundef %.0.i301.i)
   %indvars.iv.next68.i.i.i = add nuw nsw i64 %indvars.iv67.i.i.i, 1
   %exitcond70.not.i.i.i = icmp eq i64 %indvars.iv.next68.i.i.i, 13
-  br i1 %exitcond70.not.i.i.i, label %160, label %.preheader.i.i.i, !llvm.loop !86
+  br i1 %exitcond70.not.i.i.i, label %160, label %.preheader.i.i, !llvm.loop !86
 
-160:                                              ; preds = %.preheader.i.i.i
+160:                                              ; preds = %.preheader.i.i
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr @.str.23, ptr @esc_standout
   %161 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.210, ptr noundef nonnull %spec.select.i.i.i, ptr noundef nonnull %124) #25
   br label %162
@@ -3627,45 +3627,45 @@ declare i64 @rb_io_getbyte(i64 noundef) local_unnamed_addr #2
 define internal fastcc void @moreswitches(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br label %5
-
-5:                                                ; preds = %5, %3
-  %.0 = phi ptr [ %0, %3 ], [ %11, %5 ]
-  %6 = load i8, ptr %.0, align 1, !tbaa !7
-  %7 = sext i8 %6 to i32
-  %8 = icmp ne i8 %6, 32
-  %9 = add nsw i32 %7, -14
-  %10 = icmp ult i32 %9, -5
-  %narrow.i.not = select i1 %8, i1 %10, i1 false
-  %11 = getelementptr i8, ptr %.0, i64 1
-  br i1 %narrow.i.not, label %12, label %5, !llvm.loop !186
-
-12:                                               ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !90
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %16 = load i64, ptr %15, align 8, !tbaa !100
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %18 = load i64, ptr %17, align 8, !tbaa !104
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.sroa.010.0.copyload = load i32, ptr %19, align 8, !tbaa !70
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %6 = load i64, ptr %5, align 8, !tbaa !90
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %8 = load i64, ptr %7, align 8, !tbaa !100
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %10 = load i64, ptr %9, align 8, !tbaa !104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %.sroa.010.0.copyload = load i32, ptr %11, align 8, !tbaa !70
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 84
   %.sroa.512.0.copyload = load i32, ptr %.sroa.512.0..sroa_idx, align 4, !tbaa !70
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.0.0.copyload = load i32, ptr %20, align 8, !tbaa !70
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.sroa.0.0.copyload = load i32, ptr %12, align 8, !tbaa !70
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 92
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !70
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %22 = load i64, ptr %21, align 8, !tbaa !60
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %24 = load ptr, ptr %23, align 8, !tbaa !167
-  %.not93 = icmp eq i8 %6, 0
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %14 = load i64, ptr %13, align 8, !tbaa !60
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %16 = load ptr, ptr %15, align 8, !tbaa !167
+  br label %17
+
+17:                                               ; preds = %17, %3
+  %.0 = phi ptr [ %0, %3 ], [ %23, %17 ]
+  %18 = load i8, ptr %.0, align 1, !tbaa !7
+  %19 = sext i8 %18 to i32
+  %20 = icmp ne i8 %18, 32
+  %21 = add nsw i32 %19, -14
+  %22 = icmp ult i32 %21, -5
+  %narrow.i.not = select i1 %20, i1 %22, i1 false
+  %23 = getelementptr i8, ptr %.0, i64 1
+  br i1 %narrow.i.not, label %24, label %17, !llvm.loop !186
+
+24:                                               ; preds = %17
+  %.not93 = icmp eq i8 %18, 0
   br i1 %.not93, label %118, label %25
 
-25:                                               ; preds = %12
-  store i64 0, ptr %17, align 8, !tbaa !104
-  store i64 0, ptr %15, align 8, !tbaa !100
-  store i64 0, ptr %13, align 8, !tbaa !90
+25:                                               ; preds = %24
+  store i64 0, ptr %9, align 8, !tbaa !104
+  store i64 0, ptr %7, align 8, !tbaa !100
+  store i64 0, ptr %5, align 8, !tbaa !90
   %26 = load i8, ptr %.0, align 1, !tbaa !7
   %27 = icmp ne i8 %26, 45
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #24
@@ -3816,61 +3816,61 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %70, %.critedge.thre
   br i1 %90, label %.lr.ph126.split, label %.critedge3, !llvm.loop !196
 
 .critedge3:                                       ; preds = %.lr.ph126.split, %84, %rbimpl_size_mul_or_raise.exit
-  %.not98 = icmp eq i64 %14, 0
+  %.not98 = icmp eq i64 %6, 0
   br i1 %.not98, label %92, label %91
 
 91:                                               ; preds = %.critedge3
-  store i64 %14, ptr %13, align 8, !tbaa !90
+  store i64 %6, ptr %5, align 8, !tbaa !90
   br label %92
 
 92:                                               ; preds = %91, %.critedge3
-  %.not99 = icmp eq i64 %16, 0
+  %.not99 = icmp eq i64 %8, 0
   br i1 %.not99, label %94, label %93
 
 93:                                               ; preds = %92
-  store i64 %16, ptr %15, align 8, !tbaa !100
+  store i64 %8, ptr %7, align 8, !tbaa !100
   br label %94
 
 94:                                               ; preds = %93, %92
-  %.not100 = icmp eq i64 %18, 0
+  %.not100 = icmp eq i64 %10, 0
   br i1 %.not100, label %96, label %95
 
 95:                                               ; preds = %94
-  store i64 %18, ptr %17, align 8, !tbaa !104
+  store i64 %10, ptr %9, align 8, !tbaa !104
   br label %96
 
 96:                                               ; preds = %95, %94
   %97 = and i32 %.sroa.512.0.copyload, %.sroa.010.0.copyload
-  %98 = load i32, ptr %19, align 4, !tbaa !92
+  %98 = load i32, ptr %11, align 4, !tbaa !92
   %99 = or i32 %98, %.sroa.010.0.copyload
-  store i32 %99, ptr %19, align 4, !tbaa !92
+  store i32 %99, ptr %11, align 4, !tbaa !92
   %100 = load i32, ptr %.sroa.512.0..sroa_idx, align 4, !tbaa !93
   %101 = xor i32 %.sroa.010.0.copyload, -1
   %102 = and i32 %100, %101
   %103 = or i32 %102, %97
   store i32 %103, ptr %.sroa.512.0..sroa_idx, align 4, !tbaa !93
   %104 = and i32 %.sroa.5.0.copyload, %.sroa.0.0.copyload
-  %105 = load i32, ptr %20, align 4, !tbaa !92
+  %105 = load i32, ptr %12, align 4, !tbaa !92
   %106 = or i32 %105, %.sroa.0.0.copyload
-  store i32 %106, ptr %20, align 4, !tbaa !92
+  store i32 %106, ptr %12, align 4, !tbaa !92
   %107 = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !93
   %108 = xor i32 %.sroa.0.0.copyload, -1
   %109 = and i32 %107, %108
   %110 = or i32 %109, %104
   store i32 %110, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !93
-  %111 = icmp sgt i64 %22, -2
+  %111 = icmp sgt i64 %14, -2
   br i1 %111, label %112, label %113
 
 112:                                              ; preds = %96
-  store i64 %22, ptr %21, align 8, !tbaa !60
+  store i64 %14, ptr %13, align 8, !tbaa !60
   br label %113
 
 113:                                              ; preds = %112, %96
-  %.not101 = icmp eq ptr %24, null
+  %.not101 = icmp eq ptr %16, null
   br i1 %.not101, label %115, label %114
 
 114:                                              ; preds = %113
-  store ptr %24, ptr %23, align 8, !tbaa !167
+  store ptr %16, ptr %15, align 8, !tbaa !167
   br label %115
 
 115:                                              ; preds = %114, %113
@@ -3879,7 +3879,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %70, %.critedge.thre
   %117 = call i64 @rb_str_resize(i64 noundef %31, i64 noundef 0) #25
   br label %118
 
-118:                                              ; preds = %12, %115
+118:                                              ; preds = %24, %115
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

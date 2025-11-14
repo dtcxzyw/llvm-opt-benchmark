@@ -305,10 +305,10 @@ define dso_local void @_ZNK21btUniformScalingShape11getAabbSlowERK11btTransformR
   br i1 %exitcond.not, label %39, label %60, !llvm.loop !22
 
 76:                                               ; preds = %105
-  %77 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %79 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %80 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %81 = load ptr, ptr %0, align 8, !tbaa !4
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 96
   %83 = load ptr, ptr %82, align 8
@@ -323,9 +323,9 @@ define dso_local void @_ZNK21btUniformScalingShape11getAabbSlowERK11btTransformR
   %92 = call noundef float %91(ptr noundef nonnull align 8 dereferenceable(44) %0)
   %93 = load float, ptr %7, align 4, !tbaa !18
   %94 = fsub float %93, %84
-  %95 = load float, ptr %77, align 4, !tbaa !18
+  %95 = load float, ptr %80, align 4, !tbaa !18
   %96 = fsub float %95, %88
-  %97 = load float, ptr %78, align 4, !tbaa !18
+  %97 = load float, ptr %79, align 4, !tbaa !18
   %98 = fsub float %97, %92
   %.sroa.0.0.vec.insert.i22 = insertelement <2 x float> poison, float %94, i64 0
   %.sroa.0.4.vec.insert.i23 = insertelement <2 x float> %.sroa.0.0.vec.insert.i22, float %96, i64 1
@@ -335,9 +335,9 @@ define dso_local void @_ZNK21btUniformScalingShape11getAabbSlowERK11btTransformR
   store <2 x float> %.sroa.3.12.vec.insert.i24, ptr %.sroa.42.0..sroa_idx, align 4, !tbaa !19
   %99 = load float, ptr %8, align 4, !tbaa !18
   %100 = fadd float %84, %99
-  %101 = load float, ptr %79, align 4, !tbaa !18
+  %101 = load float, ptr %78, align 4, !tbaa !18
   %102 = fadd float %88, %101
-  %103 = load float, ptr %80, align 4, !tbaa !18
+  %103 = load float, ptr %77, align 4, !tbaa !18
   %104 = fadd float %92, %103
   %.sroa.0.0.vec.insert.i27 = insertelement <2 x float> poison, float %100, i64 0
   %.sroa.0.4.vec.insert.i28 = insertelement <2 x float> %.sroa.0.0.vec.insert.i27, float %102, i64 1

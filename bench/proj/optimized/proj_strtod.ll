@@ -527,17 +527,17 @@ thread-pre-split:                                 ; preds = %77
 165:                                              ; preds = %163
   %166 = tail call i32 @llvm.abs.i32(i32 %.1173, i1 true)
   %167 = icmp samesign ult i32 %166, 20
-  br i1 %167, label %.preheader371, label %175
+  br i1 %167, label %.preheader496, label %175
 
-.preheader371:                                    ; preds = %165, %.preheader371
-  %.0370 = phi i32 [ %168, %.preheader371 ], [ %166, %165 ]
-  %.0157369 = phi double [ %169, %.preheader371 ], [ 1.000000e+00, %165 ]
+.preheader496:                                    ; preds = %165, %.preheader496
+  %.0370 = phi i32 [ %168, %.preheader496 ], [ %166, %165 ]
+  %.0157369 = phi double [ %169, %.preheader496 ], [ 1.000000e+00, %165 ]
   %168 = add nsw i32 %.0370, -1
   %169 = fmul double %.0157369, 1.000000e+01
   %.not222 = icmp eq i32 %168, 0
-  br i1 %.not222, label %170, label %.preheader371, !llvm.loop !24
+  br i1 %.not222, label %170, label %.preheader496, !llvm.loop !24
 
-170:                                              ; preds = %.preheader371
+170:                                              ; preds = %.preheader496
   %171 = icmp slt i32 %.1173, 0
   %172 = fdiv double %.3177, %169
   %173 = fmul double %.3177, %169

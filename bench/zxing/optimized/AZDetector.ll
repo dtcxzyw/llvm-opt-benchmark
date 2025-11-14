@@ -1329,8 +1329,8 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.i.i: ; preds = %486
   store i32 0, ptr %507, align 4, !tbaa !36
   %509 = getelementptr i8, ptr %507, i64 4
   %.idx.i.i.i.i.i.i.i.i.i = add nsw i64 %506, -4
-  %510 = getelementptr i8, ptr %507, i64 %506
   call void @llvm.memset.p0.i64(ptr align 4 %509, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !36
+  %510 = getelementptr i8, ptr %507, i64 %506
   store ptr %510, ptr %354, align 8, !tbaa !104
   br label %513
 

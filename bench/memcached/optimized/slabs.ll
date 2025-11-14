@@ -1269,33 +1269,33 @@ define dso_local void @slabs_finalize_page_move(i32 noundef %0, i32 noundef %1, 
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @slabs_lock) #21
   %5 = zext i32 %0 to i64
   %6 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %5
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !13
-  %9 = add i32 %8, -1
-  store i32 %9, ptr %7, align 4, !tbaa !13
-  %.not26 = icmp eq i32 %9, 0
+  %7 = zext i32 %1 to i64
+  %8 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %10 = load i32, ptr %9, align 4, !tbaa !13
+  %11 = add i32 %10, -1
+  store i32 %11, ptr %9, align 4, !tbaa !13
+  %.not26 = icmp eq i32 %11, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !15
-  %scevgep = getelementptr nuw i8, ptr %11, i64 8
-  %12 = zext i32 %9 to i64
-  %13 = shl nuw nsw i64 %12, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %11, ptr nonnull align 8 %scevgep, i64 %13, i1 false), !tbaa !16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !15
+  %scevgep = getelementptr nuw i8, ptr %13, i64 8
+  %14 = zext i32 %11 to i64
+  %15 = shl nuw nsw i64 %14, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %scevgep, i64 %15, i1 false), !tbaa !16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw %struct.slabclass_t, ptr @slabclass, i64 %14
   %16 = load i32, ptr @power_largest, align 4, !tbaa !17
   %17 = icmp ugt i32 %1, %16
   br i1 %17, label %do_grow_slab_list.exit.thread, label %25
 
 do_grow_slab_list.exit.thread:                    ; preds = %._crit_edge
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !15
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %21 = load i32, ptr %20, align 4, !tbaa !13
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 4, !tbaa !13
@@ -1305,15 +1305,15 @@ do_grow_slab_list.exit.thread:                    ; preds = %._crit_edge
   br label %43
 
 25:                                               ; preds = %._crit_edge
-  %26 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !13
-  %28 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %29 = load i32, ptr %28, align 8, !tbaa !14
   %30 = icmp eq i32 %27, %29
   br i1 %30, label %31, label %.do_grow_slab_list.exit_crit_edge
 
 .do_grow_slab_list.exit_crit_edge:                ; preds = %25
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !15
   br label %do_grow_slab_list.exit
 
@@ -1322,7 +1322,7 @@ do_grow_slab_list.exit.thread:                    ; preds = %._crit_edge
   %32 = shl i32 %27, 1
   %spec.select.i = select i1 %.not.i, i32 16, i32 %32
   %33 = zext i32 %spec.select.i to i64
-  %34 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !15
   %36 = shl nuw nsw i64 %33, 3
   %37 = tail call ptr @realloc(ptr noundef %35, i64 noundef %36) #20
@@ -1348,7 +1348,7 @@ do_grow_slab_list.exit:                           ; preds = %.do_grow_slab_list.
   %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 124), align 4, !tbaa !37
   %45 = sext i32 %44 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %45, i1 false)
-  %46 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !38
   %.not.i20 = icmp eq i32 %47, 0
   br i1 %.not.i20, label %split_slab_page_into_freelist.exit, label %.lr.ph.i
@@ -1357,7 +1357,7 @@ do_grow_slab_list.exit:                           ; preds = %.do_grow_slab_list.
   %.09.i = phi i32 [ %51, %.lr.ph.i ], [ 0, %43 ]
   %.078.i = phi ptr [ %50, %.lr.ph.i ], [ %2, %43 ]
   tail call fastcc void @do_slabs_free(ptr noundef %.078.i, i32 noundef %1)
-  %48 = load i32, ptr %15, align 8, !tbaa !4
+  %48 = load i32, ptr %8, align 8, !tbaa !4
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %.078.i, i64 %49
   %51 = add nuw nsw i32 %.09.i, 1

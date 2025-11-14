@@ -509,44 +509,44 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
 
 .preheader1966.us:                                ; preds = %189, %._crit_edge2079.us
   %indvars.iv2444 = phi i64 [ %indvars.iv.next2445, %._crit_edge2079.us ], [ -8, %189 ]
-  %199 = add nsw i64 %indvars.iv2444, 128
-  %200 = trunc nsw i64 %199 to i32
-  %201 = tail call i32 @llvm.smin.i32(i32 %200, i32 %149)
-  %202 = trunc nsw i64 %indvars.iv2444 to i32
-  %203 = sub nsw i32 %201, %202
-  %204 = icmp sgt i64 %indvars.iv2444, -1
-  %205 = select i1 %204, i32 0, i32 8
-  %206 = icmp sgt i64 %199, %78
-  %207 = trunc i64 %indvars.iv2444 to i32
-  %208 = sub i32 %45, %207
-  %209 = select i1 %206, i32 %208, i32 %203
-  %210 = icmp slt i32 %205, %209
+  %199 = trunc i64 %indvars.iv2444 to i32
+  %200 = add i32 %199, 8
+  %201 = sdiv i32 %200, 112
+  %202 = add nsw i32 %201, 1
+  %203 = add nsw i64 %indvars.iv2444, 128
+  %204 = trunc nsw i64 %203 to i32
+  %205 = tail call i32 @llvm.smin.i32(i32 %204, i32 %149)
+  %206 = trunc nsw i64 %indvars.iv2444 to i32
+  %207 = sub nsw i32 %205, %206
+  %208 = icmp sgt i64 %indvars.iv2444, -1
+  %209 = select i1 %208, i32 0, i32 8
+  %210 = icmp sgt i64 %203, %78
   %211 = trunc i64 %indvars.iv2444 to i32
-  %212 = add i32 %211, 8
-  %213 = sdiv i32 %212, 112
-  %214 = add nsw i32 %213, 1
-  %215 = icmp slt i32 %209, %203
-  %216 = sub nsw i32 %203, %209
+  %212 = sub i32 %45, %211
+  %213 = select i1 %210, i32 %212, i32 %207
+  %214 = icmp slt i32 %209, %213
+  %215 = icmp slt i32 %213, %207
+  %216 = sub nsw i32 %207, %213
   %217 = tail call i32 @llvm.smin.i32(i32 %216, i32 8)
   %218 = icmp sgt i32 %216, 0
-  %219 = icmp sge i32 %205, %209
+  %219 = icmp sge i32 %209, %213
   %.not1793.us = xor i1 %215, true
   %220 = icmp slt i32 %216, 1
-  %221 = add nsw i32 %203, -3
-  %222 = icmp sgt i32 %203, 6
-  %223 = add nsw i32 %203, -4
-  %224 = icmp sgt i32 %203, 8
-  %225 = add nsw i32 %203, -8
-  %226 = icmp sgt i32 %203, 16
-  %227 = mul nsw i32 %214, %135
-  %228 = zext nneg i32 %205 to i64
+  %221 = add nsw i32 %207, -3
+  %222 = icmp sgt i32 %207, 6
+  %223 = add nsw i32 %207, -4
+  %224 = icmp sgt i32 %207, 8
+  %225 = add nsw i32 %207, -8
+  %226 = icmp sgt i32 %207, 16
+  %227 = mul nsw i32 %202, %135
+  %228 = zext nneg i32 %209 to i64
   %229 = sext i32 %217 to i64
-  %230 = sext i32 %209 to i64
+  %230 = sext i32 %213 to i64
   %231 = sext i32 %221 to i64
-  %wide.trip.count2327 = zext nneg i32 %209 to i64
+  %wide.trip.count2327 = zext nneg i32 %213 to i64
   %brmerge2275.not = select i1 %215, i1 %218, i1 false
-  %wide.trip.count2354 = zext nneg i32 %209 to i64
-  %wide.trip.count2362 = zext nneg i32 %209 to i64
+  %wide.trip.count2354 = zext nneg i32 %213 to i64
+  %wide.trip.count2362 = zext nneg i32 %213 to i64
   %invariant.op = add i32 %227, 1
   br label %232
 
@@ -556,24 +556,24 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   %smax = tail call i32 @llvm.smax.i32(i32 %indvars.iv2403, i32 0)
   %233 = zext nneg i32 %smax to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(393216) %190, i8 0, i64 393216, i1 false)
-  %234 = add nsw i64 %indvars.iv2441, 128
-  %235 = trunc nsw i64 %234 to i32
-  %236 = tail call i32 @llvm.smin.i32(i32 %235, i32 %150)
-  %237 = trunc nsw i64 %indvars.iv2441 to i32
-  %238 = sub nsw i32 %236, %237
-  %239 = icmp slt i64 %indvars.iv2441, 0
-  %240 = select i1 %239, i32 8, i32 0
-  %241 = icmp sgt i64 %234, %46
-  %242 = trunc i64 %indvars.iv2441 to i32
-  %243 = sub i32 %43, %242
-  %244 = select i1 %241, i32 %243, i32 %238
-  br i1 %210, label %.lr.ph1997.us, label %._crit_edge1998.us
+  %234 = trunc i64 %indvars.iv2441 to i32
+  %235 = add i32 %234, 8
+  %236 = sdiv i32 %235, 112
+  %237 = add nsw i64 %indvars.iv2441, 128
+  %238 = trunc nsw i64 %237 to i32
+  %239 = tail call i32 @llvm.smin.i32(i32 %238, i32 %150)
+  %240 = trunc nsw i64 %indvars.iv2441 to i32
+  %241 = sub nsw i32 %239, %240
+  %242 = icmp slt i64 %indvars.iv2441, 0
+  %243 = select i1 %242, i32 8, i32 0
+  %244 = icmp sgt i64 %237, %46
+  %245 = trunc i64 %indvars.iv2441 to i32
+  %246 = sub i32 %43, %245
+  %247 = select i1 %244, i32 %246, i32 %241
+  br i1 %214, label %.lr.ph1997.us, label %._crit_edge1998.us
 
 ._crit_edge1998.us:                               ; preds = %._crit_edge1994.us, %232
-  %245 = trunc i64 %indvars.iv2441 to i32
-  %246 = add i32 %245, 8
-  %247 = sdiv i32 %246, 112
-  br i1 %204, label %.loopexit1957.us, label %.preheader1956.us
+  br i1 %208, label %.loopexit1957.us, label %.preheader1956.us
 
 ._crit_edge2001.us:                               ; preds = %248, %.preheader1916.us
   %indvars.iv.next2336 = add nuw nsw i64 %indvars.iv2335, 1
@@ -608,11 +608,11 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br i1 %brmerge2275.not, label %.preheader1915.lr.ph.us, label %.loopexit1955.us
 
 .loopexit1955.us:                                 ; preds = %._crit_edge2005.us, %.loopexit1957.us
-  %brmerge2272.not = select i1 %239, i1 %210, i1 false
+  %brmerge2272.not = select i1 %242, i1 %214, i1 false
   br i1 %brmerge2272.not, label %.preheader1914.us, label %.loopexit1953.us
 
 .loopexit1953.us:                                 ; preds = %752, %.loopexit1955.us
-  %264 = icmp sge i32 %244, %238
+  %264 = icmp sge i32 %247, %241
   %brmerge2269 = select i1 %264, i1 true, i1 %219
   br i1 %brmerge2269, label %.loopexit1951.us, label %.preheader1913.lr.ph.us
 
@@ -645,7 +645,7 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br i1 %282, label %265, label %._crit_edge2011.us
 
 .loopexit1951.us:                                 ; preds = %._crit_edge2011.us, %.loopexit1953.us
-  %283 = and i32 %237, %202
+  %283 = and i32 %240, %206
   %or.cond7.not.us = icmp sgt i32 %283, -1
   br i1 %or.cond7.not.us, label %.loopexit1949.us, label %.preheader1912.us
 
@@ -711,7 +711,7 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br i1 %319, label %302, label %._crit_edge2017.us
 
 .loopexit1947.us:                                 ; preds = %._crit_edge2017.us, %.loopexit1949.us
-  %brmerge1797.us = or i1 %204, %264
+  %brmerge1797.us = or i1 %208, %264
   br i1 %brmerge1797.us, label %.loopexit1945.us, label %.preheader1944.us
 
 ._crit_edge2021.us:                               ; preds = %320
@@ -744,7 +744,7 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br i1 %337, label %320, label %._crit_edge2021.us
 
 .loopexit1945.us:                                 ; preds = %._crit_edge2021.us, %.loopexit1947.us
-  %or.cond9.us = and i1 %215, %239
+  %or.cond9.us = and i1 %215, %242
   %brmerge.not = select i1 %or.cond9.us, i1 %218, i1 false
   br i1 %brmerge.not, label %.preheader1909.us, label %.loopexit1943.us
 
@@ -1109,21 +1109,21 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   %indvars.iv2407 = phi i32 [ %885, %.lr.ph2036.us ], [ %indvars.iv.next2408, %.loopexit1908.us ]
   %indvars.iv2392 = phi i32 [ 387, %.lr.ph2036.us ], [ %indvars.iv.next2393, %.loopexit1908.us ]
   %633 = sext i32 %indvars.iv2407 to i64
+  %634 = add nsw i64 %indvars.iv2414, %indvars.iv2444
   %indvars.iv2414.tr = trunc i64 %indvars.iv2414 to i32
-  %634 = shl i32 %indvars.iv2414.tr, 1
-  %635 = and i32 %634, 14
-  %.tr.i1824.us = shl nuw nsw i32 %635, 1
-  %636 = or disjoint i32 %.tr.i1824.us, 2
-  %637 = lshr i32 %32, %636
-  %638 = and i32 %637, 1
-  %639 = add nuw nsw i32 %638, 3
-  %640 = icmp slt i32 %639, %876
-  br i1 %640, label %.lr.ph2028.us, label %._crit_edge2029.us
+  %635 = shl i32 %indvars.iv2414.tr, 1
+  %636 = and i32 %635, 14
+  %.tr.i1824.us = shl nuw nsw i32 %636, 1
+  %637 = or disjoint i32 %.tr.i1824.us, 2
+  %638 = lshr i32 %32, %637
+  %639 = and i32 %638, 1
+  %640 = add nuw nsw i32 %639, 3
+  %641 = icmp slt i32 %640, %876
+  br i1 %641, label %.lr.ph2028.us, label %._crit_edge2029.us
 
 ._crit_edge2029.us:                               ; preds = %649, %632
-  %641 = add nsw i64 %indvars.iv2414, %indvars.iv2444
-  %642 = icmp slt i64 %641, 0
-  %643 = icmp sge i64 %641, %78
+  %642 = icmp slt i64 %634, 0
+  %643 = icmp sge i64 %634, %78
   %or.cond1798.us.not2828 = or i1 %642, %643
   %brmerge2820 = select i1 %or.cond1798.us.not2828, i1 true, i1 %882
   br i1 %brmerge2820, label %.loopexit1908.us, label %.lr.ph2033.us
@@ -1149,7 +1149,7 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
 
 649:                                              ; preds = %.lr.ph2028.us, %649
   %indvars.iv2394 = phi i64 [ %874, %.lr.ph2028.us ], [ %indvars.iv.next2395, %649 ]
-  %.016632026.us = phi i32 [ %639, %.lr.ph2028.us ], [ %732, %649 ]
+  %.016632026.us = phi i32 [ %640, %.lr.ph2028.us ], [ %732, %649 ]
   %650 = getelementptr inbounds nuw float, ptr %191, i64 %indvars.iv2394
   %651 = getelementptr inbounds nuw i8, ptr %650, i64 512
   %652 = load float, ptr %651, align 4, !tbaa !56
@@ -1399,7 +1399,7 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br i1 %821, label %.lr.ph2000.us, label %._crit_edge2001.us
 
 .preheader1938.us:                                ; preds = %378, %.preheader1940.us.thread, %.preheader1940.us
-  %.reass = add i32 %247, %invariant.op
+  %.reass = add i32 %236, %invariant.op
   %814 = sext i32 %.reass to i64
   %815 = getelementptr inbounds [2 x [2 x float]], ptr %143, i64 %814
   %816 = getelementptr inbounds float, ptr %140, i64 %814
@@ -1417,16 +1417,16 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br label %.preheader1938.us
 
 .preheader1944.us:                                ; preds = %.loopexit1947.us
-  %817 = sub nsw i32 %238, %244
+  %817 = sub nsw i32 %241, %247
   %818 = tail call i32 @llvm.smin.i32(i32 %817, i32 8)
   %819 = zext nneg i32 %818 to i64
-  %820 = sext i32 %244 to i64
+  %820 = sext i32 %247 to i64
   br label %.lr.ph2020.us
 
 .preheader1956.us:                                ; preds = %._crit_edge1998.us
-  %821 = icmp slt i32 %240, %244
-  %822 = zext nneg i32 %240 to i64
-  %wide.trip.count2333 = zext nneg i32 %244 to i64
+  %821 = icmp slt i32 %243, %247
+  %822 = zext nneg i32 %243 to i64
+  %wide.trip.count2333 = zext nneg i32 %247 to i64
   br label %.preheader1916.us
 
 .lr.ph1993.us:                                    ; preds = %783
@@ -1438,9 +1438,9 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br label %790
 
 .lr.ph1997.us:                                    ; preds = %232
-  %826 = icmp slt i32 %240, %244
-  %827 = zext nneg i32 %240 to i64
-  %wide.trip.count = zext nneg i32 %244 to i64
+  %826 = icmp slt i32 %243, %247
+  %827 = zext nneg i32 %243 to i64
+  %wide.trip.count = zext nneg i32 %247 to i64
   %invariant.gep2786 = getelementptr float, ptr %61, i64 %indvars.iv2441
   br label %783
 
@@ -1463,9 +1463,9 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br label %769
 
 .preheader1915.lr.ph.us:                          ; preds = %.loopexit1957.us
-  %837 = icmp slt i32 %240, %244
-  %838 = zext nneg i32 %240 to i64
-  %wide.trip.count2342 = zext nneg i32 %244 to i64
+  %837 = icmp slt i32 %243, %247
+  %838 = zext nneg i32 %243 to i64
+  %wide.trip.count2342 = zext nneg i32 %247 to i64
   %839 = getelementptr float, ptr %61, i64 %indvars.iv2441
   br label %.preheader1915.us
 
@@ -1482,10 +1482,10 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br label %265
 
 .preheader1913.lr.ph.us:                          ; preds = %.loopexit1953.us
-  %846 = sub nsw i32 %238, %244
+  %846 = sub nsw i32 %241, %247
   %847 = tail call i32 @llvm.smin.i32(i32 %846, i32 8)
   %848 = zext nneg i32 %847 to i64
-  %849 = sext i32 %244 to i64
+  %849 = sext i32 %247 to i64
   br label %.lr.ph2010.us
 
 .lr.ph2016.us:                                    ; preds = %._crit_edge2017.us, %.preheader1911.lr.ph.us
@@ -1501,10 +1501,10 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br label %302
 
 .preheader1911.lr.ph.us:                          ; preds = %.loopexit1949.us
-  %856 = sub nsw i32 %238, %244
+  %856 = sub nsw i32 %241, %247
   %857 = tail call i32 @llvm.smin.i32(i32 %856, i32 8)
   %858 = zext nneg i32 %857 to i64
-  %859 = sext i32 %244 to i64
+  %859 = sext i32 %247 to i64
   br label %.lr.ph2016.us
 
 .lr.ph2020.us:                                    ; preds = %._crit_edge2021.us, %.preheader1944.us
@@ -1519,35 +1519,35 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br label %320
 
 .lr.ph2028.us:                                    ; preds = %632
-  %865 = and i32 %639, 1
-  %866 = or disjoint i32 %865, %635
+  %865 = and i32 %640, 1
+  %866 = or disjoint i32 %865, %636
   %867 = shl nuw nsw i32 %866, 1
   %868 = lshr i32 %32, %867
   %869 = and i32 %868, 3
   %870 = zext nneg i32 %869 to i64
   %871 = getelementptr inbounds nuw ptr, ptr %23, i64 %870
   %872 = load ptr, ptr %871, align 8, !tbaa !57
-  %873 = add i32 %indvars.iv2392, %638
+  %873 = add i32 %indvars.iv2392, %639
   %874 = zext i32 %873 to i64
   br label %649
 
 .lr.ph2033.us:                                    ; preds = %._crit_edge2029.us
-  %875 = mul nsw i64 %641, %46
+  %875 = mul nsw i64 %634, %46
   %invariant.gep = getelementptr float, ptr %107, i64 %875
   br label %645
 
 .lr.ph2036.us:                                    ; preds = %.loopexit1943.us
-  %876 = add nsw i32 %238, -3
+  %876 = add nsw i32 %241, -3
   %877 = or disjoint i64 %indvars.iv2441, 3
   %878 = trunc nsw i64 %877 to i32
   %879 = tail call i32 @llvm.smax.i32(i32 %878, i32 0)
   %880 = trunc i64 %877 to i32
-  %881 = add nsw i32 %236, -3
+  %881 = add nsw i32 %239, -3
   %..us = tail call i32 @llvm.smin.i32(i32 %881, i32 %43)
   %882 = icmp sge i32 %879, %..us
   %883 = sext i32 %..us to i64
   %884 = sub i32 387, %880
-  %885 = select i1 %239, i32 %884, i32 387
+  %885 = select i1 %242, i32 %884, i32 387
   br label %632
 
 .lr.ph2040.us:                                    ; preds = %502
@@ -1563,7 +1563,7 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br label %512
 
 .lr.ph2043.us:                                    ; preds = %.preheader1941.us
-  %895 = add nsw i32 %238, -4
+  %895 = add nsw i32 %241, -4
   br label %502
 
 .lr.ph2050.us:                                    ; preds = %370
@@ -1602,7 +1602,7 @@ dt_calloc_align_float.exit1813:                   ; preds = %115, %141
   br label %378
 
 .lr.ph2064.us:                                    ; preds = %.preheader1940.us
-  %913 = add nsw i32 %238, -8
+  %913 = add nsw i32 %241, -8
   br label %370
 
 ._crit_edge2079.us:                               ; preds = %338
@@ -2310,43 +2310,43 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br i1 %148, label %._crit_edge2222, label %.lr.ph2221
 
 .lr.ph2221:                                       ; preds = %.preheader1958
-  %1244 = add nsw i64 %indvars.iv2654, 128
-  %1245 = trunc nsw i64 %1244 to i32
-  %1246 = tail call i32 @llvm.smin.i32(i32 %1245, i32 %149)
-  %1247 = trunc nsw i64 %indvars.iv2654 to i32
-  %1248 = sub nsw i32 %1246, %1247
-  %1249 = icmp sgt i64 %indvars.iv2654, -1
-  %1250 = select i1 %1249, i32 0, i32 8
-  %1251 = icmp sgt i64 %1244, %78
-  %1252 = trunc i64 %indvars.iv2654 to i32
-  %1253 = sub i32 %45, %1252
-  %1254 = select i1 %1251, i32 %1253, i32 %1248
-  %1255 = icmp slt i32 %1250, %1254
+  %1244 = trunc i64 %indvars.iv2654 to i32
+  %1245 = add i32 %1244, 8
+  %1246 = sdiv i32 %1245, 112
+  %1247 = add nsw i32 %1246, 1
+  %1248 = add nsw i64 %indvars.iv2654, 128
+  %1249 = trunc nsw i64 %1248 to i32
+  %1250 = tail call i32 @llvm.smin.i32(i32 %1249, i32 %149)
+  %1251 = trunc nsw i64 %indvars.iv2654 to i32
+  %1252 = sub nsw i32 %1250, %1251
+  %1253 = icmp sgt i64 %indvars.iv2654, -1
+  %1254 = select i1 %1253, i32 0, i32 8
+  %1255 = icmp sgt i64 %1248, %78
   %1256 = trunc i64 %indvars.iv2654 to i32
-  %1257 = add i32 %1256, 8
-  %1258 = sdiv i32 %1257, 112
-  %1259 = add nsw i32 %1258, 1
-  %1260 = icmp slt i32 %1254, %1248
-  %1261 = sub nsw i32 %1248, %1254
+  %1257 = sub i32 %45, %1256
+  %1258 = select i1 %1255, i32 %1257, i32 %1252
+  %1259 = icmp slt i32 %1254, %1258
+  %1260 = icmp slt i32 %1258, %1252
+  %1261 = sub nsw i32 %1252, %1258
   %1262 = tail call i32 @llvm.smin.i32(i32 %1261, i32 8)
   %1263 = icmp sgt i32 %1261, 0
-  %1264 = icmp sge i32 %1250, %1254
+  %1264 = icmp sge i32 %1254, %1258
   %.not1799 = xor i1 %1260, true
   %1265 = icmp slt i32 %1261, 1
-  %1266 = sitofp i32 %1259 to float
-  %1267 = add nsw i32 %1248, -4
-  %1268 = icmp sgt i32 %1248, 8
-  %1269 = add nsw i32 %1248, -8
-  %1270 = icmp sgt i32 %1248, 16
-  %1271 = zext nneg i32 %1250 to i64
-  %1272 = sext i32 %1254 to i64
+  %1266 = sitofp i32 %1247 to float
+  %1267 = add nsw i32 %1252, -4
+  %1268 = icmp sgt i32 %1252, 8
+  %1269 = add nsw i32 %1252, -8
+  %1270 = icmp sgt i32 %1252, 16
+  %1271 = zext nneg i32 %1254 to i64
+  %1272 = sext i32 %1258 to i64
   %1273 = sext i32 %1262 to i64
   %1274 = sext i32 %1267 to i64
   %1275 = sext i32 %1269 to i64
-  %wide.trip.count2551 = zext nneg i32 %1254 to i64
+  %wide.trip.count2551 = zext nneg i32 %1258 to i64
   %brmerge2278.not = select i1 %1260, i1 %1263, i1 false
-  %wide.trip.count2579 = zext nneg i32 %1254 to i64
-  %wide.trip.count2587 = zext nneg i32 %1254 to i64
+  %wide.trip.count2579 = zext nneg i32 %1258 to i64
+  %wide.trip.count2587 = zext nneg i32 %1258 to i64
   br label %1277
 
 ._crit_edge2222:                                  ; preds = %._crit_edge2219, %.preheader1958
@@ -2358,36 +2358,36 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   %indvars.iv2651 = phi i64 [ -8, %.lr.ph2221 ], [ %indvars.iv.next2652, %._crit_edge2219 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(393216) %190, i8 0, i64 393216, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %1278 = add nsw i64 %indvars.iv2651, 128
-  %1279 = trunc nsw i64 %1278 to i32
-  %1280 = tail call i32 @llvm.smin.i32(i32 %1279, i32 %150)
-  %1281 = trunc nsw i64 %indvars.iv2651 to i32
-  %1282 = sub nsw i32 %1280, %1281
-  %1283 = icmp slt i64 %indvars.iv2651, 0
-  %1284 = select i1 %1283, i32 8, i32 0
-  %1285 = icmp sgt i64 %1278, %46
-  %1286 = trunc i64 %indvars.iv2651 to i32
-  %1287 = sub i32 %43, %1286
-  %1288 = select i1 %1285, i32 %1287, i32 %1282
-  br i1 %1255, label %.lr.ph2126, label %._crit_edge2127
+  %1278 = trunc i64 %indvars.iv2651 to i32
+  %1279 = add i32 %1278, 8
+  %1280 = sdiv i32 %1279, 112
+  %1281 = add nsw i32 %1280, 1
+  %1282 = add nsw i64 %indvars.iv2651, 128
+  %1283 = trunc nsw i64 %1282 to i32
+  %1284 = tail call i32 @llvm.smin.i32(i32 %1283, i32 %150)
+  %1285 = trunc nsw i64 %indvars.iv2651 to i32
+  %1286 = sub nsw i32 %1284, %1285
+  %1287 = icmp slt i64 %indvars.iv2651, 0
+  %1288 = select i1 %1287, i32 8, i32 0
+  %1289 = icmp sgt i64 %1282, %46
+  %1290 = trunc i64 %indvars.iv2651 to i32
+  %1291 = sub i32 %43, %1290
+  %1292 = select i1 %1289, i32 %1291, i32 %1286
+  br i1 %1259, label %.lr.ph2126, label %._crit_edge2127
 
 .lr.ph2126:                                       ; preds = %1277
-  %1289 = icmp slt i32 %1284, %1288
-  %1290 = zext nneg i32 %1284 to i64
-  %wide.trip.count2546 = zext nneg i32 %1288 to i64
+  %1293 = icmp slt i32 %1288, %1292
+  %1294 = zext nneg i32 %1288 to i64
+  %wide.trip.count2546 = zext nneg i32 %1292 to i64
   br label %1297
 
 ._crit_edge2127:                                  ; preds = %._crit_edge2123, %1277
-  %1291 = trunc i64 %indvars.iv2651 to i32
-  %1292 = add i32 %1291, 8
-  %1293 = sdiv i32 %1292, 112
-  %1294 = add nsw i32 %1293, 1
-  br i1 %1249, label %.loopexit1934, label %.preheader1933
+  br i1 %1253, label %.loopexit1934, label %.preheader1933
 
 .preheader1933:                                   ; preds = %._crit_edge2127
-  %1295 = icmp slt i32 %1284, %1288
-  %1296 = zext nneg i32 %1284 to i64
-  %wide.trip.count2557 = zext nneg i32 %1288 to i64
+  %1295 = icmp slt i32 %1288, %1292
+  %1296 = zext nneg i32 %1288 to i64
+  %wide.trip.count2557 = zext nneg i32 %1292 to i64
   br label %.preheader1904
 
 1297:                                             ; preds = %.lr.ph2126, %._crit_edge2123
@@ -2400,7 +2400,7 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   %1301 = lshr i32 %32, %1300
   %1302 = xor i32 %1301, %1299
   %1303 = and i32 %1302, 3
-  br i1 %1289, label %.lr.ph2122, label %._crit_edge2123
+  br i1 %1293, label %.lr.ph2122, label %._crit_edge2123
 
 .lr.ph2122:                                       ; preds = %1297
   %1304 = and i32 %1299, 3
@@ -2416,7 +2416,7 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br i1 %exitcond2552.not, label %._crit_edge2127, label %1297
 
 1308:                                             ; preds = %.lr.ph2122, %1322
-  %indvars.iv2543 = phi i64 [ %1290, %.lr.ph2122 ], [ %indvars.iv.next2544, %1322 ]
+  %indvars.iv2543 = phi i64 [ %1294, %.lr.ph2122 ], [ %indvars.iv.next2544, %1322 ]
   %.016992119 = phi i32 [ %1304, %.lr.ph2122 ], [ %1323, %1322 ]
   %.reass2802 = add i64 %indvars.iv2543, %invariant.op2801
   %1309 = add nuw nsw i64 %1307, %indvars.iv2543
@@ -2491,9 +2491,9 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br i1 %brmerge2278.not, label %.preheader1903.lr.ph, label %.loopexit1932
 
 .preheader1903.lr.ph:                             ; preds = %.loopexit1934
-  %1345 = icmp slt i32 %1284, %1288
-  %1346 = zext nneg i32 %1284 to i64
-  %wide.trip.count2567 = zext nneg i32 %1288 to i64
+  %1345 = icmp slt i32 %1288, %1292
+  %1346 = zext nneg i32 %1288 to i64
+  %wide.trip.count2567 = zext nneg i32 %1292 to i64
   br label %.preheader1903
 
 .preheader1903:                                   ; preds = %.preheader1903.lr.ph, %._crit_edge2134
@@ -2543,7 +2543,7 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br i1 %exitcond2568.not, label %._crit_edge2134, label %1356
 
 .loopexit1932:                                    ; preds = %._crit_edge2134, %.loopexit1934
-  %brmerge2281.not = select i1 %1283, i1 %1255, i1 false
+  %brmerge2281.not = select i1 %1287, i1 %1259, i1 false
   br i1 %brmerge2281.not, label %.preheader1902, label %.loopexit1930
 
 .preheader1902:                                   ; preds = %.loopexit1932, %1378
@@ -2586,15 +2586,15 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br i1 %exitcond2575.not, label %1378, label %1379
 
 .loopexit1930:                                    ; preds = %1378, %.loopexit1932
-  %1397 = icmp sge i32 %1288, %1282
+  %1397 = icmp sge i32 %1292, %1286
   %brmerge2283 = select i1 %1397, i1 true, i1 %1264
   br i1 %brmerge2283, label %.loopexit1928, label %.preheader1901.lr.ph
 
 .preheader1901.lr.ph:                             ; preds = %.loopexit1930
-  %1398 = sub nsw i32 %1282, %1288
+  %1398 = sub nsw i32 %1286, %1292
   %1399 = tail call i32 @llvm.smin.i32(i32 %1398, i32 8)
   %1400 = zext nneg i32 %1399 to i64
-  %1401 = sext i32 %1288 to i64
+  %1401 = sext i32 %1292 to i64
   br label %.lr.ph2139
 
 .lr.ph2139:                                       ; preds = %._crit_edge2140, %.preheader1901.lr.ph
@@ -2642,7 +2642,7 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br i1 %1429, label %1410, label %._crit_edge2140
 
 .loopexit1928:                                    ; preds = %._crit_edge2140, %.loopexit1930
-  %1430 = and i32 %1281, %1247
+  %1430 = and i32 %1285, %1251
   %or.cond11.not = icmp sgt i32 %1430, -1
   br i1 %or.cond11.not, label %.loopexit1926, label %.preheader1900
 
@@ -2695,10 +2695,10 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br i1 %brmerge2285, label %.loopexit1924, label %.preheader1899.lr.ph
 
 .preheader1899.lr.ph:                             ; preds = %.loopexit1926
-  %1457 = sub nsw i32 %1282, %1288
+  %1457 = sub nsw i32 %1286, %1292
   %1458 = tail call i32 @llvm.smin.i32(i32 %1457, i32 8)
   %1459 = zext nneg i32 %1458 to i64
-  %1460 = sext i32 %1288 to i64
+  %1460 = sext i32 %1292 to i64
   br label %.lr.ph2145
 
 .lr.ph2145:                                       ; preds = %._crit_edge2146, %.preheader1899.lr.ph
@@ -2746,14 +2746,14 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br i1 %1489, label %1470, label %._crit_edge2146
 
 .loopexit1924:                                    ; preds = %._crit_edge2146, %.loopexit1926
-  %brmerge1804 = or i1 %1249, %1397
+  %brmerge1804 = or i1 %1253, %1397
   br i1 %brmerge1804, label %.loopexit1922, label %.preheader1921
 
 .preheader1921:                                   ; preds = %.loopexit1924
-  %1490 = sub nsw i32 %1282, %1288
+  %1490 = sub nsw i32 %1286, %1292
   %1491 = tail call i32 @llvm.smin.i32(i32 %1490, i32 8)
   %1492 = zext nneg i32 %1491 to i64
-  %1493 = sext i32 %1288 to i64
+  %1493 = sext i32 %1292 to i64
   br label %.lr.ph2149
 
 .lr.ph2149:                                       ; preds = %._crit_edge2150, %.preheader1921
@@ -2801,7 +2801,7 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br i1 %1520, label %1501, label %._crit_edge2150
 
 .loopexit1922:                                    ; preds = %._crit_edge2150, %.loopexit1924
-  %or.cond13 = and i1 %1260, %1283
+  %or.cond13 = and i1 %1260, %1287
   %brmerge2287.not = select i1 %or.cond13, i1 %1263, i1 false
   br i1 %brmerge2287.not, label %.preheader1897, label %.preheader1896.lr.ph
 
@@ -2849,7 +2849,7 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br i1 %exitcond2613.not, label %1527, label %1529
 
 .preheader1896.lr.ph:                             ; preds = %1527, %.loopexit1922
-  %1548 = sitofp i32 %1294 to float
+  %1548 = sitofp i32 %1281 to float
   br label %.preheader1896
 
 .preheader1896:                                   ; preds = %.preheader1896.lr.ph, %._crit_edge2164
@@ -2933,7 +2933,7 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br i1 %1268, label %.lr.ph2201, label %._crit_edge2202
 
 .lr.ph2201:                                       ; preds = %.preheader1918
-  %1603 = add nsw i32 %1282, -4
+  %1603 = add nsw i32 %1286, -4
   %1604 = sext i32 %1603 to i64
   br label %1648
 
@@ -3017,7 +3017,7 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br i1 %1270, label %.lr.ph2210, label %._crit_edge2219
 
 .lr.ph2210:                                       ; preds = %._crit_edge2202
-  %1647 = add nsw i32 %1282, -8
+  %1647 = add nsw i32 %1286, -8
   br label %1716
 
 1648:                                             ; preds = %.lr.ph2201, %._crit_edge2199
@@ -3112,7 +3112,7 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   br i1 %1713, label %1689, label %._crit_edge2199
 
 .lr.ph2218:                                       ; preds = %._crit_edge2207
-  %1714 = add nsw i32 %1282, -8
+  %1714 = add nsw i32 %1286, -8
   %1715 = sext i32 %1714 to i64
   br label %1842
 
@@ -3298,7 +3298,7 @@ _LinEqSolve.exit:                                 ; preds = %._crit_edge161.i, %
   %1850 = add nsw i64 %indvars.iv2648, %indvars.iv2654
   %1851 = trunc i64 %1850 to i32
   %1852 = mul i32 %43, %1851
-  %1853 = add i32 %1852, %1281
+  %1853 = add i32 %1852, %1285
   %1854 = add i32 %1853, %1848
   %1855 = ashr i32 %1854, 1
   %.tr = trunc i64 %indvars.iv2648 to i32

@@ -509,8 +509,8 @@ define internal range(i32 -2147483648, 1) i32 @rtmp_open(ptr noundef %0, ptr rea
   %143 = getelementptr inbounds nuw i8, ptr %40, i64 248
   %144 = getelementptr inbounds nuw i8, ptr %24, i64 1504
   %145 = getelementptr inbounds nuw i8, ptr %23, i64 1504
-  %146 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %147 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %148 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %149 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %150 = getelementptr inbounds nuw i8, ptr %40, i64 44
@@ -1061,7 +1061,7 @@ rtmp_handshake.exit.thread:                       ; preds = %rtmp_handshake_impr
 
 405:                                              ; preds = %400
   store i32 %399, ptr %20, align 16, !tbaa !24
-  store i32 0, ptr %146, align 4, !tbaa !24
+  store i32 0, ptr %147, align 4, !tbaa !24
   %406 = load ptr, ptr %111, align 8, !tbaa !46
   %407 = call i32 @ffurl_write2(ptr noundef %406, ptr noundef nonnull %20, i32 noundef 1536) #11
   %.not.i40.i = icmp eq i32 %407, 1536
@@ -1073,7 +1073,7 @@ rtmp_handshake.exit.thread:                       ; preds = %rtmp_handshake_impr
 
 409:                                              ; preds = %405
   store i32 %399, ptr %19, align 16, !tbaa !24
-  store i32 0, ptr %147, align 4, !tbaa !24
+  store i32 0, ptr %146, align 4, !tbaa !24
   %410 = load ptr, ptr %111, align 8, !tbaa !46
   %411 = call i32 @ffurl_write2(ptr noundef %410, ptr noundef nonnull %19, i32 noundef 1536) #11
   %.not.i42.i = icmp eq i32 %411, 1536

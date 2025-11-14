@@ -24224,8 +24224,8 @@ _ZNSt6vectorIlSaIlEE6resizeEmRKl.exit:            ; preds = %824, %_ZSt22__unini
   br i1 %.not49.i437, label %858, label %_ZSt22__uninitialized_move_aIPlS0_SaIlEET0_T_S3_S2_RT1_.exit51.thread.i448
 
 _ZSt22__uninitialized_move_aIPlS0_SaIlEET0_T_S3_S2_RT1_.exit51.thread.i448: ; preds = %852
-  %857 = getelementptr inbounds nuw i8, ptr %845, i64 %851
   call void @llvm.memset.p0.i64(ptr align 8 %845, i8 0, i64 %851, i1 false), !tbaa !13
+  %857 = getelementptr inbounds nuw i8, ptr %845, i64 %851
   store ptr %857, ptr %118, align 8, !tbaa !525
   br label %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit264
 

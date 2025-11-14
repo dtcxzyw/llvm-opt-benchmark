@@ -8537,13 +8537,17 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
   %call.val.i.i6.i = load double, ptr %41, align 8
   %cmp.i.i.i7.i = fcmp ogt double %call.val.i.i6.i, %call3.val.i.i5.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 16
-  br i1 %cmp.i.i.i7.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !63
+  br i1 %cmp.i.i.i7.i, label %while.cond3.i.i, label %while.cond10.i.i.preheader, !llvm.loop !63
 
-while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
-  %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond3.i.i ]
+while.cond10.i.i.preheader:                       ; preds = %while.cond3.i.i
+  %42 = getelementptr i8, ptr %__first.sroa.0.1.i.i, i64 8
+  br label %while.cond10.i.i
+
+while.cond10.i.i:                                 ; preds = %while.cond10.i.i.preheader, %while.cond10.i.i
+  %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond10.i.i.preheader ]
   %__last.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -16
-  %42 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
-  %call3.val.i3.i.i = load double, ptr %42, align 8
+  %43 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
+  %call3.val.i3.i.i = load double, ptr %43, align 8
   %cmp.i.i4.i.i = fcmp ogt double %call3.val.i.i5.i, %call3.val.i3.i.i
   br i1 %cmp.i.i4.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !64
 
@@ -8552,16 +8556,15 @@ while.end18.i.i:                                  ; preds = %while.cond10.i.i
   br i1 %cmp.i.i.i7, label %if.end.i.i, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEET_SI_SI_T0_.exit
 
 if.end.i.i:                                       ; preds = %while.end18.i.i
-  %43 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
-  %44 = getelementptr i8, ptr %__first.sroa.0.1.i.i, i64 8
+  %44 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
   %45 = load ptr, ptr %__first.sroa.0.1.i.i, align 8
   %46 = load ptr, ptr %__last.sroa.0.1.i.i, align 8
   store ptr %46, ptr %__first.sroa.0.1.i.i, align 8
   store ptr %45, ptr %__last.sroa.0.1.i.i, align 8
-  %47 = load double, ptr %44, align 8
-  %48 = load double, ptr %43, align 8
-  store double %48, ptr %44, align 8
-  store double %47, ptr %43, align 8
+  %47 = load double, ptr %42, align 8
+  %48 = load double, ptr %44, align 8
+  store double %48, ptr %42, align 8
+  store double %47, ptr %44, align 8
   br label %while.body.i.i6, !llvm.loop !65
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEET_SI_SI_T0_.exit: ; preds = %while.end18.i.i

@@ -4993,31 +4993,31 @@ _ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.us.i: ; preds = %.lr.ph.i5
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i53, %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.loopexit.i
   %.08.i = phi i64 [ %296, %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.loopexit.i ], [ 0, %.lr.ph.i53 ]
-  br label %279
+  %279 = getelementptr inbounds nuw %class.colvarvalue, ptr %262, i64 %.08.i
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
+  %281 = load double, ptr %280, align 8, !tbaa !57
+  br label %282
 
-279:                                              ; preds = %279, %.lr.ph.i.i
-  %.01627.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %288, %279 ]
-  %.01726.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %287, %279 ]
-  %280 = getelementptr inbounds nuw i32, ptr %266, i64 %.01627.i.i
-  %281 = load i32, ptr %280, align 4, !tbaa !154
-  %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds nuw i32, ptr %268, i64 %.01627.i.i
+282:                                              ; preds = %282, %.lr.ph.i.i
+  %.01627.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %291, %282 ]
+  %.01726.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %290, %282 ]
+  %283 = getelementptr inbounds nuw i32, ptr %266, i64 %.01627.i.i
   %284 = load i32, ptr %283, align 4, !tbaa !154
   %285 = sext i32 %284 to i64
-  %286 = mul nsw i64 %285, %282
-  %287 = add i64 %286, %.01726.i.i
-  %288 = add nuw i64 %.01627.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %288, %265
-  br i1 %exitcond.not.i.i, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.loopexit.i, label %279, !llvm.loop !281
+  %286 = getelementptr inbounds nuw i32, ptr %268, i64 %.01627.i.i
+  %287 = load i32, ptr %286, align 4, !tbaa !154
+  %288 = sext i32 %287 to i64
+  %289 = mul nsw i64 %288, %285
+  %290 = add i64 %289, %.01726.i.i
+  %291 = add nuw i64 %.01627.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %291, %265
+  br i1 %exitcond.not.i.i, label %_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.loopexit.i, label %282, !llvm.loop !281
 
-_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.loopexit.i: ; preds = %279
-  %289 = getelementptr inbounds nuw %class.colvarvalue, ptr %262, i64 %.08.i
-  %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
-  %291 = load double, ptr %290, align 8, !tbaa !57
-  %292 = getelementptr double, ptr %269, i64 %287
+_ZNK11colvar_gridIdE7addressERKSt6vectorIiSaIiEE.exit.loopexit.i: ; preds = %282
+  %292 = getelementptr double, ptr %269, i64 %290
   %293 = getelementptr double, ptr %292, i64 %.08.i
   %294 = load double, ptr %293, align 8, !tbaa !59
-  %295 = fadd double %291, %294
+  %295 = fadd double %281, %294
   store double %295, ptr %293, align 8, !tbaa !59
   %296 = add nuw i64 %.08.i, 1
   %exitcond.not.i54 = icmp eq i64 %296, %260
@@ -20856,8 +20856,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !154
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i

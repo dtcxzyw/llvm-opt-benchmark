@@ -25993,33 +25993,33 @@ define internal void @_ZN12_GLOBAL__N_134IntSpan_RemovePrefixAndSuffix_Test8Test
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 80
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %38, ptr %39, align 8, !tbaa !1069, !alias.scope !1064
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %37, i8 0, i64 80, i1 false)
-  store ptr %38, ptr %40, align 8, !tbaa !1070, !alias.scope !1064
+  store ptr %38, ptr %41, align 8, !tbaa !1070, !alias.scope !1064
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %1
-  %.07.i.i = phi i32 [ %41, %.lr.ph.i.i ], [ 1, %1 ]
+  %.07.i.i = phi i32 [ %42, %.lr.ph.i.i ], [ 1, %1 ]
   %.sroa.02.06.i.i.idx = phi i64 [ %.sroa.02.06.i.i.add, %.lr.ph.i.i ], [ 0, %1 ]
   %.sroa.02.06.i.i.ptr = getelementptr inbounds nuw i8, ptr %37, i64 %.sroa.02.06.i.i.idx
   store i32 %.07.i.i, ptr %.sroa.02.06.i.i.ptr, align 4, !tbaa !266, !noalias !1064
-  %41 = add nuw nsw i32 %.07.i.i, 1
+  %42 = add nuw nsw i32 %.07.i.i, 1
   %.sroa.02.06.i.i.add = add nuw nsw i64 %.sroa.02.06.i.i.idx, 4
   %.not.i.i = icmp eq i64 %.sroa.02.06.i.i.add, 80
-  br i1 %.not.i.i, label %42, label %.lr.ph.i.i, !llvm.loop !1058
+  br i1 %.not.i.i, label %43, label %.lr.ph.i.i, !llvm.loop !1058
 
-42:                                               ; preds = %.lr.ph.i.i
-  %43 = getelementptr inbounds nuw i8, ptr %37, i64 4
+43:                                               ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %3)
           to label %_ZN7testing8internal8EqHelper7CompareImiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit unwind label %46
 
-_ZN7testing8internal8EqHelper7CompareImiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %42
+_ZN7testing8internal8EqHelper7CompareImiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %43
   %44 = load i8, ptr %3, align 8, !tbaa !147, !range !156, !noundef !157
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %72, label %48
 
-46:                                               ; preds = %42
+46:                                               ; preds = %43
   %47 = landingpad { ptr, i32 }
           cleanup
   br label %84
@@ -26374,7 +26374,7 @@ _ZN7testing15AssertionResultD2Ev.exit121:         ; preds = %150, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 2, ptr %13, align 4, !tbaa !266
-  %159 = load i32, ptr %43, align 4, !tbaa !266, !noalias !1071
+  %159 = load i32, ptr %40, align 4, !tbaa !266, !noalias !1071
   %160 = icmp eq i32 %159, 2
   br i1 %160, label %161, label %162
 
@@ -26383,7 +26383,7 @@ _ZN7testing15AssertionResultD2Ev.exit121:         ; preds = %150, %_ZNKSt14defau
           to label %_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit unwind label %166
 
 162:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit121
-  invoke void @_ZN7testing8internal18CmpHelperEQFailureIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %12, ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.185, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  invoke void @_ZN7testing8internal18CmpHelperEQFailureIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %12, ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.185, ptr noundef nonnull align 4 dereferenceable(4) %40, ptr noundef nonnull align 4 dereferenceable(4) %13)
           to label %_ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit unwind label %166
 
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit: ; preds = %161, %162
@@ -27171,7 +27171,7 @@ _ZN7testing15AssertionResultD2Ev.exit216:         ; preds = %395, %_ZNKSt14defau
   br i1 %.not.i.i220, label %_ZN12_GLOBAL__N_18MakeRampEii.exit222, label %.lr.ph.i.i217, !llvm.loop !1058
 
 _ZN12_GLOBAL__N_18MakeRampEii.exit222:            ; preds = %.lr.ph.i.i217
-  %409 = load ptr, ptr %40, align 8, !tbaa !1070, !noalias !1089
+  %409 = load ptr, ptr %41, align 8, !tbaa !1070, !noalias !1089
   %410 = load ptr, ptr %2, align 8, !tbaa !1067, !noalias !1089
   %411 = ptrtoint ptr %409 to i64
   %412 = ptrtoint ptr %410 to i64

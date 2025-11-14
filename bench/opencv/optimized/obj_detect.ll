@@ -610,23 +610,23 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit220: ; preds = %218
 
 .noexc221:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit220
   store ptr %220, ptr %26, align 8, !tbaa !37
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 288
-  %222 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %221, ptr %222, align 8, !tbaa !40
+  %221 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %220, i64 288
+  %223 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store ptr %222, ptr %223, align 8, !tbaa !40
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.noexc221
-  %.08.i.i.i.i.i = phi ptr [ %224, %.lr.ph.i.i.i.i.i ], [ %220, %.noexc221 ]
-  %.057.i.i.i.i.i = phi i64 [ %223, %.lr.ph.i.i.i.i.i ], [ 3, %.noexc221 ]
+  %.08.i.i.i.i.i = phi ptr [ %225, %.lr.ph.i.i.i.i.i ], [ %220, %.noexc221 ]
+  %.057.i.i.i.i.i = phi i64 [ %224, %.lr.ph.i.i.i.i.i ], [ 3, %.noexc221 ]
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.08.i.i.i.i.i) #21
-  %223 = add nsw i64 %.057.i.i.i.i.i, -1
-  %224 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i = icmp eq i64 %223, 0
-  br i1 %.not.i.i.i.i.i, label %225, label %.lr.ph.i.i.i.i.i, !llvm.loop !41
+  %224 = add nsw i64 %.057.i.i.i.i.i, -1
+  %225 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
+  %.not.i.i.i.i.i = icmp eq i64 %224, 0
+  br i1 %.not.i.i.i.i.i, label %226, label %.lr.ph.i.i.i.i.i, !llvm.loop !41
 
-225:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %226 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %224, ptr %226, align 8, !tbaa !43
+226:                                              ; preds = %.lr.ph.i.i.i.i.i
+  store ptr %225, ptr %221, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -642,7 +642,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit220: ; preds = %218
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr null, ptr noundef nonnull align 8 dereferenceable(32) %28)
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit unwind label %342
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit: ; preds = %225
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit: ; preds = %226
   %.pre = load ptr, ptr %28, align 8, !tbaa !25
   %232 = icmp eq ptr %.pre, %227
   br i1 %232, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i227
@@ -927,7 +927,7 @@ _ZN2cv9TickMeter5startEv.exit282:                 ; preds = %_ZNSt7__cxx1112basi
   %.sroa.11.2 = add nsw i64 %.sroa.11.1, %317
   %318 = zext i1 %315 to i64
   %.sroa.0436.2 = add nuw nsw i64 %.sroa.0436.1, %318
-  %319 = ptrtoint ptr %224 to i64
+  %319 = ptrtoint ptr %225 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit313
@@ -1006,7 +1006,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit290: ; preds = %32
           cleanup
   br label %661
 
-342:                                              ; preds = %225
+342:                                              ; preds = %226
   %343 = landingpad { ptr, i32 }
           cleanup
   %344 = load ptr, ptr %28, align 8, !tbaa !25
@@ -1897,7 +1897,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %651
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  %.not4.i.i.i.i400 = icmp eq ptr %391, %224
+  %.not4.i.i.i.i400 = icmp eq ptr %391, %225
   br i1 %.not4.i.i.i.i400, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i406, label %.lr.ph.i.i.i.i401
 
 .lr.ph.i.i.i.i401:                                ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %.lr.ph.i.i.i.i401

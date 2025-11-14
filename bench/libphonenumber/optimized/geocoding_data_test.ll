@@ -7891,23 +7891,26 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal10btree_
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %12 = load i8, ptr %11, align 1, !tbaa !40
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %.loopexit.sink.split, label %.lr.ph
+  br i1 %13, label %.loopexit.sink.split, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %10, %.lr.ph
-  %.04964 = phi ptr [ %15, %.lr.ph ], [ %0, %10 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.04964, i64 256
-  %15 = load ptr, ptr %14, align 8, !tbaa !93
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 11
-  %17 = load i8, ptr %16, align 1, !tbaa !40
-  %.not56 = icmp eq i8 %17, 0
+.lr.ph.preheader:                                 ; preds = %10
+  %14 = load ptr, ptr %0, align 8, !tbaa !93
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.04964 = phi ptr [ %16, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %15 = getelementptr inbounds nuw i8, ptr %.04964, i64 256
+  %16 = load ptr, ptr %15, align 8, !tbaa !93
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 11
+  %18 = load i8, ptr %17, align 1, !tbaa !40
+  %.not56 = icmp eq i8 %18, 0
   br i1 %.not56, label %.lr.ph, label %._crit_edge, !llvm.loop !179
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %18 = load ptr, ptr %0, align 8, !tbaa !93
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load i8, ptr %19, align 1, !tbaa !40
   %21 = zext i8 %20 to i32
-  %22 = load ptr, ptr %15, align 8, !tbaa !93
+  %22 = load ptr, ptr %16, align 8, !tbaa !93
   br label %23
 
 23:                                               ; preds = %.backedge, %._crit_edge
@@ -7966,7 +7969,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal10btree_
   %48 = load i8, ptr %47, align 1, !tbaa !40
   %49 = load ptr, ptr %.3, align 8, !tbaa !93
   tail call void @_ZdlPvm(ptr noundef nonnull %.3, i64 noundef 752) #20
-  %50 = icmp eq ptr %49, %18
+  %50 = icmp eq ptr %49, %14
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %.preheader59

@@ -4039,6 +4039,7 @@ _ZNK8uint_set8containsEj.exit:                    ; preds = %_ZNK6vectorIjLb0EjE
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %17
   %.ph = phi ptr [ null, %17 ], [ %20, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.i.ph = phi i32 [ 0, %17 ], [ %23, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
+  %.ph47 = add nuw nsw i32 %19, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -4058,7 +4059,6 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !658
 
 35:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
-  %.ph47 = add nuw nsw i32 %19, 1
   %36 = getelementptr inbounds i8, ptr %31, i64 -4
   store i32 %.ph47, ptr %36, align 4, !tbaa !508
   %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph47

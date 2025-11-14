@@ -482,22 +482,22 @@ PrepareMapToPalette.exit.preheader.i.i:           ; preds = %SearchColorNoIdx.ex
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %140 = load i32, ptr %114, align 8, !tbaa !9
   %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %.preheader.preheader.i.i, label %.loopexit120.i
+  br i1 %141, label %.preheader.i.preheader.i, label %.loopexit120.i
 
-.preheader.preheader.i.i:                         ; preds = %.preheader.lr.ph.i.i
+.preheader.i.preheader.i:                         ; preds = %.preheader.lr.ph.i.i
   %142 = xor i32 %113, -1
   %143 = sext i32 %121 to i64
   %144 = getelementptr inbounds i32, ptr %118, i64 %143
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %PrepareMapToPalette.exit.i.i, %.preheader.preheader.i.i
-  %145 = phi i32 [ %233, %PrepareMapToPalette.exit.i.i ], [ %140, %.preheader.preheader.i.i ]
-  %.05989.i.i = phi ptr [ %.06087.i.i, %PrepareMapToPalette.exit.i.i ], [ %118, %.preheader.preheader.i.i ]
-  %.06087.i.i = phi ptr [ %.05989.i.i, %PrepareMapToPalette.exit.i.i ], [ %144, %.preheader.preheader.i.i ]
-  %.06186.i.i = phi i32 [ %.1.lcssa.i.i, %PrepareMapToPalette.exit.i.i ], [ 0, %.preheader.preheader.i.i ]
-  %.06285.i.i = phi i32 [ %.163.lcssa.i.i, %PrepareMapToPalette.exit.i.i ], [ %142, %.preheader.preheader.i.i ]
-  %.06583.i.i = phi ptr [ %236, %PrepareMapToPalette.exit.i.i ], [ %112, %.preheader.preheader.i.i ]
-  %.06682.i.i = phi i32 [ %237, %PrepareMapToPalette.exit.i.i ], [ 0, %.preheader.preheader.i.i ]
+.preheader.i.i:                                   ; preds = %PrepareMapToPalette.exit.i.i, %.preheader.i.preheader.i
+  %145 = phi i32 [ %233, %PrepareMapToPalette.exit.i.i ], [ %140, %.preheader.i.preheader.i ]
+  %.05989.i.i = phi ptr [ %.06087.i.i, %PrepareMapToPalette.exit.i.i ], [ %118, %.preheader.i.preheader.i ]
+  %.06087.i.i = phi ptr [ %.05989.i.i, %PrepareMapToPalette.exit.i.i ], [ %144, %.preheader.i.preheader.i ]
+  %.06186.i.i = phi i32 [ %.1.lcssa.i.i, %PrepareMapToPalette.exit.i.i ], [ 0, %.preheader.i.preheader.i ]
+  %.06285.i.i = phi i32 [ %.163.lcssa.i.i, %PrepareMapToPalette.exit.i.i ], [ %142, %.preheader.i.preheader.i ]
+  %.06583.i.i = phi ptr [ %236, %PrepareMapToPalette.exit.i.i ], [ %112, %.preheader.i.preheader.i ]
+  %.06682.i.i = phi i32 [ %237, %PrepareMapToPalette.exit.i.i ], [ 0, %.preheader.i.preheader.i ]
   %146 = icmp sgt i32 %145, 0
   br i1 %146, label %.lr.ph.i.i27, label %PrepareMapToPalette.exit.i.i
 

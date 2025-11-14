@@ -357,33 +357,33 @@ define noundef i32 @SizeASN_Items(ptr noundef readonly captures(none) %0, ptr no
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %25 = load i16, ptr %24, align 8, !tbaa !3
   %26 = zext i16 %25 to i32
-  br label %27
+  %27 = getelementptr inbounds nuw %struct.ASNItem, ptr %0, i64 %indvars.iv.next
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !13
+  br label %30
 
-27:                                               ; preds = %27, %23
-  %.014.in.i98 = phi i32 [ 16, %23 ], [ %.014.i100, %27 ]
-  %.0.i99 = phi i32 [ 4, %23 ], [ %30, %27 ]
+30:                                               ; preds = %30, %23
+  %.014.in.i98 = phi i32 [ 16, %23 ], [ %.014.i100, %30 ]
+  %.0.i99 = phi i32 [ 4, %23 ], [ %33, %30 ]
   %.014.i100 = add nsw i32 %.014.in.i98, -8
-  %28 = icmp samesign ugt i32 %.014.in.i98, 8
-  %29 = lshr i32 %26, %.014.i100
-  %.not.i101 = icmp eq i32 %29, 0
-  %or.cond.i102 = select i1 %28, i1 %.not.i101, i1 false
-  %30 = add nsw i32 %.0.i99, -1
-  br i1 %or.cond.i102, label %27, label %31, !llvm.loop !15
+  %31 = icmp samesign ugt i32 %.014.in.i98, 8
+  %32 = lshr i32 %26, %.014.i100
+  %.not.i101 = icmp eq i32 %32, 0
+  %or.cond.i102 = select i1 %31, i1 %.not.i101, i1 false
+  %33 = add nsw i32 %.0.i99, -1
+  br i1 %or.cond.i102, label %30, label %34, !llvm.loop !15
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw %struct.ASNItem, ptr %0, i64 %indvars.iv.next
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  %34 = load i8, ptr %33, align 1, !tbaa !13
-  switch i8 %34, label %SizeASN_Num.exit [
+34:                                               ; preds = %30
+  switch i8 %29, label %SizeASN_Num.exit [
     i8 3, label %35
     i8 2, label %37
   ]
 
-35:                                               ; preds = %31
+35:                                               ; preds = %34
   %36 = add nsw i32 %.0.i99, 1
   br label %SizeASN_Num.exit
 
-37:                                               ; preds = %31
+37:                                               ; preds = %34
   %38 = shl i32 128, %.014.i100
   %39 = and i32 %38, %26
   %.not16.i103 = icmp ne i32 %39, 0
@@ -611,9 +611,9 @@ SizeASNLength.exit114:                            ; preds = %SizeASN_CalcDataLen
   %148 = add i32 %141, %.1120
   br label %SizeASN_Num.exit
 
-SizeASN_Num.exit:                                 ; preds = %37, %35, %31, %19, %18, %14, %144, %147, %58, %SizeASNLength.exit, %11
-  %.2 = phi i32 [ %.085128, %11 ], [ %.085128, %SizeASNLength.exit ], [ %.085128, %58 ], [ %.3, %147 ], [ %.3, %144 ], [ %.085128, %14 ], [ %.085128, %18 ], [ %.085128, %19 ], [ %.085128, %31 ], [ %.085128, %35 ], [ %.085128, %37 ]
-  %.083 = phi i32 [ 0, %11 ], [ %57, %SizeASNLength.exit ], [ %60, %58 ], [ %148, %147 ], [ %141, %144 ], [ 3, %14 ], [ 4, %18 ], [ %spec.select.i, %19 ], [ %.0.i99, %31 ], [ %36, %35 ], [ %spec.select.i104, %37 ]
+SizeASN_Num.exit:                                 ; preds = %37, %35, %34, %19, %18, %14, %144, %147, %58, %SizeASNLength.exit, %11
+  %.2 = phi i32 [ %.085128, %11 ], [ %.085128, %SizeASNLength.exit ], [ %.085128, %58 ], [ %.3, %147 ], [ %.3, %144 ], [ %.085128, %14 ], [ %.085128, %18 ], [ %.085128, %19 ], [ %.085128, %34 ], [ %.085128, %35 ], [ %.085128, %37 ]
+  %.083 = phi i32 [ 0, %11 ], [ %57, %SizeASNLength.exit ], [ %60, %58 ], [ %148, %147 ], [ %141, %144 ], [ 3, %14 ], [ 4, %18 ], [ %spec.select.i, %19 ], [ %.0.i99, %34 ], [ %36, %35 ], [ %spec.select.i104, %37 ]
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %.083, ptr %149, align 4, !tbaa !17
   %150 = add i32 %.083, %.2
@@ -731,29 +731,29 @@ define i32 @SetASN_Items(ptr noundef readonly captures(none) %0, ptr noundef cap
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %48 = load i16, ptr %47, align 8, !tbaa !3
   %49 = zext i16 %48 to i32
-  br label %50
+  %50 = load i8, ptr %22, align 1, !tbaa !13
+  br label %51
 
-50:                                               ; preds = %50, %46
-  %indvars.iv43.in.i133 = phi i32 [ %indvars.iv43.i136, %50 ], [ 16, %46 ]
-  %.034.i134 = phi i8 [ %53, %50 ], [ 2, %46 ]
+51:                                               ; preds = %51, %46
+  %indvars.iv43.in.i133 = phi i32 [ %indvars.iv43.i136, %51 ], [ 16, %46 ]
+  %.034.i134 = phi i8 [ %54, %51 ], [ 2, %46 ]
   %indvars.iv43.i136 = add nsw i32 %indvars.iv43.in.i133, -8
-  %51 = icmp samesign ugt i32 %indvars.iv43.in.i133, 8
-  %52 = lshr i32 %49, %indvars.iv43.i136
-  %.not.i138 = icmp eq i32 %52, 0
-  %or.cond.i139 = select i1 %51, i1 %.not.i138, i1 false
-  %53 = add nsw i8 %.034.i134, -1
-  br i1 %or.cond.i139, label %50, label %54, !llvm.loop !24
+  %52 = icmp samesign ugt i32 %indvars.iv43.in.i133, 8
+  %53 = lshr i32 %49, %indvars.iv43.i136
+  %.not.i138 = icmp eq i32 %53, 0
+  %or.cond.i139 = select i1 %52, i1 %.not.i138, i1 false
+  %54 = add nsw i8 %.034.i134, -1
+  br i1 %or.cond.i139, label %51, label %55, !llvm.loop !24
 
-54:                                               ; preds = %50
-  %55 = load i8, ptr %22, align 1, !tbaa !13
-  switch i8 %55, label %69 [
+55:                                               ; preds = %51
+  switch i8 %50, label %69 [
     i8 3, label %56
     i8 2, label %65
   ]
 
-56:                                               ; preds = %54
-  %57 = and i32 %52, 254
-  %58 = and i32 %52, 1
+56:                                               ; preds = %55
+  %57 = and i32 %53, 254
+  %58 = and i32 %53, 1
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %.preheader.i155, label %.sink.split.i141
 
@@ -766,7 +766,7 @@ define i32 @SetASN_Items(ptr noundef readonly captures(none) %0, ptr noundef cap
   %64 = add i8 %.133.i156, 1
   br i1 %63, label %.preheader.i155, label %.sink.split.i141, !llvm.loop !23
 
-65:                                               ; preds = %54
+65:                                               ; preds = %55
   %66 = shl i32 128, %indvars.iv43.i136
   %67 = and i32 %66, %49
   %.not39.i140 = icmp eq i32 %67, 0
@@ -779,9 +779,9 @@ define i32 @SetASN_Items(ptr noundef readonly captures(none) %0, ptr noundef cap
   store i8 %.032.sink.i142, ptr %68, align 1, !tbaa !3
   br label %69
 
-69:                                               ; preds = %.sink.split.i141, %65, %54
-  %.137.i144 = phi i32 [ 2, %65 ], [ 2, %54 ], [ 3, %.sink.split.i141 ]
-  %.2.i145 = phi i8 [ %.034.i134, %65 ], [ %.034.i134, %54 ], [ %.2.ph.i143, %.sink.split.i141 ]
+69:                                               ; preds = %.sink.split.i141, %65, %55
+  %.137.i144 = phi i32 [ 2, %65 ], [ 2, %55 ], [ 3, %.sink.split.i141 ]
+  %.2.i145 = phi i8 [ %.034.i134, %65 ], [ %.034.i134, %55 ], [ %.2.ph.i143, %.sink.split.i141 ]
   %70 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %.2.i145, ptr %70, align 1, !tbaa !3
   %71 = icmp sgt i32 %indvars.iv43.in.i133, 7
@@ -1135,6 +1135,7 @@ define range(i32 -192, 1) i32 @GetASN_Items(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 -1, ptr %10, align 2
+  %indvars.iv393.sroa.gep607 = getelementptr inbounds nuw i8, ptr %10, i64 1
   br label %12
 
 12:                                               ; preds = %7, %12
@@ -1146,7 +1147,6 @@ define range(i32 -192, 1) i32 @GetASN_Items(ptr noundef readonly captures(none) 
   br i1 %exitcond.not, label %14, label %12, !llvm.loop !27
 
 14:                                               ; preds = %12
-  %indvars.iv393.sroa.gep607 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %15 = icmp sgt i32 %2, 0
   br i1 %15, label %.lr.ph322.preheader, label %.loopexit
 
@@ -5295,12 +5295,12 @@ define internal fastcc void @ForceZero(ptr noundef nonnull %0, i32 noundef %1) u
   %5 = sub i32 0, %4
   %6 = and i32 %5, 7
   %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 %6)
+  %7 = sub i32 %1, %spec.select
   %.not24 = icmp eq i32 %spec.select, 0
   br i1 %.not24, label %.preheader23, label %.lr.ph
 
 .preheader23:                                     ; preds = %.lr.ph, %2
   %.016.lcssa = phi ptr [ %0, %2 ], [ %10, %.lr.ph ]
-  %7 = sub i32 %1, %spec.select
   %8 = icmp ugt i32 %7, 7
   br i1 %8, label %.lr.ph29, label %.preheader
 
@@ -5510,12 +5510,12 @@ define i32 @TraditionalEnc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
   %44 = sub i32 0, %43
   %45 = and i32 %44, 7
   %spec.select.i = call i32 @llvm.umin.i32(i32 %41, i32 %45)
+  %46 = sub i32 %41, %spec.select.i
   %.not24.i = icmp eq i32 %spec.select.i, 0
   br i1 %.not24.i, label %.preheader23.i, label %.lr.ph.i
 
 .preheader23.i:                                   ; preds = %.lr.ph.i, %.thread53
   %.016.lcssa.i = phi ptr [ %32, %.thread53 ], [ %49, %.lr.ph.i ]
-  %46 = sub i32 %41, %spec.select.i
   %47 = icmp ugt i32 %46, 7
   br i1 %47, label %.lr.ph29.i, label %.preheader.i
 
@@ -14076,12 +14076,12 @@ define void @FreeDer(ptr noundef captures(address_is_null) %0) local_unnamed_add
   %14 = sub i32 0, %13
   %15 = and i32 %14, 7
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %11, i32 %15)
+  %16 = sub i32 %11, %spec.select.i
   %.not24.i = icmp eq i32 %spec.select.i, 0
   br i1 %.not24.i, label %.preheader23.i, label %.lr.ph.i
 
 .preheader23.i:                                   ; preds = %.lr.ph.i, %9
   %.016.lcssa.i = phi ptr [ %8, %9 ], [ %19, %.lr.ph.i ]
-  %16 = sub i32 %11, %spec.select.i
   %17 = icmp ugt i32 %16, 7
   br i1 %17, label %.lr.ph29.i, label %.preheader.i
 
@@ -14166,12 +14166,12 @@ define void @wc_FreeDer(ptr noundef captures(address_is_null) %0) local_unnamed_
   %14 = sub i32 0, %13
   %15 = and i32 %14, 7
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %11, i32 %15)
+  %16 = sub i32 %11, %spec.select.i.i
   %.not24.i.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %.not24.i.i, label %.preheader23.i.i, label %.lr.ph.i.i
 
 .preheader23.i.i:                                 ; preds = %.lr.ph.i.i, %9
   %.016.lcssa.i.i = phi ptr [ %8, %9 ], [ %19, %.lr.ph.i.i ]
-  %16 = sub i32 %11, %spec.select.i.i
   %17 = icmp ugt i32 %16, 7
   br i1 %17, label %.lr.ph29.i.i, label %.preheader.i.i
 
@@ -14745,12 +14745,12 @@ define i32 @wc_KeyPemToDer(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
   %37 = sub i32 0, %36
   %38 = and i32 %37, 7
   %spec.select.i.i = call i32 @llvm.umin.i32(i32 %34, i32 %38)
+  %39 = sub i32 %34, %spec.select.i.i
   %.not24.i.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %.not24.i.i, label %.preheader23.i.i, label %.lr.ph.i.i
 
 .preheader23.i.i:                                 ; preds = %.lr.ph.i.i, %32
   %.016.lcssa.i.i = phi ptr [ %31, %32 ], [ %42, %.lr.ph.i.i ]
-  %39 = sub i32 %34, %spec.select.i.i
   %40 = icmp ugt i32 %39, 7
   br i1 %40, label %.lr.ph29.i.i, label %.preheader.i.i
 
@@ -14868,12 +14868,12 @@ define i32 @wc_CertPemToDer(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   %34 = sub i32 0, %33
   %35 = and i32 %34, 7
   %spec.select.i.i = call i32 @llvm.umin.i32(i32 %31, i32 %35)
+  %36 = sub i32 %31, %spec.select.i.i
   %.not24.i.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %.not24.i.i, label %.preheader23.i.i, label %.lr.ph.i.i
 
 .preheader23.i.i:                                 ; preds = %.lr.ph.i.i, %29
   %.016.lcssa.i.i = phi ptr [ %28, %29 ], [ %39, %.lr.ph.i.i ]
-  %36 = sub i32 %31, %spec.select.i.i
   %37 = icmp ugt i32 %36, 7
   br i1 %37, label %.lr.ph29.i.i, label %.preheader.i.i
 

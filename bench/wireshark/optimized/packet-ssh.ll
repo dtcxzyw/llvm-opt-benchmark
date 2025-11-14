@@ -6258,13 +6258,13 @@ define internal fastcc void @ssh_print_data(ptr noundef %0, ptr noundef readonly
 10:                                               ; preds = %.lr.ph43, %._crit_edge40
   %indvars.iv = phi i64 [ %9, %.lr.ph43 ], [ %indvars.iv.next, %._crit_edge40 ]
   %.041 = phi i64 [ 0, %.lr.ph43 ], [ %47, %._crit_edge40 ]
+  %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv, i64 15)
   %11 = load ptr, ptr @ssh_debug_file, align 8
   %12 = trunc nuw i64 %.041 to i32
   %13 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %11, i32 noundef 2, ptr noundef nonnull @.str.491, i32 noundef %12)
   br label %14
 
 .preheader:                                       ; preds = %14
-  %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv, i64 15)
   br i1 %22, label %.lr.ph, label %.lr.ph39.preheader
 
 14:                                               ; preds = %10, %14

@@ -910,17 +910,17 @@ define internal fastcc void @_ZN11opencv_test12_GLOBAL__N_112generateDataERN2cv3
   %57 = load i8, ptr %56, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = icmp eq i8 %57, 0
-  br i1 %58, label %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i, label %.preheader.i
+  br i1 %58, label %.noexc.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %47
   %59 = zext i8 %57 to i64
   br label %62
 
-.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i:             ; preds = %47
+.noexc.i:                                         ; preds = %47
   %60 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
           to label %.noexc unwind label %150
 
-.noexc:                                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i
+.noexc:                                           ; preds = %.noexc.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %60, i8 0, i64 32, i1 false), !tbaa !59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
@@ -1165,7 +1165,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit43.i:                ; preds = %_ZNKSt6vectorIiSaIi
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.body
 
-150:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i
+150:                                              ; preds = %.noexc.i
   %151 = landingpad { ptr, i32 }
           cleanup
   br label %.body

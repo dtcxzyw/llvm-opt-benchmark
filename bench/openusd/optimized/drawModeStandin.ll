@@ -30932,7 +30932,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store ptr null, ptr %28, align 8
   %79 = getelementptr inbounds nuw i8, ptr %28, i64 776
   %80 = getelementptr inbounds nuw i8, ptr %28, i64 784
-  %scevgep.i = getelementptr inbounds nuw i8, ptr %28, i64 792
+  %.ptr32.i = getelementptr inbounds nuw i8, ptr %28, i64 792
   %81 = getelementptr inbounds nuw i8, ptr %28, i64 888
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %79, i8 0, i64 128, i1 false)
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingGeomModelSchema15GetCardGeometryEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.84") align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %29)
@@ -31068,7 +31068,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
   %137 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %138 = load ptr, ptr %137, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  store ptr %136, ptr %scevgep.i, align 8
+  store ptr %136, ptr %.ptr32.i, align 8
   %139 = getelementptr inbounds nuw i8, ptr %28, i64 800
   %140 = load ptr, ptr %139, align 8
   store ptr %138, ptr %139, align 8
@@ -32090,7 +32090,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
   %637 = phi i1 [ true, %.preheader.i ], [ false, %954 ]
   %.029202.i = phi i64 [ 0, %.preheader.i ], [ 3, %954 ]
   %638 = add nuw nsw i64 %.029202.i, %.028203.i
-  %639 = getelementptr inbounds nuw %"class.std::shared_ptr.249", ptr %scevgep.i, i64 %638
+  %639 = getelementptr inbounds nuw %"class.std::shared_ptr.249", ptr %.ptr32.i, i64 %638
   %640 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %612, i64 %638
   %.val41.i = load ptr, ptr %639, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -32841,7 +32841,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__8HioImageEED2Ev.exit.i.i: ;
   %961 = xor i64 %.026200.i, 1
   %962 = mul nuw nsw i64 %961, 3
   %963 = add nuw nsw i64 %962, %.027201.i
-  %964 = getelementptr inbounds nuw %"class.std::shared_ptr.249", ptr %scevgep.i, i64 %960
+  %964 = getelementptr inbounds nuw %"class.std::shared_ptr.249", ptr %.ptr32.i, i64 %960
   %965 = load ptr, ptr %964, align 8
   store ptr %965, ptr %24, align 8
   %966 = getelementptr inbounds nuw i8, ptr %964, i64 8

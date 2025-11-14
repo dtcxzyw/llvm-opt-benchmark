@@ -1610,12 +1610,12 @@ HuffmanTreeGroupDecode.exit:                      ; preds = %591
   %644 = load i64, ptr %59, align 8, !tbaa !71
   %645 = load i64, ptr %60, align 8, !tbaa !72
   %646 = load i16, ptr %85, align 2, !tbaa !99
+  %647 = zext i16 %646 to i64
   %.not.i458 = icmp eq i64 %645, 0
   br i1 %.not.i458, label %.preheader.i461, label %.lr.ph.i459
 
 .preheader.i461:                                  ; preds = %.lr.ph.i459, %643
   %.033.lcssa.i = phi i64 [ 16, %643 ], [ %653, %.lr.ph.i459 ]
-  %647 = zext i16 %646 to i64
   %648 = icmp ult i64 %.033.lcssa.i, %647
   br i1 %648, label %.lr.ph44.i, label %CalculateDistanceLut.exit
 

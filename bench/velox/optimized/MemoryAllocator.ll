@@ -1926,6 +1926,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %invoke.cont20
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i19, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %call5.i.i.i.i2.i.i19, i8 0, i64 80, i1 false)
   br label %for.body.i
 
@@ -1940,7 +1941,6 @@ for.body.i:                                       ; preds = %invoke.cont26, %for
   br i1 %cmp.i.not.i, label %if.then.i.i, label %for.body.i, !llvm.loop !23
 
 if.then.i.i:                                      ; preds = %for.body.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i19, i64 4
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i19, i64 80
   call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_T0_T1_"(ptr nonnull %call5.i.i.i.i2.i.i19, ptr nonnull %add.ptr.i.i.i.i.i.i.i, i64 noundef 8, ptr nonnull %this)
   br label %for.body.i.i.i.i

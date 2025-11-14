@@ -6368,8 +6368,8 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i58: ; preds = %_ZNSt6vector
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i60: ; preds = %.noexc65
   %.idx.i.i.i.i.i.i.i61 = shl nuw nsw i64 %60, 3
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx.i.i.i.i.i.i.i61
   tail call void @llvm.memset.p0.i64(ptr align 8 %59, i8 0, i64 %.idx.i.i.i.i.i.i.i61, i1 false), !tbaa !57
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx.i.i.i.i.i.i.i61
   br label %.lr.ph92
 
 63:                                               ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i58
@@ -6768,25 +6768,25 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc51
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc51
-  %57 = load ptr, ptr %6, align 8, !tbaa !87
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv
-  br label %59
+  %57 = getelementptr inbounds nuw i64, ptr %53, i64 %38
+  %58 = load ptr, ptr %6, align 8, !tbaa !87
+  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv
+  br label %60
 
-59:                                               ; preds = %.lr.ph, %59
-  %.04669 = phi i64 [ 0, %.lr.ph ], [ %65, %59 ]
-  %60 = getelementptr inbounds nuw i64, ptr %45, i64 %.04669
-  %61 = load i64, ptr %60, align 8, !tbaa !57
-  %62 = load i64, ptr %58, align 8, !tbaa !57
-  %63 = add i64 %62, %61
-  %64 = getelementptr inbounds nuw i64, ptr %53, i64 %.04669
-  store i64 %63, ptr %64, align 8, !tbaa !57
-  %65 = add nuw i64 %.04669, 1
-  %exitcond.not = icmp eq i64 %65, %38
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %59, !llvm.loop !177
+60:                                               ; preds = %.lr.ph, %60
+  %.04669 = phi i64 [ 0, %.lr.ph ], [ %66, %60 ]
+  %61 = getelementptr inbounds nuw i64, ptr %45, i64 %.04669
+  %62 = load i64, ptr %61, align 8, !tbaa !57
+  %63 = load i64, ptr %59, align 8, !tbaa !57
+  %64 = add i64 %63, %62
+  %65 = getelementptr inbounds nuw i64, ptr %53, i64 %.04669
+  store i64 %64, ptr %65, align 8, !tbaa !57
+  %66 = add nuw i64 %.04669, 1
+  %exitcond.not = icmp eq i64 %66, %38
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %60, !llvm.loop !177
 
-.loopexit.loopexit:                               ; preds = %59
-  %66 = getelementptr inbounds nuw i64, ptr %53, i64 %38
-  %67 = ptrtoint ptr %66 to i64
+.loopexit.loopexit:                               ; preds = %60
+  %67 = ptrtoint ptr %57 to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %48, %_ZN5faiss13InvertedLists9ScopedIdsC2EPKS0_m.exit

@@ -620,11 +620,12 @@ define internal fastcc i32 @decode_ints_uint32(ptr noalias noundef captures(none
 
 11:                                               ; preds = %.lr.ph126.i
   %12 = tail call i32 @llvm.umin.i32(i32 %.0125.i, i32 %.047123.i)
+  %13 = sub i32 %.047123.i, %12
   %.not136.i = icmp eq i32 %.0125.i, 0
   br i1 %.not136.i, label %.preheader77.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11
-  %13 = shl nuw i32 1, %9
+  %14 = shl nuw i32 1, %9
   %wide.trip.count.i = zext i32 %12 to i64
   br label %19
 
@@ -632,8 +633,7 @@ define internal fastcc i32 @decode_ints_uint32(ptr noalias noundef captures(none
   %.sroa.10.1.lcssa.i = phi i64 [ %.sroa.10.0120.i, %11 ], [ %24, %30 ]
   %.sroa.16.1.lcssa.i = phi ptr [ %.sroa.16.0121.i, %11 ], [ %.sroa.16.6.i, %30 ]
   %.sroa.0.1.lcssa.i = phi i64 [ %.sroa.0.0122.i, %11 ], [ %23, %30 ]
-  %14 = sub i32 %.047123.i, %12
-  %15 = icmp ne i32 %14, 0
+  %15 = icmp ne i32 %13, 0
   %16 = icmp ult i32 %.0125.i, 256
   %17 = select i1 %15, i1 %16, i1 false
   br i1 %17, label %.lr.ph107.i, label %stream_read_bit.exit58._crit_edge.i
@@ -671,7 +671,7 @@ stream_read_bit.exit.i:                           ; preds = %21, %._crit_edge.i.
 26:                                               ; preds = %stream_read_bit.exit.i
   %27 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
   %28 = load i32, ptr %27, align 4, !tbaa !23, !alias.scope !29, !noalias !26
-  %29 = add i32 %28, %13
+  %29 = add i32 %28, %14
   store i32 %29, ptr %27, align 4, !tbaa !23, !alias.scope !29, !noalias !26
   br label %30
 
@@ -682,7 +682,7 @@ stream_read_bit.exit.i:                           ; preds = %21, %._crit_edge.i.
 
 31:                                               ; preds = %stream_read_bit.exit63._crit_edge.i, %.lr.ph107.i
   %.1106.i = phi i32 [ %.0125.i, %.lr.ph107.i ], [ %58, %stream_read_bit.exit63._crit_edge.i ]
-  %.148105.i = phi i32 [ %14, %.lr.ph107.i ], [ %.4.i, %stream_read_bit.exit63._crit_edge.i ]
+  %.148105.i = phi i32 [ %13, %.lr.ph107.i ], [ %.4.i, %stream_read_bit.exit63._crit_edge.i ]
   %.sroa.0.2104.i = phi i64 [ %.sroa.0.1.lcssa.i, %.lr.ph107.i ], [ %.sroa.0.5.i, %stream_read_bit.exit63._crit_edge.i ]
   %.sroa.16.2103.i = phi ptr [ %.sroa.16.1.lcssa.i, %.lr.ph107.i ], [ %.sroa.16.5.i, %stream_read_bit.exit63._crit_edge.i ]
   %.sroa.10.2102.i = phi i64 [ %.sroa.10.1.lcssa.i, %.lr.ph107.i ], [ %.sroa.10.5.i, %stream_read_bit.exit63._crit_edge.i ]
@@ -771,7 +771,7 @@ stream_read_bit.exit58._crit_edge.i:              ; preds = %stream_read_bit.exi
   %.sroa.10.3.i = phi i64 [ %.sroa.10.1.lcssa.i, %.preheader77.i ], [ %.sroa.10.5.i, %stream_read_bit.exit63._crit_edge.i ], [ %37, %stream_read_bit.exit58.i ]
   %.sroa.16.3.i = phi ptr [ %.sroa.16.1.lcssa.i, %.preheader77.i ], [ %.sroa.16.5.i, %stream_read_bit.exit63._crit_edge.i ], [ %.sroa.16.7.i, %stream_read_bit.exit58.i ]
   %.sroa.0.3.i = phi i64 [ %.sroa.0.1.lcssa.i, %.preheader77.i ], [ %.sroa.0.5.i, %stream_read_bit.exit63._crit_edge.i ], [ %36, %stream_read_bit.exit58.i ]
-  %.249.i = phi i32 [ %14, %.preheader77.i ], [ %.4.i, %stream_read_bit.exit63._crit_edge.i ], [ %32, %stream_read_bit.exit58.i ]
+  %.249.i = phi i32 [ %13, %.preheader77.i ], [ %.4.i, %stream_read_bit.exit63._crit_edge.i ], [ %32, %stream_read_bit.exit58.i ]
   %.not.i = icmp eq i32 %.249.i, 0
   br i1 %.not.i, label %decode_many_ints_uint32.exit, label %.lr.ph126.i
 

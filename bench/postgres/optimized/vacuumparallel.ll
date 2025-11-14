@@ -563,24 +563,24 @@ define internal fastcc void @parallel_vacuum_process_all_indexes(ptr noundef cap
 15:                                               ; preds = %7, %11, %4
   %.077 = phi i32 [ 1, %4 ], [ 2, %11 ], [ 2, %7 ]
   %.0 = phi i32 [ %6, %4 ], [ %14, %11 ], [ %9, %7 ]
-  %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph, label %._crit_edge
+  %16 = add i32 %.0, -1
+  %17 = load ptr, ptr %0, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
+  %19 = load i32, ptr %18, align 4
+  %. = tail call i32 @llvm.smin.i32(i32 %16, i32 %19)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %15
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = icmp slt i32 %1, 1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = icmp slt i32 %1, 1
   br label %31
 
 ._crit_edge:                                      ; preds = %54, %15
-  %26 = add i32 %.0, -1
-  %. = tail call i32 @llvm.smin.i32(i32 %26, i32 %18)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 44
@@ -590,17 +590,17 @@ define internal fastcc void @parallel_vacuum_process_all_indexes(ptr noundef cap
 
 31:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
-  %32 = load ptr, ptr %22, align 8
+  %32 = load ptr, ptr %23, align 8
   %33 = getelementptr inbounds nuw %struct.PVIndStats, ptr %32, i64 %indvars.iv
   store i32 %.077, ptr %33, align 8
-  %34 = load ptr, ptr %23, align 8
+  %34 = load ptr, ptr %24, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv
   %36 = load i8, ptr %35, align 1, !range !4, !noundef !5
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %31
-  %39 = load ptr, ptr %24, align 8
+  %39 = load ptr, ptr %25, align 8
   %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 352
@@ -623,7 +623,7 @@ define internal fastcc void @parallel_vacuum_process_all_indexes(ptr noundef cap
 50:                                               ; preds = %47
   %51 = and i32 %48, 2
   %52 = icmp eq i32 %51, 0
-  %or.cond8.i = or i1 %25, %52
+  %or.cond8.i = or i1 %26, %52
   br label %parallel_vacuum_index_is_parallel_safe.exit
 
 parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %44, %47, %50
@@ -636,7 +636,7 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %44, %47, %50
   %56 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i8 %55, ptr %56, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %57 = load i32, ptr %19, align 8
+  %57 = load i32, ptr %20, align 8
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
   br i1 %59, label %31, label %._crit_edge, !llvm.loop !10
@@ -724,7 +724,7 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %44, %47, %50
   br label %105
 
 105:                                              ; preds = %103, %101
-  %106 = load i32, ptr %19, align 8
+  %106 = load i32, ptr %20, align 8
   %107 = icmp sgt i32 %106, 0
   br i1 %107, label %.lr.ph.i, label %._crit_edge.i
 
@@ -753,7 +753,7 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %44, %47, %50
   %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv.i
   %121 = load ptr, ptr %120, align 8
   tail call fastcc void @parallel_vacuum_process_one_index(ptr noundef nonnull %0, ptr noundef %121, ptr noundef nonnull %114)
-  %.pre.i = load i32, ptr %19, align 8
+  %.pre.i = load i32, ptr %20, align 8
   br label %122
 
 122:                                              ; preds = %118, %111
@@ -777,7 +777,7 @@ parallel_vacuum_process_unsafe_indexes.exit.thread: ; preds = %._crit_edge.i, %1
   %129 = load ptr, ptr %27, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 44
   %131 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %130, i32 1, ptr nonnull elementtype(i32) %130) #9, !srcloc !11
-  %132 = load i32, ptr %19, align 8
+  %132 = load i32, ptr %20, align 8
   %.not1316.i = icmp slt i32 %131, %132
   br i1 %.not1316.i, label %.lr.ph.i89, label %._crit_edge.i88
 
@@ -807,7 +807,7 @@ parallel_vacuum_process_unsafe_indexes.exit.thread: ; preds = %._crit_edge.i, %1
   %148 = load ptr, ptr %27, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 44
   %150 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %149, i32 1, ptr nonnull elementtype(i32) %149) #9, !srcloc !11
-  %151 = load i32, ptr %19, align 8
+  %151 = load i32, ptr %20, align 8
   %.not13.i = icmp slt i32 %150, %151
   br i1 %.not13.i, label %135, label %._crit_edge.i88
 
@@ -859,7 +859,7 @@ parallel_vacuum_process_safe_indexes.exit:        ; preds = %153, %._crit_edge.i
   br label %175
 
 175:                                              ; preds = %173, %.critedge
-  %176 = load i32, ptr %19, align 8
+  %176 = load i32, ptr %20, align 8
   %177 = icmp sgt i32 %176, 0
   br i1 %177, label %.lr.ph.i93, label %._crit_edge.i91
 
@@ -888,7 +888,7 @@ parallel_vacuum_process_safe_indexes.exit:        ; preds = %153, %._crit_edge.i
   %190 = getelementptr inbounds nuw ptr, ptr %189, i64 %indvars.iv.i94
   %191 = load ptr, ptr %190, align 8
   tail call fastcc void @parallel_vacuum_process_one_index(ptr noundef nonnull %0, ptr noundef %191, ptr noundef nonnull %184)
-  %.pre.i95 = load i32, ptr %19, align 8
+  %.pre.i95 = load i32, ptr %20, align 8
   br label %192
 
 192:                                              ; preds = %188, %181
@@ -912,7 +912,7 @@ parallel_vacuum_process_unsafe_indexes.exit97.thread: ; preds = %._crit_edge.i91
   %199 = load ptr, ptr %27, align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 44
   %201 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %200, i32 1, ptr nonnull elementtype(i32) %200) #9, !srcloc !11
-  %202 = load i32, ptr %19, align 8
+  %202 = load i32, ptr %20, align 8
   %.not1316.i99 = icmp slt i32 %201, %202
   br i1 %.not1316.i99, label %.lr.ph.i102, label %._crit_edge.i100
 
@@ -942,7 +942,7 @@ parallel_vacuum_process_unsafe_indexes.exit97.thread: ; preds = %._crit_edge.i91
   %218 = load ptr, ptr %27, align 8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 44
   %220 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %219, i32 1, ptr nonnull elementtype(i32) %219) #9, !srcloc !11
-  %221 = load i32, ptr %19, align 8
+  %221 = load i32, ptr %20, align 8
   %.not13.i103 = icmp slt i32 %220, %221
   br i1 %.not13.i103, label %205, label %._crit_edge.i100
 
@@ -956,7 +956,7 @@ parallel_vacuum_process_unsafe_indexes.exit97.thread: ; preds = %._crit_edge.i91
   br label %parallel_vacuum_process_safe_indexes.exit104
 
 parallel_vacuum_process_safe_indexes.exit104:     ; preds = %162, %parallel_vacuum_process_safe_indexes.exit, %223, %._crit_edge.i100
-  %225 = load i32, ptr %19, align 8
+  %225 = load i32, ptr %20, align 8
   %226 = icmp sgt i32 %225, 0
   br i1 %226, label %.lr.ph113, label %._crit_edge114
 
@@ -993,7 +993,7 @@ parallel_vacuum_process_safe_indexes.exit104:     ; preds = %162, %parallel_vacu
 243:                                              ; preds = %229
   store i32 0, ptr %231, align 8
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %244 = load i32, ptr %19, align 8
+  %244 = load i32, ptr %20, align 8
   %245 = sext i32 %244 to i64
   %246 = icmp slt i64 %indvars.iv.next121, %245
   br i1 %246, label %229, label %._crit_edge114, !llvm.loop !14

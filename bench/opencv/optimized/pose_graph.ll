@@ -1538,33 +1538,33 @@ define hidden noundef double @_ZNK2cv5kinfu6detail13PoseGraphImpl15calcEnergyNod
   %indvar = phi i64 [ %indvar.next, %_ZN2cv5kinfu6detailL9poseErrorENS_4QuatIdEENS_3VecIdLi3EEES3_S5_S3_S5_NS_4MatxIdLi6ELi6EEEbRNS6_IdLi6ELi4EEERNS6_IdLi6ELi3EEES9_SB_RNS4_IdLi6EEE.exit ], [ 0, %.lr.ph ]
   %.075 = phi double [ %173, %_ZN2cv5kinfu6detailL9poseErrorENS_4QuatIdEENS_3VecIdLi3EEES3_S5_S3_S5_NS_4MatxIdLi6ELi6EEEbRNS6_IdLi6ELi4EEERNS6_IdLi6ELi3EEES9_SB_RNS4_IdLi6EEE.exit ], [ 0.000000e+00, %.lr.ph ]
   %.sroa.047.074 = phi ptr [ %174, %_ZN2cv5kinfu6detailL9poseErrorENS_4QuatIdEENS_3VecIdLi3EEES3_S5_S3_S5_NS_4MatxIdLi6ELi6EEEbRNS6_IdLi6ELi4EEERNS6_IdLi6ELi3EEES9_SB_RNS4_IdLi6EEE.exit ], [ %18, %.lr.ph ]
-  %36 = load i64, ptr %.sroa.047.074, align 8, !tbaa !32
-  br label %37
+  %36 = mul i64 %indvar, 216
+  %37 = getelementptr i8, ptr %18, i64 %36
+  %scevgep = getelementptr i8, ptr %37, i64 16
+  %38 = load i64, ptr %.sroa.047.074, align 8, !tbaa !32
+  br label %39
 
-37:                                               ; preds = %37, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %37 ]
-  %.0811.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %37 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %39 = load i64, ptr %38, align 8, !tbaa !32
-  %40 = icmp ult i64 %39, %36
-  %.19.i.i.i.i = select i1 %40, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.1.in.v.i.i.i.i = select i1 %40, i64 24, i64 16
+39:                                               ; preds = %39, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %39 ]
+  %.0811.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %39 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %41 = load i64, ptr %40, align 8, !tbaa !32
+  %42 = icmp ult i64 %41, %38
+  %.19.i.i.i.i = select i1 %42, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %42, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !33
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE11lower_boundERS8_.exit.i, label %37, !llvm.loop !166
+  br i1 %.not.i.i.i.i, label %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE11lower_boundERS8_.exit.i, label %39, !llvm.loop !166
 
-_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE11lower_boundERS8_.exit.i: ; preds = %37
-  %41 = mul i64 %indvar, 216
-  %42 = getelementptr i8, ptr %18, i64 %41
-  %scevgep = getelementptr i8, ptr %42, i64 16
+_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE11lower_boundERS8_.exit.i: ; preds = %39
   %43 = icmp eq ptr %.19.i.i.i.i, %23
   br i1 %43, label %.critedge.i, label %44
 
 44:                                               ; preds = %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE11lower_boundERS8_.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %46 = load i64, ptr %45, align 8, !tbaa !32
-  %47 = icmp ult i64 %36, %46
+  %47 = icmp ult i64 %38, %46
   br i1 %47, label %.critedge.i, label %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE2atERS8_.exit
 
 .critedge.i:                                      ; preds = %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE11lower_boundERS8_.exit.i, %44, %.lr.ph
@@ -1572,40 +1572,40 @@ _ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE1
   unreachable
 
 _ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE2atERS8_.exit: ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.047.074, i64 8
-  %49 = load i64, ptr %48, align 8, !tbaa !32
-  br label %50
-
-50:                                               ; preds = %50, %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE2atERS8_.exit
-  %.012.i.i.i.i15 = phi ptr [ %22, %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE2atERS8_.exit ], [ %.1.i.i.i.i20, %50 ]
-  %.0811.i.i.i.i16 = phi ptr [ %23, %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE2atERS8_.exit ], [ %.19.i.i.i.i17, %50 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i15, i64 32
-  %52 = load i64, ptr %51, align 8, !tbaa !32
-  %53 = icmp ult i64 %52, %49
-  %.19.i.i.i.i17 = select i1 %53, ptr %.0811.i.i.i.i16, ptr %.012.i.i.i.i15
-  %.1.in.v.i.i.i.i18 = select i1 %53, i64 24, i64 16
-  %.1.in.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i15, i64 %.1.in.v.i.i.i.i18
-  %.1.i.i.i.i20 = load ptr, ptr %.1.in.i.i.i.i19, align 8, !tbaa !33
-  %.not.i.i.i.i21 = icmp eq ptr %.1.i.i.i.i20, null
-  br i1 %.not.i.i.i.i21, label %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE11lower_boundERS8_.exit.i22, label %50, !llvm.loop !166
-
-_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE11lower_boundERS8_.exit.i22: ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 80
-  %.sroa.5.24.copyload = load double, ptr %54, align 8, !tbaa !21
+  %48 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 80
+  %.sroa.5.24.copyload = load double, ptr %49, align 8, !tbaa !21
   %.sroa.780.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 88
   %.sroa.780.24.copyload = load double, ptr %.sroa.780.24..sroa_idx, align 8, !tbaa !21
   %.sroa.881.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 96
   %.sroa.881.24.copyload = load double, ptr %.sroa.881.24..sroa_idx, align 8, !tbaa !21
   %.sroa.9.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 104
   %.sroa.9.24.copyload = load double, ptr %.sroa.9.24..sroa_idx, align 8, !tbaa !21
-  %55 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.047.074, i64 8
+  %51 = load i64, ptr %50, align 8, !tbaa !32
+  br label %52
+
+52:                                               ; preds = %52, %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE2atERS8_.exit
+  %.012.i.i.i.i15 = phi ptr [ %22, %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE2atERS8_.exit ], [ %.1.i.i.i.i20, %52 ]
+  %.0811.i.i.i.i16 = phi ptr [ %23, %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE2atERS8_.exit ], [ %.19.i.i.i.i17, %52 ]
+  %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i15, i64 32
+  %54 = load i64, ptr %53, align 8, !tbaa !32
+  %55 = icmp ult i64 %54, %51
+  %.19.i.i.i.i17 = select i1 %55, ptr %.0811.i.i.i.i16, ptr %.012.i.i.i.i15
+  %.1.in.v.i.i.i.i18 = select i1 %55, i64 24, i64 16
+  %.1.in.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i15, i64 %.1.in.v.i.i.i.i18
+  %.1.i.i.i.i20 = load ptr, ptr %.1.in.i.i.i.i19, align 8, !tbaa !33
+  %.not.i.i.i.i21 = icmp eq ptr %.1.i.i.i.i20, null
+  br i1 %.not.i.i.i.i21, label %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE11lower_boundERS8_.exit.i22, label %52, !llvm.loop !166
+
+_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE11lower_boundERS8_.exit.i22: ; preds = %52
   %56 = icmp eq ptr %.19.i.i.i.i17, %23
   br i1 %56, label %.critedge.i23, label %57
 
 57:                                               ; preds = %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE11lower_boundERS8_.exit.i22
   %58 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i17, i64 32
   %59 = load i64, ptr %58, align 8, !tbaa !32
-  %60 = icmp ult i64 %49, %59
+  %60 = icmp ult i64 %51, %59
   br i1 %60, label %.critedge.i23, label %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE2atERS8_.exit24
 
 .critedge.i23:                                    ; preds = %57, %_ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE11lower_boundERS8_.exit.i22
@@ -1625,7 +1625,7 @@ _ZNKSt3mapImN2cv5kinfu6detail13PoseGraphImpl4NodeESt4lessImESaISt4pairIKmS4_EEE2
   %.sroa.8.24.copyload = load double, ptr %.sroa.8.24..sroa_idx, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false), !tbaa !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %48, i64 24, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.047.074, i64 40
   %.sroa.065.0.copyload = load double, ptr %63, align 8, !tbaa !21
   %.sroa.266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.047.074, i64 48

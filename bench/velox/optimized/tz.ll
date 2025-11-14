@@ -5948,11 +5948,15 @@ _ZNSt12_Vector_baseIN4date9time_zoneESaIS1_EE11_M_allocateEm.exit.thread.i.i: ; 
 
 for.body.i.i.i.i.preheader.i.i:                   ; preds = %_ZNSt6vectorIN4date9time_zoneESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
   %call5.i.i.i.i1.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i.i) #29
-          to label %for.body.i.i.i.i.i.i unwind label %catch
+          to label %call5.i.i.i.i.noexc.i unwind label %catch
 
-for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.preheader.i.i, %for.body.i.i.i.i.i.i
-  %__cur.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i1.i, %for.body.i.i.i.i.preheader.i.i ]
-  %__first.sroa.0.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %0, %for.body.i.i.i.i.preheader.i.i ]
+call5.i.i.i.i.noexc.i:                            ; preds = %for.body.i.i.i.i.preheader.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
+  br label %for.body.i.i.i.i.i.i
+
+for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.noexc.i
+  %__cur.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i1.i, %call5.i.i.i.i.noexc.i ]
+  %__first.sroa.0.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %0, %call5.i.i.i.i.noexc.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(88) %__cur.08.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %__first.sroa.0.07.i.i.i.i.i.i) #28
   %transitions_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i.i, i64 32
   %transitions_3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.07.i.i.i.i.i.i, i64 32
@@ -5991,7 +5995,6 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.pr
   br i1 %cmp.i.i.i.not.i.i.i.i.i.i, label %invoke.cont21.loopexit, label %for.body.i.i.i.i.i.i, !llvm.loop !86
 
 invoke.cont21.loopexit:                           ; preds = %for.body.i.i.i.i.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %.pre = load ptr, ptr %__c, align 8
   %.pre4 = load ptr, ptr %_M_finish.i, align 8
   br label %invoke.cont21

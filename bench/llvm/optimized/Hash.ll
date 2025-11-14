@@ -10,15 +10,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #0 {
-  %3 = and i64 %1, 4294967292
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
-  %.not33 = icmp samesign eq i64 %3, 0
+  %3 = trunc i64 %1 to i32
+  %4 = and i64 %1, 4294967292
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
+  %.not33 = icmp samesign eq i64 %4, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %9, %.lr.ph ]
-  %5 = trunc i64 %1 to i32
-  %6 = and i32 %5, 3
+  %6 = and i32 %3, 3
   %7 = icmp samesign ugt i32 %6, 1
   br i1 %7, label %11, label %16
 
@@ -28,19 +28,19 @@ define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr read
   %8 = load i32, ptr %.02234, align 1, !tbaa !3
   %9 = xor i32 %8, %.035
   %10 = getelementptr inbounds nuw i8, ptr %.02234, i64 4
-  %.not = icmp eq ptr %10, %4
+  %.not = icmp eq ptr %10, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 11:                                               ; preds = %._crit_edge
-  %.0.copyload.i.i.i27 = load i16, ptr %4, align 1
+  %.0.copyload.i.i.i27 = load i16, ptr %5, align 1
   %12 = zext i16 %.0.copyload.i.i.i27 to i32
   %13 = xor i32 %.0.lcssa, %12
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %15 = add nsw i32 %6, -2
   br label %16
 
 16:                                               ; preds = %11, %._crit_edge
-  %.024 = phi ptr [ %14, %11 ], [ %4, %._crit_edge ]
+  %.024 = phi ptr [ %14, %11 ], [ %5, %._crit_edge ]
   %.023 = phi i32 [ %15, %11 ], [ %6, %._crit_edge ]
   %.1 = phi i32 [ %13, %11 ], [ %.0.lcssa, %._crit_edge ]
   %17 = icmp eq i32 %.023, 1

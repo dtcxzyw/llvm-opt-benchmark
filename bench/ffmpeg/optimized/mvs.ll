@@ -293,12 +293,12 @@ define void @ff_vvc_store_sb_mvs(ptr noundef readonly captures(none) %0, ptr nou
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 130
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 194
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %indvars.iv93.sroa.gep119 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %indvars.iv.sroa.gep120 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  %indvars.iv93.sroa.gep123 = getelementptr inbounds nuw i8, ptr %3, i64 36
   br label %44
 
 .preheader85:                                     ; preds = %272
-  %indvars.iv93.sroa.gep119 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %indvars.iv93.sroa.gep123 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %34 = sdiv i32 %9, %11
   %35 = sdiv i32 %13, %15
   %36 = load i32, ptr %14, align 4, !tbaa !98
@@ -693,9 +693,9 @@ derive_subblock_diff_mvs.exit:                    ; preds = %247, %derive_cb_pro
   br i1 %277, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %278 = shl i32 %.07289, 2
-  %279 = or disjoint i32 %278, 2
-  %280 = mul nsw i32 %.07289, %35
+  %278 = mul nsw i32 %.07289, %35
+  %279 = shl i32 %.07289, 2
+  %280 = or disjoint i32 %279, 2
   br label %286
 
 ._crit_edge90:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %.preheader85
@@ -728,7 +728,7 @@ derive_subblock_diff_mvs.exit:                    ; preds = %247, %derive_cb_pro
 293:                                              ; preds = %365
   %294 = mul nsw i32 %.07388, %34
   %295 = add nsw i32 %288, %294
-  %296 = add nsw i32 %289, %280
+  %296 = add nsw i32 %289, %278
   %297 = load ptr, ptr %26, align 8, !tbaa !30
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 21576
   %299 = load ptr, ptr %298, align 8, !tbaa !71
@@ -797,7 +797,7 @@ ff_vvc_set_mvf.exit:                              ; preds = %ff_vvc_set_mvf.exit
 
 332:                                              ; preds = %324, %327
   %333 = phi i32 [ %329, %327 ], [ %292, %324 ]
-  %334 = phi i32 [ %331, %327 ], [ %279, %324 ]
+  %334 = phi i32 [ %331, %327 ], [ %280, %324 ]
   %335 = getelementptr inbounds nuw i8, ptr %indvars.iv93.sroa.phi121, i64 16
   %336 = load i32, ptr %335, align 4, !tbaa !121
   %337 = load i32, ptr %indvars.iv93.sroa.phi121, align 4, !tbaa !116

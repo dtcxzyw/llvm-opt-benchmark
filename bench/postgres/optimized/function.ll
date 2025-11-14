@@ -9,10 +9,10 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.OSInfo = type { ptr, ptr, i8, ptr, i32, ptr, i32, ptr }
 %struct.LogOpts = type { ptr, i8, i8, ptr, ptr, ptr, ptr, i8 }
 %struct.loadable_libraries_state = type { ptr, i32 }
-%struct.LibraryInfo = type { ptr, i32 }
 %struct.DbInfo = type { i32, ptr, [1024 x i8], %struct.RelInfoArr, %struct.LogicalSlotInfoArr }
 %struct.RelInfoArr = type { ptr, i32 }
 %struct.LogicalSlotInfoArr = type { i32, ptr }
+%struct.LibraryInfo = type { ptr, i32 }
 %struct.LogicalSlotInfo = type { ptr, ptr, i8, i8, i8, i8 }
 
 @old_cluster = external global %struct.ClusterInfo, align 8
@@ -66,43 +66,43 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv51
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @old_cluster, i64 120), align 8
-  %21 = call i32 @PQntuples(ptr noundef %19) #9
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph.preheader, label %._crit_edge
+  %21 = getelementptr inbounds nuw %struct.DbInfo, ptr %20, i64 %indvars.iv51
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1056
+  %23 = call i32 @PQntuples(ptr noundef %19) #9
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph47
-  %23 = trunc nuw nsw i64 %indvars.iv51 to i32
+  %25 = trunc nuw nsw i64 %indvars.iv51 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.137 = phi i32 [ %32, %.lr.ph ], [ %.03345, %.lr.ph.preheader ]
-  %.03536 = phi i32 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %24 = call ptr @PQgetvalue(ptr noundef %19, i32 noundef %.03536, i32 noundef 0) #9
-  %25 = call ptr @pg_strdup(ptr noundef %24) #9
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
-  %27 = sext i32 %.137 to i64
-  %28 = getelementptr inbounds %struct.LibraryInfo, ptr %26, i64 %27
-  store ptr %25, ptr %28, align 8
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
-  %30 = getelementptr inbounds %struct.LibraryInfo, ptr %29, i64 %27
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i32 %23, ptr %31, align 8
-  %32 = add i32 %.137, 1
-  %33 = add nuw nsw i32 %.03536, 1
-  %exitcond.not = icmp eq i32 %33, %21
+  %.137 = phi i32 [ %34, %.lr.ph ], [ %.03345, %.lr.ph.preheader ]
+  %.03536 = phi i32 [ %35, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %26 = call ptr @PQgetvalue(ptr noundef %19, i32 noundef %.03536, i32 noundef 0) #9
+  %27 = call ptr @pg_strdup(ptr noundef %26) #9
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
+  %29 = sext i32 %.137 to i64
+  %30 = getelementptr inbounds %struct.LibraryInfo, ptr %28, i64 %29
+  store ptr %27, ptr %30, align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 40), align 8
+  %32 = getelementptr inbounds %struct.LibraryInfo, ptr %31, i64 %29
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store i32 %25, ptr %33, align 8
+  %34 = add i32 %.137, 1
+  %35 = add nuw nsw i32 %.03536, 1
+  %exitcond.not = icmp eq i32 %35, %23
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph47
-  %.1.lcssa = phi i32 [ %.03345, %.lr.ph47 ], [ %32, %.lr.ph ]
-  %34 = getelementptr inbounds nuw %struct.DbInfo, ptr %20, i64 %indvars.iv51
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1056
+  %.1.lcssa = phi i32 [ %.03345, %.lr.ph47 ], [ %34, %.lr.ph ]
   call void @PQclear(ptr noundef %19) #9
-  %36 = load i32, ptr %35, align 8
+  %36 = load i32, ptr %22, align 8
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph41, label %._crit_edge42
 
 .lr.ph41:                                         ; preds = %._crit_edge
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 1064
+  %38 = getelementptr inbounds nuw i8, ptr %21, i64 1064
   %39 = trunc nuw nsw i64 %indvars.iv51 to i32
   br label %43
 
@@ -138,7 +138,7 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i32 %39, ptr %59, align 8
   %60 = add i32 %.238, 1
-  %.pre = load i32, ptr %35, align 8
+  %.pre = load i32, ptr %22, align 8
   br label %61
 
 61:                                               ; preds = %43, %50

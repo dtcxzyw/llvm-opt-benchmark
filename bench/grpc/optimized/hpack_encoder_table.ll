@@ -247,8 +247,8 @@ define void @_ZN9grpc_core17HPackEncoderTable7RebuildEj(ptr noundef nonnull alig
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %9, 1
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 2 %8, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !23
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZNSt6vectorItSaItEEC2EmRKS0_.exit
 
 _ZNSt6vectorItSaItEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc, %2

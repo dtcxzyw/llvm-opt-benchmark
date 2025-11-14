@@ -12319,8 +12319,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %177
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %202
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %204, 2
-  %206 = getelementptr inbounds nuw i8, ptr %203, i64 %.idx.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %203, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !69
+  %206 = getelementptr inbounds nuw i8, ptr %203, i64 %.idx.i.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %202
@@ -12610,10 +12610,10 @@ _ZNSt6vectorIN25llm_tokenizer_ugm_session17best_tokenizationESaIS1_EE17_S_check_
 
 _ZNSt6vectorIN25llm_tokenizer_ugm_session17best_tokenizationESaIS1_EEC2EmRKS1_RKS2_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %31 = getelementptr inbounds nuw %"struct.llm_tokenizer_ugm_session::best_tokenization", ptr %28, i64 %19
-  %32 = ptrtoint ptr %31 to i64
   %.pre = load ptr, ptr %20, align 8, !tbaa !174
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %.pre157 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !75
+  %32 = ptrtoint ptr %31 to i64
   br label %_ZNSt6vectorIN25llm_tokenizer_ugm_session17best_tokenizationESaIS1_EEC2EmRKS1_RKS2_.exit
 
 _ZNSt6vectorIN25llm_tokenizer_ugm_session17best_tokenizationESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %_ZNSt6vectorIN25llm_tokenizer_ugm_session17best_tokenizationESaIS1_EEC2EmRKS1_RKS2_.exit.loopexit, %_ZNSt6vectorIN25llm_tokenizer_ugm_session17best_tokenizationESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i

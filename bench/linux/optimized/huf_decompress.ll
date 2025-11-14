@@ -1238,327 +1238,327 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   br i1 %298, label %299, label %565
 
 299:                                              ; preds = %296
-  %300 = sub nsw i32 0, %42
-  %301 = and i32 %300, 63
-  %302 = zext nneg i32 %301 to i64
-  %303 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %304 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %305 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %306 = load ptr, ptr %305, align 8
-  %307 = load i32, ptr %303, align 8
-  %308 = load ptr, ptr %304, align 8
-  br label %309
+  %300 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %301 = sub nsw i32 0, %42
+  %302 = and i32 %301, 63
+  %303 = zext nneg i32 %302 to i64
+  %304 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %306 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %307 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %308 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %309 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %310 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %311 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %312 = load ptr, ptr %311, align 8
+  %313 = load i32, ptr %306, align 8
+  %314 = load ptr, ptr %310, align 8
+  br label %315
 
-309:                                              ; preds = %549, %299
-  %310 = phi ptr [ %308, %299 ], [ %550, %549 ]
-  %311 = phi ptr [ %287, %299 ], [ %537, %549 ]
-  %312 = phi ptr [ %206, %299 ], [ %524, %549 ]
-  %313 = phi ptr [ %125, %299 ], [ %511, %549 ]
-  %314 = phi i32 [ %307, %299 ], [ %551, %549 ]
-  %315 = phi i32 [ %288, %299 ], [ %538, %549 ]
-  %316 = phi i32 [ %207, %299 ], [ %525, %549 ]
-  %317 = phi i32 [ %126, %299 ], [ %512, %549 ]
-  %318 = phi ptr [ %40, %299 ], [ %501, %549 ]
-  %319 = phi ptr [ %39, %299 ], [ %490, %549 ]
-  %320 = phi ptr [ %38, %299 ], [ %479, %549 ]
-  %321 = phi ptr [ %0, %299 ], [ %468, %549 ]
-  %322 = phi i64 [ %127, %299 ], [ %513, %549 ]
-  %323 = phi i64 [ %208, %299 ], [ %526, %549 ]
-  %324 = phi i64 [ %289, %299 ], [ %539, %549 ]
-  %325 = phi i64 [ %297, %299 ], [ %552, %549 ]
-  %326 = and i32 %317, 63
-  %327 = zext nneg i32 %326 to i64
-  %328 = shl i64 %322, %327
-  %329 = lshr i64 %328, %302
-  %330 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %329
-  %331 = getelementptr inbounds nuw i8, ptr %330, i64 1
-  %332 = load i8, ptr %331, align 1
-  %333 = load i8, ptr %330, align 1
-  %334 = zext i8 %333 to i32
-  %335 = add i32 %317, %334
-  %336 = getelementptr i8, ptr %321, i64 1
-  store i8 %332, ptr %321, align 1
-  %337 = and i32 %316, 63
-  %338 = zext nneg i32 %337 to i64
-  %339 = shl i64 %323, %338
-  %340 = lshr i64 %339, %302
-  %341 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %340
-  %342 = getelementptr inbounds nuw i8, ptr %341, i64 1
-  %343 = load i8, ptr %342, align 1
-  %344 = load i8, ptr %341, align 1
-  %345 = zext i8 %344 to i32
-  %346 = add i32 %316, %345
-  %347 = getelementptr i8, ptr %320, i64 1
-  store i8 %343, ptr %320, align 1
-  %348 = and i32 %315, 63
-  %349 = zext nneg i32 %348 to i64
-  %350 = shl i64 %324, %349
-  %351 = lshr i64 %350, %302
-  %352 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %351
-  %353 = getelementptr inbounds nuw i8, ptr %352, i64 1
-  %354 = load i8, ptr %353, align 1
-  %355 = load i8, ptr %352, align 1
-  %356 = zext i8 %355 to i32
-  %357 = add i32 %315, %356
-  %358 = getelementptr i8, ptr %319, i64 1
-  store i8 %354, ptr %319, align 1
-  %359 = and i32 %314, 63
-  %360 = zext nneg i32 %359 to i64
-  %361 = shl i64 %325, %360
-  %362 = lshr i64 %361, %302
-  %363 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %362
-  %364 = getelementptr inbounds nuw i8, ptr %363, i64 1
-  %365 = load i8, ptr %364, align 1
-  %366 = load i8, ptr %363, align 1
-  %367 = zext i8 %366 to i32
-  %368 = add i32 %314, %367
-  store i8 %365, ptr %318, align 1
-  %369 = getelementptr i8, ptr %318, i64 1
-  %370 = and i32 %335, 63
-  %371 = zext nneg i32 %370 to i64
-  %372 = shl i64 %322, %371
-  %373 = lshr i64 %372, %302
-  %374 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %373
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 1
-  %376 = load i8, ptr %375, align 1
-  %377 = load i8, ptr %374, align 1
-  %378 = zext i8 %377 to i32
-  %379 = add i32 %335, %378
-  store i8 %376, ptr %336, align 1
-  %380 = and i32 %346, 63
-  %381 = zext nneg i32 %380 to i64
-  %382 = shl i64 %323, %381
-  %383 = lshr i64 %382, %302
-  %384 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %383
-  %385 = getelementptr inbounds nuw i8, ptr %384, i64 1
-  %386 = load i8, ptr %385, align 1
-  %387 = load i8, ptr %384, align 1
-  %388 = zext i8 %387 to i32
-  %389 = add i32 %346, %388
-  %390 = getelementptr i8, ptr %320, i64 2
-  store i8 %386, ptr %347, align 1
-  %391 = and i32 %357, 63
-  %392 = zext nneg i32 %391 to i64
-  %393 = shl i64 %324, %392
-  %394 = lshr i64 %393, %302
-  %395 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %394
-  %396 = getelementptr inbounds nuw i8, ptr %395, i64 1
-  %397 = load i8, ptr %396, align 1
-  %398 = load i8, ptr %395, align 1
-  %399 = zext i8 %398 to i32
-  %400 = add i32 %357, %399
-  %401 = getelementptr i8, ptr %319, i64 2
-  store i8 %397, ptr %358, align 1
-  %402 = and i32 %368, 63
-  %403 = zext nneg i32 %402 to i64
-  %404 = shl i64 %325, %403
-  %405 = lshr i64 %404, %302
-  %406 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %405
-  %407 = getelementptr inbounds nuw i8, ptr %406, i64 1
-  %408 = load i8, ptr %407, align 1
-  %409 = load i8, ptr %406, align 1
-  %410 = zext i8 %409 to i32
-  %411 = add i32 %368, %410
-  %412 = getelementptr i8, ptr %318, i64 2
-  store i8 %408, ptr %369, align 1
-  %413 = getelementptr i8, ptr %321, i64 2
-  %414 = and i32 %379, 63
-  %415 = zext nneg i32 %414 to i64
-  %416 = shl i64 %322, %415
-  %417 = lshr i64 %416, %302
-  %418 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %417
-  %419 = getelementptr inbounds nuw i8, ptr %418, i64 1
-  %420 = load i8, ptr %419, align 1
-  %421 = load i8, ptr %418, align 1
-  %422 = zext i8 %421 to i32
-  %423 = add i32 %379, %422
-  %424 = getelementptr i8, ptr %321, i64 3
-  store i8 %420, ptr %413, align 1
-  %425 = and i32 %389, 63
-  %426 = zext nneg i32 %425 to i64
-  %427 = shl i64 %323, %426
-  %428 = lshr i64 %427, %302
-  %429 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %428
-  %430 = getelementptr inbounds nuw i8, ptr %429, i64 1
-  %431 = load i8, ptr %430, align 1
-  %432 = load i8, ptr %429, align 1
-  %433 = zext i8 %432 to i32
-  %434 = add i32 %389, %433
-  %435 = getelementptr i8, ptr %320, i64 3
-  store i8 %431, ptr %390, align 1
-  %436 = and i32 %400, 63
-  %437 = zext nneg i32 %436 to i64
-  %438 = shl i64 %324, %437
-  %439 = lshr i64 %438, %302
-  %440 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %439
-  %441 = getelementptr inbounds nuw i8, ptr %440, i64 1
-  %442 = load i8, ptr %441, align 1
-  %443 = load i8, ptr %440, align 1
-  %444 = zext i8 %443 to i32
-  %445 = add i32 %400, %444
-  %446 = getelementptr i8, ptr %319, i64 3
-  store i8 %442, ptr %401, align 1
-  %447 = and i32 %411, 63
-  %448 = zext nneg i32 %447 to i64
-  %449 = shl i64 %325, %448
-  %450 = lshr i64 %449, %302
-  %451 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %450
-  %452 = getelementptr inbounds nuw i8, ptr %451, i64 1
-  %453 = load i8, ptr %452, align 1
-  %454 = load i8, ptr %451, align 1
-  %455 = zext i8 %454 to i32
-  %456 = add i32 %411, %455
-  store i8 %453, ptr %412, align 1
-  %457 = getelementptr i8, ptr %318, i64 3
-  %458 = and i32 %423, 63
-  %459 = zext nneg i32 %458 to i64
-  %460 = shl i64 %322, %459
-  %461 = lshr i64 %460, %302
-  %462 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %461
-  %463 = getelementptr inbounds nuw i8, ptr %462, i64 1
-  %464 = load i8, ptr %463, align 1
-  %465 = load i8, ptr %462, align 1
-  %466 = zext i8 %465 to i32
-  %467 = add i32 %423, %466
-  %468 = getelementptr i8, ptr %321, i64 4
-  store i8 %464, ptr %424, align 1
-  %469 = and i32 %434, 63
-  %470 = zext nneg i32 %469 to i64
-  %471 = shl i64 %323, %470
-  %472 = lshr i64 %471, %302
-  %473 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %472
-  %474 = getelementptr inbounds nuw i8, ptr %473, i64 1
-  %475 = load i8, ptr %474, align 1
-  %476 = load i8, ptr %473, align 1
-  %477 = zext i8 %476 to i32
-  %478 = add i32 %434, %477
-  %479 = getelementptr i8, ptr %320, i64 4
-  store i8 %475, ptr %435, align 1
-  %480 = and i32 %445, 63
-  %481 = zext nneg i32 %480 to i64
-  %482 = shl i64 %324, %481
-  %483 = lshr i64 %482, %302
-  %484 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %483
-  %485 = getelementptr inbounds nuw i8, ptr %484, i64 1
-  %486 = load i8, ptr %485, align 1
-  %487 = load i8, ptr %484, align 1
-  %488 = zext i8 %487 to i32
-  %489 = add i32 %445, %488
-  %490 = getelementptr i8, ptr %319, i64 4
-  store i8 %486, ptr %446, align 1
-  %491 = and i32 %456, 63
-  %492 = zext nneg i32 %491 to i64
-  %493 = shl i64 %325, %492
-  %494 = lshr i64 %493, %302
-  %495 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %494
-  %496 = getelementptr inbounds nuw i8, ptr %495, i64 1
-  %497 = load i8, ptr %496, align 1
-  %498 = load i8, ptr %495, align 1
-  %499 = zext i8 %498 to i32
-  %500 = add i32 %456, %499
-  %501 = getelementptr i8, ptr %318, i64 4
-  store i8 %497, ptr %457, align 1
-  %502 = icmp ult ptr %313, %50
-  br i1 %502, label %510, label %503, !prof !25
+315:                                              ; preds = %555, %299
+  %316 = phi ptr [ %314, %299 ], [ %556, %555 ]
+  %317 = phi ptr [ %287, %299 ], [ %543, %555 ]
+  %318 = phi ptr [ %206, %299 ], [ %530, %555 ]
+  %319 = phi ptr [ %125, %299 ], [ %517, %555 ]
+  %320 = phi i32 [ %313, %299 ], [ %557, %555 ]
+  %321 = phi i32 [ %288, %299 ], [ %544, %555 ]
+  %322 = phi i32 [ %207, %299 ], [ %531, %555 ]
+  %323 = phi i32 [ %126, %299 ], [ %518, %555 ]
+  %324 = phi ptr [ %40, %299 ], [ %507, %555 ]
+  %325 = phi ptr [ %39, %299 ], [ %496, %555 ]
+  %326 = phi ptr [ %38, %299 ], [ %485, %555 ]
+  %327 = phi ptr [ %0, %299 ], [ %474, %555 ]
+  %328 = phi i64 [ %127, %299 ], [ %519, %555 ]
+  %329 = phi i64 [ %208, %299 ], [ %532, %555 ]
+  %330 = phi i64 [ %289, %299 ], [ %545, %555 ]
+  %331 = phi i64 [ %297, %299 ], [ %558, %555 ]
+  %332 = and i32 %323, 63
+  %333 = zext nneg i32 %332 to i64
+  %334 = shl i64 %328, %333
+  %335 = lshr i64 %334, %303
+  %336 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %335
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 1
+  %338 = load i8, ptr %337, align 1
+  %339 = load i8, ptr %336, align 1
+  %340 = zext i8 %339 to i32
+  %341 = add i32 %323, %340
+  %342 = getelementptr i8, ptr %327, i64 1
+  store i8 %338, ptr %327, align 1
+  %343 = and i32 %322, 63
+  %344 = zext nneg i32 %343 to i64
+  %345 = shl i64 %329, %344
+  %346 = lshr i64 %345, %303
+  %347 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %346
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 1
+  %349 = load i8, ptr %348, align 1
+  %350 = load i8, ptr %347, align 1
+  %351 = zext i8 %350 to i32
+  %352 = add i32 %322, %351
+  %353 = getelementptr i8, ptr %326, i64 1
+  store i8 %349, ptr %326, align 1
+  %354 = and i32 %321, 63
+  %355 = zext nneg i32 %354 to i64
+  %356 = shl i64 %330, %355
+  %357 = lshr i64 %356, %303
+  %358 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %357
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 1
+  %360 = load i8, ptr %359, align 1
+  %361 = load i8, ptr %358, align 1
+  %362 = zext i8 %361 to i32
+  %363 = add i32 %321, %362
+  %364 = getelementptr i8, ptr %325, i64 1
+  store i8 %360, ptr %325, align 1
+  %365 = and i32 %320, 63
+  %366 = zext nneg i32 %365 to i64
+  %367 = shl i64 %331, %366
+  %368 = lshr i64 %367, %303
+  %369 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %368
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 1
+  %371 = load i8, ptr %370, align 1
+  %372 = load i8, ptr %369, align 1
+  %373 = zext i8 %372 to i32
+  %374 = add i32 %320, %373
+  store i8 %371, ptr %324, align 1
+  %375 = getelementptr i8, ptr %324, i64 1
+  %376 = and i32 %341, 63
+  %377 = zext nneg i32 %376 to i64
+  %378 = shl i64 %328, %377
+  %379 = lshr i64 %378, %303
+  %380 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %379
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 1
+  %382 = load i8, ptr %381, align 1
+  %383 = load i8, ptr %380, align 1
+  %384 = zext i8 %383 to i32
+  %385 = add i32 %341, %384
+  store i8 %382, ptr %342, align 1
+  %386 = and i32 %352, 63
+  %387 = zext nneg i32 %386 to i64
+  %388 = shl i64 %329, %387
+  %389 = lshr i64 %388, %303
+  %390 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %389
+  %391 = getelementptr inbounds nuw i8, ptr %390, i64 1
+  %392 = load i8, ptr %391, align 1
+  %393 = load i8, ptr %390, align 1
+  %394 = zext i8 %393 to i32
+  %395 = add i32 %352, %394
+  %396 = getelementptr i8, ptr %326, i64 2
+  store i8 %392, ptr %353, align 1
+  %397 = and i32 %363, 63
+  %398 = zext nneg i32 %397 to i64
+  %399 = shl i64 %330, %398
+  %400 = lshr i64 %399, %303
+  %401 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %400
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 1
+  %403 = load i8, ptr %402, align 1
+  %404 = load i8, ptr %401, align 1
+  %405 = zext i8 %404 to i32
+  %406 = add i32 %363, %405
+  %407 = getelementptr i8, ptr %325, i64 2
+  store i8 %403, ptr %364, align 1
+  %408 = and i32 %374, 63
+  %409 = zext nneg i32 %408 to i64
+  %410 = shl i64 %331, %409
+  %411 = lshr i64 %410, %303
+  %412 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %411
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 1
+  %414 = load i8, ptr %413, align 1
+  %415 = load i8, ptr %412, align 1
+  %416 = zext i8 %415 to i32
+  %417 = add i32 %374, %416
+  %418 = getelementptr i8, ptr %324, i64 2
+  store i8 %414, ptr %375, align 1
+  %419 = getelementptr i8, ptr %327, i64 2
+  %420 = and i32 %385, 63
+  %421 = zext nneg i32 %420 to i64
+  %422 = shl i64 %328, %421
+  %423 = lshr i64 %422, %303
+  %424 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %423
+  %425 = getelementptr inbounds nuw i8, ptr %424, i64 1
+  %426 = load i8, ptr %425, align 1
+  %427 = load i8, ptr %424, align 1
+  %428 = zext i8 %427 to i32
+  %429 = add i32 %385, %428
+  %430 = getelementptr i8, ptr %327, i64 3
+  store i8 %426, ptr %419, align 1
+  %431 = and i32 %395, 63
+  %432 = zext nneg i32 %431 to i64
+  %433 = shl i64 %329, %432
+  %434 = lshr i64 %433, %303
+  %435 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %434
+  %436 = getelementptr inbounds nuw i8, ptr %435, i64 1
+  %437 = load i8, ptr %436, align 1
+  %438 = load i8, ptr %435, align 1
+  %439 = zext i8 %438 to i32
+  %440 = add i32 %395, %439
+  %441 = getelementptr i8, ptr %326, i64 3
+  store i8 %437, ptr %396, align 1
+  %442 = and i32 %406, 63
+  %443 = zext nneg i32 %442 to i64
+  %444 = shl i64 %330, %443
+  %445 = lshr i64 %444, %303
+  %446 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %445
+  %447 = getelementptr inbounds nuw i8, ptr %446, i64 1
+  %448 = load i8, ptr %447, align 1
+  %449 = load i8, ptr %446, align 1
+  %450 = zext i8 %449 to i32
+  %451 = add i32 %406, %450
+  %452 = getelementptr i8, ptr %325, i64 3
+  store i8 %448, ptr %407, align 1
+  %453 = and i32 %417, 63
+  %454 = zext nneg i32 %453 to i64
+  %455 = shl i64 %331, %454
+  %456 = lshr i64 %455, %303
+  %457 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %456
+  %458 = getelementptr inbounds nuw i8, ptr %457, i64 1
+  %459 = load i8, ptr %458, align 1
+  %460 = load i8, ptr %457, align 1
+  %461 = zext i8 %460 to i32
+  %462 = add i32 %417, %461
+  store i8 %459, ptr %418, align 1
+  %463 = getelementptr i8, ptr %324, i64 3
+  %464 = and i32 %429, 63
+  %465 = zext nneg i32 %464 to i64
+  %466 = shl i64 %328, %465
+  %467 = lshr i64 %466, %303
+  %468 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %467
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 1
+  %470 = load i8, ptr %469, align 1
+  %471 = load i8, ptr %468, align 1
+  %472 = zext i8 %471 to i32
+  %473 = add i32 %429, %472
+  %474 = getelementptr i8, ptr %327, i64 4
+  store i8 %470, ptr %430, align 1
+  %475 = and i32 %440, 63
+  %476 = zext nneg i32 %475 to i64
+  %477 = shl i64 %329, %476
+  %478 = lshr i64 %477, %303
+  %479 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %478
+  %480 = getelementptr inbounds nuw i8, ptr %479, i64 1
+  %481 = load i8, ptr %480, align 1
+  %482 = load i8, ptr %479, align 1
+  %483 = zext i8 %482 to i32
+  %484 = add i32 %440, %483
+  %485 = getelementptr i8, ptr %326, i64 4
+  store i8 %481, ptr %441, align 1
+  %486 = and i32 %451, 63
+  %487 = zext nneg i32 %486 to i64
+  %488 = shl i64 %330, %487
+  %489 = lshr i64 %488, %303
+  %490 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %489
+  %491 = getelementptr inbounds nuw i8, ptr %490, i64 1
+  %492 = load i8, ptr %491, align 1
+  %493 = load i8, ptr %490, align 1
+  %494 = zext i8 %493 to i32
+  %495 = add i32 %451, %494
+  %496 = getelementptr i8, ptr %325, i64 4
+  store i8 %492, ptr %452, align 1
+  %497 = and i32 %462, 63
+  %498 = zext nneg i32 %497 to i64
+  %499 = shl i64 %331, %498
+  %500 = lshr i64 %499, %303
+  %501 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %500
+  %502 = getelementptr inbounds nuw i8, ptr %501, i64 1
+  %503 = load i8, ptr %502, align 1
+  %504 = load i8, ptr %501, align 1
+  %505 = zext i8 %504 to i32
+  %506 = add i32 %462, %505
+  %507 = getelementptr i8, ptr %324, i64 4
+  store i8 %503, ptr %463, align 1
+  %508 = icmp ult ptr %319, %50
+  br i1 %508, label %516, label %509, !prof !25
 
-503:                                              ; preds = %309
-  %504 = lshr i32 %467, 3
-  %505 = zext nneg i32 %504 to i64
-  %506 = sub nsw i64 0, %505
-  %507 = getelementptr i8, ptr %313, i64 %506
-  %508 = and i32 %467, 7
-  %509 = load i64, ptr %507, align 1
-  br label %510
+509:                                              ; preds = %315
+  %510 = lshr i32 %473, 3
+  %511 = zext nneg i32 %510 to i64
+  %512 = sub nsw i64 0, %511
+  %513 = getelementptr i8, ptr %319, i64 %512
+  %514 = and i32 %473, 7
+  %515 = load i64, ptr %513, align 1
+  br label %516
 
-510:                                              ; preds = %503, %309
-  %511 = phi ptr [ %507, %503 ], [ %313, %309 ]
-  %512 = phi i32 [ %508, %503 ], [ %467, %309 ]
-  %513 = phi i64 [ %509, %503 ], [ %322, %309 ]
-  %514 = phi i32 [ 0, %503 ], [ 3, %309 ]
-  %515 = icmp ult ptr %312, %131
-  br i1 %515, label %523, label %516, !prof !25
+516:                                              ; preds = %509, %315
+  %517 = phi ptr [ %513, %509 ], [ %319, %315 ]
+  %518 = phi i32 [ %514, %509 ], [ %473, %315 ]
+  %519 = phi i64 [ %515, %509 ], [ %328, %315 ]
+  %520 = phi i32 [ 0, %509 ], [ 3, %315 ]
+  %521 = icmp ult ptr %318, %131
+  br i1 %521, label %529, label %522, !prof !25
 
-516:                                              ; preds = %510
-  %517 = lshr i32 %478, 3
-  %518 = zext nneg i32 %517 to i64
-  %519 = sub nsw i64 0, %518
-  %520 = getelementptr i8, ptr %312, i64 %519
-  %521 = and i32 %478, 7
-  %522 = load i64, ptr %520, align 1
-  br label %523
+522:                                              ; preds = %516
+  %523 = lshr i32 %484, 3
+  %524 = zext nneg i32 %523 to i64
+  %525 = sub nsw i64 0, %524
+  %526 = getelementptr i8, ptr %318, i64 %525
+  %527 = and i32 %484, 7
+  %528 = load i64, ptr %526, align 1
+  br label %529
 
-523:                                              ; preds = %516, %510
-  %524 = phi ptr [ %520, %516 ], [ %312, %510 ]
-  %525 = phi i32 [ %521, %516 ], [ %478, %510 ]
-  %526 = phi i64 [ %522, %516 ], [ %323, %510 ]
-  %527 = phi i32 [ %514, %516 ], [ 3, %510 ]
-  %528 = icmp ult ptr %311, %212
-  br i1 %528, label %536, label %529, !prof !25
+529:                                              ; preds = %522, %516
+  %530 = phi ptr [ %526, %522 ], [ %318, %516 ]
+  %531 = phi i32 [ %527, %522 ], [ %484, %516 ]
+  %532 = phi i64 [ %528, %522 ], [ %329, %516 ]
+  %533 = phi i32 [ %520, %522 ], [ 3, %516 ]
+  %534 = icmp ult ptr %317, %212
+  br i1 %534, label %542, label %535, !prof !25
 
-529:                                              ; preds = %523
-  %530 = lshr i32 %489, 3
-  %531 = zext nneg i32 %530 to i64
-  %532 = sub nsw i64 0, %531
-  %533 = getelementptr i8, ptr %311, i64 %532
-  %534 = and i32 %489, 7
-  %535 = load i64, ptr %533, align 1
-  br label %536
+535:                                              ; preds = %529
+  %536 = lshr i32 %495, 3
+  %537 = zext nneg i32 %536 to i64
+  %538 = sub nsw i64 0, %537
+  %539 = getelementptr i8, ptr %317, i64 %538
+  %540 = and i32 %495, 7
+  %541 = load i64, ptr %539, align 1
+  br label %542
 
-536:                                              ; preds = %529, %523
-  %537 = phi ptr [ %533, %529 ], [ %311, %523 ]
-  %538 = phi i32 [ %534, %529 ], [ %489, %523 ]
-  %539 = phi i64 [ %535, %529 ], [ %324, %523 ]
-  %540 = phi i32 [ %527, %529 ], [ 3, %523 ]
-  %541 = icmp ult ptr %310, %306
-  br i1 %541, label %549, label %542, !prof !25
+542:                                              ; preds = %535, %529
+  %543 = phi ptr [ %539, %535 ], [ %317, %529 ]
+  %544 = phi i32 [ %540, %535 ], [ %495, %529 ]
+  %545 = phi i64 [ %541, %535 ], [ %330, %529 ]
+  %546 = phi i32 [ %533, %535 ], [ 3, %529 ]
+  %547 = icmp ult ptr %316, %312
+  br i1 %547, label %555, label %548, !prof !25
 
-542:                                              ; preds = %536
-  %543 = lshr i32 %500, 3
-  %544 = zext nneg i32 %543 to i64
-  %545 = sub nsw i64 0, %544
-  %546 = getelementptr i8, ptr %310, i64 %545
-  %547 = and i32 %500, 7
-  %548 = load i64, ptr %546, align 1
-  br label %549
+548:                                              ; preds = %542
+  %549 = lshr i32 %506, 3
+  %550 = zext nneg i32 %549 to i64
+  %551 = sub nsw i64 0, %550
+  %552 = getelementptr i8, ptr %316, i64 %551
+  %553 = and i32 %506, 7
+  %554 = load i64, ptr %552, align 1
+  br label %555
 
-549:                                              ; preds = %542, %536
-  %550 = phi ptr [ %546, %542 ], [ %310, %536 ]
-  %551 = phi i32 [ %547, %542 ], [ %500, %536 ]
-  %552 = phi i64 [ %548, %542 ], [ %325, %536 ]
-  %553 = phi i32 [ 0, %542 ], [ 3, %536 ]
-  %554 = or i32 %540, %553
-  %555 = icmp ne i32 %554, 0
-  %556 = icmp uge ptr %501, %18
-  %557 = or i1 %556, %555
-  br i1 %557, label %558, label %309, !llvm.loop !26
+555:                                              ; preds = %548, %542
+  %556 = phi ptr [ %552, %548 ], [ %316, %542 ]
+  %557 = phi i32 [ %553, %548 ], [ %506, %542 ]
+  %558 = phi i64 [ %554, %548 ], [ %331, %542 ]
+  %559 = phi i32 [ 0, %548 ], [ 3, %542 ]
+  %560 = or i32 %546, %559
+  %561 = icmp ne i32 %560, 0
+  %562 = icmp uge ptr %507, %18
+  %563 = or i1 %562, %561
+  br i1 %563, label %564, label %315, !llvm.loop !26
 
-558:                                              ; preds = %549
-  %559 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %560 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %561 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %562 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %563 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %564 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %512, ptr %559, align 8
-  store i32 %525, ptr %560, align 8
-  store i32 %538, ptr %561, align 8
-  store i32 %551, ptr %303, align 8
-  store ptr %511, ptr %562, align 8
-  store ptr %524, ptr %563, align 8
-  store ptr %537, ptr %564, align 8
-  store ptr %550, ptr %304, align 8
+564:                                              ; preds = %555
+  store i32 %518, ptr %300, align 8
+  store i32 %531, ptr %304, align 8
+  store i32 %544, ptr %305, align 8
+  store i32 %557, ptr %306, align 8
+  store ptr %517, ptr %307, align 8
+  store ptr %530, ptr %308, align 8
+  store ptr %543, ptr %309, align 8
+  store ptr %556, ptr %310, align 8
   br label %565
 
-565:                                              ; preds = %558, %296
-  %566 = phi i32 [ %512, %558 ], [ %126, %296 ]
-  %567 = phi i64 [ %552, %558 ], [ %297, %296 ]
-  %568 = phi i64 [ %539, %558 ], [ %289, %296 ]
-  %569 = phi i64 [ %526, %558 ], [ %208, %296 ]
-  %570 = phi i64 [ %513, %558 ], [ %127, %296 ]
-  %571 = phi ptr [ %468, %558 ], [ %0, %296 ]
-  %572 = phi ptr [ %479, %558 ], [ %38, %296 ]
-  %573 = phi ptr [ %490, %558 ], [ %39, %296 ]
-  %574 = phi ptr [ %501, %558 ], [ %40, %296 ]
+565:                                              ; preds = %564, %296
+  %566 = phi i32 [ %518, %564 ], [ %126, %296 ]
+  %567 = phi i64 [ %558, %564 ], [ %297, %296 ]
+  %568 = phi i64 [ %545, %564 ], [ %289, %296 ]
+  %569 = phi i64 [ %532, %564 ], [ %208, %296 ]
+  %570 = phi i64 [ %519, %564 ], [ %127, %296 ]
+  %571 = phi ptr [ %474, %564 ], [ %0, %296 ]
+  %572 = phi ptr [ %485, %564 ], [ %38, %296 ]
+  %573 = phi ptr [ %496, %564 ], [ %39, %296 ]
+  %574 = phi ptr [ %507, %564 ], [ %40, %296 ]
   store i64 %570, ptr %7, align 8
   store i64 %569, ptr %8, align 8
   store i64 %568, ptr %9, align 8
@@ -7518,323 +7518,323 @@ BIT_initDStream.exit:                             ; preds = %291
   br i1 %372, label %373, label %635
 
 373:                                              ; preds = %371
-  %374 = sub nsw i32 0, %37
-  %375 = and i32 %374, 63
-  %376 = zext nneg i32 %375 to i64
-  br label %377
+  %374 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %375 = sub nsw i32 0, %37
+  %376 = and i32 %375, 63
+  %377 = zext nneg i32 %376 to i64
+  %378 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %379 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %380 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %381 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %382 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %383 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %384 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  br label %385
 
-377:                                              ; preds = %617, %373
-  %378 = phi ptr [ %365, %373 ], [ %618, %617 ]
-  %379 = phi ptr [ %282, %373 ], [ %605, %617 ]
-  %380 = phi ptr [ %201, %373 ], [ %592, %617 ]
-  %381 = phi ptr [ %120, %373 ], [ %579, %617 ]
-  %382 = phi i32 [ %366, %373 ], [ %619, %617 ]
-  %383 = phi i32 [ %283, %373 ], [ %606, %617 ]
-  %384 = phi i32 [ %202, %373 ], [ %593, %617 ]
-  %385 = phi i32 [ %121, %373 ], [ %580, %617 ]
-  %386 = phi ptr [ %35, %373 ], [ %569, %617 ]
-  %387 = phi ptr [ %34, %373 ], [ %558, %617 ]
-  %388 = phi ptr [ %33, %373 ], [ %547, %617 ]
-  %389 = phi ptr [ %0, %373 ], [ %536, %617 ]
-  %390 = phi i64 [ %122, %373 ], [ %581, %617 ]
-  %391 = phi i64 [ %203, %373 ], [ %594, %617 ]
-  %392 = phi i64 [ %284, %373 ], [ %607, %617 ]
-  %393 = phi i64 [ %367, %373 ], [ %620, %617 ]
-  %394 = and i32 %385, 63
-  %395 = zext nneg i32 %394 to i64
-  %396 = shl i64 %390, %395
-  %397 = lshr i64 %396, %376
-  %398 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %397
-  %399 = getelementptr inbounds nuw i8, ptr %398, i64 1
-  %400 = load i8, ptr %399, align 1
-  %401 = load i8, ptr %398, align 1
-  %402 = zext i8 %401 to i32
-  %403 = add i32 %385, %402
-  %404 = getelementptr i8, ptr %389, i64 1
-  store i8 %400, ptr %389, align 1
-  %405 = and i32 %384, 63
-  %406 = zext nneg i32 %405 to i64
-  %407 = shl i64 %391, %406
-  %408 = lshr i64 %407, %376
-  %409 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %408
-  %410 = getelementptr inbounds nuw i8, ptr %409, i64 1
-  %411 = load i8, ptr %410, align 1
-  %412 = load i8, ptr %409, align 1
-  %413 = zext i8 %412 to i32
-  %414 = add i32 %384, %413
-  %415 = getelementptr i8, ptr %388, i64 1
-  store i8 %411, ptr %388, align 1
-  %416 = and i32 %383, 63
-  %417 = zext nneg i32 %416 to i64
-  %418 = shl i64 %392, %417
-  %419 = lshr i64 %418, %376
-  %420 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %419
-  %421 = getelementptr inbounds nuw i8, ptr %420, i64 1
-  %422 = load i8, ptr %421, align 1
-  %423 = load i8, ptr %420, align 1
-  %424 = zext i8 %423 to i32
-  %425 = add i32 %383, %424
-  %426 = getelementptr i8, ptr %387, i64 1
-  store i8 %422, ptr %387, align 1
-  %427 = and i32 %382, 63
-  %428 = zext nneg i32 %427 to i64
-  %429 = shl i64 %393, %428
-  %430 = lshr i64 %429, %376
-  %431 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %430
-  %432 = getelementptr inbounds nuw i8, ptr %431, i64 1
-  %433 = load i8, ptr %432, align 1
-  %434 = load i8, ptr %431, align 1
-  %435 = zext i8 %434 to i32
-  %436 = add i32 %382, %435
-  store i8 %433, ptr %386, align 1
-  %437 = getelementptr i8, ptr %386, i64 1
-  %438 = and i32 %403, 63
-  %439 = zext nneg i32 %438 to i64
-  %440 = shl i64 %390, %439
-  %441 = lshr i64 %440, %376
-  %442 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %441
-  %443 = getelementptr inbounds nuw i8, ptr %442, i64 1
-  %444 = load i8, ptr %443, align 1
-  %445 = load i8, ptr %442, align 1
-  %446 = zext i8 %445 to i32
-  %447 = add i32 %403, %446
-  store i8 %444, ptr %404, align 1
-  %448 = and i32 %414, 63
-  %449 = zext nneg i32 %448 to i64
-  %450 = shl i64 %391, %449
-  %451 = lshr i64 %450, %376
-  %452 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %451
-  %453 = getelementptr inbounds nuw i8, ptr %452, i64 1
-  %454 = load i8, ptr %453, align 1
-  %455 = load i8, ptr %452, align 1
-  %456 = zext i8 %455 to i32
-  %457 = add i32 %414, %456
-  %458 = getelementptr i8, ptr %388, i64 2
-  store i8 %454, ptr %415, align 1
-  %459 = and i32 %425, 63
-  %460 = zext nneg i32 %459 to i64
-  %461 = shl i64 %392, %460
-  %462 = lshr i64 %461, %376
-  %463 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %462
-  %464 = getelementptr inbounds nuw i8, ptr %463, i64 1
-  %465 = load i8, ptr %464, align 1
-  %466 = load i8, ptr %463, align 1
-  %467 = zext i8 %466 to i32
-  %468 = add i32 %425, %467
-  %469 = getelementptr i8, ptr %387, i64 2
-  store i8 %465, ptr %426, align 1
-  %470 = and i32 %436, 63
-  %471 = zext nneg i32 %470 to i64
-  %472 = shl i64 %393, %471
-  %473 = lshr i64 %472, %376
-  %474 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %473
-  %475 = getelementptr inbounds nuw i8, ptr %474, i64 1
-  %476 = load i8, ptr %475, align 1
-  %477 = load i8, ptr %474, align 1
-  %478 = zext i8 %477 to i32
-  %479 = add i32 %436, %478
-  %480 = getelementptr i8, ptr %386, i64 2
-  store i8 %476, ptr %437, align 1
-  %481 = getelementptr i8, ptr %389, i64 2
-  %482 = and i32 %447, 63
-  %483 = zext nneg i32 %482 to i64
-  %484 = shl i64 %390, %483
-  %485 = lshr i64 %484, %376
-  %486 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %485
-  %487 = getelementptr inbounds nuw i8, ptr %486, i64 1
-  %488 = load i8, ptr %487, align 1
-  %489 = load i8, ptr %486, align 1
-  %490 = zext i8 %489 to i32
-  %491 = add i32 %447, %490
-  %492 = getelementptr i8, ptr %389, i64 3
-  store i8 %488, ptr %481, align 1
-  %493 = and i32 %457, 63
-  %494 = zext nneg i32 %493 to i64
-  %495 = shl i64 %391, %494
-  %496 = lshr i64 %495, %376
-  %497 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %496
-  %498 = getelementptr inbounds nuw i8, ptr %497, i64 1
-  %499 = load i8, ptr %498, align 1
-  %500 = load i8, ptr %497, align 1
-  %501 = zext i8 %500 to i32
-  %502 = add i32 %457, %501
-  %503 = getelementptr i8, ptr %388, i64 3
-  store i8 %499, ptr %458, align 1
-  %504 = and i32 %468, 63
-  %505 = zext nneg i32 %504 to i64
-  %506 = shl i64 %392, %505
-  %507 = lshr i64 %506, %376
-  %508 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %507
-  %509 = getelementptr inbounds nuw i8, ptr %508, i64 1
-  %510 = load i8, ptr %509, align 1
-  %511 = load i8, ptr %508, align 1
-  %512 = zext i8 %511 to i32
-  %513 = add i32 %468, %512
-  %514 = getelementptr i8, ptr %387, i64 3
-  store i8 %510, ptr %469, align 1
-  %515 = and i32 %479, 63
-  %516 = zext nneg i32 %515 to i64
-  %517 = shl i64 %393, %516
-  %518 = lshr i64 %517, %376
-  %519 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %518
-  %520 = getelementptr inbounds nuw i8, ptr %519, i64 1
-  %521 = load i8, ptr %520, align 1
-  %522 = load i8, ptr %519, align 1
-  %523 = zext i8 %522 to i32
-  %524 = add i32 %479, %523
-  store i8 %521, ptr %480, align 1
-  %525 = getelementptr i8, ptr %386, i64 3
-  %526 = and i32 %491, 63
-  %527 = zext nneg i32 %526 to i64
-  %528 = shl i64 %390, %527
-  %529 = lshr i64 %528, %376
-  %530 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %529
-  %531 = getelementptr inbounds nuw i8, ptr %530, i64 1
-  %532 = load i8, ptr %531, align 1
-  %533 = load i8, ptr %530, align 1
-  %534 = zext i8 %533 to i32
-  %535 = add i32 %491, %534
-  %536 = getelementptr i8, ptr %389, i64 4
-  store i8 %532, ptr %492, align 1
-  %537 = and i32 %502, 63
-  %538 = zext nneg i32 %537 to i64
-  %539 = shl i64 %391, %538
-  %540 = lshr i64 %539, %376
-  %541 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %540
-  %542 = getelementptr inbounds nuw i8, ptr %541, i64 1
-  %543 = load i8, ptr %542, align 1
-  %544 = load i8, ptr %541, align 1
-  %545 = zext i8 %544 to i32
-  %546 = add i32 %502, %545
-  %547 = getelementptr i8, ptr %388, i64 4
-  store i8 %543, ptr %503, align 1
-  %548 = and i32 %513, 63
-  %549 = zext nneg i32 %548 to i64
-  %550 = shl i64 %392, %549
-  %551 = lshr i64 %550, %376
-  %552 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %551
-  %553 = getelementptr inbounds nuw i8, ptr %552, i64 1
-  %554 = load i8, ptr %553, align 1
-  %555 = load i8, ptr %552, align 1
-  %556 = zext i8 %555 to i32
-  %557 = add i32 %513, %556
-  %558 = getelementptr i8, ptr %387, i64 4
-  store i8 %554, ptr %514, align 1
-  %559 = and i32 %524, 63
-  %560 = zext nneg i32 %559 to i64
-  %561 = shl i64 %393, %560
-  %562 = lshr i64 %561, %376
-  %563 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %562
-  %564 = getelementptr inbounds nuw i8, ptr %563, i64 1
-  %565 = load i8, ptr %564, align 1
-  %566 = load i8, ptr %563, align 1
-  %567 = zext i8 %566 to i32
-  %568 = add i32 %524, %567
-  %569 = getelementptr i8, ptr %386, i64 4
-  store i8 %565, ptr %525, align 1
-  %570 = icmp ult ptr %381, %45
-  br i1 %570, label %578, label %571, !prof !25
+385:                                              ; preds = %625, %373
+  %386 = phi ptr [ %365, %373 ], [ %626, %625 ]
+  %387 = phi ptr [ %282, %373 ], [ %613, %625 ]
+  %388 = phi ptr [ %201, %373 ], [ %600, %625 ]
+  %389 = phi ptr [ %120, %373 ], [ %587, %625 ]
+  %390 = phi i32 [ %366, %373 ], [ %627, %625 ]
+  %391 = phi i32 [ %283, %373 ], [ %614, %625 ]
+  %392 = phi i32 [ %202, %373 ], [ %601, %625 ]
+  %393 = phi i32 [ %121, %373 ], [ %588, %625 ]
+  %394 = phi ptr [ %35, %373 ], [ %577, %625 ]
+  %395 = phi ptr [ %34, %373 ], [ %566, %625 ]
+  %396 = phi ptr [ %33, %373 ], [ %555, %625 ]
+  %397 = phi ptr [ %0, %373 ], [ %544, %625 ]
+  %398 = phi i64 [ %122, %373 ], [ %589, %625 ]
+  %399 = phi i64 [ %203, %373 ], [ %602, %625 ]
+  %400 = phi i64 [ %284, %373 ], [ %615, %625 ]
+  %401 = phi i64 [ %367, %373 ], [ %628, %625 ]
+  %402 = and i32 %393, 63
+  %403 = zext nneg i32 %402 to i64
+  %404 = shl i64 %398, %403
+  %405 = lshr i64 %404, %377
+  %406 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %405
+  %407 = getelementptr inbounds nuw i8, ptr %406, i64 1
+  %408 = load i8, ptr %407, align 1
+  %409 = load i8, ptr %406, align 1
+  %410 = zext i8 %409 to i32
+  %411 = add i32 %393, %410
+  %412 = getelementptr i8, ptr %397, i64 1
+  store i8 %408, ptr %397, align 1
+  %413 = and i32 %392, 63
+  %414 = zext nneg i32 %413 to i64
+  %415 = shl i64 %399, %414
+  %416 = lshr i64 %415, %377
+  %417 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %416
+  %418 = getelementptr inbounds nuw i8, ptr %417, i64 1
+  %419 = load i8, ptr %418, align 1
+  %420 = load i8, ptr %417, align 1
+  %421 = zext i8 %420 to i32
+  %422 = add i32 %392, %421
+  %423 = getelementptr i8, ptr %396, i64 1
+  store i8 %419, ptr %396, align 1
+  %424 = and i32 %391, 63
+  %425 = zext nneg i32 %424 to i64
+  %426 = shl i64 %400, %425
+  %427 = lshr i64 %426, %377
+  %428 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %427
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 1
+  %430 = load i8, ptr %429, align 1
+  %431 = load i8, ptr %428, align 1
+  %432 = zext i8 %431 to i32
+  %433 = add i32 %391, %432
+  %434 = getelementptr i8, ptr %395, i64 1
+  store i8 %430, ptr %395, align 1
+  %435 = and i32 %390, 63
+  %436 = zext nneg i32 %435 to i64
+  %437 = shl i64 %401, %436
+  %438 = lshr i64 %437, %377
+  %439 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %438
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 1
+  %441 = load i8, ptr %440, align 1
+  %442 = load i8, ptr %439, align 1
+  %443 = zext i8 %442 to i32
+  %444 = add i32 %390, %443
+  store i8 %441, ptr %394, align 1
+  %445 = getelementptr i8, ptr %394, i64 1
+  %446 = and i32 %411, 63
+  %447 = zext nneg i32 %446 to i64
+  %448 = shl i64 %398, %447
+  %449 = lshr i64 %448, %377
+  %450 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %449
+  %451 = getelementptr inbounds nuw i8, ptr %450, i64 1
+  %452 = load i8, ptr %451, align 1
+  %453 = load i8, ptr %450, align 1
+  %454 = zext i8 %453 to i32
+  %455 = add i32 %411, %454
+  store i8 %452, ptr %412, align 1
+  %456 = and i32 %422, 63
+  %457 = zext nneg i32 %456 to i64
+  %458 = shl i64 %399, %457
+  %459 = lshr i64 %458, %377
+  %460 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %459
+  %461 = getelementptr inbounds nuw i8, ptr %460, i64 1
+  %462 = load i8, ptr %461, align 1
+  %463 = load i8, ptr %460, align 1
+  %464 = zext i8 %463 to i32
+  %465 = add i32 %422, %464
+  %466 = getelementptr i8, ptr %396, i64 2
+  store i8 %462, ptr %423, align 1
+  %467 = and i32 %433, 63
+  %468 = zext nneg i32 %467 to i64
+  %469 = shl i64 %400, %468
+  %470 = lshr i64 %469, %377
+  %471 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %470
+  %472 = getelementptr inbounds nuw i8, ptr %471, i64 1
+  %473 = load i8, ptr %472, align 1
+  %474 = load i8, ptr %471, align 1
+  %475 = zext i8 %474 to i32
+  %476 = add i32 %433, %475
+  %477 = getelementptr i8, ptr %395, i64 2
+  store i8 %473, ptr %434, align 1
+  %478 = and i32 %444, 63
+  %479 = zext nneg i32 %478 to i64
+  %480 = shl i64 %401, %479
+  %481 = lshr i64 %480, %377
+  %482 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %481
+  %483 = getelementptr inbounds nuw i8, ptr %482, i64 1
+  %484 = load i8, ptr %483, align 1
+  %485 = load i8, ptr %482, align 1
+  %486 = zext i8 %485 to i32
+  %487 = add i32 %444, %486
+  %488 = getelementptr i8, ptr %394, i64 2
+  store i8 %484, ptr %445, align 1
+  %489 = getelementptr i8, ptr %397, i64 2
+  %490 = and i32 %455, 63
+  %491 = zext nneg i32 %490 to i64
+  %492 = shl i64 %398, %491
+  %493 = lshr i64 %492, %377
+  %494 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %493
+  %495 = getelementptr inbounds nuw i8, ptr %494, i64 1
+  %496 = load i8, ptr %495, align 1
+  %497 = load i8, ptr %494, align 1
+  %498 = zext i8 %497 to i32
+  %499 = add i32 %455, %498
+  %500 = getelementptr i8, ptr %397, i64 3
+  store i8 %496, ptr %489, align 1
+  %501 = and i32 %465, 63
+  %502 = zext nneg i32 %501 to i64
+  %503 = shl i64 %399, %502
+  %504 = lshr i64 %503, %377
+  %505 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %504
+  %506 = getelementptr inbounds nuw i8, ptr %505, i64 1
+  %507 = load i8, ptr %506, align 1
+  %508 = load i8, ptr %505, align 1
+  %509 = zext i8 %508 to i32
+  %510 = add i32 %465, %509
+  %511 = getelementptr i8, ptr %396, i64 3
+  store i8 %507, ptr %466, align 1
+  %512 = and i32 %476, 63
+  %513 = zext nneg i32 %512 to i64
+  %514 = shl i64 %400, %513
+  %515 = lshr i64 %514, %377
+  %516 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %515
+  %517 = getelementptr inbounds nuw i8, ptr %516, i64 1
+  %518 = load i8, ptr %517, align 1
+  %519 = load i8, ptr %516, align 1
+  %520 = zext i8 %519 to i32
+  %521 = add i32 %476, %520
+  %522 = getelementptr i8, ptr %395, i64 3
+  store i8 %518, ptr %477, align 1
+  %523 = and i32 %487, 63
+  %524 = zext nneg i32 %523 to i64
+  %525 = shl i64 %401, %524
+  %526 = lshr i64 %525, %377
+  %527 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %526
+  %528 = getelementptr inbounds nuw i8, ptr %527, i64 1
+  %529 = load i8, ptr %528, align 1
+  %530 = load i8, ptr %527, align 1
+  %531 = zext i8 %530 to i32
+  %532 = add i32 %487, %531
+  store i8 %529, ptr %488, align 1
+  %533 = getelementptr i8, ptr %394, i64 3
+  %534 = and i32 %499, 63
+  %535 = zext nneg i32 %534 to i64
+  %536 = shl i64 %398, %535
+  %537 = lshr i64 %536, %377
+  %538 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %537
+  %539 = getelementptr inbounds nuw i8, ptr %538, i64 1
+  %540 = load i8, ptr %539, align 1
+  %541 = load i8, ptr %538, align 1
+  %542 = zext i8 %541 to i32
+  %543 = add i32 %499, %542
+  %544 = getelementptr i8, ptr %397, i64 4
+  store i8 %540, ptr %500, align 1
+  %545 = and i32 %510, 63
+  %546 = zext nneg i32 %545 to i64
+  %547 = shl i64 %399, %546
+  %548 = lshr i64 %547, %377
+  %549 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %548
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 1
+  %551 = load i8, ptr %550, align 1
+  %552 = load i8, ptr %549, align 1
+  %553 = zext i8 %552 to i32
+  %554 = add i32 %510, %553
+  %555 = getelementptr i8, ptr %396, i64 4
+  store i8 %551, ptr %511, align 1
+  %556 = and i32 %521, 63
+  %557 = zext nneg i32 %556 to i64
+  %558 = shl i64 %400, %557
+  %559 = lshr i64 %558, %377
+  %560 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %559
+  %561 = getelementptr inbounds nuw i8, ptr %560, i64 1
+  %562 = load i8, ptr %561, align 1
+  %563 = load i8, ptr %560, align 1
+  %564 = zext i8 %563 to i32
+  %565 = add i32 %521, %564
+  %566 = getelementptr i8, ptr %395, i64 4
+  store i8 %562, ptr %522, align 1
+  %567 = and i32 %532, 63
+  %568 = zext nneg i32 %567 to i64
+  %569 = shl i64 %401, %568
+  %570 = lshr i64 %569, %377
+  %571 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %570
+  %572 = getelementptr inbounds nuw i8, ptr %571, i64 1
+  %573 = load i8, ptr %572, align 1
+  %574 = load i8, ptr %571, align 1
+  %575 = zext i8 %574 to i32
+  %576 = add i32 %532, %575
+  %577 = getelementptr i8, ptr %394, i64 4
+  store i8 %573, ptr %533, align 1
+  %578 = icmp ult ptr %389, %45
+  br i1 %578, label %586, label %579, !prof !25
 
-571:                                              ; preds = %377
-  %572 = lshr i32 %535, 3
-  %573 = zext nneg i32 %572 to i64
-  %574 = sub nsw i64 0, %573
-  %575 = getelementptr i8, ptr %381, i64 %574
-  %576 = and i32 %535, 7
-  %577 = load i64, ptr %575, align 1
-  br label %578
+579:                                              ; preds = %385
+  %580 = lshr i32 %543, 3
+  %581 = zext nneg i32 %580 to i64
+  %582 = sub nsw i64 0, %581
+  %583 = getelementptr i8, ptr %389, i64 %582
+  %584 = and i32 %543, 7
+  %585 = load i64, ptr %583, align 1
+  br label %586
 
-578:                                              ; preds = %571, %377
-  %579 = phi ptr [ %575, %571 ], [ %381, %377 ]
-  %580 = phi i32 [ %576, %571 ], [ %535, %377 ]
-  %581 = phi i64 [ %577, %571 ], [ %390, %377 ]
-  %582 = phi i32 [ 0, %571 ], [ 3, %377 ]
-  %583 = icmp ult ptr %380, %126
-  br i1 %583, label %591, label %584, !prof !25
+586:                                              ; preds = %579, %385
+  %587 = phi ptr [ %583, %579 ], [ %389, %385 ]
+  %588 = phi i32 [ %584, %579 ], [ %543, %385 ]
+  %589 = phi i64 [ %585, %579 ], [ %398, %385 ]
+  %590 = phi i32 [ 0, %579 ], [ 3, %385 ]
+  %591 = icmp ult ptr %388, %126
+  br i1 %591, label %599, label %592, !prof !25
 
-584:                                              ; preds = %578
-  %585 = lshr i32 %546, 3
-  %586 = zext nneg i32 %585 to i64
-  %587 = sub nsw i64 0, %586
-  %588 = getelementptr i8, ptr %380, i64 %587
-  %589 = and i32 %546, 7
-  %590 = load i64, ptr %588, align 1
-  br label %591
+592:                                              ; preds = %586
+  %593 = lshr i32 %554, 3
+  %594 = zext nneg i32 %593 to i64
+  %595 = sub nsw i64 0, %594
+  %596 = getelementptr i8, ptr %388, i64 %595
+  %597 = and i32 %554, 7
+  %598 = load i64, ptr %596, align 1
+  br label %599
 
-591:                                              ; preds = %584, %578
-  %592 = phi ptr [ %588, %584 ], [ %380, %578 ]
-  %593 = phi i32 [ %589, %584 ], [ %546, %578 ]
-  %594 = phi i64 [ %590, %584 ], [ %391, %578 ]
-  %595 = phi i32 [ %582, %584 ], [ 3, %578 ]
-  %596 = icmp ult ptr %379, %207
-  br i1 %596, label %604, label %597, !prof !25
+599:                                              ; preds = %592, %586
+  %600 = phi ptr [ %596, %592 ], [ %388, %586 ]
+  %601 = phi i32 [ %597, %592 ], [ %554, %586 ]
+  %602 = phi i64 [ %598, %592 ], [ %399, %586 ]
+  %603 = phi i32 [ %590, %592 ], [ 3, %586 ]
+  %604 = icmp ult ptr %387, %207
+  br i1 %604, label %612, label %605, !prof !25
 
-597:                                              ; preds = %591
-  %598 = lshr i32 %557, 3
-  %599 = zext nneg i32 %598 to i64
-  %600 = sub nsw i64 0, %599
-  %601 = getelementptr i8, ptr %379, i64 %600
-  %602 = and i32 %557, 7
-  %603 = load i64, ptr %601, align 1
-  br label %604
+605:                                              ; preds = %599
+  %606 = lshr i32 %565, 3
+  %607 = zext nneg i32 %606 to i64
+  %608 = sub nsw i64 0, %607
+  %609 = getelementptr i8, ptr %387, i64 %608
+  %610 = and i32 %565, 7
+  %611 = load i64, ptr %609, align 1
+  br label %612
 
-604:                                              ; preds = %597, %591
-  %605 = phi ptr [ %601, %597 ], [ %379, %591 ]
-  %606 = phi i32 [ %602, %597 ], [ %557, %591 ]
-  %607 = phi i64 [ %603, %597 ], [ %392, %591 ]
-  %608 = phi i32 [ %595, %597 ], [ 3, %591 ]
-  %609 = icmp ult ptr %378, %288
-  br i1 %609, label %617, label %610, !prof !25
+612:                                              ; preds = %605, %599
+  %613 = phi ptr [ %609, %605 ], [ %387, %599 ]
+  %614 = phi i32 [ %610, %605 ], [ %565, %599 ]
+  %615 = phi i64 [ %611, %605 ], [ %400, %599 ]
+  %616 = phi i32 [ %603, %605 ], [ 3, %599 ]
+  %617 = icmp ult ptr %386, %288
+  br i1 %617, label %625, label %618, !prof !25
 
-610:                                              ; preds = %604
-  %611 = lshr i32 %568, 3
-  %612 = zext nneg i32 %611 to i64
-  %613 = sub nsw i64 0, %612
-  %614 = getelementptr i8, ptr %378, i64 %613
-  %615 = and i32 %568, 7
-  %616 = load i64, ptr %614, align 1
-  br label %617
+618:                                              ; preds = %612
+  %619 = lshr i32 %576, 3
+  %620 = zext nneg i32 %619 to i64
+  %621 = sub nsw i64 0, %620
+  %622 = getelementptr i8, ptr %386, i64 %621
+  %623 = and i32 %576, 7
+  %624 = load i64, ptr %622, align 1
+  br label %625
 
-617:                                              ; preds = %610, %604
-  %618 = phi ptr [ %614, %610 ], [ %378, %604 ]
-  %619 = phi i32 [ %615, %610 ], [ %568, %604 ]
-  %620 = phi i64 [ %616, %610 ], [ %393, %604 ]
-  %621 = phi i32 [ 0, %610 ], [ 3, %604 ]
-  %622 = or i32 %608, %621
-  %623 = icmp ne i32 %622, 0
-  %624 = icmp uge ptr %569, %13
-  %625 = or i1 %624, %623
-  br i1 %625, label %626, label %377, !llvm.loop !26
+625:                                              ; preds = %618, %612
+  %626 = phi ptr [ %622, %618 ], [ %386, %612 ]
+  %627 = phi i32 [ %623, %618 ], [ %576, %612 ]
+  %628 = phi i64 [ %624, %618 ], [ %401, %612 ]
+  %629 = phi i32 [ 0, %618 ], [ 3, %612 ]
+  %630 = or i32 %616, %629
+  %631 = icmp ne i32 %630, 0
+  %632 = icmp uge ptr %577, %13
+  %633 = or i1 %632, %631
+  br i1 %633, label %634, label %385, !llvm.loop !26
 
-626:                                              ; preds = %617
-  %627 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %628 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %629 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %630 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %631 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %632 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %633 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %634 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %580, ptr %627, align 8
-  store i32 %593, ptr %628, align 8
-  store i32 %606, ptr %629, align 8
-  store i32 %619, ptr %630, align 8
-  store ptr %579, ptr %631, align 8
-  store ptr %592, ptr %632, align 8
-  store ptr %605, ptr %633, align 8
-  store ptr %618, ptr %634, align 8
+634:                                              ; preds = %625
+  store i32 %588, ptr %374, align 8
+  store i32 %601, ptr %378, align 8
+  store i32 %614, ptr %379, align 8
+  store i32 %627, ptr %380, align 8
+  store ptr %587, ptr %381, align 8
+  store ptr %600, ptr %382, align 8
+  store ptr %613, ptr %383, align 8
+  store ptr %626, ptr %384, align 8
   br label %635
 
-635:                                              ; preds = %626, %371
-  %636 = phi i32 [ %580, %626 ], [ %121, %371 ]
-  %637 = phi i64 [ %620, %626 ], [ %367, %371 ]
-  %638 = phi i64 [ %607, %626 ], [ %284, %371 ]
-  %639 = phi i64 [ %594, %626 ], [ %203, %371 ]
-  %640 = phi i64 [ %581, %626 ], [ %122, %371 ]
-  %641 = phi ptr [ %536, %626 ], [ %0, %371 ]
-  %642 = phi ptr [ %547, %626 ], [ %33, %371 ]
-  %643 = phi ptr [ %558, %626 ], [ %34, %371 ]
-  %644 = phi ptr [ %569, %626 ], [ %35, %371 ]
+635:                                              ; preds = %634, %371
+  %636 = phi i32 [ %588, %634 ], [ %121, %371 ]
+  %637 = phi i64 [ %628, %634 ], [ %367, %371 ]
+  %638 = phi i64 [ %615, %634 ], [ %284, %371 ]
+  %639 = phi i64 [ %602, %634 ], [ %203, %371 ]
+  %640 = phi i64 [ %589, %634 ], [ %122, %371 ]
+  %641 = phi ptr [ %544, %634 ], [ %0, %371 ]
+  %642 = phi ptr [ %555, %634 ], [ %33, %371 ]
+  %643 = phi ptr [ %566, %634 ], [ %34, %371 ]
+  %644 = phi ptr [ %577, %634 ], [ %35, %371 ]
   store i64 %640, ptr %6, align 8
   store i64 %639, ptr %7, align 8
   store i64 %638, ptr %8, align 8
@@ -9712,365 +9712,365 @@ BIT_initDStream.exit:                             ; preds = %292
   %380 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %381 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %382 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %383 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  br label %384
+  %383 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %384 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %385 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  br label %386
 
-384:                                              ; preds = %672, %374
-  %385 = phi ptr [ %366, %374 ], [ %673, %672 ]
-  %386 = phi ptr [ %283, %374 ], [ %660, %672 ]
-  %387 = phi i32 [ %367, %374 ], [ %674, %672 ]
-  %388 = phi i32 [ %284, %374 ], [ %661, %672 ]
-  %389 = phi ptr [ %202, %374 ], [ %535, %672 ]
-  %390 = phi ptr [ %121, %374 ], [ %522, %672 ]
-  %391 = phi i32 [ %203, %374 ], [ %536, %672 ]
-  %392 = phi i32 [ %122, %374 ], [ %523, %672 ]
-  %393 = phi ptr [ %35, %374 ], [ %650, %672 ]
-  %394 = phi ptr [ %34, %374 ], [ %594, %672 ]
-  %395 = phi ptr [ %33, %374 ], [ %512, %672 ]
-  %396 = phi ptr [ %0, %374 ], [ %456, %672 ]
-  %397 = phi i64 [ %123, %374 ], [ %524, %672 ]
-  %398 = phi i64 [ %204, %374 ], [ %537, %672 ]
-  %399 = phi i64 [ %285, %374 ], [ %662, %672 ]
-  %400 = phi i64 [ %368, %374 ], [ %675, %672 ]
-  %401 = and i32 %392, 63
-  %402 = zext nneg i32 %401 to i64
-  %403 = shl i64 %397, %402
-  %404 = lshr i64 %403, %378
-  %405 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %404
-  %406 = load i16, ptr %405, align 2
-  store i16 %406, ptr %396, align 1
-  %407 = getelementptr inbounds nuw i8, ptr %405, i64 2
-  %408 = load i8, ptr %407, align 2
-  %409 = zext i8 %408 to i32
-  %410 = add i32 %392, %409
-  %411 = getelementptr inbounds nuw i8, ptr %405, i64 3
-  %412 = load i8, ptr %411, align 1
-  %413 = zext i8 %412 to i64
-  %414 = getelementptr i8, ptr %396, i64 %413
-  %415 = and i32 %410, 63
-  %416 = zext nneg i32 %415 to i64
-  %417 = shl i64 %397, %416
-  %418 = lshr i64 %417, %378
-  %419 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %418
-  %420 = load i16, ptr %419, align 2
-  store i16 %420, ptr %414, align 1
-  %421 = getelementptr inbounds nuw i8, ptr %419, i64 2
-  %422 = load i8, ptr %421, align 2
-  %423 = zext i8 %422 to i32
-  %424 = add i32 %410, %423
-  %425 = getelementptr inbounds nuw i8, ptr %419, i64 3
-  %426 = load i8, ptr %425, align 1
-  %427 = zext i8 %426 to i64
-  %428 = getelementptr i8, ptr %414, i64 %427
-  %429 = and i32 %424, 63
-  %430 = zext nneg i32 %429 to i64
-  %431 = shl i64 %397, %430
-  %432 = lshr i64 %431, %378
-  %433 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %432
-  %434 = load i16, ptr %433, align 2
-  store i16 %434, ptr %428, align 1
-  %435 = getelementptr inbounds nuw i8, ptr %433, i64 2
-  %436 = load i8, ptr %435, align 2
-  %437 = zext i8 %436 to i32
-  %438 = add i32 %424, %437
-  %439 = getelementptr inbounds nuw i8, ptr %433, i64 3
-  %440 = load i8, ptr %439, align 1
-  %441 = zext i8 %440 to i64
-  %442 = getelementptr i8, ptr %428, i64 %441
-  %443 = and i32 %438, 63
-  %444 = zext nneg i32 %443 to i64
-  %445 = shl i64 %397, %444
-  %446 = lshr i64 %445, %378
-  %447 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %446
-  %448 = load i16, ptr %447, align 2
-  store i16 %448, ptr %442, align 1
-  %449 = getelementptr inbounds nuw i8, ptr %447, i64 2
-  %450 = load i8, ptr %449, align 2
-  %451 = zext i8 %450 to i32
-  %452 = add i32 %438, %451
-  store i32 %452, ptr %375, align 8
-  %453 = getelementptr inbounds nuw i8, ptr %447, i64 3
-  %454 = load i8, ptr %453, align 1
-  %455 = zext i8 %454 to i64
-  %456 = getelementptr i8, ptr %442, i64 %455
-  %457 = and i32 %391, 63
-  %458 = zext nneg i32 %457 to i64
-  %459 = shl i64 %398, %458
-  %460 = lshr i64 %459, %378
-  %461 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %460
-  %462 = load i16, ptr %461, align 2
-  store i16 %462, ptr %395, align 1
-  %463 = getelementptr inbounds nuw i8, ptr %461, i64 2
-  %464 = load i8, ptr %463, align 2
-  %465 = zext i8 %464 to i32
-  %466 = add i32 %391, %465
-  %467 = getelementptr inbounds nuw i8, ptr %461, i64 3
-  %468 = load i8, ptr %467, align 1
-  %469 = zext i8 %468 to i64
-  %470 = getelementptr i8, ptr %395, i64 %469
-  %471 = and i32 %466, 63
-  %472 = zext nneg i32 %471 to i64
-  %473 = shl i64 %398, %472
-  %474 = lshr i64 %473, %378
-  %475 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %474
-  %476 = load i16, ptr %475, align 2
-  store i16 %476, ptr %470, align 1
-  %477 = getelementptr inbounds nuw i8, ptr %475, i64 2
-  %478 = load i8, ptr %477, align 2
-  %479 = zext i8 %478 to i32
-  %480 = add i32 %466, %479
-  %481 = getelementptr inbounds nuw i8, ptr %475, i64 3
-  %482 = load i8, ptr %481, align 1
-  %483 = zext i8 %482 to i64
-  %484 = getelementptr i8, ptr %470, i64 %483
-  %485 = and i32 %480, 63
-  %486 = zext nneg i32 %485 to i64
-  %487 = shl i64 %398, %486
-  %488 = lshr i64 %487, %378
-  %489 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %488
-  %490 = load i16, ptr %489, align 2
-  store i16 %490, ptr %484, align 1
-  %491 = getelementptr inbounds nuw i8, ptr %489, i64 2
-  %492 = load i8, ptr %491, align 2
-  %493 = zext i8 %492 to i32
-  %494 = add i32 %480, %493
-  %495 = getelementptr inbounds nuw i8, ptr %489, i64 3
-  %496 = load i8, ptr %495, align 1
-  %497 = zext i8 %496 to i64
-  %498 = getelementptr i8, ptr %484, i64 %497
-  %499 = and i32 %494, 63
-  %500 = zext nneg i32 %499 to i64
-  %501 = shl i64 %398, %500
-  %502 = lshr i64 %501, %378
-  %503 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %502
-  %504 = load i16, ptr %503, align 2
-  store i16 %504, ptr %498, align 1
-  %505 = getelementptr inbounds nuw i8, ptr %503, i64 2
-  %506 = load i8, ptr %505, align 2
-  %507 = zext i8 %506 to i32
-  %508 = add i32 %494, %507
-  store i32 %508, ptr %379, align 8
-  %509 = getelementptr inbounds nuw i8, ptr %503, i64 3
-  %510 = load i8, ptr %509, align 1
-  %511 = zext i8 %510 to i64
-  %512 = getelementptr i8, ptr %498, i64 %511
-  %513 = icmp ult ptr %390, %46
-  br i1 %513, label %521, label %514, !prof !25
+386:                                              ; preds = %674, %374
+  %387 = phi ptr [ %366, %374 ], [ %675, %674 ]
+  %388 = phi ptr [ %283, %374 ], [ %662, %674 ]
+  %389 = phi i32 [ %367, %374 ], [ %676, %674 ]
+  %390 = phi i32 [ %284, %374 ], [ %663, %674 ]
+  %391 = phi ptr [ %202, %374 ], [ %537, %674 ]
+  %392 = phi ptr [ %121, %374 ], [ %524, %674 ]
+  %393 = phi i32 [ %203, %374 ], [ %538, %674 ]
+  %394 = phi i32 [ %122, %374 ], [ %525, %674 ]
+  %395 = phi ptr [ %35, %374 ], [ %652, %674 ]
+  %396 = phi ptr [ %34, %374 ], [ %596, %674 ]
+  %397 = phi ptr [ %33, %374 ], [ %514, %674 ]
+  %398 = phi ptr [ %0, %374 ], [ %458, %674 ]
+  %399 = phi i64 [ %123, %374 ], [ %526, %674 ]
+  %400 = phi i64 [ %204, %374 ], [ %539, %674 ]
+  %401 = phi i64 [ %285, %374 ], [ %664, %674 ]
+  %402 = phi i64 [ %368, %374 ], [ %677, %674 ]
+  %403 = and i32 %394, 63
+  %404 = zext nneg i32 %403 to i64
+  %405 = shl i64 %399, %404
+  %406 = lshr i64 %405, %378
+  %407 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %406
+  %408 = load i16, ptr %407, align 2
+  store i16 %408, ptr %398, align 1
+  %409 = getelementptr inbounds nuw i8, ptr %407, i64 2
+  %410 = load i8, ptr %409, align 2
+  %411 = zext i8 %410 to i32
+  %412 = add i32 %394, %411
+  %413 = getelementptr inbounds nuw i8, ptr %407, i64 3
+  %414 = load i8, ptr %413, align 1
+  %415 = zext i8 %414 to i64
+  %416 = getelementptr i8, ptr %398, i64 %415
+  %417 = and i32 %412, 63
+  %418 = zext nneg i32 %417 to i64
+  %419 = shl i64 %399, %418
+  %420 = lshr i64 %419, %378
+  %421 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %420
+  %422 = load i16, ptr %421, align 2
+  store i16 %422, ptr %416, align 1
+  %423 = getelementptr inbounds nuw i8, ptr %421, i64 2
+  %424 = load i8, ptr %423, align 2
+  %425 = zext i8 %424 to i32
+  %426 = add i32 %412, %425
+  %427 = getelementptr inbounds nuw i8, ptr %421, i64 3
+  %428 = load i8, ptr %427, align 1
+  %429 = zext i8 %428 to i64
+  %430 = getelementptr i8, ptr %416, i64 %429
+  %431 = and i32 %426, 63
+  %432 = zext nneg i32 %431 to i64
+  %433 = shl i64 %399, %432
+  %434 = lshr i64 %433, %378
+  %435 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %434
+  %436 = load i16, ptr %435, align 2
+  store i16 %436, ptr %430, align 1
+  %437 = getelementptr inbounds nuw i8, ptr %435, i64 2
+  %438 = load i8, ptr %437, align 2
+  %439 = zext i8 %438 to i32
+  %440 = add i32 %426, %439
+  %441 = getelementptr inbounds nuw i8, ptr %435, i64 3
+  %442 = load i8, ptr %441, align 1
+  %443 = zext i8 %442 to i64
+  %444 = getelementptr i8, ptr %430, i64 %443
+  %445 = and i32 %440, 63
+  %446 = zext nneg i32 %445 to i64
+  %447 = shl i64 %399, %446
+  %448 = lshr i64 %447, %378
+  %449 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %448
+  %450 = load i16, ptr %449, align 2
+  store i16 %450, ptr %444, align 1
+  %451 = getelementptr inbounds nuw i8, ptr %449, i64 2
+  %452 = load i8, ptr %451, align 2
+  %453 = zext i8 %452 to i32
+  %454 = add i32 %440, %453
+  store i32 %454, ptr %375, align 8
+  %455 = getelementptr inbounds nuw i8, ptr %449, i64 3
+  %456 = load i8, ptr %455, align 1
+  %457 = zext i8 %456 to i64
+  %458 = getelementptr i8, ptr %444, i64 %457
+  %459 = and i32 %393, 63
+  %460 = zext nneg i32 %459 to i64
+  %461 = shl i64 %400, %460
+  %462 = lshr i64 %461, %378
+  %463 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %462
+  %464 = load i16, ptr %463, align 2
+  store i16 %464, ptr %397, align 1
+  %465 = getelementptr inbounds nuw i8, ptr %463, i64 2
+  %466 = load i8, ptr %465, align 2
+  %467 = zext i8 %466 to i32
+  %468 = add i32 %393, %467
+  %469 = getelementptr inbounds nuw i8, ptr %463, i64 3
+  %470 = load i8, ptr %469, align 1
+  %471 = zext i8 %470 to i64
+  %472 = getelementptr i8, ptr %397, i64 %471
+  %473 = and i32 %468, 63
+  %474 = zext nneg i32 %473 to i64
+  %475 = shl i64 %400, %474
+  %476 = lshr i64 %475, %378
+  %477 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %476
+  %478 = load i16, ptr %477, align 2
+  store i16 %478, ptr %472, align 1
+  %479 = getelementptr inbounds nuw i8, ptr %477, i64 2
+  %480 = load i8, ptr %479, align 2
+  %481 = zext i8 %480 to i32
+  %482 = add i32 %468, %481
+  %483 = getelementptr inbounds nuw i8, ptr %477, i64 3
+  %484 = load i8, ptr %483, align 1
+  %485 = zext i8 %484 to i64
+  %486 = getelementptr i8, ptr %472, i64 %485
+  %487 = and i32 %482, 63
+  %488 = zext nneg i32 %487 to i64
+  %489 = shl i64 %400, %488
+  %490 = lshr i64 %489, %378
+  %491 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %490
+  %492 = load i16, ptr %491, align 2
+  store i16 %492, ptr %486, align 1
+  %493 = getelementptr inbounds nuw i8, ptr %491, i64 2
+  %494 = load i8, ptr %493, align 2
+  %495 = zext i8 %494 to i32
+  %496 = add i32 %482, %495
+  %497 = getelementptr inbounds nuw i8, ptr %491, i64 3
+  %498 = load i8, ptr %497, align 1
+  %499 = zext i8 %498 to i64
+  %500 = getelementptr i8, ptr %486, i64 %499
+  %501 = and i32 %496, 63
+  %502 = zext nneg i32 %501 to i64
+  %503 = shl i64 %400, %502
+  %504 = lshr i64 %503, %378
+  %505 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %504
+  %506 = load i16, ptr %505, align 2
+  store i16 %506, ptr %500, align 1
+  %507 = getelementptr inbounds nuw i8, ptr %505, i64 2
+  %508 = load i8, ptr %507, align 2
+  %509 = zext i8 %508 to i32
+  %510 = add i32 %496, %509
+  store i32 %510, ptr %379, align 8
+  %511 = getelementptr inbounds nuw i8, ptr %505, i64 3
+  %512 = load i8, ptr %511, align 1
+  %513 = zext i8 %512 to i64
+  %514 = getelementptr i8, ptr %500, i64 %513
+  %515 = icmp ult ptr %392, %46
+  br i1 %515, label %523, label %516, !prof !25
 
-514:                                              ; preds = %384
-  %515 = lshr i32 %452, 3
-  %516 = zext nneg i32 %515 to i64
-  %517 = sub nsw i64 0, %516
-  %518 = getelementptr i8, ptr %390, i64 %517
-  store ptr %518, ptr %380, align 8
-  %519 = and i32 %452, 7
-  store i32 %519, ptr %375, align 8
-  %520 = load i64, ptr %518, align 1
-  store i64 %520, ptr %6, align 8
-  br label %521
+516:                                              ; preds = %386
+  %517 = lshr i32 %454, 3
+  %518 = zext nneg i32 %517 to i64
+  %519 = sub nsw i64 0, %518
+  %520 = getelementptr i8, ptr %392, i64 %519
+  store ptr %520, ptr %380, align 8
+  %521 = and i32 %454, 7
+  store i32 %521, ptr %375, align 8
+  %522 = load i64, ptr %520, align 1
+  store i64 %522, ptr %6, align 8
+  br label %523
 
-521:                                              ; preds = %514, %384
-  %522 = phi ptr [ %518, %514 ], [ %390, %384 ]
-  %523 = phi i32 [ %519, %514 ], [ %452, %384 ]
-  %524 = phi i64 [ %520, %514 ], [ %397, %384 ]
-  %525 = phi i32 [ 0, %514 ], [ 3, %384 ]
-  %526 = icmp ult ptr %389, %127
-  br i1 %526, label %534, label %527, !prof !25
+523:                                              ; preds = %516, %386
+  %524 = phi ptr [ %520, %516 ], [ %392, %386 ]
+  %525 = phi i32 [ %521, %516 ], [ %454, %386 ]
+  %526 = phi i64 [ %522, %516 ], [ %399, %386 ]
+  %527 = phi i32 [ 0, %516 ], [ 3, %386 ]
+  %528 = icmp ult ptr %391, %127
+  br i1 %528, label %536, label %529, !prof !25
 
-527:                                              ; preds = %521
-  %528 = lshr i32 %508, 3
-  %529 = zext nneg i32 %528 to i64
-  %530 = sub nsw i64 0, %529
-  %531 = getelementptr i8, ptr %389, i64 %530
-  store ptr %531, ptr %381, align 8
-  %532 = and i32 %508, 7
-  store i32 %532, ptr %379, align 8
-  %533 = load i64, ptr %531, align 1
-  store i64 %533, ptr %7, align 8
-  br label %534
+529:                                              ; preds = %523
+  %530 = lshr i32 %510, 3
+  %531 = zext nneg i32 %530 to i64
+  %532 = sub nsw i64 0, %531
+  %533 = getelementptr i8, ptr %391, i64 %532
+  store ptr %533, ptr %381, align 8
+  %534 = and i32 %510, 7
+  store i32 %534, ptr %379, align 8
+  %535 = load i64, ptr %533, align 1
+  store i64 %535, ptr %7, align 8
+  br label %536
 
-534:                                              ; preds = %527, %521
-  %535 = phi ptr [ %531, %527 ], [ %389, %521 ]
-  %536 = phi i32 [ %532, %527 ], [ %508, %521 ]
-  %537 = phi i64 [ %533, %527 ], [ %398, %521 ]
-  %538 = phi i32 [ %525, %527 ], [ 3, %521 ]
-  %539 = and i32 %388, 63
-  %540 = zext nneg i32 %539 to i64
-  %541 = shl i64 %399, %540
-  %542 = lshr i64 %541, %378
-  %543 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %542
-  %544 = load i16, ptr %543, align 2
-  store i16 %544, ptr %394, align 1
-  %545 = getelementptr inbounds nuw i8, ptr %543, i64 2
-  %546 = load i8, ptr %545, align 2
-  %547 = zext i8 %546 to i32
-  %548 = add i32 %388, %547
-  %549 = getelementptr inbounds nuw i8, ptr %543, i64 3
-  %550 = load i8, ptr %549, align 1
-  %551 = zext i8 %550 to i64
-  %552 = getelementptr i8, ptr %394, i64 %551
-  %553 = and i32 %548, 63
-  %554 = zext nneg i32 %553 to i64
-  %555 = shl i64 %399, %554
-  %556 = lshr i64 %555, %378
-  %557 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %556
-  %558 = load i16, ptr %557, align 2
-  store i16 %558, ptr %552, align 1
-  %559 = getelementptr inbounds nuw i8, ptr %557, i64 2
-  %560 = load i8, ptr %559, align 2
-  %561 = zext i8 %560 to i32
-  %562 = add i32 %548, %561
-  %563 = getelementptr inbounds nuw i8, ptr %557, i64 3
-  %564 = load i8, ptr %563, align 1
-  %565 = zext i8 %564 to i64
-  %566 = getelementptr i8, ptr %552, i64 %565
-  %567 = and i32 %562, 63
-  %568 = zext nneg i32 %567 to i64
-  %569 = shl i64 %399, %568
-  %570 = lshr i64 %569, %378
-  %571 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %570
-  %572 = load i16, ptr %571, align 2
-  store i16 %572, ptr %566, align 1
-  %573 = getelementptr inbounds nuw i8, ptr %571, i64 2
-  %574 = load i8, ptr %573, align 2
-  %575 = zext i8 %574 to i32
-  %576 = add i32 %562, %575
-  %577 = getelementptr inbounds nuw i8, ptr %571, i64 3
-  %578 = load i8, ptr %577, align 1
-  %579 = zext i8 %578 to i64
-  %580 = getelementptr i8, ptr %566, i64 %579
-  %581 = and i32 %576, 63
-  %582 = zext nneg i32 %581 to i64
-  %583 = shl i64 %399, %582
-  %584 = lshr i64 %583, %378
-  %585 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %584
-  %586 = load i16, ptr %585, align 2
-  store i16 %586, ptr %580, align 1
-  %587 = getelementptr inbounds nuw i8, ptr %585, i64 2
-  %588 = load i8, ptr %587, align 2
-  %589 = zext i8 %588 to i32
-  %590 = add i32 %576, %589
-  store i32 %590, ptr %382, align 8
-  %591 = getelementptr inbounds nuw i8, ptr %585, i64 3
-  %592 = load i8, ptr %591, align 1
-  %593 = zext i8 %592 to i64
-  %594 = getelementptr i8, ptr %580, i64 %593
-  %595 = and i32 %387, 63
-  %596 = zext nneg i32 %595 to i64
-  %597 = shl i64 %400, %596
-  %598 = lshr i64 %597, %378
-  %599 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %598
-  %600 = load i16, ptr %599, align 2
-  store i16 %600, ptr %393, align 1
-  %601 = getelementptr inbounds nuw i8, ptr %599, i64 2
-  %602 = load i8, ptr %601, align 2
-  %603 = zext i8 %602 to i32
-  %604 = add i32 %387, %603
-  %605 = getelementptr inbounds nuw i8, ptr %599, i64 3
-  %606 = load i8, ptr %605, align 1
-  %607 = zext i8 %606 to i64
-  %608 = getelementptr i8, ptr %393, i64 %607
-  %609 = and i32 %604, 63
-  %610 = zext nneg i32 %609 to i64
-  %611 = shl i64 %400, %610
-  %612 = lshr i64 %611, %378
-  %613 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %612
-  %614 = load i16, ptr %613, align 2
-  store i16 %614, ptr %608, align 1
-  %615 = getelementptr inbounds nuw i8, ptr %613, i64 2
-  %616 = load i8, ptr %615, align 2
-  %617 = zext i8 %616 to i32
-  %618 = add i32 %604, %617
-  %619 = getelementptr inbounds nuw i8, ptr %613, i64 3
-  %620 = load i8, ptr %619, align 1
-  %621 = zext i8 %620 to i64
-  %622 = getelementptr i8, ptr %608, i64 %621
-  %623 = and i32 %618, 63
-  %624 = zext nneg i32 %623 to i64
-  %625 = shl i64 %400, %624
-  %626 = lshr i64 %625, %378
-  %627 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %626
-  %628 = load i16, ptr %627, align 2
-  store i16 %628, ptr %622, align 1
-  %629 = getelementptr inbounds nuw i8, ptr %627, i64 2
-  %630 = load i8, ptr %629, align 2
-  %631 = zext i8 %630 to i32
-  %632 = add i32 %618, %631
-  %633 = getelementptr inbounds nuw i8, ptr %627, i64 3
-  %634 = load i8, ptr %633, align 1
-  %635 = zext i8 %634 to i64
-  %636 = getelementptr i8, ptr %622, i64 %635
-  %637 = and i32 %632, 63
-  %638 = zext nneg i32 %637 to i64
-  %639 = shl i64 %400, %638
-  %640 = lshr i64 %639, %378
-  %641 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %640
-  %642 = load i16, ptr %641, align 2
-  store i16 %642, ptr %636, align 1
-  %643 = getelementptr inbounds nuw i8, ptr %641, i64 2
-  %644 = load i8, ptr %643, align 2
-  %645 = zext i8 %644 to i32
-  %646 = add i32 %632, %645
-  %647 = getelementptr inbounds nuw i8, ptr %641, i64 3
-  %648 = load i8, ptr %647, align 1
-  %649 = zext i8 %648 to i64
-  %650 = getelementptr i8, ptr %636, i64 %649
-  %651 = icmp ult ptr %386, %208
-  br i1 %651, label %659, label %652, !prof !25
+536:                                              ; preds = %529, %523
+  %537 = phi ptr [ %533, %529 ], [ %391, %523 ]
+  %538 = phi i32 [ %534, %529 ], [ %510, %523 ]
+  %539 = phi i64 [ %535, %529 ], [ %400, %523 ]
+  %540 = phi i32 [ %527, %529 ], [ 3, %523 ]
+  %541 = and i32 %390, 63
+  %542 = zext nneg i32 %541 to i64
+  %543 = shl i64 %401, %542
+  %544 = lshr i64 %543, %378
+  %545 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %544
+  %546 = load i16, ptr %545, align 2
+  store i16 %546, ptr %396, align 1
+  %547 = getelementptr inbounds nuw i8, ptr %545, i64 2
+  %548 = load i8, ptr %547, align 2
+  %549 = zext i8 %548 to i32
+  %550 = add i32 %390, %549
+  %551 = getelementptr inbounds nuw i8, ptr %545, i64 3
+  %552 = load i8, ptr %551, align 1
+  %553 = zext i8 %552 to i64
+  %554 = getelementptr i8, ptr %396, i64 %553
+  %555 = and i32 %550, 63
+  %556 = zext nneg i32 %555 to i64
+  %557 = shl i64 %401, %556
+  %558 = lshr i64 %557, %378
+  %559 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %558
+  %560 = load i16, ptr %559, align 2
+  store i16 %560, ptr %554, align 1
+  %561 = getelementptr inbounds nuw i8, ptr %559, i64 2
+  %562 = load i8, ptr %561, align 2
+  %563 = zext i8 %562 to i32
+  %564 = add i32 %550, %563
+  %565 = getelementptr inbounds nuw i8, ptr %559, i64 3
+  %566 = load i8, ptr %565, align 1
+  %567 = zext i8 %566 to i64
+  %568 = getelementptr i8, ptr %554, i64 %567
+  %569 = and i32 %564, 63
+  %570 = zext nneg i32 %569 to i64
+  %571 = shl i64 %401, %570
+  %572 = lshr i64 %571, %378
+  %573 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %572
+  %574 = load i16, ptr %573, align 2
+  store i16 %574, ptr %568, align 1
+  %575 = getelementptr inbounds nuw i8, ptr %573, i64 2
+  %576 = load i8, ptr %575, align 2
+  %577 = zext i8 %576 to i32
+  %578 = add i32 %564, %577
+  %579 = getelementptr inbounds nuw i8, ptr %573, i64 3
+  %580 = load i8, ptr %579, align 1
+  %581 = zext i8 %580 to i64
+  %582 = getelementptr i8, ptr %568, i64 %581
+  %583 = and i32 %578, 63
+  %584 = zext nneg i32 %583 to i64
+  %585 = shl i64 %401, %584
+  %586 = lshr i64 %585, %378
+  %587 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %586
+  %588 = load i16, ptr %587, align 2
+  store i16 %588, ptr %582, align 1
+  %589 = getelementptr inbounds nuw i8, ptr %587, i64 2
+  %590 = load i8, ptr %589, align 2
+  %591 = zext i8 %590 to i32
+  %592 = add i32 %578, %591
+  store i32 %592, ptr %382, align 8
+  %593 = getelementptr inbounds nuw i8, ptr %587, i64 3
+  %594 = load i8, ptr %593, align 1
+  %595 = zext i8 %594 to i64
+  %596 = getelementptr i8, ptr %582, i64 %595
+  %597 = and i32 %389, 63
+  %598 = zext nneg i32 %597 to i64
+  %599 = shl i64 %402, %598
+  %600 = lshr i64 %599, %378
+  %601 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %600
+  %602 = load i16, ptr %601, align 2
+  store i16 %602, ptr %395, align 1
+  %603 = getelementptr inbounds nuw i8, ptr %601, i64 2
+  %604 = load i8, ptr %603, align 2
+  %605 = zext i8 %604 to i32
+  %606 = add i32 %389, %605
+  %607 = getelementptr inbounds nuw i8, ptr %601, i64 3
+  %608 = load i8, ptr %607, align 1
+  %609 = zext i8 %608 to i64
+  %610 = getelementptr i8, ptr %395, i64 %609
+  %611 = and i32 %606, 63
+  %612 = zext nneg i32 %611 to i64
+  %613 = shl i64 %402, %612
+  %614 = lshr i64 %613, %378
+  %615 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %614
+  %616 = load i16, ptr %615, align 2
+  store i16 %616, ptr %610, align 1
+  %617 = getelementptr inbounds nuw i8, ptr %615, i64 2
+  %618 = load i8, ptr %617, align 2
+  %619 = zext i8 %618 to i32
+  %620 = add i32 %606, %619
+  %621 = getelementptr inbounds nuw i8, ptr %615, i64 3
+  %622 = load i8, ptr %621, align 1
+  %623 = zext i8 %622 to i64
+  %624 = getelementptr i8, ptr %610, i64 %623
+  %625 = and i32 %620, 63
+  %626 = zext nneg i32 %625 to i64
+  %627 = shl i64 %402, %626
+  %628 = lshr i64 %627, %378
+  %629 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %628
+  %630 = load i16, ptr %629, align 2
+  store i16 %630, ptr %624, align 1
+  %631 = getelementptr inbounds nuw i8, ptr %629, i64 2
+  %632 = load i8, ptr %631, align 2
+  %633 = zext i8 %632 to i32
+  %634 = add i32 %620, %633
+  %635 = getelementptr inbounds nuw i8, ptr %629, i64 3
+  %636 = load i8, ptr %635, align 1
+  %637 = zext i8 %636 to i64
+  %638 = getelementptr i8, ptr %624, i64 %637
+  %639 = and i32 %634, 63
+  %640 = zext nneg i32 %639 to i64
+  %641 = shl i64 %402, %640
+  %642 = lshr i64 %641, %378
+  %643 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %642
+  %644 = load i16, ptr %643, align 2
+  store i16 %644, ptr %638, align 1
+  %645 = getelementptr inbounds nuw i8, ptr %643, i64 2
+  %646 = load i8, ptr %645, align 2
+  %647 = zext i8 %646 to i32
+  %648 = add i32 %634, %647
+  %649 = getelementptr inbounds nuw i8, ptr %643, i64 3
+  %650 = load i8, ptr %649, align 1
+  %651 = zext i8 %650 to i64
+  %652 = getelementptr i8, ptr %638, i64 %651
+  %653 = icmp ult ptr %388, %208
+  br i1 %653, label %661, label %654, !prof !25
 
-652:                                              ; preds = %534
-  %653 = lshr i32 %590, 3
-  %654 = zext nneg i32 %653 to i64
-  %655 = sub nsw i64 0, %654
-  %656 = getelementptr i8, ptr %386, i64 %655
-  store ptr %656, ptr %383, align 8
-  %657 = and i32 %590, 7
-  store i32 %657, ptr %382, align 8
-  %658 = load i64, ptr %656, align 1
-  store i64 %658, ptr %8, align 8
-  br label %659
+654:                                              ; preds = %536
+  %655 = lshr i32 %592, 3
+  %656 = zext nneg i32 %655 to i64
+  %657 = sub nsw i64 0, %656
+  %658 = getelementptr i8, ptr %388, i64 %657
+  store ptr %658, ptr %384, align 8
+  %659 = and i32 %592, 7
+  store i32 %659, ptr %382, align 8
+  %660 = load i64, ptr %658, align 1
+  store i64 %660, ptr %8, align 8
+  br label %661
 
-659:                                              ; preds = %652, %534
-  %660 = phi ptr [ %656, %652 ], [ %386, %534 ]
-  %661 = phi i32 [ %657, %652 ], [ %590, %534 ]
-  %662 = phi i64 [ %658, %652 ], [ %399, %534 ]
-  %663 = phi i32 [ %538, %652 ], [ 3, %534 ]
-  %664 = icmp ult ptr %385, %289
-  br i1 %664, label %672, label %665, !prof !25
+661:                                              ; preds = %654, %536
+  %662 = phi ptr [ %658, %654 ], [ %388, %536 ]
+  %663 = phi i32 [ %659, %654 ], [ %592, %536 ]
+  %664 = phi i64 [ %660, %654 ], [ %401, %536 ]
+  %665 = phi i32 [ %540, %654 ], [ 3, %536 ]
+  %666 = icmp ult ptr %387, %289
+  br i1 %666, label %674, label %667, !prof !25
 
-665:                                              ; preds = %659
-  %666 = lshr i32 %646, 3
-  %667 = zext nneg i32 %666 to i64
-  %668 = sub nsw i64 0, %667
-  %669 = getelementptr i8, ptr %385, i64 %668
-  %670 = and i32 %646, 7
-  %671 = load i64, ptr %669, align 1
-  br label %672
+667:                                              ; preds = %661
+  %668 = lshr i32 %648, 3
+  %669 = zext nneg i32 %668 to i64
+  %670 = sub nsw i64 0, %669
+  %671 = getelementptr i8, ptr %387, i64 %670
+  %672 = and i32 %648, 7
+  %673 = load i64, ptr %671, align 1
+  br label %674
 
-672:                                              ; preds = %665, %659
-  %673 = phi ptr [ %669, %665 ], [ %385, %659 ]
-  %674 = phi i32 [ %670, %665 ], [ %646, %659 ]
-  %675 = phi i64 [ %671, %665 ], [ %400, %659 ]
-  %676 = phi i32 [ 0, %665 ], [ 3, %659 ]
-  %677 = or i32 %663, %676
-  %678 = icmp ne i32 %677, 0
-  %679 = icmp uge ptr %650, %13
-  %680 = or i1 %679, %678
-  br i1 %680, label %681, label %384, !llvm.loop !48
+674:                                              ; preds = %667, %661
+  %675 = phi ptr [ %671, %667 ], [ %387, %661 ]
+  %676 = phi i32 [ %672, %667 ], [ %648, %661 ]
+  %677 = phi i64 [ %673, %667 ], [ %402, %661 ]
+  %678 = phi i32 [ 0, %667 ], [ 3, %661 ]
+  %679 = or i32 %665, %678
+  %680 = icmp ne i32 %679, 0
+  %681 = icmp uge ptr %652, %13
+  %682 = or i1 %681, %680
+  br i1 %682, label %683, label %386, !llvm.loop !48
 
-681:                                              ; preds = %672
-  %682 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %683 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %674, ptr %682, align 8
-  store ptr %673, ptr %683, align 8
+683:                                              ; preds = %674
+  store i32 %676, ptr %383, align 8
+  store ptr %675, ptr %385, align 8
   br label %684
 
-684:                                              ; preds = %681, %372
-  %685 = phi i64 [ %675, %681 ], [ %368, %372 ]
-  %686 = phi ptr [ %456, %681 ], [ %0, %372 ]
-  %687 = phi ptr [ %512, %681 ], [ %33, %372 ]
-  %688 = phi ptr [ %594, %681 ], [ %34, %372 ]
-  %689 = phi ptr [ %650, %681 ], [ %35, %372 ]
+684:                                              ; preds = %683, %372
+  %685 = phi i64 [ %677, %683 ], [ %368, %372 ]
+  %686 = phi ptr [ %458, %683 ], [ %0, %372 ]
+  %687 = phi ptr [ %514, %683 ], [ %33, %372 ]
+  %688 = phi ptr [ %596, %683 ], [ %34, %372 ]
+  %689 = phi ptr [ %652, %683 ], [ %35, %372 ]
   store i64 %685, ptr %9, align 8
   br label %690
 

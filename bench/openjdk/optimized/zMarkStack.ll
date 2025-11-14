@@ -64,39 +64,39 @@ define hidden void @_ZN14ZMarkStripeSetC2Em(ptr noundef nonnull align 64 derefer
   store volatile ptr inttoptr (i64 -4294967296 to ptr), ptr %6, align 8
   %.add = add nuw nsw i64 %.idx, 128
   %7 = icmp eq i64 %.add, 2112
-  br i1 %7, label %.preheader, label %3
+  br i1 %7, label %.preheader.preheader, label %3
 
-.preheader:                                       ; preds = %3
+.preheader.preheader:                             ; preds = %3
   %.ptr5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br label %8
+  br label %.preheader
 
-8:                                                ; preds = %.preheader, %8
-  %.07 = phi i64 [ 0, %.preheader ], [ %10, %8 ]
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %.07 = phi i64 [ %9, %.preheader ], [ 0, %.preheader.preheader ]
   store i64 %1, ptr %.sroa.0, align 64
   store volatile ptr inttoptr (i64 -4294967296 to ptr), ptr %.sroa.2, align 8
   store i64 %1, ptr %.sroa.36, align 64
   store volatile ptr inttoptr (i64 -4294967296 to ptr), ptr %.sroa.4, align 8
-  %9 = getelementptr inbounds nuw %class.ZMarkStripe, ptr %.ptr5, i64 %.07
+  %8 = getelementptr inbounds nuw %class.ZMarkStripe, ptr %.ptr5, i64 %.07
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload = load volatile i64, ptr %.sroa.0, align 64
-  store volatile i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload, ptr %9, align 64
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store volatile i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload, ptr %8, align 64
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload = load volatile ptr, ptr %.sroa.2, align 8
   store volatile ptr %.sroa.2.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.3.0..sroa_idx, ptr nonnull align 16 %.sroa.3, i64 48, i1 true)
-  %.sroa.36.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %.sroa.36.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 64
   %.sroa.36.0..sroa.36.0..sroa.36.0..sroa.36.0.copyload = load volatile i64, ptr %.sroa.36, align 64
   store volatile i64 %.sroa.36.0..sroa.36.0..sroa.36.0..sroa.36.0.copyload, ptr %.sroa.36.0..sroa_idx, align 64
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 72
   %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload = load volatile ptr, ptr %.sroa.4, align 8
   store volatile ptr %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.5.0..sroa_idx, ptr nonnull align 16 %.sroa.5, i64 48, i1 true)
-  %10 = add nuw nsw i64 %.07, 1
-  %exitcond.not = icmp eq i64 %10, 16
-  br i1 %exitcond.not, label %11, label %8, !llvm.loop !6
+  %9 = add nuw nsw i64 %.07, 1
+  %exitcond.not = icmp eq i64 %9, 16
+  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !6
 
-11:                                               ; preds = %8
+10:                                               ; preds = %.preheader
   ret void
 }
 

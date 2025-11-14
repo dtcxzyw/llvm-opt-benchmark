@@ -2623,20 +2623,20 @@ _ZL18directionFromFlagsP5UBiDi.exit:              ; preds = %53
 
 62:                                               ; preds = %.lr.ph404, %._crit_edge402
   %63 = phi i32 [ %59, %.lr.ph404 ], [ %81, %._crit_edge402 ]
-  %indvars.iv424 = phi i64 [ 0, %.lr.ph404 ], [ %indvars.iv.next425, %._crit_edge402 ]
-  %64 = icmp eq i64 %indvars.iv424, 0
-  %.pre428 = load ptr, ptr %61, align 8, !tbaa !41
+  %indvars.iv423 = phi i64 [ 0, %.lr.ph404 ], [ %indvars.iv.next424, %._crit_edge402 ]
+  %64 = icmp eq i64 %indvars.iv423, 0
+  %.pre427 = load ptr, ptr %61, align 8, !tbaa !41
   br i1 %64, label %69, label %65
 
 65:                                               ; preds = %62
-  %66 = getelementptr %struct.Para, ptr %.pre428, i64 %indvars.iv424
+  %66 = getelementptr %struct.Para, ptr %.pre427, i64 %indvars.iv423
   %67 = getelementptr i8, ptr %66, i64 -8
   %68 = load i32, ptr %67, align 4, !tbaa !42
   br label %69
 
 69:                                               ; preds = %62, %65
   %.0266 = phi i32 [ %68, %65 ], [ 0, %62 ]
-  %70 = getelementptr inbounds nuw %struct.Para, ptr %.pre428, i64 %indvars.iv424
+  %70 = getelementptr inbounds nuw %struct.Para, ptr %.pre427, i64 %indvars.iv423
   %71 = load i32, ptr %70, align 4, !tbaa !42
   %72 = icmp slt i32 %.0266, %71
   br i1 %72, label %.lr.ph401.preheader, label %._crit_edge402
@@ -2652,14 +2652,14 @@ _ZL18directionFromFlagsP5UBiDi.exit:              ; preds = %53
   %79 = zext i32 %78 to i64
   %80 = add nuw nsw i64 %79, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 %75, i64 %80, i1 false), !tbaa !59
-  %.pre429 = load i32, ptr %58, align 8, !tbaa !40
+  %.pre428 = load i32, ptr %58, align 8, !tbaa !40
   br label %._crit_edge402
 
 ._crit_edge402:                                   ; preds = %.lr.ph401.preheader, %69
-  %81 = phi i32 [ %.pre429, %.lr.ph401.preheader ], [ %63, %69 ]
-  %indvars.iv.next425 = add nuw nsw i64 %indvars.iv424, 1
+  %81 = phi i32 [ %.pre428, %.lr.ph401.preheader ], [ %63, %69 ]
+  %indvars.iv.next424 = add nuw nsw i64 %indvars.iv423, 1
   %82 = sext i32 %81 to i64
-  %83 = icmp slt i64 %indvars.iv.next425, %82
+  %83 = icmp slt i64 %indvars.iv.next424, %82
   br i1 %83, label %62, label %_ZL18directionFromFlagsP5UBiDi.exit.thread, !llvm.loop !97
 
 84:                                               ; preds = %_ZL18directionFromFlagsP5UBiDi.exit
@@ -2834,20 +2834,20 @@ _ZL11bracketInitP5UBiDiP11BracketData.exit:       ; preds = %151, %157
 
 169:                                              ; preds = %.lr.ph398, %._crit_edge396
   %170 = phi i32 [ %165, %.lr.ph398 ], [ %207, %._crit_edge396 ]
-  %indvars.iv418 = phi i64 [ 0, %.lr.ph398 ], [ %indvars.iv.next419, %._crit_edge396 ]
-  %171 = icmp eq i64 %indvars.iv418, 0
+  %indvars.iv417 = phi i64 [ 0, %.lr.ph398 ], [ %indvars.iv.next418, %._crit_edge396 ]
+  %171 = icmp eq i64 %indvars.iv417, 0
   %.pre = load ptr, ptr %167, align 8, !tbaa !41
   br i1 %171, label %176, label %172
 
 172:                                              ; preds = %169
-  %173 = getelementptr %struct.Para, ptr %.pre, i64 %indvars.iv418
+  %173 = getelementptr %struct.Para, ptr %.pre, i64 %indvars.iv417
   %174 = getelementptr i8, ptr %173, i64 -8
   %175 = load i32, ptr %174, align 4, !tbaa !42
   br label %176
 
 176:                                              ; preds = %169, %172
   %.0261 = phi i32 [ %175, %172 ], [ 0, %169 ]
-  %177 = getelementptr inbounds nuw %struct.Para, ptr %.pre, i64 %indvars.iv418
+  %177 = getelementptr inbounds nuw %struct.Para, ptr %.pre, i64 %indvars.iv417
   %178 = load i32, ptr %177, align 4, !tbaa !42
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 4
   %180 = load i32, ptr %179, align 4, !tbaa !46
@@ -2859,14 +2859,14 @@ _ZL11bracketInitP5UBiDiP11BracketData.exit:       ; preds = %151, %157
   %183 = and i8 %181, 1
   %184 = and i32 %180, 1
   %185 = sext i32 %.0261 to i64
-  %wide.trip.count416 = sext i32 %178 to i64
+  %wide.trip.count415 = sext i32 %178 to i64
   br label %186
 
 186:                                              ; preds = %.lr.ph395, %206
-  %indvars.iv413 = phi i64 [ %185, %.lr.ph395 ], [ %indvars.iv.next414, %206 ]
-  %187 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv413
+  %indvars.iv412 = phi i64 [ %185, %.lr.ph395 ], [ %indvars.iv.next413, %206 ]
+  %187 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv412
   store i8 %181, ptr %187, align 1, !tbaa !59
-  %188 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv413
+  %188 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv412
   %189 = load i8, ptr %188, align 1, !tbaa !59
   switch i8 %189, label %202 [
     i8 18, label %206
@@ -2874,12 +2874,12 @@ _ZL11bracketInitP5UBiDiP11BracketData.exit:       ; preds = %151, %157
   ]
 
 190:                                              ; preds = %186
-  %191 = add nsw i64 %indvars.iv413, 1
+  %191 = add nsw i64 %indvars.iv412, 1
   %192 = icmp slt i64 %191, %168
   br i1 %192, label %193, label %206
 
 193:                                              ; preds = %190
-  %194 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv413
+  %194 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv412
   %195 = load i16, ptr %194, align 2, !tbaa !38
   %196 = icmp eq i16 %195, 13
   br i1 %196, label %197, label %201
@@ -2901,7 +2901,7 @@ _ZL11bracketInitP5UBiDiP11BracketData.exit:       ; preds = %151, %157
   br label %206
 
 202:                                              ; preds = %186
-  %203 = trunc nsw i64 %indvars.iv413 to i32
+  %203 = trunc nsw i64 %indvars.iv412 to i32
   %204 = call fastcc noundef signext i8 @_ZL18bracketProcessCharP11BracketDatai(ptr noundef %3, i32 noundef %203)
   %.not286 = icmp eq i8 %204, 0
   br i1 %.not286, label %205, label %206
@@ -2911,19 +2911,19 @@ _ZL11bracketInitP5UBiDiP11BracketData.exit:       ; preds = %151, %157
   br label %.loopexit
 
 206:                                              ; preds = %186, %202, %190, %201, %197
-  %indvars.iv.next414 = add nsw i64 %indvars.iv413, 1
-  %exitcond417.not = icmp eq i64 %indvars.iv.next414, %wide.trip.count416
-  br i1 %exitcond417.not, label %._crit_edge396.loopexit, label %186, !llvm.loop !114
+  %indvars.iv.next413 = add nsw i64 %indvars.iv412, 1
+  %exitcond416.not = icmp eq i64 %indvars.iv.next413, %wide.trip.count415
+  br i1 %exitcond416.not, label %._crit_edge396.loopexit, label %186, !llvm.loop !114
 
 ._crit_edge396.loopexit:                          ; preds = %206
-  %.pre427 = load i32, ptr %164, align 8, !tbaa !40
+  %.pre426 = load i32, ptr %164, align 8, !tbaa !40
   br label %._crit_edge396
 
 ._crit_edge396:                                   ; preds = %._crit_edge396.loopexit, %176
-  %207 = phi i32 [ %.pre427, %._crit_edge396.loopexit ], [ %170, %176 ]
-  %indvars.iv.next419 = add nuw nsw i64 %indvars.iv418, 1
+  %207 = phi i32 [ %.pre426, %._crit_edge396.loopexit ], [ %170, %176 ]
+  %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 1
   %208 = sext i32 %207 to i64
-  %209 = icmp slt i64 %indvars.iv.next419, %208
+  %209 = icmp slt i64 %indvars.iv.next418, %208
   br i1 %209, label %169, label %.loopexit, !llvm.loop !115
 
 .loopexit:                                        ; preds = %._crit_edge396, %_ZL11bracketInitP5UBiDiP11BracketData.exit, %205
@@ -3398,18 +3398,18 @@ _ZL22bracketProcessBoundaryP11BracketDataihh.exit337: ; preds = %422, %432
 
 452:                                              ; preds = %449
   %.not294 = icmp eq i32 %.0392, 0
-  br i1 %.not294, label %466, label %.preheader405
+  br i1 %.not294, label %466, label %.preheader455
 
-.preheader405:                                    ; preds = %452, %.preheader405
-  %.2247 = phi i32 [ %457, %.preheader405 ], [ %.0245389, %452 ]
+.preheader455:                                    ; preds = %452, %.preheader455
+  %.2247 = phi i32 [ %457, %.preheader455 ], [ %.0245389, %452 ]
   %453 = zext i32 %.2247 to i64
   %454 = getelementptr inbounds nuw i16, ptr %4, i64 %453
   %455 = load i16, ptr %454, align 2, !tbaa !116
   %456 = icmp ult i16 %455, 256
   %457 = add i32 %.2247, -1
-  br i1 %456, label %.preheader405, label %458, !llvm.loop !117
+  br i1 %456, label %.preheader455, label %458, !llvm.loop !117
 
-458:                                              ; preds = %.preheader405
+458:                                              ; preds = %.preheader455
   %459 = or i32 %.2272, 4194304
   %460 = add nsw i32 %.0392, -1
   %461 = load i32, ptr %211, align 4, !tbaa !100

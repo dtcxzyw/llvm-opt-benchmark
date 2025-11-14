@@ -785,9 +785,9 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit69:     ; preds = %146, %151
   tail call void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %3, ptr noundef nonnull %160, i64 noundef %164)
   %165 = icmp ugt i32 %.061162, 16
   %scevgep.i.i.i = getelementptr i8, ptr %3, i64 4
-  br i1 %165, label %.preheader.i.i.i, label %184
+  br i1 %165, label %.preheader.i, label %184
 
-.preheader.i.i.i:                                 ; preds = %._crit_edge100, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
+.preheader.i:                                     ; preds = %._crit_edge100, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %.019.i.idx.i.i.i = phi i64 [ %.019.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ 4, %._crit_edge100 ]
   %.pn18.i.i.i.i = phi ptr [ %.019.i.ptr.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %3, %._crit_edge100 ]
   %.019.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.019.i.idx.i.i.i
@@ -796,11 +796,11 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit69:     ; preds = %146, %151
   %168 = icmp ult i32 %166, %167
   br i1 %168, label %169, label %170
 
-169:                                              ; preds = %.preheader.i.i.i
+169:                                              ; preds = %.preheader.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %3, i64 %.019.i.idx.i.i.i, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
-170:                                              ; preds = %.preheader.i.i.i
+170:                                              ; preds = %.preheader.i
   %171 = load i32, ptr %.pn18.i.i.i.i, align 4, !tbaa !13
   %172 = icmp ult i32 %166, %171
   br i1 %172, label %.lr.ph.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
@@ -820,7 +820,7 @@ _ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   store i32 %166, ptr %.sink.i.i.i.i, align 4, !tbaa !13
   %.019.i.add.i.i.i = add nuw nsw i64 %.019.i.idx.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %.019.i.add.i.i.i, 64
-  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i.i.i, !llvm.loop !56
+  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i, !llvm.loop !56
 
 _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i: ; preds = %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 64

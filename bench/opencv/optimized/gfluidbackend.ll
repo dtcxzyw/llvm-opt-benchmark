@@ -13624,125 +13624,125 @@ _ZN3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2
   call void @_ZNK3ade7details12InitIdsArrayIN2cv5gimpl5InputEJNS3_6OutputENS3_2OpENS3_4DataENS3_10ConstValueENS3_6IslandENS3_8ProtocolENS3_17OriginalInputMetaENS3_10OutputMetaENS3_7JournalENS_6passes19TopologicalSortDataENS3_17DataObjectCounterENS3_11IslandModelENS3_14ActiveBackendsENS3_18CustomMetaFunctionENS3_9StreamingENS3_12DeserializedENS3_13HasIntrinsicsENS3_10DesyncPathENS3_10DesyncEdgeENS3_14DesynchronizedENS3_11CompileArgsEEEclERKNS_5GraphENS_4util11MemoryRangeINS0_10MetadataIdEEE(ptr noundef nonnull align 1 dereferenceable(1) %48, ptr noundef nonnull align 8 dereferenceable(168) %69, ptr nonnull %81, i64 22)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i64 0, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i64 0, ptr %85, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 304
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %82, i8 0, i64 48, i1 false)
-  store ptr %85, ptr %83, align 8, !tbaa !578
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i64 1, ptr %86, align 8, !tbaa !579
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %84, align 8, !tbaa !458
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store ptr %86, ptr %84, align 8, !tbaa !578
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i64 1, ptr %87, align 8, !tbaa !579
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, i8 0, i64 16, i1 false)
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store i64 0, ptr %90, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store ptr %91, ptr %89, align 8, !tbaa !580
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i64 1, ptr %92, align 8, !tbaa !581
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %90, align 8, !tbaa !458
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  store float 1.000000e+00, ptr %85, align 8, !tbaa !458
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  store i64 0, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  store ptr %92, ptr %90, align 8, !tbaa !580
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  store i64 1, ptr %93, align 8, !tbaa !581
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 328
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, i8 0, i64 16, i1 false)
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store i64 0, ptr %96, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store ptr %97, ptr %95, align 8, !tbaa !582
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store i64 1, ptr %98, align 8, !tbaa !583
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %96, align 8, !tbaa !458
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  store float 1.000000e+00, ptr %91, align 8, !tbaa !458
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, i8 0, i64 16, i1 false)
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  store i64 0, ptr %97, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  store ptr %98, ptr %96, align 8, !tbaa !582
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  store i64 1, ptr %99, align 8, !tbaa !583
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 384
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, i8 0, i64 16, i1 false)
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  store i64 0, ptr %102, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  store ptr %103, ptr %101, align 8, !tbaa !584
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store i64 1, ptr %104, align 8, !tbaa !585
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %102, align 8, !tbaa !458
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  store float 1.000000e+00, ptr %97, align 8, !tbaa !458
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  store i64 0, ptr %103, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  store ptr %104, ptr %102, align 8, !tbaa !584
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  store i64 1, ptr %105, align 8, !tbaa !585
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 440
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, i8 0, i64 16, i1 false)
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  store i64 0, ptr %108, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store ptr %109, ptr %107, align 8, !tbaa !586
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  store i64 1, ptr %110, align 8, !tbaa !587
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %108, align 8, !tbaa !458
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  store float 1.000000e+00, ptr %103, align 8, !tbaa !458
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, i8 0, i64 16, i1 false)
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  store i64 0, ptr %109, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  store ptr %110, ptr %108, align 8, !tbaa !586
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  store i64 1, ptr %111, align 8, !tbaa !587
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 496
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, i8 0, i64 16, i1 false)
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store i64 0, ptr %114, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  store ptr %115, ptr %113, align 8, !tbaa !588
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 1, ptr %116, align 8, !tbaa !589
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %114, align 8, !tbaa !458
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  store float 1.000000e+00, ptr %109, align 8, !tbaa !458
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, i8 0, i64 16, i1 false)
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  store i64 0, ptr %115, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  store ptr %116, ptr %114, align 8, !tbaa !588
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  store i64 1, ptr %117, align 8, !tbaa !589
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 552
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false)
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i64 0, ptr %120, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store ptr %121, ptr %119, align 8, !tbaa !590
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store i64 1, ptr %122, align 8, !tbaa !591
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %120, align 8, !tbaa !458
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  store float 1.000000e+00, ptr %115, align 8, !tbaa !458
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false)
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  store i64 0, ptr %121, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  store ptr %122, ptr %120, align 8, !tbaa !590
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  store i64 1, ptr %123, align 8, !tbaa !591
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 608
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false)
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  store i64 0, ptr %126, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  store ptr %127, ptr %125, align 8, !tbaa !592
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  store i64 1, ptr %128, align 8, !tbaa !593
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %129, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %126, align 8, !tbaa !458
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  store float 1.000000e+00, ptr %121, align 8, !tbaa !458
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %125, i8 0, i64 16, i1 false)
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  store i64 0, ptr %127, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  store ptr %128, ptr %126, align 8, !tbaa !592
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  store i64 1, ptr %129, align 8, !tbaa !593
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 664
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, i8 0, i64 16, i1 false)
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  br label %132
+  store float 1.000000e+00, ptr %127, align 8, !tbaa !458
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %131, i8 0, i64 16, i1 false)
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  br label %133
 
-132:                                              ; preds = %132, %_ZN3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE7initIdsEv.exit.i
-  %.idx.i.i = phi i64 [ 0, %_ZN3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE7initIdsEv.exit.i ], [ %.add.i.i, %132 ]
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %131, i64 %.idx.i.i
-  %133 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 48
-  store ptr %133, ptr %.ptr.i.i, align 8, !tbaa !594
-  %134 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
-  store i64 1, ptr %134, align 8, !tbaa !596
-  %135 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 16
-  %136 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %135, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %136, align 8, !tbaa !458
-  %137 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %137, i8 0, i64 16, i1 false)
+133:                                              ; preds = %133, %_ZN3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE7initIdsEv.exit.i
+  %.idx.i.i = phi i64 [ 0, %_ZN3ade15ConstTypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEE7initIdsEv.exit.i ], [ %.add.i.i, %133 ]
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %132, i64 %.idx.i.i
+  %134 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 48
+  store ptr %134, ptr %.ptr.i.i, align 8, !tbaa !594
+  %135 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
+  store i64 1, ptr %135, align 8, !tbaa !596
+  %136 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %136, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %137, align 8, !tbaa !458
+  %138 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %138, i8 0, i64 16, i1 false)
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 56
-  %138 = icmp eq i64 %.add.i.i, 448
-  br i1 %138, label %_ZN2cv5gimpl8magazine5ClassIJNS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENS6_9OpaqueRefENS_4RMatENS9_4ViewENS_10MediaFrameENS_4UMatEEEC2Ev.exit, label %132
+  %139 = icmp eq i64 %.add.i.i, 448
+  br i1 %139, label %_ZN2cv5gimpl8magazine5ClassIJNS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENS6_9OpaqueRefENS_4RMatENS9_4ViewENS_10MediaFrameENS_4UMatEEEC2Ev.exit, label %133
 
-_ZN2cv5gimpl8magazine5ClassIJNS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENS6_9OpaqueRefENS_4RMatENS9_4ViewENS_10MediaFrameENS_4UMatEEEC2Ev.exit: ; preds = %132
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 232
+_ZN2cv5gimpl8magazine5ClassIJNS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENS6_9OpaqueRefENS_4RMatENS9_4ViewENS_10MediaFrameENS_4UMatEEEC2Ev.exit: ; preds = %133
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %142 = load i64, ptr %141, align 8, !tbaa !558
@@ -17544,8 +17544,8 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit415: ; preds
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %1614, %1612, %222
   %.pn164.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %223, %222 ], [ %.pn164.pn.pn.pn.pn.pn, %1612 ], [ %.pn164.pn.pn.pn.pn.pn, %1614 ]
-  call void @_ZN2cv5gimpl8magazine5ClassIJNS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENS6_9OpaqueRefENS_4RMatENS9_4ViewENS_10MediaFrameENS_4UMatEEED2Ev(ptr noundef nonnull align 8 dereferenceable(896) %83) #33
-  %1615 = load ptr, ptr %139, align 8, !tbaa !676
+  call void @_ZN2cv5gimpl8magazine5ClassIJNS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENS6_9OpaqueRefENS_4RMatENS9_4ViewENS_10MediaFrameENS_4UMatEEED2Ev(ptr noundef nonnull align 8 dereferenceable(896) %84) #33
+  %1615 = load ptr, ptr %83, align 8, !tbaa !676
   %.not.i.i.i420 = icmp eq ptr %1615, null
   br i1 %.not.i.i.i420, label %_ZNSt6vectorIPN2cv5gimpl10FluidAgentESaIS3_EED2Ev.exit, label %1616
 
@@ -17761,8 +17761,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
 
 56:                                               ; preds = %.noexc133
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %54, 2
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %53, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !23
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i.i.i.i.i.i.i
   %58 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %57, ptr %58, align 8, !tbaa !119
   call void @llvm.lifetime.start.p0(ptr nonnull %22)

@@ -3074,17 +3074,17 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7rock
   br i1 %17, label %42, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %20 = load ptr, ptr %19, align 8, !tbaa !41
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %.not7.i = icmp eq ptr %20, %21
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %21 = load ptr, ptr %20, align 8, !tbaa !41
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %.not7.i = icmp eq ptr %21, %22
   br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %40, %18
-  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %24 = load ptr, ptr %23, align 8, !tbaa !144
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb6DBImpl20RecoveredTransaction9BatchInfoEESt10_Select1stIS6_ESt4lessImESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef %24)
+  invoke void @_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb6DBImpl20RecoveredTransaction9BatchInfoEESt10_Select1stIS6_ESt4lessImESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef %24)
           to label %_ZNSt3mapImN7rocksdb6DBImpl20RecoveredTransaction9BatchInfoESt4lessImESaISt4pairIKmS3_EEED2Ev.exit.i unwind label %25
 
 25:                                               ; preds = %._crit_edge.i
@@ -3107,7 +3107,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN7rocksdb6DBImpl20RecoveredTransactionD2Ev.exit
 
 .lr.ph.i:                                         ; preds = %18, %40
-  %.sroa.04.08.i = phi ptr [ %41, %40 ], [ %20, %18 ]
+  %.sroa.04.08.i = phi ptr [ %41, %40 ], [ %21, %18 ]
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i, i64 48
   %34 = load ptr, ptr %33, align 8, !tbaa !383
   %35 = icmp eq ptr %34, null
@@ -3122,7 +3122,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 40:                                               ; preds = %36, %.lr.ph.i
   %41 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.08.i) #26
-  %.not.i = icmp eq ptr %41, %21
+  %.not.i = icmp eq ptr %41, %22
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 _ZN7rocksdb6DBImpl20RecoveredTransactionD2Ev.exit: ; preds = %_ZNSt3mapImN7rocksdb6DBImpl20RecoveredTransaction9BatchInfoESt4lessImESaISt4pairIKmS3_EEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i

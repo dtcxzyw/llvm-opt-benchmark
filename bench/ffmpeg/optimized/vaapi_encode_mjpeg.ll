@@ -417,22 +417,22 @@ switch.lookup:                                    ; preds = %129, %._crit_edge25
   %.1146253 = phi i32 [ 2, %129 ], [ %154, %._crit_edge252 ]
   %133 = getelementptr inbounds nuw %struct.JPEGRawHuffmanTable, ptr %131, i64 %indvars.iv288
   %134 = and i64 %indvars.iv288, 4294967295
-  %switch.gep314 = getelementptr inbounds nuw ptr, ptr @switch.table.vaapi_encode_mjpeg_init_picture_params.1, i64 %134
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.vaapi_encode_mjpeg_init_picture_params, i64 %134
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %135 = and i64 %indvars.iv288, 4294967295
+  %switch.gep314 = getelementptr inbounds nuw ptr, ptr @switch.table.vaapi_encode_mjpeg_init_picture_params.1, i64 %135
   %switch.load315 = load ptr, ptr %switch.gep314, align 8
-  %135 = trunc nuw nsw i64 %indvars.iv288 to i8
-  %136 = and i8 %135, 1
-  store i8 %136, ptr %133, align 1, !tbaa !103
-  %137 = lshr i64 %indvars.iv288, 1
-  %138 = trunc nuw nsw i64 %137 to i8
-  %139 = getelementptr inbounds nuw i8, ptr %133, i64 1
-  store i8 %138, ptr %139, align 1, !tbaa !105
-  %140 = getelementptr inbounds nuw i8, ptr %133, i64 2
+  %136 = trunc nuw nsw i64 %indvars.iv288 to i8
+  %137 = and i8 %136, 1
+  store i8 %137, ptr %133, align 1, !tbaa !103
+  %138 = lshr i64 %indvars.iv288, 1
+  %139 = trunc nuw nsw i64 %138 to i8
+  %140 = getelementptr inbounds nuw i8, ptr %133, i64 1
+  store i8 %139, ptr %140, align 1, !tbaa !105
+  %141 = getelementptr inbounds nuw i8, ptr %133, i64 2
   br label %143
 
 .preheader:                                       ; preds = %143
-  %141 = and i64 %indvars.iv288, 4294967295
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.vaapi_encode_mjpeg_init_picture_params, i64 %141
-  %switch.load = load ptr, ptr %switch.gep, align 8
   %.not265 = icmp eq i32 %148, 0
   br i1 %.not265, label %._crit_edge252, label %.lr.ph251
 
@@ -446,7 +446,7 @@ switch.lookup:                                    ; preds = %129, %._crit_edge25
   %.0151248 = phi i32 [ 0, %switch.lookup ], [ %148, %143 ]
   %144 = getelementptr inbounds nuw i8, ptr %switch.load315, i64 %indvars.iv280
   %145 = load i8, ptr %144, align 1, !tbaa !86
-  %146 = getelementptr inbounds nuw i8, ptr %140, i64 %indvars.iv280
+  %146 = getelementptr inbounds nuw i8, ptr %141, i64 %indvars.iv280
   store i8 %145, ptr %146, align 1, !tbaa !86
   %147 = zext i8 %145 to i32
   %148 = add nuw nsw i32 %.0151248, %147

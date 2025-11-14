@@ -3809,11 +3809,11 @@ _pack_hue.exit:                                   ; preds = %85
   %116 = load float, ptr %115, align 4, !tbaa !268
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store float %116, ptr %117, align 4, !tbaa !6
+  %118 = getelementptr inbounds nuw i8, ptr %11, i64 80
   br label %127
 
-118:                                              ; preds = %127
-  %119 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store float %131, ptr %119, align 8, !tbaa !92
+119:                                              ; preds = %127
+  store float %131, ptr %118, align 8, !tbaa !92
   %120 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %121 = load ptr, ptr %120, align 8, !tbaa !166
   %122 = load float, ptr %29, align 8, !tbaa !243
@@ -3832,9 +3832,9 @@ _pack_hue.exit:                                   ; preds = %85
   %131 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %128, float %130)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %118, label %127
+  br i1 %exitcond.not, label %119, label %127
 
-132:                                              ; preds = %118
+132:                                              ; preds = %119
   %133 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %134 = load ptr, ptr %133, align 8, !tbaa !238
   %.not = icmp eq ptr %125, %134
@@ -3907,7 +3907,7 @@ dt_colormatrix_mul.exit:                          ; preds = %144
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %157
 
-157:                                              ; preds = %136, %dt_colormatrix_mul.exit, %118
+157:                                              ; preds = %136, %dt_colormatrix_mul.exit, %119
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

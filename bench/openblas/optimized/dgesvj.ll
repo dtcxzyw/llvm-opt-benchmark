@@ -731,27 +731,27 @@ cdce.end:                                         ; preds = %106, %cdce.call
 
 341:                                              ; preds = %338, %333
   %342 = load i32, ptr %4, align 4, !tbaa !3
+  %343 = add nsw i32 %342, -1
+  %344 = mul nsw i32 %343, %342
+  %345 = sdiv i32 %344, 2
   store double 0.000000e+00, ptr %27, align 16, !tbaa !7
   %.not16321795 = icmp slt i32 %342, 1
   br i1 %.not16321795, label %._crit_edge1799, label %.lr.ph1798.preheader
 
 .lr.ph1798.preheader:                             ; preds = %341
-  %343 = add nuw i32 %342, 1
-  %wide.trip.count1957 = zext i32 %343 to i64
+  %346 = add nuw i32 %342, 1
+  %wide.trip.count1957 = zext i32 %346 to i64
   br label %.lr.ph1798
 
 .lr.ph1798:                                       ; preds = %.lr.ph1798.preheader, %.lr.ph1798
   %indvars.iv1954 = phi i64 [ 1, %.lr.ph1798.preheader ], [ %indvars.iv.next1955, %.lr.ph1798 ]
-  %344 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv1954
-  store double 1.000000e+00, ptr %344, align 8, !tbaa !7
+  %347 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv1954
+  store double 1.000000e+00, ptr %347, align 8, !tbaa !7
   %indvars.iv.next1955 = add nuw nsw i64 %indvars.iv1954, 1
   %exitcond1958.not = icmp eq i64 %indvars.iv.next1955, %wide.trip.count1957
   br i1 %exitcond1958.not, label %._crit_edge1799, label %.lr.ph1798, !llvm.loop !18
 
 ._crit_edge1799:                                  ; preds = %.lr.ph1798, %341
-  %345 = add nsw i32 %342, -1
-  %346 = mul nsw i32 %345, %342
-  %347 = sdiv i32 %346, 2
   %spec.select = call i32 @llvm.smin.i32(i32 %342, i32 8)
   %348 = sdiv i32 %342, %spec.select
   %349 = mul nsw i32 %348, %spec.select
@@ -2985,12 +2985,12 @@ cdce.end:                                         ; preds = %106, %cdce.call
   %1806 = fmul double %.11517.lcssa, %1805
   %1807 = fmul double %.11498.lcssa, %1806
   %1808 = fcmp uge double %1807, %1800
-  %.not1638 = icmp slt i32 %.01476.lcssa, %347
+  %.not1638 = icmp slt i32 %.01476.lcssa, %345
   %or.cond1700 = select i1 %1808, i1 %.not1638, i1 false
   br i1 %or.cond1700, label %1810, label %1812
 
 1809:                                             ; preds = %1797, %1786
-  %.not1638.old = icmp slt i32 %.01476.lcssa, %347
+  %.not1638.old = icmp slt i32 %.01476.lcssa, %345
   br i1 %.not1638.old, label %1810, label %1812
 
 1810:                                             ; preds = %1803, %1809

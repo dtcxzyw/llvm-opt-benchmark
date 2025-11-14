@@ -16821,8 +16821,8 @@ call.i.i11.i.i.i.noexc:                           ; preds = %while.body.i.i.i767
   br i1 %cmp.i.i.i769, label %while.body.i.i.i767, label %_ZN5eastl9DequeBaseI10TestObject15MallocAllocatorLj8EEC2EmRKS2_.exit.i, !llvm.loop !652
 
 _ZN5eastl9DequeBaseI10TestObject15MallocAllocatorLj8EEC2EmRKS2_.exit.i: ; preds = %call.i.i11.i.i.i.noexc
-  %mItBegin.i.i770 = getelementptr inbounds nuw i8, ptr %deque4TO44, i64 16
-  %mItEnd.i.i771 = getelementptr inbounds nuw i8, ptr %deque4TO44, i64 48
+  %mItEnd.i.i770 = getelementptr inbounds nuw i8, ptr %deque4TO44, i64 48
+  %mItBegin.i.i771 = getelementptr inbounds nuw i8, ptr %deque4TO44, i64 16
   %mpCurrentArrayPtr.i.i.i.i772 = getelementptr inbounds nuw i8, ptr %deque4TO44, i64 40
   store ptr %add.ptr.i.i.i766, ptr %mpCurrentArrayPtr.i.i.i.i772, align 8
   %254 = load ptr, ptr %add.ptr.i.i.i766, align 8
@@ -16831,7 +16831,7 @@ _ZN5eastl9DequeBaseI10TestObject15MallocAllocatorLj8EEC2EmRKS2_.exit.i: ; preds 
   %add.ptr.i.i.i.i774 = getelementptr inbounds nuw i8, ptr %254, i64 192
   %mpEnd.i.i.i.i775 = getelementptr inbounds nuw i8, ptr %deque4TO44, i64 32
   store ptr %add.ptr.i.i.i.i774, ptr %mpEnd.i.i.i.i775, align 8
-  store ptr %254, ptr %mItBegin.i.i770, align 8
+  store ptr %254, ptr %mItBegin.i.i771, align 8
   %mpCurrentArrayPtr.i12.i.i.i = getelementptr inbounds nuw i8, ptr %deque4TO44, i64 72
   store ptr %add.ptr.i.i.i766, ptr %mpCurrentArrayPtr.i12.i.i.i, align 8
   %255 = load ptr, ptr %add.ptr.i.i.i766, align 8
@@ -16841,7 +16841,7 @@ _ZN5eastl9DequeBaseI10TestObject15MallocAllocatorLj8EEC2EmRKS2_.exit.i: ; preds 
   %mpEnd.i15.i.i.i = getelementptr inbounds nuw i8, ptr %deque4TO44, i64 64
   store ptr %add.ptr.i14.i.i.i, ptr %mpEnd.i15.i.i.i, align 8
   %add.ptr15.i.i.i = getelementptr inbounds nuw i8, ptr %255, i64 96
-  store ptr %add.ptr15.i.i.i, ptr %mItEnd.i.i771, align 8
+  store ptr %add.ptr15.i.i.i, ptr %mItEnd.i.i770, align 8
   br label %for.body.i.i7.i.i
 
 for.body.i.i7.i.i:                                ; preds = %for.body.i.i7.i.i, %_ZN5eastl9DequeBaseI10TestObject15MallocAllocatorLj8EEC2EmRKS2_.exit.i
@@ -16892,8 +16892,8 @@ invoke.cont273:                                   ; preds = %call.i.i.i.i.i.noex
   %div79.i.i.i793 = lshr i64 %sub.i.i.i792, 1
   %add.ptr.i.i.i794 = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i815, i64 %div79.i.i.i793
   store ptr %call.i.i11.i.i.i817, ptr %add.ptr.i.i.i794, align 8
-  %mItBegin.i.i795 = getelementptr inbounds nuw i8, ptr %toDequeB, i64 16
-  %mItEnd.i.i796 = getelementptr inbounds nuw i8, ptr %toDequeB, i64 48
+  %mItEnd.i.i795 = getelementptr inbounds nuw i8, ptr %toDequeB, i64 48
+  %mItBegin.i.i796 = getelementptr inbounds nuw i8, ptr %toDequeB, i64 16
   %mpCurrentArrayPtr.i.i.i.i797 = getelementptr inbounds nuw i8, ptr %toDequeB, i64 40
   store ptr %add.ptr.i.i.i794, ptr %mpCurrentArrayPtr.i.i.i.i797, align 8
   %261 = load ptr, ptr %add.ptr.i.i.i794, align 8
@@ -16902,7 +16902,7 @@ invoke.cont273:                                   ; preds = %call.i.i.i.i.i.noex
   %add.ptr.i.i.i.i799 = getelementptr inbounds nuw i8, ptr %261, i64 192
   %mpEnd.i.i.i.i800 = getelementptr inbounds nuw i8, ptr %toDequeB, i64 32
   store ptr %add.ptr.i.i.i.i799, ptr %mpEnd.i.i.i.i800, align 8
-  store ptr %261, ptr %mItBegin.i.i795, align 8
+  store ptr %261, ptr %mItBegin.i.i796, align 8
   %mpCurrentArrayPtr.i12.i.i.i801 = getelementptr inbounds nuw i8, ptr %toDequeB, i64 72
   store ptr %add.ptr.i.i.i794, ptr %mpCurrentArrayPtr.i12.i.i.i801, align 8
   %262 = load ptr, ptr %add.ptr.i.i.i794, align 8
@@ -16917,13 +16917,13 @@ invoke.cont273:                                   ; preds = %call.i.i.i.i.i.noex
   %266 = load i64, ptr %mnPtrArraySize.i.i763, align 8
   store i64 %266, ptr %mnPtrArraySize.i.i786, align 8
   store i64 %265, ptr %mnPtrArraySize.i.i763, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mItBegin.i.i795, ptr noundef nonnull align 8 dereferenceable(32) %mItBegin.i.i770, i64 32, i1 false)
-  store ptr %261, ptr %mItBegin.i.i770, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mItBegin.i.i796, ptr noundef nonnull align 8 dereferenceable(32) %mItBegin.i.i771, i64 32, i1 false)
+  store ptr %261, ptr %mItBegin.i.i771, align 8
   store ptr %261, ptr %mpBegin.i.i.i.i773, align 8
   store ptr %add.ptr.i.i.i.i799, ptr %mpEnd.i.i.i.i775, align 8
   store ptr %add.ptr.i.i.i794, ptr %mpCurrentArrayPtr.i.i.i.i772, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mItEnd.i.i796, ptr noundef nonnull align 8 dereferenceable(32) %mItEnd.i.i771, i64 32, i1 false)
-  store ptr %262, ptr %mItEnd.i.i771, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mItEnd.i.i795, ptr noundef nonnull align 8 dereferenceable(32) %mItEnd.i.i770, i64 32, i1 false)
+  store ptr %262, ptr %mItEnd.i.i770, align 8
   store ptr %262, ptr %mpBegin.i13.i.i.i, align 8
   store ptr %add.ptr.i14.i.i.i803, ptr %mpEnd.i15.i.i.i, align 8
   store ptr %add.ptr.i.i.i794, ptr %mpCurrentArrayPtr.i12.i.i.i, align 8
@@ -16943,14 +16943,14 @@ invoke.cont273:                                   ; preds = %call.i.i.i.i.i.noex
   %274 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i797, align 8
   %sub.ptr.lhs.cast.i.i822 = ptrtoint ptr %273 to i64
   %sub.ptr.rhs.cast.i.i823 = ptrtoint ptr %274 to i64
-  %275 = load ptr, ptr %mItEnd.i.i796, align 8
+  %275 = load ptr, ptr %mItEnd.i.i795, align 8
   %276 = load ptr, ptr %mpBegin.i13.i.i.i802, align 8
   %sub.ptr.lhs.cast2.i.i825 = ptrtoint ptr %275 to i64
   %sub.ptr.rhs.cast3.i.i826 = ptrtoint ptr %276 to i64
   %sub.ptr.sub4.i.i827 = sub i64 %sub.ptr.lhs.cast2.i.i825, %sub.ptr.rhs.cast3.i.i826
   %sub.ptr.div5.i.i828 = sdiv exact i64 %sub.ptr.sub4.i.i827, 24
   %277 = load ptr, ptr %mpEnd.i.i.i.i800, align 8
-  %278 = load ptr, ptr %mItBegin.i.i795, align 8
+  %278 = load ptr, ptr %mItBegin.i.i796, align 8
   %sub.ptr.lhs.cast7.i.i830 = ptrtoint ptr %277 to i64
   %sub.ptr.rhs.cast8.i.i831 = ptrtoint ptr %278 to i64
   %sub.ptr.sub9.i.i832 = sub i64 %sub.ptr.lhs.cast7.i.i830, %sub.ptr.rhs.cast8.i.i831
@@ -17011,8 +17011,8 @@ call.i.i11.i.i.i.noexc907:                        ; preds = %while.body.i.i.i875
   br i1 %cmp.i.i.i878, label %while.body.i.i.i875, label %_ZN5eastl9DequeBaseI10TestObject15MallocAllocatorLj8EEC2EmRKS2_.exit.i879, !llvm.loop !652
 
 _ZN5eastl9DequeBaseI10TestObject15MallocAllocatorLj8EEC2EmRKS2_.exit.i879: ; preds = %call.i.i11.i.i.i.noexc907
-  %mItBegin.i.i880 = getelementptr inbounds nuw i8, ptr %deque5TO55, i64 16
-  %mItEnd.i.i881 = getelementptr inbounds nuw i8, ptr %deque5TO55, i64 48
+  %mItEnd.i.i880 = getelementptr inbounds nuw i8, ptr %deque5TO55, i64 48
+  %mItBegin.i.i881 = getelementptr inbounds nuw i8, ptr %deque5TO55, i64 16
   %mpCurrentArrayPtr.i.i.i.i882 = getelementptr inbounds nuw i8, ptr %deque5TO55, i64 40
   store ptr %add.ptr.i.i.i873, ptr %mpCurrentArrayPtr.i.i.i.i882, align 8
   %285 = load ptr, ptr %add.ptr.i.i.i873, align 8
@@ -17021,7 +17021,7 @@ _ZN5eastl9DequeBaseI10TestObject15MallocAllocatorLj8EEC2EmRKS2_.exit.i879: ; pre
   %add.ptr.i.i.i.i884 = getelementptr inbounds nuw i8, ptr %285, i64 192
   %mpEnd.i.i.i.i885 = getelementptr inbounds nuw i8, ptr %deque5TO55, i64 32
   store ptr %add.ptr.i.i.i.i884, ptr %mpEnd.i.i.i.i885, align 8
-  store ptr %285, ptr %mItBegin.i.i880, align 8
+  store ptr %285, ptr %mItBegin.i.i881, align 8
   %mpCurrentArrayPtr.i12.i.i.i887 = getelementptr inbounds nuw i8, ptr %deque5TO55, i64 72
   store ptr %add.ptr.i.i.i873, ptr %mpCurrentArrayPtr.i12.i.i.i887, align 8
   %286 = load ptr, ptr %add.ptr.i.i.i873, align 8
@@ -17031,7 +17031,7 @@ _ZN5eastl9DequeBaseI10TestObject15MallocAllocatorLj8EEC2EmRKS2_.exit.i879: ; pre
   %mpEnd.i15.i.i.i890 = getelementptr inbounds nuw i8, ptr %deque5TO55, i64 64
   store ptr %add.ptr.i14.i.i.i889, ptr %mpEnd.i15.i.i.i890, align 8
   %add.ptr15.i.i.i891 = getelementptr inbounds nuw i8, ptr %286, i64 120
-  store ptr %add.ptr15.i.i.i891, ptr %mItEnd.i.i881, align 8
+  store ptr %add.ptr15.i.i.i891, ptr %mItEnd.i.i880, align 8
   br label %for.body.i.i7.i.i894
 
 for.body.i.i7.i.i894:                             ; preds = %for.body.i.i7.i.i894, %_ZN5eastl9DequeBaseI10TestObject15MallocAllocatorLj8EEC2EmRKS2_.exit.i879
@@ -17089,8 +17089,8 @@ invoke.cont297:                                   ; preds = %call.i.i.i.i.i.i341
   %div79.i.i.i.i = lshr i64 %sub.i.i.i.i3417, 1
   %add.ptr.i.i.i.i3418 = getelementptr inbounds nuw ptr, ptr %call.i.i.i.i.i.i34163431, i64 %div79.i.i.i.i
   store ptr %call.i.i11.i.i.i.i3432, ptr %add.ptr.i.i.i.i3418, align 8
-  %mItBegin.i.i.i3419 = getelementptr inbounds nuw i8, ptr %temp.i, i64 16
-  %mItEnd.i.i.i3420 = getelementptr inbounds nuw i8, ptr %temp.i, i64 48
+  %mItEnd.i.i.i3419 = getelementptr inbounds nuw i8, ptr %temp.i, i64 48
+  %mItBegin.i.i.i3420 = getelementptr inbounds nuw i8, ptr %temp.i, i64 16
   %mpCurrentArrayPtr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %temp.i, i64 40
   store ptr %add.ptr.i.i.i.i3418, ptr %mpCurrentArrayPtr.i.i.i.i.i, align 8
   %295 = load ptr, ptr %add.ptr.i.i.i.i3418, align 8
@@ -17099,7 +17099,7 @@ invoke.cont297:                                   ; preds = %call.i.i.i.i.i.i341
   %add.ptr.i.i.i.i.i3421 = getelementptr inbounds nuw i8, ptr %295, i64 192
   %mpEnd.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %temp.i, i64 32
   store ptr %add.ptr.i.i.i.i.i3421, ptr %mpEnd.i.i.i.i.i, align 8
-  store ptr %295, ptr %mItBegin.i.i.i3419, align 8
+  store ptr %295, ptr %mItBegin.i.i.i3420, align 8
   %mpCurrentArrayPtr.i12.i.i.i.i = getelementptr inbounds nuw i8, ptr %temp.i, i64 72
   store ptr %add.ptr.i.i.i.i3418, ptr %mpCurrentArrayPtr.i12.i.i.i.i, align 8
   %296 = load ptr, ptr %add.ptr.i.i.i.i3418, align 8
@@ -17108,7 +17108,7 @@ invoke.cont297:                                   ; preds = %call.i.i.i.i.i.i341
   %add.ptr.i14.i.i.i.i = getelementptr inbounds nuw i8, ptr %296, i64 192
   %mpEnd.i15.i.i.i.i = getelementptr inbounds nuw i8, ptr %temp.i, i64 64
   store ptr %add.ptr.i14.i.i.i.i, ptr %mpEnd.i15.i.i.i.i, align 8
-  store ptr %296, ptr %mItEnd.i.i.i3420, align 8
+  store ptr %296, ptr %mItEnd.i.i.i3419, align 8
   %297 = load ptr, ptr %toDequeB, align 8
   %298 = load ptr, ptr %temp.i, align 8
   store ptr %298, ptr %toDequeB, align 8
@@ -17117,21 +17117,21 @@ invoke.cont297:                                   ; preds = %call.i.i.i.i.i.i341
   %300 = load i64, ptr %mnPtrArraySize.i.i.i3412, align 8
   store i64 %300, ptr %mnPtrArraySize.i.i786, align 8
   store i64 %299, ptr %mnPtrArraySize.i.i.i3412, align 8
-  %301 = load ptr, ptr %mItBegin.i.i795, align 8
+  %301 = load ptr, ptr %mItBegin.i.i796, align 8
   %302 = load ptr, ptr %mpBegin.i.i.i.i798, align 8
   %303 = load ptr, ptr %mpEnd.i.i.i.i800, align 8
   %304 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i797, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mItBegin.i.i795, ptr noundef nonnull align 8 dereferenceable(32) %mItBegin.i.i.i3419, i64 32, i1 false)
-  store ptr %301, ptr %mItBegin.i.i.i3419, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mItBegin.i.i796, ptr noundef nonnull align 8 dereferenceable(32) %mItBegin.i.i.i3420, i64 32, i1 false)
+  store ptr %301, ptr %mItBegin.i.i.i3420, align 8
   store ptr %302, ptr %mpBegin.i.i.i.i.i, align 8
   store ptr %303, ptr %mpEnd.i.i.i.i.i, align 8
   store ptr %304, ptr %mpCurrentArrayPtr.i.i.i.i.i, align 8
-  %305 = load ptr, ptr %mItEnd.i.i796, align 8
+  %305 = load ptr, ptr %mItEnd.i.i795, align 8
   %306 = load ptr, ptr %mpBegin.i13.i.i.i802, align 8
   %307 = load ptr, ptr %mpEnd.i15.i.i.i804, align 8
   %308 = load ptr, ptr %mpCurrentArrayPtr.i12.i.i.i801, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mItEnd.i.i796, ptr noundef nonnull align 8 dereferenceable(32) %mItEnd.i.i.i3420, i64 32, i1 false)
-  store ptr %305, ptr %mItEnd.i.i.i3420, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mItEnd.i.i795, ptr noundef nonnull align 8 dereferenceable(32) %mItEnd.i.i.i3419, i64 32, i1 false)
+  store ptr %305, ptr %mItEnd.i.i.i3419, align 8
   store ptr %306, ptr %mpBegin.i13.i.i.i.i, align 8
   store ptr %307, ptr %mpEnd.i15.i.i.i.i, align 8
   store ptr %308, ptr %mpCurrentArrayPtr.i12.i.i.i.i, align 8
@@ -17157,21 +17157,21 @@ invoke.cont297:                                   ; preds = %call.i.i.i.i.i.i341
   %318 = load i64, ptr %mnPtrArraySize.i.i865, align 8
   store i64 %318, ptr %mnPtrArraySize.i.i786, align 8
   store i64 %317, ptr %mnPtrArraySize.i.i865, align 8
-  %319 = load ptr, ptr %mItBegin.i.i795, align 8
+  %319 = load ptr, ptr %mItBegin.i.i796, align 8
   %320 = load ptr, ptr %mpBegin.i.i.i.i798, align 8
   %321 = load ptr, ptr %mpEnd.i.i.i.i800, align 8
   %322 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i797, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mItBegin.i.i795, ptr noundef nonnull align 8 dereferenceable(32) %mItBegin.i.i880, i64 32, i1 false)
-  store ptr %319, ptr %mItBegin.i.i880, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mItBegin.i.i796, ptr noundef nonnull align 8 dereferenceable(32) %mItBegin.i.i881, i64 32, i1 false)
+  store ptr %319, ptr %mItBegin.i.i881, align 8
   store ptr %320, ptr %mpBegin.i.i.i.i883, align 8
   store ptr %321, ptr %mpEnd.i.i.i.i885, align 8
   store ptr %322, ptr %mpCurrentArrayPtr.i.i.i.i882, align 8
-  %323 = load ptr, ptr %mItEnd.i.i796, align 8
+  %323 = load ptr, ptr %mItEnd.i.i795, align 8
   %324 = load ptr, ptr %mpBegin.i13.i.i.i802, align 8
   %325 = load ptr, ptr %mpEnd.i15.i.i.i804, align 8
   %326 = load ptr, ptr %mpCurrentArrayPtr.i12.i.i.i801, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mItEnd.i.i796, ptr noundef nonnull align 8 dereferenceable(32) %mItEnd.i.i881, i64 32, i1 false)
-  store ptr %323, ptr %mItEnd.i.i881, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mItEnd.i.i795, ptr noundef nonnull align 8 dereferenceable(32) %mItEnd.i.i880, i64 32, i1 false)
+  store ptr %323, ptr %mItEnd.i.i880, align 8
   store ptr %324, ptr %mpBegin.i13.i.i.i888, align 8
   store ptr %325, ptr %mpEnd.i15.i.i.i890, align 8
   store ptr %326, ptr %mpCurrentArrayPtr.i12.i.i.i887, align 8
@@ -17191,14 +17191,14 @@ invoke.cont297:                                   ; preds = %call.i.i.i.i.i.i341
   %334 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i797, align 8
   %sub.ptr.lhs.cast.i.i938 = ptrtoint ptr %333 to i64
   %sub.ptr.rhs.cast.i.i939 = ptrtoint ptr %334 to i64
-  %335 = load ptr, ptr %mItEnd.i.i796, align 8
+  %335 = load ptr, ptr %mItEnd.i.i795, align 8
   %336 = load ptr, ptr %mpBegin.i13.i.i.i802, align 8
   %sub.ptr.lhs.cast2.i.i941 = ptrtoint ptr %335 to i64
   %sub.ptr.rhs.cast3.i.i942 = ptrtoint ptr %336 to i64
   %sub.ptr.sub4.i.i943 = sub i64 %sub.ptr.lhs.cast2.i.i941, %sub.ptr.rhs.cast3.i.i942
   %sub.ptr.div5.i.i944 = sdiv exact i64 %sub.ptr.sub4.i.i943, 24
   %337 = load ptr, ptr %mpEnd.i.i.i.i800, align 8
-  %338 = load ptr, ptr %mItBegin.i.i795, align 8
+  %338 = load ptr, ptr %mItBegin.i.i796, align 8
   %sub.ptr.lhs.cast7.i.i946 = ptrtoint ptr %337 to i64
   %sub.ptr.rhs.cast8.i.i947 = ptrtoint ptr %338 to i64
   %sub.ptr.sub9.i.i948 = sub i64 %sub.ptr.lhs.cast7.i.i946, %sub.ptr.rhs.cast8.i.i947
@@ -18001,8 +18001,8 @@ _ZN5eastl5dequeI10TestObjectNS_9allocatorELj16EED2Ev.exit1372: ; preds = %for.en
   store i8 0, ptr %call.i.i.i14.i.i.i, align 1
   %result.0.i.i15.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i14.i.i.i, i64 16
   store ptr %result.0.i.i15.i.i.i, ptr %pPtrArrayCurrent.021.i.i.i.ptr, align 8
-  %mItBegin.i.i1381 = getelementptr inbounds nuw i8, ptr %v0, i64 16
-  %mItEnd.i.i1382 = getelementptr inbounds nuw i8, ptr %v0, i64 48
+  %mItEnd.i.i1381 = getelementptr inbounds nuw i8, ptr %v0, i64 48
+  %mItBegin.i.i1382 = getelementptr inbounds nuw i8, ptr %v0, i64 16
   %mpCurrentArrayPtr.i.i.i.i1383 = getelementptr inbounds nuw i8, ptr %v0, i64 40
   store ptr %pPtrArrayCurrent.021.i.i.i.ptr, ptr %mpCurrentArrayPtr.i.i.i.i1383, align 8
   %mpBegin.i.i.i.i1384 = getelementptr inbounds nuw i8, ptr %v0, i64 24
@@ -18010,7 +18010,7 @@ _ZN5eastl5dequeI10TestObjectNS_9allocatorELj16EED2Ev.exit1372: ; preds = %for.en
   %add.ptr.i.i.i.i1385 = getelementptr inbounds nuw i8, ptr %call.i.i.i14.i.i.i, i64 272
   %mpEnd.i.i.i.i1386 = getelementptr inbounds nuw i8, ptr %v0, i64 32
   store ptr %add.ptr.i.i.i.i1385, ptr %mpEnd.i.i.i.i1386, align 8
-  store ptr %result.0.i.i15.i.i.i, ptr %mItBegin.i.i1381, align 8
+  store ptr %result.0.i.i15.i.i.i, ptr %mItBegin.i.i1382, align 8
   %mpCurrentArrayPtr.i16.i.i.i = getelementptr inbounds nuw i8, ptr %v0, i64 72
   store ptr %pPtrArrayCurrent.021.i.i.i.ptr, ptr %mpCurrentArrayPtr.i16.i.i.i, align 8
   %mpBegin.i17.i.i.i = getelementptr inbounds nuw i8, ptr %v0, i64 56
@@ -18018,7 +18018,7 @@ _ZN5eastl5dequeI10TestObjectNS_9allocatorELj16EED2Ev.exit1372: ; preds = %for.en
   %mpEnd.i19.i.i.i = getelementptr inbounds nuw i8, ptr %v0, i64 64
   store ptr %add.ptr.i.i.i.i1385, ptr %mpEnd.i19.i.i.i, align 8
   %add.ptr15.i.i.i1387 = getelementptr inbounds nuw i8, ptr %call.i.i.i14.i.i.i, i64 20
-  store ptr %add.ptr15.i.i.i1387, ptr %mItEnd.i.i1382, align 8
+  store ptr %add.ptr15.i.i.i1387, ptr %mItEnd.i.i1381, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %first.addr.i.i.i5.i.i)
   store ptr %result.0.i.i15.i.i.i, ptr %first.addr.i.i.i5.i.i, align 8
   %463 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i5.i.i, i32 0, i64 1, ptr nonnull %result.0.i.i15.i.i.i) #14, !srcloc !7
@@ -18040,8 +18040,8 @@ _ZN5eastl5dequeI10TestObjectNS_9allocatorELj16EED2Ev.exit1372: ; preds = %for.en
   store i8 1, ptr %call.i.i.i14.i.i.i1401, align 1
   %result.0.i.i15.i.i.i1402 = getelementptr inbounds nuw i8, ptr %call.i.i.i14.i.i.i1401, i64 32
   store ptr %result.0.i.i15.i.i.i1402, ptr %pPtrArrayCurrent.021.i.i.i1400.ptr.ptr, align 8
-  %mItBegin.i.i1405 = getelementptr inbounds nuw i8, ptr %v1, i64 16
-  %mItEnd.i.i1406 = getelementptr inbounds nuw i8, ptr %v1, i64 48
+  %mItEnd.i.i1405 = getelementptr inbounds nuw i8, ptr %v1, i64 48
+  %mItBegin.i.i1406 = getelementptr inbounds nuw i8, ptr %v1, i64 16
   %mpCurrentArrayPtr.i.i.i.i1410 = getelementptr inbounds nuw i8, ptr %v1, i64 40
   store ptr %pPtrArrayCurrent.021.i.i.i1400.ptr.ptr, ptr %mpCurrentArrayPtr.i.i.i.i1410, align 8
   %mpBegin.i.i.i.i1411 = getelementptr inbounds nuw i8, ptr %v1, i64 24
@@ -18049,7 +18049,7 @@ _ZN5eastl5dequeI10TestObjectNS_9allocatorELj16EED2Ev.exit1372: ; preds = %for.en
   %add.ptr.i.i.i.i1412 = getelementptr inbounds nuw i8, ptr %call.i.i.i14.i.i.i1401, i64 288
   %mpEnd.i.i.i.i1413 = getelementptr inbounds nuw i8, ptr %v1, i64 32
   store ptr %add.ptr.i.i.i.i1412, ptr %mpEnd.i.i.i.i1413, align 8
-  store ptr %result.0.i.i15.i.i.i1402, ptr %mItBegin.i.i1405, align 8
+  store ptr %result.0.i.i15.i.i.i1402, ptr %mItBegin.i.i1406, align 8
   %mpCurrentArrayPtr.i16.i.i.i1414 = getelementptr inbounds nuw i8, ptr %v1, i64 72
   store ptr %pPtrArrayCurrent.021.i.i.i1400.ptr.ptr, ptr %mpCurrentArrayPtr.i16.i.i.i1414, align 8
   %mpBegin.i17.i.i.i1415 = getelementptr inbounds nuw i8, ptr %v1, i64 56
@@ -18057,12 +18057,12 @@ _ZN5eastl5dequeI10TestObjectNS_9allocatorELj16EED2Ev.exit1372: ; preds = %for.en
   %mpEnd.i19.i.i.i1417 = getelementptr inbounds nuw i8, ptr %v1, i64 64
   store ptr %add.ptr.i.i.i.i1412, ptr %mpEnd.i19.i.i.i1417, align 8
   %add.ptr15.i.i.i1418 = getelementptr inbounds nuw i8, ptr %call.i.i.i14.i.i.i1401, i64 36
-  store ptr %add.ptr15.i.i.i1418, ptr %mItEnd.i.i1406, align 8
+  store ptr %add.ptr15.i.i.i1418, ptr %mItEnd.i.i1405, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %first.addr.i.i.i5.i.i1388)
   store ptr %result.0.i.i15.i.i.i1402, ptr %first.addr.i.i.i5.i.i1388, align 8
   %466 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i5.i.i1388, i32 1, i64 1, ptr nonnull %result.0.i.i15.i.i.i1402) #14, !srcloc !7
   call void @llvm.lifetime.end.p0(ptr nonnull %first.addr.i.i.i5.i.i1388)
-  %467 = load ptr, ptr %mItBegin.i.i1381, align 8
+  %467 = load ptr, ptr %mItBegin.i.i1382, align 8
   %468 = load i32, ptr %467, align 4
   %cmp455 = icmp eq i32 %468, 0
   br i1 %cmp455, label %land.rhs456, label %land.end460
@@ -18100,7 +18100,7 @@ invoke.cont461:                                   ; preds = %land.end460
 invoke.cont463:                                   ; preds = %invoke.cont461
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i1424)
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3.i)
-  %471 = load ptr, ptr %mItBegin.i.i1381, align 8
+  %471 = load ptr, ptr %mItBegin.i.i1382, align 8
   %472 = load i32, ptr %471, align 4
   %cmp467 = icmp eq i32 %472, 1
   br i1 %cmp467, label %land.rhs468, label %land.end472
@@ -18122,10 +18122,10 @@ invoke.cont473:                                   ; preds = %land.end472
           to label %invoke.cont476 unwind label %lpad452
 
 invoke.cont476:                                   ; preds = %invoke.cont473
-  %476 = load ptr, ptr %mItEnd.i.i1382, align 8, !noalias !667
+  %476 = load ptr, ptr %mItEnd.i.i1381, align 8, !noalias !667
   %477 = load ptr, ptr %mpBegin.i17.i.i.i, align 8, !noalias !667
   %478 = load ptr, ptr %mpCurrentArrayPtr.i16.i.i.i, align 8, !noalias !667
-  %479 = load ptr, ptr %mItBegin.i.i1381, align 8, !noalias !670
+  %479 = load ptr, ptr %mItBegin.i.i1382, align 8, !noalias !670
   %480 = load ptr, ptr %mpEnd.i.i.i.i1386, align 8, !noalias !670
   %481 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i1383, align 8, !noalias !670
   %sub.ptr.lhs.cast.i.i1442 = ptrtoint ptr %478 to i64
@@ -19573,8 +19573,8 @@ while.body.i.i3546:                               ; preds = %while.body.i.i3546,
   br i1 %cmp.i.i3548, label %while.body.i.i3546, label %while.body.i.i.preheader, !llvm.loop !686
 
 while.body.i.i.preheader:                         ; preds = %while.body.i.i3546
-  %mItBegin.i3549 = getelementptr inbounds nuw i8, ptr %d573, i64 16
-  %mItEnd.i3550 = getelementptr inbounds nuw i8, ptr %d573, i64 48
+  %mItEnd.i3549 = getelementptr inbounds nuw i8, ptr %d573, i64 48
+  %mItBegin.i3550 = getelementptr inbounds nuw i8, ptr %d573, i64 16
   %mpCurrentArrayPtr.i.i.i3551 = getelementptr inbounds nuw i8, ptr %d573, i64 40
   store ptr %add.ptr.i.i3544, ptr %mpCurrentArrayPtr.i.i.i3551, align 8
   %680 = load ptr, ptr %add.ptr.i.i3544, align 8
@@ -19583,7 +19583,7 @@ while.body.i.i.preheader:                         ; preds = %while.body.i.i3546
   %add.ptr.i.i.i3553 = getelementptr inbounds nuw i8, ptr %680, i64 256
   %mpEnd.i.i.i3554 = getelementptr inbounds nuw i8, ptr %d573, i64 32
   store ptr %add.ptr.i.i.i3553, ptr %mpEnd.i.i.i3554, align 8
-  store ptr %680, ptr %mItBegin.i3549, align 8
+  store ptr %680, ptr %mItBegin.i3550, align 8
   %add.ptr12.i.i3555 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i3544, i64 512
   %mpCurrentArrayPtr.i13.i.i = getelementptr inbounds nuw i8, ptr %d573, i64 72
   store ptr %add.ptr12.i.i3555, ptr %mpCurrentArrayPtr.i13.i.i, align 8
@@ -19593,7 +19593,7 @@ while.body.i.i.preheader:                         ; preds = %while.body.i.i3546
   %add.ptr.i15.i.i = getelementptr inbounds nuw i8, ptr %681, i64 256
   %mpEnd.i16.i.i = getelementptr inbounds nuw i8, ptr %d573, i64 64
   store ptr %add.ptr.i15.i.i, ptr %mpEnd.i16.i.i, align 8
-  store ptr %681, ptr %mItEnd.i3550, align 8
+  store ptr %681, ptr %mItEnd.i3549, align 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %while.body.i.i
@@ -19609,7 +19609,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   br i1 %cmp.i.i, label %while.body.i.i, label %invoke.cont576, !llvm.loop !687
 
 invoke.cont576:                                   ; preds = %while.body.i.i
-  %.pre3786 = load ptr, ptr %mItEnd.i3550, align 8
+  %.pre3786 = load ptr, ptr %mItEnd.i3549, align 8
   %.pre3785 = load ptr, ptr %mpBegin.i14.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %first.addr.i.i.i5.i.i1919)
   store ptr %.pre3785, ptr %first.addr.i.i.i5.i.i1919, align 8
@@ -19619,7 +19619,7 @@ invoke.cont576:                                   ; preds = %while.body.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
   %685 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i5.i.i1919, i32 0, i64 %sub.ptr.div.i.i.i.i.i, ptr %.pre3785) #14, !srcloc !7
   call void @llvm.lifetime.end.p0(ptr nonnull %first.addr.i.i.i5.i.i1919)
-  %686 = load ptr, ptr %mItBegin.i3549, align 8, !noalias !688
+  %686 = load ptr, ptr %mItBegin.i3550, align 8, !noalias !688
   %687 = load ptr, ptr %mpBegin.i.i.i3552, align 8, !noalias !688
   %688 = load ptr, ptr %mpEnd.i.i.i3554, align 8, !noalias !688
   %689 = load ptr, ptr %mpCurrentArrayPtr.i.i.i3551, align 8, !noalias !688
@@ -19630,7 +19630,7 @@ invoke.cont576:                                   ; preds = %while.body.i.i
   store ptr %688, ptr %mpEnd.i1937, align 8
   %mpCurrentArrayPtr.i1939 = getelementptr inbounds nuw i8, ptr %agg.tmp578, i64 24
   store ptr %689, ptr %mpCurrentArrayPtr.i1939, align 8
-  %690 = load ptr, ptr %mItEnd.i3550, align 8, !noalias !691
+  %690 = load ptr, ptr %mItEnd.i3549, align 8, !noalias !691
   %691 = load ptr, ptr %mpBegin.i14.i.i, align 8, !noalias !691
   %692 = load ptr, ptr %mpEnd.i16.i.i, align 8, !noalias !691
   %693 = load ptr, ptr %mpCurrentArrayPtr.i13.i.i, align 8, !noalias !691

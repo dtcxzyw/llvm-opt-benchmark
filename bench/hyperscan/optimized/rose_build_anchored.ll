@@ -8721,8 +8721,8 @@ _ZNKSt10_HashtableIN3ue212_GLOBAL__N_115Holder_StateSetESt4pairIKS2_tESaIS5_ENSt
   %90 = getelementptr inbounds nuw i16, ptr %89, i64 %17
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %90, ptr %91, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 %88
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %89, i8 0, i64 %88, i1 false)
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 %88
   br label %93
 
 93:                                               ; preds = %.noexc176, %87
@@ -9111,8 +9111,8 @@ _ZNKSt10_HashtableIN3ue212_GLOBAL__N_115Holder_StateSetESt4pairIKS2_tESaIS5_ENSt
   store ptr %244, ptr %7, align 8
   %245 = getelementptr inbounds nuw i16, ptr %244, i64 %17
   store ptr %245, ptr %177, align 8
-  %246 = getelementptr inbounds nuw i8, ptr %244, i64 %176
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %244, i8 0, i64 %176, i1 false)
+  %246 = getelementptr inbounds nuw i8, ptr %244, i64 %176
   br label %247
 
 247:                                              ; preds = %.noexc243, %243
@@ -10461,8 +10461,8 @@ _ZNKSt10_HashtableIN3ue212_GLOBAL__N_115Holder_StateSetESt4pairIKS2_tESaIS5_ENSt
   store ptr %791, ptr %9, align 8
   %792 = getelementptr inbounds nuw i16, ptr %791, i64 %17
   store ptr %792, ptr %283, align 8
-  %793 = getelementptr inbounds nuw i8, ptr %791, i64 %176
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %791, i8 0, i64 %176, i1 false)
+  %793 = getelementptr inbounds nuw i8, ptr %791, i64 %176
   br label %794
 
 794:                                              ; preds = %.noexc343, %790

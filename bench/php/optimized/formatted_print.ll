@@ -1055,13 +1055,13 @@ zval_get_long.exit:                               ; preds = %383, %385
 397:                                              ; preds = %388
   %398 = zext nneg i32 %.3142 to i64
   %399 = zext nneg i32 %.0131 to i64
-  %400 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %401 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %402 = icmp slt i64 %387, 0
-  br i1 %402, label %403, label %407
+  %400 = icmp slt i64 %387, 0
+  %401 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %402 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  br i1 %400, label %403, label %407
 
 403:                                              ; preds = %397
-  %404 = add i32 %400, -2
+  %404 = add i32 %401, -2
   %405 = zext i32 %404 to i64
   %406 = getelementptr inbounds nuw i8, ptr %14, i64 %405
   store i8 45, ptr %406, align 1, !tbaa !11
@@ -1076,7 +1076,7 @@ zval_get_long.exit:                               ; preds = %383, %385
   br label %php_sprintf_appendint.exit
 
 408:                                              ; preds = %407
-  %409 = add i32 %400, -2
+  %409 = add i32 %401, -2
   %410 = zext i32 %409 to i64
   %411 = getelementptr inbounds nuw i8, ptr %14, i64 %410
   store i8 43, ptr %411, align 1, !tbaa !11
@@ -1084,7 +1084,7 @@ zval_get_long.exit:                               ; preds = %383, %385
 
 php_sprintf_appendint.exit:                       ; preds = %403, %._crit_edge.i, %408
   %.pre-phi.i254 = phi i64 [ %.pre.i256, %._crit_edge.i ], [ %410, %408 ], [ %405, %403 ]
-  %.1.i = phi i32 [ %401, %._crit_edge.i ], [ %409, %408 ], [ %404, %403 ]
+  %.1.i = phi i32 [ %402, %._crit_edge.i ], [ %409, %408 ], [ %404, %403 ]
   %412 = icmp eq i32 %.0131, 0
   %413 = icmp eq i8 %.0128, 48
   %or.cond.i255 = and i1 %412, %413
@@ -1092,7 +1092,7 @@ php_sprintf_appendint.exit:                       ; preds = %403, %._crit_edge.i
   %414 = getelementptr inbounds nuw i8, ptr %14, i64 %.pre-phi.i254
   %415 = sub i32 499, %.1.i
   %416 = zext i32 %415 to i64
-  call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull %414, i64 noundef range(i64 -2147483648, 2147483648) %398, i64 noundef 0, i8 noundef signext %spec.store.select.i, i64 noundef range(i64 0, 2) %399, i64 noundef %416, i1 noundef zeroext %402, i32 noundef 0, i32 noundef range(i32 0, 2) %.0125)
+  call fastcc void @php_sprintf_appendstring(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull %414, i64 noundef range(i64 -2147483648, 2147483648) %398, i64 noundef 0, i8 noundef signext %spec.store.select.i, i64 noundef range(i64 0, 2) %399, i64 noundef %416, i1 noundef zeroext %400, i32 noundef 0, i32 noundef range(i32 0, 2) %.0125)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %zend_tmp_string_release.exit
 

@@ -1266,17 +1266,17 @@ _ZN4cvc58internal9TrustNodeD2Ev.exit:             ; preds = %12, %17, %23
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered26doPendingPhaseRequirementsEv(ptr noundef nonnull align 8 dereferenceable(337) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cvc5::internal::NodeTemplate.319", align 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %.not9 = icmp eq ptr %4, %5
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %5 = load ptr, ptr %4, align 8, !tbaa !15
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %.not9 = icmp eq ptr %5, %6
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %8 = load ptr, ptr %7, align 8, !tbaa !14
-  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %8)
+  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_bESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %8)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE5clearEv.exit unwind label %9
 
 9:                                                ; preds = %._crit_edge
@@ -1288,15 +1288,15 @@ define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered26doPendin
 
 _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE5clearEv.exit: ; preds = %._crit_edge
   store ptr null, ptr %7, align 8, !tbaa !14
-  store ptr %5, ptr %3, align 8, !tbaa !15
+  store ptr %6, ptr %4, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store ptr %5, ptr %12, align 8, !tbaa !16
+  store ptr %6, ptr %12, align 8, !tbaa !16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i64 0, ptr %13, align 8, !tbaa !17
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.sroa.06.010 = phi ptr [ %19, %.lr.ph ], [ %4, %1 ]
+  %.sroa.06.010 = phi ptr [ %19, %.lr.ph ], [ %5, %1 ]
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !64
   store ptr %15, ptr %2, align 8, !tbaa !67
@@ -1305,7 +1305,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE5c
   %18 = trunc nuw i8 %17 to i1
   call void @_ZN4cvc58internal6theory22TheoryInferenceManager11preferPhaseENS0_12NodeTemplateILb0EEEb(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %2, i1 noundef zeroext %18)
   %19 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.010) #23
-  %.not = icmp eq ptr %19, %5
+  %.not = icmp eq ptr %19, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

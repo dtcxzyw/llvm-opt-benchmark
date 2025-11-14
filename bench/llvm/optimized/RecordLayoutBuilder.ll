@@ -1102,10 +1102,13 @@ _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder9cxxLayoutEPKN5clang13CXXRecordDe
 
 442:                                              ; preds = %_ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder9cxxLayoutEPKN5clang13CXXRecordDeclE.exit
   %443 = load i64, ptr %113, align 8, !tbaa !428
-  %444 = call { ptr, ptr } @_ZNK5clang13CXXRecordDecl6vbasesEv(ptr noundef nonnull align 8 dereferenceable(144) %63)
-  %445 = extractvalue { ptr, ptr } %444, 0
-  %446 = extractvalue { ptr, ptr } %444, 1
-  %.not36.i604 = icmp eq ptr %445, %446
+  %444 = icmp eq i64 %443, 0
+  %.sroa.speculated424 = call i64 @llvm.smin.i64(i64 %443, i64 4)
+  %.sroa.0412.0 = select i1 %444, i64 4, i64 %.sroa.speculated424
+  %445 = call { ptr, ptr } @_ZNK5clang13CXXRecordDecl6vbasesEv(ptr noundef nonnull align 8 dereferenceable(144) %63)
+  %446 = extractvalue { ptr, ptr } %445, 0
+  %447 = extractvalue { ptr, ptr } %445, 1
+  %.not36.i604 = icmp eq ptr %446, %447
   br i1 %.not36.i604, label %.._crit_edge608_crit_edge, label %.lr.ph607
 
 .._crit_edge608_crit_edge:                        ; preds = %442
@@ -1113,11 +1116,8 @@ _ZN12_GLOBAL__N_128MicrosoftRecordLayoutBuilder9cxxLayoutEPKN5clang13CXXRecordDe
   br label %._crit_edge608
 
 ._crit_edge608:                                   ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i, %.._crit_edge608_crit_edge
-  %447 = phi i64 [ %.pre659, %.._crit_edge608_crit_edge ], [ %.sroa.speculated407, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i ]
-  %448 = icmp eq i64 %443, 0
-  %.sroa.speculated424 = call i64 @llvm.smin.i64(i64 %443, i64 4)
-  %.sroa.0412.0 = select i1 %448, i64 4, i64 %.sroa.speculated424
-  %.sroa.speculated421 = call i64 @llvm.smax.i64(i64 %.sroa.0412.0, i64 %447)
+  %448 = phi i64 [ %.pre659, %.._crit_edge608_crit_edge ], [ %.sroa.speculated407, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i ]
+  %.sroa.speculated421 = call i64 @llvm.smax.i64(i64 %.sroa.0412.0, i64 %448)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %449 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %449, ptr %14, align 8, !tbaa !478
@@ -1873,7 +1873,7 @@ _ZNK12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18computeVtorDispSetERN4llvm15Sm
   br label %787
 
 .lr.ph607:                                        ; preds = %442, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i
-  %.0.i104605 = phi ptr [ %782, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i ], [ %445, %442 ]
+  %.0.i104605 = phi ptr [ %782, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i ], [ %446, %442 ]
   %765 = getelementptr inbounds nuw i8, ptr %.0.i104605, i64 16
   %766 = load ptr, ptr %765, align 8, !tbaa !459
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %766, align 8, !tbaa !386
@@ -1906,7 +1906,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i:    ; preds = %772, %.lr.ph607
   %.sroa.speculated407 = call i64 @llvm.smax.i64(i64 %781, i64 %.sroa.0.0.copyload.i.i106)
   store i64 %.sroa.speculated407, ptr %434, align 8, !tbaa !416
   %782 = getelementptr inbounds nuw i8, ptr %.0.i104605, i64 24
-  %.not36.i = icmp eq ptr %782, %446
+  %.not36.i = icmp eq ptr %782, %447
   br i1 %.not36.i, label %._crit_edge608, label %.lr.ph607
 
 ._crit_edge637:                                   ; preds = %915, %_ZNK12_GLOBAL__N_128MicrosoftRecordLayoutBuilder18computeVtorDispSetERN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEEES6_.exit.i

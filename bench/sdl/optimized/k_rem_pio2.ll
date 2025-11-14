@@ -27,8 +27,11 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   %17 = add nsw i32 %2, -3
   %18 = sdiv i32 %17, 24
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %18, i32 0)
-  %19 = add nsw i32 %15, %16
-  %.not316 = icmp slt i32 %19, 0
+  %.neg = mul nsw i32 %spec.store.select, -24
+  %.neg275 = add i32 %2, -24
+  %19 = add i32 %.neg275, %.neg
+  %20 = add nsw i32 %15, %16
+  %.not316 = icmp slt i32 %20, 0
   br i1 %.not316, label %.._crit_edge_crit_edge, label %.lr.ph.preheader
 
 .._crit_edge_crit_edge:                           ; preds = %12
@@ -36,38 +39,35 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %12
-  %20 = sub nsw i32 %spec.store.select, %16
-  %21 = add i32 %15, %3
-  %wide.trip.count = zext i32 %21 to i64
+  %21 = sub nsw i32 %spec.store.select, %16
+  %22 = add i32 %15, %3
+  %wide.trip.count = zext i32 %22 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %28
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %.0242318 = phi i32 [ %20, %.lr.ph.preheader ], [ %31, %28 ]
-  %22 = icmp slt i32 %.0242318, 0
-  br i1 %22, label %28, label %23
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %29
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
+  %.0242318 = phi i32 [ %21, %.lr.ph.preheader ], [ %32, %29 ]
+  %23 = icmp slt i32 %.0242318, 0
+  br i1 %23, label %29, label %24
 
-23:                                               ; preds = %.lr.ph
-  %24 = zext nneg i32 %.0242318 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %5, i64 %24
-  %26 = load i32, ptr %25, align 4
-  %27 = sitofp i32 %26 to double
-  br label %28
+24:                                               ; preds = %.lr.ph
+  %25 = zext nneg i32 %.0242318 to i64
+  %26 = getelementptr inbounds nuw i32, ptr %5, i64 %25
+  %27 = load i32, ptr %26, align 4
+  %28 = sitofp i32 %27 to double
+  br label %29
 
-28:                                               ; preds = %.lr.ph, %23
-  %29 = phi double [ %27, %23 ], [ 0.000000e+00, %.lr.ph ]
-  %30 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
-  store double %29, ptr %30, align 8
+29:                                               ; preds = %.lr.ph, %24
+  %30 = phi double [ %28, %24 ], [ 0.000000e+00, %.lr.ph ]
+  %31 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  store double %30, ptr %31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = add nsw i32 %.0242318, 1
+  %32 = add nsw i32 %.0242318, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %28, %.._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %21, %28 ]
-  %.neg = mul nsw i32 %spec.store.select, -24
-  %.neg275 = add i32 %2, -24
-  %32 = add i32 %.neg275, %.neg
+._crit_edge:                                      ; preds = %29, %.._crit_edge_crit_edge
+  %.pre-phi = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %22, %29 ]
   %33 = icmp ult i32 %.pre-phi, 20
   br i1 %33, label %34, label %.preheader306.us.preheader
 
@@ -116,10 +116,10 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br i1 %exitcond421.not, label %.preheader305, label %.preheader306.us, !llvm.loop !7
 
 .preheader305:                                    ; preds = %._crit_edge323.us
-  %52 = icmp sgt i32 %32, 0
-  %53 = icmp eq i32 %32, 0
-  %54 = sub nsw i32 24, %32
-  %55 = sub nsw i32 23, %32
+  %52 = icmp sgt i32 %19, 0
+  %53 = icmp eq i32 %19, 0
+  %54 = sub nsw i32 24, %19
+  %55 = sub nsw i32 23, %19
   %56 = sext i32 %15 to i64
   %smax445 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %57 = zext nneg i32 %spec.store.select to i64
@@ -175,7 +175,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br label %78
 
 78:                                               ; preds = %74, %._crit_edge331
-  %79 = tail call double @SDL_uclibc_scalbn(double noundef %.0234.lcssa, i32 noundef %32) #6
+  %79 = tail call double @SDL_uclibc_scalbn(double noundef %.0234.lcssa, i32 noundef %19) #6
   %80 = fmul double %79, 1.250000e-01
   %81 = tail call double @SDL_uclibc_floor(double noundef %80) #6
   %82 = tail call double @llvm.fmuladd.f64(double %81, double -8.000000e+00, double %79)
@@ -219,44 +219,44 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 .thread:                                          ; preds = %101, %103
   %.0236292 = phi i32 [ %.0236, %103 ], [ 2, %101 ]
   %.0255290 = phi i32 [ %.0255, %103 ], [ %83, %101 ]
+  %105 = add nsw i32 %.0255290, 1
   br i1 %61, label %.lr.ph334.preheader, label %._crit_edge335
 
 .lr.ph334.preheader:                              ; preds = %.thread
   %wide.trip.count434 = zext nneg i32 %.0259 to i64
   br label %.lr.ph334
 
-.lr.ph334:                                        ; preds = %.lr.ph334.preheader, %110
-  %indvars.iv431 = phi i64 [ 0, %.lr.ph334.preheader ], [ %indvars.iv.next432, %110 ]
-  %.0257332 = phi i32 [ 0, %.lr.ph334.preheader ], [ %.1258, %110 ]
-  %105 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv431
-  %106 = load i32, ptr %105, align 4
-  %107 = icmp eq i32 %.0257332, 0
-  br i1 %107, label %108, label %.sink.split
+.lr.ph334:                                        ; preds = %.lr.ph334.preheader, %111
+  %indvars.iv431 = phi i64 [ 0, %.lr.ph334.preheader ], [ %indvars.iv.next432, %111 ]
+  %.0257332 = phi i32 [ 0, %.lr.ph334.preheader ], [ %.1258, %111 ]
+  %106 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv431
+  %107 = load i32, ptr %106, align 4
+  %108 = icmp eq i32 %.0257332, 0
+  br i1 %108, label %109, label %.sink.split
 
-108:                                              ; preds = %.lr.ph334
-  %.not284 = icmp eq i32 %106, 0
-  br i1 %.not284, label %110, label %.sink.split
+109:                                              ; preds = %.lr.ph334
+  %.not284 = icmp eq i32 %107, 0
+  br i1 %.not284, label %111, label %.sink.split
 
-.sink.split:                                      ; preds = %.lr.ph334, %108
-  %.sink514 = phi i32 [ 16777216, %108 ], [ 16777215, %.lr.ph334 ]
-  %109 = sub nsw i32 %.sink514, %106
-  store i32 %109, ptr %105, align 4
-  br label %110
+.sink.split:                                      ; preds = %.lr.ph334, %109
+  %.sink514 = phi i32 [ 16777216, %109 ], [ 16777215, %.lr.ph334 ]
+  %110 = sub nsw i32 %.sink514, %107
+  store i32 %110, ptr %106, align 4
+  br label %111
 
-110:                                              ; preds = %.sink.split, %108
-  %111 = phi i1 [ true, %108 ], [ false, %.sink.split ]
-  %.1258 = phi i32 [ 0, %108 ], [ 1, %.sink.split ]
+111:                                              ; preds = %.sink.split, %109
+  %112 = phi i1 [ true, %109 ], [ false, %.sink.split ]
+  %.1258 = phi i32 [ 0, %109 ], [ 1, %.sink.split ]
   %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
   %exitcond435.not = icmp eq i64 %indvars.iv.next432, %wide.trip.count434
   br i1 %exitcond435.not, label %._crit_edge335, label %.lr.ph334, !llvm.loop !10
 
-._crit_edge335:                                   ; preds = %110, %.thread
-  %.0257.lcssa = phi i1 [ true, %.thread ], [ %111, %110 ]
-  %112 = add nsw i32 %.0255290, 1
+._crit_edge335:                                   ; preds = %111, %.thread
+  %.0257.lcssa = phi i1 [ true, %.thread ], [ %112, %111 ]
   br i1 %52, label %113, label %119
 
 113:                                              ; preds = %._crit_edge335
-  switch i32 %32, label %119 [
+  switch i32 %19, label %119 [
     i32 1, label %.sink.split515
     i32 2, label %114
   ]
@@ -282,13 +282,13 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br i1 %.0257.lcssa, label %.thread293, label %123
 
 123:                                              ; preds = %121
-  %124 = tail call double @SDL_uclibc_scalbn(double noundef 1.000000e+00, i32 noundef %32) #6
+  %124 = tail call double @SDL_uclibc_scalbn(double noundef 1.000000e+00, i32 noundef %19) #6
   %125 = fsub double %122, %124
   br label %.thread293
 
 .thread293:                                       ; preds = %101, %119, %123, %121, %103
   %.0236291 = phi i32 [ 2, %123 ], [ 2, %121 ], [ %.0236292, %119 ], [ %.0236, %103 ], [ 0, %101 ]
-  %.1256 = phi i32 [ %112, %123 ], [ %112, %121 ], [ %112, %119 ], [ %.0255, %103 ], [ %83, %101 ]
+  %.1256 = phi i32 [ %105, %123 ], [ %105, %121 ], [ %105, %119 ], [ %.0255, %103 ], [ %83, %101 ]
   %.1235 = phi double [ %125, %123 ], [ %122, %121 ], [ %85, %119 ], [ %85, %103 ], [ %85, %101 ]
   %126 = fcmp oeq double %.1235, 0.000000e+00
   br i1 %126, label %.preheader304, label %.critedge287
@@ -363,7 +363,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 
 .preheader300:                                    ; preds = %._crit_edge341, %.preheader300
   %indvars.iv453 = phi i64 [ %indvars.iv.next454, %.preheader300 ], [ %58, %._crit_edge341 ]
-  %.0237.in = phi i32 [ %.0237, %.preheader300 ], [ %32, %._crit_edge341 ]
+  %.0237.in = phi i32 [ %.0237, %.preheader300 ], [ %19, %._crit_edge341 ]
   %.0237 = add nsw i32 %.0237.in, -24
   %indvars.iv.next454 = add nsw i64 %indvars.iv453, -1
   %151 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.next454
@@ -372,7 +372,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br i1 %153, label %.preheader300, label %.loopexit.loopexit, !llvm.loop !14
 
 .critedge287:                                     ; preds = %.thread293
-  %154 = sub nsw i32 0, %32
+  %154 = sub nsw i32 0, %19
   %155 = tail call double @SDL_uclibc_scalbn(double noundef %.1235, i32 noundef %154) #6
   %156 = fcmp ult double %155, 0x4170000000000000
   br i1 %156, label %168, label %157
@@ -404,7 +404,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %157, %168
   %.2261 = phi i32 [ %164, %157 ], [ %.0259, %168 ], [ %171, %.loopexit.loopexit ]
-  %.1238 = phi i32 [ %165, %157 ], [ %32, %168 ], [ %.0237, %.loopexit.loopexit ]
+  %.1238 = phi i32 [ %165, %157 ], [ %19, %168 ], [ %.0237, %.loopexit.loopexit ]
   %.2261.fr = freeze i32 %.2261
   %172 = tail call double @SDL_uclibc_scalbn(double noundef 1.000000e+00, i32 noundef %.1238) #6
   %173 = icmp sgt i32 %.2261.fr, -1
@@ -440,28 +440,28 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
 .lr.ph361.preheader:                              ; preds = %.critedge, %.preheader299.preheader
   %indvars.iv466 = phi i64 [ %181, %.preheader299.preheader ], [ %indvars.iv.next467, %.critedge ]
   %indvars.iv462 = phi i32 [ 0, %.preheader299.preheader ], [ %indvars.iv.next463, %.critedge ]
+  %182 = sub nuw nsw i64 %181, %indvars.iv466
   %smin = tail call i32 @llvm.smin.i32(i32 %15, i32 %indvars.iv462)
-  %182 = add i32 %smin, 1
-  %wide.trip.count464 = zext i32 %182 to i64
+  %183 = add i32 %smin, 1
+  %wide.trip.count464 = zext i32 %183 to i64
   %invariant.gep512 = getelementptr double, ptr %10, i64 %indvars.iv466
   br label %.lr.ph361
 
 .lr.ph361:                                        ; preds = %.lr.ph361.preheader, %.lr.ph361
   %indvars.iv459 = phi i64 [ 0, %.lr.ph361.preheader ], [ %indvars.iv.next460, %.lr.ph361 ]
-  %.3360 = phi double [ 0.000000e+00, %.lr.ph361.preheader ], [ %186, %.lr.ph361 ]
-  %183 = getelementptr inbounds nuw double, ptr @PIo2, i64 %indvars.iv459
-  %184 = load double, ptr %183, align 8
+  %.3360 = phi double [ 0.000000e+00, %.lr.ph361.preheader ], [ %187, %.lr.ph361 ]
+  %184 = getelementptr inbounds nuw double, ptr @PIo2, i64 %indvars.iv459
+  %185 = load double, ptr %184, align 8
   %gep513 = getelementptr double, ptr %invariant.gep512, i64 %indvars.iv459
-  %185 = load double, ptr %gep513, align 8
-  %186 = tail call double @llvm.fmuladd.f64(double %184, double %185, double %.3360)
+  %186 = load double, ptr %gep513, align 8
+  %187 = tail call double @llvm.fmuladd.f64(double %185, double %186, double %.3360)
   %indvars.iv.next460 = add nuw nsw i64 %indvars.iv459, 1
   %exitcond465.not = icmp eq i64 %indvars.iv.next460, %wide.trip.count464
   br i1 %exitcond465.not, label %.critedge, label %.lr.ph361, !llvm.loop !16
 
 .critedge:                                        ; preds = %.lr.ph361
-  %187 = sub nuw nsw i64 %181, %indvars.iv466
-  %188 = getelementptr inbounds nuw double, ptr %9, i64 %187
-  store double %186, ptr %188, align 8
+  %188 = getelementptr inbounds nuw double, ptr %9, i64 %182
+  store double %187, ptr %188, align 8
   %indvars.iv.next467 = add nsw i64 %indvars.iv466, -1
   %indvars.iv.next463 = add nuw i32 %indvars.iv462, 1
   %exitcond469.not = icmp eq i32 %indvars.iv462, %.2261.fr

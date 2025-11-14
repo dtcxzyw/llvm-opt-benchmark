@@ -602,23 +602,23 @@ declare ptr @string_list_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @register_all_submodule_odb_as_alternates() local_unnamed_addr #0 {
   %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @added_submodule_odb_paths, i64 8), align 8, !tbaa !52
+  %2 = trunc i64 %1 to i32
   %.not10 = icmp eq i64 %1, 0
   br i1 %.not10, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
-  %2 = load ptr, ptr @added_submodule_odb_paths, align 8, !tbaa !55
-  %3 = getelementptr inbounds nuw %struct.string_list_item, ptr %2, i64 %indvars.iv
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
-  tail call void @add_to_alternates_memory(ptr noundef %4) #18
+  %3 = load ptr, ptr @added_submodule_odb_paths, align 8, !tbaa !55
+  %4 = getelementptr inbounds nuw %struct.string_list_item, ptr %3, i64 %indvars.iv
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  tail call void @add_to_alternates_memory(ptr noundef %5) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @added_submodule_odb_paths, i64 8), align 8, !tbaa !52
-  %6 = icmp ugt i64 %5, %indvars.iv.next
-  br i1 %6, label %.lr.ph, label %._crit_edge, !llvm.loop !58
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @added_submodule_odb_paths, i64 8), align 8, !tbaa !52
+  %7 = icmp ugt i64 %6, %indvars.iv.next
+  br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %7 = trunc i64 %1 to i32
-  %.not = icmp eq i32 %7, 0
+  %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge.thread, label %8
 
 8:                                                ; preds = %._crit_edge
@@ -636,8 +636,7 @@ define dso_local i32 @register_all_submodule_odb_as_alternates() local_unnamed_a
   unreachable
 
 ._crit_edge.thread:                               ; preds = %0, %8, %._crit_edge
-  %13 = phi i32 [ %7, %8 ], [ 0, %._crit_edge ], [ 0, %0 ]
-  ret i32 %13
+  ret i32 %2
 }
 
 declare void @add_to_alternates_memory(ptr noundef) local_unnamed_addr #1

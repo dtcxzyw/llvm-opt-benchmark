@@ -4588,22 +4588,22 @@ _ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.thread: ; preds = %.l
   br i1 %exitcond.not, label %._crit_edge60, label %.lr.ph59, !llvm.loop !175
 
 56:                                               ; preds = %._crit_edge60
-  %57 = load ptr, ptr %0, align 8, !tbaa !18
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %59 = load i32, ptr %58, align 4, !tbaa !31
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.lr.ph64, label %.loopexit
+  %57 = zext i32 %42 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 %57
+  %60 = load ptr, ptr %0, align 8, !tbaa !18
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %62 = load i32, ptr %61, align 4, !tbaa !31
+  %63 = icmp sgt i32 %62, 0
+  br i1 %63, label %.lr.ph64, label %.loopexit
 
 .lr.ph64:                                         ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %62 = load ptr, ptr %61, align 8, !tbaa !77
-  %wide.trip.count76 = zext nneg i32 %59 to i64
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 40
+  %65 = load ptr, ptr %64, align 8, !tbaa !77
+  %wide.trip.count76 = zext nneg i32 %62 to i64
   br label %69
 
 ._crit_edge65:                                    ; preds = %91
-  %63 = zext i32 %42 to i64
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 %63
   %66 = icmp sgt i32 %.1, 0
   br i1 %66, label %.lr.ph68.preheader, label %.loopexit
 
@@ -4616,7 +4616,7 @@ _ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.thread: ; preds = %.l
 69:                                               ; preds = %.lr.ph64, %91
   %indvars.iv73 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next74, %91 ]
   %.04061 = phi i32 [ 0, %.lr.ph64 ], [ %.1, %91 ]
-  %70 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %62, i64 %indvars.iv73
+  %70 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %65, i64 %indvars.iv73
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   %72 = load i8, ptr %71, align 1
   %73 = and i8 %72, 96
@@ -4664,8 +4664,8 @@ _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescri
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
   %indvars.iv78 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next79, %.lr.ph68 ]
-  %92 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv78
-  %93 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv78
+  %92 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv78
+  %93 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv78
   %94 = load i32, ptr %92, align 4, !tbaa !15
   %95 = load i32, ptr %93, align 4, !tbaa !15
   store i32 %95, ptr %92, align 4, !tbaa !15

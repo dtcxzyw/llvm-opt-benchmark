@@ -960,8 +960,8 @@ _ZNSt6vectorIN6open3d4core5DtypeESaIS2_EED2Ev.exit71: ; preds = %144, %146
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc74
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %159, 3
-  %161 = getelementptr inbounds nuw i8, ptr %158, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %158, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !11
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 %.idx.i.i.i.i.i.i.i
   br label %162
 
 162:                                              ; preds = %.noexc74, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i

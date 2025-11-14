@@ -4758,12 +4758,12 @@ define hidden noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_
   br i1 %.not, label %"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$22close_and_shutdown_all17h774d09764500246bE.exit", label %.lr.ph9.i
 
 .loopexit.i:                                      ; preds = %.noexc8, %.noexc6
-  %7 = add nuw i64 %.sroa.01.08.i, 1
   %exitcond.not.i = icmp eq i64 %.sroa.01.08.i, %6
   br i1 %exitcond.not.i, label %"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$22close_and_shutdown_all17h774d09764500246bE.exit", label %.lr.ph9.i
 
 .lr.ph9.i:                                        ; preds = %.noexc, %.loopexit.i
   %.sroa.01.08.i = phi i64 [ %7, %.loopexit.i ], [ 0, %.noexc ]
+  %7 = add nuw i64 %.sroa.01.08.i, 1
   %8 = invoke noundef ptr @"_ZN5tokio4util12sharded_list82ShardedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$8pop_back17hfe76645ff9de1923E"(ptr noundef nonnull align 8 %3, i64 noundef %.sroa.01.08.i)
           to label %.noexc6 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -7343,31 +7343,34 @@ define hidden void @_ZN5tokio7runtime4time5wheel5level5Level15next_expiration17h
 _ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit.i: ; preds = %.lr.ph.i.i.i
   %23 = mul i64 %spec.select.i.i.i, %21
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %.lr.ph.i.i.i8, !prof !683
+  br i1 %24, label %25, label %.lr.ph.i.i.i8.preheader, !prof !683
 
 25:                                               ; preds = %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit.i
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @str.1.llvm.5542961546488995764, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.133.llvm.5542961546488995764) #36, !noalias !680
   unreachable
 
-.lr.ph.i.i.i8:                                    ; preds = %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit.i, %.lr.ph.i.i.i8
-  %.017.i.i.i9 = phi i32 [ %28, %.lr.ph.i.i.i8 ], [ %10, %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit.i ]
-  %.01216.i.i.i10 = phi i64 [ %29, %.lr.ph.i.i.i8 ], [ 64, %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit.i ]
-  %.01315.i.i.i11 = phi i64 [ %spec.select.i.i.i13, %.lr.ph.i.i.i8 ], [ 1, %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit.i ]
-  %26 = and i32 %.017.i.i.i9, 1
-  %.not.i.i.i12 = icmp eq i32 %26, 0
-  %27 = select i1 %.not.i.i.i12, i64 1, i64 %.01216.i.i.i10
-  %spec.select.i.i.i13 = mul i64 %27, %.01315.i.i.i11
-  %28 = lshr i32 %.017.i.i.i9, 1
-  %29 = mul i64 %.01216.i.i.i10, %.01216.i.i.i10
-  %30 = icmp ugt i32 %.017.i.i.i9, 3
-  br i1 %30, label %.lr.ph.i.i.i8, label %.lr.ph.i.i
+.lr.ph.i.i.i8.preheader:                          ; preds = %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit.i
+  %26 = udiv i64 %2, %23
+  %27 = tail call i64 @llvm.fshr.i64(i64 %5, i64 %5, i64 %26)
+  %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %27, i1 true)
+  %29 = add i64 %28, %26
+  br label %.lr.ph.i.i.i8
+
+.lr.ph.i.i.i8:                                    ; preds = %.lr.ph.i.i.i8.preheader, %.lr.ph.i.i.i8
+  %.017.i.i.i9 = phi i32 [ %32, %.lr.ph.i.i.i8 ], [ %10, %.lr.ph.i.i.i8.preheader ]
+  %.01216.i.i.i10 = phi i64 [ %33, %.lr.ph.i.i.i8 ], [ 64, %.lr.ph.i.i.i8.preheader ]
+  %.01315.i.i.i11 = phi i64 [ %spec.select.i.i.i13, %.lr.ph.i.i.i8 ], [ 1, %.lr.ph.i.i.i8.preheader ]
+  %30 = and i32 %.017.i.i.i9, 1
+  %.not.i.i.i12 = icmp eq i32 %30, 0
+  %31 = select i1 %.not.i.i.i12, i64 1, i64 %.01216.i.i.i10
+  %spec.select.i.i.i13 = mul i64 %31, %.01315.i.i.i11
+  %32 = lshr i32 %.017.i.i.i9, 1
+  %33 = mul i64 %.01216.i.i.i10, %.01216.i.i.i10
+  %34 = icmp ugt i32 %.017.i.i.i9, 3
+  br i1 %34, label %.lr.ph.i.i.i8, label %.lr.ph.i.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
-  %31 = udiv i64 %2, %23
-  %32 = tail call i64 @llvm.fshr.i64(i64 %5, i64 %5, i64 %31)
-  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %32, i1 true)
-  %34 = add i64 %33, %31
-  %35 = shl i64 %29, 6
+  %35 = shl i64 %33, 6
   %36 = mul i64 %35, %spec.select.i.i.i13
   %37 = mul i64 %spec.select.i.i, %41
   br label %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit
@@ -7386,7 +7389,7 @@ _ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.55429615
   br i1 %42, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i
 
 _ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit: ; preds = %.thread28, %.thread, %._crit_edge.loopexit.i.i
-  %.in = phi i64 [ %34, %._crit_edge.loopexit.i.i ], [ %13, %.thread ], [ %17, %.thread28 ]
+  %.in = phi i64 [ %29, %._crit_edge.loopexit.i.i ], [ %13, %.thread ], [ %17, %.thread28 ]
   %.011.i.i.i18 = phi i64 [ %36, %._crit_edge.loopexit.i.i ], [ 64, %.thread ], [ 4096, %.thread28 ]
   %.011.i.i = phi i64 [ %37, %._crit_edge.loopexit.i.i ], [ 1, %.thread ], [ 64, %.thread28 ]
   %43 = and i64 %.in, 63

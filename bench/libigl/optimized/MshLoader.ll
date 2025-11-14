@@ -3036,8 +3036,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i116: ; preds = %_ZNSt6vectorId
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i113: ; preds = %.noexc118
   %.idx.i.i.i.i.i.i.i114 = shl nuw nsw i64 %184, 3
-  %186 = getelementptr inbounds nuw i8, ptr %183, i64 %.idx.i.i.i.i.i.i.i114
   call void @llvm.memset.p0.i64(ptr align 8 %183, i8 0, i64 %.idx.i.i.i.i.i.i.i114, i1 false), !tbaa !64
+  %186 = getelementptr inbounds nuw i8, ptr %183, i64 %.idx.i.i.i.i.i.i.i114
   br label %187
 
 187:                                              ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i113, %.noexc118, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i116
@@ -4016,8 +4016,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i103: ; preds = %_ZNSt6vectorId
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i100: ; preds = %.noexc105
   %.idx.i.i.i.i.i.i.i101 = shl nuw nsw i64 %137, 3
-  %139 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i.i.i.i.i.i.i101
   call void @llvm.memset.p0.i64(ptr align 8 %136, i8 0, i64 %.idx.i.i.i.i.i.i.i101, i1 false), !tbaa !64
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx.i.i.i.i.i.i.i101
   br label %140
 
 140:                                              ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i100, %.noexc105, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i103
@@ -6019,8 +6019,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(pt
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !64
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i

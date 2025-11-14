@@ -750,19 +750,19 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie3KeyEE6resizeEm.exit.thread: ; preds 
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %11, ptr %13, align 8, !tbaa !44
   store i64 %7, ptr %9, align 8, !tbaa !45
-  br label %14
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  br label %15
 
-14:                                               ; preds = %14, %.lr.ph.i
-  %.0911.i = phi i64 [ 0, %.lr.ph.i ], [ %16, %14 ]
-  %15 = getelementptr inbounds nuw %"class.marisa::grimoire::trie::Key", ptr %11, i64 %.0911.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, i8 0, i64 20, i1 false)
-  %16 = add nuw i64 %.0911.i, 1
-  %exitcond.not.i = icmp eq i64 %16, %7
-  br i1 %exitcond.not.i, label %.lr.ph, label %14, !llvm.loop !46
+15:                                               ; preds = %15, %.lr.ph.i
+  %.0911.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %15 ]
+  %16 = getelementptr inbounds nuw %"class.marisa::grimoire::trie::Key", ptr %11, i64 %.0911.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, i8 0, i64 20, i1 false)
+  %17 = add nuw i64 %.0911.i, 1
+  %exitcond.not.i = icmp eq i64 %17, %7
+  br i1 %exitcond.not.i, label %.lr.ph, label %15, !llvm.loop !46
 
-.lr.ph:                                           ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %7, ptr %17, align 8, !tbaa !39
+.lr.ph:                                           ; preds = %15
+  store i64 %7, ptr %14, align 8, !tbaa !39
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %20
@@ -4736,19 +4736,19 @@ _ZN6marisa8grimoire6vector6VectorINS0_4trie10ReverseKeyEE6resizeEm.exit.thread: 
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %51, ptr %53, align 8, !tbaa !175
   store i64 %47, ptr %49, align 8, !tbaa !176
-  br label %54
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  br label %55
 
-54:                                               ; preds = %54, %.lr.ph.i44
-  %.0911.i45 = phi i64 [ 0, %.lr.ph.i44 ], [ %56, %54 ]
-  %55 = getelementptr inbounds nuw %"class.marisa::grimoire::trie::ReverseKey", ptr %51, i64 %.0911.i45
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %55, i8 0, i64 20, i1 false)
-  %56 = add nuw i64 %.0911.i45, 1
-  %exitcond.not.i46 = icmp eq i64 %56, %47
-  br i1 %exitcond.not.i46, label %.lr.ph, label %54, !llvm.loop !177
+55:                                               ; preds = %55, %.lr.ph.i44
+  %.0911.i45 = phi i64 [ 0, %.lr.ph.i44 ], [ %57, %55 ]
+  %56 = getelementptr inbounds nuw %"class.marisa::grimoire::trie::ReverseKey", ptr %51, i64 %.0911.i45
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %56, i8 0, i64 20, i1 false)
+  %57 = add nuw i64 %.0911.i45, 1
+  %exitcond.not.i46 = icmp eq i64 %57, %47
+  br i1 %exitcond.not.i46, label %.lr.ph, label %55, !llvm.loop !177
 
-.lr.ph:                                           ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 %47, ptr %57, align 8, !tbaa !171
+.lr.ph:                                           ; preds = %55
+  store i64 %47, ptr %54, align 8, !tbaa !171
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %58, align 8, !tbaa !43
   br label %65

@@ -2360,26 +2360,23 @@ _ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE3endEv.exit: ; preds = %176
 192:                                              ; preds = %.lr.ph119, %_ZN10union_findI22union_find_default_ctxE5mergeEjj.exit90
   %.041118 = phi ptr [ %177, %.lr.ph119 ], [ %292, %_ZN10union_findI22union_find_default_ctxE5mergeEjj.exit90 ]
   %193 = load i32, ptr %.041118, align 4, !tbaa !52
-  %194 = load ptr, ptr %165, align 8, !tbaa !61
-  br label %195
+  %194 = getelementptr inbounds nuw i8, ptr %.041118, i64 4
+  %195 = load i32, ptr %194, align 4, !tbaa !52
+  %196 = load ptr, ptr %165, align 8, !tbaa !61
+  br label %197
 
-195:                                              ; preds = %195, %192
-  %.08.i.i = phi i32 [ %193, %192 ], [ %198, %195 ]
-  %196 = zext i32 %.08.i.i to i64
-  %197 = getelementptr inbounds nuw i32, ptr %194, i64 %196
-  %198 = load i32, ptr %197, align 4, !tbaa !52
-  %.not.i.i70 = icmp eq i32 %198, %.08.i.i
-  br i1 %.not.i.i70, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader, label %195
-
-_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader: ; preds = %195
-  %199 = getelementptr inbounds nuw i8, ptr %.041118, i64 4
+197:                                              ; preds = %197, %192
+  %.08.i.i = phi i32 [ %193, %192 ], [ %200, %197 ]
+  %198 = zext i32 %.08.i.i to i64
+  %199 = getelementptr inbounds nuw i32, ptr %196, i64 %198
   %200 = load i32, ptr %199, align 4, !tbaa !52
-  br label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
+  %.not.i.i70 = icmp eq i32 %200, %.08.i.i
+  br i1 %.not.i.i70, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i, label %197
 
-_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i: ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
-  %.08.i2.i = phi i32 [ %203, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i ], [ %200, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader ]
+_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i: ; preds = %197, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
+  %.08.i2.i = phi i32 [ %203, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i ], [ %195, %197 ]
   %201 = zext i32 %.08.i2.i to i64
-  %202 = getelementptr inbounds nuw i32, ptr %194, i64 %201
+  %202 = getelementptr inbounds nuw i32, ptr %196, i64 %201
   %203 = load i32, ptr %202, align 4, !tbaa !52
   %.not.i3.i = icmp eq i32 %203, %.08.i2.i
   br i1 %.not.i3.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
@@ -2390,7 +2387,7 @@ _ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i: ; preds = %_ZNK10unio
 
 .noexc.i:                                         ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i
   %205 = load ptr, ptr %184, align 8, !tbaa !61
-  %206 = getelementptr inbounds nuw i32, ptr %205, i64 %196
+  %206 = getelementptr inbounds nuw i32, ptr %205, i64 %198
   %207 = load i32, ptr %206, align 4, !tbaa !52
   %208 = getelementptr inbounds nuw i32, ptr %205, i64 %201
   %209 = load i32, ptr %208, align 4, !tbaa !52
@@ -2398,7 +2395,7 @@ _ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i: ; preds = %_ZNK10unio
   %spec.select.i = select i1 %210, i32 %.08.i.i, i32 %.08.i2.i
   %spec.select30.i = select i1 %210, i32 %.08.i2.i, i32 %.08.i.i
   %211 = zext i32 %spec.select30.i to i64
-  %212 = getelementptr inbounds nuw i32, ptr %194, i64 %211
+  %212 = getelementptr inbounds nuw i32, ptr %196, i64 %211
   store i32 %spec.select.i, ptr %212, align 4, !tbaa !52
   %213 = getelementptr inbounds nuw i32, ptr %205, i64 %211
   %214 = load i32, ptr %213, align 4, !tbaa !52
@@ -2460,7 +2457,7 @@ _ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i: ; preds = %_ZNK10unio
   br label %_ZN10union_findI22union_find_default_ctxE5mergeEjj.exit
 
 _ZN10union_findI22union_find_default_ctxE5mergeEjj.exit: ; preds = %236, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i
-  %243 = phi ptr [ %.pre128, %236 ], [ %194, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i ]
+  %243 = phi ptr [ %.pre128, %236 ], [ %196, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i ]
   %244 = xor i32 %193, 1
   br label %245
 
@@ -2473,7 +2470,7 @@ _ZN10union_findI22union_find_default_ctxE5mergeEjj.exit: ; preds = %236, %_ZNK10
   br i1 %.not.i.i74, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i76.preheader, label %245
 
 _ZNK10union_findI22union_find_default_ctxE4findEj.exit.i76.preheader: ; preds = %245
-  %249 = xor i32 %200, 1
+  %249 = xor i32 %195, 1
   br label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i76
 
 _ZNK10union_findI22union_find_default_ctxE4findEj.exit.i76: ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i76.preheader, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i76

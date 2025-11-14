@@ -4112,11 +4112,11 @@ ForceZero.exit:
 11:                                               ; preds = %7
   %12 = trunc nuw nsw i64 %indvars.iv155 to i32
   %spec.select.i = call i32 @llvm.umin.i32(i32 %12, i32 %6)
+  %13 = sub i32 %12, %spec.select.i
   br i1 %.not24.i, label %.preheader23.i, label %.lr.ph.i
 
 .preheader23.i:                                   ; preds = %.lr.ph.i, %11
   %.016.lcssa.i = phi ptr [ %2, %11 ], [ %16, %.lr.ph.i ]
-  %13 = sub i32 %12, %spec.select.i
   %14 = icmp ugt i32 %13, 7
   br i1 %14, label %.lr.ph29.i, label %.preheader.i
 
@@ -30494,19 +30494,19 @@ define internal range(i32 0, 2) i32 @test_certreq_sighash_algos() #0 {
   br i1 %144, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %139, %.critedge605, %.critedge117
-  %.sink676 = phi i8 [ %132, %.critedge117 ], [ %137, %.critedge605 ], [ %143, %139 ]
-  %.sink675 = phi i32 [ 96032, %.critedge117 ], [ 96033, %.critedge605 ], [ 96034, %139 ]
+  %.sink677 = phi i8 [ %132, %.critedge117 ], [ %137, %.critedge605 ], [ %143, %139 ]
+  %.sink676 = phi i32 [ 96032, %.critedge117 ], [ 96033, %.critedge605 ], [ 96034, %139 ]
   %.str.2094.sink = phi ptr [ @.str.2093, %.critedge117 ], [ @.str.2094, %.critedge605 ], [ @.str.2095, %139 ]
-  %.sink672 = phi i32 [ 22, %.critedge117 ], [ 3, %.critedge605 ], [ 3, %139 ]
+  %.sink673 = phi i32 [ 22, %.critedge117 ], [ 3, %.critedge605 ], [ 3, %139 ]
   %.3566.ph = phi i32 [ %129, %.critedge117 ], [ %134, %.critedge605 ], [ %140, %139 ]
-  %145 = zext i8 %.sink676 to i32
-  %146 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef %.sink675)
+  %145 = zext i8 %.sink677 to i32
+  %146 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef %.sink676)
   %147 = load ptr, ptr @stdout, align 8, !tbaa !22
   %148 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %147)
   %149 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.2092, ptr noundef nonnull %.str.2094.sink)
   %150 = load ptr, ptr @stdout, align 8, !tbaa !22
   %151 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %150)
-  %152 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %145, i32 noundef %.sink672)
+  %152 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %145, i32 noundef %.sink673)
   %153 = load ptr, ptr @stdout, align 8, !tbaa !22
   %154 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %153)
   %155 = load ptr, ptr @stdout, align 8, !tbaa !22
@@ -30596,12 +30596,12 @@ define internal range(i32 0, 2) i32 @test_certreq_sighash_algos() #0 {
   %209 = load ptr, ptr @stdout, align 8, !tbaa !22
   %210 = call i32 @fflush(ptr noundef %209)
   %indvars.iv.next657 = add nsw i64 %indvars.iv, 2
-  br label %.critedge.loopexit.loopexit
+  br label %.critedge.loopexit
 
 211:                                              ; preds = %.critedge167, %186
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
   %212 = icmp slt i64 %indvars.iv.next, %182
-  br i1 %212, label %.critedge167, label %.critedge.loopexit.loopexit, !llvm.loop !168
+  br i1 %212, label %.critedge167, label %.critedge.loopexit, !llvm.loop !168
 
 .critedge165:                                     ; preds = %.thread
   %.val = load i8, ptr %164, align 1, !tbaa !39
@@ -30616,15 +30616,15 @@ define internal range(i32 0, 2) i32 @test_certreq_sighash_algos() #0 {
   %220 = icmp slt i32 %218, %219
   br i1 %220, label %.lr.ph, label %.critedge
 
-.critedge.loopexit.loopexit:                      ; preds = %211, %.thread655
+.critedge.loopexit:                               ; preds = %211, %.thread655
   %indvars.iv.next660 = phi i64 [ %indvars.iv.next657, %.thread655 ], [ %indvars.iv.next, %211 ]
   %.26659 = phi i32 [ 0, %.thread655 ], [ 1, %211 ]
   %221 = trunc nsw i64 %indvars.iv.next660 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge165, %.critedge602, %165, %.critedge.loopexit.loopexit
-  %.6569 = phi i32 [ %178, %165 ], [ %221, %.critedge.loopexit.loopexit ], [ 0, %.critedge602 ], [ %218, %.critedge165 ]
-  %.28 = phi i32 [ %.22, %165 ], [ %.26659, %.critedge.loopexit.loopexit ], [ %.15, %.critedge602 ], [ %.22, %.critedge165 ]
+.critedge:                                        ; preds = %.critedge165, %.critedge602, %.critedge.loopexit, %165
+  %.6569 = phi i32 [ %178, %165 ], [ %221, %.critedge.loopexit ], [ 0, %.critedge602 ], [ %218, %.critedge165 ]
+  %.28 = phi i32 [ %.22, %165 ], [ %.26659, %.critedge.loopexit ], [ %.15, %.critedge602 ], [ %.22, %.critedge165 ]
   %222 = icmp eq i32 %.28, 1
   br i1 %222, label %223, label %.critedge607
 

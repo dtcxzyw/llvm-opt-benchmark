@@ -1398,8 +1398,8 @@ define dso_local void @_ZN4llvm31NumericalStabilitySanitizerPass3runERNS_6Module
   store ptr %82, ptr %81, align 8, !tbaa !162
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %82, ptr %83, align 8, !tbaa !162
-  %scevgep.i.i = getelementptr inbounds nuw i8, ptr %77, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i.i, i8 0, i64 24, i1 false), !tbaa !163
+  %.ptr16.i.i = getelementptr inbounds nuw i8, ptr %77, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr16.i.i, i8 0, i64 24, i1 false), !tbaa !163
   %84 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL15ClShadowMappingB5cxx11, i64 128), align 8, !tbaa !36
   %.not.i.i = icmp eq i64 %84, 3
   br i1 %.not.i.i, label %90, label %85
@@ -1584,7 +1584,7 @@ _ZN12_GLOBAL__N_119typeFromFTValueTypeENS_11FTValueTypeERN4llvm11LLVMContextE.ex
 143:                                              ; preds = %_ZN12_GLOBAL__N_119typeFromFTValueTypeENS_11FTValueTypeERN4llvm11LLVMContextE.exit.i.i
   %144 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i.i
   store i32 %125, ptr %144, align 4, !tbaa !170
-  %145 = getelementptr inbounds nuw %"class.std::unique_ptr.93", ptr %scevgep.i.i, i64 %indvars.iv.i.i
+  %145 = getelementptr inbounds nuw %"class.std::unique_ptr.93", ptr %.ptr16.i.i, i64 %indvars.iv.i.i
   %146 = load ptr, ptr %145, align 8, !tbaa !176
   store ptr %111, ptr %145, align 8, !tbaa !176
   %.not.i.i.i.i.i.i = icmp eq ptr %146, null
@@ -1664,9 +1664,9 @@ _ZN12_GLOBAL__N_113MappingConfigC2ERN4llvm11LLVMContextE.exit.i: ; preds = %91
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %165 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %scevgep = getelementptr inbounds nuw i8, ptr %77, i64 56
-  %scevgep36 = getelementptr inbounds nuw i8, ptr %77, i64 104
-  %scevgep37 = getelementptr inbounds nuw i8, ptr %77, i64 152
-  %scevgep38 = getelementptr inbounds nuw i8, ptr %77, i64 200
+  %scevgep38 = getelementptr inbounds nuw i8, ptr %77, i64 104
+  %scevgep39 = getelementptr inbounds nuw i8, ptr %77, i64 152
+  %scevgep40 = getelementptr inbounds nuw i8, ptr %77, i64 200
   %166 = getelementptr inbounds nuw i8, ptr %77, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %165, i8 0, i64 200, i1 false)
   call fastcc void @_ZN12_GLOBAL__N_111NsanMemOpFnC2ERN4llvm6ModuleENS1_8ArrayRefINS1_9StringRefEEES5_m(ptr noundef nonnull align 8 dereferenceable(72) %166, ptr noundef nonnull align 8 dereferenceable(841) %2, ptr nonnull @constinit, i64 3, ptr nonnull @.str.54, i64 18, i64 noundef 3)
@@ -2130,7 +2130,7 @@ _ZN4llvm6Module19getOrInsertFunctionIJPNS_4TypeEPNS_11IntegerTypeEEEENS_14Functi
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %371 = extractvalue { ptr, ptr } %367, 0
   %372 = extractvalue { ptr, ptr } %367, 1
-  %373 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %scevgep36, i64 %indvars.iv.i
+  %373 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %scevgep38, i64 %indvars.iv.i
   store ptr %371, ptr %373, align 8, !tbaa !205
   %.sroa.418.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %373, i64 8
   store ptr %372, ptr %.sroa.418.0..sroa_idx.i, align 8, !tbaa !206
@@ -2146,7 +2146,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108.i: ; preds = %_ZN4llvm6Module19getOrInsertFunctionIJPNS_4TypeEPNS_11IntegerTypeEEEENS_14FunctionCalleeENS_9StringRefENS_13AttributeListES3_DpT_.exit105.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i106.i
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  %378 = getelementptr inbounds nuw %"class.std::unique_ptr.93", ptr %scevgep.i.i, i64 %indvars.iv.i
+  %378 = getelementptr inbounds nuw %"class.std::unique_ptr.93", ptr %.ptr16.i.i, i64 %indvars.iv.i
   %.val.i.i = load ptr, ptr %378, align 8, !tbaa !176
   %379 = load ptr, ptr %81, align 8, !tbaa !199
   %380 = load ptr, ptr %.val.i.i, align 8, !tbaa !3
@@ -2316,7 +2316,7 @@ _ZN4llvm6Module19getOrInsertFunctionIJPNS_4TypeES3_S3_PNS_11IntegerTypeEEEENS_14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %444 = extractvalue { ptr, ptr } %440, 0
   %445 = extractvalue { ptr, ptr } %440, 1
-  %446 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %scevgep37, i64 %indvars.iv.i
+  %446 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %scevgep39, i64 %indvars.iv.i
   store ptr %444, ptr %446, align 8, !tbaa !205
   %.sroa.410.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %446, i64 8
   store ptr %445, ptr %.sroa.410.0..sroa_idx.i, align 8, !tbaa !206
@@ -2534,7 +2534,7 @@ _ZN4llvm6Module19getOrInsertFunctionIJPNS_4TypeES3_S3_S3_S3_S3_S3_EEENS_14Functi
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %523 = extractvalue { ptr, ptr } %519, 0
   %524 = extractvalue { ptr, ptr } %519, 1
-  %525 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %scevgep38, i64 %indvars.iv.i
+  %525 = getelementptr inbounds nuw %"class.llvm::FunctionCallee", ptr %scevgep40, i64 %indvars.iv.i
   store ptr %523, ptr %525, align 8, !tbaa !205
   %.sroa.47.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %525, i64 8
   store ptr %524, ptr %.sroa.47.0..sroa_idx.i, align 8, !tbaa !206
@@ -2662,9 +2662,9 @@ _ZN12_GLOBAL__N_127NumericalStabilitySanitizerC2ERN4llvm6ModuleE.exit: ; preds =
   %566 = load ptr, ptr %565, align 8, !tbaa !249
   %567 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %568 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.014.025 = load ptr, ptr %567, align 8, !tbaa !252
-  %.not26 = icmp eq ptr %.sroa.014.025, %568
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %.sroa.014.027 = load ptr, ptr %567, align 8, !tbaa !252
+  %.not28 = icmp eq ptr %.sroa.014.027, %568
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_127NumericalStabilitySanitizerC2ERN4llvm6ModuleE.exit
   %569 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2741,12 +2741,12 @@ _ZN12_GLOBAL__N_127NumericalStabilitySanitizerD2Ev.exit: ; preds = %_ZNSt10uniqu
   ret void
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_127NumericalStabilitySanitizerC2ERN4llvm6ModuleE.exit, %.lr.ph
-  %.sroa.014.027 = phi ptr [ %.sroa.014.0, %.lr.ph ], [ %.sroa.014.025, %_ZN12_GLOBAL__N_127NumericalStabilitySanitizerC2ERN4llvm6ModuleE.exit ]
-  %594 = getelementptr inbounds i8, ptr %.sroa.014.027, i64 -56
+  %.sroa.014.029 = phi ptr [ %.sroa.014.0, %.lr.ph ], [ %.sroa.014.027, %_ZN12_GLOBAL__N_127NumericalStabilitySanitizerC2ERN4llvm6ModuleE.exit ]
+  %594 = getelementptr inbounds i8, ptr %.sroa.014.029, i64 -56
   %595 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %566, ptr noundef nonnull @_ZN4llvm21TargetLibraryAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %594) #22
   %596 = getelementptr inbounds nuw i8, ptr %595, i64 8
   call fastcc void @_ZN12_GLOBAL__N_127NumericalStabilitySanitizer16sanitizeFunctionERN4llvm8FunctionERKNS1_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(496) %77, ptr noundef nonnull align 8 dereferenceable(136) %594, ptr noundef nonnull align 8 dereferenceable(80) %596)
-  %597 = getelementptr inbounds nuw i8, ptr %.sroa.014.027, i64 8
+  %597 = getelementptr inbounds nuw i8, ptr %.sroa.014.029, i64 8
   %.sroa.014.0 = load ptr, ptr %597, align 8, !tbaa !252
   %.not = icmp eq ptr %.sroa.014.0, %568
   br i1 %.not, label %._crit_edge, label %.lr.ph

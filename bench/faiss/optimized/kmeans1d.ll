@@ -1163,8 +1163,8 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIlSaI
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc12
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %13, 3
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !9
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i.i.i.i.i.i
   br label %16
 
 16:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc12, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i
@@ -1210,8 +1210,8 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i18: ; preds = %_ZNSt6vectorIlS
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i15: ; preds = %.noexc20
   %.idx.i.i.i.i.i.i.i16 = shl nuw nsw i64 %28, 3
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i.i.i.i.i16
   tail call void @llvm.memset.p0.i64(ptr align 8 %27, i8 0, i64 %.idx.i.i.i.i.i.i.i16, i1 false), !tbaa !9
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i.i.i.i.i16
   br label %31
 
 31:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i15, %.noexc20, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i18
@@ -2068,8 +2068,8 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i142: ; preds = %_ZNSt6vecto
   br i1 %232, label %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc146
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %240, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !9
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit
 
 _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc146

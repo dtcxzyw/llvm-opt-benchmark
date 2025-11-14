@@ -441,8 +441,8 @@ _ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit:       ; preds = %.thread, %30
   %42 = getelementptr inbounds nuw i32, ptr %41, i64 %39
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %42, ptr %43, align 8, !tbaa !22
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %41, i8 0, i64 %40, i1 false), !tbaa !35
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %44, ptr %45, align 8, !tbaa !23
   store i32 %3, ptr %41, align 4, !tbaa !35

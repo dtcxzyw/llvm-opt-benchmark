@@ -1921,37 +1921,37 @@ _ZL11compactTrieP6UTrie2P10UErrorCode.exit:       ; preds = %320, %311
 421:                                              ; preds = %419
   %422 = add nsw i32 %330, -65536
   %423 = lshr i32 %422, 11
+  %424 = add nuw nsw i32 %423, 2112
   %.not = icmp samesign ult i32 %422, 2048
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %421
-  %424 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  %425 = getelementptr inbounds nuw i8, ptr %12, i64 128
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.1244 = phi ptr [ %425, %.lr.ph ], [ %424, %.lr.ph.preheader ]
-  %.4243 = phi ptr [ %428, %.lr.ph ], [ %418, %.lr.ph.preheader ]
-  %.3134242 = phi i32 [ %429, %.lr.ph ], [ %423, %.lr.ph.preheader ]
-  %425 = getelementptr inbounds nuw i8, ptr %.1244, i64 4
-  %426 = load i32, ptr %.1244, align 4, !tbaa !26
-  %427 = trunc i32 %426 to i16
-  %428 = getelementptr inbounds nuw i8, ptr %.4243, i64 2
-  store i16 %427, ptr %.4243, align 2, !tbaa !53
-  %429 = add nsw i32 %.3134242, -1
-  %430 = icmp samesign ugt i32 %.3134242, 1
-  br i1 %430, label %.lr.ph, label %._crit_edge, !llvm.loop !98
+  %.1244 = phi ptr [ %426, %.lr.ph ], [ %425, %.lr.ph.preheader ]
+  %.4243 = phi ptr [ %429, %.lr.ph ], [ %418, %.lr.ph.preheader ]
+  %.3134242 = phi i32 [ %430, %.lr.ph ], [ %423, %.lr.ph.preheader ]
+  %426 = getelementptr inbounds nuw i8, ptr %.1244, i64 4
+  %427 = load i32, ptr %.1244, align 4, !tbaa !26
+  %428 = trunc i32 %427 to i16
+  %429 = getelementptr inbounds nuw i8, ptr %.4243, i64 2
+  store i16 %428, ptr %.4243, align 2, !tbaa !53
+  %430 = add nsw i32 %.3134242, -1
+  %431 = icmp samesign ugt i32 %.3134242, 1
+  br i1 %431, label %.lr.ph, label %._crit_edge, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph, %421
-  %.4.lcssa = phi ptr [ %418, %421 ], [ %428, %.lr.ph ]
-  %431 = add nuw nsw i32 %423, 2112
+  %.4.lcssa = phi ptr [ %418, %421 ], [ %429, %.lr.ph ]
   %432 = getelementptr inbounds nuw i8, ptr %12, i64 144144
   %433 = load i32, ptr %432, align 8, !tbaa !37
-  %434 = sub nsw i32 %433, %431
+  %434 = sub nsw i32 %433, %424
   %435 = icmp sgt i32 %434, 0
   br i1 %435, label %.lr.ph249.preheader, label %.loopexit152
 
 .lr.ph249.preheader:                              ; preds = %._crit_edge
-  %436 = zext nneg i32 %431 to i64
+  %436 = zext nneg i32 %424 to i64
   %437 = getelementptr inbounds nuw i32, ptr %399, i64 %436
   br label %.lr.ph249
 

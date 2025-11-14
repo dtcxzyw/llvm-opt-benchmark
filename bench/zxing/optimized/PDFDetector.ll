@@ -2492,33 +2492,33 @@ _ZZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatt
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN5ZXing11PatternView8skipPairEv.exit.us
   %.sroa.0.044.us = phi ptr [ %75, %_ZN5ZXing11PatternView8skipPairEv.exit.us ], [ %11, %.lr.ph ]
+  %49 = getelementptr inbounds i8, ptr %.sroa.0.044.us, i64 -2
+  %50 = load i16, ptr %49, align 2, !tbaa !17
   br label %.lr.ph.i.i.i.i.i7.us
 
 .lr.ph.i.i.i.i.i7.us:                             ; preds = %.lr.ph.i.i.i.i.i7.us, %.lr.ph.split.us
   %.08.i.i.i.idx.i.i8.us = phi i64 [ %.08.i.i.i.add.i.i11.us, %.lr.ph.i.i.i.i.i7.us ], [ 0, %.lr.ph.split.us ]
-  %.057.i.i.i.i.i9.us = phi i16 [ %50, %.lr.ph.i.i.i.i.i7.us ], [ 0, %.lr.ph.split.us ]
+  %.057.i.i.i.i.i9.us = phi i16 [ %52, %.lr.ph.i.i.i.i.i7.us ], [ 0, %.lr.ph.split.us ]
   %.08.i.i.i.ptr.i.i10.us = getelementptr inbounds nuw i8, ptr %.sroa.0.044.us, i64 %.08.i.i.i.idx.i.i8.us
-  %49 = load i16, ptr %.08.i.i.i.ptr.i.i10.us, align 2, !tbaa !17
-  %50 = add i16 %49, %.057.i.i.i.i.i9.us
+  %51 = load i16, ptr %.08.i.i.i.ptr.i.i10.us, align 2, !tbaa !17
+  %52 = add i16 %51, %.057.i.i.i.i.i9.us
   %.08.i.i.i.add.i.i11.us = add nuw nsw i64 %.08.i.i.i.idx.i.i8.us, 2
   %.not.i.i.i.i.i12.us = icmp eq i64 %.08.i.i.i.add.i.i11.us, 16
   br i1 %.not.i.i.i.i.i12.us, label %_ZNK5ZXing11PatternView3sumEi.exit.i.i13.us, label %.lr.ph.i.i.i.i.i7.us, !llvm.loop !113
 
 _ZNK5ZXing11PatternView3sumEi.exit.i.i13.us:      ; preds = %.lr.ph.i.i.i.i.i7.us
-  %51 = icmp ult i16 %50, 17
-  br i1 %51, label %_ZN5ZXing11PatternView8skipPairEv.exit.us, label %52
+  %53 = icmp ult i16 %52, 17
+  br i1 %53, label %_ZN5ZXing11PatternView8skipPairEv.exit.us, label %54
 
-52:                                               ; preds = %_ZNK5ZXing11PatternView3sumEi.exit.i.i13.us
-  %53 = getelementptr inbounds i8, ptr %.sroa.0.044.us, i64 -2
-  %54 = load i16, ptr %53, align 2, !tbaa !17
-  %55 = uitofp i16 %50 to double
+54:                                               ; preds = %_ZNK5ZXing11PatternView3sumEi.exit.i.i13.us
+  %55 = uitofp i16 %52 to double
   %56 = fdiv double %55, 1.700000e+01
-  %57 = uitofp i16 %54 to double
+  %57 = uitofp i16 %50 to double
   %58 = tail call double @llvm.fmuladd.f64(double %.fr46, double %56, double -1.000000e+00)
   %59 = fcmp ogt double %58, %57
   br i1 %59, label %_ZN5ZXing11PatternView8skipPairEv.exit.us, label %60
 
-60:                                               ; preds = %52
+60:                                               ; preds = %54
   %61 = tail call double @llvm.fmuladd.f64(double %56, double 5.000000e-01, double 5.000000e-01)
   br label %62
 
@@ -2545,7 +2545,7 @@ _ZZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatt
   %74 = fcmp une double %56, 0.000000e+00
   br i1 %74, label %.split.us, label %_ZN5ZXing11PatternView8skipPairEv.exit.us
 
-_ZN5ZXing11PatternView8skipPairEv.exit.us:        ; preds = %62, %_ZNK5ZXing11PatternView3sumEi.exit.i.i13.us, %52, %_ZZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit18.us
+_ZN5ZXing11PatternView8skipPairEv.exit.us:        ; preds = %62, %_ZNK5ZXing11PatternView3sumEi.exit.i.i13.us, %54, %_ZZN5ZXing13FindLeftGuardILi8ELi17ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit18.us
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.044.us, i64 4
   %.not.us = icmp ult ptr %75, %47
   br i1 %.not.us, label %.lr.ph.split.us, label %.critedge, !llvm.loop !115

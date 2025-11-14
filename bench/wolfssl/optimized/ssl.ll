@@ -930,12 +930,12 @@ define void @EvictSessionFromCache(ptr noundef %0) local_unnamed_addr #7 {
   %4 = trunc i64 %3 to i32
   %5 = sub i32 0, %4
   %6 = and i32 %5, 7
-  %.not24.i = icmp eq i32 %6, 0
-  br i1 %.not24.i, label %.preheader23.i, label %.lr.ph.i
-
-.preheader23.i:                                   ; preds = %.lr.ph.i, %1
-  %.016.lcssa.i = phi ptr [ %2, %1 ], [ %9, %.lr.ph.i ]
   %7 = sub nuw nsw i32 48, %6
+  %.not24.i = icmp eq i32 %6, 0
+  br i1 %.not24.i, label %.lr.ph29.i.preheader, label %.lr.ph.i
+
+.lr.ph29.i.preheader:                             ; preds = %.lr.ph.i, %1
+  %.01528.i.ph = phi ptr [ %2, %1 ], [ %9, %.lr.ph.i ]
   br label %.lr.ph29.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
@@ -945,15 +945,15 @@ define void @EvictSessionFromCache(ptr noundef %0) local_unnamed_addr #7 {
   %9 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
   store volatile i8 0, ptr %.01625.i, align 1, !tbaa !43
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %.preheader23.i, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !44
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
   %.not2232.i = icmp eq i32 %11, 0
   br i1 %.not2232.i, label %ForceZero.exit, label %.lr.ph35.i
 
-.lr.ph29.i:                                       ; preds = %.preheader23.i, %.lr.ph29.i
-  %.01528.i = phi ptr [ %10, %.lr.ph29.i ], [ %.016.lcssa.i, %.preheader23.i ]
-  %.01827.i = phi i32 [ %11, %.lr.ph29.i ], [ %7, %.preheader23.i ]
+.lr.ph29.i:                                       ; preds = %.lr.ph29.i.preheader, %.lr.ph29.i
+  %.01528.i = phi ptr [ %10, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
+  %.01827.i = phi i32 [ %11, %.lr.ph29.i ], [ %7, %.lr.ph29.i.preheader ]
   %10 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !27
   %11 = add nsw i32 %.01827.i, -8
@@ -1120,13 +1120,9 @@ HashObject.exit:                                  ; preds = %14
   %62 = trunc i64 %61 to i32
   %63 = sub i32 0, %62
   %64 = and i32 %63, 7
-  %.not24.i.i = icmp eq i32 %64, 0
-  br i1 %.not24.i.i, label %.preheader23.i.i, label %.lr.ph.i.i
-
-.preheader23.i.i:                                 ; preds = %.lr.ph.i.i, %56
-  %.016.lcssa.i.i = phi ptr [ %60, %56 ], [ %67, %.lr.ph.i.i ]
   %65 = sub nuw nsw i32 48, %64
-  br label %.lr.ph29.i.i
+  %.not24.i.i = icmp eq i32 %64, 0
+  br i1 %.not24.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %56, %.lr.ph.i.i
   %.126.i.i = phi i32 [ %66, %.lr.ph.i.i ], [ %64, %56 ]
@@ -1135,11 +1131,15 @@ HashObject.exit:                                  ; preds = %14
   %67 = getelementptr inbounds nuw i8, ptr %.01625.i.i, i64 1
   store volatile i8 0, ptr %.01625.i.i, align 1, !tbaa !43
   %.not.i.i = icmp eq i32 %66, 0
-  br i1 %.not.i.i, label %.preheader23.i.i, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !44
 
-.lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i, %.preheader23.i.i
-  %.01528.i.i = phi ptr [ %68, %.lr.ph29.i.i ], [ %.016.lcssa.i.i, %.preheader23.i.i ]
-  %.01827.i.i = phi i32 [ %69, %.lr.ph29.i.i ], [ %65, %.preheader23.i.i ]
+.lr.ph29.i.i.preheader:                           ; preds = %.lr.ph.i.i, %56
+  %.01528.i.i.ph = phi ptr [ %60, %56 ], [ %67, %.lr.ph.i.i ]
+  br label %.lr.ph29.i.i
+
+.lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i.preheader, %.lr.ph29.i.i
+  %.01528.i.i = phi ptr [ %68, %.lr.ph29.i.i ], [ %.01528.i.i.ph, %.lr.ph29.i.i.preheader ]
+  %.01827.i.i = phi i32 [ %69, %.lr.ph29.i.i ], [ %65, %.lr.ph29.i.i.preheader ]
   %68 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !27
   %69 = add nsw i32 %.01827.i.i, -8
@@ -1801,13 +1801,9 @@ define void @wolfSSL_CTX_flush_sessions(ptr noundef readnone captures(none) %0, 
   %22 = trunc i64 %21 to i32
   %23 = sub i32 0, %22
   %24 = and i32 %23, 7
-  %.not24.i.i = icmp eq i32 %24, 0
-  br i1 %.not24.i.i, label %.preheader23.i.i, label %.lr.ph.i.i
-
-.preheader23.i.i:                                 ; preds = %.lr.ph.i.i, %19
-  %.016.lcssa.i.i = phi ptr [ %20, %19 ], [ %27, %.lr.ph.i.i ]
   %25 = sub nuw nsw i32 48, %24
-  br label %.lr.ph29.i.i
+  %.not24.i.i = icmp eq i32 %24, 0
+  br i1 %.not24.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
   %.126.i.i = phi i32 [ %26, %.lr.ph.i.i ], [ %24, %19 ]
@@ -1816,11 +1812,15 @@ define void @wolfSSL_CTX_flush_sessions(ptr noundef readnone captures(none) %0, 
   %27 = getelementptr inbounds nuw i8, ptr %.01625.i.i, i64 1
   store volatile i8 0, ptr %.01625.i.i, align 1, !tbaa !43
   %.not.i.i = icmp eq i32 %26, 0
-  br i1 %.not.i.i, label %.preheader23.i.i, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !44
 
-.lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i, %.preheader23.i.i
-  %.01528.i.i = phi ptr [ %28, %.lr.ph29.i.i ], [ %.016.lcssa.i.i, %.preheader23.i.i ]
-  %.01827.i.i = phi i32 [ %29, %.lr.ph29.i.i ], [ %25, %.preheader23.i.i ]
+.lr.ph29.i.i.preheader:                           ; preds = %.lr.ph.i.i, %19
+  %.01528.i.i.ph = phi ptr [ %20, %19 ], [ %27, %.lr.ph.i.i ]
+  br label %.lr.ph29.i.i
+
+.lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i.preheader, %.lr.ph29.i.i
+  %.01528.i.i = phi ptr [ %28, %.lr.ph29.i.i ], [ %.01528.i.i.ph, %.lr.ph29.i.i.preheader ]
+  %.01827.i.i = phi i32 [ %29, %.lr.ph29.i.i ], [ %25, %.lr.ph29.i.i.preheader ]
   %28 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !27
   %29 = add nsw i32 %.01827.i.i, -8
@@ -2457,12 +2457,12 @@ define void @wolfSSL_FreeSession(ptr readnone captures(none) %0, ptr noundef %1)
   %18 = trunc i64 %17 to i32
   %19 = sub i32 0, %18
   %20 = and i32 %19, 7
-  %.not24.i = icmp eq i32 %20, 0
-  br i1 %.not24.i, label %.preheader23.i, label %.lr.ph.i
-
-.preheader23.i:                                   ; preds = %.lr.ph.i, %15
-  %.016.lcssa.i = phi ptr [ %16, %15 ], [ %23, %.lr.ph.i ]
   %21 = sub nuw nsw i32 48, %20
+  %.not24.i = icmp eq i32 %20, 0
+  br i1 %.not24.i, label %.lr.ph29.i.preheader, label %.lr.ph.i
+
+.lr.ph29.i.preheader:                             ; preds = %.lr.ph.i, %15
+  %.01528.i.ph = phi ptr [ %16, %15 ], [ %23, %.lr.ph.i ]
   br label %.lr.ph29.i
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
@@ -2472,15 +2472,15 @@ define void @wolfSSL_FreeSession(ptr readnone captures(none) %0, ptr noundef %1)
   %23 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
   store volatile i8 0, ptr %.01625.i, align 1, !tbaa !43
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %.preheader23.i, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !44
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
   %.not2232.i = icmp eq i32 %25, 0
   br i1 %.not2232.i, label %ForceZero.exit, label %.lr.ph35.i
 
-.lr.ph29.i:                                       ; preds = %.preheader23.i, %.lr.ph29.i
-  %.01528.i = phi ptr [ %24, %.lr.ph29.i ], [ %.016.lcssa.i, %.preheader23.i ]
-  %.01827.i = phi i32 [ %25, %.lr.ph29.i ], [ %21, %.preheader23.i ]
+.lr.ph29.i:                                       ; preds = %.lr.ph29.i.preheader, %.lr.ph29.i
+  %.01528.i = phi ptr [ %24, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
+  %.01827.i = phi i32 [ %25, %.lr.ph29.i ], [ %21, %.lr.ph29.i.preheader ]
   %24 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !27
   %25 = add nsw i32 %.01827.i, -8
@@ -2502,12 +2502,12 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   %31 = trunc i64 %30 to i32
   %32 = sub i32 0, %31
   %33 = and i32 %32, 7
-  %.not24.i12 = icmp eq i32 %33, 0
-  br i1 %.not24.i12, label %.preheader23.i17, label %.lr.ph.i13
-
-.preheader23.i17:                                 ; preds = %.lr.ph.i13, %ForceZero.exit
-  %.016.lcssa.i18 = phi ptr [ %29, %ForceZero.exit ], [ %36, %.lr.ph.i13 ]
   %34 = sub nuw nsw i32 32, %33
+  %.not24.i12 = icmp eq i32 %33, 0
+  br i1 %.not24.i12, label %.lr.ph29.i27.preheader, label %.lr.ph.i13
+
+.lr.ph29.i27.preheader:                           ; preds = %.lr.ph.i13, %ForceZero.exit
+  %.01528.i28.ph = phi ptr [ %29, %ForceZero.exit ], [ %36, %.lr.ph.i13 ]
   br label %.lr.ph29.i27
 
 .lr.ph.i13:                                       ; preds = %ForceZero.exit, %.lr.ph.i13
@@ -2517,15 +2517,15 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   %36 = getelementptr inbounds nuw i8, ptr %.01625.i15, i64 1
   store volatile i8 0, ptr %.01625.i15, align 1, !tbaa !43
   %.not.i16 = icmp eq i32 %35, 0
-  br i1 %.not.i16, label %.preheader23.i17, label %.lr.ph.i13, !llvm.loop !44
+  br i1 %.not.i16, label %.lr.ph29.i27.preheader, label %.lr.ph.i13, !llvm.loop !44
 
 .preheader.i19:                                   ; preds = %.lr.ph29.i27
   %.not2232.i22 = icmp eq i32 %38, 0
   br i1 %.not2232.i22, label %ForceZero.exit30, label %.lr.ph35.i23
 
-.lr.ph29.i27:                                     ; preds = %.preheader23.i17, %.lr.ph29.i27
-  %.01528.i28 = phi ptr [ %37, %.lr.ph29.i27 ], [ %.016.lcssa.i18, %.preheader23.i17 ]
-  %.01827.i29 = phi i32 [ %38, %.lr.ph29.i27 ], [ %34, %.preheader23.i17 ]
+.lr.ph29.i27:                                     ; preds = %.lr.ph29.i27.preheader, %.lr.ph29.i27
+  %.01528.i28 = phi ptr [ %37, %.lr.ph29.i27 ], [ %.01528.i28.ph, %.lr.ph29.i27.preheader ]
+  %.01827.i29 = phi i32 [ %38, %.lr.ph29.i27 ], [ %34, %.lr.ph29.i27.preheader ]
   %37 = getelementptr inbounds nuw i8, ptr %.01528.i28, i64 8
   store volatile i64 0, ptr %.01528.i28, align 8, !tbaa !27
   %38 = add nsw i32 %.01827.i29, -8
@@ -6748,13 +6748,9 @@ define range(i32 -241, 2) i32 @wolfSSL_Cleanup() local_unnamed_addr #0 {
   %21 = trunc i64 %20 to i32
   %22 = sub i32 0, %21
   %23 = and i32 %22, 7
-  %.not24.i.i = icmp eq i32 %23, 0
-  br i1 %.not24.i.i, label %.preheader23.i.i, label %.lr.ph.i.i
-
-.preheader23.i.i:                                 ; preds = %.lr.ph.i.i, %17
-  %.016.lcssa.i.i = phi ptr [ %19, %17 ], [ %26, %.lr.ph.i.i ]
   %24 = sub nuw nsw i32 48, %23
-  br label %.lr.ph29.i.i
+  %.not24.i.i = icmp eq i32 %23, 0
+  br i1 %.not24.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
   %.126.i.i = phi i32 [ %25, %.lr.ph.i.i ], [ %23, %17 ]
@@ -6763,11 +6759,15 @@ define range(i32 -241, 2) i32 @wolfSSL_Cleanup() local_unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %.01625.i.i, i64 1
   store volatile i8 0, ptr %.01625.i.i, align 1, !tbaa !43
   %.not.i.i = icmp eq i32 %25, 0
-  br i1 %.not.i.i, label %.preheader23.i.i, label %.lr.ph.i.i, !llvm.loop !44
+  br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !44
 
-.lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i, %.preheader23.i.i
-  %.01528.i.i = phi ptr [ %27, %.lr.ph29.i.i ], [ %.016.lcssa.i.i, %.preheader23.i.i ]
-  %.01827.i.i = phi i32 [ %28, %.lr.ph29.i.i ], [ %24, %.preheader23.i.i ]
+.lr.ph29.i.i.preheader:                           ; preds = %.lr.ph.i.i, %17
+  %.01528.i.i.ph = phi ptr [ %19, %17 ], [ %26, %.lr.ph.i.i ]
+  br label %.lr.ph29.i.i
+
+.lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i.preheader, %.lr.ph29.i.i
+  %.01528.i.i = phi ptr [ %27, %.lr.ph29.i.i ], [ %.01528.i.i.ph, %.lr.ph29.i.i.preheader ]
+  %.01827.i.i = phi i32 [ %28, %.lr.ph29.i.i ], [ %24, %.lr.ph29.i.i.preheader ]
   %27 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !27
   %28 = add nsw i32 %.01827.i.i, -8
@@ -10641,12 +10641,12 @@ define range(i32 -173, 2) i32 @wolfSSL_UnloadCertsKeys(ptr noundef %0) local_unn
   %27 = sub i32 0, %26
   %28 = and i32 %27, 7
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %24, i32 %28)
+  %29 = sub i32 %24, %spec.select.i
   %.not24.i = icmp eq i32 %spec.select.i, 0
   br i1 %.not24.i, label %.preheader23.i, label %.lr.ph.i
 
 .preheader23.i:                                   ; preds = %.lr.ph.i, %19
   %.016.lcssa.i = phi ptr [ %22, %19 ], [ %32, %.lr.ph.i ]
-  %29 = sub i32 %24, %spec.select.i
   %30 = icmp ugt i32 %29, 7
   br i1 %30, label %.lr.ph29.i, label %.preheader.i
 

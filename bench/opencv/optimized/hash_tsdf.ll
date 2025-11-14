@@ -6797,30 +6797,30 @@ _ZNSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS
   br i1 %.not29.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i, %339
-  %.031.i.i.i.i = phi ptr [ %327, %339 ], [ %315, %_ZNSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i ]
+  %.031.i.i.i.i = phi ptr [ %316, %339 ], [ %315, %_ZNSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i ]
   %.02530.i.i.i.i = phi i64 [ %.1.i.i.i.i, %339 ], [ 0, %_ZNSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i ]
-  %316 = getelementptr inbounds nuw i8, ptr %.031.i.i.i.i, i64 8
-  br label %317
+  %316 = load ptr, ptr %.031.i.i.i.i, align 8, !tbaa !44
+  %317 = getelementptr inbounds nuw i8, ptr %.031.i.i.i.i, i64 8
+  br label %318
 
-317:                                              ; preds = %317, %.lr.ph.i.i.i.i
-  %indvars.iv.i.i.i.i160.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i161.i.i.i, %317 ]
-  %.079.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %326, %317 ]
-  %318 = getelementptr inbounds nuw i32, ptr %316, i64 %indvars.iv.i.i.i.i160.i.i.i
-  %319 = load i32, ptr %318, align 4, !tbaa !24
-  %320 = sext i32 %319 to i64
-  %321 = shl i64 %.079.i.i.i.i.i.i.i, 6
-  %322 = lshr i64 %.079.i.i.i.i.i.i.i, 2
-  %323 = add i64 %321, 2654435769
-  %324 = add i64 %323, %322
-  %325 = add i64 %324, %320
-  %326 = xor i64 %325, %.079.i.i.i.i.i.i.i
+318:                                              ; preds = %318, %.lr.ph.i.i.i.i
+  %indvars.iv.i.i.i.i160.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i161.i.i.i, %318 ]
+  %.079.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %327, %318 ]
+  %319 = getelementptr inbounds nuw i32, ptr %317, i64 %indvars.iv.i.i.i.i160.i.i.i
+  %320 = load i32, ptr %319, align 4, !tbaa !24
+  %321 = sext i32 %320 to i64
+  %322 = shl i64 %.079.i.i.i.i.i.i.i, 6
+  %323 = lshr i64 %.079.i.i.i.i.i.i.i, 2
+  %324 = add i64 %322, 2654435769
+  %325 = add i64 %324, %323
+  %326 = add i64 %325, %321
+  %327 = xor i64 %326, %.079.i.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i161.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i160.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i161.i.i.i, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEES3_NS_9_IdentityENS1_5kinfu9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS3_Lb0EEEm.exit.i.i.i.i, label %317, !llvm.loop !74
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEES3_NS_9_IdentityENS1_5kinfu9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS3_Lb0EEEm.exit.i.i.i.i, label %318, !llvm.loop !74
 
-_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEES3_NS_9_IdentityENS1_5kinfu9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS3_Lb0EEEm.exit.i.i.i.i: ; preds = %317
-  %327 = load ptr, ptr %.031.i.i.i.i, align 8, !tbaa !44
-  %328 = urem i64 %326, %306
+_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEES3_NS_9_IdentityENS1_5kinfu9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS3_Lb0EEEm.exit.i.i.i.i: ; preds = %318
+  %328 = urem i64 %327, %306
   %329 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i, i64 %328
   %330 = load ptr, ptr %329, align 8, !tbaa !75
   %.not27.i.i.i.i = icmp eq ptr %330, null
@@ -6849,7 +6849,7 @@ _ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEES3_NS_9_IdentityENS1_5kinfu9tsd
 
 339:                                              ; preds = %336, %334, %331
   %.1.i.i.i.i = phi i64 [ %.02530.i.i.i.i, %336 ], [ %328, %334 ], [ %328, %331 ]
-  %.not.i162.i.i.i = icmp eq ptr %327, null
+  %.not.i162.i.i.i = icmp eq ptr %316, null
   br i1 %.not.i162.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !377
 
 ._crit_edge.i.i.i.i:                              ; preds = %339, %_ZNSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit.i.i.i.i
@@ -6925,27 +6925,27 @@ _ZNSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS
 
 362:                                              ; preds = %360
   %363 = getelementptr inbounds nuw i8, ptr %361, i64 8
-  br label %364
+  %364 = load i64, ptr %8, align 8, !tbaa !120
+  br label %365
 
-364:                                              ; preds = %364, %362
-  %indvars.iv.i.i.i.i.i.i156.i.i.i = phi i64 [ 0, %362 ], [ %indvars.iv.next.i.i.i.i.i.i157.i.i.i, %364 ]
-  %.079.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %362 ], [ %373, %364 ]
-  %365 = getelementptr inbounds nuw i32, ptr %363, i64 %indvars.iv.i.i.i.i.i.i156.i.i.i
-  %366 = load i32, ptr %365, align 4, !tbaa !24
-  %367 = sext i32 %366 to i64
-  %368 = shl i64 %.079.i.i.i.i.i.i.i.i.i, 6
-  %369 = lshr i64 %.079.i.i.i.i.i.i.i.i.i, 2
-  %370 = add i64 %368, 2654435769
-  %371 = add i64 %370, %369
-  %372 = add i64 %371, %367
-  %373 = xor i64 %372, %.079.i.i.i.i.i.i.i.i.i
+365:                                              ; preds = %365, %362
+  %indvars.iv.i.i.i.i.i.i156.i.i.i = phi i64 [ 0, %362 ], [ %indvars.iv.next.i.i.i.i.i.i157.i.i.i, %365 ]
+  %.079.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %362 ], [ %374, %365 ]
+  %366 = getelementptr inbounds nuw i32, ptr %363, i64 %indvars.iv.i.i.i.i.i.i156.i.i.i
+  %367 = load i32, ptr %366, align 4, !tbaa !24
+  %368 = sext i32 %367 to i64
+  %369 = shl i64 %.079.i.i.i.i.i.i.i.i.i, 6
+  %370 = lshr i64 %.079.i.i.i.i.i.i.i.i.i, 2
+  %371 = add i64 %369, 2654435769
+  %372 = add i64 %371, %370
+  %373 = add i64 %372, %368
+  %374 = xor i64 %373, %.079.i.i.i.i.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i157.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i156.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i157.i.i.i, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexERKNS4_16_Hash_node_valueIS2_Lb0EEE.exit.i.i.i.i.i, label %364, !llvm.loop !74
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexERKNS4_16_Hash_node_valueIS2_Lb0EEE.exit.i.i.i.i.i, label %365, !llvm.loop !74
 
-_ZNKSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexERKNS4_16_Hash_node_valueIS2_Lb0EEE.exit.i.i.i.i.i: ; preds = %364
-  %374 = load i64, ptr %8, align 8, !tbaa !120
-  %375 = urem i64 %373, %374
+_ZNKSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexERKNS4_16_Hash_node_valueIS2_Lb0EEE.exit.i.i.i.i.i: ; preds = %365
+  %375 = urem i64 %374, %364
   %376 = getelementptr inbounds nuw ptr, ptr %354, i64 %375
   store ptr %251, ptr %376, align 8, !tbaa !75
   br label %377
@@ -7482,27 +7482,27 @@ _ZNSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  br label %44
+  %44 = load i64, ptr %9, align 8, !tbaa !120
+  br label %45
 
-44:                                               ; preds = %44, %42
-  %indvars.iv.i.i.i.i.i = phi i64 [ 0, %42 ], [ %indvars.iv.next.i.i.i.i.i, %44 ]
-  %.079.i.i.i.i.i = phi i64 [ 0, %42 ], [ %53, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.i.i.i.i.i
-  %46 = load i32, ptr %45, align 4, !tbaa !24
-  %47 = sext i32 %46 to i64
-  %48 = shl i64 %.079.i.i.i.i.i, 6
-  %49 = lshr i64 %.079.i.i.i.i.i, 2
-  %50 = add i64 %48, 2654435769
-  %51 = add i64 %50, %49
-  %52 = add i64 %51, %47
-  %53 = xor i64 %52, %.079.i.i.i.i.i
+45:                                               ; preds = %45, %42
+  %indvars.iv.i.i.i.i.i = phi i64 [ 0, %42 ], [ %indvars.iv.next.i.i.i.i.i, %45 ]
+  %.079.i.i.i.i.i = phi i64 [ 0, %42 ], [ %54, %45 ]
+  %46 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.i.i.i.i.i
+  %47 = load i32, ptr %46, align 4, !tbaa !24
+  %48 = sext i32 %47 to i64
+  %49 = shl i64 %.079.i.i.i.i.i, 6
+  %50 = lshr i64 %.079.i.i.i.i.i, 2
+  %51 = add i64 %49, 2654435769
+  %52 = add i64 %51, %50
+  %53 = add i64 %52, %48
+  %54 = xor i64 %53, %.079.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 3
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZNKSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexERKNS4_16_Hash_node_valueIS2_Lb0EEE.exit.i, label %44, !llvm.loop !74
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZNKSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexERKNS4_16_Hash_node_valueIS2_Lb0EEE.exit.i, label %45, !llvm.loop !74
 
-_ZNKSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexERKNS4_16_Hash_node_valueIS2_Lb0EEE.exit.i: ; preds = %44
-  %54 = load i64, ptr %9, align 8, !tbaa !120
-  %55 = urem i64 %53, %54
+_ZNKSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexERKNS4_16_Hash_node_valueIS2_Lb0EEE.exit.i: ; preds = %45
+  %55 = urem i64 %54, %44
   %56 = getelementptr inbounds nuw ptr, ptr %32, i64 %55
   store ptr %3, ptr %56, align 8, !tbaa !75
   br label %57
@@ -7571,30 +7571,30 @@ _ZNSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit, %37
-  %.031 = phi ptr [ %25, %37 ], [ %13, %_ZNSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
+  %.031 = phi ptr [ %14, %37 ], [ %13, %_ZNSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %.02530 = phi i64 [ %.1, %37 ], [ 0, %_ZNSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
-  %14 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  br label %15
+  %14 = load ptr, ptr %.031, align 8, !tbaa !44
+  %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
+  br label %16
 
-15:                                               ; preds = %15, %.lr.ph
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i.i.i, %15 ]
-  %.079.i.i.i = phi i64 [ 0, %.lr.ph ], [ %24, %15 ]
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i.i
-  %17 = load i32, ptr %16, align 4, !tbaa !24
-  %18 = sext i32 %17 to i64
-  %19 = shl i64 %.079.i.i.i, 6
-  %20 = lshr i64 %.079.i.i.i, 2
-  %21 = add i64 %19, 2654435769
-  %22 = add i64 %21, %20
-  %23 = add i64 %22, %18
-  %24 = xor i64 %23, %.079.i.i.i
+16:                                               ; preds = %16, %.lr.ph
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i.i.i, %16 ]
+  %.079.i.i.i = phi i64 [ 0, %.lr.ph ], [ %25, %16 ]
+  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i.i
+  %18 = load i32, ptr %17, align 4, !tbaa !24
+  %19 = sext i32 %18 to i64
+  %20 = shl i64 %.079.i.i.i, 6
+  %21 = lshr i64 %.079.i.i.i, 2
+  %22 = add i64 %20, 2654435769
+  %23 = add i64 %22, %21
+  %24 = add i64 %23, %19
+  %25 = xor i64 %24, %.079.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEES3_NS_9_IdentityENS1_5kinfu9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS3_Lb0EEEm.exit, label %15, !llvm.loop !74
+  br i1 %exitcond.not.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEES3_NS_9_IdentityENS1_5kinfu9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS3_Lb0EEEm.exit, label %16, !llvm.loop !74
 
-_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEES3_NS_9_IdentityENS1_5kinfu9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS3_Lb0EEEm.exit: ; preds = %15
-  %25 = load ptr, ptr %.031, align 8, !tbaa !44
-  %26 = urem i64 %24, %1
+_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEES3_NS_9_IdentityENS1_5kinfu9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS3_Lb0EEEm.exit: ; preds = %16
+  %26 = urem i64 %25, %1
   %27 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !75
   %.not27 = icmp eq ptr %28, null
@@ -7623,7 +7623,7 @@ _ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEES3_NS_9_IdentityENS1_5kinfu9tsd
 
 37:                                               ; preds = %29, %32, %34
   %.1 = phi i64 [ %.02530, %34 ], [ %26, %32 ], [ %26, %29 ]
-  %.not = icmp eq ptr %25, null
+  %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !377
 
 ._crit_edge:                                      ; preds = %37, %_ZNSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS0_5kinfu9tsdf_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
@@ -7884,27 +7884,27 @@ _ZNSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  br label %44
+  %44 = load i64, ptr %9, align 8, !tbaa !41
+  br label %45
 
-44:                                               ; preds = %44, %42
-  %indvars.iv.i.i.i.i.i = phi i64 [ 0, %42 ], [ %indvars.iv.next.i.i.i.i.i, %44 ]
-  %.079.i.i.i.i.i = phi i64 [ 0, %42 ], [ %53, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.i.i.i.i.i
-  %46 = load i32, ptr %45, align 4, !tbaa !24
-  %47 = sext i32 %46 to i64
-  %48 = shl i64 %.079.i.i.i.i.i, 6
-  %49 = lshr i64 %.079.i.i.i.i.i, 2
-  %50 = add i64 %48, 2654435769
-  %51 = add i64 %50, %49
-  %52 = add i64 %51, %47
-  %53 = xor i64 %52, %.079.i.i.i.i.i
+45:                                               ; preds = %45, %42
+  %indvars.iv.i.i.i.i.i = phi i64 [ 0, %42 ], [ %indvars.iv.next.i.i.i.i.i, %45 ]
+  %.079.i.i.i.i.i = phi i64 [ 0, %42 ], [ %54, %45 ]
+  %46 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.i.i.i.i.i
+  %47 = load i32, ptr %46, align 4, !tbaa !24
+  %48 = sext i32 %47 to i64
+  %49 = shl i64 %.079.i.i.i.i.i, 6
+  %50 = lshr i64 %.079.i.i.i.i.i, 2
+  %51 = add i64 %49, 2654435769
+  %52 = add i64 %51, %50
+  %53 = add i64 %52, %48
+  %54 = xor i64 %53, %.079.i.i.i.i.i
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 3
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZNKSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_9tsdf_hashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS9_16_Hash_node_valueIS7_Lb0EEE.exit.i, label %44, !llvm.loop !74
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZNKSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_9tsdf_hashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS9_16_Hash_node_valueIS7_Lb0EEE.exit.i, label %45, !llvm.loop !74
 
-_ZNKSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_9tsdf_hashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS9_16_Hash_node_valueIS7_Lb0EEE.exit.i: ; preds = %44
-  %54 = load i64, ptr %9, align 8, !tbaa !41
-  %55 = urem i64 %53, %54
+_ZNKSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_9tsdf_hashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS9_16_Hash_node_valueIS7_Lb0EEE.exit.i: ; preds = %45
+  %55 = urem i64 %54, %44
   %56 = getelementptr inbounds nuw ptr, ptr %32, i64 %55
   store ptr %3, ptr %56, align 8, !tbaa !75
   br label %57
@@ -7961,30 +7961,30 @@ _ZNSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_9tsdf_hashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit, %37
-  %.031 = phi ptr [ %25, %37 ], [ %13, %_ZNSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_9tsdf_hashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
+  %.031 = phi ptr [ %14, %37 ], [ %13, %_ZNSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_9tsdf_hashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %.02530 = phi i64 [ %.1, %37 ], [ 0, %_ZNSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_9tsdf_hashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
-  %14 = getelementptr inbounds nuw i8, ptr %.031, i64 8
-  br label %15
+  %14 = load ptr, ptr %.031, align 8, !tbaa !44
+  %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
+  br label %16
 
-15:                                               ; preds = %15, %.lr.ph
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i.i.i, %15 ]
-  %.079.i.i.i = phi i64 [ 0, %.lr.ph ], [ %24, %15 ]
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i.i
-  %17 = load i32, ptr %16, align 4, !tbaa !24
-  %18 = sext i32 %17 to i64
-  %19 = shl i64 %.079.i.i.i, 6
-  %20 = lshr i64 %.079.i.i.i, 2
-  %21 = add i64 %19, 2654435769
-  %22 = add i64 %21, %20
-  %23 = add i64 %22, %18
-  %24 = xor i64 %23, %.079.i.i.i
+16:                                               ; preds = %16, %.lr.ph
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i.i.i, %16 ]
+  %.079.i.i.i = phi i64 [ 0, %.lr.ph ], [ %25, %16 ]
+  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i.i
+  %18 = load i32, ptr %17, align 4, !tbaa !24
+  %19 = sext i32 %18 to i64
+  %20 = shl i64 %.079.i.i.i, 6
+  %21 = lshr i64 %.079.i.i.i, 2
+  %22 = add i64 %20, 2654435769
+  %23 = add i64 %22, %21
+  %24 = add i64 %23, %19
+  %25 = xor i64 %24, %.079.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEESt4pairIKS3_NS1_5kinfu10VolumeUnitEENS_10_Select1stENS6_9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS8_Lb0EEEm.exit, label %15, !llvm.loop !74
+  br i1 %exitcond.not.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEESt4pairIKS3_NS1_5kinfu10VolumeUnitEENS_10_Select1stENS6_9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS8_Lb0EEEm.exit, label %16, !llvm.loop !74
 
-_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEESt4pairIKS3_NS1_5kinfu10VolumeUnitEENS_10_Select1stENS6_9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS8_Lb0EEEm.exit: ; preds = %15
-  %25 = load ptr, ptr %.031, align 8, !tbaa !44
-  %26 = urem i64 %24, %1
+_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEESt4pairIKS3_NS1_5kinfu10VolumeUnitEENS_10_Select1stENS6_9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS8_Lb0EEEm.exit: ; preds = %16
+  %26 = urem i64 %25, %1
   %27 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !75
   %.not27 = icmp eq ptr %28, null
@@ -8013,7 +8013,7 @@ _ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEESt4pairIKS3_NS1_5kinfu10VolumeU
 
 37:                                               ; preds = %29, %32, %34
   %.1 = phi i64 [ %.02530, %34 ], [ %26, %32 ], [ %26, %29 ]
-  %.not = icmp eq ptr %25, null
+  %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !385
 
 ._crit_edge:                                      ; preds = %37, %_ZNSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_9tsdf_hashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit

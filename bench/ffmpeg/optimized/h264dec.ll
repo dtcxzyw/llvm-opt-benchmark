@@ -753,24 +753,24 @@ define void @ff_h264_flush_change(ptr noundef initializes((735696, 735700), (736
   tail call void @ff_h264_remove_all_refs(ptr noundef %0) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 734844
   store i32 0, ptr %4, align 4, !tbaa !149
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 734832
-  store i32 65536, ptr %5, align 8, !tbaa !150
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 734836
-  store i32 -1, ptr %6, align 4, !tbaa !151
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 735624
-  br label %8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 734848
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 734832
+  store i32 65536, ptr %6, align 8, !tbaa !150
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 734836
+  store i32 -1, ptr %7, align 4, !tbaa !151
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 735624
+  br label %9
 
-8:                                                ; preds = %8, %1
-  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
-  store i32 -2147483648, ptr %9, align 4, !tbaa !89
+9:                                                ; preds = %9, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %9 ]
+  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
+  store i32 -2147483648, ptr %10, align 4, !tbaa !89
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %idr.exit, label %8, !llvm.loop !152
+  br i1 %exitcond.not.i, label %idr.exit, label %9, !llvm.loop !152
 
-idr.exit:                                         ; preds = %8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 734848
-  store i32 -1, ptr %10, align 8, !tbaa !153
+idr.exit:                                         ; preds = %9
+  store i32 -1, ptr %5, align 8, !tbaa !153
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 729200
   %12 = load ptr, ptr %11, align 8, !tbaa !154
   %.not = icmp eq ptr %12, null

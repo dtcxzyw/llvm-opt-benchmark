@@ -25465,9 +25465,9 @@ _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit: ; preds = %.noexc55,
 .noexc57:                                         ; preds = %88
   %93 = icmp sgt i32 %83, 16
   %scevgep.i.i.i = getelementptr i8, ptr %85, i64 4
-  br i1 %93, label %.preheader.i.i.i, label %112
+  br i1 %93, label %.preheader.i, label %112
 
-.preheader.i.i.i:                                 ; preds = %.noexc57, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
+.preheader.i:                                     ; preds = %.noexc57, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %.019.i.idx.i.i.i = phi i64 [ %.019.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ 4, %.noexc57 ]
   %.pn18.i.i.i.i = phi ptr [ %.019.i.ptr.i.i.i, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %85, %.noexc57 ]
   %.019.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %85, i64 %.019.i.idx.i.i.i
@@ -25476,11 +25476,11 @@ _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit: ; preds = %.noexc55,
   %96 = icmp slt i32 %94, %95
   br i1 %96, label %97, label %98
 
-97:                                               ; preds = %.preheader.i.i.i
+97:                                               ; preds = %.preheader.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %85, i64 %.019.i.idx.i.i.i, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
-98:                                               ; preds = %.preheader.i.i.i
+98:                                               ; preds = %.preheader.i
   %99 = load i32, ptr %.pn18.i.i.i.i, align 4, !tbaa !124
   %100 = icmp slt i32 %94, %99
   br i1 %100, label %.lr.ph.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
@@ -25500,7 +25500,7 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   store i32 %94, ptr %.sink.i.i.i.i, align 4, !tbaa !124
   %.019.i.add.i.i.i = add nuw nsw i64 %.019.i.idx.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %.019.i.add.i.i.i, 64
-  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i.i.i, !llvm.loop !589
+  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i, !llvm.loop !589
 
 _ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i: ; preds = %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %104 = getelementptr inbounds nuw i8, ptr %85, i64 64
@@ -25670,9 +25670,9 @@ _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62: ; preds = %153
 .noexc101:                                        ; preds = %170
   %179 = icmp sgt i32 %174, 16
   %scevgep.i.i.i64 = getelementptr i8, ptr %173, i64 4
-  br i1 %179, label %.preheader.i.i.i77, label %198
+  br i1 %179, label %.preheader.i77, label %198
 
-.preheader.i.i.i77:                               ; preds = %.noexc101, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i81
+.preheader.i77:                                   ; preds = %.noexc101, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i81
   %.019.i.idx.i.i.i78 = phi i64 [ %.019.i.add.i.i.i83, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i81 ], [ 4, %.noexc101 ]
   %.pn18.i.i.i.i79 = phi ptr [ %.019.i.ptr.i.i.i80, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i81 ], [ %173, %.noexc101 ]
   %.019.i.ptr.i.i.i80 = getelementptr inbounds nuw i8, ptr %173, i64 %.019.i.idx.i.i.i78
@@ -25681,11 +25681,11 @@ _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit62: ; preds = %153
   %182 = icmp slt i32 %180, %181
   br i1 %182, label %183, label %184
 
-183:                                              ; preds = %.preheader.i.i.i77
+183:                                              ; preds = %.preheader.i77
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i64, ptr noundef nonnull align 4 dereferenceable(1) %173, i64 %.019.i.idx.i.i.i78, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i81
 
-184:                                              ; preds = %.preheader.i.i.i77
+184:                                              ; preds = %.preheader.i77
   %185 = load i32, ptr %.pn18.i.i.i.i79, align 4, !tbaa !124
   %186 = icmp slt i32 %180, %185
   br i1 %186, label %.lr.ph.i.i.i.i.i97, label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i81
@@ -25705,7 +25705,7 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   store i32 %180, ptr %.sink.i.i.i.i82, align 4, !tbaa !124
   %.019.i.add.i.i.i83 = add nuw nsw i64 %.019.i.idx.i.i.i78, 4
   %.not.i.i.i.i84 = icmp eq i64 %.019.i.add.i.i.i83, 64
-  br i1 %.not.i.i.i.i84, label %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i85, label %.preheader.i.i.i77, !llvm.loop !589
+  br i1 %.not.i.i.i.i84, label %_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i85, label %.preheader.i77, !llvm.loop !589
 
 _ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i85: ; preds = %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i81
   %190 = getelementptr inbounds nuw i8, ptr %173, i64 64

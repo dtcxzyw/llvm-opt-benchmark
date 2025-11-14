@@ -986,6 +986,7 @@ if.then3.i.i.i.i.i.i.i:                           ; preds = %cond.true.i.i.i.i.i
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i.i: ; preds = %cond.true.i.i.i.i.i
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i) #29
   store ptr %call5.i.i.i.i.i.i.i, ptr %errors_.i, align 8
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %copy, i64 16
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %copy, i64 24
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
@@ -1001,7 +1002,6 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.i.not.i.i.i.i.i.i, label %_ZN4node6crypto16CryptoErrorStoreC2ERKS1_.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !10
 
 _ZN4node6crypto16CryptoErrorStoreC2ERKS1_.exit:   ; preds = %for.body.i.i.i.i.i.i
-  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %copy, i64 16
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   br label %if.end
 

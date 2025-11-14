@@ -872,17 +872,17 @@ switch.lookup:                                    ; preds = %36, %_ZN5clang6Pars
   store i32 0, ptr %55, align 8, !tbaa !9
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %56, align 4, !tbaa !10
-  %57 = load ptr, ptr %25, align 8, !tbaa !3
-  %58 = load i32, ptr %27, align 8, !tbaa !9
-  %59 = zext i32 %58 to i64
-  %.idx = shl nuw nsw i64 %59, 3
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx
-  %.not3940 = icmp eq i32 %58, 0
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %58 = load ptr, ptr %25, align 8, !tbaa !3
+  %59 = load i32, ptr %27, align 8, !tbaa !9
+  %60 = zext i32 %59 to i64
+  %.idx = shl nuw nsw i64 %60, 3
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx
+  %.not3940 = icmp eq i32 %59, 0
   br i1 %.not3940, label %_ZN4llvm11SmallVectorIPN5clang10ParsedAttrELj1EED2Ev.exit, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %82
   %.pre = load ptr, ptr %9, align 8, !tbaa !3
-  %61 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %62 = zext i32 %83 to i64
   %.idx47 = shl nuw nsw i64 %62, 3
   %63 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx47
@@ -891,7 +891,7 @@ switch.lookup:                                    ; preds = %36, %_ZN5clang6Pars
 
 .lr.ph:                                           ; preds = %53, %82
   %64 = phi i32 [ %83, %82 ], [ 0, %53 ]
-  %.sroa.033.041 = phi ptr [ %84, %82 ], [ %57, %53 ]
+  %.sroa.033.041 = phi ptr [ %84, %82 ], [ %58, %53 ]
   %65 = load ptr, ptr %.sroa.033.041, align 8, !tbaa !40
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 28
   %67 = load i32, ptr %66, align 4
@@ -926,7 +926,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang10ParsedAttrELb1EE9push_backES3_.exit:
 82:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang10ParsedAttrELb1EE9push_backES3_.exit, %.lr.ph
   %83 = phi i32 [ %81, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang10ParsedAttrELb1EE9push_backES3_.exit ], [ %64, %.lr.ph ]
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.033.041, i64 8
-  %.not39 = icmp eq ptr %84, %60
+  %.not39 = icmp eq ptr %84, %61
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 ._crit_edge46.loopexit:                           ; preds = %.lr.ph45
@@ -949,7 +949,7 @@ _ZN4llvm11SmallVectorIPN5clang10ParsedAttrELj1EED2Ev.exit: ; preds = %53, %._cri
 .lr.ph45:                                         ; preds = %._crit_edge, %.lr.ph45
   %.043 = phi ptr [ %89, %.lr.ph45 ], [ %.pre, %._crit_edge ]
   %88 = load ptr, ptr %.043, align 8, !tbaa !40
-  call void @_ZN5clang16ParsedAttributes11takeOneFromERS0_PNS_10ParsedAttrE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(144) %61, ptr noundef %88)
+  call void @_ZN5clang16ParsedAttributes11takeOneFromERS0_PNS_10ParsedAttrE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(144) %57, ptr noundef %88)
   %89 = getelementptr inbounds nuw i8, ptr %.043, i64 8
   %.not29 = icmp eq ptr %89, %63
   br i1 %.not29, label %._crit_edge46.loopexit, label %.lr.ph45
@@ -52844,9 +52844,9 @@ _ZNK5clang5Scope5declsEv.exit:                    ; preds = %.lr.ph.i5.i.i7.i5.i
   call fastcc void @"_ZSt16__introsort_loopIPPN5clang9NamedDeclElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_T0_T1_"(ptr noundef %.val.pre, ptr noundef nonnull %346, i64 noundef %351)
   %352 = icmp ugt i32 %407, 16
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %.val.pre, i64 8
-  br i1 %352, label %.preheader.i.i.i.i.i, label %370
+  br i1 %352, label %.preheader.i.i.i, label %370
 
-.preheader.i.i.i.i.i:                             ; preds = %347, %"_ZSt25__unguarded_linear_insertIPPN5clang9NamedDeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_.exit.i.i.i.i.i.i"
+.preheader.i.i.i:                                 ; preds = %347, %"_ZSt25__unguarded_linear_insertIPPN5clang9NamedDeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_.exit.i.i.i.i.i.i"
   %.020.i.idx.i.i.i.i.i = phi i64 [ %.020.i.add.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPN5clang9NamedDeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_.exit.i.i.i.i.i.i" ], [ 8, %347 ]
   %.pn19.i.i.i.i.i.i = phi ptr [ %.020.i.ptr.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPN5clang9NamedDeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_.exit.i.i.i.i.i.i" ], [ %.val.pre, %347 ]
   %.020.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.pre, i64 %.020.i.idx.i.i.i.i.i
@@ -52859,11 +52859,11 @@ _ZNK5clang5Scope5declsEv.exit:                    ; preds = %.lr.ph.i5.i.i7.i5.i
   %355 = icmp ult i32 %.0.val.val.i.i.i.i.i.i, %.val.val.i.i.i.i.i.i
   br i1 %355, label %356, label %357
 
-356:                                              ; preds = %.preheader.i.i.i.i.i
+356:                                              ; preds = %.preheader.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %.val.pre, i64 %.020.i.idx.i.i.i.i.i, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPN5clang9NamedDeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_.exit.i.i.i.i.i.i"
 
-357:                                              ; preds = %.preheader.i.i.i.i.i
+357:                                              ; preds = %.preheader.i.i.i
   %.0.val11.i.i.i.i.i.i.i = load ptr, ptr %.pn19.i.i.i.i.i.i, align 8, !tbaa !1481
   %358 = getelementptr i8, ptr %.0.val11.i.i.i.i.i.i.i, i64 24
   %.0.val.val12.i.i.i.i.i.i.i = load i32, ptr %358, align 8, !tbaa !149
@@ -52887,7 +52887,7 @@ _ZNK5clang5Scope5declsEv.exit:                    ; preds = %.lr.ph.i5.i.i7.i5.i
   store ptr %.0.val.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i, align 8, !tbaa !1481
   %.020.i.add.i.i.i.i.i = add nuw nsw i64 %.020.i.idx.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i = icmp eq i64 %.020.i.add.i.i.i.i.i, 128
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i.i.i, !llvm.loop !1639
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i, !llvm.loop !1639
 
 "_ZSt16__insertion_sortIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_T0_.exit.i.i.i.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPPN5clang9NamedDeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_.exit.i.i.i.i.i.i"
   %362 = getelementptr inbounds nuw i8, ptr %.val.pre, i64 128

@@ -19309,11 +19309,11 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit49:          ; preds = %_ZNSt7__cxx1112basi
 _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang5TokenEEEPT_m.exit: ; preds = %320, %323
   %325 = phi i32 [ %304, %320 ], [ %.pre, %323 ]
   %.0.i.i.i.i = phi ptr [ %322, %320 ], [ %324, %323 ]
+  %326 = shl i32 %325, 1
   %.not91 = icmp eq i32 %325, 0
   br i1 %.not91, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang5TokenEEEPT_m.exit
-  %326 = shl i32 %325, 1
   call void @_ZN5clang12Preprocessor16EnterTokenStreamEPKNS_5TokenEjbbb(ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef %.0.i.i.i.i, i32 noundef %326, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #23
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit35
 

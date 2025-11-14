@@ -7832,13 +7832,14 @@ advanceConnectionState.exit.thread:               ; preds = %1613
   br i1 %.not183, label %.loopexit362, label %1633
 
 1633:                                             ; preds = %1626
+  %1634 = sub nsw i64 %1632, %.0274446
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %1634 = load i32, ptr @nthreads, align 4
-  %1635 = icmp sgt i32 %1634, 0
-  br i1 %1635, label %.lr.ph.preheader.i, label %._crit_edge.i
+  %1635 = load i32, ptr @nthreads, align 4
+  %1636 = icmp sgt i32 %1635, 0
+  br i1 %1636, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %1633
-  %wide.trip.count.i = zext nneg i32 %1634 to i64
+  %wide.trip.count.i = zext nneg i32 %1635 to i64
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %mergeSimpleStats.exit60.i, %1633
@@ -7851,14 +7852,13 @@ advanceConnectionState.exit.thread:               ; preds = %1613
   %.sroa.33.0.lcssa.i = phi double [ 0.000000e+00, %1633 ], [ %1658, %mergeSimpleStats.exit60.i ]
   %.sroa.43.0.lcssa.i = phi double [ 0.000000e+00, %1633 ], [ %1667, %mergeSimpleStats.exit60.i ]
   %.sroa.4.0.lcssa.i = phi i64 [ 0, %1633 ], [ %1670, %mergeSimpleStats.exit60.i ]
-  %1636 = sub nsw i64 %1632, %.0274446
   %1637 = sub i64 %.sroa.4.0.lcssa.i, %.sroa.4.0464
   %1638 = sub nsw i64 %1632, %68
   %1639 = sitofp i64 %1638 to double
   %1640 = fdiv double %1639, 1.000000e+06
   %1641 = sitofp i64 %1637 to double
   %1642 = fmul double %1641, 1.000000e+06
-  %1643 = sitofp i64 %1636 to double
+  %1643 = sitofp i64 %1634 to double
   %1644 = fdiv double %1642, %1643
   %1645 = icmp sgt i64 %1637, 0
   br i1 %1645, label %1686, label %1699

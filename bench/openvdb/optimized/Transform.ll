@@ -22207,7 +22207,6 @@ entry:
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %for.inc87, %for.cond55.preheader
-  %mul = fmul double %det.1, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next162, 4
   br i1 %exitcond165.not, label %for.cond98.preheader, label %for.body, !llvm.loop !532
@@ -22292,6 +22291,7 @@ if.end36:                                         ; preds = %if.end36.loopexit, 
   br label %for.body43
 
 for.cond55.preheader:                             ; preds = %for.body43
+  %mul = fmul double %det.1, %12
   br i1 %cmp3123, label %for.body57, label %for.cond.loopexit
 
 for.body43:                                       ; preds = %if.end36, %for.body43

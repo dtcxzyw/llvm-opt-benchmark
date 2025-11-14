@@ -5121,32 +5121,35 @@ _ZN2cv2fs10strcasecmpEPKcS2_.exit420.thread.thread: ; preds = %577, %_ZN2cv2fs10
   br label %.loopexit.outer
 
 ..loopexit_crit_edge:                             ; preds = %.lr.ph632
-  %643 = trunc i64 %650 to i32
-  %644 = ptrtoint ptr %658 to i64
-  %645 = ptrtoint ptr %651 to i64
-  %646 = sub i64 %644, %645
-  %647 = trunc i64 %646 to i32
-  %648 = add nsw i32 %647, %643
+  %643 = ptrtoint ptr %658 to i64
+  %644 = ptrtoint ptr %650 to i64
+  %645 = sub i64 %643, %644
+  %646 = trunc i64 %645 to i32
+  %647 = add nsw i32 %646, %653
   br label %.loopexit.outer
 
 .loopexit.outer:                                  ; preds = %..loopexit_crit_edge, %635
-  %.0193.ph = phi i32 [ %648, %..loopexit_crit_edge ], [ -1, %635 ]
+  %.0193.ph = phi i32 [ %647, %..loopexit_crit_edge ], [ -1, %635 ]
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.outer, %.preheader
-  %649 = load ptr, ptr %570, align 8, !tbaa !201
-  %650 = call i64 @ftell(ptr noundef %649)
-  %651 = invoke noundef ptr @_ZN2cv11FileStorage4Impl4getsEm(ptr noundef nonnull align 8 dereferenceable(700) %0, i64 noundef %642)
-          to label %652 unwind label %656
+  %648 = load ptr, ptr %570, align 8, !tbaa !201
+  %649 = call i64 @ftell(ptr noundef %648)
+  %650 = invoke noundef ptr @_ZN2cv11FileStorage4Impl4getsEm(ptr noundef nonnull align 8 dereferenceable(700) %0, i64 noundef %642)
+          to label %651 unwind label %656
 
-652:                                              ; preds = %.loopexit
-  %.not = icmp eq ptr %651, null
+651:                                              ; preds = %.loopexit
+  %.not = icmp eq ptr %650, null
   br i1 %.not, label %661, label %.preheader
 
-.preheader:                                       ; preds = %652
-  %653 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %651, ptr noundef nonnull dereferenceable(1) @__const._ZN2cv11FileStorage4Impl4openEPKciS3_.substr) #41
-  %.not272631 = icmp eq ptr %653, null
-  br i1 %.not272631, label %.loopexit, label %.lr.ph632
+.preheader:                                       ; preds = %651
+  %652 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %650, ptr noundef nonnull dereferenceable(1) @__const._ZN2cv11FileStorage4Impl4openEPKciS3_.substr) #41
+  %.not272631 = icmp eq ptr %652, null
+  br i1 %.not272631, label %.loopexit, label %.lr.ph632.preheader
+
+.lr.ph632.preheader:                              ; preds = %.preheader
+  %653 = trunc i64 %649 to i32
+  br label %.lr.ph632
 
 654:                                              ; preds = %697, %691, %674, %663
   %655 = landingpad { ptr, i32 }
@@ -5158,14 +5161,14 @@ _ZN2cv2fs10strcasecmpEPKcS2_.exit420.thread.thread: ; preds = %577, %_ZN2cv2fs10
           cleanup
   br label %1385
 
-.lr.ph632:                                        ; preds = %.preheader, %.lr.ph632
-  %658 = phi ptr [ %660, %.lr.ph632 ], [ %653, %.preheader ]
+.lr.ph632:                                        ; preds = %.lr.ph632.preheader, %.lr.ph632
+  %658 = phi ptr [ %660, %.lr.ph632 ], [ %652, %.lr.ph632.preheader ]
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 17
   %660 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %659, ptr noundef nonnull dereferenceable(1) @__const._ZN2cv11FileStorage4Impl4openEPKciS3_.substr) #41
   %.not272 = icmp eq ptr %660, null
   br i1 %.not272, label %..loopexit_crit_edge, label %.lr.ph632, !llvm.loop !234
 
-661:                                              ; preds = %652
+661:                                              ; preds = %651
   %662 = icmp slt i32 %.0193.ph, 0
   br i1 %662, label %663, label %674
 

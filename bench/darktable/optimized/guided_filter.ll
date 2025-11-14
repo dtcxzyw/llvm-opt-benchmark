@@ -64,148 +64,148 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   %48 = sub nsw i32 %46, %44
   %49 = sext i32 %47 to i64
   %50 = sext i32 %48 to i64
-  %51 = shl nsw i64 %49, 2
-  %52 = mul i64 %51, %50
-  %53 = shl i64 %52, 2
-  %54 = tail call ptr @dt_alloc_aligned(i64 noundef %53) #6, !noalias !6
-  call void @llvm.assume(i1 true) [ "align"(ptr %54, i64 64) ]
-  %55 = mul i64 %52, 9
-  %56 = tail call ptr @dt_alloc_aligned(i64 noundef %55) #6, !noalias !9
-  call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 64) ]
-  %57 = tail call i64 @dt_round_size(i64 noundef %49, i64 noundef 16) #6
-  %58 = mul i64 %57, 36
-  %59 = add i64 %58, 63
-  %60 = and i64 %59, -64
-  %61 = tail call ptr @dt_alloc_aligned(i64 noundef %60) #6
-  call void @llvm.assume(i1 true) [ "align"(ptr %61, i64 64) ]
-  %62 = icmp slt i32 %44, %46
-  br i1 %62, label %.lr.ph325.i.us, label %._crit_edge326.i.us
+  %51 = mul nsw i64 %49, %50
+  %52 = shl nsw i64 %49, 2
+  %53 = mul i64 %52, %50
+  %54 = shl i64 %53, 2
+  %55 = tail call ptr @dt_alloc_aligned(i64 noundef %54) #6, !noalias !6
+  call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 64) ]
+  %56 = mul i64 %53, 9
+  %57 = tail call ptr @dt_alloc_aligned(i64 noundef %56) #6, !noalias !9
+  call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 64) ]
+  %58 = tail call i64 @dt_round_size(i64 noundef %49, i64 noundef 16) #6
+  %59 = mul i64 %58, 36
+  %60 = add i64 %59, 63
+  %61 = and i64 %60, -64
+  %62 = tail call ptr @dt_alloc_aligned(i64 noundef %61) #6
+  call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 64) ]
+  %63 = icmp slt i32 %44, %46
+  br i1 %63, label %.lr.ph325.i.us, label %._crit_edge326.i.us
 
 .lr.ph325.i.us:                                   ; preds = %33
-  %63 = shl i32 %47, 2
-  %64 = mul i32 %47, 9
-  %65 = icmp slt i32 %40, %42
-  call void @llvm.assume(i1 true) [ "align"(ptr %61, i64 64) ]
-  br i1 %65, label %.lr.ph.us.preheader.i.us, label %.lr.ph325.split.preheader.i.us
+  %64 = shl i32 %47, 2
+  %65 = mul i32 %47, 9
+  %66 = icmp slt i32 %40, %42
+  call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 64) ]
+  br i1 %66, label %.lr.ph.us.preheader.i.us, label %.lr.ph325.split.preheader.i.us
 
 .lr.ph325.split.preheader.i.us:                   ; preds = %.lr.ph325.i.us
-  %66 = zext nneg i32 %44 to i64
+  %67 = zext nneg i32 %44 to i64
   %wide.trip.count.i.us = zext nneg i32 %46 to i64
   br label %.lr.ph325.split.i.us
 
 .lr.ph325.split.i.us:                             ; preds = %.lr.ph325.split.i.us, %.lr.ph325.split.preheader.i.us
-  %indvars.iv.i.us = phi i64 [ %66, %.lr.ph325.split.preheader.i.us ], [ %indvars.iv.next.i.us, %.lr.ph325.split.i.us ]
-  %67 = trunc i64 %indvars.iv.i.us to i32
-  %68 = sub i32 %67, %44
-  %69 = mul i32 %68, %63
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds float, ptr %54, i64 %70
-  %72 = mul i32 %68, %64
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds float, ptr %56, i64 %73
-  tail call void @dt_box_mean_horizontal(ptr noundef %71, i64 noundef %49, i32 noundef 16777220, i64 noundef %.pre.i, ptr noundef %61) #6
-  tail call void @dt_box_mean_horizontal(ptr noundef %74, i64 noundef %49, i32 noundef 16777225, i64 noundef %.pre.i, ptr noundef %61) #6
+  %indvars.iv.i.us = phi i64 [ %67, %.lr.ph325.split.preheader.i.us ], [ %indvars.iv.next.i.us, %.lr.ph325.split.i.us ]
+  %68 = trunc i64 %indvars.iv.i.us to i32
+  %69 = sub i32 %68, %44
+  %70 = mul i32 %69, %64
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds float, ptr %55, i64 %71
+  %73 = mul i32 %69, %65
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds float, ptr %57, i64 %74
+  tail call void @dt_box_mean_horizontal(ptr noundef %72, i64 noundef %49, i32 noundef 16777220, i64 noundef %.pre.i, ptr noundef %62) #6
+  tail call void @dt_box_mean_horizontal(ptr noundef %75, i64 noundef %49, i32 noundef 16777225, i64 noundef %.pre.i, ptr noundef %62) #6
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
   br i1 %exitcond.not.i.us, label %._crit_edge326.i.us, label %.lr.ph325.split.i.us
 
 .lr.ph.us.preheader.i.us:                         ; preds = %.lr.ph325.i.us
-  %75 = zext nneg i32 %40 to i64
-  %76 = zext nneg i32 %44 to i64
+  %76 = zext nneg i32 %40 to i64
+  %77 = zext nneg i32 %44 to i64
   %wide.trip.count349.i.us = zext nneg i32 %46 to i64
   %wide.trip.count344.i.us = zext nneg i32 %42 to i64
   br label %.lr.ph.us.i.us
 
 .lr.ph.us.i.us:                                   ; preds = %._crit_edge.us.i.us, %.lr.ph.us.preheader.i.us
-  %indvars.iv346.i.us = phi i64 [ %76, %.lr.ph.us.preheader.i.us ], [ %indvars.iv.next347.i.us, %._crit_edge.us.i.us ]
-  %77 = trunc i64 %indvars.iv346.i.us to i32
-  %78 = sub i32 %77, %44
-  %79 = mul i32 %78, %63
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds float, ptr %54, i64 %80
-  %82 = mul i32 %78, %64
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds float, ptr %56, i64 %83
-  %85 = mul nuw nsw i64 %indvars.iv346.i.us, %24
-  %86 = getelementptr float, ptr %1, i64 %85
-  br label %87
+  %indvars.iv346.i.us = phi i64 [ %77, %.lr.ph.us.preheader.i.us ], [ %indvars.iv.next347.i.us, %._crit_edge.us.i.us ]
+  %78 = trunc i64 %indvars.iv346.i.us to i32
+  %79 = sub i32 %78, %44
+  %80 = mul i32 %79, %64
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds float, ptr %55, i64 %81
+  %83 = mul i32 %79, %65
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds float, ptr %57, i64 %84
+  %86 = mul nuw nsw i64 %indvars.iv346.i.us, %24
+  %87 = getelementptr float, ptr %1, i64 %86
+  br label %88
 
-87:                                               ; preds = %87, %.lr.ph.us.i.us
-  %indvars.iv341.i.us = phi i64 [ %75, %.lr.ph.us.i.us ], [ %indvars.iv.next342.i.us, %87 ]
-  %88 = sub nuw nsw i64 %indvars.iv341.i.us, %75
-  %89 = add nuw nsw i64 %indvars.iv341.i.us, %85
-  %90 = mul i64 %89, %25
-  %91 = getelementptr inbounds nuw float, ptr %0, i64 %90
-  %92 = load float, ptr %91, align 4, !tbaa !12
-  %93 = fmul reassoc nsz arcp contract afn float %92, %8
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %95 = load float, ptr %94, align 4, !tbaa !12
-  %96 = fmul reassoc nsz arcp contract afn float %95, %8
-  %97 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %98 = load float, ptr %97, align 4, !tbaa !12
-  %99 = fmul reassoc nsz arcp contract afn float %98, %8
-  %100 = getelementptr float, ptr %86, i64 %indvars.iv341.i.us
-  %101 = load float, ptr %100, align 4, !tbaa !12
-  %.idx312.us.i.us = shl nsw i64 %88, 4
-  %102 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx312.us.i.us
-  store float %101, ptr %102, align 16, !tbaa !12
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
-  store float %93, ptr %103, align 4, !tbaa !12
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store float %96, ptr %104, align 8, !tbaa !12
-  %105 = getelementptr inbounds nuw i8, ptr %102, i64 12
-  store float %99, ptr %105, align 4, !tbaa !12
-  %106 = fmul reassoc nsz arcp contract afn float %101, %93
-  %.idx313.us.i.us = mul nuw nsw i64 %88, 36
-  %107 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx313.us.i.us
-  store float %106, ptr %107, align 4, !tbaa !12
-  %108 = fmul reassoc nsz arcp contract afn float %101, %96
-  %109 = getelementptr i8, ptr %107, i64 4
-  store float %108, ptr %109, align 4, !tbaa !12
-  %110 = fmul reassoc nsz arcp contract afn float %99, %101
-  %111 = getelementptr i8, ptr %107, i64 8
-  store float %110, ptr %111, align 4, !tbaa !12
-  %112 = fmul reassoc nsz arcp contract afn float %93, %93
-  %113 = getelementptr i8, ptr %107, i64 12
-  store float %112, ptr %113, align 4, !tbaa !12
-  %114 = fmul reassoc nsz arcp contract afn float %96, %93
-  %115 = getelementptr i8, ptr %107, i64 16
-  store float %114, ptr %115, align 4, !tbaa !12
-  %116 = fmul reassoc nsz arcp contract afn float %99, %93
-  %117 = getelementptr i8, ptr %107, i64 20
-  store float %116, ptr %117, align 4, !tbaa !12
-  %118 = fmul reassoc nsz arcp contract afn float %96, %96
-  %119 = getelementptr i8, ptr %107, i64 24
-  store float %118, ptr %119, align 4, !tbaa !12
-  %120 = fmul reassoc nsz arcp contract afn float %99, %96
-  %121 = getelementptr i8, ptr %107, i64 28
-  store float %120, ptr %121, align 4, !tbaa !12
-  %122 = fmul reassoc nsz arcp contract afn float %99, %99
-  %123 = getelementptr i8, ptr %107, i64 32
-  store float %122, ptr %123, align 4, !tbaa !12
+88:                                               ; preds = %88, %.lr.ph.us.i.us
+  %indvars.iv341.i.us = phi i64 [ %76, %.lr.ph.us.i.us ], [ %indvars.iv.next342.i.us, %88 ]
+  %89 = sub nuw nsw i64 %indvars.iv341.i.us, %76
+  %90 = add nuw nsw i64 %indvars.iv341.i.us, %86
+  %91 = mul i64 %90, %25
+  %92 = getelementptr inbounds nuw float, ptr %0, i64 %91
+  %93 = load float, ptr %92, align 4, !tbaa !12
+  %94 = fmul reassoc nsz arcp contract afn float %93, %8
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  %96 = load float, ptr %95, align 4, !tbaa !12
+  %97 = fmul reassoc nsz arcp contract afn float %96, %8
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %99 = load float, ptr %98, align 4, !tbaa !12
+  %100 = fmul reassoc nsz arcp contract afn float %99, %8
+  %101 = getelementptr float, ptr %87, i64 %indvars.iv341.i.us
+  %102 = load float, ptr %101, align 4, !tbaa !12
+  %.idx312.us.i.us = shl nsw i64 %89, 4
+  %103 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx312.us.i.us
+  store float %102, ptr %103, align 16, !tbaa !12
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
+  store float %94, ptr %104, align 4, !tbaa !12
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  store float %97, ptr %105, align 8, !tbaa !12
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 12
+  store float %100, ptr %106, align 4, !tbaa !12
+  %107 = fmul reassoc nsz arcp contract afn float %102, %94
+  %.idx313.us.i.us = mul nuw nsw i64 %89, 36
+  %108 = getelementptr inbounds nuw i8, ptr %85, i64 %.idx313.us.i.us
+  store float %107, ptr %108, align 4, !tbaa !12
+  %109 = fmul reassoc nsz arcp contract afn float %102, %97
+  %110 = getelementptr i8, ptr %108, i64 4
+  store float %109, ptr %110, align 4, !tbaa !12
+  %111 = fmul reassoc nsz arcp contract afn float %100, %102
+  %112 = getelementptr i8, ptr %108, i64 8
+  store float %111, ptr %112, align 4, !tbaa !12
+  %113 = fmul reassoc nsz arcp contract afn float %94, %94
+  %114 = getelementptr i8, ptr %108, i64 12
+  store float %113, ptr %114, align 4, !tbaa !12
+  %115 = fmul reassoc nsz arcp contract afn float %97, %94
+  %116 = getelementptr i8, ptr %108, i64 16
+  store float %115, ptr %116, align 4, !tbaa !12
+  %117 = fmul reassoc nsz arcp contract afn float %100, %94
+  %118 = getelementptr i8, ptr %108, i64 20
+  store float %117, ptr %118, align 4, !tbaa !12
+  %119 = fmul reassoc nsz arcp contract afn float %97, %97
+  %120 = getelementptr i8, ptr %108, i64 24
+  store float %119, ptr %120, align 4, !tbaa !12
+  %121 = fmul reassoc nsz arcp contract afn float %100, %97
+  %122 = getelementptr i8, ptr %108, i64 28
+  store float %121, ptr %122, align 4, !tbaa !12
+  %123 = fmul reassoc nsz arcp contract afn float %100, %100
+  %124 = getelementptr i8, ptr %108, i64 32
+  store float %123, ptr %124, align 4, !tbaa !12
   %indvars.iv.next342.i.us = add nuw nsw i64 %indvars.iv341.i.us, 1
   %exitcond345.not.i.us = icmp eq i64 %indvars.iv.next342.i.us, %wide.trip.count344.i.us
-  br i1 %exitcond345.not.i.us, label %._crit_edge.us.i.us, label %87
+  br i1 %exitcond345.not.i.us, label %._crit_edge.us.i.us, label %88
 
-._crit_edge.us.i.us:                              ; preds = %87
-  tail call void @dt_box_mean_horizontal(ptr noundef nonnull %81, i64 noundef %49, i32 noundef 16777220, i64 noundef %.pre.i, ptr noundef %61) #6
-  tail call void @dt_box_mean_horizontal(ptr noundef nonnull %84, i64 noundef %49, i32 noundef 16777225, i64 noundef %.pre.i, ptr noundef %61) #6
+._crit_edge.us.i.us:                              ; preds = %88
+  tail call void @dt_box_mean_horizontal(ptr noundef nonnull %82, i64 noundef %49, i32 noundef 16777220, i64 noundef %.pre.i, ptr noundef %62) #6
+  tail call void @dt_box_mean_horizontal(ptr noundef nonnull %85, i64 noundef %49, i32 noundef 16777225, i64 noundef %.pre.i, ptr noundef %62) #6
   %indvars.iv.next347.i.us = add nuw nsw i64 %indvars.iv346.i.us, 1
   %exitcond350.not.i.us = icmp eq i64 %indvars.iv.next347.i.us, %wide.trip.count349.i.us
   br i1 %exitcond350.not.i.us, label %._crit_edge326.i.us, label %.lr.ph.us.i.us
 
 ._crit_edge326.i.us:                              ; preds = %.lr.ph325.split.i.us, %._crit_edge.us.i.us, %33
-  %124 = mul nsw i64 %49, %50
-  tail call void @free(ptr noundef %61) #6
-  tail call void @dt_box_mean_vertical(ptr noundef %54, i64 noundef %50, i64 noundef %49, i32 noundef 16777220, i64 noundef %.pre.i) #6
-  tail call void @dt_box_mean_vertical(ptr noundef %56, i64 noundef %50, i64 noundef %49, i32 noundef 16777225, i64 noundef %.pre.i) #6
-  %.not.i.us = icmp eq i64 %124, 0
+  tail call void @free(ptr noundef %62) #6
+  tail call void @dt_box_mean_vertical(ptr noundef %55, i64 noundef %50, i64 noundef %49, i32 noundef 16777220, i64 noundef %.pre.i) #6
+  tail call void @dt_box_mean_vertical(ptr noundef %57, i64 noundef %50, i64 noundef %49, i32 noundef 16777225, i64 noundef %.pre.i) #6
+  %.not.i.us = icmp eq i64 %51, 0
   br i1 %.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %._crit_edge326.i.us, %218
   %.0271327.i.us = phi i64 [ %219, %218 ], [ 0, %._crit_edge326.i.us ]
   %.idx309.i.us = shl i64 %.0271327.i.us, 4
-  %125 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx309.i.us
+  %125 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx309.i.us
   %126 = load float, ptr %125, align 16, !tbaa !12
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %128 = load float, ptr %127, align 4, !tbaa !12
@@ -214,7 +214,7 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   %131 = getelementptr inbounds nuw i8, ptr %125, i64 12
   %132 = load float, ptr %131, align 4, !tbaa !12
   %.idx310.i.us = mul i64 %.0271327.i.us, 36
-  %133 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx310.i.us
+  %133 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx310.i.us
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 12
   %135 = load float, ptr %134, align 4, !tbaa !12
   %136 = fmul reassoc nsz arcp contract afn float %128, %128
@@ -318,12 +318,12 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   store float %.0274.i.us, ptr %129, align 8, !tbaa !12
   store float %.0275.i.us, ptr %131, align 4, !tbaa !12
   %219 = add nuw i64 %.0271327.i.us, 1
-  %exitcond351.not.i.us = icmp eq i64 %219, %124
+  %exitcond351.not.i.us = icmp eq i64 %219, %51
   br i1 %exitcond351.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us
 
 ._crit_edge.i.us:                                 ; preds = %218, %._crit_edge326.i.us
-  tail call void @free(ptr noundef %56) #6
-  tail call void @dt_box_mean(ptr noundef %54, i64 noundef %50, i64 noundef %49, i32 noundef 16777220, i64 noundef %.pre.i, i32 noundef 1) #6
+  tail call void @free(ptr noundef %57) #6
+  tail call void @dt_box_mean(ptr noundef %55, i64 noundef %50, i64 noundef %49, i32 noundef 16777220, i64 noundef %.pre.i, i32 noundef 1) #6
   br i1 %31, label %.lr.ph336.i.us, label %_guided_filter_tiling.exit.us
 
 .lr.ph336.i.us:                                   ; preds = %._crit_edge.i.us
@@ -354,7 +354,7 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   %232 = mul i64 %.0268328.us.i.us, %25
   %233 = getelementptr inbounds nuw float, ptr %0, i64 %232
   %.idx.us.i.us = shl i64 %.0267329.us.i.us, 4
-  %234 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.us.i.us
+  %234 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.us.i.us
   %235 = load float, ptr %234, align 16, !tbaa !12
   %236 = load float, ptr %233, align 4, !tbaa !12
   %237 = fmul reassoc nsz arcp contract afn float %236, %235
@@ -392,7 +392,7 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   br i1 %exitcond361.not.i.us, label %_guided_filter_tiling.exit.us, label %.lr.ph332.us.i.us
 
 _guided_filter_tiling.exit.us:                    ; preds = %._crit_edge333.us.i.us, %.lr.ph336.i.us, %._crit_edge.i.us
-  tail call void @free(ptr noundef %54) #6
+  tail call void @free(ptr noundef %55) #6
   %261 = icmp slt i64 %indvars.iv.next, %24
   br i1 %261, label %33, label %._crit_edge.us
 

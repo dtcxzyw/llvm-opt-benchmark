@@ -2096,8 +2096,8 @@ common.resume:                                    ; preds = %.body, %.body.i
   %298 = getelementptr inbounds nuw %struct.RoseLongLitHashEntry, ptr %296, i64 %294
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %298, ptr %299, align 8, !alias.scope !82
-  %300 = getelementptr inbounds nuw i8, ptr %296, i64 %295
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %296, i8 0, i64 %295, i1 false), !noalias !82
+  %300 = getelementptr inbounds nuw i8, ptr %296, i64 %295
   store ptr %300, ptr %297, align 8, !alias.scope !82
   %301 = load ptr, ptr %22, align 8, !noalias !82
   %.not58.i = icmp eq ptr %301, %20

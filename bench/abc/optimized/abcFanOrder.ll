@@ -2965,32 +2965,32 @@ define range(i32 0, 2) i32 @Abc_NodeMakeSCCFree(ptr noundef readonly captures(no
   %.val.fr = freeze i32 %.val
   %5 = load i8, ptr %3, align 1, !tbaa !35
   %.not59 = icmp eq i8 %5, 0
-  br i1 %.not59, label %._crit_edge65.thread, label %.lr.ph64
+  br i1 %.not59, label %._crit_edge64.thread, label %.lr.ph63
 
-.lr.ph64:                                         ; preds = %1
+.lr.ph63:                                         ; preds = %1
   %6 = sext i32 %.val.fr to i64
   %7 = icmp sgt i32 %.val.fr, 0
   %wide.trip.count.i = zext nneg i32 %.val.fr to i64
-  br i1 %7, label %.lr.ph64.split.us, label %.lr.ph64.split
+  br i1 %7, label %.lr.ph63.split.us, label %.lr.ph63.split
 
-.lr.ph64.split.us:                                ; preds = %.lr.ph64, %._crit_edge.split.us.us
-  %.062.us = phi i32 [ %.2.us.us, %._crit_edge.split.us.us ], [ 0, %.lr.ph64 ]
-  %.03660.us = phi ptr [ %.04055.us, %._crit_edge.split.us.us ], [ %3, %.lr.ph64 ]
+.lr.ph63.split.us:                                ; preds = %.lr.ph63, %._crit_edge.split.us.us
+  %.061.us = phi i32 [ %.2.us.us, %._crit_edge.split.us.us ], [ 0, %.lr.ph63 ]
+  %.03660.us = phi ptr [ %.04055.us, %._crit_edge.split.us.us ], [ %3, %.lr.ph63 ]
   %8 = getelementptr i8, ptr %.03660.us, i64 %6
   %.04055.us = getelementptr i8, ptr %8, i64 3
   %9 = load i8, ptr %.04055.us, align 1, !tbaa !35
   %.not4456.us = icmp eq i8 %9, 0
-  br i1 %.not4456.us, label %._crit_edge65, label %.lr.ph.us
+  br i1 %.not4456.us, label %._crit_edge64, label %.lr.ph.us
 
 ._crit_edge.split.us.us:                          ; preds = %.thread.us.us
-  %.pre69 = load i8, ptr %.04055.us, align 1, !tbaa !35
-  %10 = icmp eq i8 %.pre69, 0
-  br i1 %10, label %._crit_edge65, label %.lr.ph64.split.us, !llvm.loop !88
+  %.pre68 = load i8, ptr %.04055.us, align 1, !tbaa !35
+  %10 = icmp eq i8 %.pre68, 0
+  br i1 %10, label %._crit_edge64, label %.lr.ph63.split.us, !llvm.loop !88
 
-.lr.ph.us:                                        ; preds = %.lr.ph64.split.us, %.thread.us.us
-  %11 = phi i8 [ %35, %.thread.us.us ], [ %9, %.lr.ph64.split.us ]
-  %.04058.us.us = phi ptr [ %.040.us.us, %.thread.us.us ], [ %.04055.us, %.lr.ph64.split.us ]
-  %.157.us.us = phi i32 [ %.2.us.us, %.thread.us.us ], [ %.062.us, %.lr.ph64.split.us ]
+.lr.ph.us:                                        ; preds = %.lr.ph63.split.us, %.thread.us.us
+  %11 = phi i8 [ %35, %.thread.us.us ], [ %9, %.lr.ph63.split.us ]
+  %.04058.us.us = phi ptr [ %.040.us.us, %.thread.us.us ], [ %.04055.us, %.lr.ph63.split.us ]
+  %.157.us.us = phi i32 [ %.2.us.us, %.thread.us.us ], [ %.061.us, %.lr.ph63.split.us ]
   %12 = load i8, ptr %.03660.us, align 1, !tbaa !35
   %13 = icmp eq i8 %12, 122
   %14 = icmp eq i8 %11, 122
@@ -3057,19 +3057,19 @@ Abc_CubeContain.exit.us.us:                       ; preds = %27
   %.not44.us.us = icmp eq i8 %35, 0
   br i1 %.not44.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !90
 
-.lr.ph64.split:                                   ; preds = %.lr.ph64, %._crit_edge.split
-  %.062 = phi i32 [ %.2, %._crit_edge.split ], [ 0, %.lr.ph64 ]
-  %.03660 = phi ptr [ %.04055, %._crit_edge.split ], [ %3, %.lr.ph64 ]
+.lr.ph63.split:                                   ; preds = %.lr.ph63, %._crit_edge.split
+  %.061 = phi i32 [ %.2, %._crit_edge.split ], [ 0, %.lr.ph63 ]
+  %.03660 = phi ptr [ %.04055, %._crit_edge.split ], [ %3, %.lr.ph63 ]
   %36 = getelementptr i8, ptr %.03660, i64 %6
   %.04055 = getelementptr i8, ptr %36, i64 3
   %37 = load i8, ptr %.04055, align 1, !tbaa !35
   %.not4456 = icmp eq i8 %37, 0
-  br i1 %.not4456, label %._crit_edge65, label %.lr.ph
+  br i1 %.not4456, label %._crit_edge64, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph64.split, %.thread
-  %38 = phi i8 [ %44, %.thread ], [ %37, %.lr.ph64.split ]
-  %.04058 = phi ptr [ %.040, %.thread ], [ %.04055, %.lr.ph64.split ]
-  %.157 = phi i32 [ %.2, %.thread ], [ %.062, %.lr.ph64.split ]
+.lr.ph:                                           ; preds = %.lr.ph63.split, %.thread
+  %38 = phi i8 [ %44, %.thread ], [ %37, %.lr.ph63.split ]
+  %.04058 = phi ptr [ %.040, %.thread ], [ %.04055, %.lr.ph63.split ]
+  %.157 = phi i32 [ %.2, %.thread ], [ %.061, %.lr.ph63.split ]
   %39 = load i8, ptr %.03660, align 1, !tbaa !35
   %40 = icmp eq i8 %39, 122
   %41 = icmp eq i8 %38, 122
@@ -3092,14 +3092,14 @@ Abc_CubeContain.exit.thread50:                    ; preds = %.lr.ph
 ._crit_edge.split:                                ; preds = %.thread
   %.pre = load i8, ptr %.04055, align 1, !tbaa !35
   %45 = icmp eq i8 %.pre, 0
-  br i1 %45, label %._crit_edge65, label %.lr.ph64.split, !llvm.loop !88
+  br i1 %45, label %._crit_edge64, label %.lr.ph63.split, !llvm.loop !88
 
-._crit_edge65:                                    ; preds = %.lr.ph64.split, %._crit_edge.split, %.lr.ph64.split.us, %._crit_edge.split.us.us
-  %.0.lcssa = phi i32 [ %.062.us, %.lr.ph64.split.us ], [ %.2.us.us, %._crit_edge.split.us.us ], [ %.062, %.lr.ph64.split ], [ %.2, %._crit_edge.split ]
+._crit_edge64:                                    ; preds = %.lr.ph63.split, %._crit_edge.split, %.lr.ph63.split.us, %._crit_edge.split.us.us
+  %.0.lcssa = phi i32 [ %.061.us, %.lr.ph63.split.us ], [ %.2.us.us, %._crit_edge.split.us.us ], [ %.061, %.lr.ph63.split ], [ %.2, %._crit_edge.split ]
   %46 = icmp eq i32 %.0.lcssa, 0
-  br i1 %46, label %._crit_edge65.thread, label %47
+  br i1 %46, label %._crit_edge64.thread, label %47
 
-47:                                               ; preds = %._crit_edge65
+47:                                               ; preds = %._crit_edge64
   %48 = load ptr, ptr %2, align 8, !tbaa !35
   %49 = add nsw i32 %.val.fr, 3
   %50 = sext i32 %49 to i64
@@ -3128,10 +3128,10 @@ Abc_CubeContain.exit.thread50:                    ; preds = %.lr.ph
 
 59:                                               ; preds = %52
   store i8 0, ptr %.038, align 1, !tbaa !35
-  br label %._crit_edge65.thread
+  br label %._crit_edge64.thread
 
-._crit_edge65.thread:                             ; preds = %1, %._crit_edge65, %59
-  %.035 = phi i32 [ 1, %59 ], [ 0, %._crit_edge65 ], [ 0, %1 ]
+._crit_edge64.thread:                             ; preds = %1, %._crit_edge64, %59
+  %.035 = phi i32 [ 1, %59 ], [ 0, %._crit_edge64 ], [ 0, %1 ]
   ret i32 %.035
 }
 
@@ -3391,11 +3391,11 @@ define noundef i32 @Abc_NtkMakeLegit(ptr noundef readonly captures(none) %0) loc
   %.045.i57 = phi i32 [ 0, %.lr.ph.i.i.lr.ph ], [ %107, %Abc_NodeMakeSCCFree.exit ]
   %20 = sext i32 %.val.fr.i.i59 to i64
   %21 = icmp sgt i32 %.val.fr.i.i59, 0
-  br i1 %21, label %.lr.ph.split.us.preheader.i.i, label %.lr.ph64.i.thread
+  br i1 %21, label %.lr.ph.split.us.preheader.i.i, label %.lr.ph63.i.thread
 
-.lr.ph64.i.thread:                                ; preds = %.lr.ph.i.i
+.lr.ph63.i.thread:                                ; preds = %.lr.ph.i.i
   %22 = sext i32 %.val.fr.i.i59 to i64
-  br label %.lr.ph64.split.i.preheader
+  br label %.lr.ph63.split.i.preheader
 
 .lr.ph.split.us.preheader.i.i:                    ; preds = %.lr.ph.i.i
   %wide.trip.count.i.i = zext nneg i32 %.val.fr.i.i59 to i64
@@ -3479,38 +3479,38 @@ Abc_NodeMakeDist1Free.exit.i:                     ; preds = %._crit_edge48.split
   %.pre28 = load i8, ptr %.pre, align 1, !tbaa !35
   %.pre30 = freeze i32 %.val.i.pre
   %50 = icmp eq i8 %.pre28, 0
-  br i1 %50, label %Abc_NodeMakeLegit.exit.loopexit, label %.lr.ph64.i
+  br i1 %50, label %Abc_NodeMakeLegit.exit.loopexit, label %.lr.ph63.i
 
-.lr.ph64.i:                                       ; preds = %Abc_NodeMakeDist1Free.exit.i
+.lr.ph63.i:                                       ; preds = %Abc_NodeMakeDist1Free.exit.i
   %51 = sext i32 %.pre30 to i64
   %52 = icmp sgt i32 %.pre30, 0
   %wide.trip.count.i.i15 = zext nneg i32 %.pre30 to i64
-  br i1 %52, label %.lr.ph64.split.us.i, label %.lr.ph64.split.i.preheader
+  br i1 %52, label %.lr.ph63.split.us.i, label %.lr.ph63.split.i.preheader
 
-.lr.ph64.split.i.preheader:                       ; preds = %.lr.ph64.i.thread, %.lr.ph64.i
-  %53 = phi i64 [ %22, %.lr.ph64.i.thread ], [ %51, %.lr.ph64.i ]
-  %.val.fr.i.pre-phi4347 = phi i32 [ %.val.fr.i.i59, %.lr.ph64.i.thread ], [ %.pre30, %.lr.ph64.i ]
-  %54 = phi ptr [ %19, %.lr.ph64.i.thread ], [ %.pre, %.lr.ph64.i ]
-  br label %.lr.ph64.split.i
+.lr.ph63.split.i.preheader:                       ; preds = %.lr.ph63.i.thread, %.lr.ph63.i
+  %53 = phi i64 [ %22, %.lr.ph63.i.thread ], [ %51, %.lr.ph63.i ]
+  %.val.fr.i.pre-phi4347 = phi i32 [ %.val.fr.i.i59, %.lr.ph63.i.thread ], [ %.pre30, %.lr.ph63.i ]
+  %54 = phi ptr [ %19, %.lr.ph63.i.thread ], [ %.pre, %.lr.ph63.i ]
+  br label %.lr.ph63.split.i
 
-.lr.ph64.split.us.i:                              ; preds = %.lr.ph64.i, %._crit_edge.split.us.us.i
-  %.062.us.i = phi i32 [ %.2.us.us.i, %._crit_edge.split.us.us.i ], [ 0, %.lr.ph64.i ]
-  %.03660.us.i = phi ptr [ %.04055.us.i, %._crit_edge.split.us.us.i ], [ %.pre, %.lr.ph64.i ]
+.lr.ph63.split.us.i:                              ; preds = %.lr.ph63.i, %._crit_edge.split.us.us.i
+  %.061.us.i = phi i32 [ %.2.us.us.i, %._crit_edge.split.us.us.i ], [ 0, %.lr.ph63.i ]
+  %.03660.us.i = phi ptr [ %.04055.us.i, %._crit_edge.split.us.us.i ], [ %.pre, %.lr.ph63.i ]
   %55 = getelementptr i8, ptr %.03660.us.i, i64 %51
   %.04055.us.i = getelementptr i8, ptr %55, i64 3
   %56 = load i8, ptr %.04055.us.i, align 1, !tbaa !35
   %.not4456.us.i = icmp eq i8 %56, 0
-  br i1 %.not4456.us.i, label %._crit_edge65.i, label %.lr.ph.us.i
+  br i1 %.not4456.us.i, label %._crit_edge64.i, label %.lr.ph.us.i
 
 ._crit_edge.split.us.us.i:                        ; preds = %.thread.us.us.i
-  %.pre69.i = load i8, ptr %.04055.us.i, align 1, !tbaa !35
-  %57 = icmp eq i8 %.pre69.i, 0
-  br i1 %57, label %._crit_edge65.i, label %.lr.ph64.split.us.i, !llvm.loop !88
+  %.pre68.i = load i8, ptr %.04055.us.i, align 1, !tbaa !35
+  %57 = icmp eq i8 %.pre68.i, 0
+  br i1 %57, label %._crit_edge64.i, label %.lr.ph63.split.us.i, !llvm.loop !88
 
-.lr.ph.us.i:                                      ; preds = %.lr.ph64.split.us.i, %.thread.us.us.i
-  %58 = phi i8 [ %82, %.thread.us.us.i ], [ %56, %.lr.ph64.split.us.i ]
-  %.04058.us.us.i = phi ptr [ %.040.us.us.i, %.thread.us.us.i ], [ %.04055.us.i, %.lr.ph64.split.us.i ]
-  %.157.us.us.i = phi i32 [ %.2.us.us.i, %.thread.us.us.i ], [ %.062.us.i, %.lr.ph64.split.us.i ]
+.lr.ph.us.i:                                      ; preds = %.lr.ph63.split.us.i, %.thread.us.us.i
+  %58 = phi i8 [ %82, %.thread.us.us.i ], [ %56, %.lr.ph63.split.us.i ]
+  %.04058.us.us.i = phi ptr [ %.040.us.us.i, %.thread.us.us.i ], [ %.04055.us.i, %.lr.ph63.split.us.i ]
+  %.157.us.us.i = phi i32 [ %.2.us.us.i, %.thread.us.us.i ], [ %.061.us.i, %.lr.ph63.split.us.i ]
   %59 = load i8, ptr %.03660.us.i, align 1, !tbaa !35
   %60 = icmp eq i8 %59, 122
   %61 = icmp eq i8 %58, 122
@@ -3577,19 +3577,19 @@ Abc_CubeContain.exit.us.us.i:                     ; preds = %74
   %.not44.us.us.i = icmp eq i8 %82, 0
   br i1 %.not44.us.us.i, label %._crit_edge.split.us.us.i, label %.lr.ph.us.i, !llvm.loop !90
 
-.lr.ph64.split.i:                                 ; preds = %.lr.ph64.split.i.preheader, %._crit_edge.split.i
-  %.062.i = phi i32 [ %.2.i, %._crit_edge.split.i ], [ 0, %.lr.ph64.split.i.preheader ]
-  %.03660.i = phi ptr [ %.04055.i, %._crit_edge.split.i ], [ %54, %.lr.ph64.split.i.preheader ]
+.lr.ph63.split.i:                                 ; preds = %.lr.ph63.split.i.preheader, %._crit_edge.split.i
+  %.061.i = phi i32 [ %.2.i, %._crit_edge.split.i ], [ 0, %.lr.ph63.split.i.preheader ]
+  %.03660.i = phi ptr [ %.04055.i, %._crit_edge.split.i ], [ %54, %.lr.ph63.split.i.preheader ]
   %83 = getelementptr i8, ptr %.03660.i, i64 %53
   %.04055.i = getelementptr i8, ptr %83, i64 3
   %84 = load i8, ptr %.04055.i, align 1, !tbaa !35
   %.not4456.i = icmp eq i8 %84, 0
-  br i1 %.not4456.i, label %._crit_edge65.i, label %.lr.ph.i
+  br i1 %.not4456.i, label %._crit_edge64.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph64.split.i, %.thread.i
-  %85 = phi i8 [ %91, %.thread.i ], [ %84, %.lr.ph64.split.i ]
-  %.04058.i = phi ptr [ %.040.i, %.thread.i ], [ %.04055.i, %.lr.ph64.split.i ]
-  %.157.i = phi i32 [ %.2.i, %.thread.i ], [ %.062.i, %.lr.ph64.split.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph63.split.i, %.thread.i
+  %85 = phi i8 [ %91, %.thread.i ], [ %84, %.lr.ph63.split.i ]
+  %.04058.i = phi ptr [ %.040.i, %.thread.i ], [ %.04055.i, %.lr.ph63.split.i ]
+  %.157.i = phi i32 [ %.2.i, %.thread.i ], [ %.061.i, %.lr.ph63.split.i ]
   %86 = load i8, ptr %.03660.i, align 1, !tbaa !35
   %87 = icmp eq i8 %86, 122
   %88 = icmp eq i8 %85, 122
@@ -3612,17 +3612,17 @@ Abc_CubeContain.exit.thread50.i:                  ; preds = %.lr.ph.i
 ._crit_edge.split.i:                              ; preds = %.thread.i
   %.pre.i = load i8, ptr %.04055.i, align 1, !tbaa !35
   %92 = icmp eq i8 %.pre.i, 0
-  br i1 %92, label %._crit_edge65.i, label %.lr.ph64.split.i, !llvm.loop !88
+  br i1 %92, label %._crit_edge64.i, label %.lr.ph63.split.i, !llvm.loop !88
 
-._crit_edge65.i:                                  ; preds = %._crit_edge.split.i, %.lr.ph64.split.i, %._crit_edge.split.us.us.i, %.lr.ph64.split.us.i
-  %93 = phi i64 [ %51, %.lr.ph64.split.us.i ], [ %51, %._crit_edge.split.us.us.i ], [ %53, %.lr.ph64.split.i ], [ %53, %._crit_edge.split.i ]
-  %.val.fr.i.pre-phi4346 = phi i32 [ %.pre30, %.lr.ph64.split.us.i ], [ %.pre30, %._crit_edge.split.us.us.i ], [ %.val.fr.i.pre-phi4347, %.lr.ph64.split.i ], [ %.val.fr.i.pre-phi4347, %._crit_edge.split.i ]
-  %94 = phi ptr [ %.pre, %.lr.ph64.split.us.i ], [ %.pre, %._crit_edge.split.us.us.i ], [ %54, %.lr.ph64.split.i ], [ %54, %._crit_edge.split.i ]
-  %.0.lcssa.i = phi i32 [ %.2.us.us.i, %._crit_edge.split.us.us.i ], [ %.062.us.i, %.lr.ph64.split.us.i ], [ %.2.i, %._crit_edge.split.i ], [ %.062.i, %.lr.ph64.split.i ]
+._crit_edge64.i:                                  ; preds = %._crit_edge.split.i, %.lr.ph63.split.i, %._crit_edge.split.us.us.i, %.lr.ph63.split.us.i
+  %93 = phi i64 [ %51, %.lr.ph63.split.us.i ], [ %51, %._crit_edge.split.us.us.i ], [ %53, %.lr.ph63.split.i ], [ %53, %._crit_edge.split.i ]
+  %.val.fr.i.pre-phi4346 = phi i32 [ %.pre30, %.lr.ph63.split.us.i ], [ %.pre30, %._crit_edge.split.us.us.i ], [ %.val.fr.i.pre-phi4347, %.lr.ph63.split.i ], [ %.val.fr.i.pre-phi4347, %._crit_edge.split.i ]
+  %94 = phi ptr [ %.pre, %.lr.ph63.split.us.i ], [ %.pre, %._crit_edge.split.us.us.i ], [ %54, %.lr.ph63.split.i ], [ %54, %._crit_edge.split.i ]
+  %.0.lcssa.i = phi i32 [ %.2.us.us.i, %._crit_edge.split.us.us.i ], [ %.061.us.i, %.lr.ph63.split.us.i ], [ %.2.i, %._crit_edge.split.i ], [ %.061.i, %.lr.ph63.split.i ]
   %95 = icmp eq i32 %.0.lcssa.i, 0
   br i1 %95, label %Abc_NodeMakeLegit.exit.loopexit, label %96
 
-96:                                               ; preds = %._crit_edge65.i
+96:                                               ; preds = %._crit_edge64.i
   %97 = load ptr, ptr %15, align 8, !tbaa !35
   %98 = add nsw i32 %.val.fr.i.pre-phi4346, 3
   %99 = sext i32 %98 to i64
@@ -3658,8 +3658,8 @@ Abc_NodeMakeSCCFree.exit:                         ; preds = %100
   %.not49.i.i = icmp eq i8 %109, 0
   br i1 %.not49.i.i, label %Abc_NodeMakeLegit.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !95
 
-Abc_NodeMakeLegit.exit.loopexit:                  ; preds = %Abc_NodeMakeSCCFree.exit, %._crit_edge65.i, %Abc_NodeMakeDist1Free.exit.i
-  %.045.i.lcssa.ph = phi i32 [ %.045.i57, %Abc_NodeMakeDist1Free.exit.i ], [ %.045.i57, %._crit_edge65.i ], [ 1, %Abc_NodeMakeSCCFree.exit ]
+Abc_NodeMakeLegit.exit.loopexit:                  ; preds = %Abc_NodeMakeSCCFree.exit, %._crit_edge64.i, %Abc_NodeMakeDist1Free.exit.i
+  %.045.i.lcssa.ph = phi i32 [ %.045.i57, %Abc_NodeMakeDist1Free.exit.i ], [ %.045.i57, %._crit_edge64.i ], [ 1, %Abc_NodeMakeSCCFree.exit ]
   %110 = icmp ne i32 %.045.i.lcssa.ph, 0
   %111 = zext i1 %110 to i32
   br label %Abc_NodeMakeLegit.exit

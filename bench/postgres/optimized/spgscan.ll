@@ -841,8 +841,8 @@ BufferGetPage.exit:                               ; preds = %84, %90
   %109 = add nuw nsw i32 %108, 262120
   %110 = lshr i32 %109, 2
   %111 = trunc i32 %110 to i16
-  %.not86146184 = icmp eq i16 %111, 0
-  %.not86146 = select i1 %107, i1 true, i1 %.not86146184
+  %.not86146185 = icmp eq i16 %111, 0
+  %.not86146 = select i1 %107, i1 true, i1 %.not86146185
   br i1 %.not86146, label %.thread104, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader110, %.lr.ph

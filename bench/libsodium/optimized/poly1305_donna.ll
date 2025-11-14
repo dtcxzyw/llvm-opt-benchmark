@@ -44,78 +44,78 @@ define internal noundef i32 @crypto_onetimeauth_poly1305_donna(ptr noundef %0, p
 
 26:                                               ; preds = %4
   %27 = and i64 %2, -16
-  %28 = mul nuw nsw i64 %11, 20
-  %29 = mul nuw nsw i64 %14, 20
-  %30 = zext nneg i64 %9 to i128
-  %31 = zext nneg i64 %29 to i128
-  %32 = zext nneg i64 %28 to i128
-  %33 = zext nneg i64 %11 to i128
-  %34 = zext nneg i64 %14 to i128
-  br label %35
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %30 = mul nuw nsw i64 %11, 20
+  %31 = mul nuw nsw i64 %14, 20
+  %32 = zext nneg i64 %9 to i128
+  %33 = zext nneg i64 %31 to i128
+  %34 = zext nneg i64 %30 to i128
+  %35 = zext nneg i64 %11 to i128
+  %36 = zext nneg i64 %14 to i128
+  br label %37
 
-35:                                               ; preds = %35, %26
-  %.081.i = phi ptr [ %1, %26 ], [ %82, %35 ]
-  %.07380.i = phi i64 [ %27, %26 ], [ %83, %35 ]
-  %.07479.i = phi i64 [ 0, %26 ], [ %80, %35 ]
-  %.07578.i = phi i64 [ 0, %26 ], [ %81, %35 ]
-  %.07677.i = phi i64 [ 0, %26 ], [ %76, %35 ]
-  %36 = load i64, ptr %.081.i, align 1
-  %37 = getelementptr i8, ptr %.081.i, i64 8
-  %38 = load i64, ptr %37, align 1
-  %39 = and i64 %36, 17592186044415
-  %40 = add nuw nsw i64 %39, %.07479.i
-  %41 = tail call i64 @llvm.fshl.i64(i64 %38, i64 %36, i64 20)
-  %42 = and i64 %41, 17592186044415
-  %43 = add nuw nsw i64 %42, %.07578.i
-  %44 = lshr i64 %38, 24
-  %45 = add nuw nsw i64 %.07677.i, 1099511627776
-  %46 = add nuw nsw i64 %45, %44
-  %47 = zext nneg i64 %40 to i128
-  %48 = mul nuw nsw i128 %47, %30
-  %49 = zext nneg i64 %43 to i128
-  %50 = mul nuw nsw i128 %49, %31
-  %51 = zext nneg i64 %46 to i128
-  %52 = mul nuw nsw i128 %51, %32
-  %53 = add nuw nsw i128 %52, %48
-  %54 = add nuw nsw i128 %53, %50
-  %55 = mul nuw nsw i128 %47, %33
-  %56 = mul nuw nsw i128 %49, %30
-  %57 = mul nuw nsw i128 %51, %31
-  %58 = mul nuw nsw i128 %47, %34
-  %59 = mul nuw nsw i128 %49, %33
-  %60 = mul nuw nsw i128 %51, %30
-  %61 = lshr i128 %54, 44
-  %62 = trunc i128 %54 to i64
-  %63 = and i64 %62, 17592186044415
-  %64 = add nuw nsw i128 %57, %55
-  %65 = add nuw nsw i128 %64, %56
-  %66 = add nuw nsw i128 %65, %61
-  %67 = lshr i128 %66, 44
-  %68 = trunc i128 %66 to i64
-  %69 = and i64 %68, 17592186044415
-  %70 = add nuw nsw i128 %60, %58
-  %71 = add nuw nsw i128 %70, %59
-  %72 = add nuw nsw i128 %71, %67
-  %73 = lshr i128 %72, 42
-  %74 = trunc nuw nsw i128 %73 to i64
-  %75 = trunc i128 %72 to i64
-  %76 = and i64 %75, 4398046511103
-  %77 = mul nuw nsw i64 %74, 5
-  %78 = add nuw nsw i64 %77, %63
-  %79 = lshr i64 %78, 44
-  %80 = and i64 %78, 17592186044415
-  %81 = add nuw nsw i64 %79, %69
-  %82 = getelementptr i8, ptr %.081.i, i64 16
-  %83 = add i64 %.07380.i, -16
-  %.not = icmp eq i64 %83, 0
-  br i1 %.not, label %poly1305_blocks.exit, label %35, !llvm.loop !4
+37:                                               ; preds = %37, %26
+  %.081.i = phi ptr [ %1, %26 ], [ %84, %37 ]
+  %.07380.i = phi i64 [ %27, %26 ], [ %85, %37 ]
+  %.07479.i = phi i64 [ 0, %26 ], [ %82, %37 ]
+  %.07578.i = phi i64 [ 0, %26 ], [ %83, %37 ]
+  %.07677.i = phi i64 [ 0, %26 ], [ %78, %37 ]
+  %38 = load i64, ptr %.081.i, align 1
+  %39 = getelementptr i8, ptr %.081.i, i64 8
+  %40 = load i64, ptr %39, align 1
+  %41 = and i64 %38, 17592186044415
+  %42 = add nuw nsw i64 %41, %.07479.i
+  %43 = tail call i64 @llvm.fshl.i64(i64 %40, i64 %38, i64 20)
+  %44 = and i64 %43, 17592186044415
+  %45 = add nuw nsw i64 %44, %.07578.i
+  %46 = lshr i64 %40, 24
+  %47 = add nuw nsw i64 %.07677.i, 1099511627776
+  %48 = add nuw nsw i64 %47, %46
+  %49 = zext nneg i64 %42 to i128
+  %50 = mul nuw nsw i128 %49, %32
+  %51 = zext nneg i64 %45 to i128
+  %52 = mul nuw nsw i128 %51, %33
+  %53 = zext nneg i64 %48 to i128
+  %54 = mul nuw nsw i128 %53, %34
+  %55 = add nuw nsw i128 %54, %50
+  %56 = add nuw nsw i128 %55, %52
+  %57 = mul nuw nsw i128 %49, %35
+  %58 = mul nuw nsw i128 %51, %32
+  %59 = mul nuw nsw i128 %53, %33
+  %60 = mul nuw nsw i128 %49, %36
+  %61 = mul nuw nsw i128 %51, %35
+  %62 = mul nuw nsw i128 %53, %32
+  %63 = lshr i128 %56, 44
+  %64 = trunc i128 %56 to i64
+  %65 = and i64 %64, 17592186044415
+  %66 = add nuw nsw i128 %59, %57
+  %67 = add nuw nsw i128 %66, %58
+  %68 = add nuw nsw i128 %67, %63
+  %69 = lshr i128 %68, 44
+  %70 = trunc i128 %68 to i64
+  %71 = and i64 %70, 17592186044415
+  %72 = add nuw nsw i128 %62, %60
+  %73 = add nuw nsw i128 %72, %61
+  %74 = add nuw nsw i128 %73, %69
+  %75 = lshr i128 %74, 42
+  %76 = trunc nuw nsw i128 %75 to i64
+  %77 = trunc i128 %74 to i64
+  %78 = and i64 %77, 4398046511103
+  %79 = mul nuw nsw i64 %76, 5
+  %80 = add nuw nsw i64 %79, %65
+  %81 = lshr i64 %80, 44
+  %82 = and i64 %80, 17592186044415
+  %83 = add nuw nsw i64 %81, %71
+  %84 = getelementptr i8, ptr %.081.i, i64 16
+  %85 = add i64 %.07380.i, -16
+  %.not = icmp eq i64 %85, 0
+  br i1 %.not, label %poly1305_blocks.exit, label %37, !llvm.loop !4
 
-poly1305_blocks.exit:                             ; preds = %35
-  %84 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 %80, ptr %16, align 8
-  store i64 %81, ptr %84, align 32
-  store i64 %76, ptr %85, align 8
+poly1305_blocks.exit:                             ; preds = %37
+  store i64 %82, ptr %16, align 8
+  store i64 %83, ptr %28, align 32
+  store i64 %78, ptr %29, align 8
   %86 = getelementptr i8, ptr %1, i64 %27
   %87 = and i64 %2, 15
   br label %88

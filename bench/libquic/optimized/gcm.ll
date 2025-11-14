@@ -426,14 +426,14 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef
   store i8 %54, ptr %52, align 1, !tbaa !12
   %55 = add nuw i64 %.05269, 1
   %exitcond.not = icmp eq i64 %55, %.255
-  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %49, !llvm.loop !31
 
-.loopexit:                                        ; preds = %49
+.loopexit.loopexit:                               ; preds = %49
   %56 = trunc nuw nsw i64 %.255 to i32
   br label %.sink.split
 
-.sink.split:                                      ; preds = %46, %.loopexit, %._crit_edge, %.preheader
-  %.251.sink = phi i32 [ %29, %._crit_edge ], [ %18, %.preheader ], [ 0, %46 ], [ %56, %.loopexit ]
+.sink.split:                                      ; preds = %46, %.loopexit.loopexit, %._crit_edge, %.preheader
+  %.251.sink = phi i32 [ %29, %._crit_edge ], [ %18, %.preheader ], [ 0, %46 ], [ %56, %.loopexit.loopexit ]
   store i32 %.251.sink, ptr %17, align 4, !tbaa !23
   br label %57
 

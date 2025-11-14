@@ -898,21 +898,21 @@ define internal fastcc void @WhirlpoolTransform(ptr noundef captures(none) %0) u
   br i1 %exitcond142.not, label %696, label %84
 
 696:                                              ; preds = %84
-  %697 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %698 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %699 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %697 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %698 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %699 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %700 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %701 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %702 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %703 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %701 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %702 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %703 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %429, ptr %3, align 16, !tbaa !12
-  store i64 %695, ptr %703, align 8, !tbaa !12
-  store i64 %657, ptr %702, align 16, !tbaa !12
-  store i64 %619, ptr %701, align 8, !tbaa !12
+  store i64 %695, ptr %697, align 8, !tbaa !12
+  store i64 %657, ptr %698, align 16, !tbaa !12
+  store i64 %619, ptr %699, align 8, !tbaa !12
   store i64 %581, ptr %700, align 16, !tbaa !12
-  store i64 %543, ptr %699, align 8, !tbaa !12
-  store i64 %505, ptr %698, align 16, !tbaa !12
-  store i64 %467, ptr %697, align 8, !tbaa !12
+  store i64 %543, ptr %701, align 8, !tbaa !12
+  store i64 %505, ptr %702, align 16, !tbaa !12
+  store i64 %467, ptr %703, align 8, !tbaa !12
   %704 = xor i64 %46, %429
   %705 = xor i64 %704, %47
   store i64 %705, ptr %0, align 8, !tbaa !12

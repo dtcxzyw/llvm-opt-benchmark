@@ -2230,7 +2230,7 @@ define dso_local noundef range(i32 1, 24) i32 @_ZN4llvm7TGLexer9LexNumberEv(ptr 
   %19 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !104
   %.not = icmp eq i16 %20, -1
-  br i1 %.not, label %.loopexit19, label %.preheader, !llvm.loop !106
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !106
 
 .critedge:                                        ; preds = %13, %.critedge
   %21 = phi ptr [ %22, %.critedge ], [ %9, %13 ]
@@ -2239,7 +2239,7 @@ define dso_local noundef range(i32 1, 24) i32 @_ZN4llvm7TGLexer9LexNumberEv(ptr 
   %23 = load i8, ptr %22, align 1, !tbaa !14
   %24 = and i8 %23, -2
   %switch = icmp eq i8 %24, 48
-  br i1 %switch, label %.critedge, label %.loopexit19
+  br i1 %switch, label %.critedge, label %.loopexit
 
 25:                                               ; preds = %1, %13
   %26 = add i8 %.pre, -48
@@ -2248,120 +2248,116 @@ define dso_local noundef range(i32 1, 24) i32 @_ZN4llvm7TGLexer9LexNumberEv(ptr 
 
 28:                                               ; preds = %25
   switch i8 %11, label %30 [
-    i8 45, label %70
+    i8 45, label %69
     i8 43, label %29
   ]
 
 29:                                               ; preds = %28
-  br label %70
+  br label %69
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !74
+  %33 = icmp eq i8 %11, 45
   br label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %25
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !74
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %35 = load ptr, ptr %34, align 8, !tbaa !74
+  %36 = icmp eq i8 %11, 45
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %35 = phi ptr [ %36, %.lr.ph ], [ %9, %.lr.ph.preheader ]
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  store ptr %36, ptr %8, align 8, !tbaa !57
-  %37 = load i8, ptr %36, align 1, !tbaa !14
-  %38 = add i8 %37, -48
-  %39 = icmp ult i8 %38, 10
-  br i1 %39, label %.lr.ph, label %.loopexit, !llvm.loop !107
+  %37 = phi ptr [ %38, %.lr.ph ], [ %9, %.lr.ph.preheader ]
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  store ptr %38, ptr %8, align 8, !tbaa !57
+  %39 = load i8, ptr %38, align 1, !tbaa !14
+  %40 = add i8 %39, -48
+  %41 = icmp ult i8 %40, 10
+  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !107
 
-.loopexit:                                        ; preds = %.lr.ph, %30
-  %40 = phi ptr [ %32, %30 ], [ %34, %.lr.ph ]
-  %41 = phi ptr [ %9, %30 ], [ %36, %.lr.ph ]
-  %42 = icmp eq i8 %11, 45
-  br label %.loopexit19
+.loopexit:                                        ; preds = %.critedge, %.preheader, %.lr.ph, %30
+  %42 = phi ptr [ %9, %30 ], [ %38, %.lr.ph ], [ %16, %.preheader ], [ %22, %.critedge ]
+  %43 = phi i32 [ 22, %30 ], [ 22, %.lr.ph ], [ 22, %.preheader ], [ 23, %.critedge ]
+  %.111 = phi i32 [ 10, %30 ], [ 10, %.lr.ph ], [ 16, %.preheader ], [ 2, %.critedge ]
+  %.1 = phi ptr [ %32, %30 ], [ %35, %.lr.ph ], [ %14, %.preheader ], [ %14, %.critedge ]
+  %.0 = phi i1 [ %33, %30 ], [ %36, %.lr.ph ], [ false, %.preheader ], [ false, %.critedge ]
+  %44 = icmp eq ptr %42, %.1
+  br i1 %44, label %45, label %50
 
-.loopexit19:                                      ; preds = %.critedge, %.preheader, %.loopexit
-  %43 = phi ptr [ %41, %.loopexit ], [ %16, %.preheader ], [ %22, %.critedge ]
-  %44 = phi i32 [ 22, %.loopexit ], [ 22, %.preheader ], [ 23, %.critedge ]
-  %.111 = phi i32 [ 10, %.loopexit ], [ 16, %.preheader ], [ 2, %.critedge ]
-  %.1 = phi ptr [ %40, %.loopexit ], [ %14, %.preheader ], [ %14, %.critedge ]
-  %.0 = phi i1 [ %42, %.loopexit ], [ false, %.preheader ], [ false, %.critedge ]
-  %45 = icmp eq ptr %43, %.1
-  br i1 %45, label %46, label %51
-
-46:                                               ; preds = %.loopexit19
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %48 = load ptr, ptr %47, align 8, !tbaa !74
+45:                                               ; preds = %.loopexit
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %47 = load ptr, ptr %46, align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 1, ptr %50, align 1, !tbaa !68
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 33
+  store i8 1, ptr %49, align 1, !tbaa !68
   store ptr @.str.42, ptr %5, align 8, !tbaa !14
-  store i8 3, ptr %49, align 8, !tbaa !62
+  store i8 3, ptr %48, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %48, ptr %4, align 8
+  store ptr %47, ptr %4, align 8
   call void @_ZN4llvm10PrintErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr nonnull %4, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %5) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %70
+  br label %69
 
-51:                                               ; preds = %.loopexit19
-  %52 = tail call ptr @__errno_location() #26
-  store i32 0, ptr %52, align 4, !tbaa !108
-  br i1 %.0, label %53, label %55
+50:                                               ; preds = %.loopexit
+  %51 = tail call ptr @__errno_location() #26
+  store i32 0, ptr %51, align 4, !tbaa !108
+  br i1 %.0, label %52, label %54
 
-53:                                               ; preds = %51
-  %54 = tail call i64 @strtoll(ptr noundef captures(none) %.1, ptr noundef null, i32 noundef %.111) #25
-  br label %57
+52:                                               ; preds = %50
+  %53 = tail call i64 @strtoll(ptr noundef captures(none) %.1, ptr noundef null, i32 noundef %.111) #25
+  br label %56
 
-55:                                               ; preds = %51
-  %56 = tail call i64 @strtoull(ptr noundef captures(none) %.1, ptr noundef null, i32 noundef %.111) #25
-  br label %57
+54:                                               ; preds = %50
+  %55 = tail call i64 @strtoull(ptr noundef captures(none) %.1, ptr noundef null, i32 noundef %.111) #25
+  br label %56
 
-57:                                               ; preds = %55, %53
-  %.sink = phi i64 [ %54, %53 ], [ %56, %55 ]
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %.sink, ptr %58, align 8, !tbaa !15
-  %59 = load i32, ptr %52, align 4, !tbaa !108
-  switch i32 %59, label %70 [
-    i32 22, label %60
-    i32 34, label %65
+56:                                               ; preds = %54, %52
+  %.sink = phi i64 [ %53, %52 ], [ %55, %54 ]
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 %.sink, ptr %57, align 8, !tbaa !15
+  %58 = load i32, ptr %51, align 4, !tbaa !108
+  switch i32 %58, label %69 [
+    i32 22, label %59
+    i32 34, label %64
   ]
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %62 = load ptr, ptr %61, align 8, !tbaa !74
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %61 = load ptr, ptr %60, align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 1, ptr %64, align 1, !tbaa !68
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 33
+  store i8 1, ptr %63, align 1, !tbaa !68
   store ptr @.str.42, ptr %6, align 8, !tbaa !14
-  store i8 3, ptr %63, align 8, !tbaa !62
+  store i8 3, ptr %62, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %62, ptr %3, align 8
+  store ptr %61, ptr %3, align 8
   call void @_ZN4llvm10PrintErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr nonnull %3, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %6) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %70
+  br label %69
 
-65:                                               ; preds = %57
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %67 = load ptr, ptr %66, align 8, !tbaa !74
+64:                                               ; preds = %56
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %66 = load ptr, ptr %65, align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %68 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %69 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %69, align 1, !tbaa !68
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 1, ptr %68, align 1, !tbaa !68
   store ptr @.str.43, ptr %7, align 8, !tbaa !14
-  store i8 3, ptr %68, align 8, !tbaa !62
+  store i8 3, ptr %67, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store ptr %67, ptr %2, align 8
+  store ptr %66, ptr %2, align 8
   call void @_ZN4llvm10PrintErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr nonnull %2, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %7) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %70
+  br label %69
 
-70:                                               ; preds = %57, %28, %65, %60, %46, %29
-  %.012 = phi i32 [ 1, %46 ], [ 1, %60 ], [ 1, %65 ], [ 3, %29 ], [ 2, %28 ], [ %44, %57 ]
+69:                                               ; preds = %56, %28, %64, %59, %45, %29
+  %.012 = phi i32 [ 1, %45 ], [ 1, %59 ], [ 1, %64 ], [ 3, %29 ], [ 2, %28 ], [ %43, %56 ]
   ret i32 %.012
 }
 

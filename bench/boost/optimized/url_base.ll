@@ -9209,7 +9209,7 @@ _ZN5boost4coreeqENS0_17basic_string_viewIcEEPKc.exit.preheader: ; preds = %94
           cleanup
   br label %.body
 
-_ZN5boost4coreeqENS0_17basic_string_viewIcEEPKc.exit: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEEPKc.exit, %_ZN5boost4coreeqENS0_17basic_string_viewIcEEPKc.exit.preheader
+_ZN5boost4coreeqENS0_17basic_string_viewIcEEPKc.exit: ; preds = %_ZN5boost4coreeqENS0_17basic_string_viewIcEEPKc.exit.preheader, %_ZN5boost4coreeqENS0_17basic_string_viewIcEEPKc.exit
   %.185 = phi ptr [ %104, %_ZN5boost4coreeqENS0_17basic_string_viewIcEEPKc.exit ], [ %.084, %_ZN5boost4coreeqENS0_17basic_string_viewIcEEPKc.exit.preheader ]
   %100 = load i8, ptr %.185, align 1, !tbaa !25
   %101 = icmp ne i8 %100, 47

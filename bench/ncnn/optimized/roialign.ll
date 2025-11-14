@@ -389,20 +389,20 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %90 = phi fast float [ %88, %84 ], [ %45, %59 ]
   %91 = fptosi float %.in.us.us.us to i32
   %92 = fptosi float %90 to i32
-  %93 = icmp sgt i32 %91, 0
-  %94 = icmp sgt i32 %92, 0
-  %or.cond = select i1 %93, i1 %94, i1 false
+  %93 = fcmp fast ole float %.sroa.speculated87.us.us.us, %.sroa.speculated103.us.us.us
+  %94 = fcmp fast ole float %.sroa.speculated.us.us.us, %.sroa.speculated95.us.us.us
+  %95 = select i1 %93, i1 true, i1 %94
+  %96 = mul nsw i32 %92, %91
+  %97 = icmp sgt i32 %91, 0
+  %98 = icmp sgt i32 %92, 0
+  %or.cond = select i1 %97, i1 %98, i1 false
   br i1 %or.cond, label %.lr.ph149.split.us.us.us.us, label %._crit_edge150.us.us.us
 
 ._crit_edge150.us.us.us:                          ; preds = %._crit_edge.us.us.us.us, %89
   %.058.lcssa.us.us.us = phi float [ 0.000000e+00, %89 ], [ %157, %._crit_edge.us.us.us.us ]
-  %95 = fcmp fast ole float %.sroa.speculated87.us.us.us, %.sroa.speculated103.us.us.us
-  %96 = fcmp fast ole float %.sroa.speculated.us.us.us, %.sroa.speculated95.us.us.us
-  %97 = select i1 %95, i1 true, i1 %96
-  %98 = mul nsw i32 %92, %91
-  %99 = sitofp i32 %98 to float
+  %99 = sitofp i32 %96 to float
   %100 = fdiv fast float %.058.lcssa.us.us.us, %99
-  %101 = select fast i1 %97, float 0.000000e+00, float %100
+  %101 = select fast i1 %95, float 0.000000e+00, float %100
   %102 = getelementptr inbounds nuw float, ptr %.054156.us.us.us, i64 %indvars.iv
   store float %101, ptr %102, align 4, !tbaa !44
   %exitcond178.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

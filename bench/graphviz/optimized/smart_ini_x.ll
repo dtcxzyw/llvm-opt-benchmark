@@ -375,22 +375,22 @@ gv_calloc.exit170.i.i:                            ; preds = %standardize.exit.i
   br label %power_iteration_orthog.exit.i
 
 .lr.ph.i43.i:                                     ; preds = %gv_calloc.exit.i.i
-  %wide.trip.count34.i.i.i = zext nneg i32 %1 to i64
+  %wide.trip.count.i44.i = zext nneg i32 %1 to i64
   br label %.lr.ph.us.i.i
 
 .lr.ph.us.i.i:                                    ; preds = %.lr.ph.us.i.i.backedge, %.lr.ph.i43.i
-  %indvars.iv.i44.i = phi i64 [ 0, %.lr.ph.i43.i ], [ %indvars.iv.i44.i.be, %.lr.ph.us.i.i.backedge ]
+  %indvars.iv.i45.i = phi i64 [ 0, %.lr.ph.i43.i ], [ %indvars.iv.i45.i.be, %.lr.ph.us.i.i.backedge ]
   %170 = tail call i32 @rand() #15
   %171 = srem i32 %170, 100
   %172 = sitofp i32 %171 to double
-  %173 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i44.i
+  %173 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i45.i
   store double %172, ptr %173, align 8, !tbaa !15
-  %indvars.iv.next.i45.i = add nuw nsw i64 %indvars.iv.i44.i, 1
-  %exitcond.not.i46.i = icmp eq i64 %indvars.iv.next.i45.i, %wide.trip.count34.i.i.i
-  br i1 %exitcond.not.i46.i, label %._crit_edge.us.i.i, label %.lr.ph.us.i.i.backedge
+  %indvars.iv.next.i46.i = add nuw nsw i64 %indvars.iv.i45.i, 1
+  %exitcond.not.i47.i = icmp eq i64 %indvars.iv.next.i46.i, %wide.trip.count.i44.i
+  br i1 %exitcond.not.i47.i, label %._crit_edge.us.i.i, label %.lr.ph.us.i.i.backedge
 
 .lr.ph.us.i.i.backedge:                           ; preds = %.lr.ph.us.i.i, %._crit_edge.us.i.i
-  %indvars.iv.i44.i.be = phi i64 [ %indvars.iv.next.i45.i, %.lr.ph.us.i.i ], [ 0, %._crit_edge.us.i.i ]
+  %indvars.iv.i45.i.be = phi i64 [ %indvars.iv.next.i46.i, %.lr.ph.us.i.i ], [ 0, %._crit_edge.us.i.i ]
   br label %.lr.ph.us.i.i, !llvm.loop !31
 
 ._crit_edge.us.i.i:                               ; preds = %.lr.ph.us.i.i
@@ -409,35 +409,35 @@ gv_calloc.exit170.i.i:                            ; preds = %standardize.exit.i
 
 .preheader.us.i.preheader.i.i:                    ; preds = %194, %.split182.us.i.i
   tail call void @copy_vector(i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %162) #15
-  br label %.preheader.us.i.i47.i
+  br label %.preheader.us.i.i48.i
 
-.preheader.us.i.i47.i:                            ; preds = %._crit_edge.us.i.i51.i, %.preheader.us.i.preheader.i.i
-  %indvars.iv31.i.i.i = phi i64 [ %indvars.iv.next32.i.i.i, %._crit_edge.us.i.i51.i ], [ 0, %.preheader.us.i.preheader.i.i ]
+.preheader.us.i.i48.i:                            ; preds = %._crit_edge.us.i.i52.i, %.preheader.us.i.preheader.i.i
+  %indvars.iv31.i.i.i = phi i64 [ %indvars.iv.next32.i.i.i, %._crit_edge.us.i.i52.i ], [ 0, %.preheader.us.i.preheader.i.i ]
   %180 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv31.i.i.i
   %181 = load ptr, ptr %180, align 8, !tbaa !20
   br label %182
 
-182:                                              ; preds = %182, %.preheader.us.i.i47.i
-  %indvars.iv.i.i48.i = phi i64 [ 0, %.preheader.us.i.i47.i ], [ %indvars.iv.next.i.i49.i, %182 ]
-  %.02125.us.i.i.i = phi double [ 0.000000e+00, %.preheader.us.i.i47.i ], [ %188, %182 ]
-  %183 = getelementptr inbounds nuw float, ptr %181, i64 %indvars.iv.i.i48.i
+182:                                              ; preds = %182, %.preheader.us.i.i48.i
+  %indvars.iv.i.i49.i = phi i64 [ 0, %.preheader.us.i.i48.i ], [ %indvars.iv.next.i.i50.i, %182 ]
+  %.02125.us.i.i.i = phi double [ 0.000000e+00, %.preheader.us.i.i48.i ], [ %188, %182 ]
+  %183 = getelementptr inbounds nuw float, ptr %181, i64 %indvars.iv.i.i49.i
   %184 = load float, ptr %183, align 4, !tbaa !24
   %185 = fpext float %184 to double
-  %186 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i.i48.i
+  %186 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i.i49.i
   %187 = load double, ptr %186, align 8, !tbaa !15
   %188 = tail call double @llvm.fmuladd.f64(double %185, double %187, double %.02125.us.i.i.i)
-  %indvars.iv.next.i.i49.i = add nuw nsw i64 %indvars.iv.i.i48.i, 1
-  %exitcond.not.i.i50.i = icmp eq i64 %indvars.iv.next.i.i49.i, %wide.trip.count34.i.i.i
-  br i1 %exitcond.not.i.i50.i, label %._crit_edge.us.i.i51.i, label %182, !llvm.loop !32
+  %indvars.iv.next.i.i50.i = add nuw nsw i64 %indvars.iv.i.i49.i, 1
+  %exitcond.not.i.i51.i = icmp eq i64 %indvars.iv.next.i.i50.i, %wide.trip.count.i44.i
+  br i1 %exitcond.not.i.i51.i, label %._crit_edge.us.i.i52.i, label %182, !llvm.loop !32
 
-._crit_edge.us.i.i51.i:                           ; preds = %182
+._crit_edge.us.i.i52.i:                           ; preds = %182
   %189 = getelementptr inbounds nuw double, ptr %156, i64 %indvars.iv31.i.i.i
   store double %188, ptr %189, align 8, !tbaa !15
   %indvars.iv.next32.i.i.i = add nuw nsw i64 %indvars.iv31.i.i.i, 1
-  %exitcond35.not.i.i.i = icmp eq i64 %indvars.iv.next32.i.i.i, %wide.trip.count34.i.i.i
-  br i1 %exitcond35.not.i.i.i, label %mat_mult_vec_orthog.exit.i.i, label %.preheader.us.i.i47.i, !llvm.loop !33
+  %exitcond35.not.i.i.i = icmp eq i64 %indvars.iv.next32.i.i.i, %wide.trip.count.i44.i
+  br i1 %exitcond35.not.i.i.i, label %mat_mult_vec_orthog.exit.i.i, label %.preheader.us.i.i48.i, !llvm.loop !33
 
-mat_mult_vec_orthog.exit.i.i:                     ; preds = %._crit_edge.us.i.i51.i
+mat_mult_vec_orthog.exit.i.i:                     ; preds = %._crit_edge.us.i.i52.i
   %190 = tail call double @vectors_inner_product(i32 noundef %1, ptr noundef nonnull %156, ptr noundef %148) #15
   %191 = fneg double %190
   tail call void @scadd(ptr noundef nonnull %156, i32 noundef %149, double noundef %191, ptr noundef %148) #15
@@ -468,7 +468,7 @@ mat_mult_vec_orthog.exit.i.i:                     ; preds = %._crit_edge.us.i.i5
   %205 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv196.i.i
   store double %204, ptr %205, align 8, !tbaa !15
   %indvars.iv.next197.i.i = add nuw nsw i64 %indvars.iv196.i.i, 1
-  %exitcond200.not.i.i = icmp eq i64 %indvars.iv.next197.i.i, %wide.trip.count34.i.i.i
+  %exitcond200.not.i.i = icmp eq i64 %indvars.iv.next197.i.i, %wide.trip.count.i44.i
   br i1 %exitcond200.not.i.i, label %._crit_edge.us190.i.i, label %.lr.ph188.i.i, !llvm.loop !35
 
 ._crit_edge.us190.i.i:                            ; preds = %.lr.ph188.i.i

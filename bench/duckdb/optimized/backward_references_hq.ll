@@ -2598,108 +2598,105 @@ _ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit.lr.ph: ;
   %.not.i266 = icmp eq i64 %354, 0
   %355 = and i64 %.sroa.4.0.extract.shift, 31
   %spec.select = select i1 %.not.i266, i64 %351, i64 %355
+  %356 = add nuw nsw i64 %351, 1
   br label %_ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit
 
-_ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit: ; preds = %_ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit.lr.ph, %416
-  %.8361 = phi i64 [ %.7366, %_ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit.lr.ph ], [ %.9, %416 ]
-  %.2218360 = phi i64 [ %.1217, %_ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit.lr.ph ], [ %417, %416 ]
-  %356 = select i1 %311, i64 %spec.select, i64 %.2218360
-  %357 = icmp ult i64 %356, 10
-  br i1 %357, label %358, label %361
+_ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit: ; preds = %_ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit.lr.ph, %417
+  %.8361 = phi i64 [ %.7366, %_ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit.lr.ph ], [ %.9, %417 ]
+  %.2218360 = phi i64 [ %.1217, %_ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit.lr.ph ], [ %418, %417 ]
+  %357 = select i1 %311, i64 %spec.select, i64 %.2218360
+  %358 = icmp ult i64 %357, 10
+  br i1 %358, label %359, label %362
 
-358:                                              ; preds = %_ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit
-  %359 = trunc nuw nsw i64 %356 to i16
-  %360 = add nsw i16 %359, -2
+359:                                              ; preds = %_ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit
+  %360 = trunc nuw nsw i64 %357 to i16
+  %361 = add nsw i16 %360, -2
   br label %_ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit241
 
-361:                                              ; preds = %_ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit
-  %362 = icmp ult i64 %356, 134
-  br i1 %362, label %363, label %375
+362:                                              ; preds = %_ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit
+  %363 = icmp ult i64 %357, 134
+  br i1 %363, label %364, label %376
 
-363:                                              ; preds = %361
-  %364 = add nsw i64 %356, -6
-  %365 = trunc nuw nsw i64 %364 to i32
-  %366 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %365, i1 true)
-  %367 = sub nuw nsw i32 30, %366
-  %368 = shl nuw nsw i32 %367, 1
-  %369 = zext nneg i32 %368 to i64
-  %370 = zext nneg i32 %367 to i64
-  %371 = lshr i64 %364, %370
-  %372 = add nuw nsw i64 %371, %369
-  %373 = trunc nuw nsw i64 %372 to i16
-  %374 = add nuw nsw i16 %373, 4
+364:                                              ; preds = %362
+  %365 = add nsw i64 %357, -6
+  %366 = trunc nuw nsw i64 %365 to i32
+  %367 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %366, i1 true)
+  %368 = sub nuw nsw i32 30, %367
+  %369 = shl nuw nsw i32 %368, 1
+  %370 = zext nneg i32 %369 to i64
+  %371 = zext nneg i32 %368 to i64
+  %372 = lshr i64 %365, %371
+  %373 = add nuw nsw i64 %372, %370
+  %374 = trunc nuw nsw i64 %373 to i16
+  %375 = add nuw nsw i16 %374, 4
   br label %_ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit241
 
-375:                                              ; preds = %361
-  %376 = icmp ult i64 %356, 2118
-  br i1 %376, label %377, label %_ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit241
+376:                                              ; preds = %362
+  %377 = icmp ult i64 %357, 2118
+  br i1 %377, label %378, label %_ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit241
 
-377:                                              ; preds = %375
-  %378 = trunc nuw nsw i64 %356 to i32
-  %379 = add nsw i32 %378, -70
-  %380 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %379, i1 true)
-  %381 = trunc nuw nsw i32 %380 to i16
-  %382 = sub nuw nsw i16 43, %381
+378:                                              ; preds = %376
+  %379 = trunc nuw nsw i64 %357 to i32
+  %380 = add nsw i32 %379, -70
+  %381 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %380, i1 true)
+  %382 = trunc nuw nsw i32 %381 to i16
+  %383 = sub nuw nsw i16 43, %382
   br label %_ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit241
 
-_ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit241: ; preds = %358, %363, %375, %377
-  %.0.i240 = phi i16 [ %360, %358 ], [ %374, %363 ], [ %382, %377 ], [ 23, %375 ]
-  %383 = lshr i16 %.0.i240, 3
-  %narrow21.i246 = add nuw nsw i16 %383, %narrow.i245
-  %384 = zext nneg i16 %narrow21.i246 to i32
-  %385 = shl nuw nsw i32 %384, 1
-  %386 = shl nuw nsw i32 %384, 6
-  %387 = add nuw nsw i32 %386, 64
-  %388 = lshr i32 5377344, %385
-  %389 = and i32 %388, 192
-  %390 = add nuw nsw i32 %387, %389
-  %391 = trunc i32 %390 to i16
-  %392 = and i16 %.0.i240, 7
-  %393 = or disjoint i16 %392, %305
-  %.0.i248 = or disjoint i16 %393, %391
-  %394 = zext i16 %.0.i240 to i64
-  %395 = getelementptr inbounds nuw i32, ptr @_ZN13duckdb_brotli16kBrotliCopyExtraE, i64 %394
-  %396 = load i32, ptr %395, align 4, !tbaa !3
-  %397 = uitofp i32 %396 to float
-  %398 = fadd float %350, %397
-  %399 = zext i16 %.0.i248 to i64
-  %400 = getelementptr inbounds nuw float, ptr %10, i64 %399
-  %401 = load float, ptr %400, align 4, !tbaa !154
-  %402 = fadd float %401, %398
-  %403 = getelementptr %"struct.duckdb_brotli::ZopfliNode", ptr %69, i64 %.2218360
-  %404 = getelementptr inbounds nuw i8, ptr %403, i64 12
-  %405 = load float, ptr %404, align 4, !tbaa !7
-  %406 = fcmp olt float %402, %405
-  br i1 %406, label %407, label %416
+_ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit241: ; preds = %359, %364, %376, %378
+  %.0.i240 = phi i16 [ %361, %359 ], [ %375, %364 ], [ %383, %378 ], [ 23, %376 ]
+  %384 = lshr i16 %.0.i240, 3
+  %narrow21.i246 = add nuw nsw i16 %384, %narrow.i245
+  %385 = zext nneg i16 %narrow21.i246 to i32
+  %386 = shl nuw nsw i32 %385, 1
+  %387 = shl nuw nsw i32 %385, 6
+  %388 = add nuw nsw i32 %387, 64
+  %389 = lshr i32 5377344, %386
+  %390 = and i32 %389, 192
+  %391 = add nuw nsw i32 %388, %390
+  %392 = trunc i32 %391 to i16
+  %393 = and i16 %.0.i240, 7
+  %394 = or disjoint i16 %393, %305
+  %.0.i248 = or disjoint i16 %394, %392
+  %395 = zext i16 %.0.i240 to i64
+  %396 = getelementptr inbounds nuw i32, ptr @_ZN13duckdb_brotli16kBrotliCopyExtraE, i64 %395
+  %397 = load i32, ptr %396, align 4, !tbaa !3
+  %398 = uitofp i32 %397 to float
+  %399 = fadd float %350, %398
+  %400 = zext i16 %.0.i248 to i64
+  %401 = getelementptr inbounds nuw float, ptr %10, i64 %400
+  %402 = load float, ptr %401, align 4, !tbaa !154
+  %403 = fadd float %402, %399
+  %404 = getelementptr %"struct.duckdb_brotli::ZopfliNode", ptr %69, i64 %.2218360
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 12
+  %406 = load float, ptr %405, align 4, !tbaa !7
+  %407 = fcmp olt float %403, %406
+  br i1 %407, label %408, label %417
 
-407:                                              ; preds = %_ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit241
-  %408 = add i64 %.2218360, 9
-  %409 = sub i64 %408, %356
-  %410 = shl i64 %409, 25
-  %411 = or i64 %410, %.2218360
-  %412 = trunc i64 %411 to i32
-  store i32 %412, ptr %403, align 4, !tbaa !32
-  %413 = getelementptr inbounds nuw i8, ptr %403, i64 4
-  store i32 %.sroa.0.0.extract.trunc, ptr %413, align 4, !tbaa !36
-  %414 = getelementptr inbounds nuw i8, ptr %403, i64 8
-  store i32 %306, ptr %414, align 4, !tbaa !34
-  store float %402, ptr %404, align 4, !tbaa !7
-  %415 = tail call noundef i64 @llvm.umax.i64(i64 %.8361, i64 %.2218360)
-  br label %416
+408:                                              ; preds = %_ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit241
+  %409 = add i64 %.2218360, 9
+  %410 = sub i64 %409, %357
+  %411 = shl i64 %410, 25
+  %412 = or i64 %411, %.2218360
+  %413 = trunc i64 %412 to i32
+  store i32 %413, ptr %404, align 4, !tbaa !32
+  %414 = getelementptr inbounds nuw i8, ptr %404, i64 4
+  store i32 %.sroa.0.0.extract.trunc, ptr %414, align 4, !tbaa !36
+  %415 = getelementptr inbounds nuw i8, ptr %404, i64 8
+  store i32 %306, ptr %415, align 4, !tbaa !34
+  store float %403, ptr %405, align 4, !tbaa !7
+  %416 = tail call noundef i64 @llvm.umax.i64(i64 %.8361, i64 %.2218360)
+  br label %417
 
-416:                                              ; preds = %407, %_ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit241
-  %.9 = phi i64 [ %415, %407 ], [ %.8361, %_ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit241 ]
-  %417 = add i64 %.2218360, 1
+417:                                              ; preds = %408, %_ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit241
+  %.9 = phi i64 [ %416, %408 ], [ %.8361, %_ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit241 ]
+  %418 = add i64 %.2218360, 1
   %exitcond.not = icmp eq i64 %.2218360, %351
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %_ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit, !llvm.loop !179
+  br i1 %exitcond.not, label %._crit_edge, label %_ZN13duckdb_brotliL23BackwardMatchLengthCodeEPKNS_13BackwardMatchE.exit, !llvm.loop !179
 
-._crit_edge.loopexit:                             ; preds = %416
-  %418 = add nuw nsw i64 %351, 1
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit
-  %.2218.lcssa = phi i64 [ %.1217, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit ], [ %418, %._crit_edge.loopexit ]
-  %.8.lcssa = phi i64 [ %.7366, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit ], [ %.9, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %417, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit
+  %.2218.lcssa = phi i64 [ %.1217, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit ], [ %356, %417 ]
+  %.8.lcssa = phi i64 [ %.7366, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit ], [ %.9, %417 ]
   %419 = add nuw i64 %.1210365, 1
   %exitcond387.not = icmp eq i64 %419, %8
   br i1 %exitcond387.not, label %.loopexit307, label %307, !llvm.loop !180

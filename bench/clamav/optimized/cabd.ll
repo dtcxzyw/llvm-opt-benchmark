@@ -1934,24 +1934,24 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef captures(addr
 40:                                               ; preds = %37, %31
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %42 = load ptr, ptr %41, align 8, !tbaa !44
-  br label %43
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %44 = load ptr, ptr %43, align 8, !tbaa !44
+  br label %45
 
-43:                                               ; preds = %43, %40
-  %.0122 = phi ptr [ %42, %40 ], [ %44, %43 ]
-  %44 = load ptr, ptr %.0122, align 8, !tbaa !108
-  %.not139 = icmp eq ptr %44, null
-  br i1 %.not139, label %45, label %43
+45:                                               ; preds = %45, %40
+  %.0122 = phi ptr [ %42, %40 ], [ %46, %45 ]
+  %46 = load ptr, ptr %.0122, align 8, !tbaa !108
+  %.not139 = icmp eq ptr %46, null
+  br i1 %.not139, label %47, label %45
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %47 = load ptr, ptr %46, align 8, !tbaa !44
+47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %.0122, i64 48
   %49 = load ptr, ptr %48, align 8, !tbaa !111
   %.not140 = icmp eq ptr %49, null
   br i1 %.not140, label %50, label %61
 
-50:                                               ; preds = %45
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 40
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %52 = load ptr, ptr %51, align 8, !tbaa !80
   %.not141 = icmp eq ptr %52, null
   br i1 %.not141, label %53, label %61
@@ -1959,7 +1959,7 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef captures(addr
 53:                                               ; preds = %50
   store ptr %2, ptr %11, align 8, !tbaa !68
   store ptr %1, ptr %14, align 8, !tbaa !63
-  store ptr %47, ptr %.0122, align 8, !tbaa !108
+  store ptr %44, ptr %.0122, align 8, !tbaa !108
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %55 = load ptr, ptr %54, align 8, !tbaa !39
   br label %56
@@ -1976,8 +1976,8 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef captures(addr
   store ptr %60, ptr %.0119, align 8, !tbaa !40
   br label %.loopexit
 
-61:                                               ; preds = %50, %45
-  %62 = tail call fastcc i32 @cabd_can_merge_folders(ptr noundef %6, ptr noundef nonnull %.0122, ptr noundef %47)
+61:                                               ; preds = %50, %47
+  %62 = tail call fastcc i32 @cabd_can_merge_folders(ptr noundef %6, ptr noundef nonnull %.0122, ptr noundef %44)
   %.not143 = icmp eq i32 %62, 0
   br i1 %.not143, label %.sink.split, label %63
 
@@ -2002,17 +2002,17 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef captures(addr
 
 71:                                               ; preds = %69
   store ptr %66, ptr %.0118, align 8, !tbaa !62
-  %72 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %44, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %72, i64 24, i1 false), !tbaa.struct !123
   store ptr null, ptr %72, align 8, !tbaa !59
-  %73 = getelementptr inbounds nuw i8, ptr %47, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %74 = load i32, ptr %73, align 4, !tbaa !81
   %75 = add i32 %74, -1
   %76 = getelementptr inbounds nuw i8, ptr %.0122, i64 12
   %77 = load i32, ptr %76, align 4, !tbaa !81
   %78 = add i32 %75, %77
   store i32 %78, ptr %76, align 4, !tbaa !81
-  %79 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %80 = load ptr, ptr %79, align 8, !tbaa !111
   %81 = icmp eq ptr %80, null
   br i1 %81, label %85, label %82
@@ -2020,7 +2020,7 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef captures(addr
 82:                                               ; preds = %71
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %84 = load ptr, ptr %83, align 8, !tbaa !77
-  %.not146 = icmp eq ptr %84, %47
+  %.not146 = icmp eq ptr %84, %44
   br i1 %.not146, label %.preheader186, label %85
 
 85:                                               ; preds = %82, %71
@@ -2037,11 +2037,11 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef captures(addr
   br i1 %.not147, label %88, label %86
 
 88:                                               ; preds = %86
-  %89 = load ptr, ptr %47, align 8, !tbaa !108
+  %89 = load ptr, ptr %44, align 8, !tbaa !108
   store ptr %89, ptr %.1123, align 8, !tbaa !108
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %91 = load ptr, ptr %90, align 8, !tbaa !42
-  tail call void %91(ptr noundef nonnull %47) #8
+  tail call void %91(ptr noundef nonnull %44) #8
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %93 = load ptr, ptr %92, align 8, !tbaa !39
   br label %94
@@ -2065,7 +2065,7 @@ define internal fastcc range(i32 0, 9) i32 @cabd_merge(ptr noundef captures(addr
   %99 = load ptr, ptr %.2121162, align 8, !tbaa !40
   %100 = getelementptr inbounds nuw i8, ptr %.2121162, i64 40
   %101 = load ptr, ptr %100, align 8, !tbaa !77
-  %102 = icmp eq ptr %101, %47
+  %102 = icmp eq ptr %101, %44
   br i1 %102, label %103, label %111
 
 103:                                              ; preds = %.lr.ph164

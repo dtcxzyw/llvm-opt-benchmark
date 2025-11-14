@@ -128,9 +128,8 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
   br label %7
 
 .loopexit.i:                                      ; preds = %rev_list_push.exit.i, %rev_list_push.exit.us.i, %25
-  %6 = and i32 %.fr.i, 64
-  %.not28.not.i = icmp eq i32 %6, 0
-  br i1 %.not28.not.i, label %60, label %7, !llvm.loop !23
+  %6 = icmp eq ptr %.2.i, null
+  br i1 %6, label %7, label %61, !llvm.loop !23
 
 7:                                                ; preds = %.loopexit.i, %1
   %8 = load i64, ptr %4, align 8, !tbaa !25
@@ -165,92 +164,95 @@ define internal ptr @next(ptr noundef captures(none) initializes((0, 16)) %0) #0
 25:                                               ; preds = %22, %13
   %26 = phi i32 [ %.pre.i, %22 ], [ %20, %13 ]
   %.fr.i = freeze i32 %26
+  %27 = and i32 %.fr.i, 64
+  %.not28.i = icmp eq i32 %27, 0
+  %.2.i = select i1 %.not28.i, ptr %14, ptr null
   %.not3034.i = icmp eq ptr %18, null
   br i1 %.not3034.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25
-  %27 = and i32 %.fr.i, 192
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  %28 = and i32 %.fr.i, 192
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %rev_list_push.exit.us.i
-  %.02235.us.i = phi ptr [ %43, %rev_list_push.exit.us.i ], [ %18, %.lr.ph.i ]
-  %29 = load ptr, ptr %.02235.us.i, align 8, !tbaa !32
-  %30 = load i32, ptr %29, align 8
-  %31 = and i32 %30, 256
-  %.not31.us.i = icmp eq i32 %31, 0
-  br i1 %.not31.us.i, label %32, label %rev_list_push.exit.us.i
+  %.02235.us.i = phi ptr [ %44, %rev_list_push.exit.us.i ], [ %18, %.lr.ph.i ]
+  %30 = load ptr, ptr %.02235.us.i, align 8, !tbaa !32
+  %31 = load i32, ptr %30, align 8
+  %32 = and i32 %31, 256
+  %.not31.us.i = icmp eq i32 %32, 0
+  br i1 %.not31.us.i, label %33, label %rev_list_push.exit.us.i
 
-32:                                               ; preds = %.lr.ph.split.us.i
-  %33 = or disjoint i32 %30, 256
-  store i32 %33, ptr %29, align 8
-  %34 = load ptr, ptr @the_repository, align 8, !tbaa !20
-  %35 = tail call i32 @repo_parse_commit_gently(ptr noundef %34, ptr noundef nonnull %29, i32 noundef 0) #5
-  %.not8.i.us.i = icmp eq i32 %35, 0
-  br i1 %.not8.i.us.i, label %36, label %rev_list_push.exit.us.i
+33:                                               ; preds = %.lr.ph.split.us.i
+  %34 = or disjoint i32 %31, 256
+  store i32 %34, ptr %30, align 8
+  %35 = load ptr, ptr @the_repository, align 8, !tbaa !20
+  %36 = tail call i32 @repo_parse_commit_gently(ptr noundef %35, ptr noundef nonnull %30, i32 noundef 0) #5
+  %.not8.i.us.i = icmp eq i32 %36, 0
+  br i1 %.not8.i.us.i, label %37, label %rev_list_push.exit.us.i
 
-36:                                               ; preds = %32
-  tail call void @prio_queue_put(ptr noundef nonnull %3, ptr noundef nonnull %29) #5
-  %37 = load i32, ptr %29, align 8
-  %38 = and i32 %37, 64
-  %.not9.i.us.i = icmp eq i32 %38, 0
-  br i1 %.not9.i.us.i, label %39, label %rev_list_push.exit.us.i
+37:                                               ; preds = %33
+  tail call void @prio_queue_put(ptr noundef nonnull %3, ptr noundef nonnull %30) #5
+  %38 = load i32, ptr %30, align 8
+  %39 = and i32 %38, 64
+  %.not9.i.us.i = icmp eq i32 %39, 0
+  br i1 %.not9.i.us.i, label %40, label %rev_list_push.exit.us.i
 
-39:                                               ; preds = %36
-  %40 = load i32, ptr %5, align 8, !tbaa !22
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %5, align 8, !tbaa !22
+40:                                               ; preds = %37
+  %41 = load i32, ptr %5, align 8, !tbaa !22
+  %42 = add nsw i32 %41, 1
+  store i32 %42, ptr %5, align 8, !tbaa !22
   br label %rev_list_push.exit.us.i
 
-rev_list_push.exit.us.i:                          ; preds = %39, %36, %32, %.lr.ph.split.us.i
-  %42 = getelementptr inbounds nuw i8, ptr %.02235.us.i, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !35
-  %.not30.us.i = icmp eq ptr %43, null
+rev_list_push.exit.us.i:                          ; preds = %40, %37, %33, %.lr.ph.split.us.i
+  %43 = getelementptr inbounds nuw i8, ptr %.02235.us.i, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !35
+  %.not30.us.i = icmp eq ptr %44, null
   br i1 %.not30.us.i, label %.loopexit.i, label %.lr.ph.split.us.i, !llvm.loop !36
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %rev_list_push.exit.i
-  %.02235.i = phi ptr [ %59, %rev_list_push.exit.i ], [ %18, %.lr.ph.i ]
-  %44 = load ptr, ptr %.02235.i, align 8, !tbaa !32
-  %45 = load i32, ptr %44, align 8
-  %46 = and i32 %45, 320
-  %or.cond.i = icmp eq i32 %46, 0
-  br i1 %or.cond.i, label %47, label %rev_list_push.exit.i
+  %.02235.i = phi ptr [ %60, %rev_list_push.exit.i ], [ %18, %.lr.ph.i ]
+  %45 = load ptr, ptr %.02235.i, align 8, !tbaa !32
+  %46 = load i32, ptr %45, align 8
+  %47 = and i32 %46, 320
+  %or.cond.i = icmp eq i32 %47, 0
+  br i1 %or.cond.i, label %48, label %rev_list_push.exit.i
 
-47:                                               ; preds = %.lr.ph.split.i
-  %48 = or disjoint i32 %45, 320
-  store i32 %48, ptr %44, align 8
-  %49 = load ptr, ptr @the_repository, align 8, !tbaa !20
-  %50 = tail call i32 @repo_parse_commit_gently(ptr noundef %49, ptr noundef nonnull %44, i32 noundef 0) #5
-  %.not8.i.i = icmp eq i32 %50, 0
-  br i1 %.not8.i.i, label %51, label %rev_list_push.exit.i
+48:                                               ; preds = %.lr.ph.split.i
+  %49 = or disjoint i32 %46, 320
+  store i32 %49, ptr %45, align 8
+  %50 = load ptr, ptr @the_repository, align 8, !tbaa !20
+  %51 = tail call i32 @repo_parse_commit_gently(ptr noundef %50, ptr noundef nonnull %45, i32 noundef 0) #5
+  %.not8.i.i = icmp eq i32 %51, 0
+  br i1 %.not8.i.i, label %52, label %rev_list_push.exit.i
 
-51:                                               ; preds = %47
-  tail call void @prio_queue_put(ptr noundef nonnull %3, ptr noundef nonnull %44) #5
-  %52 = load i32, ptr %44, align 8
-  %53 = and i32 %52, 64
-  %.not9.i.i = icmp eq i32 %53, 0
-  br i1 %.not9.i.i, label %54, label %rev_list_push.exit.i
+52:                                               ; preds = %48
+  tail call void @prio_queue_put(ptr noundef nonnull %3, ptr noundef nonnull %45) #5
+  %53 = load i32, ptr %45, align 8
+  %54 = and i32 %53, 64
+  %.not9.i.i = icmp eq i32 %54, 0
+  br i1 %.not9.i.i, label %55, label %rev_list_push.exit.i
 
-54:                                               ; preds = %51
-  %55 = load i32, ptr %5, align 8, !tbaa !22
-  %56 = add nsw i32 %55, 1
-  store i32 %56, ptr %5, align 8, !tbaa !22
+55:                                               ; preds = %52
+  %56 = load i32, ptr %5, align 8, !tbaa !22
+  %57 = add nsw i32 %56, 1
+  store i32 %57, ptr %5, align 8, !tbaa !22
   br label %rev_list_push.exit.i
 
-rev_list_push.exit.i:                             ; preds = %54, %51, %47, %.lr.ph.split.i
-  %57 = load ptr, ptr %.02235.i, align 8, !tbaa !32
-  tail call fastcc void @mark_common(ptr noundef nonnull %3, ptr noundef %57, i32 noundef 1, i32 noundef 0)
-  %58 = getelementptr inbounds nuw i8, ptr %.02235.i, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !35
-  %.not30.i = icmp eq ptr %59, null
+rev_list_push.exit.i:                             ; preds = %55, %52, %48, %.lr.ph.split.i
+  %58 = load ptr, ptr %.02235.i, align 8, !tbaa !32
+  tail call fastcc void @mark_common(ptr noundef nonnull %3, ptr noundef %58, i32 noundef 1, i32 noundef 0)
+  %59 = getelementptr inbounds nuw i8, ptr %.02235.i, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !35
+  %.not30.i = icmp eq ptr %60, null
   br i1 %.not30.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !36
 
-60:                                               ; preds = %.loopexit.i
-  %61 = getelementptr inbounds nuw i8, ptr %14, i64 4
+61:                                               ; preds = %.loopexit.i
+  %62 = getelementptr inbounds nuw i8, ptr %.2.i, i64 4
   br label %get_rev.exit
 
-get_rev.exit:                                     ; preds = %7, %10, %60
-  %.227.i = phi ptr [ %61, %60 ], [ null, %10 ], [ null, %7 ]
+get_rev.exit:                                     ; preds = %7, %10, %61
+  %.227.i = phi ptr [ %62, %61 ], [ null, %10 ], [ null, %7 ]
   ret ptr %.227.i
 }
 

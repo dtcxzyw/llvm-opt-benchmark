@@ -10514,21 +10514,21 @@ define dso_local void @LLVMInsertExistingBasicBlockAfterInsertBlock(ptr noundef 
 .preheader.i.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !341
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !153
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !329
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %5 = load ptr, ptr %4, align 8, !tbaa !329
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %7 = load ptr, ptr %6, align 8, !tbaa !153
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 72
   tail call void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %1) #35
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %10 = load ptr, ptr %5, align 8, !tbaa !266
+  %10 = load ptr, ptr %7, align 8, !tbaa !266
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %5, ptr %11, align 8, !tbaa !153
+  store ptr %7, ptr %11, align 8, !tbaa !153
   store ptr %10, ptr %9, align 8, !tbaa !266
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %9, ptr %12, align 8, !tbaa !153
-  store ptr %9, ptr %5, align 8, !tbaa !266
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  store ptr %9, ptr %7, align 8, !tbaa !266
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %14 = load i8, ptr %13, align 8, !tbaa !357, !range !151, !noundef !152
   %15 = trunc nuw i8 %14 to i1
   tail call void @_ZN4llvm10BasicBlock21setIsNewDbgInfoFormatEb(ptr noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext %15) #35

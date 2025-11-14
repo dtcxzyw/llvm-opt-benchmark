@@ -9960,6 +9960,7 @@ _ZNSt6vectorIN4LIEF5MachO7details18rebase_instructionESaIS3_EE12emplace_backIJhi
   ]
 
 288:                                              ; preds = %286
+  %.sroa.22.11 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i137.pn, i64 24
   store i8 0, ptr %.sroa.0226.2, align 8, !tbaa !342
   %289 = load i8, ptr %.sroa.0267.12, align 8, !tbaa !342
   %.not329385 = icmp eq i8 %289, 0
@@ -10094,7 +10095,6 @@ _ZNSt6vectorIN4LIEF5MachO7details18rebase_instructionESaIS3_EE12emplace_backIJhi
   ]
 
 354:                                              ; preds = %352
-  %.sroa.22.11 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i137.pn, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %355 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %356 = getelementptr inbounds nuw i8, ptr %17, i64 64

@@ -285,262 +285,262 @@ define internal fastcc void @av_des_crypt_mac(ptr noundef readonly captures(none
   %spec.select.idx = select i1 %.not47, i64 8, i64 0
   br i1 %.not44, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %des_encdec.exit157.us
-  %18 = phi i32 [ %138, %des_encdec.exit157.us ], [ %14, %.lr.ph ]
-  %.0183.us = phi ptr [ %spec.select.us, %des_encdec.exit157.us ], [ %1, %.lr.ph ]
-  %.037182.us = phi i64 [ %135, %des_encdec.exit157.us ], [ %12, %.lr.ph ]
-  %.039181.us = phi ptr [ %137, %des_encdec.exit157.us ], [ %2, %.lr.ph ]
-  %.not43.us = icmp eq ptr %.039181.us, null
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %des_encdec.exit162.us
+  %18 = phi i32 [ %138, %des_encdec.exit162.us ], [ %14, %.lr.ph ]
+  %.0188.us = phi ptr [ %spec.select.us, %des_encdec.exit162.us ], [ %1, %.lr.ph ]
+  %.037187.us = phi i64 [ %135, %des_encdec.exit162.us ], [ %12, %.lr.ph ]
+  %.039186.us = phi ptr [ %137, %des_encdec.exit162.us ], [ %2, %.lr.ph ]
+  %.not43.us = icmp eq ptr %.039186.us, null
   br i1 %.not43.us, label %23, label %19
 
 19:                                               ; preds = %.lr.ph.split.us
-  %20 = load i64, ptr %.039181.us, align 1, !tbaa !9
+  %20 = load i64, ptr %.039186.us, align 1, !tbaa !9
   %21 = tail call noundef i64 @llvm.bswap.i64(i64 %20)
-  %22 = xor i64 %21, %.037182.us
+  %22 = xor i64 %21, %.037187.us
   br label %23
 
 23:                                               ; preds = %19, %.lr.ph.split.us
-  %24 = phi i64 [ %22, %19 ], [ %.037182.us, %.lr.ph.split.us ]
+  %24 = phi i64 [ %22, %19 ], [ %.037187.us, %.lr.ph.split.us ]
   br label %25
 
 25:                                               ; preds = %25, %23
-  %.011.i.i92.us = phi i64 [ 0, %23 ], [ %31, %25 ]
-  %.0710.i.i93.us = phi i32 [ 0, %23 ], [ %32, %25 ]
-  %.089.i.i94.us = phi ptr [ @IP_shuffle, %23 ], [ %26, %25 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.089.i.i94.us, i64 1
-  %27 = load i8, ptr %.089.i.i94.us, align 1, !tbaa !9
+  %.011.i.i94.us = phi i64 [ 0, %23 ], [ %31, %25 ]
+  %.0710.i.i95.us = phi i32 [ 0, %23 ], [ %32, %25 ]
+  %.089.i.i96.us = phi ptr [ @IP_shuffle, %23 ], [ %26, %25 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.089.i.i96.us, i64 1
+  %27 = load i8, ptr %.089.i.i96.us, align 1, !tbaa !9
   %28 = zext nneg i8 %27 to i64
   %29 = lshr i64 %24, %28
   %30 = and i64 %29, 1
-  %reass.add.i.i95.us = shl i64 %.011.i.i92.us, 1
-  %31 = or disjoint i64 %30, %reass.add.i.i95.us
-  %32 = add nuw nsw i32 %.0710.i.i93.us, 1
-  %exitcond.not.i.i96.us = icmp eq i32 %32, 64
-  br i1 %exitcond.not.i.i96.us, label %shuffle.exit.preheader.i97.us, label %25, !llvm.loop !10
+  %reass.add.i.i97.us = shl i64 %.011.i.i94.us, 1
+  %31 = or disjoint i64 %30, %reass.add.i.i97.us
+  %32 = add nuw nsw i32 %.0710.i.i95.us, 1
+  %exitcond.not.i.i98.us = icmp eq i32 %32, 64
+  br i1 %exitcond.not.i.i98.us, label %shuffle.exit.preheader.i100.us, label %25, !llvm.loop !10
 
-shuffle.exit.preheader.i97.us:                    ; preds = %25, %f_func.exit.i106.us
-  %indvars.iv212 = phi i64 [ %indvars.iv.next213, %f_func.exit.i106.us ], [ 0, %25 ]
-  %.020.i98.us = phi i64 [ %49, %f_func.exit.i106.us ], [ %31, %25 ]
-  %33 = trunc i64 %.020.i98.us to i32
-  %34 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv212
+shuffle.exit.preheader.i100.us:                   ; preds = %25, %f_func.exit.i109.us
+  %indvars.iv217 = phi i64 [ %indvars.iv.next218, %f_func.exit.i109.us ], [ 0, %25 ]
+  %.020.i101.us = phi i64 [ %49, %f_func.exit.i109.us ], [ %31, %25 ]
+  %33 = trunc i64 %.020.i101.us to i32
+  %34 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv217
   %35 = load i64, ptr %34, align 8, !tbaa !12
   %36 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 1)
   br label %37
 
-37:                                               ; preds = %37, %shuffle.exit.preheader.i97.us
-  %indvars.iv.i.i100.us = phi i64 [ 7, %shuffle.exit.preheader.i97.us ], [ %indvars.iv.next.i.i104.us, %37 ]
-  %.019.i.i101.us = phi i32 [ %36, %shuffle.exit.preheader.i97.us ], [ %45, %37 ]
-  %.01318.i.i102.us = phi i32 [ 0, %shuffle.exit.preheader.i97.us ], [ %44, %37 ]
-  %.01516.i.i103.us = phi i64 [ %35, %shuffle.exit.preheader.i97.us ], [ %46, %37 ]
-  %38 = zext i32 %.019.i.i101.us to i64
-  %39 = xor i64 %.01516.i.i103.us, %38
+37:                                               ; preds = %37, %shuffle.exit.preheader.i100.us
+  %indvars.iv.i.i103.us = phi i64 [ 7, %shuffle.exit.preheader.i100.us ], [ %indvars.iv.next.i.i107.us, %37 ]
+  %.019.i.i104.us = phi i32 [ %36, %shuffle.exit.preheader.i100.us ], [ %45, %37 ]
+  %.01318.i.i105.us = phi i32 [ 0, %shuffle.exit.preheader.i100.us ], [ %44, %37 ]
+  %.01516.i.i106.us = phi i64 [ %35, %shuffle.exit.preheader.i100.us ], [ %46, %37 ]
+  %38 = zext i32 %.019.i.i104.us to i64
+  %39 = xor i64 %.01516.i.i106.us, %38
   %40 = and i64 %39, 63
-  %41 = getelementptr inbounds nuw [64 x i32], ptr @S_boxes_P_shuffle, i64 %indvars.iv.i.i100.us
+  %41 = getelementptr inbounds nuw [64 x i32], ptr @S_boxes_P_shuffle, i64 %indvars.iv.i.i103.us
   %42 = getelementptr inbounds nuw i32, ptr %41, i64 %40
   %43 = load i32, ptr %42, align 4, !tbaa !15
-  %44 = or i32 %43, %.01318.i.i102.us
-  %45 = tail call i32 @llvm.fshl.i32(i32 %.019.i.i101.us, i32 %.019.i.i101.us, i32 28)
-  %46 = lshr i64 %.01516.i.i103.us, 6
-  %indvars.iv.next.i.i104.us = add nsw i64 %indvars.iv.i.i100.us, -1
-  %.not.i.i105.us = icmp eq i64 %indvars.iv.i.i100.us, 0
-  br i1 %.not.i.i105.us, label %f_func.exit.i106.us, label %37, !llvm.loop !16
+  %44 = or i32 %43, %.01318.i.i105.us
+  %45 = tail call i32 @llvm.fshl.i32(i32 %.019.i.i104.us, i32 %.019.i.i104.us, i32 28)
+  %46 = lshr i64 %.01516.i.i106.us, 6
+  %indvars.iv.next.i.i107.us = add nsw i64 %indvars.iv.i.i103.us, -1
+  %.not.i.i108.us = icmp eq i64 %indvars.iv.i.i103.us, 0
+  br i1 %.not.i.i108.us, label %f_func.exit.i109.us, label %37, !llvm.loop !16
 
-f_func.exit.i106.us:                              ; preds = %37
-  %47 = tail call i64 @llvm.fshl.i64(i64 %.020.i98.us, i64 %.020.i98.us, i64 32)
+f_func.exit.i109.us:                              ; preds = %37
+  %47 = tail call i64 @llvm.fshl.i64(i64 %.020.i101.us, i64 %.020.i101.us, i64 32)
   %48 = zext i32 %44 to i64
   %49 = xor i64 %47, %48
-  %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
-  %exitcond.not.i107.us = icmp eq i64 %indvars.iv.next213, 16
-  br i1 %exitcond.not.i107.us, label %50, label %shuffle.exit.preheader.i97.us, !llvm.loop !17
+  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
+  %exitcond.not.i110.us = icmp eq i64 %indvars.iv.next218, 16
+  br i1 %exitcond.not.i110.us, label %50, label %shuffle.exit.preheader.i100.us, !llvm.loop !17
 
-50:                                               ; preds = %f_func.exit.i106.us
+50:                                               ; preds = %f_func.exit.i109.us
   %51 = tail call i64 @llvm.fshl.i64(i64 %49, i64 %49, i64 32)
   br label %52
 
 52:                                               ; preds = %52, %50
-  %.04.i.i108.us = phi i64 [ 0, %50 ], [ %58, %52 ]
-  %.093.i.i109.us = phi i32 [ 0, %50 ], [ %60, %52 ]
-  %.0102.i.i110.us = phi i64 [ %51, %50 ], [ %59, %52 ]
-  %.0111.i.i111.us = phi ptr [ getelementptr inbounds nuw (i8, ptr @IP_shuffle, i64 63), %50 ], [ %54, %52 ]
-  %53 = and i64 %.0102.i.i110.us, 1
-  %54 = getelementptr inbounds i8, ptr %.0111.i.i111.us, i64 -1
-  %55 = load i8, ptr %.0111.i.i111.us, align 1, !tbaa !9
+  %.04.i.i111.us = phi i64 [ 0, %50 ], [ %58, %52 ]
+  %.093.i.i112.us = phi i32 [ 0, %50 ], [ %60, %52 ]
+  %.0102.i.i113.us = phi i64 [ %51, %50 ], [ %59, %52 ]
+  %.0111.i.i114.us = phi ptr [ getelementptr inbounds nuw (i8, ptr @IP_shuffle, i64 63), %50 ], [ %54, %52 ]
+  %53 = and i64 %.0102.i.i113.us, 1
+  %54 = getelementptr inbounds i8, ptr %.0111.i.i114.us, i64 -1
+  %55 = load i8, ptr %.0111.i.i114.us, align 1, !tbaa !9
   %56 = zext nneg i8 %55 to i64
   %57 = shl nuw i64 %53, %56
-  %58 = or i64 %57, %.04.i.i108.us
-  %59 = lshr i64 %.0102.i.i110.us, 1
-  %60 = add nuw nsw i32 %.093.i.i109.us, 1
-  %exitcond.not.i16.i112.us = icmp eq i32 %60, 64
-  br i1 %exitcond.not.i16.i112.us, label %des_encdec.exit113.us, label %52, !llvm.loop !18
+  %58 = or i64 %57, %.04.i.i111.us
+  %59 = lshr i64 %.0102.i.i113.us, 1
+  %60 = add nuw nsw i32 %.093.i.i112.us, 1
+  %exitcond.not.i16.i115.us = icmp eq i32 %60, 64
+  br i1 %exitcond.not.i16.i115.us, label %des_encdec.exit116.us, label %52, !llvm.loop !18
 
-des_encdec.exit113.us:                            ; preds = %52
+des_encdec.exit116.us:                            ; preds = %52
   %61 = load i32, ptr %15, align 8, !tbaa !4
   %.not45.us = icmp eq i32 %61, 0
-  br i1 %.not45.us, label %des_encdec.exit157.us, label %.preheader
+  br i1 %.not45.us, label %des_encdec.exit162.us, label %.preheader
 
-.preheader:                                       ; preds = %des_encdec.exit113.us, %.preheader
-  %.011.i.i114.us = phi i64 [ %67, %.preheader ], [ 0, %des_encdec.exit113.us ]
-  %.0710.i.i115.us = phi i32 [ %68, %.preheader ], [ 0, %des_encdec.exit113.us ]
-  %.089.i.i116.us = phi ptr [ %62, %.preheader ], [ @IP_shuffle, %des_encdec.exit113.us ]
-  %62 = getelementptr inbounds nuw i8, ptr %.089.i.i116.us, i64 1
-  %63 = load i8, ptr %.089.i.i116.us, align 1, !tbaa !9
+.preheader:                                       ; preds = %des_encdec.exit116.us, %.preheader
+  %.011.i.i117.us = phi i64 [ %67, %.preheader ], [ 0, %des_encdec.exit116.us ]
+  %.0710.i.i118.us = phi i32 [ %68, %.preheader ], [ 0, %des_encdec.exit116.us ]
+  %.089.i.i119.us = phi ptr [ %62, %.preheader ], [ @IP_shuffle, %des_encdec.exit116.us ]
+  %62 = getelementptr inbounds nuw i8, ptr %.089.i.i119.us, i64 1
+  %63 = load i8, ptr %.089.i.i119.us, align 1, !tbaa !9
   %64 = zext nneg i8 %63 to i64
   %65 = lshr i64 %58, %64
   %66 = and i64 %65, 1
-  %reass.add.i.i117.us = shl i64 %.011.i.i114.us, 1
-  %67 = or disjoint i64 %66, %reass.add.i.i117.us
-  %68 = add nuw nsw i32 %.0710.i.i115.us, 1
-  %exitcond.not.i.i118.us = icmp eq i32 %68, 64
-  br i1 %exitcond.not.i.i118.us, label %shuffle.exit.preheader.i119.us, label %.preheader, !llvm.loop !10
+  %reass.add.i.i120.us = shl i64 %.011.i.i117.us, 1
+  %67 = or disjoint i64 %66, %reass.add.i.i120.us
+  %68 = add nuw nsw i32 %.0710.i.i118.us, 1
+  %exitcond.not.i.i121.us = icmp eq i32 %68, 64
+  br i1 %exitcond.not.i.i121.us, label %shuffle.exit.preheader.i123.us, label %.preheader, !llvm.loop !10
 
-shuffle.exit.preheader.i119.us:                   ; preds = %.preheader, %f_func.exit.i128.us
-  %.020.i120.us = phi i64 [ %87, %f_func.exit.i128.us ], [ %67, %.preheader ]
-  %.01519.i121.us = phi i32 [ %88, %f_func.exit.i128.us ], [ 0, %.preheader ]
-  %69 = trunc i64 %.020.i120.us to i32
-  %70 = xor i32 %.01519.i121.us, 15
+shuffle.exit.preheader.i123.us:                   ; preds = %.preheader, %f_func.exit.i132.us
+  %.020.i124.us = phi i64 [ %87, %f_func.exit.i132.us ], [ %67, %.preheader ]
+  %.01519.i125.us = phi i32 [ %88, %f_func.exit.i132.us ], [ 0, %.preheader ]
+  %69 = trunc i64 %.020.i124.us to i32
+  %70 = xor i32 %.01519.i125.us, 15
   %71 = zext nneg i32 %70 to i64
   %72 = getelementptr inbounds nuw i64, ptr %17, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !12
   %74 = tail call i32 @llvm.fshl.i32(i32 %69, i32 %69, i32 1)
   br label %75
 
-75:                                               ; preds = %75, %shuffle.exit.preheader.i119.us
-  %indvars.iv.i.i122.us = phi i64 [ 7, %shuffle.exit.preheader.i119.us ], [ %indvars.iv.next.i.i126.us, %75 ]
-  %.019.i.i123.us = phi i32 [ %74, %shuffle.exit.preheader.i119.us ], [ %83, %75 ]
-  %.01318.i.i124.us = phi i32 [ 0, %shuffle.exit.preheader.i119.us ], [ %82, %75 ]
-  %.01516.i.i125.us = phi i64 [ %73, %shuffle.exit.preheader.i119.us ], [ %84, %75 ]
-  %76 = zext i32 %.019.i.i123.us to i64
-  %77 = xor i64 %.01516.i.i125.us, %76
+75:                                               ; preds = %75, %shuffle.exit.preheader.i123.us
+  %indvars.iv.i.i126.us = phi i64 [ 7, %shuffle.exit.preheader.i123.us ], [ %indvars.iv.next.i.i130.us, %75 ]
+  %.019.i.i127.us = phi i32 [ %74, %shuffle.exit.preheader.i123.us ], [ %83, %75 ]
+  %.01318.i.i128.us = phi i32 [ 0, %shuffle.exit.preheader.i123.us ], [ %82, %75 ]
+  %.01516.i.i129.us = phi i64 [ %73, %shuffle.exit.preheader.i123.us ], [ %84, %75 ]
+  %76 = zext i32 %.019.i.i127.us to i64
+  %77 = xor i64 %.01516.i.i129.us, %76
   %78 = and i64 %77, 63
-  %79 = getelementptr inbounds nuw [64 x i32], ptr @S_boxes_P_shuffle, i64 %indvars.iv.i.i122.us
+  %79 = getelementptr inbounds nuw [64 x i32], ptr @S_boxes_P_shuffle, i64 %indvars.iv.i.i126.us
   %80 = getelementptr inbounds nuw i32, ptr %79, i64 %78
   %81 = load i32, ptr %80, align 4, !tbaa !15
-  %82 = or i32 %81, %.01318.i.i124.us
-  %83 = tail call i32 @llvm.fshl.i32(i32 %.019.i.i123.us, i32 %.019.i.i123.us, i32 28)
-  %84 = lshr i64 %.01516.i.i125.us, 6
-  %indvars.iv.next.i.i126.us = add nsw i64 %indvars.iv.i.i122.us, -1
-  %.not.i.i127.us = icmp eq i64 %indvars.iv.i.i122.us, 0
-  br i1 %.not.i.i127.us, label %f_func.exit.i128.us, label %75, !llvm.loop !16
+  %82 = or i32 %81, %.01318.i.i128.us
+  %83 = tail call i32 @llvm.fshl.i32(i32 %.019.i.i127.us, i32 %.019.i.i127.us, i32 28)
+  %84 = lshr i64 %.01516.i.i129.us, 6
+  %indvars.iv.next.i.i130.us = add nsw i64 %indvars.iv.i.i126.us, -1
+  %.not.i.i131.us = icmp eq i64 %indvars.iv.i.i126.us, 0
+  br i1 %.not.i.i131.us, label %f_func.exit.i132.us, label %75, !llvm.loop !16
 
-f_func.exit.i128.us:                              ; preds = %75
-  %85 = tail call i64 @llvm.fshl.i64(i64 %.020.i120.us, i64 %.020.i120.us, i64 32)
+f_func.exit.i132.us:                              ; preds = %75
+  %85 = tail call i64 @llvm.fshl.i64(i64 %.020.i124.us, i64 %.020.i124.us, i64 32)
   %86 = zext i32 %82 to i64
   %87 = xor i64 %85, %86
-  %88 = add nuw nsw i32 %.01519.i121.us, 1
-  %exitcond.not.i129.us = icmp eq i32 %88, 16
-  br i1 %exitcond.not.i129.us, label %89, label %shuffle.exit.preheader.i119.us, !llvm.loop !17
+  %88 = add nuw nsw i32 %.01519.i125.us, 1
+  %exitcond.not.i133.us = icmp eq i32 %88, 16
+  br i1 %exitcond.not.i133.us, label %89, label %shuffle.exit.preheader.i123.us, !llvm.loop !17
 
-89:                                               ; preds = %f_func.exit.i128.us
+89:                                               ; preds = %f_func.exit.i132.us
   %90 = tail call i64 @llvm.fshl.i64(i64 %87, i64 %87, i64 32)
   br label %91
 
 91:                                               ; preds = %91, %89
-  %.04.i.i130.us = phi i64 [ 0, %89 ], [ %97, %91 ]
-  %.093.i.i131.us = phi i32 [ 0, %89 ], [ %99, %91 ]
-  %.0102.i.i132.us = phi i64 [ %90, %89 ], [ %98, %91 ]
-  %.0111.i.i133.us = phi ptr [ getelementptr inbounds nuw (i8, ptr @IP_shuffle, i64 63), %89 ], [ %93, %91 ]
-  %92 = and i64 %.0102.i.i132.us, 1
-  %93 = getelementptr inbounds i8, ptr %.0111.i.i133.us, i64 -1
-  %94 = load i8, ptr %.0111.i.i133.us, align 1, !tbaa !9
+  %.04.i.i134.us = phi i64 [ 0, %89 ], [ %97, %91 ]
+  %.093.i.i135.us = phi i32 [ 0, %89 ], [ %99, %91 ]
+  %.0102.i.i136.us = phi i64 [ %90, %89 ], [ %98, %91 ]
+  %.0111.i.i137.us = phi ptr [ getelementptr inbounds nuw (i8, ptr @IP_shuffle, i64 63), %89 ], [ %93, %91 ]
+  %92 = and i64 %.0102.i.i136.us, 1
+  %93 = getelementptr inbounds i8, ptr %.0111.i.i137.us, i64 -1
+  %94 = load i8, ptr %.0111.i.i137.us, align 1, !tbaa !9
   %95 = zext nneg i8 %94 to i64
   %96 = shl nuw i64 %92, %95
-  %97 = or i64 %96, %.04.i.i130.us
-  %98 = lshr i64 %.0102.i.i132.us, 1
-  %99 = add nuw nsw i32 %.093.i.i131.us, 1
-  %exitcond.not.i16.i134.us = icmp eq i32 %99, 64
-  br i1 %exitcond.not.i16.i134.us, label %des_encdec.exit135.us, label %91, !llvm.loop !18
+  %97 = or i64 %96, %.04.i.i134.us
+  %98 = lshr i64 %.0102.i.i136.us, 1
+  %99 = add nuw nsw i32 %.093.i.i135.us, 1
+  %exitcond.not.i16.i138.us = icmp eq i32 %99, 64
+  br i1 %exitcond.not.i16.i138.us, label %des_encdec.exit139.us, label %91, !llvm.loop !18
 
-des_encdec.exit135.us:                            ; preds = %91, %des_encdec.exit135.us
-  %.011.i.i136.us = phi i64 [ %105, %des_encdec.exit135.us ], [ 0, %91 ]
-  %.0710.i.i137.us = phi i32 [ %106, %des_encdec.exit135.us ], [ 0, %91 ]
-  %.089.i.i138.us = phi ptr [ %100, %des_encdec.exit135.us ], [ @IP_shuffle, %91 ]
-  %100 = getelementptr inbounds nuw i8, ptr %.089.i.i138.us, i64 1
-  %101 = load i8, ptr %.089.i.i138.us, align 1, !tbaa !9
+des_encdec.exit139.us:                            ; preds = %91, %des_encdec.exit139.us
+  %.011.i.i140.us = phi i64 [ %105, %des_encdec.exit139.us ], [ 0, %91 ]
+  %.0710.i.i141.us = phi i32 [ %106, %des_encdec.exit139.us ], [ 0, %91 ]
+  %.089.i.i142.us = phi ptr [ %100, %des_encdec.exit139.us ], [ @IP_shuffle, %91 ]
+  %100 = getelementptr inbounds nuw i8, ptr %.089.i.i142.us, i64 1
+  %101 = load i8, ptr %.089.i.i142.us, align 1, !tbaa !9
   %102 = zext nneg i8 %101 to i64
   %103 = lshr i64 %97, %102
   %104 = and i64 %103, 1
-  %reass.add.i.i139.us = shl i64 %.011.i.i136.us, 1
-  %105 = or disjoint i64 %104, %reass.add.i.i139.us
-  %106 = add nuw nsw i32 %.0710.i.i137.us, 1
-  %exitcond.not.i.i140.us = icmp eq i32 %106, 64
-  br i1 %exitcond.not.i.i140.us, label %shuffle.exit.preheader.i141.us, label %des_encdec.exit135.us, !llvm.loop !10
+  %reass.add.i.i143.us = shl i64 %.011.i.i140.us, 1
+  %105 = or disjoint i64 %104, %reass.add.i.i143.us
+  %106 = add nuw nsw i32 %.0710.i.i141.us, 1
+  %exitcond.not.i.i144.us = icmp eq i32 %106, 64
+  br i1 %exitcond.not.i.i144.us, label %shuffle.exit.preheader.i146.us, label %des_encdec.exit139.us, !llvm.loop !10
 
-shuffle.exit.preheader.i141.us:                   ; preds = %des_encdec.exit135.us, %f_func.exit.i150.us
-  %indvars.iv215 = phi i64 [ %indvars.iv.next216, %f_func.exit.i150.us ], [ 0, %des_encdec.exit135.us ]
-  %.020.i142.us = phi i64 [ %123, %f_func.exit.i150.us ], [ %105, %des_encdec.exit135.us ]
-  %107 = trunc i64 %.020.i142.us to i32
-  %108 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv215
+shuffle.exit.preheader.i146.us:                   ; preds = %des_encdec.exit139.us, %f_func.exit.i155.us
+  %indvars.iv220 = phi i64 [ %indvars.iv.next221, %f_func.exit.i155.us ], [ 0, %des_encdec.exit139.us ]
+  %.020.i147.us = phi i64 [ %123, %f_func.exit.i155.us ], [ %105, %des_encdec.exit139.us ]
+  %107 = trunc i64 %.020.i147.us to i32
+  %108 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv220
   %109 = load i64, ptr %108, align 8, !tbaa !12
   %110 = tail call i32 @llvm.fshl.i32(i32 %107, i32 %107, i32 1)
   br label %111
 
-111:                                              ; preds = %111, %shuffle.exit.preheader.i141.us
-  %indvars.iv.i.i144.us = phi i64 [ 7, %shuffle.exit.preheader.i141.us ], [ %indvars.iv.next.i.i148.us, %111 ]
-  %.019.i.i145.us = phi i32 [ %110, %shuffle.exit.preheader.i141.us ], [ %119, %111 ]
-  %.01318.i.i146.us = phi i32 [ 0, %shuffle.exit.preheader.i141.us ], [ %118, %111 ]
-  %.01516.i.i147.us = phi i64 [ %109, %shuffle.exit.preheader.i141.us ], [ %120, %111 ]
-  %112 = zext i32 %.019.i.i145.us to i64
-  %113 = xor i64 %.01516.i.i147.us, %112
+111:                                              ; preds = %111, %shuffle.exit.preheader.i146.us
+  %indvars.iv.i.i149.us = phi i64 [ 7, %shuffle.exit.preheader.i146.us ], [ %indvars.iv.next.i.i153.us, %111 ]
+  %.019.i.i150.us = phi i32 [ %110, %shuffle.exit.preheader.i146.us ], [ %119, %111 ]
+  %.01318.i.i151.us = phi i32 [ 0, %shuffle.exit.preheader.i146.us ], [ %118, %111 ]
+  %.01516.i.i152.us = phi i64 [ %109, %shuffle.exit.preheader.i146.us ], [ %120, %111 ]
+  %112 = zext i32 %.019.i.i150.us to i64
+  %113 = xor i64 %.01516.i.i152.us, %112
   %114 = and i64 %113, 63
-  %115 = getelementptr inbounds nuw [64 x i32], ptr @S_boxes_P_shuffle, i64 %indvars.iv.i.i144.us
+  %115 = getelementptr inbounds nuw [64 x i32], ptr @S_boxes_P_shuffle, i64 %indvars.iv.i.i149.us
   %116 = getelementptr inbounds nuw i32, ptr %115, i64 %114
   %117 = load i32, ptr %116, align 4, !tbaa !15
-  %118 = or i32 %117, %.01318.i.i146.us
-  %119 = tail call i32 @llvm.fshl.i32(i32 %.019.i.i145.us, i32 %.019.i.i145.us, i32 28)
-  %120 = lshr i64 %.01516.i.i147.us, 6
-  %indvars.iv.next.i.i148.us = add nsw i64 %indvars.iv.i.i144.us, -1
-  %.not.i.i149.us = icmp eq i64 %indvars.iv.i.i144.us, 0
-  br i1 %.not.i.i149.us, label %f_func.exit.i150.us, label %111, !llvm.loop !16
+  %118 = or i32 %117, %.01318.i.i151.us
+  %119 = tail call i32 @llvm.fshl.i32(i32 %.019.i.i150.us, i32 %.019.i.i150.us, i32 28)
+  %120 = lshr i64 %.01516.i.i152.us, 6
+  %indvars.iv.next.i.i153.us = add nsw i64 %indvars.iv.i.i149.us, -1
+  %.not.i.i154.us = icmp eq i64 %indvars.iv.i.i149.us, 0
+  br i1 %.not.i.i154.us, label %f_func.exit.i155.us, label %111, !llvm.loop !16
 
-f_func.exit.i150.us:                              ; preds = %111
-  %121 = tail call i64 @llvm.fshl.i64(i64 %.020.i142.us, i64 %.020.i142.us, i64 32)
+f_func.exit.i155.us:                              ; preds = %111
+  %121 = tail call i64 @llvm.fshl.i64(i64 %.020.i147.us, i64 %.020.i147.us, i64 32)
   %122 = zext i32 %118 to i64
   %123 = xor i64 %121, %122
-  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %exitcond.not.i151.us = icmp eq i64 %indvars.iv.next216, 16
-  br i1 %exitcond.not.i151.us, label %124, label %shuffle.exit.preheader.i141.us, !llvm.loop !17
+  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
+  %exitcond.not.i156.us = icmp eq i64 %indvars.iv.next221, 16
+  br i1 %exitcond.not.i156.us, label %124, label %shuffle.exit.preheader.i146.us, !llvm.loop !17
 
-124:                                              ; preds = %f_func.exit.i150.us
+124:                                              ; preds = %f_func.exit.i155.us
   %125 = tail call i64 @llvm.fshl.i64(i64 %123, i64 %123, i64 32)
   br label %126
 
 126:                                              ; preds = %126, %124
-  %.04.i.i152.us = phi i64 [ 0, %124 ], [ %132, %126 ]
-  %.093.i.i153.us = phi i32 [ 0, %124 ], [ %134, %126 ]
-  %.0102.i.i154.us = phi i64 [ %125, %124 ], [ %133, %126 ]
-  %.0111.i.i155.us = phi ptr [ getelementptr inbounds nuw (i8, ptr @IP_shuffle, i64 63), %124 ], [ %128, %126 ]
-  %127 = and i64 %.0102.i.i154.us, 1
-  %128 = getelementptr inbounds i8, ptr %.0111.i.i155.us, i64 -1
-  %129 = load i8, ptr %.0111.i.i155.us, align 1, !tbaa !9
+  %.04.i.i157.us = phi i64 [ 0, %124 ], [ %132, %126 ]
+  %.093.i.i158.us = phi i32 [ 0, %124 ], [ %134, %126 ]
+  %.0102.i.i159.us = phi i64 [ %125, %124 ], [ %133, %126 ]
+  %.0111.i.i160.us = phi ptr [ getelementptr inbounds nuw (i8, ptr @IP_shuffle, i64 63), %124 ], [ %128, %126 ]
+  %127 = and i64 %.0102.i.i159.us, 1
+  %128 = getelementptr inbounds i8, ptr %.0111.i.i160.us, i64 -1
+  %129 = load i8, ptr %.0111.i.i160.us, align 1, !tbaa !9
   %130 = zext nneg i8 %129 to i64
   %131 = shl nuw i64 %127, %130
-  %132 = or i64 %131, %.04.i.i152.us
-  %133 = lshr i64 %.0102.i.i154.us, 1
-  %134 = add nuw nsw i32 %.093.i.i153.us, 1
-  %exitcond.not.i16.i156.us = icmp eq i32 %134, 64
-  br i1 %exitcond.not.i16.i156.us, label %des_encdec.exit157.us, label %126, !llvm.loop !18
+  %132 = or i64 %131, %.04.i.i157.us
+  %133 = lshr i64 %.0102.i.i159.us, 1
+  %134 = add nuw nsw i32 %.093.i.i158.us, 1
+  %exitcond.not.i16.i161.us = icmp eq i32 %134, 64
+  br i1 %exitcond.not.i16.i161.us, label %des_encdec.exit162.us, label %126, !llvm.loop !18
 
-des_encdec.exit157.us:                            ; preds = %126, %des_encdec.exit113.us
-  %.136.us = phi i64 [ %58, %des_encdec.exit113.us ], [ %132, %126 ]
+des_encdec.exit162.us:                            ; preds = %126, %des_encdec.exit116.us
+  %.136.us = phi i64 [ %58, %des_encdec.exit116.us ], [ %132, %126 ]
   %135 = select i1 %.not, i64 0, i64 %.136.us
   %136 = tail call noundef i64 @llvm.bswap.i64(i64 %.136.us)
-  store i64 %136, ptr %.0183.us, align 1, !tbaa !9
-  %137 = getelementptr inbounds nuw i8, ptr %.039181.us, i64 8
-  %spec.select.us = getelementptr inbounds nuw i8, ptr %.0183.us, i64 %spec.select.idx
+  store i64 %136, ptr %.0188.us, align 1, !tbaa !9
+  %137 = getelementptr inbounds nuw i8, ptr %.039186.us, i64 8
+  %spec.select.us = getelementptr inbounds nuw i8, ptr %.0188.us, i64 %spec.select.idx
   %138 = add nsw i32 %18, -1
   %139 = icmp sgt i32 %18, 0
   br i1 %139, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !19
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %des_encdec.exit91
-  %140 = phi i32 [ %263, %des_encdec.exit91 ], [ %14, %.lr.ph ]
-  %.0183 = phi ptr [ %spec.select, %des_encdec.exit91 ], [ %1, %.lr.ph ]
-  %.037182 = phi i64 [ %260, %des_encdec.exit91 ], [ %12, %.lr.ph ]
-  %.039181 = phi ptr [ %262, %des_encdec.exit91 ], [ %2, %.lr.ph ]
-  %.not43 = icmp eq ptr %.039181, null
+.lr.ph.split:                                     ; preds = %.lr.ph, %des_encdec.exit93
+  %140 = phi i32 [ %263, %des_encdec.exit93 ], [ %14, %.lr.ph ]
+  %.0188 = phi ptr [ %spec.select, %des_encdec.exit93 ], [ %1, %.lr.ph ]
+  %.037187 = phi i64 [ %260, %des_encdec.exit93 ], [ %12, %.lr.ph ]
+  %.039186 = phi ptr [ %262, %des_encdec.exit93 ], [ %2, %.lr.ph ]
+  %.not43 = icmp eq ptr %.039186, null
   br i1 %.not43, label %144, label %141
 
 141:                                              ; preds = %.lr.ph.split
-  %142 = load i64, ptr %.039181, align 1, !tbaa !9
+  %142 = load i64, ptr %.039186, align 1, !tbaa !9
   %143 = tail call noundef i64 @llvm.bswap.i64(i64 %142)
   br label %144
 
@@ -548,12 +548,12 @@ des_encdec.exit157.us:                            ; preds = %126, %des_encdec.ex
   %145 = phi i64 [ %143, %141 ], [ 0, %.lr.ph.split ]
   %146 = load i32, ptr %15, align 8, !tbaa !4
   %.not46 = icmp eq i32 %146, 0
-  br i1 %.not46, label %des_encdec.exit69, label %.preheader184
+  br i1 %.not46, label %des_encdec.exit70, label %.preheader189
 
-.preheader184:                                    ; preds = %144, %.preheader184
-  %.011.i.i = phi i64 [ %152, %.preheader184 ], [ 0, %144 ]
-  %.0710.i.i = phi i32 [ %153, %.preheader184 ], [ 0, %144 ]
-  %.089.i.i = phi ptr [ %147, %.preheader184 ], [ @IP_shuffle, %144 ]
+.preheader189:                                    ; preds = %144, %.preheader189
+  %.011.i.i = phi i64 [ %152, %.preheader189 ], [ 0, %144 ]
+  %.0710.i.i = phi i32 [ %153, %.preheader189 ], [ 0, %144 ]
+  %.089.i.i = phi ptr [ %147, %.preheader189 ], [ @IP_shuffle, %144 ]
   %147 = getelementptr inbounds nuw i8, ptr %.089.i.i, i64 1
   %148 = load i8, ptr %.089.i.i, align 1, !tbaa !9
   %149 = zext nneg i8 %148 to i64
@@ -563,11 +563,11 @@ des_encdec.exit157.us:                            ; preds = %126, %des_encdec.ex
   %152 = or disjoint i64 %151, %reass.add.i.i
   %153 = add nuw nsw i32 %.0710.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %153, 64
-  br i1 %exitcond.not.i.i, label %shuffle.exit.preheader.i, label %.preheader184, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %shuffle.exit.preheader.i, label %.preheader189, !llvm.loop !10
 
-shuffle.exit.preheader.i:                         ; preds = %.preheader184, %f_func.exit.i
-  %.020.i = phi i64 [ %172, %f_func.exit.i ], [ %152, %.preheader184 ]
-  %.01519.i = phi i32 [ %173, %f_func.exit.i ], [ 0, %.preheader184 ]
+shuffle.exit.preheader.i:                         ; preds = %.preheader189, %f_func.exit.i
+  %.020.i = phi i64 [ %172, %f_func.exit.i ], [ %152, %.preheader189 ]
+  %.01519.i = phi i32 [ %173, %f_func.exit.i ], [ 0, %.preheader189 ]
   %154 = trunc i64 %.020.i to i32
   %155 = xor i32 %.01519.i, 15
   %156 = zext nneg i32 %155 to i64
@@ -635,152 +635,152 @@ des_encdec.exit:                                  ; preds = %176, %des_encdec.ex
   %190 = or disjoint i64 %189, %reass.add.i.i51
   %191 = add nuw nsw i32 %.0710.i.i49, 1
   %exitcond.not.i.i52 = icmp eq i32 %191, 64
-  br i1 %exitcond.not.i.i52, label %shuffle.exit.preheader.i53, label %des_encdec.exit, !llvm.loop !10
+  br i1 %exitcond.not.i.i52, label %shuffle.exit.preheader.i54, label %des_encdec.exit, !llvm.loop !10
 
-shuffle.exit.preheader.i53:                       ; preds = %des_encdec.exit, %f_func.exit.i62
-  %indvars.iv = phi i64 [ %indvars.iv.next, %f_func.exit.i62 ], [ 0, %des_encdec.exit ]
-  %.020.i54 = phi i64 [ %208, %f_func.exit.i62 ], [ %190, %des_encdec.exit ]
-  %192 = trunc i64 %.020.i54 to i32
+shuffle.exit.preheader.i54:                       ; preds = %des_encdec.exit, %f_func.exit.i63
+  %indvars.iv = phi i64 [ %indvars.iv.next, %f_func.exit.i63 ], [ 0, %des_encdec.exit ]
+  %.020.i55 = phi i64 [ %208, %f_func.exit.i63 ], [ %190, %des_encdec.exit ]
+  %192 = trunc i64 %.020.i55 to i32
   %193 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
   %194 = load i64, ptr %193, align 8, !tbaa !12
   %195 = tail call i32 @llvm.fshl.i32(i32 %192, i32 %192, i32 1)
   br label %196
 
-196:                                              ; preds = %196, %shuffle.exit.preheader.i53
-  %indvars.iv.i.i56 = phi i64 [ 7, %shuffle.exit.preheader.i53 ], [ %indvars.iv.next.i.i60, %196 ]
-  %.019.i.i57 = phi i32 [ %195, %shuffle.exit.preheader.i53 ], [ %204, %196 ]
-  %.01318.i.i58 = phi i32 [ 0, %shuffle.exit.preheader.i53 ], [ %203, %196 ]
-  %.01516.i.i59 = phi i64 [ %194, %shuffle.exit.preheader.i53 ], [ %205, %196 ]
-  %197 = zext i32 %.019.i.i57 to i64
-  %198 = xor i64 %.01516.i.i59, %197
+196:                                              ; preds = %196, %shuffle.exit.preheader.i54
+  %indvars.iv.i.i57 = phi i64 [ 7, %shuffle.exit.preheader.i54 ], [ %indvars.iv.next.i.i61, %196 ]
+  %.019.i.i58 = phi i32 [ %195, %shuffle.exit.preheader.i54 ], [ %204, %196 ]
+  %.01318.i.i59 = phi i32 [ 0, %shuffle.exit.preheader.i54 ], [ %203, %196 ]
+  %.01516.i.i60 = phi i64 [ %194, %shuffle.exit.preheader.i54 ], [ %205, %196 ]
+  %197 = zext i32 %.019.i.i58 to i64
+  %198 = xor i64 %.01516.i.i60, %197
   %199 = and i64 %198, 63
-  %200 = getelementptr inbounds nuw [64 x i32], ptr @S_boxes_P_shuffle, i64 %indvars.iv.i.i56
+  %200 = getelementptr inbounds nuw [64 x i32], ptr @S_boxes_P_shuffle, i64 %indvars.iv.i.i57
   %201 = getelementptr inbounds nuw i32, ptr %200, i64 %199
   %202 = load i32, ptr %201, align 4, !tbaa !15
-  %203 = or i32 %202, %.01318.i.i58
-  %204 = tail call i32 @llvm.fshl.i32(i32 %.019.i.i57, i32 %.019.i.i57, i32 28)
-  %205 = lshr i64 %.01516.i.i59, 6
-  %indvars.iv.next.i.i60 = add nsw i64 %indvars.iv.i.i56, -1
-  %.not.i.i61 = icmp eq i64 %indvars.iv.i.i56, 0
-  br i1 %.not.i.i61, label %f_func.exit.i62, label %196, !llvm.loop !16
+  %203 = or i32 %202, %.01318.i.i59
+  %204 = tail call i32 @llvm.fshl.i32(i32 %.019.i.i58, i32 %.019.i.i58, i32 28)
+  %205 = lshr i64 %.01516.i.i60, 6
+  %indvars.iv.next.i.i61 = add nsw i64 %indvars.iv.i.i57, -1
+  %.not.i.i62 = icmp eq i64 %indvars.iv.i.i57, 0
+  br i1 %.not.i.i62, label %f_func.exit.i63, label %196, !llvm.loop !16
 
-f_func.exit.i62:                                  ; preds = %196
-  %206 = tail call i64 @llvm.fshl.i64(i64 %.020.i54, i64 %.020.i54, i64 32)
+f_func.exit.i63:                                  ; preds = %196
+  %206 = tail call i64 @llvm.fshl.i64(i64 %.020.i55, i64 %.020.i55, i64 32)
   %207 = zext i32 %203 to i64
   %208 = xor i64 %206, %207
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not.i63 = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not.i63, label %209, label %shuffle.exit.preheader.i53, !llvm.loop !17
+  %exitcond.not.i64 = icmp eq i64 %indvars.iv.next, 16
+  br i1 %exitcond.not.i64, label %209, label %shuffle.exit.preheader.i54, !llvm.loop !17
 
-209:                                              ; preds = %f_func.exit.i62
+209:                                              ; preds = %f_func.exit.i63
   %210 = tail call i64 @llvm.fshl.i64(i64 %208, i64 %208, i64 32)
   br label %211
 
 211:                                              ; preds = %211, %209
-  %.04.i.i64 = phi i64 [ 0, %209 ], [ %217, %211 ]
-  %.093.i.i65 = phi i32 [ 0, %209 ], [ %219, %211 ]
-  %.0102.i.i66 = phi i64 [ %210, %209 ], [ %218, %211 ]
-  %.0111.i.i67 = phi ptr [ getelementptr inbounds nuw (i8, ptr @IP_shuffle, i64 63), %209 ], [ %213, %211 ]
-  %212 = and i64 %.0102.i.i66, 1
-  %213 = getelementptr inbounds i8, ptr %.0111.i.i67, i64 -1
-  %214 = load i8, ptr %.0111.i.i67, align 1, !tbaa !9
+  %.04.i.i65 = phi i64 [ 0, %209 ], [ %217, %211 ]
+  %.093.i.i66 = phi i32 [ 0, %209 ], [ %219, %211 ]
+  %.0102.i.i67 = phi i64 [ %210, %209 ], [ %218, %211 ]
+  %.0111.i.i68 = phi ptr [ getelementptr inbounds nuw (i8, ptr @IP_shuffle, i64 63), %209 ], [ %213, %211 ]
+  %212 = and i64 %.0102.i.i67, 1
+  %213 = getelementptr inbounds i8, ptr %.0111.i.i68, i64 -1
+  %214 = load i8, ptr %.0111.i.i68, align 1, !tbaa !9
   %215 = zext nneg i8 %214 to i64
   %216 = shl nuw i64 %212, %215
-  %217 = or i64 %216, %.04.i.i64
-  %218 = lshr i64 %.0102.i.i66, 1
-  %219 = add nuw nsw i32 %.093.i.i65, 1
-  %exitcond.not.i16.i68 = icmp eq i32 %219, 64
-  br i1 %exitcond.not.i16.i68, label %des_encdec.exit69, label %211, !llvm.loop !18
+  %217 = or i64 %216, %.04.i.i65
+  %218 = lshr i64 %.0102.i.i67, 1
+  %219 = add nuw nsw i32 %.093.i.i66, 1
+  %exitcond.not.i16.i69 = icmp eq i32 %219, 64
+  br i1 %exitcond.not.i16.i69, label %des_encdec.exit70, label %211, !llvm.loop !18
 
-des_encdec.exit69:                                ; preds = %211, %144
+des_encdec.exit70:                                ; preds = %211, %144
   %.034 = phi i64 [ %145, %144 ], [ %217, %211 ]
   br label %220
 
-220:                                              ; preds = %220, %des_encdec.exit69
-  %.011.i.i70 = phi i64 [ 0, %des_encdec.exit69 ], [ %226, %220 ]
-  %.0710.i.i71 = phi i32 [ 0, %des_encdec.exit69 ], [ %227, %220 ]
-  %.089.i.i72 = phi ptr [ @IP_shuffle, %des_encdec.exit69 ], [ %221, %220 ]
-  %221 = getelementptr inbounds nuw i8, ptr %.089.i.i72, i64 1
-  %222 = load i8, ptr %.089.i.i72, align 1, !tbaa !9
+220:                                              ; preds = %220, %des_encdec.exit70
+  %.011.i.i71 = phi i64 [ 0, %des_encdec.exit70 ], [ %226, %220 ]
+  %.0710.i.i72 = phi i32 [ 0, %des_encdec.exit70 ], [ %227, %220 ]
+  %.089.i.i73 = phi ptr [ @IP_shuffle, %des_encdec.exit70 ], [ %221, %220 ]
+  %221 = getelementptr inbounds nuw i8, ptr %.089.i.i73, i64 1
+  %222 = load i8, ptr %.089.i.i73, align 1, !tbaa !9
   %223 = zext nneg i8 %222 to i64
   %224 = lshr i64 %.034, %223
   %225 = and i64 %224, 1
-  %reass.add.i.i73 = shl i64 %.011.i.i70, 1
-  %226 = or disjoint i64 %225, %reass.add.i.i73
-  %227 = add nuw nsw i32 %.0710.i.i71, 1
-  %exitcond.not.i.i74 = icmp eq i32 %227, 64
-  br i1 %exitcond.not.i.i74, label %shuffle.exit.preheader.i75, label %220, !llvm.loop !10
+  %reass.add.i.i74 = shl i64 %.011.i.i71, 1
+  %226 = or disjoint i64 %225, %reass.add.i.i74
+  %227 = add nuw nsw i32 %.0710.i.i72, 1
+  %exitcond.not.i.i75 = icmp eq i32 %227, 64
+  br i1 %exitcond.not.i.i75, label %shuffle.exit.preheader.i77, label %220, !llvm.loop !10
 
-shuffle.exit.preheader.i75:                       ; preds = %220, %f_func.exit.i84
-  %.020.i76 = phi i64 [ %246, %f_func.exit.i84 ], [ %226, %220 ]
-  %.01519.i77 = phi i32 [ %247, %f_func.exit.i84 ], [ 0, %220 ]
-  %228 = trunc i64 %.020.i76 to i32
-  %229 = xor i32 %.01519.i77, 15
+shuffle.exit.preheader.i77:                       ; preds = %220, %f_func.exit.i86
+  %.020.i78 = phi i64 [ %246, %f_func.exit.i86 ], [ %226, %220 ]
+  %.01519.i79 = phi i32 [ %247, %f_func.exit.i86 ], [ 0, %220 ]
+  %228 = trunc i64 %.020.i78 to i32
+  %229 = xor i32 %.01519.i79, 15
   %230 = zext nneg i32 %229 to i64
   %231 = getelementptr inbounds nuw i64, ptr %0, i64 %230
   %232 = load i64, ptr %231, align 8, !tbaa !12
   %233 = tail call i32 @llvm.fshl.i32(i32 %228, i32 %228, i32 1)
   br label %234
 
-234:                                              ; preds = %234, %shuffle.exit.preheader.i75
-  %indvars.iv.i.i78 = phi i64 [ 7, %shuffle.exit.preheader.i75 ], [ %indvars.iv.next.i.i82, %234 ]
-  %.019.i.i79 = phi i32 [ %233, %shuffle.exit.preheader.i75 ], [ %242, %234 ]
-  %.01318.i.i80 = phi i32 [ 0, %shuffle.exit.preheader.i75 ], [ %241, %234 ]
-  %.01516.i.i81 = phi i64 [ %232, %shuffle.exit.preheader.i75 ], [ %243, %234 ]
-  %235 = zext i32 %.019.i.i79 to i64
-  %236 = xor i64 %.01516.i.i81, %235
+234:                                              ; preds = %234, %shuffle.exit.preheader.i77
+  %indvars.iv.i.i80 = phi i64 [ 7, %shuffle.exit.preheader.i77 ], [ %indvars.iv.next.i.i84, %234 ]
+  %.019.i.i81 = phi i32 [ %233, %shuffle.exit.preheader.i77 ], [ %242, %234 ]
+  %.01318.i.i82 = phi i32 [ 0, %shuffle.exit.preheader.i77 ], [ %241, %234 ]
+  %.01516.i.i83 = phi i64 [ %232, %shuffle.exit.preheader.i77 ], [ %243, %234 ]
+  %235 = zext i32 %.019.i.i81 to i64
+  %236 = xor i64 %.01516.i.i83, %235
   %237 = and i64 %236, 63
-  %238 = getelementptr inbounds nuw [64 x i32], ptr @S_boxes_P_shuffle, i64 %indvars.iv.i.i78
+  %238 = getelementptr inbounds nuw [64 x i32], ptr @S_boxes_P_shuffle, i64 %indvars.iv.i.i80
   %239 = getelementptr inbounds nuw i32, ptr %238, i64 %237
   %240 = load i32, ptr %239, align 4, !tbaa !15
-  %241 = or i32 %240, %.01318.i.i80
-  %242 = tail call i32 @llvm.fshl.i32(i32 %.019.i.i79, i32 %.019.i.i79, i32 28)
-  %243 = lshr i64 %.01516.i.i81, 6
-  %indvars.iv.next.i.i82 = add nsw i64 %indvars.iv.i.i78, -1
-  %.not.i.i83 = icmp eq i64 %indvars.iv.i.i78, 0
-  br i1 %.not.i.i83, label %f_func.exit.i84, label %234, !llvm.loop !16
+  %241 = or i32 %240, %.01318.i.i82
+  %242 = tail call i32 @llvm.fshl.i32(i32 %.019.i.i81, i32 %.019.i.i81, i32 28)
+  %243 = lshr i64 %.01516.i.i83, 6
+  %indvars.iv.next.i.i84 = add nsw i64 %indvars.iv.i.i80, -1
+  %.not.i.i85 = icmp eq i64 %indvars.iv.i.i80, 0
+  br i1 %.not.i.i85, label %f_func.exit.i86, label %234, !llvm.loop !16
 
-f_func.exit.i84:                                  ; preds = %234
-  %244 = tail call i64 @llvm.fshl.i64(i64 %.020.i76, i64 %.020.i76, i64 32)
+f_func.exit.i86:                                  ; preds = %234
+  %244 = tail call i64 @llvm.fshl.i64(i64 %.020.i78, i64 %.020.i78, i64 32)
   %245 = zext i32 %241 to i64
   %246 = xor i64 %244, %245
-  %247 = add nuw nsw i32 %.01519.i77, 1
-  %exitcond.not.i85 = icmp eq i32 %247, 16
-  br i1 %exitcond.not.i85, label %248, label %shuffle.exit.preheader.i75, !llvm.loop !17
+  %247 = add nuw nsw i32 %.01519.i79, 1
+  %exitcond.not.i87 = icmp eq i32 %247, 16
+  br i1 %exitcond.not.i87, label %248, label %shuffle.exit.preheader.i77, !llvm.loop !17
 
-248:                                              ; preds = %f_func.exit.i84
+248:                                              ; preds = %f_func.exit.i86
   %249 = tail call i64 @llvm.fshl.i64(i64 %246, i64 %246, i64 32)
   br label %250
 
 250:                                              ; preds = %250, %248
-  %.04.i.i86 = phi i64 [ 0, %248 ], [ %256, %250 ]
-  %.093.i.i87 = phi i32 [ 0, %248 ], [ %258, %250 ]
-  %.0102.i.i88 = phi i64 [ %249, %248 ], [ %257, %250 ]
-  %.0111.i.i89 = phi ptr [ getelementptr inbounds nuw (i8, ptr @IP_shuffle, i64 63), %248 ], [ %252, %250 ]
-  %251 = and i64 %.0102.i.i88, 1
-  %252 = getelementptr inbounds i8, ptr %.0111.i.i89, i64 -1
-  %253 = load i8, ptr %.0111.i.i89, align 1, !tbaa !9
+  %.04.i.i88 = phi i64 [ 0, %248 ], [ %256, %250 ]
+  %.093.i.i89 = phi i32 [ 0, %248 ], [ %258, %250 ]
+  %.0102.i.i90 = phi i64 [ %249, %248 ], [ %257, %250 ]
+  %.0111.i.i91 = phi ptr [ getelementptr inbounds nuw (i8, ptr @IP_shuffle, i64 63), %248 ], [ %252, %250 ]
+  %251 = and i64 %.0102.i.i90, 1
+  %252 = getelementptr inbounds i8, ptr %.0111.i.i91, i64 -1
+  %253 = load i8, ptr %.0111.i.i91, align 1, !tbaa !9
   %254 = zext nneg i8 %253 to i64
   %255 = shl nuw i64 %251, %254
-  %256 = or i64 %255, %.04.i.i86
-  %257 = lshr i64 %.0102.i.i88, 1
-  %258 = add nuw nsw i32 %.093.i.i87, 1
-  %exitcond.not.i16.i90 = icmp eq i32 %258, 64
-  br i1 %exitcond.not.i16.i90, label %des_encdec.exit91, label %250, !llvm.loop !18
+  %256 = or i64 %255, %.04.i.i88
+  %257 = lshr i64 %.0102.i.i90, 1
+  %258 = add nuw nsw i32 %.093.i.i89, 1
+  %exitcond.not.i16.i92 = icmp eq i32 %258, 64
+  br i1 %exitcond.not.i16.i92, label %des_encdec.exit93, label %250, !llvm.loop !18
 
-des_encdec.exit91:                                ; preds = %250
-  %259 = xor i64 %256, %.037182
+des_encdec.exit93:                                ; preds = %250
+  %259 = xor i64 %256, %.037187
   %260 = select i1 %.not, i64 0, i64 %145
   %261 = tail call noundef i64 @llvm.bswap.i64(i64 %259)
-  store i64 %261, ptr %.0183, align 1, !tbaa !9
-  %262 = getelementptr inbounds nuw i8, ptr %.039181, i64 8
-  %spec.select = getelementptr inbounds nuw i8, ptr %.0183, i64 %spec.select.idx
+  store i64 %261, ptr %.0188, align 1, !tbaa !9
+  %262 = getelementptr inbounds nuw i8, ptr %.039186, i64 8
+  %spec.select = getelementptr inbounds nuw i8, ptr %.0188, i64 %spec.select.idx
   %263 = add nsw i32 %140, -1
   %264 = icmp sgt i32 %140, 0
   br i1 %264, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %des_encdec.exit91, %des_encdec.exit157.us, %11
-  %.037.lcssa = phi i64 [ %12, %11 ], [ %135, %des_encdec.exit157.us ], [ %260, %des_encdec.exit91 ]
+._crit_edge:                                      ; preds = %des_encdec.exit93, %des_encdec.exit162.us, %11
+  %.037.lcssa = phi i64 [ %12, %11 ], [ %135, %des_encdec.exit162.us ], [ %260, %des_encdec.exit93 ]
   br i1 %.not, label %267, label %265
 
 265:                                              ; preds = %._crit_edge

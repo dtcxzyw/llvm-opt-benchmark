@@ -171,14 +171,14 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i: ; preds = %16, %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  %35 = icmp sgt i32 %5, -1
   %.0.i.i.i = tail call i32 @llvm.abs.i32(i32 %5, i1 false)
-  %35 = icmp ugt i32 %.0.i.i.i, 9999
-  br i1 %35, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %36 = icmp ugt i32 %.0.i.i.i, 9999
+  br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %34
   %.026.lcssa.i.i.i = phi i64 [ 11, %34 ], [ %47, %.lr.ph.i.i.i ]
   %.1.lcssa.i.i.i = phi i32 [ %.0.i.i.i, %34 ], [ %40, %.lr.ph.i.i.i ]
-  %36 = icmp sgt i32 %5, -1
   %37 = zext nneg i32 %.1.lcssa.i.i.i to i64
   %38 = icmp samesign ugt i32 %.1.lcssa.i.i.i, 99
   br i1 %38, label %56, label %65
@@ -247,7 +247,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i.i: ; preds = %16, %14
 
 78:                                               ; preds = %73, %67
   %.2.i.i.i = phi i64 [ %74, %73 ], [ %69, %67 ]
-  br i1 %36, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i", label %79
+  br i1 %35, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i", label %79
 
 79:                                               ; preds = %78
   %80 = add i64 %.2.i.i.i, -1
@@ -397,14 +397,14 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit: ; preds = %._crit_e
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !62
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
+  %42 = icmp sgt i32 %3, -1
   %.0.i.i.i.i = tail call i32 @llvm.abs.i32(i32 range(i32 1, 0) %3, i1 false)
-  %42 = icmp ugt i32 %.0.i.i.i.i, 9999
-  br i1 %42, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %43 = icmp ugt i32 %.0.i.i.i.i, 9999
+  br i1 %43, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit
   %.026.lcssa.i.i.i.i = phi i64 [ 11, %_ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit ], [ %54, %.lr.ph.i.i.i.i ]
   %.1.lcssa.i.i.i.i = phi i32 [ %.0.i.i.i.i, %_ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit ], [ %47, %.lr.ph.i.i.i.i ]
-  %43 = icmp sgt i32 %3, -1
   %44 = zext nneg i32 %.1.lcssa.i.i.i.i to i64
   %45 = icmp samesign ugt i32 %.1.lcssa.i.i.i.i, 99
   br i1 %45, label %63, label %72
@@ -473,7 +473,7 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.exit: ; preds = %._crit_e
 
 85:                                               ; preds = %80, %74
   %.2.i.i.i.i = phi i64 [ %81, %80 ], [ %76, %74 ]
-  br i1 %43, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i.i", label %86
+  br i1 %42, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i.i", label %86
 
 86:                                               ; preds = %85
   %87 = add i64 %.2.i.i.i.i, -1

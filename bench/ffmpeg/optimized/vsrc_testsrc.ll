@@ -1621,28 +1621,28 @@ define internal void @test_fill_picture(ptr noundef readonly captures(none) %0, 
 167:                                              ; preds = %draw_digit.exit, %._crit_edge206
   %.3209 = phi ptr [ %161, %._crit_edge206 ], [ %168, %draw_digit.exit ]
   %.0148208 = phi i32 [ 0, %._crit_edge206 ], [ %208, %draw_digit.exit ]
-  %.0149207 = phi i32 [ %150, %._crit_edge206 ], [ %175, %draw_digit.exit ]
+  %.0149207 = phi i32 [ %150, %._crit_edge206 ], [ %170, %draw_digit.exit ]
   %168 = getelementptr inbounds i8, ptr %.3209, i64 %164
-  %169 = load i32, ptr %49, align 8, !tbaa !70
-  %170 = sext i32 %169 to i64
-  br label %171
+  %169 = srem i32 %.0149207, 10
+  %170 = sdiv i32 %.0149207, 10
+  %171 = load i32, ptr %49, align 8, !tbaa !70
+  %172 = sext i32 %171 to i64
+  %173 = sext i32 %169 to i64
+  %174 = getelementptr inbounds i8, ptr @draw_digit.masks, i64 %173
+  %175 = load i8, ptr %174, align 1, !tbaa !76
+  br label %176
 
-171:                                              ; preds = %171, %167
-  %.020.i.i = phi ptr [ %168, %167 ], [ %172, %171 ]
-  %.01819.i.i = phi i32 [ 0, %167 ], [ %173, %171 ]
+176:                                              ; preds = %176, %167
+  %.020.i.i = phi ptr [ %168, %167 ], [ %177, %176 ]
+  %.01819.i.i = phi i32 [ 0, %167 ], [ %178, %176 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.020.i.i, i8 0, i64 %163, i1 false)
-  %172 = getelementptr inbounds i8, ptr %.020.i.i, i64 %170
-  %173 = add nuw nsw i32 %.01819.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %173, %127
-  br i1 %exitcond.not.i.i, label %draw_rectangle.exit.preheader.i, label %171, !llvm.loop !91
+  %177 = getelementptr inbounds i8, ptr %.020.i.i, i64 %172
+  %178 = add nuw nsw i32 %.01819.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %178, %127
+  br i1 %exitcond.not.i.i, label %draw_rectangle.exit.preheader.i, label %176, !llvm.loop !91
 
-draw_rectangle.exit.preheader.i:                  ; preds = %171
-  %174 = srem i32 %.0149207, 10
-  %175 = sdiv i32 %.0149207, 10
-  %176 = sext i32 %174 to i64
-  %177 = getelementptr inbounds i8, ptr @draw_digit.masks, i64 %176
-  %178 = load i8, ptr %177, align 1, !tbaa !76
-  %179 = zext i8 %178 to i32
+draw_rectangle.exit.preheader.i:                  ; preds = %176
+  %179 = zext i8 %175 to i32
   br label %180
 
 180:                                              ; preds = %draw_rectangle.exit18.i, %draw_rectangle.exit.preheader.i
@@ -1669,7 +1669,7 @@ draw_rectangle.exit.preheader.i:                  ; preds = %171
   %194 = load i32, ptr %185, align 16, !tbaa !96
   %195 = mul nsw i32 %165, %191
   %196 = sext i32 %193 to i64
-  %197 = mul nsw i64 %196, %170
+  %197 = mul nsw i64 %196, %172
   %198 = mul nsw i32 %194, 3
   %199 = sext i32 %198 to i64
   %200 = add nsw i64 %197, %199
@@ -1682,7 +1682,7 @@ draw_rectangle.exit.preheader.i:                  ; preds = %171
   %.020.i15.i = phi ptr [ %202, %.lr.ph.i.i ], [ %205, %204 ]
   %.01819.i16.i = phi i32 [ 0, %.lr.ph.i.i ], [ %206, %204 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.020.i15.i, i8 -1, i64 %203, i1 false)
-  %205 = getelementptr inbounds i8, ptr %.020.i15.i, i64 %170
+  %205 = getelementptr inbounds i8, ptr %.020.i15.i, i64 %172
   %206 = add nuw nsw i32 %.01819.i16.i, 1
   %exitcond.not.i17.i = icmp eq i32 %206, %188
   br i1 %exitcond.not.i17.i, label %draw_rectangle.exit18.i, label %204, !llvm.loop !91

@@ -7798,25 +7798,25 @@ define internal fastcc void @_ZL26maybeDiagnoseUTF8HomoglyphRN5clang17Diagnostic
   store i64 %2, ptr %7, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %3, ptr %.sroa.2.0..sroa_idx, align 8
-  br label %13
+  %13 = trunc i64 %2 to i32
+  br label %14
 
-13:                                               ; preds = %13, %4
-  %.04.i.i = phi ptr [ @_ZZL26maybeDiagnoseUTF8HomoglyphRN5clang17DiagnosticsEngineEjNS_15CharSourceRangeEE16SortedHomoglyphs, %4 ], [ %.1.i.i, %13 ]
-  %.0113.i.i = phi i64 [ 49, %4 ], [ %.112.i.i, %13 ]
-  %14 = lshr i64 %.0113.i.i, 1
-  %15 = getelementptr inbounds nuw %struct.HomoglyphPair, ptr %.04.i.i, i64 %14
-  %.val.i.i = load i32, ptr %15, align 4, !tbaa !512
-  %16 = icmp ult i32 %.val.i.i, %1
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %18 = xor i64 %14, -1
-  %19 = add nsw i64 %.0113.i.i, %18
-  %.112.i.i = select i1 %16, i64 %19, i64 %14
-  %.1.i.i = select i1 %16, ptr %17, ptr %.04.i.i
-  %20 = icmp sgt i64 %.112.i.i, 0
-  br i1 %20, label %13, label %_ZSt11lower_boundIPKZL26maybeDiagnoseUTF8HomoglyphRN5clang17DiagnosticsEngineEjNS0_15CharSourceRangeEE13HomoglyphPairS4_ET_S7_S7_RKT0_.exit, !llvm.loop !514
+14:                                               ; preds = %14, %4
+  %.04.i.i = phi ptr [ @_ZZL26maybeDiagnoseUTF8HomoglyphRN5clang17DiagnosticsEngineEjNS_15CharSourceRangeEE16SortedHomoglyphs, %4 ], [ %.1.i.i, %14 ]
+  %.0113.i.i = phi i64 [ 49, %4 ], [ %.112.i.i, %14 ]
+  %15 = lshr i64 %.0113.i.i, 1
+  %16 = getelementptr inbounds nuw %struct.HomoglyphPair, ptr %.04.i.i, i64 %15
+  %.val.i.i = load i32, ptr %16, align 4, !tbaa !512
+  %17 = icmp ult i32 %.val.i.i, %1
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %19 = xor i64 %15, -1
+  %20 = add nsw i64 %.0113.i.i, %19
+  %.112.i.i = select i1 %17, i64 %20, i64 %15
+  %.1.i.i = select i1 %17, ptr %18, ptr %.04.i.i
+  %21 = icmp sgt i64 %.112.i.i, 0
+  br i1 %21, label %14, label %_ZSt11lower_boundIPKZL26maybeDiagnoseUTF8HomoglyphRN5clang17DiagnosticsEngineEjNS0_15CharSourceRangeEE13HomoglyphPairS4_ET_S7_S7_RKT0_.exit, !llvm.loop !514
 
-_ZSt11lower_boundIPKZL26maybeDiagnoseUTF8HomoglyphRN5clang17DiagnosticsEngineEjNS0_15CharSourceRangeEE13HomoglyphPairS4_ET_S7_S7_RKT0_.exit: ; preds = %13
-  %21 = trunc i64 %2 to i32
+_ZSt11lower_boundIPKZL26maybeDiagnoseUTF8HomoglyphRN5clang17DiagnosticsEngineEjNS0_15CharSourceRangeEE13HomoglyphPairS4_ET_S7_S7_RKT0_.exit: ; preds = %14
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
   %22 = load i32, ptr %.1.i.i, align 4, !tbaa !512
   %23 = icmp eq i32 %22, %1
@@ -7834,7 +7834,7 @@ _ZSt11lower_boundIPKZL26maybeDiagnoseUTF8HomoglyphRN5clang17DiagnosticsEngineEjN
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 0, ptr %28, align 1, !tbaa !381
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %9, ptr noundef nonnull align 8 dereferenceable(15248) %0, i32 %21, i32 noundef 1414) #29
+  call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %9, ptr noundef nonnull align 8 dereferenceable(15248) %0, i32 %13, i32 noundef 1414) #29
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(66) %9, ptr noundef nonnull align 4 dereferenceable(9) %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !516)
@@ -8038,7 +8038,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
 
 116:                                              ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %11, ptr noundef nonnull align 8 dereferenceable(15248) %0, i32 %21, i32 noundef 1415) #29
+  call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %11, ptr noundef nonnull align 8 dereferenceable(15248) %0, i32 %13, i32 noundef 1415) #29
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(66) %11, ptr noundef nonnull align 4 dereferenceable(9) %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !519)

@@ -207,25 +207,25 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   %87 = getelementptr inbounds float, ptr %2, i64 %86
   %88 = load float, ptr %87, align 4, !tbaa !19
   %89 = fneg float %88
+  %90 = getelementptr inbounds float, ptr %0, i64 %86
   %.idx.i.i.i256 = shl nsw i64 %86, 3
   %invariant.gep = getelementptr i8, ptr %1, i64 %.idx.i.i.i256
-  %90 = zext i32 %.0169 to i64
+  %91 = zext i32 %.0169 to i64
   br label %97
 
-91:                                               ; preds = %106
-  %92 = getelementptr inbounds float, ptr %0, i64 %86
+92:                                               ; preds = %106
   %93 = getelementptr float, ptr %1, i64 %86
   %94 = getelementptr i8, ptr %93, i64 %.idx.i.i.i256
   %95 = load float, ptr %94, align 4, !tbaa !19
   %96 = fdiv float %107, %95
-  store float %96, ptr %92, align 4, !tbaa !19
+  store float %96, ptr %90, align 4, !tbaa !19
   br label %108
 
 97:                                               ; preds = %.split.loop.exit270, %106
   %98 = phi float [ %89, %.split.loop.exit270 ], [ %107, %106 ]
   %99 = phi i1 [ true, %.split.loop.exit270 ], [ false, %106 ]
   %indvars.iv264 = phi i64 [ 0, %.split.loop.exit270 ], [ 1, %106 ]
-  %.not = icmp eq i64 %indvars.iv264, %90
+  %.not = icmp eq i64 %indvars.iv264, %91
   br i1 %.not, label %106, label %100
 
 100:                                              ; preds = %97
@@ -239,9 +239,9 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
 
 106:                                              ; preds = %97, %100
   %107 = phi float [ %98, %97 ], [ %105, %100 ]
-  br i1 %99, label %97, label %91, !llvm.loop !26
+  br i1 %99, label %97, label %92, !llvm.loop !26
 
-108:                                              ; preds = %91, %60, %10
+108:                                              ; preds = %92, %60, %10
   ret void
 }
 

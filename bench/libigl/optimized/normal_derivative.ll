@@ -2072,26 +2072,26 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 22:                                               ; preds = %._crit_edge.i, %.lr.ph54.i
   %.03152.i = phi i64 [ 0, %.lr.ph54.i ], [ %.sroa.speculated.i, %._crit_edge.i ]
   %.03251.i = phi i64 [ 0, %.lr.ph54.i ], [ %50, %._crit_edge.i ]
-  %23 = icmp sgt i64 %.03152.i, 0
-  br i1 %23, label %.lr.ph.i, label %.preheader39.i
+  %23 = sub nsw i64 %18, %.03152.i
+  %24 = and i64 %23, -2
+  %25 = add nsw i64 %24, %.03152.i
+  %26 = icmp sgt i64 %.03152.i, 0
+  br i1 %26, label %.lr.ph.i, label %.preheader39.i
 
 .lr.ph.i:                                         ; preds = %22
-  %24 = mul nsw i64 %.03251.i, %18
-  %invariant.gep.i = getelementptr double, ptr %20, i64 %24
-  %25 = mul nsw i64 %.03251.i, %8
-  %invariant.gep41.i = getelementptr double, ptr %6, i64 %25
-  %26 = getelementptr inbounds nuw double, ptr %5, i64 %.03251.i
-  %27 = load double, ptr %invariant.gep41.i, align 8, !tbaa !55
-  %28 = load double, ptr %26, align 8, !tbaa !55
-  %29 = fmul double %27, %28
-  store double %29, ptr %invariant.gep.i, align 8, !tbaa !55
+  %27 = mul nsw i64 %.03251.i, %18
+  %invariant.gep.i = getelementptr double, ptr %20, i64 %27
+  %28 = mul nsw i64 %.03251.i, %8
+  %invariant.gep41.i = getelementptr double, ptr %6, i64 %28
+  %29 = getelementptr inbounds nuw double, ptr %5, i64 %.03251.i
+  %30 = load double, ptr %invariant.gep41.i, align 8, !tbaa !55
+  %31 = load double, ptr %29, align 8, !tbaa !55
+  %32 = fmul double %30, %31
+  store double %32, ptr %invariant.gep.i, align 8, !tbaa !55
   br label %.preheader39.i
 
 .preheader39.i:                                   ; preds = %.lr.ph.i, %22
-  %30 = sub nsw i64 %18, %.03152.i
-  %31 = and i64 %30, -2
-  %32 = add nsw i64 %31, %.03152.i
-  %33 = icmp sgt i64 %30, 1
+  %33 = icmp sgt i64 %23, 1
   br i1 %33, label %.lr.ph44.i.preheader, label %.preheader.i
 
 .lr.ph44.i.preheader:                             ; preds = %.preheader39.i
@@ -2103,7 +2103,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %.lr.ph44.i
 
 .preheader.i:                                     ; preds = %.lr.ph44.i, %.preheader39.i
-  %37 = icmp slt i64 %32, %18
+  %37 = icmp slt i64 %25, %18
   br i1 %37, label %.lr.ph46.i, label %._crit_edge.i
 
 .lr.ph46.i:                                       ; preds = %.preheader.i
@@ -2125,7 +2125,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %45 = fmul <2 x double> %41, %44
   store <2 x double> %45, ptr %gep, align 16, !tbaa !16
   %46 = add nsw i64 %.02943.i, 2
-  %47 = icmp slt i64 %46, %32
+  %47 = icmp slt i64 %46, %25
   br i1 %47, label %.lr.ph44.i, label %.preheader.i, !llvm.loop !121
 
 ._crit_edge.i:                                    ; preds = %51, %.preheader.i
@@ -2137,7 +2137,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %exitcond.not.i, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS3_INS_7ProductIS5_NS_14DiagonalMatrixIdLi24ELi24EEELi1EEEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSE_.exit, label %22, !llvm.loop !122
 
 51:                                               ; preds = %51, %.lr.ph46.i
-  %.045.i = phi i64 [ %32, %.lr.ph46.i ], [ %55, %51 ]
+  %.045.i = phi i64 [ %25, %.lr.ph46.i ], [ %55, %51 ]
   %gep48.i = getelementptr double, ptr %invariant.gep47.i, i64 %.045.i
   %gep50.i = getelementptr double, ptr %invariant.gep49.i, i64 %.045.i
   %52 = load double, ptr %gep50.i, align 8, !tbaa !55
@@ -3715,26 +3715,26 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 22:                                               ; preds = %._crit_edge.i, %.lr.ph54.i
   %.03152.i = phi i64 [ 0, %.lr.ph54.i ], [ %.sroa.speculated.i, %._crit_edge.i ]
   %.03251.i = phi i64 [ 0, %.lr.ph54.i ], [ %50, %._crit_edge.i ]
-  %23 = icmp sgt i64 %.03152.i, 0
-  br i1 %23, label %.lr.ph.i, label %.preheader39.i
+  %23 = sub nsw i64 %18, %.03152.i
+  %24 = and i64 %23, -2
+  %25 = add nsw i64 %24, %.03152.i
+  %26 = icmp sgt i64 %.03152.i, 0
+  br i1 %26, label %.lr.ph.i, label %.preheader39.i
 
 .lr.ph.i:                                         ; preds = %22
-  %24 = mul nsw i64 %.03251.i, %18
-  %invariant.gep.i = getelementptr double, ptr %20, i64 %24
-  %25 = mul nsw i64 %.03251.i, %8
-  %invariant.gep41.i = getelementptr double, ptr %6, i64 %25
-  %26 = getelementptr inbounds nuw double, ptr %5, i64 %.03251.i
-  %27 = load double, ptr %invariant.gep41.i, align 8, !tbaa !55
-  %28 = load double, ptr %26, align 8, !tbaa !55
-  %29 = fmul double %27, %28
-  store double %29, ptr %invariant.gep.i, align 8, !tbaa !55
+  %27 = mul nsw i64 %.03251.i, %18
+  %invariant.gep.i = getelementptr double, ptr %20, i64 %27
+  %28 = mul nsw i64 %.03251.i, %8
+  %invariant.gep41.i = getelementptr double, ptr %6, i64 %28
+  %29 = getelementptr inbounds nuw double, ptr %5, i64 %.03251.i
+  %30 = load double, ptr %invariant.gep41.i, align 8, !tbaa !55
+  %31 = load double, ptr %29, align 8, !tbaa !55
+  %32 = fmul double %30, %31
+  store double %32, ptr %invariant.gep.i, align 8, !tbaa !55
   br label %.preheader39.i
 
 .preheader39.i:                                   ; preds = %.lr.ph.i, %22
-  %30 = sub nsw i64 %18, %.03152.i
-  %31 = and i64 %30, -2
-  %32 = add nsw i64 %31, %.03152.i
-  %33 = icmp sgt i64 %30, 1
+  %33 = icmp sgt i64 %23, 1
   br i1 %33, label %.lr.ph44.i.preheader, label %.preheader.i
 
 .lr.ph44.i.preheader:                             ; preds = %.preheader39.i
@@ -3746,7 +3746,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %.lr.ph44.i
 
 .preheader.i:                                     ; preds = %.lr.ph44.i, %.preheader39.i
-  %37 = icmp slt i64 %32, %18
+  %37 = icmp slt i64 %25, %18
   br i1 %37, label %.lr.ph46.i, label %._crit_edge.i
 
 .lr.ph46.i:                                       ; preds = %.preheader.i
@@ -3768,7 +3768,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %45 = fmul <2 x double> %41, %44
   store <2 x double> %45, ptr %gep, align 16, !tbaa !16
   %46 = add nsw i64 %.02943.i, 2
-  %47 = icmp slt i64 %46, %32
+  %47 = icmp slt i64 %46, %25
   br i1 %47, label %.lr.ph44.i, label %.preheader.i, !llvm.loop !171
 
 ._crit_edge.i:                                    ; preds = %51, %.preheader.i
@@ -3780,7 +3780,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %exitcond.not.i, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS3_INS_7ProductIS5_NS_14DiagonalMatrixIdLi12ELi12EEELi1EEEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSE_.exit, label %22, !llvm.loop !172
 
 51:                                               ; preds = %51, %.lr.ph46.i
-  %.045.i = phi i64 [ %32, %.lr.ph46.i ], [ %55, %51 ]
+  %.045.i = phi i64 [ %25, %.lr.ph46.i ], [ %55, %51 ]
   %gep48.i = getelementptr double, ptr %invariant.gep47.i, i64 %.045.i
   %gep50.i = getelementptr double, ptr %invariant.gep49.i, i64 %.045.i
   %52 = load double, ptr %gep50.i, align 8, !tbaa !55

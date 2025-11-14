@@ -4818,9 +4818,9 @@ _ZSt22__move_median_to_firstIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7da
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %55
 
-55:                                               ; preds = %67, %_ZSt22__move_median_to_firstIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_S9_T0_.exit
-  %.013.i = phi ptr [ %1, %_ZSt22__move_median_to_firstIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_S9_T0_.exit ], [ %.114.i, %67 ]
-  %.0.i = phi ptr [ %9, %_ZSt22__move_median_to_firstIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_S9_T0_.exit ], [ %61, %67 ]
+55:                                               ; preds = %68, %_ZSt22__move_median_to_firstIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_S9_T0_.exit
+  %.013.i = phi ptr [ %1, %_ZSt22__move_median_to_firstIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_S9_T0_.exit ], [ %.114.i, %68 ]
+  %.0.i = phi ptr [ %9, %_ZSt22__move_median_to_firstIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_S9_T0_.exit ], [ %61, %68 ]
   %56 = load i32, ptr %54, align 4, !tbaa !247
   br label %57
 
@@ -4830,34 +4830,37 @@ _ZSt22__move_median_to_firstIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7da
   %59 = load i32, ptr %58, align 4, !tbaa !247
   %60 = icmp ugt i32 %59, %56
   %61 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
-  br i1 %60, label %57, label %.preheader.i, !llvm.loop !433
+  br i1 %60, label %57, label %.preheader.i.preheader, !llvm.loop !433
 
-.preheader.i:                                     ; preds = %57, %.preheader.i
-  %.013.pn.i = phi ptr [ %.114.i, %.preheader.i ], [ %.013.i, %57 ]
+.preheader.i.preheader:                           ; preds = %57
+  %62 = getelementptr inbounds nuw i8, ptr %.1.i, i64 4
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
+  %.013.pn.i = phi ptr [ %.114.i, %.preheader.i ], [ %.013.i, %.preheader.i.preheader ]
   %.114.i = getelementptr inbounds i8, ptr %.013.pn.i, i64 -8
-  %62 = getelementptr inbounds i8, ptr %.013.pn.i, i64 -4
-  %63 = load i32, ptr %62, align 4, !tbaa !247
-  %64 = icmp ugt i32 %56, %63
-  br i1 %64, label %.preheader.i, label %65, !llvm.loop !434
+  %63 = getelementptr inbounds i8, ptr %.013.pn.i, i64 -4
+  %64 = load i32, ptr %63, align 4, !tbaa !247
+  %65 = icmp ugt i32 %56, %64
+  br i1 %65, label %.preheader.i, label %66, !llvm.loop !434
 
-65:                                               ; preds = %.preheader.i
-  %66 = icmp ult ptr %.1.i, %.114.i
-  br i1 %66, label %67, label %_ZSt21__unguarded_partitionIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEET_S9_S9_S9_T0_.exit
+66:                                               ; preds = %.preheader.i
+  %67 = icmp ult ptr %.1.i, %.114.i
+  br i1 %67, label %68, label %_ZSt21__unguarded_partitionIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEET_S9_S9_S9_T0_.exit
 
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %.013.pn.i, i64 -4
-  %69 = getelementptr inbounds nuw i8, ptr %.1.i, i64 4
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds i8, ptr %.013.pn.i, i64 -4
   %70 = load i32, ptr %.1.i, align 4, !tbaa !33
   %71 = load i32, ptr %.114.i, align 4, !tbaa !33
   store i32 %71, ptr %.1.i, align 4, !tbaa !33
   store i32 %70, ptr %.114.i, align 4, !tbaa !33
-  %72 = load i32, ptr %69, align 4, !tbaa !33
-  %73 = load i32, ptr %68, align 4, !tbaa !33
-  store i32 %73, ptr %69, align 4, !tbaa !33
-  store i32 %72, ptr %68, align 4, !tbaa !33
+  %72 = load i32, ptr %62, align 4, !tbaa !33
+  %73 = load i32, ptr %69, align 4, !tbaa !33
+  store i32 %73, ptr %62, align 4, !tbaa !33
+  store i32 %72, ptr %69, align 4, !tbaa !33
   br label %55, !llvm.loop !435
 
-_ZSt21__unguarded_partitionIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEET_S9_S9_S9_T0_.exit: ; preds = %65
+_ZSt21__unguarded_partitionIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEET_S9_S9_S9_T0_.exit: ; preds = %66
   ret ptr %.1.i
 }
 
@@ -5746,6 +5749,7 @@ _ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.thread: ; preds = %3
 thread-pre-split.i.preheader:                     ; preds = %.thread, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.thread
   %.ph = phi ptr [ null, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.thread ], [ %5, %.thread ]
   %.0.i16.i.ph = phi i32 [ 0, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE4sizeEv.exit.thread ], [ %8, %.thread ]
+  %.ph15 = add nuw i32 %1, 1
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %thread-pre-split.i.preheader, %_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.thread.i
@@ -5765,7 +5769,6 @@ _ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.thread.i: ; preds =
   br label %thread-pre-split.i, !llvm.loop !439
 
 20:                                               ; preds = %_ZNK6vectorIPN7datalog13relation_baseELb1EjE8capacityEv.exit.i
-  %.ph15 = add nuw i32 %1, 1
   %21 = getelementptr inbounds i8, ptr %16, i64 -4
   store i32 %.ph15, ptr %21, align 4, !tbaa !33
   %.not1218.i = icmp eq i32 %.0.i16.i.ph, %.ph15

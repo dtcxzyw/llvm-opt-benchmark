@@ -1931,6 +1931,7 @@ thread-pre-split219.thread.i.i.i.i:               ; preds = %thread-pre-split219
   br i1 %491, label %526, label %492, !prof !6
 
 492:                                              ; preds = %489
+  %.val158.i.i.i.i = load ptr, ptr %30, align 8, !alias.scope !85, !noalias !88, !nonnull !7, !align !11, !noundef !7
   %493 = zext i32 %383 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %494 = icmp eq i32 %481, 0
@@ -1945,7 +1946,6 @@ thread-pre-split219.thread.i.i.i.i:               ; preds = %thread-pre-split219
   br i1 %or.cond.i11, label %495, label %497
 
 497:                                              ; preds = %495
-  %.val158.i.i.i.i = load ptr, ptr %30, align 8, !alias.scope !85, !noalias !88, !nonnull !7, !align !11, !noundef !7
   %498 = sub nuw i64 %.val159.i.i.i.i, %490
   %499 = getelementptr inbounds nuw i8, ptr %.val158.i.i.i.i, i64 %490
   %500 = and i64 %.sroa.04.0.i, 698880

@@ -85,6 +85,8 @@ define dso_local void @exec_task(ptr noundef %0, i32 noundef %1) local_unnamed_a
 14:                                               ; preds = %13, %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %16 = load i32, ptr %15, align 8
+  %.not171 = icmp eq i32 %16, -2
+  %spec.select = select i1 %.not171, i32 0, i32 %16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %18 = load i32, ptr %17, align 8
   %.not172 = icmp eq i32 %18, -2
@@ -118,8 +120,6 @@ define dso_local void @exec_task(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %34, label %22, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %22, %14
-  %.not171 = icmp eq i32 %16, -2
-  %spec.select = select i1 %.not171, i32 0, i32 %16
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %36 = load i32, ptr %35, align 8
   %.not173 = icmp eq i32 %36, -2
@@ -979,10 +979,10 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   %.not92.i = icmp eq ptr %95, null
   %96 = icmp ugt ptr %95, %.074.i
   %or.cond.i = select i1 %.not92.i, i1 true, i1 %96
-  br i1 %or.cond.i, label %.loopexit.i, label %.preheader127.i
+  br i1 %or.cond.i, label %.loopexit.i, label %.preheader
 
-.preheader127.i:                                  ; preds = %94, %.preheader127.i
-  %.073.i = phi ptr [ %97, %.preheader127.i ], [ %95, %94 ]
+.preheader:                                       ; preds = %94, %.preheader
+  %.073.i = phi ptr [ %97, %.preheader ], [ %95, %94 ]
   %97 = getelementptr inbounds i8, ptr %.073.i, i64 -1
   %98 = load i8, ptr %97, align 1
   %99 = sext i8 %98 to i64
@@ -990,9 +990,9 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   %101 = load i16, ptr %100, align 2
   %102 = and i16 %101, 8192
   %.not93.i = icmp eq i16 %102, 0
-  br i1 %.not93.i, label %103, label %.preheader127.i, !llvm.loop !16
+  br i1 %.not93.i, label %103, label %.preheader, !llvm.loop !16
 
-103:                                              ; preds = %.preheader127.i
+103:                                              ; preds = %.preheader
   %104 = getelementptr inbounds nuw i8, ptr %95, i64 1
   store i8 0, ptr %.073.i, align 1
   store i8 0, ptr %.074.i, align 1
@@ -1087,8 +1087,8 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   br i1 %.not.i, label %_proc_stdout.exit, label %.lr.ph125.i, !llvm.loop !19
 
 .thread.sink.split.i:                             ; preds = %137, %112
-  %.074.lcssa140.sink.i = phi ptr [ %.074.i, %112 ], [ %.2.i, %137 ]
-  store i8 0, ptr %.074.lcssa140.sink.i, align 1
+  %.074.lcssa139.sink.i = phi ptr [ %.074.i, %112 ], [ %.2.i, %137 ]
+  store i8 0, ptr %.074.lcssa139.sink.i, align 1
   br label %_proc_stdout.exit
 
 _proc_stdout.exit:                                ; preds = %.thread100.i, %.loopexit.i, %.thread.sink.split.i, %37, %36

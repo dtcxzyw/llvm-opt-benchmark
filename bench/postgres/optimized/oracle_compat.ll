@@ -554,33 +554,33 @@ define dso_local i64 @rpad(ptr noundef readonly captures(none) %0) local_unnamed
 74:                                               ; preds = %64
   %75 = zext nneg i32 %68 to i64
   %76 = tail call ptr @palloc(i64 noundef %75) #7
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  %77 = sub i32 %.0, %spec.select
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %.not8392 = icmp eq i32 %spec.select, 0
   br i1 %.not8392, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %74
-  %78 = load i8, ptr %5, align 1
-  %79 = and i8 %78, 1
-  %.not82 = icmp eq i8 %79, 0
-  %80 = select i1 %.not82, ptr %57, ptr %56
+  %79 = load i8, ptr %5, align 1
+  %80 = and i8 %79, 1
+  %.not82 = icmp eq i8 %80, 0
+  %81 = select i1 %.not82, ptr %57, ptr %56
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.06795 = phi ptr [ %85, %.lr.ph ], [ %80, %.lr.ph.preheader ]
-  %.194 = phi i32 [ %81, %.lr.ph ], [ %spec.select, %.lr.ph.preheader ]
-  %.07093 = phi ptr [ %84, %.lr.ph ], [ %77, %.lr.ph.preheader ]
-  %81 = add i32 %.194, -1
-  %82 = tail call i32 @pg_mblen(ptr noundef %.06795) #7
-  %83 = sext i32 %82 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.07093, ptr align 1 %.06795, i64 %83, i1 false)
-  %84 = getelementptr inbounds i8, ptr %.07093, i64 %83
-  %85 = getelementptr inbounds i8, ptr %.06795, i64 %83
-  %.not83 = icmp eq i32 %81, 0
+  %.06795 = phi ptr [ %86, %.lr.ph ], [ %81, %.lr.ph.preheader ]
+  %.194 = phi i32 [ %82, %.lr.ph ], [ %spec.select, %.lr.ph.preheader ]
+  %.07093 = phi ptr [ %85, %.lr.ph ], [ %78, %.lr.ph.preheader ]
+  %82 = add i32 %.194, -1
+  %83 = tail call i32 @pg_mblen(ptr noundef %.06795) #7
+  %84 = sext i32 %83 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.07093, ptr align 1 %.06795, i64 %84, i1 false)
+  %85 = getelementptr inbounds i8, ptr %.07093, i64 %84
+  %86 = getelementptr inbounds i8, ptr %.06795, i64 %84
+  %.not83 = icmp eq i32 %82, 0
   br i1 %.not83, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %74
-  %.070.lcssa = phi ptr [ %77, %74 ], [ %84, %.lr.ph ]
-  %86 = sub i32 %.0, %spec.select
+  %.070.lcssa = phi ptr [ %78, %74 ], [ %85, %.lr.ph ]
   %87 = load i8, ptr %12, align 1
   %88 = and i8 %87, 1
   %.not84 = icmp eq i8 %88, 0
@@ -588,11 +588,11 @@ define dso_local i64 @rpad(ptr noundef readonly captures(none) %0) local_unnamed
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 %.v
   %90 = zext nneg i32 %spec.store.select2 to i64
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 %90
-  %.not8596 = icmp eq i32 %86, 0
+  %.not8596 = icmp eq i32 %77, 0
   br i1 %.not8596, label %._crit_edge102, label %.lr.ph101
 
 .lr.ph101:                                        ; preds = %._crit_edge, %.lr.ph101
-  %.06999 = phi i32 [ %92, %.lr.ph101 ], [ %86, %._crit_edge ]
+  %.06999 = phi i32 [ %92, %.lr.ph101 ], [ %77, %._crit_edge ]
   %.17198 = phi ptr [ %95, %.lr.ph101 ], [ %.070.lcssa, %._crit_edge ]
   %.07297 = phi ptr [ %spec.select89, %.lr.ph101 ], [ %89, %._crit_edge ]
   %92 = add i32 %.06999, -1

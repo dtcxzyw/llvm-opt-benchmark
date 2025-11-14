@@ -292,28 +292,28 @@ ZDICT_totalSampleSize.exit:                       ; preds = %.lr.ph.i, %9
   br label %.preheader256
 
 .preheader256:                                    ; preds = %.preheader256.preheader, %.preheader256
-  %indvars.iv278 = phi i64 [ 0, %.preheader256.preheader ], [ %indvars.iv.next279, %.preheader256 ]
-  %35 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv278
+  %indvars.iv276 = phi i64 [ 0, %.preheader256.preheader ], [ %indvars.iv.next277, %.preheader256 ]
+  %35 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv276
   store i32 1, ptr %35, align 4, !tbaa !3
-  %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
-  %exitcond281.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count
-  br i1 %exitcond281.not, label %.preheader255, label %.preheader256, !llvm.loop !19
+  %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
+  %exitcond279.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count
+  br i1 %exitcond279.not, label %.preheader255, label %.preheader256, !llvm.loop !19
 
 .preheader255:                                    ; preds = %.preheader256, %.preheader255
-  %indvars.iv282 = phi i64 [ %indvars.iv.next283, %.preheader255 ], [ 0, %.preheader256 ]
-  %36 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv282
+  %indvars.iv280 = phi i64 [ %indvars.iv.next281, %.preheader255 ], [ 0, %.preheader256 ]
+  %36 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv280
   store i32 1, ptr %36, align 4, !tbaa !3
-  %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
-  %exitcond285.not = icmp eq i64 %indvars.iv.next283, 53
-  br i1 %exitcond285.not, label %.preheader254, label %.preheader255, !llvm.loop !20
+  %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
+  %exitcond283.not = icmp eq i64 %indvars.iv.next281, 53
+  br i1 %exitcond283.not, label %.preheader254, label %.preheader255, !llvm.loop !20
 
 .preheader254:                                    ; preds = %.preheader255, %.preheader254
-  %indvars.iv286 = phi i64 [ %indvars.iv.next287, %.preheader254 ], [ 0, %.preheader255 ]
-  %37 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv286
+  %indvars.iv284 = phi i64 [ %indvars.iv.next285, %.preheader254 ], [ 0, %.preheader255 ]
+  %37 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv284
   store i32 1, ptr %37, align 4, !tbaa !3
-  %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
-  %exitcond289.not = icmp eq i64 %indvars.iv.next287, 36
-  br i1 %exitcond289.not, label %38, label %.preheader254, !llvm.loop !21
+  %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
+  %exitcond287.not = icmp eq i64 %indvars.iv.next285, 36
+  br i1 %exitcond287.not, label %38, label %.preheader254, !llvm.loop !21
 
 38:                                               ; preds = %.preheader254
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %18, i8 0, i64 4096, i1 false)
@@ -347,7 +347,7 @@ ZDICT_totalSampleSize.exit:                       ; preds = %.lr.ph.i, %9
   %spec.select.i = sext i32 %narrow.i to i64
   %.not63.i = icmp eq i32 %8, 0
   %50 = icmp ugt i32 %8, 2
-  %wide.trip.count293 = zext i32 %5 to i64
+  %wide.trip.count291 = zext i32 %5 to i64
   br label %57
 
 51:                                               ; preds = %38
@@ -362,9 +362,9 @@ ZDICT_totalSampleSize.exit:                       ; preds = %.lr.ph.i, %9
   br label %.thread
 
 57:                                               ; preds = %.lr.ph, %ZDICT_countEStats.exit
-  %indvars.iv290 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next291, %ZDICT_countEStats.exit ]
+  %indvars.iv288 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next289, %ZDICT_countEStats.exit ]
   %.0179262 = phi i64 [ 0, %.lr.ph ], [ %143, %ZDICT_countEStats.exit ]
-  %58 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv290
+  %58 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv288
   %59 = load i64, ptr %58, align 8, !tbaa !14
   %.0.i = call i64 @llvm.umin.i64(i64 %59, i64 %spec.select.i)
   %60 = call i64 @ZSTD_compressBegin_usingCDict_deprecated(ptr noundef %44, ptr noundef %43) #16
@@ -521,9 +521,9 @@ ZDICT_totalSampleSize.exit:                       ; preds = %.lr.ph.i, %9
 ZDICT_countEStats.exit:                           ; preds = %62, %63, %71, %72, %78, %._crit_edge.i, %._crit_edge13.i, %125
   %142 = load i64, ptr %58, align 8, !tbaa !14
   %143 = add i64 %142, %.0179262
-  %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
-  %exitcond294.not = icmp eq i64 %indvars.iv.next291, %wide.trip.count293
-  br i1 %exitcond294.not, label %._crit_edge, label %57, !llvm.loop !43
+  %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
+  %exitcond292.not = icmp eq i64 %indvars.iv.next289, %wide.trip.count291
+  br i1 %exitcond292.not, label %._crit_edge, label %57, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %ZDICT_countEStats.exit, %.preheader253
   %144 = icmp ugt i32 %8, 3
@@ -537,17 +537,17 @@ ZDICT_countEStats.exit:                           ; preds = %62, %63, %71, %72, 
   br label %150
 
 150:                                              ; preds = %145, %150
-  %indvars.iv295 = phi i64 [ 0, %145 ], [ %indvars.iv.next296, %150 ]
+  %indvars.iv293 = phi i64 [ 0, %145 ], [ %indvars.iv.next294, %150 ]
   %151 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %152 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv295
+  %152 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv293
   %153 = load i32, ptr %152, align 4, !tbaa !3
-  %154 = trunc nuw nsw i64 %indvars.iv295 to i32
+  %154 = trunc nuw nsw i64 %indvars.iv293 to i32
   %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef nonnull @.str.5, i32 noundef %154, i32 noundef %153) #19
   %156 = load ptr, ptr @stderr, align 8, !tbaa !11
   %157 = call i32 @fflush(ptr noundef %156)
-  %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
-  %exitcond299.not = icmp eq i64 %indvars.iv.next296, %wide.trip.count
-  br i1 %exitcond299.not, label %.loopexit, label %150, !llvm.loop !44
+  %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
+  %exitcond297.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count
+  br i1 %exitcond297.not, label %.loopexit, label %150, !llvm.loop !44
 
 .loopexit:                                        ; preds = %150, %._crit_edge
   %158 = call i64 @HUF_buildCTable_wksp(ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef 255, i32 noundef 11, ptr noundef nonnull %21, i64 noundef 4864) #16
@@ -607,56 +607,56 @@ ZDICT_flatLit.exit:                               ; preds = %175
   br label %183
 
 183:                                              ; preds = %180, %ZDICT_insertSortCount.exit
-  %indvars.iv303 = phi i64 [ 1, %180 ], [ %indvars.iv.next304, %ZDICT_insertSortCount.exit ]
-  %184 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv303
+  %indvars.iv301 = phi i64 [ 1, %180 ], [ %indvars.iv.next302, %ZDICT_insertSortCount.exit ]
+  %184 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv301
   %185 = load i32, ptr %184, align 4, !tbaa !3
-  %186 = trunc nuw nsw i64 %indvars.iv303 to i32
+  %186 = trunc nuw nsw i64 %indvars.iv301 to i32
   store i32 %186, ptr %181, align 8, !tbaa !46
   store i32 %185, ptr %182, align 4, !tbaa !48
   br label %187
 
 187:                                              ; preds = %192, %183
-  %indvars.iv300 = phi i64 [ %indvars.iv.next301, %192 ], [ 3, %183 ]
+  %indvars.iv298 = phi i64 [ %indvars.iv.next299, %192 ], [ 3, %183 ]
   %188 = phi i32 [ %197, %192 ], [ %185, %183 ]
-  %indvars.iv.next301 = add nsw i64 %indvars.iv300, -1
-  %189 = getelementptr inbounds nuw %struct.offsetCount_t, ptr %19, i64 %indvars.iv.next301
+  %indvars.iv.next299 = add nsw i64 %indvars.iv298, -1
+  %189 = getelementptr inbounds nuw %struct.offsetCount_t, ptr %19, i64 %indvars.iv.next299
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 4
   %191 = load i32, ptr %190, align 4, !tbaa !48
   %.not19.i = icmp ult i32 %191, %188
   br i1 %.not19.i, label %192, label %ZDICT_insertSortCount.exit
 
 192:                                              ; preds = %187
-  %193 = getelementptr inbounds nuw %struct.offsetCount_t, ptr %19, i64 %indvars.iv300
+  %193 = getelementptr inbounds nuw %struct.offsetCount_t, ptr %19, i64 %indvars.iv298
   %194 = load i64, ptr %189, align 8
   %195 = load i64, ptr %193, align 8
   store i64 %195, ptr %189, align 8
   store i64 %194, ptr %193, align 8
-  %.not.i223 = icmp eq i64 %indvars.iv.next301, 0
+  %.not.i223 = icmp eq i64 %indvars.iv.next299, 0
   %196 = lshr i64 %195, 32
   %197 = trunc nuw i64 %196 to i32
   br i1 %.not.i223, label %ZDICT_insertSortCount.exit, label %187, !llvm.loop !49
 
 ZDICT_insertSortCount.exit:                       ; preds = %187, %192
-  %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
-  %exitcond306.not = icmp eq i64 %indvars.iv.next304, 1024
-  br i1 %exitcond306.not, label %.preheader, label %183, !llvm.loop !50
+  %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
+  %exitcond304.not = icmp eq i64 %indvars.iv.next302, 1024
+  br i1 %exitcond304.not, label %.preheader, label %183, !llvm.loop !50
 
 .preheader:                                       ; preds = %ZDICT_insertSortCount.exit, %.preheader
-  %indvars.iv307 = phi i64 [ %indvars.iv.next308, %.preheader ], [ 0, %ZDICT_insertSortCount.exit ]
+  %indvars.iv305 = phi i64 [ %indvars.iv.next306, %.preheader ], [ 0, %ZDICT_insertSortCount.exit ]
   %.0180266 = phi i32 [ %200, %.preheader ], [ 0, %ZDICT_insertSortCount.exit ]
-  %198 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv307
+  %198 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv305
   %199 = load i32, ptr %198, align 4, !tbaa !3
   %200 = add i32 %199, %.0180266
-  %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
-  %exitcond311.not = icmp eq i64 %indvars.iv.next308, %wide.trip.count
-  br i1 %exitcond311.not, label %201, label %.preheader, !llvm.loop !51
+  %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
+  %exitcond309.not = icmp eq i64 %indvars.iv.next306, %wide.trip.count
+  br i1 %exitcond309.not, label %201, label %.preheader, !llvm.loop !51
 
 201:                                              ; preds = %.preheader
   %202 = trunc i64 %.0167 to i32
   %203 = zext i32 %200 to i64
   %204 = call i64 @FSE_normalizeCount(ptr noundef nonnull %13, i32 noundef 8, ptr noundef nonnull %12, i64 noundef %203, i32 noundef %25, i32 noundef 1) #16
   %205 = icmp ult i64 %204, -119
-  br i1 %205, label %.preheader273, label %206
+  br i1 %205, label %.preheader344, label %206
 
 206:                                              ; preds = %201
   %.not204 = icmp eq i32 %8, 0
@@ -669,22 +669,22 @@ ZDICT_insertSortCount.exit:                       ; preds = %187, %192
   %211 = call i32 @fflush(ptr noundef %210)
   br label %.thread
 
-.preheader273:                                    ; preds = %201, %.preheader273
-  %indvars.iv312 = phi i64 [ %indvars.iv.next313, %.preheader273 ], [ 0, %201 ]
-  %.1181268 = phi i32 [ %214, %.preheader273 ], [ 0, %201 ]
-  %212 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv312
+.preheader344:                                    ; preds = %201, %.preheader344
+  %indvars.iv310 = phi i64 [ %indvars.iv.next311, %.preheader344 ], [ 0, %201 ]
+  %.1181268 = phi i32 [ %214, %.preheader344 ], [ 0, %201 ]
+  %212 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv310
   %213 = load i32, ptr %212, align 4, !tbaa !3
   %214 = add i32 %213, %.1181268
-  %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
-  %exitcond315.not = icmp eq i64 %indvars.iv.next313, 53
-  br i1 %exitcond315.not, label %215, label %.preheader273, !llvm.loop !52
+  %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
+  %exitcond313.not = icmp eq i64 %indvars.iv.next311, 53
+  br i1 %exitcond313.not, label %215, label %.preheader344, !llvm.loop !52
 
-215:                                              ; preds = %.preheader273
+215:                                              ; preds = %.preheader344
   %216 = trunc i64 %204 to i32
   %217 = zext i32 %214 to i64
   %218 = call i64 @FSE_normalizeCount(ptr noundef nonnull %15, i32 noundef 9, ptr noundef nonnull %14, i64 noundef %217, i32 noundef 52, i32 noundef 1) #16
   %219 = icmp ult i64 %218, -119
-  br i1 %219, label %.preheader272, label %220
+  br i1 %219, label %.preheader343, label %220
 
 220:                                              ; preds = %215
   %.not203 = icmp eq i32 %8, 0
@@ -697,17 +697,17 @@ ZDICT_insertSortCount.exit:                       ; preds = %187, %192
   %225 = call i32 @fflush(ptr noundef %224)
   br label %.thread
 
-.preheader272:                                    ; preds = %215, %.preheader272
-  %indvars.iv316 = phi i64 [ %indvars.iv.next317, %.preheader272 ], [ 0, %215 ]
-  %.2182270 = phi i32 [ %228, %.preheader272 ], [ 0, %215 ]
-  %226 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv316
+.preheader343:                                    ; preds = %215, %.preheader343
+  %indvars.iv314 = phi i64 [ %indvars.iv.next315, %.preheader343 ], [ 0, %215 ]
+  %.2182270 = phi i32 [ %228, %.preheader343 ], [ 0, %215 ]
+  %226 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv314
   %227 = load i32, ptr %226, align 4, !tbaa !3
   %228 = add i32 %227, %.2182270
-  %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
-  %exitcond319.not = icmp eq i64 %indvars.iv.next317, 36
-  br i1 %exitcond319.not, label %229, label %.preheader272, !llvm.loop !53
+  %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
+  %exitcond317.not = icmp eq i64 %indvars.iv.next315, 36
+  br i1 %exitcond317.not, label %229, label %.preheader343, !llvm.loop !53
 
-229:                                              ; preds = %.preheader272
+229:                                              ; preds = %.preheader343
   %230 = trunc i64 %218 to i32
   %231 = zext i32 %228 to i64
   %232 = call i64 @FSE_normalizeCount(ptr noundef nonnull %17, i32 noundef 9, ptr noundef nonnull %16, i64 noundef %231, i32 noundef 35, i32 noundef 1) #16

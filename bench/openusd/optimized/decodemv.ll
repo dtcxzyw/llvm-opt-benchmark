@@ -6894,33 +6894,33 @@ aom_read_literal_.exit.i:                         ; preds = %aom_read_literal_.e
   %145 = getelementptr inbounds i16, ptr %13, i64 %144
   store i16 %.06.lcssa.i.i, ptr %145, align 2
   %146 = icmp slt i32 %143, %119
-  br i1 %146, label %.preheader119, label %.loopexit.i
+  br i1 %146, label %.preheader120, label %.loopexit.i
 
-.preheader119:                                    ; preds = %aom_read_literal_.exit.i, %.preheader119
-  %.0.in8.i56.i = phi i32 [ %.0.i58.i, %.preheader119 ], [ 2, %aom_read_literal_.exit.i ]
-  %.067.i57.i = phi i32 [ %149, %.preheader119 ], [ 0, %aom_read_literal_.exit.i ]
+.preheader120:                                    ; preds = %aom_read_literal_.exit.i, %.preheader120
+  %.0.in8.i56.i = phi i32 [ %.0.i58.i, %.preheader120 ], [ 2, %aom_read_literal_.exit.i ]
+  %.067.i57.i = phi i32 [ %149, %.preheader120 ], [ 0, %aom_read_literal_.exit.i ]
   %.0.i58.i = add nsw i32 %.0.in8.i56.i, -1
   %147 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %44, i32 noundef 16384) #10
   %148 = shl i32 %147, %.0.i58.i
   %149 = or i32 %148, %.067.i57.i
   %150 = icmp samesign ugt i32 %.0.in8.i56.i, 1
-  br i1 %150, label %.preheader119, label %.lr.ph89.i, !llvm.loop !15
+  br i1 %150, label %.preheader120, label %.lr.ph89.i, !llvm.loop !15
 
-.lr.ph89.i:                                       ; preds = %.preheader119
-  %151 = load i16, ptr %145, align 2
-  %152 = zext i16 %151 to i32
-  %153 = xor i32 %152, -1
-  %154 = shl nuw i32 1, %116
-  %155 = add i32 %154, %153
-  %156 = add nsw i32 %116, -3
-  %157 = add nsw i32 %156, %149
-  %158 = add nsw i32 %154, -1
+.lr.ph89.i:                                       ; preds = %.preheader120
+  %151 = add nsw i32 %116, -3
+  %152 = load i16, ptr %145, align 2
+  %153 = zext i16 %152 to i32
+  %154 = xor i32 %153, -1
+  %155 = shl nuw i32 1, %116
+  %156 = add i32 %155, %154
+  %157 = add nsw i32 %151, %149
+  %158 = add nsw i32 %155, -1
   %159 = sext i32 %143 to i64
   br label %160
 
 160:                                              ; preds = %av1_ceil_log2.exit74.i, %.lr.ph89.i
   %indvars.iv96.i = phi i64 [ %159, %.lr.ph89.i ], [ %indvars.iv.next97.i, %av1_ceil_log2.exit74.i ]
-  %.04987.i = phi i32 [ %155, %.lr.ph89.i ], [ %177, %av1_ceil_log2.exit74.i ]
+  %.04987.i = phi i32 [ %156, %.lr.ph89.i ], [ %177, %av1_ceil_log2.exit74.i ]
   %.05086.i = phi i32 [ %157, %.lr.ph89.i ], [ %185, %av1_ceil_log2.exit74.i ]
   %161 = icmp sgt i32 %.05086.i, 0
   br i1 %161, label %.lr.ph.i62.i, label %aom_read_literal_.exit66.i
@@ -7275,33 +7275,33 @@ aom_read_literal_.exit.i82:                       ; preds = %aom_read_literal_.e
   store i16 %.06.lcssa.i.i83, ptr %325, align 2
   %326 = add nuw nsw i32 %297, 8
   %327 = icmp slt i32 %322, %326
-  br i1 %327, label %.preheader, label %.loopexit163.i
+  br i1 %327, label %.preheader119, label %.loopexit163.i
 
-.preheader:                                       ; preds = %aom_read_literal_.exit.i82, %.preheader
-  %.0.in8.i109.i = phi i32 [ %.0.i111.i, %.preheader ], [ 2, %aom_read_literal_.exit.i82 ]
-  %.067.i110.i = phi i32 [ %330, %.preheader ], [ 0, %aom_read_literal_.exit.i82 ]
+.preheader119:                                    ; preds = %aom_read_literal_.exit.i82, %.preheader119
+  %.0.in8.i109.i = phi i32 [ %.0.i111.i, %.preheader119 ], [ 2, %aom_read_literal_.exit.i82 ]
+  %.067.i110.i = phi i32 [ %330, %.preheader119 ], [ 0, %aom_read_literal_.exit.i82 ]
   %.0.i111.i = add nsw i32 %.0.in8.i109.i, -1
   %328 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %223, i32 noundef 16384) #10
   %329 = shl i32 %328, %.0.i111.i
   %330 = or i32 %329, %.067.i110.i
   %331 = icmp samesign ugt i32 %.0.in8.i109.i, 1
-  br i1 %331, label %.preheader, label %.lr.ph179.i, !llvm.loop !15
+  br i1 %331, label %.preheader119, label %.lr.ph179.i, !llvm.loop !15
 
-.lr.ph179.i:                                      ; preds = %.preheader
-  %332 = shl nuw i32 1, %296
-  %333 = load i16, ptr %325, align 2
-  %334 = zext i16 %333 to i32
-  %335 = sub nsw i32 %332, %334
-  %336 = add nsw i32 %296, -3
-  %337 = add nsw i32 %336, %330
-  %338 = add nsw i32 %332, -1
+.lr.ph179.i:                                      ; preds = %.preheader119
+  %332 = add nsw i32 %296, -3
+  %333 = shl nuw i32 1, %296
+  %334 = load i16, ptr %325, align 2
+  %335 = zext i16 %334 to i32
+  %336 = sub nsw i32 %333, %335
+  %337 = add nsw i32 %332, %330
+  %338 = add nsw i32 %333, -1
   %339 = sext i32 %322 to i64
   br label %340
 
 340:                                              ; preds = %av1_ceil_log2.exit127.i, %.lr.ph179.i
-  %indvars.iv198.i = phi i64 [ %339, %.lr.ph179.i ], [ %indvars.iv.next199.i, %av1_ceil_log2.exit127.i ]
+  %indvars.iv197.i = phi i64 [ %339, %.lr.ph179.i ], [ %indvars.iv.next198.i, %av1_ceil_log2.exit127.i ]
   %.092177.i = phi i32 [ %337, %.lr.ph179.i ], [ %364, %av1_ceil_log2.exit127.i ]
-  %.093176.i = phi i32 [ %335, %.lr.ph179.i ], [ %356, %av1_ceil_log2.exit127.i ]
+  %.093176.i = phi i32 [ %336, %.lr.ph179.i ], [ %356, %av1_ceil_log2.exit127.i ]
   %341 = icmp sgt i32 %.092177.i, 0
   br i1 %341, label %.lr.ph.i115.i, label %aom_read_literal_.exit119.i
 
@@ -7317,7 +7317,7 @@ aom_read_literal_.exit.i82:                       ; preds = %aom_read_literal_.e
 
 aom_read_literal_.exit119.i:                      ; preds = %.lr.ph.i115.i, %340
   %.06.lcssa.i114.i = phi i32 [ 0, %340 ], [ %344, %.lr.ph.i115.i ]
-  %346 = getelementptr i16, ptr %13, i64 %indvars.iv198.i
+  %346 = getelementptr i16, ptr %13, i64 %indvars.iv197.i
   %347 = getelementptr i8, ptr %346, i64 -2
   %348 = load i16, ptr %347, align 2
   %349 = zext i16 %348 to i32
@@ -7343,32 +7343,32 @@ aom_read_literal_.exit119.i:                      ; preds = %.lr.ph.i115.i, %340
   %358 = add nuw nsw i32 %.0710.i.i105, 1
   %359 = shl i32 %.011.i.i104, 1
   %360 = icmp slt i32 %359, %356
-  br i1 %360, label %.lr.ph.i120.i, label %av1_ceil_log2.exit.thread223.i, !llvm.loop !18
+  br i1 %360, label %.lr.ph.i120.i, label %av1_ceil_log2.exit.thread222.i, !llvm.loop !18
 
 av1_ceil_log2.exit.i108:                          ; preds = %.preheader.i.i102
-  %spec.select236.i = call i32 @llvm.smin.i32(i32 %.092177.i, i32 1)
+  %spec.select235.i = call i32 @llvm.smin.i32(i32 %.092177.i, i32 1)
   br label %av1_ceil_log2.exit127.i
 
-av1_ceil_log2.exit.thread223.i:                   ; preds = %.lr.ph.i120.i
-  %.not237.i = icmp sgt i32 %.092177.i, %.0710.i.i105
-  br i1 %.not237.i, label %.lr.ph.i123.i, label %av1_ceil_log2.exit127.i
+av1_ceil_log2.exit.thread222.i:                   ; preds = %.lr.ph.i120.i
+  %.not236.i = icmp sgt i32 %.092177.i, %.0710.i.i105
+  br i1 %.not236.i, label %.lr.ph.i123.i, label %av1_ceil_log2.exit127.i
 
 av1_ceil_log2.exit.thread.i109:                   ; preds = %aom_read_literal_.exit119.i
   %spec.select161.i = call i32 @llvm.smin.i32(i32 %.092177.i, i32 0)
   br label %av1_ceil_log2.exit127.i
 
-.lr.ph.i123.i:                                    ; preds = %av1_ceil_log2.exit.thread223.i, %.lr.ph.i123.i
-  %.011.i124.i = phi i32 [ %362, %.lr.ph.i123.i ], [ 2, %av1_ceil_log2.exit.thread223.i ]
-  %.0710.i125.i = phi i32 [ %361, %.lr.ph.i123.i ], [ 1, %av1_ceil_log2.exit.thread223.i ]
+.lr.ph.i123.i:                                    ; preds = %av1_ceil_log2.exit.thread222.i, %.lr.ph.i123.i
+  %.011.i124.i = phi i32 [ %362, %.lr.ph.i123.i ], [ 2, %av1_ceil_log2.exit.thread222.i ]
+  %.0710.i125.i = phi i32 [ %361, %.lr.ph.i123.i ], [ 1, %av1_ceil_log2.exit.thread222.i ]
   %361 = add nuw nsw i32 %.0710.i125.i, 1
   %362 = shl i32 %.011.i124.i, 1
   %363 = icmp slt i32 %362, %356
   br i1 %363, label %.lr.ph.i123.i, label %av1_ceil_log2.exit127.i, !llvm.loop !18
 
-av1_ceil_log2.exit127.i:                          ; preds = %.lr.ph.i123.i, %av1_ceil_log2.exit.thread.i109, %av1_ceil_log2.exit.thread223.i, %av1_ceil_log2.exit.i108
-  %364 = phi i32 [ %spec.select161.i, %av1_ceil_log2.exit.thread.i109 ], [ %.092177.i, %av1_ceil_log2.exit.thread223.i ], [ %spec.select236.i, %av1_ceil_log2.exit.i108 ], [ %361, %.lr.ph.i123.i ]
-  %indvars.iv.next199.i = add nsw i64 %indvars.iv198.i, 1
-  %lftr.wideiv.i106 = trunc i64 %indvars.iv.next199.i to i32
+av1_ceil_log2.exit127.i:                          ; preds = %.lr.ph.i123.i, %av1_ceil_log2.exit.thread.i109, %av1_ceil_log2.exit.thread222.i, %av1_ceil_log2.exit.i108
+  %364 = phi i32 [ %spec.select161.i, %av1_ceil_log2.exit.thread.i109 ], [ %.092177.i, %av1_ceil_log2.exit.thread222.i ], [ %spec.select235.i, %av1_ceil_log2.exit.i108 ], [ %361, %.lr.ph.i123.i ]
+  %indvars.iv.next198.i = add nsw i64 %indvars.iv197.i, 1
+  %lftr.wideiv.i106 = trunc i64 %indvars.iv.next198.i to i32
   %exitcond.not.i107 = icmp eq i32 %326, %lftr.wideiv.i106
   br i1 %exitcond.not.i107, label %.loopexit163.i, label %340, !llvm.loop !22
 
@@ -7438,7 +7438,7 @@ av1_ceil_log2.exit127.i:                          ; preds = %.lr.ph.i123.i, %av1
 merge_colors.exit.i:                              ; preds = %380, %382, %.loopexit163.i
   %386 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %223, i32 noundef 16384) #10
   %.not.i78 = icmp eq i32 %386, 0
-  br i1 %.not.i78, label %.preheader.i, label %.preheader187.i
+  br i1 %.not.i78, label %.preheader.i, label %.preheader
 
 .preheader.i:                                     ; preds = %merge_colors.exit.i
   %.not184.i = icmp eq i8 %293, 0
@@ -7456,11 +7456,11 @@ aom_read_literal_.exit157.preheader.i:            ; preds = %.lr.ph183.i
   br label %read_palette_colors_uv.exit
 
 .lr.ph.i153.preheader.us.preheader.i:             ; preds = %.lr.ph183.i
-  %wide.trip.count211.i = zext i8 %293 to i64
+  %wide.trip.count210.i = zext i8 %293 to i64
   br label %.lr.ph.i153.preheader.us.i
 
 .lr.ph.i153.preheader.us.i:                       ; preds = %aom_read_literal_.exit157.loopexit.us.i, %.lr.ph.i153.preheader.us.preheader.i
-  %indvars.iv208.i = phi i64 [ 0, %.lr.ph.i153.preheader.us.preheader.i ], [ %indvars.iv.next209.i, %aom_read_literal_.exit157.loopexit.us.i ]
+  %indvars.iv207.i = phi i64 [ 0, %.lr.ph.i153.preheader.us.preheader.i ], [ %indvars.iv.next208.i, %aom_read_literal_.exit157.loopexit.us.i ]
   br label %.lr.ph.i153.us.i
 
 .lr.ph.i153.us.i:                                 ; preds = %.lr.ph.i153.us.i, %.lr.ph.i153.preheader.us.i
@@ -7475,24 +7475,24 @@ aom_read_literal_.exit157.preheader.i:            ; preds = %.lr.ph183.i
 
 aom_read_literal_.exit157.loopexit.us.i:          ; preds = %.lr.ph.i153.us.i
   %394 = trunc i32 %392 to i16
-  %395 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv208.i
+  %395 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv207.i
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 32
   store i16 %394, ptr %396, align 2
-  %indvars.iv.next209.i = add nuw nsw i64 %indvars.iv208.i, 1
-  %exitcond212.not.i = icmp eq i64 %indvars.iv.next209.i, %wide.trip.count211.i
-  br i1 %exitcond212.not.i, label %read_palette_colors_uv.exit, label %.lr.ph.i153.preheader.us.i, !llvm.loop !23
+  %indvars.iv.next208.i = add nuw nsw i64 %indvars.iv207.i, 1
+  %exitcond211.not.i = icmp eq i64 %indvars.iv.next208.i, %wide.trip.count210.i
+  br i1 %exitcond211.not.i, label %read_palette_colors_uv.exit, label %.lr.ph.i153.preheader.us.i, !llvm.loop !23
 
-.preheader187.i:                                  ; preds = %merge_colors.exit.i, %.preheader187.i
-  %.0.in8.i131.i = phi i32 [ %.0.i133.i, %.preheader187.i ], [ 2, %merge_colors.exit.i ]
-  %.067.i132.i = phi i32 [ %399, %.preheader187.i ], [ 0, %merge_colors.exit.i ]
+.preheader:                                       ; preds = %merge_colors.exit.i, %.preheader
+  %.0.in8.i131.i = phi i32 [ %.0.i133.i, %.preheader ], [ 2, %merge_colors.exit.i ]
+  %.067.i132.i = phi i32 [ %399, %.preheader ], [ 0, %merge_colors.exit.i ]
   %.0.i133.i = add nsw i32 %.0.in8.i131.i, -1
   %397 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %223, i32 noundef 16384) #10
   %398 = shl i32 %397, %.0.i133.i
   %399 = or i32 %398, %.067.i132.i
   %400 = icmp samesign ugt i32 %.0.in8.i131.i, 1
-  br i1 %400, label %.preheader187.i, label %aom_read_literal_.exit136.i, !llvm.loop !15
+  br i1 %400, label %.preheader, label %aom_read_literal_.exit136.i, !llvm.loop !15
 
-aom_read_literal_.exit136.i:                      ; preds = %.preheader187.i
+aom_read_literal_.exit136.i:                      ; preds = %.preheader
   %401 = add nsw i32 %296, -4
   %402 = shl nuw i32 1, %296
   %403 = add nsw i32 %401, %399
@@ -7526,7 +7526,7 @@ aom_read_literal_.exit143.i:                      ; preds = %aom_read_literal_.e
   br label %413
 
 413:                                              ; preds = %aom_read_literal_.exit150.thread.i, %.lr.ph181.i
-  %indvars.iv201.i = phi i64 [ 1, %.lr.ph181.i ], [ %indvars.iv.next202.i, %aom_read_literal_.exit150.thread.i ]
+  %indvars.iv200.i = phi i64 [ 1, %.lr.ph181.i ], [ %indvars.iv.next201.i, %aom_read_literal_.exit150.thread.i ]
   br i1 %412, label %.lr.ph.i146.i, label %aom_read_literal_.exit150.thread.i
 
 .lr.ph.i146.i:                                    ; preds = %413, %.lr.ph.i146.i
@@ -7552,7 +7552,7 @@ aom_read_literal_.exit150.i:                      ; preds = %.lr.ph.i146.i
 
 aom_read_literal_.exit150.thread.i:               ; preds = %418, %aom_read_literal_.exit150.i, %413
   %.087.i = phi i32 [ 0, %aom_read_literal_.exit150.i ], [ %spec.select.i81, %418 ], [ 0, %413 ]
-  %421 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv201.i
+  %421 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv200.i
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 30
   %423 = load i16, ptr %422, align 2
   %424 = zext i16 %423 to i32
@@ -7566,9 +7566,9 @@ aom_read_literal_.exit150.thread.i:               ; preds = %418, %aom_read_lite
   %429 = trunc i32 %.1.i80 to i16
   %430 = getelementptr inbounds nuw i8, ptr %421, i64 32
   store i16 %429, ptr %430, align 2
-  %indvars.iv.next202.i = add nuw nsw i64 %indvars.iv201.i, 1
-  %exitcond204.not.i = icmp eq i64 %indvars.iv.next202.i, %wide.trip.count.i
-  br i1 %exitcond204.not.i, label %read_palette_colors_uv.exit, label %413, !llvm.loop !24
+  %indvars.iv.next201.i = add nuw nsw i64 %indvars.iv200.i, 1
+  %exitcond203.not.i = icmp eq i64 %indvars.iv.next201.i, %wide.trip.count.i
+  br i1 %exitcond203.not.i, label %read_palette_colors_uv.exit, label %413, !llvm.loop !24
 
 read_palette_colors_uv.exit:                      ; preds = %aom_read_literal_.exit150.thread.i, %aom_read_literal_.exit157.loopexit.us.i, %.preheader.i, %aom_read_literal_.exit157.preheader.i, %aom_read_literal_.exit143.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

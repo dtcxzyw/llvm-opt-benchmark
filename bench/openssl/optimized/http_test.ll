@@ -894,24 +894,24 @@ define internal range(i64 -2147483648, 2147483648) i64 @http_bio_cb_ex(ptr nound
   %.2.i = phi ptr [ %32, %29 ], [ %.3.i, %.thread91.i ]
   %42 = load i8, ptr %.2.i, align 1, !tbaa !15
   %43 = icmp eq i8 %42, 47
-  br i1 %43, label %.preheader.i, label %49
+  br i1 %43, label %.preheader, label %49
 
-.preheader.i:                                     ; preds = %40, %.preheader.i
-  %.6.idx.i = phi i64 [ %.6.add.i, %.preheader.i ], [ 1, %40 ]
+.preheader:                                       ; preds = %40, %.preheader
+  %.6.idx.i = phi i64 [ %.6.add.i, %.preheader ], [ 1, %40 ]
   %.6.ptr.i = getelementptr inbounds nuw i8, ptr %.2.i, i64 %.6.idx.i
   %44 = load i8, ptr %.6.ptr.i, align 1, !tbaa !15
   %45 = add i8 %44, -48
   %or.cond88.i = icmp ult i8 %45, 10
   %.6.add.i = add nuw nsw i64 %.6.idx.i, 1
-  br i1 %or.cond88.i, label %.preheader.i, label %.critedge.i, !llvm.loop !23
+  br i1 %or.cond88.i, label %.preheader, label %.critedge.i, !llvm.loop !23
 
-.critedge.i:                                      ; preds = %.preheader.i
+.critedge.i:                                      ; preds = %.preheader
   %46 = icmp eq i64 %.6.idx.i, 4
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %.critedge.i
-  %.6.ptr.le.i = getelementptr inbounds nuw i8, ptr %.2.i, i64 4
   %.ptr78.i = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
+  %.6.ptr.le.i = getelementptr inbounds nuw i8, ptr %.2.i, i64 4
   %48 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.ptr78.i, i64 noundef 3) #9
   br label %49
 

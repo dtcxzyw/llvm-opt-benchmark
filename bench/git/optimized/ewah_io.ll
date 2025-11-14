@@ -309,46 +309,46 @@ st_mult.exit50:                                   ; preds = %st_mult.exit
 60:                                               ; preds = %st_mult.exit50
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr nonnull align 1 %61, i64 %55, i1 false)
-  %62 = load i64, ptr %48, align 8, !tbaa !14
-  %.not = icmp eq i64 %62, 0
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %55
+  %63 = sub nuw i64 %49, %55
+  %64 = load i64, ptr %48, align 8, !tbaa !14
+  %.not = icmp eq i64 %64, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %60
-  %63 = load ptr, ptr %0, align 8, !tbaa !15
+  %65 = load ptr, ptr %0, align 8, !tbaa !15
   br label %git_bswap64.exit
 
 git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap64.exit
-  %.054 = phi i64 [ 0, %.lr.ph ], [ %67, %git_bswap64.exit ]
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %.054
-  %65 = load i64, ptr %64, align 8, !tbaa !16
-  %66 = tail call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %65) #5, !srcloc !17
-  store i64 %66, ptr %64, align 8, !tbaa !16
-  %67 = add nuw i64 %.054, 1
-  %68 = load i64, ptr %48, align 8, !tbaa !14
-  %69 = icmp ult i64 %67, %68
-  br i1 %69, label %git_bswap64.exit, label %._crit_edge, !llvm.loop !25
+  %.054 = phi i64 [ 0, %.lr.ph ], [ %69, %git_bswap64.exit ]
+  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %.054
+  %67 = load i64, ptr %66, align 8, !tbaa !16
+  %68 = tail call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %67) #5, !srcloc !17
+  store i64 %68, ptr %66, align 8, !tbaa !16
+  %69 = add nuw i64 %.054, 1
+  %70 = load i64, ptr %48, align 8, !tbaa !14
+  %71 = icmp ult i64 %69, %70
+  br i1 %71, label %git_bswap64.exit, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %git_bswap64.exit, %60
-  %70 = sub nuw i64 %49, %55
-  %71 = icmp ult i64 %70, 4
-  br i1 %71, label %72, label %74
+  %72 = icmp ult i64 %63, 4
+  br i1 %72, label %73, label %75
 
-72:                                               ; preds = %._crit_edge
-  %73 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3) #6
+73:                                               ; preds = %._crit_edge
+  %74 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3) #6
   br label %94
 
-74:                                               ; preds = %._crit_edge
-  %75 = getelementptr inbounds nuw i8, ptr %61, i64 %55
+75:                                               ; preds = %._crit_edge
   %76 = load ptr, ptr %0, align 8, !tbaa !15
-  %77 = load i8, ptr %75, align 1, !tbaa !23
+  %77 = load i8, ptr %62, align 1, !tbaa !23
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw i8, ptr %75, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %62, i64 1
   %80 = load i8, ptr %79, align 1, !tbaa !23
   %81 = zext i8 %80 to i64
-  %82 = getelementptr inbounds nuw i8, ptr %75, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %83 = load i8, ptr %82, align 1, !tbaa !23
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw i8, ptr %75, i64 3
+  %85 = getelementptr inbounds nuw i8, ptr %62, i64 3
   %86 = load i8, ptr %85, align 1, !tbaa !23
   %87 = zext i8 %86 to i64
   %.idx = shl nuw nsw i64 %81, 19
@@ -363,8 +363,8 @@ git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap6
   %93 = add nuw nsw i64 %55, 12
   br label %94
 
-94:                                               ; preds = %74, %72, %57, %27, %5
-  %.042 = phi i64 [ -1, %5 ], [ -1, %27 ], [ -1, %57 ], [ -1, %72 ], [ %93, %74 ]
+94:                                               ; preds = %75, %73, %57, %27, %5
+  %.042 = phi i64 [ -1, %5 ], [ -1, %27 ], [ -1, %57 ], [ -1, %73 ], [ %93, %75 ]
   ret i64 %.042
 }
 

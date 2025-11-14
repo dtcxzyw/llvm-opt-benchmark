@@ -1624,8 +1624,8 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc19
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %25, 2
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %24, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !18
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i.i.i.i.i.i
   br label %28
 
 28:                                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc19, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i
@@ -2030,8 +2030,8 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc16
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %26, 2
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %25, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !18
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i.i.i.i.i.i
   br label %29
 
 29:                                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc16, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i
@@ -12356,9 +12356,9 @@ _ZN5Annoy9Euclidean8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit.i: ; p
   %140 = fadd nnan ninf nsz arcp contract afn <4 x float> %138, %139
   %141 = shufflevector <4 x float> %140, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %142 = fadd nnan ninf nsz arcp contract afn <4 x float> %140, %141
-  %shift118 = shufflevector <4 x float> %142, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop119 = fadd nnan ninf nsz arcp contract afn <4 x float> %142, %shift118
-  %143 = extractelement <4 x float> %foldExtExtBinop119, i64 0
+  %shift117 = shufflevector <4 x float> %142, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop118 = fadd nnan ninf nsz arcp contract afn <4 x float> %142, %shift117
+  %143 = extractelement <4 x float> %foldExtExtBinop118, i64 0
   br label %144
 
 144:                                              ; preds = %137, %_ZN5Annoy9Euclidean8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit.i
@@ -12477,9 +12477,9 @@ _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski
   %195 = fadd nnan ninf nsz arcp contract afn <4 x float> %193, %194
   %196 = shufflevector <4 x float> %195, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %197 = fadd nnan ninf nsz arcp contract afn <4 x float> %195, %196
-  %shift121 = shufflevector <4 x float> %197, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop122 = fadd nnan ninf nsz arcp contract afn <4 x float> %197, %shift121
-  %198 = extractelement <4 x float> %foldExtExtBinop122, i64 0
+  %shift120 = shufflevector <4 x float> %197, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop121 = fadd nnan ninf nsz arcp contract afn <4 x float> %197, %shift120
+  %198 = extractelement <4 x float> %foldExtExtBinop121, i64 0
   %.not = icmp eq i32 %190, 0
   br i1 %.not, label %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i, label %.lr.ph.i.i.i31.preheader
 
@@ -12504,10 +12504,7 @@ _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski
 _ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr.ph.i.i.i31, %192
   %.1.lcssa.i.i.i = phi float [ %198, %192 ], [ %201, %.lr.ph.i.i.i31 ]
   %205 = fcmp nnan ninf nsz arcp contract afn ogt float %.1.lcssa.i.i.i, 0.000000e+00
-  br i1 %205, label %.lr.ph.i.preheader, label %.lr.ph49.preheader
-
-.lr.ph49.preheader:                               ; preds = %.lr.ph.i, %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
-  br label %.lr.ph49
+  br i1 %205, label %.lr.ph.i.preheader, label %.lr.ph49
 
 .lr.ph.i.preheader:                               ; preds = %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
   %206 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.i.i)
@@ -12522,44 +12519,54 @@ _ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr
   store float %210, ptr %208, align 4, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i89.i
-  br i1 %exitcond.not.i30, label %.lr.ph49.preheader, label %.lr.ph.i, !llvm.loop !255
+  br i1 %exitcond.not.i30, label %.lr.ph49, label %.lr.ph.i, !llvm.loop !255
+
+_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit: ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader
+  %211 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store float 0.000000e+00, ptr %211, align 4, !tbaa !248
+  br label %219
+
+.lr.ph49:                                         ; preds = %.lr.ph.i, %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
+  %212 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  br label %220
 
 _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit: ; preds = %.lr.ph, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit ]
-  %211 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv
-  %212 = load float, ptr %211, align 4, !tbaa !18
-  %213 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv
+  %213 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv
   %214 = load float, ptr %213, align 4, !tbaa !18
-  %215 = fsub nnan ninf nsz arcp contract afn float %212, %214
-  %216 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv
-  store float %215, ptr %216, align 4, !tbaa !18
+  %215 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv
+  %216 = load float, ptr %215, align 4, !tbaa !18
+  %217 = fsub nnan ninf nsz arcp contract afn float %214, %216
+  %218 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv
+  store float %217, ptr %218, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i89.i
   br i1 %exitcond.not, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit._crit_edge, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit, !llvm.loop !256
 
-_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit: ; preds = %.lr.ph49, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader
-  %.sink = phi float [ 0.000000e+00, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader ], [ %229, %.lr.ph49 ]
-  %217 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float %.sink, ptr %217, align 4, !tbaa !248
+._crit_edge:                                      ; preds = %220
+  store float %232, ptr %212, align 4, !tbaa !248
+  br label %219
+
+219:                                              ; preds = %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit, %._crit_edge
   ret void
 
-.lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
-  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.lr.ph49 ], [ 0, %.lr.ph49.preheader ]
-  %218 = phi float [ %229, %.lr.ph49 ], [ 0.000000e+00, %.lr.ph49.preheader ]
-  %219 = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv67
-  %220 = load float, ptr %219, align 4, !tbaa !18
-  %221 = fneg nnan ninf nsz arcp contract afn float %220
-  %222 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv67
+220:                                              ; preds = %.lr.ph49, %220
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next68, %220 ]
+  %221 = phi float [ 0.000000e+00, %.lr.ph49 ], [ %232, %220 ]
+  %222 = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv67
   %223 = load float, ptr %222, align 4, !tbaa !18
-  %224 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv67
-  %225 = load float, ptr %224, align 4, !tbaa !18
-  %226 = fadd nnan ninf nsz arcp contract afn float %223, %225
-  %227 = fmul nnan ninf nsz arcp contract afn float %226, %221
-  %228 = fmul nnan ninf nsz arcp contract afn float %227, 5.000000e-01
-  %229 = fadd nnan ninf nsz arcp contract afn float %218, %228
+  %224 = fneg nnan ninf nsz arcp contract afn float %223
+  %225 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv67
+  %226 = load float, ptr %225, align 4, !tbaa !18
+  %227 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv67
+  %228 = load float, ptr %227, align 4, !tbaa !18
+  %229 = fadd nnan ninf nsz arcp contract afn float %226, %228
+  %230 = fmul nnan ninf nsz arcp contract afn float %229, %224
+  %231 = fmul nnan ninf nsz arcp contract afn float %230, 5.000000e-01
+  %232 = fadd nnan ninf nsz arcp contract afn float %221, %231
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count.i89.i
-  br i1 %exitcond71.not, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit, label %.lr.ph49, !llvm.loop !257
+  br i1 %exitcond71.not, label %._crit_edge, label %220, !llvm.loop !257
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind sspstrong uwtable
@@ -16531,9 +16538,9 @@ _ZN5Annoy9Manhattan8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit.i: ; p
   %140 = fadd nnan ninf nsz arcp contract afn <4 x float> %138, %139
   %141 = shufflevector <4 x float> %140, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %142 = fadd nnan ninf nsz arcp contract afn <4 x float> %140, %141
-  %shift119 = shufflevector <4 x float> %142, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop120 = fadd nnan ninf nsz arcp contract afn <4 x float> %142, %shift119
-  %143 = extractelement <4 x float> %foldExtExtBinop120, i64 0
+  %shift118 = shufflevector <4 x float> %142, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop119 = fadd nnan ninf nsz arcp contract afn <4 x float> %142, %shift118
+  %143 = extractelement <4 x float> %foldExtExtBinop119, i64 0
   br label %144
 
 144:                                              ; preds = %137, %_ZN5Annoy9Manhattan8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit.i
@@ -16652,9 +16659,9 @@ _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski
   %195 = fadd nnan ninf nsz arcp contract afn <4 x float> %193, %194
   %196 = shufflevector <4 x float> %195, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %197 = fadd nnan ninf nsz arcp contract afn <4 x float> %195, %196
-  %shift122 = shufflevector <4 x float> %197, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop123 = fadd nnan ninf nsz arcp contract afn <4 x float> %197, %shift122
-  %198 = extractelement <4 x float> %foldExtExtBinop123, i64 0
+  %shift121 = shufflevector <4 x float> %197, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop122 = fadd nnan ninf nsz arcp contract afn <4 x float> %197, %shift121
+  %198 = extractelement <4 x float> %foldExtExtBinop122, i64 0
   %.not = icmp eq i32 %190, 0
   br i1 %.not, label %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i, label %.lr.ph.i.i.i32.preheader
 
@@ -16679,10 +16686,7 @@ _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski
 _ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr.ph.i.i.i32, %192
   %.1.lcssa.i.i.i = phi float [ %198, %192 ], [ %201, %.lr.ph.i.i.i32 ]
   %205 = fcmp nnan ninf nsz arcp contract afn ogt float %.1.lcssa.i.i.i, 0.000000e+00
-  br i1 %205, label %.lr.ph.i.preheader, label %.lr.ph50.preheader
-
-.lr.ph50.preheader:                               ; preds = %.lr.ph.i, %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
-  br label %.lr.ph50
+  br i1 %205, label %.lr.ph.i.preheader, label %.lr.ph50
 
 .lr.ph.i.preheader:                               ; preds = %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
   %206 = tail call nnan ninf nsz arcp contract afn noundef float @llvm.sqrt.f32(float nofpclass(nan inf) %.1.lcssa.i.i.i)
@@ -16697,44 +16701,54 @@ _ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr
   store float %210, ptr %208, align 4, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i89.i
-  br i1 %exitcond.not.i31, label %.lr.ph50.preheader, label %.lr.ph.i, !llvm.loop !255
+  br i1 %exitcond.not.i31, label %.lr.ph50, label %.lr.ph.i, !llvm.loop !255
+
+_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit: ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader
+  %211 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store float 0.000000e+00, ptr %211, align 4, !tbaa !248
+  br label %219
+
+.lr.ph50:                                         ; preds = %.lr.ph.i, %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i
+  %212 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  br label %220
 
 _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit: ; preds = %.lr.ph, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit ]
-  %211 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv
-  %212 = load float, ptr %211, align 4, !tbaa !18
-  %213 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv
+  %213 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv
   %214 = load float, ptr %213, align 4, !tbaa !18
-  %215 = fsub nnan ninf nsz arcp contract afn float %212, %214
-  %216 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv
-  store float %215, ptr %216, align 4, !tbaa !18
+  %215 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv
+  %216 = load float, ptr %215, align 4, !tbaa !18
+  %217 = fsub nnan ninf nsz arcp contract afn float %214, %216
+  %218 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv
+  store float %217, ptr %218, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i89.i
   br i1 %exitcond.not, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit._crit_edge, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit, !llvm.loop !291
 
-_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit: ; preds = %.lr.ph50, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader
-  %.sink = phi float [ 0.000000e+00, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski4NodeIifEEEEvRKSt6vectorIPT2_SaIS9_EEiRT0_bS9_S9_.exit.preheader ], [ %229, %.lr.ph50 ]
-  %217 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float %.sink, ptr %217, align 4, !tbaa !248
+._crit_edge:                                      ; preds = %220
+  store float %232, ptr %212, align 4, !tbaa !248
+  br label %219
+
+219:                                              ; preds = %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit, %._crit_edge
   ret void
 
-.lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
-  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.lr.ph50 ], [ 0, %.lr.ph50.preheader ]
-  %218 = phi float [ %229, %.lr.ph50 ], [ 0.000000e+00, %.lr.ph50.preheader ]
-  %219 = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv68
-  %220 = load float, ptr %219, align 4, !tbaa !18
-  %221 = fneg nnan ninf nsz arcp contract afn float %220
-  %222 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv68
+220:                                              ; preds = %.lr.ph50, %220
+  %indvars.iv68 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next69, %220 ]
+  %221 = phi float [ 0.000000e+00, %.lr.ph50 ], [ %232, %220 ]
+  %222 = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv68
   %223 = load float, ptr %222, align 4, !tbaa !18
-  %224 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv68
-  %225 = load float, ptr %224, align 4, !tbaa !18
-  %226 = fadd nnan ninf nsz arcp contract afn float %223, %225
-  %227 = fmul nnan ninf nsz arcp contract afn float %226, %221
-  %228 = fmul nnan ninf nsz arcp contract afn float %227, 5.000000e-01
-  %229 = fadd nnan ninf nsz arcp contract afn float %218, %228
+  %224 = fneg nnan ninf nsz arcp contract afn float %223
+  %225 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv68
+  %226 = load float, ptr %225, align 4, !tbaa !18
+  %227 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv68
+  %228 = load float, ptr %227, align 4, !tbaa !18
+  %229 = fadd nnan ninf nsz arcp contract afn float %226, %228
+  %230 = fmul nnan ninf nsz arcp contract afn float %229, %224
+  %231 = fmul nnan ninf nsz arcp contract afn float %230, 5.000000e-01
+  %232 = fadd nnan ninf nsz arcp contract afn float %221, %231
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count.i89.i
-  br i1 %exitcond72.not, label %_ZN5Annoy4Base9normalizeIfNS_9Minkowski4NodeIifEEEEvPT0_i.exit, label %.lr.ph50, !llvm.loop !292
+  br i1 %exitcond72.not, label %._crit_edge, label %220, !llvm.loop !292
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
@@ -17843,53 +17857,50 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   %9 = shl nuw nsw i64 %7, 3
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #35
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %9, i1 false), !tbaa !146
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !82
-  %13 = sext i32 %12 to i64
+  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %7
+  %12 = ptrtoint ptr %11 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load i32, ptr %13, align 8, !tbaa !82
+  %15 = sext i32 %14 to i64
   %wide.trip.count.i = zext nneg i32 %6 to i64
-  br label %14
+  br label %16
 
-14:                                               ; preds = %.critedge.i, %.lr.ph.i
+16:                                               ; preds = %.critedge.i, %.lr.ph.i
   %indvars.iv19.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next20.i, %.critedge.i ]
-  %15 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv19.i
-  store i64 0, ptr %15, align 8, !tbaa !146
-  %16 = trunc nuw nsw i64 %indvars.iv19.i to i32
-  %17 = shl i32 %16, 6
-  %18 = sext i32 %17 to i64
-  br label %19
+  %17 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv19.i
+  store i64 0, ptr %17, align 8, !tbaa !146
+  %18 = trunc nuw nsw i64 %indvars.iv19.i to i32
+  %19 = shl i32 %18, 6
+  %20 = sext i32 %19 to i64
+  br label %21
 
-19:                                               ; preds = %23, %14
-  %20 = phi i64 [ 0, %14 ], [ %29, %23 ]
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %23 ]
-  %21 = add nuw nsw i64 %indvars.iv.i, %18
-  %22 = icmp slt i64 %21, %13
-  br i1 %22, label %23, label %.critedge.i
+21:                                               ; preds = %25, %16
+  %22 = phi i64 [ 0, %16 ], [ %31, %25 ]
+  %indvars.iv.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i, %25 ]
+  %23 = add nuw nsw i64 %indvars.iv.i, %20
+  %24 = icmp slt i64 %23, %15
+  br i1 %24, label %25, label %.critedge.i
 
-.critedge.i:                                      ; preds = %23, %19
+.critedge.i:                                      ; preds = %25, %21
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count.i
-  br i1 %exitcond22.not.i, label %_ZNK14HammingWrapper5_packEPKfPm.exit.loopexit, label %14, !llvm.loop !303
+  br i1 %exitcond22.not.i, label %_ZNK14HammingWrapper5_packEPKfPm.exit, label %16, !llvm.loop !303
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds float, ptr %2, i64 %21
-  %25 = load float, ptr %24, align 4, !tbaa !18
-  %26 = fcmp nnan ninf nsz arcp contract afn ogt float %25, 5.000000e-01
-  %27 = zext i1 %26 to i64
-  %28 = shl nuw i64 %27, %indvars.iv.i
-  %29 = or i64 %28, %20
-  store i64 %29, ptr %15, align 8, !tbaa !146
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds float, ptr %2, i64 %23
+  %27 = load float, ptr %26, align 4, !tbaa !18
+  %28 = fcmp nnan ninf nsz arcp contract afn ogt float %27, 5.000000e-01
+  %29 = zext i1 %28 to i64
+  %30 = shl nuw i64 %29, %indvars.iv.i
+  %31 = or i64 %30, %22
+  store i64 %31, ptr %17, align 8, !tbaa !146
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %.critedge.i, label %19, !llvm.loop !304
+  br i1 %exitcond.not.i, label %.critedge.i, label %21, !llvm.loop !304
 
-_ZNK14HammingWrapper5_packEPKfPm.exit.loopexit:   ; preds = %.critedge.i
-  %30 = getelementptr inbounds nuw i64, ptr %10, i64 %7
-  %31 = ptrtoint ptr %30 to i64
-  br label %_ZNK14HammingWrapper5_packEPKfPm.exit
-
-_ZNK14HammingWrapper5_packEPKfPm.exit:            ; preds = %_ZNK14HammingWrapper5_packEPKfPm.exit.loopexit, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.011.026 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %10, %_ZNK14HammingWrapper5_packEPKfPm.exit.loopexit ]
-  %.sroa.11.025 = phi i64 [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %31, %_ZNK14HammingWrapper5_packEPKfPm.exit.loopexit ]
+_ZNK14HammingWrapper5_packEPKfPm.exit:            ; preds = %.critedge.i, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
+  %.sroa.011.026 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %10, %.critedge.i ]
+  %.sroa.11.025 = phi i64 [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %12, %.critedge.i ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %34 = load i8, ptr %33, align 8, !tbaa !93, !range !98, !noundef !99
@@ -18210,53 +18221,50 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %6
   %12 = shl nuw nsw i64 %10, 3
   %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #35
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %13, i8 0, i64 %12, i1 false), !tbaa !146
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !82
-  %16 = sext i32 %15 to i64
+  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %10
+  %15 = ptrtoint ptr %14 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load i32, ptr %16, align 8, !tbaa !82
+  %18 = sext i32 %17 to i64
   %wide.trip.count.i = zext nneg i32 %9 to i64
-  br label %17
+  br label %19
 
-17:                                               ; preds = %.critedge.i, %.lr.ph.i
+19:                                               ; preds = %.critedge.i, %.lr.ph.i
   %indvars.iv19.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next20.i, %.critedge.i ]
-  %18 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv19.i
-  store i64 0, ptr %18, align 8, !tbaa !146
-  %19 = trunc nuw nsw i64 %indvars.iv19.i to i32
-  %20 = shl i32 %19, 6
-  %21 = sext i32 %20 to i64
-  br label %22
+  %20 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv19.i
+  store i64 0, ptr %20, align 8, !tbaa !146
+  %21 = trunc nuw nsw i64 %indvars.iv19.i to i32
+  %22 = shl i32 %21, 6
+  %23 = sext i32 %22 to i64
+  br label %24
 
-22:                                               ; preds = %26, %17
-  %23 = phi i64 [ 0, %17 ], [ %32, %26 ]
-  %indvars.iv.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i, %26 ]
-  %24 = add nuw nsw i64 %indvars.iv.i, %21
-  %25 = icmp slt i64 %24, %16
-  br i1 %25, label %26, label %.critedge.i
+24:                                               ; preds = %28, %19
+  %25 = phi i64 [ 0, %19 ], [ %34, %28 ]
+  %indvars.iv.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i, %28 ]
+  %26 = add nuw nsw i64 %indvars.iv.i, %23
+  %27 = icmp slt i64 %26, %18
+  br i1 %27, label %28, label %.critedge.i
 
-.critedge.i:                                      ; preds = %26, %22
+.critedge.i:                                      ; preds = %28, %24
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count.i
-  br i1 %exitcond22.not.i, label %_ZNK14HammingWrapper5_packEPKfPm.exit.loopexit, label %17, !llvm.loop !303
+  br i1 %exitcond22.not.i, label %_ZNK14HammingWrapper5_packEPKfPm.exit, label %19, !llvm.loop !303
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds float, ptr %1, i64 %24
-  %28 = load float, ptr %27, align 4, !tbaa !18
-  %29 = fcmp nnan ninf nsz arcp contract afn ogt float %28, 5.000000e-01
-  %30 = zext i1 %29 to i64
-  %31 = shl nuw i64 %30, %indvars.iv.i
-  %32 = or i64 %31, %23
-  store i64 %32, ptr %18, align 8, !tbaa !146
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds float, ptr %1, i64 %26
+  %30 = load float, ptr %29, align 4, !tbaa !18
+  %31 = fcmp nnan ninf nsz arcp contract afn ogt float %30, 5.000000e-01
+  %32 = zext i1 %31 to i64
+  %33 = shl nuw i64 %32, %indvars.iv.i
+  %34 = or i64 %33, %25
+  store i64 %34, ptr %20, align 8, !tbaa !146
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %.critedge.i, label %22, !llvm.loop !304
+  br i1 %exitcond.not.i, label %.critedge.i, label %24, !llvm.loop !304
 
-_ZNK14HammingWrapper5_packEPKfPm.exit.loopexit:   ; preds = %.critedge.i
-  %33 = getelementptr inbounds nuw i64, ptr %13, i64 %10
-  %34 = ptrtoint ptr %33 to i64
-  br label %_ZNK14HammingWrapper5_packEPKfPm.exit
-
-_ZNK14HammingWrapper5_packEPKfPm.exit:            ; preds = %_ZNK14HammingWrapper5_packEPKfPm.exit.loopexit, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.034.052 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %13, %_ZNK14HammingWrapper5_packEPKfPm.exit.loopexit ]
-  %.sroa.12.050 = phi i64 [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %34, %_ZNK14HammingWrapper5_packEPKfPm.exit.loopexit ]
+_ZNK14HammingWrapper5_packEPKfPm.exit:            ; preds = %.critedge.i, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
+  %.sroa.034.052 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %13, %.critedge.i ]
+  %.sroa.12.050 = phi i64 [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %15, %.critedge.i ]
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %61, label %35
 

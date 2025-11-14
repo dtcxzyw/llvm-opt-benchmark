@@ -222,30 +222,30 @@ define hidden noundef i32 @_ZN8CodeHeap13defrag_segmapEb(ptr noundef nonnull rea
   %22 = load ptr, ptr %8, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %16
   %24 = add nsw i64 %18, -1
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  %26 = load i8, ptr %25, align 1
-  %.not22.i = icmp eq i8 %26, 0
+  %25 = add nuw nsw i64 %18, 252
+  %26 = udiv i64 %25, 254
+  %27 = trunc nuw nsw i64 %26 to i32
+  %28 = getelementptr inbounds i8, ptr %23, i64 %24
+  %29 = load i8, ptr %28, align 1
+  %.not22.i = icmp eq i8 %29, 0
   br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
-  %27 = phi i8 [ %32, %.lr.ph.i ], [ %26, %21 ]
-  %.024.i = phi i64 [ %29, %.lr.ph.i ], [ %24, %21 ]
-  %.01823.i = phi i32 [ %30, %.lr.ph.i ], [ 0, %21 ]
-  %28 = zext i8 %27 to i64
-  %29 = sub i64 %.024.i, %28
-  %30 = add nuw nsw i32 %.01823.i, 1
-  %31 = getelementptr inbounds i8, ptr %23, i64 %29
-  %32 = load i8, ptr %31, align 1
-  %.not.i28 = icmp eq i8 %32, 0
+  %30 = phi i8 [ %35, %.lr.ph.i ], [ %29, %21 ]
+  %.024.i = phi i64 [ %32, %.lr.ph.i ], [ %24, %21 ]
+  %.01823.i = phi i32 [ %33, %.lr.ph.i ], [ 0, %21 ]
+  %31 = zext i8 %30 to i64
+  %32 = sub i64 %.024.i, %31
+  %33 = add nuw nsw i32 %.01823.i, 1
+  %34 = getelementptr inbounds i8, ptr %23, i64 %32
+  %35 = load i8, ptr %34, align 1
+  %.not.i28 = icmp eq i8 %35, 0
   br i1 %.not.i28, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %21
-  %.018.lcssa.i = phi i32 [ 0, %21 ], [ %30, %.lr.ph.i ]
-  %33 = add nuw nsw i64 %18, 252
-  %34 = udiv i64 %33, 254
-  %35 = trunc nuw nsw i64 %34 to i32
-  %36 = icmp sgt i32 %.018.lcssa.i, %35
-  %37 = sub nsw i32 %.018.lcssa.i, %35
+  %.018.lcssa.i = phi i32 [ 0, %21 ], [ %33, %.lr.ph.i ]
+  %36 = icmp sgt i32 %.018.lcssa.i, %27
+  %37 = sub nsw i32 %.018.lcssa.i, %27
   %38 = select i1 %36, i32 %37, i32 0
   br label %_ZN8CodeHeap11segmap_hopsEmm.exit
 
@@ -1777,30 +1777,30 @@ define hidden noundef i32 @_ZN8CodeHeap11segmap_hopsEmm(ptr noundef nonnull read
   %8 = getelementptr inbounds i8, ptr %7, i64 %1
   %9 = xor i64 %1, -1
   %10 = add i64 %2, %9
-  %11 = getelementptr inbounds i8, ptr %8, i64 %10
-  %12 = load i8, ptr %11, align 1
-  %.not22 = icmp eq i8 %12, 0
+  %11 = add i64 %10, 253
+  %12 = udiv i64 %11, 254
+  %13 = trunc i64 %12 to i32
+  %14 = getelementptr inbounds i8, ptr %8, i64 %10
+  %15 = load i8, ptr %14, align 1
+  %.not22 = icmp eq i8 %15, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %13 = phi i8 [ %18, %.lr.ph ], [ %12, %5 ]
-  %.024 = phi i64 [ %15, %.lr.ph ], [ %10, %5 ]
-  %.01823 = phi i32 [ %16, %.lr.ph ], [ 0, %5 ]
-  %14 = zext i8 %13 to i64
-  %15 = sub i64 %.024, %14
-  %16 = add nuw nsw i32 %.01823, 1
-  %17 = getelementptr inbounds i8, ptr %8, i64 %15
-  %18 = load i8, ptr %17, align 1
-  %.not = icmp eq i8 %18, 0
+  %16 = phi i8 [ %21, %.lr.ph ], [ %15, %5 ]
+  %.024 = phi i64 [ %18, %.lr.ph ], [ %10, %5 ]
+  %.01823 = phi i32 [ %19, %.lr.ph ], [ 0, %5 ]
+  %17 = zext i8 %16 to i64
+  %18 = sub i64 %.024, %17
+  %19 = add nuw nsw i32 %.01823, 1
+  %20 = getelementptr inbounds i8, ptr %8, i64 %18
+  %21 = load i8, ptr %20, align 1
+  %.not = icmp eq i8 %21, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %.018.lcssa = phi i32 [ 0, %5 ], [ %16, %.lr.ph ]
-  %19 = add i64 %10, 253
-  %20 = udiv i64 %19, 254
-  %21 = trunc i64 %20 to i32
-  %22 = icmp sgt i32 %.018.lcssa, %21
-  %23 = sub nsw i32 %.018.lcssa, %21
+  %.018.lcssa = phi i32 [ 0, %5 ], [ %19, %.lr.ph ]
+  %22 = icmp sgt i32 %.018.lcssa, %13
+  %23 = sub nsw i32 %.018.lcssa, %13
   %24 = select i1 %22, i32 %23, i32 0
   br label %25
 

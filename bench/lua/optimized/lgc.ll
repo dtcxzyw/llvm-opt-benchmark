@@ -3,9 +3,9 @@ source_filename = "bench/lua/original/lgc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.Value = type { ptr }
 %union.Node = type { %struct.NodeKey }
 %struct.NodeKey = type { %union.Value, i8, i8, i32, %union.Value }
+%union.Value = type { ptr }
 %union.UValue = type { %struct.TValue }
 %struct.TValue = type { %union.Value, i8 }
 %struct.Upvaldesc = type { ptr, i8, i8, i8 }
@@ -2578,18 +2578,18 @@ convergeephemerons.exit:                          ; preds = %76, %._crit_edge.i
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %93 = load ptr, ptr %92, align 8, !tbaa !94
   tail call fastcc void @clearbyvalues(ptr noundef %3, ptr noundef %93, ptr noundef null)
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  br label %95
+  %94 = load ptr, ptr %90, align 8, !tbaa !93
+  %95 = load ptr, ptr %92, align 8, !tbaa !94
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  br label %97
 
-95:                                               ; preds = %95, %convergeephemerons.exit
-  %.0.i.i = phi ptr [ %94, %convergeephemerons.exit ], [ %96, %95 ]
-  %96 = load ptr, ptr %.0.i.i, align 8, !tbaa !46
-  %.not.i.i58 = icmp eq ptr %96, null
-  br i1 %.not.i.i58, label %findlast.exit.preheader.i, label %95
+97:                                               ; preds = %97, %convergeephemerons.exit
+  %.0.i.i = phi ptr [ %96, %convergeephemerons.exit ], [ %98, %97 ]
+  %98 = load ptr, ptr %.0.i.i, align 8, !tbaa !46
+  %.not.i.i58 = icmp eq ptr %98, null
+  br i1 %.not.i.i58, label %findlast.exit.preheader.i, label %97
 
-findlast.exit.preheader.i:                        ; preds = %95
-  %97 = load ptr, ptr %90, align 8, !tbaa !93
-  %98 = load ptr, ptr %92, align 8, !tbaa !94
+findlast.exit.preheader.i:                        ; preds = %97
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %101 = load ptr, ptr %99, align 8, !tbaa !46
@@ -2639,7 +2639,7 @@ findlast.exit.i:                                  ; preds = %113, %.lr.ph.split.
   br i1 %.not.i62, label %separatetobefnz.exit, label %.lr.ph.split.i
 
 separatetobefnz.exit:                             ; preds = %findlast.exit.i, %findlast.exit.preheader.i
-  %.07.i = load ptr, ptr %94, align 8, !tbaa !46
+  %.07.i = load ptr, ptr %96, align 8, !tbaa !46
   %.not8.i = icmp eq ptr %.07.i, null
   br i1 %.not8.i, label %markbeingfnz.exit, label %.lr.ph.i63
 
@@ -2885,9 +2885,9 @@ clearkey.exit.i102:                               ; preds = %208, %205, %isclear
 
 clearbykeys.exit106:                              ; preds = %._crit_edge.i103, %clearbykeys.exit
   %213 = load ptr, ptr %90, align 8, !tbaa !93
-  tail call fastcc void @clearbyvalues(ptr noundef %3, ptr noundef %213, ptr noundef %97)
+  tail call fastcc void @clearbyvalues(ptr noundef %3, ptr noundef %213, ptr noundef %94)
   %214 = load ptr, ptr %92, align 8, !tbaa !94
-  tail call fastcc void @clearbyvalues(ptr noundef %3, ptr noundef %214, ptr noundef %98)
+  tail call fastcc void @clearbyvalues(ptr noundef %3, ptr noundef %214, ptr noundef %95)
   tail call void @luaS_clearcache(ptr noundef %3) #8
   %215 = getelementptr inbounds nuw i8, ptr %3, i64 106
   %216 = load i8, ptr %215, align 2, !tbaa !30
@@ -3155,79 +3155,79 @@ define internal fastcc void @clearbyvalues(ptr noundef captures(none) %0, ptr no
   %5 = load ptr, ptr %4, align 8, !tbaa !95
   %6 = getelementptr inbounds nuw i8, ptr %.048, i64 11
   %7 = load i8, ptr %6, align 1, !tbaa !96
-  %8 = getelementptr inbounds nuw i8, ptr %.048, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !97
-  %.not52 = icmp eq i32 %9, 0
+  %8 = zext nneg i8 %7 to i32
+  %9 = shl nuw i32 1, %8
+  %10 = zext i32 %9 to i64
+  %11 = getelementptr inbounds nuw %union.Node, ptr %5, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %.048, i64 12
+  %13 = load i32, ptr %12, align 4, !tbaa !97
+  %.not52 = icmp eq i32 %13, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph50
-  %10 = getelementptr inbounds nuw i8, ptr %.048, i64 16
-  %wide.trip.count = zext i32 %9 to i64
-  br label %11
+  %14 = getelementptr inbounds nuw i8, ptr %.048, i64 16
+  %wide.trip.count = zext i32 %13 to i64
+  br label %15
 
-11:                                               ; preds = %.lr.ph, %iscleared.exit.thread
+15:                                               ; preds = %.lr.ph, %iscleared.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %iscleared.exit.thread ]
-  %12 = load ptr, ptr %10, align 8, !tbaa !98
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
-  %15 = load i8, ptr %14, align 1, !tbaa !33
-  %16 = and i8 %15, 64
-  %.not31 = icmp eq i8 %16, 0
-  br i1 %.not31, label %iscleared.exit.thread, label %17
+  %16 = load ptr, ptr %14, align 8, !tbaa !98
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv
+  %19 = load i8, ptr %18, align 1, !tbaa !33
+  %20 = and i8 %19, 64
+  %.not31 = icmp eq i8 %20, 0
+  br i1 %.not31, label %iscleared.exit.thread, label %21
 
-17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %12, i64 -8
-  %19 = sub nsw i64 0, %indvars.iv
-  %20 = getelementptr inbounds %union.Value, ptr %18, i64 %19
-  %21 = load ptr, ptr %20, align 8, !tbaa !33
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %iscleared.exit.thread, label %23
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds i8, ptr %16, i64 -8
+  %23 = sub nsw i64 0, %indvars.iv
+  %24 = getelementptr inbounds %union.Value, ptr %22, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !33
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %iscleared.exit.thread, label %27
 
-23:                                               ; preds = %17
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %25 = load i8, ptr %24, align 8, !tbaa !32
-  %26 = and i8 %25, 15
-  %27 = icmp eq i8 %26, 4
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 9
-  %29 = load i8, ptr %28, align 1, !tbaa !27
-  %30 = and i8 %29, 24
-  %.not.i = icmp eq i8 %30, 0
-  br i1 %27, label %31, label %iscleared.exit
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %29 = load i8, ptr %28, align 8, !tbaa !32
+  %30 = and i8 %29, 15
+  %31 = icmp eq i8 %30, 4
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 9
+  %33 = load i8, ptr %32, align 1, !tbaa !27
+  %34 = and i8 %33, 24
+  %.not.i = icmp eq i8 %34, 0
+  br i1 %31, label %35, label %iscleared.exit
 
-31:                                               ; preds = %23
-  br i1 %.not.i, label %iscleared.exit.thread, label %32
+35:                                               ; preds = %27
+  br i1 %.not.i, label %iscleared.exit.thread, label %36
 
-32:                                               ; preds = %31
-  tail call fastcc void @reallymarkobject(ptr noundef %0, ptr noundef nonnull %21)
+36:                                               ; preds = %35
+  tail call fastcc void @reallymarkobject(ptr noundef %0, ptr noundef nonnull %25)
   br label %iscleared.exit.thread
 
-iscleared.exit:                                   ; preds = %23
-  br i1 %.not.i, label %iscleared.exit.thread, label %33
+iscleared.exit:                                   ; preds = %27
+  br i1 %.not.i, label %iscleared.exit.thread, label %37
 
-33:                                               ; preds = %iscleared.exit
-  store i8 16, ptr %14, align 1, !tbaa !33
+37:                                               ; preds = %iscleared.exit
+  store i8 16, ptr %18, align 1, !tbaa !33
   br label %iscleared.exit.thread
 
-iscleared.exit.thread:                            ; preds = %11, %31, %32, %17, %33, %iscleared.exit
+iscleared.exit.thread:                            ; preds = %15, %35, %36, %21, %37, %iscleared.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %11
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %15
 
 ._crit_edge.loopexit:                             ; preds = %iscleared.exit.thread
   %.pre = load ptr, ptr %4, align 8, !tbaa !95
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph50
-  %34 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %5, %.lr.ph50 ]
-  %35 = zext nneg i8 %7 to i32
-  %36 = shl nuw i32 1, %35
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %union.Node, ptr %5, i64 %37
-  %39 = icmp ult ptr %34, %38
+  %38 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %5, %.lr.ph50 ]
+  %39 = icmp ult ptr %38, %11
   br i1 %39, label %.lr.ph45, label %._crit_edge46
 
 .lr.ph45:                                         ; preds = %._crit_edge, %clearkey.exit
-  %.02743 = phi ptr [ %64, %clearkey.exit ], [ %34, %._crit_edge ]
+  %.02743 = phi ptr [ %64, %clearkey.exit ], [ %38, %._crit_edge ]
   %40 = getelementptr inbounds nuw i8, ptr %.02743, i64 8
   %41 = load i8, ptr %40, align 8, !tbaa !33
   %42 = and i8 %41, 64
@@ -3284,7 +3284,7 @@ iscleared.exit35.thread:                          ; preds = %.lr.ph45, %54, %55,
 
 clearkey.exit:                                    ; preds = %63, %59, %iscleared.exit35.thread
   %64 = getelementptr inbounds nuw i8, ptr %.02743, i64 24
-  %65 = icmp ult ptr %64, %38
+  %65 = icmp ult ptr %64, %11
   br i1 %65, label %.lr.ph45, label %._crit_edge46
 
 ._crit_edge46:                                    ; preds = %clearkey.exit, %._crit_edge

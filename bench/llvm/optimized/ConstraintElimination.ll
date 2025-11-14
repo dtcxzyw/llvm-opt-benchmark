@@ -13770,6 +13770,8 @@ _ZN4llvm11SmallVectorIlLj8EED2Ev.exit:            ; preds = %_ZN12_GLOBAL__N_112
   br i1 %.not.i.i.i125, label %_ZN4llvm13SmallDenseMapIPNS_5ValueEbLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_bEEEC2Ej.exit, label %.lr.ph.i.i.i123, !llvm.loop !615
 
 _ZN4llvm13SmallDenseMapIPNS_5ValueEbLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_bEEEC2Ej.exit: ; preds = %.lr.ph.i.i.i123
+  %.phi.trans.insert.i.i119.ptr = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.phi.trans.insert3.i.i121 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.val = load ptr, ptr %99, align 8, !tbaa !32
   %.val103 = load i32, ptr %102, align 8, !tbaa !33
   %163 = zext i32 %.val103 to i64
@@ -13949,8 +13951,6 @@ _ZN4llvm15concat_iteratorIN12_GLOBAL__N_111DecompEntryEJPS2_S3_EEppEv.exit: ; pr
   br label %117
 
 ._crit_edge:                                      ; preds = %"_ZZNK12_GLOBAL__N_114ConstraintInfo13getConstraintEN4llvm7CmpInst9PredicateEPNS1_5ValueES5_RNS1_15SmallVectorImplIS5_EEbENK3$_0clES5_.exit142", %_ZN4llvm13SmallDenseMapIPNS_5ValueEbLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_bEEEC2Ej.exit
-  %.phi.trans.insert.i.i119.ptr = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %.phi.trans.insert3.i.i121 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.val101 = load ptr, ptr %100, align 8, !tbaa !32
   %.val105 = load i32, ptr %101, align 8, !tbaa !33
   %242 = zext i32 %.val105 to i64
@@ -22877,9 +22877,9 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6det
   call fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__gnu_cxx5__ops15_Iter_comp_iterIZZL18generateReproducerPNS0_7CmpInstEPNS0_6ModuleENS0_8ArrayRefIN12_GLOBAL__N_115ReproducerEntryEEERNSC_14ConstraintInfoERNS0_13DominatorTreeEENK3$_0clENSB_IPNS0_5ValueEEEbEUlS2_S2_E_EEEvT_SP_T0_T1_"(ptr noundef %.val.pre, ptr noundef nonnull %136, i64 noundef %141, ptr %134)
   %142 = icmp ugt i32 %.val30.pre, 16
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %.val.pre, i64 8
-  br i1 %142, label %.preheader.i.i.i.i.i, label %156
+  br i1 %142, label %.preheader.i.i.i, label %156
 
-.preheader.i.i.i.i.i:                             ; preds = %137, %"_ZSt25__unguarded_linear_insertIPPN4llvm11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZZL18generateReproducerPNS0_7CmpInstEPNS0_6ModuleENS0_8ArrayRefIN12_GLOBAL__N_115ReproducerEntryEEERNSC_14ConstraintInfoERNS0_13DominatorTreeEENK3$_0clENSB_IPNS0_5ValueEEEbEUlS2_S2_E_EEEvT_T0_.exit.i.i.i.i.i.i"
+.preheader.i.i.i:                                 ; preds = %137, %"_ZSt25__unguarded_linear_insertIPPN4llvm11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZZL18generateReproducerPNS0_7CmpInstEPNS0_6ModuleENS0_8ArrayRefIN12_GLOBAL__N_115ReproducerEntryEEERNSC_14ConstraintInfoERNS0_13DominatorTreeEENK3$_0clENSB_IPNS0_5ValueEEEbEUlS2_S2_E_EEEvT_T0_.exit.i.i.i.i.i.i"
   %.022.i.idx.i.i.i.i.i = phi i64 [ %.022.i.add.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPN4llvm11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZZL18generateReproducerPNS0_7CmpInstEPNS0_6ModuleENS0_8ArrayRefIN12_GLOBAL__N_115ReproducerEntryEEERNSC_14ConstraintInfoERNS0_13DominatorTreeEENK3$_0clENSB_IPNS0_5ValueEEEbEUlS2_S2_E_EEEvT_T0_.exit.i.i.i.i.i.i" ], [ 8, %137 ]
   %.pn21.i.i.i.i.i.i = phi ptr [ %.022.i.ptr.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPN4llvm11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZZL18generateReproducerPNS0_7CmpInstEPNS0_6ModuleENS0_8ArrayRefIN12_GLOBAL__N_115ReproducerEntryEEERNSC_14ConstraintInfoERNS0_13DominatorTreeEENK3$_0clENSB_IPNS0_5ValueEEEbEUlS2_S2_E_EEEvT_T0_.exit.i.i.i.i.i.i" ], [ %.val.pre, %137 ]
   %.022.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.pre, i64 %.022.i.idx.i.i.i.i.i
@@ -22889,11 +22889,11 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6det
   %144 = load ptr, ptr %.022.i.ptr.i.i.i.i.i, align 8, !tbaa !493
   br i1 %143, label %145, label %146
 
-145:                                              ; preds = %.preheader.i.i.i.i.i
+145:                                              ; preds = %.preheader.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %.val.pre, i64 %.022.i.idx.i.i.i.i.i, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPN4llvm11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZZL18generateReproducerPNS0_7CmpInstEPNS0_6ModuleENS0_8ArrayRefIN12_GLOBAL__N_115ReproducerEntryEEERNSC_14ConstraintInfoERNS0_13DominatorTreeEENK3$_0clENSB_IPNS0_5ValueEEEbEUlS2_S2_E_EEEvT_T0_.exit.i.i.i.i.i.i"
 
-146:                                              ; preds = %.preheader.i.i.i.i.i
+146:                                              ; preds = %.preheader.i.i.i
   %.0.val12.i.i.i.i.i.i.i = load ptr, ptr %.pn21.i.i.i.i.i.i, align 8, !tbaa !493
   %147 = call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %134, ptr noundef %144, ptr noundef %.0.val12.i.i.i.i.i.i.i) #24
   br i1 %147, label %.lr.ph.i.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZZL18generateReproducerPNS0_7CmpInstEPNS0_6ModuleENS0_8ArrayRefIN12_GLOBAL__N_115ReproducerEntryEEERNSC_14ConstraintInfoERNS0_13DominatorTreeEENK3$_0clENSB_IPNS0_5ValueEEEbEUlS2_S2_E_EEEvT_T0_.exit.i.i.i.i.i.i"
@@ -22913,7 +22913,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6det
   store ptr %144, ptr %.sink.i.i.i.i.i.i, align 8, !tbaa !493
   %.022.i.add.i.i.i.i.i = add nuw nsw i64 %.022.i.idx.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i = icmp eq i64 %.022.i.add.i.i.i.i.i, 128
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZZL18generateReproducerPNS0_7CmpInstEPNS0_6ModuleENS0_8ArrayRefIN12_GLOBAL__N_115ReproducerEntryEEERNSC_14ConstraintInfoERNS0_13DominatorTreeEENK3$_0clENSB_IPNS0_5ValueEEEbEUlS2_S2_E_EEEvT_SP_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i.i.i, !llvm.loop !726
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZZL18generateReproducerPNS0_7CmpInstEPNS0_6ModuleENS0_8ArrayRefIN12_GLOBAL__N_115ReproducerEntryEEERNSC_14ConstraintInfoERNS0_13DominatorTreeEENK3$_0clENSB_IPNS0_5ValueEEEbEUlS2_S2_E_EEEvT_SP_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i, !llvm.loop !726
 
 "_ZSt16__insertion_sortIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZZL18generateReproducerPNS0_7CmpInstEPNS0_6ModuleENS0_8ArrayRefIN12_GLOBAL__N_115ReproducerEntryEEERNSC_14ConstraintInfoERNS0_13DominatorTreeEENK3$_0clENSB_IPNS0_5ValueEEEbEUlS2_S2_E_EEEvT_SP_T0_.exit.i.i.i.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPPN4llvm11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZZL18generateReproducerPNS0_7CmpInstEPNS0_6ModuleENS0_8ArrayRefIN12_GLOBAL__N_115ReproducerEntryEEERNSC_14ConstraintInfoERNS0_13DominatorTreeEENK3$_0clENSB_IPNS0_5ValueEEEbEUlS2_S2_E_EEEvT_T0_.exit.i.i.i.i.i.i"
   %150 = getelementptr inbounds nuw i8, ptr %.val.pre, i64 128

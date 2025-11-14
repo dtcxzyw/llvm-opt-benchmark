@@ -5035,14 +5035,16 @@ if.then147:                                       ; preds = %lor.end.thread, %lo
   %144 = load ptr, ptr %sets.i171, align 8
   %ncsets.i172 = getelementptr inbounds nuw i8, ptr %143, i64 20
   %145 = load i32, ptr %ncsets.i172, align 4
-  %csetsize.i173 = getelementptr inbounds nuw i8, ptr %143, i64 16
-  %146 = load i32, ptr %csetsize.i173, align 8
-  %conv.i174 = sext i32 %146 to i64
+  %idxprom.i173 = sext i32 %145 to i64
+  %arrayidx.i174 = getelementptr inbounds %struct.cset, ptr %144, i64 %idxprom.i173
+  %csetsize.i175 = getelementptr inbounds nuw i8, ptr %143, i64 16
+  %146 = load i32, ptr %csetsize.i175, align 8
+  %conv.i176 = sext i32 %146 to i64
   %cmp10.not.i = icmp eq i32 %146, 0
-  br i1 %cmp10.not.i, label %for.end.i181, label %for.body.i178
+  br i1 %cmp10.not.i, label %for.end.i183, label %for.body.i180
 
-for.body.i178:                                    ; preds = %if.then147, %for.body.i178
-  %i.011.i = phi i64 [ %inc.i179, %for.body.i178 ], [ 0, %if.then147 ]
+for.body.i180:                                    ; preds = %if.then147, %for.body.i180
+  %i.011.i = phi i64 [ %inc.i181, %for.body.i180 ], [ 0, %if.then147 ]
   %147 = load i8, ptr %mask.i, align 8
   %not.i = xor i8 %147, -1
   %148 = load ptr, ptr %arrayidx53.i, align 8
@@ -5055,18 +5057,16 @@ for.body.i178:                                    ; preds = %if.then147, %for.bo
   %151 = trunc i64 %i.011.i to i8
   %conv11.i = sub i8 %150, %151
   store i8 %conv11.i, ptr %hash.i, align 1
-  %inc.i179 = add nuw i64 %i.011.i, 1
-  %exitcond.not.i180 = icmp eq i64 %inc.i179, %conv.i174
-  br i1 %exitcond.not.i180, label %for.end.i181, label %for.body.i178, !llvm.loop !29
+  %inc.i181 = add nuw i64 %i.011.i, 1
+  %exitcond.not.i182 = icmp eq i64 %inc.i181, %conv.i176
+  br i1 %exitcond.not.i182, label %for.end.i183, label %for.body.i180, !llvm.loop !29
 
-for.end.i181:                                     ; preds = %for.body.i178, %if.then147
-  %idxprom.i182 = sext i32 %145 to i64
-  %arrayidx.i183 = getelementptr inbounds %struct.cset, ptr %144, i64 %idxprom.i182
-  %add.ptr.i184 = getelementptr inbounds i8, ptr %arrayidx.i183, i64 -32
+for.end.i183:                                     ; preds = %for.body.i180, %if.then147
+  %add.ptr.i184 = getelementptr inbounds i8, ptr %arrayidx.i174, i64 -32
   %cmp12.i = icmp eq ptr %arrayidx53.i, %add.ptr.i184
   br i1 %cmp12.i, label %if.then.i186, label %if.end278
 
-if.then.i186:                                     ; preds = %for.end.i181
+if.then.i186:                                     ; preds = %for.end.i183
   %152 = load ptr, ptr %g.i, align 8
   %ncsets15.i = getelementptr inbounds nuw i8, ptr %152, i64 20
   %153 = load i32, ptr %ncsets15.i, align 4
@@ -5416,38 +5416,38 @@ ordinary.exit:                                    ; preds = %if.then.i226, %doem
   %207 = load ptr, ptr %sets.i232, align 8
   %ncsets.i233 = getelementptr inbounds nuw i8, ptr %206, i64 20
   %208 = load i32, ptr %ncsets.i233, align 4
-  %csetsize.i234 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  %209 = load i32, ptr %csetsize.i234, align 8
-  %conv.i235 = sext i32 %209 to i64
-  %cmp10.not.i236 = icmp eq i32 %209, 0
-  br i1 %cmp10.not.i236, label %for.end.i249, label %for.body.i240
+  %idxprom.i234 = sext i32 %208 to i64
+  %arrayidx.i235 = getelementptr inbounds %struct.cset, ptr %207, i64 %idxprom.i234
+  %csetsize.i236 = getelementptr inbounds nuw i8, ptr %206, i64 16
+  %209 = load i32, ptr %csetsize.i236, align 8
+  %conv.i237 = sext i32 %209 to i64
+  %cmp10.not.i238 = icmp eq i32 %209, 0
+  br i1 %cmp10.not.i238, label %for.end.i251, label %for.body.i242
 
-for.body.i240:                                    ; preds = %ordinary.exit, %for.body.i240
-  %i.011.i241 = phi i64 [ %inc.i247, %for.body.i240 ], [ 0, %ordinary.exit ]
+for.body.i242:                                    ; preds = %ordinary.exit, %for.body.i242
+  %i.011.i243 = phi i64 [ %inc.i249, %for.body.i242 ], [ 0, %ordinary.exit ]
   %210 = load i8, ptr %mask.i, align 8
-  %not.i242 = xor i8 %210, -1
+  %not.i244 = xor i8 %210, -1
   %211 = load ptr, ptr %arrayidx53.i, align 8
-  %idxprom6.i243 = and i64 %i.011.i241, 255
-  %arrayidx7.i244 = getelementptr inbounds nuw i8, ptr %211, i64 %idxprom6.i243
-  %212 = load i8, ptr %arrayidx7.i244, align 1
-  %and.i245 = and i8 %212, %not.i242
-  store i8 %and.i245, ptr %arrayidx7.i244, align 1
+  %idxprom6.i245 = and i64 %i.011.i243, 255
+  %arrayidx7.i246 = getelementptr inbounds nuw i8, ptr %211, i64 %idxprom6.i245
+  %212 = load i8, ptr %arrayidx7.i246, align 1
+  %and.i247 = and i8 %212, %not.i244
+  store i8 %and.i247, ptr %arrayidx7.i246, align 1
   %213 = load i8, ptr %hash.i, align 1
-  %214 = trunc i64 %i.011.i241 to i8
-  %conv11.i246 = sub i8 %213, %214
-  store i8 %conv11.i246, ptr %hash.i, align 1
-  %inc.i247 = add nuw i64 %i.011.i241, 1
-  %exitcond.not.i248 = icmp eq i64 %inc.i247, %conv.i235
-  br i1 %exitcond.not.i248, label %for.end.i249, label %for.body.i240, !llvm.loop !29
+  %214 = trunc i64 %i.011.i243 to i8
+  %conv11.i248 = sub i8 %213, %214
+  store i8 %conv11.i248, ptr %hash.i, align 1
+  %inc.i249 = add nuw i64 %i.011.i243, 1
+  %exitcond.not.i250 = icmp eq i64 %inc.i249, %conv.i237
+  br i1 %exitcond.not.i250, label %for.end.i251, label %for.body.i242, !llvm.loop !29
 
-for.end.i249:                                     ; preds = %for.body.i240, %ordinary.exit
-  %idxprom.i250 = sext i32 %208 to i64
-  %arrayidx.i251 = getelementptr inbounds %struct.cset, ptr %207, i64 %idxprom.i250
-  %add.ptr.i252 = getelementptr inbounds i8, ptr %arrayidx.i251, i64 -32
+for.end.i251:                                     ; preds = %for.body.i242, %ordinary.exit
+  %add.ptr.i252 = getelementptr inbounds i8, ptr %arrayidx.i235, i64 -32
   %cmp12.i253 = icmp eq ptr %arrayidx53.i, %add.ptr.i252
   br i1 %cmp12.i253, label %if.then.i255, label %if.end278
 
-if.then.i255:                                     ; preds = %for.end.i249
+if.then.i255:                                     ; preds = %for.end.i251
   %215 = load ptr, ptr %g.i, align 8
   %ncsets15.i256 = getelementptr inbounds nuw i8, ptr %215, i64 20
   %216 = load i32, ptr %ncsets15.i256, align 4
@@ -5656,7 +5656,7 @@ if.end4.i285:                                     ; preds = %if.end8.i.i296, %se
   store i64 %or.i, ptr %arrayidx.i288, align 8
   br label %if.end278
 
-if.end278:                                        ; preds = %if.end4.i285, %freezeset.exit, %if.then.i255, %for.end.i249, %if.then.i186, %for.end.i181, %allocset.exit.thread, %doemit.exit146, %doemit.exit
+if.end278:                                        ; preds = %if.end4.i285, %freezeset.exit, %if.then.i255, %for.end.i251, %if.then.i186, %for.end.i183, %allocset.exit.thread, %doemit.exit146, %doemit.exit
   ret void
 }
 

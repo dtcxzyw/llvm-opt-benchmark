@@ -601,39 +601,39 @@ num_coded_units.exit208.i.i:                      ; preds = %188
   %238 = zext nneg i32 %237 to i64
   %239 = getelementptr inbounds nuw i8, ptr %52, i64 %238
   %240 = load i32, ptr %239, align 1, !tbaa !14
-  %241 = add i32 %233, 2
-  %242 = tail call i32 @llvm.umin.i32(i32 %51, i32 %241)
-  store i32 %242, ptr %8, align 8, !tbaa !26
-  %243 = lshr i32 %242, 3
-  %244 = zext nneg i32 %243 to i64
-  %245 = getelementptr inbounds nuw i8, ptr %52, i64 %244
-  %246 = load i32, ptr %245, align 1, !tbaa !14
-  %247 = add i32 %242, 3
-  %248 = tail call i32 @llvm.umin.i32(i32 %51, i32 %247)
-  store i32 %248, ptr %8, align 8, !tbaa !26
+  %241 = tail call i32 @llvm.bswap.i32(i32 %240)
+  %242 = and i32 %233, 7
+  %243 = shl i32 %241, %242
+  %244 = lshr i32 %243, 30
+  %245 = add i32 %233, 2
+  %246 = tail call i32 @llvm.umin.i32(i32 %51, i32 %245)
+  store i32 %246, ptr %8, align 8, !tbaa !26
+  %247 = lshr i32 %246, 3
+  %248 = zext nneg i32 %247 to i64
+  %249 = getelementptr inbounds nuw i8, ptr %52, i64 %248
+  %250 = load i32, ptr %249, align 1, !tbaa !14
+  %251 = tail call i32 @llvm.bswap.i32(i32 %250)
+  %252 = and i32 %246, 7
+  %253 = shl i32 %251, %252
+  %254 = lshr i32 %253, 29
+  %255 = add i32 %246, 3
+  %256 = tail call i32 @llvm.umin.i32(i32 %51, i32 %255)
+  store i32 %256, ptr %8, align 8, !tbaa !26
   %.not262.i.i = icmp ult i32 %230, 134217728
   br i1 %.not262.i.i, label %.preheader227.i.i, label %.lr.ph251.i.i
 
 .lr.ph251.i.i:                                    ; preds = %236
-  %249 = getelementptr inbounds nuw i8, ptr %48, i64 20
+  %257 = getelementptr inbounds nuw i8, ptr %48, i64 20
   %wide.trip.count.i.i = zext nneg i32 %231 to i64
   br label %263
 
 .preheader227.i.i:                                ; preds = %263, %236
-  %250 = tail call i32 @llvm.bswap.i32(i32 %240)
-  %251 = and i32 %233, 7
-  %252 = shl i32 %250, %251
-  %253 = lshr i32 %252, 30
-  %254 = tail call i32 @llvm.bswap.i32(i32 %246)
-  %255 = and i32 %242, 7
-  %256 = shl i32 %254, %255
-  %257 = lshr i32 %256, 29
   %258 = icmp samesign ult i32 %231, %222
   br i1 %258, label %.lr.ph253.i.i, label %.loopexit226.i.i
 
 .lr.ph253.i.i:                                    ; preds = %.preheader227.i.i
-  %.not.i.i.i = icmp ult i32 %252, 1073741824
-  %259 = sub nuw nsw i32 32, %253
+  %.not.i.i.i = icmp ult i32 %243, 1073741824
+  %259 = sub nuw nsw i32 32, %244
   %260 = getelementptr inbounds nuw i8, ptr %48, i64 20
   %261 = zext nneg i32 %231 to i64
   %262 = zext nneg i32 %222 to i64
@@ -654,7 +654,7 @@ num_coded_units.exit208.i.i:                      ; preds = %188
   %274 = add i32 %264, 3
   %275 = tail call i32 @llvm.umin.i32(i32 %265, i32 %274)
   store i32 %275, ptr %8, align 8, !tbaa !26
-  %276 = getelementptr inbounds nuw i32, ptr %249, i64 %indvars.iv287.i.i
+  %276 = getelementptr inbounds nuw i32, ptr %257, i64 %indvars.iv287.i.i
   store i32 %273, ptr %276, align 4, !tbaa !4
   %indvars.iv.next288.i.i = add nuw nsw i64 %indvars.iv287.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next288.i.i, %wide.trip.count.i.i
@@ -675,14 +675,14 @@ num_coded_units.exit208.i.i:                      ; preds = %188
   %286 = and i32 %279, 7
   %287 = shl i32 %285, %286
   %288 = lshr i32 %287, %259
-  %289 = add i32 %279, %253
+  %289 = add i32 %279, %244
   %290 = tail call i32 @llvm.umin.i32(i32 %280, i32 %289)
   store i32 %290, ptr %8, align 8, !tbaa !26
   br label %get_bitsz.exit.i.i
 
 get_bitsz.exit.i.i:                               ; preds = %278, %277
   %291 = phi i32 [ %288, %278 ], [ 0, %277 ]
-  %292 = add nuw nsw i32 %291, %257
+  %292 = add nuw nsw i32 %291, %254
   %293 = and i32 %292, 7
   %294 = getelementptr inbounds nuw i32, ptr %260, i64 %indvars.iv290.i.i
   store i32 %293, ptr %294, align 4, !tbaa !4
@@ -1808,16 +1808,25 @@ unpack_vq_shape.exit.i.i86:                       ; preds = %.lr.ph.i.i.i94, %97
   %1003 = zext nneg i32 %1002 to i64
   %1004 = getelementptr inbounds nuw i8, ptr %877, i64 %1003
   %1005 = load i32, ptr %1004, align 1, !tbaa !14
-  %1006 = add i32 %1001, 2
-  %1007 = tail call i32 @llvm.umin.i32(i32 %991, i32 %1006)
-  store i32 %1007, ptr %8, align 8, !tbaa !26
-  %1008 = lshr i32 %1007, 3
-  %1009 = zext nneg i32 %1008 to i64
-  %1010 = getelementptr inbounds nuw i8, ptr %877, i64 %1009
-  %1011 = load i32, ptr %1010, align 1, !tbaa !14
-  %1012 = add i32 %1007, 4
-  %1013 = tail call i32 @llvm.umin.i32(i32 %991, i32 %1012)
-  store i32 %1013, ptr %8, align 8, !tbaa !26
+  %1006 = tail call i32 @llvm.bswap.i32(i32 %1005)
+  %1007 = and i32 %1001, 7
+  %1008 = shl i32 %1006, %1007
+  %1009 = lshr i32 %1008, 30
+  %1010 = add i32 %1001, 2
+  %1011 = tail call i32 @llvm.umin.i32(i32 %991, i32 %1010)
+  store i32 %1011, ptr %8, align 8, !tbaa !26
+  %1012 = lshr i32 %1011, 3
+  %1013 = zext nneg i32 %1012 to i64
+  %1014 = getelementptr inbounds nuw i8, ptr %877, i64 %1013
+  %1015 = load i32, ptr %1014, align 1, !tbaa !14
+  %1016 = tail call i32 @llvm.bswap.i32(i32 %1015)
+  %1017 = and i32 %1011, 7
+  %1018 = shl i32 %1016, %1017
+  %1019 = lshr i32 %1018, 28
+  %1020 = add i32 %1011, 4
+  %1021 = tail call i32 @llvm.umin.i32(i32 %991, i32 %1020)
+  store i32 %1021, ptr %8, align 8, !tbaa !26
+  %1022 = add nuw nsw i32 %1019, 57
   %.not246.i.i = icmp ult i32 %998, 134217728
   br i1 %.not246.i.i, label %.preheader209.i.i, label %.lr.ph240.preheader.i.i87
 
@@ -1826,21 +1835,12 @@ unpack_vq_shape.exit.i.i86:                       ; preds = %.lr.ph.i.i.i94, %97
   br label %.lr.ph240.i.i88
 
 .preheader209.i.i:                                ; preds = %.lr.ph240.i.i88, %unpack_vq_shape.exit.i.i86
-  %1014 = tail call i32 @llvm.bswap.i32(i32 %1005)
-  %1015 = and i32 %1001, 7
-  %1016 = shl i32 %1014, %1015
-  %1017 = lshr i32 %1016, 30
-  %1018 = tail call i32 @llvm.bswap.i32(i32 %1011)
-  %1019 = and i32 %1007, 7
-  %1020 = shl i32 %1018, %1019
-  %1021 = lshr i32 %1020, 28
-  %1022 = add nuw nsw i32 %1021, 57
   %1023 = icmp slt i32 %999, %863
   br i1 %1023, label %.lr.ph242.i.i91, label %.loopexit.i
 
 .lr.ph242.i.i91:                                  ; preds = %.preheader209.i.i
-  %.not.i184.i.i = icmp ult i32 %1016, 1073741824
-  %1024 = sub nuw nsw i32 32, %1017
+  %.not.i184.i.i = icmp ult i32 %1008, 1073741824
+  %1024 = sub nuw nsw i32 32, %1009
   %1025 = zext nneg i32 %999 to i64
   %1026 = zext nneg i32 %863 to i64
   br label %1044
@@ -1888,7 +1888,7 @@ unpack_vq_shape.exit.i.i86:                       ; preds = %.lr.ph.i.i.i94, %97
   %1056 = and i32 %1049, 7
   %1057 = shl i32 %1055, %1056
   %1058 = lshr i32 %1057, %1024
-  %1059 = add i32 %1049, %1017
+  %1059 = add i32 %1049, %1009
   %1060 = tail call i32 @llvm.umin.i32(i32 %1050, i32 %1059)
   store i32 %1060, ptr %8, align 8, !tbaa !26
   br label %get_bitsz.exit185.i.i

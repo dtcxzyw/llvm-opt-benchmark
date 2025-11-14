@@ -1719,8 +1719,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %209
 
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %.noexc280
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %226, 3
-  %228 = getelementptr inbounds nuw i8, ptr %225, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %225, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !75
+  %228 = getelementptr inbounds nuw i8, ptr %225, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph1289
 
 .lr.ph1289:                                       ; preds = %.noexc280, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit

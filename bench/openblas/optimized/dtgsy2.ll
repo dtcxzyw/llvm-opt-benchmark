@@ -296,6 +296,7 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %183 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv1557
   %184 = load i32, ptr %183, align 4, !tbaa !3
   %185 = add nsw i32 %184, 1
+  %indvars.iv.next1558 = add nuw nsw i64 %indvars.iv1557, 1
   %186 = getelementptr i32, ptr %19, i64 %indvars.iv1557
   %187 = load i32, ptr %186, align 4, !tbaa !3
   %188 = add nsw i32 %187, -1
@@ -1134,7 +1135,6 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %663, label %245, label %..loopexit1425_crit_edge.us, !llvm.loop !16
 
 ..loopexit1425_crit_edge.us:                      ; preds = %662
-  %indvars.iv.next1558 = add nuw nsw i64 %indvars.iv1557, 1
   br i1 %222, label %.lr.ph1475.us, label %.loopexit1424, !llvm.loop !17
 
 664:                                              ; preds = %._crit_edge1435

@@ -229,32 +229,32 @@ multiswap_invert_keys.exit:                       ; preds = %.preheader.i
 
 multiswap_inv_step.exit.i:                        ; preds = %120
   %126 = lshr i64 %114, 32
-  %127 = lshr i64 %.025.lcssa, 32
-  %128 = add i64 %114, %127
-  %129 = sub i64 %126, %128
-  %130 = trunc i64 %129 to i32
-  %131 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %132 = load i32, ptr %131, align 4, !tbaa !14
-  %133 = sub i32 %130, %132
-  br label %134
+  %127 = load i32, ptr %116, align 8, !tbaa !14
+  %128 = lshr i64 %.025.lcssa, 32
+  %129 = add i64 %114, %128
+  %130 = sub i64 %126, %129
+  %131 = trunc i64 %130 to i32
+  %132 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %133 = load i32, ptr %132, align 4, !tbaa !14
+  %134 = sub i32 %131, %133
+  br label %135
 
-134:                                              ; preds = %134, %multiswap_inv_step.exit.i
-  %indvars.iv.i15.i36 = phi i64 [ 4, %multiswap_inv_step.exit.i ], [ %indvars.iv.next.i17.i38, %134 ]
-  %.01112.i16.i37 = phi i32 [ %133, %multiswap_inv_step.exit.i ], [ %138, %134 ]
-  %135 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i15.i36
-  %136 = load i32, ptr %135, align 4, !tbaa !14
-  %137 = mul i32 %136, %.01112.i16.i37
-  %138 = call i32 @llvm.fshl.i32(i32 %137, i32 %137, i32 16)
+135:                                              ; preds = %135, %multiswap_inv_step.exit.i
+  %indvars.iv.i15.i36 = phi i64 [ 4, %multiswap_inv_step.exit.i ], [ %indvars.iv.next.i17.i38, %135 ]
+  %.01112.i16.i37 = phi i32 [ %134, %multiswap_inv_step.exit.i ], [ %139, %135 ]
+  %136 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i15.i36
+  %137 = load i32, ptr %136, align 4, !tbaa !14
+  %138 = mul i32 %137, %.01112.i16.i37
+  %139 = call i32 @llvm.fshl.i32(i32 %138, i32 %138, i32 16)
   %indvars.iv.next.i17.i38 = add nsw i64 %indvars.iv.i15.i36, -1
-  %139 = icmp samesign ugt i64 %indvars.iv.i15.i36, 1
-  br i1 %139, label %134, label %multiswap_dec.exit, !llvm.loop !23
+  %140 = icmp samesign ugt i64 %indvars.iv.i15.i36, 1
+  br i1 %140, label %135, label %multiswap_dec.exit, !llvm.loop !23
 
-multiswap_dec.exit:                               ; preds = %134
-  %140 = load i32, ptr %116, align 8, !tbaa !14
-  %141 = mul i32 %140, %124
-  %142 = sub i32 %141, %130
+multiswap_dec.exit:                               ; preds = %135
+  %141 = mul i32 %127, %124
+  %142 = sub i32 %141, %131
   %143 = load i32, ptr %8, align 16, !tbaa !14
-  %144 = mul i32 %143, %138
+  %144 = mul i32 %143, %139
   %145 = trunc i64 %.025.lcssa to i32
   %146 = sub i32 %144, %145
   %147 = zext i32 %142 to i64

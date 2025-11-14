@@ -1877,30 +1877,30 @@ _ZNSt6vectorIjSaIjEE17_M_default_appendEm.exit:   ; preds = %_ZNKSt6vectorIjSaIj
   br i1 %51, label %52, label %_ZN4llvm5ErrorD2Ev.exit48
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !56
-  %55 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %56 = load ptr, ptr %55, align 8, !tbaa !57
-  %57 = and i64 %20, 4294967295
-  %58 = getelementptr inbounds nuw i32, ptr %54, i64 %57
-  %.not80 = icmp eq ptr %58, %56
+  %53 = sub i64 %27, %20
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !56
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %57 = load ptr, ptr %56, align 8, !tbaa !57
+  %58 = ptrtoint ptr %57 to i64
+  %59 = ptrtoint ptr %55 to i64
+  %60 = sub i64 %58, %59
+  %61 = ashr exact i64 %60, 2
+  %62 = and i64 %20, 4294967295
+  %63 = getelementptr inbounds nuw i32, ptr %55, i64 %62
+  %.not80 = icmp eq ptr %63, %57
   br i1 %.not80, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %60 = load ptr, ptr %59, align 8, !tbaa !33
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %65 = load ptr, ptr %64, align 8, !tbaa !33
   br label %77
 
 ._crit_edge:                                      ; preds = %77, %52
-  %61 = sub i64 %27, %20
-  %62 = ptrtoint ptr %56 to i64
-  %63 = ptrtoint ptr %54 to i64
-  %64 = sub i64 %62, %63
-  %65 = ashr exact i64 %64, 2
-  %66 = and i64 %61, 4294967295
-  %67 = sub nsw i64 %65, %66
+  %66 = and i64 %53, 4294967295
+  %67 = sub nsw i64 %61, %66
   %.idx.i = shl nuw nsw i64 %67, 2
-  %.not.i.i.i.i = icmp eq i64 %65, %66
+  %.not.i.i.i.i = icmp eq i64 %61, %66
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i, label %69
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %._crit_edge
@@ -1910,7 +1910,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %._crit_
 69:                                               ; preds = %._crit_edge
   %70 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #23, !noalias !126
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %70, ptr align 4 %54, i64 %.idx.i, i1 false), !noalias !126
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %70, ptr align 4 %55, i64 %.idx.i, i1 false), !noalias !126
   br label %_ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit
 
 _ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit:  ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i, %69
@@ -1918,24 +1918,24 @@ _ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit:  ; preds = %_ZNSt12_Vector_base
   %.sink.i = phi ptr [ %68, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i ], [ %71, %69 ]
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %73 = load ptr, ptr %72, align 8, !tbaa !58
-  store ptr %.sroa.053.0, ptr %53, align 8, !tbaa !56
-  store ptr %.sink.i, ptr %55, align 8, !tbaa !57
+  store ptr %.sroa.053.0, ptr %54, align 8, !tbaa !56
+  store ptr %.sink.i, ptr %56, align 8, !tbaa !57
   store ptr %.sink.i, ptr %72, align 8, !tbaa !58
-  %.not.i.i.i.i.i = icmp eq ptr %54, null
+  %.not.i.i.i.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit48, label %74
 
 74:                                               ; preds = %_ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit
   %75 = ptrtoint ptr %73 to i64
-  %76 = sub i64 %75, %63
-  tail call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef %76) #24
+  %76 = sub i64 %75, %59
+  tail call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %76) #24
   br label %_ZN4llvm5ErrorD2Ev.exit48
 
 77:                                               ; preds = %.lr.ph, %77
-  %.03581 = phi ptr [ %58, %.lr.ph ], [ %87, %77 ]
+  %.03581 = phi ptr [ %63, %.lr.ph ], [ %87, %77 ]
   %78 = load i32, ptr %.03581, align 4, !tbaa !78
   %79 = lshr i32 %78, 6
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw i64, ptr %60, i64 %80
+  %81 = getelementptr inbounds nuw i64, ptr %65, i64 %80
   %82 = and i32 %78, 63
   %83 = zext nneg i32 %82 to i64
   %84 = shl nuw i64 1, %83
@@ -1943,7 +1943,7 @@ _ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit:  ; preds = %_ZNSt12_Vector_base
   %86 = or i64 %84, %85
   store i64 %86, ptr %81, align 8, !tbaa !36
   %87 = getelementptr inbounds nuw i8, ptr %.03581, i64 4
-  %.not = icmp eq ptr %87, %56
+  %.not = icmp eq ptr %87, %57
   br i1 %.not, label %._crit_edge, label %77
 
 _ZN4llvm5ErrorD2Ev.exit48:                        ; preds = %50, %38, %74, %_ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit

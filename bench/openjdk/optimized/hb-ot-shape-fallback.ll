@@ -3123,20 +3123,20 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2OT4GDEF13accelerator_tC2EP9hb_face_t(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.hb_sanitize_context_t, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(536) %0, i8 0, i64 536, i1 false)
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %2
   %.0.idx8.i.i = phi i64 [ %.0.add.i.i, %.preheader.i ], [ 0, %2 ]
-  %.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.0.idx8.i.i
+  %.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.0.idx8.i.i
   store atomic i16 -1, ptr %.0.ptr.i.i monotonic, align 2
   %.0.add.i.i = add nuw nsw i64 %.0.idx8.i.i, 2
   %.not.i.i = icmp eq i64 %.0.add.i.i, 512
-  br i1 %.not.i.i, label %5, label %.preheader.i
+  br i1 %.not.i.i, label %6, label %.preheader.i
 
-5:                                                ; preds = %.preheader.i
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+6:                                                ; preds = %.preheader.i
   store i32 0, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 44
@@ -3153,7 +3153,7 @@ define linkonce_odr hidden void @_ZN2OT4GDEF13accelerator_tC2EP9hb_face_t(ptr no
   %13 = invoke i32 @hb_face_get_glyph_count(ptr noundef %1)
           to label %14 unwind label %38
 
-14:                                               ; preds = %5
+14:                                               ; preds = %6
   store i32 %13, ptr %10, align 8
   store i8 1, ptr %11, align 4
   %15 = invoke ptr @hb_face_reference_table(ptr noundef %1, i32 noundef 1195656518)
@@ -3220,7 +3220,7 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit.i: ; preds = %19
           cleanup
   br label %88
 
-38:                                               ; preds = %.noexc6, %14, %5
+38:                                               ; preds = %.noexc6, %14, %6
   %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %3) #17
@@ -3290,7 +3290,7 @@ _ZNK2OT4GDEF19get_mark_glyph_setsEv.exit:         ; preds = %68, %54, %40
   br i1 %cond.i11, label %87, label %_ZNK2OT13MarkGlyphSets16collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES2_IS3_ImLj0EES3_ImLj9EEEEEEvR11hb_vector_tIT_Lb0EE.exit
 
 87:                                               ; preds = %_ZNK2OT4GDEF19get_mark_glyph_setsEv.exit
-  invoke void @_ZNK2OT20MarkGlyphSetsFormat116collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES2_IS3_ImLj0EES3_ImLj9EEEEEEvR11hb_vector_tIT_Lb0EE(ptr noundef nonnull align 1 dereferenceable(8) %.0.i, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  invoke void @_ZNK2OT20MarkGlyphSetsFormat116collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES2_IS3_ImLj0EES3_ImLj9EEEEEEvR11hb_vector_tIT_Lb0EE(ptr noundef nonnull align 1 dereferenceable(8) %.0.i, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNK2OT13MarkGlyphSets16collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES2_IS3_ImLj0EES3_ImLj9EEEEEEvR11hb_vector_tIT_Lb0EE.exit unwind label %36
 
 _ZNK2OT13MarkGlyphSets16collect_coverageI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES2_IS3_ImLj0EES3_ImLj9EEEEEEvR11hb_vector_tIT_Lb0EE.exit: ; preds = %_ZNK2OT4GDEF19get_mark_glyph_setsEv.exit, %87
@@ -3298,7 +3298,7 @@ _ZNK2OT13MarkGlyphSets16collect_coverageI24hb_set_digest_combiner_tI28hb_set_dig
 
 88:                                               ; preds = %38, %36
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %39, %38 ]
-  %89 = load i32, ptr %6, align 8
+  %89 = load i32, ptr %4, align 8
   %.not.i.i13 = icmp eq i32 %89, 0
   br i1 %.not.i.i13, label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EED2Ev.exit, label %90
 
@@ -3311,7 +3311,7 @@ _ZNK2OT13MarkGlyphSets16collect_coverageI24hb_set_digest_combiner_tI28hb_set_dig
   br label %_ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EED2Ev.exit
 
 _ZN11hb_vector_tI24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES0_IS1_ImLj0EES1_ImLj9EEEELb0EED2Ev.exit: ; preds = %88, %90
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   resume { ptr, i32 } %.pn
 }
 

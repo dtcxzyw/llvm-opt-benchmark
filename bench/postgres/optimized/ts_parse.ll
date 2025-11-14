@@ -1053,8 +1053,8 @@ define internal fastcc void @addHLParsedLex(ptr noundef captures(none) %0, ptr n
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not3641 = icmp eq ptr %3, null
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %11
 
@@ -1154,7 +1154,7 @@ hladdword.exit:                                   ; preds = %14, %21
   %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #8
   %72 = trunc i64 %71 to i32
   %73 = load i32, ptr %5, align 4
-  %74 = load i32, ptr %8, align 4
+  %74 = load i32, ptr %9, align 4
   %75 = add i32 %74, %73
   %76 = load i32, ptr %6, align 8
   %.not42.i = icmp slt i32 %75, %76
@@ -1171,7 +1171,7 @@ hladdword.exit:                                   ; preds = %14, %21
   %82 = tail call ptr @repalloc(ptr noundef %77, i64 noundef %81) #7
   store ptr %82, ptr %0, align 8
   %83 = load i32, ptr %5, align 4
-  %84 = load i32, ptr %8, align 4
+  %84 = load i32, ptr %9, align 4
   %85 = add i32 %84, %83
   %86 = load i32, ptr %6, align 8
   %.not.i39 = icmp slt i32 %85, %86
@@ -1187,7 +1187,7 @@ hladdword.exit:                                   ; preds = %14, %21
   %92 = trunc i32 %91 to i16
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i16 %92, ptr %93, align 4
-  %94 = load i32, ptr %8, align 4
+  %94 = load i32, ptr %9, align 4
   %95 = icmp sgt i32 %94, 0
   br i1 %95, label %.lr.ph46.i, label %hlfinditem.exit
 
@@ -1198,7 +1198,7 @@ hladdword.exit:                                   ; preds = %14, %21
 97:                                               ; preds = %137, %.lr.ph46.i
   %98 = phi i32 [ %94, %.lr.ph46.i ], [ %140, %137 ]
   %.044.i = phi i32 [ 0, %.lr.ph46.i ], [ %139, %137 ]
-  %.03643.i = phi ptr [ %9, %.lr.ph46.i ], [ %138, %137 ]
+  %.03643.i = phi ptr [ %8, %.lr.ph46.i ], [ %138, %137 ]
   %99 = load i8, ptr %.03643.i, align 4
   %100 = icmp eq i8 %99, 1
   br i1 %100, label %101, label %137
@@ -1206,7 +1206,7 @@ hladdword.exit:                                   ; preds = %14, %21
 101:                                              ; preds = %97
   %102 = sext i32 %98 to i64
   %103 = mul nsw i64 %102, 12
-  %104 = getelementptr inbounds nuw i8, ptr %9, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr %8, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %.03643.i, i64 8
   %106 = load i32, ptr %105, align 4
   %107 = lshr i32 %106, 12
@@ -1256,7 +1256,7 @@ hladdword.exit:                                   ; preds = %14, %21
 137:                                              ; preds = %136, %118, %101, %97
   %138 = getelementptr inbounds nuw i8, ptr %.03643.i, i64 12
   %139 = add nuw nsw i32 %.044.i, 1
-  %140 = load i32, ptr %8, align 4
+  %140 = load i32, ptr %9, align 4
   %141 = icmp slt i32 %139, %140
   br i1 %141, label %97, label %hlfinditem.exit, !llvm.loop !21
 

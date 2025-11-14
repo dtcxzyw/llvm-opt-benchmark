@@ -3184,6 +3184,7 @@ entry:
   store i32 4, ptr %Capacity2.i.i.i.i.i, align 4
   %add.ptr.i.i.i.i.i2 = getelementptr inbounds nuw i8, ptr %stack, i64 16
   store ptr %add.ptr.i.i.i.i.i2, ptr %stack, align 8
+  %Size.i.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %stack, i64 8
   %Capacity2.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %stack, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i4, align 4
   %0 = getelementptr inbounds nuw i8, ptr %visited, i64 8
@@ -3202,7 +3203,6 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   br i1 %cmp.not.i.i.i.i.i, label %while.body.lr.ph, label %for.body.i.i.i.i.i, !llvm.loop !13
 
 while.body.lr.ph:                                 ; preds = %for.body.i.i.i.i.i
-  %Size.i.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %stack, i64 8
   %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %F, i64 88
   %1 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %2 = ptrtoint ptr %1 to i64

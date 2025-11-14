@@ -50,16 +50,18 @@ _ZL10div_nstepsii.exit100:                        ; preds = %_ZL10div_nstepsii.e
   br i1 %29, label %_ZL10div_nstepsii.exit102, label %_ZL10div_nstepsii.exit102.thread
 
 _ZL10div_nstepsii.exit102:                        ; preds = %_ZL10div_nstepsii.exit100
-  %30 = icmp sgt i32 %1, 0
-  br i1 %30, label %.lr.ph, label %._crit_edge
+  %30 = add i32 %28, %8
+  %31 = sdiv i32 %30, %28
+  %32 = icmp sgt i32 %1, 0
+  br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZL10div_nstepsii.exit102
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 432
-  %32 = load ptr, ptr %31, align 8, !tbaa !106
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 440
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 432
   %34 = load ptr, ptr %33, align 8, !tbaa !106
-  %35 = icmp eq ptr %32, %34
-  br i1 %35, label %._crit_edge, label %.lr.ph.split.preheader
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 440
+  %36 = load ptr, ptr %35, align 8, !tbaa !106
+  %37 = icmp eq ptr %34, %36
+  br i1 %37, label %._crit_edge, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -67,17 +69,15 @@ _ZL10div_nstepsii.exit102:                        ; preds = %_ZL10div_nstepsii.e
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph, %_ZL10div_nstepsii.exit102
   %.184.lcssa = phi i32 [ 0, %_ZL10div_nstepsii.exit102 ], [ %1, %.lr.ph ], [ %spec.select129, %.lr.ph.split ]
-  %36 = add i32 %28, %8
-  %37 = sdiv i32 %36, %28
   %38 = sitofp i32 %.184.lcssa to double
   %39 = tail call double @llvm.fmuladd.f64(double %38, double 5.000000e+00, double 5.600000e+01)
-  %40 = sitofp i32 %37 to double
+  %40 = sitofp i32 %31 to double
   br label %_ZL10div_nstepsii.exit102.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %.184126 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %spec.select129, %.lr.ph.split ]
-  %41 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv
   %42 = load i8, ptr %41, align 1, !tbaa !108
   %43 = icmp eq i8 %42, 0
   %44 = zext i1 %43 to i32
@@ -154,12 +154,12 @@ _ZL10div_nstepsii.exit106:                        ; preds = %_ZL10div_nstepsii.e
   br i1 %89, label %90, label %151
 
 90:                                               ; preds = %85
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 260
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 36
+  %92 = load i32, ptr %91, align 4, !tbaa !126
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 260
   br label %98
 
-92:                                               ; preds = %98
-  %93 = getelementptr inbounds nuw i8, ptr %87, i64 36
-  %94 = load i32, ptr %93, align 4, !tbaa !126
+94:                                               ; preds = %98
   %95 = getelementptr inbounds nuw i8, ptr %87, i64 268
   %96 = load i32, ptr %95, align 4, !tbaa !127
   %97 = icmp eq i32 %96, 0
@@ -168,17 +168,17 @@ _ZL10div_nstepsii.exit106:                        ; preds = %_ZL10div_nstepsii.e
 98:                                               ; preds = %90, %98
   %indvars.iv132 = phi i64 [ 0, %90 ], [ %indvars.iv.next133, %98 ]
   %.089128 = phi i32 [ 0, %90 ], [ %spec.select, %98 ]
-  %99 = getelementptr inbounds nuw i8, ptr %91, i64 %indvars.iv132
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 %indvars.iv132
   %100 = load i8, ptr %99, align 1, !tbaa !128, !range !115, !noundef !116
   %101 = zext nneg i8 %100 to i32
   %spec.select = add nuw nsw i32 %.089128, %101
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %.not122 = icmp eq i64 %indvars.iv.next133, 7
-  br i1 %.not122, label %92, label %98
+  br i1 %.not122, label %94, label %98
 
-_ZL10div_nstepsii.exit108:                        ; preds = %92
+_ZL10div_nstepsii.exit108:                        ; preds = %94
   %102 = shl nsw i32 %spec.select, 3
-  %103 = mul nsw i32 %94, 10
+  %103 = mul nsw i32 %92, 10
   %104 = add i32 %103, 8
   %105 = add i32 %104, %102
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -199,14 +199,14 @@ _ZL10div_nstepsii.exit108:                        ; preds = %92
   %118 = sitofp i32 %117 to double
   br label %150
 
-119:                                              ; preds = %92
+119:                                              ; preds = %94
   %120 = getelementptr inbounds nuw i8, ptr %87, i64 276
   %121 = load i32, ptr %120, align 4, !tbaa !140
   %122 = icmp slt i32 %121, 1
   br i1 %122, label %_ZL10div_nstepsii.exit110, label %139
 
 _ZL10div_nstepsii.exit110:                        ; preds = %119
-  %123 = add nsw i32 %spec.select, %94
+  %123 = add nsw i32 %spec.select, %92
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %125 = load ptr, ptr %124, align 8, !tbaa !129
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
@@ -240,7 +240,7 @@ _ZL10div_nstepsii.exit110:                        ; preds = %119
 _ZL10div_nstepsii.exit112:                        ; preds = %139, %140
   %.0.i111 = phi i64 [ %144, %140 ], [ 0, %139 ]
   %145 = zext nneg i32 %121 to i64
-  %146 = sext i32 %94 to i64
+  %146 = sext i32 %92 to i64
   %147 = mul nsw i64 %145, %146
   %148 = mul i64 %147, %.0.i111
   %149 = uitofp i64 %148 to double

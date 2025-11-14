@@ -691,43 +691,43 @@ define dso_local noundef ptr @kwsprep(ptr noundef %0) local_unnamed_addr #0 {
   br label %._crit_edge179
 
 .lr.ph174:                                        ; preds = %.preheader150
+  %65 = zext nneg i32 %.pre198 to i64
   %wide.trip.count = zext nneg i32 %.pre198 to i64
-  br label %74
+  br label %75
 
 .lr.ph172:                                        ; preds = %.lr.ph172.preheader, %.lr.ph172
   %indvars.iv186 = phi i64 [ %61, %.lr.ph172.preheader ], [ %indvars.iv.next187, %.lr.ph172 ]
-  %.0130.in169 = phi ptr [ %60, %.lr.ph172.preheader ], [ %72, %.lr.ph172 ]
+  %.0130.in169 = phi ptr [ %60, %.lr.ph172.preheader ], [ %73, %.lr.ph172 ]
   %indvars.iv.next187 = add nsw i64 %indvars.iv186, -1
   %.0130 = load ptr, ptr %.0130.in169, align 8, !tbaa !28
-  %65 = getelementptr inbounds nuw i8, ptr %.0130, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !30
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %68 = load i8, ptr %67, align 8, !tbaa !33
-  %69 = load ptr, ptr %56, align 8, !tbaa !26
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv.next187
-  store i8 %68, ptr %70, align 1, !tbaa !29
-  %71 = load ptr, ptr %65, align 8, !tbaa !30
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %73 = icmp samesign ugt i64 %indvars.iv186, 1
-  br i1 %73, label %.lr.ph172, label %.preheader150, !llvm.loop !46
+  %66 = getelementptr inbounds nuw i8, ptr %.0130, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !30
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %69 = load i8, ptr %68, align 8, !tbaa !33
+  %70 = load ptr, ptr %56, align 8, !tbaa !26
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv.next187
+  store i8 %69, ptr %71, align 1, !tbaa !29
+  %72 = load ptr, ptr %66, align 8, !tbaa !30
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %74 = icmp samesign ugt i64 %indvars.iv186, 1
+  br i1 %74, label %.lr.ph172, label %.preheader150, !llvm.loop !46
 
-74:                                               ; preds = %.lr.ph174, %74
-  %indvars.iv189 = phi i64 [ 0, %.lr.ph174 ], [ %indvars.iv.next190, %74 ]
+75:                                               ; preds = %.lr.ph174, %75
+  %indvars.iv189 = phi i64 [ 0, %.lr.ph174 ], [ %indvars.iv.next190, %75 ]
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
-  %75 = trunc i64 %indvars.iv.next190 to i32
-  %76 = sub i32 %.pre198, %75
-  %77 = trunc i32 %76 to i8
-  %78 = getelementptr inbounds nuw i8, ptr %.pre199.pre, i64 %indvars.iv189
-  %79 = load i8, ptr %78, align 1, !tbaa !29
-  %80 = zext i8 %79 to i64
-  %81 = getelementptr inbounds nuw i8, ptr %2, i64 %80
-  store i8 %77, ptr %81, align 1, !tbaa !29
+  %76 = trunc i64 %indvars.iv.next190 to i32
+  %77 = sub i32 %.pre198, %76
+  %78 = trunc i32 %77 to i8
+  %79 = getelementptr inbounds nuw i8, ptr %.pre199.pre, i64 %indvars.iv189
+  %80 = load i8, ptr %79, align 1, !tbaa !29
+  %81 = zext i8 %80 to i64
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 %81
+  store i8 %78, ptr %82, align 1, !tbaa !29
   %exitcond192.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count
-  br i1 %exitcond192.not, label %._crit_edge175, label %74, !llvm.loop !47
+  br i1 %exitcond192.not, label %._crit_edge175, label %75, !llvm.loop !47
 
-._crit_edge175:                                   ; preds = %74
-  %82 = zext nneg i32 %.pre198 to i64
-  %83 = getelementptr i8, ptr %.pre199.pre, i64 %82
+._crit_edge175:                                   ; preds = %75
+  %83 = getelementptr i8, ptr %.pre199.pre, i64 %65
   %84 = getelementptr i8, ptr %83, i64 -1
   %85 = load i8, ptr %84, align 1, !tbaa !29
   %.not222 = icmp eq i32 %.pre198, 1

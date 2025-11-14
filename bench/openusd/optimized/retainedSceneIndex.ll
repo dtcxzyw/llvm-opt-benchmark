@@ -2911,8 +2911,8 @@ _ZSt6fill_nIPPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_20HdRetained
   store ptr null, ptr %29, align 8
   %31 = getelementptr i8, ptr %29, i64 8
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %31, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_20HdRetainedSceneIndex10_PrimEntryEE6_EntryESaIS6_EEC2EmRKS7_.exit
 
 _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_20HdRetainedSceneIndex10_PrimEntryEE6_EntryESaIS6_EEC2EmRKS7_.exit: ; preds = %_ZSt6fill_nIPPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_20HdRetainedSceneIndex10_PrimEntryEE6_EntryEmS6_ET_S8_T0_RKT1_.exit.loopexit.i.i.i.i.i, %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS0_20HdRetainedSceneIndex10_PrimEntryEE6_EntryESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i

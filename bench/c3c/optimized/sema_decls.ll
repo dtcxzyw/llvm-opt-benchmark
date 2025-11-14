@@ -8476,22 +8476,22 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
   br i1 %.not152, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %89
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %wide.trip.count = zext i32 %91 to i64
-  br label %92
+  br label %93
 
-92:                                               ; preds = %.lr.ph, %92
-  %indvars.iv179 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next180, %92 ]
-  %93 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv179
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
-  store i32 %81, ptr %95, align 8
+93:                                               ; preds = %.lr.ph, %93
+  %indvars.iv179 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next180, %93 ]
+  %94 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv179
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
+  store i32 %81, ptr %96, align 8
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %92, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %93, !llvm.loop !42
 
-._crit_edge.loopexit:                             ; preds = %92
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.pre182 = load i32, ptr %96, align 8
+._crit_edge.loopexit:                             ; preds = %93
+  %.pre182 = load i32, ptr %92, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread, %._crit_edge.loopexit, %89

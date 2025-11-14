@@ -6547,13 +6547,13 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %200 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %201 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %202 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %203 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %204 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %205 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %206 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %207 = getelementptr inbounds nuw i8, ptr %174, i64 960
-  %208 = getelementptr inbounds nuw i8, ptr %174, i64 736
-  %209 = getelementptr inbounds nuw i8, ptr %174, i64 816
+  %203 = getelementptr inbounds nuw i8, ptr %174, i64 960
+  %204 = getelementptr inbounds nuw i8, ptr %174, i64 736
+  %205 = getelementptr inbounds nuw i8, ptr %174, i64 816
+  %206 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %207 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %209 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %210 = getelementptr inbounds nuw i8, ptr %174, i64 976
   %211 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %212 = getelementptr inbounds nuw i8, ptr %174, i64 992
@@ -6720,19 +6720,19 @@ dt_XYZ_to_Lab.exit.i:                             ; preds = %277
   %305 = getelementptr inbounds nuw i8, ptr %292, i64 4
   %306 = load float, ptr %305, align 4, !tbaa !22
   store float %306, ptr %10, align 16, !tbaa !22
-  store float %301, ptr %203, align 4, !tbaa !22
+  store float %301, ptr %206, align 4, !tbaa !22
   %307 = getelementptr inbounds nuw i8, ptr %292, i64 8
   %308 = load float, ptr %307, align 8, !tbaa !22
-  store float %308, ptr %204, align 8, !tbaa !22
+  store float %308, ptr %207, align 8, !tbaa !22
   %309 = getelementptr inbounds nuw i8, ptr %292, i64 12
   %310 = load float, ptr %309, align 4, !tbaa !22
-  store float %310, ptr %205, align 4, !tbaa !22
+  store float %310, ptr %208, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %313
 
 311:                                              ; preds = %313
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %312 = load float, ptr %206, align 4, !tbaa !22
+  %312 = load float, ptr %209, align 4, !tbaa !22
   br label %324
 
 313:                                              ; preds = %313, %302
@@ -6800,7 +6800,7 @@ dt_Lab_to_XYZ.exit.i.i:                           ; preds = %.preheader.i.i.i
 
 350:                                              ; preds = %350, %346
   %.012.i.i76.i = phi i64 [ 0, %346 ], [ %363, %350 ]
-  %351 = getelementptr inbounds nuw float, ptr %207, i64 %.012.i.i76.i
+  %351 = getelementptr inbounds nuw float, ptr %203, i64 %.012.i.i76.i
   %352 = load float, ptr %351, align 4, !tbaa !22
   %353 = fmul reassoc nsz arcp contract afn float %352, %347
   %354 = getelementptr inbounds nuw float, ptr %210, i64 %.012.i.i76.i
@@ -6826,7 +6826,7 @@ dt_apply_transposed_color_matrix.exit.i.i:        ; preds = %350
 
 368:                                              ; preds = %405, %dt_apply_transposed_color_matrix.exit.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %dt_apply_transposed_color_matrix.exit.i.i ], [ %indvars.iv.next.i.i.i, %405 ]
-  %369 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv.i.i.i
+  %369 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv.i.i.i
   %370 = load ptr, ptr %369, align 8, !tbaa !320
   %371 = load float, ptr %370, align 4, !tbaa !22
   %372 = fcmp reassoc nsz arcp contract afn ult float %371, 0.000000e+00
@@ -6860,7 +6860,7 @@ dt_apply_transposed_color_matrix.exit.i.i:        ; preds = %350
   br label %405
 
 395:                                              ; preds = %375
-  %396 = getelementptr inbounds nuw [3 x float], ptr %209, i64 %indvars.iv.i.i.i
+  %396 = getelementptr inbounds nuw [3 x float], ptr %205, i64 %indvars.iv.i.i.i
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 4
   %398 = load float, ptr %397, align 4, !tbaa !22
   %399 = load float, ptr %396, align 4, !tbaa !22
@@ -6891,7 +6891,7 @@ dt_ioppr_apply_trc.exit.i.i:                      ; preds = %405
 
 412:                                              ; preds = %412, %408
   %.012.i10.i.i = phi i64 [ 0, %408 ], [ %425, %412 ]
-  %413 = getelementptr inbounds nuw float, ptr %207, i64 %.012.i10.i.i
+  %413 = getelementptr inbounds nuw float, ptr %203, i64 %.012.i10.i.i
   %414 = load float, ptr %413, align 4, !tbaa !22
   %415 = fmul reassoc nsz arcp contract afn float %414, %409
   %416 = getelementptr inbounds nuw float, ptr %210, i64 %.012.i10.i.i
@@ -7868,18 +7868,18 @@ dt_XYZ_to_Lab.exit.us:                            ; preds = %76
   %104 = add i32 %103, 1
   br label %._crit_edge
 
-._crit_edge.loopexit28:                           ; preds = %116
+._crit_edge.loopexit13:                           ; preds = %116
   %105 = add i64 %13, 17179869183
   %106 = lshr i64 %105, 2
   %107 = trunc i64 %106 to i32
   %108 = add i32 %107, 1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit28, %._crit_edge.loopexit, %4
-  %.033.lcssa = phi float [ 0x47EFFFFFE0000000, %4 ], [ %94, %._crit_edge.loopexit ], [ %122, %._crit_edge.loopexit28 ]
-  %.032.lcssa = phi float [ 0.000000e+00, %4 ], [ %95, %._crit_edge.loopexit ], [ %123, %._crit_edge.loopexit28 ]
-  %.031.lcssa = phi i32 [ 0, %4 ], [ %104, %._crit_edge.loopexit ], [ %108, %._crit_edge.loopexit28 ]
-  %.030.lcssa = phi float [ 0xC7EFFFFFE0000000, %4 ], [ %92, %._crit_edge.loopexit ], [ %120, %._crit_edge.loopexit28 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit13, %._crit_edge.loopexit, %4
+  %.033.lcssa = phi float [ 0x47EFFFFFE0000000, %4 ], [ %94, %._crit_edge.loopexit ], [ %122, %._crit_edge.loopexit13 ]
+  %.032.lcssa = phi float [ 0.000000e+00, %4 ], [ %95, %._crit_edge.loopexit ], [ %123, %._crit_edge.loopexit13 ]
+  %.031.lcssa = phi i32 [ 0, %4 ], [ %104, %._crit_edge.loopexit ], [ %108, %._crit_edge.loopexit13 ]
+  %.030.lcssa = phi float [ 0xC7EFFFFFE0000000, %4 ], [ %92, %._crit_edge.loopexit ], [ %120, %._crit_edge.loopexit13 ]
   %109 = fmul reassoc nsz arcp contract afn float %.033.lcssa, 0x3F847AE140000000
   store float %109, ptr %3, align 4, !tbaa !22
   %110 = fmul reassoc nsz arcp contract afn float %.030.lcssa, 0x3F847AE140000000
@@ -7910,7 +7910,7 @@ dt_XYZ_to_Lab.exit.us:                            ; preds = %76
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %124 = icmp ugt i64 %13, %indvars.iv.next
-  br i1 %124, label %116, label %._crit_edge.loopexit28
+  br i1 %124, label %116, label %._crit_edge.loopexit13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

@@ -466,13 +466,13 @@ define void @ff_ebur128_add_frames_double(ptr noundef readonly captures(none) %0
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !34
   br label %14
 
-14:                                               ; preds = %198, %.lr.ph.i
-  %15 = phi i64 [ %.pre, %.lr.ph.i ], [ %173, %198 ]
-  %.064.i = phi i64 [ 0, %.lr.ph.i ], [ %21, %198 ]
-  %.04663.i = phi i64 [ %2, %.lr.ph.i ], [ %22, %198 ]
-  %.05262.i = phi double [ undef, %.lr.ph.i ], [ %.153.i, %198 ]
+14:                                               ; preds = %202, %.lr.ph.i
+  %15 = phi i64 [ %.pre, %.lr.ph.i ], [ %177, %202 ]
+  %.064.i = phi i64 [ 0, %.lr.ph.i ], [ %21, %202 ]
+  %.04663.i = phi i64 [ %2, %.lr.ph.i ], [ %22, %202 ]
+  %.05262.i = phi double [ undef, %.lr.ph.i ], [ %.153.i, %202 ]
   %.not50.i = icmp ult i64 %.04663.i, %15
-  br i1 %.not50.i, label %180, label %16
+  br i1 %.not50.i, label %184, label %16
 
 16:                                               ; preds = %14
   tail call fastcc void @ebur128_filter_double(ptr noundef nonnull readonly %0, ptr noundef readonly %7, i64 noundef %.064.i, i64 noundef %15, i32 noundef %9)
@@ -614,276 +614,282 @@ define void @ff_ebur128_add_frames_double(ptr noundef readonly captures(none) %0
 79:                                               ; preds = %77, %41
   %.179.i.i = phi nsz double [ %.078111.i.i, %41 ], [ %78, %77 ]
   %80 = add nuw nsw i64 %.080108.i.i, 1
-  %exitcond122.not.i.i = icmp eq i64 %80, %24
-  br i1 %exitcond122.not.i.i, label %._crit_edge114.i.i, label %41, !llvm.loop !46
+  %exitcond121.not.i.i = icmp eq i64 %80, %24
+  br i1 %exitcond121.not.i.i, label %._crit_edge114.i.i, label %41, !llvm.loop !46
 
 ._crit_edge114.i.i:                               ; preds = %79, %32
   %.078.lcssa.i.i = phi double [ 0.000000e+00, %32 ], [ %.179.i.i, %79 ]
   %81 = uitofp i64 %35 to double
   %82 = fdiv nsz double %.078.lcssa.i.i, %81
   %83 = fcmp nsz ult double %82, %13
-  br i1 %83, label %ebur128_calc_gating_block.exit.i, label %.preheader118.i.i
+  br i1 %83, label %ebur128_calc_gating_block.exit.i, label %84
 
-.preheader118.i.i:                                ; preds = %._crit_edge114.i.i, %.preheader118.i.i
-  %.08.i.i.i = phi i64 [ %..08.i.i.i, %.preheader118.i.i ], [ 1000, %._crit_edge114.i.i ]
-  %.0.i.i.i = phi i64 [ %.0..i.i.i, %.preheader118.i.i ], [ 0, %._crit_edge114.i.i ]
-  %84 = add nuw i64 %.0.i.i.i, %.08.i.i.i
-  %85 = lshr i64 %84, 1
-  %86 = getelementptr inbounds nuw double, ptr @histogram_energy_boundaries, i64 %85
-  %87 = load double, ptr %86, align 8, !tbaa !29
-  %88 = fcmp nsz ult double %82, %87
-  %..08.i.i.i = select i1 %88, i64 %85, i64 %.08.i.i.i
-  %.0..i.i.i = select i1 %88, i64 %.0.i.i.i, i64 %85
-  %89 = sub nsw i64 %..08.i.i.i, %.0..i.i.i
-  %.not.i.i.i = icmp eq i64 %89, 1
-  br i1 %.not.i.i.i, label %find_histogram_index.exit.i.i, label %.preheader118.i.i, !llvm.loop !47
+84:                                               ; preds = %._crit_edge114.i.i
+  %85 = getelementptr inbounds nuw i8, ptr %17, i64 328
+  %86 = load ptr, ptr %85, align 8, !tbaa !31
+  br label %87
 
-find_histogram_index.exit.i.i:                    ; preds = %.preheader118.i.i
-  %90 = getelementptr inbounds nuw i8, ptr %17, i64 328
-  %91 = load ptr, ptr %90, align 8, !tbaa !31
-  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %.0..i.i.i
-  %93 = load i64, ptr %92, align 8, !tbaa !48
-  %94 = add i64 %93, 1
-  store i64 %94, ptr %92, align 8, !tbaa !48
+87:                                               ; preds = %87, %84
+  %.08.i.i.i = phi i64 [ 1000, %84 ], [ %..08.i.i.i, %87 ]
+  %.0.i.i.i = phi i64 [ 0, %84 ], [ %.0..i.i.i, %87 ]
+  %88 = add nuw i64 %.0.i.i.i, %.08.i.i.i
+  %89 = lshr i64 %88, 1
+  %90 = getelementptr inbounds nuw double, ptr @histogram_energy_boundaries, i64 %89
+  %91 = load double, ptr %90, align 8, !tbaa !29
+  %92 = fcmp nsz ult double %82, %91
+  %..08.i.i.i = select i1 %92, i64 %89, i64 %.08.i.i.i
+  %.0..i.i.i = select i1 %92, i64 %.0.i.i.i, i64 %89
+  %93 = sub nsw i64 %..08.i.i.i, %.0..i.i.i
+  %.not.i.i.i = icmp eq i64 %93, 1
+  br i1 %.not.i.i.i, label %find_histogram_index.exit.i.i, label %87, !llvm.loop !47
+
+find_histogram_index.exit.i.i:                    ; preds = %87
+  %94 = getelementptr inbounds nuw i64, ptr %86, i64 %.0..i.i.i
+  %95 = load i64, ptr %94, align 8, !tbaa !48
+  %96 = add i64 %95, 1
+  store i64 %96, ptr %94, align 8, !tbaa !48
   br label %ebur128_calc_gating_block.exit.i
 
 ebur128_calc_gating_block.exit.i:                 ; preds = %find_histogram_index.exit.i.i, %._crit_edge114.i.i, %16
-  %95 = and i32 %29, 11
-  %96 = icmp eq i32 %95, 11
-  br i1 %96, label %97, label %ebur128_calc_gating_block.exit._crit_edge.i
+  %97 = and i32 %29, 11
+  %98 = icmp eq i32 %97, 11
+  br i1 %98, label %99, label %ebur128_calc_gating_block.exit._crit_edge.i
 
 ebur128_calc_gating_block.exit._crit_edge.i:      ; preds = %ebur128_calc_gating_block.exit.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %17, i64 40
   %.pre73.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !24
-  br label %172
+  br label %176
 
-97:                                               ; preds = %ebur128_calc_gating_block.exit.i
-  %98 = load i64, ptr %18, align 8, !tbaa !34
-  %99 = getelementptr inbounds nuw i8, ptr %17, i64 344
-  %100 = load i64, ptr %99, align 8, !tbaa !33
-  %101 = add i64 %100, %98
-  store i64 %101, ptr %99, align 8, !tbaa !33
-  %102 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %103 = load i64, ptr %102, align 8, !tbaa !24
-  %104 = mul i64 %103, 30
-  %105 = icmp eq i64 %101, %104
-  br i1 %105, label %106, label %172
+99:                                               ; preds = %ebur128_calc_gating_block.exit.i
+  %100 = load i64, ptr %18, align 8, !tbaa !34
+  %101 = getelementptr inbounds nuw i8, ptr %17, i64 344
+  %102 = load i64, ptr %101, align 8, !tbaa !33
+  %103 = add i64 %102, %100
+  store i64 %103, ptr %101, align 8, !tbaa !33
+  %104 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %105 = load i64, ptr %104, align 8, !tbaa !24
+  %106 = mul i64 %105, 30
+  %107 = icmp eq i64 %103, %106
+  br i1 %107, label %108, label %176
 
-106:                                              ; preds = %97
-  %107 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %108 = load i64, ptr %107, align 8, !tbaa !27
-  %109 = icmp ugt i64 %101, %108
-  br i1 %109, label %ebur128_energy_shortterm.exit.i, label %110
+108:                                              ; preds = %99
+  %109 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %110 = load i64, ptr %109, align 8, !tbaa !27
+  %111 = icmp ugt i64 %103, %110
+  br i1 %111, label %ebur128_energy_shortterm.exit.i, label %112
 
-110:                                              ; preds = %106
+112:                                              ; preds = %108
   %.not116.i.i.i.i = icmp eq i32 %23, 0
   br i1 %.not116.i.i.i.i, label %ebur128_calc_gating_block.exit.i.i.i, label %.lr.ph113.i.i.i.i
 
-.lr.ph113.i.i.i.i:                                ; preds = %110
-  %111 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %112 = load ptr, ptr %111, align 8, !tbaa !13
-  %113 = mul i64 %101, %24
-  br label %114
+.lr.ph113.i.i.i.i:                                ; preds = %112
+  %113 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %114 = load ptr, ptr %113, align 8, !tbaa !13
+  %115 = mul i64 %103, %24
+  br label %116
 
-114:                                              ; preds = %153, %.lr.ph113.i.i.i.i
-  %.078111.i.i.i.i = phi double [ 0.000000e+00, %.lr.ph113.i.i.i.i ], [ %.179.i.i.i.i, %153 ]
-  %.080108.i.i.i.i = phi i64 [ 0, %.lr.ph113.i.i.i.i ], [ %154, %153 ]
-  %115 = getelementptr inbounds nuw i32, ptr %112, i64 %.080108.i.i.i.i
-  %116 = load i32, ptr %115, align 4, !tbaa !19
-  %117 = icmp eq i32 %116, 0
-  br i1 %117, label %153, label %118
+116:                                              ; preds = %155, %.lr.ph113.i.i.i.i
+  %.078111.i.i.i.i = phi double [ 0.000000e+00, %.lr.ph113.i.i.i.i ], [ %.179.i.i.i.i, %155 ]
+  %.080108.i.i.i.i = phi i64 [ 0, %.lr.ph113.i.i.i.i ], [ %156, %155 ]
+  %117 = getelementptr inbounds nuw i32, ptr %114, i64 %.080108.i.i.i.i
+  %118 = load i32, ptr %117, align 4, !tbaa !19
+  %119 = icmp eq i32 %118, 0
+  br i1 %119, label %155, label %120
 
-118:                                              ; preds = %114
-  %119 = load i64, ptr %26, align 8, !tbaa !35
-  %120 = icmp ult i64 %119, %113
-  %121 = udiv i64 %119, %24
-  br i1 %120, label %.preheader.i.i.i.i, label %138
+120:                                              ; preds = %116
+  %121 = load i64, ptr %26, align 8, !tbaa !35
+  %122 = icmp ult i64 %121, %115
+  %123 = udiv i64 %121, %24
+  br i1 %122, label %.preheader.i.i.i.i, label %140
 
-.preheader.i.i.i.i:                               ; preds = %118
-  %.not117.i.i.i.i = icmp ult i64 %119, %24
+.preheader.i.i.i.i:                               ; preds = %120
+  %.not117.i.i.i.i = icmp ult i64 %121, %24
   br i1 %.not117.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph96.i.i.i.i
 
 .lr.ph96.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i
-  %122 = load ptr, ptr %17, align 8, !tbaa !28
-  %invariant.gep99.i.i.i.i = getelementptr double, ptr %122, i64 %.080108.i.i.i.i
-  br label %123
+  %124 = load ptr, ptr %17, align 8, !tbaa !28
+  %invariant.gep99.i.i.i.i = getelementptr double, ptr %124, i64 %.080108.i.i.i.i
+  br label %125
 
-123:                                              ; preds = %123, %.lr.ph96.i.i.i.i
-  %.095.i.i.i.i = phi double [ 0.000000e+00, %.lr.ph96.i.i.i.i ], [ %126, %123 ]
-  %.08194.i.i.i.i = phi i64 [ 0, %.lr.ph96.i.i.i.i ], [ %127, %123 ]
-  %124 = mul i64 %.08194.i.i.i.i, %24
-  %gep100.i.i.i.i = getelementptr double, ptr %invariant.gep99.i.i.i.i, i64 %124
-  %125 = load double, ptr %gep100.i.i.i.i, align 8, !tbaa !29
-  %126 = tail call nsz double @llvm.fmuladd.f64(double %125, double %125, double %.095.i.i.i.i)
-  %127 = add nuw i64 %.08194.i.i.i.i, 1
-  %128 = icmp ult i64 %127, %121
-  br i1 %128, label %123, label %._crit_edge.i.i.i.i, !llvm.loop !43
+125:                                              ; preds = %125, %.lr.ph96.i.i.i.i
+  %.095.i.i.i.i = phi double [ 0.000000e+00, %.lr.ph96.i.i.i.i ], [ %128, %125 ]
+  %.08194.i.i.i.i = phi i64 [ 0, %.lr.ph96.i.i.i.i ], [ %129, %125 ]
+  %126 = mul i64 %.08194.i.i.i.i, %24
+  %gep100.i.i.i.i = getelementptr double, ptr %invariant.gep99.i.i.i.i, i64 %126
+  %127 = load double, ptr %gep100.i.i.i.i, align 8, !tbaa !29
+  %128 = tail call nsz double @llvm.fmuladd.f64(double %127, double %127, double %.095.i.i.i.i)
+  %129 = add nuw i64 %.08194.i.i.i.i, 1
+  %130 = icmp ult i64 %129, %123
+  br i1 %130, label %125, label %._crit_edge.i.i.i.i, !llvm.loop !43
 
-._crit_edge.i.i.i.i:                              ; preds = %123, %.preheader.i.i.i.i
-  %.0.lcssa.i.i.i.i = phi double [ 0.000000e+00, %.preheader.i.i.i.i ], [ %126, %123 ]
-  %.neg.i.i.i.i = sub i64 %121, %101
-  %129 = add i64 %.neg.i.i.i.i, %108
-  %130 = icmp ult i64 %129, %108
-  br i1 %130, label %.lr.ph104.i.i.i.i, label %.loopexit.i.i.i.i
+._crit_edge.i.i.i.i:                              ; preds = %125, %.preheader.i.i.i.i
+  %.0.lcssa.i.i.i.i = phi double [ 0.000000e+00, %.preheader.i.i.i.i ], [ %128, %125 ]
+  %.neg.i.i.i.i = sub i64 %123, %103
+  %131 = add i64 %.neg.i.i.i.i, %110
+  %132 = icmp ult i64 %131, %110
+  br i1 %132, label %.lr.ph104.i.i.i.i, label %.loopexit.i.i.i.i
 
 .lr.ph104.i.i.i.i:                                ; preds = %._crit_edge.i.i.i.i
-  %131 = load ptr, ptr %17, align 8, !tbaa !28
-  %invariant.gep106.i.i.i.i = getelementptr double, ptr %131, i64 %.080108.i.i.i.i
-  br label %132
+  %133 = load ptr, ptr %17, align 8, !tbaa !28
+  %invariant.gep106.i.i.i.i = getelementptr double, ptr %133, i64 %.080108.i.i.i.i
+  br label %134
 
-132:                                              ; preds = %132, %.lr.ph104.i.i.i.i
-  %.1102.i.i.i.i = phi double [ %.0.lcssa.i.i.i.i, %.lr.ph104.i.i.i.i ], [ %135, %132 ]
-  %.182101.i.i.i.i = phi i64 [ %129, %.lr.ph104.i.i.i.i ], [ %136, %132 ]
-  %133 = mul i64 %.182101.i.i.i.i, %24
-  %gep107.i.i.i.i = getelementptr double, ptr %invariant.gep106.i.i.i.i, i64 %133
-  %134 = load double, ptr %gep107.i.i.i.i, align 8, !tbaa !29
-  %135 = tail call nsz double @llvm.fmuladd.f64(double %134, double %134, double %.1102.i.i.i.i)
-  %136 = add nuw i64 %.182101.i.i.i.i, 1
-  %137 = icmp ult i64 %136, %108
-  br i1 %137, label %132, label %.loopexit.i.i.i.i, !llvm.loop !44
+134:                                              ; preds = %134, %.lr.ph104.i.i.i.i
+  %.1102.i.i.i.i = phi double [ %.0.lcssa.i.i.i.i, %.lr.ph104.i.i.i.i ], [ %137, %134 ]
+  %.182101.i.i.i.i = phi i64 [ %131, %.lr.ph104.i.i.i.i ], [ %138, %134 ]
+  %135 = mul i64 %.182101.i.i.i.i, %24
+  %gep107.i.i.i.i = getelementptr double, ptr %invariant.gep106.i.i.i.i, i64 %135
+  %136 = load double, ptr %gep107.i.i.i.i, align 8, !tbaa !29
+  %137 = tail call nsz double @llvm.fmuladd.f64(double %136, double %136, double %.1102.i.i.i.i)
+  %138 = add nuw i64 %.182101.i.i.i.i, 1
+  %139 = icmp ult i64 %138, %110
+  br i1 %139, label %134, label %.loopexit.i.i.i.i, !llvm.loop !44
 
-138:                                              ; preds = %118
-  %139 = sub i64 %121, %101
-  %140 = icmp ult i64 %139, %121
-  br i1 %140, label %.lr.ph.i.i.i.i, label %.loopexit.i.i.i.i
+140:                                              ; preds = %120
+  %141 = sub i64 %123, %103
+  %142 = icmp ult i64 %141, %123
+  br i1 %142, label %.lr.ph.i.i.i.i, label %.loopexit.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %138
-  %141 = load ptr, ptr %17, align 8, !tbaa !28
-  %invariant.gep.i.i.i.i = getelementptr double, ptr %141, i64 %.080108.i.i.i.i
-  br label %142
+.lr.ph.i.i.i.i:                                   ; preds = %140
+  %143 = load ptr, ptr %17, align 8, !tbaa !28
+  %invariant.gep.i.i.i.i = getelementptr double, ptr %143, i64 %.080108.i.i.i.i
+  br label %144
 
-142:                                              ; preds = %142, %.lr.ph.i.i.i.i
-  %.393.i.i.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i.i.i ], [ %145, %142 ]
-  %.28392.i.i.i.i = phi i64 [ %139, %.lr.ph.i.i.i.i ], [ %146, %142 ]
-  %143 = mul i64 %.28392.i.i.i.i, %24
-  %gep.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i, i64 %143
-  %144 = load double, ptr %gep.i.i.i.i, align 8, !tbaa !29
-  %145 = tail call nsz double @llvm.fmuladd.f64(double %144, double %144, double %.393.i.i.i.i)
-  %146 = add nuw i64 %.28392.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %146, %121
-  br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %142, !llvm.loop !45
+144:                                              ; preds = %144, %.lr.ph.i.i.i.i
+  %.393.i.i.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i.i.i ], [ %147, %144 ]
+  %.28392.i.i.i.i = phi i64 [ %141, %.lr.ph.i.i.i.i ], [ %148, %144 ]
+  %145 = mul i64 %.28392.i.i.i.i, %24
+  %gep.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i, i64 %145
+  %146 = load double, ptr %gep.i.i.i.i, align 8, !tbaa !29
+  %147 = tail call nsz double @llvm.fmuladd.f64(double %146, double %146, double %.393.i.i.i.i)
+  %148 = add nuw i64 %.28392.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i64 %148, %123
+  br i1 %exitcond.not.i.i.i.i, label %.loopexit.i.i.i.i, label %144, !llvm.loop !45
 
-.loopexit.i.i.i.i:                                ; preds = %142, %132, %138, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi nsz double [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ 0.000000e+00, %138 ], [ %135, %132 ], [ %145, %142 ]
-  switch i32 %116, label %151 [
-    i32 4, label %147
-    i32 5, label %147
-    i32 9, label %147
-    i32 10, label %147
-    i32 11, label %147
-    i32 12, label %147
-    i32 6, label %149
+.loopexit.i.i.i.i:                                ; preds = %144, %134, %140, %._crit_edge.i.i.i.i
+  %.2.i.i.i.i = phi nsz double [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ 0.000000e+00, %140 ], [ %137, %134 ], [ %147, %144 ]
+  switch i32 %118, label %153 [
+    i32 4, label %149
+    i32 5, label %149
+    i32 9, label %149
+    i32 10, label %149
+    i32 11, label %149
+    i32 12, label %149
+    i32 6, label %151
   ]
 
-147:                                              ; preds = %.loopexit.i.i.i.i, %.loopexit.i.i.i.i, %.loopexit.i.i.i.i, %.loopexit.i.i.i.i, %.loopexit.i.i.i.i, %.loopexit.i.i.i.i
-  %148 = fmul nsz double %.2.i.i.i.i, 1.410000e+00
-  br label %151
-
-149:                                              ; preds = %.loopexit.i.i.i.i
-  %150 = fmul nsz double %.2.i.i.i.i, 2.000000e+00
-  br label %151
-
-151:                                              ; preds = %149, %147, %.loopexit.i.i.i.i
-  %.4.i.i.i.i = phi nsz double [ %148, %147 ], [ %150, %149 ], [ %.2.i.i.i.i, %.loopexit.i.i.i.i ]
-  %152 = fadd nsz double %.078111.i.i.i.i, %.4.i.i.i.i
+149:                                              ; preds = %.loopexit.i.i.i.i, %.loopexit.i.i.i.i, %.loopexit.i.i.i.i, %.loopexit.i.i.i.i, %.loopexit.i.i.i.i, %.loopexit.i.i.i.i
+  %150 = fmul nsz double %.2.i.i.i.i, 1.410000e+00
   br label %153
 
-153:                                              ; preds = %151, %114
-  %.179.i.i.i.i = phi nsz double [ %.078111.i.i.i.i, %114 ], [ %152, %151 ]
-  %154 = add nuw nsw i64 %.080108.i.i.i.i, 1
-  %exitcond122.not.i.i.i.i = icmp eq i64 %154, %24
-  br i1 %exitcond122.not.i.i.i.i, label %ebur128_calc_gating_block.exit.i.i.i, label %114, !llvm.loop !46
+151:                                              ; preds = %.loopexit.i.i.i.i
+  %152 = fmul nsz double %.2.i.i.i.i, 2.000000e+00
+  br label %153
 
-ebur128_calc_gating_block.exit.i.i.i:             ; preds = %153, %110
-  %.078.lcssa.i.i.i.i = phi double [ 0.000000e+00, %110 ], [ %.179.i.i.i.i, %153 ]
-  %155 = uitofp i64 %101 to double
-  %156 = fdiv nsz double %.078.lcssa.i.i.i.i, %155
+153:                                              ; preds = %151, %149, %.loopexit.i.i.i.i
+  %.4.i.i.i.i = phi nsz double [ %150, %149 ], [ %152, %151 ], [ %.2.i.i.i.i, %.loopexit.i.i.i.i ]
+  %154 = fadd nsz double %.078111.i.i.i.i, %.4.i.i.i.i
+  br label %155
+
+155:                                              ; preds = %153, %116
+  %.179.i.i.i.i = phi nsz double [ %.078111.i.i.i.i, %116 ], [ %154, %153 ]
+  %156 = add nuw nsw i64 %.080108.i.i.i.i, 1
+  %exitcond121.not.i.i.i.i = icmp eq i64 %156, %24
+  br i1 %exitcond121.not.i.i.i.i, label %ebur128_calc_gating_block.exit.i.i.i, label %116, !llvm.loop !46
+
+ebur128_calc_gating_block.exit.i.i.i:             ; preds = %155, %112
+  %.078.lcssa.i.i.i.i = phi double [ 0.000000e+00, %112 ], [ %.179.i.i.i.i, %155 ]
+  %157 = uitofp i64 %103 to double
+  %158 = fdiv nsz double %.078.lcssa.i.i.i.i, %157
   br label %ebur128_energy_shortterm.exit.i
 
-ebur128_energy_shortterm.exit.i:                  ; preds = %ebur128_calc_gating_block.exit.i.i.i, %106
-  %.3.i = phi nsz double [ %.05262.i, %106 ], [ %156, %ebur128_calc_gating_block.exit.i.i.i ]
-  %157 = fcmp nsz ult double %.3.i, %13
-  br i1 %157, label %169, label %.preheader.i
+ebur128_energy_shortterm.exit.i:                  ; preds = %ebur128_calc_gating_block.exit.i.i.i, %108
+  %.3.i = phi nsz double [ %.05262.i, %108 ], [ %158, %ebur128_calc_gating_block.exit.i.i.i ]
+  %159 = fcmp nsz ult double %.3.i, %13
+  br i1 %159, label %173, label %160
 
-.preheader.i:                                     ; preds = %ebur128_energy_shortterm.exit.i, %.preheader.i
-  %.08.i.i = phi i64 [ %..08.i.i, %.preheader.i ], [ 1000, %ebur128_energy_shortterm.exit.i ]
-  %.0.i.i = phi i64 [ %.0..i.i, %.preheader.i ], [ 0, %ebur128_energy_shortterm.exit.i ]
-  %158 = add nuw i64 %.0.i.i, %.08.i.i
-  %159 = lshr i64 %158, 1
-  %160 = getelementptr inbounds nuw double, ptr @histogram_energy_boundaries, i64 %159
-  %161 = load double, ptr %160, align 8, !tbaa !29
-  %162 = fcmp nsz ult double %.3.i, %161
-  %..08.i.i = select i1 %162, i64 %159, i64 %.08.i.i
-  %.0..i.i = select i1 %162, i64 %.0.i.i, i64 %159
-  %163 = sub nsw i64 %..08.i.i, %.0..i.i
-  %.not.i.i = icmp eq i64 %163, 1
-  br i1 %.not.i.i, label %find_histogram_index.exit.i, label %.preheader.i, !llvm.loop !47
+160:                                              ; preds = %ebur128_energy_shortterm.exit.i
+  %161 = getelementptr inbounds nuw i8, ptr %17, i64 336
+  %162 = load ptr, ptr %161, align 8, !tbaa !32
+  br label %163
 
-find_histogram_index.exit.i:                      ; preds = %.preheader.i
-  %164 = getelementptr inbounds nuw i8, ptr %17, i64 336
-  %165 = load ptr, ptr %164, align 8, !tbaa !32
-  %166 = getelementptr inbounds nuw i64, ptr %165, i64 %.0..i.i
-  %167 = load i64, ptr %166, align 8, !tbaa !48
-  %168 = add i64 %167, 1
-  store i64 %168, ptr %166, align 8, !tbaa !48
-  %.pre72.i = load i64, ptr %102, align 8, !tbaa !24
-  br label %169
+163:                                              ; preds = %163, %160
+  %.08.i.i = phi i64 [ 1000, %160 ], [ %..08.i.i, %163 ]
+  %.0.i.i = phi i64 [ 0, %160 ], [ %.0..i.i, %163 ]
+  %164 = add nuw i64 %.0.i.i, %.08.i.i
+  %165 = lshr i64 %164, 1
+  %166 = getelementptr inbounds nuw double, ptr @histogram_energy_boundaries, i64 %165
+  %167 = load double, ptr %166, align 8, !tbaa !29
+  %168 = fcmp nsz ult double %.3.i, %167
+  %..08.i.i = select i1 %168, i64 %165, i64 %.08.i.i
+  %.0..i.i = select i1 %168, i64 %.0.i.i, i64 %165
+  %169 = sub nsw i64 %..08.i.i, %.0..i.i
+  %.not.i.i = icmp eq i64 %169, 1
+  br i1 %.not.i.i, label %find_histogram_index.exit.i, label %163, !llvm.loop !47
 
-169:                                              ; preds = %find_histogram_index.exit.i, %ebur128_energy_shortterm.exit.i
-  %170 = phi i64 [ %.pre72.i, %find_histogram_index.exit.i ], [ %103, %ebur128_energy_shortterm.exit.i ]
-  %171 = mul i64 %170, 20
-  store i64 %171, ptr %99, align 8, !tbaa !33
-  br label %172
+find_histogram_index.exit.i:                      ; preds = %163
+  %170 = getelementptr inbounds nuw i64, ptr %162, i64 %.0..i.i
+  %171 = load i64, ptr %170, align 8, !tbaa !48
+  %172 = add i64 %171, 1
+  store i64 %172, ptr %170, align 8, !tbaa !48
+  %.pre72.i = load i64, ptr %104, align 8, !tbaa !24
+  br label %173
 
-172:                                              ; preds = %169, %97, %ebur128_calc_gating_block.exit._crit_edge.i
-  %173 = phi i64 [ %170, %169 ], [ %103, %97 ], [ %.pre73.i, %ebur128_calc_gating_block.exit._crit_edge.i ]
-  %.153.i = phi nsz double [ %.3.i, %169 ], [ %.05262.i, %97 ], [ %.05262.i, %ebur128_calc_gating_block.exit._crit_edge.i ]
-  store i64 %173, ptr %18, align 8, !tbaa !34
-  %174 = load i64, ptr %26, align 8, !tbaa !35
-  %175 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %176 = load i64, ptr %175, align 8, !tbaa !27
-  %177 = mul i64 %176, %24
-  %178 = icmp eq i64 %174, %177
-  br i1 %178, label %179, label %198
+173:                                              ; preds = %find_histogram_index.exit.i, %ebur128_energy_shortterm.exit.i
+  %174 = phi i64 [ %.pre72.i, %find_histogram_index.exit.i ], [ %105, %ebur128_energy_shortterm.exit.i ]
+  %175 = mul i64 %174, 20
+  store i64 %175, ptr %101, align 8, !tbaa !33
+  br label %176
 
-179:                                              ; preds = %172
+176:                                              ; preds = %173, %99, %ebur128_calc_gating_block.exit._crit_edge.i
+  %177 = phi i64 [ %174, %173 ], [ %105, %99 ], [ %.pre73.i, %ebur128_calc_gating_block.exit._crit_edge.i ]
+  %.153.i = phi nsz double [ %.3.i, %173 ], [ %.05262.i, %99 ], [ %.05262.i, %ebur128_calc_gating_block.exit._crit_edge.i ]
+  store i64 %177, ptr %18, align 8, !tbaa !34
+  %178 = load i64, ptr %26, align 8, !tbaa !35
+  %179 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %180 = load i64, ptr %179, align 8, !tbaa !27
+  %181 = mul i64 %180, %24
+  %182 = icmp eq i64 %178, %181
+  br i1 %182, label %183, label %202
+
+183:                                              ; preds = %176
   store i64 0, ptr %26, align 8, !tbaa !35
-  br label %198
+  br label %202
 
-180:                                              ; preds = %14
+184:                                              ; preds = %14
   tail call fastcc void @ebur128_filter_double(ptr noundef nonnull readonly %0, ptr noundef readonly %7, i64 noundef %.064.i, i64 noundef %.04663.i, i32 noundef %9)
-  %181 = load i32, ptr %8, align 4, !tbaa !12
-  %182 = zext i32 %181 to i64
-  %183 = mul i64 %.04663.i, %182
-  %184 = load ptr, ptr %4, align 8, !tbaa !4
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 16
-  %186 = load i64, ptr %185, align 8, !tbaa !35
-  %187 = add i64 %186, %183
-  store i64 %187, ptr %185, align 8, !tbaa !35
-  %188 = load i32, ptr %0, align 8, !tbaa !25
-  %189 = and i32 %188, 11
-  %190 = icmp eq i32 %189, 11
-  br i1 %190, label %191, label %.thread.i
+  %185 = load i32, ptr %8, align 4, !tbaa !12
+  %186 = zext i32 %185 to i64
+  %187 = mul i64 %.04663.i, %186
+  %188 = load ptr, ptr %4, align 8, !tbaa !4
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
+  %190 = load i64, ptr %189, align 8, !tbaa !35
+  %191 = add i64 %190, %187
+  store i64 %191, ptr %189, align 8, !tbaa !35
+  %192 = load i32, ptr %0, align 8, !tbaa !25
+  %193 = and i32 %192, 11
+  %194 = icmp eq i32 %193, 11
+  br i1 %194, label %195, label %.thread.i
 
-191:                                              ; preds = %180
-  %192 = getelementptr inbounds nuw i8, ptr %184, i64 344
-  %193 = load i64, ptr %192, align 8, !tbaa !33
-  %194 = add i64 %193, %.04663.i
-  store i64 %194, ptr %192, align 8, !tbaa !33
+195:                                              ; preds = %184
+  %196 = getelementptr inbounds nuw i8, ptr %188, i64 344
+  %197 = load i64, ptr %196, align 8, !tbaa !33
+  %198 = add i64 %197, %.04663.i
+  store i64 %198, ptr %196, align 8, !tbaa !33
   br label %.thread.i
 
-.thread.i:                                        ; preds = %191, %180
-  %195 = getelementptr inbounds nuw i8, ptr %184, i64 24
-  %196 = load i64, ptr %195, align 8, !tbaa !34
-  %197 = sub i64 %196, %.04663.i
-  store i64 %197, ptr %195, align 8, !tbaa !34
+.thread.i:                                        ; preds = %195, %184
+  %199 = getelementptr inbounds nuw i8, ptr %188, i64 24
+  %200 = load i64, ptr %199, align 8, !tbaa !34
+  %201 = sub i64 %200, %.04663.i
+  store i64 %201, ptr %199, align 8, !tbaa !34
   br label %ebur128_add_frames_planar_double.exit
 
-198:                                              ; preds = %179, %172
+202:                                              ; preds = %183, %176
   %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %ebur128_add_frames_planar_double.exit, label %14, !llvm.loop !49
 
-ebur128_add_frames_planar_double.exit:            ; preds = %198, %._crit_edge, %.thread.i
+ebur128_add_frames_planar_double.exit:            ; preds = %202, %._crit_edge, %.thread.i
   ret void
 }
 
@@ -1177,8 +1183,8 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_shortterm(ptr noundef readonly
 58:                                               ; preds = %56, %19
   %.179.i.i.i = phi nsz double [ %.078111.i.i.i, %19 ], [ %57, %56 ]
   %59 = add nuw nsw i64 %.080108.i.i.i, 1
-  %exitcond122.not.i.i.i = icmp eq i64 %59, %14
-  br i1 %exitcond122.not.i.i.i, label %.loopexit, label %19, !llvm.loop !46
+  %exitcond121.not.i.i.i = icmp eq i64 %59, %14
+  br i1 %exitcond121.not.i.i.i, label %.loopexit, label %19, !llvm.loop !46
 
 .loopexit:                                        ; preds = %58, %11
   %.078.lcssa.i.i.i = phi double [ 0.000000e+00, %11 ], [ %.179.i.i.i, %58 ]
@@ -1306,11 +1312,11 @@ find_histogram_index.exit:                        ; preds = %.preheader
   br i1 %47, label %.lr.ph95.preheader, label %.loopexit82.sink.split
 
 .lr.ph95.preheader:                               ; preds = %31, %find_histogram_index.exit
-  %.0130 = phi i64 [ %.0, %find_histogram_index.exit ], [ 0, %31 ]
+  %.0131 = phi i64 [ %.0, %find_histogram_index.exit ], [ 0, %31 ]
   br label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
-  %.16393 = phi i64 [ %51, %.lr.ph95 ], [ %.0130, %.lr.ph95.preheader ]
+  %.16393 = phi i64 [ %51, %.lr.ph95 ], [ %.0131, %.lr.ph95.preheader ]
   %.36792 = phi i64 [ %50, %.lr.ph95 ], [ 0, %.lr.ph95.preheader ]
   %48 = getelementptr inbounds nuw i64, ptr %4, i64 %.16393
   %49 = load i64, ptr %48, align 8, !tbaa !48
@@ -1331,7 +1337,7 @@ find_histogram_index.exit:                        ; preds = %.preheader
   br label %57
 
 57:                                               ; preds = %52, %57
-  %.299 = phi i64 [ %.0130, %52 ], [ %58, %57 ]
+  %.299 = phi i64 [ %.0131, %52 ], [ %58, %57 ]
   %.498 = phi i64 [ 0, %52 ], [ %61, %57 ]
   %58 = add i64 %.299, 1
   %59 = getelementptr inbounds nuw i64, ptr %4, i64 %.299
@@ -1343,36 +1349,39 @@ find_histogram_index.exit:                        ; preds = %.preheader
 62:                                               ; preds = %57
   %63 = tail call nsz double @llvm.fmuladd.f64(double %54, double 0x3FEE666666666666, double 5.000000e-01)
   %64 = fptoui double %63 to i64
+  %65 = getelementptr double, ptr @histogram_energies, i64 %58
+  %66 = getelementptr i8, ptr %65, i64 -8
+  %67 = load double, ptr %66, align 8, !tbaa !29
   %.not76100 = icmp ugt i64 %61, %64
   br i1 %.not76100, label %._crit_edge105, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %62, %.lr.ph104
-  %.3102 = phi i64 [ %65, %.lr.ph104 ], [ %58, %62 ]
-  %.5101 = phi i64 [ %68, %.lr.ph104 ], [ %61, %62 ]
-  %65 = add i64 %.3102, 1
-  %66 = getelementptr inbounds nuw i64, ptr %4, i64 %.3102
-  %67 = load i64, ptr %66, align 8, !tbaa !48
-  %68 = add i64 %67, %.5101
-  %.not76 = icmp ugt i64 %68, %64
-  br i1 %.not76, label %._crit_edge105, label %.lr.ph104, !llvm.loop !58
+  %.3102 = phi i64 [ %68, %.lr.ph104 ], [ %58, %62 ]
+  %.5101 = phi i64 [ %71, %.lr.ph104 ], [ %61, %62 ]
+  %68 = add i64 %.3102, 1
+  %69 = getelementptr inbounds nuw i64, ptr %4, i64 %.3102
+  %70 = load i64, ptr %69, align 8, !tbaa !48
+  %71 = add i64 %70, %.5101
+  %.not76 = icmp ugt i64 %71, %64
+  br i1 %.not76, label %._crit_edge105.loopexit, label %.lr.ph104, !llvm.loop !58
 
-._crit_edge105:                                   ; preds = %.lr.ph104, %62
-  %.3.lcssa = phi i64 [ %58, %62 ], [ %65, %.lr.ph104 ]
-  %69 = getelementptr double, ptr @histogram_energies, i64 %58
-  %70 = getelementptr i8, ptr %69, i64 -8
-  %71 = load double, ptr %70, align 8, !tbaa !29
-  %72 = getelementptr double, ptr @histogram_energies, i64 %.3.lcssa
-  %73 = getelementptr i8, ptr %72, i64 -8
-  %74 = load double, ptr %73, align 8, !tbaa !29
-  %75 = tail call nsz double @llvm.log10.f64(double %74)
+._crit_edge105.loopexit:                          ; preds = %.lr.ph104
+  %.phi.trans.insert = getelementptr double, ptr @histogram_energies, i64 %68
+  %.phi.trans.insert117 = getelementptr i8, ptr %.phi.trans.insert, i64 -8
+  %.pre = load double, ptr %.phi.trans.insert117, align 8, !tbaa !29
+  br label %._crit_edge105
+
+._crit_edge105:                                   ; preds = %._crit_edge105.loopexit, %62
+  %72 = phi double [ %67, %62 ], [ %.pre, %._crit_edge105.loopexit ]
+  %73 = tail call nsz double @llvm.log10.f64(double %72)
+  %74 = tail call nsz noundef double @llvm.fmuladd.f64(double %73, double 1.000000e+01, double -6.910000e-01)
+  %75 = tail call nsz double @llvm.log10.f64(double %67)
   %76 = tail call nsz noundef double @llvm.fmuladd.f64(double %75, double 1.000000e+01, double -6.910000e-01)
-  %77 = tail call nsz double @llvm.log10.f64(double %71)
-  %78 = tail call nsz noundef double @llvm.fmuladd.f64(double %77, double 1.000000e+01, double -6.910000e-01)
-  %79 = fsub nsz double %76, %78
+  %77 = fsub nsz double %74, %76
   br label %.loopexit82.sink.split
 
 .loopexit82.sink.split:                           ; preds = %._crit_edge96, %find_histogram_index.exit, %._crit_edge, %3, %._crit_edge105
-  %.sink = phi double [ %79, %._crit_edge105 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %find_histogram_index.exit ], [ 0.000000e+00, %._crit_edge96 ]
+  %.sink = phi double [ %77, %._crit_edge105 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %find_histogram_index.exit ], [ 0.000000e+00, %._crit_edge96 ]
   store double %.sink, ptr %2, align 8, !tbaa !29
   br label %.loopexit82
 

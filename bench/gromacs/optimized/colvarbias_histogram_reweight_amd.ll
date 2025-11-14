@@ -3776,8 +3776,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIiS
   %311 = getelementptr inbounds nuw i32, ptr %310, i64 %307
   %312 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %311, ptr %312, align 8, !tbaa !131, !alias.scope !209
-  %313 = getelementptr inbounds nuw i8, ptr %310, i64 %309
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %310, i8 0, i64 %309, i1 false), !tbaa !47, !noalias !209
+  %313 = getelementptr inbounds nuw i8, ptr %310, i64 %309
   br label %_ZNK11colvar_gridIdE9new_indexEv.exit
 
 _ZNK11colvar_gridIdE9new_indexEv.exit:            ; preds = %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i, %.noexc115
@@ -4807,8 +4807,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIiS
   %338 = getelementptr inbounds nuw i32, ptr %337, i64 %334
   %339 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %338, ptr %339, align 8, !tbaa !131, !alias.scope !229
-  %340 = getelementptr inbounds nuw i8, ptr %337, i64 %336
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %337, i8 0, i64 %336, i1 false), !tbaa !47, !noalias !229
+  %340 = getelementptr inbounds nuw i8, ptr %337, i64 %336
   br label %_ZNK11colvar_gridIdE9new_indexEv.exit
 
 _ZNK11colvar_gridIdE9new_indexEv.exit:            ; preds = %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i, %.noexc107

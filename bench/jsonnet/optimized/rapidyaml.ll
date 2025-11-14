@@ -6560,13 +6560,13 @@ _ZN2c43yml4Tree14_free_list_remEm.exit:           ; preds = %111, %113
   %117 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %83, i64 %2
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 104
   %119 = load i64, ptr %118, align 8, !tbaa !139
-  %120 = getelementptr inbounds nuw i8, ptr %117, i64 112
-  %.036.i = load i64, ptr %120, align 8, !tbaa !68
+  %120 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %83, i64 %119
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 112
+  %.036.i = load i64, ptr %121, align 8, !tbaa !68
   %.not37.i = icmp eq i64 %.036.i, -1
   br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZN2c43yml4Tree14_free_list_remEm.exit
-  %121 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %83, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %117, i64 136
   %123 = load i64, ptr %122, align 8, !tbaa !134
   %.not34.i = icmp eq i64 %123, -1
@@ -6601,7 +6601,7 @@ _ZN2c43yml4Tree14_free_list_remEm.exit:           ; preds = %111, %113
   br label %136
 
 136:                                              ; preds = %133, %130
-  %137 = getelementptr inbounds nuw i8, ptr %121, i64 112
+  %137 = getelementptr inbounds nuw i8, ptr %120, i64 112
   %138 = load i64, ptr %137, align 8, !tbaa !150
   %139 = icmp eq i64 %138, %2
   br i1 %139, label %140, label %141
@@ -6611,7 +6611,7 @@ _ZN2c43yml4Tree14_free_list_remEm.exit:           ; preds = %111, %113
   br label %141
 
 141:                                              ; preds = %140, %136
-  %142 = getelementptr inbounds nuw i8, ptr %121, i64 120
+  %142 = getelementptr inbounds nuw i8, ptr %120, i64 120
   %143 = load i64, ptr %142, align 8, !tbaa !151
   %144 = icmp eq i64 %143, %2
   br i1 %144, label %145, label %_ZN2c43yml4Tree15_copy_hierarchyEmm.exit
@@ -6623,7 +6623,7 @@ _ZN2c43yml4Tree14_free_list_remEm.exit:           ; preds = %111, %113
 _ZN2c43yml4Tree15_copy_hierarchyEmm.exit:         ; preds = %141, %145
   %146 = load i64, ptr %118, align 8, !tbaa !139
   store i64 %146, ptr %85, align 8, !tbaa !139
-  %147 = load i64, ptr %120, align 8, !tbaa !150
+  %147 = load i64, ptr %121, align 8, !tbaa !150
   %148 = getelementptr inbounds nuw i8, ptr %84, i64 112
   store i64 %147, ptr %148, align 8, !tbaa !150
   %149 = getelementptr inbounds nuw i8, ptr %117, i64 120
@@ -6813,13 +6813,13 @@ _ZN2c43yml4Tree14_free_list_remEm.exit37:         ; preds = %235, %237
   %241 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %207, i64 %1
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 104
   %243 = load i64, ptr %242, align 8, !tbaa !139
-  %244 = getelementptr inbounds nuw i8, ptr %241, i64 112
-  %.036.i38 = load i64, ptr %244, align 8, !tbaa !68
+  %244 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %207, i64 %243
+  %245 = getelementptr inbounds nuw i8, ptr %241, i64 112
+  %.036.i38 = load i64, ptr %245, align 8, !tbaa !68
   %.not37.i39 = icmp eq i64 %.036.i38, -1
   br i1 %.not37.i39, label %._crit_edge.i44, label %.lr.ph.i40
 
 ._crit_edge.i44:                                  ; preds = %.lr.ph.i40, %_ZN2c43yml4Tree14_free_list_remEm.exit37
-  %245 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %207, i64 %243
   %246 = getelementptr inbounds nuw i8, ptr %241, i64 136
   %247 = load i64, ptr %246, align 8, !tbaa !134
   %.not34.i45 = icmp eq i64 %247, -1
@@ -6854,7 +6854,7 @@ _ZN2c43yml4Tree14_free_list_remEm.exit37:         ; preds = %235, %237
   br label %260
 
 260:                                              ; preds = %257, %254
-  %261 = getelementptr inbounds nuw i8, ptr %245, i64 112
+  %261 = getelementptr inbounds nuw i8, ptr %244, i64 112
   %262 = load i64, ptr %261, align 8, !tbaa !150
   %263 = icmp eq i64 %262, %1
   br i1 %263, label %264, label %265
@@ -6864,7 +6864,7 @@ _ZN2c43yml4Tree14_free_list_remEm.exit37:         ; preds = %235, %237
   br label %265
 
 265:                                              ; preds = %264, %260
-  %266 = getelementptr inbounds nuw i8, ptr %245, i64 120
+  %266 = getelementptr inbounds nuw i8, ptr %244, i64 120
   %267 = load i64, ptr %266, align 8, !tbaa !151
   %268 = icmp eq i64 %267, %1
   br i1 %268, label %269, label %_ZN2c43yml4Tree15_copy_hierarchyEmm.exit47
@@ -6876,7 +6876,7 @@ _ZN2c43yml4Tree14_free_list_remEm.exit37:         ; preds = %235, %237
 _ZN2c43yml4Tree15_copy_hierarchyEmm.exit47:       ; preds = %265, %269
   %270 = load i64, ptr %242, align 8, !tbaa !139
   store i64 %270, ptr %209, align 8, !tbaa !139
-  %271 = load i64, ptr %244, align 8, !tbaa !150
+  %271 = load i64, ptr %245, align 8, !tbaa !150
   %272 = getelementptr inbounds nuw i8, ptr %208, i64 112
   store i64 %271, ptr %272, align 8, !tbaa !150
   %273 = getelementptr inbounds nuw i8, ptr %241, i64 120
@@ -7669,13 +7669,13 @@ define void @_ZN2c43yml4Tree15_copy_hierarchyEmm(ptr noundef nonnull readonly al
   %5 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %4, i64 %2
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = load i64, ptr %6, align 8, !tbaa !139
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %.036 = load i64, ptr %8, align 8, !tbaa !68
+  %8 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %4, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %.036 = load i64, ptr %9, align 8, !tbaa !68
   %.not37 = icmp eq i64 %.036, -1
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %9 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %4, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %11 = load i64, ptr %10, align 8, !tbaa !134
   %.not34 = icmp eq i64 %11, -1
@@ -7710,7 +7710,7 @@ define void @_ZN2c43yml4Tree15_copy_hierarchyEmm(ptr noundef nonnull readonly al
   br label %24
 
 24:                                               ; preds = %21, %18
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %26 = load i64, ptr %25, align 8, !tbaa !150
   %27 = icmp eq i64 %26, %2
   br i1 %27, label %28, label %29
@@ -7720,7 +7720,7 @@ define void @_ZN2c43yml4Tree15_copy_hierarchyEmm(ptr noundef nonnull readonly al
   br label %29
 
 29:                                               ; preds = %28, %24
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %31 = load i64, ptr %30, align 8, !tbaa !151
   %32 = icmp eq i64 %31, %2
   br i1 %32, label %33, label %34
@@ -7734,7 +7734,7 @@ define void @_ZN2c43yml4Tree15_copy_hierarchyEmm(ptr noundef nonnull readonly al
   %36 = load i64, ptr %6, align 8, !tbaa !139
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 104
   store i64 %36, ptr %37, align 8, !tbaa !139
-  %38 = load i64, ptr %8, align 8, !tbaa !150
+  %38 = load i64, ptr %9, align 8, !tbaa !150
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 112
   store i64 %38, ptr %39, align 8, !tbaa !150
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 120

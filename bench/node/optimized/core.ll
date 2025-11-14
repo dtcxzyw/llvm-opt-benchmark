@@ -2226,31 +2226,31 @@ if.end15:                                         ; preds = %for.end
   br i1 %cmp16, label %return, label %if.end18
 
 if.end18:                                         ; preds = %do.end, %if.end15
+  %1 = load ptr, ptr %gp, align 8
+  %call19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
+  %add = add i64 %call19, 1
   %gr_mem21 = getelementptr inbounds nuw i8, ptr %gp, i64 24
-  %1 = load ptr, ptr %gr_mem21, align 8
-  %2 = load ptr, ptr %1, align 8
-  %cmp22.not49 = icmp eq ptr %2, null
+  %2 = load ptr, ptr %gr_mem21, align 8
+  %3 = load ptr, ptr %2, align 8
+  %cmp22.not49 = icmp eq ptr %3, null
   br i1 %cmp22.not49, label %for.end32, label %for.body
 
 for.body:                                         ; preds = %if.end18, %for.body
-  %3 = phi ptr [ %4, %for.body ], [ %2, %if.end18 ]
+  %4 = phi ptr [ %5, %for.body ], [ %3, %if.end18 ]
   %mem_size.051 = phi i64 [ %add29, %for.body ], [ 8, %if.end18 ]
   %members.050 = phi i64 [ %inc, %for.body ], [ 0, %if.end18 ]
-  %call26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #26
+  %call26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
   %add28 = add i64 %mem_size.051, 9
   %add29 = add i64 %add28, %call26
   %inc = add nuw nsw i64 %members.050, 1
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %1, i64 %inc
-  %4 = load ptr, ptr %arrayidx, align 8
-  %cmp22.not = icmp eq ptr %4, null
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %inc
+  %5 = load ptr, ptr %arrayidx, align 8
+  %cmp22.not = icmp eq ptr %5, null
   br i1 %cmp22.not, label %for.end32, label %for.body
 
 for.end32:                                        ; preds = %for.body, %if.end18
   %members.0.lcssa = phi i64 [ 0, %if.end18 ], [ %inc, %for.body ]
   %mem_size.0.lcssa = phi i64 [ 8, %if.end18 ], [ %add29, %for.body ]
-  %5 = load ptr, ptr %gp, align 8
-  %call19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #26
-  %add = add i64 %call19, 1
   %add33 = add i64 %mem_size.0.lcssa, %add
   %call34 = call ptr @uv__malloc(i64 noundef %add33) #24
   %cmp35 = icmp eq ptr %call34, null

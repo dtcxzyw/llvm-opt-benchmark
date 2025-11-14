@@ -5902,16 +5902,13 @@ _ZNKSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__
   br i1 %.not.i.i.i33.i, label %.lr.ph76, label %.lr.ph.i.i.i30.i, !llvm.loop !475
 
 .lr.ph76:                                         ; preds = %.lr.ph.i.i.i30.i
-  %199 = load ptr, ptr %8, align 8, !tbaa !391
+  %199 = getelementptr inbounds nuw i8, ptr %195, i64 %191
+  %200 = load ptr, ptr %8, align 8, !tbaa !391
   br label %234
 
-.preheader.loopexit:                              ; preds = %234
-  %200 = getelementptr inbounds nuw i8, ptr %195, i64 %191
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.loopexit, %186
-  %.sroa.13.0113 = phi ptr [ null, %186 ], [ %200, %.preheader.loopexit ]
-  %.sroa.037.0112 = phi ptr [ null, %186 ], [ %195, %.preheader.loopexit ]
+.preheader:                                       ; preds = %234, %186
+  %.sroa.13.0113 = phi ptr [ null, %186 ], [ %199, %234 ]
+  %.sroa.037.0112 = phi ptr [ null, %186 ], [ %195, %234 ]
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %203 = load ptr, ptr %201, align 8, !tbaa !422
@@ -5956,7 +5953,7 @@ _ZNK5boost9container3dtl14deque_iteratorIPN4CGAL17Kd_tree_leaf_nodeINS3_21Search
 
 234:                                              ; preds = %.lr.ph76, %234
   %.01875 = phi i64 [ 0, %.lr.ph76 ], [ %241, %234 ]
-  %235 = getelementptr inbounds nuw ptr, ptr %199, i64 %.01875
+  %235 = getelementptr inbounds nuw ptr, ptr %200, i64 %.01875
   %236 = load ptr, ptr %235, align 8, !tbaa !413
   %237 = getelementptr inbounds nuw %"struct.std::pair", ptr %195, i64 %.01875
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %237, ptr noundef nonnull align 8 dereferenceable(32) %236, i64 24, i1 false)
@@ -5966,7 +5963,7 @@ _ZNK5boost9container3dtl14deque_iteratorIPN4CGAL17Kd_tree_leaf_nodeINS3_21Search
   store i64 %240, ptr %239, align 8, !tbaa !47
   %241 = add nuw i64 %.01875, 1
   %exitcond.not = icmp eq i64 %241, %192
-  br i1 %exitcond.not, label %.preheader.loopexit, label %234, !llvm.loop !476
+  br i1 %exitcond.not, label %.preheader, label %234, !llvm.loop !476
 
 _ZNK5boost9container3dtl14deque_iteratorIPN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EELb0EEmiERKS12_.exit: ; preds = %_ZNK5boost9container3dtl14deque_iteratorIPN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EELb0EEmiERKS12_.exit.lr.ph, %_ZN5boost9container3dtl14deque_iteratorIPN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EELb0EEpLEl.exit26
   %242 = phi ptr [ %204, %_ZNK5boost9container3dtl14deque_iteratorIPN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EELb0EEmiERKS12_.exit.lr.ph ], [ %317, %_ZN5boost9container3dtl14deque_iteratorIPN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EELb0EEpLEl.exit26 ]
@@ -8911,8 +8908,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(pt
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -9352,10 +9349,10 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   %21 = load double, ptr %20, align 8, !tbaa !593
   %22 = fcmp olt double %21, %18
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.1.us.us.i.i.us, i64 16
-  br i1 %22, label %19, label %.preheader.split.us.us.i.i.us, !llvm.loop !602
+  br i1 %22, label %19, label %.preheader.split.us.us.i.i.preheader.us, !llvm.loop !602
 
-.preheader.split.us.us.i.i.us:                    ; preds = %19, %.preheader.split.us.us.i.i.us
-  %.sroa.011.0.pn.us.us.i.i.us = phi ptr [ %.sroa.011.1.us.us.i.i.us, %.preheader.split.us.us.i.i.us ], [ %.sroa.011.0.us.i.i.us, %19 ]
+.preheader.split.us.us.i.i.us:                    ; preds = %.preheader.split.us.us.i.i.preheader.us, %.preheader.split.us.us.i.i.us
+  %.sroa.011.0.pn.us.us.i.i.us = phi ptr [ %.sroa.011.1.us.us.i.i.us, %.preheader.split.us.us.i.i.us ], [ %.sroa.011.0.us.i.i.us, %.preheader.split.us.us.i.i.preheader.us ]
   %.sroa.011.1.us.us.i.i.us = getelementptr inbounds i8, ptr %.sroa.011.0.pn.us.us.i.i.us, i64 -16
   %24 = getelementptr inbounds i8, ptr %.sroa.011.0.pn.us.us.i.i.us, i64 -8
   %25 = load double, ptr %24, align 8, !tbaa !593
@@ -9368,14 +9365,17 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 
 28:                                               ; preds = %.split20.us.us.i.i.us
   %29 = getelementptr inbounds i8, ptr %.sroa.011.0.pn.us.us.i.i.us, i64 -8
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.014.1.us.us.i.i.us, i64 8
-  %31 = load ptr, ptr %.sroa.014.1.us.us.i.i.us, align 8, !tbaa !413
-  %32 = load ptr, ptr %.sroa.011.1.us.us.i.i.us, align 8, !tbaa !413
-  store ptr %32, ptr %.sroa.014.1.us.us.i.i.us, align 8, !tbaa !413
-  store ptr %31, ptr %.sroa.011.1.us.us.i.i.us, align 8, !tbaa !413
-  store double %25, ptr %30, align 8, !tbaa !16
+  %30 = load ptr, ptr %.sroa.014.1.us.us.i.i.us, align 8, !tbaa !413
+  %31 = load ptr, ptr %.sroa.011.1.us.us.i.i.us, align 8, !tbaa !413
+  store ptr %31, ptr %.sroa.014.1.us.us.i.i.us, align 8, !tbaa !413
+  store ptr %30, ptr %.sroa.011.1.us.us.i.i.us, align 8, !tbaa !413
+  store double %25, ptr %32, align 8, !tbaa !16
   store double %21, ptr %29, align 8, !tbaa !16
   br label %.split.us.us.i.i.us, !llvm.loop !604
+
+.preheader.split.us.us.i.i.preheader.us:          ; preds = %19
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.014.1.us.us.i.i.us, i64 8
+  br label %.preheader.split.us.us.i.i.us
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEENS0_5__ops15_Iter_comp_iterINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEET_S1G_S1G_T0_.exit.loopexit.us: ; preds = %.split20.us.us.i.i.us
   %33 = add nsw i64 %.036.us, -1
@@ -9435,9 +9435,9 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_I
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEENS0_5__ops15_Iter_comp_iterINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEEvT_S1G_S1G_S1G_T0_(ptr %0, ptr nonnull %10, ptr %53, ptr nonnull %54, i8 %.fr33.i.i)
   br label %.split.i.i
 
-.split.i.i:                                       ; preds = %.split.i.i.preheader, %65
-  %.sroa.011.0.i.i = phi ptr [ %.sroa.011.1.i.i, %65 ], [ %storemerge35, %.split.i.i.preheader ]
-  %.sroa.014.0.i.i = phi ptr [ %60, %65 ], [ %10, %.split.i.i.preheader ]
+.split.i.i:                                       ; preds = %.split.i.i.preheader, %66
+  %.sroa.011.0.i.i = phi ptr [ %.sroa.011.1.i.i, %66 ], [ %storemerge35, %.split.i.i.preheader ]
+  %.sroa.014.0.i.i = phi ptr [ %60, %66 ], [ %10, %.split.i.i.preheader ]
   %55 = load double, ptr %12, align 8, !tbaa !593
   br label %56
 
@@ -9447,29 +9447,32 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_I
   %58 = load double, ptr %57, align 8, !tbaa !593
   %59 = fcmp olt double %55, %58
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.014.1.i.i, i64 16
-  br i1 %59, label %56, label %.preheader.split.i.i, !llvm.loop !602
+  br i1 %59, label %56, label %.preheader.split.i.i.preheader, !llvm.loop !602
 
-.preheader.split.i.i:                             ; preds = %56, %.preheader.split.i.i
-  %.sroa.011.0.pn.i.i = phi ptr [ %.sroa.011.1.i.i, %.preheader.split.i.i ], [ %.sroa.011.0.i.i, %56 ]
+.preheader.split.i.i.preheader:                   ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.014.1.i.i, i64 8
+  br label %.preheader.split.i.i
+
+.preheader.split.i.i:                             ; preds = %.preheader.split.i.i.preheader, %.preheader.split.i.i
+  %.sroa.011.0.pn.i.i = phi ptr [ %.sroa.011.1.i.i, %.preheader.split.i.i ], [ %.sroa.011.0.i.i, %.preheader.split.i.i.preheader ]
   %.sroa.011.1.i.i = getelementptr inbounds i8, ptr %.sroa.011.0.pn.i.i, i64 -16
-  %61 = getelementptr inbounds i8, ptr %.sroa.011.0.pn.i.i, i64 -8
-  %62 = load double, ptr %61, align 8, !tbaa !593
-  %63 = fcmp olt double %62, %55
-  br i1 %63, label %.preheader.split.i.i, label %.split20.i.i, !llvm.loop !603
+  %62 = getelementptr inbounds i8, ptr %.sroa.011.0.pn.i.i, i64 -8
+  %63 = load double, ptr %62, align 8, !tbaa !593
+  %64 = fcmp olt double %63, %55
+  br i1 %64, label %.preheader.split.i.i, label %.split20.i.i, !llvm.loop !603
 
 .split20.i.i:                                     ; preds = %.preheader.split.i.i
-  %64 = icmp ult ptr %.sroa.014.1.i.i, %.sroa.011.1.i.i
-  br i1 %64, label %65, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEENS0_5__ops15_Iter_comp_iterINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEET_S1G_S1G_T0_.exit.loopexit17
+  %65 = icmp ult ptr %.sroa.014.1.i.i, %.sroa.011.1.i.i
+  br i1 %65, label %66, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEENS0_5__ops15_Iter_comp_iterINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEET_S1G_S1G_T0_.exit.loopexit17
 
-65:                                               ; preds = %.split20.i.i
-  %66 = getelementptr inbounds i8, ptr %.sroa.011.0.pn.i.i, i64 -8
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.014.1.i.i, i64 8
+66:                                               ; preds = %.split20.i.i
+  %67 = getelementptr inbounds i8, ptr %.sroa.011.0.pn.i.i, i64 -8
   %68 = load ptr, ptr %.sroa.014.1.i.i, align 8, !tbaa !413
   %69 = load ptr, ptr %.sroa.011.1.i.i, align 8, !tbaa !413
   store ptr %69, ptr %.sroa.014.1.i.i, align 8, !tbaa !413
   store ptr %68, ptr %.sroa.011.1.i.i, align 8, !tbaa !413
-  store double %62, ptr %67, align 8, !tbaa !16
-  store double %58, ptr %66, align 8, !tbaa !16
+  store double %63, ptr %61, align 8, !tbaa !16
+  store double %58, ptr %67, align 8, !tbaa !16
   br label %.split.i.i, !llvm.loop !604
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKS2_IN4CGAL7Point_3INS3_16Simple_cartesianIdEEEENS1_IPNS3_10Triangle_3IS6_EESt6vectorIS9_SaIS9_EEEEEdESB_ISI_SaISI_EEEENS0_5__ops15_Iter_comp_iterINS3_8internal17K_neighbor_searchINS3_21Search_traits_adapterISF_NS3_26First_of_pair_property_mapISF_EENS3_13AABB_traits_3IS6_NS3_25AABB_triangle_primitive_3IS6_SE_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Distance_adapterISF_ST_NS3_18Euclidean_distanceIS10_EEEENS3_16Sliding_midpointIS11_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS11_S19_SW_IbLb1EESX_EEE15Distance_largerEEEET_S1G_S1G_T0_.exit.loopexit17: ; preds = %.split20.i.i

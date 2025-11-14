@@ -1598,64 +1598,64 @@ define dso_local i32 @intel_bw_atomic_check(ptr noundef %0) local_unnamed_addr #
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 1653
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 4128
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 2632
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 4160
-  br label %34
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 1653
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i64
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 4128
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 2632
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 4160
+  br label %36
 
-34:                                               ; preds = %52, %23
-  %35 = phi i64 [ 0, %23 ], [ %54, %52 ]
-  %36 = phi i32 [ 0, %23 ], [ %53, %52 ]
-  %37 = shl nuw nsw i64 1, %35
-  %38 = and i64 %37, %30
-  %39 = icmp eq i64 %38, 0
-  %40 = icmp eq i64 %35, 7
-  %41 = or i1 %40, %39
-  br i1 %41, label %52, label %42
+36:                                               ; preds = %54, %23
+  %37 = phi i64 [ 0, %23 ], [ %56, %54 ]
+  %38 = phi i32 [ 0, %23 ], [ %55, %54 ]
+  %39 = shl nuw nsw i64 1, %37
+  %40 = and i64 %39, %32
+  %41 = icmp eq i64 %40, 0
+  %42 = icmp eq i64 %37, 7
+  %43 = or i1 %42, %41
+  br i1 %43, label %54, label %44
 
-42:                                               ; preds = %34
-  %43 = getelementptr i32, ptr %31, i64 %35
-  %44 = load i32, ptr %43, align 4
-  %45 = add i32 %44, %36
-  %46 = load i16, ptr %32, align 8
-  %47 = icmp ult i16 %46, 11
-  br i1 %47, label %48, label %52
+44:                                               ; preds = %36
+  %45 = getelementptr i32, ptr %33, i64 %37
+  %46 = load i32, ptr %45, align 4
+  %47 = add i32 %46, %38
+  %48 = load i16, ptr %34, align 8
+  %49 = icmp ult i16 %48, 11
+  br i1 %49, label %50, label %54
 
-48:                                               ; preds = %42
-  %49 = getelementptr i32, ptr %33, i64 %35
-  %50 = load i32, ptr %49, align 4
-  %51 = add i32 %50, %45
-  br label %52
+50:                                               ; preds = %44
+  %51 = getelementptr i32, ptr %35, i64 %37
+  %52 = load i32, ptr %51, align 4
+  %53 = add i32 %52, %47
+  br label %54
 
-52:                                               ; preds = %48, %42, %34
-  %53 = phi i32 [ %36, %34 ], [ %51, %48 ], [ %45, %42 ]
-  %54 = add nuw nsw i64 %35, 1
-  %55 = icmp eq i64 %54, 8
-  br i1 %55, label %56, label %34, !llvm.loop !15
+54:                                               ; preds = %50, %44, %36
+  %55 = phi i32 [ %38, %36 ], [ %53, %50 ], [ %47, %44 ]
+  %56 = add nuw nsw i64 %37, 1
+  %57 = icmp eq i64 %56, 8
+  br i1 %57, label %58, label %36, !llvm.loop !15
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %58, align 8
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %25, align 8
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 1653
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw i8, ptr %58, i64 4128
+  %64 = getelementptr inbounds nuw i8, ptr %25, i64 4128
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 2632
-  %66 = getelementptr inbounds nuw i8, ptr %58, i64 4160
+  %66 = getelementptr inbounds nuw i8, ptr %25, i64 4160
   br label %67
 
-67:                                               ; preds = %85, %56
-  %68 = phi i64 [ 0, %56 ], [ %87, %85 ]
-  %69 = phi i32 [ 0, %56 ], [ %86, %85 ]
+67:                                               ; preds = %85, %58
+  %68 = phi i64 [ 0, %58 ], [ %87, %85 ]
+  %69 = phi i32 [ 0, %58 ], [ %86, %85 ]
   %70 = shl nuw nsw i64 1, %68
   %71 = and i64 %70, %63
   %72 = icmp eq i64 %71, 0
@@ -1684,17 +1684,17 @@ define dso_local i32 @intel_bw_atomic_check(ptr noundef %0) local_unnamed_addr #
   br i1 %88, label %89, label %67, !llvm.loop !15
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds nuw i8, ptr %25, i64 4329
+  %90 = getelementptr inbounds nuw i8, ptr %27, i64 4329
   %91 = load i8, ptr %90, align 1
   %92 = and i8 %91, 127
   %93 = zext nneg i8 %92 to i32
   %94 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %93) #12, !srcloc !16
-  %95 = getelementptr inbounds nuw i8, ptr %58, i64 4329
+  %95 = getelementptr inbounds nuw i8, ptr %25, i64 4329
   %96 = load i8, ptr %95, align 1
   %97 = and i8 %96, 127
   %98 = zext nneg i8 %97 to i32
   %99 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %98) #12, !srcloc !16
-  %100 = icmp eq i32 %53, %86
+  %100 = icmp eq i32 %55, %86
   %101 = icmp eq i32 %94, %99
   %102 = select i1 %100, i1 %101, i1 false
   br i1 %102, label %.thread, label %103

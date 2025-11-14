@@ -23995,7 +23995,7 @@ define internal void @"_ZN182_$LT$polars_io..csv..write..write_impl..serializer.
   %45 = trunc nuw i8 %35 to i1
   %46 = icmp ne ptr %44, null
   tail call void @llvm.assume(i1 %46)
-  br i1 %45, label %47, label %95
+  br i1 %45, label %47, label %92
 
 "_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hee1ee46fa5827ab6E.exit.thread12": ; preds = %36, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i"
   tail call void @_ZN4core6option13expect_failed17hac9b20460123012bE(ptr noalias noundef nonnull readonly align 1 @anon.6b9a4c27caf38bfc13e44256c35787bf.322, i64 noundef 44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6b9a4c27caf38bfc13e44256c35787bf.324) #31
@@ -24006,12 +24006,12 @@ define internal void @"_ZN182_$LT$polars_io..csv..write..write_impl..serializer.
   %.val = load i16, ptr %.sroa.4.0.i1121, align 2, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2105
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2108)
+  %48 = icmp sgt i16 %.val, -1
   %.sroa.0.0.in.i.i = tail call i16 @llvm.abs.i16(i16 %.val, i1 false)
-  %48 = icmp ugt i16 %.sroa.0.0.in.i.i, 9999
-  br i1 %48, label %.thread.i.i, label %._crit_edge.i.i
+  %49 = icmp ugt i16 %.sroa.0.0.in.i.i, 9999
+  br i1 %49, label %.thread.i.i, label %._crit_edge.i.i
 
 .thread.i.i:                                      ; preds = %47
-  %49 = udiv i16 %.sroa.0.0.in.i.i, 10000
   %.lhs.trunc.i.i = urem i16 %.sroa.0.0.in.i.i, 10000
   %50 = udiv i16 %.lhs.trunc.i.i, 100
   %51 = shl nuw nsw i16 %50, 1
@@ -24027,78 +24027,78 @@ define internal void @"_ZN182_$LT$polars_io..csv..write..write_impl..serializer.
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %61 = load i16, ptr %59, align 1, !noalias !2111
   store i16 %61, ptr %60, align 1, !alias.scope !2108, !noalias !2105
-  %62 = icmp sgt i16 %.val, -1
-  %63 = trunc nuw nsw i16 %49 to i8
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %65 = or disjoint i8 %63, 48
-  store i8 %65, ptr %64, align 1, !alias.scope !2108, !noalias !2105
-  br i1 %62, label %"_ZN9polars_io3csv5write10write_impl10serializer18integer_serializer28_$u7b$$u7b$closure$u7d$$u7d$17he73e74ea779f608eE.exit", label %90
+  %62 = udiv i16 %.sroa.0.0.in.i.i, 10000
+  br label %81
 
 ._crit_edge.i.i:                                  ; preds = %47
-  %66 = icmp sgt i16 %.val, -1
-  %67 = icmp samesign ugt i16 %.sroa.0.0.in.i.i, 99
-  br i1 %67, label %68, label %76
+  %63 = icmp samesign ugt i16 %.sroa.0.0.in.i.i, 99
+  br i1 %63, label %64, label %72
 
-68:                                               ; preds = %._crit_edge.i.i
-  %69 = urem i16 %.sroa.0.0.in.i.i, 100
-  %70 = shl nuw nsw i16 %69, 1
-  %71 = zext nneg i16 %70 to i64
-  %72 = udiv i16 %.sroa.0.0.in.i.i, 100
-  %73 = getelementptr inbounds nuw i8, ptr @anon.6b9a4c27caf38bfc13e44256c35787bf.187, i64 %71
-  %74 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %75 = load i16, ptr %73, align 1, !noalias !2111
-  store i16 %75, ptr %74, align 1, !alias.scope !2108, !noalias !2105
-  br label %76
+64:                                               ; preds = %._crit_edge.i.i
+  %65 = urem i16 %.sroa.0.0.in.i.i, 100
+  %66 = shl nuw nsw i16 %65, 1
+  %67 = zext nneg i16 %66 to i64
+  %68 = udiv i16 %.sroa.0.0.in.i.i, 100
+  %69 = getelementptr inbounds nuw i8, ptr @anon.6b9a4c27caf38bfc13e44256c35787bf.187, i64 %67
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %71 = load i16, ptr %69, align 1, !noalias !2111
+  store i16 %71, ptr %70, align 1, !alias.scope !2108, !noalias !2105
+  br label %72
 
-76:                                               ; preds = %68, %._crit_edge.i.i
-  %.sroa.09.1.i.i = phi i64 [ 4, %68 ], [ 6, %._crit_edge.i.i ]
-  %.sroa.0.2.in.i.i = phi i16 [ %72, %68 ], [ %.sroa.0.0.in.i.i, %._crit_edge.i.i ]
-  %77 = icmp samesign ult i16 %.sroa.0.2.in.i.i, 10
-  br i1 %77, label %78, label %83
+72:                                               ; preds = %64, %._crit_edge.i.i
+  %.sroa.09.1.i.i = phi i64 [ 4, %64 ], [ 6, %._crit_edge.i.i ]
+  %.sroa.0.2.in.i.i = phi i16 [ %68, %64 ], [ %.sroa.0.0.in.i.i, %._crit_edge.i.i ]
+  %73 = icmp samesign ult i16 %.sroa.0.2.in.i.i, 10
+  br i1 %73, label %81, label %74
 
-78:                                               ; preds = %76
-  %79 = add nsw i64 %.sroa.09.1.i.i, -1
-  %80 = trunc nuw nsw i16 %.sroa.0.2.in.i.i to i8
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 %79
-  %82 = or disjoint i8 %80, 48
-  store i8 %82, ptr %81, align 1, !alias.scope !2108, !noalias !2105
-  br i1 %66, label %"_ZN9polars_io3csv5write10write_impl10serializer18integer_serializer28_$u7b$$u7b$closure$u7d$$u7d$17he73e74ea779f608eE.exit", label %90
+74:                                               ; preds = %72
+  %75 = shl nuw nsw i16 %.sroa.0.2.in.i.i, 1
+  %76 = zext nneg i16 %75 to i64
+  %77 = add nsw i64 %.sroa.09.1.i.i, -2
+  %78 = getelementptr inbounds nuw i8, ptr @anon.6b9a4c27caf38bfc13e44256c35787bf.187, i64 %76
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 %77
+  %80 = load i16, ptr %78, align 1, !noalias !2111
+  store i16 %80, ptr %79, align 1, !alias.scope !2108, !noalias !2105
+  br label %86
 
-83:                                               ; preds = %76
-  %84 = shl nuw nsw i16 %.sroa.0.2.in.i.i, 1
-  %85 = zext nneg i16 %84 to i64
-  %86 = add nsw i64 %.sroa.09.1.i.i, -2
-  %87 = getelementptr inbounds nuw i8, ptr @anon.6b9a4c27caf38bfc13e44256c35787bf.187, i64 %85
-  %88 = getelementptr inbounds nuw i8, ptr %4, i64 %86
-  %89 = load i16, ptr %87, align 1, !noalias !2111
-  store i16 %89, ptr %88, align 1, !alias.scope !2108, !noalias !2105
-  br i1 %66, label %"_ZN9polars_io3csv5write10write_impl10serializer18integer_serializer28_$u7b$$u7b$closure$u7d$$u7d$17he73e74ea779f608eE.exit", label %90
+81:                                               ; preds = %72, %.thread.i.i
+  %.sroa.0.236.i.i = phi i16 [ %62, %.thread.i.i ], [ %.sroa.0.2.in.i.i, %72 ]
+  %.sroa.09.135.i.i = phi i64 [ 2, %.thread.i.i ], [ %.sroa.09.1.i.i, %72 ]
+  %82 = add nsw i64 %.sroa.09.135.i.i, -1
+  %83 = trunc nuw nsw i16 %.sroa.0.236.i.i to i8
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 %82
+  %85 = or disjoint i8 %83, 48
+  store i8 %85, ptr %84, align 1, !alias.scope !2108, !noalias !2105
+  br label %86
 
-90:                                               ; preds = %83, %78, %.thread.i.i
-  %.sroa.09.237.i.i = phi i64 [ %79, %78 ], [ %86, %83 ], [ 1, %.thread.i.i ]
-  %91 = add nsw i64 %.sroa.09.237.i.i, -1
-  %92 = getelementptr inbounds nuw i8, ptr %4, i64 %91
-  store i8 45, ptr %92, align 1, !alias.scope !2108, !noalias !2105
+86:                                               ; preds = %81, %74
+  %.sroa.09.2.i.i = phi i64 [ %82, %81 ], [ %77, %74 ]
+  br i1 %48, label %"_ZN9polars_io3csv5write10write_impl10serializer18integer_serializer28_$u7b$$u7b$closure$u7d$$u7d$17he73e74ea779f608eE.exit", label %87
+
+87:                                               ; preds = %86
+  %88 = add nsw i64 %.sroa.09.2.i.i, -1
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 %88
+  store i8 45, ptr %89, align 1, !alias.scope !2108, !noalias !2105
   br label %"_ZN9polars_io3csv5write10write_impl10serializer18integer_serializer28_$u7b$$u7b$closure$u7d$$u7d$17he73e74ea779f608eE.exit"
 
-"_ZN9polars_io3csv5write10write_impl10serializer18integer_serializer28_$u7b$$u7b$closure$u7d$$u7d$17he73e74ea779f608eE.exit": ; preds = %.thread.i.i, %78, %83, %90
-  %.sroa.09.3.i.i = phi i64 [ %86, %83 ], [ %91, %90 ], [ %79, %78 ], [ 1, %.thread.i.i ]
-  %93 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.09.3.i.i
-  %94 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc52d889b87c84598E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %93, ptr noundef nonnull %94, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6b9a4c27caf38bfc13e44256c35787bf.328)
+"_ZN9polars_io3csv5write10write_impl10serializer18integer_serializer28_$u7b$$u7b$closure$u7d$$u7d$17he73e74ea779f608eE.exit": ; preds = %86, %87
+  %.sroa.09.3.i.i = phi i64 [ %.sroa.09.2.i.i, %86 ], [ %88, %87 ]
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.09.3.i.i
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc52d889b87c84598E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %90, ptr noundef nonnull %91, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6b9a4c27caf38bfc13e44256c35787bf.328)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2105
-  br label %101
+  br label %98
 
-95:                                               ; preds = %43
-  %96 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %97 = load ptr, ptr %96, align 8, !nonnull !4, !noundef !4
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %99 = load i64, ptr %98, align 8, !noundef !4
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 %99
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc52d889b87c84598E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %97, ptr noundef nonnull %100, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6b9a4c27caf38bfc13e44256c35787bf.325)
-  br label %101
+92:                                               ; preds = %43
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %94 = load ptr, ptr %93, align 8, !nonnull !4, !noundef !4
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %96 = load i64, ptr %95, align 8, !noundef !4
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 %96
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc52d889b87c84598E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %94, ptr noundef nonnull %97, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6b9a4c27caf38bfc13e44256c35787bf.325)
+  br label %98
 
-101:                                              ; preds = %"_ZN9polars_io3csv5write10write_impl10serializer18integer_serializer28_$u7b$$u7b$closure$u7d$$u7d$17he73e74ea779f608eE.exit", %95
+98:                                               ; preds = %"_ZN9polars_io3csv5write10write_impl10serializer18integer_serializer28_$u7b$$u7b$closure$u7d$$u7d$17he73e74ea779f608eE.exit", %92
   ret void
 }
 
@@ -24204,14 +24204,14 @@ define internal void @"_ZN182_$LT$polars_io..csv..write..write_impl..serializer.
   %.val = load i64, ptr %.sroa.4.0.i1121, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2129
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2132)
+  %48 = icmp sgt i64 %.val, -1
   %.sroa.0.0.i.i = tail call i64 @llvm.abs.i64(i64 %.val, i1 false)
-  %48 = icmp ugt i64 %.sroa.0.0.i.i, 9999
-  br i1 %48, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %49 = icmp ugt i64 %.sroa.0.0.i.i, 9999
+  br i1 %49, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %47
   %.sroa.09.0.lcssa.i.i = phi i64 [ 20, %47 ], [ %59, %.lr.ph.i.i ]
   %.sroa.0.1.lcssa.i.i = phi i64 [ %.sroa.0.0.i.i, %47 ], [ %52, %.lr.ph.i.i ]
-  %49 = icmp sgt i64 %.val, -1
   %50 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i, 99
   br i1 %50, label %68, label %77
 
@@ -24279,7 +24279,7 @@ define internal void @"_ZN182_$LT$polars_io..csv..write..write_impl..serializer.
 
 90:                                               ; preds = %85, %79
   %.sroa.09.2.i.i = phi i64 [ %86, %85 ], [ %81, %79 ]
-  br i1 %49, label %"_ZN9polars_io3csv5write10write_impl10serializer18integer_serializer28_$u7b$$u7b$closure$u7d$$u7d$17hf1810d8500d40bf9E.exit", label %91
+  br i1 %48, label %"_ZN9polars_io3csv5write10write_impl10serializer18integer_serializer28_$u7b$$u7b$closure$u7d$$u7d$17hf1810d8500d40bf9E.exit", label %91
 
 91:                                               ; preds = %90
   %92 = add i64 %.sroa.09.2.i.i, -1
@@ -25846,14 +25846,14 @@ define internal void @"_ZN182_$LT$polars_io..csv..write..write_impl..serializer.
   %.val = load i32, ptr %.sroa.4.0.i1121, align 4, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2368
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2371)
+  %48 = icmp sgt i32 %.val, -1
   %.sroa.0.0.i.i = tail call i32 @llvm.abs.i32(i32 %.val, i1 false)
-  %48 = icmp ugt i32 %.sroa.0.0.i.i, 9999
-  br i1 %48, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %49 = icmp ugt i32 %.sroa.0.0.i.i, 9999
+  br i1 %49, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %47
   %.sroa.09.0.lcssa.i.i = phi i64 [ 11, %47 ], [ %59, %.lr.ph.i.i ]
   %.sroa.0.1.lcssa.i.i = phi i32 [ %.sroa.0.0.i.i, %47 ], [ %52, %.lr.ph.i.i ]
-  %49 = icmp sgt i32 %.val, -1
   %50 = icmp samesign ugt i32 %.sroa.0.1.lcssa.i.i, 99
   br i1 %50, label %68, label %77
 
@@ -25922,7 +25922,7 @@ define internal void @"_ZN182_$LT$polars_io..csv..write..write_impl..serializer.
 
 91:                                               ; preds = %86, %79
   %.sroa.09.2.i.i = phi i64 [ %87, %86 ], [ %82, %79 ]
-  br i1 %49, label %"_ZN9polars_io3csv5write10write_impl10serializer18integer_serializer28_$u7b$$u7b$closure$u7d$$u7d$17ha039c4ba668aaca0E.exit", label %92
+  br i1 %48, label %"_ZN9polars_io3csv5write10write_impl10serializer18integer_serializer28_$u7b$$u7b$closure$u7d$$u7d$17ha039c4ba668aaca0E.exit", label %92
 
 92:                                               ; preds = %91
   %93 = add i64 %.sroa.09.2.i.i, -1
@@ -26126,22 +26126,22 @@ define internal void @"_ZN182_$LT$polars_io..csv..write..write_impl..serializer.
   br i1 %48, label %.thread.i.i, label %._crit_edge.i.i
 
 .thread.i.i:                                      ; preds = %47
-  %49 = udiv i16 %.val, 10000
   %.lhs.trunc.i.i = urem i16 %.val, 10000
-  %50 = udiv i16 %.lhs.trunc.i.i, 100
-  %51 = shl nuw nsw i16 %50, 1
-  %52 = zext nneg i16 %51 to i64
-  %53 = urem i16 %.lhs.trunc.i.i, 100
-  %54 = shl nuw nsw i16 %53, 1
-  %55 = zext nneg i16 %54 to i64
-  %56 = getelementptr inbounds nuw i8, ptr @anon.6b9a4c27caf38bfc13e44256c35787bf.187, i64 %52
-  %57 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %58 = load i16, ptr %56, align 1, !noalias !2408
-  store i16 %58, ptr %57, align 1, !alias.scope !2405, !noalias !2402
-  %59 = getelementptr inbounds nuw i8, ptr @anon.6b9a4c27caf38bfc13e44256c35787bf.187, i64 %55
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  %61 = load i16, ptr %59, align 1, !noalias !2408
-  store i16 %61, ptr %60, align 1, !alias.scope !2405, !noalias !2402
+  %49 = udiv i16 %.lhs.trunc.i.i, 100
+  %50 = shl nuw nsw i16 %49, 1
+  %51 = zext nneg i16 %50 to i64
+  %52 = urem i16 %.lhs.trunc.i.i, 100
+  %53 = shl nuw nsw i16 %52, 1
+  %54 = zext nneg i16 %53 to i64
+  %55 = getelementptr inbounds nuw i8, ptr @anon.6b9a4c27caf38bfc13e44256c35787bf.187, i64 %51
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %57 = load i16, ptr %55, align 1, !noalias !2408
+  store i16 %57, ptr %56, align 1, !alias.scope !2405, !noalias !2402
+  %58 = getelementptr inbounds nuw i8, ptr @anon.6b9a4c27caf38bfc13e44256c35787bf.187, i64 %54
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %60 = load i16, ptr %58, align 1, !noalias !2408
+  store i16 %60, ptr %59, align 1, !alias.scope !2405, !noalias !2402
+  %61 = udiv i16 %.val, 10000
   br label %80
 
 ._crit_edge.i.i:                                  ; preds = %47
@@ -26176,7 +26176,7 @@ define internal void @"_ZN182_$LT$polars_io..csv..write..write_impl..serializer.
   br label %"_ZN9polars_io3csv5write10write_impl10serializer18integer_serializer28_$u7b$$u7b$closure$u7d$$u7d$17hf3be89a2a6352ea2E.exit"
 
 80:                                               ; preds = %71, %.thread.i.i
-  %.sroa.0.236.i.i = phi i16 [ %49, %.thread.i.i ], [ %.sroa.0.2.in.i.i, %71 ]
+  %.sroa.0.236.i.i = phi i16 [ %61, %.thread.i.i ], [ %.sroa.0.2.in.i.i, %71 ]
   %.sroa.09.135.i.i = phi i64 [ 1, %.thread.i.i ], [ %.sroa.09.1.i.i, %71 ]
   %81 = add nsw i64 %.sroa.09.135.i.i, -1
   %82 = trunc nuw nsw i16 %.sroa.0.236.i.i to i8

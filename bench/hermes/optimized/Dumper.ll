@@ -4512,23 +4512,24 @@ while.body.i.i.i.i:                               ; preds = %for.body13, %while.
 
 _ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, %add.ptr.i.i.i11
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i117.preheader, label %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i
+  br i1 %cmp.i.i.i.i, label %if.end.i, label %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i
 
 _ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i: ; preds = %_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i
   %_M_storage.i.i.i3.i.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i3.i.i.i, align 8
   %cmp.i4.i.i.i = icmp ult ptr %add.ptr, %7
-  br i1 %cmp.i4.i.i.i, label %while.body.i.i.i.i117.preheader, label %_ZN6hermes16InstructionNamer9getNumberEPNS_5ValueE.exit
+  br i1 %cmp.i4.i.i.i, label %if.end.i, label %_ZN6hermes16InstructionNamer9getNumberEPNS_5ValueE.exit
 
-while.body.i.i.i.i117.preheader:                  ; preds = %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i, %_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i
+if.end.i:                                         ; preds = %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE4findERS6_.exit.i, %_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i.i.i
+  %8 = load i32, ptr %Counter.i9, align 8
   br label %while.body.i.i.i.i117
 
-while.body.i.i.i.i117:                            ; preds = %while.body.i.i.i.i117.preheader, %while.body.i.i.i.i117
-  %__x.addr.07.i.i.i.i118 = phi ptr [ %__x.addr.1.i.i.i.i125, %while.body.i.i.i.i117 ], [ %4, %while.body.i.i.i.i117.preheader ]
-  %__y.addr.06.i.i.i.i119 = phi ptr [ %__y.addr.1.i.i.i.i122, %while.body.i.i.i.i117 ], [ %add.ptr.i.i.i11, %while.body.i.i.i.i117.preheader ]
+while.body.i.i.i.i117:                            ; preds = %if.end.i, %while.body.i.i.i.i117
+  %__x.addr.07.i.i.i.i118 = phi ptr [ %__x.addr.1.i.i.i.i125, %while.body.i.i.i.i117 ], [ %4, %if.end.i ]
+  %__y.addr.06.i.i.i.i119 = phi ptr [ %__y.addr.1.i.i.i.i122, %while.body.i.i.i.i117 ], [ %add.ptr.i.i.i11, %if.end.i ]
   %_M_storage.i.i.i.i.i.i120 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i.i118, i64 32
-  %8 = load ptr, ptr %_M_storage.i.i.i.i.i.i120, align 8
-  %cmp.i.i.i.i.i121 = icmp ult ptr %8, %add.ptr
+  %9 = load ptr, ptr %_M_storage.i.i.i.i.i.i120, align 8
+  %cmp.i.i.i.i.i121 = icmp ult ptr %9, %add.ptr
   %__y.addr.1.i.i.i.i122 = select i1 %cmp.i.i.i.i.i121, ptr %__y.addr.06.i.i.i.i119, ptr %__x.addr.07.i.i.i.i118
   %__x.addr.1.in.v.i.i.i.i123 = select i1 %cmp.i.i.i.i.i121, i64 24, i64 16
   %__x.addr.1.in.i.i.i.i124 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i.i118, i64 %__x.addr.1.in.v.i.i.i.i123
@@ -4537,7 +4538,6 @@ while.body.i.i.i.i117:                            ; preds = %while.body.i.i.i.i1
   br i1 %cmp.not.i.i.i.i126, label %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE11lower_boundERS6_.exit.i, label %while.body.i.i.i.i117, !llvm.loop !33
 
 _ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE11lower_boundERS6_.exit.i: ; preds = %while.body.i.i.i.i117
-  %9 = load i32, ptr %Counter.i9, align 8
   %cmp.i.i127 = icmp eq ptr %__y.addr.1.i.i.i.i122, %add.ptr.i.i.i11
   br i1 %cmp.i.i127, label %if.then.i130, label %lor.rhs.i
 
@@ -4548,7 +4548,7 @@ lor.rhs.i:                                        ; preds = %_ZNSt3mapIPN6hermes
   br i1 %cmp.i3.i, label %if.then.i130, label %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_.exit
 
 if.then.i130:                                     ; preds = %if.end.i.thread, %lor.rhs.i, %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE11lower_boundERS6_.exit.i
-  %11 = phi i32 [ %9, %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE11lower_boundERS6_.exit.i ], [ %9, %lor.rhs.i ], [ %5, %if.end.i.thread ]
+  %11 = phi i32 [ %8, %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE11lower_boundERS6_.exit.i ], [ %8, %lor.rhs.i ], [ %5, %if.end.i.thread ]
   %__y.addr.0.lcssa.i.i.i13.i = phi ptr [ %__y.addr.1.i.i.i.i122, %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEE11lower_boundERS6_.exit.i ], [ %__y.addr.1.i.i.i.i122, %lor.rhs.i ], [ %add.ptr.i.i.i11, %if.end.i.thread ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %_M_storage.i.i.i.i.i4.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 32
@@ -4587,7 +4587,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i130
   br label %_ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_.exit
 
 _ZNSt3mapIPN6hermes5ValueEjSt4lessIS2_ESaISt4pairIKS2_jEEEixERS6_.exit: ; preds = %lor.rhs.i, %cleanup.thread.i.i, %if.then.i.i.i
-  %18 = phi i32 [ %9, %lor.rhs.i ], [ %11, %cleanup.thread.i.i ], [ %11, %if.then.i.i.i ]
+  %18 = phi i32 [ %8, %lor.rhs.i ], [ %11, %cleanup.thread.i.i ], [ %11, %if.then.i.i.i ]
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i122, %lor.rhs.i ], [ %call5.i.i.i.i.i.i.i, %cleanup.thread.i.i ], [ %12, %if.then.i.i.i ]
   %second.i129 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 40
   store i32 %18, ptr %second.i129, align 4

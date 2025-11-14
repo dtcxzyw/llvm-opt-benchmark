@@ -114008,26 +114008,26 @@ define { float, float } @_ZN4gpui5scene20TransformationMatrix5apply17hbe9a2a3129
   br label %.split
 
 .loopexit:                                        ; preds = %18
-  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx33, 4
-  %9 = add nuw nsw i64 %.sroa.7.032, 1
   store float %25, ptr %.sroa.0.0.ptr34, align 4
-  %10 = icmp eq i64 %.sroa.0.0.add, 8
-  br i1 %10, label %11, label %.split
+  %9 = icmp eq i64 %.sroa.0.0.add, 8
+  br i1 %9, label %10, label %.split
 
-11:                                               ; preds = %.loopexit
-  %12 = load float, ptr %4, align 8, !noundef !9
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %14 = load float, ptr %13, align 4, !noundef !9
+10:                                               ; preds = %.loopexit
+  %11 = load float, ptr %4, align 8, !noundef !9
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %13 = load float, ptr %12, align 4, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %15 = insertvalue { float, float } poison, float %12, 0
-  %16 = insertvalue { float, float } %15, float %14, 1
-  ret { float, float } %16
+  %14 = insertvalue { float, float } poison, float %11, 0
+  %15 = insertvalue { float, float } %14, float %13, 1
+  ret { float, float } %15
 
 .split:                                           ; preds = %.loopexit, %3
   %.sroa.0.0.idx33 = phi i64 [ 0, %3 ], [ %.sroa.0.0.add, %.loopexit ]
-  %.sroa.7.032 = phi i64 [ 0, %3 ], [ %9, %.loopexit ]
+  %.sroa.7.032 = phi i64 [ 0, %3 ], [ %16, %.loopexit ]
   %.sroa.0.0.ptr34 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.0.0.idx33
+  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx33, 4
+  %16 = add nuw nsw i64 %.sroa.7.032, 1
   %17 = getelementptr inbounds nuw [2 x float], ptr %0, i64 %.sroa.7.032
   %.sroa.0.0.ptr.promoted = load float, ptr %.sroa.0.0.ptr34, align 4
   br label %18

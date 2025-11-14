@@ -2157,24 +2157,24 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(6168) %10, i8 0, i64 6168, i1 false)
   %.sroa.0.0.extract.trunc = trunc i64 %4 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %11, ptr noundef nonnull align 8 dereferenceable(60) %21, i64 60, i1 false), !tbaa.struct !161
-  %22 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store ptr %2, ptr %22, align 8, !tbaa !163
-  %23 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store ptr %3, ptr %23, align 8, !tbaa !167
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store ptr %18, ptr %24, align 8, !tbaa !168
-  %25 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  store i32 %.sroa.0.0.extract.trunc, ptr %25, align 8, !tbaa !169
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %27 = load ptr, ptr %26, align 8, !tbaa !153
-  store ptr %27, ptr %9, align 16, !tbaa !170
-  store ptr null, ptr %27, align 8, !tbaa !171
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %11, ptr noundef nonnull align 8 dereferenceable(60) %22, i64 60, i1 false), !tbaa.struct !161
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  store ptr %2, ptr %23, align 8, !tbaa !163
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store ptr %3, ptr %24, align 8, !tbaa !167
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  store ptr %18, ptr %25, align 8, !tbaa !168
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  store i32 %.sroa.0.0.extract.trunc, ptr %26, align 8, !tbaa !169
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %28 = load ptr, ptr %27, align 8, !tbaa !153
+  store ptr %28, ptr %9, align 16, !tbaa !170
+  store ptr null, ptr %28, align 8, !tbaa !171
   br label %50
 
-28:                                               ; preds = %50
-  %29 = getelementptr inbounds nuw i8, ptr %11, i64 4
+29:                                               ; preds = %50
   %30 = shl i64 %4, 32
   %sext = add i64 %30, 4294967296
   %31 = ashr exact i64 %sext, 30
@@ -2208,7 +2208,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
   br label %_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit
 
 50:                                               ; preds = %7, %50
-  %51 = phi ptr [ %27, %7 ], [ %57, %50 ]
+  %51 = phi ptr [ %28, %7 ], [ %57, %50 ]
   %indvars.iv = phi i64 [ 1, %7 ], [ %indvars.iv.next, %50 ]
   %52 = getelementptr i32, ptr %5, i64 %indvars.iv
   %53 = getelementptr i8, ptr %52, i64 -4
@@ -2221,11 +2221,11 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
   store ptr null, ptr %57, align 8, !tbaa !171
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %28, label %50, !llvm.loop !174
+  br i1 %exitcond.not, label %29, label %50, !llvm.loop !174
 
-_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit: ; preds = %_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit.backedge, %28
-  %.095 = phi ptr [ %34, %28 ], [ %.095.be, %_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit.backedge ]
-  %.092 = phi ptr [ %32, %28 ], [ %.092.be, %_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit.backedge ]
+_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit: ; preds = %_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit.backedge, %29
+  %.095 = phi ptr [ %34, %29 ], [ %.095.be, %_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit.backedge ]
+  %.092 = phi ptr [ %32, %29 ], [ %.092.be, %_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit.backedge ]
   %59 = ptrtoint ptr %.092 to i64
   %60 = sub i64 %59, %35
   %61 = ashr exact i64 %60, 2
@@ -2468,7 +2468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %107, 
   store float 0x47EFFFFFE0000000, ptr %169, align 8, !tbaa !189
   %170 = getelementptr inbounds nuw i8, ptr %.023.i, i64 40
   store i8 1, ptr %170, align 8, !tbaa !190
-  %171 = load i32, ptr %29, align 4, !tbaa !191
+  %171 = load i32, ptr %21, align 4, !tbaa !191
   %.not30.i = icmp slt i32 %125, %171
   br i1 %.not30.i, label %173, label %172
 
@@ -2554,7 +2554,7 @@ _ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEi
   store float 0x47EFFFFFE0000000, ptr %202, align 8, !tbaa !189
   %203 = getelementptr inbounds nuw i8, ptr %.023.i127, i64 40
   store i8 1, ptr %203, align 8, !tbaa !190
-  %204 = load i32, ptr %29, align 4, !tbaa !191
+  %204 = load i32, ptr %21, align 4, !tbaa !191
   %.not30.i128 = icmp slt i32 %198, %204
   br i1 %.not30.i128, label %206, label %205
 
@@ -4889,8 +4889,8 @@ define linkonce_odr hidden void @_ZNSt6vectorIPN2cv9MSER_Impl5PixelESaIS3_EE17_M
 
 _ZSt6fill_nIPPN2cv9MSER_Impl5PixelEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !171
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPN2cv9MSER_Impl5PixelEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN2cv9MSER_Impl5PixelEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN2cv9MSER_Impl5PixelEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i

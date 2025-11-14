@@ -1625,8 +1625,8 @@ _ZNSt6vectorIPN5clang8internal15CFGIntervalNodeESaIS3_EEC2EmRKS3_RKS4_.exit.i: ;
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %28, ptr %29, align 8, !tbaa !108, !noalias !91
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %26
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %27, i8 0, i64 %26, i1 false), !tbaa !100
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %26
   store ptr %30, ptr %24, align 8, !tbaa !109, !noalias !91
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !91
   %31 = add i32 %7, 63
@@ -2380,8 +2380,8 @@ _ZNSt6vectorIPN5clang8internal15CFGIntervalNodeESaIS3_EEC2EmRKS3_RKS4_.exit.i: ;
   %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %71
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %74, ptr %75, align 8, !tbaa !108, !noalias !146
-  %76 = getelementptr inbounds nuw i8, ptr %73, i64 %72
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %73, i8 0, i64 %72, i1 false), !tbaa !100
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 %72
   store ptr %76, ptr %70, align 8, !tbaa !109, !noalias !146
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !146
   %77 = add i32 %35, 63

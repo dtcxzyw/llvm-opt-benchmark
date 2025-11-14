@@ -32525,24 +32525,27 @@ define internal fastcc void @_ZN7testing8internal16UniversalPrinterIN11opencv_te
   %11 = icmp eq i8 %8, 44
   %or.cond.i.i = or i1 %11, %.not.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  br i1 %or.cond.i.i, label %.critedge.i.i, label %.preheader.i.i, !llvm.loop !853
+  br i1 %or.cond.i.i, label %.critedge.i.i, label %.preheader.i.i.preheader, !llvm.loop !853
 
-.preheader.i.i:                                   ; preds = %.critedge.i.i, %.preheader.i.i
-  %indvars.iv29.i.i = phi i64 [ %indvars.iv.next30.i.i, %.preheader.i.i ], [ %indvars.iv.i.i, %.critedge.i.i ]
-  %12 = getelementptr inbounds i8, ptr @.str.114, i64 %indvars.iv29.i.i
-  %13 = load i8, ptr %12, align 1, !tbaa !14
-  %14 = sext i8 %13 to i32
-  %15 = call i32 @isspace(i32 noundef %14) #36
-  %.not50.i.i = icmp eq i32 %15, 0
-  %16 = icmp ne i8 %13, 44
-  %or.cond53.not10.i.i = and i1 %16, %.not50.i.i
-  %17 = icmp ne i64 %indvars.iv29.i.i, 99
-  %or.cond56.i.i = and i1 %17, %or.cond53.not10.i.i
+.preheader.i.i.preheader:                         ; preds = %.critedge.i.i
+  %12 = getelementptr inbounds i8, ptr @.str.114, i64 %indvars.iv.i.i
+  br label %.preheader.i.i
+
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
+  %indvars.iv29.i.i = phi i64 [ %indvars.iv.next30.i.i, %.preheader.i.i ], [ %indvars.iv.i.i, %.preheader.i.i.preheader ]
+  %13 = getelementptr inbounds i8, ptr @.str.114, i64 %indvars.iv29.i.i
+  %14 = load i8, ptr %13, align 1, !tbaa !14
+  %15 = sext i8 %14 to i32
+  %16 = call i32 @isspace(i32 noundef %15) #36
+  %.not50.i.i = icmp eq i32 %16, 0
+  %17 = icmp ne i8 %14, 44
+  %or.cond53.not10.i.i = and i1 %17, %.not50.i.i
+  %18 = icmp ne i64 %indvars.iv29.i.i, 99
+  %or.cond56.i.i = and i1 %18, %or.cond53.not10.i.i
   %indvars.iv.next30.i.i = add nsw i64 %indvars.iv29.i.i, 1
   br i1 %or.cond56.i.i, label %.preheader.i.i, label %.critedge55.i.i, !llvm.loop !854
 
 .critedge55.i.i:                                  ; preds = %.preheader.i.i
-  %18 = getelementptr inbounds i8, ptr @.str.114, i64 %indvars.iv.i.i
   %19 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_18NormType7PrintToEPSo.vals, i64 %indvars.iv32.i.i
   %20 = load i32, ptr %19, align 4, !tbaa !245
   %21 = and i32 %20, %.03625.i.i
@@ -32588,7 +32591,7 @@ define internal fastcc void @_ZN7testing8internal16UniversalPrinterIN11opencv_te
   br label %36
 
 35:                                               ; preds = %._crit_edge.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull align 1 %18, i64 %gepdiff.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull align 1 %12, i64 %gepdiff.i.i, i1 false)
   br label %36
 
 36:                                               ; preds = %35, %34, %._crit_edge.i.i.i.i

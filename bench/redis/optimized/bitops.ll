@@ -52,6 +52,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i64 @redisPopcount(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @__cpu_model, i64 12), align 4
   %4 = and i32 %3, 4
+  %.not = icmp eq i32 %4, 0
   %5 = or disjoint i32 %4, 3
   %6 = zext nneg i32 %5 to i64
   %7 = ptrtoint ptr %0 to i64
@@ -84,7 +85,6 @@ define dso_local i64 @redisPopcount(ptr noundef %0, i64 noundef %1) local_unname
   %.088.lcssa = phi ptr [ %0, %2 ], [ %12, %.lr.ph ]
   %.084.lcssa = phi i64 [ 0, %2 ], [ %18, %.lr.ph ]
   %.083.lcssa = phi i64 [ %1, %2 ], [ %19, %.lr.ph ]
-  %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader, label %.preheader94, !prof !10
 
 .preheader94:                                     ; preds = %._crit_edge

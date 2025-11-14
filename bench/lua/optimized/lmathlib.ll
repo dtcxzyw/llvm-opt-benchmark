@@ -77,13 +77,13 @@ define dso_local noundef i32 @luaopen_math(ptr noundef %0) local_unnamed_addr #0
   br i1 %exitcond.not.i.i, label %setrandfunc.exit, label %5
 
 setrandfunc.exit:                                 ; preds = %5
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %12, ptr %2, align 8, !tbaa !4
-  store i64 %13, ptr %18, align 8, !tbaa !4
+  store i64 %13, ptr %20, align 8, !tbaa !4
   store i64 %15, ptr %19, align 8, !tbaa !4
-  store i64 %16, ptr %20, align 8, !tbaa !4
+  store i64 %16, ptr %18, align 8, !tbaa !4
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %4) #7
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef 0) #7
   tail call void @lua_settop(ptr noundef %0, i32 noundef -3) #7
@@ -779,13 +779,13 @@ define internal noundef i32 @math_randomseed(ptr noundef %0) #0 {
   br i1 %exitcond.not.i, label %setseed.exit, label %19
 
 setseed.exit:                                     ; preds = %19
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %26, ptr %2, align 8, !tbaa !4
-  store i64 %27, ptr %32, align 8, !tbaa !4
+  store i64 %27, ptr %34, align 8, !tbaa !4
   store i64 %29, ptr %33, align 8, !tbaa !4
-  store i64 %30, ptr %34, align 8, !tbaa !4
+  store i64 %30, ptr %32, align 8, !tbaa !4
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %.09) #7
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %.0) #7
   ret i32 2

@@ -2568,12 +2568,12 @@ _eval_nodes_dfly.exit:                            ; preds = %866, %._crit_edge64
   %.1424.i = phi ptr [ %.0423.i, %1845 ], [ %.0423.i, %1851 ], [ %.0423.i, %1848 ], [ %967, %1194 ], [ %967, %.lr.ph695.i ]
   %.1398.i = phi i64 [ %.0397.i, %1845 ], [ %.0397.i, %1851 ], [ %.0397.i, %1848 ], [ %.1400.lcssa.i, %1194 ], [ %.1400.lcssa.i, %.lr.ph695.i ]
   %.1377.i = phi i32 [ %.0376.i, %1845 ], [ %.0376.i, %1851 ], [ %.0376.i, %1848 ], [ %.1379.lcssa.i, %1194 ], [ %.1379.lcssa.i, %.lr.ph695.i ]
-  %.5362.i = phi i32 [ %1832, %1845 ], [ %1832, %1851 ], [ %1832, %1848 ], [ %.2359.lcssa.i, %1194 ], [ %.2359.lcssa.i, %.lr.ph695.i ]
-  %.4353.i = phi i32 [ %1833, %1845 ], [ %1833, %1851 ], [ %1833, %1848 ], [ %.1350.lcssa.i, %1194 ], [ %.1350.lcssa.i, %.lr.ph695.i ]
+  %.5362.i = phi i32 [ %1808, %1845 ], [ %1808, %1851 ], [ %1808, %1848 ], [ %.2359.lcssa.i, %1194 ], [ %.2359.lcssa.i, %.lr.ph695.i ]
+  %.4353.i = phi i32 [ %1809, %1845 ], [ %1809, %1851 ], [ %1809, %1848 ], [ %.1350.lcssa.i, %1194 ], [ %.1350.lcssa.i, %.lr.ph695.i ]
   %.2348.i = phi i32 [ %.1347.i, %1845 ], [ %.1347.i, %1851 ], [ %.1347.i, %1848 ], [ %.0346.i, %1194 ], [ %.0346.i, %.lr.ph695.i ]
   %.1339.i20 = phi i8 [ %.0338.i, %1845 ], [ %.0338.i, %1851 ], [ %.0338.i, %1848 ], [ 0, %1194 ], [ 0, %.lr.ph695.i ]
   %.5336.i = phi i32 [ %.0331.i, %1845 ], [ %.0331.i, %1851 ], [ %.0331.i, %1848 ], [ %.3334.i, %1194 ], [ %.3334.i, %.lr.ph695.i ]
-  %.1317.i = phi i32 [ %1831, %1845 ], [ %1831, %1851 ], [ %1831, %1848 ], [ %891, %1194 ], [ %891, %.lr.ph695.i ]
+  %.1317.i = phi i32 [ %1807, %1845 ], [ %1807, %1851 ], [ %1807, %1848 ], [ %891, %1194 ], [ %891, %.lr.ph695.i ]
   %.2315.i = phi ptr [ %.1314.i, %1845 ], [ %.1314.i, %1851 ], [ %.1314.i, %1848 ], [ %.0313.i, %1194 ], [ %.0313.i, %.lr.ph695.i ]
   %1212 = load i32, ptr @node_record_count, align 4
   %1213 = sext i32 %1212 to i64
@@ -3865,28 +3865,31 @@ _topo_add_dist.exit558.i:                         ; preds = %1689
   br i1 %or.cond19.i, label %1806, label %1852
 
 1806:                                             ; preds = %1802
-  %1807 = sub i32 %893, %.1347.i
-  store i32 %1807, ptr %892, align 8
+  %1807 = add i32 %.0316.i, -1
+  %1808 = sub nsw i32 %1807, %.1347.i
+  %1809 = sub nsw i32 %889, %.1347.i
+  %1810 = sub i32 %893, %.1347.i
+  store i32 %1810, ptr %892, align 8
   call void @slurm_xfree(ptr noundef nonnull %16) #7
-  %1808 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %1809 = load ptr, ptr %1808, align 8
-  %1810 = load ptr, ptr %11, align 8
-  call void @bit_copybits(ptr noundef %1809, ptr noundef %1810) #7
-  %1811 = load ptr, ptr %6, align 8
-  %1812 = load ptr, ptr %7, align 8
-  %1813 = load i32, ptr @switch_record_cnt, align 4
-  %1814 = sext i32 %1813 to i64
-  %1815 = shl nsw i64 %1814, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1811, ptr align 4 %1812, i64 %1815, i1 false)
-  %1816 = load ptr, ptr %15, align 8
-  %1817 = load i32, ptr @node_record_count, align 4
-  %1818 = sext i32 %1817 to i64
-  %1819 = shl nsw i64 %1818, 1
-  call void @llvm.memset.p0.i64(ptr align 2 %1816, i8 0, i64 %1819, i1 false)
+  %1811 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1812 = load ptr, ptr %1811, align 8
+  %1813 = load ptr, ptr %11, align 8
+  call void @bit_copybits(ptr noundef %1812, ptr noundef %1813) #7
+  %1814 = load ptr, ptr %6, align 8
+  %1815 = load ptr, ptr %7, align 8
+  %1816 = load i32, ptr @switch_record_cnt, align 4
+  %1817 = sext i32 %1816 to i64
+  %1818 = shl nsw i64 %1817, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1814, ptr align 4 %1815, i64 %1818, i1 false)
+  %1819 = load ptr, ptr %15, align 8
+  %1820 = load i32, ptr @node_record_count, align 4
+  %1821 = sext i32 %1820 to i64
+  %1822 = shl nsw i64 %1821, 1
+  call void @llvm.memset.p0.i64(ptr align 2 %1819, i8 0, i64 %1822, i1 false)
   store i32 0, ptr %12, align 4
-  %1820 = load i32, ptr @switch_record_cnt, align 4
-  %1821 = icmp sgt i32 %1820, 0
-  br i1 %1821, label %.lr.ph703.preheader.i, label %._crit_edge704.i
+  %1823 = load i32, ptr @switch_record_cnt, align 4
+  %1824 = icmp sgt i32 %1823, 0
+  br i1 %1824, label %.lr.ph703.preheader.i, label %._crit_edge704.i
 
 .lr.ph703.preheader.i:                            ; preds = %1806
   %.pre843.i = load ptr, ptr %3, align 8
@@ -3894,24 +3897,21 @@ _topo_add_dist.exit558.i:                         ; preds = %1689
   br label %.lr.ph703.i
 
 .lr.ph703.i:                                      ; preds = %.lr.ph703.i, %.lr.ph703.preheader.i
-  %storemerge478701.i = phi i32 [ %1828, %.lr.ph703.i ], [ 0, %.lr.ph703.preheader.i ]
-  %1822 = sext i32 %storemerge478701.i to i64
-  %1823 = getelementptr inbounds ptr, ptr %.pre843.i, i64 %1822
-  %1824 = load ptr, ptr %1823, align 8
-  %1825 = getelementptr inbounds ptr, ptr %.pre844.i, i64 %1822
-  %1826 = load ptr, ptr %1825, align 8
-  call void @bit_copybits(ptr noundef %1824, ptr noundef %1826) #7
-  %1827 = load i32, ptr %12, align 4
-  %1828 = add nsw i32 %1827, 1
-  store i32 %1828, ptr %12, align 4
-  %1829 = load i32, ptr @switch_record_cnt, align 4
-  %1830 = icmp slt i32 %1828, %1829
-  br i1 %1830, label %.lr.ph703.i, label %._crit_edge704.i, !llvm.loop !49
+  %storemerge478701.i = phi i32 [ %1831, %.lr.ph703.i ], [ 0, %.lr.ph703.preheader.i ]
+  %1825 = sext i32 %storemerge478701.i to i64
+  %1826 = getelementptr inbounds ptr, ptr %.pre843.i, i64 %1825
+  %1827 = load ptr, ptr %1826, align 8
+  %1828 = getelementptr inbounds ptr, ptr %.pre844.i, i64 %1825
+  %1829 = load ptr, ptr %1828, align 8
+  call void @bit_copybits(ptr noundef %1827, ptr noundef %1829) #7
+  %1830 = load i32, ptr %12, align 4
+  %1831 = add nsw i32 %1830, 1
+  store i32 %1831, ptr %12, align 4
+  %1832 = load i32, ptr @switch_record_cnt, align 4
+  %1833 = icmp slt i32 %1831, %1832
+  br i1 %1833, label %.lr.ph703.i, label %._crit_edge704.i, !llvm.loop !49
 
 ._crit_edge704.i:                                 ; preds = %.lr.ph703.i, %1806
-  %1831 = add i32 %.0316.i, -1
-  %1832 = sub nsw i32 %1831, %.1347.i
-  %1833 = sub nsw i32 %889, %.1347.i
   %1834 = load ptr, ptr %8, align 8
   %.not479.i = icmp eq ptr %1834, null
   br i1 %.not479.i, label %1836, label %1835
@@ -3963,7 +3963,7 @@ _topo_add_dist.exit558.i:                         ; preds = %1689
   br i1 %1850, label %1851, label %.loopexit626.i
 
 1851:                                             ; preds = %1848
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.24, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._eval_nodes_topo, ptr noundef nonnull %883, i32 noundef %1831) #7
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.24, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._eval_nodes_topo, ptr noundef nonnull %883, i32 noundef %1807) #7
   br label %.loopexit626.i
 
 1852:                                             ; preds = %1802

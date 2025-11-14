@@ -2560,11 +2560,11 @@ define void @Gia_ManCorrRemapSimInfo(ptr noundef readonly captures(none) %0, ptr
   br label %.lr.ph54.split.split.us
 
 .lr.ph54.split.split.us:                          ; preds = %.lr.ph54.split.split.us.preheader, %Gia_ObjReprObj.exit.thread.us
-  %.val36.us62 = phi i32 [ %.val3651, %.lr.ph54.split.split.us.preheader ], [ %.val36.us, %Gia_ObjReprObj.exit.thread.us ]
-  %indvars.iv59 = phi i64 [ 0, %.lr.ph54.split.split.us.preheader ], [ %indvars.iv.next60, %Gia_ObjReprObj.exit.thread.us ]
+  %.val36.us61 = phi i32 [ %.val3651, %.lr.ph54.split.split.us.preheader ], [ %.val36.us, %Gia_ObjReprObj.exit.thread.us ]
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph54.split.split.us.preheader ], [ %indvars.iv.next59, %Gia_ObjReprObj.exit.thread.us ]
   %.val40.val.us = load i32, ptr %13, align 4, !tbaa !31
-  %19 = sub nsw i32 %.val40.val.us, %.val36.us62
-  %20 = trunc nuw nsw i64 %indvars.iv59 to i32
+  %19 = sub nsw i32 %.val40.val.us, %.val36.us61
+  %20 = trunc nuw nsw i64 %indvars.iv58 to i32
   %21 = add nsw i32 %19, %20
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i32, ptr %.val42.val, i64 %22
@@ -2577,48 +2577,48 @@ define void @Gia_ManCorrRemapSimInfo(ptr noundef readonly captures(none) %0, ptr
   %30 = and i32 %27, 536870912
   %.not33.us = icmp eq i32 %30, 0
   %or.cond = and i1 %29, %.not33.us
-  br i1 %or.cond, label %.preheader, label %Gia_ObjReprObj.exit.thread.us
+  br i1 %or.cond, label %31, label %Gia_ObjReprObj.exit.thread.us
 
-.preheader:                                       ; preds = %.lr.ph54.split.split.us
-  %31 = zext nneg i32 %28 to i64
-  %32 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val41, i64 %31
-  %33 = getelementptr inbounds nuw ptr, ptr %.val46, i64 %indvars.iv59
-  %34 = load ptr, ptr %33, align 8, !tbaa !60
-  %.val49.us = load i64, ptr %32, align 4
-  %35 = and i64 %.val49.us, 2305843005455597567
-  %narrow.i.not.us = icmp eq i64 %35, 2305843005455597567
+31:                                               ; preds = %.lr.ph54.split.split.us
+  %32 = zext nneg i32 %28 to i64
+  %33 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val41, i64 %32
+  %34 = getelementptr inbounds nuw ptr, ptr %.val46, i64 %indvars.iv58
+  %35 = load ptr, ptr %34, align 8, !tbaa !60
+  %.val49.us = load i64, ptr %33, align 4
+  %36 = and i64 %.val49.us, 2305843005455597567
+  %narrow.i.not.us = icmp eq i64 %36, 2305843005455597567
   br i1 %narrow.i.not.us, label %Gia_ObjReprObj.exit.thread.us, label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %.preheader
-  %36 = lshr i64 %.val49.us, 32
-  %37 = trunc nuw i64 %36 to i32
-  %38 = and i32 %37, 536870911
-  %39 = sub nsw i32 %38, %19
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %.val46, i64 %40
-  %42 = load ptr, ptr %41, align 8, !tbaa !60
-  br label %43
+.lr.ph.us:                                        ; preds = %31
+  %37 = lshr i64 %.val49.us, 32
+  %38 = trunc nuw i64 %37 to i32
+  %39 = and i32 %38, 536870911
+  %40 = sub nsw i32 %39, %19
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds ptr, ptr %.val46, i64 %41
+  %43 = load ptr, ptr %42, align 8, !tbaa !60
+  br label %44
 
-43:                                               ; preds = %.lr.ph.us, %43
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %43 ]
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
-  %45 = load i32, ptr %44, align 4, !tbaa !30
-  %46 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
-  store i32 %45, ptr %46, align 4, !tbaa !30
+44:                                               ; preds = %.lr.ph.us, %44
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %44 ]
+  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %46 = load i32, ptr %45, align 4, !tbaa !30
+  %47 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
+  store i32 %46, ptr %47, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %Gia_ObjReprObj.exit.thread.us.loopexit, label %43, !llvm.loop !65
+  br i1 %exitcond.not, label %Gia_ObjReprObj.exit.thread.us.loopexit, label %44, !llvm.loop !65
 
-Gia_ObjReprObj.exit.thread.us.loopexit:           ; preds = %43
+Gia_ObjReprObj.exit.thread.us.loopexit:           ; preds = %44
   %.val36.us.pre = load i32, ptr %10, align 8, !tbaa !34
   br label %Gia_ObjReprObj.exit.thread.us
 
-Gia_ObjReprObj.exit.thread.us:                    ; preds = %Gia_ObjReprObj.exit.thread.us.loopexit, %.preheader, %.lr.ph54.split.split.us
-  %.val36.us = phi i32 [ %.val36.us.pre, %Gia_ObjReprObj.exit.thread.us.loopexit ], [ %.val36.us62, %.preheader ], [ %.val36.us62, %.lr.ph54.split.split.us ]
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %47 = sext i32 %.val36.us to i64
-  %48 = icmp slt i64 %indvars.iv.next60, %47
-  br i1 %48, label %.lr.ph54.split.split.us, label %.critedge, !llvm.loop !66
+Gia_ObjReprObj.exit.thread.us:                    ; preds = %Gia_ObjReprObj.exit.thread.us.loopexit, %31, %.lr.ph54.split.split.us
+  %.val36.us = phi i32 [ %.val36.us.pre, %Gia_ObjReprObj.exit.thread.us.loopexit ], [ %.val36.us61, %31 ], [ %.val36.us61, %.lr.ph54.split.split.us ]
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %48 = sext i32 %.val36.us to i64
+  %49 = icmp slt i64 %indvars.iv.next59, %48
+  br i1 %49, label %.lr.ph54.split.split.us, label %.critedge, !llvm.loop !66
 
 .critedge:                                        ; preds = %Gia_ObjReprObj.exit.thread.us, %.lr.ph54.split, %.lr.ph54, %2
   ret void

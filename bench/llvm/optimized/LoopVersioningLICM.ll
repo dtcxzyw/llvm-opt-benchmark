@@ -1883,24 +1883,24 @@ _ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit.i.i.i.
 578:                                              ; preds = %573
   %579 = getelementptr inbounds nuw i8, ptr %.sroa.056.089.i.i.i, i64 24
   %580 = load ptr, ptr %579, align 8, !tbaa !25
-  %581 = getelementptr inbounds nuw i8, ptr %.sroa.056.089.i.i.i, i64 32
-  %582 = load i32, ptr %581, align 8, !tbaa !26
-  %583 = zext i32 %582 to i64
-  %.idx.i.i.i = mul nuw nsw i64 %583, 48
-  %584 = getelementptr inbounds nuw i8, ptr %580, i64 %.idx.i.i.i
-  %.not5382.i.i.i = icmp eq i32 %582, 0
+  %581 = and i32 %575, 536870912
+  %582 = icmp ne i32 %581, 0
+  %583 = or i1 %.04890.i.i.i, %582
+  %584 = getelementptr inbounds nuw i8, ptr %.sroa.056.089.i.i.i, i64 32
+  %585 = load i32, ptr %584, align 8, !tbaa !26
+  %586 = zext i32 %585 to i64
+  %.idx.i.i.i = mul nuw nsw i64 %586, 48
+  %587 = getelementptr inbounds nuw i8, ptr %580, i64 %.idx.i.i.i
+  %.not5382.i.i.i = icmp eq i32 %585, 0
   br i1 %.not5382.i.i.i, label %._crit_edge87.i.i.i, label %.lr.ph86.i.i.i
 
 .lr.ph86.i.i.i:                                   ; preds = %578
-  %585 = load ptr, ptr %580, align 8, !tbaa !242
-  %586 = getelementptr inbounds nuw i8, ptr %585, i64 8
+  %588 = load ptr, ptr %580, align 8, !tbaa !242
+  %589 = getelementptr inbounds nuw i8, ptr %588, i64 8
   br label %591
 
 ._crit_edge87.i.i.i:                              ; preds = %598, %578
   %.047.lcssa.i.i.i = phi i1 [ true, %578 ], [ %599, %598 ]
-  %587 = and i32 %575, 536870912
-  %588 = icmp ne i32 %587, 0
-  %589 = or i1 %.04890.i.i.i, %588
   %590 = or i1 %.04491.i.i.i, %.047.lcssa.i.i.i
   br label %601
 
@@ -1911,7 +1911,7 @@ _ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit.i.i.i.
 
 592:                                              ; preds = %591
   %593 = load ptr, ptr %.04384.i.i.i, align 8, !tbaa !242
-  %594 = load ptr, ptr %586, align 8, !tbaa !247
+  %594 = load ptr, ptr %589, align 8, !tbaa !247
   %595 = getelementptr inbounds nuw i8, ptr %593, i64 8
   %596 = load ptr, ptr %595, align 8, !tbaa !247
   %597 = icmp eq ptr %594, %596
@@ -1920,11 +1920,11 @@ _ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit.i.i.i.
 598:                                              ; preds = %592, %591
   %599 = phi i1 [ false, %591 ], [ %597, %592 ]
   %600 = getelementptr inbounds nuw i8, ptr %.04384.i.i.i, i64 48
-  %.not53.i.i.i = icmp eq ptr %600, %584
+  %.not53.i.i.i = icmp eq ptr %600, %587
   br i1 %.not53.i.i.i, label %._crit_edge87.i.i.i, label %591
 
 601:                                              ; preds = %._crit_edge87.i.i.i, %.lr.ph94.i.i.i
-  %.250.ph.i.i.i = phi i1 [ %.04890.i.i.i, %.lr.ph94.i.i.i ], [ %589, %._crit_edge87.i.i.i ]
+  %.250.ph.i.i.i = phi i1 [ %.04890.i.i.i, %.lr.ph94.i.i.i ], [ %583, %._crit_edge87.i.i.i ]
   %.246.ph.i.i.i = phi i1 [ %.04491.i.i.i, %.lr.ph94.i.i.i ], [ %590, %._crit_edge87.i.i.i ]
   %.242.ph.i.i.i = phi i1 [ %.04092.i.i.i, %.lr.ph94.i.i.i ], [ true, %._crit_edge87.i.i.i ]
   %602 = getelementptr inbounds nuw i8, ptr %.sroa.056.089.i.i.i, i64 8

@@ -131,27 +131,27 @@ define internal void @vector_clipf_c(ptr noundef writeonly captures(none) %0, pt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.preheader.preheader
   %indvars.iv25 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next26, %.preheader.preheader ]
   %indvar = phi i64 [ 0, %.lr.ph.preheader ], [ %indvar.next, %.preheader.preheader ]
+  %11 = shl nuw nsw i64 %indvar, 5
+  %scevgep = getelementptr i8, ptr %0, i64 %11
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %invariant.gep = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv25
-  br label %11
+  br label %12
 
-11:                                               ; preds = %.lr.ph, %11
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
+12:                                               ; preds = %.lr.ph, %12
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
-  %12 = load float, ptr %gep, align 4, !tbaa !18
-  %13 = fcmp nsz ogt float %12, %3
-  %14 = select nsz i1 %13, float %12, float %3
-  %15 = fcmp nsz ogt float %14, %4
-  %..i = select nsz i1 %15, float %4, float %14
-  %16 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
-  store float %..i, ptr %16, align 4, !tbaa !18
+  %13 = load float, ptr %gep, align 4, !tbaa !18
+  %14 = fcmp nsz ogt float %13, %3
+  %15 = select nsz i1 %14, float %13, float %3
+  %16 = fcmp nsz ogt float %15, %4
+  %..i = select nsz i1 %16, float %4, float %15
+  %17 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  store float %..i, ptr %17, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader.preheader, label %11, !llvm.loop !20
+  br i1 %exitcond.not, label %.preheader.preheader, label %12, !llvm.loop !20
 
-.preheader.preheader:                             ; preds = %11
-  %17 = shl nuw nsw i64 %indvar, 5
-  %scevgep = getelementptr i8, ptr %0, i64 %17
+.preheader.preheader:                             ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %scevgep, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false), !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 8

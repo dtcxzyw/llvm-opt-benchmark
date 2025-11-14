@@ -6298,21 +6298,21 @@ _ZNK4pbrt15SampledSpectrumdvEf.exit:              ; preds = %75
   store <2 x float> %.sroa.0.0.copyload.i33, ptr %31, align 8
   %79 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store <2 x float> %.sroa.2.0.copyload.i35, ptr %79, align 8
-  br label %80
+  %80 = extractelement <2 x float> %.sroa.0.0.copyload.i33, i64 0
+  br label %81
 
-80:                                               ; preds = %80, %_ZNK4pbrt15SampledSpectrumdvEf.exit
-  %indvars.iv.i38 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrumdvEf.exit ], [ %indvars.iv.next.i39, %80 ]
-  %81 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i38
-  %82 = load float, ptr %81, align 4, !tbaa !127
-  %83 = fcmp une float %82, 0.000000e+00
+81:                                               ; preds = %81, %_ZNK4pbrt15SampledSpectrumdvEf.exit
+  %indvars.iv.i38 = phi i64 [ 0, %_ZNK4pbrt15SampledSpectrumdvEf.exit ], [ %indvars.iv.next.i39, %81 ]
+  %82 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i38
+  %83 = load float, ptr %82, align 4, !tbaa !127
+  %84 = fcmp une float %83, 0.000000e+00
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, 4
-  %or.cond.i41 = select i1 %83, i1 true, i1 %exitcond.not.i40
-  br i1 %or.cond.i41, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit42, label %80, !llvm.loop !179
+  %or.cond.i41 = select i1 %84, i1 true, i1 %exitcond.not.i40
+  br i1 %or.cond.i41, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit42, label %81, !llvm.loop !179
 
-_ZNK4pbrt15SampledSpectrumcvbEv.exit42:           ; preds = %80
-  %84 = extractelement <2 x float> %.sroa.0.0.copyload.i33, i64 0
-  br i1 %83, label %85, label %125
+_ZNK4pbrt15SampledSpectrumcvbEv.exit42:           ; preds = %81
+  br i1 %84, label %85, label %125
 
 85:                                               ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit42
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
@@ -6387,7 +6387,7 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit69:        ; preds = %100
 
 106:                                              ; preds = %106, %_ZNK4pbrt15SampledSpectrummlERKS0_.exit69
   %indvars.iv.i70 = phi i64 [ 1, %_ZNK4pbrt15SampledSpectrummlERKS0_.exit69 ], [ %indvars.iv.next.i71, %106 ]
-  %.056.i = phi float [ %84, %_ZNK4pbrt15SampledSpectrummlERKS0_.exit69 ], [ %109, %106 ]
+  %.056.i = phi float [ %80, %_ZNK4pbrt15SampledSpectrummlERKS0_.exit69 ], [ %109, %106 ]
   %107 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i70
   %108 = load float, ptr %107, align 4, !tbaa !127
   %109 = fadd float %.056.i, %108
@@ -6461,12 +6461,12 @@ _ZN4pbrt15SampledSpectrumpLERKS0_.exit:           ; preds = %119
   store float %130, ptr %134, align 4, !tbaa !127
   %135 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store float %.sroa.speculated, ptr %135, align 4, !tbaa !127
-  br label %.lr.ph.i
-
-._crit_edge.i:                                    ; preds = %.lr.ph.i
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %137 = load ptr, ptr %136, align 8, !tbaa !345
   %138 = load float, ptr %137, align 4, !tbaa !127
+  br label %.lr.ph.i
+
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %139 = fmul float %138, %142
   %140 = fcmp oeq float %139, %142
   br i1 %140, label %143, label %_ZN4pbrt13NextFloatDownEf.exit.i
@@ -6651,41 +6651,41 @@ _ZNK4pbrt15SampledSpectrumdvEf.exit128:           ; preds = %184
 
 _ZN4pbrt15SampledSpectrummLERKS0_.exit132:        ; preds = %191
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  br label %197
-
-197:                                              ; preds = %197, %_ZN4pbrt15SampledSpectrummLERKS0_.exit132
-  %indvars.iv.i133 = phi i64 [ 0, %_ZN4pbrt15SampledSpectrummLERKS0_.exit132 ], [ %indvars.iv.next.i134, %197 ]
-  %198 = getelementptr inbounds nuw float, ptr %171, i64 %indvars.iv.i133
-  %199 = load float, ptr %198, align 4, !tbaa !127
-  %200 = fcmp une float %199, 0.000000e+00
-  %indvars.iv.next.i134 = add nuw nsw i64 %indvars.iv.i133, 1
-  %exitcond.not.i135 = icmp eq i64 %indvars.iv.next.i134, 4
-  %or.cond.i136 = select i1 %200, i1 true, i1 %exitcond.not.i135
-  br i1 %or.cond.i136, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit137, label %197, !llvm.loop !179
-
-_ZNK4pbrt15SampledSpectrumcvbEv.exit137:          ; preds = %197
   %.sroa.12.64.copyload = load i32, ptr %46, align 8
   %.sroa.14255.64..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 128
   %.sroa.14255.64.copyload = load i32, ptr %.sroa.14255.64..sroa_idx, align 8
   %.sroa.15256.64..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 188
   %.sroa.15256.64.copyload = load float, ptr %.sroa.15256.64..sroa_idx, align 4
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %202 = load ptr, ptr %201, align 8, !tbaa !347
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %198 = load ptr, ptr %197, align 8, !tbaa !347
   %.sroa.28.424.copyload = load <4 x float>, ptr %171, align 4, !tbaa !120
   %.sroa.30.440.copyload = load <4 x float>, ptr %190, align 4, !tbaa !120
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %204 = load ptr, ptr %203, align 8, !tbaa !348
-  %.sroa.33.456..sroa_idx = getelementptr inbounds nuw i8, ptr %204, i64 12
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %200 = load ptr, ptr %199, align 8, !tbaa !348
+  %.sroa.33.456..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 12
   %.sroa.33.456.copyload = load float, ptr %.sroa.33.456..sroa_idx, align 4
-  %.sroa.34.456..sroa_idx = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %.sroa.34.456..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 16
   %.sroa.34.456.copyload = load float, ptr %.sroa.34.456..sroa_idx, align 8
-  %.sroa.35.456..sroa_idx = getelementptr inbounds nuw i8, ptr %204, i64 20
+  %.sroa.35.456..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 20
   %.sroa.35.456.copyload = load float, ptr %.sroa.35.456..sroa_idx, align 4
-  %.sroa.36.456..sroa_idx = getelementptr inbounds nuw i8, ptr %204, i64 24
+  %.sroa.36.456..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 24
   %.sroa.36.456.copyload = load float, ptr %.sroa.36.456..sroa_idx, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 32
-  %206 = load i64, ptr %205, align 8, !tbaa !91
-  br i1 %200, label %.preheader273, label %270
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 32
+  %202 = load i64, ptr %201, align 8, !tbaa !91
+  br label %203
+
+203:                                              ; preds = %203, %_ZN4pbrt15SampledSpectrummLERKS0_.exit132
+  %indvars.iv.i133 = phi i64 [ 0, %_ZN4pbrt15SampledSpectrummLERKS0_.exit132 ], [ %indvars.iv.next.i134, %203 ]
+  %204 = getelementptr inbounds nuw float, ptr %171, i64 %indvars.iv.i133
+  %205 = load float, ptr %204, align 4, !tbaa !127
+  %206 = fcmp une float %205, 0.000000e+00
+  %indvars.iv.next.i134 = add nuw nsw i64 %indvars.iv.i133, 1
+  %exitcond.not.i135 = icmp eq i64 %indvars.iv.next.i134, 4
+  %or.cond.i136 = select i1 %206, i1 true, i1 %exitcond.not.i135
+  br i1 %or.cond.i136, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit137, label %203, !llvm.loop !179
+
+_ZNK4pbrt15SampledSpectrumcvbEv.exit137:          ; preds = %203
+  br i1 %206, label %.preheader273, label %270
 
 .preheader273:                                    ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit137, %.preheader273
   %indvars.iv.i138 = phi i64 [ %indvars.iv.next.i139, %.preheader273 ], [ 0, %_ZNK4pbrt15SampledSpectrumcvbEv.exit137 ]
@@ -6710,7 +6710,7 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit142:          ; preds = %.preheader273
   %.sroa.4253.8.vec.extract = extractelement <2 x float> %1, i64 0
   %.sroa.4253.12.vec.extract = extractelement <2 x float> %1, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.5.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %202, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.5.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %198, i64 32, i1 false)
   %216 = fneg float %.sroa.33.456.copyload
   %217 = fneg float %.sroa.34.456.copyload
   %218 = fneg float %.sroa.35.456.copyload
@@ -6797,7 +6797,7 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit142:          ; preds = %.preheader273
   %264 = getelementptr inbounds nuw i8, ptr %215, i64 192
   %265 = load ptr, ptr %264, align 8, !tbaa !358
   %266 = getelementptr inbounds %"class.pbrt::Medium", ptr %265, i64 %223
-  store i64 %206, ptr %266, align 8, !tbaa !91
+  store i64 %202, ptr %266, align 8, !tbaa !91
   %267 = getelementptr inbounds nuw i8, ptr %215, i64 200
   %268 = load ptr, ptr %267, align 8, !tbaa !359
   %269 = getelementptr inbounds i32, ptr %268, i64 %223

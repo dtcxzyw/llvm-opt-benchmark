@@ -400,36 +400,36 @@ define hidden void @_ZN10duckdb_re23NFAD2Ev(ptr noundef nonnull align 8 captures
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %8 = load ptr, ptr %7, align 8, !tbaa !109, !noalias !110
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %11 = load ptr, ptr %10, align 8, !tbaa !109, !noalias !113
-  %.not13 = icmp eq ptr %8, %11
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %9 = load ptr, ptr %8, align 8, !tbaa !109, !noalias !110
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %12 = load ptr, ptr %11, align 8, !tbaa !109, !noalias !113
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %.not13 = icmp eq ptr %9, %12
   br i1 %.not13, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %6
-  %12 = load ptr, ptr %9, align 8, !tbaa !116, !noalias !110
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %14 = load ptr, ptr %13, align 8, !tbaa !117, !noalias !110
+  %14 = load ptr, ptr %10, align 8, !tbaa !116, !noalias !110
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %16 = load ptr, ptr %15, align 8, !tbaa !117, !noalias !110
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt15_Deque_iteratorIN10duckdb_re23NFA6ThreadERS2_PS2_EppEv.exit, %6
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %16 = load ptr, ptr %15, align 8, !tbaa !102
-  %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %_ZNSt5dequeIN10duckdb_re23NFA6ThreadESaIS2_EED2Ev.exit, label %17
+  %17 = load ptr, ptr %7, align 8, !tbaa !102
+  %.not.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i, label %_ZNSt5dequeIN10duckdb_re23NFA6ThreadESaIS2_EED2Ev.exit, label %18
 
-17:                                               ; preds = %._crit_edge
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %19 = load ptr, ptr %9, align 8, !tbaa !103
-  %20 = load ptr, ptr %18, align 8, !tbaa !104
+18:                                               ; preds = %._crit_edge
+  %19 = load ptr, ptr %10, align 8, !tbaa !103
+  %20 = load ptr, ptr %13, align 8, !tbaa !104
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = icmp ult ptr %19, %21
   br i1 %22, label %.lr.ph.i.i.i, label %_ZNSt11_Deque_baseIN10duckdb_re23NFA6ThreadESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %17, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i ], [ %19, %17 ]
+.lr.ph.i.i.i:                                     ; preds = %18, %.lr.ph.i.i.i
+  %.06.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i ], [ %19, %18 ]
   %23 = load ptr, ptr %.06.i.i.i, align 8, !tbaa !105
   tail call void @_ZdlPv(ptr noundef %23) #17
   %24 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
@@ -437,11 +437,11 @@ define hidden void @_ZN10duckdb_re23NFAD2Ev(ptr noundef nonnull align 8 captures
   br i1 %25, label %.lr.ph.i.i.i, label %_ZNSt11_Deque_baseIN10duckdb_re23NFA6ThreadESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i, !llvm.loop !106
 
 _ZNSt11_Deque_baseIN10duckdb_re23NFA6ThreadESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i
-  %.pre.i.i = load ptr, ptr %15, align 8, !tbaa !102
+  %.pre.i.i = load ptr, ptr %7, align 8, !tbaa !102
   br label %_ZNSt11_Deque_baseIN10duckdb_re23NFA6ThreadESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i
 
-_ZNSt11_Deque_baseIN10duckdb_re23NFA6ThreadESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i: ; preds = %_ZNSt11_Deque_baseIN10duckdb_re23NFA6ThreadESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i, %17
-  %26 = phi ptr [ %.pre.i.i, %_ZNSt11_Deque_baseIN10duckdb_re23NFA6ThreadESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i ], [ %16, %17 ]
+_ZNSt11_Deque_baseIN10duckdb_re23NFA6ThreadESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i: ; preds = %_ZNSt11_Deque_baseIN10duckdb_re23NFA6ThreadESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i, %18
+  %26 = phi ptr [ %.pre.i.i, %_ZNSt11_Deque_baseIN10duckdb_re23NFA6ThreadESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i ], [ %17, %18 ]
   tail call void @_ZdlPv(ptr noundef %26) #17
   br label %_ZNSt5dequeIN10duckdb_re23NFA6ThreadESaIS2_EED2Ev.exit
 
@@ -504,9 +504,9 @@ _ZN10duckdb_re211SparseArrayIPNS_3NFA6ThreadEED2Ev.exit9: ; preds = %_ZN10duckdb
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt15_Deque_iteratorIN10duckdb_re23NFA6ThreadERS2_PS2_EppEv.exit
-  %.sroa.13.016 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIN10duckdb_re23NFA6ThreadERS2_PS2_EppEv.exit ], [ %12, %.lr.ph.preheader ]
-  %.sroa.10.015 = phi ptr [ %.sroa.10.1, %_ZNSt15_Deque_iteratorIN10duckdb_re23NFA6ThreadERS2_PS2_EppEv.exit ], [ %14, %.lr.ph.preheader ]
-  %.sroa.010.014 = phi ptr [ %.sroa.010.1, %_ZNSt15_Deque_iteratorIN10duckdb_re23NFA6ThreadERS2_PS2_EppEv.exit ], [ %8, %.lr.ph.preheader ]
+  %.sroa.13.016 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIN10duckdb_re23NFA6ThreadERS2_PS2_EppEv.exit ], [ %14, %.lr.ph.preheader ]
+  %.sroa.10.015 = phi ptr [ %.sroa.10.1, %_ZNSt15_Deque_iteratorIN10duckdb_re23NFA6ThreadERS2_PS2_EppEv.exit ], [ %16, %.lr.ph.preheader ]
+  %.sroa.010.014 = phi ptr [ %.sroa.010.1, %_ZNSt15_Deque_iteratorIN10duckdb_re23NFA6ThreadERS2_PS2_EppEv.exit ], [ %9, %.lr.ph.preheader ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !118
   %44 = icmp eq ptr %43, null
@@ -531,7 +531,7 @@ _ZNSt15_Deque_iteratorIN10duckdb_re23NFA6ThreadERS2_PS2_EppEv.exit: ; preds = %4
   %.sroa.010.1 = phi ptr [ %51, %49 ], [ %47, %46 ]
   %.sroa.10.1 = phi ptr [ %52, %49 ], [ %.sroa.10.015, %46 ]
   %.sroa.13.1 = phi ptr [ %50, %49 ], [ %.sroa.13.016, %46 ]
-  %.not = icmp eq ptr %.sroa.010.1, %11
+  %.not = icmp eq ptr %.sroa.010.1, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

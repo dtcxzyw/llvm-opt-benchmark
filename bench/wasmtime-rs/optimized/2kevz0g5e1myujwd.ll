@@ -15927,36 +15927,36 @@ switch.lookup:
   %4 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, i64 } }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
+  %7 = zext nneg i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN18wasmtime_cranelift5debug15write_debuginfo19emit_dwarf_sections28_$u7b$$u7b$closure$u7d$$u7d$17hd2fce293c0a66f8cE", i64 %7
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %8 = zext nneg i8 %0 to i64
+  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN18wasmtime_cranelift5debug15write_debuginfo19emit_dwarf_sections28_$u7b$$u7b$closure$u7d$$u7d$17hd2fce293c0a66f8cE.109", i64 %8
+  %switch.load2 = load i64, ptr %switch.gep1, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4064)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4067
   store i64 0, ptr %3, align 8, !noalias !4067
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %8, align 8, !noalias !4067
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %9, align 8, !noalias !4067
-  br label %10
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %10, align 8, !noalias !4067
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %11, align 8, !noalias !4067
+  br label %12
 
-10:                                               ; preds = %10, %switch.lookup
-  %.05.i.i = phi i64 [ 0, %switch.lookup ], [ %15, %10 ]
-  %11 = getelementptr inbounds nuw i64, ptr %7, i64 %.05.i.i
-  %12 = getelementptr inbounds nuw i64, ptr %3, i64 %.05.i.i
-  %13 = load i64, ptr %11, align 8, !alias.scope !4064, !noalias !4069
-  %14 = load i64, ptr %12, align 8, !noalias !4067
-  store i64 %14, ptr %11, align 8, !alias.scope !4064, !noalias !4069
-  store i64 %13, ptr %12, align 8, !noalias !4067
-  %15 = add nuw nsw i64 %.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %15, 3
-  br i1 %exitcond.not.i.i, label %"_ZN5gimli5write10endian_vec23EndianVec$LT$Endian$GT$4take17hf055d9de32f83f5dE.exit", label %10
+12:                                               ; preds = %12, %switch.lookup
+  %.05.i.i = phi i64 [ 0, %switch.lookup ], [ %17, %12 ]
+  %13 = getelementptr inbounds nuw i64, ptr %9, i64 %.05.i.i
+  %14 = getelementptr inbounds nuw i64, ptr %3, i64 %.05.i.i
+  %15 = load i64, ptr %13, align 8, !alias.scope !4064, !noalias !4069
+  %16 = load i64, ptr %14, align 8, !noalias !4067
+  store i64 %16, ptr %13, align 8, !alias.scope !4064, !noalias !4069
+  store i64 %15, ptr %14, align 8, !noalias !4067
+  %17 = add nuw nsw i64 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %17, 3
+  br i1 %exitcond.not.i.i, label %"_ZN5gimli5write10endian_vec23EndianVec$LT$Endian$GT$4take17hf055d9de32f83f5dE.exit", label %12
 
-"_ZN5gimli5write10endian_vec23EndianVec$LT$Endian$GT$4take17hf055d9de32f83f5dE.exit": ; preds = %10
-  %16 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN18wasmtime_cranelift5debug15write_debuginfo19emit_dwarf_sections28_$u7b$$u7b$closure$u7d$$u7d$17hd2fce293c0a66f8cE", i64 %16
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %17 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN18wasmtime_cranelift5debug15write_debuginfo19emit_dwarf_sections28_$u7b$$u7b$closure$u7d$$u7d$17hd2fce293c0a66f8cE.109", i64 %17
-  %switch.load2 = load i64, ptr %switch.gep1, align 8
+"_ZN5gimli5write10endian_vec23EndianVec$LT$Endian$GT$4take17hf055d9de32f83f5dE.exit": ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !4064
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4067
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16

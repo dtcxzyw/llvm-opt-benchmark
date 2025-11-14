@@ -574,9 +574,9 @@ _ZNSt6vectorIPFN2cv3PtrINS0_3dnn14dnn4_v202412235LayerEEERNS3_11LayerParamsEESaI
 120:                                              ; preds = %_ZNSt6vectorIPFN2cv3PtrINS0_3dnn14dnn4_v202412235LayerEEERNS3_11LayerParamsEESaIS9_EE9push_backERKS9_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %121 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
-          to label %.lr.ph.i.i.i.i.i.i.i.i.i.preheader unwind label %154
+          to label %.noexc29 unwind label %154
 
-.lr.ph.i.i.i.i.i.i.i.i.i.preheader:               ; preds = %120
+.noexc29:                                         ; preds = %120
   store ptr %1, ptr %121, align 8, !tbaa !40
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
@@ -590,7 +590,7 @@ _ZNSt6vectorIPFN2cv3PtrINS0_3dnn14dnn4_v202412235LayerEEERNS3_11LayerParamsEESaI
   %127 = icmp ugt i64 %126, 15
   br i1 %127, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
-.noexc.i.i.i:                                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader
+.noexc.i.i.i:                                     ; preds = %.noexc29
   %128 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
           to label %.noexc30 unwind label %157
 
@@ -600,8 +600,8 @@ _ZNSt6vectorIPFN2cv3PtrINS0_3dnn14dnn4_v202412235LayerEEERNS3_11LayerParamsEESaI
   store i64 %129, ptr %123, align 8, !tbaa !50, !alias.scope !45
   br label %._crit_edge.i.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %.noexc30, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader
-  %130 = phi ptr [ %128, %.noexc30 ], [ %123, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader ]
+._crit_edge.i.i.i.i:                              ; preds = %.noexc30, %.noexc29
+  %130 = phi ptr [ %128, %.noexc30 ], [ %123, %.noexc29 ]
   switch i64 %126, label %133 [
     i64 1, label %131
     i64 0, label %134

@@ -3293,9 +3293,9 @@ define internal fastcc void @_ZN4absl24synchronization_internalL4SortERKNS0_12_G
   tail call fastcc void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_T0_T1_(ptr noundef %.0.val, ptr noundef nonnull %3, i64 noundef %8, ptr nonnull readonly %0)
   %9 = icmp ugt i32 %.40.val, 16
   %scevgep.i.i.i = getelementptr i8, ptr %.0.val, i64 4
-  br i1 %9, label %.preheader.i.i.i, label %51
+  br i1 %9, label %.preheader.i, label %51
 
-.preheader.i.i.i:                                 ; preds = %4, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_T0_.exit.i.i.i.i
+.preheader.i:                                     ; preds = %4, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_T0_.exit.i.i.i.i
   %.021.i.idx.i.i.i = phi i64 [ %.021.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_T0_.exit.i.i.i.i ], [ 4, %4 ]
   %.pn20.i.i.i.i = phi ptr [ %.021.i.ptr.i.i.i, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_T0_.exit.i.i.i.i ], [ %.0.val, %4 ]
   %.021.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.021.i.idx.i.i.i
@@ -3313,11 +3313,11 @@ define internal fastcc void @_ZN4absl24synchronization_internalL4SortERKNS0_12_G
   %18 = icmp slt i32 %13, %17
   br i1 %18, label %19, label %20
 
-19:                                               ; preds = %.preheader.i.i.i
+19:                                               ; preds = %.preheader.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %.0.val, i64 %.021.i.idx.i.i.i, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_T0_.exit.i.i.i.i
 
-20:                                               ; preds = %.preheader.i.i.i
+20:                                               ; preds = %.preheader.i
   %.0.val13.i.i.i.i.i = load i32, ptr %.pn20.i.i.i.i, align 4, !tbaa !31
   %21 = zext i32 %.0.val13.i.i.i.i.i to i64
   %22 = getelementptr inbounds nuw ptr, ptr %.val.val.i.i.i.i, i64 %21
@@ -3346,7 +3346,7 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl24syn
   store i32 %.0.val.i.i.i.i, ptr %.sink.i.i.i.i, align 4, !tbaa !31
   %.021.i.add.i.i.i = add nuw nsw i64 %.021.i.idx.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %.021.i.add.i.i.i, 64
-  br i1 %.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i, !llvm.loop !64
+  br i1 %.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %.preheader.i, !llvm.loop !64
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_T0_.exit.i.i.i.i
   %32 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64

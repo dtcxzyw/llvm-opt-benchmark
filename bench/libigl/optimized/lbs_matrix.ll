@@ -289,23 +289,23 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i: ; p
   %111 = lshr exact i64 %103, 3
   %112 = and i64 %111, 1
   %113 = call i64 @llvm.smin.i64(i64 %112, i64 %54)
-  %114 = icmp sgt i64 %113, 0
-  br i1 %114, label %.lr.ph.i.i.i.i.i.i.i.i, label %.preheader43.i.i.i.i.i.i.i.i
+  %114 = sub nsw i64 %54, %113
+  %115 = and i64 %114, -2
+  %116 = add nsw i64 %115, %113
+  %117 = icmp sgt i64 %113, 0
+  br i1 %117, label %.lr.ph.i.i.i.i.i.i.i.i, label %.preheader43.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i
-  %115 = load double, ptr %102, align 8, !tbaa !34
-  store double %115, ptr %56, align 8, !tbaa !34
+  %118 = load double, ptr %102, align 8, !tbaa !34
+  store double %118, ptr %56, align 8, !tbaa !34
   br label %.preheader43.i.i.i.i.i.i.i.i
 
 .preheader43.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i
-  %116 = sub nsw i64 %54, %113
-  %117 = and i64 %116, -2
-  %118 = add nsw i64 %117, %113
-  %119 = icmp sgt i64 %116, 1
+  %119 = icmp sgt i64 %114, 1
   br i1 %119, label %.lr.ph47.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph47.i.i.i.i.i.i.i.i, %.preheader43.i.i.i.i.i.i.i.i
-  %120 = icmp slt i64 %118, %54
+  %120 = icmp slt i64 %116, %54
   br i1 %120, label %.lr.ph49.i.i.i.i.i.i.i.i, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS1_IdLin1ELi1ELi0ELin1ELi1EEEKNS0_IKS2_Lin1ELi1ELb1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit
 
 .lr.ph47.i.i.i.i.i.i.i.i:                         ; preds = %.preheader43.i.i.i.i.i.i.i.i, %.lr.ph47.i.i.i.i.i.i.i.i
@@ -315,11 +315,11 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i: ; p
   %123 = load <2 x double>, ptr %122, align 1, !tbaa !37
   store <2 x double> %123, ptr %121, align 16, !tbaa !37
   %124 = add nsw i64 %.03246.i.i.i.i.i.i.i.i, 2
-  %125 = icmp slt i64 %124, %118
+  %125 = icmp slt i64 %124, %116
   br i1 %125, label %.lr.ph47.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i, !llvm.loop !43
 
 .lr.ph49.i.i.i.i.i.i.i.i:                         ; preds = %.preheader.i.i.i.i.i.i.i.i, %.lr.ph49.i.i.i.i.i.i.i.i
-  %.048.i.i.i.i.i.i.i.i = phi i64 [ %129, %.lr.ph49.i.i.i.i.i.i.i.i ], [ %118, %.preheader.i.i.i.i.i.i.i.i ]
+  %.048.i.i.i.i.i.i.i.i = phi i64 [ %129, %.lr.ph49.i.i.i.i.i.i.i.i ], [ %116, %.preheader.i.i.i.i.i.i.i.i ]
   %126 = getelementptr double, ptr %56, i64 %.048.i.i.i.i.i.i.i.i
   %127 = getelementptr double, ptr %102, i64 %.048.i.i.i.i.i.i.i.i
   %128 = load double, ptr %127, align 8, !tbaa !34
@@ -1873,7 +1873,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   %10 = tail call noalias ptr @malloc(i64 noundef %8) #21
   store ptr %10, ptr %3, align 8, !tbaa !60
   %.not80 = icmp eq ptr %10, null
-  br i1 %.not80, label %16, label %.preheader
+  br i1 %.not80, label %17, label %.preheader
 
 .preheader:                                       ; preds = %9
   %11 = icmp sgt i64 %7, 0
@@ -1884,17 +1884,17 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   %13 = load i32, ptr %12, align 4, !tbaa !77
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !59
+  %16 = sext i32 %13 to i64
   br label %31
 
-16:                                               ; preds = %9
-  %17 = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %17, align 8, !tbaa !12
-  tail call void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #20
+17:                                               ; preds = %9
+  %18 = tail call ptr @__cxa_allocate_exception(i64 8) #19
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %18, align 8, !tbaa !12
+  tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #20
   unreachable
 
 ._crit_edge109.loopexit:                          ; preds = %31
-  %18 = sext i32 %13 to i64
-  %19 = mul i64 %7, %18
+  %19 = mul i64 %7, %16
   br label %._crit_edge109
 
 ._crit_edge109:                                   ; preds = %._crit_edge109.loopexit, %.preheader

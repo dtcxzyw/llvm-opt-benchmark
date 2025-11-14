@@ -7606,12 +7606,12 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %5 = load i64, ptr %4, align 8, !alias.scope !1625, !noundef !4
   %.promoted = load i64, ptr %3, align 8, !alias.scope !1625
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load ptr, ptr %6, align 8, !nonnull !4
   %.val4.i.i8 = load ptr, ptr %1, align 8, !nonnull !4, !align !8
-  %6 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !4
+  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
   br label %10
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17ha05fc8e151ca36d3E.exit", %2
@@ -7623,32 +7623,29 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %14 = add nuw i64 %11, 1
   store i64 %14, ptr %3, align 8, !alias.scope !1625
   %15 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %11
+  %16 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
   %.val6 = load i32, ptr %15, align 4, !noundef !4
-  %16 = load ptr, ptr %6, align 8, !alias.scope !1630, !nonnull !4, !noundef !4
-  %17 = load i64, ptr %7, align 8, !alias.scope !1630, !noundef !4
-  br label %18
+  %.val7 = load i32, ptr %16, align 4
+  %17 = load ptr, ptr %7, align 8, !alias.scope !1630, !nonnull !4, !noundef !4
+  %18 = load i64, ptr %8, align 8, !alias.scope !1630, !noundef !4
+  br label %19
 
-18:                                               ; preds = %18, %13
-  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %21, %18 ]
-  %19 = zext i32 %storemerge.i.i.i.i to i64
-  %.not.i.i.i.i = icmp ugt i64 %17, %19
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
-  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %20, ptr %8
-  %21 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1635, !noalias !1640, !noundef !4
-  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %21
-  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", label %18
+19:                                               ; preds = %19, %13
+  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %22, %19 ]
+  %20 = zext i32 %storemerge.i.i.i.i to i64
+  %.not.i.i.i.i = icmp ugt i64 %18, %20
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %20
+  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %21, ptr %9
+  %22 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1635, !noalias !1640, !noundef !4
+  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %22
+  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i", label %19
 
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader": ; preds = %18
-  %22 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
-  %.val7 = load i32, ptr %22, align 4
-  br label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader" ]
+"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %19, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
+  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %19 ]
   %23 = zext i32 %storemerge.i.i5.i.i to i64
-  %.not.i.i6.i.i = icmp ugt i64 %17, %23
-  %24 = getelementptr inbounds nuw i32, ptr %16, i64 %23
-  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %8
+  %.not.i.i6.i.i = icmp ugt i64 %18, %23
+  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %9
   %25 = load i32, ptr %.0.i2.i.i7.i.i, align 4, !alias.scope !1643, !noalias !1648, !noundef !4
   %.not5.i.i8.i.i = icmp eq i32 %storemerge.i.i5.i.i, %25
   br i1 %.not5.i.i8.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17ha05fc8e151ca36d3E.exit", label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
@@ -7740,12 +7737,12 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %5 = load i64, ptr %4, align 8, !alias.scope !1680, !noundef !4
   %.promoted = load i64, ptr %3, align 8, !alias.scope !1680
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load ptr, ptr %6, align 8, !nonnull !4
   %.val4.i.i8 = load ptr, ptr %1, align 8, !nonnull !4, !align !8
-  %6 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !4
+  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
   br label %10
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hdaf30a50d2d0eea2E.exit", %2
@@ -7757,32 +7754,29 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %14 = add nuw i64 %11, 1
   store i64 %14, ptr %3, align 8, !alias.scope !1680
   %15 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %11
+  %16 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
   %.val6 = load i32, ptr %15, align 4, !noundef !4
-  %16 = load ptr, ptr %6, align 8, !alias.scope !1685, !nonnull !4, !noundef !4
-  %17 = load i64, ptr %7, align 8, !alias.scope !1685, !noundef !4
-  br label %18
+  %.val7 = load i32, ptr %16, align 4
+  %17 = load ptr, ptr %7, align 8, !alias.scope !1685, !nonnull !4, !noundef !4
+  %18 = load i64, ptr %8, align 8, !alias.scope !1685, !noundef !4
+  br label %19
 
-18:                                               ; preds = %18, %13
-  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %21, %18 ]
-  %19 = zext i32 %storemerge.i.i.i.i to i64
-  %.not.i.i.i.i = icmp ugt i64 %17, %19
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
-  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %20, ptr %8
-  %21 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1690, !noalias !1695, !noundef !4
-  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %21
-  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", label %18
+19:                                               ; preds = %19, %13
+  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %22, %19 ]
+  %20 = zext i32 %storemerge.i.i.i.i to i64
+  %.not.i.i.i.i = icmp ugt i64 %18, %20
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %20
+  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %21, ptr %9
+  %22 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1690, !noalias !1695, !noundef !4
+  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %22
+  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i", label %19
 
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader": ; preds = %18
-  %22 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
-  %.val7 = load i32, ptr %22, align 4
-  br label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader" ]
+"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %19, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
+  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %19 ]
   %23 = zext i32 %storemerge.i.i5.i.i to i64
-  %.not.i.i6.i.i = icmp ugt i64 %17, %23
-  %24 = getelementptr inbounds nuw i32, ptr %16, i64 %23
-  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %8
+  %.not.i.i6.i.i = icmp ugt i64 %18, %23
+  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %9
   %25 = load i32, ptr %.0.i2.i.i7.i.i, align 4, !alias.scope !1698, !noalias !1703, !noundef !4
   %.not5.i.i8.i.i = icmp eq i32 %storemerge.i.i5.i.i, %25
   br i1 %.not5.i.i8.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hdaf30a50d2d0eea2E.exit", label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
@@ -7888,12 +7882,12 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %5 = load i64, ptr %4, align 8, !alias.scope !1723, !noundef !4
   %.promoted = load i64, ptr %3, align 8, !alias.scope !1723
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load ptr, ptr %6, align 8, !nonnull !4
   %.val4.i.i8 = load ptr, ptr %1, align 8, !nonnull !4, !align !8
-  %6 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !4
+  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
   br label %10
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hb6673f3bf4f26211E.exit", %2
@@ -7905,32 +7899,29 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %14 = add nuw i64 %11, 1
   store i64 %14, ptr %3, align 8, !alias.scope !1723
   %15 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %11
+  %16 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
   %.val6 = load i32, ptr %15, align 4, !noundef !4
-  %16 = load ptr, ptr %6, align 8, !alias.scope !1728, !nonnull !4, !noundef !4
-  %17 = load i64, ptr %7, align 8, !alias.scope !1728, !noundef !4
-  br label %18
+  %.val7 = load i32, ptr %16, align 4
+  %17 = load ptr, ptr %7, align 8, !alias.scope !1728, !nonnull !4, !noundef !4
+  %18 = load i64, ptr %8, align 8, !alias.scope !1728, !noundef !4
+  br label %19
 
-18:                                               ; preds = %18, %13
-  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %21, %18 ]
-  %19 = zext i32 %storemerge.i.i.i.i to i64
-  %.not.i.i.i.i = icmp ugt i64 %17, %19
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
-  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %20, ptr %8
-  %21 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1733, !noalias !1738, !noundef !4
-  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %21
-  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", label %18
+19:                                               ; preds = %19, %13
+  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %22, %19 ]
+  %20 = zext i32 %storemerge.i.i.i.i to i64
+  %.not.i.i.i.i = icmp ugt i64 %18, %20
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %20
+  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %21, ptr %9
+  %22 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1733, !noalias !1738, !noundef !4
+  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %22
+  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i", label %19
 
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader": ; preds = %18
-  %22 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
-  %.val7 = load i32, ptr %22, align 4
-  br label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader" ]
+"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %19, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
+  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %19 ]
   %23 = zext i32 %storemerge.i.i5.i.i to i64
-  %.not.i.i6.i.i = icmp ugt i64 %17, %23
-  %24 = getelementptr inbounds nuw i32, ptr %16, i64 %23
-  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %8
+  %.not.i.i6.i.i = icmp ugt i64 %18, %23
+  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %9
   %25 = load i32, ptr %.0.i2.i.i7.i.i, align 4, !alias.scope !1741, !noalias !1746, !noundef !4
   %.not5.i.i8.i.i = icmp eq i32 %storemerge.i.i5.i.i, %25
   br i1 %.not5.i.i8.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hb6673f3bf4f26211E.exit", label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
@@ -8122,12 +8113,12 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %5 = load i64, ptr %4, align 8, !alias.scope !1784, !noundef !4
   %.promoted = load i64, ptr %3, align 8, !alias.scope !1784
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load ptr, ptr %6, align 8, !nonnull !4
   %.val4.i.i8 = load ptr, ptr %1, align 8, !nonnull !4, !align !8
-  %6 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !4
+  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
   br label %10
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hc273ea90608e1fefE.exit", %2
@@ -8139,32 +8130,29 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %14 = add nuw i64 %11, 1
   store i64 %14, ptr %3, align 8, !alias.scope !1784
   %15 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %11
+  %16 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
   %.val6 = load i32, ptr %15, align 4, !noundef !4
-  %16 = load ptr, ptr %6, align 8, !alias.scope !1789, !nonnull !4, !noundef !4
-  %17 = load i64, ptr %7, align 8, !alias.scope !1789, !noundef !4
-  br label %18
+  %.val7 = load i32, ptr %16, align 4
+  %17 = load ptr, ptr %7, align 8, !alias.scope !1789, !nonnull !4, !noundef !4
+  %18 = load i64, ptr %8, align 8, !alias.scope !1789, !noundef !4
+  br label %19
 
-18:                                               ; preds = %18, %13
-  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %21, %18 ]
-  %19 = zext i32 %storemerge.i.i.i.i to i64
-  %.not.i.i.i.i = icmp ugt i64 %17, %19
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
-  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %20, ptr %8
-  %21 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1794, !noalias !1799, !noundef !4
-  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %21
-  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", label %18
+19:                                               ; preds = %19, %13
+  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %22, %19 ]
+  %20 = zext i32 %storemerge.i.i.i.i to i64
+  %.not.i.i.i.i = icmp ugt i64 %18, %20
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %20
+  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %21, ptr %9
+  %22 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1794, !noalias !1799, !noundef !4
+  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %22
+  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i", label %19
 
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader": ; preds = %18
-  %22 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
-  %.val7 = load i32, ptr %22, align 4
-  br label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader" ]
+"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %19, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
+  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %19 ]
   %23 = zext i32 %storemerge.i.i5.i.i to i64
-  %.not.i.i6.i.i = icmp ugt i64 %17, %23
-  %24 = getelementptr inbounds nuw i32, ptr %16, i64 %23
-  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %8
+  %.not.i.i6.i.i = icmp ugt i64 %18, %23
+  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %9
   %25 = load i32, ptr %.0.i2.i.i7.i.i, align 4, !alias.scope !1802, !noalias !1807, !noundef !4
   %.not5.i.i8.i.i = icmp eq i32 %storemerge.i.i5.i.i, %25
   br i1 %.not5.i.i8.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hc273ea90608e1fefE.exit", label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
@@ -8184,12 +8172,12 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %5 = load i64, ptr %4, align 8, !alias.scope !1810, !noundef !4
   %.promoted = load i64, ptr %3, align 8, !alias.scope !1810
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load ptr, ptr %6, align 8, !nonnull !4
   %.val4.i.i8 = load ptr, ptr %1, align 8, !nonnull !4, !align !8
-  %6 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !4
+  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
   br label %10
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h96a42c1e6bf3f4c8E.exit", %2
@@ -8201,32 +8189,29 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %14 = add nuw i64 %11, 1
   store i64 %14, ptr %3, align 8, !alias.scope !1810
   %15 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %11
+  %16 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
   %.val6 = load i32, ptr %15, align 4, !noundef !4
-  %16 = load ptr, ptr %6, align 8, !alias.scope !1815, !nonnull !4, !noundef !4
-  %17 = load i64, ptr %7, align 8, !alias.scope !1815, !noundef !4
-  br label %18
+  %.val7 = load i32, ptr %16, align 4
+  %17 = load ptr, ptr %7, align 8, !alias.scope !1815, !nonnull !4, !noundef !4
+  %18 = load i64, ptr %8, align 8, !alias.scope !1815, !noundef !4
+  br label %19
 
-18:                                               ; preds = %18, %13
-  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %21, %18 ]
-  %19 = zext i32 %storemerge.i.i.i.i to i64
-  %.not.i.i.i.i = icmp ugt i64 %17, %19
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
-  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %20, ptr %8
-  %21 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1820, !noalias !1825, !noundef !4
-  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %21
-  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", label %18
+19:                                               ; preds = %19, %13
+  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %22, %19 ]
+  %20 = zext i32 %storemerge.i.i.i.i to i64
+  %.not.i.i.i.i = icmp ugt i64 %18, %20
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %20
+  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %21, ptr %9
+  %22 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1820, !noalias !1825, !noundef !4
+  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %22
+  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i", label %19
 
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader": ; preds = %18
-  %22 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
-  %.val7 = load i32, ptr %22, align 4
-  br label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader" ]
+"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %19, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
+  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %19 ]
   %23 = zext i32 %storemerge.i.i5.i.i to i64
-  %.not.i.i6.i.i = icmp ugt i64 %17, %23
-  %24 = getelementptr inbounds nuw i32, ptr %16, i64 %23
-  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %8
+  %.not.i.i6.i.i = icmp ugt i64 %18, %23
+  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %9
   %25 = load i32, ptr %.0.i2.i.i7.i.i, align 4, !alias.scope !1828, !noalias !1833, !noundef !4
   %.not5.i.i8.i.i = icmp eq i32 %storemerge.i.i5.i.i, %25
   br i1 %.not5.i.i8.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h96a42c1e6bf3f4c8E.exit", label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
@@ -8357,12 +8342,12 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %5 = load i64, ptr %4, align 8, !alias.scope !1853, !noundef !4
   %.promoted = load i64, ptr %3, align 8, !alias.scope !1853
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load ptr, ptr %6, align 8, !nonnull !4
   %.val4.i.i8 = load ptr, ptr %1, align 8, !nonnull !4, !align !8
-  %6 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !4
+  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
   br label %10
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h1ec27953cd4ae191E.exit", %2
@@ -8374,32 +8359,29 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %14 = add nuw i64 %11, 1
   store i64 %14, ptr %3, align 8, !alias.scope !1853
   %15 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %11
+  %16 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
   %.val6 = load i32, ptr %15, align 4, !noundef !4
-  %16 = load ptr, ptr %6, align 8, !alias.scope !1858, !nonnull !4, !noundef !4
-  %17 = load i64, ptr %7, align 8, !alias.scope !1858, !noundef !4
-  br label %18
+  %.val7 = load i32, ptr %16, align 4
+  %17 = load ptr, ptr %7, align 8, !alias.scope !1858, !nonnull !4, !noundef !4
+  %18 = load i64, ptr %8, align 8, !alias.scope !1858, !noundef !4
+  br label %19
 
-18:                                               ; preds = %18, %13
-  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %21, %18 ]
-  %19 = zext i32 %storemerge.i.i.i.i to i64
-  %.not.i.i.i.i = icmp ugt i64 %17, %19
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
-  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %20, ptr %8
-  %21 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1863, !noalias !1868, !noundef !4
-  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %21
-  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", label %18
+19:                                               ; preds = %19, %13
+  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %22, %19 ]
+  %20 = zext i32 %storemerge.i.i.i.i to i64
+  %.not.i.i.i.i = icmp ugt i64 %18, %20
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %20
+  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %21, ptr %9
+  %22 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1863, !noalias !1868, !noundef !4
+  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %22
+  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i", label %19
 
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader": ; preds = %18
-  %22 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
-  %.val7 = load i32, ptr %22, align 4
-  br label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader" ]
+"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %19, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
+  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %19 ]
   %23 = zext i32 %storemerge.i.i5.i.i to i64
-  %.not.i.i6.i.i = icmp ugt i64 %17, %23
-  %24 = getelementptr inbounds nuw i32, ptr %16, i64 %23
-  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %8
+  %.not.i.i6.i.i = icmp ugt i64 %18, %23
+  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %9
   %25 = load i32, ptr %.0.i2.i.i7.i.i, align 4, !alias.scope !1871, !noalias !1876, !noundef !4
   %.not5.i.i8.i.i = icmp eq i32 %storemerge.i.i5.i.i, %25
   br i1 %.not5.i.i8.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h1ec27953cd4ae191E.exit", label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
@@ -8419,12 +8401,12 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %5 = load i64, ptr %4, align 8, !alias.scope !1879, !noundef !4
   %.promoted = load i64, ptr %3, align 8, !alias.scope !1879
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load ptr, ptr %6, align 8, !nonnull !4
   %.val4.i.i8 = load ptr, ptr %1, align 8, !nonnull !4, !align !8
-  %6 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !4
+  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
   br label %10
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hfbde004e046595a3E.exit", %2
@@ -8436,32 +8418,29 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %14 = add nuw i64 %11, 1
   store i64 %14, ptr %3, align 8, !alias.scope !1879
   %15 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %11
+  %16 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
   %.val6 = load i32, ptr %15, align 4, !noundef !4
-  %16 = load ptr, ptr %6, align 8, !alias.scope !1884, !nonnull !4, !noundef !4
-  %17 = load i64, ptr %7, align 8, !alias.scope !1884, !noundef !4
-  br label %18
+  %.val7 = load i32, ptr %16, align 4
+  %17 = load ptr, ptr %7, align 8, !alias.scope !1884, !nonnull !4, !noundef !4
+  %18 = load i64, ptr %8, align 8, !alias.scope !1884, !noundef !4
+  br label %19
 
-18:                                               ; preds = %18, %13
-  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %21, %18 ]
-  %19 = zext i32 %storemerge.i.i.i.i to i64
-  %.not.i.i.i.i = icmp ugt i64 %17, %19
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
-  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %20, ptr %8
-  %21 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1889, !noalias !1894, !noundef !4
-  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %21
-  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", label %18
+19:                                               ; preds = %19, %13
+  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %22, %19 ]
+  %20 = zext i32 %storemerge.i.i.i.i to i64
+  %.not.i.i.i.i = icmp ugt i64 %18, %20
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %20
+  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %21, ptr %9
+  %22 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1889, !noalias !1894, !noundef !4
+  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %22
+  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i", label %19
 
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader": ; preds = %18
-  %22 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
-  %.val7 = load i32, ptr %22, align 4
-  br label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader" ]
+"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %19, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
+  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %19 ]
   %23 = zext i32 %storemerge.i.i5.i.i to i64
-  %.not.i.i6.i.i = icmp ugt i64 %17, %23
-  %24 = getelementptr inbounds nuw i32, ptr %16, i64 %23
-  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %8
+  %.not.i.i6.i.i = icmp ugt i64 %18, %23
+  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %9
   %25 = load i32, ptr %.0.i2.i.i7.i.i, align 4, !alias.scope !1897, !noalias !1902, !noundef !4
   %.not5.i.i8.i.i = icmp eq i32 %storemerge.i.i5.i.i, %25
   br i1 %.not5.i.i8.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hfbde004e046595a3E.exit", label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
@@ -8481,12 +8460,12 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %5 = load i64, ptr %4, align 8, !alias.scope !1905, !noundef !4
   %.promoted = load i64, ptr %3, align 8, !alias.scope !1905
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load ptr, ptr %6, align 8, !nonnull !4
   %.val4.i.i8 = load ptr, ptr %1, align 8, !nonnull !4, !align !8
-  %6 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !4
+  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
   br label %10
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hbf77adfd3053db85E.exit", %2
@@ -8498,32 +8477,29 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %14 = add nuw i64 %11, 1
   store i64 %14, ptr %3, align 8, !alias.scope !1905
   %15 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %11
+  %16 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
   %.val6 = load i32, ptr %15, align 4, !noundef !4
-  %16 = load ptr, ptr %6, align 8, !alias.scope !1910, !nonnull !4, !noundef !4
-  %17 = load i64, ptr %7, align 8, !alias.scope !1910, !noundef !4
-  br label %18
+  %.val7 = load i32, ptr %16, align 4
+  %17 = load ptr, ptr %7, align 8, !alias.scope !1910, !nonnull !4, !noundef !4
+  %18 = load i64, ptr %8, align 8, !alias.scope !1910, !noundef !4
+  br label %19
 
-18:                                               ; preds = %18, %13
-  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %21, %18 ]
-  %19 = zext i32 %storemerge.i.i.i.i to i64
-  %.not.i.i.i.i = icmp ugt i64 %17, %19
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
-  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %20, ptr %8
-  %21 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1915, !noalias !1920, !noundef !4
-  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %21
-  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", label %18
+19:                                               ; preds = %19, %13
+  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %22, %19 ]
+  %20 = zext i32 %storemerge.i.i.i.i to i64
+  %.not.i.i.i.i = icmp ugt i64 %18, %20
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %20
+  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %21, ptr %9
+  %22 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1915, !noalias !1920, !noundef !4
+  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %22
+  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i", label %19
 
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader": ; preds = %18
-  %22 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
-  %.val7 = load i32, ptr %22, align 4
-  br label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader" ]
+"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %19, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
+  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %19 ]
   %23 = zext i32 %storemerge.i.i5.i.i to i64
-  %.not.i.i6.i.i = icmp ugt i64 %17, %23
-  %24 = getelementptr inbounds nuw i32, ptr %16, i64 %23
-  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %8
+  %.not.i.i6.i.i = icmp ugt i64 %18, %23
+  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %9
   %25 = load i32, ptr %.0.i2.i.i7.i.i, align 4, !alias.scope !1923, !noalias !1928, !noundef !4
   %.not5.i.i8.i.i = icmp eq i32 %storemerge.i.i5.i.i, %25
   br i1 %.not5.i.i8.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hbf77adfd3053db85E.exit", label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
@@ -8543,12 +8519,12 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %5 = load i64, ptr %4, align 8, !alias.scope !1931, !noundef !4
   %.promoted = load i64, ptr %3, align 8, !alias.scope !1931
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load ptr, ptr %6, align 8, !nonnull !4
   %.val4.i.i8 = load ptr, ptr %1, align 8, !nonnull !4, !align !8
-  %6 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !4
+  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
   br label %10
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h1c00bc0fea130f99E.exit", %2
@@ -8560,32 +8536,29 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %14 = add nuw i64 %11, 1
   store i64 %14, ptr %3, align 8, !alias.scope !1931
   %15 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %11
+  %16 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
   %.val6 = load i32, ptr %15, align 4, !noundef !4
-  %16 = load ptr, ptr %6, align 8, !alias.scope !1936, !nonnull !4, !noundef !4
-  %17 = load i64, ptr %7, align 8, !alias.scope !1936, !noundef !4
-  br label %18
+  %.val7 = load i32, ptr %16, align 4
+  %17 = load ptr, ptr %7, align 8, !alias.scope !1936, !nonnull !4, !noundef !4
+  %18 = load i64, ptr %8, align 8, !alias.scope !1936, !noundef !4
+  br label %19
 
-18:                                               ; preds = %18, %13
-  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %21, %18 ]
-  %19 = zext i32 %storemerge.i.i.i.i to i64
-  %.not.i.i.i.i = icmp ugt i64 %17, %19
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
-  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %20, ptr %8
-  %21 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1941, !noalias !1946, !noundef !4
-  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %21
-  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", label %18
+19:                                               ; preds = %19, %13
+  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %22, %19 ]
+  %20 = zext i32 %storemerge.i.i.i.i to i64
+  %.not.i.i.i.i = icmp ugt i64 %18, %20
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %20
+  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %21, ptr %9
+  %22 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1941, !noalias !1946, !noundef !4
+  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %22
+  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i", label %19
 
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader": ; preds = %18
-  %22 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
-  %.val7 = load i32, ptr %22, align 4
-  br label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader" ]
+"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %19, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
+  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %19 ]
   %23 = zext i32 %storemerge.i.i5.i.i to i64
-  %.not.i.i6.i.i = icmp ugt i64 %17, %23
-  %24 = getelementptr inbounds nuw i32, ptr %16, i64 %23
-  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %8
+  %.not.i.i6.i.i = icmp ugt i64 %18, %23
+  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %9
   %25 = load i32, ptr %.0.i2.i.i7.i.i, align 4, !alias.scope !1949, !noalias !1954, !noundef !4
   %.not5.i.i8.i.i = icmp eq i32 %storemerge.i.i5.i.i, %25
   br i1 %.not5.i.i8.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h1c00bc0fea130f99E.exit", label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
@@ -8605,12 +8578,12 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %5 = load i64, ptr %4, align 8, !alias.scope !1957, !noundef !4
   %.promoted = load i64, ptr %3, align 8, !alias.scope !1957
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load ptr, ptr %6, align 8, !nonnull !4
   %.val4.i.i8 = load ptr, ptr %1, align 8, !nonnull !4, !align !8
-  %6 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !4
+  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
   br label %10
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9e022481382de225E.exit", %2
@@ -8622,32 +8595,29 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %14 = add nuw i64 %11, 1
   store i64 %14, ptr %3, align 8, !alias.scope !1957
   %15 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %11
+  %16 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
   %.val6 = load i32, ptr %15, align 4, !noundef !4
-  %16 = load ptr, ptr %6, align 8, !alias.scope !1962, !nonnull !4, !noundef !4
-  %17 = load i64, ptr %7, align 8, !alias.scope !1962, !noundef !4
-  br label %18
+  %.val7 = load i32, ptr %16, align 4
+  %17 = load ptr, ptr %7, align 8, !alias.scope !1962, !nonnull !4, !noundef !4
+  %18 = load i64, ptr %8, align 8, !alias.scope !1962, !noundef !4
+  br label %19
 
-18:                                               ; preds = %18, %13
-  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %21, %18 ]
-  %19 = zext i32 %storemerge.i.i.i.i to i64
-  %.not.i.i.i.i = icmp ugt i64 %17, %19
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
-  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %20, ptr %8
-  %21 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1967, !noalias !1972, !noundef !4
-  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %21
-  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", label %18
+19:                                               ; preds = %19, %13
+  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %22, %19 ]
+  %20 = zext i32 %storemerge.i.i.i.i to i64
+  %.not.i.i.i.i = icmp ugt i64 %18, %20
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %20
+  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %21, ptr %9
+  %22 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1967, !noalias !1972, !noundef !4
+  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %22
+  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i", label %19
 
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader": ; preds = %18
-  %22 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
-  %.val7 = load i32, ptr %22, align 4
-  br label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader" ]
+"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %19, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
+  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %19 ]
   %23 = zext i32 %storemerge.i.i5.i.i to i64
-  %.not.i.i6.i.i = icmp ugt i64 %17, %23
-  %24 = getelementptr inbounds nuw i32, ptr %16, i64 %23
-  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %8
+  %.not.i.i6.i.i = icmp ugt i64 %18, %23
+  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %9
   %25 = load i32, ptr %.0.i2.i.i7.i.i, align 4, !alias.scope !1975, !noalias !1980, !noundef !4
   %.not5.i.i8.i.i = icmp eq i32 %storemerge.i.i5.i.i, %25
   br i1 %.not5.i.i8.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9e022481382de225E.exit", label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
@@ -8667,12 +8637,12 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %5 = load i64, ptr %4, align 8, !alias.scope !1983, !noundef !4
   %.promoted = load i64, ptr %3, align 8, !alias.scope !1983
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load ptr, ptr %6, align 8, !nonnull !4
   %.val4.i.i8 = load ptr, ptr %1, align 8, !nonnull !4, !align !8
-  %6 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !4
+  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
   br label %10
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h6f8311498089ce3fE.exit", %2
@@ -8684,32 +8654,29 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %14 = add nuw i64 %11, 1
   store i64 %14, ptr %3, align 8, !alias.scope !1983
   %15 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %11
+  %16 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
   %.val6 = load i32, ptr %15, align 4, !noundef !4
-  %16 = load ptr, ptr %6, align 8, !alias.scope !1988, !nonnull !4, !noundef !4
-  %17 = load i64, ptr %7, align 8, !alias.scope !1988, !noundef !4
-  br label %18
+  %.val7 = load i32, ptr %16, align 4
+  %17 = load ptr, ptr %7, align 8, !alias.scope !1988, !nonnull !4, !noundef !4
+  %18 = load i64, ptr %8, align 8, !alias.scope !1988, !noundef !4
+  br label %19
 
-18:                                               ; preds = %18, %13
-  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %21, %18 ]
-  %19 = zext i32 %storemerge.i.i.i.i to i64
-  %.not.i.i.i.i = icmp ugt i64 %17, %19
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
-  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %20, ptr %8
-  %21 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1993, !noalias !1998, !noundef !4
-  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %21
-  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", label %18
+19:                                               ; preds = %19, %13
+  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %22, %19 ]
+  %20 = zext i32 %storemerge.i.i.i.i to i64
+  %.not.i.i.i.i = icmp ugt i64 %18, %20
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %20
+  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %21, ptr %9
+  %22 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !1993, !noalias !1998, !noundef !4
+  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %22
+  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i", label %19
 
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader": ; preds = %18
-  %22 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
-  %.val7 = load i32, ptr %22, align 4
-  br label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader" ]
+"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %19, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
+  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %19 ]
   %23 = zext i32 %storemerge.i.i5.i.i to i64
-  %.not.i.i6.i.i = icmp ugt i64 %17, %23
-  %24 = getelementptr inbounds nuw i32, ptr %16, i64 %23
-  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %8
+  %.not.i.i6.i.i = icmp ugt i64 %18, %23
+  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %9
   %25 = load i32, ptr %.0.i2.i.i7.i.i, align 4, !alias.scope !2001, !noalias !2006, !noundef !4
   %.not5.i.i8.i.i = icmp eq i32 %storemerge.i.i5.i.i, %25
   br i1 %.not5.i.i8.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h6f8311498089ce3fE.exit", label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
@@ -8729,12 +8696,12 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %5 = load i64, ptr %4, align 8, !alias.scope !2009, !noundef !4
   %.promoted = load i64, ptr %3, align 8, !alias.scope !2009
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load ptr, ptr %6, align 8, !nonnull !4
   %.val4.i.i8 = load ptr, ptr %1, align 8, !nonnull !4, !align !8
-  %6 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !4
+  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
   br label %10
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hc915ef3a5e537355E.exit", %2
@@ -8746,32 +8713,29 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %14 = add nuw i64 %11, 1
   store i64 %14, ptr %3, align 8, !alias.scope !2009
   %15 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %11
+  %16 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
   %.val6 = load i32, ptr %15, align 4, !noundef !4
-  %16 = load ptr, ptr %6, align 8, !alias.scope !2014, !nonnull !4, !noundef !4
-  %17 = load i64, ptr %7, align 8, !alias.scope !2014, !noundef !4
-  br label %18
+  %.val7 = load i32, ptr %16, align 4
+  %17 = load ptr, ptr %7, align 8, !alias.scope !2014, !nonnull !4, !noundef !4
+  %18 = load i64, ptr %8, align 8, !alias.scope !2014, !noundef !4
+  br label %19
 
-18:                                               ; preds = %18, %13
-  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %21, %18 ]
-  %19 = zext i32 %storemerge.i.i.i.i to i64
-  %.not.i.i.i.i = icmp ugt i64 %17, %19
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
-  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %20, ptr %8
-  %21 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !2019, !noalias !2024, !noundef !4
-  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %21
-  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", label %18
+19:                                               ; preds = %19, %13
+  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %22, %19 ]
+  %20 = zext i32 %storemerge.i.i.i.i to i64
+  %.not.i.i.i.i = icmp ugt i64 %18, %20
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %20
+  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %21, ptr %9
+  %22 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !2019, !noalias !2024, !noundef !4
+  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %22
+  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i", label %19
 
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader": ; preds = %18
-  %22 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
-  %.val7 = load i32, ptr %22, align 4
-  br label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader" ]
+"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %19, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
+  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %19 ]
   %23 = zext i32 %storemerge.i.i5.i.i to i64
-  %.not.i.i6.i.i = icmp ugt i64 %17, %23
-  %24 = getelementptr inbounds nuw i32, ptr %16, i64 %23
-  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %8
+  %.not.i.i6.i.i = icmp ugt i64 %18, %23
+  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %9
   %25 = load i32, ptr %.0.i2.i.i7.i.i, align 4, !alias.scope !2027, !noalias !2032, !noundef !4
   %.not5.i.i8.i.i = icmp eq i32 %storemerge.i.i5.i.i, %25
   br i1 %.not5.i.i8.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hc915ef3a5e537355E.exit", label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
@@ -8791,12 +8755,12 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %5 = load i64, ptr %4, align 8, !alias.scope !2035, !noundef !4
   %.promoted = load i64, ptr %3, align 8, !alias.scope !2035
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load ptr, ptr %6, align 8, !nonnull !4
   %.val4.i.i8 = load ptr, ptr %1, align 8, !nonnull !4, !align !8
-  %6 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !4
+  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
   br label %10
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hec81ee2692183f42E.exit", %2
@@ -8808,32 +8772,29 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %14 = add nuw i64 %11, 1
   store i64 %14, ptr %3, align 8, !alias.scope !2035
   %15 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %11
+  %16 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
   %.val6 = load i32, ptr %15, align 4, !noundef !4
-  %16 = load ptr, ptr %6, align 8, !alias.scope !2040, !nonnull !4, !noundef !4
-  %17 = load i64, ptr %7, align 8, !alias.scope !2040, !noundef !4
-  br label %18
+  %.val7 = load i32, ptr %16, align 4
+  %17 = load ptr, ptr %7, align 8, !alias.scope !2040, !nonnull !4, !noundef !4
+  %18 = load i64, ptr %8, align 8, !alias.scope !2040, !noundef !4
+  br label %19
 
-18:                                               ; preds = %18, %13
-  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %21, %18 ]
-  %19 = zext i32 %storemerge.i.i.i.i to i64
-  %.not.i.i.i.i = icmp ugt i64 %17, %19
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
-  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %20, ptr %8
-  %21 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !2045, !noalias !2050, !noundef !4
-  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %21
-  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", label %18
+19:                                               ; preds = %19, %13
+  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %22, %19 ]
+  %20 = zext i32 %storemerge.i.i.i.i to i64
+  %.not.i.i.i.i = icmp ugt i64 %18, %20
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %20
+  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %21, ptr %9
+  %22 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !2045, !noalias !2050, !noundef !4
+  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %22
+  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i", label %19
 
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader": ; preds = %18
-  %22 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
-  %.val7 = load i32, ptr %22, align 4
-  br label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader" ]
+"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %19, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
+  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %19 ]
   %23 = zext i32 %storemerge.i.i5.i.i to i64
-  %.not.i.i6.i.i = icmp ugt i64 %17, %23
-  %24 = getelementptr inbounds nuw i32, ptr %16, i64 %23
-  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %8
+  %.not.i.i6.i.i = icmp ugt i64 %18, %23
+  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %9
   %25 = load i32, ptr %.0.i2.i.i7.i.i, align 4, !alias.scope !2053, !noalias !2058, !noundef !4
   %.not5.i.i8.i.i = icmp eq i32 %storemerge.i.i5.i.i, %25
   br i1 %.not5.i.i8.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hec81ee2692183f42E.exit", label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
@@ -8853,12 +8814,12 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %5 = load i64, ptr %4, align 8, !alias.scope !2061, !noundef !4
   %.promoted = load i64, ptr %3, align 8, !alias.scope !2061
   %.val4.i.i = load ptr, ptr %0, align 8, !nonnull !4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load ptr, ptr %6, align 8, !nonnull !4
   %.val4.i.i8 = load ptr, ptr %1, align 8, !nonnull !4, !align !8
-  %6 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.i = load ptr, ptr %9, align 8, !nonnull !4
+  %7 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.val4.i.i8, i64 24
   br label %10
 
 10:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hd70955ea78c5b412E.exit", %2
@@ -8870,32 +8831,29 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %14 = add nuw i64 %11, 1
   store i64 %14, ptr %3, align 8, !alias.scope !2061
   %15 = getelementptr inbounds i32, ptr %.val4.i.i, i64 %11
+  %16 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
   %.val6 = load i32, ptr %15, align 4, !noundef !4
-  %16 = load ptr, ptr %6, align 8, !alias.scope !2066, !nonnull !4, !noundef !4
-  %17 = load i64, ptr %7, align 8, !alias.scope !2066, !noundef !4
-  br label %18
+  %.val7 = load i32, ptr %16, align 4
+  %17 = load ptr, ptr %7, align 8, !alias.scope !2066, !nonnull !4, !noundef !4
+  %18 = load i64, ptr %8, align 8, !alias.scope !2066, !noundef !4
+  br label %19
 
-18:                                               ; preds = %18, %13
-  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %21, %18 ]
-  %19 = zext i32 %storemerge.i.i.i.i to i64
-  %.not.i.i.i.i = icmp ugt i64 %17, %19
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
-  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %20, ptr %8
-  %21 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !2071, !noalias !2076, !noundef !4
-  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %21
-  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", label %18
+19:                                               ; preds = %19, %13
+  %storemerge.i.i.i.i = phi i32 [ %.val6, %13 ], [ %22, %19 ]
+  %20 = zext i32 %storemerge.i.i.i.i to i64
+  %.not.i.i.i.i = icmp ugt i64 %18, %20
+  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %20
+  %.0.i2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %21, ptr %9
+  %22 = load i32, ptr %.0.i2.i.i.i.i, align 4, !alias.scope !2071, !noalias !2076, !noundef !4
+  %.not5.i.i.i.i = icmp eq i32 %storemerge.i.i.i.i, %22
+  br i1 %.not5.i.i.i.i, label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i", label %19
 
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader": ; preds = %18
-  %22 = getelementptr inbounds i32, ptr %.val.i.i, i64 %11
-  %.val7 = load i32, ptr %22, align 4
-  br label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-
-"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader", %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
-  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i.preheader" ]
+"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i": ; preds = %19, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"
+  %storemerge.i.i5.i.i = phi i32 [ %25, %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i" ], [ %.val7, %19 ]
   %23 = zext i32 %storemerge.i.i5.i.i to i64
-  %.not.i.i6.i.i = icmp ugt i64 %17, %23
-  %24 = getelementptr inbounds nuw i32, ptr %16, i64 %23
-  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %8
+  %.not.i.i6.i.i = icmp ugt i64 %18, %23
+  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %23
+  %.0.i2.i.i7.i.i = select i1 %.not.i.i6.i.i, ptr %24, ptr %9
   %25 = load i32, ptr %.0.i2.i.i7.i.i, align 4, !alias.scope !2079, !noalias !2084, !noundef !4
   %.not5.i.i8.i.i = icmp eq i32 %storemerge.i.i5.i.i, %25
   br i1 %.not5.i.i8.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hd70955ea78c5b412E.exit", label %"_ZN296_$LT$cranelift_codegen..egraph..GVNContext$u20$as$u20$cranelift_codegen..ctxhash..CtxEq$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$GT$$GT$6ctx_eq28_$u7b$$u7b$closure$u7d$$u7d$17h5bbf5fe7f7c70399E.exit.i.i"

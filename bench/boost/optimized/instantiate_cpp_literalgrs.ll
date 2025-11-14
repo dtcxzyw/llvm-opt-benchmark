@@ -6717,8 +6717,8 @@ define linkonce_odr hidden void @_ZNSt6vectorIPN5boost4wave8grammars14intlit_gra
 
 _ZSt6fill_nIPPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEEmSH_ET_SJ_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !17
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEEmSH_ET_SJ_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEEmSH_ET_SJ_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEEmSH_ET_SJ_T0_RKT1_.exit.loopexit.i.i.i
@@ -9177,8 +9177,8 @@ define linkonce_odr hidden void @_ZNSt6vectorIPN5boost4wave8grammars13chlit_gram
 
 _ZSt6fill_nIPPN5boost4wave8grammars13chlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEEmSH_ET_SJ_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !17
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPN5boost4wave8grammars13chlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEEmSH_ET_SJ_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN5boost4wave8grammars13chlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEEmSH_ET_SJ_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN5boost4wave8grammars13chlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEEmSH_ET_SJ_T0_RKT1_.exit.loopexit.i.i.i

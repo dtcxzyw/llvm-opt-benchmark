@@ -1862,9 +1862,9 @@ lag_pred_line.exit:                               ; preds = %mid_pred.exit.i.i, 
 
 .preheader.i157:                                  ; preds = %688
   %686 = icmp slt i32 %678, %2
-  br i1 %686, label %.lr.ph.preheader.i159, label %lag_pred_line_yuy2.exit
+  br i1 %686, label %.lr.ph.i.preheader, label %lag_pred_line_yuy2.exit
 
-.lr.ph.preheader.i159:                            ; preds = %.preheader.i157
+.lr.ph.i.preheader:                               ; preds = %.preheader.i157
   %687 = zext i8 %685 to i32
   br label %.lr.ph.i
 
@@ -1881,10 +1881,10 @@ lag_pred_line.exit:                               ; preds = %mid_pred.exit.i.i, 
   %exitcond.not.i156 = icmp eq i64 %indvars.iv.next.i155, %wide.trip.count.i
   br i1 %exitcond.not.i156, label %.preheader.i157, label %688, !llvm.loop !83
 
-.lr.ph.i:                                         ; preds = %mid_pred.exit.i, %.lr.ph.preheader.i159
-  %indvars.iv68.i = phi i64 [ %wide.trip.count.i, %.lr.ph.preheader.i159 ], [ %indvars.iv.next69.i, %mid_pred.exit.i ]
-  %695 = phi i32 [ %693, %.lr.ph.preheader.i159 ], [ %716, %mid_pred.exit.i ]
-  %696 = phi i32 [ %687, %.lr.ph.preheader.i159 ], [ %701, %mid_pred.exit.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %mid_pred.exit.i
+  %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %mid_pred.exit.i ], [ %wide.trip.count.i, %.lr.ph.i.preheader ]
+  %695 = phi i32 [ %716, %mid_pred.exit.i ], [ %693, %.lr.ph.i.preheader ]
+  %696 = phi i32 [ %701, %mid_pred.exit.i ], [ %687, %.lr.ph.i.preheader ]
   %697 = and i32 %695, 255
   %698 = sub nsw i64 %indvars.iv68.i, %618
   %699 = getelementptr inbounds i8, ptr %.1109292, i64 %698

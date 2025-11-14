@@ -14228,35 +14228,35 @@ define internal fastcc void @errline(i32 noundef %0, i32 noundef %1, ptr noundef
   %29 = phi ptr [ %14, %13 ], [ %16, %.critedge.loopexit.split.loop.exit42 ], [ %21, %19 ]
   %.120.lcssa = phi i32 [ %.019, %13 ], [ %.12028, %.critedge.loopexit.split.loop.exit42 ], [ %27, %19 ]
   %.0.lcssa = phi i32 [ 1, %13 ], [ %28, %.critedge.loopexit.split.loop.exit42 ], [ %0, %19 ]
-  %30 = sext i32 %.0.lcssa to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
-  %32 = load ptr, ptr %31, align 8
-  %.not2734 = icmp eq ptr %32, null
+  %30 = add i32 %.120.lcssa, %1
+  %31 = sext i32 %.0.lcssa to i64
+  %32 = getelementptr ptr, ptr %29, i64 %31
+  %33 = load ptr, ptr %32, align 8
+  %.not2734 = icmp eq ptr %33, null
   br i1 %.not2734, label %._crit_edge, label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %.critedge, %.lr.ph36
-  %33 = phi ptr [ %39, %.lr.ph36 ], [ %32, %.critedge ]
-  %.135 = phi i32 [ %35, %.lr.ph36 ], [ %.0.lcssa, %.critedge ]
-  %34 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.86, ptr noundef nonnull %33)
-  %35 = add i32 %.135, 1
-  %36 = load ptr, ptr @g_argv, align 8
-  %37 = sext i32 %35 to i64
-  %38 = getelementptr ptr, ptr %36, i64 %37
-  %39 = load ptr, ptr %38, align 8
-  %.not27 = icmp eq ptr %39, null
+  %34 = phi ptr [ %40, %.lr.ph36 ], [ %33, %.critedge ]
+  %.135 = phi i32 [ %36, %.lr.ph36 ], [ %.0.lcssa, %.critedge ]
+  %35 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.86, ptr noundef nonnull %34)
+  %36 = add i32 %.135, 1
+  %37 = load ptr, ptr @g_argv, align 8
+  %38 = sext i32 %36 to i64
+  %39 = getelementptr ptr, ptr %37, i64 %38
+  %40 = load ptr, ptr %39, align 8
+  %.not27 = icmp eq ptr %40, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph36, !llvm.loop !204
 
 ._crit_edge:                                      ; preds = %.lr.ph36, %.critedge
-  %40 = add i32 %.120.lcssa, %1
-  %41 = icmp slt i32 %40, 20
+  %41 = icmp slt i32 %30, 20
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %._crit_edge
-  %43 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.269, i32 noundef %40, ptr noundef nonnull @.str.70)
+  %43 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.269, i32 noundef %30, ptr noundef nonnull @.str.70)
   br label %47
 
 44:                                               ; preds = %._crit_edge
-  %45 = add nsw i32 %40, -7
+  %45 = add nsw i32 %30, -7
   %46 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.270, i32 noundef %45, ptr noundef nonnull @.str.70)
   br label %47
 

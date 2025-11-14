@@ -20666,17 +20666,17 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit83: ; preds = %
   %286 = load ptr, ptr %285, align 8, !tbaa !1621
   %287 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #26
   %288 = zext i32 %287 to i64
-  %289 = zext i1 %100 to i64
-  %290 = getelementptr inbounds nuw ptr, ptr %286, i64 %288
-  %.not69158 = icmp samesign eq i64 %289, %288
+  %289 = zext i1 %100 to i32
+  %290 = zext i1 %100 to i64
+  %291 = getelementptr inbounds nuw ptr, ptr %286, i64 %288
+  %.not69158 = icmp samesign eq i64 %290, %288
   br i1 %.not69158, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %281
-  %291 = getelementptr inbounds nuw ptr, ptr %286, i64 %289
+  %292 = getelementptr inbounds nuw ptr, ptr %286, i64 %290
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4StmtELb1EE9push_backES4_.exit, %281
-  %292 = zext i1 %100 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %293 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %294 = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -20735,7 +20735,7 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %._crit_ed
   %328 = load i32, ptr %283, align 8, !tbaa !484
   %329 = zext i32 %328 to i64
   %330 = getelementptr inbounds nuw ptr, ptr %327, i64 %329
-  call void @_ZN5clang7CodeGen15CodeGenFunction12EmitCallArgsERNS0_11CallArgListENS1_16PrototypeWrapperEN4llvm14iterator_rangeINS_4Stmt12CastIteratorINS_4ExprEKPKS9_KPKS7_EEEENS1_14AbstractCalleeEjNS1_15EvaluationOrderE(ptr noundef nonnull align 8 dereferenceable(6496) %11, ptr noundef nonnull align 8 dereferenceable(1496) %17, i64 %326, ptr %327, ptr %330, ptr nonnull %1, i32 noundef %292, i32 noundef 0) #26
+  call void @_ZN5clang7CodeGen15CodeGenFunction12EmitCallArgsERNS0_11CallArgListENS1_16PrototypeWrapperEN4llvm14iterator_rangeINS_4Stmt12CastIteratorINS_4ExprEKPKS9_KPKS7_EEEENS1_14AbstractCalleeEjNS1_15EvaluationOrderE(ptr noundef nonnull align 8 dereferenceable(6496) %11, ptr noundef nonnull align 8 dereferenceable(1496) %17, i64 %326, ptr %327, ptr %330, ptr nonnull %1, i32 noundef %289, i32 noundef 0) #26
   %331 = call i64 @_ZN5clang7CodeGen8CGCXXABI26addImplicitConstructorArgsERNS0_15CodeGenFunctionEPKNS_18CXXConstructorDeclENS_11CXXCtorTypeEbbRNS0_11CallArgListE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(6496) %11, ptr noundef nonnull %1, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(1496) %17) #26
   %.sroa.0.0.extract.trunc = trunc i64 %331 to i32
   %.sroa.4.0.extract.shift = lshr i64 %331, 32
@@ -20880,7 +20880,7 @@ _ZN4llvm11SmallVectorIPKN5clang7VarDeclELj16EED2Ev.exit: ; preds = %_ZN5clang7Co
   br label %392
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4StmtELb1EE9push_backES4_.exit
-  %.064159 = phi ptr [ %391, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4StmtELb1EE9push_backES4_.exit ], [ %291, %.lr.ph.preheader ]
+  %.064159 = phi ptr [ %391, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4StmtELb1EE9push_backES4_.exit ], [ %292, %.lr.ph.preheader ]
   %377 = load ptr, ptr %.064159, align 8, !tbaa !1658
   %378 = call noundef ptr @_ZN5clang11ParmVarDecl13getDefaultArgEv(ptr noundef nonnull align 8 dereferenceable(104) %377) #26
   %379 = load i32, ptr %283, align 8, !tbaa !484
@@ -20906,7 +20906,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4StmtELb1EE9push_backES4_.exit: ; pre
   %390 = add i32 %389, 1
   store i32 %390, ptr %283, align 8, !tbaa !484
   %391 = getelementptr inbounds nuw i8, ptr %.064159, i64 8
-  %.not69 = icmp eq ptr %391, %290
+  %.not69 = icmp eq ptr %391, %291
   br i1 %.not69, label %._crit_edge, label %.lr.ph
 
 392:                                              ; preds = %3, %_ZN4llvm11SmallVectorIPKN5clang7VarDeclELj16EED2Ev.exit

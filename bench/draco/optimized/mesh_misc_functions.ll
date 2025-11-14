@@ -128,12 +128,12 @@ _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEELm
 
 .split:                                           ; preds = %.lr.ph.split, %.split32
   %indvar = phi i64 [ 0, %.lr.ph.split ], [ %indvar.next, %.split32 ]
-  %35 = getelementptr inbounds nuw %"struct.std::array.32", ptr %13, i64 %indvar
+  %35 = mul nuw nsw i64 %indvar, 12
+  %scevgep = getelementptr i8, ptr %22, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.std::array.32", ptr %13, i64 %indvar
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
 .split32:                                         ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
-  %36 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr i8, ptr %22, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa !17
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond37.not = icmp eq i64 %indvar.next, %wide.trip.count
@@ -141,7 +141,7 @@ _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEELm
 
 _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit: ; preds = %.split, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
   %indvars.iv = phi i64 [ 0, %.split ], [ %indvars.iv.next, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
-  %37 = getelementptr inbounds nuw %"class.draco::IndexType.33", ptr %35, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw %"class.draco::IndexType.33", ptr %36, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %37, align 4, !tbaa !54
   %38 = zext i32 %.sroa.0.0.copyload to i64
   %39 = getelementptr inbounds nuw %"class.draco::IndexType.34", ptr %31, i64 %38

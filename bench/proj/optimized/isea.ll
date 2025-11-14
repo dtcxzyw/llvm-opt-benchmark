@@ -94,29 +94,29 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_iseaP8PJconsts(ptr n
   store double 0x3FF0468A8AD00E8D, ptr %2, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 0x3FC921FB54442D18, ptr %10, align 8, !tbaa !46
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 4, ptr %11, align 8, !tbaa !47
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i32 6, ptr %12, align 4, !tbaa !48
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  br label %14
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i32 4, ptr %12, align 8, !tbaa !47
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  store i32 6, ptr %13, align 4, !tbaa !48
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  br label %15
 
-14:                                               ; preds = %14, %6
-  %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %14 ]
-  %15 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GeoPoint", ptr @_ZL31facesCenterDodecahedronVertices, i64 %indvars.iv.i
-  %16 = load double, ptr %15, align 16, !tbaa !49
-  %17 = tail call double @sin(double noundef %16) #18, !tbaa !51
-  %18 = getelementptr inbounds nuw %"struct.(anonymous namespace)::isea_sincos", ptr %13, i64 %indvars.iv.i
-  store double %17, ptr %18, align 8, !tbaa !52
-  %19 = tail call double @cos(double noundef %16) #18, !tbaa !51
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store double %19, ptr %20, align 8, !tbaa !54
+15:                                               ; preds = %15, %6
+  %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %15 ]
+  %16 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GeoPoint", ptr @_ZL31facesCenterDodecahedronVertices, i64 %indvars.iv.i
+  %17 = load double, ptr %16, align 16, !tbaa !49
+  %18 = tail call double @sin(double noundef %17) #18, !tbaa !51
+  %19 = getelementptr inbounds nuw %"struct.(anonymous namespace)::isea_sincos", ptr %14, i64 %indvars.iv.i
+  store double %18, ptr %19, align 8, !tbaa !52
+  %20 = tail call double @cos(double noundef %17) #18, !tbaa !51
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store double %20, ptr %21, align 8, !tbaa !54
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond.not.i, label %_ZL14isea_grid_initPN12_GLOBAL__N_112pj_isea_dataE.exit, label %14, !llvm.loop !55
+  br i1 %exitcond.not.i, label %_ZL14isea_grid_initPN12_GLOBAL__N_112pj_isea_dataE.exit, label %15, !llvm.loop !55
 
-_ZL14isea_grid_initPN12_GLOBAL__N_112pj_isea_dataE.exit: ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
+_ZL14isea_grid_initPN12_GLOBAL__N_112pj_isea_dataE.exit: ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %23 = load ptr, ptr %0, align 8, !tbaa !57
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -134,7 +134,7 @@ _ZL14isea_grid_initPN12_GLOBAL__N_112pj_isea_dataE.exit: ; preds = %14
 29:                                               ; preds = %27
   store double 0x3FF0468A8AD00E8D, ptr %2, align 8, !tbaa !43
   store double 0x3FC921FB54442D18, ptr %10, align 8, !tbaa !46
-  store double 0.000000e+00, ptr %21, align 8, !tbaa !59
+  store double 0.000000e+00, ptr %11, align 8, !tbaa !59
   br label %35
 
 30:                                               ; preds = %27
@@ -164,7 +164,7 @@ _ZL14isea_grid_initPN12_GLOBAL__N_112pj_isea_dataE.exit: ; preds = %14
   %41 = load ptr, ptr %0, align 8, !tbaa !57
   %42 = load ptr, ptr %24, align 8, !tbaa !58
   %43 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %41, ptr noundef %42, ptr noundef nonnull @.str.5)
-  store i64 %43, ptr %21, align 8, !tbaa !59
+  store i64 %43, ptr %11, align 8, !tbaa !59
   br label %44
 
 44:                                               ; preds = %40, %35
@@ -271,7 +271,7 @@ sub_194:                                          ; preds = %.tail, %sub_1
 
 91:                                               ; preds = %82, %87
   %storemerge = phi i32 [ %.sroa.03.0.extract.trunc, %87 ], [ 4, %82 ]
-  store i32 %storemerge, ptr %12, align 4, !tbaa !48
+  store i32 %storemerge, ptr %13, align 4, !tbaa !48
   %92 = load ptr, ptr %0, align 8, !tbaa !57
   %93 = load ptr, ptr %24, align 8, !tbaa !58
   %94 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %92, ptr noundef %93, ptr noundef nonnull @.str.18)
@@ -288,7 +288,7 @@ sub_194:                                          ; preds = %.tail, %sub_1
 
 100:                                              ; preds = %91, %96
   %storemerge91 = phi i32 [ %.sroa.0.0.extract.trunc, %96 ], [ 3, %91 ]
-  store i32 %storemerge91, ptr %11, align 8, !tbaa !47
+  store i32 %storemerge91, ptr %12, align 8, !tbaa !47
   %101 = load ptr, ptr %7, align 8, !tbaa !40
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %103 = load i32, ptr %102, align 8, !tbaa !60

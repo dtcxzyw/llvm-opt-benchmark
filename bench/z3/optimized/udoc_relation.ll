@@ -1036,21 +1036,21 @@ _ZNK7bv_util11get_bv_sizeEPK4sort.exit:           ; preds = %6
 thread-pre-split:                                 ; preds = %23
   %.pr = load i64, ptr %3, align 8, !tbaa !143
   %.not9 = icmp eq i64 %.pr, 0
-  br i1 %.not9, label %.loopexit, label %..loopexit_crit_edge
+  br i1 %.not9, label %.loopexit, label %.loopexit.loopexit
 
 26:                                               ; preds = %23
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 284, ptr noundef nonnull @.str.2)
   call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %.loopexit
 
-..loopexit_crit_edge:                             ; preds = %thread-pre-split
+.loopexit.loopexit:                               ; preds = %thread-pre-split
   %27 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.pr, i1 true)
   %28 = trunc nuw nsw i64 %27 to i32
   %29 = sub nuw nsw i32 64, %28
   br label %.loopexit
 
-.loopexit:                                        ; preds = %thread-pre-split, %..loopexit_crit_edge, %26
-  %.1 = phi i32 [ 0, %26 ], [ %29, %..loopexit_crit_edge ], [ 0, %thread-pre-split ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %thread-pre-split, %26
+  %.1 = phi i32 [ 0, %26 ], [ 0, %thread-pre-split ], [ %29, %.loopexit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
@@ -1863,20 +1863,20 @@ _ZN8rationalD2Ev.exit17:                          ; preds = %.noexc.i16
 .lr.ph.preheader:                                 ; preds = %106
   %107 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.pr, i1 true)
   %108 = sub nuw nsw i64 64, %107
+  %109 = trunc nuw nsw i64 %108 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %tcphi = phi i64 [ %108, %.lr.ph.preheader ], [ %tcdec, %.lr.ph ]
-  %109 = phi i64 [ %.pr, %.lr.ph.preheader ], [ %110, %.lr.ph ]
-  %110 = lshr i64 %109, 1
+  %110 = phi i64 [ %.pr, %.lr.ph.preheader ], [ %111, %.lr.ph ]
+  %111 = lshr i64 %110, 1
   %tcdec = add nsw i64 %tcphi, -1
   %.not = icmp eq i64 %tcdec, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !181
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %111 = trunc nuw nsw i64 %108 to i32
-  store i32 %111, ptr %3, align 4, !tbaa !14
-  store i64 %110, ptr %8, align 8, !tbaa !143
+  store i32 %109, ptr %3, align 4, !tbaa !14
+  store i64 %111, ptr %8, align 8, !tbaa !143
   br label %112
 
 112:                                              ; preds = %._crit_edge, %106
@@ -6355,27 +6355,27 @@ _ZN7svectorIjjEC2Ej.exit:                         ; preds = %.lr.ph.preheader.i.
   %75 = load ptr, ptr %7, align 8, !tbaa !37
   %76 = load i32, ptr %75, align 4, !tbaa !14
   %77 = add i32 %76, %.052
-  %78 = load ptr, ptr %24, align 8, !tbaa !37
-  br label %79
+  %78 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv64
+  %79 = load i32, ptr %78, align 4, !tbaa !14
+  %80 = load ptr, ptr %24, align 8, !tbaa !37
+  br label %81
 
-79:                                               ; preds = %79, %.lr.ph53
-  %.08.i.i = phi i32 [ %77, %.lr.ph53 ], [ %82, %79 ]
-  %80 = zext i32 %.08.i.i to i64
-  %81 = getelementptr inbounds nuw i32, ptr %78, i64 %80
-  %82 = load i32, ptr %81, align 4, !tbaa !14
-  %.not.i.i = icmp eq i32 %82, %.08.i.i
-  br i1 %.not.i.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader, label %79
-
-_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader: ; preds = %79
-  %83 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv64
+81:                                               ; preds = %81, %.lr.ph53
+  %.08.i.i = phi i32 [ %77, %.lr.ph53 ], [ %84, %81 ]
+  %82 = zext i32 %.08.i.i to i64
+  %83 = getelementptr inbounds nuw i32, ptr %80, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !14
-  %85 = add i32 %84, %.052
+  %.not.i.i = icmp eq i32 %84, %.08.i.i
+  br i1 %.not.i.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader, label %81
+
+_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader: ; preds = %81
+  %85 = add i32 %79, %.052
   br label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
 
 _ZNK10union_findI22union_find_default_ctxE4findEj.exit.i: ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
   %.08.i2.i = phi i32 [ %88, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i ], [ %85, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader ]
   %86 = zext i32 %.08.i2.i to i64
-  %87 = getelementptr inbounds nuw i32, ptr %78, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %80, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !14
   %.not.i3.i = icmp eq i32 %88, %.08.i2.i
   br i1 %.not.i3.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
@@ -6386,7 +6386,7 @@ _ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i: ; preds = %_ZNK10unio
 
 .noexc.i:                                         ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i
   %90 = load ptr, ptr %62, align 8, !tbaa !37
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %80
+  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %82
   %92 = load i32, ptr %91, align 4, !tbaa !14
   %93 = getelementptr inbounds nuw i32, ptr %90, i64 %86
   %94 = load i32, ptr %93, align 4, !tbaa !14
@@ -6394,7 +6394,7 @@ _ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i: ; preds = %_ZNK10unio
   %spec.select.i = select i1 %95, i32 %.08.i.i, i32 %.08.i2.i
   %spec.select30.i = select i1 %95, i32 %.08.i2.i, i32 %.08.i.i
   %96 = zext i32 %spec.select30.i to i64
-  %97 = getelementptr inbounds nuw i32, ptr %78, i64 %96
+  %97 = getelementptr inbounds nuw i32, ptr %80, i64 %96
   store i32 %spec.select.i, ptr %97, align 4, !tbaa !14
   %98 = getelementptr inbounds nuw i32, ptr %90, i64 %96
   %99 = load i32, ptr %98, align 4, !tbaa !14
@@ -8237,26 +8237,26 @@ _ZNK7datalog13udoc_relation12is_var_rangeEP4exprRjS3_S3_.exit71: ; preds = %163
   store i32 %210, ptr %207, align 4, !tbaa !14
   %211 = load i32, ptr %13, align 4, !tbaa !14
   %212 = add i32 %211, %.0113
-  %213 = load ptr, ptr %188, align 8, !tbaa !37
-  br label %214
+  %213 = load i32, ptr %14, align 4, !tbaa !14
+  %214 = load ptr, ptr %188, align 8, !tbaa !37
+  br label %215
 
-214:                                              ; preds = %214, %204
-  %.08.i.i = phi i32 [ %212, %204 ], [ %217, %214 ]
-  %215 = zext i32 %.08.i.i to i64
-  %216 = getelementptr inbounds nuw i32, ptr %213, i64 %215
-  %217 = load i32, ptr %216, align 4, !tbaa !14
-  %.not.i.i73 = icmp eq i32 %217, %.08.i.i
-  br i1 %.not.i.i73, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader, label %214
+215:                                              ; preds = %215, %204
+  %.08.i.i = phi i32 [ %212, %204 ], [ %218, %215 ]
+  %216 = zext i32 %.08.i.i to i64
+  %217 = getelementptr inbounds nuw i32, ptr %214, i64 %216
+  %218 = load i32, ptr %217, align 4, !tbaa !14
+  %.not.i.i73 = icmp eq i32 %218, %.08.i.i
+  br i1 %.not.i.i73, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader, label %215
 
-_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader: ; preds = %214
-  %218 = load i32, ptr %14, align 4, !tbaa !14
-  %219 = add i32 %218, %.0113
+_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader: ; preds = %215
+  %219 = add i32 %213, %.0113
   br label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
 
 _ZNK10union_findI22union_find_default_ctxE4findEj.exit.i: ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
   %.08.i2.i = phi i32 [ %222, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i ], [ %219, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader ]
   %220 = zext i32 %.08.i2.i to i64
-  %221 = getelementptr inbounds nuw i32, ptr %213, i64 %220
+  %221 = getelementptr inbounds nuw i32, ptr %214, i64 %220
   %222 = load i32, ptr %221, align 4, !tbaa !14
   %.not.i3.i = icmp eq i32 %222, %.08.i2.i
   br i1 %.not.i3.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
@@ -8267,7 +8267,7 @@ _ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i: ; preds = %_ZNK10unio
 
 .noexc.i:                                         ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i
   %224 = load ptr, ptr %189, align 8, !tbaa !37
-  %225 = getelementptr inbounds nuw i32, ptr %224, i64 %215
+  %225 = getelementptr inbounds nuw i32, ptr %224, i64 %216
   %226 = load i32, ptr %225, align 4, !tbaa !14
   %227 = getelementptr inbounds nuw i32, ptr %224, i64 %220
   %228 = load i32, ptr %227, align 4, !tbaa !14
@@ -8275,7 +8275,7 @@ _ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i: ; preds = %_ZNK10unio
   %spec.select.i = select i1 %229, i32 %.08.i.i, i32 %.08.i2.i
   %spec.select30.i = select i1 %229, i32 %.08.i2.i, i32 %.08.i.i
   %230 = zext i32 %spec.select30.i to i64
-  %231 = getelementptr inbounds nuw i32, ptr %213, i64 %230
+  %231 = getelementptr inbounds nuw i32, ptr %214, i64 %230
   store i32 %spec.select.i, ptr %231, align 4, !tbaa !14
   %232 = getelementptr inbounds nuw i32, ptr %224, i64 %230
   %233 = load i32, ptr %232, align 4, !tbaa !14

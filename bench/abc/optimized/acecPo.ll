@@ -2509,58 +2509,74 @@ Vec_IntGrow.exit.i210:                            ; preds = %47, %65
   %86 = shl nsw i32 %83, 1
   %87 = or disjoint i32 %86, 1
   %.val202 = load i64, ptr %85, align 4
+  %88 = trunc i64 %.val202 to i32
+  %89 = and i32 %88, 536870911
+  %90 = sub nsw i32 %83, %89
+  %91 = lshr i32 %88, 29
+  %92 = and i32 %91, 1
+  %93 = shl nsw i32 %90, 1
+  %94 = or disjoint i32 %93, %92
+  %95 = lshr i64 %.val202, 32
+  %96 = trunc nuw i64 %95 to i32
+  %97 = and i32 %96, 536870911
+  %98 = sub nsw i32 %83, %97
+  %99 = lshr i64 %.val202, 61
+  %100 = trunc nuw nsw i64 %99 to i32
+  %101 = and i32 %100, 1
+  %102 = shl nsw i32 %98, 1
+  %103 = or disjoint i32 %102, %101
   %.val179 = load ptr, ptr %26, align 8, !tbaa !21
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val179, i64 %88
-  %90 = getelementptr i8, ptr %89, i64 4
-  %.val183239 = load i32, ptr %90, align 4, !tbaa !6
-  %91 = icmp sgt i32 %.val183239, 0
-  br i1 %91, label %.lr.ph243, label %.critedge4
+  %104 = sext i32 %87 to i64
+  %105 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val179, i64 %104
+  %106 = getelementptr i8, ptr %105, i64 4
+  %.val183239 = load i32, ptr %106, align 4, !tbaa !6
+  %107 = icmp sgt i32 %.val183239, 0
+  br i1 %107, label %.lr.ph243, label %.critedge4
 
 .lr.ph243:                                        ; preds = %81
-  %92 = getelementptr i8, ptr %89, i64 8
+  %108 = getelementptr i8, ptr %105, i64 8
   %.val193.pre = load ptr, ptr %32, align 8, !tbaa !12
-  br label %93
+  br label %109
 
-93:                                               ; preds = %.lr.ph243, %108
-  %.val183295 = phi i32 [ %.val183239, %.lr.ph243 ], [ %.val183, %108 ]
-  %.val193 = phi ptr [ %.val193.pre, %.lr.ph243 ], [ %.val193293, %108 ]
-  %indvars.iv278 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next279, %108 ]
-  %.2167241 = phi i32 [ %.1166255, %.lr.ph243 ], [ %.3, %108 ]
-  %.2170240 = phi i32 [ %.1169254, %.lr.ph243 ], [ %.3171, %108 ]
-  %.val194 = load ptr, ptr %92, align 8, !tbaa !12
-  %94 = getelementptr inbounds nuw i32, ptr %.val194, i64 %indvars.iv278
-  %95 = load i32, ptr %94, align 4, !tbaa !13
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds i32, ptr %.val193, i64 %96
-  %98 = load i32, ptr %97, align 4, !tbaa !13
-  %99 = icmp sgt i32 %98, 0
-  br i1 %99, label %100, label %108
+109:                                              ; preds = %.lr.ph243, %124
+  %.val183295 = phi i32 [ %.val183239, %.lr.ph243 ], [ %.val183, %124 ]
+  %.val193 = phi ptr [ %.val193.pre, %.lr.ph243 ], [ %.val193293, %124 ]
+  %indvars.iv278 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next279, %124 ]
+  %.2167241 = phi i32 [ %.1166255, %.lr.ph243 ], [ %.3, %124 ]
+  %.2170240 = phi i32 [ %.1169254, %.lr.ph243 ], [ %.3171, %124 ]
+  %.val194 = load ptr, ptr %108, align 8, !tbaa !12
+  %110 = getelementptr inbounds nuw i32, ptr %.val194, i64 %indvars.iv278
+  %111 = load i32, ptr %110, align 4, !tbaa !13
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds i32, ptr %.val193, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !13
+  %115 = icmp sgt i32 %114, 0
+  br i1 %115, label %116, label %124
 
-100:                                              ; preds = %93
-  %101 = call fastcc i32 @Gia_PolynHandleOne(ptr noundef %27, ptr noundef %28, ptr noundef nonnull %29, ptr noundef nonnull %19, ptr noundef nonnull %33, ptr noundef nonnull %37, i32 noundef %95, i32 noundef %87, i32 noundef -1, i32 noundef -1)
-  %102 = call fastcc i32 @Gia_PolynHandleOne(ptr noundef %27, ptr noundef %28, ptr noundef nonnull %29, ptr noundef nonnull %19, ptr noundef nonnull %33, ptr noundef nonnull %37, i32 noundef %95, i32 noundef %87, i32 noundef %86, i32 noundef -1)
+116:                                              ; preds = %109
+  %117 = call fastcc i32 @Gia_PolynHandleOne(ptr noundef %27, ptr noundef %28, ptr noundef nonnull %29, ptr noundef nonnull %19, ptr noundef nonnull %33, ptr noundef nonnull %37, i32 noundef %111, i32 noundef %87, i32 noundef -1, i32 noundef -1)
+  %118 = call fastcc i32 @Gia_PolynHandleOne(ptr noundef %27, ptr noundef %28, ptr noundef nonnull %29, ptr noundef nonnull %19, ptr noundef nonnull %33, ptr noundef nonnull %37, i32 noundef %111, i32 noundef %87, i32 noundef %86, i32 noundef -1)
   %.val198 = load ptr, ptr %32, align 8, !tbaa !12
-  %103 = getelementptr inbounds i32, ptr %.val198, i64 %96
-  store i32 0, ptr %103, align 4, !tbaa !13
-  %104 = add i32 %.2167241, -1
-  %105 = add i32 %104, %101
-  %106 = add i32 %105, %102
-  %107 = add nsw i32 %.2170240, 2
-  %.val183.pre = load i32, ptr %90, align 4, !tbaa !6
-  br label %108
+  %119 = getelementptr inbounds i32, ptr %.val198, i64 %112
+  store i32 0, ptr %119, align 4, !tbaa !13
+  %120 = add i32 %.2167241, -1
+  %121 = add i32 %120, %117
+  %122 = add i32 %121, %118
+  %123 = add nsw i32 %.2170240, 2
+  %.val183.pre = load i32, ptr %106, align 4, !tbaa !6
+  br label %124
 
-108:                                              ; preds = %93, %100
-  %.val183 = phi i32 [ %.val183.pre, %100 ], [ %.val183295, %93 ]
-  %.val193293 = phi ptr [ %.val198, %100 ], [ %.val193, %93 ]
-  %.3171 = phi i32 [ %107, %100 ], [ %.2170240, %93 ]
-  %.3 = phi i32 [ %106, %100 ], [ %.2167241, %93 ]
+124:                                              ; preds = %109, %116
+  %.val183 = phi i32 [ %.val183.pre, %116 ], [ %.val183295, %109 ]
+  %.val193293 = phi ptr [ %.val198, %116 ], [ %.val193, %109 ]
+  %.3171 = phi i32 [ %123, %116 ], [ %.2170240, %109 ]
+  %.3 = phi i32 [ %122, %116 ], [ %.2167241, %109 ]
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
-  %109 = sext i32 %.val183 to i64
-  %110 = icmp slt i64 %indvars.iv.next279, %109
-  br i1 %110, label %93, label %.critedge4.loopexit, !llvm.loop !78
+  %125 = sext i32 %.val183 to i64
+  %126 = icmp slt i64 %indvars.iv.next279, %125
+  br i1 %126, label %109, label %.critedge4.loopexit, !llvm.loop !78
 
-.critedge4.loopexit:                              ; preds = %108
+.critedge4.loopexit:                              ; preds = %124
   %.val178.pre = load ptr, ptr %26, align 8, !tbaa !21
   br label %.critedge4
 
@@ -2568,22 +2584,6 @@ Vec_IntGrow.exit.i210:                            ; preds = %47, %65
   %.val178 = phi ptr [ %.val179, %81 ], [ %.val178.pre, %.critedge4.loopexit ]
   %.2170.lcssa = phi i32 [ %.1169254, %81 ], [ %.3171, %.critedge4.loopexit ]
   %.2167.lcssa = phi i32 [ %.1166255, %81 ], [ %.3, %.critedge4.loopexit ]
-  %111 = trunc i64 %.val202 to i32
-  %112 = and i32 %111, 536870911
-  %113 = sub nsw i32 %83, %112
-  %114 = lshr i32 %111, 29
-  %115 = and i32 %114, 1
-  %116 = shl nsw i32 %113, 1
-  %117 = or disjoint i32 %116, %115
-  %118 = lshr i64 %.val202, 32
-  %119 = trunc nuw i64 %118 to i32
-  %120 = and i32 %119, 536870911
-  %121 = sub nsw i32 %83, %120
-  %122 = lshr i64 %.val202, 61
-  %123 = trunc nuw nsw i64 %122 to i32
-  %124 = and i32 %123, 1
-  %125 = shl nsw i32 %121, 1
-  %126 = or disjoint i32 %125, %124
   %127 = sext i32 %86 to i64
   %128 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val178, i64 %127
   %129 = getelementptr i8, ptr %128, i64 4
@@ -2612,7 +2612,7 @@ Vec_IntGrow.exit.i210:                            ; preds = %47, %65
   br i1 %138, label %139, label %145
 
 139:                                              ; preds = %132
-  %140 = call fastcc i32 @Gia_PolynHandleOne(ptr noundef %27, ptr noundef %28, ptr noundef nonnull %29, ptr noundef nonnull %19, ptr noundef nonnull %33, ptr noundef nonnull %37, i32 noundef %134, i32 noundef %86, i32 noundef %117, i32 noundef %126)
+  %140 = call fastcc i32 @Gia_PolynHandleOne(ptr noundef %27, ptr noundef %28, ptr noundef nonnull %29, ptr noundef nonnull %19, ptr noundef nonnull %33, ptr noundef nonnull %37, i32 noundef %134, i32 noundef %86, i32 noundef %94, i32 noundef %103)
   %.val199 = load ptr, ptr %32, align 8, !tbaa !12
   %141 = getelementptr inbounds i32, ptr %.val199, i64 %135
   store i32 0, ptr %141, align 4, !tbaa !13

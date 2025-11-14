@@ -6105,8 +6105,8 @@ _ZNSt12_Vector_baseIN6Assimp3MDL16IntMaterial_MDL7ESaIS2_EE11_M_allocateEm.exit.
   store ptr null, ptr %125, align 8
   %127 = getelementptr i8, ptr %125, i64 8
   %.idx.i.i.i.i.i.i.i = add nsw i64 %124, -8
-  %128 = getelementptr i8, ptr %125, i64 %124
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %127, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %128 = getelementptr i8, ptr %125, i64 %124
   br label %_ZNSt6vectorIPS_IjSaIjEESaIS2_EEC2EmRKS3_.exit
 
 _ZNSt6vectorIPS_IjSaIjEESaIS2_EEC2EmRKS3_.exit:   ; preds = %.noexc127, %118
@@ -10095,8 +10095,8 @@ define linkonce_odr void @_ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_default_appendE
 
 _ZSt6fill_nIPP10aiMaterialmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPP10aiMaterialmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPP10aiMaterialmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPP10aiMaterialmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i

@@ -535,6 +535,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %233 = add i64 %227, %.371
+  %.sroa.speculated219 = call i64 @llvm.umax.i64(i64 %.0255, i64 %227)
   %234 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0, i64 40
   %235 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0, i64 48
   %236 = load ptr, ptr %235, align 8, !tbaa !66
@@ -551,7 +552,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 ._crit_edge453:                                   ; preds = %.lr.ph452, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.472.lcssa = phi i64 [ %233, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %249, %.lr.ph452 ]
-  %.sroa.speculated219 = call i64 @llvm.umax.i64(i64 %.0255, i64 %227)
   %242 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0223.0) #24
   br label %.preheader260, !llvm.loop !78
 

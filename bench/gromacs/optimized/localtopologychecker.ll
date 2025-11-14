@@ -933,11 +933,11 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %_ZN3gmx5Ra
 .noexc89.i.i:                                     ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %204 = shl nuw nsw i64 %202, 2
   %205 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %204) #19, !noalias !214
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 %204
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %205, i8 0, i64 %204, i1 false), !tbaa !182, !noalias !214
-  %207 = getelementptr inbounds nuw i32, ptr %205, i64 %202
-  %208 = ptrtoint ptr %206 to i64
-  %209 = ptrtoint ptr %207 to i64
+  %206 = getelementptr inbounds nuw i32, ptr %205, i64 %202
+  %207 = getelementptr inbounds nuw i8, ptr %205, i64 %204
+  %208 = ptrtoint ptr %207 to i64
+  %209 = ptrtoint ptr %206 to i64
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc89.i.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i

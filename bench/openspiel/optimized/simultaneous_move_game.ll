@@ -70,8 +70,8 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %12 = getelementptr inbounds nuw i64, ptr %10, i64 %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %9
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 -1, i64 %9, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %9
   store ptr %14, ptr %11, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16

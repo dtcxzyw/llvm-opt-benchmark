@@ -3816,6 +3816,8 @@ if.then:                                          ; preds = %entry
   store ptr %2, ptr %agg.result, align 8
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %arrayidx, ptr %mpBucket.i.i.i, align 8
+  %second.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %mpBucket.i.i2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then
@@ -3826,8 +3828,6 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.t
   br i1 %cmp.i, label %while.cond.i, label %_ZN5eastl23hashtable_iterator_baseINS_4pairIKiiEELb1EE16increment_bucketEv.exit, !llvm.loop !10
 
 _ZN5eastl23hashtable_iterator_baseINS_4pairIKiiEELb1EE16increment_bucketEv.exit: ; preds = %while.cond.i
-  %second.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  %mpBucket.i.i2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %storemerge.i, ptr %mpBucket.i.i2.i, align 8
   store ptr %3, ptr %second.i, align 8
   br label %return
@@ -3867,6 +3867,8 @@ if.then:                                          ; preds = %entry
   store ptr %2, ptr %agg.result, align 8
   %ref.tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %arrayidx, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx, align 8
+  %second.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %ref.tmp4.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then
@@ -3877,8 +3879,6 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.t
   br i1 %cmp.i, label %while.cond.i, label %_ZN5eastl23hashtable_iterator_baseINS_4pairIKiiEELb1EE16increment_bucketEv.exit, !llvm.loop !10
 
 _ZN5eastl23hashtable_iterator_baseINS_4pairIKiiEELb1EE16increment_bucketEv.exit: ; preds = %while.cond.i
-  %second.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  %ref.tmp4.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %storemerge.i, ptr %ref.tmp4.sroa.2.0.second.i.sroa_idx, align 8
   store ptr %3, ptr %second.i, align 8
   br label %return
@@ -7008,6 +7008,8 @@ if.then:                                          ; preds = %entry
   store ptr %2, ptr %agg.result, align 8
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %arrayidx, ptr %mpBucket.i.i.i, align 8
+  %second.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %mpBucket.i.i2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then
@@ -7018,8 +7020,6 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.t
   br i1 %cmp.i, label %while.cond.i, label %_ZN5eastl23hashtable_iterator_baseINS_4pairIKiiEELb0EE16increment_bucketEv.exit, !llvm.loop !84
 
 _ZN5eastl23hashtable_iterator_baseINS_4pairIKiiEELb0EE16increment_bucketEv.exit: ; preds = %while.cond.i
-  %second.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  %mpBucket.i.i2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %storemerge.i, ptr %mpBucket.i.i2.i, align 8
   store ptr %3, ptr %second.i, align 8
   br label %return
@@ -7058,6 +7058,8 @@ if.then:                                          ; preds = %entry
   store ptr %2, ptr %agg.result, align 8
   %ref.tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %arrayidx, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx, align 8
+  %second.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %ref.tmp4.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then
@@ -7068,8 +7070,6 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.t
   br i1 %cmp.i, label %while.cond.i, label %_ZN5eastl23hashtable_iterator_baseINS_4pairIKiiEELb0EE16increment_bucketEv.exit, !llvm.loop !84
 
 _ZN5eastl23hashtable_iterator_baseINS_4pairIKiiEELb0EE16increment_bucketEv.exit: ; preds = %while.cond.i
-  %second.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  %ref.tmp4.sroa.2.0.second.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %storemerge.i, ptr %ref.tmp4.sroa.2.0.second.i.sroa_idx, align 8
   store ptr %3, ptr %second.i, align 8
   br label %return
@@ -29859,21 +29859,21 @@ for.end2162:                                      ; preds = %invoke.cont2158
   %arrayidx.i8284 = getelementptr inbounds nuw ptr, ptr %2334, i64 %rem.i.i.i8282.zext
   %2335 = load ptr, ptr %arrayidx.i8284, align 8, !noalias !929
   %tobool.not.i8285 = icmp eq ptr %2335, null
-  br i1 %tobool.not.i8285, label %if.end.i8293, label %while.cond.i.i8287
+  br i1 %tobool.not.i8285, label %if.end.i8293, label %while.cond.i.i8288
 
-while.cond.i.i8287:                               ; preds = %for.end2162, %while.cond.i.i8287
-  %.pn.i.i8288 = phi ptr [ %storemerge.i.i8289, %while.cond.i.i8287 ], [ %arrayidx.i8284, %for.end2162 ]
-  %storemerge.i.i8289 = getelementptr inbounds nuw i8, ptr %.pn.i.i8288, i64 8
-  %2336 = load ptr, ptr %storemerge.i.i8289, align 8, !noalias !929
-  %cmp.i.i8290 = icmp eq ptr %2336, null
-  br i1 %cmp.i.i8290, label %while.cond.i.i8287, label %invoke.cont2164.loopexit, !llvm.loop !84
+while.cond.i.i8288:                               ; preds = %for.end2162, %while.cond.i.i8288
+  %.pn.i.i8289 = phi ptr [ %storemerge.i.i8290, %while.cond.i.i8288 ], [ %arrayidx.i8284, %for.end2162 ]
+  %storemerge.i.i8290 = getelementptr inbounds nuw i8, ptr %.pn.i.i8289, i64 8
+  %2336 = load ptr, ptr %storemerge.i.i8290, align 8, !noalias !929
+  %cmp.i.i8291 = icmp eq ptr %2336, null
+  br i1 %cmp.i.i8291, label %while.cond.i.i8288, label %invoke.cont2164.loopexit, !llvm.loop !84
 
 if.end.i8293:                                     ; preds = %for.end2162
   %add.ptr10.i = getelementptr inbounds ptr, ptr %2334, i64 %2333
   %2337 = load ptr, ptr %add.ptr10.i, align 8, !noalias !929
   br label %invoke.cont2164
 
-invoke.cont2164.loopexit:                         ; preds = %while.cond.i.i8287
+invoke.cont2164.loopexit:                         ; preds = %while.cond.i.i8288
   %add.ptr.i8296.phi.trans.insert = getelementptr inbounds ptr, ptr %2334, i64 %2333
   %.pre10648 = load ptr, ptr %add.ptr.i8296.phi.trans.insert, align 8, !noalias !932
   %2338 = icmp eq ptr %2335, %.pre10648
@@ -29903,16 +29903,16 @@ invoke.cont2175:                                  ; preds = %invoke.cont2169
   %arrayidx.i8308 = getelementptr inbounds nuw ptr, ptr %2345, i64 %rem.i.i.i8306.zext
   %2346 = load ptr, ptr %arrayidx.i8308, align 8, !noalias !938
   %tobool.not.i8309 = icmp eq ptr %2346, null
-  br i1 %tobool.not.i8309, label %for.end2198, label %while.cond.i.i8312
+  br i1 %tobool.not.i8309, label %for.end2198, label %while.cond.i.i8314
 
-while.cond.i.i8312:                               ; preds = %invoke.cont2175, %while.cond.i.i8312
-  %.pn.i.i8313 = phi ptr [ %storemerge.i.i8314, %while.cond.i.i8312 ], [ %arrayidx.i8308, %invoke.cont2175 ]
-  %storemerge.i.i8314 = getelementptr inbounds nuw i8, ptr %.pn.i.i8313, i64 8
-  %2347 = load ptr, ptr %storemerge.i.i8314, align 8, !noalias !938
-  %cmp.i.i8315 = icmp eq ptr %2347, null
-  br i1 %cmp.i.i8315, label %while.cond.i.i8312, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit8324, !llvm.loop !84
+while.cond.i.i8314:                               ; preds = %invoke.cont2175, %while.cond.i.i8314
+  %.pn.i.i8315 = phi ptr [ %storemerge.i.i8316, %while.cond.i.i8314 ], [ %arrayidx.i8308, %invoke.cont2175 ]
+  %storemerge.i.i8316 = getelementptr inbounds nuw i8, ptr %.pn.i.i8315, i64 8
+  %2347 = load ptr, ptr %storemerge.i.i8316, align 8, !noalias !938
+  %cmp.i.i8317 = icmp eq ptr %2347, null
+  br i1 %cmp.i.i8317, label %while.cond.i.i8314, label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit8324, !llvm.loop !84
 
-_ZN5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit8324: ; preds = %while.cond.i.i8312
+_ZN5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit8324: ; preds = %while.cond.i.i8314
   %cmp.i8325.not10270 = icmp eq ptr %2346, %2347
   br i1 %cmp.i8325.not10270, label %for.end2198, label %for.body2184
 
@@ -29964,16 +29964,16 @@ invoke.cont2200:                                  ; preds = %for.end2198
   %arrayidx.i8339 = getelementptr inbounds nuw ptr, ptr %2354, i64 %rem.i.i.i8337.zext
   %2355 = load ptr, ptr %arrayidx.i8339, align 8, !noalias !944
   %tobool.not.i8340 = icmp eq ptr %2355, null
-  br i1 %tobool.not.i8340, label %for.end2228, label %while.cond.i.i8342
+  br i1 %tobool.not.i8340, label %for.end2228, label %while.cond.i.i8343
 
-while.cond.i.i8342:                               ; preds = %invoke.cont2200, %while.cond.i.i8342
-  %.pn.i.i8343 = phi ptr [ %storemerge.i.i8344, %while.cond.i.i8342 ], [ %arrayidx.i8339, %invoke.cont2200 ]
-  %storemerge.i.i8344 = getelementptr inbounds nuw i8, ptr %.pn.i.i8343, i64 8
-  %2356 = load ptr, ptr %storemerge.i.i8344, align 8, !noalias !944
-  %cmp.i.i8345 = icmp eq ptr %2356, null
-  br i1 %cmp.i.i8345, label %while.cond.i.i8342, label %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit, !llvm.loop !84
+while.cond.i.i8343:                               ; preds = %invoke.cont2200, %while.cond.i.i8343
+  %.pn.i.i8344 = phi ptr [ %storemerge.i.i8345, %while.cond.i.i8343 ], [ %arrayidx.i8339, %invoke.cont2200 ]
+  %storemerge.i.i8345 = getelementptr inbounds nuw i8, ptr %.pn.i.i8344, i64 8
+  %2356 = load ptr, ptr %storemerge.i.i8345, align 8, !noalias !944
+  %cmp.i.i8346 = icmp eq ptr %2356, null
+  br i1 %cmp.i.i8346, label %while.cond.i.i8343, label %_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit, !llvm.loop !84
 
-_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit: ; preds = %while.cond.i.i8342
+_ZNK5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEE14colliding_hashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18find_range_by_hashEm.exit: ; preds = %while.cond.i.i8343
   %cmp.i8350.not10275 = icmp eq ptr %2355, %2356
   br i1 %cmp.i8350.not10275, label %for.end2228, label %for.body2210
 

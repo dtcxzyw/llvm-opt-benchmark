@@ -1355,18 +1355,18 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit358:       ; preds = %_ZL13gmx_snew_implI
 565:                                              ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit358
   %566 = uitofp nneg i32 %464 to float
   %567 = fdiv float %.1265, %566
-  %568 = load i32, ptr @_ZZ11gmx_densmapiPPcE2n1, align 4, !tbaa !4
-  %.not321532 = icmp slt i32 %568, 0
+  %568 = fdiv float %.1263, %566
+  %569 = load i32, ptr @_ZZ11gmx_densmapiPPcE2n1, align 4, !tbaa !4
+  %.not321532 = icmp slt i32 %569, 0
   br i1 %.not321532, label %.preheader460, label %.lr.ph535
 
 .lr.ph535:                                        ; preds = %565
-  %569 = uitofp nneg i32 %568 to float
-  %570 = add nuw i32 %568, 1
-  %wide.trip.count653 = zext i32 %570 to i64
+  %570 = uitofp nneg i32 %569 to float
+  %571 = add nuw i32 %569, 1
+  %wide.trip.count653 = zext i32 %571 to i64
   br label %575
 
 .preheader460:                                    ; preds = %575, %565
-  %571 = fdiv float %.1263, %566
   %572 = load i32, ptr @_ZZ11gmx_densmapiPPcE2n2, align 4, !tbaa !4
   %.not322536 = icmp slt i32 %572, 0
   br i1 %.not322536, label %.loopexit, label %.lr.ph538
@@ -1382,7 +1382,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit358:       ; preds = %_ZL13gmx_snew_implI
   %576 = trunc nuw nsw i64 %indvars.iv650 to i32
   %577 = uitofp nneg i32 %576 to float
   %578 = fmul float %567, %577
-  %579 = fdiv float %578, %569
+  %579 = fdiv float %578, %570
   %580 = getelementptr inbounds nuw float, ptr %558, i64 %indvars.iv650
   store float %579, ptr %580, align 4, !tbaa !23
   %indvars.iv.next651 = add nuw nsw i64 %indvars.iv650, 1
@@ -1393,7 +1393,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit358:       ; preds = %_ZL13gmx_snew_implI
   %indvars.iv655 = phi i64 [ 0, %.lr.ph538 ], [ %indvars.iv.next656, %581 ]
   %582 = trunc nuw nsw i64 %indvars.iv655 to i32
   %583 = uitofp nneg i32 %582 to float
-  %584 = fmul float %571, %583
+  %584 = fmul float %568, %583
   %585 = fdiv float %584, %573
   %586 = getelementptr inbounds nuw float, ptr %562, i64 %indvars.iv655
   store float %585, ptr %586, align 4, !tbaa !23
@@ -1462,7 +1462,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit358:       ; preds = %_ZL13gmx_snew_implI
   br i1 %exitcond669.not, label %.loopexit, label %.lr.ph545, !llvm.loop !67
 
 .loopexit:                                        ; preds = %581, %.lr.ph545, %.lr.ph548, %.preheader460, %.preheader457, %.preheader456
-  %608 = phi i32 [ %568, %.preheader460 ], [ %563, %.preheader457 ], [ %563, %.preheader456 ], [ %563, %.lr.ph548 ], [ %563, %.lr.ph545 ], [ %568, %581 ]
+  %608 = phi i32 [ %569, %.preheader460 ], [ %563, %.preheader457 ], [ %563, %.preheader456 ], [ %563, %.lr.ph548 ], [ %563, %.lr.ph545 ], [ %569, %581 ]
   %609 = load i8, ptr @_ZZ11gmx_densmapiPPcE5bSums, align 1, !tbaa !38, !range !40, !noundef !41
   %610 = trunc nuw i8 %609 to i1
   br i1 %610, label %.preheader, label %629

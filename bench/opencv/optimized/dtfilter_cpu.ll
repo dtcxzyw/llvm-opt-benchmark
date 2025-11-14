@@ -14137,28 +14137,28 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU21ComputeIDTHor_Pa
   %.01821.us = phi float [ 0.000000e+00, %.lr.ph.us ], [ %52, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us ]
   %35 = getelementptr %"class.cv::Vec.22", ptr %31, i64 %indvars.iv29
   %36 = getelementptr i8, ptr %35, i64 -2
-  br label %37
+  %37 = load float, ptr %26, align 4, !tbaa !61
+  %38 = load float, ptr %27, align 8, !tbaa !62
+  br label %39
 
-37:                                               ; preds = %37, %34
-  %38 = phi i1 [ true, %34 ], [ false, %37 ]
-  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ 1, %37 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %47, %37 ]
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i.i.us
-  %40 = load i8, ptr %39, align 1, !tbaa !47
-  %41 = uitofp i8 %40 to float
-  %42 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
-  %43 = load i8, ptr %42, align 1, !tbaa !47
-  %44 = uitofp i8 %43 to float
-  %45 = fsub float %41, %44
-  %46 = tail call noundef float @llvm.fabs.f32(float %45)
-  %47 = fadd float %.078.i.i.us, %46
-  br i1 %38, label %37, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !349
+39:                                               ; preds = %39, %34
+  %40 = phi i1 [ true, %34 ], [ false, %39 ]
+  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ 1, %39 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %49, %39 ]
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i.i.us
+  %42 = load i8, ptr %41, align 1, !tbaa !47
+  %43 = uitofp i8 %42 to float
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
+  %45 = load i8, ptr %44, align 1, !tbaa !47
+  %46 = uitofp i8 %45 to float
+  %47 = fsub float %43, %46
+  %48 = tail call noundef float @llvm.fabs.f32(float %47)
+  %49 = fadd float %.078.i.i.us, %48
+  br i1 %40, label %39, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !349
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us: ; preds = %37
-  %48 = load float, ptr %26, align 4, !tbaa !61
-  %49 = load float, ptr %27, align 8, !tbaa !62
-  %50 = fdiv float %48, %49
-  %51 = tail call noundef float @llvm.fmuladd.f32(float %50, float %47, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us: ; preds = %39
+  %50 = fdiv float %37, %38
+  %51 = tail call noundef float @llvm.fmuladd.f32(float %50, float %49, float 1.000000e+00)
   %52 = fadd float %.01821.us, %51
   %53 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv29
   store float %52, ptr %53, align 4, !tbaa !290
@@ -14263,28 +14263,28 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU26ComputeDTandIDTH
   %47 = getelementptr inbounds nuw %"class.cv::Vec.22", ptr %40, i64 %indvars.iv42
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %48 = getelementptr inbounds nuw %"class.cv::Vec.22", ptr %40, i64 %indvars.iv.next43
-  br label %49
+  %49 = load float, ptr %34, align 4, !tbaa !61
+  %50 = load float, ptr %35, align 8, !tbaa !62
+  br label %51
 
-49:                                               ; preds = %49, %46
-  %50 = phi i1 [ true, %46 ], [ false, %49 ]
-  %indvars.iv.i.i.us = phi i64 [ 0, %46 ], [ 1, %49 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %46 ], [ %59, %49 ]
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv.i.i.us
-  %52 = load i8, ptr %51, align 1, !tbaa !47
-  %53 = uitofp i8 %52 to float
-  %54 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv.i.i.us
-  %55 = load i8, ptr %54, align 1, !tbaa !47
-  %56 = uitofp i8 %55 to float
-  %57 = fsub float %53, %56
-  %58 = tail call noundef float @llvm.fabs.f32(float %57)
-  %59 = fadd float %.078.i.i.us, %58
-  br i1 %50, label %49, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !349
+51:                                               ; preds = %51, %46
+  %52 = phi i1 [ true, %46 ], [ false, %51 ]
+  %indvars.iv.i.i.us = phi i64 [ 0, %46 ], [ 1, %51 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %46 ], [ %61, %51 ]
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv.i.i.us
+  %54 = load i8, ptr %53, align 1, !tbaa !47
+  %55 = uitofp i8 %54 to float
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv.i.i.us
+  %57 = load i8, ptr %56, align 1, !tbaa !47
+  %58 = uitofp i8 %57 to float
+  %59 = fsub float %55, %58
+  %60 = tail call noundef float @llvm.fabs.f32(float %59)
+  %61 = fadd float %.078.i.i.us, %60
+  br i1 %52, label %51, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !349
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us: ; preds = %49
-  %60 = load float, ptr %34, align 4, !tbaa !61
-  %61 = load float, ptr %35, align 8, !tbaa !62
-  %62 = fdiv float %60, %61
-  %63 = tail call noundef float @llvm.fmuladd.f32(float %62, float %59, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us: ; preds = %51
+  %62 = fdiv float %49, %50
+  %63 = tail call noundef float @llvm.fmuladd.f32(float %62, float %61, float 1.000000e+00)
   %64 = fadd float %.02931.us, %63
   %65 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv42
   store float %63, ptr %65, align 4, !tbaa !290
@@ -14421,30 +14421,30 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_P
   %34 = getelementptr inbounds nuw %"class.cv::Vec.22", ptr %30, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = getelementptr inbounds nuw %"class.cv::Vec.22", ptr %30, i64 %indvars.iv.next
-  br label %36
+  %36 = load float, ptr %24, align 4, !tbaa !61
+  %37 = load float, ptr %25, align 8, !tbaa !62
+  br label %38
 
-36:                                               ; preds = %36, %33
-  %37 = phi i1 [ true, %33 ], [ false, %36 ]
-  %indvars.iv.i.i.us = phi i64 [ 0, %33 ], [ 1, %36 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %33 ], [ %46, %36 ]
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv.i.i.us
-  %39 = load i8, ptr %38, align 1, !tbaa !47
-  %40 = uitofp i8 %39 to float
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
-  %42 = load i8, ptr %41, align 1, !tbaa !47
-  %43 = uitofp i8 %42 to float
-  %44 = fsub float %40, %43
-  %45 = tail call noundef float @llvm.fabs.f32(float %44)
-  %46 = fadd float %.078.i.i.us, %45
-  br i1 %37, label %36, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !349
+38:                                               ; preds = %38, %33
+  %39 = phi i1 [ true, %33 ], [ false, %38 ]
+  %indvars.iv.i.i.us = phi i64 [ 0, %33 ], [ 1, %38 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %33 ], [ %48, %38 ]
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv.i.i.us
+  %41 = load i8, ptr %40, align 1, !tbaa !47
+  %42 = uitofp i8 %41 to float
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
+  %44 = load i8, ptr %43, align 1, !tbaa !47
+  %45 = uitofp i8 %44 to float
+  %46 = fsub float %42, %45
+  %47 = tail call noundef float @llvm.fabs.f32(float %46)
+  %48 = fadd float %.078.i.i.us, %47
+  br i1 %39, label %38, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !349
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us: ; preds = %36
-  %47 = load float, ptr %24, align 4, !tbaa !61
-  %48 = load float, ptr %25, align 8, !tbaa !62
-  %49 = fdiv float %47, %48
-  %50 = tail call noundef float @llvm.fmuladd.f32(float %49, float %46, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us: ; preds = %38
+  %49 = fdiv float %36, %37
+  %50 = tail call noundef float @llvm.fmuladd.f32(float %49, float %48, float 1.000000e+00)
   %51 = load float, ptr %26, align 8, !tbaa !344
-  %52 = fmul float %51, %50
+  %52 = fmul float %50, %51
   %53 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
   store float %52, ptr %53, align 4, !tbaa !290
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -14551,30 +14551,30 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us ]
   %35 = getelementptr inbounds nuw %"class.cv::Vec.22", ptr %31, i64 %indvars.iv
   %36 = getelementptr inbounds nuw %"class.cv::Vec.22", ptr %33, i64 %indvars.iv
-  br label %37
+  %37 = load float, ptr %24, align 4, !tbaa !61
+  %38 = load float, ptr %25, align 8, !tbaa !62
+  br label %39
 
-37:                                               ; preds = %37, %34
-  %38 = phi i1 [ true, %34 ], [ false, %37 ]
-  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ 1, %37 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %47, %37 ]
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
-  %40 = load i8, ptr %39, align 1, !tbaa !47
-  %41 = uitofp i8 %40 to float
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i.i.us
-  %43 = load i8, ptr %42, align 1, !tbaa !47
-  %44 = uitofp i8 %43 to float
-  %45 = fsub float %41, %44
-  %46 = tail call noundef float @llvm.fabs.f32(float %45)
-  %47 = fadd float %.078.i.i.us, %46
-  br i1 %38, label %37, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !349
+39:                                               ; preds = %39, %34
+  %40 = phi i1 [ true, %34 ], [ false, %39 ]
+  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ 1, %39 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %49, %39 ]
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
+  %42 = load i8, ptr %41, align 1, !tbaa !47
+  %43 = uitofp i8 %42 to float
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i.i.us
+  %45 = load i8, ptr %44, align 1, !tbaa !47
+  %46 = uitofp i8 %45 to float
+  %47 = fsub float %43, %46
+  %48 = tail call noundef float @llvm.fabs.f32(float %47)
+  %49 = fadd float %.078.i.i.us, %48
+  br i1 %40, label %39, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !349
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us: ; preds = %37
-  %48 = load float, ptr %24, align 4, !tbaa !61
-  %49 = load float, ptr %25, align 8, !tbaa !62
-  %50 = fdiv float %48, %49
-  %51 = tail call noundef float @llvm.fmuladd.f32(float %50, float %47, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit.us: ; preds = %39
+  %50 = fdiv float %37, %38
+  %51 = tail call noundef float @llvm.fmuladd.f32(float %50, float %49, float 1.000000e+00)
   %52 = load float, ptr %26, align 8, !tbaa !345
-  %53 = fmul float %52, %51
+  %53 = fmul float %51, %52
   %54 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
   store float %53, ptr %54, align 4, !tbaa !290
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -14997,26 +14997,26 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU21ComputeIDTHor_Pa
   %.01821.us = phi float [ 0.000000e+00, %.lr.ph.us ], [ %50, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us ]
   %35 = getelementptr %"class.cv::Vec.31", ptr %31, i64 %indvars.iv29
   %36 = getelementptr i8, ptr %35, i64 -8
-  br label %37
+  %37 = load float, ptr %26, align 4, !tbaa !61
+  %38 = load float, ptr %27, align 8, !tbaa !62
+  br label %39
 
-37:                                               ; preds = %37, %34
-  %38 = phi i1 [ true, %34 ], [ false, %37 ]
-  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ 1, %37 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %45, %37 ]
-  %39 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i.i.us
-  %40 = load float, ptr %39, align 4, !tbaa !290
-  %41 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
+39:                                               ; preds = %39, %34
+  %40 = phi i1 [ true, %34 ], [ false, %39 ]
+  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ 1, %39 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %47, %39 ]
+  %41 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i.i.us
   %42 = load float, ptr %41, align 4, !tbaa !290
-  %43 = fsub float %40, %42
-  %44 = tail call noundef float @llvm.fabs.f32(float %43)
-  %45 = fadd float %.078.i.i.us, %44
-  br i1 %38, label %37, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !379
+  %43 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
+  %44 = load float, ptr %43, align 4, !tbaa !290
+  %45 = fsub float %42, %44
+  %46 = tail call noundef float @llvm.fabs.f32(float %45)
+  %47 = fadd float %.078.i.i.us, %46
+  br i1 %40, label %39, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !379
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us: ; preds = %37
-  %46 = load float, ptr %26, align 4, !tbaa !61
-  %47 = load float, ptr %27, align 8, !tbaa !62
-  %48 = fdiv float %46, %47
-  %49 = tail call noundef float @llvm.fmuladd.f32(float %48, float %45, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us: ; preds = %39
+  %48 = fdiv float %37, %38
+  %49 = tail call noundef float @llvm.fmuladd.f32(float %48, float %47, float 1.000000e+00)
   %50 = fadd float %.01821.us, %49
   %51 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv29
   store float %50, ptr %51, align 4, !tbaa !290
@@ -15121,26 +15121,26 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU26ComputeDTandIDTH
   %47 = getelementptr inbounds nuw %"class.cv::Vec.31", ptr %40, i64 %indvars.iv42
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %48 = getelementptr inbounds nuw %"class.cv::Vec.31", ptr %40, i64 %indvars.iv.next43
-  br label %49
+  %49 = load float, ptr %34, align 4, !tbaa !61
+  %50 = load float, ptr %35, align 8, !tbaa !62
+  br label %51
 
-49:                                               ; preds = %49, %46
-  %50 = phi i1 [ true, %46 ], [ false, %49 ]
-  %indvars.iv.i.i.us = phi i64 [ 0, %46 ], [ 1, %49 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %46 ], [ %57, %49 ]
-  %51 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i.i.us
-  %52 = load float, ptr %51, align 4, !tbaa !290
-  %53 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i.i.us
+51:                                               ; preds = %51, %46
+  %52 = phi i1 [ true, %46 ], [ false, %51 ]
+  %indvars.iv.i.i.us = phi i64 [ 0, %46 ], [ 1, %51 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %46 ], [ %59, %51 ]
+  %53 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i.i.us
   %54 = load float, ptr %53, align 4, !tbaa !290
-  %55 = fsub float %52, %54
-  %56 = tail call noundef float @llvm.fabs.f32(float %55)
-  %57 = fadd float %.078.i.i.us, %56
-  br i1 %50, label %49, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !379
+  %55 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i.i.us
+  %56 = load float, ptr %55, align 4, !tbaa !290
+  %57 = fsub float %54, %56
+  %58 = tail call noundef float @llvm.fabs.f32(float %57)
+  %59 = fadd float %.078.i.i.us, %58
+  br i1 %52, label %51, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !379
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us: ; preds = %49
-  %58 = load float, ptr %34, align 4, !tbaa !61
-  %59 = load float, ptr %35, align 8, !tbaa !62
-  %60 = fdiv float %58, %59
-  %61 = tail call noundef float @llvm.fmuladd.f32(float %60, float %57, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us: ; preds = %51
+  %60 = fdiv float %49, %50
+  %61 = tail call noundef float @llvm.fmuladd.f32(float %60, float %59, float 1.000000e+00)
   %62 = fadd float %.02931.us, %61
   %63 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv42
   store float %61, ptr %63, align 4, !tbaa !290
@@ -15277,28 +15277,28 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_P
   %34 = getelementptr inbounds nuw %"class.cv::Vec.31", ptr %30, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = getelementptr inbounds nuw %"class.cv::Vec.31", ptr %30, i64 %indvars.iv.next
-  br label %36
+  %36 = load float, ptr %24, align 4, !tbaa !61
+  %37 = load float, ptr %25, align 8, !tbaa !62
+  br label %38
 
-36:                                               ; preds = %36, %33
-  %37 = phi i1 [ true, %33 ], [ false, %36 ]
-  %indvars.iv.i.i.us = phi i64 [ 0, %33 ], [ 1, %36 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %33 ], [ %44, %36 ]
-  %38 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i.i.us
-  %39 = load float, ptr %38, align 4, !tbaa !290
-  %40 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
+38:                                               ; preds = %38, %33
+  %39 = phi i1 [ true, %33 ], [ false, %38 ]
+  %indvars.iv.i.i.us = phi i64 [ 0, %33 ], [ 1, %38 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %33 ], [ %46, %38 ]
+  %40 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i.i.us
   %41 = load float, ptr %40, align 4, !tbaa !290
-  %42 = fsub float %39, %41
-  %43 = tail call noundef float @llvm.fabs.f32(float %42)
-  %44 = fadd float %.078.i.i.us, %43
-  br i1 %37, label %36, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !379
+  %42 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
+  %43 = load float, ptr %42, align 4, !tbaa !290
+  %44 = fsub float %41, %43
+  %45 = tail call noundef float @llvm.fabs.f32(float %44)
+  %46 = fadd float %.078.i.i.us, %45
+  br i1 %39, label %38, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !379
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us: ; preds = %36
-  %45 = load float, ptr %24, align 4, !tbaa !61
-  %46 = load float, ptr %25, align 8, !tbaa !62
-  %47 = fdiv float %45, %46
-  %48 = tail call noundef float @llvm.fmuladd.f32(float %47, float %44, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us: ; preds = %38
+  %47 = fdiv float %36, %37
+  %48 = tail call noundef float @llvm.fmuladd.f32(float %47, float %46, float 1.000000e+00)
   %49 = load float, ptr %26, align 8, !tbaa !374
-  %50 = fmul float %49, %48
+  %50 = fmul float %48, %49
   %51 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
   store float %50, ptr %51, align 4, !tbaa !290
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -15405,28 +15405,28 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us ]
   %35 = getelementptr inbounds nuw %"class.cv::Vec.31", ptr %31, i64 %indvars.iv
   %36 = getelementptr inbounds nuw %"class.cv::Vec.31", ptr %33, i64 %indvars.iv
-  br label %37
+  %37 = load float, ptr %24, align 4, !tbaa !61
+  %38 = load float, ptr %25, align 8, !tbaa !62
+  br label %39
 
-37:                                               ; preds = %37, %34
-  %38 = phi i1 [ true, %34 ], [ false, %37 ]
-  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ 1, %37 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %45, %37 ]
-  %39 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
-  %40 = load float, ptr %39, align 4, !tbaa !290
-  %41 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i.i.us
+39:                                               ; preds = %39, %34
+  %40 = phi i1 [ true, %34 ], [ false, %39 ]
+  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ 1, %39 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %47, %39 ]
+  %41 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
   %42 = load float, ptr %41, align 4, !tbaa !290
-  %43 = fsub float %40, %42
-  %44 = tail call noundef float @llvm.fabs.f32(float %43)
-  %45 = fadd float %.078.i.i.us, %44
-  br i1 %38, label %37, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !379
+  %43 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i.i.us
+  %44 = load float, ptr %43, align 4, !tbaa !290
+  %45 = fsub float %42, %44
+  %46 = tail call noundef float @llvm.fabs.f32(float %45)
+  %47 = fadd float %.078.i.i.us, %46
+  br i1 %40, label %39, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us, !llvm.loop !379
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us: ; preds = %37
-  %46 = load float, ptr %24, align 4, !tbaa !61
-  %47 = load float, ptr %25, align 8, !tbaa !62
-  %48 = fdiv float %46, %47
-  %49 = tail call noundef float @llvm.fmuladd.f32(float %48, float %45, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit.us: ; preds = %39
+  %48 = fdiv float %37, %38
+  %49 = tail call noundef float @llvm.fmuladd.f32(float %48, float %47, float 1.000000e+00)
   %50 = load float, ptr %26, align 8, !tbaa !375
-  %51 = fmul float %50, %49
+  %51 = fmul float %49, %50
   %52 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
   store float %51, ptr %52, align 4, !tbaa !290
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -15849,29 +15849,29 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU21ComputeIDTHor_Pa
   %.01821.us = phi float [ 0.000000e+00, %.lr.ph.us ], [ %51, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us ]
   %35 = getelementptr %"class.cv::Vec.40", ptr %31, i64 %indvars.iv29
   %36 = getelementptr i8, ptr %35, i64 -3
-  br label %37
+  %37 = load float, ptr %26, align 4, !tbaa !61
+  %38 = load float, ptr %27, align 8, !tbaa !62
+  br label %39
 
-37:                                               ; preds = %37, %34
-  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %37 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %46, %37 ]
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i.i.us
-  %39 = load i8, ptr %38, align 1, !tbaa !47
-  %40 = uitofp i8 %39 to float
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
-  %42 = load i8, ptr %41, align 1, !tbaa !47
-  %43 = uitofp i8 %42 to float
-  %44 = fsub float %40, %43
-  %45 = tail call noundef float @llvm.fabs.f32(float %44)
-  %46 = fadd float %.078.i.i.us, %45
+39:                                               ; preds = %39, %34
+  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %39 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %48, %39 ]
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i.i.us
+  %41 = load i8, ptr %40, align 1, !tbaa !47
+  %42 = uitofp i8 %41 to float
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
+  %44 = load i8, ptr %43, align 1, !tbaa !47
+  %45 = uitofp i8 %44 to float
+  %46 = fsub float %42, %45
+  %47 = tail call noundef float @llvm.fabs.f32(float %46)
+  %48 = fadd float %.078.i.i.us, %47
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 3
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us, label %37, !llvm.loop !409
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us, label %39, !llvm.loop !409
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us: ; preds = %37
-  %47 = load float, ptr %26, align 4, !tbaa !61
-  %48 = load float, ptr %27, align 8, !tbaa !62
-  %49 = fdiv float %47, %48
-  %50 = tail call noundef float @llvm.fmuladd.f32(float %49, float %46, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us: ; preds = %39
+  %49 = fdiv float %37, %38
+  %50 = tail call noundef float @llvm.fmuladd.f32(float %49, float %48, float 1.000000e+00)
   %51 = fadd float %.01821.us, %50
   %52 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv29
   store float %51, ptr %52, align 4, !tbaa !290
@@ -15976,29 +15976,29 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU26ComputeDTandIDTH
   %47 = getelementptr inbounds nuw %"class.cv::Vec.40", ptr %40, i64 %indvars.iv42
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %48 = getelementptr inbounds nuw %"class.cv::Vec.40", ptr %40, i64 %indvars.iv.next43
-  br label %49
+  %49 = load float, ptr %34, align 4, !tbaa !61
+  %50 = load float, ptr %35, align 8, !tbaa !62
+  br label %51
 
-49:                                               ; preds = %49, %46
-  %indvars.iv.i.i.us = phi i64 [ 0, %46 ], [ %indvars.iv.next.i.i.us, %49 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %46 ], [ %58, %49 ]
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv.i.i.us
-  %51 = load i8, ptr %50, align 1, !tbaa !47
-  %52 = uitofp i8 %51 to float
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv.i.i.us
-  %54 = load i8, ptr %53, align 1, !tbaa !47
-  %55 = uitofp i8 %54 to float
-  %56 = fsub float %52, %55
-  %57 = tail call noundef float @llvm.fabs.f32(float %56)
-  %58 = fadd float %.078.i.i.us, %57
+51:                                               ; preds = %51, %46
+  %indvars.iv.i.i.us = phi i64 [ 0, %46 ], [ %indvars.iv.next.i.i.us, %51 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %46 ], [ %60, %51 ]
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv.i.i.us
+  %53 = load i8, ptr %52, align 1, !tbaa !47
+  %54 = uitofp i8 %53 to float
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv.i.i.us
+  %56 = load i8, ptr %55, align 1, !tbaa !47
+  %57 = uitofp i8 %56 to float
+  %58 = fsub float %54, %57
+  %59 = tail call noundef float @llvm.fabs.f32(float %58)
+  %60 = fadd float %.078.i.i.us, %59
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 3
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us, label %49, !llvm.loop !409
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us, label %51, !llvm.loop !409
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us: ; preds = %49
-  %59 = load float, ptr %34, align 4, !tbaa !61
-  %60 = load float, ptr %35, align 8, !tbaa !62
-  %61 = fdiv float %59, %60
-  %62 = tail call noundef float @llvm.fmuladd.f32(float %61, float %58, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us: ; preds = %51
+  %61 = fdiv float %49, %50
+  %62 = tail call noundef float @llvm.fmuladd.f32(float %61, float %60, float 1.000000e+00)
   %63 = fadd float %.02931.us, %62
   %64 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv42
   store float %62, ptr %64, align 4, !tbaa !290
@@ -16135,31 +16135,31 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_P
   %34 = getelementptr inbounds nuw %"class.cv::Vec.40", ptr %30, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = getelementptr inbounds nuw %"class.cv::Vec.40", ptr %30, i64 %indvars.iv.next
-  br label %36
+  %36 = load float, ptr %24, align 4, !tbaa !61
+  %37 = load float, ptr %25, align 8, !tbaa !62
+  br label %38
 
-36:                                               ; preds = %36, %33
-  %indvars.iv.i.i.us = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i.us, %36 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %33 ], [ %45, %36 ]
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv.i.i.us
-  %38 = load i8, ptr %37, align 1, !tbaa !47
-  %39 = uitofp i8 %38 to float
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
-  %41 = load i8, ptr %40, align 1, !tbaa !47
-  %42 = uitofp i8 %41 to float
-  %43 = fsub float %39, %42
-  %44 = tail call noundef float @llvm.fabs.f32(float %43)
-  %45 = fadd float %.078.i.i.us, %44
+38:                                               ; preds = %38, %33
+  %indvars.iv.i.i.us = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i.us, %38 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %33 ], [ %47, %38 ]
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv.i.i.us
+  %40 = load i8, ptr %39, align 1, !tbaa !47
+  %41 = uitofp i8 %40 to float
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
+  %43 = load i8, ptr %42, align 1, !tbaa !47
+  %44 = uitofp i8 %43 to float
+  %45 = fsub float %41, %44
+  %46 = tail call noundef float @llvm.fabs.f32(float %45)
+  %47 = fadd float %.078.i.i.us, %46
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 3
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us, label %36, !llvm.loop !409
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us, label %38, !llvm.loop !409
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us: ; preds = %36
-  %46 = load float, ptr %24, align 4, !tbaa !61
-  %47 = load float, ptr %25, align 8, !tbaa !62
-  %48 = fdiv float %46, %47
-  %49 = tail call noundef float @llvm.fmuladd.f32(float %48, float %45, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us: ; preds = %38
+  %48 = fdiv float %36, %37
+  %49 = tail call noundef float @llvm.fmuladd.f32(float %48, float %47, float 1.000000e+00)
   %50 = load float, ptr %26, align 8, !tbaa !404
-  %51 = fmul float %50, %49
+  %51 = fmul float %49, %50
   %52 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
   store float %51, ptr %52, align 4, !tbaa !290
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -16266,31 +16266,31 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us ]
   %35 = getelementptr inbounds nuw %"class.cv::Vec.40", ptr %31, i64 %indvars.iv
   %36 = getelementptr inbounds nuw %"class.cv::Vec.40", ptr %33, i64 %indvars.iv
-  br label %37
+  %37 = load float, ptr %24, align 4, !tbaa !61
+  %38 = load float, ptr %25, align 8, !tbaa !62
+  br label %39
 
-37:                                               ; preds = %37, %34
-  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %37 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %46, %37 ]
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
-  %39 = load i8, ptr %38, align 1, !tbaa !47
-  %40 = uitofp i8 %39 to float
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i.i.us
-  %42 = load i8, ptr %41, align 1, !tbaa !47
-  %43 = uitofp i8 %42 to float
-  %44 = fsub float %40, %43
-  %45 = tail call noundef float @llvm.fabs.f32(float %44)
-  %46 = fadd float %.078.i.i.us, %45
+39:                                               ; preds = %39, %34
+  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %39 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %48, %39 ]
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
+  %41 = load i8, ptr %40, align 1, !tbaa !47
+  %42 = uitofp i8 %41 to float
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i.i.us
+  %44 = load i8, ptr %43, align 1, !tbaa !47
+  %45 = uitofp i8 %44 to float
+  %46 = fsub float %42, %45
+  %47 = tail call noundef float @llvm.fabs.f32(float %46)
+  %48 = fadd float %.078.i.i.us, %47
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 3
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us, label %37, !llvm.loop !409
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us, label %39, !llvm.loop !409
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us: ; preds = %37
-  %47 = load float, ptr %24, align 4, !tbaa !61
-  %48 = load float, ptr %25, align 8, !tbaa !62
-  %49 = fdiv float %47, %48
-  %50 = tail call noundef float @llvm.fmuladd.f32(float %49, float %46, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit.us: ; preds = %39
+  %49 = fdiv float %37, %38
+  %50 = tail call noundef float @llvm.fmuladd.f32(float %49, float %48, float 1.000000e+00)
   %51 = load float, ptr %26, align 8, !tbaa !405
-  %52 = fmul float %51, %50
+  %52 = fmul float %50, %51
   %53 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
   store float %52, ptr %53, align 4, !tbaa !290
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -16713,27 +16713,27 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU21ComputeIDTHor_Pa
   %.01821.us = phi float [ 0.000000e+00, %.lr.ph.us ], [ %49, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us ]
   %35 = getelementptr %"class.cv::Vec.49", ptr %31, i64 %indvars.iv29
   %36 = getelementptr i8, ptr %35, i64 -12
-  br label %37
+  %37 = load float, ptr %26, align 4, !tbaa !61
+  %38 = load float, ptr %27, align 8, !tbaa !62
+  br label %39
 
-37:                                               ; preds = %37, %34
-  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %37 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %44, %37 ]
-  %38 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i.i.us
-  %39 = load float, ptr %38, align 4, !tbaa !290
-  %40 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
+39:                                               ; preds = %39, %34
+  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %39 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %46, %39 ]
+  %40 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i.i.us
   %41 = load float, ptr %40, align 4, !tbaa !290
-  %42 = fsub float %39, %41
-  %43 = tail call noundef float @llvm.fabs.f32(float %42)
-  %44 = fadd float %.078.i.i.us, %43
+  %42 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
+  %43 = load float, ptr %42, align 4, !tbaa !290
+  %44 = fsub float %41, %43
+  %45 = tail call noundef float @llvm.fabs.f32(float %44)
+  %46 = fadd float %.078.i.i.us, %45
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 3
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us, label %37, !llvm.loop !439
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us, label %39, !llvm.loop !439
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us: ; preds = %37
-  %45 = load float, ptr %26, align 4, !tbaa !61
-  %46 = load float, ptr %27, align 8, !tbaa !62
-  %47 = fdiv float %45, %46
-  %48 = tail call noundef float @llvm.fmuladd.f32(float %47, float %44, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us: ; preds = %39
+  %47 = fdiv float %37, %38
+  %48 = tail call noundef float @llvm.fmuladd.f32(float %47, float %46, float 1.000000e+00)
   %49 = fadd float %.01821.us, %48
   %50 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv29
   store float %49, ptr %50, align 4, !tbaa !290
@@ -16838,27 +16838,27 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU26ComputeDTandIDTH
   %47 = getelementptr inbounds nuw %"class.cv::Vec.49", ptr %40, i64 %indvars.iv42
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %48 = getelementptr inbounds nuw %"class.cv::Vec.49", ptr %40, i64 %indvars.iv.next43
-  br label %49
+  %49 = load float, ptr %34, align 4, !tbaa !61
+  %50 = load float, ptr %35, align 8, !tbaa !62
+  br label %51
 
-49:                                               ; preds = %49, %46
-  %indvars.iv.i.i.us = phi i64 [ 0, %46 ], [ %indvars.iv.next.i.i.us, %49 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %46 ], [ %56, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i.i.us
-  %51 = load float, ptr %50, align 4, !tbaa !290
-  %52 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i.i.us
+51:                                               ; preds = %51, %46
+  %indvars.iv.i.i.us = phi i64 [ 0, %46 ], [ %indvars.iv.next.i.i.us, %51 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %46 ], [ %58, %51 ]
+  %52 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i.i.us
   %53 = load float, ptr %52, align 4, !tbaa !290
-  %54 = fsub float %51, %53
-  %55 = tail call noundef float @llvm.fabs.f32(float %54)
-  %56 = fadd float %.078.i.i.us, %55
+  %54 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i.i.us
+  %55 = load float, ptr %54, align 4, !tbaa !290
+  %56 = fsub float %53, %55
+  %57 = tail call noundef float @llvm.fabs.f32(float %56)
+  %58 = fadd float %.078.i.i.us, %57
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 3
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us, label %49, !llvm.loop !439
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us, label %51, !llvm.loop !439
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us: ; preds = %49
-  %57 = load float, ptr %34, align 4, !tbaa !61
-  %58 = load float, ptr %35, align 8, !tbaa !62
-  %59 = fdiv float %57, %58
-  %60 = tail call noundef float @llvm.fmuladd.f32(float %59, float %56, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us: ; preds = %51
+  %59 = fdiv float %49, %50
+  %60 = tail call noundef float @llvm.fmuladd.f32(float %59, float %58, float 1.000000e+00)
   %61 = fadd float %.02931.us, %60
   %62 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv42
   store float %60, ptr %62, align 4, !tbaa !290
@@ -16995,29 +16995,29 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_P
   %34 = getelementptr inbounds nuw %"class.cv::Vec.49", ptr %30, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = getelementptr inbounds nuw %"class.cv::Vec.49", ptr %30, i64 %indvars.iv.next
-  br label %36
+  %36 = load float, ptr %24, align 4, !tbaa !61
+  %37 = load float, ptr %25, align 8, !tbaa !62
+  br label %38
 
-36:                                               ; preds = %36, %33
-  %indvars.iv.i.i.us = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i.us, %36 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %33 ], [ %43, %36 ]
-  %37 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i.i.us
-  %38 = load float, ptr %37, align 4, !tbaa !290
-  %39 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
+38:                                               ; preds = %38, %33
+  %indvars.iv.i.i.us = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i.us, %38 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %33 ], [ %45, %38 ]
+  %39 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i.i.us
   %40 = load float, ptr %39, align 4, !tbaa !290
-  %41 = fsub float %38, %40
-  %42 = tail call noundef float @llvm.fabs.f32(float %41)
-  %43 = fadd float %.078.i.i.us, %42
+  %41 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
+  %42 = load float, ptr %41, align 4, !tbaa !290
+  %43 = fsub float %40, %42
+  %44 = tail call noundef float @llvm.fabs.f32(float %43)
+  %45 = fadd float %.078.i.i.us, %44
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 3
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us, label %36, !llvm.loop !439
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us, label %38, !llvm.loop !439
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us: ; preds = %36
-  %44 = load float, ptr %24, align 4, !tbaa !61
-  %45 = load float, ptr %25, align 8, !tbaa !62
-  %46 = fdiv float %44, %45
-  %47 = tail call noundef float @llvm.fmuladd.f32(float %46, float %43, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us: ; preds = %38
+  %46 = fdiv float %36, %37
+  %47 = tail call noundef float @llvm.fmuladd.f32(float %46, float %45, float 1.000000e+00)
   %48 = load float, ptr %26, align 8, !tbaa !434
-  %49 = fmul float %48, %47
+  %49 = fmul float %47, %48
   %50 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
   store float %49, ptr %50, align 4, !tbaa !290
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -17124,29 +17124,29 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us ]
   %35 = getelementptr inbounds nuw %"class.cv::Vec.49", ptr %31, i64 %indvars.iv
   %36 = getelementptr inbounds nuw %"class.cv::Vec.49", ptr %33, i64 %indvars.iv
-  br label %37
+  %37 = load float, ptr %24, align 4, !tbaa !61
+  %38 = load float, ptr %25, align 8, !tbaa !62
+  br label %39
 
-37:                                               ; preds = %37, %34
-  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %37 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %44, %37 ]
-  %38 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
-  %39 = load float, ptr %38, align 4, !tbaa !290
-  %40 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i.i.us
+39:                                               ; preds = %39, %34
+  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %39 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %46, %39 ]
+  %40 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
   %41 = load float, ptr %40, align 4, !tbaa !290
-  %42 = fsub float %39, %41
-  %43 = tail call noundef float @llvm.fabs.f32(float %42)
-  %44 = fadd float %.078.i.i.us, %43
+  %42 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i.i.us
+  %43 = load float, ptr %42, align 4, !tbaa !290
+  %44 = fsub float %41, %43
+  %45 = tail call noundef float @llvm.fabs.f32(float %44)
+  %46 = fadd float %.078.i.i.us, %45
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 3
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us, label %37, !llvm.loop !439
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us, label %39, !llvm.loop !439
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us: ; preds = %37
-  %45 = load float, ptr %24, align 4, !tbaa !61
-  %46 = load float, ptr %25, align 8, !tbaa !62
-  %47 = fdiv float %45, %46
-  %48 = tail call noundef float @llvm.fmuladd.f32(float %47, float %44, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit.us: ; preds = %39
+  %47 = fdiv float %37, %38
+  %48 = tail call noundef float @llvm.fmuladd.f32(float %47, float %46, float 1.000000e+00)
   %49 = load float, ptr %26, align 8, !tbaa !435
-  %50 = fmul float %49, %48
+  %50 = fmul float %48, %49
   %51 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
   store float %50, ptr %51, align 4, !tbaa !290
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -17569,29 +17569,29 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU21ComputeIDTHor_Pa
   %.01821.us = phi float [ 0.000000e+00, %.lr.ph.us ], [ %51, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us ]
   %35 = getelementptr %"class.cv::Vec.58", ptr %31, i64 %indvars.iv29
   %36 = getelementptr i8, ptr %35, i64 -4
-  br label %37
+  %37 = load float, ptr %26, align 4, !tbaa !61
+  %38 = load float, ptr %27, align 8, !tbaa !62
+  br label %39
 
-37:                                               ; preds = %37, %34
-  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %37 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %46, %37 ]
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i.i.us
-  %39 = load i8, ptr %38, align 1, !tbaa !47
-  %40 = uitofp i8 %39 to float
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
-  %42 = load i8, ptr %41, align 1, !tbaa !47
-  %43 = uitofp i8 %42 to float
-  %44 = fsub float %40, %43
-  %45 = tail call noundef float @llvm.fabs.f32(float %44)
-  %46 = fadd float %.078.i.i.us, %45
+39:                                               ; preds = %39, %34
+  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %39 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %48, %39 ]
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i.i.us
+  %41 = load i8, ptr %40, align 1, !tbaa !47
+  %42 = uitofp i8 %41 to float
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
+  %44 = load i8, ptr %43, align 1, !tbaa !47
+  %45 = uitofp i8 %44 to float
+  %46 = fsub float %42, %45
+  %47 = tail call noundef float @llvm.fabs.f32(float %46)
+  %48 = fadd float %.078.i.i.us, %47
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 4
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us, label %37, !llvm.loop !469
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us, label %39, !llvm.loop !469
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us: ; preds = %37
-  %47 = load float, ptr %26, align 4, !tbaa !61
-  %48 = load float, ptr %27, align 8, !tbaa !62
-  %49 = fdiv float %47, %48
-  %50 = tail call noundef float @llvm.fmuladd.f32(float %49, float %46, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us: ; preds = %39
+  %49 = fdiv float %37, %38
+  %50 = tail call noundef float @llvm.fmuladd.f32(float %49, float %48, float 1.000000e+00)
   %51 = fadd float %.01821.us, %50
   %52 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv29
   store float %51, ptr %52, align 4, !tbaa !290
@@ -17696,29 +17696,29 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU26ComputeDTandIDTH
   %47 = getelementptr inbounds nuw %"class.cv::Vec.58", ptr %40, i64 %indvars.iv42
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %48 = getelementptr inbounds nuw %"class.cv::Vec.58", ptr %40, i64 %indvars.iv.next43
-  br label %49
+  %49 = load float, ptr %34, align 4, !tbaa !61
+  %50 = load float, ptr %35, align 8, !tbaa !62
+  br label %51
 
-49:                                               ; preds = %49, %46
-  %indvars.iv.i.i.us = phi i64 [ 0, %46 ], [ %indvars.iv.next.i.i.us, %49 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %46 ], [ %58, %49 ]
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv.i.i.us
-  %51 = load i8, ptr %50, align 1, !tbaa !47
-  %52 = uitofp i8 %51 to float
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv.i.i.us
-  %54 = load i8, ptr %53, align 1, !tbaa !47
-  %55 = uitofp i8 %54 to float
-  %56 = fsub float %52, %55
-  %57 = tail call noundef float @llvm.fabs.f32(float %56)
-  %58 = fadd float %.078.i.i.us, %57
+51:                                               ; preds = %51, %46
+  %indvars.iv.i.i.us = phi i64 [ 0, %46 ], [ %indvars.iv.next.i.i.us, %51 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %46 ], [ %60, %51 ]
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv.i.i.us
+  %53 = load i8, ptr %52, align 1, !tbaa !47
+  %54 = uitofp i8 %53 to float
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv.i.i.us
+  %56 = load i8, ptr %55, align 1, !tbaa !47
+  %57 = uitofp i8 %56 to float
+  %58 = fsub float %54, %57
+  %59 = tail call noundef float @llvm.fabs.f32(float %58)
+  %60 = fadd float %.078.i.i.us, %59
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 4
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us, label %49, !llvm.loop !469
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us, label %51, !llvm.loop !469
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us: ; preds = %49
-  %59 = load float, ptr %34, align 4, !tbaa !61
-  %60 = load float, ptr %35, align 8, !tbaa !62
-  %61 = fdiv float %59, %60
-  %62 = tail call noundef float @llvm.fmuladd.f32(float %61, float %58, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us: ; preds = %51
+  %61 = fdiv float %49, %50
+  %62 = tail call noundef float @llvm.fmuladd.f32(float %61, float %60, float 1.000000e+00)
   %63 = fadd float %.02931.us, %62
   %64 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv42
   store float %62, ptr %64, align 4, !tbaa !290
@@ -17855,31 +17855,31 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_P
   %34 = getelementptr inbounds nuw %"class.cv::Vec.58", ptr %30, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = getelementptr inbounds nuw %"class.cv::Vec.58", ptr %30, i64 %indvars.iv.next
-  br label %36
+  %36 = load float, ptr %24, align 4, !tbaa !61
+  %37 = load float, ptr %25, align 8, !tbaa !62
+  br label %38
 
-36:                                               ; preds = %36, %33
-  %indvars.iv.i.i.us = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i.us, %36 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %33 ], [ %45, %36 ]
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv.i.i.us
-  %38 = load i8, ptr %37, align 1, !tbaa !47
-  %39 = uitofp i8 %38 to float
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
-  %41 = load i8, ptr %40, align 1, !tbaa !47
-  %42 = uitofp i8 %41 to float
-  %43 = fsub float %39, %42
-  %44 = tail call noundef float @llvm.fabs.f32(float %43)
-  %45 = fadd float %.078.i.i.us, %44
+38:                                               ; preds = %38, %33
+  %indvars.iv.i.i.us = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i.us, %38 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %33 ], [ %47, %38 ]
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv.i.i.us
+  %40 = load i8, ptr %39, align 1, !tbaa !47
+  %41 = uitofp i8 %40 to float
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
+  %43 = load i8, ptr %42, align 1, !tbaa !47
+  %44 = uitofp i8 %43 to float
+  %45 = fsub float %41, %44
+  %46 = tail call noundef float @llvm.fabs.f32(float %45)
+  %47 = fadd float %.078.i.i.us, %46
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 4
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us, label %36, !llvm.loop !469
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us, label %38, !llvm.loop !469
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us: ; preds = %36
-  %46 = load float, ptr %24, align 4, !tbaa !61
-  %47 = load float, ptr %25, align 8, !tbaa !62
-  %48 = fdiv float %46, %47
-  %49 = tail call noundef float @llvm.fmuladd.f32(float %48, float %45, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us: ; preds = %38
+  %48 = fdiv float %36, %37
+  %49 = tail call noundef float @llvm.fmuladd.f32(float %48, float %47, float 1.000000e+00)
   %50 = load float, ptr %26, align 8, !tbaa !464
-  %51 = fmul float %50, %49
+  %51 = fmul float %49, %50
   %52 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
   store float %51, ptr %52, align 4, !tbaa !290
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -17986,31 +17986,31 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us ]
   %35 = getelementptr inbounds nuw %"class.cv::Vec.58", ptr %31, i64 %indvars.iv
   %36 = getelementptr inbounds nuw %"class.cv::Vec.58", ptr %33, i64 %indvars.iv
-  br label %37
+  %37 = load float, ptr %24, align 4, !tbaa !61
+  %38 = load float, ptr %25, align 8, !tbaa !62
+  br label %39
 
-37:                                               ; preds = %37, %34
-  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %37 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %46, %37 ]
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
-  %39 = load i8, ptr %38, align 1, !tbaa !47
-  %40 = uitofp i8 %39 to float
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i.i.us
-  %42 = load i8, ptr %41, align 1, !tbaa !47
-  %43 = uitofp i8 %42 to float
-  %44 = fsub float %40, %43
-  %45 = tail call noundef float @llvm.fabs.f32(float %44)
-  %46 = fadd float %.078.i.i.us, %45
+39:                                               ; preds = %39, %34
+  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %39 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %48, %39 ]
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i.i.us
+  %41 = load i8, ptr %40, align 1, !tbaa !47
+  %42 = uitofp i8 %41 to float
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i.i.us
+  %44 = load i8, ptr %43, align 1, !tbaa !47
+  %45 = uitofp i8 %44 to float
+  %46 = fsub float %42, %45
+  %47 = tail call noundef float @llvm.fabs.f32(float %46)
+  %48 = fadd float %.078.i.i.us, %47
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 4
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us, label %37, !llvm.loop !469
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us, label %39, !llvm.loop !469
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us: ; preds = %37
-  %47 = load float, ptr %24, align 4, !tbaa !61
-  %48 = load float, ptr %25, align 8, !tbaa !62
-  %49 = fdiv float %47, %48
-  %50 = tail call noundef float @llvm.fmuladd.f32(float %49, float %46, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit.us: ; preds = %39
+  %49 = fdiv float %37, %38
+  %50 = tail call noundef float @llvm.fmuladd.f32(float %49, float %48, float 1.000000e+00)
   %51 = load float, ptr %26, align 8, !tbaa !465
-  %52 = fmul float %51, %50
+  %52 = fmul float %50, %51
   %53 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
   store float %52, ptr %53, align 4, !tbaa !290
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -18433,27 +18433,27 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU21ComputeIDTHor_Pa
   %.01821.us = phi float [ 0.000000e+00, %.lr.ph.us ], [ %49, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us ]
   %35 = getelementptr %"class.cv::Vec.67", ptr %31, i64 %indvars.iv29
   %36 = getelementptr i8, ptr %35, i64 -16
-  br label %37
+  %37 = load float, ptr %26, align 4, !tbaa !61
+  %38 = load float, ptr %27, align 8, !tbaa !62
+  br label %39
 
-37:                                               ; preds = %37, %34
-  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %37 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %44, %37 ]
-  %38 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i.i.us
-  %39 = load float, ptr %38, align 4, !tbaa !290
-  %40 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
+39:                                               ; preds = %39, %34
+  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %39 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %46, %39 ]
+  %40 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i.i.us
   %41 = load float, ptr %40, align 4, !tbaa !290
-  %42 = fsub float %39, %41
-  %43 = tail call noundef float @llvm.fabs.f32(float %42)
-  %44 = fadd float %.078.i.i.us, %43
+  %42 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
+  %43 = load float, ptr %42, align 4, !tbaa !290
+  %44 = fsub float %41, %43
+  %45 = tail call noundef float @llvm.fabs.f32(float %44)
+  %46 = fadd float %.078.i.i.us, %45
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 4
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us, label %37, !llvm.loop !499
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us, label %39, !llvm.loop !499
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us: ; preds = %37
-  %45 = load float, ptr %26, align 4, !tbaa !61
-  %46 = load float, ptr %27, align 8, !tbaa !62
-  %47 = fdiv float %45, %46
-  %48 = tail call noundef float @llvm.fmuladd.f32(float %47, float %44, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us: ; preds = %39
+  %47 = fdiv float %37, %38
+  %48 = tail call noundef float @llvm.fmuladd.f32(float %47, float %46, float 1.000000e+00)
   %49 = fadd float %.01821.us, %48
   %50 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv29
   store float %49, ptr %50, align 4, !tbaa !290
@@ -18558,27 +18558,27 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU26ComputeDTandIDTH
   %47 = getelementptr inbounds nuw %"class.cv::Vec.67", ptr %40, i64 %indvars.iv42
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %48 = getelementptr inbounds nuw %"class.cv::Vec.67", ptr %40, i64 %indvars.iv.next43
-  br label %49
+  %49 = load float, ptr %34, align 4, !tbaa !61
+  %50 = load float, ptr %35, align 8, !tbaa !62
+  br label %51
 
-49:                                               ; preds = %49, %46
-  %indvars.iv.i.i.us = phi i64 [ 0, %46 ], [ %indvars.iv.next.i.i.us, %49 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %46 ], [ %56, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i.i.us
-  %51 = load float, ptr %50, align 4, !tbaa !290
-  %52 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i.i.us
+51:                                               ; preds = %51, %46
+  %indvars.iv.i.i.us = phi i64 [ 0, %46 ], [ %indvars.iv.next.i.i.us, %51 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %46 ], [ %58, %51 ]
+  %52 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i.i.us
   %53 = load float, ptr %52, align 4, !tbaa !290
-  %54 = fsub float %51, %53
-  %55 = tail call noundef float @llvm.fabs.f32(float %54)
-  %56 = fadd float %.078.i.i.us, %55
+  %54 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i.i.us
+  %55 = load float, ptr %54, align 4, !tbaa !290
+  %56 = fsub float %53, %55
+  %57 = tail call noundef float @llvm.fabs.f32(float %56)
+  %58 = fadd float %.078.i.i.us, %57
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 4
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us, label %49, !llvm.loop !499
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us, label %51, !llvm.loop !499
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us: ; preds = %49
-  %57 = load float, ptr %34, align 4, !tbaa !61
-  %58 = load float, ptr %35, align 8, !tbaa !62
-  %59 = fdiv float %57, %58
-  %60 = tail call noundef float @llvm.fmuladd.f32(float %59, float %56, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us: ; preds = %51
+  %59 = fdiv float %49, %50
+  %60 = tail call noundef float @llvm.fmuladd.f32(float %59, float %58, float 1.000000e+00)
   %61 = fadd float %.02931.us, %60
   %62 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv42
   store float %60, ptr %62, align 4, !tbaa !290
@@ -18715,29 +18715,29 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_P
   %34 = getelementptr inbounds nuw %"class.cv::Vec.67", ptr %30, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = getelementptr inbounds nuw %"class.cv::Vec.67", ptr %30, i64 %indvars.iv.next
-  br label %36
+  %36 = load float, ptr %24, align 4, !tbaa !61
+  %37 = load float, ptr %25, align 8, !tbaa !62
+  br label %38
 
-36:                                               ; preds = %36, %33
-  %indvars.iv.i.i.us = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i.us, %36 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %33 ], [ %43, %36 ]
-  %37 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i.i.us
-  %38 = load float, ptr %37, align 4, !tbaa !290
-  %39 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
+38:                                               ; preds = %38, %33
+  %indvars.iv.i.i.us = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i.us, %38 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %33 ], [ %45, %38 ]
+  %39 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i.i.us
   %40 = load float, ptr %39, align 4, !tbaa !290
-  %41 = fsub float %38, %40
-  %42 = tail call noundef float @llvm.fabs.f32(float %41)
-  %43 = fadd float %.078.i.i.us, %42
+  %41 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
+  %42 = load float, ptr %41, align 4, !tbaa !290
+  %43 = fsub float %40, %42
+  %44 = tail call noundef float @llvm.fabs.f32(float %43)
+  %45 = fadd float %.078.i.i.us, %44
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 4
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us, label %36, !llvm.loop !499
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us, label %38, !llvm.loop !499
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us: ; preds = %36
-  %44 = load float, ptr %24, align 4, !tbaa !61
-  %45 = load float, ptr %25, align 8, !tbaa !62
-  %46 = fdiv float %44, %45
-  %47 = tail call noundef float @llvm.fmuladd.f32(float %46, float %43, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us: ; preds = %38
+  %46 = fdiv float %36, %37
+  %47 = tail call noundef float @llvm.fmuladd.f32(float %46, float %45, float 1.000000e+00)
   %48 = load float, ptr %26, align 8, !tbaa !494
-  %49 = fmul float %48, %47
+  %49 = fmul float %47, %48
   %50 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
   store float %49, ptr %50, align 4, !tbaa !290
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -18844,29 +18844,29 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us ]
   %35 = getelementptr inbounds nuw %"class.cv::Vec.67", ptr %31, i64 %indvars.iv
   %36 = getelementptr inbounds nuw %"class.cv::Vec.67", ptr %33, i64 %indvars.iv
-  br label %37
+  %37 = load float, ptr %24, align 4, !tbaa !61
+  %38 = load float, ptr %25, align 8, !tbaa !62
+  br label %39
 
-37:                                               ; preds = %37, %34
-  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %37 ]
-  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %44, %37 ]
-  %38 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
-  %39 = load float, ptr %38, align 4, !tbaa !290
-  %40 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i.i.us
+39:                                               ; preds = %39, %34
+  %indvars.iv.i.i.us = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.us, %39 ]
+  %.078.i.i.us = phi float [ 0.000000e+00, %34 ], [ %46, %39 ]
+  %40 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.us
   %41 = load float, ptr %40, align 4, !tbaa !290
-  %42 = fsub float %39, %41
-  %43 = tail call noundef float @llvm.fabs.f32(float %42)
-  %44 = fadd float %.078.i.i.us, %43
+  %42 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i.i.us
+  %43 = load float, ptr %42, align 4, !tbaa !290
+  %44 = fsub float %41, %43
+  %45 = tail call noundef float @llvm.fabs.f32(float %44)
+  %46 = fadd float %.078.i.i.us, %45
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, 4
-  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us, label %37, !llvm.loop !499
+  br i1 %exitcond.not.i.i.us, label %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us, label %39, !llvm.loop !499
 
-_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us: ; preds = %37
-  %45 = load float, ptr %24, align 4, !tbaa !61
-  %46 = load float, ptr %25, align 8, !tbaa !62
-  %47 = fdiv float %45, %46
-  %48 = tail call noundef float @llvm.fmuladd.f32(float %47, float %44, float 1.000000e+00)
+_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit.us: ; preds = %39
+  %47 = fdiv float %37, %38
+  %48 = tail call noundef float @llvm.fmuladd.f32(float %47, float %46, float 1.000000e+00)
   %49 = load float, ptr %26, align 8, !tbaa !495
-  %50 = fmul float %49, %48
+  %50 = fmul float %48, %49
   %51 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
   store float %50, ptr %51, align 4, !tbaa !290
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

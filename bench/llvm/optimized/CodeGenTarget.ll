@@ -3752,13 +3752,13 @@ _ZN4llvm11SmallVectorIPKNS_4InitELj16EEC2Em.exit: ; preds = %29
 
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplIPKNS_4InitEE7reserveEm.exit.i.i.i, %_ZN4llvm11SmallVectorIPKNS_4InitELj16EEC2Em.exit.thread77, %_ZN4llvm11SmallVectorIPKNS_4InitELj16EEC2Em.exit
   %.pre.pre.pre76 = phi ptr [ %13, %_ZN4llvm11SmallVectorIPKNS_4InitELj16EEC2Em.exit ], [ %.pre.pre.pre.pre, %_ZN4llvm11SmallVectorIPKNS_4InitELj16EEC2Em.exit.thread77 ], [ %.pre.pre.pre.pre, %_ZN4llvm15SmallVectorImplIPKNS_4InitEE7reserveEm.exit.i.i.i ]
-  %35 = lshr i32 %26, 1
-  %36 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %37 = zext nneg i32 %35 to i64
+  %35 = zext i32 %26 to i64
+  %36 = lshr i32 %26, 1
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %38 = zext nneg i32 %36 to i64
   br label %40
 
 ._crit_edge:                                      ; preds = %40
-  %38 = zext i32 %26 to i64
   %39 = and i32 %26, 1
   %.not36 = icmp eq i32 %39, 0
   br i1 %.not36, label %._crit_edge.thread, label %._crit_edge.thread83
@@ -3768,22 +3768,22 @@ _ZN4llvm11SmallVectorIPKNS_4InitELj16EEC2Em.exit: ; preds = %29
   %41 = trunc nuw nsw i64 %indvars.iv to i32
   %42 = xor i32 %41, -1
   %43 = add i32 %26, %42
-  %44 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !345
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %36, i64 %46
+  %47 = getelementptr inbounds nuw ptr, ptr %37, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !345
   %49 = getelementptr inbounds nuw ptr, ptr %.pre.pre.pre76, i64 %indvars.iv
   store ptr %48, ptr %49, align 8, !tbaa !345
   %50 = getelementptr inbounds nuw ptr, ptr %.pre.pre.pre76, i64 %46
   store ptr %45, ptr %50, align 8, !tbaa !345
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not35 = icmp eq i64 %indvars.iv.next, %37
+  %.not35 = icmp eq i64 %indvars.iv.next, %38
   br i1 %.not35, label %._crit_edge, label %40, !llvm.loop !346
 
 ._crit_edge.thread83:                             ; preds = %_ZN4llvm11SmallVectorIPKNS_4InitELj16EEC2Em.exit, %._crit_edge
   %.pre.pre7286 = phi ptr [ %.pre.pre.pre76, %._crit_edge ], [ %13, %_ZN4llvm11SmallVectorIPKNS_4InitELj16EEC2Em.exit ]
-  %51 = phi i64 [ %38, %._crit_edge ], [ 1, %_ZN4llvm11SmallVectorIPKNS_4InitELj16EEC2Em.exit ]
+  %51 = phi i64 [ %35, %._crit_edge ], [ 1, %_ZN4llvm11SmallVectorIPKNS_4InitELj16EEC2Em.exit ]
   %52 = add i32 %26, 1
   %53 = lshr exact i32 %52, 1
   %54 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -3796,7 +3796,7 @@ _ZN4llvm11SmallVectorIPKNS_4InitELj16EEC2Em.exit: ; preds = %29
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge.thread83, %._crit_edge
   %.pre.pre7282 = phi ptr [ %.pre.pre7286, %._crit_edge.thread83 ], [ %.pre.pre.pre76, %._crit_edge ], [ %13, %23 ]
-  %59 = phi i64 [ %51, %._crit_edge.thread83 ], [ %38, %._crit_edge ], [ 0, %23 ]
+  %59 = phi i64 [ %51, %._crit_edge.thread83 ], [ %35, %._crit_edge ], [ 0, %23 ]
   %60 = load ptr, ptr %0, align 8, !tbaa !168
   %61 = call noundef ptr @_ZN4llvm8BitsInit3getERNS_12RecordKeeperENS_8ArrayRefIPKNS_4InitEEE(ptr noundef nonnull align 8 dereferenceable(240) %60, ptr nonnull %.pre.pre7282, i64 %59) #22
   %62 = getelementptr inbounds nuw i8, ptr %17, i64 168

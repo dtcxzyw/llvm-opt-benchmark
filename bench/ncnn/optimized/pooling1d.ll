@@ -858,18 +858,18 @@ define internal void @_ZNK4ncnn9Pooling1D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
   %46 = mul i32 %36, %45
   %47 = add i32 %35, %46
   %48 = sdiv i32 %47, %33
-  %49 = icmp slt i32 %44, %48
-  br i1 %49, label %.lr.ph.us.preheader, label %._crit_edge.us
+  %49 = sub nsw i32 %48, %44
+  %50 = icmp slt i32 %44, %48
+  br i1 %50, label %.lr.ph.us.preheader, label %._crit_edge.us
 
 .lr.ph.us.preheader:                              ; preds = %41
-  %50 = sext i32 %44 to i64
+  %51 = sext i32 %44 to i64
   %wide.trip.count = sext i32 %48 to i64
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %41
   %.035.lcssa.us = phi float [ 0.000000e+00, %41 ], [ %57, %.lr.ph.us ]
-  %51 = sub nsw i32 %48, %44
-  %52 = sitofp i32 %51 to float
+  %52 = sitofp i32 %49 to float
   %53 = fdiv fast float %.035.lcssa.us, %52
   %54 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv54
   store float %53, ptr %54, align 4, !tbaa !53
@@ -877,7 +877,7 @@ define internal void @_ZNK4ncnn9Pooling1D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
   br i1 %exitcond58.not, label %._crit_edge44.us, label %41, !llvm.loop !62
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
-  %indvars.iv = phi i64 [ %50, %.lr.ph.us.preheader ], [ %indvars.iv.next, %.lr.ph.us ]
+  %indvars.iv = phi i64 [ %51, %.lr.ph.us.preheader ], [ %indvars.iv.next, %.lr.ph.us ]
   %.03539.us = phi float [ 0.000000e+00, %.lr.ph.us.preheader ], [ %57, %.lr.ph.us ]
   %55 = getelementptr inbounds float, ptr %39, i64 %indvars.iv
   %56 = load float, ptr %55, align 4, !tbaa !53

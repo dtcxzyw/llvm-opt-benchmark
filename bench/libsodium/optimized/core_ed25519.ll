@@ -156,20 +156,23 @@ define dso_local range(i32 -1, 1) i32 @crypto_core_ed25519_from_string(ptr nound
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %.preheader.preheader.i, label %_string_to_points.exit
 
-.preheader.preheader.i:                           ; preds = %5, %.preheader.preheader.i
-  %.022.i = phi i64 [ %13, %.preheader.preheader.i ], [ 0, %5 ]
-  %9 = sub nuw nsw i64 47, %.022.i
-  %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = getelementptr i8, ptr %6, i64 %.022.i
-  store i8 %11, ptr %12, align 1
-  %13 = add nuw nsw i64 %.022.i, 1
-  %exitcond.not.i = icmp eq i64 %13, 48
-  br i1 %exitcond.not.i, label %_string_to_points.exit.loopexit, label %.preheader.preheader.i, !llvm.loop !4
+.preheader.preheader.i:                           ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  br label %10
 
-_string_to_points.exit.loopexit:                  ; preds = %.preheader.preheader.i
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 noundef 0, i64 noundef range(i64 64, 17) 16, i1 noundef false) #6
+10:                                               ; preds = %10, %.preheader.preheader.i
+  %.022.i = phi i64 [ 0, %.preheader.preheader.i ], [ %15, %10 ]
+  %11 = sub nuw nsw i64 47, %.022.i
+  %12 = getelementptr i8, ptr %7, i64 %11
+  %13 = load i8, ptr %12, align 1
+  %14 = getelementptr i8, ptr %6, i64 %.022.i
+  store i8 %13, ptr %14, align 1
+  %15 = add nuw nsw i64 %.022.i, 1
+  %exitcond.not.i = icmp eq i64 %15, 48
+  br i1 %exitcond.not.i, label %_string_to_points.exit.loopexit, label %10, !llvm.loop !4
+
+_string_to_points.exit.loopexit:                  ; preds = %10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 noundef 0, i64 noundef range(i64 64, 17) 16, i1 noundef false) #6
   call void @_sodium_ge25519_from_hash(ptr noundef nonnull %0, ptr noundef nonnull %6) #6
   br label %_string_to_points.exit
 

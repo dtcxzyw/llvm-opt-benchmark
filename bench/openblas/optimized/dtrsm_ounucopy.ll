@@ -143,9 +143,9 @@ define noundef i32 @dtrsm_ounucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph95.split.split, %65
-  %.sink139 = phi double [ %66, %65 ], [ 1.000000e+00, %.lr.ph95.split.split ]
+  %.sink138 = phi double [ %66, %65 ], [ 1.000000e+00, %.lr.ph95.split.split ]
   %67 = load double, ptr %61, align 8, !tbaa !3
-  store double %.sink139, ptr %.07990, align 8, !tbaa !3
+  store double %.sink138, ptr %.07990, align 8, !tbaa !3
   %68 = getelementptr inbounds nuw i8, ptr %.07990, i64 8
   store double %67, ptr %68, align 8, !tbaa !3
   br label %69
@@ -156,22 +156,22 @@ define noundef i32 @dtrsm_ounucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %72 = add nsw i64 %.07392, 2
   %73 = add nsw i64 %.07491, -1
   %74 = icmp sgt i64 %.07491, 1
-  br i1 %74, label %.lr.ph95.split.split, label %._crit_edge96.loopexit132, !llvm.loop !7
+  br i1 %74, label %.lr.ph95.split.split, label %._crit_edge96.loopexit118, !llvm.loop !7
 
 ._crit_edge96.loopexit:                           ; preds = %27
   %75 = and i64 %1, -2
   %76 = add i64 %4, %75
   br label %._crit_edge96
 
-._crit_edge96.loopexit132:                        ; preds = %69
+._crit_edge96.loopexit118:                        ; preds = %69
   %77 = and i64 %1, -2
   %78 = add i64 %4, %77
   br label %._crit_edge96
 
-._crit_edge96:                                    ; preds = %._crit_edge96.loopexit132, %._crit_edge96.loopexit, %.lr.ph95.split.split.us.preheader, %6
-  %.079.lcssa = phi ptr [ %5, %6 ], [ %5, %.lr.ph95.split.split.us.preheader ], [ %.2.us, %._crit_edge96.loopexit ], [ %70, %._crit_edge96.loopexit132 ]
-  %.073.lcssa = phi i64 [ %4, %6 ], [ %60, %.lr.ph95.split.split.us.preheader ], [ %76, %._crit_edge96.loopexit ], [ %78, %._crit_edge96.loopexit132 ]
-  %.072.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %.lr.ph95.split.split.us.preheader ], [ %28, %._crit_edge96.loopexit ], [ %71, %._crit_edge96.loopexit132 ]
+._crit_edge96:                                    ; preds = %._crit_edge96.loopexit118, %.lr.ph95.split.split.us.preheader, %._crit_edge96.loopexit, %6
+  %.079.lcssa = phi ptr [ %5, %6 ], [ %.2.us, %._crit_edge96.loopexit ], [ %5, %.lr.ph95.split.split.us.preheader ], [ %70, %._crit_edge96.loopexit118 ]
+  %.073.lcssa = phi i64 [ %4, %6 ], [ %76, %._crit_edge96.loopexit ], [ %60, %.lr.ph95.split.split.us.preheader ], [ %78, %._crit_edge96.loopexit118 ]
+  %.072.lcssa = phi ptr [ %2, %6 ], [ %28, %._crit_edge96.loopexit ], [ %scevgep, %.lr.ph95.split.split.us.preheader ], [ %71, %._crit_edge96.loopexit118 ]
   %79 = and i64 %1, 1
   %.not = icmp ne i64 %79, 0
   %80 = icmp sgt i64 %0, 0

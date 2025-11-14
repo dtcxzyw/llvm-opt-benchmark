@@ -5742,42 +5742,42 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE11_S_relocateEP
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc52, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i
   %167 = phi i32 [ %.pre, %.noexc52 ], [ %126, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i ]
   %168 = load i32, ptr %104, align 4, !noalias !125
-  %169 = zext i32 %168 to i64
-  %170 = zext i32 %167 to i64
-  %171 = add nuw nsw i64 %170, %169
-  %172 = add nuw nsw i64 %171, 1
-  %173 = mul i64 %172, %171
-  %174 = lshr i64 %173, 1
-  %175 = add nuw i64 %174, %170
-  %176 = mul i64 %175, -7046029254386353067
-  %177 = tail call noundef i64 @llvm.bswap.i64(i64 %176)
+  %169 = getelementptr inbounds nuw i8, ptr %.sroa.0562.0653, i64 20
+  %170 = zext i32 %168 to i64
+  %171 = zext i32 %167 to i64
+  %172 = add nuw nsw i64 %171, %170
+  %173 = add nuw nsw i64 %172, 1
+  %174 = mul i64 %173, %172
+  %175 = lshr i64 %174, 1
+  %176 = add nuw i64 %175, %171
+  %177 = mul i64 %176, -7046029254386353067
+  %178 = tail call noundef i64 @llvm.bswap.i64(i64 %177)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !125
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !125
-  store i64 %177, ptr %10, align 8, !noalias !125
-  br label %178
+  store i64 %178, ptr %10, align 8, !noalias !125
+  br label %179
 
-178:                                              ; preds = %178, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1_.exit
-  %indvars.iv.i.i.i.i.i53 = phi i64 [ 7, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1_.exit ], [ %indvars.iv.next.i.i.i.i.i54, %178 ]
-  %179 = sub nuw nsw i64 7, %indvars.iv.i.i.i.i.i53
-  %180 = getelementptr inbounds nuw i8, ptr %10, i64 %179
-  %181 = load i8, ptr %180, align 1, !noalias !125
-  %182 = zext i8 %181 to i64
-  %183 = getelementptr inbounds nuw i8, ptr @_ZN3tbb6detail2d07reverseIhE10byte_tableE, i64 %182
-  %184 = load i8, ptr %183, align 1, !noalias !125
-  %185 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.i.i.i.i53
-  store i8 %184, ptr %185, align 1, !noalias !125
+179:                                              ; preds = %179, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1_.exit
+  %indvars.iv.i.i.i.i.i53 = phi i64 [ 7, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1_.exit ], [ %indvars.iv.next.i.i.i.i.i54, %179 ]
+  %180 = sub nuw nsw i64 7, %indvars.iv.i.i.i.i.i53
+  %181 = getelementptr inbounds nuw i8, ptr %10, i64 %180
+  %182 = load i8, ptr %181, align 1, !noalias !125
+  %183 = zext i8 %182 to i64
+  %184 = getelementptr inbounds nuw i8, ptr @_ZN3tbb6detail2d07reverseIhE10byte_tableE, i64 %183
+  %185 = load i8, ptr %184, align 1, !noalias !125
+  %186 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.i.i.i.i53
+  store i8 %185, ptr %186, align 1, !noalias !125
   %indvars.iv.next.i.i.i.i.i54 = add nsw i64 %indvars.iv.i.i.i.i.i53, -1
   %.not.i.i.i.i.i55 = icmp eq i64 %indvars.iv.i.i.i.i.i53, 0
-  br i1 %.not.i.i.i.i.i55, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit.i.i, label %178, !llvm.loop !11
+  br i1 %.not.i.i.i.i.i55, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit.i.i, label %179, !llvm.loop !11
 
-_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %178
-  %186 = getelementptr inbounds nuw i8, ptr %.sroa.0562.0653, i64 20
+_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS4_32HdDependencyForwardingSceneIndex34_AffectedPrimToDependsOnPathsEntryENS5_4HashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE23split_order_key_regularEm.exit.i.i: ; preds = %179
   %187 = load i64, ptr %11, align 8, !noalias !125
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !125
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !125
   %188 = or i64 %187, 1
   %189 = load atomic i64, ptr %28 acquire, align 8, !noalias !125
-  %190 = urem i64 %177, %189
+  %190 = urem i64 %178, %189
   %191 = or i64 %190, 1
   %192 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %191, i1 true)
   %193 = xor i64 %192, 63
@@ -6602,7 +6602,7 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
 
 _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i84: ; preds = %546, %544
   %557 = getelementptr inbounds nuw i8, ptr %542, i64 4
-  %558 = load i32, ptr %186, align 4
+  %558 = load i32, ptr %169, align 4
   store i32 %558, ptr %557, align 4
   %559 = load ptr, ptr %31, align 8
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 8

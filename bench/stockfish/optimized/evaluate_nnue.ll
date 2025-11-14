@@ -1345,6 +1345,7 @@ define dso_local void @_ZN9Stockfish4Eval4NNUE5traceB5cxx11ERNS_8PositionE(ptr d
   %13 = alloca %"struct.Stockfish::Eval::NNUE::NnueEvalTrace", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %11) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1650) %12, i8 32, i64 1650, i1 false)
+  %indvars.iv101.i.sroa.gep202 = getelementptr inbounds nuw i8, ptr %10, i64 1280
   br label %14
 
 14:                                               ; preds = %2, %14
@@ -1357,7 +1358,6 @@ define dso_local void @_ZN9Stockfish4Eval4NNUE5traceB5cxx11ERNS_8PositionE(ptr d
   br i1 %exitcond.not, label %17, label %14, !llvm.loop !21
 
 17:                                               ; preds = %14
-  %indvars.iv101.i.sroa.gep202 = getelementptr inbounds nuw i8, ptr %10, i64 1280
   %18 = call noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7NetSizeE0EEEiRKNS_8PositionEbPib(ptr noundef nonnull align 8 dereferenceable(865) %1, i1 noundef zeroext false, ptr noundef null, i1 noundef zeroext false)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 860
   %20 = load i32, ptr %19, align 4
@@ -1526,8 +1526,8 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %118 = getelementptr i8, ptr %112, i64 %117
   %scevgep97.i90 = getelementptr i8, ptr %118, i64 192
   %scevgep.i91 = getelementptr nuw i8, ptr %83, i64 %117
-  %119 = shl nuw nsw i32 %indvars101.i89, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i91, i64 256, i1 false)
+  %119 = shl nuw nsw i32 %indvars101.i89, 7
   br i1 %.not82.i87, label %._crit_edge.i98.thread, label %.lr.ph.i92
 
 .lr.ph.i92:                                       ; preds = %.backedge156, %131
@@ -1705,8 +1705,8 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %188 = getelementptr i8, ptr %182, i64 %187
   %scevgep97.i = getelementptr i8, ptr %188, i64 5312
   %scevgep.i = getelementptr nuw i8, ptr %83, i64 %187
-  %189 = shl nuw nsw i32 %indvars101.i, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i, i64 256, i1 false)
+  %189 = shl nuw nsw i32 %indvars101.i, 7
   br i1 %.not82.i, label %._crit_edge.i.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.backedge, %201
@@ -5222,8 +5222,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br label %.preheader.i
 
 .preheader81.i:                                   ; preds = %.thread17
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, ptr noundef nonnull align 64 dereferenceable(6488320) %0, i64 256, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %.idx.i = shl nsw i64 %.pre.i, 2
   %44 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %.not85.i = icmp eq i64 %.pre.i, 0
@@ -5375,9 +5375,9 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br label %.preheader.i
 
 .preheader80.i:                                   ; preds = %.thread17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, ptr noundef nonnull align 64 dereferenceable(6488320) %0, i64 256, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %43 = getelementptr i8, ptr %36, i64 10816
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, ptr noundef nonnull align 64 dereferenceable(6488320) %0, i64 256, i1 false)
   %.idx.i = shl nsw i64 %.pre.i, 2
   %44 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %.not84.i = icmp eq i64 %.pre.i, 0
@@ -5768,8 +5768,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 .preheader265:                                    ; preds = %141
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 10560
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) %142, i64 256, i1 false)
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %.not290 = icmp eq ptr %.pre348, null
   br i1 %.not290, label %.loopexit, label %.lr.ph292
 
@@ -6273,8 +6273,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 .preheader265:                                    ; preds = %141
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 10816
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) %142, i64 256, i1 false)
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %.not290 = icmp eq ptr %.pre348, null
   br i1 %.not290, label %.loopexit, label %.lr.ph292
 
@@ -6775,8 +6775,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %143 = shl nuw nsw i64 %indvar, 8
   %144 = getelementptr i8, ptr %2, i64 %143
   %scevgep = getelementptr i8, ptr %144, i64 192
-  %145 = shl nuw nsw i64 %indvar, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) %scevgep, i64 256, i1 false)
+  %145 = shl nuw nsw i64 %indvar, 7
   %146 = load ptr, ptr %3, align 8
   %.not289 = icmp eq ptr %146, null
   br i1 %.not289, label %._crit_edge292, label %.lr.ph291.preheader
@@ -7001,8 +7001,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %17 = getelementptr i8, ptr %7, i64 %16
   %scevgep97 = getelementptr i8, ptr %17, i64 192
   %scevgep = getelementptr nuw i8, ptr %0, i64 %16
-  %18 = shl nuw nsw i32 %indvars101, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, ptr noundef nonnull align 64 dereferenceable(256) %scevgep, i64 256, i1 false)
+  %18 = shl nuw nsw i32 %indvars101, 7
   br i1 %.not82, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %30
@@ -7389,8 +7389,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %143 = shl nuw nsw i64 %indvar, 8
   %144 = getelementptr i8, ptr %2, i64 %143
   %scevgep = getelementptr i8, ptr %144, i64 5312
-  %145 = shl nuw nsw i64 %indvar, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) %scevgep, i64 256, i1 false)
+  %145 = shl nuw nsw i64 %indvar, 7
   %146 = load ptr, ptr %3, align 8
   %.not289 = icmp eq ptr %146, null
   br i1 %.not289, label %._crit_edge292, label %.lr.ph291.preheader
@@ -7615,8 +7615,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %17 = getelementptr i8, ptr %7, i64 %16
   %scevgep97 = getelementptr i8, ptr %17, i64 5312
   %scevgep = getelementptr nuw i8, ptr %0, i64 %16
-  %18 = shl nuw nsw i32 %indvars101, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, ptr noundef nonnull align 64 dereferenceable(256) %scevgep, i64 256, i1 false)
+  %18 = shl nuw nsw i32 %indvars101, 7
   br i1 %.not82, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %30
@@ -7747,8 +7747,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br label %.preheader.i
 
 .preheader81.i:                                   ; preds = %26
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, ptr noundef nonnull align 64 dereferenceable(6488320) %0, i64 256, i1 false)
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %.idx.i = shl nsw i64 %.pre.i, 2
   %36 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %.not85.i = icmp eq i64 %.pre.i, 0
@@ -7888,9 +7888,9 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br label %.preheader.i
 
 .preheader80.i:                                   ; preds = %26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, ptr noundef nonnull align 64 dereferenceable(6488320) %0, i64 256, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %35 = getelementptr i8, ptr %28, i64 10816
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, ptr noundef nonnull align 64 dereferenceable(6488320) %0, i64 256, i1 false)
   %.idx.i = shl nsw i64 %.pre.i, 2
   %36 = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %.not84.i = icmp eq i64 %.pre.i, 0
@@ -8216,8 +8216,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 .preheader270:                                    ; preds = %149
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 10560
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) %150, i64 256, i1 false)
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %.not295 = icmp eq ptr %.pre354, null
   br i1 %.not295, label %.loopexit, label %.lr.ph297
 
@@ -8643,8 +8643,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 .preheader270:                                    ; preds = %149
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 10816
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) %150, i64 256, i1 false)
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %.not295 = icmp eq ptr %.pre354, null
   br i1 %.not295, label %.loopexit, label %.lr.ph297
 
@@ -9082,8 +9082,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %151 = shl nuw nsw i64 %indvar, 8
   %152 = getelementptr i8, ptr %2, i64 %151
   %scevgep = getelementptr i8, ptr %152, i64 192
-  %153 = shl nuw nsw i64 %indvar, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) %scevgep, i64 256, i1 false)
+  %153 = shl nuw nsw i64 %indvar, 7
   %154 = load ptr, ptr %3, align 8
   %.not294 = icmp eq ptr %154, null
   br i1 %.not294, label %._crit_edge297, label %.lr.ph296.preheader
@@ -9525,8 +9525,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %151 = shl nuw nsw i64 %indvar, 8
   %152 = getelementptr i8, ptr %2, i64 %151
   %scevgep = getelementptr i8, ptr %152, i64 5312
-  %153 = shl nuw nsw i64 %indvar, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) %scevgep, i64 256, i1 false)
+  %153 = shl nuw nsw i64 %indvar, 7
   %154 = load ptr, ptr %3, align 8
   %.not294 = icmp eq ptr %154, null
   br i1 %.not294, label %._crit_edge297, label %.lr.ph296.preheader

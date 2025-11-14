@@ -3755,9 +3755,9 @@ _ZNSt14_Optional_baseIN4Luau11CheckResultELb0ELb0EED2Ev.exit54.i: ; preds = %689
   %699 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %695, ptr noundef nonnull @.str.68, ptr noundef %696, ptr noundef %698) #34
   %700 = getelementptr inbounds nuw i8, ptr %.sroa.0207.0294, i64 64
   %.not227 = icmp eq ptr %700, %394
-  br i1 %.not227, label %.loopexit, label %.preheader
+  br i1 %.not227, label %.loopexit.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader
+.loopexit.loopexit:                               ; preds = %.preheader
   %701 = ptrtoint ptr %394 to i64
   %702 = ptrtoint ptr %392 to i64
   %703 = sub i64 %701, %702
@@ -3766,8 +3766,8 @@ _ZNSt14_Optional_baseIN4Luau11CheckResultELb0ELb0EED2Ev.exit54.i: ; preds = %689
   %706 = add nsw i32 %.072.lcssa, %705
   br label %707
 
-707:                                              ; preds = %._crit_edge292, %.loopexit
-  %.173 = phi i32 [ %.072.lcssa, %._crit_edge292 ], [ %706, %.loopexit ]
+707:                                              ; preds = %._crit_edge292, %.loopexit.loopexit
+  %.173 = phi i32 [ %.072.lcssa, %._crit_edge292 ], [ %706, %.loopexit.loopexit ]
   %708 = icmp ne i32 %.066.lcssa, 1
   %.not = icmp ne i32 %.173, 0
   %narrow = select i1 %708, i1 %.not, i1 false

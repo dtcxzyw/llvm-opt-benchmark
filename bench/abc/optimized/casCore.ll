@@ -92,8 +92,9 @@ define range(i32 0, 2) i32 @Abc_CascadeExperiment(ptr noundef readonly captures(
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
-  %28 = icmp sgt i32 %3, 0
-  br i1 %28, label %.lr.ph77.preheader, label %.preheader
+  %28 = add i32 %.09.i, %3
+  %29 = icmp sgt i32 %3, 0
+  br i1 %29, label %.lr.ph77.preheader, label %.preheader
 
 .lr.ph77.preheader:                               ; preds = %._crit_edge
   %wide.trip.count88 = zext nneg i32 %3 to i64
@@ -101,13 +102,12 @@ define range(i32 0, 2) i32 @Abc_CascadeExperiment(ptr noundef readonly captures(
 
 .preheader:                                       ; preds = %.lr.ph77, %._crit_edge
   %.1.lcssa = phi i32 [ 0, %._crit_edge ], [ %3, %.lr.ph77 ]
-  %29 = add nsw i32 %.09.i, %3
-  %30 = icmp slt i32 %.1.lcssa, %29
+  %30 = icmp slt i32 %.1.lcssa, %28
   br i1 %30, label %.lr.ph79.preheader, label %Abc_Clock.exit
 
 .lr.ph79.preheader:                               ; preds = %.preheader
   %31 = zext nneg i32 %.1.lcssa to i64
-  %wide.trip.count93 = zext nneg i32 %29 to i64
+  %wide.trip.count93 = zext nneg i32 %28 to i64
   br label %.lr.ph79
 
 .lr.ph77:                                         ; preds = %.lr.ph77.preheader, %.lr.ph77
@@ -196,13 +196,13 @@ Abc_Clock.exit67:                                 ; preds = %51, %56
   br i1 %.not61, label %69, label %.thread
 
 69:                                               ; preds = %.critedge
-  %70 = call i32 @CreateDecomposedNetwork(ptr noundef %1, ptr noundef %42, ptr noundef nonnull %14, i32 noundef %29, ptr noundef nonnull %16, i32 noundef %5, i32 noundef 0, i32 noundef %7) #15
+  %70 = call i32 @CreateDecomposedNetwork(ptr noundef %1, ptr noundef %42, ptr noundef nonnull %14, i32 noundef %28, ptr noundef nonnull %16, i32 noundef %5, i32 noundef 0, i32 noundef %7) #15
   %.not62 = icmp eq i32 %70, 0
   br i1 %.not62, label %.loopexit, label %76
 
 .thread:                                          ; preds = %.critedge
-  call void @WriteSingleOutputFunctionBlif(ptr poison, ptr noundef %42, ptr noundef nonnull %14, i32 noundef %29, ptr noundef nonnull %15)
-  %71 = call i32 @CreateDecomposedNetwork(ptr noundef %1, ptr noundef %42, ptr noundef nonnull %14, i32 noundef %29, ptr noundef nonnull %16, i32 noundef %5, i32 noundef %6, i32 noundef %7) #15
+  call void @WriteSingleOutputFunctionBlif(ptr poison, ptr noundef %42, ptr noundef nonnull %14, i32 noundef %28, ptr noundef nonnull %15)
+  %71 = call i32 @CreateDecomposedNetwork(ptr noundef %1, ptr noundef %42, ptr noundef nonnull %14, i32 noundef %28, ptr noundef nonnull %16, i32 noundef %5, i32 noundef %6, i32 noundef %7) #15
   %.not6270 = icmp eq i32 %71, 0
   br i1 %.not6270, label %.loopexit, label %72
 
@@ -216,11 +216,11 @@ Abc_Clock.exit67:                                 ; preds = %51, %56
 
 76:                                               ; preds = %69, %72
   call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %42) #15
-  %77 = icmp sgt i32 %29, 0
+  %77 = icmp sgt i32 %28, 0
   br i1 %77, label %.lr.ph82.preheader, label %.loopexit
 
 .lr.ph82.preheader:                               ; preds = %76
-  %wide.trip.count98 = zext nneg i32 %29 to i64
+  %wide.trip.count98 = zext nneg i32 %28 to i64
   br label %.lr.ph82
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %81

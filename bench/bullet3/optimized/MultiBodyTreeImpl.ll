@@ -5132,10 +5132,10 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %48 = getelementptr inbounds nuw i8, ptr %29, i64 624
   %49 = getelementptr inbounds nuw i8, ptr %29, i64 648
   %50 = load ptr, ptr %49, align 8
+  %.promoted16.i = load i32, ptr %48, align 8
   br i1 %45, label %.preheader.us.preheader.i, label %_ZN24btInverseDynamicsBullet35mat3xaSERKS0_.exit
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
-  %.promoted16.i = load i32, ptr %48, align 8
   %51 = zext nneg i32 %40 to i64
   %wide.trip.count24.i = zext nneg i32 %43 to i64
   br label %.preheader.us.i
@@ -6751,6 +6751,9 @@ _ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit: ; pred
   %1004 = fadd float %976, %995
   %1005 = fadd float %982, %1000
   %1006 = fadd float %988, %1003
+  %.sroa.0.0.vec.insert.i258 = insertelement <2 x float> poison, float %1004, i64 0
+  %.sroa.0.4.vec.insert.i259 = insertelement <2 x float> %.sroa.0.0.vec.insert.i258, float %1005, i64 1
+  %.sroa.3.12.vec.insert.i260 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %1006, i64 0
   %1007 = load float, ptr %946, align 4, !tbaa !62
   %1008 = fmul float %996, %1007
   %1009 = fmul float %992, %1007
@@ -6767,6 +6770,9 @@ _ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit: ; pred
   %1020 = fsub float %1008, %1013
   %1021 = fsub float %1009, %1016
   %1022 = fsub float %1010, %1019
+  %.sroa.0.0.vec.insert.i273 = insertelement <2 x float> poison, float %1020, i64 0
+  %.sroa.0.4.vec.insert.i274 = insertelement <2 x float> %.sroa.0.0.vec.insert.i273, float %1021, i64 1
+  %.sroa.3.12.vec.insert.i275 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %1022, i64 0
   %1023 = fmul float %971, %1005
   %1024 = call float @llvm.fmuladd.f32(float %969, float %1004, float %1023)
   %1025 = call noundef float @llvm.fmuladd.f32(float %975, float %1006, float %1024)
@@ -6793,16 +6799,7 @@ _ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit: ; pred
   %1040 = getelementptr inbounds nuw i32, ptr %1039, i64 %indvars.iv.next710
   %1041 = load i32, ptr %1040, align 4, !tbaa !73
   %1042 = icmp sgt i32 %1041, -1
-  br i1 %1042, label %.lr.ph672.preheader, label %.loopexit631
-
-.lr.ph672.preheader:                              ; preds = %._crit_edge659
-  %.sroa.3.12.vec.insert.i275 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %1022, i64 0
-  %.sroa.0.0.vec.insert.i273 = insertelement <2 x float> poison, float %1020, i64 0
-  %.sroa.0.4.vec.insert.i274 = insertelement <2 x float> %.sroa.0.0.vec.insert.i273, float %1021, i64 1
-  %.sroa.3.12.vec.insert.i260 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %1006, i64 0
-  %.sroa.0.0.vec.insert.i258 = insertelement <2 x float> poison, float %1004, i64 0
-  %.sroa.0.4.vec.insert.i259 = insertelement <2 x float> %.sroa.0.0.vec.insert.i258, float %1005, i64 1
-  br label %.lr.ph672
+  br i1 %1042, label %.lr.ph672, label %.loopexit631
 
 .lr.ph658:                                        ; preds = %_ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit, %1110
   %1043 = phi ptr [ %1111, %1110 ], [ %1035, %_ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit ]
@@ -6960,14 +6957,14 @@ _ZN24btInverseDynamicsBullet3L18setSixDoFJacobiansEiRNS_4vec3ES1_.exit283: ; pre
   %.not205.not = icmp sgt i32 %.0194657, %926
   br i1 %.not205.not, label %.lr.ph658, label %._crit_edge659, !llvm.loop !196
 
-.lr.ph672:                                        ; preds = %.lr.ph672.preheader, %._crit_edge664
-  %1115 = phi ptr [ %1187, %._crit_edge664 ], [ %1039, %.lr.ph672.preheader ]
-  %.0190670 = phi i32 [ %1189, %._crit_edge664 ], [ %1041, %.lr.ph672.preheader ]
-  %.0191669 = phi i32 [ %.0190670, %._crit_edge664 ], [ %947, %.lr.ph672.preheader ]
-  %.sroa.18394.0668 = phi <2 x float> [ %.sroa.18394.8.vec.insert, %._crit_edge664 ], [ %.sroa.3.12.vec.insert.i260, %.lr.ph672.preheader ]
-  %.sroa.0371.0667 = phi <2 x float> [ %.sroa.0371.4.vec.insert, %._crit_edge664 ], [ %.sroa.0.4.vec.insert.i259, %.lr.ph672.preheader ]
-  %.sroa.16354.0666 = phi <2 x float> [ %.sroa.3.12.vec.insert.i291, %._crit_edge664 ], [ %.sroa.3.12.vec.insert.i275, %.lr.ph672.preheader ]
-  %.sroa.0333.0665 = phi <2 x float> [ %.sroa.0.4.vec.insert.i290, %._crit_edge664 ], [ %.sroa.0.4.vec.insert.i274, %.lr.ph672.preheader ]
+.lr.ph672:                                        ; preds = %._crit_edge659, %._crit_edge664
+  %1115 = phi ptr [ %1187, %._crit_edge664 ], [ %1039, %._crit_edge659 ]
+  %.0190670 = phi i32 [ %1189, %._crit_edge664 ], [ %1041, %._crit_edge659 ]
+  %.0191669 = phi i32 [ %.0190670, %._crit_edge664 ], [ %947, %._crit_edge659 ]
+  %.sroa.18394.0668 = phi <2 x float> [ %.sroa.18394.8.vec.insert, %._crit_edge664 ], [ %.sroa.3.12.vec.insert.i260, %._crit_edge659 ]
+  %.sroa.0371.0667 = phi <2 x float> [ %.sroa.0371.4.vec.insert, %._crit_edge664 ], [ %.sroa.0.4.vec.insert.i259, %._crit_edge659 ]
+  %.sroa.16354.0666 = phi <2 x float> [ %.sroa.3.12.vec.insert.i291, %._crit_edge664 ], [ %.sroa.3.12.vec.insert.i275, %._crit_edge659 ]
+  %.sroa.0333.0665 = phi <2 x float> [ %.sroa.0.4.vec.insert.i290, %._crit_edge664 ], [ %.sroa.0.4.vec.insert.i274, %._crit_edge659 ]
   %1116 = load ptr, ptr %567, align 8, !tbaa !34
   %1117 = sext i32 %.0191669 to i64
   %1118 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %1116, i64 %1117
@@ -9237,10 +9234,10 @@ define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet35mat3xC2ERKS0_(
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %4, align 8
+  %.promoted16.i = load i32, ptr %23, align 8
   br i1 %20, label %.preheader.us.preheader.i, label %_ZN24btInverseDynamicsBullet35mat3xaSERKS0_.exit
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
-  %.promoted16.i = load i32, ptr %23, align 8
   %25 = zext nneg i32 %16 to i64
   %wide.trip.count24.i = zext nneg i32 %18 to i64
   br label %.preheader.us.i

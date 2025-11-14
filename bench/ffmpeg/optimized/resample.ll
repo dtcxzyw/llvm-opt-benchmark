@@ -1017,42 +1017,42 @@ define internal i32 @invert_initial_buffer(ptr noundef captures(none) %0, ptr no
 ._crit_edge91:                                    ; preds = %._crit_edge88, %.preheader.lr.ph, %.preheader81
   %.lcssa = phi i32 [ %50, %.preheader81 ], [ %50, %.preheader.lr.ph ], [ %76, %._crit_edge88 ]
   %79 = load i32, ptr %5, align 4, !tbaa !9
+  %80 = sub nsw i32 %., %79
   store i32 %.lcssa, ptr %4, align 4, !tbaa !9
   %.pr = load i32, ptr %12, align 8, !tbaa !36
-  %80 = icmp slt i32 %.pr, 0
-  br i1 %80, label %.lr.ph93, label %._crit_edge94
+  %81 = icmp slt i32 %.pr, 0
+  br i1 %81, label %.lr.ph93, label %._crit_edge94
 
 .lr.ph93:                                         ; preds = %._crit_edge91
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  br label %82
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  br label %83
 
-82:                                               ; preds = %.lr.ph93, %82
-  %83 = load i32, ptr %4, align 4, !tbaa !9
-  %84 = add nsw i32 %83, -1
-  store i32 %84, ptr %4, align 4, !tbaa !9
-  %85 = load i32, ptr %81, align 8, !tbaa !11
-  %86 = load i32, ptr %12, align 8, !tbaa !36
-  %87 = add nsw i32 %86, %85
-  store i32 %87, ptr %12, align 8, !tbaa !36
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %82, label %._crit_edge94.loopexit, !llvm.loop !67
+83:                                               ; preds = %.lr.ph93, %83
+  %84 = load i32, ptr %4, align 4, !tbaa !9
+  %85 = add nsw i32 %84, -1
+  store i32 %85, ptr %4, align 4, !tbaa !9
+  %86 = load i32, ptr %82, align 8, !tbaa !11
+  %87 = load i32, ptr %12, align 8, !tbaa !36
+  %88 = add nsw i32 %87, %86
+  store i32 %88, ptr %12, align 8, !tbaa !36
+  %89 = icmp slt i32 %88, 0
+  br i1 %89, label %83, label %._crit_edge94.loopexit, !llvm.loop !67
 
-._crit_edge94.loopexit:                           ; preds = %82
+._crit_edge94.loopexit:                           ; preds = %83
   %.pre102 = load i32, ptr %4, align 4, !tbaa !9
   br label %._crit_edge94
 
 ._crit_edge94:                                    ; preds = %._crit_edge94.loopexit, %._crit_edge91
-  %89 = phi i32 [ %.pre102, %._crit_edge94.loopexit ], [ %.lcssa, %._crit_edge91 ]
-  %90 = sub nsw i32 %., %79
+  %90 = phi i32 [ %.pre102, %._crit_edge94.loopexit ], [ %.lcssa, %._crit_edge91 ]
   %91 = load i32, ptr %5, align 4, !tbaa !9
   %92 = load i32, ptr %9, align 8, !tbaa !19
   %93 = add nsw i32 %92, %91
   %94 = shl nsw i32 %92, 1
   %95 = or disjoint i32 %94, 1
   %.80 = tail call i32 @llvm.smax.i32(i32 %93, i32 %95)
-  %96 = sub nsw i32 %.80, %89
+  %96 = sub nsw i32 %.80, %90
   store i32 %96, ptr %5, align 4, !tbaa !9
-  %97 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
+  %97 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
   br label %98
 
 98:                                               ; preds = %15, %6, %._crit_edge94, %55

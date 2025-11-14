@@ -106,49 +106,46 @@ Abc_Clock.exit94:                                 ; preds = %Abc_Clock.exit92, %
 .split.us.preheader:                              ; preds = %Abc_Clock.exit94
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 176
   br label %.split.us
 
 .split.preheader:                                 ; preds = %Abc_Clock.exit94
-  %56 = load i32, ptr %22, align 8, !tbaa !21
-  %57 = getelementptr inbounds nuw i8, ptr %13, i64 176
-  %58 = load i32, ptr %57, align 8, !tbaa !23
-  %59 = load i32, ptr %21, align 4, !tbaa !20
-  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %56, i32 noundef %52, i32 noundef %58, i32 noundef %59)
-  %61 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  %62 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %63 = getelementptr inbounds nuw i8, ptr %13, i64 176
+  %57 = load i32, ptr %22, align 8, !tbaa !21
+  %58 = getelementptr inbounds nuw i8, ptr %13, i64 176
+  %59 = load i32, ptr %58, align 8, !tbaa !23
+  %60 = load i32, ptr %21, align 4, !tbaa !20
+  %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %57, i32 noundef %52, i32 noundef %59, i32 noundef %60)
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 96
+  %63 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 176
   br label %.split
 
-.split.us:                                        ; preds = %.split.us.preheader, %70
-  %.0104.us = phi i32 [ %71, %70 ], [ 1, %.split.us.preheader ]
-  %64 = load ptr, ptr %54, align 8, !tbaa !27
-  %65 = load i32, ptr %16, align 8, !tbaa !18
-  call void @Sim_UtilSetRandom(ptr noundef %64, i32 noundef %65) #5
-  %66 = load ptr, ptr %54, align 8, !tbaa !27
-  %67 = load ptr, ptr %55, align 8, !tbaa !28
-  call void @Sim_SymmsSimulate(ptr noundef nonnull %13, ptr noundef %66, ptr noundef %67) #5
+.split.us:                                        ; preds = %.split.us.preheader, %71
+  %.0104.us = phi i32 [ %72, %71 ], [ 1, %.split.us.preheader ]
+  %65 = load ptr, ptr %54, align 8, !tbaa !27
+  %66 = load i32, ptr %16, align 8, !tbaa !18
+  call void @Sim_UtilSetRandom(ptr noundef %65, i32 noundef %66) #5
+  %67 = load ptr, ptr %54, align 8, !tbaa !27
+  %68 = load ptr, ptr %55, align 8, !tbaa !28
+  call void @Sim_SymmsSimulate(ptr noundef nonnull %13, ptr noundef %67, ptr noundef %68) #5
   %.lhs.trunc.us = trunc nuw nsw i32 %.0104.us to i16
-  %68 = urem i16 %.lhs.trunc.us, 50
-  %.not90.us = icmp eq i16 %68, 0
-  br i1 %.not90.us, label %69, label %70
+  %69 = urem i16 %.lhs.trunc.us, 50
+  %.not90.us = icmp eq i16 %69, 0
+  br i1 %.not90.us, label %70, label %71
 
-69:                                               ; preds = %.split.us
+70:                                               ; preds = %.split.us
   call void @Sim_UtilCountPairsAll(ptr noundef nonnull %13) #5
-  br label %70
+  br label %71
 
-70:                                               ; preds = %69, %.split.us
-  %71 = add nuw nsw i32 %.0104.us, 1
-  %exitcond.not = icmp eq i32 %71, 1001
-  br i1 %exitcond.not, label %.preheader.loopexit110, label %.split.us, !llvm.loop !29
+71:                                               ; preds = %70, %.split.us
+  %72 = add nuw nsw i32 %.0104.us, 1
+  %exitcond.not = icmp eq i32 %72, 1001
+  br i1 %exitcond.not, label %.preheader, label %.split.us, !llvm.loop !29
 
-.preheader.loopexit110:                           ; preds = %70
-  %72 = getelementptr inbounds nuw i8, ptr %13, i64 176
-  br label %.preheader
-
-.preheader:                                       ; preds = %94, %.preheader.loopexit110
-  %73 = phi ptr [ %72, %.preheader.loopexit110 ], [ %63, %94 ]
-  %74 = phi ptr [ %55, %.preheader.loopexit110 ], [ %62, %94 ]
-  %75 = phi ptr [ %54, %.preheader.loopexit110 ], [ %61, %94 ]
+.preheader:                                       ; preds = %71, %94
+  %73 = phi ptr [ %64, %94 ], [ %56, %71 ]
+  %74 = phi ptr [ %63, %94 ], [ %55, %71 ]
+  %75 = phi ptr [ %62, %94 ], [ %54, %71 ]
   %76 = load ptr, ptr %75, align 8, !tbaa !27
   %77 = call i32 @Sim_SymmsGetPatternUsingSat(ptr noundef nonnull %13, ptr noundef %76) #5
   %.not105 = icmp eq i32 %77, 0
@@ -161,11 +158,11 @@ Abc_Clock.exit94:                                 ; preds = %Abc_Clock.exit92, %
 
 .split:                                           ; preds = %.split.preheader, %94
   %.0104 = phi i32 [ %95, %94 ], [ 1, %.split.preheader ]
-  %80 = load ptr, ptr %61, align 8, !tbaa !27
+  %80 = load ptr, ptr %62, align 8, !tbaa !27
   %81 = load i32, ptr %16, align 8, !tbaa !18
   call void @Sim_UtilSetRandom(ptr noundef %80, i32 noundef %81) #5
-  %82 = load ptr, ptr %61, align 8, !tbaa !27
-  %83 = load ptr, ptr %62, align 8, !tbaa !28
+  %82 = load ptr, ptr %62, align 8, !tbaa !27
+  %83 = load ptr, ptr %63, align 8, !tbaa !28
   call void @Sim_SymmsSimulate(ptr noundef nonnull %13, ptr noundef %82, ptr noundef %83) #5
   %.lhs.trunc = trunc nuw nsw i32 %.0104 to i16
   %84 = urem i16 %.lhs.trunc, 50
@@ -181,7 +178,7 @@ Abc_Clock.exit94:                                 ; preds = %Abc_Clock.exit92, %
 88:                                               ; preds = %85
   %89 = load i32, ptr %22, align 8, !tbaa !21
   %90 = load i32, ptr %51, align 8, !tbaa !22
-  %91 = load i32, ptr %63, align 8, !tbaa !23
+  %91 = load i32, ptr %64, align 8, !tbaa !23
   %92 = load i32, ptr %21, align 4, !tbaa !20
   %93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %89, i32 noundef %90, i32 noundef %91, i32 noundef %92)
   br label %94

@@ -7126,7 +7126,7 @@ _ZNSt7__cxx1110_List_baseIxSaIxEED2Ev.exit:       ; preds = %_ZNSt7__cxx114listI
   %.025 = extractvalue { ptr, i32 } %.pn, 0
   %36 = call ptr @__cxa_begin_catch(ptr %.025) #33
   call void @__cxa_end_catch()
-  br label %230
+  br label %231
 
 .critedge55:                                      ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -7143,13 +7143,13 @@ _ZNSt7__cxx1110_List_baseIxSaIxEED2Ev.exit:       ; preds = %_ZNSt7__cxx114listI
   br label %106
 
 ._crit_edge:                                      ; preds = %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit, %.critedge55
-  %42 = phi ptr [ %59, %.critedge55 ], [ %146, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit ]
+  %42 = phi ptr [ %59, %.critedge55 ], [ %147, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %44, %46
-  br i1 %47, label %161, label %160
+  br i1 %47, label %162, label %161
 
 48:                                               ; preds = %_ZNSt7__cxx1110_List_baseIxSaIxEED2Ev.exit
   %49 = load i64, ptr %3, align 8
@@ -7283,12 +7283,12 @@ _ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit:  ; preds = %84, %._crit_edge.i,
 105:                                              ; preds = %102
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %230
+  br label %231
 
 106:                                              ; preds = %.lr.ph, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit
-  %107 = phi ptr [ %59, %.lr.ph ], [ %146, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit ]
-  %108 = phi ptr [ %40, %.lr.ph ], [ %154, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit ]
-  %.02365 = phi i64 [ 0, %.lr.ph ], [ %147, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit ]
+  %107 = phi ptr [ %59, %.lr.ph ], [ %147, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit ]
+  %108 = phi ptr [ %40, %.lr.ph ], [ %155, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit ]
+  %.02365 = phi i64 [ 0, %.lr.ph ], [ %148, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit ]
   %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %.02365
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
@@ -7300,51 +7300,54 @@ _ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit:  ; preds = %84, %._crit_edge.i,
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 5
   %115 = load i8, ptr %114, align 1, !range !6, !noundef !7
   %116 = trunc nuw i8 %115 to i1
-  br i1 %116, label %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit, label %.preheader.i.i
+  br i1 %116, label %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit, label %117
 
-.preheader.i.i:                                   ; preds = %113, %.preheader.i.i
-  %.013.i.i = phi ptr [ %133, %.preheader.i.i ], [ %112, %113 ]
-  %.0.i.i = phi double [ %131, %.preheader.i.i ], [ 0.000000e+00, %113 ]
-  %117 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 32
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %120 = load i64, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
-  %122 = load i64, ptr %121, align 8
-  %123 = add nsw i64 %122, %120
-  %124 = sitofp i64 %123 to double
-  %125 = getelementptr inbounds nuw i8, ptr %118, i64 16
+117:                                              ; preds = %113
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  %119 = load i8, ptr %118, align 4, !range !6, !noundef !7
+  %120 = load i8, ptr %41, align 4, !range !6, !noundef !7
+  br label %.preheader.i.i
+
+.preheader.i.i:                                   ; preds = %117, %.preheader.i.i
+  %.013.i.i = phi ptr [ %137, %.preheader.i.i ], [ %112, %117 ]
+  %.0.i.i = phi double [ %135, %.preheader.i.i ], [ 0.000000e+00, %117 ]
+  %121 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 32
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = load i64, ptr %123, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
   %126 = load i64, ptr %125, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 16
-  %128 = load i64, ptr %127, align 8
-  %129 = sub nsw i64 %126, %128
-  %130 = sitofp i64 %129 to double
-  %131 = call double @llvm.fmuladd.f64(double %124, double %130, double %.0.i.i)
-  %132 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 24
-  %133 = load ptr, ptr %132, align 8
-  %.not15.i.i = icmp eq ptr %133, %112
+  %127 = add nsw i64 %126, %124
+  %128 = sitofp i64 %127 to double
+  %129 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %130 = load i64, ptr %129, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 16
+  %132 = load i64, ptr %131, align 8
+  %133 = sub nsw i64 %130, %132
+  %134 = sitofp i64 %133 to double
+  %135 = call double @llvm.fmuladd.f64(double %128, double %134, double %.0.i.i)
+  %136 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 24
+  %137 = load ptr, ptr %136, align 8
+  %.not15.i.i = icmp eq ptr %137, %112
   br i1 %.not15.i.i, label %_ZN10ClipperLib4AreaERKNS_6OutRecE.exit, label %.preheader.i.i, !llvm.loop !9
 
 _ZN10ClipperLib4AreaERKNS_6OutRecE.exit:          ; preds = %.preheader.i.i
-  %134 = getelementptr inbounds nuw i8, ptr %110, i64 4
-  %135 = load i8, ptr %134, align 4, !range !6, !noundef !7
-  %136 = load i8, ptr %41, align 4, !range !6, !noundef !7
-  %137 = xor i8 %136, %135
-  %138 = fmul double %131, 5.000000e-01
-  %139 = fcmp ogt double %138, 0.000000e+00
-  %140 = zext i1 %139 to i8
-  %141 = icmp eq i8 %137, %140
-  br i1 %141, label %.preheader.i, label %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit
+  %138 = xor i8 %120, %119
+  %139 = fmul double %135, 5.000000e-01
+  %140 = fcmp ogt double %139, 0.000000e+00
+  %141 = zext i1 %140 to i8
+  %142 = icmp eq i8 %138, %141
+  br i1 %142, label %.preheader.i, label %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit
 
 .preheader.i:                                     ; preds = %_ZN10ClipperLib4AreaERKNS_6OutRecE.exit, %.preheader.i
-  %.0.i = phi ptr [ %143, %.preheader.i ], [ %112, %_ZN10ClipperLib4AreaERKNS_6OutRecE.exit ]
-  %142 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
-  %145 = load ptr, ptr %144, align 8
-  store ptr %145, ptr %142, align 8
-  store ptr %143, ptr %144, align 8
-  %.not11.i = icmp eq ptr %143, %112
+  %.0.i = phi ptr [ %144, %.preheader.i ], [ %112, %_ZN10ClipperLib4AreaERKNS_6OutRecE.exit ]
+  %143 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
+  %146 = load ptr, ptr %145, align 8
+  store ptr %146, ptr %143, align 8
+  store ptr %144, ptr %145, align 8
+  %.not11.i = icmp eq ptr %144, %112
   br i1 %.not11.i, label %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit.loopexit, label %.preheader.i, !llvm.loop !14
 
 _ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit.loopexit: ; preds = %.preheader.i
@@ -7352,250 +7355,250 @@ _ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit.loopexit: ; preds = %.prehe
   br label %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit
 
 _ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit: ; preds = %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit.loopexit, %_ZN10ClipperLib4AreaERKNS_6OutRecE.exit, %106, %113
-  %146 = phi ptr [ %.pre78, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit.loopexit ], [ %107, %_ZN10ClipperLib4AreaERKNS_6OutRecE.exit ], [ %107, %106 ], [ %107, %113 ]
-  %147 = add nuw i64 %.02365, 1
-  %148 = getelementptr i8, ptr %146, i64 -24
-  %149 = load i64, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %0, i64 %149
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 80
-  %152 = getelementptr inbounds nuw i8, ptr %150, i64 88
-  %153 = load ptr, ptr %152, align 8
-  %154 = load ptr, ptr %151, align 8
-  %155 = ptrtoint ptr %153 to i64
+  %147 = phi ptr [ %.pre78, %_ZN10ClipperLib18ReversePolyPtLinksEPNS_5OutPtE.exit.loopexit ], [ %107, %_ZN10ClipperLib4AreaERKNS_6OutRecE.exit ], [ %107, %106 ], [ %107, %113 ]
+  %148 = add nuw i64 %.02365, 1
+  %149 = getelementptr i8, ptr %147, i64 -24
+  %150 = load i64, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %0, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 80
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 88
+  %154 = load ptr, ptr %153, align 8
+  %155 = load ptr, ptr %152, align 8
   %156 = ptrtoint ptr %154 to i64
-  %157 = sub i64 %155, %156
-  %158 = ashr exact i64 %157, 3
-  %159 = icmp ult i64 %147, %158
-  br i1 %159, label %106, label %._crit_edge, !llvm.loop !84
+  %157 = ptrtoint ptr %155 to i64
+  %158 = sub i64 %156, %157
+  %159 = ashr exact i64 %158, 3
+  %160 = icmp ult i64 %148, %159
+  br i1 %160, label %106, label %._crit_edge, !llvm.loop !84
 
-160:                                              ; preds = %._crit_edge
+161:                                              ; preds = %._crit_edge
   call void @_ZN10ClipperLib7Clipper15JoinCommonEdgesEv(ptr noundef nonnull align 8 dereferenceable(135) %0)
   %.pre79 = load ptr, ptr %0, align 8
-  br label %161
+  br label %162
 
-161:                                              ; preds = %160, %._crit_edge
-  %162 = phi ptr [ %.pre79, %160 ], [ %42, %._crit_edge ]
-  %163 = getelementptr i8, ptr %162, i64 -24
-  %164 = load i64, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %0, i64 %164
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 80
-  %167 = getelementptr inbounds nuw i8, ptr %165, i64 88
-  %168 = load ptr, ptr %167, align 8
-  %169 = load ptr, ptr %166, align 8
-  %.not71 = icmp eq ptr %168, %169
+162:                                              ; preds = %161, %._crit_edge
+  %163 = phi ptr [ %.pre79, %161 ], [ %42, %._crit_edge ]
+  %164 = getelementptr i8, ptr %163, i64 -24
+  %165 = load i64, ptr %164, align 8
+  %166 = getelementptr inbounds i8, ptr %0, i64 %165
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 80
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 88
+  %169 = load ptr, ptr %168, align 8
+  %170 = load ptr, ptr %167, align 8
+  %.not71 = icmp eq ptr %169, %170
   br i1 %.not71, label %._crit_edge69, label %.lr.ph68
 
-._crit_edge69:                                    ; preds = %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit, %161
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 134
-  %171 = load i8, ptr %170, align 2, !range !6, !noundef !7
-  %172 = trunc nuw i8 %171 to i1
-  br i1 %172, label %229, label %230
+._crit_edge69:                                    ; preds = %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit, %162
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 134
+  %172 = load i8, ptr %171, align 2, !range !6, !noundef !7
+  %173 = trunc nuw i8 %172 to i1
+  br i1 %173, label %230, label %231
 
-.lr.ph68:                                         ; preds = %161, %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit
-  %173 = phi ptr [ %223, %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit ], [ %169, %161 ]
-  %.02066 = phi i64 [ %215, %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit ], [ 0, %161 ]
-  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %.02066
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 24
-  %177 = load ptr, ptr %176, align 8
-  %.not = icmp eq ptr %177, null
-  br i1 %.not, label %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit, label %178
+.lr.ph68:                                         ; preds = %162, %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit
+  %174 = phi ptr [ %224, %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit ], [ %170, %162 ]
+  %.02066 = phi i64 [ %216, %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit ], [ 0, %162 ]
+  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %.02066
+  %176 = load ptr, ptr %175, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
+  %178 = load ptr, ptr %177, align 8
+  %.not = icmp eq ptr %178, null
+  br i1 %.not, label %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit, label %179
 
-178:                                              ; preds = %.lr.ph68
-  %179 = getelementptr inbounds nuw i8, ptr %175, i64 5
-  %180 = load i8, ptr %179, align 1, !range !6, !noundef !7
-  %181 = trunc nuw i8 %180 to i1
-  br i1 %181, label %182, label %214
+179:                                              ; preds = %.lr.ph68
+  %180 = getelementptr inbounds nuw i8, ptr %176, i64 5
+  %181 = load i8, ptr %180, align 1, !range !6, !noundef !7
+  %182 = trunc nuw i8 %181 to i1
+  br i1 %182, label %183, label %215
 
-182:                                              ; preds = %178
-  %183 = getelementptr inbounds nuw i8, ptr %177, i64 32
-  %184 = load ptr, ptr %183, align 8
-  %.not19.i = icmp eq ptr %177, %184
+183:                                              ; preds = %179
+  %184 = getelementptr inbounds nuw i8, ptr %178, i64 32
+  %185 = load ptr, ptr %184, align 8
+  %.not19.i = icmp eq ptr %178, %185
   br i1 %.not19.i, label %._crit_edge.i35, label %.lr.ph.i32
 
-.lr.ph.i32:                                       ; preds = %182, %206
-  %.021.i = phi ptr [ %.1.i, %206 ], [ %184, %182 ]
-  %.01720.i = phi ptr [ %.118.i, %206 ], [ %177, %182 ]
-  %185 = getelementptr inbounds nuw i8, ptr %.01720.i, i64 24
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %188 = getelementptr inbounds nuw i8, ptr %186, i64 32
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
-  %191 = load i64, ptr %187, align 8
-  %192 = load i64, ptr %190, align 8
-  %193 = icmp eq i64 %191, %192
-  %194 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %195 = load i64, ptr %194, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %189, i64 16
-  %197 = load i64, ptr %196, align 8
-  %198 = icmp eq i64 %195, %197
-  %199 = select i1 %193, i1 %198, i1 false
-  br i1 %199, label %200, label %206
+.lr.ph.i32:                                       ; preds = %183, %207
+  %.021.i = phi ptr [ %.1.i, %207 ], [ %185, %183 ]
+  %.01720.i = phi ptr [ %.118.i, %207 ], [ %178, %183 ]
+  %186 = getelementptr inbounds nuw i8, ptr %.01720.i, i64 24
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %187, i64 32
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
+  %192 = load i64, ptr %188, align 8
+  %193 = load i64, ptr %191, align 8
+  %194 = icmp eq i64 %192, %193
+  %195 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  %196 = load i64, ptr %195, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %190, i64 16
+  %198 = load i64, ptr %197, align 8
+  %199 = icmp eq i64 %196, %198
+  %200 = select i1 %194, i1 %199, i1 false
+  br i1 %200, label %201, label %207
 
-200:                                              ; preds = %.lr.ph.i32
-  %201 = icmp eq ptr %186, %.021.i
-  %spec.select.i = select i1 %201, ptr %189, ptr %.021.i
-  %202 = getelementptr inbounds nuw i8, ptr %186, i64 24
-  %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %189, i64 24
-  store ptr %203, ptr %204, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %203, i64 32
-  store ptr %189, ptr %205, align 8
-  call void @_ZdlPvm(ptr noundef nonnull %186, i64 noundef 40) #36
-  br label %206
+201:                                              ; preds = %.lr.ph.i32
+  %202 = icmp eq ptr %187, %.021.i
+  %spec.select.i = select i1 %202, ptr %190, ptr %.021.i
+  %203 = getelementptr inbounds nuw i8, ptr %187, i64 24
+  %204 = load ptr, ptr %203, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %190, i64 24
+  store ptr %204, ptr %205, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %204, i64 32
+  store ptr %190, ptr %206, align 8
+  call void @_ZdlPvm(ptr noundef nonnull %187, i64 noundef 40) #36
+  br label %207
 
-206:                                              ; preds = %200, %.lr.ph.i32
-  %.118.i = phi ptr [ %189, %200 ], [ %186, %.lr.ph.i32 ]
-  %.1.i = phi ptr [ %spec.select.i, %200 ], [ %.021.i, %.lr.ph.i32 ]
+207:                                              ; preds = %201, %.lr.ph.i32
+  %.118.i = phi ptr [ %190, %201 ], [ %187, %.lr.ph.i32 ]
+  %.1.i = phi ptr [ %spec.select.i, %201 ], [ %.021.i, %.lr.ph.i32 ]
   %.not.i33 = icmp eq ptr %.118.i, %.1.i
   br i1 %.not.i33, label %._crit_edge.loopexit.i, label %.lr.ph.i32, !llvm.loop !85
 
-._crit_edge.loopexit.i:                           ; preds = %206
+._crit_edge.loopexit.i:                           ; preds = %207
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.118.i, i64 32
   %.pre.i34 = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge.i35
 
-._crit_edge.i35:                                  ; preds = %._crit_edge.loopexit.i, %182
-  %207 = phi ptr [ %184, %182 ], [ %.pre.i34, %._crit_edge.loopexit.i ]
-  %.017.lcssa.i = phi ptr [ %177, %182 ], [ %.118.i, %._crit_edge.loopexit.i ]
-  %208 = icmp eq ptr %.017.lcssa.i, %207
-  br i1 %208, label %209, label %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit
+._crit_edge.i35:                                  ; preds = %._crit_edge.loopexit.i, %183
+  %208 = phi ptr [ %185, %183 ], [ %.pre.i34, %._crit_edge.loopexit.i ]
+  %.017.lcssa.i = phi ptr [ %178, %183 ], [ %.118.i, %._crit_edge.loopexit.i ]
+  %209 = icmp eq ptr %.017.lcssa.i, %208
+  br i1 %209, label %210, label %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit
 
-209:                                              ; preds = %._crit_edge.i35
-  %210 = getelementptr inbounds nuw i8, ptr %207, i64 24
-  store ptr null, ptr %210, align 8
+210:                                              ; preds = %._crit_edge.i35
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 24
+  store ptr null, ptr %211, align 8
   br label %.lr.ph.i.i36
 
-.lr.ph.i.i36:                                     ; preds = %.lr.ph.i.i36, %209
-  %211 = phi ptr [ %213, %.lr.ph.i.i36 ], [ %.017.lcssa.i, %209 ]
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 24
-  %213 = load ptr, ptr %212, align 8
-  call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef 40) #36
-  %.not.i.i37 = icmp eq ptr %213, null
+.lr.ph.i.i36:                                     ; preds = %.lr.ph.i.i36, %210
+  %212 = phi ptr [ %214, %.lr.ph.i.i36 ], [ %.017.lcssa.i, %210 ]
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
+  %214 = load ptr, ptr %213, align 8
+  call void @_ZdlPvm(ptr noundef nonnull %212, i64 noundef 40) #36
+  %.not.i.i37 = icmp eq ptr %214, null
   br i1 %.not.i.i37, label %_ZN10ClipperLib13DisposeOutPtsERPNS_5OutPtE.exit.i, label %.lr.ph.i.i36, !llvm.loop !15
 
 _ZN10ClipperLib13DisposeOutPtsERPNS_5OutPtE.exit.i: ; preds = %.lr.ph.i.i36
-  store ptr null, ptr %176, align 8
+  store ptr null, ptr %177, align 8
   br label %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit
 
-214:                                              ; preds = %178
-  call void @_ZN10ClipperLib7Clipper15FixupOutPolygonERNS_6OutRecE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull align 8 dereferenceable(40) %175)
+215:                                              ; preds = %179
+  call void @_ZN10ClipperLib7Clipper15FixupOutPolygonERNS_6OutRecE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull align 8 dereferenceable(40) %176)
   br label %_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit
 
-_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit: ; preds = %_ZN10ClipperLib13DisposeOutPtsERPNS_5OutPtE.exit.i, %._crit_edge.i35, %214, %.lr.ph68
-  %215 = add nuw i64 %.02066, 1
-  %216 = load ptr, ptr %0, align 8
-  %217 = getelementptr i8, ptr %216, i64 -24
-  %218 = load i64, ptr %217, align 8
-  %219 = getelementptr inbounds i8, ptr %0, i64 %218
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 80
-  %221 = getelementptr inbounds nuw i8, ptr %219, i64 88
-  %222 = load ptr, ptr %221, align 8
-  %223 = load ptr, ptr %220, align 8
-  %224 = ptrtoint ptr %222 to i64
+_ZN10ClipperLib7Clipper16FixupOutPolylineERNS_6OutRecE.exit: ; preds = %_ZN10ClipperLib13DisposeOutPtsERPNS_5OutPtE.exit.i, %._crit_edge.i35, %215, %.lr.ph68
+  %216 = add nuw i64 %.02066, 1
+  %217 = load ptr, ptr %0, align 8
+  %218 = getelementptr i8, ptr %217, i64 -24
+  %219 = load i64, ptr %218, align 8
+  %220 = getelementptr inbounds i8, ptr %0, i64 %219
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 80
+  %222 = getelementptr inbounds nuw i8, ptr %220, i64 88
+  %223 = load ptr, ptr %222, align 8
+  %224 = load ptr, ptr %221, align 8
   %225 = ptrtoint ptr %223 to i64
-  %226 = sub i64 %224, %225
-  %227 = ashr exact i64 %226, 3
-  %228 = icmp ult i64 %215, %227
-  br i1 %228, label %.lr.ph68, label %._crit_edge69, !llvm.loop !86
+  %226 = ptrtoint ptr %224 to i64
+  %227 = sub i64 %225, %226
+  %228 = ashr exact i64 %227, 3
+  %229 = icmp ult i64 %216, %228
+  br i1 %229, label %.lr.ph68, label %._crit_edge69, !llvm.loop !86
 
-229:                                              ; preds = %._crit_edge69
+230:                                              ; preds = %._crit_edge69
   call void @_ZN10ClipperLib7Clipper16DoSimplePolygonsEv(ptr noundef nonnull align 8 dereferenceable(135) %0)
-  br label %230
+  br label %231
 
-230:                                              ; preds = %105, %.thread, %._crit_edge69, %229
-  %.12252 = phi i1 [ false, %.thread ], [ true, %._crit_edge69 ], [ true, %229 ], [ false, %105 ]
-  %231 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %233 = load ptr, ptr %232, align 8
-  %234 = load ptr, ptr %231, align 8
-  %.not.i38 = icmp eq ptr %233, %234
+231:                                              ; preds = %105, %.thread, %._crit_edge69, %230
+  %.12252 = phi i1 [ false, %.thread ], [ true, %._crit_edge69 ], [ true, %230 ], [ false, %105 ]
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %234 = load ptr, ptr %233, align 8
+  %235 = load ptr, ptr %232, align 8
+  %.not.i38 = icmp eq ptr %234, %235
   br i1 %.not.i38, label %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit, label %.lr.ph.i39
 
-._crit_edge.i43:                                  ; preds = %243
-  %235 = icmp eq ptr %245, %244
-  br i1 %235, label %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit, label %236
+._crit_edge.i43:                                  ; preds = %244
+  %236 = icmp eq ptr %246, %245
+  br i1 %236, label %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit, label %237
 
-236:                                              ; preds = %._crit_edge.i43
-  store ptr %244, ptr %232, align 8
+237:                                              ; preds = %._crit_edge.i43
+  store ptr %245, ptr %233, align 8
   br label %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit
 
-.lr.ph.i39:                                       ; preds = %230, %243
-  %237 = phi ptr [ %244, %243 ], [ %234, %230 ]
-  %238 = phi ptr [ %245, %243 ], [ %233, %230 ]
-  %.06.i40 = phi i64 [ %246, %243 ], [ 0, %230 ]
-  %239 = getelementptr inbounds nuw ptr, ptr %237, i64 %.06.i40
-  %240 = load ptr, ptr %239, align 8
-  %241 = icmp eq ptr %240, null
-  br i1 %241, label %243, label %242
+.lr.ph.i39:                                       ; preds = %231, %244
+  %238 = phi ptr [ %245, %244 ], [ %235, %231 ]
+  %239 = phi ptr [ %246, %244 ], [ %234, %231 ]
+  %.06.i40 = phi i64 [ %247, %244 ], [ 0, %231 ]
+  %240 = getelementptr inbounds nuw ptr, ptr %238, i64 %.06.i40
+  %241 = load ptr, ptr %240, align 8
+  %242 = icmp eq ptr %241, null
+  br i1 %242, label %244, label %243
 
-242:                                              ; preds = %.lr.ph.i39
-  call void @_ZdlPvm(ptr noundef nonnull %240, i64 noundef 32) #36
-  %.pre.i41 = load ptr, ptr %232, align 8
-  %.pre10.i42 = load ptr, ptr %231, align 8
-  br label %243
+243:                                              ; preds = %.lr.ph.i39
+  call void @_ZdlPvm(ptr noundef nonnull %241, i64 noundef 32) #36
+  %.pre.i41 = load ptr, ptr %233, align 8
+  %.pre10.i42 = load ptr, ptr %232, align 8
+  br label %244
 
-243:                                              ; preds = %242, %.lr.ph.i39
-  %244 = phi ptr [ %237, %.lr.ph.i39 ], [ %.pre10.i42, %242 ]
-  %245 = phi ptr [ %238, %.lr.ph.i39 ], [ %.pre.i41, %242 ]
-  %246 = add nuw i64 %.06.i40, 1
-  %247 = ptrtoint ptr %245 to i64
-  %248 = ptrtoint ptr %244 to i64
-  %249 = sub i64 %247, %248
-  %250 = ashr exact i64 %249, 3
-  %251 = icmp ult i64 %246, %250
-  br i1 %251, label %.lr.ph.i39, label %._crit_edge.i43, !llvm.loop !87
+244:                                              ; preds = %243, %.lr.ph.i39
+  %245 = phi ptr [ %238, %.lr.ph.i39 ], [ %.pre10.i42, %243 ]
+  %246 = phi ptr [ %239, %.lr.ph.i39 ], [ %.pre.i41, %243 ]
+  %247 = add nuw i64 %.06.i40, 1
+  %248 = ptrtoint ptr %246 to i64
+  %249 = ptrtoint ptr %245 to i64
+  %250 = sub i64 %248, %249
+  %251 = ashr exact i64 %250, 3
+  %252 = icmp ult i64 %247, %251
+  br i1 %252, label %.lr.ph.i39, label %._crit_edge.i43, !llvm.loop !87
 
-_ZN10ClipperLib7Clipper10ClearJoinsEv.exit:       ; preds = %230, %._crit_edge.i43, %236
-  %252 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %253 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %254 = load ptr, ptr %253, align 8
-  %255 = load ptr, ptr %252, align 8
-  %.not.i44 = icmp eq ptr %254, %255
+_ZN10ClipperLib7Clipper10ClearJoinsEv.exit:       ; preds = %231, %._crit_edge.i43, %237
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %255 = load ptr, ptr %254, align 8
+  %256 = load ptr, ptr %253, align 8
+  %.not.i44 = icmp eq ptr %255, %256
   br i1 %.not.i44, label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit50, label %.lr.ph.i45
 
-._crit_edge.i49:                                  ; preds = %264
-  %256 = icmp eq ptr %266, %265
-  br i1 %256, label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit50, label %257
+._crit_edge.i49:                                  ; preds = %265
+  %257 = icmp eq ptr %267, %266
+  br i1 %257, label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit50, label %258
 
-257:                                              ; preds = %._crit_edge.i49
-  store ptr %265, ptr %253, align 8
+258:                                              ; preds = %._crit_edge.i49
+  store ptr %266, ptr %254, align 8
   br label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit50
 
-.lr.ph.i45:                                       ; preds = %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit, %264
-  %258 = phi ptr [ %265, %264 ], [ %255, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit ]
-  %259 = phi ptr [ %266, %264 ], [ %254, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit ]
-  %.06.i46 = phi i64 [ %267, %264 ], [ 0, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit ]
-  %260 = getelementptr inbounds nuw ptr, ptr %258, i64 %.06.i46
-  %261 = load ptr, ptr %260, align 8
-  %262 = icmp eq ptr %261, null
-  br i1 %262, label %264, label %263
+.lr.ph.i45:                                       ; preds = %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit, %265
+  %259 = phi ptr [ %266, %265 ], [ %256, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit ]
+  %260 = phi ptr [ %267, %265 ], [ %255, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit ]
+  %.06.i46 = phi i64 [ %268, %265 ], [ 0, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit ]
+  %261 = getelementptr inbounds nuw ptr, ptr %259, i64 %.06.i46
+  %262 = load ptr, ptr %261, align 8
+  %263 = icmp eq ptr %262, null
+  br i1 %263, label %265, label %264
 
-263:                                              ; preds = %.lr.ph.i45
-  call void @_ZdlPvm(ptr noundef nonnull %261, i64 noundef 32) #36
-  %.pre.i47 = load ptr, ptr %253, align 8
-  %.pre10.i48 = load ptr, ptr %252, align 8
-  br label %264
+264:                                              ; preds = %.lr.ph.i45
+  call void @_ZdlPvm(ptr noundef nonnull %262, i64 noundef 32) #36
+  %.pre.i47 = load ptr, ptr %254, align 8
+  %.pre10.i48 = load ptr, ptr %253, align 8
+  br label %265
 
-264:                                              ; preds = %263, %.lr.ph.i45
-  %265 = phi ptr [ %258, %.lr.ph.i45 ], [ %.pre10.i48, %263 ]
-  %266 = phi ptr [ %259, %.lr.ph.i45 ], [ %.pre.i47, %263 ]
-  %267 = add nuw i64 %.06.i46, 1
-  %268 = ptrtoint ptr %266 to i64
-  %269 = ptrtoint ptr %265 to i64
-  %270 = sub i64 %268, %269
-  %271 = ashr exact i64 %270, 3
-  %272 = icmp ult i64 %267, %271
-  br i1 %272, label %.lr.ph.i45, label %._crit_edge.i49, !llvm.loop !82
+265:                                              ; preds = %264, %.lr.ph.i45
+  %266 = phi ptr [ %259, %.lr.ph.i45 ], [ %.pre10.i48, %264 ]
+  %267 = phi ptr [ %260, %.lr.ph.i45 ], [ %.pre.i47, %264 ]
+  %268 = add nuw i64 %.06.i46, 1
+  %269 = ptrtoint ptr %267 to i64
+  %270 = ptrtoint ptr %266 to i64
+  %271 = sub i64 %269, %270
+  %272 = ashr exact i64 %271, 3
+  %273 = icmp ult i64 %268, %272
+  br i1 %273, label %.lr.ph.i45, label %._crit_edge.i49, !llvm.loop !82
 
 .critedge28:                                      ; preds = %_ZNSt7__cxx1110_List_baseIxSaIxEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit50
 
-_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit50: ; preds = %257, %._crit_edge.i49, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit, %.critedge28
-  %.1 = phi i1 [ false, %.critedge28 ], [ %.12252, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit ], [ %.12252, %._crit_edge.i49 ], [ %.12252, %257 ]
+_ZN10ClipperLib7Clipper15ClearGhostJoinsEv.exit50: ; preds = %258, %._crit_edge.i49, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit, %.critedge28
+  %.1 = phi i1 [ false, %.critedge28 ], [ %.12252, %_ZN10ClipperLib7Clipper10ClearJoinsEv.exit ], [ %.12252, %._crit_edge.i49 ], [ %.12252, %258 ]
   ret i1 %.1
 }
 
@@ -17378,23 +17381,26 @@ define hidden noundef zeroext i1 @_ZN10ClipperLib7Clipper10JoinPointsEPNS_4JoinE
   %or.cond = or i1 %.not, %72
   %.not282 = icmp eq ptr %69, %7
   %or.cond302 = select i1 %or.cond, i1 true, i1 %.not282
-  br i1 %or.cond302, label %.critedge4, label %67, !llvm.loop !149
+  br i1 %or.cond302, label %.critedge4.preheader, label %67, !llvm.loop !149
 
-.critedge4:                                       ; preds = %67, %.critedge4
-  %.1250 = phi ptr [ %74, %.critedge4 ], [ %5, %67 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.1250, i64 24
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = load i64, ptr %75, align 8
-  %77 = icmp ne i64 %76, %10
-  %.not283 = icmp eq ptr %74, %.0248
-  %or.cond303 = or i1 %.not283, %77
-  %.not284 = icmp eq ptr %74, %7
+.critedge4.preheader:                             ; preds = %67
+  %73 = getelementptr inbounds nuw i8, ptr %.0248, i64 16
+  br label %.critedge4
+
+.critedge4:                                       ; preds = %.critedge4.preheader, %.critedge4
+  %.1250 = phi ptr [ %75, %.critedge4 ], [ %5, %.critedge4.preheader ]
+  %74 = getelementptr inbounds nuw i8, ptr %.1250, i64 24
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %77 = load i64, ptr %76, align 8
+  %78 = icmp ne i64 %77, %10
+  %.not283 = icmp eq ptr %75, %.0248
+  %or.cond303 = or i1 %.not283, %78
+  %.not284 = icmp eq ptr %75, %7
   %or.cond304 = select i1 %or.cond303, i1 true, i1 %.not284
   br i1 %or.cond304, label %.critedge6, label %.critedge4, !llvm.loop !150
 
 .critedge6:                                       ; preds = %.critedge4
-  %78 = getelementptr inbounds nuw i8, ptr %.0248, i64 16
   %79 = getelementptr inbounds nuw i8, ptr %.1250, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %.0248, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %.1250, i64 8
@@ -17417,34 +17423,37 @@ define hidden noundef zeroext i1 @_ZN10ClipperLib7Clipper10JoinPointsEPNS_4JoinE
   %or.cond306 = select i1 %86, i1 true, i1 %.not285
   %.not286 = icmp eq ptr %83, %.1250
   %or.cond307 = or i1 %.not286, %or.cond306
-  br i1 %or.cond307, label %.critedge8, label %.preheader334, !llvm.loop !151
+  br i1 %or.cond307, label %.critedge8.preheader, label %.preheader334, !llvm.loop !151
 
-.critedge8:                                       ; preds = %.preheader334, %.critedge8
-  %.1256 = phi ptr [ %88, %.critedge8 ], [ %7, %.preheader334 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.1256, i64 24
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %90 = load i64, ptr %89, align 8
-  %91 = icmp ne i64 %90, %.pre
-  %.not287 = icmp eq ptr %88, %.0254
-  %or.cond308 = or i1 %.not287, %91
-  %.not288 = icmp eq ptr %88, %.0248
+.critedge8.preheader:                             ; preds = %.preheader334
+  %87 = getelementptr inbounds nuw i8, ptr %.0254, i64 16
+  br label %.critedge8
+
+.critedge8:                                       ; preds = %.critedge8.preheader, %.critedge8
+  %.1256 = phi ptr [ %89, %.critedge8 ], [ %7, %.critedge8.preheader ]
+  %88 = getelementptr inbounds nuw i8, ptr %.1256, i64 24
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %91 = load i64, ptr %90, align 8
+  %92 = icmp ne i64 %91, %.pre
+  %.not287 = icmp eq ptr %89, %.0254
+  %or.cond308 = or i1 %.not287, %92
+  %.not288 = icmp eq ptr %89, %.0248
   %or.cond309 = or i1 %.not288, %or.cond308
   br i1 %or.cond309, label %.critedge10, label %.critedge8, !llvm.loop !152
 
 .critedge10:                                      ; preds = %.critedge8
-  %92 = getelementptr inbounds nuw i8, ptr %.0254, i64 16
   %93 = getelementptr inbounds nuw i8, ptr %.1256, i64 16
   %or.cond310 = or i1 %.not287, %.not288
   br i1 %or.cond310, label %239, label %94
 
 94:                                               ; preds = %.critedge10
-  %95 = getelementptr inbounds nuw i8, ptr %.1256, i64 8
-  %96 = getelementptr inbounds nuw i8, ptr %.0254, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.0254, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.1256, i64 8
   %97 = load i64, ptr %80, align 8
   %98 = load i64, ptr %81, align 8
-  %99 = load i64, ptr %96, align 8
-  %100 = load i64, ptr %95, align 8
+  %99 = load i64, ptr %95, align 8
+  %100 = load i64, ptr %96, align 8
   %101 = icmp slt i64 %97, %98
   %102 = icmp slt i64 %99, %100
   br i1 %101, label %103, label %106
@@ -17511,7 +17520,7 @@ _ZN10ClipperLib10GetOverlapExxxxRxS0_.exit:       ; preds = %104, %105, %107, %1
   br label %118
 
 118:                                              ; preds = %116, %114, %117, %111
-  %.sroa.8.0.in = phi ptr [ %93, %117 ], [ %92, %114 ], [ %78, %111 ], [ %79, %116 ]
+  %.sroa.8.0.in = phi ptr [ %93, %117 ], [ %87, %114 ], [ %73, %111 ], [ %79, %116 ]
   %.sroa.0.0 = phi i64 [ %100, %117 ], [ %99, %114 ], [ %97, %111 ], [ %98, %116 ]
   %.0260.in = phi i1 [ %102, %117 ], [ %115, %114 ], [ %112, %111 ], [ %101, %116 ]
   %.sroa.8.0 = load i64, ptr %.sroa.8.0.in, align 8
@@ -19606,71 +19615,71 @@ _ZN10ClipperLib11ClipperBase8AddPathsERKSt6vectorIS1_INS_8IntPointESaIS2_EESaIS4
   %68 = load i64, ptr %67, align 8, !noalias !168
   br label %69
 
-69:                                               ; preds = %95, %63
-  %.sroa.023.064.i = phi ptr [ %59, %63 ], [ %99, %95 ]
-  %70 = phi i64 [ %68, %63 ], [ %98, %95 ]
-  %.promoted475563.i = phi i64 [ %66, %63 ], [ %89, %95 ]
-  %.promoted5762.i = phi i64 [ %66, %63 ], [ %90, %95 ]
-  %.promoted525861.i = phi i64 [ %68, %63 ], [ %93, %95 ]
+69:                                               ; preds = %97, %63
+  %.sroa.023.064.i = phi ptr [ %59, %63 ], [ %99, %97 ]
+  %70 = phi i64 [ %68, %63 ], [ %98, %97 ]
+  %.promoted475563.i = phi i64 [ %66, %63 ], [ %91, %97 ]
+  %.promoted5762.i = phi i64 [ %66, %63 ], [ %92, %97 ]
+  %.promoted525861.i = phi i64 [ %68, %63 ], [ %95, %97 ]
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.023.064.i, i64 8
   %72 = load ptr, ptr %71, align 8, !noalias !168
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.023.064.i, i64 16
-  %74 = load ptr, ptr %73, align 8, !noalias !168
-  br label %75
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %74 = load i64, ptr %73, align 8, !noalias !168
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.023.064.i, i64 16
+  %76 = load ptr, ptr %75, align 8, !noalias !168
+  br label %77
 
-75:                                               ; preds = %._crit_edge.i, %69
-  %76 = phi i64 [ %.promoted525861.i, %69 ], [ %93, %._crit_edge.i ]
-  %.promoted4350.i = phi i64 [ %.promoted5762.i, %69 ], [ %90, %._crit_edge.i ]
-  %.promoted48.i = phi i64 [ %.promoted475563.i, %69 ], [ %89, %._crit_edge.i ]
-  %.014.i = phi ptr [ %72, %69 ], [ %74, %._crit_edge.i ]
-  %77 = getelementptr inbounds nuw i8, ptr %.014.i, i64 96
-  %78 = load ptr, ptr %77, align 8, !noalias !168
-  %.not44.i = icmp eq ptr %78, null
+77:                                               ; preds = %._crit_edge.i, %69
+  %78 = phi i64 [ %.promoted525861.i, %69 ], [ %95, %._crit_edge.i ]
+  %.promoted4350.i = phi i64 [ %.promoted5762.i, %69 ], [ %92, %._crit_edge.i ]
+  %.promoted48.i = phi i64 [ %.promoted475563.i, %69 ], [ %91, %._crit_edge.i ]
+  %.014.i = phi ptr [ %72, %69 ], [ %76, %._crit_edge.i ]
+  %79 = getelementptr inbounds nuw i8, ptr %.014.i, i64 96
+  %80 = load ptr, ptr %79, align 8, !noalias !168
+  %.not44.i = icmp eq ptr %80, null
   br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.i19
 
-.lr.ph.i19:                                       ; preds = %75, %.lr.ph.i19
-  %79 = phi ptr [ %83, %.lr.ph.i19 ], [ %78, %75 ]
-  %.146.i = phi ptr [ %79, %.lr.ph.i19 ], [ %.014.i, %75 ]
-  %spec.store.select4245.i = phi i64 [ %spec.store.select.i, %.lr.ph.i19 ], [ %.promoted48.i, %75 ]
-  %80 = phi i64 [ %spec.store.select36.i, %.lr.ph.i19 ], [ %.promoted4350.i, %75 ]
-  %81 = load i64, ptr %.146.i, align 8, !noalias !168
-  %spec.store.select.i = call i64 @llvm.smin.i64(i64 %81, i64 %spec.store.select4245.i)
-  %spec.store.select36.i = call i64 @llvm.smax.i64(i64 %81, i64 %80)
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 96
-  %83 = load ptr, ptr %82, align 8, !noalias !168
-  %.not.i20 = icmp eq ptr %83, null
+.lr.ph.i19:                                       ; preds = %77, %.lr.ph.i19
+  %81 = phi ptr [ %85, %.lr.ph.i19 ], [ %80, %77 ]
+  %.146.i = phi ptr [ %81, %.lr.ph.i19 ], [ %.014.i, %77 ]
+  %spec.store.select4245.i = phi i64 [ %spec.store.select.i, %.lr.ph.i19 ], [ %.promoted48.i, %77 ]
+  %82 = phi i64 [ %spec.store.select36.i, %.lr.ph.i19 ], [ %.promoted4350.i, %77 ]
+  %83 = load i64, ptr %.146.i, align 8, !noalias !168
+  %spec.store.select.i = call i64 @llvm.smin.i64(i64 %83, i64 %spec.store.select4245.i)
+  %spec.store.select36.i = call i64 @llvm.smax.i64(i64 %83, i64 %82)
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 96
+  %85 = load ptr, ptr %84, align 8, !noalias !168
+  %.not.i20 = icmp eq ptr %85, null
   br i1 %.not.i20, label %._crit_edge.i, label %.lr.ph.i19, !llvm.loop !45
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i19, %75
-  %.promoted4351.i = phi i64 [ %.promoted4350.i, %75 ], [ %spec.store.select36.i, %.lr.ph.i19 ]
-  %.promoted49.i = phi i64 [ %.promoted48.i, %75 ], [ %spec.store.select.i, %.lr.ph.i19 ]
-  %.1.lcssa.i = phi ptr [ %.014.i, %75 ], [ %79, %.lr.ph.i19 ]
-  %84 = load i64, ptr %.1.lcssa.i, align 8, !noalias !168
-  %85 = call i64 @llvm.smin.i64(i64 %84, i64 %.promoted49.i)
-  %86 = call i64 @llvm.smax.i64(i64 %.promoted4351.i, i64 %84)
-  %87 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 32
-  %88 = load i64, ptr %87, align 8, !noalias !168
-  %89 = call i64 @llvm.smin.i64(i64 %88, i64 %85)
-  %90 = call i64 @llvm.smax.i64(i64 %86, i64 %88)
-  %91 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 40
-  %92 = load i64, ptr %91, align 8, !noalias !168
-  %93 = call i64 @llvm.smin.i64(i64 %92, i64 %76)
-  %94 = icmp eq ptr %.014.i, %72
-  br i1 %94, label %75, label %95
+._crit_edge.i:                                    ; preds = %.lr.ph.i19, %77
+  %.promoted4351.i = phi i64 [ %.promoted4350.i, %77 ], [ %spec.store.select36.i, %.lr.ph.i19 ]
+  %.promoted49.i = phi i64 [ %.promoted48.i, %77 ], [ %spec.store.select.i, %.lr.ph.i19 ]
+  %.1.lcssa.i = phi ptr [ %.014.i, %77 ], [ %81, %.lr.ph.i19 ]
+  %86 = load i64, ptr %.1.lcssa.i, align 8, !noalias !168
+  %87 = call i64 @llvm.smin.i64(i64 %86, i64 %.promoted49.i)
+  %88 = call i64 @llvm.smax.i64(i64 %.promoted4351.i, i64 %86)
+  %89 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 32
+  %90 = load i64, ptr %89, align 8, !noalias !168
+  %91 = call i64 @llvm.smin.i64(i64 %90, i64 %87)
+  %92 = call i64 @llvm.smax.i64(i64 %88, i64 %90)
+  %93 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 40
+  %94 = load i64, ptr %93, align 8, !noalias !168
+  %95 = call i64 @llvm.smin.i64(i64 %94, i64 %78)
+  %96 = icmp eq ptr %.014.i, %72
+  br i1 %96, label %77, label %97
 
-95:                                               ; preds = %._crit_edge.i
-  %96 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %97 = load i64, ptr %96, align 8, !noalias !168
-  %98 = call i64 @llvm.smax.i64(i64 %70, i64 %97)
+97:                                               ; preds = %._crit_edge.i
+  %98 = call i64 @llvm.smax.i64(i64 %70, i64 %74)
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.023.064.i, i64 24
   %.not37.i = icmp eq ptr %99, %61
   br i1 %.not37.i, label %_ZN10ClipperLib11ClipperBase9GetBoundsEv.exit.loopexit, label %69, !llvm.loop !46
 
-_ZN10ClipperLib11ClipperBase9GetBoundsEv.exit.loopexit: ; preds = %95
-  %100 = add nsw i64 %89, -10
+_ZN10ClipperLib11ClipperBase9GetBoundsEv.exit.loopexit: ; preds = %97
+  %100 = add nsw i64 %91, -10
   %101 = add nsw i64 %98, 10
-  %102 = add nsw i64 %90, 10
-  %103 = add nsw i64 %93, -10
+  %102 = add nsw i64 %92, 10
+  %103 = add nsw i64 %95, -10
   br label %_ZN10ClipperLib11ClipperBase9GetBoundsEv.exit
 
 _ZN10ClipperLib11ClipperBase9GetBoundsEv.exit:    ; preds = %_ZN10ClipperLib11ClipperBase9GetBoundsEv.exit.loopexit, %53
@@ -22062,71 +22071,71 @@ _ZN10ClipperLib11ClipperBase8AddPathsERKSt6vectorIS1_INS_8IntPointESaIS2_EESaIS4
   %86 = load i64, ptr %85, align 8, !noalias !235
   br label %87
 
-87:                                               ; preds = %113, %81
-  %.sroa.023.064.i = phi ptr [ %77, %81 ], [ %117, %113 ]
-  %88 = phi i64 [ %86, %81 ], [ %116, %113 ]
-  %.promoted475563.i = phi i64 [ %84, %81 ], [ %107, %113 ]
-  %.promoted5762.i = phi i64 [ %84, %81 ], [ %108, %113 ]
-  %.promoted525861.i = phi i64 [ %86, %81 ], [ %111, %113 ]
+87:                                               ; preds = %115, %81
+  %.sroa.023.064.i = phi ptr [ %77, %81 ], [ %117, %115 ]
+  %88 = phi i64 [ %86, %81 ], [ %116, %115 ]
+  %.promoted475563.i = phi i64 [ %84, %81 ], [ %109, %115 ]
+  %.promoted5762.i = phi i64 [ %84, %81 ], [ %110, %115 ]
+  %.promoted525861.i = phi i64 [ %86, %81 ], [ %113, %115 ]
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.023.064.i, i64 8
   %90 = load ptr, ptr %89, align 8, !noalias !235
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.023.064.i, i64 16
-  %92 = load ptr, ptr %91, align 8, !noalias !235
-  br label %93
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %92 = load i64, ptr %91, align 8, !noalias !235
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.023.064.i, i64 16
+  %94 = load ptr, ptr %93, align 8, !noalias !235
+  br label %95
 
-93:                                               ; preds = %._crit_edge.i40, %87
-  %94 = phi i64 [ %.promoted525861.i, %87 ], [ %111, %._crit_edge.i40 ]
-  %.promoted4350.i = phi i64 [ %.promoted5762.i, %87 ], [ %108, %._crit_edge.i40 ]
-  %.promoted48.i = phi i64 [ %.promoted475563.i, %87 ], [ %107, %._crit_edge.i40 ]
-  %.014.i = phi ptr [ %90, %87 ], [ %92, %._crit_edge.i40 ]
-  %95 = getelementptr inbounds nuw i8, ptr %.014.i, i64 96
-  %96 = load ptr, ptr %95, align 8, !noalias !235
-  %.not44.i = icmp eq ptr %96, null
+95:                                               ; preds = %._crit_edge.i40, %87
+  %96 = phi i64 [ %.promoted525861.i, %87 ], [ %113, %._crit_edge.i40 ]
+  %.promoted4350.i = phi i64 [ %.promoted5762.i, %87 ], [ %110, %._crit_edge.i40 ]
+  %.promoted48.i = phi i64 [ %.promoted475563.i, %87 ], [ %109, %._crit_edge.i40 ]
+  %.014.i = phi ptr [ %90, %87 ], [ %94, %._crit_edge.i40 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.014.i, i64 96
+  %98 = load ptr, ptr %97, align 8, !noalias !235
+  %.not44.i = icmp eq ptr %98, null
   br i1 %.not44.i, label %._crit_edge.i40, label %.lr.ph.i38
 
-.lr.ph.i38:                                       ; preds = %93, %.lr.ph.i38
-  %97 = phi ptr [ %101, %.lr.ph.i38 ], [ %96, %93 ]
-  %.146.i = phi ptr [ %97, %.lr.ph.i38 ], [ %.014.i, %93 ]
-  %spec.store.select4245.i = phi i64 [ %spec.store.select.i, %.lr.ph.i38 ], [ %.promoted48.i, %93 ]
-  %98 = phi i64 [ %spec.store.select36.i, %.lr.ph.i38 ], [ %.promoted4350.i, %93 ]
-  %99 = load i64, ptr %.146.i, align 8, !noalias !235
-  %spec.store.select.i = call i64 @llvm.smin.i64(i64 %99, i64 %spec.store.select4245.i)
-  %spec.store.select36.i = call i64 @llvm.smax.i64(i64 %99, i64 %98)
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 96
-  %101 = load ptr, ptr %100, align 8, !noalias !235
-  %.not.i39 = icmp eq ptr %101, null
+.lr.ph.i38:                                       ; preds = %95, %.lr.ph.i38
+  %99 = phi ptr [ %103, %.lr.ph.i38 ], [ %98, %95 ]
+  %.146.i = phi ptr [ %99, %.lr.ph.i38 ], [ %.014.i, %95 ]
+  %spec.store.select4245.i = phi i64 [ %spec.store.select.i, %.lr.ph.i38 ], [ %.promoted48.i, %95 ]
+  %100 = phi i64 [ %spec.store.select36.i, %.lr.ph.i38 ], [ %.promoted4350.i, %95 ]
+  %101 = load i64, ptr %.146.i, align 8, !noalias !235
+  %spec.store.select.i = call i64 @llvm.smin.i64(i64 %101, i64 %spec.store.select4245.i)
+  %spec.store.select36.i = call i64 @llvm.smax.i64(i64 %101, i64 %100)
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 96
+  %103 = load ptr, ptr %102, align 8, !noalias !235
+  %.not.i39 = icmp eq ptr %103, null
   br i1 %.not.i39, label %._crit_edge.i40, label %.lr.ph.i38, !llvm.loop !45
 
-._crit_edge.i40:                                  ; preds = %.lr.ph.i38, %93
-  %.promoted4351.i = phi i64 [ %.promoted4350.i, %93 ], [ %spec.store.select36.i, %.lr.ph.i38 ]
-  %.promoted49.i = phi i64 [ %.promoted48.i, %93 ], [ %spec.store.select.i, %.lr.ph.i38 ]
-  %.1.lcssa.i = phi ptr [ %.014.i, %93 ], [ %97, %.lr.ph.i38 ]
-  %102 = load i64, ptr %.1.lcssa.i, align 8, !noalias !235
-  %103 = call i64 @llvm.smin.i64(i64 %102, i64 %.promoted49.i)
-  %104 = call i64 @llvm.smax.i64(i64 %.promoted4351.i, i64 %102)
-  %105 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 32
-  %106 = load i64, ptr %105, align 8, !noalias !235
-  %107 = call i64 @llvm.smin.i64(i64 %106, i64 %103)
-  %108 = call i64 @llvm.smax.i64(i64 %104, i64 %106)
-  %109 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 40
-  %110 = load i64, ptr %109, align 8, !noalias !235
-  %111 = call i64 @llvm.smin.i64(i64 %110, i64 %94)
-  %112 = icmp eq ptr %.014.i, %90
-  br i1 %112, label %93, label %113
+._crit_edge.i40:                                  ; preds = %.lr.ph.i38, %95
+  %.promoted4351.i = phi i64 [ %.promoted4350.i, %95 ], [ %spec.store.select36.i, %.lr.ph.i38 ]
+  %.promoted49.i = phi i64 [ %.promoted48.i, %95 ], [ %spec.store.select.i, %.lr.ph.i38 ]
+  %.1.lcssa.i = phi ptr [ %.014.i, %95 ], [ %99, %.lr.ph.i38 ]
+  %104 = load i64, ptr %.1.lcssa.i, align 8, !noalias !235
+  %105 = call i64 @llvm.smin.i64(i64 %104, i64 %.promoted49.i)
+  %106 = call i64 @llvm.smax.i64(i64 %.promoted4351.i, i64 %104)
+  %107 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 32
+  %108 = load i64, ptr %107, align 8, !noalias !235
+  %109 = call i64 @llvm.smin.i64(i64 %108, i64 %105)
+  %110 = call i64 @llvm.smax.i64(i64 %106, i64 %108)
+  %111 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 40
+  %112 = load i64, ptr %111, align 8, !noalias !235
+  %113 = call i64 @llvm.smin.i64(i64 %112, i64 %96)
+  %114 = icmp eq ptr %.014.i, %90
+  br i1 %114, label %95, label %115
 
-113:                                              ; preds = %._crit_edge.i40
-  %114 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %115 = load i64, ptr %114, align 8, !noalias !235
-  %116 = call i64 @llvm.smax.i64(i64 %88, i64 %115)
+115:                                              ; preds = %._crit_edge.i40
+  %116 = call i64 @llvm.smax.i64(i64 %88, i64 %92)
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.023.064.i, i64 24
   %.not37.i = icmp eq ptr %117, %79
   br i1 %.not37.i, label %_ZN10ClipperLib11ClipperBase9GetBoundsEv.exit.loopexit, label %87, !llvm.loop !46
 
-_ZN10ClipperLib11ClipperBase9GetBoundsEv.exit.loopexit: ; preds = %113
-  %118 = add nsw i64 %107, -10
+_ZN10ClipperLib11ClipperBase9GetBoundsEv.exit.loopexit: ; preds = %115
+  %118 = add nsw i64 %109, -10
   %119 = add nsw i64 %116, 10
-  %120 = add nsw i64 %108, 10
-  %121 = add nsw i64 %111, -10
+  %120 = add nsw i64 %110, 10
+  %121 = add nsw i64 %113, -10
   br label %_ZN10ClipperLib11ClipperBase9GetBoundsEv.exit
 
 _ZN10ClipperLib11ClipperBase9GetBoundsEv.exit:    ; preds = %_ZN10ClipperLib11ClipperBase9GetBoundsEv.exit.loopexit, %71

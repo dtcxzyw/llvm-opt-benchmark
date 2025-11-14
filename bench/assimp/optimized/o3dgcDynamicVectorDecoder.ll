@@ -432,17 +432,17 @@ define hidden noundef i32 @_ZN5o3dgc20DynamicVectorDecoder14DecodePlayloadERNS_1
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = load i64, ptr %1, align 8
+  %16 = mul i64 %15, %14
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %20
 
 ._crit_edge:                                      ; preds = %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89, %3
-  %19 = mul i64 %15, %14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5o3dgc16Arithmetic_CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(44) %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -478,7 +478,7 @@ define hidden noundef i32 @_ZN5o3dgc20DynamicVectorDecoder14DecodePlayloadERNS_1
   br i1 %exitcond.not.i.i.i, label %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit, label %24, !llvm.loop !8
 
 35:                                               ; preds = %20
-  %36 = load i32, ptr %16, align 8
+  %36 = load i32, ptr %17, align 8
   %37 = icmp eq i32 %36, 0
   %38 = load i64, ptr %8, align 8
   %39 = add i64 %38, 1
@@ -545,7 +545,7 @@ define hidden noundef i32 @_ZN5o3dgc20DynamicVectorDecoder14DecodePlayloadERNS_1
 
 _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit: ; preds = %24, %44, %66
   %.0.in.i = phi i32 [ %65, %44 ], [ %87, %66 ], [ %32, %24 ]
-  %88 = load ptr, ptr %17, align 8
+  %88 = load ptr, ptr %18, align 8
   %89 = getelementptr inbounds nuw float, ptr %88, i64 %.071144
   store i32 %.0.in.i, ptr %89, align 4
   %90 = load i32, ptr %10, align 8
@@ -575,7 +575,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit: ; preds = %2
   br i1 %exitcond.not.i.i.i88, label %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89, label %93, !llvm.loop !8
 
 104:                                              ; preds = %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit
-  %105 = load i32, ptr %16, align 8
+  %105 = load i32, ptr %17, align 8
   %106 = icmp eq i32 %105, 0
   %107 = load i64, ptr %8, align 8
   %108 = add i64 %107, 1
@@ -642,7 +642,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit: ; preds = %2
 
 _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89: ; preds = %93, %113, %135
   %.0.in.i82 = phi i32 [ %134, %113 ], [ %156, %135 ], [ %101, %93 ]
-  %157 = load ptr, ptr %18, align 8
+  %157 = load ptr, ptr %19, align 8
   %158 = getelementptr inbounds nuw float, ptr %157, i64 %.071144
   store i32 %.0.in.i82, ptr %158, align 4
   %159 = add nuw i64 %.071144, 1
@@ -801,7 +801,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89: ; preds = 
 202:                                              ; preds = %200
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %204 = load i64, ptr %203, align 8
-  %205 = icmp ult i64 %204, %19
+  %205 = icmp ult i64 %204, %16
   br i1 %205, label %206, label %221
 
 206:                                              ; preds = %202
@@ -815,9 +815,9 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89: ; preds = 
   br label %211
 
 211:                                              ; preds = %210, %206
-  store i64 %19, ptr %203, align 8
-  %212 = icmp ugt i64 %19, 2305843009213693951
-  %213 = shl i64 %19, 3
+  store i64 %16, ptr %203, align 8
+  %212 = icmp ugt i64 %16, 2305843009213693951
+  %213 = shl i64 %16, 3
   %214 = select i1 %212, i64 -1, i64 %213
   %215 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %214) #13
           to label %216 unwind label %219
@@ -1027,7 +1027,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %298 = load i64, ptr %297, align 8
   %299 = load i64, ptr %203, align 8
-  %300 = icmp ult i64 %299, %19
+  %300 = icmp ult i64 %299, %16
   br i1 %300, label %301, label %311
 
 301:                                              ; preds = %._crit_edge158
@@ -1041,9 +1041,9 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   br label %306
 
 306:                                              ; preds = %305, %301
-  store i64 %19, ptr %203, align 8
-  %307 = icmp ugt i64 %19, 2305843009213693951
-  %308 = shl nuw i64 %19, 3
+  store i64 %16, ptr %203, align 8
+  %307 = icmp ugt i64 %16, 2305843009213693951
+  %308 = shl nuw i64 %16, 3
   %309 = select i1 %307, i64 -1, i64 %308
   %310 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %309) #13
           to label %.noexc115 unwind label %219

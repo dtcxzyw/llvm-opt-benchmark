@@ -134,43 +134,43 @@ define internal range(i32 -1163346256, 1) i32 @mmf_read_header(ptr noundef %0) #
   br i1 %21, label %mmf_rate.exit.thread, label %mmf_rate.exit
 
 mmf_rate.exit:                                    ; preds = %16
-  %22 = tail call i32 @avio_r8(ptr noundef %5) #4
-  %23 = tail call i32 @avio_r8(ptr noundef %5) #4
-  %24 = tail call i32 @avio_r8(ptr noundef %5) #4
-  br label %25
+  %22 = zext nneg i32 %20 to i64
+  %23 = getelementptr inbounds nuw i32, ptr @mmf_rates, i64 %22
+  %24 = load i32, ptr %23, align 4, !tbaa !28
+  %25 = tail call i32 @avio_r8(ptr noundef %5) #4
+  %26 = tail call i32 @avio_r8(ptr noundef %5) #4
+  %27 = tail call i32 @avio_r8(ptr noundef %5) #4
+  br label %28
 
 mmf_rate.exit.thread:                             ; preds = %16
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.5) #4
   br label %57
 
-25:                                               ; preds = %29, %mmf_rate.exit
-  %26 = tail call i32 @avio_rl32(ptr noundef %5) #4
-  %27 = tail call i32 @avio_rb32(ptr noundef %5) #4
-  %28 = zext i32 %27 to i64
-  switch i32 %26, label %31 [
-    i32 1903391809, label %29
-    i32 1232106305, label %29
+28:                                               ; preds = %32, %mmf_rate.exit
+  %29 = tail call i32 @avio_rl32(ptr noundef %5) #4
+  %30 = tail call i32 @avio_rb32(ptr noundef %5) #4
+  %31 = zext i32 %30 to i64
+  switch i32 %29, label %34 [
+    i32 1903391809, label %32
+    i32 1232106305, label %32
   ]
 
-29:                                               ; preds = %25, %25
-  %30 = tail call i64 @avio_skip(ptr noundef %5, i64 noundef %28) #4
-  br label %25
+32:                                               ; preds = %28, %28
+  %33 = tail call i64 @avio_skip(ptr noundef %5, i64 noundef %31) #4
+  br label %28
 
-31:                                               ; preds = %25
-  %32 = zext nneg i32 %20 to i64
-  %33 = getelementptr inbounds nuw i32, ptr @mmf_rates, i64 %32
-  %34 = load i32, ptr %33, align 4, !tbaa !28
-  %35 = and i32 %26, 16777215
+34:                                               ; preds = %28
+  %35 = and i32 %29, 16777215
   %.not60 = icmp eq i32 %35, 6387521
   br i1 %.not60, label %37, label %36
 
-36:                                               ; preds = %31
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %26) #4
+36:                                               ; preds = %34
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %29) #4
   br label %57
 
-37:                                               ; preds = %31
+37:                                               ; preds = %34
   %38 = tail call i64 @avio_seek(ptr noundef %5, i64 noundef 0, i32 noundef 1) #4
-  %39 = add nsw i64 %38, %28
+  %39 = add nsw i64 %38, %31
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %39, ptr %40, align 8, !tbaa !29
   %41 = tail call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #4
@@ -184,7 +184,7 @@ mmf_rate.exit.thread:                             ; preds = %16
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 69646, ptr %45, align 4, !tbaa !41
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 152
-  store i32 %34, ptr %46, align 8, !tbaa !42
+  store i32 %24, ptr %46, align 8, !tbaa !42
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 128
   %48 = ashr i32 %19, 7
   %49 = add nsw i32 %48, 1

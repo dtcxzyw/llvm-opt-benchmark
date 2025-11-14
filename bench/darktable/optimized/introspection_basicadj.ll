@@ -1729,32 +1729,32 @@ _get_selected_area.exit:                          ; preds = %38, %97, %.preheade
   br i1 %exitcond.not.i.i.i, label %_get_sum_and_average.exit.i.i, label %.lr.ph.i.i.i
 
 _get_sum_and_average.exit.i.i:                    ; preds = %.lr.ph.i.i.i
-  %190 = load i32, ptr %116, align 64, !tbaa !35
-  %191 = fmul reassoc nsz arcp contract afn float %185, 5.000000e-01
-  %192 = sitofp i32 %190 to float
-  %193 = fcmp reassoc nsz arcp contract afn ogt float %191, %192
-  br i1 %193, label %.lr.ph.i11.i, label %_auto_exposure.exit
+  %190 = fdiv reassoc nsz arcp contract afn float %189, %185
+  %191 = load i32, ptr %116, align 64, !tbaa !35
+  %192 = fmul reassoc nsz arcp contract afn float %185, 5.000000e-01
+  %193 = sitofp i32 %191 to float
+  %194 = fcmp reassoc nsz arcp contract afn ogt float %192, %193
+  br i1 %194, label %.lr.ph.i11.i, label %_auto_exposure.exit
 
 .lr.ph.i11.i:                                     ; preds = %_get_sum_and_average.exit.i.i, %.lr.ph.i11.i
   %indvars.iv.i12.i = phi i64 [ %indvars.iv.next.i13.i, %.lr.ph.i11.i ], [ 0, %_get_sum_and_average.exit.i.i ]
-  %.0248324.i.i = phi i32 [ %196, %.lr.ph.i11.i ], [ %190, %_get_sum_and_average.exit.i.i ]
+  %.0248324.i.i = phi i32 [ %197, %.lr.ph.i11.i ], [ %191, %_get_sum_and_average.exit.i.i ]
   %indvars.iv.next.i13.i = add nuw nsw i64 %indvars.iv.i12.i, 1
-  %194 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv.next.i13.i
-  %195 = load i32, ptr %194, align 4, !tbaa !35
-  %196 = add i32 %195, %.0248324.i.i
-  %197 = sitofp i32 %196 to float
-  %198 = fcmp reassoc nsz arcp contract afn ogt float %191, %197
-  br i1 %198, label %.lr.ph.i11.i, label %._crit_edge.i14.i
+  %195 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv.next.i13.i
+  %196 = load i32, ptr %195, align 4, !tbaa !35
+  %197 = add i32 %196, %.0248324.i.i
+  %198 = sitofp i32 %197 to float
+  %199 = fcmp reassoc nsz arcp contract afn ogt float %192, %198
+  br i1 %199, label %.lr.ph.i11.i, label %._crit_edge.i14.i
 
 ._crit_edge.i14.i:                                ; preds = %.lr.ph.i11.i
-  %199 = trunc nuw nsw i64 %indvars.iv.next.i13.i to i32
-  %200 = fdiv reassoc nsz arcp contract afn float %189, %185
-  %201 = fcmp reassoc nsz arcp contract afn olt float %200, 1.000000e+00
+  %200 = trunc nuw nsw i64 %indvars.iv.next.i13.i to i32
+  %201 = fcmp reassoc nsz arcp contract afn olt float %190, 1.000000e+00
   br i1 %201, label %_auto_exposure.exit, label %202
 
 202:                                              ; preds = %._crit_edge.i14.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  %203 = fptosi float %200 to i32
+  %203 = fptosi float %190 to i32
   %204 = call i32 @llvm.smin.i32(i32 %203, i32 8192)
   %205 = icmp sgt i32 %203, 0
   %206 = fmul reassoc nsz arcp contract afn float %185, 1.250000e-01
@@ -2109,8 +2109,8 @@ _get_sum_and_average.exit.i.i:                    ; preds = %.lr.ph.i.i.i
   %.0234.lcssa.i.i = phi i32 [ %412, %.critedge5.loopexit.split.loop.exit441.i.i ], [ %407, %411 ], [ 0, %404 ]
   %413 = shl i32 %398, 3
   %414 = shl i32 %.0235.lcssa.i25.i, 3
-  %415 = fmul reassoc nsz arcp contract afn float %200, 8.000000e+00
-  %416 = shl i32 %199, 3
+  %415 = fmul reassoc nsz arcp contract afn float %190, 8.000000e+00
+  %416 = shl i32 %200, 3
   %417 = shl i32 %.0234.lcssa.i.i, 3
   %418 = fmul reassoc nsz arcp contract afn float %109, 0x40847AE140000000
   %419 = sitofp i32 %417 to float

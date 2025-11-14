@@ -1723,23 +1723,23 @@ st_mult.exit:                                     ; preds = %14
 ._crit_edge220:                                   ; preds = %55, %._crit_edge
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !86
-  %59 = load ptr, ptr @the_repository, align 8, !tbaa !45
-  %60 = tail call ptr @get_main_ref_store(ptr noundef %59) #15
-  %61 = tail call i32 @refs_head_ref(ptr noundef %60, ptr noundef nonnull @mark_uninteresting, ptr noundef null) #15
-  %62 = load ptr, ptr @the_repository, align 8, !tbaa !45
-  %63 = tail call ptr @get_main_ref_store(ptr noundef %62) #15
-  %64 = tail call i32 @refs_for_each_ref(ptr noundef %63, ptr noundef nonnull @mark_uninteresting, ptr noundef null) #15
+  %59 = trunc i64 %58 to i32
+  %60 = load ptr, ptr @the_repository, align 8, !tbaa !45
+  %61 = tail call ptr @get_main_ref_store(ptr noundef %60) #15
+  %62 = tail call i32 @refs_head_ref(ptr noundef %61, ptr noundef nonnull @mark_uninteresting, ptr noundef null) #15
+  %63 = load ptr, ptr @the_repository, align 8, !tbaa !45
+  %64 = tail call ptr @get_main_ref_store(ptr noundef %63) #15
+  %65 = tail call i32 @refs_for_each_ref(ptr noundef %64, ptr noundef nonnull @mark_uninteresting, ptr noundef null) #15
   %.not250 = icmp eq i64 %.161.lcssa, 0
   br i1 %.not250, label %.preheader, label %.lr.ph223
 
 .preheader:                                       ; preds = %.lr.ph223, %._crit_edge220
-  %65 = load i64, ptr %57, align 8, !tbaa !86
-  %.not251 = icmp eq i64 %65, 0
+  %66 = load i64, ptr %57, align 8, !tbaa !86
+  %.not251 = icmp eq i64 %66, 0
   br i1 %.not251, label %._crit_edge232, label %.lr.ph231
 
 .lr.ph231:                                        ; preds = %.preheader
-  %66 = trunc i64 %58 to i32
-  %67 = add i32 %66, 31
+  %67 = add i32 %59, 31
   %68 = lshr i32 %67, 5
   %69 = shl nuw nsw i32 %68, 2
   %70 = zext nneg i32 %69 to i64

@@ -2593,52 +2593,53 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br i1 %73, label %92, label %.critedge4.preheader
 
 74:                                               ; preds = %70
-  %75 = icmp sgt i32 %.val110, 0
-  br i1 %75, label %.lr.ph140, label %.critedge4.preheader
+  %75 = add i32 %.val110, %.0145
+  %76 = icmp sgt i32 %.val110, 0
+  br i1 %76, label %.lr.ph140, label %.critedge4.preheader
 
 .lr.ph140:                                        ; preds = %74
   %.val114 = load ptr, ptr %44, align 8, !tbaa !35
-  %76 = getelementptr i8, ptr %58, i64 16
+  %77 = getelementptr i8, ptr %58, i64 16
   %wide.trip.count152 = zext nneg i32 %.val110 to i64
-  br label %79
+  br label %81
 
-.critedge4.preheader:                             ; preds = %79, %72, %74
-  %77 = icmp sgt i32 %.val107.pre, 0
-  br i1 %77, label %.lr.ph142, label %.critedge6
+.critedge4.preheader:                             ; preds = %81, %72, %74
+  %.0145.pn = phi i32 [ %75, %74 ], [ %.0145, %72 ], [ %75, %81 ]
+  %78 = add i32 %.0145.pn, %.val107.pre
+  %79 = icmp sgt i32 %.val107.pre, 0
+  br i1 %79, label %.lr.ph142, label %.critedge6
 
 .lr.ph142:                                        ; preds = %.critedge4.preheader
   %.val113 = load ptr, ptr %48, align 8, !tbaa !35
-  %78 = getelementptr i8, ptr %58, i64 16
+  %80 = getelementptr i8, ptr %58, i64 16
   %wide.trip.count157 = zext nneg i32 %.val107.pre to i64
   br label %.critedge4
 
-79:                                               ; preds = %.lr.ph140, %79
-  %indvars.iv149 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next150, %79 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %.val114, i64 %indvars.iv149
-  %81 = load ptr, ptr %80, align 8, !tbaa !37
-  %.val94 = load i32, ptr %76, align 8, !tbaa !13
-  %82 = getelementptr i8, ptr %81, i64 16
-  %.val95 = load i32, ptr %82, align 8, !tbaa !13
+81:                                               ; preds = %.lr.ph140, %81
+  %indvars.iv149 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next150, %81 ]
+  %82 = getelementptr inbounds nuw ptr, ptr %.val114, i64 %indvars.iv149
+  %83 = load ptr, ptr %82, align 8, !tbaa !37
+  %.val94 = load i32, ptr %77, align 8, !tbaa !13
+  %84 = getelementptr i8, ptr %83, i64 16
+  %.val95 = load i32, ptr %84, align 8, !tbaa !13
   call void @Nwk_ManGraphHashEdge(ptr noundef %32, i32 noundef %.val94, i32 noundef %.val95) #16
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %.critedge4.preheader, label %79, !llvm.loop !70
+  br i1 %exitcond153.not, label %.critedge4.preheader, label %81, !llvm.loop !70
 
 .critedge4:                                       ; preds = %.lr.ph142, %.critedge4
   %indvars.iv154 = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next155, %.critedge4 ]
-  %83 = getelementptr inbounds nuw ptr, ptr %.val113, i64 %indvars.iv154
-  %84 = load ptr, ptr %83, align 8, !tbaa !37
-  %.val96 = load i32, ptr %78, align 8, !tbaa !13
-  %85 = getelementptr i8, ptr %84, i64 16
-  %.val97 = load i32, ptr %85, align 8, !tbaa !13
+  %85 = getelementptr inbounds nuw ptr, ptr %.val113, i64 %indvars.iv154
+  %86 = load ptr, ptr %85, align 8, !tbaa !37
+  %.val96 = load i32, ptr %80, align 8, !tbaa !13
+  %87 = getelementptr i8, ptr %86, i64 16
+  %.val97 = load i32, ptr %87, align 8, !tbaa !13
   call void @Nwk_ManGraphHashEdge(ptr noundef %32, i32 noundef %.val96, i32 noundef %.val97) #16
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count157
   br i1 %exitcond158.not, label %.critedge6, label %.critedge4, !llvm.loop !71
 
 .critedge6:                                       ; preds = %.critedge4, %.critedge4.preheader
-  %86 = add i32 %.val110, %.0145
-  %87 = add i32 %86, %.val107.pre
   %88 = load i32, ptr %53, align 4, !tbaa !72
   %.not91 = icmp eq i32 %88, 0
   br i1 %.not91, label %92, label %89
@@ -2652,7 +2653,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
 
 92:                                               ; preds = %60, %54, %89, %.critedge6, %72, %63
   %.val107.pre163 = phi i32 [ %.val107.pre162, %54 ], [ %.val107.pre162, %63 ], [ 0, %72 ], [ %.val107.pre, %89 ], [ %.val107.pre, %.critedge6 ], [ %.val107.pre162, %60 ]
-  %.1 = phi i32 [ %.0145, %54 ], [ %.0145, %63 ], [ %.0145, %72 ], [ %87, %89 ], [ %87, %.critedge6 ], [ %.0145, %60 ]
+  %.1 = phi i32 [ %.0145, %54 ], [ %.0145, %63 ], [ %.0145, %72 ], [ %78, %89 ], [ %78, %.critedge6 ], [ %.0145, %60 ]
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %93 = load ptr, ptr %13, align 8, !tbaa !34
   %94 = getelementptr i8, ptr %93, i64 4

@@ -3648,20 +3648,20 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %64, %68
   %175 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %176
 
-176:                                              ; preds = %._crit_edge, %507
-  %indvars.iv248 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next249, %507 ]
-  %.0164234 = phi i32 [ %169, %._crit_edge ], [ %.3, %507 ]
-  %.0169230 = phi i32 [ %18, %._crit_edge ], [ %.1170, %507 ]
-  %.0171229 = phi i32 [ 5, %._crit_edge ], [ %.1172, %507 ]
-  %.0173228 = phi i32 [ 6, %._crit_edge ], [ %.1174, %507 ]
-  %.0175227 = phi i32 [ 7, %._crit_edge ], [ %.1176, %507 ]
-  %.0177226 = phi i32 [ 7, %._crit_edge ], [ %.1178, %507 ]
+176:                                              ; preds = %._crit_edge, %.loopexit
+  %indvars.iv248 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next249, %.loopexit ]
+  %.0164234 = phi i32 [ %169, %._crit_edge ], [ %.3, %.loopexit ]
+  %.0169230 = phi i32 [ %18, %._crit_edge ], [ %.1170, %.loopexit ]
+  %.0171229 = phi i32 [ 5, %._crit_edge ], [ %.1172, %.loopexit ]
+  %.0173228 = phi i32 [ 6, %._crit_edge ], [ %.1174, %.loopexit ]
+  %.0175227 = phi i32 [ 7, %._crit_edge ], [ %.1176, %.loopexit ]
+  %.0177226 = phi i32 [ 7, %._crit_edge ], [ %.1178, %.loopexit ]
   %177 = load ptr, ptr %170, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 %indvars.iv248
   %179 = load i8, ptr %178, align 1
   %180 = and i8 %179, -5
   %spec.select.i = icmp eq i8 %180, 65
-  br i1 %spec.select.i, label %181, label %507
+  br i1 %spec.select.i, label %181, label %.loopexit
 
 181:                                              ; preds = %176
   %182 = getelementptr inbounds nuw %class.RegMask, ptr @_ZN7Matcher12mreg2regmaskE, i64 %indvars.iv248
@@ -4250,42 +4250,39 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit207:   ; preds = %483, %487
 493:                                              ; preds = %_ZN4NodenwEm.exit205, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit207, %329, %452, %441, %314
   %.1 = phi i32 [ %315, %314 ], [ %.0164234, %329 ], [ %442, %441 ], [ %.0164234, %452 ], [ %.0164234, %_ZN4NodenwEm.exit205 ], [ %476, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit207 ]
   %.0163 = phi ptr [ %.0.i.i.i, %314 ], [ %332, %329 ], [ %.0.i.i.i198, %441 ], [ %455, %452 ], [ null, %_ZN4NodenwEm.exit205 ], [ %.0.i.i.i204, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit207 ]
-  %494 = load i32, ptr %90, align 8
-  %495 = icmp ugt i32 %494, 1
-  br i1 %495, label %.lr.ph225, label %.loopexit
+  %494 = add i32 %.0169230, 1
+  %495 = add i32 %.0173228, 1
+  %496 = add i32 %.0175227, 1
+  %497 = add i32 %.0177226, 1
+  %498 = add i32 %.0171229, 1
+  %499 = load i32, ptr %90, align 8
+  %500 = icmp ugt i32 %499, 1
+  br i1 %500, label %.lr.ph225, label %.loopexit
 
 .lr.ph225:                                        ; preds = %493, %.lr.ph225
   %indvars.iv245 = phi i64 [ %indvars.iv.next246, %.lr.ph225 ], [ 1, %493 ]
-  %496 = load ptr, ptr %175, align 8
-  %497 = getelementptr inbounds nuw ptr, ptr %496, i64 %indvars.iv245
-  %498 = load ptr, ptr %497, align 8
-  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %498, ptr noundef %.0163) #15
+  %501 = load ptr, ptr %175, align 8
+  %502 = getelementptr inbounds nuw ptr, ptr %501, i64 %indvars.iv245
+  %503 = load ptr, ptr %502, align 8
+  call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %503, ptr noundef %.0163) #15
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
-  %499 = load i32, ptr %90, align 8
-  %500 = zext i32 %499 to i64
-  %501 = icmp samesign ult i64 %indvars.iv.next246, %500
-  br i1 %501, label %.lr.ph225, label %.loopexit, !llvm.loop !27
+  %504 = load i32, ptr %90, align 8
+  %505 = zext i32 %504 to i64
+  %506 = icmp samesign ult i64 %indvars.iv.next246, %505
+  br i1 %506, label %.lr.ph225, label %.loopexit, !llvm.loop !27
 
-.loopexit:                                        ; preds = %.lr.ph225, %493
-  %502 = add i32 %.0169230, 1
-  %503 = add i32 %.0173228, 1
-  %504 = add i32 %.0175227, 1
-  %505 = add i32 %.0177226, 1
-  %506 = add i32 %.0171229, 1
-  br label %507
-
-507:                                              ; preds = %.loopexit, %176
-  %.1178 = phi i32 [ %.0177226, %176 ], [ %505, %.loopexit ]
-  %.1176 = phi i32 [ %.0175227, %176 ], [ %504, %.loopexit ]
-  %.1174 = phi i32 [ %.0173228, %176 ], [ %503, %.loopexit ]
-  %.1172 = phi i32 [ %.0171229, %176 ], [ %506, %.loopexit ]
-  %.1170 = phi i32 [ %.0169230, %176 ], [ %502, %.loopexit ]
-  %.3 = phi i32 [ %.0164234, %176 ], [ %.1, %.loopexit ]
+.loopexit:                                        ; preds = %.lr.ph225, %493, %176
+  %.1178 = phi i32 [ %.0177226, %176 ], [ %497, %493 ], [ %497, %.lr.ph225 ]
+  %.1176 = phi i32 [ %.0175227, %176 ], [ %496, %493 ], [ %496, %.lr.ph225 ]
+  %.1174 = phi i32 [ %.0173228, %176 ], [ %495, %493 ], [ %495, %.lr.ph225 ]
+  %.1172 = phi i32 [ %.0171229, %176 ], [ %498, %493 ], [ %498, %.lr.ph225 ]
+  %.1170 = phi i32 [ %.0169230, %176 ], [ %494, %493 ], [ %494, %.lr.ph225 ]
+  %.3 = phi i32 [ %.0164234, %176 ], [ %.1, %493 ], [ %.1, %.lr.ph225 ]
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next249, 591
-  br i1 %exitcond.not, label %508, label %176, !llvm.loop !28
+  br i1 %exitcond.not, label %507, label %176, !llvm.loop !28
 
-508:                                              ; preds = %507
+507:                                              ; preds = %.loopexit
   ret void
 }
 

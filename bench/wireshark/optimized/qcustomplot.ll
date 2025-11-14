@@ -260635,30 +260635,30 @@ define linkonce_odr { ptr, ptr } @_ZNK8QMapDataISt8multimapIiSt4pairIP20QCPAbstr
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not25 = icmp eq ptr %14, %1
   br i1 %.not25, label %.preheader24, label %.lr.ph
 
 .preheader24:                                     ; preds = %.lr.ph, %3
-  %.sroa.05.0.lcssa = phi ptr [ %14, %3 ], [ %17, %.lr.ph ]
-  %.sroa.4.0.lcssa = phi ptr [ %7, %3 ], [ %16, %.lr.ph ]
+  %.sroa.05.0.lcssa = phi ptr [ %14, %3 ], [ %18, %.lr.ph ]
+  %.sroa.4.0.lcssa = phi ptr [ %7, %3 ], [ %17, %.lr.ph ]
   %.not2128 = icmp eq ptr %.sroa.05.0.lcssa, %2
   br i1 %.not2128, label %.preheader, label %.lr.ph30
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.05.026 = phi ptr [ %17, %.lr.ph ], [ %14, %3 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.05.026, i64 32
+  %.sroa.05.026 = phi ptr [ %18, %.lr.ph ], [ %14, %3 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.05.026, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %12, ptr %5, align 8
-  %16 = call ptr @_ZNSt8_Rb_treeIiSt4pairIKiS0_IP20QCPAbstractPlottable16QCPDataSelectionEESt10_Select1stIS6_ESt4lessIiESaIS6_EE16_M_insert_equal_IRKS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable_or_null(48) %12, ptr nonnull %7, ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %17 = call ptr @_ZNSt8_Rb_treeIiSt4pairIKiS0_IP20QCPAbstractPlottable16QCPDataSelectionEESt10_Select1stIS6_ESt4lessIiESaIS6_EE16_M_insert_equal_IRKS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable_or_null(48) %12, ptr nonnull %7, ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %17 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.05.026) #58
-  %.not = icmp eq ptr %17, %1
+  %18 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.05.026) #58
+  %.not = icmp eq ptr %18, %1
   br i1 %.not, label %.preheader24, label %.lr.ph, !llvm.loop !1574
 
 .preheader:                                       ; preds = %.lr.ph30, %.preheader24
   %.sroa.05.1.lcssa = phi ptr [ %.sroa.05.0.lcssa, %.preheader24 ], [ %19, %.lr.ph30 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not2232 = icmp eq ptr %.sroa.05.1.lcssa, %18
+  %.not2232 = icmp eq ptr %.sroa.05.1.lcssa, %15
   br i1 %.not2232, label %._crit_edge, label %.lr.ph34
 
 .lr.ph30:                                         ; preds = %.preheader24, %.lr.ph30
@@ -260675,7 +260675,7 @@ define linkonce_odr { ptr, ptr } @_ZNK8QMapDataISt8multimapIiSt4pairIP20QCPAbstr
   %21 = call ptr @_ZNSt8_Rb_treeIiSt4pairIKiS0_IP20QCPAbstractPlottable16QCPDataSelectionEESt10_Select1stIS6_ESt4lessIiESaIS6_EE16_M_insert_equal_IRKS6_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable_or_null(48) %12, ptr nonnull %7, ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.05.233) #58
-  %.not22 = icmp eq ptr %22, %18
+  %.not22 = icmp eq ptr %22, %15
   br i1 %.not22, label %._crit_edge, label %.lr.ph34, !llvm.loop !1576
 
 ._crit_edge:                                      ; preds = %.lr.ph34, %.preheader

@@ -8072,18 +8072,18 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %262, %259, %._crit_
 
 296:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit34.i, %.lr.ph98.i
   %.sroa.070.096.i = phi ptr [ %.sroa.070.094.i, %.lr.ph98.i ], [ %.sroa.070.0.i, %_ZN4llvm5APIntD2Ev.exit34.i ]
+  %297 = getelementptr inbounds i8, ptr %.sroa.070.096.i, i64 -24
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 128, ptr %250, align 8, !tbaa !141
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %10, i64 noundef 0, i1 noundef zeroext false) #30
-  %297 = getelementptr inbounds nuw i8, ptr %.sroa.070.096.i, i64 32
-  %298 = getelementptr inbounds nuw i8, ptr %.sroa.070.096.i, i64 24
-  %.sroa.066.091.i = load ptr, ptr %297, align 8, !tbaa !371
-  %.not8692.i = icmp eq ptr %.sroa.066.091.i, %298
+  %298 = getelementptr inbounds nuw i8, ptr %.sroa.070.096.i, i64 32
+  %299 = getelementptr inbounds nuw i8, ptr %.sroa.070.096.i, i64 24
+  %.sroa.066.091.i = load ptr, ptr %298, align 8, !tbaa !371
+  %.not8692.i = icmp eq ptr %.sroa.066.091.i, %299
   br i1 %.not8692.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %296
-  %299 = getelementptr inbounds i8, ptr %.sroa.070.096.i, i64 -24
-  %300 = call { i64, i8 } @_ZNK4llvm18BlockFrequencyInfo20getBlockProfileCountEPKNS_10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(8) %245, ptr noundef nonnull %299, i1 noundef zeroext false) #30
+  %300 = call { i64, i8 } @_ZNK4llvm18BlockFrequencyInfo20getBlockProfileCountEPKNS_10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(8) %245, ptr noundef nonnull %297, i1 noundef zeroext false) #30
   %301 = extractvalue { i64, i8 } %300, 0
   %302 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntmLEm(ptr noundef nonnull align 8 dereferenceable(12) %10, i64 noundef %301) #30
   %303 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntpLERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(12) %10) #30
@@ -8274,7 +8274,7 @@ _ZN4llvm15isa_and_presentIJNS_11ConstantIntEEPNS_8ConstantEEEbRKT0_.exit.i: ; pr
 .critedge.i:                                      ; preds = %.lr.ph.i.i.i37.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i, %.critedge.sink.split.i, %383, %_ZN4llvm15isa_and_presentIJNS_11ConstantIntEEPNS_8ConstantEEEbRKT0_.exit.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_8ConstantENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupEPKS2_.exit42.i, %350, %_ZN4llvm15isa_and_nonnullIJNS_11ConstantIntEEPNS_8ConstantEEEbRKT0_.exit.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_8ConstantENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6lookupEPKS2_.exit.i, %318, %313
   %409 = getelementptr inbounds nuw i8, ptr %.sroa.066.093.i, i64 8
   %.sroa.066.0.i = load ptr, ptr %409, align 8, !tbaa !371
-  %.not86.i = icmp eq ptr %.sroa.066.0.i, %298
+  %.not86.i = icmp eq ptr %.sroa.066.0.i, %299
   br i1 %.not86.i, label %._crit_edge.i, label %.lr.ph.i
 
 _ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.thread.i.i.i: ; preds = %_ZN4llvm5APIntD2Ev.exit.i

@@ -50,7 +50,6 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nounde
   br label %.lr.ph
 
 .loopexit214:                                     ; preds = %18
-  %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %exitcond254.not = icmp eq i64 %indvars.iv.next252, 3
   br i1 %exitcond254.not, label %23, label %.lr.ph, !llvm.loop !13
@@ -59,6 +58,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nounde
   %indvars.iv251 = phi i64 [ 0, %.preheader216 ], [ %indvars.iv.next252, %.loopexit214 ]
   %indvars.iv245 = phi i64 [ 1, %.preheader216 ], [ %indvars.iv.next246, %.loopexit214 ]
   %.0189225 = phi double [ 0.000000e+00, %.preheader216 ], [ %22, %.loopexit214 ]
+  %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %17 = getelementptr inbounds nuw [4 x double], ptr %0, i64 %indvars.iv251
   br label %18
 

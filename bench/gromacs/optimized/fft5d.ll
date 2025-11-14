@@ -2227,83 +2227,83 @@ define internal fastcc void @_ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t
   %5 = alloca [3 x i32], align 4
   %6 = alloca [3 x i32], align 4
   %7 = alloca [3 x i32], align 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 320
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 304
-  %9 = load i32, ptr %8, align 8, !tbaa !46
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 304
+  %10 = load i32, ptr %9, align 8, !tbaa !46
+  %11 = and i32 %10, 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 140
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 272
-  %13 = and i32 %9, 1
-  %.not.i = icmp eq i32 %13, 0
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 140
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 284
+  %16 = and i32 %10, 1
+  %.not.i = icmp eq i32 %16, 0
   %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.6 = select i1 %.not.i, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.6
   %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.4.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.7 = select i1 %.not.i, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.4, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.7
   %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.5.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.8 = select i1 %.not.i, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.5, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.8
-  %14 = zext nneg i32 %2 to i64
-  %switch.gep67 = getelementptr inbounds nuw i32, ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.6, i64 %14
+  %17 = zext nneg i32 %2 to i64
+  %switch.gep67 = getelementptr inbounds nuw i32, ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.6, i64 %17
   %switch.load68 = load i32, ptr %switch.gep67, align 4
-  %15 = zext nneg i32 %2 to i64
-  %switch.gep69 = getelementptr inbounds nuw i32, ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.4.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.7, i64 %15
+  %18 = zext nneg i32 %2 to i64
+  %switch.gep69 = getelementptr inbounds nuw i32, ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.4.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.7, i64 %18
   %switch.load70 = load i32, ptr %switch.gep69, align 4
-  %16 = zext nneg i32 %2 to i64
-  %switch.gep71 = getelementptr inbounds nuw i32, ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.5.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.8, i64 %16
+  %19 = zext nneg i32 %2 to i64
+  %switch.gep71 = getelementptr inbounds nuw i32, ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.5.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.8, i64 %19
   %switch.load72 = load i32, ptr %switch.gep71, align 4
   store i32 %switch.load68, ptr %5, align 4, !tbaa !4
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %switch.load70, ptr %17, align 4, !tbaa !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %switch.load72, ptr %18, align 4, !tbaa !4
-  %19 = zext nneg i32 %2 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %12, i64 %19
-  %21 = getelementptr inbounds nuw i32, ptr %10, i64 %19
-  %22 = getelementptr inbounds nuw i32, ptr %11, i64 %19
-  br label %23
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 %switch.load70, ptr %20, align 4, !tbaa !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %switch.load72, ptr %21, align 4, !tbaa !4
+  %22 = zext nneg i32 %2 to i64
+  %23 = getelementptr inbounds nuw i32, ptr %14, i64 %22
+  %24 = getelementptr inbounds nuw i32, ptr %12, i64 %22
+  %25 = getelementptr inbounds nuw i32, ptr %13, i64 %22
+  br label %26
 
-23:                                               ; preds = %34, %4
-  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %34 ]
-  %24 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
-  %25 = load i32, ptr %24, align 4, !tbaa !4
-  switch i32 %25, label %34 [
+26:                                               ; preds = %37, %4
+  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %37 ]
+  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %28 = load i32, ptr %27, align 4, !tbaa !4
+  switch i32 %28, label %37 [
     i32 1, label %.sink.split.i
-    i32 2, label %26
-    i32 3, label %28
+    i32 2, label %29
+    i32 3, label %31
   ]
 
-26:                                               ; preds = %23
-  %27 = load i32, ptr %20, align 4, !tbaa !4
+29:                                               ; preds = %26
+  %30 = load i32, ptr %23, align 4, !tbaa !4
   br label %.sink.split.i
 
-28:                                               ; preds = %23
-  %29 = load i32, ptr %20, align 4, !tbaa !4
-  %30 = load i32, ptr %21, align 4, !tbaa !4
-  %31 = mul nsw i32 %30, %29
+31:                                               ; preds = %26
+  %32 = load i32, ptr %23, align 4, !tbaa !4
+  %33 = load i32, ptr %24, align 4, !tbaa !4
+  %34 = mul nsw i32 %33, %32
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %23, %28, %26
-  %.sink = phi i32 [ %31, %28 ], [ %27, %26 ], [ %25, %23 ]
-  %.sink91.in.i = phi ptr [ %22, %28 ], [ %21, %26 ], [ %20, %23 ]
-  %32 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
-  store i32 %.sink, ptr %32, align 4, !tbaa !4
+.sink.split.i:                                    ; preds = %26, %31, %29
+  %.sink = phi i32 [ %34, %31 ], [ %30, %29 ], [ %28, %26 ]
+  %.sink91.in.i = phi ptr [ %25, %31 ], [ %24, %29 ], [ %23, %26 ]
+  %35 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  store i32 %.sink, ptr %35, align 4, !tbaa !4
   %.sink91.i = load i32, ptr %.sink91.in.i, align 4, !tbaa !4
-  %33 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
-  store i32 %.sink91.i, ptr %33, align 4, !tbaa !4
-  br label %34
+  %36 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  store i32 %.sink91.i, ptr %36, align 4, !tbaa !4
+  br label %37
 
-34:                                               ; preds = %.sink.split.i, %23
+37:                                               ; preds = %.sink.split.i, %26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %35, label %23, !llvm.loop !97
+  br i1 %exitcond.not.i, label %38, label %26, !llvm.loop !97
 
-35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 320
-  %37 = and i32 %9, 4
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 284
-  %39 = and i32 %9, 2
+38:                                               ; preds = %37
+  %39 = and i32 %10, 2
   %.not74.i = icmp eq i32 %39, 0
   br i1 %.not74.i, label %52, label %40
 
-40:                                               ; preds = %35
+40:                                               ; preds = %38
   %41 = load i32, ptr %6, align 4, !tbaa !4
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !4
@@ -2331,8 +2331,8 @@ define internal fastcc void @_ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t
   store i32 %48, ptr %49, align 4, !tbaa !4
   br label %52
 
-52:                                               ; preds = %51, %40, %35
-  %.not76.i = icmp eq i32 %37, 0
+52:                                               ; preds = %51, %40, %38
+  %.not76.i = icmp eq i32 %11, 0
   br i1 %.not76.i, label %_ZL15compute_offsetsP12fft5d_plan_tPiS1_S1_S1_i.exit, label %53
 
 53:                                               ; preds = %52
@@ -2347,7 +2347,7 @@ define internal fastcc void @_ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t
   br i1 %or.cond3.i, label %58, label %_ZL15compute_offsetsP12fft5d_plan_tPiS1_S1_S1_i.exit
 
 58:                                               ; preds = %55, %53
-  %59 = getelementptr inbounds nuw i32, ptr %38, i64 %19
+  %59 = getelementptr inbounds nuw i32, ptr %15, i64 %22
   %60 = load i32, ptr %59, align 4, !tbaa !4
   store i32 %60, ptr %7, align 4, !tbaa !4
   br label %_ZL15compute_offsetsP12fft5d_plan_tPiS1_S1_S1_i.exit
@@ -2355,7 +2355,7 @@ define internal fastcc void @_ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t
 _ZL15compute_offsetsP12fft5d_plan_tPiS1_S1_S1_i.exit: ; preds = %52, %55, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %61 = load ptr, ptr @debug, align 8, !tbaa !11
-  %62 = load i32, ptr %36, align 4, !tbaa !4
+  %62 = load i32, ptr %8, align 4, !tbaa !4
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 324
   %64 = load i32, ptr %63, align 4, !tbaa !4
   %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef %1, i32 noundef %62, i32 noundef %64) #12
@@ -2377,7 +2377,7 @@ _ZL15compute_offsetsP12fft5d_plan_tPiS1_S1_S1_i.exit: ; preds = %52, %55, %58
   %76 = load i32, ptr %75, align 4
   %factor.op.mul39 = shl i32 %76, 1
   %77 = load i32, ptr %6, align 4
-  %.lobit = lshr exact i32 %37, 2
+  %.lobit = lshr exact i32 %11, 2
   %78 = xor i32 %.lobit, 1
   br i1 %71, label %.preheader31.lr.ph.split.us, label %._crit_edge
 
@@ -2393,7 +2393,7 @@ _ZL15compute_offsetsP12fft5d_plan_tPiS1_S1_S1_i.exit: ; preds = %52, %55, %58
 .preheader.lr.ph.us.us.us:                        ; preds = %._crit_edge.us.us.us, %.preheader31.us.us
   %.02337.us.us.us = phi i32 [ 0, %.preheader31.us.us ], [ %101, %._crit_edge.us.us.us ]
   %80 = load ptr, ptr @debug, align 8, !tbaa !11
-  %81 = load i32, ptr %36, align 4, !tbaa !4
+  %81 = load i32, ptr %8, align 4, !tbaa !4
   %82 = load i32, ptr %63, align 4, !tbaa !4
   %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.15, i32 noundef %81, i32 noundef %82) #12
   %factor.op.mul34.reass.us.us.us = mul i32 %.02337.us.us.us, %factor.op.mul39
@@ -2418,7 +2418,7 @@ _ZL15compute_offsetsP12fft5d_plan_tPiS1_S1_S1_i.exit: ; preds = %52, %55, %58
   %94 = fpext float %93 to double
   %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.16, double noundef %94) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %96 = or i32 %37, %90
+  %96 = or i32 %11, %90
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %88, label %85, !llvm.loop !101
 
@@ -2448,7 +2448,7 @@ _ZL15compute_offsetsP12fft5d_plan_tPiS1_S1_S1_i.exit: ; preds = %52, %55, %58
 103:                                              ; preds = %.preheader31.us, %103
   %.02337.us42 = phi i32 [ 0, %.preheader31.us ], [ %109, %103 ]
   %104 = load ptr, ptr @debug, align 8, !tbaa !11
-  %105 = load i32, ptr %36, align 4, !tbaa !4
+  %105 = load i32, ptr %8, align 4, !tbaa !4
   %106 = load i32, ptr %63, align 4, !tbaa !4
   %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.15, i32 noundef %105, i32 noundef %106) #12
   %108 = load ptr, ptr @debug, align 8, !tbaa !11

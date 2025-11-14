@@ -2210,29 +2210,29 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i: ; preds = %33, %_ZNK20btAli
   %51 = fdiv float %48, %50
   %52 = fmul float %45, %51
   %53 = fneg float %47
-  %54 = tail call float @llvm.fmuladd.f32(float %53, float %52, float 1.000000e+00)
-  %55 = fmul float %47, %52
-  %56 = tail call float @llvm.fmuladd.f32(float %55, float %45, float %53)
-  %57 = fneg float %45
+  %54 = fmul float %47, %53
+  %55 = tail call float @llvm.fmuladd.f32(float %54, float %51, float 1.000000e+00)
+  %56 = tail call float @llvm.fmuladd.f32(float %53, float %52, float 1.000000e+00)
+  %57 = fmul float %47, %52
+  %58 = tail call float @llvm.fmuladd.f32(float %57, float %45, float %53)
+  %59 = fneg float %45
   %wide.trip.count164 = zext nneg i32 %3 to i64
   br label %66
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %58 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %59 = load float, ptr %58, align 4, !tbaa !4
-  %60 = fmul float %59, 0x3FE6A09E60000000
-  %61 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv
-  store float %60, ptr %61, align 4, !tbaa !4
-  %62 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv
-  store float %60, ptr %62, align 4, !tbaa !4
+  %60 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %61 = load float, ptr %60, align 4, !tbaa !4
+  %62 = fmul float %61, 0x3FE6A09E60000000
+  %63 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv
+  store float %62, ptr %63, align 4, !tbaa !4
+  %64 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv
+  store float %62, ptr %64, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph148, label %.lr.ph, !llvm.loop !88
 
 .lr.ph158.preheader:                              ; preds = %66
-  %63 = fmul float %47, %53
-  %64 = tail call float @llvm.fmuladd.f32(float %63, float %51, float 1.000000e+00)
   %65 = zext nneg i32 %3 to i64
   %wide.trip.count177 = zext nneg i32 %3 to i64
   %wide.trip.count171 = zext nneg i32 %3 to i64
@@ -2245,10 +2245,10 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i: ; preds = %33, %_ZNK20btAli
   %67 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv160
   %68 = load float, ptr %67, align 4, !tbaa !4
   %69 = load float, ptr %.0137, align 4, !tbaa !4
-  %70 = tail call float @llvm.fmuladd.f32(float %57, float %69, float %68)
+  %70 = tail call float @llvm.fmuladd.f32(float %59, float %69, float %68)
   store float %70, ptr %67, align 4, !tbaa !4
-  %71 = fmul float %56, %69
-  %72 = tail call float @llvm.fmuladd.f32(float %54, float %68, float %71)
+  %71 = fmul float %58, %69
+  %72 = tail call float @llvm.fmuladd.f32(float %56, float %68, float %71)
   %73 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv160
   store float %72, ptr %73, align 4, !tbaa !4
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
@@ -2265,7 +2265,7 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i: ; preds = %33, %_ZNK20btAli
   %indvars.iv166 = phi i64 [ 2, %.lr.ph158.preheader ], [ %indvars.iv.next167, %.loopexit ]
   %.0139157.pn = phi ptr [ %0, %.lr.ph158.preheader ], [ %.0139157, %.loopexit ]
   %.0133156 = phi float [ %50, %.lr.ph158.preheader ], [ %81, %.loopexit ]
-  %.0136155 = phi float [ %64, %.lr.ph158.preheader ], [ %87, %.loopexit ]
+  %.0136155 = phi float [ %55, %.lr.ph158.preheader ], [ %87, %.loopexit ]
   %.pn = getelementptr float, ptr %.0139157.pn, i64 %41
   %.0139157 = getelementptr i8, ptr %.pn, i64 4
   %74 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv173

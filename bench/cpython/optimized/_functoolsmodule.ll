@@ -3569,17 +3569,17 @@ _PyObject_VectorcallTstate.exit116:               ; preds = %_PyVectorcall_Funct
   br i1 %.not105, label %101, label %78
 
 78:                                               ; preds = %77
-  %79 = icmp sgt i64 %.val, 0
-  br i1 %79, label %.lr.ph, label %._crit_edge
+  %79 = sub i64 %8, %16
+  %80 = add i64 %79, %.val
+  %81 = icmp sgt i64 %.val, 0
+  br i1 %81, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %78
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %84
 
 ._crit_edge:                                      ; preds = %93, %78
   %.089.lcssa = phi i64 [ 0, %78 ], [ %.190, %93 ]
-  %81 = sub i64 %8, %16
-  %82 = add i64 %81, %.val
   %83 = icmp sgt i64 %.093, %16
   br i1 %83, label %96, label %106
 
@@ -3588,7 +3588,7 @@ _PyObject_VectorcallTstate.exit116:               ; preds = %_PyVectorcall_Funct
   %.089125 = phi i64 [ 0, %.lr.ph ], [ %.190, %93 ]
   %85 = getelementptr ptr, ptr %28, i64 %.088126
   %86 = load ptr, ptr %85, align 8, !tbaa !20
-  %87 = load ptr, ptr %80, align 8, !tbaa !136
+  %87 = load ptr, ptr %82, align 8, !tbaa !136
   %88 = icmp eq ptr %86, %87
   br i1 %88, label %89, label %93
 
@@ -3625,7 +3625,7 @@ _PyObject_VectorcallTstate.exit116:               ; preds = %_PyVectorcall_Funct
   br label %106
 
 106:                                              ; preds = %._crit_edge, %96, %101
-  %.091 = phi i64 [ %102, %101 ], [ %82, %96 ], [ %82, %._crit_edge ]
+  %.091 = phi i64 [ %102, %101 ], [ %80, %96 ], [ %80, %._crit_edge ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %108 = load ptr, ptr %107, align 8, !tbaa !134
   %109 = getelementptr i8, ptr %108, i64 8

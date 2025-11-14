@@ -778,8 +778,8 @@ _ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.
   %11 = getelementptr inbounds nuw %"struct.zxing::BINARIZER_BLOCK", ptr %10, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %11, ptr %12, align 8, !tbaa !34
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %9
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %10, i8 0, i64 %9, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc11, %_ZNSt6vectorIN5zxing15BINARIZER_BLOCKESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i

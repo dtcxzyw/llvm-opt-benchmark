@@ -2291,32 +2291,32 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_get_group(ptr no
   br i1 %25, label %.loopexit, label %.thread60
 
 .thread60:                                        ; preds = %16, %24
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %27, align 8
-  %.not5770 = icmp eq ptr %28, null
+  %26 = load ptr, ptr %3, align 8
+  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #26
+  %28 = add i64 %27, 1
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr %30, align 8
+  %.not5770 = icmp eq ptr %31, null
   br i1 %.not5770, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread60, %.lr.ph
-  %29 = phi ptr [ %35, %.lr.ph ], [ %28, %.thread60 ]
-  %.04772 = phi i64 [ %32, %.lr.ph ], [ 8, %.thread60 ]
-  %.04871 = phi i64 [ %33, %.lr.ph ], [ 0, %.thread60 ]
-  %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #26
-  %31 = add i64 %.04772, 9
-  %32 = add i64 %31, %30
-  %33 = add nuw nsw i64 %.04871, 1
-  %34 = getelementptr inbounds nuw ptr, ptr %27, i64 %33
-  %35 = load ptr, ptr %34, align 8
-  %.not57 = icmp eq ptr %35, null
+  %32 = phi ptr [ %38, %.lr.ph ], [ %31, %.thread60 ]
+  %.04772 = phi i64 [ %35, %.lr.ph ], [ 8, %.thread60 ]
+  %.04871 = phi i64 [ %36, %.lr.ph ], [ 0, %.thread60 ]
+  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #26
+  %34 = add i64 %.04772, 9
+  %35 = add i64 %34, %33
+  %36 = add nuw nsw i64 %.04871, 1
+  %37 = getelementptr inbounds nuw ptr, ptr %30, i64 %36
+  %38 = load ptr, ptr %37, align 8
+  %.not57 = icmp eq ptr %38, null
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread60
-  %.048.lcssa = phi i64 [ 0, %.thread60 ], [ %33, %.lr.ph ]
-  %.047.lcssa = phi i64 [ 8, %.thread60 ], [ %32, %.lr.ph ]
-  %36 = load ptr, ptr %3, align 8
-  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #26
-  %38 = add i64 %37, 1
-  %39 = add i64 %.047.lcssa, %38
+  %.048.lcssa = phi i64 [ 0, %.thread60 ], [ %36, %.lr.ph ]
+  %.047.lcssa = phi i64 [ 8, %.thread60 ], [ %35, %.lr.ph ]
+  %39 = add i64 %.047.lcssa, %28
   %40 = call ptr @uv__malloc(i64 noundef %39) #24
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
@@ -2342,7 +2342,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_get_group(ptr no
   %49 = load ptr, ptr %44, align 8
   %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
   store ptr %.05175, ptr %50, align 8
-  %51 = load ptr, ptr %26, align 8
+  %51 = load ptr, ptr %29, align 8
   %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8
   %54 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.05175, ptr noundef nonnull dereferenceable(1) %53) #24
@@ -2357,7 +2357,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_get_group(ptr no
   %.051.lcssa = phi ptr [ %48, %43 ], [ %57, %.lr.ph78 ]
   store ptr %.051.lcssa, ptr %0, align 8
   %58 = load ptr, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.051.lcssa, ptr align 1 %58, i64 %38, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.051.lcssa, ptr align 1 %58, i64 %28, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64

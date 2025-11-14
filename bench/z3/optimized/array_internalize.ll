@@ -2053,7 +2053,7 @@ _ZNK3euf13enode_parents3endEv.exit:               ; preds = %_ZNK17array_recogni
   br i1 %.not97.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK3euf13enode_parents3endEv.exit, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit"
-  %.039101 = phi ptr [ %97, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit" ], [ %29, %_ZNK3euf13enode_parents3endEv.exit ]
+  %.039101 = phi ptr [ %93, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit" ], [ %29, %_ZNK3euf13enode_parents3endEv.exit ]
   %.073100 = phi i8 [ %.1, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit" ], [ 0, %_ZNK3euf13enode_parents3endEv.exit ]
   %.07499 = phi i8 [ %.276, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit" ], [ 0, %_ZNK3euf13enode_parents3endEv.exit ]
   %.07898 = phi i8 [ %.179, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit" ], [ 0, %_ZNK3euf13enode_parents3endEv.exit ]
@@ -2086,53 +2086,53 @@ _ZNK17array_recognizers8is_storeEP4expr.exit:     ; preds = %44
 
 "_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit": ; preds = %_ZNK17array_recognizers8is_storeEP4expr.exit
   %55 = getelementptr inbounds nuw i8, ptr %36, i64 176
-  %56 = add i32 %39, -1
-  %57 = icmp ugt i32 %56, 1
-  %wide.trip.count = zext i32 %56 to i64
-  br i1 %57, label %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit", label %._crit_edge
+  %56 = load ptr, ptr %55, align 8, !tbaa !85
+  %57 = getelementptr i8, ptr %56, i64 64
+  %.val43 = load ptr, ptr %57, align 8, !tbaa !207
+  %58 = icmp eq ptr %.val43, %9
+  %spec.select85 = select i1 %58, i8 1, i8 %.073100
+  %59 = add i32 %39, -1
+  %60 = icmp ugt i32 %59, 1
+  %wide.trip.count = zext i32 %59 to i64
+  br i1 %60, label %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit", label %._crit_edge
 
 ._crit_edge:                                      ; preds = %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit", %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit"
   %.175.lcssa = phi i8 [ %.07499, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit" ], [ %spec.select87, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit" ]
-  %58 = load ptr, ptr %55, align 8, !tbaa !85
-  %59 = getelementptr i8, ptr %58, i64 64
-  %.val43 = load ptr, ptr %59, align 8, !tbaa !207
-  %60 = icmp eq ptr %.val43, %9
-  %spec.select85 = select i1 %60, i8 1, i8 %.073100
   %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %wide.trip.count
-  %62 = load ptr, ptr %61, align 8, !tbaa !85
-  %63 = getelementptr i8, ptr %62, i64 64
-  %.val49 = load ptr, ptr %63, align 8, !tbaa !207
-  %64 = icmp eq ptr %.val49, %9
-  %spec.select86 = select i1 %64, i8 1, i8 %.07898
-  br label %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit"
+  br label %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.sink.split"
 
 "_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit": ; preds = %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit", %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit"
   %indvars.iv = phi i64 [ %indvars.iv.next, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit" ], [ 1, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit" ]
   %.17591 = phi i8 [ %spec.select87, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit" ], [ %.07499, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit" ]
-  %65 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
-  %66 = load ptr, ptr %65, align 8, !tbaa !85
-  %67 = getelementptr i8, ptr %66, i64 64
-  %.val55 = load ptr, ptr %67, align 8, !tbaa !207
-  %68 = icmp eq ptr %.val55, %9
-  %spec.select87 = select i1 %68, i8 1, i8 %.17591
+  %62 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %63 = load ptr, ptr %62, align 8, !tbaa !85
+  %64 = getelementptr i8, ptr %63, i64 64
+  %.val55 = load ptr, ptr %64, align 8, !tbaa !207
+  %65 = icmp eq ptr %.val55, %9
+  %spec.select87 = select i1 %65, i8 1, i8 %.17591
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit", !llvm.loop !208
 
 _ZNK17array_recognizers9is_selectEP4expr.exit:    ; preds = %_ZNK17array_recognizers8is_storeEP4expr.exit
-  %69 = load i32, ptr %48, align 8, !tbaa !95
-  %70 = icmp eq i32 %69, %12
-  %71 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %72 = load i32, ptr %71, align 4
-  %73 = icmp eq i32 %72, 1
-  %74 = select i1 %70, i1 %73, i1 false
-  br i1 %74, label %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61", label %_ZNK17array_recognizers8is_constEP4expr.exit
+  %66 = load i32, ptr %48, align 8, !tbaa !95
+  %67 = icmp eq i32 %66, %12
+  %68 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %69 = load i32, ptr %68, align 4
+  %70 = icmp eq i32 %69, 1
+  %71 = select i1 %67, i1 %70, i1 false
+  br i1 %71, label %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61", label %_ZNK17array_recognizers8is_constEP4expr.exit
 
 "_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61": ; preds = %_ZNK17array_recognizers9is_selectEP4expr.exit
-  %75 = getelementptr inbounds nuw i8, ptr %36, i64 176
+  %72 = getelementptr inbounds nuw i8, ptr %36, i64 176
+  %73 = load ptr, ptr %72, align 8, !tbaa !85
+  %74 = getelementptr i8, ptr %73, i64 64
+  %.val46 = load ptr, ptr %74, align 8, !tbaa !207
+  %75 = icmp eq ptr %.val46, %9
+  %spec.select88 = select i1 %75, i8 1, i8 %.073100
   %76 = add i32 %39, -1
   %77 = icmp ugt i32 %76, 1
-  br i1 %77, label %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62.preheader", label %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.loopexit"
+  br i1 %77, label %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62.preheader", label %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit"
 
 "_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62.preheader": ; preds = %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61"
   %wide.trip.count107 = zext i32 %76 to i64
@@ -2141,7 +2141,7 @@ _ZNK17array_recognizers9is_selectEP4expr.exit:    ; preds = %_ZNK17array_recogni
 "_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62": ; preds = %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62.preheader", %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62"
   %indvars.iv105 = phi i64 [ 1, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62.preheader" ], [ %indvars.iv.next106, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62" ]
   %.37794 = phi i8 [ %.07499, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62.preheader" ], [ %spec.select89, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62" ]
-  %78 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv105
+  %78 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv105
   %79 = load ptr, ptr %78, align 8, !tbaa !85
   %80 = getelementptr i8, ptr %79, i64 64
   %.val58 = load ptr, ptr %80, align 8, !tbaa !207
@@ -2149,7 +2149,7 @@ _ZNK17array_recognizers9is_selectEP4expr.exit:    ; preds = %_ZNK17array_recogni
   %spec.select89 = select i1 %81, i8 1, i8 %.37794
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count107
-  br i1 %exitcond108.not, label %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.loopexit", label %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62", !llvm.loop !209
+  br i1 %exitcond108.not, label %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit", label %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62", !llvm.loop !209
 
 _ZNK17array_recognizers8is_constEP4expr.exit:     ; preds = %_ZNK17array_recognizers9is_selectEP4expr.exit
   %82 = load i32, ptr %48, align 8, !tbaa !95
@@ -2162,36 +2162,33 @@ _ZNK17array_recognizers8is_constEP4expr.exit:     ; preds = %_ZNK17array_recogni
 
 88:                                               ; preds = %_ZNK17array_recognizers8is_constEP4expr.exit
   %89 = getelementptr inbounds nuw i8, ptr %36, i64 176
-  %90 = load ptr, ptr %89, align 8, !tbaa !85
-  %91 = getelementptr i8, ptr %90, i64 64
-  %.val52 = load ptr, ptr %91, align 8, !tbaa !207
-  %92 = icmp eq ptr %.val52, %9
-  %spec.select90 = select i1 %92, i8 1, i8 %.07898
+  br label %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.sink.split"
+
+"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.sink.split": ; preds = %._crit_edge, %88
+  %.sink118.in = phi ptr [ %89, %88 ], [ %61, %._crit_edge ]
+  %.276.ph = phi i8 [ %.07499, %88 ], [ %.175.lcssa, %._crit_edge ]
+  %.1.ph = phi i8 [ %.073100, %88 ], [ %spec.select85, %._crit_edge ]
+  %.sink118 = load ptr, ptr %.sink118.in, align 8, !tbaa !85
+  %90 = getelementptr i8, ptr %.sink118, i64 64
+  %.val52 = load ptr, ptr %90, align 8, !tbaa !207
+  %91 = icmp eq ptr %.val52, %9
+  %spec.select90 = select i1 %91, i8 1, i8 %.07898
   br label %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit"
 
-"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.loopexit": ; preds = %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62", %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61"
-  %.377.lcssa = phi i8 [ %.07499, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61" ], [ %spec.select89, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62" ]
-  %93 = load ptr, ptr %75, align 8, !tbaa !85
-  %94 = getelementptr i8, ptr %93, i64 64
-  %.val46 = load ptr, ptr %94, align 8, !tbaa !207
-  %95 = icmp eq ptr %.val46, %9
-  %spec.select88 = select i1 %95, i8 1, i8 %.073100
-  br label %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit"
-
-"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit": ; preds = %44, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.loopexit", %88, %._crit_edge, %.lr.ph, %_ZNK17array_recognizers8is_constEP4expr.exit
-  %.179 = phi i8 [ %.07898, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %.07898, %.lr.ph ], [ %spec.select86, %._crit_edge ], [ %spec.select90, %88 ], [ %.07898, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.loopexit" ], [ %.07898, %44 ]
-  %.276 = phi i8 [ %.07499, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %.07499, %.lr.ph ], [ %.175.lcssa, %._crit_edge ], [ %.07499, %88 ], [ %.377.lcssa, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.loopexit" ], [ %.07499, %44 ]
-  %.1 = phi i8 [ %.073100, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %.073100, %.lr.ph ], [ %spec.select85, %._crit_edge ], [ %.073100, %88 ], [ %spec.select88, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.loopexit" ], [ %.073100, %44 ]
+"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit": ; preds = %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62", %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.sink.split", %44, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61", %.lr.ph, %_ZNK17array_recognizers8is_constEP4expr.exit
+  %.179 = phi i8 [ %.07898, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %.07898, %.lr.ph ], [ %.07898, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61" ], [ %.07898, %44 ], [ %spec.select90, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.sink.split" ], [ %.07898, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62" ]
+  %.276 = phi i8 [ %.07499, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %.07499, %.lr.ph ], [ %.07499, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61" ], [ %.07499, %44 ], [ %.276.ph, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.sink.split" ], [ %spec.select89, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62" ]
+  %.1 = phi i8 [ %.073100, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %.073100, %.lr.ph ], [ %spec.select88, %"_ZZNK5array6solver9is_sharedEiENK3$_0clEPN3euf5enodeE.exit61" ], [ %.073100, %44 ], [ %.1.ph, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit.sink.split" ], [ %spec.select88, %"_ZZNK5array6solver9is_sharedEiENK3$_1clEPN3euf5enodeE.exit62" ]
   %narrow = add nuw nsw i8 %.276, %.179
   %narrow41 = add nuw nsw i8 %narrow, %.1
-  %96 = icmp ugt i8 %narrow41, 1
-  %97 = getelementptr inbounds nuw i8, ptr %.039101, i64 8
-  %.not.not = icmp eq ptr %97, %35
-  %or.cond = select i1 %96, i1 true, i1 %.not.not
+  %92 = icmp ugt i8 %narrow41, 1
+  %93 = getelementptr inbounds nuw i8, ptr %.039101, i64 8
+  %.not.not = icmp eq ptr %93, %35
+  %or.cond = select i1 %92, i1 true, i1 %.not.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit", %_ZNK17array_recognizers6is_extEP4expr.exit.thread, %_ZNK3euf13enode_parents3endEv.exit, %_ZNK17array_recognizers6is_extEP4expr.exit
-  %.036 = phi i1 [ true, %_ZNK17array_recognizers6is_extEP4expr.exit ], [ false, %_ZNK3euf13enode_parents3endEv.exit ], [ false, %_ZNK17array_recognizers6is_extEP4expr.exit.thread ], [ %96, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit" ]
+  %.036 = phi i1 [ true, %_ZNK17array_recognizers6is_extEP4expr.exit ], [ false, %_ZNK3euf13enode_parents3endEv.exit ], [ false, %_ZNK17array_recognizers6is_extEP4expr.exit.thread ], [ %92, %"_ZZNK5array6solver9is_sharedEiENK3$_2clEPN3euf5enodeE.exit" ]
   ret i1 %.036
 }
 

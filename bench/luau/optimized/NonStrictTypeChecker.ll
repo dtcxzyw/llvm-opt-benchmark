@@ -16819,31 +16819,31 @@ _ZN4Luau3getINS_12FreeTypePackEEEPKT_PKNS_11TypePackVarE.exit: ; preds = %13
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !443
   %50 = icmp eq ptr %49, %38
-  br i1 %50, label %.lr.ph.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i12.i.preheader
-
-.lr.ph.i.i.i.i12.i.preheader:                     ; preds = %47
-  store ptr %28, ptr %38, align 8, !tbaa !236
-  %51 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %.not.i.i22 = icmp eq ptr %49, %51
-  br i1 %.not.i.i22, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE14_M_fill_assignEmRKS3_.exit, label %54
+  br i1 %50, label %.lr.ph.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i12.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %47, %.lr.ph.i.i.i.i.i.i.i.i
-  %.07.i.i.i.i.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i.i.i.i.i ], [ %49, %47 ]
+  %.07.i.i.i.i.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i.i.i.i.i ], [ %49, %47 ]
   store ptr %28, ptr %.07.i.i.i.i.i.i.i.i, align 8, !tbaa !236
-  %52 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i.i, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.07.i.i.i.i.i.i.i.i, %38
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPPKN4Luau4TypeEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !672
 
 _ZSt24__uninitialized_fill_n_aIPPKN4Luau4TypeEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %53 = getelementptr i8, ptr %49, i64 8
+  %52 = getelementptr i8, ptr %49, i64 8
+  store ptr %52, ptr %48, align 8, !tbaa !443
+  br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE14_M_fill_assignEmRKS3_.exit
+
+.lr.ph.i.i.i.i12.i:                               ; preds = %47
+  store ptr %28, ptr %38, align 8, !tbaa !236
+  %53 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %.not.i.i22 = icmp eq ptr %49, %53
+  br i1 %.not.i.i22, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE14_M_fill_assignEmRKS3_.exit, label %54
+
+54:                                               ; preds = %.lr.ph.i.i.i.i12.i
   store ptr %53, ptr %48, align 8, !tbaa !443
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE14_M_fill_assignEmRKS3_.exit
 
-54:                                               ; preds = %.lr.ph.i.i.i.i12.i.preheader
-  store ptr %51, ptr %48, align 8, !tbaa !443
-  br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE14_M_fill_assignEmRKS3_.exit
-
-_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE14_M_fill_assignEmRKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %46, %_ZSt24__uninitialized_fill_n_aIPPKN4Luau4TypeEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit.i, %.lr.ph.i.i.i.i12.i.preheader, %54
+_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE14_M_fill_assignEmRKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %46, %_ZSt24__uninitialized_fill_n_aIPPKN4Luau4TypeEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit.i, %.lr.ph.i.i.i.i12.i, %54
   %55 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %33, ptr %55, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 32

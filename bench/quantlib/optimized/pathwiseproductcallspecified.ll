@@ -1415,9 +1415,9 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorImSaImE
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad269
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.end.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i308, i64 %mul.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i308, i8 0, i64 %mul.i.i.i.i.i.i, i1 false), !tbaa !79
   %add.ptr.i.i.i303 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i308, i64 %call8
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i308, i64 %mul.i.i.i.i.i.i
   br label %invoke.cont270
 
 invoke.cont270:                                   ; preds = %call5.i.i.i.i2.i.i.noexc, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
@@ -1492,8 +1492,8 @@ if.then.i.i.i.i577:                               ; preds = %if.then.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i577
   %add.ptr.idx.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i578, i64 %add.ptr.idx.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i578, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i, i1 false), !tbaa !52
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i578, i64 %add.ptr.idx.i.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i577

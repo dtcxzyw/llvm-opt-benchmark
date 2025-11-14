@@ -586,37 +586,37 @@ define internal fastcc void @_ZL10b3BottomUpP12b3DynamicBvhPP10b3DbvtNodei(ptr n
 _ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodePv.exit.i: ; preds = %18, %17
   %.0.i.i = phi ptr [ %16, %17 ], [ %19, %18 ]
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
-  %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  br label %24
+  br label %25
 
-24:                                               ; preds = %24, %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodePv.exit.i
-  %indvars.iv.i.i = phi i64 [ 0, %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodePv.exit.i ], [ %indvars.iv.next.i.i, %24 ]
-  %25 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i.i
-  %26 = load float, ptr %25, align 4, !tbaa !42
-  %27 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i
-  %28 = load float, ptr %27, align 4, !tbaa !42
-  %29 = fcmp olt float %26, %28
-  %.sink.i.i = select i1 %29, float %26, float %28
-  %30 = getelementptr inbounds nuw float, ptr %.0.i.i, i64 %indvars.iv.i.i
-  store float %.sink.i.i, ptr %30, align 4, !tbaa !42
-  %31 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i.i
-  %32 = load float, ptr %31, align 4, !tbaa !42
-  %33 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv.i.i
-  %34 = load float, ptr %33, align 4, !tbaa !42
-  %35 = fcmp ogt float %32, %34
-  %.sink30.i.i = select i1 %35, float %32, float %34
-  %36 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i.i
-  store float %.sink30.i.i, ptr %36, align 4, !tbaa !42
+25:                                               ; preds = %25, %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodePv.exit.i
+  %indvars.iv.i.i = phi i64 [ 0, %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodePv.exit.i ], [ %indvars.iv.next.i.i, %25 ]
+  %26 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i.i
+  %27 = load float, ptr %26, align 4, !tbaa !42
+  %28 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i
+  %29 = load float, ptr %28, align 4, !tbaa !42
+  %30 = fcmp olt float %27, %29
+  %.sink.i.i = select i1 %30, float %27, float %29
+  %31 = getelementptr inbounds nuw float, ptr %.0.i.i, i64 %indvars.iv.i.i
+  store float %.sink.i.i, ptr %31, align 4, !tbaa !42
+  %32 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv.i.i
+  %33 = load float, ptr %32, align 4, !tbaa !42
+  %34 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i.i
+  %35 = load float, ptr %34, align 4, !tbaa !42
+  %36 = fcmp ogt float %33, %35
+  %.sink30.i.i = select i1 %36, float %33, float %35
+  %37 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv.i.i
+  store float %.sink30.i.i, ptr %37, align 4, !tbaa !42
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmS5_Pv.exit, label %24, !llvm.loop !44
+  br i1 %exitcond.not.i.i, label %_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmS5_Pv.exit, label %25, !llvm.loop !44
 
-_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmS5_Pv.exit: ; preds = %24
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
-  store ptr %12, ptr %37, align 8, !tbaa !31
+_ZL12b3CreateNodeP12b3DynamicBvhP10b3DbvtNodeRK12b3DbvtAabbMmS5_Pv.exit: ; preds = %25
+  store ptr %12, ptr %21, align 8, !tbaa !31
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   store ptr %15, ptr %38, align 8, !tbaa !31
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 32

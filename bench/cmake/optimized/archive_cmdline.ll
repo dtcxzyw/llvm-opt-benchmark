@@ -9,23 +9,20 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i32 -30, 1) i32 @__archive_cmdline_parse(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.archive_string, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  br label %4
+  br label %5
 
-4:                                                ; preds = %4, %2
-  %.028.i = phi ptr [ %1, %2 ], [ %6, %4 ]
-  %5 = load i8, ptr %.028.i, align 1, !tbaa !4
-  %cond.i = icmp eq i8 %5, 32
-  %6 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
-  br i1 %cond.i, label %4, label %.critedge.i.preheader, !llvm.loop !7
+5:                                                ; preds = %5, %2
+  %.028.i = phi ptr [ %1, %2 ], [ %7, %5 ]
+  %6 = load i8, ptr %.028.i, align 1, !tbaa !4
+  %cond.i = icmp eq i8 %6, 32
+  %7 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
+  br i1 %cond.i, label %5, label %.critedge.i, !llvm.loop !7
 
-.critedge.i.preheader:                            ; preds = %4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %.critedge.i
-
-.critedge.i:                                      ; preds = %.critedge.i.preheader, %28
-  %8 = phi i8 [ %.pr.i, %28 ], [ %5, %.critedge.i.preheader ]
-  %.129.i = phi ptr [ %.331.i, %28 ], [ %.028.i, %.critedge.i.preheader ]
+.critedge.i:                                      ; preds = %5, %28
+  %8 = phi i8 [ %.pr.i, %28 ], [ %6, %5 ]
+  %.129.i = phi ptr [ %.331.i, %28 ], [ %.028.i, %5 ]
   switch i8 %8, label %.sink.split.i [
     i8 0, label %get_argument.exit
     i8 32, label %get_argument.exit
@@ -101,7 +98,7 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   %31 = ptrtoint ptr %1 to i64
   %32 = sub i64 %30, %31
   %33 = icmp slt i64 %32, 0
-  %34 = load i64, ptr %7, align 8
+  %34 = load i64, ptr %4, align 8
   %35 = icmp eq i64 %34, 0
   %or.cond = select i1 %33, i1 true, i1 %35
   br i1 %or.cond, label %cmdline_set_path.exit, label %36
@@ -155,7 +152,7 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
 
 69:                                               ; preds = %cmdline_add_arg.exit57, %64
   %.020 = phi ptr [ %68, %64 ], [ %102, %cmdline_add_arg.exit57 ]
-  store i64 0, ptr %7, align 8, !tbaa !23
+  store i64 0, ptr %4, align 8, !tbaa !23
   br label %70
 
 70:                                               ; preds = %70, %69
@@ -251,7 +248,7 @@ get_argument.exit55:                              ; preds = %.critedge.i33, %.cr
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %.020, i64 %97
-  %103 = load i64, ptr %7, align 8, !tbaa !23
+  %103 = load i64, ptr %4, align 8, !tbaa !23
   %104 = icmp eq i64 %103, 0
   br i1 %104, label %105, label %108
 

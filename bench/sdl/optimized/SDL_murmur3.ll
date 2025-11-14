@@ -61,21 +61,21 @@ define hidden i32 @SDL_murmur3_32_REAL(ptr noundef %0, i64 noundef %1, i32 nound
   %32 = mul i32 %31, 5
   %33 = add i32 %32, -430675100
   %.not = icmp eq i64 %23, 0
-  br i1 %.not, label %.loopexit.loopexit75, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %.loopexit.loopexit69, label %.lr.ph, !llvm.loop !5
 
 .loopexit.loopexit:                               ; preds = %.lr.ph64
   %34 = and i64 %1, -4
   %scevgep74 = getelementptr i8, ptr %0, i64 %34
   br label %.loopexit
 
-.loopexit.loopexit75:                             ; preds = %.lr.ph
+.loopexit.loopexit69:                             ; preds = %.lr.ph
   %35 = and i64 %1, -4
   %scevgep = getelementptr i8, ptr %0, i64 %35
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit75, %.loopexit.loopexit, %21, %7
-  %.148 = phi i32 [ %2, %7 ], [ %2, %21 ], [ %20, %.loopexit.loopexit ], [ %33, %.loopexit.loopexit75 ]
-  %.1 = phi ptr [ %0, %7 ], [ %0, %21 ], [ %scevgep74, %.loopexit.loopexit ], [ %scevgep, %.loopexit.loopexit75 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit69, %.loopexit.loopexit, %21, %7
+  %.148 = phi i32 [ %2, %7 ], [ %2, %21 ], [ %20, %.loopexit.loopexit ], [ %33, %.loopexit.loopexit69 ]
+  %.1 = phi ptr [ %0, %7 ], [ %0, %21 ], [ %scevgep74, %.loopexit.loopexit ], [ %scevgep, %.loopexit.loopexit69 ]
   %36 = and i64 %1, 3
   %.not52 = icmp eq i64 %36, 0
   br i1 %.not52, label %50, label %.preheader

@@ -826,32 +826,32 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit218:          ; preds = %_ZNSt13unordered_ma
   br label %.body
 
 44:                                               ; preds = %_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE5clearEv.exit129
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false)
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !6
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  %48 = load i32, ptr %47, align 8, !tbaa !83
-  %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %.lr.ph, label %._crit_edge
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !6
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  %49 = load i32, ptr %48, align 8, !tbaa !83
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %44
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %51 = load ptr, ptr %50, align 8, !tbaa !84
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %wide.trip.count = zext nneg i32 %48 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %52 = load ptr, ptr %51, align 8, !tbaa !84
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %wide.trip.count = zext nneg i32 %49 to i64
   br label %64
 
 ._crit_edge.loopexit:                             ; preds = %72
-  %53 = sext i32 %.183 to i64
-  %54 = uitofp i64 %53 to double
-  %55 = sext i32 %.185 to i64
-  %56 = uitofp i64 %55 to double
+  %54 = sext i32 %.183 to i64
+  %55 = uitofp i64 %54 to double
+  %56 = sext i32 %.185 to i64
+  %57 = uitofp i64 %56 to double
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %44
-  %.084.lcssa = phi double [ 0.000000e+00, %44 ], [ %56, %._crit_edge.loopexit ]
-  %.082.lcssa = phi double [ 0.000000e+00, %44 ], [ %54, %._crit_edge.loopexit ]
-  %57 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %.084.lcssa = phi double [ 0.000000e+00, %44 ], [ %57, %._crit_edge.loopexit ]
+  %.082.lcssa = phi double [ 0.000000e+00, %44 ], [ %55, %._crit_edge.loopexit ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %59 = load float, ptr %58, align 8, !tbaa !39
   %60 = fpext float %59 to double
@@ -865,7 +865,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit218:          ; preds = %_ZNSt13unordered_ma
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
   %.082260 = phi i32 [ 0, %.lr.ph ], [ %.183, %72 ]
   %.084259 = phi i32 [ 0, %.lr.ph ], [ %.185, %72 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !85
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 60
   %68 = load i32, ptr %67, align 4, !tbaa !86
@@ -901,7 +901,7 @@ _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8e
           to label %_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE7reserveEm.exit130.preheader unwind label %84
 
 _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE7reserveEm.exit130.preheader: ; preds = %_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE7reserveEm.exit
-  %79 = load ptr, ptr %45, align 8, !tbaa !6
+  %79 = load ptr, ptr %46, align 8, !tbaa !6
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 56
   %81 = load i32, ptr %80, align 8, !tbaa !83
   %.not262 = icmp sgt i32 %81, 0
@@ -1225,7 +1225,7 @@ _ZN13sentencepiece4util13InternalErrorESt17basic_string_viewIcSt11char_traitsIcE
   br label %_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE7reserveEm.exit130
 
 198:                                              ; preds = %185
-  %199 = load ptr, ptr %45, align 8, !tbaa !6
+  %199 = load ptr, ptr %46, align 8, !tbaa !6
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 72
   %201 = load ptr, ptr %200, align 8, !tbaa !47
   %.not.i.i = icmp eq ptr %201, null
@@ -1581,7 +1581,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE7reserveEm.exit130: ; preds = %185, %.thread250, %.thread
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
-  %340 = load ptr, ptr %45, align 8, !tbaa !6
+  %340 = load ptr, ptr %46, align 8, !tbaa !6
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 56
   %342 = load i32, ptr %341, align 8, !tbaa !83
   %343 = sext i32 %342 to i64
@@ -1638,13 +1638,13 @@ _ZN13sentencepiece4util13InternalErrorESt17basic_string_viewIcSt11char_traitsIcE
 362:                                              ; preds = %355
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i8 0, ptr %18, align 1, !tbaa !125
-  %363 = invoke { ptr, i32 } @_ZSt9__find_ifISt13_Bit_iteratorN9__gnu_cxx5__ops16_Iter_equals_valIKbEEET_S6_S6_T0_St26random_access_iterator_tag(ptr nonnull %42, i32 0, ptr nonnull %57, i32 0, ptr nonnull align 1 dereferenceable(1) %18)
+  %363 = invoke { ptr, i32 } @_ZSt9__find_ifISt13_Bit_iteratorN9__gnu_cxx5__ops16_Iter_equals_valIKbEEET_S6_S6_T0_St26random_access_iterator_tag(ptr nonnull %42, i32 0, ptr nonnull %45, i32 0, ptr nonnull align 1 dereferenceable(1) %18)
           to label %364 unwind label %370
 
 364:                                              ; preds = %362
   %.fca.0.extract4 = extractvalue { ptr, i32 } %363, 0
   %.fca.1.extract5 = extractvalue { ptr, i32 } %363, 1
-  %365 = icmp ne ptr %.fca.0.extract4, %57
+  %365 = icmp ne ptr %.fca.0.extract4, %45
   %366 = icmp ne i32 %.fca.1.extract5, 0
   %.not3.i = select i1 %365, i1 true, i1 %366
   call void @llvm.lifetime.end.p0(ptr nonnull %18)

@@ -1200,35 +1200,35 @@ _ZN4absl13base_internal8SpinLock4LockEv.exit:     ; preds = %_ZN4absl13base_inte
   br label %206
 
 .preheader.preheader.i.i:                         ; preds = %77
+  %126 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %60, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %126 = zext nneg i32 %52 to i64
+  %128 = zext nneg i32 %52 to i64
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %134, %.preheader.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %126, %.preheader.preheader.i.i ], [ %indvars.iv.next.i.i, %134 ]
-  %.016.i.i = phi ptr [ %36, %.preheader.preheader.i.i ], [ %.1.i.i, %134 ]
+.preheader.i.i:                                   ; preds = %136, %.preheader.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %128, %.preheader.preheader.i.i ], [ %indvars.iv.next.i.i, %136 ]
+  %.016.i.i = phi ptr [ %36, %.preheader.preheader.i.i ], [ %.1.i.i, %136 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  br label %127
+  br label %129
 
-127:                                              ; preds = %127, %.preheader.i.i
-  %.1.i.i = phi ptr [ %130, %127 ], [ %.016.i.i, %.preheader.i.i ]
-  %128 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 40
-  %129 = getelementptr inbounds nuw ptr, ptr %128, i64 %indvars.iv.next.i.i
-  %130 = load ptr, ptr %129, align 8, !tbaa !36
-  %131 = icmp ne ptr %130, null
-  %132 = icmp ult ptr %130, %60
-  %133 = and i1 %131, %132
-  br i1 %133, label %127, label %134, !llvm.loop !48
+129:                                              ; preds = %129, %.preheader.i.i
+  %.1.i.i = phi ptr [ %132, %129 ], [ %.016.i.i, %.preheader.i.i ]
+  %130 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 40
+  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv.next.i.i
+  %132 = load ptr, ptr %131, align 8, !tbaa !36
+  %133 = icmp ne ptr %132, null
+  %134 = icmp ult ptr %132, %60
+  %135 = and i1 %133, %134
+  br i1 %135, label %129, label %136, !llvm.loop !48
 
-134:                                              ; preds = %127
-  %135 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.next.i.i
-  store ptr %.1.i.i, ptr %135, align 8, !tbaa !36
-  %136 = icmp samesign ugt i64 %indvars.iv.i.i, 1
-  br i1 %136, label %.preheader.i.i, label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i, !llvm.loop !49
+136:                                              ; preds = %129
+  %137 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.next.i.i
+  store ptr %.1.i.i, ptr %137, align 8, !tbaa !36
+  %138 = icmp samesign ugt i64 %indvars.iv.i.i, 1
+  br i1 %138, label %.preheader.i.i, label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i, !llvm.loop !49
 
-_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i: ; preds = %134
-  %137 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %138 = getelementptr inbounds nuw i8, ptr %60, i64 16
+_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i: ; preds = %136
   %139 = load ptr, ptr %5, align 16, !tbaa !36
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 40
   %141 = load ptr, ptr %140, align 8, !tbaa !36
@@ -1303,7 +1303,7 @@ _ZN4absl13base_internalL10CheckedAddEmm.exit106:  ; preds = %_ZN4absl13base_inte
 
 .thread:                                          ; preds = %_ZN4absl13base_internalL10CheckedAddEmm.exit106
   %170 = xor i64 %64, 1283669653
-  store i64 %170, ptr %137, align 8, !tbaa !39
+  store i64 %170, ptr %126, align 8, !tbaa !39
   br label %190
 
 171:                                              ; preds = %_ZN4absl13base_internalL10CheckedAddEmm.exit106
@@ -1332,10 +1332,10 @@ _ZN4absl13base_internalL10CheckedAddEmm.exit106:  ; preds = %_ZN4absl13base_inte
   br label %205
 
 183:                                              ; preds = %171
-  %.pre = load ptr, ptr %138, align 8, !tbaa !40
+  %.pre = load ptr, ptr %127, align 8, !tbaa !40
   %184 = icmp eq ptr %.pre, %1
   %185 = xor i64 %64, 1283669653
-  store i64 %185, ptr %137, align 8, !tbaa !39
+  store i64 %185, ptr %126, align 8, !tbaa !39
   br i1 %184, label %190, label %186, !prof !55
 
 186:                                              ; preds = %183

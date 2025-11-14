@@ -2165,13 +2165,13 @@ define void @_ZN4ring6digest4sha116block_data_order17hcdd7d842b3d63616E(ptr noal
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %4, i8 0, i64 320, i1 false), !noalias !192
   br label %77
 
-.preheader137.i:                                  ; preds = %.preheader.i, %.preheader137.i
-  %.0.i38113.i = phi i32 [ %21, %.preheader137.i ], [ %11, %.preheader.i ]
-  %.025.i37112.i = phi i32 [ %.0.i38113.i, %.preheader137.i ], [ %10, %.preheader.i ]
-  %.026.i36111.i = phi i32 [ %22, %.preheader137.i ], [ %9, %.preheader.i ]
-  %.027.i35110.i = phi i32 [ %.026.i36111.i, %.preheader137.i ], [ %8, %.preheader.i ]
-  %.028.i34109.i = phi i32 [ %.027.i35110.i, %.preheader137.i ], [ %7, %.preheader.i ]
-  %.sroa.072.0.idx108.i = phi i64 [ %.sroa.072.0.add.i, %.preheader137.i ], [ 0, %.preheader.i ]
+.preheader137.i:                                  ; preds = %.preheader.preheader.i, %.preheader137.i
+  %.0.i38113.i = phi i32 [ %21, %.preheader137.i ], [ %11, %.preheader.preheader.i ]
+  %.025.i37112.i = phi i32 [ %.0.i38113.i, %.preheader137.i ], [ %10, %.preheader.preheader.i ]
+  %.026.i36111.i = phi i32 [ %22, %.preheader137.i ], [ %9, %.preheader.preheader.i ]
+  %.027.i35110.i = phi i32 [ %.026.i36111.i, %.preheader137.i ], [ %8, %.preheader.preheader.i ]
+  %.028.i34109.i = phi i32 [ %.027.i35110.i, %.preheader137.i ], [ %7, %.preheader.preheader.i ]
+  %.sroa.072.0.idx108.i = phi i64 [ %.sroa.072.0.add.i, %.preheader137.i ], [ 0, %.preheader.preheader.i ]
   %.sroa.072.0.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.072.0.idx108.i
   %.sroa.072.0.add.i = add nuw nsw i64 %.sroa.072.0.idx108.i, 4
   %12 = and i32 %.026.i36111.i, %.025.i37112.i
@@ -2264,8 +2264,8 @@ _ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i: ; preds = %_ZN4ring6diges
   %62 = icmp eq ptr %56, %5
   br i1 %62, label %_ZN4ring6digest4sha117block_data_order_17hb9d1e648c365597dE.exit, label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %77, %.preheader.i
-  %.sroa.07.0107.i = phi i64 [ %63, %.preheader.i ], [ 16, %77 ]
+.preheader.preheader.i:                           ; preds = %77, %.preheader.preheader.i
+  %.sroa.07.0107.i = phi i64 [ %63, %.preheader.preheader.i ], [ 16, %77 ]
   %63 = add nuw nsw i64 %.sroa.07.0107.i, 1
   %64 = getelementptr i32, ptr %4, i64 %.sroa.07.0107.i
   %65 = getelementptr i8, ptr %64, i64 -12
@@ -2282,7 +2282,7 @@ _ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i: ; preds = %_ZN4ring6diges
   %76 = tail call i32 @llvm.fshl.i32(i32 %75, i32 %75, i32 1)
   store i32 %76, ptr %64, align 4, !noalias !192
   %exitcond159.not.i = icmp eq i64 %63, 80
-  br i1 %exitcond159.not.i, label %.preheader137.i, label %.preheader.i
+  br i1 %exitcond159.not.i, label %.preheader137.i, label %.preheader.preheader.i
 
 77:                                               ; preds = %77, %.lr.ph.i
   %.sroa.02.0106.i = phi i64 [ 0, %.lr.ph.i ], [ %78, %77 ]
@@ -2293,7 +2293,7 @@ _ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i: ; preds = %_ZN4ring6diges
   %82 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.02.0106.i
   store i32 %81, ptr %82, align 4, !noalias !192
   %exitcond.not.i = icmp eq i64 %78, 16
-  br i1 %exitcond.not.i, label %.preheader.i, label %77
+  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %77
 
 _ZN4ring6digest4sha117block_data_order_17hb9d1e648c365597dE.exit: ; preds = %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i, %3
   %.sroa.12.0 = phi i32 [ %.sroa.12.0.copyload, %3 ], [ %61, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ]

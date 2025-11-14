@@ -150,53 +150,53 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   br i1 %exitcond49.not.i, label %BF_set_key.exit, label %47
 
 BF_set_key.exit:                                  ; preds = %62
-  %70 = load i32, ptr %7, align 16, !tbaa !7
-  br label %71
+  %70 = lshr i32 %64, 16
+  %.0.masked.i = and i32 %64, 65535
+  %71 = or i32 %.0.masked.i, %70
+  %72 = shl nuw nsw i32 %.2.i, 9
+  %73 = sub nuw nsw i32 65536, %71
+  %74 = and i32 %72, 65536
+  %75 = and i32 %74, %73
+  %76 = load i32, ptr %7, align 16, !tbaa !7
+  %77 = xor i32 %76, %75
+  br label %78
 
-71:                                               ; preds = %80, %BF_set_key.exit
-  %indvars.iv.i40 = phi i64 [ 0, %BF_set_key.exit ], [ %indvars.iv.next.i52, %80 ]
-  %.03243.i43 = phi ptr [ @.str.4, %BF_set_key.exit ], [ %.234.i50, %80 ]
-  br label %72
+78:                                               ; preds = %87, %BF_set_key.exit
+  %indvars.iv.i40 = phi i64 [ 0, %BF_set_key.exit ], [ %indvars.iv.next.i52, %87 ]
+  %.03243.i43 = phi ptr [ @.str.4, %BF_set_key.exit ], [ %.234.i50, %87 ]
+  br label %79
 
-72:                                               ; preds = %72, %71
-  %73 = phi i32 [ 0, %71 ], [ %77, %72 ]
-  %.13340.i45 = phi ptr [ %.03243.i43, %71 ], [ %.234.i50, %72 ]
-  %.03539.i46 = phi i32 [ 0, %71 ], [ %79, %72 ]
-  %74 = shl i32 %73, 8
-  %75 = load i8, ptr %.13340.i45, align 1, !tbaa !4
-  %76 = zext i8 %75 to i32
-  %77 = or disjoint i32 %74, %76
-  %.not37.i49 = icmp eq i8 %75, 0
-  %78 = getelementptr inbounds nuw i8, ptr %.13340.i45, i64 1
-  %.234.i50 = select i1 %.not37.i49, ptr @.str.4, ptr %78
-  %79 = add nuw nsw i32 %.03539.i46, 1
-  %exitcond.not.i51 = icmp eq i32 %79, 4
-  br i1 %exitcond.not.i51, label %80, label %72
+79:                                               ; preds = %79, %78
+  %80 = phi i32 [ 0, %78 ], [ %84, %79 ]
+  %.13340.i45 = phi ptr [ %.03243.i43, %78 ], [ %.234.i50, %79 ]
+  %.03539.i46 = phi i32 [ 0, %78 ], [ %86, %79 ]
+  %81 = shl i32 %80, 8
+  %82 = load i8, ptr %.13340.i45, align 1, !tbaa !4
+  %83 = zext i8 %82 to i32
+  %84 = or disjoint i32 %81, %83
+  %.not37.i49 = icmp eq i8 %82, 0
+  %85 = getelementptr inbounds nuw i8, ptr %.13340.i45, i64 1
+  %.234.i50 = select i1 %.not37.i49, ptr @.str.4, ptr %85
+  %86 = add nuw nsw i32 %.03539.i46, 1
+  %exitcond.not.i51 = icmp eq i32 %86, 4
+  br i1 %exitcond.not.i51, label %87, label %79
 
-80:                                               ; preds = %72
-  %81 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i40
-  store i32 %77, ptr %81, align 4, !tbaa !7
-  %82 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @BF_init_state, i64 4096), i64 %indvars.iv.i40
-  %83 = load i32, ptr %82, align 4, !tbaa !7
-  %84 = xor i32 %83, %77
-  %85 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i40
-  store i32 %84, ptr %85, align 4, !tbaa !7
+87:                                               ; preds = %79
+  %88 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i40
+  store i32 %84, ptr %88, align 4, !tbaa !7
+  %89 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @BF_init_state, i64 4096), i64 %indvars.iv.i40
+  %90 = load i32, ptr %89, align 4, !tbaa !7
+  %91 = xor i32 %90, %84
+  %92 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i40
+  store i32 %91, ptr %92, align 4, !tbaa !7
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond49.not.i53 = icmp eq i64 %indvars.iv.next.i52, 18
-  br i1 %exitcond49.not.i53, label %BF_set_key.exit55, label %71
+  br i1 %exitcond49.not.i53, label %BF_set_key.exit55, label %78
 
-BF_set_key.exit55:                                ; preds = %80
-  %86 = lshr i32 %64, 16
-  %.0.masked.i = and i32 %64, 65535
-  %87 = or i32 %.0.masked.i, %86
-  %88 = shl nuw nsw i32 %.2.i, 9
-  %89 = sub nuw nsw i32 65536, %87
-  %90 = and i32 %88, 65536
-  %91 = and i32 %90, %89
-  %92 = xor i32 %70, %91
-  %93 = xor i32 %92, 65536
+BF_set_key.exit55:                                ; preds = %87
+  %93 = xor i32 %77, 65536
   store i32 %93, ptr %7, align 16, !tbaa !7
-  %94 = icmp eq i32 %92, -610444868
+  %94 = icmp eq i32 %77, -610444868
   %or.cond = select i1 %46, i1 %94, i1 false
   %95 = getelementptr inbounds nuw i8, ptr %8, i64 68
   %96 = load i32, ptr %95, align 4

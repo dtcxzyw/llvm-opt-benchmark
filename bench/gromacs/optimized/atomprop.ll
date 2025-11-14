@@ -1368,11 +1368,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %15 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.19) #22
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !39
-  %19 = load ptr, ptr %16, align 8, !tbaa !38
-  %.not107 = icmp eq ptr %18, %19
+  %16 = icmp eq i32 %15, 0
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %19 = load ptr, ptr %18, align 8, !tbaa !39
+  %20 = load ptr, ptr %17, align 8, !tbaa !38
+  %.not107 = icmp eq ptr %19, %20
   br i1 %.not107, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge_crit_edge, label %.lr.ph
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge_crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1381,21 +1382,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge_crit_
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %32
 
 ._crit_edge.loopexit:                             ; preds = %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95.thread
-  %22 = sext i32 %.161 to i64
+  %23 = sext i32 %.161 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge_crit_edge, %._crit_edge.loopexit
-  %23 = phi i64 [ %.pre110, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge_crit_edge ], [ %.val78, %._crit_edge.loopexit ]
-  %.060.lcssa = phi i64 [ -4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge_crit_edge ], [ %22, %._crit_edge.loopexit ]
+  %24 = phi i64 [ %.pre110, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge_crit_edge ], [ %.val78, %._crit_edge.loopexit ]
+  %.060.lcssa = phi i64 [ -4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge_crit_edge ], [ %23, %._crit_edge.loopexit ]
   %.058.lcssa = phi i32 [ -4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge_crit_edge ], [ %.159, %._crit_edge.loopexit ]
   %.0.lcssa = phi i32 [ -4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.._crit_edge_crit_edge ], [ %.1, %._crit_edge.loopexit ]
-  %24 = icmp eq i32 %15, 0
-  %25 = icmp eq i64 %23, %.060.lcssa
+  %25 = icmp eq i64 %24, %.060.lcssa
   br i1 %25, label %89, label %99
 
 26:                                               ; preds = %._crit_edge.i.i
@@ -1416,7 +1416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %26,
   resume { ptr, i32 } %27
 
 32:                                               ; preds = %.lr.ph, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95.thread
-  %33 = phi ptr [ %19, %.lr.ph ], [ %61, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95.thread ]
+  %33 = phi ptr [ %20, %.lr.ph ], [ %61, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95.thread ]
   %.0103 = phi i32 [ -4, %.lr.ph ], [ %.1, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95.thread ]
   %.057102 = phi i64 [ 0, %.lr.ph ], [ %82, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95.thread ]
   %.058101 = phi i32 [ -4, %.lr.ph ], [ %.159, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95.thread ]
@@ -1424,7 +1424,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %26,
   %34 = getelementptr inbounds nuw %struct.BaseEntry, ptr %33, i64 %.057102
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %.val = load ptr, ptr %2, align 8
-  %.val74 = load i64, ptr %20, align 8, !tbaa !34
+  %.val74 = load i64, ptr %21, align 8, !tbaa !34
   %.val75 = load ptr, ptr %35, align 8
   %36 = getelementptr i8, ptr %34, i64 40
   %.val76 = load i64, ptr %36, align 8, !tbaa !34
@@ -1460,7 +1460,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %26,
 _ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread: ; preds = %32, %._crit_edge.i
   %48 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.20) #22
   %49 = icmp eq i32 %48, 0
-  %.pre108 = load ptr, ptr %16, align 8, !tbaa !38
+  %.pre108 = load ptr, ptr %17, align 8, !tbaa !38
   br i1 %49, label %60, label %50
 
 50:                                               ; preds = %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread
@@ -1468,7 +1468,7 @@ _ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull @.str.21) #22
   %54 = icmp eq i32 %53, 0
-  %.pre109 = load ptr, ptr %16, align 8, !tbaa !38
+  %.pre109 = load ptr, ptr %17, align 8, !tbaa !38
   br i1 %54, label %60, label %55
 
 55:                                               ; preds = %50
@@ -1477,7 +1477,7 @@ _ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.
   %58 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull @.str.19) #22
   %59 = icmp eq i32 %58, 0
   %spec.select = select i1 %59, i32 -2, i32 -4
-  %.pre = load ptr, ptr %16, align 8, !tbaa !38
+  %.pre = load ptr, ptr %17, align 8, !tbaa !38
   br label %60
 
 60:                                               ; preds = %._crit_edge.i, %55, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread, %50
@@ -1485,7 +1485,7 @@ _ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.
   %.056 = phi i32 [ -3, %50 ], [ -3, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit.thread ], [ %spec.select, %55 ], [ %39, %._crit_edge.i ]
   %62 = getelementptr inbounds nuw %struct.BaseEntry, ptr %61, i64 %.057102
   %.val77 = load ptr, ptr %3, align 8
-  %.val78 = load i64, ptr %21, align 8, !tbaa !34
+  %.val78 = load i64, ptr %22, align 8, !tbaa !34
   %.val79 = load ptr, ptr %62, align 8
   %63 = getelementptr i8, ptr %62, i64 8
   %.val80 = load i64, ptr %63, align 8, !tbaa !34
@@ -1541,7 +1541,7 @@ _ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.
   %.159 = phi i32 [ %.056, %80 ], [ %.058101, %78 ], [ %.058101, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95 ], [ %.058101, %60 ]
   %.1 = phi i32 [ %81, %80 ], [ %.0103, %78 ], [ %.0103, %_ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.exit95 ], [ %.0103, %60 ]
   %82 = add nuw i64 %.057102, 1
-  %83 = load ptr, ptr %17, align 8, !tbaa !39
+  %83 = load ptr, ptr %18, align 8, !tbaa !39
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %61 to i64
   %86 = sub i64 %84, %85
@@ -1555,14 +1555,14 @@ _ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.
   %92 = load i64, ptr %91, align 8, !tbaa !34
   %93 = icmp eq i64 %92, %90
   %94 = icmp eq i32 %.058.lcssa, -2
-  %or.cond3 = and i1 %24, %94
+  %or.cond3 = and i1 %16, %94
   %or.cond73 = or i1 %or.cond3, %93
   br i1 %or.cond73, label %99, label %95
 
 95:                                               ; preds = %89
   %96 = icmp ne i32 %.058.lcssa, -3
   %or.cond5 = or i1 %9, %96
-  %.demorgan = or i1 %24, %or.cond5
+  %.demorgan = or i1 %16, %or.cond5
   %97 = xor i1 %.demorgan, true
   %98 = zext i1 %97 to i8
   br label %99
@@ -1588,7 +1588,7 @@ _ZL17compareToDatabaseRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_.
 
 110:                                              ; preds = %102
   %111 = sext i32 %.0.lcssa to i64
-  %112 = load ptr, ptr %16, align 8, !tbaa !38
+  %112 = load ptr, ptr %17, align 8, !tbaa !38
   %113 = getelementptr inbounds nuw %struct.BaseEntry, ptr %112, i64 %111
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %115 = load ptr, ptr %114, align 8, !tbaa !37

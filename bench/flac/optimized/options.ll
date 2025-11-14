@@ -231,11 +231,11 @@ define dso_local range(i32 0, 2) i32 @parse_options(i32 noundef %0, ptr noundef 
   %36 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %35, i32 noundef 1, ptr noundef nonnull @.str.60) #18
   %37 = load ptr, ptr @stderr, align 8, !tbaa !25
   %38 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %37, i32 noundef 1, ptr noundef nonnull @.str.61) #18
-  %.pre185 = load i32, ptr @share__optind, align 4, !tbaa !19
+  %.pre184 = load i32, ptr @share__optind, align 4, !tbaa !19
   br label %39
 
 39:                                               ; preds = %34, %31, %28, %27
-  %40 = phi i32 [ %.pre, %28 ], [ %.pre, %31 ], [ %.pre185, %34 ], [ %.pre, %27 ]
+  %40 = phi i32 [ %.pre, %28 ], [ %.pre, %31 ], [ %.pre184, %34 ], [ %.pre, %27 ]
   %.2 = phi i32 [ %.047.ph, %28 ], [ %.047.ph, %31 ], [ 1, %34 ], [ %.047.ph, %27 ]
   %41 = sub nsw i32 %0, %40
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -538,34 +538,30 @@ find_shorthand_operation.exit105.tail:            ; preds = %find_shorthand_oper
   store i32 %154, ptr %64, align 8, !tbaa !31
   %155 = load ptr, ptr %142, align 8, !tbaa !34
   %156 = load i32, ptr %140, align 8, !tbaa !33
+  %157 = add i32 %156, -1
+  %158 = zext i32 %157 to i64
+  %159 = getelementptr inbounds nuw %struct.Operation, ptr %155, i64 %158
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i122 = icmp ne i32 %156, 0
   call void @llvm.assume(i1 %.not.i122)
   %wide.trip.count.i124 = zext i32 %156 to i64
-  %157 = load i32, ptr %155, align 8, !tbaa !36
-  %158 = icmp eq i32 %157, 27
-  br i1 %158, label %find_shorthand_operation.exit121.loopexit, label %.lr.ph176
+  %160 = load i32, ptr %155, align 8, !tbaa !36
+  %161 = icmp eq i32 %160, 27
+  br i1 %161, label %find_shorthand_operation.exit121, label %.lr.ph176
 
 .lr.ph176:                                        ; preds = %.lr.ph.i123, %.lr.ph176
   %indvars.iv.i125175 = phi i64 [ %indvars.iv.next.i126, %.lr.ph176 ], [ 0, %.lr.ph.i123 ]
   %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i125175, 1
   %exitcond.not.i127 = icmp ne i64 %indvars.iv.next.i126, %wide.trip.count.i124
   call void @llvm.assume(i1 %exitcond.not.i127)
-  %159 = getelementptr inbounds nuw %struct.Operation, ptr %155, i64 %indvars.iv.next.i126
-  %160 = load i32, ptr %159, align 8, !tbaa !36
-  %161 = icmp eq i32 %160, 27
-  br i1 %161, label %find_shorthand_operation.exit121.loopexit, label %.lr.ph176
+  %162 = getelementptr inbounds nuw %struct.Operation, ptr %155, i64 %indvars.iv.next.i126
+  %163 = load i32, ptr %162, align 8, !tbaa !36
+  %164 = icmp eq i32 %163, 27
+  br i1 %164, label %find_shorthand_operation.exit121, label %.lr.ph176
 
-find_shorthand_operation.exit121.loopexit:        ; preds = %.lr.ph176, %.lr.ph.i123
-  %.lcssa = phi ptr [ %155, %.lr.ph.i123 ], [ %159, %.lr.ph176 ]
-  %162 = add i32 %156, -1
-  %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds nuw %struct.Operation, ptr %155, i64 %163
-  br label %find_shorthand_operation.exit121
-
-find_shorthand_operation.exit121:                 ; preds = %.lr.ph.i115, %find_shorthand_operation.exit121.loopexit
-  %.045 = phi ptr [ %.lcssa, %find_shorthand_operation.exit121.loopexit ], [ %146, %.lr.ph.i115 ]
-  %.0 = phi ptr [ %164, %find_shorthand_operation.exit121.loopexit ], [ %150, %.lr.ph.i115 ]
+find_shorthand_operation.exit121:                 ; preds = %.lr.ph.i115, %.lr.ph176, %.lr.ph.i123
+  %.045 = phi ptr [ %155, %.lr.ph.i123 ], [ %162, %.lr.ph176 ], [ %146, %.lr.ph.i115 ]
+  %.0 = phi ptr [ %159, %.lr.ph.i123 ], [ %159, %.lr.ph176 ], [ %150, %.lr.ph.i115 ]
   %165 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %166 = getelementptr inbounds nuw i8, ptr %.045, i64 16
   store ptr %165, ptr %166, align 8, !tbaa !38

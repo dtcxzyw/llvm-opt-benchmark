@@ -78,48 +78,49 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:
   tail call void @_ZN7nanogui6CanvasC2EPNS_6WidgetEhbbb(ptr noundef nonnull align 8 dereferenceable(173) %0, ptr noundef %1, i8 noundef zeroext 1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui9ImageViewE, i64 16), ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 196
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
-  store float 0.000000e+00, ptr %20, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store float 0.000000e+00, ptr %21, align 8
+  store float 0.000000e+00, ptr %21, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store float 0.000000e+00, ptr %22, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  br label %22
+  br label %23
 
-22:                                               ; preds = %22, %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge
-  %.04.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge ], [ %24, %22 ]
-  %23 = getelementptr inbounds nuw float, ptr %7, i64 %.04.i.i.i
-  store float 2.550000e+02, ptr %23, align 4
-  %24 = add nuw nsw i64 %.04.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %24, 4
-  br i1 %exitcond.not.i.i.i, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i, label %22, !llvm.loop !5
+23:                                               ; preds = %23, %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge
+  %.04.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge ], [ %25, %23 ]
+  %24 = getelementptr inbounds nuw float, ptr %7, i64 %.04.i.i.i
+  store float 2.550000e+02, ptr %24, align 4
+  %25 = add nuw nsw i64 %.04.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %25, 4
+  br i1 %exitcond.not.i.i.i, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i, label %23, !llvm.loop !5
 
-_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %22
+_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br label %25
+  br label %26
 
-25:                                               ; preds = %25, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i
-  %.06.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i ], [ %32, %25 ]
-  %26 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i.i.i
-  %27 = load float, ptr %26, align 4
-  %28 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i.i.i
-  %29 = load float, ptr %28, align 4
-  %30 = fdiv float %27, %29
-  %31 = getelementptr inbounds nuw float, ptr %5, i64 %.06.i.i.i
-  store float %30, ptr %31, align 4
-  %32 = add nuw nsw i64 %.06.i.i.i, 1
-  %exitcond.not.i4.i.i = icmp eq i64 %32, 4
-  br i1 %exitcond.not.i4.i.i, label %33, label %25, !llvm.loop !7
+26:                                               ; preds = %26, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i
+  %.06.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i ], [ %33, %26 ]
+  %27 = getelementptr inbounds nuw float, ptr %6, i64 %.06.i.i.i
+  %28 = load float, ptr %27, align 4
+  %29 = getelementptr inbounds nuw float, ptr %7, i64 %.06.i.i.i
+  %30 = load float, ptr %29, align 4
+  %31 = fdiv float %28, %30
+  %32 = getelementptr inbounds nuw float, ptr %5, i64 %.06.i.i.i
+  store float %31, ptr %32, align 4
+  %33 = add nuw nsw i64 %.06.i.i.i, 1
+  %exitcond.not.i4.i.i = icmp eq i64 %33, 4
+  br i1 %exitcond.not.i4.i.i, label %34, label %26, !llvm.loop !7
 
-33:                                               ; preds = %25
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 208
+34:                                               ; preds = %26
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.fca.0.load.i.i.i = load <2 x float>, ptr %5, align 8
   %.fca.1.gep.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.fca.1.load.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  store <2 x float> %.fca.0.load.i.i.i, ptr %34, align 8
+  store <2 x float> %.fca.0.load.i.i.i, ptr %35, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 216
   store <2 x float> %.fca.1.load.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -127,35 +128,34 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  br label %35
+  br label %36
 
-35:                                               ; preds = %35, %33
-  %.04.i.i.i20 = phi i64 [ 0, %33 ], [ %37, %35 ]
-  %36 = getelementptr inbounds nuw float, ptr %4, i64 %.04.i.i.i20
-  store float 2.550000e+02, ptr %36, align 4
-  %37 = add nuw nsw i64 %.04.i.i.i20, 1
-  %exitcond.not.i.i.i21 = icmp eq i64 %37, 4
-  br i1 %exitcond.not.i.i.i21, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i22, label %35, !llvm.loop !5
+36:                                               ; preds = %36, %34
+  %.04.i.i.i20 = phi i64 [ 0, %34 ], [ %38, %36 ]
+  %37 = getelementptr inbounds nuw float, ptr %4, i64 %.04.i.i.i20
+  store float 2.550000e+02, ptr %37, align 4
+  %38 = add nuw nsw i64 %.04.i.i.i20, 1
+  %exitcond.not.i.i.i21 = icmp eq i64 %38, 4
+  br i1 %exitcond.not.i.i.i21, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i22, label %36, !llvm.loop !5
 
-_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i22:          ; preds = %35
+_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i22:          ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  br label %38
+  br label %39
 
-38:                                               ; preds = %38, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i22
-  %.06.i.i.i23 = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i22 ], [ %45, %38 ]
-  %39 = getelementptr inbounds nuw float, ptr %3, i64 %.06.i.i.i23
-  %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds nuw float, ptr %4, i64 %.06.i.i.i23
-  %42 = load float, ptr %41, align 4
-  %43 = fdiv float %40, %42
-  %44 = getelementptr inbounds nuw float, ptr %2, i64 %.06.i.i.i23
-  store float %43, ptr %44, align 4
-  %45 = add nuw nsw i64 %.06.i.i.i23, 1
-  %exitcond.not.i4.i.i24 = icmp eq i64 %45, 4
-  br i1 %exitcond.not.i4.i.i24, label %46, label %38, !llvm.loop !7
+39:                                               ; preds = %39, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i22
+  %.06.i.i.i23 = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i22 ], [ %46, %39 ]
+  %40 = getelementptr inbounds nuw float, ptr %3, i64 %.06.i.i.i23
+  %41 = load float, ptr %40, align 4
+  %42 = getelementptr inbounds nuw float, ptr %4, i64 %.06.i.i.i23
+  %43 = load float, ptr %42, align 4
+  %44 = fdiv float %41, %43
+  %45 = getelementptr inbounds nuw float, ptr %2, i64 %.06.i.i.i23
+  store float %44, ptr %45, align 4
+  %46 = add nuw nsw i64 %.06.i.i.i23, 1
+  %exitcond.not.i4.i.i24 = icmp eq i64 %46, 4
+  br i1 %exitcond.not.i4.i.i24, label %47, label %39, !llvm.loop !7
 
-46:                                               ; preds = %38
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
+47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.fca.0.load.i.i.i25 = load <2 x float>, ptr %2, align 8
   %.fca.1.gep.i.i.i26 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -180,7 +180,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i22:          ; preds = %35
   invoke void @_ZN7nanogui10RenderPass15set_clear_colorEmRKNS_5ColorE(ptr noundef nonnull align 8 dereferenceable(173) %51, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(16) %8)
           to label %52 unwind label %98
 
-52:                                               ; preds = %46
+52:                                               ; preds = %47
   %53 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #19
           to label %54 unwind label %98
 
@@ -342,13 +342,13 @@ _ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %96, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %96, i64 16, i1 false)
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 204
   store i8 1, ptr %97, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   ret void
 
-98:                                               ; preds = %_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12VariableTypeESt16initializer_listImEPKv.exit, %52, %46
+98:                                               ; preds = %_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12VariableTypeESt16initializer_listImEPKv.exit, %52, %47
   %99 = landingpad { ptr, i32 }
           cleanup
   br label %112
@@ -427,7 +427,7 @@ _ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   unreachable
 
 _ZNSt8functionIFvRKN7nanogui5ArrayIiLm2EEEPPcmEED2Ev.exit: ; preds = %115, %112
-  %120 = load ptr, ptr %47, align 8
+  %120 = load ptr, ptr %20, align 8
   %.not.i49 = icmp eq ptr %120, null
   br i1 %.not.i49, label %_ZN7nanogui3refINS_7TextureEED2Ev.exit, label %121
 

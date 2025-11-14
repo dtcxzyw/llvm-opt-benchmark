@@ -3636,7 +3636,7 @@ virtio_queue_packed_empty_rcu.exit.i:             ; preds = %59, %57
 132:                                              ; preds = %129
   %133 = add i32 %.1113.us.i, 1
   %134 = icmp eq i32 %133, %.082167.i
-  br i1 %134, label %.split133.us.i, label %virtqueue_packed_read_next_desc.exit.us.i
+  br i1 %134, label %.loopexit, label %virtqueue_packed_read_next_desc.exit.us.i
 
 virtqueue_packed_read_next_desc.exit.us.i:        ; preds = %132
   call fastcc void @vring_packed_desc_read(ptr noundef nonnull %14, ptr noundef nonnull %.081168.i, i32 noundef %133, i1 noundef zeroext false)
@@ -3701,23 +3701,26 @@ virtqueue_packed_read_next_desc.exit.i:           ; preds = %.thread13.i.i, %.th
   %.pre = load i16, ptr %89, align 2
   br label %.split.i, !llvm.loop !28
 
-.split133.us.i:                                   ; preds = %157, %132
-  %164 = phi i1 [ true, %132 ], [ false, %157 ]
-  %165 = phi i32 [ 1, %132 ], [ %155, %157 ]
-  %166 = load i16, ptr %87, align 4
+.split133.us.i:                                   ; preds = %157
+  %164 = load i16, ptr %87, align 4
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %132, %.split133.us.i
+  %165 = phi i32 [ %155, %.split133.us.i ], [ 1, %132 ]
+  %166 = phi i16 [ %164, %.split133.us.i ], [ %88, %132 ]
   %167 = load i32, ptr %10, align 4
   %168 = load i32, ptr %11, align 4
   %169 = call fastcc ptr @virtqueue_alloc_element(i64 noundef %1, i32 noundef %167, i32 noundef %168)
   %.not138.i = icmp eq i32 %167, 0
   br i1 %.not138.i, label %.preheader.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.split133.us.i
+.lr.ph.i:                                         ; preds = %.loopexit
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 32
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 48
   %wide.trip.count.i = zext i32 %167 to i64
   br label %174
 
-.preheader.i:                                     ; preds = %174, %.split133.us.i
+.preheader.i:                                     ; preds = %174, %.loopexit
   %.not139.i = icmp eq i32 %168, 0
   br i1 %.not139.i, label %._crit_edge.i, label %.lr.ph137.i
 
@@ -3761,8 +3764,7 @@ virtqueue_packed_read_next_desc.exit.i:           ; preds = %.thread13.i.i, %.th
   br i1 %exitcond151.not.i, label %._crit_edge.i, label %182, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %182, %.preheader.i
-  %spec.select.i = select i1 %164, i16 %88, i16 %166
-  %193 = zext i16 %spec.select.i to i32
+  %193 = zext i16 %166 to i32
   store i32 %193, ptr %169, align 8
   %194 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store i32 %165, ptr %194, align 8

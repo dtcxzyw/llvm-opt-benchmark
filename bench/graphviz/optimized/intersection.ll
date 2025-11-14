@@ -49,6 +49,10 @@ define double @intersection_angle(ptr noundef readonly captures(none) %0, ptr no
 
 23:                                               ; preds = %15
   %24 = tail call double @sqrt(double noundef %22) #4, !tbaa !9
+  %.sroa.0264.0..sroa.0264.0..val = load double, ptr %.sroa.0264, align 16, !tbaa !3
+  %.sroa.5265.0..sroa.5265.8..val94 = load double, ptr %.sroa.5265, align 8, !tbaa !3
+  %.sroa.0260.0..sroa.0260.0..val95 = load double, ptr %.sroa.0260, align 16, !tbaa !3
+  %.sroa.5.0..sroa.5.8..val96 = load double, ptr %.sroa.5, align 8, !tbaa !3
   br label %25
 
 25:                                               ; preds = %25, %23
@@ -69,10 +73,6 @@ define double @intersection_angle(ptr noundef readonly captures(none) %0, ptr no
   br i1 %26, label %25, label %37, !llvm.loop !12
 
 37:                                               ; preds = %25
-  %.sroa.0264.0..sroa.0264.0..val = load double, ptr %.sroa.0264, align 16, !tbaa !3
-  %.sroa.5265.0..sroa.5265.8..val94 = load double, ptr %.sroa.5265, align 8, !tbaa !3
-  %.sroa.0260.0..sroa.0260.0..val95 = load double, ptr %.sroa.0260, align 16, !tbaa !3
-  %.sroa.5.0..sroa.5.8..val96 = load double, ptr %.sroa.5, align 8, !tbaa !3
   %38 = fneg double %.sroa.0260.0..sroa.0260.0..val95
   %39 = fmul double %.sroa.5265.0..sroa.5265.8..val94, %38
   %40 = tail call double @llvm.fmuladd.f64(double %.sroa.0264.0..sroa.0264.0..val, double %.sroa.5.0..sroa.5.8..val96, double %39)

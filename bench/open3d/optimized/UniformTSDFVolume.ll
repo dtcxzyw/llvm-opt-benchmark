@@ -33550,35 +33550,35 @@ define internal void @_ZNK6open3d9pipelines11integration17UniformTSDFVolume16Ext
   store i32 %30, ptr %9, align 4, !tbaa !53
   store i32 %32, ptr %22, align 4, !tbaa !53
   store i32 %storemerge45, ptr %23, align 4, !tbaa !53
-  br label %56
+  %56 = load ptr, ptr %3, align 8, !tbaa !820
+  br label %57
 
-56:                                               ; preds = %56, %55
-  %indvars.iv.i.i.i = phi i64 [ 0, %55 ], [ %indvars.iv.next.i.i.i, %56 ]
-  %.011.i.i.i = phi i64 [ 0, %55 ], [ %65, %56 ]
-  %57 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i.i.i
-  %58 = load i32, ptr %57, align 4, !tbaa !53
-  %59 = sext i32 %58 to i64
-  %60 = shl i64 %.011.i.i.i, 6
-  %61 = lshr i64 %.011.i.i.i, 2
-  %62 = add i64 %60, 2654435769
-  %63 = add i64 %62, %61
-  %64 = add i64 %63, %59
-  %65 = xor i64 %64, %.011.i.i.i
+57:                                               ; preds = %57, %55
+  %indvars.iv.i.i.i = phi i64 [ 0, %55 ], [ %indvars.iv.next.i.i.i, %57 ]
+  %.011.i.i.i = phi i64 [ 0, %55 ], [ %66, %57 ]
+  %58 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i.i.i
+  %59 = load i32, ptr %58, align 4, !tbaa !53
+  %60 = sext i32 %59 to i64
+  %61 = shl i64 %.011.i.i.i, 6
+  %62 = lshr i64 %.011.i.i.i, 2
+  %63 = add i64 %61, 2654435769
+  %64 = add i64 %63, %62
+  %65 = add i64 %64, %60
+  %66 = xor i64 %65, %.011.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit.i, label %56, !llvm.loop !820
+  br i1 %exitcond.not.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit.i, label %57, !llvm.loop !822
 
-_ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit.i: ; preds = %56
-  %66 = fpext float %50 to double
-  %67 = fadd double %66, 1.000000e+00
-  %68 = fmul double %67, 5.000000e-01
-  %.sroa.032.0.vec.insert = insertelement <2 x double> poison, double %68, i64 0
+_ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit.i: ; preds = %57
+  %67 = fpext float %50 to double
+  %68 = fadd double %67, 1.000000e+00
+  %69 = fmul double %68, 5.000000e-01
+  %.sroa.032.0.vec.insert = insertelement <2 x double> poison, double %69, i64 0
   %.sroa.032.8.vec.insert = shufflevector <2 x double> %.sroa.032.0.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
-  %69 = load ptr, ptr %3, align 8, !tbaa !821
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 80
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 88
+  %70 = getelementptr inbounds nuw i8, ptr %56, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %56, i64 88
   %72 = load i64, ptr %71, align 8, !tbaa !812
-  %73 = urem i64 %65, %72
+  %73 = urem i64 %66, %72
   %74 = load ptr, ptr %70, align 8, !tbaa !810
   %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %73
   %76 = load ptr, ptr %75, align 8, !tbaa !152
@@ -33594,7 +33594,7 @@ _ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIK
 79:                                               ; preds = %94, %77
   %80 = phi i64 [ %.pre.i.i.i, %77 ], [ %96, %94 ]
   %81 = phi ptr [ %78, %77 ], [ %93, %94 ]
-  %82 = icmp eq i64 %65, %80
+  %82 = icmp eq i64 %66, %80
   br i1 %82, label %83, label %_ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i.i
 
 83:                                               ; preds = %79
@@ -33643,7 +33643,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIK
   store i32 0, ptr %102, align 8, !tbaa !53
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, i8 0, i64 24, i1 false)
-  %104 = invoke ptr @_ZNSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %70, i64 noundef %73, i64 noundef %65, ptr noundef nonnull %98, i64 noundef 1)
+  %104 = invoke ptr @_ZNSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %70, i64 noundef %73, i64 noundef %66, ptr noundef nonnull %98, i64 noundef 1)
           to label %.loopexit unwind label %_ZNSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i
 
 _ZNSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit22.i: ; preds = %.noexc
@@ -33663,7 +33663,7 @@ _ZNSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geo
   %108 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 40
   store <2 x double> %.sroa.032.8.vec.insert, ptr %108, align 4, !tbaa !52
   %109 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 56
-  store double %68, ptr %109, align 8, !tbaa !87
+  store double %69, ptr %109, align 8, !tbaa !87
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre = load i32, ptr %10, align 8, !tbaa !65
   br label %110
@@ -36088,9 +36088,9 @@ attributes #44 = { nounwind willreturn memory(read) }
 !817 = !{!"_ZTSN6open3d8geometry10Geometry3DE", !14, i64 0}
 !818 = !{!"_ZTSSt13unordered_mapIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEN6open3d8geometry5VoxelENS3_7utility10hash_eigenIS2_EESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE", !811, i64 0}
 !819 = distinct !{!819, !76}
-!820 = distinct !{!820, !75}
-!821 = !{!822, !814, i64 0}
-!822 = !{!"_ZTSSt12__shared_ptrIN6open3d8geometry9VoxelGridELN9__gnu_cxx12_Lock_policyE2EE", !814, i64 0, !44, i64 8}
+!820 = !{!821, !814, i64 0}
+!821 = !{!"_ZTSSt12__shared_ptrIN6open3d8geometry9VoxelGridELN9__gnu_cxx12_Lock_policyE2EE", !814, i64 0, !44, i64 8}
+!822 = distinct !{!822, !75}
 !823 = distinct !{!823, !75}
 !824 = distinct !{!824, !75}
 !825 = !{!826}

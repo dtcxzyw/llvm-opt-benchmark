@@ -415,11 +415,14 @@ define hidden range(i32 -1, 1) i32 @av1_add_film_grain_run(ptr noundef readonly 
   %41 = mul nsw i32 %39, %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %43 = load i32, ptr %42, align 4
-  %44 = sext i32 %41 to i64
-  %45 = shl nsw i64 %44, 3
-  %46 = tail call ptr @aom_malloc(i64 noundef %45) #8
-  %47 = icmp sgt i32 %41, 0
-  br i1 %47, label %.lr.ph.preheader.i, label %._crit_edge.i
+  %44 = icmp sgt i32 %43, 0
+  %45 = zext i1 %44 to i32
+  %spec.select.i = or disjoint i32 %41, %45
+  %46 = sext i32 %41 to i64
+  %47 = shl nsw i64 %46, 3
+  %48 = tail call ptr @aom_malloc(i64 noundef %47) #8
+  %49 = icmp sgt i32 %41, 0
+  br i1 %49, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %12
   %wide.trip.count.i = zext nneg i32 %41 to i64
@@ -427,17 +430,14 @@ define hidden range(i32 -1, 1) i32 @av1_add_film_grain_run(ptr noundef readonly 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %48 = tail call ptr @aom_malloc(i64 noundef 12) #8
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i
-  store ptr %48, ptr %49, align 8
+  %50 = tail call ptr @aom_malloc(i64 noundef 12) #8
+  %51 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i
+  store ptr %50, ptr %51, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %12
-  %50 = icmp sgt i32 %43, 0
-  %51 = zext i1 %50 to i32
-  %spec.select.i = or disjoint i32 %41, %51
   %52 = sext i32 %spec.select.i to i64
   %53 = shl nsw i64 %52, 3
   %54 = tail call ptr @aom_malloc(i64 noundef %53) #8
@@ -481,7 +481,7 @@ define hidden range(i32 -1, 1) i32 @av1_add_film_grain_run(ptr noundef readonly 
 .lr.ph105.i:                                      ; preds = %.lr.ph105.i, %.lr.ph105.preheader.i
   %indvars.iv126.i = phi i64 [ %63, %.lr.ph105.preheader.i ], [ %indvars.iv.next127.i, %.lr.ph105.i ]
   %.090103.i = phi i32 [ %62, %.lr.ph105.preheader.i ], [ %76, %.lr.ph105.i ]
-  %64 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv126.i
+  %64 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv126.i
   %65 = load ptr, ptr %64, align 8
   store i32 %.091108.i, ptr %65, align 4
   %66 = load ptr, ptr %64, align 8
@@ -528,7 +528,7 @@ define hidden range(i32 -1, 1) i32 @av1_add_film_grain_run(ptr noundef readonly 
 .lr.ph116.i:                                      ; preds = %.lr.ph116.i, %.lr.ph116.preheader.i
   %indvars.iv130.i = phi i64 [ %82, %.lr.ph116.preheader.i ], [ %indvars.iv.next131.i, %.lr.ph116.i ]
   %.0114.i = phi i32 [ %.pre.i, %.lr.ph116.preheader.i ], [ %95, %.lr.ph116.i ]
-  %83 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv130.i
+  %83 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv130.i
   %84 = load ptr, ptr %83, align 8
   store i32 0, ptr %84, align 4
   %85 = load ptr, ptr %83, align 8
@@ -633,12 +633,12 @@ init_arrays.exit:                                 ; preds = %._crit_edge117.i, %
   br label %184
 
 .preheader65.i:                                   ; preds = %203
-  store i16 %195, ptr @random_register, align 2
   %148 = shl nsw i32 %143, 1
   %149 = add nsw i32 %143, 1
   %150 = mul nsw i32 %148, %149
   %151 = add nsw i32 %145, -1
   %152 = shl nuw i32 1, %151
+  store i16 %195, ptr @random_register, align 2
   %153 = icmp sgt i32 %150, 0
   %154 = load i32, ptr @grain_min, align 4
   %155 = load i32, ptr @grain_max, align 4
@@ -666,7 +666,7 @@ init_arrays.exit:                                 ; preds = %._crit_edge117.i, %
   %.05772.us.us.i = phi i32 [ %175, %159 ], [ 0, %.preheader.us.us.i ]
   %160 = getelementptr inbounds nuw i32, ptr %156, i64 %indvars.iv89.i
   %161 = load i32, ptr %160, align 4
-  %162 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv89.i
+  %162 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv89.i
   %163 = load ptr, ptr %162, align 8
   %164 = load i32, ptr %163, align 4
   %165 = add nsw i32 %164, %157
@@ -2755,8 +2755,11 @@ copy_area.exit907:                                ; preds = %1346, %copy_area.ex
   %1352 = shl nsw i32 %.val664, 1
   %1353 = add nsw i32 %.val664, 1
   %1354 = mul nsw i32 %1352, %1353
-  %1355 = icmp sgt i32 %1354, 0
-  br i1 %1355, label %.lr.ph.preheader.i910, label %._crit_edge.i908
+  %1355 = icmp sgt i32 %.val, 0
+  %1356 = zext i1 %1355 to i32
+  %spec.select.i908 = or disjoint i32 %1354, %1356
+  %1357 = icmp sgt i32 %1354, 0
+  br i1 %1357, label %.lr.ph.preheader.i910, label %._crit_edge.i909
 
 .lr.ph.preheader.i910:                            ; preds = %._crit_edge1014
   %wide.trip.count.i911 = zext nneg i32 %1354 to i64
@@ -2764,23 +2767,20 @@ copy_area.exit907:                                ; preds = %1346, %copy_area.ex
 
 .lr.ph.i912:                                      ; preds = %.lr.ph.i912, %.lr.ph.preheader.i910
   %indvars.iv.i913 = phi i64 [ 0, %.lr.ph.preheader.i910 ], [ %indvars.iv.next.i914, %.lr.ph.i912 ]
-  %1356 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i913
-  %1357 = load ptr, ptr %1356, align 8
-  tail call void @aom_free(ptr noundef %1357) #8
+  %1358 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i913
+  %1359 = load ptr, ptr %1358, align 8
+  tail call void @aom_free(ptr noundef %1359) #8
   %indvars.iv.next.i914 = add nuw nsw i64 %indvars.iv.i913, 1
   %exitcond.not.i915 = icmp eq i64 %indvars.iv.next.i914, %wide.trip.count.i911
-  br i1 %exitcond.not.i915, label %._crit_edge.i908, label %.lr.ph.i912, !llvm.loop !36
+  br i1 %exitcond.not.i915, label %._crit_edge.i909, label %.lr.ph.i912, !llvm.loop !36
 
-._crit_edge.i908:                                 ; preds = %.lr.ph.i912, %._crit_edge1014
-  %1358 = icmp sgt i32 %.val, 0
-  %1359 = zext i1 %1358 to i32
-  %spec.select.i909 = or disjoint i32 %1354, %1359
-  tail call void @aom_free(ptr noundef %46) #8
-  %1360 = icmp sgt i32 %spec.select.i909, 0
+._crit_edge.i909:                                 ; preds = %.lr.ph.i912, %._crit_edge1014
+  tail call void @aom_free(ptr noundef %48) #8
+  %1360 = icmp sgt i32 %spec.select.i908, 0
   br i1 %1360, label %.lr.ph24.preheader.i, label %dealloc_arrays.exit
 
-.lr.ph24.preheader.i:                             ; preds = %._crit_edge.i908
-  %wide.trip.count30.i = zext nneg i32 %spec.select.i909 to i64
+.lr.ph24.preheader.i:                             ; preds = %._crit_edge.i909
+  %wide.trip.count30.i = zext nneg i32 %spec.select.i908 to i64
   br label %.lr.ph24.i
 
 .lr.ph24.i:                                       ; preds = %.lr.ph24.i, %.lr.ph24.preheader.i
@@ -2792,7 +2792,7 @@ copy_area.exit907:                                ; preds = %1346, %copy_area.ex
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count30.i
   br i1 %exitcond31.not.i, label %dealloc_arrays.exit, label %.lr.ph24.i, !llvm.loop !37
 
-dealloc_arrays.exit:                              ; preds = %.lr.ph24.i, %._crit_edge.i908
+dealloc_arrays.exit:                              ; preds = %.lr.ph24.i, %._crit_edge.i909
   tail call void @aom_free(ptr noundef %54) #8
   tail call void @aom_free(ptr noundef %109) #8
   tail call void @aom_free(ptr noundef %114) #8
@@ -3262,6 +3262,7 @@ define internal fastcc void @add_noise_to_block(ptr noundef readonly captures(no
   %.not134 = icmp eq i32 %59, 0
   %.not135 = icmp eq i32 %16, 0
   %. = select i1 %.not135, i32 240, i32 235
+  %.0125 = select i1 %.not134, i32 255, i32 235
   %.0124 = select i1 %.not134, i32 0, i32 16
   %.0123 = select i1 %.not134, i32 255, i32 %.
   %60 = sub nsw i32 1, %14
@@ -3403,7 +3404,6 @@ define internal fastcc void @add_noise_to_block(ptr noundef readonly captures(no
   br i1 %exitcond152.not, label %._crit_edge141, label %.preheader138.us, !llvm.loop !43
 
 ._crit_edge141:                                   ; preds = %._crit_edge.us, %.preheader138.lr.ph, %57
-  %.0125 = select i1 %.not134, i32 255, i32 235
   br i1 %42, label %.preheader137, label %.loopexit
 
 .preheader137:                                    ; preds = %._crit_edge141

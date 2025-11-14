@@ -1326,39 +1326,39 @@ _ZNSt16allocator_traitsISaINSt15__exception_ptr13exception_ptrEEE8allocateERS2_m
 
 .noexc3.i:                                        ; preds = %_ZNSt16allocator_traitsISaINSt15__exception_ptr13exception_ptrEEE8allocateERS2_m.exit.i.i.i.i.i
   store ptr %108, ptr %103, align 8, !tbaa !55
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 %106
-  %110 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %109, ptr %110, align 8, !tbaa !57
+  %109 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 %106
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %110, ptr %111, align 8, !tbaa !57
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc3.i, %_ZSt10_ConstructINSt15__exception_ptr13exception_ptrEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i = phi ptr [ %114, %_ZSt10_ConstructINSt15__exception_ptr13exception_ptrEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %108, %.noexc3.i ]
-  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %113, %_ZSt10_ConstructINSt15__exception_ptr13exception_ptrEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %99, %.noexc3.i ]
-  %111 = load ptr, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !58
-  store ptr %111, ptr %.09.i.i.i.i.i.i, align 8, !tbaa !58
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %111, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructINSt15__exception_ptr13exception_ptrEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %112
+  %.09.i.i.i.i.i.i = phi ptr [ %115, %_ZSt10_ConstructINSt15__exception_ptr13exception_ptrEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %108, %.noexc3.i ]
+  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %114, %_ZSt10_ConstructINSt15__exception_ptr13exception_ptrEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %99, %.noexc3.i ]
+  %112 = load ptr, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !58
+  store ptr %112, ptr %.09.i.i.i.i.i.i, align 8, !tbaa !58
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %112, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructINSt15__exception_ptr13exception_ptrEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %113
 
-112:                                              ; preds = %.lr.ph.i.i.i.i.i.i
+113:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %.09.i.i.i.i.i.i) #25
   br label %_ZSt10_ConstructINSt15__exception_ptr13exception_ptrEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
 
-_ZSt10_ConstructINSt15__exception_ptr13exception_ptrEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %112, %.lr.ph.i.i.i.i.i.i
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
-  %114 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i21 = icmp eq ptr %113, %101
+_ZSt10_ConstructINSt15__exception_ptr13exception_ptrEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %113, %.lr.ph.i.i.i.i.i.i
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i21 = icmp eq ptr %114, %101
   br i1 %.not.i.i.i.i.i.i21, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !60
 
 .loopexit:                                        ; preds = %_ZSt10_ConstructINSt15__exception_ptr13exception_ptrEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %115 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %114, ptr %115, align 8, !tbaa !61
+  store ptr %115, ptr %109, align 8, !tbaa !61
   %116 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
           to label %117 unwind label %158
 
 117:                                              ; preds = %.loopexit
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_12_GLOBAL__N_130ExceptionInfoNestedExceptions_ESt6vectorINSt15__exception_ptr13exception_ptrESaIS5_EEEE, i64 16), ptr %116, align 8, !tbaa !36
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %119 = ptrtoint ptr %114 to i64
+  %119 = ptrtoint ptr %115 to i64
   %120 = ptrtoint ptr %108 to i64
   %121 = sub i64 %119, %120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, i8 0, i64 24, i1 false)

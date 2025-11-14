@@ -1053,12 +1053,13 @@ _ZL12isNumberCharc.exit55.thread:                 ; preds = %_ZL12isNumberCharc.
 
 34:                                               ; preds = %_ZL12isNumberCharc.exit55.thread, %_ZL12isNumberCharc.exit55.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  br label %35
+  %35 = load ptr, ptr %0, align 8, !tbaa !35
+  br label %36
 
-35:                                               ; preds = %_ZL12isNumberCharc.exit.thread.i, %34
-  %36 = phi i8 [ %33, %34 ], [ %.pre, %_ZL12isNumberCharc.exit.thread.i ]
-  %.0.i56 = phi ptr [ %32, %34 ], [ %38, %_ZL12isNumberCharc.exit.thread.i ]
-  switch i8 %36, label %_ZL12isNumberCharc.exit.i [
+36:                                               ; preds = %_ZL12isNumberCharc.exit.thread.i, %34
+  %37 = phi i8 [ %33, %34 ], [ %.pre, %_ZL12isNumberCharc.exit.thread.i ]
+  %.0.i56 = phi ptr [ %32, %34 ], [ %39, %_ZL12isNumberCharc.exit.thread.i ]
+  switch i8 %37, label %_ZL12isNumberCharc.exit.i [
     i8 48, label %_ZL12isNumberCharc.exit.thread.i
     i8 49, label %_ZL12isNumberCharc.exit.thread.i
     i8 50, label %_ZL12isNumberCharc.exit.thread.i
@@ -1074,19 +1075,18 @@ _ZL12isNumberCharc.exit55.thread:                 ; preds = %_ZL12isNumberCharc.
     i8 43, label %_ZL12isNumberCharc.exit.thread.i
   ]
 
-_ZL12isNumberCharc.exit.i:                        ; preds = %35
-  %37 = add i8 %36, -68
-  %switch.and.i.i.i = and i8 %37, -34
+_ZL12isNumberCharc.exit.i:                        ; preds = %36
+  %38 = add i8 %37, -68
+  %switch.and.i.i.i = and i8 %38, -34
   %switch.selectcmp.i.i.i = icmp eq i8 %switch.and.i.i.i, 0
   br i1 %switch.selectcmp.i.i.i, label %_ZL12isNumberCharc.exit.thread.i, label %_ZL11EndOfNumberPKc.exit
 
-_ZL12isNumberCharc.exit.thread.i:                 ; preds = %_ZL12isNumberCharc.exit.i, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i56, i64 1
-  %.pre = load i8, ptr %38, align 1, !tbaa !9
-  br label %35, !llvm.loop !42
+_ZL12isNumberCharc.exit.thread.i:                 ; preds = %_ZL12isNumberCharc.exit.i, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i56, i64 1
+  %.pre = load i8, ptr %39, align 1, !tbaa !9
+  br label %36, !llvm.loop !42
 
 _ZL11EndOfNumberPKc.exit:                         ; preds = %_ZL12isNumberCharc.exit.i
-  %39 = load ptr, ptr %0, align 8, !tbaa !35
   %40 = getelementptr inbounds nuw i8, ptr %.0.i56, i64 1
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %41, ptr %10, align 8, !tbaa !43
@@ -1095,7 +1095,7 @@ _ZL11EndOfNumberPKc.exit:                         ; preds = %_ZL12isNumberCharc.
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 200, ptr %43, align 8, !tbaa !46
   %44 = ptrtoint ptr %40 to i64
-  %45 = ptrtoint ptr %39 to i64
+  %45 = ptrtoint ptr %35 to i64
   %46 = sub i64 %44, %45
   %47 = icmp ugt i64 %46, 200
   br i1 %47, label %48, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i
@@ -1109,12 +1109,12 @@ _ZL11EndOfNumberPKc.exit:                         ; preds = %_ZL12isNumberCharc.
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i: ; preds = %48, %_ZL11EndOfNumberPKc.exit
   %.pre108 = phi ptr [ %41, %_ZL11EndOfNumberPKc.exit ], [ %.pre108.pre, %48 ]
   %.pre8.i.i.i = phi i64 [ 0, %_ZL11EndOfNumberPKc.exit ], [ %.pre8.pre.i.i.i, %48 ]
-  %.not.i.i.i.i = icmp eq ptr %39, %40
+  %.not.i.i.i.i = icmp eq ptr %35, %40
   br i1 %.not.i.i.i.i, label %_ZN4llvm11SmallStringILj200EEC2IPKcEET_S5_.exit, label %49
 
 49:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %.pre108, i64 %.pre8.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 1 %39, i64 %46, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 1 %35, i64 %46, i1 false)
   %.pre.i.i.i = load i64, ptr %42, align 8, !tbaa !45
   %.pre107 = load ptr, ptr %10, align 8, !tbaa !43
   br label %_ZN4llvm11SmallStringILj200EEC2IPKcEET_S5_.exit
@@ -1163,12 +1163,13 @@ _ZN4llvm11SmallVectorIcLj200EED2Ev.exit:          ; preds = %_ZN4llvm11SmallStri
 
 75:                                               ; preds = %71, %71
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br label %76
+  %76 = load ptr, ptr %1, align 8, !tbaa !35
+  br label %77
 
-76:                                               ; preds = %_ZL12isNumberCharc.exit.thread.i58, %75
-  %77 = phi i8 [ %74, %75 ], [ %.pre109, %_ZL12isNumberCharc.exit.thread.i58 ]
-  %.0.i57 = phi ptr [ %73, %75 ], [ %79, %_ZL12isNumberCharc.exit.thread.i58 ]
-  switch i8 %77, label %_ZL12isNumberCharc.exit.i59 [
+77:                                               ; preds = %_ZL12isNumberCharc.exit.thread.i58, %75
+  %78 = phi i8 [ %74, %75 ], [ %.pre109, %_ZL12isNumberCharc.exit.thread.i58 ]
+  %.0.i57 = phi ptr [ %73, %75 ], [ %80, %_ZL12isNumberCharc.exit.thread.i58 ]
+  switch i8 %78, label %_ZL12isNumberCharc.exit.i59 [
     i8 48, label %_ZL12isNumberCharc.exit.thread.i58
     i8 49, label %_ZL12isNumberCharc.exit.thread.i58
     i8 50, label %_ZL12isNumberCharc.exit.thread.i58
@@ -1184,19 +1185,18 @@ _ZN4llvm11SmallVectorIcLj200EED2Ev.exit:          ; preds = %_ZN4llvm11SmallStri
     i8 43, label %_ZL12isNumberCharc.exit.thread.i58
   ]
 
-_ZL12isNumberCharc.exit.i59:                      ; preds = %76
-  %78 = add i8 %77, -68
-  %switch.and.i.i.i60 = and i8 %78, -34
+_ZL12isNumberCharc.exit.i59:                      ; preds = %77
+  %79 = add i8 %78, -68
+  %switch.and.i.i.i60 = and i8 %79, -34
   %switch.selectcmp.i.i.i61 = icmp eq i8 %switch.and.i.i.i60, 0
   br i1 %switch.selectcmp.i.i.i61, label %_ZL12isNumberCharc.exit.thread.i58, label %_ZL11EndOfNumberPKc.exit62
 
-_ZL12isNumberCharc.exit.thread.i58:               ; preds = %_ZL12isNumberCharc.exit.i59, %76, %76, %76, %76, %76, %76, %76, %76, %76, %76, %76, %76, %76
-  %79 = getelementptr inbounds nuw i8, ptr %.0.i57, i64 1
-  %.pre109 = load i8, ptr %79, align 1, !tbaa !9
-  br label %76, !llvm.loop !42
+_ZL12isNumberCharc.exit.thread.i58:               ; preds = %_ZL12isNumberCharc.exit.i59, %77, %77, %77, %77, %77, %77, %77, %77, %77, %77, %77, %77, %77
+  %80 = getelementptr inbounds nuw i8, ptr %.0.i57, i64 1
+  %.pre109 = load i8, ptr %80, align 1, !tbaa !9
+  br label %77, !llvm.loop !42
 
 _ZL11EndOfNumberPKc.exit62:                       ; preds = %_ZL12isNumberCharc.exit.i59
-  %80 = load ptr, ptr %1, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i8, ptr %.0.i57, i64 1
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %82, ptr %11, align 8, !tbaa !43
@@ -1205,7 +1205,7 @@ _ZL11EndOfNumberPKc.exit62:                       ; preds = %_ZL12isNumberCharc.
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 200, ptr %84, align 8, !tbaa !46
   %85 = ptrtoint ptr %81 to i64
-  %86 = ptrtoint ptr %80 to i64
+  %86 = ptrtoint ptr %76 to i64
   %87 = sub i64 %85, %86
   %88 = icmp ugt i64 %87, 200
   br i1 %88, label %89, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i63
@@ -1219,12 +1219,12 @@ _ZL11EndOfNumberPKc.exit62:                       ; preds = %_ZL12isNumberCharc.
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i63: ; preds = %89, %_ZL11EndOfNumberPKc.exit62
   %.pre111 = phi ptr [ %82, %_ZL11EndOfNumberPKc.exit62 ], [ %.pre111.pre, %89 ]
   %.pre8.i.i.i64 = phi i64 [ 0, %_ZL11EndOfNumberPKc.exit62 ], [ %.pre8.pre.i.i.i67, %89 ]
-  %.not.i.i.i.i65 = icmp eq ptr %80, %81
+  %.not.i.i.i.i65 = icmp eq ptr %76, %81
   br i1 %.not.i.i.i.i65, label %_ZN4llvm11SmallStringILj200EEC2IPKcEET_S5_.exit68, label %90
 
 90:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i63
   %91 = getelementptr inbounds nuw i8, ptr %.pre111, i64 %.pre8.i.i.i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %91, ptr align 1 %80, i64 %87, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %91, ptr align 1 %76, i64 %87, i1 false)
   %.pre.i.i.i66 = load i64, ptr %83, align 8, !tbaa !45
   %.pre110 = load ptr, ptr %11, align 8, !tbaa !43
   br label %_ZN4llvm11SmallStringILj200EEC2IPKcEET_S5_.exit68

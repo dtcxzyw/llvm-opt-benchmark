@@ -19837,104 +19837,108 @@ _ZNK4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15Mall
   %10 = zext i32 %3 to i64
   %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %10
   %.not21 = icmp eq ptr %.sroa.0.1.i, %11
-  br i1 %.not21, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge, label %.lr.ph
+  br i1 %.not21, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %_ZNK4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit
+  %.pre = load ptr, ptr %.sroa.0.1.i, align 8, !tbaa !35
+  br label %.lr.ph
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit: ; preds = %.critedge.i.i
-  %12 = load ptr, ptr %.sroa.017.022, align 8, !tbaa !35
-  %13 = load i64, ptr %12, align 8, !tbaa !114
-  %14 = trunc i64 %13 to i32
-  %15 = add i32 %.024, %14
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %.01423, i32 %14)
+  %12 = trunc i64 %61 to i32
+  %13 = add i32 %.024, %12
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %.01423, i32 %12)
   %.not = icmp eq ptr %storemerge.i, %11
   br i1 %.not, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge.loopexit, label %.lr.ph, !llvm.loop !123
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge.loopexit: ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit
-  %16 = uitofp i32 %15 to double
+  %14 = uitofp i32 %13 to double
   br label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge: ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge.loopexit, %_ZNK4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit
   %.014.lcssa = phi i32 [ 0, %_ZNK4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit ], [ %spec.select, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge.loopexit ]
-  %.0.lcssa = phi double [ 0.000000e+00, %_ZNK4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit ], [ %16, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge.loopexit ]
-  %17 = sub i32 %3, %5
+  %.0.lcssa = phi double [ 0.000000e+00, %_ZNK4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit ], [ %14, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge.loopexit ]
+  %15 = sub i32 %3, %5
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !124
+  %17 = tail call i64 @fwrite(ptr nonnull @.str.467, i64 29, i64 1, ptr %16) #31
   %18 = load ptr, ptr @stderr, align 8, !tbaa !124
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.467, i64 29, i64 1, ptr %18) #31
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.468, i32 noundef %5) #32
   %20 = load ptr, ptr @stderr, align 8, !tbaa !124
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.468, i32 noundef %5) #32
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.469, i32 noundef %15) #32
   %22 = load ptr, ptr @stderr, align 8, !tbaa !124
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.469, i32 noundef %17) #32
-  %24 = load ptr, ptr @stderr, align 8, !tbaa !124
-  %25 = uitofp i32 %5 to double
-  %26 = uitofp i32 %3 to double
-  %27 = fdiv double %25, %26
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.470, double noundef %27) #32
-  %29 = load ptr, ptr @stderr, align 8, !tbaa !124
-  %30 = fdiv double %.0.lcssa, %25
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.471, double noundef %30) #32
-  %32 = load ptr, ptr @stderr, align 8, !tbaa !124
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.472, i32 noundef %.014.lcssa) #32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %36 = load i32, ptr %35, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %38 = load i64, ptr %37, align 8, !tbaa !39
-  %39 = load ptr, ptr %34, align 8, !tbaa !6
-  %40 = zext i32 %36 to i64
-  %.idx.i.i = shl nuw nsw i64 %40, 3
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i
-  %.not17.i.i = icmp eq i32 %36, 0
+  %23 = uitofp i32 %5 to double
+  %24 = uitofp i32 %3 to double
+  %25 = fdiv double %23, %24
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.470, double noundef %25) #32
+  %27 = load ptr, ptr @stderr, align 8, !tbaa !124
+  %28 = fdiv double %.0.lcssa, %23
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.471, double noundef %28) #32
+  %30 = load ptr, ptr @stderr, align 8, !tbaa !124
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.472, i32 noundef %.014.lcssa) #32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %34 = load i32, ptr %33, align 8, !tbaa !11
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %36 = load i64, ptr %35, align 8, !tbaa !39
+  %37 = load ptr, ptr %32, align 8, !tbaa !6
+  %38 = zext i32 %34 to i64
+  %.idx.i.i = shl nuw nsw i64 %38, 3
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i
+  %.not17.i.i = icmp eq i32 %34, 0
   br i1 %.not17.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge
-  %42 = ptrtoint ptr %39 to i64
-  br label %49
+  %40 = ptrtoint ptr %37 to i64
+  br label %47
 
-._crit_edge.i.i:                                  ; preds = %49, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge
-  %.0.lcssa.i.i = phi i64 [ 0, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge ], [ %56, %49 ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %44 = load ptr, ptr %43, align 8, !tbaa !6
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %46 = load i32, ptr %45, align 8, !tbaa !11
-  %47 = zext i32 %46 to i64
-  %.idx27.i.i = shl nuw nsw i64 %47, 4
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx27.i.i
-  %.not1620.i.i = icmp eq i32 %46, 0
+._crit_edge.i.i:                                  ; preds = %47, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge
+  %.0.lcssa.i.i = phi i64 [ 0, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge ], [ %54, %47 ]
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %42 = load ptr, ptr %41, align 8, !tbaa !6
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %44 = load i32, ptr %43, align 8, !tbaa !11
+  %45 = zext i32 %44 to i64
+  %.idx27.i.i = shl nuw nsw i64 %45, 4
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx27.i.i
+  %.not1620.i.i = icmp eq i32 %44, 0
   br i1 %.not1620.i.i, label %_ZNK4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE10PrintStatsEv.exit, label %.lr.ph24.i.i
 
-49:                                               ; preds = %49, %.lr.ph.i.i
-  %.019.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %56, %49 ]
-  %.01418.i.i = phi ptr [ %39, %.lr.ph.i.i ], [ %57, %49 ]
-  %50 = ptrtoint ptr %.01418.i.i to i64
-  %51 = sub i64 %50, %42
-  %sum.shift.i.i = lshr i64 %51, 10
-  %52 = trunc i64 %sum.shift.i.i to i32
-  %53 = and i32 %52, 33554431
-  %54 = tail call i32 @llvm.umin.i32(i32 %53, i32 30)
-  %.sroa.speculated.i.i.i = zext nneg i32 %54 to i64
-  %55 = shl nuw nsw i64 4096, %.sroa.speculated.i.i.i
-  %56 = add i64 %55, %.019.i.i
-  %57 = getelementptr inbounds nuw i8, ptr %.01418.i.i, i64 8
-  %.not.i.i = icmp eq ptr %57, %41
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %49, !llvm.loop !126
+47:                                               ; preds = %47, %.lr.ph.i.i
+  %.019.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %54, %47 ]
+  %.01418.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %55, %47 ]
+  %48 = ptrtoint ptr %.01418.i.i to i64
+  %49 = sub i64 %48, %40
+  %sum.shift.i.i = lshr i64 %49, 10
+  %50 = trunc i64 %sum.shift.i.i to i32
+  %51 = and i32 %50, 33554431
+  %52 = tail call i32 @llvm.umin.i32(i32 %51, i32 30)
+  %.sroa.speculated.i.i.i = zext nneg i32 %52 to i64
+  %53 = shl nuw nsw i64 4096, %.sroa.speculated.i.i.i
+  %54 = add i64 %53, %.019.i.i
+  %55 = getelementptr inbounds nuw i8, ptr %.01418.i.i, i64 8
+  %.not.i.i = icmp eq ptr %55, %39
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %47, !llvm.loop !126
 
 .lr.ph24.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph24.i.i
-  %.122.i.i = phi i64 [ %60, %.lr.ph24.i.i ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %.01521.i.i = phi ptr [ %61, %.lr.ph24.i.i ], [ %44, %._crit_edge.i.i ]
-  %58 = getelementptr inbounds nuw i8, ptr %.01521.i.i, i64 8
-  %59 = load i64, ptr %58, align 8, !tbaa !127
-  %60 = add i64 %59, %.122.i.i
-  %61 = getelementptr inbounds nuw i8, ptr %.01521.i.i, i64 16
-  %.not16.i.i = icmp eq ptr %61, %48
+  %.122.i.i = phi i64 [ %58, %.lr.ph24.i.i ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
+  %.01521.i.i = phi ptr [ %59, %.lr.ph24.i.i ], [ %42, %._crit_edge.i.i ]
+  %56 = getelementptr inbounds nuw i8, ptr %.01521.i.i, i64 8
+  %57 = load i64, ptr %56, align 8, !tbaa !127
+  %58 = add i64 %57, %.122.i.i
+  %59 = getelementptr inbounds nuw i8, ptr %.01521.i.i, i64 16
+  %.not16.i.i = icmp eq ptr %59, %46
   br i1 %.not16.i.i, label %_ZNK4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE10PrintStatsEv.exit, label %.lr.ph24.i.i
 
 _ZNK4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE10PrintStatsEv.exit: ; preds = %.lr.ph24.i.i, %._crit_edge.i.i
-  %.1.lcssa.i.i = phi i64 [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ %60, %.lr.ph24.i.i ]
-  tail call void @_ZN4llvm6detail26printBumpPtrAllocatorStatsEjmm(i32 noundef %36, i64 noundef %38, i64 noundef %.1.lcssa.i.i) #29
+  %.1.lcssa.i.i = phi i64 [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ %58, %.lr.ph24.i.i ]
+  tail call void @_ZN4llvm6detail26printBumpPtrAllocatorStatsEjmm(i32 noundef %34, i64 noundef %36, i64 noundef %.1.lcssa.i.i) #29
   ret void
 
-.lr.ph:                                           ; preds = %_ZNK4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit
-  %.024 = phi i32 [ %15, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit ], [ 0, %_ZNK4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit ]
-  %.01423 = phi i32 [ %spec.select, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit ], [ 0, %_ZNK4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit ]
-  %.sroa.017.022 = phi ptr [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit ], [ %.sroa.0.1.i, %_ZNK4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit
+  %60 = phi ptr [ %62, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit ], [ %.pre, %.lr.ph.preheader ]
+  %.024 = phi i32 [ %13, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit ], [ 0, %.lr.ph.preheader ]
+  %.01423 = phi i32 [ %spec.select, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit ], [ 0, %.lr.ph.preheader ]
+  %.sroa.017.022 = phi ptr [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang14IdentifierInfoEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit ], [ %.sroa.0.1.i, %.lr.ph.preheader ]
+  %61 = load i64, ptr %60, align 8, !tbaa !114
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.critedge.i.i.backedge, %.lr.ph

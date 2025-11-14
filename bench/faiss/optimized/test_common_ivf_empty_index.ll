@@ -489,8 +489,8 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc91
   %.idx.i.i.i.i.i.i.i88 = shl nuw nsw i64 %87, 3
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx.i.i.i.i.i.i.i88
   call void @llvm.memset.p0.i64(ptr align 8 %94, i8 0, i64 %.idx.i.i.i.i.i.i.i88, i1 false), !tbaa !41
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx.i.i.i.i.i.i.i88
   br label %96
 
 96:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc91, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i
@@ -1263,8 +1263,8 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
   store float 0.000000e+00, ptr %7, align 4, !tbaa !32
   %10 = getelementptr i8, ptr %7, i64 4
   %.idx.i.i.i.i.i.i.i = add i64 %6, -4
-  %11 = getelementptr i8, ptr %7, i64 %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %10, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !32
+  %11 = getelementptr i8, ptr %7, i64 %6
   %12 = ptrtoint ptr %8 to i64
   br label %13
 
@@ -1770,8 +1770,8 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc26
   %.idx.i.i.i.i.i.i.i23 = shl nuw nsw i64 %55, 3
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx.i.i.i.i.i.i.i23
   call void @llvm.memset.p0.i64(ptr align 8 %62, i8 0, i64 %.idx.i.i.i.i.i.i.i23, i1 false), !tbaa !41
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx.i.i.i.i.i.i.i23
   br label %64
 
 64:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc26, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i

@@ -3460,34 +3460,34 @@ _ZNK3sls12bv_valuation7is_onesERKNS_5bvectE.exit.thread: ; preds = %42, %54, %_Z
 
 84:                                               ; preds = %_ZN3sls12bv_valuation11random_bitsER10random_gen.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN3sls12bv_valuation11random_bitsER10random_gen.exit.i ]
+  %85 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i
+  %86 = load i32, ptr %85, align 4, !tbaa !15
   %.promoted.i.i = load i32, ptr %2, align 4, !tbaa !83
-  br label %85
+  br label %87
 
-85:                                               ; preds = %85, %84
-  %.07.i.i = phi i32 [ 0, %84 ], [ %94, %85 ]
-  %.056.i.i = phi i32 [ 0, %84 ], [ %93, %85 ]
-  %86 = phi i32 [ %.promoted.i.i, %84 ], [ %88, %85 ]
-  %87 = mul i32 %86, 214013
-  %88 = add i32 %87, 2531011
-  %89 = lshr i32 %88, 16
-  %90 = and i32 %89, 32767
-  %91 = shl nuw nsw i32 %.07.i.i, 3
-  %92 = shl i32 %90, %91
-  %93 = xor i32 %92, %.056.i.i
-  %94 = add nuw nsw i32 %.07.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %94, 4
-  br i1 %exitcond.not.i.i, label %_ZN3sls12bv_valuation11random_bitsER10random_gen.exit.i, label %85, !llvm.loop !89
+87:                                               ; preds = %87, %84
+  %.07.i.i = phi i32 [ 0, %84 ], [ %96, %87 ]
+  %.056.i.i = phi i32 [ 0, %84 ], [ %95, %87 ]
+  %88 = phi i32 [ %.promoted.i.i, %84 ], [ %90, %87 ]
+  %89 = mul i32 %88, 214013
+  %90 = add i32 %89, 2531011
+  %91 = lshr i32 %90, 16
+  %92 = and i32 %91, 32767
+  %93 = shl nuw nsw i32 %.07.i.i, 3
+  %94 = shl i32 %92, %93
+  %95 = xor i32 %94, %.056.i.i
+  %96 = add nuw nsw i32 %.07.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %96, 4
+  br i1 %exitcond.not.i.i, label %_ZN3sls12bv_valuation11random_bitsER10random_gen.exit.i, label %87, !llvm.loop !89
 
-_ZN3sls12bv_valuation11random_bitsER10random_gen.exit.i: ; preds = %85
-  %95 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i
-  %96 = load i32, ptr %95, align 4, !tbaa !15
-  store i32 %88, ptr %2, align 4, !tbaa !83
+_ZN3sls12bv_valuation11random_bitsER10random_gen.exit.i: ; preds = %87
+  store i32 %90, ptr %2, align 4, !tbaa !83
   %97 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.i
   %98 = load i32, ptr %97, align 4, !tbaa !15
   %99 = xor i32 %98, -1
-  %100 = and i32 %93, %99
-  %101 = or i32 %100, %96
-  store i32 %101, ptr %95, align 4, !tbaa !15
+  %100 = and i32 %95, %99
+  %101 = or i32 %100, %86
+  store i32 %101, ptr %85, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %102 = load i32, ptr %36, align 4, !tbaa !68
   %103 = zext i32 %102 to i64
@@ -3586,34 +3586,34 @@ define hidden void @_ZN3sls12bv_valuation16set_random_aboveERNS_5bvectER10random
 
 9:                                                ; preds = %.lr.ph, %_ZN3sls12bv_valuation11random_bitsER10random_gen.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3sls12bv_valuation11random_bitsER10random_gen.exit ]
+  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %11 = load i32, ptr %10, align 4, !tbaa !15
   %.promoted.i = load i32, ptr %2, align 4, !tbaa !83
-  br label %10
+  br label %12
 
-10:                                               ; preds = %10, %9
-  %.07.i = phi i32 [ 0, %9 ], [ %19, %10 ]
-  %.056.i = phi i32 [ 0, %9 ], [ %18, %10 ]
-  %11 = phi i32 [ %.promoted.i, %9 ], [ %13, %10 ]
-  %12 = mul i32 %11, 214013
-  %13 = add i32 %12, 2531011
-  %14 = lshr i32 %13, 16
-  %15 = and i32 %14, 32767
-  %16 = shl nuw nsw i32 %.07.i, 3
-  %17 = shl i32 %15, %16
-  %18 = xor i32 %17, %.056.i
-  %19 = add nuw nsw i32 %.07.i, 1
-  %exitcond.not.i = icmp eq i32 %19, 4
-  br i1 %exitcond.not.i, label %_ZN3sls12bv_valuation11random_bitsER10random_gen.exit, label %10, !llvm.loop !89
+12:                                               ; preds = %12, %9
+  %.07.i = phi i32 [ 0, %9 ], [ %21, %12 ]
+  %.056.i = phi i32 [ 0, %9 ], [ %20, %12 ]
+  %13 = phi i32 [ %.promoted.i, %9 ], [ %15, %12 ]
+  %14 = mul i32 %13, 214013
+  %15 = add i32 %14, 2531011
+  %16 = lshr i32 %15, 16
+  %17 = and i32 %16, 32767
+  %18 = shl nuw nsw i32 %.07.i, 3
+  %19 = shl i32 %17, %18
+  %20 = xor i32 %19, %.056.i
+  %21 = add nuw nsw i32 %.07.i, 1
+  %exitcond.not.i = icmp eq i32 %21, 4
+  br i1 %exitcond.not.i, label %_ZN3sls12bv_valuation11random_bitsER10random_gen.exit, label %12, !llvm.loop !89
 
-_ZN3sls12bv_valuation11random_bitsER10random_gen.exit: ; preds = %10
-  %20 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
-  %21 = load i32, ptr %20, align 4, !tbaa !15
-  store i32 %13, ptr %2, align 4, !tbaa !83
+_ZN3sls12bv_valuation11random_bitsER10random_gen.exit: ; preds = %12
+  store i32 %15, ptr %2, align 4, !tbaa !83
   %22 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = xor i32 %23, -1
-  %25 = and i32 %18, %24
-  %26 = or i32 %25, %21
-  store i32 %26, ptr %20, align 4, !tbaa !15
+  %25 = and i32 %20, %24
+  %26 = or i32 %25, %11
+  store i32 %26, ptr %10, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %4, align 4, !tbaa !68
   %28 = zext i32 %27 to i64
@@ -3671,34 +3671,34 @@ define hidden noundef zeroext i1 @_ZN3sls12bv_valuation19set_random_in_rangeERKN
 
 36:                                               ; preds = %_ZN3sls12bv_valuation11random_bitsER10random_gen.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN3sls12bv_valuation11random_bitsER10random_gen.exit.i ]
+  %37 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i
+  %38 = load i32, ptr %37, align 4, !tbaa !15
   %.promoted.i.i = load i32, ptr %3, align 4, !tbaa !83
-  br label %37
+  br label %39
 
-37:                                               ; preds = %37, %36
-  %.07.i.i = phi i32 [ 0, %36 ], [ %46, %37 ]
-  %.056.i.i = phi i32 [ 0, %36 ], [ %45, %37 ]
-  %38 = phi i32 [ %.promoted.i.i, %36 ], [ %40, %37 ]
-  %39 = mul i32 %38, 214013
-  %40 = add i32 %39, 2531011
-  %41 = lshr i32 %40, 16
-  %42 = and i32 %41, 32767
-  %43 = shl nuw nsw i32 %.07.i.i, 3
-  %44 = shl i32 %42, %43
-  %45 = xor i32 %44, %.056.i.i
-  %46 = add nuw nsw i32 %.07.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %46, 4
-  br i1 %exitcond.not.i.i, label %_ZN3sls12bv_valuation11random_bitsER10random_gen.exit.i, label %37, !llvm.loop !89
+39:                                               ; preds = %39, %36
+  %.07.i.i = phi i32 [ 0, %36 ], [ %48, %39 ]
+  %.056.i.i = phi i32 [ 0, %36 ], [ %47, %39 ]
+  %40 = phi i32 [ %.promoted.i.i, %36 ], [ %42, %39 ]
+  %41 = mul i32 %40, 214013
+  %42 = add i32 %41, 2531011
+  %43 = lshr i32 %42, 16
+  %44 = and i32 %43, 32767
+  %45 = shl nuw nsw i32 %.07.i.i, 3
+  %46 = shl i32 %44, %45
+  %47 = xor i32 %46, %.056.i.i
+  %48 = add nuw nsw i32 %.07.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %48, 4
+  br i1 %exitcond.not.i.i, label %_ZN3sls12bv_valuation11random_bitsER10random_gen.exit.i, label %39, !llvm.loop !89
 
-_ZN3sls12bv_valuation11random_bitsER10random_gen.exit.i: ; preds = %37
-  %47 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i
-  %48 = load i32, ptr %47, align 4, !tbaa !15
-  store i32 %40, ptr %3, align 4, !tbaa !83
+_ZN3sls12bv_valuation11random_bitsER10random_gen.exit.i: ; preds = %39
+  store i32 %42, ptr %3, align 4, !tbaa !83
   %49 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4, !tbaa !15
   %51 = xor i32 %50, -1
-  %52 = and i32 %45, %51
-  %53 = or i32 %52, %48
-  store i32 %53, ptr %47, align 4, !tbaa !15
+  %52 = and i32 %47, %51
+  %53 = or i32 %52, %38
+  store i32 %53, ptr %37, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %54 = load i32, ptr %31, align 4, !tbaa !68
   %55 = zext i32 %54 to i64

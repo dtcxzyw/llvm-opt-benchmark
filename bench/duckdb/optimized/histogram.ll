@@ -69,7 +69,7 @@ _ZL22InitBlockSplitIteratorP18BlockSplitIteratorPKN13duckdb_brotli10BlockSplitE.
   %.sroa.4.093 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.4.1, %178 ]
   %.sroa.969.092 = phi i64 [ %20, %.lr.ph101 ], [ %.sroa.969.1.lcssa, %178 ]
   %.sroa.764.091 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.764.1, %178 ]
-  %.sroa.965.090 = phi i64 [ %26, %.lr.ph101 ], [ %128, %178 ]
+  %.sroa.965.090 = phi i64 [ %26, %.lr.ph101 ], [ %49, %178 ]
   %.sroa.463.089 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.463.1, %178 ]
   %.sroa.768.088 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.768.1.lcssa, %178 ]
   %37 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %0, i64 %.05297
@@ -91,141 +91,141 @@ _ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit: ; preds = %36, %39
   %.sroa.463.1 = phi i64 [ %40, %39 ], [ %.sroa.463.089, %36 ]
   %.sroa.764.1 = phi i64 [ %44, %39 ], [ %.sroa.764.091, %36 ]
   %48 = phi i64 [ %47, %39 ], [ %.sroa.965.090, %36 ]
-  %49 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %12, i64 %.sroa.764.1
-  %50 = getelementptr inbounds nuw i8, ptr %37, i64 12
-  %51 = load i16, ptr %50, align 4, !tbaa !15
-  %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %49, i64 %52
-  %54 = load i32, ptr %53, align 4, !tbaa !11
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %53, align 4, !tbaa !11
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 2816
-  %57 = load i64, ptr %56, align 8, !tbaa !18
-  %58 = add i64 %57, 1
-  store i64 %58, ptr %56, align 8, !tbaa !18
-  %59 = load i32, ptr %37, align 4, !tbaa !21
-  %.not70 = icmp eq i32 %59, 0
+  %49 = add i64 %48, -1
+  %50 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %12, i64 %.sroa.764.1
+  %51 = getelementptr inbounds nuw i8, ptr %37, i64 12
+  %52 = load i16, ptr %51, align 4, !tbaa !15
+  %53 = zext i16 %52 to i64
+  %54 = getelementptr inbounds nuw i32, ptr %50, i64 %53
+  %55 = load i32, ptr %54, align 4, !tbaa !11
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %54, align 4, !tbaa !11
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 2816
+  %58 = load i64, ptr %57, align 8, !tbaa !18
+  %59 = add i64 %58, 1
+  store i64 %59, ptr %57, align 8, !tbaa !18
+  %60 = load i32, ptr %37, align 4, !tbaa !21
+  %.not70 = icmp eq i32 %60, 0
   br i1 %.not70, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit
-  %60 = zext i32 %59 to i64
+  %61 = zext i32 %60 to i64
   br i1 %.not55, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us
-  %.177.us = phi i8 [ %84, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %.0100, %.lr.ph ]
-  %.04975.us = phi i64 [ %86, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %60, %.lr.ph ]
-  %.15174.us = phi i64 [ %85, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %.05098, %.lr.ph ]
+  %.177.us = phi i8 [ %85, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %.0100, %.lr.ph ]
+  %.04975.us = phi i64 [ %87, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %61, %.lr.ph ]
+  %.15174.us = phi i64 [ %86, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %.05098, %.lr.ph ]
   %.sroa.467.173.us = phi i64 [ %.sroa.467.2.us, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %.sroa.467.096, %.lr.ph ]
-  %.sroa.969.172.us = phi i64 [ %72, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %.sroa.969.092, %.lr.ph ]
+  %.sroa.969.172.us = phi i64 [ %73, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %.sroa.969.092, %.lr.ph ]
   %.sroa.768.171.us = phi i64 [ %.sroa.768.2.us, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %.sroa.768.088, %.lr.ph ]
-  %61 = icmp eq i64 %.sroa.969.172.us, 0
-  br i1 %61, label %62, label %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us
+  %62 = icmp eq i64 %.sroa.969.172.us, 0
+  br i1 %62, label %63, label %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us
 
-62:                                               ; preds = %.lr.ph.split.us
-  %63 = add i64 %.sroa.467.173.us, 1
-  %64 = load ptr, ptr %34, align 8, !tbaa !13
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %63
-  %66 = load i8, ptr %65, align 1, !tbaa !14
-  %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %16, i64 %63
-  %69 = load i32, ptr %68, align 4, !tbaa !11
-  %70 = zext i32 %69 to i64
+63:                                               ; preds = %.lr.ph.split.us
+  %64 = add i64 %.sroa.467.173.us, 1
+  %65 = load ptr, ptr %34, align 8, !tbaa !13
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %64
+  %67 = load i8, ptr %66, align 1, !tbaa !14
+  %68 = zext i8 %67 to i64
+  %69 = getelementptr inbounds nuw i32, ptr %16, i64 %64
+  %70 = load i32, ptr %69, align 4, !tbaa !11
+  %71 = zext i32 %70 to i64
   br label %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us
 
-_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us: ; preds = %62, %.lr.ph.split.us
-  %.sroa.768.2.us = phi i64 [ %67, %62 ], [ %.sroa.768.171.us, %.lr.ph.split.us ]
-  %.sroa.467.2.us = phi i64 [ %63, %62 ], [ %.sroa.467.173.us, %.lr.ph.split.us ]
-  %71 = phi i64 [ %70, %62 ], [ %.sroa.969.172.us, %.lr.ph.split.us ]
-  %72 = add i64 %71, -1
-  %73 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %11, i64 %.sroa.768.2.us
-  %74 = and i64 %.15174.us, %7
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 %74
-  %76 = load i8, ptr %75, align 1, !tbaa !14
-  %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %73, i64 %77
-  %79 = load i32, ptr %78, align 4, !tbaa !11
-  %80 = add i32 %79, 1
-  store i32 %80, ptr %78, align 4, !tbaa !11
-  %81 = getelementptr inbounds nuw i8, ptr %73, i64 1024
-  %82 = load i64, ptr %81, align 8, !tbaa !22
-  %83 = add i64 %82, 1
-  store i64 %83, ptr %81, align 8, !tbaa !22
-  %84 = load i8, ptr %75, align 1, !tbaa !14
-  %85 = add i64 %.15174.us, 1
-  %86 = add nsw i64 %.04975.us, -1
-  %.not.us = icmp eq i64 %86, 0
+_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us: ; preds = %63, %.lr.ph.split.us
+  %.sroa.768.2.us = phi i64 [ %68, %63 ], [ %.sroa.768.171.us, %.lr.ph.split.us ]
+  %.sroa.467.2.us = phi i64 [ %64, %63 ], [ %.sroa.467.173.us, %.lr.ph.split.us ]
+  %72 = phi i64 [ %71, %63 ], [ %.sroa.969.172.us, %.lr.ph.split.us ]
+  %73 = add i64 %72, -1
+  %74 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %11, i64 %.sroa.768.2.us
+  %75 = and i64 %.15174.us, %7
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 %75
+  %77 = load i8, ptr %76, align 1, !tbaa !14
+  %78 = zext i8 %77 to i64
+  %79 = getelementptr inbounds nuw i32, ptr %74, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !11
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %79, align 4, !tbaa !11
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 1024
+  %83 = load i64, ptr %82, align 8, !tbaa !22
+  %84 = add i64 %83, 1
+  store i64 %84, ptr %82, align 8, !tbaa !22
+  %85 = load i8, ptr %76, align 1, !tbaa !14
+  %86 = add i64 %.15174.us, 1
+  %87 = add nsw i64 %.04975.us, -1
+  %.not.us = icmp eq i64 %87, 0
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !24
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60
-  %.177 = phi i8 [ %125, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ], [ %.0100, %.lr.ph ]
+  %.177 = phi i8 [ %126, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ], [ %.0100, %.lr.ph ]
   %.14676 = phi i8 [ %.177, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ], [ %.04599, %.lr.ph ]
-  %.04975 = phi i64 [ %127, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ], [ %60, %.lr.ph ]
-  %.15174 = phi i64 [ %126, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ], [ %.05098, %.lr.ph ]
+  %.04975 = phi i64 [ %128, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ], [ %61, %.lr.ph ]
+  %.15174 = phi i64 [ %127, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ], [ %.05098, %.lr.ph ]
   %.sroa.467.173 = phi i64 [ %.sroa.467.2, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ], [ %.sroa.467.096, %.lr.ph ]
-  %.sroa.969.172 = phi i64 [ %98, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ], [ %.sroa.969.092, %.lr.ph ]
+  %.sroa.969.172 = phi i64 [ %99, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ], [ %.sroa.969.092, %.lr.ph ]
   %.sroa.768.171 = phi i64 [ %.sroa.768.2, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ], [ %.sroa.768.088, %.lr.ph ]
-  %87 = icmp eq i64 %.sroa.969.172, 0
-  br i1 %87, label %88, label %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60
+  %88 = icmp eq i64 %.sroa.969.172, 0
+  br i1 %88, label %89, label %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60
 
-88:                                               ; preds = %.lr.ph.split
-  %89 = add i64 %.sroa.467.173, 1
-  %90 = load ptr, ptr %34, align 8, !tbaa !13
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %89
-  %92 = load i8, ptr %91, align 1, !tbaa !14
-  %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds nuw i32, ptr %16, i64 %89
-  %95 = load i32, ptr %94, align 4, !tbaa !11
-  %96 = zext i32 %95 to i64
+89:                                               ; preds = %.lr.ph.split
+  %90 = add i64 %.sroa.467.173, 1
+  %91 = load ptr, ptr %34, align 8, !tbaa !13
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %90
+  %93 = load i8, ptr %92, align 1, !tbaa !14
+  %94 = zext i8 %93 to i64
+  %95 = getelementptr inbounds nuw i32, ptr %16, i64 %90
+  %96 = load i32, ptr %95, align 4, !tbaa !11
+  %97 = zext i32 %96 to i64
   br label %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60
 
-_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60: ; preds = %.lr.ph.split, %88
-  %.sroa.768.2 = phi i64 [ %93, %88 ], [ %.sroa.768.171, %.lr.ph.split ]
-  %.sroa.467.2 = phi i64 [ %89, %88 ], [ %.sroa.467.173, %.lr.ph.split ]
-  %97 = phi i64 [ %96, %88 ], [ %.sroa.969.172, %.lr.ph.split ]
-  %98 = add i64 %97, -1
-  %99 = getelementptr inbounds nuw i32, ptr %10, i64 %.sroa.768.2
-  %100 = load i32, ptr %99, align 4, !tbaa !26
-  %101 = shl i32 %100, 9
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i8, ptr @_ZN13duckdb_brotli26_kBrotliContextLookupTableE, i64 %102
-  %104 = zext i8 %.177 to i64
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 %104
-  %106 = load i8, ptr %105, align 1, !tbaa !14
-  %107 = getelementptr inbounds nuw i8, ptr %103, i64 256
-  %108 = zext i8 %.14676 to i64
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !14
-  %111 = or i8 %110, %106
-  %112 = zext i8 %111 to i64
+_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60: ; preds = %.lr.ph.split, %89
+  %.sroa.768.2 = phi i64 [ %94, %89 ], [ %.sroa.768.171, %.lr.ph.split ]
+  %.sroa.467.2 = phi i64 [ %90, %89 ], [ %.sroa.467.173, %.lr.ph.split ]
+  %98 = phi i64 [ %97, %89 ], [ %.sroa.969.172, %.lr.ph.split ]
+  %99 = add i64 %98, -1
+  %100 = getelementptr inbounds nuw i32, ptr %10, i64 %.sroa.768.2
+  %101 = load i32, ptr %100, align 4, !tbaa !26
+  %102 = shl i32 %101, 9
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds i8, ptr @_ZN13duckdb_brotli26_kBrotliContextLookupTableE, i64 %103
+  %105 = zext i8 %.177 to i64
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 %105
+  %107 = load i8, ptr %106, align 1, !tbaa !14
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 256
+  %109 = zext i8 %.14676 to i64
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 %109
+  %111 = load i8, ptr %110, align 1, !tbaa !14
+  %112 = or i8 %111, %107
+  %113 = zext i8 %112 to i64
   %.idx104 = mul nuw nsw i64 %.sroa.768.2, 66560
-  %113 = getelementptr i8, ptr %11, i64 %.idx104
-  %114 = getelementptr %"struct.duckdb_brotli::HistogramLiteral", ptr %113, i64 %112
-  %115 = and i64 %.15174, %7
-  %116 = getelementptr inbounds nuw i8, ptr %5, i64 %115
-  %117 = load i8, ptr %116, align 1, !tbaa !14
-  %118 = zext i8 %117 to i64
-  %119 = getelementptr inbounds nuw i32, ptr %114, i64 %118
-  %120 = load i32, ptr %119, align 4, !tbaa !11
-  %121 = add i32 %120, 1
-  store i32 %121, ptr %119, align 4, !tbaa !11
-  %122 = getelementptr inbounds nuw i8, ptr %114, i64 1024
-  %123 = load i64, ptr %122, align 8, !tbaa !22
-  %124 = add i64 %123, 1
-  store i64 %124, ptr %122, align 8, !tbaa !22
-  %125 = load i8, ptr %116, align 1, !tbaa !14
-  %126 = add i64 %.15174, 1
-  %127 = add nsw i64 %.04975, -1
-  %.not = icmp eq i64 %127, 0
+  %114 = getelementptr i8, ptr %11, i64 %.idx104
+  %115 = getelementptr %"struct.duckdb_brotli::HistogramLiteral", ptr %114, i64 %113
+  %116 = and i64 %.15174, %7
+  %117 = getelementptr inbounds nuw i8, ptr %5, i64 %116
+  %118 = load i8, ptr %117, align 1, !tbaa !14
+  %119 = zext i8 %118 to i64
+  %120 = getelementptr inbounds nuw i32, ptr %115, i64 %119
+  %121 = load i32, ptr %120, align 4, !tbaa !11
+  %122 = add i32 %121, 1
+  store i32 %122, ptr %120, align 4, !tbaa !11
+  %123 = getelementptr inbounds nuw i8, ptr %115, i64 1024
+  %124 = load i64, ptr %123, align 8, !tbaa !22
+  %125 = add i64 %124, 1
+  store i64 %125, ptr %123, align 8, !tbaa !22
+  %126 = load i8, ptr %117, align 1, !tbaa !14
+  %127 = add i64 %.15174, 1
+  %128 = add nsw i64 %.04975, -1
+  %.not = icmp eq i64 %128, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit
   %.sroa.768.1.lcssa = phi i64 [ %.sroa.768.088, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit ], [ %.sroa.768.2.us, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %.sroa.768.2, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ]
-  %.sroa.969.1.lcssa = phi i64 [ %.sroa.969.092, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit ], [ %72, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %98, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ]
+  %.sroa.969.1.lcssa = phi i64 [ %.sroa.969.092, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit ], [ %73, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %99, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ]
   %.sroa.467.1.lcssa = phi i64 [ %.sroa.467.096, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit ], [ %.sroa.467.2.us, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %.sroa.467.2, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ]
-  %.151.lcssa = phi i64 [ %.05098, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit ], [ %85, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %126, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ]
+  %.151.lcssa = phi i64 [ %.05098, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit ], [ %86, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %127, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ]
   %.146.lcssa = phi i8 [ %.04599, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit ], [ %.177.us, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %.177, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ]
-  %.1.lcssa = phi i8 [ %.0100, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit ], [ %84, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %125, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ]
-  %128 = add i64 %48, -1
+  %.1.lcssa = phi i8 [ %.0100, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit ], [ %85, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60.us ], [ %126, %_ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60 ]
   %129 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %130 = load i32, ptr %129, align 4, !tbaa !28
   %131 = and i32 %130, 33554431
@@ -243,7 +243,7 @@ _ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit60: ; preds = %.lr.ph.split
   %140 = and i64 %139, %7
   %141 = getelementptr inbounds nuw i8, ptr %5, i64 %140
   %142 = load i8, ptr %141, align 1, !tbaa !14
-  %143 = icmp ugt i16 %51, 127
+  %143 = icmp ugt i16 %52, 127
   br i1 %143, label %144, label %178
 
 144:                                              ; preds = %134
@@ -266,7 +266,7 @@ _ZL22BlockSplitIteratorNextP18BlockSplitIterator.exit61: ; preds = %144, %146
   %.sroa.7.2 = phi i64 [ %151, %146 ], [ %.sroa.7.095, %144 ]
   %155 = phi i64 [ %154, %146 ], [ %.sroa.9.094, %144 ]
   %156 = add i64 %155, -1
-  %157 = zext i16 %51 to i32
+  %157 = zext i16 %52 to i32
   %158 = lshr i32 %157, 6
   %159 = and i32 %157, 7
   %160 = icmp eq i32 %158, 2

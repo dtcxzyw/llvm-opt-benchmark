@@ -2274,11 +2274,13 @@ add_tonal_components.exit.thread:                 ; preds = %decode_spectrum.exi
   %574 = load i32, ptr %573, align 4, !tbaa !103
   %575 = getelementptr inbounds nuw i8, ptr %573, i64 4
   %576 = load i32, ptr %575, align 4, !tbaa !108
-  %577 = getelementptr inbounds nuw i8, ptr %573, i64 8
-  %578 = sext i32 %574 to i64
-  %579 = getelementptr inbounds float, ptr %366, i64 %578
-  %580 = icmp sgt i32 %576, 0
-  br i1 %580, label %.lr.ph.preheader.i88, label %._crit_edge.i87
+  %577 = add nsw i32 %576, %574
+  %..027.i = tail call i32 @llvm.smax.i32(i32 %577, i32 %.02730.i)
+  %578 = getelementptr inbounds nuw i8, ptr %573, i64 8
+  %579 = sext i32 %574 to i64
+  %580 = getelementptr inbounds float, ptr %366, i64 %579
+  %581 = icmp sgt i32 %576, 0
+  br i1 %581, label %.lr.ph.preheader.i88, label %._crit_edge.i87
 
 .lr.ph.preheader.i88:                             ; preds = %.lr.ph33.i
   %wide.trip.count.i89 = zext nneg i32 %576 to i64
@@ -2286,19 +2288,17 @@ add_tonal_components.exit.thread:                 ; preds = %decode_spectrum.exi
 
 .lr.ph.i90:                                       ; preds = %.lr.ph.i90, %.lr.ph.preheader.i88
   %indvars.iv.i91 = phi i64 [ 0, %.lr.ph.preheader.i88 ], [ %indvars.iv.next.i92, %.lr.ph.i90 ]
-  %581 = getelementptr inbounds nuw float, ptr %577, i64 %indvars.iv.i91
-  %582 = load float, ptr %581, align 4, !tbaa !28
-  %583 = getelementptr inbounds nuw float, ptr %579, i64 %indvars.iv.i91
-  %584 = load float, ptr %583, align 4, !tbaa !28
-  %585 = fadd nsz float %582, %584
-  store float %585, ptr %583, align 4, !tbaa !28
+  %582 = getelementptr inbounds nuw float, ptr %578, i64 %indvars.iv.i91
+  %583 = load float, ptr %582, align 4, !tbaa !28
+  %584 = getelementptr inbounds nuw float, ptr %580, i64 %indvars.iv.i91
+  %585 = load float, ptr %584, align 4, !tbaa !28
+  %586 = fadd nsz float %583, %585
+  store float %586, ptr %584, align 4, !tbaa !28
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, %wide.trip.count.i89
   br i1 %exitcond.not.i93, label %._crit_edge.i87, label %.lr.ph.i90, !llvm.loop !120
 
 ._crit_edge.i87:                                  ; preds = %.lr.ph.i90, %.lr.ph33.i
-  %586 = add nsw i32 %576, %574
-  %..027.i = tail call i32 @llvm.smax.i32(i32 %586, i32 %.02730.i)
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count39.i
   br i1 %exitcond40.not.i, label %add_tonal_components.exit, label %.lr.ph33.i, !llvm.loop !121

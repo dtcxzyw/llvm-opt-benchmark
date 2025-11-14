@@ -3735,79 +3735,79 @@ get_m2ts_stream_type.exit.i.i:                    ; preds = %335, %394, %390, %3
   br label %put_arib_caption_descriptor.exit.i.i
 
 685:                                              ; preds = %617
+  %686 = getelementptr inbounds nuw i8, ptr %.1340412.i.i, i64 6
   store i8 86, ptr %410, align 1, !tbaa !21
-  %686 = getelementptr inbounds nuw i8, ptr %.1340412.i.i, i64 7
-  %687 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %312) #15
-  %688 = icmp ugt i64 %687, 2
-  %689 = ptrtoint ptr %686 to i64
-  %690 = sub i64 %689, %84
-  %691 = icmp ult i64 %690, 1014
-  %692 = select i1 %688, i1 %691, i1 false
-  br i1 %692, label %.lr.ph397.i.i, label %._crit_edge.i.i
+  %687 = getelementptr inbounds nuw i8, ptr %.1340412.i.i, i64 7
+  %688 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %312) #15
+  %689 = icmp ugt i64 %688, 2
+  %690 = ptrtoint ptr %687 to i64
+  %691 = sub i64 %690, %84
+  %692 = icmp ult i64 %691, 1014
+  %693 = select i1 %689, i1 %692, i1 false
+  br i1 %693, label %.lr.ph397.i.i, label %._crit_edge.i.i
 
-.lr.ph397.i.i:                                    ; preds = %685, %718
-  %.0396.i.i = phi i32 [ %.1.i.i, %718 ], [ 0, %685 ]
-  %.2198395.i.i = phi ptr [ %spec.select246.i.i, %718 ], [ %312, %685 ]
-  %.18394.i.i = phi ptr [ %.19.i.i, %718 ], [ %686, %685 ]
-  %693 = getelementptr inbounds nuw i8, ptr %.2198395.i.i, i64 1
-  %694 = load i8, ptr %.2198395.i.i, align 1, !tbaa !21
-  %695 = getelementptr inbounds nuw i8, ptr %.18394.i.i, i64 1
-  store i8 %694, ptr %.18394.i.i, align 1, !tbaa !21
-  %696 = getelementptr inbounds nuw i8, ptr %.2198395.i.i, i64 2
-  %697 = load i8, ptr %693, align 1, !tbaa !21
-  %698 = getelementptr inbounds nuw i8, ptr %.18394.i.i, i64 2
-  store i8 %697, ptr %695, align 1, !tbaa !21
-  %699 = getelementptr inbounds nuw i8, ptr %.2198395.i.i, i64 3
-  %700 = load i8, ptr %696, align 1, !tbaa !21
-  %701 = getelementptr inbounds nuw i8, ptr %.18394.i.i, i64 3
-  store i8 %700, ptr %698, align 1, !tbaa !21
-  %702 = load i8, ptr %699, align 1, !tbaa !21
-  %.not221.i.i = icmp eq i8 %702, 0
-  %703 = getelementptr inbounds nuw i8, ptr %.2198395.i.i, i64 4
-  %spec.select246.i.i = select i1 %.not221.i.i, ptr %699, ptr %703
-  %704 = load ptr, ptr %313, align 8, !tbaa !54
-  %705 = getelementptr inbounds nuw i8, ptr %704, i64 24
-  %706 = load i32, ptr %705, align 8, !tbaa !60
-  %707 = add nsw i32 %706, -1
-  %708 = icmp sgt i32 %707, %.0396.i.i
-  br i1 %708, label %709, label %716
+.lr.ph397.i.i:                                    ; preds = %685, %719
+  %.0396.i.i = phi i32 [ %.1.i.i, %719 ], [ 0, %685 ]
+  %.2198395.i.i = phi ptr [ %spec.select246.i.i, %719 ], [ %312, %685 ]
+  %.18394.i.i = phi ptr [ %.19.i.i, %719 ], [ %687, %685 ]
+  %694 = getelementptr inbounds nuw i8, ptr %.2198395.i.i, i64 1
+  %695 = load i8, ptr %.2198395.i.i, align 1, !tbaa !21
+  %696 = getelementptr inbounds nuw i8, ptr %.18394.i.i, i64 1
+  store i8 %695, ptr %.18394.i.i, align 1, !tbaa !21
+  %697 = getelementptr inbounds nuw i8, ptr %.2198395.i.i, i64 2
+  %698 = load i8, ptr %694, align 1, !tbaa !21
+  %699 = getelementptr inbounds nuw i8, ptr %.18394.i.i, i64 2
+  store i8 %698, ptr %696, align 1, !tbaa !21
+  %700 = getelementptr inbounds nuw i8, ptr %.2198395.i.i, i64 3
+  %701 = load i8, ptr %697, align 1, !tbaa !21
+  %702 = getelementptr inbounds nuw i8, ptr %.18394.i.i, i64 3
+  store i8 %701, ptr %699, align 1, !tbaa !21
+  %703 = load i8, ptr %700, align 1, !tbaa !21
+  %.not221.i.i = icmp eq i8 %703, 0
+  %704 = getelementptr inbounds nuw i8, ptr %.2198395.i.i, i64 4
+  %spec.select246.i.i = select i1 %.not221.i.i, ptr %700, ptr %704
+  %705 = load ptr, ptr %313, align 8, !tbaa !54
+  %706 = getelementptr inbounds nuw i8, ptr %705, i64 24
+  %707 = load i32, ptr %706, align 8, !tbaa !60
+  %708 = add nsw i32 %707, -1
+  %709 = icmp sgt i32 %708, %.0396.i.i
+  br i1 %709, label %710, label %717
 
-709:                                              ; preds = %.lr.ph397.i.i
-  %710 = getelementptr inbounds nuw i8, ptr %704, i64 16
-  %711 = load ptr, ptr %710, align 8, !tbaa !61
-  %712 = sext i32 %.0396.i.i to i64
-  %713 = getelementptr inbounds i8, ptr %711, i64 %712
-  %714 = load i16, ptr %713, align 1
-  store i16 %714, ptr %701, align 1
-  %715 = add nsw i32 %.0396.i.i, 2
-  br label %718
+710:                                              ; preds = %.lr.ph397.i.i
+  %711 = getelementptr inbounds nuw i8, ptr %705, i64 16
+  %712 = load ptr, ptr %711, align 8, !tbaa !61
+  %713 = sext i32 %.0396.i.i to i64
+  %714 = getelementptr inbounds i8, ptr %712, i64 %713
+  %715 = load i16, ptr %714, align 1
+  store i16 %715, ptr %702, align 1
+  %716 = add nsw i32 %.0396.i.i, 2
+  br label %719
 
-716:                                              ; preds = %.lr.ph397.i.i
-  %717 = getelementptr inbounds nuw i8, ptr %.18394.i.i, i64 4
-  store i8 8, ptr %701, align 1, !tbaa !21
-  store i8 0, ptr %717, align 1, !tbaa !21
-  br label %718
+717:                                              ; preds = %.lr.ph397.i.i
+  %718 = getelementptr inbounds nuw i8, ptr %.18394.i.i, i64 4
+  store i8 8, ptr %702, align 1, !tbaa !21
+  store i8 0, ptr %718, align 1, !tbaa !21
+  br label %719
 
-718:                                              ; preds = %716, %709
-  %.1.i.i = phi i32 [ %715, %709 ], [ %.0396.i.i, %716 ]
+719:                                              ; preds = %717, %710
+  %.1.i.i = phi i32 [ %716, %710 ], [ %.0396.i.i, %717 ]
   %.19.i.i = getelementptr inbounds nuw i8, ptr %.18394.i.i, i64 5
-  %719 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select246.i.i) #15
-  %720 = icmp ugt i64 %719, 2
-  %721 = ptrtoint ptr %.19.i.i to i64
-  %722 = sub i64 %721, %84
-  %723 = icmp ult i64 %722, 1014
-  %724 = select i1 %720, i1 %723, i1 false
-  br i1 %724, label %.lr.ph397.i.i, label %._crit_edge.i.i, !llvm.loop !204
+  %720 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select246.i.i) #15
+  %721 = icmp ugt i64 %720, 2
+  %722 = ptrtoint ptr %.19.i.i to i64
+  %723 = sub i64 %722, %84
+  %724 = icmp ult i64 %723, 1014
+  %725 = select i1 %721, i1 %724, i1 false
+  br i1 %725, label %.lr.ph397.i.i, label %._crit_edge.i.i, !llvm.loop !204
 
-._crit_edge.i.i:                                  ; preds = %718, %685
-  %.18.lcssa.i.i = phi ptr [ %686, %685 ], [ %.19.i.i, %718 ]
-  %.lcssa.i.i = phi i64 [ %689, %685 ], [ %721, %718 ]
-  %725 = getelementptr inbounds nuw i8, ptr %.1340412.i.i, i64 6
-  %726 = ptrtoint ptr %725 to i64
+._crit_edge.i.i:                                  ; preds = %719, %685
+  %.18.lcssa.i.i = phi ptr [ %687, %685 ], [ %.19.i.i, %719 ]
+  %.lcssa.i.i = phi i64 [ %690, %685 ], [ %722, %719 ]
+  %726 = ptrtoint ptr %686 to i64
   %727 = xor i64 %726, -1
   %728 = add i64 %.lcssa.i.i, %727
   %729 = trunc i64 %728 to i8
-  store i8 %729, ptr %725, align 1, !tbaa !21
+  store i8 %729, ptr %686, align 1, !tbaa !21
   br label %put_arib_caption_descriptor.exit.i.i
 
 730:                                              ; preds = %617

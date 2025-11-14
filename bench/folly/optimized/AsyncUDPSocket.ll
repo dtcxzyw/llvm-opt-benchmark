@@ -3953,6 +3953,7 @@ _ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvED2Ev.ex
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN5folly14AsyncUDPSocket10writevImplEPNS_6netops9MsgheaderENS0_12WriteOptionsE(ptr noundef nonnull align 16 dereferenceable(768) %0, ptr noundef %1, i64 %2, i64 %3) unnamed_addr #1 align 2 {
   %5 = alloca %struct.timespec, align 8
+  %.sroa.064.0.extract.trunc = trunc i64 %2 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %7 = load ptr, ptr %6, align 16, !tbaa !154
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -4002,7 +4003,6 @@ define noundef i64 @_ZN5folly14AsyncUDPSocket10writevImplEPNS_6netops9MsgheaderE
 
 ._crit_edge81:                                    ; preds = %43, %._crit_edge
   %.1.lcssa = phi ptr [ %.0.lcssa, %._crit_edge ], [ %29, %43 ]
-  %.sroa.064.0.extract.trunc = trunc i64 %2 to i32
   %26 = icmp sgt i32 %.sroa.064.0.extract.trunc, 0
   br i1 %26, label %45, label %52
 

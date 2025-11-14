@@ -10057,8 +10057,8 @@ define hidden void @_ZN5osgeo4proj14CurlFileHandleC2EP6pj_ctxPKcPv(ptr noundef n
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 0, ptr %40, align 8, !tbaa !57
   store i8 0, ptr %39, align 8, !tbaa !22
-  %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(257) %scevgep, i8 0, i64 257, i1 false), !tbaa !22
+  %.ptr36 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(257) %.ptr36, i8 0, i64 257, i1 false), !tbaa !22
   %41 = load ptr, ptr %0, align 8, !tbaa !18
   %42 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %3, i32 noundef 10002, ptr noundef %41)
           to label %43 unwind label %50
@@ -10260,7 +10260,7 @@ _ZN5osgeo4projL8checkRetEP6pj_ctx8CURLcodei.exit69: ; preds = %75, %76, %69
   br label %303
 
 _ZN5osgeo4projL8checkRetEP6pj_ctx8CURLcodei.exit74: ; preds = %99, %100, %89
-  %105 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %3, i32 noundef 10010, ptr noundef nonnull %scevgep)
+  %105 = invoke i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %3, i32 noundef 10010, ptr noundef nonnull %.ptr36)
           to label %106 unwind label %103
 
 106:                                              ; preds = %_ZN5osgeo4projL8checkRetEP6pj_ctx8CURLcodei.exit74

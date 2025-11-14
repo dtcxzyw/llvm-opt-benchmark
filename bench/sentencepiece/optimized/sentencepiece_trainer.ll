@@ -13051,8 +13051,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %5
   %8 = shl nuw nsw i64 %6, 2
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #29, !noalias !263
   %10 = getelementptr inbounds nuw i32, ptr %9, i64 %6
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %9, i8 0, i64 %8, i1 false), !tbaa !35, !noalias !263
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   %12 = icmp eq i64 %0, 0
   br i1 %12, label %"_ZZN13sentencepiece25ConvertToUnicodeAlignmentESt17basic_string_viewIcSt11char_traitsIcEES3_PSt6vectorImSaImEEENK3$_0clES3_.exit", label %.lr.ph15.preheader.i
 
@@ -13125,8 +13125,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i18: ; preds = %"_ZZN13sen
 
 .noexc36:                                         ; preds = %.loopexit.i20
   %34 = getelementptr inbounds nuw i32, ptr %33, i64 %30
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %32
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %33, i8 0, i64 %32, i1 false), !tbaa !35, !noalias !268
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %32
   %36 = icmp eq i64 %2, 0
   br i1 %36, label %.loopexit, label %.lr.ph15.preheader.i21
 
@@ -13212,15 +13212,15 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %57
           to label %.noexc40 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 .noexc40:                                         ; preds = %64
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %65
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %66, i8 0, i64 %65, i1 false), !tbaa !33
-  %68 = getelementptr inbounds nuw i64, ptr %66, i64 %61
+  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %61
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 %65
   br label %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit
 
 _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc40, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.049.0 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %66, %.noexc40 ]
-  %.sroa.12.0 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %68, %.noexc40 ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %67, %.noexc40 ]
+  %.sroa.12.0 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %67, %.noexc40 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %68, %.noexc40 ]
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !271
   %71 = load ptr, ptr %4, align 8, !tbaa !259

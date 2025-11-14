@@ -2306,8 +2306,8 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc188
   %.idx.i.i.i.i.i.i.i185 = shl nuw nsw i64 %188, 2
-  %190 = getelementptr inbounds nuw i8, ptr %187, i64 %.idx.i.i.i.i.i.i.i185
   tail call void @llvm.memset.p0.i64(ptr align 4 %187, i8 0, i64 %.idx.i.i.i.i.i.i.i185, i1 false), !tbaa !96
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 %.idx.i.i.i.i.i.i.i185
   br label %215
 
 .lr.ph302:                                        ; preds = %.lr.ph302.preheader, %201
@@ -2366,8 +2366,8 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc188
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i191: ; preds = %.noexc196
   %.idx.i.i.i.i.i.i.i192 = shl nuw nsw i64 %188, 2
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %.idx.i.i.i.i.i.i.i192
   tail call void @llvm.memset.p0.i64(ptr align 4 %220, i8 0, i64 %.idx.i.i.i.i.i.i.i192, i1 false), !tbaa !96
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %.idx.i.i.i.i.i.i.i192
   br label %.lr.ph311
 
 222:                                              ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
@@ -2843,8 +2843,8 @@ _ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %._crit_edg
 
 435:                                              ; preds = %.noexc213
   %.idx.i.i.i.i.i.i.i210 = shl nuw nsw i64 %416, 3
-  %436 = getelementptr inbounds nuw i8, ptr %415, i64 %.idx.i.i.i.i.i.i.i210
   tail call void @llvm.memset.p0.i64(ptr align 8 %415, i8 0, i64 %.idx.i.i.i.i.i.i.i210, i1 false), !tbaa !168
+  %436 = getelementptr inbounds nuw i8, ptr %415, i64 %.idx.i.i.i.i.i.i.i210
   br label %.lr.ph337
 
 .lr.ph337:                                        ; preds = %.noexc213, %435
@@ -4535,8 +4535,8 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !96
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -4634,8 +4634,8 @@ define linkonce_odr void @_ZNSt6vectorIPfSaIS0_EE17_M_default_appendEm(ptr nound
 
 _ZSt6fill_nIPPfmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !160
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPfmS0_ET_S2_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPfmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPfmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i
@@ -5229,8 +5229,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !205
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i

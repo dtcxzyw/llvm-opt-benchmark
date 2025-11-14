@@ -1640,15 +1640,15 @@ vector.body:                                      ; preds = %vector.body, %for.c
   store <8 x i16> splat (i16 -31007), ptr %22, align 2, !tbaa !58
   %index.next = add nuw i64 %index, 16
   %23 = icmp eq i64 %index.next, %n.vec
-  br i1 %23, label %middle.block, label %vector.body, !llvm.loop !136
+  br i1 %23, label %for.body11.us.us.preheader, label %vector.body, !llvm.loop !136
 
-middle.block:                                     ; preds = %vector.body
+for.body11.us.us.preheader:                       ; preds = %vector.body
   %ind.end = add nsw i64 %19, %n.vec
   br label %for.body11.us.us
 
-for.body11.us.us:                                 ; preds = %for.body11.us.us, %middle.block
-  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %for.body11.us.us ], [ %ind.end, %middle.block ]
-  %x.025.us.us = phi i16 [ %inc.us.us, %for.body11.us.us ], [ %ind.end46, %middle.block ]
+for.body11.us.us:                                 ; preds = %for.body11.us.us.preheader, %for.body11.us.us
+  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %for.body11.us.us ], [ %ind.end, %for.body11.us.us.preheader ]
+  %x.025.us.us = phi i16 [ %inc.us.us, %for.body11.us.us ], [ %ind.end46, %for.body11.us.us.preheader ]
   %arrayidx.us.us = getelementptr inbounds i16, ptr %0, i64 %indvars.iv39
   store i16 -31007, ptr %arrayidx.us.us, align 2, !tbaa !58
   %inc.us.us = add i16 %x.025.us.us, 1

@@ -8299,23 +8299,26 @@ define internal fastcc range(i32 -1, 1) i32 @do_write_index(ptr noundef %0, ptr 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_write_index.sb, i64 24, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %54 = load i8, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %56 = load ptr, ptr %55, align 8, !tbaa !46
+  %55 = lshr i8 %54, 2
+  %56 = and i8 %55, 1
+  %57 = zext nneg i8 %56 to i32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %59 = load ptr, ptr %58, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) @__const.do_write_index.sb, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %58 = load volatile i32, ptr %57, align 8, !tbaa !243
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %60 = load ptr, ptr %59, align 8, !tbaa !247
-  %61 = tail call ptr @hashfd(i32 noundef %58, ptr noundef %60) #30
-  tail call void @prepare_repo_settings(ptr noundef %56) #30
-  %62 = getelementptr inbounds nuw i8, ptr %56, i64 316
-  %63 = load i32, ptr %62, align 4, !tbaa !248
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 2480
-  store i32 %63, ptr %64, align 8, !tbaa !249
-  %65 = icmp sgt i32 %52, 0
-  br i1 %65, label %.lr.ph.preheader, label %._crit_edge
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %61 = load volatile i32, ptr %60, align 8, !tbaa !243
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %63 = load ptr, ptr %62, align 8, !tbaa !247
+  %64 = tail call ptr @hashfd(i32 noundef %61, ptr noundef %63) #30
+  tail call void @prepare_repo_settings(ptr noundef %59) #30
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 316
+  %66 = load i32, ptr %65, align 4, !tbaa !248
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 2480
+  store i32 %66, ptr %67, align 8, !tbaa !249
+  %68 = icmp sgt i32 %52, 0
+  br i1 %68, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %4
   %wide.trip.count = zext nneg i32 %52 to i64
@@ -8325,36 +8328,33 @@ define internal fastcc range(i32 -1, 1) i32 @do_write_index(ptr noundef %0, ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0195357 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %.0197356 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1198, %.lr.ph ]
-  %66 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
-  %67 = load ptr, ptr %66, align 8, !tbaa !25
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 56
-  %69 = load i32, ptr %68, align 8, !tbaa !32
-  %70 = lshr i32 %69, 17
-  %71 = and i32 %70, 1
-  %spec.select = add nuw nsw i32 %71, %.0195357
-  %72 = and i32 %69, -16385
-  %73 = and i32 %69, 1610612736
-  %.not239 = icmp ne i32 %73, 0
+  %69 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
+  %70 = load ptr, ptr %69, align 8, !tbaa !25
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 56
+  %72 = load i32, ptr %71, align 8, !tbaa !32
+  %73 = lshr i32 %72, 17
+  %74 = and i32 %73, 1
+  %spec.select = add nuw nsw i32 %74, %.0195357
+  %75 = and i32 %72, -16385
+  %76 = and i32 %72, 1610612736
+  %.not239 = icmp ne i32 %76, 0
   %masksel = select i1 %.not239, i32 16384, i32 0
-  %storemerge = or disjoint i32 %72, %masksel
-  %74 = zext i1 %.not239 to i32
-  %.1198 = add nuw nsw i32 %.0197356, %74
-  store i32 %storemerge, ptr %68, align 8, !tbaa !32
+  %storemerge = or disjoint i32 %75, %masksel
+  %77 = zext i1 %.not239 to i32
+  %.1198 = add nuw nsw i32 %.0197356, %77
+  store i32 %storemerge, ptr %71, align 8, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !251
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %75 = icmp eq i32 %.1198, 0
-  %76 = select i1 %75, i32 2, i32 3
+  %78 = icmp eq i32 %.1198, 0
+  %79 = select i1 %78, i32 2, i32 3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.0197.lcssa = phi i32 [ 2, %4 ], [ %76, %._crit_edge.loopexit ]
+  %.0197.lcssa = phi i32 [ 2, %4 ], [ %79, %._crit_edge.loopexit ]
   %.0195.lcssa = phi i32 [ 0, %4 ], [ %spec.select, %._crit_edge.loopexit ]
-  %77 = lshr i8 %54, 2
-  %78 = and i8 %77, 1
-  %79 = zext nneg i8 %78 to i32
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %81 = load i32, ptr %80, align 8, !tbaa !104
   %.not = icmp eq i32 %81, 0
@@ -8367,8 +8367,8 @@ define internal fastcc range(i32 -1, 1) i32 @do_write_index(ptr noundef %0, ptr 
   br i1 %.not.i, label %84, label %91
 
 84:                                               ; preds = %82
-  tail call void @prepare_repo_settings(ptr noundef nonnull %56) #30
-  %85 = getelementptr inbounds nuw i8, ptr %56, i64 312
+  tail call void @prepare_repo_settings(ptr noundef nonnull %59) #30
+  %85 = getelementptr inbounds nuw i8, ptr %59, i64 312
   %86 = load i32, ptr %85, align 8, !tbaa !252
   %87 = icmp sgt i32 %86, -1
   %spec.select.i = select i1 %87, i32 %86, i32 3
@@ -8433,7 +8433,7 @@ git_bswap32.exit:                                 ; preds = %102, %105
   %110 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %109) #33, !srcloc !99
   %111 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 %110, ptr %111, align 4, !tbaa !105
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %43, i32 noundef 12) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %43, i32 noundef 12) #30
   %112 = load ptr, ptr @the_repository, align 8, !tbaa !52
   %113 = call i32 @repo_config_get_index_threads(ptr noundef %112, ptr noundef nonnull %48) #30
   %.not206 = icmp eq i32 %113, 0
@@ -8506,10 +8506,10 @@ record_ieot.exit:                                 ; preds = %115
 143:                                              ; preds = %118, %.thread, %133, %135, %record_ieot.exit, %114
   %.0180 = phi i32 [ 1, %record_ieot.exit ], [ 1, %114 ], [ %142, %135 ], [ 1, %133 ], [ 1, %.thread ], [ 1, %118 ]
   %.0178 = phi ptr [ null, %record_ieot.exit ], [ null, %114 ], [ %139, %135 ], [ null, %133 ], [ null, %.thread ], [ null, %118 ]
-  %144 = getelementptr i8, ptr %61, i64 8
-  %145 = getelementptr i8, ptr %61, i64 2416
+  %144 = getelementptr i8, ptr %64, i64 8
+  %145 = getelementptr i8, ptr %64, i64 2416
   %.not350 = icmp eq i32 %106, 4
-  br i1 %65, label %.lr.ph368, label %.thread411
+  br i1 %68, label %.lr.ph368, label %.thread411
 
 .thread411:                                       ; preds = %143
   %146 = icmp ne ptr %.0178, null
@@ -8533,7 +8533,7 @@ record_ieot.exit:                                 ; preds = %115
   %indvars.iv380 = phi i64 [ 0, %.lr.ph368 ], [ %indvars.iv.next381, %267 ]
   %.0174365 = phi i32 [ 0, %.lr.ph368 ], [ %.2.ph, %267 ]
   %.0183362 = phi i64 [ %148, %.lr.ph368 ], [ %.2185.ph, %267 ]
-  %.0187361 = phi i32 [ %79, %.lr.ph368 ], [ %.2189.ph, %267 ]
+  %.0187361 = phi i32 [ %57, %.lr.ph368 ], [ %.2189.ph, %267 ]
   %154 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv380
   %155 = load ptr, ptr %154, align 8, !tbaa !25
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 56
@@ -8694,13 +8694,13 @@ is_racy_timestamp.exit.thread:                    ; preds = %166, %161, %ce_smud
   %230 = getelementptr inbounds nuw i8, ptr %155, i64 64
   %231 = load i32, ptr %230, align 8, !tbaa !32
   call fastcc void @copy_cache_entry_to_ondisk(ptr noundef nonnull %45, ptr noundef nonnull %155)
-  call void @hashwrite(ptr noundef %61, ptr noundef nonnull %45, i32 noundef %228) #30
+  call void @hashwrite(ptr noundef %64, ptr noundef nonnull %45, i32 noundef %228) #30
   %232 = getelementptr inbounds nuw i8, ptr %155, i64 108
-  call void @hashwrite(ptr noundef %61, ptr noundef nonnull %232, i32 noundef %231) #30
+  call void @hashwrite(ptr noundef %64, ptr noundef nonnull %232, i32 noundef %231) #30
   %233 = add i32 %231, %227
   %234 = and i32 %233, 7
   %235 = sub nuw nsw i32 8, %234
-  call void @hashwrite(ptr noundef %61, ptr noundef nonnull @ce_write_entry.padding, i32 noundef %235) #30
+  call void @hashwrite(ptr noundef %64, ptr noundef nonnull @ce_write_entry.padding, i32 noundef %235) #30
   br label %260
 
 236:                                              ; preds = %218
@@ -8749,13 +8749,13 @@ is_racy_timestamp.exit.thread:                    ; preds = %166, %161, %ce_smud
   %252 = sext i32 %251 to i64
   %253 = call i32 @encode_varint(i64 noundef %252, ptr noundef nonnull %39) #30
   call fastcc void @copy_cache_entry_to_ondisk(ptr noundef nonnull %45, ptr noundef nonnull %155)
-  call void @hashwrite(ptr noundef %61, ptr noundef nonnull %45, i32 noundef %228) #30
-  call void @hashwrite(ptr noundef %61, ptr noundef nonnull %39, i32 noundef %253) #30
+  call void @hashwrite(ptr noundef %64, ptr noundef nonnull %45, i32 noundef %228) #30
+  call void @hashwrite(ptr noundef %64, ptr noundef nonnull %39, i32 noundef %253) #30
   %254 = getelementptr inbounds nuw i8, ptr %155, i64 64
   %255 = load i32, ptr %254, align 8, !tbaa !32
   %256 = sub i32 %255, %.055.lcssa.i
-  call void @hashwrite(ptr noundef %61, ptr noundef nonnull %250, i32 noundef %256) #30
-  call void @hashwrite(ptr noundef %61, ptr noundef nonnull @ce_write_entry.padding, i32 noundef 1) #30
+  call void @hashwrite(ptr noundef %64, ptr noundef nonnull %250, i32 noundef %256) #30
+  call void @hashwrite(ptr noundef %64, ptr noundef nonnull @ce_write_entry.padding, i32 noundef 1) #30
   %257 = load i32, ptr %254, align 8, !tbaa !32
   %258 = sub i32 %257, %.055.lcssa.i
   %259 = zext i32 %258 to i64
@@ -8821,7 +8821,7 @@ ce_write_entry.exit._crit_edge:                   ; preds = %267, %ce_write_entr
   br i1 %.not351.lcssa, label %591, label %282
 
 282:                                              ; preds = %270, %.thread411, %281
-  %.1188410414 = phi i32 [ %79, %.thread411 ], [ %.1188, %281 ], [ %.1188, %270 ]
+  %.1188410414 = phi i32 [ %57, %.thread411 ], [ %.1188, %281 ], [ %.1188, %270 ]
   %283 = phi i1 [ %146, %.thread411 ], [ %268, %281 ], [ %268, %270 ]
   %.val247 = load i32, ptr %144, align 8, !tbaa !254
   %.val248 = load i64, ptr %145, align 8, !tbaa !253
@@ -8941,12 +8941,12 @@ write_ieot_extension.exit:                        ; preds = %315, %strbuf_setlen
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i32 1414481225, ptr %34, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %34, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %34, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %339 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %338) #33, !srcloc !99
   store i32 %339, ptr %33, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %33, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %33, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %.not.i263 = icmp eq ptr %.1, null
   br i1 %.not.i263, label %write_index_ext_header.exit, label %git_bswap32.exit8.i
@@ -8975,7 +8975,7 @@ write_index_ext_header.exit:                      ; preds = %write_ieot_extensio
   %351 = load ptr, ptr %306, align 8, !tbaa !75
   %352 = load i64, ptr %305, align 8, !tbaa !73
   %353 = trunc i64 %352 to i32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef %351, i32 noundef %353) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef %351, i32 noundef %353) #30
   br label %354
 
 354:                                              ; preds = %write_index_ext_header.exit, %303
@@ -9024,12 +9024,12 @@ hashwrite_be32.exit6.i266:                        ; preds = %368
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 1802398060, ptr %30, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %30, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %30, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %373 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %372) #33, !srcloc !99
   store i32 %373, ptr %29, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %29, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %29, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %.not.i268 = icmp eq ptr %.1, null
   br i1 %.not.i268, label %write_index_ext_header.exit271, label %git_bswap32.exit8.i269
@@ -9058,14 +9058,14 @@ write_index_ext_header.exit271:                   ; preds = %hashwrite_be32.exit
   %385 = load ptr, ptr %361, align 8, !tbaa !75
   %386 = load i64, ptr %360, align 8, !tbaa !73
   %387 = trunc i64 %386 to i32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef %385, i32 noundef %387) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef %385, i32 noundef %387) #30
   br label %391
 
 .thread339:                                       ; preds = %368
   %388 = load ptr, ptr %361, align 8, !tbaa !75
   %389 = load i64, ptr %360, align 8, !tbaa !73
   %390 = trunc i64 %389 to i32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef %388, i32 noundef %390) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef %388, i32 noundef %390) #30
   br label %592
 
 391:                                              ; preds = %write_index_ext_header.exit271, %356, %354
@@ -9103,12 +9103,12 @@ strbuf_setlen.exit273:                            ; preds = %398, %402
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i32 1162170964, ptr %26, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %26, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %26, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %406 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %405) #33, !srcloc !99
   store i32 %406, ptr %25, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %25, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %25, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %.not.i276 = icmp eq ptr %.1, null
   br i1 %.not.i276, label %write_index_ext_header.exit279, label %git_bswap32.exit8.i277
@@ -9137,7 +9137,7 @@ write_index_ext_header.exit279:                   ; preds = %strbuf_setlen.exit2
   %418 = load ptr, ptr %400, align 8, !tbaa !75
   %419 = load i64, ptr %399, align 8, !tbaa !73
   %420 = trunc i64 %419 to i32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef %418, i32 noundef %420) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef %418, i32 noundef %420) #30
   br label %421
 
 421:                                              ; preds = %write_index_ext_header.exit279, %395, %391
@@ -9176,12 +9176,12 @@ strbuf_setlen.exit281:                            ; preds = %426, %430
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 1129661778, ptr %22, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %22, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %22, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %437 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %436) #33, !srcloc !99
   store i32 %437, ptr %21, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %21, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %21, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %.not.i284 = icmp eq ptr %.1, null
   br i1 %.not.i284, label %write_index_ext_header.exit287, label %git_bswap32.exit8.i285
@@ -9210,7 +9210,7 @@ write_index_ext_header.exit287:                   ; preds = %strbuf_setlen.exit2
   %449 = load ptr, ptr %428, align 8, !tbaa !75
   %450 = load i64, ptr %427, align 8, !tbaa !73
   %451 = trunc i64 %450 to i32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef %449, i32 noundef %451) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef %449, i32 noundef %451) #30
   br label %452
 
 452:                                              ; preds = %write_index_ext_header.exit287, %423, %421
@@ -9246,12 +9246,12 @@ strbuf_setlen.exit289:                            ; preds = %457, %461
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 1381256789, ptr %18, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %18, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %18, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %465 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %464) #33, !srcloc !99
   store i32 %465, ptr %17, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %17, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %17, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.not.i292 = icmp eq ptr %.1, null
   br i1 %.not.i292, label %write_index_ext_header.exit295, label %git_bswap32.exit8.i293
@@ -9280,7 +9280,7 @@ write_index_ext_header.exit295:                   ; preds = %strbuf_setlen.exit2
   %477 = load ptr, ptr %459, align 8, !tbaa !75
   %478 = load i64, ptr %458, align 8, !tbaa !73
   %479 = trunc i64 %478 to i32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef %477, i32 noundef %479) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef %477, i32 noundef %479) #30
   br label %480
 
 480:                                              ; preds = %write_index_ext_header.exit295, %454, %452
@@ -9314,12 +9314,12 @@ strbuf_setlen.exit297:                            ; preds = %485, %489
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 1313690438, ptr %14, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %14, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %14, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %492 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %491) #33, !srcloc !99
   store i32 %492, ptr %13, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %13, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %13, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not.i300 = icmp eq ptr %.1, null
   br i1 %.not.i300, label %write_index_ext_header.exit303, label %git_bswap32.exit8.i301
@@ -9348,7 +9348,7 @@ write_index_ext_header.exit303:                   ; preds = %strbuf_setlen.exit2
   %504 = load ptr, ptr %487, align 8, !tbaa !75
   %505 = load i64, ptr %486, align 8, !tbaa !73
   %506 = trunc i64 %505 to i32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef %504, i32 noundef %506) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef %504, i32 noundef %506) #30
   br label %507
 
 507:                                              ; preds = %write_index_ext_header.exit303, %482, %480
@@ -9362,11 +9362,11 @@ write_index_ext_header.exit303:                   ; preds = %strbuf_setlen.exit2
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 1919509619, ptr %10, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %10, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %10, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %9, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %9, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not.i306 = icmp eq ptr %.1, null
   br i1 %.not.i306, label %write_index_ext_header.exit309, label %511
@@ -9444,18 +9444,18 @@ strbuf_setlen.exit311:                            ; preds = %523, %527
   %548 = load i64, ptr %524, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1162432325, ptr %6, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %6, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %6, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %549 = trunc i64 %548 to i32
   %550 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %549) #33, !srcloc !99
   store i32 %550, ptr %5, align 4, !tbaa !32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef nonnull %5, i32 noundef 4) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef nonnull %5, i32 noundef 4) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %551 = load ptr, ptr %525, align 8, !tbaa !75
   %552 = load i64, ptr %524, align 8, !tbaa !73
   %553 = trunc i64 %552 to i32
-  call void @hashwrite(ptr noundef nonnull %61, ptr noundef %551, i32 noundef %553) #30
+  call void @hashwrite(ptr noundef nonnull %64, ptr noundef %551, i32 noundef %553) #30
   br label %554
 
 554:                                              ; preds = %strbuf_setlen.exit311, %522
@@ -9466,7 +9466,7 @@ strbuf_setlen.exit311:                            ; preds = %523, %527
   %or.cond242 = or i1 %.not233, %.not232
   %.0182 = select i1 %or.cond242, i32 4, i32 6
   %557 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %558 = call i32 @finalize_hashfile(ptr noundef nonnull %61, ptr noundef nonnull %557, i32 noundef 16, i32 noundef %.0182) #30
+  %558 = call i32 @finalize_hashfile(ptr noundef nonnull %64, ptr noundef nonnull %557, i32 noundef 16, i32 noundef %.0182) #30
   %559 = call i32 @close_tempfile_gently(ptr noundef %1) #30
   %.not234 = icmp eq i32 %559, 0
   br i1 %.not234, label %566, label %560
@@ -9531,12 +9531,12 @@ _.exit:                                           ; preds = %560, %562
   br label %.thread332
 
 591:                                              ; preds = %270, %281
-  %.not237 = icmp eq ptr %61, null
+  %.not237 = icmp eq ptr %64, null
   br i1 %.not237, label %.thread332, label %592
 
 592:                                              ; preds = %.thread339, %591
   %.0171345 = phi ptr [ %.1, %.thread339 ], [ null, %591 ]
-  call void @free_hashfile(ptr noundef nonnull %61) #30
+  call void @free_hashfile(ptr noundef nonnull %64) #30
   br label %.thread332
 
 .thread332:                                       ; preds = %566, %584, %_.exit, %592, %591

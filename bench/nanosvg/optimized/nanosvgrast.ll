@@ -6120,14 +6120,20 @@ define internal fastcc void @nsvg__initPaint(ptr noundef nonnull writeonly captu
   %71 = getelementptr %struct.NSVGgradientStop, ptr %50, i64 %70
   %72 = getelementptr i8, ptr %71, i64 -4
   %73 = load float, ptr %72, align 4, !tbaa !180
-  %74 = fmul float %69, 2.550000e+02
-  %75 = fptosi float %74 to i32
-  %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %.lr.ph, label %.preheader80
+  %74 = fcmp olt float %73, %69
+  %75 = fcmp ogt float %73, 1.000000e+00
+  %76 = select i1 %75, float 1.000000e+00, float %73
+  %77 = select i1 %74, float %69, float %76
+  %78 = fmul float %69, 2.550000e+02
+  %79 = fptosi float %78 to i32
+  %80 = fmul float %77, 2.550000e+02
+  %81 = fptosi float %80 to i32
+  %82 = icmp sgt i32 %79, 0
+  br i1 %82, label %.lr.ph, label %.preheader80
 
 .lr.ph:                                           ; preds = %49
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %wide.trip.count = zext nneg i32 %75 to i64
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %wide.trip.count = zext nneg i32 %79 to i64
   br label %87
 
 .preheader80.loopexit:                            ; preds = %87
@@ -6135,14 +6141,8 @@ define internal fastcc void @nsvg__initPaint(ptr noundef nonnull writeonly captu
   br label %.preheader80
 
 .preheader80:                                     ; preds = %.preheader80.loopexit, %49
-  %78 = phi i32 [ %.pre, %.preheader80.loopexit ], [ %29, %49 ]
-  %79 = fcmp olt float %73, %69
-  %80 = fcmp ogt float %73, 1.000000e+00
-  %81 = select i1 %80, float 1.000000e+00, float %73
-  %82 = select i1 %79, float %69, float %81
-  %83 = fmul float %82, 2.550000e+02
-  %84 = fptosi float %83 to i32
-  %85 = icmp sgt i32 %78, 1
+  %84 = phi i32 [ %.pre, %.preheader80.loopexit ], [ %29, %49 ]
+  %85 = icmp sgt i32 %84, 1
   br i1 %85, label %.lr.ph90, label %.preheader
 
 .lr.ph90:                                         ; preds = %.preheader80
@@ -6151,7 +6151,7 @@ define internal fastcc void @nsvg__initPaint(ptr noundef nonnull writeonly captu
 
 87:                                               ; preds = %.lr.ph, %87
   %indvars.iv104 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next105, %87 ]
-  %88 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv104
+  %88 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv104
   store i32 %63, ptr %88, align 4, !tbaa !88
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count
@@ -6165,7 +6165,7 @@ define internal fastcc void @nsvg__initPaint(ptr noundef nonnull writeonly captu
 
 .preheader:                                       ; preds = %..preheader_crit_edge, %.preheader80
   %.076.lcssa = phi i32 [ %91, %..preheader_crit_edge ], [ 0, %.preheader80 ]
-  %.073.lcssa = phi i32 [ %116, %..preheader_crit_edge ], [ %84, %.preheader80 ]
+  %.073.lcssa = phi i32 [ %116, %..preheader_crit_edge ], [ %81, %.preheader80 ]
   %92 = icmp slt i32 %.073.lcssa, 256
   br i1 %92, label %.lr.ph95, label %.loopexit
 
@@ -6175,7 +6175,7 @@ define internal fastcc void @nsvg__initPaint(ptr noundef nonnull writeonly captu
   br label %173
 
 95:                                               ; preds = %.lr.ph90, %.loopexit79
-  %96 = phi i32 [ %78, %.lr.ph90 ], [ %169, %.loopexit79 ]
+  %96 = phi i32 [ %84, %.lr.ph90 ], [ %169, %.loopexit79 ]
   %97 = phi float [ %65, %.lr.ph90 ], [ %107, %.loopexit79 ]
   %indvars.iv113 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next114, %.loopexit79 ]
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1

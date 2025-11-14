@@ -2157,28 +2157,28 @@ define ptr @cuddUniqueInterZdd(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %54 = load i32, ptr %53, align 4, !tbaa !67
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !112
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %58 = load i32, ptr %57, align 8, !tbaa !70
-  br label %59
+  %57 = load ptr, ptr %52, align 8, !tbaa !66
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %59 = load i32, ptr %58, align 8, !tbaa !70
+  br label %60
 
-59:                                               ; preds = %59, %50
-  %.073.i = phi i32 [ %56, %50 ], [ %61, %59 ]
-  %.0.i = phi i32 [ %54, %50 ], [ %60, %59 ]
-  %60 = shl i32 %.0.i, 1
-  %61 = add nsw i32 %.073.i, -1
-  %62 = shl i32 %.0.i, 3
-  %63 = icmp ult i32 %62, %58
-  br i1 %63, label %59, label %64, !llvm.loop !159
+60:                                               ; preds = %60, %50
+  %.073.i = phi i32 [ %56, %50 ], [ %62, %60 ]
+  %.0.i = phi i32 [ %54, %50 ], [ %61, %60 ]
+  %61 = shl i32 %.0.i, 1
+  %62 = add nsw i32 %.073.i, -1
+  %63 = shl i32 %.0.i, 3
+  %64 = icmp ult i32 %63, %59
+  br i1 %64, label %60, label %65, !llvm.loop !159
 
-64:                                               ; preds = %59
-  %65 = load ptr, ptr %52, align 8, !tbaa !66
-  %66 = zext i32 %60 to i64
+65:                                               ; preds = %60
+  %66 = zext i32 %61 to i64
   %67 = shl nuw nsw i64 %66, 3
   %68 = tail call noalias ptr @malloc(i64 noundef %67) #13
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %83
 
-70:                                               ; preds = %64
+70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %72 = load ptr, ptr %71, align 8, !tbaa !92
   %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.7, i32 noundef %14) #14
@@ -2203,13 +2203,13 @@ define ptr @cuddUniqueInterZdd(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %exitcond105.not.i = icmp eq i64 %indvars.iv.next102.i, %wide.trip.count104.i
   br i1 %exitcond105.not.i, label %ddRehashZdd.exit, label %78, !llvm.loop !160
 
-83:                                               ; preds = %64
+83:                                               ; preds = %65
   store ptr %68, ptr %52, align 8, !tbaa !66
-  store i32 %60, ptr %53, align 4, !tbaa !67
-  store i32 %61, ptr %55, align 8, !tbaa !112
+  store i32 %61, ptr %53, align 4, !tbaa !67
+  store i32 %62, ptr %55, align 8, !tbaa !112
   %84 = getelementptr inbounds nuw i8, ptr %52, i64 20
-  store i32 %62, ptr %84, align 4, !tbaa !90
-  %.not95.i = icmp eq i32 %60, 0
+  store i32 %63, ptr %84, align 4, !tbaa !90
+  %.not95.i = icmp eq i32 %61, 0
   br i1 %.not95.i, label %.preheader.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %83
@@ -2226,7 +2226,7 @@ define ptr @cuddUniqueInterZdd(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 
 .lr.ph90.i:                                       ; preds = %._crit_edge.i, %.lr.ph90.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph90.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %85 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv.i
   %86 = load ptr, ptr %85, align 8, !tbaa !38
   %.not8286.i = icmp eq ptr %86, null
   br i1 %.not8286.i, label %._crit_edge.i, label %.lr.ph88.i
@@ -2260,7 +2260,7 @@ define ptr @cuddUniqueInterZdd(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %111 = trunc i64 %110 to i32
   %112 = add i32 %100, %111
   %113 = mul i32 %112, 4256249
-  %114 = lshr i32 %113, %61
+  %114 = lshr i32 %113, %62
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds ptr, ptr %68, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !38
@@ -2275,17 +2275,17 @@ define ptr @cuddUniqueInterZdd(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br i1 %exitcond.not.i, label %._crit_edge91.thread.i, label %.lr.ph90.i, !llvm.loop !163
 
 ._crit_edge91.i:                                  ; preds = %.preheader.i
-  %.not.i = icmp eq ptr %65, null
+  %.not.i = icmp eq ptr %57, null
   br i1 %.not.i, label %118, label %._crit_edge91.thread.i
 
 ._crit_edge91.thread.i:                           ; preds = %._crit_edge.i, %._crit_edge91.i
-  tail call void @free(ptr noundef nonnull %65) #14
+  tail call void @free(ptr noundef nonnull %57) #14
   %.pre.i = load i32, ptr %42, align 8, !tbaa !51
   br label %118
 
 118:                                              ; preds = %._crit_edge91.thread.i, %._crit_edge91.i
   %119 = phi i32 [ %43, %._crit_edge91.i ], [ %.pre.i, %._crit_edge91.thread.i ]
-  %120 = sub i32 %60, %54
+  %120 = sub i32 %61, %54
   %121 = zext i32 %120 to i64
   %122 = shl nuw nsw i64 %121, 3
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 632
@@ -4478,62 +4478,62 @@ define void @cuddShrinkSubtable(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %.not8896, label %._crit_edge, label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %.lr.ph100, %.critedge
-  %.08197 = phi ptr [ %58, %.critedge ], [ %23, %.lr.ph100 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.08197, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !161
-  %26 = ptrtoint ptr %25 to i64
-  %27 = and i64 %26, -2
-  %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %30 = load i64, ptr %29, align 8, !tbaa !43
-  %31 = shl i64 %30, 1
-  %32 = and i64 %26, 1
-  %33 = or disjoint i64 %31, %32
-  %34 = trunc i64 %33 to i32
-  %35 = mul i32 %34, 12582917
-  %36 = getelementptr inbounds nuw i8, ptr %.08197, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !161
-  %38 = ptrtoint ptr %37 to i64
-  %39 = and i64 %38, -2
-  %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %42 = load i64, ptr %41, align 8, !tbaa !43
-  %43 = shl i64 %42, 1
-  %44 = and i64 %38, 1
-  %45 = or disjoint i64 %43, %44
-  %46 = trunc i64 %45 to i32
-  %47 = add i32 %35, %46
-  %48 = mul i32 %47, 4256249
-  %49 = lshr i32 %48, %18
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds ptr, ptr %13, i64 %50
-  br label %52
+  %.08197 = phi ptr [ %25, %.critedge ], [ %23, %.lr.ph100 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.08197, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !40
+  %26 = getelementptr inbounds nuw i8, ptr %.08197, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !161
+  %28 = ptrtoint ptr %27 to i64
+  %29 = and i64 %28, -2
+  %30 = inttoptr i64 %29 to ptr
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %32 = load i64, ptr %31, align 8, !tbaa !43
+  %33 = shl i64 %32, 1
+  %34 = and i64 %28, 1
+  %35 = or disjoint i64 %33, %34
+  %36 = trunc i64 %35 to i32
+  %37 = mul i32 %36, 12582917
+  %38 = getelementptr inbounds nuw i8, ptr %.08197, i64 24
+  %39 = load ptr, ptr %38, align 8, !tbaa !161
+  %40 = ptrtoint ptr %39 to i64
+  %41 = and i64 %40, -2
+  %42 = inttoptr i64 %41 to ptr
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %44 = load i64, ptr %43, align 8, !tbaa !43
+  %45 = shl i64 %44, 1
+  %46 = and i64 %40, 1
+  %47 = or disjoint i64 %45, %46
+  %48 = trunc i64 %47 to i32
+  %49 = add i32 %37, %48
+  %50 = mul i32 %49, 4256249
+  %51 = lshr i32 %50, %18
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds ptr, ptr %13, i64 %52
+  br label %54
 
-52:                                               ; preds = %52, %.lr.ph98
-  %.0 = phi ptr [ %51, %.lr.ph98 ], [ %56, %52 ]
+54:                                               ; preds = %54, %.lr.ph98
+  %.0 = phi ptr [ %53, %.lr.ph98 ], [ %58, %54 ]
   %.079 = load ptr, ptr %.0, align 8, !tbaa !38
-  %53 = getelementptr inbounds nuw i8, ptr %.079, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !161
-  %55 = icmp ult ptr %25, %54
-  %56 = getelementptr inbounds nuw i8, ptr %.079, i64 8
-  br i1 %55, label %52, label %.preheader, !llvm.loop !201
+  %55 = getelementptr inbounds nuw i8, ptr %.079, i64 16
+  %56 = load ptr, ptr %55, align 8, !tbaa !161
+  %57 = icmp ult ptr %27, %56
+  %58 = getelementptr inbounds nuw i8, ptr %.079, i64 8
+  br i1 %57, label %54, label %.preheader, !llvm.loop !201
 
-.preheader:                                       ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %.08197, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !40
-  %59 = icmp eq ptr %25, %54
+.preheader:                                       ; preds = %54
+  %59 = icmp eq ptr %27, %56
   br i1 %59, label %.lr.ph93.preheader, label %.critedge
 
 .lr.ph93.preheader:                               ; preds = %.preheader
   %60 = getelementptr inbounds nuw i8, ptr %.079, i64 24
   %61 = load ptr, ptr %60, align 8, !tbaa !161
-  %62 = icmp ult ptr %37, %61
+  %62 = icmp ult ptr %39, %61
   br i1 %62, label %.lr.ph120, label %.critedge
 
 .lr.ph93:                                         ; preds = %.lr.ph120
   %63 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !161
-  %65 = icmp ult ptr %37, %64
+  %65 = icmp ult ptr %39, %64
   br i1 %65, label %.lr.ph120, label %.critedge.loopexit, !llvm.loop !202
 
 .lr.ph120:                                        ; preds = %.lr.ph93.preheader, %.lr.ph93
@@ -4542,7 +4542,7 @@ define void @cuddShrinkSubtable(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %67 = load ptr, ptr %66, align 8, !tbaa !38
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8, !tbaa !161
-  %70 = icmp eq ptr %25, %69
+  %70 = icmp eq ptr %27, %69
   br i1 %70, label %.lr.ph93, label %..critedge.loopexit_crit_edge, !llvm.loop !202
 
 ..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph120
@@ -4556,9 +4556,9 @@ define void @cuddShrinkSubtable(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph93.preheader, %..critedge.loopexit_crit_edge, %.preheader
   %73 = phi ptr [ %.079, %.preheader ], [ %67, %..critedge.loopexit_crit_edge ], [ %.079, %.lr.ph93.preheader ], [ %67, %.critedge.loopexit ]
   %.1.lcssa = phi ptr [ %.0, %.preheader ], [ %71, %..critedge.loopexit_crit_edge ], [ %.0, %.lr.ph93.preheader ], [ %72, %.critedge.loopexit ]
-  store ptr %73, ptr %57, align 8, !tbaa !40
+  store ptr %73, ptr %24, align 8, !tbaa !40
   store ptr %.08197, ptr %.1.lcssa, align 8, !tbaa !38
-  %.not88 = icmp eq ptr %58, %0
+  %.not88 = icmp eq ptr %25, %0
   br i1 %.not88, label %._crit_edge, label %.lr.ph98, !llvm.loop !203
 
 ._crit_edge:                                      ; preds = %.critedge, %.lr.ph100

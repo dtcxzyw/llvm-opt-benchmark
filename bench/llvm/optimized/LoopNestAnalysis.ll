@@ -2235,40 +2235,40 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !21
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load i32, ptr %18, align 8, !tbaa !22
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 -8
-  %23 = load ptr, ptr %22, align 8, !tbaa !10
-  br label %24
+  %16 = load i32, ptr %1, align 8, !tbaa !12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !21
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %20 = load i32, ptr %19, align 8, !tbaa !22
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %21
+  %23 = getelementptr inbounds i8, ptr %22, i64 -8
+  %24 = load ptr, ptr %23, align 8, !tbaa !10
+  br label %25
 
-24:                                               ; preds = %24, %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %.04.i.i = phi i32 [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ %25, %24 ]
-  %.0.in.i.i = phi ptr [ %23, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ %.0.i.i23, %24 ]
+25:                                               ; preds = %25, %_ZN4llvm11raw_ostreamlsEPKc.exit
+  %.04.i.i = phi i32 [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ %26, %25 ]
+  %.0.in.i.i = phi ptr [ %24, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ %.0.i.i23, %25 ]
   %.0.i.i23 = load ptr, ptr %.0.in.i.i, align 8, !tbaa !181
   %.not.i.i = icmp eq ptr %.0.i.i23, null
-  %25 = add i32 %.04.i.i, 1
-  br i1 %.not.i.i, label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i, label %24, !llvm.loop !191
+  %26 = add i32 %.04.i.i, 1
+  br i1 %.not.i.i, label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i, label %25, !llvm.loop !191
 
-_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i: ; preds = %24
-  %26 = load ptr, ptr %17, align 8, !tbaa !10
-  br label %27
+_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i: ; preds = %25
+  %27 = load ptr, ptr %18, align 8, !tbaa !10
+  br label %28
 
-27:                                               ; preds = %27, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i
-  %.04.i1.i = phi i32 [ 1, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i ], [ %28, %27 ]
-  %.0.in.i2.i = phi ptr [ %26, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i ], [ %.0.i3.i, %27 ]
+28:                                               ; preds = %28, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i
+  %.04.i1.i = phi i32 [ 1, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i ], [ %29, %28 ]
+  %.0.in.i2.i = phi ptr [ %27, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i ], [ %.0.i3.i, %28 ]
   %.0.i3.i = load ptr, ptr %.0.in.i2.i, align 8, !tbaa !181
   %.not.i4.i = icmp eq ptr %.0.i3.i, null
-  %28 = add i32 %.04.i1.i, 1
-  br i1 %.not.i4.i, label %_ZNK4llvm8LoopNest12getNestDepthEv.exit, label %27, !llvm.loop !191
+  %29 = add i32 %.04.i1.i, 1
+  br i1 %.not.i4.i, label %_ZNK4llvm8LoopNest12getNestDepthEv.exit, label %28, !llvm.loop !191
 
-_ZNK4llvm8LoopNest12getNestDepthEv.exit:          ; preds = %27
-  %29 = load i32, ptr %1, align 8, !tbaa !12
-  %30 = sub i32 %25, %.04.i1.i
-  %31 = icmp eq i32 %29, %30
+_ZNK4llvm8LoopNest12getNestDepthEv.exit:          ; preds = %28
+  %30 = sub i32 %26, %.04.i1.i
+  %31 = icmp eq i32 %16, %30
   %32 = load ptr, ptr %3, align 8, !tbaa !175
   %33 = load ptr, ptr %5, align 8, !tbaa !180
   %34 = ptrtoint ptr %32 to i64
@@ -2328,8 +2328,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit26:               ; preds = %48, %46, %41, %39
 
 _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %57, %59
   %.0.i.i31 = phi ptr [ %58, %57 ], [ %0, %59 ]
-  %62 = load ptr, ptr %16, align 8, !tbaa !21
-  %63 = load i32, ptr %18, align 8, !tbaa !22
+  %62 = load ptr, ptr %17, align 8, !tbaa !21
+  %63 = load i32, ptr %19, align 8, !tbaa !22
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %64
   %66 = getelementptr inbounds i8, ptr %65, i64 -8
@@ -2381,7 +2381,7 @@ _ZNK4llvm8LoopNest12getNestDepthEv.exit42:        ; preds = %71
 
 _ZN4llvm11raw_ostreamlsEPKc.exit45:               ; preds = %82, %84
   %.0.i.i44 = phi ptr [ %83, %82 ], [ %0, %84 ]
-  %87 = load ptr, ptr %16, align 8, !tbaa !21
+  %87 = load ptr, ptr %17, align 8, !tbaa !21
   %88 = load ptr, ptr %87, align 8, !tbaa !10
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %90 = load ptr, ptr %89, align 8, !tbaa !106
@@ -2451,8 +2451,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %108, %110, %111
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit49
 
 _ZN4llvm11raw_ostreamlsEPKc.exit49:               ; preds = %120, %122
-  %125 = load ptr, ptr %16, align 8, !tbaa !21
-  %126 = load i32, ptr %18, align 8, !tbaa !22
+  %125 = load ptr, ptr %17, align 8, !tbaa !21
+  %126 = load i32, ptr %19, align 8, !tbaa !22
   %127 = zext i32 %126 to i64
   %.idx = shl nuw nsw i64 %127, 3
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 %.idx

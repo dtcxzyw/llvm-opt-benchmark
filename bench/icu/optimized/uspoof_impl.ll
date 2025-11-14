@@ -822,19 +822,19 @@ define void @_ZN6icu_779SpoofImpl17setAllowedLocalesEPKcR10UErrorCode(ptr nounde
 8:                                                ; preds = %.critedge, %3
   %.059 = phi i32 [ 0, %3 ], [ %27, %.critedge ]
   %.0 = phi ptr [ %1, %3 ], [ %.3, %.critedge ]
-  br label %9
+  %9 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 44) #23
+  br label %10
 
-9:                                                ; preds = %9, %8
-  %.1 = phi ptr [ %.0, %8 ], [ %12, %9 ]
-  %10 = load i8, ptr %.1, align 1, !tbaa !38
-  %11 = icmp eq i8 %10, 32
-  %12 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br i1 %11, label %9, label %.preheader, !llvm.loop !39
+10:                                               ; preds = %10, %8
+  %.1 = phi ptr [ %.0, %8 ], [ %13, %10 ]
+  %11 = load i8, ptr %.1, align 1, !tbaa !38
+  %12 = icmp eq i8 %11, 32
+  %13 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  br i1 %12, label %10, label %.preheader, !llvm.loop !39
 
-.preheader:                                       ; preds = %9
-  %13 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 44) #23
-  %14 = icmp eq ptr %13, null
-  %spec.select = select i1 %14, ptr %7, ptr %13
+.preheader:                                       ; preds = %10
+  %14 = icmp eq ptr %9, null
+  %spec.select = select i1 %14, ptr %7, ptr %9
   br label %15
 
 15:                                               ; preds = %.preheader, %17

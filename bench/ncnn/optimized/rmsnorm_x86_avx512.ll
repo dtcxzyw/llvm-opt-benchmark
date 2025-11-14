@@ -519,7 +519,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %.6279.lcssa = phi i32 [ %.2275, %.preheader343 ], [ %178, %.lr.ph400 ]
   %.6246.lcssa = phi ptr [ %.2242, %.preheader343 ], [ %177, %.lr.ph400 ]
   %.6.lcssa = phi ptr [ %.2, %.preheader343 ], [ %176, %.lr.ph400 ]
-  %157 = add nuw nsw i32 %.6279.lcssa, 7
+  %157 = add nsw i32 %.6279.lcssa, 7
   %158 = icmp slt i32 %157, %6
   br i1 %158, label %.lr.ph407, label %.preheader340
 
@@ -547,8 +547,8 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   store <16 x float> %175, ptr %.6399, align 1, !tbaa !45
   %176 = getelementptr inbounds nuw i8, ptr %.6399, i64 64
   %177 = getelementptr inbounds nuw i8, ptr %.6246398, i64 16
-  %178 = add nuw nsw i32 %.6279397, 16
-  %179 = add nuw nsw i32 %.6279397, 31
+  %178 = add nsw i32 %.6279397, 16
+  %179 = add nsw i32 %.6279397, 31
   %180 = icmp slt i32 %179, %6
   br i1 %180, label %.lr.ph400, label %.preheader342, !llvm.loop !55
 
@@ -556,7 +556,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %.7280.lcssa = phi i32 [ %.6279.lcssa, %.preheader342 ], [ %194, %.lr.ph407 ]
   %.7247.lcssa = phi ptr [ %.6246.lcssa, %.preheader342 ], [ %193, %.lr.ph407 ]
   %.7.lcssa = phi ptr [ %.6.lcssa, %.preheader342 ], [ %192, %.lr.ph407 ]
-  %181 = add nuw nsw i32 %.7280.lcssa, 3
+  %181 = add nsw i32 %.7280.lcssa, 3
   %182 = icmp slt i32 %181, %6
   br i1 %182, label %.lr.ph414, label %.loopexit341
 
@@ -576,8 +576,8 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   store <8 x float> %191, ptr %.7406, align 1, !tbaa !45
   %192 = getelementptr inbounds nuw i8, ptr %.7406, i64 32
   %193 = getelementptr inbounds nuw i8, ptr %.7247405, i64 8
-  %194 = add nuw nsw i32 %.7280404, 8
-  %195 = add nuw nsw i32 %.7280404, 15
+  %194 = add nsw i32 %.7280404, 8
+  %195 = add nsw i32 %.7280404, 15
   %196 = icmp slt i32 %195, %6
   br i1 %196, label %.lr.ph407, label %.preheader340, !llvm.loop !56
 
@@ -594,8 +594,8 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   store <4 x float> %202, ptr %.8413, align 1, !tbaa !45
   %203 = getelementptr inbounds nuw i8, ptr %.8413, i64 16
   %204 = getelementptr inbounds nuw i8, ptr %.8248412, i64 4
-  %205 = add nuw nsw i32 %.8281411, 4
-  %206 = add nuw nsw i32 %.8281411, 7
+  %205 = add nsw i32 %.8281411, 4
+  %206 = add nsw i32 %.8281411, 7
   %207 = icmp slt i32 %206, %6
   br i1 %207, label %.lr.ph414, label %.loopexit341, !llvm.loop !57
 
@@ -606,7 +606,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   br i1 %111, label %.preheader339, label %.loopexit337
 
 .preheader339:                                    ; preds = %.loopexit341
-  %208 = add nuw nsw i32 %.5278, 15
+  %208 = add nsw i32 %.5278, 15
   %209 = icmp slt i32 %208, %6
   br i1 %209, label %.lr.ph421, label %.preheader338
 
@@ -614,7 +614,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %.10283.lcssa = phi i32 [ %.5278, %.preheader339 ], [ %218, %.lr.ph421 ]
   %.10250.lcssa = phi ptr [ %.5245, %.preheader339 ], [ %217, %.lr.ph421 ]
   %.10.lcssa = phi ptr [ %.5, %.preheader339 ], [ %216, %.lr.ph421 ]
-  %210 = add nuw nsw i32 %.10283.lcssa, 7
+  %210 = add nsw i32 %.10283.lcssa, 7
   %211 = icmp slt i32 %210, %6
   br i1 %211, label %.lr.ph428, label %.preheader336
 
@@ -629,8 +629,8 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   store <16 x float> %215, ptr %.10420, align 1, !tbaa !45
   %216 = getelementptr inbounds nuw i8, ptr %.10420, i64 64
   %217 = getelementptr inbounds nuw i8, ptr %.10250419, i64 64
-  %218 = add nuw nsw i32 %.10283418, 16
-  %219 = add nuw nsw i32 %.10283418, 31
+  %218 = add nsw i32 %.10283418, 16
+  %219 = add nsw i32 %.10283418, 31
   %220 = icmp slt i32 %219, %6
   br i1 %220, label %.lr.ph421, label %.preheader338, !llvm.loop !58
 
@@ -638,7 +638,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %.11284.lcssa = phi i32 [ %.10283.lcssa, %.preheader338 ], [ %229, %.lr.ph428 ]
   %.11251.lcssa = phi ptr [ %.10250.lcssa, %.preheader338 ], [ %228, %.lr.ph428 ]
   %.11.lcssa = phi ptr [ %.10.lcssa, %.preheader338 ], [ %227, %.lr.ph428 ]
-  %221 = add nuw nsw i32 %.11284.lcssa, 3
+  %221 = add nsw i32 %.11284.lcssa, 3
   %222 = icmp slt i32 %221, %6
   br i1 %222, label %.lr.ph435, label %.loopexit337
 
@@ -653,8 +653,8 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   store <8 x float> %226, ptr %.11427, align 1, !tbaa !45
   %227 = getelementptr inbounds nuw i8, ptr %.11427, i64 32
   %228 = getelementptr inbounds nuw i8, ptr %.11251426, i64 32
-  %229 = add nuw nsw i32 %.11284425, 8
-  %230 = add nuw nsw i32 %.11284425, 15
+  %229 = add nsw i32 %.11284425, 8
+  %230 = add nsw i32 %.11284425, 15
   %231 = icmp slt i32 %230, %6
   br i1 %231, label %.lr.ph428, label %.preheader336, !llvm.loop !59
 
@@ -669,8 +669,8 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   store <4 x float> %235, ptr %.12434, align 1, !tbaa !45
   %236 = getelementptr inbounds nuw i8, ptr %.12434, i64 16
   %237 = getelementptr inbounds nuw i8, ptr %.12252433, i64 16
-  %238 = add nuw nsw i32 %.12285432, 4
-  %239 = add nuw nsw i32 %.12285432, 7
+  %238 = add nsw i32 %.12285432, 4
+  %239 = add nsw i32 %.12285432, 7
   %240 = icmp slt i32 %239, %6
   br i1 %240, label %.lr.ph435, label %.loopexit337, !llvm.loop !60
 
@@ -692,7 +692,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   store float %245, ptr %.13441, align 4, !tbaa !50
   %246 = getelementptr inbounds nuw i8, ptr %.13441, i64 4
   %247 = getelementptr inbounds nuw i8, ptr %.13253440, i64 4
-  %248 = add nuw nsw i32 %.13286439, 1
+  %248 = add nsw i32 %.13286439, 1
   %exitcond505.not = icmp eq i32 %248, %6
   br i1 %exitcond505.not, label %.loopexit, label %.lr.ph443, !llvm.loop !61
 

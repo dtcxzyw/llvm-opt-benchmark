@@ -561,39 +561,39 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
 .lr.ph180:                                        ; preds = %._crit_edge177
   %115 = load i32, ptr %7, align 4, !tbaa !68
   %116 = zext i32 %115 to i64
+  %117 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  %118 = getelementptr inbounds nuw i8, ptr %26, i64 56
   br label %wbuf_new.exit
 
 wbuf_new.exit:                                    ; preds = %.lr.ph180, %wbuf_new.exit
-  %117 = phi ptr [ null, %.lr.ph180 ], [ %127, %wbuf_new.exit ]
-  %118 = phi ptr [ null, %.lr.ph180 ], [ %119, %wbuf_new.exit ]
-  %.2142178 = phi i32 [ 0, %.lr.ph180 ], [ %129, %wbuf_new.exit ]
-  %119 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #14
-  %120 = icmp ne ptr %119, null
-  call void @llvm.assume(i1 %120)
-  %121 = call noalias ptr @calloc(i64 noundef range(i64 0, 4294967296) %116, i64 noundef 1) #14
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  store ptr %121, ptr %122, align 8, !tbaa !95
-  %123 = icmp ne ptr %121, null
-  call void @llvm.assume(i1 %123)
-  %124 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  store ptr %121, ptr %124, align 8, !tbaa !97
-  %125 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  store i32 %115, ptr %125, align 8, !tbaa !98
-  %126 = getelementptr inbounds nuw i8, ptr %119, i64 28
-  store i32 %115, ptr %126, align 4, !tbaa !99
-  %127 = call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #14
-  store ptr %118, ptr %119, align 8, !tbaa !100
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  store ptr %117, ptr %128, align 8, !tbaa !101
-  %129 = add nuw nsw i32 %.2142178, 1
-  %exitcond.not = icmp eq i32 %129, %114
+  %119 = phi ptr [ null, %.lr.ph180 ], [ %129, %wbuf_new.exit ]
+  %120 = phi ptr [ null, %.lr.ph180 ], [ %121, %wbuf_new.exit ]
+  %.2142178 = phi i32 [ 0, %.lr.ph180 ], [ %131, %wbuf_new.exit ]
+  %121 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #14
+  %122 = icmp ne ptr %121, null
+  call void @llvm.assume(i1 %122)
+  %123 = call noalias ptr @calloc(i64 noundef range(i64 0, 4294967296) %116, i64 noundef 1) #14
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  store ptr %123, ptr %124, align 8, !tbaa !95
+  %125 = icmp ne ptr %123, null
+  call void @llvm.assume(i1 %125)
+  %126 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  store ptr %123, ptr %126, align 8, !tbaa !97
+  %127 = getelementptr inbounds nuw i8, ptr %121, i64 24
+  store i32 %115, ptr %127, align 8, !tbaa !98
+  %128 = getelementptr inbounds nuw i8, ptr %121, i64 28
+  store i32 %115, ptr %128, align 4, !tbaa !99
+  %129 = call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #14
+  store ptr %120, ptr %121, align 8, !tbaa !100
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  store ptr %119, ptr %130, align 8, !tbaa !101
+  %131 = add nuw nsw i32 %.2142178, 1
+  %exitcond.not = icmp eq i32 %131, %114
   br i1 %exitcond.not, label %._crit_edge181, label %wbuf_new.exit, !llvm.loop !104
 
 ._crit_edge181:                                   ; preds = %wbuf_new.exit
-  %130 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %131 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  store ptr %119, ptr %130, align 8, !tbaa !105
-  store ptr %127, ptr %131, align 8, !tbaa !106
+  store ptr %121, ptr %117, align 8, !tbaa !105
+  store ptr %129, ptr %118, align 8, !tbaa !106
   br label %132
 
 132:                                              ; preds = %._crit_edge181, %._crit_edge177
@@ -1400,38 +1400,38 @@ define internal fastcc void @_submit_wbuf(ptr noundef %0, ptr noundef nonnull re
   store ptr %30, ptr %31, align 8, !tbaa !123
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr @_wbuf_cb, ptr %32, align 8, !tbaa !133
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %34 = load ptr, ptr %33, align 8, !tbaa !113
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
-  %.0183.i.i = phi ptr [ %35, %.lr.ph.i.i ], [ %5, %2 ]
-  %.0192.i.i = phi i32 [ %33, %.lr.ph.i.i ], [ 0, %2 ]
-  %33 = add i32 %.0192.i.i, 1
-  %34 = getelementptr inbounds nuw i8, ptr %.0183.i.i, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !101
-  %.not.i.i = icmp eq ptr %35, null
+  %.0183.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %5, %2 ]
+  %.0192.i.i = phi i32 [ %35, %.lr.ph.i.i ], [ 0, %2 ]
+  %35 = add i32 %.0192.i.i, 1
+  %36 = getelementptr inbounds nuw i8, ptr %.0183.i.i, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !101
+  %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !139
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %37 = load ptr, ptr %36, align 8, !tbaa !113
-  %38 = tail call i32 @pthread_mutex_lock(ptr noundef %37) #13
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 112
+  %38 = tail call i32 @pthread_mutex_lock(ptr noundef %34) #13
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 112
   %40 = load i32, ptr %39, align 8, !tbaa !27
-  %41 = add i32 %40, %33
+  %41 = add i32 %40, %35
   store i32 %41, ptr %39, align 8, !tbaa !27
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 88
   %43 = load ptr, ptr %42, align 8, !tbaa !114
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %._crit_edge.i.i
   store ptr %5, ptr %42, align 8, !tbaa !114
-  %46 = getelementptr inbounds nuw i8, ptr %37, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 96
   store ptr %.0183.i.i, ptr %46, align 8, !tbaa !116
   br label %extstore_submit_bg.exit
 
 47:                                               ; preds = %._crit_edge.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %37, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %49 = load ptr, ptr %48, align 8, !tbaa !116
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %5, ptr %50, align 8, !tbaa !101
@@ -1439,8 +1439,8 @@ define internal fastcc void @_submit_wbuf(ptr noundef %0, ptr noundef nonnull re
   br label %extstore_submit_bg.exit
 
 extstore_submit_bg.exit:                          ; preds = %45, %47
-  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %37) #13
-  %52 = getelementptr inbounds nuw i8, ptr %37, i64 40
+  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %34) #13
+  %52 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %53 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %52) #13
   ret void
 }

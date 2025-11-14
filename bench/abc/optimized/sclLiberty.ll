@@ -8991,33 +8991,33 @@ Scl_LibertyItem.exit281:                          ; preds = %Scl_LibertyCompare.
 166:                                              ; preds = %._crit_edge359
   %.not210 = icmp eq ptr %.3321.lcssa, null
   %167 = select i1 %.not210, ptr %160, ptr %.3321.lcssa
-  %168 = getelementptr i8, ptr %167, i64 4
-  %.val242 = load i32, ptr %168, align 4, !tbaa !104
+  %.not211 = icmp eq ptr %.3316.lcssa, null
+  %168 = select i1 %.not211, ptr %162, ptr %.3316.lcssa
+  %169 = getelementptr i8, ptr %167, i64 4
+  %.val242 = load i32, ptr %169, align 4, !tbaa !104
   tail call fastcc void @Vec_StrPutI_(ptr noundef %1, i32 noundef %.val242)
-  %.val241372 = load i32, ptr %168, align 4, !tbaa !104
-  %169 = icmp sgt i32 %.val241372, 0
-  br i1 %169, label %.lr.ph375, label %.critedge11
+  %.val241372 = load i32, ptr %169, align 4, !tbaa !104
+  %170 = icmp sgt i32 %.val241372, 0
+  br i1 %170, label %.lr.ph375, label %.critedge11
 
 .lr.ph375:                                        ; preds = %166
-  %170 = getelementptr i8, ptr %167, i64 8
-  br label %171
+  %171 = getelementptr i8, ptr %167, i64 8
+  br label %172
 
-171:                                              ; preds = %.lr.ph375, %171
-  %indvars.iv416 = phi i64 [ 0, %.lr.ph375 ], [ %indvars.iv.next417, %171 ]
-  %.val256 = load ptr, ptr %170, align 8, !tbaa !108
-  %172 = getelementptr inbounds nuw float, ptr %.val256, i64 %indvars.iv416
-  %173 = load float, ptr %172, align 4, !tbaa !109
-  tail call fastcc void @Vec_StrPutF_(ptr noundef %1, float noundef %173)
+172:                                              ; preds = %.lr.ph375, %172
+  %indvars.iv416 = phi i64 [ 0, %.lr.ph375 ], [ %indvars.iv.next417, %172 ]
+  %.val256 = load ptr, ptr %171, align 8, !tbaa !108
+  %173 = getelementptr inbounds nuw float, ptr %.val256, i64 %indvars.iv416
+  %174 = load float, ptr %173, align 4, !tbaa !109
+  tail call fastcc void @Vec_StrPutF_(ptr noundef %1, float noundef %174)
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
-  %.val241 = load i32, ptr %168, align 4, !tbaa !104
-  %174 = sext i32 %.val241 to i64
-  %175 = icmp slt i64 %indvars.iv.next417, %174
-  br i1 %175, label %171, label %.critedge11, !llvm.loop !140
+  %.val241 = load i32, ptr %169, align 4, !tbaa !104
+  %175 = sext i32 %.val241 to i64
+  %176 = icmp slt i64 %indvars.iv.next417, %175
+  br i1 %176, label %172, label %.critedge11, !llvm.loop !140
 
-.critedge11:                                      ; preds = %171, %166
-  %.not211 = icmp eq ptr %.3316.lcssa, null
-  %176 = select i1 %.not211, ptr %162, ptr %.3316.lcssa
-  %177 = getelementptr i8, ptr %176, i64 4
+.critedge11:                                      ; preds = %172, %166
+  %177 = getelementptr i8, ptr %168, i64 4
   %.val240 = load i32, ptr %177, align 4, !tbaa !104
   tail call fastcc void @Vec_StrPutI_(ptr noundef %1, i32 noundef %.val240)
   %.val239376 = load i32, ptr %177, align 4, !tbaa !104
@@ -9025,7 +9025,7 @@ Scl_LibertyItem.exit281:                          ; preds = %Scl_LibertyCompare.
   br i1 %178, label %.lr.ph378, label %.critedge13.preheader
 
 .lr.ph378:                                        ; preds = %.critedge11
-  %179 = getelementptr i8, ptr %176, i64 8
+  %179 = getelementptr i8, ptr %168, i64 8
   br label %183
 
 .critedge13.preheader:                            ; preds = %183, %.critedge11
@@ -9065,33 +9065,33 @@ Scl_LibertyItem.exit281:                          ; preds = %Scl_LibertyCompare.
 192:                                              ; preds = %._crit_edge359
   %.not208 = icmp eq ptr %.3316.lcssa, null
   %193 = select i1 %.not208, ptr %160, ptr %.3316.lcssa
-  %194 = getelementptr i8, ptr %193, i64 4
-  %.val235 = load i32, ptr %194, align 4, !tbaa !104
+  %.not209 = icmp eq ptr %.3321.lcssa, null
+  %194 = select i1 %.not209, ptr %162, ptr %.3321.lcssa
+  %195 = getelementptr i8, ptr %193, i64 4
+  %.val235 = load i32, ptr %195, align 4, !tbaa !104
   tail call fastcc void @Vec_StrPutI_(ptr noundef %1, i32 noundef %.val235)
-  %.val234362 = load i32, ptr %194, align 4, !tbaa !104
-  %195 = icmp sgt i32 %.val234362, 0
-  br i1 %195, label %.lr.ph365, label %.critedge17
+  %.val234362 = load i32, ptr %195, align 4, !tbaa !104
+  %196 = icmp sgt i32 %.val234362, 0
+  br i1 %196, label %.lr.ph365, label %.critedge17
 
 .lr.ph365:                                        ; preds = %192
-  %196 = getelementptr i8, ptr %193, i64 8
-  br label %197
+  %197 = getelementptr i8, ptr %193, i64 8
+  br label %198
 
-197:                                              ; preds = %.lr.ph365, %197
-  %indvars.iv410 = phi i64 [ 0, %.lr.ph365 ], [ %indvars.iv.next411, %197 ]
-  %.val253 = load ptr, ptr %196, align 8, !tbaa !108
-  %198 = getelementptr inbounds nuw float, ptr %.val253, i64 %indvars.iv410
-  %199 = load float, ptr %198, align 4, !tbaa !109
-  tail call fastcc void @Vec_StrPutF_(ptr noundef %1, float noundef %199)
+198:                                              ; preds = %.lr.ph365, %198
+  %indvars.iv410 = phi i64 [ 0, %.lr.ph365 ], [ %indvars.iv.next411, %198 ]
+  %.val253 = load ptr, ptr %197, align 8, !tbaa !108
+  %199 = getelementptr inbounds nuw float, ptr %.val253, i64 %indvars.iv410
+  %200 = load float, ptr %199, align 4, !tbaa !109
+  tail call fastcc void @Vec_StrPutF_(ptr noundef %1, float noundef %200)
   %indvars.iv.next411 = add nuw nsw i64 %indvars.iv410, 1
-  %.val234 = load i32, ptr %194, align 4, !tbaa !104
-  %200 = sext i32 %.val234 to i64
-  %201 = icmp slt i64 %indvars.iv.next411, %200
-  br i1 %201, label %197, label %.critedge17, !llvm.loop !143
+  %.val234 = load i32, ptr %195, align 4, !tbaa !104
+  %201 = sext i32 %.val234 to i64
+  %202 = icmp slt i64 %indvars.iv.next411, %201
+  br i1 %202, label %198, label %.critedge17, !llvm.loop !143
 
-.critedge17:                                      ; preds = %197, %192
-  %.not209 = icmp eq ptr %.3321.lcssa, null
-  %202 = select i1 %.not209, ptr %162, ptr %.3321.lcssa
-  %203 = getelementptr i8, ptr %202, i64 4
+.critedge17:                                      ; preds = %198, %192
+  %203 = getelementptr i8, ptr %194, i64 4
   %.val233 = load i32, ptr %203, align 4, !tbaa !104
   tail call fastcc void @Vec_StrPutI_(ptr noundef %1, i32 noundef %.val233)
   %.val232366 = load i32, ptr %203, align 4, !tbaa !104
@@ -9099,7 +9099,7 @@ Scl_LibertyItem.exit281:                          ; preds = %Scl_LibertyCompare.
   br i1 %204, label %.lr.ph368, label %.critedge19.preheader
 
 .lr.ph368:                                        ; preds = %.critedge17
-  %205 = getelementptr i8, ptr %202, i64 8
+  %205 = getelementptr i8, ptr %194, i64 8
   br label %209
 
 .critedge19.preheader:                            ; preds = %209, %.critedge17
@@ -9130,7 +9130,7 @@ Scl_LibertyItem.exit281:                          ; preds = %Scl_LibertyCompare.
   %.val230 = load i32, ptr %203, align 4, !tbaa !104
   %214 = srem i32 %.9370, %.val230
   %215 = sdiv i32 %.9370, %.val230
-  %.val228 = load i32, ptr %194, align 4, !tbaa !104
+  %.val228 = load i32, ptr %195, align 4, !tbaa !104
   %216 = mul nsw i32 %.val228, %214
   %217 = add nsw i32 %216, %215
   %218 = sext i32 %217 to i64

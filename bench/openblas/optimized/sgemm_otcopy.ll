@@ -217,7 +217,7 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %126 = getelementptr inbounds nuw i8, ptr %.1245.us290, i64 16
   %127 = add nsw i64 %.0222.us293, -1
   %128 = icmp samesign ugt i64 %.0222.us293, 1
-  br i1 %128, label %.preheader276.split.split.us.split, label %.loopexit277.loopexit357, !llvm.loop !9
+  br i1 %128, label %.preheader276.split.split.us.split, label %.loopexit277.loopexit327, !llvm.loop !9
 
 .preheader276.split.split:                        ; preds = %.preheader276.split
   br i1 %.not262, label %.preheader276.split.split.split.us, label %.preheader276.split.split.split
@@ -260,7 +260,7 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %152 = getelementptr inbounds nuw i8, ptr %.1249.us308, i64 32
   %153 = add nsw i64 %.0222.us312, -1
   %154 = icmp samesign ugt i64 %.0222.us312, 1
-  br i1 %154, label %.preheader276.split.split.split.us, label %.loopexit277.loopexit358, !llvm.loop !9
+  br i1 %154, label %.preheader276.split.split.split.us, label %.loopexit277.loopexit328, !llvm.loop !9
 
 .preheader276.split.split.split:                  ; preds = %.preheader276.split.split, %.preheader276.split.split.split
   %.1249 = phi ptr [ %182, %.preheader276.split.split.split ], [ %8, %.preheader276.split.split ]
@@ -317,28 +317,28 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %190 = getelementptr inbounds nuw i8, ptr %.1245, i64 16
   %191 = add nsw i64 %.0222, -1
   %192 = icmp samesign ugt i64 %.0222, 1
-  br i1 %192, label %.preheader276.split.split.split, label %.loopexit277.loopexit359, !llvm.loop !9
+  br i1 %192, label %.preheader276.split.split.split, label %.loopexit277.loopexit329, !llvm.loop !9
 
-.loopexit277.loopexit357:                         ; preds = %.preheader276.split.split.us.split
+.loopexit277.loopexit327:                         ; preds = %.preheader276.split.split.us.split
   %193 = shl i64 %12, 6
   %scevgep351 = getelementptr i8, ptr %4, i64 %193
   br label %.loopexit277
 
-.loopexit277.loopexit358:                         ; preds = %.preheader276.split.split.split.us
+.loopexit277.loopexit328:                         ; preds = %.preheader276.split.split.split.us
   %194 = shl i64 %12, 6
   %scevgep350 = getelementptr i8, ptr %4, i64 %194
   br label %.loopexit277
 
-.loopexit277.loopexit359:                         ; preds = %.preheader276.split.split.split
+.loopexit277.loopexit329:                         ; preds = %.preheader276.split.split.split
   %195 = shl i64 %12, 6
   %scevgep = getelementptr i8, ptr %4, i64 %195
   br label %.loopexit277
 
-.loopexit277:                                     ; preds = %107, %.loopexit277.loopexit359, %.loopexit277.loopexit358, %.loopexit277.loopexit357, %.preheader276.split.split.us.split.us.preheader, %5
-  %.0248 = phi ptr [ %8, %5 ], [ %8, %.preheader276.split.split.us.split.us.preheader ], [ %8, %.loopexit277.loopexit357 ], [ %152, %.loopexit277.loopexit358 ], [ %182, %.loopexit277.loopexit359 ], [ %.2250.us, %107 ]
-  %.0244 = phi ptr [ %11, %5 ], [ %11, %.preheader276.split.split.us.split.us.preheader ], [ %126, %.loopexit277.loopexit357 ], [ %11, %.loopexit277.loopexit358 ], [ %190, %.loopexit277.loopexit359 ], [ %.2246.us, %107 ]
-  %.0241 = phi ptr [ %4, %5 ], [ %scevgep353, %.preheader276.split.split.us.split.us.preheader ], [ %scevgep351, %.loopexit277.loopexit357 ], [ %scevgep350, %.loopexit277.loopexit358 ], [ %scevgep, %.loopexit277.loopexit359 ], [ %111, %107 ]
-  %.0223 = phi ptr [ %2, %5 ], [ %scevgep352, %.preheader276.split.split.us.split.us.preheader ], [ %118, %.loopexit277.loopexit357 ], [ %132, %.loopexit277.loopexit358 ], [ %158, %.loopexit277.loopexit359 ], [ %110, %107 ]
+.loopexit277:                                     ; preds = %107, %.loopexit277.loopexit329, %.loopexit277.loopexit328, %.loopexit277.loopexit327, %.preheader276.split.split.us.split.us.preheader, %5
+  %.0248 = phi ptr [ %8, %5 ], [ %8, %.preheader276.split.split.us.split.us.preheader ], [ %8, %.loopexit277.loopexit327 ], [ %152, %.loopexit277.loopexit328 ], [ %182, %.loopexit277.loopexit329 ], [ %.2250.us, %107 ]
+  %.0244 = phi ptr [ %11, %5 ], [ %11, %.preheader276.split.split.us.split.us.preheader ], [ %126, %.loopexit277.loopexit327 ], [ %11, %.loopexit277.loopexit328 ], [ %190, %.loopexit277.loopexit329 ], [ %.2246.us, %107 ]
+  %.0241 = phi ptr [ %4, %5 ], [ %scevgep353, %.preheader276.split.split.us.split.us.preheader ], [ %scevgep351, %.loopexit277.loopexit327 ], [ %scevgep350, %.loopexit277.loopexit328 ], [ %scevgep, %.loopexit277.loopexit329 ], [ %111, %107 ]
+  %.0223 = phi ptr [ %2, %5 ], [ %scevgep352, %.preheader276.split.split.us.split.us.preheader ], [ %118, %.loopexit277.loopexit327 ], [ %132, %.loopexit277.loopexit328 ], [ %158, %.loopexit277.loopexit329 ], [ %110, %107 ]
   %196 = and i64 %0, 2
   %.not263 = icmp eq i64 %196, 0
   br i1 %.not263, label %251, label %197

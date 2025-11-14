@@ -7282,50 +7282,50 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192: ; preds = %20
   %225 = getelementptr inbounds nuw i8, ptr %223, i64 1096
   %226 = load ptr, ptr %225, align 8, !tbaa !523
   %227 = load ptr, ptr %224, align 8, !tbaa !537
-  %228 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %229 = load ptr, ptr %228, align 8, !tbaa !538
-  %230 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %231 = load i64, ptr %230, align 8, !tbaa !539
-  %.idx = shl nuw nsw i64 %231, 3
-  %232 = getelementptr inbounds nuw i8, ptr %229, i64 %.idx
-  %.not157218 = icmp eq i64 %231, 0
+  %228 = ptrtoint ptr %226 to i64
+  %229 = ptrtoint ptr %227 to i64
+  %230 = sub i64 %228, %229
+  %231 = sdiv exact i64 %230, 160
+  %232 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %233 = load ptr, ptr %232, align 8, !tbaa !538
+  %234 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %235 = load i64, ptr %234, align 8, !tbaa !539
+  %.idx = shl nuw nsw i64 %235, 3
+  %236 = getelementptr inbounds nuw i8, ptr %233, i64 %.idx
+  %.not157218 = icmp eq i64 %235, 0
   br i1 %.not157218, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %221
-  %233 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %234 = load ptr, ptr %233, align 8, !tbaa !540
-  %235 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %236 = load i64, ptr %235, align 8, !tbaa !541
-  %.idx225 = shl nuw nsw i64 %236, 3
-  %237 = getelementptr inbounds nuw i8, ptr %234, i64 %.idx225
-  %.not158220 = icmp eq i64 %236, 0
+  %237 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %238 = load ptr, ptr %237, align 8, !tbaa !540
+  %239 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %240 = load i64, ptr %239, align 8, !tbaa !541
+  %.idx225 = shl nuw nsw i64 %240, 3
+  %241 = getelementptr inbounds nuw i8, ptr %238, i64 %.idx225
+  %.not158220 = icmp eq i64 %240, 0
   br i1 %.not158220, label %._crit_edge224, label %.lr.ph223
 
 .lr.ph:                                           ; preds = %221, %.lr.ph
-  %.0121219 = phi ptr [ %240, %.lr.ph ], [ %229, %221 ]
-  %238 = load ptr, ptr %.0121219, align 8, !tbaa !42
-  %239 = tail call noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(29) %238)
-  %240 = getelementptr inbounds nuw i8, ptr %.0121219, i64 8
-  %.not157 = icmp eq ptr %240, %232
+  %.0121219 = phi ptr [ %244, %.lr.ph ], [ %233, %221 ]
+  %242 = load ptr, ptr %.0121219, align 8, !tbaa !42
+  %243 = tail call noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(29) %242)
+  %244 = getelementptr inbounds nuw i8, ptr %.0121219, i64 8
+  %.not157 = icmp eq ptr %244, %236
   br i1 %.not157, label %._crit_edge, label %.lr.ph
 
 ._crit_edge224:                                   ; preds = %.lr.ph223, %._crit_edge
-  %241 = ptrtoint ptr %226 to i64
-  %242 = ptrtoint ptr %227 to i64
-  %243 = sub i64 %241, %242
-  %244 = sdiv exact i64 %243, 160
   %245 = load ptr, ptr %222, align 8, !tbaa !301
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 1088
-  call void @_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %246, i64 noundef %244)
+  call void @_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %246, i64 noundef %231)
   br label %261
 
 .lr.ph223:                                        ; preds = %._crit_edge, %.lr.ph223
-  %.0104221 = phi ptr [ %248, %.lr.ph223 ], [ %234, %._crit_edge ]
+  %.0104221 = phi ptr [ %248, %.lr.ph223 ], [ %238, %._crit_edge ]
   %247 = load ptr, ptr %.0104221, align 8, !tbaa !31
   call void @_ZN4Luau11TypeChecker9checkExprERKSt10shared_ptrINS_5ScopeEERKNS_7AstExprESt8optionalIPKNS_4TypeEEb(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::WithPredicate.445") align 8 %15, ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(28) %247, ptr undef, i8 0, i1 noundef zeroext false)
   call void @_ZN4Luau13WithPredicateIPKNS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #38
   %248 = getelementptr inbounds nuw i8, ptr %.0104221, i64 8
-  %.not158 = icmp eq ptr %248, %237
+  %.not158 = icmp eq ptr %248, %241
   br i1 %.not158, label %._crit_edge224, label %.lr.ph223
 
 249:                                              ; preds = %219

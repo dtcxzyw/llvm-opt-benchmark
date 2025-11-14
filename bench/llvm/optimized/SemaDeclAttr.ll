@@ -28378,6 +28378,7 @@ define dso_local void @_ZN5clang4Sema34LazyProcessLifetimeCaptureByParamsEPNS_12
 
 _ZN5clang16isInstanceMethodEPKNS_4DeclE.exit:     ; preds = %2, %22
   %.04.i.not = phi i1 [ %23, %22 ], [ undef, %2 ]
+  %spec.select.i.not265 = or i1 %.not.not.not.i.not267, %.04.i.not
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %24, ptr %11, align 8, !tbaa !45
@@ -28395,7 +28396,6 @@ _ZN5clang16isInstanceMethodEPKNS_4DeclE.exit:     ; preds = %2, %22
   br i1 %.not242, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNK5clang4Decl7getAttrINS_21LifetimeCaptureByAttrEEEPT_v.exit.thread, %_ZN5clang16isInstanceMethodEPKNS_4DeclE.exit
-  %spec.select.i.not265 = or i1 %.not.not.not.i.not267, %.04.i.not
   br i1 %spec.select.i.not265, label %123, label %74
 
 .lr.ph:                                           ; preds = %_ZN5clang16isInstanceMethodEPKNS_4DeclE.exit, %_ZNK5clang4Decl7getAttrINS_21LifetimeCaptureByAttrEEEPT_v.exit.thread
@@ -51092,21 +51092,22 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang14IdentifierInfoEjNS_12DenseMapInfoI
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 2744
   %64 = load ptr, ptr %63, align 8, !tbaa !45
   %65 = getelementptr inbounds nuw %"struct.std::pair.1326", ptr %64, i64 %62
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %67 = load ptr, ptr %66, align 8, !tbaa !45
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 56
-  %69 = load i32, ptr %68, align 8, !tbaa !46
-  %70 = zext i32 %69 to i64
-  %.idx = shl nuw nsw i64 %70, 4
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx
-  %.not3242 = icmp eq i32 %69, 0
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 48
+  %68 = load ptr, ptr %67, align 8, !tbaa !45
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 56
+  %70 = load i32, ptr %69, align 8, !tbaa !46
+  %71 = zext i32 %70 to i64
+  %.idx = shl nuw nsw i64 %71, 4
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx
+  %.not3242 = icmp eq i32 %70, 0
   br i1 %.not3242, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %61
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %72, align 4, !tbaa !1511
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 0, ptr %73, align 4, !tbaa !1511
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge
@@ -51120,7 +51121,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang14IdentifierInfoEjNS_12DenseMapInfoI
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm9SetVectorIN5clang8WeakInfoENS_11SmallVectorIS2_Lj1EEENS_13SmallDenseSetIS2_Lj2ENS2_23DenseMapInfoByAliasOnlyEEELj0EEC2Ev.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1514
 
 _ZN4llvm9SetVectorIN5clang8WeakInfoENS_11SmallVectorIS2_Lj1EEENS_13SmallDenseSetIS2_Lj2ENS2_23DenseMapInfoByAliasOnlyEEELj0EEC2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i.i
-  %73 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %75, ptr %74, align 8, !tbaa !45
@@ -51128,8 +51128,8 @@ _ZN4llvm9SetVectorIN5clang8WeakInfoENS_11SmallVectorIS2_Lj1EEENS_13SmallDenseSet
   store i32 0, ptr %76, align 8, !tbaa !46
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %77, align 4, !tbaa !47
-  call void @_ZN4llvm13SmallDenseMapIN5clang8WeakInfoENS_6detail13DenseSetEmptyELj2ENS2_23DenseMapInfoByAliasOnlyENS3_12DenseSetPairIS2_EEE4swapERS8_(ptr noundef nonnull align 8 dereferenceable(72) %73, ptr noundef nonnull align 8 dereferenceable(72) %4)
-  call void @_ZN4llvm15SmallVectorImplIN5clang8WeakInfoEE4swapERS3_(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %74)
+  call void @_ZN4llvm13SmallDenseMapIN5clang8WeakInfoENS_6detail13DenseSetEmptyELj2ENS2_23DenseMapInfoByAliasOnlyENS3_12DenseSetPairIS2_EEE4swapERS8_(ptr noundef nonnull align 8 dereferenceable(72) %66, ptr noundef nonnull align 8 dereferenceable(72) %4)
+  call void @_ZN4llvm15SmallVectorImplIN5clang8WeakInfoEE4swapERS3_(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %74)
   %78 = load ptr, ptr %74, align 8, !tbaa !45
   %79 = icmp eq ptr %78, %75
   br i1 %79, label %_ZN4llvm11SmallVectorIN5clang8WeakInfoELj1EED2Ev.exit.i, label %80
@@ -51159,10 +51159,10 @@ _ZN4llvm9SetVectorIN5clang8WeakInfoENS_11SmallVectorIS2_Lj1EEENS_13SmallDenseSet
   br label %91
 
 .lr.ph:                                           ; preds = %61, %.lr.ph
-  %.02443 = phi ptr [ %90, %.lr.ph ], [ %67, %61 ]
+  %.02443 = phi ptr [ %90, %.lr.ph ], [ %68, %61 ]
   tail call void @_ZN5clang4Sema19DeclApplyPragmaWeakEPNS_5ScopeEPNS_9NamedDeclERKNS_8WeakInfoE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr noundef nonnull %.137, ptr noundef nonnull align 8 dereferenceable(12) %.02443)
   %90 = getelementptr inbounds nuw i8, ptr %.02443, i64 16
-  %.not32 = icmp eq ptr %90, %71
+  %.not32 = icmp eq ptr %90, %72
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 91:                                               ; preds = %.thread, %_ZN4llvm9SetVectorIN5clang8WeakInfoENS_11SmallVectorIS2_Lj1EEENS_13SmallDenseSetIS2_Lj2ENS2_23DenseMapInfoByAliasOnlyEEELj0EED2Ev.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang14IdentifierInfoEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findEPKS3_.exit.i, %23, %3

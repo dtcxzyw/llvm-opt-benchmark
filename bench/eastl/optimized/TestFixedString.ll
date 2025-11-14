@@ -6966,6 +6966,7 @@ invoke.cont:                                      ; preds = %cond.false.i.i.i, %
 define weak_odr dso_local void @_ZN5eastl12fixed_stringIDsLi128ELb0ENS_9allocatorEEC2EPKDs(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %p) unnamed_addr #0 comdat($_ZN5eastl12fixed_stringIDsLi128ELb0ENS_9allocatorEEC5EPKDs) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %mnRemainingSize.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   store ptr %0, ptr %this, align 8
   %mnCapacity.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 -9223372036854775681, ptr %mnCapacity.i, align 8
@@ -6982,7 +6983,6 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %en
   br i1 %tobool.not.i.i, label %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i, label %while.cond.i.i, !llvm.loop !5
 
 _ZN5eastl10CharStrlenIDsEEmPKT_.exit.i:           ; preds = %while.cond.i.i
-  %mnRemainingSize.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %cmp.not.i.i = icmp eq ptr %p, %pCurrent.0.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 
@@ -15726,6 +15726,7 @@ invoke.cont:                                      ; preds = %cond.false.i.i.i, %
 define weak_odr dso_local void @_ZN5eastl12fixed_stringIDsLi128ELb0E15MallocAllocatorEC2EPKDs(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %p) unnamed_addr #0 comdat($_ZN5eastl12fixed_stringIDsLi128ELb0E15MallocAllocatorEC5EPKDs) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %mnRemainingSize.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   store ptr %0, ptr %this, align 8
   %mnCapacity.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 -9223372036854775681, ptr %mnCapacity.i, align 8
@@ -15742,7 +15743,6 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %en
   br i1 %tobool.not.i.i, label %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i, label %while.cond.i.i, !llvm.loop !5
 
 _ZN5eastl10CharStrlenIDsEEmPKT_.exit.i:           ; preds = %while.cond.i.i
-  %mnRemainingSize.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %cmp.not.i.i = icmp eq ptr %p, %pCurrent.0.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 

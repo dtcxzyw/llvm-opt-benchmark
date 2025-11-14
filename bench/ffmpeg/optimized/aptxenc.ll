@@ -552,9 +552,9 @@ aptx_insert_sync.exit.i:                          ; preds = %aptx_insert_sync.ex
   tail call void @ff_aptx_invert_quantize_and_prediction(ptr noundef nonnull %280, i32 noundef %281) #6
   %282 = load i32, ptr %9, align 4, !tbaa !51
   %.not.i = icmp eq i32 %282, 0
-  br i1 %.not.i, label %321, label %.preheader.i
+  br i1 %.not.i, label %321, label %aptxhd_pack_codeword.exit.i
 
-.preheader.i:                                     ; preds = %aptx_insert_sync.exit.i
+aptxhd_pack_codeword.exit.i:                      ; preds = %aptx_insert_sync.exit.i
   %283 = getelementptr inbounds nuw i8, ptr %280, i64 816
   %284 = load i32, ptr %283, align 4, !tbaa !60
   %285 = trunc i32 %284 to i8
@@ -581,9 +581,9 @@ aptx_insert_sync.exit.i:                          ; preds = %aptx_insert_sync.ex
   %304 = load i32, ptr %289, align 4, !tbaa !71
   br label %305
 
-305:                                              ; preds = %305, %.preheader.i
-  %indvars.iv.i.i41.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i.i43.i, %305 ]
-  %.067.i.i42.i = phi i32 [ %304, %.preheader.i ], [ %308, %305 ]
+305:                                              ; preds = %305, %aptxhd_pack_codeword.exit.i
+  %indvars.iv.i.i41.i = phi i64 [ 0, %aptxhd_pack_codeword.exit.i ], [ %indvars.iv.next.i.i43.i, %305 ]
+  %.067.i.i42.i = phi i32 [ %304, %aptxhd_pack_codeword.exit.i ], [ %308, %305 ]
   %306 = getelementptr inbounds nuw %struct.Quantize, ptr %283, i64 %indvars.iv.i.i41.i
   %307 = load i32, ptr %306, align 4, !tbaa !60
   %308 = xor i32 %307, %.067.i.i42.i

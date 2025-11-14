@@ -34,28 +34,28 @@ declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @diameteravp_init(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #7
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  %4 = tail call ptr @g_string_new(ptr noundef nonnull @.str.2)
-  %5 = tail call ptr @g_strsplit(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef 1024)
-  br label %6
+  %6 = tail call ptr @g_string_new(ptr noundef nonnull @.str.2)
+  %7 = tail call ptr @g_strsplit(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef 1024)
+  br label %8
 
-6:                                                ; preds = %6, %2
-  %.048 = phi i32 [ 0, %2 ], [ %10, %6 ]
-  %7 = zext i32 %.048 to i64
-  %8 = getelementptr ptr, ptr %5, i64 %7
-  %9 = load ptr, ptr %8, align 8
-  %.not = icmp eq ptr %9, null
-  %10 = add i32 %.048, 1
-  br i1 %.not, label %11, label %6, !llvm.loop !7
+8:                                                ; preds = %8, %2
+  %.048 = phi i32 [ 0, %2 ], [ %12, %8 ]
+  %9 = zext i32 %.048 to i64
+  %10 = getelementptr ptr, ptr %7, i64 %9
+  %11 = load ptr, ptr %10, align 8
+  %.not = icmp eq ptr %11, null
+  %12 = add i32 %.048, 1
+  br i1 %.not, label %13, label %8, !llvm.loop !7
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
+13:                                               ; preds = %8
   %14 = icmp ugt i32 %.048, 2
   br i1 %14, label %15, label %._crit_edge
 
-15:                                               ; preds = %11
-  %16 = getelementptr i8, ptr %5, i64 16
+15:                                               ; preds = %13
+  %16 = getelementptr i8, ptr %7, i64 16
   %17 = load ptr, ptr %16, align 8
   %char0 = load i8, ptr %17, align 1
   switch i8 %char0, label %18 [
@@ -64,14 +64,14 @@ define internal void @diameteravp_init(ptr noundef %0, ptr readnone captures(non
   ]
 
 18:                                               ; preds = %15
-  %19 = tail call zeroext i1 @ws_strtou32(ptr noundef %17, ptr noundef null, ptr noundef nonnull %12)
+  %19 = tail call zeroext i1 @ws_strtou32(ptr noundef %17, ptr noundef null, ptr noundef nonnull %4)
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr @stderr, align 8
   %22 = load ptr, ptr %16, align 8
   %23 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %21, i32 noundef 2, ptr noundef nonnull @.str.4, ptr noundef %22)
-  tail call void @g_strfreev(ptr noundef %5)
+  tail call void @g_strfreev(ptr noundef %7)
   tail call void @exit(i32 noundef 1) #8
   unreachable
 
@@ -81,27 +81,27 @@ define internal void @diameteravp_init(ptr noundef %0, ptr readnone captures(non
 
 .lr.ph:                                           ; preds = %24, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 3, %24 ]
-  %25 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %25 = getelementptr ptr, ptr %7, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr @g_string_append(ptr noundef %4, ptr noundef nonnull @.str.5)
+  %27 = tail call ptr @g_string_append(ptr noundef %6, ptr noundef nonnull @.str.5)
   %28 = tail call ptr @strchr(ptr noundef %26, i32 noundef 46) #9
   %.not54 = icmp eq ptr %28, null
   br i1 %.not54, label %29, label %31
 
 29:                                               ; preds = %.lr.ph
-  %30 = tail call ptr @g_string_append(ptr noundef %4, ptr noundef nonnull @.str.6)
+  %30 = tail call ptr @g_string_append(ptr noundef %6, ptr noundef nonnull @.str.6)
   br label %31
 
 31:                                               ; preds = %29, %.lr.ph
-  %32 = tail call ptr @g_string_append(ptr noundef %4, ptr noundef %26)
+  %32 = tail call ptr @g_string_append(ptr noundef %6, ptr noundef %26)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %7
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %31, %11, %24
-  tail call void @g_strfreev(ptr noundef %5)
-  %33 = tail call ptr @g_string_free(ptr noundef %4, i32 noundef 0)
-  store ptr %33, ptr %13, align 8
+._crit_edge:                                      ; preds = %31, %13, %24
+  tail call void @g_strfreev(ptr noundef %7)
+  %33 = tail call ptr @g_string_free(ptr noundef %6, i32 noundef 0)
+  store ptr %33, ptr %5, align 8
   %34 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str.2, ptr noundef %3, ptr noundef %33, i32 noundef 0, ptr noundef null, ptr noundef nonnull @diameteravp_packet, ptr noundef nonnull @diameteravp_draw, ptr noundef null)
   %.not53 = icmp eq ptr %34, null
   br i1 %.not53, label %38, label %35

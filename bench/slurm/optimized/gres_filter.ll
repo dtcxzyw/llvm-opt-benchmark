@@ -42,6 +42,9 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
 28:                                               ; preds = %19
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i16, ptr %29, align 4
+  %.not719 = icmp eq i16 %30, 0
+  %. = tail call i16 @llvm.umin.i16(i16 %5, i16 %30)
+  %.0 = select i1 %.not719, i16 %5, i16 %.
   %31 = zext i16 %3 to i64
   %32 = tail call ptr @slurm_xcalloc(i64 noundef %31, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 304, ptr noundef nonnull @__func__.gres_filter_sock_core) #5
   store ptr %32, ptr @avail_cores_per_sock, align 8
@@ -57,9 +60,6 @@ define dso_local void @gres_filter_sock_core(ptr noundef readonly captures(none)
 
 ._crit_edge:                                      ; preds = %57, %28
   %.0598.lcssa = phi i32 [ 0, %28 ], [ %70, %57 ]
-  %.not719 = icmp eq i16 %30, 0
-  %. = tail call i16 @llvm.umin.i16(i16 %5, i16 %30)
-  %.0 = select i1 %.not719, i16 %5, i16 %.
   %36 = load i32, ptr %7, align 4
   %37 = tail call ptr @slurm_xcalloc(i64 noundef %31, i64 noundef 1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 315, ptr noundef nonnull @__func__.gres_filter_sock_core) #5
   store ptr %37, ptr %20, align 8

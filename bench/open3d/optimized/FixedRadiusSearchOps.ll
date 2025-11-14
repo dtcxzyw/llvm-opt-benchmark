@@ -1158,8 +1158,8 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIjS
   %65 = getelementptr inbounds nuw i32, ptr %64, i64 %59
   %66 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %65, ptr %66, align 8, !tbaa !20
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %63
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %64, i8 0, i64 %63, i1 false), !tbaa !21
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %63
   br label %.loopexit.i
 
 68:                                               ; preds = %_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEEZN6open3d4core3nns4impl12_GLOBAL__N_124BuildSpatialHashTableCPUIfEEvmPKT_SB_mPKlPKjmPjSI_EUlRKS4_E_EEvRSC_RKT0_.exit.i, %.lr.ph.i
@@ -33735,8 +33735,8 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIjS
   %64 = getelementptr inbounds nuw i32, ptr %63, i64 %58
   %65 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %64, ptr %65, align 8, !tbaa !20
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 %62
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %63, i8 0, i64 %62, i1 false), !tbaa !21
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 %62
   br label %.loopexit.i
 
 67:                                               ; preds = %_ZN3tbb6detail2d112parallel_forINS1_13blocked_rangeIlEEZN6open3d4core3nns4impl12_GLOBAL__N_124BuildSpatialHashTableCPUIdEEvmPKT_SB_mPKlPKjmPjSI_EUlRKS4_E_EEvRSC_RKT0_.exit.i, %.lr.ph.i

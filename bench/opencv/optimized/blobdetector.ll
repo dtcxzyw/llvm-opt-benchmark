@@ -5109,16 +5109,16 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EEaSERKS4_.exit: ; preds = %_ZSt4copyIN9__gnu_
 
 ._crit_edge:                                      ; preds = %.critedge193, %.preheader482
   %451 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
-          to label %.lr.ph.i.i.i.i.i.i250.preheader unwind label %536
+          to label %.noexc253 unwind label %536
 
-.lr.ph.i.i.i.i.i.i250.preheader:                  ; preds = %._crit_edge
+.noexc253:                                        ; preds = %._crit_edge
   %452 = getelementptr inbounds nuw %"struct.cv::SimpleBlobDetectorImpl::Center", ptr %292, i64 %.0138669
   %453 = getelementptr inbounds nuw i8, ptr %451, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %451, ptr noundef nonnull align 8 dereferenceable(32) %452, i64 32, i1 false), !tbaa.struct !133
   %.not.i.i254 = icmp eq ptr %.sroa.11466.1663, %.sroa.19.1662
   br i1 %.not.i.i254, label %457, label %454
 
-454:                                              ; preds = %.lr.ph.i.i.i.i.i.i250.preheader
+454:                                              ; preds = %.noexc253
   store ptr %451, ptr %.sroa.11466.1663, align 8, !tbaa !63
   %455 = getelementptr inbounds nuw i8, ptr %.sroa.11466.1663, i64 8
   store ptr %453, ptr %455, align 8, !tbaa !66
@@ -5126,7 +5126,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EEaSERKS4_.exit: ; preds = %_ZSt4copyIN9__gnu_
   store ptr %453, ptr %456, align 8, !tbaa !132
   br label %_ZNSt6vectorIN2cv22SimpleBlobDetectorImpl6CenterESaIS2_EED2Ev.exit
 
-457:                                              ; preds = %.lr.ph.i.i.i.i.i.i250.preheader
+457:                                              ; preds = %.noexc253
   %458 = ptrtoint ptr %.sroa.11466.1663 to i64
   %459 = ptrtoint ptr %.sroa.0462.1666 to i64
   %460 = sub i64 %458, %459

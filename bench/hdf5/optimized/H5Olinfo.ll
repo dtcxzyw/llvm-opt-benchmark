@@ -152,34 +152,34 @@ define internal ptr @H5O__linfo_decode(ptr noundef %0, ptr readnone captures(non
   br label %121
 
 67:                                               ; preds = %58
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  br label %69
+  %68 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  br label %70
 
-69:                                               ; preds = %67, %69
-  %.080 = phi i64 [ 0, %67 ], [ %77, %69 ]
-  %70 = phi i64 [ 0, %67 ], [ %76, %69 ]
-  %71 = phi ptr [ %68, %67 ], [ %73, %69 ]
-  %72 = shl i64 %70, 8
-  %73 = getelementptr inbounds i8, ptr %71, i64 -1
-  %74 = load i8, ptr %73, align 1, !tbaa !12
-  %75 = zext i8 %74 to i64
-  %76 = or disjoint i64 %72, %75
-  %77 = add nuw nsw i64 %.080, 1
-  %exitcond.not = icmp eq i64 %77, 8
-  br i1 %exitcond.not, label %78, label %69, !llvm.loop !20
+70:                                               ; preds = %67, %70
+  %.080 = phi i64 [ 0, %67 ], [ %78, %70 ]
+  %71 = phi i64 [ 0, %67 ], [ %77, %70 ]
+  %72 = phi ptr [ %69, %67 ], [ %74, %70 ]
+  %73 = shl i64 %71, 8
+  %74 = getelementptr inbounds i8, ptr %72, i64 -1
+  %75 = load i8, ptr %74, align 1, !tbaa !12
+  %76 = zext i8 %75 to i64
+  %77 = or disjoint i64 %73, %76
+  %78 = add nuw nsw i64 %.080, 1
+  %exitcond.not = icmp eq i64 %78, 8
+  br i1 %exitcond.not, label %79, label %70, !llvm.loop !20
 
-78:                                               ; preds = %69
-  %79 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i64 %76, ptr %79, align 8, !tbaa !22
-  %80 = getelementptr inbounds nuw i8, ptr %71, i64 7
+79:                                               ; preds = %70
+  store i64 %77, ptr %68, align 8, !tbaa !22
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 7
   store ptr %80, ptr %7, align 8, !tbaa !13
-  %81 = icmp slt i64 %72, 0
+  %81 = icmp slt i64 %73, 0
   br i1 %81, label %82, label %88
 
-82:                                               ; preds = %78
+82:                                               ; preds = %79
   %83 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %84 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %85 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__linfo_decode, i32 noundef 145, i64 noundef %83, i64 noundef %84, ptr noundef nonnull @.str.6, i64 noundef %76) #7
+  %85 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__linfo_decode, i32 noundef 145, i64 noundef %83, i64 noundef %84, ptr noundef nonnull @.str.6, i64 noundef %77) #7
   br label %121
 
 86:                                               ; preds = %51
@@ -187,8 +187,8 @@ define internal ptr @H5O__linfo_decode(ptr noundef %0, ptr readnone captures(non
   store i64 0, ptr %87, align 8, !tbaa !22
   br label %88
 
-88:                                               ; preds = %78, %86
-  %89 = phi ptr [ %80, %78 ], [ %44, %86 ]
+88:                                               ; preds = %79, %86
+  %89 = phi ptr [ %80, %79 ], [ %44, %86 ]
   %90 = zext i8 %10 to i64
   %.not71 = icmp eq i8 %10, 0
   br i1 %.not71, label %101, label %91

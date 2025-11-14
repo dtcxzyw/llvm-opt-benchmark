@@ -624,6 +624,7 @@ define hidden i32 @internal_exr_compute_chunk_offset_size(ptr noundef captures(n
 
 .thread122:                                       ; preds = %._crit_edge.us, %43, %.preheader124.lr.ph, %.preheader125, %._crit_edge
   %.187.in = phi i64 [ %60, %._crit_edge ], [ 0, %.preheader125 ], [ 0, %.preheader124.lr.ph ], [ 0, %43 ], [ %41, %._crit_edge.us ]
+  %.187 = trunc i64 %.187.in to i32
   %61 = load i32, ptr %5, align 8, !tbaa !51
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %.lr.ph139, label %._crit_edge140
@@ -641,7 +642,6 @@ define hidden i32 @internal_exr_compute_chunk_offset_size(ptr noundef captures(n
 
 ._crit_edge140:                                   ; preds = %72, %.thread122
   %.091.lcssa = phi i64 [ 0, %.thread122 ], [ %80, %72 ]
-  %.187 = trunc i64 %.187.in to i32
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 %.091.lcssa, ptr %70, align 8, !tbaa !54
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 242

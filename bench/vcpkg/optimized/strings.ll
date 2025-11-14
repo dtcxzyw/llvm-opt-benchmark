@@ -4653,28 +4653,31 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_10v() #1 personality ptr @__gxx_per
   store i64 3, ptr %.06.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !22
   %.06.i.i.i.i.add.i.i.i.i = add nuw nsw i64 %.06.i.i.i.i.idx.i.i.i.i, 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.06.i.i.i.i.add.i.i.i.i, 2048
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !116
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.preheader, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !116
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i
-  %.014.i.i.i = phi i64 [ %254, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %249 = getelementptr inbounds nuw i8, ptr %243, i64 %.014.i.i.i
-  %250 = load i8, ptr %249, align 1, !tbaa !21
-  %251 = sub nuw nsw i64 2, %.014.i.i.i
-  %252 = zext i8 %250 to i64
-  %253 = getelementptr inbounds nuw i64, ptr %52, i64 %252
-  store i64 %251, ptr %253, align 8, !tbaa !22
-  %254 = add nuw nsw i64 %.014.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %254, 2
+.lr.ph.i.i.i.preheader:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i
+  %249 = getelementptr inbounds nuw i8, ptr %50, i64 19
+  %250 = ptrtoint ptr %249 to i64
+  %251 = ptrtoint ptr %243 to i64
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
+  %.014.i.i.i = phi i64 [ %257, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.i.i.preheader ]
+  %252 = getelementptr inbounds nuw i8, ptr %243, i64 %.014.i.i.i
+  %253 = load i8, ptr %252, align 1, !tbaa !21
+  %254 = sub nuw nsw i64 2, %.014.i.i.i
+  %255 = zext i8 %253 to i64
+  %256 = getelementptr inbounds nuw i64, ptr %52, i64 %255
+  store i64 %254, ptr %256, align 8, !tbaa !22
+  %257 = add nuw nsw i64 %.014.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %257, 2
   br i1 %exitcond.not.i.i.i, label %.loopexit1027, label %.lr.ph.i.i.i, !llvm.loop !117
 
 .loopexit1027:                                    ; preds = %.lr.ph.i.i.i
-  %255 = getelementptr inbounds nuw i8, ptr %50, i64 19
-  %256 = ptrtoint ptr %255 to i64
-  %257 = ptrtoint ptr %243 to i64
   %258 = getelementptr inbounds nuw i8, ptr %52, i64 2048
-  store i64 %257, ptr %258, align 16, !tbaa !42
+  store i64 %251, ptr %258, align 16, !tbaa !42
   %259 = getelementptr inbounds nuw i8, ptr %52, i64 2056
-  store i64 %256, ptr %259, align 8, !tbaa !42
+  store i64 %250, ptr %259, align 8, !tbaa !42
   %260 = getelementptr inbounds nuw i8, ptr %52, i64 2064
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2064) %260, i8 0, i64 2048, i1 false)
   br label %.lr.ph.i.i.i.i.i.i.i.i279
@@ -4685,28 +4688,31 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_10v() #1 personality ptr @__gxx_per
   store i64 3, ptr %.06.i.i.i.i.ptr.i.i.i.i281, align 8, !tbaa !22
   %.06.i.i.i.i.add.i.i.i.i282 = add nuw nsw i64 %.06.i.i.i.i.idx.i.i.i.i280, 8
   %.not.i.i.i.i.i.i.i.i283 = icmp eq i64 %.06.i.i.i.i.add.i.i.i.i282, 2048
-  br i1 %.not.i.i.i.i.i.i.i.i283, label %.lr.ph.i.i.i288, label %.lr.ph.i.i.i.i.i.i.i.i279, !llvm.loop !116
+  br i1 %.not.i.i.i.i.i.i.i.i283, label %.lr.ph.i.i.i288.preheader, label %.lr.ph.i.i.i.i.i.i.i.i279, !llvm.loop !116
 
-.lr.ph.i.i.i288:                                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i279, %.lr.ph.i.i.i288
-  %.014.i.i.i289 = phi i64 [ %266, %.lr.ph.i.i.i288 ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i279 ]
-  %261 = getelementptr inbounds nuw i8, ptr %246, i64 %.014.i.i.i289
-  %262 = load i8, ptr %261, align 1, !tbaa !21
-  %263 = sub nuw nsw i64 2, %.014.i.i.i289
-  %264 = zext i8 %262 to i64
-  %265 = getelementptr inbounds nuw i64, ptr %260, i64 %264
-  store i64 %263, ptr %265, align 8, !tbaa !22
-  %266 = add nuw nsw i64 %.014.i.i.i289, 1
-  %exitcond.not.i.i.i290 = icmp eq i64 %266, 2
+.lr.ph.i.i.i288.preheader:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i279
+  %261 = getelementptr inbounds nuw i8, ptr %51, i64 19
+  %262 = ptrtoint ptr %261 to i64
+  %263 = ptrtoint ptr %246 to i64
+  br label %.lr.ph.i.i.i288
+
+.lr.ph.i.i.i288:                                  ; preds = %.lr.ph.i.i.i288.preheader, %.lr.ph.i.i.i288
+  %.014.i.i.i289 = phi i64 [ %269, %.lr.ph.i.i.i288 ], [ 0, %.lr.ph.i.i.i288.preheader ]
+  %264 = getelementptr inbounds nuw i8, ptr %246, i64 %.014.i.i.i289
+  %265 = load i8, ptr %264, align 1, !tbaa !21
+  %266 = sub nuw nsw i64 2, %.014.i.i.i289
+  %267 = zext i8 %265 to i64
+  %268 = getelementptr inbounds nuw i64, ptr %260, i64 %267
+  store i64 %266, ptr %268, align 8, !tbaa !22
+  %269 = add nuw nsw i64 %.014.i.i.i289, 1
+  %exitcond.not.i.i.i290 = icmp eq i64 %269, 2
   br i1 %exitcond.not.i.i.i290, label %.loopexit, label %.lr.ph.i.i.i288, !llvm.loop !117
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i288
-  %267 = getelementptr inbounds nuw i8, ptr %51, i64 19
-  %268 = ptrtoint ptr %267 to i64
-  %269 = ptrtoint ptr %246 to i64
   %270 = getelementptr inbounds nuw i8, ptr %52, i64 4112
-  store i64 %269, ptr %270, align 16, !tbaa !42
+  store i64 %263, ptr %270, align 16, !tbaa !42
   %271 = getelementptr inbounds nuw i8, ptr %52, i64 4120
-  store i64 %268, ptr %271, align 8, !tbaa !42
+  store i64 %262, ptr %271, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store ptr @.str.37, ptr %54, align 8
@@ -10845,28 +10851,31 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_12v() #1 personality ptr @__gxx_per
   store i64 3, ptr %.06.i.i.i.i.ptr.i.i.i.i, align 8, !tbaa !22
   %.06.i.i.i.i.add.i.i.i.i = add nuw nsw i64 %.06.i.i.i.i.idx.i.i.i.i, 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.06.i.i.i.i.add.i.i.i.i, 2048
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !116
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.preheader, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !116
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i
-  %.014.i.i.i = phi i64 [ %54, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 %.014.i.i.i
-  %50 = load i8, ptr %49, align 1, !tbaa !21
-  %51 = sub nuw nsw i64 2, %.014.i.i.i
-  %52 = zext i8 %50 to i64
-  %53 = getelementptr inbounds nuw i64, ptr %10, i64 %52
-  store i64 %51, ptr %53, align 8, !tbaa !22
-  %54 = add nuw nsw i64 %.014.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %54, 2
+.lr.ph.i.i.i.preheader:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 19
+  %50 = ptrtoint ptr %49 to i64
+  %51 = ptrtoint ptr %43 to i64
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
+  %.014.i.i.i = phi i64 [ %57, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.i.i.preheader ]
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 %.014.i.i.i
+  %53 = load i8, ptr %52, align 1, !tbaa !21
+  %54 = sub nuw nsw i64 2, %.014.i.i.i
+  %55 = zext i8 %53 to i64
+  %56 = getelementptr inbounds nuw i64, ptr %10, i64 %55
+  store i64 %54, ptr %56, align 8, !tbaa !22
+  %57 = add nuw nsw i64 %.014.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %57, 2
   br i1 %exitcond.not.i.i.i, label %.loopexit167, label %.lr.ph.i.i.i, !llvm.loop !117
 
 .loopexit167:                                     ; preds = %.lr.ph.i.i.i
-  %55 = getelementptr inbounds nuw i8, ptr %8, i64 19
-  %56 = ptrtoint ptr %55 to i64
-  %57 = ptrtoint ptr %43 to i64
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 2048
-  store i64 %57, ptr %58, align 16, !tbaa !42
+  store i64 %51, ptr %58, align 16, !tbaa !42
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 2056
-  store i64 %56, ptr %59, align 8, !tbaa !42
+  store i64 %50, ptr %59, align 8, !tbaa !42
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 2064
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2064) %60, i8 0, i64 2048, i1 false)
   br label %.lr.ph.i.i.i.i.i.i.i.i61
@@ -10877,28 +10886,31 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_12v() #1 personality ptr @__gxx_per
   store i64 3, ptr %.06.i.i.i.i.ptr.i.i.i.i63, align 8, !tbaa !22
   %.06.i.i.i.i.add.i.i.i.i64 = add nuw nsw i64 %.06.i.i.i.i.idx.i.i.i.i62, 8
   %.not.i.i.i.i.i.i.i.i65 = icmp eq i64 %.06.i.i.i.i.add.i.i.i.i64, 2048
-  br i1 %.not.i.i.i.i.i.i.i.i65, label %.lr.ph.i.i.i70, label %.lr.ph.i.i.i.i.i.i.i.i61, !llvm.loop !116
+  br i1 %.not.i.i.i.i.i.i.i.i65, label %.lr.ph.i.i.i70.preheader, label %.lr.ph.i.i.i.i.i.i.i.i61, !llvm.loop !116
 
-.lr.ph.i.i.i70:                                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i61, %.lr.ph.i.i.i70
-  %.014.i.i.i71 = phi i64 [ %66, %.lr.ph.i.i.i70 ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i61 ]
-  %61 = getelementptr inbounds nuw i8, ptr %46, i64 %.014.i.i.i71
-  %62 = load i8, ptr %61, align 1, !tbaa !21
-  %63 = sub nuw nsw i64 2, %.014.i.i.i71
-  %64 = zext i8 %62 to i64
-  %65 = getelementptr inbounds nuw i64, ptr %60, i64 %64
-  store i64 %63, ptr %65, align 8, !tbaa !22
-  %66 = add nuw nsw i64 %.014.i.i.i71, 1
-  %exitcond.not.i.i.i72 = icmp eq i64 %66, 2
+.lr.ph.i.i.i70.preheader:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i61
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 19
+  %62 = ptrtoint ptr %61 to i64
+  %63 = ptrtoint ptr %46 to i64
+  br label %.lr.ph.i.i.i70
+
+.lr.ph.i.i.i70:                                   ; preds = %.lr.ph.i.i.i70.preheader, %.lr.ph.i.i.i70
+  %.014.i.i.i71 = phi i64 [ %69, %.lr.ph.i.i.i70 ], [ 0, %.lr.ph.i.i.i70.preheader ]
+  %64 = getelementptr inbounds nuw i8, ptr %46, i64 %.014.i.i.i71
+  %65 = load i8, ptr %64, align 1, !tbaa !21
+  %66 = sub nuw nsw i64 2, %.014.i.i.i71
+  %67 = zext i8 %65 to i64
+  %68 = getelementptr inbounds nuw i64, ptr %60, i64 %67
+  store i64 %66, ptr %68, align 8, !tbaa !22
+  %69 = add nuw nsw i64 %.014.i.i.i71, 1
+  %exitcond.not.i.i.i72 = icmp eq i64 %69, 2
   br i1 %exitcond.not.i.i.i72, label %.loopexit, label %.lr.ph.i.i.i70, !llvm.loop !117
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i70
-  %67 = getelementptr inbounds nuw i8, ptr %9, i64 19
-  %68 = ptrtoint ptr %67 to i64
-  %69 = ptrtoint ptr %46 to i64
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 4112
-  store i64 %69, ptr %70, align 16, !tbaa !42
+  store i64 %63, ptr %70, align 16, !tbaa !42
   %71 = getelementptr inbounds nuw i8, ptr %10, i64 4120
-  store i64 %68, ptr %71, align 8, !tbaa !42
+  store i64 %62, ptr %71, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr @.str.37, ptr %12, align 8

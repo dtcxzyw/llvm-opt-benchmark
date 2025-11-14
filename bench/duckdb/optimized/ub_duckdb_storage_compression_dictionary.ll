@@ -2255,44 +2255,44 @@ define noundef i64 @_ZN6duckdb34DictionaryCompressionCompressState8FinalizeEv(pt
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %55 = load atomic i64, ptr %54 seq_cst, align 8
   %56 = load i8, ptr %18, align 8, !tbaa !175
-  %57 = and i64 %55, -32
-  %.not22.i = icmp eq i64 %57, 0
+  %57 = and i64 %55, 31
+  %58 = and i64 %55, -32
+  %.not22.i = icmp eq i64 %58, 0
   br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %52
-  %58 = zext i8 %56 to i64
-  %59 = zext i8 %56 to i32
+  %59 = zext i8 %56 to i64
+  %60 = zext i8 %56 to i32
   br label %61
 
 ._crit_edge.i:                                    ; preds = %.noexc36, %52
-  %60 = and i64 %55, 31
-  %.not.i = icmp eq i64 %60, 0
+  %.not.i = icmp eq i64 %57, 0
   br i1 %.not.i, label %_ZN6duckdb20BitpackingPrimitives10PackBufferIjLb0EEEvPhPT_mh.exit, label %68
 
 61:                                               ; preds = %.noexc36, %.lr.ph.i
   %.021.i = phi i64 [ 0, %.lr.ph.i ], [ %66, %.noexc36 ]
-  %62 = mul i64 %.021.i, %58
+  %62 = mul i64 %.021.i, %59
   %63 = lshr exact i64 %62, 3
   %64 = getelementptr inbounds nuw i8, ptr %53, i64 %63
   %65 = getelementptr inbounds nuw i32, ptr %50, i64 %.021.i
-  invoke void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef %65, ptr noundef nonnull %64, i32 noundef %59)
+  invoke void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef %65, ptr noundef nonnull %64, i32 noundef %60)
           to label %.noexc36 unwind label %.loopexit
 
 .noexc36:                                         ; preds = %61
   %66 = add nuw i64 %.021.i, 32
-  %67 = icmp ult i64 %66, %57
+  %67 = icmp ult i64 %66, %58
   br i1 %67, label %61, label %._crit_edge.i, !llvm.loop !186
 
 68:                                               ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %69 = getelementptr inbounds nuw i32, ptr %50, i64 %57
-  %70 = shl nuw nsw i64 %60, 2
+  %69 = getelementptr inbounds nuw i32, ptr %50, i64 %58
+  %70 = shl nuw nsw i64 %57, 2
   %71 = sub nuw nsw i64 128, %70
   %72 = getelementptr i8, ptr %2, i64 %70
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %72, i8 0, i64 %71, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr align 4 %69, i64 %70, i1 false)
   %73 = zext i8 %56 to i64
-  %74 = mul i64 %57, %73
+  %74 = mul i64 %58, %73
   %75 = lshr exact i64 %74, 3
   %76 = getelementptr inbounds nuw i8, ptr %53, i64 %75
   %77 = zext i8 %56 to i32

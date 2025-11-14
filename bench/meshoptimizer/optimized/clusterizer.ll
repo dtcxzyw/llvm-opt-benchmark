@@ -254,27 +254,27 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
   %119 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %117, ptr %119, align 8, !tbaa !15
   tail call void @llvm.memset.p0.i64(ptr align 4 %107, i8 0, i64 %25, i1 false)
-  br label %120
+  br label %121
 
-.preheader60.i:                                   ; preds = %120
+.preheader60.i:                                   ; preds = %121
+  %120 = udiv i64 %4, 3
   %.not.i178 = icmp eq i64 %6, 0
   br i1 %.not.i178, label %.preheader59.i, label %.lr.ph.i179
 
-120:                                              ; preds = %120, %.noexc184
-  %.05461.i = phi i64 [ 0, %.noexc184 ], [ %127, %120 ]
-  %121 = getelementptr inbounds nuw i32, ptr %3, i64 %.05461.i
-  %122 = load i32, ptr %121, align 4, !tbaa !16
-  %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw i32, ptr %107, i64 %123
-  %125 = load i32, ptr %124, align 4, !tbaa !16
-  %126 = add i32 %125, 1
-  store i32 %126, ptr %124, align 4, !tbaa !16
-  %127 = add nuw i64 %.05461.i, 1
-  %exitcond.not.i177 = icmp eq i64 %127, %4
-  br i1 %exitcond.not.i177, label %.preheader60.i, label %120, !llvm.loop !24
+121:                                              ; preds = %121, %.noexc184
+  %.05461.i = phi i64 [ 0, %.noexc184 ], [ %128, %121 ]
+  %122 = getelementptr inbounds nuw i32, ptr %3, i64 %.05461.i
+  %123 = load i32, ptr %122, align 4, !tbaa !16
+  %124 = zext i32 %123 to i64
+  %125 = getelementptr inbounds nuw i32, ptr %107, i64 %124
+  %126 = load i32, ptr %125, align 4, !tbaa !16
+  %127 = add i32 %126, 1
+  store i32 %127, ptr %125, align 4, !tbaa !16
+  %128 = add nuw i64 %.05461.i, 1
+  %exitcond.not.i177 = icmp eq i64 %128, %4
+  br i1 %exitcond.not.i177, label %.preheader60.i, label %121, !llvm.loop !24
 
 .preheader59.i:                                   ; preds = %.lr.ph.i179, %.preheader60.i
-  %128 = udiv i64 %4, 3
   %.not68.i = icmp ult i64 %4, 3
   br i1 %.not68.i, label %.preheader.i181, label %.lr.ph65.i
 
@@ -328,7 +328,7 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
   %158 = getelementptr inbounds nuw i32, ptr %117, i64 %157
   store i32 %140, ptr %158, align 4, !tbaa !16
   %159 = add nuw nsw i64 %.05764.i, 1
-  %exitcond71.not.i = icmp eq i64 %159, %128
+  %exitcond71.not.i = icmp eq i64 %159, %120
   br i1 %exitcond71.not.i, label %.preheader.i181, label %.lr.ph65.i, !llvm.loop !26
 
 .lr.ph67.i:                                       ; preds = %.preheader.i181, %.lr.ph67.i
@@ -348,7 +348,7 @@ _ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17mesh
   br label %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit
 
 _ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit: ; preds = %.lr.ph67.i, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit, %.preheader.i181
-  %.pre-phi = phi i64 [ %.pre234, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %128, %.preheader.i181 ], [ %128, %.lr.ph67.i ]
+  %.pre-phi = phi i64 [ %.pre234, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %120, %.preheader.i181 ], [ %120, %.lr.ph67.i ]
   %166 = phi ptr [ %31, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %110, %.preheader.i181 ], [ %110, %.lr.ph67.i ]
   %167 = phi ptr [ %36, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %117, %.preheader.i181 ], [ %117, %.lr.ph67.i ]
   %168 = phi ptr [ %28, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %107, %.preheader.i181 ], [ %107, %.lr.ph67.i ]
@@ -1302,7 +1302,7 @@ define internal fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_
   %51 = lshr i32 %50, 2
   %52 = zext nneg i32 %51 to i64
   %.not.not = icmp samesign ult i64 %indvars.iv, %52
-  br i1 %.not.not, label %20, label %.loopexit69, !llvm.loop !58
+  br i1 %.not.not, label %20, label %.loopexit, !llvm.loop !58
 
 .lr.ph:                                           ; preds = %7, %tailrecurse
   %53 = phi i32 [ %75, %tailrecurse ], [ %12, %7 ]
@@ -1323,7 +1323,7 @@ define internal fastcc void @_ZN7meshoptL13kdtreeNearestEPNS_6KDNodeEjPKfmPKhS3_
   %66 = tail call float @llvm.fabs.f32(float %60)
   %67 = load float, ptr %6, align 4, !tbaa !28
   %68 = fcmp ugt float %66, %67
-  br i1 %68, label %.loopexit69, label %tailrecurse
+  br i1 %68, label %.loopexit, label %tailrecurse
 
 tailrecurse:                                      ; preds = %.lr.ph
   %69 = xor i32 %63, %62
@@ -1336,7 +1336,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   %76 = icmp eq i32 %75, 3
   br i1 %76, label %.preheader, label %.lr.ph
 
-.loopexit69:                                      ; preds = %.lr.ph, %49
+.loopexit:                                        ; preds = %.lr.ph, %49
   ret void
 }
 

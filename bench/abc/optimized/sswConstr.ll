@@ -952,14 +952,14 @@ define void @Ssw_ManRefineByConstrSim(ptr noundef readonly captures(none) %0) lo
   %6 = load ptr, ptr %5, align 8, !tbaa !83
   %7 = getelementptr i8, ptr %6, i64 108
   %.val102 = load i32, ptr %7, align 4, !tbaa !25
-  %8 = getelementptr i8, ptr %6, i64 104
-  %.val100131 = load i32, ptr %8, align 8, !tbaa !23
-  %9 = icmp sgt i32 %.val100131, 0
-  br i1 %9, label %.lr.ph, label %.critedge.preheader
+  %8 = sdiv i32 %.val127, %.val102
+  %9 = getelementptr i8, ptr %6, i64 104
+  %.val100131 = load i32, ptr %9, align 8, !tbaa !23
+  %10 = icmp sgt i32 %.val100131, 0
+  br i1 %10, label %.lr.ph, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.lr.ph, %1
-  %10 = sdiv i32 %.val127, %.val102
-  %11 = icmp sgt i32 %10, 0
+  %11 = icmp sgt i32 %8, 0
   br i1 %11, label %.lr.ph155, label %.critedge._crit_edge
 
 .lr.ph155:                                        ; preds = %.critedge.preheader
@@ -1306,7 +1306,7 @@ define void @Ssw_ManRefineByConstrSim(ptr noundef readonly captures(none) %0) lo
 
 .critedge12:                                      ; preds = %206, %.preheader, %213
   %218 = add nuw nsw i32 %.0154, 1
-  %exitcond.not = icmp eq i32 %218, %10
+  %exitcond.not = icmp eq i32 %218, %8
   br i1 %exitcond.not, label %.critedge._crit_edge, label %29, !llvm.loop !92
 
 .critedge._crit_edge:                             ; preds = %.critedge12, %.critedge.preheader

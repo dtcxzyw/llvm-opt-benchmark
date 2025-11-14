@@ -597,7 +597,7 @@ define internal fastcc void @dump_one_proc(ptr noundef %0, ptr noundef nonnull r
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !29
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.37, i32 noundef %16) #18
-  br label %1588
+  br label %1590
 
 18:                                               ; preds = %9, %3
   %.not = icmp eq ptr %2, null
@@ -614,7 +614,7 @@ define internal fastcc void @dump_one_proc(ptr noundef %0, ptr noundef nonnull r
   %24 = load i32, ptr %23, align 4, !tbaa !12
   %25 = tail call ptr @strerror(i32 noundef %24) #16
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.38, ptr noundef nonnull %2, ptr noundef %25) #18
-  br label %1588
+  br label %1590
 
 27:                                               ; preds = %19
   %28 = load i32, ptr @verbose, align 4, !tbaa !12
@@ -647,37 +647,37 @@ define internal fastcc void @dump_one_proc(ptr noundef %0, ptr noundef nonnull r
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %45 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 0, i32 undef) #16, !srcloc !32
-  %46 = extractvalue { i32, i64, i32, i32 } %45, 2
-  %47 = extractvalue { i32, i64, i32, i32 } %45, 3
-  store i32 %46, ptr %43, align 8, !tbaa !12
-  store i32 %47, ptr %44, align 4, !tbaa !12
+  %46 = extractvalue { i32, i64, i32, i32 } %45, 0
+  %47 = extractvalue { i32, i64, i32, i32 } %45, 2
+  %48 = extractvalue { i32, i64, i32, i32 } %45, 3
+  store i32 %47, ptr %43, align 8, !tbaa !12
+  store i32 %48, ptr %44, align 4, !tbaa !12
   store i32 -2147483648, ptr %4, align 16, !tbaa !12
-  %48 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 -2147483648, i32 %46) #16, !srcloc !32
-  %49 = extractvalue { i32, i64, i32, i32 } %48, 2
-  %50 = extractvalue { i32, i64, i32, i32 } %48, 3
-  store i32 %49, ptr %43, align 8, !tbaa !12
-  store i32 %50, ptr %44, align 4, !tbaa !12
+  %49 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 -2147483648, i32 %47) #16, !srcloc !32
+  %50 = extractvalue { i32, i64, i32, i32 } %49, 0
+  %51 = extractvalue { i32, i64, i32, i32 } %49, 2
+  %52 = extractvalue { i32, i64, i32, i32 } %49, 3
+  store i32 %51, ptr %43, align 8, !tbaa !12
+  store i32 %52, ptr %44, align 4, !tbaa !12
   store i32 0, ptr %4, align 16, !tbaa !12
-  br label %51
+  br label %53
 
-51:                                               ; preds = %54, %40
-  %indvars.iv.i = phi i64 [ 0, %40 ], [ %indvars.iv.next.i, %54 ]
+53:                                               ; preds = %56, %40
+  %indvars.iv.i = phi i64 [ 0, %40 ], [ %indvars.iv.next.i, %56 ]
   %.not784 = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not784, label %54, label %52
+  br i1 %.not784, label %56, label %54
 
-52:                                               ; preds = %51
-  %53 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
-  store i32 0, ptr %53, align 4, !tbaa !12
-  br label %54
+54:                                               ; preds = %53
+  %55 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  store i32 0, ptr %55, align 4, !tbaa !12
+  br label %56
 
-54:                                               ; preds = %52, %51
+56:                                               ; preds = %54, %53
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %dump_one_cpuid.exit, label %51, !llvm.loop !33
+  br i1 %exitcond.not.i, label %dump_one_cpuid.exit, label %53, !llvm.loop !33
 
-dump_one_cpuid.exit:                              ; preds = %54
-  %55 = extractvalue { i32, i64, i32, i32 } %45, 0
-  %56 = extractvalue { i32, i64, i32, i32 } %48, 0
+dump_one_cpuid.exit:                              ; preds = %56
   %57 = load i32, ptr %42, align 4, !tbaa !12
   %58 = load i32, ptr %43, align 8, !tbaa !12
   %59 = load i32, ptr %44, align 4, !tbaa !12
@@ -701,7 +701,7 @@ dump_one_cpuid.exit:                              ; preds = %54
   %73 = load i32, ptr %44, align 4
   %74 = icmp ne i32 %73, 1769238117
   %or.cond5.not = select i1 %or.cond.not265, i1 true, i1 %74
-  %.not256 = icmp eq i32 %55, 0
+  %.not256 = icmp eq i32 %46, 0
   br i1 %.not256, label %.thread730, label %75
 
 75:                                               ; preds = %dump_one_cpuid.exit
@@ -742,7 +742,7 @@ dump_one_cpuid.exit:                              ; preds = %54
   %93 = load i32, ptr %43, align 8, !tbaa !12
   %94 = and i32 %93, 2097152
   %.not257 = icmp ne i32 %94, 0
-  %.not786 = icmp eq i32 %55, 1
+  %.not786 = icmp eq i32 %46, 1
   br i1 %.not786, label %.thread730, label %95
 
 95:                                               ; preds = %80
@@ -780,7 +780,7 @@ dump_one_cpuid.exit:                              ; preds = %54
   store i32 %110, ptr %44, align 4, !tbaa !12
   %111 = load i32, ptr %42, align 4, !tbaa !12
   %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %108, i32 noundef %111, i32 noundef %109, i32 noundef %110) #16
-  %113 = icmp ugt i32 %55, 2
+  %113 = icmp ugt i32 %46, 2
   br i1 %113, label %114, label %.thread730
 
 114:                                              ; preds = %100
@@ -818,7 +818,7 @@ dump_one_cpuid.exit:                              ; preds = %54
   store i32 %129, ptr %44, align 4, !tbaa !12
   %130 = load i32, ptr %42, align 4, !tbaa !12
   %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %127, i32 noundef %130, i32 noundef %128, i32 noundef %129) #16
-  %.not789 = icmp eq i32 %55, 3
+  %.not789 = icmp eq i32 %46, 3
   br i1 %.not789, label %.thread730, label %.preheader841
 
 .preheader841:                                    ; preds = %119, %154
@@ -881,7 +881,7 @@ dump_one_cpuid.exit297:                           ; preds = %138
   br label %159
 
 159:                                              ; preds = %156, %.thread
-  %160 = icmp ugt i32 %55, 4
+  %160 = icmp ugt i32 %46, 4
   br i1 %160, label %161, label %.thread730
 
 161:                                              ; preds = %159
@@ -919,7 +919,7 @@ dump_one_cpuid.exit297:                           ; preds = %138
   store i32 %176, ptr %44, align 4, !tbaa !12
   %177 = load i32, ptr %42, align 4, !tbaa !12
   %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %174, i32 noundef %177, i32 noundef %175, i32 noundef %176) #16
-  %.not791 = icmp eq i32 %55, 5
+  %.not791 = icmp eq i32 %46, 5
   br i1 %.not791, label %.thread730, label %179
 
 179:                                              ; preds = %166
@@ -957,7 +957,7 @@ dump_one_cpuid.exit297:                           ; preds = %138
   store i32 %194, ptr %44, align 4, !tbaa !12
   %195 = load i32, ptr %42, align 4, !tbaa !12
   %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %192, i32 noundef %195, i32 noundef %193, i32 noundef %194) #16
-  %197 = icmp ugt i32 %55, 6
+  %197 = icmp ugt i32 %46, 6
   br i1 %197, label %198, label %.thread730
 
 198:                                              ; preds = %184
@@ -1001,2810 +1001,2810 @@ dump_one_cpuid.exit312:                           ; preds = %205
   %217 = load i32, ptr %42, align 4, !tbaa !12
   %218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %214, i32 noundef %217, i32 noundef %215, i32 noundef %216) #16
   %219 = load i32, ptr %44, align 4, !tbaa !12
-  %220 = load i32, ptr %42, align 4, !tbaa !12
-  %221 = load i32, ptr %4, align 16, !tbaa !12
-  %.not858 = icmp eq i32 %221, 0
+  %220 = and i32 %219, 262144
+  %.not259 = icmp ne i32 %220, 0
+  %221 = load i32, ptr %42, align 4, !tbaa !12
+  %222 = and i32 %221, 4
+  %.not260 = icmp ne i32 %222, 0
+  %223 = load i32, ptr %4, align 16, !tbaa !12
+  %.not858 = icmp eq i32 %223, 0
   br i1 %.not858, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %dump_one_cpuid.exit312
-  %222 = add i32 %221, -1
-  %umin = call i32 @llvm.umin.i32(i32 %222, i32 254)
-  %223 = add nuw nsw i32 %umin, 2
+  %224 = add i32 %223, -1
+  %umin = call i32 @llvm.umin.i32(i32 %224, i32 254)
+  %225 = add nuw nsw i32 %umin, 2
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %dump_one_cpuid.exit317
-  %.1843 = phi i32 [ %244, %dump_one_cpuid.exit317 ], [ 1, %.lr.ph.preheader ]
+  %.1843 = phi i32 [ %246, %dump_one_cpuid.exit317 ], [ 1, %.lr.ph.preheader ]
   store i32 7, ptr %4, align 16, !tbaa !12
   store i32 %.1843, ptr %43, align 8, !tbaa !12
-  br label %224
+  br label %226
 
-224:                                              ; preds = %230, %.lr.ph
-  %indvars.iv.i313 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i315, %230 ]
-  %225 = trunc nuw nsw i64 %indvars.iv.i313 to i32
-  %226 = shl nuw nsw i32 1, %225
-  %227 = and i32 %226, 5
-  %.not.i314 = icmp eq i32 %227, 0
-  br i1 %.not.i314, label %228, label %230
+226:                                              ; preds = %232, %.lr.ph
+  %indvars.iv.i313 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i315, %232 ]
+  %227 = trunc nuw nsw i64 %indvars.iv.i313 to i32
+  %228 = shl nuw nsw i32 1, %227
+  %229 = and i32 %228, 5
+  %.not.i314 = icmp eq i32 %229, 0
+  br i1 %.not.i314, label %230, label %232
 
-228:                                              ; preds = %224
-  %229 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i313
-  store i32 0, ptr %229, align 4, !tbaa !12
-  br label %230
+230:                                              ; preds = %226
+  %231 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i313
+  store i32 0, ptr %231, align 4, !tbaa !12
+  br label %232
 
-230:                                              ; preds = %228, %224
+232:                                              ; preds = %230, %226
   %indvars.iv.next.i315 = add nuw nsw i64 %indvars.iv.i313, 1
   %exitcond.not.i316 = icmp eq i64 %indvars.iv.next.i315, 4
-  br i1 %exitcond.not.i316, label %dump_one_cpuid.exit317, label %224, !llvm.loop !33
+  br i1 %exitcond.not.i316, label %dump_one_cpuid.exit317, label %226, !llvm.loop !33
 
-dump_one_cpuid.exit317:                           ; preds = %230
-  %231 = load i32, ptr %4, align 16, !tbaa !12
-  %232 = load i32, ptr %42, align 4, !tbaa !12
-  %233 = load i32, ptr %43, align 8, !tbaa !12
-  %234 = load i32, ptr %44, align 4, !tbaa !12
-  %235 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %231, i32 noundef %232, i32 noundef %233, i32 noundef %234) #16
-  %236 = load i32, ptr %4, align 16, !tbaa !12
-  %237 = load i32, ptr %43, align 8, !tbaa !12
-  %238 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %236, i32 %237) #16, !srcloc !32
-  %239 = extractvalue { i32, i64, i32, i32 } %238, 0
-  %240 = extractvalue { i32, i64, i32, i32 } %238, 2
-  %241 = extractvalue { i32, i64, i32, i32 } %238, 3
-  store i32 %239, ptr %4, align 16, !tbaa !12
-  store i32 %240, ptr %43, align 8, !tbaa !12
-  store i32 %241, ptr %44, align 4, !tbaa !12
-  %242 = load i32, ptr %42, align 4, !tbaa !12
-  %243 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %239, i32 noundef %242, i32 noundef %240, i32 noundef %241) #16
-  %244 = add nuw nsw i32 %.1843, 1
-  %exitcond862.not = icmp eq i32 %244, %223
+dump_one_cpuid.exit317:                           ; preds = %232
+  %233 = load i32, ptr %4, align 16, !tbaa !12
+  %234 = load i32, ptr %42, align 4, !tbaa !12
+  %235 = load i32, ptr %43, align 8, !tbaa !12
+  %236 = load i32, ptr %44, align 4, !tbaa !12
+  %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %233, i32 noundef %234, i32 noundef %235, i32 noundef %236) #16
+  %238 = load i32, ptr %4, align 16, !tbaa !12
+  %239 = load i32, ptr %43, align 8, !tbaa !12
+  %240 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %238, i32 %239) #16, !srcloc !32
+  %241 = extractvalue { i32, i64, i32, i32 } %240, 0
+  %242 = extractvalue { i32, i64, i32, i32 } %240, 2
+  %243 = extractvalue { i32, i64, i32, i32 } %240, 3
+  store i32 %241, ptr %4, align 16, !tbaa !12
+  store i32 %242, ptr %43, align 8, !tbaa !12
+  store i32 %243, ptr %44, align 4, !tbaa !12
+  %244 = load i32, ptr %42, align 4, !tbaa !12
+  %245 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %241, i32 noundef %244, i32 noundef %242, i32 noundef %243) #16
+  %246 = add nuw nsw i32 %.1843, 1
+  %exitcond862.not = icmp eq i32 %246, %225
   br i1 %exitcond862.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %dump_one_cpuid.exit317
-  %245 = icmp eq i32 %223, 256
-  br i1 %245, label %246, label %._crit_edge.thread
+  %247 = icmp eq i32 %225, 256
+  br i1 %247, label %248, label %._crit_edge.thread
 
-246:                                              ; preds = %._crit_edge
-  %247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.43, i32 noundef %221) #16
+248:                                              ; preds = %._crit_edge
+  %249 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.43, i32 noundef %223) #16
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %dump_one_cpuid.exit312, %._crit_edge, %246
-  %.not259903.in = and i32 %219, 262144
-  %.not259903 = icmp ne i32 %.not259903.in, 0
-  %.not260904.in = and i32 %220, 4
-  %.not260904 = icmp ne i32 %.not260904.in, 0
-  %248 = icmp ugt i32 %55, 8
-  br i1 %248, label %249, label %.thread730
+._crit_edge.thread:                               ; preds = %dump_one_cpuid.exit312, %._crit_edge, %248
+  %250 = icmp ugt i32 %46, 8
+  br i1 %250, label %251, label %.thread730
 
-249:                                              ; preds = %._crit_edge.thread
+251:                                              ; preds = %._crit_edge.thread
   store i32 9, ptr %4, align 16, !tbaa !12
-  br label %250
+  br label %252
 
-250:                                              ; preds = %253, %249
-  %indvars.iv.i318 = phi i64 [ 0, %249 ], [ %indvars.iv.next.i320, %253 ]
+252:                                              ; preds = %255, %251
+  %indvars.iv.i318 = phi i64 [ 0, %251 ], [ %indvars.iv.next.i320, %255 ]
   %.not793 = icmp eq i64 %indvars.iv.i318, 0
-  br i1 %.not793, label %253, label %251
+  br i1 %.not793, label %255, label %253
 
-251:                                              ; preds = %250
-  %252 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i318
-  store i32 0, ptr %252, align 4, !tbaa !12
-  br label %253
+253:                                              ; preds = %252
+  %254 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i318
+  store i32 0, ptr %254, align 4, !tbaa !12
+  br label %255
 
-253:                                              ; preds = %251, %250
+255:                                              ; preds = %253, %252
   %indvars.iv.next.i320 = add nuw nsw i64 %indvars.iv.i318, 1
   %exitcond.not.i321 = icmp eq i64 %indvars.iv.next.i320, 4
-  br i1 %exitcond.not.i321, label %254, label %250, !llvm.loop !33
+  br i1 %exitcond.not.i321, label %256, label %252, !llvm.loop !33
 
-254:                                              ; preds = %253
-  %255 = load i32, ptr %42, align 4, !tbaa !12
-  %256 = load i32, ptr %43, align 8, !tbaa !12
-  %257 = load i32, ptr %44, align 4, !tbaa !12
-  %258 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 9, i32 noundef %255, i32 noundef %256, i32 noundef %257) #16
-  %259 = load i32, ptr %4, align 16, !tbaa !12
-  %260 = load i32, ptr %43, align 8, !tbaa !12
-  %261 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %259, i32 %260) #16, !srcloc !32
-  %262 = extractvalue { i32, i64, i32, i32 } %261, 0
-  %263 = extractvalue { i32, i64, i32, i32 } %261, 2
-  %264 = extractvalue { i32, i64, i32, i32 } %261, 3
-  store i32 %262, ptr %4, align 16, !tbaa !12
-  store i32 %263, ptr %43, align 8, !tbaa !12
-  store i32 %264, ptr %44, align 4, !tbaa !12
-  %265 = load i32, ptr %42, align 4, !tbaa !12
-  %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %262, i32 noundef %265, i32 noundef %263, i32 noundef %264) #16
-  %.not794 = icmp eq i32 %55, 9
-  br i1 %.not794, label %.thread730, label %267
+256:                                              ; preds = %255
+  %257 = load i32, ptr %42, align 4, !tbaa !12
+  %258 = load i32, ptr %43, align 8, !tbaa !12
+  %259 = load i32, ptr %44, align 4, !tbaa !12
+  %260 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 9, i32 noundef %257, i32 noundef %258, i32 noundef %259) #16
+  %261 = load i32, ptr %4, align 16, !tbaa !12
+  %262 = load i32, ptr %43, align 8, !tbaa !12
+  %263 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %261, i32 %262) #16, !srcloc !32
+  %264 = extractvalue { i32, i64, i32, i32 } %263, 0
+  %265 = extractvalue { i32, i64, i32, i32 } %263, 2
+  %266 = extractvalue { i32, i64, i32, i32 } %263, 3
+  store i32 %264, ptr %4, align 16, !tbaa !12
+  store i32 %265, ptr %43, align 8, !tbaa !12
+  store i32 %266, ptr %44, align 4, !tbaa !12
+  %267 = load i32, ptr %42, align 4, !tbaa !12
+  %268 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %264, i32 noundef %267, i32 noundef %265, i32 noundef %266) #16
+  %.not794 = icmp eq i32 %46, 9
+  br i1 %.not794, label %.thread730, label %269
 
-267:                                              ; preds = %254
+269:                                              ; preds = %256
   store i32 10, ptr %4, align 16, !tbaa !12
-  br label %268
+  br label %270
 
-268:                                              ; preds = %271, %267
-  %indvars.iv.i323 = phi i64 [ 0, %267 ], [ %indvars.iv.next.i325, %271 ]
+270:                                              ; preds = %273, %269
+  %indvars.iv.i323 = phi i64 [ 0, %269 ], [ %indvars.iv.next.i325, %273 ]
   %.not795 = icmp eq i64 %indvars.iv.i323, 0
-  br i1 %.not795, label %271, label %269
+  br i1 %.not795, label %273, label %271
 
-269:                                              ; preds = %268
-  %270 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i323
-  store i32 0, ptr %270, align 4, !tbaa !12
-  br label %271
+271:                                              ; preds = %270
+  %272 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i323
+  store i32 0, ptr %272, align 4, !tbaa !12
+  br label %273
 
-271:                                              ; preds = %269, %268
+273:                                              ; preds = %271, %270
   %indvars.iv.next.i325 = add nuw nsw i64 %indvars.iv.i323, 1
   %exitcond.not.i326 = icmp eq i64 %indvars.iv.next.i325, 4
-  br i1 %exitcond.not.i326, label %272, label %268, !llvm.loop !33
+  br i1 %exitcond.not.i326, label %274, label %270, !llvm.loop !33
 
-272:                                              ; preds = %271
-  %273 = load i32, ptr %42, align 4, !tbaa !12
-  %274 = load i32, ptr %43, align 8, !tbaa !12
-  %275 = load i32, ptr %44, align 4, !tbaa !12
-  %276 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 10, i32 noundef %273, i32 noundef %274, i32 noundef %275) #16
-  %277 = load i32, ptr %4, align 16, !tbaa !12
-  %278 = load i32, ptr %43, align 8, !tbaa !12
-  %279 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %277, i32 %278) #16, !srcloc !32
-  %280 = extractvalue { i32, i64, i32, i32 } %279, 0
-  %281 = extractvalue { i32, i64, i32, i32 } %279, 2
-  %282 = extractvalue { i32, i64, i32, i32 } %279, 3
-  store i32 %280, ptr %4, align 16, !tbaa !12
-  store i32 %281, ptr %43, align 8, !tbaa !12
-  store i32 %282, ptr %44, align 4, !tbaa !12
-  %283 = load i32, ptr %42, align 4, !tbaa !12
-  %284 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %280, i32 noundef %283, i32 noundef %281, i32 noundef %282) #16
-  %285 = icmp ugt i32 %55, 10
-  %or.cond7 = select i1 %.not257, i1 %285, i1 false
-  br i1 %or.cond7, label %.preheader840, label %317
+274:                                              ; preds = %273
+  %275 = load i32, ptr %42, align 4, !tbaa !12
+  %276 = load i32, ptr %43, align 8, !tbaa !12
+  %277 = load i32, ptr %44, align 4, !tbaa !12
+  %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 10, i32 noundef %275, i32 noundef %276, i32 noundef %277) #16
+  %279 = load i32, ptr %4, align 16, !tbaa !12
+  %280 = load i32, ptr %43, align 8, !tbaa !12
+  %281 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %279, i32 %280) #16, !srcloc !32
+  %282 = extractvalue { i32, i64, i32, i32 } %281, 0
+  %283 = extractvalue { i32, i64, i32, i32 } %281, 2
+  %284 = extractvalue { i32, i64, i32, i32 } %281, 3
+  store i32 %282, ptr %4, align 16, !tbaa !12
+  store i32 %283, ptr %43, align 8, !tbaa !12
+  store i32 %284, ptr %44, align 4, !tbaa !12
+  %285 = load i32, ptr %42, align 4, !tbaa !12
+  %286 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %282, i32 noundef %285, i32 noundef %283, i32 noundef %284) #16
+  %287 = icmp ugt i32 %46, 10
+  %or.cond7 = select i1 %.not257, i1 %287, i1 false
+  br i1 %or.cond7, label %.preheader840, label %319
 
-.preheader840:                                    ; preds = %272, %312
-  %.2844 = phi i32 [ %313, %312 ], [ 0, %272 ]
+.preheader840:                                    ; preds = %274, %314
+  %.2844 = phi i32 [ %315, %314 ], [ 0, %274 ]
   store i32 11, ptr %4, align 16, !tbaa !12
   store i32 %.2844, ptr %43, align 8, !tbaa !12
-  br label %286
+  br label %288
 
-286:                                              ; preds = %292, %.preheader840
-  %indvars.iv.i328 = phi i64 [ 0, %.preheader840 ], [ %indvars.iv.next.i330, %292 ]
-  %287 = trunc nuw nsw i64 %indvars.iv.i328 to i32
-  %288 = shl nuw nsw i32 1, %287
-  %289 = and i32 %288, 5
-  %.not.i329 = icmp eq i32 %289, 0
-  br i1 %.not.i329, label %290, label %292
+288:                                              ; preds = %294, %.preheader840
+  %indvars.iv.i328 = phi i64 [ 0, %.preheader840 ], [ %indvars.iv.next.i330, %294 ]
+  %289 = trunc nuw nsw i64 %indvars.iv.i328 to i32
+  %290 = shl nuw nsw i32 1, %289
+  %291 = and i32 %290, 5
+  %.not.i329 = icmp eq i32 %291, 0
+  br i1 %.not.i329, label %292, label %294
 
-290:                                              ; preds = %286
-  %291 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i328
-  store i32 0, ptr %291, align 4, !tbaa !12
-  br label %292
+292:                                              ; preds = %288
+  %293 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i328
+  store i32 0, ptr %293, align 4, !tbaa !12
+  br label %294
 
-292:                                              ; preds = %290, %286
+294:                                              ; preds = %292, %288
   %indvars.iv.next.i330 = add nuw nsw i64 %indvars.iv.i328, 1
   %exitcond.not.i331 = icmp eq i64 %indvars.iv.next.i330, 4
-  br i1 %exitcond.not.i331, label %dump_one_cpuid.exit332, label %286, !llvm.loop !33
+  br i1 %exitcond.not.i331, label %dump_one_cpuid.exit332, label %288, !llvm.loop !33
 
-dump_one_cpuid.exit332:                           ; preds = %292
-  %293 = load i32, ptr %4, align 16, !tbaa !12
-  %294 = load i32, ptr %42, align 4, !tbaa !12
-  %295 = load i32, ptr %43, align 8, !tbaa !12
-  %296 = load i32, ptr %44, align 4, !tbaa !12
-  %297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %293, i32 noundef %294, i32 noundef %295, i32 noundef %296) #16
-  %298 = load i32, ptr %4, align 16, !tbaa !12
-  %299 = load i32, ptr %43, align 8, !tbaa !12
-  %300 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %298, i32 %299) #16, !srcloc !32
-  %301 = extractvalue { i32, i64, i32, i32 } %300, 0
-  %302 = extractvalue { i32, i64, i32, i32 } %300, 2
-  %303 = extractvalue { i32, i64, i32, i32 } %300, 3
-  store i32 %301, ptr %4, align 16, !tbaa !12
-  store i32 %302, ptr %43, align 8, !tbaa !12
-  store i32 %303, ptr %44, align 4, !tbaa !12
-  %304 = load i32, ptr %42, align 4, !tbaa !12
-  %305 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %301, i32 noundef %304, i32 noundef %302, i32 noundef %303) #16
-  br i1 %or.cond5.not, label %309, label %306
+dump_one_cpuid.exit332:                           ; preds = %294
+  %295 = load i32, ptr %4, align 16, !tbaa !12
+  %296 = load i32, ptr %42, align 4, !tbaa !12
+  %297 = load i32, ptr %43, align 8, !tbaa !12
+  %298 = load i32, ptr %44, align 4, !tbaa !12
+  %299 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %295, i32 noundef %296, i32 noundef %297, i32 noundef %298) #16
+  %300 = load i32, ptr %4, align 16, !tbaa !12
+  %301 = load i32, ptr %43, align 8, !tbaa !12
+  %302 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %300, i32 %301) #16, !srcloc !32
+  %303 = extractvalue { i32, i64, i32, i32 } %302, 0
+  %304 = extractvalue { i32, i64, i32, i32 } %302, 2
+  %305 = extractvalue { i32, i64, i32, i32 } %302, 3
+  store i32 %303, ptr %4, align 16, !tbaa !12
+  store i32 %304, ptr %43, align 8, !tbaa !12
+  store i32 %305, ptr %44, align 4, !tbaa !12
+  %306 = load i32, ptr %42, align 4, !tbaa !12
+  %307 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %303, i32 noundef %306, i32 noundef %304, i32 noundef %305) #16
+  br i1 %or.cond5.not, label %311, label %308
 
-306:                                              ; preds = %dump_one_cpuid.exit332
-  %307 = load i32, ptr %42, align 4, !tbaa !12
-  %308 = and i32 %307, 65535
-  %.not267 = icmp eq i32 %308, 0
-  br i1 %.not267, label %314, label %312
+308:                                              ; preds = %dump_one_cpuid.exit332
+  %309 = load i32, ptr %42, align 4, !tbaa !12
+  %310 = and i32 %309, 65535
+  %.not267 = icmp eq i32 %310, 0
+  br i1 %.not267, label %316, label %314
 
-309:                                              ; preds = %dump_one_cpuid.exit332
-  %310 = load i32, ptr %43, align 8, !tbaa !12
-  %311 = and i32 %310, 65280
-  %.not266 = icmp eq i32 %311, 0
-  br i1 %.not266, label %314, label %312
+311:                                              ; preds = %dump_one_cpuid.exit332
+  %312 = load i32, ptr %43, align 8, !tbaa !12
+  %313 = and i32 %312, 65280
+  %.not266 = icmp eq i32 %313, 0
+  br i1 %.not266, label %316, label %314
 
-312:                                              ; preds = %306, %309
-  %313 = add nuw nsw i32 %.2844, 1
-  %exitcond863.not = icmp eq i32 %313, 256
-  br i1 %exitcond863.not, label %.thread905, label %.preheader840, !llvm.loop !36
+314:                                              ; preds = %308, %311
+  %315 = add nuw nsw i32 %.2844, 1
+  %exitcond863.not = icmp eq i32 %315, 256
+  br i1 %exitcond863.not, label %.thread901, label %.preheader840, !llvm.loop !36
 
-314:                                              ; preds = %309, %306
-  %315 = icmp eq i32 %.2844, 256
-  br i1 %315, label %.thread905, label %317
+316:                                              ; preds = %311, %308
+  %317 = icmp eq i32 %.2844, 256
+  br i1 %317, label %.thread901, label %319
 
-.thread905:                                       ; preds = %312, %314
-  %316 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0245)
-  br label %317
+.thread901:                                       ; preds = %314, %316
+  %318 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0245)
+  br label %319
 
-317:                                              ; preds = %314, %.thread905, %272
-  %318 = icmp ugt i32 %55, 12
-  br i1 %318, label %319, label %.thread730
+319:                                              ; preds = %316, %.thread901, %274
+  %320 = icmp ugt i32 %46, 12
+  br i1 %320, label %321, label %.thread730
 
-319:                                              ; preds = %317
+321:                                              ; preds = %319
   store i32 13, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %320
+  br label %322
 
-320:                                              ; preds = %326, %319
-  %indvars.iv.i333 = phi i64 [ 0, %319 ], [ %indvars.iv.next.i335, %326 ]
-  %321 = trunc nuw nsw i64 %indvars.iv.i333 to i32
-  %322 = shl nuw nsw i32 1, %321
-  %323 = and i32 %322, 5
-  %.not.i334 = icmp eq i32 %323, 0
-  br i1 %.not.i334, label %324, label %326
+322:                                              ; preds = %328, %321
+  %indvars.iv.i333 = phi i64 [ 0, %321 ], [ %indvars.iv.next.i335, %328 ]
+  %323 = trunc nuw nsw i64 %indvars.iv.i333 to i32
+  %324 = shl nuw nsw i32 1, %323
+  %325 = and i32 %324, 5
+  %.not.i334 = icmp eq i32 %325, 0
+  br i1 %.not.i334, label %326, label %328
 
-324:                                              ; preds = %320
-  %325 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i333
-  store i32 0, ptr %325, align 4, !tbaa !12
-  br label %326
+326:                                              ; preds = %322
+  %327 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i333
+  store i32 0, ptr %327, align 4, !tbaa !12
+  br label %328
 
-326:                                              ; preds = %324, %320
+328:                                              ; preds = %326, %322
   %indvars.iv.next.i335 = add nuw nsw i64 %indvars.iv.i333, 1
   %exitcond.not.i336 = icmp eq i64 %indvars.iv.next.i335, 4
-  br i1 %exitcond.not.i336, label %dump_one_cpuid.exit337, label %320, !llvm.loop !33
+  br i1 %exitcond.not.i336, label %dump_one_cpuid.exit337, label %322, !llvm.loop !33
 
-dump_one_cpuid.exit337:                           ; preds = %326
-  %327 = load i32, ptr %4, align 16, !tbaa !12
-  %328 = load i32, ptr %42, align 4, !tbaa !12
-  %329 = load i32, ptr %43, align 8, !tbaa !12
-  %330 = load i32, ptr %44, align 4, !tbaa !12
-  %331 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %327, i32 noundef %328, i32 noundef %329, i32 noundef %330) #16
-  %332 = load i32, ptr %4, align 16, !tbaa !12
-  %333 = load i32, ptr %43, align 8, !tbaa !12
-  %334 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %332, i32 %333) #16, !srcloc !32
-  %335 = extractvalue { i32, i64, i32, i32 } %334, 0
-  %336 = extractvalue { i32, i64, i32, i32 } %334, 2
-  %337 = extractvalue { i32, i64, i32, i32 } %334, 3
-  store i32 %335, ptr %4, align 16, !tbaa !12
-  store i32 %336, ptr %43, align 8, !tbaa !12
-  store i32 %337, ptr %44, align 4, !tbaa !12
-  %338 = load i32, ptr %42, align 4, !tbaa !12
-  %339 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %335, i32 noundef %338, i32 noundef %336, i32 noundef %337) #16
-  %340 = load i32, ptr %4, align 16, !tbaa !12
-  %341 = load i32, ptr %44, align 4, !tbaa !12
+dump_one_cpuid.exit337:                           ; preds = %328
+  %329 = load i32, ptr %4, align 16, !tbaa !12
+  %330 = load i32, ptr %42, align 4, !tbaa !12
+  %331 = load i32, ptr %43, align 8, !tbaa !12
+  %332 = load i32, ptr %44, align 4, !tbaa !12
+  %333 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %329, i32 noundef %330, i32 noundef %331, i32 noundef %332) #16
+  %334 = load i32, ptr %4, align 16, !tbaa !12
+  %335 = load i32, ptr %43, align 8, !tbaa !12
+  %336 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %334, i32 %335) #16, !srcloc !32
+  %337 = extractvalue { i32, i64, i32, i32 } %336, 0
+  %338 = extractvalue { i32, i64, i32, i32 } %336, 2
+  %339 = extractvalue { i32, i64, i32, i32 } %336, 3
+  store i32 %337, ptr %4, align 16, !tbaa !12
+  store i32 %338, ptr %43, align 8, !tbaa !12
+  store i32 %339, ptr %44, align 4, !tbaa !12
+  %340 = load i32, ptr %42, align 4, !tbaa !12
+  %341 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %337, i32 noundef %340, i32 noundef %338, i32 noundef %339) #16
+  %342 = load i32, ptr %4, align 16, !tbaa !12
+  %343 = load i32, ptr %44, align 4, !tbaa !12
   store i32 13, ptr %4, align 16, !tbaa !12
   store i32 1, ptr %43, align 8, !tbaa !12
-  br label %342
+  br label %344
 
-342:                                              ; preds = %348, %dump_one_cpuid.exit337
-  %indvars.iv.i338 = phi i64 [ 0, %dump_one_cpuid.exit337 ], [ %indvars.iv.next.i340, %348 ]
-  %343 = trunc nuw nsw i64 %indvars.iv.i338 to i32
-  %344 = shl nuw nsw i32 1, %343
-  %345 = and i32 %344, 5
-  %.not.i339 = icmp eq i32 %345, 0
-  br i1 %.not.i339, label %346, label %348
+344:                                              ; preds = %350, %dump_one_cpuid.exit337
+  %indvars.iv.i338 = phi i64 [ 0, %dump_one_cpuid.exit337 ], [ %indvars.iv.next.i340, %350 ]
+  %345 = trunc nuw nsw i64 %indvars.iv.i338 to i32
+  %346 = shl nuw nsw i32 1, %345
+  %347 = and i32 %346, 5
+  %.not.i339 = icmp eq i32 %347, 0
+  br i1 %.not.i339, label %348, label %350
 
-346:                                              ; preds = %342
-  %347 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i338
-  store i32 0, ptr %347, align 4, !tbaa !12
-  br label %348
+348:                                              ; preds = %344
+  %349 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i338
+  store i32 0, ptr %349, align 4, !tbaa !12
+  br label %350
 
-348:                                              ; preds = %346, %342
+350:                                              ; preds = %348, %344
   %indvars.iv.next.i340 = add nuw nsw i64 %indvars.iv.i338, 1
   %exitcond.not.i341 = icmp eq i64 %indvars.iv.next.i340, 4
-  br i1 %exitcond.not.i341, label %dump_one_cpuid.exit342, label %342, !llvm.loop !33
+  br i1 %exitcond.not.i341, label %dump_one_cpuid.exit342, label %344, !llvm.loop !33
 
-dump_one_cpuid.exit342:                           ; preds = %348
-  %349 = load i32, ptr %4, align 16, !tbaa !12
-  %350 = load i32, ptr %42, align 4, !tbaa !12
-  %351 = load i32, ptr %43, align 8, !tbaa !12
-  %352 = load i32, ptr %44, align 4, !tbaa !12
-  %353 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %349, i32 noundef %350, i32 noundef %351, i32 noundef %352) #16
-  %354 = load i32, ptr %4, align 16, !tbaa !12
-  %355 = load i32, ptr %43, align 8, !tbaa !12
-  %356 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %354, i32 %355) #16, !srcloc !32
-  %357 = extractvalue { i32, i64, i32, i32 } %356, 0
-  %358 = extractvalue { i32, i64, i32, i32 } %356, 2
-  %359 = extractvalue { i32, i64, i32, i32 } %356, 3
-  store i32 %357, ptr %4, align 16, !tbaa !12
-  store i32 %358, ptr %43, align 8, !tbaa !12
-  store i32 %359, ptr %44, align 4, !tbaa !12
-  %360 = load i32, ptr %42, align 4, !tbaa !12
-  %361 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %357, i32 noundef %360, i32 noundef %358, i32 noundef %359) #16
-  %362 = load i32, ptr %43, align 8, !tbaa !12
-  %363 = load i32, ptr %44, align 4, !tbaa !12
-  %364 = or i32 %362, %340
-  br label %366
+dump_one_cpuid.exit342:                           ; preds = %350
+  %351 = load i32, ptr %4, align 16, !tbaa !12
+  %352 = load i32, ptr %42, align 4, !tbaa !12
+  %353 = load i32, ptr %43, align 8, !tbaa !12
+  %354 = load i32, ptr %44, align 4, !tbaa !12
+  %355 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %351, i32 noundef %352, i32 noundef %353, i32 noundef %354) #16
+  %356 = load i32, ptr %4, align 16, !tbaa !12
+  %357 = load i32, ptr %43, align 8, !tbaa !12
+  %358 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %356, i32 %357) #16, !srcloc !32
+  %359 = extractvalue { i32, i64, i32, i32 } %358, 0
+  %360 = extractvalue { i32, i64, i32, i32 } %358, 2
+  %361 = extractvalue { i32, i64, i32, i32 } %358, 3
+  store i32 %359, ptr %4, align 16, !tbaa !12
+  store i32 %360, ptr %43, align 8, !tbaa !12
+  store i32 %361, ptr %44, align 4, !tbaa !12
+  %362 = load i32, ptr %42, align 4, !tbaa !12
+  %363 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %359, i32 noundef %362, i32 noundef %360, i32 noundef %361) #16
+  %364 = load i32, ptr %43, align 8, !tbaa !12
+  %365 = load i32, ptr %44, align 4, !tbaa !12
+  %366 = or i32 %364, %342
+  br label %368
 
-.preheader839:                                    ; preds = %390
-  %365 = or i32 %363, %341
-  br label %392
+.preheader839:                                    ; preds = %392
+  %367 = or i32 %365, %343
+  br label %394
 
-366:                                              ; preds = %dump_one_cpuid.exit342, %390
-  %.3845 = phi i32 [ 2, %dump_one_cpuid.exit342 ], [ %391, %390 ]
-  %367 = shl nuw i32 1, %.3845
-  %368 = and i32 %367, %364
-  %.not276 = icmp eq i32 %368, 0
-  br i1 %.not276, label %390, label %369
+368:                                              ; preds = %dump_one_cpuid.exit342, %392
+  %.3845 = phi i32 [ 2, %dump_one_cpuid.exit342 ], [ %393, %392 ]
+  %369 = shl nuw i32 1, %.3845
+  %370 = and i32 %369, %366
+  %.not276 = icmp eq i32 %370, 0
+  br i1 %.not276, label %392, label %371
 
-369:                                              ; preds = %366
+371:                                              ; preds = %368
   store i32 13, ptr %4, align 16, !tbaa !12
   store i32 %.3845, ptr %43, align 8, !tbaa !12
-  br label %370
+  br label %372
 
-370:                                              ; preds = %376, %369
-  %indvars.iv.i343 = phi i64 [ 0, %369 ], [ %indvars.iv.next.i345, %376 ]
-  %371 = trunc nuw nsw i64 %indvars.iv.i343 to i32
-  %372 = shl nuw nsw i32 1, %371
-  %373 = and i32 %372, 5
-  %.not.i344 = icmp eq i32 %373, 0
-  br i1 %.not.i344, label %374, label %376
+372:                                              ; preds = %378, %371
+  %indvars.iv.i343 = phi i64 [ 0, %371 ], [ %indvars.iv.next.i345, %378 ]
+  %373 = trunc nuw nsw i64 %indvars.iv.i343 to i32
+  %374 = shl nuw nsw i32 1, %373
+  %375 = and i32 %374, 5
+  %.not.i344 = icmp eq i32 %375, 0
+  br i1 %.not.i344, label %376, label %378
 
-374:                                              ; preds = %370
-  %375 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i343
-  store i32 0, ptr %375, align 4, !tbaa !12
-  br label %376
+376:                                              ; preds = %372
+  %377 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i343
+  store i32 0, ptr %377, align 4, !tbaa !12
+  br label %378
 
-376:                                              ; preds = %374, %370
+378:                                              ; preds = %376, %372
   %indvars.iv.next.i345 = add nuw nsw i64 %indvars.iv.i343, 1
   %exitcond.not.i346 = icmp eq i64 %indvars.iv.next.i345, 4
-  br i1 %exitcond.not.i346, label %dump_one_cpuid.exit347, label %370, !llvm.loop !33
+  br i1 %exitcond.not.i346, label %dump_one_cpuid.exit347, label %372, !llvm.loop !33
 
-dump_one_cpuid.exit347:                           ; preds = %376
-  %377 = load i32, ptr %4, align 16, !tbaa !12
-  %378 = load i32, ptr %42, align 4, !tbaa !12
-  %379 = load i32, ptr %43, align 8, !tbaa !12
-  %380 = load i32, ptr %44, align 4, !tbaa !12
-  %381 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %377, i32 noundef %378, i32 noundef %379, i32 noundef %380) #16
-  %382 = load i32, ptr %4, align 16, !tbaa !12
-  %383 = load i32, ptr %43, align 8, !tbaa !12
-  %384 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %382, i32 %383) #16, !srcloc !32
-  %385 = extractvalue { i32, i64, i32, i32 } %384, 0
-  %386 = extractvalue { i32, i64, i32, i32 } %384, 2
-  %387 = extractvalue { i32, i64, i32, i32 } %384, 3
-  store i32 %385, ptr %4, align 16, !tbaa !12
-  store i32 %386, ptr %43, align 8, !tbaa !12
-  store i32 %387, ptr %44, align 4, !tbaa !12
-  %388 = load i32, ptr %42, align 4, !tbaa !12
-  %389 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %385, i32 noundef %388, i32 noundef %386, i32 noundef %387) #16
-  br label %390
+dump_one_cpuid.exit347:                           ; preds = %378
+  %379 = load i32, ptr %4, align 16, !tbaa !12
+  %380 = load i32, ptr %42, align 4, !tbaa !12
+  %381 = load i32, ptr %43, align 8, !tbaa !12
+  %382 = load i32, ptr %44, align 4, !tbaa !12
+  %383 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %379, i32 noundef %380, i32 noundef %381, i32 noundef %382) #16
+  %384 = load i32, ptr %4, align 16, !tbaa !12
+  %385 = load i32, ptr %43, align 8, !tbaa !12
+  %386 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %384, i32 %385) #16, !srcloc !32
+  %387 = extractvalue { i32, i64, i32, i32 } %386, 0
+  %388 = extractvalue { i32, i64, i32, i32 } %386, 2
+  %389 = extractvalue { i32, i64, i32, i32 } %386, 3
+  store i32 %387, ptr %4, align 16, !tbaa !12
+  store i32 %388, ptr %43, align 8, !tbaa !12
+  store i32 %389, ptr %44, align 4, !tbaa !12
+  %390 = load i32, ptr %42, align 4, !tbaa !12
+  %391 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %387, i32 noundef %390, i32 noundef %388, i32 noundef %389) #16
+  br label %392
 
-390:                                              ; preds = %366, %dump_one_cpuid.exit347
-  %391 = add nuw nsw i32 %.3845, 1
-  %exitcond864.not = icmp eq i32 %391, 32
-  br i1 %exitcond864.not, label %.preheader839, label %366, !llvm.loop !37
+392:                                              ; preds = %368, %dump_one_cpuid.exit347
+  %393 = add nuw nsw i32 %.3845, 1
+  %exitcond864.not = icmp eq i32 %393, 32
+  br i1 %exitcond864.not, label %.preheader839, label %368, !llvm.loop !37
 
-392:                                              ; preds = %.preheader839, %417
-  %.4846 = phi i32 [ 0, %.preheader839 ], [ %418, %417 ]
-  %393 = shl nuw i32 1, %.4846
-  %394 = and i32 %393, %365
-  %.not275 = icmp eq i32 %394, 0
-  br i1 %.not275, label %417, label %395
+394:                                              ; preds = %.preheader839, %419
+  %.4846 = phi i32 [ 0, %.preheader839 ], [ %420, %419 ]
+  %395 = shl nuw i32 1, %.4846
+  %396 = and i32 %395, %367
+  %.not275 = icmp eq i32 %396, 0
+  br i1 %.not275, label %419, label %397
 
-395:                                              ; preds = %392
+397:                                              ; preds = %394
   store i32 13, ptr %4, align 16, !tbaa !12
-  %396 = or disjoint i32 %.4846, 32
-  store i32 %396, ptr %43, align 8, !tbaa !12
-  br label %397
+  %398 = or disjoint i32 %.4846, 32
+  store i32 %398, ptr %43, align 8, !tbaa !12
+  br label %399
 
-397:                                              ; preds = %403, %395
-  %indvars.iv.i348 = phi i64 [ 0, %395 ], [ %indvars.iv.next.i350, %403 ]
-  %398 = trunc nuw nsw i64 %indvars.iv.i348 to i32
-  %399 = shl nuw nsw i32 1, %398
-  %400 = and i32 %399, 5
-  %.not.i349 = icmp eq i32 %400, 0
-  br i1 %.not.i349, label %401, label %403
+399:                                              ; preds = %405, %397
+  %indvars.iv.i348 = phi i64 [ 0, %397 ], [ %indvars.iv.next.i350, %405 ]
+  %400 = trunc nuw nsw i64 %indvars.iv.i348 to i32
+  %401 = shl nuw nsw i32 1, %400
+  %402 = and i32 %401, 5
+  %.not.i349 = icmp eq i32 %402, 0
+  br i1 %.not.i349, label %403, label %405
 
-401:                                              ; preds = %397
-  %402 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i348
-  store i32 0, ptr %402, align 4, !tbaa !12
-  br label %403
+403:                                              ; preds = %399
+  %404 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i348
+  store i32 0, ptr %404, align 4, !tbaa !12
+  br label %405
 
-403:                                              ; preds = %401, %397
+405:                                              ; preds = %403, %399
   %indvars.iv.next.i350 = add nuw nsw i64 %indvars.iv.i348, 1
   %exitcond.not.i351 = icmp eq i64 %indvars.iv.next.i350, 4
-  br i1 %exitcond.not.i351, label %dump_one_cpuid.exit352, label %397, !llvm.loop !33
+  br i1 %exitcond.not.i351, label %dump_one_cpuid.exit352, label %399, !llvm.loop !33
 
-dump_one_cpuid.exit352:                           ; preds = %403
-  %404 = load i32, ptr %4, align 16, !tbaa !12
-  %405 = load i32, ptr %42, align 4, !tbaa !12
-  %406 = load i32, ptr %43, align 8, !tbaa !12
-  %407 = load i32, ptr %44, align 4, !tbaa !12
-  %408 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %404, i32 noundef %405, i32 noundef %406, i32 noundef %407) #16
-  %409 = load i32, ptr %4, align 16, !tbaa !12
-  %410 = load i32, ptr %43, align 8, !tbaa !12
-  %411 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %409, i32 %410) #16, !srcloc !32
-  %412 = extractvalue { i32, i64, i32, i32 } %411, 0
-  %413 = extractvalue { i32, i64, i32, i32 } %411, 2
-  %414 = extractvalue { i32, i64, i32, i32 } %411, 3
-  store i32 %412, ptr %4, align 16, !tbaa !12
-  store i32 %413, ptr %43, align 8, !tbaa !12
-  store i32 %414, ptr %44, align 4, !tbaa !12
-  %415 = load i32, ptr %42, align 4, !tbaa !12
-  %416 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %412, i32 noundef %415, i32 noundef %413, i32 noundef %414) #16
-  br label %417
+dump_one_cpuid.exit352:                           ; preds = %405
+  %406 = load i32, ptr %4, align 16, !tbaa !12
+  %407 = load i32, ptr %42, align 4, !tbaa !12
+  %408 = load i32, ptr %43, align 8, !tbaa !12
+  %409 = load i32, ptr %44, align 4, !tbaa !12
+  %410 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %406, i32 noundef %407, i32 noundef %408, i32 noundef %409) #16
+  %411 = load i32, ptr %4, align 16, !tbaa !12
+  %412 = load i32, ptr %43, align 8, !tbaa !12
+  %413 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %411, i32 %412) #16, !srcloc !32
+  %414 = extractvalue { i32, i64, i32, i32 } %413, 0
+  %415 = extractvalue { i32, i64, i32, i32 } %413, 2
+  %416 = extractvalue { i32, i64, i32, i32 } %413, 3
+  store i32 %414, ptr %4, align 16, !tbaa !12
+  store i32 %415, ptr %43, align 8, !tbaa !12
+  store i32 %416, ptr %44, align 4, !tbaa !12
+  %417 = load i32, ptr %42, align 4, !tbaa !12
+  %418 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %414, i32 noundef %417, i32 noundef %415, i32 noundef %416) #16
+  br label %419
 
-417:                                              ; preds = %392, %dump_one_cpuid.exit352
-  %418 = add nuw nsw i32 %.4846, 1
-  %exitcond865.not = icmp eq i32 %418, 32
-  br i1 %exitcond865.not, label %419, label %392, !llvm.loop !38
-
-419:                                              ; preds = %417
-  %420 = icmp ugt i32 %55, 14
-  br i1 %420, label %421, label %.thread730
+419:                                              ; preds = %394, %dump_one_cpuid.exit352
+  %420 = add nuw nsw i32 %.4846, 1
+  %exitcond865.not = icmp eq i32 %420, 32
+  br i1 %exitcond865.not, label %421, label %394, !llvm.loop !38
 
 421:                                              ; preds = %419
+  %422 = icmp ugt i32 %46, 14
+  br i1 %422, label %423, label %.thread730
+
+423:                                              ; preds = %421
   store i32 15, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %422
+  br label %424
 
-422:                                              ; preds = %428, %421
-  %indvars.iv.i353 = phi i64 [ 0, %421 ], [ %indvars.iv.next.i355, %428 ]
-  %423 = trunc nuw nsw i64 %indvars.iv.i353 to i32
-  %424 = shl nuw nsw i32 1, %423
-  %425 = and i32 %424, 5
-  %.not.i354 = icmp eq i32 %425, 0
-  br i1 %.not.i354, label %426, label %428
+424:                                              ; preds = %430, %423
+  %indvars.iv.i353 = phi i64 [ 0, %423 ], [ %indvars.iv.next.i355, %430 ]
+  %425 = trunc nuw nsw i64 %indvars.iv.i353 to i32
+  %426 = shl nuw nsw i32 1, %425
+  %427 = and i32 %426, 5
+  %.not.i354 = icmp eq i32 %427, 0
+  br i1 %.not.i354, label %428, label %430
 
-426:                                              ; preds = %422
-  %427 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i353
-  store i32 0, ptr %427, align 4, !tbaa !12
-  br label %428
+428:                                              ; preds = %424
+  %429 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i353
+  store i32 0, ptr %429, align 4, !tbaa !12
+  br label %430
 
-428:                                              ; preds = %426, %422
+430:                                              ; preds = %428, %424
   %indvars.iv.next.i355 = add nuw nsw i64 %indvars.iv.i353, 1
   %exitcond.not.i356 = icmp eq i64 %indvars.iv.next.i355, 4
-  br i1 %exitcond.not.i356, label %dump_one_cpuid.exit357, label %422, !llvm.loop !33
+  br i1 %exitcond.not.i356, label %dump_one_cpuid.exit357, label %424, !llvm.loop !33
 
-dump_one_cpuid.exit357:                           ; preds = %428
-  %429 = load i32, ptr %4, align 16, !tbaa !12
-  %430 = load i32, ptr %42, align 4, !tbaa !12
-  %431 = load i32, ptr %43, align 8, !tbaa !12
-  %432 = load i32, ptr %44, align 4, !tbaa !12
-  %433 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %429, i32 noundef %430, i32 noundef %431, i32 noundef %432) #16
-  %434 = load i32, ptr %4, align 16, !tbaa !12
-  %435 = load i32, ptr %43, align 8, !tbaa !12
-  %436 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %434, i32 %435) #16, !srcloc !32
-  %437 = extractvalue { i32, i64, i32, i32 } %436, 0
-  %438 = extractvalue { i32, i64, i32, i32 } %436, 2
-  %439 = extractvalue { i32, i64, i32, i32 } %436, 3
-  store i32 %437, ptr %4, align 16, !tbaa !12
-  store i32 %438, ptr %43, align 8, !tbaa !12
-  store i32 %439, ptr %44, align 4, !tbaa !12
-  %440 = load i32, ptr %42, align 4, !tbaa !12
-  %441 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %437, i32 noundef %440, i32 noundef %438, i32 noundef %439) #16
+dump_one_cpuid.exit357:                           ; preds = %430
+  %431 = load i32, ptr %4, align 16, !tbaa !12
+  %432 = load i32, ptr %42, align 4, !tbaa !12
+  %433 = load i32, ptr %43, align 8, !tbaa !12
+  %434 = load i32, ptr %44, align 4, !tbaa !12
+  %435 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %431, i32 noundef %432, i32 noundef %433, i32 noundef %434) #16
+  %436 = load i32, ptr %4, align 16, !tbaa !12
+  %437 = load i32, ptr %43, align 8, !tbaa !12
+  %438 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %436, i32 %437) #16, !srcloc !32
+  %439 = extractvalue { i32, i64, i32, i32 } %438, 0
+  %440 = extractvalue { i32, i64, i32, i32 } %438, 2
+  %441 = extractvalue { i32, i64, i32, i32 } %438, 3
+  store i32 %439, ptr %4, align 16, !tbaa !12
+  store i32 %440, ptr %43, align 8, !tbaa !12
+  store i32 %441, ptr %44, align 4, !tbaa !12
+  %442 = load i32, ptr %42, align 4, !tbaa !12
+  %443 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %439, i32 noundef %442, i32 noundef %440, i32 noundef %441) #16
   store i32 15, ptr %4, align 16, !tbaa !12
   store i32 1, ptr %43, align 8, !tbaa !12
-  br label %442
+  br label %444
 
-442:                                              ; preds = %448, %dump_one_cpuid.exit357
-  %indvars.iv.i358 = phi i64 [ 0, %dump_one_cpuid.exit357 ], [ %indvars.iv.next.i360, %448 ]
-  %443 = trunc nuw nsw i64 %indvars.iv.i358 to i32
-  %444 = shl nuw nsw i32 1, %443
-  %445 = and i32 %444, 5
-  %.not.i359 = icmp eq i32 %445, 0
-  br i1 %.not.i359, label %446, label %448
+444:                                              ; preds = %450, %dump_one_cpuid.exit357
+  %indvars.iv.i358 = phi i64 [ 0, %dump_one_cpuid.exit357 ], [ %indvars.iv.next.i360, %450 ]
+  %445 = trunc nuw nsw i64 %indvars.iv.i358 to i32
+  %446 = shl nuw nsw i32 1, %445
+  %447 = and i32 %446, 5
+  %.not.i359 = icmp eq i32 %447, 0
+  br i1 %.not.i359, label %448, label %450
 
-446:                                              ; preds = %442
-  %447 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i358
-  store i32 0, ptr %447, align 4, !tbaa !12
-  br label %448
+448:                                              ; preds = %444
+  %449 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i358
+  store i32 0, ptr %449, align 4, !tbaa !12
+  br label %450
 
-448:                                              ; preds = %446, %442
+450:                                              ; preds = %448, %444
   %indvars.iv.next.i360 = add nuw nsw i64 %indvars.iv.i358, 1
   %exitcond.not.i361 = icmp eq i64 %indvars.iv.next.i360, 4
-  br i1 %exitcond.not.i361, label %449, label %442, !llvm.loop !33
+  br i1 %exitcond.not.i361, label %451, label %444, !llvm.loop !33
 
-449:                                              ; preds = %448
-  %450 = load i32, ptr %4, align 16, !tbaa !12
-  %451 = load i32, ptr %42, align 4, !tbaa !12
-  %452 = load i32, ptr %43, align 8, !tbaa !12
-  %453 = load i32, ptr %44, align 4, !tbaa !12
-  %454 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %450, i32 noundef %451, i32 noundef %452, i32 noundef %453) #16
-  %455 = load i32, ptr %4, align 16, !tbaa !12
-  %456 = load i32, ptr %43, align 8, !tbaa !12
-  %457 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %455, i32 %456) #16, !srcloc !32
-  %458 = extractvalue { i32, i64, i32, i32 } %457, 0
-  %459 = extractvalue { i32, i64, i32, i32 } %457, 2
-  %460 = extractvalue { i32, i64, i32, i32 } %457, 3
-  store i32 %458, ptr %4, align 16, !tbaa !12
-  store i32 %459, ptr %43, align 8, !tbaa !12
-  store i32 %460, ptr %44, align 4, !tbaa !12
-  %461 = load i32, ptr %42, align 4, !tbaa !12
-  %462 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %458, i32 noundef %461, i32 noundef %459, i32 noundef %460) #16
-  %.not796 = icmp eq i32 %55, 15
-  br i1 %.not796, label %.thread730, label %463
+451:                                              ; preds = %450
+  %452 = load i32, ptr %4, align 16, !tbaa !12
+  %453 = load i32, ptr %42, align 4, !tbaa !12
+  %454 = load i32, ptr %43, align 8, !tbaa !12
+  %455 = load i32, ptr %44, align 4, !tbaa !12
+  %456 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %452, i32 noundef %453, i32 noundef %454, i32 noundef %455) #16
+  %457 = load i32, ptr %4, align 16, !tbaa !12
+  %458 = load i32, ptr %43, align 8, !tbaa !12
+  %459 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %457, i32 %458) #16, !srcloc !32
+  %460 = extractvalue { i32, i64, i32, i32 } %459, 0
+  %461 = extractvalue { i32, i64, i32, i32 } %459, 2
+  %462 = extractvalue { i32, i64, i32, i32 } %459, 3
+  store i32 %460, ptr %4, align 16, !tbaa !12
+  store i32 %461, ptr %43, align 8, !tbaa !12
+  store i32 %462, ptr %44, align 4, !tbaa !12
+  %463 = load i32, ptr %42, align 4, !tbaa !12
+  %464 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %460, i32 noundef %463, i32 noundef %461, i32 noundef %462) #16
+  %.not796 = icmp eq i32 %46, 15
+  br i1 %.not796, label %.thread730, label %465
 
-463:                                              ; preds = %449
+465:                                              ; preds = %451
   store i32 16, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %464
+  br label %466
 
-464:                                              ; preds = %470, %463
-  %indvars.iv.i363 = phi i64 [ 0, %463 ], [ %indvars.iv.next.i365, %470 ]
-  %465 = trunc nuw nsw i64 %indvars.iv.i363 to i32
-  %466 = shl nuw nsw i32 1, %465
-  %467 = and i32 %466, 5
-  %.not.i364 = icmp eq i32 %467, 0
-  br i1 %.not.i364, label %468, label %470
+466:                                              ; preds = %472, %465
+  %indvars.iv.i363 = phi i64 [ 0, %465 ], [ %indvars.iv.next.i365, %472 ]
+  %467 = trunc nuw nsw i64 %indvars.iv.i363 to i32
+  %468 = shl nuw nsw i32 1, %467
+  %469 = and i32 %468, 5
+  %.not.i364 = icmp eq i32 %469, 0
+  br i1 %.not.i364, label %470, label %472
 
-468:                                              ; preds = %464
-  %469 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i363
-  store i32 0, ptr %469, align 4, !tbaa !12
-  br label %470
+470:                                              ; preds = %466
+  %471 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i363
+  store i32 0, ptr %471, align 4, !tbaa !12
+  br label %472
 
-470:                                              ; preds = %468, %464
+472:                                              ; preds = %470, %466
   %indvars.iv.next.i365 = add nuw nsw i64 %indvars.iv.i363, 1
   %exitcond.not.i366 = icmp eq i64 %indvars.iv.next.i365, 4
-  br i1 %exitcond.not.i366, label %dump_one_cpuid.exit367, label %464, !llvm.loop !33
+  br i1 %exitcond.not.i366, label %dump_one_cpuid.exit367, label %466, !llvm.loop !33
 
-dump_one_cpuid.exit367:                           ; preds = %470
-  %471 = load i32, ptr %4, align 16, !tbaa !12
-  %472 = load i32, ptr %42, align 4, !tbaa !12
-  %473 = load i32, ptr %43, align 8, !tbaa !12
-  %474 = load i32, ptr %44, align 4, !tbaa !12
-  %475 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %471, i32 noundef %472, i32 noundef %473, i32 noundef %474) #16
-  %476 = load i32, ptr %4, align 16, !tbaa !12
-  %477 = load i32, ptr %43, align 8, !tbaa !12
-  %478 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %476, i32 %477) #16, !srcloc !32
-  %479 = extractvalue { i32, i64, i32, i32 } %478, 0
-  %480 = extractvalue { i32, i64, i32, i32 } %478, 2
-  %481 = extractvalue { i32, i64, i32, i32 } %478, 3
-  store i32 %479, ptr %4, align 16, !tbaa !12
-  store i32 %480, ptr %43, align 8, !tbaa !12
-  store i32 %481, ptr %44, align 4, !tbaa !12
-  %482 = load i32, ptr %42, align 4, !tbaa !12
-  %483 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %479, i32 noundef %482, i32 noundef %480, i32 noundef %481) #16
+dump_one_cpuid.exit367:                           ; preds = %472
+  %473 = load i32, ptr %4, align 16, !tbaa !12
+  %474 = load i32, ptr %42, align 4, !tbaa !12
+  %475 = load i32, ptr %43, align 8, !tbaa !12
+  %476 = load i32, ptr %44, align 4, !tbaa !12
+  %477 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %473, i32 noundef %474, i32 noundef %475, i32 noundef %476) #16
+  %478 = load i32, ptr %4, align 16, !tbaa !12
+  %479 = load i32, ptr %43, align 8, !tbaa !12
+  %480 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %478, i32 %479) #16, !srcloc !32
+  %481 = extractvalue { i32, i64, i32, i32 } %480, 0
+  %482 = extractvalue { i32, i64, i32, i32 } %480, 2
+  %483 = extractvalue { i32, i64, i32, i32 } %480, 3
+  store i32 %481, ptr %4, align 16, !tbaa !12
+  store i32 %482, ptr %43, align 8, !tbaa !12
+  store i32 %483, ptr %44, align 4, !tbaa !12
+  %484 = load i32, ptr %42, align 4, !tbaa !12
+  %485 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %481, i32 noundef %484, i32 noundef %482, i32 noundef %483) #16
   store i32 16, ptr %4, align 16, !tbaa !12
   store i32 1, ptr %43, align 8, !tbaa !12
-  br label %484
+  br label %486
 
-484:                                              ; preds = %490, %dump_one_cpuid.exit367
-  %indvars.iv.i368 = phi i64 [ 0, %dump_one_cpuid.exit367 ], [ %indvars.iv.next.i370, %490 ]
-  %485 = trunc nuw nsw i64 %indvars.iv.i368 to i32
-  %486 = shl nuw nsw i32 1, %485
-  %487 = and i32 %486, 5
-  %.not.i369 = icmp eq i32 %487, 0
-  br i1 %.not.i369, label %488, label %490
+486:                                              ; preds = %492, %dump_one_cpuid.exit367
+  %indvars.iv.i368 = phi i64 [ 0, %dump_one_cpuid.exit367 ], [ %indvars.iv.next.i370, %492 ]
+  %487 = trunc nuw nsw i64 %indvars.iv.i368 to i32
+  %488 = shl nuw nsw i32 1, %487
+  %489 = and i32 %488, 5
+  %.not.i369 = icmp eq i32 %489, 0
+  br i1 %.not.i369, label %490, label %492
 
-488:                                              ; preds = %484
-  %489 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i368
-  store i32 0, ptr %489, align 4, !tbaa !12
-  br label %490
+490:                                              ; preds = %486
+  %491 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i368
+  store i32 0, ptr %491, align 4, !tbaa !12
+  br label %492
 
-490:                                              ; preds = %488, %484
+492:                                              ; preds = %490, %486
   %indvars.iv.next.i370 = add nuw nsw i64 %indvars.iv.i368, 1
   %exitcond.not.i371 = icmp eq i64 %indvars.iv.next.i370, 4
-  br i1 %exitcond.not.i371, label %dump_one_cpuid.exit372, label %484, !llvm.loop !33
+  br i1 %exitcond.not.i371, label %dump_one_cpuid.exit372, label %486, !llvm.loop !33
 
-dump_one_cpuid.exit372:                           ; preds = %490
-  %491 = load i32, ptr %4, align 16, !tbaa !12
-  %492 = load i32, ptr %42, align 4, !tbaa !12
-  %493 = load i32, ptr %43, align 8, !tbaa !12
-  %494 = load i32, ptr %44, align 4, !tbaa !12
-  %495 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %491, i32 noundef %492, i32 noundef %493, i32 noundef %494) #16
-  %496 = load i32, ptr %4, align 16, !tbaa !12
-  %497 = load i32, ptr %43, align 8, !tbaa !12
-  %498 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %496, i32 %497) #16, !srcloc !32
-  %499 = extractvalue { i32, i64, i32, i32 } %498, 0
-  %500 = extractvalue { i32, i64, i32, i32 } %498, 2
-  %501 = extractvalue { i32, i64, i32, i32 } %498, 3
-  store i32 %499, ptr %4, align 16, !tbaa !12
-  store i32 %500, ptr %43, align 8, !tbaa !12
-  store i32 %501, ptr %44, align 4, !tbaa !12
-  %502 = load i32, ptr %42, align 4, !tbaa !12
-  %503 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %499, i32 noundef %502, i32 noundef %500, i32 noundef %501) #16
+dump_one_cpuid.exit372:                           ; preds = %492
+  %493 = load i32, ptr %4, align 16, !tbaa !12
+  %494 = load i32, ptr %42, align 4, !tbaa !12
+  %495 = load i32, ptr %43, align 8, !tbaa !12
+  %496 = load i32, ptr %44, align 4, !tbaa !12
+  %497 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %493, i32 noundef %494, i32 noundef %495, i32 noundef %496) #16
+  %498 = load i32, ptr %4, align 16, !tbaa !12
+  %499 = load i32, ptr %43, align 8, !tbaa !12
+  %500 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %498, i32 %499) #16, !srcloc !32
+  %501 = extractvalue { i32, i64, i32, i32 } %500, 0
+  %502 = extractvalue { i32, i64, i32, i32 } %500, 2
+  %503 = extractvalue { i32, i64, i32, i32 } %500, 3
+  store i32 %501, ptr %4, align 16, !tbaa !12
+  store i32 %502, ptr %43, align 8, !tbaa !12
+  store i32 %503, ptr %44, align 4, !tbaa !12
+  %504 = load i32, ptr %42, align 4, !tbaa !12
+  %505 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %501, i32 noundef %504, i32 noundef %502, i32 noundef %503) #16
   store i32 16, ptr %4, align 16, !tbaa !12
   store i32 2, ptr %43, align 8, !tbaa !12
-  br label %504
+  br label %506
 
-504:                                              ; preds = %510, %dump_one_cpuid.exit372
-  %indvars.iv.i373 = phi i64 [ 0, %dump_one_cpuid.exit372 ], [ %indvars.iv.next.i375, %510 ]
-  %505 = trunc nuw nsw i64 %indvars.iv.i373 to i32
-  %506 = shl nuw nsw i32 1, %505
-  %507 = and i32 %506, 5
-  %.not.i374 = icmp eq i32 %507, 0
-  br i1 %.not.i374, label %508, label %510
+506:                                              ; preds = %512, %dump_one_cpuid.exit372
+  %indvars.iv.i373 = phi i64 [ 0, %dump_one_cpuid.exit372 ], [ %indvars.iv.next.i375, %512 ]
+  %507 = trunc nuw nsw i64 %indvars.iv.i373 to i32
+  %508 = shl nuw nsw i32 1, %507
+  %509 = and i32 %508, 5
+  %.not.i374 = icmp eq i32 %509, 0
+  br i1 %.not.i374, label %510, label %512
 
-508:                                              ; preds = %504
-  %509 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i373
-  store i32 0, ptr %509, align 4, !tbaa !12
-  br label %510
+510:                                              ; preds = %506
+  %511 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i373
+  store i32 0, ptr %511, align 4, !tbaa !12
+  br label %512
 
-510:                                              ; preds = %508, %504
+512:                                              ; preds = %510, %506
   %indvars.iv.next.i375 = add nuw nsw i64 %indvars.iv.i373, 1
   %exitcond.not.i376 = icmp eq i64 %indvars.iv.next.i375, 4
-  br i1 %exitcond.not.i376, label %dump_one_cpuid.exit377, label %504, !llvm.loop !33
+  br i1 %exitcond.not.i376, label %dump_one_cpuid.exit377, label %506, !llvm.loop !33
 
-dump_one_cpuid.exit377:                           ; preds = %510
-  %511 = load i32, ptr %4, align 16, !tbaa !12
-  %512 = load i32, ptr %42, align 4, !tbaa !12
-  %513 = load i32, ptr %43, align 8, !tbaa !12
-  %514 = load i32, ptr %44, align 4, !tbaa !12
-  %515 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %511, i32 noundef %512, i32 noundef %513, i32 noundef %514) #16
-  %516 = load i32, ptr %4, align 16, !tbaa !12
-  %517 = load i32, ptr %43, align 8, !tbaa !12
-  %518 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %516, i32 %517) #16, !srcloc !32
-  %519 = extractvalue { i32, i64, i32, i32 } %518, 0
-  %520 = extractvalue { i32, i64, i32, i32 } %518, 2
-  %521 = extractvalue { i32, i64, i32, i32 } %518, 3
-  store i32 %519, ptr %4, align 16, !tbaa !12
-  store i32 %520, ptr %43, align 8, !tbaa !12
-  store i32 %521, ptr %44, align 4, !tbaa !12
-  %522 = load i32, ptr %42, align 4, !tbaa !12
-  %523 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %519, i32 noundef %522, i32 noundef %520, i32 noundef %521) #16
+dump_one_cpuid.exit377:                           ; preds = %512
+  %513 = load i32, ptr %4, align 16, !tbaa !12
+  %514 = load i32, ptr %42, align 4, !tbaa !12
+  %515 = load i32, ptr %43, align 8, !tbaa !12
+  %516 = load i32, ptr %44, align 4, !tbaa !12
+  %517 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %513, i32 noundef %514, i32 noundef %515, i32 noundef %516) #16
+  %518 = load i32, ptr %4, align 16, !tbaa !12
+  %519 = load i32, ptr %43, align 8, !tbaa !12
+  %520 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %518, i32 %519) #16, !srcloc !32
+  %521 = extractvalue { i32, i64, i32, i32 } %520, 0
+  %522 = extractvalue { i32, i64, i32, i32 } %520, 2
+  %523 = extractvalue { i32, i64, i32, i32 } %520, 3
+  store i32 %521, ptr %4, align 16, !tbaa !12
+  store i32 %522, ptr %43, align 8, !tbaa !12
+  store i32 %523, ptr %44, align 4, !tbaa !12
+  %524 = load i32, ptr %42, align 4, !tbaa !12
+  %525 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %521, i32 noundef %524, i32 noundef %522, i32 noundef %523) #16
   store i32 16, ptr %4, align 16, !tbaa !12
   store i32 3, ptr %43, align 8, !tbaa !12
-  br label %524
+  br label %526
 
-524:                                              ; preds = %530, %dump_one_cpuid.exit377
-  %indvars.iv.i378 = phi i64 [ 0, %dump_one_cpuid.exit377 ], [ %indvars.iv.next.i380, %530 ]
-  %525 = trunc nuw nsw i64 %indvars.iv.i378 to i32
-  %526 = shl nuw nsw i32 1, %525
-  %527 = and i32 %526, 5
-  %.not.i379 = icmp eq i32 %527, 0
-  br i1 %.not.i379, label %528, label %530
+526:                                              ; preds = %532, %dump_one_cpuid.exit377
+  %indvars.iv.i378 = phi i64 [ 0, %dump_one_cpuid.exit377 ], [ %indvars.iv.next.i380, %532 ]
+  %527 = trunc nuw nsw i64 %indvars.iv.i378 to i32
+  %528 = shl nuw nsw i32 1, %527
+  %529 = and i32 %528, 5
+  %.not.i379 = icmp eq i32 %529, 0
+  br i1 %.not.i379, label %530, label %532
 
-528:                                              ; preds = %524
-  %529 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i378
-  store i32 0, ptr %529, align 4, !tbaa !12
-  br label %530
+530:                                              ; preds = %526
+  %531 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i378
+  store i32 0, ptr %531, align 4, !tbaa !12
+  br label %532
 
-530:                                              ; preds = %528, %524
+532:                                              ; preds = %530, %526
   %indvars.iv.next.i380 = add nuw nsw i64 %indvars.iv.i378, 1
   %exitcond.not.i381 = icmp eq i64 %indvars.iv.next.i380, 4
-  br i1 %exitcond.not.i381, label %531, label %524, !llvm.loop !33
+  br i1 %exitcond.not.i381, label %533, label %526, !llvm.loop !33
 
-531:                                              ; preds = %530
-  %532 = load i32, ptr %4, align 16, !tbaa !12
-  %533 = load i32, ptr %42, align 4, !tbaa !12
-  %534 = load i32, ptr %43, align 8, !tbaa !12
-  %535 = load i32, ptr %44, align 4, !tbaa !12
-  %536 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %532, i32 noundef %533, i32 noundef %534, i32 noundef %535) #16
-  %537 = load i32, ptr %4, align 16, !tbaa !12
-  %538 = load i32, ptr %43, align 8, !tbaa !12
-  %539 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %537, i32 %538) #16, !srcloc !32
-  %540 = extractvalue { i32, i64, i32, i32 } %539, 0
-  %541 = extractvalue { i32, i64, i32, i32 } %539, 2
-  %542 = extractvalue { i32, i64, i32, i32 } %539, 3
-  store i32 %540, ptr %4, align 16, !tbaa !12
-  store i32 %541, ptr %43, align 8, !tbaa !12
-  store i32 %542, ptr %44, align 4, !tbaa !12
-  %543 = load i32, ptr %42, align 4, !tbaa !12
-  %544 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %540, i32 noundef %543, i32 noundef %541, i32 noundef %542) #16
-  %545 = icmp ugt i32 %55, 17
-  %or.cond9 = select i1 %.not260904, i1 %545, i1 false
-  br i1 %or.cond9, label %546, label %615
+533:                                              ; preds = %532
+  %534 = load i32, ptr %4, align 16, !tbaa !12
+  %535 = load i32, ptr %42, align 4, !tbaa !12
+  %536 = load i32, ptr %43, align 8, !tbaa !12
+  %537 = load i32, ptr %44, align 4, !tbaa !12
+  %538 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %534, i32 noundef %535, i32 noundef %536, i32 noundef %537) #16
+  %539 = load i32, ptr %4, align 16, !tbaa !12
+  %540 = load i32, ptr %43, align 8, !tbaa !12
+  %541 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %539, i32 %540) #16, !srcloc !32
+  %542 = extractvalue { i32, i64, i32, i32 } %541, 0
+  %543 = extractvalue { i32, i64, i32, i32 } %541, 2
+  %544 = extractvalue { i32, i64, i32, i32 } %541, 3
+  store i32 %542, ptr %4, align 16, !tbaa !12
+  store i32 %543, ptr %43, align 8, !tbaa !12
+  store i32 %544, ptr %44, align 4, !tbaa !12
+  %545 = load i32, ptr %42, align 4, !tbaa !12
+  %546 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %542, i32 noundef %545, i32 noundef %543, i32 noundef %544) #16
+  %547 = icmp ugt i32 %46, 17
+  %or.cond9 = select i1 %.not260, i1 %547, i1 false
+  br i1 %or.cond9, label %548, label %617
 
-546:                                              ; preds = %531
+548:                                              ; preds = %533
   store i32 18, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %547
+  br label %549
 
-547:                                              ; preds = %553, %546
-  %indvars.iv.i383 = phi i64 [ 0, %546 ], [ %indvars.iv.next.i385, %553 ]
-  %548 = trunc nuw nsw i64 %indvars.iv.i383 to i32
-  %549 = shl nuw nsw i32 1, %548
-  %550 = and i32 %549, 5
-  %.not.i384 = icmp eq i32 %550, 0
-  br i1 %.not.i384, label %551, label %553
+549:                                              ; preds = %555, %548
+  %indvars.iv.i383 = phi i64 [ 0, %548 ], [ %indvars.iv.next.i385, %555 ]
+  %550 = trunc nuw nsw i64 %indvars.iv.i383 to i32
+  %551 = shl nuw nsw i32 1, %550
+  %552 = and i32 %551, 5
+  %.not.i384 = icmp eq i32 %552, 0
+  br i1 %.not.i384, label %553, label %555
 
-551:                                              ; preds = %547
-  %552 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i383
-  store i32 0, ptr %552, align 4, !tbaa !12
-  br label %553
+553:                                              ; preds = %549
+  %554 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i383
+  store i32 0, ptr %554, align 4, !tbaa !12
+  br label %555
 
-553:                                              ; preds = %551, %547
+555:                                              ; preds = %553, %549
   %indvars.iv.next.i385 = add nuw nsw i64 %indvars.iv.i383, 1
   %exitcond.not.i386 = icmp eq i64 %indvars.iv.next.i385, 4
-  br i1 %exitcond.not.i386, label %dump_one_cpuid.exit387, label %547, !llvm.loop !33
+  br i1 %exitcond.not.i386, label %dump_one_cpuid.exit387, label %549, !llvm.loop !33
 
-dump_one_cpuid.exit387:                           ; preds = %553
-  %554 = load i32, ptr %4, align 16, !tbaa !12
-  %555 = load i32, ptr %42, align 4, !tbaa !12
-  %556 = load i32, ptr %43, align 8, !tbaa !12
-  %557 = load i32, ptr %44, align 4, !tbaa !12
-  %558 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %554, i32 noundef %555, i32 noundef %556, i32 noundef %557) #16
-  %559 = load i32, ptr %4, align 16, !tbaa !12
-  %560 = load i32, ptr %43, align 8, !tbaa !12
-  %561 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %559, i32 %560) #16, !srcloc !32
-  %562 = extractvalue { i32, i64, i32, i32 } %561, 0
-  %563 = extractvalue { i32, i64, i32, i32 } %561, 2
-  %564 = extractvalue { i32, i64, i32, i32 } %561, 3
-  store i32 %562, ptr %4, align 16, !tbaa !12
-  store i32 %563, ptr %43, align 8, !tbaa !12
-  store i32 %564, ptr %44, align 4, !tbaa !12
-  %565 = load i32, ptr %42, align 4, !tbaa !12
-  %566 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %562, i32 noundef %565, i32 noundef %563, i32 noundef %564) #16
+dump_one_cpuid.exit387:                           ; preds = %555
+  %556 = load i32, ptr %4, align 16, !tbaa !12
+  %557 = load i32, ptr %42, align 4, !tbaa !12
+  %558 = load i32, ptr %43, align 8, !tbaa !12
+  %559 = load i32, ptr %44, align 4, !tbaa !12
+  %560 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %556, i32 noundef %557, i32 noundef %558, i32 noundef %559) #16
+  %561 = load i32, ptr %4, align 16, !tbaa !12
+  %562 = load i32, ptr %43, align 8, !tbaa !12
+  %563 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %561, i32 %562) #16, !srcloc !32
+  %564 = extractvalue { i32, i64, i32, i32 } %563, 0
+  %565 = extractvalue { i32, i64, i32, i32 } %563, 2
+  %566 = extractvalue { i32, i64, i32, i32 } %563, 3
+  store i32 %564, ptr %4, align 16, !tbaa !12
+  store i32 %565, ptr %43, align 8, !tbaa !12
+  store i32 %566, ptr %44, align 4, !tbaa !12
+  %567 = load i32, ptr %42, align 4, !tbaa !12
+  %568 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %564, i32 noundef %567, i32 noundef %565, i32 noundef %566) #16
   store i32 18, ptr %4, align 16, !tbaa !12
   store i32 1, ptr %43, align 8, !tbaa !12
-  br label %567
+  br label %569
 
-567:                                              ; preds = %573, %dump_one_cpuid.exit387
-  %indvars.iv.i388 = phi i64 [ 0, %dump_one_cpuid.exit387 ], [ %indvars.iv.next.i390, %573 ]
-  %568 = trunc nuw nsw i64 %indvars.iv.i388 to i32
-  %569 = shl nuw nsw i32 1, %568
-  %570 = and i32 %569, 5
-  %.not.i389 = icmp eq i32 %570, 0
-  br i1 %.not.i389, label %571, label %573
+569:                                              ; preds = %575, %dump_one_cpuid.exit387
+  %indvars.iv.i388 = phi i64 [ 0, %dump_one_cpuid.exit387 ], [ %indvars.iv.next.i390, %575 ]
+  %570 = trunc nuw nsw i64 %indvars.iv.i388 to i32
+  %571 = shl nuw nsw i32 1, %570
+  %572 = and i32 %571, 5
+  %.not.i389 = icmp eq i32 %572, 0
+  br i1 %.not.i389, label %573, label %575
 
-571:                                              ; preds = %567
-  %572 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i388
-  store i32 0, ptr %572, align 4, !tbaa !12
-  br label %573
+573:                                              ; preds = %569
+  %574 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i388
+  store i32 0, ptr %574, align 4, !tbaa !12
+  br label %575
 
-573:                                              ; preds = %571, %567
+575:                                              ; preds = %573, %569
   %indvars.iv.next.i390 = add nuw nsw i64 %indvars.iv.i388, 1
   %exitcond.not.i391 = icmp eq i64 %indvars.iv.next.i390, 4
-  br i1 %exitcond.not.i391, label %dump_one_cpuid.exit392, label %567, !llvm.loop !33
+  br i1 %exitcond.not.i391, label %dump_one_cpuid.exit392, label %569, !llvm.loop !33
 
-dump_one_cpuid.exit392:                           ; preds = %573
-  %574 = load i32, ptr %4, align 16, !tbaa !12
-  %575 = load i32, ptr %42, align 4, !tbaa !12
-  %576 = load i32, ptr %43, align 8, !tbaa !12
-  %577 = load i32, ptr %44, align 4, !tbaa !12
-  %578 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %574, i32 noundef %575, i32 noundef %576, i32 noundef %577) #16
-  %579 = load i32, ptr %4, align 16, !tbaa !12
-  %580 = load i32, ptr %43, align 8, !tbaa !12
-  %581 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %579, i32 %580) #16, !srcloc !32
-  %582 = extractvalue { i32, i64, i32, i32 } %581, 0
-  %583 = extractvalue { i32, i64, i32, i32 } %581, 2
-  %584 = extractvalue { i32, i64, i32, i32 } %581, 3
-  store i32 %582, ptr %4, align 16, !tbaa !12
-  store i32 %583, ptr %43, align 8, !tbaa !12
-  store i32 %584, ptr %44, align 4, !tbaa !12
-  %585 = load i32, ptr %42, align 4, !tbaa !12
-  %586 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %582, i32 noundef %585, i32 noundef %583, i32 noundef %584) #16
-  br label %587
+dump_one_cpuid.exit392:                           ; preds = %575
+  %576 = load i32, ptr %4, align 16, !tbaa !12
+  %577 = load i32, ptr %42, align 4, !tbaa !12
+  %578 = load i32, ptr %43, align 8, !tbaa !12
+  %579 = load i32, ptr %44, align 4, !tbaa !12
+  %580 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %576, i32 noundef %577, i32 noundef %578, i32 noundef %579) #16
+  %581 = load i32, ptr %4, align 16, !tbaa !12
+  %582 = load i32, ptr %43, align 8, !tbaa !12
+  %583 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %581, i32 %582) #16, !srcloc !32
+  %584 = extractvalue { i32, i64, i32, i32 } %583, 0
+  %585 = extractvalue { i32, i64, i32, i32 } %583, 2
+  %586 = extractvalue { i32, i64, i32, i32 } %583, 3
+  store i32 %584, ptr %4, align 16, !tbaa !12
+  store i32 %585, ptr %43, align 8, !tbaa !12
+  store i32 %586, ptr %44, align 4, !tbaa !12
+  %587 = load i32, ptr %42, align 4, !tbaa !12
+  %588 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %584, i32 noundef %587, i32 noundef %585, i32 noundef %586) #16
+  br label %589
 
-587:                                              ; preds = %dump_one_cpuid.exit392, %610
-  %.5847 = phi i32 [ 2, %dump_one_cpuid.exit392 ], [ %611, %610 ]
+589:                                              ; preds = %dump_one_cpuid.exit392, %612
+  %.5847 = phi i32 [ 2, %dump_one_cpuid.exit392 ], [ %613, %612 ]
   store i32 18, ptr %4, align 16, !tbaa !12
   store i32 %.5847, ptr %43, align 8, !tbaa !12
-  br label %588
+  br label %590
 
-588:                                              ; preds = %594, %587
-  %indvars.iv.i393 = phi i64 [ 0, %587 ], [ %indvars.iv.next.i395, %594 ]
-  %589 = trunc nuw nsw i64 %indvars.iv.i393 to i32
-  %590 = shl nuw nsw i32 1, %589
-  %591 = and i32 %590, 5
-  %.not.i394 = icmp eq i32 %591, 0
-  br i1 %.not.i394, label %592, label %594
+590:                                              ; preds = %596, %589
+  %indvars.iv.i393 = phi i64 [ 0, %589 ], [ %indvars.iv.next.i395, %596 ]
+  %591 = trunc nuw nsw i64 %indvars.iv.i393 to i32
+  %592 = shl nuw nsw i32 1, %591
+  %593 = and i32 %592, 5
+  %.not.i394 = icmp eq i32 %593, 0
+  br i1 %.not.i394, label %594, label %596
 
-592:                                              ; preds = %588
-  %593 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i393
-  store i32 0, ptr %593, align 4, !tbaa !12
-  br label %594
+594:                                              ; preds = %590
+  %595 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i393
+  store i32 0, ptr %595, align 4, !tbaa !12
+  br label %596
 
-594:                                              ; preds = %592, %588
+596:                                              ; preds = %594, %590
   %indvars.iv.next.i395 = add nuw nsw i64 %indvars.iv.i393, 1
   %exitcond.not.i396 = icmp eq i64 %indvars.iv.next.i395, 4
-  br i1 %exitcond.not.i396, label %dump_one_cpuid.exit397, label %588, !llvm.loop !33
+  br i1 %exitcond.not.i396, label %dump_one_cpuid.exit397, label %590, !llvm.loop !33
 
-dump_one_cpuid.exit397:                           ; preds = %594
-  %595 = load i32, ptr %4, align 16, !tbaa !12
-  %596 = load i32, ptr %42, align 4, !tbaa !12
-  %597 = load i32, ptr %43, align 8, !tbaa !12
-  %598 = load i32, ptr %44, align 4, !tbaa !12
-  %599 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %595, i32 noundef %596, i32 noundef %597, i32 noundef %598) #16
-  %600 = load i32, ptr %4, align 16, !tbaa !12
-  %601 = load i32, ptr %43, align 8, !tbaa !12
-  %602 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %600, i32 %601) #16, !srcloc !32
-  %603 = extractvalue { i32, i64, i32, i32 } %602, 0
-  %604 = extractvalue { i32, i64, i32, i32 } %602, 2
-  %605 = extractvalue { i32, i64, i32, i32 } %602, 3
-  store i32 %603, ptr %4, align 16, !tbaa !12
-  store i32 %604, ptr %43, align 8, !tbaa !12
-  store i32 %605, ptr %44, align 4, !tbaa !12
-  %606 = load i32, ptr %42, align 4, !tbaa !12
-  %607 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %603, i32 noundef %606, i32 noundef %604, i32 noundef %605) #16
-  %608 = load i32, ptr %4, align 16, !tbaa !12
-  %609 = and i32 %608, 15
-  %.not268 = icmp eq i32 %609, 0
-  br i1 %.not268, label %612, label %610
-
-610:                                              ; preds = %dump_one_cpuid.exit397
-  %611 = add nuw nsw i32 %.5847, 1
-  %exitcond866.not = icmp eq i32 %611, 256
-  br i1 %exitcond866.not, label %.thread907, label %587, !llvm.loop !39
+dump_one_cpuid.exit397:                           ; preds = %596
+  %597 = load i32, ptr %4, align 16, !tbaa !12
+  %598 = load i32, ptr %42, align 4, !tbaa !12
+  %599 = load i32, ptr %43, align 8, !tbaa !12
+  %600 = load i32, ptr %44, align 4, !tbaa !12
+  %601 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %597, i32 noundef %598, i32 noundef %599, i32 noundef %600) #16
+  %602 = load i32, ptr %4, align 16, !tbaa !12
+  %603 = load i32, ptr %43, align 8, !tbaa !12
+  %604 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %602, i32 %603) #16, !srcloc !32
+  %605 = extractvalue { i32, i64, i32, i32 } %604, 0
+  %606 = extractvalue { i32, i64, i32, i32 } %604, 2
+  %607 = extractvalue { i32, i64, i32, i32 } %604, 3
+  store i32 %605, ptr %4, align 16, !tbaa !12
+  store i32 %606, ptr %43, align 8, !tbaa !12
+  store i32 %607, ptr %44, align 4, !tbaa !12
+  %608 = load i32, ptr %42, align 4, !tbaa !12
+  %609 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %605, i32 noundef %608, i32 noundef %606, i32 noundef %607) #16
+  %610 = load i32, ptr %4, align 16, !tbaa !12
+  %611 = and i32 %610, 15
+  %.not268 = icmp eq i32 %611, 0
+  br i1 %.not268, label %614, label %612
 
 612:                                              ; preds = %dump_one_cpuid.exit397
-  %613 = icmp eq i32 %.5847, 256
-  br i1 %613, label %.thread907, label %615
+  %613 = add nuw nsw i32 %.5847, 1
+  %exitcond866.not = icmp eq i32 %613, 256
+  br i1 %exitcond866.not, label %.thread903, label %589, !llvm.loop !39
 
-.thread907:                                       ; preds = %610, %612
-  %614 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0245)
-  br label %615
+614:                                              ; preds = %dump_one_cpuid.exit397
+  %615 = icmp eq i32 %.5847, 256
+  br i1 %615, label %.thread903, label %617
 
-615:                                              ; preds = %612, %.thread907, %531
-  %616 = icmp ugt i32 %55, 19
-  br i1 %616, label %617, label %.thread730
+.thread903:                                       ; preds = %612, %614
+  %616 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0245)
+  br label %617
 
-617:                                              ; preds = %615
+617:                                              ; preds = %614, %.thread903, %533
+  %618 = icmp ugt i32 %46, 19
+  br i1 %618, label %619, label %.thread730
+
+619:                                              ; preds = %617
   store i32 20, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %618
+  br label %620
 
-618:                                              ; preds = %624, %617
-  %indvars.iv.i398 = phi i64 [ 0, %617 ], [ %indvars.iv.next.i400, %624 ]
-  %619 = trunc nuw nsw i64 %indvars.iv.i398 to i32
-  %620 = shl nuw nsw i32 1, %619
-  %621 = and i32 %620, 5
-  %.not.i399 = icmp eq i32 %621, 0
-  br i1 %.not.i399, label %622, label %624
+620:                                              ; preds = %626, %619
+  %indvars.iv.i398 = phi i64 [ 0, %619 ], [ %indvars.iv.next.i400, %626 ]
+  %621 = trunc nuw nsw i64 %indvars.iv.i398 to i32
+  %622 = shl nuw nsw i32 1, %621
+  %623 = and i32 %622, 5
+  %.not.i399 = icmp eq i32 %623, 0
+  br i1 %.not.i399, label %624, label %626
 
-622:                                              ; preds = %618
-  %623 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i398
-  store i32 0, ptr %623, align 4, !tbaa !12
-  br label %624
+624:                                              ; preds = %620
+  %625 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i398
+  store i32 0, ptr %625, align 4, !tbaa !12
+  br label %626
 
-624:                                              ; preds = %622, %618
+626:                                              ; preds = %624, %620
   %indvars.iv.next.i400 = add nuw nsw i64 %indvars.iv.i398, 1
   %exitcond.not.i401 = icmp eq i64 %indvars.iv.next.i400, 4
-  br i1 %exitcond.not.i401, label %dump_one_cpuid.exit402, label %618, !llvm.loop !33
+  br i1 %exitcond.not.i401, label %dump_one_cpuid.exit402, label %620, !llvm.loop !33
 
-dump_one_cpuid.exit402:                           ; preds = %624
-  %625 = load i32, ptr %4, align 16, !tbaa !12
-  %626 = load i32, ptr %42, align 4, !tbaa !12
-  %627 = load i32, ptr %43, align 8, !tbaa !12
-  %628 = load i32, ptr %44, align 4, !tbaa !12
-  %629 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %625, i32 noundef %626, i32 noundef %627, i32 noundef %628) #16
-  %630 = load i32, ptr %4, align 16, !tbaa !12
-  %631 = load i32, ptr %43, align 8, !tbaa !12
-  %632 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %630, i32 %631) #16, !srcloc !32
-  %633 = extractvalue { i32, i64, i32, i32 } %632, 0
-  %634 = extractvalue { i32, i64, i32, i32 } %632, 2
-  %635 = extractvalue { i32, i64, i32, i32 } %632, 3
-  store i32 %633, ptr %4, align 16, !tbaa !12
-  store i32 %634, ptr %43, align 8, !tbaa !12
-  store i32 %635, ptr %44, align 4, !tbaa !12
-  %636 = load i32, ptr %42, align 4, !tbaa !12
-  %637 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %633, i32 noundef %636, i32 noundef %634, i32 noundef %635) #16
+dump_one_cpuid.exit402:                           ; preds = %626
+  %627 = load i32, ptr %4, align 16, !tbaa !12
+  %628 = load i32, ptr %42, align 4, !tbaa !12
+  %629 = load i32, ptr %43, align 8, !tbaa !12
+  %630 = load i32, ptr %44, align 4, !tbaa !12
+  %631 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %627, i32 noundef %628, i32 noundef %629, i32 noundef %630) #16
+  %632 = load i32, ptr %4, align 16, !tbaa !12
+  %633 = load i32, ptr %43, align 8, !tbaa !12
+  %634 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %632, i32 %633) #16, !srcloc !32
+  %635 = extractvalue { i32, i64, i32, i32 } %634, 0
+  %636 = extractvalue { i32, i64, i32, i32 } %634, 2
+  %637 = extractvalue { i32, i64, i32, i32 } %634, 3
+  store i32 %635, ptr %4, align 16, !tbaa !12
+  store i32 %636, ptr %43, align 8, !tbaa !12
+  store i32 %637, ptr %44, align 4, !tbaa !12
+  %638 = load i32, ptr %42, align 4, !tbaa !12
+  %639 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %635, i32 noundef %638, i32 noundef %636, i32 noundef %637) #16
   store i32 20, ptr %4, align 16, !tbaa !12
   store i32 1, ptr %43, align 8, !tbaa !12
-  br label %638
+  br label %640
 
-638:                                              ; preds = %644, %dump_one_cpuid.exit402
-  %indvars.iv.i403 = phi i64 [ 0, %dump_one_cpuid.exit402 ], [ %indvars.iv.next.i405, %644 ]
-  %639 = trunc nuw nsw i64 %indvars.iv.i403 to i32
-  %640 = shl nuw nsw i32 1, %639
-  %641 = and i32 %640, 5
-  %.not.i404 = icmp eq i32 %641, 0
-  br i1 %.not.i404, label %642, label %644
+640:                                              ; preds = %646, %dump_one_cpuid.exit402
+  %indvars.iv.i403 = phi i64 [ 0, %dump_one_cpuid.exit402 ], [ %indvars.iv.next.i405, %646 ]
+  %641 = trunc nuw nsw i64 %indvars.iv.i403 to i32
+  %642 = shl nuw nsw i32 1, %641
+  %643 = and i32 %642, 5
+  %.not.i404 = icmp eq i32 %643, 0
+  br i1 %.not.i404, label %644, label %646
 
-642:                                              ; preds = %638
-  %643 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i403
-  store i32 0, ptr %643, align 4, !tbaa !12
-  br label %644
+644:                                              ; preds = %640
+  %645 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i403
+  store i32 0, ptr %645, align 4, !tbaa !12
+  br label %646
 
-644:                                              ; preds = %642, %638
+646:                                              ; preds = %644, %640
   %indvars.iv.next.i405 = add nuw nsw i64 %indvars.iv.i403, 1
   %exitcond.not.i406 = icmp eq i64 %indvars.iv.next.i405, 4
-  br i1 %exitcond.not.i406, label %645, label %638, !llvm.loop !33
+  br i1 %exitcond.not.i406, label %647, label %640, !llvm.loop !33
 
-645:                                              ; preds = %644
-  %646 = load i32, ptr %4, align 16, !tbaa !12
-  %647 = load i32, ptr %42, align 4, !tbaa !12
-  %648 = load i32, ptr %43, align 8, !tbaa !12
-  %649 = load i32, ptr %44, align 4, !tbaa !12
-  %650 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %646, i32 noundef %647, i32 noundef %648, i32 noundef %649) #16
-  %651 = load i32, ptr %4, align 16, !tbaa !12
-  %652 = load i32, ptr %43, align 8, !tbaa !12
-  %653 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %651, i32 %652) #16, !srcloc !32
-  %654 = extractvalue { i32, i64, i32, i32 } %653, 0
-  %655 = extractvalue { i32, i64, i32, i32 } %653, 2
-  %656 = extractvalue { i32, i64, i32, i32 } %653, 3
-  store i32 %654, ptr %4, align 16, !tbaa !12
-  store i32 %655, ptr %43, align 8, !tbaa !12
-  store i32 %656, ptr %44, align 4, !tbaa !12
-  %657 = load i32, ptr %42, align 4, !tbaa !12
-  %658 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %654, i32 noundef %657, i32 noundef %655, i32 noundef %656) #16
-  %.not797 = icmp eq i32 %55, 20
-  br i1 %.not797, label %.thread730, label %659
+647:                                              ; preds = %646
+  %648 = load i32, ptr %4, align 16, !tbaa !12
+  %649 = load i32, ptr %42, align 4, !tbaa !12
+  %650 = load i32, ptr %43, align 8, !tbaa !12
+  %651 = load i32, ptr %44, align 4, !tbaa !12
+  %652 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %648, i32 noundef %649, i32 noundef %650, i32 noundef %651) #16
+  %653 = load i32, ptr %4, align 16, !tbaa !12
+  %654 = load i32, ptr %43, align 8, !tbaa !12
+  %655 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %653, i32 %654) #16, !srcloc !32
+  %656 = extractvalue { i32, i64, i32, i32 } %655, 0
+  %657 = extractvalue { i32, i64, i32, i32 } %655, 2
+  %658 = extractvalue { i32, i64, i32, i32 } %655, 3
+  store i32 %656, ptr %4, align 16, !tbaa !12
+  store i32 %657, ptr %43, align 8, !tbaa !12
+  store i32 %658, ptr %44, align 4, !tbaa !12
+  %659 = load i32, ptr %42, align 4, !tbaa !12
+  %660 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %656, i32 noundef %659, i32 noundef %657, i32 noundef %658) #16
+  %.not797 = icmp eq i32 %46, 20
+  br i1 %.not797, label %.thread730, label %661
 
-659:                                              ; preds = %645
+661:                                              ; preds = %647
   store i32 21, ptr %4, align 16, !tbaa !12
-  br label %660
+  br label %662
 
-660:                                              ; preds = %663, %659
-  %indvars.iv.i408 = phi i64 [ 0, %659 ], [ %indvars.iv.next.i410, %663 ]
+662:                                              ; preds = %665, %661
+  %indvars.iv.i408 = phi i64 [ 0, %661 ], [ %indvars.iv.next.i410, %665 ]
   %.not798 = icmp eq i64 %indvars.iv.i408, 0
-  br i1 %.not798, label %663, label %661
+  br i1 %.not798, label %665, label %663
 
-661:                                              ; preds = %660
-  %662 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i408
-  store i32 0, ptr %662, align 4, !tbaa !12
-  br label %663
+663:                                              ; preds = %662
+  %664 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i408
+  store i32 0, ptr %664, align 4, !tbaa !12
+  br label %665
 
-663:                                              ; preds = %661, %660
+665:                                              ; preds = %663, %662
   %indvars.iv.next.i410 = add nuw nsw i64 %indvars.iv.i408, 1
   %exitcond.not.i411 = icmp eq i64 %indvars.iv.next.i410, 4
-  br i1 %exitcond.not.i411, label %664, label %660, !llvm.loop !33
+  br i1 %exitcond.not.i411, label %666, label %662, !llvm.loop !33
 
-664:                                              ; preds = %663
-  %665 = load i32, ptr %42, align 4, !tbaa !12
-  %666 = load i32, ptr %43, align 8, !tbaa !12
-  %667 = load i32, ptr %44, align 4, !tbaa !12
-  %668 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 21, i32 noundef %665, i32 noundef %666, i32 noundef %667) #16
-  %669 = load i32, ptr %4, align 16, !tbaa !12
-  %670 = load i32, ptr %43, align 8, !tbaa !12
-  %671 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %669, i32 %670) #16, !srcloc !32
-  %672 = extractvalue { i32, i64, i32, i32 } %671, 0
-  %673 = extractvalue { i32, i64, i32, i32 } %671, 2
-  %674 = extractvalue { i32, i64, i32, i32 } %671, 3
-  store i32 %672, ptr %4, align 16, !tbaa !12
-  store i32 %673, ptr %43, align 8, !tbaa !12
-  store i32 %674, ptr %44, align 4, !tbaa !12
-  %675 = load i32, ptr %42, align 4, !tbaa !12
-  %676 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %672, i32 noundef %675, i32 noundef %673, i32 noundef %674) #16
-  %677 = icmp ugt i32 %55, 21
-  br i1 %677, label %678, label %.thread730
+666:                                              ; preds = %665
+  %667 = load i32, ptr %42, align 4, !tbaa !12
+  %668 = load i32, ptr %43, align 8, !tbaa !12
+  %669 = load i32, ptr %44, align 4, !tbaa !12
+  %670 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 21, i32 noundef %667, i32 noundef %668, i32 noundef %669) #16
+  %671 = load i32, ptr %4, align 16, !tbaa !12
+  %672 = load i32, ptr %43, align 8, !tbaa !12
+  %673 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %671, i32 %672) #16, !srcloc !32
+  %674 = extractvalue { i32, i64, i32, i32 } %673, 0
+  %675 = extractvalue { i32, i64, i32, i32 } %673, 2
+  %676 = extractvalue { i32, i64, i32, i32 } %673, 3
+  store i32 %674, ptr %4, align 16, !tbaa !12
+  store i32 %675, ptr %43, align 8, !tbaa !12
+  store i32 %676, ptr %44, align 4, !tbaa !12
+  %677 = load i32, ptr %42, align 4, !tbaa !12
+  %678 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %674, i32 noundef %677, i32 noundef %675, i32 noundef %676) #16
+  %679 = icmp ugt i32 %46, 21
+  br i1 %679, label %680, label %.thread730
 
-678:                                              ; preds = %664
+680:                                              ; preds = %666
   store i32 22, ptr %4, align 16, !tbaa !12
-  br label %679
+  br label %681
 
-679:                                              ; preds = %682, %678
-  %indvars.iv.i413 = phi i64 [ 0, %678 ], [ %indvars.iv.next.i415, %682 ]
+681:                                              ; preds = %684, %680
+  %indvars.iv.i413 = phi i64 [ 0, %680 ], [ %indvars.iv.next.i415, %684 ]
   %.not799 = icmp eq i64 %indvars.iv.i413, 0
-  br i1 %.not799, label %682, label %680
+  br i1 %.not799, label %684, label %682
 
-680:                                              ; preds = %679
-  %681 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i413
-  store i32 0, ptr %681, align 4, !tbaa !12
-  br label %682
+682:                                              ; preds = %681
+  %683 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i413
+  store i32 0, ptr %683, align 4, !tbaa !12
+  br label %684
 
-682:                                              ; preds = %680, %679
+684:                                              ; preds = %682, %681
   %indvars.iv.next.i415 = add nuw nsw i64 %indvars.iv.i413, 1
   %exitcond.not.i416 = icmp eq i64 %indvars.iv.next.i415, 4
-  br i1 %exitcond.not.i416, label %683, label %679, !llvm.loop !33
+  br i1 %exitcond.not.i416, label %685, label %681, !llvm.loop !33
 
-683:                                              ; preds = %682
-  %684 = load i32, ptr %42, align 4, !tbaa !12
-  %685 = load i32, ptr %43, align 8, !tbaa !12
-  %686 = load i32, ptr %44, align 4, !tbaa !12
-  %687 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 22, i32 noundef %684, i32 noundef %685, i32 noundef %686) #16
-  %688 = load i32, ptr %4, align 16, !tbaa !12
-  %689 = load i32, ptr %43, align 8, !tbaa !12
-  %690 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %688, i32 %689) #16, !srcloc !32
-  %691 = extractvalue { i32, i64, i32, i32 } %690, 0
-  %692 = extractvalue { i32, i64, i32, i32 } %690, 2
-  %693 = extractvalue { i32, i64, i32, i32 } %690, 3
-  store i32 %691, ptr %4, align 16, !tbaa !12
-  store i32 %692, ptr %43, align 8, !tbaa !12
-  store i32 %693, ptr %44, align 4, !tbaa !12
-  %694 = load i32, ptr %42, align 4, !tbaa !12
-  %695 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %691, i32 noundef %694, i32 noundef %692, i32 noundef %693) #16
-  %.not800 = icmp eq i32 %55, 22
-  br i1 %.not800, label %.thread730, label %696
+685:                                              ; preds = %684
+  %686 = load i32, ptr %42, align 4, !tbaa !12
+  %687 = load i32, ptr %43, align 8, !tbaa !12
+  %688 = load i32, ptr %44, align 4, !tbaa !12
+  %689 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 22, i32 noundef %686, i32 noundef %687, i32 noundef %688) #16
+  %690 = load i32, ptr %4, align 16, !tbaa !12
+  %691 = load i32, ptr %43, align 8, !tbaa !12
+  %692 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %690, i32 %691) #16, !srcloc !32
+  %693 = extractvalue { i32, i64, i32, i32 } %692, 0
+  %694 = extractvalue { i32, i64, i32, i32 } %692, 2
+  %695 = extractvalue { i32, i64, i32, i32 } %692, 3
+  store i32 %693, ptr %4, align 16, !tbaa !12
+  store i32 %694, ptr %43, align 8, !tbaa !12
+  store i32 %695, ptr %44, align 4, !tbaa !12
+  %696 = load i32, ptr %42, align 4, !tbaa !12
+  %697 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %693, i32 noundef %696, i32 noundef %694, i32 noundef %695) #16
+  %.not800 = icmp eq i32 %46, 22
+  br i1 %.not800, label %.thread730, label %698
 
-696:                                              ; preds = %683
+698:                                              ; preds = %685
   store i32 23, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %697
+  br label %699
 
-697:                                              ; preds = %703, %696
-  %indvars.iv.i418 = phi i64 [ 0, %696 ], [ %indvars.iv.next.i420, %703 ]
-  %698 = trunc nuw nsw i64 %indvars.iv.i418 to i32
-  %699 = shl nuw nsw i32 1, %698
-  %700 = and i32 %699, 5
-  %.not.i419 = icmp eq i32 %700, 0
-  br i1 %.not.i419, label %701, label %703
+699:                                              ; preds = %705, %698
+  %indvars.iv.i418 = phi i64 [ 0, %698 ], [ %indvars.iv.next.i420, %705 ]
+  %700 = trunc nuw nsw i64 %indvars.iv.i418 to i32
+  %701 = shl nuw nsw i32 1, %700
+  %702 = and i32 %701, 5
+  %.not.i419 = icmp eq i32 %702, 0
+  br i1 %.not.i419, label %703, label %705
 
-701:                                              ; preds = %697
-  %702 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i418
-  store i32 0, ptr %702, align 4, !tbaa !12
-  br label %703
+703:                                              ; preds = %699
+  %704 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i418
+  store i32 0, ptr %704, align 4, !tbaa !12
+  br label %705
 
-703:                                              ; preds = %701, %697
+705:                                              ; preds = %703, %699
   %indvars.iv.next.i420 = add nuw nsw i64 %indvars.iv.i418, 1
   %exitcond.not.i421 = icmp eq i64 %indvars.iv.next.i420, 4
-  br i1 %exitcond.not.i421, label %dump_one_cpuid.exit422, label %697, !llvm.loop !33
+  br i1 %exitcond.not.i421, label %dump_one_cpuid.exit422, label %699, !llvm.loop !33
 
-dump_one_cpuid.exit422:                           ; preds = %703
-  %704 = load i32, ptr %4, align 16, !tbaa !12
-  %705 = load i32, ptr %42, align 4, !tbaa !12
-  %706 = load i32, ptr %43, align 8, !tbaa !12
-  %707 = load i32, ptr %44, align 4, !tbaa !12
-  %708 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %704, i32 noundef %705, i32 noundef %706, i32 noundef %707) #16
-  %709 = load i32, ptr %4, align 16, !tbaa !12
-  %710 = load i32, ptr %43, align 8, !tbaa !12
-  %711 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %709, i32 %710) #16, !srcloc !32
-  %712 = extractvalue { i32, i64, i32, i32 } %711, 0
-  %713 = extractvalue { i32, i64, i32, i32 } %711, 2
-  %714 = extractvalue { i32, i64, i32, i32 } %711, 3
-  store i32 %712, ptr %4, align 16, !tbaa !12
-  store i32 %713, ptr %43, align 8, !tbaa !12
-  store i32 %714, ptr %44, align 4, !tbaa !12
-  %715 = load i32, ptr %42, align 4, !tbaa !12
-  %716 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %712, i32 noundef %715, i32 noundef %713, i32 noundef %714) #16
-  %717 = load i32, ptr %4, align 16, !tbaa !12
-  %718 = icmp ugt i32 %717, 2
-  br i1 %718, label %.preheader838.preheader, label %746
+dump_one_cpuid.exit422:                           ; preds = %705
+  %706 = load i32, ptr %4, align 16, !tbaa !12
+  %707 = load i32, ptr %42, align 4, !tbaa !12
+  %708 = load i32, ptr %43, align 8, !tbaa !12
+  %709 = load i32, ptr %44, align 4, !tbaa !12
+  %710 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %706, i32 noundef %707, i32 noundef %708, i32 noundef %709) #16
+  %711 = load i32, ptr %4, align 16, !tbaa !12
+  %712 = load i32, ptr %43, align 8, !tbaa !12
+  %713 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %711, i32 %712) #16, !srcloc !32
+  %714 = extractvalue { i32, i64, i32, i32 } %713, 0
+  %715 = extractvalue { i32, i64, i32, i32 } %713, 2
+  %716 = extractvalue { i32, i64, i32, i32 } %713, 3
+  store i32 %714, ptr %4, align 16, !tbaa !12
+  store i32 %715, ptr %43, align 8, !tbaa !12
+  store i32 %716, ptr %44, align 4, !tbaa !12
+  %717 = load i32, ptr %42, align 4, !tbaa !12
+  %718 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %714, i32 noundef %717, i32 noundef %715, i32 noundef %716) #16
+  %719 = load i32, ptr %4, align 16, !tbaa !12
+  %720 = icmp ugt i32 %719, 2
+  br i1 %720, label %.preheader838.preheader, label %748
 
 .preheader838.preheader:                          ; preds = %dump_one_cpuid.exit422
-  %719 = add i32 %717, -1
-  %umin867 = call i32 @llvm.umin.i32(i32 %719, i32 254)
-  %720 = add nuw nsw i32 %umin867, 2
+  %721 = add i32 %719, -1
+  %umin867 = call i32 @llvm.umin.i32(i32 %721, i32 254)
+  %722 = add nuw nsw i32 %umin867, 2
   br label %.preheader838
 
 .preheader838:                                    ; preds = %.preheader838.preheader, %dump_one_cpuid.exit427
-  %.6848 = phi i32 [ %741, %dump_one_cpuid.exit427 ], [ 1, %.preheader838.preheader ]
+  %.6848 = phi i32 [ %743, %dump_one_cpuid.exit427 ], [ 1, %.preheader838.preheader ]
   store i32 23, ptr %4, align 16, !tbaa !12
   store i32 %.6848, ptr %43, align 8, !tbaa !12
-  br label %721
+  br label %723
 
-721:                                              ; preds = %727, %.preheader838
-  %indvars.iv.i423 = phi i64 [ 0, %.preheader838 ], [ %indvars.iv.next.i425, %727 ]
-  %722 = trunc nuw nsw i64 %indvars.iv.i423 to i32
-  %723 = shl nuw nsw i32 1, %722
-  %724 = and i32 %723, 5
-  %.not.i424 = icmp eq i32 %724, 0
-  br i1 %.not.i424, label %725, label %727
+723:                                              ; preds = %729, %.preheader838
+  %indvars.iv.i423 = phi i64 [ 0, %.preheader838 ], [ %indvars.iv.next.i425, %729 ]
+  %724 = trunc nuw nsw i64 %indvars.iv.i423 to i32
+  %725 = shl nuw nsw i32 1, %724
+  %726 = and i32 %725, 5
+  %.not.i424 = icmp eq i32 %726, 0
+  br i1 %.not.i424, label %727, label %729
 
-725:                                              ; preds = %721
-  %726 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i423
-  store i32 0, ptr %726, align 4, !tbaa !12
-  br label %727
+727:                                              ; preds = %723
+  %728 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i423
+  store i32 0, ptr %728, align 4, !tbaa !12
+  br label %729
 
-727:                                              ; preds = %725, %721
+729:                                              ; preds = %727, %723
   %indvars.iv.next.i425 = add nuw nsw i64 %indvars.iv.i423, 1
   %exitcond.not.i426 = icmp eq i64 %indvars.iv.next.i425, 4
-  br i1 %exitcond.not.i426, label %dump_one_cpuid.exit427, label %721, !llvm.loop !33
+  br i1 %exitcond.not.i426, label %dump_one_cpuid.exit427, label %723, !llvm.loop !33
 
-dump_one_cpuid.exit427:                           ; preds = %727
-  %728 = load i32, ptr %4, align 16, !tbaa !12
-  %729 = load i32, ptr %42, align 4, !tbaa !12
-  %730 = load i32, ptr %43, align 8, !tbaa !12
-  %731 = load i32, ptr %44, align 4, !tbaa !12
-  %732 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %728, i32 noundef %729, i32 noundef %730, i32 noundef %731) #16
-  %733 = load i32, ptr %4, align 16, !tbaa !12
-  %734 = load i32, ptr %43, align 8, !tbaa !12
-  %735 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %733, i32 %734) #16, !srcloc !32
-  %736 = extractvalue { i32, i64, i32, i32 } %735, 0
-  %737 = extractvalue { i32, i64, i32, i32 } %735, 2
-  %738 = extractvalue { i32, i64, i32, i32 } %735, 3
-  store i32 %736, ptr %4, align 16, !tbaa !12
-  store i32 %737, ptr %43, align 8, !tbaa !12
-  store i32 %738, ptr %44, align 4, !tbaa !12
-  %739 = load i32, ptr %42, align 4, !tbaa !12
-  %740 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %736, i32 noundef %739, i32 noundef %737, i32 noundef %738) #16
-  %741 = add nuw nsw i32 %.6848, 1
-  %exitcond868.not = icmp eq i32 %741, %720
-  br i1 %exitcond868.not, label %742, label %.preheader838, !llvm.loop !40
+dump_one_cpuid.exit427:                           ; preds = %729
+  %730 = load i32, ptr %4, align 16, !tbaa !12
+  %731 = load i32, ptr %42, align 4, !tbaa !12
+  %732 = load i32, ptr %43, align 8, !tbaa !12
+  %733 = load i32, ptr %44, align 4, !tbaa !12
+  %734 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %730, i32 noundef %731, i32 noundef %732, i32 noundef %733) #16
+  %735 = load i32, ptr %4, align 16, !tbaa !12
+  %736 = load i32, ptr %43, align 8, !tbaa !12
+  %737 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %735, i32 %736) #16, !srcloc !32
+  %738 = extractvalue { i32, i64, i32, i32 } %737, 0
+  %739 = extractvalue { i32, i64, i32, i32 } %737, 2
+  %740 = extractvalue { i32, i64, i32, i32 } %737, 3
+  store i32 %738, ptr %4, align 16, !tbaa !12
+  store i32 %739, ptr %43, align 8, !tbaa !12
+  store i32 %740, ptr %44, align 4, !tbaa !12
+  %741 = load i32, ptr %42, align 4, !tbaa !12
+  %742 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %738, i32 noundef %741, i32 noundef %739, i32 noundef %740) #16
+  %743 = add nuw nsw i32 %.6848, 1
+  %exitcond868.not = icmp eq i32 %743, %722
+  br i1 %exitcond868.not, label %744, label %.preheader838, !llvm.loop !40
 
-742:                                              ; preds = %dump_one_cpuid.exit427
-  %743 = icmp eq i32 %720, 256
-  br i1 %743, label %744, label %746
+744:                                              ; preds = %dump_one_cpuid.exit427
+  %745 = icmp eq i32 %722, 256
+  br i1 %745, label %746, label %748
 
-744:                                              ; preds = %742
-  %745 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.44, i32 noundef %717) #16
-  br label %746
+746:                                              ; preds = %744
+  %747 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.44, i32 noundef %719) #16
+  br label %748
 
-746:                                              ; preds = %dump_one_cpuid.exit422, %744, %742
-  %747 = icmp ugt i32 %55, 23
-  br i1 %747, label %748, label %.thread730
+748:                                              ; preds = %dump_one_cpuid.exit422, %746, %744
+  %749 = icmp ugt i32 %46, 23
+  br i1 %749, label %750, label %.thread730
 
-748:                                              ; preds = %746
+750:                                              ; preds = %748
   store i32 24, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %749
+  br label %751
 
-749:                                              ; preds = %755, %748
-  %indvars.iv.i428 = phi i64 [ 0, %748 ], [ %indvars.iv.next.i430, %755 ]
-  %750 = trunc nuw nsw i64 %indvars.iv.i428 to i32
-  %751 = shl nuw nsw i32 1, %750
-  %752 = and i32 %751, 5
-  %.not.i429 = icmp eq i32 %752, 0
-  br i1 %.not.i429, label %753, label %755
+751:                                              ; preds = %757, %750
+  %indvars.iv.i428 = phi i64 [ 0, %750 ], [ %indvars.iv.next.i430, %757 ]
+  %752 = trunc nuw nsw i64 %indvars.iv.i428 to i32
+  %753 = shl nuw nsw i32 1, %752
+  %754 = and i32 %753, 5
+  %.not.i429 = icmp eq i32 %754, 0
+  br i1 %.not.i429, label %755, label %757
 
-753:                                              ; preds = %749
-  %754 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i428
-  store i32 0, ptr %754, align 4, !tbaa !12
-  br label %755
+755:                                              ; preds = %751
+  %756 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i428
+  store i32 0, ptr %756, align 4, !tbaa !12
+  br label %757
 
-755:                                              ; preds = %753, %749
+757:                                              ; preds = %755, %751
   %indvars.iv.next.i430 = add nuw nsw i64 %indvars.iv.i428, 1
   %exitcond.not.i431 = icmp eq i64 %indvars.iv.next.i430, 4
-  br i1 %exitcond.not.i431, label %dump_one_cpuid.exit432, label %749, !llvm.loop !33
+  br i1 %exitcond.not.i431, label %dump_one_cpuid.exit432, label %751, !llvm.loop !33
 
-dump_one_cpuid.exit432:                           ; preds = %755
-  %756 = load i32, ptr %4, align 16, !tbaa !12
-  %757 = load i32, ptr %42, align 4, !tbaa !12
-  %758 = load i32, ptr %43, align 8, !tbaa !12
-  %759 = load i32, ptr %44, align 4, !tbaa !12
-  %760 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %756, i32 noundef %757, i32 noundef %758, i32 noundef %759) #16
-  %761 = load i32, ptr %4, align 16, !tbaa !12
-  %762 = load i32, ptr %43, align 8, !tbaa !12
-  %763 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %761, i32 %762) #16, !srcloc !32
-  %764 = extractvalue { i32, i64, i32, i32 } %763, 0
-  %765 = extractvalue { i32, i64, i32, i32 } %763, 2
-  %766 = extractvalue { i32, i64, i32, i32 } %763, 3
-  store i32 %764, ptr %4, align 16, !tbaa !12
-  store i32 %765, ptr %43, align 8, !tbaa !12
-  store i32 %766, ptr %44, align 4, !tbaa !12
-  %767 = load i32, ptr %42, align 4, !tbaa !12
-  %768 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %764, i32 noundef %767, i32 noundef %765, i32 noundef %766) #16
-  %769 = load i32, ptr %4, align 16, !tbaa !12
-  %.not859 = icmp eq i32 %769, 0
+dump_one_cpuid.exit432:                           ; preds = %757
+  %758 = load i32, ptr %4, align 16, !tbaa !12
+  %759 = load i32, ptr %42, align 4, !tbaa !12
+  %760 = load i32, ptr %43, align 8, !tbaa !12
+  %761 = load i32, ptr %44, align 4, !tbaa !12
+  %762 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %758, i32 noundef %759, i32 noundef %760, i32 noundef %761) #16
+  %763 = load i32, ptr %4, align 16, !tbaa !12
+  %764 = load i32, ptr %43, align 8, !tbaa !12
+  %765 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %763, i32 %764) #16, !srcloc !32
+  %766 = extractvalue { i32, i64, i32, i32 } %765, 0
+  %767 = extractvalue { i32, i64, i32, i32 } %765, 2
+  %768 = extractvalue { i32, i64, i32, i32 } %765, 3
+  store i32 %766, ptr %4, align 16, !tbaa !12
+  store i32 %767, ptr %43, align 8, !tbaa !12
+  store i32 %768, ptr %44, align 4, !tbaa !12
+  %769 = load i32, ptr %42, align 4, !tbaa !12
+  %770 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %766, i32 noundef %769, i32 noundef %767, i32 noundef %768) #16
+  %771 = load i32, ptr %4, align 16, !tbaa !12
+  %.not859 = icmp eq i32 %771, 0
   br i1 %.not859, label %._crit_edge851.thread, label %.lr.ph850.preheader
 
 .lr.ph850.preheader:                              ; preds = %dump_one_cpuid.exit432
-  %770 = add i32 %769, -1
-  %umin869 = call i32 @llvm.umin.i32(i32 %770, i32 254)
-  %771 = add nuw nsw i32 %umin869, 2
+  %772 = add i32 %771, -1
+  %umin869 = call i32 @llvm.umin.i32(i32 %772, i32 254)
+  %773 = add nuw nsw i32 %umin869, 2
   br label %.lr.ph850
 
 .lr.ph850:                                        ; preds = %.lr.ph850.preheader, %dump_one_cpuid.exit437
-  %.7849 = phi i32 [ %792, %dump_one_cpuid.exit437 ], [ 1, %.lr.ph850.preheader ]
+  %.7849 = phi i32 [ %794, %dump_one_cpuid.exit437 ], [ 1, %.lr.ph850.preheader ]
   store i32 24, ptr %4, align 16, !tbaa !12
   store i32 %.7849, ptr %43, align 8, !tbaa !12
   store i32 0, ptr %44, align 4, !tbaa !12
-  br label %772
+  br label %774
 
-772:                                              ; preds = %778, %.lr.ph850
-  %indvars.iv.i433 = phi i64 [ 0, %.lr.ph850 ], [ %indvars.iv.next.i435, %778 ]
-  %773 = trunc nuw nsw i64 %indvars.iv.i433 to i32
-  %774 = shl nuw nsw i32 1, %773
-  %775 = and i32 %774, 5
-  %.not.i434 = icmp eq i32 %775, 0
-  br i1 %.not.i434, label %776, label %778
+774:                                              ; preds = %780, %.lr.ph850
+  %indvars.iv.i433 = phi i64 [ 0, %.lr.ph850 ], [ %indvars.iv.next.i435, %780 ]
+  %775 = trunc nuw nsw i64 %indvars.iv.i433 to i32
+  %776 = shl nuw nsw i32 1, %775
+  %777 = and i32 %776, 5
+  %.not.i434 = icmp eq i32 %777, 0
+  br i1 %.not.i434, label %778, label %780
 
-776:                                              ; preds = %772
-  %777 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i433
-  store i32 0, ptr %777, align 4, !tbaa !12
-  br label %778
+778:                                              ; preds = %774
+  %779 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i433
+  store i32 0, ptr %779, align 4, !tbaa !12
+  br label %780
 
-778:                                              ; preds = %776, %772
+780:                                              ; preds = %778, %774
   %indvars.iv.next.i435 = add nuw nsw i64 %indvars.iv.i433, 1
   %exitcond.not.i436 = icmp eq i64 %indvars.iv.next.i435, 4
-  br i1 %exitcond.not.i436, label %dump_one_cpuid.exit437, label %772, !llvm.loop !33
+  br i1 %exitcond.not.i436, label %dump_one_cpuid.exit437, label %774, !llvm.loop !33
 
-dump_one_cpuid.exit437:                           ; preds = %778
-  %779 = load i32, ptr %4, align 16, !tbaa !12
-  %780 = load i32, ptr %42, align 4, !tbaa !12
-  %781 = load i32, ptr %43, align 8, !tbaa !12
-  %782 = load i32, ptr %44, align 4, !tbaa !12
-  %783 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %779, i32 noundef %780, i32 noundef %781, i32 noundef %782) #16
-  %784 = load i32, ptr %4, align 16, !tbaa !12
-  %785 = load i32, ptr %43, align 8, !tbaa !12
-  %786 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %784, i32 %785) #16, !srcloc !32
-  %787 = extractvalue { i32, i64, i32, i32 } %786, 0
-  %788 = extractvalue { i32, i64, i32, i32 } %786, 2
-  %789 = extractvalue { i32, i64, i32, i32 } %786, 3
-  store i32 %787, ptr %4, align 16, !tbaa !12
-  store i32 %788, ptr %43, align 8, !tbaa !12
-  store i32 %789, ptr %44, align 4, !tbaa !12
-  %790 = load i32, ptr %42, align 4, !tbaa !12
-  %791 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %787, i32 noundef %790, i32 noundef %788, i32 noundef %789) #16
-  %792 = add nuw nsw i32 %.7849, 1
-  %exitcond870.not = icmp eq i32 %792, %771
+dump_one_cpuid.exit437:                           ; preds = %780
+  %781 = load i32, ptr %4, align 16, !tbaa !12
+  %782 = load i32, ptr %42, align 4, !tbaa !12
+  %783 = load i32, ptr %43, align 8, !tbaa !12
+  %784 = load i32, ptr %44, align 4, !tbaa !12
+  %785 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %781, i32 noundef %782, i32 noundef %783, i32 noundef %784) #16
+  %786 = load i32, ptr %4, align 16, !tbaa !12
+  %787 = load i32, ptr %43, align 8, !tbaa !12
+  %788 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %786, i32 %787) #16, !srcloc !32
+  %789 = extractvalue { i32, i64, i32, i32 } %788, 0
+  %790 = extractvalue { i32, i64, i32, i32 } %788, 2
+  %791 = extractvalue { i32, i64, i32, i32 } %788, 3
+  store i32 %789, ptr %4, align 16, !tbaa !12
+  store i32 %790, ptr %43, align 8, !tbaa !12
+  store i32 %791, ptr %44, align 4, !tbaa !12
+  %792 = load i32, ptr %42, align 4, !tbaa !12
+  %793 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %789, i32 noundef %792, i32 noundef %790, i32 noundef %791) #16
+  %794 = add nuw nsw i32 %.7849, 1
+  %exitcond870.not = icmp eq i32 %794, %773
   br i1 %exitcond870.not, label %._crit_edge851, label %.lr.ph850, !llvm.loop !41
 
 ._crit_edge851:                                   ; preds = %dump_one_cpuid.exit437
-  %793 = icmp eq i32 %771, 256
-  br i1 %793, label %794, label %._crit_edge851.thread
+  %795 = icmp eq i32 %773, 256
+  br i1 %795, label %796, label %._crit_edge851.thread
 
-794:                                              ; preds = %._crit_edge851
-  %795 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.43, i32 noundef %769) #16
+796:                                              ; preds = %._crit_edge851
+  %797 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.43, i32 noundef %771) #16
   br label %._crit_edge851.thread
 
-._crit_edge851.thread:                            ; preds = %dump_one_cpuid.exit432, %._crit_edge851, %794
-  %.not801 = icmp eq i32 %55, 24
-  br i1 %.not801, label %.thread730, label %796
+._crit_edge851.thread:                            ; preds = %dump_one_cpuid.exit432, %._crit_edge851, %796
+  %.not801 = icmp eq i32 %46, 24
+  br i1 %.not801, label %.thread730, label %798
 
-796:                                              ; preds = %._crit_edge851.thread
+798:                                              ; preds = %._crit_edge851.thread
   store i32 25, ptr %4, align 16, !tbaa !12
-  br label %797
+  br label %799
 
-797:                                              ; preds = %800, %796
-  %indvars.iv.i438 = phi i64 [ 0, %796 ], [ %indvars.iv.next.i440, %800 ]
+799:                                              ; preds = %802, %798
+  %indvars.iv.i438 = phi i64 [ 0, %798 ], [ %indvars.iv.next.i440, %802 ]
   %.not802 = icmp eq i64 %indvars.iv.i438, 0
-  br i1 %.not802, label %800, label %798
+  br i1 %.not802, label %802, label %800
 
-798:                                              ; preds = %797
-  %799 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i438
-  store i32 0, ptr %799, align 4, !tbaa !12
-  br label %800
+800:                                              ; preds = %799
+  %801 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i438
+  store i32 0, ptr %801, align 4, !tbaa !12
+  br label %802
 
-800:                                              ; preds = %798, %797
+802:                                              ; preds = %800, %799
   %indvars.iv.next.i440 = add nuw nsw i64 %indvars.iv.i438, 1
   %exitcond.not.i441 = icmp eq i64 %indvars.iv.next.i440, 4
-  br i1 %exitcond.not.i441, label %801, label %797, !llvm.loop !33
+  br i1 %exitcond.not.i441, label %803, label %799, !llvm.loop !33
 
-801:                                              ; preds = %800
-  %802 = load i32, ptr %42, align 4, !tbaa !12
-  %803 = load i32, ptr %43, align 8, !tbaa !12
-  %804 = load i32, ptr %44, align 4, !tbaa !12
-  %805 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 25, i32 noundef %802, i32 noundef %803, i32 noundef %804) #16
-  %806 = load i32, ptr %4, align 16, !tbaa !12
-  %807 = load i32, ptr %43, align 8, !tbaa !12
-  %808 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %806, i32 %807) #16, !srcloc !32
-  %809 = extractvalue { i32, i64, i32, i32 } %808, 0
-  %810 = extractvalue { i32, i64, i32, i32 } %808, 2
-  %811 = extractvalue { i32, i64, i32, i32 } %808, 3
-  store i32 %809, ptr %4, align 16, !tbaa !12
-  store i32 %810, ptr %43, align 8, !tbaa !12
-  store i32 %811, ptr %44, align 4, !tbaa !12
-  %812 = load i32, ptr %42, align 4, !tbaa !12
-  %813 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %809, i32 noundef %812, i32 noundef %810, i32 noundef %811) #16
-  %814 = icmp ugt i32 %55, 25
-  br i1 %814, label %815, label %.thread730
+803:                                              ; preds = %802
+  %804 = load i32, ptr %42, align 4, !tbaa !12
+  %805 = load i32, ptr %43, align 8, !tbaa !12
+  %806 = load i32, ptr %44, align 4, !tbaa !12
+  %807 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 25, i32 noundef %804, i32 noundef %805, i32 noundef %806) #16
+  %808 = load i32, ptr %4, align 16, !tbaa !12
+  %809 = load i32, ptr %43, align 8, !tbaa !12
+  %810 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %808, i32 %809) #16, !srcloc !32
+  %811 = extractvalue { i32, i64, i32, i32 } %810, 0
+  %812 = extractvalue { i32, i64, i32, i32 } %810, 2
+  %813 = extractvalue { i32, i64, i32, i32 } %810, 3
+  store i32 %811, ptr %4, align 16, !tbaa !12
+  store i32 %812, ptr %43, align 8, !tbaa !12
+  store i32 %813, ptr %44, align 4, !tbaa !12
+  %814 = load i32, ptr %42, align 4, !tbaa !12
+  %815 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %811, i32 noundef %814, i32 noundef %812, i32 noundef %813) #16
+  %816 = icmp ugt i32 %46, 25
+  br i1 %816, label %817, label %.thread730
 
-815:                                              ; preds = %801
+817:                                              ; preds = %803
   store i32 26, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %816
+  br label %818
 
-816:                                              ; preds = %822, %815
-  %indvars.iv.i443 = phi i64 [ 0, %815 ], [ %indvars.iv.next.i445, %822 ]
-  %817 = trunc nuw nsw i64 %indvars.iv.i443 to i32
-  %818 = shl nuw nsw i32 1, %817
-  %819 = and i32 %818, 5
-  %.not.i444 = icmp eq i32 %819, 0
-  br i1 %.not.i444, label %820, label %822
+818:                                              ; preds = %824, %817
+  %indvars.iv.i443 = phi i64 [ 0, %817 ], [ %indvars.iv.next.i445, %824 ]
+  %819 = trunc nuw nsw i64 %indvars.iv.i443 to i32
+  %820 = shl nuw nsw i32 1, %819
+  %821 = and i32 %820, 5
+  %.not.i444 = icmp eq i32 %821, 0
+  br i1 %.not.i444, label %822, label %824
 
-820:                                              ; preds = %816
-  %821 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i443
-  store i32 0, ptr %821, align 4, !tbaa !12
-  br label %822
+822:                                              ; preds = %818
+  %823 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i443
+  store i32 0, ptr %823, align 4, !tbaa !12
+  br label %824
 
-822:                                              ; preds = %820, %816
+824:                                              ; preds = %822, %818
   %indvars.iv.next.i445 = add nuw nsw i64 %indvars.iv.i443, 1
   %exitcond.not.i446 = icmp eq i64 %indvars.iv.next.i445, 4
-  br i1 %exitcond.not.i446, label %823, label %816, !llvm.loop !33
+  br i1 %exitcond.not.i446, label %825, label %818, !llvm.loop !33
 
-823:                                              ; preds = %822
-  %824 = load i32, ptr %4, align 16, !tbaa !12
-  %825 = load i32, ptr %42, align 4, !tbaa !12
-  %826 = load i32, ptr %43, align 8, !tbaa !12
-  %827 = load i32, ptr %44, align 4, !tbaa !12
-  %828 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %824, i32 noundef %825, i32 noundef %826, i32 noundef %827) #16
-  %829 = load i32, ptr %4, align 16, !tbaa !12
-  %830 = load i32, ptr %43, align 8, !tbaa !12
-  %831 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %829, i32 %830) #16, !srcloc !32
-  %832 = extractvalue { i32, i64, i32, i32 } %831, 0
-  %833 = extractvalue { i32, i64, i32, i32 } %831, 2
-  %834 = extractvalue { i32, i64, i32, i32 } %831, 3
-  store i32 %832, ptr %4, align 16, !tbaa !12
-  store i32 %833, ptr %43, align 8, !tbaa !12
-  store i32 %834, ptr %44, align 4, !tbaa !12
-  %835 = load i32, ptr %42, align 4, !tbaa !12
-  %836 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %832, i32 noundef %835, i32 noundef %833, i32 noundef %834) #16
-  %837 = icmp ne i32 %55, 26
-  %or.cond11 = select i1 %.not259903, i1 %837, i1 false
-  br i1 %or.cond11, label %.preheader837, label %865
+825:                                              ; preds = %824
+  %826 = load i32, ptr %4, align 16, !tbaa !12
+  %827 = load i32, ptr %42, align 4, !tbaa !12
+  %828 = load i32, ptr %43, align 8, !tbaa !12
+  %829 = load i32, ptr %44, align 4, !tbaa !12
+  %830 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %826, i32 noundef %827, i32 noundef %828, i32 noundef %829) #16
+  %831 = load i32, ptr %4, align 16, !tbaa !12
+  %832 = load i32, ptr %43, align 8, !tbaa !12
+  %833 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %831, i32 %832) #16, !srcloc !32
+  %834 = extractvalue { i32, i64, i32, i32 } %833, 0
+  %835 = extractvalue { i32, i64, i32, i32 } %833, 2
+  %836 = extractvalue { i32, i64, i32, i32 } %833, 3
+  store i32 %834, ptr %4, align 16, !tbaa !12
+  store i32 %835, ptr %43, align 8, !tbaa !12
+  store i32 %836, ptr %44, align 4, !tbaa !12
+  %837 = load i32, ptr %42, align 4, !tbaa !12
+  %838 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %834, i32 noundef %837, i32 noundef %835, i32 noundef %836) #16
+  %839 = icmp ne i32 %46, 26
+  %or.cond11 = select i1 %.not259, i1 %839, i1 false
+  br i1 %or.cond11, label %.preheader837, label %867
 
-.preheader837:                                    ; preds = %823, %860
-  %.8853 = phi i32 [ %861, %860 ], [ 0, %823 ]
+.preheader837:                                    ; preds = %825, %862
+  %.8853 = phi i32 [ %863, %862 ], [ 0, %825 ]
   store i32 27, ptr %4, align 16, !tbaa !12
   store i32 %.8853, ptr %43, align 8, !tbaa !12
-  br label %838
+  br label %840
 
-838:                                              ; preds = %844, %.preheader837
-  %indvars.iv.i448 = phi i64 [ 0, %.preheader837 ], [ %indvars.iv.next.i450, %844 ]
-  %839 = trunc nuw nsw i64 %indvars.iv.i448 to i32
-  %840 = shl nuw nsw i32 1, %839
-  %841 = and i32 %840, 5
-  %.not.i449 = icmp eq i32 %841, 0
-  br i1 %.not.i449, label %842, label %844
+840:                                              ; preds = %846, %.preheader837
+  %indvars.iv.i448 = phi i64 [ 0, %.preheader837 ], [ %indvars.iv.next.i450, %846 ]
+  %841 = trunc nuw nsw i64 %indvars.iv.i448 to i32
+  %842 = shl nuw nsw i32 1, %841
+  %843 = and i32 %842, 5
+  %.not.i449 = icmp eq i32 %843, 0
+  br i1 %.not.i449, label %844, label %846
 
-842:                                              ; preds = %838
-  %843 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i448
-  store i32 0, ptr %843, align 4, !tbaa !12
-  br label %844
+844:                                              ; preds = %840
+  %845 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i448
+  store i32 0, ptr %845, align 4, !tbaa !12
+  br label %846
 
-844:                                              ; preds = %842, %838
+846:                                              ; preds = %844, %840
   %indvars.iv.next.i450 = add nuw nsw i64 %indvars.iv.i448, 1
   %exitcond.not.i451 = icmp eq i64 %indvars.iv.next.i450, 4
-  br i1 %exitcond.not.i451, label %dump_one_cpuid.exit452, label %838, !llvm.loop !33
+  br i1 %exitcond.not.i451, label %dump_one_cpuid.exit452, label %840, !llvm.loop !33
 
-dump_one_cpuid.exit452:                           ; preds = %844
-  %845 = load i32, ptr %4, align 16, !tbaa !12
-  %846 = load i32, ptr %42, align 4, !tbaa !12
-  %847 = load i32, ptr %43, align 8, !tbaa !12
-  %848 = load i32, ptr %44, align 4, !tbaa !12
-  %849 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %845, i32 noundef %846, i32 noundef %847, i32 noundef %848) #16
-  %850 = load i32, ptr %4, align 16, !tbaa !12
-  %851 = load i32, ptr %43, align 8, !tbaa !12
-  %852 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %850, i32 %851) #16, !srcloc !32
-  %853 = extractvalue { i32, i64, i32, i32 } %852, 0
-  %854 = extractvalue { i32, i64, i32, i32 } %852, 2
-  %855 = extractvalue { i32, i64, i32, i32 } %852, 3
-  store i32 %853, ptr %4, align 16, !tbaa !12
-  store i32 %854, ptr %43, align 8, !tbaa !12
-  store i32 %855, ptr %44, align 4, !tbaa !12
-  %856 = load i32, ptr %42, align 4, !tbaa !12
-  %857 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %853, i32 noundef %856, i32 noundef %854, i32 noundef %855) #16
-  %858 = load i32, ptr %4, align 16, !tbaa !12
-  %859 = and i32 %858, 4095
-  %.not269 = icmp eq i32 %859, 0
-  br i1 %.not269, label %862, label %860
-
-860:                                              ; preds = %dump_one_cpuid.exit452
-  %861 = add nuw nsw i32 %.8853, 1
-  %exitcond871.not = icmp eq i32 %861, 256
-  br i1 %exitcond871.not, label %.thread910, label %.preheader837, !llvm.loop !42
+dump_one_cpuid.exit452:                           ; preds = %846
+  %847 = load i32, ptr %4, align 16, !tbaa !12
+  %848 = load i32, ptr %42, align 4, !tbaa !12
+  %849 = load i32, ptr %43, align 8, !tbaa !12
+  %850 = load i32, ptr %44, align 4, !tbaa !12
+  %851 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %847, i32 noundef %848, i32 noundef %849, i32 noundef %850) #16
+  %852 = load i32, ptr %4, align 16, !tbaa !12
+  %853 = load i32, ptr %43, align 8, !tbaa !12
+  %854 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %852, i32 %853) #16, !srcloc !32
+  %855 = extractvalue { i32, i64, i32, i32 } %854, 0
+  %856 = extractvalue { i32, i64, i32, i32 } %854, 2
+  %857 = extractvalue { i32, i64, i32, i32 } %854, 3
+  store i32 %855, ptr %4, align 16, !tbaa !12
+  store i32 %856, ptr %43, align 8, !tbaa !12
+  store i32 %857, ptr %44, align 4, !tbaa !12
+  %858 = load i32, ptr %42, align 4, !tbaa !12
+  %859 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %855, i32 noundef %858, i32 noundef %856, i32 noundef %857) #16
+  %860 = load i32, ptr %4, align 16, !tbaa !12
+  %861 = and i32 %860, 4095
+  %.not269 = icmp eq i32 %861, 0
+  br i1 %.not269, label %864, label %862
 
 862:                                              ; preds = %dump_one_cpuid.exit452
-  %863 = icmp eq i32 %.8853, 256
-  br i1 %863, label %.thread910, label %865
+  %863 = add nuw nsw i32 %.8853, 1
+  %exitcond871.not = icmp eq i32 %863, 256
+  br i1 %exitcond871.not, label %.thread906, label %.preheader837, !llvm.loop !42
 
-.thread910:                                       ; preds = %860, %862
-  %864 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0245)
-  br label %865
+864:                                              ; preds = %dump_one_cpuid.exit452
+  %865 = icmp eq i32 %.8853, 256
+  br i1 %865, label %.thread906, label %867
 
-865:                                              ; preds = %862, %.thread910, %823
-  %866 = icmp ugt i32 %55, 27
-  br i1 %866, label %867, label %.thread730
+.thread906:                                       ; preds = %862, %864
+  %866 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0245)
+  br label %867
 
-867:                                              ; preds = %865
+867:                                              ; preds = %864, %.thread906, %825
+  %868 = icmp ugt i32 %46, 27
+  br i1 %868, label %869, label %.thread730
+
+869:                                              ; preds = %867
   store i32 28, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %868
+  br label %870
 
-868:                                              ; preds = %874, %867
-  %indvars.iv.i453 = phi i64 [ 0, %867 ], [ %indvars.iv.next.i455, %874 ]
-  %869 = trunc nuw nsw i64 %indvars.iv.i453 to i32
-  %870 = shl nuw nsw i32 1, %869
-  %871 = and i32 %870, 5
-  %.not.i454 = icmp eq i32 %871, 0
-  br i1 %.not.i454, label %872, label %874
+870:                                              ; preds = %876, %869
+  %indvars.iv.i453 = phi i64 [ 0, %869 ], [ %indvars.iv.next.i455, %876 ]
+  %871 = trunc nuw nsw i64 %indvars.iv.i453 to i32
+  %872 = shl nuw nsw i32 1, %871
+  %873 = and i32 %872, 5
+  %.not.i454 = icmp eq i32 %873, 0
+  br i1 %.not.i454, label %874, label %876
 
-872:                                              ; preds = %868
-  %873 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i453
-  store i32 0, ptr %873, align 4, !tbaa !12
-  br label %874
+874:                                              ; preds = %870
+  %875 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i453
+  store i32 0, ptr %875, align 4, !tbaa !12
+  br label %876
 
-874:                                              ; preds = %872, %868
+876:                                              ; preds = %874, %870
   %indvars.iv.next.i455 = add nuw nsw i64 %indvars.iv.i453, 1
   %exitcond.not.i456 = icmp eq i64 %indvars.iv.next.i455, 4
-  br i1 %exitcond.not.i456, label %875, label %868, !llvm.loop !33
+  br i1 %exitcond.not.i456, label %877, label %870, !llvm.loop !33
 
-875:                                              ; preds = %874
-  %876 = load i32, ptr %4, align 16, !tbaa !12
-  %877 = load i32, ptr %42, align 4, !tbaa !12
-  %878 = load i32, ptr %43, align 8, !tbaa !12
-  %879 = load i32, ptr %44, align 4, !tbaa !12
-  %880 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %876, i32 noundef %877, i32 noundef %878, i32 noundef %879) #16
-  %881 = load i32, ptr %4, align 16, !tbaa !12
-  %882 = load i32, ptr %43, align 8, !tbaa !12
-  %883 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %881, i32 %882) #16, !srcloc !32
-  %884 = extractvalue { i32, i64, i32, i32 } %883, 0
-  %885 = extractvalue { i32, i64, i32, i32 } %883, 2
-  %886 = extractvalue { i32, i64, i32, i32 } %883, 3
-  store i32 %884, ptr %4, align 16, !tbaa !12
-  store i32 %885, ptr %43, align 8, !tbaa !12
-  store i32 %886, ptr %44, align 4, !tbaa !12
-  %887 = load i32, ptr %42, align 4, !tbaa !12
-  %888 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %884, i32 noundef %887, i32 noundef %885, i32 noundef %886) #16
-  %.not803 = icmp eq i32 %55, 28
-  br i1 %.not803, label %.thread730, label %889
+877:                                              ; preds = %876
+  %878 = load i32, ptr %4, align 16, !tbaa !12
+  %879 = load i32, ptr %42, align 4, !tbaa !12
+  %880 = load i32, ptr %43, align 8, !tbaa !12
+  %881 = load i32, ptr %44, align 4, !tbaa !12
+  %882 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %878, i32 noundef %879, i32 noundef %880, i32 noundef %881) #16
+  %883 = load i32, ptr %4, align 16, !tbaa !12
+  %884 = load i32, ptr %43, align 8, !tbaa !12
+  %885 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %883, i32 %884) #16, !srcloc !32
+  %886 = extractvalue { i32, i64, i32, i32 } %885, 0
+  %887 = extractvalue { i32, i64, i32, i32 } %885, 2
+  %888 = extractvalue { i32, i64, i32, i32 } %885, 3
+  store i32 %886, ptr %4, align 16, !tbaa !12
+  store i32 %887, ptr %43, align 8, !tbaa !12
+  store i32 %888, ptr %44, align 4, !tbaa !12
+  %889 = load i32, ptr %42, align 4, !tbaa !12
+  %890 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %886, i32 noundef %889, i32 noundef %887, i32 noundef %888) #16
+  %.not803 = icmp eq i32 %46, 28
+  br i1 %.not803, label %.thread730, label %891
 
-889:                                              ; preds = %875
+891:                                              ; preds = %877
   store i32 29, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %890
+  br label %892
 
-890:                                              ; preds = %896, %889
-  %indvars.iv.i458 = phi i64 [ 0, %889 ], [ %indvars.iv.next.i460, %896 ]
-  %891 = trunc nuw nsw i64 %indvars.iv.i458 to i32
-  %892 = shl nuw nsw i32 1, %891
-  %893 = and i32 %892, 5
-  %.not.i459 = icmp eq i32 %893, 0
-  br i1 %.not.i459, label %894, label %896
+892:                                              ; preds = %898, %891
+  %indvars.iv.i458 = phi i64 [ 0, %891 ], [ %indvars.iv.next.i460, %898 ]
+  %893 = trunc nuw nsw i64 %indvars.iv.i458 to i32
+  %894 = shl nuw nsw i32 1, %893
+  %895 = and i32 %894, 5
+  %.not.i459 = icmp eq i32 %895, 0
+  br i1 %.not.i459, label %896, label %898
 
-894:                                              ; preds = %890
-  %895 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i458
-  store i32 0, ptr %895, align 4, !tbaa !12
-  br label %896
+896:                                              ; preds = %892
+  %897 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i458
+  store i32 0, ptr %897, align 4, !tbaa !12
+  br label %898
 
-896:                                              ; preds = %894, %890
+898:                                              ; preds = %896, %892
   %indvars.iv.next.i460 = add nuw nsw i64 %indvars.iv.i458, 1
   %exitcond.not.i461 = icmp eq i64 %indvars.iv.next.i460, 4
-  br i1 %exitcond.not.i461, label %dump_one_cpuid.exit462, label %890, !llvm.loop !33
+  br i1 %exitcond.not.i461, label %dump_one_cpuid.exit462, label %892, !llvm.loop !33
 
-dump_one_cpuid.exit462:                           ; preds = %896
-  %897 = load i32, ptr %4, align 16, !tbaa !12
-  %898 = load i32, ptr %42, align 4, !tbaa !12
-  %899 = load i32, ptr %43, align 8, !tbaa !12
-  %900 = load i32, ptr %44, align 4, !tbaa !12
-  %901 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %897, i32 noundef %898, i32 noundef %899, i32 noundef %900) #16
-  %902 = load i32, ptr %4, align 16, !tbaa !12
-  %903 = load i32, ptr %43, align 8, !tbaa !12
-  %904 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %902, i32 %903) #16, !srcloc !32
-  %905 = extractvalue { i32, i64, i32, i32 } %904, 0
-  %906 = extractvalue { i32, i64, i32, i32 } %904, 2
-  %907 = extractvalue { i32, i64, i32, i32 } %904, 3
-  store i32 %905, ptr %4, align 16, !tbaa !12
-  store i32 %906, ptr %43, align 8, !tbaa !12
-  store i32 %907, ptr %44, align 4, !tbaa !12
-  %908 = load i32, ptr %42, align 4, !tbaa !12
-  %909 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %905, i32 noundef %908, i32 noundef %906, i32 noundef %907) #16
+dump_one_cpuid.exit462:                           ; preds = %898
+  %899 = load i32, ptr %4, align 16, !tbaa !12
+  %900 = load i32, ptr %42, align 4, !tbaa !12
+  %901 = load i32, ptr %43, align 8, !tbaa !12
+  %902 = load i32, ptr %44, align 4, !tbaa !12
+  %903 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %899, i32 noundef %900, i32 noundef %901, i32 noundef %902) #16
+  %904 = load i32, ptr %4, align 16, !tbaa !12
+  %905 = load i32, ptr %43, align 8, !tbaa !12
+  %906 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %904, i32 %905) #16, !srcloc !32
+  %907 = extractvalue { i32, i64, i32, i32 } %906, 0
+  %908 = extractvalue { i32, i64, i32, i32 } %906, 2
+  %909 = extractvalue { i32, i64, i32, i32 } %906, 3
+  store i32 %907, ptr %4, align 16, !tbaa !12
+  store i32 %908, ptr %43, align 8, !tbaa !12
+  store i32 %909, ptr %44, align 4, !tbaa !12
+  %910 = load i32, ptr %42, align 4, !tbaa !12
+  %911 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %907, i32 noundef %910, i32 noundef %908, i32 noundef %909) #16
   store i32 29, ptr %4, align 16, !tbaa !12
   store i32 1, ptr %43, align 8, !tbaa !12
-  br label %910
+  br label %912
 
-910:                                              ; preds = %916, %dump_one_cpuid.exit462
-  %indvars.iv.i463 = phi i64 [ 0, %dump_one_cpuid.exit462 ], [ %indvars.iv.next.i465, %916 ]
-  %911 = trunc nuw nsw i64 %indvars.iv.i463 to i32
-  %912 = shl nuw nsw i32 1, %911
-  %913 = and i32 %912, 5
-  %.not.i464 = icmp eq i32 %913, 0
-  br i1 %.not.i464, label %914, label %916
+912:                                              ; preds = %918, %dump_one_cpuid.exit462
+  %indvars.iv.i463 = phi i64 [ 0, %dump_one_cpuid.exit462 ], [ %indvars.iv.next.i465, %918 ]
+  %913 = trunc nuw nsw i64 %indvars.iv.i463 to i32
+  %914 = shl nuw nsw i32 1, %913
+  %915 = and i32 %914, 5
+  %.not.i464 = icmp eq i32 %915, 0
+  br i1 %.not.i464, label %916, label %918
 
-914:                                              ; preds = %910
-  %915 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i463
-  store i32 0, ptr %915, align 4, !tbaa !12
-  br label %916
+916:                                              ; preds = %912
+  %917 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i463
+  store i32 0, ptr %917, align 4, !tbaa !12
+  br label %918
 
-916:                                              ; preds = %914, %910
+918:                                              ; preds = %916, %912
   %indvars.iv.next.i465 = add nuw nsw i64 %indvars.iv.i463, 1
   %exitcond.not.i466 = icmp eq i64 %indvars.iv.next.i465, 4
-  br i1 %exitcond.not.i466, label %917, label %910, !llvm.loop !33
+  br i1 %exitcond.not.i466, label %919, label %912, !llvm.loop !33
 
-917:                                              ; preds = %916
-  %918 = load i32, ptr %4, align 16, !tbaa !12
-  %919 = load i32, ptr %42, align 4, !tbaa !12
-  %920 = load i32, ptr %43, align 8, !tbaa !12
-  %921 = load i32, ptr %44, align 4, !tbaa !12
-  %922 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %918, i32 noundef %919, i32 noundef %920, i32 noundef %921) #16
-  %923 = load i32, ptr %4, align 16, !tbaa !12
-  %924 = load i32, ptr %43, align 8, !tbaa !12
-  %925 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %923, i32 %924) #16, !srcloc !32
-  %926 = extractvalue { i32, i64, i32, i32 } %925, 0
-  %927 = extractvalue { i32, i64, i32, i32 } %925, 2
-  %928 = extractvalue { i32, i64, i32, i32 } %925, 3
-  store i32 %926, ptr %4, align 16, !tbaa !12
-  store i32 %927, ptr %43, align 8, !tbaa !12
-  store i32 %928, ptr %44, align 4, !tbaa !12
-  %929 = load i32, ptr %42, align 4, !tbaa !12
-  %930 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %926, i32 noundef %929, i32 noundef %927, i32 noundef %928) #16
-  %931 = icmp ugt i32 %55, 29
-  br i1 %931, label %932, label %.thread730
+919:                                              ; preds = %918
+  %920 = load i32, ptr %4, align 16, !tbaa !12
+  %921 = load i32, ptr %42, align 4, !tbaa !12
+  %922 = load i32, ptr %43, align 8, !tbaa !12
+  %923 = load i32, ptr %44, align 4, !tbaa !12
+  %924 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %920, i32 noundef %921, i32 noundef %922, i32 noundef %923) #16
+  %925 = load i32, ptr %4, align 16, !tbaa !12
+  %926 = load i32, ptr %43, align 8, !tbaa !12
+  %927 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %925, i32 %926) #16, !srcloc !32
+  %928 = extractvalue { i32, i64, i32, i32 } %927, 0
+  %929 = extractvalue { i32, i64, i32, i32 } %927, 2
+  %930 = extractvalue { i32, i64, i32, i32 } %927, 3
+  store i32 %928, ptr %4, align 16, !tbaa !12
+  store i32 %929, ptr %43, align 8, !tbaa !12
+  store i32 %930, ptr %44, align 4, !tbaa !12
+  %931 = load i32, ptr %42, align 4, !tbaa !12
+  %932 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %928, i32 noundef %931, i32 noundef %929, i32 noundef %930) #16
+  %933 = icmp ugt i32 %46, 29
+  br i1 %933, label %934, label %.thread730
 
-932:                                              ; preds = %917
+934:                                              ; preds = %919
   store i32 30, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %933
+  br label %935
 
-933:                                              ; preds = %939, %932
-  %indvars.iv.i468 = phi i64 [ 0, %932 ], [ %indvars.iv.next.i470, %939 ]
-  %934 = trunc nuw nsw i64 %indvars.iv.i468 to i32
-  %935 = shl nuw nsw i32 1, %934
-  %936 = and i32 %935, 5
-  %.not.i469 = icmp eq i32 %936, 0
-  br i1 %.not.i469, label %937, label %939
+935:                                              ; preds = %941, %934
+  %indvars.iv.i468 = phi i64 [ 0, %934 ], [ %indvars.iv.next.i470, %941 ]
+  %936 = trunc nuw nsw i64 %indvars.iv.i468 to i32
+  %937 = shl nuw nsw i32 1, %936
+  %938 = and i32 %937, 5
+  %.not.i469 = icmp eq i32 %938, 0
+  br i1 %.not.i469, label %939, label %941
 
-937:                                              ; preds = %933
-  %938 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i468
-  store i32 0, ptr %938, align 4, !tbaa !12
-  br label %939
+939:                                              ; preds = %935
+  %940 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i468
+  store i32 0, ptr %940, align 4, !tbaa !12
+  br label %941
 
-939:                                              ; preds = %937, %933
+941:                                              ; preds = %939, %935
   %indvars.iv.next.i470 = add nuw nsw i64 %indvars.iv.i468, 1
   %exitcond.not.i471 = icmp eq i64 %indvars.iv.next.i470, 4
-  br i1 %exitcond.not.i471, label %940, label %933, !llvm.loop !33
+  br i1 %exitcond.not.i471, label %942, label %935, !llvm.loop !33
 
-940:                                              ; preds = %939
-  %941 = load i32, ptr %4, align 16, !tbaa !12
-  %942 = load i32, ptr %42, align 4, !tbaa !12
-  %943 = load i32, ptr %43, align 8, !tbaa !12
-  %944 = load i32, ptr %44, align 4, !tbaa !12
-  %945 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %941, i32 noundef %942, i32 noundef %943, i32 noundef %944) #16
-  %946 = load i32, ptr %4, align 16, !tbaa !12
-  %947 = load i32, ptr %43, align 8, !tbaa !12
-  %948 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %946, i32 %947) #16, !srcloc !32
-  %949 = extractvalue { i32, i64, i32, i32 } %948, 0
-  %950 = extractvalue { i32, i64, i32, i32 } %948, 2
-  %951 = extractvalue { i32, i64, i32, i32 } %948, 3
-  store i32 %949, ptr %4, align 16, !tbaa !12
-  store i32 %950, ptr %43, align 8, !tbaa !12
-  store i32 %951, ptr %44, align 4, !tbaa !12
-  %952 = load i32, ptr %42, align 4, !tbaa !12
-  %953 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %949, i32 noundef %952, i32 noundef %950, i32 noundef %951) #16
-  %.not804 = icmp eq i32 %55, 30
+942:                                              ; preds = %941
+  %943 = load i32, ptr %4, align 16, !tbaa !12
+  %944 = load i32, ptr %42, align 4, !tbaa !12
+  %945 = load i32, ptr %43, align 8, !tbaa !12
+  %946 = load i32, ptr %44, align 4, !tbaa !12
+  %947 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %943, i32 noundef %944, i32 noundef %945, i32 noundef %946) #16
+  %948 = load i32, ptr %4, align 16, !tbaa !12
+  %949 = load i32, ptr %43, align 8, !tbaa !12
+  %950 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %948, i32 %949) #16, !srcloc !32
+  %951 = extractvalue { i32, i64, i32, i32 } %950, 0
+  %952 = extractvalue { i32, i64, i32, i32 } %950, 2
+  %953 = extractvalue { i32, i64, i32, i32 } %950, 3
+  store i32 %951, ptr %4, align 16, !tbaa !12
+  store i32 %952, ptr %43, align 8, !tbaa !12
+  store i32 %953, ptr %44, align 4, !tbaa !12
+  %954 = load i32, ptr %42, align 4, !tbaa !12
+  %955 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %951, i32 noundef %954, i32 noundef %952, i32 noundef %953) #16
+  %.not804 = icmp eq i32 %46, 30
   br i1 %.not804, label %.thread730, label %.preheader836
 
-.preheader836:                                    ; preds = %940, %976
-  %.9854 = phi i32 [ %977, %976 ], [ 0, %940 ]
+.preheader836:                                    ; preds = %942, %978
+  %.9854 = phi i32 [ %979, %978 ], [ 0, %942 ]
   store i32 31, ptr %4, align 16, !tbaa !12
   store i32 %.9854, ptr %43, align 8, !tbaa !12
-  br label %954
+  br label %956
 
-954:                                              ; preds = %960, %.preheader836
-  %indvars.iv.i473 = phi i64 [ 0, %.preheader836 ], [ %indvars.iv.next.i475, %960 ]
-  %955 = trunc nuw nsw i64 %indvars.iv.i473 to i32
-  %956 = shl nuw nsw i32 1, %955
-  %957 = and i32 %956, 5
-  %.not.i474 = icmp eq i32 %957, 0
-  br i1 %.not.i474, label %958, label %960
+956:                                              ; preds = %962, %.preheader836
+  %indvars.iv.i473 = phi i64 [ 0, %.preheader836 ], [ %indvars.iv.next.i475, %962 ]
+  %957 = trunc nuw nsw i64 %indvars.iv.i473 to i32
+  %958 = shl nuw nsw i32 1, %957
+  %959 = and i32 %958, 5
+  %.not.i474 = icmp eq i32 %959, 0
+  br i1 %.not.i474, label %960, label %962
 
-958:                                              ; preds = %954
-  %959 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i473
-  store i32 0, ptr %959, align 4, !tbaa !12
-  br label %960
+960:                                              ; preds = %956
+  %961 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i473
+  store i32 0, ptr %961, align 4, !tbaa !12
+  br label %962
 
-960:                                              ; preds = %958, %954
+962:                                              ; preds = %960, %956
   %indvars.iv.next.i475 = add nuw nsw i64 %indvars.iv.i473, 1
   %exitcond.not.i476 = icmp eq i64 %indvars.iv.next.i475, 4
-  br i1 %exitcond.not.i476, label %dump_one_cpuid.exit477, label %954, !llvm.loop !33
+  br i1 %exitcond.not.i476, label %dump_one_cpuid.exit477, label %956, !llvm.loop !33
 
-dump_one_cpuid.exit477:                           ; preds = %960
-  %961 = load i32, ptr %4, align 16, !tbaa !12
-  %962 = load i32, ptr %42, align 4, !tbaa !12
-  %963 = load i32, ptr %43, align 8, !tbaa !12
-  %964 = load i32, ptr %44, align 4, !tbaa !12
-  %965 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %961, i32 noundef %962, i32 noundef %963, i32 noundef %964) #16
-  %966 = load i32, ptr %4, align 16, !tbaa !12
-  %967 = load i32, ptr %43, align 8, !tbaa !12
-  %968 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %966, i32 %967) #16, !srcloc !32
-  %969 = extractvalue { i32, i64, i32, i32 } %968, 0
-  %970 = extractvalue { i32, i64, i32, i32 } %968, 2
-  %971 = extractvalue { i32, i64, i32, i32 } %968, 3
-  store i32 %969, ptr %4, align 16, !tbaa !12
-  store i32 %970, ptr %43, align 8, !tbaa !12
-  store i32 %971, ptr %44, align 4, !tbaa !12
-  %972 = load i32, ptr %42, align 4, !tbaa !12
-  %973 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %969, i32 noundef %972, i32 noundef %970, i32 noundef %971) #16
-  %974 = load i32, ptr %43, align 8, !tbaa !12
-  %975 = and i32 %974, 65280
-  %.not270 = icmp eq i32 %975, 0
-  br i1 %.not270, label %978, label %976
-
-976:                                              ; preds = %dump_one_cpuid.exit477
-  %977 = add nuw nsw i32 %.9854, 1
-  %exitcond872.not = icmp eq i32 %977, 256
-  br i1 %exitcond872.not, label %.thread912, label %.preheader836, !llvm.loop !43
+dump_one_cpuid.exit477:                           ; preds = %962
+  %963 = load i32, ptr %4, align 16, !tbaa !12
+  %964 = load i32, ptr %42, align 4, !tbaa !12
+  %965 = load i32, ptr %43, align 8, !tbaa !12
+  %966 = load i32, ptr %44, align 4, !tbaa !12
+  %967 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %963, i32 noundef %964, i32 noundef %965, i32 noundef %966) #16
+  %968 = load i32, ptr %4, align 16, !tbaa !12
+  %969 = load i32, ptr %43, align 8, !tbaa !12
+  %970 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %968, i32 %969) #16, !srcloc !32
+  %971 = extractvalue { i32, i64, i32, i32 } %970, 0
+  %972 = extractvalue { i32, i64, i32, i32 } %970, 2
+  %973 = extractvalue { i32, i64, i32, i32 } %970, 3
+  store i32 %971, ptr %4, align 16, !tbaa !12
+  store i32 %972, ptr %43, align 8, !tbaa !12
+  store i32 %973, ptr %44, align 4, !tbaa !12
+  %974 = load i32, ptr %42, align 4, !tbaa !12
+  %975 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %971, i32 noundef %974, i32 noundef %972, i32 noundef %973) #16
+  %976 = load i32, ptr %43, align 8, !tbaa !12
+  %977 = and i32 %976, 65280
+  %.not270 = icmp eq i32 %977, 0
+  br i1 %.not270, label %980, label %978
 
 978:                                              ; preds = %dump_one_cpuid.exit477
-  %979 = icmp eq i32 %.9854, 256
-  br i1 %979, label %.thread912, label %981
+  %979 = add nuw nsw i32 %.9854, 1
+  %exitcond872.not = icmp eq i32 %979, 256
+  br i1 %exitcond872.not, label %.thread908, label %.preheader836, !llvm.loop !43
 
-.thread912:                                       ; preds = %976, %978
-  %980 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0245)
-  br label %981
+980:                                              ; preds = %dump_one_cpuid.exit477
+  %981 = icmp eq i32 %.9854, 256
+  br i1 %981, label %.thread908, label %983
 
-981:                                              ; preds = %978, %.thread912
-  %982 = icmp ugt i32 %55, 31
-  br i1 %982, label %983, label %.thread730
+.thread908:                                       ; preds = %978, %980
+  %982 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0245)
+  br label %983
 
-983:                                              ; preds = %981
+983:                                              ; preds = %980, %.thread908
+  %984 = icmp ugt i32 %46, 31
+  br i1 %984, label %985, label %.thread730
+
+985:                                              ; preds = %983
   store i32 32, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %984
+  br label %986
 
-984:                                              ; preds = %990, %983
-  %indvars.iv.i478 = phi i64 [ 0, %983 ], [ %indvars.iv.next.i480, %990 ]
-  %985 = trunc nuw nsw i64 %indvars.iv.i478 to i32
-  %986 = shl nuw nsw i32 1, %985
-  %987 = and i32 %986, 5
-  %.not.i479 = icmp eq i32 %987, 0
-  br i1 %.not.i479, label %988, label %990
+986:                                              ; preds = %992, %985
+  %indvars.iv.i478 = phi i64 [ 0, %985 ], [ %indvars.iv.next.i480, %992 ]
+  %987 = trunc nuw nsw i64 %indvars.iv.i478 to i32
+  %988 = shl nuw nsw i32 1, %987
+  %989 = and i32 %988, 5
+  %.not.i479 = icmp eq i32 %989, 0
+  br i1 %.not.i479, label %990, label %992
 
-988:                                              ; preds = %984
-  %989 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i478
-  store i32 0, ptr %989, align 4, !tbaa !12
-  br label %990
+990:                                              ; preds = %986
+  %991 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i478
+  store i32 0, ptr %991, align 4, !tbaa !12
+  br label %992
 
-990:                                              ; preds = %988, %984
+992:                                              ; preds = %990, %986
   %indvars.iv.next.i480 = add nuw nsw i64 %indvars.iv.i478, 1
   %exitcond.not.i481 = icmp eq i64 %indvars.iv.next.i480, 4
-  br i1 %exitcond.not.i481, label %991, label %984, !llvm.loop !33
+  br i1 %exitcond.not.i481, label %993, label %986, !llvm.loop !33
 
-991:                                              ; preds = %990
-  %992 = load i32, ptr %4, align 16, !tbaa !12
-  %993 = load i32, ptr %42, align 4, !tbaa !12
-  %994 = load i32, ptr %43, align 8, !tbaa !12
-  %995 = load i32, ptr %44, align 4, !tbaa !12
-  %996 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %992, i32 noundef %993, i32 noundef %994, i32 noundef %995) #16
-  %997 = load i32, ptr %4, align 16, !tbaa !12
-  %998 = load i32, ptr %43, align 8, !tbaa !12
-  %999 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %997, i32 %998) #16, !srcloc !32
-  %1000 = extractvalue { i32, i64, i32, i32 } %999, 0
-  %1001 = extractvalue { i32, i64, i32, i32 } %999, 2
-  %1002 = extractvalue { i32, i64, i32, i32 } %999, 3
-  store i32 %1000, ptr %4, align 16, !tbaa !12
-  store i32 %1001, ptr %43, align 8, !tbaa !12
-  store i32 %1002, ptr %44, align 4, !tbaa !12
-  %1003 = load i32, ptr %42, align 4, !tbaa !12
-  %1004 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1000, i32 noundef %1003, i32 noundef %1001, i32 noundef %1002) #16
-  %.not805 = icmp eq i32 %55, 32
-  br i1 %.not805, label %.thread730, label %1005
+993:                                              ; preds = %992
+  %994 = load i32, ptr %4, align 16, !tbaa !12
+  %995 = load i32, ptr %42, align 4, !tbaa !12
+  %996 = load i32, ptr %43, align 8, !tbaa !12
+  %997 = load i32, ptr %44, align 4, !tbaa !12
+  %998 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %994, i32 noundef %995, i32 noundef %996, i32 noundef %997) #16
+  %999 = load i32, ptr %4, align 16, !tbaa !12
+  %1000 = load i32, ptr %43, align 8, !tbaa !12
+  %1001 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %999, i32 %1000) #16, !srcloc !32
+  %1002 = extractvalue { i32, i64, i32, i32 } %1001, 0
+  %1003 = extractvalue { i32, i64, i32, i32 } %1001, 2
+  %1004 = extractvalue { i32, i64, i32, i32 } %1001, 3
+  store i32 %1002, ptr %4, align 16, !tbaa !12
+  store i32 %1003, ptr %43, align 8, !tbaa !12
+  store i32 %1004, ptr %44, align 4, !tbaa !12
+  %1005 = load i32, ptr %42, align 4, !tbaa !12
+  %1006 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1002, i32 noundef %1005, i32 noundef %1003, i32 noundef %1004) #16
+  %.not805 = icmp eq i32 %46, 32
+  br i1 %.not805, label %.thread730, label %1007
 
-1005:                                             ; preds = %991
+1007:                                             ; preds = %993
   store i32 33, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %1006
+  br label %1008
 
-1006:                                             ; preds = %1012, %1005
-  %indvars.iv.i483 = phi i64 [ 0, %1005 ], [ %indvars.iv.next.i485, %1012 ]
-  %1007 = trunc nuw nsw i64 %indvars.iv.i483 to i32
-  %1008 = shl nuw nsw i32 1, %1007
-  %1009 = and i32 %1008, 5
-  %.not.i484 = icmp eq i32 %1009, 0
-  br i1 %.not.i484, label %1010, label %1012
+1008:                                             ; preds = %1014, %1007
+  %indvars.iv.i483 = phi i64 [ 0, %1007 ], [ %indvars.iv.next.i485, %1014 ]
+  %1009 = trunc nuw nsw i64 %indvars.iv.i483 to i32
+  %1010 = shl nuw nsw i32 1, %1009
+  %1011 = and i32 %1010, 5
+  %.not.i484 = icmp eq i32 %1011, 0
+  br i1 %.not.i484, label %1012, label %1014
 
-1010:                                             ; preds = %1006
-  %1011 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i483
-  store i32 0, ptr %1011, align 4, !tbaa !12
-  br label %1012
+1012:                                             ; preds = %1008
+  %1013 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i483
+  store i32 0, ptr %1013, align 4, !tbaa !12
+  br label %1014
 
-1012:                                             ; preds = %1010, %1006
+1014:                                             ; preds = %1012, %1008
   %indvars.iv.next.i485 = add nuw nsw i64 %indvars.iv.i483, 1
   %exitcond.not.i486 = icmp eq i64 %indvars.iv.next.i485, 4
-  br i1 %exitcond.not.i486, label %1013, label %1006, !llvm.loop !33
+  br i1 %exitcond.not.i486, label %1015, label %1008, !llvm.loop !33
 
-1013:                                             ; preds = %1012
-  %1014 = load i32, ptr %4, align 16, !tbaa !12
-  %1015 = load i32, ptr %42, align 4, !tbaa !12
-  %1016 = load i32, ptr %43, align 8, !tbaa !12
-  %1017 = load i32, ptr %44, align 4, !tbaa !12
-  %1018 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1014, i32 noundef %1015, i32 noundef %1016, i32 noundef %1017) #16
-  %1019 = load i32, ptr %4, align 16, !tbaa !12
-  %1020 = load i32, ptr %43, align 8, !tbaa !12
-  %1021 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1019, i32 %1020) #16, !srcloc !32
-  %1022 = extractvalue { i32, i64, i32, i32 } %1021, 0
-  %1023 = extractvalue { i32, i64, i32, i32 } %1021, 2
-  %1024 = extractvalue { i32, i64, i32, i32 } %1021, 3
-  store i32 %1022, ptr %4, align 16, !tbaa !12
-  store i32 %1023, ptr %43, align 8, !tbaa !12
-  store i32 %1024, ptr %44, align 4, !tbaa !12
-  %1025 = load i32, ptr %42, align 4, !tbaa !12
-  %1026 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1022, i32 noundef %1025, i32 noundef %1023, i32 noundef %1024) #16
-  %1027 = icmp ugt i32 %55, 33
-  br i1 %1027, label %1028, label %.thread730
+1015:                                             ; preds = %1014
+  %1016 = load i32, ptr %4, align 16, !tbaa !12
+  %1017 = load i32, ptr %42, align 4, !tbaa !12
+  %1018 = load i32, ptr %43, align 8, !tbaa !12
+  %1019 = load i32, ptr %44, align 4, !tbaa !12
+  %1020 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1016, i32 noundef %1017, i32 noundef %1018, i32 noundef %1019) #16
+  %1021 = load i32, ptr %4, align 16, !tbaa !12
+  %1022 = load i32, ptr %43, align 8, !tbaa !12
+  %1023 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1021, i32 %1022) #16, !srcloc !32
+  %1024 = extractvalue { i32, i64, i32, i32 } %1023, 0
+  %1025 = extractvalue { i32, i64, i32, i32 } %1023, 2
+  %1026 = extractvalue { i32, i64, i32, i32 } %1023, 3
+  store i32 %1024, ptr %4, align 16, !tbaa !12
+  store i32 %1025, ptr %43, align 8, !tbaa !12
+  store i32 %1026, ptr %44, align 4, !tbaa !12
+  %1027 = load i32, ptr %42, align 4, !tbaa !12
+  %1028 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1024, i32 noundef %1027, i32 noundef %1025, i32 noundef %1026) #16
+  %1029 = icmp ugt i32 %46, 33
+  br i1 %1029, label %1030, label %.thread730
 
-1028:                                             ; preds = %1013
+1030:                                             ; preds = %1015
   store i32 34, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %1029
+  br label %1031
 
-1029:                                             ; preds = %1035, %1028
-  %indvars.iv.i488 = phi i64 [ 0, %1028 ], [ %indvars.iv.next.i490, %1035 ]
-  %1030 = trunc nuw nsw i64 %indvars.iv.i488 to i32
-  %1031 = shl nuw nsw i32 1, %1030
-  %1032 = and i32 %1031, 5
-  %.not.i489 = icmp eq i32 %1032, 0
-  br i1 %.not.i489, label %1033, label %1035
+1031:                                             ; preds = %1037, %1030
+  %indvars.iv.i488 = phi i64 [ 0, %1030 ], [ %indvars.iv.next.i490, %1037 ]
+  %1032 = trunc nuw nsw i64 %indvars.iv.i488 to i32
+  %1033 = shl nuw nsw i32 1, %1032
+  %1034 = and i32 %1033, 5
+  %.not.i489 = icmp eq i32 %1034, 0
+  br i1 %.not.i489, label %1035, label %1037
 
-1033:                                             ; preds = %1029
-  %1034 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i488
-  store i32 0, ptr %1034, align 4, !tbaa !12
-  br label %1035
+1035:                                             ; preds = %1031
+  %1036 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i488
+  store i32 0, ptr %1036, align 4, !tbaa !12
+  br label %1037
 
-1035:                                             ; preds = %1033, %1029
+1037:                                             ; preds = %1035, %1031
   %indvars.iv.next.i490 = add nuw nsw i64 %indvars.iv.i488, 1
   %exitcond.not.i491 = icmp eq i64 %indvars.iv.next.i490, 4
-  br i1 %exitcond.not.i491, label %1036, label %1029, !llvm.loop !33
+  br i1 %exitcond.not.i491, label %1038, label %1031, !llvm.loop !33
 
-1036:                                             ; preds = %1035
-  %1037 = load i32, ptr %4, align 16, !tbaa !12
-  %1038 = load i32, ptr %42, align 4, !tbaa !12
-  %1039 = load i32, ptr %43, align 8, !tbaa !12
-  %1040 = load i32, ptr %44, align 4, !tbaa !12
-  %1041 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1037, i32 noundef %1038, i32 noundef %1039, i32 noundef %1040) #16
-  %1042 = load i32, ptr %4, align 16, !tbaa !12
-  %1043 = load i32, ptr %43, align 8, !tbaa !12
-  %1044 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1042, i32 %1043) #16, !srcloc !32
-  %1045 = extractvalue { i32, i64, i32, i32 } %1044, 0
-  %1046 = extractvalue { i32, i64, i32, i32 } %1044, 2
-  %1047 = extractvalue { i32, i64, i32, i32 } %1044, 3
-  store i32 %1045, ptr %4, align 16, !tbaa !12
-  store i32 %1046, ptr %43, align 8, !tbaa !12
-  store i32 %1047, ptr %44, align 4, !tbaa !12
-  %1048 = load i32, ptr %42, align 4, !tbaa !12
-  %1049 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1045, i32 noundef %1048, i32 noundef %1046, i32 noundef %1047) #16
-  %.not806 = icmp eq i32 %55, 34
-  br i1 %.not806, label %.thread730, label %1050
+1038:                                             ; preds = %1037
+  %1039 = load i32, ptr %4, align 16, !tbaa !12
+  %1040 = load i32, ptr %42, align 4, !tbaa !12
+  %1041 = load i32, ptr %43, align 8, !tbaa !12
+  %1042 = load i32, ptr %44, align 4, !tbaa !12
+  %1043 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1039, i32 noundef %1040, i32 noundef %1041, i32 noundef %1042) #16
+  %1044 = load i32, ptr %4, align 16, !tbaa !12
+  %1045 = load i32, ptr %43, align 8, !tbaa !12
+  %1046 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1044, i32 %1045) #16, !srcloc !32
+  %1047 = extractvalue { i32, i64, i32, i32 } %1046, 0
+  %1048 = extractvalue { i32, i64, i32, i32 } %1046, 2
+  %1049 = extractvalue { i32, i64, i32, i32 } %1046, 3
+  store i32 %1047, ptr %4, align 16, !tbaa !12
+  store i32 %1048, ptr %43, align 8, !tbaa !12
+  store i32 %1049, ptr %44, align 4, !tbaa !12
+  %1050 = load i32, ptr %42, align 4, !tbaa !12
+  %1051 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1047, i32 noundef %1050, i32 noundef %1048, i32 noundef %1049) #16
+  %.not806 = icmp eq i32 %46, 34
+  br i1 %.not806, label %.thread730, label %1052
 
-1050:                                             ; preds = %1036
+1052:                                             ; preds = %1038
   store i32 35, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %1051
+  br label %1053
 
-1051:                                             ; preds = %1057, %1050
-  %indvars.iv.i493 = phi i64 [ 0, %1050 ], [ %indvars.iv.next.i495, %1057 ]
-  %1052 = trunc nuw nsw i64 %indvars.iv.i493 to i32
-  %1053 = shl nuw nsw i32 1, %1052
-  %1054 = and i32 %1053, 5
-  %.not.i494 = icmp eq i32 %1054, 0
-  br i1 %.not.i494, label %1055, label %1057
+1053:                                             ; preds = %1059, %1052
+  %indvars.iv.i493 = phi i64 [ 0, %1052 ], [ %indvars.iv.next.i495, %1059 ]
+  %1054 = trunc nuw nsw i64 %indvars.iv.i493 to i32
+  %1055 = shl nuw nsw i32 1, %1054
+  %1056 = and i32 %1055, 5
+  %.not.i494 = icmp eq i32 %1056, 0
+  br i1 %.not.i494, label %1057, label %1059
 
-1055:                                             ; preds = %1051
-  %1056 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i493
-  store i32 0, ptr %1056, align 4, !tbaa !12
-  br label %1057
+1057:                                             ; preds = %1053
+  %1058 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i493
+  store i32 0, ptr %1058, align 4, !tbaa !12
+  br label %1059
 
-1057:                                             ; preds = %1055, %1051
+1059:                                             ; preds = %1057, %1053
   %indvars.iv.next.i495 = add nuw nsw i64 %indvars.iv.i493, 1
   %exitcond.not.i496 = icmp eq i64 %indvars.iv.next.i495, 4
-  br i1 %exitcond.not.i496, label %dump_one_cpuid.exit497, label %1051, !llvm.loop !33
+  br i1 %exitcond.not.i496, label %dump_one_cpuid.exit497, label %1053, !llvm.loop !33
 
-dump_one_cpuid.exit497:                           ; preds = %1057
-  %1058 = load i32, ptr %4, align 16, !tbaa !12
-  %1059 = load i32, ptr %42, align 4, !tbaa !12
-  %1060 = load i32, ptr %43, align 8, !tbaa !12
-  %1061 = load i32, ptr %44, align 4, !tbaa !12
-  %1062 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1058, i32 noundef %1059, i32 noundef %1060, i32 noundef %1061) #16
-  %1063 = load i32, ptr %4, align 16, !tbaa !12
-  %1064 = load i32, ptr %43, align 8, !tbaa !12
-  %1065 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1063, i32 %1064) #16, !srcloc !32
-  %1066 = extractvalue { i32, i64, i32, i32 } %1065, 0
-  %1067 = extractvalue { i32, i64, i32, i32 } %1065, 2
-  %1068 = extractvalue { i32, i64, i32, i32 } %1065, 3
-  store i32 %1066, ptr %4, align 16, !tbaa !12
-  store i32 %1067, ptr %43, align 8, !tbaa !12
-  store i32 %1068, ptr %44, align 4, !tbaa !12
-  %1069 = load i32, ptr %42, align 4, !tbaa !12
-  %1070 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1066, i32 noundef %1069, i32 noundef %1067, i32 noundef %1068) #16
-  %1071 = load i32, ptr %4, align 16, !tbaa !12
-  br label %1072
+dump_one_cpuid.exit497:                           ; preds = %1059
+  %1060 = load i32, ptr %4, align 16, !tbaa !12
+  %1061 = load i32, ptr %42, align 4, !tbaa !12
+  %1062 = load i32, ptr %43, align 8, !tbaa !12
+  %1063 = load i32, ptr %44, align 4, !tbaa !12
+  %1064 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1060, i32 noundef %1061, i32 noundef %1062, i32 noundef %1063) #16
+  %1065 = load i32, ptr %4, align 16, !tbaa !12
+  %1066 = load i32, ptr %43, align 8, !tbaa !12
+  %1067 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1065, i32 %1066) #16, !srcloc !32
+  %1068 = extractvalue { i32, i64, i32, i32 } %1067, 0
+  %1069 = extractvalue { i32, i64, i32, i32 } %1067, 2
+  %1070 = extractvalue { i32, i64, i32, i32 } %1067, 3
+  store i32 %1068, ptr %4, align 16, !tbaa !12
+  store i32 %1069, ptr %43, align 8, !tbaa !12
+  store i32 %1070, ptr %44, align 4, !tbaa !12
+  %1071 = load i32, ptr %42, align 4, !tbaa !12
+  %1072 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1068, i32 noundef %1071, i32 noundef %1069, i32 noundef %1070) #16
+  %1073 = load i32, ptr %4, align 16, !tbaa !12
+  br label %1074
 
-1072:                                             ; preds = %dump_one_cpuid.exit497, %1096
-  %.10855 = phi i32 [ 1, %dump_one_cpuid.exit497 ], [ %1097, %1096 ]
-  %1073 = shl nuw i32 1, %.10855
-  %1074 = and i32 %1073, %1071
-  %.not274 = icmp eq i32 %1074, 0
-  br i1 %.not274, label %1096, label %1075
+1074:                                             ; preds = %dump_one_cpuid.exit497, %1098
+  %.10855 = phi i32 [ 1, %dump_one_cpuid.exit497 ], [ %1099, %1098 ]
+  %1075 = shl nuw i32 1, %.10855
+  %1076 = and i32 %1075, %1073
+  %.not274 = icmp eq i32 %1076, 0
+  br i1 %.not274, label %1098, label %1077
 
-1075:                                             ; preds = %1072
+1077:                                             ; preds = %1074
   store i32 35, ptr %4, align 16, !tbaa !12
   store i32 %.10855, ptr %43, align 8, !tbaa !12
-  br label %1076
+  br label %1078
 
-1076:                                             ; preds = %1082, %1075
-  %indvars.iv.i498 = phi i64 [ 0, %1075 ], [ %indvars.iv.next.i500, %1082 ]
-  %1077 = trunc nuw nsw i64 %indvars.iv.i498 to i32
-  %1078 = shl nuw nsw i32 1, %1077
-  %1079 = and i32 %1078, 5
-  %.not.i499 = icmp eq i32 %1079, 0
-  br i1 %.not.i499, label %1080, label %1082
+1078:                                             ; preds = %1084, %1077
+  %indvars.iv.i498 = phi i64 [ 0, %1077 ], [ %indvars.iv.next.i500, %1084 ]
+  %1079 = trunc nuw nsw i64 %indvars.iv.i498 to i32
+  %1080 = shl nuw nsw i32 1, %1079
+  %1081 = and i32 %1080, 5
+  %.not.i499 = icmp eq i32 %1081, 0
+  br i1 %.not.i499, label %1082, label %1084
 
-1080:                                             ; preds = %1076
-  %1081 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i498
-  store i32 0, ptr %1081, align 4, !tbaa !12
-  br label %1082
+1082:                                             ; preds = %1078
+  %1083 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i498
+  store i32 0, ptr %1083, align 4, !tbaa !12
+  br label %1084
 
-1082:                                             ; preds = %1080, %1076
+1084:                                             ; preds = %1082, %1078
   %indvars.iv.next.i500 = add nuw nsw i64 %indvars.iv.i498, 1
   %exitcond.not.i501 = icmp eq i64 %indvars.iv.next.i500, 4
-  br i1 %exitcond.not.i501, label %dump_one_cpuid.exit502, label %1076, !llvm.loop !33
+  br i1 %exitcond.not.i501, label %dump_one_cpuid.exit502, label %1078, !llvm.loop !33
 
-dump_one_cpuid.exit502:                           ; preds = %1082
-  %1083 = load i32, ptr %4, align 16, !tbaa !12
-  %1084 = load i32, ptr %42, align 4, !tbaa !12
-  %1085 = load i32, ptr %43, align 8, !tbaa !12
-  %1086 = load i32, ptr %44, align 4, !tbaa !12
-  %1087 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1083, i32 noundef %1084, i32 noundef %1085, i32 noundef %1086) #16
-  %1088 = load i32, ptr %4, align 16, !tbaa !12
-  %1089 = load i32, ptr %43, align 8, !tbaa !12
-  %1090 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1088, i32 %1089) #16, !srcloc !32
-  %1091 = extractvalue { i32, i64, i32, i32 } %1090, 0
-  %1092 = extractvalue { i32, i64, i32, i32 } %1090, 2
-  %1093 = extractvalue { i32, i64, i32, i32 } %1090, 3
-  store i32 %1091, ptr %4, align 16, !tbaa !12
-  store i32 %1092, ptr %43, align 8, !tbaa !12
-  store i32 %1093, ptr %44, align 4, !tbaa !12
-  %1094 = load i32, ptr %42, align 4, !tbaa !12
-  %1095 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1091, i32 noundef %1094, i32 noundef %1092, i32 noundef %1093) #16
-  br label %1096
+dump_one_cpuid.exit502:                           ; preds = %1084
+  %1085 = load i32, ptr %4, align 16, !tbaa !12
+  %1086 = load i32, ptr %42, align 4, !tbaa !12
+  %1087 = load i32, ptr %43, align 8, !tbaa !12
+  %1088 = load i32, ptr %44, align 4, !tbaa !12
+  %1089 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1085, i32 noundef %1086, i32 noundef %1087, i32 noundef %1088) #16
+  %1090 = load i32, ptr %4, align 16, !tbaa !12
+  %1091 = load i32, ptr %43, align 8, !tbaa !12
+  %1092 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1090, i32 %1091) #16, !srcloc !32
+  %1093 = extractvalue { i32, i64, i32, i32 } %1092, 0
+  %1094 = extractvalue { i32, i64, i32, i32 } %1092, 2
+  %1095 = extractvalue { i32, i64, i32, i32 } %1092, 3
+  store i32 %1093, ptr %4, align 16, !tbaa !12
+  store i32 %1094, ptr %43, align 8, !tbaa !12
+  store i32 %1095, ptr %44, align 4, !tbaa !12
+  %1096 = load i32, ptr %42, align 4, !tbaa !12
+  %1097 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1093, i32 noundef %1096, i32 noundef %1094, i32 noundef %1095) #16
+  br label %1098
 
-1096:                                             ; preds = %1072, %dump_one_cpuid.exit502
-  %1097 = add nuw nsw i32 %.10855, 1
-  %exitcond873.not = icmp eq i32 %1097, 32
-  br i1 %exitcond873.not, label %1098, label %1072, !llvm.loop !44
-
-1098:                                             ; preds = %1096
-  %1099 = icmp ugt i32 %55, 35
-  br i1 %1099, label %1100, label %.thread730
+1098:                                             ; preds = %1074, %dump_one_cpuid.exit502
+  %1099 = add nuw nsw i32 %.10855, 1
+  %exitcond873.not = icmp eq i32 %1099, 32
+  br i1 %exitcond873.not, label %1100, label %1074, !llvm.loop !44
 
 1100:                                             ; preds = %1098
+  %1101 = icmp ugt i32 %46, 35
+  br i1 %1101, label %1102, label %.thread730
+
+1102:                                             ; preds = %1100
   store i32 36, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %1101
+  br label %1103
 
-1101:                                             ; preds = %1107, %1100
-  %indvars.iv.i503 = phi i64 [ 0, %1100 ], [ %indvars.iv.next.i505, %1107 ]
-  %1102 = trunc nuw nsw i64 %indvars.iv.i503 to i32
-  %1103 = shl nuw nsw i32 1, %1102
-  %1104 = and i32 %1103, 5
-  %.not.i504 = icmp eq i32 %1104, 0
-  br i1 %.not.i504, label %1105, label %1107
+1103:                                             ; preds = %1109, %1102
+  %indvars.iv.i503 = phi i64 [ 0, %1102 ], [ %indvars.iv.next.i505, %1109 ]
+  %1104 = trunc nuw nsw i64 %indvars.iv.i503 to i32
+  %1105 = shl nuw nsw i32 1, %1104
+  %1106 = and i32 %1105, 5
+  %.not.i504 = icmp eq i32 %1106, 0
+  br i1 %.not.i504, label %1107, label %1109
 
-1105:                                             ; preds = %1101
-  %1106 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i503
-  store i32 0, ptr %1106, align 4, !tbaa !12
-  br label %1107
+1107:                                             ; preds = %1103
+  %1108 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i503
+  store i32 0, ptr %1108, align 4, !tbaa !12
+  br label %1109
 
-1107:                                             ; preds = %1105, %1101
+1109:                                             ; preds = %1107, %1103
   %indvars.iv.next.i505 = add nuw nsw i64 %indvars.iv.i503, 1
   %exitcond.not.i506 = icmp eq i64 %indvars.iv.next.i505, 4
-  br i1 %exitcond.not.i506, label %1108, label %1101, !llvm.loop !33
+  br i1 %exitcond.not.i506, label %1110, label %1103, !llvm.loop !33
 
-1108:                                             ; preds = %1107
-  %1109 = load i32, ptr %4, align 16, !tbaa !12
-  %1110 = load i32, ptr %42, align 4, !tbaa !12
-  %1111 = load i32, ptr %43, align 8, !tbaa !12
-  %1112 = load i32, ptr %44, align 4, !tbaa !12
-  %1113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1109, i32 noundef %1110, i32 noundef %1111, i32 noundef %1112) #16
-  %1114 = load i32, ptr %4, align 16, !tbaa !12
-  %1115 = load i32, ptr %43, align 8, !tbaa !12
-  %1116 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1114, i32 %1115) #16, !srcloc !32
-  %1117 = extractvalue { i32, i64, i32, i32 } %1116, 0
-  %1118 = extractvalue { i32, i64, i32, i32 } %1116, 2
-  %1119 = extractvalue { i32, i64, i32, i32 } %1116, 3
-  store i32 %1117, ptr %4, align 16, !tbaa !12
-  store i32 %1118, ptr %43, align 8, !tbaa !12
-  store i32 %1119, ptr %44, align 4, !tbaa !12
-  %1120 = load i32, ptr %42, align 4, !tbaa !12
-  %1121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1117, i32 noundef %1120, i32 noundef %1118, i32 noundef %1119) #16
-  %1122 = icmp ugt i32 %55, 37
-  br i1 %1122, label %1123, label %.thread730
+1110:                                             ; preds = %1109
+  %1111 = load i32, ptr %4, align 16, !tbaa !12
+  %1112 = load i32, ptr %42, align 4, !tbaa !12
+  %1113 = load i32, ptr %43, align 8, !tbaa !12
+  %1114 = load i32, ptr %44, align 4, !tbaa !12
+  %1115 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1111, i32 noundef %1112, i32 noundef %1113, i32 noundef %1114) #16
+  %1116 = load i32, ptr %4, align 16, !tbaa !12
+  %1117 = load i32, ptr %43, align 8, !tbaa !12
+  %1118 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1116, i32 %1117) #16, !srcloc !32
+  %1119 = extractvalue { i32, i64, i32, i32 } %1118, 0
+  %1120 = extractvalue { i32, i64, i32, i32 } %1118, 2
+  %1121 = extractvalue { i32, i64, i32, i32 } %1118, 3
+  store i32 %1119, ptr %4, align 16, !tbaa !12
+  store i32 %1120, ptr %43, align 8, !tbaa !12
+  store i32 %1121, ptr %44, align 4, !tbaa !12
+  %1122 = load i32, ptr %42, align 4, !tbaa !12
+  %1123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1119, i32 noundef %1122, i32 noundef %1120, i32 noundef %1121) #16
+  %1124 = icmp ugt i32 %46, 37
+  br i1 %1124, label %1125, label %.thread730
 
-1123:                                             ; preds = %1108
+1125:                                             ; preds = %1110
   %.b = load i1, ptr @dump_one_proc.reported, align 4
-  br i1 %.b, label %1127, label %1124
+  br i1 %.b, label %1129, label %1126
 
-1124:                                             ; preds = %1123
-  %1125 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %1126 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1125, ptr noundef nonnull @.str.45, i32 noundef %55) #18
-  br label %1127
+1126:                                             ; preds = %1125
+  %1127 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %1128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1127, ptr noundef nonnull @.str.45, i32 noundef %46) #18
+  br label %1129
 
-1127:                                             ; preds = %1124, %1123
+1129:                                             ; preds = %1126, %1125
   store i1 true, ptr @dump_one_proc.reported, align 4
   br label %.thread730
 
-.thread730:                                       ; preds = %801, %._crit_edge851.thread, %746, %683, %664, %645, %615, %254, %._crit_edge.thread, %184, %166, %159, %119, %100, %80, %dump_one_cpuid.exit, %317, %419, %449, %865, %875, %917, %940, %981, %991, %1013, %1036, %1098, %1127, %1108
+.thread730:                                       ; preds = %803, %._crit_edge851.thread, %748, %685, %666, %647, %617, %256, %._crit_edge.thread, %184, %166, %159, %119, %100, %80, %dump_one_cpuid.exit, %319, %421, %451, %867, %877, %919, %942, %983, %993, %1015, %1038, %1100, %1129, %1110
   store i32 -2147483648, ptr %4, align 16, !tbaa !12
-  br label %1128
+  br label %1130
 
-1128:                                             ; preds = %1131, %.thread730
-  %indvars.iv.i508 = phi i64 [ 0, %.thread730 ], [ %indvars.iv.next.i510, %1131 ]
+1130:                                             ; preds = %1133, %.thread730
+  %indvars.iv.i508 = phi i64 [ 0, %.thread730 ], [ %indvars.iv.next.i510, %1133 ]
   %.not807 = icmp eq i64 %indvars.iv.i508, 0
-  br i1 %.not807, label %1131, label %1129
+  br i1 %.not807, label %1133, label %1131
 
-1129:                                             ; preds = %1128
-  %1130 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i508
-  store i32 0, ptr %1130, align 4, !tbaa !12
-  br label %1131
+1131:                                             ; preds = %1130
+  %1132 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i508
+  store i32 0, ptr %1132, align 4, !tbaa !12
+  br label %1133
 
-1131:                                             ; preds = %1129, %1128
+1133:                                             ; preds = %1131, %1130
   %indvars.iv.next.i510 = add nuw nsw i64 %indvars.iv.i508, 1
   %exitcond.not.i511 = icmp eq i64 %indvars.iv.next.i510, 4
-  br i1 %exitcond.not.i511, label %dump_one_cpuid.exit512, label %1128, !llvm.loop !33
+  br i1 %exitcond.not.i511, label %dump_one_cpuid.exit512, label %1130, !llvm.loop !33
 
-dump_one_cpuid.exit512:                           ; preds = %1131
-  %1132 = load i32, ptr %42, align 4, !tbaa !12
-  %1133 = load i32, ptr %43, align 8, !tbaa !12
-  %1134 = load i32, ptr %44, align 4, !tbaa !12
-  %1135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483648, i32 noundef %1132, i32 noundef %1133, i32 noundef %1134) #16
-  %1136 = load i32, ptr %4, align 16, !tbaa !12
-  %1137 = load i32, ptr %43, align 8, !tbaa !12
-  %1138 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1136, i32 %1137) #16, !srcloc !32
-  %1139 = extractvalue { i32, i64, i32, i32 } %1138, 0
-  %1140 = extractvalue { i32, i64, i32, i32 } %1138, 2
-  %1141 = extractvalue { i32, i64, i32, i32 } %1138, 3
-  store i32 %1139, ptr %4, align 16, !tbaa !12
-  store i32 %1140, ptr %43, align 8, !tbaa !12
-  store i32 %1141, ptr %44, align 4, !tbaa !12
-  %1142 = load i32, ptr %42, align 4, !tbaa !12
-  %1143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1139, i32 noundef %1142, i32 noundef %1140, i32 noundef %1141) #16
-  %1144 = icmp ugt i32 %56, -2147483648
-  br i1 %1144, label %1145, label %.thread783
+dump_one_cpuid.exit512:                           ; preds = %1133
+  %1134 = load i32, ptr %42, align 4, !tbaa !12
+  %1135 = load i32, ptr %43, align 8, !tbaa !12
+  %1136 = load i32, ptr %44, align 4, !tbaa !12
+  %1137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483648, i32 noundef %1134, i32 noundef %1135, i32 noundef %1136) #16
+  %1138 = load i32, ptr %4, align 16, !tbaa !12
+  %1139 = load i32, ptr %43, align 8, !tbaa !12
+  %1140 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1138, i32 %1139) #16, !srcloc !32
+  %1141 = extractvalue { i32, i64, i32, i32 } %1140, 0
+  %1142 = extractvalue { i32, i64, i32, i32 } %1140, 2
+  %1143 = extractvalue { i32, i64, i32, i32 } %1140, 3
+  store i32 %1141, ptr %4, align 16, !tbaa !12
+  store i32 %1142, ptr %43, align 8, !tbaa !12
+  store i32 %1143, ptr %44, align 4, !tbaa !12
+  %1144 = load i32, ptr %42, align 4, !tbaa !12
+  %1145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1141, i32 noundef %1144, i32 noundef %1142, i32 noundef %1143) #16
+  %1146 = icmp ugt i32 %50, -2147483648
+  br i1 %1146, label %1147, label %.thread783
 
-1145:                                             ; preds = %dump_one_cpuid.exit512
+1147:                                             ; preds = %dump_one_cpuid.exit512
   store i32 -2147483647, ptr %4, align 16, !tbaa !12
-  br label %1146
+  br label %1148
 
-1146:                                             ; preds = %1149, %1145
-  %indvars.iv.i513 = phi i64 [ 0, %1145 ], [ %indvars.iv.next.i515, %1149 ]
+1148:                                             ; preds = %1151, %1147
+  %indvars.iv.i513 = phi i64 [ 0, %1147 ], [ %indvars.iv.next.i515, %1151 ]
   %.not808 = icmp eq i64 %indvars.iv.i513, 0
-  br i1 %.not808, label %1149, label %1147
+  br i1 %.not808, label %1151, label %1149
 
-1147:                                             ; preds = %1146
-  %1148 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i513
-  store i32 0, ptr %1148, align 4, !tbaa !12
-  br label %1149
+1149:                                             ; preds = %1148
+  %1150 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i513
+  store i32 0, ptr %1150, align 4, !tbaa !12
+  br label %1151
 
-1149:                                             ; preds = %1147, %1146
+1151:                                             ; preds = %1149, %1148
   %indvars.iv.next.i515 = add nuw nsw i64 %indvars.iv.i513, 1
   %exitcond.not.i516 = icmp eq i64 %indvars.iv.next.i515, 4
-  br i1 %exitcond.not.i516, label %1150, label %1146, !llvm.loop !33
+  br i1 %exitcond.not.i516, label %1152, label %1148, !llvm.loop !33
 
-1150:                                             ; preds = %1149
-  %1151 = load i32, ptr %42, align 4, !tbaa !12
-  %1152 = load i32, ptr %43, align 8, !tbaa !12
-  %1153 = load i32, ptr %44, align 4, !tbaa !12
-  %1154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483647, i32 noundef %1151, i32 noundef %1152, i32 noundef %1153) #16
-  %1155 = load i32, ptr %4, align 16, !tbaa !12
-  %1156 = load i32, ptr %43, align 8, !tbaa !12
-  %1157 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1155, i32 %1156) #16, !srcloc !32
-  %1158 = extractvalue { i32, i64, i32, i32 } %1157, 0
-  %1159 = extractvalue { i32, i64, i32, i32 } %1157, 2
-  %1160 = extractvalue { i32, i64, i32, i32 } %1157, 3
-  store i32 %1158, ptr %4, align 16, !tbaa !12
-  store i32 %1159, ptr %43, align 8, !tbaa !12
-  store i32 %1160, ptr %44, align 4, !tbaa !12
-  %1161 = load i32, ptr %42, align 4, !tbaa !12
-  %1162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1158, i32 noundef %1161, i32 noundef %1159, i32 noundef %1160) #16
-  %1163 = load i32, ptr %43, align 8, !tbaa !12
-  %1164 = and i32 %1163, 4194304
-  %.not271 = icmp ne i32 %1164, 0
-  %.not809 = icmp eq i32 %56, -2147483647
-  br i1 %.not809, label %.thread783, label %1165
+1152:                                             ; preds = %1151
+  %1153 = load i32, ptr %42, align 4, !tbaa !12
+  %1154 = load i32, ptr %43, align 8, !tbaa !12
+  %1155 = load i32, ptr %44, align 4, !tbaa !12
+  %1156 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483647, i32 noundef %1153, i32 noundef %1154, i32 noundef %1155) #16
+  %1157 = load i32, ptr %4, align 16, !tbaa !12
+  %1158 = load i32, ptr %43, align 8, !tbaa !12
+  %1159 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1157, i32 %1158) #16, !srcloc !32
+  %1160 = extractvalue { i32, i64, i32, i32 } %1159, 0
+  %1161 = extractvalue { i32, i64, i32, i32 } %1159, 2
+  %1162 = extractvalue { i32, i64, i32, i32 } %1159, 3
+  store i32 %1160, ptr %4, align 16, !tbaa !12
+  store i32 %1161, ptr %43, align 8, !tbaa !12
+  store i32 %1162, ptr %44, align 4, !tbaa !12
+  %1163 = load i32, ptr %42, align 4, !tbaa !12
+  %1164 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1160, i32 noundef %1163, i32 noundef %1161, i32 noundef %1162) #16
+  %1165 = load i32, ptr %43, align 8, !tbaa !12
+  %1166 = and i32 %1165, 4194304
+  %.not271 = icmp ne i32 %1166, 0
+  %.not809 = icmp eq i32 %50, -2147483647
+  br i1 %.not809, label %.thread783, label %1167
 
-1165:                                             ; preds = %1150
+1167:                                             ; preds = %1152
   store i32 -2147483646, ptr %4, align 16, !tbaa !12
-  br label %1166
+  br label %1168
 
-1166:                                             ; preds = %1169, %1165
-  %indvars.iv.i518 = phi i64 [ 0, %1165 ], [ %indvars.iv.next.i520, %1169 ]
+1168:                                             ; preds = %1171, %1167
+  %indvars.iv.i518 = phi i64 [ 0, %1167 ], [ %indvars.iv.next.i520, %1171 ]
   %.not810 = icmp eq i64 %indvars.iv.i518, 0
-  br i1 %.not810, label %1169, label %1167
+  br i1 %.not810, label %1171, label %1169
 
-1167:                                             ; preds = %1166
-  %1168 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i518
-  store i32 0, ptr %1168, align 4, !tbaa !12
-  br label %1169
+1169:                                             ; preds = %1168
+  %1170 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i518
+  store i32 0, ptr %1170, align 4, !tbaa !12
+  br label %1171
 
-1169:                                             ; preds = %1167, %1166
+1171:                                             ; preds = %1169, %1168
   %indvars.iv.next.i520 = add nuw nsw i64 %indvars.iv.i518, 1
   %exitcond.not.i521 = icmp eq i64 %indvars.iv.next.i520, 4
-  br i1 %exitcond.not.i521, label %1170, label %1166, !llvm.loop !33
+  br i1 %exitcond.not.i521, label %1172, label %1168, !llvm.loop !33
 
-1170:                                             ; preds = %1169
-  %1171 = load i32, ptr %42, align 4, !tbaa !12
-  %1172 = load i32, ptr %43, align 8, !tbaa !12
-  %1173 = load i32, ptr %44, align 4, !tbaa !12
-  %1174 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483646, i32 noundef %1171, i32 noundef %1172, i32 noundef %1173) #16
-  %1175 = load i32, ptr %4, align 16, !tbaa !12
-  %1176 = load i32, ptr %43, align 8, !tbaa !12
-  %1177 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1175, i32 %1176) #16, !srcloc !32
-  %1178 = extractvalue { i32, i64, i32, i32 } %1177, 0
-  %1179 = extractvalue { i32, i64, i32, i32 } %1177, 2
-  %1180 = extractvalue { i32, i64, i32, i32 } %1177, 3
-  store i32 %1178, ptr %4, align 16, !tbaa !12
-  store i32 %1179, ptr %43, align 8, !tbaa !12
-  store i32 %1180, ptr %44, align 4, !tbaa !12
-  %1181 = load i32, ptr %42, align 4, !tbaa !12
-  %1182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1178, i32 noundef %1181, i32 noundef %1179, i32 noundef %1180) #16
-  %1183 = icmp ugt i32 %56, -2147483646
-  br i1 %1183, label %1184, label %.thread783
+1172:                                             ; preds = %1171
+  %1173 = load i32, ptr %42, align 4, !tbaa !12
+  %1174 = load i32, ptr %43, align 8, !tbaa !12
+  %1175 = load i32, ptr %44, align 4, !tbaa !12
+  %1176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483646, i32 noundef %1173, i32 noundef %1174, i32 noundef %1175) #16
+  %1177 = load i32, ptr %4, align 16, !tbaa !12
+  %1178 = load i32, ptr %43, align 8, !tbaa !12
+  %1179 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1177, i32 %1178) #16, !srcloc !32
+  %1180 = extractvalue { i32, i64, i32, i32 } %1179, 0
+  %1181 = extractvalue { i32, i64, i32, i32 } %1179, 2
+  %1182 = extractvalue { i32, i64, i32, i32 } %1179, 3
+  store i32 %1180, ptr %4, align 16, !tbaa !12
+  store i32 %1181, ptr %43, align 8, !tbaa !12
+  store i32 %1182, ptr %44, align 4, !tbaa !12
+  %1183 = load i32, ptr %42, align 4, !tbaa !12
+  %1184 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1180, i32 noundef %1183, i32 noundef %1181, i32 noundef %1182) #16
+  %1185 = icmp ugt i32 %50, -2147483646
+  br i1 %1185, label %1186, label %.thread783
 
-1184:                                             ; preds = %1170
+1186:                                             ; preds = %1172
   store i32 -2147483645, ptr %4, align 16, !tbaa !12
-  br label %1185
+  br label %1187
 
-1185:                                             ; preds = %1188, %1184
-  %indvars.iv.i523 = phi i64 [ 0, %1184 ], [ %indvars.iv.next.i525, %1188 ]
+1187:                                             ; preds = %1190, %1186
+  %indvars.iv.i523 = phi i64 [ 0, %1186 ], [ %indvars.iv.next.i525, %1190 ]
   %.not811 = icmp eq i64 %indvars.iv.i523, 0
-  br i1 %.not811, label %1188, label %1186
+  br i1 %.not811, label %1190, label %1188
 
-1186:                                             ; preds = %1185
-  %1187 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i523
-  store i32 0, ptr %1187, align 4, !tbaa !12
-  br label %1188
+1188:                                             ; preds = %1187
+  %1189 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i523
+  store i32 0, ptr %1189, align 4, !tbaa !12
+  br label %1190
 
-1188:                                             ; preds = %1186, %1185
+1190:                                             ; preds = %1188, %1187
   %indvars.iv.next.i525 = add nuw nsw i64 %indvars.iv.i523, 1
   %exitcond.not.i526 = icmp eq i64 %indvars.iv.next.i525, 4
-  br i1 %exitcond.not.i526, label %1189, label %1185, !llvm.loop !33
+  br i1 %exitcond.not.i526, label %1191, label %1187, !llvm.loop !33
 
-1189:                                             ; preds = %1188
-  %1190 = load i32, ptr %42, align 4, !tbaa !12
-  %1191 = load i32, ptr %43, align 8, !tbaa !12
-  %1192 = load i32, ptr %44, align 4, !tbaa !12
-  %1193 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483645, i32 noundef %1190, i32 noundef %1191, i32 noundef %1192) #16
-  %1194 = load i32, ptr %4, align 16, !tbaa !12
-  %1195 = load i32, ptr %43, align 8, !tbaa !12
-  %1196 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1194, i32 %1195) #16, !srcloc !32
-  %1197 = extractvalue { i32, i64, i32, i32 } %1196, 0
-  %1198 = extractvalue { i32, i64, i32, i32 } %1196, 2
-  %1199 = extractvalue { i32, i64, i32, i32 } %1196, 3
-  store i32 %1197, ptr %4, align 16, !tbaa !12
-  store i32 %1198, ptr %43, align 8, !tbaa !12
-  store i32 %1199, ptr %44, align 4, !tbaa !12
-  %1200 = load i32, ptr %42, align 4, !tbaa !12
-  %1201 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1197, i32 noundef %1200, i32 noundef %1198, i32 noundef %1199) #16
-  %.not812 = icmp eq i32 %56, -2147483645
-  br i1 %.not812, label %.thread783, label %1202
+1191:                                             ; preds = %1190
+  %1192 = load i32, ptr %42, align 4, !tbaa !12
+  %1193 = load i32, ptr %43, align 8, !tbaa !12
+  %1194 = load i32, ptr %44, align 4, !tbaa !12
+  %1195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483645, i32 noundef %1192, i32 noundef %1193, i32 noundef %1194) #16
+  %1196 = load i32, ptr %4, align 16, !tbaa !12
+  %1197 = load i32, ptr %43, align 8, !tbaa !12
+  %1198 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1196, i32 %1197) #16, !srcloc !32
+  %1199 = extractvalue { i32, i64, i32, i32 } %1198, 0
+  %1200 = extractvalue { i32, i64, i32, i32 } %1198, 2
+  %1201 = extractvalue { i32, i64, i32, i32 } %1198, 3
+  store i32 %1199, ptr %4, align 16, !tbaa !12
+  store i32 %1200, ptr %43, align 8, !tbaa !12
+  store i32 %1201, ptr %44, align 4, !tbaa !12
+  %1202 = load i32, ptr %42, align 4, !tbaa !12
+  %1203 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1199, i32 noundef %1202, i32 noundef %1200, i32 noundef %1201) #16
+  %.not812 = icmp eq i32 %50, -2147483645
+  br i1 %.not812, label %.thread783, label %1204
 
-1202:                                             ; preds = %1189
+1204:                                             ; preds = %1191
   store i32 -2147483644, ptr %4, align 16, !tbaa !12
-  br label %1203
+  br label %1205
 
-1203:                                             ; preds = %1206, %1202
-  %indvars.iv.i528 = phi i64 [ 0, %1202 ], [ %indvars.iv.next.i530, %1206 ]
+1205:                                             ; preds = %1208, %1204
+  %indvars.iv.i528 = phi i64 [ 0, %1204 ], [ %indvars.iv.next.i530, %1208 ]
   %.not813 = icmp eq i64 %indvars.iv.i528, 0
-  br i1 %.not813, label %1206, label %1204
+  br i1 %.not813, label %1208, label %1206
 
-1204:                                             ; preds = %1203
-  %1205 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i528
-  store i32 0, ptr %1205, align 4, !tbaa !12
-  br label %1206
+1206:                                             ; preds = %1205
+  %1207 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i528
+  store i32 0, ptr %1207, align 4, !tbaa !12
+  br label %1208
 
-1206:                                             ; preds = %1204, %1203
+1208:                                             ; preds = %1206, %1205
   %indvars.iv.next.i530 = add nuw nsw i64 %indvars.iv.i528, 1
   %exitcond.not.i531 = icmp eq i64 %indvars.iv.next.i530, 4
-  br i1 %exitcond.not.i531, label %1207, label %1203, !llvm.loop !33
+  br i1 %exitcond.not.i531, label %1209, label %1205, !llvm.loop !33
 
-1207:                                             ; preds = %1206
-  %1208 = load i32, ptr %42, align 4, !tbaa !12
-  %1209 = load i32, ptr %43, align 8, !tbaa !12
-  %1210 = load i32, ptr %44, align 4, !tbaa !12
-  %1211 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483644, i32 noundef %1208, i32 noundef %1209, i32 noundef %1210) #16
-  %1212 = load i32, ptr %4, align 16, !tbaa !12
-  %1213 = load i32, ptr %43, align 8, !tbaa !12
-  %1214 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1212, i32 %1213) #16, !srcloc !32
-  %1215 = extractvalue { i32, i64, i32, i32 } %1214, 0
-  %1216 = extractvalue { i32, i64, i32, i32 } %1214, 2
-  %1217 = extractvalue { i32, i64, i32, i32 } %1214, 3
-  store i32 %1215, ptr %4, align 16, !tbaa !12
-  store i32 %1216, ptr %43, align 8, !tbaa !12
-  store i32 %1217, ptr %44, align 4, !tbaa !12
-  %1218 = load i32, ptr %42, align 4, !tbaa !12
-  %1219 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1215, i32 noundef %1218, i32 noundef %1216, i32 noundef %1217) #16
-  %1220 = icmp ugt i32 %56, -2147483644
-  br i1 %1220, label %1221, label %.thread783
+1209:                                             ; preds = %1208
+  %1210 = load i32, ptr %42, align 4, !tbaa !12
+  %1211 = load i32, ptr %43, align 8, !tbaa !12
+  %1212 = load i32, ptr %44, align 4, !tbaa !12
+  %1213 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483644, i32 noundef %1210, i32 noundef %1211, i32 noundef %1212) #16
+  %1214 = load i32, ptr %4, align 16, !tbaa !12
+  %1215 = load i32, ptr %43, align 8, !tbaa !12
+  %1216 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1214, i32 %1215) #16, !srcloc !32
+  %1217 = extractvalue { i32, i64, i32, i32 } %1216, 0
+  %1218 = extractvalue { i32, i64, i32, i32 } %1216, 2
+  %1219 = extractvalue { i32, i64, i32, i32 } %1216, 3
+  store i32 %1217, ptr %4, align 16, !tbaa !12
+  store i32 %1218, ptr %43, align 8, !tbaa !12
+  store i32 %1219, ptr %44, align 4, !tbaa !12
+  %1220 = load i32, ptr %42, align 4, !tbaa !12
+  %1221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1217, i32 noundef %1220, i32 noundef %1218, i32 noundef %1219) #16
+  %1222 = icmp ugt i32 %50, -2147483644
+  br i1 %1222, label %1223, label %.thread783
 
-1221:                                             ; preds = %1207
+1223:                                             ; preds = %1209
   store i32 -2147483643, ptr %4, align 16, !tbaa !12
-  br label %1222
+  br label %1224
 
-1222:                                             ; preds = %1225, %1221
-  %indvars.iv.i533 = phi i64 [ 0, %1221 ], [ %indvars.iv.next.i535, %1225 ]
+1224:                                             ; preds = %1227, %1223
+  %indvars.iv.i533 = phi i64 [ 0, %1223 ], [ %indvars.iv.next.i535, %1227 ]
   %.not814 = icmp eq i64 %indvars.iv.i533, 0
-  br i1 %.not814, label %1225, label %1223
+  br i1 %.not814, label %1227, label %1225
 
-1223:                                             ; preds = %1222
-  %1224 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i533
-  store i32 0, ptr %1224, align 4, !tbaa !12
-  br label %1225
+1225:                                             ; preds = %1224
+  %1226 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i533
+  store i32 0, ptr %1226, align 4, !tbaa !12
+  br label %1227
 
-1225:                                             ; preds = %1223, %1222
+1227:                                             ; preds = %1225, %1224
   %indvars.iv.next.i535 = add nuw nsw i64 %indvars.iv.i533, 1
   %exitcond.not.i536 = icmp eq i64 %indvars.iv.next.i535, 4
-  br i1 %exitcond.not.i536, label %1226, label %1222, !llvm.loop !33
+  br i1 %exitcond.not.i536, label %1228, label %1224, !llvm.loop !33
 
-1226:                                             ; preds = %1225
-  %1227 = load i32, ptr %42, align 4, !tbaa !12
-  %1228 = load i32, ptr %43, align 8, !tbaa !12
-  %1229 = load i32, ptr %44, align 4, !tbaa !12
-  %1230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483643, i32 noundef %1227, i32 noundef %1228, i32 noundef %1229) #16
-  %1231 = load i32, ptr %4, align 16, !tbaa !12
-  %1232 = load i32, ptr %43, align 8, !tbaa !12
-  %1233 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1231, i32 %1232) #16, !srcloc !32
-  %1234 = extractvalue { i32, i64, i32, i32 } %1233, 0
-  %1235 = extractvalue { i32, i64, i32, i32 } %1233, 2
-  %1236 = extractvalue { i32, i64, i32, i32 } %1233, 3
-  store i32 %1234, ptr %4, align 16, !tbaa !12
-  store i32 %1235, ptr %43, align 8, !tbaa !12
-  store i32 %1236, ptr %44, align 4, !tbaa !12
-  %1237 = load i32, ptr %42, align 4, !tbaa !12
-  %1238 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1234, i32 noundef %1237, i32 noundef %1235, i32 noundef %1236) #16
-  %.not815 = icmp eq i32 %56, -2147483643
-  br i1 %.not815, label %.thread783, label %1239
+1228:                                             ; preds = %1227
+  %1229 = load i32, ptr %42, align 4, !tbaa !12
+  %1230 = load i32, ptr %43, align 8, !tbaa !12
+  %1231 = load i32, ptr %44, align 4, !tbaa !12
+  %1232 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483643, i32 noundef %1229, i32 noundef %1230, i32 noundef %1231) #16
+  %1233 = load i32, ptr %4, align 16, !tbaa !12
+  %1234 = load i32, ptr %43, align 8, !tbaa !12
+  %1235 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1233, i32 %1234) #16, !srcloc !32
+  %1236 = extractvalue { i32, i64, i32, i32 } %1235, 0
+  %1237 = extractvalue { i32, i64, i32, i32 } %1235, 2
+  %1238 = extractvalue { i32, i64, i32, i32 } %1235, 3
+  store i32 %1236, ptr %4, align 16, !tbaa !12
+  store i32 %1237, ptr %43, align 8, !tbaa !12
+  store i32 %1238, ptr %44, align 4, !tbaa !12
+  %1239 = load i32, ptr %42, align 4, !tbaa !12
+  %1240 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1236, i32 noundef %1239, i32 noundef %1237, i32 noundef %1238) #16
+  %.not815 = icmp eq i32 %50, -2147483643
+  br i1 %.not815, label %.thread783, label %1241
 
-1239:                                             ; preds = %1226
+1241:                                             ; preds = %1228
   store i32 -2147483642, ptr %4, align 16, !tbaa !12
-  br label %1240
+  br label %1242
 
-1240:                                             ; preds = %1243, %1239
-  %indvars.iv.i538 = phi i64 [ 0, %1239 ], [ %indvars.iv.next.i540, %1243 ]
+1242:                                             ; preds = %1245, %1241
+  %indvars.iv.i538 = phi i64 [ 0, %1241 ], [ %indvars.iv.next.i540, %1245 ]
   %.not816 = icmp eq i64 %indvars.iv.i538, 0
-  br i1 %.not816, label %1243, label %1241
+  br i1 %.not816, label %1245, label %1243
 
-1241:                                             ; preds = %1240
-  %1242 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i538
-  store i32 0, ptr %1242, align 4, !tbaa !12
-  br label %1243
+1243:                                             ; preds = %1242
+  %1244 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i538
+  store i32 0, ptr %1244, align 4, !tbaa !12
+  br label %1245
 
-1243:                                             ; preds = %1241, %1240
+1245:                                             ; preds = %1243, %1242
   %indvars.iv.next.i540 = add nuw nsw i64 %indvars.iv.i538, 1
   %exitcond.not.i541 = icmp eq i64 %indvars.iv.next.i540, 4
-  br i1 %exitcond.not.i541, label %1244, label %1240, !llvm.loop !33
+  br i1 %exitcond.not.i541, label %1246, label %1242, !llvm.loop !33
 
-1244:                                             ; preds = %1243
-  %1245 = load i32, ptr %42, align 4, !tbaa !12
-  %1246 = load i32, ptr %43, align 8, !tbaa !12
-  %1247 = load i32, ptr %44, align 4, !tbaa !12
-  %1248 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483642, i32 noundef %1245, i32 noundef %1246, i32 noundef %1247) #16
-  %1249 = load i32, ptr %4, align 16, !tbaa !12
-  %1250 = load i32, ptr %43, align 8, !tbaa !12
-  %1251 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1249, i32 %1250) #16, !srcloc !32
-  %1252 = extractvalue { i32, i64, i32, i32 } %1251, 0
-  %1253 = extractvalue { i32, i64, i32, i32 } %1251, 2
-  %1254 = extractvalue { i32, i64, i32, i32 } %1251, 3
-  store i32 %1252, ptr %4, align 16, !tbaa !12
-  store i32 %1253, ptr %43, align 8, !tbaa !12
-  store i32 %1254, ptr %44, align 4, !tbaa !12
-  %1255 = load i32, ptr %42, align 4, !tbaa !12
-  %1256 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1252, i32 noundef %1255, i32 noundef %1253, i32 noundef %1254) #16
-  %1257 = icmp ugt i32 %56, -2147483642
-  br i1 %1257, label %1258, label %.thread783
+1246:                                             ; preds = %1245
+  %1247 = load i32, ptr %42, align 4, !tbaa !12
+  %1248 = load i32, ptr %43, align 8, !tbaa !12
+  %1249 = load i32, ptr %44, align 4, !tbaa !12
+  %1250 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483642, i32 noundef %1247, i32 noundef %1248, i32 noundef %1249) #16
+  %1251 = load i32, ptr %4, align 16, !tbaa !12
+  %1252 = load i32, ptr %43, align 8, !tbaa !12
+  %1253 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1251, i32 %1252) #16, !srcloc !32
+  %1254 = extractvalue { i32, i64, i32, i32 } %1253, 0
+  %1255 = extractvalue { i32, i64, i32, i32 } %1253, 2
+  %1256 = extractvalue { i32, i64, i32, i32 } %1253, 3
+  store i32 %1254, ptr %4, align 16, !tbaa !12
+  store i32 %1255, ptr %43, align 8, !tbaa !12
+  store i32 %1256, ptr %44, align 4, !tbaa !12
+  %1257 = load i32, ptr %42, align 4, !tbaa !12
+  %1258 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1254, i32 noundef %1257, i32 noundef %1255, i32 noundef %1256) #16
+  %1259 = icmp ugt i32 %50, -2147483642
+  br i1 %1259, label %1260, label %.thread783
 
-1258:                                             ; preds = %1244
+1260:                                             ; preds = %1246
   store i32 -2147483641, ptr %4, align 16, !tbaa !12
-  br label %1259
+  br label %1261
 
-1259:                                             ; preds = %1262, %1258
-  %indvars.iv.i543 = phi i64 [ 0, %1258 ], [ %indvars.iv.next.i545, %1262 ]
+1261:                                             ; preds = %1264, %1260
+  %indvars.iv.i543 = phi i64 [ 0, %1260 ], [ %indvars.iv.next.i545, %1264 ]
   %.not817 = icmp eq i64 %indvars.iv.i543, 0
-  br i1 %.not817, label %1262, label %1260
+  br i1 %.not817, label %1264, label %1262
 
-1260:                                             ; preds = %1259
-  %1261 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i543
-  store i32 0, ptr %1261, align 4, !tbaa !12
-  br label %1262
+1262:                                             ; preds = %1261
+  %1263 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i543
+  store i32 0, ptr %1263, align 4, !tbaa !12
+  br label %1264
 
-1262:                                             ; preds = %1260, %1259
+1264:                                             ; preds = %1262, %1261
   %indvars.iv.next.i545 = add nuw nsw i64 %indvars.iv.i543, 1
   %exitcond.not.i546 = icmp eq i64 %indvars.iv.next.i545, 4
-  br i1 %exitcond.not.i546, label %1263, label %1259, !llvm.loop !33
+  br i1 %exitcond.not.i546, label %1265, label %1261, !llvm.loop !33
 
-1263:                                             ; preds = %1262
-  %1264 = load i32, ptr %42, align 4, !tbaa !12
-  %1265 = load i32, ptr %43, align 8, !tbaa !12
-  %1266 = load i32, ptr %44, align 4, !tbaa !12
-  %1267 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483641, i32 noundef %1264, i32 noundef %1265, i32 noundef %1266) #16
-  %1268 = load i32, ptr %4, align 16, !tbaa !12
-  %1269 = load i32, ptr %43, align 8, !tbaa !12
-  %1270 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1268, i32 %1269) #16, !srcloc !32
-  %1271 = extractvalue { i32, i64, i32, i32 } %1270, 0
-  %1272 = extractvalue { i32, i64, i32, i32 } %1270, 2
-  %1273 = extractvalue { i32, i64, i32, i32 } %1270, 3
-  store i32 %1271, ptr %4, align 16, !tbaa !12
-  store i32 %1272, ptr %43, align 8, !tbaa !12
-  store i32 %1273, ptr %44, align 4, !tbaa !12
-  %1274 = load i32, ptr %42, align 4, !tbaa !12
-  %1275 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1271, i32 noundef %1274, i32 noundef %1272, i32 noundef %1273) #16
-  %.not818 = icmp eq i32 %56, -2147483641
-  br i1 %.not818, label %.thread783, label %1276
+1265:                                             ; preds = %1264
+  %1266 = load i32, ptr %42, align 4, !tbaa !12
+  %1267 = load i32, ptr %43, align 8, !tbaa !12
+  %1268 = load i32, ptr %44, align 4, !tbaa !12
+  %1269 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483641, i32 noundef %1266, i32 noundef %1267, i32 noundef %1268) #16
+  %1270 = load i32, ptr %4, align 16, !tbaa !12
+  %1271 = load i32, ptr %43, align 8, !tbaa !12
+  %1272 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1270, i32 %1271) #16, !srcloc !32
+  %1273 = extractvalue { i32, i64, i32, i32 } %1272, 0
+  %1274 = extractvalue { i32, i64, i32, i32 } %1272, 2
+  %1275 = extractvalue { i32, i64, i32, i32 } %1272, 3
+  store i32 %1273, ptr %4, align 16, !tbaa !12
+  store i32 %1274, ptr %43, align 8, !tbaa !12
+  store i32 %1275, ptr %44, align 4, !tbaa !12
+  %1276 = load i32, ptr %42, align 4, !tbaa !12
+  %1277 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1273, i32 noundef %1276, i32 noundef %1274, i32 noundef %1275) #16
+  %.not818 = icmp eq i32 %50, -2147483641
+  br i1 %.not818, label %.thread783, label %1278
 
-1276:                                             ; preds = %1263
+1278:                                             ; preds = %1265
   store i32 -2147483640, ptr %4, align 16, !tbaa !12
-  br label %1277
+  br label %1279
 
-1277:                                             ; preds = %1280, %1276
-  %indvars.iv.i548 = phi i64 [ 0, %1276 ], [ %indvars.iv.next.i550, %1280 ]
+1279:                                             ; preds = %1282, %1278
+  %indvars.iv.i548 = phi i64 [ 0, %1278 ], [ %indvars.iv.next.i550, %1282 ]
   %.not819 = icmp eq i64 %indvars.iv.i548, 0
-  br i1 %.not819, label %1280, label %1278
+  br i1 %.not819, label %1282, label %1280
 
-1278:                                             ; preds = %1277
-  %1279 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i548
-  store i32 0, ptr %1279, align 4, !tbaa !12
-  br label %1280
+1280:                                             ; preds = %1279
+  %1281 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i548
+  store i32 0, ptr %1281, align 4, !tbaa !12
+  br label %1282
 
-1280:                                             ; preds = %1278, %1277
+1282:                                             ; preds = %1280, %1279
   %indvars.iv.next.i550 = add nuw nsw i64 %indvars.iv.i548, 1
   %exitcond.not.i551 = icmp eq i64 %indvars.iv.next.i550, 4
-  br i1 %exitcond.not.i551, label %1281, label %1277, !llvm.loop !33
+  br i1 %exitcond.not.i551, label %1283, label %1279, !llvm.loop !33
 
-1281:                                             ; preds = %1280
-  %1282 = load i32, ptr %42, align 4, !tbaa !12
-  %1283 = load i32, ptr %43, align 8, !tbaa !12
-  %1284 = load i32, ptr %44, align 4, !tbaa !12
-  %1285 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483640, i32 noundef %1282, i32 noundef %1283, i32 noundef %1284) #16
-  %1286 = load i32, ptr %4, align 16, !tbaa !12
-  %1287 = load i32, ptr %43, align 8, !tbaa !12
-  %1288 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1286, i32 %1287) #16, !srcloc !32
-  %1289 = extractvalue { i32, i64, i32, i32 } %1288, 0
-  %1290 = extractvalue { i32, i64, i32, i32 } %1288, 2
-  %1291 = extractvalue { i32, i64, i32, i32 } %1288, 3
-  store i32 %1289, ptr %4, align 16, !tbaa !12
-  store i32 %1290, ptr %43, align 8, !tbaa !12
-  store i32 %1291, ptr %44, align 4, !tbaa !12
-  %1292 = load i32, ptr %42, align 4, !tbaa !12
-  %1293 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1289, i32 noundef %1292, i32 noundef %1290, i32 noundef %1291) #16
-  %1294 = icmp ugt i32 %56, -2147483639
-  br i1 %1294, label %1295, label %.thread783
+1283:                                             ; preds = %1282
+  %1284 = load i32, ptr %42, align 4, !tbaa !12
+  %1285 = load i32, ptr %43, align 8, !tbaa !12
+  %1286 = load i32, ptr %44, align 4, !tbaa !12
+  %1287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483640, i32 noundef %1284, i32 noundef %1285, i32 noundef %1286) #16
+  %1288 = load i32, ptr %4, align 16, !tbaa !12
+  %1289 = load i32, ptr %43, align 8, !tbaa !12
+  %1290 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1288, i32 %1289) #16, !srcloc !32
+  %1291 = extractvalue { i32, i64, i32, i32 } %1290, 0
+  %1292 = extractvalue { i32, i64, i32, i32 } %1290, 2
+  %1293 = extractvalue { i32, i64, i32, i32 } %1290, 3
+  store i32 %1291, ptr %4, align 16, !tbaa !12
+  store i32 %1292, ptr %43, align 8, !tbaa !12
+  store i32 %1293, ptr %44, align 4, !tbaa !12
+  %1294 = load i32, ptr %42, align 4, !tbaa !12
+  %1295 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1291, i32 noundef %1294, i32 noundef %1292, i32 noundef %1293) #16
+  %1296 = icmp ugt i32 %50, -2147483639
+  br i1 %1296, label %1297, label %.thread783
 
-1295:                                             ; preds = %1281
+1297:                                             ; preds = %1283
   store i32 -2147483638, ptr %4, align 16, !tbaa !12
-  br label %1296
+  br label %1298
 
-1296:                                             ; preds = %1299, %1295
-  %indvars.iv.i553 = phi i64 [ 0, %1295 ], [ %indvars.iv.next.i555, %1299 ]
+1298:                                             ; preds = %1301, %1297
+  %indvars.iv.i553 = phi i64 [ 0, %1297 ], [ %indvars.iv.next.i555, %1301 ]
   %.not820 = icmp eq i64 %indvars.iv.i553, 0
-  br i1 %.not820, label %1299, label %1297
+  br i1 %.not820, label %1301, label %1299
 
-1297:                                             ; preds = %1296
-  %1298 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i553
-  store i32 0, ptr %1298, align 4, !tbaa !12
-  br label %1299
+1299:                                             ; preds = %1298
+  %1300 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i553
+  store i32 0, ptr %1300, align 4, !tbaa !12
+  br label %1301
 
-1299:                                             ; preds = %1297, %1296
+1301:                                             ; preds = %1299, %1298
   %indvars.iv.next.i555 = add nuw nsw i64 %indvars.iv.i553, 1
   %exitcond.not.i556 = icmp eq i64 %indvars.iv.next.i555, 4
-  br i1 %exitcond.not.i556, label %1300, label %1296, !llvm.loop !33
+  br i1 %exitcond.not.i556, label %1302, label %1298, !llvm.loop !33
 
-1300:                                             ; preds = %1299
-  %1301 = load i32, ptr %42, align 4, !tbaa !12
-  %1302 = load i32, ptr %43, align 8, !tbaa !12
-  %1303 = load i32, ptr %44, align 4, !tbaa !12
-  %1304 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483638, i32 noundef %1301, i32 noundef %1302, i32 noundef %1303) #16
-  %1305 = load i32, ptr %4, align 16, !tbaa !12
-  %1306 = load i32, ptr %43, align 8, !tbaa !12
-  %1307 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1305, i32 %1306) #16, !srcloc !32
-  %1308 = extractvalue { i32, i64, i32, i32 } %1307, 0
-  %1309 = extractvalue { i32, i64, i32, i32 } %1307, 2
-  %1310 = extractvalue { i32, i64, i32, i32 } %1307, 3
-  store i32 %1308, ptr %4, align 16, !tbaa !12
-  store i32 %1309, ptr %43, align 8, !tbaa !12
-  store i32 %1310, ptr %44, align 4, !tbaa !12
-  %1311 = load i32, ptr %42, align 4, !tbaa !12
-  %1312 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1308, i32 noundef %1311, i32 noundef %1309, i32 noundef %1310) #16
-  %1313 = icmp ugt i32 %56, -2147483624
-  br i1 %1313, label %1314, label %.thread783
+1302:                                             ; preds = %1301
+  %1303 = load i32, ptr %42, align 4, !tbaa !12
+  %1304 = load i32, ptr %43, align 8, !tbaa !12
+  %1305 = load i32, ptr %44, align 4, !tbaa !12
+  %1306 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483638, i32 noundef %1303, i32 noundef %1304, i32 noundef %1305) #16
+  %1307 = load i32, ptr %4, align 16, !tbaa !12
+  %1308 = load i32, ptr %43, align 8, !tbaa !12
+  %1309 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1307, i32 %1308) #16, !srcloc !32
+  %1310 = extractvalue { i32, i64, i32, i32 } %1309, 0
+  %1311 = extractvalue { i32, i64, i32, i32 } %1309, 2
+  %1312 = extractvalue { i32, i64, i32, i32 } %1309, 3
+  store i32 %1310, ptr %4, align 16, !tbaa !12
+  store i32 %1311, ptr %43, align 8, !tbaa !12
+  store i32 %1312, ptr %44, align 4, !tbaa !12
+  %1313 = load i32, ptr %42, align 4, !tbaa !12
+  %1314 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1310, i32 noundef %1313, i32 noundef %1311, i32 noundef %1312) #16
+  %1315 = icmp ugt i32 %50, -2147483624
+  br i1 %1315, label %1316, label %.thread783
 
-1314:                                             ; preds = %1300
+1316:                                             ; preds = %1302
   store i32 -2147483623, ptr %4, align 16, !tbaa !12
-  br label %1315
+  br label %1317
 
-1315:                                             ; preds = %1318, %1314
-  %indvars.iv.i558 = phi i64 [ 0, %1314 ], [ %indvars.iv.next.i560, %1318 ]
+1317:                                             ; preds = %1320, %1316
+  %indvars.iv.i558 = phi i64 [ 0, %1316 ], [ %indvars.iv.next.i560, %1320 ]
   %.not821 = icmp eq i64 %indvars.iv.i558, 0
-  br i1 %.not821, label %1318, label %1316
+  br i1 %.not821, label %1320, label %1318
 
-1316:                                             ; preds = %1315
-  %1317 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i558
-  store i32 0, ptr %1317, align 4, !tbaa !12
-  br label %1318
+1318:                                             ; preds = %1317
+  %1319 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i558
+  store i32 0, ptr %1319, align 4, !tbaa !12
+  br label %1320
 
-1318:                                             ; preds = %1316, %1315
+1320:                                             ; preds = %1318, %1317
   %indvars.iv.next.i560 = add nuw nsw i64 %indvars.iv.i558, 1
   %exitcond.not.i561 = icmp eq i64 %indvars.iv.next.i560, 4
-  br i1 %exitcond.not.i561, label %1319, label %1315, !llvm.loop !33
+  br i1 %exitcond.not.i561, label %1321, label %1317, !llvm.loop !33
 
-1319:                                             ; preds = %1318
-  %1320 = load i32, ptr %42, align 4, !tbaa !12
-  %1321 = load i32, ptr %43, align 8, !tbaa !12
-  %1322 = load i32, ptr %44, align 4, !tbaa !12
-  %1323 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483623, i32 noundef %1320, i32 noundef %1321, i32 noundef %1322) #16
-  %1324 = load i32, ptr %4, align 16, !tbaa !12
-  %1325 = load i32, ptr %43, align 8, !tbaa !12
-  %1326 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1324, i32 %1325) #16, !srcloc !32
-  %1327 = extractvalue { i32, i64, i32, i32 } %1326, 0
-  %1328 = extractvalue { i32, i64, i32, i32 } %1326, 2
-  %1329 = extractvalue { i32, i64, i32, i32 } %1326, 3
-  store i32 %1327, ptr %4, align 16, !tbaa !12
-  store i32 %1328, ptr %43, align 8, !tbaa !12
-  store i32 %1329, ptr %44, align 4, !tbaa !12
-  %1330 = load i32, ptr %42, align 4, !tbaa !12
-  %1331 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1327, i32 noundef %1330, i32 noundef %1328, i32 noundef %1329) #16
-  %.not822 = icmp eq i32 %56, -2147483623
-  br i1 %.not822, label %.thread783, label %1332
+1321:                                             ; preds = %1320
+  %1322 = load i32, ptr %42, align 4, !tbaa !12
+  %1323 = load i32, ptr %43, align 8, !tbaa !12
+  %1324 = load i32, ptr %44, align 4, !tbaa !12
+  %1325 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483623, i32 noundef %1322, i32 noundef %1323, i32 noundef %1324) #16
+  %1326 = load i32, ptr %4, align 16, !tbaa !12
+  %1327 = load i32, ptr %43, align 8, !tbaa !12
+  %1328 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1326, i32 %1327) #16, !srcloc !32
+  %1329 = extractvalue { i32, i64, i32, i32 } %1328, 0
+  %1330 = extractvalue { i32, i64, i32, i32 } %1328, 2
+  %1331 = extractvalue { i32, i64, i32, i32 } %1328, 3
+  store i32 %1329, ptr %4, align 16, !tbaa !12
+  store i32 %1330, ptr %43, align 8, !tbaa !12
+  store i32 %1331, ptr %44, align 4, !tbaa !12
+  %1332 = load i32, ptr %42, align 4, !tbaa !12
+  %1333 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1329, i32 noundef %1332, i32 noundef %1330, i32 noundef %1331) #16
+  %.not822 = icmp eq i32 %50, -2147483623
+  br i1 %.not822, label %.thread783, label %1334
 
-1332:                                             ; preds = %1319
+1334:                                             ; preds = %1321
   store i32 -2147483622, ptr %4, align 16, !tbaa !12
-  br label %1333
+  br label %1335
 
-1333:                                             ; preds = %1336, %1332
-  %indvars.iv.i563 = phi i64 [ 0, %1332 ], [ %indvars.iv.next.i565, %1336 ]
+1335:                                             ; preds = %1338, %1334
+  %indvars.iv.i563 = phi i64 [ 0, %1334 ], [ %indvars.iv.next.i565, %1338 ]
   %.not823 = icmp eq i64 %indvars.iv.i563, 0
-  br i1 %.not823, label %1336, label %1334
+  br i1 %.not823, label %1338, label %1336
 
-1334:                                             ; preds = %1333
-  %1335 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i563
-  store i32 0, ptr %1335, align 4, !tbaa !12
-  br label %1336
+1336:                                             ; preds = %1335
+  %1337 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i563
+  store i32 0, ptr %1337, align 4, !tbaa !12
+  br label %1338
 
-1336:                                             ; preds = %1334, %1333
+1338:                                             ; preds = %1336, %1335
   %indvars.iv.next.i565 = add nuw nsw i64 %indvars.iv.i563, 1
   %exitcond.not.i566 = icmp eq i64 %indvars.iv.next.i565, 4
-  br i1 %exitcond.not.i566, label %1337, label %1333, !llvm.loop !33
+  br i1 %exitcond.not.i566, label %1339, label %1335, !llvm.loop !33
 
-1337:                                             ; preds = %1336
-  %1338 = load i32, ptr %42, align 4, !tbaa !12
-  %1339 = load i32, ptr %43, align 8, !tbaa !12
-  %1340 = load i32, ptr %44, align 4, !tbaa !12
-  %1341 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483622, i32 noundef %1338, i32 noundef %1339, i32 noundef %1340) #16
-  %1342 = load i32, ptr %4, align 16, !tbaa !12
-  %1343 = load i32, ptr %43, align 8, !tbaa !12
-  %1344 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1342, i32 %1343) #16, !srcloc !32
-  %1345 = extractvalue { i32, i64, i32, i32 } %1344, 0
-  %1346 = extractvalue { i32, i64, i32, i32 } %1344, 2
-  %1347 = extractvalue { i32, i64, i32, i32 } %1344, 3
-  store i32 %1345, ptr %4, align 16, !tbaa !12
-  store i32 %1346, ptr %43, align 8, !tbaa !12
-  store i32 %1347, ptr %44, align 4, !tbaa !12
-  %1348 = load i32, ptr %42, align 4, !tbaa !12
-  %1349 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1345, i32 noundef %1348, i32 noundef %1346, i32 noundef %1347) #16
-  %1350 = icmp ugt i32 %56, -2147483622
-  br i1 %1350, label %1351, label %.thread783
+1339:                                             ; preds = %1338
+  %1340 = load i32, ptr %42, align 4, !tbaa !12
+  %1341 = load i32, ptr %43, align 8, !tbaa !12
+  %1342 = load i32, ptr %44, align 4, !tbaa !12
+  %1343 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483622, i32 noundef %1340, i32 noundef %1341, i32 noundef %1342) #16
+  %1344 = load i32, ptr %4, align 16, !tbaa !12
+  %1345 = load i32, ptr %43, align 8, !tbaa !12
+  %1346 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1344, i32 %1345) #16, !srcloc !32
+  %1347 = extractvalue { i32, i64, i32, i32 } %1346, 0
+  %1348 = extractvalue { i32, i64, i32, i32 } %1346, 2
+  %1349 = extractvalue { i32, i64, i32, i32 } %1346, 3
+  store i32 %1347, ptr %4, align 16, !tbaa !12
+  store i32 %1348, ptr %43, align 8, !tbaa !12
+  store i32 %1349, ptr %44, align 4, !tbaa !12
+  %1350 = load i32, ptr %42, align 4, !tbaa !12
+  %1351 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1347, i32 noundef %1350, i32 noundef %1348, i32 noundef %1349) #16
+  %1352 = icmp ugt i32 %50, -2147483622
+  br i1 %1352, label %1353, label %.thread783
 
-1351:                                             ; preds = %1337
+1353:                                             ; preds = %1339
   store i32 -2147483621, ptr %4, align 16, !tbaa !12
-  br label %1352
+  br label %1354
 
-1352:                                             ; preds = %1355, %1351
-  %indvars.iv.i568 = phi i64 [ 0, %1351 ], [ %indvars.iv.next.i570, %1355 ]
+1354:                                             ; preds = %1357, %1353
+  %indvars.iv.i568 = phi i64 [ 0, %1353 ], [ %indvars.iv.next.i570, %1357 ]
   %.not824 = icmp eq i64 %indvars.iv.i568, 0
-  br i1 %.not824, label %1355, label %1353
+  br i1 %.not824, label %1357, label %1355
 
-1353:                                             ; preds = %1352
-  %1354 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i568
-  store i32 0, ptr %1354, align 4, !tbaa !12
-  br label %1355
+1355:                                             ; preds = %1354
+  %1356 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i568
+  store i32 0, ptr %1356, align 4, !tbaa !12
+  br label %1357
 
-1355:                                             ; preds = %1353, %1352
+1357:                                             ; preds = %1355, %1354
   %indvars.iv.next.i570 = add nuw nsw i64 %indvars.iv.i568, 1
   %exitcond.not.i571 = icmp eq i64 %indvars.iv.next.i570, 4
-  br i1 %exitcond.not.i571, label %1356, label %1352, !llvm.loop !33
+  br i1 %exitcond.not.i571, label %1358, label %1354, !llvm.loop !33
 
-1356:                                             ; preds = %1355
-  %1357 = load i32, ptr %42, align 4, !tbaa !12
-  %1358 = load i32, ptr %43, align 8, !tbaa !12
-  %1359 = load i32, ptr %44, align 4, !tbaa !12
-  %1360 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483621, i32 noundef %1357, i32 noundef %1358, i32 noundef %1359) #16
-  %1361 = load i32, ptr %4, align 16, !tbaa !12
-  %1362 = load i32, ptr %43, align 8, !tbaa !12
-  %1363 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1361, i32 %1362) #16, !srcloc !32
-  %1364 = extractvalue { i32, i64, i32, i32 } %1363, 0
-  %1365 = extractvalue { i32, i64, i32, i32 } %1363, 2
-  %1366 = extractvalue { i32, i64, i32, i32 } %1363, 3
-  store i32 %1364, ptr %4, align 16, !tbaa !12
-  store i32 %1365, ptr %43, align 8, !tbaa !12
-  store i32 %1366, ptr %44, align 4, !tbaa !12
-  %1367 = load i32, ptr %42, align 4, !tbaa !12
-  %1368 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1364, i32 noundef %1367, i32 noundef %1365, i32 noundef %1366) #16
-  %.not825 = icmp eq i32 %56, -2147483621
-  br i1 %.not825, label %.thread783, label %1369
+1358:                                             ; preds = %1357
+  %1359 = load i32, ptr %42, align 4, !tbaa !12
+  %1360 = load i32, ptr %43, align 8, !tbaa !12
+  %1361 = load i32, ptr %44, align 4, !tbaa !12
+  %1362 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483621, i32 noundef %1359, i32 noundef %1360, i32 noundef %1361) #16
+  %1363 = load i32, ptr %4, align 16, !tbaa !12
+  %1364 = load i32, ptr %43, align 8, !tbaa !12
+  %1365 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1363, i32 %1364) #16, !srcloc !32
+  %1366 = extractvalue { i32, i64, i32, i32 } %1365, 0
+  %1367 = extractvalue { i32, i64, i32, i32 } %1365, 2
+  %1368 = extractvalue { i32, i64, i32, i32 } %1365, 3
+  store i32 %1366, ptr %4, align 16, !tbaa !12
+  store i32 %1367, ptr %43, align 8, !tbaa !12
+  store i32 %1368, ptr %44, align 4, !tbaa !12
+  %1369 = load i32, ptr %42, align 4, !tbaa !12
+  %1370 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1366, i32 noundef %1369, i32 noundef %1367, i32 noundef %1368) #16
+  %.not825 = icmp eq i32 %50, -2147483621
+  br i1 %.not825, label %.thread783, label %1371
 
-1369:                                             ; preds = %1356
+1371:                                             ; preds = %1358
   store i32 -2147483620, ptr %4, align 16, !tbaa !12
-  br label %1370
+  br label %1372
 
-1370:                                             ; preds = %1373, %1369
-  %indvars.iv.i573 = phi i64 [ 0, %1369 ], [ %indvars.iv.next.i575, %1373 ]
+1372:                                             ; preds = %1375, %1371
+  %indvars.iv.i573 = phi i64 [ 0, %1371 ], [ %indvars.iv.next.i575, %1375 ]
   %.not826 = icmp eq i64 %indvars.iv.i573, 0
-  br i1 %.not826, label %1373, label %1371
+  br i1 %.not826, label %1375, label %1373
 
-1371:                                             ; preds = %1370
-  %1372 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i573
-  store i32 0, ptr %1372, align 4, !tbaa !12
-  br label %1373
+1373:                                             ; preds = %1372
+  %1374 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i573
+  store i32 0, ptr %1374, align 4, !tbaa !12
+  br label %1375
 
-1373:                                             ; preds = %1371, %1370
+1375:                                             ; preds = %1373, %1372
   %indvars.iv.next.i575 = add nuw nsw i64 %indvars.iv.i573, 1
   %exitcond.not.i576 = icmp eq i64 %indvars.iv.next.i575, 4
-  br i1 %exitcond.not.i576, label %1374, label %1370, !llvm.loop !33
+  br i1 %exitcond.not.i576, label %1376, label %1372, !llvm.loop !33
 
-1374:                                             ; preds = %1373
-  %1375 = load i32, ptr %42, align 4, !tbaa !12
-  %1376 = load i32, ptr %43, align 8, !tbaa !12
-  %1377 = load i32, ptr %44, align 4, !tbaa !12
-  %1378 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483620, i32 noundef %1375, i32 noundef %1376, i32 noundef %1377) #16
-  %1379 = load i32, ptr %4, align 16, !tbaa !12
-  %1380 = load i32, ptr %43, align 8, !tbaa !12
-  %1381 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1379, i32 %1380) #16, !srcloc !32
-  %1382 = extractvalue { i32, i64, i32, i32 } %1381, 0
-  %1383 = extractvalue { i32, i64, i32, i32 } %1381, 2
-  %1384 = extractvalue { i32, i64, i32, i32 } %1381, 3
-  store i32 %1382, ptr %4, align 16, !tbaa !12
-  store i32 %1383, ptr %43, align 8, !tbaa !12
-  store i32 %1384, ptr %44, align 4, !tbaa !12
-  %1385 = load i32, ptr %42, align 4, !tbaa !12
-  %1386 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1382, i32 noundef %1385, i32 noundef %1383, i32 noundef %1384) #16
-  %1387 = icmp ugt i32 %56, -2147483620
-  br i1 %1387, label %.preheader835, label %.thread783
+1376:                                             ; preds = %1375
+  %1377 = load i32, ptr %42, align 4, !tbaa !12
+  %1378 = load i32, ptr %43, align 8, !tbaa !12
+  %1379 = load i32, ptr %44, align 4, !tbaa !12
+  %1380 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483620, i32 noundef %1377, i32 noundef %1378, i32 noundef %1379) #16
+  %1381 = load i32, ptr %4, align 16, !tbaa !12
+  %1382 = load i32, ptr %43, align 8, !tbaa !12
+  %1383 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1381, i32 %1382) #16, !srcloc !32
+  %1384 = extractvalue { i32, i64, i32, i32 } %1383, 0
+  %1385 = extractvalue { i32, i64, i32, i32 } %1383, 2
+  %1386 = extractvalue { i32, i64, i32, i32 } %1383, 3
+  store i32 %1384, ptr %4, align 16, !tbaa !12
+  store i32 %1385, ptr %43, align 8, !tbaa !12
+  store i32 %1386, ptr %44, align 4, !tbaa !12
+  %1387 = load i32, ptr %42, align 4, !tbaa !12
+  %1388 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1384, i32 noundef %1387, i32 noundef %1385, i32 noundef %1386) #16
+  %1389 = icmp ugt i32 %50, -2147483620
+  br i1 %1389, label %.preheader835, label %.thread783
 
-.preheader835:                                    ; preds = %1374, %1410
-  %.11856 = phi i32 [ %1411, %1410 ], [ 0, %1374 ]
+.preheader835:                                    ; preds = %1376, %1412
+  %.11856 = phi i32 [ %1413, %1412 ], [ 0, %1376 ]
   store i32 -2147483619, ptr %4, align 16, !tbaa !12
   store i32 %.11856, ptr %43, align 8, !tbaa !12
-  br label %1388
+  br label %1390
 
-1388:                                             ; preds = %1394, %.preheader835
-  %indvars.iv.i578 = phi i64 [ 0, %.preheader835 ], [ %indvars.iv.next.i580, %1394 ]
-  %1389 = trunc nuw nsw i64 %indvars.iv.i578 to i32
-  %1390 = shl nuw nsw i32 1, %1389
-  %1391 = and i32 %1390, 5
-  %.not.i579 = icmp eq i32 %1391, 0
-  br i1 %.not.i579, label %1392, label %1394
+1390:                                             ; preds = %1396, %.preheader835
+  %indvars.iv.i578 = phi i64 [ 0, %.preheader835 ], [ %indvars.iv.next.i580, %1396 ]
+  %1391 = trunc nuw nsw i64 %indvars.iv.i578 to i32
+  %1392 = shl nuw nsw i32 1, %1391
+  %1393 = and i32 %1392, 5
+  %.not.i579 = icmp eq i32 %1393, 0
+  br i1 %.not.i579, label %1394, label %1396
 
-1392:                                             ; preds = %1388
-  %1393 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i578
-  store i32 0, ptr %1393, align 4, !tbaa !12
-  br label %1394
+1394:                                             ; preds = %1390
+  %1395 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i578
+  store i32 0, ptr %1395, align 4, !tbaa !12
+  br label %1396
 
-1394:                                             ; preds = %1392, %1388
+1396:                                             ; preds = %1394, %1390
   %indvars.iv.next.i580 = add nuw nsw i64 %indvars.iv.i578, 1
   %exitcond.not.i581 = icmp eq i64 %indvars.iv.next.i580, 4
-  br i1 %exitcond.not.i581, label %dump_one_cpuid.exit582, label %1388, !llvm.loop !33
+  br i1 %exitcond.not.i581, label %dump_one_cpuid.exit582, label %1390, !llvm.loop !33
 
-dump_one_cpuid.exit582:                           ; preds = %1394
-  %1395 = load i32, ptr %4, align 16, !tbaa !12
-  %1396 = load i32, ptr %42, align 4, !tbaa !12
-  %1397 = load i32, ptr %43, align 8, !tbaa !12
-  %1398 = load i32, ptr %44, align 4, !tbaa !12
-  %1399 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1395, i32 noundef %1396, i32 noundef %1397, i32 noundef %1398) #16
-  %1400 = load i32, ptr %4, align 16, !tbaa !12
-  %1401 = load i32, ptr %43, align 8, !tbaa !12
-  %1402 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1400, i32 %1401) #16, !srcloc !32
-  %1403 = extractvalue { i32, i64, i32, i32 } %1402, 0
-  %1404 = extractvalue { i32, i64, i32, i32 } %1402, 2
-  %1405 = extractvalue { i32, i64, i32, i32 } %1402, 3
-  store i32 %1403, ptr %4, align 16, !tbaa !12
-  store i32 %1404, ptr %43, align 8, !tbaa !12
-  store i32 %1405, ptr %44, align 4, !tbaa !12
-  %1406 = load i32, ptr %42, align 4, !tbaa !12
-  %1407 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1403, i32 noundef %1406, i32 noundef %1404, i32 noundef %1405) #16
-  %1408 = load i32, ptr %4, align 16, !tbaa !12
-  %1409 = and i32 %1408, 31
-  %.not272 = icmp eq i32 %1409, 0
-  br i1 %.not272, label %1412, label %1410
-
-1410:                                             ; preds = %dump_one_cpuid.exit582
-  %1411 = add nuw nsw i32 %.11856, 1
-  %exitcond874.not = icmp eq i32 %1411, 256
-  br i1 %exitcond874.not, label %.thread914, label %.preheader835, !llvm.loop !45
+dump_one_cpuid.exit582:                           ; preds = %1396
+  %1397 = load i32, ptr %4, align 16, !tbaa !12
+  %1398 = load i32, ptr %42, align 4, !tbaa !12
+  %1399 = load i32, ptr %43, align 8, !tbaa !12
+  %1400 = load i32, ptr %44, align 4, !tbaa !12
+  %1401 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1397, i32 noundef %1398, i32 noundef %1399, i32 noundef %1400) #16
+  %1402 = load i32, ptr %4, align 16, !tbaa !12
+  %1403 = load i32, ptr %43, align 8, !tbaa !12
+  %1404 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1402, i32 %1403) #16, !srcloc !32
+  %1405 = extractvalue { i32, i64, i32, i32 } %1404, 0
+  %1406 = extractvalue { i32, i64, i32, i32 } %1404, 2
+  %1407 = extractvalue { i32, i64, i32, i32 } %1404, 3
+  store i32 %1405, ptr %4, align 16, !tbaa !12
+  store i32 %1406, ptr %43, align 8, !tbaa !12
+  store i32 %1407, ptr %44, align 4, !tbaa !12
+  %1408 = load i32, ptr %42, align 4, !tbaa !12
+  %1409 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1405, i32 noundef %1408, i32 noundef %1406, i32 noundef %1407) #16
+  %1410 = load i32, ptr %4, align 16, !tbaa !12
+  %1411 = and i32 %1410, 31
+  %.not272 = icmp eq i32 %1411, 0
+  br i1 %.not272, label %1414, label %1412
 
 1412:                                             ; preds = %dump_one_cpuid.exit582
-  %1413 = icmp eq i32 %.11856, 256
-  br i1 %1413, label %.thread914, label %1415
+  %1413 = add nuw nsw i32 %.11856, 1
+  %exitcond874.not = icmp eq i32 %1413, 256
+  br i1 %exitcond874.not, label %.thread910, label %.preheader835, !llvm.loop !45
 
-.thread914:                                       ; preds = %1410, %1412
-  %1414 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0245)
-  br label %1415
+1414:                                             ; preds = %dump_one_cpuid.exit582
+  %1415 = icmp eq i32 %.11856, 256
+  br i1 %1415, label %.thread910, label %1417
 
-1415:                                             ; preds = %1412, %.thread914
-  %1416 = icmp ne i32 %56, -2147483619
-  %or.cond13 = select i1 %.not271, i1 %1416, i1 false
-  br i1 %or.cond13, label %1417, label %1434
+.thread910:                                       ; preds = %1412, %1414
+  %1416 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0245)
+  br label %1417
 
-1417:                                             ; preds = %1415
+1417:                                             ; preds = %1414, %.thread910
+  %1418 = icmp ne i32 %50, -2147483619
+  %or.cond13 = select i1 %.not271, i1 %1418, i1 false
+  br i1 %or.cond13, label %1419, label %1436
+
+1419:                                             ; preds = %1417
   store i32 -2147483618, ptr %4, align 16, !tbaa !12
-  br label %1418
+  br label %1420
 
-1418:                                             ; preds = %1421, %1417
-  %indvars.iv.i583 = phi i64 [ 0, %1417 ], [ %indvars.iv.next.i585, %1421 ]
+1420:                                             ; preds = %1423, %1419
+  %indvars.iv.i583 = phi i64 [ 0, %1419 ], [ %indvars.iv.next.i585, %1423 ]
   %.not827 = icmp eq i64 %indvars.iv.i583, 0
-  br i1 %.not827, label %1421, label %1419
+  br i1 %.not827, label %1423, label %1421
 
-1419:                                             ; preds = %1418
-  %1420 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i583
-  store i32 0, ptr %1420, align 4, !tbaa !12
-  br label %1421
+1421:                                             ; preds = %1420
+  %1422 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i583
+  store i32 0, ptr %1422, align 4, !tbaa !12
+  br label %1423
 
-1421:                                             ; preds = %1419, %1418
+1423:                                             ; preds = %1421, %1420
   %indvars.iv.next.i585 = add nuw nsw i64 %indvars.iv.i583, 1
   %exitcond.not.i586 = icmp eq i64 %indvars.iv.next.i585, 4
-  br i1 %exitcond.not.i586, label %dump_one_cpuid.exit587, label %1418, !llvm.loop !33
+  br i1 %exitcond.not.i586, label %dump_one_cpuid.exit587, label %1420, !llvm.loop !33
 
-dump_one_cpuid.exit587:                           ; preds = %1421
-  %1422 = load i32, ptr %42, align 4, !tbaa !12
-  %1423 = load i32, ptr %43, align 8, !tbaa !12
-  %1424 = load i32, ptr %44, align 4, !tbaa !12
-  %1425 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483618, i32 noundef %1422, i32 noundef %1423, i32 noundef %1424) #16
-  %1426 = load i32, ptr %4, align 16, !tbaa !12
-  %1427 = load i32, ptr %43, align 8, !tbaa !12
-  %1428 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1426, i32 %1427) #16, !srcloc !32
-  %1429 = extractvalue { i32, i64, i32, i32 } %1428, 0
-  %1430 = extractvalue { i32, i64, i32, i32 } %1428, 2
-  %1431 = extractvalue { i32, i64, i32, i32 } %1428, 3
-  store i32 %1429, ptr %4, align 16, !tbaa !12
-  store i32 %1430, ptr %43, align 8, !tbaa !12
-  store i32 %1431, ptr %44, align 4, !tbaa !12
-  %1432 = load i32, ptr %42, align 4, !tbaa !12
-  %1433 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1429, i32 noundef %1432, i32 noundef %1430, i32 noundef %1431) #16
-  br label %1434
+dump_one_cpuid.exit587:                           ; preds = %1423
+  %1424 = load i32, ptr %42, align 4, !tbaa !12
+  %1425 = load i32, ptr %43, align 8, !tbaa !12
+  %1426 = load i32, ptr %44, align 4, !tbaa !12
+  %1427 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483618, i32 noundef %1424, i32 noundef %1425, i32 noundef %1426) #16
+  %1428 = load i32, ptr %4, align 16, !tbaa !12
+  %1429 = load i32, ptr %43, align 8, !tbaa !12
+  %1430 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1428, i32 %1429) #16, !srcloc !32
+  %1431 = extractvalue { i32, i64, i32, i32 } %1430, 0
+  %1432 = extractvalue { i32, i64, i32, i32 } %1430, 2
+  %1433 = extractvalue { i32, i64, i32, i32 } %1430, 3
+  store i32 %1431, ptr %4, align 16, !tbaa !12
+  store i32 %1432, ptr %43, align 8, !tbaa !12
+  store i32 %1433, ptr %44, align 4, !tbaa !12
+  %1434 = load i32, ptr %42, align 4, !tbaa !12
+  %1435 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1431, i32 noundef %1434, i32 noundef %1432, i32 noundef %1433) #16
+  br label %1436
 
-1434:                                             ; preds = %dump_one_cpuid.exit587, %1415
-  %1435 = icmp ugt i32 %56, -2147483618
-  br i1 %1435, label %1436, label %.thread783
+1436:                                             ; preds = %dump_one_cpuid.exit587, %1417
+  %1437 = icmp ugt i32 %50, -2147483618
+  br i1 %1437, label %1438, label %.thread783
 
-1436:                                             ; preds = %1434
+1438:                                             ; preds = %1436
   store i32 -2147483617, ptr %4, align 16, !tbaa !12
-  br label %1437
+  br label %1439
 
-1437:                                             ; preds = %1440, %1436
-  %indvars.iv.i588 = phi i64 [ 0, %1436 ], [ %indvars.iv.next.i590, %1440 ]
+1439:                                             ; preds = %1442, %1438
+  %indvars.iv.i588 = phi i64 [ 0, %1438 ], [ %indvars.iv.next.i590, %1442 ]
   %.not828 = icmp eq i64 %indvars.iv.i588, 0
-  br i1 %.not828, label %1440, label %1438
+  br i1 %.not828, label %1442, label %1440
 
-1438:                                             ; preds = %1437
-  %1439 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i588
-  store i32 0, ptr %1439, align 4, !tbaa !12
-  br label %1440
+1440:                                             ; preds = %1439
+  %1441 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i588
+  store i32 0, ptr %1441, align 4, !tbaa !12
+  br label %1442
 
-1440:                                             ; preds = %1438, %1437
+1442:                                             ; preds = %1440, %1439
   %indvars.iv.next.i590 = add nuw nsw i64 %indvars.iv.i588, 1
   %exitcond.not.i591 = icmp eq i64 %indvars.iv.next.i590, 4
-  br i1 %exitcond.not.i591, label %1441, label %1437, !llvm.loop !33
+  br i1 %exitcond.not.i591, label %1443, label %1439, !llvm.loop !33
 
-1441:                                             ; preds = %1440
-  %1442 = load i32, ptr %42, align 4, !tbaa !12
-  %1443 = load i32, ptr %43, align 8, !tbaa !12
-  %1444 = load i32, ptr %44, align 4, !tbaa !12
-  %1445 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483617, i32 noundef %1442, i32 noundef %1443, i32 noundef %1444) #16
-  %1446 = load i32, ptr %4, align 16, !tbaa !12
-  %1447 = load i32, ptr %43, align 8, !tbaa !12
-  %1448 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1446, i32 %1447) #16, !srcloc !32
-  %1449 = extractvalue { i32, i64, i32, i32 } %1448, 0
-  %1450 = extractvalue { i32, i64, i32, i32 } %1448, 2
-  %1451 = extractvalue { i32, i64, i32, i32 } %1448, 3
-  store i32 %1449, ptr %4, align 16, !tbaa !12
-  store i32 %1450, ptr %43, align 8, !tbaa !12
-  store i32 %1451, ptr %44, align 4, !tbaa !12
-  %1452 = load i32, ptr %42, align 4, !tbaa !12
-  %1453 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1449, i32 noundef %1452, i32 noundef %1450, i32 noundef %1451) #16
-  %.not829 = icmp eq i32 %56, -2147483617
-  br i1 %.not829, label %.thread783, label %1454
+1443:                                             ; preds = %1442
+  %1444 = load i32, ptr %42, align 4, !tbaa !12
+  %1445 = load i32, ptr %43, align 8, !tbaa !12
+  %1446 = load i32, ptr %44, align 4, !tbaa !12
+  %1447 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483617, i32 noundef %1444, i32 noundef %1445, i32 noundef %1446) #16
+  %1448 = load i32, ptr %4, align 16, !tbaa !12
+  %1449 = load i32, ptr %43, align 8, !tbaa !12
+  %1450 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1448, i32 %1449) #16, !srcloc !32
+  %1451 = extractvalue { i32, i64, i32, i32 } %1450, 0
+  %1452 = extractvalue { i32, i64, i32, i32 } %1450, 2
+  %1453 = extractvalue { i32, i64, i32, i32 } %1450, 3
+  store i32 %1451, ptr %4, align 16, !tbaa !12
+  store i32 %1452, ptr %43, align 8, !tbaa !12
+  store i32 %1453, ptr %44, align 4, !tbaa !12
+  %1454 = load i32, ptr %42, align 4, !tbaa !12
+  %1455 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1451, i32 noundef %1454, i32 noundef %1452, i32 noundef %1453) #16
+  %.not829 = icmp eq i32 %50, -2147483617
+  br i1 %.not829, label %.thread783, label %1456
 
-1454:                                             ; preds = %1441
+1456:                                             ; preds = %1443
   store i32 -2147483616, ptr %4, align 16, !tbaa !12
   store i32 0, ptr %43, align 8, !tbaa !12
-  br label %1455
+  br label %1457
 
-1455:                                             ; preds = %1461, %1454
-  %indvars.iv.i593 = phi i64 [ 0, %1454 ], [ %indvars.iv.next.i595, %1461 ]
-  %1456 = trunc nuw nsw i64 %indvars.iv.i593 to i32
-  %1457 = shl nuw nsw i32 1, %1456
-  %1458 = and i32 %1457, 5
-  %.not.i594 = icmp eq i32 %1458, 0
-  br i1 %.not.i594, label %1459, label %1461
+1457:                                             ; preds = %1463, %1456
+  %indvars.iv.i593 = phi i64 [ 0, %1456 ], [ %indvars.iv.next.i595, %1463 ]
+  %1458 = trunc nuw nsw i64 %indvars.iv.i593 to i32
+  %1459 = shl nuw nsw i32 1, %1458
+  %1460 = and i32 %1459, 5
+  %.not.i594 = icmp eq i32 %1460, 0
+  br i1 %.not.i594, label %1461, label %1463
 
-1459:                                             ; preds = %1455
-  %1460 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i593
-  store i32 0, ptr %1460, align 4, !tbaa !12
-  br label %1461
+1461:                                             ; preds = %1457
+  %1462 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i593
+  store i32 0, ptr %1462, align 4, !tbaa !12
+  br label %1463
 
-1461:                                             ; preds = %1459, %1455
+1463:                                             ; preds = %1461, %1457
   %indvars.iv.next.i595 = add nuw nsw i64 %indvars.iv.i593, 1
   %exitcond.not.i596 = icmp eq i64 %indvars.iv.next.i595, 4
-  br i1 %exitcond.not.i596, label %dump_one_cpuid.exit597, label %1455, !llvm.loop !33
+  br i1 %exitcond.not.i596, label %dump_one_cpuid.exit597, label %1457, !llvm.loop !33
 
-dump_one_cpuid.exit597:                           ; preds = %1461
-  %1462 = load i32, ptr %4, align 16, !tbaa !12
-  %1463 = load i32, ptr %42, align 4, !tbaa !12
-  %1464 = load i32, ptr %43, align 8, !tbaa !12
-  %1465 = load i32, ptr %44, align 4, !tbaa !12
-  %1466 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1462, i32 noundef %1463, i32 noundef %1464, i32 noundef %1465) #16
-  %1467 = load i32, ptr %4, align 16, !tbaa !12
-  %1468 = load i32, ptr %43, align 8, !tbaa !12
-  %1469 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1467, i32 %1468) #16, !srcloc !32
-  %1470 = extractvalue { i32, i64, i32, i32 } %1469, 0
-  %1471 = extractvalue { i32, i64, i32, i32 } %1469, 2
-  %1472 = extractvalue { i32, i64, i32, i32 } %1469, 3
-  store i32 %1470, ptr %4, align 16, !tbaa !12
-  store i32 %1471, ptr %43, align 8, !tbaa !12
-  store i32 %1472, ptr %44, align 4, !tbaa !12
-  %1473 = load i32, ptr %42, align 4, !tbaa !12
-  %1474 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1470, i32 noundef %1473, i32 noundef %1471, i32 noundef %1472) #16
+dump_one_cpuid.exit597:                           ; preds = %1463
+  %1464 = load i32, ptr %4, align 16, !tbaa !12
+  %1465 = load i32, ptr %42, align 4, !tbaa !12
+  %1466 = load i32, ptr %43, align 8, !tbaa !12
+  %1467 = load i32, ptr %44, align 4, !tbaa !12
+  %1468 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1464, i32 noundef %1465, i32 noundef %1466, i32 noundef %1467) #16
+  %1469 = load i32, ptr %4, align 16, !tbaa !12
+  %1470 = load i32, ptr %43, align 8, !tbaa !12
+  %1471 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1469, i32 %1470) #16, !srcloc !32
+  %1472 = extractvalue { i32, i64, i32, i32 } %1471, 0
+  %1473 = extractvalue { i32, i64, i32, i32 } %1471, 2
+  %1474 = extractvalue { i32, i64, i32, i32 } %1471, 3
+  store i32 %1472, ptr %4, align 16, !tbaa !12
+  store i32 %1473, ptr %43, align 8, !tbaa !12
+  store i32 %1474, ptr %44, align 4, !tbaa !12
+  %1475 = load i32, ptr %42, align 4, !tbaa !12
+  %1476 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1472, i32 noundef %1475, i32 noundef %1473, i32 noundef %1474) #16
   store i32 -2147483616, ptr %4, align 16, !tbaa !12
   store i32 1, ptr %43, align 8, !tbaa !12
-  br label %1475
+  br label %1477
 
-1475:                                             ; preds = %1481, %dump_one_cpuid.exit597
-  %indvars.iv.i598 = phi i64 [ 0, %dump_one_cpuid.exit597 ], [ %indvars.iv.next.i600, %1481 ]
-  %1476 = trunc nuw nsw i64 %indvars.iv.i598 to i32
-  %1477 = shl nuw nsw i32 1, %1476
-  %1478 = and i32 %1477, 5
-  %.not.i599 = icmp eq i32 %1478, 0
-  br i1 %.not.i599, label %1479, label %1481
+1477:                                             ; preds = %1483, %dump_one_cpuid.exit597
+  %indvars.iv.i598 = phi i64 [ 0, %dump_one_cpuid.exit597 ], [ %indvars.iv.next.i600, %1483 ]
+  %1478 = trunc nuw nsw i64 %indvars.iv.i598 to i32
+  %1479 = shl nuw nsw i32 1, %1478
+  %1480 = and i32 %1479, 5
+  %.not.i599 = icmp eq i32 %1480, 0
+  br i1 %.not.i599, label %1481, label %1483
 
-1479:                                             ; preds = %1475
-  %1480 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i598
-  store i32 0, ptr %1480, align 4, !tbaa !12
-  br label %1481
+1481:                                             ; preds = %1477
+  %1482 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i598
+  store i32 0, ptr %1482, align 4, !tbaa !12
+  br label %1483
 
-1481:                                             ; preds = %1479, %1475
+1483:                                             ; preds = %1481, %1477
   %indvars.iv.next.i600 = add nuw nsw i64 %indvars.iv.i598, 1
   %exitcond.not.i601 = icmp eq i64 %indvars.iv.next.i600, 4
-  br i1 %exitcond.not.i601, label %1482, label %1475, !llvm.loop !33
+  br i1 %exitcond.not.i601, label %1484, label %1477, !llvm.loop !33
 
-1482:                                             ; preds = %1481
-  %1483 = load i32, ptr %4, align 16, !tbaa !12
-  %1484 = load i32, ptr %42, align 4, !tbaa !12
-  %1485 = load i32, ptr %43, align 8, !tbaa !12
-  %1486 = load i32, ptr %44, align 4, !tbaa !12
-  %1487 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1483, i32 noundef %1484, i32 noundef %1485, i32 noundef %1486) #16
-  %1488 = load i32, ptr %4, align 16, !tbaa !12
-  %1489 = load i32, ptr %43, align 8, !tbaa !12
-  %1490 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1488, i32 %1489) #16, !srcloc !32
-  %1491 = extractvalue { i32, i64, i32, i32 } %1490, 0
-  %1492 = extractvalue { i32, i64, i32, i32 } %1490, 2
-  %1493 = extractvalue { i32, i64, i32, i32 } %1490, 3
-  store i32 %1491, ptr %4, align 16, !tbaa !12
-  store i32 %1492, ptr %43, align 8, !tbaa !12
-  store i32 %1493, ptr %44, align 4, !tbaa !12
-  %1494 = load i32, ptr %42, align 4, !tbaa !12
-  %1495 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1491, i32 noundef %1494, i32 noundef %1492, i32 noundef %1493) #16
-  %1496 = icmp ugt i32 %56, -2147483616
-  br i1 %1496, label %1497, label %.thread783
+1484:                                             ; preds = %1483
+  %1485 = load i32, ptr %4, align 16, !tbaa !12
+  %1486 = load i32, ptr %42, align 4, !tbaa !12
+  %1487 = load i32, ptr %43, align 8, !tbaa !12
+  %1488 = load i32, ptr %44, align 4, !tbaa !12
+  %1489 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1485, i32 noundef %1486, i32 noundef %1487, i32 noundef %1488) #16
+  %1490 = load i32, ptr %4, align 16, !tbaa !12
+  %1491 = load i32, ptr %43, align 8, !tbaa !12
+  %1492 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1490, i32 %1491) #16, !srcloc !32
+  %1493 = extractvalue { i32, i64, i32, i32 } %1492, 0
+  %1494 = extractvalue { i32, i64, i32, i32 } %1492, 2
+  %1495 = extractvalue { i32, i64, i32, i32 } %1492, 3
+  store i32 %1493, ptr %4, align 16, !tbaa !12
+  store i32 %1494, ptr %43, align 8, !tbaa !12
+  store i32 %1495, ptr %44, align 4, !tbaa !12
+  %1496 = load i32, ptr %42, align 4, !tbaa !12
+  %1497 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1493, i32 noundef %1496, i32 noundef %1494, i32 noundef %1495) #16
+  %1498 = icmp ugt i32 %50, -2147483616
+  br i1 %1498, label %1499, label %.thread783
 
-1497:                                             ; preds = %1482
+1499:                                             ; preds = %1484
   store i32 -2147483615, ptr %4, align 16, !tbaa !12
-  br label %1498
+  br label %1500
 
-1498:                                             ; preds = %1501, %1497
-  %indvars.iv.i603 = phi i64 [ 0, %1497 ], [ %indvars.iv.next.i605, %1501 ]
+1500:                                             ; preds = %1503, %1499
+  %indvars.iv.i603 = phi i64 [ 0, %1499 ], [ %indvars.iv.next.i605, %1503 ]
   %.not830 = icmp eq i64 %indvars.iv.i603, 0
-  br i1 %.not830, label %1501, label %1499
+  br i1 %.not830, label %1503, label %1501
 
-1499:                                             ; preds = %1498
-  %1500 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i603
-  store i32 0, ptr %1500, align 4, !tbaa !12
-  br label %1501
+1501:                                             ; preds = %1500
+  %1502 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i603
+  store i32 0, ptr %1502, align 4, !tbaa !12
+  br label %1503
 
-1501:                                             ; preds = %1499, %1498
+1503:                                             ; preds = %1501, %1500
   %indvars.iv.next.i605 = add nuw nsw i64 %indvars.iv.i603, 1
   %exitcond.not.i606 = icmp eq i64 %indvars.iv.next.i605, 4
-  br i1 %exitcond.not.i606, label %1502, label %1498, !llvm.loop !33
+  br i1 %exitcond.not.i606, label %1504, label %1500, !llvm.loop !33
 
-1502:                                             ; preds = %1501
-  %1503 = load i32, ptr %42, align 4, !tbaa !12
-  %1504 = load i32, ptr %43, align 8, !tbaa !12
-  %1505 = load i32, ptr %44, align 4, !tbaa !12
-  %1506 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483615, i32 noundef %1503, i32 noundef %1504, i32 noundef %1505) #16
-  %1507 = load i32, ptr %4, align 16, !tbaa !12
-  %1508 = load i32, ptr %43, align 8, !tbaa !12
-  %1509 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1507, i32 %1508) #16, !srcloc !32
-  %1510 = extractvalue { i32, i64, i32, i32 } %1509, 0
-  %1511 = extractvalue { i32, i64, i32, i32 } %1509, 2
-  %1512 = extractvalue { i32, i64, i32, i32 } %1509, 3
-  store i32 %1510, ptr %4, align 16, !tbaa !12
-  store i32 %1511, ptr %43, align 8, !tbaa !12
-  store i32 %1512, ptr %44, align 4, !tbaa !12
-  %1513 = load i32, ptr %42, align 4, !tbaa !12
-  %1514 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1510, i32 noundef %1513, i32 noundef %1511, i32 noundef %1512) #16
-  %.not831 = icmp eq i32 %56, -2147483615
-  br i1 %.not831, label %.thread783, label %1515
+1504:                                             ; preds = %1503
+  %1505 = load i32, ptr %42, align 4, !tbaa !12
+  %1506 = load i32, ptr %43, align 8, !tbaa !12
+  %1507 = load i32, ptr %44, align 4, !tbaa !12
+  %1508 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483615, i32 noundef %1505, i32 noundef %1506, i32 noundef %1507) #16
+  %1509 = load i32, ptr %4, align 16, !tbaa !12
+  %1510 = load i32, ptr %43, align 8, !tbaa !12
+  %1511 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1509, i32 %1510) #16, !srcloc !32
+  %1512 = extractvalue { i32, i64, i32, i32 } %1511, 0
+  %1513 = extractvalue { i32, i64, i32, i32 } %1511, 2
+  %1514 = extractvalue { i32, i64, i32, i32 } %1511, 3
+  store i32 %1512, ptr %4, align 16, !tbaa !12
+  store i32 %1513, ptr %43, align 8, !tbaa !12
+  store i32 %1514, ptr %44, align 4, !tbaa !12
+  %1515 = load i32, ptr %42, align 4, !tbaa !12
+  %1516 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1512, i32 noundef %1515, i32 noundef %1513, i32 noundef %1514) #16
+  %.not831 = icmp eq i32 %50, -2147483615
+  br i1 %.not831, label %.thread783, label %1517
 
-1515:                                             ; preds = %1502
+1517:                                             ; preds = %1504
   store i32 -2147483614, ptr %4, align 16, !tbaa !12
-  br label %1516
+  br label %1518
 
-1516:                                             ; preds = %1519, %1515
-  %indvars.iv.i608 = phi i64 [ 0, %1515 ], [ %indvars.iv.next.i610, %1519 ]
+1518:                                             ; preds = %1521, %1517
+  %indvars.iv.i608 = phi i64 [ 0, %1517 ], [ %indvars.iv.next.i610, %1521 ]
   %.not832 = icmp eq i64 %indvars.iv.i608, 0
-  br i1 %.not832, label %1519, label %1517
+  br i1 %.not832, label %1521, label %1519
 
-1517:                                             ; preds = %1516
-  %1518 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i608
-  store i32 0, ptr %1518, align 4, !tbaa !12
-  br label %1519
+1519:                                             ; preds = %1518
+  %1520 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i608
+  store i32 0, ptr %1520, align 4, !tbaa !12
+  br label %1521
 
-1519:                                             ; preds = %1517, %1516
+1521:                                             ; preds = %1519, %1518
   %indvars.iv.next.i610 = add nuw nsw i64 %indvars.iv.i608, 1
   %exitcond.not.i611 = icmp eq i64 %indvars.iv.next.i610, 4
-  br i1 %exitcond.not.i611, label %1520, label %1516, !llvm.loop !33
+  br i1 %exitcond.not.i611, label %1522, label %1518, !llvm.loop !33
 
-1520:                                             ; preds = %1519
-  %1521 = load i32, ptr %42, align 4, !tbaa !12
-  %1522 = load i32, ptr %43, align 8, !tbaa !12
-  %1523 = load i32, ptr %44, align 4, !tbaa !12
-  %1524 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483614, i32 noundef %1521, i32 noundef %1522, i32 noundef %1523) #16
-  %1525 = load i32, ptr %4, align 16, !tbaa !12
-  %1526 = load i32, ptr %43, align 8, !tbaa !12
-  %1527 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1525, i32 %1526) #16, !srcloc !32
-  %1528 = extractvalue { i32, i64, i32, i32 } %1527, 0
-  %1529 = extractvalue { i32, i64, i32, i32 } %1527, 2
-  %1530 = extractvalue { i32, i64, i32, i32 } %1527, 3
-  store i32 %1528, ptr %4, align 16, !tbaa !12
-  store i32 %1529, ptr %43, align 8, !tbaa !12
-  store i32 %1530, ptr %44, align 4, !tbaa !12
-  %1531 = load i32, ptr %42, align 4, !tbaa !12
-  %1532 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1528, i32 noundef %1531, i32 noundef %1529, i32 noundef %1530) #16
-  %1533 = icmp ugt i32 %56, -2147483614
-  br i1 %1533, label %1534, label %.thread783
+1522:                                             ; preds = %1521
+  %1523 = load i32, ptr %42, align 4, !tbaa !12
+  %1524 = load i32, ptr %43, align 8, !tbaa !12
+  %1525 = load i32, ptr %44, align 4, !tbaa !12
+  %1526 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483614, i32 noundef %1523, i32 noundef %1524, i32 noundef %1525) #16
+  %1527 = load i32, ptr %4, align 16, !tbaa !12
+  %1528 = load i32, ptr %43, align 8, !tbaa !12
+  %1529 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1527, i32 %1528) #16, !srcloc !32
+  %1530 = extractvalue { i32, i64, i32, i32 } %1529, 0
+  %1531 = extractvalue { i32, i64, i32, i32 } %1529, 2
+  %1532 = extractvalue { i32, i64, i32, i32 } %1529, 3
+  store i32 %1530, ptr %4, align 16, !tbaa !12
+  store i32 %1531, ptr %43, align 8, !tbaa !12
+  store i32 %1532, ptr %44, align 4, !tbaa !12
+  %1533 = load i32, ptr %42, align 4, !tbaa !12
+  %1534 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1530, i32 noundef %1533, i32 noundef %1531, i32 noundef %1532) #16
+  %1535 = icmp ugt i32 %50, -2147483614
+  br i1 %1535, label %1536, label %.thread783
 
-1534:                                             ; preds = %1520
+1536:                                             ; preds = %1522
   store i32 -2147483613, ptr %4, align 16, !tbaa !12
-  br label %1535
+  br label %1537
 
-1535:                                             ; preds = %1538, %1534
-  %indvars.iv.i613 = phi i64 [ 0, %1534 ], [ %indvars.iv.next.i615, %1538 ]
+1537:                                             ; preds = %1540, %1536
+  %indvars.iv.i613 = phi i64 [ 0, %1536 ], [ %indvars.iv.next.i615, %1540 ]
   %.not833 = icmp eq i64 %indvars.iv.i613, 0
-  br i1 %.not833, label %1538, label %1536
+  br i1 %.not833, label %1540, label %1538
 
-1536:                                             ; preds = %1535
-  %1537 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i613
-  store i32 0, ptr %1537, align 4, !tbaa !12
-  br label %1538
+1538:                                             ; preds = %1537
+  %1539 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i613
+  store i32 0, ptr %1539, align 4, !tbaa !12
+  br label %1540
 
-1538:                                             ; preds = %1536, %1535
+1540:                                             ; preds = %1538, %1537
   %indvars.iv.next.i615 = add nuw nsw i64 %indvars.iv.i613, 1
   %exitcond.not.i616 = icmp eq i64 %indvars.iv.next.i615, 4
-  br i1 %exitcond.not.i616, label %1539, label %1535, !llvm.loop !33
+  br i1 %exitcond.not.i616, label %1541, label %1537, !llvm.loop !33
 
-1539:                                             ; preds = %1538
-  %1540 = load i32, ptr %42, align 4, !tbaa !12
-  %1541 = load i32, ptr %43, align 8, !tbaa !12
-  %1542 = load i32, ptr %44, align 4, !tbaa !12
-  %1543 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483613, i32 noundef %1540, i32 noundef %1541, i32 noundef %1542) #16
-  %1544 = load i32, ptr %4, align 16, !tbaa !12
-  %1545 = load i32, ptr %43, align 8, !tbaa !12
-  %1546 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1544, i32 %1545) #16, !srcloc !32
-  %1547 = extractvalue { i32, i64, i32, i32 } %1546, 0
-  %1548 = extractvalue { i32, i64, i32, i32 } %1546, 2
-  %1549 = extractvalue { i32, i64, i32, i32 } %1546, 3
-  store i32 %1547, ptr %4, align 16, !tbaa !12
-  store i32 %1548, ptr %43, align 8, !tbaa !12
-  store i32 %1549, ptr %44, align 4, !tbaa !12
-  %1550 = load i32, ptr %42, align 4, !tbaa !12
-  %1551 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1547, i32 noundef %1550, i32 noundef %1548, i32 noundef %1549) #16
-  %1552 = icmp ugt i32 %56, -2147483611
-  br i1 %1552, label %.preheader, label %.thread783
+1541:                                             ; preds = %1540
+  %1542 = load i32, ptr %42, align 4, !tbaa !12
+  %1543 = load i32, ptr %43, align 8, !tbaa !12
+  %1544 = load i32, ptr %44, align 4, !tbaa !12
+  %1545 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483613, i32 noundef %1542, i32 noundef %1543, i32 noundef %1544) #16
+  %1546 = load i32, ptr %4, align 16, !tbaa !12
+  %1547 = load i32, ptr %43, align 8, !tbaa !12
+  %1548 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1546, i32 %1547) #16, !srcloc !32
+  %1549 = extractvalue { i32, i64, i32, i32 } %1548, 0
+  %1550 = extractvalue { i32, i64, i32, i32 } %1548, 2
+  %1551 = extractvalue { i32, i64, i32, i32 } %1548, 3
+  store i32 %1549, ptr %4, align 16, !tbaa !12
+  store i32 %1550, ptr %43, align 8, !tbaa !12
+  store i32 %1551, ptr %44, align 4, !tbaa !12
+  %1552 = load i32, ptr %42, align 4, !tbaa !12
+  %1553 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1549, i32 noundef %1552, i32 noundef %1550, i32 noundef %1551) #16
+  %1554 = icmp ugt i32 %50, -2147483611
+  br i1 %1554, label %.preheader, label %.thread783
 
-.preheader:                                       ; preds = %1539, %1575
-  %.12857 = phi i32 [ %1576, %1575 ], [ 0, %1539 ]
+.preheader:                                       ; preds = %1541, %1577
+  %.12857 = phi i32 [ %1578, %1577 ], [ 0, %1541 ]
   store i32 -2147483610, ptr %4, align 16, !tbaa !12
   store i32 %.12857, ptr %43, align 8, !tbaa !12
-  br label %1553
+  br label %1555
 
-1553:                                             ; preds = %1559, %.preheader
-  %indvars.iv.i618 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next.i620, %1559 ]
-  %1554 = trunc nuw nsw i64 %indvars.iv.i618 to i32
-  %1555 = shl nuw nsw i32 1, %1554
-  %1556 = and i32 %1555, 5
-  %.not.i619 = icmp eq i32 %1556, 0
-  br i1 %.not.i619, label %1557, label %1559
+1555:                                             ; preds = %1561, %.preheader
+  %indvars.iv.i618 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next.i620, %1561 ]
+  %1556 = trunc nuw nsw i64 %indvars.iv.i618 to i32
+  %1557 = shl nuw nsw i32 1, %1556
+  %1558 = and i32 %1557, 5
+  %.not.i619 = icmp eq i32 %1558, 0
+  br i1 %.not.i619, label %1559, label %1561
 
-1557:                                             ; preds = %1553
-  %1558 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i618
-  store i32 0, ptr %1558, align 4, !tbaa !12
-  br label %1559
+1559:                                             ; preds = %1555
+  %1560 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i618
+  store i32 0, ptr %1560, align 4, !tbaa !12
+  br label %1561
 
-1559:                                             ; preds = %1557, %1553
+1561:                                             ; preds = %1559, %1555
   %indvars.iv.next.i620 = add nuw nsw i64 %indvars.iv.i618, 1
   %exitcond.not.i621 = icmp eq i64 %indvars.iv.next.i620, 4
-  br i1 %exitcond.not.i621, label %dump_one_cpuid.exit622, label %1553, !llvm.loop !33
+  br i1 %exitcond.not.i621, label %dump_one_cpuid.exit622, label %1555, !llvm.loop !33
 
-dump_one_cpuid.exit622:                           ; preds = %1559
-  %1560 = load i32, ptr %4, align 16, !tbaa !12
-  %1561 = load i32, ptr %42, align 4, !tbaa !12
-  %1562 = load i32, ptr %43, align 8, !tbaa !12
-  %1563 = load i32, ptr %44, align 4, !tbaa !12
-  %1564 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1560, i32 noundef %1561, i32 noundef %1562, i32 noundef %1563) #16
-  %1565 = load i32, ptr %4, align 16, !tbaa !12
-  %1566 = load i32, ptr %43, align 8, !tbaa !12
-  %1567 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1565, i32 %1566) #16, !srcloc !32
-  %1568 = extractvalue { i32, i64, i32, i32 } %1567, 0
-  %1569 = extractvalue { i32, i64, i32, i32 } %1567, 2
-  %1570 = extractvalue { i32, i64, i32, i32 } %1567, 3
-  store i32 %1568, ptr %4, align 16, !tbaa !12
-  store i32 %1569, ptr %43, align 8, !tbaa !12
-  store i32 %1570, ptr %44, align 4, !tbaa !12
-  %1571 = load i32, ptr %42, align 4, !tbaa !12
-  %1572 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1568, i32 noundef %1571, i32 noundef %1569, i32 noundef %1570) #16
+dump_one_cpuid.exit622:                           ; preds = %1561
+  %1562 = load i32, ptr %4, align 16, !tbaa !12
+  %1563 = load i32, ptr %42, align 4, !tbaa !12
+  %1564 = load i32, ptr %43, align 8, !tbaa !12
+  %1565 = load i32, ptr %44, align 4, !tbaa !12
+  %1566 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1562, i32 noundef %1563, i32 noundef %1564, i32 noundef %1565) #16
+  %1567 = load i32, ptr %4, align 16, !tbaa !12
+  %1568 = load i32, ptr %43, align 8, !tbaa !12
+  %1569 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1567, i32 %1568) #16, !srcloc !32
+  %1570 = extractvalue { i32, i64, i32, i32 } %1569, 0
+  %1571 = extractvalue { i32, i64, i32, i32 } %1569, 2
+  %1572 = extractvalue { i32, i64, i32, i32 } %1569, 3
+  store i32 %1570, ptr %4, align 16, !tbaa !12
+  store i32 %1571, ptr %43, align 8, !tbaa !12
+  store i32 %1572, ptr %44, align 4, !tbaa !12
   %1573 = load i32, ptr %42, align 4, !tbaa !12
-  %1574 = and i32 %1573, 65535
-  %.not273 = icmp eq i32 %1574, 0
-  br i1 %.not273, label %1577, label %1575
-
-1575:                                             ; preds = %dump_one_cpuid.exit622
-  %1576 = add nuw nsw i32 %.12857, 1
-  %exitcond875.not = icmp eq i32 %1576, 256
-  br i1 %exitcond875.not, label %.thread916, label %.preheader, !llvm.loop !46
+  %1574 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0245, ptr noundef nonnull @.str.49, i32 noundef %1570, i32 noundef %1573, i32 noundef %1571, i32 noundef %1572) #16
+  %1575 = load i32, ptr %42, align 4, !tbaa !12
+  %1576 = and i32 %1575, 65535
+  %.not273 = icmp eq i32 %1576, 0
+  br i1 %.not273, label %1579, label %1577
 
 1577:                                             ; preds = %dump_one_cpuid.exit622
-  %1578 = icmp eq i32 %.12857, 256
-  br i1 %1578, label %.thread916, label %1580
+  %1578 = add nuw nsw i32 %.12857, 1
+  %exitcond875.not = icmp eq i32 %1578, 256
+  br i1 %exitcond875.not, label %.thread912, label %.preheader, !llvm.loop !46
 
-.thread916:                                       ; preds = %1575, %1577
-  %1579 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0245)
-  br label %1580
+1579:                                             ; preds = %dump_one_cpuid.exit622
+  %1580 = icmp eq i32 %.12857, 256
+  br i1 %1580, label %.thread912, label %1582
 
-1580:                                             ; preds = %1577, %.thread916
-  %.not834 = icmp eq i32 %56, -2147483610
-  br i1 %.not834, label %.thread783, label %1581
+.thread912:                                       ; preds = %1577, %1579
+  %1581 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0245)
+  br label %1582
 
-1581:                                             ; preds = %1580
+1582:                                             ; preds = %1579, %.thread912
+  %.not834 = icmp eq i32 %50, -2147483610
+  br i1 %.not834, label %.thread783, label %1583
+
+1583:                                             ; preds = %1582
   %.b252 = load i1, ptr @dump_one_proc.reported.46, align 4
-  br i1 %.b252, label %1585, label %1582
+  br i1 %.b252, label %1587, label %1584
 
-1582:                                             ; preds = %1581
-  %1583 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %1584 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1583, ptr noundef nonnull @.str.47, i32 noundef %56) #18
-  br label %1585
+1584:                                             ; preds = %1583
+  %1585 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %1586 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1585, ptr noundef nonnull @.str.47, i32 noundef %50) #18
+  br label %1587
 
-1585:                                             ; preds = %1582, %1581
+1587:                                             ; preds = %1584, %1583
   store i1 true, ptr @dump_one_proc.reported.46, align 4
   br label %.thread783
 
-.thread783:                                       ; preds = %1374, %1356, %1337, %1319, %1300, %1281, %1263, %1244, %1226, %1207, %1189, %1170, %1150, %dump_one_cpuid.exit512, %1434, %1441, %1482, %1502, %1520, %1539, %1585, %1580
-  br i1 %.not, label %1588, label %1586
+.thread783:                                       ; preds = %1376, %1358, %1339, %1321, %1302, %1283, %1265, %1246, %1228, %1209, %1191, %1172, %1152, %dump_one_cpuid.exit512, %1436, %1443, %1484, %1504, %1522, %1541, %1587, %1582
+  br i1 %.not, label %1590, label %1588
 
-1586:                                             ; preds = %.thread783
-  %1587 = call i32 @fclose(ptr noundef %.0245)
-  br label %1588
+1588:                                             ; preds = %.thread783
+  %1589 = call i32 @fclose(ptr noundef %.0245)
+  br label %1590
 
-1588:                                             ; preds = %.thread783, %1586, %21, %13
+1590:                                             ; preds = %.thread783, %1588, %21, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

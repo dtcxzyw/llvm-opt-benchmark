@@ -670,13 +670,16 @@ _ZN4llvm16ValueSymbolTable5beginEv.exit.i:        ; preds = %.preheader.i.i.i.i.
 
 .lr.ph.split.us.i44:                              ; preds = %.lr.ph.i39, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us.i
   %.sroa.07.012.us.i = phi ptr [ %storemerge.i.us.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us.i ], [ %.sroa.0.1.i.i.i, %.lr.ph.i39 ]
+  %141 = load ptr, ptr %.sroa.07.012.us.i, align 8, !tbaa !94
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %143 = load ptr, ptr %142, align 8, !tbaa !97
   br label %.critedge.i.i.us.i
 
 .critedge.i.i.us.i:                               ; preds = %.critedge.i.i.us.i.backedge, %.lr.ph.split.us.i44
   %.pn.i.us.i = phi ptr [ %.sroa.07.012.us.i, %.lr.ph.split.us.i44 ], [ %storemerge.i.us.i, %.critedge.i.i.us.i.backedge ]
   %storemerge.i.us.i = getelementptr inbounds nuw i8, ptr %.pn.i.us.i, i64 8
-  %141 = load ptr, ptr %storemerge.i.us.i, align 8, !tbaa !94
-  %magicptr.i.i.us.i = ptrtoint ptr %141 to i64
+  %144 = load ptr, ptr %storemerge.i.us.i, align 8, !tbaa !94
+  %magicptr.i.i.us.i = ptrtoint ptr %144 to i64
   switch i64 %magicptr.i.i.us.i, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_5ValueEEENS_14StringMapEntryIS3_EEEppEv.exit.us.i [
     i64 0, label %.critedge.i.i.us.i.backedge
     i64 -8, label %.critedge.i.i.us.i.backedge
@@ -686,15 +689,12 @@ _ZN4llvm16ValueSymbolTable5beginEv.exit.i:        ; preds = %.preheader.i.i.i.i.
   br label %.critedge.i.i.us.i, !llvm.loop !96
 
 _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_5ValueEEENS_14StringMapEntryIS3_EEEppEv.exit.us.i: ; preds = %.critedge.i.i.us.i
-  %142 = load ptr, ptr %.sroa.07.012.us.i, align 8, !tbaa !94
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %144 = load ptr, ptr %143, align 8, !tbaa !97
-  %145 = load i8, ptr %144, align 8, !tbaa !99
+  %145 = load i8, ptr %143, align 8, !tbaa !99
   %switch.selectcmp.i.i.i.i.i.i.i.us.i = icmp ult i8 %145, 4
   br i1 %switch.selectcmp.i.i.i.i.i.i.i.us.i, label %146, label %151
 
 146:                                              ; preds = %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_5ValueEEENS_14StringMapEntryIS3_EEEppEv.exit.us.i
-  %147 = getelementptr inbounds nuw i8, ptr %144, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %143, i64 32
   %148 = load i32, ptr %147, align 8
   %149 = and i32 %148, 15
   %150 = add nsw i32 %149, -7
@@ -702,7 +702,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_5ValueEEENS_14StringMapEn
   br i1 %spec.select.i.i.us.i, label %151, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us.i
 
 151:                                              ; preds = %146, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_5ValueEEENS_14StringMapEntryIS3_EEEppEv.exit.us.i
-  %152 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %144) #18
+  %152 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %143) #18
   %153 = extractvalue { ptr, i64 } %152, 1
   %.not.i.us.i45 = icmp ult i64 %153, 8
   br i1 %.not.i.us.i45, label %.critedge.us.i48, label %_ZNK4llvm9StringRef11starts_withES0_.exit.us.i46
@@ -716,7 +716,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.us.i46: ; preds = %151
 .critedge.us.i48:                                 ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.us.i46, %151
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 257, ptr %21, align 8
-  call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %144, ptr noundef nonnull align 8 dereferenceable(34) %3) #18
+  call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %143, ptr noundef nonnull align 8 dereferenceable(34) %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.us.i
 
@@ -726,13 +726,16 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.us.i: ; preds = %.critedge.us.i
 
 .lr.ph.split.i40:                                 ; preds = %.lr.ph.i39, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i
   %.sroa.07.012.i = phi ptr [ %storemerge.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i ], [ %.sroa.0.1.i.i.i, %.lr.ph.i39 ]
+  %156 = load ptr, ptr %.sroa.07.012.i, align 8, !tbaa !94
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %158 = load ptr, ptr %157, align 8, !tbaa !97
   br label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.critedge.i.i.i.backedge, %.lr.ph.split.i40
   %.pn.i.i = phi ptr [ %.sroa.07.012.i, %.lr.ph.split.i40 ], [ %storemerge.i.i, %.critedge.i.i.i.backedge ]
   %storemerge.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 8
-  %156 = load ptr, ptr %storemerge.i.i, align 8, !tbaa !94
-  %magicptr.i.i.i = ptrtoint ptr %156 to i64
+  %159 = load ptr, ptr %storemerge.i.i, align 8, !tbaa !94
+  %magicptr.i.i.i = ptrtoint ptr %159 to i64
   switch i64 %magicptr.i.i.i, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_5ValueEEENS_14StringMapEntryIS3_EEEppEv.exit.i [
     i64 0, label %.critedge.i.i.i.backedge
     i64 -8, label %.critedge.i.i.i.backedge
@@ -742,15 +745,12 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.us.i: ; preds = %.critedge.us.i
   br label %.critedge.i.i.i, !llvm.loop !96
 
 _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_5ValueEEENS_14StringMapEntryIS3_EEEppEv.exit.i: ; preds = %.critedge.i.i.i
-  %157 = load ptr, ptr %.sroa.07.012.i, align 8, !tbaa !94
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %159 = load ptr, ptr %158, align 8, !tbaa !97
-  %160 = load i8, ptr %159, align 8, !tbaa !99
+  %160 = load i8, ptr %158, align 8, !tbaa !99
   %switch.selectcmp.i.i.i.i.i.i.i.i = icmp ult i8 %160, 4
   br i1 %switch.selectcmp.i.i.i.i.i.i.i.i, label %161, label %.critedge.i41
 
 161:                                              ; preds = %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_5ValueEEENS_14StringMapEntryIS3_EEEppEv.exit.i
-  %162 = getelementptr inbounds nuw i8, ptr %159, i64 32
+  %162 = getelementptr inbounds nuw i8, ptr %158, i64 32
   %163 = load i32, ptr %162, align 8
   %164 = and i32 %163, 15
   %165 = add nsw i32 %164, -7
@@ -760,7 +760,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_5ValueEEENS_14StringMapEn
 .critedge.i41:                                    ; preds = %161, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPNS_5ValueEEENS_14StringMapEntryIS3_EEEppEv.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 257, ptr %21, align 8
-  call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %159, ptr noundef nonnull align 8 dereferenceable(34) %3) #18
+  call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %158, ptr noundef nonnull align 8 dereferenceable(34) %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i
 

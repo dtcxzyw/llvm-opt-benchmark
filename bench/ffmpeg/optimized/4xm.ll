@@ -1056,9 +1056,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_i_frame(ptr noundef
   br i1 %53, label %54, label %37
 
 54:                                               ; preds = %._crit_edge.i
-  %.285.lcssa.lcssa132.i = ptrtoint ptr %.285.lcssa.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 1024
   store i32 1, ptr %55, align 16, !tbaa !71
+  %.285.lcssa.lcssa132.i = ptrtoint ptr %.285.lcssa.i to i64
   %56 = ptrtoint ptr %31 to i64
   %57 = xor i64 %.285.lcssa.lcssa132.i, -1
   %58 = add i64 %57, %56

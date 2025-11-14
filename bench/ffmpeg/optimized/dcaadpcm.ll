@@ -322,36 +322,36 @@ find_best_filter.exit:                            ; preds = %94
   %.027.i = phi i64 [ 0, %.lr.ph.i ], [ %194, %ff_dcaadpcm_predict.exit.i ]
   %.02226.i = phi i64 [ 0, %.lr.ph.i ], [ %191, %ff_dcaadpcm_predict.exit.i ]
   %171 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i42
-  br label %172
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
+  %173 = load i32, ptr %172, align 4, !tbaa !9
+  br label %174
 
-172:                                              ; preds = %172, %170
-  %indvars.iv.i.i = phi i64 [ 0, %170 ], [ %indvars.iv.next.i.i, %172 ]
-  %.011.i.i = phi i64 [ 0, %170 ], [ %181, %172 ]
-  %173 = sub nuw nsw i64 3, %indvars.iv.i.i
-  %174 = getelementptr inbounds nuw i32, ptr %171, i64 %173
-  %175 = load i32, ptr %174, align 4, !tbaa !9
-  %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds nuw i16, ptr %169, i64 %indvars.iv.i.i
-  %178 = load i16, ptr %177, align 2, !tbaa !20
-  %179 = sext i16 %178 to i64
-  %180 = mul nsw i64 %179, %176
-  %181 = add nsw i64 %180, %.011.i.i
+174:                                              ; preds = %174, %170
+  %indvars.iv.i.i = phi i64 [ 0, %170 ], [ %indvars.iv.next.i.i, %174 ]
+  %.011.i.i = phi i64 [ 0, %170 ], [ %183, %174 ]
+  %175 = sub nuw nsw i64 3, %indvars.iv.i.i
+  %176 = getelementptr inbounds nuw i32, ptr %171, i64 %175
+  %177 = load i32, ptr %176, align 4, !tbaa !9
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr inbounds nuw i16, ptr %169, i64 %indvars.iv.i.i
+  %180 = load i16, ptr %179, align 2, !tbaa !20
+  %181 = sext i16 %180 to i64
+  %182 = mul nsw i64 %181, %178
+  %183 = add nsw i64 %182, %.011.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %ff_dcaadpcm_predict.exit.i, label %172, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %ff_dcaadpcm_predict.exit.i, label %174, !llvm.loop !23
 
-ff_dcaadpcm_predict.exit.i:                       ; preds = %172
-  %182 = getelementptr inbounds nuw i8, ptr %171, i64 16
-  %183 = load i32, ptr %182, align 4, !tbaa !9
-  %184 = add nsw i64 %181, 4096
+ff_dcaadpcm_predict.exit.i:                       ; preds = %174
+  %184 = add nsw i64 %183, 4096
   %185 = lshr i64 %184, 13
   %.0.i.i.i.i = trunc i64 %185 to i32
   %186 = tail call i32 @llvm.smax.i32(i32 %.0.i.i.i.i, i32 -8388608)
   %.0.i.i9.i.i = tail call range(i32 -8388608, 8388608) i32 @llvm.smin.i32(i32 %186, i32 8388607)
-  %187 = sub i32 %183, %.0.i.i9.i.i
+  %187 = sub i32 %173, %.0.i.i9.i.i
   %188 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i42
   store i32 %187, ptr %188, align 4, !tbaa !9
-  %189 = sext i32 %183 to i64
+  %189 = sext i32 %173 to i64
   %190 = mul nsw i64 %189, %189
   %191 = add nuw nsw i64 %190, %.02226.i
   %192 = sext i32 %187 to i64

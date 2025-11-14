@@ -576,24 +576,24 @@ _ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit: ; preds =
   br i1 %.not113, label %._crit_edge, label %48
 
 51:                                               ; preds = %._crit_edge
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %54 = load i32, ptr %52, align 8, !tbaa !25
-  %.not159 = icmp eq i32 %54, 0
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %57 = load i32, ptr %55, align 8, !tbaa !25
+  %.not159 = icmp eq i32 %57, 0
   br i1 %.not159, label %.split129.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %56 = load ptr, ptr %55, align 8, !tbaa !40, !noalias !180
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %58 = load ptr, ptr %57, align 8, !tbaa !42, !noalias !180
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %59 = load ptr, ptr %58, align 8, !tbaa !40, !noalias !180
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %61 = load ptr, ptr %60, align 8, !tbaa !42, !noalias !180
   br label %.split
 
 .split129.us:                                     ; preds = %_ZNSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_EppEv.exit, %51
   %.us-phi = phi i1 [ false, %51 ], [ %.1.lcssa, %_ZNSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_EppEv.exit ]
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 488
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 20, i1 false)
@@ -609,8 +609,8 @@ _ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit: ; preds =
 .split:                                           ; preds = %.split.preheader, %_ZNSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_EppEv.exit
   %69 = phi i32 [ %71, %_ZNSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_EppEv.exit ], [ 1, %.split.preheader ]
   %.068127 = phi i1 [ %.1.lcssa, %_ZNSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_EppEv.exit ], [ false, %.split.preheader ]
-  %.sroa.13.0126 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_EppEv.exit ], [ %56, %.split.preheader ]
-  %.sroa.10.0125 = phi ptr [ %.sroa.10.1, %_ZNSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_EppEv.exit ], [ %58, %.split.preheader ]
+  %.sroa.13.0126 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_EppEv.exit ], [ %59, %.split.preheader ]
+  %.sroa.10.0125 = phi ptr [ %.sroa.10.1, %_ZNSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_EppEv.exit ], [ %61, %.split.preheader ]
   %.sroa.0106.0124 = phi ptr [ %.sroa.0106.1, %_ZNSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_EppEv.exit ], [ %46, %.split.preheader ]
   %70 = load ptr, ptr %.sroa.0106.0124, align 8, !tbaa !61
   %.not160 = icmp eq i32 %69, 0
@@ -639,7 +639,7 @@ _ZNSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_EppEv.exit: ; preds = %._crit_edge12
 .lr.ph122:                                        ; preds = %.split, %.lr.ph122
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph122 ], [ 0, %.split ]
   %.1120 = phi i1 [ %85, %.lr.ph122 ], [ %.068127, %.split ]
-  %78 = load ptr, ptr %53, align 8, !tbaa !24
+  %78 = load ptr, ptr %56, align 8, !tbaa !24
   %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8, !tbaa !278
   %81 = load ptr, ptr %80, align 8, !tbaa !30
@@ -648,7 +648,7 @@ _ZNSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_EppEv.exit: ; preds = %._crit_edge12
   %84 = tail call noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(28) %80, ptr noundef %70, ptr noundef nonnull align 8 dereferenceable(513) %0) #21
   %85 = or i1 %.1120, %84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %86 = load i32, ptr %52, align 8, !tbaa !25
+  %86 = load i32, ptr %55, align 8, !tbaa !25
   %87 = zext i32 %86 to i64
   %88 = icmp samesign ult i64 %indvars.iv.next, %87
   br i1 %88, label %.lr.ph122, label %._crit_edge123, !llvm.loop !279
@@ -672,12 +672,12 @@ _ZNSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_EppEv.exit: ; preds = %._crit_edge12
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.pre = load ptr, ptr %59, align 8, !tbaa !41, !noalias !280
+  %.pre = load ptr, ptr %52, align 8, !tbaa !41, !noalias !280
   br label %102
 
 .preheader:                                       ; preds = %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE8pop_backEv.exit, %92
   %.2.lcssa = phi i1 [ %.us-phi, %92 ], [ %.4201, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE8pop_backEv.exit ]
-  %101 = load i32, ptr %52, align 8, !tbaa !25
+  %101 = load i32, ptr %55, align 8, !tbaa !25
   %.not163 = icmp eq i32 %101, 0
   br i1 %.not163, label %._crit_edge153, label %.lr.ph152
 
@@ -692,7 +692,7 @@ _ZNSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_EppEv.exit: ; preds = %._crit_edge12
   br i1 %105, label %106, label %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE4backEv.exit
 
 106:                                              ; preds = %102
-  %107 = load ptr, ptr %61, align 8, !tbaa !40, !noalias !280
+  %107 = load ptr, ptr %54, align 8, !tbaa !40, !noalias !280
   %108 = getelementptr inbounds i8, ptr %107, i64 -8
   %109 = load ptr, ptr %108, align 8, !tbaa !39
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 512
@@ -703,7 +703,7 @@ _ZNSt5dequeIPN4llvm4LoopESaIS2_EE4backEv.exit:    ; preds = %102, %106
   %112 = getelementptr inbounds i8, ptr %111, i64 -8
   %113 = load ptr, ptr %112, align 8, !tbaa !61
   store ptr %113, ptr %97, align 8, !tbaa !88
-  %114 = load i32, ptr %52, align 8, !tbaa !25
+  %114 = load i32, ptr %55, align 8, !tbaa !25
   %.not161 = icmp eq i32 %114, 0
   br i1 %.not161, label %.loopexit, label %.lr.ph134
 
@@ -712,7 +712,7 @@ _ZNSt5dequeIPN4llvm4LoopESaIS2_EE4backEv.exit:    ; preds = %102, %106
   %.3133 = phi i1 [ %143, %_ZN4llvm14TimeTraceScopeD2Ev.exit ], [ %.2146, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE4backEv.exit ]
   %.274132 = phi i32 [ %.476, %_ZN4llvm14TimeTraceScopeD2Ev.exit ], [ %.173145, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE4backEv.exit ]
   %.280131 = phi i32 [ %.482, %_ZN4llvm14TimeTraceScopeD2Ev.exit ], [ %.179144, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE4backEv.exit ]
-  %115 = load ptr, ptr %53, align 8, !tbaa !24
+  %115 = load ptr, ptr %56, align 8, !tbaa !24
   %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv168
   %117 = load ptr, ptr %116, align 8, !tbaa !278
   %118 = load ptr, ptr %117, align 8, !tbaa !30
@@ -886,7 +886,7 @@ _ZN4llvm10TimeRegionD2Ev.exit92:                  ; preds = %_ZN4llvm10TimeRegio
 
 _ZN4llvm14TimeTraceScopeD2Ev.exit:                ; preds = %192, %195
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %196 = load i32, ptr %52, align 8
+  %196 = load i32, ptr %55, align 8
   %197 = zext i32 %196 to i64
   %198 = icmp samesign uge i64 %indvars.iv.next169, %197
   %or.cond.not = select i1 %194, i1 true, i1 %198
@@ -901,12 +901,12 @@ _ZN4llvm14TimeTraceScopeD2Ev.exit:                ; preds = %192, %195
 
 .lr.ph143:                                        ; preds = %._crit_edge135, %.lr.ph143
   %indvars.iv170 = phi i64 [ %indvars.iv.next171, %.lr.ph143 ], [ 0, %._crit_edge135 ]
-  %202 = load ptr, ptr %53, align 8, !tbaa !24
+  %202 = load ptr, ptr %56, align 8, !tbaa !24
   %203 = getelementptr inbounds nuw ptr, ptr %202, i64 %indvars.iv170
   %204 = load ptr, ptr %203, align 8, !tbaa !278
   call void @_ZN4llvm13PMDataManager8freePassEPNS_4PassENS_9StringRefENS_19PassDebuggingStringE(ptr noundef nonnull align 8 dereferenceable(380) %23, ptr noundef %204, ptr nonnull @.str.2, i64 9, i32 noundef 6) #21
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
-  %205 = load i32, ptr %52, align 8, !tbaa !25
+  %205 = load i32, ptr %55, align 8, !tbaa !25
   %206 = zext i32 %205 to i64
   %207 = icmp samesign ult i64 %indvars.iv.next171, %206
   br i1 %207, label %.lr.ph143, label %.loopexit, !llvm.loop !296
@@ -916,7 +916,7 @@ _ZN4llvm14TimeTraceScopeD2Ev.exit:                ; preds = %192, %195
   %.375200 = phi i32 [ %.476, %._crit_edge135 ], [ %.173145, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE4backEv.exit ], [ %.476, %.lr.ph143 ]
   %.381199 = phi i32 [ %.482, %._crit_edge135 ], [ %.179144, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE4backEv.exit ], [ %.482, %.lr.ph143 ]
   %208 = load ptr, ptr %43, align 8, !tbaa !44
-  %209 = load ptr, ptr %59, align 8, !tbaa !297
+  %209 = load ptr, ptr %52, align 8, !tbaa !297
   %.not.i94 = icmp eq ptr %208, %209
   br i1 %.not.i94, label %212, label %210
 
@@ -926,13 +926,13 @@ _ZN4llvm14TimeTraceScopeD2Ev.exit:                ; preds = %192, %195
 
 212:                                              ; preds = %.loopexit
   call void @_ZdlPvm(ptr noundef %209, i64 noundef 512) #22
-  %213 = load ptr, ptr %61, align 8, !tbaa !298
+  %213 = load ptr, ptr %54, align 8, !tbaa !298
   %214 = getelementptr inbounds i8, ptr %213, i64 -8
-  store ptr %214, ptr %61, align 8, !tbaa !40
+  store ptr %214, ptr %54, align 8, !tbaa !40
   %215 = load ptr, ptr %214, align 8, !tbaa !39
-  store ptr %215, ptr %59, align 8, !tbaa !41
+  store ptr %215, ptr %52, align 8, !tbaa !41
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 512
-  store ptr %216, ptr %60, align 8, !tbaa !42
+  store ptr %216, ptr %53, align 8, !tbaa !42
   %217 = getelementptr inbounds nuw i8, ptr %215, i64 504
   br label %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE8pop_backEv.exit
 
@@ -992,7 +992,7 @@ _ZN4llvm9StringMapISt4pairIjjENS_15MallocAllocatorEED2Ev.exit: ; preds = %234, %
 .lr.ph152:                                        ; preds = %.preheader, %.lr.ph152
   %indvars.iv173 = phi i64 [ %indvars.iv.next174, %.lr.ph152 ], [ 0, %.preheader ]
   %.5150 = phi i1 [ %243, %.lr.ph152 ], [ %.2.lcssa, %.preheader ]
-  %236 = load ptr, ptr %53, align 8, !tbaa !24
+  %236 = load ptr, ptr %56, align 8, !tbaa !24
   %237 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv173
   %238 = load ptr, ptr %237, align 8, !tbaa !278
   %239 = load ptr, ptr %238, align 8, !tbaa !30
@@ -1001,7 +1001,7 @@ _ZN4llvm9StringMapISt4pairIjjENS_15MallocAllocatorEED2Ev.exit: ; preds = %234, %
   %242 = call noundef zeroext i1 %241(ptr noundef nonnull align 8 dereferenceable(28) %238) #21
   %243 = or i1 %.5150, %242
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
-  %244 = load i32, ptr %52, align 8, !tbaa !25
+  %244 = load i32, ptr %55, align 8, !tbaa !25
   %245 = zext i32 %244 to i64
   %246 = icmp samesign ult i64 %indvars.iv.next174, %245
   br i1 %246, label %.lr.ph152, label %._crit_edge153, !llvm.loop !308
@@ -4936,37 +4936,34 @@ _ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread127: ; preds = %1
   %.idx128 = and i64 %142, 1152921504606846968
   %143 = getelementptr inbounds nuw i8, ptr %130, i64 %.idx128
   %144 = load ptr, ptr %143, align 8, !tbaa !39, !noalias !592
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 512
+  %146 = and i64 %137, 63
+  %147 = getelementptr inbounds nuw ptr, ptr %144, i64 %146
   br label %.lr.ph.i.i
 
 _ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit: ; preds = %129
-  %145 = ashr i64 %137, 3
-  %.idx = and i64 %145, -8
-  %146 = getelementptr inbounds i8, ptr %130, i64 %.idx
-  %147 = load ptr, ptr %146, align 8, !tbaa !39, !noalias !592
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 512
-  %149 = and i64 %137, 63
-  %150 = getelementptr inbounds nuw ptr, ptr %147, i64 %149
+  %148 = ashr i64 %137, 3
+  %.idx = and i64 %148, -8
+  %149 = getelementptr inbounds i8, ptr %130, i64 %.idx
+  %150 = load ptr, ptr %149, align 8, !tbaa !39, !noalias !592
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 512
+  %152 = and i64 %137, 63
+  %153 = getelementptr inbounds nuw ptr, ptr %150, i64 %152
   br label %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread127, %.lr.ph.i.i
-  %.06.i.i = phi ptr [ %152, %.lr.ph.i.i ], [ %130, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread127 ]
-  %151 = load ptr, ptr %.06.i.i, align 8, !tbaa !39
-  call void @_ZdlPvm(ptr noundef %151, i64 noundef 512) #22
-  %152 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
-  %153 = icmp ult ptr %152, %143
-  br i1 %153, label %.lr.ph.i.i, label %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit.loopexit, !llvm.loop !388
+  %.06.i.i = phi ptr [ %155, %.lr.ph.i.i ], [ %130, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread127 ]
+  %154 = load ptr, ptr %.06.i.i, align 8, !tbaa !39
+  call void @_ZdlPvm(ptr noundef %154, i64 noundef 512) #22
+  %155 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
+  %156 = icmp ult ptr %155, %143
+  br i1 %156, label %.lr.ph.i.i, label %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit, !llvm.loop !388
 
-_ZNSt5dequeIPN4llvm4LoopESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit.loopexit: ; preds = %.lr.ph.i.i
-  %154 = getelementptr inbounds nuw i8, ptr %144, i64 512
-  %155 = and i64 %137, 63
-  %156 = getelementptr inbounds nuw ptr, ptr %144, i64 %155
-  br label %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit
-
-_ZNSt5dequeIPN4llvm4LoopESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit: ; preds = %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit.loopexit, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread
-  %storemerge.i.i81 = phi ptr [ %141, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %150, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %156, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit.loopexit ]
-  %.sroa.642.080 = phi ptr [ %130, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %146, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %143, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit.loopexit ]
-  %.sroa.441.079 = phi ptr [ %131, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %148, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %154, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit.loopexit ]
-  %.sroa.240.078 = phi ptr [ %133, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %147, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %144, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit.loopexit ]
+_ZNSt5dequeIPN4llvm4LoopESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit: ; preds = %.lr.ph.i.i, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread
+  %storemerge.i.i81 = phi ptr [ %141, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %153, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %147, %.lr.ph.i.i ]
+  %.sroa.642.080 = phi ptr [ %130, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %149, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %143, %.lr.ph.i.i ]
+  %.sroa.441.079 = phi ptr [ %131, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %151, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %145, %.lr.ph.i.i ]
+  %.sroa.240.078 = phi ptr [ %133, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %150, %_ZStplRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %144, %.lr.ph.i.i ]
   store ptr %storemerge.i.i81, ptr %27, align 8, !tbaa !39
   store ptr %.sroa.240.078, ptr %29, align 8, !tbaa !39
   store ptr %.sroa.441.079, ptr %30, align 8, !tbaa !39
@@ -5044,37 +5041,34 @@ _ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread129: ; preds = %1
   %.idx92130 = and i64 %182, -8
   %183 = getelementptr inbounds i8, ptr %173, i64 %.idx92130
   %184 = load ptr, ptr %183, align 8, !tbaa !39, !noalias !610
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 512
+  %186 = and i64 %177, 63
+  %187 = getelementptr inbounds nuw ptr, ptr %184, i64 %186
   br label %.lr.ph.i.i6
 
 _ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit: ; preds = %179
-  %185 = lshr i64 %177, 3
-  %.idx92 = and i64 %185, 1152921504606846968
-  %186 = getelementptr inbounds nuw i8, ptr %173, i64 %.idx92
-  %187 = load ptr, ptr %186, align 8, !tbaa !39, !noalias !610
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 512
-  %189 = and i64 %177, 63
-  %190 = getelementptr inbounds nuw ptr, ptr %187, i64 %189
+  %188 = lshr i64 %177, 3
+  %.idx92 = and i64 %188, 1152921504606846968
+  %189 = getelementptr inbounds nuw i8, ptr %173, i64 %.idx92
+  %190 = load ptr, ptr %189, align 8, !tbaa !39, !noalias !610
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 512
+  %192 = and i64 %177, 63
+  %193 = getelementptr inbounds nuw ptr, ptr %190, i64 %192
   br label %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit
 
 .lr.ph.i.i6:                                      ; preds = %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread129, %.lr.ph.i.i6
   %.06.i.pn.i = phi ptr [ %.06.i.i7, %.lr.ph.i.i6 ], [ %183, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread129 ]
   %.06.i.i7 = getelementptr inbounds nuw i8, ptr %.06.i.pn.i, i64 8
-  %191 = load ptr, ptr %.06.i.i7, align 8, !tbaa !39
-  call void @_ZdlPvm(ptr noundef %191, i64 noundef 512) #22
-  %192 = icmp ult ptr %.06.i.i7, %173
-  br i1 %192, label %.lr.ph.i.i6, label %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit.loopexit, !llvm.loop !388
+  %194 = load ptr, ptr %.06.i.i7, align 8, !tbaa !39
+  call void @_ZdlPvm(ptr noundef %194, i64 noundef 512) #22
+  %195 = icmp ult ptr %.06.i.i7, %173
+  br i1 %195, label %.lr.ph.i.i6, label %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit, !llvm.loop !388
 
-_ZNSt5dequeIPN4llvm4LoopESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit.loopexit: ; preds = %.lr.ph.i.i6
-  %193 = getelementptr inbounds nuw i8, ptr %184, i64 512
-  %194 = and i64 %177, 63
-  %195 = getelementptr inbounds nuw ptr, ptr %184, i64 %194
-  br label %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit
-
-_ZNSt5dequeIPN4llvm4LoopESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit: ; preds = %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit.loopexit, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread
-  %storemerge.i.i.i89 = phi ptr [ %181, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %190, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %195, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit.loopexit ]
-  %.sroa.616.088 = phi ptr [ %173, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %186, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %183, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit.loopexit ]
-  %.sroa.415.087 = phi ptr [ %176, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %188, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %193, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit.loopexit ]
-  %.sroa.2.086 = phi ptr [ %174, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %187, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %184, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit.loopexit ]
+_ZNSt5dequeIPN4llvm4LoopESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit: ; preds = %.lr.ph.i.i6, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread
+  %storemerge.i.i.i89 = phi ptr [ %181, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %193, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %187, %.lr.ph.i.i6 ]
+  %.sroa.616.088 = phi ptr [ %173, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %189, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %183, %.lr.ph.i.i6 ]
+  %.sroa.415.087 = phi ptr [ %176, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %191, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %185, %.lr.ph.i.i6 ]
+  %.sroa.2.086 = phi ptr [ %174, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit.thread ], [ %190, %_ZStmiRKSt15_Deque_iteratorIPN4llvm4LoopERS2_PS2_El.exit ], [ %184, %.lr.ph.i.i6 ]
   store ptr %storemerge.i.i.i89, ptr %96, align 8, !tbaa !39
   store ptr %.sroa.2.086, ptr %105, align 8, !tbaa !39
   store ptr %.sroa.415.087, ptr %158, align 8, !tbaa !39

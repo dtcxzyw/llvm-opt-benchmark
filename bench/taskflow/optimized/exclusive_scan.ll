@@ -985,8 +985,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %61
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc56
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %70, 2
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %69, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !19
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i.i.i.i.i.i
   br label %73
 
 73:                                               ; preds = %.noexc56, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -8528,12 +8528,12 @@ _ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit45: ; preds = %62, %6
   %74 = ptrtoint ptr %70 to i64
   %75 = sub i64 %74, %.pre-phi71
   %76 = ashr exact i64 %75, 3
+  %77 = icmp ugt i64 %73, %76
   %spec.select = tail call i64 @llvm.umin.i64(i64 %73, i64 %76)
   %.not48 = icmp eq i64 %spec.select, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %68
-  %77 = icmp ugt i64 %73, %76
   br i1 %77, label %83, label %93
 
 .lr.ph:                                           ; preds = %68, %.lr.ph

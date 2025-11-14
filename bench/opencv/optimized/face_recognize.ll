@@ -1124,6 +1124,7 @@ define linkonce_odr hidden void @_ZNK2cv20FaceRecognizerSFImpl28getSimilarityTra
   %70 = fadd float %67, %69
   %71 = fdiv float %70, 5.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %indvars.iv334.sroa.gep468 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %indvars.iv327.sroa.gep469 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %.preheader298
 
@@ -1136,7 +1137,6 @@ define linkonce_odr hidden void @_ZNK2cv20FaceRecognizerSFImpl28getSimilarityTra
   br label %75
 
 73:                                               ; preds = %74
-  %indvars.iv334.sroa.gep468 = getelementptr inbounds nuw i8, ptr %9, i64 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %.preheader297
 

@@ -271,136 +271,136 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdSkelCacheC2Ev(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %scevgep.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.ptr12.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  br label %7
+  br label %.preheader13.i.i.i.i
 
-.preheader.i.i.i.i:                               ; preds = %7
+.preheader.i.i.i.i:                               ; preds = %.preheader13.i.i.i.i
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %6 = ptrtoint ptr %scevgep.i.i.i.i to i64
-  br label %11
+  %6 = ptrtoint ptr %.ptr12.i.i.i.i to i64
+  br label %10
 
-7:                                                ; preds = %7, %1
-  %.014.i.i.i.i = phi i64 [ 0, %1 ], [ %10, %7 ]
-  %8 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::UsdPrim, pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::UsdSkel_AnimQueryImpl>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %scevgep.i.i.i.i, i64 %.014.i.i.i.i
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store atomic i64 0, ptr %9 monotonic, align 8
-  %10 = add nuw nsw i64 %.014.i.i.i.i, 1
-  %.not.i.i.i.i = icmp eq i64 %10, 2
-  br i1 %.not.i.i.i.i, label %.preheader.i.i.i.i, label %7, !llvm.loop !4
+.preheader13.i.i.i.i:                             ; preds = %.preheader13.i.i.i.i, %1
+  %.014.i.i.i.i = phi i64 [ %9, %.preheader13.i.i.i.i ], [ 0, %1 ]
+  %7 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::UsdPrim, pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::UsdSkel_AnimQueryImpl>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.ptr12.i.i.i.i, i64 %.014.i.i.i.i
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store atomic i64 0, ptr %8 monotonic, align 8
+  %9 = add nuw nsw i64 %.014.i.i.i.i, 1
+  %.not.i.i.i.i = icmp eq i64 %9, 2
+  br i1 %.not.i.i.i.i, label %.preheader.i.i.i.i, label %.preheader13.i.i.i.i, !llvm.loop !4
 
-11:                                               ; preds = %11, %.preheader.i.i.i.i
-  %.01015.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ %15, %11 ]
-  %12 = icmp eq i64 %.01015.i.i.i.i, 0
-  %13 = getelementptr inbounds nuw %"struct.std::atomic.4", ptr %5, i64 %.01015.i.i.i.i
-  %14 = select i1 %12, i64 %6, i64 0
-  store atomic i64 %14, ptr %13 monotonic, align 8
-  %15 = add nuw nsw i64 %.01015.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %15, 64
-  br i1 %exitcond.not.i.i.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_21UsdSkel_AnimQueryImplEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i, label %11, !llvm.loop !6
+10:                                               ; preds = %10, %.preheader.i.i.i.i
+  %.01015.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ %14, %10 ]
+  %11 = icmp eq i64 %.01015.i.i.i.i, 0
+  %12 = getelementptr inbounds nuw %"struct.std::atomic.4", ptr %5, i64 %.01015.i.i.i.i
+  %13 = select i1 %11, i64 %6, i64 0
+  store atomic i64 %13, ptr %12 monotonic, align 8
+  %14 = add nuw nsw i64 %.01015.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i64 %14, 64
+  br i1 %exitcond.not.i.i.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_21UsdSkel_AnimQueryImplEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i, label %10, !llvm.loop !6
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_21UsdSkel_AnimQueryImplEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i: ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 584
-  store i64 1, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 592
-  %scevgep.i.i.i6.i = getelementptr inbounds nuw i8, ptr %2, i64 600
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false)
-  br label %20
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_21UsdSkel_AnimQueryImplEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i: ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 584
+  store i64 1, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 592
+  %.ptr12.i.i.i6.i = getelementptr inbounds nuw i8, ptr %2, i64 600
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
+  br label %.preheader13.i.i.i7.i
 
-.preheader.i.i.i9.i:                              ; preds = %20
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 632
-  %19 = ptrtoint ptr %scevgep.i.i.i6.i to i64
-  br label %24
+.preheader.i.i.i10.i:                             ; preds = %.preheader13.i.i.i7.i
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 632
+  %18 = ptrtoint ptr %.ptr12.i.i.i6.i to i64
+  br label %22
 
-20:                                               ; preds = %20, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_21UsdSkel_AnimQueryImplEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i
-  %.014.i.i.i7.i = phi i64 [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_21UsdSkel_AnimQueryImplEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i ], [ %23, %20 ]
-  %21 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::UsdPrim, pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::UsdSkel_SkelDefinition>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %scevgep.i.i.i6.i, i64 %.014.i.i.i7.i
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store atomic i64 0, ptr %22 monotonic, align 8
-  %23 = add nuw nsw i64 %.014.i.i.i7.i, 1
-  %.not.i.i.i8.i = icmp eq i64 %23, 2
-  br i1 %.not.i.i.i8.i, label %.preheader.i.i.i9.i, label %20, !llvm.loop !7
+.preheader13.i.i.i7.i:                            ; preds = %.preheader13.i.i.i7.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_21UsdSkel_AnimQueryImplEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i
+  %.014.i.i.i8.i = phi i64 [ %21, %.preheader13.i.i.i7.i ], [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_21UsdSkel_AnimQueryImplEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i ]
+  %19 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::UsdPrim, pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::UsdSkel_SkelDefinition>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.ptr12.i.i.i6.i, i64 %.014.i.i.i8.i
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store atomic i64 0, ptr %20 monotonic, align 8
+  %21 = add nuw nsw i64 %.014.i.i.i8.i, 1
+  %.not.i.i.i9.i = icmp eq i64 %21, 2
+  br i1 %.not.i.i.i9.i, label %.preheader.i.i.i10.i, label %.preheader13.i.i.i7.i, !llvm.loop !7
 
-24:                                               ; preds = %24, %.preheader.i.i.i9.i
-  %.01015.i.i.i10.i = phi i64 [ 0, %.preheader.i.i.i9.i ], [ %28, %24 ]
-  %25 = icmp eq i64 %.01015.i.i.i10.i, 0
-  %26 = getelementptr inbounds nuw %"struct.std::atomic.8", ptr %18, i64 %.01015.i.i.i10.i
-  %27 = select i1 %25, i64 %19, i64 0
-  store atomic i64 %27, ptr %26 monotonic, align 8
-  %28 = add nuw nsw i64 %.01015.i.i.i10.i, 1
-  %exitcond.not.i.i.i11.i = icmp eq i64 %28, 64
-  br i1 %exitcond.not.i.i.i11.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_22UsdSkel_SkelDefinitionEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i, label %24, !llvm.loop !8
+22:                                               ; preds = %22, %.preheader.i.i.i10.i
+  %.01015.i.i.i11.i = phi i64 [ 0, %.preheader.i.i.i10.i ], [ %26, %22 ]
+  %23 = icmp eq i64 %.01015.i.i.i11.i, 0
+  %24 = getelementptr inbounds nuw %"struct.std::atomic.8", ptr %17, i64 %.01015.i.i.i11.i
+  %25 = select i1 %23, i64 %18, i64 0
+  store atomic i64 %25, ptr %24 monotonic, align 8
+  %26 = add nuw nsw i64 %.01015.i.i.i11.i, 1
+  %exitcond.not.i.i.i12.i = icmp eq i64 %26, 64
+  br i1 %exitcond.not.i.i.i12.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_22UsdSkel_SkelDefinitionEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i, label %22, !llvm.loop !8
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_22UsdSkel_SkelDefinitionEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i: ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 1160
-  store i64 1, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 1168
-  %scevgep.i.i.i12.i = getelementptr inbounds nuw i8, ptr %2, i64 1176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %30, i8 0, i64 40, i1 false)
-  br label %33
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_22UsdSkel_SkelDefinitionEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i: ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 1160
+  store i64 1, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 1168
+  %.ptr12.i.i.i13.i = getelementptr inbounds nuw i8, ptr %2, i64 1176
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 40, i1 false)
+  br label %.preheader13.i.i.i14.i
 
-.preheader.i.i.i15.i:                             ; preds = %33
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 1208
-  %32 = ptrtoint ptr %scevgep.i.i.i12.i to i64
-  br label %37
+.preheader.i.i.i17.i:                             ; preds = %.preheader13.i.i.i14.i
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 1208
+  %30 = ptrtoint ptr %.ptr12.i.i.i13.i to i64
+  br label %34
 
-33:                                               ; preds = %33, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_22UsdSkel_SkelDefinitionEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i
-  %.014.i.i.i13.i = phi i64 [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_22UsdSkel_SkelDefinitionEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i ], [ %36, %33 ]
-  %34 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::UsdPrim, pxrInternal_v0_24__pxrReserved__::UsdSkelSkeletonQuery>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %scevgep.i.i.i12.i, i64 %.014.i.i.i13.i
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store atomic i64 0, ptr %35 monotonic, align 8
-  %36 = add nuw nsw i64 %.014.i.i.i13.i, 1
-  %.not.i.i.i14.i = icmp eq i64 %36, 2
-  br i1 %.not.i.i.i14.i, label %.preheader.i.i.i15.i, label %33, !llvm.loop !9
+.preheader13.i.i.i14.i:                           ; preds = %.preheader13.i.i.i14.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_22UsdSkel_SkelDefinitionEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i
+  %.014.i.i.i15.i = phi i64 [ %33, %.preheader13.i.i.i14.i ], [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_8TfRefPtrINS3_22UsdSkel_SkelDefinitionEEENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEEC2Ev.exit.i ]
+  %31 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::UsdPrim, pxrInternal_v0_24__pxrReserved__::UsdSkelSkeletonQuery>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.ptr12.i.i.i13.i, i64 %.014.i.i.i15.i
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store atomic i64 0, ptr %32 monotonic, align 8
+  %33 = add nuw nsw i64 %.014.i.i.i15.i, 1
+  %.not.i.i.i16.i = icmp eq i64 %33, 2
+  br i1 %.not.i.i.i16.i, label %.preheader.i.i.i17.i, label %.preheader13.i.i.i14.i, !llvm.loop !9
 
-37:                                               ; preds = %37, %.preheader.i.i.i15.i
-  %.01015.i.i.i16.i = phi i64 [ 0, %.preheader.i.i.i15.i ], [ %41, %37 ]
-  %38 = icmp eq i64 %.01015.i.i.i16.i, 0
-  %39 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %31, i64 %.01015.i.i.i16.i
-  %40 = select i1 %38, i64 %32, i64 0
-  store atomic i64 %40, ptr %39 monotonic, align 8
-  %41 = add nuw nsw i64 %.01015.i.i.i16.i, 1
-  %exitcond.not.i.i.i17.i = icmp eq i64 %41, 64
-  br i1 %exitcond.not.i.i.i17.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_20UsdSkelSkeletonQueryENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S5_EEEEC2Ev.exit.i, label %37, !llvm.loop !10
+34:                                               ; preds = %34, %.preheader.i.i.i17.i
+  %.01015.i.i.i18.i = phi i64 [ 0, %.preheader.i.i.i17.i ], [ %38, %34 ]
+  %35 = icmp eq i64 %.01015.i.i.i18.i, 0
+  %36 = getelementptr inbounds nuw %"struct.std::atomic.13", ptr %29, i64 %.01015.i.i.i18.i
+  %37 = select i1 %35, i64 %30, i64 0
+  store atomic i64 %37, ptr %36 monotonic, align 8
+  %38 = add nuw nsw i64 %.01015.i.i.i18.i, 1
+  %exitcond.not.i.i.i19.i = icmp eq i64 %38, 64
+  br i1 %exitcond.not.i.i.i19.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_20UsdSkelSkeletonQueryENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S5_EEEEC2Ev.exit.i, label %34, !llvm.loop !10
 
-_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_20UsdSkelSkeletonQueryENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S5_EEEEC2Ev.exit.i: ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 1736
-  store i64 1, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 1744
-  %scevgep.i.i.i18.i = getelementptr inbounds nuw i8, ptr %2, i64 1752
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, i8 0, i64 40, i1 false)
+_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_20UsdSkelSkeletonQueryENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S5_EEEEC2Ev.exit.i: ; preds = %34
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 1736
+  store i64 1, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 1744
+  %.ptr12.i.i.i20.i = getelementptr inbounds nuw i8, ptr %2, i64 1752
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, i8 0, i64 40, i1 false)
+  br label %.preheader13.i.i.i21.i
+
+.preheader.i.i.i24.i:                             ; preds = %.preheader13.i.i.i21.i
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 1784
+  %42 = ptrtoint ptr %.ptr12.i.i.i20.i to i64
   br label %46
 
-.preheader.i.i.i21.i:                             ; preds = %46
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 1784
-  %45 = ptrtoint ptr %scevgep.i.i.i18.i to i64
-  br label %50
+.preheader13.i.i.i21.i:                           ; preds = %.preheader13.i.i.i21.i, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_20UsdSkelSkeletonQueryENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S5_EEEEC2Ev.exit.i
+  %.014.i.i.i22.i = phi i64 [ %45, %.preheader13.i.i.i21.i ], [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_20UsdSkelSkeletonQueryENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S5_EEEEC2Ev.exit.i ]
+  %43 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::UsdPrim, pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %.ptr12.i.i.i20.i, i64 %.014.i.i.i22.i
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  store atomic i64 0, ptr %44 monotonic, align 8
+  %45 = add nuw nsw i64 %.014.i.i.i22.i, 1
+  %.not.i.i.i23.i = icmp eq i64 %45, 2
+  br i1 %.not.i.i.i23.i, label %.preheader.i.i.i24.i, label %.preheader13.i.i.i21.i, !llvm.loop !11
 
-46:                                               ; preds = %46, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_20UsdSkelSkeletonQueryENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S5_EEEEC2Ev.exit.i
-  %.014.i.i.i19.i = phi i64 [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_20UsdSkelSkeletonQueryENS3_16UsdSkel_HashPrimENS0_2d113tbb_allocatorISt4pairIKS4_S5_EEEEC2Ev.exit.i ], [ %49, %46 ]
-  %47 = getelementptr inbounds nuw %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::UsdPrim, pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %scevgep.i.i.i18.i, i64 %.014.i.i.i19.i
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store atomic i64 0, ptr %48 monotonic, align 8
-  %49 = add nuw nsw i64 %.014.i.i.i19.i, 1
-  %.not.i.i.i20.i = icmp eq i64 %49, 2
-  br i1 %.not.i.i.i20.i, label %.preheader.i.i.i21.i, label %46, !llvm.loop !11
+46:                                               ; preds = %46, %.preheader.i.i.i24.i
+  %.01015.i.i.i25.i = phi i64 [ 0, %.preheader.i.i.i24.i ], [ %50, %46 ]
+  %47 = icmp eq i64 %.01015.i.i.i25.i, 0
+  %48 = getelementptr inbounds nuw %"struct.std::atomic.18", ptr %41, i64 %.01015.i.i.i25.i
+  %49 = select i1 %47, i64 %42, i64 0
+  store atomic i64 %49, ptr %48 monotonic, align 8
+  %50 = add nuw nsw i64 %.01015.i.i.i25.i, 1
+  %exitcond.not.i.i.i26.i = icmp eq i64 %50, 64
+  br i1 %exitcond.not.i.i.i26.i, label %51, label %46, !llvm.loop !12
 
-50:                                               ; preds = %50, %.preheader.i.i.i21.i
-  %.01015.i.i.i22.i = phi i64 [ 0, %.preheader.i.i.i21.i ], [ %54, %50 ]
-  %51 = icmp eq i64 %.01015.i.i.i22.i, 0
-  %52 = getelementptr inbounds nuw %"struct.std::atomic.18", ptr %44, i64 %.01015.i.i.i22.i
-  %53 = select i1 %51, i64 %45, i64 0
-  store atomic i64 %53, ptr %52 monotonic, align 8
-  %54 = add nuw nsw i64 %.01015.i.i.i22.i, 1
-  %exitcond.not.i.i.i23.i = icmp eq i64 %54, 64
-  br i1 %exitcond.not.i.i.i23.i, label %55, label %50, !llvm.loop !12
-
-55:                                               ; preds = %50
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 2304
-  store ptr null, ptr %56, align 8
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 2304
+  store ptr null, ptr %52, align 8
   store ptr %2, ptr %0, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN32pxrInternal_v0_24__pxrReserved__17UsdSkel_CacheImplEEET_(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull %2)
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN32pxrInternal_v0_24__pxrReserved__17UsdSkel_CacheImplEEET_(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull %2)
   ret void
 }
 
@@ -10463,22 +10463,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE8capac
   br i1 %37, label %.critedge, label %68
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE8capacityEv.exit
-  %38 = add i64 %19, 1
-  br label %39
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %39 = load ptr, ptr %38, align 8
+  %40 = add i64 %19, 1
+  br label %41
 
-39:                                               ; preds = %39, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
-  %40 = icmp ult i64 %.0.i11, %38
-  %41 = shl i64 %.0.i11, 1
-  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE16_CapacityForSizeEm.exit, !llvm.loop !127
+41:                                               ; preds = %41, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
+  %42 = icmp ult i64 %.0.i11, %40
+  %43 = shl i64 %.0.i11, 1
+  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE16_CapacityForSizeEm.exit, !llvm.loop !127
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE16_CapacityForSizeEm.exit: ; preds = %39
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE13_AllocateCopyEPS1_mm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %43, i64 noundef %.0.i11, i64 noundef %19)
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE16_CapacityForSizeEm.exit: ; preds = %41
+  %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE13_AllocateCopyEPS1_mm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %39, i64 noundef %.0.i11, i64 noundef %19)
   %45 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelSkinningQuery", ptr %44, i64 %19
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQueryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(400) %45, ptr noundef nonnull align 8 dereferenceable(400) %1)
-  %46 = load ptr, ptr %42, align 8
+  %46 = load ptr, ptr %38, align 8
   %.not.i12 = icmp eq ptr %46, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE7_DecRefEv.exit, label %47
 
@@ -10495,7 +10495,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE16_Cap
 
 53:                                               ; preds = %49
   fence acquire
-  %54 = load ptr, ptr %42, align 8
+  %54 = load ptr, ptr %38, align 8
   %55 = load i64, ptr %0, align 8
   %.idx.i = mul nsw i64 %55, 400
   %56 = getelementptr inbounds i8, ptr %54, i64 %.idx.i
@@ -10510,7 +10510,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE16_Cap
   br i1 %.not28.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !101
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %.pre.i = load ptr, ptr %42, align 8
+  %.pre.i = load ptr, ptr %38, align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %53
@@ -10541,7 +10541,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE7_DecRefEv.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE16_CapacityForSizeEm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %42, align 8
+  store ptr %44, ptr %38, align 8
   br label %70
 
 68:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEE8capacityEv.exit

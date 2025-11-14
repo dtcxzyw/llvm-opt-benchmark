@@ -953,32 +953,32 @@ declare void @mask_lp_flags(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @gistXLogSplit(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca %struct.gistxlogPageSplit, align 8
+  %8 = zext i1 %0 to i8
+  %9 = zext i1 %5 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not26 = icmp eq ptr %1, null
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
-  %.02228 = phi ptr [ %10, %.lr.ph ], [ %1, %6 ]
-  %.02327 = phi i16 [ %8, %.lr.ph ], [ 0, %6 ]
-  %8 = add i16 %.02327, 1
-  %9 = getelementptr inbounds nuw i8, ptr %.02228, i64 48
-  %10 = load ptr, ptr %9, align 8
-  %.not = icmp eq ptr %10, null
+  %.02228 = phi ptr [ %12, %.lr.ph ], [ %1, %6 ]
+  %.02327 = phi i16 [ %10, %.lr.ph ], [ 0, %6 ]
+  %10 = add i16 %.02327, 1
+  %11 = getelementptr inbounds nuw i8, ptr %.02228, i64 48
+  %12 = load ptr, ptr %11, align 8
+  %.not = icmp eq ptr %12, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  %.023.lcssa = phi i16 [ 0, %6 ], [ %8, %.lr.ph ]
-  %11 = zext i1 %0 to i8
-  %12 = zext i1 %5 to i8
+  %.023.lcssa = phi i16 [ 0, %6 ], [ %10, %.lr.ph ]
   store i32 %2, ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %3, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i8 %11, ptr %14, align 8
+  store i8 %8, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 18
   store i16 %.023.lcssa, ptr %15, align 2
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i8 %12, ptr %16, align 4
+  store i8 %9, ptr %16, align 4
   tail call void @XLogBeginInsert() #5
   %.not25 = icmp eq i32 %4, 0
   br i1 %.not25, label %18, label %17

@@ -23178,6 +23178,7 @@ _Z24_mi_segment_map_freed_atPK12mi_segment_s.exit.i: ; preds = %_ZSt37atomic_com
   br label %89
 
 89:                                               ; preds = %85, %_Z24_mi_segment_map_freed_atPK12mi_segment_s.exit.i
+  %.val13.i = load i64, ptr %81, align 8, !tbaa !300
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %91
 
@@ -23211,10 +23212,9 @@ _Z24_mi_segment_map_freed_atPK12mi_segment_s.exit.i: ; preds = %_ZSt37atomic_com
   br i1 %exitcond.not.i.i, label %_ZL18mi_segment_os_freeP12mi_segment_sP17mi_segments_tld_s.exit, label %91, !llvm.loop !282
 
 _ZL18mi_segment_os_freeP12mi_segment_sP17mi_segments_tld_s.exit: ; preds = %.loopexit.i.i
-  %.val13.i = load i64, ptr %81, align 8, !tbaa !300
   %99 = shl i64 %.val13.i, 16
   %100 = lshr exact i64 %99, 9
-  %101 = mul i64 %100, %.1.i.i
+  %101 = mul i64 %.1.i.i, %100
   tail call void @_Z14_mi_arena_freePvmm10mi_memid_s(ptr noundef nonnull %0, i64 noundef %99, i64 noundef %101, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %0)
   br label %102
 

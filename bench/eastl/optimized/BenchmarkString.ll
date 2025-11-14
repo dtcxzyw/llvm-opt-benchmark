@@ -4478,22 +4478,22 @@ invoke.cont230:                                   ; preds = %invoke.cont228
 
 if.end233:                                        ; preds = %invoke.cont230, %invoke.cont223
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %pFind1_16, ptr noundef nonnull align 2 dereferenceable(14) @__const._Z15BenchmarkStringv.pFind1_16, i64 14, i1 false)
+  %414 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
+  %415 = load i64, ptr %mnSize.i.i6.i.i, align 8
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %if.end233
   %pCurrent.0.i.i = phi ptr [ %pFind1_16, %if.end233 ], [ %incdec.ptr.i.i1139, %while.cond.i.i ]
-  %414 = load i16, ptr %pCurrent.0.i.i, align 2
-  %tobool.not.i.i = icmp eq i16 %414, 0
+  %416 = load i16, ptr %pCurrent.0.i.i, align 2
+  %tobool.not.i.i = icmp eq i16 %416, 0
   %incdec.ptr.i.i1139 = getelementptr inbounds nuw i8, ptr %pCurrent.0.i.i, i64 2
   br i1 %tobool.not.i.i, label %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i, label %while.cond.i.i, !llvm.loop !14
 
 _ZN5eastl10CharStrlenIDsEEmPKT_.exit.i:           ; preds = %while.cond.i.i
-  %415 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
-  %tobool.i.i.i1134 = icmp slt i8 %415, 0
-  %416 = load i64, ptr %mnSize.i.i6.i.i, align 8
-  %conv.i.i.i1136 = zext nneg i8 %415 to i64
+  %tobool.i.i.i1134 = icmp slt i8 %414, 0
+  %conv.i.i.i1136 = zext nneg i8 %414 to i64
   %sub.i.i.i1137 = sub nsw i64 23, %conv.i.i.i1136
-  %cond.i.i1138 = select i1 %tobool.i.i.i1134, i64 %416, i64 %sub.i.i.i1137
+  %cond.i.i1138 = select i1 %tobool.i.i.i1134, i64 %415, i64 %sub.i.i.i1137
   %div23536 = lshr i64 %cond.i.i1138, 1
   %sub.ptr.lhs.cast.i.i1140 = ptrtoint ptr %pCurrent.0.i.i to i64
   %sub.ptr.sub.i.i1142 = sub i64 %sub.ptr.lhs.cast.i.i1140, %sub.ptr.rhs.cast.i.i1141

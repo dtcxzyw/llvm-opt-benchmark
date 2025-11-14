@@ -696,7 +696,7 @@ parse_double.exit:                                ; preds = %.preheader693
   br label %57
 
 57:                                               ; preds = %60, %55
-  %58 = phi i8 [ %.pre937, %60 ], [ %54, %55 ]
+  %58 = phi i8 [ %.pre936, %60 ], [ %54, %55 ]
   %59 = phi ptr [ %61, %60 ], [ %2, %55 ]
   switch i8 %58, label %.thread640 [
     i8 32, label %60
@@ -709,7 +709,7 @@ parse_double.exit:                                ; preds = %.preheader693
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 1
   store ptr %61, ptr %4, align 8, !tbaa !26
-  %.pre937 = load i8, ptr %61, align 1, !tbaa !23
+  %.pre936 = load i8, ptr %61, align 1, !tbaa !23
   br label %57
 
 .preheader679:                                    ; preds = %57, %.preheader679
@@ -765,7 +765,7 @@ parse_double.exit:                                ; preds = %.preheader693
   br i1 %.not464, label %.preheader676, label %.thread640
 
 .preheader676:                                    ; preds = %._crit_edge811, %.critedge.i480
-  %81 = phi i8 [ %.pre938, %.critedge.i480 ], [ %78, %._crit_edge811 ]
+  %81 = phi i8 [ %.pre937, %.critedge.i480 ], [ %78, %._crit_edge811 ]
   %82 = phi ptr [ %83, %.critedge.i480 ], [ %.lcssa768, %._crit_edge811 ]
   switch i8 %81, label %parse_double.exit481 [
     i8 32, label %.critedge.i480
@@ -775,7 +775,7 @@ parse_double.exit:                                ; preds = %.preheader693
 .critedge.i480:                                   ; preds = %.preheader676, %.preheader676
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
   store ptr %83, ptr %4, align 8, !tbaa !26
-  %.pre938 = load i8, ptr %83, align 1, !tbaa !23
+  %.pre937 = load i8, ptr %83, align 1, !tbaa !23
   br label %.preheader676
 
 parse_double.exit481:                             ; preds = %.preheader676
@@ -1923,7 +1923,7 @@ parse_double.exit575:                             ; preds = %.preheader696
   br label %529
 
 529:                                              ; preds = %.critedge.i578, %527
-  %530 = phi i8 [ %526, %527 ], [ %.pre936, %.critedge.i578 ]
+  %530 = phi i8 [ %526, %527 ], [ %.pre935, %.critedge.i578 ]
   %storemerge666 = phi ptr [ %2, %527 ], [ %532, %.critedge.i578 ]
   switch i8 %530, label %.preheader.i579.preheader [
     i8 32, label %.critedge.i578
@@ -1936,7 +1936,7 @@ parse_double.exit575:                             ; preds = %.preheader696
 
 .critedge.i578:                                   ; preds = %529, %529
   %532 = getelementptr inbounds nuw i8, ptr %storemerge666, i64 1
-  %.pre936 = load i8, ptr %532, align 1, !tbaa !23
+  %.pre935 = load i8, ptr %532, align 1, !tbaa !23
   br label %529
 
 .preheader.i579:                                  ; preds = %.preheader.i579.preheader, %535
@@ -2017,9 +2017,9 @@ parse_double.exit587:                             ; preds = %.preheader690
   %560 = ptrtoint ptr %559 to i64
   %561 = sub i64 %560, %21
   %.not439 = icmp slt i64 %561, %528
-  br i1 %.not439, label %.preheader853, label %.thread649
+  br i1 %.not439, label %.preheader1074, label %.thread649
 
-.preheader853:                                    ; preds = %parse_double.exit587, %.critedge.i589
+.preheader1074:                                   ; preds = %parse_double.exit587, %.critedge.i589
   %562 = phi ptr [ %564, %.critedge.i589 ], [ %559, %parse_double.exit587 ]
   %563 = load i8, ptr %562, align 1, !tbaa !23
   switch i8 %563, label %565 [
@@ -2027,17 +2027,17 @@ parse_double.exit587:                             ; preds = %.preheader690
     i8 9, label %.critedge.i589
   ]
 
-.critedge.i589:                                   ; preds = %.preheader853, %.preheader853
+.critedge.i589:                                   ; preds = %.preheader1074, %.preheader1074
   %564 = getelementptr inbounds nuw i8, ptr %562, i64 1
   store ptr %564, ptr %8, align 8, !tbaa !26
-  br label %.preheader853
+  br label %.preheader1074
 
 .thread649:                                       ; preds = %parse_string.exit581, %539, %parse_double.exit584, %parse_double.exit587
   %.18.ph = phi i32 [ 483, %parse_double.exit587 ], [ 481, %parse_double.exit584 ], [ 479, %539 ], [ 477, %parse_string.exit581 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
-565:                                              ; preds = %.preheader853
+565:                                              ; preds = %.preheader1074
   %566 = fptrunc reassoc nsz arcp contract afn double %556 to float
   %567 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %562, ptr noundef nonnull %8) #13
   %568 = load ptr, ptr %8, align 8, !tbaa !26
@@ -2080,7 +2080,7 @@ parse_double.exit587:                             ; preds = %.preheader690
   br label %.loopexit698
 
 .thread:                                          ; preds = %500, %parse_string.exit572, %522, %.thread649
-  %.2.ph962 = phi i32 [ %.18.ph, %.thread649 ], [ 452, %500 ], [ 454, %parse_string.exit572 ], [ 462, %522 ]
+  %.2.ph961 = phi i32 [ %.18.ph, %.thread649 ], [ 452, %500 ], [ 454, %parse_string.exit572 ], [ 462, %522 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit698
 
@@ -2090,7 +2090,7 @@ free_chart.exit.thread:                           ; preds = %._crit_edge848, %.o
   br label %594
 
 .loopexit698:                                     ; preds = %._crit_edge, %.thread, %.thread654, %11
-  %.0344 = phi i32 [ 153, %11 ], [ %.2.ph, %.thread654 ], [ %.2.ph962, %.thread ], [ 487, %._crit_edge ]
+  %.0344 = phi i32 [ 153, %11 ], [ %.2.ph, %.thread654 ], [ %.2.ph961, %.thread ], [ 487, %._crit_edge ]
   %578 = load ptr, ptr @stderr, align 8, !tbaa !24
   %579 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %578, ptr noundef nonnull @.str.14, ptr noundef nonnull @__FUNCTION__.parse_cht, i32 noundef %.0344) #15
   %.not.i591 = icmp eq ptr %9, null

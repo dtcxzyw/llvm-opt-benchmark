@@ -526,52 +526,52 @@ define void @ssl3_free(ptr noundef %0) local_unnamed_addr #4 {
 .thread49:                                        ; preds = %3, %8
   %11 = phi ptr [ %9, %8 ], [ %0, %3 ]
   tail call void @ssl3_cleanup_key_block(ptr noundef nonnull %11) #18
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1248
-  %13 = load ptr, ptr %12, align 8, !tbaa !23
-  tail call void @EVP_PKEY_free(ptr noundef %13) #18
-  store ptr null, ptr %12, align 8, !tbaa !23
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 824
-  %15 = load i64, ptr %14, align 8, !tbaa !76
-  %.not51 = icmp eq i64 %15, 0
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 352
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 1248
+  %14 = load ptr, ptr %13, align 8, !tbaa !23
+  tail call void @EVP_PKEY_free(ptr noundef %14) #18
+  store ptr null, ptr %13, align 8, !tbaa !23
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 824
+  %16 = load i64, ptr %15, align 8, !tbaa !76
+  %.not51 = icmp eq i64 %16, 0
   br i1 %.not51, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread49
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 784
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 776
-  br label %18
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 784
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 776
+  br label %19
 
-18:                                               ; preds = %.lr.ph, %27
-  %19 = phi i64 [ %15, %.lr.ph ], [ %28, %27 ]
-  %.050 = phi i64 [ 0, %.lr.ph ], [ %29, %27 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %.050
-  %21 = load ptr, ptr %20, align 8, !tbaa !77
-  %.not48 = icmp eq ptr %21, null
-  br i1 %.not48, label %27, label %22
+19:                                               ; preds = %.lr.ph, %28
+  %20 = phi i64 [ %16, %.lr.ph ], [ %29, %28 ]
+  %.050 = phi i64 [ 0, %.lr.ph ], [ %30, %28 ]
+  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %.050
+  %22 = load ptr, ptr %21, align 8, !tbaa !77
+  %.not48 = icmp eq ptr %22, null
+  br i1 %.not48, label %28, label %23
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %17, align 8, !tbaa !78
-  %24 = icmp eq ptr %23, %21
-  br i1 %24, label %25, label %26
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %18, align 8, !tbaa !78
+  %25 = icmp eq ptr %24, %22
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %22
-  store ptr null, ptr %17, align 8, !tbaa !78
-  br label %26
-
-26:                                               ; preds = %25, %22
-  tail call void @EVP_PKEY_free(ptr noundef nonnull %21) #18
-  store ptr null, ptr %20, align 8, !tbaa !77
-  %.pre = load i64, ptr %14, align 8, !tbaa !76
+26:                                               ; preds = %23
+  store ptr null, ptr %18, align 8, !tbaa !78
   br label %27
 
-27:                                               ; preds = %18, %26
-  %28 = phi i64 [ %19, %18 ], [ %.pre, %26 ]
-  %29 = add nuw i64 %.050, 1
-  %30 = icmp ult i64 %29, %28
-  br i1 %30, label %18, label %._crit_edge, !llvm.loop !79
+27:                                               ; preds = %26, %23
+  tail call void @EVP_PKEY_free(ptr noundef nonnull %22) #18
+  store ptr null, ptr %21, align 8, !tbaa !77
+  %.pre = load i64, ptr %15, align 8, !tbaa !76
+  br label %28
 
-._crit_edge:                                      ; preds = %27, %.thread49
-  %31 = getelementptr inbounds nuw i8, ptr %11, i64 352
-  store i64 0, ptr %14, align 8, !tbaa !76
+28:                                               ; preds = %19, %27
+  %29 = phi i64 [ %20, %19 ], [ %.pre, %27 ]
+  %30 = add nuw i64 %.050, 1
+  %31 = icmp ult i64 %30, %29
+  br i1 %31, label %19, label %._crit_edge, !llvm.loop !79
+
+._crit_edge:                                      ; preds = %28, %.thread49
+  store i64 0, ptr %15, align 8, !tbaa !76
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 776
   %33 = load ptr, ptr %32, align 8, !tbaa !78
   %.not47 = icmp eq ptr %33, null
@@ -626,7 +626,7 @@ define void @ssl3_free(ptr noundef %0) local_unnamed_addr #4 {
   %63 = load ptr, ptr %62, align 8, !tbaa !94
   tail call void @CRYPTO_free(ptr noundef %63, ptr noundef nonnull @.str.2, i32 noundef 3448) #18
   %64 = tail call i32 @ssl_srp_ctx_free_intern(ptr noundef nonnull %11) #18
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(912) %31, i8 0, i64 912, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(912) %12, i8 0, i64 912, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %6, %1, %8, %35
@@ -681,74 +681,74 @@ define range(i32 0, 2) i32 @ssl3_clear(ptr noundef %0) local_unnamed_addr #4 {
 .thread54:                                        ; preds = %3, %8
   %11 = phi ptr [ %9, %8 ], [ %0, %3 ]
   tail call void @ssl3_cleanup_key_block(ptr noundef nonnull %11) #18
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 840
-  %13 = load ptr, ptr %12, align 8, !tbaa !83
-  tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 3467) #18
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 856
-  %15 = load ptr, ptr %14, align 8, !tbaa !84
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %15, ptr noundef nonnull @X509_NAME_free) #18
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 928
-  %17 = load ptr, ptr %16, align 8, !tbaa !85
-  tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.2, i32 noundef 3469) #18
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 944
-  %19 = load ptr, ptr %18, align 8, !tbaa !86
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 952
-  %21 = load i64, ptr %20, align 8, !tbaa !87
-  tail call void @CRYPTO_clear_free(ptr noundef %19, i64 noundef %21, ptr noundef nonnull @.str.2, i32 noundef 3470) #18
-  %22 = getelementptr inbounds nuw i8, ptr %11, i64 992
-  %23 = load ptr, ptr %22, align 8, !tbaa !88
-  tail call void @CRYPTO_free(ptr noundef %23, ptr noundef nonnull @.str.2, i32 noundef 3471) #18
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 1000
-  %25 = load ptr, ptr %24, align 8, !tbaa !89
-  tail call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str.2, i32 noundef 3472) #18
-  %26 = getelementptr inbounds nuw i8, ptr %11, i64 1032
-  %27 = load ptr, ptr %26, align 8, !tbaa !90
-  tail call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str.2, i32 noundef 3473) #18
-  %28 = getelementptr inbounds nuw i8, ptr %11, i64 1248
-  %29 = load ptr, ptr %28, align 8, !tbaa !23
-  tail call void @EVP_PKEY_free(ptr noundef %29) #18
-  %30 = getelementptr inbounds nuw i8, ptr %11, i64 824
-  %31 = load i64, ptr %30, align 8, !tbaa !76
-  %.not56 = icmp eq i64 %31, 0
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 352
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 840
+  %14 = load ptr, ptr %13, align 8, !tbaa !83
+  tail call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str.2, i32 noundef 3467) #18
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 856
+  %16 = load ptr, ptr %15, align 8, !tbaa !84
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %16, ptr noundef nonnull @X509_NAME_free) #18
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 928
+  %18 = load ptr, ptr %17, align 8, !tbaa !85
+  tail call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str.2, i32 noundef 3469) #18
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 944
+  %20 = load ptr, ptr %19, align 8, !tbaa !86
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 952
+  %22 = load i64, ptr %21, align 8, !tbaa !87
+  tail call void @CRYPTO_clear_free(ptr noundef %20, i64 noundef %22, ptr noundef nonnull @.str.2, i32 noundef 3470) #18
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 992
+  %24 = load ptr, ptr %23, align 8, !tbaa !88
+  tail call void @CRYPTO_free(ptr noundef %24, ptr noundef nonnull @.str.2, i32 noundef 3471) #18
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 1000
+  %26 = load ptr, ptr %25, align 8, !tbaa !89
+  tail call void @CRYPTO_free(ptr noundef %26, ptr noundef nonnull @.str.2, i32 noundef 3472) #18
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 1032
+  %28 = load ptr, ptr %27, align 8, !tbaa !90
+  tail call void @CRYPTO_free(ptr noundef %28, ptr noundef nonnull @.str.2, i32 noundef 3473) #18
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 1248
+  %30 = load ptr, ptr %29, align 8, !tbaa !23
+  tail call void @EVP_PKEY_free(ptr noundef %30) #18
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 824
+  %32 = load i64, ptr %31, align 8, !tbaa !76
+  %.not56 = icmp eq i64 %32, 0
   br i1 %.not56, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread54
-  %32 = getelementptr inbounds nuw i8, ptr %11, i64 784
-  %33 = getelementptr inbounds nuw i8, ptr %11, i64 776
-  br label %34
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 784
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 776
+  br label %35
 
-34:                                               ; preds = %.lr.ph, %43
-  %35 = phi i64 [ %31, %.lr.ph ], [ %44, %43 ]
-  %.055 = phi i64 [ 0, %.lr.ph ], [ %45, %43 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %.055
-  %37 = load ptr, ptr %36, align 8, !tbaa !77
-  %.not53 = icmp eq ptr %37, null
-  br i1 %.not53, label %43, label %38
+35:                                               ; preds = %.lr.ph, %44
+  %36 = phi i64 [ %32, %.lr.ph ], [ %45, %44 ]
+  %.055 = phi i64 [ 0, %.lr.ph ], [ %46, %44 ]
+  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %.055
+  %38 = load ptr, ptr %37, align 8, !tbaa !77
+  %.not53 = icmp eq ptr %38, null
+  br i1 %.not53, label %44, label %39
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr %33, align 8, !tbaa !78
-  %40 = icmp eq ptr %39, %37
-  br i1 %40, label %41, label %42
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %34, align 8, !tbaa !78
+  %41 = icmp eq ptr %40, %38
+  br i1 %41, label %42, label %43
 
-41:                                               ; preds = %38
-  store ptr null, ptr %33, align 8, !tbaa !78
-  br label %42
-
-42:                                               ; preds = %41, %38
-  tail call void @EVP_PKEY_free(ptr noundef nonnull %37) #18
-  store ptr null, ptr %36, align 8, !tbaa !77
-  %.pre = load i64, ptr %30, align 8, !tbaa !76
+42:                                               ; preds = %39
+  store ptr null, ptr %34, align 8, !tbaa !78
   br label %43
 
-43:                                               ; preds = %34, %42
-  %44 = phi i64 [ %35, %34 ], [ %.pre, %42 ]
-  %45 = add nuw i64 %.055, 1
-  %46 = icmp ult i64 %45, %44
-  br i1 %46, label %34, label %._crit_edge, !llvm.loop !95
+43:                                               ; preds = %42, %39
+  tail call void @EVP_PKEY_free(ptr noundef nonnull %38) #18
+  store ptr null, ptr %37, align 8, !tbaa !77
+  %.pre = load i64, ptr %31, align 8, !tbaa !76
+  br label %44
 
-._crit_edge:                                      ; preds = %43, %.thread54
-  %47 = getelementptr inbounds nuw i8, ptr %11, i64 352
-  store i64 0, ptr %30, align 8, !tbaa !76
+44:                                               ; preds = %35, %43
+  %45 = phi i64 [ %36, %35 ], [ %.pre, %43 ]
+  %46 = add nuw i64 %.055, 1
+  %47 = icmp ult i64 %46, %45
+  br i1 %47, label %35, label %._crit_edge, !llvm.loop !95
+
+._crit_edge:                                      ; preds = %44, %.thread54
+  store i64 0, ptr %31, align 8, !tbaa !76
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 776
   %49 = load ptr, ptr %48, align 8, !tbaa !78
   %.not51 = icmp eq ptr %49, null
@@ -767,11 +767,11 @@ define range(i32 0, 2) i32 @ssl3_clear(ptr noundef %0) local_unnamed_addr #4 {
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 1224
   %55 = load ptr, ptr %54, align 8, !tbaa !92
   tail call void @CRYPTO_free(ptr noundef %55, ptr noundef nonnull @.str.2, i32 noundef 3495) #18
-  %56 = load i64, ptr %47, align 8, !tbaa !96
+  %56 = load i64, ptr %12, align 8, !tbaa !96
   %57 = and i64 %56, 8192
   %58 = getelementptr inbounds nuw i8, ptr %11, i64 360
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(904) %58, i8 0, i64 904, i1 false)
-  store i64 %57, ptr %47, align 8, !tbaa !96
+  store i64 %57, ptr %12, align 8, !tbaa !96
   %59 = tail call i32 @ssl_free_wbio_buffer(ptr noundef nonnull %11) #18
   %.not52 = icmp eq i32 %59, 0
   br i1 %.not52, label %.thread, label %60

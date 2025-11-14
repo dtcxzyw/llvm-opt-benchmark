@@ -11946,14 +11946,14 @@ default.unreachable:                              ; preds = %13
   %65 = load i64, ptr %16, align 8, !alias.scope !1030, !noundef !6
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1030
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1038)
+  %66 = icmp sgt i64 %65, -1
   %.sroa.0.0.i.i.i.i = tail call i64 @llvm.abs.i64(i64 %65, i1 false)
-  %66 = icmp ugt i64 %.sroa.0.0.i.i.i.i, 9999
-  br i1 %66, label %.lr.ph.i.i.i6.i, label %._crit_edge.i.i.i3.i
+  %67 = icmp ugt i64 %.sroa.0.0.i.i.i.i, 9999
+  br i1 %67, label %.lr.ph.i.i.i6.i, label %._crit_edge.i.i.i3.i
 
 ._crit_edge.i.i.i3.i:                             ; preds = %.lr.ph.i.i.i6.i, %64
   %.sroa.09.0.lcssa.i.i.i.i = phi i64 [ 20, %64 ], [ %77, %.lr.ph.i.i.i6.i ]
   %.sroa.0.1.lcssa.i.i.i4.i = phi i64 [ %.sroa.0.0.i.i.i.i, %64 ], [ %70, %.lr.ph.i.i.i6.i ]
-  %67 = icmp sgt i64 %65, -1
   %68 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i4.i, 99
   br i1 %68, label %86, label %95
 
@@ -12021,7 +12021,7 @@ default.unreachable:                              ; preds = %13
 
 108:                                              ; preds = %103, %97
   %.sroa.09.2.i.i.i.i = phi i64 [ %104, %103 ], [ %99, %97 ]
-  br i1 %67, label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417h97591588cbd8f918E.exit.i", label %109
+  br i1 %66, label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417h97591588cbd8f918E.exit.i", label %109
 
 109:                                              ; preds = %108
   %110 = add i64 %.sroa.09.2.i.i.i.i, -1

@@ -2494,60 +2494,60 @@ StoreVarLenUint8.exit:                            ; preds = %6
 
 46:                                               ; preds = %StoreVarLenUint8.exit
   %47 = add nsw i64 %2, -1
-  %48 = add i64 %47, %1
-  %49 = shl i64 %48, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %49, i1 false)
+  %48 = trunc nuw nsw i64 %47 to i32
+  %notmask = shl nsw i32 -1, %48
+  %49 = xor i32 %notmask, -1
+  %50 = zext nneg i32 %49 to i64
+  %51 = add i64 %47, %1
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1360
+  %54 = shl i64 %51, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %54, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !398)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !401)
-  %50 = load i64, ptr %4, align 8, !tbaa !3, !alias.scope !398, !noalias !401
-  %51 = lshr i64 %50, 3
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 %51
-  %53 = load i8, ptr %52, align 1, !tbaa !7, !alias.scope !401, !noalias !398
-  %54 = zext i8 %53 to i64
-  %55 = and i64 %50, 7
-  %56 = shl nuw nsw i64 1, %55
-  %57 = or i64 %56, %54
-  store i64 %57, ptr %52, align 1, !noalias !398
-  %58 = add i64 %50, 1
-  store i64 %58, ptr %4, align 8, !tbaa !3, !alias.scope !398, !noalias !401
-  %59 = add nsw i64 %2, -2
+  %55 = load i64, ptr %4, align 8, !tbaa !3, !alias.scope !398, !noalias !401
+  %56 = lshr i64 %55, 3
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 %56
+  %58 = load i8, ptr %57, align 1, !tbaa !7, !alias.scope !401, !noalias !398
+  %59 = zext i8 %58 to i64
+  %60 = and i64 %55, 7
+  %61 = shl nuw nsw i64 1, %60
+  %62 = or i64 %61, %59
+  store i64 %62, ptr %57, align 1, !noalias !398
+  %63 = add i64 %55, 1
+  store i64 %63, ptr %4, align 8, !tbaa !3, !alias.scope !398, !noalias !401
+  %64 = add nsw i64 %2, -2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !403)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !406)
-  %60 = lshr i64 %58, 3
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 %60
-  %62 = load i8, ptr %61, align 1, !tbaa !7, !alias.scope !406, !noalias !403
-  %63 = zext i8 %62 to i64
-  %64 = and i64 %58, 7
-  %65 = shl nuw nsw i64 %59, %64
-  %66 = or i64 %65, %63
-  store i64 %66, ptr %61, align 1, !noalias !403
-  %67 = add i64 %50, 5
-  store i64 %67, ptr %4, align 8, !tbaa !3, !alias.scope !403, !noalias !406
-  %68 = trunc i64 %1 to i32
-  %69 = getelementptr inbounds nuw i32, ptr %0, i64 %47
-  store i32 %68, ptr %69, align 4, !tbaa !8
+  %65 = lshr i64 %63, 3
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 %65
+  %67 = load i8, ptr %66, align 1, !tbaa !7, !alias.scope !406, !noalias !403
+  %68 = zext i8 %67 to i64
+  %69 = and i64 %63, 7
+  %70 = shl nuw nsw i64 %64, %69
+  %71 = or i64 %70, %68
+  store i64 %71, ptr %66, align 1, !noalias !403
+  %72 = add i64 %55, 5
+  store i64 %72, ptr %4, align 8, !tbaa !3, !alias.scope !403, !noalias !406
+  %73 = trunc i64 %1 to i32
+  %74 = getelementptr inbounds nuw i32, ptr %0, i64 %47
+  store i32 %73, ptr %74, align 4, !tbaa !8
   store i32 1, ptr %0, align 4, !tbaa !8
-  %70 = icmp ult i64 %2, %48
-  br i1 %70, label %.lr.ph, label %._crit_edge
+  %75 = icmp ult i64 %2, %51
+  br i1 %75, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %46, %.lr.ph
-  %.062 = phi i64 [ %72, %.lr.ph ], [ %2, %46 ]
-  %71 = getelementptr inbounds nuw i32, ptr %0, i64 %.062
-  store i32 1, ptr %71, align 4, !tbaa !8
-  %72 = add nuw i64 %.062, 1
-  %exitcond.not = icmp eq i64 %72, %48
+  %.062 = phi i64 [ %77, %.lr.ph ], [ %2, %46 ]
+  %76 = getelementptr inbounds nuw i32, ptr %0, i64 %.062
+  store i32 1, ptr %76, align 4, !tbaa !8
+  %77 = add nuw i64 %.062, 1
+  %exitcond.not = icmp eq i64 %77, %51
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !408
 
 ._crit_edge:                                      ; preds = %.lr.ph, %46
-  %73 = trunc nuw nsw i64 %47 to i32
-  %notmask = shl nsw i32 -1, %73
-  %74 = xor i32 %notmask, -1
-  %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1088
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1360
-  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef nonnull %0, i64 noundef %48, i64 noundef %48, ptr noundef %3, ptr noundef nonnull %76, ptr noundef nonnull %77, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 %47
-  %79 = getelementptr inbounds nuw i16, ptr %77, i64 %47
+  tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef nonnull %0, i64 noundef %51, i64 noundef %51, ptr noundef %3, ptr noundef nonnull %52, ptr noundef nonnull %53, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %78 = getelementptr inbounds nuw i8, ptr %52, i64 %47
+  %79 = getelementptr inbounds nuw i16, ptr %53, i64 %47
   %.pre = load i64, ptr %4, align 8, !tbaa !3, !alias.scope !409, !noalias !412
   br label %80
 
@@ -2557,10 +2557,10 @@ StoreVarLenUint8.exit:                            ; preds = %6
   %82 = icmp eq i64 %.163, 0
   %83 = add i64 %47, %.163
   %84 = select i1 %82, i64 0, i64 %83
-  %85 = getelementptr inbounds nuw i8, ptr %76, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %52, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !7
   %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds nuw i16, ptr %77, i64 %84
+  %88 = getelementptr inbounds nuw i16, ptr %53, i64 %84
   %89 = load i16, ptr %88, align 2, !tbaa !30
   %90 = zext i16 %89 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !409)
@@ -2598,7 +2598,7 @@ StoreVarLenUint8.exit:                            ; preds = %6
   %113 = load i8, ptr %112, align 1, !tbaa !7, !alias.scope !422, !noalias !419
   %114 = zext i8 %113 to i64
   %115 = and i64 %110, 7
-  %116 = shl nuw nsw i64 %75, %115
+  %116 = shl nuw nsw i64 %50, %115
   %117 = or i64 %116, %114
   store i64 %117, ptr %112, align 1, !noalias !419
   %118 = add i64 %110, %47

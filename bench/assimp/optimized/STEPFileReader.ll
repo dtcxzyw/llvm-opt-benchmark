@@ -11217,14 +11217,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt15_Sp_counted_ptrIPN6Assimp12Stream
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp4STEP2DBD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %.not9 = icmp eq ptr %3, %4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %.not9 = icmp eq ptr %4, %5
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %90, %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -11332,7 +11332,7 @@ _ZNSt8multimapImmSt4lessImESaISt4pairIKmmEEED2Ev.exit: ; preds = %_ZNSt3setIPKcS
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIPKN6Assimp4STEP10LazyObjectESt4lessISB_ESaISB_EESC_IS5_ESaISt4pairIKS5_SF_EEED2Ev.exit: ; preds = %_ZNSt8multimapImmSt4lessImESaISt4pairIKmmEEED2Ev.exit
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %54 = load ptr, ptr %53, align 8
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmPKN6Assimp4STEP10LazyObjectEESt10_Select1stIS7_ESt4lessImESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %54)
+  invoke void @_ZNSt8_Rb_treeImSt4pairIKmPKN6Assimp4STEP10LazyObjectEESt10_Select1stIS7_ESt4lessImESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %54)
           to label %_ZNSt3mapImPKN6Assimp4STEP10LazyObjectESt4lessImESaISt4pairIKmS4_EEED2Ev.exit unwind label %55
 
 55:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIPKN6Assimp4STEP10LazyObjectESt4lessISB_ESaISB_EESC_IS5_ESaISt4pairIKS5_SF_EEED2Ev.exit
@@ -11384,7 +11384,7 @@ _ZN6Assimp4STEP10HeaderInfoD2Ev.exit:             ; preds = %_ZNSt7__cxx1112basi
   ret void
 
 .lr.ph:                                           ; preds = %1, %90
-  %.sroa.06.010 = phi ptr [ %91, %90 ], [ %3, %1 ]
+  %.sroa.06.010 = phi ptr [ %91, %90 ], [ %4, %1 ]
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 40
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
@@ -11419,7 +11419,7 @@ _ZN6Assimp4STEP10LazyObjectD2Ev.exit:             ; preds = %81, %85, %89
 
 90:                                               ; preds = %_ZN6Assimp4STEP10LazyObjectD2Ev.exit, %.lr.ph
   %91 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.010) #30
-  %.not = icmp eq ptr %91, %4
+  %.not = icmp eq ptr %91, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

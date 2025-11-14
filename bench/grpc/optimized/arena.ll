@@ -340,14 +340,14 @@ define hidden void @upb_Arena_Free(ptr noundef captures(address) %0) local_unnam
   br i1 %.not17.i, label %_upb_Arena_DoFree.exit, label %.lr.ph19.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph19.i
-  %15 = inttoptr i64 %17 to ptr
-  %.not.i = icmp eq i64 %17, 0
+  %.not.i = icmp eq i64 %16, 0
   br i1 %.not.i, label %_upb_Arena_DoFree.exit, label %.lr.ph19.i, !llvm.loop !34
 
 .lr.ph19.i:                                       ; preds = %14, %.loopexit.i
-  %.018.i = phi ptr [ %15, %.loopexit.i ], [ %.1.lcssa, %14 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
-  %17 = load atomic i64, ptr %16 acquire, align 8
+  %.018.i = phi ptr [ %17, %.loopexit.i ], [ %.1.lcssa, %14 ]
+  %15 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
+  %16 = load atomic i64, ptr %15 acquire, align 8
+  %17 = inttoptr i64 %16 to ptr
   %.0.val.i = load i64, ptr %.018.i, align 8, !tbaa !17
   %18 = and i64 %.0.val.i, -2
   %19 = inttoptr i64 %18 to ptr
@@ -650,14 +650,14 @@ define hidden void @upb_Arena_DecRefFor(ptr noundef captures(address) %0, ptr no
   br i1 %.not17.i.i, label %upb_Arena_Free.exit, label %.lr.ph19.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %.lr.ph19.i.i
-  %16 = inttoptr i64 %18 to ptr
-  %.not.i.i = icmp eq i64 %18, 0
+  %.not.i.i = icmp eq i64 %17, 0
   br i1 %.not.i.i, label %upb_Arena_Free.exit, label %.lr.ph19.i.i, !llvm.loop !34
 
 .lr.ph19.i.i:                                     ; preds = %15, %.loopexit.i.i
-  %.018.i.i = phi ptr [ %16, %.loopexit.i.i ], [ %.1.lcssa.i, %15 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 16
-  %18 = load atomic i64, ptr %17 acquire, align 8
+  %.018.i.i = phi ptr [ %18, %.loopexit.i.i ], [ %.1.lcssa.i, %15 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 16
+  %17 = load atomic i64, ptr %16 acquire, align 8
+  %18 = inttoptr i64 %17 to ptr
   %.0.val.i.i = load i64, ptr %.018.i.i, align 8, !tbaa !17
   %19 = and i64 %.0.val.i.i, -2
   %20 = inttoptr i64 %19 to ptr

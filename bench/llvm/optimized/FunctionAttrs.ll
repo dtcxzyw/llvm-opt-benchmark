@@ -12056,17 +12056,17 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %458, %450
 
 _ZN12_GLOBAL__N_119ArgumentUsesSummaryC2Ev.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %467 = load ptr, ptr %220, align 8, !tbaa !64, !noalias !750
+  %468 = getelementptr inbounds i8, ptr %467, i64 -24
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !750
   store ptr %86, ptr %30, align 8, !tbaa !25, !noalias !750
   store i32 0, ptr %87, align 8, !tbaa !26, !noalias !750
   store i32 4, ptr %88, align 4, !tbaa !27, !noalias !750
-  %468 = getelementptr inbounds nuw i8, ptr %.0142790, i64 16
-  %.sroa.0107.0124.i.i = load ptr, ptr %468, align 8, !tbaa !224, !noalias !750
+  %469 = getelementptr inbounds nuw i8, ptr %.0142790, i64 16
+  %.sroa.0107.0124.i.i = load ptr, ptr %469, align 8, !tbaa !224, !noalias !750
   %.not125.i.i = icmp eq ptr %.sroa.0107.0124.i.i, null
   br i1 %.not125.i.i, label %._crit_edge.i.i346, label %.lr.ph.i.i342
 
 .preheader.i.i:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_111ArgumentUseELb1EE9push_backERKS2_.exit.i.i
-  %469 = getelementptr inbounds i8, ptr %467, i64 -24
   %.not.i131.i.i = icmp eq i32 %486, 0
   br i1 %.not.i131.i.i, label %._crit_edge.i.i346, label %.lr.ph133.i.i
 
@@ -14452,7 +14452,7 @@ _ZN12_GLOBAL__N_118ArgumentAccessInfoD2Ev.exit.i.i: ; preds = %1444, %_ZN4llvm23
 
 1448:                                             ; preds = %_ZN12_GLOBAL__N_118ArgumentAccessInfoD2Ev.exit.i.i
   %1449 = load ptr, ptr %1075, align 8, !tbaa !436
-  %.not27.i.i = icmp eq ptr %1449, %469
+  %.not27.i.i = icmp eq ptr %1449, %468
   br i1 %.not27.i.i, label %.loopexitthread-pre-split.i.i, label %1450
 
 1450:                                             ; preds = %1448

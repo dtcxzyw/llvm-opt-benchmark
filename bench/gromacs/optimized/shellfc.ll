@@ -378,8 +378,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc268
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %67, 2
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %66, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !13
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i.i.i.i.i.i
   br label %70
 
 70:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc268, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i

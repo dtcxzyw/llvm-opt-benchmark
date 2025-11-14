@@ -633,8 +633,8 @@ _ZNSt12_Vector_baseIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_1
   store ptr null, ptr %120, align 8, !tbaa !149, !noalias !142
   %123 = getelementptr i8, ptr %120, i64 8
   %.idx.i.i.i.i.i.i.i.i = add nsw i64 %119, -8
-  %124 = getelementptr i8, ptr %120, i64 %119
   call void @llvm.memset.p0.i64(ptr align 8 %123, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !149, !noalias !142
+  %124 = getelementptr i8, ptr %120, i64 %119
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %124, ptr %125, align 8, !tbaa !151, !alias.scope !142
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1200,8 +1200,8 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %11, 1
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 2 %10, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !165
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i.i.i.i.i
   br label %14
 
 14:                                               ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc10

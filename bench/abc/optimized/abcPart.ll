@@ -2615,45 +2615,45 @@ define i32 @Abc_NtkPartitionSmartFindPart(ptr noundef readonly captures(none) %0
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %Abc_NtkSuppCharCommon.exit.thread.us.us ], [ 0, %.lr.ph.split.us ]
   %.049.us.us = phi i32 [ %.1.us.us, %Abc_NtkSuppCharCommon.exit.thread.us.us ], [ -1, %.lr.ph.split.us ]
   %.02947.us.us = phi i32 [ %.130.us.us, %Abc_NtkSuppCharCommon.exit.thread.us.us ], [ 0, %.lr.ph.split.us ]
-  %15 = getelementptr inbounds nuw ptr, ptr %.val36, i64 %indvars.iv62
+  %15 = getelementptr inbounds nuw ptr, ptr %.val37, i64 %indvars.iv62
   %16 = load ptr, ptr %15, align 8, !tbaa !18
-  br label %17
+  %17 = getelementptr inbounds nuw ptr, ptr %.val36, i64 %indvars.iv62
+  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  br label %19
 
-17:                                               ; preds = %17, %.lr.ph.i.us.us
-  %indvars.iv.i.us.us = phi i64 [ 0, %.lr.ph.i.us.us ], [ %indvars.iv.next.i.us.us, %17 ]
-  %.011.i.us.us = phi i32 [ 0, %.lr.ph.i.us.us ], [ %27, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %.val.i.us, i64 %indvars.iv.i.us.us
-  %19 = load i32, ptr %18, align 4, !tbaa !29
-  %20 = ashr i32 %19, 5
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %16, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !29
-  %24 = and i32 %19, 31
-  %25 = lshr i32 %23, %24
-  %26 = and i32 %25, 1
-  %27 = add nuw nsw i32 %26, %.011.i.us.us
+19:                                               ; preds = %19, %.lr.ph.i.us.us
+  %indvars.iv.i.us.us = phi i64 [ 0, %.lr.ph.i.us.us ], [ %indvars.iv.next.i.us.us, %19 ]
+  %.011.i.us.us = phi i32 [ 0, %.lr.ph.i.us.us ], [ %29, %19 ]
+  %20 = getelementptr inbounds nuw i32, ptr %.val.i.us, i64 %indvars.iv.i.us.us
+  %21 = load i32, ptr %20, align 4, !tbaa !29
+  %22 = ashr i32 %21, 5
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds i32, ptr %18, i64 %23
+  %25 = load i32, ptr %24, align 4, !tbaa !29
+  %26 = and i32 %21, 31
+  %27 = lshr i32 %25, %26
+  %28 = and i32 %27, 1
+  %29 = add nuw nsw i32 %28, %.011.i.us.us
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us.us, label %Abc_NtkSuppCharCommon.exit.us.us, label %17, !llvm.loop !85
+  br i1 %exitcond.not.i.us.us, label %Abc_NtkSuppCharCommon.exit.us.us, label %19, !llvm.loop !85
 
-Abc_NtkSuppCharCommon.exit.us.us:                 ; preds = %17
-  %28 = getelementptr inbounds nuw ptr, ptr %.val37, i64 %indvars.iv62
-  %29 = load ptr, ptr %28, align 8, !tbaa !18
-  %30 = icmp eq i32 %27, 0
+Abc_NtkSuppCharCommon.exit.us.us:                 ; preds = %19
+  %30 = icmp eq i32 %29, 0
   br i1 %30, label %Abc_NtkSuppCharCommon.exit.thread.us.us, label %31
 
 31:                                               ; preds = %Abc_NtkSuppCharCommon.exit.us.us
-  %32 = icmp eq i32 %27, %.val9.i
+  %32 = icmp eq i32 %29, %.val9.i
   br i1 %32, label %.loopexit.loopexit, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr i8, ptr %29, i64 4
+  %34 = getelementptr i8, ptr %16, i64 4
   %.val41.us.us = load i32, ptr %34, align 4, !tbaa !33
   %.not.us.us = icmp slt i32 %.val41.us.us, %12
   br i1 %.not.us.us, label %35, label %Abc_NtkSuppCharCommon.exit.thread.us.us
 
 35:                                               ; preds = %33
-  %36 = mul nuw nsw i32 %27, 1000
+  %36 = mul nuw nsw i32 %29, 1000
   %37 = udiv i32 %36, %.val9.i
   %38 = icmp slt i32 %.val41.us.us, 100
   br i1 %38, label %45, label %Abc_Base2Log.exit.us.us
@@ -2688,41 +2688,41 @@ Abc_NtkSuppCharCommon.exit.thread.us.us:          ; preds = %45, %33, %Abc_NtkSu
   %indvars.iv = phi i64 [ %indvars.iv.next, %Abc_NtkSuppCharCommon.exit.thread.us ], [ 0, %.lr.ph.split.us ]
   %.049.us = phi i32 [ %.1.us, %Abc_NtkSuppCharCommon.exit.thread.us ], [ -1, %.lr.ph.split.us ]
   %.02947.us = phi i32 [ %.130.us, %Abc_NtkSuppCharCommon.exit.thread.us ], [ 0, %.lr.ph.split.us ]
-  %49 = getelementptr inbounds nuw ptr, ptr %.val36, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %.val37, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !18
-  br label %51
+  %51 = getelementptr inbounds nuw ptr, ptr %.val36, i64 %indvars.iv
+  %52 = load ptr, ptr %51, align 8, !tbaa !18
+  br label %53
 
-51:                                               ; preds = %51, %.lr.ph.i.us
-  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %51 ]
-  %.011.i.us = phi i32 [ 0, %.lr.ph.i.us ], [ %61, %51 ]
-  %52 = getelementptr inbounds nuw i32, ptr %.val.i.us, i64 %indvars.iv.i.us
-  %53 = load i32, ptr %52, align 4, !tbaa !29
-  %54 = ashr i32 %53, 5
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i32, ptr %50, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !29
-  %58 = and i32 %53, 31
-  %59 = lshr i32 %57, %58
-  %60 = and i32 %59, 1
-  %61 = add nuw nsw i32 %60, %.011.i.us
+53:                                               ; preds = %53, %.lr.ph.i.us
+  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %53 ]
+  %.011.i.us = phi i32 [ 0, %.lr.ph.i.us ], [ %63, %53 ]
+  %54 = getelementptr inbounds nuw i32, ptr %.val.i.us, i64 %indvars.iv.i.us
+  %55 = load i32, ptr %54, align 4, !tbaa !29
+  %56 = ashr i32 %55, 5
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i32, ptr %52, i64 %57
+  %59 = load i32, ptr %58, align 4, !tbaa !29
+  %60 = and i32 %55, 31
+  %61 = lshr i32 %59, %60
+  %62 = and i32 %61, 1
+  %63 = add nuw nsw i32 %62, %.011.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %Abc_NtkSuppCharCommon.exit.us, label %51, !llvm.loop !85
+  br i1 %exitcond.not.i.us, label %Abc_NtkSuppCharCommon.exit.us, label %53, !llvm.loop !85
 
-Abc_NtkSuppCharCommon.exit.us:                    ; preds = %51
-  %62 = getelementptr inbounds nuw ptr, ptr %.val37, i64 %indvars.iv
-  %63 = load ptr, ptr %62, align 8, !tbaa !18
-  %64 = icmp eq i32 %61, 0
+Abc_NtkSuppCharCommon.exit.us:                    ; preds = %53
+  %64 = icmp eq i32 %63, 0
   br i1 %64, label %Abc_NtkSuppCharCommon.exit.thread.us, label %65
 
 65:                                               ; preds = %Abc_NtkSuppCharCommon.exit.us
-  %66 = icmp eq i32 %61, %.val9.i
+  %66 = icmp eq i32 %63, %.val9.i
   br i1 %66, label %.loopexit.loopexit55, label %67
 
 67:                                               ; preds = %65
-  %68 = mul nuw nsw i32 %61, 1000
+  %68 = mul nuw nsw i32 %63, 1000
   %69 = udiv i32 %68, %.val9.i
-  %70 = getelementptr i8, ptr %63, i64 4
+  %70 = getelementptr i8, ptr %50, i64 4
   %.val39.us = load i32, ptr %70, align 4, !tbaa !33
   %71 = icmp slt i32 %.val39.us, 100
   br i1 %71, label %78, label %Abc_Base2Log.exit.us

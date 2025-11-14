@@ -28415,11 +28415,11 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGH
   br i1 %.not65.i.i, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i184.i, label %_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit69.thread.i.i
 
 _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit69.thread.i.i: ; preds = %381
+  %388 = sub i64 %118, %377
+  call void @llvm.memset.p0.i64(ptr align 8 %373, i8 0, i64 %388, i1 false)
   %.idx.i.i.i.i.i.i180.i = shl nuw nsw i64 %382, 3
-  %388 = getelementptr inbounds nuw i8, ptr %373, i64 %.idx.i.i.i.i.i.i180.i
-  %389 = sub i64 %118, %377
-  call void @llvm.memset.p0.i64(ptr align 8 %373, i8 0, i64 %389, i1 false)
-  store ptr %388, ptr %372, align 8
+  %389 = getelementptr inbounds nuw i8, ptr %373, i64 %.idx.i.i.i.i.i.i180.i
+  store ptr %389, ptr %372, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i126.i
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i184.i: ; preds = %381
@@ -28470,7 +28470,7 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i: ; preds = %398, %396
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i126.i
 
 _ZNSt6vectorImSaImEE6resizeEmRKm.exit.i126.i:     ; preds = %404, %402, %400, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i, %_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit69.thread.i.i, %371
-  %405 = phi ptr [ %388, %_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit69.thread.i.i ], [ %397, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i ], [ %403, %404 ], [ %373, %402 ], [ %373, %400 ], [ %373, %371 ]
+  %405 = phi ptr [ %389, %_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit69.thread.i.i ], [ %397, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i ], [ %403, %404 ], [ %373, %402 ], [ %373, %400 ], [ %373, %371 ]
   store i64 %85, ptr %368, align 8
   br i1 %.not.i.i127.i, label %_ZN5boost14dynamic_bitsetImSaImEE6resizeEmb.exit131.i, label %406
 

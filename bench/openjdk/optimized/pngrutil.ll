@@ -5498,13 +5498,13 @@ define internal void @png_read_filter_row_avg(ptr noundef readonly captures(none
   %8 = lshr i64 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
+  %11 = sub i64 %10, %8
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %3
   %.022.lcssa = phi ptr [ %2, %3 ], [ %14, %.lr.ph ]
   %.020.lcssa = phi ptr [ %1, %3 ], [ %17, %.lr.ph ]
-  %11 = sub i64 %10, %8
   %.not35 = icmp eq i64 %10, %8
   br i1 %.not35, label %._crit_edge, label %.lr.ph34
 

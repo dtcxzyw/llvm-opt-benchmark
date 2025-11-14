@@ -1619,52 +1619,52 @@ define dso_local noundef zeroext i1 @acct_policy_validate_het_job(ptr noundef %0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %6 = load i32, ptr @g_tres_count, align 4
+  %7 = shl i32 %6, 3
   store i64 0, ptr %4, align 8
-  %7 = load i32, ptr @slurmctld_tres_cnt, align 4
-  %8 = sext i32 %7 to i64
-  %9 = shl nsw i64 %8, 1
-  %10 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %9, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 3684, ptr noundef nonnull @__func__.acct_policy_validate_het_job) #15
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %10, ptr %11, align 8
-  %12 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #15
-  %13 = tail call ptr @list_iterator_create(ptr noundef %0) #15
+  %8 = load i32, ptr @slurmctld_tres_cnt, align 4
+  %9 = sext i32 %8 to i64
+  %10 = shl nsw i64 %9, 1
+  %11 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %10, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 3684, ptr noundef nonnull @__func__.acct_policy_validate_het_job) #15
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %11, ptr %12, align 8
+  %13 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #15
+  %14 = tail call ptr @list_iterator_create(ptr noundef %0) #15
   call void @assoc_mgr_lock(ptr noundef nonnull %2) #15
-  %14 = call ptr @list_next(ptr noundef %13) #15
-  %.not58 = icmp eq ptr %14, null
+  %15 = call ptr @list_next(ptr noundef %14) #15
+  %.not58 = icmp eq ptr %15, null
   br i1 %.not58, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %15 = phi ptr [ %20, %.lr.ph ], [ %14, %1 ]
-  %16 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 3691, ptr noundef nonnull @__func__.acct_policy_validate_het_job) #15
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %16, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %15, ptr %19, align 8
-  call void @list_append(ptr noundef %12, ptr noundef nonnull %16) #15
-  %20 = call ptr @list_next(ptr noundef %13) #15
-  %.not = icmp eq ptr %20, null
+  %16 = phi ptr [ %21, %.lr.ph ], [ %15, %1 ]
+  %17 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 3691, ptr noundef nonnull @__func__.acct_policy_validate_het_job) #15
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %17, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %16, ptr %20, align 8
+  call void @list_append(ptr noundef %13, ptr noundef nonnull %17) #15
+  %21 = call ptr @list_next(ptr noundef %14) #15
+  %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   call void @assoc_mgr_unlock(ptr noundef nonnull %2) #15
-  call void @list_iterator_destroy(ptr noundef %13) #15
-  %21 = call ptr @list_iterator_create(ptr noundef %12) #15
-  %22 = call ptr @list_next(ptr noundef %21) #15
-  %.not5170 = icmp eq ptr %22, null
+  call void @list_iterator_destroy(ptr noundef %14) #15
+  %22 = call ptr @list_iterator_create(ptr noundef %13) #15
+  %23 = call ptr @list_next(ptr noundef %22) #15
+  %.not5170 = icmp eq ptr %23, null
   br i1 %.not5170, label %._crit_edge75, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %._crit_edge
-  %23 = shl i32 %6, 3
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 660
-  %25 = sext i32 %23 to i64
+  %25 = sext i32 %7 to i64
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 856
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 720
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %29
 
 29:                                               ; preds = %.lr.ph74, %89
-  %30 = phi ptr [ %22, %.lr.ph74 ], [ %90, %89 ]
+  %30 = phi ptr [ %23, %.lr.ph74 ], [ %90, %89 ]
   %.04471 = phi i1 [ true, %.lr.ph74 ], [ false, %89 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -1691,7 +1691,7 @@ define dso_local noundef zeroext i1 @acct_policy_validate_het_job(ptr noundef %0
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 1048
   %44 = load ptr, ptr %43, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %44, i64 %25, i1 false)
-  %45 = call ptr @list_iterator_create(ptr noundef %12) #15
+  %45 = call ptr @list_iterator_create(ptr noundef %13) #15
   %46 = call ptr @list_next(ptr noundef %45) #15
   %.not535967 = icmp eq ptr %46, null
   br i1 %.not535967, label %.outer._crit_edge.thread95, label %.lr.ph60
@@ -1789,24 +1789,24 @@ define dso_local noundef zeroext i1 @acct_policy_validate_het_job(ptr noundef %0
   br i1 %85, label %89, label %._crit_edge75
 
 89:                                               ; preds = %.outer._crit_edge.thread95, %.outer._crit_edge, %88, %39
-  %90 = call ptr @list_next(ptr noundef %21) #15
+  %90 = call ptr @list_next(ptr noundef %22) #15
   %.not51 = icmp eq ptr %90, null
   br i1 %.not51, label %._crit_edge75, label %29, !llvm.loop !26
 
 ._crit_edge75:                                    ; preds = %89, %88, %._crit_edge
   %.not51.lcssa = phi i1 [ true, %._crit_edge ], [ false, %88 ], [ true, %89 ]
-  call void @list_iterator_destroy(ptr noundef %21) #15
+  call void @list_iterator_destroy(ptr noundef %22) #15
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 856
   call void @slurm_xfree(ptr noundef nonnull %91) #15
-  %.not55 = icmp eq ptr %12, null
+  %.not55 = icmp eq ptr %13, null
   br i1 %.not55, label %93, label %92
 
 92:                                               ; preds = %._crit_edge75
-  call void @list_destroy(ptr noundef nonnull %12) #15
+  call void @list_destroy(ptr noundef nonnull %13) #15
   br label %93
 
 93:                                               ; preds = %92, %._crit_edge75
-  call void @slurm_xfree(ptr noundef nonnull %11) #15
+  call void @slurm_xfree(ptr noundef nonnull %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

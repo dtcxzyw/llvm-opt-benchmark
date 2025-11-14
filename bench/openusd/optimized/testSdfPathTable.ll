@@ -6419,62 +6419,62 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1049: 
 
 2012:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1049
   %.val = load i64, ptr %211, align 8
+  %2013 = trunc i64 %.val to i32
   br label %.lr.ph.i1050
 
 .lr.ph.i1050:                                     ; preds = %2012, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i
   %.06.i = phi i64 [ %spec.select.i, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i ], [ 0, %2012 ]
-  %.sroa.01.05.i = phi ptr [ %2031, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i ], [ %.sroa.0.0.i9.i1000, %2012 ]
+  %.sroa.01.05.i = phi ptr [ %2032, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i ], [ %.sroa.0.0.i9.i1000, %2012 ]
   %.0.copyload.i.i.i1051 = load i64, ptr %.sroa.01.05.i, align 4
-  %2013 = icmp eq i64 %.0.copyload.i.i.i1051, %.val
-  %2014 = zext i1 %2013 to i64
-  %spec.select.i = add i64 %.06.i, %2014
-  %2015 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 48
-  %2016 = load ptr, ptr %2015, align 8
-  %.not.i.i.i1052 = icmp eq ptr %2016, null
-  br i1 %.not.i.i.i1052, label %2017, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i
+  %2014 = icmp eq i64 %.0.copyload.i.i.i1051, %.val
+  %2015 = zext i1 %2014 to i64
+  %spec.select.i = add i64 %.06.i, %2015
+  %2016 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 48
+  %2017 = load ptr, ptr %2016, align 8
+  %.not.i.i.i1052 = icmp eq ptr %2017, null
+  br i1 %.not.i.i.i1052, label %2018, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i
 
-2017:                                             ; preds = %.lr.ph.i1050
-  %2018 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 56
-  %2019 = load ptr, ptr %2018, align 8
-  %2020 = ptrtoint ptr %2019 to i64
-  %2021 = and i64 %2020, 7
-  %.not.i.i.i.i.i1055 = icmp eq i64 %2021, 0
-  %2022 = and i64 %2020, -8
-  %2023 = inttoptr i64 %2022 to ptr
-  %.not1119.i.i.i.i = icmp eq i64 %2022, 0
+2018:                                             ; preds = %.lr.ph.i1050
+  %2019 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 56
+  %2020 = load ptr, ptr %2019, align 8
+  %2021 = ptrtoint ptr %2020 to i64
+  %2022 = and i64 %2021, 7
+  %.not.i.i.i.i.i1055 = icmp eq i64 %2022, 0
+  %2023 = and i64 %2021, -8
+  %2024 = inttoptr i64 %2023 to ptr
+  %.not1119.i.i.i.i = icmp eq i64 %2023, 0
   %.not11.i.i.i.i = or i1 %.not.i.i.i.i.i1055, %.not1119.i.i.i.i
-  br i1 %.not11.i.i.i.i, label %2024, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i
+  br i1 %.not11.i.i.i.i, label %2025, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i
 
-2024:                                             ; preds = %2017
-  %.not122124.i.i.i.i = icmp ne i64 %2022, 0
+2025:                                             ; preds = %2018
+  %.not122124.i.i.i.i = icmp ne i64 %2023, 0
   %.not1221.not.i.i.i.i = and i1 %.not122124.i.i.i.i, %.not.i.i.i.i.i1055
   br i1 %.not1221.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %2024, %select.unfold.i.i.i.i
-  %.022.i.i.i.i = phi ptr [ %2030, %select.unfold.i.i.i.i ], [ %2023, %2024 ]
-  %2025 = getelementptr inbounds nuw i8, ptr %.022.i.i.i.i, i64 56
-  %2026 = load ptr, ptr %2025, align 8
-  %2027 = ptrtoint ptr %2026 to i64
-  %2028 = and i64 %2027, 7
-  %.not.i15.i.i.i.i = icmp eq i64 %2028, 0
-  %2029 = and i64 %2027, -8
-  %2030 = inttoptr i64 %2029 to ptr
-  %.not1320.i.i.i.i = icmp eq i64 %2029, 0
+.lr.ph.i.i.i.i:                                   ; preds = %2025, %select.unfold.i.i.i.i
+  %.022.i.i.i.i = phi ptr [ %2031, %select.unfold.i.i.i.i ], [ %2024, %2025 ]
+  %2026 = getelementptr inbounds nuw i8, ptr %.022.i.i.i.i, i64 56
+  %2027 = load ptr, ptr %2026, align 8
+  %2028 = ptrtoint ptr %2027 to i64
+  %2029 = and i64 %2028, 7
+  %.not.i15.i.i.i.i = icmp eq i64 %2029, 0
+  %2030 = and i64 %2028, -8
+  %2031 = inttoptr i64 %2030 to ptr
+  %.not1320.i.i.i.i = icmp eq i64 %2030, 0
   %.not13.i.i.i.i = or i1 %.not.i15.i.i.i.i, %.not1320.i.i.i.i
   br i1 %.not13.i.i.i.i, label %select.unfold.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i
 
 select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
-  %.not1225.i.i.i.i = icmp ne i64 %2029, 0
+  %.not1225.i.i.i.i = icmp ne i64 %2030, 0
   %.not12.not.i.i.i.i = and i1 %.not1225.i.i.i.i, %.not.i15.i.i.i.i
   br i1 %.not12.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i: ; preds = %select.unfold.i.i.i.i, %.lr.ph.i.i.i.i, %2024, %2017, %.lr.ph.i1050
-  %2031 = phi ptr [ %2016, %.lr.ph.i1050 ], [ %2023, %2017 ], [ null, %2024 ], [ null, %select.unfold.i.i.i.i ], [ %2030, %.lr.ph.i.i.i.i ]
-  %.not.i1053 = icmp eq ptr %2031, %.sroa.0.0.i5.i1001
+_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i: ; preds = %select.unfold.i.i.i.i, %.lr.ph.i.i.i.i, %2025, %2018, %.lr.ph.i1050
+  %2032 = phi ptr [ %2017, %.lr.ph.i1050 ], [ %2024, %2018 ], [ null, %2025 ], [ null, %select.unfold.i.i.i.i ], [ %2031, %.lr.ph.i.i.i.i ]
+  %.not.i1053 = icmp eq ptr %2032, %.sroa.0.0.i5.i1001
   br i1 %.not.i1053, label %_ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit, label %.lr.ph.i1050, !llvm.loop !41
 
 _ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i
-  %2032 = trunc i64 %.val to i32
   %2033 = icmp eq i64 %spec.select.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   br i1 %2033, label %2036, label %2034
@@ -6499,12 +6499,12 @@ _ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_s
 
 2036:                                             ; preds = %_ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  %.not.i.i1058 = icmp eq i32 %2032, 0
+  %.not.i.i1058 = icmp eq i32 %2013, 0
   br i1 %.not.i.i1058, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit1059, label %2037
 
 2037:                                             ; preds = %2036
   %2038 = and i64 %.val, 255
-  %2039 = lshr i32 %2032, 8
+  %2039 = lshr i32 %2013, 8
   %2040 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %2038
   %2041 = load ptr, ptr %2040, align 8
   %2042 = mul nuw nsw i32 %2039, 24
@@ -6554,62 +6554,62 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1064: 
 
 2056:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1064
   %.val376 = load i64, ptr %214, align 8
+  %2057 = trunc i64 %.val376 to i32
   br label %.lr.ph.i1066
 
 .lr.ph.i1066:                                     ; preds = %2056, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1072
   %.06.i1067 = phi i64 [ %spec.select.i1070, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1072 ], [ 0, %2056 ]
-  %.sroa.01.05.i1068 = phi ptr [ %2075, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1072 ], [ %.sroa.0.0.i9.i1000, %2056 ]
+  %.sroa.01.05.i1068 = phi ptr [ %2076, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1072 ], [ %.sroa.0.0.i9.i1000, %2056 ]
   %.0.copyload.i.i.i1069 = load i64, ptr %.sroa.01.05.i1068, align 4
-  %2057 = icmp eq i64 %.0.copyload.i.i.i1069, %.val376
-  %2058 = zext i1 %2057 to i64
-  %spec.select.i1070 = add i64 %.06.i1067, %2058
-  %2059 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1068, i64 48
-  %2060 = load ptr, ptr %2059, align 8
-  %.not.i.i.i1071 = icmp eq ptr %2060, null
-  br i1 %.not.i.i.i1071, label %2061, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1072
+  %2058 = icmp eq i64 %.0.copyload.i.i.i1069, %.val376
+  %2059 = zext i1 %2058 to i64
+  %spec.select.i1070 = add i64 %.06.i1067, %2059
+  %2060 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1068, i64 48
+  %2061 = load ptr, ptr %2060, align 8
+  %.not.i.i.i1071 = icmp eq ptr %2061, null
+  br i1 %.not.i.i.i1071, label %2062, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1072
 
-2061:                                             ; preds = %.lr.ph.i1066
-  %2062 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1068, i64 56
-  %2063 = load ptr, ptr %2062, align 8
-  %2064 = ptrtoint ptr %2063 to i64
-  %2065 = and i64 %2064, 7
-  %.not.i.i.i.i.i1076 = icmp eq i64 %2065, 0
-  %2066 = and i64 %2064, -8
-  %2067 = inttoptr i64 %2066 to ptr
-  %.not1119.i.i.i.i1077 = icmp eq i64 %2066, 0
+2062:                                             ; preds = %.lr.ph.i1066
+  %2063 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1068, i64 56
+  %2064 = load ptr, ptr %2063, align 8
+  %2065 = ptrtoint ptr %2064 to i64
+  %2066 = and i64 %2065, 7
+  %.not.i.i.i.i.i1076 = icmp eq i64 %2066, 0
+  %2067 = and i64 %2065, -8
+  %2068 = inttoptr i64 %2067 to ptr
+  %.not1119.i.i.i.i1077 = icmp eq i64 %2067, 0
   %.not11.i.i.i.i1078 = or i1 %.not.i.i.i.i.i1076, %.not1119.i.i.i.i1077
-  br i1 %.not11.i.i.i.i1078, label %2068, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1072
+  br i1 %.not11.i.i.i.i1078, label %2069, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1072
 
-2068:                                             ; preds = %2061
-  %.not122124.i.i.i.i1079 = icmp ne i64 %2066, 0
+2069:                                             ; preds = %2062
+  %.not122124.i.i.i.i1079 = icmp ne i64 %2067, 0
   %.not1221.not.i.i.i.i1080 = and i1 %.not122124.i.i.i.i1079, %.not.i.i.i.i.i1076
   br i1 %.not1221.not.i.i.i.i1080, label %.lr.ph.i.i.i.i1081, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1072
 
-.lr.ph.i.i.i.i1081:                               ; preds = %2068, %select.unfold.i.i.i.i1086
-  %.022.i.i.i.i1082 = phi ptr [ %2074, %select.unfold.i.i.i.i1086 ], [ %2067, %2068 ]
-  %2069 = getelementptr inbounds nuw i8, ptr %.022.i.i.i.i1082, i64 56
-  %2070 = load ptr, ptr %2069, align 8
-  %2071 = ptrtoint ptr %2070 to i64
-  %2072 = and i64 %2071, 7
-  %.not.i15.i.i.i.i1083 = icmp eq i64 %2072, 0
-  %2073 = and i64 %2071, -8
-  %2074 = inttoptr i64 %2073 to ptr
-  %.not1320.i.i.i.i1084 = icmp eq i64 %2073, 0
+.lr.ph.i.i.i.i1081:                               ; preds = %2069, %select.unfold.i.i.i.i1086
+  %.022.i.i.i.i1082 = phi ptr [ %2075, %select.unfold.i.i.i.i1086 ], [ %2068, %2069 ]
+  %2070 = getelementptr inbounds nuw i8, ptr %.022.i.i.i.i1082, i64 56
+  %2071 = load ptr, ptr %2070, align 8
+  %2072 = ptrtoint ptr %2071 to i64
+  %2073 = and i64 %2072, 7
+  %.not.i15.i.i.i.i1083 = icmp eq i64 %2073, 0
+  %2074 = and i64 %2072, -8
+  %2075 = inttoptr i64 %2074 to ptr
+  %.not1320.i.i.i.i1084 = icmp eq i64 %2074, 0
   %.not13.i.i.i.i1085 = or i1 %.not.i15.i.i.i.i1083, %.not1320.i.i.i.i1084
   br i1 %.not13.i.i.i.i1085, label %select.unfold.i.i.i.i1086, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1072
 
 select.unfold.i.i.i.i1086:                        ; preds = %.lr.ph.i.i.i.i1081
-  %.not1225.i.i.i.i1087 = icmp ne i64 %2073, 0
+  %.not1225.i.i.i.i1087 = icmp ne i64 %2074, 0
   %.not12.not.i.i.i.i1088 = and i1 %.not1225.i.i.i.i1087, %.not.i15.i.i.i.i1083
   br i1 %.not12.not.i.i.i.i1088, label %.lr.ph.i.i.i.i1081, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1072
 
-_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1072: ; preds = %select.unfold.i.i.i.i1086, %.lr.ph.i.i.i.i1081, %2068, %2061, %.lr.ph.i1066
-  %2075 = phi ptr [ %2060, %.lr.ph.i1066 ], [ %2067, %2061 ], [ null, %2068 ], [ null, %select.unfold.i.i.i.i1086 ], [ %2074, %.lr.ph.i.i.i.i1081 ]
-  %.not.i1073 = icmp eq ptr %2075, %.sroa.0.0.i5.i1001
+_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1072: ; preds = %select.unfold.i.i.i.i1086, %.lr.ph.i.i.i.i1081, %2069, %2062, %.lr.ph.i1066
+  %2076 = phi ptr [ %2061, %.lr.ph.i1066 ], [ %2068, %2062 ], [ null, %2069 ], [ null, %select.unfold.i.i.i.i1086 ], [ %2075, %.lr.ph.i.i.i.i1081 ]
+  %.not.i1073 = icmp eq ptr %2076, %.sroa.0.0.i5.i1001
   br i1 %.not.i1073, label %_ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1089, label %.lr.ph.i1066, !llvm.loop !41
 
 _ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1089: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1072
-  %2076 = trunc i64 %.val376 to i32
   %2077 = icmp eq i64 %spec.select.i1070, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   br i1 %2077, label %2080, label %2078
@@ -6634,12 +6634,12 @@ _ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_s
 
 2080:                                             ; preds = %_ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1089
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  %.not.i.i1092 = icmp eq i32 %2076, 0
+  %.not.i.i1092 = icmp eq i32 %2057, 0
   br i1 %.not.i.i1092, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit1093, label %2081
 
 2081:                                             ; preds = %2080
   %2082 = and i64 %.val376, 255
-  %2083 = lshr i32 %2076, 8
+  %2083 = lshr i32 %2057, 8
   %2084 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %2082
   %2085 = load ptr, ptr %2084, align 8
   %2086 = mul nuw nsw i32 %2083, 24
@@ -6689,62 +6689,62 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1098: 
 
 2100:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1098
   %.val377 = load i64, ptr %217, align 8
+  %2101 = trunc i64 %.val377 to i32
   br label %.lr.ph.i1100
 
 .lr.ph.i1100:                                     ; preds = %2100, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1106
   %.06.i1101 = phi i64 [ %spec.select.i1104, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1106 ], [ 0, %2100 ]
-  %.sroa.01.05.i1102 = phi ptr [ %2119, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1106 ], [ %.sroa.0.0.i9.i1000, %2100 ]
+  %.sroa.01.05.i1102 = phi ptr [ %2120, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1106 ], [ %.sroa.0.0.i9.i1000, %2100 ]
   %.0.copyload.i.i.i1103 = load i64, ptr %.sroa.01.05.i1102, align 4
-  %2101 = icmp eq i64 %.0.copyload.i.i.i1103, %.val377
-  %2102 = zext i1 %2101 to i64
-  %spec.select.i1104 = add i64 %.06.i1101, %2102
-  %2103 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1102, i64 48
-  %2104 = load ptr, ptr %2103, align 8
-  %.not.i.i.i1105 = icmp eq ptr %2104, null
-  br i1 %.not.i.i.i1105, label %2105, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1106
+  %2102 = icmp eq i64 %.0.copyload.i.i.i1103, %.val377
+  %2103 = zext i1 %2102 to i64
+  %spec.select.i1104 = add i64 %.06.i1101, %2103
+  %2104 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1102, i64 48
+  %2105 = load ptr, ptr %2104, align 8
+  %.not.i.i.i1105 = icmp eq ptr %2105, null
+  br i1 %.not.i.i.i1105, label %2106, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1106
 
-2105:                                             ; preds = %.lr.ph.i1100
-  %2106 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1102, i64 56
-  %2107 = load ptr, ptr %2106, align 8
-  %2108 = ptrtoint ptr %2107 to i64
-  %2109 = and i64 %2108, 7
-  %.not.i.i.i.i.i1110 = icmp eq i64 %2109, 0
-  %2110 = and i64 %2108, -8
-  %2111 = inttoptr i64 %2110 to ptr
-  %.not1119.i.i.i.i1111 = icmp eq i64 %2110, 0
+2106:                                             ; preds = %.lr.ph.i1100
+  %2107 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1102, i64 56
+  %2108 = load ptr, ptr %2107, align 8
+  %2109 = ptrtoint ptr %2108 to i64
+  %2110 = and i64 %2109, 7
+  %.not.i.i.i.i.i1110 = icmp eq i64 %2110, 0
+  %2111 = and i64 %2109, -8
+  %2112 = inttoptr i64 %2111 to ptr
+  %.not1119.i.i.i.i1111 = icmp eq i64 %2111, 0
   %.not11.i.i.i.i1112 = or i1 %.not.i.i.i.i.i1110, %.not1119.i.i.i.i1111
-  br i1 %.not11.i.i.i.i1112, label %2112, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1106
+  br i1 %.not11.i.i.i.i1112, label %2113, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1106
 
-2112:                                             ; preds = %2105
-  %.not122124.i.i.i.i1113 = icmp ne i64 %2110, 0
+2113:                                             ; preds = %2106
+  %.not122124.i.i.i.i1113 = icmp ne i64 %2111, 0
   %.not1221.not.i.i.i.i1114 = and i1 %.not122124.i.i.i.i1113, %.not.i.i.i.i.i1110
   br i1 %.not1221.not.i.i.i.i1114, label %.lr.ph.i.i.i.i1115, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1106
 
-.lr.ph.i.i.i.i1115:                               ; preds = %2112, %select.unfold.i.i.i.i1120
-  %.022.i.i.i.i1116 = phi ptr [ %2118, %select.unfold.i.i.i.i1120 ], [ %2111, %2112 ]
-  %2113 = getelementptr inbounds nuw i8, ptr %.022.i.i.i.i1116, i64 56
-  %2114 = load ptr, ptr %2113, align 8
-  %2115 = ptrtoint ptr %2114 to i64
-  %2116 = and i64 %2115, 7
-  %.not.i15.i.i.i.i1117 = icmp eq i64 %2116, 0
-  %2117 = and i64 %2115, -8
-  %2118 = inttoptr i64 %2117 to ptr
-  %.not1320.i.i.i.i1118 = icmp eq i64 %2117, 0
+.lr.ph.i.i.i.i1115:                               ; preds = %2113, %select.unfold.i.i.i.i1120
+  %.022.i.i.i.i1116 = phi ptr [ %2119, %select.unfold.i.i.i.i1120 ], [ %2112, %2113 ]
+  %2114 = getelementptr inbounds nuw i8, ptr %.022.i.i.i.i1116, i64 56
+  %2115 = load ptr, ptr %2114, align 8
+  %2116 = ptrtoint ptr %2115 to i64
+  %2117 = and i64 %2116, 7
+  %.not.i15.i.i.i.i1117 = icmp eq i64 %2117, 0
+  %2118 = and i64 %2116, -8
+  %2119 = inttoptr i64 %2118 to ptr
+  %.not1320.i.i.i.i1118 = icmp eq i64 %2118, 0
   %.not13.i.i.i.i1119 = or i1 %.not.i15.i.i.i.i1117, %.not1320.i.i.i.i1118
   br i1 %.not13.i.i.i.i1119, label %select.unfold.i.i.i.i1120, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1106
 
 select.unfold.i.i.i.i1120:                        ; preds = %.lr.ph.i.i.i.i1115
-  %.not1225.i.i.i.i1121 = icmp ne i64 %2117, 0
+  %.not1225.i.i.i.i1121 = icmp ne i64 %2118, 0
   %.not12.not.i.i.i.i1122 = and i1 %.not1225.i.i.i.i1121, %.not.i15.i.i.i.i1117
   br i1 %.not12.not.i.i.i.i1122, label %.lr.ph.i.i.i.i1115, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1106
 
-_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1106: ; preds = %select.unfold.i.i.i.i1120, %.lr.ph.i.i.i.i1115, %2112, %2105, %.lr.ph.i1100
-  %2119 = phi ptr [ %2104, %.lr.ph.i1100 ], [ %2111, %2105 ], [ null, %2112 ], [ null, %select.unfold.i.i.i.i1120 ], [ %2118, %.lr.ph.i.i.i.i1115 ]
-  %.not.i1107 = icmp eq ptr %2119, %.sroa.0.0.i5.i1001
+_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1106: ; preds = %select.unfold.i.i.i.i1120, %.lr.ph.i.i.i.i1115, %2113, %2106, %.lr.ph.i1100
+  %2120 = phi ptr [ %2105, %.lr.ph.i1100 ], [ %2112, %2106 ], [ null, %2113 ], [ null, %select.unfold.i.i.i.i1120 ], [ %2119, %.lr.ph.i.i.i.i1115 ]
+  %.not.i1107 = icmp eq ptr %2120, %.sroa.0.0.i5.i1001
   br i1 %.not.i1107, label %_ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1123, label %.lr.ph.i1100, !llvm.loop !41
 
 _ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1123: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1106
-  %2120 = trunc i64 %.val377 to i32
   %2121 = icmp eq i64 %spec.select.i1104, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   br i1 %2121, label %2124, label %2122
@@ -6769,12 +6769,12 @@ _ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_s
 
 2124:                                             ; preds = %_ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1123
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %.not.i.i1126 = icmp eq i32 %2120, 0
+  %.not.i.i1126 = icmp eq i32 %2101, 0
   br i1 %.not.i.i1126, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit1127, label %2125
 
 2125:                                             ; preds = %2124
   %2126 = and i64 %.val377, 255
-  %2127 = lshr i32 %2120, 8
+  %2127 = lshr i32 %2101, 8
   %2128 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %2126
   %2129 = load ptr, ptr %2128, align 8
   %2130 = mul nuw nsw i32 %2127, 24
@@ -6824,62 +6824,62 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1132: 
 
 2144:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1132
   %.val378 = load i64, ptr %220, align 8
+  %2145 = trunc i64 %.val378 to i32
   br label %.lr.ph.i1134
 
 .lr.ph.i1134:                                     ; preds = %2144, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1140
   %.06.i1135 = phi i64 [ %spec.select.i1138, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1140 ], [ 0, %2144 ]
-  %.sroa.01.05.i1136 = phi ptr [ %2163, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1140 ], [ %.sroa.0.0.i9.i1000, %2144 ]
+  %.sroa.01.05.i1136 = phi ptr [ %2164, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1140 ], [ %.sroa.0.0.i9.i1000, %2144 ]
   %.0.copyload.i.i.i1137 = load i64, ptr %.sroa.01.05.i1136, align 4
-  %2145 = icmp eq i64 %.0.copyload.i.i.i1137, %.val378
-  %2146 = zext i1 %2145 to i64
-  %spec.select.i1138 = add i64 %.06.i1135, %2146
-  %2147 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1136, i64 48
-  %2148 = load ptr, ptr %2147, align 8
-  %.not.i.i.i1139 = icmp eq ptr %2148, null
-  br i1 %.not.i.i.i1139, label %2149, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1140
+  %2146 = icmp eq i64 %.0.copyload.i.i.i1137, %.val378
+  %2147 = zext i1 %2146 to i64
+  %spec.select.i1138 = add i64 %.06.i1135, %2147
+  %2148 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1136, i64 48
+  %2149 = load ptr, ptr %2148, align 8
+  %.not.i.i.i1139 = icmp eq ptr %2149, null
+  br i1 %.not.i.i.i1139, label %2150, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1140
 
-2149:                                             ; preds = %.lr.ph.i1134
-  %2150 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1136, i64 56
-  %2151 = load ptr, ptr %2150, align 8
-  %2152 = ptrtoint ptr %2151 to i64
-  %2153 = and i64 %2152, 7
-  %.not.i.i.i.i.i1144 = icmp eq i64 %2153, 0
-  %2154 = and i64 %2152, -8
-  %2155 = inttoptr i64 %2154 to ptr
-  %.not1119.i.i.i.i1145 = icmp eq i64 %2154, 0
+2150:                                             ; preds = %.lr.ph.i1134
+  %2151 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1136, i64 56
+  %2152 = load ptr, ptr %2151, align 8
+  %2153 = ptrtoint ptr %2152 to i64
+  %2154 = and i64 %2153, 7
+  %.not.i.i.i.i.i1144 = icmp eq i64 %2154, 0
+  %2155 = and i64 %2153, -8
+  %2156 = inttoptr i64 %2155 to ptr
+  %.not1119.i.i.i.i1145 = icmp eq i64 %2155, 0
   %.not11.i.i.i.i1146 = or i1 %.not.i.i.i.i.i1144, %.not1119.i.i.i.i1145
-  br i1 %.not11.i.i.i.i1146, label %2156, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1140
+  br i1 %.not11.i.i.i.i1146, label %2157, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1140
 
-2156:                                             ; preds = %2149
-  %.not122124.i.i.i.i1147 = icmp ne i64 %2154, 0
+2157:                                             ; preds = %2150
+  %.not122124.i.i.i.i1147 = icmp ne i64 %2155, 0
   %.not1221.not.i.i.i.i1148 = and i1 %.not122124.i.i.i.i1147, %.not.i.i.i.i.i1144
   br i1 %.not1221.not.i.i.i.i1148, label %.lr.ph.i.i.i.i1149, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1140
 
-.lr.ph.i.i.i.i1149:                               ; preds = %2156, %select.unfold.i.i.i.i1154
-  %.022.i.i.i.i1150 = phi ptr [ %2162, %select.unfold.i.i.i.i1154 ], [ %2155, %2156 ]
-  %2157 = getelementptr inbounds nuw i8, ptr %.022.i.i.i.i1150, i64 56
-  %2158 = load ptr, ptr %2157, align 8
-  %2159 = ptrtoint ptr %2158 to i64
-  %2160 = and i64 %2159, 7
-  %.not.i15.i.i.i.i1151 = icmp eq i64 %2160, 0
-  %2161 = and i64 %2159, -8
-  %2162 = inttoptr i64 %2161 to ptr
-  %.not1320.i.i.i.i1152 = icmp eq i64 %2161, 0
+.lr.ph.i.i.i.i1149:                               ; preds = %2157, %select.unfold.i.i.i.i1154
+  %.022.i.i.i.i1150 = phi ptr [ %2163, %select.unfold.i.i.i.i1154 ], [ %2156, %2157 ]
+  %2158 = getelementptr inbounds nuw i8, ptr %.022.i.i.i.i1150, i64 56
+  %2159 = load ptr, ptr %2158, align 8
+  %2160 = ptrtoint ptr %2159 to i64
+  %2161 = and i64 %2160, 7
+  %.not.i15.i.i.i.i1151 = icmp eq i64 %2161, 0
+  %2162 = and i64 %2160, -8
+  %2163 = inttoptr i64 %2162 to ptr
+  %.not1320.i.i.i.i1152 = icmp eq i64 %2162, 0
   %.not13.i.i.i.i1153 = or i1 %.not.i15.i.i.i.i1151, %.not1320.i.i.i.i1152
   br i1 %.not13.i.i.i.i1153, label %select.unfold.i.i.i.i1154, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1140
 
 select.unfold.i.i.i.i1154:                        ; preds = %.lr.ph.i.i.i.i1149
-  %.not1225.i.i.i.i1155 = icmp ne i64 %2161, 0
+  %.not1225.i.i.i.i1155 = icmp ne i64 %2162, 0
   %.not12.not.i.i.i.i1156 = and i1 %.not1225.i.i.i.i1155, %.not.i15.i.i.i.i1151
   br i1 %.not12.not.i.i.i.i1156, label %.lr.ph.i.i.i.i1149, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1140
 
-_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1140: ; preds = %select.unfold.i.i.i.i1154, %.lr.ph.i.i.i.i1149, %2156, %2149, %.lr.ph.i1134
-  %2163 = phi ptr [ %2148, %.lr.ph.i1134 ], [ %2155, %2149 ], [ null, %2156 ], [ null, %select.unfold.i.i.i.i1154 ], [ %2162, %.lr.ph.i.i.i.i1149 ]
-  %.not.i1141 = icmp eq ptr %2163, %.sroa.0.0.i5.i1001
+_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1140: ; preds = %select.unfold.i.i.i.i1154, %.lr.ph.i.i.i.i1149, %2157, %2150, %.lr.ph.i1134
+  %2164 = phi ptr [ %2149, %.lr.ph.i1134 ], [ %2156, %2150 ], [ null, %2157 ], [ null, %select.unfold.i.i.i.i1154 ], [ %2163, %.lr.ph.i.i.i.i1149 ]
+  %.not.i1141 = icmp eq ptr %2164, %.sroa.0.0.i5.i1001
   br i1 %.not.i1141, label %_ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1157, label %.lr.ph.i1134, !llvm.loop !41
 
 _ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1157: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1140
-  %2164 = trunc i64 %.val378 to i32
   %2165 = icmp eq i64 %spec.select.i1138, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   br i1 %2165, label %2168, label %2166
@@ -6904,12 +6904,12 @@ _ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_s
 
 2168:                                             ; preds = %_ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1157
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %.not.i.i1160 = icmp eq i32 %2164, 0
+  %.not.i.i1160 = icmp eq i32 %2145, 0
   br i1 %.not.i.i1160, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit1161, label %2169
 
 2169:                                             ; preds = %2168
   %2170 = and i64 %.val378, 255
-  %2171 = lshr i32 %2164, 8
+  %2171 = lshr i32 %2145, 8
   %2172 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %2170
   %2173 = load ptr, ptr %2172, align 8
   %2174 = mul nuw nsw i32 %2171, 24
@@ -6959,62 +6959,62 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1166: 
 
 2188:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1166
   %.val379 = load i64, ptr %223, align 8
+  %2189 = trunc i64 %.val379 to i32
   br label %.lr.ph.i1168
 
 .lr.ph.i1168:                                     ; preds = %2188, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1174
   %.06.i1169 = phi i64 [ %spec.select.i1172, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1174 ], [ 0, %2188 ]
-  %.sroa.01.05.i1170 = phi ptr [ %2207, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1174 ], [ %.sroa.0.0.i9.i1000, %2188 ]
+  %.sroa.01.05.i1170 = phi ptr [ %2208, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1174 ], [ %.sroa.0.0.i9.i1000, %2188 ]
   %.0.copyload.i.i.i1171 = load i64, ptr %.sroa.01.05.i1170, align 4
-  %2189 = icmp eq i64 %.0.copyload.i.i.i1171, %.val379
-  %2190 = zext i1 %2189 to i64
-  %spec.select.i1172 = add i64 %.06.i1169, %2190
-  %2191 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1170, i64 48
-  %2192 = load ptr, ptr %2191, align 8
-  %.not.i.i.i1173 = icmp eq ptr %2192, null
-  br i1 %.not.i.i.i1173, label %2193, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1174
+  %2190 = icmp eq i64 %.0.copyload.i.i.i1171, %.val379
+  %2191 = zext i1 %2190 to i64
+  %spec.select.i1172 = add i64 %.06.i1169, %2191
+  %2192 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1170, i64 48
+  %2193 = load ptr, ptr %2192, align 8
+  %.not.i.i.i1173 = icmp eq ptr %2193, null
+  br i1 %.not.i.i.i1173, label %2194, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1174
 
-2193:                                             ; preds = %.lr.ph.i1168
-  %2194 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1170, i64 56
-  %2195 = load ptr, ptr %2194, align 8
-  %2196 = ptrtoint ptr %2195 to i64
-  %2197 = and i64 %2196, 7
-  %.not.i.i.i.i.i1178 = icmp eq i64 %2197, 0
-  %2198 = and i64 %2196, -8
-  %2199 = inttoptr i64 %2198 to ptr
-  %.not1119.i.i.i.i1179 = icmp eq i64 %2198, 0
+2194:                                             ; preds = %.lr.ph.i1168
+  %2195 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1170, i64 56
+  %2196 = load ptr, ptr %2195, align 8
+  %2197 = ptrtoint ptr %2196 to i64
+  %2198 = and i64 %2197, 7
+  %.not.i.i.i.i.i1178 = icmp eq i64 %2198, 0
+  %2199 = and i64 %2197, -8
+  %2200 = inttoptr i64 %2199 to ptr
+  %.not1119.i.i.i.i1179 = icmp eq i64 %2199, 0
   %.not11.i.i.i.i1180 = or i1 %.not.i.i.i.i.i1178, %.not1119.i.i.i.i1179
-  br i1 %.not11.i.i.i.i1180, label %2200, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1174
+  br i1 %.not11.i.i.i.i1180, label %2201, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1174
 
-2200:                                             ; preds = %2193
-  %.not122124.i.i.i.i1181 = icmp ne i64 %2198, 0
+2201:                                             ; preds = %2194
+  %.not122124.i.i.i.i1181 = icmp ne i64 %2199, 0
   %.not1221.not.i.i.i.i1182 = and i1 %.not122124.i.i.i.i1181, %.not.i.i.i.i.i1178
   br i1 %.not1221.not.i.i.i.i1182, label %.lr.ph.i.i.i.i1183, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1174
 
-.lr.ph.i.i.i.i1183:                               ; preds = %2200, %select.unfold.i.i.i.i1188
-  %.022.i.i.i.i1184 = phi ptr [ %2206, %select.unfold.i.i.i.i1188 ], [ %2199, %2200 ]
-  %2201 = getelementptr inbounds nuw i8, ptr %.022.i.i.i.i1184, i64 56
-  %2202 = load ptr, ptr %2201, align 8
-  %2203 = ptrtoint ptr %2202 to i64
-  %2204 = and i64 %2203, 7
-  %.not.i15.i.i.i.i1185 = icmp eq i64 %2204, 0
-  %2205 = and i64 %2203, -8
-  %2206 = inttoptr i64 %2205 to ptr
-  %.not1320.i.i.i.i1186 = icmp eq i64 %2205, 0
+.lr.ph.i.i.i.i1183:                               ; preds = %2201, %select.unfold.i.i.i.i1188
+  %.022.i.i.i.i1184 = phi ptr [ %2207, %select.unfold.i.i.i.i1188 ], [ %2200, %2201 ]
+  %2202 = getelementptr inbounds nuw i8, ptr %.022.i.i.i.i1184, i64 56
+  %2203 = load ptr, ptr %2202, align 8
+  %2204 = ptrtoint ptr %2203 to i64
+  %2205 = and i64 %2204, 7
+  %.not.i15.i.i.i.i1185 = icmp eq i64 %2205, 0
+  %2206 = and i64 %2204, -8
+  %2207 = inttoptr i64 %2206 to ptr
+  %.not1320.i.i.i.i1186 = icmp eq i64 %2206, 0
   %.not13.i.i.i.i1187 = or i1 %.not.i15.i.i.i.i1185, %.not1320.i.i.i.i1186
   br i1 %.not13.i.i.i.i1187, label %select.unfold.i.i.i.i1188, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1174
 
 select.unfold.i.i.i.i1188:                        ; preds = %.lr.ph.i.i.i.i1183
-  %.not1225.i.i.i.i1189 = icmp ne i64 %2205, 0
+  %.not1225.i.i.i.i1189 = icmp ne i64 %2206, 0
   %.not12.not.i.i.i.i1190 = and i1 %.not1225.i.i.i.i1189, %.not.i15.i.i.i.i1185
   br i1 %.not12.not.i.i.i.i1190, label %.lr.ph.i.i.i.i1183, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1174
 
-_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1174: ; preds = %select.unfold.i.i.i.i1188, %.lr.ph.i.i.i.i1183, %2200, %2193, %.lr.ph.i1168
-  %2207 = phi ptr [ %2192, %.lr.ph.i1168 ], [ %2199, %2193 ], [ null, %2200 ], [ null, %select.unfold.i.i.i.i1188 ], [ %2206, %.lr.ph.i.i.i.i1183 ]
-  %.not.i1175 = icmp eq ptr %2207, %.sroa.0.0.i5.i1001
+_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1174: ; preds = %select.unfold.i.i.i.i1188, %.lr.ph.i.i.i.i1183, %2201, %2194, %.lr.ph.i1168
+  %2208 = phi ptr [ %2193, %.lr.ph.i1168 ], [ %2200, %2194 ], [ null, %2201 ], [ null, %select.unfold.i.i.i.i1188 ], [ %2207, %.lr.ph.i.i.i.i1183 ]
+  %.not.i1175 = icmp eq ptr %2208, %.sroa.0.0.i5.i1001
   br i1 %.not.i1175, label %_ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1191, label %.lr.ph.i1168, !llvm.loop !41
 
 _ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1191: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1174
-  %2208 = trunc i64 %.val379 to i32
   %2209 = icmp eq i64 %spec.select.i1172, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   br i1 %2209, label %2212, label %2210
@@ -7039,12 +7039,12 @@ _ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_s
 
 2212:                                             ; preds = %_ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1191
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %.not.i.i1194 = icmp eq i32 %2208, 0
+  %.not.i.i1194 = icmp eq i32 %2189, 0
   br i1 %.not.i.i1194, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit1195, label %2213
 
 2213:                                             ; preds = %2212
   %2214 = and i64 %.val379, 255
-  %2215 = lshr i32 %2208, 8
+  %2215 = lshr i32 %2189, 8
   %2216 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %2214
   %2217 = load ptr, ptr %2216, align 8
   %2218 = mul nuw nsw i32 %2215, 24
@@ -7094,62 +7094,62 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1200: 
 
 2232:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1200
   %.val380 = load i64, ptr %226, align 8
+  %2233 = trunc i64 %.val380 to i32
   br label %.lr.ph.i1202
 
 .lr.ph.i1202:                                     ; preds = %2232, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1208
   %.06.i1203 = phi i64 [ %spec.select.i1206, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1208 ], [ 0, %2232 ]
-  %.sroa.01.05.i1204 = phi ptr [ %2251, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1208 ], [ %.sroa.0.0.i9.i1000, %2232 ]
+  %.sroa.01.05.i1204 = phi ptr [ %2252, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1208 ], [ %.sroa.0.0.i9.i1000, %2232 ]
   %.0.copyload.i.i.i1205 = load i64, ptr %.sroa.01.05.i1204, align 4
-  %2233 = icmp eq i64 %.0.copyload.i.i.i1205, %.val380
-  %2234 = zext i1 %2233 to i64
-  %spec.select.i1206 = add i64 %.06.i1203, %2234
-  %2235 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1204, i64 48
-  %2236 = load ptr, ptr %2235, align 8
-  %.not.i.i.i1207 = icmp eq ptr %2236, null
-  br i1 %.not.i.i.i1207, label %2237, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1208
+  %2234 = icmp eq i64 %.0.copyload.i.i.i1205, %.val380
+  %2235 = zext i1 %2234 to i64
+  %spec.select.i1206 = add i64 %.06.i1203, %2235
+  %2236 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1204, i64 48
+  %2237 = load ptr, ptr %2236, align 8
+  %.not.i.i.i1207 = icmp eq ptr %2237, null
+  br i1 %.not.i.i.i1207, label %2238, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1208
 
-2237:                                             ; preds = %.lr.ph.i1202
-  %2238 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1204, i64 56
-  %2239 = load ptr, ptr %2238, align 8
-  %2240 = ptrtoint ptr %2239 to i64
-  %2241 = and i64 %2240, 7
-  %.not.i.i.i.i.i1212 = icmp eq i64 %2241, 0
-  %2242 = and i64 %2240, -8
-  %2243 = inttoptr i64 %2242 to ptr
-  %.not1119.i.i.i.i1213 = icmp eq i64 %2242, 0
+2238:                                             ; preds = %.lr.ph.i1202
+  %2239 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1204, i64 56
+  %2240 = load ptr, ptr %2239, align 8
+  %2241 = ptrtoint ptr %2240 to i64
+  %2242 = and i64 %2241, 7
+  %.not.i.i.i.i.i1212 = icmp eq i64 %2242, 0
+  %2243 = and i64 %2241, -8
+  %2244 = inttoptr i64 %2243 to ptr
+  %.not1119.i.i.i.i1213 = icmp eq i64 %2243, 0
   %.not11.i.i.i.i1214 = or i1 %.not.i.i.i.i.i1212, %.not1119.i.i.i.i1213
-  br i1 %.not11.i.i.i.i1214, label %2244, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1208
+  br i1 %.not11.i.i.i.i1214, label %2245, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1208
 
-2244:                                             ; preds = %2237
-  %.not122124.i.i.i.i1215 = icmp ne i64 %2242, 0
+2245:                                             ; preds = %2238
+  %.not122124.i.i.i.i1215 = icmp ne i64 %2243, 0
   %.not1221.not.i.i.i.i1216 = and i1 %.not122124.i.i.i.i1215, %.not.i.i.i.i.i1212
   br i1 %.not1221.not.i.i.i.i1216, label %.lr.ph.i.i.i.i1217, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1208
 
-.lr.ph.i.i.i.i1217:                               ; preds = %2244, %select.unfold.i.i.i.i1222
-  %.022.i.i.i.i1218 = phi ptr [ %2250, %select.unfold.i.i.i.i1222 ], [ %2243, %2244 ]
-  %2245 = getelementptr inbounds nuw i8, ptr %.022.i.i.i.i1218, i64 56
-  %2246 = load ptr, ptr %2245, align 8
-  %2247 = ptrtoint ptr %2246 to i64
-  %2248 = and i64 %2247, 7
-  %.not.i15.i.i.i.i1219 = icmp eq i64 %2248, 0
-  %2249 = and i64 %2247, -8
-  %2250 = inttoptr i64 %2249 to ptr
-  %.not1320.i.i.i.i1220 = icmp eq i64 %2249, 0
+.lr.ph.i.i.i.i1217:                               ; preds = %2245, %select.unfold.i.i.i.i1222
+  %.022.i.i.i.i1218 = phi ptr [ %2251, %select.unfold.i.i.i.i1222 ], [ %2244, %2245 ]
+  %2246 = getelementptr inbounds nuw i8, ptr %.022.i.i.i.i1218, i64 56
+  %2247 = load ptr, ptr %2246, align 8
+  %2248 = ptrtoint ptr %2247 to i64
+  %2249 = and i64 %2248, 7
+  %.not.i15.i.i.i.i1219 = icmp eq i64 %2249, 0
+  %2250 = and i64 %2248, -8
+  %2251 = inttoptr i64 %2250 to ptr
+  %.not1320.i.i.i.i1220 = icmp eq i64 %2250, 0
   %.not13.i.i.i.i1221 = or i1 %.not.i15.i.i.i.i1219, %.not1320.i.i.i.i1220
   br i1 %.not13.i.i.i.i1221, label %select.unfold.i.i.i.i1222, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1208
 
 select.unfold.i.i.i.i1222:                        ; preds = %.lr.ph.i.i.i.i1217
-  %.not1225.i.i.i.i1223 = icmp ne i64 %2249, 0
+  %.not1225.i.i.i.i1223 = icmp ne i64 %2250, 0
   %.not12.not.i.i.i.i1224 = and i1 %.not1225.i.i.i.i1223, %.not.i15.i.i.i.i1219
   br i1 %.not12.not.i.i.i.i1224, label %.lr.ph.i.i.i.i1217, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1208
 
-_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1208: ; preds = %select.unfold.i.i.i.i1222, %.lr.ph.i.i.i.i1217, %2244, %2237, %.lr.ph.i1202
-  %2251 = phi ptr [ %2236, %.lr.ph.i1202 ], [ %2243, %2237 ], [ null, %2244 ], [ null, %select.unfold.i.i.i.i1222 ], [ %2250, %.lr.ph.i.i.i.i1217 ]
-  %.not.i1209 = icmp eq ptr %2251, %.sroa.0.0.i5.i1001
+_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1208: ; preds = %select.unfold.i.i.i.i1222, %.lr.ph.i.i.i.i1217, %2245, %2238, %.lr.ph.i1202
+  %2252 = phi ptr [ %2237, %.lr.ph.i1202 ], [ %2244, %2238 ], [ null, %2245 ], [ null, %select.unfold.i.i.i.i1222 ], [ %2251, %.lr.ph.i.i.i.i1217 ]
+  %.not.i1209 = icmp eq ptr %2252, %.sroa.0.0.i5.i1001
   br i1 %.not.i1209, label %_ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1225, label %.lr.ph.i1202, !llvm.loop !41
 
 _ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1225: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1208
-  %2252 = trunc i64 %.val380 to i32
   %2253 = icmp eq i64 %spec.select.i1206, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   br i1 %2253, label %2256, label %2254
@@ -7174,12 +7174,12 @@ _ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_s
 
 2256:                                             ; preds = %_ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1225
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %.not.i.i1228 = icmp eq i32 %2252, 0
+  %.not.i.i1228 = icmp eq i32 %2233, 0
   br i1 %.not.i.i1228, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit1229, label %2257
 
 2257:                                             ; preds = %2256
   %2258 = and i64 %.val380, 255
-  %2259 = lshr i32 %2252, 8
+  %2259 = lshr i32 %2233, 8
   %2260 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %2258
   %2261 = load ptr, ptr %2260, align 8
   %2262 = mul nuw nsw i32 %2259, 24
@@ -7229,62 +7229,62 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1234: 
 
 2276:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1234
   %.val381 = load i64, ptr %229, align 8
+  %2277 = trunc i64 %.val381 to i32
   br label %.lr.ph.i1236
 
 .lr.ph.i1236:                                     ; preds = %2276, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1242
   %.06.i1237 = phi i64 [ %spec.select.i1240, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1242 ], [ 0, %2276 ]
-  %.sroa.01.05.i1238 = phi ptr [ %2295, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1242 ], [ %.sroa.0.0.i9.i1000, %2276 ]
+  %.sroa.01.05.i1238 = phi ptr [ %2296, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1242 ], [ %.sroa.0.0.i9.i1000, %2276 ]
   %.0.copyload.i.i.i1239 = load i64, ptr %.sroa.01.05.i1238, align 4
-  %2277 = icmp eq i64 %.0.copyload.i.i.i1239, %.val381
-  %2278 = zext i1 %2277 to i64
-  %spec.select.i1240 = add i64 %.06.i1237, %2278
-  %2279 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1238, i64 48
-  %2280 = load ptr, ptr %2279, align 8
-  %.not.i.i.i1241 = icmp eq ptr %2280, null
-  br i1 %.not.i.i.i1241, label %2281, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1242
+  %2278 = icmp eq i64 %.0.copyload.i.i.i1239, %.val381
+  %2279 = zext i1 %2278 to i64
+  %spec.select.i1240 = add i64 %.06.i1237, %2279
+  %2280 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1238, i64 48
+  %2281 = load ptr, ptr %2280, align 8
+  %.not.i.i.i1241 = icmp eq ptr %2281, null
+  br i1 %.not.i.i.i1241, label %2282, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1242
 
-2281:                                             ; preds = %.lr.ph.i1236
-  %2282 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1238, i64 56
-  %2283 = load ptr, ptr %2282, align 8
-  %2284 = ptrtoint ptr %2283 to i64
-  %2285 = and i64 %2284, 7
-  %.not.i.i.i.i.i1246 = icmp eq i64 %2285, 0
-  %2286 = and i64 %2284, -8
-  %2287 = inttoptr i64 %2286 to ptr
-  %.not1119.i.i.i.i1247 = icmp eq i64 %2286, 0
+2282:                                             ; preds = %.lr.ph.i1236
+  %2283 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i1238, i64 56
+  %2284 = load ptr, ptr %2283, align 8
+  %2285 = ptrtoint ptr %2284 to i64
+  %2286 = and i64 %2285, 7
+  %.not.i.i.i.i.i1246 = icmp eq i64 %2286, 0
+  %2287 = and i64 %2285, -8
+  %2288 = inttoptr i64 %2287 to ptr
+  %.not1119.i.i.i.i1247 = icmp eq i64 %2287, 0
   %.not11.i.i.i.i1248 = or i1 %.not.i.i.i.i.i1246, %.not1119.i.i.i.i1247
-  br i1 %.not11.i.i.i.i1248, label %2288, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1242
+  br i1 %.not11.i.i.i.i1248, label %2289, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1242
 
-2288:                                             ; preds = %2281
-  %.not122124.i.i.i.i1249 = icmp ne i64 %2286, 0
+2289:                                             ; preds = %2282
+  %.not122124.i.i.i.i1249 = icmp ne i64 %2287, 0
   %.not1221.not.i.i.i.i1250 = and i1 %.not122124.i.i.i.i1249, %.not.i.i.i.i.i1246
   br i1 %.not1221.not.i.i.i.i1250, label %.lr.ph.i.i.i.i1251, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1242
 
-.lr.ph.i.i.i.i1251:                               ; preds = %2288, %select.unfold.i.i.i.i1256
-  %.022.i.i.i.i1252 = phi ptr [ %2294, %select.unfold.i.i.i.i1256 ], [ %2287, %2288 ]
-  %2289 = getelementptr inbounds nuw i8, ptr %.022.i.i.i.i1252, i64 56
-  %2290 = load ptr, ptr %2289, align 8
-  %2291 = ptrtoint ptr %2290 to i64
-  %2292 = and i64 %2291, 7
-  %.not.i15.i.i.i.i1253 = icmp eq i64 %2292, 0
-  %2293 = and i64 %2291, -8
-  %2294 = inttoptr i64 %2293 to ptr
-  %.not1320.i.i.i.i1254 = icmp eq i64 %2293, 0
+.lr.ph.i.i.i.i1251:                               ; preds = %2289, %select.unfold.i.i.i.i1256
+  %.022.i.i.i.i1252 = phi ptr [ %2295, %select.unfold.i.i.i.i1256 ], [ %2288, %2289 ]
+  %2290 = getelementptr inbounds nuw i8, ptr %.022.i.i.i.i1252, i64 56
+  %2291 = load ptr, ptr %2290, align 8
+  %2292 = ptrtoint ptr %2291 to i64
+  %2293 = and i64 %2292, 7
+  %.not.i15.i.i.i.i1253 = icmp eq i64 %2293, 0
+  %2294 = and i64 %2292, -8
+  %2295 = inttoptr i64 %2294 to ptr
+  %.not1320.i.i.i.i1254 = icmp eq i64 %2294, 0
   %.not13.i.i.i.i1255 = or i1 %.not.i15.i.i.i.i1253, %.not1320.i.i.i.i1254
   br i1 %.not13.i.i.i.i1255, label %select.unfold.i.i.i.i1256, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1242
 
 select.unfold.i.i.i.i1256:                        ; preds = %.lr.ph.i.i.i.i1251
-  %.not1225.i.i.i.i1257 = icmp ne i64 %2293, 0
+  %.not1225.i.i.i.i1257 = icmp ne i64 %2294, 0
   %.not12.not.i.i.i.i1258 = and i1 %.not1225.i.i.i.i1257, %.not.i15.i.i.i.i1253
   br i1 %.not12.not.i.i.i.i1258, label %.lr.ph.i.i.i.i1251, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1242
 
-_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1242: ; preds = %select.unfold.i.i.i.i1256, %.lr.ph.i.i.i.i1251, %2288, %2281, %.lr.ph.i1236
-  %2295 = phi ptr [ %2280, %.lr.ph.i1236 ], [ %2287, %2281 ], [ null, %2288 ], [ null, %select.unfold.i.i.i.i1256 ], [ %2294, %.lr.ph.i.i.i.i1251 ]
-  %.not.i1243 = icmp eq ptr %2295, %.sroa.0.0.i5.i1001
+_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1242: ; preds = %select.unfold.i.i.i.i1256, %.lr.ph.i.i.i.i1251, %2289, %2282, %.lr.ph.i1236
+  %2296 = phi ptr [ %2281, %.lr.ph.i1236 ], [ %2288, %2282 ], [ null, %2289 ], [ null, %select.unfold.i.i.i.i1256 ], [ %2295, %.lr.ph.i.i.i.i1251 ]
+  %.not.i1243 = icmp eq ptr %2296, %.sroa.0.0.i5.i1001
   br i1 %.not.i1243, label %_ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1259, label %.lr.ph.i1236, !llvm.loop !41
 
 _ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1259: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS_7SdfPathES6_EPNS7_6_EntryEEppEv.exit.i1242
-  %2296 = trunc i64 %.val381 to i32
   %2297 = icmp eq i64 %spec.select.i1240, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   br i1 %2297, label %2300, label %2298
@@ -7309,12 +7309,12 @@ _ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_s
 
 2300:                                             ; preds = %_ZL5CountIN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8IteratorISt4pairINS0_7SdfPathES7_EPNS8_6_EntryEEEEmT_SG_RKSB_.exit1259
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %.not.i.i1262 = icmp eq i32 %2296, 0
+  %.not.i.i1262 = icmp eq i32 %2277, 0
   br i1 %.not.i.i1262, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit1263, label %2301
 
 2301:                                             ; preds = %2300
   %2302 = and i64 %.val381, 255
-  %2303 = lshr i32 %2296, 8
+  %2303 = lshr i32 %2277, 8
   %2304 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %2302
   %2305 = load ptr, ptr %2304, align 8
   %2306 = mul nuw nsw i32 %2303, 24
@@ -10718,18 +10718,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1605: 
   %3516 = load ptr, ptr %101, align 8
   %3517 = getelementptr inbounds ptr, ptr %3516, i64 %3515
   %.0.copyload.i2.i.i1610 = load i64, ptr %273, align 8
-  br label %3518
+  %3518 = trunc i64 %.0.copyload.i2.i.i1610 to i32
+  br label %3519
 
-3518:                                             ; preds = %3518, %.lr.ph.i1609
-  %.09.i1611.in = phi ptr [ %3517, %.lr.ph.i1609 ], [ %3520, %3518 ]
+3519:                                             ; preds = %3519, %.lr.ph.i1609
+  %.09.i1611.in = phi ptr [ %3517, %.lr.ph.i1609 ], [ %3521, %3519 ]
   %.09.i1611 = load ptr, ptr %.09.i1611.in, align 8, !nonnull !39, !noundef !39
   %.0.copyload.i.i.i1612 = load i64, ptr %.09.i1611, align 4
-  %3519 = icmp eq i64 %.0.copyload.i.i.i1612, %.0.copyload.i2.i.i1610
-  %3520 = getelementptr inbounds nuw i8, ptr %.09.i1611, i64 40
-  br i1 %3519, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit1616, label %3518
+  %3520 = icmp eq i64 %.0.copyload.i.i.i1612, %.0.copyload.i2.i.i1610
+  %3521 = getelementptr inbounds nuw i8, ptr %.09.i1611, i64 40
+  br i1 %3520, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit1616, label %3519
 
-_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit1616: ; preds = %3518
-  %3521 = trunc i64 %.0.copyload.i2.i.i1610 to i32
+_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit1616: ; preds = %3519
   %3522 = getelementptr inbounds nuw i8, ptr %.09.i1611, i64 48
   %3523 = load ptr, ptr %3522, align 8
   %.not2443 = icmp eq ptr %3523, null
@@ -10756,12 +10756,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcS
 
 3526:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit1616
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.not.i.i1619 = icmp eq i32 %3521, 0
+  %.not.i.i1619 = icmp eq i32 %3518, 0
   br i1 %.not.i.i1619, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit1620, label %3527
 
 3527:                                             ; preds = %3526
   %3528 = and i64 %.0.copyload.i2.i.i1610, 255
-  %3529 = lshr i32 %3521, 8
+  %3529 = lshr i32 %3518, 8
   %3530 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %3528
   %3531 = load ptr, ptr %3530, align 8
   %3532 = mul nuw nsw i32 %3529, 24
@@ -10827,18 +10827,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1625: 
   %3560 = load ptr, ptr %101, align 8
   %3561 = getelementptr inbounds ptr, ptr %3560, i64 %3559
   %.0.copyload.i2.i.i1630 = load i64, ptr %276, align 8
-  br label %3562
+  %3562 = trunc i64 %.0.copyload.i2.i.i1630 to i32
+  br label %3563
 
-3562:                                             ; preds = %3562, %.lr.ph.i1629
-  %.09.i1631.in = phi ptr [ %3561, %.lr.ph.i1629 ], [ %3564, %3562 ]
+3563:                                             ; preds = %3563, %.lr.ph.i1629
+  %.09.i1631.in = phi ptr [ %3561, %.lr.ph.i1629 ], [ %3565, %3563 ]
   %.09.i1631 = load ptr, ptr %.09.i1631.in, align 8, !nonnull !39, !noundef !39
   %.0.copyload.i.i.i1632 = load i64, ptr %.09.i1631, align 4
-  %3563 = icmp eq i64 %.0.copyload.i.i.i1632, %.0.copyload.i2.i.i1630
-  %3564 = getelementptr inbounds nuw i8, ptr %.09.i1631, i64 40
-  br i1 %3563, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit1636, label %3562
+  %3564 = icmp eq i64 %.0.copyload.i.i.i1632, %.0.copyload.i2.i.i1630
+  %3565 = getelementptr inbounds nuw i8, ptr %.09.i1631, i64 40
+  br i1 %3564, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit1636, label %3563
 
-_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit1636: ; preds = %3562
-  %3565 = trunc i64 %.0.copyload.i2.i.i1630 to i32
+_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit1636: ; preds = %3563
   %3566 = getelementptr inbounds nuw i8, ptr %.09.i1631, i64 48
   %3567 = load ptr, ptr %3566, align 8
   %.not2444 = icmp eq ptr %3567, null
@@ -10865,12 +10865,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcS
 
 3570:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit1636
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %.not.i.i1639 = icmp eq i32 %3565, 0
+  %.not.i.i1639 = icmp eq i32 %3562, 0
   br i1 %.not.i.i1639, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit1640, label %3571
 
 3571:                                             ; preds = %3570
   %3572 = and i64 %.0.copyload.i2.i.i1630, 255
-  %3573 = lshr i32 %3565, 8
+  %3573 = lshr i32 %3562, 8
   %3574 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %3572
   %3575 = load ptr, ptr %3574, align 8
   %3576 = mul nuw nsw i32 %3573, 24
@@ -11298,8 +11298,8 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112bas
 
 _ZSt6fill_nIPPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryEmSA_ET_SC_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc30
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %18, 3
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZNSt12_Vector_baseIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryESaISA_EEC2EmRKSB_.exit.thread.i
 
 _ZNSt12_Vector_baseIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryESaISA_EEC2EmRKSB_.exit.thread.i: ; preds = %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryESaISA_EE17_S_check_init_lenEmRKSB_.exit.i, %_ZSt6fill_nIPPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryEmSA_ET_SC_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc30
@@ -12541,8 +12541,8 @@ _ZSt6fill_nIPPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112bas
   store ptr null, ptr %29, align 8
   %31 = getelementptr i8, ptr %29, i64 8
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %31, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryESaISA_EEC2EmRKSB_.exit
 
 _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryESaISA_EEC2EmRKSB_.exit: ; preds = %_ZSt6fill_nIPPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryEmSA_ET_SC_T0_RKT1_.exit.loopexit.i.i.i.i.i, %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_EntryESaISA_EE17_S_check_init_lenEmRKSB_.exit.i
@@ -15972,8 +15972,8 @@ _ZSt6fill_nIPPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIiE6_EntryEmS4_ET
   store ptr null, ptr %29, align 8
   %31 = getelementptr i8, ptr %29, i64 8
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %31, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIiE6_EntryESaIS4_EEC2EmRKS5_.exit
 
 _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIiE6_EntryESaIS4_EEC2EmRKS5_.exit: ; preds = %_ZSt6fill_nIPPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIiE6_EntryEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i.i.i, %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIiE6_EntryESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i

@@ -23363,6 +23363,8 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %3, %21, %2
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPNS_12MachineInstrES2_Lj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit.preheader, label %.lr.ph.i.i.i, !llvm.loop !651
 
 _ZN4llvm13SmallDenseMapIPNS_12MachineInstrES2_Lj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit.preheader: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %38 = load i24, ptr %37, align 8
   %39 = zext i24 %38 to i32
@@ -23525,8 +23527,6 @@ _ZN4llvm13SmallDenseMapIPNS_12MachineInstrES2_Lj8ENS_12DenseMapInfoIS2_vEENS_6de
   br i1 %.not.i.i, label %115, label %_ZN4llvm13SmallDenseMapIPNS_12MachineInstrES2_Lj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEED2Ev.exit
 
 115:                                              ; preds = %._crit_edge
-  %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %8, i64 8
   %116 = load ptr, ptr %.phi.trans.insert.i.i.ptr, align 8, !tbaa !656
   %117 = load i32, ptr %.phi.trans.insert3.i.i, align 8, !tbaa !659
   %118 = zext i32 %117 to i64

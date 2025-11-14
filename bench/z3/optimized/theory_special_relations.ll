@@ -1577,6 +1577,7 @@ _ZNK4heapI9dl_var_ltIN3smt24theory_special_relations7int_extEEE10get_boundsEv.ex
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK4heapI9dl_var_ltIN3smt24theory_special_relations7int_extEEE10get_boundsEv.exit, %134
   %.ph63 = phi ptr [ null, %134 ], [ %136, %_ZNK4heapI9dl_var_ltIN3smt24theory_special_relations7int_extEEE10get_boundsEv.exit ]
   %.0.i17.i.i.ph = phi i32 [ 0, %134 ], [ %139, %_ZNK4heapI9dl_var_ltIN3smt24theory_special_relations7int_extEEE10get_boundsEv.exit ]
+  %.ph = add nuw nsw i32 %1, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i
@@ -1596,7 +1597,6 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIiLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !113
 
 144:                                              ; preds = %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i
-  %.ph = add nuw nsw i32 %1, 1
   %145 = getelementptr inbounds i8, ptr %140, i64 -4
   store i32 %.ph, ptr %145, align 4, !tbaa !73
   %.not1319.i.i = icmp eq i32 %.0.i17.i.i.ph, %.ph
@@ -10437,134 +10437,139 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN3smt24theory_special_relations13p
   %7 = trunc nuw i8 %6 to i1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !701
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 504
-  %11 = load ptr, ptr %10, align 8, !tbaa !84
-  br i1 %7, label %.preheader, label %.preheader20
+  br i1 %7, label %10, label %65
 
-.preheader:                                       ; preds = %2, %.preheader
-  %.08.i.i = phi i32 [ %14, %.preheader ], [ %9, %2 ]
-  %12 = zext i32 %.08.i.i to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !73
-  %.not.i.i = icmp eq i32 %14, %.08.i.i
-  br i1 %.not.i.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader, label %.preheader
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %12 = load i32, ptr %11, align 8, !tbaa !702
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 504
+  %14 = load ptr, ptr %13, align 8, !tbaa !84
+  br label %15
 
-_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader: ; preds = %.preheader
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load i32, ptr %15, align 8, !tbaa !702
-  br label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
+15:                                               ; preds = %15, %10
+  %.08.i.i = phi i32 [ %9, %10 ], [ %18, %15 ]
+  %16 = zext i32 %.08.i.i to i64
+  %17 = getelementptr inbounds nuw i32, ptr %14, i64 %16
+  %18 = load i32, ptr %17, align 4, !tbaa !73
+  %.not.i.i = icmp eq i32 %18, %.08.i.i
+  br i1 %.not.i.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i, label %15
 
-_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i: ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
-  %.08.i2.i = phi i32 [ %19, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i ], [ %16, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader ]
-  %17 = zext i32 %.08.i2.i to i64
-  %18 = getelementptr inbounds nuw i32, ptr %11, i64 %17
-  %19 = load i32, ptr %18, align 4, !tbaa !73
-  %.not.i3.i = icmp eq i32 %19, %.08.i2.i
+_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i: ; preds = %15, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
+  %.08.i2.i = phi i32 [ %21, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i ], [ %12, %15 ]
+  %19 = zext i32 %.08.i2.i to i64
+  %20 = getelementptr inbounds nuw i32, ptr %14, i64 %19
+  %21 = load i32, ptr %20, align 4, !tbaa !73
+  %.not.i3.i = icmp eq i32 %21, %.08.i2.i
   br i1 %.not.i3.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
 
 _ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i: ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
-  %20 = icmp eq i32 %.08.i.i, %.08.i2.i
-  br i1 %20, label %.sink.split, label %.noexc.i
+  %22 = icmp eq i32 %.08.i.i, %.08.i2.i
+  br i1 %22, label %.sink.split, label %.noexc.i
 
 .noexc.i:                                         ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 488
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 512
-  %23 = load ptr, ptr %22, align 8, !tbaa !84
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %12
-  %25 = load i32, ptr %24, align 4, !tbaa !73
-  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %17
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 488
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 512
+  %25 = load ptr, ptr %24, align 8, !tbaa !84
+  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %16
   %27 = load i32, ptr %26, align 4, !tbaa !73
-  %28 = icmp ugt i32 %25, %27
-  %spec.select.i = select i1 %28, i32 %.08.i.i, i32 %.08.i2.i
-  %spec.select30.i = select i1 %28, i32 %.08.i2.i, i32 %.08.i.i
-  %29 = zext i32 %spec.select30.i to i64
-  %30 = getelementptr inbounds nuw i32, ptr %11, i64 %29
-  store i32 %spec.select.i, ptr %30, align 4, !tbaa !73
-  %31 = getelementptr inbounds nuw i32, ptr %23, i64 %29
-  %32 = load i32, ptr %31, align 4, !tbaa !73
-  %33 = zext i32 %spec.select.i to i64
-  %34 = getelementptr inbounds nuw i32, ptr %23, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !73
-  %36 = add i32 %35, %32
-  store i32 %36, ptr %34, align 4, !tbaa !73
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 520
-  %38 = load ptr, ptr %37, align 8, !tbaa !84
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %29
-  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %33
-  %41 = load i32, ptr %39, align 4, !tbaa !73
-  %42 = load i32, ptr %40, align 4, !tbaa !73
-  store i32 %42, ptr %39, align 4, !tbaa !73
-  store i32 %41, ptr %40, align 4, !tbaa !73
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 496
-  %44 = load ptr, ptr %43, align 8, !tbaa !107
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %46 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %45, i64 noundef 24)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN10union_findI22union_find_default_ctxE11merge_trailE, i64 16), ptr %46, align 8, !tbaa !87
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store ptr %21, ptr %47, align 8
-  %.sroa.6.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %19
+  %29 = load i32, ptr %28, align 4, !tbaa !73
+  %30 = icmp ugt i32 %27, %29
+  %spec.select.i = select i1 %30, i32 %.08.i.i, i32 %.08.i2.i
+  %spec.select30.i = select i1 %30, i32 %.08.i2.i, i32 %.08.i.i
+  %31 = zext i32 %spec.select30.i to i64
+  %32 = getelementptr inbounds nuw i32, ptr %14, i64 %31
+  store i32 %spec.select.i, ptr %32, align 4, !tbaa !73
+  %33 = getelementptr inbounds nuw i32, ptr %25, i64 %31
+  %34 = load i32, ptr %33, align 4, !tbaa !73
+  %35 = zext i32 %spec.select.i to i64
+  %36 = getelementptr inbounds nuw i32, ptr %25, i64 %35
+  %37 = load i32, ptr %36, align 4, !tbaa !73
+  %38 = add i32 %37, %34
+  store i32 %38, ptr %36, align 4, !tbaa !73
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 520
+  %40 = load ptr, ptr %39, align 8, !tbaa !84
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %31
+  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %35
+  %43 = load i32, ptr %41, align 4, !tbaa !73
+  %44 = load i32, ptr %42, align 4, !tbaa !73
+  store i32 %44, ptr %41, align 4, !tbaa !73
+  store i32 %43, ptr %42, align 4, !tbaa !73
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 496
+  %46 = load ptr, ptr %45, align 8, !tbaa !107
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %48 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %47, i64 noundef 24)
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN10union_findI22union_find_default_ctxE11merge_trailE, i64 16), ptr %48, align 8, !tbaa !87
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store ptr %23, ptr %49, align 8
+  %.sroa.6.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i32 %spec.select30.i, ptr %.sroa.6.8..sroa_idx.i, align 8
-  %48 = load ptr, ptr %44, align 8, !tbaa !83
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %.noexc5.i, label %50
+  %50 = load ptr, ptr %46, align 8, !tbaa !83
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %.noexc5.i, label %52
 
-50:                                               ; preds = %.noexc.i
-  %51 = getelementptr inbounds i8, ptr %48, i64 -4
-  %52 = load i32, ptr %51, align 4, !tbaa !73
-  %53 = getelementptr inbounds i8, ptr %48, i64 -8
+52:                                               ; preds = %.noexc.i
+  %53 = getelementptr inbounds i8, ptr %50, i64 -4
   %54 = load i32, ptr %53, align 4, !tbaa !73
-  %55 = icmp eq i32 %52, %54
-  br i1 %55, label %.noexc5.i, label %56
+  %55 = getelementptr inbounds i8, ptr %50, i64 -8
+  %56 = load i32, ptr %55, align 4, !tbaa !73
+  %57 = icmp eq i32 %54, %56
+  br i1 %57, label %.noexc5.i, label %58
 
-.noexc5.i:                                        ; preds = %50, %.noexc.i
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %44)
-  %.pre.i.i.i = load ptr, ptr %44, align 8, !tbaa !83
+.noexc5.i:                                        ; preds = %52, %.noexc.i
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %46)
+  %.pre.i.i.i = load ptr, ptr %46, align 8, !tbaa !83
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
   %.pre2.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !73
-  br label %56
+  br label %58
 
-56:                                               ; preds = %.noexc5.i, %50
-  %57 = phi i32 [ %.pre2.i.i.i, %.noexc5.i ], [ %52, %50 ]
-  %58 = phi ptr [ %.pre.i.i.i, %.noexc5.i ], [ %48, %50 ]
-  %59 = getelementptr inbounds i8, ptr %58, i64 -4
-  %60 = zext i32 %57 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %58, i64 %60
-  store ptr %46, ptr %61, align 8, !tbaa !85
-  %62 = add i32 %57, 1
-  store i32 %62, ptr %59, align 4, !tbaa !73
+58:                                               ; preds = %.noexc5.i, %52
+  %59 = phi i32 [ %.pre2.i.i.i, %.noexc5.i ], [ %54, %52 ]
+  %60 = phi ptr [ %.pre.i.i.i, %.noexc5.i ], [ %50, %52 ]
+  %61 = getelementptr inbounds i8, ptr %60, i64 -4
+  %62 = zext i32 %59 to i64
+  %63 = getelementptr inbounds nuw ptr, ptr %60, i64 %62
+  store ptr %48, ptr %63, align 8, !tbaa !85
+  %64 = add i32 %59, 1
+  store i32 %64, ptr %61, align 4, !tbaa !73
   br label %.sink.split
 
-.preheader20:                                     ; preds = %2, %.preheader20
-  %.08.i = phi i32 [ %65, %.preheader20 ], [ %9, %2 ]
-  %63 = zext i32 %.08.i to i64
-  %64 = getelementptr inbounds nuw i32, ptr %11, i64 %63
-  %65 = load i32, ptr %64, align 4, !tbaa !73
-  %.not.i = icmp eq i32 %65, %.08.i
-  br i1 %.not.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit, label %.preheader20
-
-_ZNK10union_findI22union_find_default_ctxE4findEj.exit: ; preds = %.preheader20
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %67 = load i32, ptr %66, align 8, !tbaa !702
+65:                                               ; preds = %2
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 504
+  %67 = load ptr, ptr %66, align 8, !tbaa !84
   br label %68
 
-68:                                               ; preds = %68, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit
-  %.08.i12 = phi i32 [ %67, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit ], [ %71, %68 ]
-  %69 = zext i32 %.08.i12 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %11, i64 %69
+68:                                               ; preds = %68, %65
+  %.08.i = phi i32 [ %9, %65 ], [ %71, %68 ]
+  %69 = zext i32 %.08.i to i64
+  %70 = getelementptr inbounds nuw i32, ptr %67, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !73
-  %.not.i13 = icmp eq i32 %71, %.08.i12
-  br i1 %.not.i13, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit14, label %68
+  %.not.i = icmp eq i32 %71, %.08.i
+  br i1 %.not.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit, label %68
 
-_ZNK10union_findI22union_find_default_ctxE4findEj.exit14: ; preds = %68
-  %72 = icmp eq i32 %.08.i, %.08.i12
-  br i1 %72, label %.sink.split, label %74
-
-.sink.split:                                      ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit14, %56, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i
-  %73 = tail call noundef i32 @_ZN3smt24theory_special_relations6enableERNS0_4atomE(ptr noundef nonnull align 8 dereferenceable(145) %0, ptr noundef nonnull align 8 dereferenceable(36) %1)
+_ZNK10union_findI22union_find_default_ctxE4findEj.exit: ; preds = %68
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %73 = load i32, ptr %72, align 8, !tbaa !702
   br label %74
 
-74:                                               ; preds = %.sink.split, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit14
-  %.0 = phi i32 [ 1, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit14 ], [ %73, %.sink.split ]
+74:                                               ; preds = %74, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit
+  %.08.i12 = phi i32 [ %73, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit ], [ %77, %74 ]
+  %75 = zext i32 %.08.i12 to i64
+  %76 = getelementptr inbounds nuw i32, ptr %67, i64 %75
+  %77 = load i32, ptr %76, align 4, !tbaa !73
+  %.not.i13 = icmp eq i32 %77, %.08.i12
+  br i1 %.not.i13, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit14, label %74
+
+_ZNK10union_findI22union_find_default_ctxE4findEj.exit14: ; preds = %74
+  %78 = icmp eq i32 %.08.i, %.08.i12
+  br i1 %78, label %.sink.split, label %80
+
+.sink.split:                                      ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit14, %58, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i
+  %79 = tail call noundef i32 @_ZN3smt24theory_special_relations6enableERNS0_4atomE(ptr noundef nonnull align 8 dereferenceable(145) %0, ptr noundef nonnull align 8 dereferenceable(36) %1)
+  br label %80
+
+80:                                               ; preds = %.sink.split, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit14
+  %.0 = phi i32 [ 1, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit14 ], [ %79, %.sink.split ]
   ret i32 %.0
 }
 
@@ -10580,27 +10585,24 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN3smt24theory_special_relations12p
   %8 = load ptr, ptr %7, align 8, !tbaa !739
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4, !tbaa !701
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 504
-  %12 = load ptr, ptr %11, align 8, !tbaa !84
-  br label %13
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %12 = load i32, ptr %11, align 8, !tbaa !702
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 504
+  %14 = load ptr, ptr %13, align 8, !tbaa !84
+  br label %15
 
-13:                                               ; preds = %13, %6
-  %.08.i.i = phi i32 [ %10, %6 ], [ %16, %13 ]
-  %14 = zext i32 %.08.i.i to i64
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %14
-  %16 = load i32, ptr %15, align 4, !tbaa !73
-  %.not.i.i = icmp eq i32 %16, %.08.i.i
-  br i1 %.not.i.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader, label %13
+15:                                               ; preds = %15, %6
+  %.08.i.i = phi i32 [ %10, %6 ], [ %18, %15 ]
+  %16 = zext i32 %.08.i.i to i64
+  %17 = getelementptr inbounds nuw i32, ptr %14, i64 %16
+  %18 = load i32, ptr %17, align 4, !tbaa !73
+  %.not.i.i = icmp eq i32 %18, %.08.i.i
+  br i1 %.not.i.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i, label %15
 
-_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader: ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load i32, ptr %17, align 8, !tbaa !702
-  br label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
-
-_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i: ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
-  %.08.i2.i = phi i32 [ %21, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i ], [ %18, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader ]
+_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i: ; preds = %15, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
+  %.08.i2.i = phi i32 [ %21, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i ], [ %12, %15 ]
   %19 = zext i32 %.08.i2.i to i64
-  %20 = getelementptr inbounds nuw i32, ptr %12, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %14, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !73
   %.not.i3.i = icmp eq i32 %21, %.08.i2.i
   br i1 %.not.i3.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
@@ -10613,7 +10615,7 @@ _ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i: ; preds = %_ZNK10unio
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 488
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %25 = load ptr, ptr %24, align 8, !tbaa !84
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %14
+  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %16
   %27 = load i32, ptr %26, align 4, !tbaa !73
   %28 = getelementptr inbounds nuw i32, ptr %25, i64 %19
   %29 = load i32, ptr %28, align 4, !tbaa !73
@@ -10621,7 +10623,7 @@ _ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i: ; preds = %_ZNK10unio
   %spec.select.i = select i1 %30, i32 %.08.i.i, i32 %.08.i2.i
   %spec.select30.i = select i1 %30, i32 %.08.i2.i, i32 %.08.i.i
   %31 = zext i32 %spec.select30.i to i64
-  %32 = getelementptr inbounds nuw i32, ptr %12, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr %14, i64 %31
   store i32 %spec.select.i, ptr %32, align 4, !tbaa !73
   %33 = getelementptr inbounds nuw i32, ptr %25, i64 %31
   %34 = load i32, ptr %33, align 4, !tbaa !73
@@ -10781,27 +10783,24 @@ _ZN3smt24theory_special_relations4atom6enableEv.exit.thread: ; preds = %6, %56, 
   %57 = load ptr, ptr %8, align 8, !tbaa !739
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %59 = load i32, ptr %58, align 4, !tbaa !701
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 504
-  %61 = load ptr, ptr %60, align 8, !tbaa !84
-  br label %62
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %61 = load i32, ptr %60, align 8, !tbaa !702
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 504
+  %63 = load ptr, ptr %62, align 8, !tbaa !84
+  br label %64
 
-62:                                               ; preds = %62, %_ZN3smt24theory_special_relations4atom6enableEv.exit.thread
-  %.08.i.i = phi i32 [ %59, %_ZN3smt24theory_special_relations4atom6enableEv.exit.thread ], [ %65, %62 ]
-  %63 = zext i32 %.08.i.i to i64
-  %64 = getelementptr inbounds nuw i32, ptr %61, i64 %63
-  %65 = load i32, ptr %64, align 4, !tbaa !73
-  %.not.i.i6 = icmp eq i32 %65, %.08.i.i
-  br i1 %.not.i.i6, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader, label %62
+64:                                               ; preds = %64, %_ZN3smt24theory_special_relations4atom6enableEv.exit.thread
+  %.08.i.i = phi i32 [ %59, %_ZN3smt24theory_special_relations4atom6enableEv.exit.thread ], [ %67, %64 ]
+  %65 = zext i32 %.08.i.i to i64
+  %66 = getelementptr inbounds nuw i32, ptr %63, i64 %65
+  %67 = load i32, ptr %66, align 4, !tbaa !73
+  %.not.i.i6 = icmp eq i32 %67, %.08.i.i
+  br i1 %.not.i.i6, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i, label %64
 
-_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader: ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %67 = load i32, ptr %66, align 8, !tbaa !702
-  br label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
-
-_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i: ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
-  %.08.i2.i = phi i32 [ %70, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i ], [ %67, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i.preheader ]
+_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i: ; preds = %64, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
+  %.08.i2.i = phi i32 [ %70, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i ], [ %61, %64 ]
   %68 = zext i32 %.08.i2.i to i64
-  %69 = getelementptr inbounds nuw i32, ptr %61, i64 %68
+  %69 = getelementptr inbounds nuw i32, ptr %63, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !73
   %.not.i3.i = icmp eq i32 %70, %.08.i2.i
   br i1 %.not.i3.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.i
@@ -10814,7 +10813,7 @@ _ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i: ; preds = %_ZNK10unio
   %72 = getelementptr inbounds nuw i8, ptr %57, i64 488
   %73 = getelementptr inbounds nuw i8, ptr %57, i64 512
   %74 = load ptr, ptr %73, align 8, !tbaa !84
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %63
+  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %65
   %76 = load i32, ptr %75, align 4, !tbaa !73
   %77 = getelementptr inbounds nuw i32, ptr %74, i64 %68
   %78 = load i32, ptr %77, align 4, !tbaa !73
@@ -10822,7 +10821,7 @@ _ZNK10union_findI22union_find_default_ctxE4findEj.exit4.i: ; preds = %_ZNK10unio
   %spec.select.i = select i1 %79, i32 %.08.i.i, i32 %.08.i2.i
   %spec.select30.i = select i1 %79, i32 %.08.i2.i, i32 %.08.i.i
   %80 = zext i32 %spec.select30.i to i64
-  %81 = getelementptr inbounds nuw i32, ptr %61, i64 %80
+  %81 = getelementptr inbounds nuw i32, ptr %63, i64 %80
   store i32 %spec.select.i, ptr %81, align 4, !tbaa !73
   %82 = getelementptr inbounds nuw i32, ptr %74, i64 %80
   %83 = load i32, ptr %82, align 4, !tbaa !73

@@ -6789,38 +6789,38 @@ AppendJumble.exit55:                              ; preds = %AppendJumble.exit55
   %42 = phi i64 [ %.022.lcssa.i54, %AppendJumble.exit55 ], [ %.pre150, %._crit_edge ]
   %43 = phi ptr [ %.pre, %AppendJumble.exit55 ], [ %.pre149, %._crit_edge ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i56
 
-.lr.ph.i56:                                       ; preds = %48, %41
-  %.026.i57 = phi ptr [ %53, %48 ], [ %44, %41 ]
-  %.02125.i58 = phi i64 [ %54, %48 ], [ 2, %41 ]
-  %.02224.i59 = phi i64 [ %52, %48 ], [ %42, %41 ]
-  %45 = icmp ugt i64 %.02224.i59, 1023
-  br i1 %45, label %46, label %48
+.lr.ph.i56:                                       ; preds = %49, %41
+  %.026.i57 = phi ptr [ %54, %49 ], [ %44, %41 ]
+  %.02125.i58 = phi i64 [ %55, %49 ], [ 2, %41 ]
+  %.02224.i59 = phi i64 [ %53, %49 ], [ %42, %41 ]
+  %46 = icmp ugt i64 %.02224.i59, 1023
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %.lr.ph.i56
-  %47 = tail call i64 @hash_bytes_extended(ptr noundef %43, i32 noundef 1024, i64 noundef 0) #8
-  store i64 %47, ptr %43, align 1
-  br label %48
+47:                                               ; preds = %.lr.ph.i56
+  %48 = tail call i64 @hash_bytes_extended(ptr noundef %43, i32 noundef 1024, i64 noundef 0) #8
+  store i64 %48, ptr %43, align 1
+  br label %49
 
-48:                                               ; preds = %46, %.lr.ph.i56
-  %.1.i60 = phi i64 [ 8, %46 ], [ %.02224.i59, %.lr.ph.i56 ]
-  %49 = sub nuw nsw i64 1024, %.1.i60
-  %50 = tail call i64 @llvm.umin.i64(i64 %.02125.i58, i64 %49)
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 %.1.i60
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %.026.i57, i64 %50, i1 false)
-  %52 = add nuw nsw i64 %50, %.1.i60
-  %53 = getelementptr inbounds nuw i8, ptr %.026.i57, i64 %50
-  %54 = sub i64 %.02125.i58, %50
-  %.not.i61 = icmp eq i64 %54, 0
+49:                                               ; preds = %47, %.lr.ph.i56
+  %.1.i60 = phi i64 [ 8, %47 ], [ %.02224.i59, %.lr.ph.i56 ]
+  %50 = sub nuw nsw i64 1024, %.1.i60
+  %51 = tail call i64 @llvm.umin.i64(i64 %.02125.i58, i64 %50)
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 %.1.i60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull align 1 dereferenceable(1) %.026.i57, i64 %51, i1 false)
+  %53 = add nuw nsw i64 %51, %.1.i60
+  %54 = getelementptr inbounds nuw i8, ptr %.026.i57, i64 %51
+  %55 = sub i64 %.02125.i58, %51
+  %.not.i61 = icmp eq i64 %55, 0
   br i1 %.not.i61, label %.lr.ph.i64, label %.lr.ph.i56, !llvm.loop !7
 
-.lr.ph.i64:                                       ; preds = %48
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %52, ptr %55, align 8
+.lr.ph.i64:                                       ; preds = %49
+  store i64 %53, ptr %45, align 8
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %57 = load ptr, ptr %0, align 8
-  %58 = icmp samesign ugt i64 %52, 1023
+  %58 = icmp samesign ugt i64 %53, 1023
   br i1 %58, label %.lr.ph.i72.thread, label %.lr.ph.i72
 
 .lr.ph.i72.thread:                                ; preds = %.lr.ph.i64
@@ -6829,20 +6829,20 @@ AppendJumble.exit55:                              ; preds = %AppendJumble.exit55
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %61 = load i8, ptr %56, align 1
   store i8 %61, ptr %60, align 1
-  store i64 9, ptr %55, align 8
+  store i64 9, ptr %45, align 8
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 35
   %63 = load ptr, ptr %0, align 8
   br label %.lr.ph.i80.thread
 
 .lr.ph.i72:                                       ; preds = %.lr.ph.i64
-  %64 = getelementptr inbounds nuw i8, ptr %57, i64 %52
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 %53
   %65 = load i8, ptr %56, align 1
   store i8 %65, ptr %64, align 1
-  %66 = add nuw nsw i64 %52, 1
-  store i64 %66, ptr %55, align 8
+  %66 = add nuw nsw i64 %53, 1
+  store i64 %66, ptr %45, align 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 35
   %68 = load ptr, ptr %0, align 8
-  %69 = icmp eq i64 %52, 1023
+  %69 = icmp eq i64 %53, 1023
   br i1 %69, label %70, label %.lr.ph.i80
 
 70:                                               ; preds = %.lr.ph.i72
@@ -6858,7 +6858,7 @@ AppendJumble.exit55:                              ; preds = %AppendJumble.exit55
   %73 = load i8, ptr %.ph169, align 1
   store i8 %73, ptr %72, align 1
   %74 = add nuw nsw i64 %.1.i76.ph, 1
-  store i64 %74, ptr %55, align 8
+  store i64 %74, ptr %45, align 8
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %76 = load ptr, ptr %0, align 8
   br label %.lr.ph.i88.thread
@@ -6867,11 +6867,11 @@ AppendJumble.exit55:                              ; preds = %AppendJumble.exit55
   %77 = getelementptr inbounds nuw i8, ptr %68, i64 %66
   %78 = load i8, ptr %67, align 1
   store i8 %78, ptr %77, align 1
-  %79 = add nuw nsw i64 %52, 2
-  store i64 %79, ptr %55, align 8
+  %79 = add nuw nsw i64 %53, 2
+  store i64 %79, ptr %45, align 8
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %81 = load ptr, ptr %0, align 8
-  %82 = icmp samesign ugt i64 %52, 1021
+  %82 = icmp samesign ugt i64 %53, 1021
   br i1 %82, label %83, label %.lr.ph.i88
 
 83:                                               ; preds = %.lr.ph.i80
@@ -6887,7 +6887,7 @@ AppendJumble.exit55:                              ; preds = %AppendJumble.exit55
   %86 = load i8, ptr %.ph172, align 1
   store i8 %86, ptr %85, align 1
   %87 = add nuw nsw i64 %.1.i84.ph, 1
-  store i64 %87, ptr %55, align 8
+  store i64 %87, ptr %45, align 8
   %88 = load ptr, ptr %0, align 8
   br label %AppendJumble.exit95
 
@@ -6895,10 +6895,10 @@ AppendJumble.exit55:                              ; preds = %AppendJumble.exit55
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 %79
   %90 = load i8, ptr %80, align 1
   store i8 %90, ptr %89, align 1
-  %91 = add nuw nsw i64 %52, 3
-  store i64 %91, ptr %55, align 8
+  %91 = add nuw nsw i64 %53, 3
+  store i64 %91, ptr %45, align 8
   %92 = load ptr, ptr %0, align 8
-  %93 = icmp eq i64 %52, 1021
+  %93 = icmp eq i64 %53, 1021
   br i1 %93, label %94, label %AppendJumble.exit95
 
 94:                                               ; preds = %.lr.ph.i88
@@ -6914,7 +6914,7 @@ AppendJumble.exit95:                              ; preds = %.lr.ph.i88, %94, %.
   %99 = load i8, ptr %97, align 1
   store i8 %99, ptr %98, align 1
   %100 = add nuw nsw i64 %.1.i92, 1
-  store i64 %100, ptr %55, align 8
+  store i64 %100, ptr %45, align 8
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %102 = load ptr, ptr %101, align 8
   %.not46 = icmp eq ptr %102, null
@@ -6953,7 +6953,7 @@ AppendJumble.exit95:                              ; preds = %.lr.ph.i88, %94, %.
 
 AppendJumble.exit104:                             ; preds = %110, %103
   %.022.lcssa.i103 = phi i64 [ %100, %103 ], [ %114, %110 ]
-  store i64 %.022.lcssa.i103, ptr %55, align 8
+  store i64 %.022.lcssa.i103, ptr %45, align 8
   br label %.lr.ph.i105
 
 .lr.ph.i105:                                      ; preds = %AppendJumble.exit95, %AppendJumble.exit104
@@ -6965,7 +6965,7 @@ AppendJumble.exit104:                             ; preds = %110, %103
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %120)
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %122 = load ptr, ptr %0, align 8
-  %123 = load i64, ptr %55, align 8
+  %123 = load i64, ptr %45, align 8
   %124 = icmp ugt i64 %123, 1023
   br i1 %124, label %125, label %.lr.ph.i113
 
@@ -6980,13 +6980,13 @@ AppendJumble.exit104:                             ; preds = %110, %103
   %128 = load i8, ptr %121, align 1
   store i8 %128, ptr %127, align 1
   %129 = add nuw nsw i64 %.1.i109, 1
-  store i64 %129, ptr %55, align 8
+  store i64 %129, ptr %45, align 8
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %131 = load ptr, ptr %130, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %131)
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %133 = load ptr, ptr %0, align 8
-  %134 = load i64, ptr %55, align 8
+  %134 = load i64, ptr %45, align 8
   %135 = icmp ugt i64 %134, 1023
   br i1 %135, label %136, label %AppendJumble.exit120
 
@@ -7001,13 +7001,13 @@ AppendJumble.exit120:                             ; preds = %.lr.ph.i113, %136
   %139 = load i8, ptr %132, align 1
   store i8 %139, ptr %138, align 1
   %140 = add nuw nsw i64 %.1.i117, 1
-  store i64 %140, ptr %55, align 8
+  store i64 %140, ptr %45, align 8
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %142 = load ptr, ptr %141, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %142)
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %144 = load ptr, ptr %0, align 8
-  %145 = load i64, ptr %55, align 8
+  %145 = load i64, ptr %45, align 8
   br label %.lr.ph.i121
 
 .lr.ph.i121:                                      ; preds = %149, %AppendJumble.exit120
@@ -7035,7 +7035,7 @@ AppendJumble.exit120:                             ; preds = %.lr.ph.i113, %136
   br i1 %.not.i126, label %AppendJumble.exit128, label %.lr.ph.i121, !llvm.loop !7
 
 AppendJumble.exit128:                             ; preds = %149
-  store i64 %153, ptr %55, align 8
+  store i64 %153, ptr %45, align 8
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %157 = load ptr, ptr %156, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %157)
@@ -9040,35 +9040,35 @@ AppendJumble.exit33:                              ; preds = %AppendJumble.exit33
   %46 = phi i64 [ %.022.lcssa.i32, %AppendJumble.exit33 ], [ %.pre77, %._crit_edge ]
   %47 = phi ptr [ %.pre, %AppendJumble.exit33 ], [ %.pre76, %._crit_edge ]
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i34
 
-.lr.ph.i34:                                       ; preds = %52, %45
-  %.026.i35 = phi ptr [ %57, %52 ], [ %48, %45 ]
-  %.02125.i36 = phi i64 [ %58, %52 ], [ 4, %45 ]
-  %.02224.i37 = phi i64 [ %56, %52 ], [ %46, %45 ]
-  %49 = icmp ugt i64 %.02224.i37, 1023
-  br i1 %49, label %50, label %52
+.lr.ph.i34:                                       ; preds = %53, %45
+  %.026.i35 = phi ptr [ %58, %53 ], [ %48, %45 ]
+  %.02125.i36 = phi i64 [ %59, %53 ], [ 4, %45 ]
+  %.02224.i37 = phi i64 [ %57, %53 ], [ %46, %45 ]
+  %50 = icmp ugt i64 %.02224.i37, 1023
+  br i1 %50, label %51, label %53
 
-50:                                               ; preds = %.lr.ph.i34
-  %51 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #8
-  store i64 %51, ptr %47, align 1
-  br label %52
+51:                                               ; preds = %.lr.ph.i34
+  %52 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #8
+  store i64 %52, ptr %47, align 1
+  br label %53
 
-52:                                               ; preds = %50, %.lr.ph.i34
-  %.1.i38 = phi i64 [ 8, %50 ], [ %.02224.i37, %.lr.ph.i34 ]
-  %53 = sub nuw nsw i64 1024, %.1.i38
-  %54 = tail call i64 @llvm.umin.i64(i64 %.02125.i36, i64 %53)
-  %55 = getelementptr inbounds nuw i8, ptr %47, i64 %.1.i38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 1 dereferenceable(1) %.026.i35, i64 %54, i1 false)
-  %56 = add nuw nsw i64 %54, %.1.i38
-  %57 = getelementptr inbounds nuw i8, ptr %.026.i35, i64 %54
-  %58 = sub i64 %.02125.i36, %54
-  %.not.i39 = icmp eq i64 %58, 0
+53:                                               ; preds = %51, %.lr.ph.i34
+  %.1.i38 = phi i64 [ 8, %51 ], [ %.02224.i37, %.lr.ph.i34 ]
+  %54 = sub nuw nsw i64 1024, %.1.i38
+  %55 = tail call i64 @llvm.umin.i64(i64 %.02125.i36, i64 %54)
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 %.1.i38
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %56, ptr noundef nonnull align 1 dereferenceable(1) %.026.i35, i64 %55, i1 false)
+  %57 = add nuw nsw i64 %55, %.1.i38
+  %58 = getelementptr inbounds nuw i8, ptr %.026.i35, i64 %55
+  %59 = sub i64 %.02125.i36, %55
+  %.not.i39 = icmp eq i64 %59, 0
   br i1 %.not.i39, label %AppendJumble.exit41, label %.lr.ph.i34, !llvm.loop !7
 
-AppendJumble.exit41:                              ; preds = %52
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %56, ptr %59, align 8
+AppendJumble.exit41:                              ; preds = %53
+  store i64 %57, ptr %49, align 8
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %61 = load ptr, ptr %0, align 8
   br label %.lr.ph.i42
@@ -9076,7 +9076,7 @@ AppendJumble.exit41:                              ; preds = %52
 .lr.ph.i42:                                       ; preds = %65, %AppendJumble.exit41
   %.026.i43 = phi ptr [ %70, %65 ], [ %60, %AppendJumble.exit41 ]
   %.02125.i44 = phi i64 [ %71, %65 ], [ 4, %AppendJumble.exit41 ]
-  %.02224.i45 = phi i64 [ %69, %65 ], [ %56, %AppendJumble.exit41 ]
+  %.02224.i45 = phi i64 [ %69, %65 ], [ %57, %AppendJumble.exit41 ]
   %62 = icmp ugt i64 %.02224.i45, 1023
   br i1 %62, label %63, label %65
 
@@ -9098,7 +9098,7 @@ AppendJumble.exit41:                              ; preds = %52
   br i1 %.not.i47, label %AppendJumble.exit49, label %.lr.ph.i42, !llvm.loop !7
 
 AppendJumble.exit49:                              ; preds = %65
-  store i64 %69, ptr %59, align 8
+  store i64 %69, ptr %49, align 8
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %73 = load ptr, ptr %0, align 8
   br label %.lr.ph.i50
@@ -9128,7 +9128,7 @@ AppendJumble.exit49:                              ; preds = %65
   br i1 %.not.i55, label %AppendJumble.exit57, label %.lr.ph.i50, !llvm.loop !7
 
 AppendJumble.exit57:                              ; preds = %77
-  store i64 %81, ptr %59, align 8
+  store i64 %81, ptr %49, align 8
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %85 = load ptr, ptr %0, align 8
   br label %.lr.ph.i58
@@ -9158,7 +9158,7 @@ AppendJumble.exit57:                              ; preds = %77
   br i1 %.not.i63, label %AppendJumble.exit65, label %.lr.ph.i58, !llvm.loop !7
 
 AppendJumble.exit65:                              ; preds = %89
-  store i64 %93, ptr %59, align 8
+  store i64 %93, ptr %49, align 8
   ret void
 }
 
@@ -13071,35 +13071,35 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %21 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre49, %._crit_edge ]
   %22 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre48, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i17
 
-.lr.ph.i17:                                       ; preds = %27, %20
-  %.026.i18 = phi ptr [ %32, %27 ], [ %23, %20 ]
-  %.02125.i19 = phi i64 [ %33, %27 ], [ 4, %20 ]
-  %.02224.i20 = phi i64 [ %31, %27 ], [ %21, %20 ]
-  %24 = icmp ugt i64 %.02224.i20, 1023
-  br i1 %24, label %25, label %27
+.lr.ph.i17:                                       ; preds = %28, %20
+  %.026.i18 = phi ptr [ %33, %28 ], [ %23, %20 ]
+  %.02125.i19 = phi i64 [ %34, %28 ], [ 4, %20 ]
+  %.02224.i20 = phi i64 [ %32, %28 ], [ %21, %20 ]
+  %25 = icmp ugt i64 %.02224.i20, 1023
+  br i1 %25, label %26, label %28
 
-25:                                               ; preds = %.lr.ph.i17
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
-  store i64 %26, ptr %22, align 1
-  br label %27
+26:                                               ; preds = %.lr.ph.i17
+  %27 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
+  store i64 %27, ptr %22, align 1
+  br label %28
 
-27:                                               ; preds = %25, %.lr.ph.i17
-  %.1.i21 = phi i64 [ 8, %25 ], [ %.02224.i20, %.lr.ph.i17 ]
-  %28 = sub nuw nsw i64 1024, %.1.i21
-  %29 = tail call i64 @llvm.umin.i64(i64 %.02125.i19, i64 %28)
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 1 dereferenceable(1) %.026.i18, i64 %29, i1 false)
-  %31 = add nuw nsw i64 %29, %.1.i21
-  %32 = getelementptr inbounds nuw i8, ptr %.026.i18, i64 %29
-  %33 = sub i64 %.02125.i19, %29
-  %.not.i22 = icmp eq i64 %33, 0
+28:                                               ; preds = %26, %.lr.ph.i17
+  %.1.i21 = phi i64 [ 8, %26 ], [ %.02224.i20, %.lr.ph.i17 ]
+  %29 = sub nuw nsw i64 1024, %.1.i21
+  %30 = tail call i64 @llvm.umin.i64(i64 %.02125.i19, i64 %29)
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 1 dereferenceable(1) %.026.i18, i64 %30, i1 false)
+  %32 = add nuw nsw i64 %30, %.1.i21
+  %33 = getelementptr inbounds nuw i8, ptr %.026.i18, i64 %30
+  %34 = sub i64 %.02125.i19, %30
+  %.not.i22 = icmp eq i64 %34, 0
   br i1 %.not.i22, label %AppendJumble.exit24, label %.lr.ph.i17, !llvm.loop !7
 
-AppendJumble.exit24:                              ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %31, ptr %34, align 8
+AppendJumble.exit24:                              ; preds = %28
+  store i64 %32, ptr %24, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %36)
@@ -13107,7 +13107,7 @@ AppendJumble.exit24:                              ; preds = %27
   %38 = load ptr, ptr %37, align 8
   %.not16 = icmp eq ptr %38, null
   %.pre51 = load ptr, ptr %0, align 8
-  %.pre52 = load i64, ptr %34, align 8
+  %.pre52 = load i64, ptr %24, align 8
   br i1 %.not16, label %.lr.ph.i34, label %39
 
 39:                                               ; preds = %AppendJumble.exit24
@@ -13147,7 +13147,7 @@ AppendJumble.exit33.loopexit:                     ; preds = %45
 AppendJumble.exit33:                              ; preds = %AppendJumble.exit33.loopexit, %39
   %.pre50 = phi ptr [ %.pre51, %39 ], [ %.pre50.pre, %AppendJumble.exit33.loopexit ]
   %.022.lcssa.i32 = phi i64 [ %.pre52, %39 ], [ %49, %AppendJumble.exit33.loopexit ]
-  store i64 %.022.lcssa.i32, ptr %34, align 8
+  store i64 %.022.lcssa.i32, ptr %24, align 8
   br label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %AppendJumble.exit24, %AppendJumble.exit33
@@ -13168,7 +13168,7 @@ AppendJumble.exit41:                              ; preds = %.lr.ph.i34, %55
   %59 = load i8, ptr %57, align 1
   store i8 %59, ptr %58, align 1
   %60 = add nuw nsw i64 %.1.i38, 1
-  store i64 %60, ptr %34, align 8
+  store i64 %60, ptr %24, align 8
   ret void
 }
 
@@ -13364,35 +13364,35 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %21 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre32, %._crit_edge ]
   %22 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre31, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i11
 
-.lr.ph.i11:                                       ; preds = %27, %20
-  %.026.i12 = phi ptr [ %32, %27 ], [ %23, %20 ]
-  %.02125.i13 = phi i64 [ %33, %27 ], [ 4, %20 ]
-  %.02224.i14 = phi i64 [ %31, %27 ], [ %21, %20 ]
-  %24 = icmp ugt i64 %.02224.i14, 1023
-  br i1 %24, label %25, label %27
+.lr.ph.i11:                                       ; preds = %28, %20
+  %.026.i12 = phi ptr [ %33, %28 ], [ %23, %20 ]
+  %.02125.i13 = phi i64 [ %34, %28 ], [ 4, %20 ]
+  %.02224.i14 = phi i64 [ %32, %28 ], [ %21, %20 ]
+  %25 = icmp ugt i64 %.02224.i14, 1023
+  br i1 %25, label %26, label %28
 
-25:                                               ; preds = %.lr.ph.i11
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
-  store i64 %26, ptr %22, align 1
-  br label %27
+26:                                               ; preds = %.lr.ph.i11
+  %27 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
+  store i64 %27, ptr %22, align 1
+  br label %28
 
-27:                                               ; preds = %25, %.lr.ph.i11
-  %.1.i15 = phi i64 [ 8, %25 ], [ %.02224.i14, %.lr.ph.i11 ]
-  %28 = sub nuw nsw i64 1024, %.1.i15
-  %29 = tail call i64 @llvm.umin.i64(i64 %.02125.i13, i64 %28)
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 1 dereferenceable(1) %.026.i12, i64 %29, i1 false)
-  %31 = add nuw nsw i64 %29, %.1.i15
-  %32 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %29
-  %33 = sub i64 %.02125.i13, %29
-  %.not.i16 = icmp eq i64 %33, 0
+28:                                               ; preds = %26, %.lr.ph.i11
+  %.1.i15 = phi i64 [ 8, %26 ], [ %.02224.i14, %.lr.ph.i11 ]
+  %29 = sub nuw nsw i64 1024, %.1.i15
+  %30 = tail call i64 @llvm.umin.i64(i64 %.02125.i13, i64 %29)
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i15
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 1 dereferenceable(1) %.026.i12, i64 %30, i1 false)
+  %32 = add nuw nsw i64 %30, %.1.i15
+  %33 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %30
+  %34 = sub i64 %.02125.i13, %30
+  %.not.i16 = icmp eq i64 %34, 0
   br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !7
 
-AppendJumble.exit18:                              ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %31, ptr %34, align 8
+AppendJumble.exit18:                              ; preds = %28
+  store i64 %32, ptr %24, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %36 = load ptr, ptr %0, align 8
   br label %.lr.ph.i19
@@ -13400,7 +13400,7 @@ AppendJumble.exit18:                              ; preds = %27
 .lr.ph.i19:                                       ; preds = %40, %AppendJumble.exit18
   %.026.i20 = phi ptr [ %45, %40 ], [ %35, %AppendJumble.exit18 ]
   %.02125.i21 = phi i64 [ %46, %40 ], [ 4, %AppendJumble.exit18 ]
-  %.02224.i22 = phi i64 [ %44, %40 ], [ %31, %AppendJumble.exit18 ]
+  %.02224.i22 = phi i64 [ %44, %40 ], [ %32, %AppendJumble.exit18 ]
   %37 = icmp ugt i64 %.02224.i22, 1023
   br i1 %37, label %38, label %40
 
@@ -13422,7 +13422,7 @@ AppendJumble.exit18:                              ; preds = %27
   br i1 %.not.i24, label %AppendJumble.exit26, label %.lr.ph.i19, !llvm.loop !7
 
 AppendJumble.exit26:                              ; preds = %40
-  store i64 %44, ptr %34, align 8
+  store i64 %44, ptr %24, align 8
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %48 = load ptr, ptr %47, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %48)
@@ -16896,35 +16896,35 @@ AppendJumble.exit91:                              ; preds = %AppendJumble.exit91
   %90 = phi i64 [ %.022.lcssa.i90, %AppendJumble.exit91 ], [ %.pre249, %._crit_edge ]
   %91 = phi ptr [ %.pre, %AppendJumble.exit91 ], [ %.pre248, %._crit_edge ]
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i92
 
-.lr.ph.i92:                                       ; preds = %96, %89
-  %.026.i93 = phi ptr [ %101, %96 ], [ %92, %89 ]
-  %.02125.i94 = phi i64 [ %102, %96 ], [ 4, %89 ]
-  %.02224.i95 = phi i64 [ %100, %96 ], [ %90, %89 ]
-  %93 = icmp ugt i64 %.02224.i95, 1023
-  br i1 %93, label %94, label %96
+.lr.ph.i92:                                       ; preds = %97, %89
+  %.026.i93 = phi ptr [ %102, %97 ], [ %92, %89 ]
+  %.02125.i94 = phi i64 [ %103, %97 ], [ 4, %89 ]
+  %.02224.i95 = phi i64 [ %101, %97 ], [ %90, %89 ]
+  %94 = icmp ugt i64 %.02224.i95, 1023
+  br i1 %94, label %95, label %97
 
-94:                                               ; preds = %.lr.ph.i92
-  %95 = tail call i64 @hash_bytes_extended(ptr noundef %91, i32 noundef 1024, i64 noundef 0) #8
-  store i64 %95, ptr %91, align 1
-  br label %96
+95:                                               ; preds = %.lr.ph.i92
+  %96 = tail call i64 @hash_bytes_extended(ptr noundef %91, i32 noundef 1024, i64 noundef 0) #8
+  store i64 %96, ptr %91, align 1
+  br label %97
 
-96:                                               ; preds = %94, %.lr.ph.i92
-  %.1.i96 = phi i64 [ 8, %94 ], [ %.02224.i95, %.lr.ph.i92 ]
-  %97 = sub nuw nsw i64 1024, %.1.i96
-  %98 = tail call i64 @llvm.umin.i64(i64 %.02125.i94, i64 %97)
-  %99 = getelementptr inbounds nuw i8, ptr %91, i64 %.1.i96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %99, ptr noundef nonnull align 1 dereferenceable(1) %.026.i93, i64 %98, i1 false)
-  %100 = add nuw nsw i64 %98, %.1.i96
-  %101 = getelementptr inbounds nuw i8, ptr %.026.i93, i64 %98
-  %102 = sub i64 %.02125.i94, %98
-  %.not.i97 = icmp eq i64 %102, 0
+97:                                               ; preds = %95, %.lr.ph.i92
+  %.1.i96 = phi i64 [ 8, %95 ], [ %.02224.i95, %.lr.ph.i92 ]
+  %98 = sub nuw nsw i64 1024, %.1.i96
+  %99 = tail call i64 @llvm.umin.i64(i64 %.02125.i94, i64 %98)
+  %100 = getelementptr inbounds nuw i8, ptr %91, i64 %.1.i96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %100, ptr noundef nonnull align 1 dereferenceable(1) %.026.i93, i64 %99, i1 false)
+  %101 = add nuw nsw i64 %99, %.1.i96
+  %102 = getelementptr inbounds nuw i8, ptr %.026.i93, i64 %99
+  %103 = sub i64 %.02125.i94, %99
+  %.not.i97 = icmp eq i64 %103, 0
   br i1 %.not.i97, label %AppendJumble.exit99, label %.lr.ph.i92, !llvm.loop !7
 
-AppendJumble.exit99:                              ; preds = %96
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %100, ptr %103, align 8
+AppendJumble.exit99:                              ; preds = %97
+  store i64 %101, ptr %93, align 8
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %105 = load ptr, ptr %0, align 8
   br label %.lr.ph.i100
@@ -16932,7 +16932,7 @@ AppendJumble.exit99:                              ; preds = %96
 .lr.ph.i100:                                      ; preds = %109, %AppendJumble.exit99
   %.026.i101 = phi ptr [ %114, %109 ], [ %104, %AppendJumble.exit99 ]
   %.02125.i102 = phi i64 [ %115, %109 ], [ 4, %AppendJumble.exit99 ]
-  %.02224.i103 = phi i64 [ %113, %109 ], [ %100, %AppendJumble.exit99 ]
+  %.02224.i103 = phi i64 [ %113, %109 ], [ %101, %AppendJumble.exit99 ]
   %106 = icmp ugt i64 %.02224.i103, 1023
   br i1 %106, label %107, label %109
 
@@ -16954,7 +16954,7 @@ AppendJumble.exit99:                              ; preds = %96
   br i1 %.not.i105, label %AppendJumble.exit107, label %.lr.ph.i100, !llvm.loop !7
 
 AppendJumble.exit107:                             ; preds = %109
-  store i64 %113, ptr %103, align 8
+  store i64 %113, ptr %93, align 8
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %117 = load ptr, ptr %0, align 8
   br label %.lr.ph.i108
@@ -16984,7 +16984,7 @@ AppendJumble.exit107:                             ; preds = %109
   br i1 %.not.i113, label %AppendJumble.exit115, label %.lr.ph.i108, !llvm.loop !7
 
 AppendJumble.exit115:                             ; preds = %121
-  store i64 %125, ptr %103, align 8
+  store i64 %125, ptr %93, align 8
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %129 = load ptr, ptr %0, align 8
   br label %.lr.ph.i116
@@ -17014,7 +17014,7 @@ AppendJumble.exit115:                             ; preds = %121
   br i1 %.not.i121, label %.lr.ph.i124, label %.lr.ph.i116, !llvm.loop !7
 
 .lr.ph.i124:                                      ; preds = %133
-  store i64 %137, ptr %103, align 8
+  store i64 %137, ptr %93, align 8
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %141 = load ptr, ptr %0, align 8
   %142 = icmp samesign ugt i64 %137, 1023
@@ -17031,7 +17031,7 @@ AppendJumble.exit115:                             ; preds = %121
   %146 = load i8, ptr %140, align 1
   store i8 %146, ptr %145, align 1
   %147 = add nuw nsw i64 %.1.i128, 1
-  store i64 %147, ptr %103, align 8
+  store i64 %147, ptr %93, align 8
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 105
   %149 = load ptr, ptr %0, align 8
   %150 = icmp eq i64 %.1.i128, 1023
@@ -17048,7 +17048,7 @@ AppendJumble.exit115:                             ; preds = %121
   %154 = load i8, ptr %148, align 1
   store i8 %154, ptr %153, align 1
   %155 = add nuw nsw i64 %.1.i136, 1
-  store i64 %155, ptr %103, align 8
+  store i64 %155, ptr %93, align 8
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 106
   %157 = load ptr, ptr %0, align 8
   %158 = icmp ugt i64 %.1.i136, 1022
@@ -17065,7 +17065,7 @@ AppendJumble.exit115:                             ; preds = %121
   %162 = load i8, ptr %156, align 1
   store i8 %162, ptr %161, align 1
   %163 = add nuw nsw i64 %.1.i144, 1
-  store i64 %163, ptr %103, align 8
+  store i64 %163, ptr %93, align 8
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %165 = load ptr, ptr %0, align 8
   %166 = icmp ugt i64 %.1.i144, 1022
@@ -17082,7 +17082,7 @@ AppendJumble.exit115:                             ; preds = %121
   %170 = load i8, ptr %164, align 1
   store i8 %170, ptr %169, align 1
   %171 = add nuw nsw i64 %.1.i152, 1
-  store i64 %171, ptr %103, align 8
+  store i64 %171, ptr %93, align 8
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %173 = load ptr, ptr %0, align 8
   %174 = icmp ugt i64 %.1.i152, 1022
@@ -17094,7 +17094,7 @@ AppendJumble.exit115:                             ; preds = %121
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %177 = load i8, ptr %172, align 1
   store i8 %177, ptr %176, align 1
-  store i64 9, ptr %103, align 8
+  store i64 9, ptr %93, align 8
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 109
   %179 = load ptr, ptr %0, align 8
   br label %.lr.ph.i172.thread
@@ -17104,7 +17104,7 @@ AppendJumble.exit115:                             ; preds = %121
   %181 = load i8, ptr %172, align 1
   store i8 %181, ptr %180, align 1
   %182 = add nuw nsw i64 %.1.i152, 2
-  store i64 %182, ptr %103, align 8
+  store i64 %182, ptr %93, align 8
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 109
   %184 = load ptr, ptr %0, align 8
   %185 = icmp eq i64 %.1.i152, 1022
@@ -17123,7 +17123,7 @@ AppendJumble.exit115:                             ; preds = %121
   %189 = load i8, ptr %.ph278, align 1
   store i8 %189, ptr %188, align 1
   %190 = add nuw nsw i64 %.1.i168.ph, 1
-  store i64 %190, ptr %103, align 8
+  store i64 %190, ptr %93, align 8
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 110
   %192 = load ptr, ptr %0, align 8
   br label %.lr.ph.i180.thread
@@ -17133,7 +17133,7 @@ AppendJumble.exit115:                             ; preds = %121
   %194 = load i8, ptr %183, align 1
   store i8 %194, ptr %193, align 1
   %195 = add nuw nsw i64 %.1.i152, 3
-  store i64 %195, ptr %103, align 8
+  store i64 %195, ptr %93, align 8
   %196 = getelementptr inbounds nuw i8, ptr %1, i64 110
   %197 = load ptr, ptr %0, align 8
   %198 = icmp ugt i64 %.1.i152, 1020
@@ -17152,7 +17152,7 @@ AppendJumble.exit115:                             ; preds = %121
   %202 = load i8, ptr %.ph281, align 1
   store i8 %202, ptr %201, align 1
   %203 = add nuw nsw i64 %.1.i176.ph, 1
-  store i64 %203, ptr %103, align 8
+  store i64 %203, ptr %93, align 8
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 111
   %205 = load ptr, ptr %0, align 8
   br label %.lr.ph.i188.thread
@@ -17162,7 +17162,7 @@ AppendJumble.exit115:                             ; preds = %121
   %207 = load i8, ptr %196, align 1
   store i8 %207, ptr %206, align 1
   %208 = add nuw nsw i64 %.1.i152, 4
-  store i64 %208, ptr %103, align 8
+  store i64 %208, ptr %93, align 8
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 111
   %210 = load ptr, ptr %0, align 8
   %211 = icmp eq i64 %.1.i152, 1020
@@ -17181,7 +17181,7 @@ AppendJumble.exit115:                             ; preds = %121
   %215 = load i8, ptr %.ph284, align 1
   store i8 %215, ptr %214, align 1
   %216 = add nuw nsw i64 %.1.i184.ph, 1
-  store i64 %216, ptr %103, align 8
+  store i64 %216, ptr %93, align 8
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %218 = load ptr, ptr %0, align 8
   br label %.lr.ph.i196.thread
@@ -17191,7 +17191,7 @@ AppendJumble.exit115:                             ; preds = %121
   %220 = load i8, ptr %209, align 1
   store i8 %220, ptr %219, align 1
   %221 = add nuw nsw i64 %.1.i152, 5
-  store i64 %221, ptr %103, align 8
+  store i64 %221, ptr %93, align 8
   %222 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %223 = load ptr, ptr %0, align 8
   %224 = icmp ugt i64 %.1.i152, 1018
@@ -17210,7 +17210,7 @@ AppendJumble.exit115:                             ; preds = %121
   %228 = load i8, ptr %.ph287, align 1
   store i8 %228, ptr %227, align 1
   %229 = add nuw nsw i64 %.1.i192.ph, 1
-  store i64 %229, ptr %103, align 8
+  store i64 %229, ptr %93, align 8
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 113
   %231 = load ptr, ptr %0, align 8
   br label %.lr.ph.i204.thread
@@ -17220,7 +17220,7 @@ AppendJumble.exit115:                             ; preds = %121
   %233 = load i8, ptr %222, align 1
   store i8 %233, ptr %232, align 1
   %234 = add nuw nsw i64 %.1.i152, 6
-  store i64 %234, ptr %103, align 8
+  store i64 %234, ptr %93, align 8
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 113
   %236 = load ptr, ptr %0, align 8
   %237 = icmp eq i64 %.1.i152, 1018
@@ -17239,7 +17239,7 @@ AppendJumble.exit115:                             ; preds = %121
   %241 = load i8, ptr %.ph290, align 1
   store i8 %241, ptr %240, align 1
   %242 = add nuw nsw i64 %.1.i200.ph, 1
-  store i64 %242, ptr %103, align 8
+  store i64 %242, ptr %93, align 8
   %243 = load ptr, ptr %0, align 8
   br label %AppendJumble.exit211
 
@@ -17248,7 +17248,7 @@ AppendJumble.exit115:                             ; preds = %121
   %245 = load i8, ptr %235, align 1
   store i8 %245, ptr %244, align 1
   %246 = add nuw nsw i64 %.1.i152, 7
-  store i64 %246, ptr %103, align 8
+  store i64 %246, ptr %93, align 8
   %247 = load ptr, ptr %0, align 8
   %248 = icmp ugt i64 %.1.i152, 1016
   br i1 %248, label %249, label %AppendJumble.exit211
@@ -17266,7 +17266,7 @@ AppendJumble.exit211:                             ; preds = %.lr.ph.i204, %249, 
   %254 = load i8, ptr %252, align 1
   store i8 %254, ptr %253, align 1
   %255 = add nuw nsw i64 %.1.i208, 1
-  store i64 %255, ptr %103, align 8
+  store i64 %255, ptr %93, align 8
   ret void
 }
 

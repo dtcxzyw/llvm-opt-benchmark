@@ -2308,8 +2308,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt12__share
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc72
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %267, 2
-  %269 = getelementptr inbounds nuw i8, ptr %266, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %266, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !102
+  %269 = getelementptr inbounds nuw i8, ptr %266, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc72, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -5203,8 +5203,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.thread: ; preds = %188, %_
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc285
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %448, 2
-  %450 = getelementptr inbounds nuw i8, ptr %447, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %447, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !102
+  %450 = getelementptr inbounds nuw i8, ptr %447, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc285, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -5256,8 +5256,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i289: ; preds = %_ZNSt6vecto
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i291: ; preds = %.noexc296
   %.idx.i.i.i.i.i.i.i292 = shl nuw nsw i64 %464, 2
-  %466 = getelementptr inbounds nuw i8, ptr %463, i64 %.idx.i.i.i.i.i.i.i292
   call void @llvm.memset.p0.i64(ptr align 4 %463, i8 0, i64 %.idx.i.i.i.i.i.i.i292, i1 false), !tbaa !102
+  %466 = getelementptr inbounds nuw i8, ptr %463, i64 %.idx.i.i.i.i.i.i.i292
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit297
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit297:            ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i291, %.noexc296, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i289
@@ -5308,8 +5308,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i302: ; preds = %_ZNSt6vecto
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i304: ; preds = %.noexc309
   %.idx.i.i.i.i.i.i.i305 = shl nuw nsw i64 %478, 2
-  %480 = getelementptr inbounds nuw i8, ptr %477, i64 %.idx.i.i.i.i.i.i.i305
   call void @llvm.memset.p0.i64(ptr align 4 %477, i8 0, i64 %.idx.i.i.i.i.i.i.i305, i1 false), !tbaa !102
+  %480 = getelementptr inbounds nuw i8, ptr %477, i64 %.idx.i.i.i.i.i.i.i305
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit310
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit310:            ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i304, %.noexc309, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i302
@@ -5360,8 +5360,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i315: ; preds = %_ZNSt6vecto
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i317: ; preds = %.noexc322
   %.idx.i.i.i.i.i.i.i318 = shl nuw nsw i64 %492, 2
-  %494 = getelementptr inbounds nuw i8, ptr %491, i64 %.idx.i.i.i.i.i.i.i318
   call void @llvm.memset.p0.i64(ptr align 4 %491, i8 0, i64 %.idx.i.i.i.i.i.i.i318, i1 false), !tbaa !102
+  %494 = getelementptr inbounds nuw i8, ptr %491, i64 %.idx.i.i.i.i.i.i.i318
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit323
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit323:            ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i317, %.noexc322, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i315
@@ -5412,8 +5412,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i328: ; preds = %_ZNSt6vecto
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i330: ; preds = %.noexc335
   %.idx.i.i.i.i.i.i.i331 = shl nuw nsw i64 %506, 2
-  %508 = getelementptr inbounds nuw i8, ptr %505, i64 %.idx.i.i.i.i.i.i.i331
   call void @llvm.memset.p0.i64(ptr align 4 %505, i8 0, i64 %.idx.i.i.i.i.i.i.i331, i1 false), !tbaa !102
+  %508 = getelementptr inbounds nuw i8, ptr %505, i64 %.idx.i.i.i.i.i.i.i331
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit336
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit336:            ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i330, %.noexc335, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i328

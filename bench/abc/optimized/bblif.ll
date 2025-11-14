@@ -723,6 +723,7 @@ define void @Bbl_ManSortCubes(ptr noundef captures(none) %0, i32 noundef %1, i32
 .lr.ph.preheader:                                 ; preds = %._crit_edge, %.lr.ph28
   %indvars.iv33 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next34, %._crit_edge ]
   %indvars.iv = phi i64 [ 1, %.lr.ph28 ], [ %indvars.iv.next, %._crit_edge ]
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %7 = trunc nuw nsw i64 %indvars.iv33 to i32
   br label %.lr.ph
 
@@ -743,7 +744,6 @@ define void @Bbl_ManSortCubes(ptr noundef captures(none) %0, i32 noundef %1, i32
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv33
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = sext i32 %spec.select to i64

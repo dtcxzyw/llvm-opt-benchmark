@@ -3371,7 +3371,7 @@ define void @av_sha_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
   %9 = sub nuw nsw i32 64, %7
   %10 = zext nneg i32 %9 to i64
   %.not = icmp ult i64 %2, %10
-  br i1 %.not, label %26, label %11
+  br i1 %.not, label %.loopexit, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3386,30 +3386,26 @@ define void @av_sha_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
   %19 = sub nuw i64 %2, %10
   %20 = and i64 %19, -64
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %20
+  %22 = and i64 %19, 63
   %.not34 = icmp eq i64 %20, 0
   br i1 %.not34, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
-  %.133 = phi ptr [ %23, %.lr.ph ], [ %18, %11 ]
-  %22 = load ptr, ptr %15, align 8, !tbaa !12
-  tail call void %22(ptr noundef nonnull %17, ptr noundef nonnull %.133) #6
-  %23 = getelementptr inbounds nuw i8, ptr %.133, i64 64
-  %24 = icmp ult ptr %23, %21
-  br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  %.133 = phi ptr [ %24, %.lr.ph ], [ %18, %11 ]
+  %23 = load ptr, ptr %15, align 8, !tbaa !12
+  tail call void %23(ptr noundef nonnull %17, ptr noundef nonnull %.133) #6
+  %24 = getelementptr inbounds nuw i8, ptr %.133, i64 64
+  %25 = icmp ult ptr %24, %21
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.lr.ph, %11
-  %.1.lcssa = phi ptr [ %18, %11 ], [ %23, %.lr.ph ]
-  %25 = and i64 %19, 63
-  br label %26
-
-26:                                               ; preds = %.loopexit, %3
-  %.029 = phi i32 [ %7, %3 ], [ 0, %.loopexit ]
-  %.028 = phi i64 [ %2, %3 ], [ %25, %.loopexit ]
-  %.0 = phi ptr [ %1, %3 ], [ %.1.lcssa, %.loopexit ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = zext nneg i32 %.029 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %.0, i64 %.028, i1 false)
+.loopexit:                                        ; preds = %.lr.ph, %11, %3
+  %.029 = phi i32 [ %7, %3 ], [ 0, %11 ], [ 0, %.lr.ph ]
+  %.028 = phi i64 [ %2, %3 ], [ %22, %11 ], [ %22, %.lr.ph ]
+  %.0 = phi ptr [ %1, %3 ], [ %18, %11 ], [ %24, %.lr.ph ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = zext nneg i32 %.029 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr align 1 %.0, i64 %.028, i1 false)
   ret void
 }
 
@@ -3427,97 +3423,97 @@ define void @av_sha_final(ptr noundef %0, ptr noundef writeonly captures(none) %
   %9 = add i64 %4, 1
   store i64 %9, ptr %3, align 8, !tbaa !13
   %.not.i.not = icmp eq i32 %8, 63
-  br i1 %.not.i.not, label %.loopexit.i, label %av_sha_update.exit
+  br i1 %.not.i.not, label %10, label %av_sha_update.exit
 
-.loopexit.i:                                      ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = and i64 %4, 63
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
-  store i8 -128, ptr %12, align 1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %14 = load ptr, ptr %13, align 8, !tbaa !12
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void %14(ptr noundef nonnull %15, ptr noundef nonnull %10) #6
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = and i64 %4, 63
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
+  store i8 -128, ptr %13, align 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %15 = load ptr, ptr %14, align 8, !tbaa !12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  tail call void %15(ptr noundef nonnull %16, ptr noundef nonnull %11) #6
   %.pre = load i64, ptr %3, align 8, !tbaa !13
   br label %av_sha_update.exit
 
-av_sha_update.exit:                               ; preds = %2, %.loopexit.i
-  %16 = phi i64 [ %9, %2 ], [ %.pre, %.loopexit.i ]
-  %.029.i = phi i32 [ %8, %2 ], [ 0, %.loopexit.i ]
-  %.028.i = phi i64 [ 1, %2 ], [ 0, %.loopexit.i ]
-  %.0.i = phi ptr [ @.str, %2 ], [ getelementptr inbounds nuw (i8, ptr @.str, i64 1), %.loopexit.i ]
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = zext nneg i32 %.029.i to i64
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %.0.i, i64 %.028.i, i1 false)
-  %20 = and i64 %16, 63
-  %.not32 = icmp eq i64 %20, 56
-  br i1 %.not32, label %.loopexit.i25, label %.lr.ph
+av_sha_update.exit:                               ; preds = %10, %2
+  %17 = phi i64 [ %9, %2 ], [ %.pre, %10 ]
+  %.029.i = phi i32 [ %8, %2 ], [ 0, %10 ]
+  %.028.i = phi i64 [ 1, %2 ], [ 0, %10 ]
+  %.0.i = phi ptr [ @.str, %2 ], [ getelementptr inbounds nuw (i8, ptr @.str, i64 1), %10 ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = zext nneg i32 %.029.i to i64
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %.0.i, i64 %.028.i, i1 false)
+  %21 = and i64 %17, 63
+  %.not28 = icmp eq i64 %21, 56
+  br i1 %.not28, label %av_sha_update.exit26, label %.lr.ph
 
 .lr.ph:                                           ; preds = %av_sha_update.exit
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %23
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  br label %24
 
-23:                                               ; preds = %.lr.ph, %av_sha_update.exit20
-  %24 = phi i64 [ %20, %.lr.ph ], [ %34, %av_sha_update.exit20 ]
-  %25 = phi i64 [ %16, %.lr.ph ], [ %31, %av_sha_update.exit20 ]
-  %26 = trunc i64 %25 to i32
-  %27 = and i32 %26, 63
-  %28 = add i64 %25, 1
-  store i64 %28, ptr %3, align 8, !tbaa !13
-  %.not.i11.not = icmp eq i32 %27, 63
-  br i1 %.not.i11.not, label %.loopexit.i15, label %av_sha_update.exit20
+24:                                               ; preds = %.lr.ph, %av_sha_update.exit18
+  %25 = phi i64 [ %21, %.lr.ph ], [ %36, %av_sha_update.exit18 ]
+  %26 = phi i64 [ %17, %.lr.ph ], [ %33, %av_sha_update.exit18 ]
+  %27 = trunc i64 %26 to i32
+  %28 = and i32 %27, 63
+  %29 = add i64 %26, 1
+  store i64 %29, ptr %3, align 8, !tbaa !13
+  %.not.i11.not = icmp eq i32 %28, 63
+  br i1 %.not.i11.not, label %30, label %av_sha_update.exit18
 
-.loopexit.i15:                                    ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %24
-  store i8 0, ptr %29, align 1
-  %30 = load ptr, ptr %21, align 8, !tbaa !12
-  tail call void %30(ptr noundef nonnull %22, ptr noundef nonnull %17) #6
-  %.pre40 = load i64, ptr %3, align 8, !tbaa !13
-  br label %av_sha_update.exit20
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 %25
+  store i8 0, ptr %31, align 1
+  %32 = load ptr, ptr %22, align 8, !tbaa !12
+  tail call void %32(ptr noundef nonnull %23, ptr noundef nonnull %18) #6
+  %.pre36 = load i64, ptr %3, align 8, !tbaa !13
+  br label %av_sha_update.exit18
 
-av_sha_update.exit20:                             ; preds = %23, %.loopexit.i15
-  %31 = phi i64 [ %28, %23 ], [ %.pre40, %.loopexit.i15 ]
-  %.029.i17 = phi i32 [ %27, %23 ], [ 0, %.loopexit.i15 ]
-  %.028.i18 = phi i64 [ 1, %23 ], [ 0, %.loopexit.i15 ]
-  %.0.i19 = phi ptr [ @.str.1, %23 ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %.loopexit.i15 ]
-  %32 = zext nneg i32 %.029.i17 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %17, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr nonnull align 1 %.0.i19, i64 %.028.i18, i1 false)
-  %34 = and i64 %31, 63
-  %.not = icmp eq i64 %34, 56
-  br i1 %.not, label %.loopexit.i25, label %23, !llvm.loop !17
+av_sha_update.exit18:                             ; preds = %30, %24
+  %33 = phi i64 [ %29, %24 ], [ %.pre36, %30 ]
+  %.029.i15 = phi i32 [ %28, %24 ], [ 0, %30 ]
+  %.028.i16 = phi i64 [ 1, %24 ], [ 0, %30 ]
+  %.0.i17 = phi ptr [ @.str.1, %24 ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %30 ]
+  %34 = zext nneg i32 %.029.i15 to i64
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 %34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %.0.i17, i64 %.028.i16, i1 false)
+  %36 = and i64 %33, 63
+  %.not = icmp eq i64 %36, 56
+  br i1 %.not, label %av_sha_update.exit26, label %24, !llvm.loop !17
 
-.loopexit.i25:                                    ; preds = %av_sha_update.exit20, %av_sha_update.exit
-  %.lcssa31 = phi i64 [ %16, %av_sha_update.exit ], [ %31, %av_sha_update.exit20 ]
-  %35 = add i64 %.lcssa31, 8
-  store i64 %35, ptr %3, align 8, !tbaa !13
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %6, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %38 = load ptr, ptr %37, align 8, !tbaa !12
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void %38(ptr noundef nonnull %39, ptr noundef nonnull %17) #6
-  %40 = load i8, ptr %0, align 8, !tbaa !4
-  %.not36 = icmp eq i8 %40, 0
-  br i1 %.not36, label %._crit_edge, label %.lr.ph35
+av_sha_update.exit26:                             ; preds = %av_sha_update.exit18, %av_sha_update.exit
+  %.lcssa27 = phi i64 [ %17, %av_sha_update.exit ], [ %33, %av_sha_update.exit18 ]
+  %37 = add i64 %.lcssa27, 8
+  store i64 %37, ptr %3, align 8, !tbaa !13
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %6, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %40 = load ptr, ptr %39, align 8, !tbaa !12
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  tail call void %40(ptr noundef nonnull %41, ptr noundef nonnull %18) #6
+  %42 = load i8, ptr %0, align 8, !tbaa !4
+  %.not32 = icmp eq i8 %42, 0
+  br i1 %.not32, label %._crit_edge, label %.lr.ph31
 
-.lr.ph35:                                         ; preds = %.loopexit.i25, %.lr.ph35
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph35 ], [ 0, %.loopexit.i25 ]
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
-  %42 = load i32, ptr %41, align 4, !tbaa !10
-  %43 = tail call i32 @llvm.bswap.i32(i32 %42)
-  %44 = shl nuw nsw i64 %indvars.iv, 2
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 %44
-  store i32 %43, ptr %45, align 1, !tbaa !14
+.lr.ph31:                                         ; preds = %av_sha_update.exit26, %.lr.ph31
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph31 ], [ 0, %av_sha_update.exit26 ]
+  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
+  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %45 = tail call i32 @llvm.bswap.i32(i32 %44)
+  %46 = shl nuw nsw i64 %indvars.iv, 2
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 %46
+  store i32 %45, ptr %47, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = load i8, ptr %0, align 8, !tbaa !4
-  %47 = zext i8 %46 to i64
-  %48 = icmp samesign ult i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph35, label %._crit_edge, !llvm.loop !18
+  %48 = load i8, ptr %0, align 8, !tbaa !4
+  %49 = zext i8 %48 to i64
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
+  br i1 %50, label %.lr.ph31, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %.lr.ph35, %.loopexit.i25
+._crit_edge:                                      ; preds = %.lr.ph31, %av_sha_update.exit26
   ret void
 }
 

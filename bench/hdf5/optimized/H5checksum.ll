@@ -30,7 +30,7 @@ define i32 @H5_checksum_fletcher32(ptr noundef readonly captures(none) %0, i64 n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %.148 = phi i32 [ %31, %23 ], [ 0, %.lr.ph.preheader ]
   %.13447 = phi i32 [ %28, %23 ], [ 0, %.lr.ph.preheader ]
-  %.03746 = phi i64 [ %25, %23 ], [ %9, %.lr.ph.preheader ]
+  %.03746 = phi i64 [ %24, %23 ], [ %9, %.lr.ph.preheader ]
   %.03845 = phi ptr [ %scevgep, %23 ], [ %0, %.lr.ph.preheader ]
   %10 = tail call i64 @llvm.umin.i64(i64 %.03746, i64 360)
   br label %11
@@ -55,16 +55,16 @@ define i32 @H5_checksum_fletcher32(ptr noundef readonly captures(none) %0, i64 n
   br i1 %.not41, label %23, label %11, !llvm.loop !11
 
 23:                                               ; preds = %11
-  %24 = shl nuw nsw i64 %10, 1
-  %scevgep = getelementptr i8, ptr %.03845, i64 %24
-  %25 = sub i64 %.03746, %10
+  %24 = sub i64 %.03746, %10
+  %25 = shl nuw nsw i64 %10, 1
+  %scevgep = getelementptr i8, ptr %.03845, i64 %25
   %26 = and i32 %19, 65535
   %27 = lshr i32 %19, 16
   %28 = add nuw nsw i32 %26, %27
   %29 = and i32 %21, 65535
   %30 = lshr i32 %21, 16
   %31 = add nuw nsw i32 %29, %30
-  %.not = icmp eq i64 %25, 0
+  %.not = icmp eq i64 %24, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %23, %.preheader

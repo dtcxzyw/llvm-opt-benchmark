@@ -632,21 +632,21 @@ _ZN11OpenImageIO6v3_1_09roi_unionERKNS0_3ROIES3_.exit: ; preds = %53, %76
   %232 = fmul double %231, 1.800000e+02
   %233 = fdiv double %232, 0x400921FB54442D18
   %234 = fptrunc double %233 to float
-  %235 = fcmp ult double %233, 0x3FEFFFFFF0000000
-  br i1 %235, label %._crit_edge, label %.lr.ph
+  %235 = load i32, ptr %96, align 4, !tbaa !16
+  %236 = sub i32 %235, %79
+  %237 = sitofp i32 %236 to float
+  %238 = fdiv float %237, %234
+  %239 = fcmp ult double %233, 0x3FEFFFFFF0000000
+  br i1 %239, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %236 = zext nneg i32 %.0158291 to i64
+  %240 = zext nneg i32 %.0158291 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %225
-  %.0151.lcssa = phi i64 [ 0, %225 ], [ %236, %._crit_edge.loopexit ]
-  %237 = load i32, ptr %96, align 4, !tbaa !16
-  %238 = sub i32 %237, %79
-  %239 = sitofp i32 %238 to float
-  %240 = fdiv float %239, %234
+  %.0151.lcssa = phi i64 [ 0, %225 ], [ %240, %._crit_edge.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
-  %241 = fmul float %240, 5.000000e-01
+  %241 = fmul float %238, 5.000000e-01
   store float %241, ptr %42, align 16, !tbaa !3
   br label %273
 
@@ -742,7 +742,7 @@ _ZN11OpenImageIO6v3_1_09roi_unionERKNS0_3ROIES3_.exit: ; preds = %53, %76
   br i1 %276, label %.preheader284.lr.ph, label %._crit_edge303
 
 .preheader284.lr.ph:                              ; preds = %.preheader285
-  %277 = icmp sgt i32 %238, 0
+  %277 = icmp sgt i32 %236, 0
   %278 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageBuf", ptr %40, i64 %.0151.lcssa
   %279 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageBuf", ptr %41, i64 %.0151.lcssa
   br i1 %277, label %.preheader284.us, label %._crit_edge303
@@ -890,7 +890,7 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_13tviEf.exit.us: ; preds = %321, %319, %315,
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %352 = add nuw nsw i32 %.0155299.us, 1
-  %exitcond344.not = icmp eq i32 %352, %238
+  %exitcond344.not = icmp eq i32 %352, %236
   br i1 %exitcond344.not, label %._crit_edge301.us, label %280, !llvm.loop !63
 
 .preheader.us:                                    ; preds = %363, %.preheader.us

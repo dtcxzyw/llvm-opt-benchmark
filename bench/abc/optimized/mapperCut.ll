@@ -699,22 +699,22 @@ Map_CutMergeLists.exit.i:                         ; preds = %276, %.loopexit.i.i
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %Map_CutSortCuts.exit
   %.04072.i = phi ptr [ %.040.i, %Map_CutSortCuts.exit ], [ %.04069.i, %.lr.ph.i.preheader ]
   %.14271.i = phi ptr [ %.0..0..0..0..0..0..0..0..i.i49, %Map_CutSortCuts.exit ], [ %277, %.lr.ph.i.preheader ]
+  %282 = getelementptr inbounds nuw i8, ptr %.04072.i, i64 160
+  %283 = load ptr, ptr %282, align 8, !tbaa !32
   %.not10.i.i = icmp ne ptr %.14271.i, null
   call void @llvm.assume(i1 %.not10.i.i)
   br label %.lr.ph.i49.i
 
 .lr.ph.i49.i:                                     ; preds = %.lr.ph.i49.i, %.lr.ph.i
-  %.0911.i.i = phi ptr [ %282, %.lr.ph.i49.i ], [ %.14271.i, %.lr.ph.i ]
-  %282 = load ptr, ptr %.0911.i.i, align 8, !tbaa !64
-  %.not.i50.i = icmp eq ptr %282, null
+  %.0911.i.i = phi ptr [ %284, %.lr.ph.i49.i ], [ %.14271.i, %.lr.ph.i ]
+  %284 = load ptr, ptr %.0911.i.i, align 8, !tbaa !64
+  %.not.i50.i = icmp eq ptr %284, null
   br i1 %.not.i50.i, label %Map_CutUnionLists.exit.i, label %.lr.ph.i49.i, !llvm.loop !81
 
 Map_CutUnionLists.exit.i:                         ; preds = %.lr.ph.i49.i
-  %283 = getelementptr inbounds nuw i8, ptr %.04072.i, i64 160
-  %284 = load ptr, ptr %283, align 8, !tbaa !32
-  %285 = load ptr, ptr %284, align 8, !tbaa !64
+  %285 = load ptr, ptr %283, align 8, !tbaa !64
   store ptr %285, ptr %.0911.i.i, align 8, !tbaa !64
-  store ptr null, ptr %284, align 8, !tbaa !64
+  store ptr null, ptr %283, align 8, !tbaa !64
   br label %.lr.ph.i.i45
 
 .lr.ph.i.i45:                                     ; preds = %Map_CutUnionLists.exit.i, %.lr.ph.i.i45
@@ -1536,6 +1536,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
 .lr.ph156.preheader:                              ; preds = %._crit_edge, %.lr.ph159.preheader
   %indvars.iv215 = phi i64 [ 0, %.lr.ph159.preheader ], [ %indvars.iv.next216, %._crit_edge ]
   %indvars.iv208 = phi i64 [ 1, %.lr.ph159.preheader ], [ %indvars.iv.next209, %._crit_edge ]
+  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %105 = trunc nuw nsw i64 %indvars.iv215 to i32
   br label %.lr.ph156
 
@@ -1559,7 +1560,6 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr noundef readonly captures(none) 
   br i1 %exitcond214.not, label %._crit_edge, label %.lr.ph156, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %.lr.ph156
-  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %117 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv215
   %118 = load ptr, ptr %117, align 8, !tbaa !23
   %119 = sext i32 %spec.select to i64

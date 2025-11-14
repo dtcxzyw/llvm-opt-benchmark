@@ -780,6 +780,8 @@ entry:
   %unlimitedRegisters = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 1
   store i8 1, ptr %unlimitedRegisters, align 1
   %dumpOperandRegisters = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 2
+  %instrumentIR = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 7
+  %enableBlockScoping = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 9
   %dumpBefore = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 16
   store i8 0, ptr %dumpBefore, align 8
   %passes = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 24
@@ -880,8 +882,6 @@ for.body.i.i.i.i.i55:                             ; preds = %for.body.i.i.i.i.i5
   br i1 %cmp.not.i.i.i.i.i60, label %_ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2Ev.exit61, label %for.body.i.i.i.i.i55, !llvm.loop !15
 
 _ZN4llvh13SmallDenseSetINS_9StringRefELj4ENS_12DenseMapInfoIS1_EEEC2Ev.exit61: ; preds = %for.body.i.i.i.i.i55
-  %instrumentIR = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 7
-  %enableBlockScoping = getelementptr inbounds nuw i8, ptr %codeGenOpts, i64 9
   store i8 0, ptr %unlimitedRegisters, align 1
   %instrumentIR5 = getelementptr inbounds nuw i8, ptr %compileFlags, i64 18
   %5 = load i8, ptr %instrumentIR5, align 2

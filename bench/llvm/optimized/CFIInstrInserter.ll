@@ -1326,7 +1326,7 @@ _ZN4llvm9BitVectorC2Ejb.exit56.loopexit.i.i.i:    ; preds = %278
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i.i.i:  ; preds = %278
   %.not.i.i.i.i27.i = icmp samesign ult i32 %308, 64
-  br i1 %.not.i.i.i.i27.i, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i46.thread.i.i.i, label %_ZN4llvm9BitVectorC2Ejb.exit56.loopexit171.i.i.i
+  br i1 %.not.i.i.i.i27.i, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i46.thread.i.i.i, label %_ZN4llvm9BitVectorC2Ejb.exit56.loopexit186.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i46.thread.i.i.i: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i.i.i
   store i32 %309, ptr %269, align 8, !tbaa !26
@@ -1336,7 +1336,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i46.thread.i.i.i: ; preds = %_ZSt6fill_n
   store i32 6, ptr %273, align 4, !tbaa !27
   br label %_ZN4llvm9BitVectorC2Ejb.exit56.i.i.i
 
-_ZN4llvm9BitVectorC2Ejb.exit56.loopexit171.i.i.i: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i.i.i
+_ZN4llvm9BitVectorC2Ejb.exit56.loopexit186.i.i.i: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i.i.i
   %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %310, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %268, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !45
   store i32 %309, ptr %269, align 8, !tbaa !26
@@ -1347,7 +1347,7 @@ _ZN4llvm9BitVectorC2Ejb.exit56.loopexit171.i.i.i: ; preds = %_ZSt6fill_nIPmmmET_
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %272, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !45
   br label %_ZN4llvm9BitVectorC2Ejb.exit56.i.i.i
 
-_ZN4llvm9BitVectorC2Ejb.exit56.i.i.i:             ; preds = %_ZN4llvm9BitVectorC2Ejb.exit56.loopexit171.i.i.i, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i46.thread.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit56.loopexit.i.i.i
+_ZN4llvm9BitVectorC2Ejb.exit56.i.i.i:             ; preds = %_ZN4llvm9BitVectorC2Ejb.exit56.loopexit186.i.i.i, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i46.thread.i.i.i, %_ZN4llvm9BitVectorC2Ejb.exit56.loopexit.i.i.i
   store i32 %309, ptr %274, align 8, !tbaa !26
   store i32 %307, ptr %275, align 8, !tbaa !101
   %314 = load ptr, ptr %289, align 8, !tbaa !271

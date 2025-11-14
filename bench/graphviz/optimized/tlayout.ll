@@ -182,76 +182,76 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
   %45 = load ptr, ptr %44, align 8, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !68
-  %48 = tail call ptr @agfstnode(ptr noundef nonnull %0) #7
-  %.not190.i = icmp eq ptr %48, null
+  %48 = sub nsw i32 %42, %47
+  %49 = tail call ptr @agfstnode(ptr noundef nonnull %0) #7
+  %.not190.i = icmp eq ptr %49, null
   br i1 %.not190.i, label %._crit_edge.i37, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %init_params.exit, %72
-  %.0157196.i = phi ptr [ %73, %72 ], [ %48, %init_params.exit ]
-  %.0159195.i = phi i32 [ %.1160.i, %72 ], [ 0, %init_params.exit ]
-  %.sroa.063.0194.i = phi double [ %.sroa.063.2.i, %72 ], [ 0.000000e+00, %init_params.exit ]
-  %.sroa.23.0193.i = phi double [ %.sroa.23.2.i, %72 ], [ 0.000000e+00, %init_params.exit ]
-  %.sroa.17.0192.i = phi double [ %.sroa.17.2.i, %72 ], [ 0.000000e+00, %init_params.exit ]
-  %.sroa.10.0191.i = phi double [ %.sroa.10.2.i, %72 ], [ 0.000000e+00, %init_params.exit ]
-  %49 = getelementptr inbounds nuw i8, ptr %.0157196.i, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !34
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 163
-  %52 = load i8, ptr %51, align 1, !tbaa !69
-  %.not186.i = icmp eq i8 %52, 0
-  br i1 %.not186.i, label %72, label %53
+.lr.ph.i:                                         ; preds = %init_params.exit, %73
+  %.0157196.i = phi ptr [ %74, %73 ], [ %49, %init_params.exit ]
+  %.0159195.i = phi i32 [ %.1160.i, %73 ], [ 0, %init_params.exit ]
+  %.sroa.063.0194.i = phi double [ %.sroa.063.2.i, %73 ], [ 0.000000e+00, %init_params.exit ]
+  %.sroa.23.0193.i = phi double [ %.sroa.23.2.i, %73 ], [ 0.000000e+00, %init_params.exit ]
+  %.sroa.17.0192.i = phi double [ %.sroa.17.2.i, %73 ], [ 0.000000e+00, %init_params.exit ]
+  %.sroa.10.0191.i = phi double [ %.sroa.10.2.i, %73 ], [ 0.000000e+00, %init_params.exit ]
+  %50 = getelementptr inbounds nuw i8, ptr %.0157196.i, i64 16
+  %51 = load ptr, ptr %50, align 8, !tbaa !34
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 163
+  %53 = load i8, ptr %52, align 1, !tbaa !69
+  %.not186.i = icmp eq i8 %53, 0
+  br i1 %.not186.i, label %73, label %54
 
-53:                                               ; preds = %.lr.ph.i
+54:                                               ; preds = %.lr.ph.i
   %.not187.i = icmp eq i32 %.0159195.i, 0
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 176
-  %55 = load ptr, ptr %54, align 8, !tbaa !76
-  %56 = load double, ptr %55, align 8, !tbaa !77
-  br i1 %.not187.i, label %67, label %57
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 176
+  %56 = load ptr, ptr %55, align 8, !tbaa !76
+  %57 = load double, ptr %56, align 8, !tbaa !77
+  br i1 %.not187.i, label %68, label %58
 
-57:                                               ; preds = %53
-  %58 = fcmp olt double %56, %.sroa.063.0194.i
-  %..sroa.063.0.i = select i1 %58, double %56, double %.sroa.063.0194.i
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %60 = load double, ptr %59, align 8, !tbaa !77
-  %61 = fcmp olt double %60, %.sroa.10.0191.i
-  %62 = select i1 %61, double %60, double %.sroa.10.0191.i
-  %63 = fcmp ogt double %56, %.sroa.17.0192.i
-  %64 = select i1 %63, double %56, double %.sroa.17.0192.i
-  %65 = fcmp ogt double %60, %.sroa.23.0193.i
-  %66 = select i1 %65, double %60, double %.sroa.23.0193.i
-  br label %70
+58:                                               ; preds = %54
+  %59 = fcmp olt double %57, %.sroa.063.0194.i
+  %..sroa.063.0.i = select i1 %59, double %57, double %.sroa.063.0194.i
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %61 = load double, ptr %60, align 8, !tbaa !77
+  %62 = fcmp olt double %61, %.sroa.10.0191.i
+  %63 = select i1 %62, double %61, double %.sroa.10.0191.i
+  %64 = fcmp ogt double %57, %.sroa.17.0192.i
+  %65 = select i1 %64, double %57, double %.sroa.17.0192.i
+  %66 = fcmp ogt double %61, %.sroa.23.0193.i
+  %67 = select i1 %66, double %61, double %.sroa.23.0193.i
+  br label %71
 
-67:                                               ; preds = %53
-  %68 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %69 = load double, ptr %68, align 8, !tbaa !77
-  br label %70
+68:                                               ; preds = %54
+  %69 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %70 = load double, ptr %69, align 8, !tbaa !77
+  br label %71
 
-70:                                               ; preds = %67, %57
-  %.sroa.10.1.i = phi double [ %62, %57 ], [ %69, %67 ]
-  %.sroa.17.1.i = phi double [ %64, %57 ], [ %56, %67 ]
-  %.sroa.23.1.i = phi double [ %66, %57 ], [ %69, %67 ]
-  %.sroa.063.1.i = phi double [ %..sroa.063.0.i, %57 ], [ %56, %67 ]
-  %71 = add nsw i32 %.0159195.i, 1
-  br label %72
+71:                                               ; preds = %68, %58
+  %.sroa.10.1.i = phi double [ %63, %58 ], [ %70, %68 ]
+  %.sroa.17.1.i = phi double [ %65, %58 ], [ %57, %68 ]
+  %.sroa.23.1.i = phi double [ %67, %58 ], [ %70, %68 ]
+  %.sroa.063.1.i = phi double [ %..sroa.063.0.i, %58 ], [ %57, %68 ]
+  %72 = add nsw i32 %.0159195.i, 1
+  br label %73
 
-72:                                               ; preds = %70, %.lr.ph.i
-  %.sroa.10.2.i = phi double [ %.sroa.10.1.i, %70 ], [ %.sroa.10.0191.i, %.lr.ph.i ]
-  %.sroa.17.2.i = phi double [ %.sroa.17.1.i, %70 ], [ %.sroa.17.0192.i, %.lr.ph.i ]
-  %.sroa.23.2.i = phi double [ %.sroa.23.1.i, %70 ], [ %.sroa.23.0193.i, %.lr.ph.i ]
-  %.sroa.063.2.i = phi double [ %.sroa.063.1.i, %70 ], [ %.sroa.063.0194.i, %.lr.ph.i ]
-  %.1160.i = phi i32 [ %71, %70 ], [ %.0159195.i, %.lr.ph.i ]
-  %73 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0157196.i) #7
-  %.not.i36 = icmp eq ptr %73, null
+73:                                               ; preds = %71, %.lr.ph.i
+  %.sroa.10.2.i = phi double [ %.sroa.10.1.i, %71 ], [ %.sroa.10.0191.i, %.lr.ph.i ]
+  %.sroa.17.2.i = phi double [ %.sroa.17.1.i, %71 ], [ %.sroa.17.0192.i, %.lr.ph.i ]
+  %.sroa.23.2.i = phi double [ %.sroa.23.1.i, %71 ], [ %.sroa.23.0193.i, %.lr.ph.i ]
+  %.sroa.063.2.i = phi double [ %.sroa.063.1.i, %71 ], [ %.sroa.063.0194.i, %.lr.ph.i ]
+  %.1160.i = phi i32 [ %72, %71 ], [ %.0159195.i, %.lr.ph.i ]
+  %74 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0157196.i) #7
+  %.not.i36 = icmp eq ptr %74, null
   br i1 %.not.i36, label %._crit_edge.i37, label %.lr.ph.i, !llvm.loop !78
 
-._crit_edge.i37:                                  ; preds = %72, %init_params.exit
-  %.sroa.10.0.lcssa.i = phi double [ 0.000000e+00, %init_params.exit ], [ %.sroa.10.2.i, %72 ]
-  %.sroa.17.0.lcssa.i = phi double [ 0.000000e+00, %init_params.exit ], [ %.sroa.17.2.i, %72 ]
-  %.sroa.23.0.lcssa.i = phi double [ 0.000000e+00, %init_params.exit ], [ %.sroa.23.2.i, %72 ]
-  %.sroa.063.0.lcssa.i = phi double [ 0.000000e+00, %init_params.exit ], [ %.sroa.063.2.i, %72 ]
-  %.0159.lcssa.i = phi i32 [ 0, %init_params.exit ], [ %.1160.i, %72 ]
-  %74 = sub nsw i32 %42, %47
+._crit_edge.i37:                                  ; preds = %73, %init_params.exit
+  %.sroa.10.0.lcssa.i = phi double [ 0.000000e+00, %init_params.exit ], [ %.sroa.10.2.i, %73 ]
+  %.sroa.17.0.lcssa.i = phi double [ 0.000000e+00, %init_params.exit ], [ %.sroa.17.2.i, %73 ]
+  %.sroa.23.0.lcssa.i = phi double [ 0.000000e+00, %init_params.exit ], [ %.sroa.23.2.i, %73 ]
+  %.sroa.063.0.lcssa.i = phi double [ 0.000000e+00, %init_params.exit ], [ %.sroa.063.2.i, %73 ]
+  %.0159.lcssa.i = phi i32 [ 0, %init_params.exit ], [ %.1160.i, %73 ]
   %75 = load double, ptr getelementptr inbounds nuw (i8, ptr @parms, i64 48), align 8, !tbaa !27
-  %76 = sitofp i32 %74 to double
+  %76 = sitofp i32 %48 to double
   %77 = tail call double @sqrt(double noundef %76) #7, !tbaa !60
   %78 = fadd double %77, 1.000000e+00
   %79 = fmul double %75, %78

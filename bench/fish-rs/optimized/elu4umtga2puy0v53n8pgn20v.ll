@@ -110,39 +110,39 @@ define void @_ZN11fish_printf6fmt_fp7decimal7Decimal3new17h5818cd8688c37821E(ptr
   %43 = load i64, ptr %36, align 8, !noalias !8, !noundef !7
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !8
   %44 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !8, !nonnull !7, !noundef !7
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %41
-  %46 = icmp samesign eq i64 %40, %41
-  br i1 %46, label %._crit_edge.i, label %.lr.ph.i
+  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %42
+  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %41
+  %47 = icmp samesign eq i64 %40, %41
+  br i1 %47, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc15
-  %47 = getelementptr inbounds nuw i32, ptr %44, i64 %40
-  %48 = trunc nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i to i32
-  %notmask19.i = shl nsw i32 -1, %48
-  %49 = xor i32 %notmask19.i, -1
-  %50 = lshr i32 1000000000, %48
-  br label %51
+  %48 = getelementptr inbounds nuw i32, ptr %44, i64 %40
+  %49 = trunc nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i to i32
+  %notmask19.i = shl nsw i32 -1, %49
+  %50 = xor i32 %notmask19.i, -1
+  %51 = lshr i32 1000000000, %49
+  br label %52
 
-51:                                               ; preds = %51, %.lr.ph.i
-  %.sroa.013.024.i = phi ptr [ %47, %.lr.ph.i ], [ %.sroa.013.1.i, %51 ]
-  %.sroa.09.023.i = phi i32 [ 0, %.lr.ph.i ], [ %56, %51 ]
+52:                                               ; preds = %52, %.lr.ph.i
+  %.sroa.013.024.i = phi ptr [ %48, %.lr.ph.i ], [ %.sroa.013.1.i, %52 ]
+  %.sroa.09.023.i = phi i32 [ 0, %.lr.ph.i ], [ %57, %52 ]
   %.sroa.013.1.i = getelementptr inbounds nuw i8, ptr %.sroa.013.024.i, i64 4
-  %52 = load i32, ptr %.sroa.013.024.i, align 4, !noundef !7
-  %53 = and i32 %52, %49
-  %54 = lshr i32 %52, %48
-  %55 = add i32 %54, %.sroa.09.023.i
-  store i32 %55, ptr %.sroa.013.024.i, align 4
-  %56 = mul i32 %53, %50
-  %57 = icmp eq ptr %.sroa.013.1.i, %45
-  br i1 %57, label %._crit_edge.i, label %51
+  %53 = load i32, ptr %.sroa.013.024.i, align 4, !noundef !7
+  %54 = and i32 %53, %50
+  %55 = lshr i32 %53, %49
+  %56 = add i32 %55, %.sroa.09.023.i
+  store i32 %56, ptr %.sroa.013.024.i, align 4
+  %57 = mul i32 %54, %51
+  %58 = icmp eq ptr %.sroa.013.1.i, %46
+  br i1 %58, label %._crit_edge.i, label %52
 
-._crit_edge.i:                                    ; preds = %51, %.noexc15
-  %.sroa.09.0.lcssa.i = phi i32 [ 0, %.noexc15 ], [ %56, %51 ]
-  %58 = getelementptr inbounds nuw i32, ptr %44, i64 %43
-  %59 = icmp samesign eq i64 %42, %43
-  br i1 %59, label %._crit_edge29.i, label %.lr.ph28.i
+._crit_edge.i:                                    ; preds = %52, %.noexc15
+  %.sroa.09.0.lcssa.i = phi i32 [ 0, %.noexc15 ], [ %57, %52 ]
+  %59 = getelementptr inbounds nuw i32, ptr %44, i64 %43
+  %60 = icmp samesign eq i64 %42, %43
+  br i1 %60, label %._crit_edge29.i, label %.lr.ph28.i
 
 .lr.ph28.i:                                       ; preds = %._crit_edge.i
-  %60 = getelementptr inbounds nuw i32, ptr %44, i64 %42
   %61 = trunc nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i to i32
   %notmask.i = shl nsw i32 -1, %61
   %62 = xor i32 %notmask.i, -1
@@ -150,7 +150,7 @@ define void @_ZN11fish_printf6fmt_fp7decimal7Decimal3new17h5818cd8688c37821E(ptr
   br label %64
 
 64:                                               ; preds = %64, %.lr.ph28.i
-  %.sroa.014.026.i = phi ptr [ %60, %.lr.ph28.i ], [ %.sroa.014.1.i, %64 ]
+  %.sroa.014.026.i = phi ptr [ %45, %.lr.ph28.i ], [ %.sroa.014.1.i, %64 ]
   %.sroa.09.125.i = phi i32 [ %.sroa.09.0.lcssa.i, %.lr.ph28.i ], [ %69, %64 ]
   %.sroa.014.1.i = getelementptr inbounds nuw i8, ptr %.sroa.014.026.i, i64 4
   %65 = load i32, ptr %.sroa.014.026.i, align 4, !noundef !7
@@ -159,7 +159,7 @@ define void @_ZN11fish_printf6fmt_fp7decimal7Decimal3new17h5818cd8688c37821E(ptr
   %68 = add i32 %67, %.sroa.09.125.i
   store i32 %68, ptr %.sroa.014.026.i, align 4
   %69 = mul i32 %66, %63
-  %70 = icmp eq ptr %.sroa.014.1.i, %58
+  %70 = icmp eq ptr %.sroa.014.1.i, %59
   br i1 %70, label %._crit_edge29.i, label %64
 
 ._crit_edge29.i:                                  ; preds = %64, %._crit_edge.i
@@ -517,17 +517,17 @@ define void @_ZN11fish_printf6fmt_fp7decimal7Decimal26round_to_fractional_digits
   %13 = sdiv i32 %1, 9
   %14 = srem i32 %1, 9
   %.lobit.i = ashr i32 %14, 31
-  %15 = add nsw i32 %13, 1
-  %.sroa.0.0.i = add nsw i32 %15, %.lobit.i
-  %16 = add i32 %.sroa.0.0.i, %8
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %.lr.ph, label %._crit_edge
+  %15 = icmp slt i32 %14, 0
+  %16 = add nsw i32 %14, 9
+  %spec.select.i = select i1 %15, i32 %16, i32 %14
+  %17 = add nsw i32 %13, 1
+  %.sroa.0.0.i = add nsw i32 %17, %.lobit.i
+  %18 = add i32 %.sroa.0.0.i, %8
+  %19 = icmp slt i32 %18, 0
+  br i1 %19, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
-  %.sroa.0.0.lcssa = phi i32 [ %16, %12 ], [ 0, %.lr.ph ]
-  %18 = icmp slt i32 %14, 0
-  %19 = add nsw i32 %14, 9
-  %spec.select.i = select i1 %18, i32 %19, i32 %14
+  %.sroa.0.0.lcssa = phi i32 [ %18, %12 ], [ 0, %.lr.ph ]
   %20 = sub nuw nsw i32 9, %spec.select.i
   br label %.preheader22.i
 
@@ -566,7 +566,7 @@ define void @_ZN11fish_printf6fmt_fp7decimal7Decimal26round_to_fractional_digits
   br i1 %32, label %101, label %"_ZN95_$LT$fish_printf..fmt_fp..decimal..Decimal$u20$as$u20$core..ops..index..IndexMut$LT$i32$GT$$GT$9index_mut17h4d68d035a1c91692E.exit"
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
-  %.sroa.0.038 = phi i32 [ %35, %.lr.ph ], [ %16, %12 ]
+  %.sroa.0.038 = phi i32 [ %35, %.lr.ph ], [ %18, %12 ]
   tail call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10push_front17h6650ad8e31d07206E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696652c42b30cf37ef436aa56ab1f9d.2)
   %33 = load i32, ptr %7, align 8, !alias.scope !49, !noundef !7
   %34 = add i32 %33, 1

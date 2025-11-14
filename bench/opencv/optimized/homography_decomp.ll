@@ -2638,6 +2638,8 @@ define hidden void @_ZN2cv23HomographyDecomposition21HomographyDecompInria9decom
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
+  %.0161.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %.0161.sroa.gep174 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %30, %2
@@ -2705,8 +2707,6 @@ _ZNK2cv4MatxIdLi3ELi3EE1tEv.exit:                 ; preds = %30
   br i1 %exitcond.not.i.i76, label %35, label %36, !llvm.loop !21
 
 _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit: ; preds = %34
-  %.0161.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %.0161.sroa.gep174 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false), !tbaa.struct !10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

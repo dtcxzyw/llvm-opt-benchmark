@@ -28251,40 +28251,40 @@ define internal fastcc void @_ZN5image6codecs3dxt17decode_dxt_colors17h47d8c1f2a
   br i1 %or.cond, label %105, label %8
 
 8:                                                ; preds = %5
+  %9 = load i8, ptr %0, align 1, !noundef !4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %11 = load i8, ptr %10, align 1, !noundef !4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %13 = load i8, ptr %12, align 1, !noundef !4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %15 = load i8, ptr %14, align 1, !noundef !4
+  %16 = getelementptr i8, ptr %0, i64 4
+  %17 = load i32, ptr %16, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br label %9
+  br label %18
 
-9:                                                ; preds = %8, %9
-  %10 = phi i64 [ 0, %8 ], [ %12, %9 ]
-  %11 = getelementptr inbounds nuw [3 x i8], ptr %6, i64 %10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %11, i8 0, i64 3, i1 false)
-  %12 = add nuw nsw i64 %10, 1
-  %exitcond.not = icmp eq i64 %12, 4
-  br i1 %exitcond.not, label %13, label %9
+18:                                               ; preds = %8, %18
+  %19 = phi i64 [ 0, %8 ], [ %21, %18 ]
+  %20 = getelementptr inbounds nuw [3 x i8], ptr %6, i64 %19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %20, i8 0, i64 3, i1 false)
+  %21 = add nuw nsw i64 %19, 1
+  %exitcond.not = icmp eq i64 %21, 4
+  br i1 %exitcond.not, label %22, label %18
 
-13:                                               ; preds = %9
-  %14 = lshr i64 %3, 4
-  %15 = load i8, ptr %0, align 1, !noundef !4
-  %16 = zext i8 %15 to i16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %18 = load i8, ptr %17, align 1, !noundef !4
-  %19 = zext i8 %18 to i16
-  %20 = shl nuw i16 %19, 8
-  %21 = or disjoint i16 %20, %16
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %23 = load i8, ptr %22, align 1, !noundef !4
-  %24 = zext i8 %23 to i16
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %26 = load i8, ptr %25, align 1, !noundef !4
-  %27 = zext i8 %26 to i16
-  %28 = shl nuw i16 %27, 8
-  %29 = or disjoint i16 %28, %24
-  %30 = getelementptr i8, ptr %0, i64 4
-  %31 = load i32, ptr %30, align 1
-  %32 = lshr i16 %19, 3
-  %33 = lshr i16 %21, 5
+22:                                               ; preds = %18
+  %23 = lshr i64 %3, 4
+  %24 = zext i8 %9 to i16
+  %25 = zext i8 %11 to i16
+  %26 = shl nuw i16 %25, 8
+  %27 = or disjoint i16 %26, %24
+  %28 = zext i8 %13 to i16
+  %29 = zext i8 %15 to i16
+  %30 = shl nuw i16 %29, 8
+  %31 = or disjoint i16 %30, %28
+  %32 = lshr i16 %25, 3
+  %33 = lshr i16 %27, 5
   %34 = and i16 %33, 63
-  %35 = and i16 %16, 31
+  %35 = and i16 %24, 31
   %36 = mul nuw nsw i16 %32, 255
   %37 = udiv i16 %36, 31
   %38 = mul nuw nsw i16 %34, 255
@@ -28299,10 +28299,10 @@ define internal fastcc void @_ZN5image6codecs3dxt17decode_dxt_colors17h47d8c1f2a
   %.sroa.2.0.insert.insert.i = or disjoint i24 %.sroa.3.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = add nuw nsw i24 %.sroa.2.0.insert.insert.i, %.sroa.2.0.insert.shift.i
   store i24 %.sroa.0.0.insert.insert.i, ptr %6, align 4
-  %43 = lshr i16 %27, 3
-  %44 = lshr i16 %29, 5
+  %43 = lshr i16 %29, 3
+  %44 = lshr i16 %31, 5
   %45 = and i16 %44, 63
-  %46 = and i16 %24, 31
+  %46 = and i16 %28, 31
   %47 = mul nuw nsw i16 %43, 255
   %48 = udiv i16 %47, 31
   %49 = mul nuw nsw i16 %45, 255
@@ -28318,26 +28318,26 @@ define internal fastcc void @_ZN5image6codecs3dxt17decode_dxt_colors17h47d8c1f2a
   %.sroa.0.0.insert.insert.i29 = add nuw nsw i24 %.sroa.2.0.insert.insert.i27, %.sroa.2.0.insert.shift.i26
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i24 %.sroa.0.0.insert.insert.i29, ptr %54, align 1
-  %55 = icmp ule i16 %21, %29
+  %55 = icmp ule i16 %27, %31
   %brmerge.not = and i1 %4, %55
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 6
   br i1 %brmerge.not, label %.preheader, label %.preheader38
 
-.preheader38:                                     ; preds = %13
+.preheader38:                                     ; preds = %22
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 9
   br label %85
 
 .thread:                                          ; preds = %85, %.preheader
   %58 = trunc nuw nsw i64 %3 to i8
   %.lhs.trunc = add nsw i8 %58, -3
-  %.rhs.trunc = trunc nuw nsw i64 %14 to i8
+  %.rhs.trunc = trunc nuw nsw i64 %23 to i8
   %59 = udiv i8 %.lhs.trunc, %.rhs.trunc
   %.zext = zext i8 %59 to i64
   %60 = add nuw nsw i64 %.zext, 1
   br label %74
 
-.preheader:                                       ; preds = %13, %.preheader
-  %.sroa.04.041 = phi i64 [ %61, %.preheader ], [ 0, %13 ]
+.preheader:                                       ; preds = %22, %.preheader
+  %.sroa.04.041 = phi i64 [ %61, %.preheader ], [ 0, %22 ]
   %61 = add nuw nsw i64 %.sroa.04.041, 1
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.04.041
   %63 = load i8, ptr %62, align 1, !noundef !4
@@ -28360,7 +28360,7 @@ define internal fastcc void @_ZN5image6codecs3dxt17decode_dxt_colors17h47d8c1f2a
 
 74:                                               ; preds = %.thread, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit"
   %.sroa.09.042 = phi i64 [ 0, %.thread ], [ %78, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit" ]
-  %75 = mul nuw nsw i64 %.sroa.09.042, %14
+  %75 = mul nuw nsw i64 %.sroa.09.042, %23
   %exitcond47 = icmp eq i64 %.sroa.09.042, %60
   br i1 %exitcond47, label %76, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit"
 
@@ -28374,7 +28374,7 @@ define internal fastcc void @_ZN5image6codecs3dxt17decode_dxt_colors17h47d8c1f2a
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 %75
   %.sroa.613.1.tr = trunc nuw nsw i64 %.sroa.09.042 to i32
   %80 = shl nuw nsw i32 %.sroa.613.1.tr, 1
-  %81 = lshr i32 %31, %80
+  %81 = lshr i32 %17, %80
   %82 = and i32 %81, 3
   %83 = zext nneg i32 %82 to i64
   %84 = getelementptr inbounds nuw [3 x i8], ptr %6, i64 %83

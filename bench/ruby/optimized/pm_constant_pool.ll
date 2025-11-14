@@ -309,60 +309,60 @@ define internal fastcc i32 @pm_constant_pool_insert(ptr noundef captures(none) %
   br i1 %.not39.i, label %pm_constant_pool_resize.exit.thread, label %18
 
 18:                                               ; preds = %14
+  %19 = shl nuw nsw i64 %16, 3
+  %20 = getelementptr i8, ptr %17, i64 %19
   %.not42.i = icmp eq i32 %8, 0
   br i1 %.not42.i, label %pm_constant_pool_resize.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18
-  %19 = load ptr, ptr %0, align 8, !tbaa !20
+  %21 = load ptr, ptr %0, align 8, !tbaa !20
   %wide.trip.count.i = zext nneg i32 %8 to i64
-  br label %20
+  br label %22
 
-20:                                               ; preds = %36, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
-  %21 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %19, i64 %indvars.iv.i
-  %22 = load i32, ptr %21, align 4
-  %23 = and i32 %22, 1073741823
-  %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %36, label %24
+22:                                               ; preds = %38, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
+  %23 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %21, i64 %indvars.iv.i
+  %24 = load i32, ptr %23, align 4
+  %25 = and i32 %24, 1073741823
+  %.not.i = icmp eq i32 %25, 0
+  br i1 %.not.i, label %38, label %26
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !32
-  br label %27
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %28 = load i32, ptr %27, align 4, !tbaa !32
+  br label %29
 
-27:                                               ; preds = %27, %24
-  %.pn.i = phi i32 [ %26, %24 ], [ %32, %27 ]
+29:                                               ; preds = %29, %26
+  %.pn.i = phi i32 [ %28, %26 ], [ %34, %29 ]
   %.0.i = and i32 %.pn.i, %15
-  %28 = zext i32 %.0.i to i64
-  %29 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %17, i64 %28
-  %30 = load i32, ptr %29, align 4
-  %31 = and i32 %30, 1073741823
-  %.not38.i = icmp eq i32 %31, 0
-  %32 = add i32 %.0.i, 1
-  br i1 %.not38.i, label %33, label %27, !llvm.loop !34
+  %30 = zext i32 %.0.i to i64
+  %31 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %17, i64 %30
+  %32 = load i32, ptr %31, align 4
+  %33 = and i32 %32, 1073741823
+  %.not38.i = icmp eq i32 %33, 0
+  %34 = add i32 %.0.i, 1
+  br i1 %.not38.i, label %35, label %29, !llvm.loop !34
 
-33:                                               ; preds = %27
-  %34 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %17, i64 %28
-  %35 = load i64, ptr %21, align 4
-  store i64 %35, ptr %34, align 4
-  br label %36
+35:                                               ; preds = %29
+  %36 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %17, i64 %30
+  %37 = load i64, ptr %23, align 4
+  store i64 %37, ptr %36, align 4
+  br label %38
 
-36:                                               ; preds = %33, %20
+38:                                               ; preds = %35, %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %pm_constant_pool_resize.exit, label %20, !llvm.loop !35
+  br i1 %exitcond.not.i, label %pm_constant_pool_resize.exit, label %22, !llvm.loop !35
 
-pm_constant_pool_resize.exit:                     ; preds = %36, %18
-  %37 = shl nuw nsw i64 %16, 3
-  %38 = getelementptr i8, ptr %17, i64 %37
+pm_constant_pool_resize.exit:                     ; preds = %38, %18
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !22
   %41 = zext i32 %6 to i64
   %42 = shl nuw nsw i64 %41, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %38, ptr noundef nonnull align 1 %40, i64 noundef range(i64 0, 68719476721) %42, i1 noundef false) #20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %20, ptr noundef nonnull align 1 %40, i64 noundef range(i64 0, 68719476721) %42, i1 noundef false) #20
   %43 = load ptr, ptr %0, align 8, !tbaa !20
   tail call void @free(ptr noundef %43) #20
-  store ptr %38, ptr %39, align 8, !tbaa !22
+  store ptr %20, ptr %39, align 8, !tbaa !22
   store ptr %17, ptr %0, align 8, !tbaa !20
   store i32 %12, ptr %7, align 4, !tbaa !24
   br label %44

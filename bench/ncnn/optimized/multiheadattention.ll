@@ -6537,49 +6537,49 @@ define internal void @_ZNK4ncnn18MultiHeadAttention12forward_int8ERKSt6vectorINS
 
 .noexc356.lr.ph:                                  ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 816
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 312
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %55 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %56 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %57 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %58 = getelementptr inbounds nuw i8, ptr %10, i64 44
-  %59 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 384
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 220
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 888
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 456
-  %64 = getelementptr inbounds nuw i8, ptr %12, i64 44
-  %65 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %66 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %67 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %68 = getelementptr inbounds nuw i8, ptr %13, i64 44
-  %69 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 528
-  %71 = getelementptr inbounds nuw i8, ptr %2, i64 224
-  %72 = getelementptr inbounds nuw i8, ptr %2, i64 960
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 600
-  %74 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %77 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %79 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  %80 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %81 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  %82 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %83 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %84 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %85 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %86 = getelementptr inbounds nuw i8, ptr %12, i64 52
-  %87 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %88 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %89 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 240
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 816
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 312
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 44
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 52
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 44
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 384
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 220
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 888
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 456
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 44
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 52
+  %78 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 44
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 528
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 224
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 960
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 600
   %90 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %91 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %92 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -6671,9 +6671,9 @@ define internal void @_ZNK4ncnn18MultiHeadAttention12forward_int8ERKSt6vectorINS
 .noexc356:                                        ; preds = %.noexc356.lr.ph, %_ZN4ncnn3MatD2Ev.exit
   %indvars.iv702 = phi i64 [ %175, %.noexc356.lr.ph ], [ %indvars.iv.next703, %_ZN4ncnn3MatD2Ev.exit ]
   %176 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !139
-  %177 = load i64, ptr %47, align 8, !tbaa !17, !noalias !139
+  %177 = load i64, ptr %49, align 8, !tbaa !17, !noalias !139
   %178 = mul i64 %177, %indvars.iv702
-  %179 = load i64, ptr %48, align 8, !tbaa !42, !noalias !139
+  %179 = load i64, ptr %50, align 8, !tbaa !42, !noalias !139
   %180 = mul i64 %178, %179
   %181 = getelementptr inbounds nuw i8, ptr %176, i64 %180
   %182 = load i32, ptr %4, align 4, !tbaa !53
@@ -6687,9 +6687,9 @@ define internal void @_ZNK4ncnn18MultiHeadAttention12forward_int8ERKSt6vectorINS
   %186 = mul i64 %179, %185
   %187 = icmp sgt i32 %.pre.pre711, 0
   %188 = load ptr, ptr %6, align 8
-  %189 = load i32, ptr %49, align 4
+  %189 = load i32, ptr %54, align 4
   %190 = sext i32 %189 to i64
-  %191 = load i64, ptr %50, align 8
+  %191 = load i64, ptr %55, align 8
   %factor.op.mul = mul i64 %191, %190
   %192 = load i32, ptr %7, align 4
   %193 = sext i32 %.pre.pre711 to i64
@@ -6698,9 +6698,9 @@ define internal void @_ZNK4ncnn18MultiHeadAttention12forward_int8ERKSt6vectorINS
   br i1 %187, label %.lr.ph.split.us, label %.noexc354
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %196 = load ptr, ptr %51, align 8, !tbaa !16
-  %197 = load ptr, ptr %52, align 8, !tbaa !16
-  %198 = load ptr, ptr %53, align 8, !tbaa !16
+  %196 = load ptr, ptr %56, align 8, !tbaa !16
+  %197 = load ptr, ptr %57, align 8, !tbaa !16
+  %198 = load ptr, ptr %58, align 8, !tbaa !16
   %199 = sext i32 %192 to i64
   %wide.trip.count615 = zext nneg i32 %182 to i64
   %wide.trip.count = zext nneg i32 %.pre.pre711 to i64
@@ -6720,7 +6720,7 @@ define internal void @_ZNK4ncnn18MultiHeadAttention12forward_int8ERKSt6vectorINS
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph492.split.us497 ], [ 0, %.lr.ph492.us ]
   %204 = getelementptr float, ptr %200, i64 %indvars.iv
   %205 = load float, ptr %204, align 4, !tbaa !49
-  %206 = load float, ptr %54, align 8, !tbaa !40
+  %206 = load float, ptr %59, align 8, !tbaa !40
   %207 = fmul fast float %205, %206
   %208 = getelementptr inbounds nuw float, ptr %202, i64 %indvars.iv
   store float %207, ptr %208, align 4, !tbaa !49
@@ -6767,7 +6767,7 @@ define internal void @_ZNK4ncnn18MultiHeadAttention12forward_int8ERKSt6vectorINS
   %228 = getelementptr inbounds nuw float, ptr %198, i64 %209
   %229 = load float, ptr %228, align 4, !tbaa !49
   %230 = fadd fast float %227, %229
-  %231 = load float, ptr %54, align 8, !tbaa !40
+  %231 = load float, ptr %59, align 8, !tbaa !40
   %232 = fmul fast float %230, %231
   %233 = getelementptr inbounds nuw float, ptr %202, i64 %indvars.iv607
   store float %232, ptr %233, align 4, !tbaa !49
@@ -6782,32 +6782,32 @@ define internal void @_ZNK4ncnn18MultiHeadAttention12forward_int8ERKSt6vectorINS
 .noexc354:                                        ; preds = %.lr.ph, %.noexc354.loopexit, %.noexc356
   %.pre = phi i32 [ %.pre.pre, %.noexc354.loopexit ], [ %.pre.pre711, %.noexc356 ], [ %.pre.pre711, %.lr.ph ]
   %234 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !145
-  %235 = load i64, ptr %55, align 8, !tbaa !17, !noalias !145
+  %235 = load i64, ptr %63, align 8, !tbaa !17, !noalias !145
   %236 = mul i64 %235, %indvars.iv702
-  %237 = load i64, ptr %56, align 8, !tbaa !42, !noalias !145
+  %237 = load i64, ptr %64, align 8, !tbaa !42, !noalias !145
   %238 = mul i64 %236, %237
   %239 = getelementptr inbounds nuw i8, ptr %234, i64 %238
-  %240 = load i32, ptr %57, align 8, !tbaa !46
+  %240 = load i32, ptr %68, align 8, !tbaa !46
   %241 = icmp sgt i32 %240, 0
   br i1 %241, label %.preheader483.lr.ph, label %.noexc352
 
 .preheader483.lr.ph:                              ; preds = %.noexc354
   %242 = icmp sgt i32 %.pre, 0
   %243 = load ptr, ptr %10, align 8
-  %244 = load i32, ptr %58, align 4
+  %244 = load i32, ptr %69, align 4
   %245 = sext i32 %244 to i64
-  %246 = load i64, ptr %59, align 8
+  %246 = load i64, ptr %70, align 8
   %factor.op.mul510 = mul i64 %246, %245
   %247 = sext i32 %.pre to i64
   %248 = mul nsw i64 %indvars.iv702, %247
   br i1 %242, label %.preheader483.lr.ph.split.us, label %.noexc350
 
 .preheader483.lr.ph.split.us:                     ; preds = %.preheader483.lr.ph
-  %249 = load ptr, ptr %60, align 8, !tbaa !16
-  %250 = load i32, ptr %61, align 4, !tbaa !37
+  %249 = load ptr, ptr %71, align 8, !tbaa !16
+  %250 = load i32, ptr %72, align 4, !tbaa !37
   %251 = icmp sgt i32 %250, 0
-  %252 = load ptr, ptr %62, align 8, !tbaa !16
-  %253 = load ptr, ptr %63, align 8, !tbaa !16
+  %252 = load ptr, ptr %73, align 8, !tbaa !16
+  %253 = load ptr, ptr %74, align 8, !tbaa !16
   %254 = sext i32 %250 to i64
   %wide.trip.count631 = zext nneg i32 %240 to i64
   %wide.trip.count620 = zext nneg i32 %.pre to i64
@@ -6882,24 +6882,24 @@ define internal void @_ZNK4ncnn18MultiHeadAttention12forward_int8ERKSt6vectorINS
 
 .noexc352:                                        ; preds = %._crit_edge506.us, %.noexc354
   %283 = load ptr, ptr %12, align 8, !tbaa !16, !noalias !151
-  %284 = load i64, ptr %65, align 8, !tbaa !17, !noalias !151
+  %284 = load i64, ptr %78, align 8, !tbaa !17, !noalias !151
   %285 = mul i64 %284, %indvars.iv702
-  %286 = load i64, ptr %66, align 8, !tbaa !42, !noalias !151
+  %286 = load i64, ptr %79, align 8, !tbaa !42, !noalias !151
   %287 = mul i64 %285, %286
   %288 = getelementptr inbounds nuw i8, ptr %283, i64 %287
   %289 = icmp sgt i32 %.pre, 0
   br i1 %289, label %.lr.ph532, label %.noexc350
 
 .lr.ph532:                                        ; preds = %.noexc352
-  %290 = load i32, ptr %64, align 4, !tbaa !45, !noalias !151
+  %290 = load i32, ptr %75, align 4, !tbaa !45, !noalias !151
   %291 = sext i32 %290 to i64
   %292 = mul i64 %286, %291
-  %293 = load i32, ptr %67, align 8, !tbaa !46
+  %293 = load i32, ptr %83, align 8, !tbaa !46
   %294 = icmp sgt i32 %293, 0
   %295 = load ptr, ptr %13, align 8
-  %296 = load i32, ptr %68, align 4
+  %296 = load i32, ptr %84, align 4
   %297 = sext i32 %296 to i64
-  %298 = load i64, ptr %69, align 8
+  %298 = load i64, ptr %85, align 8
   %factor.op.mul529 = mul i64 %298, %297
   %299 = zext nneg i32 %.pre to i64
   %300 = mul nsw i64 %indvars.iv702, %299
@@ -6911,16 +6911,16 @@ define internal void @_ZNK4ncnn18MultiHeadAttention12forward_int8ERKSt6vectorINS
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.experimental.noalias.scope.decl(metadata !154)
   %301 = load i32, ptr %46, align 4, !tbaa !45, !noalias !154
-  %302 = load i32, ptr %74, align 8, !tbaa !46, !noalias !154
-  %303 = load i32, ptr %75, align 4, !tbaa !47, !noalias !154
+  %302 = load i32, ptr %47, align 8, !tbaa !46, !noalias !154
+  %303 = load i32, ptr %48, align 4, !tbaa !47, !noalias !154
   %304 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !154
-  %305 = load i64, ptr %47, align 8, !tbaa !17, !noalias !154
+  %305 = load i64, ptr %49, align 8, !tbaa !17, !noalias !154
   %306 = mul i64 %305, %indvars.iv702
-  %307 = load i64, ptr %48, align 8, !tbaa !42, !noalias !154
+  %307 = load i64, ptr %50, align 8, !tbaa !42, !noalias !154
   %308 = mul i64 %306, %307
   %309 = getelementptr inbounds nuw i8, ptr %304, i64 %308
-  %310 = load i32, ptr %76, align 8, !tbaa !43, !noalias !154
-  %311 = load ptr, ptr %77, align 8, !tbaa !15, !noalias !154
+  %310 = load i32, ptr %51, align 8, !tbaa !43, !noalias !154
+  %311 = load ptr, ptr %52, align 8, !tbaa !15, !noalias !154
   store ptr %309, ptr %25, align 8, !tbaa !16
   store ptr null, ptr %90, align 8, !tbaa !7
   store i64 %307, ptr %91, align 8, !tbaa !42
@@ -6938,7 +6938,7 @@ define internal void @_ZNK4ncnn18MultiHeadAttention12forward_int8ERKSt6vectorINS
   %317 = and i64 %316, -16
   %318 = udiv i64 %317, %307
   store i64 %318, ptr %99, align 8, !tbaa !17
-  %319 = load i32, ptr %78, align 8, !tbaa !44, !noalias !154
+  %319 = load i32, ptr %53, align 8, !tbaa !44, !noalias !154
   %320 = add nsw i32 %319, -1
   store i32 %320, ptr %94, align 8, !tbaa !44, !alias.scope !154
   %321 = icmp eq i32 %319, 4
@@ -6955,16 +6955,16 @@ define internal void @_ZNK4ncnn18MultiHeadAttention12forward_int8ERKSt6vectorINS
 .lr.ph527:                                        ; preds = %323
   %324 = mul i64 %292, %indvars.iv640
   %325 = getelementptr inbounds nuw i8, ptr %288, i64 %324
-  %326 = load ptr, ptr %70, align 8, !tbaa !16
-  %327 = load i32, ptr %71, align 8, !tbaa !38
+  %326 = load ptr, ptr %86, align 8, !tbaa !16
+  %327 = load i32, ptr %87, align 8, !tbaa !38
   %328 = add nsw i64 %300, %indvars.iv640
   %329 = sext i32 %327 to i64
   %330 = mul nsw i64 %328, %329
   %331 = getelementptr inbounds i8, ptr %326, i64 %330
   %332 = icmp sgt i32 %327, 0
-  %333 = load ptr, ptr %72, align 8, !tbaa !16
+  %333 = load ptr, ptr %88, align 8, !tbaa !16
   %334 = getelementptr inbounds nuw float, ptr %333, i64 %328
-  %335 = load ptr, ptr %73, align 8, !tbaa !16
+  %335 = load ptr, ptr %89, align 8, !tbaa !16
   %336 = getelementptr inbounds nuw float, ptr %335, i64 %328
   br i1 %332, label %.lr.ph523.us, label %.lr.ph527.split.preheader
 
@@ -7027,17 +7027,17 @@ define internal void @_ZNK4ncnn18MultiHeadAttention12forward_int8ERKSt6vectorINS
 .noexc348:                                        ; preds = %.noexc350, %322
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.experimental.noalias.scope.decl(metadata !160)
-  %358 = load i32, ptr %79, align 4, !tbaa !45, !noalias !160
-  %359 = load i32, ptr %80, align 8, !tbaa !46, !noalias !160
-  %360 = load i32, ptr %81, align 4, !tbaa !47, !noalias !160
+  %358 = load i32, ptr %60, align 4, !tbaa !45, !noalias !160
+  %359 = load i32, ptr %61, align 8, !tbaa !46, !noalias !160
+  %360 = load i32, ptr %62, align 4, !tbaa !47, !noalias !160
   %361 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !160
-  %362 = load i64, ptr %55, align 8, !tbaa !17, !noalias !160
+  %362 = load i64, ptr %63, align 8, !tbaa !17, !noalias !160
   %363 = mul i64 %362, %indvars.iv702
-  %364 = load i64, ptr %56, align 8, !tbaa !42, !noalias !160
+  %364 = load i64, ptr %64, align 8, !tbaa !42, !noalias !160
   %365 = mul i64 %363, %364
   %366 = getelementptr inbounds nuw i8, ptr %361, i64 %365
-  %367 = load i32, ptr %82, align 8, !tbaa !43, !noalias !160
-  %368 = load ptr, ptr %83, align 8, !tbaa !15, !noalias !160
+  %367 = load i32, ptr %65, align 8, !tbaa !43, !noalias !160
+  %368 = load ptr, ptr %66, align 8, !tbaa !15, !noalias !160
   store ptr %366, ptr %26, align 8, !tbaa !16
   store ptr null, ptr %100, align 8, !tbaa !7
   store i64 %364, ptr %101, align 8, !tbaa !42
@@ -7055,7 +7055,7 @@ define internal void @_ZNK4ncnn18MultiHeadAttention12forward_int8ERKSt6vectorINS
   %374 = and i64 %373, -16
   %375 = udiv i64 %374, %364
   store i64 %375, ptr %109, align 8, !tbaa !17
-  %376 = load i32, ptr %84, align 8, !tbaa !44, !noalias !160
+  %376 = load i32, ptr %67, align 8, !tbaa !44, !noalias !160
   %377 = add nsw i32 %376, -1
   store i32 %377, ptr %104, align 8, !tbaa !44, !alias.scope !160
   %378 = icmp eq i32 %376, 4
@@ -7549,17 +7549,17 @@ _ZN4ncnn3MatD2Ev.exit224:                         ; preds = %._crit_edge552, %.n
 .noexc338:                                        ; preds = %.noexc340, %567
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.experimental.noalias.scope.decl(metadata !187)
-  %583 = load i32, ptr %64, align 4, !tbaa !45, !noalias !187
-  %584 = load i32, ptr %85, align 8, !tbaa !46, !noalias !187
-  %585 = load i32, ptr %86, align 4, !tbaa !47, !noalias !187
+  %583 = load i32, ptr %75, align 4, !tbaa !45, !noalias !187
+  %584 = load i32, ptr %76, align 8, !tbaa !46, !noalias !187
+  %585 = load i32, ptr %77, align 4, !tbaa !47, !noalias !187
   %586 = load ptr, ptr %12, align 8, !tbaa !16, !noalias !187
-  %587 = load i64, ptr %65, align 8, !tbaa !17, !noalias !187
+  %587 = load i64, ptr %78, align 8, !tbaa !17, !noalias !187
   %588 = mul i64 %587, %indvars.iv702
-  %589 = load i64, ptr %66, align 8, !tbaa !42, !noalias !187
+  %589 = load i64, ptr %79, align 8, !tbaa !42, !noalias !187
   %590 = mul i64 %588, %589
   %591 = getelementptr inbounds nuw i8, ptr %586, i64 %590
-  %592 = load i32, ptr %87, align 8, !tbaa !43, !noalias !187
-  %593 = load ptr, ptr %88, align 8, !tbaa !15, !noalias !187
+  %592 = load i32, ptr %80, align 8, !tbaa !43, !noalias !187
+  %593 = load ptr, ptr %81, align 8, !tbaa !15, !noalias !187
   store ptr %591, ptr %32, align 8, !tbaa !16
   store ptr null, ptr %149, align 8, !tbaa !7
   store i64 %589, ptr %150, align 8, !tbaa !42
@@ -7577,7 +7577,7 @@ _ZN4ncnn3MatD2Ev.exit224:                         ; preds = %._crit_edge552, %.n
   %599 = and i64 %598, -16
   %600 = udiv i64 %599, %589
   store i64 %600, ptr %158, align 8, !tbaa !17
-  %601 = load i32, ptr %89, align 8, !tbaa !44, !noalias !187
+  %601 = load i32, ptr %82, align 8, !tbaa !44, !noalias !187
   %602 = add nsw i32 %601, -1
   store i32 %602, ptr %153, align 8, !tbaa !44, !alias.scope !187
   %603 = icmp eq i32 %601, 4

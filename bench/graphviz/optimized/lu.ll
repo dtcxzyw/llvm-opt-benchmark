@@ -134,7 +134,6 @@ define range(i32 0, 2) i32 @lu_decompose(ptr noundef readonly captures(none) %0,
   br label %.loopexit88
 
 .loopexit:                                        ; preds = %._crit_edge102.us
-  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count137
   br i1 %exitcond138.not, label %._crit_edge108, label %.preheader, !llvm.loop !21
@@ -196,6 +195,7 @@ define range(i32 0, 2) i32 @lu_decompose(ptr noundef readonly captures(none) %0,
   %78 = load ptr, ptr %77, align 8, !tbaa !12
   %79 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv117
   %80 = load double, ptr %79, align 8, !tbaa !14
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   br label %.lr.ph101.us
 
 .lr.ph101.us:                                     ; preds = %.lr.ph101.us.preheader, %._crit_edge102.us

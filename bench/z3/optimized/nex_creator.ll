@@ -2664,9 +2664,9 @@ _ZN6vectorIN3nla7nex_powELb1EjE3endEv.exit32:     ; preds = %._crit_edge98, %._c
 .noexc35:                                         ; preds = %61
   %66 = icmp ugt i32 %56, 16
   %scevgep.i.i.i = getelementptr i8, ptr %57, i64 16
-  br i1 %66, label %.preheader.i.i.i, label %79
+  br i1 %66, label %.preheader.i, label %79
 
-.preheader.i.i.i:                                 ; preds = %.noexc35, %73
+.preheader.i:                                     ; preds = %.noexc35, %73
   %.021.i.idx.i.i.i = phi i64 [ %.021.i.add.i.i.i, %73 ], [ 16, %.noexc35 ]
   %.pn20.i.i.i.i = phi ptr [ %.021.i.ptr.i.i.i, %73 ], [ %57, %.noexc35 ]
   %.021.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 %.021.i.idx.i.i.i
@@ -2675,7 +2675,7 @@ _ZN6vectorIN3nla7nex_powELb1EjE3endEv.exit32:     ; preds = %._crit_edge98, %._c
   %67 = invoke noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(8) %.0.val.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.val17.i.i.i.i)
           to label %.noexc36 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc36:                                         ; preds = %.preheader.i.i.i
+.noexc36:                                         ; preds = %.preheader.i
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %.noexc36
@@ -2720,7 +2720,7 @@ _ZN6vectorIN3nla7nex_powELb1EjE3endEv.exit32:     ; preds = %._crit_edge98, %._c
 73:                                               ; preds = %"_ZSt25__unguarded_linear_insertIPN3nla7nex_powEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_.exit.i.i.i.i", %68
   %.021.i.add.i.i.i = add nuw nsw i64 %.021.i.idx.i.i.i, 16
   %.not.i.i.i.i34 = icmp eq i64 %.021.i.add.i.i.i, 256
-  br i1 %.not.i.i.i.i34, label %"_ZSt16__insertion_sortIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_T0_.exit.i.i.i", label %.preheader.i.i.i, !llvm.loop !78
+  br i1 %.not.i.i.i.i34, label %"_ZSt16__insertion_sortIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_T0_.exit.i.i.i", label %.preheader.i, !llvm.loop !78
 
 "_ZSt16__insertion_sortIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_T0_.exit.i.i.i": ; preds = %73
   %74 = getelementptr inbounds nuw i8, ptr %57, i64 256
@@ -2841,7 +2841,7 @@ _ZN6vectorIN3nla7nex_powELb1EjE3endEv.exit32:     ; preds = %._crit_edge98, %._c
           cleanup
   br label %.loopexit.split-lp71
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %69, %.preheader.i.i.i
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %69, %.preheader.i
   %lpad.loopexit61 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp71

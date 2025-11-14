@@ -7384,23 +7384,23 @@ if.end:                                           ; preds = %for.cond.i.i.i.i, %
   %this.val4.i.i.i = phi ptr [ %this.val4.i.i.i.pre, %if.end.loopexit ], [ %this.val7.i.i, %if.end.i.i.i.i ], [ %this.val7.i.i, %for.cond.i.i.i.i ]
   %this.val.i.i.i = phi i64 [ %this.val.i.i.i.pre, %if.end.loopexit ], [ %this.val5.i.i, %if.end.i.i.i.i ], [ %this.val5.i.i, %for.cond.i.i.i.i ]
   %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.0.i.i, %if.end.loopexit ], [ %4, %if.end.i.i.i.i ], [ %5, %for.cond.i.i.i.i ]
+  %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
+  %second.val = load ptr, ptr %second, align 8
+  %6 = getelementptr i8, ptr %second.val, i64 65
+  %call9.val = load i8, ptr %6, align 1
   %arrayidx.i.i.i.i4 = getelementptr inbounds ptr, ptr %this.val4.i.i.i, i64 %rem.i.i.i.i.i.i.pre-phi
-  %6 = load ptr, ptr %arrayidx.i.i.i.i4, align 8
+  %7 = load ptr, ptr %arrayidx.i.i.i.i4, align 8
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %while.cond.i.i.i.i, %if.end
-  %__prev_n.0.i.i.i.i = phi ptr [ %6, %if.end ], [ %7, %while.cond.i.i.i.i ]
-  %7 = load ptr, ptr %__prev_n.0.i.i.i.i, align 8
-  %cmp.not.i.i.i.i5 = icmp eq ptr %7, %retval.sroa.0.1.i.i
+  %__prev_n.0.i.i.i.i = phi ptr [ %7, %if.end ], [ %8, %while.cond.i.i.i.i ]
+  %8 = load ptr, ptr %__prev_n.0.i.i.i.i, align 8
+  %cmp.not.i.i.i.i5 = icmp eq ptr %8, %retval.sroa.0.1.i.i
   br i1 %cmp.not.i.i.i.i5, label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSC_10_Hash_nodeISA_Lb0EEE.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !97
 
 _ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_111ChannelImplESt14default_deleteIS6_EEESaISA_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNSC_10_Hash_nodeISA_Lb0EEE.exit.i.i.i: ; preds = %while.cond.i.i.i.i
-  %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 16
-  %second.val = load ptr, ptr %second, align 8
-  %8 = getelementptr i8, ptr %second.val, i64 65
-  %call9.val = load i8, ptr %8, align 1
   %tobool.i = trunc i8 %call9.val to i1
-  %cmp.i.i.i.i6 = icmp eq ptr %__prev_n.0.i.i.i.i, %6
+  %cmp.i.i.i.i6 = icmp eq ptr %__prev_n.0.i.i.i.i, %7
   %__n.val15.i.i.i.i = load ptr, ptr %retval.sroa.0.1.i.i, align 8
   %tobool.not.i.i.i.i7 = icmp eq ptr %__n.val15.i.i.i.i, null
   br i1 %cmp.i.i.i.i6, label %if.then.i.i.i.i, label %if.else.i.i.i.i
@@ -7418,14 +7418,14 @@ cond.end.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 
 if.then3.i.i.i.i.i:                               ; preds = %cond.end.i.i.i.i
   %arrayidx5.i.i.i.i.i = getelementptr inbounds ptr, ptr %this.val4.i.i.i, i64 %rem.i.i.i.i.i.i.i9
-  store ptr %6, ptr %arrayidx5.i.i.i.i.i, align 8
+  store ptr %7, ptr %arrayidx5.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load ptr, ptr %channels_, align 8
   %arrayidx7.i.phi.trans.insert.i.i.i.i = getelementptr inbounds ptr, ptr %.pre.i.i.i.i, i64 %rem.i.i.i.i.i.i.pre-phi
   %.pre27.i.i.i.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i.i.i.i, align 8
   br label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then3.i.i.i.i.i, %if.then.i.i.i.i
-  %9 = phi ptr [ %6, %if.then.i.i.i.i ], [ %.pre27.i.i.i.i, %if.then3.i.i.i.i.i ]
+  %9 = phi ptr [ %7, %if.then.i.i.i.i ], [ %.pre27.i.i.i.i, %if.then3.i.i.i.i.i ]
   %10 = phi ptr [ %this.val4.i.i.i, %if.then.i.i.i.i ], [ %.pre.i.i.i.i, %if.then3.i.i.i.i.i ]
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %arrayidx7.i.i.i.i.i = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i.i.i.i.pre-phi

@@ -141,23 +141,23 @@ define internal i32 @dvbsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !41
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !43
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %11 = load ptr, ptr %10, align 8, !tbaa !41
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %13 = load i32, ptr %12, align 8, !tbaa !43
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !4
-  %16 = icmp slt i32 %11, 7
+  %16 = icmp slt i32 %13, 7
   br i1 %16, label %.critedge129, label %17
 
 17:                                               ; preds = %4
-  %18 = load i8, ptr %13, align 1, !tbaa !38
+  %18 = load i8, ptr %11, align 1, !tbaa !38
   %.not = icmp eq i8 %18, 15
   br i1 %.not, label %.lr.ph, label %.critedge129
 
 .lr.ph:                                           ; preds = %17
-  %19 = zext nneg i32 %11 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 %19
+  %19 = zext nneg i32 %13 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 %19
   %21 = ptrtoint ptr %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -174,7 +174,7 @@ define internal i32 @dvbsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
   %.098352 = phi i32 [ 0, %.lr.ph ], [ %.199, %dvbsub_parse_clut_segment.exit ]
   %.0102351 = phi i32 [ 0, %.lr.ph ], [ %.1103, %dvbsub_parse_clut_segment.exit ]
   %.0106350 = phi i32 [ 0, %.lr.ph ], [ %.1107, %dvbsub_parse_clut_segment.exit ]
-  %.0112349 = phi ptr [ %13, %.lr.ph ], [ %517, %dvbsub_parse_clut_segment.exit ]
+  %.0112349 = phi ptr [ %11, %.lr.ph ], [ %517, %dvbsub_parse_clut_segment.exit ]
   %30 = load i8, ptr %.0112349, align 1, !tbaa !38
   %31 = icmp eq i8 %30, 15
   br i1 %31, label %32, label %.critedge
@@ -1259,7 +1259,7 @@ dvbsub_display_end_segment.exit159:               ; preds = %492, %.critedge.i15
 
 546:                                              ; preds = %dvbsub_display_end_segment.exit159, %541
   %547 = ptrtoint ptr %.1113 to i64
-  %548 = ptrtoint ptr %13 to i64
+  %548 = ptrtoint ptr %11 to i64
   %549 = sub i64 %547, %548
   %550 = trunc i64 %549 to i32
   br label %.critedge129
@@ -3534,9 +3534,9 @@ attributes #12 = { noreturn nounwind }
 !38 = !{!8, !8, i64 0}
 !39 = !{!28, !10, i64 16}
 !40 = !{!28, !13, i64 263208}
-!41 = !{!42, !10, i64 32}
+!41 = !{!42, !14, i64 24}
 !42 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
-!43 = !{!42, !14, i64 24}
+!43 = !{!42, !10, i64 32}
 !44 = !{!5, !10, i64 524}
 !45 = !{!28, !10, i64 20}
 !46 = !{!28, !10, i64 24}

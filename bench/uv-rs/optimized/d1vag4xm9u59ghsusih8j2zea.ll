@@ -6281,7 +6281,7 @@ define hidden void @_ZN9uv_pep5086marker8simplify8simplify17h94b5ac2ab7d60eecE.l
   %.sroa.5.0.i = phi i64 [ %103, %100 ], [ %121, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hddab7713219a2e28E.exit.i" ]
   %.sroa.0.03.i = phi ptr [ %101, %100 ], [ %120, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hddab7713219a2e28E.exit.i" ]
   %107 = icmp eq i64 %.sroa.5.0.i, 0
-  br i1 %107, label %108, label %.preheader.i
+  br i1 %107, label %108, label %.preheader
 
 108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw i64, ptr %104, i64 %105
@@ -6298,18 +6298,18 @@ define hidden void @_ZN9uv_pep5086marker8simplify8simplify17h94b5ac2ab7d60eecE.l
   %114 = icmp eq i64 %.val4.i.i, %.sroa.8104.0277
   br i1 %114, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hc151d885ebc2bb1fE.exit.backedge", label %110
 
-.preheader.i:                                     ; preds = %106, %.preheader.i
-  %.sroa.07.0.i.i = phi i1 [ %117, %.preheader.i ], [ false, %106 ]
-  %.sroa.09.0.i.i = phi i64 [ %118, %.preheader.i ], [ 0, %106 ]
+.preheader:                                       ; preds = %106, %.preheader
+  %.sroa.07.0.i.i = phi i1 [ %117, %.preheader ], [ false, %106 ]
+  %.sroa.09.0.i.i = phi i64 [ %118, %.preheader ], [ 0, %106 ]
   %115 = getelementptr inbounds nuw i64, ptr %.sroa.0.03.i, i64 %.sroa.09.0.i.i
   %.val19.i.i = load i64, ptr %115, align 8, !alias.scope !1343, !noalias !1350, !noundef !14
   %116 = icmp eq i64 %.val19.i.i, %.sroa.8104.0277
   %117 = or i1 %.sroa.07.0.i.i, %116
   %118 = add nuw nsw i64 %.sroa.09.0.i.i, 1
   %119 = icmp eq i64 %118, 8
-  br i1 %119, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hddab7713219a2e28E.exit.i", label %.preheader.i
+  br i1 %119, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hddab7713219a2e28E.exit.i", label %.preheader
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hddab7713219a2e28E.exit.i": ; preds = %.preheader.i
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hddab7713219a2e28E.exit.i": ; preds = %.preheader
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i, i64 64
   %121 = add i64 %.sroa.5.0.i, -8
   br i1 %117, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hc151d885ebc2bb1fE.exit.backedge", label %106
@@ -7173,7 +7173,7 @@ _ZN9uv_pep5086marker8simplify11is_negation17h75f3c8c081629c2eE.exit.thread.i.i: 
   %.sroa.5.0.i.i.i = phi i64 [ %441, %437 ], [ %459, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hddab7713219a2e28E.exit.i.i.i" ]
   %.sroa.0.03.i.i.i = phi ptr [ %439, %437 ], [ %458, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hddab7713219a2e28E.exit.i.i.i" ]
   %445 = icmp eq i64 %.sroa.5.0.i.i.i, 0
-  br i1 %445, label %446, label %.preheader.i.i.i
+  br i1 %445, label %446, label %.preheader.i.i
 
 446:                                              ; preds = %444
   %447 = getelementptr inbounds nuw i64, ptr %442, i64 %443
@@ -7190,18 +7190,18 @@ _ZN9uv_pep5086marker8simplify11is_negation17h75f3c8c081629c2eE.exit.thread.i.i: 
   %452 = icmp eq i64 %.val4.i.i4.i.i, %.sroa.02.010.i.i.i
   br i1 %452, label %.backedge194, label %448
 
-.preheader.i.i.i:                                 ; preds = %444, %.preheader.i.i.i
-  %.sroa.07.0.i.i.i.i = phi i1 [ %455, %.preheader.i.i.i ], [ false, %444 ]
-  %.sroa.09.0.i.i.i.i = phi i64 [ %456, %.preheader.i.i.i ], [ 0, %444 ]
+.preheader.i.i:                                   ; preds = %444, %.preheader.i.i
+  %.sroa.07.0.i.i.i.i = phi i1 [ %455, %.preheader.i.i ], [ false, %444 ]
+  %.sroa.09.0.i.i.i.i = phi i64 [ %456, %.preheader.i.i ], [ 0, %444 ]
   %453 = getelementptr inbounds nuw i64, ptr %.sroa.0.03.i.i.i, i64 %.sroa.09.0.i.i.i.i
   %.val19.i.i.i.i = load i64, ptr %453, align 8, !alias.scope !1557, !noalias !1564, !noundef !14
   %454 = icmp eq i64 %.val19.i.i.i.i, %.sroa.02.010.i.i.i
   %455 = or i1 %.sroa.07.0.i.i.i.i, %454
   %456 = add nuw nsw i64 %.sroa.09.0.i.i.i.i, 1
   %457 = icmp eq i64 %456, 8
-  br i1 %457, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hddab7713219a2e28E.exit.i.i.i", label %.preheader.i.i.i
+  br i1 %457, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hddab7713219a2e28E.exit.i.i.i", label %.preheader.i.i
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hddab7713219a2e28E.exit.i.i.i": ; preds = %.preheader.i.i.i
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hddab7713219a2e28E.exit.i.i.i": ; preds = %.preheader.i.i
   %458 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i.i.i, i64 64
   %459 = add i64 %.sroa.5.0.i.i.i, -8
   br i1 %455, label %.backedge194, label %444

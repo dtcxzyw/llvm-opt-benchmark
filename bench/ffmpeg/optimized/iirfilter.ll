@@ -104,43 +104,43 @@ define internal fastcc range(i32 -1, 1) i32 @butterworth_init_coeffs(ptr noundef
   br label %109
 
 .lr.ph:                                           ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !9
-  store i32 1, ptr %12, align 4, !tbaa !17
-  %13 = lshr exact i32 %3, 1
-  %14 = or disjoint i32 %3, 1
-  %15 = zext nneg i32 %14 to i64
-  %16 = add nuw nsw i32 %13, 1
-  %wide.trip.count = zext nneg i32 %16 to i64
-  br label %17
+  %11 = fpext nsz float %4 to double
+  %12 = fmul nsz double %11, 0x3FF921FB54442D18
+  %13 = tail call nsz double @llvm.tan.f64(double %12)
+  %14 = fmul nsz double %13, 2.000000e+00
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !9
+  store i32 1, ptr %16, align 4, !tbaa !17
+  %17 = lshr exact i32 %3, 1
+  %18 = or disjoint i32 %3, 1
+  %19 = zext nneg i32 %18 to i64
+  %20 = add nuw nsw i32 %17, 1
+  %wide.trip.count = zext nneg i32 %20 to i64
+  br label %21
 
-17:                                               ; preds = %.lr.ph, %17
-  %store_forwarded = phi i64 [ 1, %.lr.ph ], [ %22, %17 ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr i32, ptr %12, i64 %indvars.iv
+21:                                               ; preds = %.lr.ph, %21
+  %store_forwarded = phi i64 [ 1, %.lr.ph ], [ %26, %21 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %21 ]
+  %22 = getelementptr i32, ptr %16, i64 %indvars.iv
   %sext = shl i64 %store_forwarded, 32
-  %19 = ashr exact i64 %sext, 32
-  %20 = sub nsw i64 %15, %indvars.iv
-  %21 = mul nsw i64 %20, %19
-  %22 = sdiv i64 %21, %indvars.iv
-  %23 = trunc i64 %22 to i32
-  store i32 %23, ptr %18, align 4, !tbaa !17
+  %23 = ashr exact i64 %sext, 32
+  %24 = sub nsw i64 %19, %indvars.iv
+  %25 = mul nsw i64 %24, %23
+  %26 = sdiv i64 %25, %indvars.iv
+  %27 = trunc i64 %26 to i32
+  store i32 %27, ptr %22, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %17
+._crit_edge:                                      ; preds = %21
   store double 1.000000e+00, ptr %6, align 16, !tbaa !20
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store double 0.000000e+00, ptr %24, align 8, !tbaa !20
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store double 0.000000e+00, ptr %28, align 8, !tbaa !20
   %scevgep = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %25 = zext nneg i32 %3 to i64
-  %26 = shl nuw nsw i64 %25, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %scevgep, i8 0, i64 %26, i1 false), !tbaa !20
-  %27 = fpext nsz float %4 to double
-  %28 = fmul nsz double %27, 0x3FF921FB54442D18
-  %29 = tail call nsz double @llvm.tan.f64(double %28)
-  %30 = fmul nsz double %29, 2.000000e+00
+  %29 = zext nneg i32 %3 to i64
+  %30 = shl nuw nsw i64 %29, 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %scevgep, i8 0, i64 %30, i1 false), !tbaa !20
   %31 = uitofp nneg i32 %3 to double
   br label %32
 
@@ -148,15 +148,15 @@ define internal fastcc range(i32 -1, 1) i32 @butterworth_init_coeffs(ptr noundef
   %.2100 = phi i32 [ 0, %._crit_edge ], [ %76, %71 ]
   %33 = phi double [ 1.000000e+00, %._crit_edge ], [ %73, %71 ]
   %34 = phi double [ 0.000000e+00, %._crit_edge ], [ %75, %71 ]
-  %35 = add nuw nsw i32 %.2100, %13
+  %35 = add nuw nsw i32 %.2100, %17
   %36 = uitofp nneg i32 %35 to double
   %37 = fadd nsz double %36, 5.000000e-01
   %38 = fmul nsz double %37, 0x400921FB54442D18
   %39 = fdiv nsz double %38, %31
   %40 = tail call nsz double @llvm.cos.f64(double %39)
-  %41 = fmul nsz double %30, %40
+  %41 = fmul nsz double %14, %40
   %42 = tail call nsz double @llvm.sin.f64(double %39)
-  %43 = fmul nsz double %30, %42
+  %43 = fmul nsz double %14, %42
   %44 = fadd nsz double %41, 2.000000e+00
   %45 = fadd nsz double %41, -2.000000e+00
   %46 = fmul nsz double %43, %43
@@ -171,7 +171,7 @@ define internal fastcc range(i32 -1, 1) i32 @butterworth_init_coeffs(ptr noundef
   br label %55
 
 55:                                               ; preds = %32, %55
-  %indvars.iv107 = phi i64 [ %25, %32 ], [ %indvars.iv.next108, %55 ]
+  %indvars.iv107 = phi i64 [ %29, %32 ], [ %indvars.iv.next108, %55 ]
   %56 = getelementptr inbounds nuw [2 x double], ptr %6, i64 %indvars.iv107
   %57 = load double, ptr %56, align 16, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -197,14 +197,14 @@ define internal fastcc range(i32 -1, 1) i32 @butterworth_init_coeffs(ptr noundef
   %73 = tail call nsz double @llvm.fmuladd.f64(double %33, double %49, double %72)
   %74 = fmul nsz double %49, %34
   %75 = tail call nsz double @llvm.fmuladd.f64(double %33, double %53, double %74)
-  store double %75, ptr %24, align 8, !tbaa !20
+  store double %75, ptr %28, align 8, !tbaa !20
   store double %73, ptr %6, align 16, !tbaa !20
   %76 = add nuw nsw i32 %.2100, 1
   %exitcond110.not = icmp eq i32 %76, %3
   br i1 %exitcond110.not, label %77, label %32, !llvm.loop !23
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds nuw [2 x double], ptr %6, i64 %25
+  %78 = getelementptr inbounds nuw [2 x double], ptr %6, i64 %29
   %79 = load double, ptr %78, align 16, !tbaa !20
   %80 = fptrunc nsz double %79 to float
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -237,7 +237,7 @@ define internal fastcc range(i32 -1, 1) i32 @butterworth_init_coeffs(ptr noundef
   %103 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv111
   store float %102, ptr %103, align 4, !tbaa !25
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %exitcond115.not = icmp eq i64 %indvars.iv.next112, %25
+  %exitcond115.not = icmp eq i64 %indvars.iv.next112, %29
   br i1 %exitcond115.not, label %104, label %88, !llvm.loop !26
 
 104:                                              ; preds = %88

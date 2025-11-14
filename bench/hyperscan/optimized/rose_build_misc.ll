@@ -2398,10 +2398,10 @@ define hidden void @_ZN3ue213RoseBuildImpl14removeVerticesERKSt6vectorINS_12grap
   br i1 %.not26, label %._crit_edge30, label %.lr.ph29
 
 .lr.ph29:                                         ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %17
 
@@ -2520,9 +2520,9 @@ _ZN3ue212clear_vertexINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5value
   store ptr %59, ptr %61, align 8, !noalias !200
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %61, ptr %62, align 8, !noalias !200
-  %63 = load i64, ptr %10, align 8, !noalias !200
+  %63 = load i64, ptr %7, align 8, !noalias !200
   %64 = add i64 %63, -1
-  store i64 %64, ptr %10, align 8, !noalias !200
+  store i64 %64, ptr %7, align 8, !noalias !200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.014.0.copyload, i8 0, i64 16, i1 false), !noalias !200
   call void @_ZNK3ue29ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEE15delete_disposerclINS4_11vertex_nodeEEEvPKT_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %.sroa.014.0.copyload), !noalias !200
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !197
@@ -2534,9 +2534,9 @@ _ZN3ue212clear_vertexINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5value
   %.sroa.011.025 = phi ptr [ %127, %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESt4lessIS8_ESaIS8_EE5eraseERKS8_.exit ], [ %19, %17 ]
   %66 = load i32, ptr %.sroa.011.025, align 4
   %67 = zext i32 %66 to i64
-  %68 = load ptr, ptr %7, align 8, !noalias !203
-  %69 = load ptr, ptr %8, align 8, !noalias !203
-  %70 = load ptr, ptr %9, align 8, !noalias !203
+  %68 = load ptr, ptr %8, align 8, !noalias !203
+  %69 = load ptr, ptr %9, align 8, !noalias !203
+  %70 = load ptr, ptr %10, align 8, !noalias !203
   %71 = ptrtoint ptr %68 to i64
   %72 = ptrtoint ptr %69 to i64
   %73 = sub i64 %71, %72

@@ -111,7 +111,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %29
 
 ._crit_edge217.i:                                 ; preds = %._crit_edge.i, %gv_calloc.exit
   %.0137.lcssa.i = phi i64 [ 0, %gv_calloc.exit ], [ %.1138.lcssa.i, %._crit_edge.i ]
-  %.0.lcssa.i = phi i64 [ 0, %gv_calloc.exit ], [ %107, %._crit_edge.i ]
+  %.0.lcssa.i = phi i64 [ 0, %gv_calloc.exit ], [ %106, %._crit_edge.i ]
   %38 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #16
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %gv_alloc.exit.i
@@ -253,23 +253,23 @@ gv_calloc.exit174.i:                              ; preds = %92, %.thread.i173.i
   br label %123
 
 .lr.ph216.i:                                      ; preds = %gv_calloc.exit, %._crit_edge.i
-  %.0214.i = phi i64 [ %107, %._crit_edge.i ], [ 0, %gv_calloc.exit ]
+  %.0214.i = phi i64 [ %106, %._crit_edge.i ], [ 0, %gv_calloc.exit ]
   %.0137213.i = phi i64 [ %.1138.lcssa.i, %._crit_edge.i ], [ 0, %gv_calloc.exit ]
   %.0140212.i = phi ptr [ %108, %._crit_edge.i ], [ %37, %gv_calloc.exit ]
-  %106 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %.0140212.i) #14
-  %.not160208.i = icmp eq ptr %106, null
+  %106 = add i64 %.0214.i, 1
+  %107 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef nonnull %.0140212.i) #14
+  %.not160208.i = icmp eq ptr %107, null
   br i1 %.not160208.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph216.i
   %.1138.lcssa.i = phi i64 [ %.0137213.i, %.lr.ph216.i ], [ %spec.select.i, %.lr.ph.i ]
-  %107 = add i64 %.0214.i, 1
   %108 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0140212.i) #14
   %.not.i155 = icmp eq ptr %108, null
   br i1 %.not.i155, label %._crit_edge217.i, label %.lr.ph216.i, !llvm.loop !44
 
 .lr.ph.i:                                         ; preds = %.lr.ph216.i, %.lr.ph.i
   %.1138210.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.0137213.i, %.lr.ph216.i ]
-  %.0147209.i = phi ptr [ %120, %.lr.ph.i ], [ %106, %.lr.ph216.i ]
+  %.0147209.i = phi ptr [ %120, %.lr.ph.i ], [ %107, %.lr.ph216.i ]
   %109 = load i32, ptr %.0147209.i, align 8
   %110 = and i32 %109, 3
   %111 = icmp eq i32 %110, 3

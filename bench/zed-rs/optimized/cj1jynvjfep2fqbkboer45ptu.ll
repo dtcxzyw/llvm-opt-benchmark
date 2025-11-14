@@ -91202,7 +91202,7 @@ define hidden void @_ZN4gpui8platform5linux3x116window9X11Window3new17hfbbe85307
   %.sroa.626.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %95, i64 28
   %.sroa.521.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %95, i64 8
   %.sroa.622.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %95, i64 12
-  br label %158
+  br label %157
 
 155:                                              ; preds = %13
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %spec.select.i.i, i64 noundef %112, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a22c35433011442b18091cbc43717a7e.437) #56
@@ -91211,25 +91211,25 @@ define hidden void @_ZN4gpui8platform5linux3x116window9X11Window3new17hfbbe85307
 .noexc.i:                                         ; preds = %155
   unreachable
 
-.loopexit.i.i:                                    ; preds = %"_ZN4core5tuple68_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2ne17hd4eb30755b3946c6E.exit.thread.backedge.i.i", %158
-  %.lcssa85113.i.i = phi i8 [ %.lcssa85114.i.i, %158 ], [ %201, %"_ZN4core5tuple68_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2ne17hd4eb30755b3946c6E.exit.thread.backedge.i.i" ]
-  %.lcssa83107.i.i = phi i8 [ %.lcssa83108.i.i, %158 ], [ %202, %"_ZN4core5tuple68_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2ne17hd4eb30755b3946c6E.exit.thread.backedge.i.i" ]
-  %.lcssa77.i.i = phi i32 [ %.lcssa779293.i.i, %158 ], [ %203, %"_ZN4core5tuple68_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2ne17hd4eb30755b3946c6E.exit.thread.backedge.i.i" ]
-  %.lcssa76.i.i = phi i32 [ %.lcssa769094.i.i, %158 ], [ %204, %"_ZN4core5tuple68_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2ne17hd4eb30755b3946c6E.exit.thread.backedge.i.i" ]
-  %.lcssa74.i.i = phi i32 [ %.lcssa748995.i.i, %158 ], [ %205, %"_ZN4core5tuple68_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2ne17hd4eb30755b3946c6E.exit.thread.backedge.i.i" ]
-  %.lcssa.i.i = phi i32 [ %.lcssa8796.i.i, %158 ], [ %206, %"_ZN4core5tuple68_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2ne17hd4eb30755b3946c6E.exit.thread.backedge.i.i" ]
-  %156 = getelementptr inbounds nuw i8, ptr %.sroa.0.097.i.i, i64 32
-  %157 = icmp eq ptr %156, %139
-  br i1 %157, label %208, label %158
+.loopexit.i.i:                                    ; preds = %"_ZN4core5tuple68_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2ne17hd4eb30755b3946c6E.exit.thread.backedge.i.i", %157
+  %.lcssa85113.i.i = phi i8 [ %.lcssa85114.i.i, %157 ], [ %201, %"_ZN4core5tuple68_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2ne17hd4eb30755b3946c6E.exit.thread.backedge.i.i" ]
+  %.lcssa83107.i.i = phi i8 [ %.lcssa83108.i.i, %157 ], [ %202, %"_ZN4core5tuple68_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2ne17hd4eb30755b3946c6E.exit.thread.backedge.i.i" ]
+  %.lcssa77.i.i = phi i32 [ %.lcssa779293.i.i, %157 ], [ %203, %"_ZN4core5tuple68_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2ne17hd4eb30755b3946c6E.exit.thread.backedge.i.i" ]
+  %.lcssa76.i.i = phi i32 [ %.lcssa769094.i.i, %157 ], [ %204, %"_ZN4core5tuple68_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2ne17hd4eb30755b3946c6E.exit.thread.backedge.i.i" ]
+  %.lcssa74.i.i = phi i32 [ %.lcssa748995.i.i, %157 ], [ %205, %"_ZN4core5tuple68_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2ne17hd4eb30755b3946c6E.exit.thread.backedge.i.i" ]
+  %.lcssa.i.i = phi i32 [ %.lcssa8796.i.i, %157 ], [ %206, %"_ZN4core5tuple68_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$V$C$U$C$T$RP$$GT$2ne17hd4eb30755b3946c6E.exit.thread.backedge.i.i" ]
+  %156 = icmp eq ptr %158, %139
+  br i1 %156, label %208, label %157
 
-158:                                              ; preds = %.loopexit.i.i, %.lr.ph98.i.i
+157:                                              ; preds = %.loopexit.i.i, %.lr.ph98.i.i
   %.lcssa85114.i.i = phi i8 [ undef, %.lr.ph98.i.i ], [ %.lcssa85113.i.i, %.loopexit.i.i ]
   %.lcssa83108.i.i = phi i8 [ undef, %.lr.ph98.i.i ], [ %.lcssa83107.i.i, %.loopexit.i.i ]
-  %.sroa.0.097.i.i = phi ptr [ %136, %.lr.ph98.i.i ], [ %156, %.loopexit.i.i ]
+  %.sroa.0.097.i.i = phi ptr [ %136, %.lr.ph98.i.i ], [ %158, %.loopexit.i.i ]
   %.lcssa8796.i.i = phi i32 [ 0, %.lr.ph98.i.i ], [ %.lcssa.i.i, %.loopexit.i.i ]
   %.lcssa748995.i.i = phi i32 [ undef, %.lr.ph98.i.i ], [ %.lcssa74.i.i, %.loopexit.i.i ]
   %.lcssa769094.i.i = phi i32 [ 0, %.lr.ph98.i.i ], [ %.lcssa76.i.i, %.loopexit.i.i ]
   %.lcssa779293.i.i = phi i32 [ undef, %.lr.ph98.i.i ], [ %.lcssa77.i.i, %.loopexit.i.i ]
+  %158 = getelementptr inbounds nuw i8, ptr %.sroa.0.097.i.i, i64 32
   %159 = getelementptr inbounds nuw i8, ptr %.sroa.0.097.i.i, i64 8
   %160 = load ptr, ptr %159, align 8, !noalias !17936, !nonnull !9, !noundef !9
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.0.097.i.i, i64 16
@@ -91239,7 +91239,7 @@ define hidden void @_ZN4gpui8platform5linux3x116window9X11Window3new17hfbbe85307
   %164 = icmp eq i64 %162, 0
   br i1 %164, label %.loopexit.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %158
+.lr.ph.i.i:                                       ; preds = %157
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.0.097.i.i, i64 24
   br label %166
 

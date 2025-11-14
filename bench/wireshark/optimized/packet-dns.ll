@@ -9447,12 +9447,12 @@ define internal fastcc void @dissect_type_bitmap(ptr noundef %0, ptr noundef %1,
   br i1 %.not46, label %._crit_edge, label %.lr.ph49
 
 .loopexit.loopexit:                               ; preds = %27
-  %5 = sub i32 %10, %13
+  %5 = sub i32 %11, %9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph49
-  %.131.lcssa = phi i32 [ %10, %.lr.ph49 ], [ %5, %.loopexit.loopexit ]
-  %.1.lcssa = phi i32 [ %9, %.lr.ph49 ], [ %28, %.loopexit.loopexit ]
+  %.131.lcssa = phi i32 [ %11, %.lr.ph49 ], [ %5, %.loopexit.loopexit ]
+  %.1.lcssa = phi i32 [ %10, %.lr.ph49 ], [ %28, %.loopexit.loopexit ]
   %.not = icmp eq i32 %.131.lcssa, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph49, !llvm.loop !43
 
@@ -9462,21 +9462,21 @@ define internal fastcc void @dissect_type_bitmap(ptr noundef %0, ptr noundef %1,
   %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.048)
   %7 = add i32 %.048, 1
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %7)
-  %9 = add i32 %.048, 2
-  %10 = add i32 %.03047, -2
+  %9 = zext i8 %8 to i32
+  %10 = add i32 %.048, 2
+  %11 = add i32 %.03047, -2
   %.not3540 = icmp eq i8 %8, 0
   br i1 %.not3540, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph49
-  %11 = zext i8 %6 to i32
-  %12 = shl nuw nsw i32 %11, 8
-  %13 = zext i8 %8 to i32
+  %12 = zext i8 %6 to i32
+  %13 = shl nuw nsw i32 %12, 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
-  %.144 = phi i32 [ %28, %27 ], [ %9, %.lr.ph.preheader ]
-  %.02843 = phi i32 [ %25, %27 ], [ %12, %.lr.ph.preheader ]
-  %.03341 = phi i32 [ %29, %27 ], [ %13, %.lr.ph.preheader ]
+  %.144 = phi i32 [ %28, %27 ], [ %10, %.lr.ph.preheader ]
+  %.02843 = phi i32 [ %25, %27 ], [ %13, %.lr.ph.preheader ]
+  %.03341 = phi i32 [ %29, %27 ], [ %9, %.lr.ph.preheader ]
   %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.144)
   %15 = zext i8 %14 to i32
   br label %16

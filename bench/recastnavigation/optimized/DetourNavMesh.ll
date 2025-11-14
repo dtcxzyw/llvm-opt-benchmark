@@ -2156,52 +2156,52 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  %20 = load i8, ptr %19, align 2
-  %21 = zext i8 %20 to i32
-  %.not57 = icmp eq i8 %20, 0
+  %17 = ptrtoint ptr %2 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %20 = lshr exact i64 %19, 5
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %22 = load ptr, ptr %21, align 8
+  %23 = and i64 %20, 4294967295
+  %24 = getelementptr inbounds nuw %struct.dtPolyDetail, ptr %22, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 30
+  %26 = load i8, ptr %25, align 2
+  %27 = zext i8 %26 to i32
+  %.not57 = icmp eq i8 %26, 0
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %wide.trip.count = zext i8 %20 to i64
-  br label %25
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %wide.trip.count = zext i8 %26 to i64
+  br label %31
 
-25:                                               ; preds = %.lr.ph, %25
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
+31:                                               ; preds = %.lr.ph, %31
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %.idx72 = mul nuw nsw i64 %indvars.iv, 12
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx72
-  %27 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv
-  %28 = load i16, ptr %27, align 2
-  %29 = zext i16 %28 to i64
-  %.idx51 = mul nuw nsw i64 %29, 12
-  %30 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx51
-  %31 = load float, ptr %30, align 4
-  store float %31, ptr %26, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %33 = load float, ptr %32, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store float %33, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %36 = load float, ptr %35, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store float %36, ptr %37, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx72
+  %33 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
+  %34 = load i16, ptr %33, align 2
+  %35 = zext i16 %34 to i64
+  %.idx51 = mul nuw nsw i64 %35, 12
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx51
+  %37 = load float, ptr %36, align 4
+  store float %37, ptr %32, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %39 = load float, ptr %38, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  store float %39, ptr %40, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %42 = load float, ptr %41, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store float %42, ptr %43, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %25, %14
-  %38 = ptrtoint ptr %2 to i64
-  %39 = ptrtoint ptr %16 to i64
-  %40 = sub i64 %38, %39
-  %41 = lshr exact i64 %40, 5
-  %42 = and i64 %41, 4294967295
-  %43 = getelementptr inbounds nuw %struct.dtPolyDetail, ptr %18, i64 %42
-  %44 = call noundef zeroext i1 @_Z16dtPointInPolygonPKfS0_i(ptr noundef %3, ptr noundef nonnull %8, i32 noundef %21)
+._crit_edge:                                      ; preds = %31, %14
+  %44 = call noundef zeroext i1 @_Z16dtPointInPolygonPKfS0_i(ptr noundef %3, ptr noundef nonnull %8, i32 noundef %27)
   br i1 %44, label %45, label %174
 
 45:                                               ; preds = %._crit_edge
@@ -2209,14 +2209,14 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   br i1 %.not, label %174, label %.preheader
 
 .preheader:                                       ; preds = %45
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 9
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 9
   %47 = load i8, ptr %46, align 1
   %.not58 = icmp eq i8 %47, 0
   br i1 %.not58, label %._crit_edge56, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %.preheader
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -2239,7 +2239,7 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   %64 = shl i32 %63, 2
   %65 = zext i32 %64 to i64
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 %65
-  %67 = load i8, ptr %19, align 2
+  %67 = load i8, ptr %25, align 2
   br label %68
 
 68:                                               ; preds = %60, %87
@@ -2261,7 +2261,7 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
 
 79:                                               ; preds = %68
   %80 = load ptr, ptr %50, align 8
-  %81 = load i32, ptr %43, align 4
+  %81 = load i32, ptr %24, align 4
   %narrow = sub nuw i8 %70, %67
   %82 = zext i8 %narrow to i32
   %83 = add i32 %81, %82
@@ -2294,9 +2294,9 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %96 = load ptr, ptr %15, align 8
   %97 = ptrtoint ptr %96 to i64
-  %98 = sub i64 %38, %97
+  %98 = sub i64 %17, %97
   %99 = lshr exact i64 %98, 5
-  %100 = load ptr, ptr %17, align 8
+  %100 = load ptr, ptr %21, align 8
   %101 = and i64 %99, 4294967295
   %102 = getelementptr inbounds nuw %struct.dtPolyDetail, ptr %100, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 9
@@ -2319,7 +2319,7 @@ define noundef zeroext i1 @_ZNK9dtNavMesh13getPolyHeightEPK10dtMeshTilePK6dtPoly
   %113 = shl i32 %112, 2
   %114 = zext i32 %113 to i64
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 %114
-  %116 = load i8, ptr %19, align 2
+  %116 = load i8, ptr %25, align 2
   br label %118
 
 .preheader.i:                                     ; preds = %137

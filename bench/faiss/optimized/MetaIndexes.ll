@@ -1810,9 +1810,18 @@ define internal fastcc void @"_ZZNK5faiss17IndexSplitVectors6searchElPKflPfPlPKN
 
 35:                                               ; preds = %32, %26
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %37 = load ptr, ptr %36, align 8, !tbaa !29
-  %38 = icmp sgt i32 %1, 0
-  br i1 %38, label %.lr.ph.preheader, label %._crit_edge
+  %37 = sext i32 %1 to i64
+  %38 = load ptr, ptr %36, align 8, !tbaa !29
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %37
+  %40 = load ptr, ptr %39, align 8, !tbaa !100
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load i32, ptr %41, align 8, !tbaa !27
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %45 = load i32, ptr %44, align 8, !tbaa !27
+  %46 = sext i32 %45 to i64
+  %47 = icmp sgt i32 %1, 0
+  br i1 %47, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %35
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -1820,17 +1829,8 @@ define internal fastcc void @"_ZZNK5faiss17IndexSplitVectors6searchElPKflPfPlPKN
 
 ._crit_edge:                                      ; preds = %.lr.ph, %35
   %.0.lcssa = phi i64 [ 0, %35 ], [ %64, %.lr.ph ]
-  %39 = sext i32 %1 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %39
-  %41 = load ptr, ptr %40, align 8, !tbaa !100
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load i32, ptr %42, align 8, !tbaa !27
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %46 = load i32, ptr %45, align 8, !tbaa !27
-  %47 = sext i32 %46 to i64
   %48 = load i64, ptr %0, align 8, !tbaa !34
-  %49 = mul nsw i64 %48, %44
+  %49 = mul nsw i64 %48, %43
   %50 = icmp ugt i64 %49, 4611686018427387903
   %51 = shl i64 %49, 2
   %52 = select i1 %50, i64 -1, i64 %51
@@ -1842,13 +1842,13 @@ define internal fastcc void @"_ZZNK5faiss17IndexSplitVectors6searchElPKflPfPlPKN
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !39
   %57 = getelementptr inbounds float, ptr %56, i64 %.0.lcssa
-  %58 = shl nsw i64 %44, 2
+  %58 = shl nsw i64 %43, 2
   br label %70
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.043 = phi i64 [ 0, %.lr.ph.preheader ], [ %64, %.lr.ph ]
-  %59 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8, !tbaa !100
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i32, ptr %61, align 8, !tbaa !27
@@ -1861,17 +1861,17 @@ define internal fastcc void @"_ZZNK5faiss17IndexSplitVectors6searchElPKflPfPlPKN
 ._crit_edge47:                                    ; preds = %70, %._crit_edge
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = load i64, ptr %65, align 8, !tbaa !40
-  %67 = load ptr, ptr %41, align 8, !tbaa !88
+  %67 = load ptr, ptr %40, align 8, !tbaa !88
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load ptr, ptr %68, align 8
-  invoke void %69(ptr noundef nonnull align 8 dereferenceable(36) %41, i64 noundef %48, ptr noundef nonnull %53, i64 noundef %66, ptr noundef %27, ptr noundef %28, ptr noundef null)
+  invoke void %69(ptr noundef nonnull align 8 dereferenceable(36) %40, i64 noundef %48, ptr noundef nonnull %53, i64 noundef %66, ptr noundef %27, ptr noundef %28, ptr noundef null)
           to label %76 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 
 70:                                               ; preds = %.lr.ph46, %70
   %.03344 = phi i64 [ 0, %.lr.ph46 ], [ %75, %70 ]
-  %71 = mul nsw i64 %.03344, %44
+  %71 = mul nsw i64 %.03344, %43
   %72 = getelementptr inbounds float, ptr %53, i64 %71
-  %73 = mul nsw i64 %.03344, %47
+  %73 = mul nsw i64 %.03344, %46
   %74 = getelementptr inbounds float, ptr %57, i64 %73
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %72, ptr align 4 %74, i64 %58, i1 false)
   %75 = add nuw nsw i64 %.03344, 1

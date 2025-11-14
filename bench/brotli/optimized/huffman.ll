@@ -625,7 +625,6 @@ define hidden range(i32 1, -2147483647) i32 @BrotliBuildSimpleHuffmanTable(ptr n
   br label %77
 
 .loopexit:                                        ; preds = %40
-  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next184, 3
   br i1 %exitcond186.not, label %42, label %.lr.ph, !llvm.loop !23
@@ -633,6 +632,7 @@ define hidden range(i32 1, -2147483647) i32 @BrotliBuildSimpleHuffmanTable(ptr n
 .lr.ph:                                           ; preds = %4, %.loopexit
   %indvars.iv183 = phi i64 [ %indvars.iv.next184, %.loopexit ], [ 0, %4 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 1, %4 ]
+  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %33 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv183
   %.pre = load i16, ptr %33, align 2, !tbaa !3
   br label %34

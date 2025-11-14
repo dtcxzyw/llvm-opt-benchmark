@@ -296,78 +296,75 @@ define range(i32 -1163346256, 2) i32 @ff_jpegls_decode_lse(ptr noundef captures(
   %171 = icmp ult i32 %111, 67108864
   %172 = select i1 %171, i32 -16777216, i32 0
   %.not120 = icmp ult i32 %111, 16777216
-  br i1 %.not120, label %.lr.ph118.split, label %.lr.ph118.split.us
+  br i1 %.not120, label %.lr.ph118.split.preheader, label %.lr.ph118.split.us
+
+.lr.ph118.split.preheader:                        ; preds = %.lr.ph118
+  %173 = add nsw i32 %.193, 1
+  br label %.lr.ph118.split
 
 .lr.ph118.split.us:                               ; preds = %.lr.ph118
-  %173 = load ptr, ptr %2, align 8, !tbaa !12
+  %174 = load ptr, ptr %2, align 8, !tbaa !12
+  %175 = add nsw i32 %.193, 1
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.lr.ph118.split.us
-  %.095117.us = phi i32 [ %146, %.lr.ph118.split.us ], [ %198, %._crit_edge.us ]
-  %174 = shl i32 %.095117.us, %.091
-  %175 = and i32 %174, 255
-  %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw i32, ptr %160, i64 %176
-  store i32 %172, ptr %177, align 4, !tbaa !59
-  br label %178
+  %.095117.us = phi i32 [ %146, %.lr.ph118.split.us ], [ %200, %._crit_edge.us ]
+  %176 = shl i32 %.095117.us, %.091
+  %177 = and i32 %176, 255
+  %178 = zext nneg i32 %177 to i64
+  %179 = getelementptr inbounds nuw i32, ptr %160, i64 %178
+  store i32 %172, ptr %179, align 4, !tbaa !59
+  br label %180
 
-178:                                              ; preds = %.lr.ph.us, %178
-  %.096115.us = phi i32 [ 0, %.lr.ph.us ], [ %197, %178 ]
-  %179 = load i32, ptr %3, align 8, !tbaa !4
-  %180 = load i32, ptr %5, align 8, !tbaa !11
-  %181 = lshr i32 %179, 3
-  %182 = zext nneg i32 %181 to i64
-  %183 = getelementptr inbounds nuw i8, ptr %173, i64 %182
-  %184 = load i32, ptr %183, align 1, !tbaa !13
-  %185 = tail call i32 @llvm.bswap.i32(i32 %184)
-  %186 = and i32 %179, 7
-  %187 = shl i32 %185, %186
-  %188 = lshr i32 %187, 24
-  %189 = add i32 %179, 8
-  %190 = tail call i32 @llvm.umin.i32(i32 %180, i32 %189)
-  store i32 %190, ptr %3, align 8, !tbaa !4
-  %191 = xor i32 %.096115.us, -1
-  %192 = add nsw i32 %112, %191
-  %193 = shl nsw i32 %192, 3
-  %194 = shl i32 %188, %193
-  %195 = load i32, ptr %177, align 4, !tbaa !59
-  %196 = or i32 %194, %195
-  store i32 %196, ptr %177, align 4, !tbaa !59
-  %197 = add nuw nsw i32 %.096115.us, 1
-  %exitcond.not = icmp eq i32 %197, %112
-  br i1 %exitcond.not, label %._crit_edge.us, label %178, !llvm.loop !60
+180:                                              ; preds = %.lr.ph.us, %180
+  %.096115.us = phi i32 [ 0, %.lr.ph.us ], [ %199, %180 ]
+  %181 = load i32, ptr %3, align 8, !tbaa !4
+  %182 = load i32, ptr %5, align 8, !tbaa !11
+  %183 = lshr i32 %181, 3
+  %184 = zext nneg i32 %183 to i64
+  %185 = getelementptr inbounds nuw i8, ptr %174, i64 %184
+  %186 = load i32, ptr %185, align 1, !tbaa !13
+  %187 = tail call i32 @llvm.bswap.i32(i32 %186)
+  %188 = and i32 %181, 7
+  %189 = shl i32 %187, %188
+  %190 = lshr i32 %189, 24
+  %191 = add i32 %181, 8
+  %192 = tail call i32 @llvm.umin.i32(i32 %182, i32 %191)
+  store i32 %192, ptr %3, align 8, !tbaa !4
+  %193 = xor i32 %.096115.us, -1
+  %194 = add nsw i32 %112, %193
+  %195 = shl nsw i32 %194, 3
+  %196 = shl i32 %190, %195
+  %197 = load i32, ptr %179, align 4, !tbaa !59
+  %198 = or i32 %196, %197
+  store i32 %198, ptr %179, align 4, !tbaa !59
+  %199 = add nuw nsw i32 %.096115.us, 1
+  %exitcond.not = icmp eq i32 %199, %112
+  br i1 %exitcond.not, label %._crit_edge.us, label %180, !llvm.loop !60
 
-._crit_edge.us:                                   ; preds = %178
-  %198 = add i32 %.095117.us, 1
+._crit_edge.us:                                   ; preds = %180
+  %200 = add i32 %.095117.us, 1
   %exitcond123.not = icmp eq i32 %.095117.us, %.193
-  br i1 %exitcond123.not, label %._crit_edge119.loopexit131, label %.lr.ph.us, !llvm.loop !62
+  br i1 %exitcond123.not, label %._crit_edge119, label %.lr.ph.us, !llvm.loop !62
 
 .thread:                                          ; preds = %167
   %.inv = icmp slt i32 %169, 1
   %. = select i1 %.inv, i32 1, i32 -1094995529
   br label %212
 
-.lr.ph118.split:                                  ; preds = %.lr.ph118, %.lr.ph118.split
-  %.095117 = phi i32 [ %203, %.lr.ph118.split ], [ %146, %.lr.ph118 ]
-  %199 = shl i32 %.095117, %.091
-  %200 = and i32 %199, 255
-  %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw i32, ptr %160, i64 %201
-  store i32 -16777216, ptr %202, align 4, !tbaa !59
-  %203 = add i32 %.095117, 1
+.lr.ph118.split:                                  ; preds = %.lr.ph118.split.preheader, %.lr.ph118.split
+  %.095117 = phi i32 [ %205, %.lr.ph118.split ], [ %146, %.lr.ph118.split.preheader ]
+  %201 = shl i32 %.095117, %.091
+  %202 = and i32 %201, 255
+  %203 = zext nneg i32 %202 to i64
+  %204 = getelementptr inbounds nuw i32, ptr %160, i64 %203
+  store i32 -16777216, ptr %204, align 4, !tbaa !59
+  %205 = add i32 %.095117, 1
   %exitcond124.not = icmp eq i32 %.095117, %.193
-  br i1 %exitcond124.not, label %._crit_edge119.loopexit, label %.lr.ph118.split, !llvm.loop !62
+  br i1 %exitcond124.not, label %._crit_edge119, label %.lr.ph118.split, !llvm.loop !62
 
-._crit_edge119.loopexit:                          ; preds = %.lr.ph118.split
-  %204 = add nsw i32 %.193, 1
-  br label %._crit_edge119
-
-._crit_edge119.loopexit131:                       ; preds = %._crit_edge.us
-  %205 = add nsw i32 %.193, 1
-  br label %._crit_edge119
-
-._crit_edge119:                                   ; preds = %._crit_edge119.loopexit131, %._crit_edge119.loopexit, %.preheader
-  %.095.lcssa = phi i32 [ %146, %.preheader ], [ %204, %._crit_edge119.loopexit ], [ %205, %._crit_edge119.loopexit131 ]
+._crit_edge119:                                   ; preds = %._crit_edge.us, %.lr.ph118.split, %.preheader
+  %.095.lcssa = phi i32 [ %146, %.preheader ], [ %173, %.lr.ph118.split ], [ %175, %._crit_edge.us ]
   store i32 %.095.lcssa, ptr %145, align 16, !tbaa !49
   br label %212
 
@@ -1424,30 +1421,30 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   %195 = tail call i32 @llvm.abs.i32(i32 %194, i1 true)
   %196 = load i32, ptr %16, align 4, !tbaa !64
   %197 = icmp sle i32 %195, %196
-  %198 = select i1 %197, i64 366, i64 365
-  %199 = getelementptr inbounds nuw i32, ptr %21, i64 %198
-  %200 = load i32, ptr %199, align 4, !tbaa !59
-  %.phi.trans.insert58.i = getelementptr inbounds nuw i32, ptr %.phi.trans.insert.i, i64 %198
+  %198 = load i32, ptr %20, align 4, !tbaa !59
+  %199 = sext i32 %198 to i64
+  %200 = getelementptr inbounds i8, ptr @ff_log2_run, i64 %199
+  %201 = load i8, ptr %200, align 1, !tbaa !13
+  %202 = select i1 %197, i64 366, i64 365
+  %203 = getelementptr inbounds nuw i32, ptr %21, i64 %202
+  %204 = load i32, ptr %203, align 4, !tbaa !59
+  %.phi.trans.insert58.i = getelementptr inbounds nuw i32, ptr %.phi.trans.insert.i, i64 %202
   %.pre.i = load i32, ptr %.phi.trans.insert58.i, align 4, !tbaa !59
-  %201 = ashr i32 %.pre.i, 1
-  %202 = select i1 %197, i32 %201, i32 0
-  %.050.i = add nsw i32 %202, %200
-  br label %203
+  %205 = ashr i32 %.pre.i, 1
+  %206 = select i1 %197, i32 %205, i32 0
+  %.050.i = add nsw i32 %206, %204
+  br label %207
 
-203:                                              ; preds = %203, %192
-  %.052.i = phi i32 [ 0, %192 ], [ %206, %203 ]
-  %204 = shl i32 %.pre.i, %.052.i
-  %205 = icmp ult i32 %204, %.050.i
-  %206 = add nuw nsw i32 %.052.i, 1
-  br i1 %205, label %203, label %207, !llvm.loop !101
+207:                                              ; preds = %207, %192
+  %.052.i = phi i32 [ 0, %192 ], [ %210, %207 ]
+  %208 = shl i32 %.pre.i, %.052.i
+  %209 = icmp ult i32 %208, %.050.i
+  %210 = add nuw nsw i32 %.052.i, 1
+  br i1 %209, label %207, label %211, !llvm.loop !101
 
-207:                                              ; preds = %203
-  %208 = zext i1 %197 to i32
-  %209 = load i32, ptr %20, align 4, !tbaa !59
-  %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds i8, ptr @ff_log2_run, i64 %210
-  %212 = load i8, ptr %211, align 1, !tbaa !13
-  %213 = zext i8 %212 to i32
+211:                                              ; preds = %207
+  %212 = zext i1 %197 to i32
+  %213 = zext i8 %201 to i32
   %214 = load i32, ptr %22, align 4, !tbaa !75
   %215 = xor i32 %213, -1
   %216 = add i32 %214, %215
@@ -1456,15 +1453,15 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   %219 = icmp slt i32 %218, 0
   br i1 %219, label %ls_get_code_runterm.exit, label %220
 
-220:                                              ; preds = %207
+220:                                              ; preds = %211
   %.not.i = icmp ne i32 %.052.i, 0
-  %221 = or i32 %218, %208
+  %221 = or i32 %218, %212
   %or.cond.not.i = icmp eq i32 %221, 0
   %or.cond.i = or i1 %.not.i, %or.cond.not.i
   br i1 %or.cond.i, label %228, label %222
 
 222:                                              ; preds = %220
-  %223 = getelementptr inbounds nuw i32, ptr %24, i64 %198
+  %223 = getelementptr inbounds nuw i32, ptr %24, i64 %202
   %224 = load i32, ptr %223, align 4, !tbaa !59
   %225 = shl nsw i32 %224, 1
   %226 = load i32, ptr %.phi.trans.insert58.i, align 4, !tbaa !59
@@ -1474,7 +1471,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
 
 228:                                              ; preds = %222, %220
   %.049.i = phi i32 [ 0, %220 ], [ %spec.select.i272, %222 ]
-  %229 = add nuw nsw i32 %218, %208
+  %229 = add nuw nsw i32 %218, %212
   %230 = add nuw nsw i32 %229, %.049.i
   %231 = and i32 %230, 1
   %.not56.i = icmp eq i32 %231, 0
@@ -1484,7 +1481,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   %233 = add nuw nsw i32 %230, 1
   %234 = lshr exact i32 %233, 1
   %235 = sub nsw i32 %.049.i, %234
-  %236 = getelementptr inbounds nuw i32, ptr %24, i64 %198
+  %236 = getelementptr inbounds nuw i32, ptr %24, i64 %202
   %237 = load i32, ptr %236, align 4, !tbaa !59
   %238 = add nsw i32 %237, 1
   store i32 %238, ptr %236, align 4, !tbaa !59
@@ -1501,10 +1498,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
   br i1 %243, label %ls_get_code_runterm.exit, label %244
 
 244:                                              ; preds = %241
-  %245 = sub nsw i32 %242, %208
-  %246 = load i32, ptr %199, align 4, !tbaa !59
+  %245 = sub nsw i32 %242, %212
+  %246 = load i32, ptr %203, align 4, !tbaa !59
   %247 = add nsw i32 %246, %245
-  store i32 %247, ptr %199, align 4, !tbaa !59
+  store i32 %247, ptr %203, align 4, !tbaa !59
   %248 = load i32, ptr %25, align 4, !tbaa !102
   %249 = mul nsw i32 %248, %.051.i
   %250 = load i32, ptr %.phi.trans.insert58.i, align 4, !tbaa !59
@@ -1514,8 +1511,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ls_decode_line(ptr noundef
 
 253:                                              ; preds = %244
   %254 = ashr i32 %247, 1
-  store i32 %254, ptr %199, align 4, !tbaa !59
-  %255 = getelementptr inbounds nuw i32, ptr %24, i64 %198
+  store i32 %254, ptr %203, align 4, !tbaa !59
+  %255 = getelementptr inbounds nuw i32, ptr %24, i64 %202
   %256 = load i32, ptr %255, align 4, !tbaa !59
   %257 = ashr i32 %256, 1
   store i32 %257, ptr %255, align 4, !tbaa !59
@@ -1528,8 +1525,8 @@ ff_jpegls_downscale_state.exit.i:                 ; preds = %253, %244
   store i32 %260, ptr %.phi.trans.insert58.i, align 4, !tbaa !59
   br label %ls_get_code_runterm.exit
 
-ls_get_code_runterm.exit:                         ; preds = %207, %241, %ff_jpegls_downscale_state.exit.i
-  %.0.i273 = phi i32 [ %249, %ff_jpegls_downscale_state.exit.i ], [ -65536, %207 ], [ -65536, %241 ]
+ls_get_code_runterm.exit:                         ; preds = %211, %241, %ff_jpegls_downscale_state.exit.i
+  %.0.i273 = phi i32 [ %249, %ff_jpegls_downscale_state.exit.i ], [ -65536, %211 ], [ -65536, %241 ]
   %261 = load i32, ptr %20, align 4, !tbaa !59
   %.not261 = icmp eq i32 %261, 0
   br i1 %.not261, label %264, label %262

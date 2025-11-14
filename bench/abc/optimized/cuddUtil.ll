@@ -243,23 +243,23 @@ define range(i32 0, 2) i32 @Cudd_bddPrintCover(ptr noundef %0, ptr noundef %1, p
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @Cudd_ReadSize(ptr noundef %0) #24
   %54 = load ptr, ptr %20, align 8, !tbaa !25
-  %55 = icmp sgt i32 %53, 0
-  br i1 %55, label %.lr.ph.preheader.i, label %.preheader.i
+  %55 = ptrtoint ptr %54 to i64
+  %56 = xor i64 %55, 1
+  %57 = inttoptr i64 %56 to ptr
+  %58 = icmp sgt i32 %53, 0
+  br i1 %58, label %.lr.ph.preheader.i, label %.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %46
-  %56 = zext nneg i32 %53 to i64
+  %59 = zext nneg i32 %53 to i64
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %46
-  %57 = ptrtoint ptr %54 to i64
-  %58 = xor i64 %57, 1
-  %59 = inttoptr i64 %58 to ptr
   %60 = load i32, ptr %38, align 8, !tbaa !31
   %.not28.i = icmp eq i32 %60, 2147483647
   br i1 %.not28.i, label %Cudd_BddToCubeArray.exit, label %.lr.ph30.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %56, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %indvars.iv.i = phi i64 [ %59, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %61 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next.i
   store i32 2, ptr %61, align 4, !tbaa !28
@@ -271,7 +271,7 @@ define range(i32 0, 2) i32 @Cudd_bddPrintCover(ptr noundef %0, ptr noundef %1, p
   %.02129.i = phi ptr [ %.122.i, %75 ], [ %33, %.preheader.i ]
   call void @cuddGetBranches(ptr noundef %.02129.i, ptr noundef nonnull %4, ptr noundef nonnull %5) #24
   %64 = load ptr, ptr %4, align 8, !tbaa !24
-  %65 = icmp eq ptr %64, %59
+  %65 = icmp eq ptr %64, %57
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %.lr.ph30.i
@@ -283,7 +283,7 @@ define range(i32 0, 2) i32 @Cudd_bddPrintCover(ptr noundef %0, ptr noundef %1, p
 
 69:                                               ; preds = %.lr.ph30.i
   %70 = load ptr, ptr %5, align 8, !tbaa !24
-  %71 = icmp eq ptr %70, %59
+  %71 = icmp eq ptr %70, %57
   br i1 %71, label %72, label %Cudd_BddToCubeArray.exit.thread
 
 Cudd_BddToCubeArray.exit.thread:                  ; preds = %69
@@ -308,7 +308,7 @@ Cudd_BddToCubeArray.exit.thread:                  ; preds = %69
 
 Cudd_BddToCubeArray.exit:                         ; preds = %75, %.preheader.i
   %.021.lcssa.i = phi ptr [ %33, %.preheader.i ], [ %.122.i, %75 ]
-  %.not90 = icmp eq ptr %.021.lcssa.i, %59
+  %.not90 = icmp eq ptr %.021.lcssa.i, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not90, label %.critedge.sink.split, label %.preheader
@@ -398,17 +398,17 @@ define range(i32 0, 2) i32 @Cudd_BddToCubeArray(ptr noundef %0, ptr noundef %1, 
   %6 = tail call i32 @Cudd_ReadSize(ptr noundef %0) #24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !25
-  %9 = icmp sgt i32 %6, 0
-  br i1 %9, label %.lr.ph.preheader, label %.preheader
+  %9 = ptrtoint ptr %8 to i64
+  %10 = xor i64 %9, 1
+  %11 = inttoptr i64 %10 to ptr
+  %12 = icmp sgt i32 %6, 0
+  br i1 %12, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %10 = zext nneg i32 %6 to i64
+  %13 = zext nneg i32 %6 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %3
-  %11 = ptrtoint ptr %8 to i64
-  %12 = xor i64 %11, 1
-  %13 = inttoptr i64 %12 to ptr
   %14 = ptrtoint ptr %1 to i64
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
@@ -417,7 +417,7 @@ define range(i32 0, 2) i32 @Cudd_BddToCubeArray(ptr noundef %0, ptr noundef %1, 
   br i1 %.not28, label %._crit_edge, label %.lr.ph30
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %10, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %indvars.iv = phi i64 [ %13, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %18 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
   store i32 2, ptr %18, align 4, !tbaa !28
@@ -429,7 +429,7 @@ define range(i32 0, 2) i32 @Cudd_BddToCubeArray(ptr noundef %0, ptr noundef %1, 
   %.02129 = phi ptr [ %.122, %32 ], [ %1, %.preheader ]
   call void @cuddGetBranches(ptr noundef %.02129, ptr noundef nonnull %4, ptr noundef nonnull %5) #24
   %21 = load ptr, ptr %4, align 8, !tbaa !24
-  %22 = icmp eq ptr %21, %13
+  %22 = icmp eq ptr %21, %11
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %.lr.ph30
@@ -441,7 +441,7 @@ define range(i32 0, 2) i32 @Cudd_BddToCubeArray(ptr noundef %0, ptr noundef %1, 
 
 26:                                               ; preds = %.lr.ph30
   %27 = load ptr, ptr %5, align 8, !tbaa !24
-  %28 = icmp eq ptr %27, %13
+  %28 = icmp eq ptr %27, %11
   br i1 %28, label %29, label %.critedge
 
 29:                                               ; preds = %26
@@ -461,7 +461,7 @@ define range(i32 0, 2) i32 @Cudd_BddToCubeArray(ptr noundef %0, ptr noundef %1, 
 
 ._crit_edge:                                      ; preds = %32, %.preheader
   %.021.lcssa = phi ptr [ %1, %.preheader ], [ %.122, %32 ]
-  %37 = icmp ne ptr %.021.lcssa, %13
+  %37 = icmp ne ptr %.021.lcssa, %11
   %. = zext i1 %37 to i32
   br label %.critedge
 
@@ -4950,23 +4950,23 @@ define noalias noundef ptr @Cudd_FirstPrime(ptr noundef %0, ptr noundef %1, ptr 
   %74 = call i32 @Cudd_ReadSize(ptr noundef nonnull %0) #24
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %76 = load ptr, ptr %75, align 8, !tbaa !25
-  %77 = icmp sgt i32 %74, 0
-  br i1 %77, label %.lr.ph.preheader.i, label %.preheader.i
+  %77 = ptrtoint ptr %76 to i64
+  %78 = xor i64 %77, 1
+  %79 = inttoptr i64 %78 to ptr
+  %80 = icmp sgt i32 %74, 0
+  br i1 %80, label %.lr.ph.preheader.i, label %.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %67
-  %78 = zext nneg i32 %74 to i64
+  %81 = zext nneg i32 %74 to i64
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %67
-  %79 = ptrtoint ptr %76 to i64
-  %80 = xor i64 %79, 1
-  %81 = inttoptr i64 %80 to ptr
   %82 = load i32, ptr %58, align 8, !tbaa !31
   %.not28.i = icmp eq i32 %82, 2147483647
   br i1 %.not28.i, label %Cudd_BddToCubeArray.exit, label %.lr.ph30.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %78, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %indvars.iv.i = phi i64 [ %81, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %83 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv.next.i
   store i32 2, ptr %83, align 4, !tbaa !28
@@ -4978,7 +4978,7 @@ define noalias noundef ptr @Cudd_FirstPrime(ptr noundef %0, ptr noundef %1, ptr 
   %.02129.i = phi ptr [ %.122.i, %97 ], [ %52, %.preheader.i ]
   call void @cuddGetBranches(ptr noundef %.02129.i, ptr noundef nonnull %5, ptr noundef nonnull %6) #24
   %86 = load ptr, ptr %5, align 8, !tbaa !24
-  %87 = icmp eq ptr %86, %81
+  %87 = icmp eq ptr %86, %79
   br i1 %87, label %88, label %91
 
 88:                                               ; preds = %.lr.ph30.i
@@ -4990,7 +4990,7 @@ define noalias noundef ptr @Cudd_FirstPrime(ptr noundef %0, ptr noundef %1, ptr 
 
 91:                                               ; preds = %.lr.ph30.i
   %92 = load ptr, ptr %6, align 8, !tbaa !24
-  %93 = icmp eq ptr %92, %81
+  %93 = icmp eq ptr %92, %79
   br i1 %93, label %94, label %Cudd_BddToCubeArray.exit.thread
 
 Cudd_BddToCubeArray.exit.thread:                  ; preds = %91
@@ -5015,7 +5015,7 @@ Cudd_BddToCubeArray.exit.thread:                  ; preds = %91
 
 Cudd_BddToCubeArray.exit:                         ; preds = %97, %.preheader.i
   %.021.lcssa.i = phi ptr [ %52, %.preheader.i ], [ %.122.i, %97 ]
-  %.not108 = icmp eq ptr %.021.lcssa.i, %81
+  %.not108 = icmp eq ptr %.021.lcssa.i, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not108, label %102, label %107
@@ -5143,23 +5143,23 @@ define range(i32 0, 2) i32 @Cudd_NextPrime(ptr noundef captures(none) %0, ptr no
   %55 = call i32 @Cudd_ReadSize(ptr noundef %6) #24
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !25
-  %58 = icmp sgt i32 %55, 0
-  br i1 %58, label %.lr.ph.preheader.i, label %.preheader.i
+  %58 = ptrtoint ptr %57 to i64
+  %59 = xor i64 %58, 1
+  %60 = inttoptr i64 %59 to ptr
+  %61 = icmp sgt i32 %55, 0
+  br i1 %61, label %.lr.ph.preheader.i, label %.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %46
-  %59 = zext nneg i32 %55 to i64
+  %62 = zext nneg i32 %55 to i64
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %46
-  %60 = ptrtoint ptr %57 to i64
-  %61 = xor i64 %60, 1
-  %62 = inttoptr i64 %61 to ptr
   %63 = load i32, ptr %35, align 8, !tbaa !31
   %.not28.i = icmp eq i32 %63, 2147483647
   br i1 %.not28.i, label %Cudd_BddToCubeArray.exit.thread56, label %.lr.ph30.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %59, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %indvars.iv.i = phi i64 [ %62, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %64 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.next.i
   store i32 2, ptr %64, align 4, !tbaa !28
@@ -5171,7 +5171,7 @@ define range(i32 0, 2) i32 @Cudd_NextPrime(ptr noundef captures(none) %0, ptr no
   %.02129.i = phi ptr [ %.122.i, %78 ], [ %28, %.preheader.i ]
   call void @cuddGetBranches(ptr noundef %.02129.i, ptr noundef nonnull %3, ptr noundef nonnull %4) #24
   %67 = load ptr, ptr %3, align 8, !tbaa !24
-  %68 = icmp eq ptr %67, %62
+  %68 = icmp eq ptr %67, %60
   br i1 %68, label %69, label %72
 
 69:                                               ; preds = %.lr.ph30.i
@@ -5183,7 +5183,7 @@ define range(i32 0, 2) i32 @Cudd_NextPrime(ptr noundef captures(none) %0, ptr no
 
 72:                                               ; preds = %.lr.ph30.i
   %73 = load ptr, ptr %4, align 8, !tbaa !24
-  %74 = icmp eq ptr %73, %62
+  %74 = icmp eq ptr %73, %60
   br i1 %74, label %75, label %Cudd_BddToCubeArray.exit.thread
 
 Cudd_BddToCubeArray.exit.thread:                  ; preds = %72
@@ -5207,13 +5207,13 @@ Cudd_BddToCubeArray.exit.thread:                  ; preds = %72
   br i1 %.not.i, label %Cudd_BddToCubeArray.exit, label %.lr.ph30.i, !llvm.loop !37
 
 Cudd_BddToCubeArray.exit:                         ; preds = %78
-  %.not = icmp eq ptr %.122.i, %62
+  %.not = icmp eq ptr %.122.i, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not, label %83, label %.thread59
 
 Cudd_BddToCubeArray.exit.thread56:                ; preds = %.preheader.i
-  %.not58 = icmp eq ptr %28, %62
+  %.not58 = icmp eq ptr %28, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not58, label %83, label %.thread59

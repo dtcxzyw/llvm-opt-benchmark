@@ -3714,34 +3714,34 @@ define void @Abc_GraphSolve(ptr noundef %0) local_unnamed_addr #1 {
   %.val102.val = load i32, ptr %8, align 4, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !110
-  %11 = tail call ptr @sat_solver_new() #23
-  %12 = load i32, ptr %9, align 8, !tbaa !110
-  tail call void @sat_solver_setnvars(ptr noundef %11, i32 noundef %12) #23
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !114
-  %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph, label %._crit_edge
+  %11 = sub i32 %10, %.val102.val
+  %12 = tail call ptr @sat_solver_new() #23
+  %13 = load i32, ptr %9, align 8, !tbaa !110
+  tail call void @sat_solver_setnvars(ptr noundef %12, i32 noundef %13) #23
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %15 = load i32, ptr %14, align 8, !tbaa !114
+  %16 = icmp sgt i32 %15, 0
+  br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %17
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  br label %18
 
-17:                                               ; preds = %.lr.ph, %17
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = load ptr, ptr %16, align 8, !tbaa !115
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8, !tbaa !72
+18:                                               ; preds = %.lr.ph, %18
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
+  %19 = load ptr, ptr %17, align 8, !tbaa !115
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %21 = load ptr, ptr %20, align 8, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.next
-  %22 = load ptr, ptr %21, align 8, !tbaa !72
-  %23 = tail call i32 @sat_solver_addclause(ptr noundef %11, ptr noundef %20, ptr noundef %22) #23
-  %24 = load i32, ptr %13, align 8, !tbaa !114
-  %25 = sext i32 %24 to i64
-  %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %17, label %._crit_edge, !llvm.loop !116
+  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.next
+  %23 = load ptr, ptr %22, align 8, !tbaa !72
+  %24 = tail call i32 @sat_solver_addclause(ptr noundef %12, ptr noundef %21, ptr noundef %23) #23
+  %25 = load i32, ptr %14, align 8, !tbaa !114
+  %26 = sext i32 %25 to i64
+  %27 = icmp slt i64 %indvars.iv.next, %26
+  br i1 %27, label %18, label %._crit_edge, !llvm.loop !116
 
-._crit_edge:                                      ; preds = %17, %1
-  %27 = sub i32 %10, %.val102.val
+._crit_edge:                                      ; preds = %18, %1
   store i32 0, ptr %4, align 4, !tbaa !34
   %28 = icmp sgt i32 %.val102.val, 0
   br i1 %28, label %.lr.ph138, label %.preheader134
@@ -3755,7 +3755,7 @@ define void @Abc_GraphSolve(ptr noundef %0) local_unnamed_addr #1 {
   %wide.trip.count = zext nneg i32 %.val94 to i64
   %wide.trip.count158 = zext nneg i32 %.val94 to i64
   %wide.trip.count163 = zext nneg i32 %.val94 to i64
-  %32 = tail call i32 @sat_solver_solve_lexsat(ptr noundef %11, ptr noundef %.val100, i32 noundef %.val94) #23
+  %32 = tail call i32 @sat_solver_solve_lexsat(ptr noundef %12, ptr noundef %.val100, i32 noundef %.val94) #23
   %.not176 = icmp eq i32 %32, 1
   br i1 %.not176, label %.preheader133, label %.thread
 
@@ -3763,7 +3763,7 @@ define void @Abc_GraphSolve(ptr noundef %0) local_unnamed_addr #1 {
   %33 = phi i32 [ %.val94.pre, %Vec_IntPush.exit ], [ 0, %._crit_edge ]
   %34 = phi ptr [ %.pre.i166, %Vec_IntPush.exit ], [ %5, %._crit_edge ]
   %.085136 = phi i32 [ %58, %Vec_IntPush.exit ], [ 0, %._crit_edge ]
-  %35 = add nsw i32 %27, %.085136
+  %35 = add nsw i32 %11, %.085136
   %36 = shl nsw i32 %35, 1
   %37 = or disjoint i32 %36, 1
   %38 = load i32, ptr %3, align 8, !tbaa !36
@@ -3821,7 +3821,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %exitcond.not, label %.preheader134, label %.lr.ph138, !llvm.loop !117
 
 59:                                               ; preds = %.critedge2._crit_edge
-  %60 = tail call i32 @sat_solver_solve_lexsat(ptr noundef %11, ptr noundef %.val100, i32 noundef %.val94) #23
+  %60 = tail call i32 @sat_solver_solve_lexsat(ptr noundef %12, ptr noundef %.val100, i32 noundef %.val94) #23
   %.not = icmp eq i32 %60, 1
   br i1 %.not, label %.preheader133, label %.thread, !llvm.loop !118
 
@@ -3842,12 +3842,12 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %exitcond154.not, label %.critedge, label %.lr.ph140, !llvm.loop !119
 
 .critedge:                                        ; preds = %.lr.ph140
-  %64 = tail call i32 @sat_solver_addclause(ptr noundef %11, ptr noundef nonnull %.val100, ptr noundef nonnull %31) #23
+  %64 = tail call i32 @sat_solver_addclause(ptr noundef %12, ptr noundef nonnull %.val100, ptr noundef nonnull %31) #23
   %.not90 = icmp eq i32 %64, 0
   br i1 %.not90, label %.thread, label %.lr.ph142
 
 .critedge.thread:                                 ; preds = %.preheader133
-  %65 = tail call i32 @sat_solver_addclause(ptr noundef %11, ptr noundef %.val100, ptr noundef %31) #23
+  %65 = tail call i32 @sat_solver_addclause(ptr noundef %12, ptr noundef %.val100, ptr noundef %31) #23
   %.not90174 = icmp eq i32 %65, 0
   br i1 %.not90174, label %.thread, label %.critedge2._crit_edge
 
@@ -3993,7 +3993,7 @@ Abc_Word2Double.exit128:                          ; preds = %112
   %113 = fsub double %ldexp, %.1.i117
   %114 = fdiv double %113, %.1.i125
   %115 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, double noundef %114)
-  tail call void @sat_solver_delete(ptr noundef %11) #23
+  tail call void @sat_solver_delete(ptr noundef %12) #23
   tail call void @Cnf_DataFree(ptr noundef %2) #23
   %116 = load ptr, ptr %6, align 8, !tbaa !37
   %.not.i129 = icmp eq ptr %116, null

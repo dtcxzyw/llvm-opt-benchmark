@@ -452,8 +452,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc7
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %54, 2
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %53, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !69
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc7, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -501,8 +501,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i8: ; preds = %_ZNSt6vectorI
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i10: ; preds = %.noexc15
   %.idx.i.i.i.i.i.i.i11 = shl nuw nsw i64 %69, 2
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i.i.i.i.i.i.i11
   call void @llvm.memset.p0.i64(ptr align 4 %68, i8 0, i64 %.idx.i.i.i.i.i.i.i11, i1 false), !tbaa !69
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i.i.i.i.i.i.i11
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit16
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit16:             ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i10, %.noexc15, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i8
@@ -4181,8 +4181,8 @@ define void @_ZN8LightGBM7Network4InitEiiPFvPciiPKiS3_iS1_iRKPFvPKcS1_iiEEPFvS1_
   store i32 0, ptr %11, align 4, !tbaa !69
   %13 = getelementptr i8, ptr %11, i64 4
   %.idx.i.i.i.i.i.i.i = add nsw i64 %10, -4
-  %14 = getelementptr i8, ptr %11, i64 %10
   tail call void @llvm.memset.p0.i64(ptr align 4 %13, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !69
+  %14 = getelementptr i8, ptr %11, i64 %10
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
   %15 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8LightGBM7Network12block_start_E)
   %16 = load ptr, ptr %15, align 8, !tbaa !9
@@ -4224,8 +4224,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIi
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i10: ; preds = %.noexc15
   %.idx.i.i.i.i.i.i.i11 = shl nuw nsw i64 %27, 2
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i.i.i.i.i.i11
   tail call void @llvm.memset.p0.i64(ptr align 4 %26, i8 0, i64 %.idx.i.i.i.i.i.i.i11, i1 false), !tbaa !69
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i.i.i.i.i.i11
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit16
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit16:             ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i10, %.noexc15, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -4556,21 +4556,21 @@ define void @_ZN8LightGBM7Network20AllreduceByAllGatherEPciiS1_RKPFvPKcS1_iiE(pt
 
 10:                                               ; preds = %9, %5
   %11 = phi i32 [ %.pre, %9 ], [ %7, %5 ]
+  %12 = mul nsw i32 %11, %1
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
-  %12 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8LightGBM7Network12block_start_E)
-  %13 = load ptr, ptr %12, align 8, !tbaa !9
-  store i32 0, ptr %13, align 4, !tbaa !69
+  %13 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8LightGBM7Network12block_start_E)
+  %14 = load ptr, ptr %13, align 8, !tbaa !9
+  store i32 0, ptr %14, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network10block_len_E()
-  %14 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8LightGBM7Network10block_len_E)
-  %15 = load ptr, ptr %14, align 8, !tbaa !9
-  store i32 %1, ptr %15, align 4, !tbaa !69
-  %16 = load i32, ptr %6, align 4, !tbaa !69
-  %17 = icmp sgt i32 %16, 1
-  br i1 %17, label %.lr.ph, label %._crit_edge
+  %15 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8LightGBM7Network10block_len_E)
+  %16 = load ptr, ptr %15, align 8, !tbaa !9
+  store i32 %1, ptr %16, align 4, !tbaa !69
+  %17 = load i32, ptr %6, align 4, !tbaa !69
+  %18 = icmp sgt i32 %17, 1
+  br i1 %18, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
-  %.lcssa = phi i32 [ %16, %10 ], [ %35, %.lr.ph ]
-  %18 = mul nsw i32 %11, %1
+  %.lcssa = phi i32 [ %17, %10 ], [ %35, %.lr.ph ]
   %19 = mul nsw i32 %.lcssa, %1
   %20 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN8LightGBM7Network12buffer_size_E)
   %21 = load i32, ptr %20, align 4, !tbaa !69
@@ -4585,20 +4585,20 @@ define void @_ZN8LightGBM7Network20AllreduceByAllGatherEPciiS1_RKPFvPKcS1_iiE(pt
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %10 ]
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
   %23 = add nsw i64 %indvars.iv, -1
-  %24 = load ptr, ptr %12, align 8, !tbaa !9
+  %24 = load ptr, ptr %13, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw i32, ptr %24, i64 %23
   %26 = load i32, ptr %25, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network10block_len_E()
-  %27 = load ptr, ptr %14, align 8, !tbaa !9
+  %27 = load ptr, ptr %15, align 8, !tbaa !9
   %28 = getelementptr inbounds nuw i32, ptr %27, i64 %23
   %29 = load i32, ptr %28, align 4, !tbaa !69
   %30 = add nsw i32 %29, %26
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
-  %31 = load ptr, ptr %12, align 8, !tbaa !9
+  %31 = load ptr, ptr %13, align 8, !tbaa !9
   %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
   store i32 %30, ptr %32, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network10block_len_E()
-  %33 = load ptr, ptr %14, align 8, !tbaa !9
+  %33 = load ptr, ptr %15, align 8, !tbaa !9
   %34 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
   store i32 %1, ptr %34, align 4, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4619,12 +4619,12 @@ define void @_ZN8LightGBM7Network20AllreduceByAllGatherEPciiS1_RKPFvPKcS1_iiE(pt
 42:                                               ; preds = %._crit_edge._crit_edge, %38
   %.pre-phi = phi ptr [ %.pre33, %._crit_edge._crit_edge ], [ %39, %38 ]
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
-  %43 = load ptr, ptr %12, align 8, !tbaa !9
+  %43 = load ptr, ptr %13, align 8, !tbaa !9
   tail call void @_ZTHN8LightGBM7Network10block_len_E()
-  %44 = load ptr, ptr %14, align 8, !tbaa !9
+  %44 = load ptr, ptr %15, align 8, !tbaa !9
   tail call void @_ZTHN8LightGBM7Network7buffer_E()
   %45 = load ptr, ptr %.pre-phi, align 8, !tbaa !12
-  tail call void @_ZN8LightGBM7Network9AllgatherEPcPKiS3_S1_i(ptr noundef %0, ptr noundef %43, ptr noundef %44, ptr noundef %45, i32 noundef %18)
+  tail call void @_ZN8LightGBM7Network9AllgatherEPcPKiS3_S1_i(ptr noundef %0, ptr noundef %43, ptr noundef %44, ptr noundef %45, i32 noundef %12)
   %46 = load i32, ptr %6, align 4, !tbaa !69
   %47 = icmp sgt i32 %46, 1
   br i1 %47, label %.lr.ph26, label %._crit_edge27
@@ -4642,7 +4642,7 @@ define void @_ZN8LightGBM7Network20AllreduceByAllGatherEPciiS1_RKPFvPKcS1_iiE(pt
   tail call void @_ZTHN8LightGBM7Network7buffer_E()
   %51 = load ptr, ptr %.pre-phi, align 8, !tbaa !12
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
-  %52 = load ptr, ptr %12, align 8, !tbaa !9
+  %52 = load ptr, ptr %13, align 8, !tbaa !9
   %53 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv30
   %54 = load i32, ptr %53, align 4, !tbaa !69
   %55 = sext i32 %54 to i64
@@ -4650,7 +4650,7 @@ define void @_ZN8LightGBM7Network20AllreduceByAllGatherEPciiS1_RKPFvPKcS1_iiE(pt
   tail call void @_ZTHN8LightGBM7Network7buffer_E()
   %57 = load ptr, ptr %.pre-phi, align 8, !tbaa !12
   tail call void @_ZTHN8LightGBM7Network12block_start_E()
-  %58 = load ptr, ptr %12, align 8, !tbaa !9
+  %58 = load ptr, ptr %13, align 8, !tbaa !9
   %59 = load i32, ptr %58, align 4, !tbaa !69
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i8, ptr %57, i64 %60
@@ -4900,6 +4900,9 @@ define void @_ZN8LightGBM7Network9AllgatherEPcPKiS3_S1_i(ptr noundef %0, ptr nou
   %92 = shl i32 %91, %.04146.i
   %93 = and i32 %91, 1
   %.not.i = icmp eq i32 %93, 0
+  %94 = sub i32 0, %89
+  %.040.p.i = select i1 %.not.i, i32 %89, i32 %94
+  %.040.i = add i32 %.040.p.i, %90
   %.pn.v.i = select i1 %.not.i, i32 1, i32 -1
   %.pn.i = add nsw i32 %.pn.v.i, %91
   %.039.i = shl i32 %.pn.i, %.04146.i
@@ -4918,9 +4921,6 @@ define void @_ZN8LightGBM7Network9AllgatherEPcPKiS3_S1_i(ptr noundef %0, ptr nou
 ._crit_edge.i:                                    ; preds = %.lr.ph.i24, %88
   %.038.lcssa.i = phi i32 [ 0, %88 ], [ %108, %.lr.ph.i24 ]
   %.037.lcssa.i = phi i32 [ 0, %88 ], [ %110, %.lr.ph.i24 ]
-  %94 = sub i32 0, %89
-  %.040.p.i = select i1 %.not.i, i32 %89, i32 %94
-  %.040.i = add i32 %.040.p.i, %90
   tail call void @_ZTHN8LightGBM7Network8linkers_E()
   %95 = load ptr, ptr %87, align 8, !tbaa !4
   %96 = getelementptr inbounds i32, ptr %1, i64 %.pre.i
@@ -5140,6 +5140,9 @@ define void @_ZN8LightGBM7Network26AllgatherRecursiveDoublingEPcPKiS3_S1_i(ptr n
   %24 = shl i32 %23, %.04146
   %25 = and i32 %23, 1
   %.not = icmp eq i32 %25, 0
+  %26 = sub i32 0, %21
+  %.040.p = select i1 %.not, i32 %21, i32 %26
+  %.040 = add i32 %.040.p, %22
   %.pn.v = select i1 %.not, i32 1, i32 -1
   %.pn = add nsw i32 %.pn.v, %23
   %.039 = shl i32 %.pn, %.04146
@@ -5158,9 +5161,6 @@ define void @_ZN8LightGBM7Network26AllgatherRecursiveDoublingEPcPKiS3_S1_i(ptr n
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   %.038.lcssa = phi i32 [ 0, %20 ], [ %40, %.lr.ph ]
   %.037.lcssa = phi i32 [ 0, %20 ], [ %42, %.lr.ph ]
-  %26 = sub i32 0, %21
-  %.040.p = select i1 %.not, i32 %21, i32 %26
-  %.040 = add i32 %.040.p, %22
   tail call void @_ZTHN8LightGBM7Network8linkers_E()
   %27 = load ptr, ptr %19, align 8, !tbaa !4
   %28 = getelementptr inbounds i32, ptr %1, i64 %.pre
@@ -5313,26 +5313,26 @@ _ZSt7reverseIPcEvT_S1_.exit60:                    ; preds = %.lr.ph.i.i56, %_ZSt
   %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network10bruck_map_E()
-  %57 = icmp sgt i32 %.sroa.speculated, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge
+  %57 = load ptr, ptr %21, align 8, !tbaa !9
+  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv
+  %59 = load i32, ptr %58, align 4, !tbaa !69
+  %60 = icmp sgt i32 %.sroa.speculated, 0
+  br i1 %60, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %49
-  %58 = load i32, ptr %6, align 4, !tbaa !69
-  %59 = load i32, ptr %19, align 4, !tbaa !69
-  %invariant.op = add i32 %.04469, %58
+  %61 = load i32, ptr %6, align 4, !tbaa !69
+  %62 = load i32, ptr %19, align 4, !tbaa !69
+  %invariant.op = add i32 %.04469, %61
   br label %71
 
 ._crit_edge:                                      ; preds = %71, %49
   %.042.lcssa = phi i32 [ 0, %49 ], [ %77, %71 ]
   %.041.lcssa = phi i32 [ 0, %49 ], [ %82, %71 ]
-  %60 = load ptr, ptr %21, align 8, !tbaa !9
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
-  %62 = load i32, ptr %61, align 4, !tbaa !69
   tail call void @_ZTHN8LightGBM7Network8linkers_E()
   %63 = load ptr, ptr %22, align 8, !tbaa !4
   %64 = sext i32 %.04370 to i64
   %65 = getelementptr inbounds i8, ptr %3, i64 %64
-  tail call void @_ZN8LightGBM7Linkers8SendRecvEiPciiS1_i(ptr noundef nonnull align 8 dereferenceable(304) %63, i32 noundef %56, ptr noundef %3, i32 noundef %.042.lcssa, i32 noundef %62, ptr noundef %65, i32 noundef %.041.lcssa)
+  tail call void @_ZN8LightGBM7Linkers8SendRecvEiPciiS1_i(ptr noundef nonnull align 8 dereferenceable(304) %63, i32 noundef %56, ptr noundef %3, i32 noundef %.042.lcssa, i32 noundef %59, ptr noundef %65, i32 noundef %.041.lcssa)
   %66 = add nsw i32 %.041.lcssa, %.04370
   %67 = add nsw i32 %.sroa.speculated, %.04469
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5346,14 +5346,14 @@ _ZSt7reverseIPcEvT_S1_.exit60:                    ; preds = %.lr.ph.i.i56, %_ZSt
   %.066 = phi i32 [ 0, %.lr.ph ], [ %83, %71 ]
   %.04165 = phi i32 [ 0, %.lr.ph ], [ %82, %71 ]
   %.04264 = phi i32 [ 0, %.lr.ph ], [ %77, %71 ]
-  %72 = add nsw i32 %58, %.066
-  %73 = srem i32 %72, %59
+  %72 = add nsw i32 %61, %.066
+  %73 = srem i32 %72, %62
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds i32, ptr %2, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !69
   %77 = add nsw i32 %76, %.04264
   %.reass = add i32 %.066, %invariant.op
-  %78 = srem i32 %.reass, %59
+  %78 = srem i32 %.reass, %62
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i32, ptr %2, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !69

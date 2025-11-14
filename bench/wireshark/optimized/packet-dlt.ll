@@ -1755,22 +1755,22 @@ expert_dlt_buffer_too_short.exit58.i.i.i:         ; preds = %613, %612
   %619 = load ptr, ptr %307, align 8
   %620 = zext i16 %607 to i64
   %621 = call ptr @tvb_memdup(ptr noundef %619, ptr noundef %0, i32 noundef %608, i64 noundef %620)
+  %622 = add i32 %608, %610
   %.not63.i.i.i = icmp eq i16 %607, 0
   br i1 %.not63.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %616, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %616 ]
-  %622 = load ptr, ptr %20, align 8
-  %623 = getelementptr i8, ptr %621, i64 %indvars.iv.i.i.i
-  %624 = load i8, ptr %623, align 1
-  %625 = zext i8 %624 to i32
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %622, i32 noundef 25, ptr noundef nonnull @.str.240, ptr noundef nonnull @.str.241, i32 noundef %625)
+  %623 = load ptr, ptr %20, align 8
+  %624 = getelementptr i8, ptr %621, i64 %indvars.iv.i.i.i
+  %625 = load i8, ptr %624, align 1
+  %626 = zext i8 %625 to i32
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %623, i32 noundef 25, ptr noundef nonnull @.str.240, ptr noundef nonnull @.str.241, i32 noundef %626)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %620
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %616
-  %626 = add i32 %608, %610
   %627 = icmp ne ptr %618, null
   %628 = icmp ne ptr %.061.i.i.i, null
   %or.cond.i107.i.i = select i1 %627, i1 %628, i1 false
@@ -1802,7 +1802,7 @@ expert_dlt_unsupported_parameter.exit.i.i:        ; preds = %634, %633
   br label %dissect_dlt_verbose_parameter_raw_data.exit.i.i
 
 dissect_dlt_verbose_parameter_raw_data.exit.i.i:  ; preds = %expert_dlt_unsupported_parameter.exit.i.i, %632, %630, %expert_dlt_buffer_too_short.exit58.i.i.i, %expert_dlt_buffer_too_short.exit.i112.i.i, %dissect_dlt_verbose_parameter_string.exit.i.i, %dissect_dlt_verbose_parameter_float.exit.i.i, %dissect_dlt_verbose_parameter_uint.exit.i.i, %dissect_dlt_verbose_parameter_int.exit.i.i, %dissect_dlt_verbose_parameter_bool.exit.i.i
-  %.077.i.i = phi i32 [ %318, %expert_dlt_unsupported_parameter.exit.i.i ], [ %363, %dissect_dlt_verbose_parameter_bool.exit.i.i ], [ %415, %dissect_dlt_verbose_parameter_int.exit.i.i ], [ %471, %dissect_dlt_verbose_parameter_uint.exit.i.i ], [ %512, %dissect_dlt_verbose_parameter_float.exit.i.i ], [ %583, %dissect_dlt_verbose_parameter_string.exit.i.i ], [ %.051.i106.i.i, %expert_dlt_buffer_too_short.exit.i112.i.i ], [ %608, %expert_dlt_buffer_too_short.exit58.i.i.i ], [ %626, %632 ], [ %626, %630 ]
+  %.077.i.i = phi i32 [ %318, %expert_dlt_unsupported_parameter.exit.i.i ], [ %363, %dissect_dlt_verbose_parameter_bool.exit.i.i ], [ %415, %dissect_dlt_verbose_parameter_int.exit.i.i ], [ %471, %dissect_dlt_verbose_parameter_uint.exit.i.i ], [ %512, %dissect_dlt_verbose_parameter_float.exit.i.i ], [ %583, %dissect_dlt_verbose_parameter_string.exit.i.i ], [ %.051.i106.i.i, %expert_dlt_buffer_too_short.exit.i112.i.i ], [ %608, %expert_dlt_buffer_too_short.exit58.i.i.i ], [ %622, %632 ], [ %622, %630 ]
   %637 = sub i32 %.077.i.i, %.01316.i
   %638 = icmp ult i32 %637, 5
   %..i.i = select i1 %638, i32 0, i32 %637

@@ -546,80 +546,84 @@ define noundef double @_Z20get_sum_of_positionsPA3_KfPfiPd(ptr noundef readonly 
   br i1 %5, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader30
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %wide.trip.count = zext nneg i32 %2 to i64
-  br label %6
+  br label %10
 
 .preheader:                                       ; preds = %4
   br i1 %5, label %.lr.ph39, label %.loopexit
 
 .lr.ph39:                                         ; preds = %.preheader
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %wide.trip.count56 = zext nneg i32 %2 to i64
-  br label %29
+  br label %33
 
-6:                                                ; preds = %.lr.ph, %6
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = phi double [ 0.000000e+00, %.lr.ph ], [ %28, %6 ]
-  %8 = phi double [ 0.000000e+00, %.lr.ph ], [ %26, %6 ]
-  %9 = phi double [ 0.000000e+00, %.lr.ph ], [ %24, %6 ]
-  %.033 = phi double [ 0.000000e+00, %.lr.ph ], [ %13, %6 ]
-  %10 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  %11 = load float, ptr %10, align 4, !tbaa !37
-  %12 = fpext float %11 to double
-  %13 = fadd double %.033, %12
-  %14 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv
+10:                                               ; preds = %.lr.ph, %10
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
+  %11 = phi double [ 0.000000e+00, %.lr.ph ], [ %32, %10 ]
+  %12 = phi double [ 0.000000e+00, %.lr.ph ], [ %30, %10 ]
+  %13 = phi double [ 0.000000e+00, %.lr.ph ], [ %28, %10 ]
+  %.033 = phi double [ 0.000000e+00, %.lr.ph ], [ %17, %10 ]
+  %14 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %15 = load float, ptr %14, align 4, !tbaa !37
-  %16 = fmul float %11, %15
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %18 = load float, ptr %17, align 4, !tbaa !37
-  %19 = fmul float %11, %18
-  %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %21 = load float, ptr %20, align 4, !tbaa !37
-  %22 = fmul float %11, %21
-  %23 = fpext float %16 to double
-  %24 = fadd double %9, %23
-  %25 = fpext float %19 to double
-  %26 = fadd double %8, %25
-  %27 = fpext float %22 to double
-  %28 = fadd double %7, %27
+  %16 = fpext float %15 to double
+  %17 = fadd double %.033, %16
+  %18 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv
+  %19 = load float, ptr %18, align 4, !tbaa !37
+  %20 = fmul float %15, %19
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %22 = load float, ptr %21, align 4, !tbaa !37
+  %23 = fmul float %15, %22
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %25 = load float, ptr %24, align 4, !tbaa !37
+  %26 = fmul float %15, %25
+  %27 = fpext float %20 to double
+  %28 = fadd double %13, %27
+  %29 = fpext float %23 to double
+  %30 = fadd double %12, %29
+  %31 = fpext float %26 to double
+  %32 = fadd double %11, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.sink.split, label %6, !llvm.loop !68
+  br i1 %exitcond.not, label %..loopexit31_crit_edge, label %10, !llvm.loop !68
 
-29:                                               ; preds = %.lr.ph39, %29
-  %indvars.iv53 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next54, %29 ]
-  %30 = phi double [ 0.000000e+00, %.lr.ph39 ], [ %44, %29 ]
-  %31 = phi double [ 0.000000e+00, %.lr.ph39 ], [ %40, %29 ]
-  %32 = phi double [ 0.000000e+00, %.lr.ph39 ], [ %36, %29 ]
-  %33 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv53
-  %34 = load float, ptr %33, align 4, !tbaa !37
-  %35 = fpext float %34 to double
-  %36 = fadd double %32, %35
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 4
+33:                                               ; preds = %.lr.ph39, %33
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next54, %33 ]
+  %34 = phi double [ 0.000000e+00, %.lr.ph39 ], [ %48, %33 ]
+  %35 = phi double [ 0.000000e+00, %.lr.ph39 ], [ %44, %33 ]
+  %36 = phi double [ 0.000000e+00, %.lr.ph39 ], [ %40, %33 ]
+  %37 = getelementptr inbounds nuw [3 x float], ptr %0, i64 %indvars.iv53
   %38 = load float, ptr %37, align 4, !tbaa !37
   %39 = fpext float %38 to double
-  %40 = fadd double %31, %39
-  %41 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %40 = fadd double %36, %39
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %42 = load float, ptr %41, align 4, !tbaa !37
   %43 = fpext float %42 to double
-  %44 = fadd double %30, %43
+  %44 = fadd double %35, %43
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %46 = load float, ptr %45, align 4, !tbaa !37
+  %47 = fpext float %46 to double
+  %48 = fadd double %34, %47
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %.loopexit.sink.split, label %29, !llvm.loop !69
+  br i1 %exitcond57.not, label %..loopexit_crit_edge, label %33, !llvm.loop !69
 
-.loopexit.sink.split:                             ; preds = %6, %29
-  %.lcssa64.sink = phi double [ %36, %29 ], [ %24, %6 ]
-  %.lcssa63.sink = phi double [ %40, %29 ], [ %26, %6 ]
-  %.lcssa62.sink = phi double [ %44, %29 ], [ %28, %6 ]
-  %.1.ph = phi double [ 0.000000e+00, %29 ], [ %13, %6 ]
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double %.lcssa64.sink, ptr %3, align 8, !tbaa !70
-  store double %.lcssa63.sink, ptr %45, align 8, !tbaa !70
-  store double %.lcssa62.sink, ptr %46, align 8, !tbaa !70
+..loopexit_crit_edge:                             ; preds = %33
+  store double %40, ptr %3, align 8, !tbaa !70
+  store double %44, ptr %8, align 8, !tbaa !70
+  store double %48, ptr %9, align 8, !tbaa !70
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.sink.split, %.preheader30, %.preheader
-  %.1 = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader30 ], [ %.1.ph, %.loopexit.sink.split ]
+..loopexit31_crit_edge:                           ; preds = %10
+  store double %28, ptr %3, align 8, !tbaa !70
+  store double %30, ptr %6, align 8, !tbaa !70
+  store double %32, ptr %7, align 8, !tbaa !70
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.preheader30, %..loopexit31_crit_edge, %.preheader, %..loopexit_crit_edge
+  %.1 = phi double [ 0.000000e+00, %..loopexit_crit_edge ], [ 0.000000e+00, %.preheader ], [ %17, %..loopexit31_crit_edge ], [ 0.000000e+00, %.preheader30 ]
   ret double %.1
 }
 
@@ -695,15 +699,15 @@ define void @_Z10get_centerPA3_KfPfiS2_(ptr noundef readonly captures(none) %0, 
 
 _Z20get_sum_of_positionsPA3_KfPfiPd.exit:         ; preds = %6, %29, %.preheader30.i, %.preheader.i
   %.sroa.0.0 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %36, %29 ], [ %24, %6 ]
-  %.sroa.7.0 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %40, %29 ], [ %26, %6 ]
-  %.sroa.11.0 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %44, %29 ], [ %28, %6 ]
+  %.sroa.8.0 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %40, %29 ], [ %26, %6 ]
+  %.sroa.13.0 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %44, %29 ], [ %28, %6 ]
   %.1.i = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ 0.000000e+00, %29 ], [ %13, %6 ]
   %45 = sitofp i32 %2 to double
   %.0 = select i1 %.not.i, double %45, double %.1.i
   %46 = fdiv double 1.000000e+00, %.0
   %47 = fmul double %.sroa.0.0, %46
-  %48 = fmul double %.sroa.7.0, %46
-  %49 = fmul double %.sroa.11.0, %46
+  %48 = fmul double %.sroa.8.0, %46
+  %49 = fmul double %.sroa.13.0, %46
   %50 = fptrunc double %47 to float
   store float %50, ptr %3, align 4, !tbaa !37
   %51 = fptrunc double %48 to float
@@ -789,8 +793,8 @@ define void @_Z15get_center_commPK9t_commrecPA3_fPfiiS4_(ptr noundef %0, ptr nou
 
 _Z20get_sum_of_positionsPA3_KfPfiPd.exit:         ; preds = %9, %32, %.preheader30.i, %.preheader.i
   %.sroa.0.1 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %39, %32 ], [ %27, %9 ]
-  %.sroa.7.1 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %43, %32 ], [ %29, %9 ]
-  %.sroa.11.1 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %47, %32 ], [ %31, %9 ]
+  %.sroa.8.1 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %43, %32 ], [ %29, %9 ]
+  %.sroa.13.1 = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ %47, %32 ], [ %31, %9 ]
   %.1.i = phi double [ 0.000000e+00, %.preheader.i ], [ 0.000000e+00, %.preheader30.i ], [ 0.000000e+00, %32 ], [ %16, %9 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load i32, ptr %48, align 8, !tbaa !40
@@ -800,9 +804,9 @@ _Z20get_sum_of_positionsPA3_KfPfiPd.exit:         ; preds = %9, %32, %.preheader
 51:                                               ; preds = %_Z20get_sum_of_positionsPA3_KfPfiPd.exit
   store double %.sroa.0.1, ptr %7, align 16, !tbaa !70
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store double %.sroa.7.1, ptr %52, align 8, !tbaa !70
+  store double %.sroa.8.1, ptr %52, align 8, !tbaa !70
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store double %.sroa.11.1, ptr %53, align 16, !tbaa !70
+  store double %.sroa.13.1, ptr %53, align 16, !tbaa !70
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %.1.i, ptr %54, align 8, !tbaa !70
   call void @_Z8gmx_sumdmPdPK9t_commrec(i64 noundef 4, ptr noundef nonnull %7, ptr noundef nonnull %0)
@@ -814,8 +818,8 @@ _Z20get_sum_of_positionsPA3_KfPfiPd.exit:         ; preds = %9, %32, %.preheader
 
 59:                                               ; preds = %51, %_Z20get_sum_of_positionsPA3_KfPfiPd.exit
   %.sroa.0.0 = phi double [ %55, %51 ], [ %.sroa.0.1, %_Z20get_sum_of_positionsPA3_KfPfiPd.exit ]
-  %.sroa.7.0 = phi double [ %56, %51 ], [ %.sroa.7.1, %_Z20get_sum_of_positionsPA3_KfPfiPd.exit ]
-  %.sroa.11.0 = phi double [ %57, %51 ], [ %.sroa.11.1, %_Z20get_sum_of_positionsPA3_KfPfiPd.exit ]
+  %.sroa.8.0 = phi double [ %56, %51 ], [ %.sroa.8.1, %_Z20get_sum_of_positionsPA3_KfPfiPd.exit ]
+  %.sroa.13.0 = phi double [ %57, %51 ], [ %.sroa.13.1, %_Z20get_sum_of_positionsPA3_KfPfiPd.exit ]
   %.014 = phi double [ %58, %51 ], [ %.1.i, %_Z20get_sum_of_positionsPA3_KfPfiPd.exit ]
   %60 = sitofp i32 %4 to double
   %.014.pn = select i1 %.not.i, double %60, double %.014
@@ -823,11 +827,11 @@ _Z20get_sum_of_positionsPA3_KfPfiPd.exit:         ; preds = %9, %32, %.preheader
   %61 = fmul double %.sroa.0.0, %.0
   %62 = fptrunc double %61 to float
   store float %62, ptr %5, align 4, !tbaa !37
-  %63 = fmul double %.sroa.7.0, %.0
+  %63 = fmul double %.sroa.8.0, %.0
   %64 = fptrunc double %63 to float
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %64, ptr %65, align 4, !tbaa !37
-  %66 = fmul double %.sroa.11.0, %.0
+  %66 = fmul double %.sroa.13.0, %.0
   %67 = fptrunc double %66 to float
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store float %67, ptr %68, align 4, !tbaa !37

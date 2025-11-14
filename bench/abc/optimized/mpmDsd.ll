@@ -1027,6 +1027,7 @@ Vec_IntFill.exit.i.i:                             ; preds = %.lr.ph.i44.i.i, %Ve
   %93 = shl nsw i32 %92, 1
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds i32, ptr %.val43.val.i.pre62.i, i64 %94
+  %.val36.i.i = load i32, ptr %46, align 4, !tbaa !45
   br label %.lr.ph.i45.i.i
 
 .lr.ph.i45.i.i:                                   ; preds = %.lr.ph.i45.i.i, %.lr.ph.preheader.i.i.i
@@ -1044,7 +1045,6 @@ Vec_IntFill.exit.i.i:                             ; preds = %.lr.ph.i44.i.i, %Ve
   br i1 %.not.i48.i.i, label %Hsh_IntManHash.exit.i.i, label %.lr.ph.i45.i.i, !llvm.loop !58
 
 Hsh_IntManHash.exit.i.i:                          ; preds = %.lr.ph.i45.i.i
-  %.val36.i.i = load i32, ptr %46, align 4, !tbaa !45
   %103 = mul i32 %102, 9
   %104 = lshr i32 %103, 11
   %105 = xor i32 %104, %103
@@ -1061,11 +1061,16 @@ Hsh_IntManHash.exit.i.i:                          ; preds = %.lr.ph.i45.i.i
   %.val34.i.i = load i32, ptr %56, align 4, !tbaa !3
   %113 = sext i32 %.val34.i.i to i64
   %114 = icmp slt i64 %indvars.iv.next.i.i, %113
-  br i1 %114, label %.lr.ph.preheader.i.i.i, label %.lr.ph.preheader.i.i.i.i, !llvm.loop !60
+  br i1 %114, label %.lr.ph.preheader.i.i.i, label %.lr.ph.preheader.i.i.i.loopexit.i, !llvm.loop !60
 
-.lr.ph.preheader.i.i.i.i:                         ; preds = %Hsh_IntManHash.exit.i.i, %Vec_IntFill.exit.i.i, %.lr.ph..lr.ph.preheader.i.i.i_crit_edge.i
-  %.val43.val.i.i = phi ptr [ %.val43.val.i.pre62.i, %Vec_IntFill.exit.i.i ], [ %.val43.val.i.pre.i, %.lr.ph..lr.ph.preheader.i.i.i_crit_edge.i ], [ %.val43.val.i.pre62.i, %Hsh_IntManHash.exit.i.i ]
-  %.val35.i59.i = phi i32 [ %.val3468.i.i, %Vec_IntFill.exit.i.i ], [ %.val35.i.i, %.lr.ph..lr.ph.preheader.i.i.i_crit_edge.i ], [ %.val34.i.i, %Hsh_IntManHash.exit.i.i ]
+.lr.ph.preheader.i.i.i.loopexit.i:                ; preds = %Hsh_IntManHash.exit.i.i
+  %.val.i50.i.pre.i = load i32, ptr %46, align 4, !tbaa !45
+  br label %.lr.ph.preheader.i.i.i.i
+
+.lr.ph.preheader.i.i.i.i:                         ; preds = %.lr.ph.preheader.i.i.i.loopexit.i, %Vec_IntFill.exit.i.i, %.lr.ph..lr.ph.preheader.i.i.i_crit_edge.i
+  %.val.i50.i.i = phi i32 [ %69, %Vec_IntFill.exit.i.i ], [ %.val38.i.i, %.lr.ph..lr.ph.preheader.i.i.i_crit_edge.i ], [ %.val.i50.i.pre.i, %.lr.ph.preheader.i.i.i.loopexit.i ]
+  %.val43.val.i.i = phi ptr [ %.val43.val.i.pre62.i, %Vec_IntFill.exit.i.i ], [ %.val43.val.i.pre.i, %.lr.ph..lr.ph.preheader.i.i.i_crit_edge.i ], [ %.val43.val.i.pre62.i, %.lr.ph.preheader.i.i.i.loopexit.i ]
+  %.val35.i59.i = phi i32 [ %.val3468.i.i, %Vec_IntFill.exit.i.i ], [ %.val35.i.i, %.lr.ph..lr.ph.preheader.i.i.i_crit_edge.i ], [ %.val34.i.i, %.lr.ph.preheader.i.i.i.loopexit.i ]
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 3
   %115 = getelementptr inbounds nuw i8, ptr %.val43.val.i.i, i64 %.idx.i
   br label %.lr.ph.i.i.i.i
@@ -1085,7 +1090,6 @@ Hsh_IntManHash.exit.i.i:                          ; preds = %.lr.ph.i45.i.i
   br i1 %.not.i.i51.i.i, label %Hsh_IntManHash.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !58
 
 Hsh_IntManHash.exit.i.i.i:                        ; preds = %.lr.ph.i.i.i.i
-  %.val.i50.i.i = load i32, ptr %46, align 4, !tbaa !45
   %123 = mul i32 %122, 9
   %124 = lshr i32 %123, 11
   %125 = xor i32 %124, %123

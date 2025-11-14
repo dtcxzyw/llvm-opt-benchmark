@@ -2496,6 +2496,8 @@ define void @_ZN10open_spiel9dou_dizhu10FormatHandB5cxx11EibRKSt5arrayIS1_IiLm15
   %8 = alloca %"class.absl::debian2::AlphaNum", align 8
   %9 = alloca %"class.absl::debian2::AlphaNum", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %0, i8 0, i64 480, i1 false)
+  %.sink44.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink44.sroa.gep45 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %10
 
 10:                                               ; preds = %10, %4
@@ -2507,8 +2509,6 @@ define void @_ZN10open_spiel9dou_dizhu10FormatHandB5cxx11EibRKSt5arrayIS1_IiLm15
   br i1 %11, label %.preheader34, label %10
 
 .preheader34:                                     ; preds = %10
-  %.sink44.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink44.sroa.gep45 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = sext i32 %1 to i64
   %13 = getelementptr inbounds %"struct.std::array.11", ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5686,8 +5686,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %30 = getelementptr inbounds nuw double, ptr %28, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc4, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i

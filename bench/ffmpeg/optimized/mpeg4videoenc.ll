@@ -2455,35 +2455,35 @@ define internal void @mpeg4_encode_mb(ptr noundef %0, ptr noundef captures(none)
   br label %111
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 6608
-  br label %71
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 4844
+  %71 = load i32, ptr %70, align 4, !tbaa !148
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 6608
+  br label %73
 
-71:                                               ; preds = %71, %69
-  %indvars.iv.i = phi i64 [ 0, %69 ], [ %indvars.iv.next.i, %71 ]
-  %.0384.i = phi i32 [ 0, %69 ], [ %.1.i, %71 ]
-  %.0393.i = phi i32 [ 0, %69 ], [ %.140.i, %71 ]
-  %72 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv.i
-  %73 = load i32, ptr %72, align 4, !tbaa !48
-  %74 = icmp slt i32 %73, 0
-  %75 = trunc i64 %indvars.iv.i to i32
-  %76 = sub i32 5, %75
-  %77 = shl nuw nsw i32 1, %76
-  %78 = tail call i32 @llvm.smin.i32(i32 %73, i32 0)
-  %.140.i = add nsw i32 %78, %.0393.i
-  %79 = select i1 %74, i32 %77, i32 0
-  %.1.i = or i32 %79, %.0384.i
+73:                                               ; preds = %73, %69
+  %indvars.iv.i = phi i64 [ 0, %69 ], [ %indvars.iv.next.i, %73 ]
+  %.0384.i = phi i32 [ 0, %69 ], [ %.1.i, %73 ]
+  %.0393.i = phi i32 [ 0, %69 ], [ %.140.i, %73 ]
+  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.i
+  %75 = load i32, ptr %74, align 4, !tbaa !48
+  %76 = icmp slt i32 %75, 0
+  %77 = trunc i64 %indvars.iv.i to i32
+  %78 = sub i32 5, %77
+  %79 = shl nuw nsw i32 1, %78
+  %80 = tail call i32 @llvm.smin.i32(i32 %75, i32 0)
+  %.140.i = add nsw i32 %80, %.0393.i
+  %81 = select i1 %76, i32 %79, i32 0
+  %.1.i = or i32 %81, %.0384.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %80, label %71, !llvm.loop !148
+  br i1 %exitcond.not.i, label %82, label %73, !llvm.loop !149
 
-80:                                               ; preds = %71
+82:                                               ; preds = %73
   %.not45.i = icmp eq i32 %.1.i, 0
-  br i1 %.not45.i, label %92, label %81
+  br i1 %.not45.i, label %92, label %83
 
-81:                                               ; preds = %80
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 4844
-  %83 = load i32, ptr %82, align 4, !tbaa !149
-  %84 = lshr i32 %83, 1
+83:                                               ; preds = %82
+  %84 = lshr i32 %71, 1
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 4860
   %86 = load i32, ptr %85, align 4, !tbaa !146
   %87 = or i32 %2, %86
@@ -2496,8 +2496,8 @@ define internal void @mpeg4_encode_mb(ptr noundef %0, ptr noundef captures(none)
   %.3.i = select i1 %.not46.i, i32 %.1.i, i32 0
   br label %92
 
-92:                                               ; preds = %81, %80
-  %.2.i = phi i32 [ %.3.i, %81 ], [ 0, %80 ]
+92:                                               ; preds = %83, %82
+  %.2.i = phi i32 [ %.3.i, %83 ], [ 0, %82 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 4288
@@ -3120,7 +3120,7 @@ put_bits.exit531:                                 ; preds = %202, %224
   %.not83.i = icmp eq i32 %440, 0
   %441 = select i1 %.not83.i, i64 0, i64 8
   %442 = getelementptr inbounds nuw i8, ptr %0, i64 4844
-  %443 = load i32, ptr %442, align 4, !tbaa !149
+  %443 = load i32, ptr %442, align 4, !tbaa !148
   %444 = lshr i32 %443, 1
   %445 = getelementptr inbounds nuw i8, ptr %0, i64 6628
   %446 = getelementptr inbounds nuw i8, ptr %0, i64 6624
@@ -9010,8 +9010,8 @@ attributes #16 = { nounwind willreturn memory(none) }
 !145 = !{!5, !11, i64 548}
 !146 = !{!5, !11, i64 4860}
 !147 = !{!5, !11, i64 4880}
-!148 = distinct !{!148, !51}
-!149 = !{!5, !11, i64 4844}
+!148 = !{!5, !11, i64 4844}
+!149 = distinct !{!149, !51}
 !150 = !{!5, !8, i64 1496}
 !151 = !{!5, !21, i64 4288}
 !152 = distinct !{!152, !51}

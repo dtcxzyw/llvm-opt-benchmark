@@ -4119,41 +4119,41 @@ dissect_device_information_type.exit:             ; preds = %155, %130
   %.not4.i = icmp eq i8 %163, 0
   br i1 %.not4.i, label %dissect_device_bridging_capabilities.exit, label %.lr.ph9.i
 
-.lr.ph9.i:                                        ; preds = %162, %._crit_edge.i464
-  %indvars.iv.i459 = phi i32 [ %indvars.iv.next.i466, %._crit_edge.i464 ], [ 0, %162 ]
-  %.07.i460 = phi i32 [ %.1.lcssa.i465, %._crit_edge.i464 ], [ %168, %162 ]
-  %.0365.i = phi i8 [ %181, %._crit_edge.i464 ], [ %163, %162 ]
+.lr.ph9.i:                                        ; preds = %162, %._crit_edge.i465
+  %indvars.iv.i459 = phi i32 [ %indvars.iv.next.i461, %._crit_edge.i465 ], [ 0, %162 ]
+  %.07.i460 = phi i32 [ %.1.lcssa.i466, %._crit_edge.i465 ], [ %168, %162 ]
+  %.0365.i = phi i8 [ %181, %._crit_edge.i465 ], [ %163, %162 ]
   %169 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.07.i460)
   %170 = load i32, ptr @ett_bridging_mac_list, align 4
   %171 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %167, ptr noundef %0, i32 noundef %.07.i460, i32 noundef -1, i32 noundef %170, ptr noundef nonnull %7, ptr noundef nonnull @.str.1844, i32 noundef %indvars.iv.i459)
   %172 = load i32, ptr @hf_ieee1905_bridging_mac_address_cnt, align 4
   %173 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %172, ptr noundef %0, i32 noundef %.07.i460, i32 noundef 1, i32 noundef 0)
   %174 = add i32 %.07.i460, 1
+  %indvars.iv.next.i461 = add nuw nsw i32 %indvars.iv.i459, 1
   %.not371.i = icmp eq i8 %169, 0
-  br i1 %.not371.i, label %._crit_edge.i464, label %.lr.ph.i461
+  br i1 %.not371.i, label %._crit_edge.i465, label %.lr.ph.i462
 
-.lr.ph.i461:                                      ; preds = %.lr.ph9.i, %.lr.ph.i461
-  %.13.i462 = phi i32 [ %177, %.lr.ph.i461 ], [ %174, %.lr.ph9.i ]
-  %.0342.i = phi i8 [ %178, %.lr.ph.i461 ], [ %169, %.lr.ph9.i ]
+.lr.ph.i462:                                      ; preds = %.lr.ph9.i, %.lr.ph.i462
+  %.13.i463 = phi i32 [ %177, %.lr.ph.i462 ], [ %174, %.lr.ph9.i ]
+  %.0342.i = phi i8 [ %178, %.lr.ph.i462 ], [ %169, %.lr.ph9.i ]
   %175 = load i32, ptr @hf_ieee1905_bridging_mac_address, align 4
-  %176 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %175, ptr noundef %0, i32 noundef %.13.i462, i32 noundef 6, i32 noundef 0)
-  %177 = add i32 %.13.i462, 6
+  %176 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %175, ptr noundef %0, i32 noundef %.13.i463, i32 noundef 6, i32 noundef 0)
+  %177 = add i32 %.13.i463, 6
   %178 = add i8 %.0342.i, -1
-  %.not37.i463 = icmp eq i8 %178, 0
-  br i1 %.not37.i463, label %._crit_edge.i464, label %.lr.ph.i461, !llvm.loop !22
+  %.not37.i464 = icmp eq i8 %178, 0
+  br i1 %.not37.i464, label %._crit_edge.i465, label %.lr.ph.i462, !llvm.loop !22
 
-._crit_edge.i464:                                 ; preds = %.lr.ph.i461, %.lr.ph9.i
-  %.1.lcssa.i465 = phi i32 [ %174, %.lr.ph9.i ], [ %177, %.lr.ph.i461 ]
-  %indvars.iv.next.i466 = add nuw nsw i32 %indvars.iv.i459, 1
+._crit_edge.i465:                                 ; preds = %.lr.ph.i462, %.lr.ph9.i
+  %.1.lcssa.i466 = phi i32 [ %174, %.lr.ph9.i ], [ %177, %.lr.ph.i462 ]
   %179 = load ptr, ptr %7, align 8
-  %180 = sub i32 %.1.lcssa.i465, %.07.i460
+  %180 = sub i32 %.1.lcssa.i466, %.07.i460
   call void @proto_item_set_len(ptr noundef %179, i32 noundef %180)
   %181 = add i8 %.0365.i, -1
   %.not.i467 = icmp eq i8 %181, 0
   br i1 %.not.i467, label %dissect_device_bridging_capabilities.exit, label %.lr.ph9.i, !llvm.loop !23
 
-dissect_device_bridging_capabilities.exit:        ; preds = %._crit_edge.i464, %162
-  %.0.lcssa.i468 = phi i32 [ %168, %162 ], [ %.1.lcssa.i465, %._crit_edge.i464 ]
+dissect_device_bridging_capabilities.exit:        ; preds = %._crit_edge.i465, %162
+  %.0.lcssa.i468 = phi i32 [ %168, %162 ], [ %.1.lcssa.i466, %._crit_edge.i465 ]
   %182 = load ptr, ptr %6, align 8
   %183 = sub i32 %.0.lcssa.i468, %120
   call void @proto_item_set_len(ptr noundef %182, i32 noundef %183)
@@ -6023,37 +6023,37 @@ dissect_associated_sta_link_metrics.exit:         ; preds = %.lr.ph.i265, %1240
   br label %1285
 
 1285:                                             ; preds = %._crit_edge.i260, %1282
-  %.0415.i = phi i8 [ %1278, %1282 ], [ %1299, %._crit_edge.i260 ]
+  %.0415.i = phi i8 [ %1278, %1282 ], [ %1289, %._crit_edge.i260 ]
   %.14.i255 = phi i32 [ %1281, %1282 ], [ %.2.lcssa.i, %._crit_edge.i260 ]
   %1286 = load i32, ptr @hf_ieee1905_unassoc_metrics_channel, align 4
   %1287 = call ptr @proto_tree_add_item(ptr noundef %1284, i32 noundef %1286, ptr noundef %0, i32 noundef %.14.i255, i32 noundef 1, i32 noundef 0)
   %1288 = add i32 %.14.i255, 1
-  %1289 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1288)
-  %1290 = load i32, ptr @hf_ieee1905_unassoc_metrics_mac_count, align 4
-  %1291 = call ptr @proto_tree_add_item(ptr noundef %1284, i32 noundef %1290, ptr noundef %0, i32 noundef %1288, i32 noundef 1, i32 noundef 0)
-  %1292 = add i32 %.14.i255, 2
-  %1293 = load i32, ptr @ett_sta_link_link_mac_addr_list, align 4
-  %1294 = call ptr @proto_tree_add_subtree(ptr noundef %1284, ptr noundef %0, i32 noundef %1292, i32 noundef -1, i32 noundef %1293, ptr noundef nonnull %41, ptr noundef nonnull @.str.1942)
-  %.not441.i = icmp eq i8 %1289, 0
+  %1289 = add i8 %.0415.i, -1
+  %1290 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1288)
+  %1291 = load i32, ptr @hf_ieee1905_unassoc_metrics_mac_count, align 4
+  %1292 = call ptr @proto_tree_add_item(ptr noundef %1284, i32 noundef %1291, ptr noundef %0, i32 noundef %1288, i32 noundef 1, i32 noundef 0)
+  %1293 = add i32 %.14.i255, 2
+  %1294 = load i32, ptr @ett_sta_link_link_mac_addr_list, align 4
+  %1295 = call ptr @proto_tree_add_subtree(ptr noundef %1284, ptr noundef %0, i32 noundef %1293, i32 noundef -1, i32 noundef %1294, ptr noundef nonnull %41, ptr noundef nonnull @.str.1942)
+  %.not441.i = icmp eq i8 %1290, 0
   br i1 %.not441.i, label %._crit_edge.i260, label %.lr.ph.i256
 
 .lr.ph.i256:                                      ; preds = %1285, %.lr.ph.i256
-  %.03.i257 = phi i8 [ %1298, %.lr.ph.i256 ], [ %1289, %1285 ]
-  %.22.i258 = phi i32 [ %1297, %.lr.ph.i256 ], [ %1292, %1285 ]
-  %1295 = load i32, ptr @hf_ieee1905_unassoc_link_metrics_query_mac, align 4
-  %1296 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1295, ptr noundef %0, i32 noundef %.22.i258, i32 noundef 6, i32 noundef 0)
-  %1297 = add i32 %.22.i258, 6
-  %1298 = add i8 %.03.i257, -1
-  %.not44.i259 = icmp eq i8 %1298, 0
+  %.03.i257 = phi i8 [ %1299, %.lr.ph.i256 ], [ %1290, %1285 ]
+  %.22.i258 = phi i32 [ %1298, %.lr.ph.i256 ], [ %1293, %1285 ]
+  %1296 = load i32, ptr @hf_ieee1905_unassoc_link_metrics_query_mac, align 4
+  %1297 = call ptr @proto_tree_add_item(ptr noundef %1295, i32 noundef %1296, ptr noundef %0, i32 noundef %.22.i258, i32 noundef 6, i32 noundef 0)
+  %1298 = add i32 %.22.i258, 6
+  %1299 = add i8 %.03.i257, -1
+  %.not44.i259 = icmp eq i8 %1299, 0
   br i1 %.not44.i259, label %._crit_edge.i260, label %.lr.ph.i256, !llvm.loop !60
 
 ._crit_edge.i260:                                 ; preds = %.lr.ph.i256, %1285
-  %.2.lcssa.i = phi i32 [ %1292, %1285 ], [ %1297, %.lr.ph.i256 ]
-  %1299 = add i8 %.0415.i, -1
+  %.2.lcssa.i = phi i32 [ %1293, %1285 ], [ %1298, %.lr.ph.i256 ]
   %1300 = load ptr, ptr %41, align 8
-  %1301 = sub i32 %.2.lcssa.i, %1292
+  %1301 = sub i32 %.2.lcssa.i, %1293
   call void @proto_item_set_len(ptr noundef %1300, i32 noundef %1301)
-  %.not43.i261 = icmp eq i8 %1299, 0
+  %.not43.i261 = icmp eq i8 %1289, 0
   br i1 %.not43.i261, label %1302, label %1285, !llvm.loop !61
 
 1302:                                             ; preds = %._crit_edge.i260

@@ -2346,31 +2346,31 @@ _ZN12_GLOBAL__N_112RegAllocPBQP24findVRegIntervalsToAllocERKN4llvm15MachineFunct
   %182 = load ptr, ptr %181, align 8, !tbaa !361
   %183 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25, !noalias !414
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm20PBQPRAConstraintListE, i64 16), ptr %183, align 8, !tbaa !12, !noalias !414
-  %184 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25, !noalias !417
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_110SpillCostsE, i64 16), ptr %184, align 8, !tbaa !12, !noalias !417
-  %185 = ptrtoint ptr %184 to i64
-  %186 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
-  store i64 %185, ptr %186, align 8, !tbaa !162
-  %187 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25, !noalias !420
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_112InterferenceE, i64 16), ptr %187, align 8, !tbaa !12, !noalias !420
-  %188 = ptrtoint ptr %187 to i64
-  %189 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
-  store i64 %188, ptr %190, align 8, !tbaa !162
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %185 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25, !noalias !417
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_110SpillCostsE, i64 16), ptr %185, align 8, !tbaa !12, !noalias !417
+  %186 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %187 = ptrtoint ptr %185 to i64
+  %188 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
+  store i64 %187, ptr %188, align 8, !tbaa !162
+  %189 = getelementptr inbounds nuw i8, ptr %183, i64 24
+  %190 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25, !noalias !420
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_112InterferenceE, i64 16), ptr %190, align 8, !tbaa !12, !noalias !420
+  %191 = ptrtoint ptr %190 to i64
+  %192 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
+  store i64 %191, ptr %193, align 8, !tbaa !162
   call void @llvm.experimental.noalias.scope.decl(metadata !423)
   call void @llvm.experimental.noalias.scope.decl(metadata !426)
-  %191 = load i64, ptr %186, align 8, !tbaa !162, !alias.scope !426, !noalias !423
-  store i64 %191, ptr %189, align 8, !tbaa !162, !alias.scope !423, !noalias !426
-  store ptr null, ptr %186, align 8, !tbaa !162, !alias.scope !426, !noalias !423
-  %192 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %193 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %194 = getelementptr inbounds nuw i8, ptr %183, i64 24
-  %195 = getelementptr inbounds nuw i8, ptr %189, i64 16
-  call void @_ZdlPvm(ptr noundef nonnull %186, i64 noundef 8) #28
-  store ptr %189, ptr %192, align 8, !tbaa !158
-  store ptr %195, ptr %193, align 8, !tbaa !161
-  %196 = getelementptr inbounds nuw i8, ptr %189, i64 16
-  store ptr %196, ptr %194, align 8, !tbaa !165
+  %194 = load i64, ptr %188, align 8, !tbaa !162, !alias.scope !426, !noalias !423
+  store i64 %194, ptr %192, align 8, !tbaa !162, !alias.scope !423, !noalias !426
+  store ptr null, ptr %188, align 8, !tbaa !162, !alias.scope !426, !noalias !423
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 16
+  call void @_ZdlPvm(ptr noundef nonnull %188, i64 noundef 8) #28
+  store ptr %192, ptr %184, align 8, !tbaa !158
+  store ptr %195, ptr %186, align 8, !tbaa !161
+  %196 = getelementptr inbounds nuw i8, ptr %192, i64 16
+  store ptr %196, ptr %189, align 8, !tbaa !165
   %197 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14PBQPCoalescing, i64 120), align 8, !tbaa !74, !range !88, !noundef !89
   %198 = trunc nuw i8 %197 to i1
   br i1 %198, label %.lr.ph.i.i.i.i193.preheader, label %_ZNSt10unique_ptrIN12_GLOBAL__N_110CoalescingESt14default_deleteIS1_EED2Ev.exit
@@ -2387,7 +2387,7 @@ _ZN12_GLOBAL__N_112RegAllocPBQP24findVRegIntervalsToAllocERKN4llvm15MachineFunct
 .lr.ph.i.i.i.i193:                                ; preds = %.lr.ph.i.i.i.i193.preheader, %.lr.ph.i.i.i.i193
   %.012.i.i.i.i194 = phi ptr [ %204, %.lr.ph.i.i.i.i193 ], [ %201, %.lr.ph.i.i.i.i193.preheader ]
   %.0911.i.i.i.i195.idx = phi i64 [ %.0911.i.i.i.i195.add, %.lr.ph.i.i.i.i193 ], [ 0, %.lr.ph.i.i.i.i193.preheader ]
-  %.0911.i.i.i.i195.ptr = getelementptr inbounds nuw i8, ptr %189, i64 %.0911.i.i.i.i195.idx
+  %.0911.i.i.i.i195.ptr = getelementptr inbounds nuw i8, ptr %192, i64 %.0911.i.i.i.i195.idx
   call void @llvm.experimental.noalias.scope.decl(metadata !431)
   call void @llvm.experimental.noalias.scope.decl(metadata !434)
   %203 = load i64, ptr %.0911.i.i.i.i195.ptr, align 8, !tbaa !162, !alias.scope !434, !noalias !431
@@ -2400,11 +2400,11 @@ _ZN12_GLOBAL__N_112RegAllocPBQP24findVRegIntervalsToAllocERKN4llvm15MachineFunct
 
 _ZNSt6vectorISt10unique_ptrIN4llvm16PBQPRAConstraintESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit207: ; preds = %.lr.ph.i.i.i.i193
   %205 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i194, i64 16
-  call void @_ZdlPvm(ptr noundef nonnull %189, i64 noundef 16) #28
-  store ptr %201, ptr %192, align 8, !tbaa !158
-  store ptr %205, ptr %193, align 8, !tbaa !161
+  call void @_ZdlPvm(ptr noundef nonnull %192, i64 noundef 16) #28
+  store ptr %201, ptr %184, align 8, !tbaa !158
+  store ptr %205, ptr %186, align 8, !tbaa !161
   %206 = getelementptr inbounds nuw i8, ptr %201, i64 32
-  store ptr %206, ptr %194, align 8, !tbaa !165
+  store ptr %206, ptr %189, align 8, !tbaa !165
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_110CoalescingESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_110CoalescingESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm16PBQPRAConstraintESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit207, %.lr.ph.i.i.i.i174.preheader
@@ -2418,19 +2418,19 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_110CoalescingESt14default_deleteIS1_EED2Ev.exit:
   br i1 %.not.i92, label %_ZNSt10unique_ptrIN4llvm16PBQPRAConstraintESt14default_deleteIS1_EED2Ev.exit97, label %212
 
 212:                                              ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_110CoalescingESt14default_deleteIS1_EED2Ev.exit
-  %213 = load ptr, ptr %193, align 8, !tbaa !161
-  %214 = load ptr, ptr %194, align 8, !tbaa !165
+  %213 = load ptr, ptr %186, align 8, !tbaa !161
+  %214 = load ptr, ptr %189, align 8, !tbaa !165
   %.not.i.i.i93 = icmp eq ptr %213, %214
   br i1 %.not.i.i.i93, label %217, label %215
 
 215:                                              ; preds = %212
   store i64 %211, ptr %213, align 8, !tbaa !162
   %216 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  store ptr %216, ptr %193, align 8, !tbaa !161
+  store ptr %216, ptr %186, align 8, !tbaa !161
   br label %_ZNSt10unique_ptrIN4llvm16PBQPRAConstraintESt14default_deleteIS1_EED2Ev.exit97
 
 217:                                              ; preds = %212
-  %218 = load ptr, ptr %192, align 8, !tbaa !158
+  %218 = load ptr, ptr %184, align 8, !tbaa !158
   %219 = ptrtoint ptr %213 to i64
   %220 = ptrtoint ptr %218 to i64
   %221 = sub i64 %219, %220
@@ -2482,10 +2482,10 @@ _ZNSt6vectorISt10unique_ptrIN4llvm16PBQPRAConstraintESt14default_deleteIS2_EESaI
   br label %_ZN4llvm20PBQPRAConstraintList13addConstraintESt10unique_ptrINS_16PBQPRAConstraintESt14default_deleteIS2_EE.exit94
 
 _ZN4llvm20PBQPRAConstraintList13addConstraintESt10unique_ptrINS_16PBQPRAConstraintESt14default_deleteIS2_EE.exit94: ; preds = %236, %_ZNSt6vectorISt10unique_ptrIN4llvm16PBQPRAConstraintESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i223
-  store ptr %230, ptr %192, align 8, !tbaa !158
-  store ptr %235, ptr %193, align 8, !tbaa !161
+  store ptr %230, ptr %184, align 8, !tbaa !158
+  store ptr %235, ptr %186, align 8, !tbaa !161
   %237 = getelementptr inbounds nuw %"class.std::unique_ptr.352", ptr %230, i64 %228
-  store ptr %237, ptr %194, align 8, !tbaa !165
+  store ptr %237, ptr %189, align 8, !tbaa !165
   %.pr = load ptr, ptr %16, align 8, !tbaa !162
   %.not.i95 = icmp eq ptr %.pr, null
   br i1 %.not.i95, label %_ZNSt10unique_ptrIN4llvm16PBQPRAConstraintESt14default_deleteIS1_EED2Ev.exit97, label %_ZNKSt14default_deleteIN4llvm16PBQPRAConstraintEEclEPS1_.exit.i96

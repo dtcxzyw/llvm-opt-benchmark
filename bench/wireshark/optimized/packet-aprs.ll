@@ -1002,133 +1002,133 @@ dst_code_lookup.exit:                             ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %5, align 8
-  %27 = getelementptr i8, ptr %20, i64 1
-  %28 = load i8, ptr %27, align 1
-  br label %29
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %28 = load i32, ptr %27, align 4
+  %29 = getelementptr i8, ptr %20, i64 1
+  %30 = load i8, ptr %29, align 1
+  br label %31
 
-29:                                               ; preds = %29, %dst_code_lookup.exit
-  %indvars.iv.i138 = phi i64 [ %indvars.iv.next.i142, %29 ], [ 0, %dst_code_lookup.exit ]
-  %30 = getelementptr %struct.mic_e_dst_code_table_s, ptr @dst_code, i64 %indvars.iv.i138
-  %31 = load i8, ptr %30, align 4
-  %.not.i139 = icmp eq i8 %31, %28
+31:                                               ; preds = %31, %dst_code_lookup.exit
+  %indvars.iv.i138 = phi i64 [ %indvars.iv.next.i142, %31 ], [ 0, %dst_code_lookup.exit ]
+  %32 = getelementptr %struct.mic_e_dst_code_table_s, ptr @dst_code, i64 %indvars.iv.i138
+  %33 = load i8, ptr %32, align 4
+  %.not.i139 = icmp eq i8 %33, %30
   %.not8.i140 = icmp eq i64 %indvars.iv.i138, 33
   %or.cond.i141 = or i1 %.not8.i140, %.not.i139
   %indvars.iv.next.i142 = add nuw nsw i64 %indvars.iv.i138, 1
-  br i1 %or.cond.i141, label %dst_code_lookup.exit143, label %29, !llvm.loop !8
+  br i1 %or.cond.i141, label %dst_code_lookup.exit143, label %31, !llvm.loop !8
 
-dst_code_lookup.exit143:                          ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  %33 = load i8, ptr %32, align 1
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %33, ptr %34, align 1
-  %35 = getelementptr i8, ptr %20, i64 2
-  %36 = load i8, ptr %35, align 1
-  br label %37
+dst_code_lookup.exit143:                          ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  %35 = load i8, ptr %34, align 1
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %35, ptr %36, align 1
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %38 = load i32, ptr %37, align 4
+  %39 = getelementptr i8, ptr %20, i64 2
+  %40 = load i8, ptr %39, align 1
+  br label %41
 
-37:                                               ; preds = %37, %dst_code_lookup.exit143
-  %indvars.iv.i144 = phi i64 [ %indvars.iv.next.i148, %37 ], [ 0, %dst_code_lookup.exit143 ]
-  %38 = getelementptr %struct.mic_e_dst_code_table_s, ptr @dst_code, i64 %indvars.iv.i144
-  %39 = load i8, ptr %38, align 4
-  %.not.i145 = icmp eq i8 %39, %36
+41:                                               ; preds = %41, %dst_code_lookup.exit143
+  %indvars.iv.i144 = phi i64 [ %indvars.iv.next.i148, %41 ], [ 0, %dst_code_lookup.exit143 ]
+  %42 = getelementptr %struct.mic_e_dst_code_table_s, ptr @dst_code, i64 %indvars.iv.i144
+  %43 = load i8, ptr %42, align 4
+  %.not.i145 = icmp eq i8 %43, %40
   %.not8.i146 = icmp eq i64 %indvars.iv.i144, 33
   %or.cond.i147 = or i1 %.not8.i146, %.not.i145
   %indvars.iv.next.i148 = add nuw nsw i64 %indvars.iv.i144, 1
-  br i1 %or.cond.i147, label %dst_code_lookup.exit149, label %37, !llvm.loop !8
+  br i1 %or.cond.i147, label %dst_code_lookup.exit149, label %41, !llvm.loop !8
 
-dst_code_lookup.exit149:                          ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %41, ptr %42, align 2
-  %43 = getelementptr i8, ptr %20, i64 3
-  %44 = load i8, ptr %43, align 1
-  br label %45
+dst_code_lookup.exit149:                          ; preds = %41
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 1
+  %45 = load i8, ptr %44, align 1
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i8 %45, ptr %46, align 2
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %48 = load i32, ptr %47, align 4
+  %49 = getelementptr i8, ptr %20, i64 3
+  %50 = load i8, ptr %49, align 1
+  br label %51
 
-45:                                               ; preds = %45, %dst_code_lookup.exit149
-  %indvars.iv.i150 = phi i64 [ %indvars.iv.next.i154, %45 ], [ 0, %dst_code_lookup.exit149 ]
-  %46 = getelementptr %struct.mic_e_dst_code_table_s, ptr @dst_code, i64 %indvars.iv.i150
-  %47 = load i8, ptr %46, align 4
-  %.not.i151 = icmp eq i8 %47, %44
+51:                                               ; preds = %51, %dst_code_lookup.exit149
+  %indvars.iv.i150 = phi i64 [ %indvars.iv.next.i154, %51 ], [ 0, %dst_code_lookup.exit149 ]
+  %52 = getelementptr %struct.mic_e_dst_code_table_s, ptr @dst_code, i64 %indvars.iv.i150
+  %53 = load i8, ptr %52, align 4
+  %.not.i151 = icmp eq i8 %53, %50
   %.not8.i152 = icmp eq i64 %indvars.iv.i150, 33
   %or.cond.i153 = or i1 %.not8.i152, %.not.i151
   %indvars.iv.next.i154 = add nuw nsw i64 %indvars.iv.i150, 1
-  br i1 %or.cond.i153, label %dst_code_lookup.exit155, label %45, !llvm.loop !8
+  br i1 %or.cond.i153, label %dst_code_lookup.exit155, label %51, !llvm.loop !8
 
-dst_code_lookup.exit155:                          ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 1
-  %49 = load i8, ptr %48, align 1
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %49, ptr %50, align 1
-  %51 = getelementptr i8, ptr %20, i64 4
-  %52 = load i8, ptr %51, align 1
-  br label %53
-
-53:                                               ; preds = %53, %dst_code_lookup.exit155
-  %indvars.iv.i156 = phi i64 [ %indvars.iv.next.i160, %53 ], [ 0, %dst_code_lookup.exit155 ]
-  %54 = getelementptr %struct.mic_e_dst_code_table_s, ptr @dst_code, i64 %indvars.iv.i156
-  %55 = load i8, ptr %54, align 4
-  %.not.i157 = icmp eq i8 %55, %52
-  %.not8.i158 = icmp eq i64 %indvars.iv.i156, 33
-  %or.cond.i159 = or i1 %.not8.i158, %.not.i157
-  %indvars.iv.next.i160 = add nuw nsw i64 %indvars.iv.i156, 1
-  br i1 %or.cond.i159, label %dst_code_lookup.exit161, label %53, !llvm.loop !8
-
-dst_code_lookup.exit161:                          ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 1
-  %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  store i8 %57, ptr %58, align 1
-  %59 = getelementptr i8, ptr %20, i64 5
+dst_code_lookup.exit155:                          ; preds = %51
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  %55 = load i8, ptr %54, align 1
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  store i8 %55, ptr %56, align 1
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %58 = load i8, ptr %57, align 4
+  %59 = getelementptr i8, ptr %20, i64 4
   %60 = load i8, ptr %59, align 1
   br label %61
 
-61:                                               ; preds = %61, %dst_code_lookup.exit161
-  %indvars.iv.i162 = phi i64 [ %indvars.iv.next.i166, %61 ], [ 0, %dst_code_lookup.exit161 ]
-  %62 = getelementptr %struct.mic_e_dst_code_table_s, ptr @dst_code, i64 %indvars.iv.i162
+61:                                               ; preds = %61, %dst_code_lookup.exit155
+  %indvars.iv.i156 = phi i64 [ %indvars.iv.next.i160, %61 ], [ 0, %dst_code_lookup.exit155 ]
+  %62 = getelementptr %struct.mic_e_dst_code_table_s, ptr @dst_code, i64 %indvars.iv.i156
   %63 = load i8, ptr %62, align 4
-  %.not.i163 = icmp eq i8 %63, %60
+  %.not.i157 = icmp eq i8 %63, %60
+  %.not8.i158 = icmp eq i64 %indvars.iv.i156, 33
+  %or.cond.i159 = or i1 %.not8.i158, %.not.i157
+  %indvars.iv.next.i160 = add nuw nsw i64 %indvars.iv.i156, 1
+  br i1 %or.cond.i159, label %dst_code_lookup.exit161, label %61, !llvm.loop !8
+
+dst_code_lookup.exit161:                          ; preds = %61
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 1
+  %65 = load i8, ptr %64, align 1
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  store i8 %65, ptr %66, align 1
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 12
+  %68 = load i32, ptr %67, align 4
+  %69 = getelementptr i8, ptr %20, i64 5
+  %70 = load i8, ptr %69, align 1
+  br label %71
+
+71:                                               ; preds = %71, %dst_code_lookup.exit161
+  %indvars.iv.i162 = phi i64 [ %indvars.iv.next.i166, %71 ], [ 0, %dst_code_lookup.exit161 ]
+  %72 = getelementptr %struct.mic_e_dst_code_table_s, ptr @dst_code, i64 %indvars.iv.i162
+  %73 = load i8, ptr %72, align 4
+  %.not.i163 = icmp eq i8 %73, %70
   %.not8.i164 = icmp eq i64 %indvars.iv.i162, 33
   %or.cond.i165 = or i1 %.not8.i164, %.not.i163
   %indvars.iv.next.i166 = add nuw nsw i64 %indvars.iv.i162, 1
-  br i1 %or.cond.i165, label %dst_code_lookup.exit167, label %61, !llvm.loop !8
+  br i1 %or.cond.i165, label %dst_code_lookup.exit167, label %71, !llvm.loop !8
 
-dst_code_lookup.exit167:                          ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %65 = load i32, ptr %64, align 4
-  %66 = and i32 %65, 1
-  %67 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %68 = load i32, ptr %67, align 4
-  %69 = and i32 %68, 1
-  %70 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %71 = load i32, ptr %70, align 4
-  %72 = and i32 %71, 1
-  %73 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %74 = load i8, ptr %73, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %54, i64 12
-  %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %62, i64 1
+dst_code_lookup.exit167:                          ; preds = %71
+  %74 = and i32 %28, 1
+  %75 = and i32 %38, 1
+  %76 = and i32 %48, 1
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %78 = load i8, ptr %77, align 1
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i8 %78, ptr %79, align 2
-  %80 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %81 = load i8, ptr %80, align 4
   %82 = getelementptr i8, ptr %20, i64 6
   %83 = load i8, ptr %82, align 1
   %84 = lshr i8 %83, 1
   %85 = and i8 %84, 15
-  %86 = sext i8 %74 to i32
+  %86 = sext i8 %58 to i32
   %87 = sext i8 %81 to i32
   %88 = zext nneg i8 %85 to i32
   br label %89
 
 89:                                               ; preds = %dst_code_lookup.exit167, %14, %4
-  %.0132 = phi i32 [ %72, %dst_code_lookup.exit167 ], [ 0, %14 ], [ 0, %4 ]
+  %.0132 = phi i32 [ %76, %dst_code_lookup.exit167 ], [ 0, %14 ], [ 0, %4 ]
   %.0131 = phi i32 [ %86, %dst_code_lookup.exit167 ], [ 63, %14 ], [ 63, %4 ]
-  %.0130 = phi i32 [ %76, %dst_code_lookup.exit167 ], [ 0, %14 ], [ 0, %4 ]
+  %.0130 = phi i32 [ %68, %dst_code_lookup.exit167 ], [ 0, %14 ], [ 0, %4 ]
   %.0129 = phi i32 [ %87, %dst_code_lookup.exit167 ], [ 63, %14 ], [ 63, %4 ]
   %.0126 = phi i32 [ %88, %dst_code_lookup.exit167 ], [ 0, %14 ], [ 0, %4 ]
-  %.0125 = phi i32 [ %69, %dst_code_lookup.exit167 ], [ 0, %14 ], [ 0, %4 ]
-  %.0 = phi i32 [ %66, %dst_code_lookup.exit167 ], [ 0, %14 ], [ 0, %4 ]
+  %.0125 = phi i32 [ %75, %dst_code_lookup.exit167 ], [ 0, %14 ], [ 0, %4 ]
+  %.0 = phi i32 [ %74, %dst_code_lookup.exit167 ], [ 0, %14 ], [ 0, %4 ]
   %90 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
   %91 = zext i8 %90 to i32
   %92 = mul nuw nsw i32 %91, 10

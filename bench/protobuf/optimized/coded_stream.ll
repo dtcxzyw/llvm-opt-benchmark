@@ -4206,6 +4206,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i: ; preds = %if.else2
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %do.body.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i, %entry
   %retval.0.i = phi ptr [ %ptr, %entry ], [ %buffer_30.i.i.i, %do.body.i.i ], [ %add.ptr.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i ]
   %call2 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #19
+  %conv = trunc i64 %call2 to i32
   %shl.i = shl i32 %num, 3
   %or.i11 = or disjoint i32 %shl.i, 2
   %cmp.i1625 = icmp ugt i32 %shl.i, 127
@@ -4225,7 +4226,6 @@ while.body.i19:                                   ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit: ; preds = %while.body.i19, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
   %ptr.addr.i14.0.lcssa = phi ptr [ %retval.0.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %incdec.ptr.i23, %while.body.i19 ]
   %value.addr.i13.0.lcssa = phi i32 [ %or.i11, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %shr.i22, %while.body.i19 ]
-  %conv = trunc i64 %call2 to i32
   %conv1.i17 = trunc nuw nsw i32 %value.addr.i13.0.lcssa to i8
   store i8 %conv1.i17, ptr %ptr.addr.i14.0.lcssa, align 1
   %ptr.addr.i6.029 = getelementptr inbounds nuw i8, ptr %ptr.addr.i14.0.lcssa, i64 1
@@ -4415,6 +4415,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i: ; preds = %if.else2
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %do.body.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i, %entry
   %retval.0.i = phi ptr [ %ptr, %entry ], [ %buffer_30.i.i.i, %do.body.i.i ], [ %add.ptr.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i ]
   %call2 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #19
+  %conv = trunc i64 %call2 to i32
   %shl.i = shl i32 %num, 3
   %or.i11 = or disjoint i32 %shl.i, 2
   %cmp.i1619 = icmp ugt i32 %shl.i, 127
@@ -4434,7 +4435,6 @@ while.body.i19:                                   ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit: ; preds = %while.body.i19, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
   %ptr.addr.i14.0.lcssa = phi ptr [ %retval.0.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %incdec.ptr.i23, %while.body.i19 ]
   %value.addr.i13.0.lcssa = phi i32 [ %or.i11, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %shr.i22, %while.body.i19 ]
-  %conv = trunc i64 %call2 to i32
   %conv1.i17 = trunc nuw nsw i32 %value.addr.i13.0.lcssa to i8
   store i8 %conv1.i17, ptr %ptr.addr.i14.0.lcssa, align 1
   %ptr.addr.i6.023 = getelementptr inbounds nuw i8, ptr %ptr.addr.i14.0.lcssa, i64 1
@@ -4574,6 +4574,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i: ; preds = %if.else2
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %do.body.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i, %entry
   %retval.0.i = phi ptr [ %ptr, %entry ], [ %buffer_30.i.i.i, %do.body.i.i ], [ %add.ptr.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i.i ]
+  %conv = trunc i64 %s.coerce0 to i32
   %shl.i = shl i32 %num, 3
   %or.i11 = or disjoint i32 %shl.i, 2
   %cmp.i1618 = icmp ugt i32 %shl.i, 127
@@ -4593,7 +4594,6 @@ while.body.i19:                                   ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit: ; preds = %while.body.i19, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
   %ptr.addr.i14.0.lcssa = phi ptr [ %retval.0.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %incdec.ptr.i23, %while.body.i19 ]
   %value.addr.i13.0.lcssa = phi i32 [ %or.i11, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %shr.i22, %while.body.i19 ]
-  %conv = trunc i64 %s.coerce0 to i32
   %conv1.i17 = trunc nuw nsw i32 %value.addr.i13.0.lcssa to i8
   store i8 %conv1.i17, ptr %ptr.addr.i14.0.lcssa, align 1
   %ptr.addr.i6.022 = getelementptr inbounds nuw i8, ptr %ptr.addr.i14.0.lcssa, i64 1

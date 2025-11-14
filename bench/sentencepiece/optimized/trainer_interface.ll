@@ -20714,25 +20714,25 @@ _ZNSt6vectorISt4pairIjS0_IblEESaIS2_EEC2ERKS4_.exit.thread: ; preds = %2
 15:                                               ; preds = %12
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #29
   store ptr %16, ptr %0, align 8, !tbaa !280
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %18, align 8, !tbaa !282
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %18, ptr %19, align 8, !tbaa !282
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %15, %.lr.ph.i.i.i.i.i
   %.09.i.i.i.i.i.idx = phi i64 [ %.09.i.i.i.i.i.add, %.lr.ph.i.i.i.i.i ], [ 0, %15 ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i.i.i ], [ %5, %15 ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i.i.i ], [ %5, %15 ]
   %.09.i.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %.09.i.i.i.i.i.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i.ptr, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.08.i.i.i.i.i, i64 24, i1 false)
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 24
   %.09.i.i.i.i.i.add = add nuw nsw i64 %.09.i.i.i.i.i.idx, 24
-  %.not.i.i.i.i.i = icmp eq ptr %19, %4
-  br i1 %.not.i.i.i.i.i, label %20, label %.lr.ph.i.i.i.i.i, !llvm.loop !539
+  %.not.i.i.i.i.i = icmp eq ptr %20, %4
+  br i1 %.not.i.i.i.i.i, label %21, label %.lr.ph.i.i.i.i.i, !llvm.loop !539
 
-20:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+21:                                               ; preds = %.lr.ph.i.i.i.i.i
   %.ptr.le = getelementptr inbounds nuw i8, ptr %16, i64 %.09.i.i.i.i.i.add
-  store ptr %.ptr.le, ptr %21, align 8, !tbaa !320
+  store ptr %.ptr.le, ptr %17, align 8, !tbaa !320
   %22 = udiv exact i64 %.09.i.i.i.i.i.add, 24
   %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %22, i1 true)
   %24 = shl nuw nsw i64 %23, 1
@@ -20740,7 +20740,7 @@ _ZNSt6vectorISt4pairIjS0_IblEESaIS2_EEC2ERKS4_.exit.thread: ; preds = %2
   invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIjS2_IblEESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjS3_EES6_IS2_IT_T0_ESaISG_EERKSI_EUlRKS4_SM_E_EEEvSE_SE_SF_T1_(ptr nonnull %16, ptr nonnull %.ptr.le, i64 noundef %25)
           to label %.noexc unwind label %_ZNSt6vectorISt4pairIjS0_IblEESaIS2_EED2Ev.exit
 
-.noexc:                                           ; preds = %20
+.noexc:                                           ; preds = %21
   %26 = icmp samesign ugt i64 %.09.i.i.i.i.i.idx, 360
   br i1 %26, label %27, label %48
 
@@ -20814,7 +20814,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIjS2_IblE
   invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjS2_IblEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZN13sentencepiece6SortedIjS3_EES6_IS2_IT_T0_ESaISG_EERKSI_EUlRKS4_SM_E_EEEvSE_SE_SF_(ptr nonnull %16, ptr nonnull %.ptr.le)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIjS2_IblEESt6vectorIS4_SaIS4_EEEEZN13sentencepiece6SortedIjS3_EES6_IS2_IT_T0_ESaISE_EERKSG_EUlRKS4_SK_E_EvSC_SC_SD_.exit unwind label %_ZNSt6vectorISt4pairIjS0_IblEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorISt4pairIjS0_IblEESaIS2_EED2Ev.exit:  ; preds = %48, %27, %20
+_ZNSt6vectorISt4pairIjS0_IblEESaIS2_EED2Ev.exit:  ; preds = %48, %27, %21
   %49 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %8) #30

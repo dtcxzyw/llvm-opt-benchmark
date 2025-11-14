@@ -3103,8 +3103,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.loopexit.i.i: ; preds = %"_ZN4llvm8count_i
   %235 = shl nuw nsw i64 %234, 2
   %236 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %235) #22
   %237 = getelementptr inbounds nuw i32, ptr %236, i64 %234
-  %238 = getelementptr inbounds nuw i8, ptr %236, i64 %235
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %236, i8 0, i64 %235, i1 false), !tbaa !52
+  %238 = getelementptr inbounds nuw i8, ptr %236, i64 %235
   %239 = ptrtoint ptr %237 to i64
   br label %_ZN12_GLOBAL__N_18ArrowMapC2Ej.exit.i
 
@@ -8026,14 +8026,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit170:              ; preds = %188, %190
   %197 = load ptr, ptr %196, align 8, !tbaa !9
   %198 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %199 = load i64, ptr %198, align 8, !tbaa !12
-  %200 = getelementptr inbounds nuw i8, ptr %197, i64 %199
+  %200 = trunc i64 %199 to i32
+  %201 = getelementptr inbounds nuw i8, ptr %197, i64 %199
   %.not140320 = icmp samesign eq i64 %199, 0
   br i1 %.not140320, label %_ZN4llvm11raw_ostreamlsEPKc.exit180, label %.lr.ph325
 
 ._crit_edge326:                                   ; preds = %208
-  %201 = call i32 @llvm.umax.i32(i32 %.1128, i32 %.1)
-  %202 = trunc i64 %199 to i32
-  %203 = icmp ugt i32 %201, 119
+  %202 = call i32 @llvm.umax.i32(i32 %.1128, i32 %.1)
+  %203 = icmp ugt i32 %202, 119
   br i1 %203, label %_ZN4llvm11raw_ostreamlsEPKc.exit180, label %210
 
 .lr.ph325:                                        ; preds = %195, %208
@@ -8059,17 +8059,17 @@ _ZN4llvm11raw_ostreamlsEPKc.exit170:              ; preds = %188, %190
   %.1128 = phi i32 [ %206, %205 ], [ 0, %207 ]
   %.1 = phi i32 [ %.0126323, %205 ], [ %spec.select144, %207 ]
   %209 = getelementptr inbounds nuw i8, ptr %.0129321, i64 1
-  %.not140 = icmp eq ptr %209, %200
+  %.not140 = icmp eq ptr %209, %201
   br i1 %.not140, label %._crit_edge326, label %.lr.ph325
 
 210:                                              ; preds = %._crit_edge326
-  %211 = udiv i32 %202, 120
-  %.not141 = icmp ult i32 %202, 120
+  %211 = udiv i32 %200, 120
+  %.not141 = icmp ult i32 %200, 120
   br i1 %.not141, label %_ZN4llvm11raw_ostreamlsEPKc.exit180, label %.lr.ph330
 
 .lr.ph330:                                        ; preds = %210, %216
   %.1132329 = phi i32 [ %217, %216 ], [ 120, %210 ]
-  %212 = udiv i32 %202, %.1132329
+  %212 = udiv i32 %200, %.1132329
   %213 = icmp ugt i32 %212, %211
   br i1 %213, label %214, label %216
 
@@ -8079,11 +8079,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit170:              ; preds = %188, %190
 
 216:                                              ; preds = %.lr.ph330
   %217 = add nsw i32 %.1132329, -1
-  %218 = icmp ugt i32 %217, %201
+  %218 = icmp ugt i32 %217, %202
   br i1 %218, label %.lr.ph330, label %.loopexit, !llvm.loop !612
 
 .loopexit:                                        ; preds = %216, %214
-  %.0130.in = phi i32 [ %215, %214 ], [ %201, %216 ]
+  %.0130.in = phi i32 [ %215, %214 ], [ %202, %216 ]
   %219 = icmp ult i32 %.0130.in, 120
   br i1 %219, label %220, label %_ZN4llvm11raw_ostreamlsEPKc.exit180
 

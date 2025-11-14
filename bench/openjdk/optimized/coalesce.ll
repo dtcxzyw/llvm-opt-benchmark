@@ -2535,31 +2535,31 @@ define hidden void @_ZN23PhaseAggressiveCoalesce8coalesceEP5Block(ptr noundef no
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %16 = load ptr, ptr %15, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %14, i64 120
-  %21 = load ptr, ptr %20, align 8
-  br label %22
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 120
+  %22 = load ptr, ptr %21, align 8
+  br label %23
 
-22:                                               ; preds = %22, %7
-  %.030 = phi i32 [ 1, %7 ], [ %31, %22 ]
-  %23 = zext i32 %.030 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %23
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %27 = load i32, ptr %26, align 8
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %21, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  %.not33 = icmp eq ptr %30, %1
-  %31 = add i32 %.030, 1
-  br i1 %.not33, label %.preheader, label %22, !llvm.loop !22
+23:                                               ; preds = %23, %7
+  %.030 = phi i32 [ 1, %7 ], [ %32, %23 ]
+  %24 = zext i32 %.030 to i64
+  %25 = getelementptr inbounds nuw ptr, ptr %20, i64 %24
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %28 = load i32, ptr %27, align 8
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr inbounds nuw ptr, ptr %22, i64 %29
+  %31 = load ptr, ptr %30, align 8
+  %.not33 = icmp eq ptr %31, %1
+  %32 = add i32 %.030, 1
+  br i1 %.not33, label %.preheader, label %23, !llvm.loop !22
 
-.preheader:                                       ; preds = %22
-  %32 = getelementptr inbounds nuw i8, ptr %11, i64 24
+.preheader:                                       ; preds = %23
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %34 = load i32, ptr %33, align 8
   %35 = icmp ugt i32 %34, 1
@@ -2567,13 +2567,13 @@ define hidden void @_ZN23PhaseAggressiveCoalesce8coalesceEP5Block(ptr noundef no
 
 .lr.ph:                                           ; preds = %.preheader, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 1, %.preheader ]
-  %36 = load i32, ptr %32, align 8
+  %36 = load i32, ptr %15, align 8
   %37 = zext i32 %36 to i64
   %38 = icmp samesign ult i64 %indvars.iv, %37
   br i1 %38, label %39, label %_ZNK5Block8get_nodeEj.exit
 
 39:                                               ; preds = %.lr.ph
-  %40 = load ptr, ptr %15, align 8
+  %40 = load ptr, ptr %16, align 8
   %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   br label %_ZNK5Block8get_nodeEj.exit
@@ -2589,7 +2589,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %.lr.ph, %39
 48:                                               ; preds = %_ZNK5Block8get_nodeEj.exit
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %23
+  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %24
   %52 = load ptr, ptr %51, align 8
   tail call void @_ZN13PhaseCoalesce17combine_these_twoEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %43, ptr noundef %52)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -2439,11 +2439,11 @@ while.end:                                        ; preds = %_ZN5eastl9allocator
   %10 = load i64, ptr %9, align 8
   %add.ptr.idx = mul i64 %10, 24
   %add.ptr = getelementptr inbounds i8, ptr %mData, i64 %add.ptr.idx
+  %_ZN10TestObject12sTODtorCountE.promoted = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %cmp4.not20 = icmp eq i64 %10, 0
   br i1 %cmp4.not20, label %delete.notnull.i12, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %while.end
-  %_ZN10TestObject12sTODtorCountE.promoted = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %_ZN10TestObject8sTOCountE.promoted = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %_ZN10TestObject16sMagicErrorCountE.promoted = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   br label %for.body
@@ -3949,11 +3949,11 @@ while.end:                                        ; preds = %_ZN5eastl9allocator
   %10 = load i64, ptr %9, align 8
   %add.ptr.idx = mul i64 %10, 24
   %add.ptr = getelementptr inbounds i8, ptr %mData, i64 %add.ptr.idx
+  %_ZN10TestObject12sTODtorCountE.promoted = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %cmp4.not20 = icmp eq i64 %10, 0
   br i1 %cmp4.not20, label %delete.notnull.i12, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %while.end
-  %_ZN10TestObject12sTODtorCountE.promoted = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %_ZN10TestObject8sTOCountE.promoted = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %_ZN10TestObject16sMagicErrorCountE.promoted = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   br label %for.body

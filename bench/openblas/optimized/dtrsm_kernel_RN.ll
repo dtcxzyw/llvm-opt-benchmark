@@ -296,37 +296,37 @@ solve.exit179:                                    ; preds = %.split47.us.i169
   %.not145.us = icmp samesign ult i64 %.3261.us, 2
   br i1 %.not145.us, label %.loopexit227, label %.preheader.us, !llvm.loop !13
 
-.lr.ph254.split.us288:                            ; preds = %.lr.ph254.us, %.split47.us.i192.us280
-  %.2252.us268 = phi i64 [ %123, %.split47.us.i192.us280 ], [ %93, %.lr.ph254.us ]
-  %.4251.us269 = phi ptr [ %122, %.split47.us.i192.us280 ], [ %.0139.lcssa, %.lr.ph254.us ]
-  %.4133250.us270 = phi ptr [ %121, %.split47.us.i192.us280 ], [ %4, %.lr.ph254.us ]
+.lr.ph254.split.us288:                            ; preds = %.lr.ph254.us, %.split47.us.i192.us281
+  %.2252.us268 = phi i64 [ %123, %.split47.us.i192.us281 ], [ %93, %.lr.ph254.us ]
+  %.4251.us269 = phi ptr [ %122, %.split47.us.i192.us281 ], [ %.0139.lcssa, %.lr.ph254.us ]
+  %.4133250.us270 = phi ptr [ %121, %.split47.us.i192.us281 ], [ %4, %.lr.ph254.us ]
   %115 = getelementptr inbounds i8, ptr %.4133250.us270, i64 %.idx.us
   %116 = load double, ptr %97, align 8, !tbaa !3
   br label %117
 
 117:                                              ; preds = %117, %.lr.ph254.split.us288
-  %indvars.iv.i187.us275 = phi i64 [ 0, %.lr.ph254.split.us288 ], [ %indvars.iv.next.i190.us278, %117 ]
-  %.144.i188.us276 = phi ptr [ %115, %.lr.ph254.split.us288 ], [ %120, %117 ]
-  %gep.i189.us277 = getelementptr double, ptr %.4251.us269, i64 %indvars.iv.i187.us275
-  %118 = load double, ptr %gep.i189.us277, align 8, !tbaa !3
+  %indvars.iv.i187.us276 = phi i64 [ 0, %.lr.ph254.split.us288 ], [ %indvars.iv.next.i190.us279, %117 ]
+  %.144.i188.us277 = phi ptr [ %115, %.lr.ph254.split.us288 ], [ %120, %117 ]
+  %gep.i189.us278 = getelementptr double, ptr %.4251.us269, i64 %indvars.iv.i187.us276
+  %118 = load double, ptr %gep.i189.us278, align 8, !tbaa !3
   %119 = fmul double %116, %118
-  store double %119, ptr %.144.i188.us276, align 8, !tbaa !3
-  store double %119, ptr %gep.i189.us277, align 8, !tbaa !3
-  %120 = getelementptr inbounds nuw i8, ptr %.144.i188.us276, i64 8
-  %indvars.iv.next.i190.us278 = add nuw nsw i64 %indvars.iv.i187.us275, 1
-  %exitcond.not.i191.us279 = icmp eq i64 %indvars.iv.next.i190.us278, 16
-  br i1 %exitcond.not.i191.us279, label %.split47.us.i192.us280, label %117, !llvm.loop !7
+  store double %119, ptr %.144.i188.us277, align 8, !tbaa !3
+  store double %119, ptr %gep.i189.us278, align 8, !tbaa !3
+  %120 = getelementptr inbounds nuw i8, ptr %.144.i188.us277, i64 8
+  %indvars.iv.next.i190.us279 = add nuw nsw i64 %indvars.iv.i187.us276, 1
+  %exitcond.not.i191.us280 = icmp eq i64 %indvars.iv.next.i190.us279, 16
+  br i1 %exitcond.not.i191.us280, label %.split47.us.i192.us281, label %117, !llvm.loop !7
 
-.split47.us.i192.us280:                           ; preds = %117
+.split47.us.i192.us281:                           ; preds = %117
   %121 = getelementptr inbounds i8, ptr %.4133250.us270, i64 %.idx147
   %122 = getelementptr inbounds nuw i8, ptr %.4251.us269, i64 128
   %123 = add nsw i64 %.2252.us268, -1
   %124 = icmp sgt i64 %.2252.us268, 1
   br i1 %124, label %.lr.ph254.split.us288, label %._crit_edge255.us, !llvm.loop !14
 
-._crit_edge255.us:                                ; preds = %.split47.us.i192.us280, %.split47.us.i192.us.us
-  %.us-phi.us = phi ptr [ %132, %.split47.us.i192.us.us ], [ %121, %.split47.us.i192.us280 ]
-  %.us-phi258.us = phi ptr [ %133, %.split47.us.i192.us.us ], [ %122, %.split47.us.i192.us280 ]
+._crit_edge255.us:                                ; preds = %.split47.us.i192.us281, %.split47.us.i192.us.us
+  %.us-phi.us = phi ptr [ %132, %.split47.us.i192.us.us ], [ %121, %.split47.us.i192.us281 ]
+  %.us-phi258.us = phi ptr [ %133, %.split47.us.i192.us.us ], [ %122, %.split47.us.i192.us281 ]
   br i1 %.not144, label %.loopexit227, label %.preheader.us
 
 .lr.ph254.split.us.us:                            ; preds = %.lr.ph254.us, %.split47.us.i192.us.us

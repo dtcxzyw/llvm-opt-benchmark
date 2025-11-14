@@ -645,6 +645,8 @@ entry:
   %trigger_scope = alloca %"class.node::AsyncHooks::DefaultTriggerAsyncIdScope", align 8
   store ptr %bufs, ptr %bufs.addr, align 8
   store i64 %count, ptr %count.addr, align 8
+  %env_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %0 = load ptr, ptr %env_.i, align 8
   %cmp32.not = icmp eq i64 %count, 0
   br i1 %cmp32.not, label %for.end, label %for.body
 
@@ -653,16 +655,14 @@ for.body:                                         ; preds = %entry, %for.body
   %i.033 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
   %arrayidx = getelementptr inbounds %struct.uv_buf_t, ptr %bufs, i64 %i.033
   %len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %0 = load i64, ptr %len, align 8
-  %add = add i64 %0, %total_bytes.034
+  %1 = load i64, ptr %len, align 8
+  %add = add i64 %1, %total_bytes.034
   %inc = add nuw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %entry
   %total_bytes.0.lcssa = phi i64 [ 0, %entry ], [ %add, %for.body ]
-  %env_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %1 = load ptr, ptr %env_.i, align 8
   %bytes_written_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i64, ptr %bytes_written_, align 8
   %add4 = add i64 %2, %total_bytes.0.lcssa
@@ -695,18 +695,18 @@ if.then9:                                         ; preds = %if.then
   br label %return
 
 if.end11:                                         ; preds = %if.then, %for.end
-  %isolate_.i = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %5) #21
   %cmp.i = icmp eq ptr %req_wrap_obj.coerce, null
   br i1 %cmp.i, label %if.then14, label %if.end45
 
 if.then14:                                        ; preds = %if.end11
-  %isolate_data_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %isolate_data_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %isolate_data_.i.i, align 8
   %write_wrap_template_.i.i = getelementptr inbounds nuw i8, ptr %6, i64 2904
   %7 = load ptr, ptr %write_wrap_template_.i.i, align 8
-  %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2728
+  %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 2728
   %8 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %8, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
@@ -786,13 +786,13 @@ if.end67:                                         ; preds = %if.then66, %_ZN4nod
   br i1 %cmp71.not, label %cleanup.thread, label %if.then72
 
 if.then72:                                        ; preds = %if.end67
-  %principal_realm_.i.i23 = getelementptr inbounds nuw i8, ptr %1, i64 2728
+  %principal_realm_.i.i23 = getelementptr inbounds nuw i8, ptr %0, i64 2728
   %17 = load ptr, ptr %principal_realm_.i.i23, align 8
   %vtable.i24 = load ptr, ptr %17, align 8
   %vfn.i25 = getelementptr inbounds nuw i8, ptr %vtable.i24, i64 64
   %18 = load ptr, ptr %vfn.i25, align 8
   %call2.i26 = call ptr %18(ptr noundef nonnull align 8 dereferenceable(872) %17) #21
-  %isolate_data_.i.i27 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %isolate_data_.i.i27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %19 = load ptr, ptr %isolate_data_.i.i27, align 8
   %error_string_.i.i = getelementptr inbounds nuw i8, ptr %19, i64 856
   %20 = load ptr, ptr %error_string_.i.i, align 8

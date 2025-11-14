@@ -2396,50 +2396,50 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid8set_size(ptr 
 27:                                               ; preds = %.loopexit, %25
   store i16 %1, ptr %7, align 8
   store i16 %2, ptr %8, align 2
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load ptr, ptr %28, align 8, !alias.scope !516, !nonnull !7, !noundef !7
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %31 = load i64, ptr %30, align 8, !alias.scope !516, !noundef !7
-  %.idx18 = shl nsw i64 %31, 5
-  %32 = getelementptr inbounds i8, ptr %29, i64 %.idx18
-  %33 = icmp eq i64 %31, 0
-  br i1 %33, label %._crit_edge, label %.lr.ph17
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %30 = load ptr, ptr %29, align 8, !alias.scope !516, !nonnull !7, !noundef !7
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %32 = load i64, ptr %31, align 8, !alias.scope !516, !noundef !7
+  %.idx18 = shl nsw i64 %32, 5
+  %33 = getelementptr inbounds i8, ptr %30, i64 %.idx18
+  %34 = icmp eq i64 %32, 0
+  br i1 %34, label %._crit_edge, label %.lr.ph17
 
 .lr.ph17:                                         ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %35 = zext i16 %2 to i64
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %36 = zext i16 %2 to i64
   br label %39
 
 ._crit_edge:                                      ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row6resize.exit, %27
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = zext i16 %1 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row3new(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, i16 noundef %2), !noalias !519
-  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowE6resizeBJ_(ptr noalias noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %37, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5)
+  call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowE6resizeBJ_(ptr noalias noundef nonnull align 8 dereferenceable(24) %28, i64 noundef %37, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %38 = load i16, ptr %17, align 2, !noundef !7
   %.not4 = icmp ult i16 %38, %1
   br i1 %.not4, label %50, label %48
 
 39:                                               ; preds = %.lr.ph17, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row6resize.exit
-  %.sroa.09.016 = phi ptr [ %29, %.lr.ph17 ], [ %40, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row6resize.exit ]
+  %.sroa.09.016 = phi ptr [ %30, %.lr.ph17 ], [ %40, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row6resize.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.09.016, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_RNvXsR_NtCs1LoaDTb72WA_4core5arrayAcj6_NtNtB7_7default7Default7defaultCs8mTrBI1stz4_15turborepo_vt100(ptr noalias noundef nonnull sret([24 x i8]) align 4 captures(none) dereferenceable(36) %6)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %34, i8 0, i64 11, i1 false), !alias.scope !522
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %35, i8 0, i64 11, i1 false), !alias.scope !522
   tail call void @llvm.experimental.noalias.scope.decl(metadata !525)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !528)
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.09.016, i64 16
   %42 = load i64, ptr %41, align 8, !alias.scope !531, !noalias !532, !noundef !7
-  %43 = icmp ult i64 %42, %35
+  %43 = icmp ult i64 %42, %36
   br i1 %43, label %44, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellE8truncateBI_.exit.i.i
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellE8truncateBI_.exit.i.i: ; preds = %39
-  store i64 %35, ptr %41, align 8, !alias.scope !535, !noalias !532
+  store i64 %36, ptr %41, align 8, !alias.scope !535, !noalias !532
   br label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row6resize.exit
 
 44:                                               ; preds = %39
-  %45 = sub nuw nsw i64 %35, %42
+  %45 = sub nuw nsw i64 %36, %42
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !538
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, ptr noundef nonnull align 4 dereferenceable(36) %6, i64 36, i1 false), !noalias !531
   call void @_RNvMs2_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellE11extend_withBJ_(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.09.016, i64 noundef %45, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(36) %4), !noalias !532
@@ -2450,7 +2450,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row6resize.exit: ; preds = %_RNv
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.09.016, i64 24
   store i8 0, ptr %46, align 8, !alias.scope !525, !noalias !539
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %47 = icmp eq ptr %40, %32
+  %47 = icmp eq ptr %40, %33
   br i1 %47, label %._crit_edge, label %39
 
 48:                                               ; preds = %._crit_edge

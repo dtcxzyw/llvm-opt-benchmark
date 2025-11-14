@@ -284,12 +284,12 @@ define hidden noundef zeroext i16 @_ZN3ue226buildAlphabetFromEquivSetsERKSt6vect
 .preheader:                                       ; preds = %._crit_edge, %3
   %.026.lcssa = phi i16 [ 0, %3 ], [ %35, %._crit_edge ]
   %7 = zext i16 %.026.lcssa to i64
-  %8 = add i16 %.026.lcssa, 1
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 512
-  store i16 %.026.lcssa, ptr %9, align 2
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %7
-  store i16 256, ptr %10, align 2
-  ret i16 %8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 512
+  store i16 %.026.lcssa, ptr %8, align 2
+  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %7
+  store i16 256, ptr %9, align 2
+  %10 = add i16 %.026.lcssa, 1
+  ret i16 %10
 
 .lr.ph43:                                         ; preds = %3, %._crit_edge
   %11 = phi ptr [ %38, %._crit_edge ], [ %6, %3 ]
@@ -783,12 +783,12 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %._crit_edge, %_ZSt4
   %.sroa.058.0.lcssa157 = phi ptr [ %.sroa.058.0.lcssa156, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue29CharReachESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.thread.loopexit ], [ %.sroa.058.1, %._crit_edge ]
   %.026.lcssa.i = phi i16 [ %indvars, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3ue29CharReachESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.thread.loopexit ], [ 0, %._crit_edge ]
   %150 = zext i16 %.026.lcssa.i to i64
-  %151 = add i16 %.026.lcssa.i, 1
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 512
-  store i16 %.026.lcssa.i, ptr %152, align 2
-  %153 = getelementptr inbounds nuw i16, ptr %2, i64 %150
-  store i16 256, ptr %153, align 2
-  store i16 %151, ptr %3, align 2
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 512
+  store i16 %.026.lcssa.i, ptr %151, align 2
+  %152 = getelementptr inbounds nuw i16, ptr %2, i64 %150
+  store i16 256, ptr %152, align 2
+  %153 = add i16 %.026.lcssa.i, 1
+  store i16 %153, ptr %3, align 2
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.058.0.lcssa157) #26
   ret void
 
@@ -4603,8 +4603,8 @@ _ZNSt13unordered_mapIN3ue28bitfieldILm256EEEtSt4hashIS2_ESt8equal_toIS2_ESaISt4p
   %50 = getelementptr inbounds nuw i16, ptr %49, i64 %22
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %50, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %48
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %49, i8 0, i64 %48, i1 false)
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %48
   br label %53
 
 53:                                               ; preds = %.noexc, %_ZNSt13unordered_mapIN3ue28bitfieldILm256EEEtSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_tEEE7emplaceIJRS2_RKtEEES7_INSt8__detail14_Node_iteratorIS9_Lb0ELb1EEEbEDpOT_.exit
@@ -4892,8 +4892,8 @@ _ZNSt13unordered_mapIN3ue28bitfieldILm256EEEtSt4hashIS2_ESt8equal_toIS2_ESaISt4p
   store ptr %167, ptr %11, align 8
   %168 = getelementptr inbounds nuw i16, ptr %167, i64 %22
   store ptr %168, ptr %113, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %167, i64 %112
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %167, i8 0, i64 %112, i1 false)
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 %112
   br label %170
 
 170:                                              ; preds = %.noexc167, %_ZNSt13unordered_mapIN3ue28bitfieldILm256EEEtSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_tEEE7emplaceIJRS8_mEEES7_INSt8__detail14_Node_iteratorIS9_Lb0ELb1EEEbEDpOT_.exit
@@ -6322,8 +6322,8 @@ _ZNKSt10_HashtableIN3ue28bitfieldILm256EEESt4pairIKS2_tESaIS5_ENSt8__detail10_Se
   store ptr %734, ptr %14, align 8
   %735 = getelementptr inbounds nuw i16, ptr %734, i64 %22
   store ptr %735, ptr %232, align 8
-  %736 = getelementptr inbounds nuw i8, ptr %734, i64 %.idx.i.i189
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %734, i8 0, i64 %.idx.i.i189, i1 false)
+  %736 = getelementptr inbounds nuw i8, ptr %734, i64 %.idx.i.i189
   br label %737
 
 737:                                              ; preds = %.noexc207, %733
@@ -6810,8 +6810,8 @@ _ZNSt13unordered_mapIN5boost14dynamic_bitsetImSaImEEEtN3ue219hash_dynamic_bitset
   %51 = getelementptr inbounds nuw i16, ptr %50, i64 %23
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %49
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %50, i8 0, i64 %49, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %49
   br label %54
 
 54:                                               ; preds = %.noexc, %_ZNSt13unordered_mapIN5boost14dynamic_bitsetImSaImEEEtN3ue219hash_dynamic_bitsetESt8equal_toIS3_ESaISt4pairIKS3_tEEE7emplaceIJRS3_RKtEEES8_INSt8__detail14_Node_iteratorISA_Lb0ELb1EEEbEDpOT_.exit
@@ -7372,8 +7372,8 @@ _ZNSt13unordered_mapIN5boost14dynamic_bitsetImSaImEEEtN3ue219hash_dynamic_bitset
   store ptr %283, ptr %11, align 8
   %284 = getelementptr inbounds nuw i16, ptr %283, i64 %23
   store ptr %284, ptr %198, align 8
-  %285 = getelementptr inbounds nuw i8, ptr %283, i64 %197
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %283, i8 0, i64 %197, i1 false)
+  %285 = getelementptr inbounds nuw i8, ptr %283, i64 %197
   br label %286
 
 286:                                              ; preds = %.noexc184, %_ZNSt13unordered_mapIN5boost14dynamic_bitsetImSaImEEEtN3ue219hash_dynamic_bitsetESt8equal_toIS3_ESaISt4pairIKS3_tEEE7emplaceIJRS9_mEEES8_INSt8__detail14_Node_iteratorISA_Lb0ELb1EEEbEDpOT_.exit
@@ -10088,8 +10088,8 @@ _ZNSt13unordered_mapIN5boost14dynamic_bitsetImSaImEEEtN3ue219hash_dynamic_bitset
   store ptr %1322, ptr %15, align 8
   %1323 = getelementptr inbounds nuw i16, ptr %1322, i64 %23
   store ptr %1323, ptr %350, align 8
-  %1324 = getelementptr inbounds nuw i8, ptr %1322, i64 %.idx.i.i207
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %1322, i8 0, i64 %.idx.i.i207, i1 false)
+  %1324 = getelementptr inbounds nuw i8, ptr %1322, i64 %.idx.i.i207
   br label %1325
 
 1325:                                             ; preds = %.noexc235, %_ZNSt13unordered_mapIN5boost14dynamic_bitsetImSaImEEEtN3ue219hash_dynamic_bitsetESt8equal_toIS3_ESaISt4pairIKS3_tEEE7emplaceIJRS3_RtEEES8_INSt8__detail14_Node_iteratorISA_Lb0ELb1EEEbEDpOT_.exit
@@ -12302,8 +12302,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorImSaImEE17_M_default_appendEm(pt
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -13185,14 +13185,14 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__nor
   %7 = ptrtoint ptr %0 to i64
   %8 = sub i64 %6, %7
   %9 = icmp sgt i64 %8, 512
-  br i1 %9, label %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i.preheader, label %32
+  br i1 %9, label %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.lr.ph.i, label %32
 
-.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i.preheader:   ; preds = %2
+.lr.ph.i.i.i.i.i.i.i.i.i.preheader.lr.ph.i:       ; preds = %2
   %scevgep = getelementptr i8, ptr %0, i64 32
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i:             ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i.preheader, %22
-  %.sroa.0.019.i.idx = phi i64 [ %.sroa.0.019.i.add, %22 ], [ 32, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i.preheader ]
+.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i:             ; preds = %22, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.lr.ph.i
+  %.sroa.0.019.i.idx = phi i64 [ 32, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.lr.ph.i ], [ %.sroa.0.019.i.add, %22 ]
   %.sroa.0.019.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.019.i.idx
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 

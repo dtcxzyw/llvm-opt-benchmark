@@ -228,7 +228,7 @@ _ZNSt7__cxx114listI12aiMatrix4x4tIfESaIS2_EE9push_backERKS2_.exit: ; preds = %17
   %.not5367 = icmp eq ptr %3, %.pre
   br i1 %.not5367, label %_ZNSt7__cxx1110_List_baseI12aiMatrix4x4tIfESaIS2_EED2Ev.exit.critedge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph:                                           ; preds = %.loopexit
   %.sroa.9.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.11.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.13.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -238,22 +238,25 @@ _ZNSt7__cxx114listI12aiMatrix4x4tIfESaIS2_EE9push_backERKS2_.exit: ; preds = %17
   %.sroa.29.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.31.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.sroa.33.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %82, ptr %.sroa.9.0..sroa_idx23, align 4
-  store float %94, ptr %.sroa.11.0..sroa_idx25, align 4
-  store float %98, ptr %.sroa.13.0..sroa_idx27, align 4
-  store float %110, ptr %.sroa.19.0..sroa_idx33, align 4
-  store float %114, ptr %.sroa.21.0..sroa_idx35, align 4
-  store float %118, ptr %.sroa.23.0..sroa_idx37, align 4
-  store float %130, ptr %.sroa.29.0..sroa_idx43, align 4
-  store float %134, ptr %.sroa.31.0..sroa_idx45, align 4
-  store float %138, ptr %.sroa.33.0..sroa_idx47, align 4
-  store float %58, ptr %0, align 4
-  store float %70, ptr %6, align 4
-  store float %102, ptr %7, align 4
-  store float %106, ptr %8, align 4
-  store float %122, ptr %9, align 4
-  store float %126, ptr %10, align 4
-  store float %142, ptr %11, align 4
+  br label %30
+
+._crit_edge:                                      ; preds = %30
+  store float %83, ptr %.sroa.9.0..sroa_idx23, align 4
+  store float %95, ptr %.sroa.11.0..sroa_idx25, align 4
+  store float %99, ptr %.sroa.13.0..sroa_idx27, align 4
+  store float %111, ptr %.sroa.19.0..sroa_idx33, align 4
+  store float %115, ptr %.sroa.21.0..sroa_idx35, align 4
+  store float %119, ptr %.sroa.23.0..sroa_idx37, align 4
+  store float %131, ptr %.sroa.29.0..sroa_idx43, align 4
+  store float %135, ptr %.sroa.31.0..sroa_idx45, align 4
+  store float %139, ptr %.sroa.33.0..sroa_idx47, align 4
+  store float %59, ptr %0, align 4
+  store float %71, ptr %6, align 4
+  store float %103, ptr %7, align 4
+  store float %107, ptr %8, align 4
+  store float %123, ptr %9, align 4
+  store float %127, ptr %10, align 4
+  store float %143, ptr %11, align 4
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %.lr.ph.i.i
@@ -277,130 +280,130 @@ _ZNSt7__cxx1110_List_baseI12aiMatrix4x4tIfESaIS2_EED2Ev.exit: ; preds = %.lr.ph.
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-.lr.ph:                                           ; preds = %.loopexit, %.lr.ph
-  %30 = phi float [ %138, %.lr.ph ], [ 0.000000e+00, %.loopexit ]
-  %31 = phi float [ %134, %.lr.ph ], [ 0.000000e+00, %.loopexit ]
-  %32 = phi float [ %130, %.lr.ph ], [ 0.000000e+00, %.loopexit ]
-  %33 = phi float [ %118, %.lr.ph ], [ 0.000000e+00, %.loopexit ]
-  %34 = phi float [ %114, %.lr.ph ], [ 0.000000e+00, %.loopexit ]
-  %35 = phi float [ %110, %.lr.ph ], [ 0.000000e+00, %.loopexit ]
-  %36 = phi float [ %98, %.lr.ph ], [ 0.000000e+00, %.loopexit ]
-  %37 = phi float [ %94, %.lr.ph ], [ 0.000000e+00, %.loopexit ]
-  %38 = phi float [ %82, %.lr.ph ], [ 0.000000e+00, %.loopexit ]
-  %.sroa.052.069 = phi ptr [ %46, %.lr.ph ], [ %3, %.loopexit ]
-  %.sroa.0.0.copyload205468 = phi float [ %58, %.lr.ph ], [ 1.000000e+00, %.loopexit ]
-  %39 = phi float [ %70, %.lr.ph ], [ 0.000000e+00, %.loopexit ]
-  %40 = phi float [ %102, %.lr.ph ], [ 1.000000e+00, %.loopexit ]
-  %41 = phi float [ %106, %.lr.ph ], [ 0.000000e+00, %.loopexit ]
-  %42 = phi float [ %122, %.lr.ph ], [ 1.000000e+00, %.loopexit ]
-  %43 = phi float [ %126, %.lr.ph ], [ 0.000000e+00, %.loopexit ]
-  %44 = phi float [ %142, %.lr.ph ], [ 1.000000e+00, %.loopexit ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.052.069, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load float, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %50 = load float, ptr %49, align 4
-  %51 = fmul float %39, %50
-  %52 = call float @llvm.fmuladd.f32(float %48, float %.sroa.0.0.copyload205468, float %51)
-  %53 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  %54 = load float, ptr %53, align 4
-  %55 = call float @llvm.fmuladd.f32(float %54, float %38, float %52)
-  %56 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %57 = load float, ptr %56, align 4
-  %58 = call float @llvm.fmuladd.f32(float %57, float %37, float %55)
-  %59 = getelementptr inbounds nuw i8, ptr %46, i64 20
-  %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %46, i64 36
-  %62 = load float, ptr %61, align 4
-  %63 = fmul float %39, %62
-  %64 = call float @llvm.fmuladd.f32(float %60, float %.sroa.0.0.copyload205468, float %63)
-  %65 = getelementptr inbounds nuw i8, ptr %46, i64 52
-  %66 = load float, ptr %65, align 4
-  %67 = call float @llvm.fmuladd.f32(float %66, float %38, float %64)
-  %68 = getelementptr inbounds nuw i8, ptr %46, i64 68
-  %69 = load float, ptr %68, align 4
-  %70 = call float @llvm.fmuladd.f32(float %69, float %37, float %67)
-  %71 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %74 = load float, ptr %73, align 4
-  %75 = fmul float %39, %74
-  %76 = call float @llvm.fmuladd.f32(float %72, float %.sroa.0.0.copyload205468, float %75)
-  %77 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  %78 = load float, ptr %77, align 4
-  %79 = call float @llvm.fmuladd.f32(float %78, float %38, float %76)
-  %80 = getelementptr inbounds nuw i8, ptr %46, i64 72
-  %81 = load float, ptr %80, align 4
-  %82 = call float @llvm.fmuladd.f32(float %81, float %37, float %79)
-  %83 = getelementptr inbounds nuw i8, ptr %46, i64 28
-  %84 = load float, ptr %83, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %46, i64 44
-  %86 = load float, ptr %85, align 4
-  %87 = fmul float %39, %86
-  %88 = call float @llvm.fmuladd.f32(float %84, float %.sroa.0.0.copyload205468, float %87)
-  %89 = getelementptr inbounds nuw i8, ptr %46, i64 60
-  %90 = load float, ptr %89, align 4
-  %91 = call float @llvm.fmuladd.f32(float %90, float %38, float %88)
-  %92 = getelementptr inbounds nuw i8, ptr %46, i64 76
-  %93 = load float, ptr %92, align 4
-  %94 = call float @llvm.fmuladd.f32(float %93, float %37, float %91)
-  %95 = fmul float %40, %50
-  %96 = call float @llvm.fmuladd.f32(float %48, float %36, float %95)
-  %97 = call float @llvm.fmuladd.f32(float %54, float %41, float %96)
-  %98 = call float @llvm.fmuladd.f32(float %57, float %35, float %97)
-  %99 = fmul float %40, %62
-  %100 = call float @llvm.fmuladd.f32(float %60, float %36, float %99)
-  %101 = call float @llvm.fmuladd.f32(float %66, float %41, float %100)
-  %102 = call float @llvm.fmuladd.f32(float %69, float %35, float %101)
-  %103 = fmul float %40, %74
-  %104 = call float @llvm.fmuladd.f32(float %72, float %36, float %103)
-  %105 = call float @llvm.fmuladd.f32(float %78, float %41, float %104)
-  %106 = call float @llvm.fmuladd.f32(float %81, float %35, float %105)
-  %107 = fmul float %40, %86
-  %108 = call float @llvm.fmuladd.f32(float %84, float %36, float %107)
-  %109 = call float @llvm.fmuladd.f32(float %90, float %41, float %108)
-  %110 = call float @llvm.fmuladd.f32(float %93, float %35, float %109)
-  %111 = fmul float %33, %50
-  %112 = call float @llvm.fmuladd.f32(float %48, float %34, float %111)
-  %113 = call float @llvm.fmuladd.f32(float %54, float %42, float %112)
-  %114 = call float @llvm.fmuladd.f32(float %57, float %43, float %113)
-  %115 = fmul float %33, %62
-  %116 = call float @llvm.fmuladd.f32(float %60, float %34, float %115)
-  %117 = call float @llvm.fmuladd.f32(float %66, float %42, float %116)
-  %118 = call float @llvm.fmuladd.f32(float %69, float %43, float %117)
-  %119 = fmul float %33, %74
-  %120 = call float @llvm.fmuladd.f32(float %72, float %34, float %119)
-  %121 = call float @llvm.fmuladd.f32(float %78, float %42, float %120)
-  %122 = call float @llvm.fmuladd.f32(float %81, float %43, float %121)
-  %123 = fmul float %33, %86
-  %124 = call float @llvm.fmuladd.f32(float %84, float %34, float %123)
-  %125 = call float @llvm.fmuladd.f32(float %90, float %42, float %124)
-  %126 = call float @llvm.fmuladd.f32(float %93, float %43, float %125)
-  %127 = fmul float %31, %50
-  %128 = call float @llvm.fmuladd.f32(float %48, float %32, float %127)
-  %129 = call float @llvm.fmuladd.f32(float %54, float %30, float %128)
-  %130 = call float @llvm.fmuladd.f32(float %57, float %44, float %129)
-  %131 = fmul float %31, %62
-  %132 = call float @llvm.fmuladd.f32(float %60, float %32, float %131)
-  %133 = call float @llvm.fmuladd.f32(float %66, float %30, float %132)
-  %134 = call float @llvm.fmuladd.f32(float %69, float %44, float %133)
-  %135 = fmul float %31, %74
-  %136 = call float @llvm.fmuladd.f32(float %72, float %32, float %135)
-  %137 = call float @llvm.fmuladd.f32(float %78, float %30, float %136)
-  %138 = call float @llvm.fmuladd.f32(float %81, float %44, float %137)
-  %139 = fmul float %31, %86
-  %140 = call float @llvm.fmuladd.f32(float %84, float %32, float %139)
-  %141 = call float @llvm.fmuladd.f32(float %90, float %30, float %140)
-  %142 = call float @llvm.fmuladd.f32(float %93, float %44, float %141)
-  %.not53 = icmp eq ptr %46, %.pre
-  br i1 %.not53, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+30:                                               ; preds = %.lr.ph, %30
+  %31 = phi float [ 0.000000e+00, %.lr.ph ], [ %139, %30 ]
+  %32 = phi float [ 0.000000e+00, %.lr.ph ], [ %135, %30 ]
+  %33 = phi float [ 0.000000e+00, %.lr.ph ], [ %131, %30 ]
+  %34 = phi float [ 0.000000e+00, %.lr.ph ], [ %119, %30 ]
+  %35 = phi float [ 0.000000e+00, %.lr.ph ], [ %115, %30 ]
+  %36 = phi float [ 0.000000e+00, %.lr.ph ], [ %111, %30 ]
+  %37 = phi float [ 0.000000e+00, %.lr.ph ], [ %99, %30 ]
+  %38 = phi float [ 0.000000e+00, %.lr.ph ], [ %95, %30 ]
+  %39 = phi float [ 0.000000e+00, %.lr.ph ], [ %83, %30 ]
+  %.sroa.052.069 = phi ptr [ %3, %.lr.ph ], [ %47, %30 ]
+  %.sroa.0.0.copyload205468 = phi float [ 1.000000e+00, %.lr.ph ], [ %59, %30 ]
+  %40 = phi float [ 0.000000e+00, %.lr.ph ], [ %71, %30 ]
+  %41 = phi float [ 1.000000e+00, %.lr.ph ], [ %103, %30 ]
+  %42 = phi float [ 0.000000e+00, %.lr.ph ], [ %107, %30 ]
+  %43 = phi float [ 1.000000e+00, %.lr.ph ], [ %123, %30 ]
+  %44 = phi float [ 0.000000e+00, %.lr.ph ], [ %127, %30 ]
+  %45 = phi float [ 1.000000e+00, %.lr.ph ], [ %143, %30 ]
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.052.069, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = load float, ptr %48, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %51 = load float, ptr %50, align 4
+  %52 = fmul float %40, %51
+  %53 = call float @llvm.fmuladd.f32(float %49, float %.sroa.0.0.copyload205468, float %52)
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %55 = load float, ptr %54, align 4
+  %56 = call float @llvm.fmuladd.f32(float %55, float %39, float %53)
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %58 = load float, ptr %57, align 4
+  %59 = call float @llvm.fmuladd.f32(float %58, float %38, float %56)
+  %60 = getelementptr inbounds nuw i8, ptr %47, i64 20
+  %61 = load float, ptr %60, align 4
+  %62 = getelementptr inbounds nuw i8, ptr %47, i64 36
+  %63 = load float, ptr %62, align 4
+  %64 = fmul float %40, %63
+  %65 = call float @llvm.fmuladd.f32(float %61, float %.sroa.0.0.copyload205468, float %64)
+  %66 = getelementptr inbounds nuw i8, ptr %47, i64 52
+  %67 = load float, ptr %66, align 4
+  %68 = call float @llvm.fmuladd.f32(float %67, float %39, float %65)
+  %69 = getelementptr inbounds nuw i8, ptr %47, i64 68
+  %70 = load float, ptr %69, align 4
+  %71 = call float @llvm.fmuladd.f32(float %70, float %38, float %68)
+  %72 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %73 = load float, ptr %72, align 4
+  %74 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  %75 = load float, ptr %74, align 4
+  %76 = fmul float %40, %75
+  %77 = call float @llvm.fmuladd.f32(float %73, float %.sroa.0.0.copyload205468, float %76)
+  %78 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  %79 = load float, ptr %78, align 4
+  %80 = call float @llvm.fmuladd.f32(float %79, float %39, float %77)
+  %81 = getelementptr inbounds nuw i8, ptr %47, i64 72
+  %82 = load float, ptr %81, align 4
+  %83 = call float @llvm.fmuladd.f32(float %82, float %38, float %80)
+  %84 = getelementptr inbounds nuw i8, ptr %47, i64 28
+  %85 = load float, ptr %84, align 4
+  %86 = getelementptr inbounds nuw i8, ptr %47, i64 44
+  %87 = load float, ptr %86, align 4
+  %88 = fmul float %40, %87
+  %89 = call float @llvm.fmuladd.f32(float %85, float %.sroa.0.0.copyload205468, float %88)
+  %90 = getelementptr inbounds nuw i8, ptr %47, i64 60
+  %91 = load float, ptr %90, align 4
+  %92 = call float @llvm.fmuladd.f32(float %91, float %39, float %89)
+  %93 = getelementptr inbounds nuw i8, ptr %47, i64 76
+  %94 = load float, ptr %93, align 4
+  %95 = call float @llvm.fmuladd.f32(float %94, float %38, float %92)
+  %96 = fmul float %41, %51
+  %97 = call float @llvm.fmuladd.f32(float %49, float %37, float %96)
+  %98 = call float @llvm.fmuladd.f32(float %55, float %42, float %97)
+  %99 = call float @llvm.fmuladd.f32(float %58, float %36, float %98)
+  %100 = fmul float %41, %63
+  %101 = call float @llvm.fmuladd.f32(float %61, float %37, float %100)
+  %102 = call float @llvm.fmuladd.f32(float %67, float %42, float %101)
+  %103 = call float @llvm.fmuladd.f32(float %70, float %36, float %102)
+  %104 = fmul float %41, %75
+  %105 = call float @llvm.fmuladd.f32(float %73, float %37, float %104)
+  %106 = call float @llvm.fmuladd.f32(float %79, float %42, float %105)
+  %107 = call float @llvm.fmuladd.f32(float %82, float %36, float %106)
+  %108 = fmul float %41, %87
+  %109 = call float @llvm.fmuladd.f32(float %85, float %37, float %108)
+  %110 = call float @llvm.fmuladd.f32(float %91, float %42, float %109)
+  %111 = call float @llvm.fmuladd.f32(float %94, float %36, float %110)
+  %112 = fmul float %34, %51
+  %113 = call float @llvm.fmuladd.f32(float %49, float %35, float %112)
+  %114 = call float @llvm.fmuladd.f32(float %55, float %43, float %113)
+  %115 = call float @llvm.fmuladd.f32(float %58, float %44, float %114)
+  %116 = fmul float %34, %63
+  %117 = call float @llvm.fmuladd.f32(float %61, float %35, float %116)
+  %118 = call float @llvm.fmuladd.f32(float %67, float %43, float %117)
+  %119 = call float @llvm.fmuladd.f32(float %70, float %44, float %118)
+  %120 = fmul float %34, %75
+  %121 = call float @llvm.fmuladd.f32(float %73, float %35, float %120)
+  %122 = call float @llvm.fmuladd.f32(float %79, float %43, float %121)
+  %123 = call float @llvm.fmuladd.f32(float %82, float %44, float %122)
+  %124 = fmul float %34, %87
+  %125 = call float @llvm.fmuladd.f32(float %85, float %35, float %124)
+  %126 = call float @llvm.fmuladd.f32(float %91, float %43, float %125)
+  %127 = call float @llvm.fmuladd.f32(float %94, float %44, float %126)
+  %128 = fmul float %32, %51
+  %129 = call float @llvm.fmuladd.f32(float %49, float %33, float %128)
+  %130 = call float @llvm.fmuladd.f32(float %55, float %31, float %129)
+  %131 = call float @llvm.fmuladd.f32(float %58, float %45, float %130)
+  %132 = fmul float %32, %63
+  %133 = call float @llvm.fmuladd.f32(float %61, float %33, float %132)
+  %134 = call float @llvm.fmuladd.f32(float %67, float %31, float %133)
+  %135 = call float @llvm.fmuladd.f32(float %70, float %45, float %134)
+  %136 = fmul float %32, %75
+  %137 = call float @llvm.fmuladd.f32(float %73, float %33, float %136)
+  %138 = call float @llvm.fmuladd.f32(float %79, float %31, float %137)
+  %139 = call float @llvm.fmuladd.f32(float %82, float %45, float %138)
+  %140 = fmul float %32, %87
+  %141 = call float @llvm.fmuladd.f32(float %85, float %33, float %140)
+  %142 = call float @llvm.fmuladd.f32(float %91, float %31, float %141)
+  %143 = call float @llvm.fmuladd.f32(float %94, float %45, float %142)
+  %.not53 = icmp eq ptr %47, %.pre
+  br i1 %.not53, label %._crit_edge, label %30, !llvm.loop !9
 
 .lr.ph.i.i16:                                     ; preds = %23, %.lr.ph.i.i16
-  %.09.i.i17 = phi ptr [ %143, %.lr.ph.i.i16 ], [ %25, %23 ]
-  %143 = load ptr, ptr %.09.i.i17, align 8
+  %.09.i.i17 = phi ptr [ %144, %.lr.ph.i.i16 ], [ %25, %23 ]
+  %144 = load ptr, ptr %.09.i.i17, align 8
   call void @_ZdlPvm(ptr noundef nonnull %.09.i.i17, i64 noundef 80) #28
-  %.not.i.i18 = icmp eq ptr %143, %3
+  %.not.i.i18 = icmp eq ptr %144, %3
   br i1 %.not.i.i18, label %_ZNSt7__cxx1110_List_baseI12aiMatrix4x4tIfESaIS2_EED2Ev.exit19, label %.lr.ph.i.i16, !llvm.loop !8
 
 _ZNSt7__cxx1110_List_baseI12aiMatrix4x4tIfESaIS2_EED2Ev.exit19: ; preds = %.lr.ph.i.i16, %23

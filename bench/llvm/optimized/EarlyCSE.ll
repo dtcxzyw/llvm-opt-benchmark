@@ -12120,26 +12120,26 @@ declare { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8
 define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implINS_4User17value_op_iteratorEEENS_9hash_codeET_S6_(ptr %0, ptr %1) local_unnamed_addr #0 comdat {
   %3 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %.not50 = icmp eq ptr %0, %1
   br i1 %.not50, label %_ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.031.052 = phi ptr [ %5, %.lr.ph ], [ %0, %2 ]
+  %.sroa.031.052 = phi ptr [ %6, %.lr.ph ], [ %0, %2 ]
   %.040.idx51 = phi i64 [ %.040.add, %.lr.ph ], [ 0, %2 ]
   %.040.ptr53 = getelementptr inbounds nuw i8, ptr %3, i64 %.040.idx51
   %.040.add = add nuw nsw i64 %.040.idx51, 8
-  %4 = load ptr, ptr %.sroa.031.052, align 8, !tbaa !292
-  store ptr %4, ptr %.040.ptr53, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.031.052, i64 32
-  %.not = icmp eq ptr %5, %1
+  %5 = load ptr, ptr %.sroa.031.052, align 8, !tbaa !292
+  store ptr %5, ptr %.040.ptr53, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.031.052, i64 32
+  %.not = icmp eq ptr %6, %1
   %.not45 = icmp samesign ugt i64 %.040.idx51, 55
   %or.cond = select i1 %.not, i1 true, i1 %.not45
   br i1 %or.cond, label %_ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit, label %.lr.ph, !llvm.loop !626
 
 _ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit: ; preds = %.lr.ph, %2
   %.040.idx.lcssa = phi i64 [ 0, %2 ], [ %.040.add, %.lr.ph ]
-  %.sroa.031.0.lcssa = phi ptr [ %0, %2 ], [ %5, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %.sroa.031.0.lcssa = phi ptr [ %0, %2 ], [ %6, %.lr.ph ]
   %7 = icmp eq ptr %.sroa.031.0.lcssa, %1
   br i1 %7, label %8, label %10
 
@@ -12223,7 +12223,7 @@ _ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit: ; pre
 
 _ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit8: ; preds = %43
   %.2.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.2.add
-  %46 = call noundef ptr @_ZNSt3_V28__rotateIPcEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef nonnull %3, ptr noundef nonnull %.2.ptr, ptr noundef nonnull %6)
+  %46 = call noundef ptr @_ZNSt3_V28__rotateIPcEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef nonnull %3, ptr noundef nonnull %.2.ptr, ptr noundef nonnull %4)
   %.0.copyload.i.i = load i64, ptr %11, align 8
   %47 = add i64 %.sroa.8.063, %.sroa.18.061
   %48 = add i64 %47, %.sroa.0.064

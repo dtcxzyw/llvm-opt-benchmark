@@ -133,8 +133,8 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i104: ; preds = %.noexc108
   %.idx.i.i.i.i.i.i.i105 = shl nuw nsw i64 %18, 3
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i.i.i105
   tail call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 %.idx.i.i.i.i.i.i.i105, i1 false), !tbaa !14
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i.i.i105
   br label %25
 
 25:                                               ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i104, %.noexc108
@@ -151,8 +151,8 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i104: ; preds = %.noexc108
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc113
   %.idx.i.i.i.i.i.i.i111 = shl nuw nsw i64 %18, 2
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i.i.i.i.i111
   tail call void @llvm.memset.p0.i64(ptr align 4 %29, i8 0, i64 %.idx.i.i.i.i.i.i.i111, i1 false), !tbaa !12
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i.i.i.i.i111
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %14, %.noexc113, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i

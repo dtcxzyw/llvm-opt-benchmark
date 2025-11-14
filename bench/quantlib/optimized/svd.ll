@@ -1298,6 +1298,7 @@ _ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit723:  ; preds = %if.then.i722, %if.e
   %fneg930 = fneg double %div924
   %arrayidx.i726 = getelementptr inbounds nuw double, ptr %cond.i495, i64 %indvars.iv1346
   %197 = load double, ptr %arrayidx.i726, align 8, !tbaa !20
+  %mul934 = fmul double %197, %fneg930
   %mul938 = fmul double %div922, %197
   store double %mul938, ptr %arrayidx.i726, align 8, !tbaa !20
   br i1 %cmp9441160, label %invoke.cont986, label %for.end992
@@ -1321,7 +1322,6 @@ invoke.cont986:                                   ; preds = %_ZN8QuantLib12_GLOB
   br i1 %exitcond1345.not, label %for.end992, label %invoke.cont986, !llvm.loop !65
 
 for.end992:                                       ; preds = %invoke.cont986, %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit723
-  %mul934 = fmul double %197, %fneg930
   %indvars.iv.next1347 = add nsw i64 %indvars.iv1346, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1347 to i32
   %exitcond1349.not = icmp eq i32 %p.01191, %lftr.wideiv
@@ -1393,14 +1393,17 @@ if.end1120:                                       ; preds = %if.then1114, %_ZN8Q
   %215 = load double, ptr %arrayidx.i774, align 8, !tbaa !20
   %arrayidx.i775 = getelementptr inbounds nuw double, ptr %cond.i495, i64 %indvars.iv1369
   %216 = load double, ptr %arrayidx.i775, align 8, !tbaa !20
-  %217 = fneg double %215
-  %neg = fmul double %div1112, %217
-  %218 = tail call double @llvm.fmuladd.f64(double %div1110, double %216, double %neg)
-  store double %218, ptr %arrayidx.i775, align 8, !tbaa !20
+  %mul1129 = fmul double %div1112, %216
+  %217 = tail call double @llvm.fmuladd.f64(double %div1110, double %215, double %mul1129)
+  %218 = fneg double %215
+  %neg = fmul double %div1112, %218
+  %219 = tail call double @llvm.fmuladd.f64(double %div1110, double %216, double %neg)
+  store double %219, ptr %arrayidx.i775, align 8, !tbaa !20
   %indvars.iv.next1370 = add nsw i64 %indvars.iv1369, 1
   %arrayidx.i779 = getelementptr inbounds nuw double, ptr %118, i64 %indvars.iv.next1370
-  %219 = load double, ptr %arrayidx.i779, align 8, !tbaa !20
-  %mul1153 = fmul double %div1110, %219
+  %220 = load double, ptr %arrayidx.i779, align 8, !tbaa !20
+  %mul1147 = fmul double %div1112, %220
+  %mul1153 = fmul double %div1110, %220
   store double %mul1153, ptr %arrayidx.i779, align 8, !tbaa !20
   br i1 %cmp8401165, label %invoke.cont1203.lr.ph, label %for.end1209
 
@@ -1413,24 +1416,21 @@ invoke.cont1203:                                  ; preds = %invoke.cont1203.lr.
   %mul.i.i783 = mul i64 %205, %indvars.iv1359
   %add.ptr.i.i784 = getelementptr inbounds nuw double, ptr %204, i64 %mul.i.i783
   %arrayidx1168 = getelementptr inbounds double, ptr %add.ptr.i.i784, i64 %indvars.iv1369
-  %220 = load double, ptr %arrayidx1168, align 8, !tbaa !20
+  %221 = load double, ptr %arrayidx1168, align 8, !tbaa !20
   %arrayidx1176 = getelementptr inbounds nuw double, ptr %add.ptr.i.i784, i64 %indvars.iv.next1370
-  %221 = load double, ptr %arrayidx1176, align 8, !tbaa !20
-  %mul1177 = fmul double %div1112, %221
-  %222 = tail call double @llvm.fmuladd.f64(double %div1110, double %220, double %mul1177)
-  %mul1193 = fmul double %div1110, %221
-  %223 = tail call double @llvm.fmuladd.f64(double %fneg1178, double %220, double %mul1193)
-  store double %223, ptr %arrayidx1176, align 8, !tbaa !20
-  store double %222, ptr %arrayidx1168, align 8, !tbaa !20
+  %222 = load double, ptr %arrayidx1176, align 8, !tbaa !20
+  %mul1177 = fmul double %div1112, %222
+  %223 = tail call double @llvm.fmuladd.f64(double %div1110, double %221, double %mul1177)
+  %mul1193 = fmul double %div1110, %222
+  %224 = tail call double @llvm.fmuladd.f64(double %fneg1178, double %221, double %mul1193)
+  store double %224, ptr %arrayidx1176, align 8, !tbaa !20
+  store double %223, ptr %arrayidx1168, align 8, !tbaa !20
   %indvars.iv.next1360 = add nuw nsw i64 %indvars.iv1359, 1
   %exitcond1363.not = icmp eq i64 %indvars.iv.next1360, %wide.trip.count1362
   br i1 %exitcond1363.not, label %for.end1209, label %invoke.cont1203, !llvm.loop !67
 
 for.end1209:                                      ; preds = %invoke.cont1203, %if.end1120
-  %mul1129 = fmul double %div1112, %216
-  %224 = tail call double @llvm.fmuladd.f64(double %div1110, double %215, double %mul1129)
-  %mul1147 = fmul double %div1112, %219
-  %cmp.i800 = fcmp oeq double %224, 0.000000e+00
+  %cmp.i800 = fcmp oeq double %217, 0.000000e+00
   br i1 %cmp.i800, label %if.then.i806, label %if.else.i801
 
 if.then.i806:                                     ; preds = %for.end1209
@@ -1438,8 +1438,8 @@ if.then.i806:                                     ; preds = %for.end1209
   br label %_ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit807
 
 if.else.i801:                                     ; preds = %for.end1209
-  %div.i802 = fdiv double %mul1147, %224
-  %226 = tail call double @llvm.fabs.f64(double %224)
+  %div.i802 = fdiv double %mul1147, %217
+  %226 = tail call double @llvm.fabs.f64(double %217)
   %227 = tail call double @llvm.fmuladd.f64(double %div.i802, double %div.i802, double 1.000000e+00)
   %sqrt.i803 = tail call double @llvm.sqrt.f64(double %227)
   %mul.i804 = fmul double %226, %sqrt.i803
@@ -1447,7 +1447,7 @@ if.else.i801:                                     ; preds = %for.end1209
 
 _ZN8QuantLib12_GLOBAL__N_15hypotERKdS2_.exit807:  ; preds = %if.then.i806, %if.else.i801
   %retval.0.i805 = phi double [ %225, %if.then.i806 ], [ %mul.i804, %if.else.i801 ]
-  %div1212 = fdiv double %224, %retval.0.i805
+  %div1212 = fdiv double %217, %retval.0.i805
   %div1213 = fdiv double %mul1147, %retval.0.i805
   store double %retval.0.i805, ptr %arrayidx.i774, align 8, !tbaa !20
   %228 = load double, ptr %arrayidx.i775, align 8, !tbaa !20

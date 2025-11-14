@@ -1142,8 +1142,8 @@ _ZN12VNUser3InUseC2Ev.exit.i:                     ; preds = %_ZN12VNUser2InUseC2
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %102
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %104, 3
-  %106 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %103, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !43
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx.i.i.i.i.i.i.i.i
   br label %"_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_110buildGraphERKNS2_12LogicByScopeEE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i.i"
 
 107:                                              ; preds = %94

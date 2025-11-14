@@ -457,25 +457,25 @@ _ZNSt14_Function_baseD2Ev.exit2:                  ; preds = %_ZNSt14_Function_ba
 define dso_local void @_ZN4llvm16OutlinedHashTree6insertERKSt4pairINS_11SmallVectorImLj6EEEjE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::unique_ptr", align 8
-  %5 = load ptr, ptr %1, align 8, !tbaa !3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !12
-  %8 = zext i32 %7 to i64
-  %.idx = shl nuw nsw i64 %8, 3
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %.not32 = icmp eq i32 %7, 0
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %6 = load ptr, ptr %1, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i32, ptr %7, align 8, !tbaa !12
+  %9 = zext i32 %8 to i64
+  %.idx = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
+  %.not32 = icmp eq i32 %8, 0
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %54, %2
   %.0.lcssa = phi ptr [ %0, %2 ], [ %.1, %54 ]
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %11 = load i32, ptr %10, align 8, !tbaa !40
+  %11 = load i32, ptr %5, align 8, !tbaa !40
   %.not21 = icmp eq i32 %11, 0
   br i1 %.not21, label %62, label %56
 
 .lr.ph:                                           ; preds = %2, %54
   %.034 = phi ptr [ %.1, %54 ], [ %0, %2 ]
-  %.02033 = phi ptr [ %55, %54 ], [ %5, %2 ]
+  %.02033 = phi ptr [ %55, %54 ], [ %6, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = load i64, ptr %.02033, align 8, !tbaa !21
   store i64 %12, ptr %3, align 8, !tbaa !21
@@ -581,7 +581,7 @@ _ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4
   %.1 = phi ptr [ %42, %_ZNSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS1_EED2Ev.exit ], [ %53, %_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = getelementptr inbounds nuw i8, ptr %.02033, i64 8
-  %.not = icmp eq ptr %55, %9
+  %.not = icmp eq ptr %55, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 56:                                               ; preds = %._crit_edge
@@ -2281,38 +2281,38 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm8HashNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !83
-  %.not.i1 = icmp eq ptr %3, null
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = load ptr, ptr %3, align 8, !tbaa !83
+  %.not.i1 = icmp eq ptr %4, null
   br i1 %.not.i1, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE19_M_deallocate_nodesEPSB_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE7destroyISA_EEvPT_.exit.i
-  %.0.i2 = phi ptr [ %4, %_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE7destroyISA_EEvPT_.exit.i ], [ %3, %1 ]
-  %4 = load ptr, ptr %.0.i2, align 8, !tbaa !17
-  %5 = getelementptr inbounds nuw i8, ptr %.0.i2, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !10
-  %.not.i.i.i = icmp eq ptr %6, null
+  %.0.i2 = phi ptr [ %5, %_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE7destroyISA_EEvPT_.exit.i ], [ %4, %1 ]
+  %5 = load ptr, ptr %.0.i2, align 8, !tbaa !17
+  %6 = getelementptr inbounds nuw i8, ptr %.0.i2, i64 16
+  %7 = load ptr, ptr %6, align 8, !tbaa !10
+  %.not.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i, label %_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE7destroyISA_EEvPT_.exit.i, label %_ZNKSt14default_deleteIN4llvm8HashNodeEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm8HashNodeEEclEPS1_.exit.i.i.i: ; preds = %.lr.ph
-  tail call void @_ZN4llvm8HashNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #17
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 72) #19
+  tail call void @_ZN4llvm8HashNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 72) #19
   br label %_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE7destroyISA_EEvPT_.exit.i
 
 _ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE7destroyISA_EEvPT_.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm8HashNodeEEclEPS1_.exit.i.i.i, %.lr.ph
   tail call void @_ZdlPvm(ptr noundef nonnull %.0.i2, i64 noundef 24) #19
-  %.not.i = icmp eq ptr %4, null
+  %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE19_M_deallocate_nodesEPSB_.exit, label %.lr.ph, !llvm.loop !116
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEEE19_M_deallocate_nodesEPSB_.exit: ; preds = %_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS6_EEELb0EEEE7destroyISA_EEvPT_.exit.i, %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !48
+  %8 = load ptr, ptr %2, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !tbaa !47
   %11 = shl i64 %10, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %11, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %12 = load ptr, ptr %7, align 8, !tbaa !48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  %12 = load ptr, ptr %2, align 8, !tbaa !48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = icmp eq ptr %12, %13
   br i1 %14, label %_ZNSt10_HashtableImSt4pairIKmSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %15

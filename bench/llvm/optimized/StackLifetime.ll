@@ -8631,7 +8631,7 @@ _ZN4llvm9BitVectorC2Ejb.exit36.loopexit:          ; preds = %2
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i:        ; preds = %2
   %.not.i.i = icmp samesign ult i32 %3, 64
-  br i1 %.not.i.i, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i26.thread, label %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit47
+  br i1 %.not.i.i, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i26.thread, label %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit48
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i26.thread: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
   store i32 %4, ptr %7, align 8, !tbaa !68
@@ -8663,7 +8663,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i26.thread: ; preds = %_ZSt6fill_nIPmmmE
   store i32 6, ptr %43, align 4, !tbaa !69
   br label %_ZN4llvm9BitVectorC2Ejb.exit36
 
-_ZN4llvm9BitVectorC2Ejb.exit36.loopexit47:        ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
+_ZN4llvm9BitVectorC2Ejb.exit36.loopexit48:        ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %5, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %6, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !38
   store i32 %4, ptr %7, align 8, !tbaa !68
@@ -8698,8 +8698,8 @@ _ZN4llvm9BitVectorC2Ejb.exit36.loopexit47:        ; preds = %_ZSt6fill_nIPmmmET_
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 224
   br label %_ZN4llvm9BitVectorC2Ejb.exit36
 
-_ZN4llvm9BitVectorC2Ejb.exit36:                   ; preds = %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit, %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit47, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i26.thread
-  %59 = phi ptr [ %42, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i26.thread ], [ %58, %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit47 ], [ %26, %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit ]
+_ZN4llvm9BitVectorC2Ejb.exit36:                   ; preds = %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit48, %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i26.thread
+  %59 = phi ptr [ %42, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i26.thread ], [ %26, %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit ], [ %58, %_ZN4llvm9BitVectorC2Ejb.exit36.loopexit48 ]
   store i32 %4, ptr %59, align 8, !tbaa !68
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 %1, ptr %60, align 8, !tbaa !67

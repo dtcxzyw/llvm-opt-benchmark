@@ -2454,24 +2454,24 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_6object13Elf_Phdr_ImplINS2_7ELFTypeILNS_10endi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm7memprof16RawMemProfReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %3 = load ptr, ptr %2, align 8, !tbaa !100
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %5 = load i32, ptr %4, align 8, !tbaa !102
-  %6 = zext i32 %5 to i64
-  %.idx = mul nuw nsw i64 %6, 152
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.not34 = icmp eq i32 %5, 0
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %4 = load ptr, ptr %3, align 8, !tbaa !100
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %6 = load i32, ptr %5, align 8, !tbaa !102
+  %7 = zext i32 %6 to i64
+  %.idx = mul nuw nsw i64 %7, 152
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
+  %.not34 = icmp eq i32 %6, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %9 = load i64, ptr %8, align 8, !tbaa !106
-  %10 = icmp ugt i64 %9, 3
-  br i1 %10, label %.lr.ph.split, label %._crit_edge
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %10 = load i64, ptr %9, align 8, !tbaa !106
+  %11 = icmp ugt i64 %10, 3
+  br i1 %11, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %100, %.lr.ph, %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %14 = load i32, ptr %13, align 8, !tbaa !288
@@ -2612,7 +2612,7 @@ _ZN4llvm8DenseMapImNS_11SmallVectorImLj6EEENS_12DenseMapInfoImvEENS_6detail12Den
   %65 = phi i64 [ %64, %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorImLj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E10destroyAllEv.exit.loopexit.i29 ], [ 0, %_ZN4llvm8DenseMapImNS_11SmallVectorImLj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEED2Ev.exit ]
   %66 = phi ptr [ %.pre.i30, %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorImLj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E10destroyAllEv.exit.loopexit.i29 ], [ %.pre1.i21, %_ZN4llvm8DenseMapImNS_11SmallVectorImLj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEED2Ev.exit ]
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %66, i64 noundef %65, i64 noundef 8) #23
-  %67 = load ptr, ptr %2, align 8, !tbaa !100
+  %67 = load ptr, ptr %3, align 8, !tbaa !100
   %68 = icmp eq ptr %67, %49
   br i1 %68, label %_ZN4llvm9MapVectorImNS_7memprof12MemInfoBlockENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS_11SmallVectorISt4pairImS2_ELj0EEEED2Ev.exit, label %69
 
@@ -2621,7 +2621,7 @@ _ZN4llvm8DenseMapImNS_11SmallVectorImLj6EEENS_12DenseMapInfoImvEENS_6detail12Den
   br label %_ZN4llvm9MapVectorImNS_7memprof12MemInfoBlockENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS_11SmallVectorISt4pairImS2_ELj0EEEED2Ev.exit
 
 _ZN4llvm9MapVectorImNS_7memprof12MemInfoBlockENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS_11SmallVectorISt4pairImS2_ELj0EEEED2Ev.exit: ; preds = %_ZN4llvm8DenseMapImNS_11SmallVectorImLj6EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS2_EEED2Ev.exit32, %69
-  %70 = load ptr, ptr %11, align 8, !tbaa !294
+  %70 = load ptr, ptr %2, align 8, !tbaa !294
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %72 = load i32, ptr %71, align 8, !tbaa !295
   %73 = zext i32 %72 to i64
@@ -2672,12 +2672,12 @@ _ZN4llvm6object12OwningBinaryINS0_6BinaryEED2Ev.exit: ; preds = %_ZNSt10unique_p
   ret void
 
 .lr.ph.splitthread-pre-split:                     ; preds = %100
-  %.pr = load i64, ptr %8, align 8, !tbaa !106
+  %.pr = load i64, ptr %9, align 8, !tbaa !106
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
-  %91 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %9, %.lr.ph ]
-  %.035 = phi ptr [ %101, %.lr.ph.splitthread-pre-split ], [ %3, %.lr.ph ]
+  %91 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %10, %.lr.ph ]
+  %.035 = phi ptr [ %101, %.lr.ph.splitthread-pre-split ], [ %4, %.lr.ph ]
   %92 = icmp ugt i64 %91, 3
   br i1 %92, label %93, label %100
 
@@ -2696,7 +2696,7 @@ _ZN4llvm6object12OwningBinaryINS0_6BinaryEED2Ev.exit: ; preds = %_ZNSt10unique_p
 
 100:                                              ; preds = %96, %93, %.lr.ph.split
   %101 = getelementptr inbounds nuw i8, ptr %.035, i64 152
-  %.not = icmp eq ptr %101, %7
+  %.not = icmp eq ptr %101, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph.splitthread-pre-split, !llvm.loop !299
 }
 

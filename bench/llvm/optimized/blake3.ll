@@ -629,18 +629,18 @@ hasher_merge_cv_stack.exit84:                     ; preds = %hasher_merge_cv_sta
   %172 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %173 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 145
-  %175 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %176 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  %177 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %178 = getelementptr inbounds nuw i8, ptr %14, i64 105
-  %179 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %180 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %181 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %182 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %183 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  %184 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %185 = getelementptr inbounds nuw i8, ptr %13, i64 28
-  %186 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %175 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %176 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %177 = getelementptr inbounds nuw i8, ptr %14, i64 104
+  %178 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %179 = getelementptr inbounds nuw i8, ptr %14, i64 105
+  %180 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %183 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  %185 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %186 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %187 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %188 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %189 = getelementptr inbounds nuw i8, ptr %20, i64 104
@@ -875,36 +875,36 @@ hasher_merge_cv_stack.exit83:                     ; preds = %hasher_merge_cv_sta
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %303 = add nsw i64 %.0.i81148, -2
   %304 = lshr i64 %303, 1
+  %305 = add nuw nsw i64 %304, 1
   br label %.lr.ph145
 
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %.lr.ph145
-  %.0.i98144 = phi i64 [ %308, %.lr.ph145 ], [ 0, %.lr.ph145.preheader ]
-  %305 = shl i64 %.0.i98144, 6
-  %306 = getelementptr inbounds nuw i8, ptr %15, i64 %305
-  %307 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0.i98144
-  store ptr %306, ptr %307, align 8, !tbaa !44
-  %308 = add nuw i64 %.0.i98144, 1
+  %.0.i98144 = phi i64 [ %309, %.lr.ph145 ], [ 0, %.lr.ph145.preheader ]
+  %306 = shl i64 %.0.i98144, 6
+  %307 = getelementptr inbounds nuw i8, ptr %15, i64 %306
+  %308 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0.i98144
+  store ptr %307, ptr %308, align 8, !tbaa !44
+  %309 = add nuw i64 %.0.i98144, 1
   %exitcond.not = icmp eq i64 %.0.i98144, %304
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph145, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph145
-  %309 = add nuw nsw i64 %304, 1
-  %310 = shl nuw nsw i64 %308, 1
-  call void @llvm_blake3_hash_many(ptr noundef nonnull %4, i64 noundef %309, i64 noundef 1, ptr noundef %0, i64 noundef 0, i1 noundef zeroext false, i8 noundef zeroext %302, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef nonnull %16) #11
+  %310 = shl nuw nsw i64 %309, 1
+  call void @llvm_blake3_hash_many(ptr noundef nonnull %4, i64 noundef %305, i64 noundef 1, ptr noundef %0, i64 noundef 0, i1 noundef zeroext false, i8 noundef zeroext %302, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef nonnull %16) #11
   %311 = icmp samesign ugt i64 %.0.i81148, %310
   br i1 %311, label %312, label %compress_parents_parallel.exit
 
 312:                                              ; preds = %._crit_edge
-  %313 = shl nuw nsw i64 %309, 5
+  %313 = shl nuw nsw i64 %305, 5
   %314 = getelementptr inbounds nuw i8, ptr %16, i64 %313
-  %315 = shl nuw nsw i64 %309, 6
+  %315 = shl nuw nsw i64 %305, 6
   %316 = getelementptr inbounds nuw i8, ptr %15, i64 %315
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %314, ptr noundef nonnull align 16 dereferenceable(32) %316, i64 32, i1 false)
   %317 = add nuw nsw i64 %304, 2
   br label %compress_parents_parallel.exit
 
 compress_parents_parallel.exit:                   ; preds = %._crit_edge, %312
-  %.018.i = phi i64 [ %317, %312 ], [ %309, %._crit_edge ]
+  %.018.i = phi i64 [ %317, %312 ], [ %305, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %318 = shl nuw nsw i64 %.018.i, 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %15, ptr noundef nonnull align 16 dereferenceable(1) %16, i64 %318, i1 false)
@@ -1010,35 +1010,35 @@ hasher_merge_cv_stack.exit82:                     ; preds = %hasher_merge_cv_sta
   %367 = load i8, ptr %161, align 2, !tbaa !29
   %368 = or i8 %367, 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %175, ptr noundef nonnull align 1 dereferenceable(64) %366, i64 64, i1 false)
-  store i8 64, ptr %176, align 8, !tbaa !19, !alias.scope !52
-  store i64 0, ptr %177, align 8, !tbaa !24, !alias.scope !52
-  store i8 %368, ptr %178, align 1, !tbaa !25, !alias.scope !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %176, ptr noundef nonnull align 1 dereferenceable(64) %366, i64 64, i1 false)
+  store i8 64, ptr %177, align 8, !tbaa !19, !alias.scope !52
+  store i64 0, ptr %178, align 8, !tbaa !24, !alias.scope !52
+  store i8 %368, ptr %179, align 1, !tbaa !25, !alias.scope !52
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
-  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %13, ptr noundef nonnull %175, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %368) #11
+  call void @llvm_blake3_compress_in_place(ptr noundef nonnull %13, ptr noundef nonnull %176, i8 noundef zeroext 64, i64 noundef 0, i8 noundef zeroext %368) #11
   %369 = load i32, ptr %13, align 16, !tbaa !26
   store i32 %369, ptr %366, align 1
   %370 = getelementptr i8, ptr %365, i64 85
-  %371 = load i32, ptr %179, align 4, !tbaa !26
+  %371 = load i32, ptr %180, align 4, !tbaa !26
   store i32 %371, ptr %370, align 1
   %372 = getelementptr i8, ptr %365, i64 89
-  %373 = load i32, ptr %180, align 8, !tbaa !26
+  %373 = load i32, ptr %181, align 8, !tbaa !26
   store i32 %373, ptr %372, align 1
   %374 = getelementptr i8, ptr %365, i64 93
-  %375 = load i32, ptr %181, align 4, !tbaa !26
+  %375 = load i32, ptr %182, align 4, !tbaa !26
   store i32 %375, ptr %374, align 1
   %376 = getelementptr i8, ptr %365, i64 97
-  %377 = load i32, ptr %182, align 16, !tbaa !26
+  %377 = load i32, ptr %183, align 16, !tbaa !26
   store i32 %377, ptr %376, align 1
   %378 = getelementptr i8, ptr %365, i64 101
-  %379 = load i32, ptr %183, align 4, !tbaa !26
+  %379 = load i32, ptr %184, align 4, !tbaa !26
   store i32 %379, ptr %378, align 1
   %380 = getelementptr i8, ptr %365, i64 105
-  %381 = load i32, ptr %184, align 8, !tbaa !26
+  %381 = load i32, ptr %185, align 8, !tbaa !26
   store i32 %381, ptr %380, align 1
   %382 = getelementptr i8, ptr %365, i64 109
-  %383 = load i32, ptr %185, align 4, !tbaa !26
+  %383 = load i32, ptr %186, align 4, !tbaa !26
   store i32 %383, ptr %382, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %384 = load i8, ptr %162, align 8, !tbaa !3
@@ -1057,7 +1057,7 @@ hasher_merge_cv_stack.exit:                       ; preds = %hasher_merge_cv_sta
   %.lcssa133 = phi i8 [ %385, %hasher_merge_cv_stack.exit.loopexit ], [ %355, %hasher_merge_cv_stack.exit82 ]
   %387 = shl nuw nsw i64 %.pre-phi206, 5
   %388 = getelementptr inbounds nuw i8, ptr %174, i64 %387
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %388, ptr noundef nonnull align 16 dereferenceable(32) %186, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %388, ptr noundef nonnull align 16 dereferenceable(32) %175, i64 32, i1 false)
   %389 = add i8 %.lcssa133, 1
   store i8 %389, ptr %162, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -1530,27 +1530,27 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @blake3_compress_s
 .lr.ph.preheader:                                 ; preds = %15
   %17 = add i64 %1, -1024
   %18 = lshr i64 %17, 10
+  %19 = add nuw nsw i64 %18, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.027.i43 = phi i64 [ %22, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.028.i42 = phi i64 [ %21, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.028.i42
-  %20 = getelementptr inbounds nuw ptr, ptr %8, i64 %.027.i43
-  store ptr %19, ptr %20, align 8, !tbaa !44
-  %21 = add i64 %.028.i42, 1024
-  %22 = add nuw nsw i64 %.027.i43, 1
+  %.027.i43 = phi i64 [ %23, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.028.i42 = phi i64 [ %22, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %.028.i42
+  %21 = getelementptr inbounds nuw ptr, ptr %8, i64 %.027.i43
+  store ptr %20, ptr %21, align 8, !tbaa !44
+  %22 = add i64 %.028.i42, 1024
+  %23 = add nuw nsw i64 %.027.i43, 1
   %exitcond.not = icmp eq i64 %.027.i43, %18
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !72
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %23 = add nuw nsw i64 %18, 1
-  %24 = sub i64 %1, %21
+  %24 = sub i64 %1, %22
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %15
-  %.028.i.lcssa = phi i64 [ 0, %15 ], [ %21, %._crit_edge.loopexit ]
-  %.027.i.lcssa = phi i64 [ 0, %15 ], [ %23, %._crit_edge.loopexit ]
+  %.028.i.lcssa = phi i64 [ 0, %15 ], [ %22, %._crit_edge.loopexit ]
+  %.027.i.lcssa = phi i64 [ 0, %15 ], [ %19, %._crit_edge.loopexit ]
   %.lcssa41 = phi i64 [ %1, %15 ], [ %24, %._crit_edge.loopexit ]
   call void @llvm_blake3_hash_many(ptr noundef nonnull %8, i64 noundef %.027.i.lcssa, i64 noundef 16, ptr noundef %2, i64 noundef %3, i1 noundef zeroext true, i8 noundef zeroext %4, i8 noundef zeroext 1, i8 noundef zeroext 2, ptr noundef nonnull %5) #11
   %25 = icmp ugt i64 %1, %.028.i.lcssa
@@ -1709,25 +1709,25 @@ compress_chunks_parallel.exit:                    ; preds = %._crit_edge, %chunk
 .lr.ph54.preheader:                               ; preds = %109
   %112 = add i64 %110, -2
   %113 = lshr i64 %112, 1
+  %114 = add nuw nsw i64 %113, 1
   br label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %.lr.ph54.preheader, %.lr.ph54
-  %.0.i52 = phi i64 [ %117, %.lr.ph54 ], [ 0, %.lr.ph54.preheader ]
-  %114 = shl i64 %.0.i52, 6
-  %115 = getelementptr inbounds nuw i8, ptr %12, i64 %114
-  %116 = getelementptr inbounds nuw ptr, ptr %11, i64 %.0.i52
-  store ptr %115, ptr %116, align 8, !tbaa !44
-  %117 = add nuw i64 %.0.i52, 1
+  %.0.i52 = phi i64 [ %118, %.lr.ph54 ], [ 0, %.lr.ph54.preheader ]
+  %115 = shl i64 %.0.i52, 6
+  %116 = getelementptr inbounds nuw i8, ptr %12, i64 %115
+  %117 = getelementptr inbounds nuw ptr, ptr %11, i64 %.0.i52
+  store ptr %116, ptr %117, align 8, !tbaa !44
+  %118 = add nuw i64 %.0.i52, 1
   %exitcond65.not = icmp eq i64 %.0.i52, %113
   br i1 %exitcond65.not, label %._crit_edge55.loopexit, label %.lr.ph54, !llvm.loop !47
 
 ._crit_edge55.loopexit:                           ; preds = %.lr.ph54
-  %118 = add nuw nsw i64 %113, 1
-  %119 = shl nuw i64 %117, 1
+  %119 = shl nuw i64 %118, 1
   br label %._crit_edge55
 
 ._crit_edge55:                                    ; preds = %._crit_edge55.loopexit, %109
-  %.0.i.lcssa = phi i64 [ 0, %109 ], [ %118, %._crit_edge55.loopexit ]
+  %.0.i.lcssa = phi i64 [ 0, %109 ], [ %114, %._crit_edge55.loopexit ]
   %.lcssa = phi i64 [ 0, %109 ], [ %119, %._crit_edge55.loopexit ]
   %120 = or i8 %4, 4
   call void @llvm_blake3_hash_many(ptr noundef nonnull %11, i64 noundef %.0.i.lcssa, i64 noundef 1, ptr noundef %2, i64 noundef 0, i1 noundef zeroext false, i8 noundef zeroext %120, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef nonnull %5) #11

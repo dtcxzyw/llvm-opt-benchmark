@@ -987,7 +987,7 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 124
   br label %24
 
-11:                                               ; preds = %38
+11:                                               ; preds = %39
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %13 = load i32, ptr %12, align 16, !tbaa !122
   %14 = sitofp i32 %13 to float
@@ -1004,8 +1004,8 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
   %.not37 = icmp eq i32 %23, 0
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
-24:                                               ; preds = %3, %38
-  %indvars.iv41 = phi i64 [ 0, %3 ], [ %indvars.iv.next42, %38 ]
+24:                                               ; preds = %3, %39
+  %indvars.iv41 = phi i64 [ 0, %3 ], [ %indvars.iv.next42, %39 ]
   %25 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #21
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 184
   store i32 65536, ptr %26, align 8, !tbaa !127
@@ -1015,24 +1015,24 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 192
   store ptr %28, ptr %29, align 8, !tbaa !129
   store i32 1, ptr %25, align 8, !tbaa !107
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  store float 0.000000e+00, ptr %30, align 4, !tbaa !130
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store float 1.000000e+00, ptr %31, align 8, !tbaa !131
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 12
-  store float 0.000000e+00, ptr %32, align 4, !tbaa !111
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store float 1.000000e+00, ptr %33, align 8, !tbaa !112
-  %34 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv41
-  store ptr %25, ptr %34, align 8, !tbaa !101
-  %35 = getelementptr inbounds nuw [6 x float], ptr %9, i64 %indvars.iv41
-  %36 = getelementptr inbounds nuw [6 x float], ptr %10, i64 %indvars.iv41
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  store float 0.000000e+00, ptr %31, align 4, !tbaa !130
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store float 1.000000e+00, ptr %32, align 8, !tbaa !131
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 12
+  store float 0.000000e+00, ptr %33, align 4, !tbaa !111
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store float 1.000000e+00, ptr %34, align 8, !tbaa !112
+  %35 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv41
+  store ptr %25, ptr %35, align 8, !tbaa !101
+  %36 = getelementptr inbounds nuw [6 x float], ptr %9, i64 %indvars.iv41
+  %37 = getelementptr inbounds nuw [6 x float], ptr %10, i64 %indvars.iv41
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 24
   br label %40
 
-38:                                               ; preds = %40
-  %39 = getelementptr inbounds nuw i8, ptr %25, i64 20
-  store i8 %49, ptr %39, align 4, !tbaa !102
+39:                                               ; preds = %40
+  store i8 %49, ptr %30, align 4, !tbaa !102
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 5
   br i1 %exitcond44.not, label %11, label %24
@@ -1040,19 +1040,19 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef reado
 40:                                               ; preds = %24, %40
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %40 ]
   %41 = phi i8 [ 0, %24 ], [ %49, %40 ]
-  %42 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
   %43 = load float, ptr %42, align 4, !tbaa !82
-  %44 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
   %45 = load float, ptr %44, align 4, !tbaa !82
   %46 = zext i8 %41 to i64
-  %47 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %37, i64 %46
+  %47 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %38, i64 %46
   store float %43, ptr %47, align 8, !tbaa !108
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store float %45, ptr %48, align 4, !tbaa !110
   %49 = add i8 %41, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %38, label %40
+  br i1 %exitcond.not, label %39, label %40
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %50 = tail call i32 @llvm.umin.i32(i32 %51, i32 6)

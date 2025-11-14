@@ -9189,20 +9189,20 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   br i1 %50, label %_ZN4pbrt12SobolSampler16StartPixelSampleENS_6Point2IiEEii.exit, label %51
 
 51:                                               ; preds = %36
+  %52 = shl nuw nsw i32 %48, 1
+  %53 = zext nneg i32 %52 to i64
+  %54 = shl i64 %49, %53
   %.not34.i.i = icmp eq i32 %42, 0
   br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %51
-  %52 = sub nuw nsw i32 30, %47
-  %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw [52 x i64], ptr @_ZN4pbrt16VdCSobolMatricesE, i64 %53
+  %55 = sub nuw nsw i32 30, %47
+  %56 = zext nneg i32 %55 to i64
+  %57 = getelementptr inbounds nuw [52 x i64], ptr @_ZN4pbrt16VdCSobolMatricesE, i64 %56
   br label %65
 
 ._crit_edge.i.i:                                  ; preds = %71, %51
   %.025.lcssa.i.i = phi i64 [ 0, %51 ], [ %.1.i.i, %71 ]
-  %55 = shl nuw nsw i32 %48, 1
-  %56 = zext nneg i32 %55 to i64
-  %57 = shl i64 %49, %56
   %58 = zext nneg i32 %48 to i64
   %59 = shl nuw nsw i64 %.sroa.0113.0.insert.ext117, %58
   %60 = or i64 %59, %.sroa.8120.0.insert.ext125
@@ -9225,7 +9225,7 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   br i1 %.not33.i.i, label %71, label %67
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i.i
+  %68 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv.i.i
   %69 = load i64, ptr %68, align 8, !tbaa !93
   %70 = xor i64 %69, %.02536.i.i
   br label %71
@@ -9240,7 +9240,7 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
 73:                                               ; preds = %79, %.lr.ph43.i.i
   %indvars.iv46.i.i = phi i64 [ 0, %.lr.ph43.i.i ], [ %indvars.iv.next47.i.i, %79 ]
   %.02340.i.i = phi i64 [ %61, %.lr.ph43.i.i ], [ %80, %79 ]
-  %.02639.i.i = phi i64 [ %57, %.lr.ph43.i.i ], [ %.127.i.i, %79 ]
+  %.02639.i.i = phi i64 [ %54, %.lr.ph43.i.i ], [ %.127.i.i, %79 ]
   %74 = and i64 %.02340.i.i, 1
   %.not32.i.i = icmp eq i64 %74, 0
   br i1 %.not32.i.i, label %79, label %75
@@ -9259,7 +9259,7 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   br i1 %.not31.i.i, label %_ZN4pbrt12SobolSampler16StartPixelSampleENS_6Point2IiEEii.exit, label %73, !llvm.loop !445
 
 _ZN4pbrt12SobolSampler16StartPixelSampleENS_6Point2IiEEii.exit: ; preds = %79, %36, %._crit_edge.i.i
-  %.028.i.i = phi i64 [ %49, %36 ], [ %57, %._crit_edge.i.i ], [ %.127.i.i, %79 ]
+  %.028.i.i = phi i64 [ %49, %36 ], [ %54, %._crit_edge.i.i ], [ %.127.i.i, %79 ]
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i64 %.028.i.i, ptr %81, align 8, !tbaa !446
   store i32 3, ptr %44, align 8, !tbaa !447
@@ -11045,6 +11045,7 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt13ZSobolSampler5Get1DEv(ptr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !471
   %4 = and i32 %3, 1
+  %.not.not.i = icmp eq i32 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !490
   %.not.not2021.i = icmp sgt i32 %6, %4
@@ -11063,7 +11064,6 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt13ZSobolSampler5Get1DEv(ptr
 
 ._crit_edge.i:                                    ; preds = %15, %1
   %.0.lcssa.i = phi i64 [ 0, %1 ], [ %39, %15 ]
-  %.not.not.i = icmp eq i32 %4, 0
   br i1 %.not.not.i, label %._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge, label %40
 
 ._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge: ; preds = %._crit_edge.i
@@ -11338,6 +11338,7 @@ define linkonce_odr dso_local <2 x float> @_ZN4pbrt13ZSobolSampler5Get2DEv(ptr n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !471
   %4 = and i32 %3, 1
+  %.not.not.i = icmp eq i32 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !490
   %.not.not2021.i = icmp sgt i32 %6, %4
@@ -11356,7 +11357,6 @@ define linkonce_odr dso_local <2 x float> @_ZN4pbrt13ZSobolSampler5Get2DEv(ptr n
 
 ._crit_edge.i:                                    ; preds = %15, %1
   %.0.lcssa.i = phi i64 [ 0, %1 ], [ %39, %15 ]
-  %.not.not.i = icmp eq i32 %4, 0
   br i1 %.not.not.i, label %._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge, label %40
 
 ._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge: ; preds = %._crit_edge.i

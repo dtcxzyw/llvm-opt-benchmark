@@ -436,11 +436,11 @@ define range(i64 -66, 13) i64 @HUF_buildCTable_wksp(ptr noundef captures(none) %
   %.0.i = select i1 %.not.i, ptr null, ptr %13
   %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %15 = icmp ult i64 %storemerge.i, 4864
-  br i1 %15, label %313, label %16
+  br i1 %15, label %312, label %16
 
 16:                                               ; preds = %6
   %17 = icmp ugt i32 %2, 255
-  br i1 %17, label %313, label %18
+  br i1 %17, label %312, label %18
 
 18:                                               ; preds = %16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %13, i8 0, i64 4096, i1 false)
@@ -568,31 +568,31 @@ HUF_sort.exit:                                    ; preds = %64
   store i16 256, ptr %81, align 4, !tbaa !32
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i16 256, ptr %82, align 4, !tbaa !32
+  %83 = add nsw i32 %75, -2
   %.not89.i = icmp slt i64 %indvars.iv.i24, 2
   br i1 %.not89.i, label %.preheader.i28, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %72
-  %83 = tail call i32 @llvm.smax.i32(i32 %indvars.iv, i32 257)
-  %narrow = add nuw i32 %83, 1
-  %84 = zext i32 %narrow to i64
+  %84 = tail call i32 @llvm.smax.i32(i32 %indvars.iv, i32 257)
+  %narrow = add nuw i32 %84, 1
+  %85 = zext i32 %narrow to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv107.i = phi i64 [ 257, %.lr.ph.preheader.i ], [ %indvars.iv.next108.i, %.lr.ph.i ]
-  %85 = getelementptr inbounds nuw %struct.nodeElt_s, ptr %14, i64 %indvars.iv107.i
-  store i32 1073741824, ptr %85, align 4, !tbaa !26
+  %86 = getelementptr inbounds nuw %struct.nodeElt_s, ptr %14, i64 %indvars.iv107.i
+  store i32 1073741824, ptr %86, align 4, !tbaa !26
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next108.i, %84
+  %exitcond.not = icmp eq i64 %indvars.iv.next108.i, %85
   br i1 %exitcond.not, label %.lr.ph96.preheader.i, label %.lr.ph.i, !llvm.loop !33
 
 .lr.ph96.preheader.i:                             ; preds = %.lr.ph.i
   store i32 -2147483648, ptr %13, align 4, !tbaa !26
-  %86 = add nsw i32 %75, -2
   br label %.lr.ph96.i
 
 .lr.ph96.i:                                       ; preds = %.lr.ph96.i, %.lr.ph96.preheader.i
   %indvars.iv110.i = phi i64 [ 257, %.lr.ph96.preheader.i ], [ %indvars.iv.next111.i, %.lr.ph96.i ]
-  %.07394.i = phi i32 [ %86, %.lr.ph96.preheader.i ], [ %.2.i, %.lr.ph96.i ]
+  %.07394.i = phi i32 [ %83, %.lr.ph96.preheader.i ], [ %.2.i, %.lr.ph96.i ]
   %.07493.i = phi i32 [ 256, %.lr.ph96.preheader.i ], [ %.276.i, %.lr.ph96.i ]
   %87 = sext i32 %.07394.i to i64
   %88 = getelementptr inbounds %struct.nodeElt_s, ptr %14, i64 %87
@@ -635,7 +635,7 @@ HUF_sort.exit:                                    ; preds = %64
   %117 = getelementptr inbounds nuw i8, ptr %108, i64 4
   store i16 %115, ptr %117, align 4, !tbaa !32
   %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
-  %exitcond64.not = icmp eq i64 %indvars.iv.next111.i, %84
+  %exitcond64.not = icmp eq i64 %indvars.iv.next111.i, %85
   br i1 %exitcond64.not, label %.lr.ph100.preheader.i, label %.lr.ph96.i, !llvm.loop !34
 
 .lr.ph100.preheader.i:                            ; preds = %.lr.ph96.i
@@ -759,22 +759,22 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   br i1 %175, label %170, label %176, !llvm.loop !39
 
 176:                                              ; preds = %170
+  %177 = ashr i32 %.086.lcssa.i, %149
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %9, i8 -16, i64 56, i1 false)
-  %177 = icmp sgt i64 %indvars.iv152.i, -1
-  br i1 %177, label %.lr.ph120.preheader.i, label %.preheader112.i
+  %178 = icmp sgt i64 %indvars.iv152.i, -1
+  br i1 %178, label %.lr.ph120.preheader.i, label %.preheader112.i
 
 .lr.ph120.preheader.i:                            ; preds = %176
-  %178 = zext i32 %indvars.iv155.i to i64
+  %179 = zext i32 %indvars.iv155.i to i64
   br label %.lr.ph120.i
 
 .preheader112.i:                                  ; preds = %190, %176
-  %179 = ashr i32 %.086.lcssa.i, %149
-  %180 = icmp sgt i32 %179, 0
+  %180 = icmp sgt i32 %177, 0
   br i1 %180, label %.lr.ph134.i, label %.preheader111.i
 
 .lr.ph120.i:                                      ; preds = %190, %.lr.ph120.preheader.i
-  %indvars.iv157.i = phi i64 [ %178, %.lr.ph120.preheader.i ], [ %indvars.iv.next158.i, %190 ]
+  %indvars.iv157.i = phi i64 [ %179, %.lr.ph120.preheader.i ], [ %indvars.iv.next158.i, %190 ]
   %.094118.i = phi i32 [ %spec.store.select, %.lr.ph120.preheader.i ], [ %.195.i, %190 ]
   %181 = getelementptr inbounds nuw %struct.nodeElt_s, ptr %14, i64 %indvars.iv157.i
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 7
@@ -798,7 +798,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   br i1 %191, label %.lr.ph120.i, label %.preheader112.i, !llvm.loop !40
 
 .preheader111.i:                                  ; preds = %242, %.preheader112.i
-  %.187.lcssa.i = phi i32 [ %179, %.preheader112.i ], [ %220, %242 ]
+  %.187.lcssa.i = phi i32 [ %177, %.preheader112.i ], [ %220, %242 ]
   %192 = icmp slt i32 %.187.lcssa.i, 0
   br i1 %192, label %.lr.ph137.lr.ph.i, label %.outer._crit_edge.i
 
@@ -808,7 +808,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   br label %.lr.ph137.i
 
 .lr.ph134.i:                                      ; preds = %.preheader112.i, %242
-  %.187133.i = phi i32 [ %220, %242 ], [ %179, %.preheader112.i ]
+  %.187133.i = phi i32 [ %220, %242 ], [ %177, %.preheader112.i ]
   %194 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.187133.i, i1 true)
   %.not145.i = icmp eq i32 %194, 31
   br i1 %.not145.i, label %.lr.ph129.i.preheader, label %.lr.ph122.preheader.i
@@ -972,9 +972,10 @@ select.unfold.i:                                  ; preds = %203, %.lr.ph122.i
 HUF_setMaxHeight.exit:                            ; preds = %HUF_buildTree.exit, %.outer._crit_edge.i
   %.0.i31 = phi i32 [ %spec.store.select, %.outer._crit_edge.i ], [ %147, %HUF_buildTree.exit ]
   %272 = icmp samesign ugt i32 %.0.i31, 12
-  br i1 %272, label %313, label %273
+  br i1 %272, label %312, label %273
 
 273:                                              ; preds = %HUF_setMaxHeight.exit
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %7, i8 0, i64 26, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -983,38 +984,34 @@ HUF_setMaxHeight.exit:                            ; preds = %HUF_buildTree.exit,
   br i1 %.not38.i, label %.preheader37.i, label %.lr.ph.preheader.i39
 
 .lr.ph.preheader.i39:                             ; preds = %273
-  %274 = add nuw i64 %indvars.iv.i24, 1
-  %wide.trip.count.i40 = and i64 %274, 4294967295
+  %275 = add nuw i64 %indvars.iv.i24, 1
+  %wide.trip.count.i40 = and i64 %275, 4294967295
   br label %.lr.ph.i41
 
 .preheader37.i:                                   ; preds = %.lr.ph.i41, %273
   %.not.i45 = icmp eq i32 %.0.i31, 0
-  br i1 %.not.i45, label %.preheader36.i, label %.lr.ph42.preheader.i
+  br i1 %.not.i45, label %.preheader36.i.preheader, label %.lr.ph42.preheader.i
 
 .lr.ph42.preheader.i:                             ; preds = %.preheader37.i
-  %275 = zext nneg i32 %.0.i31 to i64
+  %276 = zext nneg i32 %.0.i31 to i64
   br label %.lr.ph42.i
 
 .lr.ph.i41:                                       ; preds = %.lr.ph.i41, %.lr.ph.preheader.i39
   %indvars.iv.i42 = phi i64 [ 0, %.lr.ph.preheader.i39 ], [ %indvars.iv.next.i43, %.lr.ph.i41 ]
-  %276 = getelementptr inbounds nuw %struct.nodeElt_s, ptr %14, i64 %indvars.iv.i42
-  %277 = getelementptr inbounds nuw i8, ptr %276, i64 7
-  %278 = load i8, ptr %277, align 1, !tbaa !35
-  %279 = zext i8 %278 to i64
-  %280 = getelementptr inbounds nuw i16, ptr %7, i64 %279
-  %281 = load i16, ptr %280, align 2, !tbaa !16
-  %282 = add i16 %281, 1
-  store i16 %282, ptr %280, align 2, !tbaa !16
+  %277 = getelementptr inbounds nuw %struct.nodeElt_s, ptr %14, i64 %indvars.iv.i42
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 7
+  %279 = load i8, ptr %278, align 1, !tbaa !35
+  %280 = zext i8 %279 to i64
+  %281 = getelementptr inbounds nuw i16, ptr %7, i64 %280
+  %282 = load i16, ptr %281, align 2, !tbaa !16
+  %283 = add i16 %282, 1
+  store i16 %283, ptr %281, align 2, !tbaa !16
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i40
   br i1 %exitcond.not.i44, label %.preheader37.i, label %.lr.ph.i41, !llvm.loop !46
 
-.preheader36.i:                                   ; preds = %.lr.ph42.i, %.preheader37.i
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %290
-
 .lr.ph42.i:                                       ; preds = %.lr.ph42.i, %.lr.ph42.preheader.i
-  %indvars.iv46.i = phi i64 [ %275, %.lr.ph42.preheader.i ], [ %indvars.iv.next47.i, %.lr.ph42.i ]
+  %indvars.iv46.i = phi i64 [ %276, %.lr.ph42.preheader.i ], [ %indvars.iv.next47.i, %.lr.ph42.i ]
   %.041.i = phi i16 [ 0, %.lr.ph42.preheader.i ], [ %288, %.lr.ph42.i ]
   %284 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv46.i
   store i16 %.041.i, ptr %284, align 2, !tbaa !16
@@ -1024,63 +1021,66 @@ HUF_setMaxHeight.exit:                            ; preds = %HUF_buildTree.exit,
   %288 = lshr i16 %287, 1
   %indvars.iv.next47.i = add nsw i64 %indvars.iv46.i, -1
   %289 = icmp samesign ugt i64 %indvars.iv46.i, 1
-  br i1 %289, label %.lr.ph42.i, label %.preheader36.i, !llvm.loop !47
+  br i1 %289, label %.lr.ph42.i, label %.preheader36.i.preheader, !llvm.loop !47
 
-290:                                              ; preds = %290, %.preheader36.i
-  %indvars.iv48.i = phi i64 [ 0, %.preheader36.i ], [ %indvars.iv.next49.i, %290 ]
-  %291 = getelementptr inbounds nuw %struct.nodeElt_s, ptr %14, i64 %indvars.iv48.i
-  %292 = getelementptr inbounds nuw i8, ptr %291, i64 6
-  %293 = load i8, ptr %292, align 2, !tbaa !28
-  %294 = zext i8 %293 to i64
-  %295 = getelementptr inbounds nuw i64, ptr %283, i64 %294
-  %296 = getelementptr inbounds nuw i8, ptr %291, i64 7
-  %297 = load i8, ptr %296, align 1, !tbaa !35
-  %298 = zext i8 %297 to i64
-  store i64 %298, ptr %295, align 8, !tbaa !8
+.preheader36.i.preheader:                         ; preds = %.lr.ph42.i, %.preheader37.i
+  br label %.preheader36.i
+
+.preheader36.i:                                   ; preds = %.preheader36.i.preheader, %.preheader36.i
+  %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %.preheader36.i ], [ 0, %.preheader36.i.preheader ]
+  %290 = getelementptr inbounds nuw %struct.nodeElt_s, ptr %14, i64 %indvars.iv48.i
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 6
+  %292 = load i8, ptr %291, align 2, !tbaa !28
+  %293 = zext i8 %292 to i64
+  %294 = getelementptr inbounds nuw i64, ptr %274, i64 %293
+  %295 = getelementptr inbounds nuw i8, ptr %290, i64 7
+  %296 = load i8, ptr %295, align 1, !tbaa !35
+  %297 = zext i8 %296 to i64
+  store i64 %297, ptr %294, align 8, !tbaa !8
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %exitcond52.not.i = icmp eq i64 %indvars.iv.next49.i, %wide.trip.count.i
-  br i1 %exitcond52.not.i, label %.preheader.i46, label %290, !llvm.loop !48
+  br i1 %exitcond52.not.i, label %.preheader.i46, label %.preheader36.i, !llvm.loop !48
 
-.preheader.i46:                                   ; preds = %290, %HUF_setValue.exit.i
-  %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %HUF_setValue.exit.i ], [ 0, %290 ]
-  %299 = getelementptr inbounds nuw i64, ptr %283, i64 %indvars.iv53.i
-  %300 = load i64, ptr %299, align 8, !tbaa !8
-  %301 = and i64 %300, 255
-  %302 = getelementptr inbounds nuw i16, ptr %8, i64 %301
-  %303 = load i16, ptr %302, align 2, !tbaa !16
-  %304 = add i16 %303, 1
-  store i16 %304, ptr %302, align 2, !tbaa !16
-  %.not.i.i = icmp eq i64 %301, 0
-  br i1 %.not.i.i, label %HUF_setValue.exit.i, label %305
+.preheader.i46:                                   ; preds = %.preheader36.i, %HUF_setValue.exit.i
+  %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %HUF_setValue.exit.i ], [ 0, %.preheader36.i ]
+  %298 = getelementptr inbounds nuw i64, ptr %274, i64 %indvars.iv53.i
+  %299 = load i64, ptr %298, align 8, !tbaa !8
+  %300 = and i64 %299, 255
+  %301 = getelementptr inbounds nuw i16, ptr %8, i64 %300
+  %302 = load i16, ptr %301, align 2, !tbaa !16
+  %303 = add i16 %302, 1
+  store i16 %303, ptr %301, align 2, !tbaa !16
+  %.not.i.i = icmp eq i64 %300, 0
+  br i1 %.not.i.i, label %HUF_setValue.exit.i, label %304
 
-305:                                              ; preds = %.preheader.i46
-  %306 = zext i16 %303 to i64
-  %307 = sub nsw i64 64, %301
-  %308 = shl i64 %306, %307
-  %309 = or i64 %308, %300
-  store i64 %309, ptr %299, align 8, !tbaa !8
+304:                                              ; preds = %.preheader.i46
+  %305 = zext i16 %302 to i64
+  %306 = sub nsw i64 64, %300
+  %307 = shl i64 %305, %306
+  %308 = or i64 %307, %299
+  store i64 %308, ptr %298, align 8, !tbaa !8
   br label %HUF_setValue.exit.i
 
-HUF_setValue.exit.i:                              ; preds = %305, %.preheader.i46
+HUF_setValue.exit.i:                              ; preds = %304, %.preheader.i46
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count.i
   br i1 %exitcond57.not.i, label %HUF_buildCTableFromTree.exit, label %.preheader.i46, !llvm.loop !49
 
 HUF_buildCTableFromTree.exit:                     ; preds = %HUF_setValue.exit.i
-  %310 = trunc nuw nsw i32 %.0.i31 to i8
-  %311 = trunc nuw i32 %2 to i8
-  store i8 %310, ptr %0, align 8
+  %309 = trunc nuw nsw i32 %.0.i31 to i8
+  %310 = trunc nuw i32 %2 to i8
+  store i8 %309, ptr %0, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %311, ptr %.sroa.5.0..sroa_idx.i.i, align 1
+  store i8 %310, ptr %.sroa.5.0..sroa_idx.i.i, align 1
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.6.0..sroa_idx.i.i, i8 0, i64 6, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %312 = zext nneg i32 %.0.i31 to i64
-  br label %313
+  %311 = zext nneg i32 %.0.i31 to i64
+  br label %312
 
-313:                                              ; preds = %HUF_setMaxHeight.exit, %16, %6, %HUF_buildCTableFromTree.exit
-  %.0 = phi i64 [ %312, %HUF_buildCTableFromTree.exit ], [ -66, %6 ], [ -46, %16 ], [ -1, %HUF_setMaxHeight.exit ]
+312:                                              ; preds = %HUF_setMaxHeight.exit, %16, %6, %HUF_buildCTableFromTree.exit
+  %.0 = phi i64 [ %311, %HUF_buildCTableFromTree.exit ], [ -66, %6 ], [ -46, %16 ], [ -1, %HUF_setMaxHeight.exit ]
   ret i64 %.0
 }
 

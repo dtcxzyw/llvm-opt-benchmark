@@ -4783,7 +4783,7 @@ define void @av_ripemd_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
   %9 = sub nuw nsw i32 64, %7
   %10 = zext nneg i32 %9 to i64
   %.not = icmp ult i64 %2, %10
-  br i1 %.not, label %26, label %11
+  br i1 %.not, label %.loopexit, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4798,30 +4798,26 @@ define void @av_ripemd_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
   %19 = sub nuw i64 %2, %10
   %20 = and i64 %19, -64
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %20
+  %22 = and i64 %19, 63
   %.not34 = icmp eq i64 %20, 0
   br i1 %.not34, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
-  %.133 = phi ptr [ %23, %.lr.ph ], [ %18, %11 ]
-  %22 = load ptr, ptr %15, align 8, !tbaa !12
-  tail call void %22(ptr noundef nonnull %17, ptr noundef nonnull %.133) #6
-  %23 = getelementptr inbounds nuw i8, ptr %.133, i64 64
-  %24 = icmp ult ptr %23, %21
-  br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  %.133 = phi ptr [ %24, %.lr.ph ], [ %18, %11 ]
+  %23 = load ptr, ptr %15, align 8, !tbaa !12
+  tail call void %23(ptr noundef nonnull %17, ptr noundef nonnull %.133) #6
+  %24 = getelementptr inbounds nuw i8, ptr %.133, i64 64
+  %25 = icmp ult ptr %24, %21
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.lr.ph, %11
-  %.1.lcssa = phi ptr [ %18, %11 ], [ %23, %.lr.ph ]
-  %25 = and i64 %19, 63
-  br label %26
-
-26:                                               ; preds = %.loopexit, %3
-  %.029 = phi i32 [ %7, %3 ], [ 0, %.loopexit ]
-  %.028 = phi i64 [ %2, %3 ], [ %25, %.loopexit ]
-  %.0 = phi ptr [ %1, %3 ], [ %.1.lcssa, %.loopexit ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = zext nneg i32 %.029 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %.0, i64 %.028, i1 false)
+.loopexit:                                        ; preds = %.lr.ph, %11, %3
+  %.029 = phi i32 [ %7, %3 ], [ 0, %11 ], [ 0, %.lr.ph ]
+  %.028 = phi i64 [ %2, %3 ], [ %22, %11 ], [ %22, %.lr.ph ]
+  %.0 = phi ptr [ %1, %3 ], [ %18, %11 ], [ %24, %.lr.ph ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = zext nneg i32 %.029 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr align 1 %.0, i64 %.028, i1 false)
   ret void
 }
 
@@ -4838,96 +4834,96 @@ define void @av_ripemd_final(ptr noundef %0, ptr noundef writeonly captures(none
   %8 = add i64 %4, 1
   store i64 %8, ptr %3, align 8, !tbaa !13
   %.not.i.not = icmp eq i32 %7, 63
-  br i1 %.not.i.not, label %.loopexit.i, label %av_ripemd_update.exit
+  br i1 %.not.i.not, label %9, label %av_ripemd_update.exit
 
-.loopexit.i:                                      ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = and i64 %4, 63
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
-  store i8 -128, ptr %11, align 1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %13 = load ptr, ptr %12, align 8, !tbaa !12
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void %13(ptr noundef nonnull %14, ptr noundef nonnull %9) #6
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = and i64 %4, 63
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
+  store i8 -128, ptr %12, align 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %14 = load ptr, ptr %13, align 8, !tbaa !12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  tail call void %14(ptr noundef nonnull %15, ptr noundef nonnull %10) #6
   %.pre = load i64, ptr %3, align 8, !tbaa !13
   br label %av_ripemd_update.exit
 
-av_ripemd_update.exit:                            ; preds = %2, %.loopexit.i
-  %15 = phi i64 [ %8, %2 ], [ %.pre, %.loopexit.i ]
-  %.029.i = phi i32 [ %7, %2 ], [ 0, %.loopexit.i ]
-  %.028.i = phi i64 [ 1, %2 ], [ 0, %.loopexit.i ]
-  %.0.i = phi ptr [ @.str, %2 ], [ getelementptr inbounds nuw (i8, ptr @.str, i64 1), %.loopexit.i ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = zext nneg i32 %.029.i to i64
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %.0.i, i64 %.028.i, i1 false)
-  %19 = and i64 %15, 63
-  %.not32 = icmp eq i64 %19, 56
-  br i1 %.not32, label %.loopexit.i25, label %.lr.ph
+av_ripemd_update.exit:                            ; preds = %9, %2
+  %16 = phi i64 [ %8, %2 ], [ %.pre, %9 ]
+  %.029.i = phi i32 [ %7, %2 ], [ 0, %9 ]
+  %.028.i = phi i64 [ 1, %2 ], [ 0, %9 ]
+  %.0.i = phi ptr [ @.str, %2 ], [ getelementptr inbounds nuw (i8, ptr @.str, i64 1), %9 ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = zext nneg i32 %.029.i to i64
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %.0.i, i64 %.028.i, i1 false)
+  %20 = and i64 %16, 63
+  %.not28 = icmp eq i64 %20, 56
+  br i1 %.not28, label %av_ripemd_update.exit26, label %.lr.ph
 
 .lr.ph:                                           ; preds = %av_ripemd_update.exit
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %22
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  br label %23
 
-22:                                               ; preds = %.lr.ph, %av_ripemd_update.exit20
-  %23 = phi i64 [ %19, %.lr.ph ], [ %33, %av_ripemd_update.exit20 ]
-  %24 = phi i64 [ %15, %.lr.ph ], [ %30, %av_ripemd_update.exit20 ]
-  %25 = trunc i64 %24 to i32
-  %26 = and i32 %25, 63
-  %27 = add i64 %24, 1
-  store i64 %27, ptr %3, align 8, !tbaa !13
-  %.not.i11.not = icmp eq i32 %26, 63
-  br i1 %.not.i11.not, label %.loopexit.i15, label %av_ripemd_update.exit20
+23:                                               ; preds = %.lr.ph, %av_ripemd_update.exit18
+  %24 = phi i64 [ %20, %.lr.ph ], [ %35, %av_ripemd_update.exit18 ]
+  %25 = phi i64 [ %16, %.lr.ph ], [ %32, %av_ripemd_update.exit18 ]
+  %26 = trunc i64 %25 to i32
+  %27 = and i32 %26, 63
+  %28 = add i64 %25, 1
+  store i64 %28, ptr %3, align 8, !tbaa !13
+  %.not.i11.not = icmp eq i32 %27, 63
+  br i1 %.not.i11.not, label %29, label %av_ripemd_update.exit18
 
-.loopexit.i15:                                    ; preds = %22
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %23
-  store i8 0, ptr %28, align 1
-  %29 = load ptr, ptr %20, align 8, !tbaa !12
-  tail call void %29(ptr noundef nonnull %21, ptr noundef nonnull %16) #6
-  %.pre40 = load i64, ptr %3, align 8, !tbaa !13
-  br label %av_ripemd_update.exit20
+29:                                               ; preds = %23
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 %24
+  store i8 0, ptr %30, align 1
+  %31 = load ptr, ptr %21, align 8, !tbaa !12
+  tail call void %31(ptr noundef nonnull %22, ptr noundef nonnull %17) #6
+  %.pre36 = load i64, ptr %3, align 8, !tbaa !13
+  br label %av_ripemd_update.exit18
 
-av_ripemd_update.exit20:                          ; preds = %22, %.loopexit.i15
-  %30 = phi i64 [ %27, %22 ], [ %.pre40, %.loopexit.i15 ]
-  %.029.i17 = phi i32 [ %26, %22 ], [ 0, %.loopexit.i15 ]
-  %.028.i18 = phi i64 [ 1, %22 ], [ 0, %.loopexit.i15 ]
-  %.0.i19 = phi ptr [ @.str.1, %22 ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %.loopexit.i15 ]
-  %31 = zext nneg i32 %.029.i17 to i64
-  %32 = getelementptr inbounds nuw i8, ptr %16, i64 %31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %.0.i19, i64 %.028.i18, i1 false)
-  %33 = and i64 %30, 63
-  %.not = icmp eq i64 %33, 56
-  br i1 %.not, label %.loopexit.i25, label %22, !llvm.loop !17
+av_ripemd_update.exit18:                          ; preds = %29, %23
+  %32 = phi i64 [ %28, %23 ], [ %.pre36, %29 ]
+  %.029.i15 = phi i32 [ %27, %23 ], [ 0, %29 ]
+  %.028.i16 = phi i64 [ 1, %23 ], [ 0, %29 ]
+  %.0.i17 = phi ptr [ @.str.1, %23 ], [ getelementptr inbounds nuw (i8, ptr @.str.1, i64 1), %29 ]
+  %33 = zext nneg i32 %.029.i15 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 %33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %.0.i17, i64 %.028.i16, i1 false)
+  %35 = and i64 %32, 63
+  %.not = icmp eq i64 %35, 56
+  br i1 %.not, label %av_ripemd_update.exit26, label %23, !llvm.loop !17
 
-.loopexit.i25:                                    ; preds = %av_ripemd_update.exit20, %av_ripemd_update.exit
-  %.lcssa31 = phi i64 [ %15, %av_ripemd_update.exit ], [ %30, %av_ripemd_update.exit20 ]
-  %34 = add i64 %.lcssa31, 8
-  store i64 %34, ptr %3, align 8, !tbaa !13
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %5, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %37 = load ptr, ptr %36, align 8, !tbaa !12
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void %37(ptr noundef nonnull %38, ptr noundef nonnull %16) #6
-  %39 = load i8, ptr %0, align 8, !tbaa !4
-  %.not36 = icmp eq i8 %39, 0
-  br i1 %.not36, label %._crit_edge, label %.lr.ph35
+av_ripemd_update.exit26:                          ; preds = %av_ripemd_update.exit18, %av_ripemd_update.exit
+  %.lcssa27 = phi i64 [ %16, %av_ripemd_update.exit ], [ %32, %av_ripemd_update.exit18 ]
+  %36 = add i64 %.lcssa27, 8
+  store i64 %36, ptr %3, align 8, !tbaa !13
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %5, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %39 = load ptr, ptr %38, align 8, !tbaa !12
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  tail call void %39(ptr noundef nonnull %40, ptr noundef nonnull %17) #6
+  %41 = load i8, ptr %0, align 8, !tbaa !4
+  %.not32 = icmp eq i8 %41, 0
+  br i1 %.not32, label %._crit_edge, label %.lr.ph31
 
-.lr.ph35:                                         ; preds = %.loopexit.i25, %.lr.ph35
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph35 ], [ 0, %.loopexit.i25 ]
-  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
-  %41 = load i32, ptr %40, align 4, !tbaa !10
-  %42 = shl nuw nsw i64 %indvars.iv, 2
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 %42
-  store i32 %41, ptr %43, align 1, !tbaa !14
+.lr.ph31:                                         ; preds = %av_ripemd_update.exit26, %.lr.ph31
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph31 ], [ 0, %av_ripemd_update.exit26 ]
+  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %43 = load i32, ptr %42, align 4, !tbaa !10
+  %44 = shl nuw nsw i64 %indvars.iv, 2
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 %44
+  store i32 %43, ptr %45, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = load i8, ptr %0, align 8, !tbaa !4
-  %45 = zext i8 %44 to i64
-  %46 = icmp samesign ult i64 %indvars.iv.next, %45
-  br i1 %46, label %.lr.ph35, label %._crit_edge, !llvm.loop !18
+  %46 = load i8, ptr %0, align 8, !tbaa !4
+  %47 = zext i8 %46 to i64
+  %48 = icmp samesign ult i64 %indvars.iv.next, %47
+  br i1 %48, label %.lr.ph31, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %.lr.ph35, %.loopexit.i25
+._crit_edge:                                      ; preds = %.lr.ph31, %av_ripemd_update.exit26
   ret void
 }
 

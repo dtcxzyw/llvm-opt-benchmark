@@ -387,11 +387,13 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
+  %arena_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %1 = load ptr, ptr %_M_start.i, align 8, !noalias !6
   %_M_node5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %2 = load ptr, ptr %_M_finish.i, align 8, !noalias !9
+  %_M_node5.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 208
   %cmp.i.i.not22 = icmp eq ptr %1, %2
   br i1 %cmp.i.i.not22, label %for.end, label %for.body.preheader
 
@@ -433,13 +435,11 @@ _ZNSt15_Deque_iteratorIN3re23NFA6ThreadERS2_PS2_EppEv.exit: ; preds = %for.inc, 
   br i1 %cmp.i.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZNSt15_Deque_iteratorIN3re23NFA6ThreadERS2_PS2_EppEv.exit, %delete.end
-  %arena_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %7 = load ptr, ptr %arena_, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %_ZNSt5dequeIN3re23NFA6ThreadESaIS2_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end
-  %_M_node5.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 208
   %8 = load ptr, ptr %_M_node5.i.i, align 8
   %9 = load ptr, ptr %_M_node5.i.i8, align 8
   %add.ptr.i.i10 = getelementptr inbounds nuw i8, ptr %9, i64 8

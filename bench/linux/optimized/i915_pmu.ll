@@ -471,119 +471,119 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   br i1 %95, label %.thread, label %96
 
 96:                                               ; preds = %.thread86, %93
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 9720
   store ptr @.str.5, ptr %5, align 8
-  %97 = getelementptr i8, ptr %0, i64 7168
-  %98 = getelementptr i8, ptr %0, i64 7184
-  br label %99
+  %98 = getelementptr i8, ptr %0, i64 7168
+  %99 = getelementptr i8, ptr %0, i64 7184
+  br label %100
 
-99:                                               ; preds = %.loopexit46, %96
-  %100 = phi i1 [ true, %96 ], [ false, %.loopexit46 ]
-  %101 = phi i64 [ 0, %96 ], [ 1, %.loopexit46 ]
-  %102 = phi i32 [ 0, %96 ], [ %157, %.loopexit46 ]
-  %103 = getelementptr ptr, ptr %23, i64 %101
-  %104 = load ptr, ptr %103, align 8
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %.loopexit46, label %106
+100:                                              ; preds = %.loopexit46, %96
+  %101 = phi i1 [ true, %96 ], [ false, %.loopexit46 ]
+  %102 = phi i64 [ 0, %96 ], [ 1, %.loopexit46 ]
+  %103 = phi i32 [ 0, %96 ], [ %158, %.loopexit46 ]
+  %104 = getelementptr ptr, ptr %23, i64 %102
+  %105 = load ptr, ptr %104, align 8
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %.loopexit46, label %107
 
-106:                                              ; preds = %99
-  %107 = load ptr, ptr %23, align 8
-  %108 = load ptr, ptr %97, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = icmp ne ptr %110, null
-  %112 = zext i1 %111 to i64
-  %113 = icmp samesign ugt i64 %101, %112
-  %114 = getelementptr inbounds nuw i8, ptr %107, i64 3688
-  br i1 %113, label %.loopexit46, label %.split
+107:                                              ; preds = %100
+  %108 = load ptr, ptr %23, align 8
+  %109 = load ptr, ptr %98, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %111 = load ptr, ptr %110, align 8
+  %112 = icmp ne ptr %111, null
+  %113 = zext i1 %112 to i64
+  %114 = icmp samesign ugt i64 %102, %113
+  %115 = getelementptr inbounds nuw i8, ptr %108, i64 3688
+  br i1 %114, label %.loopexit46, label %.split
 
-.split:                                           ; preds = %106
-  br i1 %100, label %.split.split.us, label %.split.split
+.split:                                           ; preds = %107
+  br i1 %101, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %131
-  %115 = phi i64 [ %134, %131 ], [ 0, %.split ]
-  %116 = phi i32 [ %133, %131 ], [ %102, %.split ]
-  %117 = getelementptr %struct.anon.77, ptr @create_event_attributes.events, i64 %115
-  %118 = load i32, ptr %117, align 16
-  switch i32 %118, label %131 [
-    i32 0, label %123
-    i32 1, label %127
-    i32 2, label %130
-    i32 3, label %119
-    i32 4, label %130
+.split.split.us:                                  ; preds = %.split, %132
+  %116 = phi i64 [ %135, %132 ], [ 0, %.split ]
+  %117 = phi i32 [ %134, %132 ], [ %103, %.split ]
+  %118 = getelementptr %struct.anon.77, ptr @create_event_attributes.events, i64 %116
+  %119 = load i32, ptr %118, align 16
+  switch i32 %119, label %132 [
+    i32 0, label %124
+    i32 1, label %128
+    i32 2, label %131
+    i32 3, label %120
+    i32 4, label %131
   ]
 
-119:                                              ; preds = %.split.split.us
-  %120 = load i8, ptr %114, align 8
-  %121 = and i8 %120, 1
-  %122 = icmp eq i8 %121, 0
-  br i1 %122, label %131, label %130
+120:                                              ; preds = %.split.split.us
+  %121 = load i8, ptr %115, align 8
+  %122 = and i8 %121, 1
+  %123 = icmp eq i8 %122, 0
+  br i1 %123, label %132, label %131
 
-123:                                              ; preds = %.split.split.us
-  %124 = load i32, ptr %98, align 4
-  %125 = and i32 %124, 18874368
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %131
+124:                                              ; preds = %.split.split.us
+  %125 = load i32, ptr %99, align 4
+  %126 = and i32 %125, 18874368
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %128, label %132
 
-127:                                              ; preds = %123, %.split.split.us
-  %128 = load i8, ptr %8, align 8
-  %129 = icmp ult i8 %128, 6
-  br i1 %129, label %131, label %130
+128:                                              ; preds = %124, %.split.split.us
+  %129 = load i8, ptr %8, align 8
+  %130 = icmp ult i8 %129, 6
+  br i1 %130, label %132, label %131
 
-130:                                              ; preds = %.split.split.us, %127, %119, %.split.split.us
-  br label %131
+131:                                              ; preds = %.split.split.us, %128, %120, %.split.split.us
+  br label %132
 
-131:                                              ; preds = %130, %127, %123, %119, %.split.split.us
-  %132 = phi i32 [ 1, %130 ], [ 0, %123 ], [ 0, %127 ], [ 0, %119 ], [ 0, %.split.split.us ]
-  %133 = add i32 %132, %116
-  %134 = add nuw nsw i64 %115, 1
-  %135 = icmp eq i64 %134, 5
-  br i1 %135, label %.loopexit46, label %.split.split.us, !llvm.loop !15
+132:                                              ; preds = %131, %128, %124, %120, %.split.split.us
+  %133 = phi i32 [ 1, %131 ], [ 0, %124 ], [ 0, %128 ], [ 0, %120 ], [ 0, %.split.split.us ]
+  %134 = add i32 %133, %117
+  %135 = add nuw nsw i64 %116, 1
+  %136 = icmp eq i64 %135, 5
+  br i1 %136, label %.loopexit46, label %.split.split.us, !llvm.loop !15
 
-.split.split:                                     ; preds = %.split, %152
-  %136 = phi i64 [ %155, %152 ], [ 0, %.split ]
-  %137 = phi i32 [ %154, %152 ], [ %102, %.split ]
-  %138 = getelementptr %struct.anon.77, ptr @create_event_attributes.events, i64 %136
-  %139 = load i32, ptr %138, align 16
-  switch i32 %139, label %152 [
-    i32 0, label %140
-    i32 1, label %144
-    i32 4, label %151
-    i32 3, label %147
+.split.split:                                     ; preds = %.split, %153
+  %137 = phi i64 [ %156, %153 ], [ 0, %.split ]
+  %138 = phi i32 [ %155, %153 ], [ %103, %.split ]
+  %139 = getelementptr %struct.anon.77, ptr @create_event_attributes.events, i64 %137
+  %140 = load i32, ptr %139, align 16
+  switch i32 %140, label %153 [
+    i32 0, label %141
+    i32 1, label %145
+    i32 4, label %152
+    i32 3, label %148
   ]
 
-140:                                              ; preds = %.split.split
-  %141 = load i32, ptr %98, align 4
-  %142 = and i32 %141, 18874368
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %144, label %152
+141:                                              ; preds = %.split.split
+  %142 = load i32, ptr %99, align 4
+  %143 = and i32 %142, 18874368
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %145, label %153
 
-144:                                              ; preds = %140, %.split.split
-  %145 = load i8, ptr %8, align 8
-  %146 = icmp ult i8 %145, 6
-  br i1 %146, label %152, label %151
+145:                                              ; preds = %141, %.split.split
+  %146 = load i8, ptr %8, align 8
+  %147 = icmp ult i8 %146, 6
+  br i1 %147, label %153, label %152
 
-147:                                              ; preds = %.split.split
-  %148 = load i8, ptr %114, align 8
-  %149 = and i8 %148, 1
-  %150 = icmp eq i8 %149, 0
-  br i1 %150, label %152, label %151
+148:                                              ; preds = %.split.split
+  %149 = load i8, ptr %115, align 8
+  %150 = and i8 %149, 1
+  %151 = icmp eq i8 %150, 0
+  br i1 %151, label %153, label %152
 
-151:                                              ; preds = %.split.split, %147, %144
-  br label %152
+152:                                              ; preds = %.split.split, %148, %145
+  br label %153
 
-152:                                              ; preds = %151, %147, %144, %140, %.split.split
-  %153 = phi i32 [ 1, %151 ], [ 0, %140 ], [ 0, %144 ], [ 0, %147 ], [ 0, %.split.split ]
-  %154 = add i32 %153, %137
-  %155 = add nuw nsw i64 %136, 1
-  %156 = icmp eq i64 %155, 5
-  br i1 %156, label %.loopexit46, label %.split.split, !llvm.loop !15
+153:                                              ; preds = %152, %148, %145, %141, %.split.split
+  %154 = phi i32 [ 1, %152 ], [ 0, %141 ], [ 0, %145 ], [ 0, %148 ], [ 0, %.split.split ]
+  %155 = add i32 %154, %138
+  %156 = add nuw nsw i64 %137, 1
+  %157 = icmp eq i64 %156, 5
+  br i1 %157, label %.loopexit46, label %.split.split, !llvm.loop !15
 
-.loopexit46:                                      ; preds = %152, %131, %106, %99
-  %157 = phi i32 [ %102, %99 ], [ %102, %106 ], [ %133, %131 ], [ %154, %152 ]
-  br i1 %100, label %99, label %158, !llvm.loop !16
+.loopexit46:                                      ; preds = %153, %132, %107, %100
+  %158 = phi i32 [ %103, %100 ], [ %103, %107 ], [ %134, %132 ], [ %155, %153 ]
+  br i1 %101, label %100, label %159, !llvm.loop !16
 
-158:                                              ; preds = %.loopexit46
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 9720
+159:                                              ; preds = %.loopexit46
   %160 = getelementptr i8, ptr %0, i64 7896
   %161 = tail call ptr @rb_first(ptr noundef %160) #12
   %162 = icmp eq ptr %161, null
@@ -592,9 +592,9 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %165 = or i1 %162, %164
   br i1 %165, label %.loopexit45, label %.preheader44
 
-.preheader44:                                     ; preds = %158, %184
-  %166 = phi i32 [ %181, %184 ], [ %157, %158 ]
-  %167 = phi ptr [ %188, %184 ], [ %163, %158 ]
+.preheader44:                                     ; preds = %159, %184
+  %166 = phi i32 [ %181, %184 ], [ %158, %159 ]
+  %167 = phi ptr [ %188, %184 ], [ %163, %159 ]
   br label %168
 
 168:                                              ; preds = %179, %.preheader44
@@ -634,8 +634,8 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %190 = or i1 %187, %189
   br i1 %190, label %.loopexit45, label %.preheader44, !llvm.loop !18
 
-.loopexit45:                                      ; preds = %184, %158
-  %191 = phi i32 [ %157, %158 ], [ %181, %184 ]
+.loopexit45:                                      ; preds = %184, %159
+  %191 = phi i32 [ %158, %159 ], [ %181, %184 ]
   %192 = zext i32 %191 to i64
   %193 = mul nuw nsw i64 %192, 40
   %194 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %193, i32 noundef 3520) #15
@@ -684,7 +684,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %225 = zext i32 %224 to i64
   %.reass = add nuw nsw i64 %invariant.op, %225
   %226 = load ptr, ptr %23, align 8
-  %227 = load ptr, ptr %97, align 8
+  %227 = load ptr, ptr %98, align 8
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %229 = load ptr, ptr %228, align 8
   %230 = icmp ne ptr %229, null
@@ -702,7 +702,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   ]
 
 234:                                              ; preds = %233
-  %235 = load i32, ptr %98, align 4
+  %235 = load i32, ptr %99, align 4
   %236 = and i32 %235, 18874368
   %237 = icmp eq i32 %236, 0
   br i1 %237, label %238, label %286
@@ -759,7 +759,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   br i1 %248, label %286, label %268
 
 268:                                              ; preds = %260
-  %269 = load ptr, ptr %97, align 8
+  %269 = load ptr, ptr %98, align 8
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %271 = load ptr, ptr %270, align 8
   %272 = icmp eq ptr %271, null
@@ -962,7 +962,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   store ptr @i915_pmu_event_read, ptr %381, align 8
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 9616
   store ptr @i915_pmu_event_event_idx, ptr %382, align 8
-  %383 = load ptr, ptr %159, align 8
+  %383 = load ptr, ptr %97, align 8
   %384 = call i32 @perf_pmu_register(ptr noundef nonnull %370, ptr noundef %383, i32 noundef -1) #12
   %385 = icmp eq i32 %384, 0
   br i1 %385, label %386, label %393
@@ -1043,7 +1043,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   br i1 %425, label %.thread, label %426
 
 426:                                              ; preds = %421, %417, %409
-  %427 = load ptr, ptr %159, align 8
+  %427 = load ptr, ptr %97, align 8
   call void @kfree(ptr noundef %427) #12
   br label %.thread
 

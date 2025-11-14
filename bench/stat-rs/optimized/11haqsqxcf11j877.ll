@@ -847,13 +847,13 @@ define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$
   unreachable
 
 .loopexit.i:                                      ; preds = %.loopexit.i, %.lr.ph.i
-  %.sroa.03.06.i = phi i64 [ 0, %.lr.ph.i ], [ %13, %.loopexit.i ]
-  %10 = getelementptr double, ptr %.val4, i64 %.sroa.03.06.i
-  %11 = getelementptr double, ptr %.8.val, i64 %.sroa.03.06.i
-  %12 = load double, ptr %11, align 8, !alias.scope !155, !noundef !7
-  store double %12, ptr %10, align 8, !alias.scope !158
-  %13 = add nuw i64 %.sroa.03.06.i, 1
-  %exitcond.not.i = icmp eq i64 %13, %.24.val
+  %.sroa.03.06.i = phi i64 [ 0, %.lr.ph.i ], [ %10, %.loopexit.i ]
+  %10 = add nuw i64 %.sroa.03.06.i, 1
+  %11 = getelementptr double, ptr %.val4, i64 %.sroa.03.06.i
+  %12 = getelementptr double, ptr %.8.val, i64 %.sroa.03.06.i
+  %13 = load double, ptr %12, align 8, !alias.scope !155, !noundef !7
+  store double %13, ptr %11, align 8, !alias.scope !158
+  %exitcond.not.i = icmp eq i64 %10, %.24.val
   br i1 %exitcond.not.i, label %"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.exit", label %.loopexit.i
 
 "_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$19transpose_to_uninit17h6419ad32e47df185E.exit": ; preds = %.loopexit.i, %.preheader.i
@@ -1353,15 +1353,15 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   br i1 %.not.i.i, label %.loopexit104, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph17.i.i, %.lr.ph.i.i
-  %indvar.i.i = phi i64 [ %49, %.lr.ph.i.i ], [ 0, %.lr.ph17.i.i ]
-  %.sroa.04.016.i.i = phi i64 [ %51, %.lr.ph.i.i ], [ 1, %.lr.ph17.i.i ]
+  %indvar.i.i = phi i64 [ %50, %.lr.ph.i.i ], [ 0, %.lr.ph17.i.i ]
+  %.sroa.04.016.i.i = phi i64 [ %48, %.lr.ph.i.i ], [ 1, %.lr.ph17.i.i ]
+  %48 = add nuw i64 %.sroa.04.016.i.i, 1
   %umin.i.i = tail call i64 @llvm.umin.i64(i64 %.val1.i.i.i, i64 %.sroa.04.016.i.i)
-  %48 = shl nuw i64 %umin.i.i, 3
-  %49 = add nuw i64 %indvar.i.i, 1
-  %50 = mul i64 %46, %49
-  %scevgep.i.i = getelementptr i8, ptr %41, i64 %50
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %48, i1 false), !noalias !313
-  %51 = add nuw i64 %.sroa.04.016.i.i, 1
+  %49 = shl nuw i64 %umin.i.i, 3
+  %50 = add nuw i64 %indvar.i.i, 1
+  %51 = mul i64 %46, %50
+  %scevgep.i.i = getelementptr i8, ptr %41, i64 %51
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %49, i1 false), !noalias !313
   %exitcond.not.i.i = icmp eq i64 %indvar.i.i, %47
   br i1 %exitcond.not.i.i, label %.loopexit104, label %.lr.ph.i.i
 

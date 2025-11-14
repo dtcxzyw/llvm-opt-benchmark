@@ -2211,17 +2211,17 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK3ue215GoughSS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue215GoughSSAVarJoin12clear_inputsEv(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load ptr, ptr %2, align 8, !noalias !221
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.not12 = icmp eq ptr %3, %4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %4 = load ptr, ptr %3, align 8, !noalias !221
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %.not12 = icmp eq ptr %4, %5
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN3ue28flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit, %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8
-  invoke void @_ZNSt8_Rb_treeIPN3ue211GoughSSAVarESt4pairIKS2_NS0_8flat_setIN5boost6detail14edge_desc_implINS6_17bidirectional_tagEmEESt4lessISA_ESaISA_EEEESt10_Select1stISF_ESB_IS2_ESaISF_EE8_M_eraseEPSt13_Rb_tree_nodeISF_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7)
+  invoke void @_ZNSt8_Rb_treeIPN3ue211GoughSSAVarESt4pairIKS2_NS0_8flat_setIN5boost6detail14edge_desc_implINS6_17bidirectional_tagEmEESt4lessISA_ESaISA_EEEESt10_Select1stISF_ESB_IS2_ESaISF_EE8_M_eraseEPSt13_Rb_tree_nodeISF_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
           to label %_ZNSt3mapIPN3ue211GoughSSAVarENS0_8flat_setIN5boost6detail14edge_desc_implINS4_17bidirectional_tagEmEESt4lessIS8_ESaIS8_EEES9_IS2_ESaISt4pairIKS2_SC_EEE5clearEv.exit unwind label %8
 
 8:                                                ; preds = %._crit_edge
@@ -2233,9 +2233,9 @@ define hidden void @_ZN3ue215GoughSSAVarJoin12clear_inputsEv(ptr noundef nonnull
 
 _ZNSt3mapIPN3ue211GoughSSAVarENS0_8flat_setIN5boost6detail14edge_desc_implINS4_17bidirectional_tagEmEESt4lessIS8_ESaIS8_EEES9_IS2_ESaISt4pairIKS2_SC_EEE5clearEv.exit: ; preds = %._crit_edge
   store ptr null, ptr %6, align 8
-  store ptr %4, ptr %2, align 8
+  store ptr %5, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2243,7 +2243,7 @@ _ZNSt3mapIPN3ue211GoughSSAVarENS0_8flat_setIN5boost6detail14edge_desc_implINS4_1
   ret void
 
 .lr.ph:                                           ; preds = %1, %_ZN3ue28flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit
-  %.sroa.06.013 = phi ptr [ %43, %_ZN3ue28flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit ], [ %3, %1 ]
+  %.sroa.06.013 = phi ptr [ %43, %_ZN3ue28flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit ], [ %4, %1 ]
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.06.013, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
@@ -2300,7 +2300,7 @@ _ZN3ue28flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS2_ESaIS2_EE5eraseENS_11fla
 
 _ZN3ue28flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit: ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEES5_St4lessIS5_EET_SA_SA_RKT0_T1_.exit.i.i, %_ZN3ue28flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS2_ESaIS2_EE4findERKS2_.exit.i, %_ZN3ue28flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS2_ESaIS2_EE5eraseENS_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPS2_Lb1EEEKS2_EE.exit.i
   %43 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.013) #33
-  %.not = icmp eq ptr %43, %4
+  %.not = icmp eq ptr %43, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
@@ -6248,8 +6248,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit218.thread:          ; preds = %1245
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc178
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %1280, 2
-  %1282 = getelementptr inbounds nuw i8, ptr %1279, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %1279, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %1282 = getelementptr inbounds nuw i8, ptr %1279, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc178, %1253
@@ -6306,8 +6306,8 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZN3ue212is_tr
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i180: ; preds = %.noexc185
   %.idx.i.i.i.i.i.i.i181 = shl nuw nsw i64 %1297, 2
-  %1299 = getelementptr inbounds nuw i8, ptr %1296, i64 %.idx.i.i.i.i.i.i.i181
   call void @llvm.memset.p0.i64(ptr align 4 %1296, i8 0, i64 %.idx.i.i.i.i.i.i.i181, i1 false)
+  %1299 = getelementptr inbounds nuw i8, ptr %1296, i64 %.idx.i.i.i.i.i.i.i181
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit186
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit186:            ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i180, %.noexc185, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
@@ -18510,8 +18510,8 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %6
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc68
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %36, 3
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %35, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i.i.i.i.i.i.i
   br label %39
 
 39:                                               ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i, %.noexc68, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i

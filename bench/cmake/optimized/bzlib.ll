@@ -3307,34 +3307,34 @@ define dso_local noundef ptr @BZ2_bzReadOpen(ptr noundef writeonly captures(addr
   store i32 0, ptr %32, align 8, !tbaa !84
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 5012
   store i8 0, ptr %33, align 4, !tbaa !86
-  %34 = getelementptr inbounds nuw i8, ptr %23, i64 5072
-  %35 = icmp sgt i32 %5, 0
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
-  br i1 %35, label %.lr.ph, label %._crit_edge
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 5016
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 5072
+  %36 = icmp sgt i32 %5, 0
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
+  br i1 %36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %29
-  %36 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  br label %37
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  br label %38
 
-37:                                               ; preds = %.lr.ph, %37
-  %38 = phi i32 [ 0, %.lr.ph ], [ %43, %37 ]
-  %.07386 = phi i32 [ %5, %.lr.ph ], [ %45, %37 ]
-  %.07485 = phi ptr [ %4, %.lr.ph ], [ %44, %37 ]
-  %39 = load i8, ptr %.07485, align 1, !tbaa !44
-  %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds i8, ptr %36, i64 %40
-  store i8 %39, ptr %41, align 1, !tbaa !44
-  %42 = load i32, ptr %32, align 8, !tbaa !84
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %32, align 8, !tbaa !84
-  %44 = getelementptr inbounds nuw i8, ptr %.07485, i64 1
-  %45 = add nsw i32 %.07386, -1
-  %46 = icmp samesign ugt i32 %.07386, 1
-  br i1 %46, label %37, label %._crit_edge, !llvm.loop !95
+38:                                               ; preds = %.lr.ph, %38
+  %39 = phi i32 [ 0, %.lr.ph ], [ %44, %38 ]
+  %.07386 = phi i32 [ %5, %.lr.ph ], [ %46, %38 ]
+  %.07485 = phi ptr [ %4, %.lr.ph ], [ %45, %38 ]
+  %40 = load i8, ptr %.07485, align 1, !tbaa !44
+  %41 = sext i32 %39 to i64
+  %42 = getelementptr inbounds i8, ptr %37, i64 %41
+  store i8 %40, ptr %42, align 1, !tbaa !44
+  %43 = load i32, ptr %32, align 8, !tbaa !84
+  %44 = add nsw i32 %43, 1
+  store i32 %44, ptr %32, align 8, !tbaa !84
+  %45 = getelementptr inbounds nuw i8, ptr %.07485, i64 1
+  %46 = add nsw i32 %.07386, -1
+  %47 = icmp samesign ugt i32 %.07386, 1
+  br i1 %47, label %38, label %._crit_edge, !llvm.loop !95
 
-._crit_edge:                                      ; preds = %37, %29
-  %47 = getelementptr inbounds nuw i8, ptr %23, i64 5016
-  %48 = tail call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %47, i32 noundef %2, i32 noundef %3)
+._crit_edge:                                      ; preds = %38, %29
+  %48 = tail call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %34, i32 noundef %2, i32 noundef %3)
   %.not83 = icmp eq i32 %48, 0
   br i1 %.not83, label %52, label %49
 
@@ -3354,7 +3354,7 @@ define dso_local noundef ptr @BZ2_bzReadOpen(ptr noundef writeonly captures(addr
   %54 = getelementptr inbounds nuw i8, ptr %23, i64 5024
   store i32 %53, ptr %54, align 8, !tbaa !87
   %55 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %55, ptr %47, align 8, !tbaa !88
+  store ptr %55, ptr %34, align 8, !tbaa !88
   store i8 1, ptr %31, align 4, !tbaa !83
   br label %56
 
@@ -4427,10 +4427,10 @@ define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly captu
   store i32 0, ptr %62, align 8, !tbaa !84
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 5012
   store i8 0, ptr %63, align 4, !tbaa !86
-  %64 = getelementptr inbounds nuw i8, ptr %57, i64 5072
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
-  %65 = getelementptr inbounds nuw i8, ptr %57, i64 5016
-  %66 = tail call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %65, i32 noundef 0, i32 noundef %.031)
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 5016
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 5072
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
+  %66 = tail call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %64, i32 noundef 0, i32 noundef %.031)
   %.not83.i = icmp eq i32 %66, 0
   br i1 %.not83.i, label %67, label %.sink.split
 
@@ -4439,7 +4439,7 @@ define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly captu
   %69 = getelementptr inbounds nuw i8, ptr %57, i64 5024
   store i32 %68, ptr %69, align 8, !tbaa !87
   %70 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store ptr %70, ptr %65, align 8, !tbaa !88
+  store ptr %70, ptr %64, align 8, !tbaa !88
   store i8 1, ptr %61, align 4, !tbaa !83
   br label %BZ2_bzWriteOpen.exit
 
@@ -4735,39 +4735,39 @@ declare void @BZ2_compressBlock(ptr noundef, i8 noundef zeroext) local_unnamed_a
 define internal fastcc void @add_pair_to_block(ptr noundef captures(none) %0) unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %3 = load i32, ptr %2, align 4, !tbaa !38
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load i32, ptr %4, align 8, !tbaa !39
-  %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph, label %._crit_edge
+  %4 = trunc i32 %3 to i8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %6 = load i32, ptr %5, align 8, !tbaa !39
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %8 = and i32 %3, 255
-  %.promoted = load i32, ptr %7, align 8, !tbaa !43
-  br label %9
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %9 = and i32 %3, 255
+  %.promoted = load i32, ptr %8, align 8, !tbaa !43
+  br label %10
 
-9:                                                ; preds = %.lr.ph, %9
-  %10 = phi i32 [ %.promoted, %.lr.ph ], [ %17, %9 ]
-  %.057 = phi i32 [ 0, %.lr.ph ], [ %18, %9 ]
-  %11 = shl i32 %10, 8
-  %12 = lshr i32 %10, 24
-  %13 = xor i32 %12, %8
-  %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @BZ2_crc32Table, i64 %14
-  %16 = load i32, ptr %15, align 4, !tbaa !51
-  %17 = xor i32 %11, %16
-  store i32 %17, ptr %7, align 8, !tbaa !43
-  %18 = add nuw nsw i32 %.057, 1
-  %exitcond.not = icmp eq i32 %18, %5
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !100
+10:                                               ; preds = %.lr.ph, %10
+  %11 = phi i32 [ %.promoted, %.lr.ph ], [ %18, %10 ]
+  %.057 = phi i32 [ 0, %.lr.ph ], [ %19, %10 ]
+  %12 = shl i32 %11, 8
+  %13 = lshr i32 %11, 24
+  %14 = xor i32 %13, %9
+  %15 = zext nneg i32 %14 to i64
+  %16 = getelementptr inbounds nuw i32, ptr @BZ2_crc32Table, i64 %15
+  %17 = load i32, ptr %16, align 4, !tbaa !51
+  %18 = xor i32 %12, %17
+  store i32 %18, ptr %8, align 8, !tbaa !43
+  %19 = add nuw nsw i32 %.057, 1
+  %exitcond.not = icmp eq i32 %19, %6
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !100
 
-._crit_edge:                                      ; preds = %9, %1
-  %19 = trunc i32 %3 to i8
+._crit_edge:                                      ; preds = %10, %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = zext i32 %3 to i64
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
   store i8 1, ptr %22, align 1, !tbaa !44
-  switch i32 %5, label %65 [
+  switch i32 %6, label %65 [
     i32 1, label %23
     i32 2, label %32
     i32 3, label %46
@@ -4780,7 +4780,7 @@ define internal fastcc void @add_pair_to_block(ptr noundef captures(none) %0) un
   %27 = load i32, ptr %26, align 4, !tbaa !40
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
-  store i8 %19, ptr %29, align 1, !tbaa !44
+  store i8 %4, ptr %29, align 1, !tbaa !44
   %30 = load i32, ptr %26, align 4, !tbaa !40
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %26, align 4, !tbaa !40
@@ -4793,14 +4793,14 @@ define internal fastcc void @add_pair_to_block(ptr noundef captures(none) %0) un
   %36 = load i32, ptr %35, align 4, !tbaa !40
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %34, i64 %37
-  store i8 %19, ptr %38, align 1, !tbaa !44
+  store i8 %4, ptr %38, align 1, !tbaa !44
   %39 = load i32, ptr %35, align 4, !tbaa !40
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %35, align 4, !tbaa !40
   %41 = load ptr, ptr %33, align 8, !tbaa !29
   %42 = sext i32 %40 to i64
   %43 = getelementptr inbounds i8, ptr %41, i64 %42
-  store i8 %19, ptr %43, align 1, !tbaa !44
+  store i8 %4, ptr %43, align 1, !tbaa !44
   %44 = load i32, ptr %35, align 4, !tbaa !40
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %35, align 4, !tbaa !40
@@ -4813,28 +4813,28 @@ define internal fastcc void @add_pair_to_block(ptr noundef captures(none) %0) un
   %50 = load i32, ptr %49, align 4, !tbaa !40
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %48, i64 %51
-  store i8 %19, ptr %52, align 1, !tbaa !44
+  store i8 %4, ptr %52, align 1, !tbaa !44
   %53 = load i32, ptr %49, align 4, !tbaa !40
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr %49, align 4, !tbaa !40
   %55 = load ptr, ptr %47, align 8, !tbaa !29
   %56 = sext i32 %54 to i64
   %57 = getelementptr inbounds i8, ptr %55, i64 %56
-  store i8 %19, ptr %57, align 1, !tbaa !44
+  store i8 %4, ptr %57, align 1, !tbaa !44
   %58 = load i32, ptr %49, align 4, !tbaa !40
   %59 = add nsw i32 %58, 1
   store i32 %59, ptr %49, align 4, !tbaa !40
   %60 = load ptr, ptr %47, align 8, !tbaa !29
   %61 = sext i32 %59 to i64
   %62 = getelementptr inbounds i8, ptr %60, i64 %61
-  store i8 %19, ptr %62, align 1, !tbaa !44
+  store i8 %4, ptr %62, align 1, !tbaa !44
   %63 = load i32, ptr %49, align 4, !tbaa !40
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %49, align 4, !tbaa !40
   br label %100
 
 65:                                               ; preds = %._crit_edge
-  %66 = sext i32 %5 to i64
+  %66 = sext i32 %6 to i64
   %67 = getelementptr i8, ptr %20, i64 %66
   %68 = getelementptr i8, ptr %67, i64 -4
   store i8 1, ptr %68, align 1, !tbaa !44
@@ -4844,32 +4844,32 @@ define internal fastcc void @add_pair_to_block(ptr noundef captures(none) %0) un
   %72 = load i32, ptr %71, align 4, !tbaa !40
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds i8, ptr %70, i64 %73
-  store i8 %19, ptr %74, align 1, !tbaa !44
+  store i8 %4, ptr %74, align 1, !tbaa !44
   %75 = load i32, ptr %71, align 4, !tbaa !40
   %76 = add nsw i32 %75, 1
   store i32 %76, ptr %71, align 4, !tbaa !40
   %77 = load ptr, ptr %69, align 8, !tbaa !29
   %78 = sext i32 %76 to i64
   %79 = getelementptr inbounds i8, ptr %77, i64 %78
-  store i8 %19, ptr %79, align 1, !tbaa !44
+  store i8 %4, ptr %79, align 1, !tbaa !44
   %80 = load i32, ptr %71, align 4, !tbaa !40
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %71, align 4, !tbaa !40
   %82 = load ptr, ptr %69, align 8, !tbaa !29
   %83 = sext i32 %81 to i64
   %84 = getelementptr inbounds i8, ptr %82, i64 %83
-  store i8 %19, ptr %84, align 1, !tbaa !44
+  store i8 %4, ptr %84, align 1, !tbaa !44
   %85 = load i32, ptr %71, align 4, !tbaa !40
   %86 = add nsw i32 %85, 1
   store i32 %86, ptr %71, align 4, !tbaa !40
   %87 = load ptr, ptr %69, align 8, !tbaa !29
   %88 = sext i32 %86 to i64
   %89 = getelementptr inbounds i8, ptr %87, i64 %88
-  store i8 %19, ptr %89, align 1, !tbaa !44
+  store i8 %4, ptr %89, align 1, !tbaa !44
   %90 = load i32, ptr %71, align 4, !tbaa !40
   %91 = add nsw i32 %90, 1
   store i32 %91, ptr %71, align 4, !tbaa !40
-  %92 = load i32, ptr %4, align 8, !tbaa !39
+  %92 = load i32, ptr %5, align 8, !tbaa !39
   %93 = trunc i32 %92 to i8
   %94 = add i8 %93, -4
   %95 = load ptr, ptr %69, align 8, !tbaa !29

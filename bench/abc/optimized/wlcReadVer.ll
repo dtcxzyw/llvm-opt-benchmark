@@ -1230,30 +1230,30 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 56:                                               ; preds = %53
   store i8 0, ptr %.04267, align 1, !tbaa !39
-  br label %57
+  %57 = load ptr, ptr %52, align 8, !tbaa !23
+  br label %58
 
-57:                                               ; preds = %57, %56
-  %.0.i = phi ptr [ %.04366, %56 ], [ %59, %57 ]
-  %58 = load i8, ptr %.0.i, align 1, !tbaa !39
-  %cond.i = icmp eq i8 %58, 32
-  %59 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br i1 %cond.i, label %57, label %Wlc_PrsSkipSpaces.exit, !llvm.loop !54
+58:                                               ; preds = %58, %56
+  %.0.i = phi ptr [ %.04366, %56 ], [ %60, %58 ]
+  %59 = load i8, ptr %.0.i, align 1, !tbaa !39
+  %cond.i = icmp eq i8 %59, 32
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
+  br i1 %cond.i, label %58, label %Wlc_PrsSkipSpaces.exit, !llvm.loop !54
 
-Wlc_PrsSkipSpaces.exit:                           ; preds = %57
-  %60 = load ptr, ptr %52, align 8, !tbaa !23
+Wlc_PrsSkipSpaces.exit:                           ; preds = %58
   %.val = load ptr, ptr %2, align 8, !tbaa !15
   %61 = ptrtoint ptr %.0.i to i64
   %62 = ptrtoint ptr %.val to i64
   %63 = sub i64 %61, %62
   %64 = trunc i64 %63 to i32
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %66 = load i32, ptr %65, align 4, !tbaa !17
-  %67 = load i32, ptr %60, align 8, !tbaa !20
+  %67 = load i32, ptr %57, align 8, !tbaa !20
   %68 = icmp eq i32 %66, %67
   br i1 %68, label %69, label %.Vec_IntGrow.exit10_crit_edge.i57
 
 .Vec_IntGrow.exit10_crit_edge.i57:                ; preds = %Wlc_PrsSkipSpaces.exit
-  %.phi.trans.insert.i58 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %.phi.trans.insert.i58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.pre.i59 = load ptr, ptr %.phi.trans.insert.i58, align 8, !tbaa !21
   br label %Vec_IntPush.exit63
 
@@ -1262,7 +1262,7 @@ Wlc_PrsSkipSpaces.exit:                           ; preds = %57
   br i1 %70, label %71, label %79
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !21
   %.not9.i.i61 = icmp eq ptr %73, null
   br i1 %.not9.i.i61, label %76, label %74
@@ -1278,12 +1278,12 @@ Wlc_PrsSkipSpaces.exit:                           ; preds = %57
 Vec_IntGrow.exit.i62:                             ; preds = %76, %74
   %78 = phi ptr [ %75, %74 ], [ %77, %76 ]
   store ptr %78, ptr %72, align 8, !tbaa !21
-  store i32 16, ptr %60, align 8, !tbaa !20
+  store i32 16, ptr %57, align 8, !tbaa !20
   br label %Vec_IntPush.exit63
 
 79:                                               ; preds = %69
   %80 = shl nuw nsw i32 %66, 1
-  %81 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !21
   %.not9.i9.i60 = icmp eq ptr %82, null
   %83 = zext nneg i32 %80 to i64
@@ -1301,7 +1301,7 @@ Vec_IntGrow.exit.i62:                             ; preds = %76, %74
 89:                                               ; preds = %87, %85
   %90 = phi ptr [ %86, %85 ], [ %88, %87 ]
   store ptr %90, ptr %81, align 8, !tbaa !21
-  store i32 %80, ptr %60, align 8, !tbaa !20
+  store i32 %80, ptr %57, align 8, !tbaa !20
   br label %Vec_IntPush.exit63
 
 Vec_IntPush.exit63:                               ; preds = %.Vec_IntGrow.exit10_crit_edge.i57, %Vec_IntGrow.exit.i62, %89

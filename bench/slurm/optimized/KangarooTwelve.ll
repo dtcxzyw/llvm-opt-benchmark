@@ -315,7 +315,7 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
   %48 = add i64 %47, -1
   store i64 %48, ptr %32, align 8
   %.not23.i49 = icmp eq i64 %48, 0
-  br i1 %.not23.i49, label %right_encode.exit63, label %.lr.ph.i50
+  br i1 %.not23.i49, label %right_encode.exit62, label %.lr.ph.i50
 
 .lr.ph22.preheader.i53:                           ; preds = %.lr.ph.i50
   %49 = add nuw nsw i32 %.01718.i52, 2
@@ -345,24 +345,24 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
   store i8 %60, ptr %62, align 1
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.i58 = icmp eq i64 %indvars.iv.next.i57, %wide.trip.count.i54
-  br i1 %exitcond.i58, label %._crit_edge.loopexit.i59, label %.lr.ph22.i55, !llvm.loop !11
+  br i1 %exitcond.i58, label %right_encode.exit62.loopexit, label %.lr.ph22.i55, !llvm.loop !11
 
-._crit_edge.loopexit.i59:                         ; preds = %.lr.ph22.i55
+right_encode.exit62.loopexit:                     ; preds = %.lr.ph22.i55
   %63 = zext nneg i32 %50 to i64
   %64 = trunc nuw nsw i32 %50 to i8
-  br label %right_encode.exit63
+  br label %right_encode.exit62
 
-right_encode.exit63:                              ; preds = %46, %._crit_edge.loopexit.i59
-  %.017.lcssa29.i60 = phi i8 [ %64, %._crit_edge.loopexit.i59 ], [ 0, %46 ]
-  %.pre-phi26.i61 = phi i32 [ %49, %._crit_edge.loopexit.i59 ], [ 1, %46 ]
-  %.pre-phi.i62 = phi i64 [ %63, %._crit_edge.loopexit.i59 ], [ 0, %46 ]
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi.i62
-  store i8 %.017.lcssa29.i60, ptr %65, align 1
-  %66 = zext nneg i32 %.pre-phi26.i61 to i64
+right_encode.exit62:                              ; preds = %46, %right_encode.exit62.loopexit
+  %.017.lcssa29.i59 = phi i8 [ %64, %right_encode.exit62.loopexit ], [ 0, %46 ]
+  %.pre-phi26.i60 = phi i32 [ %49, %right_encode.exit62.loopexit ], [ 1, %46 ]
+  %.pre-phi.i61 = phi i64 [ %63, %right_encode.exit62.loopexit ], [ 0, %46 ]
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi.i61
+  store i8 %.017.lcssa29.i59, ptr %65, align 1
+  %66 = zext nneg i32 %.pre-phi26.i60 to i64
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 %66
   store i8 -1, ptr %67, align 1
-  %68 = add nuw nsw i32 %.pre-phi26.i61, 2
-  %69 = zext nneg i32 %.pre-phi26.i61 to i64
+  %68 = add nuw nsw i32 %.pre-phi26.i60, 2
+  %69 = zext nneg i32 %.pre-phi26.i60 to i64
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   store i8 -1, ptr %71, align 1
@@ -376,8 +376,8 @@ right_encode.exit63:                              ; preds = %46, %._crit_edge.lo
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge48
 
-75:                                               ; preds = %31, %right_encode.exit63
-  %.032 = phi i8 [ 6, %right_encode.exit63 ], [ 7, %31 ]
+75:                                               ; preds = %31, %right_encode.exit62
+  %.032 = phi i8 [ 6, %right_encode.exit62 ], [ 7, %31 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %77 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %76, i8 noundef zeroext %.032) #4
   %.not44 = icmp eq i32 %77, 0
@@ -398,8 +398,8 @@ right_encode.exit63:                              ; preds = %46, %._crit_edge.lo
   store i32 3, ptr %7, align 4
   br label %.critedge48
 
-.critedge48:                                      ; preds = %43, %.critedge, %75, %29, %10, %4, %right_encode.exit63, %83, %81
-  %.0 = phi i32 [ %82, %81 ], [ 0, %83 ], [ 1, %right_encode.exit63 ], [ 1, %4 ], [ 1, %10 ], [ 1, %29 ], [ 1, %75 ], [ 1, %.critedge ], [ 1, %43 ]
+.critedge48:                                      ; preds = %43, %.critedge, %75, %29, %10, %4, %right_encode.exit62, %83, %81
+  %.0 = phi i32 [ %82, %81 ], [ 0, %83 ], [ 1, %right_encode.exit62 ], [ 1, %4 ], [ 1, %10 ], [ 1, %29 ], [ 1, %75 ], [ 1, %.critedge ], [ 1, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

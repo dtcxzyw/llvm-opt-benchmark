@@ -1088,156 +1088,156 @@ define void @b2DestroyWorld(i32 %0) local_unnamed_addr #0 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
   %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
-  %5 = getelementptr i8, ptr %4, i64 -320
-  tail call void @b2DestroyBitSet(ptr noundef nonnull %5) #22
-  %6 = getelementptr i8, ptr %4, i64 -304
+  %5 = getelementptr i8, ptr %4, i64 -1792
+  %6 = getelementptr i8, ptr %4, i64 -320
   tail call void @b2DestroyBitSet(ptr noundef nonnull %6) #22
-  %7 = getelementptr i8, ptr %4, i64 -288
+  %7 = getelementptr i8, ptr %4, i64 -304
   tail call void @b2DestroyBitSet(ptr noundef nonnull %7) #22
-  %8 = getelementptr i8, ptr %4, i64 -72
-  %9 = load i32, ptr %8, align 8, !tbaa !145
-  %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge
+  %8 = getelementptr i8, ptr %4, i64 -288
+  tail call void @b2DestroyBitSet(ptr noundef nonnull %8) #22
+  %9 = getelementptr i8, ptr %4, i64 -72
+  %10 = load i32, ptr %9, align 8, !tbaa !145
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %11 = getelementptr i8, ptr %4, i64 -488
-  %12 = getelementptr i8, ptr %4, i64 -472
-  br label %63
+  %12 = getelementptr i8, ptr %4, i64 -488
+  %13 = getelementptr i8, ptr %4, i64 -472
+  br label %64
 
-._crit_edge:                                      ; preds = %63, %1
-  %13 = getelementptr i8, ptr %4, i64 -488
-  %14 = load ptr, ptr %13, align 8, !tbaa !34
-  %15 = getelementptr i8, ptr %4, i64 -476
-  %16 = load i32, ptr %15, align 4, !tbaa !31
-  %17 = mul i32 %16, 56
-  tail call void @b2Free(ptr noundef %14, i32 noundef %17) #22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %18 = getelementptr i8, ptr %4, i64 -472
-  tail call void @b2SensorTaskContextArray_Destroy(ptr noundef nonnull %18) #22
-  %19 = getelementptr i8, ptr %4, i64 -456
-  %20 = load ptr, ptr %19, align 8, !tbaa !10
-  %21 = getelementptr i8, ptr %4, i64 -444
-  %22 = load i32, ptr %21, align 4, !tbaa !3
-  %23 = mul i32 %22, 40
-  tail call void @b2Free(ptr noundef %20, i32 noundef %23) #22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  %24 = getelementptr i8, ptr %4, i64 -440
-  %25 = load ptr, ptr %24, align 8, !tbaa !26
-  %26 = getelementptr i8, ptr %4, i64 -428
-  %27 = load i32, ptr %26, align 4, !tbaa !23
-  %28 = shl i32 %27, 4
-  tail call void @b2Free(ptr noundef %25, i32 noundef %28) #22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  %29 = getelementptr i8, ptr %4, i64 -408
-  %30 = load ptr, ptr %29, align 8, !tbaa !30
-  %31 = getelementptr i8, ptr %4, i64 -396
-  %32 = load i32, ptr %31, align 4, !tbaa !27
-  %33 = shl i32 %32, 4
-  tail call void @b2Free(ptr noundef %30, i32 noundef %33) #22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  %34 = getelementptr i8, ptr %4, i64 -392
-  %35 = load ptr, ptr %34, align 8, !tbaa !30
-  %36 = getelementptr i8, ptr %4, i64 -380
-  %37 = load i32, ptr %36, align 4, !tbaa !27
-  %38 = shl i32 %37, 4
-  tail call void @b2Free(ptr noundef %35, i32 noundef %38) #22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  %39 = getelementptr i8, ptr %4, i64 -424
-  %40 = load ptr, ptr %39, align 8, !tbaa !14
-  %41 = getelementptr i8, ptr %4, i64 -412
-  %42 = load i32, ptr %41, align 4, !tbaa !11
-  %43 = shl i32 %42, 7
-  tail call void @b2Free(ptr noundef %40, i32 noundef %43) #22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  %44 = getelementptr i8, ptr %4, i64 -376
-  %45 = load ptr, ptr %44, align 8, !tbaa !18
-  %46 = getelementptr i8, ptr %4, i64 -364
-  %47 = load i32, ptr %46, align 4, !tbaa !15
-  %48 = shl i32 %47, 4
-  tail call void @b2Free(ptr noundef %45, i32 noundef %48) #22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
-  %49 = getelementptr i8, ptr %4, i64 -360
-  %50 = load ptr, ptr %49, align 8, !tbaa !18
-  %51 = getelementptr i8, ptr %4, i64 -348
-  %52 = load i32, ptr %51, align 4, !tbaa !15
-  %53 = shl i32 %52, 4
-  tail call void @b2Free(ptr noundef %50, i32 noundef %53) #22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
-  %54 = getelementptr i8, ptr %4, i64 -336
-  %55 = load ptr, ptr %54, align 16, !tbaa !22
-  %56 = getelementptr i8, ptr %4, i64 -324
-  %57 = load i32, ptr %56, align 4, !tbaa !19
-  %58 = mul i32 %57, 36
-  tail call void @b2Free(ptr noundef %55, i32 noundef %58) #22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %54, i8 0, i64 16, i1 false)
-  %59 = getelementptr i8, ptr %4, i64 -520
-  %60 = getelementptr i8, ptr %4, i64 -512
-  %61 = load i32, ptr %60, align 16, !tbaa !158
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph78.preheader, label %._crit_edge79
+._crit_edge:                                      ; preds = %64, %1
+  %14 = getelementptr i8, ptr %4, i64 -488
+  %15 = load ptr, ptr %14, align 8, !tbaa !34
+  %16 = getelementptr i8, ptr %4, i64 -476
+  %17 = load i32, ptr %16, align 4, !tbaa !31
+  %18 = mul i32 %17, 56
+  tail call void @b2Free(ptr noundef %15, i32 noundef %18) #22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  %19 = getelementptr i8, ptr %4, i64 -472
+  tail call void @b2SensorTaskContextArray_Destroy(ptr noundef nonnull %19) #22
+  %20 = getelementptr i8, ptr %4, i64 -456
+  %21 = load ptr, ptr %20, align 8, !tbaa !10
+  %22 = getelementptr i8, ptr %4, i64 -444
+  %23 = load i32, ptr %22, align 4, !tbaa !3
+  %24 = mul i32 %23, 40
+  tail call void @b2Free(ptr noundef %21, i32 noundef %24) #22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  %25 = getelementptr i8, ptr %4, i64 -440
+  %26 = load ptr, ptr %25, align 8, !tbaa !26
+  %27 = getelementptr i8, ptr %4, i64 -428
+  %28 = load i32, ptr %27, align 4, !tbaa !23
+  %29 = shl i32 %28, 4
+  tail call void @b2Free(ptr noundef %26, i32 noundef %29) #22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  %30 = getelementptr i8, ptr %4, i64 -408
+  %31 = load ptr, ptr %30, align 8, !tbaa !30
+  %32 = getelementptr i8, ptr %4, i64 -396
+  %33 = load i32, ptr %32, align 4, !tbaa !27
+  %34 = shl i32 %33, 4
+  tail call void @b2Free(ptr noundef %31, i32 noundef %34) #22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  %35 = getelementptr i8, ptr %4, i64 -392
+  %36 = load ptr, ptr %35, align 8, !tbaa !30
+  %37 = getelementptr i8, ptr %4, i64 -380
+  %38 = load i32, ptr %37, align 4, !tbaa !27
+  %39 = shl i32 %38, 4
+  tail call void @b2Free(ptr noundef %36, i32 noundef %39) #22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
+  %40 = getelementptr i8, ptr %4, i64 -424
+  %41 = load ptr, ptr %40, align 8, !tbaa !14
+  %42 = getelementptr i8, ptr %4, i64 -412
+  %43 = load i32, ptr %42, align 4, !tbaa !11
+  %44 = shl i32 %43, 7
+  tail call void @b2Free(ptr noundef %41, i32 noundef %44) #22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
+  %45 = getelementptr i8, ptr %4, i64 -376
+  %46 = load ptr, ptr %45, align 8, !tbaa !18
+  %47 = getelementptr i8, ptr %4, i64 -364
+  %48 = load i32, ptr %47, align 4, !tbaa !15
+  %49 = shl i32 %48, 4
+  tail call void @b2Free(ptr noundef %46, i32 noundef %49) #22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
+  %50 = getelementptr i8, ptr %4, i64 -360
+  %51 = load ptr, ptr %50, align 8, !tbaa !18
+  %52 = getelementptr i8, ptr %4, i64 -348
+  %53 = load i32, ptr %52, align 4, !tbaa !15
+  %54 = shl i32 %53, 4
+  tail call void @b2Free(ptr noundef %51, i32 noundef %54) #22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
+  %55 = getelementptr i8, ptr %4, i64 -336
+  %56 = load ptr, ptr %55, align 16, !tbaa !22
+  %57 = getelementptr i8, ptr %4, i64 -324
+  %58 = load i32, ptr %57, align 4, !tbaa !19
+  %59 = mul i32 %58, 36
+  tail call void @b2Free(ptr noundef %56, i32 noundef %59) #22
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %55, i8 0, i64 16, i1 false)
+  %60 = getelementptr i8, ptr %4, i64 -520
+  %61 = getelementptr i8, ptr %4, i64 -512
+  %62 = load i32, ptr %61, align 16, !tbaa !158
+  %63 = icmp sgt i32 %62, 0
+  br i1 %63, label %.lr.ph78.preheader, label %._crit_edge79
 
 .lr.ph78.preheader:                               ; preds = %._crit_edge
-  %wide.trip.count = zext nneg i32 %61 to i64
+  %wide.trip.count = zext nneg i32 %62 to i64
   br label %.lr.ph78
 
-63:                                               ; preds = %.lr.ph, %63
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
-  %64 = load ptr, ptr %11, align 8, !tbaa !155
-  %65 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %64, i64 %indvars.iv
-  tail call void @b2DestroyBitSet(ptr noundef %65) #22
-  %66 = load ptr, ptr %11, align 8, !tbaa !155
-  %67 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %66, i64 %indvars.iv
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  tail call void @b2DestroyBitSet(ptr noundef nonnull %68) #22
-  %69 = load ptr, ptr %11, align 8, !tbaa !155
-  %70 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %69, i64 %indvars.iv
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  tail call void @b2DestroyBitSet(ptr noundef nonnull %71) #22
-  %72 = load ptr, ptr %12, align 8, !tbaa !156
-  %73 = getelementptr inbounds nuw %struct.b2SensorTaskContext, ptr %72, i64 %indvars.iv
-  tail call void @b2DestroyBitSet(ptr noundef %73) #22
+64:                                               ; preds = %.lr.ph, %64
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
+  %65 = load ptr, ptr %12, align 8, !tbaa !155
+  %66 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %65, i64 %indvars.iv
+  tail call void @b2DestroyBitSet(ptr noundef %66) #22
+  %67 = load ptr, ptr %12, align 8, !tbaa !155
+  %68 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %67, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  tail call void @b2DestroyBitSet(ptr noundef nonnull %69) #22
+  %70 = load ptr, ptr %12, align 8, !tbaa !155
+  %71 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %70, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  tail call void @b2DestroyBitSet(ptr noundef nonnull %72) #22
+  %73 = load ptr, ptr %13, align 8, !tbaa !156
+  %74 = getelementptr inbounds nuw %struct.b2SensorTaskContext, ptr %73, i64 %indvars.iv
+  tail call void @b2DestroyBitSet(ptr noundef %74) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %74 = load i32, ptr %8, align 8, !tbaa !145
-  %75 = sext i32 %74 to i64
-  %76 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %76, label %63, label %._crit_edge, !llvm.loop !159
+  %75 = load i32, ptr %9, align 8, !tbaa !145
+  %76 = sext i32 %75 to i64
+  %77 = icmp slt i64 %indvars.iv.next, %76
+  br i1 %77, label %64, label %._crit_edge, !llvm.loop !159
 
-._crit_edge79:                                    ; preds = %85, %._crit_edge
-  %77 = getelementptr i8, ptr %4, i64 -504
-  %78 = getelementptr i8, ptr %4, i64 -496
-  %79 = load i32, ptr %78, align 16, !tbaa !160
-  %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %.lr.ph82.preheader, label %._crit_edge83
+._crit_edge79:                                    ; preds = %86, %._crit_edge
+  %78 = getelementptr i8, ptr %4, i64 -504
+  %79 = getelementptr i8, ptr %4, i64 -496
+  %80 = load i32, ptr %79, align 16, !tbaa !160
+  %81 = icmp sgt i32 %80, 0
+  br i1 %81, label %.lr.ph82.preheader, label %._crit_edge83
 
 .lr.ph82.preheader:                               ; preds = %._crit_edge79
-  %wide.trip.count95 = zext nneg i32 %79 to i64
+  %wide.trip.count95 = zext nneg i32 %80 to i64
   br label %.lr.ph82
 
-.lr.ph78:                                         ; preds = %.lr.ph78.preheader, %85
-  %indvars.iv89 = phi i64 [ 0, %.lr.ph78.preheader ], [ %indvars.iv.next90, %85 ]
-  %81 = load ptr, ptr %59, align 8, !tbaa !161
-  %82 = getelementptr inbounds nuw %struct.b2ChainShape, ptr %81, i64 %indvars.iv89
-  %83 = load i32, ptr %82, align 8, !tbaa !162
-  %.not74 = icmp eq i32 %83, -1
-  br i1 %.not74, label %85, label %84
+.lr.ph78:                                         ; preds = %.lr.ph78.preheader, %86
+  %indvars.iv89 = phi i64 [ 0, %.lr.ph78.preheader ], [ %indvars.iv.next90, %86 ]
+  %82 = load ptr, ptr %60, align 8, !tbaa !161
+  %83 = getelementptr inbounds nuw %struct.b2ChainShape, ptr %82, i64 %indvars.iv89
+  %84 = load i32, ptr %83, align 8, !tbaa !162
+  %.not74 = icmp eq i32 %84, -1
+  br i1 %.not74, label %86, label %85
 
-84:                                               ; preds = %.lr.ph78
-  tail call void @b2FreeChainData(ptr noundef nonnull %82) #22
-  br label %85
+85:                                               ; preds = %.lr.ph78
+  tail call void @b2FreeChainData(ptr noundef nonnull %83) #22
+  br label %86
 
-85:                                               ; preds = %.lr.ph78, %84
+86:                                               ; preds = %.lr.ph78, %85
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge79, label %.lr.ph78, !llvm.loop !165
 
 ._crit_edge83:                                    ; preds = %.lr.ph82, %._crit_edge79
-  %86 = getelementptr i8, ptr %4, i64 -1792
-  tail call void @b2SensorArray_Destroy(ptr noundef nonnull %77) #22
+  tail call void @b2SensorArray_Destroy(ptr noundef nonnull %78) #22
   %87 = getelementptr i8, ptr %4, i64 -760
   tail call void @b2BodyArray_Destroy(ptr noundef nonnull %87) #22
   %88 = getelementptr i8, ptr %4, i64 -536
   tail call void @b2ShapeArray_Destroy(ptr noundef nonnull %88) #22
-  tail call void @b2ChainShapeArray_Destroy(ptr noundef nonnull %59) #22
+  tail call void @b2ChainShapeArray_Destroy(ptr noundef nonnull %60) #22
   %89 = getelementptr i8, ptr %4, i64 -640
   tail call void @b2ContactArray_Destroy(ptr noundef nonnull %89) #22
   %90 = getelementptr i8, ptr %4, i64 -680
@@ -1256,10 +1256,10 @@ define void @b2DestroyWorld(i32 %0) local_unnamed_addr #0 {
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv92 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next93, %.lr.ph82 ]
-  %96 = load ptr, ptr %77, align 8, !tbaa !167
+  %96 = load ptr, ptr %78, align 8, !tbaa !167
   %97 = getelementptr inbounds nuw %struct.b2Sensor, ptr %96, i64 %indvars.iv92
   tail call void @b2ShapeRefArray_Destroy(ptr noundef %97) #22
-  %98 = load ptr, ptr %77, align 8, !tbaa !167
+  %98 = load ptr, ptr %78, align 8, !tbaa !167
   %99 = getelementptr inbounds nuw %struct.b2Sensor, ptr %98, i64 %indvars.iv92
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   tail call void @b2ShapeRefArray_Destroy(ptr noundef nonnull %100) #22
@@ -1287,11 +1287,11 @@ define void @b2DestroyWorld(i32 %0) local_unnamed_addr #0 {
   tail call void @b2DestroyIdPool(ptr noundef nonnull %108) #22
   %109 = getelementptr i8, ptr %4, i64 -744
   tail call void @b2DestroyIdPool(ptr noundef nonnull %109) #22
-  tail call void @b2DestroyArenaAllocator(ptr noundef %86) #22
+  tail call void @b2DestroyArenaAllocator(ptr noundef %5) #22
   %110 = getelementptr i8, ptr %4, i64 -200
   %111 = load i16, ptr %110, align 8, !tbaa !82
   %112 = add i16 %111, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1792) %86, i8 0, i64 1792, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1792) %5, i8 0, i64 1792, i1 false)
   store i16 %112, ptr %110, align 8, !tbaa !82
   ret void
 
@@ -1306,7 +1306,7 @@ define void @b2DestroyWorld(i32 %0) local_unnamed_addr #0 {
 
 117:                                              ; preds = %.lr.ph86
   %118 = trunc nuw nsw i64 %indvars.iv97 to i32
-  tail call void @b2DestroySolverSet(ptr noundef %86, i32 noundef %118) #22
+  tail call void @b2DestroySolverSet(ptr noundef %5, i32 noundef %118) #22
   br label %119
 
 119:                                              ; preds = %117, %.lr.ph86

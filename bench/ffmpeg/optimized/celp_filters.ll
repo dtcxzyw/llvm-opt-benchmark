@@ -407,7 +407,7 @@ define void @ff_celp_lp_synthesis_filterf(ptr noundef captures(none) %0, ptr nou
 
 ._crit_edge185.loopexit:                          ; preds = %._crit_edge
   %89 = and i32 %10, -4
-  %90 = add nuw nsw i32 %89, 4
+  %90 = add i32 %89, 4
   br label %._crit_edge185
 
 ._crit_edge185:                                   ; preds = %._crit_edge185.loopexit, %5

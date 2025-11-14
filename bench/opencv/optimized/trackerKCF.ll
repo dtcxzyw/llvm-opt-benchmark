@@ -1834,17 +1834,17 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %_ZNK2cv11_
   %40 = add nsw i32 %30, -1
   %41 = sitofp i32 %40 to float
   %42 = fdiv float 0x401921FB60000000, %41
-  %43 = icmp sgt i32 %30, 0
-  br i1 %43, label %.lr.ph.preheader, label %._crit_edge
+  %43 = add nsw i32 %28, -1
+  %44 = sitofp i32 %43 to float
+  %45 = fdiv float 0x401921FB60000000, %44
+  %46 = icmp sgt i32 %30, 0
+  br i1 %46, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
   %wide.trip.count = zext nneg i32 %30 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
-  %44 = add nsw i32 %28, -1
-  %45 = sitofp i32 %44 to float
-  %46 = fdiv float 0x401921FB60000000, %45
   %47 = load i32, ptr %7, align 8, !tbaa !128
   %48 = and i32 %47, 7
   %49 = icmp eq i32 %48, 5
@@ -1860,7 +1860,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %_ZNK2cv11_
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %54 = load ptr, ptr %53, align 8, !tbaa !130
   %55 = load i64, ptr %54, align 8, !tbaa !83
-  br i1 %43, label %.lr.ph63.us.preheader, label %.lr.ph66.split
+  br i1 %46, label %.lr.ph63.us.preheader, label %.lr.ph66.split
 
 .lr.ph63.us.preheader:                            ; preds = %.lr.ph66
   %wide.trip.count86 = zext nneg i32 %28 to i64
@@ -1873,7 +1873,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %_ZNK2cv11_
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 %56
   %58 = trunc nuw nsw i64 %indvars.iv83 to i32
   %59 = uitofp nneg i32 %58 to float
-  %60 = fmul float %46, %59
+  %60 = fmul float %45, %59
   %61 = fpext float %60 to double
   %62 = call double @cos(double noundef %61) #28, !tbaa !12
   %63 = fsub double 1.000000e+00, %62
@@ -1906,7 +1906,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %_ZNK2cv11_
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %74 = load ptr, ptr %73, align 8, !tbaa !130
   %75 = load i64, ptr %74, align 8, !tbaa !83
-  br i1 %43, label %.lr.ph69.us.preheader, label %.lr.ph72.split
+  br i1 %46, label %.lr.ph69.us.preheader, label %.lr.ph72.split
 
 .lr.ph69.us.preheader:                            ; preds = %.lr.ph72
   %wide.trip.count97 = zext nneg i32 %28 to i64
@@ -1919,7 +1919,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %_ZNK2cv11_
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 %76
   %78 = trunc nuw nsw i64 %indvars.iv94 to i32
   %79 = uitofp nneg i32 %78 to float
-  %80 = fmul float %46, %79
+  %80 = fmul float %45, %79
   %81 = fpext float %80 to double
   %82 = call double @cos(double noundef %81) #28, !tbaa !12
   %83 = fsub double 1.000000e+00, %82
@@ -1970,7 +1970,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %_ZNK2cv11_
 .lr.ph72.split:                                   ; preds = %.lr.ph72, %.lr.ph72.split
   %.05271 = phi i32 [ %106, %.lr.ph72.split ], [ 0, %.lr.ph72 ]
   %102 = uitofp nneg i32 %.05271 to float
-  %103 = fmul float %46, %102
+  %103 = fmul float %45, %102
   %104 = fpext float %103 to double
   %105 = call double @cos(double noundef %104) #28, !tbaa !12
   %106 = add nuw nsw i32 %.05271, 1
@@ -1980,7 +1980,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %_ZNK2cv11_
 .lr.ph66.split:                                   ; preds = %.lr.ph66, %.lr.ph66.split
   %.04965 = phi i32 [ %111, %.lr.ph66.split ], [ 0, %.lr.ph66 ]
   %107 = uitofp nneg i32 %.04965 to float
-  %108 = fmul float %46, %107
+  %108 = fmul float %45, %107
   %109 = fpext float %108 to double
   %110 = call double @cos(double noundef %109) #28, !tbaa !12
   %111 = add nuw nsw i32 %.04965, 1

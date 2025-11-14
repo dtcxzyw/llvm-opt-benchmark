@@ -2290,8 +2290,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -6170,30 +6170,30 @@ define void @_ZN3vcg8PullPushER6QImagej(ptr noundef nonnull align 8 dereferencea
   %3 = alloca %class.QImage, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #37
   store ptr %4, ptr %2, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 512
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %5, ptr %6, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 512
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %6, ptr %7, align 8
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.noexc
-  %.08.i.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i.i ], [ %4, %.noexc ]
-  %.057.i.i.i.i.i = phi i64 [ %7, %.lr.ph.i.i.i.i.i ], [ 16, %.noexc ]
+  %.08.i.i.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i.i.i ], [ %4, %.noexc ]
+  %.057.i.i.i.i.i = phi i64 [ %8, %.lr.ph.i.i.i.i.i ], [ 16, %.noexc ]
   tail call void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.08.i.i.i.i.i) #34
-  %7 = add nsw i64 %.057.i.i.i.i.i, -1
-  %8 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i.i.i.i, label %9, label %.lr.ph.i.i.i.i.i, !llvm.loop !65
+  %8 = add nsw i64 %.057.i.i.i.i.i, -1
+  %9 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i = icmp eq i64 %8, 0
+  br i1 %.not.i.i.i.i.i, label %10, label %.lr.ph.i.i.i.i.i, !llvm.loop !65
 
-9:                                                ; preds = %.lr.ph.i.i.i.i.i
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %8, ptr %10, align 8
+10:                                               ; preds = %.lr.ph.i.i.i.i.i
+  store ptr %9, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %12
 
-12:                                               ; preds = %43, %9
-  %13 = phi ptr [ %38, %43 ], [ %4, %9 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %9 ]
-  %.031 = phi i32 [ %27, %43 ], [ 2, %9 ]
+12:                                               ; preds = %43, %10
+  %13 = phi ptr [ %38, %43 ], [ %4, %10 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %10 ]
+  %.031 = phi i32 [ %27, %43 ], [ 2, %10 ]
   %14 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %15 unwind label %.loopexit.split-lp
 
@@ -6300,7 +6300,7 @@ define void @_ZN3vcg8PullPushER6QImagej(ptr noundef nonnull align 8 dereferencea
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %49, %48
-  %.not4.i.i.i.i = icmp eq ptr %44, %8
+  %.not4.i.i.i.i = icmp eq ptr %44, %9
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i.i
@@ -18067,31 +18067,31 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit173:     ; preds = %26, %28, %35
   %.sroa.11.5 = phi float [ %27, %26 ], [ %.sroa.11.4, %35 ], [ %.sroa.11.4, %28 ]
   %.sroa.22.5 = phi float [ %25, %26 ], [ %.sroa.22.4, %35 ], [ %.sroa.22.4, %28 ]
   %.sroa.33.2 = phi float [ %27, %26 ], [ %31, %35 ], [ %.sroa.33.1, %28 ]
-  %37 = tail call noundef float @llvm.floor.f32(float %.sroa.0246.5)
-  %38 = fptosi float %37 to i32
-  %39 = tail call noundef float @llvm.floor.f32(float %.sroa.11.5)
-  %40 = fptosi float %39 to i32
-  %41 = tail call noundef float @llvm.ceil.f32(float %.sroa.22.5)
-  %42 = fptosi float %41 to i32
-  %43 = tail call noundef float @llvm.ceil.f32(float %.sroa.33.2)
-  %44 = fptosi float %43 to i32
-  %45 = fsub float %15, %14
-  %46 = fsub float %18, %13
-  %47 = fsub float %25, %15
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %38 = tail call noundef float @llvm.floor.f32(float %.sroa.0246.5)
+  %39 = fptosi float %38 to i32
+  %40 = tail call noundef float @llvm.floor.f32(float %.sroa.11.5)
+  %41 = fptosi float %40 to i32
+  %42 = tail call noundef float @llvm.ceil.f32(float %.sroa.22.5)
+  %43 = fptosi float %42 to i32
+  %44 = tail call noundef float @llvm.ceil.f32(float %.sroa.33.2)
+  %45 = fptosi float %44 to i32
+  %46 = fsub float %15, %14
+  %47 = fsub float %18, %13
+  %48 = fsub float %25, %15
   %49 = fsub float %36, %18
   %50 = fsub float %14, %25
   %51 = fsub float %13, %36
-  %52 = sitofp i32 %38 to float
+  %52 = sitofp i32 %39 to float
   %53 = fsub float %52, %14
-  %54 = sitofp i32 %40 to float
+  %54 = sitofp i32 %41 to float
   %55 = fsub float %54, %13
-  %56 = fneg float %45
+  %56 = fneg float %46
   %57 = fmul float %55, %56
-  %58 = tail call float @llvm.fmuladd.f32(float %53, float %46, float %57)
+  %58 = tail call float @llvm.fmuladd.f32(float %53, float %47, float %57)
   %59 = fsub float %52, %15
   %60 = fsub float %54, %18
-  %61 = fneg float %47
+  %61 = fneg float %48
   %62 = fmul float %60, %61
   %63 = tail call float @llvm.fmuladd.f32(float %59, float %49, float %62)
   %64 = fsub float %52, %25
@@ -18099,8 +18099,8 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit173:     ; preds = %26, %28, %35
   %66 = fneg float %50
   %67 = fmul float %65, %66
   %68 = tail call float @llvm.fmuladd.f32(float %64, float %51, float %67)
-  %69 = fneg float %46
-  %70 = fmul float %45, %51
+  %69 = fneg float %47
+  %70 = fmul float %46, %51
   %71 = tail call noundef float @llvm.fmuladd.f32(float %50, float %69, float %70)
   %72 = fcmp ult float %71, 0.000000e+00
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -18211,16 +18211,16 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit173:     ; preds = %26, %28, %35
   %145 = tail call float @llvm.fmuladd.f32(float %144, float %18, float %143)
   %146 = tail call float @llvm.fmuladd.f32(float %25, float %13, float %145)
   %147 = fpext float %146 to double
-  %148 = add nsw i32 %38, -1
-  %149 = add nsw i32 %42, 1
+  %148 = add nsw i32 %39, -1
+  %149 = add nsw i32 %43, 1
   %.not290 = icmp sgt i32 %148, %149
   br i1 %.not290, label %._crit_edge299, label %.lr.ph298
 
 .lr.ph298:                                        ; preds = %137
   %150 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %151 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %152 = add nsw i32 %40, -1
-  %153 = add nsw i32 %44, 1
+  %152 = add nsw i32 %41, -1
+  %153 = add nsw i32 %45, 1
   %.not170285 = icmp sgt i32 %152, %153
   %154 = fcmp une float %146, 0.000000e+00
   %155 = zext nneg i8 %.2 to i32
@@ -18239,11 +18239,11 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit173:     ; preds = %26, %28, %35
   %.0165293 = phi float [ %340, %._crit_edge ], [ %68, %.lr.ph298 ]
   %.sroa.0196.0292 = phi float [ %.sroa.0196.2, %._crit_edge ], [ undef, %.lr.ph298 ]
   %.sroa.2.0291 = phi float [ %.sroa.2.2, %._crit_edge ], [ undef, %.lr.ph298 ]
-  %162 = fsub float %.0296, %46
-  %163 = fadd float %45, %162
+  %162 = fsub float %.0296, %47
+  %163 = fadd float %46, %162
   store float %163, ptr %8, align 4
   %164 = fsub float %.0158295, %49
-  %165 = fadd float %47, %164
+  %165 = fadd float %48, %164
   store float %165, ptr %150, align 4
   %166 = fsub float %.0165293, %51
   %167 = fadd float %50, %166
@@ -18292,7 +18292,7 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit173:     ; preds = %26, %28, %35
   %193 = call float @llvm.fmuladd.f32(float %192, float %168, float %191)
   %194 = fneg float %188
   %195 = call float @llvm.fmuladd.f32(float %194, float %192, float %193)
-  %196 = load float, ptr %48, align 4
+  %196 = load float, ptr %37, align 4
   %197 = call float @llvm.fmuladd.f32(float %187, float %196, float %195)
   %198 = call float @llvm.fmuladd.f32(float %171, float %196, float %197)
   %199 = fdiv float %198, %146
@@ -18479,7 +18479,7 @@ _ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit: ; preds 
   %310 = call float @llvm.fmuladd.f32(float %309, float %168, float %308)
   %311 = fneg float %306
   %312 = call float @llvm.fmuladd.f32(float %311, float %309, float %310)
-  %313 = load float, ptr %48, align 4
+  %313 = load float, ptr %37, align 4
   %314 = call float @llvm.fmuladd.f32(float %305, float %313, float %312)
   %315 = call float @llvm.fmuladd.f32(float %171, float %313, float %314)
   %316 = fdiv float %315, %146
@@ -18512,22 +18512,22 @@ _ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit: ; preds 
 333:                                              ; preds = %275, %332, %184
   %.sroa.2.2 = phi float [ %.sroa.2.1286, %184 ], [ %.sroa.2.4, %332 ], [ %.sroa.2.4, %275 ]
   %.sroa.0196.2 = phi float [ %.sroa.0196.1287, %184 ], [ %.sroa.0196.4, %332 ], [ %.sroa.0196.4, %275 ]
-  %334 = fsub float %173, %45
+  %334 = fsub float %173, %46
   store float %334, ptr %8, align 4
-  %335 = fsub float %174, %47
+  %335 = fsub float %174, %48
   store float %335, ptr %150, align 4
   %336 = fsub float %175, %50
   store float %336, ptr %151, align 4
   %337 = add nsw i32 %.0163288, 1
-  %.not170 = icmp sgt i32 %.0163288, %44
+  %.not170 = icmp sgt i32 %.0163288, %45
   br i1 %.not170, label %._crit_edge, label %172, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %333
-  %338 = fadd float %46, %.0296
+  %338 = fadd float %47, %.0296
   %339 = fadd float %49, %.0158295
   %340 = fadd float %51, %.0165293
   %341 = add nsw i32 %.0164294, 1
-  %.not = icmp sgt i32 %.0164294, %42
+  %.not = icmp sgt i32 %.0164294, %43
   br i1 %.not, label %._crit_edge299, label %.lr.ph, !llvm.loop !136
 
 ._crit_edge299:                                   ; preds = %._crit_edge, %.lr.ph298, %137

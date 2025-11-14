@@ -3665,31 +3665,31 @@ hwloc__distances_transform_links.exit:            ; preds = %.loopexit.i, %.lr.p
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 -1, 1) i32 @hwloc__distances_transform_remove_null(ptr noundef captures(none) %0) unnamed_addr #20 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !71
-  %4 = load i32, ptr %0, align 8, !tbaa !121
-  %.not41 = icmp eq i32 %4, 0
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !71
+  %6 = load i32, ptr %0, align 8, !tbaa !121
+  %.not41 = icmp eq i32 %6, 0
   br i1 %.not41, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %wide.trip.count = zext i32 %4 to i64
+  %wide.trip.count = zext i32 %6 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03037 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
-  %.not34 = icmp ne ptr %6, null
-  %7 = zext i1 %.not34 to i32
-  %spec.select = add i32 %.03037, %7
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %8 = load ptr, ptr %7, align 8, !tbaa !72
+  %.not34 = icmp ne ptr %8, null
+  %9 = zext i1 %.not34 to i32
+  %spec.select = add i32 %.03037, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !70
   %10 = icmp ult i32 %spec.select, 2
   br i1 %10, label %._crit_edge.thread, label %12
 
@@ -3699,24 +3699,24 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc__distances_transform_remove_n
   br label %58
 
 12:                                               ; preds = %._crit_edge
-  %13 = icmp eq i32 %spec.select, %4
+  %13 = icmp eq i32 %spec.select, %6
   br i1 %13, label %58, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12
-  %wide.trip.count75.i = zext i32 %4 to i64
+  %wide.trip.count75.i = zext i32 %6 to i64
   br label %21
 
 .lr.ph61.split.us.split.us.i:                     ; preds = %43, %20
   %indvars.iv92.i = phi i64 [ %indvars.iv.next93.i, %20 ], [ 0, %43 ]
   %.260.us.us.i = phi i32 [ %.3.us.us.i, %20 ], [ 0, %43 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv92.i
+  %14 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv92.i
   %15 = load ptr, ptr %14, align 8, !tbaa !72
   %.not.us.us.i = icmp eq ptr %15, null
   br i1 %.not.us.us.i, label %20, label %16
 
 16:                                               ; preds = %.lr.ph61.split.us.split.us.i
   %17 = zext i32 %.260.us.us.i to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %3, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %5, i64 %17
   store ptr %15, ptr %18, align 8, !tbaa !72
   %19 = add i32 %.260.us.us.i, 1
   br label %20
@@ -3730,21 +3730,21 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc__distances_transform_remove_n
 21:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv72.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next73.i, %43 ]
   %.04158.i = phi i32 [ 0, %.lr.ph.i ], [ %.142.i, %43 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv72.i
+  %22 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv72.i
   %23 = load ptr, ptr %22, align 8, !tbaa !72
   %.not52.i = icmp eq ptr %23, null
   br i1 %.not52.i, label %43, label %.preheader54.i
 
 .preheader54.i:                                   ; preds = %21
   %24 = trunc nuw i64 %indvars.iv72.i to i32
-  %25 = mul i32 %4, %24
+  %25 = mul i32 %6, %24
   %26 = mul i32 %.04158.i, %spec.select
   br label %27
 
 27:                                               ; preds = %40, %.preheader54.i
   %indvars.iv.i = phi i64 [ 0, %.preheader54.i ], [ %indvars.iv.next.i, %40 ]
   %.056.i = phi i32 [ 0, %.preheader54.i ], [ %.1.i, %40 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8, !tbaa !72
   %.not53.i = icmp eq ptr %29, null
   br i1 %.not53.i, label %40, label %30
@@ -3753,11 +3753,11 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc__distances_transform_remove_n
   %31 = trunc nuw i64 %indvars.iv.i to i32
   %32 = add i32 %25, %31
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i64, ptr %9, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr %3, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !76
   %36 = add i32 %.056.i, %26
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw i64, ptr %9, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr %3, i64 %37
   store i64 %35, ptr %38, align 8, !tbaa !76
   %39 = add i32 %.056.i, 1
   br label %40
@@ -3780,7 +3780,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc__distances_transform_remove_n
 
 .lr.ph39.preheader:                               ; preds = %20
   store i32 %spec.select, ptr %0, align 8, !tbaa !121
-  %44 = load ptr, ptr %3, align 8, !tbaa !72
+  %44 = load ptr, ptr %5, align 8, !tbaa !72
   %45 = load i32, ptr %44, align 8, !tbaa !79
   %umax = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 2)
   %wide.trip.count46 = zext i32 %umax to i64
@@ -3793,7 +3793,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc__distances_transform_remove_n
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %46
   %indvars.iv43 = phi i64 [ 1, %.lr.ph39.preheader ], [ %indvars.iv.next44, %46 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv43
+  %47 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv43
   %48 = load ptr, ptr %47, align 8, !tbaa !72
   %49 = load i32, ptr %48, align 8, !tbaa !79
   %.not = icmp eq i32 %49, %45

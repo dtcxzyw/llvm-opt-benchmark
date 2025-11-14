@@ -261,8 +261,8 @@ _ZNSt12_Vector_baseIN5arrow8internal12_GLOBAL__N_18CentroidESaIS3_EE11_M_allocat
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store double -1.000000e+00, ptr %8, align 8, !tbaa !28
-  %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %scevgep, i8 0, i64 48, i1 false)
+  %.ptr5 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.ptr5, i8 0, i64 48, i1 false)
   %9 = zext i32 %2 to i64
   %10 = shl nuw nsw i64 %9, 4
   %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #24
@@ -271,7 +271,7 @@ _ZNSt12_Vector_baseIN5arrow8internal12_GLOBAL__N_18CentroidESaIS3_EE11_M_allocat
 _ZNSt12_Vector_baseIN5arrow8internal12_GLOBAL__N_18CentroidESaIS3_EE11_M_allocateEm.exit.i14: ; preds = %_ZNSt12_Vector_baseIN5arrow8internal12_GLOBAL__N_18CentroidESaIS3_EE11_M_allocateEm.exit.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %11, ptr %scevgep, align 8, !tbaa !13
+  store ptr %11, ptr %.ptr5, align 8, !tbaa !13
   store ptr %11, ptr %12, align 8, !tbaa !16
   %14 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::Centroid", ptr %11, i64 %9
   store ptr %14, ptr %13, align 8, !tbaa !31

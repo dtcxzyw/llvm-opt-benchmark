@@ -562,16 +562,16 @@ define void @SUNDlsMat_PrintMat(ptr noundef readonly captures(none) %0, ptr noun
   %.161 = phi i64 [ 0, %.lr.ph63 ], [ %53, %._crit_edge ]
   %35 = load i64, ptr %30, align 8, !tbaa !20
   %36 = sub i64 %.161, %35
+  %spec.select = tail call i64 @llvm.smax.i64(i64 %36, i64 0)
   %37 = load i64, ptr %31, align 8, !tbaa !19
-  %38 = icmp sgt i64 %36, 0
-  br i1 %38, label %.lr.ph, label %.preheader56
+  %38 = add nsw i64 %37, %.161
+  %39 = add nsw i64 %34, -1
+  %40 = tail call i64 @llvm.smin.i64(i64 %38, i64 %39)
+  %41 = icmp sgt i64 %36, 0
+  br i1 %41, label %.lr.ph, label %.preheader56
 
 .preheader56:                                     ; preds = %.lr.ph, %33
-  %spec.select = tail call i64 @llvm.smax.i64(i64 %36, i64 0)
-  %39 = add nsw i64 %37, %.161
-  %40 = add nsw i64 %34, -1
-  %41 = tail call i64 @llvm.smin.i64(i64 %39, i64 %40)
-  %.not5158 = icmp sgt i64 %spec.select, %41
+  %.not5158 = icmp sgt i64 %spec.select, %40
   br i1 %.not5158, label %._crit_edge, label %.lr.ph60
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
@@ -592,7 +592,7 @@ define void @SUNDlsMat_PrintMat(ptr noundef readonly captures(none) %0, ptr noun
   %50 = load double, ptr %49, align 8, !tbaa !22
   %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, double noundef %50) #13
   %52 = add nuw nsw i64 %.259, 1
-  %.not51.not = icmp slt i64 %.259, %41
+  %.not51.not = icmp slt i64 %.259, %40
   br i1 %.not51.not, label %.lr.ph60, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph60, %.preheader56

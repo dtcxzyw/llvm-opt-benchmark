@@ -440,210 +440,210 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder14IsPatchReg
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %10 = load i8, ptr %9, align 4
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %.loopexit, label %.preheader116
+  br i1 %11, label %.loopexit, label %12
 
-.preheader116:                                    ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %15 = sext i32 %1 to i64
-  %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %15
-  %18 = load ptr, ptr %17, align 8
-  call void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level12getFaceVTagsEiPNS3_4VTagEi(ptr noundef nonnull align 8 dereferenceable(480) %18, i32 noundef %2, ptr noundef nonnull %7, i32 noundef %3)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = load i32, ptr %19, align 8
-  %21 = call i16 @_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTag9BitwiseOrEPKS4_i(ptr noundef nonnull %7, i32 noundef %20)
-  %22 = and i16 %21, 8208
-  %or.cond = icmp eq i16 %22, 0
-  br i1 %or.cond, label %23, label %25
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %16 = sext i32 %1 to i64
+  %17 = load ptr, ptr %15, align 8
+  %18 = getelementptr inbounds ptr, ptr %17, i64 %16
+  %19 = load ptr, ptr %18, align 8
+  call void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level12getFaceVTagsEiPNS3_4VTagEi(ptr noundef nonnull align 8 dereferenceable(480) %19, i32 noundef %2, ptr noundef nonnull %7, i32 noundef %3)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %21 = load i32, ptr %20, align 8
+  %22 = call i16 @_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTag9BitwiseOrEPKS4_i(ptr noundef nonnull %7, i32 noundef %21)
+  %23 = and i16 %22, 8208
+  %or.cond = icmp eq i16 %23, 0
+  br i1 %or.cond, label %24, label %26
 
-23:                                               ; preds = %.preheader116
-  %24 = and i16 %21, 2
-  %.not45 = icmp eq i16 %24, 0
+24:                                               ; preds = %12
+  %25 = and i16 %22, 2
+  %.not45 = icmp eq i16 %25, 0
   br label %.loopexit
 
-25:                                               ; preds = %.preheader116
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %27 = load i8, ptr %26, align 1
-  %28 = trunc i8 %27 to i1
-  %29 = select i1 %28, i16 3, i16 -32765
-  %30 = and i16 %29, %21
-  %31 = icmp eq i16 %30, 0
-  br i1 %31, label %.loopexit, label %32
+26:                                               ; preds = %12
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %28 = load i8, ptr %27, align 1
+  %29 = trunc i8 %28 to i1
+  %30 = select i1 %29, i16 3, i16 -32765
+  %31 = and i16 %30, %22
+  %32 = icmp eq i16 %31, 0
+  br i1 %32, label %.loopexit, label %33
 
-32:                                               ; preds = %25
-  %33 = load ptr, ptr %12, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load i16, ptr %34, align 8
-  %36 = and i16 %35, 4
-  %37 = icmp ne i16 %36, 0
-  %38 = and i16 %21, 2
-  %39 = icmp ne i16 %38, 0
-  %40 = select i1 %39, i1 %37, i1 false
-  %41 = zext i1 %40 to i32
-  %42 = icmp sgt i32 %1, %41
-  %43 = and i16 %21, 1
-  %.not46 = icmp eq i16 %43, 0
-  %or.cond83 = and i1 %.not46, %42
-  br i1 %or.cond83, label %44, label %.critedge
+33:                                               ; preds = %26
+  %34 = load ptr, ptr %13, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load i16, ptr %35, align 8
+  %37 = and i16 %36, 4
+  %38 = icmp ne i16 %37, 0
+  %39 = and i16 %22, 2
+  %40 = icmp ne i16 %39, 0
+  %41 = select i1 %40, i1 %38, i1 false
+  %42 = zext i1 %41 to i32
+  %43 = icmp sgt i32 %1, %42
+  %44 = and i16 %22, 1
+  %.not46 = icmp eq i16 %44, 0
+  %or.cond83 = and i1 %.not46, %43
+  br i1 %or.cond83, label %45, label %.critedge
 
-44:                                               ; preds = %32
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %46 = load i8, ptr %45, align 2
-  %47 = trunc i8 %46 to i1
-  %48 = and i16 %21, 6
-  %49 = icmp eq i16 %48, 6
-  %or.cond75.not98 = and i1 %49, %47
-  %brmerge76 = or i1 %or.cond75.not98, %28
-  br i1 %brmerge76, label %52, label %50
+45:                                               ; preds = %33
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %47 = load i8, ptr %46, align 2
+  %48 = trunc i8 %47 to i1
+  %49 = and i16 %22, 6
+  %50 = icmp eq i16 %49, 6
+  %or.cond75.not98 = and i1 %50, %48
+  %brmerge76 = or i1 %or.cond75.not98, %29
+  br i1 %brmerge76, label %53, label %51
 
-50:                                               ; preds = %44
-  %51 = and i16 %21, -24576
-  %or.cond97 = icmp eq i16 %51, -24576
+51:                                               ; preds = %45
+  %52 = and i16 %22, -24576
+  %or.cond97 = icmp eq i16 %52, -24576
   br i1 %or.cond97, label %.critedge, label %.critedge78
 
-52:                                               ; preds = %44
+53:                                               ; preds = %45
   br i1 %or.cond75.not98, label %.critedge, label %.critedge78
 
-.critedge78:                                      ; preds = %50, %52
-  br i1 %28, label %54, label %53
-
-53:                                               ; preds = %.critedge78
-  %.not50 = icmp sgt i16 %21, -1
-  br label %.loopexit
+.critedge78:                                      ; preds = %51, %53
+  br i1 %29, label %55, label %54
 
 54:                                               ; preds = %.critedge78
-  %.not49 = icmp eq i16 %38, 0
+  %.not50 = icmp sgt i16 %22, -1
   br label %.loopexit
 
-.critedge:                                        ; preds = %50, %52, %32
-  %55 = load i32, ptr %19, align 8
-  %56 = icmp eq i32 %55, 4
-  %57 = select i1 %56, i32 2, i32 3
-  %58 = icmp sgt i32 %55, 0
-  br i1 %58, label %.lr.ph, label %.loopexit
+55:                                               ; preds = %.critedge78
+  %.not49 = icmp eq i16 %39, 0
+  br label %.loopexit
+
+.critedge:                                        ; preds = %51, %53, %33
+  %56 = load i32, ptr %20, align 8
+  %57 = icmp eq i32 %56, 4
+  %58 = select i1 %57, i32 2, i32 3
+  %59 = icmp sgt i32 %56, 0
+  br i1 %59, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.critedge
-  %59 = select i1 %28, i8 3, i8 7
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  br label %61
+  %60 = select i1 %29, i8 3, i8 7
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  br label %62
 
-61:                                               ; preds = %.lr.ph, %107
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
-  %62 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %7, i64 %indvars.iv
-  %63 = load i16, ptr %62, align 2
-  %64 = and i16 %63, %29
-  %65 = icmp eq i16 %64, 0
-  br i1 %65, label %107, label %66
+62:                                               ; preds = %.lr.ph, %108
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %108 ]
+  %63 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %7, i64 %indvars.iv
+  %64 = load i16, ptr %63, align 2
+  %65 = and i16 %64, %30
+  %66 = icmp eq i16 %65, 0
+  br i1 %66, label %108, label %67
 
-66:                                               ; preds = %61
-  %67 = and i16 %63, 1
-  %.not51 = icmp eq i16 %67, 0
-  br i1 %.not51, label %75, label %68
+67:                                               ; preds = %62
+  %68 = and i16 %64, 1
+  %.not51 = icmp eq i16 %68, 0
+  br i1 %.not51, label %76, label %69
 
-68:                                               ; preds = %66
+69:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %69 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129identifyNonManifoldCornerSpanERKNS0_3Vtr8internal5LevelEiiNS5_4ETagERNS5_5VSpanEi(ptr noundef nonnull readonly align 8 dereferenceable(480) %18, i32 noundef %2, i32 noundef %69, i8 %59, ptr noundef nonnull align 2 dereferenceable(7) %6, i32 noundef %3)
-  %70 = load i16, ptr %6, align 2
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
+  call fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129identifyNonManifoldCornerSpanERKNS0_3Vtr8internal5LevelEiiNS5_4ETagERNS5_5VSpanEi(ptr noundef nonnull readonly align 8 dereferenceable(480) %19, i32 noundef %2, i32 noundef %70, i8 %60, ptr noundef nonnull align 2 dereferenceable(7) %6, i32 noundef %3)
+  %71 = load i16, ptr %6, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %71 = and i16 %63, 16
-  %.not70 = icmp eq i16 %71, 0
-  br i1 %.not70, label %73, label %72
+  %72 = and i16 %64, 16
+  %.not70 = icmp eq i16 %72, 0
+  br i1 %.not70, label %74, label %73
 
-72:                                               ; preds = %68
-  %.not72 = icmp eq i16 %70, 1
-  br i1 %.not72, label %107, label %.loopexit
+73:                                               ; preds = %69
+  %.not72 = icmp eq i16 %71, 1
+  br i1 %.not72, label %108, label %.loopexit
 
-73:                                               ; preds = %68
-  %74 = zext i16 %70 to i32
-  %.not71 = icmp eq i32 %57, %74
-  br i1 %.not71, label %107, label %.loopexit
+74:                                               ; preds = %69
+  %75 = zext i16 %71 to i32
+  %.not71 = icmp eq i32 %58, %75
+  br i1 %.not71, label %108, label %.loopexit
 
-75:                                               ; preds = %66
-  %76 = and i16 %63, 2
-  %.not52 = icmp eq i16 %76, 0
-  br i1 %.not52, label %96, label %77
+76:                                               ; preds = %67
+  %77 = and i16 %64, 2
+  %.not52 = icmp eq i16 %77, 0
+  br i1 %.not52, label %97, label %78
 
-77:                                               ; preds = %75
-  %78 = and i16 %63, 8192
-  %.not53 = icmp eq i16 %78, 0
-  br i1 %.not53, label %.loopexit, label %79
+78:                                               ; preds = %76
+  %79 = and i16 %64, 8192
+  %.not53 = icmp eq i16 %79, 0
+  br i1 %.not53, label %.loopexit, label %80
 
-79:                                               ; preds = %77
-  %80 = load i8, ptr %60, align 2
-  %81 = trunc i8 %80 to i1
-  %82 = and i16 %63, 20
-  %83 = icmp eq i16 %82, 4
-  %or.cond81 = and i1 %83, %81
-  br i1 %or.cond81, label %.preheader.preheader, label %95
+80:                                               ; preds = %78
+  %81 = load i8, ptr %61, align 2
+  %82 = trunc i8 %81 to i1
+  %83 = and i16 %64, 20
+  %84 = icmp eq i16 %83, 4
+  %or.cond81 = and i1 %84, %82
+  br i1 %or.cond81, label %.preheader.preheader, label %96
 
-.preheader.preheader:                             ; preds = %79
-  call void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level12getFaceETagsEiPNS3_4ETagEi(ptr noundef nonnull align 8 dereferenceable(480) %18, i32 noundef %2, ptr noundef nonnull %8, i32 noundef %3)
-  %84 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %8, i64 %indvars.iv
-  %85 = load i8, ptr %84, align 1
-  %86 = and i8 %85, 2
-  %.not61 = icmp eq i8 %86, 0
-  br i1 %.not61, label %95, label %87
+.preheader.preheader:                             ; preds = %80
+  call void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level12getFaceETagsEiPNS3_4ETagEi(ptr noundef nonnull align 8 dereferenceable(480) %19, i32 noundef %2, ptr noundef nonnull %8, i32 noundef %3)
+  %85 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %8, i64 %indvars.iv
+  %86 = load i8, ptr %85, align 1
+  %87 = and i8 %86, 2
+  %.not61 = icmp eq i8 %87, 0
+  br i1 %.not61, label %96, label %88
 
-87:                                               ; preds = %.preheader.preheader
+88:                                               ; preds = %.preheader.preheader
   %.not60 = icmp eq i64 %indvars.iv, 0
-  %88 = load i32, ptr %19, align 8
-  %89 = trunc nuw nsw i64 %indvars.iv to i32
-  %.in = select i1 %.not60, i32 %88, i32 %89
-  %90 = sext i32 %.in to i64
-  %91 = getelementptr %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %8, i64 %90
-  %92 = getelementptr i8, ptr %91, i64 -1
-  %93 = load i8, ptr %92, align 1
-  %94 = and i8 %93, 2
-  %.not62 = icmp eq i8 %94, 0
-  br i1 %.not62, label %95, label %107
+  %89 = load i32, ptr %20, align 8
+  %90 = trunc nuw nsw i64 %indvars.iv to i32
+  %.in = select i1 %.not60, i32 %89, i32 %90
+  %91 = sext i32 %.in to i64
+  %92 = getelementptr %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %8, i64 %91
+  %93 = getelementptr i8, ptr %92, i64 -1
+  %94 = load i8, ptr %93, align 1
+  %95 = and i8 %94, 2
+  %.not62 = icmp eq i8 %95, 0
+  br i1 %.not62, label %96, label %108
 
-95:                                               ; preds = %.preheader.preheader, %87, %79
-  br i1 %28, label %.loopexit, label %96
+96:                                               ; preds = %.preheader.preheader, %88, %80
+  br i1 %29, label %.loopexit, label %97
 
-96:                                               ; preds = %95, %75
-  %.not63 = icmp sgt i16 %63, -1
-  br i1 %.not63, label %107, label %97
+97:                                               ; preds = %96, %76
+  %.not63 = icmp sgt i16 %64, -1
+  br i1 %.not63, label %108, label %98
 
-97:                                               ; preds = %96
-  %98 = and i16 %63, 8192
-  %.not64 = icmp eq i16 %98, 0
-  %99 = and i16 %63, 16388
-  %or.cond82.not = icmp eq i16 %99, 16388
+98:                                               ; preds = %97
+  %99 = and i16 %64, 8192
+  %.not64 = icmp eq i16 %99, 0
+  %100 = and i16 %64, 16388
+  %or.cond82.not = icmp eq i16 %100, 16388
   %or.cond100 = or i1 %.not64, %or.cond82.not
-  br i1 %or.cond100, label %.loopexit, label %100
+  br i1 %or.cond100, label %.loopexit, label %101
 
-100:                                              ; preds = %97
-  %101 = and i16 %63, 16384
-  %.not65 = icmp eq i16 %101, 0
+101:                                              ; preds = %98
+  %102 = and i16 %64, 16384
+  %.not65 = icmp eq i16 %102, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
-  %102 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_126identifyManifoldCornerSpanERKNS0_3Vtr8internal5LevelEiiNS5_4ETagERNS5_5VSpanEi(ptr noundef nonnull readonly align 8 dereferenceable(480) %18, i32 noundef %2, i32 noundef %102, i8 7, ptr noundef nonnull align 2 dereferenceable(7) %5, i32 noundef %3)
-  %103 = load i16, ptr %5, align 8
+  %103 = trunc nuw nsw i64 %indvars.iv to i32
+  call fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_126identifyManifoldCornerSpanERKNS0_3Vtr8internal5LevelEiiNS5_4ETagERNS5_5VSpanEi(ptr noundef nonnull readonly align 8 dereferenceable(480) %19, i32 noundef %2, i32 noundef %103, i8 7, ptr noundef nonnull align 2 dereferenceable(7) %5, i32 noundef %3)
+  %104 = load i16, ptr %5, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not65, label %106, label %104
+  br i1 %.not65, label %107, label %105
 
-104:                                              ; preds = %100
-  %105 = zext i16 %103 to i32
-  %.not69 = icmp eq i32 %57, %105
-  br i1 %.not69, label %107, label %.loopexit
+105:                                              ; preds = %101
+  %106 = zext i16 %104 to i32
+  %.not69 = icmp eq i32 %58, %106
+  br i1 %.not69, label %108, label %.loopexit
 
-106:                                              ; preds = %100
-  %.not68 = icmp eq i16 %103, 1
-  br i1 %.not68, label %107, label %.loopexit
+107:                                              ; preds = %101
+  %.not68 = icmp eq i16 %104, 1
+  br i1 %.not68, label %108, label %.loopexit
 
-107:                                              ; preds = %96, %106, %104, %87, %72, %73, %61
+108:                                              ; preds = %97, %107, %105, %88, %73, %74, %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %108 = load i32, ptr %19, align 8
-  %109 = sext i32 %108 to i64
-  %110 = icmp slt i64 %indvars.iv.next, %109
-  br i1 %110, label %61, label %.loopexit, !llvm.loop !8
+  %109 = load i32, ptr %20, align 8
+  %110 = sext i32 %109 to i64
+  %111 = icmp slt i64 %indvars.iv.next, %110
+  br i1 %111, label %62, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %72, %73, %77, %95, %97, %104, %106, %107, %.critedge, %25, %4, %54, %53, %23
-  %.0 = phi i1 [ %.not50, %53 ], [ %.not49, %54 ], [ %.not45, %23 ], [ true, %4 ], [ true, %25 ], [ true, %.critedge ], [ false, %72 ], [ false, %73 ], [ false, %77 ], [ false, %95 ], [ false, %97 ], [ false, %104 ], [ false, %106 ], [ true, %107 ]
+.loopexit:                                        ; preds = %73, %74, %78, %96, %98, %105, %107, %108, %.critedge, %26, %4, %55, %54, %24
+  %.0 = phi i1 [ %.not50, %54 ], [ %.not49, %55 ], [ %.not45, %24 ], [ true, %4 ], [ true, %26 ], [ true, %.critedge ], [ false, %73 ], [ false, %74 ], [ false, %78 ], [ false, %96 ], [ false, %98 ], [ false, %105 ], [ false, %107 ], [ true, %108 ]
   ret i1 %.0
 }
 
@@ -1301,9 +1301,9 @@ define noundef range(i32 0, 24) i32 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i8, ptr %7, align 4
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %67, label %.preheader45
+  br i1 %9, label %67, label %.preheader.preheader
 
-.preheader45:                                     ; preds = %4
+.preheader.preheader:                             ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -1319,7 +1319,7 @@ define noundef range(i32 0, 24) i32 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder27
   %.not = icmp eq i16 %20, 0
   br i1 %.not, label %67, label %21
 
-21:                                               ; preds = %.preheader45
+21:                                               ; preds = %.preheader.preheader
   call void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level12getFaceETagsEiPNS3_4ETagEi(ptr noundef nonnull align 8 dereferenceable(480) %16, i32 noundef %2, ptr noundef nonnull %6, i32 noundef %3)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %23 = load i8, ptr %22, align 1
@@ -1405,8 +1405,8 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit: ; preds
   %66 = or disjoint i32 %.0.i, %.014.i
   br label %67
 
-67:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit, %44, %.preheader45, %4, %39
-  %.0 = phi i32 [ %43, %39 ], [ 0, %4 ], [ 0, %.preheader45 ], [ %66, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit ], [ 0, %44 ]
+67:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit, %44, %.preheader.preheader, %4, %39
+  %.0 = phi i32 [ %43, %39 ], [ 0, %4 ], [ 0, %.preheader.preheader ], [ %66, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_121encodeTriBoundaryMaskEii.exit ], [ 0, %44 ]
   ret i32 %.0
 }
 

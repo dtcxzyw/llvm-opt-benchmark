@@ -5114,23 +5114,23 @@ define internal fastcc void @e1000_dump_eeprom(ptr %.1144.val) unnamed_addr #3 a
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 %14(ptr noundef %.1144.val, ptr noundef nonnull %1, ptr noundef nonnull %10) #16
-  br label %16
+  %16 = getelementptr i8, ptr %10, i64 126
+  %17 = load i16, ptr %16, align 2
+  br label %18
 
-16:                                               ; preds = %16, %12
-  %17 = phi i64 [ 0, %12 ], [ %22, %16 ]
-  %18 = phi i16 [ 0, %12 ], [ %21, %16 ]
-  %19 = getelementptr i8, ptr %10, i64 %17
-  %20 = load i16, ptr %19, align 2
-  %21 = add i16 %20, %18
-  %22 = add nuw nsw i64 %17, 2
-  %23 = icmp samesign ult i64 %17, 124
-  br i1 %23, label %16, label %24, !llvm.loop !59
+18:                                               ; preds = %18, %12
+  %19 = phi i64 [ 0, %12 ], [ %24, %18 ]
+  %20 = phi i16 [ 0, %12 ], [ %23, %18 ]
+  %21 = getelementptr i8, ptr %10, i64 %19
+  %22 = load i16, ptr %21, align 2
+  %23 = add i16 %22, %20
+  %24 = add nuw nsw i64 %19, 2
+  %25 = icmp samesign ult i64 %19, 124
+  br i1 %25, label %18, label %26, !llvm.loop !59
 
-24:                                               ; preds = %16
-  %25 = getelementptr i8, ptr %10, i64 126
-  %26 = load i16, ptr %25, align 2
-  %27 = zext i16 %26 to i32
-  %28 = sub i16 -17734, %21
+26:                                               ; preds = %18
+  %27 = zext i16 %17 to i32
+  %28 = sub i16 -17734, %23
   %29 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.93) #15
   %30 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.94, i32 noundef %27) #15
   %31 = zext i16 %28 to i32
@@ -5152,7 +5152,7 @@ define internal fastcc void @e1000_dump_eeprom(ptr %.1144.val) unnamed_addr #3 a
   call void @kfree(ptr noundef nonnull %10) #16
   br label %46
 
-46:                                               ; preds = %24, %0
+46:                                               ; preds = %26, %0
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }

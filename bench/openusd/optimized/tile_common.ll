@@ -255,45 +255,45 @@ define hidden void @av1_calculate_tile_cols(ptr noundef readonly captures(none) 
   br i1 %49, label %47, label %tile_log2.exit, !llvm.loop !4
 
 tile_log2.exit:                                   ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 %.0.i, ptr %51, align 4
-  %52 = icmp sgt i32 %46, 0
-  br i1 %52, label %.lr.ph100, label %._crit_edge101
+  %51 = mul nsw i32 %13, %12
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 %.0.i, ptr %52, align 4
+  %53 = icmp sgt i32 %46, 0
+  br i1 %53, label %.lr.ph100, label %._crit_edge101
 
 .lr.ph100:                                        ; preds = %tile_log2.exit
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  %54 = add nsw i32 %46, -1
-  %55 = zext nneg i32 %54 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 60
+  %55 = add nsw i32 %46, -1
+  %56 = zext nneg i32 %55 to i64
   %wide.trip.count = zext nneg i32 %46 to i64
-  %.pre = load i32, ptr %53, align 4
-  br label %56
+  %.pre = load i32, ptr %54, align 4
+  br label %57
 
-56:                                               ; preds = %.lr.ph100, %56
-  %57 = phi i32 [ %.pre, %.lr.ph100 ], [ %59, %56 ]
-  %indvars.iv106 = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next107, %56 ]
-  %.08198 = phi i32 [ 65536, %.lr.ph100 ], [ %.182, %56 ]
-  %.08397 = phi i32 [ 1, %.lr.ph100 ], [ %61, %56 ]
+57:                                               ; preds = %.lr.ph100, %57
+  %58 = phi i32 [ %.pre, %.lr.ph100 ], [ %60, %57 ]
+  %indvars.iv106 = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next107, %57 ]
+  %.08198 = phi i32 [ 65536, %.lr.ph100 ], [ %.182, %57 ]
+  %.08397 = phi i32 [ 1, %.lr.ph100 ], [ %62, %57 ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %58 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.next107
-  %59 = load i32, ptr %58, align 4
-  %60 = sub nsw i32 %59, %57
-  %61 = tail call i32 @llvm.smax.i32(i32 %.08397, i32 %60)
-  %62 = icmp samesign ult i64 %indvars.iv106, %55
-  %63 = tail call i32 @llvm.smin.i32(i32 %.08198, i32 %60)
-  %.182 = select i1 %62, i32 %63, i32 %.08198
+  %59 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.next107
+  %60 = load i32, ptr %59, align 4
+  %61 = sub nsw i32 %60, %58
+  %62 = tail call i32 @llvm.smax.i32(i32 %.08397, i32 %61)
+  %63 = icmp samesign ult i64 %indvars.iv106, %56
+  %64 = tail call i32 @llvm.smin.i32(i32 %.08198, i32 %61)
+  %.182 = select i1 %63, i32 %64, i32 %.08198
   %exitcond.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge101, label %56, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge101, label %57, !llvm.loop !7
 
-._crit_edge101:                                   ; preds = %56, %tile_log2.exit
-  %.083.lcssa = phi i32 [ 1, %tile_log2.exit ], [ %61, %56 ]
-  %.081.lcssa = phi i32 [ 65536, %tile_log2.exit ], [ %.182, %56 ]
-  %64 = mul nsw i32 %13, %12
+._crit_edge101:                                   ; preds = %57, %tile_log2.exit
+  %.083.lcssa = phi i32 [ 1, %tile_log2.exit ], [ %62, %57 ]
+  %.081.lcssa = phi i32 [ 65536, %tile_log2.exit ], [ %.182, %57 ]
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %66 = load i32, ptr %65, align 4
   %.not93 = icmp eq i32 %66, 0
   %67 = add nsw i32 %66, 1
   %68 = select i1 %.not93, i32 0, i32 %67
-  %.084 = ashr i32 %64, %68
+  %.084 = ashr i32 %51, %68
   %69 = sdiv i32 %.084, %.083.lcssa
   %70 = tail call i32 @llvm.smax.i32(i32 %69, i32 1)
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 12

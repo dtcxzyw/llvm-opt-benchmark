@@ -78,103 +78,103 @@ define hidden void @_ZN17hb_subset_input_tC2Ev(ptr noundef nonnull align 8 captu
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr null, ptr %18, align 8, !tbaa !26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %17, i8 0, i64 18, i1 false)
-  br label %28
+  br label %27
 
-.preheader:                                       ; preds = %28
-  %.ptr14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %20
-
-19:                                               ; preds = %20
+19:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %_ZNK17hb_subset_input_t8in_errorEv.exit, label %20, !llvm.loop !27
+  br i1 %exitcond.not.i, label %_ZNK17hb_subset_input_t8in_errorEv.exit, label %.preheader, !llvm.loop !27
 
-20:                                               ; preds = %.preheader, %19
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %19 ], [ 0, %.preheader ]
-  %21 = getelementptr inbounds nuw %"struct.hb::shared_ptr", ptr %.ptr14, i64 %indvars.iv.i
-  %22 = load ptr, ptr %21, align 8, !tbaa !29
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load i8, ptr %23, align 8, !tbaa !32, !range !38, !noundef !39
-  %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %19, label %_ZNK17hb_subset_input_t8in_errorEv.exit.thread, !prof !40
+.preheader:                                       ; preds = %.preheader.preheader, %19
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %19 ], [ 0, %.preheader.preheader ]
+  %20 = getelementptr inbounds nuw %"struct.hb::shared_ptr", ptr %.ptr14, i64 %indvars.iv.i
+  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load i8, ptr %22, align 8, !tbaa !32, !range !38, !noundef !39
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %19, label %_ZNK17hb_subset_input_t8in_errorEv.exit.thread, !prof !40
 
 _ZNK17hb_subset_input_t8in_errorEv.exit:          ; preds = %19
-  %26 = load i8, ptr %10, align 8, !tbaa !23, !range !38, !noundef !39
-  %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %31, label %_ZNK17hb_subset_input_t8in_errorEv.exit.thread
+  %25 = load i8, ptr %10, align 8, !tbaa !23, !range !38, !noundef !39
+  %26 = trunc nuw i8 %25 to i1
+  br i1 %26, label %30, label %_ZNK17hb_subset_input_t8in_errorEv.exit.thread
 
-28:                                               ; preds = %1, %28
-  %.0.idx15 = phi i64 [ 16, %1 ], [ %.0.add, %28 ]
+27:                                               ; preds = %1, %27
+  %.0.idx15 = phi i64 [ 16, %1 ], [ %.0.add, %27 ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx15
-  %29 = tail call ptr @hb_set_create() #21
-  %30 = load ptr, ptr %.0.ptr, align 8, !tbaa !29
-  tail call void @hb_set_destroy(ptr noundef %30) #21
-  store ptr %29, ptr %.0.ptr, align 8, !tbaa !29
+  %28 = tail call ptr @hb_set_create() #21
+  %29 = load ptr, ptr %.0.ptr, align 8, !tbaa !29
+  tail call void @hb_set_destroy(ptr noundef %29) #21
+  store ptr %28, ptr %.0.ptr, align 8, !tbaa !29
   tail call void @hb_set_destroy(ptr noundef null) #21
   %.0.add = add nuw nsw i64 %.0.idx15, 8
   %.not = icmp eq i64 %.0.add, 80
-  br i1 %.not, label %.preheader, label %28
+  br i1 %.not, label %.preheader.preheader, label %27
 
-31:                                               ; preds = %_ZNK17hb_subset_input_t8in_errorEv.exit
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 0, ptr %32, align 8, !tbaa !41
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load ptr, ptr %33, align 8, !tbaa !29
-  tail call void @hb_set_add_range(ptr noundef %34, i32 noundef 0, i32 noundef 6) #21
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %36 = load ptr, ptr %35, align 8, !tbaa !29
-  tail call void @hb_set_add(ptr noundef %36, i32 noundef 1033) #21
+.preheader.preheader:                             ; preds = %27
+  %.ptr14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %.preheader
+
+30:                                               ; preds = %_ZNK17hb_subset_input_t8in_errorEv.exit
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 0, ptr %31, align 8, !tbaa !41
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %33 = load ptr, ptr %32, align 8, !tbaa !29
+  tail call void @hb_set_add_range(ptr noundef %33, i32 noundef 0, i32 noundef 6) #21
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %35 = load ptr, ptr %34, align 8, !tbaa !29
+  tail call void @hb_set_add(ptr noundef %35, i32 noundef 1033) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %2, ptr noundef nonnull align 16 dereferenceable(68) @__const.hb_subset_input_t.default_drop_tables, i64 68, i1 false)
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %38 = load ptr, ptr %37, align 8, !tbaa !29
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  %41 = load i8, ptr %40, align 8, !tbaa !42, !range !38, !noundef !39
-  %42 = trunc nuw i8 %41 to i1
-  %not..i.i = xor i1 %42, true
-  call void @_ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj(ptr noundef nonnull align 8 dereferenceable(49) %39, i1 noundef zeroext %not..i.i, ptr noundef nonnull %2, i32 noundef 17, i32 noundef 4)
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %37 = load ptr, ptr %36, align 8, !tbaa !29
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 64
+  %40 = load i8, ptr %39, align 8, !tbaa !42, !range !38, !noundef !39
+  %41 = trunc nuw i8 %40 to i1
+  %not..i.i = xor i1 %41, true
+  call void @_ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj(ptr noundef nonnull align 8 dereferenceable(49) %38, i1 noundef zeroext %not..i.i, ptr noundef nonnull %2, i32 noundef 17, i32 noundef 4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %3, ptr noundef nonnull align 16 dereferenceable(20) @__const.hb_subset_input_t.default_no_subset_tables, i64 20, i1 false)
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %44 = load ptr, ptr %43, align 8, !tbaa !29
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 64
-  %47 = load i8, ptr %46, align 8, !tbaa !42, !range !38, !noundef !39
-  %48 = trunc nuw i8 %47 to i1
-  %not..i.i8 = xor i1 %48, true
-  call void @_ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj(ptr noundef nonnull align 8 dereferenceable(49) %45, i1 noundef zeroext %not..i.i8, ptr noundef nonnull %3, i32 noundef 5, i32 noundef 4)
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8, !tbaa !29
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %46 = load i8, ptr %45, align 8, !tbaa !42, !range !38, !noundef !39
+  %47 = trunc nuw i8 %46 to i1
+  %not..i.i8 = xor i1 %47, true
+  call void @_ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj(ptr noundef nonnull align 8 dereferenceable(49) %44, i1 noundef zeroext %not..i.i8, ptr noundef nonnull %3, i32 noundef 5, i32 noundef 4)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %4, ptr noundef nonnull align 16 dereferenceable(288) @__const.hb_subset_input_t.default_layout_features, i64 288, i1 false)
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %50 = load ptr, ptr %49, align 8, !tbaa !29
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %53 = load i8, ptr %52, align 8, !tbaa !42, !range !38, !noundef !39
-  %54 = trunc nuw i8 %53 to i1
-  %not..i.i9 = xor i1 %54, true
-  call void @_ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj(ptr noundef nonnull align 8 dereferenceable(49) %51, i1 noundef zeroext %not..i.i9, ptr noundef nonnull %4, i32 noundef 72, i32 noundef 4)
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %56 = load ptr, ptr %55, align 8, !tbaa !29
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = load i8, ptr %57, align 8, !tbaa !44, !range !38, !noundef !39
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE6invertEv.exit, !prof !40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %49 = load ptr, ptr %48, align 8, !tbaa !29
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 64
+  %52 = load i8, ptr %51, align 8, !tbaa !42, !range !38, !noundef !39
+  %53 = trunc nuw i8 %52 to i1
+  %not..i.i9 = xor i1 %53, true
+  call void @_ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj(ptr noundef nonnull align 8 dereferenceable(49) %50, i1 noundef zeroext %not..i.i9, ptr noundef nonnull %4, i32 noundef 72, i32 noundef 4)
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %55 = load ptr, ptr %54, align 8, !tbaa !29
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %57 = load i8, ptr %56, align 8, !tbaa !44, !range !38, !noundef !39
+  %58 = trunc nuw i8 %57 to i1
+  br i1 %58, label %59, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE6invertEv.exit, !prof !40
 
-60:                                               ; preds = %31
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 64
-  %62 = load i8, ptr %61, align 8, !tbaa !42, !range !38, !noundef !39
-  %63 = xor i8 %62, 1
-  store i8 %63, ptr %61, align 8, !tbaa !42
+59:                                               ; preds = %30
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 64
+  %61 = load i8, ptr %60, align 8, !tbaa !42, !range !38, !noundef !39
+  %62 = xor i8 %61, 1
+  store i8 %62, ptr %60, align 8, !tbaa !42
   br label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE6invertEv.exit
 
-_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE6invertEv.exit: ; preds = %31, %60
+_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE6invertEv.exit: ; preds = %30, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK17hb_subset_input_t8in_errorEv.exit.thread
 
-_ZNK17hb_subset_input_t8in_errorEv.exit.thread:   ; preds = %20, %_ZNK17hb_subset_input_t8in_errorEv.exit, %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE6invertEv.exit
+_ZNK17hb_subset_input_t8in_errorEv.exit.thread:   ; preds = %.preheader, %_ZNK17hb_subset_input_t8in_errorEv.exit, %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE6invertEv.exit
   ret void
 }
 

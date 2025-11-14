@@ -6211,6 +6211,7 @@ _ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_7idl_extEE4GExtEEE10get_bounds
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_7idl_extEE4GExtEEE10get_boundsEv.exit, %217
   %.ph67 = phi ptr [ null, %217 ], [ %219, %_ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_7idl_extEE4GExtEEE10get_boundsEv.exit ]
   %.0.i17.i.i.ph = phi i32 [ 0, %217 ], [ %222, %_ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_7idl_extEE4GExtEEE10get_boundsEv.exit ]
+  %.ph = add nuw nsw i32 %1, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i
@@ -6230,7 +6231,6 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIiLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !350
 
 227:                                              ; preds = %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i
-  %.ph = add nuw nsw i32 %1, 1
   %228 = getelementptr inbounds i8, ptr %223, i64 -4
   store i32 %.ph, ptr %228, align 4, !tbaa !14
   %.not1319.i.i = icmp eq i32 %.0.i17.i.i.ph, %.ph
@@ -31249,6 +31249,7 @@ _ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_8sidl_extEE4GExtEEE10get_bound
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_8sidl_extEE4GExtEEE10get_boundsEv.exit, %134
   %.ph63 = phi ptr [ null, %134 ], [ %136, %_ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_8sidl_extEE4GExtEEE10get_boundsEv.exit ]
   %.0.i17.i.i.ph = phi i32 [ 0, %134 ], [ %139, %_ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_8sidl_extEE4GExtEEE10get_boundsEv.exit ]
+  %.ph = add nuw nsw i32 %1, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i
@@ -31268,7 +31269,6 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIiLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !350
 
 144:                                              ; preds = %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i
-  %.ph = add nuw nsw i32 %1, 1
   %145 = getelementptr inbounds i8, ptr %140, i64 -4
   store i32 %.ph, ptr %145, align 4, !tbaa !14
   %.not1319.i.i = icmp eq i32 %.0.i17.i.i.ph, %.ph
@@ -50157,6 +50157,7 @@ _ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_7rdl_extEE4GExtEEE10get_bounds
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_7rdl_extEE4GExtEEE10get_boundsEv.exit, %223
   %.ph67 = phi ptr [ null, %223 ], [ %225, %_ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_7rdl_extEE4GExtEEE10get_boundsEv.exit ]
   %.0.i17.i.i.ph = phi i32 [ 0, %223 ], [ %228, %_ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_7rdl_extEE4GExtEEE10get_boundsEv.exit ]
+  %.ph = add nuw nsw i32 %1, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i
@@ -50176,7 +50177,6 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIiLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !350
 
 233:                                              ; preds = %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i
-  %.ph = add nuw nsw i32 %1, 1
   %234 = getelementptr inbounds i8, ptr %229, i64 -4
   store i32 %.ph, ptr %234, align 4, !tbaa !14
   %.not1319.i.i = icmp eq i32 %.0.i17.i.i.ph, %.ph
@@ -72539,6 +72539,7 @@ _ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_8srdl_extEE4GExtEEE10get_bound
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_8srdl_extEE4GExtEEE10get_boundsEv.exit, %223
   %.ph67 = phi ptr [ null, %223 ], [ %225, %_ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_8srdl_extEE4GExtEEE10get_boundsEv.exit ]
   %.0.i17.i.i.ph = phi i32 [ 0, %223 ], [ %228, %_ZNK4heapI9dl_var_ltIN3smt17theory_diff_logicINS1_8srdl_extEE4GExtEEE10get_boundsEv.exit ]
+  %.ph = add nuw nsw i32 %1, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i
@@ -72558,7 +72559,6 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIiLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !350
 
 233:                                              ; preds = %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i
-  %.ph = add nuw nsw i32 %1, 1
   %234 = getelementptr inbounds i8, ptr %229, i64 -4
   store i32 %.ph, ptr %234, align 4, !tbaa !14
   %.not1319.i.i = icmp eq i32 %.0.i17.i.i.ph, %.ph
@@ -95317,6 +95317,7 @@ _ZNK8uint_set8containsEj.exit:                    ; preds = %_ZNK6vectorIjLb0EjE
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %7
   %.ph = phi ptr [ null, %7 ], [ %10, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.i.ph = phi i32 [ 0, %7 ], [ %13, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
+  %.ph10 = add nuw nsw i32 %9, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -95336,7 +95337,6 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !971
 
 32:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
-  %.ph10 = add nuw nsw i32 %9, 1
   %33 = getelementptr inbounds i8, ptr %28, i64 -4
   store i32 %.ph10, ptr %33, align 4, !tbaa !14
   %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph10

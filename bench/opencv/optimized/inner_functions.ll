@@ -870,8 +870,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %110 = getelementptr inbounds nuw double, ptr %109, i64 %104
   %111 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %110, ptr %111, align 8, !tbaa !53
-  %112 = getelementptr inbounds nuw i8, ptr %109, i64 %108
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %109, i8 0, i64 %108, i1 false), !tbaa !54
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 %108
   %113 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %112, ptr %113, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %16)

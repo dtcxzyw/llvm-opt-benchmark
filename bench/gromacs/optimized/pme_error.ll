@@ -3406,63 +3406,63 @@ _ZL9eps_poly1fff.exit431.thread:                  ; preds = %_ZL9eps_poly1fff.ex
   %588 = fmul double %587, 0x401921FB54442D18
   %589 = fptrunc double %588 to float
   %590 = call noundef float @powf(float noundef %589, float noundef %568) #21, !tbaa !4
+  %591 = fadd float %584, %590
+  %592 = fneg float %584
+  %593 = fdiv float %592, %591
+  %594 = fpext float %593 to double
   %.pre317.pre340.pre342.pre = load i32, ptr %208, align 4, !tbaa !4
-  %591 = sitofp i32 %.pre317.pre340.pre342.pre to float
-  %592 = load i32, ptr %207, align 4, !tbaa !4
-  %593 = sitofp i32 %592 to float
-  %594 = fdiv float %135, %593
-  %595 = fneg float %591
-  br label %596
+  %595 = fpext float %528 to double
+  %596 = call double @llvm.fmuladd.f64(double %.029.i421, double %594, double %595)
+  %597 = sitofp i32 %.pre317.pre340.pre342.pre to float
+  %598 = load i32, ptr %207, align 4, !tbaa !4
+  %599 = sitofp i32 %598 to float
+  %600 = fdiv float %135, %599
+  %601 = fneg float %597
+  br label %602
 
-596:                                              ; preds = %596, %.preheader30.i432
-  %.032.i433 = phi float [ 0.000000e+00, %.preheader30.i432 ], [ %603, %596 ]
-  %.02731.i434 = phi i32 [ -6, %.preheader30.i432 ], [ %604, %596 ]
-  %597 = sitofp i32 %.02731.i434 to float
-  %598 = fadd float %594, %597
-  %599 = fpext float %598 to double
-  %600 = fmul double %599, 0x401921FB54442D18
-  %601 = fptrunc double %600 to float
-  %602 = call noundef float @powf(float noundef %601, float noundef %595) #21, !tbaa !4
-  %603 = fadd float %.032.i433, %602
-  %604 = add nsw i32 %.02731.i434, 1
-  %exitcond.not.i435 = icmp eq i32 %604, 0
-  br i1 %exitcond.not.i435, label %.preheader.i436, label %596, !llvm.loop !302
+602:                                              ; preds = %602, %.preheader30.i432
+  %.032.i433 = phi float [ 0.000000e+00, %.preheader30.i432 ], [ %609, %602 ]
+  %.02731.i434 = phi i32 [ -6, %.preheader30.i432 ], [ %610, %602 ]
+  %603 = sitofp i32 %.02731.i434 to float
+  %604 = fadd float %600, %603
+  %605 = fpext float %604 to double
+  %606 = fmul double %605, 0x401921FB54442D18
+  %607 = fptrunc double %606 to float
+  %608 = call noundef float @powf(float noundef %607, float noundef %601) #21, !tbaa !4
+  %609 = fadd float %.032.i433, %608
+  %610 = add nsw i32 %.02731.i434, 1
+  %exitcond.not.i435 = icmp eq i32 %610, 0
+  br i1 %exitcond.not.i435, label %.preheader.i436, label %602, !llvm.loop !302
 
-.preheader.i436:                                  ; preds = %596, %.preheader.i436
-  %.134.i437 = phi float [ %611, %.preheader.i436 ], [ %603, %596 ]
-  %.12833.i438 = phi i32 [ %612, %.preheader.i436 ], [ 6, %596 ]
-  %605 = uitofp nneg i32 %.12833.i438 to float
-  %606 = fadd float %594, %605
-  %607 = fpext float %606 to double
-  %608 = fmul double %607, 0x401921FB54442D18
-  %609 = fptrunc double %608 to float
-  %610 = call noundef float @powf(float noundef %609, float noundef %595) #21, !tbaa !4
-  %611 = fadd float %.134.i437, %610
-  %612 = add nsw i32 %.12833.i438, -1
-  %613 = icmp samesign ugt i32 %.12833.i438, 1
-  br i1 %613, label %.preheader.i436, label %614, !llvm.loop !303
+.preheader.i436:                                  ; preds = %602, %.preheader.i436
+  %.134.i437 = phi float [ %617, %.preheader.i436 ], [ %609, %602 ]
+  %.12833.i438 = phi i32 [ %618, %.preheader.i436 ], [ 6, %602 ]
+  %611 = uitofp nneg i32 %.12833.i438 to float
+  %612 = fadd float %600, %611
+  %613 = fpext float %612 to double
+  %614 = fmul double %613, 0x401921FB54442D18
+  %615 = fptrunc double %614 to float
+  %616 = call noundef float @powf(float noundef %615, float noundef %601) #21, !tbaa !4
+  %617 = fadd float %.134.i437, %616
+  %618 = add nsw i32 %.12833.i438, -1
+  %619 = icmp samesign ugt i32 %.12833.i438, 1
+  br i1 %619, label %.preheader.i436, label %620, !llvm.loop !303
 
-614:                                              ; preds = %.preheader.i436
-  %615 = fadd float %584, %590
-  %616 = fneg float %584
-  %617 = fdiv float %616, %615
-  %618 = fpext float %617 to double
-  %619 = fpext float %528 to double
-  %620 = call double @llvm.fmuladd.f64(double %.029.i421, double %618, double %619)
-  %621 = fpext float %594 to double
+620:                                              ; preds = %.preheader.i436
+  %621 = fpext float %600 to double
   %622 = fmul double %621, 0x401921FB54442D18
   %623 = fptrunc double %622 to float
-  %624 = call noundef float @powf(float noundef %623, float noundef %595) #21, !tbaa !4
-  %625 = fadd float %611, %624
-  %626 = fneg float %611
+  %624 = call noundef float @powf(float noundef %623, float noundef %601) #21, !tbaa !4
+  %625 = fadd float %617, %624
+  %626 = fneg float %617
   %627 = fdiv float %626, %625
   %.pre317.pre340.pre = load i32, ptr %208, align 4, !tbaa !4
   br label %_ZL9eps_poly1fff.exit440
 
-_ZL9eps_poly1fff.exit440:                         ; preds = %_ZL9eps_poly1fff.exit431.thread, %614
-  %.in = phi double [ %620, %614 ], [ %563, %_ZL9eps_poly1fff.exit431.thread ]
-  %.pre317.pre340 = phi i32 [ %.pre317.pre340.pre, %614 ], [ %.pre317.pre340.pre342.pre344, %_ZL9eps_poly1fff.exit431.thread ]
-  %.029.i439 = phi float [ %627, %614 ], [ 0.000000e+00, %_ZL9eps_poly1fff.exit431.thread ]
+_ZL9eps_poly1fff.exit440:                         ; preds = %_ZL9eps_poly1fff.exit431.thread, %620
+  %.in = phi double [ %596, %620 ], [ %563, %_ZL9eps_poly1fff.exit431.thread ]
+  %.pre317.pre340 = phi i32 [ %.pre317.pre340.pre, %620 ], [ %.pre317.pre340.pre342.pre344, %_ZL9eps_poly1fff.exit431.thread ]
+  %.029.i439 = phi float [ %627, %620 ], [ 0.000000e+00, %_ZL9eps_poly1fff.exit431.thread ]
   %628 = fptrunc double %.in to float
   br i1 %171, label %_ZL9eps_poly1fff.exit449, label %.preheader30.i441
 

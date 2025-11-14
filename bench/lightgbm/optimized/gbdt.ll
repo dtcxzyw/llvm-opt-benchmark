@@ -3622,8 +3622,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %139
   %143 = getelementptr inbounds nuw i32, ptr %142, i64 %spec.store.select
   %144 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store ptr %143, ptr %144, align 8, !tbaa !308
-  %145 = getelementptr inbounds nuw i8, ptr %142, i64 %141
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %142, i8 0, i64 %141, i1 false), !tbaa !174
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 %141
   br label %_ZNSt16allocator_traitsISaISt6vectorIiSaIiEEEE9constructIS2_JRmiEEEvRS3_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt6vectorIiSaIiEEEE9constructIS2_JRmiEEEvRS3_PT_DpOT0_.exit.i: ; preds = %.noexc35, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
@@ -4389,8 +4389,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc37
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %45, 2
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %44, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !174
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i.i.i.i.i.i.i
   br label %48
 
 48:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc37, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
@@ -4438,8 +4438,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i40: ; preds = %_ZNSt6vectorIiS
   %63 = getelementptr inbounds nuw i32, ptr %62, i64 %57
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %63, ptr %64, align 8, !tbaa !308
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 %61
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %62, i8 0, i64 %61, i1 false), !tbaa !174
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 %61
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc42, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i40

@@ -74,99 +74,99 @@ define void @Sec_MiterStatus(ptr dead_on_unwind noalias writable writeonly sret(
   %16 = ptrtoint ptr %.val29 to i64
   %17 = xor i64 %16, 1
   %18 = inttoptr i64 %17 to ptr
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %wide.trip.count = zext nneg i32 %.val25 to i64
-  br label %19
+  br label %22
 
-19:                                               ; preds = %.lr.ph, %57
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
-  %20 = phi i32 [ 0, %.lr.ph ], [ %58, %57 ]
-  %21 = phi i32 [ 0, %.lr.ph ], [ %59, %57 ]
-  %22 = phi i32 [ 0, %.lr.ph ], [ %60, %57 ]
-  %23 = phi i32 [ -1, %.lr.ph ], [ %61, %57 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %.val27, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !31
-  %26 = getelementptr i8, ptr %25, i64 8
-  %.val28 = load ptr, ptr %26, align 8, !tbaa !32
-  %27 = icmp eq ptr %.val28, %18
-  br i1 %27, label %28, label %30
+22:                                               ; preds = %.lr.ph, %60
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
+  %23 = phi i32 [ 0, %.lr.ph ], [ %61, %60 ]
+  %24 = phi i32 [ 0, %.lr.ph ], [ %62, %60 ]
+  %25 = phi i32 [ 0, %.lr.ph ], [ %63, %60 ]
+  %26 = phi i32 [ -1, %.lr.ph ], [ %64, %60 ]
+  %27 = getelementptr inbounds nuw ptr, ptr %.val27, i64 %indvars.iv
+  %28 = load ptr, ptr %27, align 8, !tbaa !31
+  %29 = getelementptr i8, ptr %28, i64 8
+  %.val28 = load ptr, ptr %29, align 8, !tbaa !32
+  %30 = icmp eq ptr %.val28, %18
+  br i1 %30, label %31, label %33
 
-28:                                               ; preds = %19
-  %29 = add nsw i32 %20, 1
-  br label %57
+31:                                               ; preds = %22
+  %32 = add nsw i32 %23, 1
+  br label %60
 
-30:                                               ; preds = %19
-  %31 = icmp eq ptr %.val28, %.val29
-  br i1 %31, label %32, label %36
+33:                                               ; preds = %22
+  %34 = icmp eq ptr %.val28, %.val29
+  br i1 %34, label %35, label %39
 
-32:                                               ; preds = %30
-  %33 = add nsw i32 %22, 1
-  %34 = icmp eq i32 %23, -1
-  %35 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.store.select = select i1 %34, i32 %35, i32 %23
-  br label %57
+35:                                               ; preds = %33
+  %36 = add nsw i32 %25, 1
+  %37 = icmp eq i32 %26, -1
+  %38 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.store.select = select i1 %37, i32 %38, i32 %26
+  br label %60
 
-36:                                               ; preds = %30
-  %37 = ptrtoint ptr %.val28 to i64
-  %38 = and i64 %37, -2
-  %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr i8, ptr %39, i64 24
-  %.val3.i = load i64, ptr %40, align 8
-  %41 = and i64 %.val3.i, 7
-  %.not.i = icmp eq i64 %41, 2
+39:                                               ; preds = %33
+  %40 = ptrtoint ptr %.val28 to i64
+  %41 = and i64 %40, -2
+  %42 = inttoptr i64 %41 to ptr
+  %43 = getelementptr i8, ptr %42, i64 24
+  %.val3.i = load i64, ptr %43, align 8
+  %44 = and i64 %.val3.i, 7
+  %.not.i = icmp eq i64 %44, 2
   br i1 %.not.i, label %Saig_ObjIsPi.exit, label %Saig_ObjIsPi.exit.thread
 
-Saig_ObjIsPi.exit:                                ; preds = %36
-  %.val4.i = load i32, ptr %39, align 8, !tbaa !33
+Saig_ObjIsPi.exit:                                ; preds = %39
+  %.val4.i = load i32, ptr %42, align 8, !tbaa !33
   %.not = icmp slt i32 %.val4.i, %.val
-  br i1 %.not, label %42, label %Saig_ObjIsPi.exit.thread
+  br i1 %.not, label %45, label %Saig_ObjIsPi.exit.thread
 
-42:                                               ; preds = %Saig_ObjIsPi.exit
-  %43 = add nsw i32 %22, 1
-  %44 = icmp eq i32 %23, -1
-  %45 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.store.select21 = select i1 %44, i32 %45, i32 %23
-  br label %57
+45:                                               ; preds = %Saig_ObjIsPi.exit
+  %46 = add nsw i32 %25, 1
+  %47 = icmp eq i32 %26, -1
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.store.select21 = select i1 %47, i32 %48, i32 %26
+  br label %60
 
-Saig_ObjIsPi.exit.thread:                         ; preds = %36, %Saig_ObjIsPi.exit
-  %46 = trunc i64 %.val3.i to i32
-  %47 = lshr i32 %46, 3
-  %48 = trunc i64 %37 to i32
-  %49 = xor i32 %47, %48
-  %50 = and i32 %49, 1
-  %.not20 = icmp eq i32 %50, 0
-  br i1 %.not20, label %55, label %51
+Saig_ObjIsPi.exit.thread:                         ; preds = %39, %Saig_ObjIsPi.exit
+  %49 = trunc i64 %.val3.i to i32
+  %50 = lshr i32 %49, 3
+  %51 = trunc i64 %40 to i32
+  %52 = xor i32 %50, %51
+  %53 = and i32 %52, 1
+  %.not20 = icmp eq i32 %53, 0
+  br i1 %.not20, label %58, label %54
 
-51:                                               ; preds = %Saig_ObjIsPi.exit.thread
-  %52 = add nsw i32 %22, 1
-  %53 = icmp eq i32 %23, -1
-  %54 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.store.select22 = select i1 %53, i32 %54, i32 %23
-  br label %57
+54:                                               ; preds = %Saig_ObjIsPi.exit.thread
+  %55 = add nsw i32 %25, 1
+  %56 = icmp eq i32 %26, -1
+  %57 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.store.select22 = select i1 %56, i32 %57, i32 %26
+  br label %60
 
-55:                                               ; preds = %Saig_ObjIsPi.exit.thread
-  %56 = add nsw i32 %21, 1
-  br label %57
+58:                                               ; preds = %Saig_ObjIsPi.exit.thread
+  %59 = add nsw i32 %24, 1
+  br label %60
 
-57:                                               ; preds = %51, %42, %32, %28, %55
-  %58 = phi i32 [ %20, %51 ], [ %20, %42 ], [ %20, %32 ], [ %29, %28 ], [ %20, %55 ]
-  %59 = phi i32 [ %21, %51 ], [ %21, %42 ], [ %21, %32 ], [ %21, %28 ], [ %56, %55 ]
-  %60 = phi i32 [ %52, %51 ], [ %43, %42 ], [ %33, %32 ], [ %22, %28 ], [ %22, %55 ]
-  %61 = phi i32 [ %spec.store.select22, %51 ], [ %spec.store.select21, %42 ], [ %spec.store.select, %32 ], [ %23, %28 ], [ %23, %55 ]
+60:                                               ; preds = %54, %45, %35, %31, %58
+  %61 = phi i32 [ %23, %54 ], [ %23, %45 ], [ %23, %35 ], [ %32, %31 ], [ %23, %58 ]
+  %62 = phi i32 [ %24, %54 ], [ %24, %45 ], [ %24, %35 ], [ %24, %31 ], [ %59, %58 ]
+  %63 = phi i32 [ %55, %54 ], [ %46, %45 ], [ %36, %35 ], [ %25, %31 ], [ %25, %58 ]
+  %64 = phi i32 [ %spec.store.select22, %54 ], [ %spec.store.select21, %45 ], [ %spec.store.select, %35 ], [ %26, %31 ], [ %26, %58 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..critedge_crit_edge, label %19, !llvm.loop !34
+  br i1 %exitcond.not, label %..critedge_crit_edge, label %22, !llvm.loop !34
 
-..critedge_crit_edge:                             ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %60, ptr %62, align 4
-  store i32 %59, ptr %63, align 4
-  store i32 %58, ptr %64, align 4
+..critedge_crit_edge:                             ; preds = %60
+  store i32 %63, ptr %19, align 4
+  store i32 %62, ptr %20, align 4
+  store i32 %61, ptr %21, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %2
-  %.lcssa = phi i32 [ %61, %..critedge_crit_edge ], [ -1, %2 ]
+  %.lcssa = phi i32 [ %64, %..critedge_crit_edge ], [ -1, %2 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.lcssa, ptr %65, align 4
   ret void

@@ -2813,9 +2813,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_back
   %145 = xor i64 %144, 126
   call fastcc void @"_ZSt16__introsort_loopIPN4llvm9MDBuilder15TBAAStructFieldElN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang7CodeGen11CodeGenTBAA21getBaseTypeInfoHelperEPKNS7_4TypeEE3$_0EEEvT_SF_T0_T1_"(ptr noundef %.val, ptr noundef nonnull %140, i64 noundef %145)
   %146 = icmp ugt i32 %.val108, 16
-  br i1 %146, label %.preheader.i.i.i.i.i, label %159
+  br i1 %146, label %.preheader.i.i.i.i, label %159
 
-.preheader.i.i.i.i.i:                             ; preds = %141, %154
+.preheader.i.i.i.i:                               ; preds = %141, %154
   %.019.i.idx.i.i.i.i.i = phi i64 [ %.019.i.add.i.i.i.i.i, %154 ], [ 24, %141 ]
   %.pn18.i.i.i.i.i.i = phi ptr [ %.019.i.ptr.i.i.i.i.i, %154 ], [ %.val, %141 ]
   %.019.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 %.019.i.idx.i.i.i.i.i
@@ -2824,7 +2824,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_back
   %147 = icmp ult i64 %.0.val.i.i.i.i.i.i, %.val.i.i.i.i.i.i
   br i1 %147, label %148, label %151
 
-148:                                              ; preds = %.preheader.i.i.i.i.i
+148:                                              ; preds = %.preheader.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.019.i.ptr.i.i.i.i.i, i64 24, i1 false), !tbaa.struct !681
   %149 = getelementptr inbounds nuw i8, ptr %.pn18.i.i.i.i.i.i, i64 48
@@ -2835,7 +2835,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_back
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %154
 
-151:                                              ; preds = %.preheader.i.i.i.i.i
+151:                                              ; preds = %.preheader.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i.i.i.i.i.i)
   %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn18.i.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !682
@@ -2863,7 +2863,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MDBuilder15TBAAStructFieldELb1EE9push_back
 154:                                              ; preds = %"_ZSt25__unguarded_linear_insertIPN4llvm9MDBuilder15TBAAStructFieldEN9__gnu_cxx5__ops14_Val_comp_iterIZN5clang7CodeGen11CodeGenTBAA21getBaseTypeInfoHelperEPKNS7_4TypeEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i", %148
   %.019.i.add.i.i.i.i.i = add nuw nsw i64 %.019.i.idx.i.i.i.i.i, 24
   %.not.i.i.i.i.i.i = icmp eq i64 %.019.i.add.i.i.i.i.i, 384
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPN4llvm9MDBuilder15TBAAStructFieldEN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang7CodeGen11CodeGenTBAA21getBaseTypeInfoHelperEPKNS7_4TypeEE3$_0EEEvT_SF_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i.i.i, !llvm.loop !684
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPN4llvm9MDBuilder15TBAAStructFieldEN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang7CodeGen11CodeGenTBAA21getBaseTypeInfoHelperEPKNS7_4TypeEE3$_0EEEvT_SF_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i.i, !llvm.loop !684
 
 "_ZSt16__insertion_sortIPN4llvm9MDBuilder15TBAAStructFieldEN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang7CodeGen11CodeGenTBAA21getBaseTypeInfoHelperEPKNS7_4TypeEE3$_0EEEvT_SF_T0_.exit.i.i.i.i.i": ; preds = %154
   %155 = getelementptr inbounds nuw i8, ptr %.val, i64 384

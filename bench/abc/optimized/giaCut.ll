@@ -6192,64 +6192,65 @@ define i32 @Gia_ManFindSatDcs(ptr noundef readonly captures(none) %0, ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
   %11 = getelementptr i8, ptr %2, i64 4
   %.val28 = load i32, ptr %11, align 4, !tbaa !88
-  %12 = shl i32 %10, 6
-  %13 = icmp sgt i32 %10, 0
-  br i1 %13, label %.preheader32.lr.ph, label %.preheader
+  %12 = shl nuw i32 1, %.val28
+  %13 = shl i32 %10, 6
+  %14 = icmp sgt i32 %10, 0
+  br i1 %14, label %.preheader32.lr.ph, label %.preheader
 
 .preheader32.lr.ph:                               ; preds = %3
-  %14 = icmp sgt i32 %.val28, 0
-  br i1 %14, label %.preheader32.lr.ph.split.us, label %.preheader.thread
+  %15 = icmp sgt i32 %.val28, 0
+  br i1 %15, label %.preheader32.lr.ph.split.us, label %.preheader.thread
 
 .preheader32.lr.ph.split.us:                      ; preds = %.preheader32.lr.ph
-  %15 = getelementptr i8, ptr %1, i64 8
-  %16 = getelementptr i8, ptr %2, i64 8
-  %.val.us = load ptr, ptr %16, align 8, !tbaa !36
-  %.val31.us = load ptr, ptr %15, align 8, !tbaa !161
-  %smax40 = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
+  %16 = getelementptr i8, ptr %1, i64 8
+  %17 = getelementptr i8, ptr %2, i64 8
+  %.val.us = load ptr, ptr %17, align 8, !tbaa !36
+  %.val31.us = load ptr, ptr %16, align 8, !tbaa !161
+  %smax40 = tail call i32 @llvm.smax.i32(i32 %13, i32 1)
   %wide.trip.count = zext nneg i32 %.val28 to i64
   br label %.preheader32.us
 
 .preheader32.us:                                  ; preds = %..critedge_crit_edge.us, %.preheader32.lr.ph.split.us
-  %.02635.us = phi i32 [ 0, %.preheader32.lr.ph.split.us ], [ %36, %..critedge_crit_edge.us ]
-  %17 = lshr i32 %.02635.us, 6
-  %18 = zext nneg i32 %17 to i64
-  %invariant.gep.us = getelementptr i64, ptr %.val31.us, i64 %18
-  %19 = and i32 %.02635.us, 63
-  %20 = zext nneg i32 %19 to i64
-  %21 = shl nuw i64 1, %20
-  br label %22
+  %.02635.us = phi i32 [ 0, %.preheader32.lr.ph.split.us ], [ %37, %..critedge_crit_edge.us ]
+  %18 = lshr i32 %.02635.us, 6
+  %19 = zext nneg i32 %18 to i64
+  %invariant.gep.us = getelementptr i64, ptr %.val31.us, i64 %19
+  %20 = and i32 %.02635.us, 63
+  %21 = zext nneg i32 %20 to i64
+  %22 = shl nuw i64 1, %21
+  br label %23
 
-22:                                               ; preds = %.preheader32.us, %22
-  %indvars.iv = phi i64 [ 0, %.preheader32.us ], [ %indvars.iv.next, %22 ]
-  %.034.us = phi i32 [ 0, %.preheader32.us ], [ %.1.us, %22 ]
-  %23 = getelementptr inbounds nuw i32, ptr %.val.us, i64 %indvars.iv
-  %24 = load i32, ptr %23, align 4, !tbaa !37
-  %25 = mul nsw i32 %24, %10
-  %26 = sext i32 %25 to i64
-  %gep.us = getelementptr i64, ptr %invariant.gep.us, i64 %26
-  %27 = load i64, ptr %gep.us, align 8, !tbaa !70
-  %28 = and i64 %27, %21
-  %.not.us = icmp eq i64 %28, 0
-  %29 = trunc nuw nsw i64 %indvars.iv to i32
-  %30 = shl nuw i32 1, %29
-  %31 = select i1 %.not.us, i32 0, i32 %30
-  %.1.us = or i32 %31, %.034.us
+23:                                               ; preds = %.preheader32.us, %23
+  %indvars.iv = phi i64 [ 0, %.preheader32.us ], [ %indvars.iv.next, %23 ]
+  %.034.us = phi i32 [ 0, %.preheader32.us ], [ %.1.us, %23 ]
+  %24 = getelementptr inbounds nuw i32, ptr %.val.us, i64 %indvars.iv
+  %25 = load i32, ptr %24, align 4, !tbaa !37
+  %26 = mul nsw i32 %25, %10
+  %27 = sext i32 %26 to i64
+  %gep.us = getelementptr i64, ptr %invariant.gep.us, i64 %27
+  %28 = load i64, ptr %gep.us, align 8, !tbaa !70
+  %29 = and i64 %28, %22
+  %.not.us = icmp eq i64 %29, 0
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
+  %31 = shl nuw i32 1, %30
+  %32 = select i1 %.not.us, i32 0, i32 %31
+  %.1.us = or i32 %32, %.034.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..critedge_crit_edge.us, label %22, !llvm.loop !169
+  br i1 %exitcond.not, label %..critedge_crit_edge.us, label %23, !llvm.loop !169
 
-..critedge_crit_edge.us:                          ; preds = %22
-  %32 = sext i32 %.1.us to i64
-  %33 = getelementptr inbounds i32, ptr %4, i64 %32
-  %34 = load i32, ptr %33, align 4, !tbaa !37
-  %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %33, align 4, !tbaa !37
-  %36 = add nuw nsw i32 %.02635.us, 1
-  %exitcond41.not = icmp eq i32 %36, %smax40
+..critedge_crit_edge.us:                          ; preds = %23
+  %33 = sext i32 %.1.us to i64
+  %34 = getelementptr inbounds i32, ptr %4, i64 %33
+  %35 = load i32, ptr %34, align 4, !tbaa !37
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %34, align 4, !tbaa !37
+  %37 = add nuw nsw i32 %.02635.us, 1
+  %exitcond41.not = icmp eq i32 %37, %smax40
   br i1 %exitcond41.not, label %.preheader, label %.preheader32.us, !llvm.loop !170
 
 .preheader.thread:                                ; preds = %.preheader32.lr.ph
-  %smax = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
+  %smax = tail call i32 @llvm.smax.i32(i32 %13, i32 1)
   store i32 %smax, ptr %4, align 16, !tbaa !37
   br label %.lr.ph.preheader
 
@@ -6258,8 +6259,8 @@ define i32 @Gia_ManFindSatDcs(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader.thread, %.preheader
-  %37 = shl nuw nsw i32 1, %.val28
-  %wide.trip.count46 = zext nneg i32 %37 to i64
+  %smax45 = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
+  %wide.trip.count46 = zext nneg i32 %smax45 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -6627,62 +6628,63 @@ Gia_ManCountRefs.exit:                            ; preds = %27, %12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %3, i8 0, i64 1024, i1 false)
   %.val28.i = load i32, ptr %19, align 4, !tbaa !88
-  %39 = shl i32 %38, 6
-  %40 = icmp sgt i32 %38, 0
-  br i1 %40, label %.preheader32.lr.ph.i, label %.preheader.i
+  %39 = shl nuw i32 1, %.val28.i
+  %40 = shl i32 %38, 6
+  %41 = icmp sgt i32 %38, 0
+  br i1 %41, label %.preheader32.lr.ph.i, label %.preheader.i
 
 .preheader32.lr.ph.i:                             ; preds = %Gia_ManCountRefs.exit
-  %41 = icmp sgt i32 %.val28.i, 0
-  br i1 %41, label %.preheader32.lr.ph.split.us.i, label %.preheader.thread.i
+  %42 = icmp sgt i32 %.val28.i, 0
+  br i1 %42, label %.preheader32.lr.ph.split.us.i, label %.preheader.thread.i
 
 .preheader32.lr.ph.split.us.i:                    ; preds = %.preheader32.lr.ph.i
   %.val.us.i = load ptr, ptr %16, align 8, !tbaa !36
   %.val31.us.i = load ptr, ptr %11, align 8, !tbaa !161
-  %smax40.i = tail call i32 @llvm.smax.i32(i32 %39, i32 1)
+  %smax40.i = tail call i32 @llvm.smax.i32(i32 %40, i32 1)
   %wide.trip.count.i22 = zext nneg i32 %.val28.i to i64
   br label %.preheader32.us.i
 
 .preheader32.us.i:                                ; preds = %..critedge_crit_edge.us.i, %.preheader32.lr.ph.split.us.i
-  %.02635.us.i = phi i32 [ 0, %.preheader32.lr.ph.split.us.i ], [ %61, %..critedge_crit_edge.us.i ]
-  %42 = lshr i32 %.02635.us.i, 6
-  %43 = zext nneg i32 %42 to i64
-  %invariant.gep.us.i = getelementptr i64, ptr %.val31.us.i, i64 %43
-  %44 = and i32 %.02635.us.i, 63
-  %45 = zext nneg i32 %44 to i64
-  %46 = shl nuw i64 1, %45
-  br label %47
+  %.02635.us.i = phi i32 [ 0, %.preheader32.lr.ph.split.us.i ], [ %62, %..critedge_crit_edge.us.i ]
+  %43 = lshr i32 %.02635.us.i, 6
+  %44 = zext nneg i32 %43 to i64
+  %invariant.gep.us.i = getelementptr i64, ptr %.val31.us.i, i64 %44
+  %45 = and i32 %.02635.us.i, 63
+  %46 = zext nneg i32 %45 to i64
+  %47 = shl nuw i64 1, %46
+  br label %48
 
-47:                                               ; preds = %47, %.preheader32.us.i
-  %indvars.iv.i23 = phi i64 [ 0, %.preheader32.us.i ], [ %indvars.iv.next.i24, %47 ]
-  %.034.us.i = phi i32 [ 0, %.preheader32.us.i ], [ %.1.us.i, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %.val.us.i, i64 %indvars.iv.i23
-  %49 = load i32, ptr %48, align 4, !tbaa !37
-  %50 = mul nsw i32 %49, %38
-  %51 = sext i32 %50 to i64
-  %gep.us.i = getelementptr i64, ptr %invariant.gep.us.i, i64 %51
-  %52 = load i64, ptr %gep.us.i, align 8, !tbaa !70
-  %53 = and i64 %52, %46
-  %.not.us.i = icmp eq i64 %53, 0
-  %54 = trunc nuw nsw i64 %indvars.iv.i23 to i32
-  %55 = shl nuw i32 1, %54
-  %56 = select i1 %.not.us.i, i32 0, i32 %55
-  %.1.us.i = or i32 %56, %.034.us.i
+48:                                               ; preds = %48, %.preheader32.us.i
+  %indvars.iv.i23 = phi i64 [ 0, %.preheader32.us.i ], [ %indvars.iv.next.i24, %48 ]
+  %.034.us.i = phi i32 [ 0, %.preheader32.us.i ], [ %.1.us.i, %48 ]
+  %49 = getelementptr inbounds nuw i32, ptr %.val.us.i, i64 %indvars.iv.i23
+  %50 = load i32, ptr %49, align 4, !tbaa !37
+  %51 = mul nsw i32 %50, %38
+  %52 = sext i32 %51 to i64
+  %gep.us.i = getelementptr i64, ptr %invariant.gep.us.i, i64 %52
+  %53 = load i64, ptr %gep.us.i, align 8, !tbaa !70
+  %54 = and i64 %53, %47
+  %.not.us.i = icmp eq i64 %54, 0
+  %55 = trunc nuw nsw i64 %indvars.iv.i23 to i32
+  %56 = shl nuw i32 1, %55
+  %57 = select i1 %.not.us.i, i32 0, i32 %56
+  %.1.us.i = or i32 %57, %.034.us.i
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i23, 1
   %exitcond.not.i25 = icmp eq i64 %indvars.iv.next.i24, %wide.trip.count.i22
-  br i1 %exitcond.not.i25, label %..critedge_crit_edge.us.i, label %47, !llvm.loop !169
+  br i1 %exitcond.not.i25, label %..critedge_crit_edge.us.i, label %48, !llvm.loop !169
 
-..critedge_crit_edge.us.i:                        ; preds = %47
-  %57 = sext i32 %.1.us.i to i64
-  %58 = getelementptr inbounds i32, ptr %3, i64 %57
-  %59 = load i32, ptr %58, align 4, !tbaa !37
-  %60 = add nsw i32 %59, 1
-  store i32 %60, ptr %58, align 4, !tbaa !37
-  %61 = add nuw nsw i32 %.02635.us.i, 1
-  %exitcond41.not.i = icmp eq i32 %61, %smax40.i
+..critedge_crit_edge.us.i:                        ; preds = %48
+  %58 = sext i32 %.1.us.i to i64
+  %59 = getelementptr inbounds i32, ptr %3, i64 %58
+  %60 = load i32, ptr %59, align 4, !tbaa !37
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %59, align 4, !tbaa !37
+  %62 = add nuw nsw i32 %.02635.us.i, 1
+  %exitcond41.not.i = icmp eq i32 %62, %smax40.i
   br i1 %exitcond41.not.i, label %.preheader.i, label %.preheader32.us.i, !llvm.loop !170
 
 .preheader.thread.i:                              ; preds = %.preheader32.lr.ph.i
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %39, i32 1)
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %40, i32 1)
   store i32 %smax.i, ptr %3, align 16, !tbaa !37
   br label %.lr.ph.preheader.i
 
@@ -6691,8 +6693,8 @@ Gia_ManCountRefs.exit:                            ; preds = %27, %12
   br i1 %.not.i, label %Gia_ManFindSatDcs.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i, %.preheader.thread.i
-  %62 = shl nuw nsw i32 1, %.val28.i
-  %wide.trip.count46.i = zext nneg i32 %62 to i64
+  %smax45.i = tail call i32 @llvm.smax.i32(i32 %39, i32 1)
+  %wide.trip.count46.i = zext nneg i32 %smax45.i to i64
   br label %.lr.ph.i21
 
 .lr.ph.i21:                                       ; preds = %.lr.ph.i21, %.lr.ph.preheader.i

@@ -4294,55 +4294,52 @@ _ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %1
           to label %.lr.ph.i unwind label %267
 
 .lr.ph.i:                                         ; preds = %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %176 = uitofp nneg i32 %49 to float
-  %177 = fpext float %176 to double
+  %176 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %175, i64 %170
+  %177 = uitofp nneg i32 %49 to float
+  %178 = fpext float %177 to double
   %wide.trip.count.i = zext nneg i32 %49 to i64
-  br label %178
+  br label %179
 
-178:                                              ; preds = %178, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %178 ]
-  %179 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %180 = uitofp nneg i32 %179 to float
-  %181 = fdiv float %180, 0x3FF9E377A0000000
-  %182 = call noundef float @llvm.floor.f32(float %181)
-  %183 = fsub float %181, %182
-  %184 = fpext float %183 to double
-  %185 = fmul double %184, 0x401921FB54442D18
-  %186 = fptrunc double %185 to float
-  %187 = shl i32 %179, 1
-  %188 = or disjoint i32 %187, 1
-  %189 = uitofp nneg i32 %188 to double
-  %190 = fdiv double %189, %177
-  %191 = fsub double 1.000000e+00, %190
-  %192 = fptrunc double %191 to float
-  %193 = fneg float %192
-  %194 = call float @llvm.fmuladd.f32(float %193, float %192, float 1.000000e+00)
-  %195 = fcmp ogt float %194, 0.000000e+00
-  %.sroa.speculated15.i.i = select i1 %195, float %194, float 0.000000e+00
-  %196 = fcmp olt float %.sroa.speculated15.i.i, 1.000000e+00
-  %.sroa.speculated.i.i = select i1 %196, float %.sroa.speculated15.i.i, float 1.000000e+00
+179:                                              ; preds = %179, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %179 ]
+  %180 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %181 = uitofp nneg i32 %180 to float
+  %182 = fdiv float %181, 0x3FF9E377A0000000
+  %183 = call noundef float @llvm.floor.f32(float %182)
+  %184 = fsub float %182, %183
+  %185 = fpext float %184 to double
+  %186 = fmul double %185, 0x401921FB54442D18
+  %187 = fptrunc double %186 to float
+  %188 = shl i32 %180, 1
+  %189 = or disjoint i32 %188, 1
+  %190 = uitofp nneg i32 %189 to double
+  %191 = fdiv double %190, %178
+  %192 = fsub double 1.000000e+00, %191
+  %193 = fptrunc double %192 to float
+  %194 = fneg float %193
+  %195 = call float @llvm.fmuladd.f32(float %194, float %193, float 1.000000e+00)
+  %196 = fcmp ogt float %195, 0.000000e+00
+  %.sroa.speculated15.i.i = select i1 %196, float %195, float 0.000000e+00
+  %197 = fcmp olt float %.sroa.speculated15.i.i, 1.000000e+00
+  %.sroa.speculated.i.i = select i1 %197, float %.sroa.speculated15.i.i, float 1.000000e+00
   %sqrt.i.i = call float @llvm.sqrt.f32(float %.sroa.speculated.i.i)
-  %197 = call noundef float @cosf(float noundef %186) #29
-  %198 = fmul float %197, %sqrt.i.i
-  %199 = call noundef float @sinf(float noundef %186) #29
-  %200 = fmul float %199, %sqrt.i.i
-  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %198, i64 0
-  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %200, i64 1
-  %201 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %175, i64 %indvars.iv.i
-  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %201, align 4
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %201, i64 8
-  store float %192, ptr %.sroa.22.0..sroa_idx.i, align 4
+  %198 = call noundef float @cosf(float noundef %187) #29
+  %199 = fmul float %198, %sqrt.i.i
+  %200 = call noundef float @sinf(float noundef %187) #29
+  %201 = fmul float %200, %sqrt.i.i
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %199, i64 0
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %201, i64 1
+  %202 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %175, i64 %indvars.iv.i
+  store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %202, align 4
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %202, i64 8
+  store float %193, ptr %.sroa.22.0..sroa_idx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit.loopexit, label %178, !llvm.loop !29
+  br i1 %exitcond.not.i, label %_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit, label %179, !llvm.loop !29
 
-_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit.loopexit: ; preds = %178
-  %202 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %175, i64 %170
-  br label %_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit
-
-_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit: ; preds = %_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit.loopexit, %169
-  %.sroa.0154.2224 = phi ptr [ null, %169 ], [ %175, %_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit.loopexit ]
-  %.sroa.11.0221 = phi ptr [ null, %169 ], [ %202, %_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit.loopexit ]
+_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit: ; preds = %179, %169
+  %.sroa.0154.2224 = phi ptr [ null, %169 ], [ %175, %179 ]
+  %.sroa.11.0221 = phi ptr [ null, %169 ], [ %176, %179 ]
   %203 = load ptr, ptr %1, align 8
   %204 = getelementptr i8, ptr %203, i64 -32
   %205 = load i64, ptr %204, align 8
@@ -9626,8 +9623,8 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %16
 
 _ZSt6fill_nIPP8CVertexOmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc74
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %27, 3
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %26, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.noexc74, %_ZSt6fill_nIPP8CVertexOmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -10509,9 +10506,9 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %7, %2
   %98 = icmp ugt i64 %97, -9223372036854775808
   %storemerge.idx.i.i.i.i.i44 = select i1 %98, i64 -8, i64 0
   %storemerge.i.i.i.i.i45 = getelementptr inbounds i8, ptr %96, i64 %storemerge.idx.i.i.i.i.i44
+  %storemerge.i.i.i.i.i45.promoted = load i64, ptr %storemerge.i.i.i.i.i45, align 8
   %99 = and i64 %94, 63
   %100 = shl nuw i64 1, %99
-  %storemerge.i.i.i.i.i45.promoted = load i64, ptr %storemerge.i.i.i.i.i45, align 8
   %101 = or i64 %storemerge.i.i.i.i.i45.promoted, %100
   store i64 %101, ptr %storemerge.i.i.i.i.i45, align 8
   br label %102
@@ -15496,8 +15493,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -15813,8 +15810,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i

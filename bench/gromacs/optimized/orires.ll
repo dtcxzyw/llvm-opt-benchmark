@@ -219,8 +219,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !50
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -956,8 +956,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167: ; preds = %21
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.loopexit:   ; preds = %240
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %241, 2
-  %245 = getelementptr inbounds nuw i8, ptr %.sroa.11.1371, i64 %.idx.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %.sroa.11.1371, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !133
+  %245 = getelementptr inbounds nuw i8, ptr %.sroa.11.1371, i64 %.idx.i.i.i.i.i.i
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 246:                                              ; preds = %240

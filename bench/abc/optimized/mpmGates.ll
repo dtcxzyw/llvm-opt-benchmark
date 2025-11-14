@@ -772,78 +772,78 @@ Vec_IntStartFull.exit:                            ; preds = %12, %Vec_IntAlloc.e
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 56
   store ptr %163, ptr %164, align 8, !tbaa !93
   %165 = load i32, ptr %148, align 4
-  %166 = and i32 %156, 65535
+  %166 = lshr i32 %165, 25
+  %167 = lshr i32 %156, 16
+  %168 = xor i32 %167, %166
+  %169 = xor i32 %168, %165
+  %170 = and i32 %169, 1
+  %171 = and i32 %156, 65535
   %.not171 = icmp ult i32 %165, 134217728
   br i1 %.not171, label %._crit_edge, label %.lr.ph165
 
 .lr.ph165:                                        ; preds = %111
-  %167 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %168 = lshr i32 %166, 6
-  %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw [6 x i8], ptr %105, i64 %169
-  br label %171
+  %172 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  %173 = lshr i32 %171, 6
+  %174 = zext nneg i32 %173 to i64
+  %175 = getelementptr inbounds nuw [6 x i8], ptr %105, i64 %174
+  br label %176
 
-171:                                              ; preds = %.lr.ph165, %Mpm_ManGetAbcNode.exit
+176:                                              ; preds = %.lr.ph165, %Mpm_ManGetAbcNode.exit
   %indvars.iv181 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next182, %Mpm_ManGetAbcNode.exit ]
-  %172 = getelementptr inbounds nuw i8, ptr %170, i64 %indvars.iv181
-  %173 = load i8, ptr %172, align 1, !tbaa !93
-  %174 = sext i8 %173 to i64
-  %175 = getelementptr inbounds i32, ptr %167, i64 %174
-  %176 = load i32, ptr %175, align 4, !tbaa !44
-  %177 = trunc nuw nsw i64 %indvars.iv181 to i32
-  %178 = lshr i32 %166, %177
-  %179 = and i32 %178, 1
-  %180 = xor i32 %176, %179
-  %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds i32, ptr %23, i64 %181
-  %183 = load i32, ptr %182, align 4, !tbaa !44
-  %184 = icmp sgt i32 %183, -1
-  br i1 %184, label %185, label %190
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 %indvars.iv181
+  %178 = load i8, ptr %177, align 1, !tbaa !93
+  %179 = sext i8 %178 to i64
+  %180 = getelementptr inbounds i32, ptr %172, i64 %179
+  %181 = load i32, ptr %180, align 4, !tbaa !44
+  %182 = trunc nuw nsw i64 %indvars.iv181 to i32
+  %183 = lshr i32 %171, %182
+  %184 = and i32 %183, 1
+  %185 = xor i32 %181, %184
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr inbounds i32, ptr %23, i64 %186
+  %188 = load i32, ptr %187, align 4, !tbaa !44
+  %189 = icmp sgt i32 %188, -1
+  br i1 %189, label %190, label %195
 
-185:                                              ; preds = %171
+190:                                              ; preds = %176
   %.val16.i = load ptr, ptr %106, align 8, !tbaa !63
-  %186 = getelementptr i8, ptr %.val16.i, i64 8
-  %.val16.val.i = load ptr, ptr %186, align 8, !tbaa !31
-  %187 = zext nneg i32 %183 to i64
-  %188 = getelementptr inbounds nuw ptr, ptr %.val16.val.i, i64 %187
-  %189 = load ptr, ptr %188, align 8, !tbaa !32
+  %191 = getelementptr i8, ptr %.val16.i, i64 8
+  %.val16.val.i = load ptr, ptr %191, align 8, !tbaa !31
+  %192 = zext nneg i32 %188 to i64
+  %193 = getelementptr inbounds nuw ptr, ptr %.val16.val.i, i64 %192
+  %194 = load ptr, ptr %193, align 8, !tbaa !32
   br label %Mpm_ManGetAbcNode.exit
 
-190:                                              ; preds = %171
-  %191 = xor i32 %180, 1
-  %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds i32, ptr %23, i64 %192
-  %194 = load i32, ptr %193, align 4, !tbaa !44
+195:                                              ; preds = %176
+  %196 = xor i32 %185, 1
+  %197 = sext i32 %196 to i64
+  %198 = getelementptr inbounds i32, ptr %23, i64 %197
+  %199 = load i32, ptr %198, align 4, !tbaa !44
   %.val17.i = load ptr, ptr %106, align 8, !tbaa !63
-  %195 = getelementptr i8, ptr %.val17.i, i64 8
-  %.val17.val.i = load ptr, ptr %195, align 8, !tbaa !31
-  %196 = sext i32 %194 to i64
-  %197 = getelementptr inbounds ptr, ptr %.val17.val.i, i64 %196
-  %198 = load ptr, ptr %197, align 8, !tbaa !32
-  %199 = tail call ptr @Abc_NtkCreateNodeInv(ptr noundef %25, ptr noundef %198) #12
-  %200 = getelementptr i8, ptr %199, i64 16
-  %.val18.i = load i32, ptr %200, align 8, !tbaa !74
-  store i32 %.val18.i, ptr %182, align 4, !tbaa !44
+  %200 = getelementptr i8, ptr %.val17.i, i64 8
+  %.val17.val.i = load ptr, ptr %200, align 8, !tbaa !31
+  %201 = sext i32 %199 to i64
+  %202 = getelementptr inbounds ptr, ptr %.val17.val.i, i64 %201
+  %203 = load ptr, ptr %202, align 8, !tbaa !32
+  %204 = tail call ptr @Abc_NtkCreateNodeInv(ptr noundef %25, ptr noundef %203) #12
+  %205 = getelementptr i8, ptr %204, i64 16
+  %.val18.i = load i32, ptr %205, align 8, !tbaa !74
+  store i32 %.val18.i, ptr %187, align 4, !tbaa !44
   br label %Mpm_ManGetAbcNode.exit
 
-Mpm_ManGetAbcNode.exit:                           ; preds = %185, %190
-  %.0.i = phi ptr [ %189, %185 ], [ %199, %190 ]
+Mpm_ManGetAbcNode.exit:                           ; preds = %190, %195
+  %.0.i = phi ptr [ %194, %190 ], [ %204, %195 ]
   tail call void @Abc_ObjAddFanin(ptr noundef %157, ptr noundef %.0.i) #12
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %201 = load i32, ptr %148, align 4
-  %202 = lshr i32 %201, 27
-  %203 = zext nneg i32 %202 to i64
-  %204 = icmp samesign ult i64 %indvars.iv.next182, %203
-  br i1 %204, label %171, label %._crit_edge, !llvm.loop !94
+  %206 = load i32, ptr %148, align 4
+  %207 = lshr i32 %206, 27
+  %208 = zext nneg i32 %207 to i64
+  %209 = icmp samesign ult i64 %indvars.iv.next182, %208
+  br i1 %209, label %176, label %._crit_edge, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %Mpm_ManGetAbcNode.exit, %111
-  %205 = lshr i32 %165, 25
-  %206 = lshr i32 %156, 16
-  %207 = xor i32 %206, %205
-  %208 = xor i32 %207, %165
-  %209 = and i32 %208, 1
   %210 = shl nsw i32 %113, 1
-  %211 = or disjoint i32 %209, %210
+  %211 = or disjoint i32 %170, %210
   %212 = getelementptr i8, ptr %157, i64 16
   %.val118 = load i32, ptr %212, align 8, !tbaa !74
   %213 = sext i32 %211 to i64

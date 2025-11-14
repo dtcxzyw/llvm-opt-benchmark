@@ -1199,11 +1199,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
   %361 = load i32, ptr %.sroa.05.016.i, align 8, !tbaa !76
   %362 = load ptr, ptr %360, align 8, !tbaa !235
-  %363 = getelementptr inbounds nuw i8, ptr %.sroa.05.016.i, i64 8
-  %364 = load ptr, ptr %363, align 8, !tbaa !92
-  %365 = getelementptr inbounds nuw i8, ptr %.sroa.05.016.i, i64 16
-  %366 = load ptr, ptr %365, align 8, !tbaa !92
-  %.not1213.i = icmp eq ptr %364, %366
+  %363 = zext i32 %361 to i64
+  %364 = sub nsw i64 0, %363
+  %365 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %362, i64 %364
+  %366 = getelementptr inbounds nuw i8, ptr %.sroa.05.016.i, i64 8
+  %367 = load ptr, ptr %366, align 8, !tbaa !92
+  %368 = getelementptr inbounds nuw i8, ptr %.sroa.05.016.i, i64 16
+  %369 = load ptr, ptr %368, align 8, !tbaa !92
+  %.not1213.i = icmp eq ptr %367, %369
   br i1 %.not1213.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph18.i
@@ -1211,15 +1214,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_11MCInstrDescELb1EE9push_backES3_.exit30.i, %.lr.ph18.i
-  %367 = zext i32 %361 to i64
-  %368 = sub nsw i64 0, %367
-  %369 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %362, i64 %368
-  %370 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt17shouldReplaceInstEPN4llvm15MachineFunctionEPKNS1_11MCInstrDescERNS1_15SmallVectorImplIS6_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef %369, ptr noundef nonnull align 8 dereferenceable(16) %100)
+  %370 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64SIMDInstrOpt17shouldReplaceInstEPN4llvm15MachineFunctionEPKNS1_11MCInstrDescERNS1_15SmallVectorImplIS6_EE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef %365, ptr noundef nonnull align 8 dereferenceable(16) %100)
   br i1 %370, label %393, label %391
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_11MCInstrDescELb1EE9push_backES3_.exit30.i, %.lr.ph.preheader.i
   %371 = phi i32 [ %389, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_11MCInstrDescELb1EE9push_backES3_.exit30.i ], [ %.pre.i, %.lr.ph.preheader.i ]
-  %.sroa.01.014.i = phi ptr [ %390, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_11MCInstrDescELb1EE9push_backES3_.exit30.i ], [ %364, %.lr.ph.preheader.i ]
+  %.sroa.01.014.i = phi ptr [ %390, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_11MCInstrDescELb1EE9push_backES3_.exit30.i ], [ %367, %.lr.ph.preheader.i ]
   %372 = load ptr, ptr %113, align 8, !tbaa !220
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   %374 = load i32, ptr %.sroa.01.014.i, align 4, !tbaa !29
@@ -1249,7 +1249,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_11MCInstrDescELb1EE9push_backES3_.exit30.
   %389 = add i32 %388, 1
   store i32 %389, ptr %128, align 8, !tbaa !42
   %390 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 4
-  %.not12.i = icmp eq ptr %390, %366
+  %.not12.i = icmp eq ptr %390, %369
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i
 
 391:                                              ; preds = %._crit_edge.i

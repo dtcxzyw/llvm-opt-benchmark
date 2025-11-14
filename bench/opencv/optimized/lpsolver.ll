@@ -835,20 +835,20 @@ _ZNK2cv4Mat_IdE5cloneEv.exit.i:                   ; preds = %.noexc130
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %306 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %307 = load ptr, ptr %306, align 8, !tbaa !68
+  %308 = getelementptr inbounds nuw i8, ptr %36, i64 72
   store double -1.000000e+00, ptr %307, align 8, !tbaa !55
-  %308 = load i32, ptr %227, align 8, !tbaa !21
-  %309 = icmp sgt i32 %308, 0
+  %309 = load i32, ptr %227, align 8, !tbaa !21
+  %310 = icmp sgt i32 %309, 0
   %.pre309.i = load ptr, ptr %265, align 8, !tbaa !68
   %.pre310.i = load ptr, ptr %276, align 8, !tbaa !69
   %.pre311.i = load i64, ptr %.pre310.i, align 8, !tbaa !70
-  br i1 %309, label %.lr.ph276.i, label %._crit_edge277.i
+  br i1 %310, label %.lr.ph276.i, label %._crit_edge277.i
 
 .lr.ph276.i:                                      ; preds = %305
-  %wide.trip.count292.i = zext nneg i32 %308 to i64
+  %wide.trip.count292.i = zext nneg i32 %309 to i64
   br label %382
 
 ._crit_edge277.i:                                 ; preds = %382, %305
-  %310 = getelementptr inbounds nuw i8, ptr %36, i64 72
   %.val147.i = load ptr, ptr %306, align 8
   %.val149.i = load ptr, ptr %47, align 8
   %.val150.i = load ptr, ptr %48, align 8
@@ -867,10 +867,10 @@ _ZNK2cv4Mat_IdE5cloneEv.exit.i:                   ; preds = %.noexc130
   br label %333
 
 .preheader.i.i:                                   ; preds = %340
-  br i1 %309, label %.lr.ph10.i.i, label %._crit_edge.i.i
+  br i1 %310, label %.lr.ph10.i.i, label %._crit_edge.i.i
 
 .lr.ph10.i.i:                                     ; preds = %.preheader.i.i
-  %wide.trip.count27.i.i = zext nneg i32 %308 to i64
+  %wide.trip.count27.i.i = zext nneg i32 %309 to i64
   br label %.lr.ph10.split.us.i.i
 
 .lr.ph10.split.us.i.i:                            ; preds = %..loopexit_crit_edge.us.i.i, %.lr.ph10.i.i
@@ -1226,7 +1226,7 @@ _ZN2cvL5pivotERNS_4Mat_IdEES2_RdRSt6vectorIiSaIiEES7_iiRS4_IjSaIjEE.exit184.i: ;
 
 .lr.ph.i186.i:                                    ; preds = %473
   %487 = load ptr, ptr %306, align 8, !tbaa !68
-  %488 = load ptr, ptr %310, align 8, !tbaa !69
+  %488 = load ptr, ptr %308, align 8, !tbaa !69
   %489 = load i64, ptr %488, align 8, !tbaa !70
   %wide.trip.count.i187.i = zext nneg i32 %485 to i64
   br label %490

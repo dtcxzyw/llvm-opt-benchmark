@@ -182,60 +182,60 @@ define noundef i64 @_ZN3net5Cubic24CongestionWindowAfterAckEmNS_8QuicTime5DeltaE
   %45 = phi i64 [ %.pre52, %.critedge._crit_edge ], [ %32, %36 ], [ %1, %33 ]
   %46 = phi i32 [ %.pre, %.critedge._crit_edge ], [ %41, %36 ], [ 0, %33 ]
   %.sroa.0.0.copyload = phi i64 [ %28, %.critedge._crit_edge ], [ %12, %36 ], [ %12, %33 ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load i32, ptr %48, align 8, !tbaa !12
-  %50 = add nsw i32 %49, -1
-  %51 = sitofp i32 %50 to float
-  %52 = fadd float %51, 0x3FE6666660000000
-  %53 = sitofp i32 %49 to float
-  %54 = fdiv float %52, %53
-  %55 = mul nsw i32 %49, 3
-  %56 = mul nsw i32 %55, %49
-  %57 = sitofp i32 %56 to float
-  %58 = fsub float 1.000000e+00, %54
-  %59 = fmul float %58, %57
-  %60 = fadd float %54, 1.000000e+00
-  %61 = fdiv float %59, %60
-  %62 = uitofp i64 %.pre57 to float
-  %63 = fdiv float %62, %61
-  %64 = fptoui float %63 to i64
-  %65 = icmp ult i64 %.promoted46, %64
-  br i1 %65, label %._crit_edge56, label %.lr.ph
+  %47 = add nsw i64 %12, %3
+  %48 = sub i64 %47, %.sroa.0.0.copyload
+  %49 = shl i64 %48, 10
+  %50 = udiv i64 %49, 1000000
+  %51 = zext i32 %46 to i64
+  %52 = sub nsw i64 %51, %50
+  %53 = mul nsw i64 %52, 410
+  %54 = mul nsw i64 %53, %52
+  %55 = mul nsw i64 %54, %52
+  %56 = ashr i64 %55, 40
+  %57 = sub i64 %45, %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %60 = load i32, ptr %59, align 8, !tbaa !12
+  %61 = add nsw i32 %60, -1
+  %62 = sitofp i32 %61 to float
+  %63 = fadd float %62, 0x3FE6666660000000
+  %64 = sitofp i32 %60 to float
+  %65 = fdiv float %63, %64
+  %66 = mul nsw i32 %60, 3
+  %67 = mul nsw i32 %66, %60
+  %68 = sitofp i32 %67 to float
+  %69 = fsub float 1.000000e+00, %65
+  %70 = fmul float %69, %68
+  %71 = fadd float %65, 1.000000e+00
+  %72 = fdiv float %70, %71
+  %73 = uitofp i64 %.pre57 to float
+  %74 = fdiv float %73, %72
+  %75 = fptoui float %74 to i64
+  %76 = icmp ult i64 %.promoted46, %75
+  br i1 %76, label %._crit_edge56, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44, %.lr.ph
-  %66 = phi i64 [ %73, %.lr.ph ], [ %64, %44 ]
-  %67 = phi i64 [ %70, %.lr.ph ], [ %.pre57, %44 ]
-  %68 = phi i64 [ %69, %.lr.ph ], [ %.promoted46, %44 ]
-  %69 = sub nuw i64 %68, %66
-  %70 = add i64 %67, 1
-  %71 = uitofp i64 %70 to float
-  %72 = fdiv float %71, %61
-  %73 = fptoui float %72 to i64
-  %74 = icmp ult i64 %69, %73
-  br i1 %74, label %._crit_edge, label %.lr.ph
+  %77 = phi i64 [ %84, %.lr.ph ], [ %75, %44 ]
+  %78 = phi i64 [ %81, %.lr.ph ], [ %.pre57, %44 ]
+  %79 = phi i64 [ %80, %.lr.ph ], [ %.promoted46, %44 ]
+  %80 = sub nuw i64 %79, %77
+  %81 = add i64 %78, 1
+  %82 = uitofp i64 %81 to float
+  %83 = fdiv float %82, %72
+  %84 = fptoui float %83 to i64
+  %85 = icmp ult i64 %80, %84
+  br i1 %85, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  store i64 %69, ptr %5, align 8, !tbaa !16
-  store i64 %70, ptr %47, align 8, !tbaa !23
+  store i64 %80, ptr %5, align 8, !tbaa !16
+  store i64 %81, ptr %58, align 8, !tbaa !23
   br label %._crit_edge56
 
 ._crit_edge56:                                    ; preds = %44, %._crit_edge
-  %75 = phi i64 [ %70, %._crit_edge ], [ %.pre57, %44 ]
-  %76 = add nsw i64 %12, %3
-  %77 = sub i64 %76, %.sroa.0.0.copyload
-  %78 = shl i64 %77, 10
-  %79 = udiv i64 %78, 1000000
-  %80 = zext i32 %46 to i64
-  %81 = sub nsw i64 %80, %79
-  %82 = mul nsw i64 %81, 410
-  %83 = mul nsw i64 %82, %81
-  %84 = mul nsw i64 %83, %81
-  %85 = ashr i64 %84, 40
-  %86 = sub i64 %45, %85
+  %86 = phi i64 [ %81, %._crit_edge ], [ %.pre57, %44 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %86, ptr %87, align 8, !tbaa !13
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %86, i64 %75)
+  store i64 %57, ptr %87, align 8, !tbaa !13
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %57, i64 %86)
   br label %88
 
 88:                                               ; preds = %._crit_edge56, %20

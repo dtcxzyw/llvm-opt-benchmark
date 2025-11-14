@@ -4074,66 +4074,66 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
   %4 = load i32, ptr %1, align 4, !tbaa !145
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4, !tbaa !171
-  %7 = mul nsw i32 %6, %4
+  %7 = mul i32 %6, %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !74
   %.sroa.speculated189 = call i32 @llvm.smin.i32(i32 %9, i32 %7)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !161
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !47
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %15 = load i32, ptr %14, align 4, !tbaa !48
-  %16 = icmp sgt i32 %.sroa.speculated189, 0
-  br i1 %16, label %.lr.ph, label %.preheader194
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !143
+  %12 = mul i32 %11, %6
+  %.sroa.speculated185 = call i32 @llvm.smin.i32(i32 %9, i32 %12)
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %14 = load ptr, ptr %13, align 8, !tbaa !167
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !99
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %18 = load ptr, ptr %17, align 8, !tbaa !168
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !99
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = load ptr, ptr %21, align 8, !tbaa !165
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %24 = load ptr, ptr %23, align 8, !tbaa !99
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %26 = load ptr, ptr %25, align 8, !tbaa !166
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load ptr, ptr %27, align 8, !tbaa !99
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %30 = load ptr, ptr %29, align 8, !tbaa !169
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load ptr, ptr %31, align 8, !tbaa !99
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %34 = load ptr, ptr %33, align 8, !tbaa !170
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !99
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !161
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load i32, ptr %39, align 8, !tbaa !47
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 20
+  %42 = load i32, ptr %41, align 4, !tbaa !48
+  %43 = icmp sgt i32 %.sroa.speculated189, 0
+  br i1 %43, label %.lr.ph, label %.preheader194
 
 .preheader194:                                    ; preds = %177, %2
   %.0139.lcssa = phi i32 [ -1, %2 ], [ %.1140, %177 ]
   %.0130.lcssa = phi i32 [ 0, %2 ], [ %.1131, %177 ]
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !143
-  %19 = mul nsw i32 %18, %6
-  %.sroa.speculated185 = call i32 @llvm.smin.i32(i32 %9, i32 %19)
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = load ptr, ptr %20, align 8, !tbaa !167
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !99
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %25 = load ptr, ptr %24, align 8, !tbaa !168
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !99
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %29 = load ptr, ptr %28, align 8, !tbaa !165
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !99
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !166
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !99
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %37 = load ptr, ptr %36, align 8, !tbaa !169
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !99
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %41 = load ptr, ptr %40, align 8, !tbaa !170
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !99
   %44 = icmp slt i32 %7, %.sroa.speculated185
   br i1 %44, label %.lr.ph228, label %._crit_edge229
 
 .lr.ph228:                                        ; preds = %.preheader194
-  %45 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %46 = load i32, ptr %45, align 8, !tbaa !105
   %47 = icmp sgt i32 %46, 0
-  %48 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %49 = sitofp i32 %46 to float
   %50 = fadd float %49, -1.000000e+00
   %51 = fadd float %50, 0xBF50624DE0000000
-  %52 = getelementptr inbounds nuw i8, ptr %11, i64 60
+  %52 = getelementptr inbounds nuw i8, ptr %38, i64 60
   br i1 %47, label %.lr.ph228.split.us.preheader, label %._crit_edge229
 
 .lr.ph228.split.us.preheader:                     ; preds = %.lr.ph228
-  %53 = sext i32 %13 to i64
+  %53 = sext i32 %40 to i64
   %54 = zext nneg i32 %46 to i64
   %55 = sext i32 %9 to i64
   %56 = call i32 @llvm.smin.i32(i32 %9, i32 %7)
@@ -4151,7 +4151,7 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
   %.2227.us = phi i32 [ %.0130.lcssa, %.lr.ph228.split.us.preheader ], [ %.3.us, %._crit_edge224.us ]
   %.2141225.us = phi i32 [ %.0139.lcssa, %.lr.ph228.split.us.preheader ], [ %.3142.us, %._crit_edge224.us ]
   %59 = trunc nsw i64 %indvars.iv264 to i32
-  %60 = srem i32 %59, %15
+  %60 = srem i32 %59, %42
   %61 = icmp eq i32 %60, 0
   %.not.us = icmp sle i64 %indvars.iv264, %invariant.op276
   %narrow.us = select i1 %61, i1 %.not.us, i1 false
@@ -4163,7 +4163,7 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
 
 64:                                               ; preds = %.lr.ph228.split.us
   %65 = trunc nsw i64 %62 to i32
-  %66 = srem i32 %65, %15
+  %66 = srem i32 %65, %42
   %67 = icmp eq i32 %66, 0
   %68 = icmp slt i32 %.2227.us, %.3142.us
   %or.cond153.us = select i1 %67, i1 %68, i1 false
@@ -4188,7 +4188,7 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
   %.0135220.us231 = phi i32 [ -1, %.lr.ph223.split.us245.preheader ], [ %.1136.us235, %._crit_edge213.us ]
   %.0137219.us232 = phi i32 [ 0, %.lr.ph223.split.us245.preheader ], [ %.1138.us238, %._crit_edge213.us ]
   %74 = trunc nuw nsw i64 %indvars.iv255 to i32
-  %75 = srem i32 %74, %15
+  %75 = srem i32 %74, %42
   %76 = icmp eq i32 %75, 0
   %.not148.us233 = icmp sle i64 %indvars.iv255, %invariant.op
   %or.cond154.not.us234 = select i1 %76, i1 %.not148.us233, i1 false
@@ -4200,7 +4200,7 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
 
 80:                                               ; preds = %.lr.ph223.split.us245
   %81 = trunc nsw i64 %78 to i32
-  %82 = srem i32 %81, %15
+  %82 = srem i32 %81, %42
   %83 = icmp eq i32 %82, 0
   %84 = icmp slt i32 %.0137219.us232, %.1136.us235
   %or.cond155.us236 = select i1 %83, i1 %84, i1 false
@@ -4221,14 +4221,14 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
   %.1127201.us = phi float [ %.0126210.us, %.preheader.us239 ], [ %145, %87 ]
   %.1129200.us = phi float [ %.0128209.us, %.preheader.us239 ], [ %147, %87 ]
   %88 = add nsw i64 %148, %indvars.iv
-  %89 = getelementptr inbounds float, ptr %23, i64 %88
+  %89 = getelementptr inbounds float, ptr %16, i64 %88
   %90 = load float, ptr %89, align 4, !tbaa !110
   %91 = fadd float %90, %86
   %92 = fcmp olt float %91, 0.000000e+00
   %.sroa.speculated178.us = select i1 %92, float 0.000000e+00, float %91
   %93 = fcmp olt float %51, %.sroa.speculated178.us
   %.sroa.speculated174.us = select i1 %93, float %51, float %.sroa.speculated178.us
-  %94 = getelementptr inbounds float, ptr %27, i64 %88
+  %94 = getelementptr inbounds float, ptr %20, i64 %88
   %95 = load float, ptr %94, align 4, !tbaa !110
   %96 = fadd float %95, %70
   %97 = fcmp olt float %96, 0.000000e+00
@@ -4247,7 +4247,7 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
   %108 = mul nsw i32 %102, %46
   %109 = add nsw i32 %108, %100
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds i8, ptr %43, i64 %110
+  %111 = getelementptr inbounds i8, ptr %36, i64 %110
   %112 = load i8, ptr %111, align 1, !tbaa !73
   %113 = uitofp i8 %112 to float
   %114 = sitofp i32 %100 to float
@@ -4255,7 +4255,7 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
   %116 = fmul float %115, %106
   %117 = add nsw i32 %108, %99
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i8, ptr %43, i64 %118
+  %119 = getelementptr inbounds i8, ptr %36, i64 %118
   %120 = load i8, ptr %119, align 1, !tbaa !73
   %121 = uitofp i8 %120 to float
   %122 = fmul float %116, %121
@@ -4266,14 +4266,14 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
   %127 = mul nsw i32 %46, %101
   %128 = add nsw i32 %127, %100
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds i8, ptr %43, i64 %129
+  %130 = getelementptr inbounds i8, ptr %36, i64 %129
   %131 = load i8, ptr %130, align 1, !tbaa !73
   %132 = uitofp i8 %131 to float
   %133 = call float @llvm.fmuladd.f32(float %126, float %132, float %123)
   %134 = fmul float %115, %125
   %135 = add nsw i32 %127, %99
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i8, ptr %43, i64 %136
+  %137 = getelementptr inbounds i8, ptr %36, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !73
   %139 = uitofp i8 %138 to float
   %140 = call float @llvm.fmuladd.f32(float %134, float %139, float %133)
@@ -4303,7 +4303,7 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
   br i1 %.not149.us241.not, label %.preheader.us239, label %._crit_edge213.us, !llvm.loop !173
 
 .preheader.lr.ph.split.us243:                     ; preds = %.preheader.lr.ph.us
-  %149 = getelementptr inbounds i8, ptr %39, i64 %.pre
+  %149 = getelementptr inbounds i8, ptr %32, i64 %.pre
   %150 = load i32, ptr %48, align 8, !tbaa !101
   %151 = load i32, ptr %52, align 4, !tbaa !100
   %152 = sitofp i32 %151 to float
@@ -4321,10 +4321,10 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
   %.us-phi217.us = phi float [ 0.000000e+00, %.preheader.lr.ph.us ], [ %145, %._crit_edge.us ]
   %.us-phi218.us = phi float [ 0.000000e+00, %.preheader.lr.ph.us ], [ %146, %._crit_edge.us ]
   %160 = fdiv float %.us-phi217.us, %.us-phi.us
-  %161 = getelementptr inbounds float, ptr %31, i64 %.pre
+  %161 = getelementptr inbounds float, ptr %24, i64 %.pre
   store float %160, ptr %161, align 4, !tbaa !110
   %162 = fdiv float %.us-phi218.us, %.us-phi.us
-  %163 = getelementptr inbounds float, ptr %35, i64 %.pre
+  %163 = getelementptr inbounds float, ptr %28, i64 %.pre
   store float %162, ptr %163, align 4, !tbaa !110
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %exitcond258.not = icmp eq i64 %indvars.iv.next256, %wide.trip.count
@@ -4339,9 +4339,9 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
 .lr.ph223.split.us.us:                            ; preds = %.lr.ph223.us, %.lr.ph223.split.us.us
   %indvars.iv259 = phi i64 [ %indvars.iv.next260, %.lr.ph223.split.us.us ], [ 0, %.lr.ph223.us ]
   %164 = add nsw i64 %71, %indvars.iv259
-  %165 = getelementptr inbounds float, ptr %31, i64 %164
+  %165 = getelementptr inbounds float, ptr %24, i64 %164
   store float 0x7FF8000000000000, ptr %165, align 4, !tbaa !110
-  %166 = getelementptr inbounds float, ptr %35, i64 %164
+  %166 = getelementptr inbounds float, ptr %28, i64 %164
   store float 0x7FF8000000000000, ptr %166, align 4, !tbaa !110
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %exitcond263.not = icmp eq i64 %indvars.iv.next260, %wide.trip.count262
@@ -4351,19 +4351,19 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl21Densification_ParBodyclERKNS_5R
   %.0130197 = phi i32 [ %.1131, %177 ], [ 0, %2 ]
   %.0134196 = phi i32 [ %178, %177 ], [ 0, %2 ]
   %.0139195 = phi i32 [ %.1140, %177 ], [ -1, %2 ]
-  %167 = srem i32 %.0134196, %15
+  %167 = srem i32 %.0134196, %42
   %168 = icmp eq i32 %167, 0
-  %169 = add nsw i32 %.0134196, %13
+  %169 = add nsw i32 %.0134196, %40
   %.not151 = icmp sle i32 %169, %9
   %narrow193 = select i1 %168, i1 %.not151, i1 false
   %spec.select = zext i1 %narrow193 to i32
   %.1140 = add nsw i32 %.0139195, %spec.select
-  %170 = sub nsw i32 %.0134196, %13
+  %170 = sub nsw i32 %.0134196, %40
   %171 = icmp sgt i32 %170, -1
   br i1 %171, label %172, label %177
 
 172:                                              ; preds = %.lr.ph
-  %173 = srem i32 %170, %15
+  %173 = srem i32 %170, %42
   %174 = icmp eq i32 %173, 0
   %175 = icmp slt i32 %.0130197, %.1140
   %or.cond = select i1 %174, i1 %175, i1 false

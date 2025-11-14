@@ -5110,8 +5110,8 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv
 
 _ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %1104
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %1106, 1
-  %1108 = getelementptr inbounds nuw i8, ptr %1105, i64 %.idx.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 2 %1105, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !120
+  %1108 = getelementptr inbounds nuw i8, ptr %1105, i64 %.idx.i.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPsmsET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPsmsET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %1104
@@ -37483,13 +37483,16 @@ common.resume:                                    ; preds = %58, %26
   %.sroa.speculated7.i.i = tail call i32 @llvm.smax.i32(i32 %73, i32 0)
   %.sroa.speculated.i.i = tail call noundef range(i32 -2147483648, 2147483647) i32 @llvm.smin.i32(i32 %70, i32 %.sroa.speculated7.i.i)
   %74 = sitofp i32 %.sroa.speculated.i.i to double
-  %75 = icmp sgt i32 %.sroa.speculated.i.i, 0
-  br i1 %75, label %.lr.ph.i, label %.preheader.i
+  %75 = xor i32 %.sroa.speculated.i.i, -1
+  %76 = add i32 %66, %75
+  %77 = sitofp i32 %76 to double
+  %78 = icmp sgt i32 %.sroa.speculated.i.i, 0
+  br i1 %78, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %60
-  %76 = fsub double %.sroa.063.0.copyload, %.sroa.056.0.copyload
-  %77 = fsub double %.sroa.264.0.copyload, %.sroa.257.0.copyload
-  %78 = fsub double %.sroa.365.0.copyload, %.sroa.3.0.copyload
+  %79 = fsub double %.sroa.063.0.copyload, %.sroa.056.0.copyload
+  %80 = fsub double %.sroa.264.0.copyload, %.sroa.257.0.copyload
+  %81 = fsub double %.sroa.365.0.copyload, %.sroa.3.0.copyload
   br label %87
 
 .preheader.loopexit.i:                            ; preds = %109
@@ -37497,11 +37500,8 @@ common.resume:                                    ; preds = %58, %26
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.loopexit.i, %60
-  %79 = phi i32 [ %.pre.i, %.preheader.loopexit.i ], [ %66, %60 ]
-  %80 = xor i32 %.sroa.speculated.i.i, -1
-  %81 = add i32 %66, %80
-  %82 = sitofp i32 %81 to double
-  %83 = icmp sgt i32 %79, %.sroa.speculated.i.i
+  %82 = phi i32 [ %.pre.i, %.preheader.loopexit.i ], [ %66, %60 ]
+  %83 = icmp sgt i32 %82, %.sroa.speculated.i.i
   br i1 %83, label %.lr.ph88.i, label %_ZL14write_xpm_map3P8_IO_FILEiiPifff5t_rgbS2_S2_.exit
 
 .lr.ph88.i:                                       ; preds = %.preheader.i
@@ -37513,13 +37513,13 @@ common.resume:                                    ; preds = %58, %26
 87:                                               ; preds = %109, %.lr.ph.i
   %.086.i = phi i32 [ 0, %.lr.ph.i ], [ %128, %109 ]
   %88 = uitofp nneg i32 %.086.i to double
-  %89 = fmul double %76, %88
+  %89 = fmul double %79, %88
   %90 = fdiv double %89, %74
   %91 = fadd double %.sroa.056.0.copyload, %90
-  %92 = fmul double %77, %88
+  %92 = fmul double %80, %88
   %93 = fdiv double %92, %74
   %94 = fadd double %.sroa.257.0.copyload, %93
-  %95 = fmul double %78, %88
+  %95 = fmul double %81, %88
   %96 = fdiv double %95, %74
   %97 = fadd double %.sroa.3.0.copyload, %96
   %98 = urem i32 %.086.i, 89
@@ -37563,17 +37563,17 @@ common.resume:                                    ; preds = %58, %26
   br i1 %exitcond.not.i, label %.preheader.loopexit.i, label %87, !llvm.loop !830
 
 129:                                              ; preds = %152, %.lr.ph88.i
-  %130 = phi i32 [ %79, %.lr.ph88.i ], [ %173, %152 ]
+  %130 = phi i32 [ %82, %.lr.ph88.i ], [ %173, %152 ]
   %.187.i = phi i32 [ 0, %.lr.ph88.i ], [ %172, %152 ]
   %131 = uitofp nneg i32 %.187.i to double
   %132 = fmul double %84, %131
-  %133 = fdiv double %132, %82
+  %133 = fdiv double %132, %77
   %134 = fadd double %.sroa.063.0.copyload, %133
   %135 = fmul double %85, %131
-  %136 = fdiv double %135, %82
+  %136 = fdiv double %135, %77
   %137 = fadd double %.sroa.264.0.copyload, %136
   %138 = fmul double %86, %131
-  %139 = fdiv double %138, %82
+  %139 = fdiv double %138, %77
   %140 = fadd double %.sroa.365.0.copyload, %139
   %141 = add nsw i32 %.187.i, %.sroa.speculated.i.i
   %142 = srem i32 %141, 89
@@ -37603,14 +37603,14 @@ common.resume:                                    ; preds = %58, %26
   %160 = fmul double %140, 2.550000e+02
   %161 = tail call double @llvm.round.f64(double %160)
   %162 = fptoui double %161 to i32
-  %163 = add i32 %130, %80
+  %163 = add i32 %130, %75
   %164 = sub i32 %163, %.187.i
   %165 = sitofp i32 %164 to float
   %166 = uitofp nneg i32 %.187.i to float
   %167 = fmul float %13, %166
   %168 = tail call float @llvm.fmuladd.f32(float %165, float %12, float %167)
   %169 = fpext float %168 to double
-  %170 = fdiv double %169, %82
+  %170 = fdiv double %169, %77
   %171 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.248, i32 noundef %146, i32 noundef %153, i32 noundef %156, i32 noundef %159, i32 noundef %162, double noundef %170) #32
   %172 = add nuw nsw i32 %.187.i, 1
   %173 = load i32, ptr %17, align 4, !tbaa !29

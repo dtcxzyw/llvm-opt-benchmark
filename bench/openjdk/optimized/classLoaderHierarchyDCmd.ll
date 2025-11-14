@@ -572,22 +572,22 @@ _ZNK15ClassLoaderData12class_loaderEv.exit:       ; preds = %5, %9
   br i1 %24, label %25, label %_ZN21LoaderInfoScanClosure15fill_in_classesEP14LoaderTreeNodePK15ClassLoaderData.exit
 
 25:                                               ; preds = %19
-  %26 = load i8, ptr %14, align 1
-  %27 = trunc i8 %26 to i1
-  %.0.v.i.i = select i1 %27, i64 48, i64 32
+  %26 = load ptr, ptr %20, align 8
+  %27 = load i8, ptr %14, align 1
+  %28 = trunc i8 %27 to i1
+  %.0.v.i.i = select i1 %28, i64 48, i64 32
   %.0.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %.0.v.i.i
-  br label %28
+  br label %29
 
-28:                                               ; preds = %28, %25
-  %.1.i.i = phi ptr [ %.0.i.i, %25 ], [ %29, %28 ]
-  %29 = load ptr, ptr %.1.i.i, align 8
-  %.not.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i, label %_ZN14LoaderTreeNode11add_classesEP15LoadedClassInfoib.exit.i, label %28, !llvm.loop !6
+29:                                               ; preds = %29, %25
+  %.1.i.i = phi ptr [ %.0.i.i, %25 ], [ %30, %29 ]
+  %30 = load ptr, ptr %.1.i.i, align 8
+  %.not.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i, label %_ZN14LoaderTreeNode11add_classesEP15LoadedClassInfoib.exit.i, label %29, !llvm.loop !6
 
-_ZN14LoaderTreeNode11add_classesEP15LoadedClassInfoib.exit.i: ; preds = %28
-  %30 = load ptr, ptr %20, align 8
-  store ptr %30, ptr %.1.i.i, align 8
-  %..i.i = select i1 %27, i64 56, i64 40
+_ZN14LoaderTreeNode11add_classesEP15LoadedClassInfoib.exit.i: ; preds = %29
+  store ptr %26, ptr %.1.i.i, align 8
+  %..i.i = select i1 %28, i64 56, i64 40
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 %..i.i
   %32 = load i32, ptr %31, align 8
   %33 = add nsw i32 %32, %23

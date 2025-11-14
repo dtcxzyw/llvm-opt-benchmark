@@ -314,19 +314,19 @@ define range(i32 -27, 1) i32 @pmix_argv_delete(ptr noundef captures(none) %0, pt
 
 15:                                               ; preds = %13
   %16 = add i32 %3, %2
+  %17 = sub nsw i32 %11, %16
+  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %11, i32 %16)
   %or.cond5051 = icmp slt i32 %2, %invariant.smin
   br i1 %or.cond5051, label %.lr.ph.preheader, label %.critedge.preheader
 
 .lr.ph.preheader:                                 ; preds = %15
-  %17 = zext i32 %2 to i64
+  %18 = zext i32 %2 to i64
   br label %.lr.ph
 
 .critedge.preheader:                              ; preds = %.lr.ph, %15
-  %18 = sub nsw i32 %11, %16
-  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %18, i32 0)
   %19 = add nsw i32 %spec.store.select, %2
-  %.not55 = icmp slt i32 %18, 1
+  %.not55 = icmp slt i32 %17, 1
   %.pre = load ptr, ptr %1, align 8, !tbaa !3
   br i1 %.not55, label %.critedge._crit_edge, label %.lr.ph54
 
@@ -337,7 +337,7 @@ define range(i32 -27, 1) i32 @pmix_argv_delete(ptr noundef captures(none) %0, pt
   br label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %17, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %indvars.iv = phi i64 [ %18, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %22 = load ptr, ptr %1, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !10

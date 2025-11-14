@@ -215,25 +215,25 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
 
 .lr.ph121.us:                                     ; preds = %.lr.ph121.us.preheader, %._crit_edge122.us
   %indvars.iv189 = phi i64 [ 0, %.lr.ph121.us.preheader ], [ %indvars.iv.next190, %._crit_edge122.us ]
-  %95 = getelementptr inbounds nuw [4 x i32], ptr %93, i64 %indvars.iv189
-  br label %96
+  %95 = getelementptr inbounds nuw i32, ptr @GroupCosts, i64 %indvars.iv189
+  %96 = getelementptr inbounds nuw [4 x i32], ptr %93, i64 %indvars.iv189
+  br label %97
 
-96:                                               ; preds = %.lr.ph121.us, %96
-  %indvars.iv184 = phi i64 [ 0, %.lr.ph121.us ], [ %indvars.iv.next185, %96 ]
-  %97 = phi i32 [ 0, %.lr.ph121.us ], [ %103, %96 ]
-  %98 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv184
-  %99 = load i32, ptr %98, align 4, !tbaa !3
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds i32, ptr @CubeLiterals, i64 %100
-  %102 = load i32, ptr %101, align 4, !tbaa !3
-  %103 = add nsw i32 %97, %102
+97:                                               ; preds = %.lr.ph121.us, %97
+  %indvars.iv184 = phi i64 [ 0, %.lr.ph121.us ], [ %indvars.iv.next185, %97 ]
+  %98 = phi i32 [ 0, %.lr.ph121.us ], [ %104, %97 ]
+  %99 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv184
+  %100 = load i32, ptr %99, align 4, !tbaa !3
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds i32, ptr @CubeLiterals, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !3
+  %104 = add nsw i32 %98, %103
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
-  br i1 %exitcond188.not, label %._crit_edge122.us, label %96, !llvm.loop !22
+  br i1 %exitcond188.not, label %._crit_edge122.us, label %97, !llvm.loop !22
 
-._crit_edge122.us:                                ; preds = %96
-  %104 = getelementptr inbounds nuw i32, ptr @GroupCosts, i64 %indvars.iv189
-  store i32 %103, ptr %104, align 4, !tbaa !3
+._crit_edge122.us:                                ; preds = %97
+  store i32 %104, ptr %95, align 4, !tbaa !3
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
   br i1 %exitcond193.not, label %.lr.ph130.preheader, label %.lr.ph121.us, !llvm.loop !23

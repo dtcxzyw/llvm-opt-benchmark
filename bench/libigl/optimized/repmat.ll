@@ -746,19 +746,19 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %37 = lshr exact i64 %30, 3
   %38 = and i64 %37, 1
   %39 = tail call i64 @llvm.smin.i64(i64 %38, i64 %22)
-  %40 = icmp sgt i64 %39, 0
-  br i1 %40, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.us, label %.preheader43.i.i.i.i.i.i.i.i.i.i.us
+  %40 = sub nsw i64 %22, %39
+  %41 = and i64 %40, -2
+  %42 = add nsw i64 %41, %39
+  %43 = icmp sgt i64 %39, 0
+  br i1 %43, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.us, label %.preheader43.i.i.i.i.i.i.i.i.i.i.us
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.us:                    ; preds = %.lr.ph52.i.i.i.i.i.i.i.i.i.i.us
-  %41 = load double, ptr %29, align 8, !tbaa !32
-  store double %41, ptr %28, align 8, !tbaa !32
+  %44 = load double, ptr %29, align 8, !tbaa !32
+  store double %44, ptr %28, align 8, !tbaa !32
   br label %.preheader43.i.i.i.i.i.i.i.i.i.i.us
 
 .preheader43.i.i.i.i.i.i.i.i.i.i.us:              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.us, %.lr.ph52.i.i.i.i.i.i.i.i.i.i.us
-  %42 = sub nsw i64 %22, %39
-  %43 = and i64 %42, -2
-  %44 = add nsw i64 %43, %39
-  %45 = icmp sgt i64 %42, 1
+  %45 = icmp sgt i64 %40, 1
   br i1 %45, label %.lr.ph47.i.i.i.i.i.i.i.i.i.i.us, label %.preheader.i.i.i.i.i.i.i.i.i.i.us
 
 .lr.ph47.i.i.i.i.i.i.i.i.i.i.us:                  ; preds = %.preheader43.i.i.i.i.i.i.i.i.i.i.us, %.lr.ph47.i.i.i.i.i.i.i.i.i.i.us
@@ -768,15 +768,15 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %48 = load <2 x double>, ptr %47, align 1, !tbaa !21
   store <2 x double> %48, ptr %46, align 16, !tbaa !21
   %49 = add nsw i64 %.03246.i.i.i.i.i.i.i.i.i.i.us, 2
-  %50 = icmp slt i64 %49, %44
+  %50 = icmp slt i64 %49, %42
   br i1 %50, label %.lr.ph47.i.i.i.i.i.i.i.i.i.i.us, label %.preheader.i.i.i.i.i.i.i.i.i.i.us, !llvm.loop !55
 
 .preheader.i.i.i.i.i.i.i.i.i.i.us:                ; preds = %.lr.ph47.i.i.i.i.i.i.i.i.i.i.us, %.preheader43.i.i.i.i.i.i.i.i.i.i.us
-  %51 = icmp slt i64 %44, %22
+  %51 = icmp slt i64 %42, %22
   br i1 %51, label %.lr.ph49.i.i.i.i.i.i.i.i.i.i.us, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS1_IdLin1ELi1ELi0ELin1ELi1EEEEERS3_RKNS_9DenseBaseIT_EE.exit.us
 
 .lr.ph49.i.i.i.i.i.i.i.i.i.i.us:                  ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i.us, %.lr.ph49.i.i.i.i.i.i.i.i.i.i.us
-  %.048.i.i.i.i.i.i.i.i.i.i.us = phi i64 [ %55, %.lr.ph49.i.i.i.i.i.i.i.i.i.i.us ], [ %44, %.preheader.i.i.i.i.i.i.i.i.i.i.us ]
+  %.048.i.i.i.i.i.i.i.i.i.i.us = phi i64 [ %55, %.lr.ph49.i.i.i.i.i.i.i.i.i.i.us ], [ %42, %.preheader.i.i.i.i.i.i.i.i.i.i.us ]
   %52 = getelementptr double, ptr %28, i64 %.048.i.i.i.i.i.i.i.i.i.i.us
   %53 = getelementptr double, ptr %29, i64 %.048.i.i.i.i.i.i.i.i.i.i.us
   %54 = load double, ptr %53, align 8, !tbaa !32
@@ -857,19 +857,19 @@ define weak_odr dso_local void @_ZN3igl6repmatIN5Eigen6MatrixIdLin1ELi1ELi0ELin1
   %29 = lshr exact i64 %22, 3
   %30 = and i64 %29, 1
   %31 = tail call i64 @llvm.smin.i64(i64 %30, i64 %14)
-  %32 = icmp sgt i64 %31, 0
-  br i1 %32, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.us, label %.preheader43.i.i.i.i.i.i.i.i.i.i.us
+  %32 = sub nsw i64 %14, %31
+  %33 = and i64 %32, -2
+  %34 = add nsw i64 %33, %31
+  %35 = icmp sgt i64 %31, 0
+  br i1 %35, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.us, label %.preheader43.i.i.i.i.i.i.i.i.i.i.us
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.us:                    ; preds = %.lr.ph52.i.i.i.i.i.i.i.i.i.i.us
-  %33 = load double, ptr %21, align 8, !tbaa !32
-  store double %33, ptr %20, align 8, !tbaa !32
+  %36 = load double, ptr %21, align 8, !tbaa !32
+  store double %36, ptr %20, align 8, !tbaa !32
   br label %.preheader43.i.i.i.i.i.i.i.i.i.i.us
 
 .preheader43.i.i.i.i.i.i.i.i.i.i.us:              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.us, %.lr.ph52.i.i.i.i.i.i.i.i.i.i.us
-  %34 = sub nsw i64 %14, %31
-  %35 = and i64 %34, -2
-  %36 = add nsw i64 %35, %31
-  %37 = icmp sgt i64 %34, 1
+  %37 = icmp sgt i64 %32, 1
   br i1 %37, label %.lr.ph47.i.i.i.i.i.i.i.i.i.i.us, label %.preheader.i.i.i.i.i.i.i.i.i.i.us
 
 .lr.ph47.i.i.i.i.i.i.i.i.i.i.us:                  ; preds = %.preheader43.i.i.i.i.i.i.i.i.i.i.us, %.lr.ph47.i.i.i.i.i.i.i.i.i.i.us
@@ -879,15 +879,15 @@ define weak_odr dso_local void @_ZN3igl6repmatIN5Eigen6MatrixIdLin1ELi1ELi0ELin1
   %40 = load <2 x double>, ptr %39, align 1, !tbaa !21
   store <2 x double> %40, ptr %38, align 16, !tbaa !21
   %41 = add nsw i64 %.03246.i.i.i.i.i.i.i.i.i.i.us, 2
-  %42 = icmp slt i64 %41, %36
+  %42 = icmp slt i64 %41, %34
   br i1 %42, label %.lr.ph47.i.i.i.i.i.i.i.i.i.i.us, label %.preheader.i.i.i.i.i.i.i.i.i.i.us, !llvm.loop !63
 
 .preheader.i.i.i.i.i.i.i.i.i.i.us:                ; preds = %.lr.ph47.i.i.i.i.i.i.i.i.i.i.us, %.preheader43.i.i.i.i.i.i.i.i.i.i.us
-  %43 = icmp slt i64 %36, %14
+  %43 = icmp slt i64 %34, %14
   br i1 %43, label %.lr.ph49.i.i.i.i.i.i.i.i.i.i.us, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELin1ELb0EEaSIS2_EERS3_RKNS_9DenseBaseIT_EE.exit.us
 
 .lr.ph49.i.i.i.i.i.i.i.i.i.i.us:                  ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i.us, %.lr.ph49.i.i.i.i.i.i.i.i.i.i.us
-  %.048.i.i.i.i.i.i.i.i.i.i.us = phi i64 [ %47, %.lr.ph49.i.i.i.i.i.i.i.i.i.i.us ], [ %36, %.preheader.i.i.i.i.i.i.i.i.i.i.us ]
+  %.048.i.i.i.i.i.i.i.i.i.i.us = phi i64 [ %47, %.lr.ph49.i.i.i.i.i.i.i.i.i.i.us ], [ %34, %.preheader.i.i.i.i.i.i.i.i.i.i.us ]
   %44 = getelementptr double, ptr %20, i64 %.048.i.i.i.i.i.i.i.i.i.i.us
   %45 = getelementptr double, ptr %21, i64 %.048.i.i.i.i.i.i.i.i.i.i.us
   %46 = load double, ptr %45, align 8, !tbaa !32
@@ -1079,23 +1079,23 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.us: ; preds = %24
 53:                                               ; preds = %._crit_edge.i.us, %.lr.ph54.i.us
   %.03453.i.us = phi i64 [ 0, %.lr.ph54.i.us ], [ %78, %._crit_edge.i.us ]
   %.03552.i.us = phi i64 [ %52, %.lr.ph54.i.us ], [ %.sroa.speculated.i.us, %._crit_edge.i.us ]
-  %54 = icmp sgt i64 %.03552.i.us, 0
-  br i1 %54, label %.lr.ph.i.us, label %.preheader43.i.us
+  %54 = sub nsw i64 %25, %.03552.i.us
+  %55 = and i64 %54, -2
+  %56 = add nsw i64 %55, %.03552.i.us
+  %57 = icmp sgt i64 %.03552.i.us, 0
+  br i1 %57, label %.lr.ph.i.us, label %.preheader43.i.us
 
 .lr.ph.i.us:                                      ; preds = %53
-  %55 = mul nsw i64 %.03453.i.us, %31
-  %56 = getelementptr double, ptr %33, i64 %55
-  %57 = mul nsw i64 %.03453.i.us, %25
-  %invariant.gep.i.us = getelementptr double, ptr %34, i64 %57
-  %58 = load double, ptr %invariant.gep.i.us, align 8, !tbaa !32
-  store double %58, ptr %56, align 8, !tbaa !32
+  %58 = mul nsw i64 %.03453.i.us, %31
+  %59 = getelementptr double, ptr %33, i64 %58
+  %60 = mul nsw i64 %.03453.i.us, %25
+  %invariant.gep.i.us = getelementptr double, ptr %34, i64 %60
+  %61 = load double, ptr %invariant.gep.i.us, align 8, !tbaa !32
+  store double %61, ptr %59, align 8, !tbaa !32
   br label %.preheader43.i.us
 
 .preheader43.i.us:                                ; preds = %.lr.ph.i.us, %53
-  %59 = sub nsw i64 %25, %.03552.i.us
-  %60 = and i64 %59, -2
-  %61 = add nsw i64 %60, %.03552.i.us
-  %62 = icmp sgt i64 %59, 1
+  %62 = icmp sgt i64 %54, 1
   br i1 %62, label %.lr.ph47.i.preheader.us, label %.preheader.i.us
 
 .lr.ph47.i.us:                                    ; preds = %.lr.ph47.i.preheader.us, %.lr.ph47.i.us
@@ -1105,11 +1105,11 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.us: ; preds = %24
   %64 = load <2 x double>, ptr %gep.us, align 1, !tbaa !21
   store <2 x double> %64, ptr %63, align 16, !tbaa !21
   %65 = add nsw i64 %.03246.i.us, 2
-  %66 = icmp slt i64 %65, %61
+  %66 = icmp slt i64 %65, %56
   br i1 %66, label %.lr.ph47.i.us, label %.preheader.i.us, !llvm.loop !73
 
 .preheader.i.us:                                  ; preds = %.lr.ph47.i.us, %.preheader43.i.us
-  %67 = icmp slt i64 %61, %25
+  %67 = icmp slt i64 %56, %25
   br i1 %67, label %.lr.ph49.i.us, label %._crit_edge.i.us
 
 .lr.ph49.i.us:                                    ; preds = %.preheader.i.us
@@ -1120,7 +1120,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.us: ; preds = %24
   br label %71
 
 71:                                               ; preds = %71, %.lr.ph49.i.us
-  %.048.i.us = phi i64 [ %61, %.lr.ph49.i.us ], [ %74, %71 ]
+  %.048.i.us = phi i64 [ %56, %.lr.ph49.i.us ], [ %74, %71 ]
   %72 = getelementptr double, ptr %69, i64 %.048.i.us
   %gep51.i.us = getelementptr double, ptr %invariant.gep50.i.us, i64 %.048.i.us
   %73 = load double, ptr %gep51.i.us, align 8, !tbaa !32

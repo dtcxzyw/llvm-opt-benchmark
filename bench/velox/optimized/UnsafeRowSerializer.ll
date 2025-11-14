@@ -13989,15 +13989,15 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 64
-  br i1 %cmp, label %for.body.i.preheader, label %if.else
+  br i1 %cmp, label %for.body.lr.ph.i, label %if.else
 
-for.body.i.preheader:                             ; preds = %entry
+for.body.lr.ph.i:                                 ; preds = %entry
   %scevgep = getelementptr i8, ptr %__first.coerce, i64 4
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
-  %__i.sroa.0.012.i.idx = phi i64 [ %__i.sroa.0.012.i.add, %for.inc.i ], [ 4, %for.body.i.preheader ]
-  %__first.coerce.pn11.i = phi ptr [ %__i.sroa.0.012.i.ptr, %for.inc.i ], [ %__first.coerce, %for.body.i.preheader ]
+for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
+  %__i.sroa.0.012.i.idx = phi i64 [ 4, %for.body.lr.ph.i ], [ %__i.sroa.0.012.i.add, %for.inc.i ]
+  %__first.coerce.pn11.i = phi ptr [ %__first.coerce, %for.body.lr.ph.i ], [ %__i.sroa.0.012.i.ptr, %for.inc.i ]
   %__i.sroa.0.012.i.ptr = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 %__i.sroa.0.012.i.idx
   %0 = load i32, ptr %__i.sroa.0.012.i.ptr, align 4
   %1 = load i32, ptr %__first.coerce, align 4
@@ -47274,8 +47274,8 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i

@@ -529,12 +529,12 @@ _ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.e
   br i1 %exitcond177.not, label %.loopexit142, label %.preheader141, !llvm.loop !28
 
 .loopexit142:                                     ; preds = %167, %161
+  %169 = add i64 %.0167, -1
   %.not171 = icmp eq i64 %.2139164, 0
   br i1 %.not171, label %.preheader, label %.lr.ph158
 
 .preheader:                                       ; preds = %197, %.loopexit142
   %.091.lcssa = phi i64 [ 0, %.loopexit142 ], [ %.192, %197 ]
-  %169 = add i64 %.0167, -1
   %.not172 = icmp eq i64 %169, 0
   br i1 %.not172, label %._crit_edge, label %.lr.ph162
 
@@ -1247,25 +1247,25 @@ define void @_ZN13duckdb_brotli30BrotliClusterHistogramsLiteralEPNS_13MemoryMana
   %.2124 = phi i64 [ %38, %._crit_edge ], [ 0, %.lr.ph121 ]
   %25 = tail call i64 @llvm.umax.i64(i64 %indvars.iv, i64 1)
   %umax = tail call i64 @llvm.umin.i64(i64 %25, i64 64)
-  %26 = getelementptr i32, ptr %13, i64 %.0108125
-  br label %27
+  %26 = sub nuw i64 %2, %.2124
+  %27 = tail call noundef i64 @llvm.umin.i64(i64 %26, i64 64)
+  %28 = getelementptr i32, ptr %13, i64 %.0108125
+  br label %29
 
-27:                                               ; preds = %.lr.ph123, %27
-  %.0107122 = phi i64 [ 0, %.lr.ph123 ], [ %31, %27 ]
-  %28 = add nuw nsw i64 %.0107122, %.2124
-  %29 = trunc i64 %28 to i32
-  %30 = getelementptr i32, ptr %26, i64 %.0107122
-  store i32 %29, ptr %30, align 4, !tbaa !3
-  %31 = add nuw nsw i64 %.0107122, 1
-  %exitcond133.not = icmp eq i64 %31, %umax
-  br i1 %exitcond133.not, label %._crit_edge, label %27, !llvm.loop !42
+29:                                               ; preds = %.lr.ph123, %29
+  %.0107122 = phi i64 [ 0, %.lr.ph123 ], [ %33, %29 ]
+  %30 = add nuw nsw i64 %.0107122, %.2124
+  %31 = trunc i64 %30 to i32
+  %32 = getelementptr i32, ptr %28, i64 %.0107122
+  store i32 %31, ptr %32, align 4, !tbaa !3
+  %33 = add nuw nsw i64 %.0107122, 1
+  %exitcond133.not = icmp eq i64 %33, %umax
+  br i1 %exitcond133.not, label %._crit_edge, label %29, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %27
-  %32 = sub nuw i64 %2, %.2124
-  %33 = tail call noundef i64 @llvm.umin.i64(i64 %32, i64 64)
+._crit_edge:                                      ; preds = %29
   %34 = getelementptr inbounds nuw i32, ptr %6, i64 %.2124
   %35 = getelementptr inbounds nuw i32, ptr %13, i64 %.0108125
-  %36 = tail call noundef i64 @_ZN13duckdb_brotli29BrotliHistogramCombineLiteralEPNS_16HistogramLiteralES1_PjS2_S2_PNS_13HistogramPairEmmmm(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %34, ptr noundef %35, ptr noundef %14, i64 noundef %33, i64 noundef %33, i64 noundef %3, i64 noundef 2048)
+  %36 = tail call noundef i64 @_ZN13duckdb_brotli29BrotliHistogramCombineLiteralEPNS_16HistogramLiteralES1_PjS2_S2_PNS_13HistogramPairEmmmm(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %34, ptr noundef %35, ptr noundef %14, i64 noundef %27, i64 noundef %27, i64 noundef %3, i64 noundef 2048)
   %37 = add i64 %36, %.0108125
   %38 = add i64 %.2124, 64
   %39 = icmp ult i64 %38, %2
@@ -1823,12 +1823,12 @@ _ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.e
   br i1 %exitcond177.not, label %.loopexit142, label %.preheader141, !llvm.loop !54
 
 .loopexit142:                                     ; preds = %167, %161
+  %169 = add i64 %.0167, -1
   %.not171 = icmp eq i64 %.2139164, 0
   br i1 %.not171, label %.preheader, label %.lr.ph158
 
 .preheader:                                       ; preds = %197, %.loopexit142
   %.091.lcssa = phi i64 [ 0, %.loopexit142 ], [ %.192, %197 ]
-  %169 = add i64 %.0167, -1
   %.not172 = icmp eq i64 %169, 0
   br i1 %.not172, label %._crit_edge, label %.lr.ph162
 
@@ -2534,25 +2534,25 @@ define void @_ZN13duckdb_brotli30BrotliClusterHistogramsCommandEPNS_13MemoryMana
   %.2124 = phi i64 [ %38, %._crit_edge ], [ 0, %.lr.ph121 ]
   %25 = tail call i64 @llvm.umax.i64(i64 %indvars.iv, i64 1)
   %umax = tail call i64 @llvm.umin.i64(i64 %25, i64 64)
-  %26 = getelementptr i32, ptr %13, i64 %.0108125
-  br label %27
+  %26 = sub nuw i64 %2, %.2124
+  %27 = tail call noundef i64 @llvm.umin.i64(i64 %26, i64 64)
+  %28 = getelementptr i32, ptr %13, i64 %.0108125
+  br label %29
 
-27:                                               ; preds = %.lr.ph123, %27
-  %.0107122 = phi i64 [ 0, %.lr.ph123 ], [ %31, %27 ]
-  %28 = add nuw nsw i64 %.0107122, %.2124
-  %29 = trunc i64 %28 to i32
-  %30 = getelementptr i32, ptr %26, i64 %.0107122
-  store i32 %29, ptr %30, align 4, !tbaa !3
-  %31 = add nuw nsw i64 %.0107122, 1
-  %exitcond133.not = icmp eq i64 %31, %umax
-  br i1 %exitcond133.not, label %._crit_edge, label %27, !llvm.loop !67
+29:                                               ; preds = %.lr.ph123, %29
+  %.0107122 = phi i64 [ 0, %.lr.ph123 ], [ %33, %29 ]
+  %30 = add nuw nsw i64 %.0107122, %.2124
+  %31 = trunc i64 %30 to i32
+  %32 = getelementptr i32, ptr %28, i64 %.0107122
+  store i32 %31, ptr %32, align 4, !tbaa !3
+  %33 = add nuw nsw i64 %.0107122, 1
+  %exitcond133.not = icmp eq i64 %33, %umax
+  br i1 %exitcond133.not, label %._crit_edge, label %29, !llvm.loop !67
 
-._crit_edge:                                      ; preds = %27
-  %32 = sub nuw i64 %2, %.2124
-  %33 = tail call noundef i64 @llvm.umin.i64(i64 %32, i64 64)
+._crit_edge:                                      ; preds = %29
   %34 = getelementptr inbounds nuw i32, ptr %6, i64 %.2124
   %35 = getelementptr inbounds nuw i32, ptr %13, i64 %.0108125
-  %36 = tail call noundef i64 @_ZN13duckdb_brotli29BrotliHistogramCombineCommandEPNS_16HistogramCommandES1_PjS2_S2_PNS_13HistogramPairEmmmm(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %34, ptr noundef %35, ptr noundef %14, i64 noundef %33, i64 noundef %33, i64 noundef %3, i64 noundef 2048)
+  %36 = tail call noundef i64 @_ZN13duckdb_brotli29BrotliHistogramCombineCommandEPNS_16HistogramCommandES1_PjS2_S2_PNS_13HistogramPairEmmmm(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %34, ptr noundef %35, ptr noundef %14, i64 noundef %27, i64 noundef %27, i64 noundef %3, i64 noundef 2048)
   %37 = add i64 %36, %.0108125
   %38 = add i64 %.2124, 64
   %39 = icmp ult i64 %38, %2
@@ -3110,12 +3110,12 @@ _ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_
   br i1 %exitcond177.not, label %.loopexit142, label %.preheader141, !llvm.loop !79
 
 .loopexit142:                                     ; preds = %167, %161
+  %169 = add i64 %.0167, -1
   %.not171 = icmp eq i64 %.2139164, 0
   br i1 %.not171, label %.preheader, label %.lr.ph158
 
 .preheader:                                       ; preds = %197, %.loopexit142
   %.091.lcssa = phi i64 [ 0, %.loopexit142 ], [ %.192, %197 ]
-  %169 = add i64 %.0167, -1
   %.not172 = icmp eq i64 %169, 0
   br i1 %.not172, label %._crit_edge, label %.lr.ph162
 
@@ -3821,25 +3821,25 @@ define void @_ZN13duckdb_brotli31BrotliClusterHistogramsDistanceEPNS_13MemoryMan
   %.2124 = phi i64 [ %38, %._crit_edge ], [ 0, %.lr.ph121 ]
   %25 = tail call i64 @llvm.umax.i64(i64 %indvars.iv, i64 1)
   %umax = tail call i64 @llvm.umin.i64(i64 %25, i64 64)
-  %26 = getelementptr i32, ptr %13, i64 %.0108125
-  br label %27
+  %26 = sub nuw i64 %2, %.2124
+  %27 = tail call noundef i64 @llvm.umin.i64(i64 %26, i64 64)
+  %28 = getelementptr i32, ptr %13, i64 %.0108125
+  br label %29
 
-27:                                               ; preds = %.lr.ph123, %27
-  %.0107122 = phi i64 [ 0, %.lr.ph123 ], [ %31, %27 ]
-  %28 = add nuw nsw i64 %.0107122, %.2124
-  %29 = trunc i64 %28 to i32
-  %30 = getelementptr i32, ptr %26, i64 %.0107122
-  store i32 %29, ptr %30, align 4, !tbaa !3
-  %31 = add nuw nsw i64 %.0107122, 1
-  %exitcond133.not = icmp eq i64 %31, %umax
-  br i1 %exitcond133.not, label %._crit_edge, label %27, !llvm.loop !92
+29:                                               ; preds = %.lr.ph123, %29
+  %.0107122 = phi i64 [ 0, %.lr.ph123 ], [ %33, %29 ]
+  %30 = add nuw nsw i64 %.0107122, %.2124
+  %31 = trunc i64 %30 to i32
+  %32 = getelementptr i32, ptr %28, i64 %.0107122
+  store i32 %31, ptr %32, align 4, !tbaa !3
+  %33 = add nuw nsw i64 %.0107122, 1
+  %exitcond133.not = icmp eq i64 %33, %umax
+  br i1 %exitcond133.not, label %._crit_edge, label %29, !llvm.loop !92
 
-._crit_edge:                                      ; preds = %27
-  %32 = sub nuw i64 %2, %.2124
-  %33 = tail call noundef i64 @llvm.umin.i64(i64 %32, i64 64)
+._crit_edge:                                      ; preds = %29
   %34 = getelementptr inbounds nuw i32, ptr %6, i64 %.2124
   %35 = getelementptr inbounds nuw i32, ptr %13, i64 %.0108125
-  %36 = tail call noundef i64 @_ZN13duckdb_brotli30BrotliHistogramCombineDistanceEPNS_17HistogramDistanceES1_PjS2_S2_PNS_13HistogramPairEmmmm(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %34, ptr noundef %35, ptr noundef %14, i64 noundef %33, i64 noundef %33, i64 noundef %3, i64 noundef 2048)
+  %36 = tail call noundef i64 @_ZN13duckdb_brotli30BrotliHistogramCombineDistanceEPNS_17HistogramDistanceES1_PjS2_S2_PNS_13HistogramPairEmmmm(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %34, ptr noundef %35, ptr noundef %14, i64 noundef %27, i64 noundef %27, i64 noundef %3, i64 noundef 2048)
   %37 = add i64 %36, %.0108125
   %38 = add i64 %.2124, 64
   %39 = icmp ult i64 %38, %2

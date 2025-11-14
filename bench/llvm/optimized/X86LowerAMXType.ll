@@ -4077,12 +4077,12 @@ _ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS0_17Intr
   %1004 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %1005 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %1006 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %78, i64 16
   %1007 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %1008 = getelementptr inbounds nuw i8, ptr %69, i64 56
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %69, i64 64
   %1009 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %78, i64 16
   %1010 = getelementptr inbounds nuw i8, ptr %69, i64 136
   %1011 = getelementptr inbounds nuw i8, ptr %69, i64 128
   %1012 = getelementptr inbounds nuw i8, ptr %69, i64 16

@@ -270,7 +270,7 @@ bytestream2_peek_byte.exit206.i:                  ; preds = %bytestream2_get_byt
   %.3178.i = add nsw i32 %106, %.1176272.i
   %.3170.i = select i1 %.not201.i, i32 %105, i32 0
   %.not200.i = icmp eq i32 %104, 0
-  br i1 %.not200.i, label %.loopexit.loopexit398.i, label %.lr.ph275.i, !llvm.loop !45
+  br i1 %.not200.i, label %.loopexit.loopexit.i, label %.lr.ph275.i, !llvm.loop !45
 
 107:                                              ; preds = %.lr.ph275.preheader.i
   %108 = load ptr, ptr %7, align 8, !tbaa !27
@@ -596,15 +596,15 @@ bytestream2_get_be16.exit215.i:                   ; preds = %149, %148
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %265, i32 noundef 16, ptr noundef nonnull @.str.8, i32 noundef %80, i32 noundef %268) #6
   br label %rpza_decode_stream.exit.thread
 
-.loopexit.loopexit398.i:                          ; preds = %.lr.ph275.i
+.loopexit.loopexit.i:                             ; preds = %.lr.ph275.i
   %269 = sub i32 %.0149297.i, %100
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %132, %232, %.loopexit.loopexit398.i, %260, %.preheader223.i, %bytestream2_get_be16.exit.i, %.preheader221.i
-  %.promoted290.i = phi ptr [ %.promoted284.i, %260 ], [ %78, %.preheader221.i ], [ %.promoted292.i, %bytestream2_get_be16.exit.i ], [ %.promoted281.i, %.preheader223.i ], [ %78, %.loopexit.loopexit398.i ], [ %214, %232 ], [ %.promoted292.i, %132 ]
-  %.2177.i = phi i32 [ %.9184.i, %260 ], [ %.0175295.i, %.preheader221.i ], [ %.0175295.i, %bytestream2_get_be16.exit.i ], [ %.0175295.i, %.preheader223.i ], [ %.3178.i, %.loopexit.loopexit398.i ], [ %.8183.i, %232 ], [ %.6181.i, %132 ]
-  %.2169.i = phi i32 [ %.9.i, %260 ], [ %.0167296.i, %.preheader221.i ], [ %.0167296.i, %bytestream2_get_be16.exit.i ], [ %.0167296.i, %.preheader223.i ], [ %.3170.i, %.loopexit.loopexit398.i ], [ %.8.i, %232 ], [ %.6173.i, %132 ]
-  %.2151.i = phi i32 [ %263, %260 ], [ 0, %.preheader221.i ], [ 0, %bytestream2_get_be16.exit.i ], [ 0, %.preheader223.i ], [ %269, %.loopexit.loopexit398.i ], [ %235, %232 ], [ %135, %132 ]
+.loopexit.i:                                      ; preds = %132, %232, %.loopexit.loopexit.i, %260, %.preheader223.i, %bytestream2_get_be16.exit.i, %.preheader221.i
+  %.promoted290.i = phi ptr [ %.promoted284.i, %260 ], [ %78, %.preheader221.i ], [ %.promoted292.i, %bytestream2_get_be16.exit.i ], [ %.promoted281.i, %.preheader223.i ], [ %78, %.loopexit.loopexit.i ], [ %214, %232 ], [ %.promoted292.i, %132 ]
+  %.2177.i = phi i32 [ %.9184.i, %260 ], [ %.0175295.i, %.preheader221.i ], [ %.0175295.i, %bytestream2_get_be16.exit.i ], [ %.0175295.i, %.preheader223.i ], [ %.3178.i, %.loopexit.loopexit.i ], [ %.8183.i, %232 ], [ %.6181.i, %132 ]
+  %.2169.i = phi i32 [ %.9.i, %260 ], [ %.0167296.i, %.preheader221.i ], [ %.0167296.i, %bytestream2_get_be16.exit.i ], [ %.0167296.i, %.preheader223.i ], [ %.3170.i, %.loopexit.loopexit.i ], [ %.8.i, %232 ], [ %.6173.i, %132 ]
+  %.2151.i = phi i32 [ %263, %260 ], [ 0, %.preheader221.i ], [ 0, %bytestream2_get_be16.exit.i ], [ 0, %.preheader223.i ], [ %269, %.loopexit.loopexit.i ], [ %235, %232 ], [ %135, %132 ]
   %270 = ptrtoint ptr %.promoted290.i to i64
   %271 = sub i64 %67, %270
   %272 = and i64 %271, 4294967295

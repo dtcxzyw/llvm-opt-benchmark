@@ -5969,8 +5969,8 @@ define void @_ZN13pingora_cache8variance15VarianceBuilder8finalize17h125202897a6
   br i1 %33, label %"_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17h194ce433d41ae759E.exit.i.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i"
 
 "_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17h194ce433d41ae759E.exit.i.i.i": ; preds = %.noexc38, %32
-  %.sroa.0.025.i.i.i = phi ptr [ %44, %.noexc38 ], [ %.sroa.031.0, %32 ]
-  %.sroa.5.024.i.i.i = phi i64 [ %45, %.noexc38 ], [ %.sroa.332.0, %32 ]
+  %.sroa.0.025.i.i.i = phi ptr [ %.sroa.031.0, %32 ], [ %44, %.noexc38 ]
+  %.sroa.5.024.i.i.i = phi i64 [ %.sroa.332.0, %32 ], [ %45, %.noexc38 ]
   %34 = and i64 %.sroa.5.024.i.i.i, 127
   %35 = icmp eq i64 %34, 0
   %36 = lshr i64 %.sroa.5.024.i.i.i, 7
@@ -6121,8 +6121,8 @@ define void @_ZN13pingora_cache8variance15VarianceBuilder8finalize17h125202897a6
   br i1 %83, label %"_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17h194ce433d41ae759E.exit.i.i.i51", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i50"
 
 "_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17h194ce433d41ae759E.exit.i.i.i51": ; preds = %.noexc59, %82
-  %.sroa.0.025.i.i.i52 = phi ptr [ %94, %.noexc59 ], [ %76, %82 ]
-  %.sroa.5.024.i.i.i53 = phi i64 [ %95, %.noexc59 ], [ %77, %82 ]
+  %.sroa.0.025.i.i.i52 = phi ptr [ %76, %82 ], [ %94, %.noexc59 ]
+  %.sroa.5.024.i.i.i53 = phi i64 [ %77, %82 ], [ %95, %.noexc59 ]
   %84 = and i64 %.sroa.5.024.i.i.i53, 127
   %85 = icmp eq i64 %84, 0
   %86 = lshr i64 %.sroa.5.024.i.i.i53, 7

@@ -892,11 +892,11 @@ _ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayI
 
 invoke.cont7.i.i.i:                               ; preds = %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEE5clearEv.exit.i.i.i, %invoke.cont7.i.i.i
   %it1e.sroa.6.030.i.i.i = phi i64 [ %add.i.i.i.i, %invoke.cont7.i.i.i ], [ 0, %_ZN5boost7numeric5ublas6matrixIdNS1_15basic_row_majorImlEENS1_15unbounded_arrayIdSaIdEEEE5clearEv.exit.i.i.i ]
-  %add.i.i.i.i = add nuw i64 %it1e.sroa.6.030.i.i.i, 1
   %mul.i.i.i.i.i.i = mul i64 %it1e.sroa.6.030.i.i.i, %.fr.i.i.i
   %86 = getelementptr double, ptr %85, i64 %mul.i.i.i.i.i.i
   %arrayidx.i.i.i.i.i.i = getelementptr double, ptr %86, i64 %it1e.sroa.6.030.i.i.i
   store double 1.000000e+00, ptr %arrayidx.i.i.i.i.i.i, align 8, !tbaa !38
+  %add.i.i.i.i = add nuw i64 %it1e.sroa.6.030.i.i.i, 1
   %cmp.i.i.not.i.i.i = icmp eq i64 %add.i.i.i.i, %.fr.i.i.i
   br i1 %cmp.i.i.not.i.i.i, label %invoke.cont196, label %invoke.cont7.i.i.i, !llvm.loop !40
 

@@ -3091,31 +3091,31 @@ cloneGraph.exit.i:                                ; preds = %1290, %1245
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %1579 = getelementptr inbounds nuw i8, ptr %956, i64 232
-  %1580 = load ptr, ptr %1579, align 8, !tbaa !119
-  br label %1581
-
-1581:                                             ; preds = %1581, %1578
-  %.090.i = phi ptr [ %1580, %1578 ], [ %1585, %1581 ]
-  %1582 = getelementptr inbounds nuw i8, ptr %.090.i, i64 16
-  %1583 = load ptr, ptr %1582, align 8, !tbaa !16
-  %1584 = getelementptr inbounds nuw i8, ptr %1583, i64 232
-  %1585 = load ptr, ptr %1584, align 8, !tbaa !119
-  %.not.i510 = icmp eq ptr %1585, null
-  br i1 %.not.i510, label %1586, label %1581, !llvm.loop !183
-
-1586:                                             ; preds = %1581
-  %1587 = load i32, ptr %.0180.i, align 8
-  %1588 = and i32 %1587, 3
-  %1589 = icmp eq i32 %1588, 3
+  %1579 = load i32, ptr %.0180.i, align 8
+  %1580 = and i32 %1579, 3
+  %1581 = icmp eq i32 %1580, 3
   %.sroa.gep.sroa.gep = getelementptr inbounds nuw i8, ptr %.0180.i, i64 56
   %.sroa.gep575.sroa.gep = getelementptr inbounds nuw i8, ptr %.0180.i, i64 120
-  %.idx.i511.sroa.sel.sroa.sel = select i1 %1589, ptr %.sroa.gep.sroa.gep, ptr %.sroa.gep575.sroa.gep
-  %1590 = load ptr, ptr %.idx.i511.sroa.sel.sroa.sel, align 8, !tbaa !107
-  %1591 = icmp eq i32 %1588, 2
+  %.idx.i510.sroa.sel.sroa.sel = select i1 %1581, ptr %.sroa.gep.sroa.gep, ptr %.sroa.gep575.sroa.gep
+  %1582 = load ptr, ptr %.idx.i510.sroa.sel.sroa.sel, align 8, !tbaa !107
+  %1583 = icmp eq i32 %1580, 2
   %.sroa.gep576 = getelementptr inbounds i8, ptr %.0180.i, i64 -8
-  %.sroa.sel577 = select i1 %1591, ptr %.sroa.gep.sroa.gep, ptr %.sroa.gep576
-  %1592 = load ptr, ptr %.sroa.sel577, align 8, !tbaa !107
+  %.sroa.sel577 = select i1 %1583, ptr %.sroa.gep.sroa.gep, ptr %.sroa.gep576
+  %1584 = load ptr, ptr %.sroa.sel577, align 8, !tbaa !107
+  %1585 = getelementptr inbounds nuw i8, ptr %956, i64 232
+  %1586 = load ptr, ptr %1585, align 8, !tbaa !119
+  br label %1587
+
+1587:                                             ; preds = %1587, %1578
+  %.090.i = phi ptr [ %1586, %1578 ], [ %1591, %1587 ]
+  %1588 = getelementptr inbounds nuw i8, ptr %.090.i, i64 16
+  %1589 = load ptr, ptr %1588, align 8, !tbaa !16
+  %1590 = getelementptr inbounds nuw i8, ptr %1589, i64 232
+  %1591 = load ptr, ptr %1590, align 8, !tbaa !119
+  %.not.i511 = icmp eq ptr %1591, null
+  br i1 %.not.i511, label %1592, label %1587, !llvm.loop !183
+
+1592:                                             ; preds = %1587
   %1593 = load i32, ptr %.090.i, align 8
   %1594 = and i32 %1593, 3
   %1595 = icmp eq i32 %1594, 3
@@ -3136,8 +3136,8 @@ cloneGraph.exit.i:                                ; preds = %1290, %1245
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br i1 %488, label %1607, label %1637
 
-1607:                                             ; preds = %1586
-  %1608 = getelementptr inbounds nuw i8, ptr %1590, i64 16
+1607:                                             ; preds = %1592
+  %1608 = getelementptr inbounds nuw i8, ptr %1582, i64 16
   %1609 = load ptr, ptr %1608, align 8, !tbaa !16
   %1610 = getelementptr inbounds nuw i8, ptr %1609, i64 32
   %1611 = getelementptr inbounds nuw i8, ptr %1603, i64 24
@@ -3149,7 +3149,7 @@ cloneGraph.exit.i:                                ; preds = %1290, %1245
   %1617 = load double, ptr %1616, align 8
   %1618 = fadd double %1612, %1615
   %1619 = fadd double %1614, %1617
-  %1620 = getelementptr inbounds nuw i8, ptr %1592, i64 16
+  %1620 = getelementptr inbounds nuw i8, ptr %1584, i64 16
   %1621 = load ptr, ptr %1620, align 8, !tbaa !16
   %1622 = getelementptr inbounds nuw i8, ptr %1621, i64 32
   %1623 = getelementptr inbounds nuw i8, ptr %1603, i64 72
@@ -3182,7 +3182,7 @@ cloneGraph.exit.i:                                ; preds = %1290, %1245
   store i64 7, ptr %10, align 8, !tbaa !133
   br label %1751
 
-1637:                                             ; preds = %1586
+1637:                                             ; preds = %1592
   %1638 = load ptr, ptr %1600, align 8, !tbaa !16
   %1639 = getelementptr inbounds nuw i8, ptr %1638, i64 32
   %1640 = load double, ptr %1639, align 8, !tbaa !78
@@ -3201,7 +3201,7 @@ cloneGraph.exit.i:                                ; preds = %1290, %1245
   %1653 = load ptr, ptr %48, align 8, !tbaa !16
   %1654 = getelementptr inbounds nuw i8, ptr %1653, i64 264
   %1655 = load ptr, ptr %1654, align 8, !tbaa !94
-  %1656 = getelementptr inbounds nuw i8, ptr %1590, i64 16
+  %1656 = getelementptr inbounds nuw i8, ptr %1582, i64 16
   %1657 = load ptr, ptr %1656, align 8, !tbaa !16
   %1658 = getelementptr inbounds nuw i8, ptr %1657, i64 360
   %1659 = load i32, ptr %1658, align 8, !tbaa !112
@@ -3261,7 +3261,7 @@ cloneGraph.exit.i:                                ; preds = %1290, %1245
   br label %makeFlatEnd.exit.i
 
 makeFlatEnd.exit.i:                               ; preds = %1695, %1637
-  %1697 = getelementptr i8, ptr %1592, i64 16
+  %1697 = getelementptr i8, ptr %1584, i64 16
   %.val.i98.i = load ptr, ptr %1697, align 8, !tbaa !16
   call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %47, ptr %.val.i98.i, ptr noundef null, ptr noundef nonnull %.0180.i)
   %.sroa.021.0.copyload.i99.i = load double, ptr %8, align 8, !tbaa !70
@@ -8846,61 +8846,61 @@ bot_bound.exit82:                                 ; preds = %231
 
 .lr.ph:                                           ; preds = %.thread99
   %244 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  br label %250
+  br label %253
 
-._crit_edge:                                      ; preds = %250, %.thread99
+._crit_edge:                                      ; preds = %253, %.thread99
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %246 = load i64, ptr %245, align 8, !tbaa !201
-  %247 = getelementptr i8, ptr %5, i64 16
-  %.val = load i64, ptr %247, align 8, !tbaa !210
+  %247 = add i64 %246, 1
+  %248 = getelementptr i8, ptr %5, i64 16
+  %.val = load i64, ptr %248, align 8, !tbaa !210
+  %249 = add i64 %247, %.val
+  %250 = add i64 %249, -3
   %.not116 = icmp eq i64 %.val, 0
   br i1 %.not116, label %._crit_edge111, label %.lr.ph110
 
 .lr.ph110:                                        ; preds = %._crit_edge
-  %248 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %249 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  br label %260
+  %251 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  br label %263
 
-250:                                              ; preds = %.lr.ph, %250
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %250 ]
-  %251 = getelementptr inbounds nuw %struct.boxf, ptr %244, i64 %indvars.iv
-  tail call void @add_box(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.boxf) align 8 %251) #23
+253:                                              ; preds = %.lr.ph, %253
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %253 ]
+  %254 = getelementptr inbounds nuw %struct.boxf, ptr %244, i64 %indvars.iv
+  tail call void @add_box(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.boxf) align 8 %254) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %252 = load i32, ptr %241, align 4, !tbaa !188
-  %253 = sext i32 %252 to i64
-  %254 = icmp slt i64 %indvars.iv.next, %253
-  br i1 %254, label %250, label %._crit_edge, !llvm.loop !271
+  %255 = load i32, ptr %241, align 4, !tbaa !188
+  %256 = sext i32 %255 to i64
+  %257 = icmp slt i64 %indvars.iv.next, %256
+  br i1 %257, label %253, label %._crit_edge, !llvm.loop !271
 
-._crit_edge111:                                   ; preds = %260, %._crit_edge
-  %255 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  %256 = load i32, ptr %255, align 4, !tbaa !188
-  %257 = icmp sgt i32 %256, 0
-  br i1 %257, label %.lr.ph114, label %._crit_edge115
+._crit_edge111:                                   ; preds = %263, %._crit_edge
+  %258 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %259 = load i32, ptr %258, align 4, !tbaa !188
+  %260 = icmp sgt i32 %259, 0
+  br i1 %260, label %.lr.ph114, label %._crit_edge115
 
 .lr.ph114:                                        ; preds = %._crit_edge111
-  %258 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %259 = zext nneg i32 %256 to i64
+  %261 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %262 = zext nneg i32 %259 to i64
   br label %353
 
-260:                                              ; preds = %.lr.ph110, %260
-  %.035108 = phi i64 [ 0, %.lr.ph110 ], [ %267, %260 ]
-  %261 = load ptr, ptr %5, align 8, !tbaa !214, !noalias !272
-  %262 = load i64, ptr %248, align 8, !tbaa !213, !noalias !272
-  %263 = add i64 %262, %.035108
-  %264 = load i64, ptr %249, align 8, !tbaa !212, !noalias !272
-  %265 = urem i64 %263, %264
-  %266 = getelementptr inbounds nuw %struct.boxf, ptr %261, i64 %265
-  tail call void @add_box(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.boxf) align 8 %266) #23
-  %267 = add nuw i64 %.035108, 1
-  %.val44 = load i64, ptr %247, align 8, !tbaa !210
-  %268 = icmp ult i64 %267, %.val44
-  br i1 %268, label %260, label %._crit_edge111, !llvm.loop !275
+263:                                              ; preds = %.lr.ph110, %263
+  %.035108 = phi i64 [ 0, %.lr.ph110 ], [ %270, %263 ]
+  %264 = load ptr, ptr %5, align 8, !tbaa !214, !noalias !272
+  %265 = load i64, ptr %251, align 8, !tbaa !213, !noalias !272
+  %266 = add i64 %265, %.035108
+  %267 = load i64, ptr %252, align 8, !tbaa !212, !noalias !272
+  %268 = urem i64 %266, %267
+  %269 = getelementptr inbounds nuw %struct.boxf, ptr %264, i64 %268
+  tail call void @add_box(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.boxf) align 8 %269) #23
+  %270 = add nuw i64 %.035108, 1
+  %.val44 = load i64, ptr %248, align 8, !tbaa !210
+  %271 = icmp ult i64 %270, %.val44
+  br i1 %271, label %263, label %._crit_edge111, !llvm.loop !275
 
 ._crit_edge115:                                   ; preds = %353, %._crit_edge111
-  %269 = add i64 %246, 1
-  %270 = add i64 %269, %.val
-  %271 = add i64 %270, -3
-  %272 = add i64 %270, -2
+  %272 = add i64 %249, -2
   %273 = icmp ult i64 %246, %272
   br i1 %273, label %.lr.ph.i84, label %.preheader.i
 
@@ -8922,7 +8922,7 @@ bot_bound.exit82:                                 ; preds = %231
 280:                                              ; preds = %305, %.lr.ph.i84
   %.05871.i = phi i64 [ %246, %.lr.ph.i84 ], [ %306, %305 ]
   %281 = getelementptr inbounds nuw %struct.boxf, ptr %275, i64 %.05871.i
-  %282 = sub i64 %.05871.i, %269
+  %282 = sub i64 %.05871.i, %247
   %283 = and i64 %282, 1
   %284 = icmp eq i64 %283, 0
   %285 = load double, ptr %281, align 8, !tbaa !190
@@ -8961,7 +8961,7 @@ bot_bound.exit82:                                 ; preds = %231
 
 305:                                              ; preds = %300, %295, %290, %286
   %306 = add nuw i64 %.05871.i, 1
-  %exitcond.not.i = icmp eq i64 %.05871.i, %271
+  %exitcond.not.i = icmp eq i64 %.05871.i, %250
   br i1 %exitcond.not.i, label %.preheader.i, label %280, !llvm.loop !276
 
 307:                                              ; preds = %351, %.lr.ph73.i
@@ -8969,13 +8969,13 @@ bot_bound.exit82:                                 ; preds = %231
   %.072.i = phi i64 [ 0, %.lr.ph73.i ], [ %308, %351 ]
   %309 = getelementptr inbounds nuw %struct.boxf, ptr %279, i64 %.072.i
   %310 = getelementptr inbounds nuw %struct.boxf, ptr %279, i64 %308
-  %.not.i83 = icmp ult i64 %.072.i, %269
-  %.not68.i = icmp ugt i64 %.072.i, %271
+  %.not.i83 = icmp ult i64 %.072.i, %247
+  %.not68.i = icmp ugt i64 %.072.i, %250
   %or.cond.i = or i1 %.not.i83, %.not68.i
   br i1 %or.cond.i, label %329, label %311
 
 311:                                              ; preds = %307
-  %312 = sub nuw i64 %.072.i, %269
+  %312 = sub nuw i64 %.072.i, %247
   %313 = and i64 %312, 1
   %314 = icmp eq i64 %313, 0
   br i1 %314, label %315, label %329
@@ -9005,13 +9005,13 @@ bot_bound.exit82:                                 ; preds = %231
   br label %351
 
 329:                                              ; preds = %311, %307
-  %.not69.i = icmp uge i64 %308, %269
-  %330 = icmp ult i64 %.072.i, %271
+  %.not69.i = icmp uge i64 %308, %247
+  %330 = icmp ult i64 %.072.i, %250
   %or.cond70.i = and i1 %.not69.i, %330
   br i1 %or.cond70.i, label %331, label %351
 
 331:                                              ; preds = %329
-  %332 = sub nuw i64 %308, %269
+  %332 = sub nuw i64 %308, %247
   %333 = and i64 %332, 1
   %334 = icmp eq i64 %333, 0
   br i1 %334, label %335, label %351
@@ -9048,9 +9048,9 @@ bot_bound.exit82:                                 ; preds = %231
   br i1 %exitcond74.not.i, label %adjustregularpath.exit, label %307, !llvm.loop !277
 
 353:                                              ; preds = %.lr.ph114, %353
-  %indvars.iv118 = phi i64 [ %259, %.lr.ph114 ], [ %indvars.iv.next119, %353 ]
+  %indvars.iv118 = phi i64 [ %262, %.lr.ph114 ], [ %indvars.iv.next119, %353 ]
   %indvars.iv.next119 = add nsw i64 %indvars.iv118, -1
-  %354 = getelementptr inbounds nuw %struct.boxf, ptr %258, i64 %indvars.iv.next119
+  %354 = getelementptr inbounds nuw %struct.boxf, ptr %261, i64 %indvars.iv.next119
   tail call void @add_box(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.boxf) align 8 %354) #23
   %355 = icmp samesign ugt i64 %indvars.iv118, 1
   br i1 %355, label %353, label %._crit_edge115, !llvm.loop !278

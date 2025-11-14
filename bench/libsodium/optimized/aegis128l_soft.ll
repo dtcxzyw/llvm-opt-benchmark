@@ -24,133 +24,133 @@ define internal range(i32 -1, 1) i32 @encrypt_detached(ptr noundef %0, ptr nound
   %.val46 = load i64, ptr %14, align 1
   %15 = xor i64 %.val45, %.val
   %16 = xor i64 %.val46, %.val44
-  %17 = xor i64 %.val, 939006032783409408
-  %18 = xor i64 %.val44, 7095959494080274965
-  %19 = xor i64 %.val, -1067420811828642341
-  %20 = xor i64 %.val44, -2510557285622673120
-  br label %21
-
-21:                                               ; preds = %21, %9
-  %22 = phi i64 [ %16, %9 ], [ %63, %21 ]
-  %23 = phi i64 [ %15, %9 ], [ %62, %21 ]
-  %24 = phi i64 [ -2510557285622673120, %9 ], [ %58, %21 ]
-  %25 = phi i64 [ -1067420811828642341, %9 ], [ %57, %21 ]
-  %26 = phi i64 [ 7095959494080274965, %9 ], [ %55, %21 ]
-  %27 = phi i64 [ 939006032783409408, %9 ], [ %54, %21 ]
-  %28 = phi i64 [ -2510557285622673120, %9 ], [ %52, %21 ]
-  %29 = phi i64 [ -1067420811828642341, %9 ], [ %51, %21 ]
-  %30 = phi i64 [ %16, %9 ], [ %65, %21 ]
-  %31 = phi i64 [ %15, %9 ], [ %64, %21 ]
-  %32 = phi i64 [ %18, %9 ], [ %46, %21 ]
-  %33 = phi i64 [ %17, %9 ], [ %45, %21 ]
-  %34 = phi i64 [ %20, %9 ], [ %43, %21 ]
-  %35 = phi i64 [ %19, %9 ], [ %42, %21 ]
-  %36 = phi i64 [ %18, %9 ], [ %40, %21 ]
-  %37 = phi i64 [ %17, %9 ], [ %39, %21 ]
-  %.05.i = phi i32 [ 0, %9 ], [ %66, %21 ]
-  %38 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %35, i64 %34, i64 %37, i64 %36) #7
-  %39 = extractvalue { i64, i64 } %38, 0
-  %40 = extractvalue { i64, i64 } %38, 1
-  %41 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %33, i64 %32, i64 %35, i64 %34) #7
-  %42 = extractvalue { i64, i64 } %41, 0
-  %43 = extractvalue { i64, i64 } %41, 1
-  %44 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %31, i64 %30, i64 %33, i64 %32) #7
-  %45 = extractvalue { i64, i64 } %44, 0
-  %46 = extractvalue { i64, i64 } %44, 1
-  %47 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %29, i64 %28, i64 %31, i64 %30) #7
-  %48 = extractvalue { i64, i64 } %47, 0
-  %49 = extractvalue { i64, i64 } %47, 1
-  %50 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %27, i64 %26, i64 %29, i64 %28) #7
-  %51 = extractvalue { i64, i64 } %50, 0
-  %52 = extractvalue { i64, i64 } %50, 1
-  %53 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %25, i64 %24, i64 %27, i64 %26) #7
-  %54 = extractvalue { i64, i64 } %53, 0
-  %55 = extractvalue { i64, i64 } %53, 1
-  %56 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %23, i64 %22, i64 %25, i64 %24) #7
-  %57 = extractvalue { i64, i64 } %56, 0
-  %58 = extractvalue { i64, i64 } %56, 1
-  %59 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %37, i64 %36, i64 %23, i64 %22) #7
-  %60 = extractvalue { i64, i64 } %59, 0
-  %61 = extractvalue { i64, i64 } %59, 1
-  %62 = xor i64 %60, %.val45
-  %63 = xor i64 %61, %.val46
-  %64 = xor i64 %48, %.val
-  %65 = xor i64 %49, %.val44
-  %66 = add nuw nsw i32 %.05.i, 1
-  %exitcond.not.i = icmp eq i32 %66, 10
-  br i1 %exitcond.not.i, label %aegis128l_init.exit.preheader, label %21, !llvm.loop !4
-
-aegis128l_init.exit.preheader:                    ; preds = %21
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %67 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.632.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %68 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.sroa.637.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %69 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %.sroa.632.0..sroa_idx33.i = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %70 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %71 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %22 = xor i64 %.val, 939006032783409408
+  %23 = xor i64 %.val44, 7095959494080274965
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %72 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  %25 = xor i64 %.val, -1067420811828642341
+  %26 = xor i64 %.val44, -2510557285622673120
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 104
-  %73 = getelementptr inbounds nuw i8, ptr %10, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 120
-  store i64 %39, ptr %73, align 16
-  store i64 %40, ptr %.sroa.4.0..sroa_idx.i, align 8
-  store i64 %42, ptr %72, align 16
-  store i64 %43, ptr %.sroa.42.0..sroa_idx.i, align 8
-  store i64 %45, ptr %71, align 16
-  store i64 %46, ptr %.sroa.44.0..sroa_idx.i, align 8
-  store i64 %64, ptr %70, align 16
-  store i64 %65, ptr %.sroa.46.0..sroa_idx.i, align 8
-  store i64 %51, ptr %69, align 16
-  store i64 %52, ptr %.sroa.632.0..sroa_idx33.i, align 8
-  store i64 %54, ptr %68, align 16
-  store i64 %55, ptr %.sroa.637.0..sroa_idx.i, align 8
-  store i64 %57, ptr %67, align 16
-  store i64 %58, ptr %.sroa.632.0..sroa_idx.i, align 8
-  store i64 %62, ptr %10, align 16
-  store i64 %63, ptr %.sroa.48.0..sroa_idx.i, align 8
+  br label %28
+
+28:                                               ; preds = %28, %9
+  %29 = phi i64 [ %16, %9 ], [ %70, %28 ]
+  %30 = phi i64 [ %15, %9 ], [ %69, %28 ]
+  %31 = phi i64 [ -2510557285622673120, %9 ], [ %65, %28 ]
+  %32 = phi i64 [ -1067420811828642341, %9 ], [ %64, %28 ]
+  %33 = phi i64 [ 7095959494080274965, %9 ], [ %62, %28 ]
+  %34 = phi i64 [ 939006032783409408, %9 ], [ %61, %28 ]
+  %35 = phi i64 [ -2510557285622673120, %9 ], [ %59, %28 ]
+  %36 = phi i64 [ -1067420811828642341, %9 ], [ %58, %28 ]
+  %37 = phi i64 [ %16, %9 ], [ %72, %28 ]
+  %38 = phi i64 [ %15, %9 ], [ %71, %28 ]
+  %39 = phi i64 [ %23, %9 ], [ %53, %28 ]
+  %40 = phi i64 [ %22, %9 ], [ %52, %28 ]
+  %41 = phi i64 [ %26, %9 ], [ %50, %28 ]
+  %42 = phi i64 [ %25, %9 ], [ %49, %28 ]
+  %43 = phi i64 [ %23, %9 ], [ %47, %28 ]
+  %44 = phi i64 [ %22, %9 ], [ %46, %28 ]
+  %.05.i = phi i32 [ 0, %9 ], [ %73, %28 ]
+  %45 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %42, i64 %41, i64 %44, i64 %43) #7
+  %46 = extractvalue { i64, i64 } %45, 0
+  %47 = extractvalue { i64, i64 } %45, 1
+  %48 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %40, i64 %39, i64 %42, i64 %41) #7
+  %49 = extractvalue { i64, i64 } %48, 0
+  %50 = extractvalue { i64, i64 } %48, 1
+  %51 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %38, i64 %37, i64 %40, i64 %39) #7
+  %52 = extractvalue { i64, i64 } %51, 0
+  %53 = extractvalue { i64, i64 } %51, 1
+  %54 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %36, i64 %35, i64 %38, i64 %37) #7
+  %55 = extractvalue { i64, i64 } %54, 0
+  %56 = extractvalue { i64, i64 } %54, 1
+  %57 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %34, i64 %33, i64 %36, i64 %35) #7
+  %58 = extractvalue { i64, i64 } %57, 0
+  %59 = extractvalue { i64, i64 } %57, 1
+  %60 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %32, i64 %31, i64 %34, i64 %33) #7
+  %61 = extractvalue { i64, i64 } %60, 0
+  %62 = extractvalue { i64, i64 } %60, 1
+  %63 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %30, i64 %29, i64 %32, i64 %31) #7
+  %64 = extractvalue { i64, i64 } %63, 0
+  %65 = extractvalue { i64, i64 } %63, 1
+  %66 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %44, i64 %43, i64 %30, i64 %29) #7
+  %67 = extractvalue { i64, i64 } %66, 0
+  %68 = extractvalue { i64, i64 } %66, 1
+  %69 = xor i64 %67, %.val45
+  %70 = xor i64 %68, %.val46
+  %71 = xor i64 %55, %.val
+  %72 = xor i64 %56, %.val44
+  %73 = add nuw nsw i32 %.05.i, 1
+  %exitcond.not.i = icmp eq i32 %73, 10
+  br i1 %exitcond.not.i, label %aegis128l_init.exit.preheader, label %28, !llvm.loop !4
+
+aegis128l_init.exit.preheader:                    ; preds = %28
+  store i64 %46, ptr %27, align 16
+  store i64 %47, ptr %.sroa.4.0..sroa_idx.i, align 8
+  store i64 %49, ptr %24, align 16
+  store i64 %50, ptr %.sroa.42.0..sroa_idx.i, align 8
+  store i64 %52, ptr %21, align 16
+  store i64 %53, ptr %.sroa.44.0..sroa_idx.i, align 8
+  store i64 %71, ptr %20, align 16
+  store i64 %72, ptr %.sroa.46.0..sroa_idx.i, align 8
+  store i64 %58, ptr %19, align 16
+  store i64 %59, ptr %.sroa.632.0..sroa_idx33.i, align 8
+  store i64 %61, ptr %18, align 16
+  store i64 %62, ptr %.sroa.637.0..sroa_idx.i, align 8
+  store i64 %64, ptr %17, align 16
+  store i64 %65, ptr %.sroa.632.0..sroa_idx.i, align 8
+  store i64 %69, ptr %10, align 16
+  store i64 %70, ptr %.sroa.48.0..sroa_idx.i, align 8
   %.not97 = icmp ult i64 %6, 64
   br i1 %.not97, label %.preheader, label %aegis128l_init.exit
 
 aegis128l_init.exit..preheader_crit_edge:         ; preds = %aegis128l_init.exit
-  store i64 %137, ptr %73, align 16
+  store i64 %137, ptr %27, align 16
   store i64 %138, ptr %.sroa.4.0..sroa_idx.i, align 8
-  store i64 %140, ptr %72, align 16
+  store i64 %140, ptr %24, align 16
   store i64 %141, ptr %.sroa.42.0..sroa_idx.i, align 8
-  store i64 %143, ptr %71, align 16
+  store i64 %143, ptr %21, align 16
   store i64 %144, ptr %.sroa.44.0..sroa_idx.i, align 8
-  store i64 %162, ptr %70, align 16
+  store i64 %162, ptr %20, align 16
   store i64 %163, ptr %.sroa.46.0..sroa_idx.i, align 8
-  store i64 %149, ptr %69, align 16
+  store i64 %149, ptr %19, align 16
   store i64 %150, ptr %.sroa.632.0..sroa_idx33.i, align 8
-  store i64 %152, ptr %68, align 16
+  store i64 %152, ptr %18, align 16
   store i64 %153, ptr %.sroa.637.0..sroa_idx.i, align 8
-  store i64 %155, ptr %67, align 16
+  store i64 %155, ptr %17, align 16
   store i64 %156, ptr %.sroa.632.0..sroa_idx.i, align 8
   store i64 %160, ptr %10, align 16
   store i64 %161, ptr %.sroa.48.0..sroa_idx.i, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %aegis128l_init.exit..preheader_crit_edge, %aegis128l_init.exit.preheader
-  %.sroa.48.0..sroa_idx.i.promoted146 = phi i64 [ %161, %aegis128l_init.exit..preheader_crit_edge ], [ %63, %aegis128l_init.exit.preheader ]
-  %.promoted145 = phi i64 [ %160, %aegis128l_init.exit..preheader_crit_edge ], [ %62, %aegis128l_init.exit.preheader ]
-  %.sroa.632.0..sroa_idx.i.promoted144 = phi i64 [ %156, %aegis128l_init.exit..preheader_crit_edge ], [ %58, %aegis128l_init.exit.preheader ]
-  %.promoted143 = phi i64 [ %155, %aegis128l_init.exit..preheader_crit_edge ], [ %57, %aegis128l_init.exit.preheader ]
-  %.sroa.637.0..sroa_idx.i.promoted142 = phi i64 [ %153, %aegis128l_init.exit..preheader_crit_edge ], [ %55, %aegis128l_init.exit.preheader ]
-  %.promoted141 = phi i64 [ %152, %aegis128l_init.exit..preheader_crit_edge ], [ %54, %aegis128l_init.exit.preheader ]
-  %.sroa.632.0..sroa_idx33.i.promoted140 = phi i64 [ %150, %aegis128l_init.exit..preheader_crit_edge ], [ %52, %aegis128l_init.exit.preheader ]
-  %.promoted139 = phi i64 [ %149, %aegis128l_init.exit..preheader_crit_edge ], [ %51, %aegis128l_init.exit.preheader ]
-  %.sroa.46.0..sroa_idx.i.promoted138 = phi i64 [ %163, %aegis128l_init.exit..preheader_crit_edge ], [ %65, %aegis128l_init.exit.preheader ]
-  %.promoted137 = phi i64 [ %162, %aegis128l_init.exit..preheader_crit_edge ], [ %64, %aegis128l_init.exit.preheader ]
-  %.sroa.44.0..sroa_idx.i.promoted136 = phi i64 [ %144, %aegis128l_init.exit..preheader_crit_edge ], [ %46, %aegis128l_init.exit.preheader ]
-  %.promoted135 = phi i64 [ %143, %aegis128l_init.exit..preheader_crit_edge ], [ %45, %aegis128l_init.exit.preheader ]
-  %.sroa.42.0..sroa_idx.i.promoted134 = phi i64 [ %141, %aegis128l_init.exit..preheader_crit_edge ], [ %43, %aegis128l_init.exit.preheader ]
-  %.promoted133 = phi i64 [ %140, %aegis128l_init.exit..preheader_crit_edge ], [ %42, %aegis128l_init.exit.preheader ]
-  %.sroa.4.0..sroa_idx.i.promoted132 = phi i64 [ %138, %aegis128l_init.exit..preheader_crit_edge ], [ %40, %aegis128l_init.exit.preheader ]
-  %.promoted131 = phi i64 [ %137, %aegis128l_init.exit..preheader_crit_edge ], [ %39, %aegis128l_init.exit.preheader ]
+  %.sroa.48.0..sroa_idx.i.promoted146 = phi i64 [ %161, %aegis128l_init.exit..preheader_crit_edge ], [ %70, %aegis128l_init.exit.preheader ]
+  %.promoted145 = phi i64 [ %160, %aegis128l_init.exit..preheader_crit_edge ], [ %69, %aegis128l_init.exit.preheader ]
+  %.sroa.632.0..sroa_idx.i.promoted144 = phi i64 [ %156, %aegis128l_init.exit..preheader_crit_edge ], [ %65, %aegis128l_init.exit.preheader ]
+  %.promoted143 = phi i64 [ %155, %aegis128l_init.exit..preheader_crit_edge ], [ %64, %aegis128l_init.exit.preheader ]
+  %.sroa.637.0..sroa_idx.i.promoted142 = phi i64 [ %153, %aegis128l_init.exit..preheader_crit_edge ], [ %62, %aegis128l_init.exit.preheader ]
+  %.promoted141 = phi i64 [ %152, %aegis128l_init.exit..preheader_crit_edge ], [ %61, %aegis128l_init.exit.preheader ]
+  %.sroa.632.0..sroa_idx33.i.promoted140 = phi i64 [ %150, %aegis128l_init.exit..preheader_crit_edge ], [ %59, %aegis128l_init.exit.preheader ]
+  %.promoted139 = phi i64 [ %149, %aegis128l_init.exit..preheader_crit_edge ], [ %58, %aegis128l_init.exit.preheader ]
+  %.sroa.46.0..sroa_idx.i.promoted138 = phi i64 [ %163, %aegis128l_init.exit..preheader_crit_edge ], [ %72, %aegis128l_init.exit.preheader ]
+  %.promoted137 = phi i64 [ %162, %aegis128l_init.exit..preheader_crit_edge ], [ %71, %aegis128l_init.exit.preheader ]
+  %.sroa.44.0..sroa_idx.i.promoted136 = phi i64 [ %144, %aegis128l_init.exit..preheader_crit_edge ], [ %53, %aegis128l_init.exit.preheader ]
+  %.promoted135 = phi i64 [ %143, %aegis128l_init.exit..preheader_crit_edge ], [ %52, %aegis128l_init.exit.preheader ]
+  %.sroa.42.0..sroa_idx.i.promoted134 = phi i64 [ %141, %aegis128l_init.exit..preheader_crit_edge ], [ %50, %aegis128l_init.exit.preheader ]
+  %.promoted133 = phi i64 [ %140, %aegis128l_init.exit..preheader_crit_edge ], [ %49, %aegis128l_init.exit.preheader ]
+  %.sroa.4.0..sroa_idx.i.promoted132 = phi i64 [ %138, %aegis128l_init.exit..preheader_crit_edge ], [ %47, %aegis128l_init.exit.preheader ]
+  %.promoted131 = phi i64 [ %137, %aegis128l_init.exit..preheader_crit_edge ], [ %46, %aegis128l_init.exit.preheader ]
   %.0.lcssa = phi i64 [ %75, %aegis128l_init.exit..preheader_crit_edge ], [ 0, %aegis128l_init.exit.preheader ]
   %74 = or disjoint i64 %.0.lcssa, 32
   %.not40147 = icmp ugt i64 %74, %6
@@ -159,22 +159,22 @@ aegis128l_init.exit..preheader_crit_edge:         ; preds = %aegis128l_init.exit
 aegis128l_init.exit:                              ; preds = %aegis128l_init.exit.preheader, %aegis128l_init.exit
   %75 = phi i64 [ %164, %aegis128l_init.exit ], [ 64, %aegis128l_init.exit.preheader ]
   %.098 = phi i64 [ %75, %aegis128l_init.exit ], [ 0, %aegis128l_init.exit.preheader ]
-  %76 = phi i64 [ %137, %aegis128l_init.exit ], [ %39, %aegis128l_init.exit.preheader ]
-  %77 = phi i64 [ %138, %aegis128l_init.exit ], [ %40, %aegis128l_init.exit.preheader ]
-  %78 = phi i64 [ %140, %aegis128l_init.exit ], [ %42, %aegis128l_init.exit.preheader ]
-  %79 = phi i64 [ %141, %aegis128l_init.exit ], [ %43, %aegis128l_init.exit.preheader ]
-  %80 = phi i64 [ %143, %aegis128l_init.exit ], [ %45, %aegis128l_init.exit.preheader ]
-  %81 = phi i64 [ %144, %aegis128l_init.exit ], [ %46, %aegis128l_init.exit.preheader ]
-  %82 = phi i64 [ %162, %aegis128l_init.exit ], [ %64, %aegis128l_init.exit.preheader ]
-  %83 = phi i64 [ %163, %aegis128l_init.exit ], [ %65, %aegis128l_init.exit.preheader ]
-  %84 = phi i64 [ %149, %aegis128l_init.exit ], [ %51, %aegis128l_init.exit.preheader ]
-  %85 = phi i64 [ %150, %aegis128l_init.exit ], [ %52, %aegis128l_init.exit.preheader ]
-  %86 = phi i64 [ %152, %aegis128l_init.exit ], [ %54, %aegis128l_init.exit.preheader ]
-  %87 = phi i64 [ %153, %aegis128l_init.exit ], [ %55, %aegis128l_init.exit.preheader ]
-  %88 = phi i64 [ %155, %aegis128l_init.exit ], [ %57, %aegis128l_init.exit.preheader ]
-  %89 = phi i64 [ %156, %aegis128l_init.exit ], [ %58, %aegis128l_init.exit.preheader ]
-  %90 = phi i64 [ %160, %aegis128l_init.exit ], [ %62, %aegis128l_init.exit.preheader ]
-  %91 = phi i64 [ %161, %aegis128l_init.exit ], [ %63, %aegis128l_init.exit.preheader ]
+  %76 = phi i64 [ %137, %aegis128l_init.exit ], [ %46, %aegis128l_init.exit.preheader ]
+  %77 = phi i64 [ %138, %aegis128l_init.exit ], [ %47, %aegis128l_init.exit.preheader ]
+  %78 = phi i64 [ %140, %aegis128l_init.exit ], [ %49, %aegis128l_init.exit.preheader ]
+  %79 = phi i64 [ %141, %aegis128l_init.exit ], [ %50, %aegis128l_init.exit.preheader ]
+  %80 = phi i64 [ %143, %aegis128l_init.exit ], [ %52, %aegis128l_init.exit.preheader ]
+  %81 = phi i64 [ %144, %aegis128l_init.exit ], [ %53, %aegis128l_init.exit.preheader ]
+  %82 = phi i64 [ %162, %aegis128l_init.exit ], [ %71, %aegis128l_init.exit.preheader ]
+  %83 = phi i64 [ %163, %aegis128l_init.exit ], [ %72, %aegis128l_init.exit.preheader ]
+  %84 = phi i64 [ %149, %aegis128l_init.exit ], [ %58, %aegis128l_init.exit.preheader ]
+  %85 = phi i64 [ %150, %aegis128l_init.exit ], [ %59, %aegis128l_init.exit.preheader ]
+  %86 = phi i64 [ %152, %aegis128l_init.exit ], [ %61, %aegis128l_init.exit.preheader ]
+  %87 = phi i64 [ %153, %aegis128l_init.exit ], [ %62, %aegis128l_init.exit.preheader ]
+  %88 = phi i64 [ %155, %aegis128l_init.exit ], [ %64, %aegis128l_init.exit.preheader ]
+  %89 = phi i64 [ %156, %aegis128l_init.exit ], [ %65, %aegis128l_init.exit.preheader ]
+  %90 = phi i64 [ %160, %aegis128l_init.exit ], [ %69, %aegis128l_init.exit.preheader ]
+  %91 = phi i64 [ %161, %aegis128l_init.exit ], [ %70, %aegis128l_init.exit.preheader ]
   %92 = getelementptr i8, ptr %5, i64 %.098
   %93 = load i64, ptr %92, align 1
   %94 = getelementptr i8, ptr %92, i64 8
@@ -311,19 +311,19 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   br i1 %.not40, label %._crit_edge, label %.lr.ph149, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph149
-  store i64 %191, ptr %73, align 16
+  store i64 %191, ptr %27, align 16
   store i64 %192, ptr %.sroa.4.0..sroa_idx.i, align 8
-  store i64 %194, ptr %72, align 16
+  store i64 %194, ptr %24, align 16
   store i64 %195, ptr %.sroa.42.0..sroa_idx.i, align 8
-  store i64 %197, ptr %71, align 16
+  store i64 %197, ptr %21, align 16
   store i64 %198, ptr %.sroa.44.0..sroa_idx.i, align 8
-  store i64 %216, ptr %70, align 16
+  store i64 %216, ptr %20, align 16
   store i64 %217, ptr %.sroa.46.0..sroa_idx.i, align 8
-  store i64 %203, ptr %69, align 16
+  store i64 %203, ptr %19, align 16
   store i64 %204, ptr %.sroa.632.0..sroa_idx33.i, align 8
-  store i64 %206, ptr %68, align 16
+  store i64 %206, ptr %18, align 16
   store i64 %207, ptr %.sroa.637.0..sroa_idx.i, align 8
-  store i64 %209, ptr %67, align 16
+  store i64 %209, ptr %17, align 16
   store i64 %210, ptr %.sroa.632.0..sroa_idx.i, align 8
   store i64 %214, ptr %10, align 16
   store i64 %215, ptr %.sroa.48.0..sroa_idx.i, align 8
@@ -353,61 +353,61 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %233 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %221, i64 %220, i64 %.sroa.019.0.copyload.i56, i64 %.sroa.420.0.copyload.i58) #7
   %234 = extractvalue { i64, i64 } %233, 0
   %235 = extractvalue { i64, i64 } %233, 1
-  store i64 %234, ptr %73, align 16
+  store i64 %234, ptr %27, align 16
   store i64 %235, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %236 = load i64, ptr %71, align 16
+  %236 = load i64, ptr %21, align 16
   %237 = load i64, ptr %.sroa.44.0..sroa_idx.i, align 8
-  %238 = load i64, ptr %72, align 16
+  %238 = load i64, ptr %24, align 16
   %239 = load i64, ptr %.sroa.42.0..sroa_idx.i, align 8
   %240 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %236, i64 %237, i64 %238, i64 %239) #7
   %241 = extractvalue { i64, i64 } %240, 0
   %242 = extractvalue { i64, i64 } %240, 1
-  store i64 %241, ptr %72, align 16
+  store i64 %241, ptr %24, align 16
   store i64 %242, ptr %.sroa.42.0..sroa_idx.i, align 8
-  %243 = load i64, ptr %70, align 16
+  %243 = load i64, ptr %20, align 16
   %244 = load i64, ptr %.sroa.46.0..sroa_idx.i, align 8
-  %245 = load i64, ptr %71, align 16
+  %245 = load i64, ptr %21, align 16
   %246 = load i64, ptr %.sroa.44.0..sroa_idx.i, align 8
   %247 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %243, i64 %244, i64 %245, i64 %246) #7
   %248 = extractvalue { i64, i64 } %247, 0
   %249 = extractvalue { i64, i64 } %247, 1
-  store i64 %248, ptr %71, align 16
+  store i64 %248, ptr %21, align 16
   store i64 %249, ptr %.sroa.44.0..sroa_idx.i, align 8
-  %250 = load i64, ptr %69, align 16
+  %250 = load i64, ptr %19, align 16
   %251 = load i64, ptr %.sroa.632.0..sroa_idx33.i, align 8
-  %252 = load i64, ptr %70, align 16
+  %252 = load i64, ptr %20, align 16
   %253 = load i64, ptr %.sroa.46.0..sroa_idx.i, align 8
   %254 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %250, i64 %251, i64 %252, i64 %253) #7
   %255 = extractvalue { i64, i64 } %254, 0
   %256 = extractvalue { i64, i64 } %254, 1
-  store i64 %255, ptr %70, align 16
+  store i64 %255, ptr %20, align 16
   store i64 %256, ptr %.sroa.46.0..sroa_idx.i, align 8
-  %257 = load i64, ptr %68, align 16
+  %257 = load i64, ptr %18, align 16
   %258 = load i64, ptr %.sroa.637.0..sroa_idx.i, align 8
-  %259 = load i64, ptr %69, align 16
+  %259 = load i64, ptr %19, align 16
   %260 = load i64, ptr %.sroa.632.0..sroa_idx33.i, align 8
   %261 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %257, i64 %258, i64 %259, i64 %260) #7
   %262 = extractvalue { i64, i64 } %261, 0
   %263 = extractvalue { i64, i64 } %261, 1
-  store i64 %262, ptr %69, align 16
+  store i64 %262, ptr %19, align 16
   store i64 %263, ptr %.sroa.632.0..sroa_idx33.i, align 8
-  %264 = load i64, ptr %67, align 16
+  %264 = load i64, ptr %17, align 16
   %265 = load i64, ptr %.sroa.632.0..sroa_idx.i, align 8
-  %266 = load i64, ptr %68, align 16
+  %266 = load i64, ptr %18, align 16
   %267 = load i64, ptr %.sroa.637.0..sroa_idx.i, align 8
   %268 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %264, i64 %265, i64 %266, i64 %267) #7
   %269 = extractvalue { i64, i64 } %268, 0
   %270 = extractvalue { i64, i64 } %268, 1
-  store i64 %269, ptr %68, align 16
+  store i64 %269, ptr %18, align 16
   store i64 %270, ptr %.sroa.637.0..sroa_idx.i, align 8
   %271 = load i64, ptr %10, align 16
   %272 = load i64, ptr %.sroa.48.0..sroa_idx.i, align 8
-  %273 = load i64, ptr %67, align 16
+  %273 = load i64, ptr %17, align 16
   %274 = load i64, ptr %.sroa.632.0..sroa_idx.i, align 8
   %275 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %271, i64 %272, i64 %273, i64 %274) #7
   %276 = extractvalue { i64, i64 } %275, 0
   %277 = extractvalue { i64, i64 } %275, 1
-  store i64 %276, ptr %67, align 16
+  store i64 %276, ptr %17, align 16
   store i64 %277, ptr %.sroa.632.0..sroa_idx.i, align 8
   %278 = load i64, ptr %10, align 16
   %279 = load i64, ptr %.sroa.48.0..sroa_idx.i, align 8
@@ -418,11 +418,11 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %284 = xor i64 %282, %228
   store i64 %283, ptr %10, align 16
   store i64 %284, ptr %.sroa.48.0..sroa_idx.i, align 8
-  %285 = load i64, ptr %70, align 16
+  %285 = load i64, ptr %20, align 16
   %286 = load i64, ptr %.sroa.46.0..sroa_idx.i, align 8
   %287 = xor i64 %285, %230
   %288 = xor i64 %286, %232
-  store i64 %287, ptr %70, align 16
+  store i64 %287, ptr %20, align 16
   store i64 %288, ptr %.sroa.46.0..sroa_idx.i, align 8
   br label %289
 
@@ -483,133 +483,133 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
   %.val71 = load i64, ptr %17, align 1
   %18 = xor i64 %.val70, %.val
   %19 = xor i64 %.val71, %.val69
-  %20 = xor i64 %.val, 939006032783409408
-  %21 = xor i64 %.val69, 7095959494080274965
-  %22 = xor i64 %.val, -1067420811828642341
-  %23 = xor i64 %.val69, -2510557285622673120
-  br label %24
-
-24:                                               ; preds = %24, %9
-  %25 = phi i64 [ %19, %9 ], [ %66, %24 ]
-  %26 = phi i64 [ %18, %9 ], [ %65, %24 ]
-  %27 = phi i64 [ -2510557285622673120, %9 ], [ %61, %24 ]
-  %28 = phi i64 [ -1067420811828642341, %9 ], [ %60, %24 ]
-  %29 = phi i64 [ 7095959494080274965, %9 ], [ %58, %24 ]
-  %30 = phi i64 [ 939006032783409408, %9 ], [ %57, %24 ]
-  %31 = phi i64 [ -2510557285622673120, %9 ], [ %55, %24 ]
-  %32 = phi i64 [ -1067420811828642341, %9 ], [ %54, %24 ]
-  %33 = phi i64 [ %19, %9 ], [ %68, %24 ]
-  %34 = phi i64 [ %18, %9 ], [ %67, %24 ]
-  %35 = phi i64 [ %21, %9 ], [ %49, %24 ]
-  %36 = phi i64 [ %20, %9 ], [ %48, %24 ]
-  %37 = phi i64 [ %23, %9 ], [ %46, %24 ]
-  %38 = phi i64 [ %22, %9 ], [ %45, %24 ]
-  %39 = phi i64 [ %21, %9 ], [ %43, %24 ]
-  %40 = phi i64 [ %20, %9 ], [ %42, %24 ]
-  %.05.i = phi i32 [ 0, %9 ], [ %69, %24 ]
-  %41 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %38, i64 %37, i64 %40, i64 %39) #7
-  %42 = extractvalue { i64, i64 } %41, 0
-  %43 = extractvalue { i64, i64 } %41, 1
-  %44 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %36, i64 %35, i64 %38, i64 %37) #7
-  %45 = extractvalue { i64, i64 } %44, 0
-  %46 = extractvalue { i64, i64 } %44, 1
-  %47 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %34, i64 %33, i64 %36, i64 %35) #7
-  %48 = extractvalue { i64, i64 } %47, 0
-  %49 = extractvalue { i64, i64 } %47, 1
-  %50 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %32, i64 %31, i64 %34, i64 %33) #7
-  %51 = extractvalue { i64, i64 } %50, 0
-  %52 = extractvalue { i64, i64 } %50, 1
-  %53 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %30, i64 %29, i64 %32, i64 %31) #7
-  %54 = extractvalue { i64, i64 } %53, 0
-  %55 = extractvalue { i64, i64 } %53, 1
-  %56 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %28, i64 %27, i64 %30, i64 %29) #7
-  %57 = extractvalue { i64, i64 } %56, 0
-  %58 = extractvalue { i64, i64 } %56, 1
-  %59 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %26, i64 %25, i64 %28, i64 %27) #7
-  %60 = extractvalue { i64, i64 } %59, 0
-  %61 = extractvalue { i64, i64 } %59, 1
-  %62 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %40, i64 %39, i64 %26, i64 %25) #7
-  %63 = extractvalue { i64, i64 } %62, 0
-  %64 = extractvalue { i64, i64 } %62, 1
-  %65 = xor i64 %63, %.val70
-  %66 = xor i64 %64, %.val71
-  %67 = xor i64 %51, %.val
-  %68 = xor i64 %52, %.val69
-  %69 = add nuw nsw i32 %.05.i, 1
-  %exitcond.not.i = icmp eq i32 %69, 10
-  br i1 %exitcond.not.i, label %aegis128l_init.exit.preheader, label %24, !llvm.loop !4
-
-aegis128l_init.exit.preheader:                    ; preds = %24
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %70 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.632.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %71 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.sroa.637.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %72 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %.sroa.632.0..sroa_idx33.i = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %73 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %74 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %25 = xor i64 %.val, 939006032783409408
+  %26 = xor i64 %.val69, 7095959494080274965
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 88
-  %75 = getelementptr inbounds nuw i8, ptr %12, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 96
+  %28 = xor i64 %.val, -1067420811828642341
+  %29 = xor i64 %.val69, -2510557285622673120
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 104
-  %76 = getelementptr inbounds nuw i8, ptr %12, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 120
-  store i64 %42, ptr %76, align 16
-  store i64 %43, ptr %.sroa.4.0..sroa_idx.i, align 8
-  store i64 %45, ptr %75, align 16
-  store i64 %46, ptr %.sroa.42.0..sroa_idx.i, align 8
-  store i64 %48, ptr %74, align 16
-  store i64 %49, ptr %.sroa.44.0..sroa_idx.i, align 8
-  store i64 %67, ptr %73, align 16
-  store i64 %68, ptr %.sroa.46.0..sroa_idx.i, align 8
-  store i64 %54, ptr %72, align 16
-  store i64 %55, ptr %.sroa.632.0..sroa_idx33.i, align 8
-  store i64 %57, ptr %71, align 16
-  store i64 %58, ptr %.sroa.637.0..sroa_idx.i, align 8
-  store i64 %60, ptr %70, align 16
-  store i64 %61, ptr %.sroa.632.0..sroa_idx.i, align 8
-  store i64 %65, ptr %12, align 16
-  store i64 %66, ptr %.sroa.48.0..sroa_idx.i, align 8
+  br label %31
+
+31:                                               ; preds = %31, %9
+  %32 = phi i64 [ %19, %9 ], [ %73, %31 ]
+  %33 = phi i64 [ %18, %9 ], [ %72, %31 ]
+  %34 = phi i64 [ -2510557285622673120, %9 ], [ %68, %31 ]
+  %35 = phi i64 [ -1067420811828642341, %9 ], [ %67, %31 ]
+  %36 = phi i64 [ 7095959494080274965, %9 ], [ %65, %31 ]
+  %37 = phi i64 [ 939006032783409408, %9 ], [ %64, %31 ]
+  %38 = phi i64 [ -2510557285622673120, %9 ], [ %62, %31 ]
+  %39 = phi i64 [ -1067420811828642341, %9 ], [ %61, %31 ]
+  %40 = phi i64 [ %19, %9 ], [ %75, %31 ]
+  %41 = phi i64 [ %18, %9 ], [ %74, %31 ]
+  %42 = phi i64 [ %26, %9 ], [ %56, %31 ]
+  %43 = phi i64 [ %25, %9 ], [ %55, %31 ]
+  %44 = phi i64 [ %29, %9 ], [ %53, %31 ]
+  %45 = phi i64 [ %28, %9 ], [ %52, %31 ]
+  %46 = phi i64 [ %26, %9 ], [ %50, %31 ]
+  %47 = phi i64 [ %25, %9 ], [ %49, %31 ]
+  %.05.i = phi i32 [ 0, %9 ], [ %76, %31 ]
+  %48 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %45, i64 %44, i64 %47, i64 %46) #7
+  %49 = extractvalue { i64, i64 } %48, 0
+  %50 = extractvalue { i64, i64 } %48, 1
+  %51 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %43, i64 %42, i64 %45, i64 %44) #7
+  %52 = extractvalue { i64, i64 } %51, 0
+  %53 = extractvalue { i64, i64 } %51, 1
+  %54 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %41, i64 %40, i64 %43, i64 %42) #7
+  %55 = extractvalue { i64, i64 } %54, 0
+  %56 = extractvalue { i64, i64 } %54, 1
+  %57 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %39, i64 %38, i64 %41, i64 %40) #7
+  %58 = extractvalue { i64, i64 } %57, 0
+  %59 = extractvalue { i64, i64 } %57, 1
+  %60 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %37, i64 %36, i64 %39, i64 %38) #7
+  %61 = extractvalue { i64, i64 } %60, 0
+  %62 = extractvalue { i64, i64 } %60, 1
+  %63 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %35, i64 %34, i64 %37, i64 %36) #7
+  %64 = extractvalue { i64, i64 } %63, 0
+  %65 = extractvalue { i64, i64 } %63, 1
+  %66 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %33, i64 %32, i64 %35, i64 %34) #7
+  %67 = extractvalue { i64, i64 } %66, 0
+  %68 = extractvalue { i64, i64 } %66, 1
+  %69 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %47, i64 %46, i64 %33, i64 %32) #7
+  %70 = extractvalue { i64, i64 } %69, 0
+  %71 = extractvalue { i64, i64 } %69, 1
+  %72 = xor i64 %70, %.val70
+  %73 = xor i64 %71, %.val71
+  %74 = xor i64 %58, %.val
+  %75 = xor i64 %59, %.val69
+  %76 = add nuw nsw i32 %.05.i, 1
+  %exitcond.not.i = icmp eq i32 %76, 10
+  br i1 %exitcond.not.i, label %aegis128l_init.exit.preheader, label %31, !llvm.loop !4
+
+aegis128l_init.exit.preheader:                    ; preds = %31
+  store i64 %49, ptr %30, align 16
+  store i64 %50, ptr %.sroa.4.0..sroa_idx.i, align 8
+  store i64 %52, ptr %27, align 16
+  store i64 %53, ptr %.sroa.42.0..sroa_idx.i, align 8
+  store i64 %55, ptr %24, align 16
+  store i64 %56, ptr %.sroa.44.0..sroa_idx.i, align 8
+  store i64 %74, ptr %23, align 16
+  store i64 %75, ptr %.sroa.46.0..sroa_idx.i, align 8
+  store i64 %61, ptr %22, align 16
+  store i64 %62, ptr %.sroa.632.0..sroa_idx33.i, align 8
+  store i64 %64, ptr %21, align 16
+  store i64 %65, ptr %.sroa.637.0..sroa_idx.i, align 8
+  store i64 %67, ptr %20, align 16
+  store i64 %68, ptr %.sroa.632.0..sroa_idx.i, align 8
+  store i64 %72, ptr %12, align 16
+  store i64 %73, ptr %.sroa.48.0..sroa_idx.i, align 8
   %.not131 = icmp ult i64 %6, 64
   br i1 %.not131, label %.preheader92, label %aegis128l_init.exit
 
 aegis128l_init.exit..preheader92_crit_edge:       ; preds = %aegis128l_init.exit
-  store i64 %140, ptr %76, align 16
+  store i64 %140, ptr %30, align 16
   store i64 %141, ptr %.sroa.4.0..sroa_idx.i, align 8
-  store i64 %143, ptr %75, align 16
+  store i64 %143, ptr %27, align 16
   store i64 %144, ptr %.sroa.42.0..sroa_idx.i, align 8
-  store i64 %146, ptr %74, align 16
+  store i64 %146, ptr %24, align 16
   store i64 %147, ptr %.sroa.44.0..sroa_idx.i, align 8
-  store i64 %165, ptr %73, align 16
+  store i64 %165, ptr %23, align 16
   store i64 %166, ptr %.sroa.46.0..sroa_idx.i, align 8
-  store i64 %152, ptr %72, align 16
+  store i64 %152, ptr %22, align 16
   store i64 %153, ptr %.sroa.632.0..sroa_idx33.i, align 8
-  store i64 %155, ptr %71, align 16
+  store i64 %155, ptr %21, align 16
   store i64 %156, ptr %.sroa.637.0..sroa_idx.i, align 8
-  store i64 %158, ptr %70, align 16
+  store i64 %158, ptr %20, align 16
   store i64 %159, ptr %.sroa.632.0..sroa_idx.i, align 8
   store i64 %163, ptr %12, align 16
   store i64 %164, ptr %.sroa.48.0..sroa_idx.i, align 8
   br label %.preheader92
 
 .preheader92:                                     ; preds = %aegis128l_init.exit..preheader92_crit_edge, %aegis128l_init.exit.preheader
-  %.sroa.48.0..sroa_idx.i.promoted180 = phi i64 [ %164, %aegis128l_init.exit..preheader92_crit_edge ], [ %66, %aegis128l_init.exit.preheader ]
-  %.promoted179 = phi i64 [ %163, %aegis128l_init.exit..preheader92_crit_edge ], [ %65, %aegis128l_init.exit.preheader ]
-  %.sroa.632.0..sroa_idx.i.promoted178 = phi i64 [ %159, %aegis128l_init.exit..preheader92_crit_edge ], [ %61, %aegis128l_init.exit.preheader ]
-  %.promoted177 = phi i64 [ %158, %aegis128l_init.exit..preheader92_crit_edge ], [ %60, %aegis128l_init.exit.preheader ]
-  %.sroa.637.0..sroa_idx.i.promoted176 = phi i64 [ %156, %aegis128l_init.exit..preheader92_crit_edge ], [ %58, %aegis128l_init.exit.preheader ]
-  %.promoted175 = phi i64 [ %155, %aegis128l_init.exit..preheader92_crit_edge ], [ %57, %aegis128l_init.exit.preheader ]
-  %.sroa.632.0..sroa_idx33.i.promoted174 = phi i64 [ %153, %aegis128l_init.exit..preheader92_crit_edge ], [ %55, %aegis128l_init.exit.preheader ]
-  %.promoted173 = phi i64 [ %152, %aegis128l_init.exit..preheader92_crit_edge ], [ %54, %aegis128l_init.exit.preheader ]
-  %.sroa.46.0..sroa_idx.i.promoted172 = phi i64 [ %166, %aegis128l_init.exit..preheader92_crit_edge ], [ %68, %aegis128l_init.exit.preheader ]
-  %.promoted171 = phi i64 [ %165, %aegis128l_init.exit..preheader92_crit_edge ], [ %67, %aegis128l_init.exit.preheader ]
-  %.sroa.44.0..sroa_idx.i.promoted170 = phi i64 [ %147, %aegis128l_init.exit..preheader92_crit_edge ], [ %49, %aegis128l_init.exit.preheader ]
-  %.promoted169 = phi i64 [ %146, %aegis128l_init.exit..preheader92_crit_edge ], [ %48, %aegis128l_init.exit.preheader ]
-  %.sroa.42.0..sroa_idx.i.promoted168 = phi i64 [ %144, %aegis128l_init.exit..preheader92_crit_edge ], [ %46, %aegis128l_init.exit.preheader ]
-  %.promoted167 = phi i64 [ %143, %aegis128l_init.exit..preheader92_crit_edge ], [ %45, %aegis128l_init.exit.preheader ]
-  %.sroa.4.0..sroa_idx.i.promoted166 = phi i64 [ %141, %aegis128l_init.exit..preheader92_crit_edge ], [ %43, %aegis128l_init.exit.preheader ]
-  %.promoted165 = phi i64 [ %140, %aegis128l_init.exit..preheader92_crit_edge ], [ %42, %aegis128l_init.exit.preheader ]
+  %.sroa.48.0..sroa_idx.i.promoted180 = phi i64 [ %164, %aegis128l_init.exit..preheader92_crit_edge ], [ %73, %aegis128l_init.exit.preheader ]
+  %.promoted179 = phi i64 [ %163, %aegis128l_init.exit..preheader92_crit_edge ], [ %72, %aegis128l_init.exit.preheader ]
+  %.sroa.632.0..sroa_idx.i.promoted178 = phi i64 [ %159, %aegis128l_init.exit..preheader92_crit_edge ], [ %68, %aegis128l_init.exit.preheader ]
+  %.promoted177 = phi i64 [ %158, %aegis128l_init.exit..preheader92_crit_edge ], [ %67, %aegis128l_init.exit.preheader ]
+  %.sroa.637.0..sroa_idx.i.promoted176 = phi i64 [ %156, %aegis128l_init.exit..preheader92_crit_edge ], [ %65, %aegis128l_init.exit.preheader ]
+  %.promoted175 = phi i64 [ %155, %aegis128l_init.exit..preheader92_crit_edge ], [ %64, %aegis128l_init.exit.preheader ]
+  %.sroa.632.0..sroa_idx33.i.promoted174 = phi i64 [ %153, %aegis128l_init.exit..preheader92_crit_edge ], [ %62, %aegis128l_init.exit.preheader ]
+  %.promoted173 = phi i64 [ %152, %aegis128l_init.exit..preheader92_crit_edge ], [ %61, %aegis128l_init.exit.preheader ]
+  %.sroa.46.0..sroa_idx.i.promoted172 = phi i64 [ %166, %aegis128l_init.exit..preheader92_crit_edge ], [ %75, %aegis128l_init.exit.preheader ]
+  %.promoted171 = phi i64 [ %165, %aegis128l_init.exit..preheader92_crit_edge ], [ %74, %aegis128l_init.exit.preheader ]
+  %.sroa.44.0..sroa_idx.i.promoted170 = phi i64 [ %147, %aegis128l_init.exit..preheader92_crit_edge ], [ %56, %aegis128l_init.exit.preheader ]
+  %.promoted169 = phi i64 [ %146, %aegis128l_init.exit..preheader92_crit_edge ], [ %55, %aegis128l_init.exit.preheader ]
+  %.sroa.42.0..sroa_idx.i.promoted168 = phi i64 [ %144, %aegis128l_init.exit..preheader92_crit_edge ], [ %53, %aegis128l_init.exit.preheader ]
+  %.promoted167 = phi i64 [ %143, %aegis128l_init.exit..preheader92_crit_edge ], [ %52, %aegis128l_init.exit.preheader ]
+  %.sroa.4.0..sroa_idx.i.promoted166 = phi i64 [ %141, %aegis128l_init.exit..preheader92_crit_edge ], [ %50, %aegis128l_init.exit.preheader ]
+  %.promoted165 = phi i64 [ %140, %aegis128l_init.exit..preheader92_crit_edge ], [ %49, %aegis128l_init.exit.preheader ]
   %.052.lcssa = phi i64 [ %78, %aegis128l_init.exit..preheader92_crit_edge ], [ 0, %aegis128l_init.exit.preheader ]
   %77 = or disjoint i64 %.052.lcssa, 32
   %.not64181 = icmp ugt i64 %77, %6
@@ -618,22 +618,22 @@ aegis128l_init.exit..preheader92_crit_edge:       ; preds = %aegis128l_init.exit
 aegis128l_init.exit:                              ; preds = %aegis128l_init.exit.preheader, %aegis128l_init.exit
   %78 = phi i64 [ %167, %aegis128l_init.exit ], [ 64, %aegis128l_init.exit.preheader ]
   %.052132 = phi i64 [ %78, %aegis128l_init.exit ], [ 0, %aegis128l_init.exit.preheader ]
-  %79 = phi i64 [ %140, %aegis128l_init.exit ], [ %42, %aegis128l_init.exit.preheader ]
-  %80 = phi i64 [ %141, %aegis128l_init.exit ], [ %43, %aegis128l_init.exit.preheader ]
-  %81 = phi i64 [ %143, %aegis128l_init.exit ], [ %45, %aegis128l_init.exit.preheader ]
-  %82 = phi i64 [ %144, %aegis128l_init.exit ], [ %46, %aegis128l_init.exit.preheader ]
-  %83 = phi i64 [ %146, %aegis128l_init.exit ], [ %48, %aegis128l_init.exit.preheader ]
-  %84 = phi i64 [ %147, %aegis128l_init.exit ], [ %49, %aegis128l_init.exit.preheader ]
-  %85 = phi i64 [ %165, %aegis128l_init.exit ], [ %67, %aegis128l_init.exit.preheader ]
-  %86 = phi i64 [ %166, %aegis128l_init.exit ], [ %68, %aegis128l_init.exit.preheader ]
-  %87 = phi i64 [ %152, %aegis128l_init.exit ], [ %54, %aegis128l_init.exit.preheader ]
-  %88 = phi i64 [ %153, %aegis128l_init.exit ], [ %55, %aegis128l_init.exit.preheader ]
-  %89 = phi i64 [ %155, %aegis128l_init.exit ], [ %57, %aegis128l_init.exit.preheader ]
-  %90 = phi i64 [ %156, %aegis128l_init.exit ], [ %58, %aegis128l_init.exit.preheader ]
-  %91 = phi i64 [ %158, %aegis128l_init.exit ], [ %60, %aegis128l_init.exit.preheader ]
-  %92 = phi i64 [ %159, %aegis128l_init.exit ], [ %61, %aegis128l_init.exit.preheader ]
-  %93 = phi i64 [ %163, %aegis128l_init.exit ], [ %65, %aegis128l_init.exit.preheader ]
-  %94 = phi i64 [ %164, %aegis128l_init.exit ], [ %66, %aegis128l_init.exit.preheader ]
+  %79 = phi i64 [ %140, %aegis128l_init.exit ], [ %49, %aegis128l_init.exit.preheader ]
+  %80 = phi i64 [ %141, %aegis128l_init.exit ], [ %50, %aegis128l_init.exit.preheader ]
+  %81 = phi i64 [ %143, %aegis128l_init.exit ], [ %52, %aegis128l_init.exit.preheader ]
+  %82 = phi i64 [ %144, %aegis128l_init.exit ], [ %53, %aegis128l_init.exit.preheader ]
+  %83 = phi i64 [ %146, %aegis128l_init.exit ], [ %55, %aegis128l_init.exit.preheader ]
+  %84 = phi i64 [ %147, %aegis128l_init.exit ], [ %56, %aegis128l_init.exit.preheader ]
+  %85 = phi i64 [ %165, %aegis128l_init.exit ], [ %74, %aegis128l_init.exit.preheader ]
+  %86 = phi i64 [ %166, %aegis128l_init.exit ], [ %75, %aegis128l_init.exit.preheader ]
+  %87 = phi i64 [ %152, %aegis128l_init.exit ], [ %61, %aegis128l_init.exit.preheader ]
+  %88 = phi i64 [ %153, %aegis128l_init.exit ], [ %62, %aegis128l_init.exit.preheader ]
+  %89 = phi i64 [ %155, %aegis128l_init.exit ], [ %64, %aegis128l_init.exit.preheader ]
+  %90 = phi i64 [ %156, %aegis128l_init.exit ], [ %65, %aegis128l_init.exit.preheader ]
+  %91 = phi i64 [ %158, %aegis128l_init.exit ], [ %67, %aegis128l_init.exit.preheader ]
+  %92 = phi i64 [ %159, %aegis128l_init.exit ], [ %68, %aegis128l_init.exit.preheader ]
+  %93 = phi i64 [ %163, %aegis128l_init.exit ], [ %72, %aegis128l_init.exit.preheader ]
+  %94 = phi i64 [ %164, %aegis128l_init.exit ], [ %73, %aegis128l_init.exit.preheader ]
   %95 = getelementptr i8, ptr %5, i64 %.052132
   %96 = load i64, ptr %95, align 1
   %97 = getelementptr i8, ptr %95, i64 8
@@ -770,19 +770,19 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   br i1 %.not64, label %._crit_edge, label %.lr.ph183, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph183
-  store i64 %194, ptr %76, align 16
+  store i64 %194, ptr %30, align 16
   store i64 %195, ptr %.sroa.4.0..sroa_idx.i, align 8
-  store i64 %197, ptr %75, align 16
+  store i64 %197, ptr %27, align 16
   store i64 %198, ptr %.sroa.42.0..sroa_idx.i, align 8
-  store i64 %200, ptr %74, align 16
+  store i64 %200, ptr %24, align 16
   store i64 %201, ptr %.sroa.44.0..sroa_idx.i, align 8
-  store i64 %219, ptr %73, align 16
+  store i64 %219, ptr %23, align 16
   store i64 %220, ptr %.sroa.46.0..sroa_idx.i, align 8
-  store i64 %206, ptr %72, align 16
+  store i64 %206, ptr %22, align 16
   store i64 %207, ptr %.sroa.632.0..sroa_idx33.i, align 8
-  store i64 %209, ptr %71, align 16
+  store i64 %209, ptr %21, align 16
   store i64 %210, ptr %.sroa.637.0..sroa_idx.i, align 8
-  store i64 %212, ptr %70, align 16
+  store i64 %212, ptr %20, align 16
   store i64 %213, ptr %.sroa.632.0..sroa_idx.i, align 8
   store i64 %217, ptr %12, align 16
   store i64 %218, ptr %.sroa.48.0..sroa_idx.i, align 8
@@ -812,61 +812,61 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %236 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %224, i64 %223, i64 %.sroa.019.0.copyload.i81, i64 %.sroa.420.0.copyload.i83) #7
   %237 = extractvalue { i64, i64 } %236, 0
   %238 = extractvalue { i64, i64 } %236, 1
-  store i64 %237, ptr %76, align 16
+  store i64 %237, ptr %30, align 16
   store i64 %238, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %239 = load i64, ptr %74, align 16
+  %239 = load i64, ptr %24, align 16
   %240 = load i64, ptr %.sroa.44.0..sroa_idx.i, align 8
-  %241 = load i64, ptr %75, align 16
+  %241 = load i64, ptr %27, align 16
   %242 = load i64, ptr %.sroa.42.0..sroa_idx.i, align 8
   %243 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %239, i64 %240, i64 %241, i64 %242) #7
   %244 = extractvalue { i64, i64 } %243, 0
   %245 = extractvalue { i64, i64 } %243, 1
-  store i64 %244, ptr %75, align 16
+  store i64 %244, ptr %27, align 16
   store i64 %245, ptr %.sroa.42.0..sroa_idx.i, align 8
-  %246 = load i64, ptr %73, align 16
+  %246 = load i64, ptr %23, align 16
   %247 = load i64, ptr %.sroa.46.0..sroa_idx.i, align 8
-  %248 = load i64, ptr %74, align 16
+  %248 = load i64, ptr %24, align 16
   %249 = load i64, ptr %.sroa.44.0..sroa_idx.i, align 8
   %250 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %246, i64 %247, i64 %248, i64 %249) #7
   %251 = extractvalue { i64, i64 } %250, 0
   %252 = extractvalue { i64, i64 } %250, 1
-  store i64 %251, ptr %74, align 16
+  store i64 %251, ptr %24, align 16
   store i64 %252, ptr %.sroa.44.0..sroa_idx.i, align 8
-  %253 = load i64, ptr %72, align 16
+  %253 = load i64, ptr %22, align 16
   %254 = load i64, ptr %.sroa.632.0..sroa_idx33.i, align 8
-  %255 = load i64, ptr %73, align 16
+  %255 = load i64, ptr %23, align 16
   %256 = load i64, ptr %.sroa.46.0..sroa_idx.i, align 8
   %257 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %253, i64 %254, i64 %255, i64 %256) #7
   %258 = extractvalue { i64, i64 } %257, 0
   %259 = extractvalue { i64, i64 } %257, 1
-  store i64 %258, ptr %73, align 16
+  store i64 %258, ptr %23, align 16
   store i64 %259, ptr %.sroa.46.0..sroa_idx.i, align 8
-  %260 = load i64, ptr %71, align 16
+  %260 = load i64, ptr %21, align 16
   %261 = load i64, ptr %.sroa.637.0..sroa_idx.i, align 8
-  %262 = load i64, ptr %72, align 16
+  %262 = load i64, ptr %22, align 16
   %263 = load i64, ptr %.sroa.632.0..sroa_idx33.i, align 8
   %264 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %260, i64 %261, i64 %262, i64 %263) #7
   %265 = extractvalue { i64, i64 } %264, 0
   %266 = extractvalue { i64, i64 } %264, 1
-  store i64 %265, ptr %72, align 16
+  store i64 %265, ptr %22, align 16
   store i64 %266, ptr %.sroa.632.0..sroa_idx33.i, align 8
-  %267 = load i64, ptr %70, align 16
+  %267 = load i64, ptr %20, align 16
   %268 = load i64, ptr %.sroa.632.0..sroa_idx.i, align 8
-  %269 = load i64, ptr %71, align 16
+  %269 = load i64, ptr %21, align 16
   %270 = load i64, ptr %.sroa.637.0..sroa_idx.i, align 8
   %271 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %267, i64 %268, i64 %269, i64 %270) #7
   %272 = extractvalue { i64, i64 } %271, 0
   %273 = extractvalue { i64, i64 } %271, 1
-  store i64 %272, ptr %71, align 16
+  store i64 %272, ptr %21, align 16
   store i64 %273, ptr %.sroa.637.0..sroa_idx.i, align 8
   %274 = load i64, ptr %12, align 16
   %275 = load i64, ptr %.sroa.48.0..sroa_idx.i, align 8
-  %276 = load i64, ptr %70, align 16
+  %276 = load i64, ptr %20, align 16
   %277 = load i64, ptr %.sroa.632.0..sroa_idx.i, align 8
   %278 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %274, i64 %275, i64 %276, i64 %277) #7
   %279 = extractvalue { i64, i64 } %278, 0
   %280 = extractvalue { i64, i64 } %278, 1
-  store i64 %279, ptr %70, align 16
+  store i64 %279, ptr %20, align 16
   store i64 %280, ptr %.sroa.632.0..sroa_idx.i, align 8
   %281 = load i64, ptr %12, align 16
   %282 = load i64, ptr %.sroa.48.0..sroa_idx.i, align 8
@@ -877,11 +877,11 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %287 = xor i64 %285, %231
   store i64 %286, ptr %12, align 16
   store i64 %287, ptr %.sroa.48.0..sroa_idx.i, align 8
-  %288 = load i64, ptr %73, align 16
+  %288 = load i64, ptr %23, align 16
   %289 = load i64, ptr %.sroa.46.0..sroa_idx.i, align 8
   %290 = xor i64 %288, %233
   %291 = xor i64 %289, %235
-  store i64 %290, ptr %73, align 16
+  store i64 %290, ptr %23, align 16
   store i64 %291, ptr %.sroa.46.0..sroa_idx.i, align 8
   br label %292
 
@@ -937,17 +937,17 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %311 = load i64, ptr %310, align 16
   %312 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %313 = load i64, ptr %312, align 8
-  %314 = load i64, ptr %75, align 16
+  %314 = load i64, ptr %27, align 16
   %315 = load i64, ptr %.sroa.42.0..sroa_idx.i, align 8
-  %316 = load i64, ptr %70, align 16
+  %316 = load i64, ptr %20, align 16
   %317 = load i64, ptr %.sroa.632.0..sroa_idx.i, align 8
-  %318 = load i64, ptr %74, align 16
+  %318 = load i64, ptr %24, align 16
   %319 = load i64, ptr %.sroa.44.0..sroa_idx.i, align 8
   %320 = xor i64 %318, %311
   %321 = xor i64 %319, %313
-  %322 = load i64, ptr %71, align 16
+  %322 = load i64, ptr %21, align 16
   %323 = load i64, ptr %.sroa.637.0..sroa_idx.i, align 8
-  %324 = load i64, ptr %72, align 16
+  %324 = load i64, ptr %22, align 16
   %325 = load i64, ptr %.sroa.632.0..sroa_idx33.i, align 8
   %326 = and i64 %324, %322
   %327 = and i64 %325, %323
@@ -957,7 +957,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %331 = xor i64 %309, %317
   %332 = xor i64 %331, %327
   %333 = xor i64 %332, %315
-  %334 = load i64, ptr %76, align 16
+  %334 = load i64, ptr %30, align 16
   %335 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8
   %336 = and i64 %334, %314
   %337 = and i64 %335, %315
@@ -980,61 +980,61 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %348 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %314, i64 %315, i64 %334, i64 %335) #7
   %349 = extractvalue { i64, i64 } %348, 0
   %350 = extractvalue { i64, i64 } %348, 1
-  store i64 %349, ptr %76, align 16
+  store i64 %349, ptr %30, align 16
   store i64 %350, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %351 = load i64, ptr %74, align 16
+  %351 = load i64, ptr %24, align 16
   %352 = load i64, ptr %.sroa.44.0..sroa_idx.i, align 8
-  %353 = load i64, ptr %75, align 16
+  %353 = load i64, ptr %27, align 16
   %354 = load i64, ptr %.sroa.42.0..sroa_idx.i, align 8
   %355 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %351, i64 %352, i64 %353, i64 %354) #7
   %356 = extractvalue { i64, i64 } %355, 0
   %357 = extractvalue { i64, i64 } %355, 1
-  store i64 %356, ptr %75, align 16
+  store i64 %356, ptr %27, align 16
   store i64 %357, ptr %.sroa.42.0..sroa_idx.i, align 8
-  %358 = load i64, ptr %73, align 16
+  %358 = load i64, ptr %23, align 16
   %359 = load i64, ptr %.sroa.46.0..sroa_idx.i, align 8
-  %360 = load i64, ptr %74, align 16
+  %360 = load i64, ptr %24, align 16
   %361 = load i64, ptr %.sroa.44.0..sroa_idx.i, align 8
   %362 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %358, i64 %359, i64 %360, i64 %361) #7
   %363 = extractvalue { i64, i64 } %362, 0
   %364 = extractvalue { i64, i64 } %362, 1
-  store i64 %363, ptr %74, align 16
+  store i64 %363, ptr %24, align 16
   store i64 %364, ptr %.sroa.44.0..sroa_idx.i, align 8
-  %365 = load i64, ptr %72, align 16
+  %365 = load i64, ptr %22, align 16
   %366 = load i64, ptr %.sroa.632.0..sroa_idx33.i, align 8
-  %367 = load i64, ptr %73, align 16
+  %367 = load i64, ptr %23, align 16
   %368 = load i64, ptr %.sroa.46.0..sroa_idx.i, align 8
   %369 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %365, i64 %366, i64 %367, i64 %368) #7
   %370 = extractvalue { i64, i64 } %369, 0
   %371 = extractvalue { i64, i64 } %369, 1
-  store i64 %370, ptr %73, align 16
+  store i64 %370, ptr %23, align 16
   store i64 %371, ptr %.sroa.46.0..sroa_idx.i, align 8
-  %372 = load i64, ptr %71, align 16
+  %372 = load i64, ptr %21, align 16
   %373 = load i64, ptr %.sroa.637.0..sroa_idx.i, align 8
-  %374 = load i64, ptr %72, align 16
+  %374 = load i64, ptr %22, align 16
   %375 = load i64, ptr %.sroa.632.0..sroa_idx33.i, align 8
   %376 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %372, i64 %373, i64 %374, i64 %375) #7
   %377 = extractvalue { i64, i64 } %376, 0
   %378 = extractvalue { i64, i64 } %376, 1
-  store i64 %377, ptr %72, align 16
+  store i64 %377, ptr %22, align 16
   store i64 %378, ptr %.sroa.632.0..sroa_idx33.i, align 8
-  %379 = load i64, ptr %70, align 16
+  %379 = load i64, ptr %20, align 16
   %380 = load i64, ptr %.sroa.632.0..sroa_idx.i, align 8
-  %381 = load i64, ptr %71, align 16
+  %381 = load i64, ptr %21, align 16
   %382 = load i64, ptr %.sroa.637.0..sroa_idx.i, align 8
   %383 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %379, i64 %380, i64 %381, i64 %382) #7
   %384 = extractvalue { i64, i64 } %383, 0
   %385 = extractvalue { i64, i64 } %383, 1
-  store i64 %384, ptr %71, align 16
+  store i64 %384, ptr %21, align 16
   store i64 %385, ptr %.sroa.637.0..sroa_idx.i, align 8
   %386 = load i64, ptr %12, align 16
   %387 = load i64, ptr %.sroa.48.0..sroa_idx.i, align 8
-  %388 = load i64, ptr %70, align 16
+  %388 = load i64, ptr %20, align 16
   %389 = load i64, ptr %.sroa.632.0..sroa_idx.i, align 8
   %390 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %386, i64 %387, i64 %388, i64 %389) #7
   %391 = extractvalue { i64, i64 } %390, 0
   %392 = extractvalue { i64, i64 } %390, 1
-  store i64 %391, ptr %70, align 16
+  store i64 %391, ptr %20, align 16
   store i64 %392, ptr %.sroa.632.0..sroa_idx.i, align 8
   %393 = load i64, ptr %12, align 16
   %394 = load i64, ptr %.sroa.48.0..sroa_idx.i, align 8
@@ -1045,11 +1045,11 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %399 = xor i64 %397, %345
   store i64 %398, ptr %12, align 16
   store i64 %399, ptr %.sroa.48.0..sroa_idx.i, align 8
-  %400 = load i64, ptr %73, align 16
+  %400 = load i64, ptr %23, align 16
   %401 = load i64, ptr %.sroa.46.0..sroa_idx.i, align 8
   %402 = xor i64 %400, %346
   %403 = xor i64 %401, %347
-  store i64 %402, ptr %73, align 16
+  store i64 %402, ptr %23, align 16
   store i64 %403, ptr %.sroa.46.0..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %505
@@ -1066,17 +1066,17 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %411 = load i64, ptr %410, align 16
   %412 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %413 = load i64, ptr %412, align 8
-  %414 = load i64, ptr %75, align 16
+  %414 = load i64, ptr %27, align 16
   %415 = load i64, ptr %.sroa.42.0..sroa_idx.i, align 8
-  %416 = load i64, ptr %70, align 16
+  %416 = load i64, ptr %20, align 16
   %417 = load i64, ptr %.sroa.632.0..sroa_idx.i, align 8
-  %418 = load i64, ptr %74, align 16
+  %418 = load i64, ptr %24, align 16
   %419 = load i64, ptr %.sroa.44.0..sroa_idx.i, align 8
   %420 = xor i64 %418, %411
   %421 = xor i64 %419, %413
-  %422 = load i64, ptr %71, align 16
+  %422 = load i64, ptr %21, align 16
   %423 = load i64, ptr %.sroa.637.0..sroa_idx.i, align 8
-  %424 = load i64, ptr %72, align 16
+  %424 = load i64, ptr %22, align 16
   %425 = load i64, ptr %.sroa.632.0..sroa_idx33.i, align 8
   %426 = and i64 %424, %422
   %427 = and i64 %425, %423
@@ -1086,7 +1086,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %431 = xor i64 %409, %417
   %432 = xor i64 %431, %427
   %433 = xor i64 %432, %415
-  %434 = load i64, ptr %76, align 16
+  %434 = load i64, ptr %30, align 16
   %435 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8
   %436 = and i64 %434, %414
   %437 = and i64 %435, %415
@@ -1109,61 +1109,61 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %449 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %414, i64 %415, i64 %434, i64 %435) #7
   %450 = extractvalue { i64, i64 } %449, 0
   %451 = extractvalue { i64, i64 } %449, 1
-  store i64 %450, ptr %76, align 16
+  store i64 %450, ptr %30, align 16
   store i64 %451, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %452 = load i64, ptr %74, align 16
+  %452 = load i64, ptr %24, align 16
   %453 = load i64, ptr %.sroa.44.0..sroa_idx.i, align 8
-  %454 = load i64, ptr %75, align 16
+  %454 = load i64, ptr %27, align 16
   %455 = load i64, ptr %.sroa.42.0..sroa_idx.i, align 8
   %456 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %452, i64 %453, i64 %454, i64 %455) #7
   %457 = extractvalue { i64, i64 } %456, 0
   %458 = extractvalue { i64, i64 } %456, 1
-  store i64 %457, ptr %75, align 16
+  store i64 %457, ptr %27, align 16
   store i64 %458, ptr %.sroa.42.0..sroa_idx.i, align 8
-  %459 = load i64, ptr %73, align 16
+  %459 = load i64, ptr %23, align 16
   %460 = load i64, ptr %.sroa.46.0..sroa_idx.i, align 8
-  %461 = load i64, ptr %74, align 16
+  %461 = load i64, ptr %24, align 16
   %462 = load i64, ptr %.sroa.44.0..sroa_idx.i, align 8
   %463 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %459, i64 %460, i64 %461, i64 %462) #7
   %464 = extractvalue { i64, i64 } %463, 0
   %465 = extractvalue { i64, i64 } %463, 1
-  store i64 %464, ptr %74, align 16
+  store i64 %464, ptr %24, align 16
   store i64 %465, ptr %.sroa.44.0..sroa_idx.i, align 8
-  %466 = load i64, ptr %72, align 16
+  %466 = load i64, ptr %22, align 16
   %467 = load i64, ptr %.sroa.632.0..sroa_idx33.i, align 8
-  %468 = load i64, ptr %73, align 16
+  %468 = load i64, ptr %23, align 16
   %469 = load i64, ptr %.sroa.46.0..sroa_idx.i, align 8
   %470 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %466, i64 %467, i64 %468, i64 %469) #7
   %471 = extractvalue { i64, i64 } %470, 0
   %472 = extractvalue { i64, i64 } %470, 1
-  store i64 %471, ptr %73, align 16
+  store i64 %471, ptr %23, align 16
   store i64 %472, ptr %.sroa.46.0..sroa_idx.i, align 8
-  %473 = load i64, ptr %71, align 16
+  %473 = load i64, ptr %21, align 16
   %474 = load i64, ptr %.sroa.637.0..sroa_idx.i, align 8
-  %475 = load i64, ptr %72, align 16
+  %475 = load i64, ptr %22, align 16
   %476 = load i64, ptr %.sroa.632.0..sroa_idx33.i, align 8
   %477 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %473, i64 %474, i64 %475, i64 %476) #7
   %478 = extractvalue { i64, i64 } %477, 0
   %479 = extractvalue { i64, i64 } %477, 1
-  store i64 %478, ptr %72, align 16
+  store i64 %478, ptr %22, align 16
   store i64 %479, ptr %.sroa.632.0..sroa_idx33.i, align 8
-  %480 = load i64, ptr %70, align 16
+  %480 = load i64, ptr %20, align 16
   %481 = load i64, ptr %.sroa.632.0..sroa_idx.i, align 8
-  %482 = load i64, ptr %71, align 16
+  %482 = load i64, ptr %21, align 16
   %483 = load i64, ptr %.sroa.637.0..sroa_idx.i, align 8
   %484 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %480, i64 %481, i64 %482, i64 %483) #7
   %485 = extractvalue { i64, i64 } %484, 0
   %486 = extractvalue { i64, i64 } %484, 1
-  store i64 %485, ptr %71, align 16
+  store i64 %485, ptr %21, align 16
   store i64 %486, ptr %.sroa.637.0..sroa_idx.i, align 8
   %487 = load i64, ptr %12, align 16
   %488 = load i64, ptr %.sroa.48.0..sroa_idx.i, align 8
-  %489 = load i64, ptr %70, align 16
+  %489 = load i64, ptr %20, align 16
   %490 = load i64, ptr %.sroa.632.0..sroa_idx.i, align 8
   %491 = call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %487, i64 %488, i64 %489, i64 %490) #7
   %492 = extractvalue { i64, i64 } %491, 0
   %493 = extractvalue { i64, i64 } %491, 1
-  store i64 %492, ptr %70, align 16
+  store i64 %492, ptr %20, align 16
   store i64 %493, ptr %.sroa.632.0..sroa_idx.i, align 8
   %494 = load i64, ptr %12, align 16
   %495 = load i64, ptr %.sroa.48.0..sroa_idx.i, align 8
@@ -1174,11 +1174,11 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %500 = xor i64 %498, %446
   store i64 %499, ptr %12, align 16
   store i64 %500, ptr %.sroa.48.0..sroa_idx.i, align 8
-  %501 = load i64, ptr %73, align 16
+  %501 = load i64, ptr %23, align 16
   %502 = load i64, ptr %.sroa.46.0..sroa_idx.i, align 8
   %503 = xor i64 %501, %447
   %504 = xor i64 %502, %448
-  store i64 %503, ptr %73, align 16
+  store i64 %503, ptr %23, align 16
   store i64 %504, ptr %.sroa.46.0..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %505

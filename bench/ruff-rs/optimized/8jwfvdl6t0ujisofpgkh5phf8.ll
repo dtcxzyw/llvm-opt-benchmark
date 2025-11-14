@@ -2862,25 +2862,25 @@ define hidden void @_ZN15ruff_python_ast9generated12ExprListComp18visit_source_o
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @_ZN15ruff_python_ast9generated12StmtClassDef18visit_source_order17h812a7f6cde805288E(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !noundef !3
-  %.idx = mul nuw nsw i64 %6, 72
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %8 = icmp eq i64 %6, 0
-  br i1 %8, label %._crit_edge, label %.lr.ph
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load i64, ptr %6, align 8, !noundef !3
+  %.idx = mul nuw nsw i64 %7, 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %9 = icmp eq i64 %7, 0
+  br i1 %9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.01.03 = phi ptr [ %9, %.lr.ph ], [ %4, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.01.03, i64 72
+  %.sroa.01.03 = phi ptr [ %10, %.lr.ph ], [ %5, %2 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.01.03, i64 72
   tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_decorator17ha55e0ebc06b6555aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 %.sroa.01.03)
-  %10 = icmp eq ptr %9, %7
-  br i1 %10, label %._crit_edge, label %.lr.ph
+  %11 = icmp eq ptr %10, %8
+  br i1 %11, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @"_ZN119_$LT$ty_ide..completion..identifiers..Visitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$16visit_identifier17hdce2fea3fd4d50d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11)
+  tail call void @"_ZN119_$LT$ty_ide..completion..identifiers..Visitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$16visit_identifier17hdce2fea3fd4d50d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load ptr, ptr %12, align 8, !align !5, !noundef !3
   %.not = icmp eq ptr %13, null
@@ -2911,25 +2911,25 @@ define internal fastcc void @_ZN15ruff_python_ast9generated12StmtClassDef18visit
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @_ZN15ruff_python_ast9generated12StmtClassDef18visit_source_order17h8bc3ed02c4c3c38eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noalias noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !noundef !3
-  %.idx = mul nuw nsw i64 %6, 72
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %8 = icmp eq i64 %6, 0
-  br i1 %8, label %._crit_edge, label %.lr.ph
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load i64, ptr %6, align 8, !noundef !3
+  %.idx = mul nuw nsw i64 %7, 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %9 = icmp eq i64 %7, 0
+  br i1 %9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.01.03 = phi ptr [ %9, %.lr.ph ], [ %4, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.01.03, i64 72
+  %.sroa.01.03 = phi ptr [ %10, %.lr.ph ], [ %5, %2 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.01.03, i64 72
   tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_decorator17hae01489d1fe067a0E(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 %.sroa.01.03)
-  %10 = icmp eq ptr %9, %7
-  br i1 %10, label %._crit_edge, label %.lr.ph
+  %11 = icmp eq ptr %10, %8
+  br i1 %11, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11), !noalias !112
+  %12 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3), !noalias !112
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
   %15 = tail call noundef zeroext i1 @"_ZN120_$LT$ty_ide..find_node..covering_node..Visitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h4bfa1a13653ed1caE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i64 noundef %13, ptr noundef %14)
@@ -3302,25 +3302,25 @@ _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor11visit_alias17ha1
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @_ZN15ruff_python_ast9generated15StmtFunctionDef18visit_source_order17he3e287a3ed18f597E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !noundef !3
-  %.idx = mul nuw nsw i64 %6, 72
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %8 = icmp eq i64 %6, 0
-  br i1 %8, label %._crit_edge, label %.lr.ph
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load i64, ptr %6, align 8, !noundef !3
+  %.idx = mul nuw nsw i64 %7, 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %9 = icmp eq i64 %7, 0
+  br i1 %9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.01.03 = phi ptr [ %9, %.lr.ph ], [ %4, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.01.03, i64 72
+  %.sroa.01.03 = phi ptr [ %10, %.lr.ph ], [ %5, %2 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.01.03, i64 72
   tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_decorator17hae01489d1fe067a0E(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 %.sroa.01.03)
-  %10 = icmp eq ptr %9, %7
-  br i1 %10, label %._crit_edge, label %.lr.ph
+  %11 = icmp eq ptr %10, %8
+  br i1 %11, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11), !noalias !147
+  %12 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3), !noalias !147
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
   %15 = tail call noundef zeroext i1 @"_ZN120_$LT$ty_ide..find_node..covering_node..Visitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h4bfa1a13653ed1caE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i64 noundef %13, ptr noundef %14)
@@ -3359,25 +3359,25 @@ define internal fastcc void @_ZN15ruff_python_ast9generated15StmtFunctionDef18vi
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @_ZN15ruff_python_ast9generated15StmtFunctionDef18visit_source_order17he83ff79dd00b4598E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !noundef !3
-  %.idx = mul nuw nsw i64 %6, 72
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %8 = icmp eq i64 %6, 0
-  br i1 %8, label %._crit_edge, label %.lr.ph
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load i64, ptr %6, align 8, !noundef !3
+  %.idx = mul nuw nsw i64 %7, 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %9 = icmp eq i64 %7, 0
+  br i1 %9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.01.03 = phi ptr [ %9, %.lr.ph ], [ %4, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.01.03, i64 72
+  %.sroa.01.03 = phi ptr [ %10, %.lr.ph ], [ %5, %2 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.01.03, i64 72
   tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_decorator17ha55e0ebc06b6555aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 %.sroa.01.03)
-  %10 = icmp eq ptr %9, %7
-  br i1 %10, label %._crit_edge, label %.lr.ph
+  %11 = icmp eq ptr %10, %8
+  br i1 %11, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @"_ZN119_$LT$ty_ide..completion..identifiers..Visitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$16visit_identifier17hdce2fea3fd4d50d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11)
+  tail call void @"_ZN119_$LT$ty_ide..completion..identifiers..Visitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$16visit_identifier17hdce2fea3fd4d50d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8, !align !5, !noundef !3
   %.not = icmp eq ptr %13, null
@@ -3860,25 +3860,25 @@ define hidden void @_ZN15ruff_python_ast9generated4Stmt18visit_source_order17h7b
 
 8:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !213, !noalias !216, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !alias.scope !213, !noalias !216, !noundef !3
-  %.idx.i = mul nuw nsw i64 %12, 72
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
-  %14 = icmp eq i64 %12, 0
-  br i1 %14, label %._crit_edge.i, label %.lr.ph.i
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8, !alias.scope !213, !noalias !216, !nonnull !3, !noundef !3
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load i64, ptr %12, align 8, !alias.scope !213, !noalias !216, !noundef !3
+  %.idx.i = mul nuw nsw i64 %13, 72
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
+  %15 = icmp eq i64 %13, 0
+  br i1 %15, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
-  %.sroa.01.03.i = phi ptr [ %15, %.lr.ph.i ], [ %10, %8 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 72
+  %.sroa.01.03.i = phi ptr [ %16, %.lr.ph.i ], [ %11, %8 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 72
   tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_decorator17hfb127ead5ce3246cE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 %.sroa.01.03.i), !noalias !213
-  %16 = icmp eq ptr %15, %13
-  br i1 %16, label %._crit_edge.i, label %.lr.ph.i
+  %17 = icmp eq ptr %16, %14
+  br i1 %17, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17), !noalias !218
+  %18 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9), !noalias !218
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
   %21 = tail call noundef zeroext i1 @"_ZN116_$LT$ty_ide..inlay_hints..InlayHintVisitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h606f00365a731879E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i64 noundef %19, ptr noundef %20)
@@ -3915,25 +3915,25 @@ _ZN15ruff_python_ast9generated15StmtFunctionDef18visit_source_order17h1dcc7033cc
 
 36:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %38 = load ptr, ptr %37, align 8, !alias.scope !223, !noalias !226, !nonnull !3, !noundef !3
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load i64, ptr %39, align 8, !alias.scope !223, !noalias !226, !noundef !3
-  %.idx.i14 = mul nuw nsw i64 %40, 72
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i14
-  %42 = icmp eq i64 %40, 0
-  br i1 %42, label %._crit_edge.i17, label %.lr.ph.i15
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %39 = load ptr, ptr %38, align 8, !alias.scope !223, !noalias !226, !nonnull !3, !noundef !3
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %41 = load i64, ptr %40, align 8, !alias.scope !223, !noalias !226, !noundef !3
+  %.idx.i14 = mul nuw nsw i64 %41, 72
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i14
+  %43 = icmp eq i64 %41, 0
+  br i1 %43, label %._crit_edge.i17, label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %36, %.lr.ph.i15
-  %.sroa.01.03.i16 = phi ptr [ %43, %.lr.ph.i15 ], [ %38, %36 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i16, i64 72
+  %.sroa.01.03.i16 = phi ptr [ %44, %.lr.ph.i15 ], [ %39, %36 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i16, i64 72
   tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_decorator17hfb127ead5ce3246cE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 %.sroa.01.03.i16), !noalias !223
-  %44 = icmp eq ptr %43, %41
-  br i1 %44, label %._crit_edge.i17, label %.lr.ph.i15
+  %45 = icmp eq ptr %44, %42
+  br i1 %45, label %._crit_edge.i17, label %.lr.ph.i15
 
 ._crit_edge.i17:                                  ; preds = %.lr.ph.i15, %36
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %46 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %45), !noalias !228
+  %46 = tail call { i64, ptr } @"_ZN124_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Identifier$GT$$GT$4from17hb9d6e0ad2eaa54b1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %37), !noalias !228
   %47 = extractvalue { i64, ptr } %46, 0
   %48 = extractvalue { i64, ptr } %46, 1
   %49 = tail call noundef zeroext i1 @"_ZN116_$LT$ty_ide..inlay_hints..InlayHintVisitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h606f00365a731879E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i64 noundef %47, ptr noundef %48)
@@ -4409,25 +4409,25 @@ define hidden void @_ZN15ruff_python_ast9generated4Stmt18visit_source_order17ha3
 
 9:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !308)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !alias.scope !308, !noalias !311, !nonnull !3, !noundef !3
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i64, ptr %12, align 8, !alias.scope !308, !noalias !311, !noundef !3
-  %.idx.i = mul nuw nsw i64 %13, 72
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
-  %15 = icmp eq i64 %13, 0
-  br i1 %15, label %._crit_edge.i, label %.lr.ph.i
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load ptr, ptr %11, align 8, !alias.scope !308, !noalias !311, !nonnull !3, !noundef !3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = load i64, ptr %13, align 8, !alias.scope !308, !noalias !311, !noundef !3
+  %.idx.i = mul nuw nsw i64 %14, 72
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
+  %16 = icmp eq i64 %14, 0
+  br i1 %16, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
-  %.sroa.01.03.i = phi ptr [ %16, %.lr.ph.i ], [ %11, %9 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 72
+  %.sroa.01.03.i = phi ptr [ %17, %.lr.ph.i ], [ %12, %9 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i, i64 72
   tail call void @_ZN15ruff_python_ast7visitor12source_order14walk_decorator17ha55e0ebc06b6555aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 %.sroa.01.03.i), !noalias !308
-  %17 = icmp eq ptr %16, %14
-  br i1 %17, label %._crit_edge.i, label %.lr.ph.i
+  %18 = icmp eq ptr %17, %15
+  br i1 %18, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %9
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @"_ZN119_$LT$ty_ide..completion..identifiers..Visitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$16visit_identifier17hdce2fea3fd4d50d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %18)
+  tail call void @"_ZN119_$LT$ty_ide..completion..identifiers..Visitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$16visit_identifier17hdce2fea3fd4d50d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load ptr, ptr %19, align 8, !alias.scope !308, !noalias !311, !align !5, !noundef !3
   %.not.i = icmp eq ptr %20, null

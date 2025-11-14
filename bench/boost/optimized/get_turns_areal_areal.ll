@@ -142149,7 +142149,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit.i: ; preds = %56, %53, %34
   %128 = ptrtoint ptr %126 to i64
   %129 = sub i64 %127, %128
   %.not.i.i.i.i = icmp eq ptr %125, %126
-  br i1 %.not.i.i.i.i, label %.noexc70.thread, label %130
+  br i1 %.not.i.i.i.i, label %.loopexit, label %130
 
 130:                                              ; preds = %124
   %131 = sdiv exact i64 %129, 176
@@ -142174,9 +142174,9 @@ _ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay9turn_infoINS1_5model5
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 176
   %135 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 176
   %.not.i.i.i.i.i = icmp eq ptr %134, %125
-  br i1 %.not.i.i.i.i.i, label %.noexc70.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !2445
+  br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !2445
 
-.noexc70.thread:                                  ; preds = %.lr.ph.i.i.i.i.i, %124
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %124
   %.sink = phi ptr [ null, %124 ], [ %133, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %124 ], [ %135, %.lr.ph.i.i.i.i.i ]
   %136 = load ptr, ptr %4, align 8, !tbaa !174
@@ -142184,7 +142184,7 @@ _ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay9turn_infoINS1_5model5
   %.not122 = icmp eq ptr %136, %137
   br i1 %.not122, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIiLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIiEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.noexc70.thread
+.lr.ph:                                           ; preds = %.loopexit
   %138 = ptrtoint ptr %.sink to i64
   br label %147
 
@@ -142252,8 +142252,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_i
   %.not = icmp eq ptr %159, %160
   br i1 %.not, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIiLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIiEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge, label %147, !llvm.loop !2446
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIiLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIiEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge: ; preds = %157, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIiLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIiEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit, %.noexc70.thread
-  %.not.lcssa = phi i1 [ true, %.noexc70.thread ], [ %.not120.not.not, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIiLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIiEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit ], [ %.not120.not.not, %157 ]
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIiLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIiEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge: ; preds = %157, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIiLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIiEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit, %.loopexit
+  %.not.lcssa = phi i1 [ true, %.loopexit ], [ %.not120.not.not, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIiLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIiEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit ], [ %.not120.not.not, %157 ]
   %.not.i.i.i73 = icmp eq ptr %.sink, null
   br i1 %.not.i.i.i73, label %_ZNSt6vectorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIiLm2ENS1_2cs9cartesianEEENS1_13segment_ratioIiEENS3_14turn_operationIS9_SB_EESt5arrayISD_Lm2EEEESaISG_EED2Ev.exit, label %161
 
@@ -151982,17 +151982,17 @@ _ZN5boost8geometry13segment_ratioIiE3oneEv.exit79: ; preds = %105, %119, %121
   %147 = load i32, ptr %14, align 4, !tbaa !2831
   %148 = sdiv i32 %147, %146
   %149 = srem i32 %147, %146
-  %150 = icmp slt i32 %149, 0
-  br i1 %150, label %.lr.ph.i.i.i, label %.preheader41.i.i.i
+  %150 = load i32, ptr %144, align 4, !tbaa !2833
+  %151 = load i32, ptr %15, align 4, !tbaa !2831
+  %152 = sdiv i32 %151, %150
+  %153 = srem i32 %151, %150
+  %154 = icmp slt i32 %149, 0
+  br i1 %154, label %.lr.ph.i.i.i, label %.preheader41.i.i.i
 
 .preheader41.i.i.i:                               ; preds = %.lr.ph.i.i.i, %136
   %.sroa.1926.0.lcssa.i.i.i = phi i32 [ %149, %136 ], [ %156, %.lr.ph.i.i.i ]
   %.sroa.1222.0.lcssa.i.i.i = phi i32 [ %148, %136 ], [ %157, %.lr.ph.i.i.i ]
-  %151 = load i32, ptr %144, align 4, !tbaa !2833
-  %152 = load i32, ptr %15, align 4, !tbaa !2831
-  %153 = sdiv i32 %152, %151
-  %154 = srem i32 %152, %151
-  %155 = icmp slt i32 %154, 0
+  %155 = icmp slt i32 %153, 0
   br i1 %155, label %.lr.ph52.i.i.i, label %.preheader.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %136, %.lr.ph.i.i.i
@@ -152004,8 +152004,8 @@ _ZN5boost8geometry13segment_ratioIiE3oneEv.exit79: ; preds = %105, %119, %121
   br i1 %158, label %.lr.ph.i.i.i, label %.preheader41.i.i.i, !llvm.loop !2834
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph52.i.i.i, %.preheader41.i.i.i
-  %.sroa.19.0.lcssa.i.i.i = phi i32 [ %154, %.preheader41.i.i.i ], [ %160, %.lr.ph52.i.i.i ]
-  %.sroa.12.0.lcssa.i.i.i = phi i32 [ %153, %.preheader41.i.i.i ], [ %161, %.lr.ph52.i.i.i ]
+  %.sroa.19.0.lcssa.i.i.i = phi i32 [ %153, %.preheader41.i.i.i ], [ %160, %.lr.ph52.i.i.i ]
+  %.sroa.12.0.lcssa.i.i.i = phi i32 [ %152, %.preheader41.i.i.i ], [ %161, %.lr.ph52.i.i.i ]
   %.not55.i.i.i = icmp eq i32 %.sroa.1222.0.lcssa.i.i.i, %.sroa.12.0.lcssa.i.i.i
   br i1 %.not55.i.i.i, label %.lr.ph61.i.i.i, label %._crit_edge.thread.i.i.i
 
@@ -152016,16 +152016,16 @@ _ZN5boost8geometry13segment_ratioIiE3oneEv.exit79: ; preds = %105, %119, %121
   br i1 %159, label %181, label %187
 
 .lr.ph52.i.i.i:                                   ; preds = %.preheader41.i.i.i, %.lr.ph52.i.i.i
-  %.sroa.12.051.i.i.i = phi i32 [ %161, %.lr.ph52.i.i.i ], [ %153, %.preheader41.i.i.i ]
-  %.sroa.19.050.i.i.i = phi i32 [ %160, %.lr.ph52.i.i.i ], [ %154, %.preheader41.i.i.i ]
-  %160 = add nsw i32 %.sroa.19.050.i.i.i, %151
+  %.sroa.12.051.i.i.i = phi i32 [ %161, %.lr.ph52.i.i.i ], [ %152, %.preheader41.i.i.i ]
+  %.sroa.19.050.i.i.i = phi i32 [ %160, %.lr.ph52.i.i.i ], [ %153, %.preheader41.i.i.i ]
+  %160 = add nsw i32 %.sroa.19.050.i.i.i, %150
   %161 = add nsw i32 %.sroa.12.051.i.i.i, -1
   %162 = icmp slt i32 %160, 0
   br i1 %162, label %.lr.ph52.i.i.i, label %.preheader.i.i.i, !llvm.loop !2835
 
 .lr.ph61.i.i.i:                                   ; preds = %.preheader.i.i.i, %165
   %.060.i.i.i = phi i32 [ %166, %165 ], [ 0, %.preheader.i.i.i ]
-  %.sroa.6.059.i.i.i = phi i32 [ %.sroa.19.158.i.i.i, %165 ], [ %151, %.preheader.i.i.i ]
+  %.sroa.6.059.i.i.i = phi i32 [ %.sroa.19.158.i.i.i, %165 ], [ %150, %.preheader.i.i.i ]
   %.sroa.19.158.i.i.i = phi i32 [ %170, %165 ], [ %.sroa.19.0.lcssa.i.i.i, %.preheader.i.i.i ]
   %.sroa.618.057.i.i.i = phi i32 [ %.sroa.1926.156.i.i.i, %165 ], [ %146, %.preheader.i.i.i ]
   %.sroa.1926.156.i.i.i = phi i32 [ %168, %165 ], [ %.sroa.1926.0.lcssa.i.i.i, %.preheader.i.i.i ]
@@ -152130,17 +152130,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost8geometry13segment_rati
   %22 = load i32, ptr %3, align 4, !tbaa !2831
   %23 = sdiv i32 %22, %21
   %24 = srem i32 %22, %21
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %.lr.ph.i.i, label %.preheader41.i.i
+  %25 = load i32, ptr %19, align 4, !tbaa !2833
+  %26 = load i32, ptr %4, align 4, !tbaa !2831
+  %27 = sdiv i32 %26, %25
+  %28 = srem i32 %26, %25
+  %29 = icmp slt i32 %24, 0
+  br i1 %29, label %.lr.ph.i.i, label %.preheader41.i.i
 
 .preheader41.i.i:                                 ; preds = %.lr.ph.i.i, %12
   %.sroa.1926.0.lcssa.i.i = phi i32 [ %24, %12 ], [ %31, %.lr.ph.i.i ]
   %.sroa.1222.0.lcssa.i.i = phi i32 [ %23, %12 ], [ %32, %.lr.ph.i.i ]
-  %26 = load i32, ptr %19, align 4, !tbaa !2833
-  %27 = load i32, ptr %4, align 4, !tbaa !2831
-  %28 = sdiv i32 %27, %26
-  %29 = srem i32 %27, %26
-  %30 = icmp slt i32 %29, 0
+  %30 = icmp slt i32 %28, 0
   br i1 %30, label %.lr.ph52.i.i, label %.preheader.i.i
 
 .lr.ph.i.i:                                       ; preds = %12, %.lr.ph.i.i
@@ -152152,8 +152152,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost8geometry13segment_rati
   br i1 %33, label %.lr.ph.i.i, label %.preheader41.i.i, !llvm.loop !2834
 
 .preheader.i.i:                                   ; preds = %.lr.ph52.i.i, %.preheader41.i.i
-  %.sroa.19.0.lcssa.i.i = phi i32 [ %29, %.preheader41.i.i ], [ %35, %.lr.ph52.i.i ]
-  %.sroa.12.0.lcssa.i.i = phi i32 [ %28, %.preheader41.i.i ], [ %36, %.lr.ph52.i.i ]
+  %.sroa.19.0.lcssa.i.i = phi i32 [ %28, %.preheader41.i.i ], [ %35, %.lr.ph52.i.i ]
+  %.sroa.12.0.lcssa.i.i = phi i32 [ %27, %.preheader41.i.i ], [ %36, %.lr.ph52.i.i ]
   %.not55.i.i = icmp eq i32 %.sroa.1222.0.lcssa.i.i, %.sroa.12.0.lcssa.i.i
   br i1 %.not55.i.i, label %.lr.ph61.i.i, label %._crit_edge.thread.i.i
 
@@ -152162,9 +152162,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost8geometry13segment_rati
   br label %_ZN5boost8geometry6detail13segment_ratio4lessIiLb1EE5applyINS0_13segment_ratioIiEEEEbRKT_SA_.exit
 
 .lr.ph52.i.i:                                     ; preds = %.preheader41.i.i, %.lr.ph52.i.i
-  %.sroa.12.051.i.i = phi i32 [ %36, %.lr.ph52.i.i ], [ %28, %.preheader41.i.i ]
-  %.sroa.19.050.i.i = phi i32 [ %35, %.lr.ph52.i.i ], [ %29, %.preheader41.i.i ]
-  %35 = add nsw i32 %.sroa.19.050.i.i, %26
+  %.sroa.12.051.i.i = phi i32 [ %36, %.lr.ph52.i.i ], [ %27, %.preheader41.i.i ]
+  %.sroa.19.050.i.i = phi i32 [ %35, %.lr.ph52.i.i ], [ %28, %.preheader41.i.i ]
+  %35 = add nsw i32 %.sroa.19.050.i.i, %25
   %36 = add nsw i32 %.sroa.12.051.i.i, -1
   %37 = icmp slt i32 %35, 0
   br i1 %37, label %.lr.ph52.i.i, label %.preheader.i.i, !llvm.loop !2835
@@ -152178,7 +152178,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost8geometry13segment_rati
 
 .lr.ph61.i.i:                                     ; preds = %.preheader.i.i, %43
   %.060.i.i = phi i32 [ %44, %43 ], [ 0, %.preheader.i.i ]
-  %.sroa.6.059.i.i = phi i32 [ %.sroa.19.158.i.i, %43 ], [ %26, %.preheader.i.i ]
+  %.sroa.6.059.i.i = phi i32 [ %.sroa.19.158.i.i, %43 ], [ %25, %.preheader.i.i ]
   %.sroa.19.158.i.i = phi i32 [ %48, %43 ], [ %.sroa.19.0.lcssa.i.i, %.preheader.i.i ]
   %.sroa.618.057.i.i = phi i32 [ %.sroa.1926.156.i.i, %43 ], [ %21, %.preheader.i.i ]
   %.sroa.1926.156.i.i = phi i32 [ %46, %43 ], [ %.sroa.1926.0.lcssa.i.i, %.preheader.i.i ]
@@ -163400,7 +163400,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit.i: ; preds = %56, %53, %34
   %128 = ptrtoint ptr %126 to i64
   %129 = sub i64 %127, %128
   %.not.i.i.i.i = icmp eq ptr %125, %126
-  br i1 %.not.i.i.i.i, label %.noexc70.thread, label %130
+  br i1 %.not.i.i.i.i, label %.loopexit, label %130
 
 130:                                              ; preds = %124
   %131 = sdiv exact i64 %129, 160
@@ -163425,9 +163425,9 @@ _ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay9turn_infoINS1_5model5
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 160
   %135 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 160
   %.not.i.i.i.i.i = icmp eq ptr %134, %125
-  br i1 %.not.i.i.i.i.i, label %.noexc70.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !3070
+  br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !3070
 
-.noexc70.thread:                                  ; preds = %.lr.ph.i.i.i.i.i, %124
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %124
   %.sink = phi ptr [ null, %124 ], [ %133, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %124 ], [ %135, %.lr.ph.i.i.i.i.i ]
   %136 = load ptr, ptr %4, align 8, !tbaa !174
@@ -163435,7 +163435,7 @@ _ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay9turn_infoINS1_5model5
   %.not122 = icmp eq ptr %136, %137
   br i1 %.not122, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIfEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.noexc70.thread
+.lr.ph:                                           ; preds = %.loopexit
   %138 = ptrtoint ptr %.sink to i64
   br label %147
 
@@ -163503,8 +163503,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_i
   %.not = icmp eq ptr %159, %160
   br i1 %.not, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIfEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge, label %147, !llvm.loop !3071
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIfEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge: ; preds = %157, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIfEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit, %.noexc70.thread
-  %.not.lcssa = phi i1 [ true, %.noexc70.thread ], [ %.not120.not.not, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIfEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit ], [ %.not120.not.not, %157 ]
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIfEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge: ; preds = %157, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIfEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit, %.loopexit
+  %.not.lcssa = phi i1 [ true, %.loopexit ], [ %.not120.not.not, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIfEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit ], [ %.not120.not.not, %157 ]
   %.not.i.i.i73 = icmp eq ptr %.sink, null
   br i1 %.not.i.i.i73, label %_ZNSt6vectorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIfLm2ENS1_2cs9cartesianEEENS1_13segment_ratioIfEENS3_14turn_operationIS9_SB_EESt5arrayISD_Lm2EEEESaISG_EED2Ev.exit, label %161
 
@@ -180608,7 +180608,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit.i: ; preds = %56, %53, %34
   %128 = ptrtoint ptr %126 to i64
   %129 = sub i64 %127, %128
   %.not.i.i.i.i = icmp eq ptr %125, %126
-  br i1 %.not.i.i.i.i, label %.noexc70.thread, label %130
+  br i1 %.not.i.i.i.i, label %.loopexit, label %130
 
 130:                                              ; preds = %124
   %131 = sdiv exact i64 %129, 200
@@ -180633,9 +180633,9 @@ _ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay9turn_infoINS1_5model5
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 200
   %135 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 200
   %.not.i.i.i.i.i = icmp eq ptr %134, %125
-  br i1 %.not.i.i.i.i.i, label %.noexc70.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !3515
+  br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !3515
 
-.noexc70.thread:                                  ; preds = %.lr.ph.i.i.i.i.i, %124
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %124
   %.sink = phi ptr [ null, %124 ], [ %133, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %124 ], [ %135, %.lr.ph.i.i.i.i.i ]
   %136 = load ptr, ptr %4, align 8, !tbaa !174
@@ -180643,7 +180643,7 @@ _ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay9turn_infoINS1_5model5
   %.not122 = icmp eq ptr %136, %137
   br i1 %.not122, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIdEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.noexc70.thread
+.lr.ph:                                           ; preds = %.loopexit
   %138 = ptrtoint ptr %.sink to i64
   br label %147
 
@@ -180711,8 +180711,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_i
   %.not = icmp eq ptr %159, %160
   br i1 %.not, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIdEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge, label %147, !llvm.loop !3516
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIdEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge: ; preds = %157, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIdEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit, %.noexc70.thread
-  %.not.lcssa = phi i1 [ true, %.noexc70.thread ], [ %.not120.not.not, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIdEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit ], [ %.not120.not.not, %157 ]
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIdEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge: ; preds = %157, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIdEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit, %.loopexit
+  %.not.lcssa = phi i1 [ true, %.loopexit ], [ %.not120.not.not, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIdEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit ], [ %.not120.not.not, %157 ]
   %.not.i.i.i73 = icmp eq ptr %.sink, null
   br i1 %.not.i.i.i73, label %_ZNSt6vectorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1_2cs9cartesianEEENS1_13segment_ratioIdEENS3_14turn_operationIS9_SB_EESt5arrayISD_Lm2EEEESaISG_EED2Ev.exit, label %161
 
@@ -182296,76 +182296,76 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.experimental.noalias.scope.decl(metadata !3596)
   call void @llvm.experimental.noalias.scope.decl(metadata !3599)
+  %48 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %47, %.lr.ph.i.i.i
-  %48 = phi double [ %87, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %47 ]
-  %49 = phi double [ %84, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %47 ]
-  %50 = phi double [ %79, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %47 ]
-  %51 = phi double [ %76, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %47 ]
-  %52 = phi double [ %88, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %47 ]
-  %53 = phi double [ %85, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %47 ]
-  %54 = phi double [ %80, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %47 ]
-  %.sroa.06.010.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i ], [ %31, %47 ]
-  %55 = phi double [ %77, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %47 ]
-  %56 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !3602, !noalias !3604
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %58 = load double, ptr %57, align 8, !tbaa !2609, !noalias !3604
-  %59 = fcmp olt double %58, %55
-  %60 = select i1 %59, double %58, double %51
-  %61 = select i1 %59, double %58, double %55
-  %62 = fcmp ogt double %58, %54
-  %63 = select i1 %62, double %58, double %50
-  %64 = select i1 %62, double %58, double %54
-  %65 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %66 = load double, ptr %65, align 8, !tbaa !2609, !noalias !3604
-  %67 = fcmp olt double %66, %53
-  %68 = select i1 %67, double %66, double %49
-  %69 = select i1 %67, double %66, double %53
-  %70 = fcmp ogt double %66, %52
-  %71 = select i1 %70, double %66, double %48
-  %72 = select i1 %70, double %66, double %52
-  %73 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %74 = load double, ptr %73, align 8, !tbaa !2609, !noalias !3604
-  %75 = fcmp olt double %74, %61
-  %76 = select i1 %75, double %74, double %60
-  %77 = select i1 %75, double %74, double %61
-  %78 = fcmp ogt double %74, %64
-  %79 = select i1 %78, double %74, double %63
-  %80 = select i1 %78, double %74, double %64
-  %81 = getelementptr inbounds nuw i8, ptr %56, i64 56
-  %82 = load double, ptr %81, align 8, !tbaa !2609, !noalias !3604
-  %83 = fcmp olt double %82, %69
-  %84 = select i1 %83, double %82, double %68
-  %85 = select i1 %83, double %82, double %69
-  %86 = fcmp ogt double %82, %72
-  %87 = select i1 %86, double %82, double %71
-  %88 = select i1 %86, double %82, double %72
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %89, %33
+  %51 = phi double [ %90, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %47 ]
+  %52 = phi double [ %87, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %47 ]
+  %53 = phi double [ %82, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %47 ]
+  %54 = phi double [ %79, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %47 ]
+  %55 = phi double [ %91, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %47 ]
+  %56 = phi double [ %88, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %47 ]
+  %57 = phi double [ %83, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %47 ]
+  %.sroa.06.010.i.i.i = phi ptr [ %92, %.lr.ph.i.i.i ], [ %31, %47 ]
+  %58 = phi double [ %80, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %47 ]
+  %59 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !3602, !noalias !3604
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %61 = load double, ptr %60, align 8, !tbaa !2609, !noalias !3604
+  %62 = fcmp olt double %61, %58
+  %63 = select i1 %62, double %61, double %54
+  %64 = select i1 %62, double %61, double %58
+  %65 = fcmp ogt double %61, %57
+  %66 = select i1 %65, double %61, double %53
+  %67 = select i1 %65, double %61, double %57
+  %68 = getelementptr inbounds nuw i8, ptr %59, i64 40
+  %69 = load double, ptr %68, align 8, !tbaa !2609, !noalias !3604
+  %70 = fcmp olt double %69, %56
+  %71 = select i1 %70, double %69, double %52
+  %72 = select i1 %70, double %69, double %56
+  %73 = fcmp ogt double %69, %55
+  %74 = select i1 %73, double %69, double %51
+  %75 = select i1 %73, double %69, double %55
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 48
+  %77 = load double, ptr %76, align 8, !tbaa !2609, !noalias !3604
+  %78 = fcmp olt double %77, %64
+  %79 = select i1 %78, double %77, double %63
+  %80 = select i1 %78, double %77, double %64
+  %81 = fcmp ogt double %77, %67
+  %82 = select i1 %81, double %77, double %66
+  %83 = select i1 %81, double %77, double %67
+  %84 = getelementptr inbounds nuw i8, ptr %59, i64 56
+  %85 = load double, ptr %84, align 8, !tbaa !2609, !noalias !3604
+  %86 = fcmp olt double %85, %72
+  %87 = select i1 %86, double %85, double %71
+  %88 = select i1 %86, double %85, double %72
+  %89 = fcmp ogt double %85, %75
+  %90 = select i1 %89, double %85, double %74
+  %91 = select i1 %89, double %85, double %75
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %92, %33
   br i1 %.not.i.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, label %.lr.ph.i.i.i
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i
-  %90 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %91 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %92 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store double %76, ptr %20, align 8, !alias.scope !3604
-  store double %79, ptr %90, align 8, !alias.scope !3604
-  store double %84, ptr %91, align 8, !alias.scope !3604
-  store double %87, ptr %92, align 8, !alias.scope !3604
+  store double %79, ptr %20, align 8, !alias.scope !3604
+  store double %82, ptr %48, align 8, !alias.scope !3604
+  store double %87, ptr %49, align 8, !alias.scope !3604
+  store double %90, ptr %50, align 8, !alias.scope !3604
   %.not9.i.i = icmp eq ptr %.pre, %.pre304
   br i1 %.not9.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESV_EESA_RKT_RKT0_RKT1_RKT2_.exit, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
 _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
-  %93 = phi double [ %132, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %87, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %94 = phi double [ %129, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %84, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %95 = phi double [ %124, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %79, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %96 = phi double [ %121, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %76, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %97 = phi double [ %133, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %87, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %98 = phi double [ %130, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %84, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %99 = phi double [ %125, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %79, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %93 = phi double [ %132, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %90, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %94 = phi double [ %129, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %87, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %95 = phi double [ %124, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %82, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %96 = phi double [ %121, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %79, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %97 = phi double [ %133, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %90, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %98 = phi double [ %130, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %87, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %99 = phi double [ %125, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %82, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %.sroa.06.010.i.i = phi ptr [ %134, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %.pre, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %100 = phi double [ %122, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %76, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %100 = phi double [ %122, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %79, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %101 = load ptr, ptr %.sroa.06.010.i.i, align 8, !tbaa !3602, !noalias !3596
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %103 = load double, ptr %102, align 8, !tbaa !2609, !noalias !3596
@@ -182405,9 +182405,9 @@ _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3bo
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESB_ISF_SaISF_EEEESaISK_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i: ; preds = %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
   store double %121, ptr %20, align 8, !alias.scope !3596
-  store double %124, ptr %90, align 8, !alias.scope !3596
-  store double %129, ptr %91, align 8, !alias.scope !3596
-  store double %132, ptr %92, align 8, !alias.scope !3596
+  store double %124, ptr %48, align 8, !alias.scope !3596
+  store double %129, ptr %49, align 8, !alias.scope !3596
+  store double %132, ptr %50, align 8, !alias.scope !3596
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESV_EESA_RKT_RKT0_RKT1_RKT2_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESV_EESA_RKT_RKT0_RKT1_RKT2_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESB_ISF_SaISF_EEEESaISK_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i
@@ -182904,68 +182904,68 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 390:                                              ; preds = %_ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEES4_ISF_SaISF_EEEESaISK_EESM_SM_EEbRKT_RKT0_RKT1_mm.exit140
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.experimental.noalias.scope.decl(metadata !3612)
+  %391 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %392 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %393 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br label %.lr.ph.i.i142
 
 .lr.ph.i.i142:                                    ; preds = %390, %.lr.ph.i.i142
-  %391 = phi double [ %430, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %390 ]
-  %392 = phi double [ %427, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %390 ]
-  %393 = phi double [ %422, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %390 ]
-  %394 = phi double [ %419, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %390 ]
-  %395 = phi double [ %431, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %390 ]
-  %396 = phi double [ %428, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %390 ]
-  %397 = phi double [ %423, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %390 ]
-  %.sroa.06.010.i.i143 = phi ptr [ %432, %.lr.ph.i.i142 ], [ %363, %390 ]
-  %398 = phi double [ %420, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %390 ]
-  %399 = load ptr, ptr %.sroa.06.010.i.i143, align 8, !tbaa !3602, !noalias !3612
-  %400 = getelementptr inbounds nuw i8, ptr %399, i64 32
-  %401 = load double, ptr %400, align 8, !tbaa !2609, !noalias !3612
-  %402 = fcmp olt double %401, %398
-  %403 = select i1 %402, double %401, double %394
-  %404 = select i1 %402, double %401, double %398
-  %405 = fcmp ogt double %401, %397
-  %406 = select i1 %405, double %401, double %393
-  %407 = select i1 %405, double %401, double %397
-  %408 = getelementptr inbounds nuw i8, ptr %399, i64 40
-  %409 = load double, ptr %408, align 8, !tbaa !2609, !noalias !3612
-  %410 = fcmp olt double %409, %396
-  %411 = select i1 %410, double %409, double %392
-  %412 = select i1 %410, double %409, double %396
-  %413 = fcmp ogt double %409, %395
-  %414 = select i1 %413, double %409, double %391
-  %415 = select i1 %413, double %409, double %395
-  %416 = getelementptr inbounds nuw i8, ptr %399, i64 48
-  %417 = load double, ptr %416, align 8, !tbaa !2609, !noalias !3612
-  %418 = fcmp olt double %417, %404
-  %419 = select i1 %418, double %417, double %403
-  %420 = select i1 %418, double %417, double %404
-  %421 = fcmp ogt double %417, %407
-  %422 = select i1 %421, double %417, double %406
-  %423 = select i1 %421, double %417, double %407
-  %424 = getelementptr inbounds nuw i8, ptr %399, i64 56
-  %425 = load double, ptr %424, align 8, !tbaa !2609, !noalias !3612
-  %426 = fcmp olt double %425, %412
-  %427 = select i1 %426, double %425, double %411
-  %428 = select i1 %426, double %425, double %412
-  %429 = fcmp ogt double %425, %415
-  %430 = select i1 %429, double %425, double %414
-  %431 = select i1 %429, double %425, double %415
-  %432 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i143, i64 8
-  %.not.i.i144 = icmp eq ptr %432, %365
-  br i1 %.not.i.i144, label %433, label %.lr.ph.i.i142
+  %394 = phi double [ %433, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %390 ]
+  %395 = phi double [ %430, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %390 ]
+  %396 = phi double [ %425, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %390 ]
+  %397 = phi double [ %422, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %390 ]
+  %398 = phi double [ %434, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %390 ]
+  %399 = phi double [ %431, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %390 ]
+  %400 = phi double [ %426, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %390 ]
+  %.sroa.06.010.i.i143 = phi ptr [ %435, %.lr.ph.i.i142 ], [ %363, %390 ]
+  %401 = phi double [ %423, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %390 ]
+  %402 = load ptr, ptr %.sroa.06.010.i.i143, align 8, !tbaa !3602, !noalias !3612
+  %403 = getelementptr inbounds nuw i8, ptr %402, i64 32
+  %404 = load double, ptr %403, align 8, !tbaa !2609, !noalias !3612
+  %405 = fcmp olt double %404, %401
+  %406 = select i1 %405, double %404, double %397
+  %407 = select i1 %405, double %404, double %401
+  %408 = fcmp ogt double %404, %400
+  %409 = select i1 %408, double %404, double %396
+  %410 = select i1 %408, double %404, double %400
+  %411 = getelementptr inbounds nuw i8, ptr %402, i64 40
+  %412 = load double, ptr %411, align 8, !tbaa !2609, !noalias !3612
+  %413 = fcmp olt double %412, %399
+  %414 = select i1 %413, double %412, double %395
+  %415 = select i1 %413, double %412, double %399
+  %416 = fcmp ogt double %412, %398
+  %417 = select i1 %416, double %412, double %394
+  %418 = select i1 %416, double %412, double %398
+  %419 = getelementptr inbounds nuw i8, ptr %402, i64 48
+  %420 = load double, ptr %419, align 8, !tbaa !2609, !noalias !3612
+  %421 = fcmp olt double %420, %407
+  %422 = select i1 %421, double %420, double %406
+  %423 = select i1 %421, double %420, double %407
+  %424 = fcmp ogt double %420, %410
+  %425 = select i1 %424, double %420, double %409
+  %426 = select i1 %424, double %420, double %410
+  %427 = getelementptr inbounds nuw i8, ptr %402, i64 56
+  %428 = load double, ptr %427, align 8, !tbaa !2609, !noalias !3612
+  %429 = fcmp olt double %428, %415
+  %430 = select i1 %429, double %428, double %414
+  %431 = select i1 %429, double %428, double %415
+  %432 = fcmp ogt double %428, %418
+  %433 = select i1 %432, double %428, double %417
+  %434 = select i1 %432, double %428, double %418
+  %435 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i143, i64 8
+  %.not.i.i144 = icmp eq ptr %435, %365
+  br i1 %.not.i.i144, label %436, label %.lr.ph.i.i142
 
-433:                                              ; preds = %.lr.ph.i.i142
-  %434 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %435 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %436 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store double %419, ptr %22, align 8, !alias.scope !3612
-  store double %422, ptr %434, align 8, !alias.scope !3612
-  store double %427, ptr %435, align 8, !alias.scope !3612
-  store double %430, ptr %436, align 8, !alias.scope !3612
+436:                                              ; preds = %.lr.ph.i.i142
+  store double %422, ptr %22, align 8, !alias.scope !3612
+  store double %425, ptr %391, align 8, !alias.scope !3612
+  store double %430, ptr %392, align 8, !alias.scope !3612
+  store double %433, ptr %393, align 8, !alias.scope !3612
   %437 = add nuw nsw i64 %3, 1
   %438 = invoke noundef zeroext i1 @_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE5applyISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIdEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %437, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIdEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148 unwind label %441
 
-_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIdEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148: ; preds = %433
+_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIdEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148: ; preds = %436
   br i1 %438, label %439, label %443
 
 439:                                              ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIdEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148
@@ -182975,7 +182975,7 @@ _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIdEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit150: ; preds = %439
   br i1 %440, label %.critedge98, label %443
 
-441:                                              ; preds = %439, %433
+441:                                              ; preds = %439, %436
   %442 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -183984,76 +183984,76 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.experimental.noalias.scope.decl(metadata !3631)
   call void @llvm.experimental.noalias.scope.decl(metadata !3634)
+  %50 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %49, %.lr.ph.i.i.i
-  %50 = phi double [ %89, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %49 ]
-  %51 = phi double [ %86, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %49 ]
-  %52 = phi double [ %81, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %49 ]
-  %53 = phi double [ %78, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %49 ]
-  %54 = phi double [ %90, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %49 ]
-  %55 = phi double [ %87, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %49 ]
-  %56 = phi double [ %82, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %49 ]
-  %.sroa.06.010.i.i.i = phi ptr [ %91, %.lr.ph.i.i.i ], [ %33, %49 ]
-  %57 = phi double [ %79, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %49 ]
-  %58 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !3602, !noalias !3637
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  %60 = load double, ptr %59, align 8, !tbaa !2609, !noalias !3637
-  %61 = fcmp olt double %60, %57
-  %62 = select i1 %61, double %60, double %53
-  %63 = select i1 %61, double %60, double %57
-  %64 = fcmp ogt double %60, %56
-  %65 = select i1 %64, double %60, double %52
-  %66 = select i1 %64, double %60, double %56
-  %67 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %68 = load double, ptr %67, align 8, !tbaa !2609, !noalias !3637
-  %69 = fcmp olt double %68, %55
-  %70 = select i1 %69, double %68, double %51
-  %71 = select i1 %69, double %68, double %55
-  %72 = fcmp ogt double %68, %54
-  %73 = select i1 %72, double %68, double %50
-  %74 = select i1 %72, double %68, double %54
-  %75 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  %76 = load double, ptr %75, align 8, !tbaa !2609, !noalias !3637
-  %77 = fcmp olt double %76, %63
-  %78 = select i1 %77, double %76, double %62
-  %79 = select i1 %77, double %76, double %63
-  %80 = fcmp ogt double %76, %66
-  %81 = select i1 %80, double %76, double %65
-  %82 = select i1 %80, double %76, double %66
-  %83 = getelementptr inbounds nuw i8, ptr %58, i64 56
-  %84 = load double, ptr %83, align 8, !tbaa !2609, !noalias !3637
-  %85 = fcmp olt double %84, %71
-  %86 = select i1 %85, double %84, double %70
-  %87 = select i1 %85, double %84, double %71
-  %88 = fcmp ogt double %84, %74
-  %89 = select i1 %88, double %84, double %73
-  %90 = select i1 %88, double %84, double %74
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %91, %35
+  %53 = phi double [ %92, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %49 ]
+  %54 = phi double [ %89, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %49 ]
+  %55 = phi double [ %84, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %49 ]
+  %56 = phi double [ %81, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %49 ]
+  %57 = phi double [ %93, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %49 ]
+  %58 = phi double [ %90, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %49 ]
+  %59 = phi double [ %85, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %49 ]
+  %.sroa.06.010.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i ], [ %33, %49 ]
+  %60 = phi double [ %82, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %49 ]
+  %61 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !3602, !noalias !3637
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
+  %63 = load double, ptr %62, align 8, !tbaa !2609, !noalias !3637
+  %64 = fcmp olt double %63, %60
+  %65 = select i1 %64, double %63, double %56
+  %66 = select i1 %64, double %63, double %60
+  %67 = fcmp ogt double %63, %59
+  %68 = select i1 %67, double %63, double %55
+  %69 = select i1 %67, double %63, double %59
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  %71 = load double, ptr %70, align 8, !tbaa !2609, !noalias !3637
+  %72 = fcmp olt double %71, %58
+  %73 = select i1 %72, double %71, double %54
+  %74 = select i1 %72, double %71, double %58
+  %75 = fcmp ogt double %71, %57
+  %76 = select i1 %75, double %71, double %53
+  %77 = select i1 %75, double %71, double %57
+  %78 = getelementptr inbounds nuw i8, ptr %61, i64 48
+  %79 = load double, ptr %78, align 8, !tbaa !2609, !noalias !3637
+  %80 = fcmp olt double %79, %66
+  %81 = select i1 %80, double %79, double %65
+  %82 = select i1 %80, double %79, double %66
+  %83 = fcmp ogt double %79, %69
+  %84 = select i1 %83, double %79, double %68
+  %85 = select i1 %83, double %79, double %69
+  %86 = getelementptr inbounds nuw i8, ptr %61, i64 56
+  %87 = load double, ptr %86, align 8, !tbaa !2609, !noalias !3637
+  %88 = fcmp olt double %87, %74
+  %89 = select i1 %88, double %87, double %73
+  %90 = select i1 %88, double %87, double %74
+  %91 = fcmp ogt double %87, %77
+  %92 = select i1 %91, double %87, double %76
+  %93 = select i1 %91, double %87, double %77
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %94, %35
   br i1 %.not.i.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, label %.lr.ph.i.i.i
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i
-  %92 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %93 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %94 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store double %78, ptr %20, align 8, !alias.scope !3637
-  store double %81, ptr %92, align 8, !alias.scope !3637
-  store double %86, ptr %93, align 8, !alias.scope !3637
-  store double %89, ptr %94, align 8, !alias.scope !3637
+  store double %81, ptr %20, align 8, !alias.scope !3637
+  store double %84, ptr %50, align 8, !alias.scope !3637
+  store double %89, ptr %51, align 8, !alias.scope !3637
+  store double %92, ptr %52, align 8, !alias.scope !3637
   %.not9.i.i = icmp eq ptr %.pre, %.pre304
   br i1 %.not9.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESV_EESA_RKT_RKT0_RKT1_RKT2_.exit, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
 _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
-  %95 = phi double [ %134, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %89, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %96 = phi double [ %131, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %86, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %97 = phi double [ %126, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %81, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %98 = phi double [ %123, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %78, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %99 = phi double [ %135, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %89, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %100 = phi double [ %132, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %86, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %101 = phi double [ %127, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %81, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %95 = phi double [ %134, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %92, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %96 = phi double [ %131, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %89, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %97 = phi double [ %126, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %84, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %98 = phi double [ %123, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %81, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %99 = phi double [ %135, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %92, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %100 = phi double [ %132, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %89, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %101 = phi double [ %127, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %84, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %.sroa.06.010.i.i = phi ptr [ %136, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %.pre, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %102 = phi double [ %124, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %78, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %102 = phi double [ %124, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %81, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %103 = load ptr, ptr %.sroa.06.010.i.i, align 8, !tbaa !3602, !noalias !3631
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %105 = load double, ptr %104, align 8, !tbaa !2609, !noalias !3631
@@ -184093,9 +184093,9 @@ _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3bo
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESB_ISF_SaISF_EEEESaISK_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i: ; preds = %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
   store double %123, ptr %20, align 8, !alias.scope !3631
-  store double %126, ptr %92, align 8, !alias.scope !3631
-  store double %131, ptr %93, align 8, !alias.scope !3631
-  store double %134, ptr %94, align 8, !alias.scope !3631
+  store double %126, ptr %50, align 8, !alias.scope !3631
+  store double %131, ptr %51, align 8, !alias.scope !3631
+  store double %134, ptr %52, align 8, !alias.scope !3631
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESV_EESA_RKT_RKT0_RKT1_RKT2_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESV_EESA_RKT_RKT0_RKT1_RKT2_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESB_ISF_SaISF_EEEESaISK_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i
@@ -184592,68 +184592,68 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 392:                                              ; preds = %_ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIdLm2ENS0_2cs9cartesianEEEEELm2EEES4_ISF_SaISF_EEEESaISK_EESM_SM_EEbRKT_RKT0_RKT1_mm.exit140
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.experimental.noalias.scope.decl(metadata !3644)
+  %393 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %394 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br label %.lr.ph.i.i142
 
 .lr.ph.i.i142:                                    ; preds = %392, %.lr.ph.i.i142
-  %393 = phi double [ %432, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %392 ]
-  %394 = phi double [ %429, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %392 ]
-  %395 = phi double [ %424, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %392 ]
-  %396 = phi double [ %421, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %392 ]
-  %397 = phi double [ %433, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %392 ]
-  %398 = phi double [ %430, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %392 ]
-  %399 = phi double [ %425, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %392 ]
-  %.sroa.06.010.i.i143 = phi ptr [ %434, %.lr.ph.i.i142 ], [ %365, %392 ]
-  %400 = phi double [ %422, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %392 ]
-  %401 = load ptr, ptr %.sroa.06.010.i.i143, align 8, !tbaa !3602, !noalias !3644
-  %402 = getelementptr inbounds nuw i8, ptr %401, i64 32
-  %403 = load double, ptr %402, align 8, !tbaa !2609, !noalias !3644
-  %404 = fcmp olt double %403, %400
-  %405 = select i1 %404, double %403, double %396
-  %406 = select i1 %404, double %403, double %400
-  %407 = fcmp ogt double %403, %399
-  %408 = select i1 %407, double %403, double %395
-  %409 = select i1 %407, double %403, double %399
-  %410 = getelementptr inbounds nuw i8, ptr %401, i64 40
-  %411 = load double, ptr %410, align 8, !tbaa !2609, !noalias !3644
-  %412 = fcmp olt double %411, %398
-  %413 = select i1 %412, double %411, double %394
-  %414 = select i1 %412, double %411, double %398
-  %415 = fcmp ogt double %411, %397
-  %416 = select i1 %415, double %411, double %393
-  %417 = select i1 %415, double %411, double %397
-  %418 = getelementptr inbounds nuw i8, ptr %401, i64 48
-  %419 = load double, ptr %418, align 8, !tbaa !2609, !noalias !3644
-  %420 = fcmp olt double %419, %406
-  %421 = select i1 %420, double %419, double %405
-  %422 = select i1 %420, double %419, double %406
-  %423 = fcmp ogt double %419, %409
-  %424 = select i1 %423, double %419, double %408
-  %425 = select i1 %423, double %419, double %409
-  %426 = getelementptr inbounds nuw i8, ptr %401, i64 56
-  %427 = load double, ptr %426, align 8, !tbaa !2609, !noalias !3644
-  %428 = fcmp olt double %427, %414
-  %429 = select i1 %428, double %427, double %413
-  %430 = select i1 %428, double %427, double %414
-  %431 = fcmp ogt double %427, %417
-  %432 = select i1 %431, double %427, double %416
-  %433 = select i1 %431, double %427, double %417
-  %434 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i143, i64 8
-  %.not.i.i144 = icmp eq ptr %434, %367
-  br i1 %.not.i.i144, label %435, label %.lr.ph.i.i142
+  %396 = phi double [ %435, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %392 ]
+  %397 = phi double [ %432, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %392 ]
+  %398 = phi double [ %427, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %392 ]
+  %399 = phi double [ %424, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %392 ]
+  %400 = phi double [ %436, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %392 ]
+  %401 = phi double [ %433, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %392 ]
+  %402 = phi double [ %428, %.lr.ph.i.i142 ], [ 0xFFEFFFFFFFFFFFFF, %392 ]
+  %.sroa.06.010.i.i143 = phi ptr [ %437, %.lr.ph.i.i142 ], [ %365, %392 ]
+  %403 = phi double [ %425, %.lr.ph.i.i142 ], [ 0x7FEFFFFFFFFFFFFF, %392 ]
+  %404 = load ptr, ptr %.sroa.06.010.i.i143, align 8, !tbaa !3602, !noalias !3644
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 32
+  %406 = load double, ptr %405, align 8, !tbaa !2609, !noalias !3644
+  %407 = fcmp olt double %406, %403
+  %408 = select i1 %407, double %406, double %399
+  %409 = select i1 %407, double %406, double %403
+  %410 = fcmp ogt double %406, %402
+  %411 = select i1 %410, double %406, double %398
+  %412 = select i1 %410, double %406, double %402
+  %413 = getelementptr inbounds nuw i8, ptr %404, i64 40
+  %414 = load double, ptr %413, align 8, !tbaa !2609, !noalias !3644
+  %415 = fcmp olt double %414, %401
+  %416 = select i1 %415, double %414, double %397
+  %417 = select i1 %415, double %414, double %401
+  %418 = fcmp ogt double %414, %400
+  %419 = select i1 %418, double %414, double %396
+  %420 = select i1 %418, double %414, double %400
+  %421 = getelementptr inbounds nuw i8, ptr %404, i64 48
+  %422 = load double, ptr %421, align 8, !tbaa !2609, !noalias !3644
+  %423 = fcmp olt double %422, %409
+  %424 = select i1 %423, double %422, double %408
+  %425 = select i1 %423, double %422, double %409
+  %426 = fcmp ogt double %422, %412
+  %427 = select i1 %426, double %422, double %411
+  %428 = select i1 %426, double %422, double %412
+  %429 = getelementptr inbounds nuw i8, ptr %404, i64 56
+  %430 = load double, ptr %429, align 8, !tbaa !2609, !noalias !3644
+  %431 = fcmp olt double %430, %417
+  %432 = select i1 %431, double %430, double %416
+  %433 = select i1 %431, double %430, double %417
+  %434 = fcmp ogt double %430, %420
+  %435 = select i1 %434, double %430, double %419
+  %436 = select i1 %434, double %430, double %420
+  %437 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i143, i64 8
+  %.not.i.i144 = icmp eq ptr %437, %367
+  br i1 %.not.i.i144, label %438, label %.lr.ph.i.i142
 
-435:                                              ; preds = %.lr.ph.i.i142
-  %436 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %437 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %438 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store double %421, ptr %22, align 8, !alias.scope !3644
-  store double %424, ptr %436, align 8, !alias.scope !3644
-  store double %429, ptr %437, align 8, !alias.scope !3644
-  store double %432, ptr %438, align 8, !alias.scope !3644
+438:                                              ; preds = %.lr.ph.i.i142
+  store double %424, ptr %22, align 8, !alias.scope !3644
+  store double %427, ptr %393, align 8, !alias.scope !3644
+  store double %432, ptr %394, align 8, !alias.scope !3644
+  store double %435, ptr %395, align 8, !alias.scope !3644
   %439 = add nuw nsw i64 %3, 1
   %440 = invoke noundef zeroext i1 @_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE5applyISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIdEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %439, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIdEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148 unwind label %443
 
-_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIdEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148: ; preds = %435
+_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIdEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148: ; preds = %438
   br i1 %440, label %441, label %445
 
 441:                                              ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIdEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148
@@ -184663,7 +184663,7 @@ _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIdEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit150: ; preds = %441
   br i1 %442, label %.critedge98, label %445
 
-443:                                              ; preds = %441, %435
+443:                                              ; preds = %441, %438
   %444 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -197381,7 +197381,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit.i: ; preds = %56, %53, %34
   %128 = ptrtoint ptr %126 to i64
   %129 = sub i64 %127, %128
   %.not.i.i.i.i = icmp eq ptr %125, %126
-  br i1 %.not.i.i.i.i, label %.noexc70.thread, label %130
+  br i1 %.not.i.i.i.i, label %.loopexit, label %130
 
 130:                                              ; preds = %124
   %131 = sdiv exact i64 %129, 288
@@ -197406,9 +197406,9 @@ _ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay9turn_infoINS1_5model5
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 288
   %135 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 288
   %.not.i.i.i.i.i = icmp eq ptr %134, %125
-  br i1 %.not.i.i.i.i.i, label %.noexc70.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !3945
+  br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !3945
 
-.noexc70.thread:                                  ; preds = %.lr.ph.i.i.i.i.i, %124
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %124
   %.sink = phi ptr [ null, %124 ], [ %133, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %124 ], [ %135, %.lr.ph.i.i.i.i.i ]
   %136 = load ptr, ptr %4, align 8, !tbaa !174
@@ -197416,7 +197416,7 @@ _ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay9turn_infoINS1_5model5
   %.not122 = icmp eq ptr %136, %137
   br i1 %.not122, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIeLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIeEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.noexc70.thread
+.lr.ph:                                           ; preds = %.loopexit
   %138 = ptrtoint ptr %.sink to i64
   br label %147
 
@@ -197484,8 +197484,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_i
   %.not = icmp eq ptr %159, %160
   br i1 %.not, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIeLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIeEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge, label %147, !llvm.loop !3946
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIeLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIeEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge: ; preds = %157, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIeLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIeEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit, %.noexc70.thread
-  %.not.lcssa = phi i1 [ true, %.noexc70.thread ], [ %.not120.not.not, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIeLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIeEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit ], [ %.not120.not.not, %157 ]
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIeLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIeEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit._crit_edge: ; preds = %157, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIeLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIeEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit, %.loopexit
+  %.not.lcssa = phi i1 [ true, %.loopexit ], [ %.not120.not.not, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIeLm2ENS3_2cs9cartesianEEENS3_13segment_ratioIeEENS5_14turn_operationISB_SD_EESt5arrayISF_Lm2EEEESt6vectorISI_SaISI_EEEE10equal_turnET_SP_SP_T0_.exit ], [ %.not120.not.not, %157 ]
   %.not.i.i.i73 = icmp eq ptr %.sink, null
   br i1 %.not.i.i.i73, label %_ZNSt6vectorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIeLm2ENS1_2cs9cartesianEEENS1_13segment_ratioIeEENS3_14turn_operationIS9_SB_EESt5arrayISD_Lm2EEEESaISG_EED2Ev.exit, label %161
 
@@ -199123,76 +199123,76 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.experimental.noalias.scope.decl(metadata !4026)
   call void @llvm.experimental.noalias.scope.decl(metadata !4029)
+  %48 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %20, i64 48
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %47, %.lr.ph.i.i.i
-  %48 = phi x86_fp80 [ %87, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %47 ]
-  %49 = phi x86_fp80 [ %84, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %47 ]
-  %50 = phi x86_fp80 [ %79, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %47 ]
-  %51 = phi x86_fp80 [ %76, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %47 ]
-  %52 = phi x86_fp80 [ %88, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %47 ]
-  %53 = phi x86_fp80 [ %85, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %47 ]
-  %54 = phi x86_fp80 [ %80, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %47 ]
-  %.sroa.06.010.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i ], [ %31, %47 ]
-  %55 = phi x86_fp80 [ %77, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %47 ]
-  %56 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !4032, !noalias !4034
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %58 = load x86_fp80, ptr %57, align 16, !tbaa !3903, !noalias !4034
-  %59 = fcmp olt x86_fp80 %58, %55
-  %60 = select i1 %59, x86_fp80 %58, x86_fp80 %51
-  %61 = select i1 %59, x86_fp80 %58, x86_fp80 %55
-  %62 = fcmp ogt x86_fp80 %58, %54
-  %63 = select i1 %62, x86_fp80 %58, x86_fp80 %50
-  %64 = select i1 %62, x86_fp80 %58, x86_fp80 %54
-  %65 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %66 = load x86_fp80, ptr %65, align 16, !tbaa !3903, !noalias !4034
-  %67 = fcmp olt x86_fp80 %66, %53
-  %68 = select i1 %67, x86_fp80 %66, x86_fp80 %49
-  %69 = select i1 %67, x86_fp80 %66, x86_fp80 %53
-  %70 = fcmp ogt x86_fp80 %66, %52
-  %71 = select i1 %70, x86_fp80 %66, x86_fp80 %48
-  %72 = select i1 %70, x86_fp80 %66, x86_fp80 %52
-  %73 = getelementptr inbounds nuw i8, ptr %56, i64 64
-  %74 = load x86_fp80, ptr %73, align 16, !tbaa !3903, !noalias !4034
-  %75 = fcmp olt x86_fp80 %74, %61
-  %76 = select i1 %75, x86_fp80 %74, x86_fp80 %60
-  %77 = select i1 %75, x86_fp80 %74, x86_fp80 %61
-  %78 = fcmp ogt x86_fp80 %74, %64
-  %79 = select i1 %78, x86_fp80 %74, x86_fp80 %63
-  %80 = select i1 %78, x86_fp80 %74, x86_fp80 %64
-  %81 = getelementptr inbounds nuw i8, ptr %56, i64 80
-  %82 = load x86_fp80, ptr %81, align 16, !tbaa !3903, !noalias !4034
-  %83 = fcmp olt x86_fp80 %82, %69
-  %84 = select i1 %83, x86_fp80 %82, x86_fp80 %68
-  %85 = select i1 %83, x86_fp80 %82, x86_fp80 %69
-  %86 = fcmp ogt x86_fp80 %82, %72
-  %87 = select i1 %86, x86_fp80 %82, x86_fp80 %71
-  %88 = select i1 %86, x86_fp80 %82, x86_fp80 %72
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %89, %33
+  %51 = phi x86_fp80 [ %90, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %47 ]
+  %52 = phi x86_fp80 [ %87, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %47 ]
+  %53 = phi x86_fp80 [ %82, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %47 ]
+  %54 = phi x86_fp80 [ %79, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %47 ]
+  %55 = phi x86_fp80 [ %91, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %47 ]
+  %56 = phi x86_fp80 [ %88, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %47 ]
+  %57 = phi x86_fp80 [ %83, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %47 ]
+  %.sroa.06.010.i.i.i = phi ptr [ %92, %.lr.ph.i.i.i ], [ %31, %47 ]
+  %58 = phi x86_fp80 [ %80, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %47 ]
+  %59 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !4032, !noalias !4034
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %61 = load x86_fp80, ptr %60, align 16, !tbaa !3903, !noalias !4034
+  %62 = fcmp olt x86_fp80 %61, %58
+  %63 = select i1 %62, x86_fp80 %61, x86_fp80 %54
+  %64 = select i1 %62, x86_fp80 %61, x86_fp80 %58
+  %65 = fcmp ogt x86_fp80 %61, %57
+  %66 = select i1 %65, x86_fp80 %61, x86_fp80 %53
+  %67 = select i1 %65, x86_fp80 %61, x86_fp80 %57
+  %68 = getelementptr inbounds nuw i8, ptr %59, i64 48
+  %69 = load x86_fp80, ptr %68, align 16, !tbaa !3903, !noalias !4034
+  %70 = fcmp olt x86_fp80 %69, %56
+  %71 = select i1 %70, x86_fp80 %69, x86_fp80 %52
+  %72 = select i1 %70, x86_fp80 %69, x86_fp80 %56
+  %73 = fcmp ogt x86_fp80 %69, %55
+  %74 = select i1 %73, x86_fp80 %69, x86_fp80 %51
+  %75 = select i1 %73, x86_fp80 %69, x86_fp80 %55
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 64
+  %77 = load x86_fp80, ptr %76, align 16, !tbaa !3903, !noalias !4034
+  %78 = fcmp olt x86_fp80 %77, %64
+  %79 = select i1 %78, x86_fp80 %77, x86_fp80 %63
+  %80 = select i1 %78, x86_fp80 %77, x86_fp80 %64
+  %81 = fcmp ogt x86_fp80 %77, %67
+  %82 = select i1 %81, x86_fp80 %77, x86_fp80 %66
+  %83 = select i1 %81, x86_fp80 %77, x86_fp80 %67
+  %84 = getelementptr inbounds nuw i8, ptr %59, i64 80
+  %85 = load x86_fp80, ptr %84, align 16, !tbaa !3903, !noalias !4034
+  %86 = fcmp olt x86_fp80 %85, %72
+  %87 = select i1 %86, x86_fp80 %85, x86_fp80 %71
+  %88 = select i1 %86, x86_fp80 %85, x86_fp80 %72
+  %89 = fcmp ogt x86_fp80 %85, %75
+  %90 = select i1 %89, x86_fp80 %85, x86_fp80 %74
+  %91 = select i1 %89, x86_fp80 %85, x86_fp80 %75
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %92, %33
   br i1 %.not.i.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, label %.lr.ph.i.i.i
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i
-  %90 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %91 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %92 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  store x86_fp80 %76, ptr %20, align 16, !alias.scope !4034
-  store x86_fp80 %79, ptr %90, align 16, !alias.scope !4034
-  store x86_fp80 %84, ptr %91, align 16, !alias.scope !4034
-  store x86_fp80 %87, ptr %92, align 16, !alias.scope !4034
+  store x86_fp80 %79, ptr %20, align 16, !alias.scope !4034
+  store x86_fp80 %82, ptr %48, align 16, !alias.scope !4034
+  store x86_fp80 %87, ptr %49, align 16, !alias.scope !4034
+  store x86_fp80 %90, ptr %50, align 16, !alias.scope !4034
   %.not9.i.i = icmp eq ptr %.pre, %.pre304
   br i1 %.not9.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESV_EESA_RKT_RKT0_RKT1_RKT2_.exit, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
 _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
-  %93 = phi x86_fp80 [ %132, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %87, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %94 = phi x86_fp80 [ %129, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %84, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %95 = phi x86_fp80 [ %124, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %79, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %96 = phi x86_fp80 [ %121, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %76, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %97 = phi x86_fp80 [ %133, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %87, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %98 = phi x86_fp80 [ %130, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %84, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %99 = phi x86_fp80 [ %125, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %79, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %93 = phi x86_fp80 [ %132, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %90, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %94 = phi x86_fp80 [ %129, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %87, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %95 = phi x86_fp80 [ %124, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %82, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %96 = phi x86_fp80 [ %121, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %79, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %97 = phi x86_fp80 [ %133, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %90, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %98 = phi x86_fp80 [ %130, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %87, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %99 = phi x86_fp80 [ %125, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %82, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %.sroa.06.010.i.i = phi ptr [ %134, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %.pre, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %100 = phi x86_fp80 [ %122, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %76, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %100 = phi x86_fp80 [ %122, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %79, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %101 = load ptr, ptr %.sroa.06.010.i.i, align 8, !tbaa !4032, !noalias !4026
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %103 = load x86_fp80, ptr %102, align 16, !tbaa !3903, !noalias !4026
@@ -199232,9 +199232,9 @@ _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3bo
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESB_ISF_SaISF_EEEESaISK_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i: ; preds = %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
   store x86_fp80 %121, ptr %20, align 16, !alias.scope !4026
-  store x86_fp80 %124, ptr %90, align 16, !alias.scope !4026
-  store x86_fp80 %129, ptr %91, align 16, !alias.scope !4026
-  store x86_fp80 %132, ptr %92, align 16, !alias.scope !4026
+  store x86_fp80 %124, ptr %48, align 16, !alias.scope !4026
+  store x86_fp80 %129, ptr %49, align 16, !alias.scope !4026
+  store x86_fp80 %132, ptr %50, align 16, !alias.scope !4026
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESV_EESA_RKT_RKT0_RKT1_RKT2_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESV_EESA_RKT_RKT0_RKT1_RKT2_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESB_ISF_SaISF_EEEESaISK_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i
@@ -199731,68 +199731,68 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 390:                                              ; preds = %_ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIeLm2ENS0_2cs9cartesianEEEEELm2EEES4_ISF_SaISF_EEEESaISK_EESM_SM_EEbRKT_RKT0_RKT1_mm.exit140
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.experimental.noalias.scope.decl(metadata !4042)
+  %391 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %392 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %393 = getelementptr inbounds nuw i8, ptr %22, i64 48
   br label %.lr.ph.i.i142
 
 .lr.ph.i.i142:                                    ; preds = %390, %.lr.ph.i.i142
-  %391 = phi x86_fp80 [ %430, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %390 ]
-  %392 = phi x86_fp80 [ %427, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %390 ]
-  %393 = phi x86_fp80 [ %422, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %390 ]
-  %394 = phi x86_fp80 [ %419, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %390 ]
-  %395 = phi x86_fp80 [ %431, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %390 ]
-  %396 = phi x86_fp80 [ %428, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %390 ]
-  %397 = phi x86_fp80 [ %423, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %390 ]
-  %.sroa.06.010.i.i143 = phi ptr [ %432, %.lr.ph.i.i142 ], [ %363, %390 ]
-  %398 = phi x86_fp80 [ %420, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %390 ]
-  %399 = load ptr, ptr %.sroa.06.010.i.i143, align 8, !tbaa !4032, !noalias !4042
-  %400 = getelementptr inbounds nuw i8, ptr %399, i64 32
-  %401 = load x86_fp80, ptr %400, align 16, !tbaa !3903, !noalias !4042
-  %402 = fcmp olt x86_fp80 %401, %398
-  %403 = select i1 %402, x86_fp80 %401, x86_fp80 %394
-  %404 = select i1 %402, x86_fp80 %401, x86_fp80 %398
-  %405 = fcmp ogt x86_fp80 %401, %397
-  %406 = select i1 %405, x86_fp80 %401, x86_fp80 %393
-  %407 = select i1 %405, x86_fp80 %401, x86_fp80 %397
-  %408 = getelementptr inbounds nuw i8, ptr %399, i64 48
-  %409 = load x86_fp80, ptr %408, align 16, !tbaa !3903, !noalias !4042
-  %410 = fcmp olt x86_fp80 %409, %396
-  %411 = select i1 %410, x86_fp80 %409, x86_fp80 %392
-  %412 = select i1 %410, x86_fp80 %409, x86_fp80 %396
-  %413 = fcmp ogt x86_fp80 %409, %395
-  %414 = select i1 %413, x86_fp80 %409, x86_fp80 %391
-  %415 = select i1 %413, x86_fp80 %409, x86_fp80 %395
-  %416 = getelementptr inbounds nuw i8, ptr %399, i64 64
-  %417 = load x86_fp80, ptr %416, align 16, !tbaa !3903, !noalias !4042
-  %418 = fcmp olt x86_fp80 %417, %404
-  %419 = select i1 %418, x86_fp80 %417, x86_fp80 %403
-  %420 = select i1 %418, x86_fp80 %417, x86_fp80 %404
-  %421 = fcmp ogt x86_fp80 %417, %407
-  %422 = select i1 %421, x86_fp80 %417, x86_fp80 %406
-  %423 = select i1 %421, x86_fp80 %417, x86_fp80 %407
-  %424 = getelementptr inbounds nuw i8, ptr %399, i64 80
-  %425 = load x86_fp80, ptr %424, align 16, !tbaa !3903, !noalias !4042
-  %426 = fcmp olt x86_fp80 %425, %412
-  %427 = select i1 %426, x86_fp80 %425, x86_fp80 %411
-  %428 = select i1 %426, x86_fp80 %425, x86_fp80 %412
-  %429 = fcmp ogt x86_fp80 %425, %415
-  %430 = select i1 %429, x86_fp80 %425, x86_fp80 %414
-  %431 = select i1 %429, x86_fp80 %425, x86_fp80 %415
-  %432 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i143, i64 8
-  %.not.i.i144 = icmp eq ptr %432, %365
-  br i1 %.not.i.i144, label %433, label %.lr.ph.i.i142
+  %394 = phi x86_fp80 [ %433, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %390 ]
+  %395 = phi x86_fp80 [ %430, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %390 ]
+  %396 = phi x86_fp80 [ %425, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %390 ]
+  %397 = phi x86_fp80 [ %422, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %390 ]
+  %398 = phi x86_fp80 [ %434, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %390 ]
+  %399 = phi x86_fp80 [ %431, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %390 ]
+  %400 = phi x86_fp80 [ %426, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %390 ]
+  %.sroa.06.010.i.i143 = phi ptr [ %435, %.lr.ph.i.i142 ], [ %363, %390 ]
+  %401 = phi x86_fp80 [ %423, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %390 ]
+  %402 = load ptr, ptr %.sroa.06.010.i.i143, align 8, !tbaa !4032, !noalias !4042
+  %403 = getelementptr inbounds nuw i8, ptr %402, i64 32
+  %404 = load x86_fp80, ptr %403, align 16, !tbaa !3903, !noalias !4042
+  %405 = fcmp olt x86_fp80 %404, %401
+  %406 = select i1 %405, x86_fp80 %404, x86_fp80 %397
+  %407 = select i1 %405, x86_fp80 %404, x86_fp80 %401
+  %408 = fcmp ogt x86_fp80 %404, %400
+  %409 = select i1 %408, x86_fp80 %404, x86_fp80 %396
+  %410 = select i1 %408, x86_fp80 %404, x86_fp80 %400
+  %411 = getelementptr inbounds nuw i8, ptr %402, i64 48
+  %412 = load x86_fp80, ptr %411, align 16, !tbaa !3903, !noalias !4042
+  %413 = fcmp olt x86_fp80 %412, %399
+  %414 = select i1 %413, x86_fp80 %412, x86_fp80 %395
+  %415 = select i1 %413, x86_fp80 %412, x86_fp80 %399
+  %416 = fcmp ogt x86_fp80 %412, %398
+  %417 = select i1 %416, x86_fp80 %412, x86_fp80 %394
+  %418 = select i1 %416, x86_fp80 %412, x86_fp80 %398
+  %419 = getelementptr inbounds nuw i8, ptr %402, i64 64
+  %420 = load x86_fp80, ptr %419, align 16, !tbaa !3903, !noalias !4042
+  %421 = fcmp olt x86_fp80 %420, %407
+  %422 = select i1 %421, x86_fp80 %420, x86_fp80 %406
+  %423 = select i1 %421, x86_fp80 %420, x86_fp80 %407
+  %424 = fcmp ogt x86_fp80 %420, %410
+  %425 = select i1 %424, x86_fp80 %420, x86_fp80 %409
+  %426 = select i1 %424, x86_fp80 %420, x86_fp80 %410
+  %427 = getelementptr inbounds nuw i8, ptr %402, i64 80
+  %428 = load x86_fp80, ptr %427, align 16, !tbaa !3903, !noalias !4042
+  %429 = fcmp olt x86_fp80 %428, %415
+  %430 = select i1 %429, x86_fp80 %428, x86_fp80 %414
+  %431 = select i1 %429, x86_fp80 %428, x86_fp80 %415
+  %432 = fcmp ogt x86_fp80 %428, %418
+  %433 = select i1 %432, x86_fp80 %428, x86_fp80 %417
+  %434 = select i1 %432, x86_fp80 %428, x86_fp80 %418
+  %435 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i143, i64 8
+  %.not.i.i144 = icmp eq ptr %435, %365
+  br i1 %.not.i.i144, label %436, label %.lr.ph.i.i142
 
-433:                                              ; preds = %.lr.ph.i.i142
-  %434 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %435 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %436 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  store x86_fp80 %419, ptr %22, align 16, !alias.scope !4042
-  store x86_fp80 %422, ptr %434, align 16, !alias.scope !4042
-  store x86_fp80 %427, ptr %435, align 16, !alias.scope !4042
-  store x86_fp80 %430, ptr %436, align 16, !alias.scope !4042
+436:                                              ; preds = %.lr.ph.i.i142
+  store x86_fp80 %422, ptr %22, align 16, !alias.scope !4042
+  store x86_fp80 %425, ptr %391, align 16, !alias.scope !4042
+  store x86_fp80 %430, ptr %392, align 16, !alias.scope !4042
+  store x86_fp80 %433, ptr %393, align 16, !alias.scope !4042
   %437 = add nuw nsw i64 %3, 1
   %438 = invoke noundef zeroext i1 @_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE5applyISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIeEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_(ptr noundef nonnull align 16 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %437, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIeEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148 unwind label %441
 
-_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIeEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148: ; preds = %433
+_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIeEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148: ; preds = %436
   br i1 %438, label %439, label %443
 
 439:                                              ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIeEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148
@@ -199802,7 +199802,7 @@ _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIeEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit150: ; preds = %439
   br i1 %440, label %.critedge98, label %443
 
-441:                                              ; preds = %439, %433
+441:                                              ; preds = %439, %436
   %442 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -200811,76 +200811,76 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.experimental.noalias.scope.decl(metadata !4061)
   call void @llvm.experimental.noalias.scope.decl(metadata !4064)
+  %50 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %20, i64 48
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %49, %.lr.ph.i.i.i
-  %50 = phi x86_fp80 [ %89, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %49 ]
-  %51 = phi x86_fp80 [ %86, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %49 ]
-  %52 = phi x86_fp80 [ %81, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %49 ]
-  %53 = phi x86_fp80 [ %78, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %49 ]
-  %54 = phi x86_fp80 [ %90, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %49 ]
-  %55 = phi x86_fp80 [ %87, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %49 ]
-  %56 = phi x86_fp80 [ %82, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %49 ]
-  %.sroa.06.010.i.i.i = phi ptr [ %91, %.lr.ph.i.i.i ], [ %33, %49 ]
-  %57 = phi x86_fp80 [ %79, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %49 ]
-  %58 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !4032, !noalias !4067
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  %60 = load x86_fp80, ptr %59, align 16, !tbaa !3903, !noalias !4067
-  %61 = fcmp olt x86_fp80 %60, %57
-  %62 = select i1 %61, x86_fp80 %60, x86_fp80 %53
-  %63 = select i1 %61, x86_fp80 %60, x86_fp80 %57
-  %64 = fcmp ogt x86_fp80 %60, %56
-  %65 = select i1 %64, x86_fp80 %60, x86_fp80 %52
-  %66 = select i1 %64, x86_fp80 %60, x86_fp80 %56
-  %67 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  %68 = load x86_fp80, ptr %67, align 16, !tbaa !3903, !noalias !4067
-  %69 = fcmp olt x86_fp80 %68, %55
-  %70 = select i1 %69, x86_fp80 %68, x86_fp80 %51
-  %71 = select i1 %69, x86_fp80 %68, x86_fp80 %55
-  %72 = fcmp ogt x86_fp80 %68, %54
-  %73 = select i1 %72, x86_fp80 %68, x86_fp80 %50
-  %74 = select i1 %72, x86_fp80 %68, x86_fp80 %54
-  %75 = getelementptr inbounds nuw i8, ptr %58, i64 64
-  %76 = load x86_fp80, ptr %75, align 16, !tbaa !3903, !noalias !4067
-  %77 = fcmp olt x86_fp80 %76, %63
-  %78 = select i1 %77, x86_fp80 %76, x86_fp80 %62
-  %79 = select i1 %77, x86_fp80 %76, x86_fp80 %63
-  %80 = fcmp ogt x86_fp80 %76, %66
-  %81 = select i1 %80, x86_fp80 %76, x86_fp80 %65
-  %82 = select i1 %80, x86_fp80 %76, x86_fp80 %66
-  %83 = getelementptr inbounds nuw i8, ptr %58, i64 80
-  %84 = load x86_fp80, ptr %83, align 16, !tbaa !3903, !noalias !4067
-  %85 = fcmp olt x86_fp80 %84, %71
-  %86 = select i1 %85, x86_fp80 %84, x86_fp80 %70
-  %87 = select i1 %85, x86_fp80 %84, x86_fp80 %71
-  %88 = fcmp ogt x86_fp80 %84, %74
-  %89 = select i1 %88, x86_fp80 %84, x86_fp80 %73
-  %90 = select i1 %88, x86_fp80 %84, x86_fp80 %74
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %91, %35
+  %53 = phi x86_fp80 [ %92, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %49 ]
+  %54 = phi x86_fp80 [ %89, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %49 ]
+  %55 = phi x86_fp80 [ %84, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %49 ]
+  %56 = phi x86_fp80 [ %81, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %49 ]
+  %57 = phi x86_fp80 [ %93, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %49 ]
+  %58 = phi x86_fp80 [ %90, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %49 ]
+  %59 = phi x86_fp80 [ %85, %.lr.ph.i.i.i ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %49 ]
+  %.sroa.06.010.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i ], [ %33, %49 ]
+  %60 = phi x86_fp80 [ %82, %.lr.ph.i.i.i ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %49 ]
+  %61 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !4032, !noalias !4067
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
+  %63 = load x86_fp80, ptr %62, align 16, !tbaa !3903, !noalias !4067
+  %64 = fcmp olt x86_fp80 %63, %60
+  %65 = select i1 %64, x86_fp80 %63, x86_fp80 %56
+  %66 = select i1 %64, x86_fp80 %63, x86_fp80 %60
+  %67 = fcmp ogt x86_fp80 %63, %59
+  %68 = select i1 %67, x86_fp80 %63, x86_fp80 %55
+  %69 = select i1 %67, x86_fp80 %63, x86_fp80 %59
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 48
+  %71 = load x86_fp80, ptr %70, align 16, !tbaa !3903, !noalias !4067
+  %72 = fcmp olt x86_fp80 %71, %58
+  %73 = select i1 %72, x86_fp80 %71, x86_fp80 %54
+  %74 = select i1 %72, x86_fp80 %71, x86_fp80 %58
+  %75 = fcmp ogt x86_fp80 %71, %57
+  %76 = select i1 %75, x86_fp80 %71, x86_fp80 %53
+  %77 = select i1 %75, x86_fp80 %71, x86_fp80 %57
+  %78 = getelementptr inbounds nuw i8, ptr %61, i64 64
+  %79 = load x86_fp80, ptr %78, align 16, !tbaa !3903, !noalias !4067
+  %80 = fcmp olt x86_fp80 %79, %66
+  %81 = select i1 %80, x86_fp80 %79, x86_fp80 %65
+  %82 = select i1 %80, x86_fp80 %79, x86_fp80 %66
+  %83 = fcmp ogt x86_fp80 %79, %69
+  %84 = select i1 %83, x86_fp80 %79, x86_fp80 %68
+  %85 = select i1 %83, x86_fp80 %79, x86_fp80 %69
+  %86 = getelementptr inbounds nuw i8, ptr %61, i64 80
+  %87 = load x86_fp80, ptr %86, align 16, !tbaa !3903, !noalias !4067
+  %88 = fcmp olt x86_fp80 %87, %74
+  %89 = select i1 %88, x86_fp80 %87, x86_fp80 %73
+  %90 = select i1 %88, x86_fp80 %87, x86_fp80 %74
+  %91 = fcmp ogt x86_fp80 %87, %77
+  %92 = select i1 %91, x86_fp80 %87, x86_fp80 %76
+  %93 = select i1 %91, x86_fp80 %87, x86_fp80 %77
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %94, %35
   br i1 %.not.i.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, label %.lr.ph.i.i.i
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i
-  %92 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %93 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %94 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  store x86_fp80 %78, ptr %20, align 16, !alias.scope !4067
-  store x86_fp80 %81, ptr %92, align 16, !alias.scope !4067
-  store x86_fp80 %86, ptr %93, align 16, !alias.scope !4067
-  store x86_fp80 %89, ptr %94, align 16, !alias.scope !4067
+  store x86_fp80 %81, ptr %20, align 16, !alias.scope !4067
+  store x86_fp80 %84, ptr %50, align 16, !alias.scope !4067
+  store x86_fp80 %89, ptr %51, align 16, !alias.scope !4067
+  store x86_fp80 %92, ptr %52, align 16, !alias.scope !4067
   %.not9.i.i = icmp eq ptr %.pre, %.pre304
   br i1 %.not9.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESV_EESA_RKT_RKT0_RKT1_RKT2_.exit, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
 _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
-  %95 = phi x86_fp80 [ %134, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %89, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %96 = phi x86_fp80 [ %131, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %86, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %97 = phi x86_fp80 [ %126, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %81, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %98 = phi x86_fp80 [ %123, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %78, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %99 = phi x86_fp80 [ %135, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %89, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %100 = phi x86_fp80 [ %132, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %86, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %101 = phi x86_fp80 [ %127, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %81, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %95 = phi x86_fp80 [ %134, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %92, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %96 = phi x86_fp80 [ %131, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %89, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %97 = phi x86_fp80 [ %126, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %84, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %98 = phi x86_fp80 [ %123, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %81, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %99 = phi x86_fp80 [ %135, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %92, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %100 = phi x86_fp80 [ %132, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %89, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %101 = phi x86_fp80 [ %127, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %84, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %.sroa.06.010.i.i = phi ptr [ %136, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %.pre, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %102 = phi x86_fp80 [ %124, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %78, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %102 = phi x86_fp80 [ %124, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %81, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %103 = load ptr, ptr %.sroa.06.010.i.i, align 8, !tbaa !4032, !noalias !4061
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %105 = load x86_fp80, ptr %104, align 16, !tbaa !3903, !noalias !4061
@@ -200920,9 +200920,9 @@ _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3bo
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESB_ISF_SaISF_EEEESaISK_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i: ; preds = %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIeLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
   store x86_fp80 %123, ptr %20, align 16, !alias.scope !4061
-  store x86_fp80 %126, ptr %92, align 16, !alias.scope !4061
-  store x86_fp80 %131, ptr %93, align 16, !alias.scope !4061
-  store x86_fp80 %134, ptr %94, align 16, !alias.scope !4061
+  store x86_fp80 %126, ptr %50, align 16, !alias.scope !4061
+  store x86_fp80 %131, ptr %51, align 16, !alias.scope !4061
+  store x86_fp80 %134, ptr %52, align 16, !alias.scope !4061
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESV_EESA_RKT_RKT0_RKT1_RKT2_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEESV_EESA_RKT_RKT0_RKT1_RKT2_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESB_ISF_SaISF_EEEESaISK_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EENS1_7section15get_section_boxINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i
@@ -201419,68 +201419,68 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 392:                                              ; preds = %_ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIeLm2ENS0_2cs9cartesianEEEEELm2EEES4_ISF_SaISF_EEEESaISK_EESM_SM_EEbRKT_RKT0_RKT1_mm.exit140
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.experimental.noalias.scope.decl(metadata !4074)
+  %393 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %394 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %395 = getelementptr inbounds nuw i8, ptr %22, i64 48
   br label %.lr.ph.i.i142
 
 .lr.ph.i.i142:                                    ; preds = %392, %.lr.ph.i.i142
-  %393 = phi x86_fp80 [ %432, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %392 ]
-  %394 = phi x86_fp80 [ %429, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %392 ]
-  %395 = phi x86_fp80 [ %424, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %392 ]
-  %396 = phi x86_fp80 [ %421, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %392 ]
-  %397 = phi x86_fp80 [ %433, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %392 ]
-  %398 = phi x86_fp80 [ %430, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %392 ]
-  %399 = phi x86_fp80 [ %425, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %392 ]
-  %.sroa.06.010.i.i143 = phi ptr [ %434, %.lr.ph.i.i142 ], [ %365, %392 ]
-  %400 = phi x86_fp80 [ %422, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %392 ]
-  %401 = load ptr, ptr %.sroa.06.010.i.i143, align 8, !tbaa !4032, !noalias !4074
-  %402 = getelementptr inbounds nuw i8, ptr %401, i64 32
-  %403 = load x86_fp80, ptr %402, align 16, !tbaa !3903, !noalias !4074
-  %404 = fcmp olt x86_fp80 %403, %400
-  %405 = select i1 %404, x86_fp80 %403, x86_fp80 %396
-  %406 = select i1 %404, x86_fp80 %403, x86_fp80 %400
-  %407 = fcmp ogt x86_fp80 %403, %399
-  %408 = select i1 %407, x86_fp80 %403, x86_fp80 %395
-  %409 = select i1 %407, x86_fp80 %403, x86_fp80 %399
-  %410 = getelementptr inbounds nuw i8, ptr %401, i64 48
-  %411 = load x86_fp80, ptr %410, align 16, !tbaa !3903, !noalias !4074
-  %412 = fcmp olt x86_fp80 %411, %398
-  %413 = select i1 %412, x86_fp80 %411, x86_fp80 %394
-  %414 = select i1 %412, x86_fp80 %411, x86_fp80 %398
-  %415 = fcmp ogt x86_fp80 %411, %397
-  %416 = select i1 %415, x86_fp80 %411, x86_fp80 %393
-  %417 = select i1 %415, x86_fp80 %411, x86_fp80 %397
-  %418 = getelementptr inbounds nuw i8, ptr %401, i64 64
-  %419 = load x86_fp80, ptr %418, align 16, !tbaa !3903, !noalias !4074
-  %420 = fcmp olt x86_fp80 %419, %406
-  %421 = select i1 %420, x86_fp80 %419, x86_fp80 %405
-  %422 = select i1 %420, x86_fp80 %419, x86_fp80 %406
-  %423 = fcmp ogt x86_fp80 %419, %409
-  %424 = select i1 %423, x86_fp80 %419, x86_fp80 %408
-  %425 = select i1 %423, x86_fp80 %419, x86_fp80 %409
-  %426 = getelementptr inbounds nuw i8, ptr %401, i64 80
-  %427 = load x86_fp80, ptr %426, align 16, !tbaa !3903, !noalias !4074
-  %428 = fcmp olt x86_fp80 %427, %414
-  %429 = select i1 %428, x86_fp80 %427, x86_fp80 %413
-  %430 = select i1 %428, x86_fp80 %427, x86_fp80 %414
-  %431 = fcmp ogt x86_fp80 %427, %417
-  %432 = select i1 %431, x86_fp80 %427, x86_fp80 %416
-  %433 = select i1 %431, x86_fp80 %427, x86_fp80 %417
-  %434 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i143, i64 8
-  %.not.i.i144 = icmp eq ptr %434, %367
-  br i1 %.not.i.i144, label %435, label %.lr.ph.i.i142
+  %396 = phi x86_fp80 [ %435, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %392 ]
+  %397 = phi x86_fp80 [ %432, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %392 ]
+  %398 = phi x86_fp80 [ %427, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %392 ]
+  %399 = phi x86_fp80 [ %424, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %392 ]
+  %400 = phi x86_fp80 [ %436, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %392 ]
+  %401 = phi x86_fp80 [ %433, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %392 ]
+  %402 = phi x86_fp80 [ %428, %.lr.ph.i.i142 ], [ 0xKFFFEFFFFFFFFFFFFFFFF, %392 ]
+  %.sroa.06.010.i.i143 = phi ptr [ %437, %.lr.ph.i.i142 ], [ %365, %392 ]
+  %403 = phi x86_fp80 [ %425, %.lr.ph.i.i142 ], [ 0xK7FFEFFFFFFFFFFFFFFFF, %392 ]
+  %404 = load ptr, ptr %.sroa.06.010.i.i143, align 8, !tbaa !4032, !noalias !4074
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 32
+  %406 = load x86_fp80, ptr %405, align 16, !tbaa !3903, !noalias !4074
+  %407 = fcmp olt x86_fp80 %406, %403
+  %408 = select i1 %407, x86_fp80 %406, x86_fp80 %399
+  %409 = select i1 %407, x86_fp80 %406, x86_fp80 %403
+  %410 = fcmp ogt x86_fp80 %406, %402
+  %411 = select i1 %410, x86_fp80 %406, x86_fp80 %398
+  %412 = select i1 %410, x86_fp80 %406, x86_fp80 %402
+  %413 = getelementptr inbounds nuw i8, ptr %404, i64 48
+  %414 = load x86_fp80, ptr %413, align 16, !tbaa !3903, !noalias !4074
+  %415 = fcmp olt x86_fp80 %414, %401
+  %416 = select i1 %415, x86_fp80 %414, x86_fp80 %397
+  %417 = select i1 %415, x86_fp80 %414, x86_fp80 %401
+  %418 = fcmp ogt x86_fp80 %414, %400
+  %419 = select i1 %418, x86_fp80 %414, x86_fp80 %396
+  %420 = select i1 %418, x86_fp80 %414, x86_fp80 %400
+  %421 = getelementptr inbounds nuw i8, ptr %404, i64 64
+  %422 = load x86_fp80, ptr %421, align 16, !tbaa !3903, !noalias !4074
+  %423 = fcmp olt x86_fp80 %422, %409
+  %424 = select i1 %423, x86_fp80 %422, x86_fp80 %408
+  %425 = select i1 %423, x86_fp80 %422, x86_fp80 %409
+  %426 = fcmp ogt x86_fp80 %422, %412
+  %427 = select i1 %426, x86_fp80 %422, x86_fp80 %411
+  %428 = select i1 %426, x86_fp80 %422, x86_fp80 %412
+  %429 = getelementptr inbounds nuw i8, ptr %404, i64 80
+  %430 = load x86_fp80, ptr %429, align 16, !tbaa !3903, !noalias !4074
+  %431 = fcmp olt x86_fp80 %430, %417
+  %432 = select i1 %431, x86_fp80 %430, x86_fp80 %416
+  %433 = select i1 %431, x86_fp80 %430, x86_fp80 %417
+  %434 = fcmp ogt x86_fp80 %430, %420
+  %435 = select i1 %434, x86_fp80 %430, x86_fp80 %419
+  %436 = select i1 %434, x86_fp80 %430, x86_fp80 %420
+  %437 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i143, i64 8
+  %.not.i.i144 = icmp eq ptr %437, %367
+  br i1 %.not.i.i144, label %438, label %.lr.ph.i.i142
 
-435:                                              ; preds = %.lr.ph.i.i142
-  %436 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %437 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %438 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  store x86_fp80 %421, ptr %22, align 16, !alias.scope !4074
-  store x86_fp80 %424, ptr %436, align 16, !alias.scope !4074
-  store x86_fp80 %429, ptr %437, align 16, !alias.scope !4074
-  store x86_fp80 %432, ptr %438, align 16, !alias.scope !4074
+438:                                              ; preds = %.lr.ph.i.i142
+  store x86_fp80 %424, ptr %22, align 16, !alias.scope !4074
+  store x86_fp80 %427, ptr %393, align 16, !alias.scope !4074
+  store x86_fp80 %432, ptr %394, align 16, !alias.scope !4074
+  store x86_fp80 %435, ptr %395, align 16, !alias.scope !4074
   %439 = add nuw nsw i64 %3, 1
   %440 = invoke noundef zeroext i1 @_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE5applyISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIeEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_(ptr noundef nonnull align 16 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %439, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIeEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148 unwind label %443
 
-_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIeEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148: ; preds = %435
+_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIeEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148: ; preds = %438
   br i1 %440, label %441, label %445
 
 441:                                              ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIeEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit148
@@ -201490,7 +201490,7 @@ _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIeLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESD_ISH_SaISH_EEEESaISM_EESO_NS1_9get_turns15section_visitorINS4_7polygonIS9_Lb1ELb1ESD_SD_SaSaEESS_Lb0ELb0ENSP_18get_turn_info_typeISS_SS_NS1_7overlay18assign_null_policyENS0_11polygon_tagESW_NS0_9areal_tagESX_EENS0_10strategies6relate9cartesianIvEENS1_17no_rescale_policyESD_INSU_9turn_infoIS9_NS0_13segment_ratioIeEENSU_14turn_operationIS9_S16_EESt5arrayIS18_Lm2EEEESaIS1B_EENSP_19no_interrupt_policyEEENS1_7section15get_section_boxIS12_EENS1G_20overlaps_section_boxIS12_EES1I_S1K_NS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit150: ; preds = %441
   br i1 %442, label %.critedge98, label %445
 
-443:                                              ; preds = %441, %435
+443:                                              ; preds = %441, %438
   %444 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %22)

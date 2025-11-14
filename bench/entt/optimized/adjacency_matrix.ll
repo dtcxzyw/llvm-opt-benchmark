@@ -20994,20 +20994,20 @@ define hidden void @_ZN51AdjacencyMatrix_OutEdgesBackwardOnlyUndirected_Test8Tes
   %33 = alloca %"class.testing::Message", align 8
   %34 = alloca %"class.testing::internal::AssertHelper", align 8
   %35 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false)
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %1
   %.not.i.i.i = phi i1 [ false, %1 ], [ true, %.lr.ph.i.i.i ]
   %.sroa.314.0.i = phi i64 [ 2, %1 ], [ 3, %.lr.ph.i.i.i ]
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.314.0.i
-  %37 = load i64, ptr %36, align 8, !tbaa !20, !noalias !322
-  %.not1.i.i.i = icmp ne i64 %37, 0
+  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.314.0.i
+  %38 = load i64, ptr %37, align 8, !tbaa !20, !noalias !322
+  %.not1.i.i.i = icmp ne i64 %38, 0
   %brmerge = or i1 %.not1.i.i.i, %.not.i.i.i
   br i1 %brmerge, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE9out_edgesEm.exit, label %.lr.ph.i.i.i
 
 _ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE9out_edgesEm.exit: ; preds = %.lr.ph.i.i.i
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.314.0.i.mux = select i1 %.not1.i.i.i, i64 %.sroa.314.0.i, i64 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -21179,7 +21179,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i102.preheader:                        ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i93, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  store i64 1, ptr %38, align 8, !tbaa !20, !noalias !325
+  store i64 1, ptr %36, align 8, !tbaa !20, !noalias !325
   %84 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i64 1, ptr %84, align 8, !tbaa !20, !noalias !325
   br label %.lr.ph.i.i.i102
@@ -32437,8 +32437,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorImSaImEE17_M_default_appendEm(pt
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !20
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i

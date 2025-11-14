@@ -715,51 +715,51 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNSt10filesystem7_
   %250 = getelementptr inbounds [3 x float], ptr %.pre, i64 %249
   %251 = getelementptr inbounds nuw float, ptr %250, i64 %.0142.i
   %252 = load float, ptr %251, align 4, !tbaa !30
-  %253 = fcmp olt float %252, 0.000000e+00
+  %253 = getelementptr inbounds nuw float, ptr %250, i64 %.0143.i
+  %254 = load float, ptr %253, align 4, !tbaa !30
+  %255 = getelementptr inbounds nuw float, ptr %250, i64 %161
+  %256 = load float, ptr %255, align 4, !tbaa !30
+  %257 = fcmp olt float %252, 0.000000e+00
   %.pre205.i = load float, ptr %175, align 4, !tbaa !30
-  br i1 %253, label %.lr.ph169.i, label %.preheader161.i
+  br i1 %257, label %.lr.ph169.i, label %.preheader161.i
 
 .preheader161.i:                                  ; preds = %.lr.ph169.i, %246
-  %.0140.lcssa.i = phi float [ %252, %246 ], [ %255, %.lr.ph169.i ]
-  %254 = fcmp ogt float %.0140.lcssa.i, %.pre205.i
-  br i1 %254, label %.lr.ph171.i, label %.preheader160.i
+  %.0140.lcssa.i = phi float [ %252, %246 ], [ %259, %.lr.ph169.i ]
+  %258 = fcmp ogt float %.0140.lcssa.i, %.pre205.i
+  br i1 %258, label %.lr.ph171.i, label %.preheader160.i
 
 .lr.ph169.i:                                      ; preds = %246, %.lr.ph169.i
-  %.0140167.i = phi float [ %255, %.lr.ph169.i ], [ %252, %246 ]
-  %255 = fadd float %.pre205.i, %.0140167.i
-  %256 = fcmp olt float %255, 0.000000e+00
-  br i1 %256, label %.lr.ph169.i, label %.preheader161.i, !llvm.loop !67
+  %.0140167.i = phi float [ %259, %.lr.ph169.i ], [ %252, %246 ]
+  %259 = fadd float %.pre205.i, %.0140167.i
+  %260 = fcmp olt float %259, 0.000000e+00
+  br i1 %260, label %.lr.ph169.i, label %.preheader161.i, !llvm.loop !67
 
 .preheader160.i:                                  ; preds = %.lr.ph171.i, %.preheader161.i
-  %.1141.lcssa.i = phi float [ %.0140.lcssa.i, %.preheader161.i ], [ %260, %.lr.ph171.i ]
-  %257 = getelementptr inbounds nuw float, ptr %250, i64 %.0143.i
-  %258 = load float, ptr %257, align 4, !tbaa !30
-  %259 = fcmp olt float %258, 0.000000e+00
+  %.1141.lcssa.i = phi float [ %.0140.lcssa.i, %.preheader161.i ], [ %262, %.lr.ph171.i ]
+  %261 = fcmp olt float %254, 0.000000e+00
   %.pre206.i = load float, ptr %169, align 4, !tbaa !30
-  br i1 %259, label %.lr.ph174.i, label %.preheader159.i
+  br i1 %261, label %.lr.ph174.i, label %.preheader159.i
 
 .lr.ph171.i:                                      ; preds = %.preheader161.i, %.lr.ph171.i
-  %.1141170.i = phi float [ %260, %.lr.ph171.i ], [ %.0140.lcssa.i, %.preheader161.i ]
-  %260 = fsub float %.1141170.i, %.pre205.i
-  %261 = fcmp ogt float %260, %.pre205.i
-  br i1 %261, label %.lr.ph171.i, label %.preheader160.i, !llvm.loop !68
+  %.1141170.i = phi float [ %262, %.lr.ph171.i ], [ %.0140.lcssa.i, %.preheader161.i ]
+  %262 = fsub float %.1141170.i, %.pre205.i
+  %263 = fcmp ogt float %262, %.pre205.i
+  br i1 %263, label %.lr.ph171.i, label %.preheader160.i, !llvm.loop !68
 
 .preheader159.i:                                  ; preds = %.lr.ph174.i, %.preheader160.i
-  %.0138.lcssa.i = phi float [ %258, %.preheader160.i ], [ %263, %.lr.ph174.i ]
-  %262 = fcmp ogt float %.0138.lcssa.i, %.pre206.i
-  br i1 %262, label %.lr.ph177.i, label %.preheader158.i
+  %.0138.lcssa.i = phi float [ %254, %.preheader160.i ], [ %265, %.lr.ph174.i ]
+  %264 = fcmp ogt float %.0138.lcssa.i, %.pre206.i
+  br i1 %264, label %.lr.ph177.i, label %.preheader158.i
 
 .lr.ph174.i:                                      ; preds = %.preheader160.i, %.lr.ph174.i
-  %.0138173.i = phi float [ %263, %.lr.ph174.i ], [ %258, %.preheader160.i ]
-  %263 = fadd float %.pre206.i, %.0138173.i
-  %264 = fcmp olt float %263, 0.000000e+00
-  br i1 %264, label %.lr.ph174.i, label %.preheader159.i, !llvm.loop !69
+  %.0138173.i = phi float [ %265, %.lr.ph174.i ], [ %254, %.preheader160.i ]
+  %265 = fadd float %.pre206.i, %.0138173.i
+  %266 = fcmp olt float %265, 0.000000e+00
+  br i1 %266, label %.lr.ph174.i, label %.preheader159.i, !llvm.loop !69
 
 .preheader158.i:                                  ; preds = %.lr.ph177.i, %.preheader159.i
   %.1139.lcssa.i = phi float [ %.0138.lcssa.i, %.preheader159.i ], [ %268, %.lr.ph177.i ]
-  %265 = getelementptr inbounds nuw float, ptr %250, i64 %161
-  %266 = load float, ptr %265, align 4, !tbaa !30
-  %267 = fcmp olt float %266, 0.000000e+00
+  %267 = fcmp olt float %256, 0.000000e+00
   %.pre207.i = load float, ptr %163, align 4, !tbaa !30
   br i1 %267, label %.lr.ph180.i, label %.preheader.i
 
@@ -770,12 +770,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNSt10filesystem7_
   br i1 %269, label %.lr.ph177.i, label %.preheader158.i, !llvm.loop !70
 
 .preheader.i:                                     ; preds = %.lr.ph180.i, %.preheader158.i
-  %.0136.lcssa.i = phi float [ %266, %.preheader158.i ], [ %271, %.lr.ph180.i ]
+  %.0136.lcssa.i = phi float [ %256, %.preheader158.i ], [ %271, %.lr.ph180.i ]
   %270 = fcmp ogt float %.0136.lcssa.i, %.pre207.i
   br i1 %270, label %.lr.ph183.i, label %._crit_edge184.i
 
 .lr.ph180.i:                                      ; preds = %.preheader158.i, %.lr.ph180.i
-  %.0136179.i = phi float [ %271, %.lr.ph180.i ], [ %266, %.preheader158.i ]
+  %.0136179.i = phi float [ %271, %.lr.ph180.i ], [ %256, %.preheader158.i ]
   %271 = fadd float %.pre207.i, %.0136179.i
   %272 = fcmp olt float %271, 0.000000e+00
   br i1 %272, label %.lr.ph180.i, label %.preheader.i, !llvm.loop !71

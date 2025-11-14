@@ -5675,9 +5675,9 @@ land.rhs.i:                                       ; preds = %for.inc9.i.i.i2880,
   %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %s747, i64 23
   store i8 7, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s747, ptr noundef nonnull align 1 dereferenceable(16) @.str.229, i64 16, i1 false)
+  %mnSize.i.i6.i.i.i = getelementptr inbounds nuw i8, ptr %s747, i64 8
   %add.ptr.i1.i.i.i.i = getelementptr inbounds nuw i8, ptr %s747, i64 16
   store i8 0, ptr %add.ptr.i1.i.i.i.i, align 8
-  %mnSize.i.i6.i.i.i = getelementptr inbounds nuw i8, ptr %s747, i64 8
   %call754 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 531, ptr noundef nonnull @.str.217)
           to label %invoke.cont753 unwind label %lpad
 

@@ -39475,24 +39475,24 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit: ; p
   resume { ptr, i32 } %28
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd3182a27817cbe25E.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17he88d8799d2b4c8a1E.exit"
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %34 = load ptr, ptr %33, align 8, !nonnull !4, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %36 = load i64, ptr %35, align 8, !noundef !4
-  %.idx = mul nsw i64 %36, 5312
-  %37 = getelementptr inbounds i8, ptr %34, i64 %.idx
+  %33 = trunc nuw i8 %.0.i.i.i to i1
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %37 = load i64, ptr %36, align 8, !noundef !4
+  %.idx = mul nsw i64 %37, 5312
+  %38 = getelementptr inbounds i8, ptr %35, i64 %.idx
   %.promoted = load i64, ptr %8, align 8
   %.promoted31 = load i64, ptr %7, align 8
-  %38 = icmp eq i64 %36, 0
-  br i1 %38, label %._crit_edge, label %.lr.ph
+  %39 = icmp eq i64 %37, 0
+  br i1 %39, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %87, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd3182a27817cbe25E.exit"
   %.lcssa32 = phi i64 [ %.promoted31, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd3182a27817cbe25E.exit" ], [ %88, %87 ]
   %.lcssa = phi i64 [ %.promoted, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd3182a27817cbe25E.exit" ], [ %89, %87 ]
   store i64 %.lcssa, ptr %8, align 8
   store i64 %.lcssa32, ptr %7, align 8
-  %39 = trunc nuw i8 %.0.i.i.i to i1
-  br i1 %39, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3191862155771161713.exit.i.i, label %40
+  br i1 %33, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3191862155771161713.exit.i.i, label %40
 
 40:                                               ; preds = %._crit_edge
   %41 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E monotonic, align 8, !noalias !15843
@@ -39528,7 +39528,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3191862155771161713.exit.
   br i1 %.not23, label %58, label %59
 
 .lr.ph:                                           ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd3182a27817cbe25E.exit", %87
-  %.sroa.027.033 = phi ptr [ %55, %87 ], [ %34, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd3182a27817cbe25E.exit" ]
+  %.sroa.027.033 = phi ptr [ %55, %87 ], [ %35, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd3182a27817cbe25E.exit" ]
   %53 = phi i64 [ %89, %87 ], [ %.promoted, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd3182a27817cbe25E.exit" ]
   %54 = phi i64 [ %88, %87 ], [ %.promoted31, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd3182a27817cbe25E.exit" ]
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.027.033, i64 5312
@@ -39604,7 +39604,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3191862155771161713.exit.
 87:                                               ; preds = %80, %.lr.ph
   %88 = phi i64 [ %86, %80 ], [ %54, %.lr.ph ]
   %89 = phi i64 [ %83, %80 ], [ %53, %.lr.ph ]
-  %90 = icmp eq ptr %55, %37
+  %90 = icmp eq ptr %55, %38
   br i1 %90, label %._crit_edge, label %.lr.ph
 }
 

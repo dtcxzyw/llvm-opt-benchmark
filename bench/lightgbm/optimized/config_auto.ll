@@ -30964,8 +30964,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZStlsISt11c
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc282
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %383, 2
-  %385 = getelementptr inbounds nuw i8, ptr %382, i64 %.idx.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %382, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !176, !noalias !256
+  %385 = getelementptr inbounds nuw i8, ptr %382, i64 %.idx.i.i.i.i.i.i.i.i
   br label %.lr.ph.i279
 
 386:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i

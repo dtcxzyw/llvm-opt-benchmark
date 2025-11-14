@@ -968,12 +968,12 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
   %.0106.ph133.i = phi ptr [ %48, %.lr.ph.lr.ph.i ], [ %105, %.outer.i ]
   br label %56
 
-56:                                               ; preds = %73, %.lr.ph.i
-  %.0106117.i = phi ptr [ %.0106.ph133.i, %.lr.ph.i ], [ %74, %73 ]
+56:                                               ; preds = %76, %.lr.ph.i
+  %.0106117.i = phi ptr [ %.0106.ph133.i, %.lr.ph.i ], [ %77, %76 ]
   %57 = load i32, ptr %.0106117.i, align 4
   %58 = and i32 %57, 1
   %.not110.i = icmp eq i32 %58, 0
-  br i1 %.not110.i, label %73, label %59
+  br i1 %.not110.i, label %76, label %59
 
 59:                                               ; preds = %56
   %60 = load i32, ptr %42, align 4
@@ -989,24 +989,24 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 %68
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
-  %72 = add i32 %.298.ph135.i, %71
-  %.not112123.i = icmp slt i32 %72, %.2102.ph134.i
+  %72 = getelementptr %struct.WordEntry, ptr %1, i64 %61
+  %73 = getelementptr i8, ptr %72, i64 %68
+  %74 = getelementptr i8, ptr %73, i64 10
+  %75 = add i32 %.298.ph135.i, %71
+  %.not112123.i = icmp slt i32 %75, %.2102.ph134.i
   br i1 %.not112123.i, label %.preheader.i, label %.lr.ph126.i
 
-73:                                               ; preds = %56
-  %74 = getelementptr inbounds nuw i8, ptr %.0106117.i, i64 4
-  %75 = ptrtoint ptr %74 to i64
-  %76 = sub i64 %75, %49
-  %77 = ashr exact i64 %76, 2
-  %78 = icmp slt i64 %77, %55
-  br i1 %78, label %56, label %.loopexit.i, !llvm.loop !13
+76:                                               ; preds = %56
+  %77 = getelementptr inbounds nuw i8, ptr %.0106117.i, i64 4
+  %78 = ptrtoint ptr %77 to i64
+  %79 = sub i64 %78, %49
+  %80 = ashr exact i64 %79, 2
+  %81 = icmp slt i64 %80, %55
+  br i1 %81, label %56, label %.loopexit.i, !llvm.loop !13
 
 .preheader.i:                                     ; preds = %.lr.ph126.i, %59
   %.3103.lcssa.i = phi i32 [ %.2102.ph134.i, %59 ], [ %82, %.lr.ph126.i ]
   %.3.lcssa.i = phi ptr [ %.2.ph136.i, %59 ], [ %85, %.lr.ph126.i ]
-  %79 = getelementptr %struct.WordEntry, ptr %1, i64 %61
-  %80 = getelementptr i8, ptr %79, i64 %68
-  %81 = getelementptr i8, ptr %80, i64 10
   %.not164.i = icmp eq i16 %70, 0
   br i1 %.not164.i, label %.outer.i, label %.lr.ph131.preheader.i
 
@@ -1021,7 +1021,7 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
   %83 = sext i32 %82 to i64
   %84 = mul nsw i64 %83, 24
   %85 = tail call ptr @repalloc(ptr noundef %.3125.i, i64 noundef %84) #10
-  %.not112.i = icmp slt i32 %72, %82
+  %.not112.i = icmp slt i32 %75, %82
   br i1 %.not112.i, label %.preheader.i, label %.lr.ph126.i, !llvm.loop !14
 
 .lr.ph131.i:                                      ; preds = %103, %.lr.ph131.preheader.i
@@ -1032,13 +1032,13 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
   br i1 %87, label %.lr.ph131._crit_edge.i, label %88
 
 .lr.ph131._crit_edge.i:                           ; preds = %.lr.ph131.i
-  %.phi.trans.insert.i = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw i16, ptr %74, i64 %indvars.iv.i
   %.pre.i = load i16, ptr %.phi.trans.insert.i, align 2
   br label %96
 
 88:                                               ; preds = %.lr.ph131.i
   %89 = zext i8 %86 to i32
-  %90 = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw i16, ptr %74, i64 %indvars.iv.i
   %91 = load i16, ptr %90, align 2
   %92 = lshr i16 %91, 14
   %93 = zext nneg i16 %92 to i32
@@ -1080,10 +1080,10 @@ define internal fastcc float @calc_rank_cd(ptr noundef readonly captures(none) %
   %110 = icmp slt i64 %109, %106
   br i1 %110, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !13
 
-.loopexit.i:                                      ; preds = %.outer.i, %73, %.preheader114.i, %47, %43
-  %.1101.i = phi i32 [ %.0100141.i, %43 ], [ %.0100141.i, %47 ], [ %.0100141.i, %.preheader114.i ], [ %.2102.ph134.i, %73 ], [ %.3103.lcssa.i, %.outer.i ]
-  %.197.i = phi i32 [ %.096142.i, %43 ], [ %.096142.i, %47 ], [ %.096142.i, %.preheader114.i ], [ %.298.ph135.i, %73 ], [ %.399.lcssa.i, %.outer.i ]
-  %.195.i = phi ptr [ %.094143.i, %43 ], [ %.094143.i, %47 ], [ %.094143.i, %.preheader114.i ], [ %.2.ph136.i, %73 ], [ %.3.lcssa.i, %.outer.i ]
+.loopexit.i:                                      ; preds = %.outer.i, %76, %.preheader114.i, %47, %43
+  %.1101.i = phi i32 [ %.0100141.i, %43 ], [ %.0100141.i, %47 ], [ %.0100141.i, %.preheader114.i ], [ %.2102.ph134.i, %76 ], [ %.3103.lcssa.i, %.outer.i ]
+  %.197.i = phi i32 [ %.096142.i, %43 ], [ %.096142.i, %47 ], [ %.096142.i, %.preheader114.i ], [ %.298.ph135.i, %76 ], [ %.399.lcssa.i, %.outer.i ]
+  %.195.i = phi ptr [ %.094143.i, %43 ], [ %.094143.i, %47 ], [ %.094143.i, %.preheader114.i ], [ %.2.ph136.i, %76 ], [ %.3.lcssa.i, %.outer.i ]
   %indvars.iv.next176.i = add nuw nsw i64 %indvars.iv175.i, 1
   %111 = load ptr, ptr %7, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
@@ -2017,46 +2017,46 @@ define internal fastcc ptr @SortAndUniqItems(ptr noundef %0, ptr noundef nonnull
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = load i32, ptr %1, align 4
-  %7 = sext i32 %6 to i64
-  %8 = shl nsw i64 %7, 3
-  %9 = tail call ptr @palloc(i64 noundef %8) #10
-  %10 = load i32, ptr %1, align 4
-  %11 = add i32 %10, -1
-  store i32 %11, ptr %1, align 4
-  %.not41 = icmp eq i32 %10, 0
+  %6 = sext i32 %5 to i64
+  %7 = mul nsw i64 %6, 12
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %7
+  %9 = load i32, ptr %1, align 4
+  %10 = sext i32 %9 to i64
+  %11 = shl nsw i64 %10, 3
+  %12 = tail call ptr @palloc(i64 noundef %11) #10
+  %13 = load i32, ptr %1, align 4
+  %14 = add i32 %13, -1
+  store i32 %14, ptr %1, align 4
+  %.not41 = icmp eq i32 %13, 0
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %17
-  %12 = phi i32 [ %20, %17 ], [ %11, %2 ]
-  %.03543 = phi ptr [ %.136, %17 ], [ %9, %2 ]
-  %.03842 = phi ptr [ %19, %17 ], [ %3, %2 ]
-  %13 = load i8, ptr %.03842, align 4
-  %14 = icmp eq i8 %13, 1
-  br i1 %14, label %15, label %17
+.lr.ph:                                           ; preds = %2, %20
+  %15 = phi i32 [ %23, %20 ], [ %14, %2 ]
+  %.03543 = phi ptr [ %.136, %20 ], [ %12, %2 ]
+  %.03842 = phi ptr [ %22, %20 ], [ %3, %2 ]
+  %16 = load i8, ptr %.03842, align 4
+  %17 = icmp eq i8 %16, 1
+  br i1 %17, label %18, label %20
 
-15:                                               ; preds = %.lr.ph
+18:                                               ; preds = %.lr.ph
   store ptr %.03842, ptr %.03543, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %.03543, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.03543, i64 8
   %.pre = load i32, ptr %1, align 4
-  br label %17
+  br label %20
 
-17:                                               ; preds = %15, %.lr.ph
-  %18 = phi i32 [ %.pre, %15 ], [ %12, %.lr.ph ]
-  %.136 = phi ptr [ %16, %15 ], [ %.03543, %.lr.ph ]
-  %19 = getelementptr inbounds nuw i8, ptr %.03842, i64 12
-  %20 = add i32 %18, -1
-  store i32 %20, ptr %1, align 4
-  %.not = icmp eq i32 %18, 0
+20:                                               ; preds = %18, %.lr.ph
+  %21 = phi i32 [ %.pre, %18 ], [ %15, %.lr.ph ]
+  %.136 = phi ptr [ %19, %18 ], [ %.03543, %.lr.ph ]
+  %22 = getelementptr inbounds nuw i8, ptr %.03842, i64 12
+  %23 = add i32 %21, -1
+  store i32 %23, ptr %1, align 4
+  %.not = icmp eq i32 %21, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %17, %2
-  %.035.lcssa = phi ptr [ %9, %2 ], [ %.136, %17 ]
-  %21 = sext i32 %5 to i64
-  %22 = mul nsw i64 %21, 12
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 %22
+._crit_edge:                                      ; preds = %20, %2
+  %.035.lcssa = phi ptr [ %12, %2 ], [ %.136, %20 ]
   %24 = ptrtoint ptr %.035.lcssa to i64
-  %25 = ptrtoint ptr %9 to i64
+  %25 = ptrtoint ptr %12 to i64
   %26 = sub i64 %24, %25
   %27 = lshr exact i64 %26, 3
   %28 = trunc i64 %27 to i32
@@ -2066,31 +2066,31 @@ define internal fastcc ptr @SortAndUniqItems(ptr noundef %0, ptr noundef nonnull
 
 30:                                               ; preds = %._crit_edge
   %31 = and i64 %27, 2147483647
-  tail call void @qsort_arg(ptr noundef %9, i64 noundef %31, i64 noundef 8, ptr noundef nonnull @compareQueryOperand, ptr noundef nonnull %23) #10
+  tail call void @qsort_arg(ptr noundef %12, i64 noundef %31, i64 noundef 8, ptr noundef nonnull @compareQueryOperand, ptr noundef nonnull %8) #10
   %32 = load i32, ptr %1, align 4
   %33 = icmp sgt i32 %32, 1
   br i1 %33, label %.lr.ph48.preheader, label %._crit_edge49
 
 .lr.ph48.preheader:                               ; preds = %30
-  %.244 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.244 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %.lr.ph48
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %52
   %.246 = phi ptr [ %.2, %52 ], [ %.244, %.lr.ph48.preheader ]
-  %.045 = phi ptr [ %.1, %52 ], [ %9, %.lr.ph48.preheader ]
+  %.045 = phi ptr [ %.1, %52 ], [ %12, %.lr.ph48.preheader ]
   %34 = load ptr, ptr %.246, align 8
   %35 = load ptr, ptr %.045, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load i32, ptr %36, align 4
   %38 = lshr i32 %37, 12
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %23, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 %39
   %41 = and i32 %37, 4095
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %43 = load i32, ptr %42, align 4
   %44 = lshr i32 %43, 12
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %23, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 %45
   %47 = and i32 %43, 4095
   %48 = tail call i32 @tsCompareString(ptr noundef nonnull %40, i32 noundef %41, ptr noundef nonnull %46, i32 noundef %47, i1 noundef zeroext false) #10
   %.not40 = icmp eq i32 %48, 0
@@ -2114,7 +2114,7 @@ define internal fastcc ptr @SortAndUniqItems(ptr noundef %0, ptr noundef nonnull
   br i1 %58, label %.lr.ph48, label %._crit_edge49, !llvm.loop !30
 
 ._crit_edge49:                                    ; preds = %52, %30
-  %.0.lcssa = phi ptr [ %9, %30 ], [ %.1, %52 ]
+  %.0.lcssa = phi ptr [ %12, %30 ], [ %.1, %52 ]
   %59 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
   %60 = ptrtoint ptr %59 to i64
   %61 = sub i64 %60, %25
@@ -2124,7 +2124,7 @@ define internal fastcc ptr @SortAndUniqItems(ptr noundef %0, ptr noundef nonnull
   br label %64
 
 64:                                               ; preds = %._crit_edge, %._crit_edge49
-  ret ptr %9
+  ret ptr %12
 }
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1

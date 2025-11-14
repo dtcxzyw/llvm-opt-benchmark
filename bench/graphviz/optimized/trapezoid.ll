@@ -282,7 +282,7 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %60, %
   br i1 %exitcond.not, label %.lr.ph.preheader.i.lr.ph, label %.lr.ph, !llvm.loop !45
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge, %.lr.ph.preheader.i.lr.ph
-  %.079 = phi i32 [ 2, %.lr.ph.preheader.i.lr.ph ], [ %200, %._crit_edge ]
+  %.079 = phi i32 [ 2, %.lr.ph.preheader.i.lr.ph ], [ %176, %._crit_edge ]
   %.03578 = phi i32 [ 1, %.lr.ph.preheader.i.lr.ph ], [ %201, %._crit_edge ]
   br label %.lr.ph.i
 
@@ -326,9 +326,9 @@ math_N.exit:                                      ; preds = %.lr.ph.i45, %161
   %169 = sext i32 %.079 to i64
   br label %170
 
-170:                                              ; preds = %176, %math_N.exit
-  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %176 ], [ %169, %math_N.exit ]
-  %.137.in = phi i32 [ %.137, %176 ], [ %168, %math_N.exit ]
+170:                                              ; preds = %177, %math_N.exit
+  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %177 ], [ %169, %math_N.exit ]
+  %.137.in = phi i32 [ %.137, %177 ], [ %168, %math_N.exit ]
   br label %.lr.ph.i47
 
 .lr.ph.i47:                                       ; preds = %170, %.lr.ph.i47
@@ -344,55 +344,55 @@ math_N.exit51:                                    ; preds = %.lr.ph.i47
   %174 = tail call double @llvm.ceil.f64(double %173)
   %175 = fptosi double %174 to i32
   %.not42.not = icmp slt i32 %.137.in, %175
-  br i1 %.not42.not, label %176, label %.lr.ph77
+  br i1 %.not42.not, label %177, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %math_N.exit51
+  %176 = trunc nsw i64 %indvars.iv89 to i32
   %.val = load ptr, ptr %12, align 8
-  br label %179
+  br label %180
 
-176:                                              ; preds = %math_N.exit51
+177:                                              ; preds = %math_N.exit51
   %.137 = add nsw i32 %.137.in, 1
   %indvars.iv.next90 = add nsw i64 %indvars.iv89, 1
-  %177 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv89
-  %178 = load i32, ptr %177, align 4, !tbaa !12
-  call fastcc void @add_segment(i32 noundef %178, ptr noundef %1, ptr noundef %4, ptr noundef %5)
+  %178 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv89
+  %179 = load i32, ptr %178, align 4, !tbaa !12
+  call fastcc void @add_segment(i32 noundef %179, ptr noundef %1, ptr noundef %4, ptr noundef %5)
   br label %170, !llvm.loop !49
 
-179:                                              ; preds = %.lr.ph77, %find_new_roots.exit
+180:                                              ; preds = %.lr.ph77, %find_new_roots.exit
   %indvars.iv92 = phi i64 [ 1, %.lr.ph77 ], [ %indvars.iv.next93, %find_new_roots.exit ]
-  %180 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %indvars.iv92
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 32
-  %182 = load i8, ptr %181, align 8, !tbaa !40, !range !50, !noundef !51
-  %183 = trunc nuw i8 %182 to i1
-  br i1 %183, label %find_new_roots.exit, label %184
+  %181 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %indvars.iv92
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 32
+  %183 = load i8, ptr %182, align 8, !tbaa !40, !range !50, !noundef !51
+  %184 = trunc nuw i8 %183 to i1
+  br i1 %184, label %find_new_roots.exit, label %185
 
-184:                                              ; preds = %179
-  %185 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  %186 = getelementptr inbounds nuw i8, ptr %180, i64 36
-  %187 = load i32, ptr %186, align 4, !tbaa !44
-  %188 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %180, ptr noundef nonnull %185, i32 noundef %187, ptr noundef nonnull %1, ptr noundef nonnull readonly %5)
-  %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds %struct.trap_t, ptr %.val, i64 %189
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 56
-  %192 = load i32, ptr %191, align 8, !tbaa !37
-  store i32 %192, ptr %186, align 4, !tbaa !44
-  %193 = getelementptr inbounds nuw i8, ptr %180, i64 40
-  %194 = load i32, ptr %193, align 8, !tbaa !43
-  %195 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %185, ptr noundef nonnull %180, i32 noundef %194, ptr noundef nonnull %1, ptr noundef nonnull readonly %5)
-  %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds %struct.trap_t, ptr %.val, i64 %196
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 56
-  %199 = load i32, ptr %198, align 8, !tbaa !37
-  store i32 %199, ptr %193, align 8, !tbaa !43
+185:                                              ; preds = %180
+  %186 = getelementptr inbounds nuw i8, ptr %181, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %181, i64 36
+  %188 = load i32, ptr %187, align 4, !tbaa !44
+  %189 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %181, ptr noundef nonnull %186, i32 noundef %188, ptr noundef nonnull %1, ptr noundef nonnull readonly %5)
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr inbounds %struct.trap_t, ptr %.val, i64 %190
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 56
+  %193 = load i32, ptr %192, align 8, !tbaa !37
+  store i32 %193, ptr %187, align 4, !tbaa !44
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 40
+  %195 = load i32, ptr %194, align 8, !tbaa !43
+  %196 = call fastcc i32 @locate_endpoint(ptr noundef nonnull %186, ptr noundef nonnull %181, i32 noundef %195, ptr noundef nonnull %1, ptr noundef nonnull readonly %5)
+  %197 = sext i32 %196 to i64
+  %198 = getelementptr inbounds %struct.trap_t, ptr %.val, i64 %197
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 56
+  %200 = load i32, ptr %199, align 8, !tbaa !37
+  store i32 %200, ptr %194, align 8, !tbaa !43
   br label %find_new_roots.exit
 
-find_new_roots.exit:                              ; preds = %179, %184
+find_new_roots.exit:                              ; preds = %180, %185
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
-  br i1 %exitcond96.not, label %._crit_edge, label %179, !llvm.loop !52
+  br i1 %exitcond96.not, label %._crit_edge, label %180, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %find_new_roots.exit
-  %200 = trunc nsw i64 %indvars.iv89 to i32
   %201 = add nuw nsw i32 %.03578, 1
   br label %.lr.ph.preheader.i
 

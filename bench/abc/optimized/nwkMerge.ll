@@ -724,23 +724,23 @@ declare ptr @Aig_MmFlexEntryFetch(ptr noundef, i32 noundef) local_unnamed_addr #
 define void @Nwk_ManGraphSortPairs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8, !tbaa !25
-  %4 = load i32, ptr %0, align 8, !tbaa !30
-  %5 = add i32 %4, 1
-  %6 = sext i32 %5 to i64
-  %7 = shl nsw i64 %6, 2
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #21
-  %.not37 = icmp slt i32 %4, 0
+  %4 = getelementptr i8, ptr %3, i64 4
+  %5 = load i32, ptr %0, align 8, !tbaa !30
+  %6 = add i32 %5, 1
+  %7 = sext i32 %6 to i64
+  %8 = shl nsw i64 %7, 2
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #21
+  %.not37 = icmp slt i32 %5, 0
   br i1 %.not37, label %.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %9 = zext i32 %5 to i64
-  %10 = shl nuw nsw i64 %9, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %8, i8 -1, i64 %10, i1 false), !tbaa !42
+  %10 = zext i32 %6 to i64
+  %11 = shl nuw nsw i64 %10, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %9, i8 -1, i64 %11, i1 false), !tbaa !42
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph.preheader, %1
-  %11 = getelementptr i8, ptr %3, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !21
+  %12 = load i32, ptr %4, align 4, !tbaa !21
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph40, label %._crit_edge
 
@@ -757,20 +757,20 @@ define void @Nwk_ManGraphSortPairs(ptr noundef readonly captures(none) %0) local
   %20 = load i32, ptr %19, align 4, !tbaa !42
   %21 = load i32, ptr %18, align 4, !tbaa !42
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %8, i64 %22
+  %23 = getelementptr inbounds i32, ptr %9, i64 %22
   store i32 %20, ptr %23, align 4, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %24 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %24, label %17, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %17, %.preheader
-  store i32 0, ptr %11, align 4, !tbaa !21
+  store i32 0, ptr %4, align 4, !tbaa !21
   br i1 %.not37, label %._crit_edge45, label %.lr.ph44
 
 .lr.ph44:                                         ; preds = %._crit_edge, %96
-  %25 = phi i32 [ %97, %96 ], [ %4, %._crit_edge ]
+  %25 = phi i32 [ %97, %96 ], [ %5, %._crit_edge ]
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %96 ], [ 0, %._crit_edge ]
-  %26 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv48
+  %26 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv48
   %27 = load i32, ptr %26, align 4, !tbaa !42
   %28 = icmp sgt i32 %27, -1
   br i1 %28, label %29, label %96
@@ -923,11 +923,11 @@ Vec_IntPush.exit36:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %.not28.not, label %.lr.ph44, label %._crit_edge45.thread, !llvm.loop !60
 
 ._crit_edge45:                                    ; preds = %._crit_edge
-  %.not29 = icmp eq ptr %8, null
+  %.not29 = icmp eq ptr %9, null
   br i1 %.not29, label %99, label %._crit_edge45.thread
 
 ._crit_edge45.thread:                             ; preds = %96, %._crit_edge45
-  tail call void @free(ptr noundef nonnull %8) #20
+  tail call void @free(ptr noundef nonnull %9) #20
   br label %99
 
 99:                                               ; preds = %._crit_edge45, %._crit_edge45.thread
@@ -4206,160 +4206,161 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br i1 %77, label %149, label %.critedge4.preheader
 
 78:                                               ; preds = %74
-  %79 = icmp sgt i32 %.val103, 0
-  br i1 %79, label %.lr.ph154, label %.critedge4.preheader
+  %79 = add i32 %.val103, %.0159
+  %80 = icmp sgt i32 %.val103, 0
+  br i1 %80, label %.lr.ph154, label %.critedge4.preheader
 
 .lr.ph154:                                        ; preds = %78
   %.val107 = load ptr, ptr %44, align 8, !tbaa !107
-  %80 = getelementptr i8, ptr %62, i64 36
+  %81 = getelementptr i8, ptr %62, i64 36
   %wide.trip.count166 = zext nneg i32 %.val103 to i64
-  br label %83
+  br label %85
 
 .critedge4.preheader:                             ; preds = %Nwk_ManGraphHashEdge.exit, %76, %78
-  %81 = icmp sgt i32 %.val100.pre, 0
-  br i1 %81, label %.lr.ph156, label %.critedge6
+  %.0159.pn = phi i32 [ %79, %78 ], [ %.0159, %76 ], [ %79, %Nwk_ManGraphHashEdge.exit ]
+  %82 = add i32 %.0159.pn, %.val100.pre
+  %83 = icmp sgt i32 %.val100.pre, 0
+  br i1 %83, label %.lr.ph156, label %.critedge6
 
 .lr.ph156:                                        ; preds = %.critedge4.preheader
   %.val106 = load ptr, ptr %48, align 8, !tbaa !107
-  %82 = getelementptr i8, ptr %62, i64 36
+  %84 = getelementptr i8, ptr %62, i64 36
   %wide.trip.count171 = zext nneg i32 %.val100.pre to i64
-  br label %113
+  br label %115
 
-83:                                               ; preds = %.lr.ph154, %Nwk_ManGraphHashEdge.exit
+85:                                               ; preds = %.lr.ph154, %Nwk_ManGraphHashEdge.exit
   %indvars.iv163 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next164, %Nwk_ManGraphHashEdge.exit ]
-  %84 = getelementptr inbounds nuw ptr, ptr %.val107, i64 %indvars.iv163
-  %85 = load ptr, ptr %84, align 8, !tbaa !108
-  %.val114 = load i32, ptr %80, align 4, !tbaa !131
-  %86 = getelementptr i8, ptr %85, i64 36
-  %.val115 = load i32, ptr %86, align 4, !tbaa !131
-  %87 = icmp eq i32 %.val114, %.val115
-  br i1 %87, label %Nwk_ManGraphHashEdge.exit, label %88
+  %86 = getelementptr inbounds nuw ptr, ptr %.val107, i64 %indvars.iv163
+  %87 = load ptr, ptr %86, align 8, !tbaa !108
+  %.val114 = load i32, ptr %81, align 4, !tbaa !131
+  %88 = getelementptr i8, ptr %87, i64 36
+  %.val115 = load i32, ptr %88, align 4, !tbaa !131
+  %89 = icmp eq i32 %.val114, %.val115
+  br i1 %89, label %Nwk_ManGraphHashEdge.exit, label %90
 
-88:                                               ; preds = %83
+90:                                               ; preds = %85
   %spec.select.i = call i32 @llvm.smin.i32(i32 %.val114, i32 %.val115)
   %spec.select37.i = call i32 @llvm.smax.i32(i32 %.val114, i32 %.val115)
-  %89 = load i32, ptr %32, align 8, !tbaa !30
-  %spec.store.select = call i32 @llvm.smax.i32(i32 %89, i32 %spec.select37.i)
+  %91 = load i32, ptr %32, align 8, !tbaa !30
+  %spec.store.select = call i32 @llvm.smax.i32(i32 %91, i32 %spec.select37.i)
   store i32 %spec.store.select, ptr %32, align 8
-  %90 = mul nsw i32 %spec.select.i, 741457
-  %91 = mul nsw i32 %spec.select37.i, 4256249
-  %92 = add nsw i32 %90, %91
-  %93 = load i32, ptr %53, align 8, !tbaa !18
-  %94 = urem i32 %92, %93
-  %95 = load ptr, ptr %54, align 8, !tbaa !19
-  %96 = zext i32 %94 to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %95, i64 %96
-  %.038.i = load ptr, ptr %97, align 8, !tbaa !35
+  %92 = mul nsw i32 %spec.select.i, 741457
+  %93 = mul nsw i32 %spec.select37.i, 4256249
+  %94 = add nsw i32 %92, %93
+  %95 = load i32, ptr %53, align 8, !tbaa !18
+  %96 = urem i32 %94, %95
+  %97 = load ptr, ptr %54, align 8, !tbaa !19
+  %98 = zext i32 %96 to i64
+  %99 = getelementptr inbounds nuw ptr, ptr %97, i64 %98
+  %.038.i = load ptr, ptr %99, align 8, !tbaa !35
   %.not39.i = icmp eq ptr %.038.i, null
   br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %88, %104
-  %.040.i = phi ptr [ %.0.i119, %104 ], [ %.038.i, %88 ]
-  %98 = load i32, ptr %.040.i, align 8, !tbaa !37
-  %99 = icmp eq i32 %98, %spec.select.i
-  br i1 %99, label %100, label %104
+.lr.ph.i:                                         ; preds = %90, %106
+  %.040.i = phi ptr [ %.0.i119, %106 ], [ %.038.i, %90 ]
+  %100 = load i32, ptr %.040.i, align 8, !tbaa !37
+  %101 = icmp eq i32 %100, %spec.select.i
+  br i1 %101, label %102, label %106
 
-100:                                              ; preds = %.lr.ph.i
-  %101 = getelementptr inbounds nuw i8, ptr %.040.i, i64 4
-  %102 = load i32, ptr %101, align 4, !tbaa !39
-  %103 = icmp eq i32 %102, %spec.select37.i
-  br i1 %103, label %Nwk_ManGraphHashEdge.exit, label %104
+102:                                              ; preds = %.lr.ph.i
+  %103 = getelementptr inbounds nuw i8, ptr %.040.i, i64 4
+  %104 = load i32, ptr %103, align 4, !tbaa !39
+  %105 = icmp eq i32 %104, %spec.select37.i
+  br i1 %105, label %Nwk_ManGraphHashEdge.exit, label %106
 
-104:                                              ; preds = %100, %.lr.ph.i
-  %105 = getelementptr inbounds nuw i8, ptr %.040.i, i64 8
-  %.0.i119 = load ptr, ptr %105, align 8, !tbaa !35
+106:                                              ; preds = %102, %.lr.ph.i
+  %107 = getelementptr inbounds nuw i8, ptr %.040.i, i64 8
+  %.0.i119 = load ptr, ptr %107, align 8, !tbaa !35
   %.not.i = icmp eq ptr %.0.i119, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
 
-._crit_edge.i:                                    ; preds = %104, %88
-  %106 = load ptr, ptr %55, align 8, !tbaa !20
-  %107 = call ptr @Aig_MmFixedEntryFetch(ptr noundef %106) #20
-  store i32 %spec.select.i, ptr %107, align 8, !tbaa !37
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  store i32 %spec.select37.i, ptr %108, align 4, !tbaa !39
-  %109 = load ptr, ptr %97, align 8, !tbaa !35
-  %110 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store ptr %109, ptr %110, align 8, !tbaa !41
-  store ptr %107, ptr %97, align 8, !tbaa !35
-  %111 = load i32, ptr %56, align 8, !tbaa !31
-  %112 = add nsw i32 %111, 1
-  store i32 %112, ptr %56, align 8, !tbaa !31
+._crit_edge.i:                                    ; preds = %106, %90
+  %108 = load ptr, ptr %55, align 8, !tbaa !20
+  %109 = call ptr @Aig_MmFixedEntryFetch(ptr noundef %108) #20
+  store i32 %spec.select.i, ptr %109, align 8, !tbaa !37
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
+  store i32 %spec.select37.i, ptr %110, align 4, !tbaa !39
+  %111 = load ptr, ptr %99, align 8, !tbaa !35
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  store ptr %111, ptr %112, align 8, !tbaa !41
+  store ptr %109, ptr %99, align 8, !tbaa !35
+  %113 = load i32, ptr %56, align 8, !tbaa !31
+  %114 = add nsw i32 %113, 1
+  store i32 %114, ptr %56, align 8, !tbaa !31
   br label %Nwk_ManGraphHashEdge.exit
 
-Nwk_ManGraphHashEdge.exit:                        ; preds = %100, %83, %._crit_edge.i
+Nwk_ManGraphHashEdge.exit:                        ; preds = %102, %85, %._crit_edge.i
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
-  br i1 %exitcond167.not, label %.critedge4.preheader, label %83, !llvm.loop !132
+  br i1 %exitcond167.not, label %.critedge4.preheader, label %85, !llvm.loop !132
 
-113:                                              ; preds = %.lr.ph156, %Nwk_ManGraphHashEdge.exit129
+115:                                              ; preds = %.lr.ph156, %Nwk_ManGraphHashEdge.exit129
   %indvars.iv168 = phi i64 [ 0, %.lr.ph156 ], [ %indvars.iv.next169, %Nwk_ManGraphHashEdge.exit129 ]
-  %114 = getelementptr inbounds nuw ptr, ptr %.val106, i64 %indvars.iv168
-  %115 = load ptr, ptr %114, align 8, !tbaa !108
-  %.val116 = load i32, ptr %82, align 4, !tbaa !131
-  %116 = getelementptr i8, ptr %115, i64 36
-  %.val117 = load i32, ptr %116, align 4, !tbaa !131
-  %117 = icmp eq i32 %.val116, %.val117
-  br i1 %117, label %Nwk_ManGraphHashEdge.exit129, label %118
+  %116 = getelementptr inbounds nuw ptr, ptr %.val106, i64 %indvars.iv168
+  %117 = load ptr, ptr %116, align 8, !tbaa !108
+  %.val116 = load i32, ptr %84, align 4, !tbaa !131
+  %118 = getelementptr i8, ptr %117, i64 36
+  %.val117 = load i32, ptr %118, align 4, !tbaa !131
+  %119 = icmp eq i32 %.val116, %.val117
+  br i1 %119, label %Nwk_ManGraphHashEdge.exit129, label %120
 
-118:                                              ; preds = %113
+120:                                              ; preds = %115
   %spec.select.i120 = call i32 @llvm.smin.i32(i32 %.val116, i32 %.val117)
   %spec.select37.i121 = call i32 @llvm.smax.i32(i32 %.val116, i32 %.val117)
-  %119 = load i32, ptr %32, align 8, !tbaa !30
-  %spec.store.select143 = call i32 @llvm.smax.i32(i32 %119, i32 %spec.select37.i121)
+  %121 = load i32, ptr %32, align 8, !tbaa !30
+  %spec.store.select143 = call i32 @llvm.smax.i32(i32 %121, i32 %spec.select37.i121)
   store i32 %spec.store.select143, ptr %32, align 8
-  %120 = mul nsw i32 %spec.select.i120, 741457
-  %121 = mul nsw i32 %spec.select37.i121, 4256249
-  %122 = add nsw i32 %120, %121
-  %123 = load i32, ptr %53, align 8, !tbaa !18
-  %124 = urem i32 %122, %123
-  %125 = load ptr, ptr %54, align 8, !tbaa !19
-  %126 = zext i32 %124 to i64
-  %127 = getelementptr inbounds nuw ptr, ptr %125, i64 %126
-  %.038.i122 = load ptr, ptr %127, align 8, !tbaa !35
+  %122 = mul nsw i32 %spec.select.i120, 741457
+  %123 = mul nsw i32 %spec.select37.i121, 4256249
+  %124 = add nsw i32 %122, %123
+  %125 = load i32, ptr %53, align 8, !tbaa !18
+  %126 = urem i32 %124, %125
+  %127 = load ptr, ptr %54, align 8, !tbaa !19
+  %128 = zext i32 %126 to i64
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %.038.i122 = load ptr, ptr %129, align 8, !tbaa !35
   %.not39.i123 = icmp eq ptr %.038.i122, null
   br i1 %.not39.i123, label %._crit_edge.i128, label %.lr.ph.i124
 
-.lr.ph.i124:                                      ; preds = %118, %134
-  %.040.i125 = phi ptr [ %.0.i126, %134 ], [ %.038.i122, %118 ]
-  %128 = load i32, ptr %.040.i125, align 8, !tbaa !37
-  %129 = icmp eq i32 %128, %spec.select.i120
-  br i1 %129, label %130, label %134
+.lr.ph.i124:                                      ; preds = %120, %136
+  %.040.i125 = phi ptr [ %.0.i126, %136 ], [ %.038.i122, %120 ]
+  %130 = load i32, ptr %.040.i125, align 8, !tbaa !37
+  %131 = icmp eq i32 %130, %spec.select.i120
+  br i1 %131, label %132, label %136
 
-130:                                              ; preds = %.lr.ph.i124
-  %131 = getelementptr inbounds nuw i8, ptr %.040.i125, i64 4
-  %132 = load i32, ptr %131, align 4, !tbaa !39
-  %133 = icmp eq i32 %132, %spec.select37.i121
-  br i1 %133, label %Nwk_ManGraphHashEdge.exit129, label %134
+132:                                              ; preds = %.lr.ph.i124
+  %133 = getelementptr inbounds nuw i8, ptr %.040.i125, i64 4
+  %134 = load i32, ptr %133, align 4, !tbaa !39
+  %135 = icmp eq i32 %134, %spec.select37.i121
+  br i1 %135, label %Nwk_ManGraphHashEdge.exit129, label %136
 
-134:                                              ; preds = %130, %.lr.ph.i124
-  %135 = getelementptr inbounds nuw i8, ptr %.040.i125, i64 8
-  %.0.i126 = load ptr, ptr %135, align 8, !tbaa !35
+136:                                              ; preds = %132, %.lr.ph.i124
+  %137 = getelementptr inbounds nuw i8, ptr %.040.i125, i64 8
+  %.0.i126 = load ptr, ptr %137, align 8, !tbaa !35
   %.not.i127 = icmp eq ptr %.0.i126, null
   br i1 %.not.i127, label %._crit_edge.i128, label %.lr.ph.i124, !llvm.loop !40
 
-._crit_edge.i128:                                 ; preds = %134, %118
-  %136 = load ptr, ptr %55, align 8, !tbaa !20
-  %137 = call ptr @Aig_MmFixedEntryFetch(ptr noundef %136) #20
-  store i32 %spec.select.i120, ptr %137, align 8, !tbaa !37
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
-  store i32 %spec.select37.i121, ptr %138, align 4, !tbaa !39
-  %139 = load ptr, ptr %127, align 8, !tbaa !35
-  %140 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  store ptr %139, ptr %140, align 8, !tbaa !41
-  store ptr %137, ptr %127, align 8, !tbaa !35
-  %141 = load i32, ptr %56, align 8, !tbaa !31
-  %142 = add nsw i32 %141, 1
-  store i32 %142, ptr %56, align 8, !tbaa !31
+._crit_edge.i128:                                 ; preds = %136, %120
+  %138 = load ptr, ptr %55, align 8, !tbaa !20
+  %139 = call ptr @Aig_MmFixedEntryFetch(ptr noundef %138) #20
+  store i32 %spec.select.i120, ptr %139, align 8, !tbaa !37
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
+  store i32 %spec.select37.i121, ptr %140, align 4, !tbaa !39
+  %141 = load ptr, ptr %129, align 8, !tbaa !35
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  store ptr %141, ptr %142, align 8, !tbaa !41
+  store ptr %139, ptr %129, align 8, !tbaa !35
+  %143 = load i32, ptr %56, align 8, !tbaa !31
+  %144 = add nsw i32 %143, 1
+  store i32 %144, ptr %56, align 8, !tbaa !31
   br label %Nwk_ManGraphHashEdge.exit129
 
-Nwk_ManGraphHashEdge.exit129:                     ; preds = %130, %113, %._crit_edge.i128
+Nwk_ManGraphHashEdge.exit129:                     ; preds = %132, %115, %._crit_edge.i128
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
-  br i1 %exitcond172.not, label %.critedge6, label %113, !llvm.loop !133
+  br i1 %exitcond172.not, label %.critedge6, label %115, !llvm.loop !133
 
 .critedge6:                                       ; preds = %Nwk_ManGraphHashEdge.exit129, %.critedge4.preheader
-  %143 = add i32 %.val103, %.0159
-  %144 = add i32 %143, %.val100.pre
   %145 = load i32, ptr %57, align 4, !tbaa !134
   %.not92 = icmp eq i32 %145, 0
   br i1 %.not92, label %149, label %146
@@ -4373,7 +4374,7 @@ Nwk_ManGraphHashEdge.exit129:                     ; preds = %130, %113, %._crit_
 
 149:                                              ; preds = %64, %58, %146, %.critedge6, %76, %67
   %.val100.pre178 = phi i32 [ %.val100.pre177, %58 ], [ %.val100.pre177, %67 ], [ 0, %76 ], [ %.val100.pre, %146 ], [ %.val100.pre, %.critedge6 ], [ %.val100.pre177, %64 ]
-  %.1 = phi i32 [ %.0159, %58 ], [ %.0159, %67 ], [ %.0159, %76 ], [ %144, %146 ], [ %144, %.critedge6 ], [ %.0159, %64 ]
+  %.1 = phi i32 [ %.0159, %58 ], [ %.0159, %67 ], [ %.0159, %76 ], [ %82, %146 ], [ %82, %.critedge6 ], [ %.0159, %64 ]
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %150 = load ptr, ptr %13, align 8, !tbaa !127
   %151 = getelementptr i8, ptr %150, i64 4

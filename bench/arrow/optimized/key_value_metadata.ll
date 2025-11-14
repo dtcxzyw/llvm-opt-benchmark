@@ -1420,11 +1420,11 @@ _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %59, %_ZNSt6vectorIl
   %92 = sub i64 %90, %91
   %93 = ashr exact i64 %92, 3
   %94 = add nsw i64 %93, -1
-  %95 = icmp slt i64 %142, %94
+  %95 = icmp slt i64 %140, %94
   br i1 %95, label %137, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.loopexit, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
-  %.018.lcssa = phi i64 [ 0, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ], [ %142, %.loopexit ]
+  %.018.lcssa = phi i64 [ 0, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ], [ %140, %.loopexit ]
   %96 = sub nsw i64 %55, %.018.lcssa
   %97 = load ptr, ptr %49, align 8, !tbaa !18
   %98 = load ptr, ptr %1, align 8, !tbaa !33
@@ -1526,19 +1526,19 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
 137:                                              ; preds = %.lr.ph50, %.loopexit
   %138 = phi ptr [ %81, %.lr.ph50 ], [ %88, %.loopexit ]
   %139 = phi ptr [ %82, %.lr.ph50 ], [ %89, %.loopexit ]
-  %.01849 = phi i64 [ 0, %.lr.ph50 ], [ %142, %.loopexit ]
-  %140 = getelementptr inbounds nuw i64, ptr %138, i64 %.01849
-  %141 = load i64, ptr %140, align 8, !tbaa !28
-  %142 = add nuw nsw i64 %.01849, 1
-  %143 = getelementptr inbounds nuw i64, ptr %138, i64 %142
+  %.01849 = phi i64 [ 0, %.lr.ph50 ], [ %140, %.loopexit ]
+  %140 = add nuw nsw i64 %.01849, 1
+  %141 = getelementptr inbounds nuw i64, ptr %138, i64 %.01849
+  %142 = load i64, ptr %141, align 8, !tbaa !28
+  %143 = getelementptr inbounds nuw i64, ptr %138, i64 %140
   %144 = load i64, ptr %143, align 8, !tbaa !28
-  %.045 = add nsw i64 %141, 1
+  %.045 = add nsw i64 %142, 1
   %145 = icmp slt i64 %.045, %144
   br i1 %145, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit40
   %.047 = phi i64 [ %.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit40 ], [ %.045, %137 ]
-  %.0.in46 = phi i64 [ %.047, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit40 ], [ %141, %137 ]
+  %.0.in46 = phi i64 [ %.047, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit40 ], [ %142, %137 ]
   %146 = load ptr, ptr %1, align 8, !tbaa !33
   %147 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %146, i64 %.047
   %148 = sub i64 %.0.in46, %.01849
@@ -2600,8 +2600,8 @@ thread-pre-split.thread:                          ; preds = %_ZNSt6vectorIlSaIlE
 
 thread-pre-split:                                 ; preds = %.noexc11
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %18, 3
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !28
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.noexc11, %thread-pre-split

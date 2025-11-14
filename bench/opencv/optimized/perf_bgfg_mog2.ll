@@ -2273,28 +2273,28 @@ _ZNSt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEC2ERKS6_.exi
 
 .noexc:                                           ; preds = %33
   store ptr %35, ptr %5, align 8, !tbaa !99
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 480
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %36, ptr %37, align 8, !tbaa !102
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 480
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %37, ptr %38, align 8, !tbaa !102
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.noexc
-  %.08.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i ], [ %35, %.noexc ]
-  %.057.i.i.i.i.i = phi i64 [ %38, %.lr.ph.i.i.i.i.i ], [ 5, %.noexc ]
+  %.08.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i ], [ %35, %.noexc ]
+  %.057.i.i.i.i.i = phi i64 [ %39, %.lr.ph.i.i.i.i.i ], [ 5, %.noexc ]
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.08.i.i.i.i.i) #29
-  %38 = add nsw i64 %.057.i.i.i.i.i, -1
-  %39 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i = icmp eq i64 %38, 0
-  br i1 %.not.i.i.i.i.i, label %40, label %.lr.ph.i.i.i.i.i, !llvm.loop !103
+  %39 = add nsw i64 %.057.i.i.i.i.i, -1
+  %40 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
+  %.not.i.i.i.i.i = icmp eq i64 %39, 0
+  br i1 %.not.i.i.i.i.i, label %41, label %.lr.ph.i.i.i.i.i, !llvm.loop !103
 
-40:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %39, ptr %41, align 8, !tbaa !104
+41:                                               ; preds = %.lr.ph.i.i.i.i.i
+  store ptr %40, ptr %36, align 8, !tbaa !104
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN2cv12VideoCaptureC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(41) %6, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 0)
           to label %42 unwind label %54
 
-42:                                               ; preds = %40
+42:                                               ; preds = %41
   %43 = invoke noundef zeroext i1 @_ZNK2cv12VideoCapture8isOpenedEv(ptr noundef nonnull align 8 dereferenceable(41) %6)
           to label %44 unwind label %56
 
@@ -2329,7 +2329,7 @@ _ZNSt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEC2ERKS6_.exi
           cleanup
   br label %138
 
-54:                                               ; preds = %40
+54:                                               ; preds = %41
   %55 = landingpad { ptr, i32 }
           cleanup
   br label %137
@@ -2541,7 +2541,7 @@ _ZNSt12__shared_ptrIN2cv24BackgroundSubtractorMOG2ELN9__gnu_cxx12_Lock_policyE2E
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %126 = load ptr, ptr %5, align 8, !tbaa !99
-  %127 = load ptr, ptr %41, align 8, !tbaa !104
+  %127 = load ptr, ptr %36, align 8, !tbaa !104
   %.not4.i.i.i.i = icmp eq ptr %126, %127
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -7409,28 +7409,28 @@ _ZNSt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEC2ERKS6_.exi
 
 .noexc:                                           ; preds = %35
   store ptr %37, ptr %5, align 8, !tbaa !99
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 960
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %38, ptr %39, align 8, !tbaa !102
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 960
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %39, ptr %40, align 8, !tbaa !102
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.noexc
-  %.08.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i ], [ %37, %.noexc ]
-  %.057.i.i.i.i.i = phi i64 [ %40, %.lr.ph.i.i.i.i.i ], [ 10, %.noexc ]
+  %.08.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i ], [ %37, %.noexc ]
+  %.057.i.i.i.i.i = phi i64 [ %41, %.lr.ph.i.i.i.i.i ], [ 10, %.noexc ]
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.08.i.i.i.i.i) #29
-  %40 = add nsw i64 %.057.i.i.i.i.i, -1
-  %41 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i.i.i.i, label %42, label %.lr.ph.i.i.i.i.i, !llvm.loop !103
+  %41 = add nsw i64 %.057.i.i.i.i.i, -1
+  %42 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
+  %.not.i.i.i.i.i = icmp eq i64 %41, 0
+  br i1 %.not.i.i.i.i.i, label %43, label %.lr.ph.i.i.i.i.i, !llvm.loop !103
 
-42:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %41, ptr %43, align 8, !tbaa !104
+43:                                               ; preds = %.lr.ph.i.i.i.i.i
+  store ptr %42, ptr %38, align 8, !tbaa !104
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN2cv12VideoCaptureC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(41) %6, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 0)
           to label %44 unwind label %56
 
-44:                                               ; preds = %42
+44:                                               ; preds = %43
   %45 = invoke noundef zeroext i1 @_ZNK2cv12VideoCapture8isOpenedEv(ptr noundef nonnull align 8 dereferenceable(41) %6)
           to label %46 unwind label %58
 
@@ -7465,7 +7465,7 @@ _ZNSt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEC2ERKS6_.exi
           cleanup
   br label %150
 
-56:                                               ; preds = %42
+56:                                               ; preds = %43
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %149
@@ -7706,7 +7706,7 @@ _ZNSt12__shared_ptrIN2cv24BackgroundSubtractorMOG2ELN9__gnu_cxx12_Lock_policyE2E
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %138 = load ptr, ptr %5, align 8, !tbaa !99
-  %139 = load ptr, ptr %43, align 8, !tbaa !104
+  %139 = load ptr, ptr %38, align 8, !tbaa !104
   %.not4.i.i.i.i = icmp eq ptr %138, %139
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 

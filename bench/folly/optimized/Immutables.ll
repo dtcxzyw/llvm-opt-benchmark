@@ -242,12 +242,12 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   %44 = xor i64 %43, 3339675911
   %45 = and i64 %42, -8
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 %45
+  %47 = and i64 %42, 7
   %.not25.i.i.i.i.i.i.i.i = icmp samesign eq i64 %45, 0
   br i1 %.not25.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %32
   %.0.lcssa.i.i.i.i.i.i.i.i = phi i64 [ %44, %32 ], [ %53, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %47 = and i64 %42, 7
   %.not24.i.i.i.i.i.i.i.i = icmp eq i64 %47, 0
   br i1 %.not24.i.i.i.i.i.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEE14computeKeyHashERKNS1_26VectorContainerIndexSearchE.exit.i.i.i, label %55
 
@@ -559,12 +559,12 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %206 = xor i64 %205, 3339675911
   %207 = and i64 %204, -8
   %208 = getelementptr inbounds nuw i8, ptr %202, i64 %207
+  %209 = and i64 %204, 7
   %.not25.i.i.i.i.i16.i.i.i.i = icmp samesign eq i64 %207, 0
   br i1 %.not25.i.i.i.i.i16.i.i.i.i, label %._crit_edge.i.i.i.i.i22.i.i.i.i, label %.lr.ph.i.i.i.i.i17.i.i.i.i
 
 ._crit_edge.i.i.i.i.i22.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i17.i.i.i.i, %197
   %.0.lcssa.i.i.i.i.i23.i.i.i.i = phi i64 [ %206, %197 ], [ %215, %.lr.ph.i.i.i.i.i17.i.i.i.i ]
-  %209 = and i64 %204, 7
   %.not24.i.i.i.i.i24.i.i.i.i = icmp eq i64 %209, 0
   br i1 %.not24.i.i.i.i.i24.i.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEE14computeKeyHashERKNS1_26VectorContainerIndexSearchE.exit.i.i.i.i, label %217
 
@@ -850,12 +850,12 @@ define linkonce_odr void @_ZN5folly3f146detail11F14BasicSetINS1_21VectorContaine
   %9 = xor i64 %8, 3339675911
   %10 = and i64 %7, -8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
+  %12 = and i64 %7, 7
   %.not25.i.i.i.i.i.i = icmp samesign eq i64 %10, 0
   br i1 %.not25.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i, %3
   %.0.lcssa.i.i.i.i.i.i = phi i64 [ %9, %3 ], [ %18, %.lr.ph.i.i.i.i.i.i ]
-  %12 = and i64 %7, 7
   %.not24.i.i.i.i.i.i = icmp eq i64 %12, 0
   br i1 %.not24.i.i.i.i.i.i, label %_ZN5folly6detail22callWithConstructedKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3f146detail11F14BasicSetINS9_21VectorContainerPolicyIS7_vvvvSt17integral_constantIbLb1EEEEE11UsableAsKeyESaIS7_EZNSF_7emplaceIJS7_EEESt4pairINS9_23VectorContainerIteratorIPKS7_EEbEDpOT_EUlSR_E_S7_TnNSt9enable_ifIXoosr3std7is_sameINS_12remove_cvrefIT3_E4typeET_EE5valuesrT0_ISX_E5valueEiE4typeELi0EEEDaRT1_OT2_OSV_.exit, label %20
 
@@ -1643,12 +1643,12 @@ _ZN5folly3f146detail13DenseMaskIter4nextEv.exit62: ; preds = %.lr.ph125, %118
   %132 = xor i64 %131, 3339675911
   %133 = and i64 %130, -8
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 %133
+  %135 = and i64 %130, 7
   %.not25.i.i.i.i = icmp samesign eq i64 %133, 0
   br i1 %.not25.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit62
   %.0.lcssa.i.i.i.i = phi i64 [ %132, %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit62 ], [ %141, %.lr.ph.i.i.i.i ]
-  %135 = and i64 %130, 7
   %.not24.i.i.i.i = icmp eq i64 %135, 0
   br i1 %.not24.i.i.i.i, label %166, label %143
 
@@ -2527,12 +2527,12 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   %30 = xor i64 %29, 3339675911
   %31 = and i64 %.fr43, -8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 %31
+  %33 = and i64 %.fr43, 7
   %.not25.i.i.i = icmp samesign eq i64 %31, 0
   br i1 %.not25.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %26
   %.0.lcssa.i.i.i = phi i64 [ %30, %26 ], [ %39, %.lr.ph.i.i.i ]
-  %33 = and i64 %.fr43, 7
   %.not24.i.i.i = icmp eq i64 %33, 0
   br i1 %.not24.i.i.i, label %.noexc3, label %41
 
@@ -3141,12 +3141,12 @@ define noundef zeroext i1 @_ZNK5folly8settings21FrozenSettingProjects8containsES
   %5 = xor i64 %4, 3339675911
   %6 = and i64 %.fr30, -8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 %6
+  %8 = and i64 %.fr30, 7
   %.not25.i.i.i = icmp samesign eq i64 %6, 0
   br i1 %.not25.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %3
   %.0.lcssa.i.i.i = phi i64 [ %5, %3 ], [ %14, %.lr.ph.i.i.i ]
-  %8 = and i64 %.fr30, 7
   %.not24.i.i.i = icmp eq i64 %8, 0
   br i1 %.not24.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEE14computeKeyHashISt17basic_string_viewIcS6_EEEmRKT_.exit, label %16
 
@@ -4249,12 +4249,12 @@ _ZN5folly3f146detail13DenseMaskIter4nextEv.exit67: ; preds = %.lr.ph147, %101
   %115 = xor i64 %114, 3339675911
   %116 = and i64 %113, -8
   %117 = getelementptr inbounds nuw i8, ptr %111, i64 %116
+  %118 = and i64 %113, 7
   %.not25.i.i.i = icmp samesign eq i64 %116, 0
   br i1 %.not25.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit67
   %.0.lcssa.i.i.i = phi i64 [ %115, %_ZN5folly3f146detail13DenseMaskIter4nextEv.exit67 ], [ %124, %.lr.ph.i.i.i ]
-  %118 = and i64 %113, 7
   %.not24.i.i.i = icmp eq i64 %118, 0
   br i1 %.not24.i.i.i, label %149, label %126
 

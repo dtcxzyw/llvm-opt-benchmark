@@ -22945,8 +22945,8 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %.lr.ph.i.i.i
 
 .lr.ph.preheader:                                 ; preds = %.noexc69
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %16, 3
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %32, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !15
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i.i.i.i.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %34, ptr %35, align 8, !tbaa !632
   br label %.lr.ph

@@ -967,63 +967,63 @@ _ZN3tbb6detail2d110task_arena10initializeEv.exit: ; preds = %_ZN3tbb6detail2d015
   %61 = getelementptr inbounds nuw i8, ptr %.038.sink, i64 240
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %61, ptr %62, align 8, !tbaa !72
-  %63 = getelementptr inbounds nuw i8, ptr %.038.sink, i64 256
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.038.sink, i64 256
   br label %.preheader.i.i.i.outer
 
 .preheader.i.i.i.outer:                           ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, %60
-  %.sroa.0.0.i.i.i.i.ph = phi i32 [ %77, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ 1, %60 ]
-  %64 = icmp slt i32 %.sroa.0.0.i.i.i.i.ph, 17
+  %.sroa.0.0.i.i.i.i.ph = phi i32 [ %78, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ 1, %60 ]
+  %65 = icmp slt i32 %.sroa.0.0.i.i.i.i.ph, 17
   br label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.outer, %78
-  %65 = load atomic i64, ptr %63 monotonic, align 8
-  %66 = and i64 %65, -3
-  %.not.i.i.i.i = icmp eq i64 %66, 0
-  br i1 %.not.i.i.i.i, label %67, label %70
+.preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.outer, %79
+  %66 = load atomic i64, ptr %64 monotonic, align 8
+  %67 = and i64 %66, -3
+  %.not.i.i.i.i = icmp eq i64 %67, 0
+  br i1 %.not.i.i.i.i, label %68, label %71
 
-67:                                               ; preds = %.preheader.i.i.i
-  %68 = cmpxchg ptr %63, i64 %65, i64 1 seq_cst seq_cst, align 8
-  %69 = extractvalue { i64, i1 } %68, 1
-  br i1 %69, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i, label %.lr.ph.i.i.preheader.i.i.i.i
+68:                                               ; preds = %.preheader.i.i.i
+  %69 = cmpxchg ptr %64, i64 %66, i64 1 seq_cst seq_cst, align 8
+  %70 = extractvalue { i64, i1 } %69, 1
+  br i1 %70, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
-70:                                               ; preds = %.preheader.i.i.i
-  %71 = and i64 %65, 2
-  %.not1.i.i.i.i = icmp eq i64 %71, 0
-  br i1 %.not1.i.i.i.i, label %72, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i.i
+71:                                               ; preds = %.preheader.i.i.i
+  %72 = and i64 %66, 2
+  %.not1.i.i.i.i = icmp eq i64 %72, 0
+  br i1 %.not1.i.i.i.i, label %73, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i.i
 
-72:                                               ; preds = %70
-  %73 = atomicrmw or ptr %63, i64 2 seq_cst, align 8
+73:                                               ; preds = %71
+  %74 = atomicrmw or ptr %64, i64 2 seq_cst, align 8
   br label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i.i
 
-_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i.i: ; preds = %72, %70
-  br i1 %64, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i.i, label %78
+_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i.i: ; preds = %73, %71
+  br i1 %65, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i.i, label %79
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i.i: ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i.i
-  %74 = icmp sgt i32 %.sroa.0.0.i.i.i.i.ph, 0
-  br i1 %74, label %.lr.ph.i.i.preheader.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
+  %75 = icmp sgt i32 %.sroa.0.0.i.i.i.i.ph, 0
+  br i1 %75, label %.lr.ph.i.i.preheader.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i.i, %67
-  %.sroa.0.1811.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.ph, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i.i ], [ 1, %67 ]
+.lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i.i, %68
+  %.sroa.0.1811.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.ph, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i.i ], [ 1, %68 ]
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
-  %.01.i.i.i.i.i.i = phi i32 [ %75, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.1811.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i ]
-  %75 = add nsw i32 %.01.i.i.i.i.i.i, -1
+  %.01.i.i.i.i.i.i = phi i32 [ %76, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.1811.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i ]
+  %76 = add nsw i32 %.01.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %76 = icmp samesign ugt i32 %.01.i.i.i.i.i.i, 1
-  br i1 %76, label %.lr.ph.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !15
+  %77 = icmp samesign ugt i32 %.01.i.i.i.i.i.i, 1
+  br i1 %77, label %.lr.ph.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !15
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i.i
   %.sroa.0.1810.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.ph, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread6.i.i.i.i ], [ %.sroa.0.1811.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %77 = shl nsw i32 %.sroa.0.1810.i.i.i.i, 1
+  %78 = shl nsw i32 %.sroa.0.1810.i.i.i.i, 1
   br label %.preheader.i.i.i.outer, !llvm.loop !17
 
-78:                                               ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i.i
-  %79 = tail call noundef i32 @sched_yield() #7
+79:                                               ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.i.i.i.i
+  %80 = tail call noundef i32 @sched_yield() #7
   br label %.preheader.i.i.i, !llvm.loop !17
 
-_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i: ; preds = %67
-  %80 = getelementptr inbounds nuw i8, ptr %7, i64 8
+_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i: ; preds = %68
   %81 = load atomic i64, ptr %61 monotonic, align 8
   %.not.i53 = icmp eq i64 %81, 0
   br i1 %.not.i53, label %88, label %82
@@ -1047,7 +1047,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i: ; preds 
 _ZN3tbb6detail2r113observer_list6insertEPNS1_14observer_proxyE.exit: ; preds = %82, %88
   %89 = getelementptr inbounds nuw i8, ptr %.038.sink, i64 248
   store atomic i64 %9, ptr %89 monotonic, align 8
-  %90 = atomicrmw and ptr %63, i64 -4 seq_cst, align 8
+  %90 = atomicrmw and ptr %64, i64 -4 seq_cst, align 8
   %.not49 = icmp eq ptr %.1, null
   br i1 %.not49, label %_ZN3tbb6detail2r113observer_list22notify_entry_observersERPNS1_14observer_proxyEb.exit, label %91
 
@@ -1059,7 +1059,7 @@ _ZN3tbb6detail2r113observer_list6insertEPNS1_14observer_proxyE.exit: ; preds = %
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 240
-  %96 = load ptr, ptr %80, align 8, !tbaa !72
+  %96 = load ptr, ptr %63, align 8, !tbaa !72
   %97 = icmp eq ptr %95, %96
   br i1 %97, label %98, label %_ZN3tbb6detail2r113observer_list22notify_entry_observersERPNS1_14observer_proxyEb.exit
 

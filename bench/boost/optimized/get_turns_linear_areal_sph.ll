@@ -174864,7 +174864,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit.i: ; preds = %56, %53, %34
   %128 = ptrtoint ptr %126 to i64
   %129 = sub i64 %127, %128
   %.not.i.i.i.i = icmp eq ptr %125, %126
-  br i1 %.not.i.i.i.i, label %.noexc70.thread, label %130
+  br i1 %.not.i.i.i.i, label %.loopexit, label %130
 
 130:                                              ; preds = %124
   %131 = sdiv exact i64 %129, 176
@@ -174889,9 +174889,9 @@ _ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay9turn_infoINS1_5model5
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 176
   %135 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 176
   %.not.i.i.i.i.i = icmp eq ptr %134, %125
-  br i1 %.not.i.i.i.i.i, label %.noexc70.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !2451
+  br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !2451
 
-.noexc70.thread:                                  ; preds = %.lr.ph.i.i.i.i.i, %124
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %124
   %.sink = phi ptr [ null, %124 ], [ %133, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %124 ], [ %135, %.lr.ph.i.i.i.i.i ]
   %136 = load ptr, ptr %4, align 8, !tbaa !174
@@ -174899,7 +174899,7 @@ _ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay9turn_infoINS1_5model5
   %.not122 = icmp eq ptr %136, %137
   br i1 %.not122, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIfEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.noexc70.thread
+.lr.ph:                                           ; preds = %.loopexit
   %138 = ptrtoint ptr %.sink to i64
   br label %147
 
@@ -174967,8 +174967,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_i
   %.not = icmp eq ptr %159, %160
   br i1 %.not, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIfEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit._crit_edge, label %147, !llvm.loop !2452
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIfEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit._crit_edge: ; preds = %157, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIfEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit, %.noexc70.thread
-  %.not.lcssa = phi i1 [ true, %.noexc70.thread ], [ %.not120.not.not, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIfEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit ], [ %.not120.not.not, %157 ]
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIfEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit._crit_edge: ; preds = %157, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIfEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit, %.loopexit
+  %.not.lcssa = phi i1 [ true, %.loopexit ], [ %.not120.not.not, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIfLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIfEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit ], [ %.not120.not.not, %157 ]
   %.not.i.i.i73 = icmp eq ptr %.sink, null
   br i1 %.not.i.i.i73, label %_ZNSt6vectorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIfLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEENS1_13segment_ratioIfEENS3_21turn_operation_linearISB_SD_EESt5arrayISF_Lm2EEEESaISI_EED2Ev.exit, label %161
 
@@ -200894,7 +200894,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit.i: ; preds = %56, %53, %34
   %128 = ptrtoint ptr %126 to i64
   %129 = sub i64 %127, %128
   %.not.i.i.i.i = icmp eq ptr %125, %126
-  br i1 %.not.i.i.i.i, label %.noexc70.thread, label %130
+  br i1 %.not.i.i.i.i, label %.loopexit, label %130
 
 130:                                              ; preds = %124
   %131 = sdiv exact i64 %129, 216
@@ -200919,9 +200919,9 @@ _ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay9turn_infoINS1_5model5
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 216
   %135 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 216
   %.not.i.i.i.i.i = icmp eq ptr %134, %125
-  br i1 %.not.i.i.i.i.i, label %.noexc70.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !3162
+  br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !3162
 
-.noexc70.thread:                                  ; preds = %.lr.ph.i.i.i.i.i, %124
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %124
   %.sink = phi ptr [ null, %124 ], [ %133, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %124 ], [ %135, %.lr.ph.i.i.i.i.i ]
   %136 = load ptr, ptr %4, align 8, !tbaa !174
@@ -200929,7 +200929,7 @@ _ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay9turn_infoINS1_5model5
   %.not122 = icmp eq ptr %136, %137
   br i1 %.not122, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIdEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.noexc70.thread
+.lr.ph:                                           ; preds = %.loopexit
   %138 = ptrtoint ptr %.sink to i64
   br label %147
 
@@ -200997,8 +200997,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_i
   %.not = icmp eq ptr %159, %160
   br i1 %.not, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIdEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit._crit_edge, label %147, !llvm.loop !3163
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIdEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit._crit_edge: ; preds = %157, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIdEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit, %.noexc70.thread
-  %.not.lcssa = phi i1 [ true, %.noexc70.thread ], [ %.not120.not.not, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIdEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit ], [ %.not120.not.not, %157 ]
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIdEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit._crit_edge: ; preds = %157, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIdEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit, %.loopexit
+  %.not.lcssa = phi i1 [ true, %.loopexit ], [ %.not120.not.not, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIdEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEE10equal_turnET_SR_SR_T0_.exit ], [ %.not120.not.not, %157 ]
   %.not.i.i.i73 = icmp eq ptr %.sink, null
   br i1 %.not.i.i.i73, label %_ZNSt6vectorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEENS1_13segment_ratioIdEENS3_21turn_operation_linearISB_SD_EESt5arrayISF_Lm2EEEESaISI_EED2Ev.exit, label %161
 

@@ -960,6 +960,7 @@ define internal i32 @show_stash(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   %38 = call i32 @parse_options(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %12, ptr noundef nonnull @git_stash_show_usage, i32 noundef 13) #15
   %39 = load ptr, ptr %1, align 8, !tbaa !54
   %40 = call ptr @strvec_push(ptr noundef nonnull %10, ptr noundef %39) #15
+  %.012.i.sroa.gep27 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %41 = icmp sgt i32 %38, 1
   br i1 %41, label %.lr.ph.preheader, label %._crit_edge
 
@@ -989,7 +990,6 @@ define internal i32 @show_stash(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
   %47 = phi ptr [ %.pre36, %._crit_edge.loopexit ], [ @empty_strvec, %4 ]
   %48 = phi i32 [ %46, %._crit_edge.loopexit ], [ 0, %4 ]
-  %.012.i.sroa.gep27 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %49 = call fastcc i32 @get_stash_info(ptr noundef %7, i32 noundef %48, ptr noundef %47)
   %.not19 = icmp eq i32 %49, 0
   br i1 %.not19, label %50, label %118

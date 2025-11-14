@@ -1404,7 +1404,7 @@ define void @_ZN6icu_7716DateIntervalInfo8copyHashEPKNS_9HashtableEPS1_R10UError
   %6 = alloca %"class.icu_77::UnicodeString", align 8
   %7 = load i32, ptr %3, align 4, !tbaa !13
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %9, label %38
+  br i1 %8, label %9, label %37
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1439,61 +1439,61 @@ define void @_ZN6icu_7716DateIntervalInfo8copyHashEPKNS_9HashtableEPS1_R10UError
   store i16 2, ptr %19, align 8, !tbaa !17
   %.add = add nuw nsw i64 %.idx, 64
   %20 = icmp samesign eq i64 %.add, 584
-  br i1 %20, label %.preheader, label %18
+  br i1 %20, label %.preheader.preheader, label %18
 
-.preheader:                                       ; preds = %18
+.preheader.preheader:                             ; preds = %18
   %.ptr37 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  br label %21
+  br label %.preheader
 
 .critedge:                                        ; preds = %12
   store i32 7, ptr %3, align 4, !tbaa !13
   br label %.loopexit
 
-21:                                               ; preds = %.preheader, %21
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.sroa.0.0.copyload, i64 %indvars.iv
-  %23 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.ptr37, i64 %indvars.iv
-  %24 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %22)
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
+  %21 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.ptr37, i64 %indvars.iv
+  %23 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %21)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %25, label %21, !llvm.loop !43
+  br i1 %exitcond.not, label %24, label %.preheader, !llvm.loop !43
 
-25:                                               ; preds = %21
+24:                                               ; preds = %.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.016.0.copyload)
-  %26 = load ptr, ptr %2, align 8, !tbaa !25
-  %27 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #19
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %30, label %29
+  %25 = load ptr, ptr %2, align 8, !tbaa !25
+  %26 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #19
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %29, label %28
 
-29:                                               ; preds = %25
-  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %6)
-          to label %30 unwind label %32
+28:                                               ; preds = %24
+  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(64) %6)
+          to label %29 unwind label %31
 
-30:                                               ; preds = %29, %25
-  %31 = invoke noundef ptr @uhash_put_77(ptr noundef %26, ptr noundef %27, ptr noundef nonnull %.ptr37, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit unwind label %36
+29:                                               ; preds = %28, %24
+  %30 = invoke noundef ptr @uhash_put_77(ptr noundef %25, ptr noundef %26, ptr noundef nonnull %.ptr37, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit unwind label %35
 
-32:                                               ; preds = %29
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %28
+  %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %27) #19
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %26) #19
   br label %.body
 
-_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %30
+_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %29
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %34 = load i32, ptr %3, align 4, !tbaa !13
-  %35 = icmp slt i32 %34, 1
-  br i1 %35, label %.preheader44, label %.loopexit, !llvm.loop !44
+  %33 = load i32, ptr %3, align 4, !tbaa !13
+  %34 = icmp slt i32 %33, 1
+  br i1 %34, label %.preheader44, label %.loopexit, !llvm.loop !44
 
-36:                                               ; preds = %30
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %29
+  %36 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %32, %36
-  %eh.lpad-body = phi { ptr, i32 } [ %37, %36 ], [ %33, %32 ]
+.body:                                            ; preds = %31, %35
+  %eh.lpad-body = phi { ptr, i32 } [ %36, %35 ], [ %32, %31 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1501,9 +1501,9 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %3
 
 .loopexit:                                        ; preds = %.preheader44, %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, %9, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %38
+  br label %37
 
-38:                                               ; preds = %4, %.loopexit
+37:                                               ; preds = %4, %.loopexit
   ret void
 }
 

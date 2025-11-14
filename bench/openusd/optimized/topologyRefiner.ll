@@ -939,8 +939,8 @@ define linkonce_odr void @_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelE
 
 _ZSt6fill_nIPPN10OpenSubdiv6v3_6_03Vtr8internal5LevelEmS5_ET_S7_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPN10OpenSubdiv6v3_6_03Vtr8internal5LevelEmS5_ET_S7_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN10OpenSubdiv6v3_6_03Vtr8internal5LevelEmS5_ET_S7_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN10OpenSubdiv6v3_6_03Vtr8internal5LevelEmS5_ET_S7_T0_RKT1_.exit.loopexit.i.i.i
@@ -2159,20 +2159,20 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8intern
   %108 = getelementptr i32, ptr %107, i64 %57
   %109 = getelementptr i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
-  %111 = sext i32 %110 to i64
-  %112 = load ptr, ptr %35, align 8
-  %113 = getelementptr inbounds i32, ptr %112, i64 %111
-  %114 = load i32, ptr %108, align 4
-  %115 = icmp sgt i32 %114, 0
+  %111 = load ptr, ptr %35, align 8
+  %112 = load i32, ptr %108, align 4
+  %113 = sext i32 %110 to i64
+  %114 = getelementptr inbounds i32, ptr %111, i64 %113
+  %115 = icmp sgt i32 %112, 0
   br i1 %115, label %.lr.ph.preheader.i40, label %._crit_edge.i
 
 .lr.ph.preheader.i40:                             ; preds = %106
-  %wide.trip.count.i41 = zext nneg i32 %114 to i64
+  %wide.trip.count.i41 = zext nneg i32 %112 to i64
   br label %.lr.ph.i42
 
 .lr.ph.i42:                                       ; preds = %.lr.ph.i42, %.lr.ph.preheader.i40
   %indvars.iv.i43 = phi i64 [ 0, %.lr.ph.preheader.i40 ], [ %indvars.iv.next.i44, %.lr.ph.i42 ]
-  %116 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv.i43
+  %116 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv.i43
   %117 = load i32, ptr %116, align 4
   %118 = call i16 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level26getVertexCompositeFVarVTagEii(ptr noundef nonnull align 8 dereferenceable(480) %10, i32 noundef %117, i32 noundef %.059)
   %119 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %6, i64 %indvars.iv.i43
@@ -2182,7 +2182,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8intern
   br i1 %exitcond.not.i45, label %._crit_edge.i, label %.lr.ph.i42, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i42, %106
-  %120 = call i16 @_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTag9BitwiseOrEPKS4_i(ptr noundef nonnull %6, i32 noundef %114)
+  %120 = call i16 @_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTag9BitwiseOrEPKS4_i(ptr noundef nonnull %6, i32 noundef %112)
   %121 = and i16 %120, 2048
   %.not.i37 = icmp eq i16 %121, 0
   br i1 %.not.i37, label %122, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_139doesFaceHaveDistinctFaceVaryingFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit
@@ -2205,7 +2205,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8intern
   br i1 %or.cond28.i, label %128, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_139doesFaceHaveDistinctFaceVaryingFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit
 
 128:                                              ; preds = %125
-  %129 = call fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpFaceHaveFeaturesENS0_3Vtr8internal5Level4VTagEPS6_iRKNS1_8internal11FeatureMaskE(i16 %120, ptr noundef %6, i32 noundef %114, i16 %.val.pre.pre.i)
+  %129 = call fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpFaceHaveFeaturesENS0_3Vtr8internal5Level4VTagEPS6_iRKNS1_8internal11FeatureMaskE(i16 %120, ptr noundef %6, i32 noundef %112, i16 %.val.pre.pre.i)
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_139doesFaceHaveDistinctFaceVaryingFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_139doesFaceHaveDistinctFaceVaryingFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit: ; preds = %._crit_edge.i, %122, %125, %128

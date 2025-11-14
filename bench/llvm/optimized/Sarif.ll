@@ -2692,13 +2692,13 @@ define dso_local void @_ZN5clang19SarifDocumentWriter6endRunEv(ptr noundef nonnu
   %108 = getelementptr inbounds nuw i8, ptr %39, i64 128
   %109 = getelementptr inbounds nuw i8, ptr %39, i64 152
   %110 = getelementptr inbounds nuw i8, ptr %39, i64 160
-  %111 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %112 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %113 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  %114 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %39, i64 192
+  %112 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %115 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.9.8..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %115 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %116 = getelementptr inbounds nuw i8, ptr %39, i64 192
+  %116 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %117 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %118 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %119 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -2739,13 +2739,13 @@ define dso_local void @_ZN5clang19SarifDocumentWriter6endRunEv(ptr noundef nonnu
   %153 = getelementptr inbounds nuw i8, ptr %41, i64 232
   %154 = getelementptr inbounds nuw i8, ptr %41, i64 236
   %155 = getelementptr inbounds nuw i8, ptr %41, i64 240
-  %156 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %157 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %158 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  %159 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %41, i64 256
+  %157 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %40, i64 12
+  %160 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.9392.8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %160 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %161 = getelementptr inbounds nuw i8, ptr %41, i64 256
+  %161 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %162 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %163 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %164 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -2888,8 +2888,8 @@ _ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9Objec
   %216 = load ptr, ptr %36, align 8, !tbaa !135, !noalias !187
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %216, ptr %19, align 8, !tbaa !135, !noalias !187
-  %217 = load i32, ptr %111, align 8, !tbaa !192, !noalias !187
-  %218 = load i32, ptr %112, align 8, !tbaa !158, !noalias !187
+  %217 = load i32, ptr %112, align 8, !tbaa !192, !noalias !187
+  %218 = load i32, ptr %113, align 8, !tbaa !158, !noalias !187
   %219 = shl i32 %217, 2
   %220 = add i32 %219, 4
   %221 = mul i32 %218, 3
@@ -2901,7 +2901,7 @@ _ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9Objec
   br label %.sink.split.i
 
 224:                                              ; preds = %215
-  %225 = load i32, ptr %113, align 4, !tbaa !193, !noalias !187
+  %225 = load i32, ptr %114, align 4, !tbaa !193, !noalias !187
   %.neg.i = xor i32 %217, -1
   %.neg22.i = add i32 %218, %.neg.i
   %226 = sub i32 %.neg22.i, %225
@@ -2913,13 +2913,13 @@ _ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9Objec
   %.sink.i = phi i32 [ %223, %222 ], [ %218, %224 ]
   call void @_ZN4llvm8DenseMapINS_4json9ObjectKeyENS1_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS2_S3_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(24) %38, i32 noundef %.sink.i), !noalias !187
   %228 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %.015.i.ptr, ptr noundef nonnull align 8 dereferenceable(8) %19), !noalias !187
-  %.pre = load i32, ptr %111, align 8, !tbaa !192, !noalias !187
+  %.pre = load i32, ptr %112, align 8, !tbaa !192, !noalias !187
   br label %229
 
 229:                                              ; preds = %.sink.split.i, %224
   %230 = phi i32 [ %.pre, %.sink.split.i ], [ %217, %224 ]
   %231 = add i32 %230, 1
-  store i32 %231, ptr %111, align 8, !tbaa !192, !noalias !187
+  store i32 %231, ptr %112, align 8, !tbaa !192, !noalias !187
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %232 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr nonnull inttoptr (i64 -1 to ptr), i64 0, ptr noundef null) #18, !noalias !187
   br i1 %232, label %_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE.exit, label %_ZN4llvm4json9ObjectKeyaSEOS1_.exit, !prof !129
@@ -2929,15 +2929,15 @@ _ZN4llvm4json9ObjectKeyaSEOS1_.exit:              ; preds = %229
   call void @_ZN4llvm4json7fixUTF8B5cxx11ENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr nonnull inttoptr (i64 -1 to ptr), i64 0) #18, !noalias !187
   call void @_ZN4llvm4json9ObjectKeyC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %10), !noalias !187
   %233 = load ptr, ptr %9, align 8, !tbaa !137, !noalias !187
-  %.sroa.6.8.copyload = load ptr, ptr %114, align 8, !tbaa !64, !noalias !187
+  %.sroa.6.8.copyload = load ptr, ptr %115, align 8, !tbaa !64, !noalias !187
   %.sroa.9.8.copyload = load i64, ptr %.sroa.9.8..sroa_idx, align 8, !tbaa !51, !noalias !187
   store ptr null, ptr %9, align 8, !tbaa !137, !noalias !187
   %234 = load ptr, ptr %10, align 8, !tbaa !33, !noalias !187
-  %235 = icmp eq ptr %234, %115
+  %235 = icmp eq ptr %234, %116
   br i1 %235, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i317, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i316
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i316: ; preds = %_ZN4llvm4json9ObjectKeyaSEOS1_.exit
-  %236 = load i64, ptr %115, align 8, !tbaa !52, !noalias !187
+  %236 = load i64, ptr %116, align 8, !tbaa !52, !noalias !187
   %237 = add i64 %236, 1
   call void @_ZdlPvm(ptr noundef %234, i64 noundef %237) #19, !noalias !187
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i317
@@ -2984,9 +2984,9 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i: ; preds = %245
   br i1 %247, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread19.i
 
 _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread19.i: ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i, %244, %242, %240
-  %248 = load i32, ptr %113, align 4, !tbaa !193, !noalias !187
+  %248 = load i32, ptr %114, align 4, !tbaa !193, !noalias !187
   %249 = add i32 %248, -1
-  store i32 %249, ptr %113, align 4, !tbaa !193, !noalias !187
+  store i32 %249, ptr %114, align 4, !tbaa !193, !noalias !187
   br label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i
 
 _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i: ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread19.i, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i, %245, %242, %240
@@ -3108,7 +3108,7 @@ _ZN4llvm4json9ObjectKeyaSERKS1_.exit:             ; preds = %_ZNSt10unique_ptrIN
   br i1 %.not.i, label %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit, label %.lr.ph.i
 
 _ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit: ; preds = %290, %_ZN4llvm4json6Object2KVD2Ev.exit
-  %291 = phi ptr [ %292, %_ZN4llvm4json6Object2KVD2Ev.exit ], [ %116, %290 ]
+  %291 = phi ptr [ %292, %_ZN4llvm4json6Object2KVD2Ev.exit ], [ %111, %290 ]
   %292 = getelementptr inbounds i8, ptr %291, i64 -64
   %293 = getelementptr inbounds i8, ptr %291, i64 -40
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %293) #18
@@ -3669,15 +3669,15 @@ _ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit75: ; preds = %_ZN4llv
   %485 = load ptr, ptr %38, align 8, !tbaa !135
   store ptr %485, ptr %152, align 8, !tbaa !135
   store ptr null, ptr %38, align 8, !tbaa !135
-  %486 = load i32, ptr %111, align 8, !tbaa !3
+  %486 = load i32, ptr %112, align 8, !tbaa !3
   store i32 %486, ptr %153, align 8, !tbaa !3
-  store i32 0, ptr %111, align 8, !tbaa !3
-  %487 = load i32, ptr %113, align 4, !tbaa !3
-  store i32 %487, ptr %154, align 4, !tbaa !3
-  store i32 0, ptr %113, align 4, !tbaa !3
-  %488 = load i32, ptr %112, align 8, !tbaa !3
-  store i32 %488, ptr %155, align 8, !tbaa !3
   store i32 0, ptr %112, align 8, !tbaa !3
+  %487 = load i32, ptr %114, align 4, !tbaa !3
+  store i32 %487, ptr %154, align 4, !tbaa !3
+  store i32 0, ptr %114, align 4, !tbaa !3
+  %488 = load i32, ptr %113, align 8, !tbaa !3
+  store i32 %488, ptr %155, align 8, !tbaa !3
+  store i32 0, ptr %113, align 8, !tbaa !3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 20, i1 false)
   br label %.lr.ph.i76
 
@@ -3696,8 +3696,8 @@ _ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9Objec
   %491 = load ptr, ptr %28, align 8, !tbaa !135, !noalias !200
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %491, ptr %15, align 8, !tbaa !135, !noalias !200
-  %492 = load i32, ptr %156, align 8, !tbaa !192, !noalias !200
-  %493 = load i32, ptr %157, align 8, !tbaa !158, !noalias !200
+  %492 = load i32, ptr %157, align 8, !tbaa !192, !noalias !200
+  %493 = load i32, ptr %158, align 8, !tbaa !158, !noalias !200
   %494 = shl i32 %492, 2
   %495 = add i32 %494, 4
   %496 = mul i32 %493, 3
@@ -3709,7 +3709,7 @@ _ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9Objec
   br label %.sink.split.i256
 
 499:                                              ; preds = %490
-  %500 = load i32, ptr %158, align 4, !tbaa !193, !noalias !200
+  %500 = load i32, ptr %159, align 4, !tbaa !193, !noalias !200
   %.neg.i274 = xor i32 %492, -1
   %.neg22.i275 = add i32 %493, %.neg.i274
   %501 = sub i32 %.neg22.i275, %500
@@ -3721,13 +3721,13 @@ _ZN4llvm4json6Object11try_emplaceIJDnEEESt4pairINS_16DenseMapIteratorINS0_9Objec
   %.sink.i257 = phi i32 [ %498, %497 ], [ %493, %499 ]
   call void @_ZN4llvm8DenseMapINS_4json9ObjectKeyENS1_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS2_S3_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(24) %40, i32 noundef %.sink.i257), !noalias !200
   %503 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %.015.i77.ptr, ptr noundef nonnull align 8 dereferenceable(8) %15), !noalias !200
-  %.pre416 = load i32, ptr %156, align 8, !tbaa !192, !noalias !200
+  %.pre416 = load i32, ptr %157, align 8, !tbaa !192, !noalias !200
   br label %504
 
 504:                                              ; preds = %.sink.split.i256, %499
   %505 = phi i32 [ %.pre416, %.sink.split.i256 ], [ %492, %499 ]
   %506 = add i32 %505, 1
-  store i32 %506, ptr %156, align 8, !tbaa !192, !noalias !200
+  store i32 %506, ptr %157, align 8, !tbaa !192, !noalias !200
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %507 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr nonnull inttoptr (i64 -1 to ptr), i64 0, ptr noundef null) #18, !noalias !200
   br i1 %507, label %_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE.exit328, label %_ZN4llvm4json9ObjectKeyaSEOS1_.exit364, !prof !129
@@ -3737,15 +3737,15 @@ _ZN4llvm4json9ObjectKeyaSEOS1_.exit364:           ; preds = %504
   call void @_ZN4llvm4json7fixUTF8B5cxx11ENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr nonnull inttoptr (i64 -1 to ptr), i64 0) #18, !noalias !200
   call void @_ZN4llvm4json9ObjectKeyC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %6), !noalias !200
   %508 = load ptr, ptr %5, align 8, !tbaa !137, !noalias !200
-  %.sroa.6391.8.copyload = load ptr, ptr %159, align 8, !tbaa !64, !noalias !200
+  %.sroa.6391.8.copyload = load ptr, ptr %160, align 8, !tbaa !64, !noalias !200
   %.sroa.9392.8.copyload = load i64, ptr %.sroa.9392.8..sroa_idx, align 8, !tbaa !51, !noalias !200
   store ptr null, ptr %5, align 8, !tbaa !137, !noalias !200
   %509 = load ptr, ptr %6, align 8, !tbaa !33, !noalias !200
-  %510 = icmp eq ptr %509, %160
+  %510 = icmp eq ptr %509, %161
   br i1 %510, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i326, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i325
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i325: ; preds = %_ZN4llvm4json9ObjectKeyaSEOS1_.exit364
-  %511 = load i64, ptr %160, align 8, !tbaa !52, !noalias !200
+  %511 = load i64, ptr %161, align 8, !tbaa !52, !noalias !200
   %512 = add i64 %511, 1
   call void @_ZdlPvm(ptr noundef %509, i64 noundef %512) #19, !noalias !200
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i326
@@ -3792,9 +3792,9 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i272: ; preds = %520
   br i1 %522, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i264, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread19.i263
 
 _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread19.i263: ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i272, %519, %517, %515
-  %523 = load i32, ptr %158, align 4, !tbaa !193, !noalias !200
+  %523 = load i32, ptr %159, align 4, !tbaa !193, !noalias !200
   %524 = add i32 %523, -1
-  store i32 %524, ptr %158, align 4, !tbaa !193, !noalias !200
+  store i32 %524, ptr %159, align 4, !tbaa !193, !noalias !200
   br label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i264
 
 _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread.i264: ; preds = %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread19.i263, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i272, %520, %517, %515
@@ -3916,7 +3916,7 @@ _ZN4llvm4json9ObjectKeyaSERKS1_.exit254:          ; preds = %_ZNSt10unique_ptrIN
   br i1 %.not.i78, label %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit80, label %.lr.ph.i76
 
 _ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit80: ; preds = %565, %_ZN4llvm4json6Object2KVD2Ev.exit85
-  %566 = phi ptr [ %567, %_ZN4llvm4json6Object2KVD2Ev.exit85 ], [ %161, %565 ]
+  %566 = phi ptr [ %567, %_ZN4llvm4json6Object2KVD2Ev.exit85 ], [ %156, %565 ]
   %567 = getelementptr inbounds i8, ptr %566, i64 -64
   %568 = getelementptr inbounds i8, ptr %566, i64 -40
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %568) #18
@@ -4164,17 +4164,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
   store ptr %655, ptr %653, align 8, !tbaa !135
   store ptr null, ptr %40, align 8, !tbaa !135
   %656 = getelementptr inbounds nuw i8, ptr %650, i64 16
-  %657 = load i32, ptr %156, align 8, !tbaa !3
+  %657 = load i32, ptr %157, align 8, !tbaa !3
   store i32 %657, ptr %656, align 8, !tbaa !3
-  store i32 0, ptr %156, align 8, !tbaa !3
-  %658 = getelementptr inbounds nuw i8, ptr %650, i64 20
-  %659 = load i32, ptr %158, align 4, !tbaa !3
-  store i32 %659, ptr %658, align 4, !tbaa !3
-  store i32 0, ptr %158, align 4, !tbaa !3
-  %660 = getelementptr inbounds nuw i8, ptr %650, i64 24
-  %661 = load i32, ptr %157, align 8, !tbaa !3
-  store i32 %661, ptr %660, align 8, !tbaa !3
   store i32 0, ptr %157, align 8, !tbaa !3
+  %658 = getelementptr inbounds nuw i8, ptr %650, i64 20
+  %659 = load i32, ptr %159, align 4, !tbaa !3
+  store i32 %659, ptr %658, align 4, !tbaa !3
+  store i32 0, ptr %159, align 4, !tbaa !3
+  %660 = getelementptr inbounds nuw i8, ptr %650, i64 24
+  %661 = load i32, ptr %158, align 8, !tbaa !3
+  store i32 %661, ptr %660, align 8, !tbaa !3
+  store i32 0, ptr %158, align 8, !tbaa !3
   %662 = load ptr, ptr %168, align 8, !tbaa !175
   %663 = getelementptr inbounds nuw i8, ptr %662, i64 40
   store ptr %663, ptr %168, align 8, !tbaa !175
@@ -4187,14 +4187,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
 _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit: ; preds = %652, %664
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(24) %40)
   %665 = load ptr, ptr %40, align 8, !tbaa !156
-  %666 = load i32, ptr %157, align 8, !tbaa !158
+  %666 = load i32, ptr %158, align 8, !tbaa !158
   %667 = zext i32 %666 to i64
   %668 = shl nuw nsw i64 %667, 6
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %665, i64 noundef %668, i64 noundef 8) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(24) %38)
   %669 = load ptr, ptr %38, align 8, !tbaa !156
-  %670 = load i32, ptr %112, align 8, !tbaa !158
+  %670 = load i32, ptr %113, align 8, !tbaa !158
   %671 = zext i32 %670 to i64
   %672 = shl nuw nsw i64 %671, 6
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %669, i64 noundef %672, i64 noundef 8) #18

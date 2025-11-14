@@ -461,7 +461,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread: ; preds = %_ZL13gmx_s
   %160 = getelementptr i8, ptr %159, i64 8
   %161 = load i32, ptr %160, align 4, !tbaa !4
   %.not354 = icmp slt i32 %157, %161
-  br i1 %.not354, label %.loopexit654, label %158, !llvm.loop !52
+  br i1 %.not354, label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.loopexit, label %158, !llvm.loop !52
 
 162:                                              ; preds = %114, %_ZL13gmx_snew_implI10t_topologyEvPKcS2_iRPT_m.exit
   %163 = landingpad { ptr, i32 }
@@ -480,16 +480,16 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread: ; preds = %_ZL13gmx_s
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.loopexit.split-lp
 
-.loopexit654:                                     ; preds = %158
-  %167 = trunc nsw i64 %indvars.iv.next to i32
-  %168 = add nsw i32 %.0295667, 1
+_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.loopexit: ; preds = %158
+  %167 = add nsw i32 %.0295667, 1
+  %168 = trunc nsw i64 %indvars.iv.next to i32
   %.pre873 = load i32, ptr %10, align 4, !tbaa !4
   br label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit
 
-_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %.loopexit654, %145
-  %169 = phi i32 [ %143, %145 ], [ %.pre873, %.loopexit654 ]
-  %.2299 = phi i32 [ %.0297666, %145 ], [ %167, %.loopexit654 ]
-  %.1296 = phi i32 [ %.0295667, %145 ], [ %168, %.loopexit654 ]
+_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.loopexit, %145
+  %169 = phi i32 [ %143, %145 ], [ %.pre873, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.loopexit ]
+  %.2299 = phi i32 [ %.0297666, %145 ], [ %168, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.loopexit ]
+  %.1296 = phi i32 [ %.0295667, %145 ], [ %167, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.loopexit ]
   %indvars.iv.next772 = add nuw nsw i64 %indvars.iv771, 1
   %170 = sext i32 %169 to i64
   %171 = icmp slt i64 %indvars.iv.next772, %170

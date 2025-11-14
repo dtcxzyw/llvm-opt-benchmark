@@ -4473,35 +4473,35 @@ define internal range(i64 -4294963199, 4097) i64 @fill_periodic_buffer(ptr nound
   br i1 %55, label %.thread, label %.thread6
 
 .thread:                                          ; preds = %52, %34, %.loopexit
-  %56 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  br label %57
+  %56 = load i32, ptr %35, align 16
+  %57 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  br label %58
 
-57:                                               ; preds = %57, %.thread
-  %58 = phi ptr [ %56, %.thread ], [ %60, %57 ]
-  %59 = phi i32 [ 0, %.thread ], [ %62, %57 ]
-  %60 = load ptr, ptr %58, align 8
-  %61 = icmp eq ptr %60, %56
-  %62 = add i32 %59, 1
-  br i1 %61, label %63, label %57, !llvm.loop !51
+58:                                               ; preds = %58, %.thread
+  %59 = phi ptr [ %57, %.thread ], [ %61, %58 ]
+  %60 = phi i32 [ 0, %.thread ], [ %63, %58 ]
+  %61 = load ptr, ptr %59, align 8
+  %62 = icmp eq ptr %61, %57
+  %63 = add i32 %60, 1
+  br i1 %62, label %64, label %58, !llvm.loop !51
 
-63:                                               ; preds = %57
-  %64 = load i32, ptr %35, align 16
+64:                                               ; preds = %58
   %65 = zext i32 %44 to i64
-  %66 = and i32 %64, 8192
+  %66 = and i32 %56, 8192
   %67 = icmp eq i32 %66, 0
   %68 = select i1 %67, i32 102, i32 108
-  %69 = and i32 %64, 127
-  %70 = lshr i32 %64, 7
+  %69 = and i32 %56, 127
+  %70 = lshr i32 %56, 7
   %71 = and i32 %70, 15
-  %72 = and i32 %64, 4096
+  %72 = and i32 %56, 4096
   %73 = icmp eq i32 %72, 0
   %74 = select i1 %73, ptr @.str.84, ptr @.str.83
-  %75 = and i32 %64, 32768
+  %75 = and i32 %56, 32768
   %76 = icmp eq i32 %75, 0
   %77 = select i1 %76, ptr @.str.96, ptr @.str.95
-  %78 = lshr i32 %64, 16
+  %78 = lshr i32 %56, 16
   %79 = and i32 %78, 1023
-  %80 = and i32 %64, 16384
+  %80 = and i32 %56, 16384
   %81 = icmp eq i32 %80, 0
   %82 = select i1 %81, ptr @.str.10, ptr @.str.97
   %83 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -4509,22 +4509,22 @@ define internal range(i64 -4294963199, 4097) i64 @fill_periodic_buffer(ptr nound
   %85 = and i32 %84, 1
   %86 = icmp eq i32 %85, 0
   %87 = select i1 %86, ptr @.str.10, ptr @.str.86
-  %88 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %46, i64 noundef %65, ptr noundef nonnull @.str.94, i32 noundef %68, i32 noundef %69, i32 noundef %71, ptr noundef nonnull %74, ptr noundef nonnull %77, i32 noundef %59, i32 noundef %79, i32 noundef %64, ptr noundef nonnull %82, ptr noundef nonnull %87) #14
+  %88 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %46, i64 noundef %65, ptr noundef nonnull @.str.94, i32 noundef %68, i32 noundef %69, i32 noundef %71, ptr noundef nonnull %74, ptr noundef nonnull %77, i32 noundef %60, i32 noundef %79, i32 noundef %56, ptr noundef nonnull %82, ptr noundef nonnull %87) #14
   %89 = sub i32 %44, %88
   %90 = zext i32 %88 to i64
   %91 = getelementptr i8, ptr %46, i64 %90
   %92 = icmp ult i32 %37, 64
   br i1 %92, label %93, label %97
 
-93:                                               ; preds = %63
+93:                                               ; preds = %64
   %94 = add nuw nsw i32 %37, 1
   %95 = zext nneg i32 %37 to i64
   %96 = getelementptr ptr, ptr %3, i64 %95
   store ptr %35, ptr %96, align 8
   br label %97
 
-97:                                               ; preds = %63, %93
-  %98 = phi i32 [ %94, %93 ], [ %37, %63 ]
+97:                                               ; preds = %64, %93
+  %98 = phi i32 [ %94, %93 ], [ %37, %64 ]
   %99 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %100 = load ptr, ptr %99, align 16
   %101 = icmp eq ptr %100, null

@@ -1327,24 +1327,24 @@ define internal void @_ZN12_GLOBAL__N_122HeaderIncludesCallback11FileSkippedERKN
   br i1 %or.cond, label %_ZN12_GLOBAL__N_122HeaderIncludesCallback16ShouldShowHeaderEN5clang6SrcMgr18CharacteristicKindE.exit.thread3, label %_ZN12_GLOBAL__N_122HeaderIncludesCallback16ShouldShowHeaderEN5clang6SrcMgr18CharacteristicKindE.exit.thread
 
 _ZN12_GLOBAL__N_122HeaderIncludesCallback16ShouldShowHeaderEN5clang6SrcMgr18CharacteristicKindE.exit.thread3: ; preds = %16, %12
-  %23 = load ptr, ptr %1, align 8, !tbaa !359
-  br label %24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load ptr, ptr %23, align 8, !tbaa !299
+  %25 = load ptr, ptr %1, align 8, !tbaa !359
+  br label %26
 
-24:                                               ; preds = %24, %_ZN12_GLOBAL__N_122HeaderIncludesCallback16ShouldShowHeaderEN5clang6SrcMgr18CharacteristicKindE.exit.thread3
-  %.05.i.i = phi ptr [ %23, %_ZN12_GLOBAL__N_122HeaderIncludesCallback16ShouldShowHeaderEN5clang6SrcMgr18CharacteristicKindE.exit.thread3 ], [ %28, %24 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 8
-  %26 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 4
-  %.not.i.i.i.i.i.i = icmp eq i64 %26, 0
-  %27 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -8
-  %28 = inttoptr i64 %27 to ptr
-  %.not7.i.i = icmp eq i64 %27, 0
+26:                                               ; preds = %26, %_ZN12_GLOBAL__N_122HeaderIncludesCallback16ShouldShowHeaderEN5clang6SrcMgr18CharacteristicKindE.exit.thread3
+  %.05.i.i = phi ptr [ %25, %_ZN12_GLOBAL__N_122HeaderIncludesCallback16ShouldShowHeaderEN5clang6SrcMgr18CharacteristicKindE.exit.thread3 ], [ %30, %26 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %27, align 8
+  %28 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 4
+  %.not.i.i.i.i.i.i = icmp eq i64 %28, 0
+  %29 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -8
+  %30 = inttoptr i64 %29 to ptr
+  %.not7.i.i = icmp eq i64 %29, 0
   %.not.i.i = or i1 %.not.i.i.i.i.i.i, %.not7.i.i
-  br i1 %.not.i.i, label %_ZNK5clang12FileEntryRef7getNameEv.exit, label %24
+  br i1 %.not.i.i, label %_ZNK5clang12FileEntryRef7getNameEv.exit, label %26
 
-_ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !299
+_ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 32
   %32 = load i64, ptr %.05.i.i, align 8, !tbaa !362
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 39
@@ -1356,7 +1356,7 @@ _ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %24
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load i8, ptr %39, align 8, !tbaa !310, !range !281, !noundef !282
   %41 = trunc nuw i8 %40 to i1
-  tail call fastcc void @_ZL15PrintHeaderInfoPN4llvm11raw_ostreamENS_9StringRefEbjb(ptr noundef %30, ptr nonnull %31, i64 %32, i1 noundef zeroext %35, i32 noundef %38, i1 noundef zeroext %41)
+  tail call fastcc void @_ZL15PrintHeaderInfoPN4llvm11raw_ostreamENS_9StringRefEbjb(ptr noundef %24, ptr nonnull %31, i64 %32, i1 noundef zeroext %35, i32 noundef %38, i1 noundef zeroext %41)
   br label %_ZN12_GLOBAL__N_122HeaderIncludesCallback16ShouldShowHeaderEN5clang6SrcMgr18CharacteristicKindE.exit.thread
 
 _ZN12_GLOBAL__N_122HeaderIncludesCallback16ShouldShowHeaderEN5clang6SrcMgr18CharacteristicKindE.exit.thread: ; preds = %16, %11, %4, %_ZNK5clang12FileEntryRef7getNameEv.exit

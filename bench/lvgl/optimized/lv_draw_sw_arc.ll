@@ -134,12 +134,12 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr noundef readonly captures(none) 
   store i32 %76, ptr %71, align 4, !tbaa !34
   %77 = fptosi float %.pre to i32
   %.fr187 = freeze i32 %77
-  %78 = call i32 @llvm.smax.i32(i32 %.fr187, i32 359)
-  %79 = urem i32 %78, 360
-  %.neg = sub nsw i32 %79, %78
-  %80 = add i32 %.neg, %.fr187
-  %81 = fptosi float %.pre171 to i32
-  %.fr188 = freeze i32 %81
+  %78 = fptosi float %.pre171 to i32
+  %.fr188 = freeze i32 %78
+  %79 = call i32 @llvm.smax.i32(i32 %.fr187, i32 359)
+  %80 = urem i32 %79, 360
+  %.neg = sub nsw i32 %80, %79
+  %81 = add i32 %.neg, %.fr187
   %82 = call i32 @llvm.smax.i32(i32 %.fr188, i32 359)
   %83 = urem i32 %82, 360
   %.neg189 = sub nsw i32 %83, %82
@@ -152,7 +152,7 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr noundef readonly captures(none) 
   %87 = load i32, ptr %86, align 8, !tbaa !35
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %89 = load i32, ptr %88, align 4, !tbaa !36
-  call void @lv_draw_sw_mask_angle_init(ptr noundef nonnull %11, i32 noundef %87, i32 noundef %89, i32 noundef %80, i32 noundef %84) #6
+  call void @lv_draw_sw_mask_angle_init(ptr noundef nonnull %11, i32 noundef %87, i32 noundef %89, i32 noundef %81, i32 noundef %84) #6
   store ptr %11, ptr %10, align 16, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @lv_draw_sw_mask_radius_init(ptr noundef nonnull %12, ptr noundef nonnull %6, i32 noundef 32767, i1 noundef zeroext false) #6
@@ -338,7 +338,7 @@ define void @lv_draw_sw_arc(ptr noundef %0, ptr noundef readonly captures(none) 
   br i1 %exitcond.not, label %._crit_edge, label %179, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %183, %170
-  %186 = trunc i32 %80 to i16
+  %186 = trunc i32 %81 to i16
   %187 = load i16, ptr %37, align 8, !tbaa !20
   %188 = zext i16 %187 to i32
   %189 = trunc i32 %spec.select to i8

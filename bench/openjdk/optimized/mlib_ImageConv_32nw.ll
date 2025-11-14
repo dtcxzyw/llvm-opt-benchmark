@@ -171,284 +171,289 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_s32(ptr noundef readonly captu
   br i1 %.not385.us.us.us.i, label %..loopexit6_crit_edge.us.us.us.i, label %97
 
 97:                                               ; preds = %91
-  br i1 %85, label %.lr.ph.us.us.us.preheader.i, label %.preheader5.us.us.us.i
+  %98 = getelementptr inbounds nuw i32, ptr %.034878.us.us.i, i64 %indvars.iv128.i
+  %99 = getelementptr inbounds nuw i32, ptr %.034780.us.us.i, i64 %indvars.iv128.i
+  br i1 %85, label %.lr.ph.us.us.us.preheader.i, label %.preheader4.us.us.us.i.preheader
 
 .lr.ph.us.us.us.preheader.i:                      ; preds = %97
   call void @llvm.memset.p0.i64(ptr align 8 %.0331.i, i8 0, i64 %88, i1 false)
-  br label %.preheader5.us.us.us.i
+  br label %.preheader4.us.us.us.i.preheader
+
+.preheader4.us.us.us.i.preheader:                 ; preds = %.lr.ph.us.us.us.preheader.i, %97
+  br label %.preheader4.us.us.us.i
 
 ._crit_edge17.us.us.us.loopexit.i:                ; preds = %._crit_edge.us.us.us.i.loopexit.us, %.lr.ph16.us.us.us.i.preheader
-  %.us-phi1184 = phi ptr [ %indvars.iv1348, %.lr.ph16.us.us.us.i.preheader ], [ %279, %._crit_edge.us.us.us.i.loopexit.us ]
+  %.us-phi1184 = phi ptr [ %indvars.iv1348, %.lr.ph16.us.us.us.i.preheader ], [ %281, %._crit_edge.us.us.us.i.loopexit.us ]
   %.us-phi1185 = phi i64 [ %80, %.lr.ph16.us.us.us.i.preheader ], [ %indvars.iv.next112.i.us, %._crit_edge.us.us.us.i.loopexit.us ]
-  %98 = trunc nuw nsw i64 %.us-phi1185 to i32
+  %100 = trunc nuw nsw i64 %.us-phi1185 to i32
   br label %._crit_edge17.us.us.us.i
 
 ._crit_edge17.us.us.us.i:                         ; preds = %.preheader4.us.us.us.i, %._crit_edge17.us.us.us.loopexit.i
   %.0346.lcssa.us.us.us.i = phi ptr [ %.034263.us.us.us.i, %.preheader4.us.us.us.i ], [ %.us-phi1184, %._crit_edge17.us.us.us.loopexit.i ]
-  %.0343.lcssa.us.us.us.i = phi i32 [ 0, %.preheader4.us.us.us.i ], [ %98, %._crit_edge17.us.us.us.loopexit.i ]
-  %99 = zext nneg i32 %.0343.lcssa.us.us.us.i to i64
-  %100 = getelementptr inbounds nuw double, ptr %.07741368, i64 %99
-  %101 = load double, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %.0343.lcssa.us.us.us.i = phi i32 [ 0, %.preheader4.us.us.us.i ], [ %100, %._crit_edge17.us.us.us.loopexit.i ]
+  %101 = zext nneg i32 %.0343.lcssa.us.us.us.i to i64
+  %102 = getelementptr inbounds nuw double, ptr %.07741368, i64 %101
   %103 = load double, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %105 = load double, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %107 = load double, ptr %106, align 8
-  %108 = load i32, ptr %.0346.lcssa.us.us.us.i, align 4
-  %109 = sitofp i32 %108 to double
-  %110 = getelementptr inbounds i32, ptr %.0346.lcssa.us.us.us.i, i64 %50
-  %111 = load i32, ptr %110, align 4
-  %112 = sitofp i32 %111 to double
-  %113 = getelementptr inbounds i32, ptr %.0346.lcssa.us.us.us.i, i64 %63
-  %114 = sub nsw i32 %4, %.0343.lcssa.us.us.us.i
-  switch i32 %114, label %.preheader.us.us.us.i [
-    i32 4, label %180
+  %108 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %109 = load double, ptr %108, align 8
+  %110 = load i32, ptr %.0346.lcssa.us.us.us.i, align 4
+  %111 = sitofp i32 %110 to double
+  %112 = getelementptr inbounds i32, ptr %.0346.lcssa.us.us.us.i, i64 %50
+  %113 = load i32, ptr %112, align 4
+  %114 = sitofp i32 %113 to double
+  %115 = getelementptr inbounds i32, ptr %.0346.lcssa.us.us.us.i, i64 %63
+  %116 = sub nsw i32 %4, %.0343.lcssa.us.us.us.i
+  switch i32 %116, label %.preheader.us.us.us.i [
+    i32 4, label %182
     i32 3, label %.preheader2.us.us.us.i
     i32 2, label %.preheader3.us.us.us.i
   ]
 
 .lr.ph24.us.us.us.i:                              ; preds = %.preheader3.us.us.us.i, %.lr.ph24.us.us.us.i
   %indvars.iv114.i = phi i64 [ %indvars.iv.next115.i, %.lr.ph24.us.us.us.i ], [ 0, %.preheader3.us.us.us.i ]
-  %.233422.us.us.us.i = phi ptr [ %138, %.lr.ph24.us.us.us.i ], [ %.033664.us.us.us.i, %.preheader3.us.us.us.i ]
-  %.334021.us.us.us.i = phi ptr [ %137, %.lr.ph24.us.us.us.i ], [ %110, %.preheader3.us.us.us.i ]
-  %.335720.us.us.us.i = phi double [ %119, %.lr.ph24.us.us.us.i ], [ %109, %.preheader3.us.us.us.i ]
-  %115 = load i32, ptr %.334021.us.us.us.i, align 4
-  %116 = sitofp i32 %115 to double
-  %117 = getelementptr inbounds i32, ptr %.334021.us.us.us.i, i64 %50
-  %118 = load i32, ptr %117, align 4
-  %119 = sitofp i32 %118 to double
-  %120 = fmul double %103, %116
-  %121 = tail call double @llvm.fmuladd.f64(double %.335720.us.us.us.i, double %101, double %120)
-  %122 = getelementptr inbounds nuw double, ptr %.0331.i, i64 %indvars.iv114.i
-  %123 = load double, ptr %122, align 8
-  %124 = fadd double %123, %121
-  %125 = fmul double %103, %119
-  %126 = tail call double @llvm.fmuladd.f64(double %116, double %101, double %125)
-  %127 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %128 = load double, ptr %127, align 8
-  %129 = fadd double %128, %126
-  %130 = fcmp ogt double %124, 0x41DFFFFFFFC00000
-  %.8.us.us.us.i = select i1 %130, double 0x41DFFFFFFFC00000, double %124
-  %131 = fcmp olt double %.8.us.us.us.i, 0xC1E0000000000000
-  %.9.us.us.us.i = select i1 %131, double 0xC1E0000000000000, double %.8.us.us.us.i
-  %132 = fptosi double %.9.us.us.us.i to i32
-  store i32 %132, ptr %.233422.us.us.us.i, align 4
-  %133 = fcmp ogt double %129, 0x41DFFFFFFFC00000
-  %.4362.us.us.us.i = select i1 %133, double 0x41DFFFFFFFC00000, double %129
-  %134 = fcmp olt double %.4362.us.us.us.i, 0xC1E0000000000000
-  %.5363.us.us.us.i = select i1 %134, double 0xC1E0000000000000, double %.4362.us.us.us.i
-  %135 = fptosi double %.5363.us.us.us.i to i32
-  %136 = getelementptr inbounds i32, ptr %.233422.us.us.us.i, i64 %68
-  store i32 %135, ptr %136, align 4
-  %137 = getelementptr inbounds i32, ptr %.334021.us.us.us.i, i64 %63
-  %138 = getelementptr inbounds i32, ptr %.233422.us.us.us.i, i64 %70
+  %.233422.us.us.us.i = phi ptr [ %140, %.lr.ph24.us.us.us.i ], [ %.033664.us.us.us.i, %.preheader3.us.us.us.i ]
+  %.334021.us.us.us.i = phi ptr [ %139, %.lr.ph24.us.us.us.i ], [ %112, %.preheader3.us.us.us.i ]
+  %.335720.us.us.us.i = phi double [ %121, %.lr.ph24.us.us.us.i ], [ %111, %.preheader3.us.us.us.i ]
+  %117 = load i32, ptr %.334021.us.us.us.i, align 4
+  %118 = sitofp i32 %117 to double
+  %119 = getelementptr inbounds i32, ptr %.334021.us.us.us.i, i64 %50
+  %120 = load i32, ptr %119, align 4
+  %121 = sitofp i32 %120 to double
+  %122 = fmul double %105, %118
+  %123 = tail call double @llvm.fmuladd.f64(double %.335720.us.us.us.i, double %103, double %122)
+  %124 = getelementptr inbounds nuw double, ptr %.0331.i, i64 %indvars.iv114.i
+  %125 = load double, ptr %124, align 8
+  %126 = fadd double %125, %123
+  %127 = fmul double %105, %121
+  %128 = tail call double @llvm.fmuladd.f64(double %118, double %103, double %127)
+  %129 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  %130 = load double, ptr %129, align 8
+  %131 = fadd double %130, %128
+  %132 = fcmp ogt double %126, 0x41DFFFFFFFC00000
+  %.8.us.us.us.i = select i1 %132, double 0x41DFFFFFFFC00000, double %126
+  %133 = fcmp olt double %.8.us.us.us.i, 0xC1E0000000000000
+  %.9.us.us.us.i = select i1 %133, double 0xC1E0000000000000, double %.8.us.us.us.i
+  %134 = fptosi double %.9.us.us.us.i to i32
+  store i32 %134, ptr %.233422.us.us.us.i, align 4
+  %135 = fcmp ogt double %131, 0x41DFFFFFFFC00000
+  %.4362.us.us.us.i = select i1 %135, double 0x41DFFFFFFFC00000, double %131
+  %136 = fcmp olt double %.4362.us.us.us.i, 0xC1E0000000000000
+  %.5363.us.us.us.i = select i1 %136, double 0xC1E0000000000000, double %.4362.us.us.us.i
+  %137 = fptosi double %.5363.us.us.us.i to i32
+  %138 = getelementptr inbounds i32, ptr %.233422.us.us.us.i, i64 %68
+  store i32 %137, ptr %138, align 4
+  %139 = getelementptr inbounds i32, ptr %.334021.us.us.us.i, i64 %63
+  %140 = getelementptr inbounds i32, ptr %.233422.us.us.us.i, i64 %70
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 2
   %.not386.us.us.us.i = icmp sgt i64 %indvars.iv.next115.i, %90
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false)
   br i1 %.not386.us.us.us.i, label %._crit_edge25.us.us.us.loopexit.i, label %.lr.ph24.us.us.us.i, !llvm.loop !8
 
 ._crit_edge25.us.us.us.loopexit.i:                ; preds = %.lr.ph24.us.us.us.i
-  %139 = trunc nuw nsw i64 %indvars.iv.next115.i to i32
+  %141 = trunc nuw nsw i64 %indvars.iv.next115.i to i32
   br label %._crit_edge25.us.us.us.i
 
 ._crit_edge25.us.us.us.i:                         ; preds = %.preheader3.us.us.us.i, %._crit_edge25.us.us.us.loopexit.i
-  %.3357.lcssa.us.us.us.i = phi double [ %109, %.preheader3.us.us.us.i ], [ %119, %._crit_edge25.us.us.us.loopexit.i ]
-  %.3340.lcssa.us.us.us.i = phi ptr [ %110, %.preheader3.us.us.us.i ], [ %137, %._crit_edge25.us.us.us.loopexit.i ]
-  %.2334.lcssa.us.us.us.i = phi ptr [ %.033664.us.us.us.i, %.preheader3.us.us.us.i ], [ %138, %._crit_edge25.us.us.us.loopexit.i ]
-  %.4.lcssa.us.us.us.i = phi i32 [ 0, %.preheader3.us.us.us.i ], [ %139, %._crit_edge25.us.us.us.loopexit.i ]
-  %140 = icmp slt i32 %.4.lcssa.us.us.us.i, %spec.select.us.us.i
-  br i1 %140, label %141, label %.loopexit.us.us.us.i
+  %.3357.lcssa.us.us.us.i = phi double [ %111, %.preheader3.us.us.us.i ], [ %121, %._crit_edge25.us.us.us.loopexit.i ]
+  %.3340.lcssa.us.us.us.i = phi ptr [ %112, %.preheader3.us.us.us.i ], [ %139, %._crit_edge25.us.us.us.loopexit.i ]
+  %.2334.lcssa.us.us.us.i = phi ptr [ %.033664.us.us.us.i, %.preheader3.us.us.us.i ], [ %140, %._crit_edge25.us.us.us.loopexit.i ]
+  %.4.lcssa.us.us.us.i = phi i32 [ 0, %.preheader3.us.us.us.i ], [ %141, %._crit_edge25.us.us.us.loopexit.i ]
+  %142 = icmp slt i32 %.4.lcssa.us.us.us.i, %spec.select.us.us.i
+  br i1 %142, label %143, label %.loopexit.us.us.us.i
 
-141:                                              ; preds = %._crit_edge25.us.us.us.i
-  %142 = load i32, ptr %.3340.lcssa.us.us.us.i, align 4
-  %143 = sitofp i32 %142 to double
-  %144 = fmul double %103, %143
-  %145 = tail call double @llvm.fmuladd.f64(double %.3357.lcssa.us.us.us.i, double %101, double %144)
+143:                                              ; preds = %._crit_edge25.us.us.us.i
+  %144 = load i32, ptr %.3340.lcssa.us.us.us.i, align 4
+  %145 = sitofp i32 %144 to double
+  %146 = fmul double %105, %145
+  %147 = tail call double @llvm.fmuladd.f64(double %.3357.lcssa.us.us.us.i, double %103, double %146)
   br label %.loopexit.us.us.us.sink.split.i
 
 .lr.ph36.us.us.us.i:                              ; preds = %.preheader2.us.us.us.i, %.lr.ph36.us.us.us.i
   %indvars.iv117.i = phi i64 [ %indvars.iv.next118.i, %.lr.ph36.us.us.us.i ], [ 0, %.preheader2.us.us.us.i ]
-  %.133334.us.us.us.i = phi ptr [ %171, %.lr.ph36.us.us.us.i ], [ %.033664.us.us.us.i, %.preheader2.us.us.us.i ]
-  %.233933.us.us.us.i = phi ptr [ %170, %.lr.ph36.us.us.us.i ], [ %113, %.preheader2.us.us.us.i ]
-  %.235332.us.us.us.i = phi double [ %150, %.lr.ph36.us.us.us.i ], [ %112, %.preheader2.us.us.us.i ]
-  %.235631.us.us.us.i = phi double [ %147, %.lr.ph36.us.us.us.i ], [ %109, %.preheader2.us.us.us.i ]
-  %146 = load i32, ptr %.233933.us.us.us.i, align 4
-  %147 = sitofp i32 %146 to double
-  %148 = getelementptr inbounds i32, ptr %.233933.us.us.us.i, i64 %50
-  %149 = load i32, ptr %148, align 4
-  %150 = sitofp i32 %149 to double
-  %151 = fmul double %103, %.235332.us.us.us.i
-  %152 = tail call double @llvm.fmuladd.f64(double %.235631.us.us.us.i, double %101, double %151)
-  %153 = tail call double @llvm.fmuladd.f64(double %147, double %105, double %152)
-  %154 = getelementptr inbounds nuw double, ptr %.0331.i, i64 %indvars.iv117.i
-  %155 = load double, ptr %154, align 8
-  %156 = fadd double %153, %155
-  %157 = fmul double %103, %147
-  %158 = tail call double @llvm.fmuladd.f64(double %.235332.us.us.us.i, double %101, double %157)
-  %159 = tail call double @llvm.fmuladd.f64(double %150, double %105, double %158)
-  %160 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %161 = load double, ptr %160, align 8
-  %162 = fadd double %161, %159
-  %163 = fcmp ogt double %156, 0x41DFFFFFFFC00000
-  %.4368.us.us.us.i = select i1 %163, double 0x41DFFFFFFFC00000, double %156
-  %164 = fcmp olt double %.4368.us.us.us.i, 0xC1E0000000000000
-  %.5369.us.us.us.i = select i1 %164, double 0xC1E0000000000000, double %.4368.us.us.us.i
-  %165 = fptosi double %.5369.us.us.us.i to i32
-  store i32 %165, ptr %.133334.us.us.us.i, align 4
-  %166 = fcmp ogt double %162, 0x41DFFFFFFFC00000
-  %.2360.us.us.us.i = select i1 %166, double 0x41DFFFFFFFC00000, double %162
-  %167 = fcmp olt double %.2360.us.us.us.i, 0xC1E0000000000000
-  %.3361.us.us.us.i = select i1 %167, double 0xC1E0000000000000, double %.2360.us.us.us.i
-  %168 = fptosi double %.3361.us.us.us.i to i32
-  %169 = getelementptr inbounds i32, ptr %.133334.us.us.us.i, i64 %68
-  store i32 %168, ptr %169, align 4
-  %170 = getelementptr inbounds i32, ptr %.233933.us.us.us.i, i64 %63
-  %171 = getelementptr inbounds i32, ptr %.133334.us.us.us.i, i64 %70
+  %.133334.us.us.us.i = phi ptr [ %173, %.lr.ph36.us.us.us.i ], [ %.033664.us.us.us.i, %.preheader2.us.us.us.i ]
+  %.233933.us.us.us.i = phi ptr [ %172, %.lr.ph36.us.us.us.i ], [ %115, %.preheader2.us.us.us.i ]
+  %.235332.us.us.us.i = phi double [ %152, %.lr.ph36.us.us.us.i ], [ %114, %.preheader2.us.us.us.i ]
+  %.235631.us.us.us.i = phi double [ %149, %.lr.ph36.us.us.us.i ], [ %111, %.preheader2.us.us.us.i ]
+  %148 = load i32, ptr %.233933.us.us.us.i, align 4
+  %149 = sitofp i32 %148 to double
+  %150 = getelementptr inbounds i32, ptr %.233933.us.us.us.i, i64 %50
+  %151 = load i32, ptr %150, align 4
+  %152 = sitofp i32 %151 to double
+  %153 = fmul double %105, %.235332.us.us.us.i
+  %154 = tail call double @llvm.fmuladd.f64(double %.235631.us.us.us.i, double %103, double %153)
+  %155 = tail call double @llvm.fmuladd.f64(double %149, double %107, double %154)
+  %156 = getelementptr inbounds nuw double, ptr %.0331.i, i64 %indvars.iv117.i
+  %157 = load double, ptr %156, align 8
+  %158 = fadd double %155, %157
+  %159 = fmul double %105, %149
+  %160 = tail call double @llvm.fmuladd.f64(double %.235332.us.us.us.i, double %103, double %159)
+  %161 = tail call double @llvm.fmuladd.f64(double %152, double %107, double %160)
+  %162 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %163 = load double, ptr %162, align 8
+  %164 = fadd double %163, %161
+  %165 = fcmp ogt double %158, 0x41DFFFFFFFC00000
+  %.4368.us.us.us.i = select i1 %165, double 0x41DFFFFFFFC00000, double %158
+  %166 = fcmp olt double %.4368.us.us.us.i, 0xC1E0000000000000
+  %.5369.us.us.us.i = select i1 %166, double 0xC1E0000000000000, double %.4368.us.us.us.i
+  %167 = fptosi double %.5369.us.us.us.i to i32
+  store i32 %167, ptr %.133334.us.us.us.i, align 4
+  %168 = fcmp ogt double %164, 0x41DFFFFFFFC00000
+  %.2360.us.us.us.i = select i1 %168, double 0x41DFFFFFFFC00000, double %164
+  %169 = fcmp olt double %.2360.us.us.us.i, 0xC1E0000000000000
+  %.3361.us.us.us.i = select i1 %169, double 0xC1E0000000000000, double %.2360.us.us.us.i
+  %170 = fptosi double %.3361.us.us.us.i to i32
+  %171 = getelementptr inbounds i32, ptr %.133334.us.us.us.i, i64 %68
+  store i32 %170, ptr %171, align 4
+  %172 = getelementptr inbounds i32, ptr %.233933.us.us.us.i, i64 %63
+  %173 = getelementptr inbounds i32, ptr %.133334.us.us.us.i, i64 %70
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 2
   %.not387.us.us.us.i = icmp sgt i64 %indvars.iv.next118.i, %90
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %154, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %156, i8 0, i64 16, i1 false)
   br i1 %.not387.us.us.us.i, label %._crit_edge37.us.us.us.loopexit.i, label %.lr.ph36.us.us.us.i, !llvm.loop !9
 
 ._crit_edge37.us.us.us.loopexit.i:                ; preds = %.lr.ph36.us.us.us.i
-  %172 = trunc nuw nsw i64 %indvars.iv.next118.i to i32
+  %174 = trunc nuw nsw i64 %indvars.iv.next118.i to i32
   br label %._crit_edge37.us.us.us.i
 
 ._crit_edge37.us.us.us.i:                         ; preds = %.preheader2.us.us.us.i, %._crit_edge37.us.us.us.loopexit.i
-  %.2356.lcssa.us.us.us.i = phi double [ %109, %.preheader2.us.us.us.i ], [ %147, %._crit_edge37.us.us.us.loopexit.i ]
-  %.2353.lcssa.us.us.us.i = phi double [ %112, %.preheader2.us.us.us.i ], [ %150, %._crit_edge37.us.us.us.loopexit.i ]
-  %.2339.lcssa.us.us.us.i = phi ptr [ %113, %.preheader2.us.us.us.i ], [ %170, %._crit_edge37.us.us.us.loopexit.i ]
-  %.1333.lcssa.us.us.us.i = phi ptr [ %.033664.us.us.us.i, %.preheader2.us.us.us.i ], [ %171, %._crit_edge37.us.us.us.loopexit.i ]
-  %.3.lcssa.us.us.us.i = phi i32 [ 0, %.preheader2.us.us.us.i ], [ %172, %._crit_edge37.us.us.us.loopexit.i ]
-  %173 = icmp slt i32 %.3.lcssa.us.us.us.i, %spec.select.us.us.i
-  br i1 %173, label %174, label %.loopexit.us.us.us.i
+  %.2356.lcssa.us.us.us.i = phi double [ %111, %.preheader2.us.us.us.i ], [ %149, %._crit_edge37.us.us.us.loopexit.i ]
+  %.2353.lcssa.us.us.us.i = phi double [ %114, %.preheader2.us.us.us.i ], [ %152, %._crit_edge37.us.us.us.loopexit.i ]
+  %.2339.lcssa.us.us.us.i = phi ptr [ %115, %.preheader2.us.us.us.i ], [ %172, %._crit_edge37.us.us.us.loopexit.i ]
+  %.1333.lcssa.us.us.us.i = phi ptr [ %.033664.us.us.us.i, %.preheader2.us.us.us.i ], [ %173, %._crit_edge37.us.us.us.loopexit.i ]
+  %.3.lcssa.us.us.us.i = phi i32 [ 0, %.preheader2.us.us.us.i ], [ %174, %._crit_edge37.us.us.us.loopexit.i ]
+  %175 = icmp slt i32 %.3.lcssa.us.us.us.i, %spec.select.us.us.i
+  br i1 %175, label %176, label %.loopexit.us.us.us.i
 
-174:                                              ; preds = %._crit_edge37.us.us.us.i
-  %175 = load i32, ptr %.2339.lcssa.us.us.us.i, align 4
-  %176 = sitofp i32 %175 to double
-  %177 = fmul double %103, %.2353.lcssa.us.us.us.i
-  %178 = tail call double @llvm.fmuladd.f64(double %.2356.lcssa.us.us.us.i, double %101, double %177)
-  %179 = tail call double @llvm.fmuladd.f64(double %176, double %105, double %178)
+176:                                              ; preds = %._crit_edge37.us.us.us.i
+  %177 = load i32, ptr %.2339.lcssa.us.us.us.i, align 4
+  %178 = sitofp i32 %177 to double
+  %179 = fmul double %105, %.2353.lcssa.us.us.us.i
+  %180 = tail call double @llvm.fmuladd.f64(double %.2356.lcssa.us.us.us.i, double %103, double %179)
+  %181 = tail call double @llvm.fmuladd.f64(double %178, double %107, double %180)
   br label %.loopexit.us.us.us.sink.split.i
 
-180:                                              ; preds = %._crit_edge17.us.us.us.i
-  %181 = load i32, ptr %113, align 4
-  %182 = sitofp i32 %181 to double
-  %183 = getelementptr inbounds i32, ptr %.0346.lcssa.us.us.us.i, i64 %65
+182:                                              ; preds = %._crit_edge17.us.us.us.i
+  %183 = load i32, ptr %115, align 4
+  %184 = sitofp i32 %183 to double
+  %185 = getelementptr inbounds i32, ptr %.0346.lcssa.us.us.us.i, i64 %65
   br i1 %.not38619.us.us.i, label %._crit_edge52.us.us.us.i, label %.lr.ph51.us.us.us.i
 
-.lr.ph51.us.us.us.i:                              ; preds = %180, %.lr.ph51.us.us.us.i
-  %indvars.iv120.i = phi i64 [ %indvars.iv.next121.i, %.lr.ph51.us.us.us.i ], [ 0, %180 ]
-  %.033248.us.us.us.i = phi ptr [ %211, %.lr.ph51.us.us.us.i ], [ %.033664.us.us.us.i, %180 ]
-  %.133847.us.us.us.i = phi ptr [ %210, %.lr.ph51.us.us.us.i ], [ %183, %180 ]
-  %.135046.us.us.us.i = phi double [ %188, %.lr.ph51.us.us.us.i ], [ %182, %180 ]
-  %.135245.us.us.us.i = phi double [ %185, %.lr.ph51.us.us.us.i ], [ %112, %180 ]
-  %.135544.us.us.us.i = phi double [ %.135046.us.us.us.i, %.lr.ph51.us.us.us.i ], [ %109, %180 ]
-  %184 = load i32, ptr %.133847.us.us.us.i, align 4
-  %185 = sitofp i32 %184 to double
-  %186 = getelementptr inbounds i32, ptr %.133847.us.us.us.i, i64 %50
-  %187 = load i32, ptr %186, align 4
-  %188 = sitofp i32 %187 to double
-  %189 = fmul double %103, %.135245.us.us.us.i
-  %190 = tail call double @llvm.fmuladd.f64(double %.135544.us.us.us.i, double %101, double %189)
-  %191 = tail call double @llvm.fmuladd.f64(double %.135046.us.us.us.i, double %105, double %190)
-  %192 = tail call double @llvm.fmuladd.f64(double %185, double %107, double %191)
-  %193 = getelementptr inbounds nuw double, ptr %.0331.i, i64 %indvars.iv120.i
-  %194 = load double, ptr %193, align 8
-  %195 = fadd double %192, %194
-  %196 = fmul double %103, %.135046.us.us.us.i
-  %197 = tail call double @llvm.fmuladd.f64(double %.135245.us.us.us.i, double %101, double %196)
-  %198 = tail call double @llvm.fmuladd.f64(double %185, double %105, double %197)
-  %199 = tail call double @llvm.fmuladd.f64(double %188, double %107, double %198)
-  %200 = getelementptr inbounds nuw i8, ptr %193, i64 8
-  %201 = load double, ptr %200, align 8
-  %202 = fadd double %199, %201
-  %203 = fcmp ogt double %195, 0x41DFFFFFFFC00000
-  %.0364.us.us.us.i = select i1 %203, double 0x41DFFFFFFFC00000, double %195
-  %204 = fcmp olt double %.0364.us.us.us.i, 0xC1E0000000000000
-  %.1365.us.us.us.i = select i1 %204, double 0xC1E0000000000000, double %.0364.us.us.us.i
-  %205 = fptosi double %.1365.us.us.us.i to i32
-  store i32 %205, ptr %.033248.us.us.us.i, align 4
-  %206 = fcmp ogt double %202, 0x41DFFFFFFFC00000
-  %.0358.us.us.us.i = select i1 %206, double 0x41DFFFFFFFC00000, double %202
-  %207 = fcmp olt double %.0358.us.us.us.i, 0xC1E0000000000000
-  %.1359.us.us.us.i = select i1 %207, double 0xC1E0000000000000, double %.0358.us.us.us.i
-  %208 = fptosi double %.1359.us.us.us.i to i32
-  %209 = getelementptr inbounds i32, ptr %.033248.us.us.us.i, i64 %68
-  store i32 %208, ptr %209, align 4
-  %210 = getelementptr inbounds i32, ptr %.133847.us.us.us.i, i64 %63
-  %211 = getelementptr inbounds i32, ptr %.033248.us.us.us.i, i64 %70
+.lr.ph51.us.us.us.i:                              ; preds = %182, %.lr.ph51.us.us.us.i
+  %indvars.iv120.i = phi i64 [ %indvars.iv.next121.i, %.lr.ph51.us.us.us.i ], [ 0, %182 ]
+  %.033248.us.us.us.i = phi ptr [ %213, %.lr.ph51.us.us.us.i ], [ %.033664.us.us.us.i, %182 ]
+  %.133847.us.us.us.i = phi ptr [ %212, %.lr.ph51.us.us.us.i ], [ %185, %182 ]
+  %.135046.us.us.us.i = phi double [ %190, %.lr.ph51.us.us.us.i ], [ %184, %182 ]
+  %.135245.us.us.us.i = phi double [ %187, %.lr.ph51.us.us.us.i ], [ %114, %182 ]
+  %.135544.us.us.us.i = phi double [ %.135046.us.us.us.i, %.lr.ph51.us.us.us.i ], [ %111, %182 ]
+  %186 = load i32, ptr %.133847.us.us.us.i, align 4
+  %187 = sitofp i32 %186 to double
+  %188 = getelementptr inbounds i32, ptr %.133847.us.us.us.i, i64 %50
+  %189 = load i32, ptr %188, align 4
+  %190 = sitofp i32 %189 to double
+  %191 = fmul double %105, %.135245.us.us.us.i
+  %192 = tail call double @llvm.fmuladd.f64(double %.135544.us.us.us.i, double %103, double %191)
+  %193 = tail call double @llvm.fmuladd.f64(double %.135046.us.us.us.i, double %107, double %192)
+  %194 = tail call double @llvm.fmuladd.f64(double %187, double %109, double %193)
+  %195 = getelementptr inbounds nuw double, ptr %.0331.i, i64 %indvars.iv120.i
+  %196 = load double, ptr %195, align 8
+  %197 = fadd double %194, %196
+  %198 = fmul double %105, %.135046.us.us.us.i
+  %199 = tail call double @llvm.fmuladd.f64(double %.135245.us.us.us.i, double %103, double %198)
+  %200 = tail call double @llvm.fmuladd.f64(double %187, double %107, double %199)
+  %201 = tail call double @llvm.fmuladd.f64(double %190, double %109, double %200)
+  %202 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  %203 = load double, ptr %202, align 8
+  %204 = fadd double %201, %203
+  %205 = fcmp ogt double %197, 0x41DFFFFFFFC00000
+  %.0364.us.us.us.i = select i1 %205, double 0x41DFFFFFFFC00000, double %197
+  %206 = fcmp olt double %.0364.us.us.us.i, 0xC1E0000000000000
+  %.1365.us.us.us.i = select i1 %206, double 0xC1E0000000000000, double %.0364.us.us.us.i
+  %207 = fptosi double %.1365.us.us.us.i to i32
+  store i32 %207, ptr %.033248.us.us.us.i, align 4
+  %208 = fcmp ogt double %204, 0x41DFFFFFFFC00000
+  %.0358.us.us.us.i = select i1 %208, double 0x41DFFFFFFFC00000, double %204
+  %209 = fcmp olt double %.0358.us.us.us.i, 0xC1E0000000000000
+  %.1359.us.us.us.i = select i1 %209, double 0xC1E0000000000000, double %.0358.us.us.us.i
+  %210 = fptosi double %.1359.us.us.us.i to i32
+  %211 = getelementptr inbounds i32, ptr %.033248.us.us.us.i, i64 %68
+  store i32 %210, ptr %211, align 4
+  %212 = getelementptr inbounds i32, ptr %.133847.us.us.us.i, i64 %63
+  %213 = getelementptr inbounds i32, ptr %.033248.us.us.us.i, i64 %70
   %indvars.iv.next121.i = add nuw nsw i64 %indvars.iv120.i, 2
   %.not388.us.us.us.i = icmp sgt i64 %indvars.iv.next121.i, %90
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %193, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %195, i8 0, i64 16, i1 false)
   br i1 %.not388.us.us.us.i, label %._crit_edge52.us.us.us.loopexit.i, label %.lr.ph51.us.us.us.i, !llvm.loop !10
 
 ._crit_edge52.us.us.us.loopexit.i:                ; preds = %.lr.ph51.us.us.us.i
-  %212 = trunc nuw nsw i64 %indvars.iv.next121.i to i32
+  %214 = trunc nuw nsw i64 %indvars.iv.next121.i to i32
   br label %._crit_edge52.us.us.us.i
 
-._crit_edge52.us.us.us.i:                         ; preds = %._crit_edge52.us.us.us.loopexit.i, %180
-  %.1355.lcssa.us.us.us.i = phi double [ %109, %180 ], [ %.135046.us.us.us.i, %._crit_edge52.us.us.us.loopexit.i ]
-  %.1352.lcssa.us.us.us.i = phi double [ %112, %180 ], [ %185, %._crit_edge52.us.us.us.loopexit.i ]
-  %.1350.lcssa.us.us.us.i = phi double [ %182, %180 ], [ %188, %._crit_edge52.us.us.us.loopexit.i ]
-  %.1338.lcssa.us.us.us.i = phi ptr [ %183, %180 ], [ %210, %._crit_edge52.us.us.us.loopexit.i ]
-  %.0332.lcssa.us.us.us.i = phi ptr [ %.033664.us.us.us.i, %180 ], [ %211, %._crit_edge52.us.us.us.loopexit.i ]
-  %.2.lcssa.us.us.us.i = phi i32 [ 0, %180 ], [ %212, %._crit_edge52.us.us.us.loopexit.i ]
-  %213 = icmp slt i32 %.2.lcssa.us.us.us.i, %spec.select.us.us.i
-  br i1 %213, label %214, label %.loopexit.us.us.us.i
+._crit_edge52.us.us.us.i:                         ; preds = %._crit_edge52.us.us.us.loopexit.i, %182
+  %.1355.lcssa.us.us.us.i = phi double [ %111, %182 ], [ %.135046.us.us.us.i, %._crit_edge52.us.us.us.loopexit.i ]
+  %.1352.lcssa.us.us.us.i = phi double [ %114, %182 ], [ %187, %._crit_edge52.us.us.us.loopexit.i ]
+  %.1350.lcssa.us.us.us.i = phi double [ %184, %182 ], [ %190, %._crit_edge52.us.us.us.loopexit.i ]
+  %.1338.lcssa.us.us.us.i = phi ptr [ %185, %182 ], [ %212, %._crit_edge52.us.us.us.loopexit.i ]
+  %.0332.lcssa.us.us.us.i = phi ptr [ %.033664.us.us.us.i, %182 ], [ %213, %._crit_edge52.us.us.us.loopexit.i ]
+  %.2.lcssa.us.us.us.i = phi i32 [ 0, %182 ], [ %214, %._crit_edge52.us.us.us.loopexit.i ]
+  %215 = icmp slt i32 %.2.lcssa.us.us.us.i, %spec.select.us.us.i
+  br i1 %215, label %216, label %.loopexit.us.us.us.i
 
-214:                                              ; preds = %._crit_edge52.us.us.us.i
-  %215 = load i32, ptr %.1338.lcssa.us.us.us.i, align 4
-  %216 = sitofp i32 %215 to double
-  %217 = fmul double %103, %.1352.lcssa.us.us.us.i
-  %218 = tail call double @llvm.fmuladd.f64(double %.1355.lcssa.us.us.us.i, double %101, double %217)
-  %219 = tail call double @llvm.fmuladd.f64(double %.1350.lcssa.us.us.us.i, double %105, double %218)
-  %220 = tail call double @llvm.fmuladd.f64(double %216, double %107, double %219)
+216:                                              ; preds = %._crit_edge52.us.us.us.i
+  %217 = load i32, ptr %.1338.lcssa.us.us.us.i, align 4
+  %218 = sitofp i32 %217 to double
+  %219 = fmul double %105, %.1352.lcssa.us.us.us.i
+  %220 = tail call double @llvm.fmuladd.f64(double %.1355.lcssa.us.us.us.i, double %103, double %219)
+  %221 = tail call double @llvm.fmuladd.f64(double %.1350.lcssa.us.us.us.i, double %107, double %220)
+  %222 = tail call double @llvm.fmuladd.f64(double %218, double %109, double %221)
   br label %.loopexit.us.us.us.sink.split.i
 
-.loopexit.us.us.us.sink.split.i:                  ; preds = %214, %174, %141
-  %.2.lcssa.us.us.us.sink.i = phi i32 [ %.2.lcssa.us.us.us.i, %214 ], [ %.3.lcssa.us.us.us.i, %174 ], [ %.4.lcssa.us.us.us.i, %141 ]
-  %.sink155.i = phi double [ %220, %214 ], [ %179, %174 ], [ %145, %141 ]
-  %.0332.lcssa.us.us.us.sink.i = phi ptr [ %.0332.lcssa.us.us.us.i, %214 ], [ %.1333.lcssa.us.us.us.i, %174 ], [ %.2334.lcssa.us.us.us.i, %141 ]
-  %221 = zext nneg i32 %.2.lcssa.us.us.us.sink.i to i64
-  %222 = getelementptr inbounds nuw double, ptr %.0331.i, i64 %221
-  %223 = load double, ptr %222, align 8
-  %224 = fadd double %.sink155.i, %223
-  %225 = fcmp ogt double %224, 0x41DFFFFFFFC00000
-  %.2366.us.us.us.i = select i1 %225, double 0x41DFFFFFFFC00000, double %224
-  %226 = fcmp olt double %.2366.us.us.us.i, 0xC1E0000000000000
-  %.3367.us.us.us.i = select i1 %226, double 0xC1E0000000000000, double %.2366.us.us.us.i
-  %227 = fptosi double %.3367.us.us.us.i to i32
-  store i32 %227, ptr %.0332.lcssa.us.us.us.sink.i, align 4
-  store double 0.000000e+00, ptr %222, align 8
+.loopexit.us.us.us.sink.split.i:                  ; preds = %216, %176, %143
+  %.2.lcssa.us.us.us.sink.i = phi i32 [ %.2.lcssa.us.us.us.i, %216 ], [ %.3.lcssa.us.us.us.i, %176 ], [ %.4.lcssa.us.us.us.i, %143 ]
+  %.sink155.i = phi double [ %222, %216 ], [ %181, %176 ], [ %147, %143 ]
+  %.0332.lcssa.us.us.us.sink.i = phi ptr [ %.0332.lcssa.us.us.us.i, %216 ], [ %.1333.lcssa.us.us.us.i, %176 ], [ %.2334.lcssa.us.us.us.i, %143 ]
+  %223 = zext nneg i32 %.2.lcssa.us.us.us.sink.i to i64
+  %224 = getelementptr inbounds nuw double, ptr %.0331.i, i64 %223
+  %225 = load double, ptr %224, align 8
+  %226 = fadd double %.sink155.i, %225
+  %227 = fcmp ogt double %226, 0x41DFFFFFFFC00000
+  %.2366.us.us.us.i = select i1 %227, double 0x41DFFFFFFFC00000, double %226
+  %228 = fcmp olt double %.2366.us.us.us.i, 0xC1E0000000000000
+  %.3367.us.us.us.i = select i1 %228, double 0xC1E0000000000000, double %.2366.us.us.us.i
+  %229 = fptosi double %.3367.us.us.us.i to i32
+  store i32 %229, ptr %.0332.lcssa.us.us.us.sink.i, align 4
+  store double 0.000000e+00, ptr %224, align 8
   br label %.loopexit.us.us.us.i
 
 .loopexit.us.us.us.i:                             ; preds = %.lr.ph62.us.us.us.i, %.preheader.us.us.us.i, %.loopexit.us.us.us.sink.split.i, %._crit_edge52.us.us.us.i, %._crit_edge37.us.us.us.i, %._crit_edge25.us.us.us.i
-  %228 = getelementptr inbounds nuw i32, ptr %.034263.us.us.us.i, i64 %71
-  %229 = getelementptr inbounds nuw i32, ptr %.033664.us.us.us.i, i64 %71
-  %230 = add nuw nsw i32 %.033066.us.us.us.i, 1
-  %exitcond127.not.i = icmp eq i32 %230, %.val389.fr.i
+  %230 = getelementptr inbounds nuw i32, ptr %.034263.us.us.us.i, i64 %71
+  %231 = getelementptr inbounds nuw i32, ptr %.033664.us.us.us.i, i64 %71
+  %232 = add nuw nsw i32 %.033066.us.us.us.i, 1
+  %exitcond127.not.i = icmp eq i32 %232, %.val389.fr.i
   %scevgep1349 = getelementptr i8, ptr %indvars.iv1348, i64 %83
   br i1 %exitcond127.not.i, label %..loopexit6_crit_edge.us.us.us.i, label %.preheader4.us.us.us.i, !llvm.loop !11
 
 .lr.ph62.us.us.us.i:                              ; preds = %.preheader.us.us.us.i, %.lr.ph62.us.us.us.i
   %indvars.iv123.i = phi i64 [ %indvars.iv.next124.i, %.lr.ph62.us.us.us.i ], [ 0, %.preheader.us.us.us.i ]
-  %.333560.us.us.us.i = phi ptr [ %240, %.lr.ph62.us.us.us.i ], [ %.033664.us.us.us.i, %.preheader.us.us.us.i ]
-  %.434159.us.us.us.i = phi ptr [ %239, %.lr.ph62.us.us.us.i ], [ %.0346.lcssa.us.us.us.i, %.preheader.us.us.us.i ]
-  %231 = load i32, ptr %.434159.us.us.us.i, align 4
-  %232 = sitofp i32 %231 to double
-  %233 = getelementptr inbounds nuw double, ptr %.0331.i, i64 %indvars.iv123.i
-  %234 = load double, ptr %233, align 8
-  %235 = tail call double @llvm.fmuladd.f64(double %232, double %101, double %234)
-  %236 = fcmp ogt double %235, 0x41DFFFFFFFC00000
-  %.12.us.us.us.i = select i1 %236, double 0x41DFFFFFFFC00000, double %235
-  %237 = fcmp olt double %.12.us.us.us.i, 0xC1E0000000000000
-  %.13.us.us.us.i = select i1 %237, double 0xC1E0000000000000, double %.12.us.us.us.i
-  %238 = fptosi double %.13.us.us.us.i to i32
-  store i32 %238, ptr %.333560.us.us.us.i, align 4
-  store double 0.000000e+00, ptr %233, align 8
-  %239 = getelementptr inbounds i32, ptr %.434159.us.us.us.i, i64 %50
-  %240 = getelementptr inbounds i32, ptr %.333560.us.us.us.i, i64 %68
+  %.333560.us.us.us.i = phi ptr [ %242, %.lr.ph62.us.us.us.i ], [ %.033664.us.us.us.i, %.preheader.us.us.us.i ]
+  %.434159.us.us.us.i = phi ptr [ %241, %.lr.ph62.us.us.us.i ], [ %.0346.lcssa.us.us.us.i, %.preheader.us.us.us.i ]
+  %233 = load i32, ptr %.434159.us.us.us.i, align 4
+  %234 = sitofp i32 %233 to double
+  %235 = getelementptr inbounds nuw double, ptr %.0331.i, i64 %indvars.iv123.i
+  %236 = load double, ptr %235, align 8
+  %237 = tail call double @llvm.fmuladd.f64(double %234, double %103, double %236)
+  %238 = fcmp ogt double %237, 0x41DFFFFFFFC00000
+  %.12.us.us.us.i = select i1 %238, double 0x41DFFFFFFFC00000, double %237
+  %239 = fcmp olt double %.12.us.us.us.i, 0xC1E0000000000000
+  %.13.us.us.us.i = select i1 %239, double 0xC1E0000000000000, double %.12.us.us.us.i
+  %240 = fptosi double %.13.us.us.us.i to i32
+  store i32 %240, ptr %.333560.us.us.us.i, align 4
+  store double 0.000000e+00, ptr %235, align 8
+  %241 = getelementptr inbounds i32, ptr %.434159.us.us.us.i, i64 %50
+  %242 = getelementptr inbounds i32, ptr %.333560.us.us.us.i, i64 %68
   %indvars.iv.next124.i = add nuw nsw i64 %indvars.iv123.i, 1
   %exitcond126.not.i = icmp eq i64 %indvars.iv.next124.i, %87
   br i1 %exitcond126.not.i, label %.loopexit.us.us.us.i, label %.lr.ph62.us.us.us.i, !llvm.loop !12
@@ -468,11 +473,11 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_s32(ptr noundef readonly captu
 .preheader3.us.us.us.i:                           ; preds = %._crit_edge17.us.us.us.i
   br i1 %.not38619.us.us.i, label %._crit_edge25.us.us.us.i, label %.lr.ph24.us.us.us.i
 
-.preheader4.us.us.us.i:                           ; preds = %.preheader5.us.us.us.i, %.loopexit.us.us.us.i
-  %indvars.iv1348 = phi ptr [ %indvars.iv1346, %.preheader5.us.us.us.i ], [ %scevgep1349, %.loopexit.us.us.us.i ]
-  %.033066.us.us.us.i = phi i32 [ 0, %.preheader5.us.us.us.i ], [ %230, %.loopexit.us.us.us.i ]
-  %.033664.us.us.us.i = phi ptr [ %282, %.preheader5.us.us.us.i ], [ %229, %.loopexit.us.us.us.i ]
-  %.034263.us.us.us.i = phi ptr [ %281, %.preheader5.us.us.us.i ], [ %228, %.loopexit.us.us.us.i ]
+.preheader4.us.us.us.i:                           ; preds = %.preheader4.us.us.us.i.preheader, %.loopexit.us.us.us.i
+  %indvars.iv1348 = phi ptr [ %scevgep1349, %.loopexit.us.us.us.i ], [ %indvars.iv1346, %.preheader4.us.us.us.i.preheader ]
+  %.033066.us.us.us.i = phi i32 [ %232, %.loopexit.us.us.us.i ], [ 0, %.preheader4.us.us.us.i.preheader ]
+  %.033664.us.us.us.i = phi ptr [ %231, %.loopexit.us.us.us.i ], [ %99, %.preheader4.us.us.us.i.preheader ]
+  %.034263.us.us.us.i = phi ptr [ %230, %.loopexit.us.us.us.i ], [ %98, %.preheader4.us.us.us.i.preheader ]
   br i1 %61, label %.lr.ph16.us.us.us.i.preheader, label %._crit_edge17.us.us.us.i
 
 .lr.ph16.us.us.us.i.preheader:                    ; preds = %.preheader4.us.us.us.i
@@ -480,68 +485,63 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_s32(ptr noundef readonly captu
 
 .lr.ph16.us.us.us.i.us:                           ; preds = %.lr.ph16.us.us.us.i.preheader, %._crit_edge.us.us.us.i.loopexit.us
   %indvars.iv111.i.us = phi i64 [ %indvars.iv.next112.i.us, %._crit_edge.us.us.us.i.loopexit.us ], [ 0, %.lr.ph16.us.us.us.i.preheader ]
-  %.034614.us.us.us.i.us = phi ptr [ %279, %._crit_edge.us.us.us.i.loopexit.us ], [ %.034263.us.us.us.i, %.lr.ph16.us.us.us.i.preheader ]
-  %241 = getelementptr inbounds nuw double, ptr %.07741368, i64 %indvars.iv111.i.us
-  %242 = load double, ptr %241, align 8
-  %243 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %.034614.us.us.us.i.us = phi ptr [ %281, %._crit_edge.us.us.us.i.loopexit.us ], [ %.034263.us.us.us.i, %.lr.ph16.us.us.us.i.preheader ]
+  %243 = getelementptr inbounds nuw double, ptr %.07741368, i64 %indvars.iv111.i.us
   %244 = load double, ptr %243, align 8
-  %245 = getelementptr inbounds nuw i8, ptr %241, i64 16
+  %245 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %246 = load double, ptr %245, align 8
-  %247 = getelementptr inbounds nuw i8, ptr %241, i64 24
+  %247 = getelementptr inbounds nuw i8, ptr %243, i64 16
   %248 = load double, ptr %247, align 8
-  %249 = getelementptr inbounds i32, ptr %.034614.us.us.us.i.us, i64 %65
-  %250 = getelementptr inbounds i32, ptr %.034614.us.us.us.i.us, i64 %63
-  %251 = load i32, ptr %250, align 4
-  %252 = sitofp i32 %251 to double
-  %253 = getelementptr inbounds i32, ptr %.034614.us.us.us.i.us, i64 %50
-  %254 = load i32, ptr %253, align 4
-  %255 = sitofp i32 %254 to double
-  %256 = load i32, ptr %.034614.us.us.us.i.us, align 4
+  %249 = getelementptr inbounds nuw i8, ptr %243, i64 24
+  %250 = load double, ptr %249, align 8
+  %251 = getelementptr inbounds i32, ptr %.034614.us.us.us.i.us, i64 %65
+  %252 = getelementptr inbounds i32, ptr %.034614.us.us.us.i.us, i64 %63
+  %253 = load i32, ptr %252, align 4
+  %254 = sitofp i32 %253 to double
+  %255 = getelementptr inbounds i32, ptr %.034614.us.us.us.i.us, i64 %50
+  %256 = load i32, ptr %255, align 4
   %257 = sitofp i32 %256 to double
+  %258 = load i32, ptr %.034614.us.us.us.i.us, align 4
+  %259 = sitofp i32 %258 to double
   br label %.lr.ph13.us.us.us.i.us
 
 .lr.ph13.us.us.us.i.us:                           ; preds = %.lr.ph13.us.us.us.i.us, %.lr.ph16.us.us.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph16.us.us.us.i.us ], [ %indvars.iv.next.i.us, %.lr.ph13.us.us.us.i.us ]
-  %.033711.us.us.us.i.us = phi ptr [ %249, %.lr.ph16.us.us.us.i.us ], [ %277, %.lr.ph13.us.us.us.i.us ]
-  %.034910.us.us.us.i.us = phi double [ %252, %.lr.ph16.us.us.us.i.us ], [ %262, %.lr.ph13.us.us.us.i.us ]
-  %.03519.us.us.us.i.us = phi double [ %255, %.lr.ph16.us.us.us.i.us ], [ %259, %.lr.ph13.us.us.us.i.us ]
-  %.03548.us.us.us.i.us = phi double [ %257, %.lr.ph16.us.us.us.i.us ], [ %.034910.us.us.us.i.us, %.lr.ph13.us.us.us.i.us ]
-  %258 = load i32, ptr %.033711.us.us.us.i.us, align 4
-  %259 = sitofp i32 %258 to double
-  %260 = getelementptr inbounds i32, ptr %.033711.us.us.us.i.us, i64 %50
-  %261 = load i32, ptr %260, align 4
-  %262 = sitofp i32 %261 to double
-  %263 = fmul double %244, %.03519.us.us.us.i.us
-  %264 = tail call double @llvm.fmuladd.f64(double %.03548.us.us.us.i.us, double %242, double %263)
-  %265 = tail call double @llvm.fmuladd.f64(double %.034910.us.us.us.i.us, double %246, double %264)
-  %266 = tail call double @llvm.fmuladd.f64(double %259, double %248, double %265)
-  %267 = getelementptr inbounds nuw double, ptr %.0331.i, i64 %indvars.iv.i.us
-  %268 = load double, ptr %267, align 8
-  %269 = fadd double %268, %266
-  store double %269, ptr %267, align 8
-  %270 = fmul double %244, %.034910.us.us.us.i.us
-  %271 = tail call double @llvm.fmuladd.f64(double %.03519.us.us.us.i.us, double %242, double %270)
-  %272 = tail call double @llvm.fmuladd.f64(double %259, double %246, double %271)
-  %273 = tail call double @llvm.fmuladd.f64(double %262, double %248, double %272)
-  %274 = getelementptr inbounds nuw i8, ptr %267, i64 8
-  %275 = load double, ptr %274, align 8
-  %276 = fadd double %273, %275
-  store double %276, ptr %274, align 8
-  %277 = getelementptr inbounds i32, ptr %.033711.us.us.us.i.us, i64 %63
+  %.033711.us.us.us.i.us = phi ptr [ %251, %.lr.ph16.us.us.us.i.us ], [ %279, %.lr.ph13.us.us.us.i.us ]
+  %.034910.us.us.us.i.us = phi double [ %254, %.lr.ph16.us.us.us.i.us ], [ %264, %.lr.ph13.us.us.us.i.us ]
+  %.03519.us.us.us.i.us = phi double [ %257, %.lr.ph16.us.us.us.i.us ], [ %261, %.lr.ph13.us.us.us.i.us ]
+  %.03548.us.us.us.i.us = phi double [ %259, %.lr.ph16.us.us.us.i.us ], [ %.034910.us.us.us.i.us, %.lr.ph13.us.us.us.i.us ]
+  %260 = load i32, ptr %.033711.us.us.us.i.us, align 4
+  %261 = sitofp i32 %260 to double
+  %262 = getelementptr inbounds i32, ptr %.033711.us.us.us.i.us, i64 %50
+  %263 = load i32, ptr %262, align 4
+  %264 = sitofp i32 %263 to double
+  %265 = fmul double %246, %.03519.us.us.us.i.us
+  %266 = tail call double @llvm.fmuladd.f64(double %.03548.us.us.us.i.us, double %244, double %265)
+  %267 = tail call double @llvm.fmuladd.f64(double %.034910.us.us.us.i.us, double %248, double %266)
+  %268 = tail call double @llvm.fmuladd.f64(double %261, double %250, double %267)
+  %269 = getelementptr inbounds nuw double, ptr %.0331.i, i64 %indvars.iv.i.us
+  %270 = load double, ptr %269, align 8
+  %271 = fadd double %270, %268
+  store double %271, ptr %269, align 8
+  %272 = fmul double %246, %.034910.us.us.us.i.us
+  %273 = tail call double @llvm.fmuladd.f64(double %.03519.us.us.us.i.us, double %244, double %272)
+  %274 = tail call double @llvm.fmuladd.f64(double %261, double %248, double %273)
+  %275 = tail call double @llvm.fmuladd.f64(double %264, double %250, double %274)
+  %276 = getelementptr inbounds nuw i8, ptr %269, i64 8
+  %277 = load double, ptr %276, align 8
+  %278 = fadd double %275, %277
+  store double %278, ptr %276, align 8
+  %279 = getelementptr inbounds i32, ptr %.033711.us.us.us.i.us, i64 %63
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 2
-  %278 = icmp slt i64 %indvars.iv.next.i.us, %89
-  br i1 %278, label %.lr.ph13.us.us.us.i.us, label %._crit_edge.us.us.us.i.loopexit.us, !llvm.loop !14
+  %280 = icmp slt i64 %indvars.iv.next.i.us, %89
+  br i1 %280, label %.lr.ph13.us.us.us.i.us, label %._crit_edge.us.us.us.i.loopexit.us, !llvm.loop !14
 
 ._crit_edge.us.us.us.i.loopexit.us:               ; preds = %.lr.ph13.us.us.us.i.us
-  %279 = getelementptr inbounds i32, ptr %.034614.us.us.us.i.us, i64 %67
+  %281 = getelementptr inbounds i32, ptr %.034614.us.us.us.i.us, i64 %67
   %indvars.iv.next112.i.us = add nuw nsw i64 %indvars.iv111.i.us, 4
-  %280 = icmp slt i64 %indvars.iv.next112.i.us, %77
-  br i1 %280, label %.lr.ph16.us.us.us.i.us, label %._crit_edge17.us.us.us.loopexit.i, !llvm.loop !15
-
-.preheader5.us.us.us.i:                           ; preds = %.lr.ph.us.us.us.preheader.i, %97
-  %281 = getelementptr inbounds nuw i32, ptr %.034878.us.us.i, i64 %indvars.iv128.i
-  %282 = getelementptr inbounds nuw i32, ptr %.034780.us.us.i, i64 %indvars.iv128.i
-  br label %.preheader4.us.us.us.i
+  %282 = icmp slt i64 %indvars.iv.next112.i.us, %77
+  br i1 %282, label %.lr.ph16.us.us.us.i.us, label %._crit_edge17.us.us.us.loopexit.i, !llvm.loop !15
 
 ._crit_edge70.split.us.us.us.i:                   ; preds = %..loopexit6_crit_edge.us.us.us.i
   %283 = getelementptr inbounds i32, ptr %.034878.us.us.i, i64 %73
@@ -734,36 +734,37 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %298
 
 370:                                              ; preds = %364
   %371 = getelementptr inbounds nuw i32, ptr %.val939, i64 %indvars.iv1338
+  %372 = getelementptr inbounds nuw i32, ptr %337, i64 %indvars.iv1338
   %.mux = select i1 %339, ptr %371, ptr %indvars.iv1259
   br i1 %brmerge, label %.preheader972, label %.lr.ph997.us
 
 .lr.ph997.us:                                     ; preds = %370, %._crit_edge998.us
   %indvars.iv1266 = phi i64 [ %indvars.iv.next1267, %._crit_edge998.us ], [ 0, %370 ]
-  %.0817999.us = phi ptr [ %380, %._crit_edge998.us ], [ %371, %370 ]
-  %372 = getelementptr inbounds nuw ptr, ptr %.0771, i64 %indvars.iv1266
-  %373 = load ptr, ptr %372, align 8
-  br label %374
+  %.0817999.us = phi ptr [ %381, %._crit_edge998.us ], [ %371, %370 ]
+  %373 = getelementptr inbounds nuw ptr, ptr %.0771, i64 %indvars.iv1266
+  %374 = load ptr, ptr %373, align 8
+  br label %375
 
-374:                                              ; preds = %.lr.ph997.us, %374
-  %indvars.iv1261 = phi i64 [ 0, %.lr.ph997.us ], [ %indvars.iv.next1262, %374 ]
-  %375 = mul nuw nsw i64 %indvars.iv1261, %346
-  %376 = getelementptr inbounds nuw i32, ptr %.0817999.us, i64 %375
-  %377 = load i32, ptr %376, align 4
-  %378 = sitofp i32 %377 to double
-  %379 = getelementptr inbounds nuw double, ptr %373, i64 %indvars.iv1261
-  store double %378, ptr %379, align 8
+375:                                              ; preds = %.lr.ph997.us, %375
+  %indvars.iv1261 = phi i64 [ 0, %.lr.ph997.us ], [ %indvars.iv.next1262, %375 ]
+  %376 = mul nuw nsw i64 %indvars.iv1261, %346
+  %377 = getelementptr inbounds nuw i32, ptr %.0817999.us, i64 %376
+  %378 = load i32, ptr %377, align 4
+  %379 = sitofp i32 %378 to double
+  %380 = getelementptr inbounds nuw double, ptr %374, i64 %indvars.iv1261
+  store double %379, ptr %380, align 8
   %indvars.iv.next1262 = add nuw nsw i64 %indvars.iv1261, 1
   %exitcond1265.not = icmp eq i64 %indvars.iv.next1262, %wide.trip.count1264
-  br i1 %exitcond1265.not, label %._crit_edge998.us, label %374, !llvm.loop !19
+  br i1 %exitcond1265.not, label %._crit_edge998.us, label %375, !llvm.loop !19
 
-._crit_edge998.us:                                ; preds = %374
-  %380 = getelementptr inbounds i32, ptr %.0817999.us, i64 %341
+._crit_edge998.us:                                ; preds = %375
+  %381 = getelementptr inbounds i32, ptr %.0817999.us, i64 %341
   %indvars.iv.next1267 = add nuw nsw i64 %indvars.iv1266, 1
   %exitcond1270.not = icmp eq i64 %indvars.iv.next1267, %wide.trip.count1269
   br i1 %exitcond1270.not, label %.preheader972, label %.lr.ph997.us, !llvm.loop !20
 
 .preheader972:                                    ; preds = %._crit_edge998.us, %370
-  %.0817.lcssa = phi ptr [ %.mux, %370 ], [ %380, %._crit_edge998.us ]
+  %.0817.lcssa = phi ptr [ %.mux, %370 ], [ %381, %._crit_edge998.us ]
   br i1 %342, label %.lr.ph1004.preheader, label %.preheader970
 
 .lr.ph1004.preheader:                             ; preds = %.preheader972
@@ -772,20 +773,16 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %298
 
 .preheader970:                                    ; preds = %.lr.ph1004.preheader, %.preheader972
   %.2785.lcssa = phi i32 [ 0, %.preheader972 ], [ %357, %.lr.ph1004.preheader ]
-  br i1 %343, label %.lr.ph1175.preheader, label %.loopexit971
+  br i1 %343, label %.lr.ph1175, label %.loopexit971
 
-.lr.ph1175.preheader:                             ; preds = %.preheader970
-  %381 = getelementptr inbounds nuw i32, ptr %337, i64 %indvars.iv1338
-  br label %.lr.ph1175
-
-.lr.ph1175:                                       ; preds = %.lr.ph1175.preheader, %._crit_edge1165
-  %.07821174 = phi i32 [ %816, %._crit_edge1165 ], [ 0, %.lr.ph1175.preheader ]
-  %.37861173 = phi i32 [ %.19.lcssa, %._crit_edge1165 ], [ %.2785.lcssa, %.lr.ph1175.preheader ]
-  %.27921172 = phi ptr [ %.12802.lcssa, %._crit_edge1165 ], [ %.07901179, %.lr.ph1175.preheader ]
-  %.08031170 = phi ptr [ %814, %._crit_edge1165 ], [ %381, %.lr.ph1175.preheader ]
-  %.28061169 = phi ptr [ %.12816.lcssa, %._crit_edge1165 ], [ %.08041178, %.lr.ph1175.preheader ]
-  %.18181167 = phi ptr [ %813, %._crit_edge1165 ], [ %.0817.lcssa, %.lr.ph1175.preheader ]
-  %.08201166 = phi i32 [ %spec.store.select, %._crit_edge1165 ], [ 0, %.lr.ph1175.preheader ]
+.lr.ph1175:                                       ; preds = %.preheader970, %._crit_edge1165
+  %.07821174 = phi i32 [ %816, %._crit_edge1165 ], [ 0, %.preheader970 ]
+  %.37861173 = phi i32 [ %.19.lcssa, %._crit_edge1165 ], [ %.2785.lcssa, %.preheader970 ]
+  %.27921172 = phi ptr [ %.12802.lcssa, %._crit_edge1165 ], [ %.07901179, %.preheader970 ]
+  %.08031170 = phi ptr [ %814, %._crit_edge1165 ], [ %372, %.preheader970 ]
+  %.28061169 = phi ptr [ %.12816.lcssa, %._crit_edge1165 ], [ %.08041178, %.preheader970 ]
+  %.18181167 = phi ptr [ %813, %._crit_edge1165 ], [ %.0817.lcssa, %.preheader970 ]
+  %.08201166 = phi i32 [ %spec.store.select, %._crit_edge1165 ], [ 0, %.preheader970 ]
   %382 = sext i32 %.08201166 to i64
   %383 = getelementptr inbounds ptr, ptr %.0771, i64 %382
   %384 = getelementptr inbounds ptr, ptr %383, i64 %324

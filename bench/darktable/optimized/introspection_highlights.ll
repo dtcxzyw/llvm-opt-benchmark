@@ -3779,8 +3779,8 @@ thread-pre-split:                                 ; preds = %479
     i32 2, label %481
     i32 1, label %774
     i32 4, label %1099
-    i32 0, label %2644
-    i32 3, label %2645
+    i32 0, label %2647
+    i32 3, label %2648
   ]
 
 481:                                              ; preds = %thread-pre-split
@@ -4988,7 +4988,7 @@ default.unreachable:                              ; preds = %1063
   %.fr = phi i32 [ 0, %1099 ], [ %spec.select, %1100 ]
   %1104 = tail call fastcc ptr @_process_opposed(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef 1)
   %.not204 = icmp eq ptr %1104, null
-  br i1 %.not204, label %2643, label %1105
+  br i1 %.not204, label %2646, label %1105
 
 1105:                                             ; preds = %1103
   %1106 = load ptr, ptr %41, align 8, !tbaa !63
@@ -5835,29 +5835,29 @@ _get_segment_id.exit.thread.us.i:                 ; preds = %1508, %_get_segment
   %.130.i.i = tail call i32 @llvm.smin.i32(i32 %1579, i32 %1580)
   %1581 = icmp slt i32 %.129.i.i, %.130.i.i
   %1582 = mul nsw i32 %1578, %1573
-  %1583 = sext i32 %1578 to i64
-  %1584 = shl nsw i32 %1578, 1
-  %1585 = sub nsw i32 0, %1584
-  %1586 = sub nuw nsw i32 -2, %1584
-  %1587 = sext i32 %1586 to i64
-  %1588 = xor i32 %1584, -1
-  %1589 = sext i32 %1588 to i64
-  %1590 = sext i32 %1585 to i64
-  %1591 = sub i32 1, %1584
-  %1592 = sext i32 %1591 to i64
-  %1593 = sub i32 2, %1584
-  %1594 = sext i32 %1593 to i64
-  %1595 = sub nsw i32 0, %1578
-  %1596 = sub i32 -2, %1578
-  %1597 = sext i32 %1596 to i64
-  %1598 = xor i32 %1578, -1
-  %1599 = sext i32 %1598 to i64
-  %1600 = sext i32 %1595 to i64
-  %1601 = sub i32 1, %1578
-  %1602 = sext i32 %1601 to i64
-  %1603 = sub i32 2, %1578
-  %1604 = sext i32 %1603 to i64
-  %1605 = sext i32 %1584 to i64
+  %1583 = shl nsw i32 %1578, 1
+  %1584 = sub nsw i32 0, %1583
+  %1585 = sub nuw nsw i32 -2, %1583
+  %1586 = sext i32 %1585 to i64
+  %1587 = xor i32 %1583, -1
+  %1588 = sext i32 %1587 to i64
+  %1589 = sext i32 %1584 to i64
+  %1590 = sub i32 1, %1583
+  %1591 = sext i32 %1590 to i64
+  %1592 = sub i32 2, %1583
+  %1593 = sext i32 %1592 to i64
+  %1594 = sub nsw i32 0, %1578
+  %1595 = sub i32 -2, %1578
+  %1596 = sext i32 %1595 to i64
+  %1597 = xor i32 %1578, -1
+  %1598 = sext i32 %1597 to i64
+  %1599 = sext i32 %1594 to i64
+  %1600 = sub i32 1, %1578
+  %1601 = sext i32 %1600 to i64
+  %1602 = sub i32 2, %1578
+  %1603 = sext i32 %1602 to i64
+  %1604 = sext i32 %1578 to i64
+  %1605 = sext i32 %1583 to i64
   br i1 %1581, label %.lr.ph.us.preheader.i.i, label %._crit_edge142.thread.i.i
 
 .lr.ph.us.preheader.i.i:                          ; preds = %.lr.ph141.i.i
@@ -5879,7 +5879,7 @@ _get_segment_id.exit.thread.us.i:                 ; preds = %1508, %_get_segment
   %indvars.iv159.i.i = phi i64 [ %smax158.i.i, %.lr.ph.us.preheader.i.i ], [ %indvars.iv.next160.i.i, %._crit_edge.us.i.i ]
   %.0102139.us.i.i = phi i64 [ 0, %.lr.ph.us.preheader.i.i ], [ %.2.us.i.i, %._crit_edge.us.i.i ]
   %.0109138.us.i.i = phi float [ 0.000000e+00, %.lr.ph.us.preheader.i.i ], [ %.2111.us.i.i, %._crit_edge.us.i.i ]
-  %1616 = mul nsw i64 %indvars.iv159.i.i, %1583
+  %1616 = mul nsw i64 %indvars.iv159.i.i, %1604
   br label %1617
 
 1617:                                             ; preds = %_get_segment_id.exit.us.thread.i.i, %.lr.ph.us.i.i
@@ -5908,197 +5908,200 @@ _get_segment_id.exit.us.i.i:                      ; preds = %1617
   %1630 = getelementptr inbounds nuw float, ptr %1524, i64 %1618
   %1631 = load float, ptr %1630, align 4, !tbaa !37
   %1632 = fcmp reassoc nsz arcp contract afn olt float %1631, %1529
-  br i1 %1632, label %.preheader.i.us.i.i, label %_get_segment_id.exit.us.thread.i.i
+  br i1 %1632, label %1633, label %_get_segment_id.exit.us.thread.i.i
 
-.preheader.i.us.i.i:                              ; preds = %1629, %1640
-  %indvars.iv24.i.us.i.i = phi i64 [ %indvars.iv.next25.i.us.i.i, %1640 ], [ -1, %1629 ]
-  %.022.i.us.i.i = phi float [ %1639, %1640 ], [ 0.000000e+00, %1629 ]
-  %1633 = mul nsw i64 %indvars.iv24.i.us.i.i, %1583
-  %1634 = getelementptr float, ptr %1630, i64 %1633
-  br label %1635
-
-1635:                                             ; preds = %1635, %.preheader.i.us.i.i
-  %indvars.iv.i.us.i.i = phi i64 [ -1, %.preheader.i.us.i.i ], [ %indvars.iv.next.i.us.i.i, %1635 ]
-  %.120.i.us.i.i = phi float [ %.022.i.us.i.i, %.preheader.i.us.i.i ], [ %1639, %1635 ]
-  %1636 = getelementptr float, ptr %1634, i64 %indvars.iv.i.us.i.i
+1633:                                             ; preds = %1629
+  %1634 = getelementptr inbounds float, ptr %1630, i64 %1586
+  %1635 = load float, ptr %1634, align 4, !tbaa !37
+  %1636 = getelementptr inbounds float, ptr %1630, i64 %1588
   %1637 = load float, ptr %1636, align 4, !tbaa !37
-  %1638 = fmul reassoc nsz arcp contract afn float %1637, 0x3FBC71C720000000
-  %1639 = fadd reassoc nsz arcp contract afn float %1638, %.120.i.us.i.i
+  %1638 = getelementptr inbounds float, ptr %1630, i64 %1589
+  %1639 = load float, ptr %1638, align 4, !tbaa !37
+  %1640 = getelementptr inbounds float, ptr %1630, i64 %1591
+  %1641 = load float, ptr %1640, align 4, !tbaa !37
+  %1642 = getelementptr inbounds float, ptr %1630, i64 %1593
+  %1643 = load float, ptr %1642, align 4, !tbaa !37
+  %1644 = getelementptr inbounds float, ptr %1630, i64 %1596
+  %1645 = load float, ptr %1644, align 4, !tbaa !37
+  %1646 = getelementptr inbounds float, ptr %1630, i64 %1598
+  %1647 = load float, ptr %1646, align 4, !tbaa !37
+  %1648 = getelementptr inbounds float, ptr %1630, i64 %1599
+  %1649 = load float, ptr %1648, align 4, !tbaa !37
+  %1650 = getelementptr inbounds float, ptr %1630, i64 %1601
+  %1651 = load float, ptr %1650, align 4, !tbaa !37
+  %1652 = getelementptr inbounds float, ptr %1630, i64 %1603
+  %1653 = load float, ptr %1652, align 4, !tbaa !37
+  %1654 = getelementptr inbounds i8, ptr %1630, i64 -8
+  %1655 = load float, ptr %1654, align 4, !tbaa !37
+  %1656 = getelementptr inbounds i8, ptr %1630, i64 -4
+  %1657 = load float, ptr %1656, align 4, !tbaa !37
+  %1658 = getelementptr inbounds nuw i8, ptr %1630, i64 4
+  %1659 = load float, ptr %1658, align 4, !tbaa !37
+  %1660 = getelementptr inbounds nuw i8, ptr %1630, i64 8
+  %1661 = load float, ptr %1660, align 4, !tbaa !37
+  %1662 = getelementptr float, ptr %1630, i64 %1604
+  %1663 = getelementptr i8, ptr %1662, i64 -8
+  %1664 = load float, ptr %1663, align 4, !tbaa !37
+  %1665 = getelementptr i8, ptr %1662, i64 -4
+  %1666 = load float, ptr %1665, align 4, !tbaa !37
+  %1667 = load float, ptr %1662, align 4, !tbaa !37
+  %1668 = getelementptr i8, ptr %1662, i64 4
+  %1669 = load float, ptr %1668, align 4, !tbaa !37
+  %1670 = getelementptr i8, ptr %1662, i64 8
+  %1671 = load float, ptr %1670, align 4, !tbaa !37
+  %1672 = getelementptr float, ptr %1630, i64 %1605
+  %1673 = getelementptr i8, ptr %1672, i64 -8
+  %1674 = load float, ptr %1673, align 4, !tbaa !37
+  %1675 = getelementptr i8, ptr %1672, i64 -4
+  %1676 = load float, ptr %1675, align 4, !tbaa !37
+  %1677 = load float, ptr %1672, align 4, !tbaa !37
+  %1678 = getelementptr i8, ptr %1672, i64 4
+  %1679 = load float, ptr %1678, align 4, !tbaa !37
+  %1680 = getelementptr i8, ptr %1672, i64 8
+  %1681 = load float, ptr %1680, align 4, !tbaa !37
+  br label %.preheader.i.us.i.i
+
+.preheader.i.us.i.i:                              ; preds = %1689, %1633
+  %indvars.iv24.i.us.i.i = phi i64 [ -1, %1633 ], [ %indvars.iv.next25.i.us.i.i, %1689 ]
+  %.022.i.us.i.i = phi float [ 0.000000e+00, %1633 ], [ %1688, %1689 ]
+  %1682 = mul nsw i64 %indvars.iv24.i.us.i.i, %1604
+  %1683 = getelementptr float, ptr %1630, i64 %1682
+  br label %1684
+
+1684:                                             ; preds = %1684, %.preheader.i.us.i.i
+  %indvars.iv.i.us.i.i = phi i64 [ -1, %.preheader.i.us.i.i ], [ %indvars.iv.next.i.us.i.i, %1684 ]
+  %.120.i.us.i.i = phi float [ %.022.i.us.i.i, %.preheader.i.us.i.i ], [ %1688, %1684 ]
+  %1685 = getelementptr float, ptr %1683, i64 %indvars.iv.i.us.i.i
+  %1686 = load float, ptr %1685, align 4, !tbaa !37
+  %1687 = fmul reassoc nsz arcp contract afn float %1686, 0x3FBC71C720000000
+  %1688 = fadd reassoc nsz arcp contract afn float %1687, %.120.i.us.i.i
   %indvars.iv.next.i.us.i.i = add nsw i64 %indvars.iv.i.us.i.i, 1
   %exitcond.not.i.us.i.i = icmp eq i64 %indvars.iv.next.i.us.i.i, 2
-  br i1 %exitcond.not.i.us.i.i, label %1640, label %1635
+  br i1 %exitcond.not.i.us.i.i, label %1689, label %1684
 
-1640:                                             ; preds = %1635
+1689:                                             ; preds = %1684
   %indvars.iv.next25.i.us.i.i = add nsw i64 %indvars.iv24.i.us.i.i, 1
   %exitcond27.not.i.us.i.i = icmp eq i64 %indvars.iv.next25.i.us.i.i, 2
   br i1 %exitcond27.not.i.us.i.i, label %_calc_weight.exit.us.i.i, label %.preheader.i.us.i.i
 
-_calc_weight.exit.us.i.i:                         ; preds = %1640
-  %1641 = getelementptr inbounds float, ptr %1630, i64 %1587
-  %1642 = load float, ptr %1641, align 4, !tbaa !37
-  %1643 = getelementptr inbounds float, ptr %1630, i64 %1589
-  %1644 = load float, ptr %1643, align 4, !tbaa !37
-  %1645 = getelementptr inbounds float, ptr %1630, i64 %1590
-  %1646 = load float, ptr %1645, align 4, !tbaa !37
-  %1647 = getelementptr inbounds float, ptr %1630, i64 %1592
-  %1648 = load float, ptr %1647, align 4, !tbaa !37
-  %1649 = getelementptr inbounds float, ptr %1630, i64 %1594
-  %1650 = load float, ptr %1649, align 4, !tbaa !37
-  %1651 = getelementptr inbounds float, ptr %1630, i64 %1597
-  %1652 = load float, ptr %1651, align 4, !tbaa !37
-  %1653 = getelementptr inbounds float, ptr %1630, i64 %1599
-  %1654 = load float, ptr %1653, align 4, !tbaa !37
-  %1655 = getelementptr inbounds float, ptr %1630, i64 %1600
-  %1656 = load float, ptr %1655, align 4, !tbaa !37
-  %1657 = getelementptr inbounds float, ptr %1630, i64 %1602
-  %1658 = load float, ptr %1657, align 4, !tbaa !37
-  %1659 = getelementptr inbounds float, ptr %1630, i64 %1604
-  %1660 = load float, ptr %1659, align 4, !tbaa !37
-  %1661 = getelementptr inbounds i8, ptr %1630, i64 -8
-  %1662 = load float, ptr %1661, align 4, !tbaa !37
-  %1663 = getelementptr inbounds i8, ptr %1630, i64 -4
-  %1664 = load float, ptr %1663, align 4, !tbaa !37
-  %1665 = getelementptr inbounds nuw i8, ptr %1630, i64 4
-  %1666 = load float, ptr %1665, align 4, !tbaa !37
-  %1667 = getelementptr inbounds nuw i8, ptr %1630, i64 8
-  %1668 = load float, ptr %1667, align 4, !tbaa !37
-  %1669 = getelementptr float, ptr %1630, i64 %1583
-  %1670 = getelementptr i8, ptr %1669, i64 -8
-  %1671 = load float, ptr %1670, align 4, !tbaa !37
-  %1672 = getelementptr i8, ptr %1669, i64 -4
-  %1673 = load float, ptr %1672, align 4, !tbaa !37
-  %1674 = load float, ptr %1669, align 4, !tbaa !37
-  %1675 = getelementptr i8, ptr %1669, i64 4
-  %1676 = load float, ptr %1675, align 4, !tbaa !37
-  %1677 = getelementptr i8, ptr %1669, i64 8
-  %1678 = load float, ptr %1677, align 4, !tbaa !37
-  %1679 = getelementptr float, ptr %1630, i64 %1605
-  %1680 = getelementptr i8, ptr %1679, i64 -8
-  %1681 = load float, ptr %1680, align 4, !tbaa !37
-  %1682 = getelementptr i8, ptr %1679, i64 -4
-  %1683 = load float, ptr %1682, align 4, !tbaa !37
-  %1684 = load float, ptr %1679, align 4, !tbaa !37
-  %1685 = getelementptr i8, ptr %1679, i64 4
-  %1686 = load float, ptr %1685, align 4, !tbaa !37
-  %1687 = getelementptr i8, ptr %1679, i64 8
-  %1688 = load float, ptr %1687, align 4, !tbaa !37
-  %1689 = fadd reassoc nsz arcp contract afn float %1642, %1631
-  %1690 = fadd reassoc nsz arcp contract afn float %1689, %1644
-  %1691 = fadd reassoc nsz arcp contract afn float %1690, %1646
-  %1692 = fadd reassoc nsz arcp contract afn float %1691, %1648
-  %1693 = fadd reassoc nsz arcp contract afn float %1692, %1650
-  %1694 = fadd reassoc nsz arcp contract afn float %1693, %1652
-  %1695 = fadd reassoc nsz arcp contract afn float %1694, %1654
-  %1696 = fadd reassoc nsz arcp contract afn float %1695, %1656
-  %1697 = fadd reassoc nsz arcp contract afn float %1696, %1658
-  %1698 = fadd reassoc nsz arcp contract afn float %1697, %1660
-  %1699 = fadd reassoc nsz arcp contract afn float %1698, %1662
-  %1700 = fadd reassoc nsz arcp contract afn float %1699, %1664
-  %1701 = fadd reassoc nsz arcp contract afn float %1700, %1666
-  %1702 = fadd reassoc nsz arcp contract afn float %1701, %1668
-  %1703 = fadd reassoc nsz arcp contract afn float %1702, %1671
-  %1704 = fadd reassoc nsz arcp contract afn float %1703, %1673
-  %1705 = fadd reassoc nsz arcp contract afn float %1704, %1674
-  %1706 = fadd reassoc nsz arcp contract afn float %1705, %1676
-  %1707 = fadd reassoc nsz arcp contract afn float %1706, %1678
-  %1708 = fadd reassoc nsz arcp contract afn float %1707, %1681
-  %1709 = fadd reassoc nsz arcp contract afn float %1708, %1683
-  %1710 = fadd reassoc nsz arcp contract afn float %1709, %1684
-  %1711 = fadd reassoc nsz arcp contract afn float %1710, %1686
-  %1712 = fadd reassoc nsz arcp contract afn float %1711, %1688
-  %1713 = fmul reassoc nsz arcp contract afn float %1712, 0x3FA47AE140000000
-  %1714 = fsub reassoc nsz arcp contract afn float %1642, %1713
-  %1715 = fmul reassoc nsz arcp contract afn float %1714, %1714
-  %1716 = fsub reassoc nsz arcp contract afn float %1644, %1713
-  %1717 = fmul reassoc nsz arcp contract afn float %1716, %1716
-  %1718 = fadd reassoc nsz arcp contract afn float %1715, %1717
-  %1719 = fsub reassoc nsz arcp contract afn float %1646, %1713
-  %1720 = fmul reassoc nsz arcp contract afn float %1719, %1719
-  %1721 = fadd reassoc nsz arcp contract afn float %1718, %1720
-  %1722 = fsub reassoc nsz arcp contract afn float %1648, %1713
-  %1723 = fmul reassoc nsz arcp contract afn float %1722, %1722
-  %1724 = fadd reassoc nsz arcp contract afn float %1721, %1723
-  %1725 = fsub reassoc nsz arcp contract afn float %1650, %1713
-  %1726 = fmul reassoc nsz arcp contract afn float %1725, %1725
-  %1727 = fadd reassoc nsz arcp contract afn float %1724, %1726
-  %1728 = fsub reassoc nsz arcp contract afn float %1652, %1713
-  %1729 = fmul reassoc nsz arcp contract afn float %1728, %1728
-  %1730 = fadd reassoc nsz arcp contract afn float %1727, %1729
-  %1731 = fsub reassoc nsz arcp contract afn float %1654, %1713
-  %1732 = fmul reassoc nsz arcp contract afn float %1731, %1731
-  %1733 = fadd reassoc nsz arcp contract afn float %1730, %1732
-  %1734 = fsub reassoc nsz arcp contract afn float %1656, %1713
-  %1735 = fmul reassoc nsz arcp contract afn float %1734, %1734
-  %1736 = fadd reassoc nsz arcp contract afn float %1733, %1735
-  %1737 = fsub reassoc nsz arcp contract afn float %1658, %1713
-  %1738 = fmul reassoc nsz arcp contract afn float %1737, %1737
-  %1739 = fadd reassoc nsz arcp contract afn float %1736, %1738
-  %1740 = fsub reassoc nsz arcp contract afn float %1660, %1713
-  %1741 = fmul reassoc nsz arcp contract afn float %1740, %1740
-  %1742 = fadd reassoc nsz arcp contract afn float %1739, %1741
-  %1743 = fsub reassoc nsz arcp contract afn float %1662, %1713
-  %1744 = fmul reassoc nsz arcp contract afn float %1743, %1743
-  %1745 = fadd reassoc nsz arcp contract afn float %1742, %1744
-  %1746 = fsub reassoc nsz arcp contract afn float %1664, %1713
-  %1747 = fmul reassoc nsz arcp contract afn float %1746, %1746
-  %1748 = fadd reassoc nsz arcp contract afn float %1745, %1747
-  %1749 = fsub reassoc nsz arcp contract afn float %1631, %1713
-  %1750 = fmul reassoc nsz arcp contract afn float %1749, %1749
-  %1751 = fadd reassoc nsz arcp contract afn float %1748, %1750
-  %1752 = fsub reassoc nsz arcp contract afn float %1666, %1713
-  %1753 = fmul reassoc nsz arcp contract afn float %1752, %1752
-  %1754 = fadd reassoc nsz arcp contract afn float %1751, %1753
-  %1755 = fsub reassoc nsz arcp contract afn float %1668, %1713
-  %1756 = fmul reassoc nsz arcp contract afn float %1755, %1755
-  %1757 = fadd reassoc nsz arcp contract afn float %1754, %1756
-  %1758 = fsub reassoc nsz arcp contract afn float %1671, %1713
-  %1759 = fmul reassoc nsz arcp contract afn float %1758, %1758
-  %1760 = fadd reassoc nsz arcp contract afn float %1757, %1759
-  %1761 = fsub reassoc nsz arcp contract afn float %1673, %1713
-  %1762 = fmul reassoc nsz arcp contract afn float %1761, %1761
-  %1763 = fadd reassoc nsz arcp contract afn float %1760, %1762
-  %1764 = fsub reassoc nsz arcp contract afn float %1674, %1713
-  %1765 = fmul reassoc nsz arcp contract afn float %1764, %1764
-  %1766 = fadd reassoc nsz arcp contract afn float %1763, %1765
-  %1767 = fsub reassoc nsz arcp contract afn float %1676, %1713
-  %1768 = fmul reassoc nsz arcp contract afn float %1767, %1767
-  %1769 = fadd reassoc nsz arcp contract afn float %1766, %1768
-  %1770 = fsub reassoc nsz arcp contract afn float %1678, %1713
-  %1771 = fmul reassoc nsz arcp contract afn float %1770, %1770
-  %1772 = fadd reassoc nsz arcp contract afn float %1769, %1771
-  %1773 = fsub reassoc nsz arcp contract afn float %1681, %1713
-  %1774 = fmul reassoc nsz arcp contract afn float %1773, %1773
-  %1775 = fadd reassoc nsz arcp contract afn float %1772, %1774
-  %1776 = fsub reassoc nsz arcp contract afn float %1683, %1713
-  %1777 = fmul reassoc nsz arcp contract afn float %1776, %1776
-  %1778 = fadd reassoc nsz arcp contract afn float %1775, %1777
-  %1779 = fsub reassoc nsz arcp contract afn float %1684, %1713
-  %1780 = fmul reassoc nsz arcp contract afn float %1779, %1779
-  %1781 = fadd reassoc nsz arcp contract afn float %1778, %1780
-  %1782 = fsub reassoc nsz arcp contract afn float %1686, %1713
-  %1783 = fmul reassoc nsz arcp contract afn float %1782, %1782
-  %1784 = fadd reassoc nsz arcp contract afn float %1781, %1783
-  %1785 = fsub reassoc nsz arcp contract afn float %1688, %1713
-  %1786 = fmul reassoc nsz arcp contract afn float %1785, %1785
-  %1787 = fadd reassoc nsz arcp contract afn float %1784, %1786
-  %1788 = fmul reassoc nsz arcp contract afn float %1787, 0x3FA47AE140000000
-  %1789 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %1788)
+_calc_weight.exit.us.i.i:                         ; preds = %1689
+  %1690 = fadd reassoc nsz arcp contract afn float %1635, %1631
+  %1691 = fadd reassoc nsz arcp contract afn float %1690, %1637
+  %1692 = fadd reassoc nsz arcp contract afn float %1691, %1639
+  %1693 = fadd reassoc nsz arcp contract afn float %1692, %1641
+  %1694 = fadd reassoc nsz arcp contract afn float %1693, %1643
+  %1695 = fadd reassoc nsz arcp contract afn float %1694, %1645
+  %1696 = fadd reassoc nsz arcp contract afn float %1695, %1647
+  %1697 = fadd reassoc nsz arcp contract afn float %1696, %1649
+  %1698 = fadd reassoc nsz arcp contract afn float %1697, %1651
+  %1699 = fadd reassoc nsz arcp contract afn float %1698, %1653
+  %1700 = fadd reassoc nsz arcp contract afn float %1699, %1655
+  %1701 = fadd reassoc nsz arcp contract afn float %1700, %1657
+  %1702 = fadd reassoc nsz arcp contract afn float %1701, %1659
+  %1703 = fadd reassoc nsz arcp contract afn float %1702, %1661
+  %1704 = fadd reassoc nsz arcp contract afn float %1703, %1664
+  %1705 = fadd reassoc nsz arcp contract afn float %1704, %1666
+  %1706 = fadd reassoc nsz arcp contract afn float %1705, %1667
+  %1707 = fadd reassoc nsz arcp contract afn float %1706, %1669
+  %1708 = fadd reassoc nsz arcp contract afn float %1707, %1671
+  %1709 = fadd reassoc nsz arcp contract afn float %1708, %1674
+  %1710 = fadd reassoc nsz arcp contract afn float %1709, %1676
+  %1711 = fadd reassoc nsz arcp contract afn float %1710, %1677
+  %1712 = fadd reassoc nsz arcp contract afn float %1711, %1679
+  %1713 = fadd reassoc nsz arcp contract afn float %1712, %1681
+  %1714 = fmul reassoc nsz arcp contract afn float %1713, 0x3FA47AE140000000
+  %1715 = fsub reassoc nsz arcp contract afn float %1635, %1714
+  %1716 = fmul reassoc nsz arcp contract afn float %1715, %1715
+  %1717 = fsub reassoc nsz arcp contract afn float %1637, %1714
+  %1718 = fmul reassoc nsz arcp contract afn float %1717, %1717
+  %1719 = fadd reassoc nsz arcp contract afn float %1716, %1718
+  %1720 = fsub reassoc nsz arcp contract afn float %1639, %1714
+  %1721 = fmul reassoc nsz arcp contract afn float %1720, %1720
+  %1722 = fadd reassoc nsz arcp contract afn float %1719, %1721
+  %1723 = fsub reassoc nsz arcp contract afn float %1641, %1714
+  %1724 = fmul reassoc nsz arcp contract afn float %1723, %1723
+  %1725 = fadd reassoc nsz arcp contract afn float %1722, %1724
+  %1726 = fsub reassoc nsz arcp contract afn float %1643, %1714
+  %1727 = fmul reassoc nsz arcp contract afn float %1726, %1726
+  %1728 = fadd reassoc nsz arcp contract afn float %1725, %1727
+  %1729 = fsub reassoc nsz arcp contract afn float %1645, %1714
+  %1730 = fmul reassoc nsz arcp contract afn float %1729, %1729
+  %1731 = fadd reassoc nsz arcp contract afn float %1728, %1730
+  %1732 = fsub reassoc nsz arcp contract afn float %1647, %1714
+  %1733 = fmul reassoc nsz arcp contract afn float %1732, %1732
+  %1734 = fadd reassoc nsz arcp contract afn float %1731, %1733
+  %1735 = fsub reassoc nsz arcp contract afn float %1649, %1714
+  %1736 = fmul reassoc nsz arcp contract afn float %1735, %1735
+  %1737 = fadd reassoc nsz arcp contract afn float %1734, %1736
+  %1738 = fsub reassoc nsz arcp contract afn float %1651, %1714
+  %1739 = fmul reassoc nsz arcp contract afn float %1738, %1738
+  %1740 = fadd reassoc nsz arcp contract afn float %1737, %1739
+  %1741 = fsub reassoc nsz arcp contract afn float %1653, %1714
+  %1742 = fmul reassoc nsz arcp contract afn float %1741, %1741
+  %1743 = fadd reassoc nsz arcp contract afn float %1740, %1742
+  %1744 = fsub reassoc nsz arcp contract afn float %1655, %1714
+  %1745 = fmul reassoc nsz arcp contract afn float %1744, %1744
+  %1746 = fadd reassoc nsz arcp contract afn float %1743, %1745
+  %1747 = fsub reassoc nsz arcp contract afn float %1657, %1714
+  %1748 = fmul reassoc nsz arcp contract afn float %1747, %1747
+  %1749 = fadd reassoc nsz arcp contract afn float %1746, %1748
+  %1750 = fsub reassoc nsz arcp contract afn float %1631, %1714
+  %1751 = fmul reassoc nsz arcp contract afn float %1750, %1750
+  %1752 = fadd reassoc nsz arcp contract afn float %1749, %1751
+  %1753 = fsub reassoc nsz arcp contract afn float %1659, %1714
+  %1754 = fmul reassoc nsz arcp contract afn float %1753, %1753
+  %1755 = fadd reassoc nsz arcp contract afn float %1752, %1754
+  %1756 = fsub reassoc nsz arcp contract afn float %1661, %1714
+  %1757 = fmul reassoc nsz arcp contract afn float %1756, %1756
+  %1758 = fadd reassoc nsz arcp contract afn float %1755, %1757
+  %1759 = fsub reassoc nsz arcp contract afn float %1664, %1714
+  %1760 = fmul reassoc nsz arcp contract afn float %1759, %1759
+  %1761 = fadd reassoc nsz arcp contract afn float %1758, %1760
+  %1762 = fsub reassoc nsz arcp contract afn float %1666, %1714
+  %1763 = fmul reassoc nsz arcp contract afn float %1762, %1762
+  %1764 = fadd reassoc nsz arcp contract afn float %1761, %1763
+  %1765 = fsub reassoc nsz arcp contract afn float %1667, %1714
+  %1766 = fmul reassoc nsz arcp contract afn float %1765, %1765
+  %1767 = fadd reassoc nsz arcp contract afn float %1764, %1766
+  %1768 = fsub reassoc nsz arcp contract afn float %1669, %1714
+  %1769 = fmul reassoc nsz arcp contract afn float %1768, %1768
+  %1770 = fadd reassoc nsz arcp contract afn float %1767, %1769
+  %1771 = fsub reassoc nsz arcp contract afn float %1671, %1714
+  %1772 = fmul reassoc nsz arcp contract afn float %1771, %1771
+  %1773 = fadd reassoc nsz arcp contract afn float %1770, %1772
+  %1774 = fsub reassoc nsz arcp contract afn float %1674, %1714
+  %1775 = fmul reassoc nsz arcp contract afn float %1774, %1774
+  %1776 = fadd reassoc nsz arcp contract afn float %1773, %1775
+  %1777 = fsub reassoc nsz arcp contract afn float %1676, %1714
+  %1778 = fmul reassoc nsz arcp contract afn float %1777, %1777
+  %1779 = fadd reassoc nsz arcp contract afn float %1776, %1778
+  %1780 = fsub reassoc nsz arcp contract afn float %1677, %1714
+  %1781 = fmul reassoc nsz arcp contract afn float %1780, %1780
+  %1782 = fadd reassoc nsz arcp contract afn float %1779, %1781
+  %1783 = fsub reassoc nsz arcp contract afn float %1679, %1714
+  %1784 = fmul reassoc nsz arcp contract afn float %1783, %1783
+  %1785 = fadd reassoc nsz arcp contract afn float %1782, %1784
+  %1786 = fsub reassoc nsz arcp contract afn float %1681, %1714
+  %1787 = fmul reassoc nsz arcp contract afn float %1786, %1786
+  %1788 = fadd reassoc nsz arcp contract afn float %1785, %1787
+  %1789 = fmul reassoc nsz arcp contract afn float %1788, 0x3FA47AE140000000
   %1790 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %1789)
-  %1791 = fmul reassoc nsz arcp contract afn float %1790, 1.000000e+01
-  %1792 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %1791
-  %1793 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1792, float 0.000000e+00)
-  %1794 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1529, float %1639)
-  %1795 = fmul reassoc nsz arcp contract afn float %1794, %1549
-  %square.i.us.i.i = fmul reassoc nsz arcp contract afn float %1795, %1795
-  %1796 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %square.i.us.i.i, float 1.000000e+00)
-  %1797 = and i32 %1622, 262144
-  %.not127.us.i.i = icmp eq i32 %1797, 0
-  %1798 = select reassoc nsz arcp contract afn i1 %.not127.us.i.i, float 7.500000e-01, float 1.000000e+00
-  %1799 = fmul reassoc nsz arcp contract afn float %1796, %1798
-  %1800 = fmul reassoc nsz arcp contract afn float %1799, %1793
-  %1801 = fcmp reassoc nsz arcp contract afn ogt float %1800, %.1110134.us.i.i
-  %.3112.us.i.i = select nsz i1 %1801, float %1800, float %.1110134.us.i.i
-  %.3.us.i.i = select i1 %1801, i64 %1618, i64 %.1135.us.i.i
+  %1791 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %1790)
+  %1792 = fmul reassoc nsz arcp contract afn float %1791, 1.000000e+01
+  %1793 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %1792
+  %1794 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1793, float 0.000000e+00)
+  %1795 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1529, float %1688)
+  %1796 = fmul reassoc nsz arcp contract afn float %1795, %1549
+  %square.i.us.i.i = fmul reassoc nsz arcp contract afn float %1796, %1796
+  %1797 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %square.i.us.i.i, float 1.000000e+00)
+  %1798 = and i32 %1622, 262144
+  %.not127.us.i.i = icmp eq i32 %1798, 0
+  %1799 = select reassoc nsz arcp contract afn i1 %.not127.us.i.i, float 7.500000e-01, float 1.000000e+00
+  %1800 = fmul reassoc nsz arcp contract afn float %1794, %1799
+  %1801 = fmul reassoc nsz arcp contract afn float %1800, %1797
+  %1802 = fcmp reassoc nsz arcp contract afn ogt float %1801, %.1110134.us.i.i
+  %.3112.us.i.i = select nsz i1 %1802, float %1801, float %.1110134.us.i.i
+  %.3.us.i.i = select i1 %1802, i64 %1618, i64 %.1135.us.i.i
   br label %_get_segment_id.exit.us.thread.i.i
 
 _get_segment_id.exit.us.thread.i.i:               ; preds = %_calc_weight.exit.us.i.i, %1629, %_get_segment_id.exit.us.i.i, %1617
@@ -6117,68 +6120,68 @@ _get_segment_id.exit.us.thread.i.i:               ; preds = %_calc_weight.exit.u
 
 ._crit_edge142.i.i:                               ; preds = %._crit_edge.us.i.i
   %.not.i487.i = icmp ne i64 %.2.us.i.i, 0
-  %1802 = fcmp reassoc nsz arcp contract afn ogt float %.2111.us.i.i, %1547
-  %or.cond.i.i = select i1 %.not.i487.i, i1 %1802, i1 false
+  %1803 = fcmp reassoc nsz arcp contract afn ogt float %.2111.us.i.i, %1547
+  %or.cond.i.i = select i1 %.not.i487.i, i1 %1803, i1 false
   br i1 %or.cond.i.i, label %.preheader132.i.i, label %._crit_edge142.thread.i.i
 
 .preheader132.i.i:                                ; preds = %._crit_edge142.i.i
-  %1803 = getelementptr float, ptr %1524, i64 %.2.us.i.i
+  %1804 = getelementptr float, ptr %1524, i64 %.2.us.i.i
   br label %.preheader.i488.i
 
-.preheader.i488.i:                                ; preds = %1811, %.preheader132.i.i
-  %indvars.iv167.i.i = phi i64 [ -2, %.preheader132.i.i ], [ %indvars.iv.next168.i.i, %1811 ]
-  %.0105150.i.i = phi float [ 0.000000e+00, %.preheader132.i.i ], [ %1825, %1811 ]
-  %.0107149.i.i = phi float [ 0.000000e+00, %.preheader132.i.i ], [ %1824, %1811 ]
-  %1804 = mul nsw i64 %indvars.iv167.i.i, %1583
-  %1805 = getelementptr float, ptr %1803, i64 %1804
-  %1806 = getelementptr [5 x float], ptr @__const._calc_plane_candidates.weights, i64 %indvars.iv167.i.i
-  br label %1812
+.preheader.i488.i:                                ; preds = %1812, %.preheader132.i.i
+  %indvars.iv167.i.i = phi i64 [ -2, %.preheader132.i.i ], [ %indvars.iv.next168.i.i, %1812 ]
+  %.0105150.i.i = phi float [ 0.000000e+00, %.preheader132.i.i ], [ %1826, %1812 ]
+  %.0107149.i.i = phi float [ 0.000000e+00, %.preheader132.i.i ], [ %1825, %1812 ]
+  %1805 = mul nsw i64 %indvars.iv167.i.i, %1604
+  %1806 = getelementptr float, ptr %1804, i64 %1805
+  %1807 = getelementptr [5 x float], ptr @__const._calc_plane_candidates.weights, i64 %indvars.iv167.i.i
+  br label %1813
 
-1807:                                             ; preds = %1811
-  %1808 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1825, float 1.000000e+00)
-  %1809 = fdiv reassoc nsz arcp contract afn float %1824, %1808
-  %1810 = fcmp reassoc nsz arcp contract afn ogt float %1809, %1548
-  br i1 %1810, label %1826, label %._crit_edge142.thread.i.i
+1808:                                             ; preds = %1812
+  %1809 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1826, float 1.000000e+00)
+  %1810 = fdiv reassoc nsz arcp contract afn float %1825, %1809
+  %1811 = fcmp reassoc nsz arcp contract afn ogt float %1810, %1548
+  br i1 %1811, label %1827, label %._crit_edge142.thread.i.i
 
-1811:                                             ; preds = %1823
+1812:                                             ; preds = %1824
   %indvars.iv.next168.i.i = add nsw i64 %indvars.iv167.i.i, 1
   %exitcond170.not.i.i = icmp eq i64 %indvars.iv.next168.i.i, 3
-  br i1 %exitcond170.not.i.i, label %1807, label %.preheader.i488.i
+  br i1 %exitcond170.not.i.i, label %1808, label %.preheader.i488.i
 
-1812:                                             ; preds = %1823, %.preheader.i488.i
-  %indvars.iv163.i.i = phi i64 [ -2, %.preheader.i488.i ], [ %indvars.iv.next164.i.i, %1823 ]
-  %.1106147.i.i = phi float [ %.0105150.i.i, %.preheader.i488.i ], [ %1825, %1823 ]
-  %.1108146.i.i = phi float [ %.0107149.i.i, %.preheader.i488.i ], [ %1824, %1823 ]
-  %1813 = getelementptr float, ptr %1805, i64 %indvars.iv163.i.i
-  %1814 = load float, ptr %1813, align 4, !tbaa !37
-  %1815 = fcmp reassoc nsz arcp contract afn olt float %1814, %1529
-  br i1 %1815, label %1816, label %1823
+1813:                                             ; preds = %1824, %.preheader.i488.i
+  %indvars.iv163.i.i = phi i64 [ -2, %.preheader.i488.i ], [ %indvars.iv.next164.i.i, %1824 ]
+  %.1106147.i.i = phi float [ %.0105150.i.i, %.preheader.i488.i ], [ %1826, %1824 ]
+  %.1108146.i.i = phi float [ %.0107149.i.i, %.preheader.i488.i ], [ %1825, %1824 ]
+  %1814 = getelementptr float, ptr %1806, i64 %indvars.iv163.i.i
+  %1815 = load float, ptr %1814, align 4, !tbaa !37
+  %1816 = fcmp reassoc nsz arcp contract afn olt float %1815, %1529
+  br i1 %1816, label %1817, label %1824
 
-1816:                                             ; preds = %1812
-  %1817 = getelementptr float, ptr %1806, i64 %indvars.iv163.i.i
-  %1818 = getelementptr i8, ptr %1817, i64 48
-  %1819 = load float, ptr %1818, align 4, !tbaa !37
-  %1820 = fmul reassoc nsz arcp contract afn float %1819, %1814
-  %1821 = fadd reassoc nsz arcp contract afn float %1820, %.1108146.i.i
-  %1822 = fadd reassoc nsz arcp contract afn float %1819, %.1106147.i.i
-  br label %1823
+1817:                                             ; preds = %1813
+  %1818 = getelementptr float, ptr %1807, i64 %indvars.iv163.i.i
+  %1819 = getelementptr i8, ptr %1818, i64 48
+  %1820 = load float, ptr %1819, align 4, !tbaa !37
+  %1821 = fmul reassoc nsz arcp contract afn float %1820, %1815
+  %1822 = fadd reassoc nsz arcp contract afn float %1821, %.1108146.i.i
+  %1823 = fadd reassoc nsz arcp contract afn float %1820, %.1106147.i.i
+  br label %1824
 
-1823:                                             ; preds = %1816, %1812
-  %1824 = phi float [ %1821, %1816 ], [ %.1108146.i.i, %1812 ]
-  %1825 = phi float [ %1822, %1816 ], [ %.1106147.i.i, %1812 ]
+1824:                                             ; preds = %1817, %1813
+  %1825 = phi float [ %1822, %1817 ], [ %.1108146.i.i, %1813 ]
+  %1826 = phi float [ %1823, %1817 ], [ %.1106147.i.i, %1813 ]
   %indvars.iv.next164.i.i = add nsw i64 %indvars.iv163.i.i, 1
   %exitcond166.not.i.i = icmp eq i64 %indvars.iv.next164.i.i, 3
-  br i1 %exitcond166.not.i.i, label %1811, label %1812
+  br i1 %exitcond166.not.i.i, label %1812, label %1813
 
-1826:                                             ; preds = %1807
-  %1827 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1529, float %1809)
-  store float %1827, ptr %1551, align 4, !tbaa !37
-  %1828 = getelementptr inbounds nuw float, ptr %1526, i64 %.2.us.i.i
-  %1829 = load float, ptr %1828, align 4, !tbaa !37
-  store float %1829, ptr %1552, align 4, !tbaa !37
+1827:                                             ; preds = %1808
+  %1828 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1529, float %1810)
+  store float %1828, ptr %1551, align 4, !tbaa !37
+  %1829 = getelementptr inbounds nuw float, ptr %1526, i64 %.2.us.i.i
+  %1830 = load float, ptr %1829, align 4, !tbaa !37
+  store float %1830, ptr %1552, align 4, !tbaa !37
   br label %._crit_edge142.thread.i.i
 
-._crit_edge142.thread.i.i:                        ; preds = %1826, %1807, %._crit_edge142.i.i, %.lr.ph141.i.i, %1568, %1559, %1550
+._crit_edge142.thread.i.i:                        ; preds = %1827, %1808, %._crit_edge142.i.i, %.lr.ph141.i.i, %1568, %1559, %1550
   %indvars.iv.next172.i.i = add nuw nsw i64 %indvars.iv171.i.i, 1
   %exitcond174.not.i.i = icmp eq i64 %indvars.iv.next172.i.i, %wide.trip.count.i.i
   br i1 %exitcond174.not.i.i, label %_calc_plane_candidates.exit.i, label %1550
@@ -6189,1455 +6192,1455 @@ _calc_plane_candidates.exit.i:                    ; preds = %._crit_edge142.thre
   br i1 %exitcond795.not.i, label %.preheader617.i, label %1522
 
 ._crit_edge664.i:                                 ; preds = %._crit_edge662.us.i, %.preheader616.lr.ph.i, %.preheader617.i
-  %1830 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %1831 = load ptr, ptr %1830, align 8, !tbaa !160
-  %1832 = load ptr, ptr %scevgep.i312, align 16, !tbaa !160
-  %1833 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %1834 = load ptr, ptr %1833, align 8, !tbaa !160
-  %1835 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %1836 = load ptr, ptr %1835, align 16, !tbaa !160
-  %1837 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %1838 = load ptr, ptr %1837, align 8, !tbaa !160
-  %1839 = getelementptr inbounds nuw i8, ptr %23, i64 288
-  %1840 = icmp ne i32 %1165, 0
-  %or.cond3.i = select i1 %1840, i1 %.0418.lcssa.i, i1 false
-  %1841 = fcmp reassoc nsz arcp contract afn ogt float %1167, 0.000000e+00
-  %spec.select.i = select i1 %or.cond3.i, i1 %1841, i1 false
-  %1842 = icmp ne i32 %.fr, 0
-  %1843 = icmp ne i32 %1132, 0
-  %1844 = and i1 %1842, %1843
-  %or.cond5.i = or i1 %spec.select.i, %1844
-  br i1 %or.cond5.i, label %1845, label %1924
+  %1831 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %1832 = load ptr, ptr %1831, align 8, !tbaa !160
+  %1833 = load ptr, ptr %scevgep.i312, align 16, !tbaa !160
+  %1834 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %1835 = load ptr, ptr %1834, align 8, !tbaa !160
+  %1836 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %1837 = load ptr, ptr %1836, align 16, !tbaa !160
+  %1838 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  %1839 = load ptr, ptr %1838, align 8, !tbaa !160
+  %1840 = getelementptr inbounds nuw i8, ptr %23, i64 288
+  %1841 = icmp ne i32 %1165, 0
+  %or.cond3.i = select i1 %1841, i1 %.0418.lcssa.i, i1 false
+  %1842 = fcmp reassoc nsz arcp contract afn ogt float %1167, 0.000000e+00
+  %spec.select.i = select i1 %or.cond3.i, i1 %1842, i1 false
+  %1843 = icmp ne i32 %.fr, 0
+  %1844 = icmp ne i32 %1132, 0
+  %1845 = and i1 %1843, %1844
+  %or.cond5.i = or i1 %spec.select.i, %1845
+  br i1 %or.cond5.i, label %1846, label %1925
 
-1845:                                             ; preds = %._crit_edge664.i
-  call void @dt_segments_combine(ptr noundef nonnull %1839, i32 noundef %1170)
-  %1846 = fmul reassoc nsz arcp contract afn float %1167, 5.000000e+00
-  %1847 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1846, float 1.000000e+00)
-  tail call void @dt_iop_image_fill(ptr noundef %1832, float noundef %1847, i64 noundef %1188, i64 noundef %1194, i64 noundef 1) #30
-  tail call void @dt_iop_image_fill(ptr noundef %1831, float noundef 0.000000e+00, i64 noundef %1188, i64 noundef %1194, i64 noundef 1) #30
-  %1848 = getelementptr inbounds nuw i8, ptr %23, i64 364
-  %1849 = load i32, ptr %1848, align 4, !tbaa !28
-  %1850 = sext i32 %1849 to i64
-  %1851 = sub i64 %1194, %1850
-  %1852 = icmp ugt i64 %1851, %1850
-  br i1 %1852, label %.preheader615.lr.ph.i, label %._crit_edge674.i
+1846:                                             ; preds = %._crit_edge664.i
+  call void @dt_segments_combine(ptr noundef nonnull %1840, i32 noundef %1170)
+  %1847 = fmul reassoc nsz arcp contract afn float %1167, 5.000000e+00
+  %1848 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1847, float 1.000000e+00)
+  tail call void @dt_iop_image_fill(ptr noundef %1833, float noundef %1848, i64 noundef %1188, i64 noundef %1194, i64 noundef 1) #30
+  tail call void @dt_iop_image_fill(ptr noundef %1832, float noundef 0.000000e+00, i64 noundef %1188, i64 noundef %1194, i64 noundef 1) #30
+  %1849 = getelementptr inbounds nuw i8, ptr %23, i64 364
+  %1850 = load i32, ptr %1849, align 4, !tbaa !28
+  %1851 = sext i32 %1850 to i64
+  %1852 = sub i64 %1194, %1851
+  %1853 = icmp ugt i64 %1852, %1851
+  br i1 %1853, label %.preheader615.lr.ph.i, label %._crit_edge674.i
 
-.preheader615.lr.ph.i:                            ; preds = %1845
-  %1853 = sub i64 %1188, %1850
-  %1854 = icmp ugt i64 %1853, %1850
-  %1855 = load ptr, ptr %21, align 16
-  %1856 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %1857 = load ptr, ptr %1856, align 8
-  %1858 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %1859 = load ptr, ptr %1858, align 16
-  %1860 = load ptr, ptr %1839, align 16
+.preheader615.lr.ph.i:                            ; preds = %1846
+  %1854 = sub i64 %1188, %1851
+  %1855 = icmp ugt i64 %1854, %1851
+  %1856 = load ptr, ptr %21, align 16
+  %1857 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %1858 = load ptr, ptr %1857, align 8
+  %1859 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %1860 = load ptr, ptr %1859, align 16
+  %1861 = load ptr, ptr %1840, align 16
   %factor.op.fmul411 = fmul reassoc nsz arcp contract afn float %1117, 0x3FD5555560000000
   %factor.op.fmul412 = fmul reassoc nsz arcp contract afn float %1113, 0x3FD5555560000000
   %factor.op.fmul413 = fmul reassoc nsz arcp contract afn float %1115, 0x3FD5555560000000
   br label %.preheader615.i
 
 .preheader615.i:                                  ; preds = %._crit_edge672.i, %.preheader615.lr.ph.i
-  %indvars.iv808.i = phi i64 [ %1850, %.preheader615.lr.ph.i ], [ %indvars.iv.next809.i, %._crit_edge672.i ]
-  br i1 %1854, label %.lr.ph671.i, label %._crit_edge672.i
+  %indvars.iv808.i = phi i64 [ %1851, %.preheader615.lr.ph.i ], [ %indvars.iv.next809.i, %._crit_edge672.i ]
+  br i1 %1855, label %.lr.ph671.i, label %._crit_edge672.i
 
 .lr.ph671.i:                                      ; preds = %.preheader615.i
-  %1861 = mul i64 %indvars.iv808.i, %1188
-  br label %1910
+  %1862 = mul i64 %indvars.iv808.i, %1188
+  br label %1911
 
-._crit_edge674.i:                                 ; preds = %._crit_edge672.i, %1845
-  %1862 = icmp slt i32 %1849, 1
-  br i1 %1862, label %_masks_extend_border.exit511.i, label %1863
+._crit_edge674.i:                                 ; preds = %._crit_edge672.i, %1846
+  %1863 = icmp slt i32 %1850, 1
+  br i1 %1863, label %_masks_extend_border.exit511.i, label %1864
 
-1863:                                             ; preds = %._crit_edge674.i
-  %1864 = zext nneg i32 %1849 to i64
-  %1865 = sub nsw i32 %1206, %1849
-  %1866 = sext i32 %1865 to i64
-  %1867 = icmp ult i32 %1849, %1865
-  br i1 %1867, label %.lr.ph.i505.i, label %.preheader.i497.i
+1864:                                             ; preds = %._crit_edge674.i
+  %1865 = zext nneg i32 %1850 to i64
+  %1866 = sub nsw i32 %1206, %1850
+  %1867 = sext i32 %1866 to i64
+  %1868 = icmp ult i32 %1850, %1866
+  br i1 %1868, label %.lr.ph.i505.i, label %.preheader.i497.i
 
-.lr.ph.i505.i:                                    ; preds = %1863
-  %1868 = xor i64 %1864, -1
-  %invariant.gep.i506.i = getelementptr float, ptr %1838, i64 %1270
-  br label %1877
+.lr.ph.i505.i:                                    ; preds = %1864
+  %1869 = xor i64 %1865, -1
+  %invariant.gep.i506.i = getelementptr float, ptr %1839, i64 %1270
+  br label %1878
 
-.preheader.i497.i:                                ; preds = %1882, %1863
+.preheader.i497.i:                                ; preds = %1883, %1864
   br i1 %.not.i483.i, label %_masks_extend_border.exit511.i, label %.lr.ph85.i499.i
 
 .lr.ph85.i499.i:                                  ; preds = %.preheader.i497.i
-  %1869 = mul nsw i32 %1849, %1205
-  %1870 = sext i32 %1869 to i64
-  %1871 = xor i32 %1849, -1
-  %1872 = add i32 %1871, %1205
-  %1873 = sext i32 %1872 to i64
-  %1874 = add nsw i32 %1865, -1
-  %1875 = mul nsw i32 %1874, %1205
-  %1876 = sext i32 %1875 to i64
-  br label %1892
+  %1870 = mul nsw i32 %1850, %1205
+  %1871 = sext i32 %1870 to i64
+  %1872 = xor i32 %1850, -1
+  %1873 = add i32 %1872, %1205
+  %1874 = sext i32 %1873 to i64
+  %1875 = add nsw i32 %1866, -1
+  %1876 = mul nsw i32 %1875, %1205
+  %1877 = sext i32 %1876 to i64
+  br label %1893
 
-1877:                                             ; preds = %1882, %.lr.ph.i505.i
-  %.07282.i507.i = phi i64 [ %1864, %.lr.ph.i505.i ], [ %1883, %1882 ]
-  %1878 = mul i64 %.07282.i507.i, %1270
-  %1879 = getelementptr float, ptr %1838, i64 %1878
-  %1880 = getelementptr float, ptr %1879, i64 %1864
-  %gep.i508.i = getelementptr float, ptr %invariant.gep.i506.i, i64 %1878
-  %1881 = getelementptr float, ptr %gep.i508.i, i64 %1868
-  br label %1885
+1878:                                             ; preds = %1883, %.lr.ph.i505.i
+  %.07282.i507.i = phi i64 [ %1865, %.lr.ph.i505.i ], [ %1884, %1883 ]
+  %1879 = mul i64 %.07282.i507.i, %1270
+  %1880 = getelementptr float, ptr %1839, i64 %1879
+  %1881 = getelementptr float, ptr %1880, i64 %1865
+  %gep.i508.i = getelementptr float, ptr %invariant.gep.i506.i, i64 %1879
+  %1882 = getelementptr float, ptr %gep.i508.i, i64 %1869
+  br label %1886
 
-1882:                                             ; preds = %1885
-  %1883 = add nuw i64 %.07282.i507.i, 1
-  %1884 = icmp ult i64 %1883, %1866
-  br i1 %1884, label %1877, label %.preheader.i497.i
+1883:                                             ; preds = %1886
+  %1884 = add nuw i64 %.07282.i507.i, 1
+  %1885 = icmp ult i64 %1884, %1867
+  br i1 %1885, label %1878, label %.preheader.i497.i
 
-1885:                                             ; preds = %1885, %1877
-  %.07481.i509.i = phi i64 [ 0, %1877 ], [ %1891, %1885 ]
-  %1886 = load float, ptr %1880, align 4, !tbaa !37
-  %1887 = getelementptr float, ptr %1879, i64 %.07481.i509.i
-  store float %1886, ptr %1887, align 4, !tbaa !37
-  %1888 = load float, ptr %1881, align 4, !tbaa !37
-  %1889 = xor i64 %.07481.i509.i, -1
-  %1890 = getelementptr float, ptr %gep.i508.i, i64 %1889
-  store float %1888, ptr %1890, align 4, !tbaa !37
-  %1891 = add nuw nsw i64 %.07481.i509.i, 1
-  %exitcond.not.i510.i = icmp eq i64 %1891, %1864
-  br i1 %exitcond.not.i510.i, label %1882, label %1885
+1886:                                             ; preds = %1886, %1878
+  %.07481.i509.i = phi i64 [ 0, %1878 ], [ %1892, %1886 ]
+  %1887 = load float, ptr %1881, align 4, !tbaa !37
+  %1888 = getelementptr float, ptr %1880, i64 %.07481.i509.i
+  store float %1887, ptr %1888, align 4, !tbaa !37
+  %1889 = load float, ptr %1882, align 4, !tbaa !37
+  %1890 = xor i64 %.07481.i509.i, -1
+  %1891 = getelementptr float, ptr %gep.i508.i, i64 %1890
+  store float %1889, ptr %1891, align 4, !tbaa !37
+  %1892 = add nuw nsw i64 %.07481.i509.i, 1
+  %exitcond.not.i510.i = icmp eq i64 %1892, %1865
+  br i1 %exitcond.not.i510.i, label %1883, label %1886
 
-1892:                                             ; preds = %1900, %.lr.ph85.i499.i
-  %.07384.i500.i = phi i64 [ 0, %.lr.ph85.i499.i ], [ %1901, %1900 ]
-  %1893 = tail call i64 @llvm.umax.i64(i64 %.07384.i500.i, i64 %1864)
-  %..i501.i = tail call i64 @llvm.umin.i64(i64 %1893, i64 %1873)
-  %1894 = getelementptr float, ptr %1838, i64 %..i501.i
-  %1895 = getelementptr float, ptr %1894, i64 %1870
-  %1896 = load float, ptr %1895, align 4, !tbaa !37
-  %1897 = getelementptr float, ptr %1894, i64 %1876
-  %1898 = load float, ptr %1897, align 4, !tbaa !37
-  %1899 = getelementptr float, ptr %1838, i64 %.07384.i500.i
-  br label %1902
+1893:                                             ; preds = %1901, %.lr.ph85.i499.i
+  %.07384.i500.i = phi i64 [ 0, %.lr.ph85.i499.i ], [ %1902, %1901 ]
+  %1894 = tail call i64 @llvm.umax.i64(i64 %.07384.i500.i, i64 %1865)
+  %..i501.i = tail call i64 @llvm.umin.i64(i64 %1894, i64 %1874)
+  %1895 = getelementptr float, ptr %1839, i64 %..i501.i
+  %1896 = getelementptr float, ptr %1895, i64 %1871
+  %1897 = load float, ptr %1896, align 4, !tbaa !37
+  %1898 = getelementptr float, ptr %1895, i64 %1877
+  %1899 = load float, ptr %1898, align 4, !tbaa !37
+  %1900 = getelementptr float, ptr %1839, i64 %.07384.i500.i
+  br label %1903
 
-1900:                                             ; preds = %1902
-  %1901 = add nuw i64 %.07384.i500.i, 1
-  %exitcond87.not.i504.i = icmp eq i64 %1901, %1270
-  br i1 %exitcond87.not.i504.i, label %_masks_extend_border.exit511.i, label %1892
+1901:                                             ; preds = %1903
+  %1902 = add nuw i64 %.07384.i500.i, 1
+  %exitcond87.not.i504.i = icmp eq i64 %1902, %1270
+  br i1 %exitcond87.not.i504.i, label %_masks_extend_border.exit511.i, label %1893
 
-1902:                                             ; preds = %1902, %1892
-  %.083.i502.i = phi i64 [ 0, %1892 ], [ %1909, %1902 ]
-  %1903 = mul nsw i64 %.083.i502.i, %1270
-  %1904 = getelementptr float, ptr %1899, i64 %1903
-  store float %1896, ptr %1904, align 4, !tbaa !37
-  %1905 = xor i64 %.083.i502.i, -1
-  %1906 = add nsw i64 %1276, %1905
-  %1907 = mul nsw i64 %1906, %1270
-  %1908 = getelementptr float, ptr %1899, i64 %1907
-  store float %1898, ptr %1908, align 4, !tbaa !37
-  %1909 = add nuw nsw i64 %.083.i502.i, 1
-  %exitcond86.not.i503.i = icmp eq i64 %1909, %1864
-  br i1 %exitcond86.not.i503.i, label %1900, label %1902
+1903:                                             ; preds = %1903, %1893
+  %.083.i502.i = phi i64 [ 0, %1893 ], [ %1910, %1903 ]
+  %1904 = mul nsw i64 %.083.i502.i, %1270
+  %1905 = getelementptr float, ptr %1900, i64 %1904
+  store float %1897, ptr %1905, align 4, !tbaa !37
+  %1906 = xor i64 %.083.i502.i, -1
+  %1907 = add nsw i64 %1276, %1906
+  %1908 = mul nsw i64 %1907, %1270
+  %1909 = getelementptr float, ptr %1900, i64 %1908
+  store float %1899, ptr %1909, align 4, !tbaa !37
+  %1910 = add nuw nsw i64 %.083.i502.i, 1
+  %exitcond86.not.i503.i = icmp eq i64 %1910, %1865
+  br i1 %exitcond86.not.i503.i, label %1901, label %1903
 
-_masks_extend_border.exit511.i:                   ; preds = %1900, %.preheader.i497.i, %._crit_edge674.i
-  tail call void @dt_gaussian_fast_blur(ptr noundef %1838, ptr noundef %1834, i32 noundef %1205, i32 noundef %1206, float noundef 0x3FF3333340000000, float noundef 0.000000e+00, float noundef 2.000000e+01, i32 noundef 1) #30
-  br label %1924
+_masks_extend_border.exit511.i:                   ; preds = %1901, %.preheader.i497.i, %._crit_edge674.i
+  tail call void @dt_gaussian_fast_blur(ptr noundef %1839, ptr noundef %1835, i32 noundef %1205, i32 noundef %1206, float noundef 0x3FF3333340000000, float noundef 0.000000e+00, float noundef 2.000000e+01, i32 noundef 1) #30
+  br label %1925
 
-._crit_edge672.i:                                 ; preds = %1910, %.preheader615.i
+._crit_edge672.i:                                 ; preds = %1911, %.preheader615.i
   %indvars.iv.next809.i = add nuw nsw i64 %indvars.iv808.i, 1
-  %exitcond476.not = icmp eq i64 %indvars.iv.next809.i, %1851
+  %exitcond476.not = icmp eq i64 %indvars.iv.next809.i, %1852
   br i1 %exitcond476.not, label %._crit_edge674.i, label %.preheader615.i
 
-1910:                                             ; preds = %1910, %.lr.ph671.i
-  %indvars.iv805.i = phi i64 [ %1850, %.lr.ph671.i ], [ %indvars.iv.next806.i, %1910 ]
-  %1911 = add i64 %indvars.iv805.i, %1861
-  %1912 = getelementptr inbounds nuw float, ptr %1855, i64 %1911
-  %1913 = load float, ptr %1912, align 4, !tbaa !37
-  %.reass667.i.reass = fmul reassoc nsz arcp contract afn float %1913, %factor.op.fmul412
-  %1914 = getelementptr inbounds nuw float, ptr %1857, i64 %1911
-  %1915 = load float, ptr %1914, align 4, !tbaa !37
-  %.reass669.i.reass = fmul reassoc nsz arcp contract afn float %1915, %factor.op.fmul413
-  %1916 = getelementptr inbounds nuw float, ptr %1859, i64 %1911
-  %1917 = load float, ptr %1916, align 4, !tbaa !37
-  %.reass665.i.reass = fmul reassoc nsz arcp contract afn float %1917, %factor.op.fmul411
+1911:                                             ; preds = %1911, %.lr.ph671.i
+  %indvars.iv805.i = phi i64 [ %1851, %.lr.ph671.i ], [ %indvars.iv.next806.i, %1911 ]
+  %1912 = add i64 %indvars.iv805.i, %1862
+  %1913 = getelementptr inbounds nuw float, ptr %1856, i64 %1912
+  %1914 = load float, ptr %1913, align 4, !tbaa !37
+  %.reass667.i.reass = fmul reassoc nsz arcp contract afn float %1914, %factor.op.fmul412
+  %1915 = getelementptr inbounds nuw float, ptr %1858, i64 %1912
+  %1916 = load float, ptr %1915, align 4, !tbaa !37
+  %.reass669.i.reass = fmul reassoc nsz arcp contract afn float %1916, %factor.op.fmul413
+  %1917 = getelementptr inbounds nuw float, ptr %1860, i64 %1912
+  %1918 = load float, ptr %1917, align 4, !tbaa !37
+  %.reass665.i.reass = fmul reassoc nsz arcp contract afn float %1918, %factor.op.fmul411
   %reass.add = fadd reassoc nsz arcp contract afn float %.reass669.i.reass, %.reass667.i.reass
   %reass.add359 = fadd reassoc nsz arcp contract afn float %reass.add, %.reass665.i.reass
-  %1918 = getelementptr inbounds nuw float, ptr %1838, i64 %1911
-  store float %reass.add359, ptr %1918, align 4, !tbaa !37
-  %1919 = getelementptr inbounds nuw i32, ptr %1860, i64 %1911
-  %1920 = load i32, ptr %1919, align 4, !tbaa !22
-  %1921 = icmp eq i32 %1920, 1
-  %1922 = select i1 %1921, float 0x4415AF1D80000000, float 0.000000e+00
-  %1923 = getelementptr inbounds nuw float, ptr %1831, i64 %1911
-  store float %1922, ptr %1923, align 4, !tbaa !37
+  %1919 = getelementptr inbounds nuw float, ptr %1839, i64 %1912
+  store float %reass.add359, ptr %1919, align 4, !tbaa !37
+  %1920 = getelementptr inbounds nuw i32, ptr %1861, i64 %1912
+  %1921 = load i32, ptr %1920, align 4, !tbaa !22
+  %1922 = icmp eq i32 %1921, 1
+  %1923 = select i1 %1922, float 0x4415AF1D80000000, float 0.000000e+00
+  %1924 = getelementptr inbounds nuw float, ptr %1832, i64 %1912
+  store float %1923, ptr %1924, align 4, !tbaa !37
   %indvars.iv.next806.i = add nuw nsw i64 %indvars.iv805.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next806.i, %1853
-  br i1 %exitcond.not, label %._crit_edge672.i, label %1910
+  %exitcond.not = icmp eq i64 %indvars.iv.next806.i, %1854
+  br i1 %exitcond.not, label %._crit_edge672.i, label %1911
 
-1924:                                             ; preds = %_masks_extend_border.exit511.i, %._crit_edge664.i
-  br i1 %spec.select.i, label %1925, label %.loopexit.i314
+1925:                                             ; preds = %_masks_extend_border.exit511.i, %._crit_edge664.i
+  br i1 %spec.select.i, label %1926, label %.loopexit.i314
 
-1925:                                             ; preds = %1924
-  %1926 = tail call reassoc nsz arcp contract afn float @dt_image_distance_transform(ptr noundef null, ptr noundef %1831, i64 noundef %1188, i64 noundef %1194, float noundef 1.000000e+00, i32 noundef 0) #30
-  %1927 = fcmp reassoc nsz arcp contract afn ogt float %1926, 3.000000e+00
-  br i1 %1927, label %1928, label %.loopexit.i314
+1926:                                             ; preds = %1925
+  %1927 = tail call reassoc nsz arcp contract afn float @dt_image_distance_transform(ptr noundef null, ptr noundef %1832, i64 noundef %1188, i64 noundef %1194, float noundef 1.000000e+00, i32 noundef 0) #30
+  %1928 = fcmp reassoc nsz arcp contract afn ogt float %1927, 3.000000e+00
+  br i1 %1928, label %1929, label %.loopexit.i314
 
-1928:                                             ; preds = %1925
-  call void @dt_segmentize_plane(ptr noundef nonnull %1839)
-  %1929 = add i64 %1193, 6
-  %1930 = icmp ugt i64 %1929, 10
-  br i1 %1930, label %.preheader.lr.ph.i.i, label %_initial_gradients.exit.i
+1929:                                             ; preds = %1926
+  call void @dt_segmentize_plane(ptr noundef nonnull %1840)
+  %1930 = add i64 %1193, 6
+  %1931 = icmp ugt i64 %1930, 10
+  br i1 %1931, label %.preheader.lr.ph.i.i, label %_initial_gradients.exit.i
 
-.preheader.lr.ph.i.i:                             ; preds = %1928
-  %1931 = add i64 %1187, 6
-  %1932 = icmp ugt i64 %1931, 10
+.preheader.lr.ph.i.i:                             ; preds = %1929
+  %1932 = add i64 %1187, 6
+  %1933 = icmp ugt i64 %1932, 10
   %sext.i.i = sub i64 -73014444032, %1273
-  %1933 = ashr exact i64 %sext.i.i, 30
+  %1934 = ashr exact i64 %sext.i.i, 30
   %sext23.i.i = sub i64 4294967296, %sext598.i
-  %1934 = ashr exact i64 %sext23.i.i, 30
-  %1935 = ashr exact i64 %sext598.i, 30
+  %1935 = ashr exact i64 %sext23.i.i, 30
+  %1936 = ashr exact i64 %sext598.i, 30
   %.neg.i.i = mul i64 %1188, -4294967296
-  %1936 = ashr exact i64 %.neg.i.i, 30
-  br i1 %1932, label %.preheader.us.i.i, label %_initial_gradients.exit.i
+  %1937 = ashr exact i64 %.neg.i.i, 30
+  br i1 %1933, label %.preheader.us.i.i, label %_initial_gradients.exit.i
 
 .preheader.us.i.i:                                ; preds = %.preheader.lr.ph.i.i, %._crit_edge.us.i515.i
   %indvars.iv37.i.i = phi i64 [ %indvars.iv.next38.i.i, %._crit_edge.us.i515.i ], [ 10, %.preheader.lr.ph.i.i ]
-  %1937 = mul i64 %indvars.iv37.i.i, %1188
-  br label %1938
+  %1938 = mul i64 %indvars.iv37.i.i, %1188
+  br label %1939
 
-1938:                                             ; preds = %1980, %.preheader.us.i.i
-  %indvars.iv.i512.i = phi i64 [ 10, %.preheader.us.i.i ], [ %indvars.iv.next.i513.i, %1980 ]
-  %1939 = add i64 %indvars.iv.i512.i, %1937
-  %1940 = getelementptr inbounds nuw float, ptr %1831, i64 %1939
-  %1941 = load float, ptr %1940, align 4, !tbaa !37
-  %1942 = fcmp reassoc nsz arcp contract afn ogt float %1941, 0.000000e+00
-  %1943 = fcmp reassoc nsz arcp contract afn olt float %1941, 2.000000e+00
-  %or.cond.us.i.i = and i1 %1942, %1943
-  br i1 %or.cond.us.i.i, label %1944, label %1980
+1939:                                             ; preds = %1981, %.preheader.us.i.i
+  %indvars.iv.i512.i = phi i64 [ 10, %.preheader.us.i.i ], [ %indvars.iv.next.i513.i, %1981 ]
+  %1940 = add i64 %indvars.iv.i512.i, %1938
+  %1941 = getelementptr inbounds nuw float, ptr %1832, i64 %1940
+  %1942 = load float, ptr %1941, align 4, !tbaa !37
+  %1943 = fcmp reassoc nsz arcp contract afn ogt float %1942, 0.000000e+00
+  %1944 = fcmp reassoc nsz arcp contract afn olt float %1942, 2.000000e+00
+  %or.cond.us.i.i = and i1 %1943, %1944
+  br i1 %or.cond.us.i.i, label %1945, label %1981
 
-1944:                                             ; preds = %1938
-  %1945 = getelementptr inbounds nuw float, ptr %1834, i64 %1939
-  %1946 = getelementptr inbounds i8, ptr %1945, i64 %1933
-  %1947 = load float, ptr %1946, align 4, !tbaa !37
-  %1948 = getelementptr inbounds i8, ptr %1945, i64 %1934
-  %1949 = load float, ptr %1948, align 4, !tbaa !37
-  %1950 = getelementptr i8, ptr %1945, i64 %1935
-  %1951 = getelementptr i8, ptr %1950, i64 -4
-  %1952 = load float, ptr %1951, align 4, !tbaa !37
-  %1953 = getelementptr i8, ptr %1950, i64 4
-  %1954 = load float, ptr %1953, align 4, !tbaa !37
-  %1955 = fadd reassoc nsz arcp contract afn float %1947, %1952
-  %1956 = fadd reassoc nsz arcp contract afn float %1949, %1954
-  %1957 = fsub reassoc nsz arcp contract afn float %1955, %1956
-  %1958 = fmul reassoc nsz arcp contract afn float %1957, 0x3FC79797A0000000
-  %1959 = getelementptr inbounds i8, ptr %1945, i64 -4
-  %1960 = load float, ptr %1959, align 4, !tbaa !37
-  %1961 = getelementptr inbounds nuw i8, ptr %1945, i64 4
-  %1962 = load float, ptr %1961, align 4, !tbaa !37
-  %1963 = fsub reassoc nsz arcp contract afn float %1960, %1962
-  %1964 = fmul reassoc nsz arcp contract afn float %1963, 0x3FE4545460000000
-  %1965 = fadd reassoc nsz arcp contract afn float %1964, %1958
-  %.neg364 = fadd reassoc nsz arcp contract afn float %1949, %1947
-  %1966 = fadd reassoc nsz arcp contract afn float %1952, %1954
-  %1967 = fsub reassoc nsz arcp contract afn float %.neg364, %1966
-  %1968 = fmul reassoc nsz arcp contract afn float %1967, 0x3FC79797A0000000
-  %1969 = getelementptr inbounds i8, ptr %1945, i64 %1936
-  %1970 = load float, ptr %1969, align 4, !tbaa !37
-  %1971 = load float, ptr %1950, align 4, !tbaa !37
-  %1972 = fsub reassoc nsz arcp contract afn float %1970, %1971
-  %1973 = fmul reassoc nsz arcp contract afn float %1972, 0x3FE4545460000000
-  %1974 = fadd reassoc nsz arcp contract afn float %1973, %1968
-  %1975 = fmul reassoc nsz arcp contract afn float %1965, %1965
-  %1976 = fmul reassoc nsz arcp contract afn float %1974, %1974
-  %1977 = fadd reassoc nsz arcp contract afn float %1976, %1975
-  %1978 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %1977)
-  %1979 = fmul reassoc nsz arcp contract afn float %1978, 4.000000e+00
-  br label %1980
+1945:                                             ; preds = %1939
+  %1946 = getelementptr inbounds nuw float, ptr %1835, i64 %1940
+  %1947 = getelementptr inbounds i8, ptr %1946, i64 %1934
+  %1948 = load float, ptr %1947, align 4, !tbaa !37
+  %1949 = getelementptr inbounds i8, ptr %1946, i64 %1935
+  %1950 = load float, ptr %1949, align 4, !tbaa !37
+  %1951 = getelementptr i8, ptr %1946, i64 %1936
+  %1952 = getelementptr i8, ptr %1951, i64 -4
+  %1953 = load float, ptr %1952, align 4, !tbaa !37
+  %1954 = getelementptr i8, ptr %1951, i64 4
+  %1955 = load float, ptr %1954, align 4, !tbaa !37
+  %1956 = fadd reassoc nsz arcp contract afn float %1948, %1953
+  %1957 = fadd reassoc nsz arcp contract afn float %1950, %1955
+  %1958 = fsub reassoc nsz arcp contract afn float %1956, %1957
+  %1959 = fmul reassoc nsz arcp contract afn float %1958, 0x3FC79797A0000000
+  %1960 = getelementptr inbounds i8, ptr %1946, i64 -4
+  %1961 = load float, ptr %1960, align 4, !tbaa !37
+  %1962 = getelementptr inbounds nuw i8, ptr %1946, i64 4
+  %1963 = load float, ptr %1962, align 4, !tbaa !37
+  %1964 = fsub reassoc nsz arcp contract afn float %1961, %1963
+  %1965 = fmul reassoc nsz arcp contract afn float %1964, 0x3FE4545460000000
+  %1966 = fadd reassoc nsz arcp contract afn float %1965, %1959
+  %.neg364 = fadd reassoc nsz arcp contract afn float %1950, %1948
+  %1967 = fadd reassoc nsz arcp contract afn float %1953, %1955
+  %1968 = fsub reassoc nsz arcp contract afn float %.neg364, %1967
+  %1969 = fmul reassoc nsz arcp contract afn float %1968, 0x3FC79797A0000000
+  %1970 = getelementptr inbounds i8, ptr %1946, i64 %1937
+  %1971 = load float, ptr %1970, align 4, !tbaa !37
+  %1972 = load float, ptr %1951, align 4, !tbaa !37
+  %1973 = fsub reassoc nsz arcp contract afn float %1971, %1972
+  %1974 = fmul reassoc nsz arcp contract afn float %1973, 0x3FE4545460000000
+  %1975 = fadd reassoc nsz arcp contract afn float %1974, %1969
+  %1976 = fmul reassoc nsz arcp contract afn float %1966, %1966
+  %1977 = fmul reassoc nsz arcp contract afn float %1975, %1975
+  %1978 = fadd reassoc nsz arcp contract afn float %1977, %1976
+  %1979 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %1978)
+  %1980 = fmul reassoc nsz arcp contract afn float %1979, 4.000000e+00
+  br label %1981
 
-1980:                                             ; preds = %1944, %1938
-  %.0.us.i.i = phi nsz float [ %1979, %1944 ], [ 0.000000e+00, %1938 ]
-  %1981 = getelementptr inbounds nuw float, ptr %1836, i64 %1939
-  store float %.0.us.i.i, ptr %1981, align 4, !tbaa !37
+1981:                                             ; preds = %1945, %1939
+  %.0.us.i.i = phi nsz float [ %1980, %1945 ], [ 0.000000e+00, %1939 ]
+  %1982 = getelementptr inbounds nuw float, ptr %1837, i64 %1940
+  store float %.0.us.i.i, ptr %1982, align 4, !tbaa !37
   %indvars.iv.next.i513.i = add nuw nsw i64 %indvars.iv.i512.i, 1
-  %exitcond.not.i514.i = icmp eq i64 %indvars.iv.next.i513.i, %1931
-  br i1 %exitcond.not.i514.i, label %._crit_edge.us.i515.i, label %1938
+  %exitcond.not.i514.i = icmp eq i64 %indvars.iv.next.i513.i, %1932
+  br i1 %exitcond.not.i514.i, label %._crit_edge.us.i515.i, label %1939
 
-._crit_edge.us.i515.i:                            ; preds = %1980
+._crit_edge.us.i515.i:                            ; preds = %1981
   %indvars.iv.next38.i.i = add nuw nsw i64 %indvars.iv37.i.i, 1
-  %exitcond40.not.i.i = icmp eq i64 %indvars.iv.next38.i.i, %1929
+  %exitcond40.not.i.i = icmp eq i64 %indvars.iv.next38.i.i, %1930
   br i1 %exitcond40.not.i.i, label %_initial_gradients.exit.i, label %.preheader.us.i.i
 
-_initial_gradients.exit.i:                        ; preds = %._crit_edge.us.i515.i, %.preheader.lr.ph.i.i, %1928
-  %1982 = getelementptr inbounds nuw i8, ptr %23, i64 364
-  %1983 = load i32, ptr %1982, align 4, !tbaa !28
-  %1984 = icmp slt i32 %1983, 1
-  br i1 %1984, label %_masks_extend_border.exit530.i, label %1985
+_initial_gradients.exit.i:                        ; preds = %._crit_edge.us.i515.i, %.preheader.lr.ph.i.i, %1929
+  %1983 = getelementptr inbounds nuw i8, ptr %23, i64 364
+  %1984 = load i32, ptr %1983, align 4, !tbaa !28
+  %1985 = icmp slt i32 %1984, 1
+  br i1 %1985, label %_masks_extend_border.exit530.i, label %1986
 
-1985:                                             ; preds = %_initial_gradients.exit.i
-  %1986 = zext nneg i32 %1983 to i64
-  %1987 = sub nsw i32 %1206, %1983
-  %1988 = sext i32 %1987 to i64
-  %1989 = icmp ult i32 %1983, %1987
-  br i1 %1989, label %.lr.ph.i524.i, label %.preheader.i516.i
+1986:                                             ; preds = %_initial_gradients.exit.i
+  %1987 = zext nneg i32 %1984 to i64
+  %1988 = sub nsw i32 %1206, %1984
+  %1989 = sext i32 %1988 to i64
+  %1990 = icmp ult i32 %1984, %1988
+  br i1 %1990, label %.lr.ph.i524.i, label %.preheader.i516.i
 
-.lr.ph.i524.i:                                    ; preds = %1985
-  %1990 = xor i64 %1986, -1
-  %invariant.gep.i525.i = getelementptr float, ptr %1836, i64 %1270
-  br label %1999
+.lr.ph.i524.i:                                    ; preds = %1986
+  %1991 = xor i64 %1987, -1
+  %invariant.gep.i525.i = getelementptr float, ptr %1837, i64 %1270
+  br label %2000
 
-.preheader.i516.i:                                ; preds = %2004, %1985
+.preheader.i516.i:                                ; preds = %2005, %1986
   br i1 %.not.i483.i, label %_masks_extend_border.exit530.i, label %.lr.ph85.i518.i
 
 .lr.ph85.i518.i:                                  ; preds = %.preheader.i516.i
-  %1991 = mul nsw i32 %1983, %1205
-  %1992 = sext i32 %1991 to i64
-  %1993 = xor i32 %1983, -1
-  %1994 = add i32 %1993, %1205
-  %1995 = sext i32 %1994 to i64
-  %1996 = add nsw i32 %1987, -1
-  %1997 = mul nsw i32 %1996, %1205
-  %1998 = sext i32 %1997 to i64
-  br label %2014
+  %1992 = mul nsw i32 %1984, %1205
+  %1993 = sext i32 %1992 to i64
+  %1994 = xor i32 %1984, -1
+  %1995 = add i32 %1994, %1205
+  %1996 = sext i32 %1995 to i64
+  %1997 = add nsw i32 %1988, -1
+  %1998 = mul nsw i32 %1997, %1205
+  %1999 = sext i32 %1998 to i64
+  br label %2015
 
-1999:                                             ; preds = %2004, %.lr.ph.i524.i
-  %.07282.i526.i = phi i64 [ %1986, %.lr.ph.i524.i ], [ %2005, %2004 ]
-  %2000 = mul i64 %.07282.i526.i, %1270
-  %2001 = getelementptr float, ptr %1836, i64 %2000
-  %2002 = getelementptr float, ptr %2001, i64 %1986
-  %gep.i527.i = getelementptr float, ptr %invariant.gep.i525.i, i64 %2000
-  %2003 = getelementptr float, ptr %gep.i527.i, i64 %1990
-  br label %2007
+2000:                                             ; preds = %2005, %.lr.ph.i524.i
+  %.07282.i526.i = phi i64 [ %1987, %.lr.ph.i524.i ], [ %2006, %2005 ]
+  %2001 = mul i64 %.07282.i526.i, %1270
+  %2002 = getelementptr float, ptr %1837, i64 %2001
+  %2003 = getelementptr float, ptr %2002, i64 %1987
+  %gep.i527.i = getelementptr float, ptr %invariant.gep.i525.i, i64 %2001
+  %2004 = getelementptr float, ptr %gep.i527.i, i64 %1991
+  br label %2008
 
-2004:                                             ; preds = %2007
-  %2005 = add nuw i64 %.07282.i526.i, 1
-  %2006 = icmp ult i64 %2005, %1988
-  br i1 %2006, label %1999, label %.preheader.i516.i
+2005:                                             ; preds = %2008
+  %2006 = add nuw i64 %.07282.i526.i, 1
+  %2007 = icmp ult i64 %2006, %1989
+  br i1 %2007, label %2000, label %.preheader.i516.i
 
-2007:                                             ; preds = %2007, %1999
-  %.07481.i528.i = phi i64 [ 0, %1999 ], [ %2013, %2007 ]
-  %2008 = load float, ptr %2002, align 4, !tbaa !37
-  %2009 = getelementptr float, ptr %2001, i64 %.07481.i528.i
-  store float %2008, ptr %2009, align 4, !tbaa !37
-  %2010 = load float, ptr %2003, align 4, !tbaa !37
-  %2011 = xor i64 %.07481.i528.i, -1
-  %2012 = getelementptr float, ptr %gep.i527.i, i64 %2011
-  store float %2010, ptr %2012, align 4, !tbaa !37
-  %2013 = add nuw nsw i64 %.07481.i528.i, 1
-  %exitcond.not.i529.i = icmp eq i64 %2013, %1986
-  br i1 %exitcond.not.i529.i, label %2004, label %2007
+2008:                                             ; preds = %2008, %2000
+  %.07481.i528.i = phi i64 [ 0, %2000 ], [ %2014, %2008 ]
+  %2009 = load float, ptr %2003, align 4, !tbaa !37
+  %2010 = getelementptr float, ptr %2002, i64 %.07481.i528.i
+  store float %2009, ptr %2010, align 4, !tbaa !37
+  %2011 = load float, ptr %2004, align 4, !tbaa !37
+  %2012 = xor i64 %.07481.i528.i, -1
+  %2013 = getelementptr float, ptr %gep.i527.i, i64 %2012
+  store float %2011, ptr %2013, align 4, !tbaa !37
+  %2014 = add nuw nsw i64 %.07481.i528.i, 1
+  %exitcond.not.i529.i = icmp eq i64 %2014, %1987
+  br i1 %exitcond.not.i529.i, label %2005, label %2008
 
-2014:                                             ; preds = %2022, %.lr.ph85.i518.i
-  %.07384.i519.i = phi i64 [ 0, %.lr.ph85.i518.i ], [ %2023, %2022 ]
-  %2015 = tail call i64 @llvm.umax.i64(i64 %.07384.i519.i, i64 %1986)
-  %..i520.i = tail call i64 @llvm.umin.i64(i64 %2015, i64 %1995)
-  %2016 = getelementptr float, ptr %1836, i64 %..i520.i
-  %2017 = getelementptr float, ptr %2016, i64 %1992
-  %2018 = load float, ptr %2017, align 4, !tbaa !37
-  %2019 = getelementptr float, ptr %2016, i64 %1998
-  %2020 = load float, ptr %2019, align 4, !tbaa !37
-  %2021 = getelementptr float, ptr %1836, i64 %.07384.i519.i
-  br label %2024
+2015:                                             ; preds = %2023, %.lr.ph85.i518.i
+  %.07384.i519.i = phi i64 [ 0, %.lr.ph85.i518.i ], [ %2024, %2023 ]
+  %2016 = tail call i64 @llvm.umax.i64(i64 %.07384.i519.i, i64 %1987)
+  %..i520.i = tail call i64 @llvm.umin.i64(i64 %2016, i64 %1996)
+  %2017 = getelementptr float, ptr %1837, i64 %..i520.i
+  %2018 = getelementptr float, ptr %2017, i64 %1993
+  %2019 = load float, ptr %2018, align 4, !tbaa !37
+  %2020 = getelementptr float, ptr %2017, i64 %1999
+  %2021 = load float, ptr %2020, align 4, !tbaa !37
+  %2022 = getelementptr float, ptr %1837, i64 %.07384.i519.i
+  br label %2025
 
-2022:                                             ; preds = %2024
-  %2023 = add nuw i64 %.07384.i519.i, 1
-  %exitcond87.not.i523.i = icmp eq i64 %2023, %1270
-  br i1 %exitcond87.not.i523.i, label %_masks_extend_border.exit530.i, label %2014
+2023:                                             ; preds = %2025
+  %2024 = add nuw i64 %.07384.i519.i, 1
+  %exitcond87.not.i523.i = icmp eq i64 %2024, %1270
+  br i1 %exitcond87.not.i523.i, label %_masks_extend_border.exit530.i, label %2015
 
-2024:                                             ; preds = %2024, %2014
-  %.083.i521.i = phi i64 [ 0, %2014 ], [ %2031, %2024 ]
-  %2025 = mul nsw i64 %.083.i521.i, %1270
-  %2026 = getelementptr float, ptr %2021, i64 %2025
-  store float %2018, ptr %2026, align 4, !tbaa !37
-  %2027 = xor i64 %.083.i521.i, -1
-  %2028 = add nsw i64 %1276, %2027
-  %2029 = mul nsw i64 %2028, %1270
-  %2030 = getelementptr float, ptr %2021, i64 %2029
-  store float %2020, ptr %2030, align 4, !tbaa !37
-  %2031 = add nuw nsw i64 %.083.i521.i, 1
-  %exitcond86.not.i522.i = icmp eq i64 %2031, %1986
-  br i1 %exitcond86.not.i522.i, label %2022, label %2024
+2025:                                             ; preds = %2025, %2015
+  %.083.i521.i = phi i64 [ 0, %2015 ], [ %2032, %2025 ]
+  %2026 = mul nsw i64 %.083.i521.i, %1270
+  %2027 = getelementptr float, ptr %2022, i64 %2026
+  store float %2019, ptr %2027, align 4, !tbaa !37
+  %2028 = xor i64 %.083.i521.i, -1
+  %2029 = add nsw i64 %1276, %2028
+  %2030 = mul nsw i64 %2029, %1270
+  %2031 = getelementptr float, ptr %2022, i64 %2030
+  store float %2021, ptr %2031, align 4, !tbaa !37
+  %2032 = add nuw nsw i64 %.083.i521.i, 1
+  %exitcond86.not.i522.i = icmp eq i64 %2032, %1987
+  br i1 %exitcond86.not.i522.i, label %2023, label %2025
 
-_masks_extend_border.exit530.i:                   ; preds = %2022, %.preheader.i516.i, %_initial_gradients.exit.i
-  %2032 = getelementptr inbounds nuw i8, ptr %23, i64 360
-  %2033 = load i32, ptr %2032, align 8, !tbaa !42
-  %2034 = icmp ugt i32 %2033, 2
-  br i1 %2034, label %.lr.ph677.i, label %._crit_edge678.thread.i
+_masks_extend_border.exit530.i:                   ; preds = %2023, %.preheader.i516.i, %_initial_gradients.exit.i
+  %2033 = getelementptr inbounds nuw i8, ptr %23, i64 360
+  %2034 = load i32, ptr %2033, align 8, !tbaa !42
+  %2035 = icmp ugt i32 %2034, 2
+  br i1 %2035, label %.lr.ph677.i, label %._crit_edge678.thread.i
 
 .lr.ph677.i:                                      ; preds = %_masks_extend_border.exit530.i
-  %2035 = getelementptr inbounds nuw i8, ptr %23, i64 312
-  %2036 = load ptr, ptr %2035, align 8, !tbaa !34
-  %2037 = getelementptr inbounds nuw i8, ptr %23, i64 320
-  %2038 = load ptr, ptr %2037, align 16, !tbaa !33
-  %2039 = getelementptr inbounds nuw i8, ptr %23, i64 372
-  %2040 = load i32, ptr %2039, align 4, !tbaa !23
-  %2041 = sub i32 %2040, %1983
-  %2042 = getelementptr inbounds nuw i8, ptr %23, i64 328
-  %2043 = load ptr, ptr %2042, align 8, !tbaa !32
-  %2044 = getelementptr inbounds nuw i8, ptr %23, i64 336
-  %2045 = load ptr, ptr %2044, align 16, !tbaa !31
-  %2046 = getelementptr inbounds nuw i8, ptr %23, i64 376
-  %2047 = load i32, ptr %2046, align 8, !tbaa !27
-  %2048 = sub nsw i32 %2047, %1983
-  %2049 = sext i32 %2040 to i64
-  %2050 = getelementptr inbounds nuw i8, ptr %23, i64 344
-  %2051 = load ptr, ptr %2050, align 8
-  %2052 = load ptr, ptr %1839, align 16
-  %2053 = sext i32 %1983 to i64
-  %2054 = icmp slt i32 %1165, 5
-  %2055 = getelementptr inbounds float, ptr @__const._segment_attenuation.attenuate, i64 %1168
-  %.pn.in.i.i = sitofp i32 %1170 to float
-  %.pn.i.i = fmul reassoc nsz arcp contract afn float %.pn.in.i.i, 0x3FB99999A0000000
-  %wide.trip.count816.i = zext i32 %2033 to i64
-  br label %2072
+  %2036 = getelementptr inbounds nuw i8, ptr %23, i64 312
+  %2037 = load ptr, ptr %2036, align 8, !tbaa !34
+  %2038 = getelementptr inbounds nuw i8, ptr %23, i64 320
+  %2039 = load ptr, ptr %2038, align 16, !tbaa !33
+  %2040 = getelementptr inbounds nuw i8, ptr %23, i64 372
+  %2041 = load i32, ptr %2040, align 4, !tbaa !23
+  %2042 = sub i32 %2041, %1984
+  %2043 = getelementptr inbounds nuw i8, ptr %23, i64 328
+  %2044 = load ptr, ptr %2043, align 8, !tbaa !32
+  %2045 = getelementptr inbounds nuw i8, ptr %23, i64 336
+  %2046 = load ptr, ptr %2045, align 16, !tbaa !31
+  %2047 = getelementptr inbounds nuw i8, ptr %23, i64 376
+  %2048 = load i32, ptr %2047, align 8, !tbaa !27
+  %2049 = sub nsw i32 %2048, %1984
+  %2050 = sext i32 %2041 to i64
+  %2051 = getelementptr inbounds nuw i8, ptr %23, i64 344
+  %2052 = load ptr, ptr %2051, align 8
+  %2053 = load ptr, ptr %1840, align 16
+  %2054 = sext i32 %1984 to i64
+  %2055 = icmp slt i32 %1165, 5
+  %2056 = getelementptr inbounds float, ptr @__const._segment_attenuation.attenuate, i64 %1168
+  %2057 = sitofp i32 %1170 to float
+  %2058 = fmul reassoc nsz arcp contract afn float %2057, 0x3FB99999A0000000
+  %wide.trip.count816.i = zext i32 %2034 to i64
+  br label %2075
 
 ._crit_edge678.i:                                 ; preds = %_segment_gradients.exit.i
-  tail call void @dt_gaussian_fast_blur(ptr noundef %1836, ptr noundef %1832, i32 noundef %1205, i32 noundef %1206, float noundef 0x3FF3333340000000, float noundef 0.000000e+00, float noundef 2.000000e+01, i32 noundef 1) #30
-  %2056 = getelementptr inbounds nuw i8, ptr %46, i64 20
-  %2057 = load float, ptr %2056, align 4, !tbaa !163
-  %2058 = fcmp reassoc nsz arcp contract afn ule float %2057, 0.000000e+00
-  br i1 %2058, label %.loopexit612.i, label %.lr.ph680.i
+  tail call void @dt_gaussian_fast_blur(ptr noundef %1837, ptr noundef %1833, i32 noundef %1205, i32 noundef %1206, float noundef 0x3FF3333340000000, float noundef 0.000000e+00, float noundef 2.000000e+01, i32 noundef 1) #30
+  %2059 = getelementptr inbounds nuw i8, ptr %46, i64 20
+  %2060 = load float, ptr %2059, align 4, !tbaa !163
+  %2061 = fcmp reassoc nsz arcp contract afn ule float %2060, 0.000000e+00
+  br i1 %2061, label %.loopexit612.i, label %.lr.ph680.i
 
 ._crit_edge678.thread.i:                          ; preds = %_masks_extend_border.exit530.i
-  tail call void @dt_gaussian_fast_blur(ptr noundef %1836, ptr noundef %1832, i32 noundef %1205, i32 noundef %1206, float noundef 0x3FF3333340000000, float noundef 0.000000e+00, float noundef 2.000000e+01, i32 noundef 1) #30
+  tail call void @dt_gaussian_fast_blur(ptr noundef %1837, ptr noundef %1833, i32 noundef %1205, i32 noundef %1206, float noundef 0x3FF3333340000000, float noundef 0.000000e+00, float noundef 2.000000e+01, i32 noundef 1) #30
   %.pre488 = sitofp i32 %1170 to float
   br label %.loopexit612.i
 
 .lr.ph680.i:                                      ; preds = %._crit_edge678.i
-  %2059 = load ptr, ptr %2050, align 8, !tbaa !38
-  %2060 = load ptr, ptr %2035, align 8
-  %2061 = load i32, ptr %1982, align 4
-  %2062 = load ptr, ptr %2037, align 16
-  %2063 = load i32, ptr %2039, align 4
-  %2064 = sub i32 %2063, %2061
-  %2065 = load ptr, ptr %2042, align 8
-  %2066 = load ptr, ptr %2044, align 16
-  %2067 = load i32, ptr %2046, align 8
-  %2068 = sub i32 %2067, %2061
-  %2069 = sext i32 %2063 to i64
-  %2070 = fmul reassoc nsz arcp contract afn float %2057, %2057
-  %2071 = load ptr, ptr %1839, align 16
-  br label %2242
+  %2062 = load ptr, ptr %2051, align 8, !tbaa !38
+  %2063 = load ptr, ptr %2036, align 8
+  %2064 = load i32, ptr %1983, align 4
+  %2065 = load ptr, ptr %2038, align 16
+  %2066 = load i32, ptr %2040, align 4
+  %2067 = sub i32 %2066, %2064
+  %2068 = load ptr, ptr %2043, align 8
+  %2069 = load ptr, ptr %2045, align 16
+  %2070 = load i32, ptr %2047, align 8
+  %2071 = sub i32 %2070, %2064
+  %2072 = sext i32 %2066 to i64
+  %2073 = fmul reassoc nsz arcp contract afn float %2060, %2060
+  %2074 = load ptr, ptr %1840, align 16
+  br label %2245
 
-2072:                                             ; preds = %_segment_gradients.exit.i, %.lr.ph677.i
+2075:                                             ; preds = %_segment_gradients.exit.i, %.lr.ph677.i
   %indvars.iv813.i = phi i64 [ 2, %.lr.ph677.i ], [ %indvars.iv.next814.i, %_segment_gradients.exit.i ]
-  %2073 = getelementptr inbounds nuw i32, ptr %2036, i64 %indvars.iv813.i
-  %2074 = load i32, ptr %2073, align 4, !tbaa !22
-  %2075 = add i32 %2074, -2
-  %..i531.i = tail call i32 @llvm.smax.i32(i32 %2075, i32 %1983)
-  %2076 = getelementptr inbounds nuw i32, ptr %2038, i64 %indvars.iv813.i
+  %2076 = getelementptr inbounds nuw i32, ptr %2037, i64 %indvars.iv813.i
   %2077 = load i32, ptr %2076, align 4, !tbaa !22
-  %2078 = add i32 %2077, 3
-  %2079 = tail call i32 @llvm.smin.i32(i32 %2078, i32 %2041)
-  %2080 = getelementptr inbounds nuw i32, ptr %2043, i64 %indvars.iv813.i
-  %2081 = load i32, ptr %2080, align 4, !tbaa !22
-  %2082 = add nsw i32 %2081, -2
-  %2083 = tail call i32 @llvm.smax.i32(i32 %2082, i32 %1983)
-  %2084 = getelementptr inbounds nuw i32, ptr %2045, i64 %indvars.iv813.i
-  %2085 = load i32, ptr %2084, align 4, !tbaa !22
-  %2086 = add nsw i32 %2085, 3
-  %2087 = tail call i32 @llvm.smin.i32(i32 %2086, i32 %2048)
-  %2088 = icmp slt i32 %2083, %2087
-  %2089 = icmp slt i32 %..i531.i, %2079
-  %or.cond700.i = select i1 %2088, i1 %2089, i1 false
+  %2078 = add i32 %2077, -2
+  %..i531.i = tail call i32 @llvm.smax.i32(i32 %2078, i32 %1984)
+  %2079 = getelementptr inbounds nuw i32, ptr %2039, i64 %indvars.iv813.i
+  %2080 = load i32, ptr %2079, align 4, !tbaa !22
+  %2081 = add i32 %2080, 3
+  %2082 = tail call i32 @llvm.smin.i32(i32 %2081, i32 %2042)
+  %2083 = getelementptr inbounds nuw i32, ptr %2044, i64 %indvars.iv813.i
+  %2084 = load i32, ptr %2083, align 4, !tbaa !22
+  %2085 = add nsw i32 %2084, -2
+  %2086 = tail call i32 @llvm.smax.i32(i32 %2085, i32 %1984)
+  %2087 = getelementptr inbounds nuw i32, ptr %2046, i64 %indvars.iv813.i
+  %2088 = load i32, ptr %2087, align 4, !tbaa !22
+  %2089 = add nsw i32 %2088, 3
+  %2090 = tail call i32 @llvm.smin.i32(i32 %2089, i32 %2049)
+  %2091 = icmp slt i32 %2086, %2090
+  %2092 = icmp slt i32 %..i531.i, %2082
+  %or.cond700.i = select i1 %2091, i1 %2092, i1 false
   br i1 %or.cond700.i, label %.preheader.lr.ph.split.us.i.i, label %_segment_maxdistance.exit.thread.i
 
-.preheader.lr.ph.split.us.i.i:                    ; preds = %2072
+.preheader.lr.ph.split.us.i.i:                    ; preds = %2075
   %smax.i533.i = sext i32 %..i531.i to i64
-  %2090 = sext i32 %2081 to i64
-  %2091 = add nsw i64 %2090, -2
-  %smax62.i.i = tail call i64 @llvm.smax.i64(i64 %2091, i64 %2053)
-  %2092 = trunc nsw i64 %smax62.i.i to i32
-  %2093 = sub i32 %2087, %2083
-  %2094 = add i32 %2093, %2092
+  %2093 = sext i32 %2084 to i64
+  %2094 = add nsw i64 %2093, -2
+  %smax62.i.i = tail call i64 @llvm.smax.i64(i64 %2094, i64 %2054)
+  %2095 = trunc nsw i64 %smax62.i.i to i32
+  %2096 = sub i32 %2090, %2086
+  %2097 = add i32 %2096, %2095
   br label %.preheader.us.i534.i
 
 .preheader.us.i534.i:                             ; preds = %._crit_edge.us.i540.i, %.preheader.lr.ph.split.us.i.i
   %indvars.iv63.i.i = phi i64 [ %indvars.iv.next64.i.i, %._crit_edge.us.i540.i ], [ %smax62.i.i, %.preheader.lr.ph.split.us.i.i ]
   %.058.us.i.i = phi float [ %.pre182.i.i, %._crit_edge.us.i540.i ], [ 0.000000e+00, %.preheader.lr.ph.split.us.i.i ]
-  %2095 = mul nsw i64 %indvars.iv63.i.i, %2049
-  br label %2096
+  %2098 = mul nsw i64 %indvars.iv63.i.i, %2050
+  br label %2099
 
-2096:                                             ; preds = %2106, %.preheader.us.i534.i
-  %indvars.iv.i535.i = phi i64 [ %smax.i533.i, %.preheader.us.i534.i ], [ %indvars.iv.next.i537.i, %2106 ]
-  %.156.us.i.i = phi float [ %.058.us.i.i, %.preheader.us.i534.i ], [ %.pre182.i.i, %2106 ]
-  %2097 = add nsw i64 %indvars.iv.i535.i, %2095
-  %2098 = getelementptr inbounds nuw i32, ptr %2052, i64 %2097
-  %2099 = load i32, ptr %2098, align 4, !tbaa !22
-  %2100 = zext i32 %2099 to i64
-  %2101 = icmp eq i64 %indvars.iv813.i, %2100
-  br i1 %2101, label %2102, label %2106
+2099:                                             ; preds = %2109, %.preheader.us.i534.i
+  %indvars.iv.i535.i = phi i64 [ %smax.i533.i, %.preheader.us.i534.i ], [ %indvars.iv.next.i537.i, %2109 ]
+  %.156.us.i.i = phi float [ %.058.us.i.i, %.preheader.us.i534.i ], [ %.pre182.i.i, %2109 ]
+  %2100 = add nsw i64 %indvars.iv.i535.i, %2098
+  %2101 = getelementptr inbounds nuw i32, ptr %2053, i64 %2100
+  %2102 = load i32, ptr %2101, align 4, !tbaa !22
+  %2103 = zext i32 %2102 to i64
+  %2104 = icmp eq i64 %indvars.iv813.i, %2103
+  br i1 %2104, label %2105, label %2109
 
-2102:                                             ; preds = %2096
-  %2103 = getelementptr inbounds nuw float, ptr %1831, i64 %2097
-  %2104 = load float, ptr %2103, align 4, !tbaa !37
-  %2105 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.156.us.i.i, float %2104)
-  br label %2106
+2105:                                             ; preds = %2099
+  %2106 = getelementptr inbounds nuw float, ptr %1832, i64 %2100
+  %2107 = load float, ptr %2106, align 4, !tbaa !37
+  %2108 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.156.us.i.i, float %2107)
+  br label %2109
 
-2106:                                             ; preds = %2102, %2096
-  %.pre182.i.i = phi nsz float [ %2105, %2102 ], [ %.156.us.i.i, %2096 ]
+2109:                                             ; preds = %2105, %2099
+  %.pre182.i.i = phi nsz float [ %2108, %2105 ], [ %.156.us.i.i, %2099 ]
   %indvars.iv.next.i537.i = add nsw i64 %indvars.iv.i535.i, 1
   %lftr.wideiv.i538.i = trunc i64 %indvars.iv.next.i537.i to i32
-  %exitcond.not.i539.i = icmp eq i32 %2079, %lftr.wideiv.i538.i
-  br i1 %exitcond.not.i539.i, label %._crit_edge.us.i540.i, label %2096
+  %exitcond.not.i539.i = icmp eq i32 %2082, %lftr.wideiv.i538.i
+  br i1 %exitcond.not.i539.i, label %._crit_edge.us.i540.i, label %2099
 
-._crit_edge.us.i540.i:                            ; preds = %2106
+._crit_edge.us.i540.i:                            ; preds = %2109
   %indvars.iv.next64.i.i = add nsw i64 %indvars.iv63.i.i, 1
   %lftr.wideiv65.i.i = trunc i64 %indvars.iv.next64.i.i to i32
-  %exitcond66.not.i.i = icmp eq i32 %2094, %lftr.wideiv65.i.i
+  %exitcond66.not.i.i = icmp eq i32 %2097, %lftr.wideiv65.i.i
   br i1 %exitcond66.not.i.i, label %_segment_maxdistance.exit.i, label %.preheader.us.i534.i
 
-_segment_maxdistance.exit.thread.i:               ; preds = %2072
-  %2107 = getelementptr inbounds nuw float, ptr %2051, i64 %indvars.iv813.i
-  store float 0.000000e+00, ptr %2107, align 4, !tbaa !37
+_segment_maxdistance.exit.thread.i:               ; preds = %2075
+  %2110 = getelementptr inbounds nuw float, ptr %2052, i64 %indvars.iv813.i
+  store float 0.000000e+00, ptr %2110, align 4, !tbaa !37
   br label %_segment_gradients.exit.i
 
 _segment_maxdistance.exit.i:                      ; preds = %._crit_edge.us.i540.i
-  %2108 = getelementptr inbounds nuw float, ptr %2051, i64 %indvars.iv813.i
-  store float %.pre182.i.i, ptr %2108, align 4, !tbaa !37
-  %2109 = fcmp reassoc nsz arcp contract afn ogt float %.pre182.i.i, 2.000000e+00
-  br i1 %2109, label %2110, label %_segment_gradients.exit.i
+  %2111 = getelementptr inbounds nuw float, ptr %2052, i64 %indvars.iv813.i
+  store float %.pre182.i.i, ptr %2111, align 4, !tbaa !37
+  %2112 = fcmp reassoc nsz arcp contract afn ogt float %.pre182.i.i, 2.000000e+00
+  br i1 %2112, label %2113, label %_segment_gradients.exit.i
 
-2110:                                             ; preds = %_segment_maxdistance.exit.i
-  %2111 = add i32 %2074, -1
-  %..i541.i = tail call i32 @llvm.smax.i32(i32 %2111, i32 %1983)
-  %2112 = add i32 %2077, 2
-  %2113 = tail call i32 @llvm.smin.i32(i32 %2112, i32 %2041)
-  %2114 = add i32 %2081, -1
-  %2115 = tail call i32 @llvm.smax.i32(i32 %2114, i32 %1983)
-  %2116 = add i32 %2085, 2
-  %2117 = tail call i32 @llvm.smin.i32(i32 %2116, i32 %2048)
-  br i1 %2054, label %2118, label %2120
+2113:                                             ; preds = %_segment_maxdistance.exit.i
+  %2114 = add i32 %2077, -1
+  %..i541.i = tail call i32 @llvm.smax.i32(i32 %2114, i32 %1984)
+  %2115 = add i32 %2080, 2
+  %2116 = tail call i32 @llvm.smin.i32(i32 %2115, i32 %2042)
+  %2117 = add i32 %2084, -1
+  %2118 = tail call i32 @llvm.smax.i32(i32 %2117, i32 %1984)
+  %2119 = add i32 %2088, 2
+  %2120 = tail call i32 @llvm.smin.i32(i32 %2119, i32 %2049)
+  br i1 %2055, label %2121, label %2123
 
-2118:                                             ; preds = %2110
-  %2119 = load float, ptr %2055, align 4, !tbaa !37
+2121:                                             ; preds = %2113
+  %2122 = load float, ptr %2056, align 4, !tbaa !37
   br label %_segment_correction.exit.i.i
 
-2120:                                             ; preds = %2110
-  %2121 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.pre182.i.i, float 1.000000e+00)
-  %2122 = fdiv reassoc nsz arcp contract afn float 3.000000e+00, %2121
-  %2123 = fadd reassoc nsz arcp contract afn float %2122, 0x3FECCCCCC0000000
-  %2124 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %2123, float 0x3FFB333340000000)
+2123:                                             ; preds = %2113
+  %2124 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.pre182.i.i, float 1.000000e+00)
+  %2125 = fdiv reassoc nsz arcp contract afn float 3.000000e+00, %2124
+  %2126 = fadd reassoc nsz arcp contract afn float %2125, 0x3FECCCCCC0000000
+  %2127 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %2126, float 0x3FFB333340000000)
   br label %_segment_correction.exit.i.i
 
-_segment_correction.exit.i.i:                     ; preds = %2120, %2118
-  %.0.i138.i.i = phi float [ %2119, %2118 ], [ %2124, %2120 ]
-  %2125 = fcmp reassoc nsz arcp contract afn ogt float %.pre182.i.i, 1.500000e+00
-  br i1 %2125, label %.lr.ph.i550.i, label %.loopexit.i.i
+_segment_correction.exit.i.i:                     ; preds = %2123, %2121
+  %.0.i138.i.i = phi float [ %2122, %2121 ], [ %2127, %2123 ]
+  %2128 = fsub reassoc nsz arcp contract afn float %.0.i138.i.i, %2058
+  %2129 = fcmp reassoc nsz arcp contract afn ogt float %.pre182.i.i, 1.500000e+00
+  br i1 %2129, label %.lr.ph.i550.i, label %.loopexit.i.i
 
 .lr.ph.i550.i:                                    ; preds = %_segment_correction.exit.i.i
-  %2126 = icmp slt i32 %2115, %2117
-  %2127 = fneg reassoc nsz arcp contract afn float %.0.i138.i.i
-  %2128 = sext i32 %..i541.i to i64
-  %2129 = sext i32 %2115 to i64
-  %wide.trip.count81.i.i.i = sext i32 %2117 to i64
-  %wide.trip.count.i.i.i = sext i32 %2113 to i64
-  br i1 %2126, label %.lr.ph.split.us.i.i, label %_calc_distance_ring.exit.i.i
+  %2130 = icmp slt i32 %2118, %2120
+  %2131 = fneg reassoc nsz arcp contract afn float %.0.i138.i.i
+  %2132 = sext i32 %..i541.i to i64
+  %2133 = sext i32 %2118 to i64
+  %wide.trip.count81.i.i.i = sext i32 %2120 to i64
+  %wide.trip.count.i.i.i = sext i32 %2116 to i64
+  br i1 %2130, label %.lr.ph.split.us.i.i, label %_calc_distance_ring.exit.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i550.i
-  %2130 = icmp slt i32 %..i541.i, %2113
-  br i1 %2130, label %.preheader58.lr.ph.i.us.us.i.i, label %.preheader58.lr.ph.i.us.i.i
+  %2134 = icmp slt i32 %..i541.i, %2116
+  br i1 %2134, label %.preheader58.lr.ph.i.us.us.i.i, label %.preheader58.lr.ph.i.us.i.i
 
 .preheader58.lr.ph.i.us.us.i.i:                   ; preds = %.lr.ph.split.us.i.i, %_calc_distance_ring.exit.loopexit.us.us.i.i
-  %.0140.us.us.i.i = phi float [ %2131, %_calc_distance_ring.exit.loopexit.us.us.i.i ], [ 1.500000e+00, %.lr.ph.split.us.i.i ]
-  %2131 = fadd reassoc nsz arcp contract afn float %.0140.us.us.i.i, 1.500000e+00
-  %2132 = fadd reassoc nsz arcp contract afn float %.0140.us.us.i.i, -1.500000e+00
+  %.0140.us.us.i.i = phi float [ %2135, %_calc_distance_ring.exit.loopexit.us.us.i.i ], [ 1.500000e+00, %.lr.ph.split.us.i.i ]
+  %2135 = fadd reassoc nsz arcp contract afn float %.0140.us.us.i.i, 1.500000e+00
+  %2136 = fadd reassoc nsz arcp contract afn float %.0140.us.us.i.i, -1.500000e+00
   br label %.preheader58.us.i.us.us.i.i
 
 .preheader58.us.i.us.us.i.i:                      ; preds = %._crit_edge.us.i.us.us.i.i, %.preheader58.lr.ph.i.us.us.i.i
-  %indvars.iv78.i.us.us.i.i = phi i64 [ %indvars.iv.next79.i.us.us.i.i, %._crit_edge.us.i.us.us.i.i ], [ %2129, %.preheader58.lr.ph.i.us.us.i.i ]
-  %2133 = mul nsw i64 %indvars.iv78.i.us.us.i.i, %2049
-  %2134 = load ptr, ptr %1839, align 16
-  br label %2135
+  %indvars.iv78.i.us.us.i.i = phi i64 [ %indvars.iv.next79.i.us.us.i.i, %._crit_edge.us.i.us.us.i.i ], [ %2133, %.preheader58.lr.ph.i.us.us.i.i ]
+  %2137 = mul nsw i64 %indvars.iv78.i.us.us.i.i, %2050
+  %2138 = load ptr, ptr %1840, align 16
+  br label %2139
 
-2135:                                             ; preds = %2170, %.preheader58.us.i.us.us.i.i
-  %indvars.iv74.i.us.us.i.i = phi i64 [ %2128, %.preheader58.us.i.us.us.i.i ], [ %indvars.iv.next75.i.us.us.i.i, %2170 ]
-  %2136 = add nsw i64 %indvars.iv74.i.us.us.i.i, %2133
-  %2137 = getelementptr inbounds nuw float, ptr %1831, i64 %2136
-  %2138 = load float, ptr %2137, align 4, !tbaa !37
-  %2139 = fcmp reassoc nsz arcp contract afn oge float %2138, %.0140.us.us.i.i
-  %2140 = fcmp reassoc nsz arcp contract afn olt float %2138, %2131
-  %or.cond.us.i.us.us.i.i = and i1 %2139, %2140
-  br i1 %or.cond.us.i.us.us.i.i, label %2141, label %2170
+2139:                                             ; preds = %2174, %.preheader58.us.i.us.us.i.i
+  %indvars.iv74.i.us.us.i.i = phi i64 [ %2132, %.preheader58.us.i.us.us.i.i ], [ %indvars.iv.next75.i.us.us.i.i, %2174 ]
+  %2140 = add nsw i64 %indvars.iv74.i.us.us.i.i, %2137
+  %2141 = getelementptr inbounds nuw float, ptr %1832, i64 %2140
+  %2142 = load float, ptr %2141, align 4, !tbaa !37
+  %2143 = fcmp reassoc nsz arcp contract afn oge float %2142, %.0140.us.us.i.i
+  %2144 = fcmp reassoc nsz arcp contract afn olt float %2142, %2135
+  %or.cond.us.i.us.us.i.i = and i1 %2143, %2144
+  br i1 %or.cond.us.i.us.us.i.i, label %2145, label %2174
 
-2141:                                             ; preds = %2135
-  %2142 = getelementptr inbounds nuw i32, ptr %2134, i64 %2136
-  %2143 = load i32, ptr %2142, align 4, !tbaa !22
-  %2144 = zext i32 %2143 to i64
-  %2145 = icmp eq i64 %indvars.iv813.i, %2144
-  br i1 %2145, label %.preheader.us.i.us.us.i.i, label %2170
+2145:                                             ; preds = %2139
+  %2146 = getelementptr inbounds nuw i32, ptr %2138, i64 %2140
+  %2147 = load i32, ptr %2146, align 4, !tbaa !22
+  %2148 = zext i32 %2147 to i64
+  %2149 = icmp eq i64 %indvars.iv813.i, %2148
+  br i1 %2149, label %.preheader.us.i.us.us.i.i, label %2174
 
-.preheader.us.i.us.us.i.i:                        ; preds = %2141, %2160
-  %indvars.iv70.i.us.us.i.i = phi i64 [ %indvars.iv.next71.i.us.us.i.i, %2160 ], [ -2, %2141 ]
-  %.04763.us.i.us.us.i.i = phi float [ %.2.us.i.us.us.i.i, %2160 ], [ 0.000000e+00, %2141 ]
-  %.04862.us.i.us.us.i.i = phi float [ %.250.us.i.us.us.i.i, %2160 ], [ 0.000000e+00, %2141 ]
-  %2146 = mul nsw i64 %indvars.iv70.i.us.us.i.i, %2049
-  %2147 = add i64 %2146, %2136
-  br label %2148
+.preheader.us.i.us.us.i.i:                        ; preds = %2145, %2164
+  %indvars.iv70.i.us.us.i.i = phi i64 [ %indvars.iv.next71.i.us.us.i.i, %2164 ], [ -2, %2145 ]
+  %.04763.us.i.us.us.i.i = phi float [ %.2.us.i.us.us.i.i, %2164 ], [ 0.000000e+00, %2145 ]
+  %.04862.us.i.us.us.i.i = phi float [ %.250.us.i.us.us.i.i, %2164 ], [ 0.000000e+00, %2145 ]
+  %2150 = mul nsw i64 %indvars.iv70.i.us.us.i.i, %2050
+  %2151 = add i64 %2150, %2140
+  br label %2152
 
-2148:                                             ; preds = %2159, %.preheader.us.i.us.us.i.i
-  %indvars.iv.i.us.us.i.i = phi i64 [ -2, %.preheader.us.i.us.us.i.i ], [ %indvars.iv.next.i.us.us.i.i, %2159 ]
-  %.160.us.i.us.us.i.i = phi float [ %.04763.us.i.us.us.i.i, %.preheader.us.i.us.us.i.i ], [ %.2.us.i.us.us.i.i, %2159 ]
-  %.14959.us.i.us.us.i.i = phi float [ %.04862.us.i.us.us.i.i, %.preheader.us.i.us.us.i.i ], [ %.250.us.i.us.us.i.i, %2159 ]
-  %2149 = add i64 %2147, %indvars.iv.i.us.us.i.i
-  %2150 = getelementptr inbounds nuw float, ptr %1831, i64 %2149
-  %2151 = load float, ptr %2150, align 4, !tbaa !37
-  %2152 = fcmp reassoc nsz arcp contract afn oge float %2151, %2132
-  %2153 = fcmp reassoc nsz arcp contract afn olt float %2151, %.0140.us.us.i.i
-  %or.cond56.us.i.us.us.i.i = and i1 %2152, %2153
-  br i1 %or.cond56.us.i.us.us.i.i, label %2154, label %2159
+2152:                                             ; preds = %2163, %.preheader.us.i.us.us.i.i
+  %indvars.iv.i.us.us.i.i = phi i64 [ -2, %.preheader.us.i.us.us.i.i ], [ %indvars.iv.next.i.us.us.i.i, %2163 ]
+  %.160.us.i.us.us.i.i = phi float [ %.04763.us.i.us.us.i.i, %.preheader.us.i.us.us.i.i ], [ %.2.us.i.us.us.i.i, %2163 ]
+  %.14959.us.i.us.us.i.i = phi float [ %.04862.us.i.us.us.i.i, %.preheader.us.i.us.us.i.i ], [ %.250.us.i.us.us.i.i, %2163 ]
+  %2153 = add i64 %2151, %indvars.iv.i.us.us.i.i
+  %2154 = getelementptr inbounds nuw float, ptr %1832, i64 %2153
+  %2155 = load float, ptr %2154, align 4, !tbaa !37
+  %2156 = fcmp reassoc nsz arcp contract afn oge float %2155, %2136
+  %2157 = fcmp reassoc nsz arcp contract afn olt float %2155, %.0140.us.us.i.i
+  %or.cond56.us.i.us.us.i.i = and i1 %2156, %2157
+  br i1 %or.cond56.us.i.us.us.i.i, label %2158, label %2163
 
-2154:                                             ; preds = %2148
-  %2155 = fadd reassoc nsz arcp contract afn float %.160.us.i.us.us.i.i, 1.000000e+00
-  %2156 = getelementptr inbounds nuw float, ptr %1836, i64 %2149
-  %2157 = load float, ptr %2156, align 4, !tbaa !37
-  %2158 = fadd reassoc nsz arcp contract afn float %2157, %.14959.us.i.us.us.i.i
-  br label %2159
+2158:                                             ; preds = %2152
+  %2159 = fadd reassoc nsz arcp contract afn float %.160.us.i.us.us.i.i, 1.000000e+00
+  %2160 = getelementptr inbounds nuw float, ptr %1837, i64 %2153
+  %2161 = load float, ptr %2160, align 4, !tbaa !37
+  %2162 = fadd reassoc nsz arcp contract afn float %2161, %.14959.us.i.us.us.i.i
+  br label %2163
 
-2159:                                             ; preds = %2154, %2148
-  %.250.us.i.us.us.i.i = phi nsz float [ %2158, %2154 ], [ %.14959.us.i.us.us.i.i, %2148 ]
-  %.2.us.i.us.us.i.i = phi nsz float [ %2155, %2154 ], [ %.160.us.i.us.us.i.i, %2148 ]
+2163:                                             ; preds = %2158, %2152
+  %.250.us.i.us.us.i.i = phi nsz float [ %2162, %2158 ], [ %.14959.us.i.us.us.i.i, %2152 ]
+  %.2.us.i.us.us.i.i = phi nsz float [ %2159, %2158 ], [ %.160.us.i.us.us.i.i, %2152 ]
   %indvars.iv.next.i.us.us.i.i = add nsw i64 %indvars.iv.i.us.us.i.i, 1
   %exitcond.not.i.us.us.i.i = icmp eq i64 %indvars.iv.next.i.us.us.i.i, 3
-  br i1 %exitcond.not.i.us.us.i.i, label %2160, label %2148
+  br i1 %exitcond.not.i.us.us.i.i, label %2164, label %2152
 
-2160:                                             ; preds = %2159
+2164:                                             ; preds = %2163
   %indvars.iv.next71.i.us.us.i.i = add nsw i64 %indvars.iv70.i.us.us.i.i, 1
   %exitcond73.not.i.us.us.i.i = icmp eq i64 %indvars.iv.next71.i.us.us.i.i, 3
-  br i1 %exitcond73.not.i.us.us.i.i, label %2161, label %.preheader.us.i.us.us.i.i
+  br i1 %exitcond73.not.i.us.us.i.i, label %2165, label %.preheader.us.i.us.us.i.i
 
-2161:                                             ; preds = %2160
-  %2162 = fcmp reassoc nsz arcp contract afn ogt float %.2.us.i.us.us.i.i, 0.000000e+00
-  br i1 %2162, label %2163, label %2170
+2165:                                             ; preds = %2164
+  %2166 = fcmp reassoc nsz arcp contract afn ogt float %.2.us.i.us.us.i.i, 0.000000e+00
+  br i1 %2166, label %2167, label %2174
 
-2163:                                             ; preds = %2161
-  %2164 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %2138, float %2127)
-  %2165 = fadd reassoc nsz arcp contract afn float %2164, 1.000000e+00
-  %2166 = fmul reassoc nsz arcp contract afn float %.250.us.i.us.us.i.i, %2165
-  %2167 = fdiv reassoc nsz arcp contract afn float %2166, %.2.us.i.us.us.i.i
-  %2168 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %2167, float 1.500000e+00)
-  %2169 = getelementptr inbounds nuw float, ptr %1836, i64 %2136
-  store float %2168, ptr %2169, align 4, !tbaa !37
-  br label %2170
+2167:                                             ; preds = %2165
+  %2168 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %2142, float %2131)
+  %2169 = fadd reassoc nsz arcp contract afn float %2168, 1.000000e+00
+  %2170 = fmul reassoc nsz arcp contract afn float %.250.us.i.us.us.i.i, %2169
+  %2171 = fdiv reassoc nsz arcp contract afn float %2170, %.2.us.i.us.us.i.i
+  %2172 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %2171, float 1.500000e+00)
+  %2173 = getelementptr inbounds nuw float, ptr %1837, i64 %2140
+  store float %2172, ptr %2173, align 4, !tbaa !37
+  br label %2174
 
-2170:                                             ; preds = %2163, %2161, %2141, %2135
+2174:                                             ; preds = %2167, %2165, %2145, %2139
   %indvars.iv.next75.i.us.us.i.i = add nsw i64 %indvars.iv74.i.us.us.i.i, 1
   %exitcond77.not.i.us.us.i.i = icmp eq i64 %indvars.iv.next75.i.us.us.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond77.not.i.us.us.i.i, label %._crit_edge.us.i.us.us.i.i, label %2135
+  br i1 %exitcond77.not.i.us.us.i.i, label %._crit_edge.us.i.us.us.i.i, label %2139
 
-._crit_edge.us.i.us.us.i.i:                       ; preds = %2170
+._crit_edge.us.i.us.us.i.i:                       ; preds = %2174
   %indvars.iv.next79.i.us.us.i.i = add nsw i64 %indvars.iv78.i.us.us.i.i, 1
   %exitcond82.not.i.us.us.i.i = icmp eq i64 %indvars.iv.next79.i.us.us.i.i, %wide.trip.count81.i.i.i
   br i1 %exitcond82.not.i.us.us.i.i, label %_calc_distance_ring.exit.loopexit.us.us.i.i, label %.preheader58.us.i.us.us.i.i
 
 _calc_distance_ring.exit.loopexit.us.us.i.i:      ; preds = %._crit_edge.us.i.us.us.i.i
-  %2171 = load float, ptr %2108, align 4, !tbaa !37
-  %2172 = fcmp reassoc nsz arcp contract afn olt float %2131, %2171
-  br i1 %2172, label %.preheader58.lr.ph.i.us.us.i.i, label %._crit_edge.i.i
+  %2175 = load float, ptr %2111, align 4, !tbaa !37
+  %2176 = fcmp reassoc nsz arcp contract afn olt float %2135, %2175
+  br i1 %2176, label %.preheader58.lr.ph.i.us.us.i.i, label %._crit_edge.i.i
 
 .preheader58.lr.ph.i.us.i.i:                      ; preds = %.lr.ph.split.us.i.i, %.preheader58.lr.ph.i.us.i.i
-  %.0140.us.i.i = phi float [ %2173, %.preheader58.lr.ph.i.us.i.i ], [ 1.500000e+00, %.lr.ph.split.us.i.i ]
-  %2173 = fadd reassoc nsz arcp contract afn float %.0140.us.i.i, 1.500000e+00
-  %2174 = fcmp reassoc nsz arcp contract afn olt float %2173, %.pre182.i.i
-  br i1 %2174, label %.preheader58.lr.ph.i.us.i.i, label %._crit_edge.i.i
+  %.0140.us.i.i = phi float [ %2177, %.preheader58.lr.ph.i.us.i.i ], [ 1.500000e+00, %.lr.ph.split.us.i.i ]
+  %2177 = fadd reassoc nsz arcp contract afn float %.0140.us.i.i, 1.500000e+00
+  %2178 = fcmp reassoc nsz arcp contract afn olt float %2177, %.pre182.i.i
+  br i1 %2178, label %.preheader58.lr.ph.i.us.i.i, label %._crit_edge.i.i
 
 _calc_distance_ring.exit.i.i:                     ; preds = %.lr.ph.i550.i, %_calc_distance_ring.exit.i.i
-  %.0140.i.i = phi float [ %2175, %_calc_distance_ring.exit.i.i ], [ 1.500000e+00, %.lr.ph.i550.i ]
-  %2175 = fadd reassoc nsz arcp contract afn float %.0140.i.i, 1.500000e+00
-  %2176 = fcmp reassoc nsz arcp contract afn olt float %2175, %.pre182.i.i
-  br i1 %2176, label %_calc_distance_ring.exit.i.i, label %._crit_edge.i.i
+  %.0140.i.i = phi float [ %2179, %_calc_distance_ring.exit.i.i ], [ 1.500000e+00, %.lr.ph.i550.i ]
+  %2179 = fadd reassoc nsz arcp contract afn float %.0140.i.i, 1.500000e+00
+  %2180 = fcmp reassoc nsz arcp contract afn olt float %2179, %.pre182.i.i
+  br i1 %2180, label %_calc_distance_ring.exit.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %_calc_distance_ring.exit.i.i, %.preheader58.lr.ph.i.us.i.i, %_calc_distance_ring.exit.loopexit.us.us.i.i
-  %.0.lcssa.i551.i = phi float [ %2131, %_calc_distance_ring.exit.loopexit.us.us.i.i ], [ %2173, %.preheader58.lr.ph.i.us.i.i ], [ %2175, %_calc_distance_ring.exit.i.i ]
-  %2177 = fcmp reassoc nsz arcp contract afn ogt float %.0.lcssa.i551.i, 4.000000e+00
-  br i1 %2177, label %2178, label %.loopexit.i.i
+  %.0.lcssa.i551.i = phi float [ %2135, %_calc_distance_ring.exit.loopexit.us.us.i.i ], [ %2177, %.preheader58.lr.ph.i.us.i.i ], [ %2179, %_calc_distance_ring.exit.i.i ]
+  %2181 = fcmp reassoc nsz arcp contract afn ogt float %.0.lcssa.i551.i, 4.000000e+00
+  br i1 %2181, label %2182, label %.loopexit.i.i
 
-2178:                                             ; preds = %._crit_edge.i.i
-  %2179 = icmp ult i32 %2115, %2117
-  %2180 = sub nsw i32 %2113, %..i541.i
-  %2181 = sext i32 %2180 to i64
-  %2182 = icmp ult i32 %..i541.i, %2113
-  %or.cond934.i = select i1 %2179, i1 %2182, i1 false
+2182:                                             ; preds = %._crit_edge.i.i
+  %2183 = icmp ult i32 %2118, %2120
+  %2184 = sub nsw i32 %2116, %..i541.i
+  %2185 = sext i32 %2184 to i64
+  %2186 = icmp ult i32 %..i541.i, %2116
+  %or.cond934.i = select i1 %2183, i1 %2186, i1 false
   br i1 %or.cond934.i, label %.lr.ph146.us.i.i, label %.loopexit.i.i.critedge
 
-.lr.ph146.us.i.i:                                 ; preds = %2178, %._crit_edge147.us.i.i
-  %.0127148.us.i.i = phi i64 [ %2195, %._crit_edge147.us.i.i ], [ %2129, %2178 ]
-  %2183 = mul i64 %.0127148.us.i.i, %2049
-  %2184 = add i64 %2183, %2128
-  %2185 = sub i64 %.0127148.us.i.i, %2129
-  %2186 = mul i64 %2185, %2181
-  br label %2187
+.lr.ph146.us.i.i:                                 ; preds = %2182, %._crit_edge147.us.i.i
+  %.0127148.us.i.i = phi i64 [ %2199, %._crit_edge147.us.i.i ], [ %2133, %2182 ]
+  %2187 = mul i64 %.0127148.us.i.i, %2050
+  %2188 = add i64 %2187, %2132
+  %2189 = sub i64 %.0127148.us.i.i, %2133
+  %2190 = mul i64 %2189, %2185
+  br label %2191
 
-2187:                                             ; preds = %2187, %.lr.ph146.us.i.i
-  %.0124144.us.i.i = phi i64 [ %2186, %.lr.ph146.us.i.i ], [ %2193, %2187 ]
-  %.0125143.us.i.i = phi i64 [ %2184, %.lr.ph146.us.i.i ], [ %2192, %2187 ]
-  %.0126142.us.i.i = phi i64 [ %2128, %.lr.ph146.us.i.i ], [ %2191, %2187 ]
-  %2188 = getelementptr inbounds nuw float, ptr %1836, i64 %.0125143.us.i.i
-  %2189 = load float, ptr %2188, align 4, !tbaa !37
-  %2190 = getelementptr inbounds nuw float, ptr %1838, i64 %.0124144.us.i.i
-  store float %2189, ptr %2190, align 4, !tbaa !37
-  %2191 = add nuw i64 %.0126142.us.i.i, 1
-  %2192 = add i64 %.0125143.us.i.i, 1
-  %2193 = add i64 %.0124144.us.i.i, 1
-  %2194 = icmp ult i64 %2191, %wide.trip.count.i.i.i
-  br i1 %2194, label %2187, label %._crit_edge147.us.i.i
+2191:                                             ; preds = %2191, %.lr.ph146.us.i.i
+  %.0124144.us.i.i = phi i64 [ %2190, %.lr.ph146.us.i.i ], [ %2197, %2191 ]
+  %.0125143.us.i.i = phi i64 [ %2188, %.lr.ph146.us.i.i ], [ %2196, %2191 ]
+  %.0126142.us.i.i = phi i64 [ %2132, %.lr.ph146.us.i.i ], [ %2195, %2191 ]
+  %2192 = getelementptr inbounds nuw float, ptr %1837, i64 %.0125143.us.i.i
+  %2193 = load float, ptr %2192, align 4, !tbaa !37
+  %2194 = getelementptr inbounds nuw float, ptr %1839, i64 %.0124144.us.i.i
+  store float %2193, ptr %2194, align 4, !tbaa !37
+  %2195 = add nuw i64 %.0126142.us.i.i, 1
+  %2196 = add i64 %.0125143.us.i.i, 1
+  %2197 = add i64 %.0124144.us.i.i, 1
+  %2198 = icmp ult i64 %2195, %wide.trip.count.i.i.i
+  br i1 %2198, label %2191, label %._crit_edge147.us.i.i
 
-._crit_edge147.us.i.i:                            ; preds = %2187
-  %2195 = add i64 %.0127148.us.i.i, 1
-  %2196 = icmp ult i64 %2195, %wide.trip.count81.i.i.i
-  br i1 %2196, label %.lr.ph146.us.i.i, label %._crit_edge151.i.i
+._crit_edge147.us.i.i:                            ; preds = %2191
+  %2199 = add i64 %.0127148.us.i.i, 1
+  %2200 = icmp ult i64 %2199, %wide.trip.count81.i.i.i
+  br i1 %2200, label %.lr.ph146.us.i.i, label %._crit_edge151.i.i
 
 ._crit_edge151.i.i:                               ; preds = %._crit_edge147.us.i.i
-  %2197 = sub nsw i32 %2117, %2115
-  %2198 = sext i32 %2197 to i64
-  %2199 = fptosi float %.0.lcssa.i551.i to i32
-  %2200 = tail call i32 @llvm.smin.i32(i32 %2199, i32 15)
-  %2201 = sext i32 %2200 to i64
-  tail call void @dt_box_mean(ptr noundef nonnull %1838, i64 noundef %2198, i64 noundef %2181, i32 noundef 1, i64 noundef %2201, i32 noundef 2) #30
+  %2201 = sub nsw i32 %2120, %2118
+  %2202 = sext i32 %2201 to i64
+  %2203 = fptosi float %.0.lcssa.i551.i to i32
+  %2204 = tail call i32 @llvm.smin.i32(i32 %2203, i32 15)
+  %2205 = sext i32 %2204 to i64
+  tail call void @dt_box_mean(ptr noundef nonnull %1839, i64 noundef %2202, i64 noundef %2185, i32 noundef 1, i64 noundef %2205, i32 noundef 2) #30
   br label %.lr.ph158.us.i.i
 
 .lr.ph158.us.i.i:                                 ; preds = %._crit_edge151.i.i, %._crit_edge159.us.i.i
-  %.0123160.us.i.i = phi i64 [ %2220, %._crit_edge159.us.i.i ], [ %2129, %._crit_edge151.i.i ]
-  %2202 = mul i64 %.0123160.us.i.i, %2049
-  %2203 = add i64 %2202, %2128
-  %2204 = sub i64 %.0123160.us.i.i, %2129
-  %2205 = mul i64 %2204, %2181
-  br label %2206
+  %.0123160.us.i.i = phi i64 [ %2224, %._crit_edge159.us.i.i ], [ %2133, %._crit_edge151.i.i ]
+  %2206 = mul i64 %.0123160.us.i.i, %2050
+  %2207 = add i64 %2206, %2132
+  %2208 = sub i64 %.0123160.us.i.i, %2133
+  %2209 = mul i64 %2208, %2185
+  br label %2210
 
-2206:                                             ; preds = %2215, %.lr.ph158.us.i.i
-  %.0120156.us.i.i = phi i64 [ %2205, %.lr.ph158.us.i.i ], [ %2218, %2215 ]
-  %.0121155.us.i.i = phi i64 [ %2203, %.lr.ph158.us.i.i ], [ %2217, %2215 ]
-  %.0122154.us.i.i = phi i64 [ %2128, %.lr.ph158.us.i.i ], [ %2216, %2215 ]
-  %2207 = getelementptr inbounds nuw i32, ptr %2052, i64 %.0121155.us.i.i
-  %2208 = load i32, ptr %2207, align 4, !tbaa !22
-  %2209 = zext i32 %2208 to i64
-  %2210 = icmp eq i64 %indvars.iv813.i, %2209
-  br i1 %2210, label %2211, label %2215
+2210:                                             ; preds = %2219, %.lr.ph158.us.i.i
+  %.0120156.us.i.i = phi i64 [ %2209, %.lr.ph158.us.i.i ], [ %2222, %2219 ]
+  %.0121155.us.i.i = phi i64 [ %2207, %.lr.ph158.us.i.i ], [ %2221, %2219 ]
+  %.0122154.us.i.i = phi i64 [ %2132, %.lr.ph158.us.i.i ], [ %2220, %2219 ]
+  %2211 = getelementptr inbounds nuw i32, ptr %2053, i64 %.0121155.us.i.i
+  %2212 = load i32, ptr %2211, align 4, !tbaa !22
+  %2213 = zext i32 %2212 to i64
+  %2214 = icmp eq i64 %indvars.iv813.i, %2213
+  br i1 %2214, label %2215, label %2219
 
-2211:                                             ; preds = %2206
-  %2212 = getelementptr inbounds nuw float, ptr %1838, i64 %.0120156.us.i.i
-  %2213 = load float, ptr %2212, align 4, !tbaa !37
-  %2214 = getelementptr inbounds nuw float, ptr %1836, i64 %.0121155.us.i.i
-  store float %2213, ptr %2214, align 4, !tbaa !37
-  br label %2215
+2215:                                             ; preds = %2210
+  %2216 = getelementptr inbounds nuw float, ptr %1839, i64 %.0120156.us.i.i
+  %2217 = load float, ptr %2216, align 4, !tbaa !37
+  %2218 = getelementptr inbounds nuw float, ptr %1837, i64 %.0121155.us.i.i
+  store float %2217, ptr %2218, align 4, !tbaa !37
+  br label %2219
 
-2215:                                             ; preds = %2211, %2206
-  %2216 = add nuw i64 %.0122154.us.i.i, 1
-  %2217 = add i64 %.0121155.us.i.i, 1
-  %2218 = add i64 %.0120156.us.i.i, 1
-  %2219 = icmp ult i64 %2216, %wide.trip.count.i.i.i
-  br i1 %2219, label %2206, label %._crit_edge159.us.i.i
+2219:                                             ; preds = %2215, %2210
+  %2220 = add nuw i64 %.0122154.us.i.i, 1
+  %2221 = add i64 %.0121155.us.i.i, 1
+  %2222 = add i64 %.0120156.us.i.i, 1
+  %2223 = icmp ult i64 %2220, %wide.trip.count.i.i.i
+  br i1 %2223, label %2210, label %._crit_edge159.us.i.i
 
-._crit_edge159.us.i.i:                            ; preds = %2215
-  %2220 = add i64 %.0123160.us.i.i, 1
-  %2221 = icmp ult i64 %2220, %wide.trip.count81.i.i.i
-  br i1 %2221, label %.lr.ph158.us.i.i, label %.loopexit.i.i
+._crit_edge159.us.i.i:                            ; preds = %2219
+  %2224 = add i64 %.0123160.us.i.i, 1
+  %2225 = icmp ult i64 %2224, %wide.trip.count81.i.i.i
+  br i1 %2225, label %.lr.ph158.us.i.i, label %.loopexit.i.i
 
-.loopexit.i.i.critedge:                           ; preds = %2178
-  %2222 = sub nsw i32 %2117, %2115
-  %2223 = sext i32 %2222 to i64
-  %2224 = fptosi float %.0.lcssa.i551.i to i32
-  %2225 = tail call i32 @llvm.smin.i32(i32 %2224, i32 15)
-  %2226 = sext i32 %2225 to i64
-  tail call void @dt_box_mean(ptr noundef %1838, i64 noundef %2223, i64 noundef %2181, i32 noundef 1, i64 noundef %2226, i32 noundef 2) #30
+.loopexit.i.i.critedge:                           ; preds = %2182
+  %2226 = sub nsw i32 %2120, %2118
+  %2227 = sext i32 %2226 to i64
+  %2228 = fptosi float %.0.lcssa.i551.i to i32
+  %2229 = tail call i32 @llvm.smin.i32(i32 %2228, i32 15)
+  %2230 = sext i32 %2229 to i64
+  tail call void @dt_box_mean(ptr noundef %1839, i64 noundef %2227, i64 noundef %2185, i32 noundef 1, i64 noundef %2230, i32 noundef 2) #30
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %._crit_edge159.us.i.i, %.loopexit.i.i.critedge, %._crit_edge.i.i, %_segment_correction.exit.i.i
-  %2227 = fsub reassoc nsz arcp contract afn float %.0.i138.i.i, %.pn.i.i
-  %2228 = icmp slt i32 %2115, %2117
-  %2229 = icmp slt i32 %..i541.i, %2113
-  %or.cond.i542.i = select i1 %2228, i1 %2229, i1 false
+  %2231 = icmp slt i32 %2118, %2120
+  %2232 = icmp slt i32 %..i541.i, %2116
+  %or.cond.i542.i = select i1 %2231, i1 %2232, i1 false
   br i1 %or.cond.i542.i, label %.preheader.lr.ph.split.us.i543.i, label %_segment_gradients.exit.i
 
 .preheader.lr.ph.split.us.i543.i:                 ; preds = %.loopexit.i.i
   %smax.i544.i = sext i32 %..i541.i to i64
-  %smax176.i.i = sext i32 %2115 to i64
+  %smax176.i.i = sext i32 %2118 to i64
   br label %.preheader.us.i545.i
 
 .preheader.us.i545.i:                             ; preds = %._crit_edge165.us.i.i, %.preheader.lr.ph.split.us.i543.i
   %indvars.iv177.i.i = phi i64 [ %indvars.iv.next178.i.i, %._crit_edge165.us.i.i ], [ %smax176.i.i, %.preheader.lr.ph.split.us.i543.i ]
-  %2230 = mul nsw i64 %indvars.iv177.i.i, %2049
-  br label %2231
+  %2233 = mul nsw i64 %indvars.iv177.i.i, %2050
+  br label %2234
 
-2231:                                             ; preds = %2241, %.preheader.us.i545.i
-  %indvars.iv.i546.i = phi i64 [ %smax.i544.i, %.preheader.us.i545.i ], [ %indvars.iv.next.i547.i, %2241 ]
-  %2232 = add nsw i64 %indvars.iv.i546.i, %2230
-  %2233 = getelementptr inbounds nuw i32, ptr %2052, i64 %2232
-  %2234 = load i32, ptr %2233, align 4, !tbaa !22
-  %2235 = zext i32 %2234 to i64
-  %2236 = icmp eq i64 %indvars.iv813.i, %2235
-  br i1 %2236, label %2237, label %2241
+2234:                                             ; preds = %2244, %.preheader.us.i545.i
+  %indvars.iv.i546.i = phi i64 [ %smax.i544.i, %.preheader.us.i545.i ], [ %indvars.iv.next.i547.i, %2244 ]
+  %2235 = add nsw i64 %indvars.iv.i546.i, %2233
+  %2236 = getelementptr inbounds nuw i32, ptr %2053, i64 %2235
+  %2237 = load i32, ptr %2236, align 4, !tbaa !22
+  %2238 = zext i32 %2237 to i64
+  %2239 = icmp eq i64 %indvars.iv813.i, %2238
+  br i1 %2239, label %2240, label %2244
 
-2237:                                             ; preds = %2231
-  %2238 = getelementptr inbounds nuw float, ptr %1836, i64 %2232
-  %2239 = load float, ptr %2238, align 4, !tbaa !37
-  %2240 = fmul reassoc nsz arcp contract afn float %2239, %2227
-  store float %2240, ptr %2238, align 4, !tbaa !37
-  br label %2241
+2240:                                             ; preds = %2234
+  %2241 = getelementptr inbounds nuw float, ptr %1837, i64 %2235
+  %2242 = load float, ptr %2241, align 4, !tbaa !37
+  %2243 = fmul reassoc nsz arcp contract afn float %2242, %2128
+  store float %2243, ptr %2241, align 4, !tbaa !37
+  br label %2244
 
-2241:                                             ; preds = %2237, %2231
+2244:                                             ; preds = %2240, %2234
   %indvars.iv.next.i547.i = add nsw i64 %indvars.iv.i546.i, 1
   %lftr.wideiv.i548.i = trunc i64 %indvars.iv.next.i547.i to i32
-  %exitcond.not.i549.i = icmp eq i32 %2113, %lftr.wideiv.i548.i
-  br i1 %exitcond.not.i549.i, label %._crit_edge165.us.i.i, label %2231
+  %exitcond.not.i549.i = icmp eq i32 %2116, %lftr.wideiv.i548.i
+  br i1 %exitcond.not.i549.i, label %._crit_edge165.us.i.i, label %2234
 
-._crit_edge165.us.i.i:                            ; preds = %2241
+._crit_edge165.us.i.i:                            ; preds = %2244
   %indvars.iv.next178.i.i = add nsw i64 %indvars.iv177.i.i, 1
   %lftr.wideiv179.i.i = trunc i64 %indvars.iv.next178.i.i to i32
-  %exitcond180.not.i.i = icmp eq i32 %2117, %lftr.wideiv179.i.i
+  %exitcond180.not.i.i = icmp eq i32 %2120, %lftr.wideiv179.i.i
   br i1 %exitcond180.not.i.i, label %_segment_gradients.exit.i, label %.preheader.us.i545.i
 
 _segment_gradients.exit.i:                        ; preds = %._crit_edge165.us.i.i, %.loopexit.i.i, %_segment_maxdistance.exit.i, %_segment_maxdistance.exit.thread.i
   %indvars.iv.next814.i = add nuw nsw i64 %indvars.iv813.i, 1
   %exitcond817.not.i = icmp eq i64 %indvars.iv.next814.i, %wide.trip.count816.i
-  br i1 %exitcond817.not.i, label %._crit_edge678.i, label %2072
+  br i1 %exitcond817.not.i, label %._crit_edge678.i, label %2075
 
-2242:                                             ; preds = %_add_poisson_noise.exit.i, %.lr.ph680.i
+2245:                                             ; preds = %_add_poisson_noise.exit.i, %.lr.ph680.i
   %indvars.iv818.i = phi i64 [ 2, %.lr.ph680.i ], [ %indvars.iv.next819.i, %_add_poisson_noise.exit.i ]
-  %2243 = getelementptr inbounds nuw float, ptr %2059, i64 %indvars.iv818.i
-  %2244 = load float, ptr %2243, align 4, !tbaa !37
-  %2245 = fcmp reassoc nsz arcp contract afn ogt float %2244, 3.000000e+00
-  br i1 %2245, label %2246, label %_add_poisson_noise.exit.i
+  %2246 = getelementptr inbounds nuw float, ptr %2062, i64 %indvars.iv818.i
+  %2247 = load float, ptr %2246, align 4, !tbaa !37
+  %2248 = fcmp reassoc nsz arcp contract afn ogt float %2247, 3.000000e+00
+  br i1 %2248, label %2249, label %_add_poisson_noise.exit.i
 
-2246:                                             ; preds = %2242
-  %2247 = getelementptr inbounds nuw i32, ptr %2060, i64 %indvars.iv818.i
-  %2248 = load i32, ptr %2247, align 4, !tbaa !22
-  %..i552.i = tail call i32 @llvm.smax.i32(i32 %2248, i32 %2061)
-  %2249 = getelementptr inbounds nuw i32, ptr %2062, i64 %indvars.iv818.i
-  %2250 = load i32, ptr %2249, align 4, !tbaa !22
-  %2251 = add i32 %2250, 1
-  %2252 = tail call i32 @llvm.smin.i32(i32 %2251, i32 %2064)
-  %2253 = getelementptr inbounds nuw i32, ptr %2065, i64 %indvars.iv818.i
-  %2254 = load i32, ptr %2253, align 4, !tbaa !22
-  %2255 = tail call i32 @llvm.smax.i32(i32 %2254, i32 %2061)
-  %2256 = getelementptr inbounds nuw i32, ptr %2066, i64 %indvars.iv818.i
+2249:                                             ; preds = %2245
+  %2250 = getelementptr inbounds nuw i32, ptr %2063, i64 %indvars.iv818.i
+  %2251 = load i32, ptr %2250, align 4, !tbaa !22
+  %..i552.i = tail call i32 @llvm.smax.i32(i32 %2251, i32 %2064)
+  %2252 = getelementptr inbounds nuw i32, ptr %2065, i64 %indvars.iv818.i
+  %2253 = load i32, ptr %2252, align 4, !tbaa !22
+  %2254 = add i32 %2253, 1
+  %2255 = tail call i32 @llvm.smin.i32(i32 %2254, i32 %2067)
+  %2256 = getelementptr inbounds nuw i32, ptr %2068, i64 %indvars.iv818.i
   %2257 = load i32, ptr %2256, align 4, !tbaa !22
-  %2258 = add i32 %2257, 1
-  %2259 = tail call i32 @llvm.smin.i32(i32 %2258, i32 %2068)
-  %2260 = sext i32 %..i552.i to i64
-  %2261 = icmp slt i32 %2255, %2259
-  %2262 = icmp slt i32 %..i552.i, %2252
-  %or.cond702.i = select i1 %2261, i1 %2262, i1 false
+  %2258 = tail call i32 @llvm.smax.i32(i32 %2257, i32 %2064)
+  %2259 = getelementptr inbounds nuw i32, ptr %2069, i64 %indvars.iv818.i
+  %2260 = load i32, ptr %2259, align 4, !tbaa !22
+  %2261 = add i32 %2260, 1
+  %2262 = tail call i32 @llvm.smin.i32(i32 %2261, i32 %2071)
+  %2263 = sext i32 %..i552.i to i64
+  %2264 = icmp slt i32 %2258, %2262
+  %2265 = icmp slt i32 %..i552.i, %2255
+  %or.cond702.i = select i1 %2264, i1 %2265, i1 false
   br i1 %or.cond702.i, label %.preheader.us.i556.preheader.i, label %_add_poisson_noise.exit.i
 
-.preheader.us.i556.preheader.i:                   ; preds = %2246
-  %2263 = sext i32 %2255 to i64
-  %2264 = lshr i64 %2263, 33
-  %2265 = xor i64 %2264, %2263
-  %2266 = mul i64 %2265, 7109453100751455733
-  %2267 = lshr i64 %2266, 28
+.preheader.us.i556.preheader.i:                   ; preds = %2249
+  %2266 = sext i32 %2258 to i64
+  %2267 = lshr i64 %2266, 33
   %2268 = xor i64 %2267, %2266
-  %2269 = mul i64 %2268, -3808689974395783757
-  %2270 = lshr i64 %2269, 32
-  %2271 = trunc nuw i64 %2270 to i32
-  %2272 = xor i32 %2271, 635086878
-  %2273 = lshr i64 %2260, 33
-  %2274 = xor i64 %2273, %2260
-  %2275 = mul i64 %2274, 7109453100751455733
-  %2276 = lshr i64 %2275, 28
-  %2277 = xor i64 %2276, %2275
-  %2278 = mul i64 %2277, -3808689974395783757
-  %2279 = lshr i64 %2278, 32
-  %2280 = trunc nuw i64 %2279 to i32
-  %2281 = shl i32 %2280, 9
-  %2282 = xor i32 %2272, %2281
-  %2283 = xor i32 %2280, -1171427716
-  %2284 = xor i32 %2283, %2271
-  %2285 = xor i32 %2282, %2284
-  %2286 = xor i32 %2272, %2280
-  %2287 = shl i32 %2286, 9
+  %2269 = mul i64 %2268, 7109453100751455733
+  %2270 = lshr i64 %2269, 28
+  %2271 = xor i64 %2270, %2269
+  %2272 = mul i64 %2271, -3808689974395783757
+  %2273 = lshr i64 %2272, 32
+  %2274 = trunc nuw i64 %2273 to i32
+  %2275 = xor i32 %2274, 635086878
+  %2276 = lshr i64 %2263, 33
+  %2277 = xor i64 %2276, %2263
+  %2278 = mul i64 %2277, 7109453100751455733
+  %2279 = lshr i64 %2278, 28
+  %2280 = xor i64 %2279, %2278
+  %2281 = mul i64 %2280, -3808689974395783757
+  %2282 = lshr i64 %2281, 32
+  %2283 = trunc nuw i64 %2282 to i32
+  %2284 = shl i32 %2283, 9
+  %2285 = xor i32 %2275, %2284
+  %2286 = xor i32 %2283, -1171427716
+  %2287 = xor i32 %2286, %2274
   %2288 = xor i32 %2285, %2287
-  %2289 = tail call noundef i32 @llvm.fshl.i32(i32 %2283, i32 %2283, i32 11)
-  %2290 = xor i32 %2286, %2289
-  %2291 = xor i32 %2290, %2284
-  %2292 = xor i32 %2288, %2291
-  %2293 = xor i32 %2285, %2286
-  %2294 = xor i32 %2292, %2293
-  %2295 = tail call noundef i32 @llvm.fshl.i32(i32 %2290, i32 %2290, i32 11)
-  %2296 = xor i32 %2293, %2295
-  %2297 = tail call noundef i32 @llvm.fshl.i32(i32 %2296, i32 %2296, i32 11)
-  %2298 = xor i32 %2294, %2297
-  %2299 = tail call noundef i32 @llvm.fshl.i32(i32 %2298, i32 %2298, i32 11)
-  %2300 = shl i32 %2293, 9
-  %2301 = xor i32 %2292, %2300
-  %2302 = xor i32 %2296, %2291
-  %2303 = xor i32 %2301, %2302
-  %2304 = shl i32 %2294, 9
-  %2305 = xor i32 %2303, %2304
-  %2306 = xor i32 %2298, %2302
-  %2307 = xor i32 %2303, %2294
+  %2289 = xor i32 %2275, %2283
+  %2290 = shl i32 %2289, 9
+  %2291 = xor i32 %2288, %2290
+  %2292 = tail call noundef i32 @llvm.fshl.i32(i32 %2286, i32 %2286, i32 11)
+  %2293 = xor i32 %2289, %2292
+  %2294 = xor i32 %2293, %2287
+  %2295 = xor i32 %2291, %2294
+  %2296 = xor i32 %2288, %2289
+  %2297 = xor i32 %2295, %2296
+  %2298 = tail call noundef i32 @llvm.fshl.i32(i32 %2293, i32 %2293, i32 11)
+  %2299 = xor i32 %2296, %2298
+  %2300 = tail call noundef i32 @llvm.fshl.i32(i32 %2299, i32 %2299, i32 11)
+  %2301 = xor i32 %2297, %2300
+  %2302 = tail call noundef i32 @llvm.fshl.i32(i32 %2301, i32 %2301, i32 11)
+  %2303 = shl i32 %2296, 9
+  %2304 = xor i32 %2295, %2303
+  %2305 = xor i32 %2299, %2294
+  %2306 = xor i32 %2304, %2305
+  %2307 = shl i32 %2297, 9
+  %2308 = xor i32 %2306, %2307
+  %2309 = xor i32 %2301, %2305
+  %2310 = xor i32 %2306, %2297
   br label %.preheader.us.i556.i
 
 .preheader.us.i556.i:                             ; preds = %._crit_edge.us.i561.i, %.preheader.us.i556.preheader.i
-  %indvars.iv92.i.i = phi i64 [ %indvars.iv.next93.i.i, %._crit_edge.us.i561.i ], [ %2263, %.preheader.us.i556.preheader.i ]
-  %.sroa.0.087.us.i.i = phi i32 [ %.sroa.0.2.us.i.i, %._crit_edge.us.i561.i ], [ %2306, %.preheader.us.i556.preheader.i ]
-  %.sroa.13.086.us.i.i = phi i32 [ %.sroa.13.2.us.i.i, %._crit_edge.us.i561.i ], [ %2307, %.preheader.us.i556.preheader.i ]
-  %.sroa.24.085.us.i.i = phi i32 [ %.sroa.24.2.us.i.i, %._crit_edge.us.i561.i ], [ %2305, %.preheader.us.i556.preheader.i ]
-  %.sroa.35.084.us.i.i = phi i32 [ %.sroa.35.2.us.i.i, %._crit_edge.us.i561.i ], [ %2299, %.preheader.us.i556.preheader.i ]
-  %2308 = mul nsw i64 %indvars.iv92.i.i, %2069
-  br label %2309
+  %indvars.iv92.i.i = phi i64 [ %indvars.iv.next93.i.i, %._crit_edge.us.i561.i ], [ %2266, %.preheader.us.i556.preheader.i ]
+  %.sroa.0.087.us.i.i = phi i32 [ %.sroa.0.2.us.i.i, %._crit_edge.us.i561.i ], [ %2309, %.preheader.us.i556.preheader.i ]
+  %.sroa.13.086.us.i.i = phi i32 [ %.sroa.13.2.us.i.i, %._crit_edge.us.i561.i ], [ %2310, %.preheader.us.i556.preheader.i ]
+  %.sroa.24.085.us.i.i = phi i32 [ %.sroa.24.2.us.i.i, %._crit_edge.us.i561.i ], [ %2308, %.preheader.us.i556.preheader.i ]
+  %.sroa.35.084.us.i.i = phi i32 [ %.sroa.35.2.us.i.i, %._crit_edge.us.i561.i ], [ %2302, %.preheader.us.i556.preheader.i ]
+  %2311 = mul nsw i64 %indvars.iv92.i.i, %2072
+  br label %2312
 
-2309:                                             ; preds = %2365, %.preheader.us.i556.i
-  %indvars.iv.i557.i = phi i64 [ %2260, %.preheader.us.i556.i ], [ %indvars.iv.next.i558.i, %2365 ]
-  %.sroa.0.179.us.i.i = phi i32 [ %.sroa.0.087.us.i.i, %.preheader.us.i556.i ], [ %.sroa.0.2.us.i.i, %2365 ]
-  %.sroa.13.178.us.i.i = phi i32 [ %.sroa.13.086.us.i.i, %.preheader.us.i556.i ], [ %.sroa.13.2.us.i.i, %2365 ]
-  %.sroa.24.177.us.i.i = phi i32 [ %.sroa.24.085.us.i.i, %.preheader.us.i556.i ], [ %.sroa.24.2.us.i.i, %2365 ]
-  %.sroa.35.176.us.i.i = phi i32 [ %.sroa.35.084.us.i.i, %.preheader.us.i556.i ], [ %.sroa.35.2.us.i.i, %2365 ]
-  %2310 = add nsw i64 %indvars.iv.i557.i, %2308
-  %2311 = getelementptr inbounds nuw i32, ptr %2071, i64 %2310
-  %2312 = load i32, ptr %2311, align 4, !tbaa !22
-  %2313 = zext i32 %2312 to i64
-  %2314 = icmp eq i64 %indvars.iv818.i, %2313
-  br i1 %2314, label %2315, label %2365
+2312:                                             ; preds = %2368, %.preheader.us.i556.i
+  %indvars.iv.i557.i = phi i64 [ %2263, %.preheader.us.i556.i ], [ %indvars.iv.next.i558.i, %2368 ]
+  %.sroa.0.179.us.i.i = phi i32 [ %.sroa.0.087.us.i.i, %.preheader.us.i556.i ], [ %.sroa.0.2.us.i.i, %2368 ]
+  %.sroa.13.178.us.i.i = phi i32 [ %.sroa.13.086.us.i.i, %.preheader.us.i556.i ], [ %.sroa.13.2.us.i.i, %2368 ]
+  %.sroa.24.177.us.i.i = phi i32 [ %.sroa.24.085.us.i.i, %.preheader.us.i556.i ], [ %.sroa.24.2.us.i.i, %2368 ]
+  %.sroa.35.176.us.i.i = phi i32 [ %.sroa.35.084.us.i.i, %.preheader.us.i556.i ], [ %.sroa.35.2.us.i.i, %2368 ]
+  %2313 = add nsw i64 %indvars.iv.i557.i, %2311
+  %2314 = getelementptr inbounds nuw i32, ptr %2074, i64 %2313
+  %2315 = load i32, ptr %2314, align 4, !tbaa !22
+  %2316 = zext i32 %2315 to i64
+  %2317 = icmp eq i64 %indvars.iv818.i, %2316
+  br i1 %2317, label %2318, label %2368
 
-2315:                                             ; preds = %2309
-  %2316 = getelementptr inbounds nuw float, ptr %1832, i64 %2310
-  %2317 = load float, ptr %2316, align 4, !tbaa !37
-  %2318 = fmul reassoc nsz arcp contract afn float %2317, %2057
-  %2319 = shl i32 %.sroa.13.178.us.i.i, 9
-  %2320 = xor i32 %.sroa.24.177.us.i.i, %.sroa.0.179.us.i.i
-  %2321 = xor i32 %.sroa.35.176.us.i.i, %.sroa.13.178.us.i.i
-  %2322 = xor i32 %2320, %.sroa.13.178.us.i.i
-  %2323 = xor i32 %2321, %.sroa.0.179.us.i.i
-  %2324 = xor i32 %2320, %2319
-  %2325 = tail call noundef i32 @llvm.fshl.i32(i32 %2321, i32 %2321, i32 11)
-  %2326 = add i32 %2325, %2323
-  %2327 = shl i32 %2322, 9
-  %2328 = xor i32 %2324, %2323
-  %2329 = xor i32 %2325, %2322
-  %2330 = xor i32 %2328, %2322
-  %2331 = xor i32 %2329, %2323
-  %2332 = xor i32 %2328, %2327
-  %2333 = tail call noundef i32 @llvm.fshl.i32(i32 %2329, i32 %2329, i32 11)
-  %2334 = lshr i32 %2326, 8
-  %2335 = uitofp nneg i32 %2334 to float
-  %2336 = fmul reassoc nsz arcp contract afn float %2335, 0x3E70000000000000
-  %2337 = and i64 %indvars.iv.i557.i, 1
-  %.not.i.us.i562.i = icmp eq i64 %2337, 0
-  %2338 = fpext reassoc nsz arcp contract afn float %2336 to double
-  %2339 = fmul reassoc nsz arcp contract afn double %2338, 0x401921FB54442D18
-  %2340 = fptrunc reassoc nsz arcp contract afn double %2339 to float
-  br i1 %.not.i.us.i562.i, label %2343, label %2341
+2318:                                             ; preds = %2312
+  %2319 = getelementptr inbounds nuw float, ptr %1833, i64 %2313
+  %2320 = load float, ptr %2319, align 4, !tbaa !37
+  %2321 = fmul reassoc nsz arcp contract afn float %2320, %2060
+  %2322 = shl i32 %.sroa.13.178.us.i.i, 9
+  %2323 = xor i32 %.sroa.24.177.us.i.i, %.sroa.0.179.us.i.i
+  %2324 = xor i32 %.sroa.35.176.us.i.i, %.sroa.13.178.us.i.i
+  %2325 = xor i32 %2323, %.sroa.13.178.us.i.i
+  %2326 = xor i32 %2324, %.sroa.0.179.us.i.i
+  %2327 = xor i32 %2323, %2322
+  %2328 = tail call noundef i32 @llvm.fshl.i32(i32 %2324, i32 %2324, i32 11)
+  %2329 = add i32 %2328, %2326
+  %2330 = shl i32 %2325, 9
+  %2331 = xor i32 %2327, %2326
+  %2332 = xor i32 %2328, %2325
+  %2333 = xor i32 %2331, %2325
+  %2334 = xor i32 %2332, %2326
+  %2335 = xor i32 %2331, %2330
+  %2336 = tail call noundef i32 @llvm.fshl.i32(i32 %2332, i32 %2332, i32 11)
+  %2337 = lshr i32 %2329, 8
+  %2338 = uitofp nneg i32 %2337 to float
+  %2339 = fmul reassoc nsz arcp contract afn float %2338, 0x3E70000000000000
+  %2340 = and i64 %indvars.iv.i557.i, 1
+  %.not.i.us.i562.i = icmp eq i64 %2340, 0
+  %2341 = fpext reassoc nsz arcp contract afn float %2339 to double
+  %2342 = fmul reassoc nsz arcp contract afn double %2341, 0x401921FB54442D18
+  %2343 = fptrunc reassoc nsz arcp contract afn double %2342 to float
+  br i1 %.not.i.us.i562.i, label %2346, label %2344
 
-2341:                                             ; preds = %2315
-  %2342 = tail call reassoc nsz arcp contract afn float @llvm.cos.f32(float %2340)
+2344:                                             ; preds = %2318
+  %2345 = tail call reassoc nsz arcp contract afn float @llvm.cos.f32(float %2343)
   br label %poisson_noise.exit.us.i.i
 
-2343:                                             ; preds = %2315
-  %2344 = tail call reassoc nsz arcp contract afn float @llvm.sin.f32(float %2340)
+2346:                                             ; preds = %2318
+  %2347 = tail call reassoc nsz arcp contract afn float @llvm.sin.f32(float %2343)
   br label %poisson_noise.exit.us.i.i
 
-poisson_noise.exit.us.i.i:                        ; preds = %2343, %2341
-  %.sink.i.us.i.i = phi float [ %2344, %2343 ], [ %2342, %2341 ]
-  %2345 = add i32 %.sroa.35.176.us.i.i, %.sroa.0.179.us.i.i
-  %2346 = lshr i32 %2345, 8
-  %2347 = uitofp nneg i32 %2346 to float
-  %2348 = fmul reassoc nsz arcp contract afn float %2347, 0x3E70000000000000
-  %2349 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2348, float 0x3810000000000000)
-  %2350 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %2349)
-  %2351 = fmul reassoc nsz arcp contract afn float %2350, -2.000000e+00
-  %2352 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %2351)
-  %2353 = fmul reassoc nsz arcp contract afn float %2352, %2057
-  %2354 = fmul reassoc nsz arcp contract afn float %2353, %.sink.i.us.i.i
-  %2355 = fadd reassoc nsz arcp contract afn float %2318, 3.750000e-01
-  %2356 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2355, float 0.000000e+00)
-  %2357 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %2356)
-  %2358 = fmul reassoc nsz arcp contract afn float %2357, 2.000000e+00
-  %2359 = fadd reassoc nsz arcp contract afn float %2354, %2358
-  %2360 = fmul reassoc nsz arcp contract afn float %2359, %2359
-  %2361 = fsub reassoc nsz arcp contract afn float %2360, %2070
-  %2362 = fmul reassoc nsz arcp contract afn float %2361, 2.500000e-01
-  %2363 = fadd reassoc nsz arcp contract afn float %2317, -3.750000e-01
-  %2364 = fadd reassoc nsz arcp contract afn float %2363, %2362
-  store float %2364, ptr %2316, align 4, !tbaa !37
-  br label %2365
+poisson_noise.exit.us.i.i:                        ; preds = %2346, %2344
+  %.sink.i.us.i.i = phi float [ %2347, %2346 ], [ %2345, %2344 ]
+  %2348 = add i32 %.sroa.35.176.us.i.i, %.sroa.0.179.us.i.i
+  %2349 = lshr i32 %2348, 8
+  %2350 = uitofp nneg i32 %2349 to float
+  %2351 = fmul reassoc nsz arcp contract afn float %2350, 0x3E70000000000000
+  %2352 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2351, float 0x3810000000000000)
+  %2353 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %2352)
+  %2354 = fmul reassoc nsz arcp contract afn float %2353, -2.000000e+00
+  %2355 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %2354)
+  %2356 = fmul reassoc nsz arcp contract afn float %2355, %2060
+  %2357 = fmul reassoc nsz arcp contract afn float %2356, %.sink.i.us.i.i
+  %2358 = fadd reassoc nsz arcp contract afn float %2321, 3.750000e-01
+  %2359 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2358, float 0.000000e+00)
+  %2360 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %2359)
+  %2361 = fmul reassoc nsz arcp contract afn float %2360, 2.000000e+00
+  %2362 = fadd reassoc nsz arcp contract afn float %2357, %2361
+  %2363 = fmul reassoc nsz arcp contract afn float %2362, %2362
+  %2364 = fsub reassoc nsz arcp contract afn float %2363, %2073
+  %2365 = fmul reassoc nsz arcp contract afn float %2364, 2.500000e-01
+  %2366 = fadd reassoc nsz arcp contract afn float %2320, -3.750000e-01
+  %2367 = fadd reassoc nsz arcp contract afn float %2366, %2365
+  store float %2367, ptr %2319, align 4, !tbaa !37
+  br label %2368
 
-2365:                                             ; preds = %poisson_noise.exit.us.i.i, %2309
-  %.sroa.35.2.us.i.i = phi i32 [ %2333, %poisson_noise.exit.us.i.i ], [ %.sroa.35.176.us.i.i, %2309 ]
-  %.sroa.24.2.us.i.i = phi i32 [ %2332, %poisson_noise.exit.us.i.i ], [ %.sroa.24.177.us.i.i, %2309 ]
-  %.sroa.13.2.us.i.i = phi i32 [ %2330, %poisson_noise.exit.us.i.i ], [ %.sroa.13.178.us.i.i, %2309 ]
-  %.sroa.0.2.us.i.i = phi i32 [ %2331, %poisson_noise.exit.us.i.i ], [ %.sroa.0.179.us.i.i, %2309 ]
+2368:                                             ; preds = %poisson_noise.exit.us.i.i, %2312
+  %.sroa.35.2.us.i.i = phi i32 [ %2336, %poisson_noise.exit.us.i.i ], [ %.sroa.35.176.us.i.i, %2312 ]
+  %.sroa.24.2.us.i.i = phi i32 [ %2335, %poisson_noise.exit.us.i.i ], [ %.sroa.24.177.us.i.i, %2312 ]
+  %.sroa.13.2.us.i.i = phi i32 [ %2333, %poisson_noise.exit.us.i.i ], [ %.sroa.13.178.us.i.i, %2312 ]
+  %.sroa.0.2.us.i.i = phi i32 [ %2334, %poisson_noise.exit.us.i.i ], [ %.sroa.0.179.us.i.i, %2312 ]
   %indvars.iv.next.i558.i = add nsw i64 %indvars.iv.i557.i, 1
   %lftr.wideiv.i559.i = trunc i64 %indvars.iv.next.i558.i to i32
-  %exitcond.not.i560.i = icmp eq i32 %2252, %lftr.wideiv.i559.i
-  br i1 %exitcond.not.i560.i, label %._crit_edge.us.i561.i, label %2309
+  %exitcond.not.i560.i = icmp eq i32 %2255, %lftr.wideiv.i559.i
+  br i1 %exitcond.not.i560.i, label %._crit_edge.us.i561.i, label %2312
 
-._crit_edge.us.i561.i:                            ; preds = %2365
+._crit_edge.us.i561.i:                            ; preds = %2368
   %indvars.iv.next93.i.i = add nsw i64 %indvars.iv92.i.i, 1
   %lftr.wideiv94.i.i = trunc i64 %indvars.iv.next93.i.i to i32
-  %exitcond95.not.i.i = icmp eq i32 %2259, %lftr.wideiv94.i.i
+  %exitcond95.not.i.i = icmp eq i32 %2262, %lftr.wideiv94.i.i
   br i1 %exitcond95.not.i.i, label %_add_poisson_noise.exit.i, label %.preheader.us.i556.i
 
-_add_poisson_noise.exit.i:                        ; preds = %._crit_edge.us.i561.i, %2246, %2242
+_add_poisson_noise.exit.i:                        ; preds = %._crit_edge.us.i561.i, %2249, %2245
   %indvars.iv.next819.i = add nuw nsw i64 %indvars.iv818.i, 1
   %exitcond822.not.i = icmp eq i64 %indvars.iv.next819.i, %wide.trip.count816.i
-  br i1 %exitcond822.not.i, label %.loopexit612.i, label %2242
+  br i1 %exitcond822.not.i, label %.loopexit612.i, label %2245
 
 .loopexit612.i:                                   ; preds = %_add_poisson_noise.exit.i, %._crit_edge678.thread.i, %._crit_edge678.i
-  %.pre-phi = phi float [ %.pre488, %._crit_edge678.thread.i ], [ %.pn.in.i.i, %._crit_edge678.i ], [ %.pn.in.i.i, %_add_poisson_noise.exit.i ]
-  %2366 = fadd reassoc nsz arcp contract afn float %.pre-phi, 2.000000e+00
-  %2367 = load i32, ptr %1189, align 4, !tbaa !83
-  %2368 = add i32 %2367, -1
-  %2369 = icmp sgt i32 %2367, 2
-  br i1 %2369, label %.preheader610.lr.ph.i, label %.loopexit.i314
+  %.pre-phi = phi float [ %.pre488, %._crit_edge678.thread.i ], [ %2057, %._crit_edge678.i ], [ %2057, %_add_poisson_noise.exit.i ]
+  %2369 = fadd reassoc nsz arcp contract afn float %.pre-phi, 2.000000e+00
+  %2370 = load i32, ptr %1189, align 4, !tbaa !83
+  %2371 = add i32 %2370, -1
+  %2372 = icmp sgt i32 %2370, 2
+  br i1 %2372, label %.preheader610.lr.ph.i, label %.loopexit.i314
 
 .preheader610.lr.ph.i:                            ; preds = %.loopexit612.i
-  %2370 = load i32, ptr %1183, align 4, !tbaa !81
-  %2371 = icmp sgt i32 %2370, 2
-  %2372 = sext i32 %2370 to i64
-  %2373 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  br i1 %2371, label %.preheader610.us.preheader.i, label %.loopexit.i314
+  %2373 = load i32, ptr %1183, align 4, !tbaa !81
+  %2374 = icmp sgt i32 %2373, 2
+  %2375 = sext i32 %2373 to i64
+  %2376 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  br i1 %2374, label %.preheader610.us.preheader.i, label %.loopexit.i314
 
 .preheader610.us.preheader.i:                     ; preds = %.preheader610.lr.ph.i
-  %2374 = add nsw i32 %2370, -1
-  %wide.trip.count836.i = zext nneg i32 %2368 to i64
-  %wide.trip.count826.i = zext nneg i32 %2374 to i64
+  %2377 = add nsw i32 %2373, -1
+  %wide.trip.count836.i = zext nneg i32 %2371 to i64
+  %wide.trip.count826.i = zext nneg i32 %2377 to i64
   br label %.preheader610.us.i
 
 .preheader610.us.i:                               ; preds = %._crit_edge683.us.i, %.preheader610.us.preheader.i
   %indvars.iv833.i = phi i64 [ 1, %.preheader610.us.preheader.i ], [ %indvars.iv.next834.i, %._crit_edge683.us.i ]
-  %2375 = mul nuw nsw i64 %indvars.iv833.i, %2372
+  %2378 = mul nuw nsw i64 %indvars.iv833.i, %2375
   %indvars.iv833.tr.i = trunc i64 %indvars.iv833.i to i32
-  %2376 = shl i32 %indvars.iv833.tr.i, 1
-  %2377 = and i32 %2376, 14
-  %2378 = udiv i32 %indvars.iv833.tr.i, 3
-  %2379 = add nuw nsw i32 %2378, 8
-  %2380 = mul nsw i32 %2379, %1205
-  %2381 = add i32 %2380, 8
+  %2379 = shl i32 %indvars.iv833.tr.i, 1
+  %2380 = and i32 %2379, 14
+  %2381 = udiv i32 %indvars.iv833.tr.i, 3
+  %2382 = add nuw nsw i32 %2381, 8
+  %2383 = mul nsw i32 %2382, %1205
+  %2384 = add i32 %2383, 8
   br i1 %.not476.i, label %.lr.ph682.split.us.us.i, label %.lr.ph682.split.us690.i
 
-.lr.ph682.split.us690.i:                          ; preds = %.preheader610.us.i, %2412
-  %indvars.iv823.i = phi i64 [ %indvars.iv.next824.i, %2412 ], [ 1, %.preheader610.us.i ]
-  %2382 = add nuw nsw i64 %indvars.iv823.i, %2375
-  %2383 = trunc nuw nsw i64 %indvars.iv823.i to i32
-  %2384 = and i32 %2383, 1
-  %.tr.i567.us.i = or disjoint i32 %2384, %2377
-  %2385 = shl nuw nsw i32 %.tr.i567.us.i, 1
-  %2386 = lshr i32 %1108, %2385
-  %2387 = and i32 %2386, 3
-  %2388 = getelementptr inbounds nuw float, ptr %2, i64 %2382
-  %2389 = load float, ptr %2388, align 4, !tbaa !37
-  %2390 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2389, float 0.000000e+00)
-  %2391 = zext nneg i32 %2387 to i64
-  %2392 = getelementptr inbounds nuw float, ptr %18, i64 %2391
-  %2393 = load float, ptr %2392, align 4, !tbaa !37
-  %2394 = fcmp reassoc nsz arcp contract afn ogt float %2390, %2393
-  br i1 %2394, label %2395, label %2412
+.lr.ph682.split.us690.i:                          ; preds = %.preheader610.us.i, %2415
+  %indvars.iv823.i = phi i64 [ %indvars.iv.next824.i, %2415 ], [ 1, %.preheader610.us.i ]
+  %2385 = add nuw nsw i64 %indvars.iv823.i, %2378
+  %2386 = trunc nuw nsw i64 %indvars.iv823.i to i32
+  %2387 = and i32 %2386, 1
+  %.tr.i567.us.i = or disjoint i32 %2387, %2380
+  %2388 = shl nuw nsw i32 %.tr.i567.us.i, 1
+  %2389 = lshr i32 %1108, %2388
+  %2390 = and i32 %2389, 3
+  %2391 = getelementptr inbounds nuw float, ptr %2, i64 %2385
+  %2392 = load float, ptr %2391, align 4, !tbaa !37
+  %2393 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2392, float 0.000000e+00)
+  %2394 = zext nneg i32 %2390 to i64
+  %2395 = getelementptr inbounds nuw float, ptr %18, i64 %2394
+  %2396 = load float, ptr %2395, align 4, !tbaa !37
+  %2397 = fcmp reassoc nsz arcp contract afn ogt float %2393, %2396
+  br i1 %2397, label %2398, label %2415
 
-2395:                                             ; preds = %.lr.ph682.split.us690.i
-  %2396 = udiv i32 %2383, 3
-  %2397 = add i32 %2396, %2381
-  %2398 = sext i32 %2397 to i64
-  %2399 = getelementptr inbounds nuw float, ptr %1831, i64 %2398
-  %2400 = load float, ptr %2399, align 4, !tbaa !37
-  %2401 = fsub reassoc nsz arcp contract afn float %2366, %2400
-  %2402 = tail call reassoc nsz arcp contract afn float @llvm.exp.f32(float %2401)
-  %2403 = fadd reassoc nsz arcp contract afn float %2402, 1.000000e+00
-  %2404 = getelementptr inbounds nuw float, ptr %1832, i64 %2398
-  %2405 = load float, ptr %2404, align 4, !tbaa !37
-  %2406 = fmul reassoc nsz arcp contract afn float %2405, %1167
-  %2407 = fdiv reassoc nsz arcp contract afn float %2406, %2403
-  %2408 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2407, float 0.000000e+00)
-  %2409 = getelementptr inbounds nuw float, ptr %1104, i64 %2382
-  %2410 = load float, ptr %2409, align 4, !tbaa !37
-  %2411 = fadd reassoc nsz arcp contract afn float %2408, %2410
-  store float %2411, ptr %2409, align 4, !tbaa !37
-  br label %2412
+2398:                                             ; preds = %.lr.ph682.split.us690.i
+  %2399 = udiv i32 %2386, 3
+  %2400 = add i32 %2399, %2384
+  %2401 = sext i32 %2400 to i64
+  %2402 = getelementptr inbounds nuw float, ptr %1832, i64 %2401
+  %2403 = load float, ptr %2402, align 4, !tbaa !37
+  %2404 = fsub reassoc nsz arcp contract afn float %2369, %2403
+  %2405 = tail call reassoc nsz arcp contract afn float @llvm.exp.f32(float %2404)
+  %2406 = fadd reassoc nsz arcp contract afn float %2405, 1.000000e+00
+  %2407 = getelementptr inbounds nuw float, ptr %1833, i64 %2401
+  %2408 = load float, ptr %2407, align 4, !tbaa !37
+  %2409 = fmul reassoc nsz arcp contract afn float %2408, %1167
+  %2410 = fdiv reassoc nsz arcp contract afn float %2409, %2406
+  %2411 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2410, float 0.000000e+00)
+  %2412 = getelementptr inbounds nuw float, ptr %1104, i64 %2385
+  %2413 = load float, ptr %2412, align 4, !tbaa !37
+  %2414 = fadd reassoc nsz arcp contract afn float %2411, %2413
+  store float %2414, ptr %2412, align 4, !tbaa !37
+  br label %2415
 
-2412:                                             ; preds = %2395, %.lr.ph682.split.us690.i
+2415:                                             ; preds = %2398, %.lr.ph682.split.us690.i
   %indvars.iv.next824.i = add nuw nsw i64 %indvars.iv823.i, 1
   %exitcond827.not.i = icmp eq i64 %indvars.iv.next824.i, %wide.trip.count826.i
   br i1 %exitcond827.not.i, label %._crit_edge683.us.i, label %.lr.ph682.split.us690.i
 
-._crit_edge683.us.i:                              ; preds = %2412, %2450
+._crit_edge683.us.i:                              ; preds = %2415, %2453
   %indvars.iv.next834.i = add nuw nsw i64 %indvars.iv833.i, 1
   %exitcond837.not.i = icmp eq i64 %indvars.iv.next834.i, %wide.trip.count836.i
   br i1 %exitcond837.not.i, label %.loopexit.i314, label %.preheader610.us.i
 
 .lr.ph682.split.us.us.i:                          ; preds = %.preheader610.us.i
-  %2413 = load i32, ptr %2373, align 4, !tbaa !47
-  %2414 = add i32 %indvars.iv833.tr.i, 600
-  %2415 = add nsw i32 %2414, %2413
-  %2416 = load i32, ptr %4, align 4, !tbaa !45
-  %invariant.op684.us.i = add i32 %2416, 600
-  %2417 = srem i32 %2415, 6
-  %2418 = sext i32 %2417 to i64
-  %2419 = getelementptr inbounds [6 x i8], ptr %1131, i64 %2418
+  %2416 = load i32, ptr %2376, align 4, !tbaa !47
+  %2417 = add i32 %indvars.iv833.tr.i, 600
+  %2418 = add nsw i32 %2417, %2416
+  %2419 = load i32, ptr %4, align 4, !tbaa !45
+  %invariant.op684.us.i = add i32 %2419, 600
+  %2420 = srem i32 %2418, 6
+  %2421 = sext i32 %2420 to i64
+  %2422 = getelementptr inbounds [6 x i8], ptr %1131, i64 %2421
   br label %FCxtrans.exit566.us.us.i
 
-FCxtrans.exit566.us.us.i:                         ; preds = %2450, %.lr.ph682.split.us.us.i
-  %indvars.iv828.i = phi i64 [ %indvars.iv.next829.i, %2450 ], [ 1, %.lr.ph682.split.us.us.i ]
-  %2420 = add nuw nsw i64 %indvars.iv828.i, %2375
-  %2421 = trunc nuw nsw i64 %indvars.iv828.i to i32
-  %.reass685.us.i = add i32 %invariant.op684.us.i, %2421
-  %2422 = srem i32 %.reass685.us.i, 6
-  %2423 = sext i32 %2422 to i64
-  %2424 = getelementptr inbounds i8, ptr %2419, i64 %2423
-  %2425 = load i8, ptr %2424, align 1, !tbaa !114
-  %2426 = getelementptr inbounds nuw float, ptr %2, i64 %2420
-  %2427 = load float, ptr %2426, align 4, !tbaa !37
-  %2428 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2427, float 0.000000e+00)
-  %2429 = zext i8 %2425 to i64
-  %2430 = getelementptr inbounds nuw float, ptr %18, i64 %2429
-  %2431 = load float, ptr %2430, align 4, !tbaa !37
-  %2432 = fcmp reassoc nsz arcp contract afn ogt float %2428, %2431
-  br i1 %2432, label %2433, label %2450
+FCxtrans.exit566.us.us.i:                         ; preds = %2453, %.lr.ph682.split.us.us.i
+  %indvars.iv828.i = phi i64 [ %indvars.iv.next829.i, %2453 ], [ 1, %.lr.ph682.split.us.us.i ]
+  %2423 = add nuw nsw i64 %indvars.iv828.i, %2378
+  %2424 = trunc nuw nsw i64 %indvars.iv828.i to i32
+  %.reass685.us.i = add i32 %invariant.op684.us.i, %2424
+  %2425 = srem i32 %.reass685.us.i, 6
+  %2426 = sext i32 %2425 to i64
+  %2427 = getelementptr inbounds i8, ptr %2422, i64 %2426
+  %2428 = load i8, ptr %2427, align 1, !tbaa !114
+  %2429 = getelementptr inbounds nuw float, ptr %2, i64 %2423
+  %2430 = load float, ptr %2429, align 4, !tbaa !37
+  %2431 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2430, float 0.000000e+00)
+  %2432 = zext i8 %2428 to i64
+  %2433 = getelementptr inbounds nuw float, ptr %18, i64 %2432
+  %2434 = load float, ptr %2433, align 4, !tbaa !37
+  %2435 = fcmp reassoc nsz arcp contract afn ogt float %2431, %2434
+  br i1 %2435, label %2436, label %2453
 
-2433:                                             ; preds = %FCxtrans.exit566.us.us.i
-  %2434 = udiv i32 %2421, 3
-  %2435 = add i32 %2434, %2381
-  %2436 = sext i32 %2435 to i64
-  %2437 = getelementptr inbounds nuw float, ptr %1831, i64 %2436
-  %2438 = load float, ptr %2437, align 4, !tbaa !37
-  %2439 = fsub reassoc nsz arcp contract afn float %2366, %2438
-  %2440 = tail call reassoc nsz arcp contract afn float @llvm.exp.f32(float %2439)
-  %2441 = fadd reassoc nsz arcp contract afn float %2440, 1.000000e+00
-  %2442 = getelementptr inbounds nuw float, ptr %1832, i64 %2436
-  %2443 = load float, ptr %2442, align 4, !tbaa !37
-  %2444 = fmul reassoc nsz arcp contract afn float %2443, %1167
-  %2445 = fdiv reassoc nsz arcp contract afn float %2444, %2441
-  %2446 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2445, float 0.000000e+00)
-  %2447 = getelementptr inbounds nuw float, ptr %1104, i64 %2420
-  %2448 = load float, ptr %2447, align 4, !tbaa !37
-  %2449 = fadd reassoc nsz arcp contract afn float %2446, %2448
-  store float %2449, ptr %2447, align 4, !tbaa !37
-  br label %2450
+2436:                                             ; preds = %FCxtrans.exit566.us.us.i
+  %2437 = udiv i32 %2424, 3
+  %2438 = add i32 %2437, %2384
+  %2439 = sext i32 %2438 to i64
+  %2440 = getelementptr inbounds nuw float, ptr %1832, i64 %2439
+  %2441 = load float, ptr %2440, align 4, !tbaa !37
+  %2442 = fsub reassoc nsz arcp contract afn float %2369, %2441
+  %2443 = tail call reassoc nsz arcp contract afn float @llvm.exp.f32(float %2442)
+  %2444 = fadd reassoc nsz arcp contract afn float %2443, 1.000000e+00
+  %2445 = getelementptr inbounds nuw float, ptr %1833, i64 %2439
+  %2446 = load float, ptr %2445, align 4, !tbaa !37
+  %2447 = fmul reassoc nsz arcp contract afn float %2446, %1167
+  %2448 = fdiv reassoc nsz arcp contract afn float %2447, %2444
+  %2449 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2448, float 0.000000e+00)
+  %2450 = getelementptr inbounds nuw float, ptr %1104, i64 %2423
+  %2451 = load float, ptr %2450, align 4, !tbaa !37
+  %2452 = fadd reassoc nsz arcp contract afn float %2449, %2451
+  store float %2452, ptr %2450, align 4, !tbaa !37
+  br label %2453
 
-2450:                                             ; preds = %2433, %FCxtrans.exit566.us.us.i
+2453:                                             ; preds = %2436, %FCxtrans.exit566.us.us.i
   %indvars.iv.next829.i = add nuw nsw i64 %indvars.iv828.i, 1
   %exitcond832.not.i = icmp eq i64 %indvars.iv.next829.i, %wide.trip.count826.i
   br i1 %exitcond832.not.i, label %._crit_edge683.us.i, label %FCxtrans.exit566.us.us.i
 
-.loopexit.i314:                                   ; preds = %._crit_edge683.us.i, %.preheader610.lr.ph.i, %.loopexit612.i, %1925, %1924
-  %2451 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %2452 = load i32, ptr %2451, align 4, !tbaa !83
-  %2453 = icmp sgt i32 %2452, 0
-  br i1 %2453, label %.preheader.lr.ph.i315, label %._crit_edge698.i
+.loopexit.i314:                                   ; preds = %._crit_edge683.us.i, %.preheader610.lr.ph.i, %.loopexit612.i, %1926, %1925
+  %2454 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %2455 = load i32, ptr %2454, align 4, !tbaa !83
+  %2456 = icmp sgt i32 %2455, 0
+  br i1 %2456, label %.preheader.lr.ph.i315, label %._crit_edge698.i
 
 .preheader.lr.ph.i315:                            ; preds = %.loopexit.i314
-  %2454 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %2455 = load i32, ptr %2454, align 4, !tbaa !81
-  %2456 = icmp sgt i32 %2455, 0
-  %2457 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %2458 = sext i32 %2455 to i64
-  %2459 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %2460 = icmp eq i32 %.fr, 1
-  %2461 = getelementptr inbounds nuw i8, ptr %23, i64 372
-  %2462 = load i32, ptr %2461, align 4
-  %2463 = getelementptr inbounds nuw i8, ptr %23, i64 376
-  %2464 = load i32, ptr %2463, align 8
-  %2465 = getelementptr inbounds nuw i8, ptr %23, i64 364
-  %2466 = load i32, ptr %2465, align 4
-  %2467 = sub nsw i32 %2464, %2466
-  %2468 = mul nsw i32 %2467, %2462
-  %2469 = load ptr, ptr %1839, align 16
-  %2470 = getelementptr inbounds nuw i8, ptr %23, i64 360
-  %2471 = load i32, ptr %2470, align 8
-  %2472 = shl nsw i64 %2458, 2
-  %2473 = zext i32 %2455 to i64
-  %2474 = shl nuw nsw i64 %2473, 2
-  %wide.trip.count852.i = zext nneg i32 %2452 to i64
+  %2457 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %2458 = load i32, ptr %2457, align 4, !tbaa !81
+  %2459 = icmp sgt i32 %2458, 0
+  %2460 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %2461 = sext i32 %2458 to i64
+  %2462 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %2463 = icmp eq i32 %.fr, 1
+  %2464 = getelementptr inbounds nuw i8, ptr %23, i64 372
+  %2465 = load i32, ptr %2464, align 4
+  %2466 = getelementptr inbounds nuw i8, ptr %23, i64 376
+  %2467 = load i32, ptr %2466, align 8
+  %2468 = getelementptr inbounds nuw i8, ptr %23, i64 364
+  %2469 = load i32, ptr %2468, align 4
+  %2470 = sub nsw i32 %2467, %2469
+  %2471 = mul nsw i32 %2470, %2465
+  %2472 = load ptr, ptr %1840, align 16
+  %2473 = getelementptr inbounds nuw i8, ptr %23, i64 360
+  %2474 = load i32, ptr %2473, align 8
+  %2475 = shl nsw i64 %2461, 2
+  %2476 = zext i32 %2458 to i64
+  %2477 = shl nuw nsw i64 %2476, 2
+  %wide.trip.count852.i = zext nneg i32 %2455 to i64
   br label %.preheader.i316
 
 .preheader.i316:                                  ; preds = %._crit_edge693.i, %.preheader.lr.ph.i315
   %indvar.i317 = phi i64 [ 0, %.preheader.lr.ph.i315 ], [ %indvar.next.i318, %._crit_edge693.i ]
-  %2475 = mul i64 %2472, %indvar.i317
-  %scevgep842.i = getelementptr i8, ptr %3, i64 %2475
-  br i1 %2456, label %.lr.ph692.i, label %._crit_edge693.i
+  %2478 = mul i64 %2475, %indvar.i317
+  %scevgep842.i = getelementptr i8, ptr %3, i64 %2478
+  br i1 %2459, label %.lr.ph692.i, label %._crit_edge693.i
 
 .lr.ph692.i:                                      ; preds = %.preheader.i316
-  %2476 = load i32, ptr %2457, align 4, !tbaa !47
-  %.fr.i319 = freeze i32 %2476
-  %2477 = trunc nuw nsw i64 %indvar.i317 to i32
-  %2478 = add i32 %.fr.i319, %2477
-  %2479 = load i32, ptr %5, align 4, !tbaa !45
-  %2480 = mul nuw nsw i64 %indvar.i317, %2458
-  %2481 = icmp sgt i32 %2478, -1
-  %2482 = udiv i32 %2478, 3
-  %2483 = add nuw nsw i32 %2482, 8
-  %2484 = mul nsw i32 %2483, %1205
-  %invariant.op694.i = add i32 %2484, 8
-  %2485 = zext nneg i32 %2478 to i64
-  %2486 = icmp ne i32 %2478, 0
-  %2487 = shl nuw i32 %2478, 1
-  %2488 = and i32 %2487, 14
-  %2489 = add nuw nsw i32 %2478, 600
-  br i1 %2481, label %.lr.ph692.split.us.i, label %._crit_edge693.sink.split.i
+  %2479 = load i32, ptr %2460, align 4, !tbaa !47
+  %.fr.i319 = freeze i32 %2479
+  %2480 = trunc nuw nsw i64 %indvar.i317 to i32
+  %2481 = add i32 %.fr.i319, %2480
+  %2482 = load i32, ptr %5, align 4, !tbaa !45
+  %2483 = mul nuw nsw i64 %indvar.i317, %2461
+  %2484 = icmp sgt i32 %2481, -1
+  %2485 = udiv i32 %2481, 3
+  %2486 = add nuw nsw i32 %2485, 8
+  %2487 = mul nsw i32 %2486, %1205
+  %invariant.op694.i = add i32 %2487, 8
+  %2488 = zext nneg i32 %2481 to i64
+  %2489 = icmp ne i32 %2481, 0
+  %2490 = shl nuw i32 %2481, 1
+  %2491 = and i32 %2490, 14
+  %2492 = add nuw nsw i32 %2481, 600
+  br i1 %2484, label %.lr.ph692.split.us.i, label %._crit_edge693.sink.split.i
 
 .lr.ph692.split.us.i:                             ; preds = %.lr.ph692.i
-  %2490 = load i32, ptr %1189, align 4, !tbaa !83
-  %.fr703.i = freeze i32 %2490
-  %2491 = icmp slt i32 %2478, %.fr703.i
-  %2492 = add nsw i32 %.fr703.i, -1
-  %2493 = icmp samesign ult i32 %2478, %2492
-  br i1 %2491, label %.lr.ph692.split.us.split.preheader.i, label %._crit_edge693.sink.split.i
+  %2493 = load i32, ptr %1189, align 4, !tbaa !83
+  %.fr703.i = freeze i32 %2493
+  %2494 = icmp slt i32 %2481, %.fr703.i
+  %2495 = add nsw i32 %.fr703.i, -1
+  %2496 = icmp samesign ult i32 %2481, %2495
+  br i1 %2494, label %.lr.ph692.split.us.split.preheader.i, label %._crit_edge693.sink.split.i
 
 .lr.ph692.split.us.split.preheader.i:             ; preds = %.lr.ph692.split.us.i
-  %2494 = sext i32 %2479 to i64
-  br i1 %1844, label %.lr.ph692.split.us.split.i.us, label %.lr.ph692.split.us.split.i.preheader
+  %2497 = sext i32 %2482 to i64
+  br i1 %1845, label %.lr.ph692.split.us.split.i.us, label %.lr.ph692.split.us.split.i.preheader
 
 .lr.ph692.split.us.split.i.preheader:             ; preds = %.lr.ph692.split.us.split.preheader.i
-  %invariant.gep722 = getelementptr float, ptr %3, i64 %2480
+  %invariant.gep722 = getelementptr float, ptr %3, i64 %2483
   br label %.lr.ph692.split.us.split.i
 
-.lr.ph692.split.us.split.i.us:                    ; preds = %.lr.ph692.split.us.split.preheader.i, %2585
-  %indvars.iv846.i.us = phi i64 [ %indvars.iv.next847.i.us, %2585 ], [ 0, %.lr.ph692.split.us.split.preheader.i ]
-  %2495 = add nsw i64 %indvars.iv846.i.us, %2494
-  %2496 = add nuw nsw i64 %indvars.iv846.i.us, %2480
-  %2497 = icmp sgt i64 %2495, -1
-  br i1 %2497, label %2498, label %2502
+.lr.ph692.split.us.split.i.us:                    ; preds = %.lr.ph692.split.us.split.preheader.i, %2588
+  %indvars.iv846.i.us = phi i64 [ %indvars.iv.next847.i.us, %2588 ], [ 0, %.lr.ph692.split.us.split.preheader.i ]
+  %2498 = add nsw i64 %indvars.iv846.i.us, %2497
+  %2499 = add nuw nsw i64 %indvars.iv846.i.us, %2483
+  %2500 = icmp sgt i64 %2498, -1
+  br i1 %2500, label %2501, label %2505
 
-2498:                                             ; preds = %.lr.ph692.split.us.split.i.us
-  %2499 = load i32, ptr %1183, align 4, !tbaa !81
-  %2500 = sext i32 %2499 to i64
-  %2501 = icmp slt i64 %2495, %2500
-  br i1 %2501, label %2504, label %2502
+2501:                                             ; preds = %.lr.ph692.split.us.split.i.us
+  %2502 = load i32, ptr %1183, align 4, !tbaa !81
+  %2503 = sext i32 %2502 to i64
+  %2504 = icmp slt i64 %2498, %2503
+  br i1 %2504, label %2507, label %2505
 
-2502:                                             ; preds = %2498, %.lr.ph692.split.us.split.i.us
-  %2503 = getelementptr inbounds nuw float, ptr %3, i64 %2496
-  store float 0.000000e+00, ptr %2503, align 4, !tbaa !37
-  br label %2585
+2505:                                             ; preds = %2501, %.lr.ph692.split.us.split.i.us
+  %2506 = getelementptr inbounds nuw float, ptr %3, i64 %2499
+  store float 0.000000e+00, ptr %2506, align 4, !tbaa !37
+  br label %2588
 
-2504:                                             ; preds = %2498
-  %2505 = trunc nuw nsw i64 %2495 to i32
-  %2506 = udiv i32 %2505, 3
-  %.reass695.us.i.us = add i32 %invariant.op694.i, %2506
-  %2507 = sext i32 %.reass695.us.i.us to i64
-  %2508 = getelementptr inbounds nuw float, ptr %1834, i64 %2507
-  %2509 = load float, ptr %2508, align 4, !tbaa !37
-  %2510 = fmul reassoc nsz arcp contract afn float %2509, 0x3FC99999A0000000
-  %2511 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %2510, float 0x3FC99999A0000000)
-  %2512 = getelementptr inbounds nuw float, ptr %3, i64 %2496
-  store float %2511, ptr %2512, align 4, !tbaa !37
-  %2513 = icmp ne i64 %2495, 0
-  %or.cond11.us.i.us = and i1 %2486, %2513
-  %or.cond592.us.i.us = select i1 %or.cond11.us.i.us, i1 %2493, i1 false
-  %2514 = add nsw i32 %2499, -1
-  %2515 = sext i32 %2514 to i64
-  %2516 = icmp samesign ult i64 %2495, %2515
-  %or.cond594.us.i.us = select i1 %or.cond592.us.i.us, i1 %2516, i1 false
-  br i1 %or.cond594.us.i.us, label %2517, label %2585
+2507:                                             ; preds = %2501
+  %2508 = trunc nuw nsw i64 %2498 to i32
+  %2509 = udiv i32 %2508, 3
+  %.reass695.us.i.us = add i32 %invariant.op694.i, %2509
+  %2510 = sext i32 %.reass695.us.i.us to i64
+  %2511 = getelementptr inbounds nuw float, ptr %1835, i64 %2510
+  %2512 = load float, ptr %2511, align 4, !tbaa !37
+  %2513 = fmul reassoc nsz arcp contract afn float %2512, 0x3FC99999A0000000
+  %2514 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %2513, float 0x3FC99999A0000000)
+  %2515 = getelementptr inbounds nuw float, ptr %3, i64 %2499
+  store float %2514, ptr %2515, align 4, !tbaa !37
+  %2516 = icmp ne i64 %2498, 0
+  %or.cond11.us.i.us = and i1 %2489, %2516
+  %or.cond592.us.i.us = select i1 %or.cond11.us.i.us, i1 %2496, i1 false
+  %2517 = add nsw i32 %2502, -1
+  %2518 = sext i32 %2517 to i64
+  %2519 = icmp samesign ult i64 %2498, %2518
+  %or.cond594.us.i.us = select i1 %or.cond592.us.i.us, i1 %2519, i1 false
+  br i1 %or.cond594.us.i.us, label %2520, label %2588
 
-2517:                                             ; preds = %2504
-  br i1 %.not476.i, label %FCxtrans.exit571.us.i.us, label %2518
+2520:                                             ; preds = %2507
+  br i1 %.not476.i, label %FCxtrans.exit571.us.i.us, label %2521
 
-2518:                                             ; preds = %2517
-  %2519 = and i32 %2505, 1
-  %.tr.i572.us.i.us = or disjoint i32 %2519, %2488
-  %2520 = shl nuw nsw i32 %.tr.i572.us.i.us, 1
-  %2521 = lshr i32 %1108, %2520
-  %2522 = and i32 %2521, 3
-  br label %2536
+2521:                                             ; preds = %2520
+  %2522 = and i32 %2508, 1
+  %.tr.i572.us.i.us = or disjoint i32 %2522, %2491
+  %2523 = shl nuw nsw i32 %.tr.i572.us.i.us, 1
+  %2524 = lshr i32 %1108, %2523
+  %2525 = and i32 %2524, 3
+  br label %2539
 
-FCxtrans.exit571.us.i.us:                         ; preds = %2517
-  %2523 = load i32, ptr %2459, align 4, !tbaa !47
-  %2524 = add nsw i32 %2489, %2523
-  %2525 = load i32, ptr %4, align 4, !tbaa !45
-  %2526 = add nuw i32 %2505, 600
-  %2527 = add nsw i32 %2526, %2525
-  %2528 = srem i32 %2524, 6
-  %2529 = sext i32 %2528 to i64
-  %2530 = getelementptr inbounds [6 x i8], ptr %1131, i64 %2529
+FCxtrans.exit571.us.i.us:                         ; preds = %2520
+  %2526 = load i32, ptr %2462, align 4, !tbaa !47
+  %2527 = add nsw i32 %2492, %2526
+  %2528 = load i32, ptr %4, align 4, !tbaa !45
+  %2529 = add nuw i32 %2508, 600
+  %2530 = add nsw i32 %2529, %2528
   %2531 = srem i32 %2527, 6
   %2532 = sext i32 %2531 to i64
-  %2533 = getelementptr inbounds i8, ptr %2530, i64 %2532
-  %2534 = load i8, ptr %2533, align 1, !tbaa !114
-  %2535 = zext i8 %2534 to i32
-  br label %2536
+  %2533 = getelementptr inbounds [6 x i8], ptr %1131, i64 %2532
+  %2534 = srem i32 %2530, 6
+  %2535 = sext i32 %2534 to i64
+  %2536 = getelementptr inbounds i8, ptr %2533, i64 %2535
+  %2537 = load i8, ptr %2536, align 1, !tbaa !114
+  %2538 = zext i8 %2537 to i32
+  br label %2539
 
-2536:                                             ; preds = %FCxtrans.exit571.us.i.us, %2518
-  %2537 = phi i32 [ %2535, %FCxtrans.exit571.us.i.us ], [ %2522, %2518 ]
-  %2538 = zext nneg i32 %2537 to i64
-  %2539 = getelementptr inbounds nuw %struct.dt_iop_segmentation_t, ptr %23, i64 %2538
-  %2540 = getelementptr inbounds nuw i8, ptr %2539, i64 84
-  %2541 = load i32, ptr %2540, align 4, !tbaa !23
-  %2542 = getelementptr inbounds nuw i8, ptr %2539, i64 88
-  %2543 = load i32, ptr %2542, align 8, !tbaa !27
-  %2544 = getelementptr inbounds nuw i8, ptr %2539, i64 76
-  %2545 = load i32, ptr %2544, align 4, !tbaa !28
-  %2546 = sub nsw i32 %2543, %2545
-  %2547 = mul nsw i32 %2546, %2541
-  %.not.i573.us.i.us = icmp ult i32 %.reass695.us.i.us, %2547
+2539:                                             ; preds = %FCxtrans.exit571.us.i.us, %2521
+  %2540 = phi i32 [ %2538, %FCxtrans.exit571.us.i.us ], [ %2525, %2521 ]
+  %2541 = zext nneg i32 %2540 to i64
+  %2542 = getelementptr inbounds nuw %struct.dt_iop_segmentation_t, ptr %23, i64 %2541
+  %2543 = getelementptr inbounds nuw i8, ptr %2542, i64 84
+  %2544 = load i32, ptr %2543, align 4, !tbaa !23
+  %2545 = getelementptr inbounds nuw i8, ptr %2542, i64 88
+  %2546 = load i32, ptr %2545, align 8, !tbaa !27
+  %2547 = getelementptr inbounds nuw i8, ptr %2542, i64 76
+  %2548 = load i32, ptr %2547, align 4, !tbaa !28
+  %2549 = sub nsw i32 %2546, %2548
+  %2550 = mul nsw i32 %2549, %2544
+  %.not.i573.us.i.us = icmp ult i32 %.reass695.us.i.us, %2550
   br i1 %.not.i573.us.i.us, label %_get_segment_id.exit576.us.i.us, label %_get_segment_id.exit576.thread.us.i.us
 
-_get_segment_id.exit576.us.i.us:                  ; preds = %2536
-  %2548 = load ptr, ptr %2539, align 16, !tbaa !30
-  %2549 = getelementptr inbounds nuw i32, ptr %2548, i64 %2507
-  %2550 = load i32, ptr %2549, align 4, !tbaa !22
-  %2551 = and i32 %2550, 262143
-  %2552 = getelementptr inbounds nuw i8, ptr %2539, i64 72
-  %2553 = load i32, ptr %2552, align 8, !tbaa !42
-  %2554 = icmp ult i32 %2551, %2553
-  %2555 = icmp samesign ugt i32 %2551, 1
-  %or.cond.i575.us.i.us = select i1 %2554, i1 %2555, i1 false
-  %2556 = select i1 %or.cond.i575.us.i.us, i32 %2551, i32 0
-  %or.cond13.us.i.us = select i1 %2460, i1 %or.cond.i575.us.i.us, i1 false
-  br i1 %or.cond13.us.i.us, label %2581, label %_get_segment_id.exit576.thread.us.i.us
+_get_segment_id.exit576.us.i.us:                  ; preds = %2539
+  %2551 = load ptr, ptr %2542, align 16, !tbaa !30
+  %2552 = getelementptr inbounds nuw i32, ptr %2551, i64 %2510
+  %2553 = load i32, ptr %2552, align 4, !tbaa !22
+  %2554 = and i32 %2553, 262143
+  %2555 = getelementptr inbounds nuw i8, ptr %2542, i64 72
+  %2556 = load i32, ptr %2555, align 8, !tbaa !42
+  %2557 = icmp ult i32 %2554, %2556
+  %2558 = icmp samesign ugt i32 %2554, 1
+  %or.cond.i575.us.i.us = select i1 %2557, i1 %2558, i1 false
+  %2559 = select i1 %or.cond.i575.us.i.us, i32 %2554, i32 0
+  %or.cond13.us.i.us = select i1 %2463, i1 %or.cond.i575.us.i.us, i1 false
+  br i1 %or.cond13.us.i.us, label %2584, label %_get_segment_id.exit576.thread.us.i.us
 
-_get_segment_id.exit576.thread.us.i.us:           ; preds = %_get_segment_id.exit576.us.i.us, %2536
-  %2557 = phi i1 [ %or.cond.i575.us.i.us, %_get_segment_id.exit576.us.i.us ], [ false, %2536 ]
-  %.0.i574589.us.i.us = phi i32 [ %2556, %_get_segment_id.exit576.us.i.us ], [ 0, %2536 ]
-  switch i32 %.fr, label %2585 [
-    i32 2, label %2570
-    i32 3, label %2558
+_get_segment_id.exit576.thread.us.i.us:           ; preds = %_get_segment_id.exit576.us.i.us, %2539
+  %2560 = phi i1 [ %or.cond.i575.us.i.us, %_get_segment_id.exit576.us.i.us ], [ false, %2539 ]
+  %.0.i574589.us.i.us = phi i32 [ %2559, %_get_segment_id.exit576.us.i.us ], [ 0, %2539 ]
+  switch i32 %.fr, label %2588 [
+    i32 2, label %2573
+    i32 3, label %2561
   ]
 
-2558:                                             ; preds = %_get_segment_id.exit576.thread.us.i.us
-  %.not.i577.us.i.us = icmp ult i32 %.reass695.us.i.us, %2468
+2561:                                             ; preds = %_get_segment_id.exit576.thread.us.i.us
+  %.not.i577.us.i.us = icmp ult i32 %.reass695.us.i.us, %2471
   br i1 %.not.i577.us.i.us, label %_get_segment_id.exit580.us.i.us, label %_get_segment_id.exit580.thread.us.i.us
 
-_get_segment_id.exit580.us.i.us:                  ; preds = %2558
-  %2559 = getelementptr inbounds nuw i32, ptr %2469, i64 %2507
-  %2560 = load i32, ptr %2559, align 4, !tbaa !22
-  %2561 = and i32 %2560, 262143
-  %2562 = icmp ult i32 %2561, %2471
-  %2563 = icmp samesign ugt i32 %2561, 1
-  %or.cond.i579.us.i.us = select i1 %2562, i1 %2563, i1 false
-  br i1 %or.cond.i579.us.i.us, label %2564, label %_get_segment_id.exit580.thread.us.i.us
+_get_segment_id.exit580.us.i.us:                  ; preds = %2561
+  %2562 = getelementptr inbounds nuw i32, ptr %2472, i64 %2510
+  %2563 = load i32, ptr %2562, align 4, !tbaa !22
+  %2564 = and i32 %2563, 262143
+  %2565 = icmp ult i32 %2564, %2474
+  %2566 = icmp samesign ugt i32 %2564, 1
+  %or.cond.i579.us.i.us = select i1 %2565, i1 %2566, i1 false
+  br i1 %or.cond.i579.us.i.us, label %2567, label %_get_segment_id.exit580.thread.us.i.us
 
-2564:                                             ; preds = %_get_segment_id.exit580.us.i.us
-  %2565 = getelementptr inbounds nuw float, ptr %1832, i64 %2507
-  %2566 = load float, ptr %2565, align 4, !tbaa !37
-  %2567 = fmul reassoc nsz arcp contract afn float %2566, %1167
-  %2568 = fadd reassoc nsz arcp contract afn float %2567, %2511
+2567:                                             ; preds = %_get_segment_id.exit580.us.i.us
+  %2568 = getelementptr inbounds nuw float, ptr %1833, i64 %2510
+  %2569 = load float, ptr %2568, align 4, !tbaa !37
+  %2570 = fmul reassoc nsz arcp contract afn float %2569, %1167
+  %2571 = fadd reassoc nsz arcp contract afn float %2570, %2514
   br label %_get_segment_id.exit580.thread.us.i.us
 
-_get_segment_id.exit580.thread.us.i.us:           ; preds = %2564, %_get_segment_id.exit580.us.i.us, %2558
-  %2569 = phi float [ %2568, %2564 ], [ %2511, %_get_segment_id.exit580.us.i.us ], [ %2511, %2558 ]
-  store float %2569, ptr %2512, align 4, !tbaa !37
-  br label %2585
+_get_segment_id.exit580.thread.us.i.us:           ; preds = %2567, %_get_segment_id.exit580.us.i.us, %2561
+  %2572 = phi float [ %2571, %2567 ], [ %2514, %_get_segment_id.exit580.us.i.us ], [ %2514, %2561 ]
+  store float %2572, ptr %2515, align 4, !tbaa !37
+  br label %2588
 
-2570:                                             ; preds = %_get_segment_id.exit576.thread.us.i.us
-  br i1 %2557, label %2571, label %2585
+2573:                                             ; preds = %_get_segment_id.exit576.thread.us.i.us
+  br i1 %2560, label %2574, label %2588
 
-2571:                                             ; preds = %2570
-  %2572 = getelementptr inbounds nuw i8, ptr %2539, i64 56
-  %2573 = load ptr, ptr %2572, align 8, !tbaa !38
-  %2574 = zext nneg i32 %.0.i574589.us.i.us to i64
-  %2575 = getelementptr inbounds nuw float, ptr %2573, i64 %2574
-  %2576 = load float, ptr %2575, align 4, !tbaa !37
-  %2577 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %2576)
-  %2578 = fcmp reassoc nsz arcp contract afn uge float %2577, 0x3E112E0BE0000000
-  br i1 %2578, label %2579, label %2585
+2574:                                             ; preds = %2573
+  %2575 = getelementptr inbounds nuw i8, ptr %2542, i64 56
+  %2576 = load ptr, ptr %2575, align 8, !tbaa !38
+  %2577 = zext nneg i32 %.0.i574589.us.i.us to i64
+  %2578 = getelementptr inbounds nuw float, ptr %2576, i64 %2577
+  %2579 = load float, ptr %2578, align 4, !tbaa !37
+  %2580 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %2579)
+  %2581 = fcmp reassoc nsz arcp contract afn uge float %2580, 0x3E112E0BE0000000
+  br i1 %2581, label %2582, label %2588
 
-2579:                                             ; preds = %2571
-  %2580 = fadd reassoc nsz arcp contract afn float %2511, 1.000000e+00
-  store float %2580, ptr %2512, align 4, !tbaa !37
-  br label %2585
+2582:                                             ; preds = %2574
+  %2583 = fadd reassoc nsz arcp contract afn float %2514, 1.000000e+00
+  store float %2583, ptr %2515, align 4, !tbaa !37
+  br label %2588
 
-2581:                                             ; preds = %_get_segment_id.exit576.us.i.us
-  %2582 = and i32 %2550, 262144
-  %.not479.us.i.us = icmp eq i32 %2582, 0
-  %2583 = select reassoc nsz arcp contract afn i1 %.not479.us.i.us, float 0x3FE3333340000000, float 1.000000e+00
-  %2584 = fadd reassoc nsz arcp contract afn float %2583, %2511
-  store float %2584, ptr %2512, align 4, !tbaa !37
-  br label %2585
+2584:                                             ; preds = %_get_segment_id.exit576.us.i.us
+  %2585 = and i32 %2553, 262144
+  %.not479.us.i.us = icmp eq i32 %2585, 0
+  %2586 = select reassoc nsz arcp contract afn i1 %.not479.us.i.us, float 0x3FE3333340000000, float 1.000000e+00
+  %2587 = fadd reassoc nsz arcp contract afn float %2586, %2514
+  store float %2587, ptr %2515, align 4, !tbaa !37
+  br label %2588
 
-2585:                                             ; preds = %2581, %2579, %2571, %2570, %_get_segment_id.exit580.thread.us.i.us, %_get_segment_id.exit576.thread.us.i.us, %2504, %2502
+2588:                                             ; preds = %2584, %2582, %2574, %2573, %_get_segment_id.exit580.thread.us.i.us, %_get_segment_id.exit576.thread.us.i.us, %2507, %2505
   %indvars.iv.next847.i.us = add nuw nsw i64 %indvars.iv846.i.us, 1
-  %exitcond850.not.i.us = icmp eq i64 %indvars.iv.next847.i.us, %2473
+  %exitcond850.not.i.us = icmp eq i64 %indvars.iv.next847.i.us, %2476
   br i1 %exitcond850.not.i.us, label %._crit_edge693.i, label %.lr.ph692.split.us.split.i.us
 
-.lr.ph692.split.us.split.i:                       ; preds = %.lr.ph692.split.us.split.i.preheader, %2597
-  %indvars.iv846.i = phi i64 [ %indvars.iv.next847.i, %2597 ], [ 0, %.lr.ph692.split.us.split.i.preheader ]
-  %2586 = add nsw i64 %indvars.iv846.i, %2494
-  %2587 = icmp sgt i64 %2586, -1
-  br i1 %2587, label %2588, label %2597
+.lr.ph692.split.us.split.i:                       ; preds = %.lr.ph692.split.us.split.i.preheader, %2600
+  %indvars.iv846.i = phi i64 [ %indvars.iv.next847.i, %2600 ], [ 0, %.lr.ph692.split.us.split.i.preheader ]
+  %2589 = add nsw i64 %indvars.iv846.i, %2497
+  %2590 = icmp sgt i64 %2589, -1
+  br i1 %2590, label %2591, label %2600
 
-2588:                                             ; preds = %.lr.ph692.split.us.split.i
-  %2589 = load i32, ptr %1183, align 4, !tbaa !81
-  %2590 = sext i32 %2589 to i64
-  %2591 = icmp slt i64 %2586, %2590
-  br i1 %2591, label %.thread584.us.i, label %2597
+2591:                                             ; preds = %.lr.ph692.split.us.split.i
+  %2592 = load i32, ptr %1183, align 4, !tbaa !81
+  %2593 = sext i32 %2592 to i64
+  %2594 = icmp slt i64 %2589, %2593
+  br i1 %2594, label %.thread584.us.i, label %2600
 
-.thread584.us.i:                                  ; preds = %2588
-  %2592 = zext nneg i32 %2589 to i64
-  %2593 = mul nuw nsw i64 %2592, %2485
-  %2594 = getelementptr float, ptr %1104, i64 %2593
-  %2595 = getelementptr float, ptr %2594, i64 %2586
-  %2596 = load float, ptr %2595, align 4, !tbaa !37
-  br label %2597
+.thread584.us.i:                                  ; preds = %2591
+  %2595 = zext nneg i32 %2592 to i64
+  %2596 = mul nuw nsw i64 %2595, %2488
+  %2597 = getelementptr float, ptr %1104, i64 %2596
+  %2598 = getelementptr float, ptr %2597, i64 %2589
+  %2599 = load float, ptr %2598, align 4, !tbaa !37
+  br label %2600
 
-2597:                                             ; preds = %.lr.ph692.split.us.split.i, %2588, %.thread584.us.i
-  %.sink = phi float [ %2596, %.thread584.us.i ], [ 0.000000e+00, %2588 ], [ 0.000000e+00, %.lr.ph692.split.us.split.i ]
+2600:                                             ; preds = %.lr.ph692.split.us.split.i, %2591, %.thread584.us.i
+  %.sink = phi float [ %2599, %.thread584.us.i ], [ 0.000000e+00, %2591 ], [ 0.000000e+00, %.lr.ph692.split.us.split.i ]
   %gep723 = getelementptr float, ptr %invariant.gep722, i64 %indvars.iv846.i
   store float %.sink, ptr %gep723, align 4, !tbaa !37
   %indvars.iv.next847.i = add nuw nsw i64 %indvars.iv846.i, 1
-  %exitcond850.not.i = icmp eq i64 %indvars.iv.next847.i, %2473
+  %exitcond850.not.i = icmp eq i64 %indvars.iv.next847.i, %2476
   br i1 %exitcond850.not.i, label %._crit_edge693.i, label %.lr.ph692.split.us.split.i
 
 ._crit_edge698.i:                                 ; preds = %._crit_edge693.i, %.loopexit.i314
-  %2598 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !159
-  %2599 = and i32 %2598, 16
-  %.not477.not.i = icmp eq i32 %2599, 0
-  br i1 %.not477.not.i, label %.preheader691, label %2600
+  %2601 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !159
+  %2602 = and i32 %2601, 16
+  %.not477.not.i = icmp eq i32 %2602, 0
+  br i1 %.not477.not.i, label %.preheader691, label %2603
 
 ._crit_edge693.sink.split.i:                      ; preds = %.lr.ph692.split.us.i, %.lr.ph692.i
-  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep842.i, i8 0, i64 %2474, i1 false), !tbaa !37
+  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep842.i, i8 0, i64 %2477, i1 false), !tbaa !37
   br label %._crit_edge693.i
 
-._crit_edge693.i:                                 ; preds = %2597, %2585, %._crit_edge693.sink.split.i, %.preheader.i316
+._crit_edge693.i:                                 ; preds = %2600, %2588, %._crit_edge693.sink.split.i, %.preheader.i316
   %indvar.next.i318 = add nuw nsw i64 %indvar.i317, 1
   %exitcond853.not.i = icmp eq i64 %indvar.next.i318, %wide.trip.count852.i
   br i1 %exitcond853.not.i, label %._crit_edge698.i, label %.preheader.i316
 
-2600:                                             ; preds = %._crit_edge698.i
-  %2601 = load ptr, ptr %41, align 8, !tbaa !63
-  %2602 = getelementptr inbounds nuw i8, ptr %2601, i64 620
-  %2603 = load i32, ptr %2602, align 4, !tbaa !109
-  %2604 = tail call ptr @dt_dev_pixelpipe_type_to_str(i32 noundef %2603) #30
-  %2605 = load i32, ptr %1183, align 4, !tbaa !81
-  %2606 = load i32, ptr %1189, align 4, !tbaa !83
-  %2607 = mul nsw i32 %2606, %2605
-  %2608 = sitofp i32 %2607 to float
-  %2609 = fmul reassoc nsz arcp contract afn float %2608, 0x3EB0C6F7A0000000
-  %2610 = fpext reassoc nsz arcp contract afn float %2609 to double
-  %2611 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  %2612 = load i32, ptr %2611, align 8, !tbaa !42
-  %2613 = add nsw i32 %2612, -2
-  %2614 = getelementptr inbounds nuw i8, ptr %23, i64 168
+2603:                                             ; preds = %._crit_edge698.i
+  %2604 = load ptr, ptr %41, align 8, !tbaa !63
+  %2605 = getelementptr inbounds nuw i8, ptr %2604, i64 620
+  %2606 = load i32, ptr %2605, align 4, !tbaa !109
+  %2607 = tail call ptr @dt_dev_pixelpipe_type_to_str(i32 noundef %2606) #30
+  %2608 = load i32, ptr %1183, align 4, !tbaa !81
+  %2609 = load i32, ptr %1189, align 4, !tbaa !83
+  %2610 = mul nsw i32 %2609, %2608
+  %2611 = sitofp i32 %2610 to float
+  %2612 = fmul reassoc nsz arcp contract afn float %2611, 0x3EB0C6F7A0000000
+  %2613 = fpext reassoc nsz arcp contract afn float %2612 to double
+  %2614 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %2615 = load i32, ptr %2614, align 8, !tbaa !42
   %2616 = add nsw i32 %2615, -2
-  %2617 = getelementptr inbounds nuw i8, ptr %23, i64 264
+  %2617 = getelementptr inbounds nuw i8, ptr %23, i64 168
   %2618 = load i32, ptr %2617, align 8, !tbaa !42
   %2619 = add nsw i32 %2618, -2
-  %2620 = getelementptr inbounds nuw i8, ptr %23, i64 360
+  %2620 = getelementptr inbounds nuw i8, ptr %23, i64 264
   %2621 = load i32, ptr %2620, align 8, !tbaa !42
   %2622 = add nsw i32 %2621, -2
-  %2623 = add nsw i32 %1182, -2
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.118, ptr noundef %2604, double noundef %2610, i32 noundef %2613, i32 noundef %2616, i32 noundef %2619, i32 noundef %2622, i32 noundef %2623) #30
+  %2623 = getelementptr inbounds nuw i8, ptr %23, i64 360
+  %2624 = load i32, ptr %2623, align 8, !tbaa !42
+  %2625 = add nsw i32 %2624, -2
+  %2626 = add nsw i32 %1182, -2
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.118, ptr noundef %2607, double noundef %2613, i32 noundef %2616, i32 noundef %2619, i32 noundef %2622, i32 noundef %2625, i32 noundef %2626) #30
   br label %.preheader691
 
-.preheader691:                                    ; preds = %2600, %._crit_edge698.i, %._crit_edge653.i
-  br label %2624
+.preheader691:                                    ; preds = %2603, %._crit_edge698.i, %._crit_edge653.i
+  br label %2627
 
-2624:                                             ; preds = %.preheader691, %2624
-  %indvars.iv854.i = phi i64 [ %indvars.iv.next855.i, %2624 ], [ 0, %.preheader691 ]
-  %2625 = getelementptr inbounds nuw %struct.dt_iop_segmentation_t, ptr %23, i64 %indvars.iv854.i
-  %2626 = load ptr, ptr %2625, align 16, !tbaa !30
-  tail call void @free(ptr noundef %2626) #30
-  %2627 = getelementptr inbounds nuw i8, ptr %2625, i64 8
-  %2628 = load ptr, ptr %2627, align 8, !tbaa !43
-  tail call void @free(ptr noundef %2628) #30
-  %2629 = getelementptr inbounds nuw i8, ptr %2625, i64 16
-  %2630 = load ptr, ptr %2629, align 16, !tbaa !35
-  tail call void @free(ptr noundef %2630) #30
-  %2631 = getelementptr inbounds nuw i8, ptr %2625, i64 24
-  %2632 = load ptr, ptr %2631, align 8, !tbaa !34
-  tail call void @free(ptr noundef %2632) #30
-  %2633 = getelementptr inbounds nuw i8, ptr %2625, i64 40
-  %2634 = load ptr, ptr %2633, align 8, !tbaa !32
-  tail call void @free(ptr noundef %2634) #30
-  %2635 = getelementptr inbounds nuw i8, ptr %2625, i64 32
-  %2636 = load ptr, ptr %2635, align 16, !tbaa !33
-  tail call void @free(ptr noundef %2636) #30
-  %2637 = getelementptr inbounds nuw i8, ptr %2625, i64 48
-  %2638 = load ptr, ptr %2637, align 16, !tbaa !31
-  tail call void @free(ptr noundef %2638) #30
-  %2639 = getelementptr inbounds nuw i8, ptr %2625, i64 56
-  %2640 = load ptr, ptr %2639, align 8, !tbaa !38
-  tail call void @free(ptr noundef %2640) #30
-  %2641 = getelementptr inbounds nuw i8, ptr %2625, i64 64
-  %2642 = load ptr, ptr %2641, align 16, !tbaa !36
-  tail call void @free(ptr noundef %2642) #30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %2625, i8 0, i64 96, i1 false)
+2627:                                             ; preds = %.preheader691, %2627
+  %indvars.iv854.i = phi i64 [ %indvars.iv.next855.i, %2627 ], [ 0, %.preheader691 ]
+  %2628 = getelementptr inbounds nuw %struct.dt_iop_segmentation_t, ptr %23, i64 %indvars.iv854.i
+  %2629 = load ptr, ptr %2628, align 16, !tbaa !30
+  tail call void @free(ptr noundef %2629) #30
+  %2630 = getelementptr inbounds nuw i8, ptr %2628, i64 8
+  %2631 = load ptr, ptr %2630, align 8, !tbaa !43
+  tail call void @free(ptr noundef %2631) #30
+  %2632 = getelementptr inbounds nuw i8, ptr %2628, i64 16
+  %2633 = load ptr, ptr %2632, align 16, !tbaa !35
+  tail call void @free(ptr noundef %2633) #30
+  %2634 = getelementptr inbounds nuw i8, ptr %2628, i64 24
+  %2635 = load ptr, ptr %2634, align 8, !tbaa !34
+  tail call void @free(ptr noundef %2635) #30
+  %2636 = getelementptr inbounds nuw i8, ptr %2628, i64 40
+  %2637 = load ptr, ptr %2636, align 8, !tbaa !32
+  tail call void @free(ptr noundef %2637) #30
+  %2638 = getelementptr inbounds nuw i8, ptr %2628, i64 32
+  %2639 = load ptr, ptr %2638, align 16, !tbaa !33
+  tail call void @free(ptr noundef %2639) #30
+  %2640 = getelementptr inbounds nuw i8, ptr %2628, i64 48
+  %2641 = load ptr, ptr %2640, align 16, !tbaa !31
+  tail call void @free(ptr noundef %2641) #30
+  %2642 = getelementptr inbounds nuw i8, ptr %2628, i64 56
+  %2643 = load ptr, ptr %2642, align 8, !tbaa !38
+  tail call void @free(ptr noundef %2643) #30
+  %2644 = getelementptr inbounds nuw i8, ptr %2628, i64 64
+  %2645 = load ptr, ptr %2644, align 16, !tbaa !36
+  tail call void @free(ptr noundef %2645) #30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %2628, i8 0, i64 96, i1 false)
   %indvars.iv.next855.i = add nuw nsw i64 %indvars.iv854.i, 1
   %exitcond857.not.i = icmp eq i64 %indvars.iv.next855.i, 4
-  br i1 %exitcond857.not.i, label %.loopexit381, label %2624
+  br i1 %exitcond857.not.i, label %.loopexit381, label %2627
 
-.loopexit381:                                     ; preds = %1220, %2624
+.loopexit381:                                     ; preds = %1220, %2627
   tail call void @free(ptr noundef %1198) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -7648,62 +7651,62 @@ _process_segmentation.exit:                       ; preds = %1199, %1202, %.loop
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %2643
+  br label %2646
 
-2643:                                             ; preds = %_process_segmentation.exit, %1103
+2646:                                             ; preds = %_process_segmentation.exit, %1103
   tail call void @free(ptr noundef %1104) #30
   br label %process_lch_xtrans.exit
 
-2644:                                             ; preds = %thread-pre-split
+2647:                                             ; preds = %thread-pre-split
   tail call fastcc void @process_clip(ptr noundef nonnull %0, ptr nonnull %.val210, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, float noundef %222)
   br label %process_lch_xtrans.exit
 
-2645:                                             ; preds = %thread-pre-split
-  %2646 = fmul reassoc nsz arcp contract afn float %212, 0x3FEFD70A40000000
+2648:                                             ; preds = %thread-pre-split
+  %2649 = fmul reassoc nsz arcp contract afn float %212, 0x3FEFD70A40000000
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
-  %2647 = fmul reassoc nsz arcp contract afn float %214, %2646
-  store float %2647, ptr %40, align 16, !tbaa !37
-  %2648 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %2649 = fmul reassoc nsz arcp contract afn float %216, %2646
-  store float %2649, ptr %2648, align 4, !tbaa !37
-  %2650 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %2651 = fmul reassoc nsz arcp contract afn float %218, %2646
-  store float %2651, ptr %2650, align 8, !tbaa !37
-  %2652 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  store float %222, ptr %2652, align 4, !tbaa !37
+  %2650 = fmul reassoc nsz arcp contract afn float %214, %2649
+  store float %2650, ptr %40, align 16, !tbaa !37
+  %2651 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %2652 = fmul reassoc nsz arcp contract afn float %216, %2649
+  store float %2652, ptr %2651, align 4, !tbaa !37
+  %2653 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %2654 = fmul reassoc nsz arcp contract afn float %218, %2649
+  store float %2654, ptr %2653, align 8, !tbaa !37
+  %2655 = getelementptr inbounds nuw i8, ptr %40, i64 12
+  store float %222, ptr %2655, align 4, !tbaa !37
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
-  %2653 = load ptr, ptr %45, align 16, !tbaa !48, !noalias !169
-  %2654 = getelementptr inbounds nuw i8, ptr %.val210, i64 184
-  %2655 = load i32, ptr %2654, align 8, !tbaa !64, !noalias !169
+  %2656 = load ptr, ptr %45, align 16, !tbaa !48, !noalias !169
+  %2657 = getelementptr inbounds nuw i8, ptr %.val210, i64 184
+  %2658 = load i32, ptr %2657, align 8, !tbaa !64, !noalias !169
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !169
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) @__const.process_laplacian_bayer.wb, i64 16, i1 false), !noalias !169
-  %2656 = getelementptr inbounds nuw i8, ptr %.val210, i64 256
-  %2657 = load float, ptr %2656, align 16, !tbaa !37, !noalias !169
-  %2658 = fcmp reassoc nsz arcp contract afn une float %2657, 0.000000e+00
-  br i1 %2658, label %2659, label %2666
+  %2659 = getelementptr inbounds nuw i8, ptr %.val210, i64 256
+  %2660 = load float, ptr %2659, align 16, !tbaa !37, !noalias !169
+  %2661 = fcmp reassoc nsz arcp contract afn une float %2660, 0.000000e+00
+  br i1 %2661, label %2662, label %2669
 
-2659:                                             ; preds = %2645
-  store float %2657, ptr %8, align 16, !tbaa !37, !noalias !169
-  %2660 = getelementptr inbounds nuw i8, ptr %.val210, i64 260
-  %2661 = load float, ptr %2660, align 4, !tbaa !37, !noalias !169
-  %2662 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store float %2661, ptr %2662, align 4, !tbaa !37, !noalias !169
-  %2663 = getelementptr inbounds nuw i8, ptr %.val210, i64 264
-  %2664 = load float, ptr %2663, align 8, !tbaa !37, !noalias !169
-  %2665 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store float %2664, ptr %2665, align 8, !tbaa !37, !noalias !169
-  br label %2666
+2662:                                             ; preds = %2648
+  store float %2660, ptr %8, align 16, !tbaa !37, !noalias !169
+  %2663 = getelementptr inbounds nuw i8, ptr %.val210, i64 260
+  %2664 = load float, ptr %2663, align 4, !tbaa !37, !noalias !169
+  %2665 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store float %2664, ptr %2665, align 4, !tbaa !37, !noalias !169
+  %2666 = getelementptr inbounds nuw i8, ptr %.val210, i64 264
+  %2667 = load float, ptr %2666, align 8, !tbaa !37, !noalias !169
+  %2668 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store float %2667, ptr %2668, align 8, !tbaa !37, !noalias !169
+  br label %2669
 
-2666:                                             ; preds = %2659, %2645
-  %2667 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %2668 = load i32, ptr %2667, align 4, !tbaa !83, !noalias !169
-  %2669 = sext i32 %2668 to i64
-  %2670 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %2671 = load i32, ptr %2670, align 4, !tbaa !81, !noalias !169
+2669:                                             ; preds = %2662, %2648
+  %2670 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %2671 = load i32, ptr %2670, align 4, !tbaa !83, !noalias !169
   %2672 = sext i32 %2671 to i64
-  %2673 = lshr i64 %2669, 2
-  %2674 = lshr i64 %2672, 2
+  %2673 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %2674 = load i32, ptr %2673, align 4, !tbaa !81, !noalias !169
+  %2675 = sext i32 %2674 to i64
+  %2676 = lshr i64 %2672, 2
+  %2677 = lshr i64 %2675, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !169
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !169
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !169
@@ -7712,510 +7715,510 @@ _process_segmentation.exit:                       ; preds = %1199, %1202, %.loop
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !169
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !169
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !169
-  %2675 = call i32 (ptr, ptr, ptr, ...) @dt_iop_alloc_image_buffers(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, i32 noundef 1048580, ptr noundef nonnull %9, i32 noundef 1048580, ptr noundef nonnull %10, i32 noundef 0, ptr noundef null) #30, !noalias !169
-  %.not.i328 = icmp eq i32 %2675, 0
-  br i1 %.not.i328, label %2676, label %2680
+  %2678 = call i32 (ptr, ptr, ptr, ...) @dt_iop_alloc_image_buffers(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, i32 noundef 1048580, ptr noundef nonnull %9, i32 noundef 1048580, ptr noundef nonnull %10, i32 noundef 0, ptr noundef null) #30, !noalias !169
+  %.not.i328 = icmp eq i32 %2678, 0
+  br i1 %.not.i328, label %2679, label %2683
 
-2676:                                             ; preds = %2666
-  %2677 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %2678 = load i32, ptr %2677, align 4, !tbaa !170, !noalias !169
-  %2679 = sext i32 %2678 to i64
-  call void @dt_iop_copy_image_roi(ptr noundef %3, ptr noundef %2, i64 noundef %2679, ptr noundef nonnull %4, ptr noundef %5) #30
+2679:                                             ; preds = %2669
+  %2680 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %2681 = load i32, ptr %2680, align 4, !tbaa !170, !noalias !169
+  %2682 = sext i32 %2681 to i64
+  call void @dt_iop_copy_image_roi(ptr noundef %3, ptr noundef %2, i64 noundef %2682, ptr noundef nonnull %4, ptr noundef %5) #30
   br label %process_laplacian_bayer.exit
 
-2680:                                             ; preds = %2666
+2683:                                             ; preds = %2669
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !169
   store i32 0, ptr %17, align 4, !tbaa !45, !noalias !169
-  %2681 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 0, ptr %2681, align 4, !tbaa !47, !noalias !169
-  %2682 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %2683 = ashr i32 %2671, 2
-  store i32 %2683, ptr %2682, align 4, !tbaa !81, !noalias !169
-  %2684 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %2685 = ashr i32 %2668, 2
-  store i32 %2685, ptr %2684, align 4, !tbaa !83, !noalias !169
-  %2686 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store float 0.000000e+00, ptr %2686, align 4, !tbaa !84, !noalias !169
-  %2687 = call i32 (ptr, ptr, ptr, ...) @dt_iop_alloc_image_buffers(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %17, i32 noundef 1048580, ptr noundef nonnull %11, i32 noundef 1048580, ptr noundef nonnull %12, i32 noundef 1048580, ptr noundef nonnull %13, i32 noundef 1048580, ptr noundef nonnull %14, i32 noundef 1048580, ptr noundef nonnull %15, i32 noundef 1048580, ptr noundef nonnull %16, i32 noundef 0, ptr noundef null) #30, !noalias !169
-  %.not84.i = icmp eq i32 %2687, 0
-  br i1 %.not84.i, label %2688, label %2694
+  %2684 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  store i32 0, ptr %2684, align 4, !tbaa !47, !noalias !169
+  %2685 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %2686 = ashr i32 %2674, 2
+  store i32 %2686, ptr %2685, align 4, !tbaa !81, !noalias !169
+  %2687 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %2688 = ashr i32 %2671, 2
+  store i32 %2688, ptr %2687, align 4, !tbaa !83, !noalias !169
+  %2689 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store float 0.000000e+00, ptr %2689, align 4, !tbaa !84, !noalias !169
+  %2690 = call i32 (ptr, ptr, ptr, ...) @dt_iop_alloc_image_buffers(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %17, i32 noundef 1048580, ptr noundef nonnull %11, i32 noundef 1048580, ptr noundef nonnull %12, i32 noundef 1048580, ptr noundef nonnull %13, i32 noundef 1048580, ptr noundef nonnull %14, i32 noundef 1048580, ptr noundef nonnull %15, i32 noundef 1048580, ptr noundef nonnull %16, i32 noundef 0, ptr noundef null) #30, !noalias !169
+  %.not84.i = icmp eq i32 %2690, 0
+  br i1 %.not84.i, label %2691, label %2697
 
-2688:                                             ; preds = %2680
-  %2689 = load ptr, ptr %9, align 8, !tbaa !160, !noalias !169
-  call void @free(ptr noundef %2689) #30, !noalias !169
-  %2690 = load ptr, ptr %10, align 8, !tbaa !160, !noalias !169
-  call void @free(ptr noundef %2690) #30, !noalias !169
-  %2691 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %2692 = load i32, ptr %2691, align 4, !tbaa !170, !noalias !169
-  %2693 = sext i32 %2692 to i64
-  call void @dt_iop_copy_image_roi(ptr noundef %3, ptr noundef %2, i64 noundef %2693, ptr noundef nonnull %4, ptr noundef %5) #30
-  br label %3189
+2691:                                             ; preds = %2683
+  %2692 = load ptr, ptr %9, align 8, !tbaa !160, !noalias !169
+  call void @free(ptr noundef %2692) #30, !noalias !169
+  %2693 = load ptr, ptr %10, align 8, !tbaa !160, !noalias !169
+  call void @free(ptr noundef %2693) #30, !noalias !169
+  %2694 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %2695 = load i32, ptr %2694, align 4, !tbaa !170, !noalias !169
+  %2696 = sext i32 %2695 to i64
+  call void @dt_iop_copy_image_roi(ptr noundef %3, ptr noundef %2, i64 noundef %2696, ptr noundef nonnull %4, ptr noundef %5) #30
+  br label %3192
 
-2694:                                             ; preds = %2680
-  %2695 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %2696 = load float, ptr %2695, align 8, !tbaa !96, !noalias !169
-  %2697 = fmul reassoc nsz arcp contract afn float %2696, 4.000000e+00
-  %2698 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %2699 = load float, ptr %2698, align 4, !tbaa !84, !noalias !169
-  %2700 = fdiv reassoc nsz arcp contract afn float %2697, %2699
-  %2701 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2700, float 1.000000e+00)
-  %2702 = getelementptr inbounds nuw i8, ptr %2653, i64 28
-  %2703 = load i32, ptr %2702, align 4, !tbaa !97, !noalias !169
-  %2704 = shl nuw i32 1, %2703
-  %2705 = sitofp i32 %2704 to float
-  %2706 = fdiv reassoc nsz arcp contract afn float %2705, %2701
-  %2707 = call reassoc nsz arcp contract afn float @llvm.log2.f32(float %2706)
-  %2708 = call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %2707)
-  %2709 = fptosi float %2708 to i32
-  %spec.select.i329 = call i32 @llvm.smax.i32(i32 %2709, i32 1)
-  %2710 = call i32 @llvm.umin.i32(i32 %spec.select.i329, i32 12)
-  %2711 = getelementptr inbounds nuw i8, ptr %2653, i64 20
-  %2712 = load float, ptr %2711, align 4, !tbaa !163, !noalias !169
-  %2713 = fdiv reassoc nsz arcp contract afn float %2712, %2701
-  %2714 = load ptr, ptr %9, align 8, !tbaa !160, !noalias !169
-  %2715 = load ptr, ptr %10, align 8, !tbaa !160, !noalias !169
+2697:                                             ; preds = %2683
+  %2698 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %2699 = load float, ptr %2698, align 8, !tbaa !96, !noalias !169
+  %2700 = fmul reassoc nsz arcp contract afn float %2699, 4.000000e+00
+  %2701 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %2702 = load float, ptr %2701, align 4, !tbaa !84, !noalias !169
+  %2703 = fdiv reassoc nsz arcp contract afn float %2700, %2702
+  %2704 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2703, float 1.000000e+00)
+  %2705 = getelementptr inbounds nuw i8, ptr %2656, i64 28
+  %2706 = load i32, ptr %2705, align 4, !tbaa !97, !noalias !169
+  %2707 = shl nuw i32 1, %2706
+  %2708 = sitofp i32 %2707 to float
+  %2709 = fdiv reassoc nsz arcp contract afn float %2708, %2704
+  %2710 = call reassoc nsz arcp contract afn float @llvm.log2.f32(float %2709)
+  %2711 = call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %2710)
+  %2712 = fptosi float %2711 to i32
+  %spec.select.i329 = call i32 @llvm.smax.i32(i32 %2712, i32 1)
+  %2713 = call i32 @llvm.umin.i32(i32 %spec.select.i329, i32 12)
+  %2714 = getelementptr inbounds nuw i8, ptr %2656, i64 20
+  %2715 = load float, ptr %2714, align 4, !tbaa !163, !noalias !169
+  %2716 = fdiv reassoc nsz arcp contract afn float %2715, %2704
+  %2717 = load ptr, ptr %9, align 8, !tbaa !160, !noalias !169
+  %2718 = load ptr, ptr %10, align 8, !tbaa !160, !noalias !169
   call void @llvm.experimental.noalias.scope.decl(metadata !171)
   call void @llvm.experimental.noalias.scope.decl(metadata !174)
   call void @llvm.experimental.noalias.scope.decl(metadata !176)
-  %.not.i.i330 = icmp eq i32 %2668, 0
+  %.not.i.i330 = icmp eq i32 %2671, 0
   br i1 %.not.i.i330, label %_interpolate_and_mask.exit.i, label %.preheader.lr.ph.i.i331
 
-.preheader.lr.ph.i.i331:                          ; preds = %2694
-  %.not243.i.i = icmp eq i32 %2671, 0
-  %2716 = add nsw i64 %2669, -1
-  %2717 = add nsw i64 %2672, -1
-  %2718 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %2719 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %2720 = getelementptr inbounds nuw i8, ptr %7, i64 12
+.preheader.lr.ph.i.i331:                          ; preds = %2697
+  %.not243.i.i = icmp eq i32 %2674, 0
+  %2719 = add nsw i64 %2672, -1
+  %2720 = add nsw i64 %2675, -1
+  %2721 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %2722 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %2723 = getelementptr inbounds nuw i8, ptr %7, i64 12
   br i1 %.not243.i.i, label %_interpolate_and_mask.exit.i, label %.preheader.us.preheader.i.i
 
 .preheader.us.preheader.i.i:                      ; preds = %.preheader.lr.ph.i.i331
-  %2721 = shl nsw i64 %2672, 4
+  %2724 = shl nsw i64 %2675, 4
   br label %.preheader.us.i.i332
 
 .preheader.us.i.i332:                             ; preds = %._crit_edge.us.i.i338, %.preheader.us.preheader.i.i
-  %.0241.us.i.i = phi i64 [ %2730, %._crit_edge.us.i.i338 ], [ 0, %.preheader.us.preheader.i.i ]
-  %2722 = mul i64 %2721, %.0241.us.i.i
-  %2723 = shl i64 %.0241.us.i.i, 1
-  %2724 = and i64 %2723, 14
-  %2725 = mul i64 %.0241.us.i.i, %2672
-  %2726 = icmp eq i64 %.0241.us.i.i, 0
-  %2727 = icmp eq i64 %.0241.us.i.i, %2716
-  %2728 = add i64 %.0241.us.i.i, -1
-  %2729 = mul i64 %2728, %2672
-  %2730 = add nuw i64 %.0241.us.i.i, 1
-  %2731 = mul i64 %2730, %2672
-  %2732 = getelementptr float, ptr %2, i64 %2729
-  %2733 = getelementptr float, ptr %2, i64 %2731
-  %2734 = getelementptr float, ptr %2, i64 %2725
-  %2735 = shl i64 %2728, 1
-  %2736 = and i64 %2735, 14
-  %2737 = shl i64 %2730, 1
-  %2738 = and i64 %2737, 14
-  %2739 = getelementptr i8, ptr %2715, i64 %2722
-  br label %2740
+  %.0241.us.i.i = phi i64 [ %2733, %._crit_edge.us.i.i338 ], [ 0, %.preheader.us.preheader.i.i ]
+  %2725 = mul i64 %2724, %.0241.us.i.i
+  %2726 = shl i64 %.0241.us.i.i, 1
+  %2727 = and i64 %2726, 14
+  %2728 = mul i64 %.0241.us.i.i, %2675
+  %2729 = icmp eq i64 %.0241.us.i.i, 0
+  %2730 = icmp eq i64 %.0241.us.i.i, %2719
+  %2731 = add i64 %.0241.us.i.i, -1
+  %2732 = mul i64 %2731, %2675
+  %2733 = add nuw i64 %.0241.us.i.i, 1
+  %2734 = mul i64 %2733, %2675
+  %2735 = getelementptr float, ptr %2, i64 %2732
+  %2736 = getelementptr float, ptr %2, i64 %2734
+  %2737 = getelementptr float, ptr %2, i64 %2728
+  %2738 = shl i64 %2731, 1
+  %2739 = and i64 %2738, 14
+  %2740 = shl i64 %2733, 1
+  %2741 = and i64 %2740, 14
+  %2742 = getelementptr i8, ptr %2718, i64 %2725
+  br label %2743
 
-2740:                                             ; preds = %2900, %.preheader.us.i.i332
-  %.0179240.us.i.i = phi i64 [ 0, %.preheader.us.i.i332 ], [ %2901, %2900 ]
-  %2741 = shl i64 %.0179240.us.i.i, 4
-  %scevgep.i.i = getelementptr i8, ptr %2739, i64 %2741
-  %2742 = and i64 %.0179240.us.i.i, 1
-  %2743 = or disjoint i64 %2742, %2724
-  %.tr.i.us.i.i = trunc nuw nsw i64 %2743 to i32
-  %2744 = shl nuw nsw i32 %.tr.i.us.i.i, 1
-  %2745 = lshr i32 %2655, %2744
-  %2746 = and i32 %2745, 3
-  %2747 = add i64 %.0179240.us.i.i, %2725
-  %2748 = getelementptr inbounds nuw float, ptr %2, i64 %2747
-  %2749 = load float, ptr %2748, align 4, !tbaa !37, !alias.scope !178, !noalias !179
-  %2750 = icmp eq i64 %.0179240.us.i.i, 0
-  %or.cond.us.i.i333 = or i1 %2726, %2750
-  %or.cond201.us.i.i = select i1 %or.cond.us.i.i333, i1 true, i1 %2727
-  %2751 = icmp eq i64 %.0179240.us.i.i, %2717
-  %or.cond203.us.i.i = select i1 %or.cond201.us.i.i, i1 true, i1 %2751
-  br i1 %or.cond203.us.i.i, label %2879, label %2752
+2743:                                             ; preds = %2903, %.preheader.us.i.i332
+  %.0179240.us.i.i = phi i64 [ 0, %.preheader.us.i.i332 ], [ %2904, %2903 ]
+  %2744 = shl i64 %.0179240.us.i.i, 4
+  %scevgep.i.i = getelementptr i8, ptr %2742, i64 %2744
+  %2745 = and i64 %.0179240.us.i.i, 1
+  %2746 = or disjoint i64 %2745, %2727
+  %.tr.i.us.i.i = trunc nuw nsw i64 %2746 to i32
+  %2747 = shl nuw nsw i32 %.tr.i.us.i.i, 1
+  %2748 = lshr i32 %2658, %2747
+  %2749 = and i32 %2748, 3
+  %2750 = add i64 %.0179240.us.i.i, %2728
+  %2751 = getelementptr inbounds nuw float, ptr %2, i64 %2750
+  %2752 = load float, ptr %2751, align 4, !tbaa !37, !alias.scope !178, !noalias !179
+  %2753 = icmp eq i64 %.0179240.us.i.i, 0
+  %or.cond.us.i.i333 = or i1 %2729, %2753
+  %or.cond201.us.i.i = select i1 %or.cond.us.i.i333, i1 true, i1 %2730
+  %2754 = icmp eq i64 %.0179240.us.i.i, %2720
+  %or.cond203.us.i.i = select i1 %or.cond201.us.i.i, i1 true, i1 %2754
+  br i1 %or.cond203.us.i.i, label %2882, label %2755
 
-2752:                                             ; preds = %2740
-  %2753 = add i64 %.0179240.us.i.i, -1
-  %2754 = add nuw i64 %.0179240.us.i.i, 1
-  %2755 = getelementptr float, ptr %2732, i64 %.0179240.us.i.i
-  %2756 = load float, ptr %2755, align 4, !tbaa !37, !alias.scope !178, !noalias !179
-  %2757 = getelementptr float, ptr %2733, i64 %.0179240.us.i.i
-  %2758 = load float, ptr %2757, align 4, !tbaa !37, !alias.scope !178, !noalias !179
-  %2759 = getelementptr float, ptr %2734, i64 %2753
-  %2760 = load float, ptr %2759, align 4, !tbaa !37, !alias.scope !178, !noalias !179
-  %2761 = getelementptr float, ptr %2734, i64 %2754
-  %2762 = load float, ptr %2761, align 4, !tbaa !37, !alias.scope !178, !noalias !179
-  %2763 = getelementptr float, ptr %2732, i64 %2754
-  %2764 = load float, ptr %2763, align 4, !tbaa !37, !alias.scope !178, !noalias !179
-  %2765 = getelementptr float, ptr %2732, i64 %2753
-  %2766 = load float, ptr %2765, align 4, !tbaa !37, !alias.scope !178, !noalias !179
-  %2767 = getelementptr float, ptr %2733, i64 %2754
-  %2768 = load float, ptr %2767, align 4, !tbaa !37, !alias.scope !178, !noalias !179
-  %2769 = getelementptr float, ptr %2733, i64 %2753
-  %2770 = load float, ptr %2769, align 4, !tbaa !37, !alias.scope !178, !noalias !179
-  %2771 = icmp eq i32 %2746, 1
-  br i1 %2771, label %.thread.us.i.i, label %2772
+2755:                                             ; preds = %2743
+  %2756 = add i64 %.0179240.us.i.i, -1
+  %2757 = add nuw i64 %.0179240.us.i.i, 1
+  %2758 = getelementptr float, ptr %2735, i64 %.0179240.us.i.i
+  %2759 = load float, ptr %2758, align 4, !tbaa !37, !alias.scope !178, !noalias !179
+  %2760 = getelementptr float, ptr %2736, i64 %.0179240.us.i.i
+  %2761 = load float, ptr %2760, align 4, !tbaa !37, !alias.scope !178, !noalias !179
+  %2762 = getelementptr float, ptr %2737, i64 %2756
+  %2763 = load float, ptr %2762, align 4, !tbaa !37, !alias.scope !178, !noalias !179
+  %2764 = getelementptr float, ptr %2737, i64 %2757
+  %2765 = load float, ptr %2764, align 4, !tbaa !37, !alias.scope !178, !noalias !179
+  %2766 = getelementptr float, ptr %2735, i64 %2757
+  %2767 = load float, ptr %2766, align 4, !tbaa !37, !alias.scope !178, !noalias !179
+  %2768 = getelementptr float, ptr %2735, i64 %2756
+  %2769 = load float, ptr %2768, align 4, !tbaa !37, !alias.scope !178, !noalias !179
+  %2770 = getelementptr float, ptr %2736, i64 %2757
+  %2771 = load float, ptr %2770, align 4, !tbaa !37, !alias.scope !178, !noalias !179
+  %2772 = getelementptr float, ptr %2736, i64 %2756
+  %2773 = load float, ptr %2772, align 4, !tbaa !37, !alias.scope !178, !noalias !179
+  %2774 = icmp eq i32 %2749, 1
+  br i1 %2774, label %.thread.us.i.i, label %2775
 
-2772:                                             ; preds = %2752
-  %2773 = fadd reassoc nsz arcp contract afn float %2758, %2756
-  %2774 = fadd reassoc nsz arcp contract afn float %2773, %2760
-  %2775 = fadd reassoc nsz arcp contract afn float %2774, %2762
-  %2776 = fmul reassoc nsz arcp contract afn float %2775, 2.500000e-01
-  %2777 = fcmp reassoc nsz arcp contract afn ogt float %2756, %2649
-  %2778 = fcmp reassoc nsz arcp contract afn ogt float %2758, %2649
-  %or.cond204.us.i.i = select i1 %2777, i1 true, i1 %2778
-  %2779 = fcmp reassoc nsz arcp contract afn ogt float %2762, %2649
-  %or.cond205.us.i.i = select i1 %or.cond204.us.i.i, i1 true, i1 %2779
-  %2780 = fcmp reassoc nsz arcp contract afn ogt float %2760, %2649
-  %narrow.us.i.i = select i1 %or.cond205.us.i.i, i1 true, i1 %2780
-  %2781 = zext i1 %narrow.us.i.i to i32
-  %2782 = icmp eq i32 %2746, 0
-  br i1 %2782, label %.thread224.us.i.i, label %2787
+2775:                                             ; preds = %2755
+  %2776 = fadd reassoc nsz arcp contract afn float %2761, %2759
+  %2777 = fadd reassoc nsz arcp contract afn float %2776, %2763
+  %2778 = fadd reassoc nsz arcp contract afn float %2777, %2765
+  %2779 = fmul reassoc nsz arcp contract afn float %2778, 2.500000e-01
+  %2780 = fcmp reassoc nsz arcp contract afn ogt float %2759, %2652
+  %2781 = fcmp reassoc nsz arcp contract afn ogt float %2761, %2652
+  %or.cond204.us.i.i = select i1 %2780, i1 true, i1 %2781
+  %2782 = fcmp reassoc nsz arcp contract afn ogt float %2765, %2652
+  %or.cond205.us.i.i = select i1 %or.cond204.us.i.i, i1 true, i1 %2782
+  %2783 = fcmp reassoc nsz arcp contract afn ogt float %2763, %2652
+  %narrow.us.i.i = select i1 %or.cond205.us.i.i, i1 true, i1 %2783
+  %2784 = zext i1 %narrow.us.i.i to i32
+  %2785 = icmp eq i32 %2749, 0
+  br i1 %2785, label %.thread224.us.i.i, label %2790
 
-.thread224.us.i.i:                                ; preds = %2772
-  %2783 = fcmp reassoc nsz arcp contract afn ogt float %2749, %2647
-  %2784 = zext i1 %2783 to i32
-  %.pre251.i.i = or disjoint i64 %2742, %2736
+.thread224.us.i.i:                                ; preds = %2775
+  %2786 = fcmp reassoc nsz arcp contract afn ogt float %2752, %2650
+  %2787 = zext i1 %2786 to i32
+  %.pre251.i.i = or disjoint i64 %2745, %2739
   %.pre252.i.i = trunc nuw nsw i64 %.pre251.i.i to i32
   %.pre253.i.i = shl nuw nsw i32 %.pre252.i.i, 1
+  br label %2834
+
+.thread.us.i.i:                                   ; preds = %2755
+  %2788 = fcmp reassoc nsz arcp contract afn ogt float %2752, %2652
+  %2789 = zext i1 %2788 to i32
+  br label %2790
+
+2790:                                             ; preds = %.thread.us.i.i, %2775
+  %.1182223.us.i.i = phi float [ %2752, %.thread.us.i.i ], [ %2779, %2775 ]
+  %.1188221.us.i.i = phi i32 [ %2789, %.thread.us.i.i ], [ %2784, %2775 ]
+  %2791 = or disjoint i64 %2745, %2739
+  %.tr.i210.us.i.i = trunc nuw nsw i64 %2791 to i32
+  %2792 = shl nuw nsw i32 %.tr.i210.us.i.i, 1
+  %2793 = shl nuw i32 3, %2792
+  %2794 = and i32 %2793, %2658
+  %2795 = icmp eq i32 %2794, 0
+  br i1 %2795, label %2796, label %2802
+
+2796:                                             ; preds = %2790
+  %2797 = or disjoint i64 %2745, %2741
+  %.tr.i211.us.i.i = trunc nuw nsw i64 %2797 to i32
+  %2798 = shl nuw nsw i32 %.tr.i211.us.i.i, 1
+  %2799 = shl nuw i32 3, %2798
+  %2800 = and i32 %2799, %2658
+  %2801 = icmp eq i32 %2800, 0
+  br i1 %2801, label %2827, label %2802
+
+2802:                                             ; preds = %2796, %2790
+  %2803 = and i64 %2756, 1
+  %2804 = or disjoint i64 %2803, %2727
+  %.tr.i212.us.i.i = trunc nuw nsw i64 %2804 to i32
+  %2805 = shl nuw nsw i32 %.tr.i212.us.i.i, 1
+  %2806 = shl nuw i32 3, %2805
+  %2807 = and i32 %2806, %2658
+  %2808 = icmp eq i32 %2807, 0
+  br i1 %2808, label %2809, label %._crit_edge.i.i334
+
+2809:                                             ; preds = %2802
+  %2810 = and i64 %2757, 1
+  %2811 = or disjoint i64 %2810, %2727
+  %.tr.i213.us.i.i = trunc nuw nsw i64 %2811 to i32
+  %2812 = shl nuw nsw i32 %.tr.i213.us.i.i, 1
+  %2813 = shl nuw i32 3, %2812
+  %2814 = and i32 %2813, %2658
+  %2815 = icmp eq i32 %2814, 0
+  br i1 %2815, label %2823, label %._crit_edge.i.i334
+
+._crit_edge.i.i334:                               ; preds = %2802, %2809
+  %2816 = fadd reassoc nsz arcp contract afn float %2769, %2767
+  %2817 = fadd reassoc nsz arcp contract afn float %2816, %2771
+  %2818 = fadd reassoc nsz arcp contract afn float %2817, %2773
+  %2819 = fmul reassoc nsz arcp contract afn float %2818, 2.500000e-01
+  %2820 = fcmp reassoc nsz arcp contract afn ogt float %2769, %2650
+  %2821 = fcmp reassoc nsz arcp contract afn ogt float %2767, %2650
+  %or.cond206.us.i.i = select i1 %2820, i1 true, i1 %2821
+  %2822 = fcmp reassoc nsz arcp contract afn ogt float %2773, %2650
+  %or.cond207.us.i.i = select i1 %or.cond206.us.i.i, i1 true, i1 %2822
   br label %2831
 
-.thread.us.i.i:                                   ; preds = %2752
-  %2785 = fcmp reassoc nsz arcp contract afn ogt float %2749, %2649
-  %2786 = zext i1 %2785 to i32
-  br label %2787
+2823:                                             ; preds = %2809
+  %2824 = fadd reassoc nsz arcp contract afn float %2765, %2763
+  %2825 = fmul reassoc nsz arcp contract afn float %2824, 5.000000e-01
+  %2826 = fcmp reassoc nsz arcp contract afn ogt float %2763, %2650
+  br label %2831
 
-2787:                                             ; preds = %.thread.us.i.i, %2772
-  %.1182223.us.i.i = phi float [ %2749, %.thread.us.i.i ], [ %2776, %2772 ]
-  %.1188221.us.i.i = phi i32 [ %2786, %.thread.us.i.i ], [ %2781, %2772 ]
-  %2788 = or disjoint i64 %2742, %2736
-  %.tr.i210.us.i.i = trunc nuw nsw i64 %2788 to i32
-  %2789 = shl nuw nsw i32 %.tr.i210.us.i.i, 1
-  %2790 = shl nuw i32 3, %2789
-  %2791 = and i32 %2790, %2655
-  %2792 = icmp eq i32 %2791, 0
-  br i1 %2792, label %2793, label %2799
+2827:                                             ; preds = %2796
+  %2828 = fadd reassoc nsz arcp contract afn float %2761, %2759
+  %2829 = fmul reassoc nsz arcp contract afn float %2828, 5.000000e-01
+  %2830 = fcmp reassoc nsz arcp contract afn ogt float %2759, %2650
+  br label %2831
 
-2793:                                             ; preds = %2787
-  %2794 = or disjoint i64 %2742, %2738
-  %.tr.i211.us.i.i = trunc nuw nsw i64 %2794 to i32
-  %2795 = shl nuw nsw i32 %.tr.i211.us.i.i, 1
-  %2796 = shl nuw i32 3, %2795
-  %2797 = and i32 %2796, %2655
-  %2798 = icmp eq i32 %2797, 0
-  br i1 %2798, label %2824, label %2799
-
-2799:                                             ; preds = %2793, %2787
-  %2800 = and i64 %2753, 1
-  %2801 = or disjoint i64 %2800, %2724
-  %.tr.i212.us.i.i = trunc nuw nsw i64 %2801 to i32
-  %2802 = shl nuw nsw i32 %.tr.i212.us.i.i, 1
-  %2803 = shl nuw i32 3, %2802
-  %2804 = and i32 %2803, %2655
-  %2805 = icmp eq i32 %2804, 0
-  br i1 %2805, label %2806, label %._crit_edge.i.i334
-
-2806:                                             ; preds = %2799
-  %2807 = and i64 %2754, 1
-  %2808 = or disjoint i64 %2807, %2724
-  %.tr.i213.us.i.i = trunc nuw nsw i64 %2808 to i32
-  %2809 = shl nuw nsw i32 %.tr.i213.us.i.i, 1
-  %2810 = shl nuw i32 3, %2809
-  %2811 = and i32 %2810, %2655
-  %2812 = icmp eq i32 %2811, 0
-  br i1 %2812, label %2820, label %._crit_edge.i.i334
-
-._crit_edge.i.i334:                               ; preds = %2799, %2806
-  %2813 = fadd reassoc nsz arcp contract afn float %2766, %2764
-  %2814 = fadd reassoc nsz arcp contract afn float %2813, %2768
-  %2815 = fadd reassoc nsz arcp contract afn float %2814, %2770
-  %2816 = fmul reassoc nsz arcp contract afn float %2815, 2.500000e-01
-  %2817 = fcmp reassoc nsz arcp contract afn ogt float %2766, %2647
-  %2818 = fcmp reassoc nsz arcp contract afn ogt float %2764, %2647
-  %or.cond206.us.i.i = select i1 %2817, i1 true, i1 %2818
-  %2819 = fcmp reassoc nsz arcp contract afn ogt float %2770, %2647
-  %or.cond207.us.i.i = select i1 %or.cond206.us.i.i, i1 true, i1 %2819
-  br label %2828
-
-2820:                                             ; preds = %2806
-  %2821 = fadd reassoc nsz arcp contract afn float %2762, %2760
-  %2822 = fmul reassoc nsz arcp contract afn float %2821, 5.000000e-01
-  %2823 = fcmp reassoc nsz arcp contract afn ogt float %2760, %2647
-  br label %2828
-
-2824:                                             ; preds = %2793
-  %2825 = fadd reassoc nsz arcp contract afn float %2758, %2756
-  %2826 = fmul reassoc nsz arcp contract afn float %2825, 5.000000e-01
-  %2827 = fcmp reassoc nsz arcp contract afn ogt float %2756, %2647
-  br label %2828
-
-2828:                                             ; preds = %2824, %2820, %._crit_edge.i.i334
-  %.sink652 = phi float [ %2758, %2824 ], [ %2762, %2820 ], [ %2768, %._crit_edge.i.i334 ]
-  %.sink650 = phi i1 [ %2827, %2824 ], [ %2823, %2820 ], [ %or.cond207.us.i.i, %._crit_edge.i.i334 ]
-  %.1.us.i.i = phi nsz float [ %2826, %2824 ], [ %2822, %2820 ], [ %2816, %._crit_edge.i.i334 ]
-  %2829 = fcmp reassoc nsz arcp contract afn ogt float %.sink652, %2647
-  %narrow235.us.i.i = select i1 %.sink650, i1 true, i1 %2829
+2831:                                             ; preds = %2827, %2823, %._crit_edge.i.i334
+  %.sink652 = phi float [ %2761, %2827 ], [ %2765, %2823 ], [ %2771, %._crit_edge.i.i334 ]
+  %.sink650 = phi i1 [ %2830, %2827 ], [ %2826, %2823 ], [ %or.cond207.us.i.i, %._crit_edge.i.i334 ]
+  %.1.us.i.i = phi nsz float [ %2829, %2827 ], [ %2825, %2823 ], [ %2819, %._crit_edge.i.i334 ]
+  %2832 = fcmp reassoc nsz arcp contract afn ogt float %.sink652, %2650
+  %narrow235.us.i.i = select i1 %.sink650, i1 true, i1 %2832
   %.1186.us.i.i = zext i1 %narrow235.us.i.i to i32
-  %2830 = icmp eq i32 %2746, 2
-  br i1 %2830, label %2876, label %2831
+  %2833 = icmp eq i32 %2749, 2
+  br i1 %2833, label %2879, label %2834
 
-2831:                                             ; preds = %2828, %.thread224.us.i.i
-  %.pre-phi254.i.i = phi i32 [ %2789, %2828 ], [ %.pre253.i.i, %.thread224.us.i.i ]
-  %.1232.us.i.i = phi float [ %.1.us.i.i, %2828 ], [ %2749, %.thread224.us.i.i ]
-  %.1186231.us.i.i = phi i32 [ %.1186.us.i.i, %2828 ], [ %2784, %.thread224.us.i.i ]
-  %.1188220230.us.i.i = phi i32 [ %.1188221.us.i.i, %2828 ], [ %2781, %.thread224.us.i.i ]
-  %.1182222229.us.i.i = phi float [ %.1182223.us.i.i, %2828 ], [ %2776, %.thread224.us.i.i ]
-  %2832 = lshr i32 %2655, %.pre-phi254.i.i
-  %2833 = and i32 %2832, 3
-  %2834 = icmp eq i32 %2833, 2
-  br i1 %2834, label %2835, label %2841
+2834:                                             ; preds = %2831, %.thread224.us.i.i
+  %.pre-phi254.i.i = phi i32 [ %2792, %2831 ], [ %.pre253.i.i, %.thread224.us.i.i ]
+  %.1232.us.i.i = phi float [ %.1.us.i.i, %2831 ], [ %2752, %.thread224.us.i.i ]
+  %.1186231.us.i.i = phi i32 [ %.1186.us.i.i, %2831 ], [ %2787, %.thread224.us.i.i ]
+  %.1188220230.us.i.i = phi i32 [ %.1188221.us.i.i, %2831 ], [ %2784, %.thread224.us.i.i ]
+  %.1182222229.us.i.i = phi float [ %.1182223.us.i.i, %2831 ], [ %2779, %.thread224.us.i.i ]
+  %2835 = lshr i32 %2658, %.pre-phi254.i.i
+  %2836 = and i32 %2835, 3
+  %2837 = icmp eq i32 %2836, 2
+  br i1 %2837, label %2838, label %2844
 
-2835:                                             ; preds = %2831
-  %2836 = or disjoint i64 %2742, %2738
-  %.tr.i215.us.i.i = trunc nuw nsw i64 %2836 to i32
-  %2837 = shl nuw nsw i32 %.tr.i215.us.i.i, 1
-  %2838 = lshr i32 %2655, %2837
-  %2839 = and i32 %2838, 3
-  %2840 = icmp eq i32 %2839, 2
-  br i1 %2840, label %2870, label %2841
+2838:                                             ; preds = %2834
+  %2839 = or disjoint i64 %2745, %2741
+  %.tr.i215.us.i.i = trunc nuw nsw i64 %2839 to i32
+  %2840 = shl nuw nsw i32 %.tr.i215.us.i.i, 1
+  %2841 = lshr i32 %2658, %2840
+  %2842 = and i32 %2841, 3
+  %2843 = icmp eq i32 %2842, 2
+  br i1 %2843, label %2873, label %2844
 
-2841:                                             ; preds = %2835, %2831
-  %2842 = and i64 %2753, 1
-  %2843 = or disjoint i64 %2842, %2724
-  %.tr.i216.us.i.i = trunc nuw nsw i64 %2843 to i32
-  %2844 = shl nuw nsw i32 %.tr.i216.us.i.i, 1
-  %2845 = lshr i32 %2655, %2844
-  %2846 = and i32 %2845, 3
-  %2847 = icmp eq i32 %2846, 2
-  br i1 %2847, label %2848, label %._crit_edge248.i.i
+2844:                                             ; preds = %2838, %2834
+  %2845 = and i64 %2756, 1
+  %2846 = or disjoint i64 %2845, %2727
+  %.tr.i216.us.i.i = trunc nuw nsw i64 %2846 to i32
+  %2847 = shl nuw nsw i32 %.tr.i216.us.i.i, 1
+  %2848 = lshr i32 %2658, %2847
+  %2849 = and i32 %2848, 3
+  %2850 = icmp eq i32 %2849, 2
+  br i1 %2850, label %2851, label %._crit_edge248.i.i
 
-2848:                                             ; preds = %2841
-  %2849 = and i64 %2754, 1
-  %2850 = or disjoint i64 %2849, %2724
-  %.tr.i217.us.i.i = trunc nuw nsw i64 %2850 to i32
-  %2851 = shl nuw nsw i32 %.tr.i217.us.i.i, 1
-  %2852 = lshr i32 %2655, %2851
-  %2853 = and i32 %2852, 3
-  %2854 = icmp eq i32 %2853, 2
-  br i1 %2854, label %2864, label %._crit_edge248.i.i
+2851:                                             ; preds = %2844
+  %2852 = and i64 %2757, 1
+  %2853 = or disjoint i64 %2852, %2727
+  %.tr.i217.us.i.i = trunc nuw nsw i64 %2853 to i32
+  %2854 = shl nuw nsw i32 %.tr.i217.us.i.i, 1
+  %2855 = lshr i32 %2658, %2854
+  %2856 = and i32 %2855, 3
+  %2857 = icmp eq i32 %2856, 2
+  br i1 %2857, label %2867, label %._crit_edge248.i.i
 
-._crit_edge248.i.i:                               ; preds = %2841, %2848
-  %2855 = fadd reassoc nsz arcp contract afn float %2766, %2764
-  %2856 = fadd reassoc nsz arcp contract afn float %2855, %2768
-  %2857 = fadd reassoc nsz arcp contract afn float %2856, %2770
-  %2858 = fmul reassoc nsz arcp contract afn float %2857, 2.500000e-01
-  %2859 = fcmp reassoc nsz arcp contract afn ogt float %2766, %2651
-  %2860 = fcmp reassoc nsz arcp contract afn ogt float %2764, %2651
-  %or.cond208.us.i.i = select i1 %2859, i1 true, i1 %2860
-  %2861 = fcmp reassoc nsz arcp contract afn ogt float %2770, %2651
-  %or.cond209.us.i.i = select i1 %or.cond208.us.i.i, i1 true, i1 %2861
-  %2862 = fcmp reassoc nsz arcp contract afn ogt float %2768, %2651
-  %narrow236.us.i.i = select i1 %or.cond209.us.i.i, i1 true, i1 %2862
-  %2863 = zext i1 %narrow236.us.i.i to i32
-  br label %2885
+._crit_edge248.i.i:                               ; preds = %2844, %2851
+  %2858 = fadd reassoc nsz arcp contract afn float %2769, %2767
+  %2859 = fadd reassoc nsz arcp contract afn float %2858, %2771
+  %2860 = fadd reassoc nsz arcp contract afn float %2859, %2773
+  %2861 = fmul reassoc nsz arcp contract afn float %2860, 2.500000e-01
+  %2862 = fcmp reassoc nsz arcp contract afn ogt float %2769, %2654
+  %2863 = fcmp reassoc nsz arcp contract afn ogt float %2767, %2654
+  %or.cond208.us.i.i = select i1 %2862, i1 true, i1 %2863
+  %2864 = fcmp reassoc nsz arcp contract afn ogt float %2773, %2654
+  %or.cond209.us.i.i = select i1 %or.cond208.us.i.i, i1 true, i1 %2864
+  %2865 = fcmp reassoc nsz arcp contract afn ogt float %2771, %2654
+  %narrow236.us.i.i = select i1 %or.cond209.us.i.i, i1 true, i1 %2865
+  %2866 = zext i1 %narrow236.us.i.i to i32
+  br label %2888
 
-2864:                                             ; preds = %2848
-  %2865 = fadd reassoc nsz arcp contract afn float %2762, %2760
-  %2866 = fmul reassoc nsz arcp contract afn float %2865, 5.000000e-01
-  %2867 = fcmp reassoc nsz arcp contract afn ogt float %2760, %2651
-  %2868 = fcmp reassoc nsz arcp contract afn ogt float %2762, %2651
-  %narrow237.us.i.i = select i1 %2867, i1 true, i1 %2868
-  %2869 = zext i1 %narrow237.us.i.i to i32
-  br label %2885
+2867:                                             ; preds = %2851
+  %2868 = fadd reassoc nsz arcp contract afn float %2765, %2763
+  %2869 = fmul reassoc nsz arcp contract afn float %2868, 5.000000e-01
+  %2870 = fcmp reassoc nsz arcp contract afn ogt float %2763, %2654
+  %2871 = fcmp reassoc nsz arcp contract afn ogt float %2765, %2654
+  %narrow237.us.i.i = select i1 %2870, i1 true, i1 %2871
+  %2872 = zext i1 %narrow237.us.i.i to i32
+  br label %2888
 
-2870:                                             ; preds = %2835
-  %2871 = fadd reassoc nsz arcp contract afn float %2758, %2756
-  %2872 = fmul reassoc nsz arcp contract afn float %2871, 5.000000e-01
-  %2873 = fcmp reassoc nsz arcp contract afn ogt float %2756, %2651
-  %2874 = fcmp reassoc nsz arcp contract afn ogt float %2758, %2651
-  %narrow238.us.i.i = select i1 %2873, i1 true, i1 %2874
-  %2875 = zext i1 %narrow238.us.i.i to i32
-  br label %2885
+2873:                                             ; preds = %2838
+  %2874 = fadd reassoc nsz arcp contract afn float %2761, %2759
+  %2875 = fmul reassoc nsz arcp contract afn float %2874, 5.000000e-01
+  %2876 = fcmp reassoc nsz arcp contract afn ogt float %2759, %2654
+  %2877 = fcmp reassoc nsz arcp contract afn ogt float %2761, %2654
+  %narrow238.us.i.i = select i1 %2876, i1 true, i1 %2877
+  %2878 = zext i1 %narrow238.us.i.i to i32
+  br label %2888
 
-2876:                                             ; preds = %2828
-  %2877 = fcmp reassoc nsz arcp contract afn ogt float %2749, %2651
-  %2878 = zext i1 %2877 to i32
-  br label %2885
+2879:                                             ; preds = %2831
+  %2880 = fcmp reassoc nsz arcp contract afn ogt float %2752, %2654
+  %2881 = zext i1 %2880 to i32
+  br label %2888
 
-2879:                                             ; preds = %2740
-  %2880 = zext nneg i32 %2746 to i64
-  %2881 = getelementptr inbounds nuw float, ptr %40, i64 %2880
-  %2882 = load float, ptr %2881, align 4, !tbaa !37, !noalias !180
-  %2883 = fcmp reassoc nsz arcp contract afn ogt float %2749, %2882
-  %2884 = zext i1 %2883 to i32
-  br label %2885
+2882:                                             ; preds = %2743
+  %2883 = zext nneg i32 %2749 to i64
+  %2884 = getelementptr inbounds nuw float, ptr %40, i64 %2883
+  %2885 = load float, ptr %2884, align 4, !tbaa !37, !noalias !180
+  %2886 = fcmp reassoc nsz arcp contract afn ogt float %2752, %2885
+  %2887 = zext i1 %2886 to i32
+  br label %2888
 
-2885:                                             ; preds = %2879, %2876, %2870, %2864, %._crit_edge248.i.i
-  %.0189.us.i.i = phi i32 [ %2884, %2879 ], [ %2878, %2876 ], [ %2875, %2870 ], [ %2869, %2864 ], [ %2863, %._crit_edge248.i.i ]
-  %.0187.us.i.i = phi i32 [ %2884, %2879 ], [ %.1188221.us.i.i, %2876 ], [ %.1188220230.us.i.i, %2870 ], [ %.1188220230.us.i.i, %2864 ], [ %.1188220230.us.i.i, %._crit_edge248.i.i ]
-  %.0185.us.i.i = phi i32 [ %2884, %2879 ], [ %.1186.us.i.i, %2876 ], [ %.1186231.us.i.i, %2870 ], [ %.1186231.us.i.i, %2864 ], [ %.1186231.us.i.i, %._crit_edge248.i.i ]
-  %.0183.us.i.i = phi nsz float [ %2749, %2879 ], [ %2749, %2876 ], [ %2872, %2870 ], [ %2866, %2864 ], [ %2858, %._crit_edge248.i.i ]
-  %.0181.us.i.i = phi nsz float [ %2749, %2879 ], [ %.1182223.us.i.i, %2876 ], [ %.1182222229.us.i.i, %2870 ], [ %.1182222229.us.i.i, %2864 ], [ %.1182222229.us.i.i, %._crit_edge248.i.i ]
-  %.0180.us.i.i = phi nsz float [ %2749, %2879 ], [ %.1.us.i.i, %2876 ], [ %.1232.us.i.i, %2870 ], [ %.1232.us.i.i, %2864 ], [ %.1232.us.i.i, %._crit_edge248.i.i ]
+2888:                                             ; preds = %2882, %2879, %2873, %2867, %._crit_edge248.i.i
+  %.0189.us.i.i = phi i32 [ %2887, %2882 ], [ %2881, %2879 ], [ %2878, %2873 ], [ %2872, %2867 ], [ %2866, %._crit_edge248.i.i ]
+  %.0187.us.i.i = phi i32 [ %2887, %2882 ], [ %.1188221.us.i.i, %2879 ], [ %.1188220230.us.i.i, %2873 ], [ %.1188220230.us.i.i, %2867 ], [ %.1188220230.us.i.i, %._crit_edge248.i.i ]
+  %.0185.us.i.i = phi i32 [ %2887, %2882 ], [ %.1186.us.i.i, %2879 ], [ %.1186231.us.i.i, %2873 ], [ %.1186231.us.i.i, %2867 ], [ %.1186231.us.i.i, %._crit_edge248.i.i ]
+  %.0183.us.i.i = phi nsz float [ %2752, %2882 ], [ %2752, %2879 ], [ %2875, %2873 ], [ %2869, %2867 ], [ %2861, %._crit_edge248.i.i ]
+  %.0181.us.i.i = phi nsz float [ %2752, %2882 ], [ %.1182223.us.i.i, %2879 ], [ %.1182222229.us.i.i, %2873 ], [ %.1182222229.us.i.i, %2867 ], [ %.1182222229.us.i.i, %._crit_edge248.i.i ]
+  %.0180.us.i.i = phi nsz float [ %2752, %2882 ], [ %.1.us.i.i, %2879 ], [ %.1232.us.i.i, %2873 ], [ %.1232.us.i.i, %2867 ], [ %.1232.us.i.i, %._crit_edge248.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !180
   store float %.0180.us.i.i, ptr %7, align 16, !tbaa !37, !noalias !180
-  store float %.0181.us.i.i, ptr %2718, align 4, !tbaa !37, !noalias !180
-  store float %.0183.us.i.i, ptr %2719, align 8, !tbaa !37, !noalias !180
-  %2886 = fmul reassoc nsz arcp contract afn float %.0180.us.i.i, %.0180.us.i.i
-  %2887 = fmul reassoc nsz arcp contract afn float %.0181.us.i.i, %.0181.us.i.i
-  %2888 = fmul reassoc nsz arcp contract afn float %.0183.us.i.i, %.0183.us.i.i
-  %2889 = fadd reassoc nsz arcp contract afn float %2887, %2888
-  %2890 = fadd reassoc nsz arcp contract afn float %2889, %2886
-  %2891 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %2890)
-  store float %2891, ptr %2720, align 4, !tbaa !37, !noalias !180
-  %2892 = uitofp nneg i32 %.0185.us.i.i to float
-  %2893 = uitofp nneg i32 %.0187.us.i.i to float
-  %2894 = uitofp nneg i32 %.0189.us.i.i to float
-  %2895 = icmp ne i32 %.0185.us.i.i, 0
-  %2896 = icmp ne i32 %.0187.us.i.i, 0
-  %or.cond3.us.i.i = select i1 %2895, i1 true, i1 %2896
-  %2897 = icmp ne i32 %.0189.us.i.i, 0
-  %2898 = uitofp i1 %2897 to float
-  %2899 = select i1 %or.cond3.us.i.i, float 1.000000e+00, float %2898
-  store float %2892, ptr %scevgep.i.i, align 4, !tbaa !37, !alias.scope !176, !noalias !181
+  store float %.0181.us.i.i, ptr %2721, align 4, !tbaa !37, !noalias !180
+  store float %.0183.us.i.i, ptr %2722, align 8, !tbaa !37, !noalias !180
+  %2889 = fmul reassoc nsz arcp contract afn float %.0180.us.i.i, %.0180.us.i.i
+  %2890 = fmul reassoc nsz arcp contract afn float %.0181.us.i.i, %.0181.us.i.i
+  %2891 = fmul reassoc nsz arcp contract afn float %.0183.us.i.i, %.0183.us.i.i
+  %2892 = fadd reassoc nsz arcp contract afn float %2890, %2891
+  %2893 = fadd reassoc nsz arcp contract afn float %2892, %2889
+  %2894 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %2893)
+  store float %2894, ptr %2723, align 4, !tbaa !37, !noalias !180
+  %2895 = uitofp nneg i32 %.0185.us.i.i to float
+  %2896 = uitofp nneg i32 %.0187.us.i.i to float
+  %2897 = uitofp nneg i32 %.0189.us.i.i to float
+  %2898 = icmp ne i32 %.0185.us.i.i, 0
+  %2899 = icmp ne i32 %.0187.us.i.i, 0
+  %or.cond3.us.i.i = select i1 %2898, i1 true, i1 %2899
+  %2900 = icmp ne i32 %.0189.us.i.i, 0
+  %2901 = uitofp i1 %2900 to float
+  %2902 = select i1 %or.cond3.us.i.i, float 1.000000e+00, float %2901
+  store float %2895, ptr %scevgep.i.i, align 4, !tbaa !37, !alias.scope !176, !noalias !181
   %.sroa.4.0.scevgep.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %scevgep.i.i, i64 4
-  store float %2893, ptr %.sroa.4.0.scevgep.sroa_idx.i.i, align 4, !tbaa !37, !alias.scope !176, !noalias !181
+  store float %2896, ptr %.sroa.4.0.scevgep.sroa_idx.i.i, align 4, !tbaa !37, !alias.scope !176, !noalias !181
   %.sroa.5.0.scevgep.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %scevgep.i.i, i64 8
-  store float %2894, ptr %.sroa.5.0.scevgep.sroa_idx.i.i, align 4, !tbaa !37, !alias.scope !176, !noalias !181
+  store float %2897, ptr %.sroa.5.0.scevgep.sroa_idx.i.i, align 4, !tbaa !37, !alias.scope !176, !noalias !181
   %.sroa.6.0.scevgep.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %scevgep.i.i, i64 12
-  store float %2899, ptr %.sroa.6.0.scevgep.sroa_idx.i.i, align 4, !tbaa !37, !alias.scope !176, !noalias !181
-  %.idx.i.i = shl i64 %2747, 4
-  %invariant.gep.i.i335 = getelementptr i8, ptr %2714, i64 %.idx.i.i
-  br label %2902
+  store float %2902, ptr %.sroa.6.0.scevgep.sroa_idx.i.i, align 4, !tbaa !37, !alias.scope !176, !noalias !181
+  %.idx.i.i = shl i64 %2750, 4
+  %invariant.gep.i.i335 = getelementptr i8, ptr %2717, i64 %.idx.i.i
+  br label %2905
 
-2900:                                             ; preds = %2902
+2903:                                             ; preds = %2905
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !180
-  %2901 = add nuw i64 %.0179240.us.i.i, 1
-  %exitcond245.not.i.i = icmp eq i64 %2901, %2672
-  br i1 %exitcond245.not.i.i, label %._crit_edge.us.i.i338, label %2740
+  %2904 = add nuw i64 %.0179240.us.i.i, 1
+  %exitcond245.not.i.i = icmp eq i64 %2904, %2675
+  br i1 %exitcond245.not.i.i, label %._crit_edge.us.i.i338, label %2743
 
-2902:                                             ; preds = %2902, %2885
-  %.0178239.us.i.i = phi i64 [ 0, %2885 ], [ %2909, %2902 ]
-  %2903 = getelementptr inbounds nuw float, ptr %7, i64 %.0178239.us.i.i
-  %2904 = load float, ptr %2903, align 4, !tbaa !37, !noalias !180
-  %2905 = getelementptr inbounds nuw float, ptr %8, i64 %.0178239.us.i.i
-  %2906 = load float, ptr %2905, align 4, !tbaa !37, !noalias !180
-  %2907 = fdiv reassoc nsz arcp contract afn float %2904, %2906
-  %2908 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2907, float 0.000000e+00)
+2905:                                             ; preds = %2905, %2888
+  %.0178239.us.i.i = phi i64 [ 0, %2888 ], [ %2912, %2905 ]
+  %2906 = getelementptr inbounds nuw float, ptr %7, i64 %.0178239.us.i.i
+  %2907 = load float, ptr %2906, align 4, !tbaa !37, !noalias !180
+  %2908 = getelementptr inbounds nuw float, ptr %8, i64 %.0178239.us.i.i
+  %2909 = load float, ptr %2908, align 4, !tbaa !37, !noalias !180
+  %2910 = fdiv reassoc nsz arcp contract afn float %2907, %2909
+  %2911 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2910, float 0.000000e+00)
   %gep.i.i336 = getelementptr float, ptr %invariant.gep.i.i335, i64 %.0178239.us.i.i
-  store float %2908, ptr %gep.i.i336, align 4, !tbaa !37, !alias.scope !174, !noalias !182
-  %2909 = add nuw nsw i64 %.0178239.us.i.i, 1
-  %exitcond.not.i.i337 = icmp eq i64 %2909, 4
-  br i1 %exitcond.not.i.i337, label %2900, label %2902
+  store float %2911, ptr %gep.i.i336, align 4, !tbaa !37, !alias.scope !174, !noalias !182
+  %2912 = add nuw nsw i64 %.0178239.us.i.i, 1
+  %exitcond.not.i.i337 = icmp eq i64 %2912, 4
+  br i1 %exitcond.not.i.i337, label %2903, label %2905
 
-._crit_edge.us.i.i338:                            ; preds = %2900
-  %exitcond246.not.i.i = icmp eq i64 %2730, %2669
+._crit_edge.us.i.i338:                            ; preds = %2903
+  %exitcond246.not.i.i = icmp eq i64 %2733, %2672
   br i1 %exitcond246.not.i.i, label %_interpolate_and_mask.exit.i, label %.preheader.us.i.i332
 
-_interpolate_and_mask.exit.i:                     ; preds = %._crit_edge.us.i.i338, %.preheader.lr.ph.i.i331, %2694
-  call void @dt_box_mean(ptr noundef %2715, i64 noundef %2669, i64 noundef %2672, i32 noundef 4, i64 noundef 2, i32 noundef 1) #30, !noalias !169
-  %2910 = load ptr, ptr %10, align 8, !tbaa !160, !noalias !169
-  %2911 = load ptr, ptr %16, align 8, !tbaa !160, !noalias !169
+_interpolate_and_mask.exit.i:                     ; preds = %._crit_edge.us.i.i338, %.preheader.lr.ph.i.i331, %2697
+  call void @dt_box_mean(ptr noundef %2718, i64 noundef %2672, i64 noundef %2675, i32 noundef 4, i64 noundef 2, i32 noundef 1) #30, !noalias !169
+  %2913 = load ptr, ptr %10, align 8, !tbaa !160, !noalias !169
+  %2914 = load ptr, ptr %16, align 8, !tbaa !160, !noalias !169
   call void @llvm.experimental.noalias.scope.decl(metadata !183)
   call void @llvm.experimental.noalias.scope.decl(metadata !186)
-  %.not.i86.i = icmp ult i32 %2668, 4
+  %.not.i86.i = icmp ult i32 %2671, 4
   br i1 %.not.i86.i, label %interpolate_bilinear.exit.i, label %.preheader.lr.ph.i87.i
 
 .preheader.lr.ph.i87.i:                           ; preds = %_interpolate_and_mask.exit.i
-  %.not97.i.i = icmp ult i32 %2671, 4
-  %2912 = add nsw i64 %2672, -1
-  %2913 = add nsw i64 %2669, -1
+  %.not97.i.i = icmp ult i32 %2674, 4
+  %2915 = add nsw i64 %2675, -1
+  %2916 = add nsw i64 %2672, -1
   br i1 %.not97.i.i, label %interpolate_bilinear.exit108.i, label %.preheader.lr.ph.split.us.i.i339
 
 .preheader.lr.ph.split.us.i.i339:                 ; preds = %.preheader.lr.ph.i87.i
-  %2914 = uitofp nneg i64 %2673 to float
-  %2915 = uitofp i64 %2669 to float
-  %2916 = uitofp nneg i64 %2674 to float
-  %2917 = uitofp i64 %2672 to float
-  %2918 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %2914
-  %2919 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %2916
+  %2917 = uitofp nneg i64 %2676 to float
+  %2918 = uitofp i64 %2672 to float
+  %2919 = uitofp nneg i64 %2677 to float
+  %2920 = uitofp i64 %2675 to float
+  %2921 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %2917
+  %2922 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %2919
   br label %.preheader.us.i88.i
 
 .preheader.us.i88.i:                              ; preds = %._crit_edge.us.i90.i, %.preheader.lr.ph.split.us.i.i339
-  %.08393.us.i.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i.i339 ], [ %2981, %._crit_edge.us.i90.i ]
-  %2920 = uitofp i64 %.08393.us.i.i to float
-  %2921 = fmul reassoc nsz arcp contract afn float %2915, %2920
-  %2922 = fmul reassoc nsz arcp contract afn float %2921, %2918
-  %2923 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %2922)
-  %2924 = fptoui float %2923 to i64
-  %2925 = add i64 %2924, 1
-  %2926 = icmp ugt i64 %2669, %2924
-  %2927 = select i1 %2926, i64 %2924, i64 %2913
-  %2928 = icmp ult i64 %2925, %2669
-  %2929 = select i1 %2928, i64 %2925, i64 %2913
-  %2930 = mul i64 %2927, %2672
-  %2931 = mul i64 %2929, %2672
-  %2932 = uitofp i64 %2929 to float
-  %2933 = fsub reassoc nsz arcp contract afn float %2932, %2922
-  %2934 = mul i64 %.08393.us.i.i, %2674
-  br label %2935
+  %.08393.us.i.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i.i339 ], [ %2984, %._crit_edge.us.i90.i ]
+  %2923 = uitofp i64 %.08393.us.i.i to float
+  %2924 = fmul reassoc nsz arcp contract afn float %2918, %2923
+  %2925 = fmul reassoc nsz arcp contract afn float %2924, %2921
+  %2926 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %2925)
+  %2927 = fptoui float %2926 to i64
+  %2928 = add i64 %2927, 1
+  %2929 = icmp ugt i64 %2672, %2927
+  %2930 = select i1 %2929, i64 %2927, i64 %2916
+  %2931 = icmp ult i64 %2928, %2672
+  %2932 = select i1 %2931, i64 %2928, i64 %2916
+  %2933 = mul i64 %2930, %2675
+  %2934 = mul i64 %2932, %2675
+  %2935 = uitofp i64 %2932 to float
+  %2936 = fsub reassoc nsz arcp contract afn float %2935, %2925
+  %2937 = mul i64 %.08393.us.i.i, %2677
+  br label %2938
 
-2935:                                             ; preds = %2959, %.preheader.us.i88.i
-  %.08492.us.i.i = phi i64 [ 0, %.preheader.us.i88.i ], [ %2960, %2959 ]
-  %2936 = uitofp i64 %.08492.us.i.i to float
-  %2937 = fmul reassoc nsz arcp contract afn float %2917, %2936
-  %2938 = fmul reassoc nsz arcp contract afn float %2937, %2919
-  %2939 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %2938)
-  %2940 = fptoui float %2939 to i64
-  %2941 = add i64 %2940, 1
-  %2942 = icmp ugt i64 %2672, %2940
-  %2943 = select i1 %2942, i64 %2940, i64 %2912
-  %2944 = icmp ult i64 %2941, %2672
-  %2945 = select i1 %2944, i64 %2941, i64 %2912
-  %2946 = add i64 %2943, %2930
-  %.idx.us.i.i = shl i64 %2946, 4
-  %2947 = getelementptr inbounds nuw i8, ptr %2910, i64 %.idx.us.i.i
-  %2948 = add i64 %2945, %2930
-  %.idx87.us.i.i = shl i64 %2948, 4
-  %2949 = getelementptr inbounds nuw i8, ptr %2910, i64 %.idx87.us.i.i
-  %2950 = add i64 %2945, %2931
-  %.idx88.us.i.i = shl i64 %2950, 4
-  %2951 = getelementptr inbounds nuw i8, ptr %2910, i64 %.idx88.us.i.i
-  %2952 = add i64 %2943, %2931
-  %.idx89.us.i.i = shl i64 %2952, 4
-  %2953 = getelementptr inbounds nuw i8, ptr %2910, i64 %.idx89.us.i.i
-  %2954 = uitofp i64 %2945 to float
-  %2955 = fsub reassoc nsz arcp contract afn float %2954, %2938
-  %2956 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %2955
-  %2957 = add i64 %.08492.us.i.i, %2934
-  %.idx90.us.i.i = shl i64 %2957, 4
-  %2958 = getelementptr inbounds nuw i8, ptr %2911, i64 %.idx90.us.i.i
-  br label %2961
+2938:                                             ; preds = %2962, %.preheader.us.i88.i
+  %.08492.us.i.i = phi i64 [ 0, %.preheader.us.i88.i ], [ %2963, %2962 ]
+  %2939 = uitofp i64 %.08492.us.i.i to float
+  %2940 = fmul reassoc nsz arcp contract afn float %2920, %2939
+  %2941 = fmul reassoc nsz arcp contract afn float %2940, %2922
+  %2942 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %2941)
+  %2943 = fptoui float %2942 to i64
+  %2944 = add i64 %2943, 1
+  %2945 = icmp ugt i64 %2675, %2943
+  %2946 = select i1 %2945, i64 %2943, i64 %2915
+  %2947 = icmp ult i64 %2944, %2675
+  %2948 = select i1 %2947, i64 %2944, i64 %2915
+  %2949 = add i64 %2946, %2933
+  %.idx.us.i.i = shl i64 %2949, 4
+  %2950 = getelementptr inbounds nuw i8, ptr %2913, i64 %.idx.us.i.i
+  %2951 = add i64 %2948, %2933
+  %.idx87.us.i.i = shl i64 %2951, 4
+  %2952 = getelementptr inbounds nuw i8, ptr %2913, i64 %.idx87.us.i.i
+  %2953 = add i64 %2948, %2934
+  %.idx88.us.i.i = shl i64 %2953, 4
+  %2954 = getelementptr inbounds nuw i8, ptr %2913, i64 %.idx88.us.i.i
+  %2955 = add i64 %2946, %2934
+  %.idx89.us.i.i = shl i64 %2955, 4
+  %2956 = getelementptr inbounds nuw i8, ptr %2913, i64 %.idx89.us.i.i
+  %2957 = uitofp i64 %2948 to float
+  %2958 = fsub reassoc nsz arcp contract afn float %2957, %2941
+  %2959 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %2958
+  %2960 = add i64 %.08492.us.i.i, %2937
+  %.idx90.us.i.i = shl i64 %2960, 4
+  %2961 = getelementptr inbounds nuw i8, ptr %2914, i64 %.idx90.us.i.i
+  br label %2964
 
-2959:                                             ; preds = %2961
-  %2960 = add nuw i64 %.08492.us.i.i, 1
-  %exitcond99.not.i.i = icmp eq i64 %2960, %2674
-  br i1 %exitcond99.not.i.i, label %._crit_edge.us.i90.i, label %2935
+2962:                                             ; preds = %2964
+  %2963 = add nuw i64 %.08492.us.i.i, 1
+  %exitcond99.not.i.i = icmp eq i64 %2963, %2677
+  br i1 %exitcond99.not.i.i, label %._crit_edge.us.i90.i, label %2938
 
-2961:                                             ; preds = %2961, %2935
-  %.091.us.i.i = phi i64 [ 0, %2935 ], [ %2980, %2961 ]
-  %2962 = getelementptr inbounds nuw float, ptr %2953, i64 %.091.us.i.i
-  %2963 = load float, ptr %2962, align 4, !tbaa !37, !alias.scope !183, !noalias !188
-  %2964 = fmul reassoc nsz arcp contract afn float %2963, %2955
-  %2965 = getelementptr inbounds nuw float, ptr %2951, i64 %.091.us.i.i
+2964:                                             ; preds = %2964, %2938
+  %.091.us.i.i = phi i64 [ 0, %2938 ], [ %2983, %2964 ]
+  %2965 = getelementptr inbounds nuw float, ptr %2956, i64 %.091.us.i.i
   %2966 = load float, ptr %2965, align 4, !tbaa !37, !alias.scope !183, !noalias !188
-  %2967 = fmul reassoc nsz arcp contract afn float %2966, %2956
-  %2968 = fadd reassoc nsz arcp contract afn float %2967, %2964
-  %2969 = getelementptr inbounds nuw float, ptr %2947, i64 %.091.us.i.i
-  %2970 = load float, ptr %2969, align 4, !tbaa !37, !alias.scope !183, !noalias !188
-  %2971 = fmul reassoc nsz arcp contract afn float %2970, %2955
-  %2972 = getelementptr inbounds nuw float, ptr %2949, i64 %.091.us.i.i
+  %2967 = fmul reassoc nsz arcp contract afn float %2966, %2958
+  %2968 = getelementptr inbounds nuw float, ptr %2954, i64 %.091.us.i.i
+  %2969 = load float, ptr %2968, align 4, !tbaa !37, !alias.scope !183, !noalias !188
+  %2970 = fmul reassoc nsz arcp contract afn float %2969, %2959
+  %2971 = fadd reassoc nsz arcp contract afn float %2970, %2967
+  %2972 = getelementptr inbounds nuw float, ptr %2950, i64 %.091.us.i.i
   %2973 = load float, ptr %2972, align 4, !tbaa !37, !alias.scope !183, !noalias !188
-  %2974 = fmul reassoc nsz arcp contract afn float %2973, %2956
-  %2975 = fsub reassoc nsz arcp contract afn float %2971, %2968
-  %2976 = fadd reassoc nsz arcp contract afn float %2975, %2974
-  %2977 = fmul reassoc nsz arcp contract afn float %2976, %2933
-  %2978 = fadd reassoc nsz arcp contract afn float %2977, %2968
-  %2979 = getelementptr inbounds nuw float, ptr %2958, i64 %.091.us.i.i
-  store float %2978, ptr %2979, align 4, !tbaa !37, !alias.scope !186, !noalias !189
-  %2980 = add nuw nsw i64 %.091.us.i.i, 1
-  %exitcond.not.i89.i = icmp eq i64 %2980, 4
-  br i1 %exitcond.not.i89.i, label %2959, label %2961
+  %2974 = fmul reassoc nsz arcp contract afn float %2973, %2958
+  %2975 = getelementptr inbounds nuw float, ptr %2952, i64 %.091.us.i.i
+  %2976 = load float, ptr %2975, align 4, !tbaa !37, !alias.scope !183, !noalias !188
+  %2977 = fmul reassoc nsz arcp contract afn float %2976, %2959
+  %2978 = fsub reassoc nsz arcp contract afn float %2974, %2971
+  %2979 = fadd reassoc nsz arcp contract afn float %2978, %2977
+  %2980 = fmul reassoc nsz arcp contract afn float %2979, %2936
+  %2981 = fadd reassoc nsz arcp contract afn float %2980, %2971
+  %2982 = getelementptr inbounds nuw float, ptr %2961, i64 %.091.us.i.i
+  store float %2981, ptr %2982, align 4, !tbaa !37, !alias.scope !186, !noalias !189
+  %2983 = add nuw nsw i64 %.091.us.i.i, 1
+  %exitcond.not.i89.i = icmp eq i64 %2983, 4
+  br i1 %exitcond.not.i89.i, label %2962, label %2964
 
-._crit_edge.us.i90.i:                             ; preds = %2959
-  %2981 = add nuw i64 %.08393.us.i.i, 1
-  %exitcond100.not.i.i = icmp eq i64 %2981, %2673
+._crit_edge.us.i90.i:                             ; preds = %2962
+  %2984 = add nuw i64 %.08393.us.i.i, 1
+  %exitcond100.not.i.i = icmp eq i64 %2984, %2676
   br i1 %exitcond100.not.i.i, label %.preheader.lr.ph.split.us.i94.i, label %.preheader.us.i88.i
 
 interpolate_bilinear.exit.i:                      ; preds = %_interpolate_and_mask.exit.i
@@ -8224,218 +8227,218 @@ interpolate_bilinear.exit.i:                      ; preds = %_interpolate_and_ma
   br label %interpolate_bilinear.exit108.i
 
 .preheader.lr.ph.split.us.i94.i:                  ; preds = %._crit_edge.us.i90.i
-  %2982 = load ptr, ptr %9, align 8, !tbaa !160, !noalias !169
-  %2983 = load ptr, ptr %15, align 8, !tbaa !160, !noalias !169
-  %2984 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %2914
-  %2985 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %2916
+  %2985 = load ptr, ptr %9, align 8, !tbaa !160, !noalias !169
+  %2986 = load ptr, ptr %15, align 8, !tbaa !160, !noalias !169
+  %2987 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %2917
+  %2988 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %2919
   br label %.preheader.us.i95.i
 
 .preheader.us.i95.i:                              ; preds = %._crit_edge.us.i106.i, %.preheader.lr.ph.split.us.i94.i
-  %.08393.us.i96.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i94.i ], [ %3047, %._crit_edge.us.i106.i ]
-  %2986 = uitofp i64 %.08393.us.i96.i to float
-  %2987 = fmul reassoc nsz arcp contract afn float %2915, %2986
-  %2988 = fmul reassoc nsz arcp contract afn float %2987, %2984
-  %2989 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %2988)
-  %2990 = fptoui float %2989 to i64
-  %2991 = add i64 %2990, 1
-  %2992 = icmp ugt i64 %2669, %2990
-  %2993 = select i1 %2992, i64 %2990, i64 %2913
-  %2994 = icmp ult i64 %2991, %2669
-  %2995 = select i1 %2994, i64 %2991, i64 %2913
-  %2996 = mul i64 %2993, %2672
-  %2997 = mul i64 %2995, %2672
-  %2998 = uitofp i64 %2995 to float
-  %2999 = fsub reassoc nsz arcp contract afn float %2998, %2988
-  %3000 = mul i64 %.08393.us.i96.i, %2674
-  br label %3001
+  %.08393.us.i96.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i94.i ], [ %3050, %._crit_edge.us.i106.i ]
+  %2989 = uitofp i64 %.08393.us.i96.i to float
+  %2990 = fmul reassoc nsz arcp contract afn float %2918, %2989
+  %2991 = fmul reassoc nsz arcp contract afn float %2990, %2987
+  %2992 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %2991)
+  %2993 = fptoui float %2992 to i64
+  %2994 = add i64 %2993, 1
+  %2995 = icmp ugt i64 %2672, %2993
+  %2996 = select i1 %2995, i64 %2993, i64 %2916
+  %2997 = icmp ult i64 %2994, %2672
+  %2998 = select i1 %2997, i64 %2994, i64 %2916
+  %2999 = mul i64 %2996, %2675
+  %3000 = mul i64 %2998, %2675
+  %3001 = uitofp i64 %2998 to float
+  %3002 = fsub reassoc nsz arcp contract afn float %3001, %2991
+  %3003 = mul i64 %.08393.us.i96.i, %2677
+  br label %3004
 
-3001:                                             ; preds = %3025, %.preheader.us.i95.i
-  %.08492.us.i97.i = phi i64 [ 0, %.preheader.us.i95.i ], [ %3026, %3025 ]
-  %3002 = uitofp i64 %.08492.us.i97.i to float
-  %3003 = fmul reassoc nsz arcp contract afn float %2917, %3002
-  %3004 = fmul reassoc nsz arcp contract afn float %3003, %2985
-  %3005 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %3004)
-  %3006 = fptoui float %3005 to i64
-  %3007 = add i64 %3006, 1
-  %3008 = icmp ugt i64 %2672, %3006
-  %3009 = select i1 %3008, i64 %3006, i64 %2912
-  %3010 = icmp ult i64 %3007, %2672
-  %3011 = select i1 %3010, i64 %3007, i64 %2912
-  %3012 = add i64 %3009, %2996
-  %.idx.us.i98.i = shl i64 %3012, 4
-  %3013 = getelementptr inbounds nuw i8, ptr %2982, i64 %.idx.us.i98.i
-  %3014 = add i64 %3011, %2996
-  %.idx87.us.i99.i = shl i64 %3014, 4
-  %3015 = getelementptr inbounds nuw i8, ptr %2982, i64 %.idx87.us.i99.i
-  %3016 = add i64 %3011, %2997
-  %.idx88.us.i100.i = shl i64 %3016, 4
-  %3017 = getelementptr inbounds nuw i8, ptr %2982, i64 %.idx88.us.i100.i
-  %3018 = add i64 %3009, %2997
-  %.idx89.us.i101.i = shl i64 %3018, 4
-  %3019 = getelementptr inbounds nuw i8, ptr %2982, i64 %.idx89.us.i101.i
-  %3020 = uitofp i64 %3011 to float
-  %3021 = fsub reassoc nsz arcp contract afn float %3020, %3004
-  %3022 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %3021
-  %3023 = add i64 %.08492.us.i97.i, %3000
-  %.idx90.us.i102.i = shl i64 %3023, 4
-  %3024 = getelementptr inbounds nuw i8, ptr %2983, i64 %.idx90.us.i102.i
-  br label %3027
+3004:                                             ; preds = %3028, %.preheader.us.i95.i
+  %.08492.us.i97.i = phi i64 [ 0, %.preheader.us.i95.i ], [ %3029, %3028 ]
+  %3005 = uitofp i64 %.08492.us.i97.i to float
+  %3006 = fmul reassoc nsz arcp contract afn float %2920, %3005
+  %3007 = fmul reassoc nsz arcp contract afn float %3006, %2988
+  %3008 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %3007)
+  %3009 = fptoui float %3008 to i64
+  %3010 = add i64 %3009, 1
+  %3011 = icmp ugt i64 %2675, %3009
+  %3012 = select i1 %3011, i64 %3009, i64 %2915
+  %3013 = icmp ult i64 %3010, %2675
+  %3014 = select i1 %3013, i64 %3010, i64 %2915
+  %3015 = add i64 %3012, %2999
+  %.idx.us.i98.i = shl i64 %3015, 4
+  %3016 = getelementptr inbounds nuw i8, ptr %2985, i64 %.idx.us.i98.i
+  %3017 = add i64 %3014, %2999
+  %.idx87.us.i99.i = shl i64 %3017, 4
+  %3018 = getelementptr inbounds nuw i8, ptr %2985, i64 %.idx87.us.i99.i
+  %3019 = add i64 %3014, %3000
+  %.idx88.us.i100.i = shl i64 %3019, 4
+  %3020 = getelementptr inbounds nuw i8, ptr %2985, i64 %.idx88.us.i100.i
+  %3021 = add i64 %3012, %3000
+  %.idx89.us.i101.i = shl i64 %3021, 4
+  %3022 = getelementptr inbounds nuw i8, ptr %2985, i64 %.idx89.us.i101.i
+  %3023 = uitofp i64 %3014 to float
+  %3024 = fsub reassoc nsz arcp contract afn float %3023, %3007
+  %3025 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %3024
+  %3026 = add i64 %.08492.us.i97.i, %3003
+  %.idx90.us.i102.i = shl i64 %3026, 4
+  %3027 = getelementptr inbounds nuw i8, ptr %2986, i64 %.idx90.us.i102.i
+  br label %3030
 
-3025:                                             ; preds = %3027
-  %3026 = add nuw i64 %.08492.us.i97.i, 1
-  %exitcond99.not.i105.i = icmp eq i64 %3026, %2674
-  br i1 %exitcond99.not.i105.i, label %._crit_edge.us.i106.i, label %3001
+3028:                                             ; preds = %3030
+  %3029 = add nuw i64 %.08492.us.i97.i, 1
+  %exitcond99.not.i105.i = icmp eq i64 %3029, %2677
+  br i1 %exitcond99.not.i105.i, label %._crit_edge.us.i106.i, label %3004
 
-3027:                                             ; preds = %3027, %3001
-  %.091.us.i103.i = phi i64 [ 0, %3001 ], [ %3046, %3027 ]
-  %3028 = getelementptr inbounds nuw float, ptr %3019, i64 %.091.us.i103.i
-  %3029 = load float, ptr %3028, align 4, !tbaa !37, !alias.scope !190, !noalias !195
-  %3030 = fmul reassoc nsz arcp contract afn float %3029, %3021
-  %3031 = getelementptr inbounds nuw float, ptr %3017, i64 %.091.us.i103.i
+3030:                                             ; preds = %3030, %3004
+  %.091.us.i103.i = phi i64 [ 0, %3004 ], [ %3049, %3030 ]
+  %3031 = getelementptr inbounds nuw float, ptr %3022, i64 %.091.us.i103.i
   %3032 = load float, ptr %3031, align 4, !tbaa !37, !alias.scope !190, !noalias !195
-  %3033 = fmul reassoc nsz arcp contract afn float %3032, %3022
-  %3034 = fadd reassoc nsz arcp contract afn float %3033, %3030
-  %3035 = getelementptr inbounds nuw float, ptr %3013, i64 %.091.us.i103.i
-  %3036 = load float, ptr %3035, align 4, !tbaa !37, !alias.scope !190, !noalias !195
-  %3037 = fmul reassoc nsz arcp contract afn float %3036, %3021
-  %3038 = getelementptr inbounds nuw float, ptr %3015, i64 %.091.us.i103.i
+  %3033 = fmul reassoc nsz arcp contract afn float %3032, %3024
+  %3034 = getelementptr inbounds nuw float, ptr %3020, i64 %.091.us.i103.i
+  %3035 = load float, ptr %3034, align 4, !tbaa !37, !alias.scope !190, !noalias !195
+  %3036 = fmul reassoc nsz arcp contract afn float %3035, %3025
+  %3037 = fadd reassoc nsz arcp contract afn float %3036, %3033
+  %3038 = getelementptr inbounds nuw float, ptr %3016, i64 %.091.us.i103.i
   %3039 = load float, ptr %3038, align 4, !tbaa !37, !alias.scope !190, !noalias !195
-  %3040 = fmul reassoc nsz arcp contract afn float %3039, %3022
-  %3041 = fsub reassoc nsz arcp contract afn float %3037, %3034
-  %3042 = fadd reassoc nsz arcp contract afn float %3041, %3040
-  %3043 = fmul reassoc nsz arcp contract afn float %3042, %2999
-  %3044 = fadd reassoc nsz arcp contract afn float %3043, %3034
-  %3045 = getelementptr inbounds nuw float, ptr %3024, i64 %.091.us.i103.i
-  store float %3044, ptr %3045, align 4, !tbaa !37, !alias.scope !193, !noalias !196
-  %3046 = add nuw nsw i64 %.091.us.i103.i, 1
-  %exitcond.not.i104.i = icmp eq i64 %3046, 4
-  br i1 %exitcond.not.i104.i, label %3025, label %3027
+  %3040 = fmul reassoc nsz arcp contract afn float %3039, %3024
+  %3041 = getelementptr inbounds nuw float, ptr %3018, i64 %.091.us.i103.i
+  %3042 = load float, ptr %3041, align 4, !tbaa !37, !alias.scope !190, !noalias !195
+  %3043 = fmul reassoc nsz arcp contract afn float %3042, %3025
+  %3044 = fsub reassoc nsz arcp contract afn float %3040, %3037
+  %3045 = fadd reassoc nsz arcp contract afn float %3044, %3043
+  %3046 = fmul reassoc nsz arcp contract afn float %3045, %3002
+  %3047 = fadd reassoc nsz arcp contract afn float %3046, %3037
+  %3048 = getelementptr inbounds nuw float, ptr %3027, i64 %.091.us.i103.i
+  store float %3047, ptr %3048, align 4, !tbaa !37, !alias.scope !193, !noalias !196
+  %3049 = add nuw nsw i64 %.091.us.i103.i, 1
+  %exitcond.not.i104.i = icmp eq i64 %3049, 4
+  br i1 %exitcond.not.i104.i, label %3028, label %3030
 
-._crit_edge.us.i106.i:                            ; preds = %3025
-  %3047 = add nuw i64 %.08393.us.i96.i, 1
-  %exitcond100.not.i107.i = icmp eq i64 %3047, %2673
+._crit_edge.us.i106.i:                            ; preds = %3028
+  %3050 = add nuw i64 %.08393.us.i96.i, 1
+  %exitcond100.not.i107.i = icmp eq i64 %3050, %2676
   br i1 %exitcond100.not.i107.i, label %interpolate_bilinear.exit108.i, label %.preheader.us.i95.i
 
 interpolate_bilinear.exit108.i:                   ; preds = %._crit_edge.us.i106.i, %interpolate_bilinear.exit.i, %.preheader.lr.ph.i87.i
-  %3048 = getelementptr inbounds nuw i8, ptr %2653, i64 24
-  %3049 = load i32, ptr %3048, align 4, !tbaa !197, !noalias !169
-  %3050 = icmp sgt i32 %3049, 0
-  br i1 %3050, label %.lr.ph.i342, label %._crit_edge.i340
+  %3051 = getelementptr inbounds nuw i8, ptr %2656, i64 24
+  %3052 = load i32, ptr %3051, align 4, !tbaa !197, !noalias !169
+  %3053 = icmp sgt i32 %3052, 0
+  br i1 %3053, label %.lr.ph.i342, label %._crit_edge.i340
 
 .lr.ph.i342:                                      ; preds = %interpolate_bilinear.exit108.i
-  %3051 = getelementptr inbounds nuw i8, ptr %2653, i64 44
-  br label %3156
+  %3054 = getelementptr inbounds nuw i8, ptr %2656, i64 44
+  br label %3159
 
-._crit_edge.i340:                                 ; preds = %3156, %interpolate_bilinear.exit108.i
-  %3052 = load ptr, ptr %15, align 8, !tbaa !160, !noalias !169
-  %3053 = load ptr, ptr %9, align 8, !tbaa !160, !noalias !169
+._crit_edge.i340:                                 ; preds = %3159, %interpolate_bilinear.exit108.i
+  %3055 = load ptr, ptr %15, align 8, !tbaa !160, !noalias !169
+  %3056 = load ptr, ptr %9, align 8, !tbaa !160, !noalias !169
   call void @llvm.experimental.noalias.scope.decl(metadata !198)
   call void @llvm.experimental.noalias.scope.decl(metadata !201)
   br i1 %.not.i.i330, label %_remosaic_and_replace.exit.i, label %.preheader.lr.ph.i110.i
 
 .preheader.lr.ph.i110.i:                          ; preds = %._crit_edge.i340
-  %.not97.i111.i = icmp eq i32 %2671, 0
-  %3054 = add nsw i64 %2674, -1
-  %3055 = add nsw i64 %2673, -1
+  %.not97.i111.i = icmp eq i32 %2674, 0
+  %3057 = add nsw i64 %2677, -1
+  %3058 = add nsw i64 %2676, -1
   br i1 %.not97.i111.i, label %_remosaic_and_replace.exit.i, label %.preheader.lr.ph.split.us.i112.i
 
 .preheader.lr.ph.split.us.i112.i:                 ; preds = %.preheader.lr.ph.i110.i
-  %3056 = uitofp i64 %2669 to float
-  %3057 = uitofp nneg i64 %2673 to float
-  %3058 = uitofp i64 %2672 to float
-  %3059 = uitofp nneg i64 %2674 to float
-  %3060 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %3056
-  %3061 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %3058
+  %3059 = uitofp i64 %2672 to float
+  %3060 = uitofp nneg i64 %2676 to float
+  %3061 = uitofp i64 %2675 to float
+  %3062 = uitofp nneg i64 %2677 to float
+  %3063 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %3059
+  %3064 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %3061
   br label %.preheader.us.i113.i
 
 .preheader.us.i113.i:                             ; preds = %._crit_edge.us.i124.i, %.preheader.lr.ph.split.us.i112.i
-  %.08393.us.i114.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i112.i ], [ %3123, %._crit_edge.us.i124.i ]
-  %3062 = uitofp i64 %.08393.us.i114.i to float
-  %3063 = fmul reassoc nsz arcp contract afn float %3057, %3062
-  %3064 = fmul reassoc nsz arcp contract afn float %3063, %3060
-  %3065 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %3064)
-  %3066 = fptoui float %3065 to i64
-  %3067 = add i64 %3066, 1
-  %3068 = icmp ugt i64 %2673, %3066
-  %3069 = select i1 %3068, i64 %3066, i64 %3055
-  %3070 = icmp ult i64 %3067, %2673
-  %3071 = select i1 %3070, i64 %3067, i64 %3055
-  %3072 = mul i64 %3069, %2674
-  %3073 = mul i64 %3071, %2674
-  %3074 = uitofp i64 %3071 to float
-  %3075 = fsub reassoc nsz arcp contract afn float %3074, %3064
-  %3076 = mul i64 %.08393.us.i114.i, %2672
-  br label %3077
+  %.08393.us.i114.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i112.i ], [ %3126, %._crit_edge.us.i124.i ]
+  %3065 = uitofp i64 %.08393.us.i114.i to float
+  %3066 = fmul reassoc nsz arcp contract afn float %3060, %3065
+  %3067 = fmul reassoc nsz arcp contract afn float %3066, %3063
+  %3068 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %3067)
+  %3069 = fptoui float %3068 to i64
+  %3070 = add i64 %3069, 1
+  %3071 = icmp ugt i64 %2676, %3069
+  %3072 = select i1 %3071, i64 %3069, i64 %3058
+  %3073 = icmp ult i64 %3070, %2676
+  %3074 = select i1 %3073, i64 %3070, i64 %3058
+  %3075 = mul i64 %3072, %2677
+  %3076 = mul i64 %3074, %2677
+  %3077 = uitofp i64 %3074 to float
+  %3078 = fsub reassoc nsz arcp contract afn float %3077, %3067
+  %3079 = mul i64 %.08393.us.i114.i, %2675
+  br label %3080
 
-3077:                                             ; preds = %3101, %.preheader.us.i113.i
-  %.08492.us.i115.i = phi i64 [ 0, %.preheader.us.i113.i ], [ %3102, %3101 ]
-  %3078 = uitofp i64 %.08492.us.i115.i to float
-  %3079 = fmul reassoc nsz arcp contract afn float %3059, %3078
-  %3080 = fmul reassoc nsz arcp contract afn float %3079, %3061
-  %3081 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %3080)
-  %3082 = fptoui float %3081 to i64
-  %3083 = add i64 %3082, 1
-  %3084 = icmp ugt i64 %2674, %3082
-  %3085 = select i1 %3084, i64 %3082, i64 %3054
-  %3086 = icmp ult i64 %3083, %2674
-  %3087 = select i1 %3086, i64 %3083, i64 %3054
-  %3088 = add i64 %3085, %3072
-  %.idx.us.i116.i = shl i64 %3088, 4
-  %3089 = getelementptr inbounds nuw i8, ptr %3052, i64 %.idx.us.i116.i
-  %3090 = add i64 %3087, %3072
-  %.idx87.us.i117.i = shl i64 %3090, 4
-  %3091 = getelementptr inbounds nuw i8, ptr %3052, i64 %.idx87.us.i117.i
-  %3092 = add i64 %3087, %3073
-  %.idx88.us.i118.i = shl i64 %3092, 4
-  %3093 = getelementptr inbounds nuw i8, ptr %3052, i64 %.idx88.us.i118.i
-  %3094 = add i64 %3085, %3073
-  %.idx89.us.i119.i = shl i64 %3094, 4
-  %3095 = getelementptr inbounds nuw i8, ptr %3052, i64 %.idx89.us.i119.i
-  %3096 = uitofp i64 %3087 to float
-  %3097 = fsub reassoc nsz arcp contract afn float %3096, %3080
-  %3098 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %3097
-  %3099 = add i64 %.08492.us.i115.i, %3076
-  %.idx90.us.i120.i = shl i64 %3099, 4
-  %3100 = getelementptr inbounds nuw i8, ptr %3053, i64 %.idx90.us.i120.i
-  br label %3103
+3080:                                             ; preds = %3104, %.preheader.us.i113.i
+  %.08492.us.i115.i = phi i64 [ 0, %.preheader.us.i113.i ], [ %3105, %3104 ]
+  %3081 = uitofp i64 %.08492.us.i115.i to float
+  %3082 = fmul reassoc nsz arcp contract afn float %3062, %3081
+  %3083 = fmul reassoc nsz arcp contract afn float %3082, %3064
+  %3084 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %3083)
+  %3085 = fptoui float %3084 to i64
+  %3086 = add i64 %3085, 1
+  %3087 = icmp ugt i64 %2677, %3085
+  %3088 = select i1 %3087, i64 %3085, i64 %3057
+  %3089 = icmp ult i64 %3086, %2677
+  %3090 = select i1 %3089, i64 %3086, i64 %3057
+  %3091 = add i64 %3088, %3075
+  %.idx.us.i116.i = shl i64 %3091, 4
+  %3092 = getelementptr inbounds nuw i8, ptr %3055, i64 %.idx.us.i116.i
+  %3093 = add i64 %3090, %3075
+  %.idx87.us.i117.i = shl i64 %3093, 4
+  %3094 = getelementptr inbounds nuw i8, ptr %3055, i64 %.idx87.us.i117.i
+  %3095 = add i64 %3090, %3076
+  %.idx88.us.i118.i = shl i64 %3095, 4
+  %3096 = getelementptr inbounds nuw i8, ptr %3055, i64 %.idx88.us.i118.i
+  %3097 = add i64 %3088, %3076
+  %.idx89.us.i119.i = shl i64 %3097, 4
+  %3098 = getelementptr inbounds nuw i8, ptr %3055, i64 %.idx89.us.i119.i
+  %3099 = uitofp i64 %3090 to float
+  %3100 = fsub reassoc nsz arcp contract afn float %3099, %3083
+  %3101 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %3100
+  %3102 = add i64 %.08492.us.i115.i, %3079
+  %.idx90.us.i120.i = shl i64 %3102, 4
+  %3103 = getelementptr inbounds nuw i8, ptr %3056, i64 %.idx90.us.i120.i
+  br label %3106
 
-3101:                                             ; preds = %3103
-  %3102 = add nuw i64 %.08492.us.i115.i, 1
-  %exitcond99.not.i123.i = icmp eq i64 %3102, %2672
-  br i1 %exitcond99.not.i123.i, label %._crit_edge.us.i124.i, label %3077
+3104:                                             ; preds = %3106
+  %3105 = add nuw i64 %.08492.us.i115.i, 1
+  %exitcond99.not.i123.i = icmp eq i64 %3105, %2675
+  br i1 %exitcond99.not.i123.i, label %._crit_edge.us.i124.i, label %3080
 
-3103:                                             ; preds = %3103, %3077
-  %.091.us.i121.i = phi i64 [ 0, %3077 ], [ %3122, %3103 ]
-  %3104 = getelementptr inbounds nuw float, ptr %3095, i64 %.091.us.i121.i
-  %3105 = load float, ptr %3104, align 4, !tbaa !37, !alias.scope !198, !noalias !203
-  %3106 = fmul reassoc nsz arcp contract afn float %3105, %3097
-  %3107 = getelementptr inbounds nuw float, ptr %3093, i64 %.091.us.i121.i
+3106:                                             ; preds = %3106, %3080
+  %.091.us.i121.i = phi i64 [ 0, %3080 ], [ %3125, %3106 ]
+  %3107 = getelementptr inbounds nuw float, ptr %3098, i64 %.091.us.i121.i
   %3108 = load float, ptr %3107, align 4, !tbaa !37, !alias.scope !198, !noalias !203
-  %3109 = fmul reassoc nsz arcp contract afn float %3108, %3098
-  %3110 = fadd reassoc nsz arcp contract afn float %3109, %3106
-  %3111 = getelementptr inbounds nuw float, ptr %3089, i64 %.091.us.i121.i
-  %3112 = load float, ptr %3111, align 4, !tbaa !37, !alias.scope !198, !noalias !203
-  %3113 = fmul reassoc nsz arcp contract afn float %3112, %3097
-  %3114 = getelementptr inbounds nuw float, ptr %3091, i64 %.091.us.i121.i
+  %3109 = fmul reassoc nsz arcp contract afn float %3108, %3100
+  %3110 = getelementptr inbounds nuw float, ptr %3096, i64 %.091.us.i121.i
+  %3111 = load float, ptr %3110, align 4, !tbaa !37, !alias.scope !198, !noalias !203
+  %3112 = fmul reassoc nsz arcp contract afn float %3111, %3101
+  %3113 = fadd reassoc nsz arcp contract afn float %3112, %3109
+  %3114 = getelementptr inbounds nuw float, ptr %3092, i64 %.091.us.i121.i
   %3115 = load float, ptr %3114, align 4, !tbaa !37, !alias.scope !198, !noalias !203
-  %3116 = fmul reassoc nsz arcp contract afn float %3115, %3098
-  %3117 = fsub reassoc nsz arcp contract afn float %3113, %3110
-  %3118 = fadd reassoc nsz arcp contract afn float %3117, %3116
-  %3119 = fmul reassoc nsz arcp contract afn float %3118, %3075
-  %3120 = fadd reassoc nsz arcp contract afn float %3119, %3110
-  %3121 = getelementptr inbounds nuw float, ptr %3100, i64 %.091.us.i121.i
-  store float %3120, ptr %3121, align 4, !tbaa !37, !alias.scope !201, !noalias !204
-  %3122 = add nuw nsw i64 %.091.us.i121.i, 1
-  %exitcond.not.i122.i = icmp eq i64 %3122, 4
-  br i1 %exitcond.not.i122.i, label %3101, label %3103
+  %3116 = fmul reassoc nsz arcp contract afn float %3115, %3100
+  %3117 = getelementptr inbounds nuw float, ptr %3094, i64 %.091.us.i121.i
+  %3118 = load float, ptr %3117, align 4, !tbaa !37, !alias.scope !198, !noalias !203
+  %3119 = fmul reassoc nsz arcp contract afn float %3118, %3101
+  %3120 = fsub reassoc nsz arcp contract afn float %3116, %3113
+  %3121 = fadd reassoc nsz arcp contract afn float %3120, %3119
+  %3122 = fmul reassoc nsz arcp contract afn float %3121, %3078
+  %3123 = fadd reassoc nsz arcp contract afn float %3122, %3113
+  %3124 = getelementptr inbounds nuw float, ptr %3103, i64 %.091.us.i121.i
+  store float %3123, ptr %3124, align 4, !tbaa !37, !alias.scope !201, !noalias !204
+  %3125 = add nuw nsw i64 %.091.us.i121.i, 1
+  %exitcond.not.i122.i = icmp eq i64 %3125, 4
+  br i1 %exitcond.not.i122.i, label %3104, label %3106
 
-._crit_edge.us.i124.i:                            ; preds = %3101
-  %3123 = add nuw i64 %.08393.us.i114.i, 1
-  %exitcond100.not.i125.i = icmp eq i64 %3123, %2669
+._crit_edge.us.i124.i:                            ; preds = %3104
+  %3126 = add nuw i64 %.08393.us.i114.i, 1
+  %exitcond100.not.i125.i = icmp eq i64 %3126, %2672
   br i1 %exitcond100.not.i125.i, label %interpolate_bilinear.exit126.i, label %.preheader.us.i113.i
 
 interpolate_bilinear.exit126.i:                   ; preds = %._crit_edge.us.i124.i
-  %3124 = load ptr, ptr %10, align 8, !tbaa !160, !noalias !169
+  %3127 = load ptr, ptr %10, align 8, !tbaa !160, !noalias !169
   call void @llvm.experimental.noalias.scope.decl(metadata !205)
   call void @llvm.experimental.noalias.scope.decl(metadata !208)
   call void @llvm.experimental.noalias.scope.decl(metadata !210)
@@ -8443,112 +8446,112 @@ interpolate_bilinear.exit126.i:                   ; preds = %._crit_edge.us.i124
   br label %.preheader.us.i128.i
 
 .preheader.us.i128.i:                             ; preds = %._crit_edge.us.i131.i, %interpolate_bilinear.exit126.i
-  %.028.us.i.i = phi i64 [ %3154, %._crit_edge.us.i131.i ], [ 0, %interpolate_bilinear.exit126.i ]
-  %3125 = shl i64 %.028.us.i.i, 1
-  %3126 = and i64 %3125, 14
-  %3127 = mul i64 %.028.us.i.i, %2672
-  br label %3128
+  %.028.us.i.i = phi i64 [ %3157, %._crit_edge.us.i131.i ], [ 0, %interpolate_bilinear.exit126.i ]
+  %3128 = shl i64 %.028.us.i.i, 1
+  %3129 = and i64 %3128, 14
+  %3130 = mul i64 %.028.us.i.i, %2675
+  br label %3131
 
-3128:                                             ; preds = %3128, %.preheader.us.i128.i
-  %.02527.us.i.i = phi i64 [ 0, %.preheader.us.i128.i ], [ %3153, %3128 ]
-  %3129 = and i64 %.02527.us.i.i, 1
-  %3130 = or disjoint i64 %3129, %3126
-  %.tr.i.us.i129.i = trunc nuw nsw i64 %3130 to i32
-  %3131 = shl nuw nsw i32 %.tr.i.us.i129.i, 1
-  %3132 = lshr i32 %2655, %3131
-  %3133 = and i32 %3132, 3
-  %3134 = zext nneg i32 %3133 to i64
-  %3135 = add i64 %.02527.us.i.i, %3127
-  %3136 = shl i64 %3135, 2
-  %3137 = getelementptr inbounds nuw float, ptr %3124, i64 %3136
-  %3138 = getelementptr inbounds nuw i8, ptr %3137, i64 12
-  %3139 = load float, ptr %3138, align 4, !tbaa !37, !alias.scope !210, !noalias !214
-  %3140 = getelementptr inbounds nuw float, ptr %3053, i64 %3136
-  %3141 = getelementptr inbounds nuw float, ptr %3140, i64 %3134
-  %3142 = load float, ptr %3141, align 4, !tbaa !37, !alias.scope !208, !noalias !215
-  %3143 = getelementptr inbounds nuw float, ptr %8, i64 %3134
-  %3144 = load float, ptr %3143, align 4, !tbaa !37, !noalias !216
-  %3145 = fmul reassoc nsz arcp contract afn float %3144, %3142
-  %3146 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %3145, float 0.000000e+00)
-  %3147 = getelementptr inbounds nuw float, ptr %2, i64 %3135
-  %3148 = load float, ptr %3147, align 4, !tbaa !37, !alias.scope !217, !noalias !218
-  %3149 = fsub reassoc nsz arcp contract afn float %3146, %3148
-  %3150 = fmul reassoc nsz arcp contract afn float %3149, %3139
-  %3151 = fadd reassoc nsz arcp contract afn float %3150, %3148
-  %3152 = getelementptr inbounds nuw float, ptr %3, i64 %3135
-  store float %3151, ptr %3152, align 4, !tbaa !37, !alias.scope !219, !noalias !220
-  %3153 = add nuw i64 %.02527.us.i.i, 1
-  %exitcond.not.i130.i = icmp eq i64 %3153, %2672
-  br i1 %exitcond.not.i130.i, label %._crit_edge.us.i131.i, label %3128
+3131:                                             ; preds = %3131, %.preheader.us.i128.i
+  %.02527.us.i.i = phi i64 [ 0, %.preheader.us.i128.i ], [ %3156, %3131 ]
+  %3132 = and i64 %.02527.us.i.i, 1
+  %3133 = or disjoint i64 %3132, %3129
+  %.tr.i.us.i129.i = trunc nuw nsw i64 %3133 to i32
+  %3134 = shl nuw nsw i32 %.tr.i.us.i129.i, 1
+  %3135 = lshr i32 %2658, %3134
+  %3136 = and i32 %3135, 3
+  %3137 = zext nneg i32 %3136 to i64
+  %3138 = add i64 %.02527.us.i.i, %3130
+  %3139 = shl i64 %3138, 2
+  %3140 = getelementptr inbounds nuw float, ptr %3127, i64 %3139
+  %3141 = getelementptr inbounds nuw i8, ptr %3140, i64 12
+  %3142 = load float, ptr %3141, align 4, !tbaa !37, !alias.scope !210, !noalias !214
+  %3143 = getelementptr inbounds nuw float, ptr %3056, i64 %3139
+  %3144 = getelementptr inbounds nuw float, ptr %3143, i64 %3137
+  %3145 = load float, ptr %3144, align 4, !tbaa !37, !alias.scope !208, !noalias !215
+  %3146 = getelementptr inbounds nuw float, ptr %8, i64 %3137
+  %3147 = load float, ptr %3146, align 4, !tbaa !37, !noalias !216
+  %3148 = fmul reassoc nsz arcp contract afn float %3147, %3145
+  %3149 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %3148, float 0.000000e+00)
+  %3150 = getelementptr inbounds nuw float, ptr %2, i64 %3138
+  %3151 = load float, ptr %3150, align 4, !tbaa !37, !alias.scope !217, !noalias !218
+  %3152 = fsub reassoc nsz arcp contract afn float %3149, %3151
+  %3153 = fmul reassoc nsz arcp contract afn float %3152, %3142
+  %3154 = fadd reassoc nsz arcp contract afn float %3153, %3151
+  %3155 = getelementptr inbounds nuw float, ptr %3, i64 %3138
+  store float %3154, ptr %3155, align 4, !tbaa !37, !alias.scope !219, !noalias !220
+  %3156 = add nuw i64 %.02527.us.i.i, 1
+  %exitcond.not.i130.i = icmp eq i64 %3156, %2675
+  br i1 %exitcond.not.i130.i, label %._crit_edge.us.i131.i, label %3131
 
-._crit_edge.us.i131.i:                            ; preds = %3128
-  %3154 = add nuw i64 %.028.us.i.i, 1
-  %exitcond32.not.i.i = icmp eq i64 %3154, %2669
+._crit_edge.us.i131.i:                            ; preds = %3131
+  %3157 = add nuw i64 %.028.us.i.i, 1
+  %exitcond32.not.i.i = icmp eq i64 %3157, %2672
   br i1 %exitcond32.not.i.i, label %_remosaic_and_replace.exit.i, label %.preheader.us.i128.i
 
 _remosaic_and_replace.exit.i:                     ; preds = %._crit_edge.us.i131.i, %.preheader.lr.ph.i110.i, %._crit_edge.i340
-  %3155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3056), align 8, !tbaa !221, !noalias !169
-  %.not85.i = icmp eq ptr %3155, null
-  br i1 %.not85.i, label %3180, label %3178
+  %3158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3056), align 8, !tbaa !221, !noalias !169
+  %.not85.i = icmp eq ptr %3158, null
+  br i1 %.not85.i, label %3183, label %3181
 
-3156:                                             ; preds = %3156, %.lr.ph.i342
-  %3157 = phi i32 [ %3049, %.lr.ph.i342 ], [ %3176, %3156 ]
-  %.0143.i = phi i32 [ 0, %.lr.ph.i342 ], [ %3175, %3156 ]
-  %3158 = add nsw i32 %3157, -1
-  %3159 = icmp eq i32 %.0143.i, %3158
-  %3160 = zext i1 %3159 to i32
-  %3161 = load ptr, ptr %15, align 8, !tbaa !160, !noalias !169
-  %3162 = load ptr, ptr %13, align 8, !tbaa !160, !noalias !169
-  %3163 = load ptr, ptr %16, align 8, !tbaa !160, !noalias !169
-  %3164 = load ptr, ptr %14, align 8, !tbaa !160, !noalias !169
-  %3165 = load ptr, ptr %11, align 8, !tbaa !160, !noalias !169
-  %3166 = load ptr, ptr %12, align 8, !tbaa !160, !noalias !169
-  %3167 = load float, ptr %3051, align 4, !tbaa !222, !noalias !169
-  call fastcc void @wavelets_process(ptr noundef %3161, ptr noundef %3162, ptr noundef %3163, i64 noundef %2674, i64 noundef %2673, i32 noundef %2710, ptr noundef %3164, ptr noundef %3165, ptr noundef %3166, i32 noundef 0, float noundef %2713, i32 noundef %3160, float noundef %3167)
-  %3168 = load ptr, ptr %13, align 8, !tbaa !160, !noalias !169
-  %3169 = load ptr, ptr %15, align 8, !tbaa !160, !noalias !169
-  %3170 = load ptr, ptr %16, align 8, !tbaa !160, !noalias !169
-  %3171 = load ptr, ptr %14, align 8, !tbaa !160, !noalias !169
-  %3172 = load ptr, ptr %11, align 8, !tbaa !160, !noalias !169
-  %3173 = load ptr, ptr %12, align 8, !tbaa !160, !noalias !169
-  %3174 = load float, ptr %3051, align 4, !tbaa !222, !noalias !169
-  call fastcc void @wavelets_process(ptr noundef %3168, ptr noundef %3169, ptr noundef %3170, i64 noundef %2674, i64 noundef %2673, i32 noundef %2710, ptr noundef %3171, ptr noundef %3172, ptr noundef %3173, i32 noundef 1, float noundef %2713, i32 noundef %3160, float noundef %3174)
-  %3175 = add nuw nsw i32 %.0143.i, 1
-  %3176 = load i32, ptr %3048, align 4, !tbaa !197, !noalias !169
-  %3177 = icmp slt i32 %3175, %3176
-  br i1 %3177, label %3156, label %._crit_edge.i340
+3159:                                             ; preds = %3159, %.lr.ph.i342
+  %3160 = phi i32 [ %3052, %.lr.ph.i342 ], [ %3179, %3159 ]
+  %.0143.i = phi i32 [ 0, %.lr.ph.i342 ], [ %3178, %3159 ]
+  %3161 = add nsw i32 %3160, -1
+  %3162 = icmp eq i32 %.0143.i, %3161
+  %3163 = zext i1 %3162 to i32
+  %3164 = load ptr, ptr %15, align 8, !tbaa !160, !noalias !169
+  %3165 = load ptr, ptr %13, align 8, !tbaa !160, !noalias !169
+  %3166 = load ptr, ptr %16, align 8, !tbaa !160, !noalias !169
+  %3167 = load ptr, ptr %14, align 8, !tbaa !160, !noalias !169
+  %3168 = load ptr, ptr %11, align 8, !tbaa !160, !noalias !169
+  %3169 = load ptr, ptr %12, align 8, !tbaa !160, !noalias !169
+  %3170 = load float, ptr %3054, align 4, !tbaa !222, !noalias !169
+  call fastcc void @wavelets_process(ptr noundef %3164, ptr noundef %3165, ptr noundef %3166, i64 noundef %2677, i64 noundef %2676, i32 noundef %2713, ptr noundef %3167, ptr noundef %3168, ptr noundef %3169, i32 noundef 0, float noundef %2716, i32 noundef %3163, float noundef %3170)
+  %3171 = load ptr, ptr %13, align 8, !tbaa !160, !noalias !169
+  %3172 = load ptr, ptr %15, align 8, !tbaa !160, !noalias !169
+  %3173 = load ptr, ptr %16, align 8, !tbaa !160, !noalias !169
+  %3174 = load ptr, ptr %14, align 8, !tbaa !160, !noalias !169
+  %3175 = load ptr, ptr %11, align 8, !tbaa !160, !noalias !169
+  %3176 = load ptr, ptr %12, align 8, !tbaa !160, !noalias !169
+  %3177 = load float, ptr %3054, align 4, !tbaa !222, !noalias !169
+  call fastcc void @wavelets_process(ptr noundef %3171, ptr noundef %3172, ptr noundef %3173, i64 noundef %2677, i64 noundef %2676, i32 noundef %2713, ptr noundef %3174, ptr noundef %3175, ptr noundef %3176, i32 noundef 1, float noundef %2716, i32 noundef %3163, float noundef %3177)
+  %3178 = add nuw nsw i32 %.0143.i, 1
+  %3179 = load i32, ptr %3051, align 4, !tbaa !197, !noalias !169
+  %3180 = icmp slt i32 %3178, %3179
+  br i1 %3180, label %3159, label %._crit_edge.i340
 
-3178:                                             ; preds = %_remosaic_and_replace.exit.i
-  call void @dt_dump_pfm(ptr noundef nonnull @.str.119, ptr noundef %3053, i32 noundef %2671, i32 noundef %2668, i32 noundef 16, ptr noundef nonnull @.str.120) #30, !noalias !169
-  %3179 = load ptr, ptr %10, align 8, !tbaa !160, !noalias !169
-  call void @dt_dump_pfm(ptr noundef nonnull @.str.121, ptr noundef %3179, i32 noundef %2671, i32 noundef %2668, i32 noundef 16, ptr noundef nonnull @.str.120) #30, !noalias !169
-  %.pre.i341 = load ptr, ptr %9, align 8, !tbaa !160, !noalias !169
-  br label %3180
-
-3180:                                             ; preds = %3178, %_remosaic_and_replace.exit.i
-  %3181 = phi ptr [ %.pre.i341, %3178 ], [ %3053, %_remosaic_and_replace.exit.i ]
-  call void @free(ptr noundef %3181) #30, !noalias !169
+3181:                                             ; preds = %_remosaic_and_replace.exit.i
+  call void @dt_dump_pfm(ptr noundef nonnull @.str.119, ptr noundef %3056, i32 noundef %2674, i32 noundef %2671, i32 noundef 16, ptr noundef nonnull @.str.120) #30, !noalias !169
   %3182 = load ptr, ptr %10, align 8, !tbaa !160, !noalias !169
-  call void @free(ptr noundef %3182) #30, !noalias !169
-  %3183 = load ptr, ptr %13, align 8, !tbaa !160, !noalias !169
-  call void @free(ptr noundef %3183) #30, !noalias !169
-  %3184 = load ptr, ptr %12, align 8, !tbaa !160, !noalias !169
-  call void @free(ptr noundef %3184) #30, !noalias !169
-  %3185 = load ptr, ptr %11, align 8, !tbaa !160, !noalias !169
-  call void @free(ptr noundef %3185) #30, !noalias !169
-  %3186 = load ptr, ptr %14, align 8, !tbaa !160, !noalias !169
-  call void @free(ptr noundef %3186) #30, !noalias !169
-  %3187 = load ptr, ptr %15, align 8, !tbaa !160, !noalias !169
-  call void @free(ptr noundef %3187) #30, !noalias !169
-  %3188 = load ptr, ptr %16, align 8, !tbaa !160, !noalias !169
-  call void @free(ptr noundef %3188) #30, !noalias !169
-  br label %3189
+  call void @dt_dump_pfm(ptr noundef nonnull @.str.121, ptr noundef %3182, i32 noundef %2674, i32 noundef %2671, i32 noundef 16, ptr noundef nonnull @.str.120) #30, !noalias !169
+  %.pre.i341 = load ptr, ptr %9, align 8, !tbaa !160, !noalias !169
+  br label %3183
 
-3189:                                             ; preds = %3180, %2688
+3183:                                             ; preds = %3181, %_remosaic_and_replace.exit.i
+  %3184 = phi ptr [ %.pre.i341, %3181 ], [ %3056, %_remosaic_and_replace.exit.i ]
+  call void @free(ptr noundef %3184) #30, !noalias !169
+  %3185 = load ptr, ptr %10, align 8, !tbaa !160, !noalias !169
+  call void @free(ptr noundef %3185) #30, !noalias !169
+  %3186 = load ptr, ptr %13, align 8, !tbaa !160, !noalias !169
+  call void @free(ptr noundef %3186) #30, !noalias !169
+  %3187 = load ptr, ptr %12, align 8, !tbaa !160, !noalias !169
+  call void @free(ptr noundef %3187) #30, !noalias !169
+  %3188 = load ptr, ptr %11, align 8, !tbaa !160, !noalias !169
+  call void @free(ptr noundef %3188) #30, !noalias !169
+  %3189 = load ptr, ptr %14, align 8, !tbaa !160, !noalias !169
+  call void @free(ptr noundef %3189) #30, !noalias !169
+  %3190 = load ptr, ptr %15, align 8, !tbaa !160, !noalias !169
+  call void @free(ptr noundef %3190) #30, !noalias !169
+  %3191 = load ptr, ptr %16, align 8, !tbaa !160, !noalias !169
+  call void @free(ptr noundef %3191) #30, !noalias !169
+  br label %3192
+
+3192:                                             ; preds = %3183, %2691
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !169
   br label %process_laplacian_bayer.exit
 
-process_laplacian_bayer.exit:                     ; preds = %2676, %3189
+process_laplacian_bayer.exit:                     ; preds = %2679, %3192
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !169
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !169
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !169
@@ -8562,37 +8565,37 @@ process_laplacian_bayer.exit:                     ; preds = %2676, %3189
   br label %process_lch_xtrans.exit
 
 .thread:                                          ; preds = %479, %thread-pre-split
-  %3190 = tail call fastcc ptr @_process_opposed(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 0, i32 noundef %.0190)
+  %3193 = tail call fastcc ptr @_process_opposed(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 0, i32 noundef %.0190)
   br label %process_lch_xtrans.exit
 
-process_lch_xtrans.exit:                          ; preds = %._crit_edge.us.i303, %._crit_edge.us.i290, %.preheader6.lr.ph.i, %978, %.lr.ph33.i, %776, %.thread, %process_laplacian_bayer.exit, %2644, %2643, %.loopexit373
-  %3191 = load i32, ptr %46, align 4, !tbaa !61
-  %.off = add i32 %3191, -3
+process_lch_xtrans.exit:                          ; preds = %._crit_edge.us.i303, %._crit_edge.us.i290, %.preheader6.lr.ph.i, %978, %.lr.ph33.i, %776, %.thread, %process_laplacian_bayer.exit, %2647, %2646, %.loopexit373
+  %3194 = load i32, ptr %46, align 4, !tbaa !61
+  %.off = add i32 %3194, -3
   %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %.loopexit, label %3192
+  br i1 %switch, label %.loopexit, label %3195
 
-3192:                                             ; preds = %process_lch_xtrans.exit
+3195:                                             ; preds = %process_lch_xtrans.exit
   %.val218 = load ptr, ptr %41, align 8, !tbaa !63
-  %3193 = getelementptr inbounds nuw i8, ptr %.val218, i64 272
-  %3194 = load float, ptr %3193, align 16, !tbaa !37
-  %3195 = getelementptr inbounds nuw i8, ptr %.val218, i64 276
-  %3196 = load float, ptr %3195, align 4, !tbaa !37
-  %3197 = getelementptr inbounds nuw i8, ptr %.val218, i64 280
-  %3198 = load float, ptr %3197, align 8, !tbaa !37
-  %3199 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %3196, float %3198)
-  %3200 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %3194, float %3199)
-  %3201 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %3200, float 1.000000e+00)
-  br label %3202
+  %3196 = getelementptr inbounds nuw i8, ptr %.val218, i64 272
+  %3197 = load float, ptr %3196, align 16, !tbaa !37
+  %3198 = getelementptr inbounds nuw i8, ptr %.val218, i64 276
+  %3199 = load float, ptr %3198, align 4, !tbaa !37
+  %3200 = getelementptr inbounds nuw i8, ptr %.val218, i64 280
+  %3201 = load float, ptr %3200, align 8, !tbaa !37
+  %3202 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %3199, float %3201)
+  %3203 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %3197, float %3202)
+  %3204 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %3203, float 1.000000e+00)
+  br label %3205
 
-3202:                                             ; preds = %3192, %3202
-  %.0432 = phi i64 [ 0, %3192 ], [ %3204, %3202 ]
-  %3203 = getelementptr inbounds nuw float, ptr %3193, i64 %.0432
-  store float %3201, ptr %3203, align 4, !tbaa !37
-  %3204 = add nuw nsw i64 %.0432, 1
-  %exitcond485.not = icmp eq i64 %3204, 3
-  br i1 %exitcond485.not, label %.loopexit, label %3202
+3205:                                             ; preds = %3195, %3205
+  %.0432 = phi i64 [ 0, %3195 ], [ %3207, %3205 ]
+  %3206 = getelementptr inbounds nuw float, ptr %3196, i64 %.0432
+  store float %3204, ptr %3206, align 4, !tbaa !37
+  %3207 = add nuw nsw i64 %.0432, 1
+  %exitcond485.not = icmp eq i64 %3207, 3
+  br i1 %exitcond485.not, label %.loopexit, label %3205
 
-.loopexit:                                        ; preds = %3202, %237, %process_lch_xtrans.exit, %_process_linear_opposed.exit, %process_visualize.exit
+.loopexit:                                        ; preds = %3205, %237, %process_lch_xtrans.exit, %_process_linear_opposed.exit, %process_visualize.exit
   ret void
 }
 
@@ -9306,45 +9309,45 @@ define internal fastcc ptr @_process_opposed(ptr noundef %0, ptr noundef readonl
   %81 = mul nsw i64 %80, %79
   %82 = tail call i64 @dt_round_size(i64 noundef %81, i64 noundef 16) #30
   %83 = load ptr, ptr %18, align 8, !tbaa !63
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 224
-  br label %85
+  %84 = load ptr, ptr %16, align 16, !tbaa !48
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 224
+  br label %86
 
-85:                                               ; preds = %85, %66
-  %.010.i.i.i = phi i64 [ 0, %66 ], [ %91, %85 ]
-  %.089.i.i.i = phi i64 [ 5381, %66 ], [ %90, %85 ]
-  %86 = mul i64 %.089.i.i.i, 33
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 %.010.i.i.i
-  %88 = load i8, ptr %87, align 1, !tbaa !114
-  %89 = zext i8 %88 to i64
-  %90 = xor i64 %86, %89
-  %91 = add nuw nsw i64 %.010.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %91, 4
-  br i1 %exitcond.not.i.i.i, label %dt_hash.exit.i.i, label %85
+86:                                               ; preds = %86, %66
+  %.010.i.i.i = phi i64 [ 0, %66 ], [ %92, %86 ]
+  %.089.i.i.i = phi i64 [ 5381, %66 ], [ %91, %86 ]
+  %87 = mul i64 %.089.i.i.i, 33
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 %.010.i.i.i
+  %89 = load i8, ptr %88, align 1, !tbaa !114
+  %90 = zext i8 %89 to i64
+  %91 = xor i64 %87, %90
+  %92 = add nuw nsw i64 %.010.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %92, 4
+  br i1 %exitcond.not.i.i.i, label %dt_hash.exit.i.i, label %86
 
-dt_hash.exit.i.i:                                 ; preds = %85
-  %92 = getelementptr inbounds nuw i8, ptr %83, i64 240
-  br label %93
+dt_hash.exit.i.i:                                 ; preds = %86
+  %93 = getelementptr inbounds nuw i8, ptr %83, i64 240
+  br label %94
 
-93:                                               ; preds = %93, %dt_hash.exit.i.i
-  %.010.i8.i.i = phi i64 [ 0, %dt_hash.exit.i.i ], [ %99, %93 ]
-  %.089.i9.i.i = phi i64 [ %90, %dt_hash.exit.i.i ], [ %98, %93 ]
-  %94 = mul i64 %.089.i9.i.i, 33
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 %.010.i8.i.i
-  %96 = load i8, ptr %95, align 1, !tbaa !114
-  %97 = zext i8 %96 to i64
-  %98 = xor i64 %94, %97
-  %99 = add nuw nsw i64 %.010.i8.i.i, 1
-  %exitcond.not.i10.i.i = icmp eq i64 %99, 32
-  br i1 %exitcond.not.i10.i.i, label %dt_hash.exit11.i.i, label %93
+94:                                               ; preds = %94, %dt_hash.exit.i.i
+  %.010.i8.i.i = phi i64 [ 0, %dt_hash.exit.i.i ], [ %100, %94 ]
+  %.089.i9.i.i = phi i64 [ %91, %dt_hash.exit.i.i ], [ %99, %94 ]
+  %95 = mul i64 %.089.i9.i.i, 33
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 %.010.i8.i.i
+  %97 = load i8, ptr %96, align 1, !tbaa !114
+  %98 = zext i8 %97 to i64
+  %99 = xor i64 %95, %98
+  %100 = add nuw nsw i64 %.010.i8.i.i, 1
+  %exitcond.not.i10.i.i = icmp eq i64 %100, 32
+  br i1 %exitcond.not.i10.i.i, label %dt_hash.exit11.i.i, label %94
 
-dt_hash.exit11.i.i:                               ; preds = %93
-  %100 = load ptr, ptr %16, align 16, !tbaa !48
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
+dt_hash.exit11.i.i:                               ; preds = %94
+  %101 = getelementptr inbounds nuw i8, ptr %84, i64 16
   br label %102
 
 102:                                              ; preds = %102, %dt_hash.exit11.i.i
   %.010.i12.i.i = phi i64 [ 0, %dt_hash.exit11.i.i ], [ %108, %102 ]
-  %.089.i13.i.i = phi i64 [ %98, %dt_hash.exit11.i.i ], [ %107, %102 ]
+  %.089.i13.i.i = phi i64 [ %99, %dt_hash.exit11.i.i ], [ %107, %102 ]
   %103 = mul i64 %.089.i13.i.i, 33
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 %.010.i12.i.i
   %105 = load i8, ptr %104, align 1, !tbaa !114
@@ -9887,87 +9890,87 @@ FCxtrans.exit340.us.us:                           ; preds = %351, %.lr.ph.split.
   br i1 %.not328, label %421, label %373
 
 373:                                              ; preds = %370
-  %374 = getelementptr inbounds nuw i8, ptr %366, i64 224
-  br label %375
+  %374 = load float, ptr %11, align 16, !tbaa !37
+  %375 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %376 = load float, ptr %375, align 4, !tbaa !37
+  %377 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %378 = load float, ptr %377, align 8, !tbaa !37
+  %379 = load ptr, ptr %16, align 16, !tbaa !48
+  %380 = getelementptr inbounds nuw i8, ptr %366, i64 224
+  br label %381
 
-375:                                              ; preds = %375, %373
-  %.010.i.i342 = phi i64 [ 0, %373 ], [ %381, %375 ]
-  %.089.i.i343 = phi i64 [ 5381, %373 ], [ %380, %375 ]
-  %376 = mul i64 %.089.i.i343, 33
-  %377 = getelementptr inbounds nuw i8, ptr %374, i64 %.010.i.i342
-  %378 = load i8, ptr %377, align 1, !tbaa !114
-  %379 = zext i8 %378 to i64
-  %380 = xor i64 %376, %379
-  %381 = add nuw nsw i64 %.010.i.i342, 1
-  %exitcond.not.i.i344 = icmp eq i64 %381, 4
-  br i1 %exitcond.not.i.i344, label %dt_hash.exit.i, label %375
+381:                                              ; preds = %381, %373
+  %.010.i.i342 = phi i64 [ 0, %373 ], [ %387, %381 ]
+  %.089.i.i343 = phi i64 [ 5381, %373 ], [ %386, %381 ]
+  %382 = mul i64 %.089.i.i343, 33
+  %383 = getelementptr inbounds nuw i8, ptr %380, i64 %.010.i.i342
+  %384 = load i8, ptr %383, align 1, !tbaa !114
+  %385 = zext i8 %384 to i64
+  %386 = xor i64 %382, %385
+  %387 = add nuw nsw i64 %.010.i.i342, 1
+  %exitcond.not.i.i344 = icmp eq i64 %387, 4
+  br i1 %exitcond.not.i.i344, label %dt_hash.exit.i, label %381
 
-dt_hash.exit.i:                                   ; preds = %375
-  %382 = getelementptr inbounds nuw i8, ptr %366, i64 240
-  br label %383
+dt_hash.exit.i:                                   ; preds = %381
+  %388 = getelementptr inbounds nuw i8, ptr %366, i64 240
+  br label %389
 
-383:                                              ; preds = %383, %dt_hash.exit.i
-  %.010.i8.i = phi i64 [ 0, %dt_hash.exit.i ], [ %389, %383 ]
-  %.089.i9.i = phi i64 [ %380, %dt_hash.exit.i ], [ %388, %383 ]
-  %384 = mul i64 %.089.i9.i, 33
-  %385 = getelementptr inbounds nuw i8, ptr %382, i64 %.010.i8.i
-  %386 = load i8, ptr %385, align 1, !tbaa !114
-  %387 = zext i8 %386 to i64
-  %388 = xor i64 %384, %387
-  %389 = add nuw nsw i64 %.010.i8.i, 1
-  %exitcond.not.i10.i = icmp eq i64 %389, 32
-  br i1 %exitcond.not.i10.i, label %dt_hash.exit11.i, label %383
+389:                                              ; preds = %389, %dt_hash.exit.i
+  %.010.i8.i = phi i64 [ 0, %dt_hash.exit.i ], [ %395, %389 ]
+  %.089.i9.i = phi i64 [ %386, %dt_hash.exit.i ], [ %394, %389 ]
+  %390 = mul i64 %.089.i9.i, 33
+  %391 = getelementptr inbounds nuw i8, ptr %388, i64 %.010.i8.i
+  %392 = load i8, ptr %391, align 1, !tbaa !114
+  %393 = zext i8 %392 to i64
+  %394 = xor i64 %390, %393
+  %395 = add nuw nsw i64 %.010.i8.i, 1
+  %exitcond.not.i10.i = icmp eq i64 %395, 32
+  br i1 %exitcond.not.i10.i, label %dt_hash.exit11.i, label %389
 
-dt_hash.exit11.i:                                 ; preds = %383
-  %390 = load ptr, ptr %16, align 16, !tbaa !48
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 16
-  br label %392
+dt_hash.exit11.i:                                 ; preds = %389
+  %396 = getelementptr inbounds nuw i8, ptr %379, i64 16
+  br label %397
 
-392:                                              ; preds = %392, %dt_hash.exit11.i
-  %.010.i12.i = phi i64 [ 0, %dt_hash.exit11.i ], [ %398, %392 ]
-  %.089.i13.i = phi i64 [ %388, %dt_hash.exit11.i ], [ %397, %392 ]
-  %393 = mul i64 %.089.i13.i, 33
-  %394 = getelementptr inbounds nuw i8, ptr %391, i64 %.010.i12.i
-  %395 = load i8, ptr %394, align 1, !tbaa !114
-  %396 = zext i8 %395 to i64
-  %397 = xor i64 %393, %396
-  %398 = add nuw nsw i64 %.010.i12.i, 1
-  %exitcond.not.i14.i = icmp eq i64 %398, 4
-  br i1 %exitcond.not.i14.i, label %dt_hash.exit15.i, label %392
+397:                                              ; preds = %397, %dt_hash.exit11.i
+  %.010.i12.i = phi i64 [ 0, %dt_hash.exit11.i ], [ %403, %397 ]
+  %.089.i13.i = phi i64 [ %394, %dt_hash.exit11.i ], [ %402, %397 ]
+  %398 = mul i64 %.089.i13.i, 33
+  %399 = getelementptr inbounds nuw i8, ptr %396, i64 %.010.i12.i
+  %400 = load i8, ptr %399, align 1, !tbaa !114
+  %401 = zext i8 %400 to i64
+  %402 = xor i64 %398, %401
+  %403 = add nuw nsw i64 %.010.i12.i, 1
+  %exitcond.not.i14.i = icmp eq i64 %403, 4
+  br i1 %exitcond.not.i14.i, label %dt_hash.exit15.i, label %397
 
-dt_hash.exit15.i:                                 ; preds = %392
-  %399 = load ptr, ptr %1, align 16, !tbaa !149
-  %400 = getelementptr inbounds nuw i8, ptr %399, i64 664
-  %401 = load ptr, ptr %400, align 8, !tbaa !150
-  %402 = getelementptr inbounds nuw i8, ptr %401, i64 2456
-  br label %403
+dt_hash.exit15.i:                                 ; preds = %397
+  %404 = load ptr, ptr %1, align 16, !tbaa !149
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 664
+  %406 = load ptr, ptr %405, align 8, !tbaa !150
+  %407 = getelementptr inbounds nuw i8, ptr %406, i64 2456
+  br label %408
 
-403:                                              ; preds = %403, %dt_hash.exit15.i
-  %.010.i16.i = phi i64 [ 0, %dt_hash.exit15.i ], [ %409, %403 ]
-  %.089.i17.i = phi i64 [ %397, %dt_hash.exit15.i ], [ %408, %403 ]
-  %404 = mul i64 %.089.i17.i, 33
-  %405 = getelementptr inbounds nuw i8, ptr %402, i64 %.010.i16.i
-  %406 = load i8, ptr %405, align 1, !tbaa !114
-  %407 = zext i8 %406 to i64
-  %408 = xor i64 %404, %407
-  %409 = add nuw nsw i64 %.010.i16.i, 1
-  %exitcond.not.i18.i = icmp eq i64 %409, 4
-  br i1 %exitcond.not.i18.i, label %_opposed_parhash.exit, label %403
+408:                                              ; preds = %408, %dt_hash.exit15.i
+  %.010.i16.i = phi i64 [ 0, %dt_hash.exit15.i ], [ %414, %408 ]
+  %.089.i17.i = phi i64 [ %402, %dt_hash.exit15.i ], [ %413, %408 ]
+  %409 = mul i64 %.089.i17.i, 33
+  %410 = getelementptr inbounds nuw i8, ptr %407, i64 %.010.i16.i
+  %411 = load i8, ptr %410, align 1, !tbaa !114
+  %412 = zext i8 %411 to i64
+  %413 = xor i64 %409, %412
+  %414 = add nuw nsw i64 %.010.i16.i, 1
+  %exitcond.not.i18.i = icmp eq i64 %414, 4
+  br i1 %exitcond.not.i18.i, label %_opposed_parhash.exit, label %408
 
-_opposed_parhash.exit:                            ; preds = %403
-  %410 = load float, ptr %11, align 16, !tbaa !37
-  %411 = fpext reassoc nsz arcp contract afn float %410 to double
-  %412 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %413 = load float, ptr %412, align 4, !tbaa !37
-  %414 = fpext reassoc nsz arcp contract afn float %413 to double
-  %415 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %416 = load float, ptr %415, align 8, !tbaa !37
-  %417 = fpext reassoc nsz arcp contract afn float %416 to double
+_opposed_parhash.exit:                            ; preds = %408
+  %415 = fpext reassoc nsz arcp contract afn float %374 to double
+  %416 = fpext reassoc nsz arcp contract afn float %376 to double
+  %417 = fpext reassoc nsz arcp contract afn float %378 to double
   %418 = select i1 %369, ptr @.str.113, ptr @.str.114
   %419 = load i32, ptr @img_oppclipped, align 4, !tbaa !22
   %.not329 = icmp eq i32 %419, 0
   %420 = select i1 %.not329, ptr @.str.115, ptr @.str.114
-  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.111, ptr noundef nonnull %366, ptr noundef %0, i32 noundef -1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @.str.112, double noundef %411, double noundef %414, double noundef %417, i64 noundef %408, ptr noundef nonnull %418, ptr noundef nonnull %420) #30
+  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.111, ptr noundef nonnull %366, ptr noundef %0, i32 noundef -1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @.str.112, double noundef %415, double noundef %416, double noundef %417, i64 noundef %413, ptr noundef nonnull %418, ptr noundef nonnull %420) #30
   br label %421
 
 421:                                              ; preds = %_opposed_parhash.exit, %370

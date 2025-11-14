@@ -230,7 +230,7 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   %112 = and i32 %107, 7
   %113 = lshr i32 %111, %112
   %114 = and i32 %113, 15
-  %115 = add i32 %107, 4
+  %115 = add nuw i32 %107, 4
   %116 = tail call i32 @llvm.umin.i32(i32 %19, i32 %115)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %117 = lshr i32 %116, 3

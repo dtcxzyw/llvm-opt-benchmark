@@ -1637,6 +1637,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf2io24AnnotationProtoCollectorINS0_17GeneratedCodeInfoEE13AddAnnotationEmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIiSaIiEESt8optionalINS1_19AnnotationCollector8SemanticEE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %begin_offset, i64 noundef %end_offset, ptr noundef nonnull align 8 dereferenceable(32) %file_path, ptr noundef nonnull align 8 dereferenceable(24) %path, i64 %semantic.coerce) unnamed_addr #7 comdat align 2 {
 entry:
+  %semantic.sroa.0.0.extract.trunc = trunc i64 %semantic.coerce to i32
   %annotation_proto_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %annotation_proto_, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1701,7 +1702,6 @@ _ZN6google8protobuf28GeneratedCodeInfo_Annotation8add_pathEi.exit: ; preds = %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !36
 
 for.end:                                          ; preds = %_ZN6google8protobuf28GeneratedCodeInfo_Annotation8add_pathEi.exit, %entry
-  %semantic.sroa.0.0.extract.trunc = trunc i64 %semantic.coerce to i32
   %15 = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 16
   %16 = load i32, ptr %15, align 4
   %or.i = or i32 %16, 1

@@ -4478,49 +4478,52 @@ define linkonce_odr noundef i32 @_ZN12Transduction12TransductionIN6NewBdd3ManENS
   %7 = tail call noundef i32 @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE5ResubEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext false)
   %.not.i.us.i.us = icmp eq i32 %7, 0
   %8 = add nsw i32 %7, %.08.i.us.i.us
-  br i1 %.not.i.us.i.us, label %.split.us.i.us.i12.us, label %.split.i.us.i.us
+  br i1 %.not.i.us.i.us, label %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatInnerEbb.exit.us.thread, label %.split.i.us.i.us
+
+_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatInnerEbb.exit.us.thread: ; preds = %.split.i.us.i.us
+  %9 = add nsw i32 %8, %6
+  br label %.split.us.i.us.i12.us
 
 .split.i.us:                                      ; preds = %.split.us, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i.us
-  %.08.i.us = phi i32 [ %14, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i.us ], [ 0, %.split.us ]
+  %.08.i.us = phi i32 [ %15, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i.us ], [ 0, %.split.us ]
   br label %.split.us.i.i.us
 
 .split.us.i.i.us:                                 ; preds = %.split.us.i.i.us, %.split.i.us
-  %.08.us.i.i.us = phi i32 [ %10, %.split.us.i.i.us ], [ 0, %.split.i.us ]
-  %9 = tail call noundef i32 @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE9ResubMonoEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext false)
-  %.not.us.i.i.us = icmp eq i32 %9, 0
-  %10 = add nsw i32 %9, %.08.us.i.i.us
+  %.08.us.i.i.us = phi i32 [ %11, %.split.us.i.i.us ], [ 0, %.split.i.us ]
+  %10 = tail call noundef i32 @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE9ResubMonoEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext false)
+  %.not.us.i.i.us = icmp eq i32 %10, 0
+  %11 = add nsw i32 %10, %.08.us.i.i.us
   br i1 %.not.us.i.i.us, label %.split.i.i.us, label %.split.us.i.i.us
 
 .split.i.i.us:                                    ; preds = %.split.us.i.i.us, %.split.i.i.us
-  %.08.i.i.us = phi i32 [ %12, %.split.i.i.us ], [ 0, %.split.us.i.i.us ]
-  %11 = tail call noundef i32 @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE5ResubEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext false)
-  %.not.i.i.us = icmp eq i32 %11, 0
-  %12 = add nsw i32 %11, %.08.i.i.us
+  %.08.i.i.us = phi i32 [ %13, %.split.i.i.us ], [ 0, %.split.us.i.i.us ]
+  %12 = tail call noundef i32 @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE5ResubEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext false)
+  %.not.i.i.us = icmp eq i32 %12, 0
+  %13 = add nsw i32 %12, %.08.i.i.us
   br i1 %.not.i.i.us, label %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i.us, label %.split.i.i.us
 
 _ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i.us: ; preds = %.split.i.i.us
-  %13 = add nsw i32 %12, %10
-  %.not.not.i.us = icmp eq i32 %13, 0
-  %14 = add nsw i32 %13, %.08.i.us
+  %14 = add nsw i32 %13, %11
+  %.not.not.i.us = icmp eq i32 %14, 0
+  %15 = add nsw i32 %14, %.08.i.us
   br i1 %.not.not.i.us, label %.split.i21.us, label %.split.i.us
 
-.split.us.i.us.i12.us:                            ; preds = %.split.i.us.i.us, %.split.us.i.us.i12.us
-  %.08.us.i.us.i13.us = phi i32 [ %16, %.split.us.i.us.i12.us ], [ 0, %.split.i.us.i.us ]
-  %15 = tail call noundef i32 @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE9ResubMonoEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext true)
-  %.not.us.i.us.i14.us = icmp eq i32 %15, 0
-  %16 = add nsw i32 %15, %.08.us.i.us.i13.us
+.split.us.i.us.i12.us:                            ; preds = %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatInnerEbb.exit.us.thread, %.split.us.i.us.i12.us
+  %.08.us.i.us.i13.us = phi i32 [ %17, %.split.us.i.us.i12.us ], [ 0, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatInnerEbb.exit.us.thread ]
+  %16 = tail call noundef i32 @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE9ResubMonoEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext true)
+  %.not.us.i.us.i14.us = icmp eq i32 %16, 0
+  %17 = add nsw i32 %16, %.08.us.i.us.i13.us
   br i1 %.not.us.i.us.i14.us, label %.split.i.us.i16.us, label %.split.us.i.us.i12.us
 
 .split.i.us.i16.us:                               ; preds = %.split.us.i.us.i12.us, %.split.i.us.i16.us
-  %.08.i.us.i17.us = phi i32 [ %18, %.split.i.us.i16.us ], [ 0, %.split.us.i.us.i12.us ]
-  %17 = tail call noundef i32 @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE5ResubEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext true)
-  %.not.i.us.i18.us = icmp eq i32 %17, 0
-  %18 = add nsw i32 %17, %.08.i.us.i17.us
+  %.08.i.us.i17.us = phi i32 [ %19, %.split.i.us.i16.us ], [ 0, %.split.us.i.us.i12.us ]
+  %18 = tail call noundef i32 @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE5ResubEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext true)
+  %.not.i.us.i18.us = icmp eq i32 %18, 0
+  %19 = add nsw i32 %18, %.08.i.us.i17.us
   br i1 %.not.i.us.i18.us, label %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.us.i19.us, label %.split.i.us.i16.us
 
 _ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.us.i19.us: ; preds = %.split.i.us.i16.us
-  %19 = add nsw i32 %8, %6
-  %20 = add nsw i32 %18, %16
+  %20 = add nsw i32 %19, %17
   br label %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatInnerEbb.exit32.us
 
 .split.i21.us:                                    ; preds = %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i.us, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i30.us
@@ -4548,7 +4551,7 @@ _ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatR
   br i1 %.not.not.i31.us, label %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatInnerEbb.exit32.us, label %.split.i21.us
 
 _ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatInnerEbb.exit32.us: ; preds = %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i30.us, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.us.i19.us
-  %.us-phi.i.us106 = phi i32 [ %19, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.us.i19.us ], [ %14, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i30.us ]
+  %.us-phi.i.us106 = phi i32 [ %9, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.us.i19.us ], [ %15, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i30.us ]
   %.us-phi.i20.us = phi i32 [ %20, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.us.i19.us ], [ %26, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i30.us ]
   %27 = add nsw i32 %.us-phi.i20.us, %.us-phi.i.us106
   %.not.us = icmp ne i32 %27, 0
@@ -9660,49 +9663,52 @@ define linkonce_odr noundef i32 @_ZN12Transduction12TransductionIN5NewTt3ManENS1
   %7 = tail call noundef i32 @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE5ResubEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext false)
   %.not.i.us.i.us = icmp eq i32 %7, 0
   %8 = add nsw i32 %7, %.08.i.us.i.us
-  br i1 %.not.i.us.i.us, label %.split.us.i.us.i12.us, label %.split.i.us.i.us
+  br i1 %.not.i.us.i.us, label %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatInnerEbb.exit.us.thread, label %.split.i.us.i.us
+
+_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatInnerEbb.exit.us.thread: ; preds = %.split.i.us.i.us
+  %9 = add nsw i32 %8, %6
+  br label %.split.us.i.us.i12.us
 
 .split.i.us:                                      ; preds = %.split.us, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i.us
-  %.08.i.us = phi i32 [ %14, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i.us ], [ 0, %.split.us ]
+  %.08.i.us = phi i32 [ %15, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i.us ], [ 0, %.split.us ]
   br label %.split.us.i.i.us
 
 .split.us.i.i.us:                                 ; preds = %.split.us.i.i.us, %.split.i.us
-  %.08.us.i.i.us = phi i32 [ %10, %.split.us.i.i.us ], [ 0, %.split.i.us ]
-  %9 = tail call noundef i32 @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE9ResubMonoEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext false)
-  %.not.us.i.i.us = icmp eq i32 %9, 0
-  %10 = add nsw i32 %9, %.08.us.i.i.us
+  %.08.us.i.i.us = phi i32 [ %11, %.split.us.i.i.us ], [ 0, %.split.i.us ]
+  %10 = tail call noundef i32 @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE9ResubMonoEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext false)
+  %.not.us.i.i.us = icmp eq i32 %10, 0
+  %11 = add nsw i32 %10, %.08.us.i.i.us
   br i1 %.not.us.i.i.us, label %.split.i.i.us, label %.split.us.i.i.us
 
 .split.i.i.us:                                    ; preds = %.split.us.i.i.us, %.split.i.i.us
-  %.08.i.i.us = phi i32 [ %12, %.split.i.i.us ], [ 0, %.split.us.i.i.us ]
-  %11 = tail call noundef i32 @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE5ResubEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext false)
-  %.not.i.i.us = icmp eq i32 %11, 0
-  %12 = add nsw i32 %11, %.08.i.i.us
+  %.08.i.i.us = phi i32 [ %13, %.split.i.i.us ], [ 0, %.split.us.i.i.us ]
+  %12 = tail call noundef i32 @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE5ResubEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext false)
+  %.not.i.i.us = icmp eq i32 %12, 0
+  %13 = add nsw i32 %12, %.08.i.i.us
   br i1 %.not.i.i.us, label %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i.us, label %.split.i.i.us
 
 _ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i.us: ; preds = %.split.i.i.us
-  %13 = add nsw i32 %12, %10
-  %.not.not.i.us = icmp eq i32 %13, 0
-  %14 = add nsw i32 %13, %.08.i.us
+  %14 = add nsw i32 %13, %11
+  %.not.not.i.us = icmp eq i32 %14, 0
+  %15 = add nsw i32 %14, %.08.i.us
   br i1 %.not.not.i.us, label %.split.i21.us, label %.split.i.us
 
-.split.us.i.us.i12.us:                            ; preds = %.split.i.us.i.us, %.split.us.i.us.i12.us
-  %.08.us.i.us.i13.us = phi i32 [ %16, %.split.us.i.us.i12.us ], [ 0, %.split.i.us.i.us ]
-  %15 = tail call noundef i32 @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE9ResubMonoEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext true)
-  %.not.us.i.us.i14.us = icmp eq i32 %15, 0
-  %16 = add nsw i32 %15, %.08.us.i.us.i13.us
+.split.us.i.us.i12.us:                            ; preds = %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatInnerEbb.exit.us.thread, %.split.us.i.us.i12.us
+  %.08.us.i.us.i13.us = phi i32 [ %17, %.split.us.i.us.i12.us ], [ 0, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatInnerEbb.exit.us.thread ]
+  %16 = tail call noundef i32 @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE9ResubMonoEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext true)
+  %.not.us.i.us.i14.us = icmp eq i32 %16, 0
+  %17 = add nsw i32 %16, %.08.us.i.us.i13.us
   br i1 %.not.us.i.us.i14.us, label %.split.i.us.i16.us, label %.split.us.i.us.i12.us
 
 .split.i.us.i16.us:                               ; preds = %.split.us.i.us.i12.us, %.split.i.us.i16.us
-  %.08.i.us.i17.us = phi i32 [ %18, %.split.i.us.i16.us ], [ 0, %.split.us.i.us.i12.us ]
-  %17 = tail call noundef i32 @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE5ResubEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext true)
-  %.not.i.us.i18.us = icmp eq i32 %17, 0
-  %18 = add nsw i32 %17, %.08.i.us.i17.us
+  %.08.i.us.i17.us = phi i32 [ %19, %.split.i.us.i16.us ], [ 0, %.split.us.i.us.i12.us ]
+  %18 = tail call noundef i32 @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE5ResubEb(ptr noundef nonnull align 8 dereferenceable(456) %0, i1 noundef zeroext true)
+  %.not.i.us.i18.us = icmp eq i32 %18, 0
+  %19 = add nsw i32 %18, %.08.i.us.i17.us
   br i1 %.not.i.us.i18.us, label %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.us.i19.us, label %.split.i.us.i16.us
 
 _ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.us.i19.us: ; preds = %.split.i.us.i16.us
-  %19 = add nsw i32 %8, %6
-  %20 = add nsw i32 %18, %16
+  %20 = add nsw i32 %19, %17
   br label %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatInnerEbb.exit32.us
 
 .split.i21.us:                                    ; preds = %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i.us, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i30.us
@@ -9730,7 +9736,7 @@ _ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatRe
   br i1 %.not.not.i31.us, label %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatInnerEbb.exit32.us, label %.split.i21.us
 
 _ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatInnerEbb.exit32.us: ; preds = %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i30.us, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.us.i19.us
-  %.us-phi.i.us106 = phi i32 [ %19, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.us.i19.us ], [ %14, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i30.us ]
+  %.us-phi.i.us106 = phi i32 [ %9, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.us.i19.us ], [ %15, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i30.us ]
   %.us-phi.i20.us = phi i32 [ %20, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.us.i19.us ], [ %26, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE11RepeatResubEbb.exit10.i30.us ]
   %27 = add nsw i32 %.us-phi.i20.us, %.us-phi.i.us106
   %.not.us = icmp ne i32 %27, 0
@@ -16341,8 +16347,8 @@ define linkonce_odr void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 1
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 2 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !121
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -16455,8 +16461,8 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !119
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -16554,8 +16560,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !119
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -17234,8 +17240,8 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !475
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -21313,26 +21319,23 @@ define linkonce_odr noundef i32 @_ZN6NewBdd3Man10CountNodesEv(ptr noundef nonnul
 .lr.ph52:                                         ; preds = %.preheader42
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %13 = load ptr, ptr %12, align 8, !tbaa !90
+  %14 = add nuw nsw i32 %11, 1
   br label %24
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02747 = phi i32 [ 1, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4, !tbaa !119
-  %.not = icmp ne i32 %15, 0
-  %16 = zext i1 %.not to i32
-  %spec.select = add nuw nsw i32 %.02747, %16
+  %15 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %16 = load i32, ptr %15, align 4, !tbaa !119
+  %.not = icmp ne i32 %16, 0
+  %17 = zext i1 %.not to i32
+  %spec.select = add nuw nsw i32 %.02747, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !534
 
-.preheader41.loopexit:                            ; preds = %24
-  %17 = add nuw nsw i32 %11, 1
-  br label %.preheader41
-
-.preheader41:                                     ; preds = %.preheader41.loopexit, %.preheader42
-  %.2.lcssa = phi i32 [ 1, %.preheader42 ], [ %17, %.preheader41.loopexit ]
+.preheader41:                                     ; preds = %24, %.preheader42
+  %.2.lcssa = phi i32 [ 1, %.preheader42 ], [ %14, %24 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !373
   %20 = icmp slt i32 %.2.lcssa, %19
@@ -21358,7 +21361,7 @@ define linkonce_odr noundef i32 @_ZN6NewBdd3Man10CountNodesEv(ptr noundef nonnul
   %32 = or i64 %31, %30
   store i64 %32, ptr %27, align 8, !tbaa !185
   %exitcond69.not = icmp eq i32 %.02551, %11
-  br i1 %exitcond69.not, label %.preheader41.loopexit, label %24, !llvm.loop !535
+  br i1 %exitcond69.not, label %.preheader41, label %24, !llvm.loop !535
 
 .preheader40.loopexit:                            ; preds = %46
   %.pre77 = load i16, ptr %0, align 8, !tbaa !365
@@ -24211,8 +24214,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIiS
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %260
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %265, 2
-  %267 = getelementptr inbounds nuw i8, ptr %264, i64 %.idx.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %264, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !119
+  %267 = getelementptr inbounds nuw i8, ptr %264, i64 %.idx.i.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %260, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i
@@ -24550,8 +24553,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i97: ; preds = %_ZNSt6vectorI
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i89: ; preds = %422
   %.idx.i.i.i.i.i.i.i.i90 = shl nuw nsw i64 %427, 2
-  %429 = getelementptr inbounds nuw i8, ptr %426, i64 %.idx.i.i.i.i.i.i.i.i90
   call void @llvm.memset.p0.i64(ptr align 4 %426, i8 0, i64 %.idx.i.i.i.i.i.i.i.i90, i1 false), !tbaa !119
+  %429 = getelementptr inbounds nuw i8, ptr %426, i64 %.idx.i.i.i.i.i.i.i.i90
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i91
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i91:           ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i89, %422, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i97
@@ -27116,8 +27119,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit.i: ; preds = %11
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %151
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %153, 2
-  %155 = getelementptr inbounds nuw i8, ptr %152, i64 %.idx.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %152, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !119
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 %.idx.i.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %151
@@ -30316,8 +30319,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit.i: ; preds = %21
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %248
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %250, 2
-  %252 = getelementptr inbounds nuw i8, ptr %249, i64 %.idx.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %249, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !119
+  %252 = getelementptr inbounds nuw i8, ptr %249, i64 %.idx.i.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %248
@@ -31878,8 +31881,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit.i: ; preds = %17
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %211
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %213, 2
-  %215 = getelementptr inbounds nuw i8, ptr %212, i64 %.idx.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %212, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !119
+  %215 = getelementptr inbounds nuw i8, ptr %212, i64 %.idx.i.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %211
@@ -45608,8 +45611,8 @@ define linkonce_odr void @_ZNSt6vectorIySaIyEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPymyET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !821
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPymyET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPymyET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPymyET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -48643,8 +48646,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIiS
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %260
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %265, 2
-  %267 = getelementptr inbounds nuw i8, ptr %264, i64 %.idx.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %264, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !119
+  %267 = getelementptr inbounds nuw i8, ptr %264, i64 %.idx.i.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %260, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i
@@ -48982,8 +48985,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i97: ; preds = %_ZNSt6vectorI
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i89: ; preds = %422
   %.idx.i.i.i.i.i.i.i.i90 = shl nuw nsw i64 %427, 2
-  %429 = getelementptr inbounds nuw i8, ptr %426, i64 %.idx.i.i.i.i.i.i.i.i90
   call void @llvm.memset.p0.i64(ptr align 4 %426, i8 0, i64 %.idx.i.i.i.i.i.i.i.i90, i1 false), !tbaa !119
+  %429 = getelementptr inbounds nuw i8, ptr %426, i64 %.idx.i.i.i.i.i.i.i.i90
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i91
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i91:           ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i89, %422, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i97

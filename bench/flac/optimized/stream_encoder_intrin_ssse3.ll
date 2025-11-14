@@ -27,33 +27,33 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_ssse3(ptr nounde
   %19 = add i32 %.0104157, %9
   %20 = add i32 %.0102158, 3
   %21 = and i32 %20, -4
+  %22 = and i32 %19, -4
   %spec.select = tail call i32 @llvm.umin.i32(i32 %21, i32 %19)
-  %22 = icmp ult i32 %.0102158, %spec.select
-  br i1 %22, label %.lr.ph145.preheader, label %.preheader118
+  %23 = icmp ult i32 %.0102158, %spec.select
+  br i1 %23, label %.lr.ph145.preheader, label %.preheader118
 
 .lr.ph145.preheader:                              ; preds = %.preheader119
-  %23 = zext i32 %.0102158 to i64
-  %24 = zext i32 %spec.select to i64
+  %24 = zext i32 %.0102158 to i64
+  %25 = zext i32 %spec.select to i64
   br label %.lr.ph145
 
 .preheader118.loopexit:                           ; preds = %.lr.ph145
-  %25 = trunc nuw i64 %indvars.iv.next207 to i32
+  %26 = trunc nuw i64 %indvars.iv.next207 to i32
   br label %.preheader118
 
 .preheader118:                                    ; preds = %.preheader118.loopexit, %.preheader119
   %.lcssa = phi <4 x i32> [ zeroinitializer, %.preheader119 ], [ %34, %.preheader118.loopexit ]
-  %.1103.lcssa = phi i32 [ %.0102158, %.preheader119 ], [ %25, %.preheader118.loopexit ]
-  %26 = and i32 %19, -4
-  %27 = icmp ult i32 %.1103.lcssa, %26
+  %.1103.lcssa = phi i32 [ %.0102158, %.preheader119 ], [ %26, %.preheader118.loopexit ]
+  %27 = icmp ult i32 %.1103.lcssa, %22
   br i1 %27, label %.lr.ph149.preheader, label %.preheader
 
 .lr.ph149.preheader:                              ; preds = %.preheader118
   %28 = zext i32 %.1103.lcssa to i64
-  %29 = zext i32 %26 to i64
+  %29 = zext i32 %22 to i64
   br label %.lr.ph149
 
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %.lr.ph145
-  %indvars.iv206 = phi i64 [ %23, %.lr.ph145.preheader ], [ %indvars.iv.next207, %.lr.ph145 ]
+  %indvars.iv206 = phi i64 [ %24, %.lr.ph145.preheader ], [ %indvars.iv.next207, %.lr.ph145 ]
   %30 = phi <4 x i32> [ zeroinitializer, %.lr.ph145.preheader ], [ %34, %.lr.ph145 ]
   %31 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv206
   %32 = load i32, ptr %31, align 4, !tbaa !3
@@ -61,7 +61,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_ssse3(ptr nounde
   %33 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.scalar, i64 0
   %34 = add <4 x i32> %33, %30
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %35 = icmp samesign ult i64 %indvars.iv.next207, %24
+  %35 = icmp samesign ult i64 %indvars.iv.next207, %25
   br i1 %35, label %.lr.ph145, label %.preheader118.loopexit, !llvm.loop !7
 
 .preheader.loopexit:                              ; preds = %.lr.ph149
@@ -121,33 +121,33 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_ssse3(ptr nounde
   %indvars.iv201 = phi i64 [ %indvars.iv.next202, %._crit_edge ], [ 0, %7 ]
   %indvars.iv197 = phi i32 [ %indvars.iv.next198, %._crit_edge ], [ %17, %7 ]
   %.4141 = phi i32 [ %.7.lcssa, %._crit_edge ], [ 0, %7 ]
-  %.1105140 = phi i32 [ %62, %._crit_edge ], [ %14, %7 ]
+  %.1105140 = phi i32 [ %58, %._crit_edge ], [ %14, %7 ]
   %57 = zext i32 %indvars.iv197 to i64
-  %58 = add i32 %.4141, 1
-  %59 = and i32 %58, -2
-  %60 = icmp ult i32 %.4141, %59
-  br i1 %60, label %.lr.ph.preheader, label %.preheader122
+  %58 = add i32 %.1105140, %9
+  %59 = add i32 %.4141, 1
+  %60 = and i32 %59, -2
+  %61 = and i32 %58, -2
+  %62 = icmp ult i32 %.4141, %60
+  br i1 %62, label %.lr.ph.preheader, label %.preheader122
 
 .lr.ph.preheader:                                 ; preds = %.preheader123
-  %61 = zext i32 %.4141 to i64
-  %wide.trip.count = zext i32 %59 to i64
+  %63 = zext i32 %.4141 to i64
+  %wide.trip.count = zext i32 %60 to i64
   br label %.lr.ph
 
 .preheader122:                                    ; preds = %.lr.ph, %.preheader123
   %.0109.lcssa = phi <2 x i64> [ zeroinitializer, %.preheader123 ], [ %71, %.lr.ph ]
-  %.5.lcssa = phi i32 [ %.4141, %.preheader123 ], [ %59, %.lr.ph ]
-  %62 = add i32 %.1105140, %9
-  %63 = and i32 %62, -2
-  %64 = icmp ult i32 %.5.lcssa, %63
+  %.5.lcssa = phi i32 [ %.4141, %.preheader123 ], [ %60, %.lr.ph ]
+  %64 = icmp ult i32 %.5.lcssa, %61
   br i1 %64, label %.lr.ph132.preheader, label %.preheader121
 
 .lr.ph132.preheader:                              ; preds = %.preheader122
   %65 = zext i32 %.5.lcssa to i64
-  %66 = zext i32 %63 to i64
+  %66 = zext i32 %61 to i64
   br label %.lr.ph132
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %61, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %indvars.iv = phi i64 [ %63, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0109127 = phi <2 x i64> [ zeroinitializer, %.lr.ph.preheader ], [ %71, %.lr.ph ]
   %67 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4, !tbaa !3
@@ -166,7 +166,7 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_ssse3(ptr nounde
 .preheader121:                                    ; preds = %.preheader121.loopexit, %.preheader122
   %.1110.lcssa = phi <2 x i64> [ %.0109.lcssa, %.preheader122 ], [ %82, %.preheader121.loopexit ]
   %.6.lcssa = phi i32 [ %.5.lcssa, %.preheader122 ], [ %72, %.preheader121.loopexit ]
-  %73 = icmp ult i32 %.6.lcssa, %62
+  %73 = icmp ult i32 %.6.lcssa, %58
   br i1 %73, label %.lr.ph137.preheader, label %._crit_edge
 
 .lr.ph137.preheader:                              ; preds = %.preheader121

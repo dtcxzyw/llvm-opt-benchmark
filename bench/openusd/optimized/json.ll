@@ -440,70 +440,70 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13JsParseStringERKNSt7__cxx111
 
 15:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
-  store i64 256, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i32 2, ptr %19, align 8
-  %20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
-  store ptr %20, ptr %7, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %20, ptr %21, align 8
-  store i32 0, ptr %17, align 8
-  store i64 0, ptr %18, align 8
-  br label %22
+  store i64 256, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store i32 2, ptr %20, align 8
+  %21 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
+  store ptr %21, ptr %7, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %21, ptr %22, align 8
+  store i32 0, ptr %18, align 8
+  store i64 0, ptr %19, align 8
+  br label %23
 
-22:                                               ; preds = %.critedge.i.i.i, %15
-  %.sroa.0.0.i.i.i = phi ptr [ %20, %15 ], [ %24, %.critedge.i.i.i ]
-  %23 = load i8, ptr %.sroa.0.0.i.i.i, align 1
-  switch i8 %23, label %30 [
+23:                                               ; preds = %.critedge.i.i.i, %15
+  %.sroa.0.0.i.i.i = phi ptr [ %21, %15 ], [ %25, %.critedge.i.i.i ]
+  %24 = load i8, ptr %.sroa.0.0.i.i.i, align 1
+  switch i8 %24, label %31 [
     i8 32, label %.critedge.i.i.i
     i8 13, label %.critedge.i.i.i
     i8 10, label %.critedge.i.i.i
     i8 9, label %.critedge.i.i.i
   ]
 
-.critedge.i.i.i:                                  ; preds = %22, %22, %22, %22
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 1
-  br label %22, !llvm.loop !4
+.critedge.i.i.i:                                  ; preds = %23, %23, %23, %23
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 1
+  br label %23, !llvm.loop !4
 
-25:                                               ; preds = %39
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %39
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %28, ptr %29, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %29, ptr %30, align 8
   br label %.body
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+31:                                               ; preds = %23
   store ptr %.sroa.0.0.i.i.i, ptr %7, align 8
   %32 = load i8, ptr %.sroa.0.0.i.i.i, align 1
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %.thread43, label %39
 
-.thread43:                                        ; preds = %30
+.thread43:                                        ; preds = %31
   %34 = ptrtoint ptr %.sroa.0.0.i.i.i to i64
-  %35 = ptrtoint ptr %20 to i64
+  %35 = ptrtoint ptr %21 to i64
   %36 = sub i64 %34, %35
-  store i32 1, ptr %17, align 8
-  store i64 %36, ptr %18, align 8
+  store i32 1, ptr %18, align 8
+  store i64 %36, ptr %19, align 8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %38, align 8
   br label %44
 
-39:                                               ; preds = %30
+39:                                               ; preds = %31
   invoke fastcc void @_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE10ParseValueILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_(ptr noundef nonnull align 8 dereferenceable(68) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(48) %5)
-          to label %40 unwind label %25
+          to label %40 unwind label %26
 
 40:                                               ; preds = %39
-  %.sroa.0.0.pre.i = load i32, ptr %17, align 8
+  %.sroa.0.0.pre.i = load i32, ptr %18, align 8
   %.sroa.0.0.pre.i.fr = freeze i32 %.sroa.0.0.pre.i
-  %.sroa.516.0.i = load i64, ptr %18, align 8
+  %.sroa.516.0.i = load i64, ptr %19, align 8
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -542,8 +542,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13JsParseStringERKNSt7__cxx111
           cleanup
   br label %.body
 
-.body:                                            ; preds = %25, %53
-  %eh.lpad-body = phi { ptr, i32 } [ %54, %53 ], [ %26, %25 ]
+.body:                                            ; preds = %26, %53
+  %eh.lpad-body = phi { ptr, i32 } [ %54, %53 ], [ %27, %26 ]
   call void @_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(68) %6) #25
   call fastcc void @_ZN12_GLOBAL__N_113_InputHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #25
   resume { ptr, i32 } %eh.lpad-body
@@ -649,7 +649,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7JsValueC2ERKS0_.exit: ; preds = %97, %94, 
   %99 = phi ptr [ %41, %97 ], [ %41, %94 ], [ %41, %.thread49 ], [ %41, %85 ], [ %45, %64 ]
   %100 = load ptr, ptr %99, align 8
   call void @free(ptr noundef %100) #25
-  %101 = load ptr, ptr %31, align 8
+  %101 = load ptr, ptr %16, align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEED2Ev.exit, label %103
 

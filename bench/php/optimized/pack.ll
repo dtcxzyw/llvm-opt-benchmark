@@ -838,14 +838,14 @@ zval_get_tmp_string.exit478:                      ; preds = %257, %259
 .lr.ph677:                                        ; preds = %.lr.ph677.preheader, %.lr.ph677
   %indvars.iv785 = phi i64 [ %314, %.lr.ph677.preheader ], [ %indvars.iv.next786, %.lr.ph677 ]
   %indvars.iv783 = phi i64 [ %313, %.lr.ph677.preheader ], [ %indvars.iv.next784, %.lr.ph677 ]
-  %.2407673 = phi i32 [ %198, %.lr.ph677.preheader ], [ %318, %.lr.ph677 ]
-  %315 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv783
-  %316 = getelementptr inbounds i8, ptr %192, i64 %indvars.iv785
-  call void @convert_to_long(ptr noundef %315) #12
-  %317 = load i8, ptr %315, align 1, !tbaa !4
-  store i8 %317, ptr %316, align 1, !tbaa !4
-  %318 = add nsw i32 %.2407673, -1
+  %.2407673 = phi i32 [ %198, %.lr.ph677.preheader ], [ %315, %.lr.ph677 ]
+  %315 = add nsw i32 %.2407673, -1
   %indvars.iv.next784 = add nsw i64 %indvars.iv783, 1
+  %316 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv783
+  %317 = getelementptr inbounds i8, ptr %192, i64 %indvars.iv785
+  call void @convert_to_long(ptr noundef %316) #12
+  %318 = load i8, ptr %316, align 1, !tbaa !4
+  store i8 %318, ptr %317, align 1, !tbaa !4
   %indvars.iv.next786 = add nsw i64 %indvars.iv785, 1
   %319 = icmp samesign ugt i32 %.2407673, 1
   br i1 %319, label %.lr.ph677, label %zend_tmp_string_release.exit.loopexit

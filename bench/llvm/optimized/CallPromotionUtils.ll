@@ -3364,15 +3364,15 @@ _ZNSt8_Rb_treeIjSt4pairIKjSt3mapImN4llvm17PGOCtxProfContextESt4lessImESaIS0_IKmS
 
 _ZN4llvm17PGOCtxProfContext8callsiteEj.exit.i:    ; preds = %40, %_ZNSt8_Rb_treeIjSt4pairIKjSt3mapImN4llvm17PGOCtxProfContextESt4lessImESaIS0_IKmS4_EEEESt10_Select1stISB_ES5_IjESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %.sroa.0.0.i.i.i30.i = phi ptr [ %29, %_ZNSt8_Rb_treeIjSt4pairIKjSt3mapImN4llvm17PGOCtxProfContextESt4lessImESaIS0_IKmS4_EEEESt10_Select1stISB_ES5_IjESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ], [ %spec.select.i.i.i.i, %40 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i30.i, i64 64
-  %45 = load ptr, ptr %44, align 8, !tbaa !191
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i30.i, i64 48
-  %.not5156.i = icmp eq ptr %45, %46
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i30.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i30.i, i64 64
+  %46 = load ptr, ptr %45, align 8, !tbaa !191
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i30.i, i64 48
+  %.not5156.i = icmp eq ptr %46, %47
   br i1 %.not5156.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZN4llvm17PGOCtxProfContext8callsiteEj.exit.i
   %.0.lcssa.i = phi i64 [ 0, %_ZN4llvm17PGOCtxProfContext8callsiteEj.exit.i ], [ %64, %.lr.ph.i ]
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i30.i, i64 40
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i30.i, i64 56
   %50 = load ptr, ptr %49, align 8, !tbaa !116
@@ -3386,7 +3386,7 @@ _ZN4llvm17PGOCtxProfContext8callsiteEj.exit.i:    ; preds = %40, %_ZNSt8_Rb_tree
 
 53:                                               ; preds = %53, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %53 ]
-  %.0811.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %53 ]
+  %.0811.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %53 ]
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %55 = load i64, ptr %54, align 8, !tbaa !50
   %56 = icmp ult i64 %55, %52
@@ -3398,7 +3398,7 @@ _ZN4llvm17PGOCtxProfContext8callsiteEj.exit.i:    ; preds = %40, %_ZNSt8_Rb_tree
   br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN4llvm17PGOCtxProfContextEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %53, !llvm.loop !193
 
 _ZNSt8_Rb_treeImSt4pairIKmN4llvm17PGOCtxProfContextEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %53
-  %57 = icmp eq ptr %.19.i.i.i.i, %46
+  %57 = icmp eq ptr %.19.i.i.i.i, %47
   br i1 %57, label %_ZNSt3mapImN4llvm17PGOCtxProfContextESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread.i, label %_ZNSt3mapImN4llvm17PGOCtxProfContextESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i
 
 _ZNSt3mapImN4llvm17PGOCtxProfContextESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN4llvm17PGOCtxProfContextEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
@@ -3409,13 +3409,13 @@ _ZNSt3mapImN4llvm17PGOCtxProfContextESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exi
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm17PGOCtxProfContext8callsiteEj.exit.i, %.lr.ph.i
   %.058.i = phi i64 [ %64, %.lr.ph.i ], [ 0, %_ZN4llvm17PGOCtxProfContext8callsiteEj.exit.i ]
-  %.sroa.046.057.i = phi ptr [ %65, %.lr.ph.i ], [ %45, %_ZN4llvm17PGOCtxProfContext8callsiteEj.exit.i ]
+  %.sroa.046.057.i = phi ptr [ %65, %.lr.ph.i ], [ %46, %_ZN4llvm17PGOCtxProfContext8callsiteEj.exit.i ]
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.046.057.i, i64 64
   %62 = load ptr, ptr %61, align 8, !tbaa !17
   %63 = load i64, ptr %62, align 8, !tbaa !50
   %64 = add i64 %63, %.058.i
   %65 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.046.057.i) #15
-  %.not51.i = icmp eq ptr %65, %46
+  %.not51.i = icmp eq ptr %65, %47
   br i1 %.not51.i, label %._crit_edge.i, label %.lr.ph.i
 
 66:                                               ; preds = %_ZNSt3mapImN4llvm17PGOCtxProfContextESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i
@@ -3438,7 +3438,7 @@ _ZNSt3mapImN4llvm17PGOCtxProfContextESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exi
 
 76:                                               ; preds = %93, %.lr.ph.i.i.i31.i
   %.044.i.i.i.i = phi ptr [ %.041.i.i.i.i, %.lr.ph.i.i.i31.i ], [ %.0.i.i.i.i, %93 ]
-  %.02243.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i31.i ], [ %.123.i.i.i.i, %93 ]
+  %.02243.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i31.i ], [ %.123.i.i.i.i, %93 ]
   %77 = getelementptr inbounds nuw i8, ptr %.044.i.i.i.i, i64 32
   %78 = load i64, ptr %77, align 8, !tbaa !50
   %79 = icmp ult i64 %78, %75
@@ -3496,9 +3496,9 @@ _ZNSt8_Rb_treeImSt4pairIKmN4llvm17PGOCtxProfContextEESt10_Select1stIS4_ESt4lessI
   br i1 %.not.i.i.i41.i, label %_ZNSt3mapImN4llvm17PGOCtxProfContextESt4lessImESaISt4pairIKmS1_EEE5eraseERS5_.exit.i, label %76, !llvm.loop !196
 
 _ZNSt3mapImN4llvm17PGOCtxProfContextESt4lessImESaISt4pairIKmS1_EEE5eraseERS5_.exit.i: ; preds = %93, %.lr.ph.i25.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm17PGOCtxProfContextEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %66
-  %.sroa.037.0.i.i.i.i = phi ptr [ %.08.lcssa.i.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm17PGOCtxProfContextEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ], [ %46, %66 ], [ %.08.lcssa.i.i.i.i.i, %.lr.ph.i25.i.i.i.i ], [ %.123.i.i.i.i, %93 ]
-  %.sroa.3.0.i.i.i.i = phi ptr [ %.02243.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm17PGOCtxProfContextEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ], [ %46, %66 ], [ %.19.i28.i.i.i.i, %.lr.ph.i25.i.i.i.i ], [ %.123.i.i.i.i, %93 ]
-  tail call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm17PGOCtxProfContextEESt10_Select1stIS4_ESt4lessImESaIS4_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS4_ESC_(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr %.sroa.037.0.i.i.i.i, ptr %.sroa.3.0.i.i.i.i)
+  %.sroa.037.0.i.i.i.i = phi ptr [ %.08.lcssa.i.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm17PGOCtxProfContextEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ], [ %47, %66 ], [ %.08.lcssa.i.i.i.i.i, %.lr.ph.i25.i.i.i.i ], [ %.123.i.i.i.i, %93 ]
+  %.sroa.3.0.i.i.i.i = phi ptr [ %.02243.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm17PGOCtxProfContextEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ], [ %47, %66 ], [ %.19.i28.i.i.i.i, %.lr.ph.i25.i.i.i.i ], [ %.123.i.i.i.i, %93 ]
+  tail call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm17PGOCtxProfContextEESt10_Select1stIS4_ESt4lessImESaIS4_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS4_ESC_(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr %.sroa.037.0.i.i.i.i, ptr %.sroa.3.0.i.i.i.i)
   br label %_ZNSt3mapImN4llvm17PGOCtxProfContextESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread.i
 
 _ZNSt3mapImN4llvm17PGOCtxProfContextESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread.i: ; preds = %_ZNSt3mapImN4llvm17PGOCtxProfContextESt4lessImESaISt4pairIKmS1_EEE5eraseERS5_.exit.i, %_ZNSt3mapImN4llvm17PGOCtxProfContextESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i, %_ZNSt8_Rb_treeImSt4pairIKmN4llvm17PGOCtxProfContextEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %._crit_edge.i

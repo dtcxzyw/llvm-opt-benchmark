@@ -421,55 +421,55 @@ dt_get_lightroom_xmp.exit:                        ; preds = %14, %17
 73:                                               ; preds = %71, %54, %51
   %74 = phi i1 [ true, %71 ], [ false, %54 ], [ false, %51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %75 = getelementptr inbounds nuw i8, ptr %8, i64 1784
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 84
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 92
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 108
+  %78 = getelementptr inbounds nuw i8, ptr %8, i64 152
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 168
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 816
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 1360
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 1524
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 1724
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 1752
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 1768
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 1772
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 1776
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 1780
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 1784
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1784) %8, i8 0, i64 1784, i1 false)
-  store double 0x7FF8000000000000, ptr %75, align 8, !tbaa !30
-  %76 = getelementptr inbounds nuw i8, ptr %8, i64 1792
-  store double 0x7FF8000000000000, ptr %76, align 8, !tbaa !44
-  %77 = getelementptr inbounds nuw i8, ptr %8, i64 1800
-  store double 0x7FF8000000000000, ptr %77, align 8, !tbaa !45
-  %78 = getelementptr inbounds nuw i8, ptr %8, i64 1808
-  store double 0x7FF8000000000000, ptr %78, align 8, !tbaa !46
-  %79 = getelementptr inbounds nuw i8, ptr %8, i64 1816
-  store i32 0, ptr %79, align 8, !tbaa !47
-  %80 = getelementptr inbounds nuw i8, ptr %8, i64 1820
-  store i32 0, ptr %80, align 4, !tbaa !48
-  %81 = getelementptr inbounds nuw i8, ptr %8, i64 1824
-  store i32 0, ptr %81, align 8, !tbaa !49
-  %82 = getelementptr inbounds nuw i8, ptr %8, i64 1828
-  store float 0x7FF8000000000000, ptr %82, align 4, !tbaa !50
-  %83 = getelementptr inbounds nuw i8, ptr %8, i64 1832
-  store float 0x7FF8000000000000, ptr %83, align 8, !tbaa !51
-  %84 = getelementptr inbounds nuw i8, ptr %8, i64 1836
-  store i32 0, ptr %84, align 4, !tbaa !52
-  %85 = getelementptr inbounds nuw i8, ptr %8, i64 1840
-  store i32 0, ptr %85, align 8, !tbaa !53
-  %86 = getelementptr inbounds nuw i8, ptr %8, i64 1844
-  store i32 1, ptr %86, align 4, !tbaa !54
-  %87 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %40, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #11
-  %88 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %40, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #11
-  %89 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %40, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #11
-  %90 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %40, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #11
-  %91 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %40, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #11
-  %92 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %40, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #11
-  %93 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %40, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #11
+  store double 0x7FF8000000000000, ptr %89, align 8, !tbaa !30
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 1792
+  store double 0x7FF8000000000000, ptr %90, align 8, !tbaa !44
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 1800
+  store double 0x7FF8000000000000, ptr %91, align 8, !tbaa !45
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 1808
+  store double 0x7FF8000000000000, ptr %92, align 8, !tbaa !46
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 1816
+  store i32 0, ptr %93, align 8, !tbaa !47
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 1820
+  store i32 0, ptr %94, align 4, !tbaa !48
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 1824
+  store i32 0, ptr %95, align 8, !tbaa !49
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 1828
+  store float 0x7FF8000000000000, ptr %96, align 4, !tbaa !50
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 1832
+  store float 0x7FF8000000000000, ptr %97, align 8, !tbaa !51
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 1836
+  store i32 0, ptr %98, align 4, !tbaa !52
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 1840
+  store i32 0, ptr %99, align 8, !tbaa !53
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 1844
+  store i32 1, ptr %100, align 4, !tbaa !54
+  %101 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %40, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #11
+  %102 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %40, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #11
+  %103 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %40, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #11
+  %104 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %40, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16) #11
+  %105 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %40, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #11
+  %106 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %40, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #11
+  %107 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %40, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #11
   br label %110
 
-94:                                               ; preds = %110
-  %95 = getelementptr inbounds nuw i8, ptr %8, i64 84
-  %96 = getelementptr inbounds nuw i8, ptr %8, i64 92
-  %97 = getelementptr inbounds nuw i8, ptr %8, i64 108
-  %98 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  %99 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  %100 = getelementptr inbounds nuw i8, ptr %8, i64 816
-  %101 = getelementptr inbounds nuw i8, ptr %8, i64 1360
-  %102 = getelementptr inbounds nuw i8, ptr %8, i64 1524
-  %103 = getelementptr inbounds nuw i8, ptr %8, i64 1724
-  %104 = getelementptr inbounds nuw i8, ptr %8, i64 1752
-  %105 = getelementptr inbounds nuw i8, ptr %8, i64 1768
-  %106 = getelementptr inbounds nuw i8, ptr %8, i64 1772
-  %107 = getelementptr inbounds nuw i8, ptr %8, i64 1776
-  %108 = getelementptr inbounds nuw i8, ptr %8, i64 1780
+108:                                              ; preds = %110
   call void @xmlXPathFreeObject(ptr noundef nonnull %45) #11
   call void @xmlXPathFreeContext(ptr noundef nonnull %40) #11
   call void @xmlFreeDoc(ptr noundef nonnull %24) #11
@@ -489,9 +489,9 @@ dt_get_lightroom_xmp.exit:                        ; preds = %14, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not270 = icmp eq i64 %indvars.iv.next, 6
-  br i1 %.not270, label %94, label %110
+  br i1 %.not270, label %108, label %110
 
-115:                                              ; preds = %94
+115:                                              ; preds = %108
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %117 = call i32 @dt_image_is_raw(ptr noundef nonnull %116) #11
   %.not271 = icmp eq i32 %117, 0
@@ -504,15 +504,15 @@ dt_get_lightroom_xmp.exit:                        ; preds = %14, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %119
 
-119:                                              ; preds = %118, %115, %94
-  %.0240 = phi i32 [ 1, %118 ], [ 0, %115 ], [ 0, %94 ]
-  %120 = load i32, ptr %95, align 4
+119:                                              ; preds = %118, %115, %108
+  %.0240 = phi i32 [ 1, %118 ], [ 0, %115 ], [ 0, %108 ]
+  %120 = load i32, ptr %75, align 4
   %121 = icmp ne i32 %120, 0
   %or.cond4 = select i1 %109, i1 %121, i1 false
   br i1 %or.cond4, label %122, label %249
 
 122:                                              ; preds = %119
-  %123 = load i32, ptr %86, align 4, !tbaa !54
+  %123 = load i32, ptr %100, align 4, !tbaa !54
   switch i32 %123, label %129 [
     i32 8, label %128
     i32 2, label %dt_image_orientation_to_flip_bits.exit
@@ -579,7 +579,7 @@ dt_image_orientation_to_flip_bits.exit:           ; preds = %122, %122, %124, %1
   %146 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %147 = load float, ptr %146, align 4, !tbaa !72
   %148 = fadd reassoc nsz arcp contract afn float %147, -5.000000e-01
-  %149 = load i32, ptr %84, align 4, !tbaa !52
+  %149 = load i32, ptr %98, align 4, !tbaa !52
   %150 = sitofp i32 %149 to float
   %151 = fmul reassoc nsz arcp contract afn float %148, %150
   %152 = fpext reassoc nsz arcp contract afn float %151 to double
@@ -591,7 +591,7 @@ dt_image_orientation_to_flip_bits.exit:           ; preds = %122, %122, %124, %1
   %158 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %159 = load float, ptr %158, align 8, !tbaa !74
   %160 = fadd reassoc nsz arcp contract afn float %159, -5.000000e-01
-  %161 = load i32, ptr %85, align 8, !tbaa !53
+  %161 = load i32, ptr %99, align 8, !tbaa !53
   %162 = sitofp i32 %161 to float
   %163 = fmul reassoc nsz arcp contract afn float %160, %162
   %164 = fpext reassoc nsz arcp contract afn float %163 to double
@@ -715,19 +715,19 @@ dt_image_orientation_to_flip_bits.exit:           ; preds = %122, %122, %124, %1
   %246 = fsub reassoc nsz arcp contract afn float %242, %241
   %247 = fsub reassoc nsz arcp contract afn float %240, %239
   %248 = fdiv reassoc nsz arcp contract afn float %246, %247
-  store float %248, ptr %82, align 4, !tbaa !50
+  store float %248, ptr %96, align 4, !tbaa !50
   call fastcc void @dt_add_hist(i32 noundef %0, ptr noundef nonnull @.str.26, ptr noundef %8, i32 noundef 84, ptr noundef %6, i32 noundef 5, ptr noundef %7)
   br label %249
 
 249:                                              ; preds = %245, %119
   %.1241 = phi i32 [ 1, %245 ], [ %.0240, %119 ]
-  %250 = load i32, ptr %96, align 4
+  %250 = load i32, ptr %76, align 4
   %251 = icmp ne i32 %250, 0
   %or.cond13 = select i1 %109, i1 %251, i1 false
   br i1 %or.cond13, label %252, label %257
 
 252:                                              ; preds = %249
-  %253 = load i32, ptr %86, align 4, !tbaa !54
+  %253 = load i32, ptr %100, align 4, !tbaa !54
   %switch.tableidx = add i32 %253, -2
   %254 = icmp ult i32 %switch.tableidx, 7
   br i1 %254, label %switch.lookup, label %dt_image_orientation_to_flip_bits.exit290
@@ -747,7 +747,7 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 257:                                              ; preds = %dt_image_orientation_to_flip_bits.exit290, %249
   %.2242 = phi i32 [ 1, %dt_image_orientation_to_flip_bits.exit290 ], [ %.1241, %249 ]
-  %258 = load i32, ptr %97, align 4
+  %258 = load i32, ptr %77, align 4
   %259 = icmp ne i32 %258, 0
   %or.cond16 = select i1 %109, i1 %259, i1 false
   br i1 %or.cond16, label %260, label %262
@@ -759,7 +759,7 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 262:                                              ; preds = %260, %257
   %.3243 = phi i32 [ 1, %260 ], [ %.2242, %257 ]
-  %263 = load i32, ptr %99, align 8
+  %263 = load i32, ptr %79, align 8
   %264 = icmp ne i32 %263, 0
   %or.cond19 = select i1 %109, i1 %264, i1 false
   br i1 %or.cond19, label %265, label %267
@@ -772,7 +772,7 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 267:                                              ; preds = %265, %262
   %.4244 = phi i32 [ 1, %265 ], [ %.3243, %262 ]
-  %268 = load i32, ptr %98, align 8
+  %268 = load i32, ptr %78, align 8
   %269 = icmp ne i32 %268, 0
   %or.cond22 = select i1 %109, i1 %269, i1 false
   br i1 %or.cond22, label %270, label %314
@@ -789,9 +789,9 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
   store float 0.000000e+00, ptr %275, align 4, !tbaa !83
   %276 = getelementptr inbounds nuw i8, ptr %8, i64 144
   store float 1.000000e+00, ptr %276, align 8, !tbaa !84
-  %277 = load i32, ptr %84, align 4, !tbaa !52
+  %277 = load i32, ptr %98, align 4, !tbaa !52
   %278 = icmp eq i32 %277, 0
-  %279 = load i32, ptr %85, align 8
+  %279 = load i32, ptr %99, align 8
   %280 = icmp eq i32 %279, 0
   %or.cond25 = select i1 %278, i1 true, i1 %280
   %281 = sitofp i32 %277 to float
@@ -801,19 +801,19 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
   %285 = select i1 %or.cond25, float 0x3FEC444440000000, float %284
   %286 = getelementptr inbounds nuw i8, ptr %8, i64 140
   store float %285, ptr %286, align 4, !tbaa !85
-  %287 = load i32, ptr %95, align 4, !tbaa !86
+  %287 = load i32, ptr %75, align 4, !tbaa !86
   %.not275 = icmp eq i32 %287, 0
   br i1 %.not275, label %291, label %288
 
 288:                                              ; preds = %270
-  %289 = load float, ptr %82, align 4, !tbaa !50
+  %289 = load float, ptr %96, align 4, !tbaa !50
   %290 = fmul reassoc nsz arcp contract afn float %289, %285
   store float %290, ptr %286, align 4, !tbaa !85
   br label %291
 
 291:                                              ; preds = %288, %270
   %292 = phi float [ %290, %288 ], [ %285, %270 ]
-  %293 = load float, ptr %83, align 8, !tbaa !51
+  %293 = load float, ptr %97, align 8, !tbaa !51
   %294 = fcmp reassoc nsz arcp contract afn ogt float %293, 0.000000e+00
   br i1 %294, label %295, label %313
 
@@ -845,13 +845,13 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 314:                                              ; preds = %313, %267
   %.5245 = phi i32 [ 1, %313 ], [ %.4244, %267 ]
-  %315 = load i32, ptr %100, align 8
+  %315 = load i32, ptr %80, align 8
   %316 = icmp ne i32 %315, 0
   %or.cond28 = select i1 %109, i1 %316, i1 false
   br i1 %or.cond28, label %317, label %336
 
 317:                                              ; preds = %314
-  %318 = load i32, ptr %86, align 4, !tbaa !54
+  %318 = load i32, ptr %100, align 4, !tbaa !54
   %319 = icmp ugt i32 %318, 4
   br i1 %319, label %.preheader318, label %.thread382
 
@@ -896,7 +896,7 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 337:                                              ; preds = %.thread382, %336
   %.6384 = phi i32 [ 1, %.thread382 ], [ %.5245, %336 ]
-  %338 = load i32, ptr %101, align 8, !tbaa !94
+  %338 = load i32, ptr %81, align 8, !tbaa !94
   %339 = icmp ne i32 %338, 0
   %340 = getelementptr inbounds nuw i8, ptr %8, i64 1332
   %341 = load i32, ptr %340, align 4
@@ -918,7 +918,7 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 352:                                              ; preds = %337
   %353 = icmp eq i32 %338, 3
-  %354 = load i32, ptr %102, align 4
+  %354 = load i32, ptr %82, align 4
   %355 = select i1 %353, i32 %354, i32 6
   %356 = getelementptr inbounds nuw i8, ptr %8, i64 1300
   store i32 %355, ptr %356, align 4, !tbaa !6
@@ -1135,7 +1135,7 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 472:                                              ; preds = %337, %471
   %.7 = phi i32 [ 1, %471 ], [ %.6384, %337 ]
-  %473 = load i32, ptr %103, align 4
+  %473 = load i32, ptr %83, align 4
   %.not311 = icmp eq i32 %473, 0
   br i1 %.not311, label %486, label %474
 
@@ -1173,7 +1173,7 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 486:                                              ; preds = %478, %472
   %.8 = phi i32 [ 1, %478 ], [ %.7, %472 ]
-  %487 = load i32, ptr %104, align 8
+  %487 = load i32, ptr %84, align 8
   %.not312 = icmp eq i32 %487, 0
   br i1 %.not312, label %491, label %488
 
@@ -1186,7 +1186,7 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 491:                                              ; preds = %488, %486
   %.9 = phi i32 [ 1, %488 ], [ %.8, %486 ]
-  %492 = load i32, ptr %105, align 8
+  %492 = load i32, ptr %85, align 8
   %.not313 = icmp eq i32 %492, 0
   br i1 %.not313, label %.thread306, label %493
 
@@ -1200,7 +1200,7 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 .thread306:                                       ; preds = %336, %493, %491
   %.10 = phi i32 [ 1, %493 ], [ %.9, %491 ], [ %.5245, %336 ]
-  %496 = load i32, ptr %106, align 4, !tbaa !104
+  %496 = load i32, ptr %86, align 4, !tbaa !104
   %.not277 = icmp eq i32 %496, 0
   br i1 %.not277, label %506, label %497
 
@@ -1223,13 +1223,13 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 506:                                              ; preds = %501, %.thread306
   %507 = icmp eq ptr %1, null
-  %508 = load i32, ptr %108, align 4
+  %508 = load i32, ptr %88, align 4
   %509 = icmp ne i32 %508, 0
   %or.cond56 = select i1 %507, i1 %509, i1 false
   br i1 %or.cond56, label %510, label %520
 
 510:                                              ; preds = %506
-  %511 = load i32, ptr %107, align 8, !tbaa !106
+  %511 = load i32, ptr %87, align 8, !tbaa !106
   call void @dt_ratings_apply_on_image(i32 noundef %0, i32 noundef %511, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
   %512 = load i8, ptr %6, align 16, !tbaa !105
   %.not279 = icmp eq i8 %512, 0
@@ -1248,16 +1248,16 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
   br label %520
 
 520:                                              ; preds = %515, %506
-  %521 = load i32, ptr %79, align 8
+  %521 = load i32, ptr %93, align 8
   %522 = icmp ne i32 %521, 0
   %or.cond59 = select i1 %507, i1 %522, i1 false
   br i1 %or.cond59, label %523, label %550
 
 523:                                              ; preds = %520
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %524 = load double, ptr %76, align 8, !tbaa !44
+  %524 = load double, ptr %90, align 8, !tbaa !44
   store double %524, ptr %11, align 8, !tbaa !107
-  %525 = load double, ptr %75, align 8, !tbaa !30
+  %525 = load double, ptr %89, align 8, !tbaa !30
   %526 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double %525, ptr %526, align 8, !tbaa !109
   %527 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1305,13 +1305,13 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
   br label %550
 
 550:                                              ; preds = %545, %520
-  %551 = load i32, ptr %81, align 8
+  %551 = load i32, ptr %95, align 8
   %552 = icmp ne i32 %551, 0
   %or.cond64 = select i1 %507, i1 %552, i1 false
   br i1 %or.cond64, label %553, label %560
 
 553:                                              ; preds = %550
-  %554 = load i32, ptr %80, align 4, !tbaa !48
+  %554 = load i32, ptr %94, align 4, !tbaa !48
   call void @dt_colorlabels_set_label(i32 noundef %0, i32 noundef %554) #11
   %555 = load i8, ptr %6, align 16, !tbaa !105
   %.not282 = icmp eq i8 %555, 0

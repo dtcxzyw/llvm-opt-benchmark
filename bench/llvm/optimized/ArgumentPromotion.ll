@@ -5267,9 +5267,9 @@ _ZN4llvm8Function4argsEv.exit:                    ; preds = %_ZN4llvm8Function9a
 
 .lr.ph901:                                        ; preds = %_ZN4llvm8Function4argsEv.exit
   %994 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %995 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %995 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %996 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %997 = getelementptr inbounds nuw i8, ptr %56, i64 33
   %998 = getelementptr inbounds nuw i8, ptr %56, i64 8

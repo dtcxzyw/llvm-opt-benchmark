@@ -514,6 +514,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 ._crit_edge.i:                                    ; preds = %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i
   %53 = icmp eq i64 %46, 3
+  %spec.select = zext i1 %53 to i64
   %spec.select325 = select i1 %53, i64 0, i64 %46
   %spec.select.sroa.sel.idx.sroa.sel.idx = select i1 %53, i64 8, i64 0
   %spec.select.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %12, i64 %spec.select.sroa.sel.idx.sroa.sel.idx
@@ -532,15 +533,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   store double %59, ptr %55, align 8, !tbaa !15
   %60 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %60, %46
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.thread.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !59
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.thread, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !59
 
-._crit_edge.i.thread.loopexit:                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
-  %spec.select = zext i1 %53 to i64
-  br label %._crit_edge.i.thread
-
-._crit_edge.i.thread:                             ; preds = %._crit_edge.i.thread.loopexit, %41
-  %61 = phi i64 [ %46, %41 ], [ %spec.select325, %._crit_edge.i.thread.loopexit ]
-  %.sroa.7295.0307 = phi i64 [ 0, %41 ], [ %spec.select, %._crit_edge.i.thread.loopexit ]
+._crit_edge.i.thread:                             ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %41
+  %61 = phi i64 [ %46, %41 ], [ %spec.select325, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.7295.0307 = phi i64 [ 0, %41 ], [ %spec.select, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
   %62 = add nsw i64 %61, %46
   %63 = load ptr, ptr %3, align 8, !tbaa !50, !noalias !60
   %64 = getelementptr inbounds nuw double, ptr %63, i64 %43

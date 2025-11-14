@@ -444,71 +444,71 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %158 = sext i32 %26 to i64
   %159 = sdiv i64 %157, %158
   %160 = call i64 @hash_get_num_entries(ptr noundef %34) #6
+  %161 = trunc i64 %160 to i32
   %sext = shl i64 %160, 32
-  %161 = ashr exact i64 %sext, 29
-  %162 = call ptr @palloc(i64 noundef %161) #6
+  %162 = ashr exact i64 %sext, 29
+  %163 = call ptr @palloc(i64 noundef %162) #6
   call void @hash_seq_init(ptr noundef nonnull %7, ptr noundef %34) #6
-  %163 = call ptr @hash_seq_search(ptr noundef nonnull %7) #6
-  %.not253282 = icmp eq ptr %163, null
+  %164 = call ptr @hash_seq_search(ptr noundef nonnull %7) #6
+  %.not253282 = icmp eq ptr %164, null
   br i1 %.not253282, label %._crit_edge288, label %.lr.ph287
 
-.lr.ph287:                                        ; preds = %156, %176
-  %164 = phi ptr [ %177, %176 ], [ %163, %156 ]
-  %.0233285 = phi i64 [ %.1234, %176 ], [ 0, %156 ]
-  %.0235284 = phi i64 [ %.1236, %176 ], [ %.0229.lcssa, %156 ]
-  %.0240283 = phi i32 [ %.1241, %176 ], [ 0, %156 ]
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %166 = load i32, ptr %165, align 8
-  %167 = sext i32 %166 to i64
-  %168 = icmp slt i64 %159, %167
-  br i1 %168, label %169, label %176
+.lr.ph287:                                        ; preds = %156, %177
+  %165 = phi ptr [ %178, %177 ], [ %164, %156 ]
+  %.0233285 = phi i64 [ %.1234, %177 ], [ 0, %156 ]
+  %.0235284 = phi i64 [ %.1236, %177 ], [ %.0229.lcssa, %156 ]
+  %.0240283 = phi i32 [ %.1241, %177 ], [ 0, %156 ]
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %167 = load i32, ptr %166, align 8
+  %168 = sext i32 %167 to i64
+  %169 = icmp slt i64 %159, %168
+  br i1 %169, label %170, label %177
 
-169:                                              ; preds = %.lr.ph287
-  %170 = add i32 %.0240283, 1
-  %171 = sext i32 %.0240283 to i64
-  %172 = getelementptr inbounds ptr, ptr %162, i64 %171
-  store ptr %164, ptr %172, align 8
-  %173 = load i32, ptr %165, align 8
-  %174 = sext i32 %173 to i64
-  %.0235. = call i64 @llvm.smin.i64(i64 %.0235284, i64 %174)
-  %175 = call i64 @llvm.smax.i64(i64 %.0233285, i64 %174)
-  br label %176
+170:                                              ; preds = %.lr.ph287
+  %171 = add i32 %.0240283, 1
+  %172 = sext i32 %.0240283 to i64
+  %173 = getelementptr inbounds ptr, ptr %163, i64 %172
+  store ptr %165, ptr %173, align 8
+  %174 = load i32, ptr %166, align 8
+  %175 = sext i32 %174 to i64
+  %.0235. = call i64 @llvm.smin.i64(i64 %.0235284, i64 %175)
+  %176 = call i64 @llvm.smax.i64(i64 %.0233285, i64 %175)
+  br label %177
 
-176:                                              ; preds = %169, %.lr.ph287
-  %.1241 = phi i32 [ %170, %169 ], [ %.0240283, %.lr.ph287 ]
-  %.1236 = phi i64 [ %.0235., %169 ], [ %.0235284, %.lr.ph287 ]
-  %.1234 = phi i64 [ %175, %169 ], [ %.0233285, %.lr.ph287 ]
-  %177 = call ptr @hash_seq_search(ptr noundef nonnull %7) #6
-  %.not253 = icmp eq ptr %177, null
+177:                                              ; preds = %170, %.lr.ph287
+  %.1241 = phi i32 [ %171, %170 ], [ %.0240283, %.lr.ph287 ]
+  %.1236 = phi i64 [ %.0235., %170 ], [ %.0235284, %.lr.ph287 ]
+  %.1234 = phi i64 [ %176, %170 ], [ %.0233285, %.lr.ph287 ]
+  %178 = call ptr @hash_seq_search(ptr noundef nonnull %7) #6
+  %.not253 = icmp eq ptr %178, null
   br i1 %.not253, label %._crit_edge288.loopexit, label %.lr.ph287, !llvm.loop !11
 
-._crit_edge288.loopexit:                          ; preds = %176
-  %178 = uitofp nneg i64 %.1234 to double
+._crit_edge288.loopexit:                          ; preds = %177
+  %179 = uitofp nneg i64 %.1234 to double
   br label %._crit_edge288
 
 ._crit_edge288:                                   ; preds = %._crit_edge288.loopexit, %156
   %.0240.lcssa = phi i32 [ 0, %156 ], [ %.1241, %._crit_edge288.loopexit ]
   %.0235.lcssa = phi i64 [ %.0229.lcssa, %156 ], [ %.1236, %._crit_edge288.loopexit ]
-  %.0233.lcssa = phi double [ 0.000000e+00, %156 ], [ %178, %._crit_edge288.loopexit ]
-  %179 = call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #6
-  br i1 %179, label %180, label %183
+  %.0233.lcssa = phi double [ 0.000000e+00, %156 ], [ %179, %._crit_edge288.loopexit ]
+  %180 = call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #6
+  br i1 %180, label %181, label %183
 
-180:                                              ; preds = %._crit_edge288
-  %181 = trunc i64 %160 to i32
-  %182 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %24, i32 noundef %26, i64 noundef %.0229.lcssa, i32 noundef %181, i32 noundef %.0240.lcssa) #6
+181:                                              ; preds = %._crit_edge288
+  %182 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %24, i32 noundef %26, i64 noundef %.0229.lcssa, i32 noundef %161, i32 noundef %.0240.lcssa) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 494, ptr noundef nonnull @__func__.compute_array_stats) #6
   br label %183
 
-183:                                              ; preds = %180, %._crit_edge288
+183:                                              ; preds = %181, %._crit_edge288
   %184 = icmp slt i32 %24, %.0240.lcssa
   br i1 %184, label %185, label %194
 
 185:                                              ; preds = %183
   %186 = sext i32 %.0240.lcssa to i64
-  call void @qsort_interruptible(ptr noundef %162, i64 noundef %186, i64 noundef 8, ptr noundef nonnull @trackitem_compare_frequencies_desc, ptr noundef null) #6
+  call void @qsort_interruptible(ptr noundef %163, i64 noundef %186, i64 noundef 8, ptr noundef nonnull @trackitem_compare_frequencies_desc, ptr noundef null) #6
   %187 = add i32 %24, -1
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds ptr, ptr %162, i64 %188
+  %189 = getelementptr inbounds ptr, ptr %163, i64 %188
   %190 = load ptr, ptr %189, align 8
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = load i32, ptr %191, align 8
@@ -523,7 +523,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 
 196:                                              ; preds = %194
   %197 = zext nneg i32 %.0 to i64
-  call void @qsort_interruptible(ptr noundef %162, i64 noundef %197, i64 noundef 8, ptr noundef nonnull @trackitem_compare_element, ptr noundef null) #6
+  call void @qsort_interruptible(ptr noundef %163, i64 noundef %197, i64 noundef 8, ptr noundef nonnull @trackitem_compare_element, ptr noundef null) #6
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %199 = load ptr, ptr %198, align 8
   %200 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -541,7 +541,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 
 210:                                              ; preds = %196, %210
   %indvars.iv314 = phi i64 [ 0, %196 ], [ %indvars.iv.next315, %210 ]
-  %211 = getelementptr inbounds nuw ptr, ptr %162, i64 %indvars.iv314
+  %211 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv314
   %212 = load ptr, ptr %211, align 8
   %213 = load i64, ptr %212, align 8
   %214 = load i8, ptr %207, align 4, !range !4, !noundef !5
@@ -637,31 +637,31 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 
 277:                                              ; preds = %273
   %278 = load i32, ptr %0, align 8
-  %279 = and i64 %274, 2147483647
-  %280 = shl nuw nsw i64 %279, 3
-  %281 = call ptr @palloc(i64 noundef %280) #6
+  %279 = call i32 @llvm.smax.i32(i32 %278, i32 2)
+  %280 = and i64 %274, 2147483647
+  %281 = shl nuw nsw i64 %280, 3
+  %282 = call ptr @palloc(i64 noundef %281) #6
   call void @hash_seq_init(ptr noundef nonnull %7, ptr noundef %39) #6
-  %282 = call ptr @hash_seq_search(ptr noundef nonnull %7) #6
-  %.not254293 = icmp eq ptr %282, null
+  %283 = call ptr @hash_seq_search(ptr noundef nonnull %7) #6
+  %.not254293 = icmp eq ptr %283, null
   br i1 %.not254293, label %._crit_edge297, label %.lr.ph296
 
 .lr.ph296:                                        ; preds = %277, %.lr.ph296
-  %283 = phi ptr [ %287, %.lr.ph296 ], [ %282, %277 ]
-  %.0220294 = phi i32 [ %284, %.lr.ph296 ], [ 0, %277 ]
-  %284 = add i32 %.0220294, 1
-  %285 = sext i32 %.0220294 to i64
-  %286 = getelementptr inbounds ptr, ptr %281, i64 %285
-  store ptr %283, ptr %286, align 8
-  %287 = call ptr @hash_seq_search(ptr noundef nonnull %7) #6
-  %.not254 = icmp eq ptr %287, null
+  %284 = phi ptr [ %288, %.lr.ph296 ], [ %283, %277 ]
+  %.0220294 = phi i32 [ %285, %.lr.ph296 ], [ 0, %277 ]
+  %285 = add i32 %.0220294, 1
+  %286 = sext i32 %.0220294 to i64
+  %287 = getelementptr inbounds ptr, ptr %282, i64 %286
+  store ptr %284, ptr %287, align 8
+  %288 = call ptr @hash_seq_search(ptr noundef nonnull %7) #6
+  %.not254 = icmp eq ptr %288, null
   br i1 %.not254, label %._crit_edge297, label %.lr.ph296, !llvm.loop !13
 
 ._crit_edge297:                                   ; preds = %.lr.ph296, %277
-  %288 = call i32 @llvm.smax.i32(i32 %278, i32 2)
-  call void @qsort_interruptible(ptr noundef %281, i64 noundef %279, i64 noundef 8, ptr noundef nonnull @countitem_compare_count, ptr noundef null) #6
+  call void @qsort_interruptible(ptr noundef %282, i64 noundef %280, i64 noundef 8, ptr noundef nonnull @countitem_compare_count, ptr noundef null) #6
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %290 = load ptr, ptr %289, align 8
-  %291 = add nuw i32 %288, 1
+  %291 = add nuw i32 %279, 1
   %292 = sext i32 %291 to i64
   %293 = shl nsw i64 %292, 2
   %294 = call ptr @MemoryContextAlloc(ptr noundef %290, i64 noundef %293) #6
@@ -669,15 +669,15 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %296 = uitofp nneg i32 %.0223.lcssa to double
   %297 = fdiv double %295, %296
   %298 = fptrunc double %297 to float
-  %299 = zext nneg i32 %288 to i64
+  %299 = zext nneg i32 %279 to i64
   %300 = getelementptr inbounds nuw float, ptr %294, i64 %299
   store float %298, ptr %300, align 4
   %301 = add nsw i32 %.0223.lcssa, -1
-  %302 = load ptr, ptr %281, align 8
+  %302 = load ptr, ptr %282, align 8
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 4
   %304 = load i32, ptr %303, align 4
   %305 = sext i32 %304 to i64
-  %306 = add nsw i32 %288, -1
+  %306 = add nsw i32 %279, -1
   %307 = zext nneg i32 %306 to i64
   %308 = mul nsw i64 %305, %307
   %309 = zext nneg i32 %301 to i64
@@ -692,7 +692,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 
 .preheader.._crit_edge301_crit_edge:              ; preds = %.preheader
   %.phi.trans.insert = sext i32 %.1221305 to i64
-  %.phi.trans.insert323 = getelementptr inbounds ptr, ptr %281, i64 %.phi.trans.insert
+  %.phi.trans.insert323 = getelementptr inbounds ptr, ptr %282, i64 %.phi.trans.insert
   %.pre = load ptr, ptr %.phi.trans.insert323, align 8
   br label %._crit_edge301
 
@@ -701,7 +701,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %.2222298 = phi i32 [ %311, %.lr.ph300 ], [ %.1221305, %.preheader ]
   %311 = add i32 %.2222298, 1
   %312 = sext i32 %311 to i64
-  %313 = getelementptr inbounds ptr, ptr %281, i64 %312
+  %313 = getelementptr inbounds ptr, ptr %282, i64 %312
   %314 = load ptr, ptr %313, align 8
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 4
   %316 = load i32, ptr %315, align 4

@@ -5751,22 +5751,22 @@ _ZNK7SRBRoot12getKeyStringEi.exit:                ; preds = %7, %12
 _ZNK7SRBRoot12getKeyStringEi.exit41:              ; preds = %17, %22
   %.sink7.i38 = phi i32 [ %5, %22 ], [ %21, %17 ]
   %.sink.in.i39 = phi ptr [ %23, %22 ], [ %20, %17 ]
-  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %15)
-  %24 = getelementptr i8, ptr %.sink.i, i64 %strlen
-  %scevgep = getelementptr i8, ptr %24, i64 %14
   %.sink.i40 = load ptr, ptr %.sink.in.i39, align 8, !tbaa !139
-  %25 = zext nneg i32 %.sink7.i38 to i64
-  %26 = getelementptr i8, ptr %.sink.i40, i64 %25
-  %strlen47 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %26)
+  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %15)
+  %24 = zext nneg i32 %.sink7.i38 to i64
+  %25 = getelementptr i8, ptr %.sink.i40, i64 %24
+  %strlen47 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %25)
+  %26 = getelementptr i8, ptr %.sink.i, i64 %strlen
+  %scevgep = getelementptr i8, ptr %26, i64 %14
   %27 = getelementptr i8, ptr %.sink.i40, i64 %strlen47
-  %scevgep48 = getelementptr i8, ptr %27, i64 %25
+  %scevgep48 = getelementptr i8, ptr %27, i64 %24
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZNK7SRBRoot12getKeyStringEi.exit41, %31
   %.131 = phi ptr [ %32, %31 ], [ %scevgep, %_ZNK7SRBRoot12getKeyStringEi.exit41 ]
   %.1 = phi ptr [ %35, %31 ], [ %scevgep48, %_ZNK7SRBRoot12getKeyStringEi.exit41 ]
   %28 = icmp ult ptr %15, %.131
-  %29 = icmp ult ptr %26, %.1
+  %29 = icmp ult ptr %25, %.1
   %30 = and i1 %28, %29
   br i1 %30, label %31, label %39
 
@@ -5783,7 +5783,7 @@ _ZNK7SRBRoot12getKeyStringEi.exit41:              ; preds = %17, %22
 
 39:                                               ; preds = %.preheader
   %40 = ptrtoint ptr %.1 to i64
-  %41 = ptrtoint ptr %26 to i64
+  %41 = ptrtoint ptr %25 to i64
   %42 = sub i64 %40, %41
   %43 = trunc i64 %42 to i32
   %44 = ptrtoint ptr %.131 to i64

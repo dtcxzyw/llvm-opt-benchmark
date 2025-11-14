@@ -1455,20 +1455,20 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   %.sroa.5.0.i.i.i.i.i = phi i64 [ %7, %50 ], [ %64, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h98caafb99983cdc2E.exit.i.i.i.i.i" ]
   %.sroa.0.03.i.i.i.i.i = phi ptr [ %2, %50 ], [ %63, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h98caafb99983cdc2E.exit.i.i.i.i.i" ]
   %57 = icmp eq i64 %.sroa.5.0.i.i.i.i.i, 0
-  br i1 %57, label %.preheader.i.i, label %.preheader.i.i.i.i.i
+  br i1 %57, label %.preheader.i.i, label %.preheader.i.i.i.i
 
-.preheader.i.i.i.i.i:                             ; preds = %56, %.preheader.i.i.i.i.i
-  %.sroa.07.0.i.i.i.i.i.i = phi i1 [ %60, %.preheader.i.i.i.i.i ], [ false, %56 ]
-  %.sroa.09.0.i.i.i.i.i.i = phi i64 [ %61, %.preheader.i.i.i.i.i ], [ 0, %56 ]
+.preheader.i.i.i.i:                               ; preds = %56, %.preheader.i.i.i.i
+  %.sroa.07.0.i.i.i.i.i.i = phi i1 [ %60, %.preheader.i.i.i.i ], [ false, %56 ]
+  %.sroa.09.0.i.i.i.i.i.i = phi i64 [ %61, %.preheader.i.i.i.i ], [ 0, %56 ]
   %58 = getelementptr inbounds nuw i32, ptr %.sroa.0.03.i.i.i.i.i, i64 %.sroa.09.0.i.i.i.i.i.i
   %.val19.i.i.i.i.i.i = load i32, ptr %58, align 4, !range !153, !alias.scope !154, !noalias !157, !noundef !7
   %59 = icmp eq i32 %.val19.i.i.i.i.i.i, %.sroa.4.0.i.ph.i.i.i.i
   %60 = or i1 %.sroa.07.0.i.i.i.i.i.i, %59
   %61 = add nuw nsw i64 %.sroa.09.0.i.i.i.i.i.i, 1
   %62 = icmp eq i64 %61, 16
-  br i1 %62, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h98caafb99983cdc2E.exit.i.i.i.i.i", label %.preheader.i.i.i.i.i
+  br i1 %62, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h98caafb99983cdc2E.exit.i.i.i.i.i", label %.preheader.i.i.i.i
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h98caafb99983cdc2E.exit.i.i.i.i.i": ; preds = %.preheader.i.i.i.i.i
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h98caafb99983cdc2E.exit.i.i.i.i.i": ; preds = %.preheader.i.i.i.i
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i.i.i.i.i, i64 64
   %64 = add i64 %.sroa.5.0.i.i.i.i.i, -16
   br i1 %60, label %.loopexit.i.i, label %56

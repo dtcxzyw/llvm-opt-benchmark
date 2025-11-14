@@ -93,10 +93,10 @@ gv_calloc.exit22.preheader:                       ; preds = %21
   br i1 %.not, label %gv_calloc.exit22._crit_edge, label %.lr.ph26
 
 .lr.ph26:                                         ; preds = %gv_calloc.exit22.preheader
-  %25 = icmp sgt i32 %1, 0
-  %26 = sext i32 %1 to i64
+  %25 = sext i32 %1 to i64
+  %26 = icmp sgt i32 %1, 0
   %wide.trip.count38 = zext nneg i32 %0 to i64
-  br i1 %25, label %.lr.ph.us.preheader, label %gv_calloc.exit22
+  br i1 %26, label %.lr.ph.us.preheader, label %gv_calloc.exit22
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph26
   %wide.trip.count33 = zext nneg i32 %1 to i64
@@ -118,7 +118,7 @@ gv_calloc.exit22.preheader:                       ; preds = %21
   br i1 %exitcond34.not, label %._crit_edge.us, label %28, !llvm.loop !12
 
 ._crit_edge.us:                                   ; preds = %28
-  %30 = getelementptr inbounds nuw double, ptr %.025.us, i64 %26
+  %30 = getelementptr inbounds nuw double, ptr %.025.us, i64 %25
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
   br i1 %exitcond39.not, label %gv_calloc.exit22._crit_edge, label %.lr.ph.us, !llvm.loop !14
@@ -135,7 +135,7 @@ gv_calloc.exit22:                                 ; preds = %.lr.ph26, %gv_callo
   %.025 = phi ptr [ %36, %gv_calloc.exit22 ], [ %23, %.lr.ph26 ]
   %35 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   store ptr %.025, ptr %35, align 8, !tbaa !8
-  %36 = getelementptr inbounds double, ptr %.025, i64 %26
+  %36 = getelementptr inbounds double, ptr %.025, i64 %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count38
   br i1 %exitcond.not, label %gv_calloc.exit22._crit_edge, label %gv_calloc.exit22, !llvm.loop !14

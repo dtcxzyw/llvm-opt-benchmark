@@ -5490,19 +5490,19 @@ av_cmp_q.exit.thread:                             ; preds = %902, %899, %av_cmp_
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %981 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %982 = load i64, ptr %981, align 8, !tbaa !258
+  %.not.i.i = icmp eq i64 %982, 0
+  %983 = ashr i64 %982, 1
+  %spec.select.i.i = select i1 %.not.i.i, i64 250000, i64 %983
   call void @ff_flush_packet_queue(ptr noundef nonnull %0) #16
-  %983 = load i32, ptr %20, align 4, !tbaa !87
-  %.not200.i.i = icmp eq i32 %983, 0
+  %984 = load i32, ptr %20, align 4, !tbaa !87
+  %.not200.i.i = icmp eq i32 %984, 0
   br i1 %.not200.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %979
-  %984 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %985 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %988
 
 ._crit_edge.i.i:                                  ; preds = %1009, %979
-  %.not.i.i = icmp eq i64 %982, 0
-  %985 = ashr i64 %982, 1
-  %spec.select.i.i = select i1 %.not.i.i, i64 250000, i64 %985
   %986 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %987 = load i32, ptr %986, align 4, !tbaa !259
   %.not154.i.i = icmp eq i32 %987, 0
@@ -5510,7 +5510,7 @@ av_cmp_q.exit.thread:                             ; preds = %902, %899, %av_cmp_
 
 988:                                              ; preds = %1009, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %1009 ]
-  %989 = load ptr, ptr %984, align 8, !tbaa !88
+  %989 = load ptr, ptr %985, align 8, !tbaa !88
   %990 = getelementptr inbounds nuw ptr, ptr %989, i64 %indvars.iv.i.i
   %991 = load ptr, ptr %990, align 8, !tbaa !89
   %992 = getelementptr inbounds nuw i8, ptr %991, i64 40
@@ -9516,22 +9516,22 @@ define internal fastcc void @update_initial_timestamps(ptr noundef readonly capt
   store i64 %30, ptr %18, align 8, !tbaa !126
   store i64 %2, ptr %23, align 8, !tbaa !128
   %31 = add i64 %30, -9223090561878065151
+  %32 = icmp slt i64 %3, 9222809086901354496
+  %33 = select i1 %32, i64 0, i64 %31
+  %spec.select = add i64 %33, %3
   %.not7595 = icmp eq ptr %17, null
   br i1 %.not7595, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %33 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %10, i64 360
-  %35 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 360
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 568
   br label %70
 
 ._crit_edge:                                      ; preds = %109, %get_next_pkt.exit, %29
-  %38 = icmp slt i64 %3, 9222809086901354496
-  %39 = select i1 %38, i64 0, i64 %31
-  %spec.select = add i64 %39, %3
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !104
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
@@ -9616,15 +9616,15 @@ has_decode_delay_been_guessed.exit:               ; preds = %63
   br label %86
 
 86:                                               ; preds = %84, %79
-  %87 = load i64, ptr %32, align 8, !tbaa !127
+  %87 = load i64, ptr %34, align 8, !tbaa !127
   %88 = icmp ne i64 %87, -9223372036854775808
   %.not82 = icmp eq i64 %80, -9223372036854775808
   %or.cond112 = or i1 %88, %.not82
   br i1 %or.cond112, label %107, label %89
 
 89:                                               ; preds = %86
-  store i64 %80, ptr %32, align 8, !tbaa !127
-  %90 = load ptr, ptr %33, align 8, !tbaa !104
+  store i64 %80, ptr %34, align 8, !tbaa !127
+  %90 = load ptr, ptr %35, align 8, !tbaa !104
   %91 = load i32, ptr %90, align 8, !tbaa !129
   %92 = icmp eq i32 %91, 1
   br i1 %92, label %93, label %107
@@ -9636,12 +9636,12 @@ has_decode_delay_been_guessed.exit:               ; preds = %63
   br i1 %.not83, label %107, label %96
 
 96:                                               ; preds = %93
-  %97 = load i32, ptr %34, align 8, !tbaa !183
+  %97 = load i32, ptr %36, align 8, !tbaa !183
   %98 = sext i32 %97 to i64
   %.sroa.23.0.insert.ext = zext i32 %95 to i64
   %.sroa.23.0.insert.shift = shl nuw i64 %.sroa.23.0.insert.ext, 32
   %.sroa.02.0.insert.insert = or disjoint i64 %.sroa.23.0.insert.shift, 1
-  %99 = load i64, ptr %35, align 8
+  %99 = load i64, ptr %37, align 8
   %100 = tail call i64 @av_rescale_q(i64 noundef %98, i64 %.sroa.02.0.insert.insert, i64 %99) #19
   %101 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %80, i64 %100)
   %102 = extractvalue { i64, i1 } %101, 1
@@ -9649,7 +9649,7 @@ has_decode_delay_been_guessed.exit:               ; preds = %63
   %104 = icmp slt i64 %103, 0
   %105 = select i1 %104, i64 9223372036854775807, i64 -9223372036854775808
   %106 = select i1 %102, i64 %105, i64 %103
-  store i64 %106, ptr %32, align 8, !tbaa !127
+  store i64 %106, ptr %34, align 8, !tbaa !127
   br label %107
 
 107:                                              ; preds = %86, %96, %93, %89, %70
@@ -9658,12 +9658,12 @@ has_decode_delay_been_guessed.exit:               ; preds = %63
   br i1 %.not.i87, label %109, label %get_next_pkt.exit
 
 109:                                              ; preds = %107
-  %110 = load ptr, ptr %36, align 8, !tbaa !241
+  %110 = load ptr, ptr %38, align 8, !tbaa !241
   %111 = icmp eq ptr %.06696, %110
   br i1 %111, label %112, label %._crit_edge
 
 112:                                              ; preds = %109
-  %113 = load ptr, ptr %37, align 8, !tbaa !85
+  %113 = load ptr, ptr %39, align 8, !tbaa !85
   br label %get_next_pkt.exit
 
 get_next_pkt.exit:                                ; preds = %107, %112

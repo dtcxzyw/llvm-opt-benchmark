@@ -3596,37 +3596,34 @@ _ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS
   %.idx128 = and i64 %142, 1152921504606846968
   %143 = getelementptr inbounds nuw i8, ptr %130, i64 %.idx128
   %144 = load ptr, ptr %143, align 8, !tbaa !424, !noalias !523
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 512
+  %146 = and i64 %137, 63
+  %147 = getelementptr inbounds nuw ptr, ptr %144, i64 %146
   br label %.lr.ph.i.i
 
 _ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit: ; preds = %129
-  %145 = ashr i64 %137, 3
-  %.idx = and i64 %145, -8
-  %146 = getelementptr inbounds i8, ptr %130, i64 %.idx
-  %147 = load ptr, ptr %146, align 8, !tbaa !424, !noalias !523
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 512
-  %149 = and i64 %137, 63
-  %150 = getelementptr inbounds nuw ptr, ptr %147, i64 %149
+  %148 = ashr i64 %137, 3
+  %.idx = and i64 %148, -8
+  %149 = getelementptr inbounds i8, ptr %130, i64 %.idx
+  %150 = load ptr, ptr %149, align 8, !tbaa !424, !noalias !523
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 512
+  %152 = and i64 %137, 63
+  %153 = getelementptr inbounds nuw ptr, ptr %150, i64 %152
   br label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_erase_at_beginESt15_Deque_iteratorIS4_RS4_PS4_E.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread127, %.lr.ph.i.i
-  %.06.i.i = phi ptr [ %152, %.lr.ph.i.i ], [ %130, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread127 ]
-  %151 = load ptr, ptr %.06.i.i, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %151, i64 noundef 512) #22
-  %152 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
-  %153 = icmp ult ptr %152, %143
-  br i1 %153, label %.lr.ph.i.i, label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_erase_at_beginESt15_Deque_iteratorIS4_RS4_PS4_E.exit.loopexit, !llvm.loop !425
+  %.06.i.i = phi ptr [ %155, %.lr.ph.i.i ], [ %130, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread127 ]
+  %154 = load ptr, ptr %.06.i.i, align 8, !tbaa !424
+  call void @_ZdlPvm(ptr noundef %154, i64 noundef 512) #22
+  %155 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
+  %156 = icmp ult ptr %155, %143
+  br i1 %156, label %.lr.ph.i.i, label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_erase_at_beginESt15_Deque_iteratorIS4_RS4_PS4_E.exit, !llvm.loop !425
 
-_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_erase_at_beginESt15_Deque_iteratorIS4_RS4_PS4_E.exit.loopexit: ; preds = %.lr.ph.i.i
-  %154 = getelementptr inbounds nuw i8, ptr %144, i64 512
-  %155 = and i64 %137, 63
-  %156 = getelementptr inbounds nuw ptr, ptr %144, i64 %155
-  br label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_erase_at_beginESt15_Deque_iteratorIS4_RS4_PS4_E.exit
-
-_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_erase_at_beginESt15_Deque_iteratorIS4_RS4_PS4_E.exit: ; preds = %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_erase_at_beginESt15_Deque_iteratorIS4_RS4_PS4_E.exit.loopexit, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread
-  %storemerge.i.i81 = phi ptr [ %141, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %150, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %156, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_erase_at_beginESt15_Deque_iteratorIS4_RS4_PS4_E.exit.loopexit ]
-  %.sroa.642.080 = phi ptr [ %130, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %146, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %143, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_erase_at_beginESt15_Deque_iteratorIS4_RS4_PS4_E.exit.loopexit ]
-  %.sroa.441.079 = phi ptr [ %131, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %148, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %154, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_erase_at_beginESt15_Deque_iteratorIS4_RS4_PS4_E.exit.loopexit ]
-  %.sroa.240.078 = phi ptr [ %133, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %147, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %144, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_erase_at_beginESt15_Deque_iteratorIS4_RS4_PS4_E.exit.loopexit ]
+_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_erase_at_beginESt15_Deque_iteratorIS4_RS4_PS4_E.exit: ; preds = %.lr.ph.i.i, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread
+  %storemerge.i.i81 = phi ptr [ %141, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %153, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %147, %.lr.ph.i.i ]
+  %.sroa.642.080 = phi ptr [ %130, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %149, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %143, %.lr.ph.i.i ]
+  %.sroa.441.079 = phi ptr [ %131, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %151, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %145, %.lr.ph.i.i ]
+  %.sroa.240.078 = phi ptr [ %133, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %150, %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %144, %.lr.ph.i.i ]
   store ptr %storemerge.i.i81, ptr %27, align 8, !tbaa !424
   store ptr %.sroa.240.078, ptr %29, align 8, !tbaa !424
   store ptr %.sroa.441.079, ptr %30, align 8, !tbaa !424
@@ -3704,37 +3701,34 @@ _ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS
   %.idx92130 = and i64 %182, -8
   %183 = getelementptr inbounds i8, ptr %173, i64 %.idx92130
   %184 = load ptr, ptr %183, align 8, !tbaa !424, !noalias !541
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 512
+  %186 = and i64 %177, 63
+  %187 = getelementptr inbounds nuw ptr, ptr %184, i64 %186
   br label %.lr.ph.i.i6
 
 _ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit: ; preds = %179
-  %185 = lshr i64 %177, 3
-  %.idx92 = and i64 %185, 1152921504606846968
-  %186 = getelementptr inbounds nuw i8, ptr %173, i64 %.idx92
-  %187 = load ptr, ptr %186, align 8, !tbaa !424, !noalias !541
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 512
-  %189 = and i64 %177, 63
-  %190 = getelementptr inbounds nuw ptr, ptr %187, i64 %189
+  %188 = lshr i64 %177, 3
+  %.idx92 = and i64 %188, 1152921504606846968
+  %189 = getelementptr inbounds nuw i8, ptr %173, i64 %.idx92
+  %190 = load ptr, ptr %189, align 8, !tbaa !424, !noalias !541
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 512
+  %192 = and i64 %177, 63
+  %193 = getelementptr inbounds nuw ptr, ptr %190, i64 %192
   br label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_endESt15_Deque_iteratorIS4_RS4_PS4_E.exit
 
 .lr.ph.i.i6:                                      ; preds = %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread129, %.lr.ph.i.i6
   %.06.i.pn.i = phi ptr [ %.06.i.i7, %.lr.ph.i.i6 ], [ %183, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread129 ]
   %.06.i.i7 = getelementptr inbounds nuw i8, ptr %.06.i.pn.i, i64 8
-  %191 = load ptr, ptr %.06.i.i7, align 8, !tbaa !424
-  call void @_ZdlPvm(ptr noundef %191, i64 noundef 512) #22
-  %192 = icmp ult ptr %.06.i.i7, %173
-  br i1 %192, label %.lr.ph.i.i6, label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_endESt15_Deque_iteratorIS4_RS4_PS4_E.exit.loopexit, !llvm.loop !425
+  %194 = load ptr, ptr %.06.i.i7, align 8, !tbaa !424
+  call void @_ZdlPvm(ptr noundef %194, i64 noundef 512) #22
+  %195 = icmp ult ptr %.06.i.i7, %173
+  br i1 %195, label %.lr.ph.i.i6, label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_endESt15_Deque_iteratorIS4_RS4_PS4_E.exit, !llvm.loop !425
 
-_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_endESt15_Deque_iteratorIS4_RS4_PS4_E.exit.loopexit: ; preds = %.lr.ph.i.i6
-  %193 = getelementptr inbounds nuw i8, ptr %184, i64 512
-  %194 = and i64 %177, 63
-  %195 = getelementptr inbounds nuw ptr, ptr %184, i64 %194
-  br label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_endESt15_Deque_iteratorIS4_RS4_PS4_E.exit
-
-_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_endESt15_Deque_iteratorIS4_RS4_PS4_E.exit: ; preds = %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_endESt15_Deque_iteratorIS4_RS4_PS4_E.exit.loopexit, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread
-  %storemerge.i.i.i89 = phi ptr [ %181, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %190, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %195, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_endESt15_Deque_iteratorIS4_RS4_PS4_E.exit.loopexit ]
-  %.sroa.616.088 = phi ptr [ %173, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %186, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %183, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_endESt15_Deque_iteratorIS4_RS4_PS4_E.exit.loopexit ]
-  %.sroa.415.087 = phi ptr [ %176, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %188, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %193, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_endESt15_Deque_iteratorIS4_RS4_PS4_E.exit.loopexit ]
-  %.sroa.2.086 = phi ptr [ %174, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %187, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %184, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_endESt15_Deque_iteratorIS4_RS4_PS4_E.exit.loopexit ]
+_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_endESt15_Deque_iteratorIS4_RS4_PS4_E.exit: ; preds = %.lr.ph.i.i6, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread
+  %storemerge.i.i.i89 = phi ptr [ %181, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %193, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %187, %.lr.ph.i.i6 ]
+  %.sroa.616.088 = phi ptr [ %173, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %189, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %183, %.lr.ph.i.i6 ]
+  %.sroa.415.087 = phi ptr [ %176, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %191, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %185, %.lr.ph.i.i6 ]
+  %.sroa.2.086 = phi ptr [ %174, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread ], [ %190, %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit ], [ %184, %.lr.ph.i.i6 ]
   store ptr %storemerge.i.i.i89, ptr %96, align 8, !tbaa !424
   store ptr %.sroa.2.086, ptr %105, align 8, !tbaa !424
   store ptr %.sroa.415.087, ptr %158, align 8, !tbaa !424

@@ -2997,10 +2997,10 @@ define internal fastcc void @_ZN6icu_775units12_GLOBAL__N_118loadConversionRateE
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %20 = load i32, ptr %19, align 8, !tbaa !47
   %.not86 = icmp eq i32 %20, 0
-  br i1 %.not, label %21, label %126
+  br i1 %.not, label %21, label %124
 
 21:                                               ; preds = %6
-  br i1 %.not86, label %22, label %127
+  br i1 %.not86, label %22, label %125
 
 22:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3076,228 +3076,228 @@ _ZN6icu_775units6Factor10multiplyByERKS1_.exit:   ; preds = %27
 
 57:                                               ; preds = %_ZN6icu_775units6Factor10multiplyByERKS1_.exit
   store i32 65804, ptr %5, align 4, !tbaa !13
-  br label %125
+  br label %123
 
 _ZN6icu_775units6Factor8divideByERKS1_.exit:      ; preds = %51, %40
-  %.sink105 = phi double [ %37, %40 ], [ %47, %51 ]
-  %.sink = phi double [ %38, %40 ], [ %49, %51 ]
   %58 = phi double [ %38, %40 ], [ %47, %51 ]
   %59 = phi double [ %37, %40 ], [ %49, %51 ]
-  %60 = fmul double %23, %.sink105
-  %61 = fmul double %25, %.sink
-  %62 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %63 = load double, ptr %62, align 8, !tbaa !20
-  br label %64
+  %.pn = phi double [ %38, %40 ], [ %49, %51 ]
+  %.pn105 = phi double [ %37, %40 ], [ %47, %51 ]
+  %.promoted.i = fmul double %23, %.pn105
+  %.promoted13.i = fmul double %25, %.pn
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %61 = load double, ptr %60, align 8, !tbaa !20
+  br label %62
 
-64:                                               ; preds = %88, %_ZN6icu_775units6Factor8divideByERKS1_.exit
-  %65 = phi double [ %61, %_ZN6icu_775units6Factor8divideByERKS1_.exit ], [ %89, %88 ]
-  %66 = phi double [ %60, %_ZN6icu_775units6Factor8divideByERKS1_.exit ], [ %90, %88 ]
-  %indvars.iv.i56 = phi i64 [ 0, %_ZN6icu_775units6Factor8divideByERKS1_.exit ], [ %indvars.iv.next.i57, %88 ]
-  %67 = phi double [ %61, %_ZN6icu_775units6Factor8divideByERKS1_.exit ], [ %91, %88 ]
-  %68 = phi double [ %60, %_ZN6icu_775units6Factor8divideByERKS1_.exit ], [ %92, %88 ]
-  %69 = getelementptr inbounds nuw i32, ptr %scevgep.i, i64 %indvars.iv.i56
-  %70 = load i32, ptr %69, align 4, !tbaa !12
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %88, label %72
+62:                                               ; preds = %86, %_ZN6icu_775units6Factor8divideByERKS1_.exit
+  %63 = phi double [ %.promoted13.i, %_ZN6icu_775units6Factor8divideByERKS1_.exit ], [ %87, %86 ]
+  %64 = phi double [ %.promoted.i, %_ZN6icu_775units6Factor8divideByERKS1_.exit ], [ %88, %86 ]
+  %indvars.iv.i56 = phi i64 [ 0, %_ZN6icu_775units6Factor8divideByERKS1_.exit ], [ %indvars.iv.next.i57, %86 ]
+  %65 = phi double [ %.promoted13.i, %_ZN6icu_775units6Factor8divideByERKS1_.exit ], [ %89, %86 ]
+  %66 = phi double [ %.promoted.i, %_ZN6icu_775units6Factor8divideByERKS1_.exit ], [ %90, %86 ]
+  %67 = getelementptr inbounds nuw i32, ptr %scevgep.i, i64 %indvars.iv.i56
+  %68 = load i32, ptr %67, align 4, !tbaa !12
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %86, label %70
 
-72:                                               ; preds = %64
-  %73 = call i32 @llvm.abs.i32(i32 %70, i1 true)
-  %74 = icmp slt i32 %70, 0
-  %75 = getelementptr inbounds nuw double, ptr @_ZN6icu_775unitsL15constantsValuesE, i64 %indvars.iv.i56
-  %76 = load double, ptr %75, align 8, !tbaa !20
-  %77 = uitofp nneg i32 %73 to double
-  %78 = call noundef double @pow(double noundef %76, double noundef %77) #22, !tbaa !12
-  br i1 %74, label %79, label %81
+70:                                               ; preds = %62
+  %71 = call i32 @llvm.abs.i32(i32 %68, i1 true)
+  %72 = icmp slt i32 %68, 0
+  %73 = getelementptr inbounds nuw double, ptr @_ZN6icu_775unitsL15constantsValuesE, i64 %indvars.iv.i56
+  %74 = load double, ptr %73, align 8, !tbaa !20
+  %75 = uitofp nneg i32 %71 to double
+  %76 = call noundef double @pow(double noundef %74, double noundef %75) #22, !tbaa !12
+  br i1 %72, label %77, label %79
 
-79:                                               ; preds = %72
-  %80 = fmul double %67, %78
-  br label %83
+77:                                               ; preds = %70
+  %78 = fmul double %65, %76
+  br label %81
 
-81:                                               ; preds = %72
-  %82 = fmul double %68, %78
-  br label %83
+79:                                               ; preds = %70
+  %80 = fmul double %66, %76
+  br label %81
 
-83:                                               ; preds = %81, %79
-  %84 = phi double [ %65, %81 ], [ %80, %79 ]
-  %85 = phi double [ %82, %81 ], [ %66, %79 ]
-  %86 = phi double [ %67, %81 ], [ %80, %79 ]
-  %87 = phi double [ %82, %81 ], [ %68, %79 ]
-  store i32 0, ptr %69, align 4, !tbaa !12
-  br label %88
+81:                                               ; preds = %79, %77
+  %82 = phi double [ %63, %79 ], [ %78, %77 ]
+  %83 = phi double [ %80, %79 ], [ %64, %77 ]
+  %84 = phi double [ %65, %79 ], [ %78, %77 ]
+  %85 = phi double [ %80, %79 ], [ %66, %77 ]
+  store i32 0, ptr %67, align 4, !tbaa !12
+  br label %86
 
-88:                                               ; preds = %83, %64
-  %89 = phi double [ %65, %64 ], [ %84, %83 ]
-  %90 = phi double [ %66, %64 ], [ %85, %83 ]
-  %91 = phi double [ %67, %64 ], [ %86, %83 ]
-  %92 = phi double [ %68, %64 ], [ %87, %83 ]
+86:                                               ; preds = %81, %62
+  %87 = phi double [ %63, %62 ], [ %82, %81 ]
+  %88 = phi double [ %64, %62 ], [ %83, %81 ]
+  %89 = phi double [ %65, %62 ], [ %84, %81 ]
+  %90 = phi double [ %66, %62 ], [ %85, %81 ]
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, 15
-  br i1 %exitcond.not.i58, label %_ZN6icu_775units6Factor19substituteConstantsEv.exit, label %64, !llvm.loop !26
+  br i1 %exitcond.not.i58, label %_ZN6icu_775units6Factor19substituteConstantsEv.exit, label %62, !llvm.loop !26
 
-_ZN6icu_775units6Factor19substituteConstantsEv.exit: ; preds = %88
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  store double %90, ptr %93, align 8, !tbaa !78
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store double %89, ptr %94, align 8, !tbaa !79
+_ZN6icu_775units6Factor19substituteConstantsEv.exit: ; preds = %86
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  store double %88, ptr %91, align 8, !tbaa !78
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  store double %87, ptr %92, align 8, !tbaa !79
   %.val = load i32, ptr %5, align 4, !tbaa !13
-  %95 = icmp slt i32 %.val, 1
-  %96 = load i32, ptr %1, align 8
-  %.not6.i = icmp eq i32 %96, 0
-  %or.cond7.i = select i1 %95, i1 %.not6.i, i1 false
-  br i1 %or.cond7.i, label %97, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread
+  %93 = icmp slt i32 %.val, 1
+  %94 = load i32, ptr %1, align 8
+  %.not6.i = icmp eq i32 %94, 0
+  %or.cond7.i = select i1 %93, i1 %.not6.i, i1 false
+  br i1 %or.cond7.i, label %95, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread
 
-97:                                               ; preds = %_ZN6icu_775units6Factor19substituteConstantsEv.exit
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %99 = load i32, ptr %98, align 8, !tbaa !43
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread78, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit
+95:                                               ; preds = %_ZN6icu_775units6Factor19substituteConstantsEv.exit
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %97 = load i32, ptr %96, align 8, !tbaa !43
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread78, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit
 
-_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit: ; preds = %97
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %102 = load ptr, ptr %101, align 8, !tbaa !44
-  %103 = load ptr, ptr %102, align 8, !tbaa !51
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %103, i64 4
+_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit: ; preds = %95
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %100 = load ptr, ptr %99, align 8, !tbaa !44
+  %101 = load ptr, ptr %100, align 8, !tbaa !51
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 4
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 4
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 8
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4
-  %104 = icmp eq i32 %.sroa.4.0.copyload.i, 1
-  %105 = icmp eq i32 %.sroa.3.0.copyload.i, 30
-  %or.cond.not.i = select i1 %104, i1 %105, i1 false
-  %106 = load i32, ptr %2, align 8
-  %.not6.i59 = icmp eq i32 %106, 0
+  %102 = icmp eq i32 %.sroa.4.0.copyload.i, 1
+  %103 = icmp eq i32 %.sroa.3.0.copyload.i, 30
+  %or.cond.not.i = select i1 %102, i1 %103, i1 false
+  %104 = load i32, ptr %2, align 8
+  %.not6.i59 = icmp eq i32 %104, 0
   %or.cond = select i1 %or.cond.not.i, i1 %.not6.i59, i1 false
-  br i1 %or.cond, label %107, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread
+  br i1 %or.cond, label %105, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread
 
-_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread78: ; preds = %97
+_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread78: ; preds = %95
   %.old = load i32, ptr %2, align 8
   %.not6.i59.old = icmp eq i32 %.old, 0
-  br i1 %.not6.i59.old, label %107, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread
+  br i1 %.not6.i59.old, label %105, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread
 
-107:                                              ; preds = %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit, %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread78
-  %108 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %109 = load i32, ptr %108, align 8, !tbaa !43
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit68.thread83, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit68
+105:                                              ; preds = %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit, %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread78
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %107 = load i32, ptr %106, align 8, !tbaa !43
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit68.thread83, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit68
 
-_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit68: ; preds = %107
-  %111 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %112 = load ptr, ptr %111, align 8, !tbaa !44
-  %113 = load ptr, ptr %112, align 8, !tbaa !51
-  %.sroa.3.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %113, i64 4
+_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit68: ; preds = %105
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %110 = load ptr, ptr %109, align 8, !tbaa !44
+  %111 = load ptr, ptr %110, align 8, !tbaa !51
+  %.sroa.3.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %.sroa.3.0.copyload.i63 = load i32, ptr %.sroa.3.0..sroa_idx.i62, align 4
-  %.sroa.4.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %.sroa.4.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %.sroa.4.0.copyload.i65 = load i32, ptr %.sroa.4.0..sroa_idx.i64, align 4
-  %114 = icmp ne i32 %.sroa.4.0.copyload.i65, 1
-  %115 = icmp ne i32 %.sroa.3.0.copyload.i63, 30
-  %or.cond.not.i66.not = select i1 %114, i1 true, i1 %115
+  %112 = icmp ne i32 %.sroa.4.0.copyload.i65, 1
+  %113 = icmp ne i32 %.sroa.3.0.copyload.i63, 30
+  %or.cond.not.i66.not = select i1 %112, i1 true, i1 %113
   br i1 %or.cond.not.i66.not, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread, label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit68.thread83
 
-_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit68.thread83: ; preds = %107, %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit68
-  %116 = fmul double %25, %34
-  %117 = fdiv double %116, %23
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  store double %117, ptr %118, align 8, !tbaa !90
-  %119 = fmul double %63, %59
-  %120 = fdiv double %119, %58
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  store double %120, ptr %121, align 8, !tbaa !91
+_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit68.thread83: ; preds = %105, %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit68
+  %114 = fmul double %25, %34
+  %115 = fdiv double %114, %23
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  store double %115, ptr %116, align 8, !tbaa !90
+  %117 = fmul double %61, %59
+  %118 = fdiv double %117, %58
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  store double %118, ptr %119, align 8, !tbaa !91
   br label %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread
 
 _ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread: ; preds = %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread78, %_ZN6icu_775units6Factor19substituteConstantsEv.exit, %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit68.thread83, %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit68, %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit
-  %122 = icmp eq i32 %3, 0
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %124 = zext i1 %122 to i8
-  store i8 %124, ptr %123, align 8, !tbaa !92
-  br label %125
+  %120 = icmp eq i32 %3, 0
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %122 = zext i1 %120 to i8
+  store i8 %122, ptr %121, align 8, !tbaa !92
+  br label %123
 
-125:                                              ; preds = %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread, %57
+123:                                              ; preds = %_ZN6icu_775units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit.thread, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %164
+  br label %162
 
-126:                                              ; preds = %6
-  br i1 %.not86, label %127, label %164
+124:                                              ; preds = %6
+  br i1 %.not86, label %125, label %162
 
-127:                                              ; preds = %21, %126
+125:                                              ; preds = %21, %124
   %.not44 = icmp eq i32 %3, 1
-  br i1 %.not44, label %129, label %128
+  br i1 %.not44, label %127, label %126
 
-128:                                              ; preds = %127
+126:                                              ; preds = %125
   store i32 65804, ptr %5, align 4, !tbaa !13
-  br label %164
+  br label %162
 
-129:                                              ; preds = %127
+127:                                              ; preds = %125
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store double 1.000000e+00, ptr %12, align 8, !tbaa !15
-  %130 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store double 1.000000e+00, ptr %130, align 8, !tbaa !19
-  %131 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store double 0.000000e+00, ptr %131, align 8, !tbaa !21
-  %132 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i8 0, ptr %132, align 8, !tbaa !93
+  %128 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store double 1.000000e+00, ptr %128, align 8, !tbaa !19
+  %129 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store double 0.000000e+00, ptr %129, align 8, !tbaa !21
+  %130 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i8 0, ptr %130, align 8, !tbaa !93
   %scevgep.i69 = getelementptr inbounds nuw i8, ptr %12, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %scevgep.i69, i8 0, i64 60, i1 false), !tbaa !12
   %. = select i1 %.not, ptr %1, ptr %2
   call fastcc void @_ZN6icu_775units12_GLOBAL__N_118loadCompoundFactorERKNS_15MeasureUnitImplERKNS0_15ConversionRatesER10UErrorCode(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(168) %., ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %.promoted.i70 = load double, ptr %12, align 8
-  %.promoted13.i71 = load double, ptr %130, align 8
-  br label %133
+  %.promoted13.i71 = load double, ptr %128, align 8
+  br label %131
 
-133:                                              ; preds = %157, %129
-  %134 = phi double [ %.promoted13.i71, %129 ], [ %158, %157 ]
-  %135 = phi double [ %.promoted.i70, %129 ], [ %159, %157 ]
-  %indvars.iv.i72 = phi i64 [ 0, %129 ], [ %indvars.iv.next.i73, %157 ]
-  %136 = phi double [ %.promoted13.i71, %129 ], [ %160, %157 ]
-  %137 = phi double [ %.promoted.i70, %129 ], [ %161, %157 ]
-  %138 = getelementptr inbounds nuw i32, ptr %scevgep.i69, i64 %indvars.iv.i72
-  %139 = load i32, ptr %138, align 4, !tbaa !12
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %157, label %141
+131:                                              ; preds = %155, %127
+  %132 = phi double [ %.promoted13.i71, %127 ], [ %156, %155 ]
+  %133 = phi double [ %.promoted.i70, %127 ], [ %157, %155 ]
+  %indvars.iv.i72 = phi i64 [ 0, %127 ], [ %indvars.iv.next.i73, %155 ]
+  %134 = phi double [ %.promoted13.i71, %127 ], [ %158, %155 ]
+  %135 = phi double [ %.promoted.i70, %127 ], [ %159, %155 ]
+  %136 = getelementptr inbounds nuw i32, ptr %scevgep.i69, i64 %indvars.iv.i72
+  %137 = load i32, ptr %136, align 4, !tbaa !12
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %155, label %139
 
-141:                                              ; preds = %133
-  %142 = call i32 @llvm.abs.i32(i32 %139, i1 true)
-  %143 = icmp slt i32 %139, 0
-  %144 = getelementptr inbounds nuw double, ptr @_ZN6icu_775unitsL15constantsValuesE, i64 %indvars.iv.i72
-  %145 = load double, ptr %144, align 8, !tbaa !20
-  %146 = uitofp nneg i32 %142 to double
-  %147 = call noundef double @pow(double noundef %145, double noundef %146) #22, !tbaa !12
-  br i1 %143, label %148, label %150
+139:                                              ; preds = %131
+  %140 = call i32 @llvm.abs.i32(i32 %137, i1 true)
+  %141 = icmp slt i32 %137, 0
+  %142 = getelementptr inbounds nuw double, ptr @_ZN6icu_775unitsL15constantsValuesE, i64 %indvars.iv.i72
+  %143 = load double, ptr %142, align 8, !tbaa !20
+  %144 = uitofp nneg i32 %140 to double
+  %145 = call noundef double @pow(double noundef %143, double noundef %144) #22, !tbaa !12
+  br i1 %141, label %146, label %148
 
-148:                                              ; preds = %141
-  %149 = fmul double %136, %147
-  br label %152
+146:                                              ; preds = %139
+  %147 = fmul double %134, %145
+  br label %150
 
-150:                                              ; preds = %141
-  %151 = fmul double %137, %147
-  br label %152
+148:                                              ; preds = %139
+  %149 = fmul double %135, %145
+  br label %150
 
-152:                                              ; preds = %150, %148
-  %153 = phi double [ %134, %150 ], [ %149, %148 ]
-  %154 = phi double [ %151, %150 ], [ %135, %148 ]
-  %155 = phi double [ %136, %150 ], [ %149, %148 ]
-  %156 = phi double [ %151, %150 ], [ %137, %148 ]
-  store i32 0, ptr %138, align 4, !tbaa !12
-  br label %157
+150:                                              ; preds = %148, %146
+  %151 = phi double [ %132, %148 ], [ %147, %146 ]
+  %152 = phi double [ %149, %148 ], [ %133, %146 ]
+  %153 = phi double [ %134, %148 ], [ %147, %146 ]
+  %154 = phi double [ %149, %148 ], [ %135, %146 ]
+  store i32 0, ptr %136, align 4, !tbaa !12
+  br label %155
 
-157:                                              ; preds = %152, %133
-  %158 = phi double [ %134, %133 ], [ %153, %152 ]
-  %159 = phi double [ %135, %133 ], [ %154, %152 ]
-  %160 = phi double [ %136, %133 ], [ %155, %152 ]
-  %161 = phi double [ %137, %133 ], [ %156, %152 ]
+155:                                              ; preds = %150, %131
+  %156 = phi double [ %132, %131 ], [ %151, %150 ]
+  %157 = phi double [ %133, %131 ], [ %152, %150 ]
+  %158 = phi double [ %134, %131 ], [ %153, %150 ]
+  %159 = phi double [ %135, %131 ], [ %154, %150 ]
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i72, 1
   %exitcond.not.i74 = icmp eq i64 %indvars.iv.next.i73, 15
-  br i1 %exitcond.not.i74, label %_ZN6icu_775units6Factor19substituteConstantsEv.exit75, label %133, !llvm.loop !26
+  br i1 %exitcond.not.i74, label %_ZN6icu_775units6Factor19substituteConstantsEv.exit75, label %131, !llvm.loop !26
 
-_ZN6icu_775units6Factor19substituteConstantsEv.exit75: ; preds = %157
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  store double %159, ptr %162, align 8, !tbaa !78
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store double %158, ptr %163, align 8, !tbaa !79
+_ZN6icu_775units6Factor19substituteConstantsEv.exit75: ; preds = %155
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  store double %157, ptr %160, align 8, !tbaa !78
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  store double %156, ptr %161, align 8, !tbaa !79
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %164
+  br label %162
 
-164:                                              ; preds = %125, %126, %_ZN6icu_775units6Factor19substituteConstantsEv.exit75, %128
+162:                                              ; preds = %123, %124, %_ZN6icu_775units6Factor19substituteConstantsEv.exit75, %126
   ret void
 }
 

@@ -6146,36 +6146,36 @@ switch.lookup.i.i.i.i:                            ; preds = %94
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hae4b758480be9eb8E.exit.i.i.i": ; preds = %263
   call void @llvm.experimental.noalias.scope.decl(metadata !1259)
   call void @llvm.experimental.noalias.scope.decl(metadata !1262)
+  %266 = getelementptr inbounds i64, ptr %.val7.i.i44, i64 %.val1.i
   %.not.i.i.i = icmp eq i64 %.val1.i, 0
   br i1 %.not.i.i.i, label %"_ZN10num_bigint7biguint8addition126_$LT$impl$u20$core..ops..arith..AddAssign$LT$$RF$num_bigint..biguint..BigUint$GT$$u20$for$u20$num_bigint..biguint..BigUint$GT$10add_assign17he480793818f11227E.exit.i", label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
-  %266 = icmp eq i8 %273, 0
-  br i1 %266, label %"_ZN10num_bigint7biguint8addition126_$LT$impl$u20$core..ops..arith..AddAssign$LT$$RF$num_bigint..biguint..BigUint$GT$$u20$for$u20$num_bigint..biguint..BigUint$GT$10add_assign17he480793818f11227E.exit.i", label %275
+  %267 = icmp eq i8 %274, 0
+  br i1 %267, label %"_ZN10num_bigint7biguint8addition126_$LT$impl$u20$core..ops..arith..AddAssign$LT$$RF$num_bigint..biguint..BigUint$GT$$u20$for$u20$num_bigint..biguint..BigUint$GT$10add_assign17he480793818f11227E.exit.i", label %276
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hae4b758480be9eb8E.exit.i.i.i", %.lr.ph.i.i.i
-  %.030.i.i.i = phi i8 [ %273, %.lr.ph.i.i.i ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hae4b758480be9eb8E.exit.i.i.i" ]
-  %.sroa.821.029.i.i.i = phi i64 [ %267, %.lr.ph.i.i.i ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hae4b758480be9eb8E.exit.i.i.i" ]
-  %267 = add nuw i64 %.sroa.821.029.i.i.i, 1
-  %268 = getelementptr inbounds i64, ptr %.val7.i.i44, i64 %.sroa.821.029.i.i.i
-  %269 = getelementptr inbounds i64, ptr %.val.i, i64 %.sroa.821.029.i.i.i
-  %270 = load i64, ptr %268, align 8, !alias.scope !1259, !noalias !1264, !noundef !11
-  %271 = load i64, ptr %269, align 8, !alias.scope !1262, !noalias !1265, !noundef !11
-  %272 = call { i8, i64 } @llvm.x86.addcarry.64(i8 noundef %.030.i.i.i, i64 noundef %270, i64 noundef %271) #30
-  %273 = extractvalue { i8, i64 } %272, 0
-  %274 = extractvalue { i8, i64 } %272, 1
-  store i64 %274, ptr %268, align 8, !alias.scope !1259, !noalias !1264
-  %exitcond.not.i.i.i = icmp eq i64 %267, %.val1.i
+  %.030.i.i.i = phi i8 [ %274, %.lr.ph.i.i.i ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hae4b758480be9eb8E.exit.i.i.i" ]
+  %.sroa.821.029.i.i.i = phi i64 [ %268, %.lr.ph.i.i.i ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hae4b758480be9eb8E.exit.i.i.i" ]
+  %268 = add nuw i64 %.sroa.821.029.i.i.i, 1
+  %269 = getelementptr inbounds i64, ptr %.val7.i.i44, i64 %.sroa.821.029.i.i.i
+  %270 = getelementptr inbounds i64, ptr %.val.i, i64 %.sroa.821.029.i.i.i
+  %271 = load i64, ptr %269, align 8, !alias.scope !1259, !noalias !1264, !noundef !11
+  %272 = load i64, ptr %270, align 8, !alias.scope !1262, !noalias !1265, !noundef !11
+  %273 = call { i8, i64 } @llvm.x86.addcarry.64(i8 noundef %.030.i.i.i, i64 noundef %271, i64 noundef %272) #30
+  %274 = extractvalue { i8, i64 } %273, 0
+  %275 = extractvalue { i8, i64 } %273, 1
+  store i64 %275, ptr %269, align 8, !alias.scope !1259, !noalias !1264
+  %exitcond.not.i.i.i = icmp eq i64 %268, %.val1.i
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-275:                                              ; preds = %._crit_edge.i.i.i
-  %276 = getelementptr inbounds i64, ptr %.val7.i.i44, i64 %.val1.i
+276:                                              ; preds = %._crit_edge.i.i.i
   %277 = getelementptr inbounds i64, ptr %.val7.i.i44, i64 %264
   br label %278
 
-278:                                              ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19b4fb6bf5f468b6E.exit.i.i.i", %275
-  %.sroa.022.0.i.i.i = phi ptr [ %276, %275 ], [ %280, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19b4fb6bf5f468b6E.exit.i.i.i" ]
-  %.2.i.i.i = phi i8 [ %273, %275 ], [ %283, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19b4fb6bf5f468b6E.exit.i.i.i" ]
+278:                                              ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19b4fb6bf5f468b6E.exit.i.i.i", %276
+  %.sroa.022.0.i.i.i = phi ptr [ %266, %276 ], [ %280, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19b4fb6bf5f468b6E.exit.i.i.i" ]
+  %.2.i.i.i = phi i8 [ %274, %276 ], [ %283, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19b4fb6bf5f468b6E.exit.i.i.i" ]
   %279 = icmp eq ptr %.sroa.022.0.i.i.i, %277
   br i1 %279, label %.loopexit.i, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19b4fb6bf5f468b6E.exit.i.i.i"
 

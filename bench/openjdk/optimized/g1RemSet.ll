@@ -1614,102 +1614,102 @@ define linkonce_odr hidden void @_ZN20G1MergeHeapRootsTaskC2EP17G1RemSetScanStat
 
 15:                                               ; preds = %4
   %16 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #19
-  %17 = zext i32 %2 to i64
-  %18 = shl nuw nsw i64 %17, 3
-  %19 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %18, i8 noundef zeroext 5, i32 noundef 0) #19
-  store ptr %19, ptr %12, align 8
+  %17 = extractvalue { i64, i64 } %16, 0
+  %18 = extractvalue { i64, i64 } %16, 1
+  %19 = zext i32 %2 to i64
+  %20 = shl nuw nsw i64 %19, 3
+  %21 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %20, i8 noundef zeroext 5, i32 noundef 0) #19
+  store ptr %21, ptr %12, align 8
   %.not54 = icmp eq i32 %2, 0
   br i1 %.not54, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %15 ]
-  %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr inbounds nuw %class.LockFreeStack, ptr %20, i64 %indvars.iv
-  store volatile ptr null, ptr %21, align 8
+  %22 = load ptr, ptr %12, align 8
+  %23 = getelementptr inbounds nuw %class.LockFreeStack, ptr %22, i64 %indvars.iv
+  store volatile ptr null, ptr %23, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %17
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %19
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
-  %22 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1664
-  call void @_ZN19G1DirtyCardQueueSet26take_all_completed_buffersEv(ptr dead_on_unwind nonnull writable sret(%struct.BufferNodeList) align 8 %5, ptr noundef nonnull align 8 dereferenceable(928) %23) #19
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %25 = load i64, ptr %24, align 8
-  %26 = uitofp i64 %25 to double
-  %27 = uitofp i32 %2 to double
-  %28 = fdiv double %26, %27
-  %29 = call double @llvm.ceil.f64(double %28)
-  %30 = fptoui double %29 to i64
-  %31 = load ptr, ptr %5, align 8
-  %.not48 = icmp eq ptr %31, null
+  %24 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1664
+  call void @_ZN19G1DirtyCardQueueSet26take_all_completed_buffersEv(ptr dead_on_unwind nonnull writable sret(%struct.BufferNodeList) align 8 %5, ptr noundef nonnull align 8 dereferenceable(928) %25) #19
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %27 = load i64, ptr %26, align 8
+  %28 = uitofp i64 %27 to double
+  %29 = uitofp i32 %2 to double
+  %30 = fdiv double %28, %29
+  %31 = call double @llvm.ceil.f64(double %30)
+  %32 = fptoui double %31 to i64
+  %33 = load ptr, ptr %5, align 8
+  %.not48 = icmp eq ptr %33, null
   br i1 %.not48, label %._crit_edge53, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %._crit_edge, %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit
-  %.03050 = phi i32 [ %59, %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit ], [ 0, %._crit_edge ]
-  %.03149 = phi ptr [ %.0.lcssa, %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit ], [ %31, %._crit_edge ]
-  %32 = getelementptr inbounds nuw i8, ptr %.03149, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = zext i32 %33 to i64
-  %35 = load i32, ptr %.03149, align 8
+  %.03050 = phi i32 [ %61, %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit ], [ 0, %._crit_edge ]
+  %.03149 = phi ptr [ %.0.lcssa, %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit ], [ %33, %._crit_edge ]
+  %34 = getelementptr inbounds nuw i8, ptr %.03149, i64 4
+  %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
-  %37 = sub nsw i64 %34, %36
+  %37 = load i32, ptr %.03149, align 8
+  %38 = zext i32 %37 to i64
+  %39 = sub nsw i64 %36, %38
   %.0.in40 = getelementptr inbounds nuw i8, ptr %.03149, i64 8
   %.041 = load volatile ptr, ptr %.0.in40, align 8
-  %38 = icmp ult i64 %37, %30
-  %39 = icmp ne ptr %.041, null
-  %40 = and i1 %38, %39
-  br i1 %40, label %.lr.ph45, label %._crit_edge46
+  %40 = icmp ult i64 %39, %32
+  %41 = icmp ne ptr %.041, null
+  %42 = and i1 %40, %41
+  br i1 %42, label %.lr.ph45, label %._crit_edge46
 
 .lr.ph45:                                         ; preds = %.lr.ph52, %.lr.ph45
   %.043 = phi ptr [ %.0, %.lr.ph45 ], [ %.041, %.lr.ph52 ]
-  %.02942 = phi i64 [ %47, %.lr.ph45 ], [ %37, %.lr.ph52 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.043, i64 4
-  %42 = load i32, ptr %41, align 4
-  %43 = zext i32 %42 to i64
-  %44 = load i32, ptr %.043, align 8
+  %.02942 = phi i64 [ %49, %.lr.ph45 ], [ %39, %.lr.ph52 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.043, i64 4
+  %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
-  %46 = add i64 %.02942, %43
-  %47 = sub i64 %46, %45
+  %46 = load i32, ptr %.043, align 8
+  %47 = zext i32 %46 to i64
+  %48 = add i64 %.02942, %45
+  %49 = sub i64 %48, %47
   %.0.in = getelementptr inbounds nuw i8, ptr %.043, i64 8
   %.0 = load volatile ptr, ptr %.0.in, align 8
-  %48 = icmp ult i64 %47, %30
-  %49 = icmp ne ptr %.0, null
-  %50 = and i1 %48, %49
-  br i1 %50, label %.lr.ph45, label %._crit_edge46, !llvm.loop !12
+  %50 = icmp ult i64 %49, %32
+  %51 = icmp ne ptr %.0, null
+  %52 = and i1 %50, %51
+  br i1 %52, label %.lr.ph45, label %._crit_edge46, !llvm.loop !12
 
 ._crit_edge46:                                    ; preds = %.lr.ph45, %.lr.ph52
   %.1.lcssa = phi ptr [ %.03149, %.lr.ph52 ], [ %.043, %.lr.ph45 ]
   %.0.lcssa = phi ptr [ %.041, %.lr.ph52 ], [ %.0, %.lr.ph45 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 8
-  store volatile ptr null, ptr %51, align 8
-  %52 = load ptr, ptr %12, align 8
-  %53 = urem i32 %.03050, %2
-  %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %class.LockFreeStack, ptr %52, i64 %54
-  %56 = load volatile ptr, ptr %55, align 8
-  br label %57
+  %53 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 8
+  store volatile ptr null, ptr %53, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = urem i32 %.03050, %2
+  %56 = zext i32 %55 to i64
+  %57 = getelementptr inbounds nuw %class.LockFreeStack, ptr %54, i64 %56
+  %58 = load volatile ptr, ptr %57, align 8
+  br label %59
 
-57:                                               ; preds = %57, %._crit_edge46
-  %.0.i.i = phi ptr [ %56, %._crit_edge46 ], [ %58, %57 ]
-  store volatile ptr %.0.i.i, ptr %51, align 8
-  %58 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(24) %.03149, ptr %.0.i.i, ptr nonnull align 8 dereferenceable(8) %55) #19, !srcloc !13
-  %.not.i.i = icmp eq ptr %.0.i.i, %58
-  br i1 %.not.i.i, label %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit, label %57, !llvm.loop !14
+59:                                               ; preds = %59, %._crit_edge46
+  %.0.i.i = phi ptr [ %58, %._crit_edge46 ], [ %60, %59 ]
+  store volatile ptr %.0.i.i, ptr %53, align 8
+  %60 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(24) %.03149, ptr %.0.i.i, ptr nonnull align 8 dereferenceable(8) %57) #19, !srcloc !13
+  %.not.i.i = icmp eq ptr %.0.i.i, %60
+  br i1 %.not.i.i, label %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit, label %59, !llvm.loop !14
 
-_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit: ; preds = %57
-  %59 = add i32 %.03050, 1
+_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit: ; preds = %59
+  %61 = add i32 %.03050, 1
   %.not = icmp eq ptr %.0.lcssa, null
   br i1 %.not, label %._crit_edge53, label %.lr.ph52, !llvm.loop !15
 
 ._crit_edge53:                                    ; preds = %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE7prependES1_S1_.exit, %._crit_edge
-  %60 = extractvalue { i64, i64 } %16, 0
-  %61 = extractvalue { i64, i64 } %16, 1
   %62 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #19
   %63 = extractvalue { i64, i64 } %62, 0
   %64 = extractvalue { i64, i64 } %62, 1
-  %65 = sub nsw i64 %63, %60
-  %66 = sub nsw i64 %64, %61
+  %65 = sub nsw i64 %63, %17
+  %66 = sub nsw i64 %64, %18
   %67 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 1064
   %69 = load ptr, ptr %68, align 8

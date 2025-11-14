@@ -1015,15 +1015,12 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %27, %29
 ._crit_edge:                                      ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit, %.._crit_edge_crit_edge
   %42 = phi i32 [ %.pre113, %.._crit_edge_crit_edge ], [ %14, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit ]
   %.044.lcssa = phi i64 [ %5, %.._crit_edge_crit_edge ], [ %41, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit ]
-  %43 = icmp slt i32 %1, %42
-  br i1 %43, label %.lr.ph103, label %._crit_edge104.thread
-
-._crit_edge104.thread:                            ; preds = %._crit_edge
-  %44 = xor i32 %1, -1
-  %45 = add i32 %42, %44
-  %46 = sext i32 %45 to i64
-  %47 = sub i64 %.044.lcssa, %46
-  br label %._crit_edge104._crit_edge
+  %43 = xor i32 %1, -1
+  %44 = add i32 %42, %43
+  %45 = sext i32 %44 to i64
+  %46 = sub i64 %.044.lcssa, %45
+  %47 = icmp slt i32 %1, %42
+  br i1 %47, label %.lr.ph103, label %._crit_edge104._crit_edge
 
 .lr.ph103:                                        ; preds = %._crit_edge
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1046,294 +1043,288 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %27, %29
   br i1 %exitcond112.not, label %._crit_edge104, label %51, !llvm.loop !16
 
 ._crit_edge104:                                   ; preds = %51
-  %58 = xor i32 %1, -1
-  %59 = add i32 %42, %58
-  %60 = sext i32 %59 to i64
-  %61 = sub i64 %.044.lcssa, %60
-  %62 = fcmp ogt float %57, 0.000000e+00
-  br i1 %62, label %64, label %._crit_edge104._crit_edge
+  %58 = fcmp ogt float %57, 0.000000e+00
+  br i1 %58, label %59, label %._crit_edge104._crit_edge
 
-._crit_edge104._crit_edge:                        ; preds = %._crit_edge104.thread, %._crit_edge104
-  %63 = phi i64 [ %47, %._crit_edge104.thread ], [ %61, %._crit_edge104 ]
+._crit_edge104._crit_edge:                        ; preds = %._crit_edge, %._crit_edge104
   %.phi.trans.insert114 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre115 = load i64, ptr %.phi.trans.insert114, align 8
-  br label %81
+  br label %76
 
-64:                                               ; preds = %._crit_edge104
-  %65 = getelementptr inbounds nuw i8, ptr %8, i64 8
+59:                                               ; preds = %._crit_edge104
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %61 = load ptr, ptr %60, align 8
+  %62 = sext i32 %1 to i64
+  %63 = getelementptr inbounds ptr, ptr %61, i64 %62
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = sext i32 %1 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %71 = load ptr, ptr %70, align 8
-  %72 = load float, ptr %71, align 4
-  %73 = fdiv float %72, %57
-  %74 = uitofp i64 %61 to float
-  %75 = fmul float %73, %74
-  %76 = fptoui float %75 to i64
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %78 = load i64, ptr %77, align 8
-  %79 = mul i64 %78, %76
-  %80 = tail call i64 @llvm.umax.i64(i64 %79, i64 %78)
-  br label %81
+  %67 = load float, ptr %66, align 4
+  %68 = fdiv float %67, %57
+  %69 = uitofp i64 %46 to float
+  %70 = fmul float %68, %69
+  %71 = fptoui float %70 to i64
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %73 = load i64, ptr %72, align 8
+  %74 = mul i64 %73, %71
+  %75 = tail call i64 @llvm.umax.i64(i64 %74, i64 %73)
+  br label %76
 
-81:                                               ; preds = %._crit_edge104._crit_edge, %64
-  %82 = phi i64 [ %61, %64 ], [ %63, %._crit_edge104._crit_edge ]
-  %83 = phi i64 [ %78, %64 ], [ %.pre115, %._crit_edge104._crit_edge ]
-  %.040 = phi i64 [ %80, %64 ], [ %.pre115, %._crit_edge104._crit_edge ]
+76:                                               ; preds = %._crit_edge104._crit_edge, %59
+  %77 = phi i64 [ %73, %59 ], [ %.pre115, %._crit_edge104._crit_edge ]
+  %.040 = phi i64 [ %75, %59 ], [ %.pre115, %._crit_edge104._crit_edge ]
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %232, label %84
+  br i1 %.not, label %226, label %78
 
-84:                                               ; preds = %81
-  %85 = sub i64 0, %83
-  %86 = and i64 %2, %85
-  %87 = icmp eq i32 %1, 0
-  br i1 %87, label %88, label %90
+78:                                               ; preds = %76
+  %79 = sub i64 0, %77
+  %80 = and i64 %2, %79
+  %81 = icmp eq i32 %1, 0
+  br i1 %81, label %82, label %84
 
-88:                                               ; preds = %84
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %100
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %94
 
-90:                                               ; preds = %84
-  %91 = getelementptr inbounds nuw i8, ptr %8, i64 8
+84:                                               ; preds = %78
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = sext i32 %1 to i64
+  %88 = getelementptr ptr, ptr %86, i64 %87
+  %89 = getelementptr i8, ptr %88, i64 -8
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8
-  %93 = sext i32 %1 to i64
-  %94 = getelementptr ptr, ptr %92, i64 %93
-  %95 = getelementptr i8, ptr %94, i64 -8
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 48
-  br label %100
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
+  br label %94
 
-100:                                              ; preds = %90, %88
-  %.0.in.i53 = phi ptr [ %89, %88 ], [ %99, %90 ]
+94:                                               ; preds = %84, %82
+  %.0.in.i53 = phi ptr [ %83, %82 ], [ %93, %84 ]
   %.0.i54 = load ptr, ptr %.0.in.i53, align 8
-  %101 = add nsw i32 %42, -1
-  %102 = icmp eq i32 %1, %101
-  br i1 %102, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit61, label %103
+  %95 = add nsw i32 %42, -1
+  %96 = icmp eq i32 %1, %95
+  br i1 %96, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit61, label %97
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = sext i32 %1 to i64
-  %107 = getelementptr inbounds ptr, ptr %105, i64 %106
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %110 = load ptr, ptr %109, align 8
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %99 = load ptr, ptr %98, align 8
+  %100 = sext i32 %1 to i64
+  %101 = getelementptr inbounds ptr, ptr %99, i64 %100
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %104 = load ptr, ptr %103, align 8
   br label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit61
 
-_ZN16MutableNUMASpace18current_chunk_sizeEi.exit61: ; preds = %100, %103
-  %.pn.i55 = phi ptr [ %110, %103 ], [ %0, %100 ]
+_ZN16MutableNUMASpace18current_chunk_sizeEi.exit61: ; preds = %94, %97
+  %.pn.i55 = phi ptr [ %104, %97 ], [ %0, %94 ]
   %.09.in.i56 = getelementptr inbounds nuw i8, ptr %.pn.i55, i64 48
   %.09.i57 = load ptr, ptr %.09.in.i56, align 8
-  %111 = icmp ugt ptr %.09.i57, %.0.i54
-  %112 = ptrtoint ptr %.09.i57 to i64
-  %113 = ptrtoint ptr %.0.i54 to i64
-  %114 = sub i64 %112, %113
-  %.010.i58 = select i1 %111, i64 %114, i64 0
-  %115 = icmp ugt i64 %.040, %.010.i58
-  br i1 %115, label %116, label %176
+  %105 = icmp ugt ptr %.09.i57, %.0.i54
+  %106 = ptrtoint ptr %.09.i57 to i64
+  %107 = ptrtoint ptr %.0.i54 to i64
+  %108 = sub i64 %106, %107
+  %.010.i58 = select i1 %105, i64 %108, i64 0
+  %109 = icmp ugt i64 %.040, %.010.i58
+  br i1 %109, label %110, label %170
 
-116:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit61
-  %117 = mul i64 %83, %82
-  %118 = icmp ugt i64 %117, %86
-  br i1 %118, label %119, label %174
+110:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit61
+  %111 = mul i64 %77, %46
+  %112 = icmp ugt i64 %111, %80
+  br i1 %112, label %113, label %168
 
-119:                                              ; preds = %116
-  br i1 %87, label %120, label %122
+113:                                              ; preds = %110
+  br i1 %81, label %114, label %116
 
-120:                                              ; preds = %119
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %132
+114:                                              ; preds = %113
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %126
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw i8, ptr %8, i64 8
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %118 = load ptr, ptr %117, align 8
+  %119 = sext i32 %1 to i64
+  %120 = getelementptr ptr, ptr %118, i64 %119
+  %121 = getelementptr i8, ptr %120, i64 -8
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
-  %125 = sext i32 %1 to i64
-  %126 = getelementptr ptr, ptr %124, i64 %125
-  %127 = getelementptr i8, ptr %126, i64 -8
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 48
-  br label %132
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 48
+  br label %126
 
-132:                                              ; preds = %122, %120
-  %.0.in.i62 = phi ptr [ %121, %120 ], [ %131, %122 ]
+126:                                              ; preds = %116, %114
+  %.0.in.i62 = phi ptr [ %115, %114 ], [ %125, %116 ]
   %.0.i63 = load ptr, ptr %.0.in.i62, align 8
-  br i1 %102, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit70, label %133
+  br i1 %96, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit70, label %127
 
-133:                                              ; preds = %132
-  %134 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %135 = load ptr, ptr %134, align 8
-  %136 = sext i32 %1 to i64
-  %137 = getelementptr inbounds ptr, ptr %135, i64 %136
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %140 = load ptr, ptr %139, align 8
+127:                                              ; preds = %126
+  %128 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = sext i32 %1 to i64
+  %131 = getelementptr inbounds ptr, ptr %129, i64 %130
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  %134 = load ptr, ptr %133, align 8
   br label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit70
 
-_ZN16MutableNUMASpace18current_chunk_sizeEi.exit70: ; preds = %132, %133
-  %.pn.i64 = phi ptr [ %140, %133 ], [ %0, %132 ]
+_ZN16MutableNUMASpace18current_chunk_sizeEi.exit70: ; preds = %126, %127
+  %.pn.i64 = phi ptr [ %134, %127 ], [ %0, %126 ]
   %.09.in.i65 = getelementptr inbounds nuw i8, ptr %.pn.i64, i64 48
   %.09.i66 = load ptr, ptr %.09.in.i65, align 8
-  %141 = icmp ugt ptr %.09.i66, %.0.i63
-  %142 = ptrtoint ptr %.09.i66 to i64
-  %143 = ptrtoint ptr %.0.i63 to i64
-  %144 = sub i64 %142, %143
-  %.010.i67 = select i1 %141, i64 %144, i64 0
-  %145 = sub nuw i64 %117, %86
-  %146 = icmp ult i64 %.010.i67, %145
-  br i1 %146, label %147, label %174
+  %135 = icmp ugt ptr %.09.i66, %.0.i63
+  %136 = ptrtoint ptr %.09.i66 to i64
+  %137 = ptrtoint ptr %.0.i63 to i64
+  %138 = sub i64 %136, %137
+  %.010.i67 = select i1 %135, i64 %138, i64 0
+  %139 = sub nuw i64 %111, %80
+  %140 = icmp ult i64 %.010.i67, %139
+  br i1 %140, label %141, label %168
 
-147:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit70
-  br i1 %87, label %148, label %150
+141:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit70
+  br i1 %81, label %142, label %144
 
-148:                                              ; preds = %147
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %160
+142:                                              ; preds = %141
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %154
 
-150:                                              ; preds = %147
-  %151 = getelementptr inbounds nuw i8, ptr %8, i64 8
+144:                                              ; preds = %141
+  %145 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %146 = load ptr, ptr %145, align 8
+  %147 = sext i32 %1 to i64
+  %148 = getelementptr ptr, ptr %146, i64 %147
+  %149 = getelementptr i8, ptr %148, i64 -8
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load ptr, ptr %151, align 8
-  %153 = sext i32 %1 to i64
-  %154 = getelementptr ptr, ptr %152, i64 %153
-  %155 = getelementptr i8, ptr %154, i64 -8
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 48
-  br label %160
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 48
+  br label %154
 
-160:                                              ; preds = %150, %148
-  %.0.in.i71 = phi ptr [ %149, %148 ], [ %159, %150 ]
+154:                                              ; preds = %144, %142
+  %.0.in.i71 = phi ptr [ %143, %142 ], [ %153, %144 ]
   %.0.i72 = load ptr, ptr %.0.in.i71, align 8
-  br i1 %102, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit79, label %161
+  br i1 %96, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit79, label %155
 
-161:                                              ; preds = %160
-  %162 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %163 = load ptr, ptr %162, align 8
-  %164 = sext i32 %1 to i64
-  %165 = getelementptr inbounds ptr, ptr %163, i64 %164
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %168 = load ptr, ptr %167, align 8
+155:                                              ; preds = %154
+  %156 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %157 = load ptr, ptr %156, align 8
+  %158 = sext i32 %1 to i64
+  %159 = getelementptr inbounds ptr, ptr %157, i64 %158
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  %162 = load ptr, ptr %161, align 8
   br label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit79
 
-_ZN16MutableNUMASpace18current_chunk_sizeEi.exit79: ; preds = %160, %161
-  %.pn.i73 = phi ptr [ %168, %161 ], [ %0, %160 ]
+_ZN16MutableNUMASpace18current_chunk_sizeEi.exit79: ; preds = %154, %155
+  %.pn.i73 = phi ptr [ %162, %155 ], [ %0, %154 ]
   %.09.in.i74 = getelementptr inbounds nuw i8, ptr %.pn.i73, i64 48
   %.09.i75 = load ptr, ptr %.09.in.i74, align 8
-  %169 = icmp ugt ptr %.09.i75, %.0.i72
-  %170 = ptrtoint ptr %.09.i75 to i64
-  %171 = ptrtoint ptr %.0.i72 to i64
-  %172 = sub i64 %170, %171
-  %.010.i76 = select i1 %169, i64 %172, i64 0
-  %173 = add i64 %.010.i76, %86
-  br label %174
+  %163 = icmp ugt ptr %.09.i75, %.0.i72
+  %164 = ptrtoint ptr %.09.i75 to i64
+  %165 = ptrtoint ptr %.0.i72 to i64
+  %166 = sub i64 %164, %165
+  %.010.i76 = select i1 %163, i64 %166, i64 0
+  %167 = add i64 %.010.i76, %80
+  br label %168
 
-174:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit79, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit70, %116
-  %.039 = phi i64 [ %173, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit79 ], [ %117, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit70 ], [ %117, %116 ]
-  %175 = tail call noundef i64 @llvm.umin.i64(i64 %.040, i64 %.039)
-  br label %232
+168:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit79, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit70, %110
+  %.039 = phi i64 [ %167, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit79 ], [ %111, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit70 ], [ %111, %110 ]
+  %169 = tail call noundef i64 @llvm.umin.i64(i64 %.040, i64 %.039)
+  br label %226
 
-176:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit61
-  br i1 %87, label %177, label %179
+170:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit61
+  br i1 %81, label %171, label %173
 
-177:                                              ; preds = %176
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %189
+171:                                              ; preds = %170
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %183
 
-179:                                              ; preds = %176
-  %180 = getelementptr inbounds nuw i8, ptr %8, i64 8
+173:                                              ; preds = %170
+  %174 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %175 = load ptr, ptr %174, align 8
+  %176 = sext i32 %1 to i64
+  %177 = getelementptr ptr, ptr %175, i64 %176
+  %178 = getelementptr i8, ptr %177, i64 -8
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8
-  %182 = sext i32 %1 to i64
-  %183 = getelementptr ptr, ptr %181, i64 %182
-  %184 = getelementptr i8, ptr %183, i64 -8
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 48
-  br label %189
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 48
+  br label %183
 
-189:                                              ; preds = %179, %177
-  %.0.in.i80 = phi ptr [ %178, %177 ], [ %188, %179 ]
+183:                                              ; preds = %173, %171
+  %.0.in.i80 = phi ptr [ %172, %171 ], [ %182, %173 ]
   %.0.i81 = load ptr, ptr %.0.in.i80, align 8
-  br i1 %102, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88, label %190
+  br i1 %96, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88, label %184
 
-190:                                              ; preds = %189
-  %191 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %192 = load ptr, ptr %191, align 8
-  %193 = sext i32 %1 to i64
-  %194 = getelementptr inbounds ptr, ptr %192, i64 %193
-  %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  %197 = load ptr, ptr %196, align 8
+184:                                              ; preds = %183
+  %185 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %186 = load ptr, ptr %185, align 8
+  %187 = sext i32 %1 to i64
+  %188 = getelementptr inbounds ptr, ptr %186, i64 %187
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  %191 = load ptr, ptr %190, align 8
   br label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88
 
-_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88: ; preds = %189, %190
-  %.pn.i82 = phi ptr [ %197, %190 ], [ %0, %189 ]
+_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88: ; preds = %183, %184
+  %.pn.i82 = phi ptr [ %191, %184 ], [ %0, %183 ]
   %.09.in.i83 = getelementptr inbounds nuw i8, ptr %.pn.i82, i64 48
   %.09.i84 = load ptr, ptr %.09.in.i83, align 8
-  %198 = icmp ugt ptr %.09.i84, %.0.i81
-  %199 = ptrtoint ptr %.09.i84 to i64
-  %200 = ptrtoint ptr %.0.i81 to i64
-  %201 = sub i64 %199, %200
-  %202 = icmp ugt i64 %201, %86
-  %203 = select i1 %198, i1 %202, i1 false
-  br i1 %203, label %204, label %232
+  %192 = icmp ugt ptr %.09.i84, %.0.i81
+  %193 = ptrtoint ptr %.09.i84 to i64
+  %194 = ptrtoint ptr %.0.i81 to i64
+  %195 = sub i64 %193, %194
+  %196 = icmp ugt i64 %195, %80
+  %197 = select i1 %192, i1 %196, i1 false
+  br i1 %197, label %198, label %226
 
-204:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88
-  br i1 %87, label %205, label %207
+198:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88
+  br i1 %81, label %199, label %201
 
-205:                                              ; preds = %204
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %217
+199:                                              ; preds = %198
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %211
 
-207:                                              ; preds = %204
-  %208 = getelementptr inbounds nuw i8, ptr %8, i64 8
+201:                                              ; preds = %198
+  %202 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %203 = load ptr, ptr %202, align 8
+  %204 = sext i32 %1 to i64
+  %205 = getelementptr ptr, ptr %203, i64 %204
+  %206 = getelementptr i8, ptr %205, i64 -8
+  %207 = load ptr, ptr %206, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %209 = load ptr, ptr %208, align 8
-  %210 = sext i32 %1 to i64
-  %211 = getelementptr ptr, ptr %209, i64 %210
-  %212 = getelementptr i8, ptr %211, i64 -8
-  %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 48
-  br label %217
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 48
+  br label %211
 
-217:                                              ; preds = %207, %205
-  %.0.in.i89 = phi ptr [ %206, %205 ], [ %216, %207 ]
+211:                                              ; preds = %201, %199
+  %.0.in.i89 = phi ptr [ %200, %199 ], [ %210, %201 ]
   %.0.i90 = load ptr, ptr %.0.in.i89, align 8
-  br i1 %102, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit97, label %218
+  br i1 %96, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit97, label %212
 
-218:                                              ; preds = %217
-  %219 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %220 = load ptr, ptr %219, align 8
-  %221 = sext i32 %1 to i64
-  %222 = getelementptr inbounds ptr, ptr %220, i64 %221
-  %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  %225 = load ptr, ptr %224, align 8
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %214 = load ptr, ptr %213, align 8
+  %215 = sext i32 %1 to i64
+  %216 = getelementptr inbounds ptr, ptr %214, i64 %215
+  %217 = load ptr, ptr %216, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
+  %219 = load ptr, ptr %218, align 8
   br label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit97
 
-_ZN16MutableNUMASpace18current_chunk_sizeEi.exit97: ; preds = %217, %218
-  %.pn.i91 = phi ptr [ %225, %218 ], [ %0, %217 ]
+_ZN16MutableNUMASpace18current_chunk_sizeEi.exit97: ; preds = %211, %212
+  %.pn.i91 = phi ptr [ %219, %212 ], [ %0, %211 ]
   %.09.in.i92 = getelementptr inbounds nuw i8, ptr %.pn.i91, i64 48
   %.09.i93 = load ptr, ptr %.09.in.i92, align 8
-  %226 = icmp ugt ptr %.09.i93, %.0.i90
-  %227 = ptrtoint ptr %.09.i93 to i64
-  %228 = ptrtoint ptr %.0.i90 to i64
-  %229 = sub i64 %227, %228
-  %.010.i94 = select i1 %226, i64 %229, i64 0
-  %230 = sub i64 %.010.i94, %86
-  %231 = tail call i64 @llvm.umax.i64(i64 %.040, i64 %230)
-  br label %232
+  %220 = icmp ugt ptr %.09.i93, %.0.i90
+  %221 = ptrtoint ptr %.09.i93 to i64
+  %222 = ptrtoint ptr %.0.i90 to i64
+  %223 = sub i64 %221, %222
+  %.010.i94 = select i1 %220, i64 %223, i64 0
+  %224 = sub i64 %.010.i94, %80
+  %225 = tail call i64 @llvm.umax.i64(i64 %.040, i64 %224)
+  br label %226
 
-232:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit97, %174, %81
-  %.1 = phi i64 [ %175, %174 ], [ %.040, %81 ], [ %231, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit97 ], [ %.040, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88 ]
+226:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit97, %168, %76
+  %.1 = phi i64 [ %169, %168 ], [ %.040, %76 ], [ %225, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit97 ], [ %.040, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88 ]
   ret i64 %.1
 }
 

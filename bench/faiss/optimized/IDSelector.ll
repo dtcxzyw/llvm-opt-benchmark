@@ -494,22 +494,22 @@ define void @_ZN5faiss15IDSelectorBatchC2EmPKl(ptr noundef nonnull align 8 deref
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %11, align 8, !tbaa !59
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
-  br label %13
+  br label %14
 
-13:                                               ; preds = %13, %3
-  %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %3 ]
-  %14 = shl nuw i64 1, %indvars.iv
-  %15 = icmp ugt i64 %1, %14
+14:                                               ; preds = %14, %3
+  %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %3 ]
+  %15 = shl nuw i64 1, %indvars.iv
+  %16 = icmp ugt i64 %1, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %15, label %13, label %16, !llvm.loop !60
+  br i1 %16, label %14, label %17, !llvm.loop !60
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = trunc nuw nsw i64 %indvars.iv to i32
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %20 = add nuw nsw i32 %18, 5
-  store i32 %20, ptr %19, align 8, !tbaa !61
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
+  %20 = add nuw nsw i32 %19, 5
+  store i32 %20, ptr %18, align 8, !tbaa !61
   %21 = zext nneg i32 %20 to i64
   %notmask = shl nsw i64 -1, %21
   %22 = xor i64 %notmask, -1
@@ -520,10 +520,10 @@ define void @_ZN5faiss15IDSelectorBatchC2EmPKl(ptr noundef nonnull align 8 deref
   %24 = add nuw i64 %indvars.iv, 2
   %25 = and i64 %24, 4294967295
   %26 = shl nuw i64 1, %25
-  invoke void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr null, i64 noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  invoke void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr null, i64 noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit unwind label %27
 
-_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit:            ; preds = %16
+_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit:            ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -531,7 +531,7 @@ _ZNSt6vectorIhSaIhEE6resizeEmRKh.exit:            ; preds = %16
 ._crit_edge:                                      ; preds = %32, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit
   ret void
 
-27:                                               ; preds = %16
+27:                                               ; preds = %17
   %28 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -558,7 +558,7 @@ _ZNSt6vectorIhSaIhEE6resizeEmRKh.exit:            ; preds = %16
   %37 = and i8 %36, 7
   %38 = shl nuw i8 1, %37
   %39 = ashr i64 %35, 3
-  %40 = load ptr, ptr %17, align 8, !tbaa !34
+  %40 = load ptr, ptr %13, align 8, !tbaa !34
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %39
   %42 = load i8, ptr %41, align 1, !tbaa !35
   %43 = or i8 %38, %42
@@ -576,7 +576,7 @@ _ZNSt6vectorIhSaIhEE6resizeEmRKh.exit:            ; preds = %16
 
 47:                                               ; preds = %45, %27
   %.pn = phi { ptr, i32 } [ %46, %45 ], [ %28, %27 ]
-  %48 = load ptr, ptr %17, align 8, !tbaa !34
+  %48 = load ptr, ptr %13, align 8, !tbaa !34
   %.not.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %49
 

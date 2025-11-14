@@ -2813,26 +2813,26 @@ define dso_local void @_ZN4llvm13WinCOFFWriter17assignFileOffsetsERNS_11MCAssemb
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %36
 
-._crit_edge:                                      ; preds = %96, %2
-  %.0.lcssa = phi i32 [ %27, %2 ], [ %.1, %96 ]
+._crit_edge:                                      ; preds = %95, %2
+  %.0.lcssa = phi i32 [ %27, %2 ], [ %.1, %95 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.0.lcssa, ptr %35, align 4, !tbaa !319
   ret void
 
-36:                                               ; preds = %.lr.ph75, %96
-  %.074 = phi i32 [ %27, %.lr.ph75 ], [ %.1, %96 ]
-  %.sroa.065.073 = phi ptr [ %29, %.lr.ph75 ], [ %97, %96 ]
+36:                                               ; preds = %.lr.ph75, %95
+  %.074 = phi i32 [ %27, %.lr.ph75 ], [ %.1, %95 ]
+  %.sroa.065.073 = phi ptr [ %29, %.lr.ph75 ], [ %96, %95 ]
   %37 = load ptr, ptr %.sroa.065.073, align 8, !tbaa !234
   %38 = tail call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEPN12_GLOBAL__N_111COFFSectionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr %37)
   %39 = load ptr, ptr %38, align 8, !tbaa !127
   %.not = icmp eq ptr %39, null
-  br i1 %.not, label %96, label %40
+  br i1 %.not, label %95, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 72
   %42 = load i32, ptr %41, align 8, !tbaa !110
   %43 = icmp eq i32 %42, -1
-  br i1 %43, label %96, label %44
+  br i1 %43, label %95, label %44
 
 44:                                               ; preds = %40
   %45 = tail call noundef i64 @_ZNK4llvm11MCAssembler21getSectionAddressSizeERKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(364) %1, ptr noundef nonnull align 8 dereferenceable(148) %37) #25
@@ -2858,7 +2858,7 @@ define dso_local void @_ZN4llvm13WinCOFFWriter17assignFileOffsetsERNS_11MCAssemb
   %56 = getelementptr i8, ptr %39, i64 104
   %.val51 = load ptr, ptr %56, align 8, !tbaa !322
   %57 = icmp eq ptr %.val50, %.val51
-  br i1 %57, label %85, label %.lr.ph
+  br i1 %57, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54
   %58 = ptrtoint ptr %.val51 to i64
@@ -2872,73 +2872,70 @@ define dso_local void @_ZN4llvm13WinCOFFWriter17assignFileOffsetsERNS_11MCAssemb
   store i16 %spec.select81, ptr %64, align 8, !tbaa !323
   %65 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i32 %.2, ptr %65, align 8, !tbaa !324
-  %66 = load i16, ptr %23, align 8, !tbaa !102
-  %.not45 = icmp eq i16 %66, 358
+  %66 = add i32 %.2, 10
+  %spec.select = select i1 %62, i32 %66, i32 %.2
+  %67 = trunc i64 %61 to i32
+  %68 = mul i32 %67, 10
+  %69 = add i32 %68, %spec.select
+  %70 = load i16, ptr %23, align 8, !tbaa !102
+  %.not45 = icmp eq i16 %70, 358
   br i1 %.not45, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %74
-  %.sroa.063.071.us = phi ptr [ %75, %74 ], [ %.val50, %.lr.ph ]
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.063.071.us, i64 8
-  %68 = load i16, ptr %67, align 8, !tbaa !325
-  %.not46.us = icmp eq i16 %68, 37
-  br i1 %.not46.us, label %74, label %69
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %78
+  %.sroa.063.071.us = phi ptr [ %79, %78 ], [ %.val50, %.lr.ph ]
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.063.071.us, i64 8
+  %72 = load i16, ptr %71, align 8, !tbaa !325
+  %.not46.us = icmp eq i16 %72, 37
+  br i1 %.not46.us, label %78, label %73
 
-69:                                               ; preds = %.lr.ph.split.us
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.063.071.us, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !327
-  %72 = getelementptr i8, ptr %71, i64 56
-  %.val.us = load i32, ptr %72, align 8, !tbaa !208
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.063.071.us, i64 4
-  store i32 %.val.us, ptr %73, align 4, !tbaa !328
-  br label %74
+73:                                               ; preds = %.lr.ph.split.us
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.063.071.us, i64 16
+  %75 = load ptr, ptr %74, align 8, !tbaa !327
+  %76 = getelementptr i8, ptr %75, i64 56
+  %.val.us = load i32, ptr %76, align 8, !tbaa !208
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.063.071.us, i64 4
+  store i32 %.val.us, ptr %77, align 4, !tbaa !328
+  br label %78
 
-74:                                               ; preds = %69, %.lr.ph.split.us
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.063.071.us, i64 24
-  %.not69.us = icmp eq ptr %75, %.val51
+78:                                               ; preds = %73, %.lr.ph.split.us
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.063.071.us, i64 24
+  %.not69.us = icmp eq ptr %79, %.val51
   br i1 %.not69.us, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.sroa.063.071 = phi ptr [ %80, %.lr.ph.split ], [ %.val50, %.lr.ph ]
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.063.071, i64 16
-  %77 = load ptr, ptr %76, align 8, !tbaa !327
-  %78 = getelementptr i8, ptr %77, i64 56
-  %.val = load i32, ptr %78, align 8, !tbaa !208
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.063.071, i64 4
-  store i32 %.val, ptr %79, align 4, !tbaa !328
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.063.071, i64 24
-  %.not69 = icmp eq ptr %80, %.val51
+  %.sroa.063.071 = phi ptr [ %84, %.lr.ph.split ], [ %.val50, %.lr.ph ]
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.063.071, i64 16
+  %81 = load ptr, ptr %80, align 8, !tbaa !327
+  %82 = getelementptr i8, ptr %81, i64 56
+  %.val = load i32, ptr %82, align 8, !tbaa !208
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.063.071, i64 4
+  store i32 %.val, ptr %83, align 4, !tbaa !328
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.063.071, i64 24
+  %.not69 = icmp eq ptr %84, %.val51
   br i1 %.not69, label %.loopexit, label %.lr.ph.split
 
-.loopexit:                                        ; preds = %.lr.ph.split, %74
-  %81 = add i32 %.2, 10
-  %spec.select = select i1 %62, i32 %81, i32 %.2
-  %82 = trunc i64 %61 to i32
-  %83 = mul i32 %82, 10
-  %84 = add i32 %83, %spec.select
-  br label %85
+.loopexit:                                        ; preds = %.lr.ph.split, %78, %54
+  %.3 = phi i32 [ %.2, %54 ], [ %69, %78 ], [ %69, %.lr.ph.split ]
+  %85 = getelementptr inbounds nuw i8, ptr %39, i64 88
+  %86 = load ptr, ptr %85, align 8, !tbaa !137
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 64
+  %.val47 = load ptr, ptr %87, align 8, !tbaa !3
+  %88 = getelementptr inbounds nuw i8, ptr %.val47, i64 4
+  store i32 %46, ptr %88, align 4, !tbaa !17
+  %89 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %90 = load i16, ptr %89, align 8, !tbaa !323
+  %91 = getelementptr inbounds nuw i8, ptr %.val47, i64 8
+  store i16 %90, ptr %91, align 4, !tbaa !17
+  %92 = getelementptr inbounds nuw i8, ptr %39, i64 34
+  %93 = load i16, ptr %92, align 2, !tbaa !329
+  %94 = getelementptr inbounds nuw i8, ptr %.val47, i64 10
+  store i16 %93, ptr %94, align 2, !tbaa !17
+  br label %95
 
-85:                                               ; preds = %.loopexit, %54
-  %.3 = phi i32 [ %.2, %54 ], [ %84, %.loopexit ]
-  %86 = getelementptr inbounds nuw i8, ptr %39, i64 88
-  %87 = load ptr, ptr %86, align 8, !tbaa !137
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 64
-  %.val47 = load ptr, ptr %88, align 8, !tbaa !3
-  %89 = getelementptr inbounds nuw i8, ptr %.val47, i64 4
-  store i32 %46, ptr %89, align 4, !tbaa !17
-  %90 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %91 = load i16, ptr %90, align 8, !tbaa !323
-  %92 = getelementptr inbounds nuw i8, ptr %.val47, i64 8
-  store i16 %91, ptr %92, align 4, !tbaa !17
-  %93 = getelementptr inbounds nuw i8, ptr %39, i64 34
-  %94 = load i16, ptr %93, align 2, !tbaa !329
-  %95 = getelementptr inbounds nuw i8, ptr %.val47, i64 10
-  store i16 %94, ptr %95, align 2, !tbaa !17
-  br label %96
-
-96:                                               ; preds = %36, %40, %85
-  %.1 = phi i32 [ %.3, %85 ], [ %.074, %40 ], [ %.074, %36 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.065.073, i64 8
-  %.not68 = icmp eq ptr %97, %33
+95:                                               ; preds = %36, %40, %.loopexit
+  %.1 = phi i32 [ %.3, %.loopexit ], [ %.074, %40 ], [ %.074, %36 ]
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.065.073, i64 8
+  %.not68 = icmp eq ptr %96, %33
   br i1 %.not68, label %._crit_edge, label %36
 }
 

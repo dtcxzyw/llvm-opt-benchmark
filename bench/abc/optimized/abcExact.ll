@@ -7359,131 +7359,131 @@ Vec_IntSetEntry.exit558.i:                        ; preds = %._crit_edge.i.i555.
   br i1 %.not829.i, label %.preheader857.us.i, label %.preheader857.i
 
 .preheader857.us.i:                               ; preds = %.preheader857.lr.ph.i, %.split934.us.us.i
-  %748 = phi i32 [ %799, %.split934.us.us.i ], [ %743, %.preheader857.lr.ph.i ]
-  %.val460.us.us.us.i = phi i32 [ %799, %.split934.us.us.i ], [ %744, %.preheader857.lr.ph.i ]
+  %748 = phi i32 [ %794, %.split934.us.us.i ], [ %743, %.preheader857.lr.ph.i ]
+  %.val460.us.us.us.i = phi i32 [ %794, %.split934.us.us.i ], [ %744, %.preheader857.lr.ph.i ]
   %indvars.iv1056.i = phi i32 [ %indvars.iv.next1057.i, %.split934.us.us.i ], [ 0, %.preheader857.lr.ph.i ]
-  %.1413943.us.i = phi i32 [ %800, %.split934.us.us.i ], [ 1, %.preheader857.lr.ph.i ]
+  %.1413943.us.i = phi i32 [ %795, %.split934.us.us.i ], [ 1, %.preheader857.lr.ph.i ]
   %749 = icmp sgt i32 %.val460.us.us.us.i, %invariant.op.i49
-  br i1 %749, label %Ses_ManSelectVar.exit566.us.us946.i, label %Ses_ManSelectVar.exit566.us.us.us.preheader.i
-
-Ses_ManSelectVar.exit566.us.us.us.preheader.i:    ; preds = %.preheader857.us.i
-  %.val461.us.us.us.i = load i32, ptr %72, align 8, !tbaa !229
-  %750 = shl nsw i32 %.val460.us.us.us.i, 1
-  %.neg18.i560.us.us.le.us.i = xor i32 %indvars.iv1056.i, -1
-  %.neg.i561.us.us.le.us.i = add i32 %750, %.neg18.i560.us.us.le.us.i
-  %.neg17.i562.us.us.le.us.i = mul i32 %.neg.i561.us.us.le.us.i, %indvars.iv1056.i
-  %751 = sdiv i32 %.neg17.i562.us.us.le.us.i, 2
-  %752 = add i32 %.val461.us.us.us.i, %751
-  %753 = shl nsw i32 %752, 1
-  %754 = or disjoint i32 %753, 1
-  store i32 %754, ptr %4, align 4, !tbaa !7
-  br label %.split934.us.us.i
+  br i1 %749, label %Ses_ManSelectVar.exit566.us.us946.i, label %.preheader857.split.us.split.us.us.i
 
 Ses_ManSelectVar.exit566.us.us946.i:              ; preds = %.preheader857.us.i, %._crit_edge920.split.us.us.us.i
-  %755 = phi i32 [ %765, %._crit_edge920.split.us.us.us.i ], [ %748, %.preheader857.us.i ]
-  %756 = phi i32 [ %766, %._crit_edge920.split.us.us.us.i ], [ %.val460.us.us.us.i, %.preheader857.us.i ]
-  %.1418921.us.us947.i = phi i32 [ %767, %._crit_edge920.split.us.us.us.i ], [ 0, %.preheader857.us.i ]
+  %750 = phi i32 [ %760, %._crit_edge920.split.us.us.us.i ], [ %748, %.preheader857.us.i ]
+  %751 = phi i32 [ %761, %._crit_edge920.split.us.us.us.i ], [ %.val460.us.us.us.i, %.preheader857.us.i ]
+  %.1418921.us.us947.i = phi i32 [ %762, %._crit_edge920.split.us.us.us.i ], [ 0, %.preheader857.us.i ]
   %.val461.us.us949.i = load i32, ptr %72, align 8, !tbaa !229
   %.neg18.i560.us.us.i = xor i32 %.1418921.us.us947.i, -1
-  %757 = shl nsw i32 %756, 1
-  %.neg.i561.us.us.i = add i32 %757, %.neg18.i560.us.us.i
+  %752 = shl nsw i32 %751, 1
+  %.neg.i561.us.us.i = add i32 %752, %.neg18.i560.us.us.i
   %.neg17.i562.us.us.i = mul i32 %.neg.i561.us.us.i, %.1418921.us.us947.i
-  %758 = sdiv i32 %.neg17.i562.us.us.i, 2
-  %759 = add nsw i32 %.1413943.us.i, %.neg18.i560.us.us.i
-  %760 = add i32 %759, %.val461.us.us949.i
-  %761 = add i32 %760, %758
-  %762 = shl nsw i32 %761, 1
-  %763 = or disjoint i32 %762, 1
-  store i32 %763, ptr %4, align 4, !tbaa !7
-  %764 = icmp sgt i32 %756, %invariant.op.i49
-  br i1 %764, label %.preheader856.us.us.us.i, label %._crit_edge920.split.us.us.us.i
+  %753 = sdiv i32 %.neg17.i562.us.us.i, 2
+  %754 = add nsw i32 %.1413943.us.i, %.neg18.i560.us.us.i
+  %755 = add i32 %754, %.val461.us.us949.i
+  %756 = add i32 %755, %753
+  %757 = shl nsw i32 %756, 1
+  %758 = or disjoint i32 %757, 1
+  store i32 %758, ptr %4, align 4, !tbaa !7
+  %759 = icmp sgt i32 %751, %invariant.op.i49
+  br i1 %759, label %.preheader856.us.us.us.i, label %._crit_edge920.split.us.us.us.i
 
 ._crit_edge920.split.us.us.us.i:                  ; preds = %.split.us.us.us.us.i, %Ses_ManSelectVar.exit566.us.us946.i
-  %765 = phi i32 [ %755, %Ses_ManSelectVar.exit566.us.us946.i ], [ %784, %.split.us.us.us.us.i ]
-  %766 = phi i32 [ %756, %Ses_ManSelectVar.exit566.us.us946.i ], [ %784, %.split.us.us.us.us.i ]
-  %767 = add nuw nsw i32 %.1418921.us.us947.i, 1
-  %exitcond1060.not.i = icmp eq i32 %767, %.1413943.us.i
+  %760 = phi i32 [ %750, %Ses_ManSelectVar.exit566.us.us946.i ], [ %779, %.split.us.us.us.us.i ]
+  %761 = phi i32 [ %751, %Ses_ManSelectVar.exit566.us.us946.i ], [ %779, %.split.us.us.us.us.i ]
+  %762 = add nuw nsw i32 %.1418921.us.us947.i, 1
+  %exitcond1060.not.i = icmp eq i32 %762, %.1413943.us.i
   br i1 %exitcond1060.not.i, label %.split934.us.us.i, label %Ses_ManSelectVar.exit566.us.us946.i, !llvm.loop !266
 
 .preheader856.us.us.us.i:                         ; preds = %Ses_ManSelectVar.exit566.us.us946.i, %.split.us.us.us.us.i
-  %.0403919.us.us.us.i = phi i32 [ %783, %.split.us.us.us.us.i ], [ 1, %Ses_ManSelectVar.exit566.us.us946.i ]
-  %768 = icmp eq i32 %.1413943.us.i, %.0403919.us.us.us.i
-  br i1 %768, label %.preheader856.split.us.us.split.us932.us.i, label %Ses_ManSelectVar.exit574.us.us.us.us.us.i
+  %.0403919.us.us.us.i = phi i32 [ %778, %.split.us.us.us.us.i ], [ 1, %Ses_ManSelectVar.exit566.us.us946.i ]
+  %763 = icmp eq i32 %.1413943.us.i, %.0403919.us.us.us.i
+  br i1 %763, label %.preheader856.split.us.us.split.us932.us.i, label %Ses_ManSelectVar.exit574.us.us.us.us.us.i
 
-.preheader856.split.us.us.split.us932.us.i:       ; preds = %.preheader856.us.us.us.i, %781
-  %.2406918.us.us.us923.us.i = phi i32 [ %782, %781 ], [ 0, %.preheader856.us.us.us.i ]
-  %769 = icmp eq i32 %.1418921.us.us947.i, %.2406918.us.us.us923.us.i
-  br i1 %769, label %781, label %Ses_ManSelectVar.exit574.us.us.us924.us.i
+.preheader856.split.us.us.split.us932.us.i:       ; preds = %.preheader856.us.us.us.i, %776
+  %.2406918.us.us.us923.us.i = phi i32 [ %777, %776 ], [ 0, %.preheader856.us.us.us.i ]
+  %764 = icmp eq i32 %.1418921.us.us947.i, %.2406918.us.us.us923.us.i
+  br i1 %764, label %776, label %Ses_ManSelectVar.exit574.us.us.us924.us.i
 
 Ses_ManSelectVar.exit574.us.us.us924.us.i:        ; preds = %.preheader856.split.us.us.split.us932.us.i
   %.val462.us.us.us925.us.i = load i32, ptr %44, align 4, !tbaa !96
   %.val463.us.us.us926.us.i = load i32, ptr %72, align 8, !tbaa !229
   %.neg18.i568.us.us.us927.us.i = xor i32 %.2406918.us.us.us923.us.i, -1
-  %770 = shl nsw i32 %.val462.us.us.us925.us.i, 1
-  %.neg.i569.us.us.us928.us.i = add i32 %770, %.neg18.i568.us.us.us927.us.i
+  %765 = shl nsw i32 %.val462.us.us.us925.us.i, 1
+  %.neg.i569.us.us.us928.us.i = add i32 %765, %.neg18.i568.us.us.us927.us.i
   %.neg17.i570.us.us.us929.us.i = mul i32 %.neg.i569.us.us.us928.us.i, %.2406918.us.us.us923.us.i
-  %771 = sdiv i32 %.neg17.i570.us.us.us929.us.i, 2
-  %772 = add nsw i32 %.1413943.us.i, %.neg18.i568.us.us.us927.us.i
-  %773 = add i32 %772, %.val463.us.us.us926.us.i
-  %774 = add i32 %773, %771
-  %775 = shl nsw i32 %774, 1
-  %776 = or disjoint i32 %775, 1
-  store i32 %776, ptr %708, align 4, !tbaa !7
-  %777 = load i32, ptr %4, align 4, !tbaa !7
-  %.not830.us.us.us930.us.i = icmp sgt i32 %777, %775
-  br i1 %.not830.us.us.us930.us.i, label %781, label %778
+  %766 = sdiv i32 %.neg17.i570.us.us.us929.us.i, 2
+  %767 = add nsw i32 %.1413943.us.i, %.neg18.i568.us.us.us927.us.i
+  %768 = add i32 %767, %.val463.us.us.us926.us.i
+  %769 = add i32 %768, %766
+  %770 = shl nsw i32 %769, 1
+  %771 = or disjoint i32 %770, 1
+  store i32 %771, ptr %708, align 4, !tbaa !7
+  %772 = load i32, ptr %4, align 4, !tbaa !7
+  %.not830.us.us.us930.us.i = icmp sgt i32 %772, %770
+  br i1 %.not830.us.us.us930.us.i, label %776, label %773
 
-778:                                              ; preds = %Ses_ManSelectVar.exit574.us.us.us924.us.i
-  %779 = load ptr, ptr %0, align 8, !tbaa !91
-  %780 = call i32 @sat_solver_addclause(ptr noundef %779, ptr noundef nonnull %4, ptr noundef nonnull %709) #29
-  br label %781
+773:                                              ; preds = %Ses_ManSelectVar.exit574.us.us.us924.us.i
+  %774 = load ptr, ptr %0, align 8, !tbaa !91
+  %775 = call i32 @sat_solver_addclause(ptr noundef %774, ptr noundef nonnull %4, ptr noundef nonnull %709) #29
+  br label %776
 
-781:                                              ; preds = %778, %Ses_ManSelectVar.exit574.us.us.us924.us.i, %.preheader856.split.us.us.split.us932.us.i
-  %782 = add nuw nsw i32 %.2406918.us.us.us923.us.i, 1
-  %exitcond1059.not.i = icmp eq i32 %782, %.1413943.us.i
+776:                                              ; preds = %773, %Ses_ManSelectVar.exit574.us.us.us924.us.i, %.preheader856.split.us.us.split.us932.us.i
+  %777 = add nuw nsw i32 %.2406918.us.us.us923.us.i, 1
+  %exitcond1059.not.i = icmp eq i32 %777, %.1413943.us.i
   br i1 %exitcond1059.not.i, label %.split.us.us.us.us.i, label %.preheader856.split.us.us.split.us932.us.i, !llvm.loop !267
 
-.split.us.us.us.us.i:                             ; preds = %797, %781
-  %783 = add nuw nsw i32 %.0403919.us.us.us.i, 1
-  %784 = load i32, ptr %44, align 4, !tbaa !96
-  %785 = icmp slt i32 %783, %784
-  br i1 %785, label %.preheader856.us.us.us.i, label %._crit_edge920.split.us.us.us.i, !llvm.loop !268
+.split.us.us.us.us.i:                             ; preds = %792, %776
+  %778 = add nuw nsw i32 %.0403919.us.us.us.i, 1
+  %779 = load i32, ptr %44, align 4, !tbaa !96
+  %780 = icmp slt i32 %778, %779
+  br i1 %780, label %.preheader856.us.us.us.i, label %._crit_edge920.split.us.us.us.i, !llvm.loop !268
 
-Ses_ManSelectVar.exit574.us.us.us.us.us.i:        ; preds = %.preheader856.us.us.us.i, %797
-  %.2406918.us.us.us.us.us.i = phi i32 [ %798, %797 ], [ 0, %.preheader856.us.us.us.i ]
+Ses_ManSelectVar.exit574.us.us.us.us.us.i:        ; preds = %.preheader856.us.us.us.i, %792
+  %.2406918.us.us.us.us.us.i = phi i32 [ %793, %792 ], [ 0, %.preheader856.us.us.us.i ]
   %.val462.us.us.us.us.us.i = load i32, ptr %44, align 4, !tbaa !96
   %.val463.us.us.us.us.us.i = load i32, ptr %72, align 8, !tbaa !229
   %.neg18.i568.us.us.us.us.us.i = xor i32 %.2406918.us.us.us.us.us.i, -1
-  %786 = shl nsw i32 %.val462.us.us.us.us.us.i, 1
-  %.neg.i569.us.us.us.us.us.i = add i32 %786, %.neg18.i568.us.us.us.us.us.i
+  %781 = shl nsw i32 %.val462.us.us.us.us.us.i, 1
+  %.neg.i569.us.us.us.us.us.i = add i32 %781, %.neg18.i568.us.us.us.us.us.i
   %.neg17.i570.us.us.us.us.us.i = mul i32 %.neg.i569.us.us.us.us.us.i, %.2406918.us.us.us.us.us.i
-  %787 = sdiv i32 %.neg17.i570.us.us.us.us.us.i, 2
-  %788 = add nsw i32 %.0403919.us.us.us.i, %.neg18.i568.us.us.us.us.us.i
-  %789 = add i32 %788, %.val463.us.us.us.us.us.i
-  %790 = add i32 %789, %787
-  %791 = shl nsw i32 %790, 1
-  %792 = or disjoint i32 %791, 1
-  store i32 %792, ptr %708, align 4, !tbaa !7
-  %793 = load i32, ptr %4, align 4, !tbaa !7
-  %.not830.us.us.us.us.us.i = icmp sgt i32 %793, %791
-  br i1 %.not830.us.us.us.us.us.i, label %797, label %794
+  %782 = sdiv i32 %.neg17.i570.us.us.us.us.us.i, 2
+  %783 = add nsw i32 %.0403919.us.us.us.i, %.neg18.i568.us.us.us.us.us.i
+  %784 = add i32 %783, %.val463.us.us.us.us.us.i
+  %785 = add i32 %784, %782
+  %786 = shl nsw i32 %785, 1
+  %787 = or disjoint i32 %786, 1
+  store i32 %787, ptr %708, align 4, !tbaa !7
+  %788 = load i32, ptr %4, align 4, !tbaa !7
+  %.not830.us.us.us.us.us.i = icmp sgt i32 %788, %786
+  br i1 %.not830.us.us.us.us.us.i, label %792, label %789
 
-794:                                              ; preds = %Ses_ManSelectVar.exit574.us.us.us.us.us.i
-  %795 = load ptr, ptr %0, align 8, !tbaa !91
-  %796 = call i32 @sat_solver_addclause(ptr noundef %795, ptr noundef nonnull %4, ptr noundef nonnull %709) #29
-  br label %797
+789:                                              ; preds = %Ses_ManSelectVar.exit574.us.us.us.us.us.i
+  %790 = load ptr, ptr %0, align 8, !tbaa !91
+  %791 = call i32 @sat_solver_addclause(ptr noundef %790, ptr noundef nonnull %4, ptr noundef nonnull %709) #29
+  br label %792
 
-797:                                              ; preds = %794, %Ses_ManSelectVar.exit574.us.us.us.us.us.i
-  %798 = add nuw nsw i32 %.2406918.us.us.us.us.us.i, 1
-  %exitcond1058.not.i = icmp eq i32 %798, %.0403919.us.us.us.i
+792:                                              ; preds = %789, %Ses_ManSelectVar.exit574.us.us.us.us.us.i
+  %793 = add nuw nsw i32 %.2406918.us.us.us.us.us.i, 1
+  %exitcond1058.not.i = icmp eq i32 %793, %.0403919.us.us.us.i
   br i1 %exitcond1058.not.i, label %.split.us.us.us.us.i, label %Ses_ManSelectVar.exit574.us.us.us.us.us.i, !llvm.loop !267
 
-.split934.us.us.i:                                ; preds = %._crit_edge920.split.us.us.us.i, %Ses_ManSelectVar.exit566.us.us.us.preheader.i
-  %799 = phi i32 [ %748, %Ses_ManSelectVar.exit566.us.us.us.preheader.i ], [ %765, %._crit_edge920.split.us.us.us.i ]
-  %800 = add nuw nsw i32 %.1413943.us.i, 1
-  %801 = icmp slt i32 %800, %799
+.split934.us.us.i:                                ; preds = %._crit_edge920.split.us.us.us.i, %.preheader857.split.us.split.us.us.i
+  %794 = phi i32 [ %748, %.preheader857.split.us.split.us.us.i ], [ %760, %._crit_edge920.split.us.us.us.i ]
+  %795 = add nuw nsw i32 %.1413943.us.i, 1
+  %796 = icmp slt i32 %795, %794
   %indvars.iv.next1057.i = add nuw nsw i32 %indvars.iv1056.i, 1
-  br i1 %801, label %.preheader857.us.i, label %._crit_edge945.i, !llvm.loop !269
+  br i1 %796, label %.preheader857.us.i, label %._crit_edge945.i, !llvm.loop !269
+
+.preheader857.split.us.split.us.us.i:             ; preds = %.preheader857.us.i
+  %.val461.us.us.us.i = load i32, ptr %72, align 8, !tbaa !229
+  %797 = shl nsw i32 %.val460.us.us.us.i, 1
+  %.neg18.i560.us.us.le.us.i = xor i32 %indvars.iv1056.i, -1
+  %.neg.i561.us.us.le.us.i = add i32 %797, %.neg18.i560.us.us.le.us.i
+  %.neg17.i562.us.us.le.us.i = mul i32 %.neg.i561.us.us.le.us.i, %indvars.iv1056.i
+  %798 = sdiv i32 %.neg17.i562.us.us.le.us.i, 2
+  %799 = add i32 %.val461.us.us.us.i, %798
+  %800 = shl nsw i32 %799, 1
+  %801 = or disjoint i32 %800, 1
+  store i32 %801, ptr %4, align 4, !tbaa !7
+  br label %.split934.us.us.i
 
 .preheader857.i:                                  ; preds = %.preheader857.lr.ph.i, %.split934.i
   %802 = phi i32 [ %868, %.split934.i ], [ %743, %.preheader857.lr.ph.i ]
@@ -7646,9 +7646,9 @@ Ses_ManSelectVar.exit574.loopexit.i:              ; preds = %.lr.ph.i571.i
   br i1 %874, label %.preheader857.i, label %._crit_edge945.i, !llvm.loop !269
 
 ._crit_edge945.i:                                 ; preds = %.split934.i, %.split934.us.us.i, %.preheader858.i
-  %875 = phi i32 [ %743, %.preheader858.i ], [ %799, %.split934.us.us.i ], [ %868, %.split934.i ]
-  %876 = phi i32 [ %744, %.preheader858.i ], [ %799, %.split934.us.us.i ], [ %869, %.split934.i ]
-  %877 = phi i32 [ %745, %.preheader858.i ], [ %799, %.split934.us.us.i ], [ %869, %.split934.i ]
+  %875 = phi i32 [ %743, %.preheader858.i ], [ %794, %.split934.us.us.i ], [ %868, %.split934.i ]
+  %876 = phi i32 [ %744, %.preheader858.i ], [ %794, %.split934.us.us.i ], [ %869, %.split934.i ]
+  %877 = phi i32 [ %745, %.preheader858.i ], [ %794, %.split934.us.us.i ], [ %869, %.split934.i ]
   %878 = add nuw nsw i32 %.5431952.i, 1
   %879 = load i32, ptr %32, align 8, !tbaa !134
   %880 = icmp slt i32 %878, %879

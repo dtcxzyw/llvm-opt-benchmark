@@ -82,30 +82,30 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef capt
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %26
 
-27:                                               ; preds = %.preheader130, %34
-  %indvars.iv114 = phi i64 [ %indvars.iv.next115, %34 ], [ 0, %.preheader130 ]
-  %28 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv114
-  br label %29
+27:                                               ; preds = %.preheader130, %35
+  %indvars.iv114 = phi i64 [ %indvars.iv.next115, %35 ], [ 0, %.preheader130 ]
+  %28 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv114
+  %29 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv114
+  br label %30
 
-29:                                               ; preds = %27, %29
-  %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %29 ]
-  %30 = phi float [ 0.000000e+00, %27 ], [ %33, %29 ]
-  %31 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv
-  %32 = load float, ptr %31, align 4, !tbaa !8
-  %33 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %30)
+30:                                               ; preds = %27, %30
+  %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %30 ]
+  %31 = phi float [ 0.000000e+00, %27 ], [ %34, %30 ]
+  %32 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
+  %33 = load float, ptr %32, align 4, !tbaa !8
+  %34 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %34, label %29, !llvm.loop !10
+  br i1 %exitcond.not, label %35, label %30, !llvm.loop !10
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv114
-  %36 = tail call noundef float @sqrtf(float noundef %33) #14, !tbaa !4
-  store float %36, ptr %35, align 4, !tbaa !8
+35:                                               ; preds = %30
+  %36 = tail call noundef float @sqrtf(float noundef %34) #14, !tbaa !4
+  store float %36, ptr %28, align 4, !tbaa !8
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next115, 3
   br i1 %exitcond117.not, label %37, label %27, !llvm.loop !12
 
-37:                                               ; preds = %34
+37:                                               ; preds = %35
   %38 = load i32, ptr %4, align 4, !tbaa !4
   store i32 %38, ptr %8, align 4, !tbaa !4
   %39 = load i32, ptr %5, align 4, !tbaa !4

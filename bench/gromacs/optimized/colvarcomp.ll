@@ -7255,31 +7255,31 @@ define void @_ZN6colvar3cvc17collect_gradientsERKSt6vectorIiSaIiEERS1_IN12colvar
   br i1 %15, label %_ZN12colvarmodule13integer_powerERKdi.exit, label %16
 
 16:                                               ; preds = %3
+  %17 = icmp sgt i32 %9, 1
   %.not20.i = icmp eq i32 %13, 0
   br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %16
-  %17 = tail call i32 @llvm.abs.i32(i32 %13, i1 true)
+  %18 = tail call i32 @llvm.abs.i32(i32 %13, i1 true)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.023.i = phi i32 [ %20, %.lr.ph.i ], [ %17, %.lr.ph.preheader.i ]
-  %.01522.i = phi double [ %21, %.lr.ph.i ], [ %14, %.lr.ph.preheader.i ]
+  %.023.i = phi i32 [ %21, %.lr.ph.i ], [ %18, %.lr.ph.preheader.i ]
+  %.01522.i = phi double [ %22, %.lr.ph.i ], [ %14, %.lr.ph.preheader.i ]
   %.01621.i = phi double [ %.1.i, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.preheader.i ]
-  %18 = and i32 %.023.i, 1
-  %.not19.i = icmp eq i32 %18, 0
-  %19 = fmul double %.01522.i, %.01621.i
-  %.1.i = select i1 %.not19.i, double %.01621.i, double %19
-  %20 = lshr i32 %.023.i, 1
-  %21 = fmul double %.01522.i, %.01522.i
+  %19 = and i32 %.023.i, 1
+  %.not19.i = icmp eq i32 %19, 0
+  %20 = fmul double %.01522.i, %.01621.i
+  %.1.i = select i1 %.not19.i, double %.01621.i, double %20
+  %21 = lshr i32 %.023.i, 1
+  %22 = fmul double %.01522.i, %.01522.i
   %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !342
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %16
   %.016.lcssa.i = phi double [ 1.000000e+00, %16 ], [ %.1.i, %.lr.ph.i ]
-  %22 = icmp sgt i32 %9, 1
   %23 = fdiv double 1.000000e+00, %.016.lcssa.i
-  %24 = select i1 %22, double %.016.lcssa.i, double %23
+  %24 = select i1 %17, double %.016.lcssa.i, double %23
   br label %_ZN12colvarmodule13integer_powerERKdi.exit
 
 _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %3, %._crit_edge.i

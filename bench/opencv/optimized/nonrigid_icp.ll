@@ -1042,8 +1042,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %301
           to label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit unwind label %320
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %307
-  %310 = getelementptr inbounds nuw i8, ptr %309, i64 %308
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %309, i8 0, i64 %308, i1 false), !tbaa !23
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 %308
   %.not2180 = icmp eq i32 %303, 1
   br i1 %.not2180, label %.lr.ph1754.preheader, label %.lr.ph1751
 

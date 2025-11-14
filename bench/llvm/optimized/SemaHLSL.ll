@@ -28978,9 +28978,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPN5clang7VarDeclEP
 "_ZSt22__move_median_to_firstIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader": ; preds = %78, %75, %68, %63, %60, %53
   br label %"_ZSt22__move_median_to_firstIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEEvT_SH_SH_SH_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEEvT_SH_SH_SH_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader", %104
-  %.013.i.i = phi ptr [ %.114.i.i, %104 ], [ %.028, %"_ZSt22__move_median_to_firstIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader" ]
-  %.0.i.i = phi ptr [ %94, %104 ], [ %8, %"_ZSt22__move_median_to_firstIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEEvT_SH_SH_SH_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader", %105
+  %.013.i.i = phi ptr [ %.114.i.i, %105 ], [ %.028, %"_ZSt22__move_median_to_firstIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader" ]
+  %.0.i.i = phi ptr [ %94, %105 ], [ %8, %"_ZSt22__move_median_to_firstIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEEvT_SH_SH_SH_T0_.exit.i.preheader" ]
   %.val15.i.i = load ptr, ptr %10, align 8, !tbaa !1091
   %81 = getelementptr i8, ptr %.val15.i.i, i64 36
   %.val15.val.i.i = load i32, ptr %81, align 4, !tbaa !1092
@@ -29004,39 +29004,42 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPN5clang7VarDeclEP
   %92 = add nsw i32 %91, %90
   %93 = icmp ult i32 %92, %85
   %94 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
-  br i1 %93, label %86, label %.preheader.i.i, !llvm.loop !1408
+  br i1 %93, label %86, label %.preheader.i.i.preheader, !llvm.loop !1408
 
-.preheader.i.i:                                   ; preds = %86, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %86 ]
+.preheader.i.i.preheader:                         ; preds = %86
+  %95 = getelementptr i8, ptr %.1.i.i, i64 8
+  br label %.preheader.i.i
+
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %.preheader.i.i.preheader ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -16
-  %95 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
-  %.114.val.i.i = load ptr, ptr %95, align 8, !tbaa !1091
-  %96 = getelementptr i8, ptr %.114.val.i.i, i64 36
-  %.114.val.val.i.i = load i32, ptr %96, align 4, !tbaa !1092
-  %97 = getelementptr i8, ptr %.114.val.i.i, i64 40
-  %.114.val.val19.i.i = load i32, ptr %97, align 8, !tbaa !1099
-  %98 = shl nsw i32 %.114.val.val.i.i, 4
-  %99 = shl nsw i32 %.114.val.val19.i.i, 2
-  %100 = add nsw i32 %99, %98
-  %101 = icmp ult i32 %85, %100
-  br i1 %101, label %.preheader.i.i, label %102, !llvm.loop !1409
+  %96 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
+  %.114.val.i.i = load ptr, ptr %96, align 8, !tbaa !1091
+  %97 = getelementptr i8, ptr %.114.val.i.i, i64 36
+  %.114.val.val.i.i = load i32, ptr %97, align 4, !tbaa !1092
+  %98 = getelementptr i8, ptr %.114.val.i.i, i64 40
+  %.114.val.val19.i.i = load i32, ptr %98, align 8, !tbaa !1099
+  %99 = shl nsw i32 %.114.val.val.i.i, 4
+  %100 = shl nsw i32 %.114.val.val19.i.i, 2
+  %101 = add nsw i32 %100, %99
+  %102 = icmp ult i32 %85, %101
+  br i1 %102, label %.preheader.i.i, label %103, !llvm.loop !1409
 
-102:                                              ; preds = %.preheader.i.i
-  %103 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %103, label %104, label %"_ZSt27__unguarded_partition_pivotIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEET_SH_SH_T0_.exit"
+103:                                              ; preds = %.preheader.i.i
+  %104 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %104, label %105, label %"_ZSt27__unguarded_partition_pivotIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEET_SH_SH_T0_.exit"
 
-104:                                              ; preds = %102
-  %105 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
-  %106 = getelementptr i8, ptr %.1.i.i, i64 8
+105:                                              ; preds = %103
+  %106 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
   %107 = load ptr, ptr %.1.i.i, align 8, !tbaa !3
   %108 = load ptr, ptr %.114.i.i, align 8, !tbaa !3
   store ptr %108, ptr %.1.i.i, align 8, !tbaa !3
   store ptr %107, ptr %.114.i.i, align 8, !tbaa !3
-  store ptr %.114.val.i.i, ptr %106, align 8, !tbaa !1087
-  store ptr %.1.val.i.i, ptr %105, align 8, !tbaa !1087
+  store ptr %.114.val.i.i, ptr %95, align 8, !tbaa !1087
+  store ptr %.1.val.i.i, ptr %106, align 8, !tbaa !1087
   br label %"_ZSt22__move_median_to_firstIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEEvT_SH_SH_SH_T0_.exit.i", !llvm.loop !1410
 
-"_ZSt27__unguarded_partition_pivotIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEET_SH_SH_T0_.exit": ; preds = %102
+"_ZSt27__unguarded_partition_pivotIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEET_SH_SH_T0_.exit": ; preds = %103
   tail call fastcc void @"_ZSt16__introsort_loopIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEElN9__gnu_cxx5__ops15_Iter_comp_iterIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEEvT_SH_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.028, i64 noundef %29)
   %109 = ptrtoint ptr %.1.i.i to i64
   %110 = sub i64 %109, %4

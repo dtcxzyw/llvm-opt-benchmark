@@ -89793,7 +89793,7 @@ _ZN4absl16strings_internal4ItoaIiEEbT_iPNSt7__cxx1112basic_stringIcSt11char_trai
 
 94:                                               ; preds = %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit81.i
   %95 = icmp eq i32 %92, 0
-  br i1 %95, label %_ZN4absl16strings_internal4ItoaIiEEbT_iPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i, label %.preheader.i.i
+  br i1 %95, label %_ZN4absl16strings_internal4ItoaIiEEbT_iPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i, label %.preheader.i
 
 _ZN4absl16strings_internal4ItoaIiEEbT_iPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i: ; preds = %94
   store i8 48, ptr %55, align 8, !tbaa !24
@@ -89801,7 +89801,7 @@ _ZN4absl16strings_internal4ItoaIiEEbT_iPNSt7__cxx1112basic_stringIcSt11char_trai
   store i8 0, ptr %82, align 1, !tbaa !24
   br label %_ZN7testing15AssertionResultD2Ev.exit.i
 
-.preheader.i.i:                                   ; preds = %94, %.noexc82.i
+.preheader.i:                                     ; preds = %94, %.noexc82.i
   %.02733.i.i = phi i32 [ %96, %.noexc82.i ], [ %92, %94 ]
   %96 = sdiv i32 %.02733.i.i, %91
   %97 = mul nsw i32 %96, %91
@@ -89815,9 +89815,9 @@ _ZN4absl16strings_internal4ItoaIiEEbT_iPNSt7__cxx1112basic_stringIcSt11char_trai
   %104 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0, i64 noundef 0, i64 noundef 1, i8 noundef signext %103)
           to label %.noexc82.i unwind label %.loopexit.i
 
-.noexc82.i:                                       ; preds = %.preheader.i.i
+.noexc82.i:                                       ; preds = %.preheader.i
   %.not.i.i = icmp eq i32 %96, 0
-  br i1 %.not.i.i, label %105, label %.preheader.i.i, !llvm.loop !1354
+  br i1 %.not.i.i, label %105, label %.preheader.i, !llvm.loop !1354
 
 105:                                              ; preds = %.noexc82.i
   %106 = icmp slt i32 %92, 0
@@ -89837,7 +89837,7 @@ _ZN4absl16strings_internal4ItoaIiEEbT_iPNSt7__cxx1112basic_stringIcSt11char_trai
           cleanup
   br label %393
 
-.loopexit.i:                                      ; preds = %.preheader.i.i
+.loopexit.i:                                      ; preds = %.preheader.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %155
@@ -96977,6 +96977,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   br label %40
 
 27:                                               ; preds = %8
+  %.not164 = icmp sgt i64 %1, -1
   %.sroa.22.0.insert.ext.i66157 = zext i64 %1 to i128
   %.sroa.22.0.insert.shift.i67158 = shl nuw i128 %.sroa.22.0.insert.ext.i66157, 64
   %.sroa.01.0.insert.ext.i68159 = zext i64 %0 to i128
@@ -97009,7 +97010,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   br i1 %.not, label %._crit_edge, label %28, !llvm.loop !1418
 
 ._crit_edge:                                      ; preds = %28, %27
-  %.not164 = icmp sgt i64 %1, -1
   br i1 %.not164, label %40, label %38
 
 38:                                               ; preds = %._crit_edge

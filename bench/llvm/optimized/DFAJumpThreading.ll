@@ -11332,13 +11332,13 @@ _ZNSt6vectorIPN4llvm11InstructionESaIS2_EEC2ERKS4_.exit.i.i: ; preds = %2137, %_
   %2138 = phi ptr [ %2135, %_ZNSt12_Vector_baseIPN4llvm11InstructionESaIS2_EEC2EmRKS3_.exit.i.i.i ], [ %2135, %2137 ], [ null, %.lr.ph27.i.i ]
   %.not.i.i.i.i.i.i.i.i.i46.i.i = phi i1 [ true, %_ZNSt12_Vector_baseIPN4llvm11InstructionESaIS2_EEC2EmRKS3_.exit.i.i.i ], [ false, %2137 ], [ true, %.lr.ph27.i.i ]
   %.pre-phi3445.i.i = phi i64 [ 0, %_ZNSt12_Vector_baseIPN4llvm11InstructionESaIS2_EEC2EmRKS3_.exit.i.i.i ], [ %.pre33.i.i, %2137 ], [ 0, %.lr.ph27.i.i ]
-  %2139 = getelementptr inbounds nuw i8, ptr %2122, i64 16
-  %.sroa.05.015.i.i = load ptr, ptr %2139, align 8, !tbaa !121
+  %2139 = getelementptr inbounds i8, ptr %2138, i64 %.pre-phi3445.i.i
+  %2140 = getelementptr inbounds nuw i8, ptr %2122, i64 16
+  %.sroa.05.015.i.i = load ptr, ptr %2140, align 8, !tbaa !121
   %.not1116.i.i = icmp eq ptr %.sroa.05.015.i.i, null
   br i1 %.not1116.i.i, label %._crit_edge.i51.i, label %.lr.ph.i50.i
 
 ._crit_edge.i51.i:                                ; preds = %2176, %_ZNSt6vectorIPN4llvm11InstructionESaIS2_EEC2ERKS4_.exit.i.i
-  %2140 = getelementptr inbounds i8, ptr %2138, i64 %.pre-phi3445.i.i
   %2141 = load i32, ptr %2114, align 8, !tbaa !26
   %.not.i.i52.i13 = icmp eq i32 %2141, 0
   br i1 %.not.i.i52.i13, label %.loopexit.i.i, label %2178
@@ -11427,7 +11427,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_3UseELb1EE9push_backES2_.exit.i.i: ; preds
   %2188 = load ptr, ptr %2187, align 8, !tbaa !127
   call void @_ZN4llvm14SSAUpdaterBulk17AddAvailableValueEjPNS_10BasicBlockEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(520) %7, i32 noundef %2184, ptr noundef %2188, ptr noundef %2186) #21
   %2189 = getelementptr inbounds nuw i8, ptr %.sroa.01.019.i.i, i64 8
-  %.not12.i.i = icmp eq ptr %2189, %2140
+  %.not12.i.i = icmp eq ptr %2189, %2139
   br i1 %.not12.i.i, label %.preheader.i.i, label %.lr.ph21.i.i
 
 .lr.ph23.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph23.i.i

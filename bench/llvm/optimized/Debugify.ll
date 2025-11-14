@@ -1102,15 +1102,15 @@ _ZN12_GLOBAL__N_117isFunctionSkippedERN4llvm8FunctionE.exit: ; preds = %107
   %.sroa.0123.0167 = phi ptr [ %.sroa.0123.0, %_ZNK4llvm10BasicBlock7isEHPadEv.exit.thread ], [ %.sroa.0123.0163, %111 ]
   %.2166 = phi i32 [ %.3.lcssa, %_ZNK4llvm10BasicBlock7isEHPadEv.exit.thread ], [ %.071175, %111 ]
   %.072165 = phi i1 [ %.173, %_ZNK4llvm10BasicBlock7isEHPadEv.exit.thread ], [ false, %111 ]
-  %127 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0167, i64 32
-  %128 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0167, i64 24
-  %.sroa.0119.0153 = load ptr, ptr %127, align 8, !tbaa !193
-  %.not151154 = icmp eq ptr %.sroa.0119.0153, %128
+  %127 = getelementptr inbounds i8, ptr %.sroa.0123.0167, i64 -24
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0167, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0167, i64 24
+  %.sroa.0119.0153 = load ptr, ptr %128, align 8, !tbaa !193
+  %.not151154 = icmp eq ptr %.sroa.0119.0153, %129
   br i1 %.not151154, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm8DebugLocD2Ev.exit, %.lr.ph169
   %.3.lcssa = phi i32 [ %.2166, %.lr.ph169 ], [ %131, %_ZN4llvm8DebugLocD2Ev.exit ]
-  %129 = getelementptr inbounds i8, ptr %.sroa.0123.0167, i64 -24
   %.val.i86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_113DebugifyLevelE, i64 120), align 8, !tbaa !188
   %130 = icmp slt i32 %.val.i86, 1
   br i1 %130, label %_ZNK4llvm10BasicBlock7isEHPadEv.exit.thread, label %144
@@ -1158,11 +1158,11 @@ _ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit: ; preds = %.lr.ph
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %140, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit, %142
   %143 = getelementptr inbounds nuw i8, ptr %.sroa.0119.0156, i64 8
   %.sroa.0119.0 = load ptr, ptr %143, align 8, !tbaa !193
-  %.not151 = icmp eq ptr %.sroa.0119.0, %128
+  %.not151 = icmp eq ptr %.sroa.0119.0, %129
   br i1 %.not151, label %._crit_edge, label %.lr.ph
 
 144:                                              ; preds = %._crit_edge
-  %145 = call { ptr, i64 } @_ZNK4llvm10BasicBlock16getFirstNonPHIItEv(ptr noundef nonnull align 8 dereferenceable(80) %129) #27
+  %145 = call { ptr, i64 } @_ZNK4llvm10BasicBlock16getFirstNonPHIItEv(ptr noundef nonnull align 8 dereferenceable(80) %127) #27
   %.fca.0.extract.i = extractvalue { ptr, i64 } %145, 0
   %146 = getelementptr inbounds i8, ptr %.fca.0.extract.i, i64 -24
   %147 = load i8, ptr %146, align 8, !tbaa !198
@@ -1174,23 +1174,23 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %140, %_ZN4llvm13Tra
   ]
 
 _ZNK4llvm10BasicBlock7isEHPadEv.exit:             ; preds = %144
-  %148 = call noundef ptr @_ZNK4llvm10BasicBlock26getTerminatingMustTailCallEv(ptr noundef nonnull align 8 dereferenceable(80) %129) #27
+  %148 = call noundef ptr @_ZNK4llvm10BasicBlock26getTerminatingMustTailCallEv(ptr noundef nonnull align 8 dereferenceable(80) %127) #27
   %.not.not.i = icmp eq ptr %148, null
   br i1 %.not.not.i, label %149, label %_ZN12_GLOBAL__N_126findTerminatingInstructionERN4llvm10BasicBlockE.exit
 
 149:                                              ; preds = %_ZNK4llvm10BasicBlock7isEHPadEv.exit
-  %150 = call noundef ptr @_ZNK4llvm10BasicBlock28getTerminatingDeoptimizeCallEv(ptr noundef nonnull align 8 dereferenceable(80) %129) #27
+  %150 = call noundef ptr @_ZNK4llvm10BasicBlock28getTerminatingDeoptimizeCallEv(ptr noundef nonnull align 8 dereferenceable(80) %127) #27
   %.not11.not.i = icmp eq ptr %150, null
   br i1 %.not11.not.i, label %151, label %_ZN12_GLOBAL__N_126findTerminatingInstructionERN4llvm10BasicBlockE.exit
 
 151:                                              ; preds = %149
-  %152 = load ptr, ptr %128, align 8, !tbaa !202
-  %153 = icmp eq ptr %128, %152
+  %152 = load ptr, ptr %129, align 8, !tbaa !202
+  %153 = icmp eq ptr %129, %152
   br i1 %153, label %_ZN12_GLOBAL__N_126findTerminatingInstructionERN4llvm10BasicBlockE.exit.thread, label %157
 
 _ZN12_GLOBAL__N_126findTerminatingInstructionERN4llvm10BasicBlockE.exit.thread: ; preds = %151
-  %154 = call { ptr, i64 } @_ZNK4llvm10BasicBlock19getFirstInsertionPtEv(ptr noundef nonnull align 8 dereferenceable(80) %129) #27
-  %155 = load ptr, ptr %127, align 8, !tbaa !193
+  %154 = call { ptr, i64 } @_ZNK4llvm10BasicBlock19getFirstInsertionPtEv(ptr noundef nonnull align 8 dereferenceable(80) %127) #27
+  %155 = load ptr, ptr %128, align 8, !tbaa !193
   %156 = getelementptr inbounds i8, ptr %155, i64 -24
   br label %.lr.ph161.preheader
 
@@ -1204,8 +1204,8 @@ _ZN12_GLOBAL__N_126findTerminatingInstructionERN4llvm10BasicBlockE.exit.thread: 
 
 _ZN12_GLOBAL__N_126findTerminatingInstructionERN4llvm10BasicBlockE.exit: ; preds = %_ZNK4llvm10BasicBlock7isEHPadEv.exit, %149, %157
   %.1.i = phi ptr [ %150, %149 ], [ %148, %_ZNK4llvm10BasicBlock7isEHPadEv.exit ], [ %spec.select.i.i.i, %157 ]
-  %162 = call { ptr, i64 } @_ZNK4llvm10BasicBlock19getFirstInsertionPtEv(ptr noundef nonnull align 8 dereferenceable(80) %129) #27
-  %163 = load ptr, ptr %127, align 8, !tbaa !193
+  %162 = call { ptr, i64 } @_ZNK4llvm10BasicBlock19getFirstInsertionPtEv(ptr noundef nonnull align 8 dereferenceable(80) %127) #27
+  %163 = load ptr, ptr %128, align 8, !tbaa !193
   %164 = getelementptr inbounds i8, ptr %163, i64 -24
   %.not81157 = icmp eq ptr %164, %.1.i
   br i1 %.not81157, label %_ZNK4llvm10BasicBlock7isEHPadEv.exit.thread, label %.lr.ph161.preheader

@@ -4119,8 +4119,8 @@ define internal fastcc i64 @FSE_readNCount(ptr noundef nonnull writeonly capture
   br label %21
 
 21:                                               ; preds = %.lr.ph203, %._crit_edge191
-  %.0110201 = phi i1 [ true, %.lr.ph203 ], [ %88, %._crit_edge191 ]
-  %.0111200 = phi i32 [ 0, %.lr.ph203 ], [ %87, %._crit_edge191 ]
+  %.0110201 = phi i1 [ true, %.lr.ph203 ], [ %84, %._crit_edge191 ]
+  %.0111200 = phi i32 [ 0, %.lr.ph203 ], [ %81, %._crit_edge191 ]
   %.0115199 = phi i32 [ 4, %.lr.ph203 ], [ %.8, %._crit_edge191 ]
   %.0119198 = phi i32 [ %15, %.lr.ph203 ], [ %97, %._crit_edge191 ]
   %.0126197 = phi i32 [ %12, %.lr.ph203 ], [ %.1127.lcssa, %._crit_edge191 ]
@@ -4266,30 +4266,30 @@ define internal fastcc i64 @FSE_readNCount(ptr noundef nonnull writeonly capture
   %.pn = phi i32 [ %71, %70 ], [ %.0129195, %72 ]
   %.0.in = phi i32 [ %67, %70 ], [ %spec.select, %72 ]
   %.0 = trunc i32 %.0.in to i16
+  %.7 = add nsw i32 %.pn, %.1116
   %77 = add i16 %.0, -1
   %78 = tail call noundef range(i16 0, -32767) i16 @llvm.abs.i16(i16 %77, i1 false)
   %79 = sext i16 %78 to i32
   %80 = sub nsw i32 %.0128196, %79
-  %81 = zext i32 %.1112 to i64
-  %82 = getelementptr inbounds nuw i16, ptr %0, i64 %81
-  store i16 %77, ptr %82, align 2, !tbaa !13
-  %83 = icmp slt i32 %80, %.0126197
-  br i1 %83, label %.lr.ph190, label %._crit_edge191
+  %81 = add i32 %.1112, 1
+  %82 = zext i32 %.1112 to i64
+  %83 = getelementptr inbounds nuw i16, ptr %0, i64 %82
+  store i16 %77, ptr %83, align 2, !tbaa !13
+  %84 = icmp ne i16 %77, 0
+  %85 = icmp slt i32 %80, %.0126197
+  br i1 %85, label %.lr.ph190, label %._crit_edge191
 
 .lr.ph190:                                        ; preds = %76, %.lr.ph190
-  %.1127188 = phi i32 [ %85, %.lr.ph190 ], [ %.0126197, %76 ]
-  %.1130187 = phi i32 [ %84, %.lr.ph190 ], [ %.0129195, %76 ]
-  %84 = add nsw i32 %.1130187, -1
-  %85 = ashr i32 %.1127188, 1
-  %86 = icmp slt i32 %80, %85
-  br i1 %86, label %.lr.ph190, label %._crit_edge191, !llvm.loop !56
+  %.1127188 = phi i32 [ %87, %.lr.ph190 ], [ %.0126197, %76 ]
+  %.1130187 = phi i32 [ %86, %.lr.ph190 ], [ %.0129195, %76 ]
+  %86 = add nsw i32 %.1130187, -1
+  %87 = ashr i32 %.1127188, 1
+  %88 = icmp slt i32 %80, %87
+  br i1 %88, label %.lr.ph190, label %._crit_edge191, !llvm.loop !56
 
 ._crit_edge191:                                   ; preds = %.lr.ph190, %76
-  %.1130.lcssa = phi i32 [ %.0129195, %76 ], [ %84, %.lr.ph190 ]
-  %.1127.lcssa = phi i32 [ %.0126197, %76 ], [ %85, %.lr.ph190 ]
-  %.7 = add nsw i32 %.pn, %.1116
-  %87 = add i32 %.1112, 1
-  %88 = icmp ne i16 %77, 0
+  %.1130.lcssa = phi i32 [ %.0129195, %76 ], [ %86, %.lr.ph190 ]
+  %.1127.lcssa = phi i32 [ %.0126197, %76 ], [ %87, %.lr.ph190 ]
   %.not154 = icmp ugt ptr %.1132, %18
   %89 = ashr i32 %.7, 3
   %90 = sext i32 %89 to i64

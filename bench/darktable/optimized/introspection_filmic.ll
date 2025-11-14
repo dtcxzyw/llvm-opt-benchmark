@@ -2340,38 +2340,38 @@ define hidden void @compute_curve_lut(ptr noundef readonly captures(none) %0, pt
   %or.cond275 = icmp ult i32 %140, 2
   %.0244 = select i1 %or.cond275, i32 %139, i32 0
   %141 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #22
-  %142 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #22
-  %143 = getelementptr inbounds nuw i8, ptr %141, i64 192
-  store ptr %142, ptr %143, align 8, !tbaa !175
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 184
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 188
+  %144 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #22
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 192
+  store ptr %144, ptr %145, align 8, !tbaa !175
   store i32 %.0244, ptr %141, align 8, !tbaa !180
-  %144 = getelementptr inbounds nuw i8, ptr %141, i64 4
-  store float 0.000000e+00, ptr %144, align 4, !tbaa !181
-  %145 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  store float 1.000000e+00, ptr %145, align 8, !tbaa !182
-  %146 = getelementptr inbounds nuw i8, ptr %141, i64 12
-  store float 0.000000e+00, ptr %146, align 4, !tbaa !183
-  %147 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  store float 1.000000e+00, ptr %147, align 8, !tbaa !184
-  %148 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %149 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %150 = getelementptr inbounds nuw i8, ptr %141, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %141, i64 20
+  %147 = getelementptr inbounds nuw i8, ptr %141, i64 4
+  store float 0.000000e+00, ptr %147, align 4, !tbaa !181
+  %148 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  store float 1.000000e+00, ptr %148, align 8, !tbaa !182
+  %149 = getelementptr inbounds nuw i8, ptr %141, i64 12
+  store float 0.000000e+00, ptr %149, align 4, !tbaa !183
+  %150 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  store float 1.000000e+00, ptr %150, align 8, !tbaa !184
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %141, i64 24
   br label %163
 
-151:                                              ; preds = %163
-  %152 = getelementptr inbounds nuw i8, ptr %141, i64 184
-  %153 = getelementptr inbounds nuw i8, ptr %141, i64 188
-  %154 = getelementptr inbounds nuw i8, ptr %141, i64 20
-  store i8 %172, ptr %154, align 4, !tbaa !185
-  store i32 %3, ptr %152, align 8, !tbaa !186
-  store i32 65536, ptr %153, align 4, !tbaa !187
-  %155 = tail call i32 @CurveDataSample(ptr noundef nonnull %141, ptr noundef nonnull %152) #19
+154:                                              ; preds = %163
+  store i8 %172, ptr %146, align 4, !tbaa !185
+  store i32 %3, ptr %142, align 8, !tbaa !186
+  store i32 65536, ptr %143, align 4, !tbaa !187
+  %155 = tail call i32 @CurveDataSample(ptr noundef nonnull %141, ptr noundef nonnull %142) #19
   %.not.i.i = icmp ne ptr %1, null
   %156 = icmp sgt i32 %3, 0
   %or.cond.i.i = and i1 %.not.i.i, %156
-  %.pre = load ptr, ptr %143, align 8, !tbaa !175
+  %.pre = load ptr, ptr %145, align 8, !tbaa !175
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %dt_draw_curve_calc_values.exit
 
-.lr.ph.i.i:                                       ; preds = %151
+.lr.ph.i.i:                                       ; preds = %154
   %wide.trip.count.i.i = zext nneg i32 %3 to i64
   br label %157
 
@@ -2387,7 +2387,7 @@ define hidden void @compute_curve_lut(ptr noundef readonly captures(none) %0, pt
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %dt_draw_curve_calc_values.exit, label %157
 
-dt_draw_curve_calc_values.exit:                   ; preds = %157, %151
+dt_draw_curve_calc_values.exit:                   ; preds = %157, %154
   tail call void @free(ptr noundef %.pre) #19
   tail call void @free(ptr noundef nonnull %141) #19
   br label %.loopexit
@@ -2395,54 +2395,54 @@ dt_draw_curve_calc_values.exit:                   ; preds = %157, %151
 163:                                              ; preds = %.lr.ph, %163
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %163 ]
   %164 = phi i8 [ 0, %.lr.ph ], [ %172, %163 ]
-  %165 = getelementptr inbounds nuw float, ptr %148, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw float, ptr %151, i64 %indvars.iv
   %166 = load float, ptr %165, align 4, !tbaa !104
-  %167 = getelementptr inbounds nuw float, ptr %149, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw float, ptr %152, i64 %indvars.iv
   %168 = load float, ptr %167, align 4, !tbaa !104
   %169 = zext i8 %164 to i64
-  %170 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %150, i64 %169
+  %170 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %153, i64 %169
   store float %166, ptr %170, align 8, !tbaa !189
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 4
   store float %168, ptr %171, align 4, !tbaa !191
   %172 = add i8 %164, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count315
-  br i1 %exitcond.not, label %151, label %163
+  br i1 %exitcond.not, label %154, label %163
 
 .lr.ph300:                                        ; preds = %137
   %173 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #22
-  %174 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #22
-  %175 = getelementptr inbounds nuw i8, ptr %173, i64 192
-  store ptr %174, ptr %175, align 8, !tbaa !175
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 184
+  %175 = getelementptr inbounds nuw i8, ptr %173, i64 188
+  %176 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #22
+  %177 = getelementptr inbounds nuw i8, ptr %173, i64 192
+  store ptr %176, ptr %177, align 8, !tbaa !175
   store i32 2, ptr %173, align 8, !tbaa !180
-  %176 = getelementptr inbounds nuw i8, ptr %173, i64 4
-  store float 0.000000e+00, ptr %176, align 4, !tbaa !181
-  %177 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store float 1.000000e+00, ptr %177, align 8, !tbaa !182
-  %178 = getelementptr inbounds nuw i8, ptr %173, i64 12
-  store float 0.000000e+00, ptr %178, align 4, !tbaa !183
-  %179 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  store float 1.000000e+00, ptr %179, align 8, !tbaa !184
-  %180 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %181 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %182 = getelementptr inbounds nuw i8, ptr %173, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %173, i64 20
+  %179 = getelementptr inbounds nuw i8, ptr %173, i64 4
+  store float 0.000000e+00, ptr %179, align 4, !tbaa !181
+  %180 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  store float 1.000000e+00, ptr %180, align 8, !tbaa !182
+  %181 = getelementptr inbounds nuw i8, ptr %173, i64 12
+  store float 0.000000e+00, ptr %181, align 4, !tbaa !183
+  %182 = getelementptr inbounds nuw i8, ptr %173, i64 16
+  store float 1.000000e+00, ptr %182, align 8, !tbaa !184
+  %183 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %173, i64 24
   br label %210
 
-183:                                              ; preds = %210
-  %184 = getelementptr inbounds nuw i8, ptr %173, i64 184
-  %185 = getelementptr inbounds nuw i8, ptr %173, i64 188
-  %186 = getelementptr inbounds nuw i8, ptr %173, i64 20
-  store i8 %219, ptr %186, align 4, !tbaa !185
-  store i32 %3, ptr %184, align 8, !tbaa !186
-  store i32 65536, ptr %185, align 4, !tbaa !187
-  %187 = tail call i32 @CurveDataSample(ptr noundef nonnull %173, ptr noundef nonnull %184) #19
+186:                                              ; preds = %210
+  store i8 %219, ptr %178, align 4, !tbaa !185
+  store i32 %3, ptr %174, align 8, !tbaa !186
+  store i32 65536, ptr %175, align 4, !tbaa !187
+  %187 = tail call i32 @CurveDataSample(ptr noundef nonnull %173, ptr noundef nonnull %174) #19
   %.not.i.i276 = icmp ne ptr %2, null
   %188 = icmp sgt i32 %3, 0
   %or.cond.i.i277 = and i1 %.not.i.i276, %188
-  %.pre328 = load ptr, ptr %175, align 8, !tbaa !175
+  %.pre328 = load ptr, ptr %177, align 8, !tbaa !175
   br i1 %or.cond.i.i277, label %.lr.ph.i.i278, label %dt_draw_curve_calc_values.exit283
 
-.lr.ph.i.i278:                                    ; preds = %183
+.lr.ph.i.i278:                                    ; preds = %186
   %wide.trip.count.i.i279 = zext nneg i32 %3 to i64
   br label %189
 
@@ -2458,7 +2458,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %157, %151
   %exitcond.not.i.i282 = icmp eq i64 %indvars.iv.next.i.i281, %wide.trip.count.i.i279
   br i1 %exitcond.not.i.i282, label %dt_draw_curve_calc_values.exit283, label %189
 
-dt_draw_curve_calc_values.exit283:                ; preds = %189, %183
+dt_draw_curve_calc_values.exit283:                ; preds = %189, %186
   tail call void @free(ptr noundef %.pre328) #19
   tail call void @free(ptr noundef nonnull %173) #19
   %195 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #22
@@ -2492,19 +2492,19 @@ dt_draw_curve_calc_values.exit283:                ; preds = %189, %183
 210:                                              ; preds = %.lr.ph300, %210
   %indvars.iv313 = phi i64 [ 0, %.lr.ph300 ], [ %indvars.iv.next314, %210 ]
   %211 = phi i8 [ 0, %.lr.ph300 ], [ %219, %210 ]
-  %212 = getelementptr inbounds nuw float, ptr %180, i64 %indvars.iv313
+  %212 = getelementptr inbounds nuw float, ptr %183, i64 %indvars.iv313
   %213 = load float, ptr %212, align 4, !tbaa !104
-  %214 = getelementptr inbounds nuw float, ptr %181, i64 %indvars.iv313
+  %214 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv313
   %215 = load float, ptr %214, align 4, !tbaa !104
   %216 = zext i8 %211 to i64
-  %217 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %182, i64 %216
+  %217 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %185, i64 %216
   store float %213, ptr %217, align 8, !tbaa !189
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 4
   store float %215, ptr %218, align 4, !tbaa !191
   %219 = add i8 %211, 1
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %exitcond316.not = icmp eq i64 %indvars.iv.next314, %wide.trip.count315
-  br i1 %exitcond316.not, label %183, label %210
+  br i1 %exitcond316.not, label %186, label %210
 
 ._crit_edge306:                                   ; preds = %228
   store i8 %237, ptr %200, align 4, !tbaa !185

@@ -20835,6 +20835,7 @@ _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit: ; preds = %_ZN
   %45 = load i64, ptr %3, align 8
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %47 = load i64, ptr %46, align 8
+  %.neg = sdiv i64 %47, -1000
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -20854,7 +20855,6 @@ _ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i.lr.ph
   br label %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i
 
 ._crit_edge:                                      ; preds = %_ZN7testing8internal12GetElementOrIiEET_RKSt6vectorIS2_SaIS2_EEiS2_.exit.i, %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit
-  %.neg = sdiv i64 %47, -1000
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %60 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #56
   %61 = load i64, ptr %2, align 8

@@ -195,70 +195,70 @@ define hidden void @_ZN11PhaseOutputC2Ev(ptr noundef nonnull align 8 dereference
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 596
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, i8 -1, i64 16, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 612
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 632
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %33, i8 0, i64 20, i1 false)
-  %35 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 32) #14
-  store i32 0, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 636
-  store i32 2, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store ptr %35, ptr %37, align 8
+  %36 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 32) #14
+  store i32 0, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 636
+  store i32 2, ptr %37, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  store ptr %36, ptr %38, align 8
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %1
   %indvars.iv.i.i.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %38 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %35, i64 %indvars.iv.i.i.i.i
-  store i8 99, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  store i8 0, ptr %39, align 1
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  store i32 -1, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i32 -1, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 20
-  store float 0.000000e+00, ptr %42, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store i8 1, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr null, ptr %44, align 8
+  %39 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %36, i64 %indvars.iv.i.i.i.i
+  store i8 99, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  store i8 0, ptr %40, align 1
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  store i32 -1, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store i32 -1, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 20
+  store float 0.000000e+00, ptr %43, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  store i8 1, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store ptr null, ptr %45, align 8
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 2
   br i1 %exitcond.not.i.i.i.i, label %_ZN13ConstantTableC2Ev.exit, label %.lr.ph.i.i.i.i, !llvm.loop !6
 
 _ZN13ConstantTableC2Ev.exit:                      ; preds = %.lr.ph.i.i.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  store i64 0, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  store i32 -1, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 660
-  store i32 -1, ptr %47, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %49, i8 0, i64 28, i1 false)
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 2288
-  store ptr %0, ptr %52, align 8
-  %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 72
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %57, label %66
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  store i64 0, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  store i32 -1, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 660
+  store i32 -1, ptr %48, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  store i32 0, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %50, i8 0, i64 28, i1 false)
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 2288
+  store ptr %0, ptr %53, align 8
+  %54 = load ptr, ptr %51, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 72
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %66
 
-57:                                               ; preds = %_ZN13ConstantTableC2Ev.exit
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %59 = getelementptr inbounds nuw i8, ptr %53, i64 96
+58:                                               ; preds = %_ZN13ConstantTableC2Ev.exit
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 96
   %60 = load i32, ptr %59, align 8
   %61 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
   %62 = sext i32 %61 to i64
   %63 = udiv i64 8, %62
   %64 = trunc nuw nsw i64 %63 to i32
   %65 = sub i32 %60, %64
-  store i32 %65, ptr %58, align 8
+  store i32 %65, ptr %34, align 8
   br label %66
 
-66:                                               ; preds = %57, %_ZN13ConstantTableC2Ev.exit
+66:                                               ; preds = %58, %_ZN13ConstantTableC2Ev.exit
   ret void
 }
 

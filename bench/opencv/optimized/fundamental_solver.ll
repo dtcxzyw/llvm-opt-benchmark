@@ -3395,8 +3395,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %21
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc20
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %31, 2
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !93
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph
 
 34:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -5064,15 +5064,15 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   %68 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %19, i64 12
   br label %_ZN2cv3RNG7uniformEii.exit
 
-71:                                               ; preds = %_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit92
-  %72 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %73 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %74 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  store i32 %spec.select203, ptr %72, align 4
-  store i32 %138, ptr %73, align 8
-  store i32 %spec.select204, ptr %74, align 4
+74:                                               ; preds = %_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit92
+  store i32 %spec.select203, ptr %71, align 4
+  store i32 %138, ptr %72, align 8
+  store i32 %spec.select204, ptr %73, align 4
   br label %147
 
 _ZN2cv3RNG7uniformEii.exit:                       ; preds = %.loopexit, %_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit92
@@ -5219,7 +5219,7 @@ _ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit92:    ; preds = %130
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %141 = add nuw nsw i32 %.044192, 1
   %exitcond.not = icmp eq i32 %141, 3
-  br i1 %exitcond.not, label %71, label %_ZN2cv3RNG7uniformEii.exit, !llvm.loop !241
+  br i1 %exitcond.not, label %74, label %_ZN2cv3RNG7uniformEii.exit, !llvm.loop !241
 
 142:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -5237,10 +5237,10 @@ _ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit92:    ; preds = %130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !tbaa !108
   br label %_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit96
 
-147:                                              ; preds = %71, %147
-  %indvars.iv = phi i64 [ 1, %71 ], [ %indvars.iv.next, %147 ]
-  %.040200 = phi i32 [ %spec.select202, %71 ], [ %spec.select53, %147 ]
-  %.042199 = phi i32 [ 0, %71 ], [ %spec.select, %147 ]
+147:                                              ; preds = %74, %147
+  %indvars.iv = phi i64 [ 1, %74 ], [ %indvars.iv.next, %147 ]
+  %.040200 = phi i32 [ %spec.select202, %74 ], [ %spec.select53, %147 ]
+  %.042199 = phi i32 [ 0, %74 ], [ %spec.select, %147 ]
   %148 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %149 = load i32, ptr %148, align 4, !tbaa !93
   %150 = icmp slt i32 %.040200, %149

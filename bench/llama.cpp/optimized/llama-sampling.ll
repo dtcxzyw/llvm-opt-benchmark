@@ -1432,8 +1432,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i:
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc4
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %17, 2
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !27
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i.i.i.i.i
   br label %20
 
 20:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc4, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
@@ -2696,8 +2696,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %452
   %459 = getelementptr inbounds nuw i32, ptr %458, i64 %453
   %460 = getelementptr inbounds nuw i8, ptr %423, i64 96
   store ptr %459, ptr %460, align 8, !tbaa !120
-  %461 = getelementptr inbounds nuw i8, ptr %458, i64 %457
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %458, i8 0, i64 %457, i1 false), !tbaa !27
+  %461 = getelementptr inbounds nuw i8, ptr %458, i64 %457
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %.noexc80
@@ -2766,8 +2766,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %473
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc83
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %483, 2
-  %485 = getelementptr inbounds nuw i8, ptr %482, i64 %.idx.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %482, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !27
+  %485 = getelementptr inbounds nuw i8, ptr %482, i64 %.idx.i.i.i.i.i.i.i.i
   br label %_ZN11ring_bufferIiEC2Em.exit
 
 _ZN11ring_bufferIiEC2Em.exit:                     ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i, %.noexc83, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
@@ -8569,19 +8569,19 @@ define internal void @_ZL28llama_sampler_temp_ext_applyP13llama_samplerP22llama_
   %19 = uitofp i64 %16 to float
   %20 = fdiv float 1.000000e+00, %19
   %21 = tail call float @logf(float noundef %20) #34, !tbaa !27
+  %22 = fneg float %21
   tail call fastcc void @_ZL26llama_sampler_softmax_implP22llama_token_data_array(ptr noundef nonnull %1)
-  %22 = load i64, ptr %15, align 8, !tbaa !22
-  %.not = icmp eq i64 %22, 0
+  %23 = load i64, ptr %15, align 8, !tbaa !22
+  %.not = icmp eq i64 %23, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %23 = load ptr, ptr %1, align 8, !tbaa !17
+  %24 = load ptr, ptr %1, align 8, !tbaa !17
   br label %53
 
 ._crit_edge:                                      ; preds = %62, %18
   %.051.lcssa = phi float [ 0.000000e+00, %18 ], [ %.1, %62 ]
-  %24 = fneg float %21
-  %25 = fdiv float %.051.lcssa, %24
+  %25 = fdiv float %.051.lcssa, %22
   %26 = fsub float %12, %.sroa.speculated
   %27 = tail call float @powf(float noundef %25, float noundef %14) #34, !tbaa !27
   %28 = tail call float @llvm.fmuladd.f32(float %26, float %27, float %.sroa.speculated)
@@ -8593,7 +8593,7 @@ define internal void @_ZL28llama_sampler_temp_ext_applyP13llama_samplerP22llama_
   br i1 %.not, label %.critedge, label %.lr.ph30.i
 
 30:                                               ; preds = %._crit_edge
-  %31 = icmp ugt i64 %22, 1
+  %31 = icmp ugt i64 %23, 1
   %32 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
   %33 = load float, ptr %32, align 4, !tbaa !209
   br i1 %31, label %.lr.ph.i, label %_ZL23llama_sampler_temp_implP22llama_token_data_arrayf.exit
@@ -8623,7 +8623,7 @@ define internal void @_ZL28llama_sampler_temp_ext_applyP13llama_samplerP22llama_
   %.123.i = phi i64 [ %.02028.i, %38 ], [ %.02226.i, %42 ]
   %.1.i = phi float [ %41, %38 ], [ %.02127.i, %42 ]
   %44 = add nuw i64 %.02028.i, 1
-  %exitcond.not.i = icmp eq i64 %44, %22
+  %exitcond.not.i = icmp eq i64 %44, %23
   br i1 %exitcond.not.i, label %_ZL23llama_sampler_temp_implP22llama_token_data_arrayf.exit.thread, label %.lr.ph.i, !llvm.loop !296
 
 .lr.ph30.i:                                       ; preds = %.preheader.i, %.lr.ph30.i
@@ -8634,7 +8634,7 @@ define internal void @_ZL28llama_sampler_temp_ext_applyP13llama_samplerP22llama_
   %48 = fdiv float %47, %28
   store float %48, ptr %46, align 4, !tbaa !209
   %49 = add nuw i64 %.029.i, 1
-  %exitcond32.not.i = icmp eq i64 %49, %22
+  %exitcond32.not.i = icmp eq i64 %49, %23
   br i1 %exitcond32.not.i, label %_ZL23llama_sampler_temp_implP22llama_token_data_arrayf.exit.thread, label %.lr.ph30.i, !llvm.loop !297
 
 _ZL23llama_sampler_temp_implP22llama_token_data_arrayf.exit.thread: ; preds = %43, %.lr.ph30.i
@@ -8653,7 +8653,7 @@ _ZL23llama_sampler_temp_implP22llama_token_data_arrayf.exit: ; preds = %30
 53:                                               ; preds = %.lr.ph, %62
   %.05173 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %62 ]
   %.05272 = phi i64 [ 0, %.lr.ph ], [ %63, %62 ]
-  %54 = getelementptr inbounds nuw %struct.llama_token_data, ptr %23, i64 %.05272
+  %54 = getelementptr inbounds nuw %struct.llama_token_data, ptr %24, i64 %.05272
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load float, ptr %55, align 4, !tbaa !216
   %57 = fcmp ogt float %56, 0.000000e+00
@@ -8668,7 +8668,7 @@ _ZL23llama_sampler_temp_implP22llama_token_data_arrayf.exit: ; preds = %30
 62:                                               ; preds = %58, %53
   %.1 = phi float [ %61, %58 ], [ %.05173, %53 ]
   %63 = add nuw i64 %.05272, 1
-  %exitcond.not = icmp eq i64 %63, %22
+  %exitcond.not = icmp eq i64 %63, %23
   br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !298
 
 .lr.ph77:                                         ; preds = %.lr.ph77.preheader, %.lr.ph77
@@ -8685,7 +8685,7 @@ _ZL23llama_sampler_temp_implP22llama_token_data_arrayf.exit: ; preds = %30
   store float %70, ptr %71, align 4, !tbaa !216
   %72 = fadd double %.05075, %69
   %73 = add nuw i64 %.04976, 1
-  %exitcond86.not = icmp eq i64 %73, %22
+  %exitcond86.not = icmp eq i64 %73, %23
   br i1 %exitcond86.not, label %.lr.ph80, label %.lr.ph77, !llvm.loop !299
 
 .lr.ph80:                                         ; preds = %.lr.ph77, %.lr.ph80
@@ -8698,7 +8698,7 @@ _ZL23llama_sampler_temp_implP22llama_token_data_arrayf.exit: ; preds = %30
   %79 = fptrunc double %78 to float
   store float %79, ptr %75, align 4, !tbaa !216
   %80 = add nuw i64 %.079, 1
-  %exitcond87.not = icmp eq i64 %80, %22
+  %exitcond87.not = icmp eq i64 %80, %23
   br i1 %exitcond87.not, label %.critedge, label %.lr.ph80, !llvm.loop !300
 
 81:                                               ; preds = %2
@@ -10584,8 +10584,8 @@ define internal noalias noundef nonnull ptr @_ZL29llama_sampler_penalties_cloneP
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc4.i
   %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %24, 2
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !27
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i.i.i.i.i
   br label %llama_sampler_init_penalties.exit
 
 27:                                               ; preds = %.noexc4.i.i
@@ -11211,48 +11211,48 @@ define internal noundef nonnull ptr @_ZL30llama_sampler_top_n_sigma_namePK13llam
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL31llama_sampler_top_n_sigma_applyP13llama_samplerP22llama_token_data_array(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !17
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !22
-  %.not = icmp eq i64 %5, 0
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
+  %5 = load ptr, ptr %1, align 8, !tbaa !17
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load i64, ptr %6, align 8, !tbaa !22
+  %.not = icmp eq i64 %7, 0
   br i1 %.not, label %._crit_edge51.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %7 = load float, ptr %6, align 4, !tbaa !209
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %9 = load float, ptr %8, align 4, !tbaa !209
   br label %.lr.ph
 
 ._crit_edge51.thread:                             ; preds = %2
-  %8 = uitofp nneg i64 %5 to float
-  %9 = fdiv float 0.000000e+00, %8
-  %sqrtf69 = tail call float @sqrtf(float noundef %9) #19
+  %10 = uitofp nneg i64 %7 to float
+  %11 = fdiv float 0.000000e+00, %10
+  %sqrtf69 = tail call float @sqrtf(float noundef %11) #19
   br label %._crit_edge56
 
 .lr.ph50.preheader:                               ; preds = %.lr.ph
-  %10 = uitofp i64 %5 to float
-  %11 = fdiv float %16, %10
+  %12 = uitofp i64 %7 to float
+  %13 = fdiv float %18, %12
   br label %.lr.ph50
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.03444 = phi float [ %.1, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %.03743 = phi float [ %16, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %.03842 = phi i64 [ %17, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = getelementptr inbounds nuw %struct.llama_token_data, ptr %3, i64 %.03842
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %14 = load float, ptr %13, align 4, !tbaa !209
-  %15 = fcmp ogt float %14, %.03444
-  %.1 = select i1 %15, float %14, float %.03444
-  %16 = fadd float %.03743, %14
-  %17 = add nuw i64 %.03842, 1
-  %exitcond.not = icmp eq i64 %17, %5
+  %.03444 = phi float [ %.1, %.lr.ph ], [ %9, %.lr.ph.preheader ]
+  %.03743 = phi float [ %18, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+  %.03842 = phi i64 [ %19, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %14 = getelementptr inbounds nuw %struct.llama_token_data, ptr %5, i64 %.03842
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %16 = load float, ptr %15, align 4, !tbaa !209
+  %17 = fcmp ogt float %16, %.03444
+  %.1 = select i1 %17, float %16, float %.03444
+  %18 = fadd float %.03743, %16
+  %19 = add nuw i64 %.03842, 1
+  %exitcond.not = icmp eq i64 %19, %7
   br i1 %exitcond.not, label %.lr.ph50.preheader, label %.lr.ph, !llvm.loop !338
 
 .lr.ph55:                                         ; preds = %.lr.ph50
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !9
-  %20 = fdiv float %31, %10
+  %20 = fdiv float %31, %12
   %sqrtf = tail call float @sqrtf(float noundef %20) #19
-  %21 = load float, ptr %19, align 4, !tbaa !125
+  %21 = load float, ptr %4, align 4, !tbaa !125
   %22 = fneg float %21
   %23 = tail call float @llvm.fmuladd.f32(float %22, float %sqrtf, float %.1)
   br label %33
@@ -11260,17 +11260,17 @@ define internal void @_ZL31llama_sampler_top_n_sigma_applyP13llama_samplerP22lla
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
   %.03548 = phi i64 [ %32, %.lr.ph50 ], [ 0, %.lr.ph50.preheader ]
   %.03647 = phi float [ %31, %.lr.ph50 ], [ 0.000000e+00, %.lr.ph50.preheader ]
-  %24 = getelementptr inbounds nuw %struct.llama_token_data, ptr %3, i64 %.03548
+  %24 = getelementptr inbounds nuw %struct.llama_token_data, ptr %5, i64 %.03548
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load float, ptr %25, align 4, !tbaa !209
-  %27 = fsub float %26, %11
+  %27 = fsub float %26, %13
   %28 = fpext float %27 to double
   %square = fmul double %28, %28
   %29 = fpext float %.03647 to double
   %30 = fadd double %square, %29
   %31 = fptrunc double %30 to float
   %32 = add nuw i64 %.03548, 1
-  %exitcond60.not = icmp eq i64 %32, %5
+  %exitcond60.not = icmp eq i64 %32, %7
   br i1 %exitcond60.not, label %.lr.ph55, label %.lr.ph50, !llvm.loop !339
 
 ._crit_edge56:                                    ; preds = %39, %._crit_edge51.thread
@@ -11279,7 +11279,7 @@ define internal void @_ZL31llama_sampler_top_n_sigma_applyP13llama_samplerP22lla
 
 33:                                               ; preds = %.lr.ph55, %39
   %.053 = phi i64 [ 0, %.lr.ph55 ], [ %40, %39 ]
-  %34 = getelementptr inbounds nuw %struct.llama_token_data, ptr %3, i64 %.053
+  %34 = getelementptr inbounds nuw %struct.llama_token_data, ptr %5, i64 %.053
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load float, ptr %35, align 4, !tbaa !209
   %37 = fcmp olt float %36, %23
@@ -11291,7 +11291,7 @@ define internal void @_ZL31llama_sampler_top_n_sigma_applyP13llama_samplerP22lla
 
 39:                                               ; preds = %33, %38
   %40 = add nuw i64 %.053, 1
-  %exitcond61.not = icmp eq i64 %40, %5
+  %exitcond61.not = icmp eq i64 %40, %7
   br i1 %exitcond61.not, label %._crit_edge56, label %33, !llvm.loop !340
 }
 

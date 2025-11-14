@@ -153,6 +153,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %sub.ptr.sub.i, 1
   %call5.i.i.i.i2.i.i13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #16
   store ptr %call5.i.i.i.i2.i.i13, ptr %names, align 8
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %names, i64 8
   %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i2.i.i13, i64 %sub.ptr.div.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %names, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
@@ -174,7 +175,6 @@ invoke.cont4.thread:                              ; preds = %_ZNSt6vectorINSt7__
   br label %for.end
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i
-  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %names, i64 8
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %types, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #16

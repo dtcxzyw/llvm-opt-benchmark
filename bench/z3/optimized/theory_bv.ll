@@ -3231,6 +3231,7 @@ _ZNK6vectorIPN3smt9theory_bv4atomELb0EjE4sizeEv.exit.i.i30: ; preds = %107
 thread-pre-split.i.i.i.preheader:                 ; preds = %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE4sizeEv.exit.i.i30, %107
   %.ph = phi ptr [ null, %107 ], [ %112, %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE4sizeEv.exit.i.i30 ]
   %.0.i17.i.i.i.ph = phi i32 [ 0, %107 ], [ %115, %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE4sizeEv.exit.i.i30 ]
+  %.ph62 = add nuw i32 %22, 1
   br label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %thread-pre-split.i.i.i.preheader, %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE8capacityEv.exit.thread.i.i.i
@@ -3250,7 +3251,6 @@ _ZNK6vectorIPN3smt9theory_bv4atomELb0EjE8capacityEv.exit.thread.i.i.i: ; preds =
   br label %thread-pre-split.i.i.i, !llvm.loop !99
 
 120:                                              ; preds = %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE8capacityEv.exit.i.i.i
-  %.ph62 = add nuw i32 %22, 1
   %121 = getelementptr inbounds i8, ptr %116, i64 -4
   store i32 %.ph62, ptr %121, align 4, !tbaa !10
   %.not1319.i.i.i = icmp eq i32 %.0.i17.i.i.i.ph, %.ph62

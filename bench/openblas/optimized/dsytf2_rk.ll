@@ -403,27 +403,27 @@ define void @dsytf2_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
 
 .lr.ph934.preheader:                              ; preds = %224
   store double %225, ptr %10, align 8, !tbaa !7
-  %235 = sext i32 %37 to i64
+  %235 = add nsw i32 %.0794935, -1
+  %236 = sext i32 %37 to i64
   %wide.trip.count = zext nneg i32 %.0794935 to i64
-  %invariant.gep1039 = getelementptr double, ptr %13, i64 %235
+  %invariant.gep1039 = getelementptr double, ptr %13, i64 %236
   br label %.lr.ph934
 
 .lr.ph934:                                        ; preds = %.lr.ph934.preheader, %.lr.ph934
   %indvars.iv971 = phi i64 [ 1, %.lr.ph934.preheader ], [ %indvars.iv.next972, %.lr.ph934 ]
   %gep1040 = getelementptr double, ptr %invariant.gep1039, i64 %indvars.iv971
-  %236 = load double, ptr %gep1040, align 8, !tbaa !7
-  %237 = fdiv double %236, %225
-  store double %237, ptr %gep1040, align 8, !tbaa !7
+  %237 = load double, ptr %gep1040, align 8, !tbaa !7
+  %238 = fdiv double %237, %225
+  store double %238, ptr %gep1040, align 8, !tbaa !7
   %indvars.iv.next972 = add nuw nsw i64 %indvars.iv971, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next972, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph934, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph934
-  %238 = add nsw i32 %.0794935, -1
-  store i32 %238, ptr %8, align 4, !tbaa !3
+  store i32 %235, ptr %8, align 4, !tbaa !3
   %239 = fneg double %225
   store double %239, ptr %9, align 8, !tbaa !7
-  %240 = getelementptr double, ptr %13, i64 %235
+  %240 = getelementptr double, ptr %13, i64 %236
   %241 = getelementptr i8, ptr %240, i64 8
   call void @dsyr_(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %241, ptr noundef nonnull @c__1, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   br label %.sink.split
@@ -902,34 +902,34 @@ define void @dsytf2_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
 
 .lr.ph951.preheader:                              ; preds = %506
   store double %507, ptr %10, align 8, !tbaa !7
+  %523 = add nuw nsw i32 %.1795953, 1
   %narrow1023 = add nuw nsw i32 %.1795953, 1
-  %523 = zext nneg i32 %narrow1023 to i64
-  %524 = sext i32 %314 to i64
-  %525 = add i32 %503, 1
-  %invariant.gep1051 = getelementptr double, ptr %13, i64 %524
+  %524 = zext nneg i32 %narrow1023 to i64
+  %525 = sext i32 %314 to i64
+  %526 = add i32 %503, 1
+  %invariant.gep1051 = getelementptr double, ptr %13, i64 %525
   br label %.lr.ph951
 
 .lr.ph951:                                        ; preds = %.lr.ph951.preheader, %.lr.ph951
-  %indvars.iv981 = phi i64 [ %523, %.lr.ph951.preheader ], [ %indvars.iv.next982, %.lr.ph951 ]
+  %indvars.iv981 = phi i64 [ %524, %.lr.ph951.preheader ], [ %indvars.iv.next982, %.lr.ph951 ]
   %gep1052 = getelementptr double, ptr %invariant.gep1051, i64 %indvars.iv981
-  %526 = load double, ptr %gep1052, align 8, !tbaa !7
-  %527 = fdiv double %526, %507
-  store double %527, ptr %gep1052, align 8, !tbaa !7
+  %527 = load double, ptr %gep1052, align 8, !tbaa !7
+  %528 = fdiv double %527, %507
+  store double %528, ptr %gep1052, align 8, !tbaa !7
   %indvars.iv.next982 = add nuw nsw i64 %indvars.iv981, 1
   %lftr.wideiv984 = trunc i64 %indvars.iv.next982 to i32
-  %exitcond985.not = icmp eq i32 %525, %lftr.wideiv984
+  %exitcond985.not = icmp eq i32 %526, %lftr.wideiv984
   br i1 %exitcond985.not, label %._crit_edge952, label %.lr.ph951, !llvm.loop !13
 
 ._crit_edge952:                                   ; preds = %.lr.ph951
-  %528 = add nuw nsw i32 %.1795953, 1
   %529 = sub nsw i32 %503, %.1795953
   store i32 %529, ptr %8, align 4, !tbaa !3
   %530 = fneg double %507
   store double %530, ptr %9, align 8, !tbaa !7
-  %531 = add nsw i32 %528, %314
+  %531 = add nsw i32 %523, %314
   %532 = sext i32 %531 to i64
   %533 = getelementptr inbounds double, ptr %13, i64 %532
-  %534 = mul i32 %528, %310
+  %534 = mul i32 %523, %310
   %535 = sext i32 %534 to i64
   %536 = getelementptr inbounds double, ptr %13, i64 %535
   call void @dsyr_(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %533, ptr noundef nonnull @c__1, ptr noundef %536, ptr noundef nonnull %3) #5

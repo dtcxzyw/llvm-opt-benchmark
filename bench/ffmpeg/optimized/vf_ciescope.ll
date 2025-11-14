@@ -1286,9 +1286,9 @@ plot_white_point.exit:                            ; preds = %580, %._crit_edge15
   br label %705
 
 705:                                              ; preds = %722, %691
-  %.066.i.i = phi i32 [ %.079.i, %691 ], [ %.167.i.i125, %722 ]
+  %.066.i.i = phi i32 [ %.079.i, %691 ], [ %.167.i.i126, %722 ]
   %.064.i.i = phi i32 [ %703, %691 ], [ %.2.i.i, %722 ]
-  %.0.i.i = phi i32 [ %.080.i, %691 ], [ %.1.i.i124, %722 ]
+  %.0.i.i = phi i32 [ %.080.i, %691 ], [ %.1.i.i125, %722 ]
   %706 = mul nsw i32 %.066.i.i, %.pre-phi
   %707 = shl nsw i32 %.0.i.i, 2
   %708 = add nsw i32 %707, %706
@@ -1310,32 +1310,32 @@ plot_white_point.exit:                            ; preds = %580, %._crit_edge15
   %720 = icmp eq i32 %.0.i.i, %.078.i
   %721 = icmp eq i32 %.066.i.i, %.077.i
   %or.cond.i.i = and i1 %721, %720
-  br i1 %or.cond.i.i, label %draw_rline.exit.i126, label %722
+  br i1 %or.cond.i.i, label %draw_rline.exit.i127, label %722
 
 722:                                              ; preds = %705
   %723 = icmp sgt i32 %.064.i.i, %704
   %724 = select i1 %723, i32 %697, i32 0
   %.165.i.i = sub i32 %.064.i.i, %724
   %725 = select i1 %723, i32 %695, i32 0
-  %.1.i.i124 = add nsw i32 %725, %.0.i.i
+  %.1.i.i125 = add nsw i32 %725, %.0.i.i
   %726 = icmp slt i32 %.064.i.i, %697
   %727 = select i1 %726, i32 %699, i32 0
-  %.167.i.i125 = add nsw i32 %727, %.066.i.i
+  %.167.i.i126 = add nsw i32 %727, %.066.i.i
   %728 = select i1 %726, i32 %693, i32 0
   %.2.i.i = add nsw i32 %.165.i.i, %728
   br label %705
 
-draw_rline.exit.i126:                             ; preds = %705
+draw_rline.exit.i127:                             ; preds = %705
   %.pn122.in.i = fmul nsz float %.pn123.i, %599
   %.pn122.i = fptosi float %.pn122.in.i to i32
-  %.0.i127 = sub nsw i32 %598, %.pn122.i
+  %.0.i124 = sub nsw i32 %598, %.pn122.i
   %.076.in.i = fmul nsz float %.pn121.i, %597
   %.076.i = fptosi float %.076.in.i to i32
   %729 = sub nsw i32 %.076.i, %.078.i
   %730 = call i32 @llvm.abs.i32(i32 %729, i1 true)
   %731 = icmp slt i32 %.078.i, %.076.i
   %732 = select i1 %731, i32 1, i32 -1
-  %733 = sub nsw i32 %.0.i127, %.077.i
+  %733 = sub nsw i32 %.0.i124, %.077.i
   %734 = call i32 @llvm.abs.i32(i32 %733, i1 true)
   %735 = icmp slt i32 %.pn122.i, %.pn119.i
   %736 = select i1 %735, i32 1, i32 -1
@@ -1346,10 +1346,10 @@ draw_rline.exit.i126:                             ; preds = %705
   %741 = sub nsw i32 0, %730
   br label %742
 
-742:                                              ; preds = %759, %draw_rline.exit.i126
-  %.066.i83.i = phi i32 [ %.077.i, %draw_rline.exit.i126 ], [ %.167.i89.i, %759 ]
-  %.064.i84.i = phi i32 [ %740, %draw_rline.exit.i126 ], [ %.2.i90.i, %759 ]
-  %.0.i85.i = phi i32 [ %.078.i, %draw_rline.exit.i126 ], [ %.1.i88.i, %759 ]
+742:                                              ; preds = %759, %draw_rline.exit.i127
+  %.066.i83.i = phi i32 [ %.077.i, %draw_rline.exit.i127 ], [ %.167.i89.i, %759 ]
+  %.064.i84.i = phi i32 [ %740, %draw_rline.exit.i127 ], [ %.2.i90.i, %759 ]
+  %.0.i85.i = phi i32 [ %.078.i, %draw_rline.exit.i127 ], [ %.1.i88.i, %759 ]
   %743 = mul nsw i32 %.066.i83.i, %.pre-phi
   %744 = shl nsw i32 %.0.i85.i, 2
   %745 = add nsw i32 %744, %743
@@ -1369,7 +1369,7 @@ draw_rline.exit.i126:                             ; preds = %705
   %756 = getelementptr i8, ptr %747, i64 6
   store i16 -1, ptr %756, align 2, !tbaa !60
   %757 = icmp eq i32 %.0.i85.i, %.076.i
-  %758 = icmp eq i32 %.066.i83.i, %.0.i127
+  %758 = icmp eq i32 %.066.i83.i, %.0.i124
   %or.cond.i86.i = and i1 %758, %757
   br i1 %or.cond.i86.i, label %draw_rline.exit91.i, label %759
 
@@ -1391,7 +1391,7 @@ draw_rline.exit91.i:                              ; preds = %742
   %767 = call i32 @llvm.abs.i32(i32 %766, i1 true)
   %768 = icmp slt i32 %.076.i, %.080.i
   %769 = select i1 %768, i32 1, i32 -1
-  %770 = sub nsw i32 %.079.i, %.0.i127
+  %770 = sub nsw i32 %.079.i, %.0.i124
   %771 = call i32 @llvm.abs.i32(i32 %770, i1 true)
   %772 = icmp slt i32 %.pn116.i, %.pn122.i
   %773 = select i1 %772, i32 1, i32 -1
@@ -1403,7 +1403,7 @@ draw_rline.exit91.i:                              ; preds = %742
   br label %779
 
 779:                                              ; preds = %796, %draw_rline.exit91.i
-  %.066.i92.i = phi i32 [ %.0.i127, %draw_rline.exit91.i ], [ %.167.i98.i, %796 ]
+  %.066.i92.i = phi i32 [ %.0.i124, %draw_rline.exit91.i ], [ %.167.i98.i, %796 ]
   %.064.i93.i = phi i32 [ %777, %draw_rline.exit91.i ], [ %.2.i99.i, %796 ]
   %.0.i94.i = phi i32 [ %.076.i, %draw_rline.exit91.i ], [ %.1.i97.i, %796 ]
   %780 = mul nsw i32 %.066.i92.i, %.pre-phi

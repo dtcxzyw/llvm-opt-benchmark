@@ -2386,8 +2386,8 @@ if.then.i.i.i.i.i40:                              ; preds = %_ZNSt6vectorIPcSaIS
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i40
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body121.preheader
 
 for.body121.preheader:                            ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i40
@@ -2446,8 +2446,8 @@ if.then.i.i.i.i108:                               ; preds = %if.then.i63
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i108
   %add.ptr.idx.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i109, i64 %add.ptr.idx.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i109, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i, i1 false)
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i109, i64 %add.ptr.idx.i.i.i.i.i.i
   br label %if.end130
 
 if.else.i111:                                     ; preds = %if.then.i63

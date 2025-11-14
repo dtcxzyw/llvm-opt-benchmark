@@ -10997,7 +10997,6 @@ Vec_IntPush.exit354:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %394, label %.lr.ph408, label %.preheader390, !llvm.loop !178
 
 .loopexit:                                        ; preds = %423
-  %indvars.iv.next453 = add nuw nsw i64 %indvars.iv452, 1
   %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
   %exitcond456.not = icmp eq i64 %indvars.iv.next453, %wide.trip.count455
   br i1 %exitcond456.not, label %._crit_edge, label %.lr.ph410, !llvm.loop !179
@@ -11005,6 +11004,7 @@ Vec_IntPush.exit354:                              ; preds = %.Vec_IntGrow.exit10
 .lr.ph410:                                        ; preds = %.loopexit, %.lr.ph412.preheader
   %indvars.iv452 = phi i64 [ 0, %.lr.ph412.preheader ], [ %indvars.iv.next453, %.loopexit ]
   %indvars.iv447 = phi i64 [ 1, %.lr.ph412.preheader ], [ %indvars.iv.next448, %.loopexit ]
+  %indvars.iv.next453 = add nuw nsw i64 %indvars.iv452, 1
   %395 = getelementptr inbounds nuw i32, ptr %.val282, i64 %indvars.iv452
   br label %396
 

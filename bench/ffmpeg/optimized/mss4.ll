@@ -418,8 +418,8 @@ get_unary.exit.i.us:                              ; preds = %173, %162
   %178 = zext i8 %177 to i32
   %179 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv255.i.us
   store i32 %178, ptr %179, align 4, !tbaa !48
-  %.not239.i.us = icmp eq i8 %177, 0
-  br i1 %.not239.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us
+  %.not240.i.us = icmp eq i8 %177, 0
+  br i1 %.not240.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %get_unary.exit.i.us
   %180 = getelementptr inbounds nuw %struct.VLC, ptr @vec_entry_vlc, i64 %160

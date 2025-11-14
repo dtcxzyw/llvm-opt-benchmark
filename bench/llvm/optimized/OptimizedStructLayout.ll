@@ -535,30 +535,30 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %.us-phi = phi i64 [ %.pre160, %.split ], [ %.031.us, %34 ], [ %.031.us, %.lr.ph60.us ], [ %43, %44 ], [ %43, %45 ]
   %.us-phi62 = phi ptr [ %.028.lcssa, %.split ], [ %36, %34 ], [ %.129.us, %.lr.ph60.us ], [ %.230.us106, %45 ], [ %.val, %44 ]
   %.us-phi64 = phi i64 [ -1, %.split ], [ %32, %34 ], [ %32, %.lr.ph60.us ], [ -1, %44 ], [ -1, %45 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.us-phi62, i64 8
-  br label %54
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %54 = load ptr, ptr %53, align 8, !tbaa !49
+  %.val42.le = load ptr, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %.us-phi62, i64 8
+  br label %56
 
-54:                                               ; preds = %54, %.thread.i
-  %.014.in.i = phi ptr [ %53, %.thread.i ], [ %57, %54 ]
-  %.0.i = phi ptr [ null, %.thread.i ], [ %.014.i, %54 ]
+56:                                               ; preds = %56, %.thread.i
+  %.014.in.i = phi ptr [ %55, %.thread.i ], [ %59, %56 ]
+  %.0.i = phi ptr [ null, %.thread.i ], [ %.014.i, %56 ]
   %.014.i = load ptr, ptr %.014.in.i, align 8, !tbaa !26
-  %55 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
-  %56 = load i64, ptr %55, align 8, !tbaa !13
-  %.not.i = icmp ugt i64 %56, %.us-phi64
-  %57 = getelementptr i8, ptr %.014.i, i64 24
-  br i1 %.not.i, label %54, label %58, !llvm.loop !49
+  %57 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
+  %58 = load i64, ptr %57, align 8, !tbaa !13
+  %.not.i = icmp ugt i64 %58, %.us-phi64
+  %59 = getelementptr i8, ptr %.014.i, i64 24
+  br i1 %.not.i, label %56, label %60, !llvm.loop !50
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !50
-  %.val42.le = load ptr, ptr %60, align 8
+60:                                               ; preds = %56
   %61 = load ptr, ptr %.val42.le, align 8, !tbaa !51
   %.val.i.i = load ptr, ptr %61, align 8
   %.not.i.i.i = icmp eq ptr %.0.i, null
-  %.val.i.i.i = load ptr, ptr %57, align 8, !tbaa !14
+  %.val.i.i.i = load ptr, ptr %59, align 8, !tbaa !14
   br i1 %.not.i.i.i, label %67, label %62
 
-62:                                               ; preds = %58
+62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store ptr %.val.i.i.i, ptr %63, align 8, !tbaa !14
   %.not14.i.i.i = icmp eq ptr %.val.i.i.i, null
@@ -570,12 +570,12 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   store i64 %66, ptr %.us-phi62, align 8, !tbaa !32
   br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_1clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuePS1_S6_.exit.i.i"
 
-67:                                               ; preds = %58
+67:                                               ; preds = %60
   %.not13.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not13.i.i.i, label %69, label %68
 
 68:                                               ; preds = %67
-  store ptr %.val.i.i.i, ptr %53, align 8, !tbaa !35
+  store ptr %.val.i.i.i, ptr %55, align 8, !tbaa !35
   br label %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_1clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuePS1_S6_.exit.i.i"
 
 69:                                               ; preds = %67
@@ -797,8 +797,8 @@ attributes #9 = { nounwind }
 !46 = distinct !{!46, !12}
 !47 = distinct !{!47, !12}
 !48 = distinct !{!48, !12}
-!49 = distinct !{!49, !12}
-!50 = !{!43, !8, i64 16}
+!49 = !{!43, !8, i64 16}
+!50 = distinct !{!50, !12}
 !51 = !{!52, !8, i64 0}
 !52 = !{!"_ZTSZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE3$_2", !8, i64 0, !28, i64 8, !30, i64 16}
 !53 = !{!52, !28, i64 8}

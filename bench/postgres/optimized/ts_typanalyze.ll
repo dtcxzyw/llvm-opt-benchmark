@@ -295,69 +295,69 @@ prune_lexemes_hashtable.exit:                     ; preds = %109, %93
   %137 = mul i32 %.0148.lcssa, 9
   %138 = sdiv i32 %137, %15
   %139 = call i64 @hash_get_num_entries(ptr noundef %23) #10
+  %140 = trunc i64 %139 to i32
   %sext = shl i64 %139, 32
-  %140 = ashr exact i64 %sext, 29
-  %141 = call ptr @palloc(i64 noundef %140) #10
+  %141 = ashr exact i64 %sext, 29
+  %142 = call ptr @palloc(i64 noundef %141) #10
   call void @hash_seq_init(ptr noundef nonnull %7, ptr noundef %23) #10
-  %142 = call ptr @hash_seq_search(ptr noundef nonnull %7) #10
-  %.not183 = icmp eq ptr %142, null
+  %143 = call ptr @hash_seq_search(ptr noundef nonnull %7) #10
+  %.not183 = icmp eq ptr %143, null
   br i1 %.not183, label %._crit_edge189, label %.lr.ph188
 
-.lr.ph188:                                        ; preds = %122, %153
-  %143 = phi ptr [ %154, %153 ], [ %142, %122 ]
-  %.0140186 = phi i32 [ %.1141, %153 ], [ 0, %122 ]
-  %.0142185 = phi i32 [ %.1143, %153 ], [ %.0148.lcssa, %122 ]
-  %.0146184 = phi i32 [ %.1147, %153 ], [ 0, %122 ]
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
-  %145 = load i32, ptr %144, align 8
-  %146 = icmp sgt i32 %145, %138
-  br i1 %146, label %147, label %153
+.lr.ph188:                                        ; preds = %122, %154
+  %144 = phi ptr [ %155, %154 ], [ %143, %122 ]
+  %.0140186 = phi i32 [ %.1141, %154 ], [ 0, %122 ]
+  %.0142185 = phi i32 [ %.1143, %154 ], [ %.0148.lcssa, %122 ]
+  %.0146184 = phi i32 [ %.1147, %154 ], [ 0, %122 ]
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
+  %146 = load i32, ptr %145, align 8
+  %147 = icmp sgt i32 %146, %138
+  br i1 %147, label %148, label %154
 
-147:                                              ; preds = %.lr.ph188
-  %148 = add i32 %.0146184, 1
-  %149 = sext i32 %.0146184 to i64
-  %150 = getelementptr inbounds ptr, ptr %141, i64 %149
-  store ptr %143, ptr %150, align 8
-  %151 = load i32, ptr %144, align 8
-  %.0142. = call i32 @llvm.smin.i32(i32 %.0142185, i32 %151)
-  %152 = call i32 @llvm.smax.i32(i32 %.0140186, i32 %151)
-  br label %153
+148:                                              ; preds = %.lr.ph188
+  %149 = add i32 %.0146184, 1
+  %150 = sext i32 %.0146184 to i64
+  %151 = getelementptr inbounds ptr, ptr %142, i64 %150
+  store ptr %144, ptr %151, align 8
+  %152 = load i32, ptr %145, align 8
+  %.0142. = call i32 @llvm.smin.i32(i32 %.0142185, i32 %152)
+  %153 = call i32 @llvm.smax.i32(i32 %.0140186, i32 %152)
+  br label %154
 
-153:                                              ; preds = %147, %.lr.ph188
-  %.1147 = phi i32 [ %148, %147 ], [ %.0146184, %.lr.ph188 ]
-  %.1143 = phi i32 [ %.0142., %147 ], [ %.0142185, %.lr.ph188 ]
-  %.1141 = phi i32 [ %152, %147 ], [ %.0140186, %.lr.ph188 ]
-  %154 = call ptr @hash_seq_search(ptr noundef nonnull %7) #10
-  %.not = icmp eq ptr %154, null
+154:                                              ; preds = %148, %.lr.ph188
+  %.1147 = phi i32 [ %149, %148 ], [ %.0146184, %.lr.ph188 ]
+  %.1143 = phi i32 [ %.0142., %148 ], [ %.0142185, %.lr.ph188 ]
+  %.1141 = phi i32 [ %153, %148 ], [ %.0140186, %.lr.ph188 ]
+  %155 = call ptr @hash_seq_search(ptr noundef nonnull %7) #10
+  %.not = icmp eq ptr %155, null
   br i1 %.not, label %._crit_edge189.loopexit, label %.lr.ph188, !llvm.loop !10
 
-._crit_edge189.loopexit:                          ; preds = %153
-  %155 = uitofp nneg i32 %.1141 to double
+._crit_edge189.loopexit:                          ; preds = %154
+  %156 = uitofp nneg i32 %.1141 to double
   br label %._crit_edge189
 
 ._crit_edge189:                                   ; preds = %._crit_edge189.loopexit, %122
   %.0146.lcssa = phi i32 [ 0, %122 ], [ %.1147, %._crit_edge189.loopexit ]
   %.0142.lcssa = phi i32 [ %.0148.lcssa, %122 ], [ %.1143, %._crit_edge189.loopexit ]
-  %.0140.lcssa = phi double [ 0.000000e+00, %122 ], [ %155, %._crit_edge189.loopexit ]
-  %156 = call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #10
-  br i1 %156, label %157, label %160
+  %.0140.lcssa = phi double [ 0.000000e+00, %122 ], [ %156, %._crit_edge189.loopexit ]
+  %157 = call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #10
+  br i1 %157, label %158, label %160
 
-157:                                              ; preds = %._crit_edge189
-  %158 = trunc i64 %139 to i32
-  %159 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i32 noundef %12, i32 noundef %15, i32 noundef %.0148.lcssa, i32 noundef %158, i32 noundef %.0146.lcssa) #10
+158:                                              ; preds = %._crit_edge189
+  %159 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i32 noundef %12, i32 noundef %15, i32 noundef %.0148.lcssa, i32 noundef %140, i32 noundef %.0146.lcssa) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 343, ptr noundef nonnull @__func__.compute_tsvector_stats) #10
   br label %160
 
-160:                                              ; preds = %157, %._crit_edge189
+160:                                              ; preds = %158, %._crit_edge189
   %161 = icmp slt i32 %12, %.0146.lcssa
   br i1 %161, label %162, label %170
 
 162:                                              ; preds = %160
   %163 = sext i32 %.0146.lcssa to i64
-  call void @qsort_interruptible(ptr noundef %141, i64 noundef %163, i64 noundef 8, ptr noundef nonnull @trackitem_compare_frequencies_desc, ptr noundef null) #10
+  call void @qsort_interruptible(ptr noundef %142, i64 noundef %163, i64 noundef 8, ptr noundef nonnull @trackitem_compare_frequencies_desc, ptr noundef null) #10
   %164 = add i32 %12, -1
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds ptr, ptr %141, i64 %165
+  %166 = getelementptr inbounds ptr, ptr %142, i64 %165
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load i32, ptr %168, align 8
@@ -371,7 +371,7 @@ prune_lexemes_hashtable.exit:                     ; preds = %109, %93
 
 172:                                              ; preds = %170
   %173 = zext nneg i32 %.0 to i64
-  call void @qsort_interruptible(ptr noundef %141, i64 noundef %173, i64 noundef 8, ptr noundef nonnull @trackitem_compare_lexemes, ptr noundef null) #10
+  call void @qsort_interruptible(ptr noundef %142, i64 noundef %173, i64 noundef 8, ptr noundef nonnull @trackitem_compare_lexemes, ptr noundef null) #10
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %175 = load ptr, ptr %174, align 8
   %176 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -386,7 +386,7 @@ prune_lexemes_hashtable.exit:                     ; preds = %109, %93
 
 183:                                              ; preds = %172, %183
   %indvars.iv = phi i64 [ 0, %172 ], [ %indvars.iv.next, %183 ]
-  %184 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv
   %185 = load ptr, ptr %184, align 8
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 8

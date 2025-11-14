@@ -587,16 +587,13 @@ define dso_local void @_ZN4llvm3pdb16GSIStreamBuilder21finalizeGlobalBucketsEj(p
   %14 = mul nuw nsw i64 %10, 24
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %15, i8 0, i64 %14, i1 false)
-  br label %.lr.ph
-
-._crit_edge.loopexit:                             ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw %"struct.llvm::pdb::BulkPublic", ptr %15, i64 %10
   %17 = ptrtoint ptr %16 to i64
-  br label %._crit_edge
+  br label %.lr.ph
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.sroa.014.031 = phi ptr [ null, %2 ], [ %15, %._crit_edge.loopexit ]
-  %.sroa.17.030 = phi i64 [ 0, %2 ], [ %17, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  %.sroa.014.031 = phi ptr [ null, %2 ], [ %15, %.lr.ph ]
+  %.sroa.17.030 = phi i64 [ 0, %2 ], [ %17, %.lr.ph ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !21
   %20 = ptrtoint ptr %.sroa.014.031 to i64
@@ -639,7 +636,7 @@ _ZNSt6vectorIN4llvm3pdb10BulkPublicESaIS2_EED2Ev.exit: ; preds = %._crit_edge, %
   %38 = add i32 %.025, %37
   %39 = add nuw i64 %.01224, 1
   %exitcond.not = icmp eq i64 %39, %10
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 }
 
 declare { ptr, i64 } @_ZN4llvm8codeview13getSymbolNameENS0_8CVRecordINS0_10SymbolKindEEE(ptr, i64) local_unnamed_addr #2

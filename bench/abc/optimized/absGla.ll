@@ -3895,28 +3895,28 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %447 = load ptr, ptr %17, align 8, !tbaa !85
   %448 = getelementptr i8, ptr %447, i64 8
   %.val193.i = load ptr, ptr %448, align 8, !tbaa !31
-  br label %449
+  %449 = load ptr, ptr %24, align 8, !tbaa !90
+  br label %450
 
-449:                                              ; preds = %449, %Vec_IntPush.exit
-  %indvars.iv.i.i = phi i64 [ 0, %Vec_IntPush.exit ], [ %indvars.iv.next.i.i, %449 ]
-  %.08.i.i = phi i32 [ 0, %Vec_IntPush.exit ], [ %455, %449 ]
-  %450 = getelementptr inbounds nuw i32, ptr %.val193.i, i64 %indvars.iv.i.i
-  %451 = load i32, ptr %450, align 4, !tbaa !32
-  %452 = getelementptr inbounds nuw i32, ptr @Saig_ManBmcHashKey.s_Primes, i64 %indvars.iv.i.i
-  %453 = load i32, ptr %452, align 4, !tbaa !32
-  %454 = mul nsw i32 %453, %451
-  %455 = add i32 %454, %.08.i.i
+450:                                              ; preds = %450, %Vec_IntPush.exit
+  %indvars.iv.i.i = phi i64 [ 0, %Vec_IntPush.exit ], [ %indvars.iv.next.i.i, %450 ]
+  %.08.i.i = phi i32 [ 0, %Vec_IntPush.exit ], [ %456, %450 ]
+  %451 = getelementptr inbounds nuw i32, ptr %.val193.i, i64 %indvars.iv.i.i
+  %452 = load i32, ptr %451, align 4, !tbaa !32
+  %453 = getelementptr inbounds nuw i32, ptr @Saig_ManBmcHashKey.s_Primes, i64 %indvars.iv.i.i
+  %454 = load i32, ptr %453, align 4, !tbaa !32
+  %455 = mul nsw i32 %454, %452
+  %456 = add i32 %455, %.08.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
-  br i1 %exitcond.not.i.i, label %Saig_ManBmcHashKey.exit.i, label %449, !llvm.loop !146
+  br i1 %exitcond.not.i.i, label %Saig_ManBmcHashKey.exit.i, label %450, !llvm.loop !146
 
-Saig_ManBmcHashKey.exit.i:                        ; preds = %449
-  %456 = load ptr, ptr %24, align 8, !tbaa !90
+Saig_ManBmcHashKey.exit.i:                        ; preds = %450
   %457 = load i32, ptr %25, align 8, !tbaa !89
-  %458 = urem i32 %455, %457
+  %458 = urem i32 %456, %457
   %459 = mul i32 %458, 6
   %460 = zext i32 %459 to i64
-  %461 = getelementptr inbounds nuw i32, ptr %456, i64 %460
+  %461 = getelementptr inbounds nuw i32, ptr %449, i64 %460
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %461, ptr noundef nonnull readonly dereferenceable(20) %.val193.i, i64 20)
   %.not.i74 = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i74, label %Saig_ManBmcLookup.exit, label %462

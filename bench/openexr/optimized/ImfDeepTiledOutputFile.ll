@@ -8171,8 +8171,8 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %33
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %51, 3
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %50, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !192
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i.i.i.i.i.i
   br label %54
 
 54:                                               ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i
@@ -8224,8 +8224,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc118
   %.idx.i.i.i.i.i.i.i115 = shl nuw nsw i64 %70, 2
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i.i.i.i.i.i115
   call void @llvm.memset.p0.i64(ptr align 4 %69, i8 0, i64 %.idx.i.i.i.i.i.i.i115, i1 false), !tbaa !141
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i.i.i.i.i.i115
   br label %73
 
 73:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc118, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
@@ -8276,8 +8276,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i124: ; preds = %_ZNSt6vectorIi
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i121: ; preds = %.noexc126
   %.idx.i.i.i.i.i.i.i122 = shl nuw nsw i64 %88, 2
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx.i.i.i.i.i.i.i122
   call void @llvm.memset.p0.i64(ptr align 4 %87, i8 0, i64 %.idx.i.i.i.i.i.i.i122, i1 false), !tbaa !141
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx.i.i.i.i.i.i.i122
   br label %91
 
 91:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i121, %.noexc126, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i124

@@ -5354,15 +5354,15 @@ _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %8, %16
 
 .preheader.i.i.i:                                 ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit
   %22 = tail call noundef ptr @_ZN4llvm17DbgVariableRecord15createDVRAssignEPNS_5ValueEPNS_15DILocalVariableEPNS_12DIExpressionEPNS_10DIAssignIDES2_S6_PKNS_10DILocationE(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %.0.i, ptr noundef %5, ptr noundef %6, ptr noundef %7) #13
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !328
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !282
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %28 = icmp eq ptr %24, %27
-  %29 = getelementptr inbounds i8, ptr %24, i64 -24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %24 = load ptr, ptr %23, align 8, !tbaa !282
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %26 = load ptr, ptr %25, align 8, !tbaa !328
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %28 = icmp eq ptr %26, %27
+  %29 = getelementptr inbounds i8, ptr %26, i64 -24
   %spec.select = select i1 %28, ptr null, ptr %29
-  tail call void @_ZN4llvm9DIBuilder23insertDbgVariableRecordEPNS_17DbgVariableRecordEPNS_10BasicBlockEPNS_11InstructionEb(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef %22, ptr noundef nonnull %26, ptr noundef %spec.select, i1 noundef zeroext true)
+  tail call void @_ZN4llvm9DIBuilder23insertDbgVariableRecordEPNS_17DbgVariableRecordEPNS_10BasicBlockEPNS_11InstructionEb(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef %22, ptr noundef nonnull %24, ptr noundef %spec.select, i1 noundef zeroext true)
   %30 = ptrtoint ptr %22 to i64
   %31 = or i64 %30, 4
   br label %84

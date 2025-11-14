@@ -28,9 +28,9 @@ define void @_ZN5folly6detail17double_radix_sortEmPmPdS2_(i64 noundef %0, ptr no
   tail call void @_ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %2, ptr noundef nonnull %7, i64 noundef %12)
   %13 = icmp samesign ugt i64 %0, 16
   %scevgep.i.i.i = getelementptr i8, ptr %2, i64 8
-  br i1 %13, label %.preheader.i.i.i, label %32
+  br i1 %13, label %.preheader.i, label %32
 
-.preheader.i.i.i:                                 ; preds = %8, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
+.preheader.i:                                     ; preds = %8, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %.020.i.idx.i.i.i = phi i64 [ %.020.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ 8, %8 ]
   %.pn19.i.i.i.i = phi ptr [ %.020.i.ptr.i.i.i, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %2, %8 ]
   %.020.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.020.i.idx.i.i.i
@@ -39,11 +39,11 @@ define void @_ZN5folly6detail17double_radix_sortEmPmPdS2_(i64 noundef %0, ptr no
   %16 = fcmp olt double %14, %15
   br i1 %16, label %17, label %18
 
-17:                                               ; preds = %.preheader.i.i.i
+17:                                               ; preds = %.preheader.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %2, i64 %.020.i.idx.i.i.i, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
-18:                                               ; preds = %.preheader.i.i.i
+18:                                               ; preds = %.preheader.i
   %19 = load double, ptr %.pn19.i.i.i.i, align 8, !tbaa !7
   %20 = fcmp olt double %14, %19
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
@@ -63,7 +63,7 @@ _ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   store double %14, ptr %.sink.i.i.i.i, align 8, !tbaa !7
   %.020.i.add.i.i.i = add nuw nsw i64 %.020.i.idx.i.i.i, 8
   %.not.i.i.i.i = icmp eq i64 %.020.i.add.i.i.i, 128
-  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i, !llvm.loop !13
 
 _ZSt16__insertion_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i: ; preds = %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -236,9 +236,9 @@ define internal fastcc void @_ZN5folly6detailL21double_radix_sort_recEmPmhbPdS2_
   tail call void @_ZSt16__introsort_loopIPdlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %44, ptr noundef nonnull %46, i64 noundef %51)
   %52 = icmp samesign ugt i64 %42, 16
   %scevgep.i.i.i = getelementptr i8, ptr %44, i64 8
-  br i1 %52, label %.preheader.i.i.i, label %71
+  br i1 %52, label %.preheader.i, label %71
 
-.preheader.i.i.i:                                 ; preds = %47, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
+.preheader.i:                                     ; preds = %47, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %.020.i.idx.i.i.i = phi i64 [ %.020.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ 8, %47 ]
   %.pn19.i.i.i.i = phi ptr [ %.020.i.ptr.i.i.i, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %44, %47 ]
   %.020.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 %.020.i.idx.i.i.i
@@ -247,11 +247,11 @@ define internal fastcc void @_ZN5folly6detailL21double_radix_sort_recEmPmhbPdS2_
   %55 = fcmp olt double %53, %54
   br i1 %55, label %56, label %57
 
-56:                                               ; preds = %.preheader.i.i.i
+56:                                               ; preds = %.preheader.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %44, i64 %.020.i.idx.i.i.i, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
-57:                                               ; preds = %.preheader.i.i.i
+57:                                               ; preds = %.preheader.i
   %58 = load double, ptr %.pn19.i.i.i.i, align 8, !tbaa !7
   %59 = fcmp olt double %53, %58
   br i1 %59, label %.lr.ph.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
@@ -271,7 +271,7 @@ _ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   store double %53, ptr %.sink.i.i.i.i, align 8, !tbaa !7
   %.020.i.add.i.i.i = add nuw nsw i64 %.020.i.idx.i.i.i, 8
   %.not.i.i.i.i = icmp eq i64 %.020.i.add.i.i.i, 128
-  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i, !llvm.loop !13
 
 _ZSt16__insertion_sortIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i: ; preds = %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %63 = getelementptr inbounds nuw i8, ptr %44, i64 128

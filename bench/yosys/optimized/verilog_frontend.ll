@@ -3155,8 +3155,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i.i:            ; preds = %.loopexit14.i
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i.i: ; preds = %775
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %776, 2
-  %781 = getelementptr inbounds nuw i8, ptr %768, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %768, i8 -1, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !34
+  %781 = getelementptr inbounds nuw i8, ptr %768, i64 %.idx.i.i.i.i.i.i.i
   store ptr %781, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys16VERILOG_FRONTEND14pkg_user_typesB5cxx11E, i64 8), align 8, !tbaa !95
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i.i
 

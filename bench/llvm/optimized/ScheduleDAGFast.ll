@@ -1995,6 +1995,7 @@ _ZL21getPhysicalRegisterVTPN4llvm6SDNodeEjPKNS_15TargetInstrInfoE.exit.i: ; pred
   %850 = load ptr, ptr %742, align 8, !tbaa !136
   %851 = getelementptr inbounds nuw i8, ptr %850, i64 66
   %852 = load i16, ptr %851, align 2, !tbaa !225
+  %853 = zext i16 %852 to i32
   %.not199286.i.i = icmp eq i16 %848, 0
   br i1 %.not199286.i.i, label %._crit_edge290.i.i, label %.lr.ph289.i.i
 
@@ -2003,11 +2004,10 @@ _ZL21getPhysicalRegisterVTPN4llvm6SDNodeEjPKNS_15TargetInstrInfoE.exit.i: ; pred
   br label %._crit_edge290.i.i
 
 ._crit_edge290.i.i:                               ; preds = %._crit_edge290.loopexit.i.i, %842
-  %853 = phi ptr [ %.pre.i94.i, %._crit_edge290.loopexit.i.i ], [ %850, %842 ]
-  %854 = zext i16 %852 to i32
+  %854 = phi ptr [ %.pre.i94.i, %._crit_edge290.loopexit.i.i ], [ %850, %842 ]
   %855 = load ptr, ptr %229, align 8, !tbaa !137
-  %856 = add nsw i32 %854, -1
-  call void @_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(952) %855, ptr %853, i32 %856, ptr %846, i32 1) #20
+  %856 = add nsw i32 %853, -1
+  call void @_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(952) %855, ptr %854, i32 %856, ptr %846, i32 1) #20
   %857 = call noundef ptr @_ZN4llvm18ScheduleDAGSDNodes8newSUnitEPNS_6SDNodeE(ptr noundef nonnull align 8 dereferenceable(832) %0, ptr noundef nonnull %845) #20
   %858 = getelementptr inbounds nuw i8, ptr %857, i64 200
   %859 = load i32, ptr %858, align 8, !tbaa !228
@@ -5164,6 +5164,8 @@ define internal noundef ptr @_ZN12_GLOBAL__N_120ScheduleDAGLinearize12EmitSchedu
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !362
 
 _ZN4llvm13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %13 = load ptr, ptr %12, align 8, !tbaa !288
@@ -5195,8 +5197,6 @@ _ZN4llvm13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS1_vEENS
   br i1 %.not.i.i, label %29, label %_ZN4llvm13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev.exit
 
 29:                                               ; preds = %._crit_edge
-  %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 8
   %30 = load ptr, ptr %.phi.trans.insert.i.i.ptr, align 8, !tbaa !368
   %31 = load i32, ptr %.phi.trans.insert3.i.i, align 8, !tbaa !371
   %32 = zext i32 %31 to i64

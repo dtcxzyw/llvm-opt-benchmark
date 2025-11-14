@@ -24836,8 +24836,8 @@ _ZNSt6vectorIPN3vcg3tri2io11ImporterDAEI6CMeshOE13ColladaVertexESaIS7_EE17_S_che
 
 _ZSt6fill_nIPPN3vcg3tri2io11ImporterDAEI6CMeshOE13ColladaVertexEmS7_ET_S9_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc263
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %400, 3
-  %402 = getelementptr inbounds nuw i8, ptr %399, i64 %.idx.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %399, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false)
+  %402 = getelementptr inbounds nuw i8, ptr %399, i64 %.idx.i.i.i.i.i.i.i.i
   br label %_ZNSt16allocator_traitsISaIN3vcg9TexCoord2IfLi1EEEEE8allocateERS3_m.exit.i.i.i.i.i
 
 _ZNSt16allocator_traitsISaIN3vcg9TexCoord2IfLi1EEEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %_ZSt6fill_nIPPN3vcg3tri2io11ImporterDAEI6CMeshOE13ColladaVertexEmS7_ET_S9_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc263
@@ -31352,8 +31352,8 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %418
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc232
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %435, 2
-  %437 = getelementptr inbounds nuw i8, ptr %434, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %434, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %437 = getelementptr inbounds nuw i8, ptr %434, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph
 
 438:                                              ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
@@ -34918,8 +34918,8 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %424
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc232
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %441, 2
-  %443 = getelementptr inbounds nuw i8, ptr %440, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %440, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
+  %443 = getelementptr inbounds nuw i8, ptr %440, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc232
@@ -37609,8 +37609,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -37926,8 +37926,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i

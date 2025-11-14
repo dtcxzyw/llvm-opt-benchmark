@@ -1758,36 +1758,36 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %151 = load i32, ptr %150, align 4, !tbaa !24
   %152 = zext i32 %151 to i64
   %153 = getelementptr inbounds nuw i16, ptr %55, i64 %152
-  %154 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %155 = load i32, ptr %154, align 16, !tbaa !24
+  %154 = getelementptr inbounds nuw i16, ptr %87, i64 %152
+  %155 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %156 = load i32, ptr %155, align 16, !tbaa !24
+  %157 = zext i32 %156 to i64
+  %158 = getelementptr inbounds nuw i16, ptr %55, i64 %157
+  %159 = getelementptr inbounds nuw i16, ptr %87, i64 %157
   %.not = icmp eq i32 %127, 0
   br i1 %.not, label %._crit_edge207, label %.lr.ph206
 
 .lr.ph206:                                        ; preds = %145
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count230 = zext i32 %127 to i64
-  br label %157
+  br label %161
 
-157:                                              ; preds = %.lr.ph206, %157
-  %indvars.iv227 = phi i64 [ 0, %.lr.ph206 ], [ %indvars.iv.next228, %157 ]
-  %158 = load ptr, ptr %156, align 8, !tbaa !77
-  %159 = getelementptr inbounds nuw i16, ptr %153, i64 %indvars.iv227
-  %160 = load i16, ptr %159, align 2, !tbaa !22
-  %161 = call noundef zeroext i16 %158(i16 noundef zeroext %160)
-  %162 = getelementptr inbounds nuw %struct.TempRow, ptr %146, i64 %indvars.iv227
-  store i16 %161, ptr %162, align 2, !tbaa !78
-  %163 = trunc i64 %indvars.iv227 to i16
-  %164 = getelementptr inbounds nuw i8, ptr %162, i64 2
-  store i16 %163, ptr %164, align 2, !tbaa !80
+161:                                              ; preds = %.lr.ph206, %161
+  %indvars.iv227 = phi i64 [ 0, %.lr.ph206 ], [ %indvars.iv.next228, %161 ]
+  %162 = load ptr, ptr %160, align 8, !tbaa !77
+  %163 = getelementptr inbounds nuw i16, ptr %153, i64 %indvars.iv227
+  %164 = load i16, ptr %163, align 2, !tbaa !22
+  %165 = call noundef zeroext i16 %162(i16 noundef zeroext %164)
+  %166 = getelementptr inbounds nuw %struct.TempRow, ptr %146, i64 %indvars.iv227
+  store i16 %165, ptr %166, align 2, !tbaa !78
+  %167 = trunc i64 %indvars.iv227 to i16
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 2
+  store i16 %167, ptr %168, align 2, !tbaa !80
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count230
-  br i1 %exitcond231.not, label %._crit_edge207, label %157, !llvm.loop !81
+  br i1 %exitcond231.not, label %._crit_edge207, label %161, !llvm.loop !81
 
-._crit_edge207:                                   ; preds = %157, %145
-  %165 = getelementptr inbounds nuw i16, ptr %87, i64 %152
-  %166 = zext i32 %155 to i64
-  %167 = getelementptr inbounds nuw i16, ptr %55, i64 %166
-  %168 = getelementptr inbounds nuw i16, ptr %87, i64 %166
+._crit_edge207:                                   ; preds = %161, %145
   %169 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @uprv_sortArray_77(ptr noundef nonnull %146, i32 noundef %127, i32 noundef 4, ptr noundef nonnull @_ZL14io_compareRowsPKvS0_S0_, ptr noundef nonnull %10, i8 noundef signext 0, ptr noundef nonnull %4)
   %170 = load i32, ptr %4, align 4, !tbaa !13
@@ -1815,11 +1815,11 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %179 = load ptr, ptr %173, align 8, !tbaa !70
   %180 = zext i16 %178 to i64
   %181 = getelementptr inbounds nuw i16, ptr %153, i64 %180
-  %182 = getelementptr inbounds nuw i16, ptr %165, i64 %indvars.iv232
+  %182 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv232
   %183 = call noundef i32 %179(ptr noundef nonnull %0, ptr noundef nonnull %181, i32 noundef 2, ptr noundef %182, ptr noundef nonnull %4)
   %184 = load ptr, ptr %173, align 8, !tbaa !70
-  %185 = getelementptr inbounds nuw i16, ptr %167, i64 %180
-  %186 = getelementptr inbounds nuw i16, ptr %168, i64 %indvars.iv232
+  %185 = getelementptr inbounds nuw i16, ptr %158, i64 %180
+  %186 = getelementptr inbounds nuw i16, ptr %159, i64 %indvars.iv232
   %187 = call noundef i32 %184(ptr noundef nonnull %0, ptr noundef nonnull %185, i32 noundef 2, ptr noundef %186, ptr noundef nonnull %4)
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next233, %wide.trip.count235
@@ -1852,7 +1852,7 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 .lr.ph216:                                        ; preds = %192
   %202 = shl nuw nsw i64 %wide.trip.count240, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %165, ptr align 2 %190, i64 %202, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %154, ptr align 2 %190, i64 %202, i1 false)
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %204
 
@@ -1864,7 +1864,7 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %208 = load i16, ptr %207, align 2, !tbaa !80
   %209 = load ptr, ptr %203, align 8, !tbaa !70
   %210 = zext i16 %208 to i64
-  %211 = getelementptr inbounds nuw i16, ptr %167, i64 %210
+  %211 = getelementptr inbounds nuw i16, ptr %158, i64 %210
   %212 = getelementptr inbounds nuw i16, ptr %190, i64 %indvars.iv242
   %213 = call noundef i32 %209(ptr noundef nonnull %0, ptr noundef nonnull %211, i32 noundef 2, ptr noundef %212, ptr noundef nonnull %4)
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
@@ -1873,7 +1873,7 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 ._crit_edge217:                                   ; preds = %204, %188
   %214 = phi i64 [ 0, %188 ], [ %202, %204 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %168, ptr align 2 %190, i64 %214, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %159, ptr align 2 %190, i64 %214, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %174, %.preheader, %._crit_edge217, %._crit_edge207

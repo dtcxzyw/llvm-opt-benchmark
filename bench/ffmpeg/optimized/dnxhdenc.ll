@@ -4005,28 +4005,28 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
   %109 = mul nsw i32 %108, %103
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds i16, ptr %107, i64 %110
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %113 = load i32, ptr %112, align 8, !tbaa !68
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %115 = load i32, ptr %114, align 4, !tbaa !69
-  %116 = getelementptr inbounds nuw i8, ptr %24, i64 7320
-  %117 = load i32, ptr %116, align 8, !tbaa !81
-  %118 = ashr i32 %115, %117
-  %119 = sub nsw i32 %118, %108
-  %120 = icmp sgt i32 %119, 0
+  %112 = mul nsw i32 %98, %2
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %114 = load i32, ptr %113, align 8, !tbaa !68
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %116 = load i32, ptr %115, align 4, !tbaa !69
+  %117 = getelementptr inbounds nuw i8, ptr %24, i64 7320
+  %118 = load i32, ptr %117, align 8, !tbaa !81
+  %119 = ashr i32 %116, %118
+  %120 = sub nsw i32 %119, %108
+  %121 = icmp sgt i32 %120, 0
   %sext = shl i64 %102, 32
-  %121 = ashr exact i64 %sext, 31
-  %122 = mul nsw i32 %98, %2
+  %122 = ashr exact i64 %sext, 31
   %123 = getelementptr inbounds nuw i8, ptr %24, i64 10560
   %124 = load ptr, ptr %123, align 16, !tbaa !138
-  br i1 %120, label %.preheader132.lr.ph.us.preheader, label %.lr.ph.split.preheader
+  br i1 %121, label %.preheader132.lr.ph.us.preheader, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count = zext nneg i32 %98 to i64
   br label %.lr.ph.split
 
 .preheader132.lr.ph.us.preheader:                 ; preds = %.lr.ph
-  %125 = tail call i32 @llvm.umin.i32(i32 %119, i32 16)
+  %125 = tail call i32 @llvm.umin.i32(i32 %120, i32 16)
   %wide.trip.count183 = zext nneg i32 %98 to i64
   br label %.preheader132.lr.ph.us
 
@@ -4034,7 +4034,7 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
   %indvars.iv180 = phi i64 [ 0, %.preheader132.lr.ph.us.preheader ], [ %indvars.iv.next181, %._crit_edge142.us ]
   %126 = trunc nuw nsw i64 %indvars.iv180 to i32
   %127 = shl i32 %126, 4
-  %128 = sub nsw i32 %113, %127
+  %128 = sub nsw i32 %114, %127
   %129 = icmp sgt i32 %128, 0
   br i1 %129, label %.preheader132.us.us.preheader, label %._crit_edge142.us
 
@@ -4055,7 +4055,7 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
 ._crit_edge142.us:                                ; preds = %.preheader132.lr.ph.us, %._crit_edge142.us.loopexit
   %138 = phi i32 [ %137, %._crit_edge142.us.loopexit ], [ 0, %.preheader132.lr.ph.us ]
   %139 = trunc i64 %indvars.iv180 to i32
-  %140 = add i32 %122, %139
+  %140 = add i32 %112, %139
   %141 = zext i32 %140 to i64
   %142 = getelementptr inbounds nuw %struct.RCCMPEntry, ptr %124, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
@@ -4088,7 +4088,7 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
   br i1 %152, label %144, label %._crit_edge.us.us, !llvm.loop !220
 
 ._crit_edge.us.us:                                ; preds = %144
-  %153 = getelementptr inbounds i8, ptr %.0118138.us.us, i64 %121
+  %153 = getelementptr inbounds i8, ptr %.0118138.us.us, i64 %122
   %154 = add nuw nsw i32 %.0108141.us.us, 1
   %exitcond179.not = icmp eq i32 %154, %125
   br i1 %exitcond179.not, label %._crit_edge142.us.loopexit, label %.preheader132.us.us, !llvm.loop !221
@@ -4096,7 +4096,7 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %155 = trunc i64 %indvars.iv to i32
-  %156 = add i32 %122, %155
+  %156 = add i32 %112, %155
   %157 = zext i32 %156 to i64
   %158 = getelementptr inbounds nuw %struct.RCCMPEntry, ptr %124, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 4

@@ -655,19 +655,19 @@ define internal fastcc void @SDL_UntrackAllocation(ptr noundef nonnull %0) unnam
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call zeroext i1 @SDLTest_Crc32Calc(ptr noundef nonnull @s_crc32_context, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull %3) #4
   %5 = load i32, ptr %3, align 4
+  %6 = and i32 %5, 255
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %6 = call zeroext i1 @SDL_CompareAndSwapAtomicInt(ptr noundef nonnull @s_lock, i32 noundef 0, i32 noundef 1) #4
-  br i1 %6, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %1, %.lr.ph
-  call void asm sideeffect "pause\0A", "~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !12
   %7 = call zeroext i1 @SDL_CompareAndSwapAtomicInt(ptr noundef nonnull @s_lock, i32 noundef 0, i32 noundef 1) #4
   br i1 %7, label %._crit_edge, label %.lr.ph
 
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  call void asm sideeffect "pause\0A", "~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !12
+  %8 = call zeroext i1 @SDL_CompareAndSwapAtomicInt(ptr noundef nonnull @s_lock, i32 noundef 0, i32 noundef 1) #4
+  br i1 %8, label %._crit_edge, label %.lr.ph
+
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %8 = and i32 %5, 255
-  %9 = zext nneg i32 %8 to i64
+  %9 = zext nneg i32 %6 to i64
   %10 = getelementptr inbounds nuw ptr, ptr @s_tracked_allocations, i64 %9
   %.016 = load ptr, ptr %10, align 8
   %.not17 = icmp eq ptr %.016, null

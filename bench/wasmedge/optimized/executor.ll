@@ -33889,36 +33889,36 @@ _ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIc
   br i1 %40, label %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i64, label %_ZNK8WasmEdge12SpareEnumMapILm29ENS_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEEixES1_.exit75, !llvm.loop !285
 
 _ZNK8WasmEdge12SpareEnumMapILm29ENS_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEEixES1_.exit75: ; preds = %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i64
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %42 = load i8, ptr %41, align 1
+  %41 = getelementptr inbounds %"struct.std::pair.1319", ptr @_ZN8WasmEdgeL11TypeCodeStrE, i64 %.sroa.4.1.i.i.i.i71
+  %42 = load i8, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %44 = load i8, ptr %43, align 1
   br label %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76
 
 _ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76: ; preds = %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76, %_ZNK8WasmEdge12SpareEnumMapILm29ENS_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEEixES1_.exit75
   %.025.i.i.i.i77 = phi i64 [ 29, %_ZNK8WasmEdge12SpareEnumMapILm29ENS_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEEixES1_.exit75 ], [ %.1.i.i.i.i84, %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76 ]
   %.sroa.4.024.i.i.i.i78 = phi i64 [ 0, %_ZNK8WasmEdge12SpareEnumMapILm29ENS_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEEixES1_.exit75 ], [ %.sroa.4.1.i.i.i.i83, %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76 ]
-  %43 = lshr i64 %.025.i.i.i.i77, 1
-  %.sroa.3.0.i.i.i.i79 = add i64 %43, %.sroa.4.024.i.i.i.i78
-  %44 = getelementptr inbounds %"struct.std::pair.1319", ptr @_ZN8WasmEdgeL11TypeCodeStrE, i64 %.sroa.3.0.i.i.i.i79
-  %45 = load i8, ptr %44, align 8
-  %46 = icmp ult i8 %45, %42
-  %47 = add i64 %.sroa.3.0.i.i.i.i79, 1
-  %48 = xor i64 %43, -1
-  %49 = add nsw i64 %.025.i.i.i.i77, %48
-  %.sroa.4.1.i.i.i.i83 = select i1 %46, i64 %47, i64 %.sroa.4.024.i.i.i.i78
-  %.1.i.i.i.i84 = select i1 %46, i64 %49, i64 %43
-  %50 = icmp sgt i64 %.1.i.i.i.i84, 0
-  br i1 %50, label %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76, label %51, !llvm.loop !285
+  %45 = lshr i64 %.025.i.i.i.i77, 1
+  %.sroa.3.0.i.i.i.i79 = add i64 %45, %.sroa.4.024.i.i.i.i78
+  %46 = getelementptr inbounds %"struct.std::pair.1319", ptr @_ZN8WasmEdgeL11TypeCodeStrE, i64 %.sroa.3.0.i.i.i.i79
+  %47 = load i8, ptr %46, align 8
+  %48 = icmp ult i8 %47, %44
+  %49 = add i64 %.sroa.3.0.i.i.i.i79, 1
+  %50 = xor i64 %45, -1
+  %51 = add nsw i64 %.025.i.i.i.i77, %50
+  %.sroa.4.1.i.i.i.i83 = select i1 %48, i64 %49, i64 %.sroa.4.024.i.i.i.i78
+  %.1.i.i.i.i84 = select i1 %48, i64 %51, i64 %45
+  %52 = icmp sgt i64 %.1.i.i.i.i84, 0
+  br i1 %52, label %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76, label %53, !llvm.loop !285
 
-51:                                               ; preds = %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76
-  %52 = getelementptr inbounds %"struct.std::pair.1319", ptr @_ZN8WasmEdgeL11TypeCodeStrE, i64 %.sroa.4.1.i.i.i.i71
-  %53 = load i8, ptr %52, align 8
-  %54 = icmp eq i8 %53, %32
+53:                                               ; preds = %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76
+  %54 = icmp eq i8 %42, %32
   %spec.select.i.i73 = select i1 %54, i64 %.sroa.4.1.i.i.i.i71, i64 29
   %55 = getelementptr inbounds %"struct.std::pair.1319", ptr @_ZN8WasmEdgeL11TypeCodeStrE, i64 %spec.select.i.i73
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = getelementptr inbounds %"struct.std::pair.1319", ptr @_ZN8WasmEdgeL11TypeCodeStrE, i64 %.sroa.4.1.i.i.i.i83
   %58 = load i8, ptr %57, align 8
-  %59 = icmp eq i8 %58, %42
+  %59 = icmp eq i8 %58, %44
   %spec.select.i.i85 = select i1 %59, i64 %.sroa.4.1.i.i.i.i83, i64 29
   %60 = getelementptr inbounds %"struct.std::pair.1319", ptr @_ZN8WasmEdgeL11TypeCodeStrE, i64 %spec.select.i.i85
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -33952,9 +33952,9 @@ _ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIc
   invoke void @_ZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr nonnull @.str.184, i64 5, i64 221, ptr nonnull %7, ptr null)
           to label %70 unwind label %90
 
-70:                                               ; preds = %51
+70:                                               ; preds = %53
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %71 = load i8, ptr %41, align 1
+  %71 = load i8, ptr %43, align 1
   %72 = icmp eq i8 %71, 0
   br i1 %72, label %73, label %80
 
@@ -34007,7 +34007,7 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %85, %87
   %.sroa.012.0 = phi ptr [ %84, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit ], [ %26, %_ZNK8WasmEdge12SpareEnumMapILm29ENS_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEEixES1_.exit ]
   ret ptr %.sroa.012.0
 
-90:                                               ; preds = %73, %51, %80, %_ZNK8WasmEdge12SpareEnumMapILm29ENS_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEEixES1_.exit
+90:                                               ; preds = %73, %53, %80, %_ZNK8WasmEdge12SpareEnumMapILm29ENS_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEEixES1_.exit
   %91 = landingpad { ptr, i32 }
           catch ptr null
   %92 = extractvalue { ptr, i32 } %91, 0

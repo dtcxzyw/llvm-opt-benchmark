@@ -2903,6 +2903,8 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit.i:           ; preds = %.noexc313, %.noexc3
   %605 = sext i32 %604 to i64
   %606 = mul i64 %578, %605
   %607 = getelementptr inbounds nuw i8, ptr %575, i64 %606
+  %608 = mul i64 %indvars.iv139.i, %583
+  %609 = getelementptr inbounds nuw i8, ptr %581, i64 %608
   br i1 %584, label %.lr.ph.i, label %._crit_edge.i310.preheader
 
 ._crit_edge.i310.preheader:                       ; preds = %.lr.ph.i, %594
@@ -2910,33 +2912,31 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit.i:           ; preds = %.noexc313, %.noexc3
 
 .lr.ph.i:                                         ; preds = %594, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %594 ]
-  %608 = getelementptr inbounds nuw i8, ptr %599, i64 %indvars.iv.i
-  %609 = load i8, ptr %608, align 1, !tbaa !111
-  %610 = zext i8 %609 to i32
-  %611 = getelementptr inbounds nuw i8, ptr %607, i64 %indvars.iv.i
-  %612 = load i8, ptr %611, align 1, !tbaa !111
-  %613 = zext i8 %612 to i32
-  %614 = add nuw nsw i32 %613, %610
-  %615 = mul nuw nsw i32 %614, 3
-  %616 = getelementptr inbounds nuw i8, ptr %601, i64 %indvars.iv.i
-  %617 = load i8, ptr %616, align 1, !tbaa !111
-  %618 = zext i8 %617 to i32
-  %619 = mul nuw nsw i32 %618, 10
-  %620 = add nuw nsw i32 %615, %619
-  %621 = sub nsw i32 %613, %610
-  %622 = trunc nuw nsw i32 %620 to i16
-  %623 = getelementptr inbounds nuw i16, ptr %568, i64 %indvars.iv.i
-  store i16 %622, ptr %623, align 2, !tbaa !117
-  %624 = trunc nsw i32 %621 to i16
-  %625 = getelementptr inbounds nuw i16, ptr %570, i64 %indvars.iv.i
+  %610 = getelementptr inbounds nuw i8, ptr %599, i64 %indvars.iv.i
+  %611 = load i8, ptr %610, align 1, !tbaa !111
+  %612 = zext i8 %611 to i32
+  %613 = getelementptr inbounds nuw i8, ptr %607, i64 %indvars.iv.i
+  %614 = load i8, ptr %613, align 1, !tbaa !111
+  %615 = zext i8 %614 to i32
+  %616 = add nuw nsw i32 %615, %612
+  %617 = mul nuw nsw i32 %616, 3
+  %618 = getelementptr inbounds nuw i8, ptr %601, i64 %indvars.iv.i
+  %619 = load i8, ptr %618, align 1, !tbaa !111
+  %620 = zext i8 %619 to i32
+  %621 = mul nuw nsw i32 %620, 10
+  %622 = add nuw nsw i32 %617, %621
+  %623 = sub nsw i32 %615, %612
+  %624 = trunc nuw nsw i32 %622 to i16
+  %625 = getelementptr inbounds nuw i16, ptr %568, i64 %indvars.iv.i
   store i16 %624, ptr %625, align 2, !tbaa !117
+  %626 = trunc nsw i32 %623 to i16
+  %627 = getelementptr inbounds nuw i16, ptr %570, i64 %indvars.iv.i
+  store i16 %626, ptr %627, align 2, !tbaa !117
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i310.preheader, label %.lr.ph.i, !llvm.loop !119
 
 .preheader.i:                                     ; preds = %._crit_edge.i310
-  %626 = mul i64 %indvars.iv139.i, %583
-  %627 = getelementptr inbounds nuw i8, ptr %581, i64 %626
   br i1 %584, label %.lr.ph123.i, label %._crit_edge124.i
 
 ._crit_edge.i310:                                 ; preds = %._crit_edge.i310.preheader, %._crit_edge.i310
@@ -2985,7 +2985,7 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit.i:           ; preds = %.noexc313, %.noexc3
   %659 = mul i16 %658, 10
   %660 = add i16 %656, %659
   %.idx.i = shl nuw nsw i64 %indvars.iv134.i, 2
-  %661 = getelementptr inbounds nuw i8, ptr %627, i64 %.idx.i
+  %661 = getelementptr inbounds nuw i8, ptr %609, i64 %.idx.i
   store i16 %650, ptr %661, align 2, !tbaa !117
   %662 = getelementptr inbounds nuw i8, ptr %661, i64 2
   store i16 %660, ptr %662, align 2, !tbaa !117
@@ -5689,6 +5689,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge111, %52
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %75 = load i8, ptr %74, align 1, !tbaa !350
   %76 = zext i8 %75 to i32
+  %spec.select.v = select i1 %5, i64 %indvars.iv124, i64 %indvars.iv127
+  %spec.select95 = select i1 %5, i64 %indvars.iv127, i64 %indvars.iv124
   %77 = load i32, ptr %7, align 8, !tbaa !151
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %.lr.ph.preheader, label %._crit_edge
@@ -5698,8 +5700,6 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge111, %52
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %62
-  %spec.select.v = select i1 %5, i64 %indvars.iv124, i64 %indvars.iv127
-  %spec.select95 = select i1 %5, i64 %indvars.iv127, i64 %indvars.iv124
   %79 = load ptr, ptr %50, align 8, !tbaa !93
   %80 = load ptr, ptr %51, align 8, !tbaa !94
   %81 = load i64, ptr %80, align 8, !tbaa !95

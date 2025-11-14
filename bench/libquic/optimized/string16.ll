@@ -2150,45 +2150,45 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_assignERKS4_
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEaSEPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 {
-  br label %3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8, !tbaa !18
+  br label %5
 
-3:                                                ; preds = %3, %2
-  %.0.i.i.i = phi ptr [ %1, %2 ], [ %5, %3 ]
-  %4 = load i16, ptr %.0.i.i.i, align 2, !tbaa !3
-  %.not.i.i.i = icmp eq i16 %4, 0
-  %5 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 2
-  br i1 %.not.i.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEPKt.exit, label %3, !llvm.loop !9
+5:                                                ; preds = %5, %2
+  %.0.i.i.i = phi ptr [ %1, %2 ], [ %7, %5 ]
+  %6 = load i16, ptr %.0.i.i.i, align 2, !tbaa !3
+  %.not.i.i.i = icmp eq i16 %6, 0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 2
+  br i1 %.not.i.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEPKt.exit, label %5, !llvm.loop !9
 
-_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEPKt.exit: ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !18
+_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEPKt.exit: ; preds = %5
   %8 = ptrtoint ptr %.0.i.i.i to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 1
-  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %7, ptr noundef %1, i64 noundef %11)
+  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %4, ptr noundef %1, i64 noundef %11)
   ret ptr %12
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 {
-  br label %3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8, !tbaa !18
+  br label %5
 
-3:                                                ; preds = %3, %2
-  %.0.i.i = phi ptr [ %1, %2 ], [ %5, %3 ]
-  %4 = load i16, ptr %.0.i.i, align 2, !tbaa !3
-  %.not.i.i = icmp eq i16 %4, 0
-  %5 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
-  br i1 %.not.i.i, label %_ZN4base20string16_char_traits6lengthEPKt.exit, label %3, !llvm.loop !9
+5:                                                ; preds = %5, %2
+  %.0.i.i = phi ptr [ %1, %2 ], [ %7, %5 ]
+  %6 = load i16, ptr %.0.i.i, align 2, !tbaa !3
+  %.not.i.i = icmp eq i16 %6, 0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
+  br i1 %.not.i.i, label %_ZN4base20string16_char_traits6lengthEPKt.exit, label %5, !llvm.loop !9
 
-_ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !18
+_ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %5
   %8 = ptrtoint ptr %.0.i.i to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 1
-  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %7, ptr noundef %1, i64 noundef %11)
+  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %4, ptr noundef %1, i64 noundef %11)
   ret ptr %12
 }
 
@@ -7008,23 +7008,23 @@ _ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread: ; preds = %23, %_ZNK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7compareEPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  br label %3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8, !tbaa !18
+  br label %5
 
-3:                                                ; preds = %3, %2
-  %.0.i.i = phi ptr [ %1, %2 ], [ %5, %3 ]
-  %4 = load i16, ptr %.0.i.i, align 2, !tbaa !3
-  %.not.i.i = icmp eq i16 %4, 0
-  %5 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
-  br i1 %.not.i.i, label %_ZN4base20string16_char_traits6lengthEPKt.exit, label %3, !llvm.loop !9
+5:                                                ; preds = %5, %2
+  %.0.i.i = phi ptr [ %1, %2 ], [ %7, %5 ]
+  %6 = load i16, ptr %.0.i.i, align 2, !tbaa !3
+  %.not.i.i = icmp eq i16 %6, 0
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
+  br i1 %.not.i.i, label %_ZN4base20string16_char_traits6lengthEPKt.exit, label %5, !llvm.loop !9
 
-_ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !18
+_ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %5
   %8 = ptrtoint ptr %.0.i.i to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 1
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %11, i64 %7)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %11, i64 %4)
   %.not14.i.i = icmp eq i64 %.sroa.speculated, 0
   br i1 %.not14.i.i, label %_ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread, label %.lr.ph.i.i.preheader
 
@@ -7054,7 +7054,7 @@ _ZN4base20string16_char_traits7compareEPKtS2_m.exit: ; preds = %.lr.ph.i.i
   br label %22
 
 _ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread: ; preds = %15, %_ZN4base20string16_char_traits6lengthEPKt.exit
-  %21 = sub i64 %7, %11
+  %21 = sub i64 %4, %11
   %spec.select7.i = tail call i64 @llvm.smax.i64(i64 %21, i64 -2147483648)
   %.08.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i, i64 2147483647)
   %.0.i = trunc nsw i64 %.08.i to i32

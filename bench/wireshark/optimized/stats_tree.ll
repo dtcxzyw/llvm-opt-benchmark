@@ -3228,9 +3228,11 @@ clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tr
 
 .loopexit:                                        ; preds = %clean_for_xml_tag.exit, %..loopexit_crit_edge, %50, %._crit_edge120, %48, %._crit_edge, %._crit_edge113
   %98 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %51, %50 ], [ %25, %._crit_edge120 ], [ %25, %48 ], [ %90, %._crit_edge ], [ %82, %._crit_edge113 ], [ %51, %clean_for_xml_tag.exit ]
-  %99 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.52, ptr noundef %4, ptr noundef %98)
-  %100 = icmp sgt i32 %16, 0
-  br i1 %100, label %.lr.ph123.preheader, label %._crit_edge124
+  %99 = add i32 %3, 1
+  %100 = call i32 @llvm.umin.i32(i32 %99, i32 32)
+  %101 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.52, ptr noundef %4, ptr noundef %98)
+  %102 = icmp sgt i32 %16, 0
+  br i1 %102, label %.lr.ph123.preheader, label %._crit_edge124
 
 .lr.ph123.preheader:                              ; preds = %.loopexit
   %wide.trip.count153 = zext nneg i32 %16 to i64
@@ -3238,16 +3240,14 @@ clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tr
 
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %.lr.ph123
   %indvars.iv150 = phi i64 [ 0, %.lr.ph123.preheader ], [ %indvars.iv.next151, %.lr.ph123 ]
-  %101 = getelementptr ptr, ptr %17, i64 %indvars.iv150
-  %102 = load ptr, ptr %101, align 8
-  call void @g_free(ptr noundef %102)
+  %103 = getelementptr ptr, ptr %17, i64 %indvars.iv150
+  %104 = load ptr, ptr %103, align 8
+  call void @g_free(ptr noundef %104)
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
   br i1 %exitcond154.not, label %._crit_edge124, label %.lr.ph123, !llvm.loop !35
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.loopexit
-  %103 = add i32 %3, 1
-  %104 = call i32 @llvm.umin.i32(i32 %103, i32 32)
   call void @g_free(ptr noundef %17)
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %106 = load ptr, ptr %105, align 8
@@ -3285,7 +3285,7 @@ clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tr
   %116 = load ptr, ptr %108, align 8
   %117 = getelementptr ptr, ptr %116, i64 %indvars.iv155
   %118 = load ptr, ptr %117, align 8
-  call void @stats_tree_format_node_as_str(ptr noundef %118, ptr noundef %1, i32 noundef %2, i32 noundef %104, ptr noundef %99, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7)
+  call void @stats_tree_format_node_as_str(ptr noundef %118, ptr noundef %1, i32 noundef %2, i32 noundef %100, ptr noundef %101, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7)
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %119 = load i32, ptr %113, align 8
   %120 = sext i32 %119 to i64
@@ -3297,7 +3297,7 @@ clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tr
   br label %123
 
 123:                                              ; preds = %._crit_edge133, %._crit_edge124
-  call void @g_free(ptr noundef %99)
+  call void @g_free(ptr noundef %101)
   %124 = icmp eq i32 %2, 2
   br i1 %124, label %125, label %127
 

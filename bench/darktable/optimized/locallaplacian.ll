@@ -389,23 +389,23 @@ dl.exit661:                                       ; preds = %117, %._crit_edge.l
 
 ._crit_edge891:                                   ; preds = %dl.exit697
   %152 = add nsw i32 %.0528811, -1
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr inbounds ptr, ptr %12, i64 %153
+  %155 = load ptr, ptr %154, align 8, !tbaa !15
+  %156 = getelementptr inbounds nuw ptr, ptr %13, i64 %wide.trip.count967
+  %157 = load ptr, ptr %156, align 8, !tbaa !15
   br label %.lr.ph.i665
 
 .lr.ph.i665:                                      ; preds = %._crit_edge891, %.lr.ph.i665
-  %.07.i666 = phi i32 [ %154, %.lr.ph.i665 ], [ 0, %._crit_edge891 ]
-  %.056.i667 = phi i32 [ %153, %.lr.ph.i665 ], [ %.pre1050, %._crit_edge891 ]
-  %153 = sdiv i32 %.056.i667, 2
-  %154 = add nuw nsw i32 %.07.i666, 1
-  %exitcond.not.i668 = icmp eq i32 %154, %152
+  %.07.i666 = phi i32 [ %159, %.lr.ph.i665 ], [ 0, %._crit_edge891 ]
+  %.056.i667 = phi i32 [ %158, %.lr.ph.i665 ], [ %.pre1050, %._crit_edge891 ]
+  %158 = sdiv i32 %.056.i667, 2
+  %159 = add nuw nsw i32 %.07.i666, 1
+  %exitcond.not.i668 = icmp eq i32 %159, %152
   br i1 %exitcond.not.i668, label %.lr.ph.i674, label %.lr.ph.i665
 
 ._crit_edge.loopexit.i678:                        ; preds = %.lr.ph.i674
-  %155 = sext i32 %152 to i64
-  %156 = getelementptr inbounds ptr, ptr %12, i64 %155
-  %157 = load ptr, ptr %156, align 8, !tbaa !15
-  %158 = getelementptr inbounds nuw ptr, ptr %13, i64 %wide.trip.count967
-  %159 = load ptr, ptr %158, align 8, !tbaa !15
-  %160 = add nsw i32 %153, 1
+  %160 = add nsw i32 %158, 1
   %161 = add nsw i32 %162, 1
   br label %dl.exit679
 
@@ -418,8 +418,8 @@ dl.exit661:                                       ; preds = %117, %._crit_edge.l
   br i1 %exitcond.not.i677, label %._crit_edge.loopexit.i678, label %.lr.ph.i674
 
 dl.exit679:                                       ; preds = %._crit_edge891.thread, %._crit_edge.loopexit.i678
-  %164 = phi ptr [ %159, %._crit_edge.loopexit.i678 ], [ %139, %._crit_edge891.thread ]
-  %165 = phi ptr [ %157, %._crit_edge.loopexit.i678 ], [ %137, %._crit_edge891.thread ]
+  %164 = phi ptr [ %157, %._crit_edge.loopexit.i678 ], [ %139, %._crit_edge891.thread ]
+  %165 = phi ptr [ %155, %._crit_edge.loopexit.i678 ], [ %137, %._crit_edge891.thread ]
   %166 = phi i32 [ %152, %._crit_edge.loopexit.i678 ], [ %134, %._crit_edge891.thread ]
   %.in843 = phi i32 [ %160, %._crit_edge.loopexit.i678 ], [ %.pre, %._crit_edge891.thread ]
   %.05.lcssa.i672 = phi i32 [ %161, %._crit_edge.loopexit.i678 ], [ %.pre1046, %._crit_edge891.thread ]
@@ -1961,22 +1961,22 @@ define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0,
 .preheader433:                                    ; preds = %17
   %20 = load i32, ptr %4, align 4, !tbaa !17
   %21 = zext nneg i32 %1 to i64
+  %22 = zext nneg i32 %3 to i64
+  %23 = sext i32 %20 to i64
   %wide.trip.count479 = zext nneg i32 %2 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.preheader432
 
 .preheader432:                                    ; preds = %.preheader433, %43
   %indvars.iv476 = phi i64 [ 0, %.preheader433 ], [ %indvars.iv.next477, %43 ]
-  %22 = mul nuw nsw i64 %indvars.iv476, %21
-  %23 = trunc i64 %indvars.iv476 to i32
-  %24 = add i32 %3, %23
-  %25 = mul i32 %24, %20
-  %invariant.op = add i32 %3, %25
+  %24 = mul nuw nsw i64 %indvars.iv476, %21
+  %25 = trunc i64 %indvars.iv476 to i32
+  %26 = add i32 %3, %25
+  %27 = mul i32 %26, %20
+  %invariant.op = add i32 %3, %27
   br label %44
 
 .preheader431:                                    ; preds = %43
-  %26 = zext nneg i32 %3 to i64
-  %27 = sext i32 %20 to i64
   %28 = load i32, ptr %5, align 4, !tbaa !17
   %29 = sub nsw i32 %28, %3
   %factor.op.mul441 = shl i32 %1, 2
@@ -2007,7 +2007,7 @@ define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0,
 
 44:                                               ; preds = %.preheader432, %44
   %indvars.iv = phi i64 [ 0, %.preheader432 ], [ %indvars.iv.next, %44 ]
-  %45 = add nuw nsw i64 %indvars.iv, %22
+  %45 = add nuw nsw i64 %indvars.iv, %24
   %.idx = shl nsw i64 %45, 4
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %47 = load float, ptr %46, align 4, !tbaa !18
@@ -2022,8 +2022,8 @@ define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0,
   br i1 %exitcond.not, label %43, label %44
 
 .preheader430:                                    ; preds = %.preheader430.lr.ph, %153
-  %indvars.iv482 = phi i64 [ %26, %.preheader430.lr.ph ], [ %indvars.iv.next483, %153 ]
-  %52 = sub nuw nsw i64 %indvars.iv482, %26
+  %indvars.iv482 = phi i64 [ %22, %.preheader430.lr.ph ], [ %indvars.iv.next483, %153 ]
+  %52 = sub nuw nsw i64 %indvars.iv482, %22
   %53 = trunc i64 %52 to i32
   %54 = add i32 %36, %53
   %55 = sitofp i32 %54 to float
@@ -2059,12 +2059,12 @@ define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0,
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.lr.ph448.split.us
-  %indvars.iv490 = phi i64 [ %indvars.iv.next491, %._crit_edge.us ], [ %26, %.lr.ph448.split.us ]
-  %74 = sub nuw nsw i64 %indvars.iv490, %26
+  %indvars.iv490 = phi i64 [ %indvars.iv.next491, %._crit_edge.us ], [ %22, %.lr.ph448.split.us ]
+  %74 = sub nuw nsw i64 %indvars.iv490, %22
   %75 = trunc i64 %74 to i32
   %76 = add i32 %72, %75
   %77 = sitofp i32 %76 to float
-  %78 = mul nsw i64 %indvars.iv490, %27
+  %78 = mul nsw i64 %indvars.iv490, %23
   %79 = trunc i64 %74 to i32
   %80 = add i32 %79, 1
   %81 = mul i32 %factor.op.mul441, %80
@@ -2169,7 +2169,7 @@ define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0,
   %151 = getelementptr float, ptr %.sink578, i64 %indvars.iv487
   store float %.sink, ptr %151, align 4, !tbaa !18
   %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 1
-  %152 = icmp slt i64 %indvars.iv.next488, %27
+  %152 = icmp slt i64 %indvars.iv.next488, %23
   br i1 %152, label %85, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %150
@@ -2446,7 +2446,7 @@ define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0,
   %318 = trunc nuw nsw i64 %indvars.iv510 to i32
   %.reass464 = add i32 %invariant.op463, %318
   %319 = sitofp i32 %.reass464 to float
-  %320 = mul nuw nsw i64 %indvars.iv510, %27
+  %320 = mul nuw nsw i64 %indvars.iv510, %23
   %.sink591 = getelementptr inbounds nuw float, ptr %16, i64 %320
   br label %321
 

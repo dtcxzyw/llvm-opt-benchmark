@@ -2193,23 +2193,23 @@ define internal fastcc i32 @sdf_generate_with_overlaps(i64 range(i64 0, 28147497
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !129
   store ptr %10, ptr %6, align 8, !tbaa !99
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %15 = load i32, ptr %14, align 4, !tbaa !47
+  %16 = load i32, ptr %3, align 8, !tbaa !45
   %.not155174 = icmp eq ptr %13, null
   br i1 %.not155174, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
-  %.0141176 = phi i32 [ %14, %.lr.ph ], [ 0, %11 ]
-  %.0147175 = phi ptr [ %16, %.lr.ph ], [ %13, %11 ]
-  %14 = add nuw nsw i32 %.0141176, 1
-  %15 = getelementptr inbounds nuw i8, ptr %.0147175, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !130
-  %.not155 = icmp eq ptr %16, null
+  %.0141176 = phi i32 [ %17, %.lr.ph ], [ 0, %11 ]
+  %.0147175 = phi ptr [ %19, %.lr.ph ], [ %13, %11 ]
+  %17 = add nuw nsw i32 %.0141176, 1
+  %18 = getelementptr inbounds nuw i8, ptr %.0147175, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !130
+  %.not155 = icmp eq ptr %19, null
   br i1 %.not155, label %._crit_edge, label %.lr.ph, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
-  %.0141.lcssa = phi i32 [ 0, %11 ], [ %14, %.lr.ph ]
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !47
-  %19 = load i32, ptr %3, align 8, !tbaa !45
+  %.0141.lcssa = phi i32 [ 0, %11 ], [ %17, %.lr.ph ]
   %20 = zext i32 %.0141.lcssa to i64
   %21 = mul nuw nsw i64 %20, 40
   %22 = call ptr @ft_mem_alloc(ptr noundef nonnull %10, i64 noundef %21, ptr noundef nonnull %5) #12
@@ -2245,7 +2245,7 @@ define internal fastcc i32 @sdf_generate_with_overlaps(i64 range(i64 0, 28147497
   %.1148180 = load ptr, ptr %.1148180.in, align 8, !tbaa !134
   %35 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %22, i64 %indvars.iv
   call void @FT_Bitmap_Init(ptr noundef %35) #12
-  %36 = load i32, ptr %17, align 4, !tbaa !47
+  %36 = load i32, ptr %14, align 4, !tbaa !47
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %36, ptr %37, align 4, !tbaa !47
   %38 = load i32, ptr %3, align 8, !tbaa !45
@@ -2419,19 +2419,19 @@ get_contour_orientation.exit:                     ; preds = %.preheader.i, %50, 
   store ptr %.0146.lcssa, ptr %12, align 8, !tbaa !129
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %132 = load ptr, ptr %131, align 8, !tbaa !44
-  %133 = icmp sgt i32 %19, 0
+  %133 = icmp sgt i32 %16, 0
   br i1 %133, label %.preheader169.lr.ph, label %.loopexit
 
 .preheader169.lr.ph:                              ; preds = %._crit_edge182
-  %134 = icmp sgt i32 %18, 0
+  %134 = icmp sgt i32 %15, 0
   %135 = and i64 %.fr, 1095216660480
   %.not158 = icmp ne i64 %135, 0
   %spec.select = sext i1 %.not158 to i8
   br i1 %134, label %.preheader169.lr.ph.split.us, label %.loopexit
 
 .preheader169.lr.ph.split.us:                     ; preds = %.preheader169.lr.ph
-  %136 = zext nneg i32 %18 to i64
-  %137 = zext nneg i32 %19 to i64
+  %136 = zext nneg i32 %15 to i64
+  %137 = zext nneg i32 %16 to i64
   br i1 %.not200, label %.preheader169.us.preheader, label %.preheader169.lr.ph.split.us.split.us
 
 .preheader169.us.preheader:                       ; preds = %.preheader169.lr.ph.split.us
@@ -2837,7 +2837,7 @@ sdf_edge_done.exit.i.i:                           ; preds = %78, %sdf_edge_done.
   %108 = zext nneg i32 %3 to i64
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.7.0..sroa_idx.i36.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.7.0..sroa_idx.i26.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %111 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3152,18 +3152,18 @@ get_control_box.exit.i:                           ; preds = %186, %.lr.ph.i12
 255:                                              ; preds = %396, %228
   %256 = phi i64 [ 0, %228 ], [ %321, %396 ]
   %257 = phi i64 [ 0, %228 ], [ %322, %396 ]
-  %indvars.iv.i26.i.us.us.i = phi i32 [ 0, %228 ], [ %indvars.iv.next.i31.i.us.us.i, %396 ]
-  %.0113165.i.i.us.us.i = phi i32 [ 0, %228 ], [ %.3.i27.i.us.us.i, %396 ]
+  %indvars.iv.i27.i.us.us.i = phi i32 [ 0, %228 ], [ %indvars.iv.next.i32.i.us.us.i, %396 ]
+  %.0113165.i.i.us.us.i = phi i32 [ 0, %228 ], [ %.3.i28.i.us.us.i, %396 ]
   %.0114164.i.i.us.us.i = phi i32 [ 0, %228 ], [ %.3117.i.i.us.us.i, %396 ]
   %.0118163.i.i.us.us.i = phi i32 [ 2147483647, %228 ], [ %.3121.i.i.us.us.i, %396 ]
-  %258 = shl nuw nsw i32 %indvars.iv.i26.i.us.us.i, 14
+  %258 = shl nuw nsw i32 %indvars.iv.i27.i.us.us.i, 14
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %259
 
 259:                                              ; preds = %320, %255
   %260 = phi i64 [ %256, %255 ], [ %321, %320 ]
   %261 = phi i64 [ %257, %255 ], [ %322, %320 ]
-  %.1161.i.i.us.us.i = phi i32 [ %.0113165.i.i.us.us.i, %255 ], [ %.3.i27.i.us.us.i, %320 ]
+  %.1161.i.i.us.us.i = phi i32 [ %.0113165.i.i.us.us.i, %255 ], [ %.3.i28.i.us.us.i, %320 ]
   %.1115160.i.i.us.us.i = phi i32 [ %.0114164.i.i.us.us.i, %255 ], [ %.3117.i.i.us.us.i, %320 ]
   %.1119159.i.i.us.us.i = phi i32 [ %.0118163.i.i.us.us.i, %255 ], [ %.3121.i.i.us.us.i, %320 ]
   %.0123158.i.i.us.us.i = phi i16 [ 0, %255 ], [ %394, %320 ]
@@ -3239,7 +3239,7 @@ get_control_box.exit.i:                           ; preds = %186, %.lr.ph.i12
   %322 = phi i64 [ %319, %316 ], [ %261, %259 ]
   %.3121.i.i.us.us.i = phi i32 [ %314, %316 ], [ %.1119159.i.i.us.us.i, %259 ]
   %.3117.i.i.us.us.i = phi i32 [ %317, %316 ], [ %.1115160.i.i.us.us.i, %259 ]
-  %.3.i27.i.us.us.i = phi i32 [ %.0124157.i.i.us.us.i, %316 ], [ %.1161.i.i.us.us.i, %259 ]
+  %.3.i28.i.us.us.i = phi i32 [ %.0124157.i.i.us.us.i, %316 ], [ %.1161.i.i.us.us.i, %259 ]
   %323 = mul nuw nsw i64 %265, 3
   %324 = and i64 %323, 4294967295
   %325 = mul nsw i64 %324, %247
@@ -3310,24 +3310,24 @@ get_control_box.exit.i:                           ; preds = %186, %.lr.ph.i12
   %386 = add nuw nsw i64 %379, %381
   %387 = add nsw i64 %386, %383
   %388 = add nsw i64 %387, %385
-  %sext.i28.i.us.us.i = shl i64 %377, 32
-  %389 = ashr exact i64 %sext.i28.i.us.us.i, 32
+  %sext.i29.i.us.us.i = shl i64 %377, 32
+  %389 = ashr exact i64 %sext.i29.i.us.us.i, 32
   %sext130.i.i.us.us.i = shl i64 %388, 32
   %390 = ashr exact i64 %sext130.i.i.us.us.i, 32
   %391 = call i64 @FT_DivFix(i64 noundef %389, i64 noundef %390) #12
   %392 = trunc i64 %391 to i32
   %393 = sub i32 %.0124157.i.i.us.us.i, %392
-  %or.cond3.i29.i.us.us.i = icmp ult i32 %393, 65537
+  %or.cond3.i30.i.us.us.i = icmp ult i32 %393, 65537
   %394 = add nuw nsw i16 %.0123158.i.i.us.us.i, 1
   %395 = icmp samesign ult i16 %.0123158.i.i.us.us.i, 3
-  %or.cond.i30.i.us.us.i = select i1 %or.cond3.i29.i.us.us.i, i1 %395, i1 false
-  br i1 %or.cond.i30.i.us.us.i, label %259, label %396, !llvm.loop !163
+  %or.cond.i31.i.us.us.i = select i1 %or.cond3.i30.i.us.us.i, i1 %395, i1 false
+  br i1 %or.cond.i31.i.us.us.i, label %259, label %396, !llvm.loop !163
 
 396:                                              ; preds = %320
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %indvars.iv.next.i31.i.us.us.i = add nuw nsw i32 %indvars.iv.i26.i.us.us.i, 1
-  %exitcond.not.i32.i.us.us.i = icmp eq i32 %indvars.iv.next.i31.i.us.us.i, 5
-  br i1 %exitcond.not.i32.i.us.us.i, label %397, label %255, !llvm.loop !164
+  %indvars.iv.next.i32.i.us.us.i = add nuw nsw i32 %indvars.iv.i27.i.us.us.i, 1
+  %exitcond.not.i33.i.us.us.i = icmp eq i32 %indvars.iv.next.i32.i.us.us.i, 5
+  br i1 %exitcond.not.i33.i.us.us.i, label %397, label %255, !llvm.loop !164
 
 397:                                              ; preds = %396
   %398 = mul nsw i32 %.3117.i.i.us.us.i, 3
@@ -3337,7 +3337,7 @@ get_control_box.exit.i:                           ; preds = %186, %.lr.ph.i12
   %402 = add nsw i64 %400, 32768
   %403 = add nsw i64 %402, %401
   %404 = lshr i64 %403, 16
-  %405 = shl nuw nsw i32 %.3.i27.i.us.us.i, 1
+  %405 = shl nuw nsw i32 %.3.i28.i.us.us.i, 1
   %406 = zext nneg i32 %405 to i64
   %407 = mul nsw i64 %248, %406
   %408 = ashr i64 %407, 63
@@ -3389,17 +3389,17 @@ get_control_box.exit.i:                           ; preds = %186, %.lr.ph.i12
   %446 = trunc i64 %445 to i32
   %447 = icmp slt i32 %437, %446
   %448 = select i1 %447, i8 1, i8 -1
-  %449 = and i32 %.3.i27.i.us.us.i, -65537
-  %or.cond5.not.i33.i.us.us.i = icmp eq i32 %449, 0
-  br i1 %or.cond5.not.i33.i.us.us.i, label %450, label %get_min_distance_cubic.exit.i.us.us.i
+  %449 = and i32 %.3.i28.i.us.us.i, -65537
+  %or.cond5.not.i34.i.us.us.i = icmp eq i32 %449, 0
+  br i1 %or.cond5.not.i34.i.us.us.i, label %450, label %get_min_distance_cubic.exit.i.us.us.i
 
 450:                                              ; preds = %397
   store i64 %429, ptr %6, align 8, !tbaa !52
-  store i64 %438, ptr %.sroa.7.0..sroa_idx.i36.i.i, align 8, !tbaa !53
+  store i64 %438, ptr %.sroa.7.0..sroa_idx.i26.i.i, align 8, !tbaa !53
   %451 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %7) #12
   %452 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %6) #12
   %453 = load i64, ptr %7, align 8, !tbaa !52
-  %454 = load i64, ptr %.sroa.7.0..sroa_idx.i36.i.i, align 8, !tbaa !53
+  %454 = load i64, ptr %.sroa.7.0..sroa_idx.i26.i.i, align 8, !tbaa !53
   %sext141.i.i.us.us.i = shl i64 %453, 32
   %455 = ashr exact i64 %sext141.i.i.us.us.i, 32
   %sext142.i.i.us.us.i = shl i64 %454, 32
@@ -3426,7 +3426,7 @@ get_control_box.exit.i:                           ; preds = %186, %.lr.ph.i12
   br label %get_min_distance_cubic.exit.i.us.us.i
 
 get_min_distance_cubic.exit.i.us.us.i:            ; preds = %450, %397
-  %.sink.i35.i.us.us.i = phi i32 [ %473, %450 ], [ 65536, %397 ]
+  %.sink.i36.i.us.us.i = phi i32 [ %473, %450 ], [ 65536, %397 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %735
@@ -3798,7 +3798,7 @@ get_min_distance_line.exit.i.us.us.i:             ; preds = %711, %648
   br label %735
 
 735:                                              ; preds = %get_min_distance_line.exit.i.us.us.i, %get_min_distance_conic.exit.i.us.us.i, %get_min_distance_cubic.exit.i.us.us.i
-  %.sroa.0.sroa.12.0.ph.us.us.i = phi i32 [ %.sink.i35.i.us.us.i, %get_min_distance_cubic.exit.i.us.us.i ], [ %.sink.i21.i.us.us.i, %get_min_distance_conic.exit.i.us.us.i ], [ %.sink.i.i.us.us.i, %get_min_distance_line.exit.i.us.us.i ]
+  %.sroa.0.sroa.12.0.ph.us.us.i = phi i32 [ %.sink.i36.i.us.us.i, %get_min_distance_cubic.exit.i.us.us.i ], [ %.sink.i21.i.us.us.i, %get_min_distance_conic.exit.i.us.us.i ], [ %.sink.i.i.us.us.i, %get_min_distance_line.exit.i.us.us.i ]
   %.sroa.0.sroa.0.0.ph.us.us.i = phi i32 [ %.3121.i.i.us.us.i, %get_min_distance_cubic.exit.i.us.us.i ], [ %.389.i.i.us.us.i, %get_min_distance_conic.exit.i.us.us.i ], [ %709, %get_min_distance_line.exit.i.us.us.i ]
   %.sroa.15.1.ph.us.us.i = phi i8 [ %448, %get_min_distance_cubic.exit.i.us.us.i ], [ %622, %get_min_distance_conic.exit.i.us.us.i ], [ %707, %get_min_distance_line.exit.i.us.us.i ]
   store i32 0, ptr %14, align 4, !tbaa !21

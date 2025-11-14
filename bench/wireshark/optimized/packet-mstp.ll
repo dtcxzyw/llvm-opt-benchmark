@@ -432,45 +432,45 @@ cobs_frame_decode.exit.thread:                    ; preds = %103, %.lr.ph38.i33.
   br label %170
 
 170:                                              ; preds = %168, %165
-  %171 = tail call i16 @llvm.umin.i16(i16 %11, i16 %148)
-  %.not151 = icmp eq i16 %171, 0
+  %171 = zext i16 %11 to i32
+  %172 = tail call i16 @llvm.umin.i16(i16 %11, i16 %148)
+  %.not151 = icmp eq i16 %172, 0
   br i1 %.not151, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %170
-  %wide.trip.count = zext i16 %171 to i32
+  %wide.trip.count = zext i16 %172 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv155 = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next156, %.lr.ph ]
-  %.0131149 = phi i16 [ -1, %.lr.ph.preheader ], [ %185, %.lr.ph ]
-  %172 = add i32 %25, %indvars.iv155
-  %173 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %172)
-  %174 = and i16 %.0131149, 255
-  %175 = zext i8 %173 to i16
-  %176 = xor i16 %174, %175
-  %177 = tail call i16 @llvm.fshl.i16(i16 %176, i16 %.0131149, i16 8)
-  %178 = lshr i16 %176, 4
-  %179 = and i16 %176, 15
-  %180 = shl nuw nsw i16 %179, 7
-  %181 = mul i16 %176, 4104
-  %182 = xor i16 %177, %178
-  %183 = xor i16 %182, %181
-  %184 = xor i16 %183, %180
-  %185 = xor i16 %184, %179
+  %.0131149 = phi i16 [ -1, %.lr.ph.preheader ], [ %186, %.lr.ph ]
+  %173 = add i32 %25, %indvars.iv155
+  %174 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %173)
+  %175 = and i16 %.0131149, 255
+  %176 = zext i8 %174 to i16
+  %177 = xor i16 %175, %176
+  %178 = tail call i16 @llvm.fshl.i16(i16 %177, i16 %.0131149, i16 8)
+  %179 = lshr i16 %177, 4
+  %180 = and i16 %177, 15
+  %181 = shl nuw nsw i16 %180, 7
+  %182 = mul i16 %177, 4104
+  %183 = xor i16 %178, %179
+  %184 = xor i16 %183, %182
+  %185 = xor i16 %184, %181
+  %186 = xor i16 %185, %180
   %indvars.iv.next156 = add nuw nsw i32 %indvars.iv155, 1
   %exitcond158.not = icmp eq i32 %indvars.iv.next156, %wide.trip.count
   br i1 %exitcond158.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %186 = xor i16 %185, -1
-  %187 = tail call i16 @llvm.bswap.i16(i16 %186)
-  %188 = zext i16 %187 to i32
+  %187 = xor i16 %186, -1
+  %188 = tail call i16 @llvm.bswap.i16(i16 %187)
+  %189 = zext i16 %188 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %170
-  %.0131.lcssa = phi i32 [ 0, %170 ], [ %188, %._crit_edge.loopexit ]
-  %189 = zext i16 %11 to i32
-  %190 = add i32 %25, %189
+  %.0131.lcssa = phi i32 [ 0, %170 ], [ %189, %._crit_edge.loopexit ]
+  %190 = add i32 %25, %171
   %191 = load i32, ptr @hf_mstp_frame_crc16, align 4
   %192 = load i32, ptr @hf_mstp_frame_checksum_status, align 4
   %193 = tail call ptr @proto_tree_add_checksum(ptr noundef %3, ptr noundef %0, i32 noundef %190, i32 noundef %191, i32 noundef %192, ptr noundef nonnull @ei_mstp_frame_checksum_bad, ptr noundef %1, i32 noundef %.0131.lcssa, i32 noundef 0, i32 noundef 1)

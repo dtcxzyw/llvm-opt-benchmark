@@ -9165,15 +9165,15 @@ define void @_ZN6icu_7712FixedDecimal4initEd(ptr noundef nonnull align 8 capture
   %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 30, ptr noundef nonnull @.str.17, double noundef %4) #29
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 18
   %16 = call i64 @strtol(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #29
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i8, ptr %17, align 16, !tbaa !50
-  %.not26.i = icmp eq i8 %18, 48
+  %17 = trunc i64 %16 to i32
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %19 = load i8, ptr %18, align 16, !tbaa !50
+  %.not26.i = icmp eq i8 %19, 48
   br i1 %.not26.i, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %13
   %.017.lcssa.i = phi i32 [ 15, %13 ], [ %21, %.lr.ph.i ]
-  %19 = trunc i64 %16 to i32
-  %20 = sub nsw i32 %.017.lcssa.i, %19
+  %20 = sub nsw i32 %.017.lcssa.i, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6icu_7712FixedDecimal8decimalsEd.exit
 
@@ -10092,15 +10092,15 @@ define noundef i32 @_ZN6icu_7712FixedDecimal8decimalsEd(double noundef %0) local
   %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 30, ptr noundef nonnull @.str.17, double noundef %3) #29
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %15 = call i64 @strtol(ptr noundef nonnull captures(none) %14, ptr noundef null, i32 noundef 10) #29
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %17 = load i8, ptr %16, align 16, !tbaa !50
-  %.not26 = icmp eq i8 %17, 48
+  %16 = trunc i64 %15 to i32
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %18 = load i8, ptr %17, align 16, !tbaa !50
+  %.not26 = icmp eq i8 %18, 48
   br i1 %.not26, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
   %.017.lcssa = phi i32 [ 15, %12 ], [ %20, %.lr.ph ]
-  %18 = trunc i64 %15 to i32
-  %19 = sub nsw i32 %.017.lcssa, %18
+  %19 = sub nsw i32 %.017.lcssa, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 

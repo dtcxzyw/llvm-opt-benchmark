@@ -49775,19 +49775,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl1ELl10ELl0EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -50059,19 +50059,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl2ELl10ELl0EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -50359,19 +50359,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl2ELl10ELl1EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -50643,19 +50643,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl3ELl10ELl0EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -50942,19 +50942,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl3ELl10ELl1EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -51241,19 +51241,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl3ELl10ELl2EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -51525,19 +51525,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl4ELl10ELl0EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -51824,19 +51824,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl4ELl10ELl1EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -52123,19 +52123,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl4ELl10ELl2EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -52422,19 +52422,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl4ELl10ELl3EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -52706,19 +52706,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl5ELl10ELl0EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -53005,19 +53005,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl5ELl10ELl1EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -53304,19 +53304,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl5ELl10ELl2EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -53603,19 +53603,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl5ELl10ELl3EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -53902,19 +53902,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl5ELl10ELl4EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -54186,19 +54186,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl6ELl10ELl0EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -54485,19 +54485,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl6ELl10ELl1EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -54784,19 +54784,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl6ELl10ELl2EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -55083,19 +55083,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl6ELl10ELl3EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -55382,19 +55382,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl6ELl10ELl4EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -55682,19 +55682,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl6ELl10ELl5EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -55966,19 +55966,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl7ELl10ELl0EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -56265,19 +56265,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl7ELl10ELl1EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -56564,19 +56564,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl7ELl10ELl2EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -56863,19 +56863,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl7ELl10ELl3EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -57162,19 +57162,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl7ELl10ELl4EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -57462,19 +57462,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl7ELl10ELl5EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -57762,19 +57762,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl7ELl10ELl6EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -58046,19 +58046,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl10ELl0EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -58345,19 +58345,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl10ELl1EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -58644,19 +58644,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl10ELl2EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -58943,19 +58943,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl10ELl3EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -59242,19 +59242,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl10ELl4EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -59542,19 +59542,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl10ELl5EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -59842,19 +59842,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl10ELl6EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -60141,19 +60141,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl10ELl7EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -60425,19 +60425,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl10ELl0EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -60724,19 +60724,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl10ELl1EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -61023,19 +61023,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl10ELl2EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -61322,19 +61322,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl10ELl3EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -61621,19 +61621,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl10ELl4EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -61921,19 +61921,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl10ELl5EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -62221,19 +62221,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl10ELl6EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -62520,19 +62520,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl10ELl7EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -62819,19 +62819,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl10ELl8EE4testEPKhRN5faiss
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -63103,19 +63103,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl10ELl0EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -63402,19 +63402,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl10ELl1EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -63701,19 +63701,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl10ELl2EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -64000,19 +64000,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl10ELl3EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -64299,19 +64299,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl10ELl4EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -64599,19 +64599,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl10ELl5EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -64899,19 +64899,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl10ELl6EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -65198,19 +65198,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl10ELl7EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -65497,19 +65497,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl10ELl8EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -65797,19 +65797,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl10ELl9EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -66081,19 +66081,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl10ELl0EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -66380,19 +66380,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl10ELl1EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -66679,19 +66679,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl10ELl2EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -66978,19 +66978,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl10ELl3EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -67277,19 +67277,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl10ELl4EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -67577,19 +67577,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl10ELl5EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -67877,19 +67877,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl10ELl6EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -68176,19 +68176,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl10ELl7EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -68475,19 +68475,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl10ELl8EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -68775,19 +68775,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl10ELl9EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -69075,19 +69075,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl10ELl10EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -69359,19 +69359,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl10ELl0EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -69658,19 +69658,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl10ELl1EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -69957,19 +69957,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl10ELl2EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -70256,19 +70256,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl10ELl3EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -70555,19 +70555,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl10ELl4EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -70855,19 +70855,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl10ELl5EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -71155,19 +71155,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl10ELl6EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -71454,19 +71454,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl10ELl7EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -71753,19 +71753,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl10ELl8EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -72053,19 +72053,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl10ELl9EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -72353,19 +72353,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl10ELl10EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -72652,19 +72652,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl10ELl11EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -72936,19 +72936,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl10ELl0EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -73235,19 +73235,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl10ELl1EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -73534,19 +73534,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl10ELl2EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -73833,19 +73833,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl10ELl3EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -74132,19 +74132,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl10ELl4EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -74432,19 +74432,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl10ELl5EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -74732,19 +74732,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl10ELl6EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -75031,19 +75031,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl10ELl7EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -75330,19 +75330,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl10ELl8EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -75630,19 +75630,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl10ELl9EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -75930,19 +75930,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl10ELl10EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -76229,19 +76229,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl10ELl11EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -76528,19 +76528,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl10ELl12EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -76812,19 +76812,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl10ELl0EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -77111,19 +77111,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl10ELl1EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -77410,19 +77410,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl10ELl2EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -77709,19 +77709,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl10ELl3EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -78008,19 +78008,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl10ELl4EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -78308,19 +78308,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl10ELl5EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -78608,19 +78608,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl10ELl6EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -78907,19 +78907,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl10ELl7EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -79206,19 +79206,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl10ELl8EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -79506,19 +79506,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl10ELl9EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -79806,19 +79806,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl10ELl10EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -80105,19 +80105,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl10ELl11EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -80404,19 +80404,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl10ELl12EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -80704,19 +80704,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl10ELl13EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -80988,19 +80988,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl10ELl0EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -81287,19 +81287,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl10ELl1EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -81586,19 +81586,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl10ELl2EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -81885,19 +81885,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl10ELl3EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -82184,19 +82184,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl10ELl4EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -82484,19 +82484,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl10ELl5EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -82784,19 +82784,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl10ELl6EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -83083,19 +83083,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl10ELl7EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -83382,19 +83382,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl10ELl8EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -83682,19 +83682,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl10ELl9EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -83982,19 +83982,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl10ELl10EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -84281,19 +84281,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl10ELl11EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -84580,19 +84580,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl10ELl12EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -84880,19 +84880,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl10ELl13EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -85180,19 +85180,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl10ELl14EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -85464,19 +85464,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl0EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -85763,19 +85763,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl1EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -86062,19 +86062,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl2EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -86361,19 +86361,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl3EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -86660,19 +86660,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl4EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -86960,19 +86960,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl5EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -87260,19 +87260,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl6EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -87559,19 +87559,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl7EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -87858,19 +87858,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl8EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -88158,19 +88158,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl9EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -88458,19 +88458,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl10EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -88757,19 +88757,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl11EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -89056,19 +89056,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl12EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -89356,19 +89356,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl13EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -89656,19 +89656,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl14EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -89955,19 +89955,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl10ELl15EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -90239,19 +90239,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl0EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %25 = zext nneg i32 %14 to i64
-  %26 = add nuw nsw i64 %16, 2
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
-  %28 = load i8, ptr %27, align 1, !tbaa !26
-  %29 = zext i8 %28 to i64
-  %30 = shl nuw nsw i64 %29, %25
-  %31 = or disjoint i64 %30, %21
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
+  %27 = load i8, ptr %26, align 1, !tbaa !26
+  %28 = zext i8 %27 to i64
+  %29 = shl nuw nsw i64 %28, %25
+  %30 = or disjoint i64 %29, %21
+  %31 = add nuw nsw i64 %16, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %23, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %31, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %30, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %14, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %31, %.lr.ph.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %33 = load i8, ptr %32, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -90538,19 +90538,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl1EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -90837,19 +90837,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl2EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -91136,19 +91136,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl3EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -91435,19 +91435,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl4EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -91735,19 +91735,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl5EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -92035,19 +92035,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl6EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -92334,19 +92334,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl7EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -92633,19 +92633,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl8EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -92933,19 +92933,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl9EE4testEPKhRN5fais
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -93233,19 +93233,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl10EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -93532,19 +93532,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl11EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -93831,19 +93831,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl12EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -94131,19 +94131,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl13EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -94431,19 +94431,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl14EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %27 = zext nneg i32 %16 to i64
-  %28 = add nuw nsw i64 %18, 2
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
-  %30 = load i8, ptr %29, align 1, !tbaa !26
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %31, %27
-  %33 = or disjoint i64 %32, %23
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.02431.i
+  %29 = load i8, ptr %28, align 1, !tbaa !26
+  %30 = zext i8 %29 to i64
+  %31 = shl nuw nsw i64 %30, %27
+  %32 = or disjoint i64 %31, %23
+  %33 = add nuw nsw i64 %18, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %25, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %33, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %23, %2 ], [ %32, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %16, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %33, %.lr.ph.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 %.024.lcssa.i
   %35 = load i8, ptr %34, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -94730,19 +94730,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl15EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -95029,19 +95029,19 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl10ELl16EE4testEPKhRN5fai
 
 .lr.ph.preheader.i:                               ; preds = %2
   %26 = zext nneg i32 %15 to i64
-  %27 = add nuw nsw i64 %17, 2
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
-  %29 = load i8, ptr %28, align 1, !tbaa !26
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, %26
-  %32 = or disjoint i64 %31, %22
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 %.02431.i
+  %28 = load i8, ptr %27, align 1, !tbaa !26
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %29, %26
+  %31 = or disjoint i64 %30, %22
+  %32 = add nuw nsw i64 %17, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %2
   %.027.lcssa.i = phi i32 [ %24, %2 ], [ 1, %.lr.ph.preheader.i ]
-  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %32, %.lr.ph.preheader.i ]
+  %.026.lcssa.i = phi i64 [ %22, %2 ], [ %31, %.lr.ph.preheader.i ]
   %.025.lcssa.i = phi i32 [ %15, %2 ], [ 9, %.lr.ph.preheader.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %.lr.ph.preheader.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %32, %.lr.ph.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %16, i64 %.024.lcssa.i
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -144520,22 +144520,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl1ELl16ELl0EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %21 = sub nuw nsw i32 8, %12
-  %22 = add nuw nsw i64 %14, 2
-  %23 = zext nneg i32 %21 to i64
+  %22 = zext nneg i32 %21 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %12
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %24 = zext i8 %.pre to i64
-  %25 = shl nuw nsw i64 %24, %23
-  %26 = or i64 %25, %19
+  %23 = zext i8 %.pre to i64
+  %24 = shl nuw nsw i64 %23, %22
+  %25 = or i64 %24, %19
+  %26 = add nuw nsw i64 %14, 2
   %27 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %12, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %19, %2 ], [ %26, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %19, %2 ], [ %25, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %27, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %22, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 %.024.lcssa.i
   %29 = load i8, ptr %28, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -144804,22 +144804,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl2ELl16ELl0EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -145102,22 +145102,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl2ELl16ELl1EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -145386,22 +145386,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl3ELl16ELl0EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -145684,22 +145684,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl3ELl16ELl1EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -145982,22 +145982,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl3ELl16ELl2EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -146266,22 +146266,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl4ELl16ELl0EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -146564,22 +146564,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl4ELl16ELl1EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -146863,22 +146863,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl4ELl16ELl2EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -147162,22 +147162,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl4ELl16ELl3EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -147446,22 +147446,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl5ELl16ELl0EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -147744,22 +147744,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl5ELl16ELl1EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -148043,22 +148043,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl5ELl16ELl2EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -148342,22 +148342,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl5ELl16ELl3EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -148640,22 +148640,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl5ELl16ELl4EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -148924,22 +148924,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl6ELl16ELl0EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -149222,22 +149222,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl6ELl16ELl1EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -149521,22 +149521,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl6ELl16ELl2EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -149820,22 +149820,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl6ELl16ELl3EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -150119,22 +150119,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl6ELl16ELl4EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -150418,22 +150418,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl6ELl16ELl5EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -150702,22 +150702,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl7ELl16ELl0EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -151000,22 +151000,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl7ELl16ELl1EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -151299,22 +151299,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl7ELl16ELl2EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -151598,22 +151598,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl7ELl16ELl3EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -151897,22 +151897,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl7ELl16ELl4EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -152196,22 +152196,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl7ELl16ELl5EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -152494,22 +152494,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl7ELl16ELl6EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -152778,22 +152778,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl16ELl0EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -153076,22 +153076,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl16ELl1EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -153375,22 +153375,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl16ELl2EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -153674,22 +153674,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl16ELl3EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -153973,22 +153973,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl16ELl4EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -154272,22 +154272,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl16ELl5EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -154571,22 +154571,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl16ELl6EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -154870,22 +154870,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl8ELl16ELl7EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -155154,22 +155154,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl16ELl0EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -155452,22 +155452,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl16ELl1EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -155751,22 +155751,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl16ELl2EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -156050,22 +156050,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl16ELl3EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -156349,22 +156349,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl16ELl4EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -156648,22 +156648,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl16ELl5EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -156947,22 +156947,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl16ELl6EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -157246,22 +157246,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl16ELl7EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -157544,22 +157544,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl9ELl16ELl8EE4testEPKhRN5faiss
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -157828,22 +157828,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl16ELl0EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -158126,22 +158126,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl16ELl1EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -158425,22 +158425,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl16ELl2EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -158724,22 +158724,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl16ELl3EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -159023,22 +159023,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl16ELl4EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -159322,22 +159322,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl16ELl5EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -159621,22 +159621,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl16ELl6EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -159920,22 +159920,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl16ELl7EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -160219,22 +160219,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl16ELl8EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -160518,22 +160518,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl10ELl16ELl9EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -160802,22 +160802,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl16ELl0EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -161100,22 +161100,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl16ELl1EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -161399,22 +161399,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl16ELl2EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -161698,22 +161698,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl16ELl3EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -161997,22 +161997,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl16ELl4EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -162296,22 +162296,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl16ELl5EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -162595,22 +162595,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl16ELl6EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -162894,22 +162894,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl16ELl7EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -163193,22 +163193,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl16ELl8EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -163492,22 +163492,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl16ELl9EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -163790,22 +163790,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl11ELl16ELl10EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -164074,22 +164074,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl16ELl0EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -164372,22 +164372,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl16ELl1EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -164671,22 +164671,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl16ELl2EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -164970,22 +164970,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl16ELl3EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -165269,22 +165269,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl16ELl4EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -165568,22 +165568,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl16ELl5EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -165867,22 +165867,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl16ELl6EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -166166,22 +166166,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl16ELl7EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -166465,22 +166465,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl16ELl8EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -166764,22 +166764,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl16ELl9EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -167063,22 +167063,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl16ELl10EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -167362,22 +167362,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl12ELl16ELl11EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -167646,22 +167646,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl16ELl0EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -167944,22 +167944,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl16ELl1EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -168243,22 +168243,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl16ELl2EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -168542,22 +168542,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl16ELl3EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -168841,22 +168841,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl16ELl4EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -169140,22 +169140,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl16ELl5EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -169439,22 +169439,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl16ELl6EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -169738,22 +169738,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl16ELl7EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -170037,22 +170037,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl16ELl8EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -170336,22 +170336,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl16ELl9EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -170635,22 +170635,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl16ELl10EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -170934,22 +170934,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl16ELl11EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -171232,22 +171232,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl13ELl16ELl12EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -171516,22 +171516,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl16ELl0EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -171814,22 +171814,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl16ELl1EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -172113,22 +172113,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl16ELl2EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -172412,22 +172412,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl16ELl3EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -172711,22 +172711,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl16ELl4EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -173010,22 +173010,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl16ELl5EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -173309,22 +173309,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl16ELl6EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -173608,22 +173608,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl16ELl7EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -173907,22 +173907,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl16ELl8EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -174206,22 +174206,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl16ELl9EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -174505,22 +174505,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl16ELl10EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -174804,22 +174804,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl16ELl11EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -175103,22 +175103,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl16ELl12EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -175402,22 +175402,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl14ELl16ELl13EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -175686,22 +175686,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl16ELl0EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -175984,22 +175984,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl16ELl1EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -176283,22 +176283,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl16ELl2EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -176582,22 +176582,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl16ELl3EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -176881,22 +176881,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl16ELl4EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -177180,22 +177180,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl16ELl5EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -177479,22 +177479,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl16ELl6EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -177778,22 +177778,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl16ELl7EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -178077,22 +178077,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl16ELl8EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -178376,22 +178376,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl16ELl9EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -178675,22 +178675,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl16ELl10EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -178974,22 +178974,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl16ELl11EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -179273,22 +179273,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl16ELl12EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -179572,22 +179572,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl16ELl13EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -179870,22 +179870,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl15ELl16ELl14EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -180154,22 +180154,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl0EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -180452,22 +180452,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl1EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -180751,22 +180751,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl2EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -181050,22 +181050,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl3EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -181349,22 +181349,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl4EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -181648,22 +181648,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl5EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -181947,22 +181947,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl6EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -182246,22 +182246,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl7EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -182545,22 +182545,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl8EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -182844,22 +182844,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl9EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -183143,22 +183143,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl10EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -183442,22 +183442,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl11EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -183741,22 +183741,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl12EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -184040,22 +184040,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl13EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -184339,22 +184339,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl14EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -184638,22 +184638,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl16ELl16ELl15EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -184922,22 +184922,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl0EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -185220,22 +185220,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl1EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -185519,22 +185519,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl2EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -185818,22 +185818,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl3EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -186117,22 +186117,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl4EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -186416,22 +186416,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl5EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -186715,22 +186715,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl6EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -187014,22 +187014,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl7EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -187313,22 +187313,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl8EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -187612,22 +187612,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl9EE4testEPKhRN5fais
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -187911,22 +187911,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl10EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -188210,22 +188210,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl11EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -188509,22 +188509,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl12EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -188808,22 +188808,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl13EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -189107,22 +189107,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl14EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -189406,22 +189406,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl15EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %23 = sub nuw nsw i32 8, %14
-  %24 = add nuw nsw i64 %16, 2
-  %25 = zext nneg i32 %23 to i64
+  %24 = zext nneg i32 %23 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %26 = zext i8 %.pre to i64
-  %27 = shl nuw nsw i64 %26, %25
-  %28 = or i64 %27, %21
+  %25 = zext i8 %.pre to i64
+  %26 = shl nuw nsw i64 %25, %24
+  %27 = or i64 %26, %21
+  %28 = add nuw nsw i64 %16, 2
   %29 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %14, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %28, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %21, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %29, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %24, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %28, %._crit_edge.loopexit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 %.024.lcssa.i
   %31 = load i8, ptr %30, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
@@ -189704,22 +189704,22 @@ define linkonce_odr dso_local void @_ZN8TestLoopILl17ELl16ELl16EE4testEPKhRN5fai
 
 ._crit_edge.loopexit.i:                           ; preds = %2
   %22 = sub nuw nsw i32 8, %13
-  %23 = add nuw nsw i64 %15, 2
-  %24 = zext nneg i32 %22 to i64
+  %23 = zext nneg i32 %22 to i64
   %indvars.iv.next.i = sub nuw nsw i32 16, %13
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 %.02431.i
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !26
-  %25 = zext i8 %.pre to i64
-  %26 = shl nuw nsw i64 %25, %24
-  %27 = or i64 %26, %20
+  %24 = zext i8 %.pre to i64
+  %25 = shl nuw nsw i64 %24, %23
+  %26 = or i64 %25, %20
+  %27 = add nuw nsw i64 %15, 2
   %28 = zext nneg i32 %indvars.iv.next.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
   %.027.lcssa.i = phi i32 [ 8, %2 ], [ %13, %._crit_edge.loopexit.i ]
-  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %27, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %20, %2 ], [ %26, %._crit_edge.loopexit.i ]
   %.025.lcssa.i = phi i64 [ 8, %2 ], [ %28, %._crit_edge.loopexit.i ]
-  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %23, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ %.02431.i, %2 ], [ %27, %._crit_edge.loopexit.i ]
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.024.lcssa.i
   %30 = load i8, ptr %29, align 1, !tbaa !26
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i

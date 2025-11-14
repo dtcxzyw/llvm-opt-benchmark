@@ -2280,7 +2280,7 @@ _ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactMan
 
 ._crit_edge164:                                   ; preds = %._crit_edge, %25
   %.046.lcssa = phi i32 [ 0, %25 ], [ %.147.lcssa, %._crit_edge ]
-  %.044.lcssa = phi i32 [ 0, %25 ], [ %37, %._crit_edge ]
+  %.044.lcssa = phi i32 [ 0, %25 ], [ %35, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull @.str.6)
           to label %43 unwind label %140
@@ -2298,7 +2298,7 @@ _ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactMan
 
 30:                                               ; preds = %.lr.ph163, %._crit_edge
   %indvars.iv168 = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next169, %._crit_edge ]
-  %.044161 = phi i32 [ 0, %.lr.ph163 ], [ %37, %._crit_edge ]
+  %.044161 = phi i32 [ 0, %.lr.ph163 ], [ %35, %._crit_edge ]
   %.046159 = phi i32 [ 0, %.lr.ph163 ], [ %.147.lcssa, %._crit_edge ]
   %31 = getelementptr inbounds nuw %"struct.btSequentialImpulseConstraintSolverMt::btContactManifoldCachedInfo", ptr %20, i64 %indvars.iv168
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
@@ -2306,17 +2306,17 @@ _ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactMan
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i32 %.046159, ptr %33, align 8, !tbaa !142
   %34 = load i32, ptr %31, align 8, !tbaa !132
-  %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph, label %._crit_edge
+  %35 = add nsw i32 %34, %.044161
+  %36 = icmp sgt i32 %34, 0
+  br i1 %36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %30
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 20
   %wide.trip.count = zext nneg i32 %34 to i64
   br label %38
 
 ._crit_edge:                                      ; preds = %38, %30
   %.147.lcssa = phi i32 [ %.046159, %30 ], [ %spec.select, %38 ]
-  %37 = add nsw i32 %34, %.044161
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
   br i1 %exitcond172.not, label %._crit_edge164, label %30, !llvm.loop !154
@@ -2324,7 +2324,7 @@ _ZN20btAlignedObjectArrayIN37btSequentialImpulseConstraintSolverMt27btContactMan
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %.147157 = phi i32 [ %.046159, %.lr.ph ], [ %spec.select, %38 ]
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv
   %40 = load i8, ptr %39, align 1, !tbaa !140, !range !63, !noundef !93
   %41 = trunc nuw i8 %40 to i1
   %42 = add nsw i32 %.147157, 3

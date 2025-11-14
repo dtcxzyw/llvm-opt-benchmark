@@ -7572,21 +7572,21 @@ insert_mark.exit:                                 ; preds = %._crit_edge.i, %111
   %.sink = load i64, ptr %.sink.in, align 8, !tbaa !9
   %171 = getelementptr inbounds nuw i8, ptr %12, i64 112
   store i64 %.sink, ptr %171, align 8, !tbaa !193
-  %172 = call i64 @git_deflate_bound(ptr noundef nonnull %12, i64 noundef %.sink) #24
-  %173 = getelementptr inbounds nuw i8, ptr %12, i64 120
-  store i64 %172, ptr %173, align 8, !tbaa !191
-  %174 = call ptr @xmalloc(i64 noundef %172) #24
-  %175 = getelementptr inbounds nuw i8, ptr %12, i64 152
-  store ptr %174, ptr %175, align 8, !tbaa !187
-  br label %176
+  %172 = getelementptr inbounds nuw i8, ptr %12, i64 112
+  %173 = call i64 @git_deflate_bound(ptr noundef nonnull %12, i64 noundef %.sink) #24
+  %174 = getelementptr inbounds nuw i8, ptr %12, i64 120
+  store i64 %173, ptr %174, align 8, !tbaa !191
+  %175 = call ptr @xmalloc(i64 noundef %173) #24
+  %176 = getelementptr inbounds nuw i8, ptr %12, i64 152
+  store ptr %175, ptr %176, align 8, !tbaa !187
+  br label %177
 
-176:                                              ; preds = %176, %169
-  %177 = call i32 @git_deflate(ptr noundef nonnull %12, i32 noundef 4) #24
-  %178 = icmp eq i32 %177, 0
-  br i1 %178, label %176, label %179, !llvm.loop !199
+177:                                              ; preds = %177, %169
+  %178 = call i32 @git_deflate(ptr noundef nonnull %12, i32 noundef 4) #24
+  %179 = icmp eq i32 %178, 0
+  br i1 %179, label %177, label %180, !llvm.loop !199
 
-179:                                              ; preds = %176
-  %180 = getelementptr inbounds nuw i8, ptr %12, i64 112
+180:                                              ; preds = %177
   call void @git_deflate_end(ptr noundef nonnull %12) #24
   %181 = load i64, ptr @max_packsize, align 8, !tbaa !9
   %.not95 = icmp eq i64 %181, 0
@@ -7598,7 +7598,7 @@ insert_mark.exit:                                 ; preds = %._crit_edge.i, %111
   %.pre119 = load i64, ptr %.phi.trans.insert118, align 8, !tbaa !102
   br i1 %.not95, label %._crit_edge116, label %182
 
-._crit_edge116:                                   ; preds = %179
+._crit_edge116:                                   ; preds = %180
   %.phi.trans.insert120 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %.pre121 = load i64, ptr %.phi.trans.insert120, align 8, !tbaa !200
   %.pre122 = mul i64 %.pre119, 3
@@ -7606,7 +7606,7 @@ insert_mark.exit:                                 ; preds = %._crit_edge.i, %111
   %.pre125 = add i64 %.pre123, %.pre121
   br label %189
 
-182:                                              ; preds = %179
+182:                                              ; preds = %180
   %183 = mul i64 %.pre119, 3
   %184 = add i64 %183, %.pre
   %185 = getelementptr inbounds nuw i8, ptr %12, i64 136
@@ -7642,11 +7642,11 @@ insert_mark.exit:                                 ; preds = %._crit_edge.i, %111
   %203 = getelementptr inbounds nuw i8, ptr %12, i64 144
   store ptr %202, ptr %203, align 8, !tbaa !192
   %204 = load i64, ptr %13, align 8, !tbaa !93
-  store i64 %204, ptr %180, align 8, !tbaa !193
+  store i64 %204, ptr %172, align 8, !tbaa !193
   %205 = call i64 @git_deflate_bound(ptr noundef nonnull %12, i64 noundef %204) #24
-  store i64 %205, ptr %173, align 8, !tbaa !191
-  %206 = call ptr @xrealloc(ptr noundef %174, i64 noundef %205) #24
-  store ptr %206, ptr %175, align 8, !tbaa !187
+  store i64 %205, ptr %174, align 8, !tbaa !191
+  %206 = call ptr @xrealloc(ptr noundef %175, i64 noundef %205) #24
+  store ptr %206, ptr %176, align 8, !tbaa !187
   br label %207
 
 207:                                              ; preds = %207, %200
@@ -7659,7 +7659,7 @@ insert_mark.exit:                                 ; preds = %._crit_edge.i, %111
   br label %211
 
 211:                                              ; preds = %191, %210, %189
-  %.081 = phi ptr [ %206, %210 ], [ %174, %191 ], [ %174, %189 ]
+  %.081 = phi ptr [ %206, %210 ], [ %175, %191 ], [ %175, %189 ]
   %.1 = phi ptr [ null, %210 ], [ null, %191 ], [ %.080101, %189 ]
   %212 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %213 = load i32, ptr %212, align 8

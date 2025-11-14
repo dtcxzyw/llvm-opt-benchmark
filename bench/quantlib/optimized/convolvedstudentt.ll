@@ -1118,9 +1118,9 @@ entry:
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %low, i64 8
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !12
   %call5.i.i.i.i2.i.i27 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
-          to label %for.body.i.i.i.i.i.i.i.i.i21.preheader unwind label %lpad5
+          to label %call5.i.i.i.i2.i.i.noexc26 unwind label %lpad5
 
-for.body.i.i.i.i.i.i.i.i.i21.preheader:           ; preds = %entry
+call5.i.i.i.i2.i.i.noexc26:                       ; preds = %entry
   %mul = shl i32 %n, 1
   %add = or disjoint i32 %mul, 1
   store double 1.000000e+00, ptr %call5.i.i.i.i2.i.i27, align 8, !tbaa !16
@@ -1128,7 +1128,7 @@ for.body.i.i.i.i.i.i.i.i.i21.preheader:           ; preds = %entry
   %call5.i.i.i.i.i.i30 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
           to label %invoke.cont9 unwind label %ehcleanup52.thread
 
-invoke.cont9:                                     ; preds = %for.body.i.i.i.i.i.i.i.i.i21.preheader
+invoke.cont9:                                     ; preds = %call5.i.i.i.i2.i.i.noexc26
   %sqrt = tail call double @llvm.sqrt.f64(double %conv)
   %add.ptr.i.i.i29 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i30, i64 8
   store double %sqrt, ptr %add.ptr.i.i.i29, align 8, !tbaa !16
@@ -1153,7 +1153,7 @@ lpad5:                                            ; preds = %entry
           cleanup
   br label %ehcleanup58
 
-ehcleanup52.thread:                               ; preds = %for.body.i.i.i.i.i.i.i.i.i21.preheader
+ehcleanup52.thread:                               ; preds = %call5.i.i.i.i2.i.i.noexc26
   %1 = landingpad { ptr, i32 }
           cleanup
   %add.ptr.i.i.i18 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i27, i64 8
@@ -1614,11 +1614,11 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorIdSaIdE
   %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i29, i64 %add10
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !15
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i29, i64 %mul.i.i.i.i.i.i
   %9 = add nsw i64 %sub.ptr.div.i, %sub.ptr.div.i18
   %10 = shl i64 %9, 3
   %11 = add i64 %10, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i29, i8 0, i64 %11, i1 false), !tbaa !16
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i29, i64 %mul.i.i.i.i.i.i
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !12
   %_M_finish.i35 = getelementptr inbounds nuw i8, ptr %8, i64 8

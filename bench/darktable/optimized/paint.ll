@@ -1775,32 +1775,32 @@ define void @_gradient_arc(ptr noundef %0, double noundef %1, i32 noundef %2, do
 
 16:                                               ; preds = %11
   %17 = fadd reassoc nsz arcp contract afn double %6, 0x400921FB54442D18
-  %18 = sitofp i32 %2 to double
-  %19 = icmp sgt i32 %2, 0
-  br i1 %19, label %.lr.ph, label %._crit_edge49
+  %18 = fadd reassoc nsz arcp contract afn double %7, 0x400921FB54442D18
+  %19 = sitofp i32 %2 to double
+  %20 = icmp sgt i32 %2, 0
+  br i1 %20, label %.lr.ph, label %._crit_edge49
 
 .lr.ph:                                           ; preds = %16
-  %20 = fsub reassoc nsz arcp contract afn double %7, %6
+  %21 = fsub reassoc nsz arcp contract afn double %7, %6
   %wide.trip.count = zext nneg i32 %2 to i64
-  %21 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %18
+  %22 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %19
   br label %27
 
 .lr.ph48:                                         ; preds = %27
-  %22 = fadd reassoc nsz arcp contract afn double %7, 0x400921FB54442D18
   %23 = zext nneg i32 %2 to i64
   %24 = getelementptr inbounds nuw double, ptr %15, i64 %23
-  store double %22, ptr %24, align 8, !tbaa !12
+  store double %18, ptr %24, align 8, !tbaa !12
   %25 = fsub reassoc nsz arcp contract afn double %9, %8
   %wide.trip.count56 = zext nneg i32 %2 to i64
-  %26 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %18
+  %26 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %19
   br label %34
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = uitofp nneg i32 %28 to double
-  %30 = fmul reassoc nsz arcp contract afn double %20, %29
-  %31 = fmul reassoc nsz arcp contract afn double %30, %21
+  %30 = fmul reassoc nsz arcp contract afn double %21, %29
+  %31 = fmul reassoc nsz arcp contract afn double %30, %22
   %32 = fadd reassoc nsz arcp contract afn double %17, %31
   %33 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
   store double %32, ptr %33, align 8, !tbaa !12

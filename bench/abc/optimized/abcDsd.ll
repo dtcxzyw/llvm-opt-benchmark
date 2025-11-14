@@ -1489,29 +1489,29 @@ declare ptr @Dsd_TreeCollectNodesDfs(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
   %5 = tail call ptr @Dsd_ManagerReadDd(ptr noundef %0) #10
-  %6 = tail call ptr @Abc_NtkCreateObj(ptr noundef %2, i32 noundef 7) #10
-  %7 = tail call i32 @Dsd_NodeReadType(ptr noundef %1) #10
-  %8 = tail call i32 @Dsd_NodeReadDecsNum(ptr noundef %1) #10
-  %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 256
+  %7 = tail call ptr @Abc_NtkCreateObj(ptr noundef %2, i32 noundef 7) #10
+  %8 = tail call i32 @Dsd_NodeReadType(ptr noundef %1) #10
+  %9 = tail call i32 @Dsd_NodeReadDecsNum(ptr noundef %1) #10
+  %10 = icmp sgt i32 %9, 0
+  br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.069 = phi i32 [ %16, %.lr.ph ], [ 0, %4 ]
-  %10 = tail call ptr @Dsd_NodeReadDec(ptr noundef %1, i32 noundef %.069) #10
-  %11 = ptrtoint ptr %10 to i64
-  %12 = and i64 %11, -2
-  %13 = inttoptr i64 %12 to ptr
-  %14 = tail call i64 @Dsd_NodeReadMark(ptr noundef %13) #10
-  %15 = inttoptr i64 %14 to ptr
-  tail call void @Abc_ObjAddFanin(ptr noundef %6, ptr noundef %15) #10
-  %16 = add nuw nsw i32 %.069, 1
-  %exitcond.not = icmp eq i32 %16, %8
+  %.069 = phi i32 [ %17, %.lr.ph ], [ 0, %4 ]
+  %11 = tail call ptr @Dsd_NodeReadDec(ptr noundef %1, i32 noundef %.069) #10
+  %12 = ptrtoint ptr %11 to i64
+  %13 = and i64 %12, -2
+  %14 = inttoptr i64 %13 to ptr
+  %15 = tail call i64 @Dsd_NodeReadMark(ptr noundef %14) #10
+  %16 = inttoptr i64 %15 to ptr
+  tail call void @Abc_ObjAddFanin(ptr noundef %7, ptr noundef %16) #10
+  %17 = add nuw nsw i32 %.069, 1
+  %exitcond.not = icmp eq i32 %17, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %18 = load ptr, ptr %17, align 8, !tbaa !43
-  switch i32 %7, label %.loopexit [
+  %18 = load ptr, ptr %6, align 8, !tbaa !43
+  switch i32 %8, label %.loopexit [
     i32 1, label %19
     i32 3, label %22
     i32 4, label %41
@@ -1531,11 +1531,11 @@ define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef 
   %26 = xor i64 %25, 1
   %27 = inttoptr i64 %26 to ptr
   tail call void @Cudd_Ref(ptr noundef %27) #10
-  br i1 %9, label %.lr.ph77, label %.loopexit
+  br i1 %10, label %.lr.ph77, label %.loopexit
 
 .lr.ph77:                                         ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 344
-  %wide.trip.count86 = zext nneg i32 %8 to i64
+  %wide.trip.count86 = zext nneg i32 %9 to i64
   br label %29
 
 29:                                               ; preds = %.lr.ph77, %29
@@ -1565,11 +1565,11 @@ define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef 
   %45 = xor i64 %44, 1
   %46 = inttoptr i64 %45 to ptr
   tail call void @Cudd_Ref(ptr noundef %46) #10
-  br i1 %9, label %.lr.ph73, label %.loopexit
+  br i1 %10, label %.lr.ph73, label %.loopexit
 
 .lr.ph73:                                         ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 344
-  %wide.trip.count = zext nneg i32 %8 to i64
+  %wide.trip.count = zext nneg i32 %9 to i64
   br label %48
 
 48:                                               ; preds = %.lr.ph73, %48
@@ -1590,11 +1590,11 @@ define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef 
   br i1 %.not, label %65, label %54
 
 54:                                               ; preds = %53
-  %55 = icmp slt i32 %8, 10
+  %55 = icmp slt i32 %9, 10
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %54
-  %57 = sext i32 %8 to i64
+  %57 = sext i32 %9 to i64
   %58 = getelementptr inbounds i32, ptr %3, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !60
   %60 = add nsw i32 %59, 1
@@ -1618,11 +1618,11 @@ define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef 
 
 .loopexit:                                        ; preds = %48, %29, %41, %22, %._crit_edge, %65, %19
   %.063 = phi ptr [ null, %._crit_edge ], [ %21, %19 ], [ %67, %65 ], [ %27, %22 ], [ %46, %41 ], [ %40, %29 ], [ %52, %48 ]
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %.063, ptr %68, align 8, !tbaa !58
-  %69 = ptrtoint ptr %6 to i64
+  %69 = ptrtoint ptr %7 to i64
   tail call void @Dsd_NodeSetMark(ptr noundef %1, i64 noundef %69) #10
-  ret ptr %6
+  ret ptr %7
 }
 
 declare ptr @Dsd_ManagerReadRoot(ptr noundef, i32 noundef) local_unnamed_addr #1

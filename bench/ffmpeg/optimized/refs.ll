@@ -946,22 +946,22 @@ declare i32 @av_frame_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_vvc_bump_frame(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1964
-  %4 = load i32, ptr %3, align 4, !tbaa !156
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 902
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1928
+  %4 = load ptr, ptr %3, align 8, !tbaa !26
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1964
+  %6 = load i32, ptr %5, align 4, !tbaa !156
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 902
   br label %10
 
-7:                                                ; preds = %23
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1928
-  %9 = load ptr, ptr %8, align 8, !tbaa !26
-  %.not = icmp eq ptr %9, null
+9:                                                ; preds = %23
+  %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %24
 
 10:                                               ; preds = %2, %23
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %23 ]
   %.061 = phi i32 [ 0, %2 ], [ %.1, %23 ]
-  %11 = getelementptr inbounds nuw %struct.VVCFrame, ptr %5, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.VVCFrame, ptr %7, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 98
   %13 = load i8, ptr %12, align 2, !tbaa !23
   %.not55 = icmp eq i8 %13, 0
@@ -970,14 +970,14 @@ define void @ff_vvc_bump_frame(ptr noundef readonly captures(none) %0, ptr nound
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %16 = load i16, ptr %15, align 8, !tbaa !70
-  %17 = load i16, ptr %6, align 2, !tbaa !154
+  %17 = load i16, ptr %8, align 2, !tbaa !154
   %18 = icmp eq i16 %16, %17
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %21 = load i32, ptr %20, align 8, !tbaa !80
-  %.not56 = icmp ne i32 %21, %4
+  %.not56 = icmp ne i32 %21, %6
   %22 = zext i1 %.not56 to i32
   %spec.select = add nsw i32 %.061, %22
   br label %23
@@ -986,10 +986,10 @@ define void @ff_vvc_bump_frame(ptr noundef readonly captures(none) %0, ptr nound
   %.1 = phi i32 [ %.061, %14 ], [ %.061, %10 ], [ %spec.select, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
-  br i1 %exitcond.not, label %7, label %10, !llvm.loop !168
+  br i1 %exitcond.not, label %9, label %10, !llvm.loop !168
 
-24:                                               ; preds = %7
-  %25 = load ptr, ptr %9, align 8, !tbaa !158
+24:                                               ; preds = %9
+  %25 = load ptr, ptr %4, align 8, !tbaa !158
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 15457
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 6
   %28 = load i8, ptr %27, align 2, !tbaa !159
@@ -1003,7 +1003,7 @@ define void @ff_vvc_bump_frame(ptr noundef readonly captures(none) %0, ptr nound
 .preheader59:                                     ; preds = %24, %46
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %46 ], [ 0, %24 ]
   %.04063 = phi i32 [ %.141, %46 ], [ 2147483647, %24 ]
-  %33 = getelementptr inbounds nuw %struct.VVCFrame, ptr %5, i64 %indvars.iv66
+  %33 = getelementptr inbounds nuw %struct.VVCFrame, ptr %7, i64 %indvars.iv66
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 98
   %35 = load i8, ptr %34, align 2, !tbaa !23
   %.not53 = icmp eq i8 %35, 0
@@ -1012,14 +1012,14 @@ define void @ff_vvc_bump_frame(ptr noundef readonly captures(none) %0, ptr nound
 36:                                               ; preds = %.preheader59
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %38 = load i16, ptr %37, align 8, !tbaa !70
-  %39 = load i16, ptr %6, align 2, !tbaa !154
+  %39 = load i16, ptr %8, align 2, !tbaa !154
   %40 = icmp eq i16 %38, %39
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %43 = load i32, ptr %42, align 8, !tbaa !80
-  %.not54 = icmp ne i32 %43, %4
+  %.not54 = icmp ne i32 %43, %6
   %44 = icmp eq i8 %35, 1
   %or.cond = and i1 %44, %.not54
   %45 = tail call i32 @llvm.smin.i32(i32 %43, i32 %.04063)
@@ -1034,7 +1034,7 @@ define void @ff_vvc_bump_frame(ptr noundef readonly captures(none) %0, ptr nound
 
 .preheader:                                       ; preds = %46, %61
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %61 ], [ 0, %46 ]
-  %47 = getelementptr inbounds nuw %struct.VVCFrame, ptr %5, i64 %indvars.iv70
+  %47 = getelementptr inbounds nuw %struct.VVCFrame, ptr %7, i64 %indvars.iv70
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 98
   %49 = load i8, ptr %48, align 2, !tbaa !23
   %50 = and i8 %49, 1
@@ -1044,7 +1044,7 @@ define void @ff_vvc_bump_frame(ptr noundef readonly captures(none) %0, ptr nound
 51:                                               ; preds = %.preheader
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 96
   %53 = load i16, ptr %52, align 8, !tbaa !70
-  %54 = load i16, ptr %6, align 2, !tbaa !154
+  %54 = load i16, ptr %8, align 2, !tbaa !154
   %55 = icmp eq i16 %53, %54
   br i1 %55, label %56, label %61
 
@@ -1064,7 +1064,7 @@ define void @ff_vvc_bump_frame(ptr noundef readonly captures(none) %0, ptr nound
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 17
   br i1 %exitcond73.not, label %.loopexit, label %.preheader, !llvm.loop !170
 
-.loopexit:                                        ; preds = %61, %24, %7
+.loopexit:                                        ; preds = %61, %24, %9
   ret void
 }
 

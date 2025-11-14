@@ -7801,14 +7801,14 @@ default.unreachable:                              ; preds = %319
   %376 = load i64, ptr %322, align 8, !alias.scope !1626, !noalias !1579, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1627
   call void @llvm.experimental.noalias.scope.decl(metadata !1647)
+  %377 = icmp sgt i64 %376, -1
   %.sroa.0.0.i.i.i.i.i.i.i = call i64 @llvm.abs.i64(i64 %376, i1 false)
-  %377 = icmp ugt i64 %.sroa.0.0.i.i.i.i.i.i.i, 9999
-  br i1 %377, label %.lr.ph.i.i.i6.i.i.i.i, label %._crit_edge.i.i.i3.i.i.i.i
+  %378 = icmp ugt i64 %.sroa.0.0.i.i.i.i.i.i.i, 9999
+  br i1 %378, label %.lr.ph.i.i.i6.i.i.i.i, label %._crit_edge.i.i.i3.i.i.i.i
 
 ._crit_edge.i.i.i3.i.i.i.i:                       ; preds = %.lr.ph.i.i.i6.i.i.i.i, %375
   %.sroa.010.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 20, %375 ], [ %388, %.lr.ph.i.i.i6.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i4.i.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i.i.i.i, %375 ], [ %381, %.lr.ph.i.i.i6.i.i.i.i ]
-  %378 = icmp sgt i64 %376, -1
   %379 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i4.i.i.i.i, 99
   br i1 %379, label %397, label %406
 
@@ -7876,7 +7876,7 @@ default.unreachable:                              ; preds = %319
 
 419:                                              ; preds = %414, %408
   %.sroa.010.2.i.i.i.i.i.i.i = phi i64 [ %415, %414 ], [ %410, %408 ]
-  br i1 %378, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h72e7b9e36ce973e9E.exit.i.i.i.i.i.i", label %420
+  br i1 %377, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h72e7b9e36ce973e9E.exit.i.i.i.i.i.i", label %420
 
 420:                                              ; preds = %419
   %421 = add i64 %.sroa.010.2.i.i.i.i.i.i.i, -1

@@ -9366,18 +9366,18 @@ define hidden noundef i64 @_ZNKSt4hashIN4cvc58internal12SygusGrammarEEclERKS2_(p
 .lr.ph64:                                         ; preds = %._crit_edge50, %._crit_edge57
   %.sroa.028.062 = phi ptr [ %.sroa.028.0, %._crit_edge57 ], [ %.sroa.028.059, %._crit_edge50 ]
   %.261 = phi i64 [ %37, %._crit_edge57 ], [ %.1.lcssa, %._crit_edge50 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.028.062, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !12
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.028.062, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !12
-  %.not4152 = icmp eq ptr %29, %31
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.028.062, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.028.062, i64 16
+  %30 = load ptr, ptr %29, align 8, !tbaa !12
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.028.062, i64 24
+  %32 = load ptr, ptr %31, align 8, !tbaa !12
+  %.not4152 = icmp eq ptr %30, %32
   br i1 %.not4152, label %._crit_edge57, label %.lr.ph56
 
 ._crit_edge57:                                    ; preds = %.lr.ph56, %.lr.ph64
   %.023.lcssa = phi i64 [ -3750763034362895579, %.lr.ph64 ], [ %40, %.lr.ph56 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.028.062, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %33 = call noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  %33 = call noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %28)
   %34 = xor i64 %33, %.023.lcssa
   %35 = mul i64 %34, 1099511628211
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -9389,14 +9389,14 @@ define hidden noundef i64 @_ZNKSt4hashIN4cvc58internal12SygusGrammarEEclERKS2_(p
 
 .lr.ph56:                                         ; preds = %.lr.ph64, %.lr.ph56
   %.02354 = phi i64 [ %40, %.lr.ph56 ], [ -3750763034362895579, %.lr.ph64 ]
-  %.sroa.024.053 = phi ptr [ %41, %.lr.ph56 ], [ %29, %.lr.ph64 ]
+  %.sroa.024.053 = phi ptr [ %41, %.lr.ph56 ], [ %30, %.lr.ph64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = call noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.024.053)
   %39 = xor i64 %38, %.02354
   %40 = mul i64 %39, 1099511628211
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.024.053, i64 8
-  %.not41 = icmp eq ptr %41, %31
+  %.not41 = icmp eq ptr %41, %32
   br i1 %.not41, label %._crit_edge57, label %.lr.ph56
 }
 

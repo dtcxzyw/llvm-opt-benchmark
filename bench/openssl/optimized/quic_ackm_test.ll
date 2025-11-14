@@ -716,15 +716,15 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   %7 = and i32 %0, 3
   %8 = ashr i32 %0, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %9 = zext nneg i32 %7 to i64
+  %10 = getelementptr inbounds nuw ptr, ptr @rx_test_scripts, i64 %9
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 -1, i64 24, i1 false), !tbaa !30
-  %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr @rx_test_scripts, i64 %9
-  %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = call fastcc i32 @helper_init(ptr noundef %2, i64 noundef 0)
   %13 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 921, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.6, i32 noundef %12, i32 noundef 1) #9
   %.not.i = icmp eq i32 %13, 0

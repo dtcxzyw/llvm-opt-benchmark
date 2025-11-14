@@ -263,6 +263,7 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
 .lr.ph281.preheader:                              ; preds = %._crit_edge
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 5460
   %50 = load i32, ptr %49, align 4
+  %.0157 = select i1 %37, i32 %50, i32 0
   %.0155 = select i1 %37, i32 0, i32 %50
   %umin331 = tail call i32 @llvm.umin.i32(i32 %6, i32 15)
   %51 = add nuw nsw i32 %umin331, 1
@@ -291,7 +292,6 @@ define void @_ZN6LibRaw14selectCRXTrackEv(ptr noundef nonnull align 8 dereferenc
   br i1 %exitcond333.not, label %._crit_edge282, label %.lr.ph281, !llvm.loop !97
 
 57:                                               ; preds = %._crit_edge282
-  %.0157 = select i1 %37, i32 %50, i32 0
   %58 = zext nneg i32 %.2 to i64
   %59 = getelementptr inbounds nuw i32, ptr %3, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !27

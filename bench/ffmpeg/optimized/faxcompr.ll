@@ -841,70 +841,70 @@ define internal fastcc void @put_line(ptr noundef %0, i32 noundef %1, i32 nounde
 
 10:                                               ; preds = %.lr.ph48, %put_sbits.exit20
   %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %put_sbits.exit20 ]
-  %.01445 = phi i32 [ %2, %.lr.ph48 ], [ %36, %put_sbits.exit20 ]
+  %.01445 = phi i32 [ %2, %.lr.ph48 ], [ %14, %put_sbits.exit20 ]
   %.01544 = phi i32 [ -1, %.lr.ph48 ], [ %13, %put_sbits.exit20 ]
   %.sroa.0.043 = phi i32 [ 0, %.lr.ph48 ], [ %.sroa.0.2, %put_sbits.exit20 ]
   %.sroa.13.042 = phi i32 [ 32, %.lr.ph48 ], [ %.sroa.13.2, %put_sbits.exit20 ]
   %.sroa.23.041 = phi ptr [ %spec.select.i, %.lr.ph48 ], [ %.sroa.23.2, %put_sbits.exit20 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !29
   %13 = xor i32 %.01544, -1
-  %14 = icmp sgt i32 %12, 16
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  %14 = sub nsw i32 %.01445, %12
+  %15 = icmp sgt i32 %12, 16
+  br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10
-  %15 = and i32 %13, 65535
-  br label %16
+  %16 = and i32 %13, 65535
+  br label %17
 
-16:                                               ; preds = %.lr.ph, %put_sbits.exit
-  %.01637 = phi i32 [ %12, %.lr.ph ], [ %34, %put_sbits.exit ]
+17:                                               ; preds = %.lr.ph, %put_sbits.exit
+  %.01637 = phi i32 [ %12, %.lr.ph ], [ %35, %put_sbits.exit ]
   %.sroa.0.136 = phi i32 [ %.sroa.0.043, %.lr.ph ], [ %.026.i.i.i, %put_sbits.exit ]
-  %.sroa.13.135 = phi i32 [ %.sroa.13.042, %.lr.ph ], [ %33, %put_sbits.exit ]
+  %.sroa.13.135 = phi i32 [ %.sroa.13.042, %.lr.ph ], [ %34, %put_sbits.exit ]
   %.sroa.23.134 = phi ptr [ %.sroa.23.041, %.lr.ph ], [ %.sroa.23.4, %put_sbits.exit ]
-  %17 = icmp sgt i32 %.sroa.13.135, 16
-  br i1 %17, label %18, label %21
+  %18 = icmp sgt i32 %.sroa.13.135, 16
+  br i1 %18, label %19, label %22
 
-18:                                               ; preds = %16
-  %19 = shl i32 %.sroa.0.136, 16
-  %20 = or disjoint i32 %19, %15
+19:                                               ; preds = %17
+  %20 = shl i32 %.sroa.0.136, 16
+  %21 = or disjoint i32 %20, %16
   br label %put_sbits.exit
 
-21:                                               ; preds = %16
-  %22 = ptrtoint ptr %.sroa.23.134 to i64
-  %23 = sub i64 %9, %22
-  %24 = icmp ugt i64 %23, 3
-  br i1 %24, label %25, label %32
+22:                                               ; preds = %17
+  %23 = ptrtoint ptr %.sroa.23.134 to i64
+  %24 = sub i64 %9, %23
+  %25 = icmp ugt i64 %24, 3
+  br i1 %25, label %26, label %33
 
-25:                                               ; preds = %21
-  %26 = shl i32 %.sroa.0.136, %.sroa.13.135
-  %27 = sub nsw i32 16, %.sroa.13.135
-  %28 = lshr i32 %15, %27
-  %29 = or i32 %28, %26
-  %30 = tail call i32 @llvm.bswap.i32(i32 %29)
-  store i32 %30, ptr %.sroa.23.134, align 1, !tbaa !36
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.23.134, i64 4
+26:                                               ; preds = %22
+  %27 = shl i32 %.sroa.0.136, %.sroa.13.135
+  %28 = sub nsw i32 16, %.sroa.13.135
+  %29 = lshr i32 %16, %28
+  %30 = or i32 %29, %27
+  %31 = tail call i32 @llvm.bswap.i32(i32 %30)
+  store i32 %31, ptr %.sroa.23.134, align 1, !tbaa !36
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.23.134, i64 4
   br label %put_sbits.exit
 
-32:                                               ; preds = %21
+33:                                               ; preds = %22
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.10) #7
   br label %put_sbits.exit
 
-put_sbits.exit:                                   ; preds = %25, %32, %18
-  %.sink = phi i32 [ -16, %18 ], [ 16, %32 ], [ 16, %25 ]
-  %.sroa.23.4 = phi ptr [ %.sroa.23.134, %18 ], [ %.sroa.23.134, %32 ], [ %31, %25 ]
-  %.026.i.i.i = phi i32 [ %20, %18 ], [ %15, %32 ], [ %15, %25 ]
-  %33 = add nsw i32 %.sroa.13.135, %.sink
-  %34 = add nsw i32 %.01637, -16
-  %35 = icmp sgt i32 %.01637, 32
-  br i1 %35, label %16, label %._crit_edge, !llvm.loop !45
+put_sbits.exit:                                   ; preds = %26, %33, %19
+  %.sink = phi i32 [ -16, %19 ], [ 16, %33 ], [ 16, %26 ]
+  %.sroa.23.4 = phi ptr [ %.sroa.23.134, %19 ], [ %.sroa.23.134, %33 ], [ %32, %26 ]
+  %.026.i.i.i = phi i32 [ %21, %19 ], [ %16, %33 ], [ %16, %26 ]
+  %34 = add nsw i32 %.sroa.13.135, %.sink
+  %35 = add nsw i32 %.01637, -16
+  %36 = icmp sgt i32 %.01637, 32
+  br i1 %36, label %17, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %put_sbits.exit, %10
   %.sroa.23.1.lcssa = phi ptr [ %.sroa.23.041, %10 ], [ %.sroa.23.4, %put_sbits.exit ]
-  %.sroa.13.1.lcssa = phi i32 [ %.sroa.13.042, %10 ], [ %33, %put_sbits.exit ]
+  %.sroa.13.1.lcssa = phi i32 [ %.sroa.13.042, %10 ], [ %34, %put_sbits.exit ]
   %.sroa.0.1.lcssa = phi i32 [ %.sroa.0.043, %10 ], [ %.026.i.i.i, %put_sbits.exit ]
-  %.016.lcssa = phi i32 [ %12, %10 ], [ %34, %put_sbits.exit ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = sub nsw i32 %.01445, %12
+  %.016.lcssa = phi i32 [ %12, %10 ], [ %35, %put_sbits.exit ]
   %.not = icmp eq i32 %.016.lcssa, 0
   br i1 %.not, label %put_sbits.exit20, label %37
 
@@ -951,7 +951,7 @@ put_sbits.exit20:                                 ; preds = %57, %41, %._crit_ed
   %.sroa.23.2 = phi ptr [ %.sroa.23.1.lcssa, %._crit_edge ], [ %.sroa.23.1.lcssa, %41 ], [ %.sroa.23.5, %57 ]
   %.sroa.13.2 = phi i32 [ %.sroa.13.1.lcssa, %._crit_edge ], [ %44, %41 ], [ %58, %57 ]
   %.sroa.0.2 = phi i32 [ %.sroa.0.1.lcssa, %._crit_edge ], [ %43, %41 ], [ %39, %57 ]
-  %59 = icmp sgt i32 %36, 0
+  %59 = icmp sgt i32 %14, 0
   br i1 %59, label %10, label %._crit_edge49, !llvm.loop !46
 
 ._crit_edge49:                                    ; preds = %put_sbits.exit20

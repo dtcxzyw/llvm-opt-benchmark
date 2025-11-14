@@ -4400,44 +4400,44 @@ define internal fastcc void @dissect_xudt_common(ptr noundef %0, ptr noundef %1,
   %23 = load i32, ptr @hf_sccp_variable_pointer3, align 4
   %24 = zext i8 %22 to i32
   %25 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef %24)
-  %26 = add nuw nsw i32 %4, 3
-  %27 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
-  %28 = load i32, ptr @hf_sccp_optional_pointer, align 4
-  %29 = zext i8 %27 to i32
-  %30 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef %29)
-  %31 = add nuw nsw i32 %26, %29
-  %32 = tail call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %9, ptr noundef %5)
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %32, ptr %33, align 8
+  %26 = add nuw nsw i32 %21, %24
+  %27 = trunc i32 %26 to i16
+  %28 = add nuw nsw i32 %4, 3
+  %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %28)
+  %30 = load i32, ptr @hf_sccp_optional_pointer, align 4
+  %31 = zext i8 %29 to i32
+  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef %31)
+  %33 = add nuw nsw i32 %28, %31
+  %34 = tail call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %9, ptr noundef %5)
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %34, ptr %35, align 8
   tail call fastcc void @build_assoc_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5, i32 noundef %9)
-  %34 = and i32 %14, 65535
-  %35 = tail call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 3, i32 noundef %34, ptr noundef %5)
-  %36 = and i32 %20, 65535
-  %37 = tail call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 4, i32 noundef %36, ptr noundef %5)
-  %38 = and i32 %31, 65535
-  %39 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %38)
-  %40 = and i8 %39, -17
-  %or.cond103 = icmp eq i8 %40, 0
+  %36 = and i32 %14, 65535
+  %37 = tail call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 3, i32 noundef %36, ptr noundef %5)
+  %38 = and i32 %20, 65535
+  %39 = tail call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 4, i32 noundef %38, ptr noundef %5)
+  %40 = and i32 %33, 65535
+  %41 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %40)
+  %42 = and i8 %41, -17
+  %or.cond103 = icmp eq i8 %42, 0
   br i1 %or.cond103, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
-  %.0101104 = phi i32 [ %46, %.lr.ph ], [ %31, %8 ]
-  %41 = add nuw nsw i32 %.0101104, 1
-  %42 = and i32 %41, 65535
-  %43 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %42)
-  %44 = zext i8 %43 to i32
-  %45 = add nuw nsw i32 %42, 1
-  %46 = add nuw nsw i32 %45, %44
-  %47 = and i32 %46, 65535
-  %48 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %47)
-  %49 = and i8 %48, -17
-  %or.cond = icmp eq i8 %49, 0
+  %.0101104 = phi i32 [ %48, %.lr.ph ], [ %33, %8 ]
+  %43 = add nuw nsw i32 %.0101104, 1
+  %44 = and i32 %43, 65535
+  %45 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %44)
+  %46 = zext i8 %45 to i32
+  %47 = add nuw nsw i32 %44, 1
+  %48 = add nuw nsw i32 %47, %46
+  %49 = and i32 %48, 65535
+  %50 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %49)
+  %51 = and i8 %50, -17
+  %or.cond = icmp eq i8 %51, 0
   br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
-  %.lcssa = phi i32 [ %38, %8 ], [ %47, %.lr.ph ]
-  %50 = add nuw nsw i32 %21, %24
-  %51 = trunc i32 %50 to i16
+  %.lcssa = phi i32 [ %40, %8 ], [ %49, %.lr.ph ]
   %52 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.lcssa)
   %53 = icmp eq i8 %52, 16
   br i1 %53, label %54, label %74
@@ -4449,7 +4449,7 @@ define internal fastcc void @dissect_xudt_common(ptr noundef %0, ptr noundef %1,
 
 57:                                               ; preds = %54
   %58 = load i32, ptr @hf_sccp_segmented_data, align 4
-  %59 = and i32 %50, 65535
+  %59 = and i32 %26, 65535
   %60 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %59)
   %61 = zext i8 %60 to i32
   %62 = add nuw nsw i32 %61, 1
@@ -4463,23 +4463,23 @@ define internal fastcc void @dissect_xudt_common(ptr noundef %0, ptr noundef %1,
   %68 = tail call i32 @tvb_get_letoh24(ptr noundef %0, i32 noundef %67)
   %69 = and i8 %66, 15
   %70 = icmp ne i8 %69, 0
-  %71 = tail call fastcc ptr @sccp_reassemble_fragments(ptr noundef %0, ptr noundef %1, ptr noundef %3, i16 noundef zeroext %51, i32 noundef %68, i1 noundef zeroext %70)
+  %71 = tail call fastcc ptr @sccp_reassemble_fragments(ptr noundef %0, ptr noundef %1, ptr noundef %3, i16 noundef zeroext %27, i32 noundef %68, i1 noundef zeroext %70)
   %.not = icmp eq ptr %71, null
   br i1 %.not, label %77, label %72
 
 72:                                               ; preds = %64
-  %73 = load ptr, ptr %33, align 8
+  %73 = load ptr, ptr %35, align 8
   tail call fastcc void @dissect_sccp_data_param(ptr noundef nonnull %71, ptr noundef %1, ptr noundef %3, ptr noundef %73)
   br label %77
 
 74:                                               ; preds = %._crit_edge
-  %75 = and i32 %50, 65535
+  %75 = and i32 %26, 65535
   %76 = tail call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 15, i32 noundef %75, ptr noundef %5)
   br label %77
 
 77:                                               ; preds = %64, %72, %57, %74
-  %78 = trunc i32 %31 to i16
-  %79 = zext i8 %27 to i16
+  %78 = trunc i32 %33 to i16
+  %79 = zext i8 %29 to i16
   store i16 %78, ptr %6, align 2
   store i16 %79, ptr %7, align 2
   ret void

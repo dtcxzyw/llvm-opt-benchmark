@@ -2343,9 +2343,9 @@ _ZL9calc_distiPA3_fPPf.exit451.thread.preheader:  ; preds = %_ZL9calc_distiPA3_f
   %842 = load ptr, ptr %841, align 8, !tbaa !70
   br label %.lr.ph.i440.us
 
-.lr.ph.i440.us:                                   ; preds = %.loopexit.i447.us, %.lr.ph17.preheader.i437.us
-  %indvars.iv21.i441.us = phi i64 [ 0, %.lr.ph17.preheader.i437.us ], [ %indvars.iv.next22.i448.us, %.loopexit.i447.us ]
-  %indvars.iv.i442.us = phi i64 [ 1, %.lr.ph17.preheader.i437.us ], [ %indvars.iv.next.i449.us, %.loopexit.i447.us ]
+.lr.ph.i440.us:                                   ; preds = %.loopexit.i448.us, %.lr.ph17.preheader.i437.us
+  %indvars.iv21.i441.us = phi i64 [ 0, %.lr.ph17.preheader.i437.us ], [ %indvars.iv.next22.i443.us, %.loopexit.i448.us ]
+  %indvars.iv.i442.us = phi i64 [ 1, %.lr.ph17.preheader.i437.us ], [ %indvars.iv.next.i449.us, %.loopexit.i448.us ]
   %843 = getelementptr inbounds nuw [3 x float], ptr %842, i64 %indvars.iv21.i441.us
   %844 = getelementptr inbounds nuw i8, ptr %843, i64 4
   %845 = getelementptr inbounds nuw i8, ptr %843, i64 8
@@ -2354,8 +2354,8 @@ _ZL9calc_distiPA3_fPPf.exit451.thread.preheader:  ; preds = %_ZL9calc_distiPA3_f
   br label %848
 
 848:                                              ; preds = %848, %.lr.ph.i440.us
-  %indvars.iv18.i443.us = phi i64 [ %indvars.iv.i442.us, %.lr.ph.i440.us ], [ %indvars.iv.next19.i445.us, %848 ]
-  %849 = getelementptr inbounds nuw [3 x float], ptr %842, i64 %indvars.iv18.i443.us
+  %indvars.iv18.i444.us = phi i64 [ %indvars.iv.i442.us, %.lr.ph.i440.us ], [ %indvars.iv.next19.i446.us, %848 ]
+  %849 = getelementptr inbounds nuw [3 x float], ptr %842, i64 %indvars.iv18.i444.us
   %850 = load float, ptr %843, align 4, !tbaa !45
   %851 = load float, ptr %849, align 4, !tbaa !45
   %852 = fsub float %850, %851
@@ -2370,23 +2370,23 @@ _ZL9calc_distiPA3_fPPf.exit451.thread.preheader:  ; preds = %_ZL9calc_distiPA3_f
   %861 = fmul float %856, %856
   %862 = call float @llvm.fmuladd.f32(float %852, float %852, float %861)
   %863 = call noundef float @llvm.fmuladd.f32(float %860, float %860, float %862)
-  %sqrt.i.i444.us = call noundef float @llvm.sqrt.f32(float %863)
-  %864 = getelementptr inbounds nuw float, ptr %847, i64 %indvars.iv18.i443.us
-  store float %sqrt.i.i444.us, ptr %864, align 4, !tbaa !45
-  %indvars.iv.next19.i445.us = add nuw nsw i64 %indvars.iv18.i443.us, 1
-  %exitcond.not.i446.us = icmp eq i64 %indvars.iv.next19.i445.us, %wide.trip.count.i431
-  br i1 %exitcond.not.i446.us, label %.loopexit.i447.us, label %848, !llvm.loop !132
+  %sqrt.i.i445.us = call noundef float @llvm.sqrt.f32(float %863)
+  %864 = getelementptr inbounds nuw float, ptr %847, i64 %indvars.iv18.i444.us
+  store float %sqrt.i.i445.us, ptr %864, align 4, !tbaa !45
+  %indvars.iv.next19.i446.us = add nuw nsw i64 %indvars.iv18.i444.us, 1
+  %exitcond.not.i447.us = icmp eq i64 %indvars.iv.next19.i446.us, %wide.trip.count.i431
+  br i1 %exitcond.not.i447.us, label %.loopexit.i448.us, label %848, !llvm.loop !132
 
-.loopexit.i447.us:                                ; preds = %848
-  %indvars.iv.next22.i448.us = add nuw nsw i64 %indvars.iv21.i441.us, 1
+.loopexit.i448.us:                                ; preds = %848
+  %indvars.iv.next22.i443.us = add nuw nsw i64 %indvars.iv21.i441.us, 1
   %indvars.iv.next.i449.us = add nuw nsw i64 %indvars.iv.i442.us, 1
-  %exitcond25.not.i450.us = icmp eq i64 %indvars.iv.next22.i448.us, %wide.trip.count24.i
+  %exitcond25.not.i450.us = icmp eq i64 %indvars.iv.next22.i443.us, %wide.trip.count24.i
   br i1 %exitcond25.not.i450.us, label %.lr.ph.i454.us, label %.lr.ph.i440.us, !llvm.loop !131
 
-.lr.ph.i454.us:                                   ; preds = %.loopexit.i447.us, %.loopexit.i457.us
-  %indvars.iv32.i.us = phi i64 [ %indvars.iv.next33.i.us, %.loopexit.i457.us ], [ 0, %.loopexit.i447.us ]
-  %indvars.iv.i455.us = phi i64 [ %indvars.iv.next.i458.us, %.loopexit.i457.us ], [ 1, %.loopexit.i447.us ]
-  %.025.i.us = phi float [ %875, %.loopexit.i457.us ], [ 0.000000e+00, %.loopexit.i447.us ]
+.lr.ph.i454.us:                                   ; preds = %.loopexit.i448.us, %.loopexit.i457.us
+  %indvars.iv32.i.us = phi i64 [ %indvars.iv.next33.i.us, %.loopexit.i457.us ], [ 0, %.loopexit.i448.us ]
+  %indvars.iv.i455.us = phi i64 [ %indvars.iv.next.i458.us, %.loopexit.i457.us ], [ 1, %.loopexit.i448.us ]
+  %.025.i.us = phi float [ %875, %.loopexit.i457.us ], [ 0.000000e+00, %.loopexit.i448.us ]
   %865 = getelementptr inbounds nuw ptr, ptr %796, i64 %indvars.iv32.i.us
   %866 = load ptr, ptr %865, align 8, !tbaa !70
   %867 = getelementptr inbounds nuw ptr, ptr %797, i64 %indvars.iv32.i.us

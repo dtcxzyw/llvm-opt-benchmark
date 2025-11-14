@@ -3052,8 +3052,8 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXing8MaxiCodeL13CorrectErrorsERN
   %13 = getelementptr inbounds nuw i32, ptr %12, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %13, ptr %14, align 8, !tbaa !114
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %12, i8 0, i64 %11, i1 false), !tbaa !115
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %11
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %15, ptr %16, align 8, !tbaa !116
   %17 = add nsw i32 %4, -1

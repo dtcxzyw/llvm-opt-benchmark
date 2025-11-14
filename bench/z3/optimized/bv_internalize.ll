@@ -5586,6 +5586,7 @@ _ZNK6vectorIPN2bv6solver4atomELb0EjE4sizeEv.exit.i.i: ; preds = %59
 thread-pre-split.i.i.i.preheader:                 ; preds = %_ZNK6vectorIPN2bv6solver4atomELb0EjE4sizeEv.exit.i.i, %59
   %.ph = phi ptr [ null, %59 ], [ %73, %_ZNK6vectorIPN2bv6solver4atomELb0EjE4sizeEv.exit.i.i ]
   %.0.i17.i.i.i.ph = phi i32 [ 0, %59 ], [ %76, %_ZNK6vectorIPN2bv6solver4atomELb0EjE4sizeEv.exit.i.i ]
+  %.ph81 = add nuw i32 %62, 1
   br label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %thread-pre-split.i.i.i.preheader, %_ZNK6vectorIPN2bv6solver4atomELb0EjE8capacityEv.exit.thread.i.i.i
@@ -5605,7 +5606,6 @@ _ZNK6vectorIPN2bv6solver4atomELb0EjE8capacityEv.exit.thread.i.i.i: ; preds = %_Z
   br label %thread-pre-split.i.i.i, !llvm.loop !234
 
 81:                                               ; preds = %_ZNK6vectorIPN2bv6solver4atomELb0EjE8capacityEv.exit.i.i.i
-  %.ph81 = add nuw i32 %62, 1
   %82 = getelementptr inbounds i8, ptr %77, i64 -4
   store i32 %.ph81, ptr %82, align 4, !tbaa !47
   %.not1319.i.i.i = icmp eq i32 %.0.i17.i.i.i.ph, %.ph81
@@ -13145,6 +13145,7 @@ _ZNK6vectorIPN2bv6solver4atomELb0EjE4sizeEv.exit.i.i: ; preds = %3
 thread-pre-split.i.i.i.preheader:                 ; preds = %_ZNK6vectorIPN2bv6solver4atomELb0EjE4sizeEv.exit.i.i, %3
   %.ph = phi ptr [ null, %3 ], [ %11, %_ZNK6vectorIPN2bv6solver4atomELb0EjE4sizeEv.exit.i.i ]
   %.0.i17.i.i.i.ph = phi i32 [ 0, %3 ], [ %14, %_ZNK6vectorIPN2bv6solver4atomELb0EjE4sizeEv.exit.i.i ]
+  %.ph25 = add nuw i32 %6, 1
   br label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %thread-pre-split.i.i.i.preheader, %_ZNK6vectorIPN2bv6solver4atomELb0EjE8capacityEv.exit.thread.i.i.i
@@ -13164,7 +13165,6 @@ _ZNK6vectorIPN2bv6solver4atomELb0EjE8capacityEv.exit.thread.i.i.i: ; preds = %_Z
   br label %thread-pre-split.i.i.i, !llvm.loop !234
 
 19:                                               ; preds = %_ZNK6vectorIPN2bv6solver4atomELb0EjE8capacityEv.exit.i.i.i
-  %.ph25 = add nuw i32 %6, 1
   %20 = getelementptr inbounds i8, ptr %15, i64 -4
   store i32 %.ph25, ptr %20, align 4, !tbaa !47
   %.not1319.i.i.i = icmp eq i32 %.0.i17.i.i.i.ph, %.ph25

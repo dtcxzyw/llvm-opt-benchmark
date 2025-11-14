@@ -1904,8 +1904,8 @@ zend_adler32.exit55:                              ; preds = %zend_adler32.exit, 
   br i1 %.not, label %186, label %98
 
 98:                                               ; preds = %zend_adler32.exit55
-  %99 = and i32 %.0, 65535
-  %100 = lshr i32 %.0, 16
+  %99 = lshr i32 %.0, 16
+  %100 = and i32 %.0, 65535
   %101 = getelementptr inbounds nuw i8, ptr %.025, i64 480
   %102 = trunc i64 %97 to i32
   %103 = icmp ugt i32 %102, 5551
@@ -1914,8 +1914,8 @@ zend_adler32.exit55:                              ; preds = %zend_adler32.exit, 
 .lr.ph.i81:                                       ; preds = %98, %adler32_do16_loop.exit.i92
   %.069.i82 = phi i32 [ %124, %adler32_do16_loop.exit.i92 ], [ %102, %98 ]
   %.02268.i83 = phi ptr [ %125, %adler32_do16_loop.exit.i92 ], [ %101, %98 ]
-  %storemerge67.i84 = phi i32 [ %135, %adler32_do16_loop.exit.i92 ], [ %100, %98 ]
-  %.04666.i85 = phi i32 [ %134, %adler32_do16_loop.exit.i92 ], [ %99, %98 ]
+  %storemerge67.i84 = phi i32 [ %135, %adler32_do16_loop.exit.i92 ], [ %99, %98 ]
+  %.04666.i85 = phi i32 [ %134, %adler32_do16_loop.exit.i92 ], [ %100, %98 ]
   br label %104
 
 104:                                              ; preds = %104, %.lr.ph.i81
@@ -1963,8 +1963,8 @@ adler32_do16_loop.exit.i92:                       ; preds = %104
   br i1 %136, label %.lr.ph.i81, label %._crit_edge.i56
 
 ._crit_edge.i56:                                  ; preds = %adler32_do16_loop.exit.i92, %98
-  %.046.lcssa.i57 = phi i32 [ %99, %98 ], [ %134, %adler32_do16_loop.exit.i92 ]
-  %storemerge.lcssa.i58 = phi i32 [ %100, %98 ], [ %135, %adler32_do16_loop.exit.i92 ]
+  %.046.lcssa.i57 = phi i32 [ %100, %98 ], [ %134, %adler32_do16_loop.exit.i92 ]
+  %storemerge.lcssa.i58 = phi i32 [ %99, %98 ], [ %135, %adler32_do16_loop.exit.i92 ]
   %.022.lcssa.i59 = phi ptr [ %101, %98 ], [ %125, %adler32_do16_loop.exit.i92 ]
   %.0.lcssa.i60 = phi i32 [ %102, %98 ], [ %124, %adler32_do16_loop.exit.i92 ]
   %.not.i61 = icmp eq i32 %.0.lcssa.i60, 0

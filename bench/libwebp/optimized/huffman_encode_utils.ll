@@ -411,25 +411,25 @@ OptimizeHuffmanForRle.exit.thread:                ; preds = %5
   br i1 %exitcond160.not.i, label %OptimizeHuffmanForRle.exit, label %46, !llvm.loop !23
 
 OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %108
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %111 = load ptr, ptr %110, align 8, !tbaa !11
   %wide.trip.count.i12 = zext nneg i32 %8 to i64
   br label %.lr.ph.i13
 
 .lr.ph.i13:                                       ; preds = %.lr.ph.i13, %OptimizeHuffmanForRle.exit
   %indvars.iv.i14 = phi i64 [ 0, %OptimizeHuffmanForRle.exit ], [ %indvars.iv.next.i15, %.lr.ph.i13 ]
   %.095113.i = phi i32 [ 0, %OptimizeHuffmanForRle.exit ], [ %spec.select.i, %.lr.ph.i13 ]
-  %110 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i14
-  %111 = load i32, ptr %110, align 4, !tbaa !20
-  %.fr.i = freeze i32 %111
+  %112 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i14
+  %113 = load i32, ptr %112, align 4, !tbaa !20
+  %.fr.i = freeze i32 %113
   %.not109.i = icmp ne i32 %.fr.i, 0
-  %112 = zext i1 %.not109.i to i32
-  %spec.select.i = add i32 %.095113.i, %112
+  %114 = zext i1 %.not109.i to i32
+  %spec.select.i = add i32 %.095113.i, %114
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, %wide.trip.count.i12
   br i1 %exitcond.not.i16, label %._crit_edge.i17, label %.lr.ph.i13, !llvm.loop !24
 
 ._crit_edge.i17:                                  ; preds = %.lr.ph.i13
-  %113 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %114 = load ptr, ptr %113, align 8, !tbaa !11
   %115 = icmp eq i32 %spec.select.i, 0
   br i1 %115, label %GenerateOptimalTree.exit, label %116
 
@@ -454,7 +454,7 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %108
 .lr.ph133.us.us.i:                                ; preds = %._crit_edge118.us.us.i, %.lr.ph133.us.us.i
   %indvars.iv208.i = phi i64 [ %indvars.iv.next209.i, %.lr.ph133.us.us.i ], [ 1, %._crit_edge118.us.us.i ]
   %.0131.us.us.i = phi i32 [ %spec.select110.us.us.i, %.lr.ph133.us.us.i ], [ %140, %._crit_edge118.us.us.i ]
-  %121 = getelementptr inbounds nuw i8, ptr %114, i64 %indvars.iv208.i
+  %121 = getelementptr inbounds nuw i8, ptr %111, i64 %indvars.iv208.i
   %122 = load i8, ptr %121, align 1, !tbaa !12
   %123 = zext i8 %122 to i32
   %spec.select110.us.us.i = tail call i32 @llvm.umax.i32(i32 %.0131.us.us.i, i32 %123)
@@ -495,9 +495,9 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %108
   tail call void @qsort(ptr noundef %3, i64 noundef %117, i64 noundef 16, ptr noundef nonnull @CompareHuffmanTrees) #10
   %136 = load i32, ptr %119, align 4, !tbaa !28
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i8, ptr %114, i64 %137
+  %138 = getelementptr inbounds i8, ptr %111, i64 %137
   store i8 1, ptr %138, align 1, !tbaa !12
-  %139 = load i8, ptr %114, align 1, !tbaa !12
+  %139 = load i8, ptr %111, align 1, !tbaa !12
   %140 = zext i8 %139 to i32
   br i1 %.not219.i, label %._crit_edge134.us.us.i, label %.lr.ph133.us.us.i
 
@@ -586,7 +586,7 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %108
 .lr.ph133.us149.i:                                ; preds = %._crit_edge129.us.i, %.lr.ph133.us149.i
   %indvars.iv198.i = phi i64 [ %indvars.iv.next199.i, %.lr.ph133.us149.i ], [ 1, %._crit_edge129.us.i ]
   %.0131.us139.i = phi i32 [ %spec.select110.us141.i, %.lr.ph133.us149.i ], [ %186, %._crit_edge129.us.i ]
-  %171 = getelementptr inbounds nuw i8, ptr %114, i64 %indvars.iv198.i
+  %171 = getelementptr inbounds nuw i8, ptr %111, i64 %indvars.iv198.i
   %172 = load i8, ptr %171, align 1, !tbaa !12
   %173 = zext i8 %172 to i32
   %spec.select110.us141.i = tail call i32 @llvm.umax.i32(i32 %.0131.us139.i, i32 %173)
@@ -624,8 +624,8 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %108
   br i1 %exitcond179.not.i, label %.preheader.us.i, label %.lr.ph117.us147.i, !llvm.loop !31
 
 ._crit_edge129.us.i:                              ; preds = %._crit_edge122.us.i
-  tail call fastcc void @SetBitDepths(ptr noundef nonnull %3, ptr noundef nonnull %118, ptr noundef %114, i32 noundef 0)
-  %185 = load i8, ptr %114, align 1, !tbaa !12
+  tail call fastcc void @SetBitDepths(ptr noundef nonnull %3, ptr noundef nonnull %118, ptr noundef %111, i32 noundef 0)
+  %185 = load i8, ptr %111, align 1, !tbaa !12
   %186 = zext i8 %185 to i32
   br i1 %.not219.i, label %._crit_edge134.us150.i, label %.lr.ph133.us149.i
 
@@ -664,15 +664,15 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %108
 
 .preheader.i:                                     ; preds = %197
   tail call void @qsort(ptr noundef %3, i64 noundef %117, i64 noundef 16, ptr noundef nonnull @CompareHuffmanTrees) #10
-  tail call fastcc void @SetBitDepths(ptr noundef %3, ptr noundef nonnull %118, ptr noundef %114, i32 noundef 0)
-  %198 = load i8, ptr %114, align 1, !tbaa !12
+  tail call fastcc void @SetBitDepths(ptr noundef %3, ptr noundef nonnull %118, ptr noundef %111, i32 noundef 0)
+  %198 = load i8, ptr %111, align 1, !tbaa !12
   %199 = zext i8 %198 to i32
   br i1 %.not219.i, label %._crit_edge134.i, label %.lr.ph133.i
 
 .lr.ph133.i:                                      ; preds = %.preheader.i, %.lr.ph133.i
   %indvars.iv170.i = phi i64 [ %indvars.iv.next171.i, %.lr.ph133.i ], [ 1, %.preheader.i ]
   %.0131.i = phi i32 [ %spec.select110.i, %.lr.ph133.i ], [ %199, %.preheader.i ]
-  %200 = getelementptr inbounds nuw i8, ptr %114, i64 %indvars.iv170.i
+  %200 = getelementptr inbounds nuw i8, ptr %111, i64 %indvars.iv170.i
   %201 = load i8, ptr %200, align 1, !tbaa !12
   %202 = zext i8 %201 to i32
   %spec.select110.i = tail call i32 @llvm.umax.i32(i32 %.0131.i, i32 %202)
@@ -687,7 +687,7 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %108
   br i1 %.not.i18, label %.split.split.i, label %GenerateOptimalTree.exit
 
 GenerateOptimalTree.exit:                         ; preds = %._crit_edge134.i, %._crit_edge134.us150.i, %._crit_edge134.us.us.i, %OptimizeHuffmanForRle.exit.thread45, %OptimizeHuffmanForRle.exit.thread, %._crit_edge.i17
-  %204 = phi ptr [ %13, %OptimizeHuffmanForRle.exit.thread ], [ %113, %._crit_edge.i17 ], [ %12, %OptimizeHuffmanForRle.exit.thread45 ], [ %113, %._crit_edge134.us.us.i ], [ %113, %._crit_edge134.us150.i ], [ %113, %._crit_edge134.i ]
+  %204 = phi ptr [ %13, %OptimizeHuffmanForRle.exit.thread ], [ %110, %._crit_edge.i17 ], [ %12, %OptimizeHuffmanForRle.exit.thread45 ], [ %110, %._crit_edge134.us.us.i ], [ %110, %._crit_edge134.us150.i ], [ %110, %._crit_edge134.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, i8 0, i64 64, i1 false)

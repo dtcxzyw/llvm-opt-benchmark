@@ -306,32 +306,32 @@ define void @Sbd_ManCutExpand(ptr noundef readonly captures(none) %0, ptr nounde
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i32, ptr %.val53.i, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !33
-  %28 = lshr i32 %27, 1
-  %29 = icmp slt i32 %27, 0
-  %spec.select.i = select i1 %29, i32 %24, i32 %28
-  br label %30
+  %28 = lshr i64 %.val56.i, 32
+  %29 = trunc nuw i64 %28 to i32
+  %30 = and i32 %29, 536870911
+  %31 = sub nsw i32 %16, %30
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds i32, ptr %.val53.i, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !33
+  %35 = lshr i32 %27, 1
+  %36 = icmp slt i32 %27, 0
+  %spec.select.i = select i1 %36, i32 %24, i32 %35
+  br label %37
 
-30:                                               ; preds = %30, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i.i
-  %32 = load i32, ptr %31, align 4, !tbaa !33
-  %33 = icmp ne i32 %32, %spec.select.i
+37:                                               ; preds = %37, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %37 ]
+  %38 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i.i
+  %39 = load i32, ptr %38, align 4, !tbaa !33
+  %40 = icmp ne i32 %39, %spec.select.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp ne i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  %or.cond.not.i = select i1 %33, i1 %exitcond.not.i.i, i1 false
-  br i1 %or.cond.not.i, label %30, label %.lr.ph.i62.i.preheader, !llvm.loop !54
+  %or.cond.not.i = select i1 %40, i1 %exitcond.not.i.i, i1 false
+  br i1 %or.cond.not.i, label %37, label %.lr.ph.i62.i.preheader, !llvm.loop !54
 
-.lr.ph.i62.i.preheader:                           ; preds = %30
-  %34 = lshr i64 %.val56.i, 32
-  %35 = trunc nuw i64 %34 to i32
-  %36 = and i32 %35, 536870911
-  %37 = sub nsw i32 %16, %36
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %.val53.i, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !33
-  %41 = lshr i32 %40, 1
-  %42 = icmp slt i32 %40, 0
-  %43 = select i1 %42, i32 %37, i32 %41
+.lr.ph.i62.i.preheader:                           ; preds = %37
+  %41 = lshr i32 %34, 1
+  %42 = icmp slt i32 %34, 0
+  %43 = select i1 %42, i32 %31, i32 %41
   br label %.lr.ph.i62.i
 
 .lr.ph.i62.i:                                     ; preds = %.lr.ph.i62.i.preheader, %46
@@ -347,7 +347,7 @@ define void @Sbd_ManCutExpand(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %exitcond.not.i66.i, label %Vec_IntFind.exit68.i, label %.lr.ph.i62.i, !llvm.loop !54
 
 Vec_IntFind.exit68.i:                             ; preds = %46
-  br i1 %33, label %126, label %Vec_IntFind.exit68.thread.i
+  br i1 %40, label %126, label %Vec_IntFind.exit68.thread.i
 
 Vec_IntFind.exit68.thread.i:                      ; preds = %.lr.ph.i62.i, %Vec_IntFind.exit68.i
   %47 = sext i32 %spec.select.i to i64
@@ -384,7 +384,7 @@ Vec_IntFind.exit68.thread.i:                      ; preds = %.lr.ph.i62.i, %Vec_
 Vec_IntDrop.exit.i:                               ; preds = %.lr.ph.i69.i, %56
   %65 = phi i32 [ %13, %56 ], [ %62, %.lr.ph.i69.i ]
   %66 = icmp ne i32 %spec.select.i, 0
-  %or.cond3.i = and i1 %66, %33
+  %or.cond3.i = and i1 %66, %40
   br i1 %or.cond3.i, label %67, label %90
 
 67:                                               ; preds = %Vec_IntDrop.exit.i

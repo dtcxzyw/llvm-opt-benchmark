@@ -4553,6 +4553,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i47:              ; preds = %_ZN6vectorIdLb0EjE7
 thread-pre-split.i.i50.preheader:                 ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i47, %_ZN6vectorIdLb0EjE7reserveEj.exit
   %.ph = phi ptr [ null, %_ZN6vectorIdLb0EjE7reserveEj.exit ], [ %111, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i47 ]
   %.0.i16.i.i53.ph = phi i32 [ 0, %_ZN6vectorIdLb0EjE7reserveEj.exit ], [ %114, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i47 ]
+  %.ph97 = add nuw nsw i32 %110, 1
   br label %thread-pre-split.i.i50
 
 thread-pre-split.i.i50:                           ; preds = %thread-pre-split.i.i50.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i57
@@ -4572,7 +4573,6 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i57: ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i50, !llvm.loop !210
 
 119:                                              ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i54
-  %.ph97 = add nuw nsw i32 %110, 1
   %120 = getelementptr inbounds i8, ptr %115, i64 -4
   store i32 %.ph97, ptr %120, align 4, !tbaa !173
   %.not1218.i.i55 = icmp eq i32 %.0.i16.i.i53.ph, %.ph97
@@ -4658,6 +4658,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %2
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %2
   %.ph = phi ptr [ null, %2 ], [ %6, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.i.ph = phi i32 [ 0, %2 ], [ %9, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
+  %.ph10 = add nuw nsw i32 %5, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -4677,7 +4678,6 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !210
 
 14:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
-  %.ph10 = add nuw nsw i32 %5, 1
   %15 = getelementptr inbounds i8, ptr %10, i64 -4
   store i32 %.ph10, ptr %15, align 4, !tbaa !173
   %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph10

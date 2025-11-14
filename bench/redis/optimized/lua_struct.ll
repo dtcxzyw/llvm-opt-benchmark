@@ -59,11 +59,11 @@ define internal noundef i32 @b_pack(ptr noundef %0) #0 {
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8216
   br label %13
 
-13:                                               ; preds = %.lr.ph61, %105
-  %14 = phi i8 [ %11, %.lr.ph61 ], [ %108, %105 ]
-  %15 = phi ptr [ %9, %.lr.ph61 ], [ %107, %105 ]
-  %.059 = phi i32 [ 2, %.lr.ph61 ], [ %.1, %105 ]
-  %.03958 = phi i64 [ 0, %.lr.ph61 ], [ %106, %105 ]
+13:                                               ; preds = %.lr.ph61, %106
+  %14 = phi i8 [ %11, %.lr.ph61 ], [ %109, %106 ]
+  %15 = phi ptr [ %9, %.lr.ph61 ], [ %108, %106 ]
+  %.059 = phi i32 [ 2, %.lr.ph61 ], [ %.1, %106 ]
+  %.03958 = phi i64 [ 0, %.lr.ph61 ], [ %107, %106 ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %16, ptr %4, align 8, !tbaa !11
   %17 = sext i8 %14 to i32
@@ -82,237 +82,237 @@ gettoalign.exit:                                  ; preds = %13
   %24 = sub i64 %spec.select.i, %23
   %25 = and i64 %24, %22
   %26 = trunc i64 %25 to i32
-  %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph, label %._crit_edge
+  %27 = and i64 %25, 4294967295
+  %28 = add i64 %.03958, %27
+  %29 = icmp sgt i32 %26, 0
+  br i1 %29, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %gettoalign.exit, %33
-  %.in = phi i32 [ %28, %33 ], [ %26, %gettoalign.exit ]
-  %28 = add nsw i32 %.in, -1
-  %29 = load ptr, ptr %3, align 8, !tbaa !14
-  %30 = icmp ult ptr %29, %12
-  br i1 %30, label %33, label %31
+.lr.ph:                                           ; preds = %gettoalign.exit, %35
+  %.in = phi i32 [ %30, %35 ], [ %26, %gettoalign.exit ]
+  %30 = add nsw i32 %.in, -1
+  %31 = load ptr, ptr %3, align 8, !tbaa !14
+  %32 = icmp ult ptr %31, %12
+  br i1 %32, label %35, label %33
 
-31:                                               ; preds = %.lr.ph
-  %32 = call ptr @luaL_prepbuffer(ptr noundef nonnull %3) #7
+33:                                               ; preds = %.lr.ph
+  %34 = call ptr @luaL_prepbuffer(ptr noundef nonnull %3) #7
   %.pre = load ptr, ptr %3, align 8, !tbaa !14
-  br label %33
+  br label %35
 
-33:                                               ; preds = %31, %.lr.ph
-  %34 = phi ptr [ %.pre, %31 ], [ %29, %.lr.ph ]
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
-  store ptr %35, ptr %3, align 8, !tbaa !14
-  store i8 0, ptr %34, align 1, !tbaa !10
-  %36 = icmp samesign ugt i32 %.in, 1
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+35:                                               ; preds = %33, %.lr.ph
+  %36 = phi ptr [ %.pre, %33 ], [ %31, %.lr.ph ]
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
+  store ptr %37, ptr %3, align 8, !tbaa !14
+  store i8 0, ptr %36, align 1, !tbaa !10
+  %38 = icmp samesign ugt i32 %.in, 1
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %33, %13, %gettoalign.exit
-  %.010.i74 = phi i64 [ %25, %gettoalign.exit ], [ 0, %13 ], [ %25, %33 ]
-  %37 = and i64 %.010.i74, 4294967295
-  %38 = add i64 %.03958, %37
-  switch i8 %14, label %104 [
-    i8 98, label %39
-    i8 66, label %39
-    i8 104, label %39
-    i8 72, label %39
-    i8 108, label %39
-    i8 76, label %39
-    i8 84, label %39
-    i8 105, label %39
-    i8 73, label %39
-    i8 120, label %55
-    i8 102, label %63
-    i8 100, label %75
-    i8 99, label %86
-    i8 115, label %86
+._crit_edge:                                      ; preds = %35, %13, %gettoalign.exit
+  %39 = phi i64 [ %28, %gettoalign.exit ], [ %.03958, %13 ], [ %28, %35 ]
+  switch i8 %14, label %105 [
+    i8 98, label %40
+    i8 66, label %40
+    i8 104, label %40
+    i8 72, label %40
+    i8 108, label %40
+    i8 76, label %40
+    i8 84, label %40
+    i8 105, label %40
+    i8 73, label %40
+    i8 120, label %56
+    i8 102, label %64
+    i8 100, label %76
+    i8 99, label %87
+    i8 115, label %87
   ]
 
-39:                                               ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
-  %40 = add nsw i32 %.059, 1
-  %41 = load i32, ptr %5, align 4, !tbaa !4
-  %42 = call double @luaL_checknumber(ptr noundef %0, i32 noundef %.059) #7
+40:                                               ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
+  %41 = add nsw i32 %.059, 1
+  %42 = load i32, ptr %5, align 4, !tbaa !4
+  %43 = call double @luaL_checknumber(ptr noundef %0, i32 noundef %.059) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %43 = fcmp olt double %42, 0.000000e+00
-  %44 = fptosi double %42 to i64
-  %45 = fptoui double %42 to i64
-  %.020.i = select i1 %43, i64 %44, i64 %45
-  %46 = icmp eq i32 %41, 1
-  %47 = icmp sgt i64 %18, 0
-  br i1 %46, label %.preheader.i, label %.preheader23.i
+  %44 = fcmp olt double %43, 0.000000e+00
+  %45 = fptosi double %43 to i64
+  %46 = fptoui double %43 to i64
+  %.020.i = select i1 %44, i64 %45, i64 %46
+  %47 = icmp eq i32 %42, 1
+  %48 = icmp sgt i64 %18, 0
+  br i1 %47, label %.preheader.i, label %.preheader23.i
 
-.preheader23.i:                                   ; preds = %39
-  br i1 %47, label %.lr.ph.i, label %putinteger.exit
+.preheader23.i:                                   ; preds = %40
+  br i1 %48, label %.lr.ph.i, label %putinteger.exit
 
-.preheader.i:                                     ; preds = %39
-  br i1 %47, label %.lr.ph29.i, label %putinteger.exit
+.preheader.i:                                     ; preds = %40
+  br i1 %48, label %.lr.ph29.i, label %putinteger.exit
 
 .lr.ph29.i:                                       ; preds = %.preheader.i, %.lr.ph29.i
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %.lr.ph29.i ], [ 0, %.preheader.i ]
-  %.127.i = phi i64 [ %50, %.lr.ph29.i ], [ %.020.i, %.preheader.i ]
-  %48 = trunc i64 %.127.i to i8
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv32.i
-  store i8 %48, ptr %49, align 1, !tbaa !10
-  %50 = lshr i64 %.127.i, 8
+  %.127.i = phi i64 [ %51, %.lr.ph29.i ], [ %.020.i, %.preheader.i ]
+  %49 = trunc i64 %.127.i to i8
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv32.i
+  store i8 %49, ptr %50, align 1, !tbaa !10
+  %51 = lshr i64 %.127.i, 8
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next33.i, %18
   br i1 %exitcond.not.i, label %putinteger.exit, label %.lr.ph29.i, !llvm.loop !19
 
 .lr.ph.i:                                         ; preds = %.preheader23.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %18, %.preheader23.i ]
-  %.225.i = phi i64 [ %53, %.lr.ph.i ], [ %.020.i, %.preheader23.i ]
+  %.225.i = phi i64 [ %54, %.lr.ph.i ], [ %.020.i, %.preheader23.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %51 = trunc i64 %.225.i to i8
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next.i
-  store i8 %51, ptr %52, align 1, !tbaa !10
-  %53 = lshr i64 %.225.i, 8
-  %54 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %54, label %.lr.ph.i, label %putinteger.exit, !llvm.loop !20
+  %52 = trunc i64 %.225.i to i8
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next.i
+  store i8 %52, ptr %53, align 1, !tbaa !10
+  %54 = lshr i64 %.225.i, 8
+  %55 = icmp samesign ugt i64 %indvars.iv.i, 1
+  br i1 %55, label %.lr.ph.i, label %putinteger.exit, !llvm.loop !20
 
 putinteger.exit:                                  ; preds = %.lr.ph.i, %.lr.ph29.i, %.preheader23.i, %.preheader.i
   call void @luaL_addlstring(ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef %18) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %105
+  br label %106
 
-55:                                               ; preds = %._crit_edge
-  %56 = load ptr, ptr %3, align 8, !tbaa !14
-  %57 = icmp ult ptr %56, %12
-  br i1 %57, label %60, label %58
+56:                                               ; preds = %._crit_edge
+  %57 = load ptr, ptr %3, align 8, !tbaa !14
+  %58 = icmp ult ptr %57, %12
+  br i1 %58, label %61, label %59
 
-58:                                               ; preds = %55
-  %59 = call ptr @luaL_prepbuffer(ptr noundef nonnull %3) #7
+59:                                               ; preds = %56
+  %60 = call ptr @luaL_prepbuffer(ptr noundef nonnull %3) #7
   %.pre65 = load ptr, ptr %3, align 8, !tbaa !14
-  br label %60
+  br label %61
 
-60:                                               ; preds = %58, %55
-  %61 = phi ptr [ %.pre65, %58 ], [ %56, %55 ]
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store ptr %62, ptr %3, align 8, !tbaa !14
-  store i8 0, ptr %61, align 1, !tbaa !10
-  br label %105
+61:                                               ; preds = %59, %56
+  %62 = phi ptr [ %.pre65, %59 ], [ %57, %56 ]
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
+  store ptr %63, ptr %3, align 8, !tbaa !14
+  store i8 0, ptr %62, align 1, !tbaa !10
+  br label %106
 
-63:                                               ; preds = %._crit_edge
+64:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %64 = add nsw i32 %.059, 1
-  %65 = call double @luaL_checknumber(ptr noundef %0, i32 noundef %.059) #7
-  %66 = fptrunc double %65 to float
-  store float %66, ptr %6, align 4, !tbaa !21
-  %67 = load i32, ptr %5, align 4, !tbaa !4
-  %.not.i = icmp ne i32 %67, 1
-  %68 = icmp sgt i64 %18, 1
-  %or.cond.i42 = and i1 %68, %.not.i
+  %65 = add nsw i32 %.059, 1
+  %66 = call double @luaL_checknumber(ptr noundef %0, i32 noundef %.059) #7
+  %67 = fptrunc double %66 to float
+  store float %67, ptr %6, align 4, !tbaa !21
+  %68 = load i32, ptr %5, align 4, !tbaa !4
+  %.not.i = icmp ne i32 %68, 1
+  %69 = icmp sgt i64 %18, 1
+  %or.cond.i42 = and i1 %69, %.not.i
   br i1 %or.cond.i42, label %.lr.ph.preheader.i43, label %correctbytes.exit
 
-.lr.ph.preheader.i43:                             ; preds = %63
-  %69 = add nsw i64 %18, -1
+.lr.ph.preheader.i43:                             ; preds = %64
+  %70 = add nsw i64 %18, -1
   br label %.lr.ph.i44
 
 .lr.ph.i44:                                       ; preds = %.lr.ph.i44, %.lr.ph.preheader.i43
   %indvars.iv15.i = phi i64 [ 0, %.lr.ph.preheader.i43 ], [ %indvars.iv.next16.i, %.lr.ph.i44 ]
-  %indvars.iv.i45 = phi i64 [ %69, %.lr.ph.preheader.i43 ], [ %indvars.iv.next.i46, %.lr.ph.i44 ]
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv15.i
-  %71 = load i8, ptr %70, align 1, !tbaa !10
-  %72 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i45
-  %73 = load i8, ptr %72, align 1, !tbaa !10
+  %indvars.iv.i45 = phi i64 [ %70, %.lr.ph.preheader.i43 ], [ %indvars.iv.next.i46, %.lr.ph.i44 ]
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv15.i
+  %72 = load i8, ptr %71, align 1, !tbaa !10
+  %73 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i45
+  %74 = load i8, ptr %73, align 1, !tbaa !10
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
-  store i8 %73, ptr %70, align 1, !tbaa !10
-  store i8 %71, ptr %72, align 1, !tbaa !10
+  store i8 %74, ptr %71, align 1, !tbaa !10
+  store i8 %72, ptr %73, align 1, !tbaa !10
   %indvars.iv.next.i46 = add nsw i64 %indvars.iv.i45, -1
-  %74 = icmp slt i64 %indvars.iv.next16.i, %indvars.iv.next.i46
-  br i1 %74, label %.lr.ph.i44, label %correctbytes.exit, !llvm.loop !23
+  %75 = icmp slt i64 %indvars.iv.next16.i, %indvars.iv.next.i46
+  br i1 %75, label %.lr.ph.i44, label %correctbytes.exit, !llvm.loop !23
 
-correctbytes.exit:                                ; preds = %.lr.ph.i44, %63
+correctbytes.exit:                                ; preds = %.lr.ph.i44, %64
   call void @luaL_addlstring(ptr noundef nonnull %3, ptr noundef nonnull %6, i64 noundef %18) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %105
+  br label %106
 
-75:                                               ; preds = %._crit_edge
+76:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %76 = add nsw i32 %.059, 1
-  %77 = call double @luaL_checknumber(ptr noundef %0, i32 noundef %.059) #7
-  store double %77, ptr %7, align 8, !tbaa !24
-  %78 = load i32, ptr %5, align 4, !tbaa !4
-  %.not.i47 = icmp ne i32 %78, 1
-  %79 = icmp sgt i64 %18, 1
-  %or.cond.i48 = and i1 %79, %.not.i47
+  %77 = add nsw i32 %.059, 1
+  %78 = call double @luaL_checknumber(ptr noundef %0, i32 noundef %.059) #7
+  store double %78, ptr %7, align 8, !tbaa !24
+  %79 = load i32, ptr %5, align 4, !tbaa !4
+  %.not.i47 = icmp ne i32 %79, 1
+  %80 = icmp sgt i64 %18, 1
+  %or.cond.i48 = and i1 %80, %.not.i47
   br i1 %or.cond.i48, label %.lr.ph.preheader.i49, label %correctbytes.exit55
 
-.lr.ph.preheader.i49:                             ; preds = %75
-  %80 = add nsw i64 %18, -1
+.lr.ph.preheader.i49:                             ; preds = %76
+  %81 = add nsw i64 %18, -1
   br label %.lr.ph.i50
 
 .lr.ph.i50:                                       ; preds = %.lr.ph.i50, %.lr.ph.preheader.i49
   %indvars.iv15.i51 = phi i64 [ 0, %.lr.ph.preheader.i49 ], [ %indvars.iv.next16.i53, %.lr.ph.i50 ]
-  %indvars.iv.i52 = phi i64 [ %80, %.lr.ph.preheader.i49 ], [ %indvars.iv.next.i54, %.lr.ph.i50 ]
-  %81 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv15.i51
-  %82 = load i8, ptr %81, align 1, !tbaa !10
-  %83 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.i52
-  %84 = load i8, ptr %83, align 1, !tbaa !10
+  %indvars.iv.i52 = phi i64 [ %81, %.lr.ph.preheader.i49 ], [ %indvars.iv.next.i54, %.lr.ph.i50 ]
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv15.i51
+  %83 = load i8, ptr %82, align 1, !tbaa !10
+  %84 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.i52
+  %85 = load i8, ptr %84, align 1, !tbaa !10
   %indvars.iv.next16.i53 = add nuw nsw i64 %indvars.iv15.i51, 1
-  store i8 %84, ptr %81, align 1, !tbaa !10
-  store i8 %82, ptr %83, align 1, !tbaa !10
+  store i8 %85, ptr %82, align 1, !tbaa !10
+  store i8 %83, ptr %84, align 1, !tbaa !10
   %indvars.iv.next.i54 = add nsw i64 %indvars.iv.i52, -1
-  %85 = icmp slt i64 %indvars.iv.next16.i53, %indvars.iv.next.i54
-  br i1 %85, label %.lr.ph.i50, label %correctbytes.exit55, !llvm.loop !23
+  %86 = icmp slt i64 %indvars.iv.next16.i53, %indvars.iv.next.i54
+  br i1 %86, label %.lr.ph.i50, label %correctbytes.exit55, !llvm.loop !23
 
-correctbytes.exit55:                              ; preds = %.lr.ph.i50, %75
+correctbytes.exit55:                              ; preds = %.lr.ph.i50, %76
   call void @luaL_addlstring(ptr noundef nonnull %3, ptr noundef nonnull %7, i64 noundef %18) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %105
+  br label %106
 
-86:                                               ; preds = %._crit_edge, %._crit_edge
+87:                                               ; preds = %._crit_edge, %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %87 = add nsw i32 %.059, 1
-  %88 = call ptr @luaL_checklstring(ptr noundef %0, i32 noundef %.059, ptr noundef nonnull %8) #7
-  %89 = load i64, ptr %8, align 8
-  %spec.select = select i1 %19, i64 %89, i64 %18
-  %.not41 = icmp ult i64 %89, %spec.select
-  br i1 %.not41, label %90, label %92
+  %88 = add nsw i32 %.059, 1
+  %89 = call ptr @luaL_checklstring(ptr noundef %0, i32 noundef %.059, ptr noundef nonnull %8) #7
+  %90 = load i64, ptr %8, align 8
+  %spec.select = select i1 %19, i64 %90, i64 %18
+  %.not41 = icmp ult i64 %90, %spec.select
+  br i1 %.not41, label %91, label %93
 
-90:                                               ; preds = %86
-  %91 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef %87, ptr noundef nonnull @.str.4) #7
-  br label %92
+91:                                               ; preds = %87
+  %92 = call i32 @luaL_argerror(ptr noundef %0, i32 noundef %88, ptr noundef nonnull @.str.4) #7
+  br label %93
 
-92:                                               ; preds = %90, %86
-  call void @luaL_addlstring(ptr noundef nonnull %3, ptr noundef %88, i64 noundef %spec.select) #7
-  %93 = icmp eq i8 %14, 115
-  br i1 %93, label %94, label %103
+93:                                               ; preds = %91, %87
+  call void @luaL_addlstring(ptr noundef nonnull %3, ptr noundef %89, i64 noundef %spec.select) #7
+  %94 = icmp eq i8 %14, 115
+  br i1 %94, label %95, label %104
 
-94:                                               ; preds = %92
-  %95 = load ptr, ptr %3, align 8, !tbaa !14
-  %96 = icmp ult ptr %95, %12
-  br i1 %96, label %99, label %97
+95:                                               ; preds = %93
+  %96 = load ptr, ptr %3, align 8, !tbaa !14
+  %97 = icmp ult ptr %96, %12
+  br i1 %97, label %100, label %98
 
-97:                                               ; preds = %94
-  %98 = call ptr @luaL_prepbuffer(ptr noundef nonnull %3) #7
+98:                                               ; preds = %95
+  %99 = call ptr @luaL_prepbuffer(ptr noundef nonnull %3) #7
   %.pre64 = load ptr, ptr %3, align 8, !tbaa !14
-  br label %99
+  br label %100
 
-99:                                               ; preds = %97, %94
-  %100 = phi ptr [ %.pre64, %97 ], [ %95, %94 ]
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
-  store ptr %101, ptr %3, align 8, !tbaa !14
-  store i8 0, ptr %100, align 1, !tbaa !10
-  %102 = add i64 %spec.select, 1
-  br label %103
+100:                                              ; preds = %98, %95
+  %101 = phi ptr [ %.pre64, %98 ], [ %96, %95 ]
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1
+  store ptr %102, ptr %3, align 8, !tbaa !14
+  store i8 0, ptr %101, align 1, !tbaa !10
+  %103 = add i64 %spec.select, 1
+  br label %104
 
-103:                                              ; preds = %99, %92
-  %.2 = phi i64 [ %102, %99 ], [ %spec.select, %92 ]
+104:                                              ; preds = %100, %93
+  %.2 = phi i64 [ %103, %100 ], [ %spec.select, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %105
+  br label %106
 
-104:                                              ; preds = %._crit_edge
+105:                                              ; preds = %._crit_edge
   call fastcc void @controloptions(ptr noundef %0, i32 noundef %17, ptr noundef %4, ptr noundef %5)
-  br label %105
+  br label %106
 
-105:                                              ; preds = %104, %103, %correctbytes.exit55, %correctbytes.exit, %60, %putinteger.exit
-  %.037 = phi i64 [ %18, %104 ], [ %18, %putinteger.exit ], [ %18, %60 ], [ %18, %correctbytes.exit ], [ %18, %correctbytes.exit55 ], [ %.2, %103 ]
-  %.1 = phi i32 [ %.059, %104 ], [ %40, %putinteger.exit ], [ %.059, %60 ], [ %64, %correctbytes.exit ], [ %76, %correctbytes.exit55 ], [ %87, %103 ]
-  %106 = add i64 %38, %.037
-  %107 = load ptr, ptr %4, align 8, !tbaa !11
-  %108 = load i8, ptr %107, align 1, !tbaa !10
-  %.not = icmp eq i8 %108, 0
+106:                                              ; preds = %105, %104, %correctbytes.exit55, %correctbytes.exit, %61, %putinteger.exit
+  %.037 = phi i64 [ %18, %105 ], [ %18, %putinteger.exit ], [ %18, %61 ], [ %18, %correctbytes.exit ], [ %18, %correctbytes.exit55 ], [ %.2, %104 ]
+  %.1 = phi i32 [ %.059, %105 ], [ %41, %putinteger.exit ], [ %.059, %61 ], [ %65, %correctbytes.exit ], [ %77, %correctbytes.exit55 ], [ %88, %104 ]
+  %107 = add i64 %39, %.037
+  %108 = load ptr, ptr %4, align 8, !tbaa !11
+  %109 = load i8, ptr %108, align 1, !tbaa !10
+  %.not = icmp eq i8 %109, 0
   br i1 %.not, label %._crit_edge62, label %13, !llvm.loop !26
 
-._crit_edge62:                                    ; preds = %105, %1
+._crit_edge62:                                    ; preds = %106, %1
   call void @luaL_pushresult(ptr noundef nonnull %3) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

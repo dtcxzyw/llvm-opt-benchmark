@@ -3877,44 +3877,44 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit.thread._crit_edge: ; preds = %_ZNK6vec
   %.promoted10.i = phi i32 [ %27, %23 ], [ %.promoted10.i.pre, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit.thread._crit_edge ]
   %.promoted8.i = phi i32 [ %29, %23 ], [ %.promoted8.i.pre, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit.thread._crit_edge ]
   %.promoted.i = phi i32 [ 15, %23 ], [ %21, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit.thread._crit_edge ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  br label %32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 804
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  br label %33
 
-32:                                               ; preds = %47, %30
-  %33 = phi i32 [ %.promoted10.i, %30 ], [ %48, %47 ]
-  %34 = phi i32 [ %.promoted8.i, %30 ], [ %49, %47 ]
-  %.in.i = phi i32 [ %18, %30 ], [ %36, %47 ]
-  %.07.i = phi i32 [ 0, %30 ], [ %38, %47 ]
-  %35 = phi i32 [ %.promoted.i, %30 ], [ %50, %47 ]
-  %36 = add i32 %.in.i, -1
-  %37 = and i32 %34, 1
-  %spec.select.i = or disjoint i32 %.07.i, %37
-  %38 = shl i32 %spec.select.i, 1
-  %39 = lshr i32 %34, 1
-  %40 = add i32 %35, -1
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %47
+33:                                               ; preds = %48, %30
+  %34 = phi i32 [ %.promoted10.i, %30 ], [ %49, %48 ]
+  %35 = phi i32 [ %.promoted8.i, %30 ], [ %50, %48 ]
+  %.in.i = phi i32 [ %18, %30 ], [ %37, %48 ]
+  %.07.i = phi i32 [ 0, %30 ], [ %39, %48 ]
+  %36 = phi i32 [ %.promoted.i, %30 ], [ %51, %48 ]
+  %37 = add i32 %.in.i, -1
+  %38 = and i32 %35, 1
+  %spec.select.i = or disjoint i32 %.07.i, %38
+  %39 = shl i32 %spec.select.i, 1
+  %40 = lshr i32 %35, 1
+  %41 = add i32 %36, -1
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %48
 
-42:                                               ; preds = %32
-  %43 = mul i32 %33, 214013
-  %44 = add i32 %43, 2531011
-  store i32 %44, ptr %31, align 8, !tbaa !79
-  %45 = lshr i32 %44, 16
-  %46 = and i32 %45, 32767
-  br label %47
+43:                                               ; preds = %33
+  %44 = mul i32 %34, 214013
+  %45 = add i32 %44, 2531011
+  store i32 %45, ptr %32, align 8, !tbaa !79
+  %46 = lshr i32 %45, 16
+  %47 = and i32 %46, 32767
+  br label %48
 
-47:                                               ; preds = %42, %32
-  %48 = phi i32 [ %44, %42 ], [ %33, %32 ]
-  %49 = phi i32 [ %46, %42 ], [ %39, %32 ]
-  %50 = phi i32 [ 15, %42 ], [ %40, %32 ]
-  %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %_ZN11sls_tracker15get_random_uintEj.exit, label %32, !llvm.loop !312
+48:                                               ; preds = %43, %33
+  %49 = phi i32 [ %45, %43 ], [ %34, %33 ]
+  %50 = phi i32 [ %47, %43 ], [ %40, %33 ]
+  %51 = phi i32 [ 15, %43 ], [ %41, %33 ]
+  %.not.i = icmp eq i32 %37, 0
+  br i1 %.not.i, label %_ZN11sls_tracker15get_random_uintEj.exit, label %33, !llvm.loop !312
 
-_ZN11sls_tracker15get_random_uintEj.exit:         ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 804
-  store i32 %49, ptr %51, align 4, !tbaa !81
-  store i32 %50, ptr %20, align 8, !tbaa !105
-  %52 = urem i32 %38, %.0.i192
+_ZN11sls_tracker15get_random_uintEj.exit:         ; preds = %48
+  store i32 %50, ptr %31, align 4, !tbaa !81
+  store i32 %51, ptr %20, align 8, !tbaa !105
+  %52 = urem i32 %39, %.0.i192
   %53 = zext i32 %52 to i64
   %54 = getelementptr inbounds nuw ptr, ptr %6, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !313
@@ -4100,7 +4100,7 @@ _ZN11sls_tracker9get_valueEP9func_decl.exit:      ; preds = %114, %125
   br label %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit
 
 _ZN11sls_tracker15get_random_boolEv.exit:         ; preds = %_ZN11sls_tracker15get_random_uintEj.exit
-  %143 = and i32 %49, 1
+  %143 = and i32 %50, 1
   %.not.i33 = icmp eq i32 %143, 0
   %.v.i = select i1 %.not.i33, i64 48, i64 64
   %144 = getelementptr inbounds nuw i8, ptr %19, i64 %.v.i
@@ -4112,30 +4112,30 @@ _ZN11sls_tracker15get_random_boolEv.exit:         ; preds = %_ZN11sls_tracker15g
   %150 = icmp eq i32 %149, 1
   %151 = select i1 %148, i1 %150, i1 false
   %spec.select = select i1 %151, i32 2, i32 0
-  %152 = icmp eq i32 %50, 1
+  %152 = icmp eq i32 %51, 1
   br i1 %152, label %155, label %._crit_edge.i34
 
 ._crit_edge.i34:                                  ; preds = %_ZN11sls_tracker15get_random_boolEv.exit
-  %153 = lshr i32 %49, 1
-  %154 = add i32 %50, -2
+  %153 = lshr i32 %50, 1
+  %154 = add i32 %51, -2
   br label %_ZN11sls_tracker15get_random_boolEv.exit39
 
 155:                                              ; preds = %_ZN11sls_tracker15get_random_boolEv.exit
-  %156 = mul i32 %48, 214013
+  %156 = mul i32 %49, 214013
   %157 = add i32 %156, 2531011
-  store i32 %157, ptr %31, align 8, !tbaa !79
+  store i32 %157, ptr %32, align 8, !tbaa !79
   %158 = lshr i32 %157, 16
   %159 = and i32 %158, 32767
   br label %_ZN11sls_tracker15get_random_boolEv.exit39
 
 _ZN11sls_tracker15get_random_boolEv.exit39:       ; preds = %._crit_edge.i34, %155
-  %.promoted10.i42.pre = phi i32 [ %48, %._crit_edge.i34 ], [ %157, %155 ]
+  %.promoted10.i42.pre = phi i32 [ %49, %._crit_edge.i34 ], [ %157, %155 ]
   %160 = phi i32 [ %154, %._crit_edge.i34 ], [ 14, %155 ]
   %161 = phi i32 [ %153, %._crit_edge.i34 ], [ %159, %155 ]
   %162 = and i32 %161, 1
   %.not.i37 = icmp eq i32 %162, 0
   %163 = lshr i32 %161, 1
-  store i32 %163, ptr %51, align 4, !tbaa !81
+  store i32 %163, ptr %31, align 4, !tbaa !81
   store i32 %160, ptr %20, align 8, !tbaa !105
   %.v.i38 = select i1 %.not.i37, i64 48, i64 64
   %164 = getelementptr inbounds nuw i8, ptr %19, i64 %.v.i38
@@ -4199,7 +4199,7 @@ _ZNK7bv_util11get_bv_sizeEPK4sort.exit:           ; preds = %180
 196:                                              ; preds = %193
   %197 = mul i32 %.promoted10.i42.pre, 214013
   %198 = add i32 %197, 2531011
-  store i32 %198, ptr %31, align 8, !tbaa !79
+  store i32 %198, ptr %32, align 8, !tbaa !79
   %199 = lshr i32 %198, 16
   %200 = and i32 %199, 32767
   br label %.preheader
@@ -4228,7 +4228,7 @@ _ZNK7bv_util11get_bv_sizeEPK4sort.exit:           ; preds = %180
 211:                                              ; preds = %201
   %212 = mul i32 %202, 214013
   %213 = add i32 %212, 2531011
-  store i32 %213, ptr %31, align 8, !tbaa !79
+  store i32 %213, ptr %32, align 8, !tbaa !79
   %214 = lshr i32 %213, 16
   %215 = and i32 %214, 32767
   br label %216
@@ -4241,7 +4241,7 @@ _ZNK7bv_util11get_bv_sizeEPK4sort.exit:           ; preds = %180
   br i1 %.not.i46, label %_ZN11sls_tracker15get_random_uintEj.exit48, label %201, !llvm.loop !312
 
 _ZN11sls_tracker15get_random_uintEj.exit48:       ; preds = %216
-  store i32 %218, ptr %51, align 4, !tbaa !81
+  store i32 %218, ptr %31, align 4, !tbaa !81
   store i32 %219, ptr %20, align 8, !tbaa !105
   %220 = urem i32 %207, %184
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 936
@@ -5018,44 +5018,44 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %7, %19
   %.promoted10.i = phi i32 [ %32, %28 ], [ %.promoted10.i.pre, %._crit_edge188 ]
   %.promoted8.i = phi i32 [ %34, %28 ], [ %.promoted8.i.pre, %._crit_edge188 ]
   %.promoted.i = phi i32 [ 15, %28 ], [ %26, %._crit_edge188 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  br label %37
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 804
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  br label %38
 
-37:                                               ; preds = %52, %35
-  %38 = phi i32 [ %.promoted10.i, %35 ], [ %53, %52 ]
-  %39 = phi i32 [ %.promoted8.i, %35 ], [ %54, %52 ]
-  %.in.i = phi i32 [ 16, %35 ], [ %41, %52 ]
-  %.07.i = phi i32 [ 0, %35 ], [ %43, %52 ]
-  %40 = phi i32 [ %.promoted.i, %35 ], [ %55, %52 ]
-  %41 = add nsw i32 %.in.i, -1
-  %42 = and i32 %39, 1
-  %spec.select.i = or disjoint i32 %.07.i, %42
-  %43 = shl i32 %spec.select.i, 1
-  %44 = lshr i32 %39, 1
-  %45 = add i32 %40, -1
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %52
+38:                                               ; preds = %53, %35
+  %39 = phi i32 [ %.promoted10.i, %35 ], [ %54, %53 ]
+  %40 = phi i32 [ %.promoted8.i, %35 ], [ %55, %53 ]
+  %.in.i = phi i32 [ 16, %35 ], [ %42, %53 ]
+  %.07.i = phi i32 [ 0, %35 ], [ %44, %53 ]
+  %41 = phi i32 [ %.promoted.i, %35 ], [ %56, %53 ]
+  %42 = add nsw i32 %.in.i, -1
+  %43 = and i32 %40, 1
+  %spec.select.i = or disjoint i32 %.07.i, %43
+  %44 = shl i32 %spec.select.i, 1
+  %45 = lshr i32 %40, 1
+  %46 = add i32 %41, -1
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %53
 
-47:                                               ; preds = %37
-  %48 = mul i32 %38, 214013
-  %49 = add i32 %48, 2531011
-  store i32 %49, ptr %36, align 8, !tbaa !79
-  %50 = lshr i32 %49, 16
-  %51 = and i32 %50, 32767
-  br label %52
+48:                                               ; preds = %38
+  %49 = mul i32 %39, 214013
+  %50 = add i32 %49, 2531011
+  store i32 %50, ptr %37, align 8, !tbaa !79
+  %51 = lshr i32 %50, 16
+  %52 = and i32 %51, 32767
+  br label %53
 
-52:                                               ; preds = %47, %37
-  %53 = phi i32 [ %49, %47 ], [ %38, %37 ]
-  %54 = phi i32 [ %51, %47 ], [ %44, %37 ]
-  %55 = phi i32 [ 15, %47 ], [ %45, %37 ]
-  %.not.i = icmp eq i32 %41, 0
-  br i1 %.not.i, label %_ZN11sls_tracker15get_random_uintEj.exit, label %37, !llvm.loop !312
+53:                                               ; preds = %48, %38
+  %54 = phi i32 [ %50, %48 ], [ %39, %38 ]
+  %55 = phi i32 [ %52, %48 ], [ %45, %38 ]
+  %56 = phi i32 [ 15, %48 ], [ %46, %38 ]
+  %.not.i = icmp eq i32 %42, 0
+  br i1 %.not.i, label %_ZN11sls_tracker15get_random_uintEj.exit, label %38, !llvm.loop !312
 
-_ZN11sls_tracker15get_random_uintEj.exit:         ; preds = %52
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 804
-  store i32 %54, ptr %56, align 4, !tbaa !81
-  store i32 %55, ptr %25, align 8, !tbaa !105
-  %57 = urem i32 %43, %.0.i
+_ZN11sls_tracker15get_random_uintEj.exit:         ; preds = %53
+  store i32 %55, ptr %36, align 4, !tbaa !81
+  store i32 %56, ptr %25, align 8, !tbaa !105
+  %57 = urem i32 %44, %.0.i
   br label %58
 
 58:                                               ; preds = %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit, %_ZN11sls_tracker15get_random_uintEj.exit
@@ -6135,44 +6135,44 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %5, %19
   %.promoted10.i = phi i32 [ %32, %28 ], [ %.promoted10.i.pre, %._crit_edge321 ]
   %.promoted8.i = phi i32 [ %34, %28 ], [ %.promoted8.i.pre, %._crit_edge321 ]
   %.promoted.i = phi i32 [ 15, %28 ], [ %26, %._crit_edge321 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  br label %37
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 804
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  br label %38
 
-37:                                               ; preds = %52, %35
-  %38 = phi i32 [ %.promoted10.i, %35 ], [ %53, %52 ]
-  %39 = phi i32 [ %.promoted8.i, %35 ], [ %54, %52 ]
-  %.in.i = phi i32 [ 16, %35 ], [ %41, %52 ]
-  %.07.i = phi i32 [ 0, %35 ], [ %43, %52 ]
-  %40 = phi i32 [ %.promoted.i, %35 ], [ %55, %52 ]
-  %41 = add nsw i32 %.in.i, -1
-  %42 = and i32 %39, 1
-  %spec.select.i = or disjoint i32 %.07.i, %42
-  %43 = shl i32 %spec.select.i, 1
-  %44 = lshr i32 %39, 1
-  %45 = add i32 %40, -1
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %52
+38:                                               ; preds = %53, %35
+  %39 = phi i32 [ %.promoted10.i, %35 ], [ %54, %53 ]
+  %40 = phi i32 [ %.promoted8.i, %35 ], [ %55, %53 ]
+  %.in.i = phi i32 [ 16, %35 ], [ %42, %53 ]
+  %.07.i = phi i32 [ 0, %35 ], [ %44, %53 ]
+  %41 = phi i32 [ %.promoted.i, %35 ], [ %56, %53 ]
+  %42 = add nsw i32 %.in.i, -1
+  %43 = and i32 %40, 1
+  %spec.select.i = or disjoint i32 %.07.i, %43
+  %44 = shl i32 %spec.select.i, 1
+  %45 = lshr i32 %40, 1
+  %46 = add i32 %41, -1
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %53
 
-47:                                               ; preds = %37
-  %48 = mul i32 %38, 214013
-  %49 = add i32 %48, 2531011
-  store i32 %49, ptr %36, align 8, !tbaa !79
-  %50 = lshr i32 %49, 16
-  %51 = and i32 %50, 32767
-  br label %52
+48:                                               ; preds = %38
+  %49 = mul i32 %39, 214013
+  %50 = add i32 %49, 2531011
+  store i32 %50, ptr %37, align 8, !tbaa !79
+  %51 = lshr i32 %50, 16
+  %52 = and i32 %51, 32767
+  br label %53
 
-52:                                               ; preds = %47, %37
-  %53 = phi i32 [ %49, %47 ], [ %38, %37 ]
-  %54 = phi i32 [ %51, %47 ], [ %44, %37 ]
-  %55 = phi i32 [ 15, %47 ], [ %45, %37 ]
-  %.not.i = icmp eq i32 %41, 0
-  br i1 %.not.i, label %_ZN11sls_tracker15get_random_uintEj.exit, label %37, !llvm.loop !312
+53:                                               ; preds = %48, %38
+  %54 = phi i32 [ %50, %48 ], [ %39, %38 ]
+  %55 = phi i32 [ %52, %48 ], [ %45, %38 ]
+  %56 = phi i32 [ 15, %48 ], [ %46, %38 ]
+  %.not.i = icmp eq i32 %42, 0
+  br i1 %.not.i, label %_ZN11sls_tracker15get_random_uintEj.exit, label %38, !llvm.loop !312
 
-_ZN11sls_tracker15get_random_uintEj.exit:         ; preds = %52
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 804
-  store i32 %54, ptr %56, align 4, !tbaa !81
-  store i32 %55, ptr %25, align 8, !tbaa !105
-  %57 = urem i32 %43, %.0.i
+_ZN11sls_tracker15get_random_uintEj.exit:         ; preds = %53
+  store i32 %55, ptr %36, align 4, !tbaa !81
+  store i32 %56, ptr %25, align 8, !tbaa !105
+  %57 = urem i32 %44, %.0.i
   br label %58
 
 58:                                               ; preds = %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit, %_ZN11sls_tracker15get_random_uintEj.exit

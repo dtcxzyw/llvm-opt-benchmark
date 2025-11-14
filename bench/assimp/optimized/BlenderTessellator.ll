@@ -1566,23 +1566,20 @@ declare void @_ZN6Assimp21BlenderBMeshConverter7AddFaceEiiii(ptr noundef nonnull
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef float @_ZNK6Assimp21BlenderTessellatorP2T21FindLargestMatrixElemERK12aiMatrix3x3tIfE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(36) %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.preheader
 
 .preheader:                                       ; preds = %.split.us, %2
   %.0820 = phi i32 [ 0, %2 ], [ %15, %.split.us ]
   %.0919 = phi float [ 0.000000e+00, %2 ], [ %.us-phi, %.split.us ]
   switch i32 %.0820, label %_ZNK12aiMatrix3x3tIfEixEj.exit [
-    i32 2, label %_ZNK12aiMatrix3x3tIfEixEj.exit.us.preheader
+    i32 2, label %_ZNK12aiMatrix3x3tIfEixEj.exit.us
     i32 1, label %_ZNK12aiMatrix3x3tIfEixEj.exit.us15
   ]
 
-_ZNK12aiMatrix3x3tIfEixEj.exit.us.preheader:      ; preds = %.preheader
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %_ZNK12aiMatrix3x3tIfEixEj.exit.us
-
-_ZNK12aiMatrix3x3tIfEixEj.exit.us:                ; preds = %_ZNK12aiMatrix3x3tIfEixEj.exit.us.preheader, %_ZNK12aiMatrix3x3tIfEixEj.exit.us
-  %indvars.iv26 = phi i64 [ 0, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.preheader ], [ %indvars.iv.next27, %_ZNK12aiMatrix3x3tIfEixEj.exit.us ]
-  %.110.us = phi float [ %.0919, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.preheader ], [ %9, %_ZNK12aiMatrix3x3tIfEixEj.exit.us ]
+_ZNK12aiMatrix3x3tIfEixEj.exit.us:                ; preds = %.preheader, %_ZNK12aiMatrix3x3tIfEixEj.exit.us
+  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %_ZNK12aiMatrix3x3tIfEixEj.exit.us ], [ 0, %.preheader ]
+  %.110.us = phi float [ %9, %_ZNK12aiMatrix3x3tIfEixEj.exit.us ], [ %.0919, %.preheader ]
   %5 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv26
   %6 = load float, ptr %5, align 4
   %7 = tail call noundef float @llvm.fabs.f32(float %6)
@@ -1645,21 +1642,18 @@ define hidden void @_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float 1.000000e+00, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %.preheader
 
 .preheader:                                       ; preds = %.split.us, %4
   %.0921 = phi i32 [ 0, %4 ], [ %21, %.split.us ]
   switch i32 %.0921, label %_ZNK12aiMatrix3x3tIfEixEj.exit [
-    i32 2, label %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us.preheader
+    i32 2, label %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us
     i32 1, label %_ZNK12aiMatrix3x3tIfEixEj.exit.thread12.us
   ]
 
-_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us.preheader: ; preds = %.preheader
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us
-
-_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us:         ; preds = %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us.preheader, %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us
-  %indvars.iv25 = phi i64 [ 0, %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us.preheader ], [ %indvars.iv.next26, %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us ]
+_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us:         ; preds = %.preheader, %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us
+  %indvars.iv25 = phi i64 [ %indvars.iv.next26, %_ZNK12aiMatrix3x3tIfEixEj.exit.thread.us ], [ 0, %.preheader ]
   %15 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv25
   %.pn.us = load float, ptr %15, align 4
   %16 = fmul float %3, %.pn.us
@@ -1709,17 +1703,17 @@ define hidden { <2 x float>, float } @_ZNK6Assimp21BlenderTessellatorP2T35GetEig
   %.0820.i = phi i32 [ 0, %2 ], [ %16, %.split.us.i ]
   %.0919.i = phi float [ 0.000000e+00, %2 ], [ %.us-phi.i, %.split.us.i ]
   switch i32 %.0820.i, label %_ZNK12aiMatrix3x3tIfEixEj.exit.i [
-    i32 2, label %_ZNK12aiMatrix3x3tIfEixEj.exit.us.preheader.i
+    i32 2, label %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i.preheader
     i32 1, label %_ZNK12aiMatrix3x3tIfEixEj.exit.us15.i
   ]
 
-_ZNK12aiMatrix3x3tIfEixEj.exit.us.preheader.i:    ; preds = %.preheader.i
+_ZNK12aiMatrix3x3tIfEixEj.exit.us.i.preheader:    ; preds = %.preheader.i
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i
 
-_ZNK12aiMatrix3x3tIfEixEj.exit.us.i:              ; preds = %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.preheader.i
-  %indvars.iv26.i = phi i64 [ 0, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.preheader.i ], [ %indvars.iv.next27.i, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i ]
-  %.110.us.i = phi float [ %.0919.i, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.preheader.i ], [ %10, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i ]
+_ZNK12aiMatrix3x3tIfEixEj.exit.us.i:              ; preds = %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i.preheader, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i
+  %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i ], [ 0, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i.preheader ]
+  %.110.us.i = phi float [ %10, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i ], [ %.0919.i, %_ZNK12aiMatrix3x3tIfEixEj.exit.us.i.preheader ]
   %6 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv26.i
   %7 = load float, ptr %6, align 4
   %8 = tail call noundef float @llvm.fabs.f32(float %7)
@@ -2587,8 +2581,8 @@ define linkonce_odr void @_ZNSt6vectorIPN3p2t5PointESaIS2_EE17_M_default_appendE
 
 _ZSt6fill_nIPPN3p2t5PointEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPN3p2t5PointEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN3p2t5PointEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN3p2t5PointEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i

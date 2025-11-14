@@ -4336,21 +4336,21 @@ default_reload_interval.exit:                     ; preds = %16, %23
   br i1 %.not89, label %find_timestamp_in_playlist.exit, label %92
 
 92:                                               ; preds = %89
-  %93 = icmp sgt i32 %78, 0
-  br i1 %93, label %.lr.ph, label %._crit_edge
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %94 = load i64, ptr %93, align 8, !tbaa !40
+  %95 = icmp eq i64 %94, -9223372036854775808
+  %spec.select91 = select i1 %95, i64 0, i64 %94
+  %96 = icmp sgt i32 %78, 0
+  br i1 %96, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %92
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 4520
-  %95 = load ptr, ptr %94, align 8, !tbaa !70
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 4520
+  %98 = load ptr, ptr %97, align 8, !tbaa !70
   %wide.trip.count = zext nneg i32 %78 to i64
   br label %103
 
 ._crit_edge:                                      ; preds = %103, %92
   %.067.lcssa = phi i64 [ 0, %92 ], [ %107, %103 ]
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %97 = load i64, ptr %96, align 8, !tbaa !40
-  %98 = icmp eq i64 %97, -9223372036854775808
-  %spec.select91 = select i1 %98, i64 0, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 4504
   %100 = load i64, ptr %99, align 8, !tbaa !232
   %101 = icmp sgt i64 %100, -1
@@ -4361,7 +4361,7 @@ default_reload_interval.exit:                     ; preds = %16, %23
 103:                                              ; preds = %.lr.ph, %103
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
   %.067120 = phi i64 [ 0, %.lr.ph ], [ %107, %103 ]
-  %104 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8, !tbaa !71
   %106 = load i64, ptr %105, align 8, !tbaa !72
   %107 = add nsw i64 %106, %.067120
@@ -4403,7 +4403,7 @@ default_reload_interval.exit:                     ; preds = %16, %23
   br i1 %123, label %find_timestamp_in_playlist.exit, label %.preheader.i99
 
 .preheader.i99:                                   ; preds = %120
-  br i1 %93, label %.lr.ph.i102, label %._crit_edge.i100
+  br i1 %96, label %.lr.ph.i102, label %._crit_edge.i100
 
 .lr.ph.i102:                                      ; preds = %.preheader.i99
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 4520

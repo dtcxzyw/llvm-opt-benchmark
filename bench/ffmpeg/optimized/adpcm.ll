@@ -1407,26 +1407,26 @@ thread-pre-split:                                 ; preds = %340, %344
 
 .lr.ph3483:                                       ; preds = %._crit_edge3484, %.preheader2721.lr.ph
   %indvars.iv4043 = phi i64 [ 0, %.preheader2721.lr.ph ], [ %indvars.iv.next4044, %._crit_edge3484 ]
-  %461 = mul nuw nsw i64 %indvars.iv4043, %459
-  %462 = trunc i64 %461 to i32
-  %463 = add i32 %462, 4
-  %464 = mul i32 %463, %21
-  %465 = mul nuw nsw i64 %indvars.iv4043, %458
+  %461 = mul nuw nsw i64 %indvars.iv4043, %458
+  %462 = mul nuw nsw i64 %indvars.iv4043, %459
+  %463 = trunc i64 %462 to i32
+  %464 = add i32 %463, 4
+  %465 = mul i32 %464, %21
   br label %.lr.ph3476.preheader
 
 .lr.ph3476.preheader:                             ; preds = %518, %.lr.ph3483
   %indvars.iv4037 = phi i64 [ 0, %.lr.ph3483 ], [ %indvars.iv.next4038, %518 ]
-  %466 = getelementptr inbounds nuw ptr, ptr %285, i64 %indvars.iv4037
-  %467 = load ptr, ptr %466, align 8, !tbaa !57
-  %468 = trunc nuw nsw i64 %indvars.iv4037 to i32
+  %466 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %19, i64 %indvars.iv4037
+  %467 = getelementptr inbounds nuw ptr, ptr %285, i64 %indvars.iv4037
+  %468 = load ptr, ptr %467, align 8, !tbaa !57
+  %469 = getelementptr inbounds nuw i16, ptr %468, i64 %461
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 2
+  %471 = trunc nuw nsw i64 %indvars.iv4037 to i32
   br label %.lr.ph3476
 
 ._crit_edge3477:                                  ; preds = %.lr.ph3476
-  %469 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %19, i64 %indvars.iv4037
-  %470 = getelementptr inbounds nuw i16, ptr %467, i64 %465
-  %471 = getelementptr inbounds nuw i8, ptr %470, i64 2
-  %472 = getelementptr inbounds nuw i8, ptr %469, i64 4
-  %.promoted3478 = load i32, ptr %469, align 4, !tbaa !56
+  %472 = getelementptr inbounds nuw i8, ptr %466, i64 4
+  %.promoted3478 = load i32, ptr %466, align 4, !tbaa !56
   br label %483
 
 .lr.ph3476:                                       ; preds = %.lr.ph3476.preheader, %.lr.ph3476
@@ -1435,9 +1435,9 @@ thread-pre-split:                                 ; preds = %340, %344
   %474 = and i32 %473, 3
   %475 = lshr i32 %473, 2
   %476 = mul i32 %475, %21
-  %reass.add = add i32 %476, %468
+  %reass.add = add i32 %476, %471
   %reass.mul = shl i32 %reass.add, 2
-  %477 = add i32 %474, %464
+  %477 = add i32 %474, %465
   %478 = add i32 %477, %reass.mul
   %479 = sext i32 %478 to i64
   %480 = getelementptr inbounds i8, ptr %15, i64 %479
@@ -1487,10 +1487,10 @@ thread-pre-split:                                 ; preds = %340, %344
   %514 = tail call i32 @llvm.smax.i32(i32 %.0.i1975, i32 -32768)
   %515 = tail call i32 @llvm.smin.i32(i32 %514, i32 32767)
   %.0.i.i1976 = trunc nsw i32 %515 to i16
-  store i32 %515, ptr %469, align 4, !tbaa !56
+  store i32 %515, ptr %466, align 4, !tbaa !56
   %516 = trunc nuw nsw i32 %513 to i16
   store i16 %516, ptr %472, align 4, !tbaa !47
-  %517 = getelementptr inbounds nuw i16, ptr %471, i64 %indvars.iv4031
+  %517 = getelementptr inbounds nuw i16, ptr %470, i64 %indvars.iv4031
   store i16 %.0.i.i1976, ptr %517, align 2, !tbaa !58
   %indvars.iv.next4032 = add nuw nsw i64 %indvars.iv4031, 1
   %exitcond4036.not = icmp eq i64 %indvars.iv.next4032, %458

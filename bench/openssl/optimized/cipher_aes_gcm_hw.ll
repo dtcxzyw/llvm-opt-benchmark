@@ -169,14 +169,14 @@ define internal range(i32 0, 2) i32 @vaes_gcm_aadupdate(ptr noundef %0, ptr noun
   store i8 %50, ptr %48, align 1, !tbaa !13
   %51 = add nuw i64 %.04465, 1
   %exitcond.not = icmp eq i64 %51, %.251
-  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %44, !llvm.loop !16
 
-.loopexit:                                        ; preds = %44
+.loopexit.loopexit:                               ; preds = %44
   %52 = trunc nuw nsw i64 %.251 to i32
   br label %.sink.split
 
-.sink.split:                                      ; preds = %41, %.loopexit, %._crit_edge, %.preheader
-  %.2.sink = phi i32 [ %27, %._crit_edge ], [ %15, %.preheader ], [ 0, %41 ], [ %52, %.loopexit ]
+.sink.split:                                      ; preds = %41, %.loopexit.loopexit, %._crit_edge, %.preheader
+  %.2.sink = phi i32 [ %27, %._crit_edge ], [ %15, %.preheader ], [ 0, %41 ], [ %52, %.loopexit.loopexit ]
   store i32 %.2.sink, ptr %14, align 4, !tbaa !11
   br label %53
 

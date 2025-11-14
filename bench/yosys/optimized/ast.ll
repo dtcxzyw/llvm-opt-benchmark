@@ -2585,7 +2585,7 @@ define void @_ZN5Yosys3AST7AstNode15delete_childrenEv(ptr noundef nonnull align 
   %.not16 = icmp eq ptr %3, %5
   br i1 %.not16, label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit, label %.lr.ph
 
-._crit_edge:                                      ; preds = %14
+._crit_edge:                                      ; preds = %15
   %.pre = load ptr, ptr %2, align 8, !tbaa !104
   %.pre22 = load ptr, ptr %4, align 8, !tbaa !102
   %6 = icmp eq ptr %.pre22, %.pre
@@ -2596,33 +2596,33 @@ define void @_ZN5Yosys3AST7AstNode15delete_childrenEv(ptr noundef nonnull align 
   br label %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit
 
 _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit: ; preds = %1, %._crit_edge, %7
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %9 = load ptr, ptr %8, align 8, !tbaa !90
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.not1518 = icmp eq ptr %9, %10
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = load ptr, ptr %9, align 8, !tbaa !90
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.not1518 = icmp eq ptr %10, %11
   br i1 %.not1518, label %._crit_edge21, label %.lr.ph20
 
-.lr.ph:                                           ; preds = %1, %14
-  %.sroa.012.017 = phi ptr [ %15, %14 ], [ %3, %1 ]
-  %11 = load ptr, ptr %.sroa.012.017, align 8, !tbaa !55
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %14, label %13
+.lr.ph:                                           ; preds = %1, %15
+  %.sroa.012.017 = phi ptr [ %16, %15 ], [ %3, %1 ]
+  %12 = load ptr, ptr %.sroa.012.017, align 8, !tbaa !55
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %.lr.ph
-  tail call void @_ZN5Yosys3AST7AstNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(284) %11) #42
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 288) #41
-  br label %14
+14:                                               ; preds = %.lr.ph
+  tail call void @_ZN5Yosys3AST7AstNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(284) %12) #42
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 288) #41
+  br label %15
 
-14:                                               ; preds = %13, %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 8
-  %.not = icmp eq ptr %15, %5
+15:                                               ; preds = %14, %.lr.ph
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 8
+  %.not = icmp eq ptr %16, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge21:                                    ; preds = %28, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !10
-  invoke void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_PNS0_3AST7AstNodeEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %18)
+  invoke void @_ZNSt8_Rb_treeIN5Yosys5RTLIL8IdStringESt4pairIKS2_PNS0_3AST7AstNodeEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %18)
           to label %_ZNSt3mapIN5Yosys5RTLIL8IdStringEPNS0_3AST7AstNodeESt4lessIS2_ESaISt4pairIKS2_S5_EEE5clearEv.exit unwind label %19
 
 19:                                               ; preds = %._crit_edge21
@@ -2634,15 +2634,15 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit: ; preds = %1, %._crit_e
 
 _ZNSt3mapIN5Yosys5RTLIL8IdStringEPNS0_3AST7AstNodeESt4lessIS2_ESaISt4pairIKS2_S5_EEE5clearEv.exit: ; preds = %._crit_edge21
   store ptr null, ptr %17, align 8, !tbaa !10
-  store ptr %10, ptr %8, align 8, !tbaa !90
+  store ptr %11, ptr %9, align 8, !tbaa !90
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %10, ptr %22, align 8, !tbaa !91
+  store ptr %11, ptr %22, align 8, !tbaa !91
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %23, align 8, !tbaa !92
   ret void
 
 .lr.ph20:                                         ; preds = %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit, %28
-  %.sroa.08.019 = phi ptr [ %29, %28 ], [ %9, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit ]
+  %.sroa.08.019 = phi ptr [ %29, %28 ], [ %10, %_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE5clearEv.exit ]
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.08.019, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !108
   %26 = icmp eq ptr %25, null
@@ -2655,7 +2655,7 @@ _ZNSt3mapIN5Yosys5RTLIL8IdStringEPNS0_3AST7AstNodeESt4lessIS2_ESaISt4pairIKS2_S5
 
 28:                                               ; preds = %27, %.lr.ph20
   %29 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.019) #45
-  %.not15 = icmp eq ptr %29, %10
+  %.not15 = icmp eq ptr %29, %11
   br i1 %.not15, label %._crit_edge21, label %.lr.ph20
 }
 

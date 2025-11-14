@@ -3184,6 +3184,7 @@ define internal void @put_vp8_bilinear16_v_c(ptr noundef writeonly captures(none
 define internal void @put_vp8_bilinear16_hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 {
   %8 = alloca [528 x i8], align 16
   %9 = sub nsw i32 8, %5
+  %10 = sub nsw i32 8, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not44 = icmp slt i32 %4, 0
   br i1 %.not44, label %._crit_edge, label %.preheader42
@@ -3196,7 +3197,6 @@ define internal void @put_vp8_bilinear16_hv_c(ptr noundef writeonly captures(non
   br label %11
 
 .preheader41:                                     ; preds = %24
-  %10 = sub nsw i32 8, %6
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.preheader
 
@@ -3354,6 +3354,7 @@ define internal void @put_vp8_bilinear8_v_c(ptr noundef writeonly captures(none)
 define internal void @put_vp8_bilinear8_hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 {
   %8 = alloca [136 x i8], align 16
   %9 = sub nsw i32 8, %5
+  %10 = sub nsw i32 8, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not44 = icmp slt i32 %4, 0
   br i1 %.not44, label %._crit_edge, label %.preheader42
@@ -3366,7 +3367,6 @@ define internal void @put_vp8_bilinear8_hv_c(ptr noundef writeonly captures(none
   br label %11
 
 .preheader41:                                     ; preds = %24
-  %10 = sub nsw i32 8, %6
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.preheader
 
@@ -3524,6 +3524,7 @@ define internal void @put_vp8_bilinear4_v_c(ptr noundef writeonly captures(none)
 define internal void @put_vp8_bilinear4_hv_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #1 {
   %8 = alloca [36 x i8], align 16
   %9 = sub nsw i32 8, %5
+  %10 = sub nsw i32 8, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not44 = icmp slt i32 %4, 0
   br i1 %.not44, label %._crit_edge, label %.preheader42
@@ -3536,7 +3537,6 @@ define internal void @put_vp8_bilinear4_hv_c(ptr noundef writeonly captures(none
   br label %11
 
 .preheader41:                                     ; preds = %24
-  %10 = sub nsw i32 8, %6
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.preheader
 

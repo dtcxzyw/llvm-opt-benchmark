@@ -819,21 +819,21 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
 
 11:                                               ; preds = %.preheader, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18
   %.pr35 = phi ptr [ %8, %.preheader ], [ %20, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18 ]
+  %12 = ptrtoint ptr %.pr35 to i64
   %.val = load i32, ptr %9, align 8
-  br label %12
+  br label %13
 
-12:                                               ; preds = %12, %11
-  %.013.idx16.i = phi i64 [ 0, %11 ], [ %.013.add.i, %12 ]
+13:                                               ; preds = %13, %11
+  %.013.idx16.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
   %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level3E, i64 %.013.idx16.i
-  %13 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
-  %.not14.i = icmp eq i32 %.val, %13
+  %14 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
+  %.not14.i = icmp eq i32 %.val, %14
   %.013.add.i = add nuw nsw i64 %.013.idx16.i, 4
   %.not.not.i = icmp eq i64 %.013.add.i, 8
   %or.cond.i = select i1 %.not14.i, i1 true, i1 %.not.not.i
-  br i1 %or.cond.i, label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit, label %12
+  br i1 %or.cond.i, label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit, label %13
 
-_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit: ; preds = %12
-  %14 = ptrtoint ptr %.pr35 to i64
+_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit: ; preds = %13
   br i1 %.not14.i, label %15, label %44
 
 15:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit
@@ -850,7 +850,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit: ;
 18:                                               ; preds = %16
   %19 = ptrtoint ptr %17 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %14, ptr %6, align 8, !tbaa !17
+  store i64 %12, ptr %6, align 8, !tbaa !17
   store i64 %19, ptr %7, align 8, !tbaa !17
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111bin_factoryEiSt10unique_ptrINS2_4exprESt14default_deleteIS5_EES8_(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %.val, ptr noundef %6, ptr noundef %7)
           to label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit unwind label %29
@@ -938,7 +938,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
   resume { ptr, i32 } %.pn46
 
 44:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit
-  store i64 %14, ptr %0, align 8, !tbaa !17
+  store i64 %12, ptr %0, align 8, !tbaa !17
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33
 
 45:                                               ; preds = %16
@@ -982,21 +982,21 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
 
 11:                                               ; preds = %.preheader, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18
   %.pr35 = phi ptr [ %8, %.preheader ], [ %20, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18 ]
+  %12 = ptrtoint ptr %.pr35 to i64
   %.val = load i32, ptr %9, align 8
-  br label %12
+  br label %13
 
-12:                                               ; preds = %12, %11
-  %.013.idx2.i = phi i64 [ 0, %11 ], [ %.013.add.i, %12 ]
+13:                                               ; preds = %13, %11
+  %.013.idx2.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
   %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level4E, i64 %.013.idx2.i
-  %13 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
-  %.not14.i = icmp eq i32 %.val, %13
+  %14 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
+  %.not14.i = icmp eq i32 %.val, %14
   %.013.add.i = add nuw nsw i64 %.013.idx2.i, 4
   %.not.not.i = icmp eq i64 %.013.add.i, 16
   %or.cond.i = select i1 %.not14.i, i1 true, i1 %.not.not.i
-  br i1 %or.cond.i, label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm4EEEbiRAT__Ki.exit, label %12
+  br i1 %or.cond.i, label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm4EEEbiRAT__Ki.exit, label %13
 
-_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm4EEEbiRAT__Ki.exit: ; preds = %12
-  %14 = ptrtoint ptr %.pr35 to i64
+_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm4EEEbiRAT__Ki.exit: ; preds = %13
   br i1 %.not14.i, label %15, label %44
 
 15:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm4EEEbiRAT__Ki.exit
@@ -1013,7 +1013,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm4EEEbiRAT__Ki.exit: ;
 18:                                               ; preds = %16
   %19 = ptrtoint ptr %17 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %14, ptr %6, align 8, !tbaa !17
+  store i64 %12, ptr %6, align 8, !tbaa !17
   store i64 %19, ptr %7, align 8, !tbaa !17
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111bin_factoryEiSt10unique_ptrINS2_4exprESt14default_deleteIS5_EES8_(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %.val, ptr noundef %6, ptr noundef %7)
           to label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit unwind label %29
@@ -1101,7 +1101,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
   resume { ptr, i32 } %.pn46
 
 44:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm4EEEbiRAT__Ki.exit
-  store i64 %14, ptr %0, align 8, !tbaa !17
+  store i64 %12, ptr %0, align 8, !tbaa !17
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33
 
 45:                                               ; preds = %16
@@ -1145,21 +1145,21 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
 
 11:                                               ; preds = %.preheader, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18
   %.pr35 = phi ptr [ %8, %.preheader ], [ %20, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18 ]
+  %12 = ptrtoint ptr %.pr35 to i64
   %.val = load i32, ptr %9, align 8
-  br label %12
+  br label %13
 
-12:                                               ; preds = %12, %11
-  %.013.idx16.i = phi i64 [ 0, %11 ], [ %.013.add.i, %12 ]
+13:                                               ; preds = %13, %11
+  %.013.idx16.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
   %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level5E, i64 %.013.idx16.i
-  %13 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
-  %.not14.i = icmp eq i32 %.val, %13
+  %14 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
+  %.not14.i = icmp eq i32 %.val, %14
   %.013.add.i = add nuw nsw i64 %.013.idx16.i, 4
   %.not.not.i = icmp eq i64 %.013.add.i, 8
   %or.cond.i = select i1 %.not14.i, i1 true, i1 %.not.not.i
-  br i1 %or.cond.i, label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit, label %12
+  br i1 %or.cond.i, label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit, label %13
 
-_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit: ; preds = %12
-  %14 = ptrtoint ptr %.pr35 to i64
+_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit: ; preds = %13
   br i1 %.not14.i, label %15, label %44
 
 15:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit
@@ -1176,7 +1176,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit: ;
 18:                                               ; preds = %16
   %19 = ptrtoint ptr %17 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %14, ptr %6, align 8, !tbaa !17
+  store i64 %12, ptr %6, align 8, !tbaa !17
   store i64 %19, ptr %7, align 8, !tbaa !17
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111bin_factoryEiSt10unique_ptrINS2_4exprESt14default_deleteIS5_EES8_(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %.val, ptr noundef %6, ptr noundef %7)
           to label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit unwind label %29
@@ -1264,7 +1264,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
   resume { ptr, i32 } %.pn46
 
 44:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm2EEEbiRAT__Ki.exit
-  store i64 %14, ptr %0, align 8, !tbaa !17
+  store i64 %12, ptr %0, align 8, !tbaa !17
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33
 
 45:                                               ; preds = %16
@@ -1308,21 +1308,21 @@ define internal fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16
 
 11:                                               ; preds = %.preheader, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18
   %.pr35 = phi ptr [ %8, %.preheader ], [ %20, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit18 ]
+  %12 = ptrtoint ptr %.pr35 to i64
   %.val = load i32, ptr %9, align 8
-  br label %12
+  br label %13
 
-12:                                               ; preds = %12, %11
-  %.013.idx2.i = phi i64 [ 0, %11 ], [ %.013.add.i, %12 ]
+13:                                               ; preds = %13, %11
+  %.013.idx2.i = phi i64 [ 0, %11 ], [ %.013.add.i, %13 ]
   %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_16level6E, i64 %.013.idx2.i
-  %13 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
-  %.not14.i = icmp eq i32 %.val, %13
+  %14 = load i32, ptr %.013.ptr.i, align 4, !tbaa !38
+  %.not14.i = icmp eq i32 %.val, %14
   %.013.add.i = add nuw nsw i64 %.013.idx2.i, 4
   %.not.not.i = icmp eq i64 %.013.add.i, 12
   %or.cond.i = select i1 %.not14.i, i1 true, i1 %.not.not.i
-  br i1 %or.cond.i, label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm3EEEbiRAT__Ki.exit, label %12
+  br i1 %or.cond.i, label %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm3EEEbiRAT__Ki.exit, label %13
 
-_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm3EEEbiRAT__Ki.exit: ; preds = %12
-  %14 = ptrtoint ptr %.pr35 to i64
+_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm3EEEbiRAT__Ki.exit: ; preds = %13
   br i1 %.not14.i, label %15, label %44
 
 15:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm3EEEbiRAT__Ki.exit
@@ -1339,7 +1339,7 @@ _ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm3EEEbiRAT__Ki.exit: ;
 18:                                               ; preds = %16
   %19 = ptrtoint ptr %17 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %14, ptr %6, align 8, !tbaa !17
+  store i64 %12, ptr %6, align 8, !tbaa !17
   store i64 %19, ptr %7, align 8, !tbaa !17
   invoke fastcc void @_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_111bin_factoryEiSt10unique_ptrINS2_4exprESt14default_deleteIS5_EES8_(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %.val, ptr noundef %6, ptr noundef %7)
           to label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit unwind label %29
@@ -1427,7 +1427,7 @@ _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_
   resume { ptr, i32 } %.pn46
 
 44:                                               ; preds = %_ZN5boost6locale11gnu_gettext6lambda12_GLOBAL__N_15is_inILm3EEEbiRAT__Ki.exit
-  store i64 %14, ptr %0, align 8, !tbaa !17
+  store i64 %12, ptr %0, align 8, !tbaa !17
   br label %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit33
 
 45:                                               ; preds = %16

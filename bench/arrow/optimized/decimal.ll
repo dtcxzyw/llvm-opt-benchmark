@@ -11963,50 +11963,47 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17
 .lr.ph45.split.preheader:                         ; preds = %._crit_edge
   %23 = getelementptr inbounds nuw i64, ptr %4, i64 %17
   %24 = load i64, ptr %23, align 8, !tbaa !155
-  %25 = zext nneg i32 %12 to i64
-  %26 = sub nsw i32 64, %12
-  %27 = zext nneg i32 %26 to i64
-  %28 = sext i32 %11 to i64
+  %25 = sub nsw i32 64, %12
+  %26 = zext nneg i32 %25 to i64
+  %27 = shl i64 %24, %26
+  %28 = icmp ne i64 %.0.lcssa, 0
+  %29 = zext i1 %28 to i64
+  %30 = zext nneg i32 %12 to i64
+  %31 = lshr i64 %.0.lcssa, %30
+  %32 = or i64 %31, %29
+  %33 = or i64 %32, %27
+  %34 = zext nneg i32 %12 to i64
+  %35 = sub nsw i32 64, %12
+  %36 = zext nneg i32 %35 to i64
+  %37 = sext i32 %11 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 3)
-  %29 = add nuw nsw i32 %smax, 1
-  %wide.trip.count52 = zext nneg i32 %29 to i64
+  %38 = add nuw nsw i32 %smax, 1
+  %wide.trip.count52 = zext nneg i32 %38 to i64
   br label %.lr.ph45.split
 
 .lr.ph45.split.us.preheader:                      ; preds = %._crit_edge
-  %30 = shl nsw i64 %17, 3
-  %scevgep = getelementptr i8, ptr %4, i64 %30
+  %39 = shl nsw i64 %17, 3
+  %scevgep = getelementptr i8, ptr %4, i64 %39
   %smax54 = tail call i32 @llvm.smax.i32(i32 %11, i32 3)
-  %31 = sub nsw i32 %smax54, %11
-  %32 = zext i32 %31 to i64
-  %33 = shl nuw nsw i64 %32, 3
-  %34 = add nuw nsw i64 %33, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i64 %34, i1 false), !tbaa !155
+  %40 = sub nsw i32 %smax54, %11
+  %41 = zext i32 %40 to i64
+  %42 = shl nuw nsw i64 %41, 3
+  %43 = add nuw nsw i64 %42, 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i64 %43, i1 false), !tbaa !155
   br label %._crit_edge46
 
-._crit_edge46.loopexit:                           ; preds = %56
-  %35 = sub nsw i32 64, %12
-  %36 = zext nneg i32 %35 to i64
-  %37 = shl i64 %24, %36
-  %38 = icmp ne i64 %.0.lcssa, 0
-  %39 = zext i1 %38 to i64
-  %40 = zext nneg i32 %12 to i64
-  %41 = lshr i64 %.0.lcssa, %40
-  %42 = or i64 %41, %39
-  %43 = or i64 %42, %37
-  br label %._crit_edge46
-
-._crit_edge46:                                    ; preds = %._crit_edge46.loopexit, %.lr.ph45.split.us.preheader
-  %.160 = phi i64 [ %.0.lcssa, %.lr.ph45.split.us.preheader ], [ %43, %._crit_edge46.loopexit ]
+._crit_edge46:                                    ; preds = %56, %.lr.ph45.split.us.preheader
+  %.160 = phi i64 [ %.0.lcssa, %.lr.ph45.split.us.preheader ], [ %33, %56 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %44 = icmp ugt i64 %.160, -9223372036854775808
   br i1 %44, label %57, label %60
 
 .lr.ph45.split:                                   ; preds = %.lr.ph45.split.preheader, %56
-  %indvars.iv49 = phi i64 [ %28, %.lr.ph45.split.preheader ], [ %indvars.iv.next50, %56 ]
+  %indvars.iv49 = phi i64 [ %37, %.lr.ph45.split.preheader ], [ %indvars.iv.next50, %56 ]
   %45 = getelementptr i64, ptr %4, i64 %indvars.iv49
   %46 = load i64, ptr %45, align 8, !tbaa !155
-  %47 = lshr i64 %46, %25
-  %48 = sub nsw i64 %indvars.iv49, %28
+  %47 = lshr i64 %46, %34
+  %48 = sub nsw i64 %indvars.iv49, %37
   %49 = getelementptr inbounds nuw i64, ptr %5, i64 %48
   store i64 %47, ptr %49, align 8, !tbaa !155
   %50 = icmp eq i64 %indvars.iv49, 3
@@ -12015,7 +12012,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17
 51:                                               ; preds = %.lr.ph45.split
   %52 = getelementptr i8, ptr %45, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !155
-  %54 = shl i64 %53, %27
+  %54 = shl i64 %53, %36
   %55 = or i64 %54, %47
   store i64 %55, ptr %49, align 8, !tbaa !155
   br label %56
@@ -12023,7 +12020,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17
 56:                                               ; preds = %.lr.ph45.split, %51
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
-  br i1 %exitcond53.not, label %._crit_edge46.loopexit, label %.lr.ph45.split, !llvm.loop !483
+  br i1 %exitcond53.not, label %._crit_edge46, label %.lr.ph45.split, !llvm.loop !483
 
 57:                                               ; preds = %._crit_edge46
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

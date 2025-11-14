@@ -95,8 +95,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc23
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %27, 3
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %26, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !26
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i.i.i.i.i.i
   br label %31
 
 .thread38:                                        ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -274,55 +274,52 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
 .lr.ph:                                           ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %15 = shl nuw nsw i64 %13, 3
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #20
+  %17 = getelementptr inbounds nuw double, ptr %16, i64 %13
   store double 0.000000e+00, ptr %16, align 8, !tbaa !26
-  %17 = getelementptr i8, ptr %16, i64 8
+  %18 = getelementptr i8, ptr %16, i64 8
   %.idx.i.i.i.i.i.i.i = add nsw i64 %15, -8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %17, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !26
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !23
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !24
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !28
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !22
-  %26 = load ptr, ptr %21, align 8, !tbaa !23
-  %27 = ptrtoint ptr %25 to i64
-  %28 = ptrtoint ptr %26 to i64
-  %29 = sub i64 %27, %28
-  %30 = lshr exact i64 %29, 3
-  %31 = add nuw nsw i64 %30, 4294967295
-  %32 = and i64 %31, 4294967295
-  %33 = zext nneg i32 %11 to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %18, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !26
+  %19 = getelementptr i8, ptr %16, i64 %15
+  %20 = ptrtoint ptr %17 to i64
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %26 = load ptr, ptr %25, align 8, !tbaa !28
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !22
+  %29 = load ptr, ptr %24, align 8, !tbaa !23
+  %30 = ptrtoint ptr %28 to i64
+  %31 = ptrtoint ptr %29 to i64
+  %32 = sub i64 %30, %31
+  %33 = lshr exact i64 %32, 3
+  %34 = add nuw nsw i64 %33, 4294967295
+  %35 = and i64 %34, 4294967295
+  %36 = zext nneg i32 %11 to i64
   %wide.trip.count = zext nneg i32 %11 to i64
-  %invariant.gep = getelementptr inbounds nuw double, ptr %16, i64 %33
+  %invariant.gep = getelementptr inbounds nuw double, ptr %16, i64 %36
   br label %37
 
-._crit_edge.loopexit:                             ; preds = %_ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit
-  %34 = getelementptr inbounds nuw double, ptr %16, i64 %13
-  %35 = getelementptr i8, ptr %16, i64 %15
-  %36 = ptrtoint ptr %34 to i64
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %.0.i.i.i.i.i104 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %35, %._crit_edge.loopexit ]
-  %.sroa.058.0101 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %._crit_edge.loopexit ]
-  %.sroa.17.0100 = phi i64 [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %36, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %_ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+  %.0.i.i.i.i.i104 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %19, %_ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit ]
+  %.sroa.058.0101 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %_ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit ]
+  %.sroa.17.0100 = phi i64 [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %20, %_ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %101, label %90
 
 37:                                               ; preds = %.lr.ph, %_ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.next
+  %38 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv.next
   %39 = load double, ptr %38, align 8, !tbaa !26
-  %40 = load double, ptr %19, align 8, !tbaa !26
+  %40 = load double, ptr %22, align 8, !tbaa !26
   %41 = fsub double %39, %40
   %42 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
   store double %41, ptr %42, align 8, !tbaa !26
-  %43 = getelementptr inbounds nuw %"struct.gmx::EnumerationArray.5", ptr %23, i64 %indvars.iv.next
+  %43 = getelementptr inbounds nuw %"struct.gmx::EnumerationArray.5", ptr %26, i64 %indvars.iv.next
   %44 = icmp eq i64 %indvars.iv, 0
-  %45 = icmp eq i64 %indvars.iv, %32
+  %45 = icmp eq i64 %indvars.iv, %35
   br i1 %44, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %37
@@ -341,7 +338,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
 .split.us.split.i:                                ; preds = %.split.us.i, %.split.us.split.i
   %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.split.us.split.i ], [ 0, %.split.us.i ]
   %.041.us.i = phi double [ %59, %.split.us.split.i ], [ 0.000000e+00, %.split.us.i ]
-  %49 = getelementptr inbounds nuw %"class.std::vector", ptr %21, i64 %indvars.iv61.i
+  %49 = getelementptr inbounds nuw %"class.std::vector", ptr %24, i64 %indvars.iv61.i
   %50 = load ptr, ptr %49, align 8, !tbaa !23
   %51 = getelementptr i8, ptr %50, i64 8
   %52 = load double, ptr %51, align 8, !tbaa !26
@@ -363,9 +360,9 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
 .split.split.us.i:                                ; preds = %.split.i, %.split.split.us.i
   %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %.split.split.us.i ], [ 0, %.split.i ]
   %.041.us44.i = phi double [ %71, %.split.split.us.i ], [ 0.000000e+00, %.split.i ]
-  %60 = getelementptr inbounds nuw %"class.std::vector", ptr %21, i64 %indvars.iv58.i
+  %60 = getelementptr inbounds nuw %"class.std::vector", ptr %24, i64 %indvars.iv58.i
   %61 = load ptr, ptr %60, align 8, !tbaa !23
-  %62 = getelementptr double, ptr %61, i64 %32
+  %62 = getelementptr double, ptr %61, i64 %35
   %63 = load double, ptr %62, align 8, !tbaa !26
   %64 = getelementptr i8, ptr %62, i64 -8
   %65 = load double, ptr %64, align 8, !tbaa !26
@@ -383,7 +380,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
 .split.split.i:                                   ; preds = %.split.i, %.split.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.split.i ], [ 0, %.split.i ]
   %.041.i = phi double [ %89, %.split.split.i ], [ 0.000000e+00, %.split.i ]
-  %72 = getelementptr inbounds nuw %"class.std::vector", ptr %21, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw %"class.std::vector", ptr %24, i64 %indvars.iv.i
   %73 = load ptr, ptr %72, align 8, !tbaa !23
   %74 = getelementptr double, ptr %73, i64 %indvars.iv
   %75 = load double, ptr %74, align 8, !tbaa !26
@@ -412,7 +409,7 @@ _ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeS
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
   store double %.us-phi.i, ptr %gep, align 8, !tbaa !26
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %37, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !38
 
 90:                                               ; preds = %._crit_edge
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -965,8 +962,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !68
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i

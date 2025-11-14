@@ -3580,8 +3580,8 @@ declare noundef ptr @_ZN4pbrt13RGBColorSpace8GetNamedENSt7__cxx1112basic_stringI
 define dso_local void @_ZN4pbrt17BasicSceneBuilder8IdentityENS_7FileLocE(ptr noundef nonnull align 64 captures(none) dereferenceable(3544) %0, ptr noundef readnone byval(%"struct.pbrt::FileLoc") align 8 captures(none) %1) unnamed_addr #10 align 2 {
   %3 = alloca %"class.pbrt::Transform", align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = load i32, ptr %4, align 32, !tbaa !62
   br label %8
 
@@ -3621,7 +3621,7 @@ _ZN4pbrt12TransformSetixEi.exit.i:                ; preds = %8
 
 .preheader.i1.i.i.i:                              ; preds = %14, %20
   %indvars.iv12.i2.i.i.i = phi i64 [ %indvars.iv.next13.i6.i.i.i, %20 ], [ 0, %14 ]
-  %19 = getelementptr inbounds nuw [4 x float], ptr %5, i64 %indvars.iv12.i2.i.i.i
+  %19 = getelementptr inbounds nuw [4 x float], ptr %6, i64 %indvars.iv12.i2.i.i.i
   br label %21
 
 20:                                               ; preds = %21
@@ -3640,7 +3640,7 @@ _ZN4pbrt12TransformSetixEi.exit.i:                ; preds = %8
   br i1 %exitcond.not.i5.i.i.i, label %20, label %21, !llvm.loop !61
 
 _ZN4pbrt12TransformSetixEi.exit5.i:               ; preds = %20
-  %25 = getelementptr inbounds nuw %"class.pbrt::Transform", ptr %6, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw %"class.pbrt::Transform", ptr %5, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %25, ptr noundef nonnull align 4 dereferenceable(128) %3, i64 128, i1 false), !tbaa.struct !180
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %26
@@ -16308,8 +16308,8 @@ define dso_local void @_ZN4pbrt17BasicSceneBuilder9TransformEPfNS_7FileLocE(ptr 
   %8 = alloca %"class.pbrt::SquareMatrix.7", align 4
   %9 = alloca %"class.pbrt::Transform", align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 64
   br label %15
@@ -16350,7 +16350,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2EN4pstd4spanIKfEE.exit.i.i: ; preds = %21
 
 .preheader.i.i.i.i:                               ; preds = %30, %_ZN4pbrt12SquareMatrixILi4EEC2EN4pstd4spanIKfEE.exit.i.i
   %indvars.iv12.i.i.i.i = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2EN4pstd4spanIKfEE.exit.i.i ], [ %indvars.iv.next13.i.i.i.i, %30 ]
-  %29 = getelementptr inbounds nuw [4 x float], ptr %11, i64 %indvars.iv12.i.i.i.i
+  %29 = getelementptr inbounds nuw [4 x float], ptr %12, i64 %indvars.iv12.i.i.i.i
   br label %31
 
 30:                                               ; preds = %31
@@ -16369,7 +16369,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2EN4pstd4spanIKfEE.exit.i.i: ; preds = %21
   br i1 %exitcond.not.i.i.i.i, label %30, label %31, !llvm.loop !61
 
 _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i.i.i:      ; preds = %30
-  %35 = getelementptr inbounds nuw %"class.pbrt::Transform", ptr %12, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw %"class.pbrt::Transform", ptr %11, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !522
   call void @_ZN4pbrt7InverseILi4EEEN4pstd8optionalINS_12SquareMatrixIXT_EEEEERKS4_(ptr dead_on_unwind nonnull writable sret(%"class.pstd::optional.288") align 4 %6, ptr noundef nonnull align 4 dereferenceable(64) %8), !noalias !522
   %36 = load i8, ptr %13, align 4, !tbaa !386, !range !168, !noalias !522, !noundef !169
@@ -16377,12 +16377,12 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i.i.i:      ; preds = %30
   br i1 %37, label %.thread.i.i.i, label %.preheader.i.i.i
 
 .thread.i.i.i:                                    ; preds = %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !195, !noalias !522
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !195, !noalias !522
   br label %_ZN4pbrt9TransformC2ERKNS_12SquareMatrixILi4EEE.exit.i.i
 
 .preheader.i.i.i:                                 ; preds = %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i.i.i, %39
   %indvars.iv21.i.i.i = phi i64 [ %indvars.iv.next22.i.i.i, %39 ], [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i.i.i ]
-  %38 = getelementptr inbounds nuw [4 x float], ptr %11, i64 %indvars.iv21.i.i.i
+  %38 = getelementptr inbounds nuw [4 x float], ptr %12, i64 %indvars.iv21.i.i.i
   br label %40
 
 39:                                               ; preds = %40
@@ -16472,7 +16472,7 @@ _ZN4pbrt9TransposeILi4EEENS_12SquareMatrixIXT_EEERKS2_.exit.i.i.i: ; preds = %_Z
 
 .preheader.i9.i.i.i:                              ; preds = %53, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i16.i.i.i
   %indvars.iv16.i10.i.i.i = phi i64 [ %indvars.iv.next17.i17.i.i.i, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i16.i.i.i ], [ 0, %53 ]
-  %invariant.gep.i11.i.i.i = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv16.i10.i.i.i
+  %invariant.gep.i11.i.i.i = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv16.i10.i.i.i
   %58 = getelementptr inbounds nuw [4 x float], ptr %5, i64 %indvars.iv16.i10.i.i.i
   br label %59
 

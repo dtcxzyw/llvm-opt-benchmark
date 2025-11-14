@@ -1695,39 +1695,39 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_Z18G
 5:                                                ; preds = %3
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %7 = trunc i64 %6 to i32
+  %8 = and i32 %7, 3
   %.not60.i = icmp ult i32 %7, 4
   br i1 %.not60.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %5
-  %8 = lshr i32 %7, 2
+  %9 = lshr i32 %7, 2
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.05463.i = phi ptr [ %19, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
-  %.05562.i = phi i32 [ %21, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.15761.i = phi i32 [ %22, %.lr.ph.i ], [ %8, %.lr.ph.preheader.i ]
-  %9 = load i16, ptr %.05463.i, align 1
-  %10 = zext i16 %9 to i32
-  %11 = add i32 %.05562.i, %10
-  %12 = getelementptr inbounds nuw i8, ptr %.05463.i, i64 2
-  %13 = load i16, ptr %12, align 1
-  %14 = zext i16 %13 to i32
-  %15 = shl nuw nsw i32 %14, 11
-  %16 = shl i32 %11, 16
-  %17 = xor i32 %15, %16
-  %18 = xor i32 %17, %11
-  %19 = getelementptr inbounds nuw i8, ptr %.05463.i, i64 4
-  %20 = lshr i32 %18, 11
-  %21 = add i32 %20, %18
-  %22 = add nsw i32 %.15761.i, -1
-  %.not.i = icmp eq i32 %22, 0
+  %.05463.i = phi ptr [ %20, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
+  %.05562.i = phi i32 [ %22, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.15761.i = phi i32 [ %23, %.lr.ph.i ], [ %9, %.lr.ph.preheader.i ]
+  %10 = load i16, ptr %.05463.i, align 1
+  %11 = zext i16 %10 to i32
+  %12 = add i32 %.05562.i, %11
+  %13 = getelementptr inbounds nuw i8, ptr %.05463.i, i64 2
+  %14 = load i16, ptr %13, align 1
+  %15 = zext i16 %14 to i32
+  %16 = shl nuw nsw i32 %15, 11
+  %17 = shl i32 %12, 16
+  %18 = xor i32 %16, %17
+  %19 = xor i32 %18, %12
+  %20 = getelementptr inbounds nuw i8, ptr %.05463.i, i64 4
+  %21 = lshr i32 %19, 11
+  %22 = add i32 %21, %19
+  %23 = add nsw i32 %.15761.i, -1
+  %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %5
-  %.055.lcssa.i = phi i32 [ 0, %5 ], [ %21, %.lr.ph.i ]
-  %.054.lcssa.i = phi ptr [ %1, %5 ], [ %19, %.lr.ph.i ]
-  %23 = and i32 %7, 3
-  switch i32 %23, label %default.unreachable [
+  %.055.lcssa.i = phi i32 [ 0, %5 ], [ %22, %.lr.ph.i ]
+  %.054.lcssa.i = phi ptr [ %1, %5 ], [ %20, %.lr.ph.i ]
+  switch i32 %8, label %default.unreachable [
     i32 3, label %24
     i32 2, label %38
     i32 1, label %46

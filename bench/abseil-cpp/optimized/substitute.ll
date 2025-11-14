@@ -415,37 +415,37 @@ _ZSt6fill_nIPclcET_S1_T0_RKT1_.exit:              ; preds = %23, %17, %11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define dso_local void @_ZN4absl19substitute_internal3ArgC2ENS_3DecE(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 %1, i64 %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = icmp ugt i64 %1, 9
-  br i1 %5, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %.02734 = phi ptr [ %9, %.lr.ph ], [ %4, %3 ]
-  %.02833 = phi i64 [ %10, %.lr.ph ], [ %1, %3 ]
-  %6 = urem i64 %.02833, 10
-  %7 = trunc nuw nsw i64 %6 to i8
-  %8 = or disjoint i8 %7, 48
-  %9 = getelementptr inbounds i8, ptr %.02734, i64 -1
-  store i8 %8, ptr %9, align 1, !tbaa !4
-  %10 = udiv i64 %.02833, 10
-  %11 = icmp ugt i64 %.02833, 99
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !25
-
-._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.028.lcssa = phi i64 [ %1, %3 ], [ %10, %.lr.ph ]
-  %.027.lcssa = phi ptr [ %4, %3 ], [ %9, %.lr.ph ]
   %.sroa.431.8.extract.shift = lshr i64 %2, 8
   %.sroa.431.8.extract.trunc = trunc i64 %.sroa.431.8.extract.shift to i8
-  %12 = and i64 %2, 255
-  %13 = sub nsw i64 0, %12
-  %14 = getelementptr inbounds i8, ptr %4, i64 %13
-  %15 = and i64 %2, 65536
-  %16 = icmp ne i64 %15, 0
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = and i64 %2, 255
+  %6 = sub nsw i64 0, %5
+  %7 = getelementptr inbounds i8, ptr %4, i64 %6
+  %8 = and i64 %2, 65536
+  %9 = icmp ne i64 %8, 0
+  %10 = icmp ugt i64 %1, 9
+  br i1 %10, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %3, %.lr.ph
+  %.02734 = phi ptr [ %14, %.lr.ph ], [ %4, %3 ]
+  %.02833 = phi i64 [ %15, %.lr.ph ], [ %1, %3 ]
+  %11 = urem i64 %.02833, 10
+  %12 = trunc nuw nsw i64 %11 to i8
+  %13 = or disjoint i8 %12, 48
+  %14 = getelementptr inbounds i8, ptr %.02734, i64 -1
+  store i8 %13, ptr %14, align 1, !tbaa !4
+  %15 = udiv i64 %.02833, 10
+  %16 = icmp ugt i64 %.02833, 99
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  %.028.lcssa = phi i64 [ %1, %3 ], [ %15, %.lr.ph ]
+  %.027.lcssa = phi ptr [ %4, %3 ], [ %14, %.lr.ph ]
   %17 = trunc nuw nsw i64 %.028.lcssa to i8
   %18 = or disjoint i8 %17, 48
   %19 = getelementptr inbounds i8, ptr %.027.lcssa, i64 -1
   store i8 %18, ptr %19, align 1, !tbaa !4
-  br i1 %16, label %20, label %22
+  br i1 %9, label %20, label %22
 
 20:                                               ; preds = %._crit_edge
   %21 = getelementptr inbounds i8, ptr %.027.lcssa, i64 -2
@@ -455,14 +455,14 @@ define dso_local void @_ZN4absl19substitute_internal3ArgC2ENS_3DecE(ptr noundef 
 22:                                               ; preds = %20, %._crit_edge
   %.1 = phi ptr [ %21, %20 ], [ %19, %._crit_edge ]
   %23 = ptrtoint ptr %.1 to i64
-  %24 = ptrtoint ptr %14 to i64
+  %24 = ptrtoint ptr %7 to i64
   %25 = sub i64 %23, %24
   %26 = icmp sgt i64 %25, 0
   br i1 %26, label %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit, label %32
 
 _ZSt6fill_nIPclcET_S1_T0_RKT1_.exit:              ; preds = %22
   %27 = icmp eq i8 %.sroa.431.8.extract.trunc, 48
-  %or.cond = select i1 %16, i1 %27, i1 false
+  %or.cond = select i1 %9, i1 %27, i1 false
   %spec.select.idx = zext i1 %or.cond to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.1, i64 %spec.select.idx
   %28 = sub nsw i64 0, %25

@@ -1165,15 +1165,15 @@ define internal fastcc noundef range(i32 0, -1) i32 @_ZL11sumUpStatesP9UCMStates
   %55 = icmp sgt i32 %.pre.pr, 1
   br i1 %55, label %.lr.ph108, label %._crit_edge109
 
-.lr.ph108:                                        ; preds = %.lr.ph101.split.us, %73
-  %56 = phi i32 [ %74, %73 ], [ %.pre.pr, %.lr.ph101.split.us ]
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %73 ], [ 1, %.lr.ph101.split.us ]
-  %.5105 = phi i32 [ %.6, %73 ], [ %54, %.lr.ph101.split.us ]
+.lr.ph108:                                        ; preds = %.lr.ph101.split.us, %.loopexit
+  %56 = phi i32 [ %73, %.loopexit ], [ %.pre.pr, %.lr.ph101.split.us ]
+  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.loopexit ], [ 1, %.lr.ph101.split.us ]
+  %.5105 = phi i32 [ %.6, %.loopexit ], [ %54, %.lr.ph101.split.us ]
   %57 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv123
   %58 = load i32, ptr %57, align 4, !tbaa !11
   %59 = and i32 %58, 15
   %60 = icmp eq i32 %59, 1
-  br i1 %60, label %61, label %73
+  br i1 %60, label %61, label %.loopexit
 
 61:                                               ; preds = %.lr.ph108
   %62 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv123
@@ -1196,32 +1196,32 @@ define internal fastcc noundef range(i32 0, -1) i32 @_ZL11sumUpStatesP9UCMStates
 71:                                               ; preds = %65, %69
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next120, 256
-  br i1 %exitcond122.not, label %.loopexit, label %65, !llvm.loop !36
+  br i1 %exitcond122.not, label %.loopexit.loopexit, label %65, !llvm.loop !36
 
-.loopexit:                                        ; preds = %71
+.loopexit.loopexit:                               ; preds = %71
   %72 = add i32 %63, %.5105
   %.pre126 = load i32, ptr %2, align 4, !tbaa !3
-  br label %73
+  br label %.loopexit
 
-73:                                               ; preds = %.loopexit, %.lr.ph108
-  %74 = phi i32 [ %56, %.lr.ph108 ], [ %.pre126, %.loopexit ]
-  %.6 = phi i32 [ %.5105, %.lr.ph108 ], [ %72, %.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph108
+  %73 = phi i32 [ %56, %.lr.ph108 ], [ %.pre126, %.loopexit.loopexit ]
+  %.6 = phi i32 [ %.5105, %.lr.ph108 ], [ %72, %.loopexit.loopexit ]
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %75 = sext i32 %74 to i64
-  %76 = icmp slt i64 %indvars.iv.next124, %75
-  br i1 %76, label %.lr.ph108, label %._crit_edge109, !llvm.loop !37
+  %74 = sext i32 %73 to i64
+  %75 = icmp slt i64 %indvars.iv.next124, %74
+  br i1 %75, label %.lr.ph108, label %._crit_edge109, !llvm.loop !37
 
 ._crit_edge109.sink.split:                        ; preds = %.lr.ph101.split, %.lr.ph101
-  %77 = load i32, ptr %6, align 4, !tbaa !11
+  %76 = load i32, ptr %6, align 4, !tbaa !11
   br label %._crit_edge109
 
-._crit_edge109:                                   ; preds = %73, %._crit_edge109.sink.split, %.lr.ph101.split.us
-  %.5.lcssa = phi i32 [ %54, %.lr.ph101.split.us ], [ %77, %._crit_edge109.sink.split ], [ %.6, %73 ]
-  %78 = add nsw i32 %.5.lcssa, 1
-  %79 = and i32 %78, -2
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 132108
-  store i32 %79, ptr %80, align 4, !tbaa !38
-  ret i32 %79
+._crit_edge109:                                   ; preds = %.loopexit, %._crit_edge109.sink.split, %.lr.ph101.split.us
+  %.5.lcssa = phi i32 [ %54, %.lr.ph101.split.us ], [ %76, %._crit_edge109.sink.split ], [ %.6, %.loopexit ]
+  %77 = add nsw i32 %.5.lcssa, 1
+  %78 = and i32 %77, -2
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 132108
+  store i32 %78, ptr %79, align 4, !tbaa !38
+  ret i32 %78
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

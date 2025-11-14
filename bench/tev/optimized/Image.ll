@@ -2874,21 +2874,21 @@ _ZN3tev4TaskIvE12await_resumeEv.exit:             ; preds = %456
   br label %478
 
 ._crit_edge417:                                   ; preds = %_ZN3tev4TaskIvE12await_resumeEv.exit, %._crit_edge.thread, %._crit_edge
+  %463 = getelementptr inbounds nuw i8, ptr %19, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %18, i8 0, i64 64, i1 false)
-  br label %463
+  br label %464
 
-463:                                              ; preds = %463, %._crit_edge417
-  %.05.i194 = phi i64 [ 0, %._crit_edge417 ], [ %466, %463 ]
-  %464 = getelementptr inbounds nuw [4 x float], ptr %18, i64 %.05.i194
-  %465 = getelementptr inbounds nuw float, ptr %464, i64 %.05.i194
-  store float 1.000000e+00, ptr %465, align 4
-  %466 = add nuw nsw i64 %.05.i194, 1
-  %exitcond.not.i195 = icmp eq i64 %466, 4
-  br i1 %exitcond.not.i195, label %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit196, label %463, !llvm.loop !20
+464:                                              ; preds = %464, %._crit_edge417
+  %.05.i194 = phi i64 [ 0, %._crit_edge417 ], [ %467, %464 ]
+  %465 = getelementptr inbounds nuw [4 x float], ptr %18, i64 %.05.i194
+  %466 = getelementptr inbounds nuw float, ptr %465, i64 %.05.i194
+  store float 1.000000e+00, ptr %466, align 4
+  %467 = add nuw nsw i64 %.05.i194, 1
+  %exitcond.not.i195 = icmp eq i64 %467, 4
+  br i1 %exitcond.not.i195, label %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit196, label %464, !llvm.loop !20
 
-_ZN7nanogui6MatrixIfLm4EEC2Ef.exit196:            ; preds = %463
-  %467 = getelementptr inbounds nuw i8, ptr %19, i64 80
+_ZN7nanogui6MatrixIfLm4EEC2Ef.exit196:            ; preds = %464
   %468 = load ptr, ptr %31, align 8
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %469, ptr noundef nonnull align 4 dereferenceable(64) %18, i64 64, i1 false)
@@ -2898,7 +2898,7 @@ _ZN7nanogui6MatrixIfLm4EEC2Ef.exit196:            ; preds = %463
   br i1 %.not.i.i197, label %_ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEED2B8ne190000Ev.exit, label %471
 
 471:                                              ; preds = %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit196
-  %472 = load ptr, ptr %467, align 8
+  %472 = load ptr, ptr %463, align 8
   %.not6.i.i.i.i = icmp eq ptr %470, %472
   br i1 %.not6.i.i.i.i, label %_ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE7__clearB8ne190000Ev.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -2915,7 +2915,7 @@ _ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE7__clearB8ne190000Ev.exit.i.l
 
 _ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE7__clearB8ne190000Ev.exit.i.i: ; preds = %_ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, %471
   %474 = phi ptr [ %.pre.i, %_ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEE7__clearB8ne190000Ev.exit.i.loopexit.i ], [ %470, %471 ]
-  store ptr %470, ptr %467, align 8
+  store ptr %470, ptr %463, align 8
   call void @_ZdlPv(ptr noundef %474) #32
   br label %_ZNSt3__16vectorIN3tev4TaskIvEENS_9allocatorIS3_EEED2B8ne190000Ev.exit
 

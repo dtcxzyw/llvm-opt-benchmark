@@ -864,93 +864,93 @@ define hidden void @_sodium_fe25519_invert(ptr noundef writeonly captures(none) 
   %653 = lshr i64 %652, 51
   %654 = and i64 %652, 2251799813685247
   %655 = add nuw nsw i64 %653, %633
-  br label %656
+  %656 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %657 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %658 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %659 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  br label %660
 
-656:                                              ; preds = %582, %656
-  %.243 = phi i32 [ 1, %582 ], [ %726, %656 ]
-  %657 = phi i64 [ %651, %582 ], [ %721, %656 ]
-  %658 = phi i64 [ %654, %582 ], [ %724, %656 ]
-  %659 = phi i64 [ %655, %582 ], [ %725, %656 ]
-  %660 = phi i64 [ %638, %582 ], [ %709, %656 ]
-  %661 = phi i64 [ %645, %582 ], [ %715, %656 ]
-  %662 = zext nneg i64 %657 to i128
-  %663 = zext nneg i64 %658 to i128
-  %664 = zext nneg i64 %659 to i128
-  %665 = zext nneg i64 %660 to i128
+660:                                              ; preds = %582, %660
+  %.243 = phi i32 [ 1, %582 ], [ %730, %660 ]
+  %661 = phi i64 [ %651, %582 ], [ %725, %660 ]
+  %662 = phi i64 [ %654, %582 ], [ %728, %660 ]
+  %663 = phi i64 [ %655, %582 ], [ %729, %660 ]
+  %664 = phi i64 [ %638, %582 ], [ %713, %660 ]
+  %665 = phi i64 [ %645, %582 ], [ %719, %660 ]
   %666 = zext nneg i64 %661 to i128
-  %667 = shl nuw nsw i128 %662, 1
-  %668 = shl nuw nsw i128 %663, 1
-  %669 = mul nuw nsw i128 %664, 38
-  %670 = mul nuw nsw i128 %665, 19
-  %671 = mul nuw nsw i128 %666, 19
-  %672 = mul nuw nsw i128 %662, %662
-  %673 = mul nuw nsw i128 %666, 38
-  %674 = mul nuw nsw i128 %673, %663
-  %675 = mul nuw nsw i128 %669, %665
-  %676 = add nuw nsw i128 %675, %674
-  %677 = add nuw nsw i128 %676, %672
-  %678 = mul nuw nsw i128 %667, %663
-  %679 = mul nuw nsw i128 %669, %666
-  %680 = mul nuw nsw i128 %670, %665
-  %681 = mul nuw nsw i128 %667, %664
-  %682 = mul nuw nsw i128 %663, %663
-  %683 = mul nuw nsw i128 %673, %665
-  %684 = mul nuw nsw i128 %667, %665
-  %685 = mul nuw nsw i128 %668, %664
-  %686 = mul nuw nsw i128 %671, %666
-  %687 = mul nuw nsw i128 %667, %666
-  %688 = mul nuw nsw i128 %668, %665
-  %689 = mul nuw nsw i128 %664, %664
-  %690 = trunc i128 %677 to i64
-  %691 = and i64 %690, 2251799813685247
-  %692 = lshr i128 %677, 51
-  %693 = add nuw nsw i128 %679, %680
-  %694 = add nuw nsw i128 %693, %678
-  %695 = add nuw nsw i128 %694, %692
-  %696 = trunc i128 %695 to i64
-  %697 = and i64 %696, 2251799813685247
-  %698 = lshr i128 %695, 51
-  %699 = add nuw nsw i128 %682, %683
-  %700 = add nuw nsw i128 %699, %681
-  %701 = add nuw nsw i128 %700, %698
-  %702 = trunc i128 %701 to i64
-  %703 = and i64 %702, 2251799813685247
-  %704 = lshr i128 %701, 51
-  %705 = add nuw nsw i128 %685, %686
-  %706 = add nuw nsw i128 %705, %684
-  %707 = add nuw nsw i128 %706, %704
-  %708 = trunc i128 %707 to i64
-  %709 = and i64 %708, 2251799813685247
-  %710 = lshr i128 %707, 51
-  %711 = add nuw nsw i128 %688, %689
-  %712 = add nuw nsw i128 %711, %687
-  %713 = add nuw nsw i128 %712, %710
-  %714 = trunc i128 %713 to i64
-  %715 = and i64 %714, 2251799813685247
-  %716 = lshr i128 %713, 51
-  %717 = trunc nuw nsw i128 %716 to i64
-  %718 = mul nuw nsw i64 %717, 19
-  %719 = add nuw nsw i64 %718, %691
-  %720 = lshr i64 %719, 51
-  %721 = and i64 %719, 2251799813685247
-  %722 = add nuw nsw i64 %720, %697
-  %723 = lshr i64 %722, 51
-  %724 = and i64 %722, 2251799813685247
-  %725 = add nuw nsw i64 %723, %703
-  %726 = add nuw nsw i32 %.243, 1
-  %exitcond134.not = icmp eq i32 %726, 20
-  br i1 %exitcond134.not, label %727, label %656, !llvm.loop !7
+  %667 = zext nneg i64 %662 to i128
+  %668 = zext nneg i64 %663 to i128
+  %669 = zext nneg i64 %664 to i128
+  %670 = zext nneg i64 %665 to i128
+  %671 = shl nuw nsw i128 %666, 1
+  %672 = shl nuw nsw i128 %667, 1
+  %673 = mul nuw nsw i128 %668, 38
+  %674 = mul nuw nsw i128 %669, 19
+  %675 = mul nuw nsw i128 %670, 19
+  %676 = mul nuw nsw i128 %666, %666
+  %677 = mul nuw nsw i128 %670, 38
+  %678 = mul nuw nsw i128 %677, %667
+  %679 = mul nuw nsw i128 %673, %669
+  %680 = add nuw nsw i128 %679, %678
+  %681 = add nuw nsw i128 %680, %676
+  %682 = mul nuw nsw i128 %671, %667
+  %683 = mul nuw nsw i128 %673, %670
+  %684 = mul nuw nsw i128 %674, %669
+  %685 = mul nuw nsw i128 %671, %668
+  %686 = mul nuw nsw i128 %667, %667
+  %687 = mul nuw nsw i128 %677, %669
+  %688 = mul nuw nsw i128 %671, %669
+  %689 = mul nuw nsw i128 %672, %668
+  %690 = mul nuw nsw i128 %675, %670
+  %691 = mul nuw nsw i128 %671, %670
+  %692 = mul nuw nsw i128 %672, %669
+  %693 = mul nuw nsw i128 %668, %668
+  %694 = trunc i128 %681 to i64
+  %695 = and i64 %694, 2251799813685247
+  %696 = lshr i128 %681, 51
+  %697 = add nuw nsw i128 %683, %684
+  %698 = add nuw nsw i128 %697, %682
+  %699 = add nuw nsw i128 %698, %696
+  %700 = trunc i128 %699 to i64
+  %701 = and i64 %700, 2251799813685247
+  %702 = lshr i128 %699, 51
+  %703 = add nuw nsw i128 %686, %687
+  %704 = add nuw nsw i128 %703, %685
+  %705 = add nuw nsw i128 %704, %702
+  %706 = trunc i128 %705 to i64
+  %707 = and i64 %706, 2251799813685247
+  %708 = lshr i128 %705, 51
+  %709 = add nuw nsw i128 %689, %690
+  %710 = add nuw nsw i128 %709, %688
+  %711 = add nuw nsw i128 %710, %708
+  %712 = trunc i128 %711 to i64
+  %713 = and i64 %712, 2251799813685247
+  %714 = lshr i128 %711, 51
+  %715 = add nuw nsw i128 %692, %693
+  %716 = add nuw nsw i128 %715, %691
+  %717 = add nuw nsw i128 %716, %714
+  %718 = trunc i128 %717 to i64
+  %719 = and i64 %718, 2251799813685247
+  %720 = lshr i128 %717, 51
+  %721 = trunc nuw nsw i128 %720 to i64
+  %722 = mul nuw nsw i64 %721, 19
+  %723 = add nuw nsw i64 %722, %695
+  %724 = lshr i64 %723, 51
+  %725 = and i64 %723, 2251799813685247
+  %726 = add nuw nsw i64 %724, %701
+  %727 = lshr i64 %726, 51
+  %728 = and i64 %726, 2251799813685247
+  %729 = add nuw nsw i64 %727, %707
+  %730 = add nuw nsw i32 %.243, 1
+  %exitcond134.not = icmp eq i32 %730, 20
+  br i1 %exitcond134.not, label %731, label %660, !llvm.loop !7
 
-727:                                              ; preds = %656
-  %728 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %729 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %730 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %731 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 %721, ptr %6, align 16
-  store i64 %724, ptr %728, align 8
-  store i64 %725, ptr %729, align 16
-  store i64 %709, ptr %730, align 8
-  store i64 %715, ptr %731, align 16
+731:                                              ; preds = %660
+  store i64 %725, ptr %6, align 16
+  store i64 %728, ptr %656, align 8
+  store i64 %729, ptr %657, align 16
+  store i64 %713, ptr %658, align 8
+  store i64 %719, ptr %659, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %.promoted44 = load i64, ptr %5, align 16
   %.promoted46 = load i64, ptr %289, align 8
@@ -959,13 +959,13 @@ define hidden void @_sodium_fe25519_invert(ptr noundef writeonly captures(none) 
   %.promoted52 = load i64, ptr %292, align 16
   br label %732
 
-732:                                              ; preds = %727, %732
-  %.354 = phi i32 [ 1, %727 ], [ %806, %732 ]
-  %733 = phi i64 [ %.promoted44, %727 ], [ %801, %732 ]
-  %734 = phi i64 [ %.promoted46, %727 ], [ %804, %732 ]
-  %735 = phi i64 [ %.promoted48, %727 ], [ %805, %732 ]
-  %736 = phi i64 [ %.promoted50, %727 ], [ %788, %732 ]
-  %737 = phi i64 [ %.promoted52, %727 ], [ %795, %732 ]
+732:                                              ; preds = %731, %732
+  %.354 = phi i32 [ 1, %731 ], [ %806, %732 ]
+  %733 = phi i64 [ %.promoted44, %731 ], [ %801, %732 ]
+  %734 = phi i64 [ %.promoted46, %731 ], [ %804, %732 ]
+  %735 = phi i64 [ %.promoted48, %731 ], [ %805, %732 ]
+  %736 = phi i64 [ %.promoted50, %731 ], [ %788, %732 ]
+  %737 = phi i64 [ %.promoted52, %731 ], [ %795, %732 ]
   %738 = zext i64 %733 to i128
   %739 = zext i64 %734 to i128
   %740 = zext i64 %735 to i128
@@ -1354,10 +1354,10 @@ define hidden void @_sodium_fe25519_invert(ptr noundef writeonly captures(none) 
 
 1097:                                             ; preds = %1026
   store i64 %1091, ptr %6, align 16
-  store i64 %1094, ptr %728, align 8
-  store i64 %1095, ptr %729, align 16
-  store i64 %1079, ptr %730, align 8
-  store i64 %1085, ptr %731, align 16
+  store i64 %1094, ptr %656, align 8
+  store i64 %1095, ptr %657, align 16
+  store i64 %1079, ptr %658, align 8
+  store i64 %1085, ptr %659, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %.promoted72 = load i64, ptr %5, align 16
   %.promoted74 = load i64, ptr %289, align 8
@@ -2766,93 +2766,93 @@ define internal fastcc void @fe25519_pow22523(ptr noundef writeonly captures(non
   %648 = lshr i64 %647, 51
   %649 = and i64 %647, 2251799813685247
   %650 = add nuw nsw i64 %648, %628
-  br label %651
+  %651 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %652 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %653 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %654 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  br label %655
 
-651:                                              ; preds = %577, %651
-  %.242 = phi i32 [ 1, %577 ], [ %721, %651 ]
-  %652 = phi i64 [ %646, %577 ], [ %716, %651 ]
-  %653 = phi i64 [ %649, %577 ], [ %719, %651 ]
-  %654 = phi i64 [ %650, %577 ], [ %720, %651 ]
-  %655 = phi i64 [ %633, %577 ], [ %704, %651 ]
-  %656 = phi i64 [ %640, %577 ], [ %710, %651 ]
-  %657 = zext nneg i64 %652 to i128
-  %658 = zext nneg i64 %653 to i128
-  %659 = zext nneg i64 %654 to i128
-  %660 = zext nneg i64 %655 to i128
+655:                                              ; preds = %577, %655
+  %.242 = phi i32 [ 1, %577 ], [ %725, %655 ]
+  %656 = phi i64 [ %646, %577 ], [ %720, %655 ]
+  %657 = phi i64 [ %649, %577 ], [ %723, %655 ]
+  %658 = phi i64 [ %650, %577 ], [ %724, %655 ]
+  %659 = phi i64 [ %633, %577 ], [ %708, %655 ]
+  %660 = phi i64 [ %640, %577 ], [ %714, %655 ]
   %661 = zext nneg i64 %656 to i128
-  %662 = shl nuw nsw i128 %657, 1
-  %663 = shl nuw nsw i128 %658, 1
-  %664 = mul nuw nsw i128 %659, 38
-  %665 = mul nuw nsw i128 %660, 19
-  %666 = mul nuw nsw i128 %661, 19
-  %667 = mul nuw nsw i128 %657, %657
-  %668 = mul nuw nsw i128 %661, 38
-  %669 = mul nuw nsw i128 %668, %658
-  %670 = mul nuw nsw i128 %664, %660
-  %671 = add nuw nsw i128 %670, %669
-  %672 = add nuw nsw i128 %671, %667
-  %673 = mul nuw nsw i128 %662, %658
-  %674 = mul nuw nsw i128 %664, %661
-  %675 = mul nuw nsw i128 %665, %660
-  %676 = mul nuw nsw i128 %662, %659
-  %677 = mul nuw nsw i128 %658, %658
-  %678 = mul nuw nsw i128 %668, %660
-  %679 = mul nuw nsw i128 %662, %660
-  %680 = mul nuw nsw i128 %663, %659
-  %681 = mul nuw nsw i128 %666, %661
-  %682 = mul nuw nsw i128 %662, %661
-  %683 = mul nuw nsw i128 %663, %660
-  %684 = mul nuw nsw i128 %659, %659
-  %685 = trunc i128 %672 to i64
-  %686 = and i64 %685, 2251799813685247
-  %687 = lshr i128 %672, 51
-  %688 = add nuw nsw i128 %674, %675
-  %689 = add nuw nsw i128 %688, %673
-  %690 = add nuw nsw i128 %689, %687
-  %691 = trunc i128 %690 to i64
-  %692 = and i64 %691, 2251799813685247
-  %693 = lshr i128 %690, 51
-  %694 = add nuw nsw i128 %677, %678
-  %695 = add nuw nsw i128 %694, %676
-  %696 = add nuw nsw i128 %695, %693
-  %697 = trunc i128 %696 to i64
-  %698 = and i64 %697, 2251799813685247
-  %699 = lshr i128 %696, 51
-  %700 = add nuw nsw i128 %680, %681
-  %701 = add nuw nsw i128 %700, %679
-  %702 = add nuw nsw i128 %701, %699
-  %703 = trunc i128 %702 to i64
-  %704 = and i64 %703, 2251799813685247
-  %705 = lshr i128 %702, 51
-  %706 = add nuw nsw i128 %683, %684
-  %707 = add nuw nsw i128 %706, %682
-  %708 = add nuw nsw i128 %707, %705
-  %709 = trunc i128 %708 to i64
-  %710 = and i64 %709, 2251799813685247
-  %711 = lshr i128 %708, 51
-  %712 = trunc nuw nsw i128 %711 to i64
-  %713 = mul nuw nsw i64 %712, 19
-  %714 = add nuw nsw i64 %713, %686
-  %715 = lshr i64 %714, 51
-  %716 = and i64 %714, 2251799813685247
-  %717 = add nuw nsw i64 %715, %692
-  %718 = lshr i64 %717, 51
-  %719 = and i64 %717, 2251799813685247
-  %720 = add nuw nsw i64 %718, %698
-  %721 = add nuw nsw i32 %.242, 1
-  %exitcond117.not = icmp eq i32 %721, 20
-  br i1 %exitcond117.not, label %722, label %651, !llvm.loop !16
+  %662 = zext nneg i64 %657 to i128
+  %663 = zext nneg i64 %658 to i128
+  %664 = zext nneg i64 %659 to i128
+  %665 = zext nneg i64 %660 to i128
+  %666 = shl nuw nsw i128 %661, 1
+  %667 = shl nuw nsw i128 %662, 1
+  %668 = mul nuw nsw i128 %663, 38
+  %669 = mul nuw nsw i128 %664, 19
+  %670 = mul nuw nsw i128 %665, 19
+  %671 = mul nuw nsw i128 %661, %661
+  %672 = mul nuw nsw i128 %665, 38
+  %673 = mul nuw nsw i128 %672, %662
+  %674 = mul nuw nsw i128 %668, %664
+  %675 = add nuw nsw i128 %674, %673
+  %676 = add nuw nsw i128 %675, %671
+  %677 = mul nuw nsw i128 %666, %662
+  %678 = mul nuw nsw i128 %668, %665
+  %679 = mul nuw nsw i128 %669, %664
+  %680 = mul nuw nsw i128 %666, %663
+  %681 = mul nuw nsw i128 %662, %662
+  %682 = mul nuw nsw i128 %672, %664
+  %683 = mul nuw nsw i128 %666, %664
+  %684 = mul nuw nsw i128 %667, %663
+  %685 = mul nuw nsw i128 %670, %665
+  %686 = mul nuw nsw i128 %666, %665
+  %687 = mul nuw nsw i128 %667, %664
+  %688 = mul nuw nsw i128 %663, %663
+  %689 = trunc i128 %676 to i64
+  %690 = and i64 %689, 2251799813685247
+  %691 = lshr i128 %676, 51
+  %692 = add nuw nsw i128 %678, %679
+  %693 = add nuw nsw i128 %692, %677
+  %694 = add nuw nsw i128 %693, %691
+  %695 = trunc i128 %694 to i64
+  %696 = and i64 %695, 2251799813685247
+  %697 = lshr i128 %694, 51
+  %698 = add nuw nsw i128 %681, %682
+  %699 = add nuw nsw i128 %698, %680
+  %700 = add nuw nsw i128 %699, %697
+  %701 = trunc i128 %700 to i64
+  %702 = and i64 %701, 2251799813685247
+  %703 = lshr i128 %700, 51
+  %704 = add nuw nsw i128 %684, %685
+  %705 = add nuw nsw i128 %704, %683
+  %706 = add nuw nsw i128 %705, %703
+  %707 = trunc i128 %706 to i64
+  %708 = and i64 %707, 2251799813685247
+  %709 = lshr i128 %706, 51
+  %710 = add nuw nsw i128 %687, %688
+  %711 = add nuw nsw i128 %710, %686
+  %712 = add nuw nsw i128 %711, %709
+  %713 = trunc i128 %712 to i64
+  %714 = and i64 %713, 2251799813685247
+  %715 = lshr i128 %712, 51
+  %716 = trunc nuw nsw i128 %715 to i64
+  %717 = mul nuw nsw i64 %716, 19
+  %718 = add nuw nsw i64 %717, %690
+  %719 = lshr i64 %718, 51
+  %720 = and i64 %718, 2251799813685247
+  %721 = add nuw nsw i64 %719, %696
+  %722 = lshr i64 %721, 51
+  %723 = and i64 %721, 2251799813685247
+  %724 = add nuw nsw i64 %722, %702
+  %725 = add nuw nsw i32 %.242, 1
+  %exitcond117.not = icmp eq i32 %725, 20
+  br i1 %exitcond117.not, label %726, label %655, !llvm.loop !16
 
-722:                                              ; preds = %651
-  %723 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %724 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %725 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %726 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %716, ptr %5, align 16
-  store i64 %719, ptr %723, align 8
-  store i64 %720, ptr %724, align 16
-  store i64 %704, ptr %725, align 8
-  store i64 %710, ptr %726, align 16
+726:                                              ; preds = %655
+  store i64 %720, ptr %5, align 16
+  store i64 %723, ptr %651, align 8
+  store i64 %724, ptr %652, align 16
+  store i64 %708, ptr %653, align 8
+  store i64 %714, ptr %654, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %.promoted43 = load i64, ptr %4, align 16
   %.promoted45 = load i64, ptr %147, align 8
@@ -2861,13 +2861,13 @@ define internal fastcc void @fe25519_pow22523(ptr noundef writeonly captures(non
   %.promoted51 = load i64, ptr %150, align 16
   br label %727
 
-727:                                              ; preds = %722, %727
-  %.353 = phi i32 [ 1, %722 ], [ %801, %727 ]
-  %728 = phi i64 [ %.promoted43, %722 ], [ %796, %727 ]
-  %729 = phi i64 [ %.promoted45, %722 ], [ %799, %727 ]
-  %730 = phi i64 [ %.promoted47, %722 ], [ %800, %727 ]
-  %731 = phi i64 [ %.promoted49, %722 ], [ %783, %727 ]
-  %732 = phi i64 [ %.promoted51, %722 ], [ %790, %727 ]
+727:                                              ; preds = %726, %727
+  %.353 = phi i32 [ 1, %726 ], [ %801, %727 ]
+  %728 = phi i64 [ %.promoted43, %726 ], [ %796, %727 ]
+  %729 = phi i64 [ %.promoted45, %726 ], [ %799, %727 ]
+  %730 = phi i64 [ %.promoted47, %726 ], [ %800, %727 ]
+  %731 = phi i64 [ %.promoted49, %726 ], [ %783, %727 ]
+  %732 = phi i64 [ %.promoted51, %726 ], [ %790, %727 ]
   %733 = zext i64 %728 to i128
   %734 = zext i64 %729 to i128
   %735 = zext i64 %730 to i128
@@ -3256,10 +3256,10 @@ define internal fastcc void @fe25519_pow22523(ptr noundef writeonly captures(non
 
 1092:                                             ; preds = %1021
   store i64 %1086, ptr %5, align 16
-  store i64 %1089, ptr %723, align 8
-  store i64 %1090, ptr %724, align 16
-  store i64 %1074, ptr %725, align 8
-  store i64 %1080, ptr %726, align 16
+  store i64 %1089, ptr %651, align 8
+  store i64 %1090, ptr %652, align 16
+  store i64 %1074, ptr %653, align 8
+  store i64 %1080, ptr %654, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %.promoted71 = load i64, ptr %4, align 16
   %.promoted73 = load i64, ptr %147, align 8

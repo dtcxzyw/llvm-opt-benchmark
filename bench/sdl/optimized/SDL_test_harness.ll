@@ -186,45 +186,45 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
 22:                                               ; preds = %SDLTest_GenerateRunSeed.exit, %12
   %.0346 = phi ptr [ %4, %SDLTest_GenerateRunSeed.exit ], [ %11, %12 ]
   %23 = call i64 @SDL_GetPerformanceCounter() #8
-  %24 = call i64 @SDL_GetPerformanceFrequency() #8
+  %24 = uitofp i64 %23 to float
+  %25 = call i64 @SDL_GetPerformanceFrequency() #8
+  %26 = uitofp i64 %25 to float
+  %27 = fdiv float %24, %26
   call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.3, ptr noundef nonnull %.0346) #8
-  %25 = load ptr, ptr %0, align 8
-  %26 = load ptr, ptr %25, align 8
-  %.not376454 = icmp eq ptr %26, null
+  %28 = load ptr, ptr %0, align 8
+  %29 = load ptr, ptr %28, align 8
+  %.not376454 = icmp eq ptr %29, null
   br i1 %.not376454, label %._crit_edge.thread, label %.lr.ph457
 
 .loopexit435:                                     ; preds = %.lr.ph, %.lr.ph457
-  %.1263.lcssa = phi i32 [ %.0262456, %.lr.ph457 ], [ %33, %.lr.ph ]
-  %indvars.iv.next557 = add nuw nsw i64 %indvars.iv556, 1
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.next557
-  %28 = load ptr, ptr %27, align 8
-  %.not376 = icmp eq ptr %28, null
+  %.1263.lcssa = phi i32 [ %.0262456, %.lr.ph457 ], [ %36, %.lr.ph ]
+  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next557
+  %31 = load ptr, ptr %30, align 8
+  %.not376 = icmp eq ptr %31, null
   br i1 %.not376, label %._crit_edge, label %.lr.ph457, !llvm.loop !6
 
 .lr.ph457:                                        ; preds = %22, %.loopexit435
   %indvars.iv556 = phi i64 [ %indvars.iv.next557, %.loopexit435 ], [ 0, %22 ]
-  %29 = phi ptr [ %28, %.loopexit435 ], [ %26, %22 ]
+  %32 = phi ptr [ %31, %.loopexit435 ], [ %29, %22 ]
   %.0262456 = phi i32 [ %.1263.lcssa, %.loopexit435 ], [ 0, %22 ]
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %31, align 8
-  %.not403451 = icmp eq ptr %32, null
+  %indvars.iv.next557 = add nuw nsw i64 %indvars.iv556, 1
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %34, align 8
+  %.not403451 = icmp eq ptr %35, null
   br i1 %.not403451, label %.loopexit435, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph457, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph457 ]
-  %.1263453 = phi i32 [ %33, %.lr.ph ], [ %.0262456, %.lr.ph457 ]
+  %.1263453 = phi i32 [ %36, %.lr.ph ], [ %.0262456, %.lr.ph457 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = add nsw i32 %.1263453, 1
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.next
-  %35 = load ptr, ptr %34, align 8
-  %.not403 = icmp eq ptr %35, null
+  %36 = add nsw i32 %.1263453, 1
+  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.next
+  %38 = load ptr, ptr %37, align 8
+  %.not403 = icmp eq ptr %38, null
   br i1 %.not403, label %.loopexit435, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.loopexit435
-  %36 = uitofp i64 %23 to float
-  %37 = uitofp i64 %24 to float
-  %38 = fdiv float %36, %37
   %39 = icmp eq i32 %.1263.lcssa, 0
   br i1 %39, label %._crit_edge.thread, label %40
 
@@ -598,17 +598,20 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
 
 184:                                              ; preds = %182
   %185 = call i64 @SDL_GetPerformanceCounter() #8
-  %186 = call i64 @SDL_GetPerformanceFrequency() #8
+  %186 = uitofp i64 %185 to float
+  %187 = call i64 @SDL_GetPerformanceFrequency() #8
+  %188 = uitofp i64 %187 to float
+  %189 = fdiv float %186, %188
   call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.18, i32 noundef %150, ptr noundef nonnull %spec.select) #8
   br i1 %.not545, label %._crit_edge517, label %.lr.ph516
 
 .lr.ph516:                                        ; preds = %184
-  %187 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %188 = getelementptr inbounds nuw i8, ptr %148, i64 24
+  %190 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %wide.trip.count592 = zext i32 %indvars.iv585 to i64
-  br label %189
+  br label %192
 
-189:                                              ; preds = %.lr.ph516, %.thread419
+192:                                              ; preds = %.lr.ph516, %.thread419
   %indvars.iv589 = phi i64 [ 0, %.lr.ph516 ], [ %indvars.iv.next590, %.thread419 ]
   %.2266514 = phi i32 [ %.0264533, %.lr.ph516 ], [ %.3267, %.thread419 ]
   %.0285512 = phi i32 [ 0, %.lr.ph516 ], [ %.3288, %.thread419 ]
@@ -619,333 +622,333 @@ SDLTest_GenerateRunSeed.exit:                     ; preds = %.preheader.i
   %.2311507 = phi i32 [ %.0309529, %.lr.ph516 ], [ %.5314, %.thread419 ]
   %.2319506 = phi i32 [ %.0317528, %.lr.ph516 ], [ %.4321, %.thread419 ]
   %.2325505 = phi i1 [ %.0323527, %.lr.ph516 ], [ %.4327, %.thread419 ]
-  %190 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv589
-  %191 = load i32, ptr %190, align 4
-  %192 = load ptr, ptr %155, align 8
-  %193 = sext i32 %191 to i64
-  %194 = getelementptr inbounds ptr, ptr %192, i64 %193
-  %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  %197 = load ptr, ptr %196, align 8
-  %.not392 = icmp eq ptr %197, null
-  %spec.select404 = select i1 %.not392, ptr @.str.16, ptr %197
-  %198 = add nsw i32 %191, 1
+  %193 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv589
+  %194 = load i32, ptr %193, align 4
+  %195 = load ptr, ptr %155, align 8
+  %196 = sext i32 %194 to i64
+  %197 = getelementptr inbounds ptr, ptr %195, i64 %196
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
+  %200 = load ptr, ptr %199, align 8
+  %.not392 = icmp eq ptr %200, null
+  %spec.select404 = select i1 %.not392, ptr @.str.16, ptr %200
+  %201 = add nsw i32 %194, 1
   %brmerge428 = select i1 %or.cond5, i1 true, i1 %.not392
-  br i1 %brmerge428, label %202, label %199
+  br i1 %brmerge428, label %205, label %202
 
-199:                                              ; preds = %189
-  %200 = call i32 @SDL_strcasecmp(ptr noundef nonnull %.0329, ptr noundef nonnull %197) #8
-  %.not394 = icmp eq i32 %200, 0
-  br i1 %.not394, label %202, label %201
+202:                                              ; preds = %192
+  %203 = call i32 @SDL_strcasecmp(ptr noundef nonnull %.0329, ptr noundef nonnull %200) #8
+  %.not394 = icmp eq i32 %203, 0
+  br i1 %.not394, label %205, label %204
 
-201:                                              ; preds = %199
-  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.19, i32 noundef %150, i32 noundef %198, ptr noundef nonnull %197) #8
+204:                                              ; preds = %202
+  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.19, i32 noundef %150, i32 noundef %201, ptr noundef nonnull %200) #8
   br label %.thread419
 
-202:                                              ; preds = %189, %199
-  br i1 %.0332, label %203, label %207
+205:                                              ; preds = %192, %202
+  br i1 %.0332, label %206, label %210
 
-203:                                              ; preds = %202
-  %204 = getelementptr inbounds nuw i8, ptr %195, i64 24
-  %205 = load i32, ptr %204, align 8
-  %.not395 = icmp eq i32 %205, 0
-  br i1 %.not395, label %206, label %207
+206:                                              ; preds = %205
+  %207 = getelementptr inbounds nuw i8, ptr %198, i64 24
+  %208 = load i32, ptr %207, align 8
+  %.not395 = icmp eq i32 %208, 0
+  br i1 %.not395, label %209, label %210
 
-206:                                              ; preds = %203
+209:                                              ; preds = %206
   call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.20) #8
-  br label %207
+  br label %210
 
-207:                                              ; preds = %206, %203, %202
-  %.3326 = phi i1 [ %.2325505, %203 ], [ true, %206 ], [ %.2325505, %202 ]
-  %208 = call i64 @SDL_GetPerformanceCounter() #8
-  %209 = uitofp i64 %208 to float
-  %210 = call i64 @SDL_GetPerformanceFrequency() #8
-  %211 = uitofp i64 %210 to float
-  %212 = fdiv float %209, %211
-  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.21, i32 noundef %150, i32 noundef %198, ptr noundef nonnull %spec.select404) #8
-  %213 = getelementptr inbounds nuw i8, ptr %195, i64 16
-  %214 = load ptr, ptr %213, align 8
-  %.not396 = icmp eq ptr %214, null
-  br i1 %.not396, label %218, label %215
+210:                                              ; preds = %209, %206, %205
+  %.3326 = phi i1 [ %.2325505, %206 ], [ true, %209 ], [ %.2325505, %205 ]
+  %211 = call i64 @SDL_GetPerformanceCounter() #8
+  %212 = uitofp i64 %211 to float
+  %213 = call i64 @SDL_GetPerformanceFrequency() #8
+  %214 = uitofp i64 %213 to float
+  %215 = fdiv float %212, %214
+  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.21, i32 noundef %150, i32 noundef %201, ptr noundef nonnull %spec.select404) #8
+  %216 = getelementptr inbounds nuw i8, ptr %198, i64 16
+  %217 = load ptr, ptr %216, align 8
+  %.not396 = icmp eq ptr %217, null
+  br i1 %.not396, label %221, label %218
 
-215:                                              ; preds = %207
-  %216 = load i8, ptr %214, align 1
-  %.not397 = icmp eq i8 %216, 0
-  br i1 %.not397, label %218, label %217
+218:                                              ; preds = %210
+  %219 = load i8, ptr %217, align 1
+  %.not397 = icmp eq i8 %219, 0
+  br i1 %.not397, label %221, label %220
 
-217:                                              ; preds = %215
-  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.22, ptr noundef nonnull %214) #8
-  br label %218
+220:                                              ; preds = %218
+  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.22, ptr noundef nonnull %217) #8
+  br label %221
 
-218:                                              ; preds = %217, %215, %207
-  %219 = load i32, ptr %5, align 8
-  %220 = icmp sgt i32 %219, 0
-  br i1 %220, label %.lr.ph496, label %._crit_edge497
+221:                                              ; preds = %220, %218, %210
+  %222 = load i32, ptr %5, align 8
+  %223 = icmp sgt i32 %222, 0
+  br i1 %223, label %.lr.ph496, label %._crit_edge497
 
-.lr.ph496:                                        ; preds = %218
-  %221 = getelementptr inbounds nuw i8, ptr %195, i64 24
-  br label %222
+.lr.ph496:                                        ; preds = %221
+  %224 = getelementptr inbounds nuw i8, ptr %198, i64 24
+  br label %225
 
-222:                                              ; preds = %.lr.ph496, %283
-  %.0279494 = phi i32 [ 0, %.lr.ph496 ], [ %223, %283 ]
-  %.1286493 = phi i32 [ %.0285512, %.lr.ph496 ], [ %.2287, %283 ]
-  %.1290492 = phi i32 [ %.0289511, %.lr.ph496 ], [ %.2291, %283 ]
-  %.1294491 = phi i32 [ %.0293510, %.lr.ph496 ], [ %.2295, %283 ]
-  %.3300490 = phi i32 [ %.2299509, %.lr.ph496 ], [ %.4301, %283 ]
-  %.3305489 = phi i32 [ %.2304508, %.lr.ph496 ], [ %.4306, %283 ]
-  %.3312488 = phi i32 [ %.2311507, %.lr.ph496 ], [ %.4313, %283 ]
-  %223 = add nuw nsw i32 %.0279494, 1
-  %224 = load i64, ptr %118, align 8
-  %.not398 = icmp eq i64 %224, 0
-  br i1 %.not398, label %.thread410, label %228
+225:                                              ; preds = %.lr.ph496, %286
+  %.0279494 = phi i32 [ 0, %.lr.ph496 ], [ %226, %286 ]
+  %.1286493 = phi i32 [ %.0285512, %.lr.ph496 ], [ %.2287, %286 ]
+  %.1290492 = phi i32 [ %.0289511, %.lr.ph496 ], [ %.2291, %286 ]
+  %.1294491 = phi i32 [ %.0293510, %.lr.ph496 ], [ %.2295, %286 ]
+  %.3300490 = phi i32 [ %.2299509, %.lr.ph496 ], [ %.4301, %286 ]
+  %.3305489 = phi i32 [ %.2304508, %.lr.ph496 ], [ %.4306, %286 ]
+  %.3312488 = phi i32 [ %.2311507, %.lr.ph496 ], [ %.4313, %286 ]
+  %226 = add nuw nsw i32 %.0279494, 1
+  %227 = load i64, ptr %118, align 8
+  %.not398 = icmp eq i64 %227, 0
+  br i1 %.not398, label %.thread410, label %231
 
-.thread410:                                       ; preds = %222
-  %225 = load ptr, ptr %148, align 8
-  %226 = load ptr, ptr %196, align 8
-  %227 = call fastcc i64 @SDLTest_GenerateExecKey(ptr noundef %.0346, ptr noundef %225, ptr noundef %226, i32 noundef %223)
-  br label %228
+.thread410:                                       ; preds = %225
+  %228 = load ptr, ptr %148, align 8
+  %229 = load ptr, ptr %199, align 8
+  %230 = call fastcc i64 @SDLTest_GenerateExecKey(ptr noundef %.0346, ptr noundef %228, ptr noundef %229, i32 noundef %226)
+  br label %231
 
-228:                                              ; preds = %222, %.thread410
-  %.sink = phi i64 [ %227, %.thread410 ], [ %224, %222 ]
-  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.23, i32 noundef %223, i64 noundef %.sink) #8
+231:                                              ; preds = %225, %.thread410
+  %.sink = phi i64 [ %230, %.thread410 ], [ %227, %225 ]
+  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.23, i32 noundef %226, i64 noundef %.sink) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  %229 = load ptr, ptr %148, align 8
-  %.not.i = icmp eq ptr %229, null
-  br i1 %.not.i, label %232, label %230
+  %232 = load ptr, ptr %148, align 8
+  %.not.i = icmp eq ptr %232, null
+  br i1 %.not.i, label %235, label %233
 
-230:                                              ; preds = %228
-  %231 = load ptr, ptr %196, align 8
-  %.not38.i = icmp eq ptr %231, null
-  br i1 %.not38.i, label %232, label %233
+233:                                              ; preds = %231
+  %234 = load ptr, ptr %199, align 8
+  %.not38.i = icmp eq ptr %234, null
+  br i1 %.not38.i, label %235, label %236
 
-232:                                              ; preds = %230, %228
+235:                                              ; preds = %233, %231
   call void (ptr, ...) @SDLTest_LogError(ptr noundef nonnull @.str.51) #8
   br label %SDLTest_RunTest.exit.thread
 
-233:                                              ; preds = %230
-  %234 = load i32, ptr %221, align 8
-  %.not39.i = icmp ne i32 %234, 0
+236:                                              ; preds = %233
+  %237 = load i32, ptr %224, align 8
+  %.not39.i = icmp ne i32 %237, 0
   %brmerge.i = or i1 %.3326, %.not39.i
-  br i1 %brmerge.i, label %235, label %SDLTest_RunTest.exit.thread416
+  br i1 %brmerge.i, label %238, label %SDLTest_RunTest.exit.thread416
 
-SDLTest_RunTest.exit.thread416:                   ; preds = %233
-  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull %231, ptr noundef nonnull @.str.52) #8
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %277
-
-235:                                              ; preds = %233
-  call void @SDLTest_FuzzerInit(i64 noundef %.sink) #8
-  call void @SDLTest_ResetAssertSummary() #8
-  %236 = call i32 @SDL_AddTimer(i32 noundef 3600000, ptr noundef nonnull @SDLTest_BailOut, ptr noundef null) #8
-  %237 = icmp eq i32 %236, 0
-  br i1 %237, label %238, label %SDLTest_SetTestTimeout.exit.i
-
-238:                                              ; preds = %235
-  %239 = call ptr @SDL_GetError() #8
-  call void (ptr, ...) @SDLTest_LogError(ptr noundef nonnull @.str.60, ptr noundef %239) #8
-  br label %SDLTest_SetTestTimeout.exit.i
-
-SDLTest_SetTestTimeout.exit.i:                    ; preds = %238, %235
-  %240 = load ptr, ptr %187, align 8
-  %.not40.i = icmp eq ptr %240, null
-  br i1 %.not40.i, label %246, label %241
-
-241:                                              ; preds = %SDLTest_SetTestTimeout.exit.i
-  call void %240(ptr noundef nonnull %2) #8
-  %242 = call i32 @SDLTest_AssertSummaryToTestResult() #8
-  %243 = icmp eq i32 %242, 1
-  br i1 %243, label %244, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %241
-  %.pre.i = load ptr, ptr %2, align 8
-  br label %246
-
-244:                                              ; preds = %241
-  %245 = load ptr, ptr %148, align 8
-  call void (ptr, ...) @SDLTest_LogError(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.53, ptr noundef %245, ptr noundef nonnull @.str.30) #8
-  br label %SDLTest_RunTest.exit.thread
-
-246:                                              ; preds = %._crit_edge.i, %SDLTest_SetTestTimeout.exit.i
-  %247 = phi ptr [ %.pre.i, %._crit_edge.i ], [ null, %SDLTest_SetTestTimeout.exit.i ]
-  %248 = load ptr, ptr %195, align 8
-  %249 = call i32 %248(ptr noundef %247) #8
-  %250 = icmp eq i32 %249, 2
-  br i1 %250, label %254, label %251
-
-251:                                              ; preds = %246
-  %.off.i = add i32 %249, -1
-  %switch.i = icmp ult i32 %.off.i, -2
-  br i1 %switch.i, label %252, label %254
-
-252:                                              ; preds = %251
-  %253 = call i32 @SDLTest_AssertSummaryToTestResult() #8
-  br label %254
-
-254:                                              ; preds = %252, %251, %246
-  %.029.i = phi i32 [ %253, %252 ], [ 3, %246 ], [ 1, %251 ]
-  %255 = load ptr, ptr %188, align 8
-  %.not41.i = icmp eq ptr %255, null
-  br i1 %.not41.i, label %258, label %256
-
-256:                                              ; preds = %254
-  %257 = load ptr, ptr %2, align 8
-  call void %255(ptr noundef %257) #8
-  br label %258
-
-258:                                              ; preds = %256, %254
-  br i1 %237, label %261, label %259
-
-259:                                              ; preds = %258
-  %260 = call zeroext i1 @SDL_RemoveTimer(i32 noundef %236) #8
-  br label %261
-
-261:                                              ; preds = %259, %258
-  %262 = call i32 @SDLTest_GetFuzzerInvocationCount() #8
-  %263 = icmp sgt i32 %262, 0
-  br i1 %263, label %264, label %265
-
-264:                                              ; preds = %261
-  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.54, i32 noundef %262) #8
-  br label %265
-
-265:                                              ; preds = %264, %261
-  br i1 %250, label %266, label %268
-
-266:                                              ; preds = %265
-  %267 = load ptr, ptr %196, align 8
-  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef %267, ptr noundef nonnull @.str.55) #8
-  br label %SDLTest_RunTest.exit
-
-268:                                              ; preds = %265
-  switch i32 %249, label %273 [
-    i32 0, label %269
-    i32 -1, label %271
-  ]
-
-269:                                              ; preds = %268
-  %270 = load ptr, ptr %196, align 8
-  call void (ptr, ...) @SDLTest_LogError(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef %270, ptr noundef nonnull @.str.56) #8
-  br label %SDLTest_RunTest.exit
-
-271:                                              ; preds = %268
-  %272 = load ptr, ptr %196, align 8
-  call void (ptr, ...) @SDLTest_LogError(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef %272, ptr noundef nonnull @.str.57) #8
-  br label %SDLTest_RunTest.exit
-
-273:                                              ; preds = %268
-  call void @SDLTest_LogAssertSummary() #8
-  br label %SDLTest_RunTest.exit
-
-SDLTest_RunTest.exit.thread:                      ; preds = %244, %232
+SDLTest_RunTest.exit.thread416:                   ; preds = %236
+  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull %234, ptr noundef nonnull @.str.52) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %280
 
-SDLTest_RunTest.exit:                             ; preds = %266, %269, %271, %273
+238:                                              ; preds = %236
+  call void @SDLTest_FuzzerInit(i64 noundef %.sink) #8
+  call void @SDLTest_ResetAssertSummary() #8
+  %239 = call i32 @SDL_AddTimer(i32 noundef 3600000, ptr noundef nonnull @SDLTest_BailOut, ptr noundef null) #8
+  %240 = icmp eq i32 %239, 0
+  br i1 %240, label %241, label %SDLTest_SetTestTimeout.exit.i
+
+241:                                              ; preds = %238
+  %242 = call ptr @SDL_GetError() #8
+  call void (ptr, ...) @SDLTest_LogError(ptr noundef nonnull @.str.60, ptr noundef %242) #8
+  br label %SDLTest_SetTestTimeout.exit.i
+
+SDLTest_SetTestTimeout.exit.i:                    ; preds = %241, %238
+  %243 = load ptr, ptr %190, align 8
+  %.not40.i = icmp eq ptr %243, null
+  br i1 %.not40.i, label %249, label %244
+
+244:                                              ; preds = %SDLTest_SetTestTimeout.exit.i
+  call void %243(ptr noundef nonnull %2) #8
+  %245 = call i32 @SDLTest_AssertSummaryToTestResult() #8
+  %246 = icmp eq i32 %245, 1
+  br i1 %246, label %247, label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %244
+  %.pre.i = load ptr, ptr %2, align 8
+  br label %249
+
+247:                                              ; preds = %244
+  %248 = load ptr, ptr %148, align 8
+  call void (ptr, ...) @SDLTest_LogError(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.53, ptr noundef %248, ptr noundef nonnull @.str.30) #8
+  br label %SDLTest_RunTest.exit.thread
+
+249:                                              ; preds = %._crit_edge.i, %SDLTest_SetTestTimeout.exit.i
+  %250 = phi ptr [ %.pre.i, %._crit_edge.i ], [ null, %SDLTest_SetTestTimeout.exit.i ]
+  %251 = load ptr, ptr %198, align 8
+  %252 = call i32 %251(ptr noundef %250) #8
+  %253 = icmp eq i32 %252, 2
+  br i1 %253, label %257, label %254
+
+254:                                              ; preds = %249
+  %.off.i = add i32 %252, -1
+  %switch.i = icmp ult i32 %.off.i, -2
+  br i1 %switch.i, label %255, label %257
+
+255:                                              ; preds = %254
+  %256 = call i32 @SDLTest_AssertSummaryToTestResult() #8
+  br label %257
+
+257:                                              ; preds = %255, %254, %249
+  %.029.i = phi i32 [ %256, %255 ], [ 3, %249 ], [ 1, %254 ]
+  %258 = load ptr, ptr %191, align 8
+  %.not41.i = icmp eq ptr %258, null
+  br i1 %.not41.i, label %261, label %259
+
+259:                                              ; preds = %257
+  %260 = load ptr, ptr %2, align 8
+  call void %258(ptr noundef %260) #8
+  br label %261
+
+261:                                              ; preds = %259, %257
+  br i1 %240, label %264, label %262
+
+262:                                              ; preds = %261
+  %263 = call zeroext i1 @SDL_RemoveTimer(i32 noundef %239) #8
+  br label %264
+
+264:                                              ; preds = %262, %261
+  %265 = call i32 @SDLTest_GetFuzzerInvocationCount() #8
+  %266 = icmp sgt i32 %265, 0
+  br i1 %266, label %267, label %268
+
+267:                                              ; preds = %264
+  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.54, i32 noundef %265) #8
+  br label %268
+
+268:                                              ; preds = %267, %264
+  br i1 %253, label %269, label %271
+
+269:                                              ; preds = %268
+  %270 = load ptr, ptr %199, align 8
+  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef %270, ptr noundef nonnull @.str.55) #8
+  br label %SDLTest_RunTest.exit
+
+271:                                              ; preds = %268
+  switch i32 %252, label %276 [
+    i32 0, label %272
+    i32 -1, label %274
+  ]
+
+272:                                              ; preds = %271
+  %273 = load ptr, ptr %199, align 8
+  call void (ptr, ...) @SDLTest_LogError(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef %273, ptr noundef nonnull @.str.56) #8
+  br label %SDLTest_RunTest.exit
+
+274:                                              ; preds = %271
+  %275 = load ptr, ptr %199, align 8
+  call void (ptr, ...) @SDLTest_LogError(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef %275, ptr noundef nonnull @.str.57) #8
+  br label %SDLTest_RunTest.exit
+
+276:                                              ; preds = %271
+  call void @SDLTest_LogAssertSummary() #8
+  br label %SDLTest_RunTest.exit
+
+SDLTest_RunTest.exit.thread:                      ; preds = %247, %235
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  switch i32 %.029.i, label %280 [
-    i32 0, label %274
-    i32 3, label %277
+  br label %283
+
+SDLTest_RunTest.exit:                             ; preds = %269, %272, %274, %276
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  switch i32 %.029.i, label %283 [
+    i32 0, label %277
+    i32 3, label %280
   ]
 
-274:                                              ; preds = %SDLTest_RunTest.exit
-  %275 = add nsw i32 %.1290492, 1
-  %276 = add nsw i32 %.3305489, 1
-  br label %283
+277:                                              ; preds = %SDLTest_RunTest.exit
+  %278 = add nsw i32 %.1290492, 1
+  %279 = add nsw i32 %.3305489, 1
+  br label %286
 
-277:                                              ; preds = %SDLTest_RunTest.exit.thread416, %SDLTest_RunTest.exit
-  %278 = add nsw i32 %.1286493, 1
-  %279 = add nsw i32 %.3300490, 1
-  br label %283
+280:                                              ; preds = %SDLTest_RunTest.exit.thread416, %SDLTest_RunTest.exit
+  %281 = add nsw i32 %.1286493, 1
+  %282 = add nsw i32 %.3300490, 1
+  br label %286
 
-280:                                              ; preds = %SDLTest_RunTest.exit.thread, %SDLTest_RunTest.exit
+283:                                              ; preds = %SDLTest_RunTest.exit.thread, %SDLTest_RunTest.exit
   %.0.i415 = phi i32 [ 4, %SDLTest_RunTest.exit.thread ], [ %.029.i, %SDLTest_RunTest.exit ]
-  %281 = add nsw i32 %.1294491, 1
-  %282 = add nsw i32 %.3312488, 1
-  br label %283
+  %284 = add nsw i32 %.1294491, 1
+  %285 = add nsw i32 %.3312488, 1
+  br label %286
 
-283:                                              ; preds = %277, %280, %274
-  %.0.i414 = phi i32 [ 0, %274 ], [ 3, %277 ], [ %.0.i415, %280 ]
-  %.4313 = phi i32 [ %.3312488, %274 ], [ %.3312488, %277 ], [ %282, %280 ]
-  %.4306 = phi i32 [ %276, %274 ], [ %.3305489, %277 ], [ %.3305489, %280 ]
-  %.4301 = phi i32 [ %.3300490, %274 ], [ %279, %277 ], [ %.3300490, %280 ]
-  %.2295 = phi i32 [ %.1294491, %274 ], [ %.1294491, %277 ], [ %281, %280 ]
-  %.2291 = phi i32 [ %275, %274 ], [ %.1290492, %277 ], [ %.1290492, %280 ]
-  %.2287 = phi i32 [ %.1286493, %274 ], [ %278, %277 ], [ %.1286493, %280 ]
-  %284 = load i32, ptr %5, align 8
-  %285 = icmp slt i32 %223, %284
-  br i1 %285, label %222, label %._crit_edge497, !llvm.loop !20
+286:                                              ; preds = %280, %283, %277
+  %.0.i414 = phi i32 [ 0, %277 ], [ 3, %280 ], [ %.0.i415, %283 ]
+  %.4313 = phi i32 [ %.3312488, %277 ], [ %.3312488, %280 ], [ %285, %283 ]
+  %.4306 = phi i32 [ %279, %277 ], [ %.3305489, %280 ], [ %.3305489, %283 ]
+  %.4301 = phi i32 [ %.3300490, %277 ], [ %282, %280 ], [ %.3300490, %283 ]
+  %.2295 = phi i32 [ %.1294491, %277 ], [ %.1294491, %280 ], [ %284, %283 ]
+  %.2291 = phi i32 [ %278, %277 ], [ %.1290492, %280 ], [ %.1290492, %283 ]
+  %.2287 = phi i32 [ %.1286493, %277 ], [ %281, %280 ], [ %.1286493, %283 ]
+  %287 = load i32, ptr %5, align 8
+  %288 = icmp slt i32 %226, %287
+  br i1 %288, label %225, label %._crit_edge497, !llvm.loop !20
 
-._crit_edge497:                                   ; preds = %283, %218
-  %.3320.lcssa = phi i32 [ %.2319506, %218 ], [ %.0.i414, %283 ]
-  %.3312.lcssa = phi i32 [ %.2311507, %218 ], [ %.4313, %283 ]
-  %.3305.lcssa = phi i32 [ %.2304508, %218 ], [ %.4306, %283 ]
-  %.3300.lcssa = phi i32 [ %.2299509, %218 ], [ %.4301, %283 ]
-  %.1294.lcssa = phi i32 [ %.0293510, %218 ], [ %.2295, %283 ]
-  %.1290.lcssa = phi i32 [ %.0289511, %218 ], [ %.2291, %283 ]
-  %.1286.lcssa = phi i32 [ %.0285512, %218 ], [ %.2287, %283 ]
-  %286 = call i64 @SDL_GetPerformanceCounter() #8
-  %287 = uitofp i64 %286 to float
-  %288 = call i64 @SDL_GetPerformanceFrequency() #8
-  %289 = uitofp i64 %288 to float
-  %290 = fdiv float %287, %289
-  %291 = fsub float %290, %212
-  %292 = fcmp olt float %291, 0.000000e+00
-  %.0343 = select i1 %292, float 0.000000e+00, float %291
-  %293 = load i32, ptr %5, align 8
-  %294 = icmp sgt i32 %293, 1
-  %295 = fpext float %.0343 to double
-  br i1 %294, label %296, label %301
+._crit_edge497:                                   ; preds = %286, %221
+  %.3320.lcssa = phi i32 [ %.2319506, %221 ], [ %.0.i414, %286 ]
+  %.3312.lcssa = phi i32 [ %.2311507, %221 ], [ %.4313, %286 ]
+  %.3305.lcssa = phi i32 [ %.2304508, %221 ], [ %.4306, %286 ]
+  %.3300.lcssa = phi i32 [ %.2299509, %221 ], [ %.4301, %286 ]
+  %.1294.lcssa = phi i32 [ %.0293510, %221 ], [ %.2295, %286 ]
+  %.1290.lcssa = phi i32 [ %.0289511, %221 ], [ %.2291, %286 ]
+  %.1286.lcssa = phi i32 [ %.0285512, %221 ], [ %.2287, %286 ]
+  %289 = call i64 @SDL_GetPerformanceCounter() #8
+  %290 = uitofp i64 %289 to float
+  %291 = call i64 @SDL_GetPerformanceFrequency() #8
+  %292 = uitofp i64 %291 to float
+  %293 = fdiv float %290, %292
+  %294 = fsub float %293, %215
+  %295 = fcmp olt float %294, 0.000000e+00
+  %.0343 = select i1 %295, float 0.000000e+00, float %294
+  %296 = load i32, ptr %5, align 8
+  %297 = icmp sgt i32 %296, 1
+  %298 = fpext float %.0343 to double
+  br i1 %297, label %299, label %304
 
-296:                                              ; preds = %._crit_edge497
-  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.24, i32 noundef %293, double noundef %295) #8
-  %297 = load i32, ptr %5, align 8
-  %298 = sitofp i32 %297 to float
-  %299 = fdiv float %.0343, %298
-  %300 = fpext float %299 to double
-  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.25, double noundef %300) #8
-  br label %302
+299:                                              ; preds = %._crit_edge497
+  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.24, i32 noundef %296, double noundef %298) #8
+  %300 = load i32, ptr %5, align 8
+  %301 = sitofp i32 %300 to float
+  %302 = fdiv float %.0343, %301
+  %303 = fpext float %302 to double
+  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.25, double noundef %303) #8
+  br label %305
 
-301:                                              ; preds = %._crit_edge497
-  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.26, double noundef %295) #8
-  br label %302
+304:                                              ; preds = %._crit_edge497
+  call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.26, double noundef %298) #8
+  br label %305
 
-302:                                              ; preds = %301, %296
+305:                                              ; preds = %304, %299
   switch i32 %.3320.lcssa, label %.thread419 [
-    i32 0, label %303
-    i32 1, label %305
-    i32 2, label %304
+    i32 0, label %306
+    i32 1, label %308
+    i32 2, label %307
   ]
 
-303:                                              ; preds = %302
+306:                                              ; preds = %305
   call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull %spec.select404, ptr noundef nonnull @.str.29) #8
   br label %.thread419
 
-304:                                              ; preds = %302
+307:                                              ; preds = %305
   call void (ptr, ...) @SDLTest_LogError(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull %spec.select404, ptr noundef nonnull @.str.31) #8
   br label %.thread419
 
-305:                                              ; preds = %302
+308:                                              ; preds = %305
   call void (ptr, ...) @SDLTest_LogError(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull %spec.select404, ptr noundef nonnull @.str.30) #8
-  %306 = sext i32 %.2266514 to i64
-  %307 = getelementptr inbounds ptr, ptr %43, i64 %306
-  store ptr %195, ptr %307, align 8
-  %308 = add nsw i32 %.2266514, 1
+  %309 = sext i32 %.2266514 to i64
+  %310 = getelementptr inbounds ptr, ptr %43, i64 %309
+  store ptr %198, ptr %310, align 8
+  %311 = add nsw i32 %.2266514, 1
   br label %.thread419
 
-.thread419:                                       ; preds = %303, %304, %302, %201, %305
-  %.4327 = phi i1 [ %.2325505, %201 ], [ %.3326, %305 ], [ %.3326, %302 ], [ %.3326, %304 ], [ %.3326, %303 ]
-  %.4321 = phi i32 [ %.2319506, %201 ], [ 1, %305 ], [ %.3320.lcssa, %302 ], [ 2, %304 ], [ 0, %303 ]
-  %.5314 = phi i32 [ %.2311507, %201 ], [ %.3312.lcssa, %305 ], [ %.3312.lcssa, %302 ], [ %.3312.lcssa, %304 ], [ %.3312.lcssa, %303 ]
-  %.5307 = phi i32 [ %.2304508, %201 ], [ %.3305.lcssa, %305 ], [ %.3305.lcssa, %302 ], [ %.3305.lcssa, %304 ], [ %.3305.lcssa, %303 ]
-  %.5 = phi i32 [ %.2299509, %201 ], [ %.3300.lcssa, %305 ], [ %.3300.lcssa, %302 ], [ %.3300.lcssa, %304 ], [ %.3300.lcssa, %303 ]
-  %.3296 = phi i32 [ %.0293510, %201 ], [ %.1294.lcssa, %305 ], [ %.1294.lcssa, %302 ], [ %.1294.lcssa, %304 ], [ %.1294.lcssa, %303 ]
-  %.3292 = phi i32 [ %.0289511, %201 ], [ %.1290.lcssa, %305 ], [ %.1290.lcssa, %302 ], [ %.1290.lcssa, %304 ], [ %.1290.lcssa, %303 ]
-  %.3288 = phi i32 [ %.0285512, %201 ], [ %.1286.lcssa, %305 ], [ %.1286.lcssa, %302 ], [ %.1286.lcssa, %304 ], [ %.1286.lcssa, %303 ]
-  %.3267 = phi i32 [ %.2266514, %201 ], [ %308, %305 ], [ %.2266514, %302 ], [ %.2266514, %304 ], [ %.2266514, %303 ]
+.thread419:                                       ; preds = %306, %307, %305, %204, %308
+  %.4327 = phi i1 [ %.2325505, %204 ], [ %.3326, %308 ], [ %.3326, %305 ], [ %.3326, %307 ], [ %.3326, %306 ]
+  %.4321 = phi i32 [ %.2319506, %204 ], [ 1, %308 ], [ %.3320.lcssa, %305 ], [ 2, %307 ], [ 0, %306 ]
+  %.5314 = phi i32 [ %.2311507, %204 ], [ %.3312.lcssa, %308 ], [ %.3312.lcssa, %305 ], [ %.3312.lcssa, %307 ], [ %.3312.lcssa, %306 ]
+  %.5307 = phi i32 [ %.2304508, %204 ], [ %.3305.lcssa, %308 ], [ %.3305.lcssa, %305 ], [ %.3305.lcssa, %307 ], [ %.3305.lcssa, %306 ]
+  %.5 = phi i32 [ %.2299509, %204 ], [ %.3300.lcssa, %308 ], [ %.3300.lcssa, %305 ], [ %.3300.lcssa, %307 ], [ %.3300.lcssa, %306 ]
+  %.3296 = phi i32 [ %.0293510, %204 ], [ %.1294.lcssa, %308 ], [ %.1294.lcssa, %305 ], [ %.1294.lcssa, %307 ], [ %.1294.lcssa, %306 ]
+  %.3292 = phi i32 [ %.0289511, %204 ], [ %.1290.lcssa, %308 ], [ %.1290.lcssa, %305 ], [ %.1290.lcssa, %307 ], [ %.1290.lcssa, %306 ]
+  %.3288 = phi i32 [ %.0285512, %204 ], [ %.1286.lcssa, %308 ], [ %.1286.lcssa, %305 ], [ %.1286.lcssa, %307 ], [ %.1286.lcssa, %306 ]
+  %.3267 = phi i32 [ %.2266514, %204 ], [ %311, %308 ], [ %.2266514, %305 ], [ %.2266514, %307 ], [ %.2266514, %306 ]
   %indvars.iv.next590 = add nuw nsw i64 %indvars.iv589, 1
   %exitcond593.not = icmp eq i64 %indvars.iv.next590, %wide.trip.count592
-  br i1 %exitcond593.not, label %._crit_edge517, label %189, !llvm.loop !21
+  br i1 %exitcond593.not, label %._crit_edge517, label %192, !llvm.loop !21
 
 ._crit_edge517:                                   ; preds = %.thread419, %184
   %.2325.lcssa = phi i1 [ %.0323527, %184 ], [ %.4327, %.thread419 ]
@@ -957,15 +960,12 @@ SDLTest_RunTest.exit:                             ; preds = %266, %269, %271, %2
   %.0289.lcssa = phi i32 [ 0, %184 ], [ %.3292, %.thread419 ]
   %.0285.lcssa = phi i32 [ 0, %184 ], [ %.3288, %.thread419 ]
   %.2266.lcssa = phi i32 [ %.0264533, %184 ], [ %.3267, %.thread419 ]
-  %309 = uitofp i64 %185 to float
-  %310 = uitofp i64 %186 to float
-  %311 = fdiv float %309, %310
   %312 = call i64 @SDL_GetPerformanceCounter() #8
   %313 = uitofp i64 %312 to float
   %314 = call i64 @SDL_GetPerformanceFrequency() #8
   %315 = uitofp i64 %314 to float
   %316 = fdiv float %313, %315
-  %317 = fsub float %316, %311
+  %317 = fsub float %316, %189
   %318 = fcmp olt float %317, 0.000000e+00
   %.1344 = select i1 %318, float 0.000000e+00, float %317
   %319 = fpext float %.1344 to double
@@ -1011,7 +1011,7 @@ SDLTest_RunTest.exit:                             ; preds = %266, %269, %271, %2
   %329 = call i64 @SDL_GetPerformanceFrequency() #8
   %330 = uitofp i64 %329 to float
   %331 = fdiv float %328, %330
-  %332 = fsub float %331, %38
+  %332 = fsub float %331, %27
   %333 = fcmp olt float %332, 0.000000e+00
   %.2345 = select i1 %333, float 0.000000e+00, float %332
   %334 = fpext float %.2345 to double

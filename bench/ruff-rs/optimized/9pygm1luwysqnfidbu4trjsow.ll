@@ -755,16 +755,16 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hb87cde886d54078dE"
   tail call void @llvm.assume(i1 %18)
   %19 = getelementptr inbounds nuw { i32, { { i8, [3 x i8] }, { i8, [3 x i8] }, { i8, [3 x i8] }, i16 }, [1 x i16] }, ptr %17, i64 %15
   %20 = icmp ugt i64 %10, 1
-  br i1 %20, label %.lr.ph.i, label %._crit_edge.thread.i
+  br i1 %20, label %.lr.ph.i, label %._crit_edge.i
 
-._crit_edge.thread.loopexit.i:                    ; preds = %.lr.ph.i
+._crit_edge.thread.i:                             ; preds = %.lr.ph.i
   %21 = add i64 %10, -1
   %22 = add i64 %21, %15
-  br label %._crit_edge.thread.i
+  br label %._crit_edge.i
 
-._crit_edge.thread.i:                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha5947dbf51186085E.exit.i", %._crit_edge.thread.loopexit.i
-  %.sroa.0.0.lcssa15.i = phi ptr [ %25, %._crit_edge.thread.loopexit.i ], [ %19, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha5947dbf51186085E.exit.i" ]
-  %storemerge.lcssa14.i = phi i64 [ %22, %._crit_edge.thread.loopexit.i ], [ %15, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha5947dbf51186085E.exit.i" ]
+._crit_edge.i:                                    ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha5947dbf51186085E.exit.i", %._crit_edge.thread.i
+  %.sroa.0.0.lcssa15.i = phi ptr [ %25, %._crit_edge.thread.i ], [ %19, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha5947dbf51186085E.exit.i" ]
+  %storemerge.lcssa14.i = phi i64 [ %22, %._crit_edge.thread.i ], [ %15, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha5947dbf51186085E.exit.i" ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.0.lcssa15.i, ptr noundef nonnull readonly align 4 dereferenceable(20) %2, i64 20, i1 false)
   %23 = add i64 %storemerge.lcssa14.i, 1
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hca1f101eb6a7dcf1E.exit"
@@ -776,10 +776,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hb87cde886d54078dE"
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.08.i, ptr noundef nonnull readonly align 4 dereferenceable(20) %2, i64 20, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 20
   %exitcond.not.i = icmp eq i64 %24, %10
-  br i1 %exitcond.not.i, label %._crit_edge.thread.loopexit.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hca1f101eb6a7dcf1E.exit": ; preds = %4, %._crit_edge.thread.i
-  %storemerge = phi i64 [ %23, %._crit_edge.thread.i ], [ %1, %4 ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hca1f101eb6a7dcf1E.exit": ; preds = %4, %._crit_edge.i
+  %storemerge = phi i64 [ %23, %._crit_edge.i ], [ %1, %4 ]
   store i64 %storemerge, ptr %5, align 8
   ret void
 }

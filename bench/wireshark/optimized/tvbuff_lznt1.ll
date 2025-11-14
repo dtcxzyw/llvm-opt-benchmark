@@ -148,27 +148,27 @@ define noundef ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %1, i32 nou
 
 61:                                               ; preds = %51
   %62 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %55)
-  %63 = add i32 %.15484.i.i, -1
-  %64 = icmp ugt i32 %63, 15
-  br i1 %64, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %63 = zext i16 %62 to i32
+  %64 = add i32 %.14985.i.i, 2
+  %65 = add i32 %.15484.i.i, -1
+  %66 = icmp ugt i32 %65, 15
+  br i1 %66, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %61, %.lr.ph.i.i
-  %.05179.i.i = phi i32 [ %66, %.lr.ph.i.i ], [ 12, %61 ]
-  %.05278.i.i = phi i32 [ %65, %.lr.ph.i.i ], [ 4095, %61 ]
-  %.05977.i.i = phi i32 [ %67, %.lr.ph.i.i ], [ %63, %61 ]
-  %65 = lshr i32 %.05278.i.i, 1
-  %66 = add nsw i32 %.05179.i.i, -1
-  %67 = lshr i32 %.05977.i.i, 1
-  %68 = icmp ugt i32 %.05977.i.i, 31
-  br i1 %68, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !10
+  %.05179.i.i = phi i32 [ %68, %.lr.ph.i.i ], [ 12, %61 ]
+  %.05278.i.i = phi i32 [ %67, %.lr.ph.i.i ], [ 4095, %61 ]
+  %.05977.i.i = phi i32 [ %69, %.lr.ph.i.i ], [ %65, %61 ]
+  %67 = lshr i32 %.05278.i.i, 1
+  %68 = add nsw i32 %.05179.i.i, -1
+  %69 = lshr i32 %.05977.i.i, 1
+  %70 = icmp ugt i32 %.05977.i.i, 31
+  br i1 %70, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %61
-  %.052.lcssa.i.i = phi i32 [ 4095, %61 ], [ %65, %.lr.ph.i.i ]
-  %.051.lcssa.i.i = phi i32 [ 12, %61 ], [ %66, %.lr.ph.i.i ]
-  %69 = zext i16 %62 to i32
-  %70 = add i32 %.14985.i.i, 2
-  %71 = and i32 %.052.lcssa.i.i, %69
-  %72 = lshr i32 %69, %.051.lcssa.i.i
+  %.052.lcssa.i.i = phi i32 [ 4095, %61 ], [ %67, %.lr.ph.i.i ]
+  %.051.lcssa.i.i = phi i32 [ 12, %61 ], [ %68, %.lr.ph.i.i ]
+  %71 = and i32 %.052.lcssa.i.i, %63
+  %72 = lshr i32 %63, %.051.lcssa.i.i
   %.neg.i.i = xor i32 %72, -1
   %73 = add i32 %42, %.neg.i.i
   %74 = add nuw nsw i32 %71, 2
@@ -197,7 +197,7 @@ define noundef ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %1, i32 nou
 
 .loopexit.i.i:                                    ; preds = %79, %56
   %.255.i.i = phi i32 [ %60, %56 ], [ %80, %79 ]
-  %.250.i.i = phi i32 [ %59, %56 ], [ %70, %79 ]
+  %.250.i.i = phi i32 [ %59, %56 ], [ %64, %79 ]
   %82 = icmp eq i32 %.250.i.i, %35
   br i1 %82, label %.loopexit.i, label %49
 

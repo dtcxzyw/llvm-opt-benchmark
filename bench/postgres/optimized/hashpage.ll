@@ -1495,40 +1495,40 @@ BufferGetPage.exit:                               ; preds = %24, %30
   %.0.i.i = phi ptr [ %29, %24 ], [ %35, %30 ]
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %37 = load i16, ptr %36, align 4
-  %38 = getelementptr i8, ptr %.0.i.i, i64 12
-  %.val = load i16, ptr %38, align 4
-  %39 = icmp ult i16 %.val, 25
-  %40 = zext i16 %.val to i32
-  %41 = add nuw nsw i32 %40, 262120
-  %42 = and i32 %41, 262140
-  %.not6062 = icmp eq i32 %42, 0
-  %.not60 = select i1 %39, i1 true, i1 %.not6062
+  %38 = zext i16 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %38
+  %40 = getelementptr i8, ptr %.0.i.i, i64 12
+  %.val = load i16, ptr %40, align 4
+  %41 = icmp ult i16 %.val, 25
+  %42 = zext i16 %.val to i32
+  %43 = add nuw nsw i32 %42, 262120
+  %44 = and i32 %43, 262140
+  %.not6062 = icmp eq i32 %44, 0
+  %.not60 = select i1 %41, i1 true, i1 %.not6062
   br i1 %.not60, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BufferGetPage.exit
-  %43 = lshr i32 %41, 2
-  %44 = getelementptr i8, ptr %.0.i.i, i64 20
-  %45 = and i32 %43, 65535
-  %46 = add nuw nsw i32 %45, 1
-  %wide.trip.count = zext nneg i32 %46 to i64
-  br label %47
+  %45 = lshr i32 %43, 2
+  %46 = getelementptr i8, ptr %.0.i.i, i64 20
+  %47 = and i32 %45, 65535
+  %48 = add nuw nsw i32 %47, 1
+  %wide.trip.count = zext nneg i32 %48 to i64
+  br label %49
 
-47:                                               ; preds = %.lr.ph, %47
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %48 = getelementptr %struct.ItemIdData, ptr %44, i64 %indvars.iv
-  %.val56 = load i32, ptr %48, align 4
-  %49 = and i32 %.val56, 32767
-  %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %50
-  %52 = call ptr @hash_search(ptr noundef %14, ptr noundef %51, i32 noundef 1, ptr noundef nonnull %9) #9
+49:                                               ; preds = %.lr.ph, %49
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %49 ]
+  %50 = getelementptr %struct.ItemIdData, ptr %46, i64 %indvars.iv
+  %.val56 = load i32, ptr %50, align 4
+  %51 = and i32 %.val56, 32767
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %52
+  %54 = call ptr @hash_search(ptr noundef %14, ptr noundef %53, i32 noundef 1, ptr noundef nonnull %9) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge, label %47, !llvm.loop !8
+  br i1 %exitcond, label %._crit_edge, label %49, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %47, %BufferGetPage.exit
-  %53 = zext i16 %37 to i64
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %53
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
+._crit_edge:                                      ; preds = %49, %BufferGetPage.exit
+  %55 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %21, %spec.select
   br i1 %57, label %58, label %59

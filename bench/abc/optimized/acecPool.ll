@@ -2897,31 +2897,31 @@ Vec_IntFree.exit69:                               ; preds = %Vec_IntFree.exit, %
   %76 = and i64 %75, 4294967295
   %77 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val58, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %79 = getelementptr i8, ptr %77, i64 20
-  %.val5477 = load i32, ptr %79, align 4, !tbaa !30
-  %80 = icmp sgt i32 %.val5477, 0
-  br i1 %80, label %.lr.ph, label %.critedge
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 64
+  %81 = getelementptr i8, ptr %77, i64 20
+  %.val5477 = load i32, ptr %81, align 4, !tbaa !30
+  %82 = icmp sgt i32 %.val5477, 0
+  br i1 %82, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %74
-  %81 = getelementptr i8, ptr %77, i64 24
-  br label %82
+  %83 = getelementptr i8, ptr %77, i64 24
+  br label %84
 
-82:                                               ; preds = %.lr.ph, %82
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
-  %.val56 = load ptr, ptr %81, align 8, !tbaa !29
-  %83 = getelementptr inbounds nuw i32, ptr %.val56, i64 %indvars.iv
-  %84 = load i32, ptr %83, align 4, !tbaa !31
-  tail call void @Acec_ManCollectBoxSets_rec(ptr noundef nonnull %0, i32 noundef %84, i32 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %78, ptr noundef nonnull %31)
+84:                                               ; preds = %.lr.ph, %84
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %84 ]
+  %.val56 = load ptr, ptr %83, align 8, !tbaa !29
+  %85 = getelementptr inbounds nuw i32, ptr %.val56, i64 %indvars.iv
+  %86 = load i32, ptr %85, align 4, !tbaa !31
+  tail call void @Acec_ManCollectBoxSets_rec(ptr noundef nonnull %0, i32 noundef %86, i32 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %78, ptr noundef nonnull %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val54 = load i32, ptr %79, align 4, !tbaa !30
-  %85 = sext i32 %.val54 to i64
-  %86 = icmp slt i64 %indvars.iv.next, %85
-  br i1 %86, label %82, label %.critedge, !llvm.loop !65
+  %.val54 = load i32, ptr %81, align 4, !tbaa !30
+  %87 = sext i32 %.val54 to i64
+  %88 = icmp slt i64 %indvars.iv.next, %87
+  br i1 %88, label %84, label %.critedge, !llvm.loop !65
 
-.critedge:                                        ; preds = %82, %74
-  %87 = getelementptr inbounds nuw i8, ptr %77, i64 48
-  %88 = getelementptr inbounds nuw i8, ptr %77, i64 64
-  tail call void @Acec_ManCollectInsOuts(ptr nonnull poison, ptr noundef nonnull %1, ptr noundef nonnull %78, ptr noundef nonnull %31, ptr noundef nonnull %48, ptr noundef nonnull %57, ptr noundef nonnull %87, ptr noundef nonnull %88)
+.critedge:                                        ; preds = %84, %74
+  tail call void @Acec_ManCollectInsOuts(ptr nonnull poison, ptr noundef nonnull %1, ptr noundef nonnull %78, ptr noundef nonnull %31, ptr noundef nonnull %48, ptr noundef nonnull %57, ptr noundef nonnull %79, ptr noundef nonnull %80)
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %89 = mul nuw nsw i64 %indvars.iv.next84, 5
   %.val57 = load i32, ptr %71, align 4, !tbaa !43

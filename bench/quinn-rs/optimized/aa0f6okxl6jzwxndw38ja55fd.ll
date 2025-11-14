@@ -536,35 +536,35 @@ define internal fastcc noundef zeroext i1 @"_ZN9fastbloom24BloomFilter$LT$_$C$S$
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %._crit_edge
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8, !noundef !3
-  %30 = icmp ult i64 %29, 1152921504606846976
-  tail call void @llvm.assume(i1 %30)
-  %31 = mul i64 %5, 5040379952546458196
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %31 = load i64, ptr %30, align 8, !noundef !3
+  %32 = icmp ult i64 %31, 1152921504606846976
+  tail call void @llvm.assume(i1 %32)
+  %33 = mul i64 %5, 5040379952546458196
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  br label %34
+  br label %36
 
 .loopexit.loopexit:                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit"
-  %32 = zext i1 %353 to i8
+  %34 = zext i1 %353 to i8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge
-  %.sroa.0.1 = phi i8 [ %.sroa.0.0.lcssa, %._crit_edge ], [ %32, %.loopexit.loopexit ]
-  %33 = trunc nuw i8 %.sroa.0.1 to i1
-  ret i1 %33
+  %.sroa.0.1 = phi i8 [ %.sroa.0.0.lcssa, %._crit_edge ], [ %34, %.loopexit.loopexit ]
+  %35 = trunc nuw i8 %.sroa.0.1 to i1
+  ret i1 %35
 
-34:                                               ; preds = %27, %34
-  %35 = phi i64 [ 0, %27 ], [ %37, %34 ]
-  %36 = getelementptr inbounds nuw i64, ptr %2, i64 %35
-  store i64 %31, ptr %36, align 8
-  %37 = add nuw nsw i64 %35, 1
-  %exitcond327.not = icmp eq i64 %37, 4
-  br i1 %exitcond327.not, label %38, label %34
+36:                                               ; preds = %27, %36
+  %37 = phi i64 [ 0, %27 ], [ %39, %36 ]
+  %38 = getelementptr inbounds nuw i64, ptr %2, i64 %37
+  store i64 %33, ptr %38, align 8
+  %39 = add nuw nsw i64 %37, 1
+  %exitcond327.not = icmp eq i64 %39, 4
+  br i1 %exitcond327.not, label %40, label %36
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load i64, ptr %39, align 8, !noundef !3
-  %41 = lshr i64 %29, 3
+40:                                               ; preds = %36
+  %41 = lshr i64 %31, 3
   %42 = lshr i64 %.sroa.0.016.lcssa, 32
   %43 = mul i64 %41, %42
   %.sroa.012.0.copyload = load <2 x i64>, ptr %2, align 16
@@ -594,23 +594,23 @@ define internal fastcc noundef zeroext i1 @"_ZN9fastbloom24BloomFilter$LT$_$C$S$
   %52 = lshr i64 %43, 29
   %53 = and i64 %52, 34359738360
   %54 = add nuw nsw i64 %53, 8
-  %55 = icmp samesign ugt i64 %54, %29
+  %55 = icmp samesign ugt i64 %54, %31
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %57 = load ptr, ptr %56, align 8, !nonnull !3
   %58 = getelementptr inbounds nuw i64, ptr %57, i64 %53
   %59 = trunc nuw i8 %.sroa.0.0.lcssa to i1
   br label %60
 
-60:                                               ; preds = %38, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit"
-  %exitcond328.not = phi i1 [ false, %38 ], [ true, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit" ]
-  %61 = phi i64 [ 32, %38 ], [ 64, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit" ]
-  %.sroa.0.2322 = phi i1 [ %59, %38 ], [ %353, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit" ]
-  %.sroa.09.0321 = phi i64 [ 0, %38 ], [ %61, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit" ]
-  %.sroa.30.0320 = phi <2 x i64> [ %.sroa.30.24.vec.insert, %38 ], [ %.sroa.30.1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit" ]
-  %.sroa.05.0319 = phi <2 x i64> [ %.sroa.05.8.vec.insert, %38 ], [ %.sroa.05.1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit" ]
+60:                                               ; preds = %40, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit"
+  %exitcond328.not = phi i1 [ false, %40 ], [ true, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit" ]
+  %61 = phi i64 [ 32, %40 ], [ 64, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit" ]
+  %.sroa.0.2322 = phi i1 [ %59, %40 ], [ %353, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit" ]
+  %.sroa.09.0321 = phi i64 [ 0, %40 ], [ %61, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit" ]
+  %.sroa.30.0320 = phi <2 x i64> [ %.sroa.30.24.vec.insert, %40 ], [ %.sroa.30.1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit" ]
+  %.sroa.05.0319 = phi <2 x i64> [ %.sroa.05.8.vec.insert, %40 ], [ %.sroa.05.1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit" ]
   %62 = add <2 x i64> %.sroa.05.0319, %.sroa.012.0.copyload
   %63 = add <2 x i64> %.sroa.30.0320, %.sroa.413.0.copyload
-  switch i64 %40, label %_ZN9fastbloom11sparse_hash10SparseHash11sparse_hash17hfe63c6af6a41e9b7E.exit [
+  switch i64 %29, label %_ZN9fastbloom11sparse_hash10SparseHash11sparse_hash17hfe63c6af6a41e9b7E.exit [
     i64 8, label %64
     i64 9, label %71
     i64 10, label %84
@@ -1109,7 +1109,7 @@ _ZN9fastbloom11sparse_hash10SparseHash11sparse_hash17hfe63c6af6a41e9b7E.exit: ; 
   br i1 %55, label %332, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit", !prof !22
 
 332:                                              ; preds = %_ZN9fastbloom11sparse_hash10SparseHash11sparse_hash17hfe63c6af6a41e9b7E.exit
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef range(i64 4, 34359738369) %54, i64 noundef %29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.42c61ef3774b54ef40e69522abedb007.50) #26, !noalias !27
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef range(i64 4, 34359738369) %54, i64 noundef %31, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.42c61ef3774b54ef40e69522abedb007.50) #26, !noalias !27
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h942a79abee3c466aE.exit": ; preds = %_ZN9fastbloom11sparse_hash10SparseHash11sparse_hash17hfe63c6af6a41e9b7E.exit

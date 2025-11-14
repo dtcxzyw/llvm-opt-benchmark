@@ -6811,8 +6811,8 @@ _ZNK3ue29CharReach9find_nextEm.exit.i:            ; preds = %1017, %1010
   %1070 = getelementptr inbounds nuw i16, ptr %1069, i64 %1067
   %1071 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %1070, ptr %1071, align 8
-  %1072 = getelementptr inbounds nuw i8, ptr %1069, i64 %1068
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %1069, i8 0, i64 %1068, i1 false)
+  %1072 = getelementptr inbounds nuw i8, ptr %1069, i64 %1068
   br label %1073
 
 1073:                                             ; preds = %.noexc103, %.loopexit262
@@ -10388,14 +10388,14 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__nor
   %7 = ptrtoint ptr %0 to i64
   %8 = sub i64 %6, %7
   %9 = icmp sgt i64 %8, 512
-  br i1 %9, label %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i.preheader, label %32
+  br i1 %9, label %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.lr.ph.i, label %32
 
-.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i.preheader:   ; preds = %2
+.lr.ph.i.i.i.i.i.i.i.i.i.preheader.lr.ph.i:       ; preds = %2
   %scevgep = getelementptr i8, ptr %0, i64 32
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i:             ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i.preheader, %22
-  %.sroa.0.019.i.idx = phi i64 [ %.sroa.0.019.i.add, %22 ], [ 32, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i.preheader ]
+.lr.ph.i.i.i.i.i.i.i.i.i.preheader.i:             ; preds = %22, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.lr.ph.i
+  %.sroa.0.019.i.idx = phi i64 [ 32, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader.lr.ph.i ], [ %.sroa.0.019.i.add, %22 ]
   %.sroa.0.019.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.019.i.idx
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 

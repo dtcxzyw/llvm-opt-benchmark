@@ -1029,26 +1029,26 @@ define internal fastcc i32 @truncated_binary_decode(ptr noundef readonly capture
   %9 = load i8, ptr %8, align 1, !tbaa !97
   %10 = zext i8 %9 to i32
   %11 = add nuw nsw i32 %.1.i, %10
+  %12 = shl nuw i32 2, %11
+  %13 = sub nsw i32 %12, %3
   %.not24 = icmp eq i32 %11, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
-  %13 = load ptr, ptr %12, align 16, !tbaa !67
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 2672
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 2688
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 2696
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 2676
-  %18 = load i32, ptr %17, align 4, !tbaa !100
-  %19 = shl i32 %18, 17
-  %.promoted = load i32, ptr %14, align 8, !tbaa !70
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
+  %15 = load ptr, ptr %14, align 16, !tbaa !67
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2672
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 2688
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 2696
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 2676
+  %20 = load i32, ptr %19, align 4, !tbaa !100
+  %21 = shl i32 %20, 17
+  %.promoted = load i32, ptr %16, align 8, !tbaa !70
   br label %22
 
 ._crit_edge:                                      ; preds = %get_cabac_bypass.exit, %2
   %.015.lcssa = phi i32 [ 0, %2 ], [ %.0.i, %get_cabac_bypass.exit ]
-  %20 = shl nuw i32 2, %11
-  %21 = sub nsw i32 %20, %3
-  %.not = icmp slt i32 %.015.lcssa, %21
+  %.not = icmp slt i32 %.015.lcssa, %13
   br i1 %.not, label %85, label %50
 
 22:                                               ; preds = %.lr.ph, %get_cabac_bypass.exit
@@ -1057,13 +1057,13 @@ define internal fastcc i32 @truncated_binary_decode(ptr noundef readonly capture
   %.01522 = phi i32 [ 0, %.lr.ph ], [ %.0.i, %get_cabac_bypass.exit ]
   %24 = shl i32 %.01522, 1
   %25 = shl nsw i32 %23, 1
-  store i32 %25, ptr %14, align 8, !tbaa !70
+  store i32 %25, ptr %16, align 8, !tbaa !70
   %26 = and i32 %23, 32767
   %.not.i17 = icmp eq i32 %26, 0
   br i1 %.not.i17, label %27, label %refill.exit.i
 
 27:                                               ; preds = %22
-  %28 = load ptr, ptr %15, align 8, !tbaa !68
+  %28 = load ptr, ptr %17, align 8, !tbaa !68
   %29 = load i8, ptr %28, align 1, !tbaa !97
   %30 = zext i8 %29 to i32
   %31 = shl nuw nsw i32 %30, 9
@@ -1074,24 +1074,24 @@ define internal fastcc i32 @truncated_binary_decode(ptr noundef readonly capture
   %36 = or disjoint i32 %35, %31
   %37 = add i32 %25, -65535
   %38 = add i32 %37, %36
-  store i32 %38, ptr %14, align 8, !tbaa !70
-  %39 = load ptr, ptr %16, align 8, !tbaa !71
+  store i32 %38, ptr %16, align 8, !tbaa !70
+  %39 = load ptr, ptr %18, align 8, !tbaa !71
   %40 = icmp ult ptr %28, %39
   br i1 %40, label %41, label %refill.exit.i
 
 41:                                               ; preds = %27
   %42 = getelementptr inbounds nuw i8, ptr %28, i64 2
-  store ptr %42, ptr %15, align 8, !tbaa !68
+  store ptr %42, ptr %17, align 8, !tbaa !68
   br label %refill.exit.i
 
 refill.exit.i:                                    ; preds = %41, %27, %22
   %43 = phi i32 [ %38, %41 ], [ %38, %27 ], [ %25, %22 ]
-  %44 = icmp slt i32 %43, %19
+  %44 = icmp slt i32 %43, %21
   br i1 %44, label %get_cabac_bypass.exit, label %45
 
 45:                                               ; preds = %refill.exit.i
-  %46 = sub nsw i32 %43, %19
-  store i32 %46, ptr %14, align 8, !tbaa !70
+  %46 = sub nsw i32 %43, %21
+  store i32 %46, ptr %16, align 8, !tbaa !70
   %47 = or disjoint i32 %24, 1
   br label %get_cabac_bypass.exit
 
@@ -1153,7 +1153,7 @@ refill.exit.i19:                                  ; preds = %74, %58, %50
 
 get_cabac_bypass.exit21:                          ; preds = %refill.exit.i19, %81
   %.0.i20 = phi i32 [ 1, %81 ], [ 0, %refill.exit.i19 ]
-  %83 = sub i32 %51, %21
+  %83 = sub i32 %51, %13
   %84 = add i32 %83, %.0.i20
   br label %85
 
@@ -9662,17 +9662,19 @@ refill.exit.i:                                    ; preds = %184, %170, %166
   br i1 %exitcond52.not, label %.lr.ph, label %166, !llvm.loop !157
 
 .critedge2:                                       ; preds = %refill.exit.i
+  %notmask.neg = shl nuw i32 1, %.045
   %.not2547 = icmp eq i32 %.045, 0
-  br i1 %.not2547, label %._crit_edge, label %.lr.ph
+  br i1 %.not2547, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge26, %.critedge2
-  %.0.lcssa70 = phi i32 [ %.045, %.critedge2 ], [ 6, %.critedge26 ]
-  %.promoted5069 = phi i32 [ %186, %.critedge2 ], [ %188, %.critedge26 ]
+  %notmask.neg72 = phi i32 [ %notmask.neg, %.critedge2 ], [ 64, %.critedge26 ]
+  %.0.lcssa71 = phi i32 [ %.045, %.critedge2 ], [ 6, %.critedge26 ]
+  %.promoted5070 = phi i32 [ %186, %.critedge2 ], [ %188, %.critedge26 ]
   br label %190
 
 190:                                              ; preds = %.lr.ph, %get_cabac_bypass.exit34
-  %191 = phi i32 [ %.promoted5069, %.lr.ph ], [ %217, %get_cabac_bypass.exit34 ]
-  %.149 = phi i32 [ %.0.lcssa70, %.lr.ph ], [ %192, %get_cabac_bypass.exit34 ]
+  %191 = phi i32 [ %.promoted5070, %.lr.ph ], [ %217, %get_cabac_bypass.exit34 ]
+  %.149 = phi i32 [ %.0.lcssa71, %.lr.ph ], [ %192, %get_cabac_bypass.exit34 ]
   %.12248 = phi i32 [ 0, %.lr.ph ], [ %.0.i33, %get_cabac_bypass.exit34 ]
   %192 = add nsw i32 %.149, -1
   %193 = shl i32 %.12248, 1
@@ -9719,18 +9721,15 @@ get_cabac_bypass.exit34:                          ; preds = %refill.exit.i32, %2
   %217 = phi i32 [ %215, %214 ], [ %212, %refill.exit.i32 ]
   %.0.i33 = phi i32 [ %216, %214 ], [ %193, %refill.exit.i32 ]
   %.not25 = icmp eq i32 %192, 0
-  br i1 %.not25, label %._crit_edge, label %190, !llvm.loop !158
+  br i1 %.not25, label %._crit_edge.loopexit, label %190, !llvm.loop !158
 
-._crit_edge:                                      ; preds = %get_cabac_bypass.exit34, %.critedge2
-  %.0.lcssa71 = phi i32 [ 0, %.critedge2 ], [ %.0.lcssa70, %get_cabac_bypass.exit34 ]
-  %.122.lcssa = phi i32 [ 0, %.critedge2 ], [ %.0.i33, %get_cabac_bypass.exit34 ]
-  %notmask.neg = shl nuw i32 1, %.0.lcssa71
-  %218 = add nuw i32 %notmask.neg, 4
-  %219 = add i32 %218, %.122.lcssa
+._crit_edge.loopexit:                             ; preds = %get_cabac_bypass.exit34
+  %218 = add nuw i32 %notmask.neg72, 4
+  %219 = add i32 %218, %.0.i33
   br label %.critedge
 
-.critedge:                                        ; preds = %vvc_get_cabac.exit29, %vvc_get_cabac.exit, %._crit_edge
-  %.020 = phi i32 [ %219, %._crit_edge ], [ 0, %vvc_get_cabac.exit ], [ %.02144, %vvc_get_cabac.exit29 ]
+.critedge:                                        ; preds = %vvc_get_cabac.exit29, %.critedge2, %._crit_edge.loopexit, %vvc_get_cabac.exit
+  %.020 = phi i32 [ 0, %vvc_get_cabac.exit ], [ 5, %.critedge2 ], [ %219, %._crit_edge.loopexit ], [ %.02144, %vvc_get_cabac.exit29 ]
   ret i32 %.020
 }
 

@@ -2739,39 +2739,39 @@ define linkonce_odr hidden void @_Z21SetGenericPropertyPtrIN6Assimp21SharedPostP
 6:                                                ; preds = %4
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %8 = trunc i64 %7 to i32
+  %9 = and i32 %8, 3
   %.not60.i = icmp ult i32 %8, 4
   br i1 %.not60.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %6
-  %9 = lshr i32 %8, 2
+  %10 = lshr i32 %8, 2
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.05463.i = phi ptr [ %20, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
-  %.05562.i = phi i32 [ %22, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.15761.i = phi i32 [ %23, %.lr.ph.i ], [ %9, %.lr.ph.preheader.i ]
-  %10 = load i16, ptr %.05463.i, align 1
-  %11 = zext i16 %10 to i32
-  %12 = add i32 %.05562.i, %11
-  %13 = getelementptr inbounds nuw i8, ptr %.05463.i, i64 2
-  %14 = load i16, ptr %13, align 1
-  %15 = zext i16 %14 to i32
-  %16 = shl nuw nsw i32 %15, 11
-  %17 = shl i32 %12, 16
-  %18 = xor i32 %16, %17
-  %19 = xor i32 %18, %12
-  %20 = getelementptr inbounds nuw i8, ptr %.05463.i, i64 4
-  %21 = lshr i32 %19, 11
-  %22 = add i32 %21, %19
-  %23 = add nsw i32 %.15761.i, -1
-  %.not.i = icmp eq i32 %23, 0
+  %.05463.i = phi ptr [ %21, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
+  %.05562.i = phi i32 [ %23, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.15761.i = phi i32 [ %24, %.lr.ph.i ], [ %10, %.lr.ph.preheader.i ]
+  %11 = load i16, ptr %.05463.i, align 1
+  %12 = zext i16 %11 to i32
+  %13 = add i32 %.05562.i, %12
+  %14 = getelementptr inbounds nuw i8, ptr %.05463.i, i64 2
+  %15 = load i16, ptr %14, align 1
+  %16 = zext i16 %15 to i32
+  %17 = shl nuw nsw i32 %16, 11
+  %18 = shl i32 %13, 16
+  %19 = xor i32 %17, %18
+  %20 = xor i32 %19, %13
+  %21 = getelementptr inbounds nuw i8, ptr %.05463.i, i64 4
+  %22 = lshr i32 %20, 11
+  %23 = add i32 %22, %20
+  %24 = add nsw i32 %.15761.i, -1
+  %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %6
-  %.055.lcssa.i = phi i32 [ 0, %6 ], [ %22, %.lr.ph.i ]
-  %.054.lcssa.i = phi ptr [ %1, %6 ], [ %20, %.lr.ph.i ]
-  %24 = and i32 %8, 3
-  switch i32 %24, label %default.unreachable [
+  %.055.lcssa.i = phi i32 [ 0, %6 ], [ %23, %.lr.ph.i ]
+  %.054.lcssa.i = phi ptr [ %1, %6 ], [ %21, %.lr.ph.i ]
+  switch i32 %9, label %default.unreachable [
     i32 3, label %25
     i32 2, label %39
     i32 1, label %47

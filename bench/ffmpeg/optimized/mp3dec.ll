@@ -87,38 +87,38 @@ define internal range(i32 0, 52) i32 @mp3_read_probe(ptr noundef readonly captur
   %24 = ptrtoint ptr %.072113 to i64
   %25 = sub i64 %16, %24
   %26 = call i64 @llvm.smin.i64(i64 %25, i64 %23)
+  %27 = trunc i64 %26 to i32
   %sext = shl i64 %26, 32
-  %27 = ashr exact i64 %sext, 32
-  %28 = getelementptr inbounds i8, ptr %.072113, i64 %27
-  %29 = icmp sgt i64 %27, 4
-  br i1 %29, label %.lr.ph109.preheader, label %._crit_edge.thread
+  %28 = ashr exact i64 %sext, 32
+  %29 = getelementptr inbounds i8, ptr %.072113, i64 %28
+  %30 = icmp sgt i64 %28, 4
+  br i1 %30, label %.lr.ph109.preheader, label %._crit_edge.thread
 
 .lr.ph109.preheader:                              ; preds = %21
-  %30 = getelementptr inbounds nuw i8, ptr %.072113, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.072113, i64 4
   br label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %.lr.ph109.preheader, %.lr.ph109
-  %.069108 = phi i32 [ %37, %.lr.ph109 ], [ 0, %.lr.ph109.preheader ]
-  %.071107 = phi ptr [ %38, %.lr.ph109 ], [ %30, %.lr.ph109.preheader ]
-  %31 = load i32, ptr %.071107, align 1, !tbaa !12
-  %32 = call i32 @llvm.bswap.i32(i32 %31)
-  %33 = xor i32 %32, %19
-  %34 = and i32 %33, -127793
-  %35 = icmp eq i32 %34, 0
-  %36 = zext i1 %35 to i32
-  %37 = add nuw nsw i32 %.069108, %36
-  %38 = getelementptr inbounds nuw i8, ptr %.071107, i64 1
-  %39 = icmp ult ptr %38, %28
-  br i1 %39, label %.lr.ph109, label %._crit_edge, !llvm.loop !17
+  %.069108 = phi i32 [ %38, %.lr.ph109 ], [ 0, %.lr.ph109.preheader ]
+  %.071107 = phi ptr [ %39, %.lr.ph109 ], [ %31, %.lr.ph109.preheader ]
+  %32 = load i32, ptr %.071107, align 1, !tbaa !12
+  %33 = call i32 @llvm.bswap.i32(i32 %32)
+  %34 = xor i32 %33, %19
+  %35 = and i32 %34, -127793
+  %36 = icmp eq i32 %35, 0
+  %37 = zext i1 %36 to i32
+  %38 = add nuw nsw i32 %.069108, %37
+  %39 = getelementptr inbounds nuw i8, ptr %.071107, i64 1
+  %40 = icmp ult ptr %39, %29
+  br i1 %40, label %.lr.ph109, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph109
-  %40 = icmp samesign ugt i32 %37, 2
-  br i1 %40, label %.thread, label %._crit_edge.thread
+  %41 = icmp samesign ugt i32 %38, 2
+  br i1 %41, label %.thread, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %21, %._crit_edge
-  %41 = trunc i64 %26 to i32
   %42 = add nsw i32 %22, %.079112
-  %43 = icmp sgt i32 %22, %41
+  %43 = icmp sgt i32 %22, %27
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %._crit_edge.thread

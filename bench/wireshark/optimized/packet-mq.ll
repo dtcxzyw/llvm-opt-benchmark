@@ -5221,23 +5221,23 @@ dissect_mq_addCR_colinfo.exit2576:                ; preds = %270, %278
   br i1 %.not2534, label %624, label %576
 
 576:                                              ; preds = %553
-  %577 = icmp sgt i32 %555, 0
-  br i1 %577, label %.lr.ph2672, label %._crit_edge2673
+  %577 = add nuw nsw i32 %.0, 16
+  %578 = add i32 %577, %575
+  %579 = icmp sgt i32 %555, 0
+  br i1 %579, label %.lr.ph2672, label %._crit_edge2673
 
 .lr.ph2672:                                       ; preds = %576, %.lr.ph2672
-  %.024482670 = phi i32 [ %583, %.lr.ph2672 ], [ 0, %576 ]
-  %578 = load i32, ptr @hf_mq_inq_sel, align 4
-  %579 = shl i32 %.024482670, 2
-  %580 = add i32 %579, %573
-  %581 = load i32, ptr %10, align 4
-  %582 = tail call ptr @proto_tree_add_item(ptr noundef %563, i32 noundef %578, ptr noundef %0, i32 noundef %580, i32 noundef 4, i32 noundef %581)
-  %583 = add nuw nsw i32 %.024482670, 1
-  %exitcond2691.not = icmp eq i32 %583, %555
+  %.024482670 = phi i32 [ %585, %.lr.ph2672 ], [ 0, %576 ]
+  %580 = load i32, ptr @hf_mq_inq_sel, align 4
+  %581 = shl i32 %.024482670, 2
+  %582 = add i32 %581, %573
+  %583 = load i32, ptr %10, align 4
+  %584 = tail call ptr @proto_tree_add_item(ptr noundef %563, i32 noundef %580, ptr noundef %0, i32 noundef %582, i32 noundef 4, i32 noundef %583)
+  %585 = add nuw nsw i32 %.024482670, 1
+  %exitcond2691.not = icmp eq i32 %585, %555
   br i1 %exitcond2691.not, label %._crit_edge2673, label %.lr.ph2672, !llvm.loop !10
 
 ._crit_edge2673:                                  ; preds = %.lr.ph2672, %576
-  %584 = add nuw nsw i32 %.0, 16
-  %585 = add i32 %584, %575
   %586 = load i8, ptr %44, align 2
   switch i8 %586, label %624 [
     i8 -103, label %587
@@ -5262,7 +5262,7 @@ dissect_mq_addCR_colinfo.exit2576:                ; preds = %270, %278
   %.024512680 = phi i32 [ %618, %617 ], [ 0, %.preheader ]
   %594 = load i32, ptr %10, align 4
   %595 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.024492681, i32 noundef %594)
-  %596 = icmp ult i32 %.024492681, %585
+  %596 = icmp ult i32 %.024492681, %578
   %597 = add i32 %595, -2001
   %598 = icmp ult i32 %597, -2000
   %or.cond25642674 = select i1 %596, i1 %598, i1 false
@@ -5273,7 +5273,7 @@ dissect_mq_addCR_colinfo.exit2576:                ; preds = %270, %278
   %599 = add i32 %.124502675, 4
   %600 = load i32, ptr %10, align 4
   %601 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %599, i32 noundef %600)
-  %602 = icmp ult i32 %599, %585
+  %602 = icmp ult i32 %599, %578
   %603 = add i32 %601, -2001
   %604 = icmp ult i32 %603, -2000
   %or.cond2564 = select i1 %602, i1 %604, i1 false

@@ -260,10 +260,10 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_UTF_325match
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %5, i32 noundef 0)
+  %15 = icmp eq i32 %14, 65279
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %15 = icmp eq i32 %14, 65279
   %16 = icmp eq i32 %.143, 0
   %or.cond5 = select i1 %15, i1 %16, i1 false
   br i1 %or.cond5, label %.thread77, label %26

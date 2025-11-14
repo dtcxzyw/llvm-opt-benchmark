@@ -7564,43 +7564,43 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_s_nssai_loc_valid_info(ptr no
 
 .lr.ph46:                                         ; preds = %7, %._crit_edge
   %.03844 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %3, %7 ]
-  %.03943 = phi i32 [ %33, %._crit_edge ], [ 1, %7 ]
+  %.03943 = phi i32 [ %11, %._crit_edge ], [ 1, %7 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_nas_5gs_mm_s_nssai_loc_valid_info, align 4
-  %11 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.03844, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %8, ptr noundef nonnull @.str.1736, i32 noundef %.03943)
-  %12 = load i32, ptr @hf_nas_5gs_mm_s_nssai_loc_valid_info_per_s_nssai_len, align 4
-  %13 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %.03844, i32 noundef 2, i32 noundef 0)
-  %14 = add i32 %.03844, 2
-  %15 = load i32, ptr @hf_nas_5gs_mm_length, align 4
-  %16 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
-  %17 = add i32 %.03844, 3
-  %18 = load i32, ptr %9, align 4
-  %19 = call zeroext i16 @de_nas_5gs_cmn_s_nssai(ptr noundef %0, ptr noundef %11, ptr poison, i32 noundef %17, i32 noundef %18, ptr poison, i32 poison)
-  %20 = zext i16 %19 to i32
-  %21 = add i32 %17, %20
-  %22 = load i32, ptr @hf_nas_5gs_mm_s_nssai_loc_valid_info_per_s_nssai_nb_nr_cgi, align 4
-  %23 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
-  %24 = add i32 %21, 1
-  %25 = load i32, ptr %9, align 4
-  %.not48 = icmp eq i32 %25, 0
+  %11 = add i32 %.03943, 1
+  %12 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.03844, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %8, ptr noundef nonnull @.str.1736, i32 noundef %.03943)
+  %13 = load i32, ptr @hf_nas_5gs_mm_s_nssai_loc_valid_info_per_s_nssai_len, align 4
+  %14 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %.03844, i32 noundef 2, i32 noundef 0)
+  %15 = add i32 %.03844, 2
+  %16 = load i32, ptr @hf_nas_5gs_mm_length, align 4
+  %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %12, i32 noundef %16, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
+  %18 = add i32 %.03844, 3
+  %19 = load i32, ptr %9, align 4
+  %20 = call zeroext i16 @de_nas_5gs_cmn_s_nssai(ptr noundef %0, ptr noundef %12, ptr poison, i32 noundef %18, i32 noundef %19, ptr poison, i32 poison)
+  %21 = zext i16 %20 to i32
+  %22 = add i32 %18, %21
+  %23 = load i32, ptr @hf_nas_5gs_mm_s_nssai_loc_valid_info_per_s_nssai_nb_nr_cgi, align 4
+  %24 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %12, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
+  %25 = add i32 %22, 1
+  %26 = load i32, ptr %9, align 4
+  %.not48 = icmp eq i32 %26, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph46, %.lr.ph
-  %.042 = phi i32 [ %30, %.lr.ph ], [ 0, %.lr.ph46 ]
-  %.141 = phi i32 [ %29, %.lr.ph ], [ %24, %.lr.ph46 ]
-  %26 = load i32, ptr @hf_nas_5gs_mm_s_nssai_loc_valid_info_per_s_nssai_nr_cell_id, align 4
-  %27 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %26, ptr noundef %0, i32 noundef %.141, i32 noundef 5, i32 noundef 0)
-  %28 = add i32 %.141, 5
-  %29 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %28, i32 noundef 0, i1 noundef zeroext true)
-  %30 = add nuw i32 %.042, 1
-  %31 = load i32, ptr %9, align 4
-  %32 = icmp ult i32 %30, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !48
+  %.042 = phi i32 [ %31, %.lr.ph ], [ 0, %.lr.ph46 ]
+  %.141 = phi i32 [ %30, %.lr.ph ], [ %25, %.lr.ph46 ]
+  %27 = load i32, ptr @hf_nas_5gs_mm_s_nssai_loc_valid_info_per_s_nssai_nr_cell_id, align 4
+  %28 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %27, ptr noundef %0, i32 noundef %.141, i32 noundef 5, i32 noundef 0)
+  %29 = add i32 %.141, 5
+  %30 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %29, i32 noundef 0, i1 noundef zeroext true)
+  %31 = add nuw i32 %.042, 1
+  %32 = load i32, ptr %9, align 4
+  %33 = icmp ult i32 %31, %32
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph46
-  %.1.lcssa = phi i32 [ %24, %.lr.ph46 ], [ %29, %.lr.ph ]
-  %33 = add i32 %.03943, 1
+  %.1.lcssa = phi i32 [ %25, %.lr.ph46 ], [ %30, %.lr.ph ]
   %34 = load ptr, ptr %8, align 8
   %35 = sub i32 %.1.lcssa, %.03844
   call void @proto_item_set_len(ptr noundef %34, i32 noundef %35)
@@ -7629,70 +7629,70 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_s_nssai_time_valid_info(ptr n
 
 12:                                               ; preds = %.lr.ph60, %._crit_edge
   %.058 = phi i32 [ %3, %.lr.ph60 ], [ %.1.lcssa, %._crit_edge ]
-  %.05457 = phi i32 [ 1, %.lr.ph60 ], [ %56, %._crit_edge ]
+  %.05457 = phi i32 [ 1, %.lr.ph60 ], [ %14, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = load i32, ptr @ett_nas_5gs_mm_s_nssai_time_valid_info, align 4
-  %14 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.058, i32 noundef -1, i32 noundef %13, ptr noundef nonnull %8, ptr noundef nonnull @.str.1737, i32 noundef %.05457)
-  %15 = load i32, ptr @hf_nas_5gs_mm_s_nssai_time_valid_info_per_s_nssai_len, align 4
-  %16 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %15, ptr noundef %0, i32 noundef %.058, i32 noundef 1, i32 noundef 0)
-  %17 = add i32 %.058, 1
-  %18 = load i32, ptr @hf_nas_5gs_mm_length, align 4
-  %19 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
-  %20 = add i32 %.058, 2
-  %21 = load i32, ptr %9, align 4
-  %22 = call zeroext i16 @de_nas_5gs_cmn_s_nssai(ptr noundef %0, ptr noundef %14, ptr poison, i32 noundef %20, i32 noundef %21, ptr poison, i32 poison)
-  %23 = zext i16 %22 to i32
-  %24 = add i32 %20, %23
-  %25 = load i32, ptr @hf_nas_5gs_mm_s_nssai_time_valid_info_per_s_nssai_len, align 4
-  %26 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %25, ptr noundef %0, i32 noundef %24, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
-  %27 = add i32 %24, 1
-  %28 = load i32, ptr %9, align 4
-  %.not62 = icmp eq i32 %28, 0
+  %14 = add i32 %.05457, 1
+  %15 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.058, i32 noundef -1, i32 noundef %13, ptr noundef nonnull %8, ptr noundef nonnull @.str.1737, i32 noundef %.05457)
+  %16 = load i32, ptr @hf_nas_5gs_mm_s_nssai_time_valid_info_per_s_nssai_len, align 4
+  %17 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef %.058, i32 noundef 1, i32 noundef 0)
+  %18 = add i32 %.058, 1
+  %19 = load i32, ptr @hf_nas_5gs_mm_length, align 4
+  %20 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
+  %21 = add i32 %.058, 2
+  %22 = load i32, ptr %9, align 4
+  %23 = call zeroext i16 @de_nas_5gs_cmn_s_nssai(ptr noundef %0, ptr noundef %15, ptr poison, i32 noundef %21, i32 noundef %22, ptr poison, i32 poison)
+  %24 = zext i16 %23 to i32
+  %25 = add i32 %21, %24
+  %26 = load i32, ptr @hf_nas_5gs_mm_s_nssai_time_valid_info_per_s_nssai_len, align 4
+  %27 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
+  %28 = add i32 %25, 1
+  %29 = load i32, ptr %9, align 4
+  %.not62 = icmp eq i32 %29, 0
   br i1 %.not62, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %12, %52
-  %.156 = phi i32 [ %.2, %52 ], [ %27, %12 ]
-  %29 = load i32, ptr @hf_nas_5gs_mm_s_nssai_time_valid_info_time_window_len, align 4
-  %30 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %29, ptr noundef %0, i32 noundef %.156, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10)
-  %31 = add i32 %.156, 1
-  %32 = load i32, ptr @hf_nas_5gs_mm_s_nssai_time_valid_info_time_window_start_time, align 4
-  %33 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %32, ptr noundef %0, i32 noundef %31, i32 noundef 8, i32 noundef 0)
-  %34 = add i32 %.156, 9
-  %35 = load i32, ptr @hf_nas_5gs_mm_s_nssai_time_valid_info_time_window_stop_time, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 8, i32 noundef 0)
-  %37 = add i32 %.156, 17
-  %38 = load i32, ptr %10, align 4
-  %39 = icmp ugt i32 %38, 8
-  br i1 %39, label %40, label %52
+.lr.ph:                                           ; preds = %12, %53
+  %.156 = phi i32 [ %.2, %53 ], [ %28, %12 ]
+  %30 = load i32, ptr @hf_nas_5gs_mm_s_nssai_time_valid_info_time_window_len, align 4
+  %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %30, ptr noundef %0, i32 noundef %.156, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10)
+  %32 = add i32 %.156, 1
+  %33 = load i32, ptr @hf_nas_5gs_mm_s_nssai_time_valid_info_time_window_start_time, align 4
+  %34 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %33, ptr noundef %0, i32 noundef %32, i32 noundef 8, i32 noundef 0)
+  %35 = add i32 %.156, 9
+  %36 = load i32, ptr @hf_nas_5gs_mm_s_nssai_time_valid_info_time_window_stop_time, align 4
+  %37 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %36, ptr noundef %0, i32 noundef %35, i32 noundef 8, i32 noundef 0)
+  %38 = add i32 %.156, 17
+  %39 = load i32, ptr %10, align 4
+  %40 = icmp ugt i32 %39, 8
+  br i1 %40, label %41, label %53
 
-40:                                               ; preds = %.lr.ph
-  %41 = load i32, ptr @hf_nas_5gs_spare_bits, align 4
-  %42 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %41, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0)
-  %43 = load i32, ptr @hf_nas_5gs_mm_s_nssai_time_valid_info_time_window_recurrence_pattern, align 4
-  %44 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %43, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
-  %45 = add i32 %.156, 18
-  %46 = load i32, ptr %10, align 4
-  %47 = icmp ugt i32 %46, 9
-  br i1 %47, label %48, label %52
+41:                                               ; preds = %.lr.ph
+  %42 = load i32, ptr @hf_nas_5gs_spare_bits, align 4
+  %43 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %42, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0)
+  %44 = load i32, ptr @hf_nas_5gs_mm_s_nssai_time_valid_info_time_window_recurrence_pattern, align 4
+  %45 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %44, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %46 = add i32 %.156, 18
+  %47 = load i32, ptr %10, align 4
+  %48 = icmp ugt i32 %47, 9
+  br i1 %48, label %49, label %53
 
-48:                                               ; preds = %40
-  %49 = load i32, ptr @hf_nas_5gs_mm_s_nssai_time_valid_info_time_window_recurrence_end_time, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %49, ptr noundef %0, i32 noundef %45, i32 noundef 8, i32 noundef 0)
-  %51 = add i32 %.156, 26
-  br label %52
+49:                                               ; preds = %41
+  %50 = load i32, ptr @hf_nas_5gs_mm_s_nssai_time_valid_info_time_window_recurrence_end_time, align 4
+  %51 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %50, ptr noundef %0, i32 noundef %46, i32 noundef 8, i32 noundef 0)
+  %52 = add i32 %.156, 26
+  br label %53
 
-52:                                               ; preds = %40, %48, %.lr.ph
-  %.2 = phi i32 [ %51, %48 ], [ %45, %40 ], [ %37, %.lr.ph ]
-  %53 = sub i32 %.2, %27
-  %54 = load i32, ptr %9, align 4
-  %55 = icmp ult i32 %53, %54
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !50
+53:                                               ; preds = %41, %49, %.lr.ph
+  %.2 = phi i32 [ %52, %49 ], [ %46, %41 ], [ %38, %.lr.ph ]
+  %54 = sub i32 %.2, %28
+  %55 = load i32, ptr %9, align 4
+  %56 = icmp ult i32 %54, %55
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
-._crit_edge:                                      ; preds = %52, %12
-  %.1.lcssa = phi i32 [ %27, %12 ], [ %.2, %52 ]
-  %56 = add i32 %.05457, 1
+._crit_edge:                                      ; preds = %53, %12
+  %.1.lcssa = phi i32 [ %28, %12 ], [ %.2, %53 ]
   %57 = load ptr, ptr %8, align 8
   %58 = sub i32 %.1.lcssa, %.058
   call void @proto_item_set_len(ptr noundef %57, i32 noundef %58)
@@ -9467,15 +9467,15 @@ define internal noundef zeroext i16 @de_nas_5gs_updp_upsi_list(ptr noundef %0, p
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph25
   %.1.lcssa = phi i32 [ %22, %.lr.ph25 ], [ %28, %.lr.ph ]
-  %12 = add i32 %.024, 1
-  %13 = icmp ult i32 %.1.lcssa, %10
-  br i1 %13, label %.lr.ph25, label %._crit_edge, !llvm.loop !72
+  %12 = icmp ult i32 %.1.lcssa, %10
+  br i1 %12, label %.lr.ph25, label %._crit_edge, !llvm.loop !72
 
 .lr.ph25:                                         ; preds = %7, %.loopexit
-  %.024 = phi i32 [ %12, %.loopexit ], [ 1, %7 ]
+  %.024 = phi i32 [ %14, %.loopexit ], [ 1, %7 ]
   %.02123 = phi i32 [ %.1.lcssa, %.loopexit ], [ %3, %7 ]
-  %14 = load i32, ptr @ett_nas_5gs_updp_upsi_list, align 4
-  %15 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.02123, i32 noundef -1, i32 noundef %14, ptr noundef nonnull %8, ptr noundef nonnull @.str.1794, i32 noundef %.024)
+  %13 = load i32, ptr @ett_nas_5gs_updp_upsi_list, align 4
+  %14 = add i32 %.024, 1
+  %15 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.02123, i32 noundef -1, i32 noundef %13, ptr noundef nonnull %8, ptr noundef nonnull @.str.1794, i32 noundef %.024)
   %16 = load i32, ptr @hf_nas_5gs_upsi_sublist_len, align 4
   %17 = call ptr @proto_tree_add_item_ret_int(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef %.02123, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9)
   %18 = load ptr, ptr %8, align 8

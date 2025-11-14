@@ -162,99 +162,99 @@ _ZN18ZArrayIteratorImplIP5ZPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.e
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %1, i8 0, i64 8192, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %9 = load ptr, ptr %8, align 8
-  %10 = sext i32 %7 to i64
-  %.not44 = icmp eq i32 %7, 0
-  br i1 %.not44, label %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit.preheader, label %.lr.ph
+  %8 = icmp eq i32 %7, 0
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = load ptr, ptr %9, align 8
+  %11 = sext i32 %7 to i64
+  br i1 %8, label %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN18ZArrayIteratorImplIP5ZPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.exit, %.lr.ph
-  %.sroa.024.045 = phi i64 [ %11, %.lr.ph ], [ 0, %_ZN18ZArrayIteratorImplIP5ZPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.exit ]
-  %11 = add i64 %.sroa.024.045, 1
-  %12 = getelementptr inbounds ptr, ptr %9, i64 %.sroa.024.045
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %15 = load volatile i64, ptr %14, align 8
-  %16 = lshr i64 %15, %5
-  %17 = getelementptr inbounds i32, ptr %1, i64 %16
-  %18 = load i32, ptr %17, align 4
-  %19 = add nsw i32 %18, 1
-  store i32 %19, ptr %17, align 4
-  %.not = icmp eq i64 %11, %10
+  %.sroa.024.045 = phi i64 [ %12, %.lr.ph ], [ 0, %_ZN18ZArrayIteratorImplIP5ZPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.exit ]
+  %12 = add i64 %.sroa.024.045, 1
+  %13 = getelementptr inbounds ptr, ptr %10, i64 %.sroa.024.045
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %16 = load volatile i64, ptr %15, align 8
+  %17 = lshr i64 %16, %5
+  %18 = getelementptr inbounds i32, ptr %1, i64 %17
+  %19 = load i32, ptr %18, align 4
+  %20 = add nsw i32 %19, 1
+  store i32 %20, ptr %18, align 4
+  %.not = icmp eq i64 %12, %11
   br i1 %.not, label %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit.preheader, label %.lr.ph, !llvm.loop !6
 
 _ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit.preheader: ; preds = %.lr.ph, %_ZN18ZArrayIteratorImplIP5ZPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.exit
   br label %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit
 
 _ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit: ; preds = %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit.preheader, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit
-  %.047 = phi i32 [ %22, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit ], [ 0, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit.preheader ]
-  %.01546 = phi i64 [ %23, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit ], [ 0, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit.preheader ]
-  %20 = getelementptr inbounds nuw i32, ptr %1, i64 %.01546
-  %21 = load i32, ptr %20, align 4
-  store i32 %.047, ptr %20, align 4
-  %22 = add nsw i32 %21, %.047
-  %23 = add nuw nsw i64 %.01546, 1
-  %exitcond.not = icmp eq i64 %23, 2048
-  br i1 %exitcond.not, label %24, label %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit, !llvm.loop !8
+  %.047 = phi i32 [ %23, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit ], [ 0, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit.preheader ]
+  %.01546 = phi i64 [ %24, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit ], [ 0, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit.preheader ]
+  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %.01546
+  %22 = load i32, ptr %21, align 4
+  store i32 %.047, ptr %21, align 4
+  %23 = add nsw i32 %22, %.047
+  %24 = add nuw nsw i64 %.01546, 1
+  %exitcond.not = icmp eq i64 %24, 2048
+  br i1 %exitcond.not, label %25, label %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit, !llvm.loop !8
 
-24:                                               ; preds = %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit
-  br i1 %.not44, label %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit, label %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE8allocateEiS2_.exit.i
+25:                                               ; preds = %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit
+  br i1 %8, label %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit, label %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE8allocateEiS2_.exit.i
 
-_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE8allocateEiS2_.exit.i: ; preds = %24
-  %25 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %7, i32 noundef 8, i8 noundef zeroext 5) #15
-  %26 = icmp sgt i32 %7, 0
-  br i1 %26, label %.lr.ph.preheader.i.i, label %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit
+_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE8allocateEiS2_.exit.i: ; preds = %25
+  %26 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %7, i32 noundef 8, i8 noundef zeroext 5) #15
+  %27 = icmp sgt i32 %7, 0
+  br i1 %27, label %.lr.ph.preheader.i.i, label %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE8allocateEiS2_.exit.i
   %wide.trip.count.i.i = zext nneg i32 %7 to i64
-  %27 = shl nuw nsw i64 %wide.trip.count.i.i, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %27, i1 false)
+  %28 = shl nuw nsw i64 %wide.trip.count.i.i, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %26, i8 0, i64 %28, i1 false)
   br label %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit
 
-_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit: ; preds = %.lr.ph.preheader.i.i, %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE8allocateEiS2_.exit.i, %24
-  %.0.i.i3538 = phi ptr [ %25, %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE8allocateEiS2_.exit.i ], [ null, %24 ], [ %25, %.lr.ph.preheader.i.i ]
-  %28 = load i32, ptr %6, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = sext i32 %28 to i64
-  %.not4348 = icmp eq i32 %28, 0
+_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit: ; preds = %.lr.ph.preheader.i.i, %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE8allocateEiS2_.exit.i, %25
+  %.0.i.i3538 = phi ptr [ %26, %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE8allocateEiS2_.exit.i ], [ null, %25 ], [ %26, %.lr.ph.preheader.i.i ]
+  %29 = load i32, ptr %6, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = sext i32 %29 to i64
+  %.not4348 = icmp eq i32 %29, 0
   br i1 %.not4348, label %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit17, label %.lr.ph50
 
 .lr.ph50:                                         ; preds = %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit, %.lr.ph50
-  %.sroa.0.049 = phi i64 [ %31, %.lr.ph50 ], [ 0, %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit ]
-  %31 = add i64 %.sroa.0.049, 1
-  %32 = getelementptr inbounds ptr, ptr %29, i64 %.sroa.0.049
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  %35 = load volatile i64, ptr %34, align 8
-  %36 = lshr i64 %35, %5
-  %37 = getelementptr inbounds i32, ptr %1, i64 %36
-  %38 = load i32, ptr %37, align 4
-  %39 = add nsw i32 %38, 1
-  store i32 %39, ptr %37, align 4
-  %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds ptr, ptr %.0.i.i3538, i64 %40
-  store ptr %33, ptr %41, align 8
-  %.not43 = icmp eq i64 %31, %30
+  %.sroa.0.049 = phi i64 [ %32, %.lr.ph50 ], [ 0, %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit ]
+  %32 = add i64 %.sroa.0.049, 1
+  %33 = getelementptr inbounds ptr, ptr %30, i64 %.sroa.0.049
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
+  %36 = load volatile i64, ptr %35, align 8
+  %37 = lshr i64 %36, %5
+  %38 = getelementptr inbounds i32, ptr %1, i64 %37
+  %39 = load i32, ptr %38, align 4
+  %40 = add nsw i32 %39, 1
+  store i32 %40, ptr %38, align 4
+  %41 = sext i32 %39 to i64
+  %42 = getelementptr inbounds ptr, ptr %.0.i.i3538, i64 %41
+  store ptr %34, ptr %42, align 8
+  %.not43 = icmp eq i64 %32, %31
   br i1 %.not43, label %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit17.loopexit, label %.lr.ph50, !llvm.loop !9
 
 _ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit17.loopexit: ; preds = %.lr.ph50
-  %.pre = load ptr, ptr %8, align 8
+  %.pre = load ptr, ptr %9, align 8
   br label %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit17
 
 _ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit17: ; preds = %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit17.loopexit, %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit
-  %42 = phi ptr [ %.pre, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit17.loopexit ], [ %29, %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit ]
-  store ptr %.0.i.i3538, ptr %8, align 8
+  %43 = phi ptr [ %.pre, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit17.loopexit ], [ %30, %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit ]
+  store ptr %.0.i.i3538, ptr %9, align 8
   store i32 %7, ptr %6, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %44 = load i32, ptr %43, align 4
-  store i32 %7, ptr %43, align 4
-  %45 = icmp eq i32 %44, 0
-  %.not.i.i.i = icmp eq ptr %42, null
-  %or.cond = select i1 %45, i1 true, i1 %.not.i.i.i
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %45 = load i32, ptr %44, align 4
+  store i32 %7, ptr %44, align 4
+  %46 = icmp eq i32 %45, 0
+  %.not.i.i.i = icmp eq ptr %43, null
+  %or.cond = select i1 %46, i1 true, i1 %.not.i.i.i
   br i1 %or.cond, label %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EED2Ev.exit, label %.loopexit.thread.i.i.i
 
 .loopexit.thread.i.i.i:                           ; preds = %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit17
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %42) #15
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %43) #15
   br label %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EED2Ev.exit
 
 _ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EED2Ev.exit: ; preds = %.loopexit.thread.i.i.i, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit17

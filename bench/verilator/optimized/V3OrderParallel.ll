@@ -8618,14 +8618,14 @@ _ZNSt5arrayIjLm32EE4fillERKj.exit:                ; preds = %67, %_ZNSt7__cxx111
 
 ._crit_edge473:                                   ; preds = %_ZNK13V3GraphVertex2asIK10LogicMTaskEEPKT_v.exit, %_ZNSt5arrayIjLm32EE4fillERKj.exit
   %.057.lcssa = phi i32 [ 0, %_ZNSt5arrayIjLm32EE4fillERKj.exit ], [ %100, %_ZNK13V3GraphVertex2asIK10LogicMTaskEEPKT_v.exit ]
-  %.056.lcssa = phi i32 [ 0, %_ZNSt5arrayIjLm32EE4fillERKj.exit ], [ %112, %_ZNK13V3GraphVertex2asIK10LogicMTaskEEPKT_v.exit ]
+  %.056.lcssa = phi i32 [ 0, %_ZNSt5arrayIjLm32EE4fillERKj.exit ], [ %110, %_ZNK13V3GraphVertex2asIK10LogicMTaskEEPKT_v.exit ]
   %95 = call noundef i32 @_ZL5debugv()
   %96 = icmp sgt i32 %95, 3
   br i1 %96, label %116, label %138, !prof !80
 
 .lr.ph472:                                        ; preds = %_ZNSt5arrayIjLm32EE4fillERKj.exit, %_ZNK13V3GraphVertex2asIK10LogicMTaskEEPKT_v.exit
   %.sroa.0411.0471 = phi ptr [ %.sroa.0411.0, %_ZNK13V3GraphVertex2asIK10LogicMTaskEEPKT_v.exit ], [ %.sroa.0411.0467, %_ZNSt5arrayIjLm32EE4fillERKj.exit ]
-  %.056470 = phi i32 [ %112, %_ZNK13V3GraphVertex2asIK10LogicMTaskEEPKT_v.exit ], [ 0, %_ZNSt5arrayIjLm32EE4fillERKj.exit ]
+  %.056470 = phi i32 [ %110, %_ZNK13V3GraphVertex2asIK10LogicMTaskEEPKT_v.exit ], [ 0, %_ZNSt5arrayIjLm32EE4fillERKj.exit ]
   %.057469 = phi i32 [ %100, %_ZNK13V3GraphVertex2asIK10LogicMTaskEEPKT_v.exit ], [ 0, %_ZNSt5arrayIjLm32EE4fillERKj.exit ]
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.0411.0471, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !116
@@ -8648,12 +8648,12 @@ _ZNSt5arrayIjLm32EE4fillERKj.exit:                ; preds = %67, %_ZNSt7__cxx111
 _ZNK13V3GraphVertex2asIK10LogicMTaskEEPKT_v.exit: ; preds = %.lr.ph472, %104
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.0411.0471, i64 96
   %109 = load i32, ptr %108, align 8, !tbaa !70
+  %110 = add i32 %109, %.056470
   %.not89464 = icmp ult i32 %109, 2
-  %110 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %109, i1 true)
-  %111 = xor i32 %110, 31
-  %narrow = select i1 %.not89464, i32 0, i32 %111
+  %111 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %109, i1 true)
+  %112 = xor i32 %111, 31
+  %narrow = select i1 %.not89464, i32 0, i32 %112
   %.035.lcssa = zext nneg i32 %narrow to i64
-  %112 = add i32 %109, %.056470
   %113 = getelementptr inbounds nuw i32, ptr %5, i64 %.035.lcssa
   %114 = load i32, ptr %113, align 4, !tbaa !71
   %115 = add i32 %114, 1
@@ -29650,8 +29650,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPK7AstNodeSaIS2_EE17_M_default_
 
 _ZSt6fill_nIPPK7AstNodemS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !714
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPK7AstNodemS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPK7AstNodemS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPK7AstNodemS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i

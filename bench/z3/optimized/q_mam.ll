@@ -23428,35 +23428,35 @@ _ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i.preheader: ; preds = %_ZNK
   %.ph = phi i32 [ %49, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.thread ], [ %45, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit ]
   %.ph41 = phi ptr [ %42, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.thread ], [ null, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit ]
   %.0.i16.i.ph = phi i32 [ %47, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.thread ], [ 0, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit ]
+  %51 = freeze i32 %.0.i16.i.ph
   br label %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i: ; preds = %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i.preheader, %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i
-  %51 = phi ptr [ %.pr.pre.i, %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i ], [ %.ph41, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i.preheader ]
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i, label %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.i
+  %52 = phi ptr [ %.pr.pre.i, %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i ], [ %.ph41, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i.preheader ]
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i, label %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.i
 
 _ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.i: ; preds = %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i
-  %53 = getelementptr inbounds i8, ptr %51, i64 -8
-  %54 = load i32, ptr %53, align 4, !tbaa !43
-  %55 = icmp ugt i32 %.ph, %54
-  br i1 %55, label %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i, label %56
+  %54 = getelementptr inbounds i8, ptr %52, i64 -8
+  %55 = load i32, ptr %54, align 4, !tbaa !43
+  %56 = icmp ugt i32 %.ph, %55
+  br i1 %56, label %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i, label %57
 
 _ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i: ; preds = %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.i, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i
   tail call void @_ZN6vectorIN1q15backtrack_pointELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %41)
   %.pr.pre.i = load ptr, ptr %41, align 8, !tbaa !154
   br label %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.i, !llvm.loop !802
 
-56:                                               ; preds = %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.i
-  %57 = freeze i32 %.0.i16.i.ph
-  %58 = getelementptr inbounds i8, ptr %51, i64 -4
+57:                                               ; preds = %_ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.i
+  %58 = getelementptr inbounds i8, ptr %52, i64 -4
   store i32 %.ph, ptr %58, align 4, !tbaa !43
-  %.not1218.i = icmp eq i32 %57, %.ph
+  %.not1218.i = icmp eq i32 %51, %.ph
   br i1 %.not1218.i, label %_ZN6vectorIN1q15backtrack_pointELb0EjE6resizeEj.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %56
+.lr.ph.preheader.i:                               ; preds = %57
   %59 = zext i32 %.ph to i64
-  %60 = zext i32 %57 to i64
-  %61 = getelementptr %"struct.q::backtrack_point", ptr %51, i64 %60
+  %60 = zext i32 %51 to i64
+  %61 = getelementptr %"struct.q::backtrack_point", ptr %52, i64 %60
   %reass.add = sub nsw i64 %59, %60
   %reass.mul = mul nsw i64 %reass.add, 40
   %62 = add nsw i64 %reass.mul, -40
@@ -23465,7 +23465,7 @@ _ZNK6vectorIN1q15backtrack_pointELb0EjE8capacityEv.exit.thread.i: ; preds = %_ZN
   tail call void @llvm.memset.p0.i64(ptr align 8 %61, i8 0, i64 %64, i1 false)
   br label %_ZN6vectorIN1q15backtrack_pointELb0EjE6resizeEj.exit
 
-_ZN6vectorIN1q15backtrack_pointELb0EjE6resizeEj.exit: ; preds = %.lr.ph.preheader.i, %56, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.thread, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit
+_ZN6vectorIN1q15backtrack_pointELb0EjE6resizeEj.exit: ; preds = %.lr.ph.preheader.i, %57, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit.thread, %_ZNK6vectorIN1q15backtrack_pointELb0EjE4sizeEv.exit
   ret void
 }
 

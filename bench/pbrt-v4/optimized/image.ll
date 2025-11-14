@@ -2430,8 +2430,8 @@ define dso_local void @_ZNK4pbrt5Image14GaussianFilterERKNS_16ImageChannelDescEi
   %22 = getelementptr inbounds nuw float, ptr %21, i64 %19
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %22, ptr %23, align 8, !tbaa !83
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %21, i8 0, i64 %20, i1 false), !tbaa !68
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %20
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %24, ptr %25, align 8, !tbaa !84
   %26 = fmul float %4, 0x401921FB60000000
@@ -61476,8 +61476,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i: ; preds = %2
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i: ; preds = %.noexc95.i.i.i
   %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %50, 2
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %49, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !68
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i.i.i
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i.i.i:         ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i, %.noexc95.i.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
@@ -61667,8 +61667,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i105.i.i.i: ; preds = %._cri
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i107.i.i.i: ; preds = %.noexc112.i.i.i
   %.idx.i.i.i.i.i.i.i108.i.i.i = shl nuw nsw i64 %127, 2
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx.i.i.i.i.i.i.i108.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %126, i8 0, i64 %.idx.i.i.i.i.i.i.i108.i.i.i, i1 false), !tbaa !68
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx.i.i.i.i.i.i.i108.i.i.i
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit113.i.i.i
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit113.i.i.i:      ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i107.i.i.i, %.noexc112.i.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i105.i.i.i

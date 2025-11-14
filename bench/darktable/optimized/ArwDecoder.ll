@@ -4939,63 +4939,63 @@ _ZN8rawspeed9roundDownEmm.exit:                   ; preds = %41
   br label %82
 
 82:                                               ; preds = %.noexc133, %80
+  %83 = getelementptr inbounds nuw i8, ptr %77, i64 %63
+  %84 = lshr i32 %42, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  br label %91
+  br label %93
 
-83:                                               ; preds = %91
-  %84 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %85 = load i32, ptr %84, align 4, !tbaa !23
-  %86 = load i32, ptr %2, align 4, !tbaa !23
-  %87 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %88 = load i32, ptr %87, align 4, !tbaa !23
-  %89 = xor i32 %88, %86
-  %90 = call i32 @llvm.fshl.i32(i32 %85, i32 %89, i32 1)
-  store i32 %90, ptr %84, align 4, !tbaa !23
-  br label %95
+85:                                               ; preds = %93
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %87 = load i32, ptr %86, align 4, !tbaa !23
+  %88 = load i32, ptr %2, align 4, !tbaa !23
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %90 = load i32, ptr %89, align 4, !tbaa !23
+  %91 = xor i32 %90, %88
+  %92 = call i32 @llvm.fshl.i32(i32 %87, i32 %91, i32 1)
+  store i32 %92, ptr %86, align 4, !tbaa !23
+  br label %97
 
-91:                                               ; preds = %91, %82
-  %indvars.iv.i = phi i64 [ 0, %82 ], [ %indvars.iv.next.i, %91 ]
-  %.053.i = phi i32 [ %.0.copyload.i.i.i, %82 ], [ %93, %91 ]
-  %92 = mul i32 %.053.i, 48828125
-  %93 = add i32 %92, 1
-  %94 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
-  store i32 %93, ptr %94, align 4, !tbaa !23
+93:                                               ; preds = %93, %82
+  %indvars.iv.i = phi i64 [ 0, %82 ], [ %indvars.iv.next.i, %93 ]
+  %.053.i = phi i32 [ %.0.copyload.i.i.i, %82 ], [ %95, %93 ]
+  %94 = mul i32 %.053.i, 48828125
+  %95 = add i32 %94, 1
+  %96 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  store i32 %95, ptr %96, align 4, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %83, label %91, !llvm.loop !24
+  br i1 %exitcond.not.i, label %85, label %93, !llvm.loop !24
 
-95:                                               ; preds = %95, %83
-  %store_forwarded = phi i32 [ %90, %83 ], [ %105, %95 ]
-  %indvars.iv59.i = phi i64 [ 4, %83 ], [ %indvars.iv.next60.i, %95 ]
-  %96 = getelementptr i32, ptr %2, i64 %indvars.iv59.i
-  %97 = getelementptr i8, ptr %96, i64 -16
-  %98 = load i32, ptr %97, align 4, !tbaa !23
-  %99 = getelementptr i8, ptr %96, i64 -8
+97:                                               ; preds = %97, %85
+  %store_forwarded = phi i32 [ %92, %85 ], [ %107, %97 ]
+  %indvars.iv59.i = phi i64 [ 4, %85 ], [ %indvars.iv.next60.i, %97 ]
+  %98 = getelementptr i32, ptr %2, i64 %indvars.iv59.i
+  %99 = getelementptr i8, ptr %98, i64 -16
   %100 = load i32, ptr %99, align 4, !tbaa !23
-  %101 = xor i32 %100, %98
-  %102 = getelementptr i8, ptr %96, i64 -12
-  %103 = load i32, ptr %102, align 4, !tbaa !23
-  %104 = xor i32 %store_forwarded, %103
-  %105 = call i32 @llvm.fshl.i32(i32 %101, i32 %104, i32 1)
-  store i32 %105, ptr %96, align 4, !tbaa !23
+  %101 = getelementptr i8, ptr %98, i64 -8
+  %102 = load i32, ptr %101, align 4, !tbaa !23
+  %103 = xor i32 %102, %100
+  %104 = getelementptr i8, ptr %98, i64 -12
+  %105 = load i32, ptr %104, align 4, !tbaa !23
+  %106 = xor i32 %store_forwarded, %105
+  %107 = call i32 @llvm.fshl.i32(i32 %103, i32 %106, i32 1)
+  store i32 %107, ptr %98, align 4, !tbaa !23
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond62.not.i = icmp eq i64 %indvars.iv.next60.i, 127
-  br i1 %exitcond62.not.i, label %.preheader51.i, label %95, !llvm.loop !26
+  br i1 %exitcond62.not.i, label %.preheader51.i, label %97, !llvm.loop !26
 
-.preheader51.i:                                   ; preds = %95, %.preheader51.i
-  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %.preheader51.i ], [ 0, %95 ]
-  %106 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv63.i
-  %.0.copyload.i.i.i.i = load i32, ptr %106, align 4
-  %107 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i)
-  store i32 %107, ptr %106, align 4, !tbaa !23
+.preheader51.i:                                   ; preds = %97, %.preheader51.i
+  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %.preheader51.i ], [ 0, %97 ]
+  %108 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv63.i
+  %.0.copyload.i.i.i.i = load i32, ptr %108, align 4
+  %109 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i)
+  store i32 %109, ptr %108, align 4, !tbaa !23
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, 127
   br i1 %exitcond66.not.i, label %.preheader.preheader.i, label %.preheader51.i, !llvm.loop !27
 
 .preheader.preheader.i:                           ; preds = %.preheader51.i
-  %108 = getelementptr inbounds nuw i8, ptr %77, i64 %63
-  %109 = lshr i32 %42, 2
-  %110 = zext nneg i32 %109 to i64
+  %110 = zext nneg i32 %84 to i64
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
@@ -5024,7 +5024,7 @@ _ZN8rawspeed9roundDownEmm.exit:                   ; preds = %41
   %128 = getelementptr inbounds nuw i8, ptr %75, i64 %126
   %.0.copyload.i = load i32, ptr %128, align 1
   %129 = xor i32 %.0.copyload.i, %121
-  %130 = getelementptr inbounds nuw i8, ptr %108, i64 %126
+  %130 = getelementptr inbounds nuw i8, ptr %83, i64 %126
   store i32 %129, ptr %130, align 1
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %.not.i134 = icmp eq i64 %indvars.iv.next68.i, %110

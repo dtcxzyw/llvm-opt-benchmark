@@ -1109,35 +1109,35 @@ thread-pre-split:                                 ; preds = %decode_vector.exit.
   %471 = zext nneg i32 %470 to i64
   %472 = getelementptr inbounds nuw i8, ptr %52, i64 %471
   %473 = load i32, ptr %472, align 1, !tbaa !38
-  %474 = add i32 %461, %433
-  %475 = tail call i32 @llvm.umin.i32(i32 %469, i32 %474)
-  store i32 %475, ptr %56, align 8, !tbaa !71
-  %476 = sdiv i32 %.0149, 16
-  %477 = add nsw i32 %476, -1
-  %478 = icmp sgt i32 %.0149, 31
-  br i1 %478, label %.lr.ph249, label %._crit_edge250
+  %474 = tail call i32 @llvm.bswap.i32(i32 %473)
+  %475 = and i32 %461, 7
+  %476 = shl i32 %474, %475
+  %477 = sub nsw i32 32, %433
+  %478 = lshr i32 %476, %477
+  %479 = add i32 %461, %433
+  %480 = tail call i32 @llvm.umin.i32(i32 %469, i32 %479)
+  store i32 %480, ptr %56, align 8, !tbaa !71
+  %481 = sdiv i32 %.0149, 16
+  %482 = add nsw i32 %481, -1
+  %483 = icmp sgt i32 %.0149, 31
+  br i1 %483, label %.lr.ph249, label %._crit_edge250
 
 .lr.ph249:                                        ; preds = %468
-  %smax = tail call i32 @llvm.smax.i32(i32 %477, i32 1)
+  %smax = tail call i32 @llvm.smax.i32(i32 %482, i32 1)
   %wide.trip.count281 = zext nneg i32 %smax to i64
   br label %498
 
 ._crit_edge250:                                   ; preds = %498, %468
   %.0143.lcssa = phi i32 [ 0, %468 ], [ %507, %498 ]
-  %479 = tail call i32 @llvm.bswap.i32(i32 %473)
-  %480 = and i32 %461, 7
-  %481 = shl i32 %479, %480
-  %482 = sub nsw i32 32, %433
-  %483 = lshr i32 %481, %482
-  %484 = shl nsw i32 %477, 1
+  %484 = shl nsw i32 %482, 1
   %485 = sext i32 %484 to i64
   %486 = getelementptr inbounds i8, ptr %51, i64 %485
   %487 = load i16, ptr %486, align 1, !tbaa !38
   %488 = tail call i16 @llvm.bswap.i16(i16 %487)
   %489 = zext i16 %488 to i32
-  %490 = xor i32 %483, -1
+  %490 = xor i32 %478, -1
   %491 = and i32 %489, %490
-  %492 = srem i32 %477, 15
+  %492 = srem i32 %482, 15
   %493 = shl nuw nsw i32 %491, %492
   %494 = xor i32 %493, %.0143.lcssa
   %495 = lshr i32 %494, 15
@@ -1162,7 +1162,7 @@ thread-pre-split:                                 ; preds = %decode_vector.exit.
   br i1 %exitcond282.not, label %._crit_edge250, label %498, !llvm.loop !96
 
 508:                                              ; preds = %514
-  %.not164 = icmp eq i32 %483, %517
+  %.not164 = icmp eq i32 %478, %517
   br i1 %.not164, label %525, label %522
 
 509:                                              ; preds = %._crit_edge250, %514

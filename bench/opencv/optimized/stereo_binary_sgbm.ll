@@ -2467,34 +2467,34 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
   %262 = add i64 %261, 15
   %263 = and i64 %262, -16
   %264 = inttoptr i64 %263 to ptr
-  %265 = icmp slt i32 %206, 1
-  br i1 %265, label %..preheader228_crit_edge.i, label %.lr.ph.i
+  %265 = getelementptr i16, ptr %264, i64 %210
+  %266 = getelementptr inbounds nuw i16, ptr %265, i64 %210
+  %267 = sext i32 %217 to i64
+  %268 = mul nsw i64 %207, %267
+  %269 = getelementptr inbounds nuw i16, ptr %266, i64 %268
+  %270 = getelementptr inbounds nuw i16, ptr %269, i64 %207
+  %.idx.i = shl nsw i64 %218, 2
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 %.idx.i
+  %272 = getelementptr inbounds i16, ptr %271, i64 %228
+  %273 = icmp slt i32 %206, 1
+  br i1 %273, label %..preheader228_crit_edge.i, label %.lr.ph.i
 
 ..preheader228_crit_edge.i:                       ; preds = %.noexc85
   %.pre.i = zext i32 %206 to i64
   br label %.preheader228.i
 
 .lr.ph.i:                                         ; preds = %.noexc85
-  %266 = trunc i32 %.sroa.speculated173.i to i16
+  %274 = trunc i32 %.sroa.speculated173.i to i16
   %wide.trip.count.i = zext nneg i32 %206 to i64
   br label %312
 
 .preheader228.i:                                  ; preds = %312, %..preheader228_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %..preheader228_crit_edge.i ], [ %wide.trip.count.i, %312 ]
-  %267 = getelementptr i16, ptr %264, i64 %210
-  %268 = getelementptr inbounds nuw i16, ptr %267, i64 %210
-  %269 = sext i32 %217 to i64
-  %270 = mul nsw i64 %207, %269
-  %271 = getelementptr inbounds nuw i16, ptr %268, i64 %270
-  %272 = getelementptr inbounds nuw i16, ptr %271, i64 %207
-  %.idx.i = shl nsw i64 %218, 2
-  %273 = getelementptr inbounds nuw i8, ptr %272, i64 %.idx.i
-  %274 = getelementptr inbounds i16, ptr %273, i64 %228
   %275 = sext i32 %205 to i64
-  %invariant.gep.i = getelementptr i16, ptr %272, i64 %275
+  %invariant.gep.i = getelementptr i16, ptr %270, i64 %275
   %276 = sub nsw i64 0, %275
   %277 = shl nsw i64 %215, 1
-  %278 = getelementptr inbounds nuw i16, ptr %272, i64 %277
+  %278 = getelementptr inbounds nuw i16, ptr %270, i64 %277
   %279 = shl nsw i64 %213, 1
   %280 = add nsw i32 %176, -1
   %281 = add nsw i32 %179, -1
@@ -2540,7 +2540,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
 312:                                              ; preds = %312, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %312 ]
   %313 = getelementptr inbounds nuw i16, ptr %264, i64 %indvars.iv.i
-  store i16 %266, ptr %313, align 2, !tbaa !105
+  store i16 %274, ptr %313, align 2, !tbaa !105
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.preheader228.i, label %312, !llvm.loop !107
@@ -2632,7 +2632,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
   %346 = mul nsw i64 %indvars.iv424.i, %207
   %347 = select i1 %.not642.i, i64 %346, i64 0
   %348 = getelementptr inbounds nuw i16, ptr %264, i64 %347
-  %349 = getelementptr i16, ptr %267, i64 %347
+  %349 = getelementptr i16, ptr %265, i64 %347
   br i1 %315, label %350, label %.loopexit226.i
 
 350:                                              ; preds = %336
@@ -2650,11 +2650,11 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
   %357 = add i32 %356, %.neg.i
   %.sroa.speculated141.i = call i32 @llvm.smax.i32(i32 %357, i32 0)
   %358 = getelementptr inbounds i16, ptr %348, i64 %.idx645.i
-  %brmerge495.i = or i1 %265, %351
+  %brmerge495.i = or i1 %273, %351
   br label %359
 
 .preheader225.i:                                  ; preds = %.loopexit216.i, %350
-  br i1 %265, label %.loopexit226.i, label %.lr.ph268.preheader.i
+  br i1 %273, label %.loopexit226.i, label %.lr.ph268.preheader.i
 
 .lr.ph268.preheader.i:                            ; preds = %.preheader225.i
   call void @llvm.memset.p0.i64(ptr align 2 %349, i8 0, i64 %308, i1 false), !tbaa !105
@@ -2667,7 +2667,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
   %361 = srem i32 %.sroa.speculated148.i, %217
   %362 = sext i32 %361 to i64
   %363 = mul nsw i64 %362, %207
-  %364 = getelementptr inbounds nuw i16, ptr %268, i64 %363
+  %364 = getelementptr inbounds nuw i16, ptr %266, i64 %363
   %365 = icmp slt i64 %indvars.iv379.i, %306
   br i1 %365, label %.preheader220.i, label %.loopexit217.i
 
@@ -2690,7 +2690,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
   %372 = mul nsw i64 %371, %369
   %373 = mul nuw nsw i64 %indvars.iv345.i, %370
   %374 = getelementptr i16, ptr %.val66, i64 %372
-  %375 = getelementptr inbounds nuw i16, ptr %271, i64 %373
+  %375 = getelementptr inbounds nuw i16, ptr %269, i64 %373
   br label %385
 
 ._crit_edge236.i:                                 ; preds = %._crit_edge.i, %.preheader220.i
@@ -2701,7 +2701,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
   %indvars.iv355.i = phi i64 [ %indvars.iv.next356.i, %._crit_edge240.us.i ], [ 0, %._crit_edge236.i ]
   %376 = icmp eq i64 %indvars.iv355.i, 0
   %377 = select i1 %376, i16 %289, i16 1
-  %invariant.gep479.i = getelementptr inbounds nuw i16, ptr %271, i64 %indvars.iv355.i
+  %invariant.gep479.i = getelementptr inbounds nuw i16, ptr %269, i64 %indvars.iv355.i
   br label %378
 
 378:                                              ; preds = %378, %.lr.ph239.us.i
@@ -2748,7 +2748,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
   %390 = srem i32 %.sroa.speculated141.i, %217
   %391 = zext nneg i32 %390 to i64
   %392 = mul nsw i64 %391, %207
-  %393 = getelementptr inbounds nuw i16, ptr %268, i64 %392
+  %393 = getelementptr inbounds nuw i16, ptr %266, i64 %392
   br i1 %290, label %.lr.ph258.i, label %.loopexit216.i
 
 .lr.ph258.i:                                      ; preds = %389, %._crit_edge255.i
@@ -2757,11 +2757,11 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
   %395 = add i32 %286, %394
   %.sroa.speculated134.i = call i32 @llvm.smin.i32(i32 %291, i32 %395)
   %396 = sext i32 %.sroa.speculated134.i to i64
-  %397 = getelementptr inbounds i16, ptr %271, i64 %396
+  %397 = getelementptr inbounds i16, ptr %269, i64 %396
   %398 = add i32 %.neg644.i, %394
   %.sroa.speculated127.i = call i32 @llvm.smax.i32(i32 %398, i32 0)
   %399 = zext nneg i32 %.sroa.speculated127.i to i64
-  %400 = getelementptr inbounds nuw i16, ptr %271, i64 %399
+  %400 = getelementptr inbounds nuw i16, ptr %269, i64 %399
   br i1 %287, label %._crit_edge255.i, label %.lr.ph254.i
 
 .lr.ph254.i:                                      ; preds = %.lr.ph258.i
@@ -2806,11 +2806,11 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
   %422 = add i32 %286, %421
   %.sroa.speculated120.i = call i32 @llvm.smin.i32(i32 %291, i32 %422)
   %423 = sext i32 %.sroa.speculated120.i to i64
-  %424 = getelementptr inbounds i16, ptr %271, i64 %423
+  %424 = getelementptr inbounds i16, ptr %269, i64 %423
   %425 = add i32 %.neg644.i, %421
   %.sroa.speculated113.i = call i32 @llvm.smax.i32(i32 %425, i32 0)
   %426 = zext nneg i32 %.sroa.speculated113.i to i64
-  %427 = getelementptr inbounds nuw i16, ptr %271, i64 %426
+  %427 = getelementptr inbounds nuw i16, ptr %269, i64 %426
   br i1 %287, label %._crit_edge249.i, label %.lr.ph248.i
 
 .lr.ph248.i:                                      ; preds = %.lr.ph251.i
@@ -3082,11 +3082,11 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
 
 .lr.ph286.i:                                      ; preds = %._crit_edge284.i, %.lr.ph286.i
   %indvars.iv396.i = phi i64 [ %indvars.iv.next397.i, %.lr.ph286.i ], [ 0, %._crit_edge284.i ]
-  %584 = getelementptr inbounds nuw i16, ptr %274, i64 %indvars.iv396.i
+  %584 = getelementptr inbounds nuw i16, ptr %272, i64 %indvars.iv396.i
   store i16 %301, ptr %584, align 2, !tbaa !105
   %585 = getelementptr inbounds nuw i16, ptr %345, i64 %indvars.iv396.i
   store i16 %301, ptr %585, align 2, !tbaa !105
-  %586 = getelementptr inbounds nuw i16, ptr %273, i64 %indvars.iv396.i
+  %586 = getelementptr inbounds nuw i16, ptr %271, i64 %indvars.iv396.i
   store i16 32767, ptr %586, align 2, !tbaa !105
   %indvars.iv.next397.i = add nuw nsw i64 %indvars.iv396.i, 1
   %exitcond400.not.i = icmp eq i64 %indvars.iv.next397.i, %wide.trip.count348.i
@@ -3225,7 +3225,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
   %655 = trunc nsw i64 %653 to i32
   %656 = sub i32 %655, %654
   %657 = sext i32 %656 to i64
-  %658 = getelementptr inbounds i16, ptr %273, i64 %657
+  %658 = getelementptr inbounds i16, ptr %271, i64 %657
   %659 = load i16, ptr %658, align 2, !tbaa !105
   %660 = sext i16 %659 to i32
   %661 = icmp slt i32 %.2594463.i, %660
@@ -3235,7 +3235,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
   %663 = trunc nsw i32 %.2594463.i to i16
   store i16 %663, ptr %658, align 2, !tbaa !105
   %664 = trunc i32 %654 to i16
-  %665 = getelementptr inbounds i16, ptr %274, i64 %657
+  %665 = getelementptr inbounds i16, ptr %272, i64 %657
   store i16 %664, ptr %665, align 2, !tbaa !105
   br label %666
 
@@ -3377,7 +3377,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
 
 754:                                              ; preds = %745
   %755 = zext nneg i32 %750 to i64
-  %756 = getelementptr inbounds nuw i16, ptr %274, i64 %755
+  %756 = getelementptr inbounds nuw i16, ptr %272, i64 %755
   %757 = load i16, ptr %756, align 2, !tbaa !105
   %758 = sext i16 %757 to i32
   %.not640.i = icmp sgt i32 %151, %758
@@ -3395,7 +3395,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
 
 766:                                              ; preds = %759
   %767 = zext nneg i32 %751 to i64
-  %768 = getelementptr inbounds nuw i16, ptr %274, i64 %767
+  %768 = getelementptr inbounds nuw i16, ptr %272, i64 %767
   %769 = load i16, ptr %768, align 2, !tbaa !105
   %770 = sext i16 %769 to i32
   %.not641.i = icmp sgt i32 %151, %770
@@ -5763,11 +5763,11 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median1x9IsEclERKNS_5Ra
 .lr.ph.us.preheader:                              ; preds = %._crit_edge.us, %.preheader.us.preheader
   %indvars.iv88 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next89, %._crit_edge.us ]
   %indvars.iv82 = phi i64 [ 1, %.preheader.us.preheader ], [ %indvars.iv.next83, %._crit_edge.us ]
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %43 = trunc nuw nsw i64 %indvars.iv88 to i32
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %44 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv88
   %45 = load i16, ptr %44, align 2, !tbaa !105
   %46 = zext nneg i32 %spec.select.us to i64
@@ -5972,11 +5972,11 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median9x1IsEclERKNS_5Ra
 .lr.ph.us.us.preheader:                           ; preds = %38, %._crit_edge.us.us
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %._crit_edge.us.us ], [ 0, %38 ]
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %._crit_edge.us.us ], [ 1, %38 ]
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %42 = trunc nuw nsw i64 %indvars.iv84 to i32
   br label %.lr.ph.us.us
 
 ._crit_edge.us.us:                                ; preds = %.lr.ph.us.us
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %43 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv84
   %44 = load i16, ptr %43, align 2, !tbaa !105
   %45 = zext nneg i32 %spec.select.us.us to i64

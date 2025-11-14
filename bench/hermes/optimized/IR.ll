@@ -7933,6 +7933,7 @@ for.end:                                          ; preds = %for.body, %_ZN4llvh
   store i32 0, ptr %Size.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %toDelete, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i, align 4
+  %literalNumbers = getelementptr inbounds nuw i8, ptr %this, i64 664
   call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   %Buckets.i = getelementptr inbounds nuw i8, ptr %this, i64 672
   %10 = load ptr, ptr %Buckets.i, align 8
@@ -7982,6 +7983,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit: 
   br i1 %cmp.i13.not, label %for.end22, label %for.body18
 
 for.end22:                                        ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit, %for.end
+  %literalBigInts = getelementptr inbounds nuw i8, ptr %this, i64 688
   call void @llvm.lifetime.start.p0(ptr nonnull %retval.i16)
   %Buckets.i17 = getelementptr inbounds nuw i8, ptr %this, i64 696
   %24 = load ptr, ptr %Buckets.i17, align 8
@@ -8031,6 +8033,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit35
   br i1 %cmp.i23.not, label %for.end40, label %for.body34
 
 for.end40:                                        ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit35, %for.end22
+  %literalStrings = getelementptr inbounds nuw i8, ptr %this, i64 712
   call void @llvm.lifetime.start.p0(ptr nonnull %retval.i36)
   %Buckets.i37 = getelementptr inbounds nuw i8, ptr %this, i64 720
   %38 = load ptr, ptr %Buckets.i37, align 8
@@ -8102,9 +8105,6 @@ for.end68.loopexit:                               ; preds = %for.body65
 
 for.end68:                                        ; preds = %for.end68.loopexit, %for.end58
   %55 = phi ptr [ %.pre, %for.end68.loopexit ], [ %52, %for.end58 ]
-  %literalNumbers = getelementptr inbounds nuw i8, ptr %this, i64 664
-  %literalBigInts = getelementptr inbounds nuw i8, ptr %this, i64 688
-  %literalStrings = getelementptr inbounds nuw i8, ptr %this, i64 712
   %cmp.i.i.i = icmp eq ptr %55, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIPN6hermes7LiteralELj32EED2Ev.exit, label %if.then.i.i
 
@@ -12605,6 +12605,7 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN4llvh7hashing6detail18get_execution_seedEv.exit: ; preds = %entry, %init.check.i, %init.i
   %3 = load i64, ptr @_ZZN4llvh7hashing6detail18get_execution_seedEvE4seed, align 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buffer, i64 64
   %cmp.i.not78 = icmp eq ptr %first.coerce, %last.coerce
   br i1 %cmp.i.not78, label %while.end, label %while.body
 
@@ -12624,7 +12625,6 @@ while.body:                                       ; preds = %_ZN4llvh7hashing6de
 while.end:                                        ; preds = %while.body, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit
   %buffer_ptr.0.idx.lcssa = phi i64 [ 0, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit ], [ %buffer_ptr.0.add, %while.body ]
   %first.sroa.0.0.lcssa = phi ptr [ %first.coerce, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit ], [ %incdec.ptr.i, %while.body ]
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buffer, i64 64
   %cmp.i7 = icmp eq ptr %first.sroa.0.0.lcssa, %last.coerce
   br i1 %cmp.i7, label %if.then, label %if.end
 

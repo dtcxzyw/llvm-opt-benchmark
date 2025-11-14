@@ -149,19 +149,19 @@ define void @_ZN18BigUnsignedInABaseC2ERK11BigUnsignedt(ptr noundef nonnull alig
 _ZN12_GLOBAL__N_16bitLenEj.exit:                  ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 %2, ptr %12, align 8, !tbaa !15
-  %13 = lshr i16 %2, 1
-  %14 = zext nneg i16 %13 to i32
-  %15 = tail call range(i32 17, 33) i32 @llvm.ctlz.i32(i32 %14, i1 false)
-  %16 = sub nuw nsw i32 32, %15
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !24
-  %19 = shl i32 %18, 6
-  %20 = sub i32 %19, %15
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !24
+  %15 = lshr i16 %2, 1
+  %16 = zext nneg i16 %15 to i32
+  %17 = tail call range(i32 17, 33) i32 @llvm.ctlz.i32(i32 %16, i1 false)
+  %18 = sub nuw nsw i32 32, %17
+  %19 = shl i32 %14, 6
+  %20 = sub i32 %19, %17
   %21 = add i32 %20, 31
-  %22 = udiv i32 %21, %16
+  %22 = udiv i32 %21, %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %22, ptr %23, align 4, !tbaa !13
-  %.not = icmp ugt i32 %16, %21
+  %.not = icmp ugt i32 %18, %21
   br i1 %.not, label %_ZN15NumberlikeArrayItE8allocateEj.exit, label %24
 
 24:                                               ; preds = %_ZN12_GLOBAL__N_16bitLenEj.exit
@@ -179,9 +179,9 @@ _ZN12_GLOBAL__N_16bitLenEj.exit:                  ; preds = %3
 _ZN15NumberlikeArrayItE8allocateEj.exit:          ; preds = %.noexc, %_ZN12_GLOBAL__N_16bitLenEj.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %18, ptr %29, align 4, !tbaa !24
-  store i32 %18, ptr %4, align 8, !tbaa !27
-  %30 = zext i32 %18 to i64
+  store i32 %14, ptr %29, align 4, !tbaa !24
+  store i32 %14, ptr %4, align 8, !tbaa !27
+  %30 = zext i32 %14 to i64
   %31 = shl nuw nsw i64 %30, 3
   %32 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %31) #10
           to label %.noexc29 unwind label %67
@@ -189,7 +189,7 @@ _ZN15NumberlikeArrayItE8allocateEj.exit:          ; preds = %.noexc, %_ZN12_GLOB
 .noexc29:                                         ; preds = %_ZN15NumberlikeArrayItE8allocateEj.exit
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %32, ptr %33, align 8, !tbaa !28
-  %.not.i.i = icmp eq i32 %18, 0
+  %.not.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i, label %_ZN11BigUnsignedC2ERKS_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc29
@@ -222,7 +222,7 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %36, %.noexc29
   br label %43
 
 43:                                               ; preds = %.lr.ph, %_ZN15NumberlikeArrayImED2Ev.exit
-  %44 = phi i32 [ %18, %.lr.ph ], [ %63, %_ZN15NumberlikeArrayImED2Ev.exit ]
+  %44 = phi i32 [ %14, %.lr.ph ], [ %63, %_ZN15NumberlikeArrayImED2Ev.exit ]
   %.044 = phi i32 [ 0, %.lr.ph ], [ %59, %_ZN15NumberlikeArrayImED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %44, ptr %40, align 4, !tbaa !24

@@ -142,7 +142,7 @@ define internal fastcc void @sort_rec2(ptr noundef captures(none) %0, i32 nounde
   br i1 %3, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
-  %.tr.lcssa = phi ptr [ %0, %2 ], [ %35, %tailrecurse ]
+  %.tr.lcssa = phi ptr [ %0, %2 ], [ %29, %tailrecurse ]
   %.tr38.lcssa = phi i32 [ %1, %2 ], [ %40, %tailrecurse ]
   %4 = icmp sgt i32 %.tr38.lcssa, 1
   br i1 %4, label %.lr.ph27.preheader.i, label %selectionsort2.exit
@@ -189,7 +189,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
   %.tr3847 = phi i32 [ %40, %tailrecurse ], [ %1, %2 ]
-  %.tr46 = phi ptr [ %35, %tailrecurse ], [ %0, %2 ]
+  %.tr46 = phi ptr [ %29, %tailrecurse ], [ %0, %2 ]
   %19 = lshr i32 %.tr3847, 1
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i32, ptr %.tr46, i64 %20
@@ -212,30 +212,30 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   br i1 %28, label %25, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %25
-  %29 = sext i32 %.0 to i64
-  br label %30
+  %29 = getelementptr inbounds i32, ptr %.tr46, i64 %indvars.iv.next
+  %30 = sext i32 %.0 to i64
+  br label %31
 
-30:                                               ; preds = %.preheader, %30
-  %indvars.iv57 = phi i64 [ %29, %.preheader ], [ %indvars.iv.next58, %30 ]
+31:                                               ; preds = %.preheader, %31
+  %indvars.iv57 = phi i64 [ %30, %.preheader ], [ %indvars.iv.next58, %31 ]
   %indvars.iv.next58 = add nsw i64 %indvars.iv57, -1
-  %31 = getelementptr inbounds i32, ptr %.tr46, i64 %indvars.iv.next58
-  %32 = load i32, ptr %31, align 4, !tbaa !5
-  %33 = icmp slt i32 %22, %32
-  br i1 %33, label %30, label %34, !llvm.loop !15
+  %32 = getelementptr inbounds i32, ptr %.tr46, i64 %indvars.iv.next58
+  %33 = load i32, ptr %32, align 4, !tbaa !5
+  %34 = icmp slt i32 %22, %33
+  br i1 %34, label %31, label %35, !llvm.loop !15
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds i32, ptr %.tr46, i64 %indvars.iv.next
+35:                                               ; preds = %31
   %.not = icmp slt i64 %indvars.iv.next, %indvars.iv.next58
   br i1 %.not, label %36, label %tailrecurse
 
-36:                                               ; preds = %34
+36:                                               ; preds = %35
   %37 = getelementptr inbounds i32, ptr %.tr46, i64 %indvars.iv.next58
   %38 = trunc nsw i64 %indvars.iv.next58 to i32
-  store i32 %32, ptr %35, align 4, !tbaa !5
+  store i32 %33, ptr %29, align 4, !tbaa !5
   store i32 %27, ptr %37, align 4, !tbaa !5
   br label %23
 
-tailrecurse:                                      ; preds = %34
+tailrecurse:                                      ; preds = %35
   %39 = trunc nsw i64 %indvars.iv.next to i32
   tail call fastcc void @sort_rec2(ptr noundef nonnull %.tr46, i32 noundef %39)
   %40 = sub nsw i32 %.tr3847, %39
@@ -544,7 +544,7 @@ define internal fastcc void @sort_rec3(ptr noundef captures(none) %0, ptr nounde
   br i1 %4, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
-  %.tr.lcssa = phi ptr [ %0, %3 ], [ %40, %tailrecurse ]
+  %.tr.lcssa = phi ptr [ %0, %3 ], [ %34, %tailrecurse ]
   %.tr51.lcssa = phi ptr [ %1, %3 ], [ %49, %tailrecurse ]
   %.tr52.lcssa = phi i32 [ %2, %3 ], [ %50, %tailrecurse ]
   %5 = icmp sgt i32 %.tr52.lcssa, 1
@@ -599,7 +599,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 .lr.ph:                                           ; preds = %3, %tailrecurse
   %.tr5264 = phi i32 [ %50, %tailrecurse ], [ %2, %3 ]
   %.tr5163 = phi ptr [ %49, %tailrecurse ], [ %1, %3 ]
-  %.tr62 = phi ptr [ %40, %tailrecurse ], [ %0, %3 ]
+  %.tr62 = phi ptr [ %34, %tailrecurse ], [ %0, %3 ]
   %24 = lshr i32 %.tr5264, 1
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr inbounds nuw float, ptr %.tr62, i64 %25
@@ -622,26 +622,26 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   br i1 %33, label %30, label %.preheader, !llvm.loop !31
 
 .preheader:                                       ; preds = %30
-  %34 = sext i32 %.0 to i64
-  br label %35
+  %34 = getelementptr inbounds float, ptr %.tr62, i64 %indvars.iv.next
+  %35 = sext i32 %.0 to i64
+  br label %36
 
-35:                                               ; preds = %.preheader, %35
-  %indvars.iv76 = phi i64 [ %34, %.preheader ], [ %indvars.iv.next77, %35 ]
+36:                                               ; preds = %.preheader, %36
+  %indvars.iv76 = phi i64 [ %35, %.preheader ], [ %indvars.iv.next77, %36 ]
   %indvars.iv.next77 = add nsw i64 %indvars.iv76, -1
-  %36 = getelementptr inbounds float, ptr %.tr62, i64 %indvars.iv.next77
-  %37 = load float, ptr %36, align 4, !tbaa !27
-  %38 = fcmp olt float %27, %37
-  br i1 %38, label %35, label %39, !llvm.loop !32
+  %37 = getelementptr inbounds float, ptr %.tr62, i64 %indvars.iv.next77
+  %38 = load float, ptr %37, align 4, !tbaa !27
+  %39 = fcmp olt float %27, %38
+  br i1 %39, label %36, label %40, !llvm.loop !32
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds float, ptr %.tr62, i64 %indvars.iv.next
+40:                                               ; preds = %36
   %.not = icmp slt i64 %indvars.iv.next, %indvars.iv.next77
   br i1 %.not, label %41, label %tailrecurse
 
-41:                                               ; preds = %39
+41:                                               ; preds = %40
   %42 = getelementptr inbounds float, ptr %.tr62, i64 %indvars.iv.next77
   %43 = trunc nsw i64 %indvars.iv.next77 to i32
-  store float %37, ptr %40, align 4, !tbaa !27
+  store float %38, ptr %34, align 4, !tbaa !27
   store float %32, ptr %42, align 4, !tbaa !27
   %44 = getelementptr inbounds i32, ptr %.tr5163, i64 %indvars.iv.next
   %45 = load i32, ptr %44, align 4, !tbaa !5
@@ -651,7 +651,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   store i32 %45, ptr %46, align 4, !tbaa !5
   br label %28
 
-tailrecurse:                                      ; preds = %39
+tailrecurse:                                      ; preds = %40
   %48 = trunc nsw i64 %indvars.iv.next to i32
   tail call fastcc void @sort_rec3(ptr noundef nonnull %.tr62, ptr noundef %.tr5163, i32 noundef %48)
   %49 = getelementptr inbounds i32, ptr %.tr5163, i64 %indvars.iv.next

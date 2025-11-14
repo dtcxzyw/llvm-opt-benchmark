@@ -43,211 +43,211 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 84
   %16 = load i32, ptr %15, align 4
-  %17 = tail call ptr @get_opfamily_name(i32 noundef %14, i1 noundef zeroext false) #3
-  %18 = zext i32 %14 to i64
-  %19 = tail call ptr @SearchSysCacheList(i32 noundef 4, i32 noundef 1, i64 noundef %18, i64 noundef 0, i64 noundef 0) #3
-  %20 = tail call ptr @SearchSysCacheList(i32 noundef 5, i32 noundef 1, i64 noundef %18, i64 noundef 0, i64 noundef 0) #3
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph, label %.preheader
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %18 = tail call ptr @get_opfamily_name(i32 noundef %14, i1 noundef zeroext false) #3
+  %19 = zext i32 %14 to i64
+  %20 = tail call ptr @SearchSysCacheList(i32 noundef 4, i32 noundef 1, i64 noundef %19, i64 noundef 0, i64 noundef 0) #3
+  %21 = tail call ptr @SearchSysCacheList(i32 noundef 5, i32 noundef 1, i64 noundef %19, i64 noundef 0, i64 noundef 0) #3
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %7
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  br label %29
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  br label %30
 
-.preheader:                                       ; preds = %78, %7
-  %.0.lcssa = phi i1 [ true, %7 ], [ %.1, %78 ]
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph121, label %._crit_edge
+.preheader:                                       ; preds = %79, %7
+  %.0.lcssa = phi i1 [ true, %7 ], [ %.1, %79 ]
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 64
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp sgt i32 %27, 0
+  br i1 %28, label %.lr.ph121, label %._crit_edge
 
 .lr.ph121:                                        ; preds = %.preheader
-  %28 = getelementptr inbounds nuw i8, ptr %19, i64 80
-  br label %82
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 80
+  br label %83
 
-29:                                               ; preds = %.lr.ph, %78
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %.0118 = phi i1 [ true, %.lr.ph ], [ %.1, %78 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr i8, ptr %31, i64 80
-  %.val113 = load ptr, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %.val113, i64 22
-  %34 = load i8, ptr %33, align 2
-  %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %.val113, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load i16, ptr %37, align 4
-  switch i16 %38, label %63 [
-    i16 1, label %39
-    i16 2, label %47
-    i16 3, label %51
-    i16 4, label %59
-    i16 5, label %65
+30:                                               ; preds = %.lr.ph, %79
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
+  %.0118 = phi i1 [ true, %.lr.ph ], [ %.1, %79 ]
+  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr i8, ptr %32, i64 80
+  %.val113 = load ptr, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %.val113, i64 22
+  %35 = load i8, ptr %34, align 2
+  %36 = zext i8 %35 to i64
+  %37 = getelementptr inbounds nuw i8, ptr %.val113, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %39 = load i16, ptr %38, align 4
+  switch i16 %39, label %64 [
+    i16 1, label %40
+    i16 2, label %48
+    i16 3, label %52
+    i16 4, label %60
+    i16 5, label %66
   ]
 
-39:                                               ; preds = %29
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 20
-  %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 12
-  %45 = load i32, ptr %44, align 4
-  %46 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %41, i32 noundef 23, i1 noundef zeroext true, i32 noundef 2, i32 noundef 2, i32 noundef %43, i32 noundef %45) #3
-  br i1 %46, label %78, label %69
+40:                                               ; preds = %30
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %42 = load i32, ptr %41, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %44 = load i32, ptr %43, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 12
+  %46 = load i32, ptr %45, align 4
+  %47 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %42, i32 noundef 23, i1 noundef zeroext true, i32 noundef 2, i32 noundef 2, i32 noundef %44, i32 noundef %46) #3
+  br i1 %47, label %79, label %70
 
-47:                                               ; preds = %29
-  %48 = getelementptr inbounds nuw i8, ptr %36, i64 20
-  %49 = load i32, ptr %48, align 4
-  %50 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %49, i32 noundef 2278, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef 2281) #3
-  br i1 %50, label %78, label %69
+48:                                               ; preds = %30
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %50 = load i32, ptr %49, align 4
+  %51 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %50, i32 noundef 2278, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef 2281) #3
+  br i1 %51, label %79, label %70
 
-51:                                               ; preds = %29
-  %52 = getelementptr inbounds nuw i8, ptr %36, i64 20
-  %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %36, i64 12
-  %57 = load i32, ptr %56, align 4
-  %58 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %53, i32 noundef 16, i1 noundef zeroext true, i32 noundef 5, i32 noundef 5, i32 noundef %55, i32 noundef %55, i32 noundef %57, i32 noundef 16, i32 noundef 16) #3
-  br i1 %58, label %78, label %69
+52:                                               ; preds = %30
+  %53 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %54 = load i32, ptr %53, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %56 = load i32, ptr %55, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %37, i64 12
+  %58 = load i32, ptr %57, align 4
+  %59 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %54, i32 noundef 16, i1 noundef zeroext true, i32 noundef 5, i32 noundef 5, i32 noundef %56, i32 noundef %56, i32 noundef %58, i32 noundef 16, i32 noundef 16) #3
+  br i1 %59, label %79, label %70
 
-59:                                               ; preds = %29
-  %60 = getelementptr inbounds nuw i8, ptr %36, i64 20
-  %61 = load i32, ptr %60, align 4
-  %62 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %61, i32 noundef 16, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef 26) #3
-  br i1 %62, label %78, label %69
+60:                                               ; preds = %30
+  %61 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %62 = load i32, ptr %61, align 4
+  %63 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %62, i32 noundef 16, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef 26) #3
+  br i1 %63, label %79, label %70
 
-63:                                               ; preds = %29
-  %64 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
-  br i1 %64, label %.sink.split, label %78
+64:                                               ; preds = %30
+  %65 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
+  br i1 %65, label %.sink.split, label %79
 
-65:                                               ; preds = %29
-  %66 = getelementptr inbounds nuw i8, ptr %36, i64 20
-  %67 = load i32, ptr %66, align 4
-  %68 = tail call zeroext i1 @check_amoptsproc_signature(i32 noundef %67) #3
-  br i1 %68, label %78, label %69
+66:                                               ; preds = %30
+  %67 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %68 = load i32, ptr %67, align 4
+  %69 = tail call zeroext i1 @check_amoptsproc_signature(i32 noundef %68) #3
+  br i1 %69, label %79, label %70
 
-69:                                               ; preds = %59, %51, %47, %39, %65
-  %70 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
-  br i1 %70, label %.sink.split, label %78
+70:                                               ; preds = %60, %52, %48, %40, %66
+  %71 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
+  br i1 %71, label %.sink.split, label %79
 
-.sink.split:                                      ; preds = %69, %63
-  %.str.4.sink = phi ptr [ @.str.2, %63 ], [ @.str.4, %69 ]
-  %.sink = phi i32 [ 115, %63 ], [ 127, %69 ]
-  %71 = tail call i32 @errcode(i32 noundef 117833860) #3
-  %72 = getelementptr inbounds nuw i8, ptr %36, i64 20
-  %73 = load i32, ptr %72, align 4
-  %74 = tail call ptr @format_procedure(i32 noundef %73) #3
-  %75 = load i16, ptr %37, align 4
-  %76 = sext i16 %75 to i32
-  %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4.sink, ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef %74, i32 noundef %76) #3
+.sink.split:                                      ; preds = %70, %64
+  %.str.4.sink = phi ptr [ @.str.2, %64 ], [ @.str.4, %70 ]
+  %.sink = phi i32 [ 115, %64 ], [ 127, %70 ]
+  %72 = tail call i32 @errcode(i32 noundef 117833860) #3
+  %73 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %74 = load i32, ptr %73, align 4
+  %75 = tail call ptr @format_procedure(i32 noundef %74) #3
+  %76 = load i16, ptr %38, align 4
+  %77 = sext i16 %76 to i32
+  %78 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4.sink, ptr noundef %18, ptr noundef nonnull @.str.3, ptr noundef %75, i32 noundef %77) #3
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.btvalidate) #3
-  br label %78
+  br label %79
 
-78:                                               ; preds = %.sink.split, %59, %51, %47, %39, %65, %69, %63
-  %.1 = phi i1 [ false, %63 ], [ %.0118, %65 ], [ false, %69 ], [ %.0118, %39 ], [ %.0118, %47 ], [ %.0118, %51 ], [ %.0118, %59 ], [ false, %.sink.split ]
+79:                                               ; preds = %.sink.split, %60, %52, %48, %40, %66, %70, %64
+  %.1 = phi i1 [ false, %64 ], [ %.0118, %66 ], [ false, %70 ], [ %.0118, %40 ], [ %.0118, %48 ], [ %.0118, %52 ], [ %.0118, %60 ], [ false, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = load i32, ptr %21, align 8
-  %80 = sext i32 %79 to i64
-  %81 = icmp slt i64 %indvars.iv.next, %80
-  br i1 %81, label %29, label %.preheader, !llvm.loop !4
+  %80 = load i32, ptr %22, align 8
+  %81 = sext i32 %80 to i64
+  %82 = icmp slt i64 %indvars.iv.next, %81
+  br i1 %82, label %30, label %.preheader, !llvm.loop !4
 
-82:                                               ; preds = %.lr.ph121, %132
-  %indvars.iv139 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next140, %132 ]
-  %.3120 = phi i1 [ %.0.lcssa, %.lr.ph121 ], [ %.6, %132 ]
-  %83 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv139
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr i8, ptr %84, i64 80
-  %.val114 = load ptr, ptr %85, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %.val114, i64 22
-  %87 = load i8, ptr %86, align 2
-  %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds nuw i8, ptr %.val114, i64 %88
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %91 = load i16, ptr %90, align 4
-  %92 = add i16 %91, -6
-  %or.cond = icmp ult i16 %92, -5
-  br i1 %or.cond, label %93, label %103
+83:                                               ; preds = %.lr.ph121, %133
+  %indvars.iv139 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next140, %133 ]
+  %.3120 = phi i1 [ %.0.lcssa, %.lr.ph121 ], [ %.6, %133 ]
+  %84 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv139
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr i8, ptr %85, i64 80
+  %.val114 = load ptr, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %.val114, i64 22
+  %88 = load i8, ptr %87, align 2
+  %89 = zext i8 %88 to i64
+  %90 = getelementptr inbounds nuw i8, ptr %.val114, i64 %89
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %92 = load i16, ptr %91, align 4
+  %93 = add i16 %92, -6
+  %or.cond = icmp ult i16 %93, -5
+  br i1 %or.cond, label %94, label %104
 
-93:                                               ; preds = %82
-  %94 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
-  br i1 %94, label %95, label %103
+94:                                               ; preds = %83
+  %95 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
+  br i1 %95, label %96, label %104
 
-95:                                               ; preds = %93
-  %96 = tail call i32 @errcode(i32 noundef 117833860) #3
-  %97 = getelementptr inbounds nuw i8, ptr %89, i64 20
-  %98 = load i32, ptr %97, align 4
-  %99 = tail call ptr @format_operator(i32 noundef %98) #3
-  %100 = load i16, ptr %90, align 4
-  %101 = sext i16 %100 to i32
-  %102 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef %99, i32 noundef %101) #3
+96:                                               ; preds = %94
+  %97 = tail call i32 @errcode(i32 noundef 117833860) #3
+  %98 = getelementptr inbounds nuw i8, ptr %90, i64 20
+  %99 = load i32, ptr %98, align 4
+  %100 = tail call ptr @format_operator(i32 noundef %99) #3
+  %101 = load i16, ptr %91, align 4
+  %102 = sext i16 %101 to i32
+  %103 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %18, ptr noundef nonnull @.str.3, ptr noundef %100, i32 noundef %102) #3
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 147, ptr noundef nonnull @__func__.btvalidate) #3
-  br label %103
+  br label %104
 
-103:                                              ; preds = %93, %95, %82
-  %.4 = phi i1 [ %.3120, %82 ], [ false, %95 ], [ false, %93 ]
-  %104 = getelementptr inbounds nuw i8, ptr %89, i64 18
-  %105 = load i8, ptr %104, align 2
-  %.not111 = icmp eq i8 %105, 115
-  br i1 %.not111, label %106, label %109
+104:                                              ; preds = %94, %96, %83
+  %.4 = phi i1 [ %.3120, %83 ], [ false, %96 ], [ false, %94 ]
+  %105 = getelementptr inbounds nuw i8, ptr %90, i64 18
+  %106 = load i8, ptr %105, align 2
+  %.not111 = icmp eq i8 %106, 115
+  br i1 %.not111, label %107, label %110
 
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds nuw i8, ptr %89, i64 28
-  %108 = load i32, ptr %107, align 4
-  %.not112 = icmp eq i32 %108, 0
-  br i1 %.not112, label %117, label %109
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds nuw i8, ptr %90, i64 28
+  %109 = load i32, ptr %108, align 4
+  %.not112 = icmp eq i32 %109, 0
+  br i1 %.not112, label %118, label %110
 
-109:                                              ; preds = %106, %103
-  %110 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
-  br i1 %110, label %111, label %117
+110:                                              ; preds = %107, %104
+  %111 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
+  br i1 %111, label %112, label %118
 
-111:                                              ; preds = %109
-  %112 = tail call i32 @errcode(i32 noundef 117833860) #3
-  %113 = getelementptr inbounds nuw i8, ptr %89, i64 20
-  %114 = load i32, ptr %113, align 4
-  %115 = tail call ptr @format_operator(i32 noundef %114) #3
-  %116 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef %115) #3
+112:                                              ; preds = %110
+  %113 = tail call i32 @errcode(i32 noundef 117833860) #3
+  %114 = getelementptr inbounds nuw i8, ptr %90, i64 20
+  %115 = load i32, ptr %114, align 4
+  %116 = tail call ptr @format_operator(i32 noundef %115) #3
+  %117 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %18, ptr noundef nonnull @.str.3, ptr noundef %116) #3
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 159, ptr noundef nonnull @__func__.btvalidate) #3
-  br label %117
+  br label %118
 
-117:                                              ; preds = %109, %111, %106
-  %.5 = phi i1 [ %.4, %106 ], [ false, %111 ], [ false, %109 ]
-  %118 = getelementptr inbounds nuw i8, ptr %89, i64 20
-  %119 = load i32, ptr %118, align 4
-  %120 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %121 = load i32, ptr %120, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %89, i64 12
-  %123 = load i32, ptr %122, align 4
-  %124 = tail call zeroext i1 @check_amop_signature(i32 noundef %119, i32 noundef 16, i32 noundef %121, i32 noundef %123) #3
-  br i1 %124, label %132, label %125
+118:                                              ; preds = %110, %112, %107
+  %.5 = phi i1 [ %.4, %107 ], [ false, %112 ], [ false, %110 ]
+  %119 = getelementptr inbounds nuw i8, ptr %90, i64 20
+  %120 = load i32, ptr %119, align 4
+  %121 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %122 = load i32, ptr %121, align 4
+  %123 = getelementptr inbounds nuw i8, ptr %90, i64 12
+  %124 = load i32, ptr %123, align 4
+  %125 = tail call zeroext i1 @check_amop_signature(i32 noundef %120, i32 noundef 16, i32 noundef %122, i32 noundef %124) #3
+  br i1 %125, label %133, label %126
 
-125:                                              ; preds = %117
-  %126 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
-  br i1 %126, label %127, label %132
+126:                                              ; preds = %118
+  %127 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
+  br i1 %127, label %128, label %133
 
-127:                                              ; preds = %125
-  %128 = tail call i32 @errcode(i32 noundef 117833860) #3
-  %129 = load i32, ptr %118, align 4
-  %130 = tail call ptr @format_operator(i32 noundef %129) #3
-  %131 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef %130) #3
+128:                                              ; preds = %126
+  %129 = tail call i32 @errcode(i32 noundef 117833860) #3
+  %130 = load i32, ptr %119, align 4
+  %131 = tail call ptr @format_operator(i32 noundef %130) #3
+  %132 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %18, ptr noundef nonnull @.str.3, ptr noundef %131) #3
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 172, ptr noundef nonnull @__func__.btvalidate) #3
-  br label %132
+  br label %133
 
-132:                                              ; preds = %125, %127, %117
-  %.6 = phi i1 [ %.5, %117 ], [ false, %127 ], [ false, %125 ]
+133:                                              ; preds = %126, %128, %118
+  %.6 = phi i1 [ %.5, %118 ], [ false, %128 ], [ false, %126 ]
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %133 = load i32, ptr %25, align 8
-  %134 = sext i32 %133 to i64
-  %135 = icmp slt i64 %indvars.iv.next140, %134
-  br i1 %135, label %82, label %._crit_edge, !llvm.loop !6
+  %134 = load i32, ptr %26, align 8
+  %135 = sext i32 %134 to i64
+  %136 = icmp slt i64 %indvars.iv.next140, %135
+  br i1 %136, label %83, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %132, %.preheader
-  %.3.lcssa = phi i1 [ %.0.lcssa, %.preheader ], [ %.6, %132 ]
-  %136 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %137 = tail call ptr @identify_opfamily_groups(ptr noundef nonnull %19, ptr noundef %20) #3
+._crit_edge:                                      ; preds = %133, %.preheader
+  %.3.lcssa = phi i1 [ %.0.lcssa, %.preheader ], [ %.6, %133 ]
+  %137 = tail call ptr @identify_opfamily_groups(ptr noundef nonnull %20, ptr noundef %21) #3
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %.not106 = icmp eq ptr %137, null
   br i1 %.not106, label %.critedge.thread, label %.lr.ph129
@@ -322,7 +322,7 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %172 = tail call ptr @format_type_be(i32 noundef %171) #3
   %173 = load i32, ptr %163, align 4
   %174 = tail call ptr @format_type_be(i32 noundef %173) #3
-  %175 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef %172, ptr noundef %174) #3
+  %175 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %18, ptr noundef nonnull @.str.3, ptr noundef %172, ptr noundef %174) #3
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 231, ptr noundef nonnull @__func__.btvalidate) #3
   br label %176
 
@@ -344,7 +344,7 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %186 = tail call ptr @format_type_be(i32 noundef %185) #3
   %187 = load i32, ptr %163, align 4
   %188 = tail call ptr @format_type_be(i32 noundef %187) #3
-  %189 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef %186, ptr noundef %188) #3
+  %189 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %18, ptr noundef nonnull @.str.3, ptr noundef %186, ptr noundef %188) #3
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 241, ptr noundef nonnull @__func__.btvalidate) #3
   br label %190
 
@@ -367,7 +367,7 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
 
 195:                                              ; preds = %.critedge.thread
   %196 = tail call i32 @errcode(i32 noundef 117833860) #3
-  %197 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %136, ptr noundef nonnull @.str.3) #3
+  %197 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %17, ptr noundef nonnull @.str.3) #3
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 253, ptr noundef nonnull @__func__.btvalidate) #3
   br label %198
 
@@ -395,14 +395,14 @@ list_length.exit116:                              ; preds = %198, %199
 
 206:                                              ; preds = %204
   %207 = tail call i32 @errcode(i32 noundef 117833860) #3
-  %208 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %17, ptr noundef nonnull @.str.3) #3
+  %208 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %18, ptr noundef nonnull @.str.3) #3
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 269, ptr noundef nonnull @__func__.btvalidate) #3
   br label %209
 
 209:                                              ; preds = %204, %206, %list_length.exit116
   %.12 = phi i1 [ %.11, %list_length.exit116 ], [ false, %206 ], [ false, %204 ]
-  tail call void @ReleaseCatCacheList(ptr noundef %20) #3
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %19) #3
+  tail call void @ReleaseCatCacheList(ptr noundef %21) #3
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %20) #3
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #3
   ret i1 %.12
 }

@@ -5378,15 +5378,15 @@ create_filter.exit.i.i:                           ; preds = %419, %418
   %504 = phi i32 [ %.pre410, %502 ], [ %501, %491 ]
   %505 = load i64, ptr %9, align 8, !tbaa !187
   %506 = sub nsw i32 %504, %500
+  %507 = zext i8 %499 to i64
+  %508 = getelementptr inbounds nuw i32, ptr @cache_masks, i64 %507
+  %509 = load i32, ptr %508, align 4, !tbaa !153
   store i32 %506, ptr %36, align 8, !tbaa !178
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %41, i64 12, i1 false), !tbaa !153
-  %507 = zext nneg i32 %506 to i64
-  %508 = lshr i64 %505, %507
-  %509 = trunc i64 %508 to i32
-  %510 = zext i8 %499 to i64
-  %511 = getelementptr inbounds nuw i32, ptr @cache_masks, i64 %510
-  %512 = load i32, ptr %511, align 4, !tbaa !153
-  %513 = and i32 %512, %509
+  %510 = zext nneg i32 %506 to i64
+  %511 = lshr i64 %505, %510
+  %512 = trunc i64 %511 to i32
+  %513 = and i32 %509, %512
   %514 = add i32 %497, %513
   store i32 %514, ptr %41, align 8, !tbaa !153
   store i32 %514, ptr %22, align 4, !tbaa !233

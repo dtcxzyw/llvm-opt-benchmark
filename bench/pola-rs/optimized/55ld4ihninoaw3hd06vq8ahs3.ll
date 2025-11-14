@@ -42922,12 +42922,12 @@ define noundef range(i64 1, 7) i64 @"_ZN72_$LT$i16$u20$as$u20$polars_compute..ca
   %3 = alloca [40 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2382)
+  %4 = icmp sgt i16 %1, -1
   %.sroa.0.0.in.i = tail call i16 @llvm.abs.i16(i16 %1, i1 false)
-  %4 = icmp ugt i16 %.sroa.0.0.in.i, 9999
-  br i1 %4, label %.thread.i, label %._crit_edge.i
+  %5 = icmp ugt i16 %.sroa.0.0.in.i, 9999
+  br i1 %5, label %.thread.i, label %._crit_edge.i
 
 .thread.i:                                        ; preds = %2
-  %5 = udiv i16 %.sroa.0.0.in.i, 10000
   %.lhs.trunc.i = urem i16 %.sroa.0.0.in.i, 10000
   %6 = udiv i16 %.lhs.trunc.i, 100
   %7 = shl nuw nsw i16 %6, 1
@@ -42943,68 +42943,68 @@ define noundef range(i64 1, 7) i64 @"_ZN72_$LT$i16$u20$as$u20$polars_compute..ca
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %17 = load i16, ptr %15, align 1, !noalias !2382
   store i16 %17, ptr %16, align 1, !alias.scope !2382
-  %18 = icmp sgt i16 %1, -1
-  %19 = trunc nuw nsw i16 %5 to i8
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %21 = or disjoint i8 %19, 48
-  store i8 %21, ptr %20, align 1, !alias.scope !2382
-  br i1 %18, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i16$GT$5write17h9ce240e7143cd677E.exit", label %46
+  %18 = udiv i16 %.sroa.0.0.in.i, 10000
+  br label %37
 
 ._crit_edge.i:                                    ; preds = %2
-  %22 = icmp sgt i16 %1, -1
-  %23 = icmp samesign ugt i16 %.sroa.0.0.in.i, 99
-  br i1 %23, label %24, label %32
+  %19 = icmp samesign ugt i16 %.sroa.0.0.in.i, 99
+  br i1 %19, label %20, label %28
 
-24:                                               ; preds = %._crit_edge.i
-  %25 = urem i16 %.sroa.0.0.in.i, 100
-  %26 = shl nuw nsw i16 %25, 1
-  %27 = zext nneg i16 %26 to i64
-  %28 = udiv i16 %.sroa.0.0.in.i, 100
-  %29 = getelementptr inbounds nuw i8, ptr @anon.b819051887af40192b573cb676846a6d.97, i64 %27
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %31 = load i16, ptr %29, align 1, !noalias !2382
-  store i16 %31, ptr %30, align 1, !alias.scope !2382
-  br label %32
+20:                                               ; preds = %._crit_edge.i
+  %21 = urem i16 %.sroa.0.0.in.i, 100
+  %22 = shl nuw nsw i16 %21, 1
+  %23 = zext nneg i16 %22 to i64
+  %24 = udiv i16 %.sroa.0.0.in.i, 100
+  %25 = getelementptr inbounds nuw i8, ptr @anon.b819051887af40192b573cb676846a6d.97, i64 %23
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %27 = load i16, ptr %25, align 1, !noalias !2382
+  store i16 %27, ptr %26, align 1, !alias.scope !2382
+  br label %28
 
-32:                                               ; preds = %24, %._crit_edge.i
-  %.sroa.09.1.i = phi i64 [ 4, %24 ], [ 6, %._crit_edge.i ]
-  %.sroa.0.2.in.i = phi i16 [ %28, %24 ], [ %.sroa.0.0.in.i, %._crit_edge.i ]
-  %33 = icmp samesign ult i16 %.sroa.0.2.in.i, 10
-  br i1 %33, label %34, label %39
+28:                                               ; preds = %20, %._crit_edge.i
+  %.sroa.09.1.i = phi i64 [ 4, %20 ], [ 6, %._crit_edge.i ]
+  %.sroa.0.2.in.i = phi i16 [ %24, %20 ], [ %.sroa.0.0.in.i, %._crit_edge.i ]
+  %29 = icmp samesign ult i16 %.sroa.0.2.in.i, 10
+  br i1 %29, label %37, label %30
 
-34:                                               ; preds = %32
-  %35 = add nsw i64 %.sroa.09.1.i, -1
-  %36 = trunc nuw nsw i16 %.sroa.0.2.in.i to i8
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %35
-  %38 = or disjoint i8 %36, 48
-  store i8 %38, ptr %37, align 1, !alias.scope !2382
-  br i1 %22, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i16$GT$5write17h9ce240e7143cd677E.exit", label %46
+30:                                               ; preds = %28
+  %31 = shl nuw nsw i16 %.sroa.0.2.in.i, 1
+  %32 = zext nneg i16 %31 to i64
+  %33 = add nsw i64 %.sroa.09.1.i, -2
+  %34 = getelementptr inbounds nuw i8, ptr @anon.b819051887af40192b573cb676846a6d.97, i64 %32
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 %33
+  %36 = load i16, ptr %34, align 1, !noalias !2382
+  store i16 %36, ptr %35, align 1, !alias.scope !2382
+  br label %42
 
-39:                                               ; preds = %32
-  %40 = shl nuw nsw i16 %.sroa.0.2.in.i, 1
-  %41 = zext nneg i16 %40 to i64
-  %42 = add nsw i64 %.sroa.09.1.i, -2
-  %43 = getelementptr inbounds nuw i8, ptr @anon.b819051887af40192b573cb676846a6d.97, i64 %41
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %42
-  %45 = load i16, ptr %43, align 1, !noalias !2382
-  store i16 %45, ptr %44, align 1, !alias.scope !2382
-  br i1 %22, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i16$GT$5write17h9ce240e7143cd677E.exit", label %46
+37:                                               ; preds = %28, %.thread.i
+  %.sroa.0.236.i = phi i16 [ %18, %.thread.i ], [ %.sroa.0.2.in.i, %28 ]
+  %.sroa.09.135.i = phi i64 [ 2, %.thread.i ], [ %.sroa.09.1.i, %28 ]
+  %38 = add nsw i64 %.sroa.09.135.i, -1
+  %39 = trunc nuw nsw i16 %.sroa.0.236.i to i8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 %38
+  %41 = or disjoint i8 %39, 48
+  store i8 %41, ptr %40, align 1, !alias.scope !2382
+  br label %42
 
-46:                                               ; preds = %39, %34, %.thread.i
-  %.sroa.09.237.i = phi i64 [ %35, %34 ], [ %42, %39 ], [ 1, %.thread.i ]
-  %47 = add nsw i64 %.sroa.09.237.i, -1
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 %47
-  store i8 45, ptr %48, align 1, !alias.scope !2382
+42:                                               ; preds = %37, %30
+  %.sroa.09.2.i = phi i64 [ %38, %37 ], [ %33, %30 ]
+  br i1 %4, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i16$GT$5write17h9ce240e7143cd677E.exit", label %43
+
+43:                                               ; preds = %42
+  %44 = add nsw i64 %.sroa.09.2.i, -1
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 %44
+  store i8 45, ptr %45, align 1, !alias.scope !2382
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i16$GT$5write17h9ce240e7143cd677E.exit"
 
-"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i16$GT$5write17h9ce240e7143cd677E.exit": ; preds = %.thread.i, %34, %39, %46
-  %.sroa.09.3.i = phi i64 [ %42, %39 ], [ %47, %46 ], [ %35, %34 ], [ 1, %.thread.i ]
-  %49 = sub nuw nsw i64 6, %.sroa.09.3.i
-  %50 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.09.3.i
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h4bc7a3d609dc49d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b819051887af40192b573cb676846a6d.331)
+"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i16$GT$5write17h9ce240e7143cd677E.exit": ; preds = %42, %43
+  %.sroa.09.3.i = phi i64 [ %.sroa.09.2.i, %42 ], [ %44, %43 ]
+  %46 = sub nuw nsw i64 6, %.sroa.09.3.i
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.09.3.i
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h4bc7a3d609dc49d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %47, ptr noundef nonnull %48, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b819051887af40192b573cb676846a6d.331)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i64 %49
+  ret i64 %46
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -43012,14 +43012,14 @@ define noundef range(i64 0, 12) i64 @"_ZN72_$LT$i32$u20$as$u20$polars_compute..c
   %3 = alloca [40 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2385)
+  %4 = icmp sgt i32 %1, -1
   %.sroa.0.0.i = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %4 = icmp ugt i32 %.sroa.0.0.i, 9999
-  br i1 %4, label %.lr.ph.i, label %._crit_edge.i
+  %5 = icmp ugt i32 %.sroa.0.0.i, 9999
+  br i1 %5, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
   %.sroa.09.0.lcssa.i = phi i64 [ 11, %2 ], [ %15, %.lr.ph.i ]
   %.sroa.0.1.lcssa.i = phi i32 [ %.sroa.0.0.i, %2 ], [ %8, %.lr.ph.i ]
-  %5 = icmp sgt i32 %1, -1
   %6 = icmp samesign ugt i32 %.sroa.0.1.lcssa.i, 99
   br i1 %6, label %24, label %33
 
@@ -43088,7 +43088,7 @@ define noundef range(i64 0, 12) i64 @"_ZN72_$LT$i32$u20$as$u20$polars_compute..c
 
 47:                                               ; preds = %42, %35
   %.sroa.09.2.i = phi i64 [ %43, %42 ], [ %38, %35 ]
-  br i1 %5, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h5e55d21eb90b1dcfE.exit", label %48
+  br i1 %4, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h5e55d21eb90b1dcfE.exit", label %48
 
 48:                                               ; preds = %47
   %49 = add i64 %.sroa.09.2.i, -1
@@ -43113,14 +43113,14 @@ define noundef range(i64 0, 21) i64 @"_ZN72_$LT$i64$u20$as$u20$polars_compute..c
   %3 = alloca [40 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2388)
+  %4 = icmp sgt i64 %1, -1
   %.sroa.0.0.i = tail call i64 @llvm.abs.i64(i64 %1, i1 false)
-  %4 = icmp ugt i64 %.sroa.0.0.i, 9999
-  br i1 %4, label %.lr.ph.i, label %._crit_edge.i
+  %5 = icmp ugt i64 %.sroa.0.0.i, 9999
+  br i1 %5, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
   %.sroa.09.0.lcssa.i = phi i64 [ 20, %2 ], [ %15, %.lr.ph.i ]
   %.sroa.0.1.lcssa.i = phi i64 [ %.sroa.0.0.i, %2 ], [ %8, %.lr.ph.i ]
-  %5 = icmp sgt i64 %1, -1
   %6 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i, 99
   br i1 %6, label %24, label %33
 
@@ -43188,7 +43188,7 @@ define noundef range(i64 0, 21) i64 @"_ZN72_$LT$i64$u20$as$u20$polars_compute..c
 
 46:                                               ; preds = %41, %35
   %.sroa.09.2.i = phi i64 [ %42, %41 ], [ %37, %35 ]
-  br i1 %5, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h1a7ec6c7ff6ecb19E.exit", label %47
+  br i1 %4, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h1a7ec6c7ff6ecb19E.exit", label %47
 
 47:                                               ; preds = %46
   %48 = add i64 %.sroa.09.2.i, -1
@@ -43505,22 +43505,22 @@ define noundef range(i64 1, 6) i64 @"_ZN72_$LT$u16$u20$as$u20$polars_compute..ca
   br i1 %4, label %.thread.i, label %._crit_edge.i
 
 .thread.i:                                        ; preds = %2
-  %5 = udiv i16 %1, 10000
   %.lhs.trunc.i = urem i16 %1, 10000
-  %6 = udiv i16 %.lhs.trunc.i, 100
-  %7 = shl nuw nsw i16 %6, 1
-  %8 = zext nneg i16 %7 to i64
-  %9 = urem i16 %.lhs.trunc.i, 100
-  %10 = shl nuw nsw i16 %9, 1
-  %11 = zext nneg i16 %10 to i64
-  %12 = getelementptr inbounds nuw i8, ptr @anon.b819051887af40192b573cb676846a6d.97, i64 %8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %14 = load i16, ptr %12, align 1, !noalias !2405
-  store i16 %14, ptr %13, align 1, !alias.scope !2405
-  %15 = getelementptr inbounds nuw i8, ptr @anon.b819051887af40192b573cb676846a6d.97, i64 %11
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %17 = load i16, ptr %15, align 1, !noalias !2405
-  store i16 %17, ptr %16, align 1, !alias.scope !2405
+  %5 = udiv i16 %.lhs.trunc.i, 100
+  %6 = shl nuw nsw i16 %5, 1
+  %7 = zext nneg i16 %6 to i64
+  %8 = urem i16 %.lhs.trunc.i, 100
+  %9 = shl nuw nsw i16 %8, 1
+  %10 = zext nneg i16 %9 to i64
+  %11 = getelementptr inbounds nuw i8, ptr @anon.b819051887af40192b573cb676846a6d.97, i64 %7
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %13 = load i16, ptr %11, align 1, !noalias !2405
+  store i16 %13, ptr %12, align 1, !alias.scope !2405
+  %14 = getelementptr inbounds nuw i8, ptr @anon.b819051887af40192b573cb676846a6d.97, i64 %10
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %16 = load i16, ptr %14, align 1, !noalias !2405
+  store i16 %16, ptr %15, align 1, !alias.scope !2405
+  %17 = udiv i16 %1, 10000
   br label %36
 
 ._crit_edge.i:                                    ; preds = %2
@@ -43555,7 +43555,7 @@ define noundef range(i64 1, 6) i64 @"_ZN72_$LT$u16$u20$as$u20$polars_compute..ca
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u16$GT$5write17h6706488deb3cfc91E.exit"
 
 36:                                               ; preds = %27, %.thread.i
-  %.sroa.0.236.i = phi i16 [ %5, %.thread.i ], [ %.sroa.0.2.in.i, %27 ]
+  %.sroa.0.236.i = phi i16 [ %17, %.thread.i ], [ %.sroa.0.2.in.i, %27 ]
   %.sroa.09.135.i = phi i64 [ 1, %.thread.i ], [ %.sroa.09.1.i, %27 ]
   %37 = add nsw i64 %.sroa.09.135.i, -1
   %38 = trunc nuw nsw i16 %.sroa.0.236.i to i8

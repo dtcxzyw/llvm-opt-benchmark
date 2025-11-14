@@ -3715,11 +3715,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
   call void @_ZdlPv(ptr noundef nonnull %82) #23
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit:        ; preds = %_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit.preheader, %192
-  %.sroa.086.0 = phi ptr [ %182, %192 ], [ %.sroa.0104.0131, %_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit.preheader ]
-  %.sroa.12.0 = phi i32 [ %186, %192 ], [ %74, %_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit.preheader ]
-  %.sroa.21.0 = phi ptr [ %storemerge.i.i, %192 ], [ %71, %_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit.preheader ]
-  %.0 = phi double [ %217, %192 ], [ 0.000000e+00, %_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit.preheader ]
+_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit:        ; preds = %_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit.preheader, %210
+  %.sroa.086.0 = phi ptr [ %200, %210 ], [ %.sroa.0104.0131, %_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit.preheader ]
+  %.sroa.12.0 = phi i32 [ %204, %210 ], [ %74, %_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit.preheader ]
+  %.sroa.21.0 = phi ptr [ %storemerge.i.i, %210 ], [ %71, %_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit.preheader ]
+  %.0 = phi double [ %217, %210 ], [ 0.000000e+00, %_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit.preheader ]
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.086.0, i64 32
   %85 = sext i32 %.sroa.12.0 to i64
   %86 = getelementptr inbounds ptr, ptr %84, i64 %85
@@ -3918,89 +3918,89 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
 
 .loopexit:                                        ; preds = %165, %.split.loop.exit8.i43
   %.05.i42 = phi i32 [ %166, %.split.loop.exit8.i43 ], [ -1, %165 ]
-  br label %167
+  %167 = sext i32 %.05.i42 to i64
+  %168 = getelementptr inbounds ptr, ptr %131, i64 %167
+  %169 = load ptr, ptr %168, align 8
+  %170 = add nsw i32 %.05.i42, 1
+  %171 = urem i32 %170, 3
+  %172 = zext nneg i32 %171 to i64
+  %173 = getelementptr inbounds nuw ptr, ptr %131, i64 %172
+  %174 = load ptr, ptr %173, align 8
+  %175 = load double, ptr %169, align 8, !noalias !50
+  %176 = load double, ptr %174, align 8, !noalias !50
+  %177 = getelementptr inbounds nuw i8, ptr %169, i64 8
+  %178 = load double, ptr %177, align 8, !noalias !50
+  %179 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %180 = load double, ptr %179, align 8, !noalias !50
+  %181 = getelementptr inbounds nuw i8, ptr %169, i64 16
+  %182 = load double, ptr %181, align 8, !noalias !50
+  %183 = getelementptr inbounds nuw i8, ptr %174, i64 16
+  %184 = load double, ptr %183, align 8, !noalias !50
+  br label %185
 
-167:                                              ; preds = %_ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i, %.loopexit
-  %168 = phi i32 [ %186, %_ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i ], [ %.sroa.12.0, %.loopexit ]
-  %169 = phi ptr [ %182, %_ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i ], [ %.sroa.086.0, %.loopexit ]
-  %170 = add nsw i32 %168, 1
-  %171 = srem i32 %170, 3
-  %172 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  %173 = sext i32 %171 to i64
-  %174 = getelementptr inbounds ptr, ptr %172, i64 %173
-  %175 = load ptr, ptr %174, align 8
-  %176 = icmp eq ptr %175, %.sroa.21.0
-  br i1 %176, label %_ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i, label %177
+185:                                              ; preds = %_ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i, %.loopexit
+  %186 = phi i32 [ %204, %_ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i ], [ %.sroa.12.0, %.loopexit ]
+  %187 = phi ptr [ %200, %_ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i ], [ %.sroa.086.0, %.loopexit ]
+  %188 = add nsw i32 %186, 1
+  %189 = srem i32 %188, 3
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  %191 = sext i32 %189 to i64
+  %192 = getelementptr inbounds ptr, ptr %190, i64 %191
+  %193 = load ptr, ptr %192, align 8
+  %194 = icmp eq ptr %193, %.sroa.21.0
+  br i1 %194, label %_ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i, label %195
 
-177:                                              ; preds = %167
-  %178 = add nsw i32 %168, 2
-  %179 = srem i32 %178, 3
-  %.pre.i.i45 = sext i32 %179 to i64
+195:                                              ; preds = %185
+  %196 = add nsw i32 %186, 2
+  %197 = srem i32 %196, 3
+  %.pre.i.i45 = sext i32 %197 to i64
   br label %_ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i
 
-_ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i:       ; preds = %177, %167
-  %.pre-phi.i.i = phi i64 [ %173, %167 ], [ %.pre.i.i45, %177 ]
-  %180 = getelementptr inbounds nuw i8, ptr %169, i64 32
-  %181 = getelementptr inbounds ptr, ptr %180, i64 %.pre-phi.i.i
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %169, i64 56
-  %184 = getelementptr inbounds i8, ptr %183, i64 %.pre-phi.i.i
-  %185 = load i8, ptr %184, align 1
-  %186 = sext i8 %185 to i32
-  %187 = getelementptr inbounds nuw i8, ptr %182, i64 32
-  %188 = sext i8 %185 to i64
-  %189 = getelementptr inbounds ptr, ptr %187, i64 %188
-  %190 = load ptr, ptr %189, align 8
-  %191 = icmp eq ptr %190, %182
-  br i1 %191, label %192, label %167, !llvm.loop !50
-
-192:                                              ; preds = %_ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i
-  %193 = sext i32 %.05.i42 to i64
-  %194 = getelementptr inbounds ptr, ptr %131, i64 %193
-  %195 = load ptr, ptr %194, align 8
-  %196 = add nsw i32 %.05.i42, 1
-  %197 = urem i32 %196, 3
-  %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds nuw ptr, ptr %131, i64 %198
+_ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i:       ; preds = %195, %185
+  %.pre-phi.i.i = phi i64 [ %191, %185 ], [ %.pre.i.i45, %195 ]
+  %198 = getelementptr inbounds nuw i8, ptr %187, i64 32
+  %199 = getelementptr inbounds ptr, ptr %198, i64 %.pre-phi.i.i
   %200 = load ptr, ptr %199, align 8
-  %201 = load double, ptr %195, align 8, !noalias !51
-  %202 = load double, ptr %200, align 8, !noalias !51
-  %203 = fsub double %201, %202
-  %204 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  %205 = load double, ptr %204, align 8, !noalias !51
-  %206 = getelementptr inbounds nuw i8, ptr %200, i64 8
-  %207 = load double, ptr %206, align 8, !noalias !51
-  %208 = fsub double %205, %207
-  %209 = getelementptr inbounds nuw i8, ptr %195, i64 16
-  %210 = load double, ptr %209, align 8, !noalias !51
-  %211 = getelementptr inbounds nuw i8, ptr %200, i64 16
-  %212 = load double, ptr %211, align 8, !noalias !51
-  %213 = fsub double %210, %212
-  %214 = fmul double %208, %208
-  %215 = call double @llvm.fmuladd.f64(double %203, double %203, double %214)
+  %201 = getelementptr inbounds nuw i8, ptr %187, i64 56
+  %202 = getelementptr inbounds i8, ptr %201, i64 %.pre-phi.i.i
+  %203 = load i8, ptr %202, align 1
+  %204 = sext i8 %203 to i32
+  %205 = getelementptr inbounds nuw i8, ptr %200, i64 32
+  %206 = sext i8 %203 to i64
+  %207 = getelementptr inbounds ptr, ptr %205, i64 %206
+  %208 = load ptr, ptr %207, align 8
+  %209 = icmp eq ptr %208, %200
+  br i1 %209, label %210, label %185, !llvm.loop !53
+
+210:                                              ; preds = %_ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i
+  %211 = fsub double %175, %176
+  %212 = fsub double %178, %180
+  %213 = fsub double %182, %184
+  %214 = fmul double %212, %212
+  %215 = call double @llvm.fmuladd.f64(double %211, double %211, double %214)
   %216 = call double @llvm.fmuladd.f64(double %213, double %213, double %215)
   %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %216)
   %217 = fadd double %.0, %sqrt.i.i
-  %218 = sext i8 %185 to i16
+  %218 = sext i8 %203 to i16
   %.lhs.trunc.i = add nsw i16 %218, 1
   %219 = srem i16 %.lhs.trunc.i, 3
-  %220 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %221 = sext i16 %219 to i64
   %222 = getelementptr inbounds ptr, ptr %220, i64 %221
   %223 = load ptr, ptr %222, align 8
   %224 = icmp eq ptr %223, %.sroa.21.0
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %188
+  %225 = getelementptr inbounds ptr, ptr %220, i64 %206
   %storemerge.in.i.i = select i1 %224, ptr %225, ptr %222
   %storemerge.i.i = load ptr, ptr %storemerge.in.i.i, align 8
-  %.not.i = icmp ne ptr %182, %.sroa.0104.0131
-  %226 = zext i32 %186 to i64
+  %.not.i = icmp ne ptr %200, %.sroa.0104.0131
+  %226 = zext i32 %204 to i64
   %.not4.i = icmp ne i64 %indvars.iv, %226
   %or.cond.not112 = or i1 %.not.i, %.not4.i
   %227 = icmp ne ptr %storemerge.i.i, %71
   %or.cond110 = select i1 %or.cond.not112, i1 true, i1 %227
   br i1 %or.cond110, label %_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit, label %228, !llvm.loop !54
 
-228:                                              ; preds = %192
+228:                                              ; preds = %210
   %229 = load ptr, ptr %16, align 8
   %230 = load ptr, ptr %55, align 8
   %.not.i46 = icmp eq ptr %229, %230
@@ -6620,10 +6620,10 @@ attributes #27 = { noreturn nounwind }
 !47 = distinct !{!47, !6}
 !48 = distinct !{!48, !6}
 !49 = distinct !{!49, !6}
-!50 = distinct !{!50, !6}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZNK3vcg6Point3IdEmiERKS1_: argument 0"}
-!53 = distinct !{!53, !"_ZNK3vcg6Point3IdEmiERKS1_"}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZNK3vcg6Point3IdEmiERKS1_: argument 0"}
+!52 = distinct !{!52, !"_ZNK3vcg6Point3IdEmiERKS1_"}
+!53 = distinct !{!53, !6}
 !54 = distinct !{!54, !6}
 !55 = distinct !{!55, !6}
 !56 = distinct !{!56, !6}

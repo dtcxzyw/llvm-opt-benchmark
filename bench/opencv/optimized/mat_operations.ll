@@ -144,9 +144,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %62, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef 4, i32 noundef 4, i32 noundef 0)
-          to label %.preheader unwind label %202
+          to label %_ZN2cv3VecIhLi3EEC2ERKS1_.exit.preheader unwind label %202
 
-.preheader:                                       ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
+_ZN2cv3VecIhLi3EEC2ERKS1_.exit.preheader:         ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !24
   store i8 -128, ptr %66, align 1, !tbaa !13
@@ -190,7 +190,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %62, %64
   invoke void @_ZNK2cv3Mat7reshapeEii(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %10, ptr noundef nonnull align 8 dereferenceable(96) %11, i32 noundef 1, i32 noundef 0)
           to label %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit unwind label %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit191
 
-_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit:   ; preds = %.preheader
+_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit:   ; preds = %_ZN2cv3VecIhLi3EEC2ERKS1_.exit.preheader
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #9
@@ -682,7 +682,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit187:                 ; preds = %197, %200
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %276
 
-_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit191: ; preds = %.preheader
+_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit191: ; preds = %_ZN2cv3VecIhLi3EEC2ERKS1_.exit.preheader
   %204 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #9

@@ -57873,23 +57873,23 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %6 = load ptr, ptr %1, align 8
-  br label %7
+  %7 = ptrtoint ptr %6 to i64
+  br label %8
 
-7:                                                ; preds = %7, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %.1.i.i.i, %7 ]
-  %.0811.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %.19.i.i.i, %7 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !940
-  %10 = icmp ult ptr %9, %6
-  %.19.i.i.i = select i1 %10, ptr %.0811.i.i.i, ptr %.012.i.i.i
-  %.1.in.v.i.i.i = select i1 %10, i64 24, i64 16
+8:                                                ; preds = %8, %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %.1.i.i.i, %8 ]
+  %.0811.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %.19.i.i.i, %8 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  %10 = load ptr, ptr %9, align 8, !tbaa !940
+  %11 = icmp ult ptr %10, %6
+  %.19.i.i.i = select i1 %11, ptr %.0811.i.i.i, ptr %.012.i.i.i
+  %.1.in.v.i.i.i = select i1 %11, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !500
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapIN4llvm18RawLocationWrapperEjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit, label %7, !llvm.loop !1412
+  br i1 %.not.i.i.i, label %_ZNSt3mapIN4llvm18RawLocationWrapperEjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit, label %8, !llvm.loop !1412
 
-_ZNSt3mapIN4llvm18RawLocationWrapperEjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit: ; preds = %7
-  %11 = ptrtoint ptr %6 to i64
+_ZNSt3mapIN4llvm18RawLocationWrapperEjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit: ; preds = %8
   %12 = icmp eq ptr %.19.i.i.i, %5
   br i1 %12, label %.critedge, label %13
 
@@ -57900,7 +57900,7 @@ _ZNSt3mapIN4llvm18RawLocationWrapperEjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_bou
   br i1 %16, label %.critedge, label %_ZNSt8_Rb_treeIN4llvm18RawLocationWrapperESt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_.exit
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %_ZNSt3mapIN4llvm18RawLocationWrapperEjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit, %13
-  %17 = phi i64 [ %11, %13 ], [ %11, %_ZNSt3mapIN4llvm18RawLocationWrapperEjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit ], [ %.pre, %..critedge_crit_edge ]
+  %17 = phi i64 [ %7, %13 ], [ %7, %_ZNSt3mapIN4llvm18RawLocationWrapperEjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit ], [ %.pre, %..critedge_crit_edge ]
   %.08.lcssa.i.i.i14 = phi ptr [ %.19.i.i.i, %13 ], [ %.19.i.i.i, %_ZNSt3mapIN4llvm18RawLocationWrapperEjSt4lessIS1_ESaISt4pairIKS1_jEEE11lower_boundERS5_.exit ], [ %5, %..critedge_crit_edge ]
   %18 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32

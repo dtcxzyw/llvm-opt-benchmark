@@ -2764,6 +2764,7 @@ define internal fastcc void @normalize_protected_variable(ptr noundef %0) unname
 
 .preheader:                                       ; preds = %.critedge, %select.unfold
   %.pn = phi ptr [ %.247, %select.unfold ], [ %15, %.critedge ]
+  %.04461.ptr = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   br label %16
 
 16:                                               ; preds = %.preheader, %.critedge2
@@ -2782,7 +2783,6 @@ define internal fastcc void @normalize_protected_variable(ptr noundef %0) unname
   br label %16
 
 18:                                               ; preds = %16
-  %.04461.ptr = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %.1.ptr.le = getelementptr inbounds nuw i8, ptr %.pn, i64 %.1.idx
   %19 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1.ptr.le, i32 noundef 93) #22
   %.not57 = icmp eq ptr %19, null

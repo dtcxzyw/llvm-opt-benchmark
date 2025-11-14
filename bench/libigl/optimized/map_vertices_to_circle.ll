@@ -257,8 +257,8 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.._crit_edge321_crit_edge: ; preds = %.noexc76
 
 .lr.ph320:                                        ; preds = %.noexc76
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %59, 3
-  %93 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %58, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !20
+  %93 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i.i.i.i.i.i
   store double 0.000000e+00, ptr %56, align 8, !tbaa !20
   %.pre348 = load ptr, ptr %1, align 8, !tbaa !16
   %.pre349 = load ptr, ptr %0, align 8, !tbaa !23, !noalias !24

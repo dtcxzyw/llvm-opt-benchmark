@@ -948,27 +948,27 @@ define void @_ZN6open3d4core7IndexerC2ERKSt6vectorINS0_6TensorESaIS3_EES7_NS0_11
   %39 = alloca %"class.open3d::core::SizeVector", align 8
   %40 = alloca %"class.open3d::core::SizeVector", align 8
   %41 = alloca %"class.open3d::core::SizeVector", align 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %42
+  br label %43
 
-42:                                               ; preds = %42, %5
-  %.idx = phi i64 [ 16, %5 ], [ %.add, %42 ]
+43:                                               ; preds = %43, %5
+  %.idx = phi i64 [ 16, %5 ], [ %.add, %43 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.ptr, i8 0, i64 24, i1 false)
   %.add = add nuw nsw i64 %.idx, 104
-  %43 = icmp eq i64 %.add, 536
-  br i1 %43, label %.preheader306, label %42
+  %44 = icmp eq i64 %.add, 536
+  br i1 %44, label %.preheader435, label %43
 
-.preheader306:                                    ; preds = %42, %.preheader306
-  %.idx106 = phi i64 [ %.add107, %.preheader306 ], [ 536, %42 ]
+.preheader435:                                    ; preds = %43, %.preheader435
+  %.idx106 = phi i64 [ %.add107, %.preheader435 ], [ 536, %43 ]
   %.ptr108 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx106
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.ptr108, i8 0, i64 24, i1 false)
   %.add107 = add nuw nsw i64 %.idx106, 104
-  %44 = icmp eq i64 %.add107, 744
-  br i1 %44, label %45, label %.preheader306
+  %45 = icmp eq i64 %.add107, 744
+  br i1 %45, label %46, label %.preheader435
 
-45:                                               ; preds = %.preheader306
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+46:                                               ; preds = %.preheader435
   %.ptr105 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.ptr110 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 832
@@ -992,15 +992,15 @@ define void @_ZN6open3d4core7IndexerC2ERKSt6vectorINS0_6TensorESaIS3_EES7_NS0_11
   %61 = ptrtoint ptr %59 to i64
   %62 = sub i64 %60, %61
   %63 = sdiv exact i64 %62, 160
-  store i64 %63, ptr %46, align 8, !tbaa !38
+  store i64 %63, ptr %42, align 8, !tbaa !38
   %64 = icmp slt i64 %55, 160
   br i1 %64, label %65, label %66
 
-65:                                               ; preds = %45
+65:                                               ; preds = %46
   tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str.1, i32 noundef 52, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core7IndexerC2ERKSt6vectorINS0_6TensorESaIS3_EES7_NS0_11DtypePolicyERKNS0_10SizeVectorE, ptr noundef nonnull @.str.2) #38
   unreachable
 
-66:                                               ; preds = %45
+66:                                               ; preds = %46
   %67 = icmp samesign ugt i64 %56, 5
   br i1 %67, label %68, label %69
 
@@ -1021,7 +1021,7 @@ define void @_ZN6open3d4core7IndexerC2ERKSt6vectorINS0_6TensorESaIS3_EES7_NS0_11
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %72
-  tail call void @_ZN6open3d7utility6Logger9LogError_IJRKlRlEEEvPKciS7_S7_DpOT_(ptr noundef nonnull @.str.1, i32 noundef 65, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core7IndexerC2ERKSt6vectorINS0_6TensorESaIS3_EES7_NS0_11DtypePolicyERKNS0_10SizeVectorE, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) @_ZN6open3d4coreL11MAX_OUTPUTSE, ptr noundef nonnull align 8 dereferenceable(8) %46) #38
+  tail call void @_ZN6open3d7utility6Logger9LogError_IJRKlRlEEEvPKciS7_S7_DpOT_(ptr noundef nonnull @.str.1, i32 noundef 65, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core7IndexerC2ERKSt6vectorINS0_6TensorESaIS3_EES7_NS0_11DtypePolicyERKNS0_10SizeVectorE, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) @_ZN6open3d4coreL11MAX_OUTPUTSE, ptr noundef nonnull align 8 dereferenceable(8) %42) #38
   unreachable
 
 75:                                               ; preds = %72
@@ -1445,7 +1445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164: ; preds = %_Z
   br label %207
 
 .preheader244:                                    ; preds = %_ZN6open3d4core9TensorRefC2ERKNS0_6TensorE.exit, %194
-  %201 = load i64, ptr %46, align 8, !tbaa !38
+  %201 = load i64, ptr %42, align 8, !tbaa !38
   %202 = icmp sgt i64 %201, 0
   br i1 %202, label %.lr.ph286, label %._crit_edge287
 
@@ -1596,15 +1596,15 @@ _ZN6open3d4core9TensorRefC2ERKNS0_6TensorE.exit:  ; preds = %_ZN6open3d4core9Ten
   %278 = getelementptr inbounds nuw i64, ptr %206, i64 %.013.i169
   store i64 %277, ptr %278, align 8, !tbaa !42
   %279 = add nuw nsw i64 %.013.i169, 1
-  %exitcond331.not = icmp eq i64 %279, %255
-  br i1 %exitcond331.not, label %_ZN6open3d4core9TensorRefC2ERKNS0_6TensorE.exit170.loopexit, label %263, !llvm.loop !64
+  %exitcond330.not = icmp eq i64 %279, %255
+  br i1 %exitcond330.not, label %_ZN6open3d4core9TensorRefC2ERKNS0_6TensorE.exit170.loopexit, label %263, !llvm.loop !64
 
 _ZN6open3d4core9TensorRefC2ERKNS0_6TensorE.exit170.loopexit: ; preds = %263
-  %.pre334 = load i64, ptr %46, align 8, !tbaa !38
+  %.pre333 = load i64, ptr %42, align 8, !tbaa !38
   br label %_ZN6open3d4core9TensorRefC2ERKNS0_6TensorE.exit170
 
 _ZN6open3d4core9TensorRefC2ERKNS0_6TensorE.exit170: ; preds = %_ZN6open3d4core9TensorRefC2ERKNS0_6TensorE.exit170.loopexit, %258
-  %280 = phi i64 [ %.pre334, %_ZN6open3d4core9TensorRefC2ERKNS0_6TensorE.exit170.loopexit ], [ %250, %258 ]
+  %280 = phi i64 [ %.pre333, %_ZN6open3d4core9TensorRefC2ERKNS0_6TensorE.exit170.loopexit ], [ %250, %258 ]
   %281 = getelementptr inbounds nuw %"struct.open3d::core::TensorRef", ptr %.ptr110, i64 %.099285
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %281, ptr noundef nonnull align 8 dereferenceable(104) %33, i64 104, i1 false), !tbaa.struct !65
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -1647,24 +1647,24 @@ _ZNK6open3d4core6Tensor8GetShapeEv.exit:          ; preds = %292
   br i1 %.not.i.i, label %296, label %_ZNK6open3d4core6Tensor8GetShapeEv.exit._ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit_crit_edge
 
 _ZNK6open3d4core6Tensor8GetShapeEv.exit._ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit_crit_edge: ; preds = %_ZNK6open3d4core6Tensor8GetShapeEv.exit
-  %.pre335 = load ptr, ptr %35, align 8, !tbaa !18
+  %.pre334 = load ptr, ptr %35, align 8, !tbaa !18
   br label %_ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit
 
 296:                                              ; preds = %_ZNK6open3d4core6Tensor8GetShapeEv.exit
   %.not.not.i.i.i.i.i.i = icmp eq i32 %294, 0
-  %.pre336 = load ptr, ptr %35, align 8, !tbaa !18
+  %.pre335 = load ptr, ptr %35, align 8, !tbaa !18
   br i1 %.not.not.i.i.i.i.i.i, label %_ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit, label %297
 
 297:                                              ; preds = %296
   %298 = zext i32 %294 to i64
   %.idx.i.i = shl nuw nsw i64 %298, 3
   %299 = load ptr, ptr %34, align 8, !tbaa !18
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %.pre336, ptr %299, i64 %.idx.i.i)
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %.pre335, ptr %299, i64 %.idx.i.i)
   %.not9.i.i.i.i.i.i = icmp ne i32 %bcmp.i.i.i.i.i.i, 0
   br label %_ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit
 
 _ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit: ; preds = %_ZNK6open3d4core6Tensor8GetShapeEv.exit._ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit_crit_edge, %297, %296
-  %300 = phi ptr [ %.pre335, %_ZNK6open3d4core6Tensor8GetShapeEv.exit._ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit_crit_edge ], [ %.pre336, %297 ], [ %.pre336, %296 ]
+  %300 = phi ptr [ %.pre334, %_ZNK6open3d4core6Tensor8GetShapeEv.exit._ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit_crit_edge ], [ %.pre335, %297 ], [ %.pre335, %296 ]
   %.0.i.i = phi i1 [ true, %_ZNK6open3d4core6Tensor8GetShapeEv.exit._ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit_crit_edge ], [ %.not9.i.i.i.i.i.i, %297 ], [ false, %296 ]
   %301 = icmp eq ptr %300, %248
   br i1 %301, label %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit, label %302
@@ -1722,13 +1722,13 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit173:  ; preds = %314, %309, %307
   br i1 %.not117, label %.preheader243, label %325
 
 .preheader243:                                    ; preds = %315
-  %316 = load i64, ptr %46, align 8, !tbaa !38
+  %316 = load i64, ptr %42, align 8, !tbaa !38
   %317 = icmp sgt i64 %316, 0
   br i1 %317, label %.lr.ph295, label %.preheader243.._crit_edge296_crit_edge
 
 .preheader243.._crit_edge296_crit_edge:           ; preds = %.preheader243
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre339 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !62
+  %.pre338 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !62
   br label %._crit_edge296
 
 .lr.ph295:                                        ; preds = %.preheader243
@@ -1764,7 +1764,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit173:  ; preds = %314, %309, %307
   br label %.loopexit.split-lp
 
 ._crit_edge296:                                   ; preds = %.loopexit242, %.preheader243.._crit_edge296_crit_edge
-  %327 = phi i64 [ %.pre339, %.preheader243.._crit_edge296_crit_edge ], [ %389, %.loopexit242 ]
+  %327 = phi i64 [ %.pre338, %.preheader243.._crit_edge296_crit_edge ], [ %389, %.loopexit242 ]
   store i64 %327, ptr %47, align 8, !tbaa !31
   invoke void @_ZN6open3d4core7Indexer17ReorderDimensionsERKNS0_10SizeVectorE(ptr noundef nonnull align 8 dereferenceable(842) %0, ptr nonnull align 8 poison)
           to label %.preheader241 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -1807,24 +1807,24 @@ _ZNK6open3d4core6Tensor8GetShapeEv.exit175:       ; preds = %335
   br i1 %.not.i.i176, label %341, label %_ZNK6open3d4core6Tensor8GetShapeEv.exit175._ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit182_crit_edge
 
 _ZNK6open3d4core6Tensor8GetShapeEv.exit175._ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit182_crit_edge: ; preds = %_ZNK6open3d4core6Tensor8GetShapeEv.exit175
-  %.pre337 = load ptr, ptr %39, align 8, !tbaa !18
+  %.pre336 = load ptr, ptr %39, align 8, !tbaa !18
   br label %_ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit182
 
 341:                                              ; preds = %_ZNK6open3d4core6Tensor8GetShapeEv.exit175
   %.not.not.i.i.i.i.i.i178 = icmp eq i32 %339, 0
-  %.pre338 = load ptr, ptr %39, align 8, !tbaa !18
+  %.pre337 = load ptr, ptr %39, align 8, !tbaa !18
   br i1 %.not.not.i.i.i.i.i.i178, label %_ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit182, label %342
 
 342:                                              ; preds = %341
   %343 = zext i32 %339 to i64
   %.idx.i.i179 = shl nuw nsw i64 %343, 3
   %344 = load ptr, ptr %37, align 8, !tbaa !18
-  %bcmp.i.i.i.i.i.i180 = call i32 @bcmp(ptr %344, ptr %.pre338, i64 %.idx.i.i179)
+  %bcmp.i.i.i.i.i.i180 = call i32 @bcmp(ptr %344, ptr %.pre337, i64 %.idx.i.i179)
   %.not9.i.i.i.i.i.i181 = icmp ne i32 %bcmp.i.i.i.i.i.i180, 0
   br label %_ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit182
 
 _ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit182: ; preds = %_ZNK6open3d4core6Tensor8GetShapeEv.exit175._ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit182_crit_edge, %342, %341
-  %345 = phi ptr [ %.pre337, %_ZNK6open3d4core6Tensor8GetShapeEv.exit175._ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit182_crit_edge ], [ %.pre338, %342 ], [ %.pre338, %341 ]
+  %345 = phi ptr [ %.pre336, %_ZNK6open3d4core6Tensor8GetShapeEv.exit175._ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit182_crit_edge ], [ %.pre337, %342 ], [ %.pre337, %341 ]
   %.0.i.i177 = phi i1 [ true, %_ZNK6open3d4core6Tensor8GetShapeEv.exit175._ZNK6open3d4core15SmallVectorImplIlEneERKS2_.exit182_crit_edge ], [ %.not9.i.i.i.i.i.i181, %342 ], [ false, %341 ]
   %346 = icmp eq ptr %345, %320
   br i1 %346, label %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit183, label %347
@@ -2009,7 +2009,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit192:  ; preds = %386, %_ZN6open3d4co
 .loopexit242:                                     ; preds = %406, %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %408 = add nuw nsw i64 %.079294, 1
-  %409 = load i64, ptr %46, align 8, !tbaa !38
+  %409 = load i64, ptr %42, align 8, !tbaa !38
   %410 = icmp slt i64 %408, %409
   br i1 %410, label %332, label %._crit_edge296, !llvm.loop !70
 
@@ -2181,7 +2181,7 @@ _ZN6open3d4core7Indexer20UpdatePrimaryStridesEv.exit: ; preds = %478, %._crit_ed
   br label %491
 
 .preheader.i201:                                  ; preds = %.noexc204, %_ZN6open3d4core7Indexer20UpdatePrimaryStridesEv.exit
-  %488 = load i64, ptr %46, align 8, !tbaa !38
+  %488 = load i64, ptr %42, align 8, !tbaa !38
   %489 = icmp sgt i64 %488, 0
   br i1 %489, label %.lr.ph11.i, label %_ZN6open3d4core7Indexer21UpdateContiguousFlagsEv.exit
 
@@ -2215,7 +2215,7 @@ _ZN6open3d4core7Indexer20UpdatePrimaryStridesEv.exit: ; preds = %478, %._crit_ed
   %503 = zext i1 %501 to i8
   store i8 %503, ptr %502, align 1, !tbaa !78
   %504 = add nuw nsw i64 %.010.i, 1
-  %505 = load i64, ptr %46, align 8, !tbaa !38
+  %505 = load i64, ptr %42, align 8, !tbaa !38
   %506 = icmp slt i64 %504, %505
   br i1 %506, label %499, label %_ZN6open3d4core7Indexer21UpdateContiguousFlagsEv.exit, !llvm.loop !80
 
@@ -34482,30 +34482,27 @@ define linkonce_odr void @_ZN6open3d4core9TensorRef7PermuteERKNS0_10SizeVectorE(
   %16 = and i64 %15, 1073741816
   %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #36
   %18 = lshr i64 %14, 6
+  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %18
+  %20 = lshr i64 %9, 6
+  %21 = getelementptr inbounds nuw i64, ptr %17, i64 %20
+  %22 = and i32 %8, 63
   %.idx.i = shl nuw nsw i64 %18, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %17, i8 0, i64 %.idx.i, i1 false)
-  %19 = load ptr, ptr %1, align 8, !tbaa !18
+  %23 = load ptr, ptr %1, align 8, !tbaa !18
   %.idx = shl nuw nsw i64 %9, 3
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   br label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %21 = getelementptr inbounds nuw i64, ptr %17, i64 %18
-  %22 = lshr i64 %9, 6
-  %23 = getelementptr inbounds nuw i64, ptr %17, i64 %22
-  %24 = and i32 %8, 63
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
-  %.sroa.3073.0103 = phi ptr [ null, %13 ], [ %21, %._crit_edge.loopexit ]
-  %.sroa.24.0102 = phi i32 [ 0, %13 ], [ %24, %._crit_edge.loopexit ]
-  %.sroa.1872.0101 = phi ptr [ null, %13 ], [ %23, %._crit_edge.loopexit ]
-  %.sroa.067.0100 = phi ptr [ null, %13 ], [ %17, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %13
+  %.sroa.3073.0103 = phi ptr [ null, %13 ], [ %19, %.lr.ph ]
+  %.sroa.24.0102 = phi i32 [ 0, %13 ], [ %22, %.lr.ph ]
+  %.sroa.1872.0101 = phi ptr [ null, %13 ], [ %21, %.lr.ph ]
+  %.sroa.067.0100 = phi ptr [ null, %13 ], [ %17, %.lr.ph ]
   %25 = invoke { ptr, i32 } @_ZSt9__find_ifISt13_Bit_iteratorN9__gnu_cxx5__ops12_Iter_negateIZN6open3d4core9TensorRef7PermuteERKNS5_10SizeVectorEEUlbE_EEET_SC_SC_T0_St26random_access_iterator_tag(ptr %.sroa.067.0100, i32 0, ptr %.sroa.1872.0101, i32 %.sroa.24.0102)
           to label %36 unwind label %45
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04179 = phi ptr [ %35, %.lr.ph ], [ %19, %.lr.ph.preheader ]
+  %.04179 = phi ptr [ %35, %.lr.ph ], [ %23, %.lr.ph.preheader ]
   %26 = load i64, ptr %.04179, align 8, !tbaa !42
   %27 = sdiv i64 %26, 64
   %28 = getelementptr inbounds i64, ptr %17, i64 %27
@@ -34519,8 +34516,8 @@ define linkonce_odr void @_ZN6open3d4core9TensorRef7PermuteERKNS0_10SizeVectorE(
   %34 = or i64 %32, %33
   store i64 %34, ptr %storemerge.i.i.i.i.i51, align 8, !tbaa !42
   %35 = getelementptr inbounds nuw i8, ptr %.04179, i64 8
-  %.not42 = icmp eq ptr %35, %20
-  br i1 %.not42, label %._crit_edge.loopexit, label %.lr.ph
+  %.not42 = icmp eq ptr %35, %24
+  br i1 %.not42, label %._crit_edge, label %.lr.ph
 
 36:                                               ; preds = %._crit_edge
   %.fca.0.extract.i = extractvalue { ptr, i32 } %25, 0

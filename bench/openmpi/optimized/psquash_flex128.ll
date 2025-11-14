@@ -234,49 +234,49 @@ define internal range(i32 -27, 1) i32 @flex128_decode_int(i16 noundef zeroext %0
   br label %.thread69
 
 switch.lookup:                                    ; preds = %5
-  %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %2, i64 9)
-  %9 = add nsw i64 %spec.store.select.i, -1
-  br label %10
-
-10:                                               ; preds = %10, %switch.lookup
-  %.038.i = phi i64 [ 0, %switch.lookup ], [ %17, %10 ]
-  %.037.i = phi i64 [ 0, %switch.lookup ], [ %18, %10 ]
-  %.034.i = phi i64 [ 0, %switch.lookup ], [ %11, %10 ]
-  %11 = add nuw i64 %.034.i, 1
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.034.i
-  %13 = load i8, ptr %12, align 1, !tbaa !37
-  %14 = and i8 %13, 127
-  %15 = zext nneg i8 %14 to i64
-  %16 = shl i64 %15, %.037.i
-  %17 = add i64 %16, %.038.i
-  %18 = add i64 %.037.i, 7
-  %19 = icmp slt i8 %13, 0
-  %20 = icmp ult i64 %11, %9
-  %21 = select i1 %19, i1 %20, i1 false
-  br i1 %21, label %10, label %22, !prof !36, !llvm.loop !40
-
-22:                                               ; preds = %10
-  %23 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.flex128_decode_int, i64 %23
+  %9 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.flex128_decode_int, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
-  %24 = icmp eq i64 %9, %11
-  %25 = and i1 %24, %19
+  %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %2, i64 9)
+  %10 = add nsw i64 %spec.store.select.i, -1
+  br label %11
+
+11:                                               ; preds = %11, %switch.lookup
+  %.038.i = phi i64 [ 0, %switch.lookup ], [ %18, %11 ]
+  %.037.i = phi i64 [ 0, %switch.lookup ], [ %19, %11 ]
+  %.034.i = phi i64 [ 0, %switch.lookup ], [ %12, %11 ]
+  %12 = add nuw i64 %.034.i, 1
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.034.i
+  %14 = load i8, ptr %13, align 1, !tbaa !37
+  %15 = and i8 %14, 127
+  %16 = zext nneg i8 %15 to i64
+  %17 = shl i64 %16, %.037.i
+  %18 = add i64 %17, %.038.i
+  %19 = add i64 %.037.i, 7
+  %20 = icmp slt i8 %14, 0
+  %21 = icmp ult i64 %12, %10
+  %22 = select i1 %20, i1 %21, i1 false
+  br i1 %22, label %11, label %23, !prof !36, !llvm.loop !40
+
+23:                                               ; preds = %11
+  %24 = icmp eq i64 %10, %12
+  %25 = and i1 %24, %20
   br i1 %25, label %26, label %33, !prof !36
 
-26:                                               ; preds = %22
+26:                                               ; preds = %23
   %27 = add nsw i64 %.034.i, 2
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %9
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %10
   %29 = load i8, ptr %28, align 1, !tbaa !37
   %30 = zext i8 %29 to i64
-  %31 = shl i64 %30, %18
-  %32 = add i64 %31, %17
+  %31 = shl i64 %30, %19
+  %32 = add i64 %31, %18
   br label %33
 
-33:                                               ; preds = %26, %22
-  %.139.i = phi i64 [ %32, %26 ], [ %17, %22 ]
-  %.036.i = phi i64 [ %18, %26 ], [ %.037.i, %22 ]
-  %.135.i = phi i64 [ %27, %26 ], [ %11, %22 ]
-  %.033.i = phi i8 [ %29, %26 ], [ %13, %22 ]
+33:                                               ; preds = %26, %23
+  %.139.i = phi i64 [ %32, %26 ], [ %18, %23 ]
+  %.036.i = phi i64 [ %19, %26 ], [ %.037.i, %23 ]
+  %.135.i = phi i64 [ %27, %26 ], [ %12, %23 ]
+  %.033.i = phi i8 [ %29, %26 ], [ %14, %23 ]
   %.not47.i = icmp eq i8 %.033.i, 0
   br i1 %.not47.i, label %flex_unpack_integer.exit, label %.lr.ph.preheader.i
 

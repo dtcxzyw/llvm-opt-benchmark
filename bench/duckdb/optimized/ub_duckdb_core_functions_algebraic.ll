@@ -16996,11 +16996,11 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %7, %_ZN6
   br i1 %exitcond61.not.i, label %_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_8AvgStateIlEEsNS_23IntegerAverageOperationEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE.exit, label %.thread.us.i, !llvm.loop !274
 
 .lr.ph42.us.i:                                    ; preds = %.thread.us.i
+  %.promoted.us.i = load i64, ptr %2, align 8, !tbaa !244, !alias.scope !270, !noalias !267
   %.promoted44.us.i = load i64, ptr %30, align 8, !tbaa !246, !alias.scope !270, !noalias !267
   br label %34
 
 ..loopexit_crit_edge.us.i:                        ; preds = %34
-  %.promoted.us.i = load i64, ptr %2, align 8, !tbaa !244, !alias.scope !270, !noalias !267
   %42 = sub i64 %32, %.sroa.4.046.us.i
   %43 = add i64 %42, %.promoted.us.i
   store i64 %43, ptr %2, align 8, !tbaa !244, !alias.scope !270, !noalias !267
@@ -17028,6 +17028,7 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %7, %_ZN6
   br i1 %50, label %.lr.ph42.i, label %.loopexit.i
 
 .lr.ph42.i:                                       ; preds = %49
+  %.promoted.i = load i64, ptr %2, align 8, !tbaa !244, !alias.scope !270, !noalias !267
   %.promoted44.i = load i64, ptr %30, align 8, !tbaa !246, !alias.scope !270, !noalias !267
   br label %51
 
@@ -17068,7 +17069,6 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %7, %_ZN6
   br i1 %exitcond58.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !275
 
 ..loopexit_crit_edge.i:                           ; preds = %51
-  %.promoted.i = load i64, ptr %2, align 8, !tbaa !244, !alias.scope !270, !noalias !267
   %71 = sub i64 %47, %.sroa.4.046.i
   %72 = add i64 %71, %.promoted.i
   store i64 %72, ptr %2, align 8, !tbaa !244, !alias.scope !270, !noalias !267
@@ -26379,11 +26379,11 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %7, %_ZN6
   br i1 %exitcond61.not.i, label %_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_8AvgStateIdEEdNS_23NumericAverageOperationEEEvPKT0_RNS_18AggregateInputDataEPT_mRNS_12ValidityMaskE.exit, label %.thread.us.i, !llvm.loop !435
 
 .lr.ph42.us.i:                                    ; preds = %.thread.us.i
+  %.promoted.us.i = load i64, ptr %2, align 8, !tbaa !411, !alias.scope !431, !noalias !428
   %.promoted44.us.i = load double, ptr %29, align 8, !tbaa !413, !alias.scope !431, !noalias !428
   br label %33
 
 ..loopexit_crit_edge.us.i:                        ; preds = %33
-  %.promoted.us.i = load i64, ptr %2, align 8, !tbaa !411, !alias.scope !431, !noalias !428
   %40 = sub i64 %31, %.sroa.4.046.us.i
   %41 = add i64 %40, %.promoted.us.i
   store i64 %41, ptr %2, align 8, !tbaa !411, !alias.scope !431, !noalias !428
@@ -26411,6 +26411,7 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %7, %_ZN6
   br i1 %48, label %.lr.ph42.i, label %.loopexit.i
 
 .lr.ph42.i:                                       ; preds = %47
+  %.promoted.i = load i64, ptr %2, align 8, !tbaa !411, !alias.scope !431, !noalias !428
   %.promoted44.i = load double, ptr %29, align 8, !tbaa !413, !alias.scope !431, !noalias !428
   br label %49
 
@@ -26449,7 +26450,6 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %7, %_ZN6
   br i1 %exitcond58.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !436
 
 ..loopexit_crit_edge.i:                           ; preds = %49
-  %.promoted.i = load i64, ptr %2, align 8, !tbaa !411, !alias.scope !431, !noalias !428
   %67 = sub i64 %45, %.sroa.4.046.i
   %68 = add i64 %67, %.promoted.i
   store i64 %68, ptr %2, align 8, !tbaa !411, !alias.scope !431, !noalias !428
@@ -29226,12 +29226,12 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_
   br i1 %exitcond65.not, label %._crit_edge, label %.thread.us, !llvm.loop !478
 
 .lr.ph42.us:                                      ; preds = %.thread.us
+  %.promoted.us = load i64, ptr %2, align 8, !tbaa !465
   %.promoted44.us = load double, ptr %10, align 8, !tbaa !45
   %.promoted46.us = load double, ptr %9, align 8, !tbaa !45
   br label %14
 
 ..loopexit_crit_edge.us:                          ; preds = %14
-  %.promoted.us = load i64, ptr %2, align 8, !tbaa !465
   %25 = add i64 %.promoted.us, %12
   %26 = sub i64 %25, %.sroa.4.048.us
   store i64 %26, ptr %2, align 8, !tbaa !465
@@ -29263,6 +29263,7 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_
   br i1 %33, label %.lr.ph42, label %.loopexit
 
 .lr.ph42:                                         ; preds = %32
+  %.promoted = load i64, ptr %2, align 8, !tbaa !465
   %.promoted44 = load double, ptr %10, align 8, !tbaa !45
   %.promoted46 = load double, ptr %9, align 8, !tbaa !45
   br label %34
@@ -29311,7 +29312,6 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_
   br i1 %exitcond62.not, label %.loopexit, label %.lr.ph, !llvm.loop !479
 
 ..loopexit_crit_edge:                             ; preds = %34
-  %.promoted = load i64, ptr %2, align 8, !tbaa !465
   %60 = add i64 %.promoted, %30
   %61 = sub i64 %60, %.sroa.4.048
   store i64 %61, ptr %2, align 8, !tbaa !465

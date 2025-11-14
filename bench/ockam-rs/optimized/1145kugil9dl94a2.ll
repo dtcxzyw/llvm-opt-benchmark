@@ -31134,14 +31134,14 @@ define hidden noundef ptr @_ZN10serde_json3ser9Formatter9write_i6417hafd989781f4
   %4 = alloca { [40 x i8] }, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8450)
+  %5 = icmp sgt i64 %2, -1
   %.0.i = tail call i64 @llvm.abs.i64(i64 %2, i1 false)
-  %5 = icmp ugt i64 %.0.i, 9999
-  br i1 %5, label %.lr.ph.i, label %._crit_edge.i
+  %6 = icmp ugt i64 %.0.i, 9999
+  br i1 %6, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %3
   %.026.lcssa.i = phi i64 [ 20, %3 ], [ %16, %.lr.ph.i ]
   %.1.lcssa.i = phi i64 [ %.0.i, %3 ], [ %9, %.lr.ph.i ]
-  %6 = icmp sgt i64 %2, -1
   %7 = icmp samesign ugt i64 %.1.lcssa.i, 99
   br i1 %7, label %25, label %34
 
@@ -31209,7 +31209,7 @@ define hidden noundef ptr @_ZN10serde_json3ser9Formatter9write_i6417hafd989781f4
 
 47:                                               ; preds = %42, %36
   %.2.i = phi i64 [ %43, %42 ], [ %38, %36 ]
-  br i1 %6, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h27388c6f160b6416E.llvm.9060417697508566391.exit", label %48
+  br i1 %5, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h27388c6f160b6416E.llvm.9060417697508566391.exit", label %48
 
 48:                                               ; preds = %47
   %49 = add i64 %.2.i, -1
@@ -31649,14 +31649,14 @@ _ZN10serde_json3ser9Formatter9write_u6417he1a325bbc7a6958bE.llvm.906041769750856
   %75 = load i64, ptr %24, align 8, !alias.scope !8480, !noalias !8483, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !8494
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8499)
+  %76 = icmp sgt i64 %75, -1
   %.0.i.i.i.i = tail call i64 @llvm.abs.i64(i64 %75, i1 false)
-  %76 = icmp ugt i64 %.0.i.i.i.i, 9999
-  br i1 %76, label %.lr.ph.i.i.i7.i, label %._crit_edge.i.i.i1.i
+  %77 = icmp ugt i64 %.0.i.i.i.i, 9999
+  br i1 %77, label %.lr.ph.i.i.i7.i, label %._crit_edge.i.i.i1.i
 
 ._crit_edge.i.i.i1.i:                             ; preds = %.lr.ph.i.i.i7.i, %74
   %.026.lcssa.i.i.i.i = phi i64 [ 20, %74 ], [ %87, %.lr.ph.i.i.i7.i ]
   %.1.lcssa.i.i.i2.i = phi i64 [ %.0.i.i.i.i, %74 ], [ %80, %.lr.ph.i.i.i7.i ]
-  %77 = icmp sgt i64 %75, -1
   %78 = icmp samesign ugt i64 %.1.lcssa.i.i.i2.i, 99
   br i1 %78, label %96, label %105
 
@@ -31724,7 +31724,7 @@ _ZN10serde_json3ser9Formatter9write_u6417he1a325bbc7a6958bE.llvm.906041769750856
 
 118:                                              ; preds = %113, %107
   %.2.i.i.i3.i = phi i64 [ %114, %113 ], [ %109, %107 ]
-  br i1 %77, label %_ZN10serde_json3ser9Formatter9write_i6417hafd989781f4a89b2E.llvm.9060417697508566391.exit.i.i, label %119
+  br i1 %76, label %_ZN10serde_json3ser9Formatter9write_i6417hafd989781f4a89b2E.llvm.9060417697508566391.exit.i.i, label %119
 
 119:                                              ; preds = %118
   %120 = add i64 %.2.i.i.i3.i, -1
@@ -64287,14 +64287,14 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: write) uwtable
 define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h27388c6f160b6416E.llvm.9060417697508566391"(i64 noundef %0, ptr noalias noundef align 1 dereferenceable(20) %1) unnamed_addr #25 {
+  %3 = icmp sgt i64 %0, -1
   %.0 = tail call i64 @llvm.abs.i64(i64 %0, i1 false)
-  %3 = icmp ugt i64 %.0, 9999
-  br i1 %3, label %.lr.ph, label %._crit_edge
+  %4 = icmp ugt i64 %.0, 9999
+  br i1 %4, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.026.lcssa = phi i64 [ 20, %2 ], [ %14, %.lr.ph ]
   %.1.lcssa = phi i64 [ %.0, %2 ], [ %7, %.lr.ph ]
-  %4 = icmp sgt i64 %0, -1
   %5 = icmp samesign ugt i64 %.1.lcssa, 99
   br i1 %5, label %23, label %32
 
@@ -64362,7 +64362,7 @@ define hidden { ptr, i64 } @"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$f
 
 45:                                               ; preds = %40, %34
   %.2 = phi i64 [ %41, %40 ], [ %36, %34 ]
-  br i1 %4, label %49, label %46
+  br i1 %3, label %49, label %46
 
 46:                                               ; preds = %45
   %47 = add i64 %.2, -1
@@ -65405,6 +65405,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6810cb30b0853
 define hidden void @_ZN4time10formatting22format_number_pad_zero17h9820a29305bfed60E(ptr noalias noundef writeonly sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #2 {
   %4 = alloca { [40 x i8] }, align 1
   %5 = tail call noundef i8 @"_ZN57_$LT$u8$u20$as$u20$time..ext..digit_count..DigitCount$GT$10num_digits17h3038d6d662193572E"(i8 noundef %2)
+  %.01823.i.sroa.gep23 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %.lr.ph, label %12
 
@@ -65435,7 +65436,6 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h9820a29305bfe
   br label %29
 
 21:                                               ; preds = %12
-  %.01823.i.sroa.gep23 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %22 = icmp samesign ult i8 %2, 10
   br i1 %22, label %29, label %23
 
@@ -65526,22 +65526,22 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17ha6fc246523e8e
   br i1 %9, label %.thread.i, label %._crit_edge.i
 
 .thread.i:                                        ; preds = %._crit_edge
-  %10 = udiv i16 %2, 10000
   %.lhs.trunc.i = urem i16 %2, 10000
-  %11 = udiv i16 %.lhs.trunc.i, 100
-  %12 = shl nuw nsw i16 %11, 1
-  %13 = zext nneg i16 %12 to i64
-  %14 = urem i16 %.lhs.trunc.i, 100
-  %15 = shl nuw nsw i16 %14, 1
-  %16 = zext nneg i16 %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr @anon.1f7e51aa9a0607ba6b9e9da3a6dc7bdc.226, i64 %13
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %19 = load i16, ptr %17, align 1, !noalias !16126
-  store i16 %19, ptr %18, align 1, !alias.scope !16126
-  %20 = getelementptr inbounds nuw i8, ptr @anon.1f7e51aa9a0607ba6b9e9da3a6dc7bdc.226, i64 %16
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  %22 = load i16, ptr %20, align 1, !noalias !16126
-  store i16 %22, ptr %21, align 1, !alias.scope !16126
+  %10 = udiv i16 %.lhs.trunc.i, 100
+  %11 = shl nuw nsw i16 %10, 1
+  %12 = zext nneg i16 %11 to i64
+  %13 = urem i16 %.lhs.trunc.i, 100
+  %14 = shl nuw nsw i16 %13, 1
+  %15 = zext nneg i16 %14 to i64
+  %16 = getelementptr inbounds nuw i8, ptr @anon.1f7e51aa9a0607ba6b9e9da3a6dc7bdc.226, i64 %12
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %18 = load i16, ptr %16, align 1, !noalias !16126
+  store i16 %18, ptr %17, align 1, !alias.scope !16126
+  %19 = getelementptr inbounds nuw i8, ptr @anon.1f7e51aa9a0607ba6b9e9da3a6dc7bdc.226, i64 %15
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %21 = load i16, ptr %19, align 1, !noalias !16126
+  store i16 %21, ptr %20, align 1, !alias.scope !16126
+  %22 = udiv i16 %2, 10000
   br label %41
 
 ._crit_edge.i:                                    ; preds = %._crit_edge
@@ -65576,7 +65576,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17ha6fc246523e8e
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u16$GT$5write17ha24de991e35e2746E.exit"
 
 41:                                               ; preds = %32, %.thread.i
-  %.02544.i = phi i16 [ %10, %.thread.i ], [ %.025.in.i, %32 ]
+  %.02544.i = phi i16 [ %22, %.thread.i ], [ %.025.in.i, %32 ]
   %.12743.i = phi i64 [ 1, %.thread.i ], [ %.127.i, %32 ]
   %42 = add nsw i64 %.12743.i, -1
   %43 = trunc nuw nsw i16 %.02544.i to i8
@@ -65648,6 +65648,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17he2c13c493d9a3
   %4 = alloca { [40 x i8] }, align 1
   %5 = tail call noundef i8 @"_ZN57_$LT$u8$u20$as$u20$time..ext..digit_count..DigitCount$GT$10num_digits17h3038d6d662193572E"(i8 noundef %2)
   %6 = tail call i8 @llvm.usub.sat.i8(i8 2, i8 %5)
+  %.01823.i.sroa.gep23 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %.not = icmp ugt i8 %5, 1
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -65676,7 +65677,6 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17he2c13c493d9a3
   br label %25
 
 17:                                               ; preds = %._crit_edge
-  %.01823.i.sroa.gep23 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %18 = icmp samesign ult i8 %2, 10
   br i1 %18, label %25, label %19
 
@@ -69195,39 +69195,39 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h663a9ef0825a
   %15 = icmp ugt i64 %1, 1
   br i1 %15, label %.lr.ph, label %._crit_edge
 
+._crit_edge.thread:                               ; preds = %.lr.ph
+  %16 = add i64 %12, %1
+  %17 = add i64 %16, -1
+  br label %19
+
 ._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1a5690fa2636e20eE.exit"
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %16, label %._crit_edge.thread
+  br i1 %.not, label %18, label %19
 
-16:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.sroa.5.0 = phi i64 [ %12, %._crit_edge ], [ %20, %._crit_edge.thread ]
+18:                                               ; preds = %19, %._crit_edge
+  %.sroa.5.0 = phi i64 [ %12, %._crit_edge ], [ %21, %19 ]
   store i64 %.sroa.5.0, ptr %5, align 8
   ret void
 
-._crit_edge.thread.loopexit:                      ; preds = %.lr.ph
-  %17 = add i64 %12, %1
-  %18 = add i64 %17, -1
-  br label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %._crit_edge.thread.loopexit, %._crit_edge
-  %.0.lcssa31 = phi ptr [ %14, %._crit_edge ], [ %23, %._crit_edge.thread.loopexit ]
-  %storemerge.lcssa30 = phi i64 [ %12, %._crit_edge ], [ %18, %._crit_edge.thread.loopexit ]
+19:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %.0.lcssa31 = phi ptr [ %24, %._crit_edge.thread ], [ %14, %._crit_edge ]
+  %storemerge.lcssa30 = phi i64 [ %17, %._crit_edge.thread ], [ %12, %._crit_edge ]
   store i16 %2, ptr %.0.lcssa31, align 2
-  %19 = getelementptr inbounds nuw i8, ptr %.0.lcssa31, i64 2
-  store i16 %3, ptr %19, align 2
-  %20 = add i64 %storemerge.lcssa30, 1
-  br label %16
+  %20 = getelementptr inbounds nuw i8, ptr %.0.lcssa31, i64 2
+  store i16 %3, ptr %20, align 2
+  %21 = add i64 %storemerge.lcssa30, 1
+  br label %18
 
 .lr.ph:                                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1a5690fa2636e20eE.exit", %.lr.ph
-  %.024 = phi ptr [ %23, %.lr.ph ], [ %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1a5690fa2636e20eE.exit" ]
-  %.sroa.03.023 = phi i64 [ %21, %.lr.ph ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1a5690fa2636e20eE.exit" ]
-  %21 = add nuw i64 %.sroa.03.023, 1
+  %.024 = phi ptr [ %24, %.lr.ph ], [ %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1a5690fa2636e20eE.exit" ]
+  %.sroa.03.023 = phi i64 [ %22, %.lr.ph ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h1a5690fa2636e20eE.exit" ]
+  %22 = add nuw i64 %.sroa.03.023, 1
   store i16 %2, ptr %.024, align 2
-  %22 = getelementptr inbounds nuw i8, ptr %.024, i64 2
-  store i16 %3, ptr %22, align 2
-  %23 = getelementptr inbounds nuw i8, ptr %.024, i64 4
-  %exitcond.not = icmp eq i64 %21, %1
-  br i1 %exitcond.not, label %._crit_edge.thread.loopexit, label %.lr.ph
+  %23 = getelementptr inbounds nuw i8, ptr %.024, i64 2
+  store i16 %3, ptr %23, align 2
+  %24 = getelementptr inbounds nuw i8, ptr %.024, i64 4
+  %exitcond.not = icmp eq i64 %22, %1
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -69252,39 +69252,39 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hc2f321f9653a
   %15 = icmp ugt i64 %1, 1
   br i1 %15, label %.lr.ph, label %._crit_edge
 
+._crit_edge.thread:                               ; preds = %.lr.ph
+  %16 = add i64 %12, %1
+  %17 = add i64 %16, -1
+  br label %19
+
 ._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8b0c79e98e375c58E.exit"
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %16, label %._crit_edge.thread
+  br i1 %.not, label %18, label %19
 
-16:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.sroa.5.0 = phi i64 [ %12, %._crit_edge ], [ %20, %._crit_edge.thread ]
+18:                                               ; preds = %19, %._crit_edge
+  %.sroa.5.0 = phi i64 [ %12, %._crit_edge ], [ %21, %19 ]
   store i64 %.sroa.5.0, ptr %5, align 8
   ret void
 
-._crit_edge.thread.loopexit:                      ; preds = %.lr.ph
-  %17 = add i64 %12, %1
-  %18 = add i64 %17, -1
-  br label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %._crit_edge.thread.loopexit, %._crit_edge
-  %.0.lcssa31 = phi ptr [ %14, %._crit_edge ], [ %23, %._crit_edge.thread.loopexit ]
-  %storemerge.lcssa30 = phi i64 [ %12, %._crit_edge ], [ %18, %._crit_edge.thread.loopexit ]
+19:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %.0.lcssa31 = phi ptr [ %24, %._crit_edge.thread ], [ %14, %._crit_edge ]
+  %storemerge.lcssa30 = phi i64 [ %17, %._crit_edge.thread ], [ %12, %._crit_edge ]
   store i16 %2, ptr %.0.lcssa31, align 2
-  %19 = getelementptr inbounds nuw i8, ptr %.0.lcssa31, i64 2
-  store i16 %3, ptr %19, align 2
-  %20 = add i64 %storemerge.lcssa30, 1
-  br label %16
+  %20 = getelementptr inbounds nuw i8, ptr %.0.lcssa31, i64 2
+  store i16 %3, ptr %20, align 2
+  %21 = add i64 %storemerge.lcssa30, 1
+  br label %18
 
 .lr.ph:                                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8b0c79e98e375c58E.exit", %.lr.ph
-  %.024 = phi ptr [ %23, %.lr.ph ], [ %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8b0c79e98e375c58E.exit" ]
-  %.sroa.03.023 = phi i64 [ %21, %.lr.ph ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8b0c79e98e375c58E.exit" ]
-  %21 = add nuw i64 %.sroa.03.023, 1
+  %.024 = phi ptr [ %24, %.lr.ph ], [ %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8b0c79e98e375c58E.exit" ]
+  %.sroa.03.023 = phi i64 [ %22, %.lr.ph ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8b0c79e98e375c58E.exit" ]
+  %22 = add nuw i64 %.sroa.03.023, 1
   store i16 %2, ptr %.024, align 2
-  %22 = getelementptr inbounds nuw i8, ptr %.024, i64 2
-  store i16 %3, ptr %22, align 2
-  %23 = getelementptr inbounds nuw i8, ptr %.024, i64 4
-  %exitcond.not = icmp eq i64 %21, %1
-  br i1 %exitcond.not, label %._crit_edge.thread.loopexit, label %.lr.ph
+  %23 = getelementptr inbounds nuw i8, ptr %.024, i64 2
+  store i16 %3, ptr %23, align 2
+  %24 = getelementptr inbounds nuw i8, ptr %.024, i64 4
+  %exitcond.not = icmp eq i64 %22, %1
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -78241,14 +78241,14 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls55_$LT$impl$u20$serde..se
   %4 = load i64, ptr %0, align 8, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !20044
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20049)
+  %5 = icmp sgt i64 %4, -1
   %.0.i.i.i = tail call i64 @llvm.abs.i64(i64 %4, i1 false)
-  %5 = icmp ugt i64 %.0.i.i.i, 9999
-  br i1 %5, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %6 = icmp ugt i64 %.0.i.i.i, 9999
+  br i1 %6, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %2
   %.026.lcssa.i.i.i = phi i64 [ 20, %2 ], [ %16, %.lr.ph.i.i.i ]
   %.1.lcssa.i.i.i = phi i64 [ %.0.i.i.i, %2 ], [ %9, %.lr.ph.i.i.i ]
-  %6 = icmp sgt i64 %4, -1
   %7 = icmp samesign ugt i64 %.1.lcssa.i.i.i, 99
   br i1 %7, label %25, label %34
 
@@ -78316,7 +78316,7 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls55_$LT$impl$u20$serde..se
 
 47:                                               ; preds = %42, %36
   %.2.i.i.i = phi i64 [ %43, %42 ], [ %38, %36 ]
-  br i1 %6, label %_ZN10serde_json3ser9Formatter9write_i6417hafd989781f4a89b2E.llvm.9060417697508566391.exit.i, label %48
+  br i1 %5, label %_ZN10serde_json3ser9Formatter9write_i6417hafd989781f4a89b2E.llvm.9060417697508566391.exit.i, label %48
 
 48:                                               ; preds = %47
   %49 = add i64 %.2.i.i.i, -1
@@ -87270,14 +87270,14 @@ define hidden noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F
   %13 = load i64, ptr %1, align 8, !alias.scope !21497, !noalias !21500, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !21502
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21507)
+  %14 = icmp sgt i64 %13, -1
   %.0.i.i.i.i = tail call i64 @llvm.abs.i64(i64 %13, i1 false)
-  %14 = icmp ugt i64 %.0.i.i.i.i, 9999
-  br i1 %14, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %15 = icmp ugt i64 %.0.i.i.i.i, 9999
+  br i1 %15, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %12
   %.026.lcssa.i.i.i.i = phi i64 [ 20, %12 ], [ %25, %.lr.ph.i.i.i.i ]
   %.1.lcssa.i.i.i.i = phi i64 [ %.0.i.i.i.i, %12 ], [ %18, %.lr.ph.i.i.i.i ]
-  %15 = icmp sgt i64 %13, -1
   %16 = icmp samesign ugt i64 %.1.lcssa.i.i.i.i, 99
   br i1 %16, label %34, label %43
 
@@ -87345,7 +87345,7 @@ define hidden noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F
 
 56:                                               ; preds = %51, %45
   %.2.i.i.i.i = phi i64 [ %52, %51 ], [ %47, %45 ]
-  br i1 %15, label %_ZN10serde_json3ser9Formatter9write_i6417hafd989781f4a89b2E.llvm.9060417697508566391.exit.i.i, label %57
+  br i1 %14, label %_ZN10serde_json3ser9Formatter9write_i6417hafd989781f4a89b2E.llvm.9060417697508566391.exit.i.i, label %57
 
 57:                                               ; preds = %56
   %58 = add i64 %.2.i.i.i.i, -1
@@ -93884,14 +93884,14 @@ define hidden noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Seria
   %3 = alloca { [40 x i8] }, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !22961
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22964)
+  %4 = icmp sgt i64 %1, -1
   %.0.i.i = tail call i64 @llvm.abs.i64(i64 %1, i1 false)
-  %4 = icmp ugt i64 %.0.i.i, 9999
-  br i1 %4, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %5 = icmp ugt i64 %.0.i.i, 9999
+  br i1 %5, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %2
   %.026.lcssa.i.i = phi i64 [ 20, %2 ], [ %15, %.lr.ph.i.i ]
   %.1.lcssa.i.i = phi i64 [ %.0.i.i, %2 ], [ %8, %.lr.ph.i.i ]
-  %5 = icmp sgt i64 %1, -1
   %6 = icmp samesign ugt i64 %.1.lcssa.i.i, 99
   br i1 %6, label %24, label %33
 
@@ -93959,7 +93959,7 @@ define hidden noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Seria
 
 46:                                               ; preds = %41, %35
   %.2.i.i = phi i64 [ %42, %41 ], [ %37, %35 ]
-  br i1 %5, label %_ZN10serde_json3ser9Formatter9write_i6417hafd989781f4a89b2E.llvm.9060417697508566391.exit, label %47
+  br i1 %4, label %_ZN10serde_json3ser9Formatter9write_i6417hafd989781f4a89b2E.llvm.9060417697508566391.exit, label %47
 
 47:                                               ; preds = %46
   %48 = add i64 %.2.i.i, -1

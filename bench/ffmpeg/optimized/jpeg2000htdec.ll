@@ -3113,21 +3113,21 @@ define internal fastcc void @jpeg2000_decode_sigprop_segment(i8 %.100.val, i16 n
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 4, %.preheader.lr.ph ]
   %.06444.us = phi i32 [ %30, %29 ], [ 0, %.preheader.lr.ph ]
   %.promoted32.us = load i32, ptr %9, align 8
-  %23 = and i64 %indvars.iv79, 4294967292
-  %24 = or disjoint i64 %23, 3
+  %23 = trunc nuw nsw i64 %indvars.iv79 to i32
+  %24 = and i64 %indvars.iv79, 4294967292
+  %25 = or disjoint i64 %24, 3
   %.promoted38.us = load i32, ptr %18, align 4
   %.phi.trans.insert.i.i.promoted.us = load i32, ptr %.phi.trans.insert.i.i, align 8
   %.promoted41.us = load i32, ptr %19, align 4
   br label %31
 
-25:                                               ; preds = %._crit_edge.us
-  %26 = trunc nuw nsw i64 %indvars.iv79 to i32
+26:                                               ; preds = %._crit_edge.us
   %27 = trunc i64 %indvars.iv.next76 to i32
   %28 = and i32 %27, 65532
-  call fastcc void @jpeg2000_process_stripes_block(ptr noundef %9, i32 noundef %26, i32 noundef %28, i32 noundef %22, i32 noundef 4, i32 noundef %2, i32 noundef %16, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %13)
+  call fastcc void @jpeg2000_process_stripes_block(ptr noundef %9, i32 noundef %23, i32 noundef %28, i32 noundef %22, i32 noundef 4, i32 noundef %2, i32 noundef %16, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %13)
   br label %29
 
-29:                                               ; preds = %25, %._crit_edge.us
+29:                                               ; preds = %26, %._crit_edge.us
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 4
   %30 = add nuw nsw i32 %.06444.us, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
@@ -3177,7 +3177,7 @@ define internal fastcc void @jpeg2000_decode_sigprop_segment(i8 %.100.val, i16 n
   br label %118
 
 44:                                               ; preds = %33
-  %45 = icmp ne i64 %indvars.iv.i.us, %24
+  %45 = icmp ne i64 %indvars.iv.i.us, %25
   %narrow.us.i.us = select i1 %17, i1 true, i1 %45
   %46 = trunc nuw nsw i64 %indvars.iv.i.us to i32
   %47 = and i32 %46, 65535
@@ -3367,7 +3367,7 @@ jpeg2000_process_stripes_block.exit.us:           ; preds = %._crit_edge.us103.i
   store i32 %154, ptr %.phi.trans.insert.i.i, align 8
   store i32 %.sink.i85.us.i20.us, ptr %19, align 4
   store i32 %153, ptr %9, align 8
-  br i1 %.not69, label %29, label %25
+  br i1 %.not69, label %29, label %26
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
   br i1 %.not69, label %.preheader.lr.ph.split.split.us, label %.preheader
@@ -3663,17 +3663,17 @@ jpeg2000_import_magref_bit.exit.us:               ; preds = %jpeg2000_bitbuf_ref
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 4
   %exitcond160.not = icmp eq i32 %121, %11
-  br i1 %exitcond160.not, label %._crit_edge121.loopexit, label %.preheader.us, !llvm.loop !78
+  br i1 %exitcond160.not, label %._crit_edge121.loopexit148, label %.preheader.us, !llvm.loop !78
 
-._crit_edge121.loopexit:                          ; preds = %._crit_edge.us
+._crit_edge121.loopexit148:                       ; preds = %._crit_edge.us
   %122 = and i16 %1, 2044
   br label %._crit_edge121
 
-._crit_edge121:                                   ; preds = %._crit_edge121.loopexit, %8
-  %.sroa.0.0.lcssa = phi i32 [ %10, %8 ], [ %.sroa.0.3.us, %._crit_edge121.loopexit ]
-  %.sroa.15.0.lcssa = phi i8 [ 0, %8 ], [ %.sroa.15.3.us, %._crit_edge121.loopexit ]
-  %.sroa.2694.0.lcssa = phi i64 [ 0, %8 ], [ %.sroa.2694.3.us, %._crit_edge121.loopexit ]
-  %.068.lcssa = phi i16 [ 0, %8 ], [ %122, %._crit_edge121.loopexit ]
+._crit_edge121:                                   ; preds = %8, %._crit_edge121.loopexit148
+  %.sroa.0.0.lcssa = phi i32 [ %.sroa.0.3.us, %._crit_edge121.loopexit148 ], [ %10, %8 ]
+  %.sroa.15.0.lcssa = phi i8 [ %.sroa.15.3.us, %._crit_edge121.loopexit148 ], [ 0, %8 ]
+  %.sroa.2694.0.lcssa = phi i64 [ %.sroa.2694.3.us, %._crit_edge121.loopexit148 ], [ 0, %8 ]
+  %.068.lcssa = phi i16 [ %122, %._crit_edge121.loopexit148 ], [ 0, %8 ]
   %.not145 = icmp eq i16 %0, 0
   br i1 %.not145, label %._crit_edge141, label %.lr.ph140
 

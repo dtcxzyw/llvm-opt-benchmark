@@ -4198,26 +4198,26 @@ define hidden void @_ZN4cvc58internal6theory6arrays12TheoryArraysD2Ev(ptr nounde
   br label %15
 
 15:                                               ; preds = %14, %._crit_edge
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 5320
-  %.sroa.034.044 = load ptr, ptr %16, align 8, !tbaa !362
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 5304
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 5320
+  %.sroa.034.044 = load ptr, ptr %17, align 8, !tbaa !362
   %.not4145 = icmp eq ptr %.sroa.034.044, null
   br i1 %.not4145, label %._crit_edge49, label %.lr.ph48
 
 .lr.ph48:                                         ; preds = %15, %.lr.ph48
   %.sroa.034.046 = phi ptr [ %.sroa.034.0, %.lr.ph48 ], [ %.sroa.034.044, %15 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.034.046, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !374
-  %19 = load ptr, ptr %18, align 8, !tbaa !15
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(40) %18) #27
-  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(40) %18) #27
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.034.046, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !374
+  %20 = load ptr, ptr %19, align 8, !tbaa !15
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(40) %19) #27
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(40) %19) #27
   %.sroa.034.0 = load ptr, ptr %.sroa.034.046, align 8, !tbaa !362
   %.not41 = icmp eq ptr %.sroa.034.0, null
   br i1 %.not41, label %._crit_edge49, label %.lr.ph48, !llvm.loop !376
 
 ._crit_edge49:                                    ; preds = %.lr.ph48, %15
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 5304
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 5520
   %24 = load ptr, ptr %23, align 8, !tbaa !129
   %25 = icmp eq ptr %24, null
@@ -4520,7 +4520,7 @@ _ZN4cvc57context6CDListINS_8internal12NodeTemplateILb0EEENS0_14DefaultCleanUpIS4
   unreachable
 
 _ZN4cvc57context6CDListINS_8internal12NodeTemplateILb0EEENS0_14DefaultCleanUpIS4_EESaIS4_EED2Ev.exit17: ; preds = %_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb0EEENS0_14DefaultCleanUpIS4_EESaIS4_EE12truncateListEm.exit.i9, %132
-  tail call void @_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS0_7context6CDListINS2_ILb0EEENS6_14DefaultCleanUpIS8_EESaIS8_EEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #27
+  tail call void @_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS0_7context6CDListINS2_ILb0EEENS6_14DefaultCleanUpIS8_EESaIS8_EEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #27
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 5256
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4cvc57context3CDOIbEE, i64 16), ptr %141, align 8, !tbaa !15
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(41) %141)

@@ -2733,47 +2733,47 @@ define hidden noundef i64 @_ZN6rustls12common_state11CommonState20send_appdata_e
   br i1 %.not.i, label %_ZN6rustls6vecbuf14ChunkVecBuffer11apply_limit17hdb3317954e87bcd1E.exit, label %19
 
 19:                                               ; preds = %9
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %21 = load i64, ptr %20, align 8, !alias.scope !599, !noundef !14
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !602
-  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h68376a730028a19fE"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr } }) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20)
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  br label %24
+  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h68376a730028a19fE"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr } }) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %22)
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  br label %26
 
-24:                                               ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.thread.i.i", %19
-  %.0.i.i = phi i64 [ 0, %19 ], [ %35, %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.thread.i.i" ]
-  %25 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b6657736c9dc68eE.llvm.5361720058829915877"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.i.i", label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.thread.i.i"
+26:                                               ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.thread.i.i", %19
+  %.0.i.i = phi i64 [ 0, %19 ], [ %37, %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.thread.i.i" ]
+  %27 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b6657736c9dc68eE.llvm.5361720058829915877"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.i.i", label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.thread.i.i"
 
-"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.i.i": ; preds = %24
+"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.i.i": ; preds = %26
   call void @llvm.experimental.noalias.scope.decl(metadata !605)
   call void @llvm.experimental.noalias.scope.decl(metadata !608)
-  %27 = load ptr, ptr %5, align 8, !alias.scope !610, !noalias !613, !nonnull !14, !noundef !14
-  %28 = load ptr, ptr %22, align 8, !alias.scope !610, !noalias !613, !noundef !14
-  %29 = load ptr, ptr %21, align 8, !alias.scope !614, !noalias !615, !nonnull !14, !noundef !14
-  %30 = load ptr, ptr %23, align 8, !alias.scope !614, !noalias !615, !noundef !14
-  store ptr %29, ptr %5, align 8, !alias.scope !610, !noalias !613
-  store ptr %30, ptr %22, align 8, !alias.scope !610, !noalias !613
-  store ptr %27, ptr %21, align 8, !alias.scope !614, !noalias !615
-  store ptr %28, ptr %23, align 8, !alias.scope !614, !noalias !615
-  %31 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b6657736c9dc68eE.llvm.5361720058829915877"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %_ZN6rustls6vecbuf14ChunkVecBuffer3len17h389e56ec2fa5735fE.exit.i, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.thread.i.i"
+  %29 = load ptr, ptr %5, align 8, !alias.scope !610, !noalias !613, !nonnull !14, !noundef !14
+  %30 = load ptr, ptr %24, align 8, !alias.scope !610, !noalias !613, !noundef !14
+  %31 = load ptr, ptr %23, align 8, !alias.scope !614, !noalias !615, !nonnull !14, !noundef !14
+  %32 = load ptr, ptr %25, align 8, !alias.scope !614, !noalias !615, !noundef !14
+  store ptr %31, ptr %5, align 8, !alias.scope !610, !noalias !613
+  store ptr %32, ptr %24, align 8, !alias.scope !610, !noalias !613
+  store ptr %29, ptr %23, align 8, !alias.scope !614, !noalias !615
+  store ptr %30, ptr %25, align 8, !alias.scope !614, !noalias !615
+  %33 = call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4b6657736c9dc68eE.llvm.5361720058829915877"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %_ZN6rustls6vecbuf14ChunkVecBuffer3len17h389e56ec2fa5735fE.exit.i, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.thread.i.i"
 
-"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.thread.i.i": ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.i.i", %24
-  %.0.i4.i.i = phi ptr [ %31, %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.i.i" ], [ %25, %24 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i4.i.i, i64 16
-  %34 = load i64, ptr %33, align 8, !noundef !14
-  %35 = add i64 %34, %.0.i.i
-  br label %24
+"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.thread.i.i": ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.i.i", %26
+  %.0.i4.i.i = phi ptr [ %33, %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.i.i" ], [ %27, %26 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i4.i.i, i64 16
+  %36 = load i64, ptr %35, align 8, !noundef !14
+  %37 = add i64 %36, %.0.i.i
+  br label %26
 
 _ZN6rustls6vecbuf14ChunkVecBuffer3len17h389e56ec2fa5735fE.exit.i: ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21f3b5765bd5c0c5E.llvm.5361720058829915877.exit.i.i"
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %37 = load i64, ptr %36, align 8, !alias.scope !599, !noundef !14
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !602
-  %38 = call i64 @llvm.usub.sat.i64(i64 %37, i64 %.0.i.i)
+  %38 = call i64 @llvm.usub.sat.i64(i64 %21, i64 %.0.i.i)
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.0.i, i64 %38)
   br label %_ZN6rustls6vecbuf14ChunkVecBuffer11apply_limit17hdb3317954e87bcd1E.exit
 

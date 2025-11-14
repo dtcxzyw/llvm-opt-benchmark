@@ -6957,28 +6957,28 @@ declare dso_local void @cpu_latency_qos_remove_request(ptr noundef) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @e1000e_close(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr i8, ptr %0, i64 3760
-  %3 = load ptr, ptr %2, align 16
-  %4 = getelementptr i8, ptr %0, i64 3024
-  %5 = load volatile i64, ptr %4, align 16
-  %6 = and i64 %5, 2
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %._crit_edge, label %.lr.ph
+  %2 = getelementptr i8, ptr %0, i64 2304
+  %3 = getelementptr i8, ptr %0, i64 3760
+  %4 = load ptr, ptr %3, align 16
+  %5 = getelementptr i8, ptr %0, i64 3024
+  %6 = load volatile i64, ptr %5, align 16
+  %7 = and i64 %6, 2
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %8 = phi i32 [ %9, %.lr.ph ], [ 25, %1 ]
-  %9 = add nsw i32 %8, -1
+  %9 = phi i32 [ %10, %.lr.ph ], [ 25, %1 ]
+  %10 = add nsw i32 %9, -1
   tail call void @usleep_range_state(i64 noundef 10000, i64 noundef 11000, i32 noundef 2) #22
-  %10 = load volatile i64, ptr %4, align 8
-  %11 = and i64 %10, 2
-  %12 = icmp eq i64 %11, 0
-  %13 = icmp eq i32 %9, 0
-  %14 = select i1 %12, i1 true, i1 %13
-  br i1 %14, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  %11 = load volatile i64, ptr %5, align 8
+  %12 = and i64 %11, 2
+  %13 = icmp eq i64 %12, 0
+  %14 = icmp eq i32 %10, 0
+  %15 = select i1 %13, i1 true, i1 %14
+  br i1 %15, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %15 = getelementptr i8, ptr %0, i64 2304
-  %16 = load volatile i64, ptr %4, align 8
+  %16 = load volatile i64, ptr %5, align 8
   %17 = and i64 %16, 2
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19, !prof !9
@@ -6990,7 +6990,7 @@ define dso_local noundef i32 @e1000e_close(ptr noundef %0) #1 align 16 {
   br label %20
 
 20:                                               ; preds = %19, %._crit_edge
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %22 = tail call i32 @__pm_runtime_resume(ptr noundef nonnull %21, i32 noundef 4) #22
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %24 = load volatile i64, ptr %23, align 8
@@ -6999,7 +6999,7 @@ define dso_local noundef i32 @e1000e_close(ptr noundef %0) #1 align 16 {
   br i1 %26, label %49, label %27
 
 27:                                               ; preds = %20
-  tail call void @e1000e_down(ptr noundef %15, i1 noundef zeroext true)
+  tail call void @e1000e_down(ptr noundef %2, i1 noundef zeroext true)
   %28 = getelementptr i8, ptr %0, i64 3752
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %0, i64 14184
@@ -7019,7 +7019,7 @@ define dso_local noundef i32 @e1000e_close(ptr noundef %0) #1 align 16 {
   br label %45
 
 42:                                               ; preds = %27
-  %43 = load ptr, ptr %2, align 16
+  %43 = load ptr, ptr %3, align 16
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 916
   br label %45
 
@@ -7103,7 +7103,7 @@ define dso_local noundef i32 @e1000e_close(ptr noundef %0) #1 align 16 {
   br i1 %98, label %100, label %99
 
 99:                                               ; preds = %.loopexit
-  tail call void @e1000e_release_hw_control(ptr noundef %15)
+  tail call void @e1000e_release_hw_control(ptr noundef %2)
   br label %100
 
 100:                                              ; preds = %99, %.loopexit
@@ -7114,13 +7114,13 @@ define dso_local noundef i32 @e1000e_close(ptr noundef %0) #1 align 16 {
   br i1 %104, label %110, label %105
 
 105:                                              ; preds = %100
-  %106 = load volatile i64, ptr %4, align 8
+  %106 = load volatile i64, ptr %5, align 8
   %107 = and i64 %106, 1
   %108 = icmp eq i64 %107, 0
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %105
-  tail call void @e1000e_release_hw_control(ptr noundef %15)
+  tail call void @e1000e_release_hw_control(ptr noundef %2)
   br label %110
 
 110:                                              ; preds = %109, %105, %100

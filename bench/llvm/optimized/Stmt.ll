@@ -10345,27 +10345,27 @@ _ZNK5clang10SwitchStmt9getEndLocEv.exit:          ; preds = %1, %11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang8CaseStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #10 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.sroa.0.0.copyload.i.i = load i32, ptr %2, align 4, !tbaa !1055
   %.pre = load i16, ptr %0, align 8
-  br label %2
+  br label %3
 
-2:                                                ; preds = %2, %1
-  %3 = phi i16 [ %.pre, %1 ], [ %9, %2 ]
-  %.05.i = phi ptr [ %0, %1 ], [ %8, %2 ]
-  %4 = lshr i16 %3, 9
-  %.lobit.i.i.i.i = and i16 %4, 1
-  %5 = zext nneg i16 %.lobit.i.i.i.i to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %.05.i, i64 %5
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !55
-  %9 = load i16, ptr %8, align 8
-  %10 = and i16 %9, 511
-  %.not.i = icmp eq i16 %10, 135
-  br i1 %.not.i, label %2, label %_ZNK5clang8CaseStmt9getEndLocEv.exit
+3:                                                ; preds = %3, %1
+  %4 = phi i16 [ %.pre, %1 ], [ %10, %3 ]
+  %.05.i = phi ptr [ %0, %1 ], [ %9, %3 ]
+  %5 = lshr i16 %4, 9
+  %.lobit.i.i.i.i = and i16 %5, 1
+  %6 = zext nneg i16 %.lobit.i.i.i.i to i64
+  %7 = getelementptr inbounds nuw ptr, ptr %.05.i, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %9 = load ptr, ptr %8, align 8, !tbaa !55
+  %10 = load i16, ptr %9, align 8
+  %11 = and i16 %10, 511
+  %.not.i = icmp eq i16 %11, 135
+  br i1 %.not.i, label %3, label %_ZNK5clang8CaseStmt9getEndLocEv.exit
 
-_ZNK5clang8CaseStmt9getEndLocEv.exit:             ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.sroa.0.0.copyload.i.i = load i32, ptr %11, align 4, !tbaa !1055
-  %12 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #35
+_ZNK5clang8CaseStmt9getEndLocEv.exit:             ; preds = %3
+  %12 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #35
   %.sroa.2.0.insert.ext = zext i32 %12 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0.copyload.i.i to i64

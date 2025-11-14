@@ -31295,7 +31295,7 @@ define void @_ZN6duckdb13TaskScheduler23RelaunchThreadsInternalEi(ptr noundef no
 
 42:                                               ; preds = %39
   %43 = add nsw i32 %.in.i.i.i, -1
-  %44 = icmp samesign ugt i32 %.in.i.i.i, 1
+  %44 = icmp sgt i32 %.in.i.i.i, 1
   br i1 %44, label %.preheader.i.i.i, label %_ZN6duckdb13TaskScheduler6SignalEm.exit, !llvm.loop !1274
 
 _ZN6duckdb13TaskScheduler6SignalEm.exit:          ; preds = %42, %._crit_edge, %35
@@ -33452,7 +33452,7 @@ define void @_ZN6duckdb13TaskScheduler6SignalEm(ptr noundef nonnull align 8 dere
 
 18:                                               ; preds = %15
   %19 = add nsw i32 %.in.i.i, -1
-  %20 = icmp samesign ugt i32 %.in.i.i, 1
+  %20 = icmp sgt i32 %.in.i.i, 1
   br i1 %20, label %.preheader.i.i, label %_ZN17duckdb_moodycamel20LightweightSemaphore6signalEl.exit, !llvm.loop !1274
 
 _ZN17duckdb_moodycamel20LightweightSemaphore6signalEl.exit: ; preds = %18, %2, %11
@@ -47993,8 +47993,8 @@ define linkonce_odr void @_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shar
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load atomic i64, ptr %4 monotonic, align 8
-  %.not2841 = icmp eq i64 %5, %3
-  br i1 %.not2841, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %5, %3
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -48131,7 +48131,7 @@ _ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit:   ; preds = %49, %58, %_ZN9__gnu
 77:                                               ; preds = %._crit_edge
   %78 = and i64 %3, 31
   %.not30 = icmp eq i64 %78, 0
-  %or.cond35 = and i1 %.not2841, %.not30
+  %or.cond35 = and i1 %.not, %.not30
   br i1 %or.cond35, label %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS6_5BlockE.exit37, label %79
 
 79:                                               ; preds = %77

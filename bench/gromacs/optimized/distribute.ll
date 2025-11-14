@@ -1729,13 +1729,15 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
   br label %.loopexit140
 
 29:                                               ; preds = %9
-  %30 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %32 = icmp slt i32 %4, %5
-  br i1 %32, label %.lr.ph.preheader, label %.preheader139
+  %30 = sitofp i32 %17 to float
+  %31 = fdiv float 1.000000e+00, %30
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %34 = icmp slt i32 %4, %5
+  br i1 %34, label %.lr.ph.preheader, label %.preheader139
 
 .lr.ph.preheader:                                 ; preds = %29
-  %33 = sext i32 %4 to i64
+  %35 = sext i32 %4 to i64
   %wide.trip.count = sext i32 %5 to i64
   br label %.lr.ph
 
@@ -1744,14 +1746,12 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
   %.lcssa144 = phi float [ 0.000000e+00, %29 ], [ %44, %.lr.ph ]
   %.lcssa142 = phi float [ 0.000000e+00, %29 ], [ %41, %.lr.ph ]
   store float %.lcssa142, ptr %10, align 4
-  store float %.lcssa144, ptr %30, align 4
-  store float %.lcssa146, ptr %31, align 4
-  %34 = sitofp i32 %17 to float
-  %35 = fdiv float 1.000000e+00, %34
+  store float %.lcssa144, ptr %32, align 4
+  store float %.lcssa146, ptr %33, align 4
   br label %48
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %33, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %indvars.iv = phi i64 [ %35, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %36 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %41, %.lr.ph ]
   %37 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %44, %.lr.ph ]
   %38 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %47, %.lr.ph ]
@@ -1772,7 +1772,7 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
   %indvars.iv209 = phi i64 [ 0, %.preheader139 ], [ %indvars.iv.next210, %48 ]
   %49 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv209
   %50 = load float, ptr %49, align 4, !tbaa !345
-  %51 = fmul float %35, %50
+  %51 = fmul float %31, %50
   store float %51, ptr %49, align 4, !tbaa !345
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond212.not = icmp eq i64 %indvars.iv.next210, 3
@@ -1780,8 +1780,8 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
 
 .loopexit140.loopexit:                            ; preds = %48
   %.promoted178.pre = load float, ptr %10, align 4
-  %.promoted188.pre = load float, ptr %30, align 4
-  %.promoted189.pre = load float, ptr %31, align 4
+  %.promoted188.pre = load float, ptr %32, align 4
+  %.promoted189.pre = load float, ptr %33, align 4
   %.pre = sext i32 %4 to i64
   br label %.loopexit140
 

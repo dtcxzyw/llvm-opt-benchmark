@@ -872,16 +872,16 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %183, %_ZNSt6vectorI
   %229 = phi ptr [ %345, %.loopexit ], [ %206, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %230 = phi ptr [ %344, %.loopexit ], [ %205, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %.1237340 = phi i32 [ %.3, %.loopexit ], [ %.0239, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %231 = load ptr, ptr %5, align 8, !tbaa !32, !noalias !60
-  %232 = load i64, ptr %101, align 8, !tbaa !33, !noalias !60
-  %233 = load i64, ptr %102, align 8, !tbaa !4
-  %234 = icmp sgt i64 %232, 1
-  %235 = load ptr, ptr %9, align 8
-  %236 = and i64 %225, 2147483647
+  %231 = ashr exact i64 %228, 2
+  %232 = load ptr, ptr %5, align 8, !tbaa !32, !noalias !60
+  %233 = load i64, ptr %101, align 8, !tbaa !33, !noalias !60
+  %234 = load i64, ptr %102, align 8, !tbaa !4
+  %235 = icmp sgt i64 %233, 1
+  %236 = load ptr, ptr %9, align 8
+  %237 = and i64 %225, 2147483647
   br label %238
 
 ._crit_edge:                                      ; preds = %.critedge
-  %237 = ashr exact i64 %228, 2
   br i1 %.158, label %285, label %.thread
 
 .loopexit199:                                     ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -900,19 +900,19 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %183, %_ZNSt6vectorI
   %239 = getelementptr inbounds nuw i32, ptr %226, i64 %indvars.iv
   %240 = load i32, ptr %239, align 4, !tbaa !17
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds i32, ptr %231, i64 %241
+  %242 = getelementptr inbounds i32, ptr %232, i64 %241
   %243 = load i32, ptr %242, align 4, !tbaa !17
-  br i1 %234, label %.lr.ph.i.i.i.i87, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE8minCoeffEv.exit
+  br i1 %235, label %.lr.ph.i.i.i.i87, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE8minCoeffEv.exit
 
 .lr.ph.i.i.i.i87:                                 ; preds = %238, %.lr.ph.i.i.i.i87
   %.01722.i.i.i.i = phi i64 [ %248, %.lr.ph.i.i.i.i87 ], [ 1, %238 ]
   %.02021.i.i.i.i = phi i32 [ %247, %.lr.ph.i.i.i.i87 ], [ %243, %238 ]
-  %244 = mul nsw i64 %.01722.i.i.i.i, %233
+  %244 = mul nsw i64 %.01722.i.i.i.i, %234
   %245 = getelementptr i32, ptr %242, i64 %244
   %246 = load i32, ptr %245, align 4, !tbaa !17
   %247 = call noundef i32 @llvm.smin.i32(i32 %246, i32 %.02021.i.i.i.i)
   %248 = add nuw nsw i64 %.01722.i.i.i.i, 1
-  %exitcond.not.i.i.i.i88 = icmp eq i64 %248, %232
+  %exitcond.not.i.i.i.i88 = icmp eq i64 %248, %233
   br i1 %exitcond.not.i.i.i.i88, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE8minCoeffEv.exit, label %.lr.ph.i.i.i.i87, !llvm.loop !63
 
 _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE8minCoeffEv.exit: ; preds = %.lr.ph.i.i.i.i87, %238
@@ -946,7 +946,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb
   %269 = sext i32 %268 to i64
   %270 = sdiv i32 %268, 64
   %.sext193 = sext i32 %270 to i64
-  %271 = getelementptr inbounds i64, ptr %235, i64 %.sext193
+  %271 = getelementptr inbounds i64, ptr %236, i64 %.sext193
   %272 = and i64 %269, -9223372036854775745
   %273 = icmp ugt i64 %272, -9223372036854775808
   %storemerge.idx.i.i.i.i.i89 = select i1 %273, i64 -8, i64 0
@@ -960,7 +960,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb
 
 278:                                              ; preds = %250
   %279 = sext i32 %spec.select77 to i64
-  %280 = mul nsw i64 %233, %279
+  %280 = mul nsw i64 %234, %279
   %281 = getelementptr i32, ptr %242, i64 %280
   %282 = load i32, ptr %281, align 4, !tbaa !17
   %283 = icmp slt i32 %282, 0
@@ -971,7 +971,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb
   %.3 = phi i32 [ %.2233, %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE8minCoeffEv.exit ], [ %.2233, %250 ], [ %spec.select194, %278 ]
   %.158 = phi i1 [ false, %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE8minCoeffEv.exit ], [ false, %250 ], [ %283, %278 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %284 = icmp samesign uge i64 %indvars.iv.next, %236
+  %284 = icmp samesign uge i64 %indvars.iv.next, %237
   %.not62 = select i1 %284, i1 true, i1 %.158
   br i1 %.not62, label %._crit_edge, label %238, !llvm.loop !64
 
@@ -998,9 +998,9 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb
   unreachable
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i94: ; preds = %289
-  %.sroa.speculated.i.i.i95 = call i64 @llvm.umax.i64(i64 %237, i64 1)
-  %292 = add nsw i64 %.sroa.speculated.i.i.i95, %237
-  %293 = icmp ult i64 %292, %237
+  %.sroa.speculated.i.i.i95 = call i64 @llvm.umax.i64(i64 %231, i64 1)
+  %292 = add nsw i64 %.sroa.speculated.i.i.i95, %231
+  %293 = icmp ult i64 %292, %231
   %294 = call i64 @llvm.umin.i64(i64 %292, i64 2305843009213693951)
   %295 = select i1 %293, i64 2305843009213693951, i64 %294
   %.not.i.i.i96 = icmp ne i64 %295, 0
@@ -1722,8 +1722,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(pt
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !17
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i

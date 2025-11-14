@@ -998,32 +998,32 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %111, %104
   %252 = trunc i64 %251 to i32
   store i32 %252, ptr getelementptr inbounds nuw (i8, ptr @hdr_rdt, i64 16), align 8
   %253 = and i64 %251, 4294967295
-  %254 = load ptr, ptr @pg_comp_crc32c, align 8
-  %255 = getelementptr inbounds nuw i8, ptr %248, i64 24
-  %256 = add nsw i64 %253, -24
-  %257 = call i32 %254(i32 noundef -1, ptr noundef nonnull %255, i64 noundef %256) #9
+  %254 = add i64 %253, %.4.i
+  %255 = load ptr, ptr @pg_comp_crc32c, align 8
+  %256 = getelementptr inbounds nuw i8, ptr %248, i64 24
+  %257 = add nsw i64 %253, -24
+  %258 = call i32 %255(i32 noundef -1, ptr noundef nonnull %256, i64 noundef %257) #9
   %.0155226.i = load ptr, ptr @hdr_rdt, align 8
   %.not185227.i = icmp eq ptr %.0155226.i, null
   br i1 %.not185227.i, label %._crit_edge232.i, label %.lr.ph231.i
 
 .lr.ph231.i:                                      ; preds = %247, %.lr.ph231.i
   %.0155229.i = phi ptr [ %.0155.i, %.lr.ph231.i ], [ %.0155226.i, %247 ]
-  %.0158228.i = phi i32 [ %264, %.lr.ph231.i ], [ %257, %247 ]
-  %258 = load ptr, ptr @pg_comp_crc32c, align 8
-  %259 = getelementptr inbounds nuw i8, ptr %.0155229.i, i64 8
-  %260 = load ptr, ptr %259, align 8
-  %261 = getelementptr inbounds nuw i8, ptr %.0155229.i, i64 16
-  %262 = load i32, ptr %261, align 8
-  %263 = zext i32 %262 to i64
-  %264 = call i32 %258(i32 noundef %.0158228.i, ptr noundef %260, i64 noundef %263) #9
+  %.0158228.i = phi i32 [ %265, %.lr.ph231.i ], [ %258, %247 ]
+  %259 = load ptr, ptr @pg_comp_crc32c, align 8
+  %260 = getelementptr inbounds nuw i8, ptr %.0155229.i, i64 8
+  %261 = load ptr, ptr %260, align 8
+  %262 = getelementptr inbounds nuw i8, ptr %.0155229.i, i64 16
+  %263 = load i32, ptr %262, align 8
+  %264 = zext i32 %263 to i64
+  %265 = call i32 %259(i32 noundef %.0158228.i, ptr noundef %261, i64 noundef %264) #9
   %.0155.i = load ptr, ptr %.0155229.i, align 8
   %.not185.i = icmp eq ptr %.0155.i, null
   br i1 %.not185.i, label %._crit_edge232.i, label %.lr.ph231.i, !llvm.loop !9
 
 ._crit_edge232.i:                                 ; preds = %.lr.ph231.i, %247
-  %.0158.lcssa.i = phi i32 [ %257, %247 ], [ %264, %.lr.ph231.i ]
-  %265 = add i64 %253, %.4.i
-  %266 = icmp ugt i64 %265, 1069547520
+  %.0158.lcssa.i = phi i32 [ %258, %247 ], [ %265, %.lr.ph231.i ]
+  %266 = icmp ugt i64 %254, 1069547520
   br i1 %266, label %267, label %XLogRecordAssemble.exit
 
 267:                                              ; preds = %._crit_edge232.i
@@ -1031,7 +1031,7 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %111, %104
   %269 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #9
   %270 = zext i8 %0 to i32
   %271 = zext i8 %spec.select.i to i32
-  %272 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.16, i64 noundef %265, i32 noundef 1069547520, i32 noundef %270, i32 noundef %271) #9
+  %272 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.16, i64 noundef %254, i32 noundef 1069547520, i32 noundef %270, i32 noundef %271) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 919, ptr noundef nonnull @__func__.XLogRecordAssemble) #9
   unreachable
 
@@ -1039,7 +1039,7 @@ XLogRecordAssemble.exit:                          ; preds = %._crit_edge232.i
   %273 = call i32 @GetCurrentTransactionIdIfAny() #9
   %274 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %273, ptr %274, align 4
-  %275 = trunc nuw nsw i64 %265 to i32
+  %275 = trunc nuw nsw i64 %254 to i32
   store i32 %275, ptr %31, align 8
   %276 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i8 %spec.select.i, ptr %276, align 8

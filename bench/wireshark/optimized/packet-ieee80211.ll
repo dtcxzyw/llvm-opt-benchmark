@@ -16967,50 +16967,50 @@ add_ff_psmp_sta_info.exit.i:                      ; preds = %369, %360, %351, %.
 
 switch.lookup:                                    ; preds = %319
   %390 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %325)
-  %391 = trunc i16 %390 to i8
-  %392 = lshr i8 %391, 2
-  %393 = and i8 %392, 3
-  %394 = add nuw nsw i8 %393, 1
-  %395 = and i8 %391, 3
-  %396 = add nuw nsw i8 %395, 1
-  %.sroa.2.0.insert.ext.i.i = zext nneg i8 %394 to i32
-  %.sroa.0.0.insert.ext.i.i = zext nneg i8 %396 to i32
-  %397 = load i32, ptr @hf_ieee80211_ff_mimo_cntrl, align 4
-  %398 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %397, ptr noundef %1, i32 noundef %325, i32 noundef 6, i32 noundef 0)
-  %399 = load i32, ptr @ett_ff_mimo_cntrl, align 4
-  %400 = tail call ptr @proto_item_add_subtree(ptr noundef %398, i32 noundef %399)
-  tail call void @proto_tree_add_bitmask_list(ptr noundef %400, ptr noundef %1, i32 noundef %325, i32 noundef 2, ptr noundef nonnull @add_ff_mimo_cntrl.ieee80211_mimo_fields, i32 noundef -2147483648)
-  %401 = add i32 %3, 4
-  %402 = load i32, ptr @hf_ieee80211_ff_mimo_cntrl_sounding_timestamp, align 4
-  %403 = tail call ptr @proto_tree_add_item(ptr noundef %400, i32 noundef %402, ptr noundef %1, i32 noundef %401, i32 noundef 4, i32 noundef -2147483648)
-  %404 = add i32 %3, 8
-  %405 = load i32, ptr @ett_mimo_report, align 4
-  %406 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %404, i32 noundef %.sroa.0.0.insert.ext.i.i, i32 noundef %405, ptr noundef null, ptr noundef nonnull @.str.7710)
+  %391 = zext i16 %390 to i32
+  %392 = lshr i32 %391, 2
+  %switch.shiftamt = and i32 %392, 24
+  %switch.downshift = lshr i32 17039873, %switch.shiftamt
+  %393 = lshr i32 %391, 7
+  %394 = and i32 %393, 3
+  %395 = zext nneg i32 %394 to i64
+  %switch.gep393 = getelementptr inbounds nuw i32, ptr @switch.table.add_ff_action.234, i64 %395
+  %switch.load394 = load i32, ptr %switch.gep393, align 4
+  %396 = trunc i16 %390 to i8
+  %397 = lshr i8 %396, 2
+  %398 = and i8 %397, 3
+  %399 = add nuw nsw i8 %398, 1
+  %400 = and i8 %396, 3
+  %401 = add nuw nsw i8 %400, 1
+  %.sroa.2.0.insert.ext.i.i = zext nneg i8 %399 to i32
+  %.sroa.0.0.insert.ext.i.i = zext nneg i8 %401 to i32
+  %402 = load i32, ptr @hf_ieee80211_ff_mimo_cntrl, align 4
+  %403 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %402, ptr noundef %1, i32 noundef %325, i32 noundef 6, i32 noundef 0)
+  %404 = load i32, ptr @ett_ff_mimo_cntrl, align 4
+  %405 = tail call ptr @proto_item_add_subtree(ptr noundef %403, i32 noundef %404)
+  tail call void @proto_tree_add_bitmask_list(ptr noundef %405, ptr noundef %1, i32 noundef %325, i32 noundef 2, ptr noundef nonnull @add_ff_mimo_cntrl.ieee80211_mimo_fields, i32 noundef -2147483648)
+  %406 = add i32 %3, 4
+  %407 = load i32, ptr @hf_ieee80211_ff_mimo_cntrl_sounding_timestamp, align 4
+  %408 = tail call ptr @proto_tree_add_item(ptr noundef %405, i32 noundef %407, ptr noundef %1, i32 noundef %406, i32 noundef 4, i32 noundef -2147483648)
+  %409 = add i32 %3, 8
+  %410 = load i32, ptr @ett_mimo_report, align 4
+  %411 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %409, i32 noundef %.sroa.0.0.insert.ext.i.i, i32 noundef %410, ptr noundef null, ptr noundef nonnull @.str.7710)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %switch.lookup
-  %.031.i.i = phi i32 [ %411, %.lr.ph.i.i ], [ %404, %switch.lookup ]
-  %.02630.i.i = phi i32 [ %412, %.lr.ph.i.i ], [ 1, %switch.lookup ]
-  %407 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.031.i.i)
-  %408 = load i32, ptr @hf_ieee80211_ff_mimo_csi_snr, align 4
-  %409 = zext i8 %407 to i32
-  %410 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %406, i32 noundef %408, ptr noundef %1, i32 noundef %.031.i.i, i32 noundef 1, i32 noundef %409, ptr noundef nonnull @.str.7711, i32 noundef %.02630.i.i, i32 noundef %409)
-  %411 = add i32 %.031.i.i, 1
-  %412 = add nuw nsw i32 %.02630.i.i, 1
+  %.031.i.i = phi i32 [ %416, %.lr.ph.i.i ], [ %409, %switch.lookup ]
+  %.02630.i.i = phi i32 [ %417, %.lr.ph.i.i ], [ 1, %switch.lookup ]
+  %412 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.031.i.i)
+  %413 = load i32, ptr @hf_ieee80211_ff_mimo_csi_snr, align 4
+  %414 = zext i8 %412 to i32
+  %415 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %411, i32 noundef %413, ptr noundef %1, i32 noundef %.031.i.i, i32 noundef 1, i32 noundef %414, ptr noundef nonnull @.str.7711, i32 noundef %.02630.i.i, i32 noundef %414)
+  %416 = add i32 %.031.i.i, 1
+  %417 = add nuw nsw i32 %.02630.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %.02630.i.i, %.sroa.2.0.insert.ext.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %413 = zext i16 %390 to i32
-  %414 = lshr i32 %413, 2
-  %switch.shiftamt = and i32 %414, 24
-  %switch.downshift = lshr i32 17039873, %switch.shiftamt
-  %415 = lshr i32 %413, 7
-  %416 = and i32 %415, 3
-  %417 = zext nneg i32 %416 to i64
-  %switch.gep393 = getelementptr inbounds nuw i32, ptr @switch.table.add_ff_action.234, i64 %417
-  %switch.load394 = load i32, ptr %switch.gep393, align 4
-  %418 = and i8 %391, 16
+  %418 = and i8 %396, 16
   %.not28.i.i = icmp eq i8 %418, 0
   %switch.table.add_ff_action.226.switch.table.add_ff_action = select i1 %.not28.i.i, ptr @switch.table.add_ff_action.230, ptr @switch.table.add_ff_action.229
   %narrow400 = add nuw nsw i32 %switch.downshift, 255
@@ -17025,55 +17025,55 @@ switch.lookup:                                    ; preds = %319
   %425 = add nuw nsw i32 %424, 7
   %426 = lshr i32 %425, 3
   %427 = load i32, ptr @hf_ieee80211_ff_mimo_csi_matrices, align 4
-  %428 = tail call ptr @proto_tree_add_item(ptr noundef %406, i32 noundef %427, ptr noundef %1, i32 noundef %411, i32 noundef %426, i32 noundef 0)
-  %429 = add i32 %426, %411
+  %428 = tail call ptr @proto_tree_add_item(ptr noundef %411, i32 noundef %427, ptr noundef %1, i32 noundef %416, i32 noundef %426, i32 noundef 0)
+  %429 = add i32 %426, %416
   br label %add_ff_action_ht.exit
 
 switch.lookup370:                                 ; preds = %319
   %430 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %325)
-  %431 = trunc i16 %430 to i8
-  %432 = and i8 %431, 3
-  %433 = add nuw nsw i8 %432, 1
-  %.sroa.0.0.insert.ext.i116.i = zext nneg i8 %433 to i32
-  %434 = load i32, ptr @hf_ieee80211_ff_mimo_cntrl, align 4
-  %435 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %434, ptr noundef %1, i32 noundef %325, i32 noundef 6, i32 noundef 0)
-  %436 = load i32, ptr @ett_ff_mimo_cntrl, align 4
-  %437 = tail call ptr @proto_item_add_subtree(ptr noundef %435, i32 noundef %436)
-  tail call void @proto_tree_add_bitmask_list(ptr noundef %437, ptr noundef %1, i32 noundef %325, i32 noundef 2, ptr noundef nonnull @add_ff_mimo_cntrl.ieee80211_mimo_fields, i32 noundef -2147483648)
-  %438 = add i32 %3, 4
-  %439 = load i32, ptr @hf_ieee80211_ff_mimo_cntrl_sounding_timestamp, align 4
-  %440 = tail call ptr @proto_tree_add_item(ptr noundef %437, i32 noundef %439, ptr noundef %1, i32 noundef %438, i32 noundef 4, i32 noundef -2147483648)
-  %441 = add i32 %3, 8
-  %442 = load i32, ptr @ett_mimo_report, align 4
-  %443 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %441, i32 noundef %.sroa.0.0.insert.ext.i116.i, i32 noundef %442, ptr noundef null, ptr noundef nonnull @.str.7710)
+  %431 = zext i16 %430 to i32
+  %432 = lshr i32 %431, 2
+  %switch.shiftamt371 = and i32 %432, 24
+  %switch.downshift372 = lshr i32 17039873, %switch.shiftamt371
+  %433 = lshr i32 %431, 7
+  %434 = and i32 %433, 3
+  %435 = zext nneg i32 %434 to i64
+  %switch.gep396 = getelementptr inbounds nuw i32, ptr @switch.table.add_ff_action.234, i64 %435
+  %switch.load397 = load i32, ptr %switch.gep396, align 4
+  %436 = trunc i16 %430 to i8
+  %437 = and i8 %436, 3
+  %438 = add nuw nsw i8 %437, 1
+  %.sroa.0.0.insert.ext.i116.i = zext nneg i8 %438 to i32
+  %439 = load i32, ptr @hf_ieee80211_ff_mimo_cntrl, align 4
+  %440 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %439, ptr noundef %1, i32 noundef %325, i32 noundef 6, i32 noundef 0)
+  %441 = load i32, ptr @ett_ff_mimo_cntrl, align 4
+  %442 = tail call ptr @proto_item_add_subtree(ptr noundef %440, i32 noundef %441)
+  tail call void @proto_tree_add_bitmask_list(ptr noundef %442, ptr noundef %1, i32 noundef %325, i32 noundef 2, ptr noundef nonnull @add_ff_mimo_cntrl.ieee80211_mimo_fields, i32 noundef -2147483648)
+  %443 = add i32 %3, 4
+  %444 = load i32, ptr @hf_ieee80211_ff_mimo_cntrl_sounding_timestamp, align 4
+  %445 = tail call ptr @proto_tree_add_item(ptr noundef %442, i32 noundef %444, ptr noundef %1, i32 noundef %443, i32 noundef 4, i32 noundef -2147483648)
+  %446 = add i32 %3, 8
+  %447 = load i32, ptr @ett_mimo_report, align 4
+  %448 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %446, i32 noundef %.sroa.0.0.insert.ext.i116.i, i32 noundef %447, ptr noundef null, ptr noundef nonnull @.str.7710)
   br label %.lr.ph.i123.i
 
 .lr.ph.i123.i:                                    ; preds = %.lr.ph.i123.i, %switch.lookup370
-  %.031.i124.i = phi i32 [ %448, %.lr.ph.i123.i ], [ %441, %switch.lookup370 ]
-  %.02630.i125.i = phi i32 [ %449, %.lr.ph.i123.i ], [ 1, %switch.lookup370 ]
-  %444 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.031.i124.i)
-  %445 = load i32, ptr @hf_ieee80211_ff_mimo_csi_snr, align 4
-  %446 = zext i8 %444 to i32
-  %447 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %443, i32 noundef %445, ptr noundef %1, i32 noundef %.031.i124.i, i32 noundef 1, i32 noundef %446, ptr noundef nonnull @.str.7712, i32 noundef %.02630.i125.i, i32 noundef %446)
-  %448 = add i32 %.031.i124.i, 1
-  %449 = add nuw nsw i32 %.02630.i125.i, 1
+  %.031.i124.i = phi i32 [ %453, %.lr.ph.i123.i ], [ %446, %switch.lookup370 ]
+  %.02630.i125.i = phi i32 [ %454, %.lr.ph.i123.i ], [ 1, %switch.lookup370 ]
+  %449 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.031.i124.i)
+  %450 = load i32, ptr @hf_ieee80211_ff_mimo_csi_snr, align 4
+  %451 = zext i8 %449 to i32
+  %452 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %448, i32 noundef %450, ptr noundef %1, i32 noundef %.031.i124.i, i32 noundef 1, i32 noundef %451, ptr noundef nonnull @.str.7712, i32 noundef %.02630.i125.i, i32 noundef %451)
+  %453 = add i32 %.031.i124.i, 1
+  %454 = add nuw nsw i32 %.02630.i125.i, 1
   %exitcond.not.i126.i = icmp eq i32 %.02630.i125.i, %.sroa.0.0.insert.ext.i116.i
   br i1 %exitcond.not.i126.i, label %._crit_edge.i127.i, label %.lr.ph.i123.i, !llvm.loop !12
 
 ._crit_edge.i127.i:                               ; preds = %.lr.ph.i123.i
-  %450 = zext i16 %430 to i32
-  %451 = lshr i32 %450, 2
-  %switch.shiftamt371 = and i32 %451, 24
-  %switch.downshift372 = lshr i32 17039873, %switch.shiftamt371
-  %452 = lshr i32 %450, 7
-  %453 = and i32 %452, 3
-  %454 = zext nneg i32 %453 to i64
-  %switch.gep396 = getelementptr inbounds nuw i32, ptr @switch.table.add_ff_action.234, i64 %454
-  %switch.load397 = load i32, ptr %switch.gep396, align 4
-  %455 = lshr i8 %431, 2
+  %455 = lshr i8 %436, 2
   %456 = and i8 %455, 3
   %457 = add nuw nsw i8 %456, 1
-  %458 = and i8 %431, 16
+  %458 = and i8 %436, 16
   %.not28.i131.i = icmp eq i8 %458, 0
   %switch.table.add_ff_action.228.switch.table.add_ff_action.227 = select i1 %.not28.i131.i, ptr @switch.table.add_ff_action.230, ptr @switch.table.add_ff_action.229
   %narrow399 = add nuw nsw i32 %switch.downshift372, 255
@@ -17081,70 +17081,70 @@ switch.lookup370:                                 ; preds = %319
   %460 = zext nneg i32 %459 to i64
   %switch.gep377 = getelementptr inbounds nuw i32, ptr %switch.table.add_ff_action.228.switch.table.add_ff_action.227, i64 %460
   %switch.load378 = load i32, ptr %switch.gep377, align 4
-  %narrow = mul nuw nsw i8 %457, %433
+  %narrow = mul nuw nsw i8 %457, %438
   %461 = zext nneg i8 %narrow to i32
   %462 = mul nuw nsw i32 %switch.load397, %461
   %463 = mul nuw nsw i32 %462, %switch.load378
   %464 = add nuw nsw i32 %463, 7
   %465 = lshr i32 %464, 3
   %466 = load i32, ptr @hf_ieee80211_ff_mimo_csi_bf_matrices, align 4
-  %467 = tail call ptr @proto_tree_add_item(ptr noundef %443, i32 noundef %466, ptr noundef %1, i32 noundef %448, i32 noundef %465, i32 noundef 0)
-  %468 = add i32 %465, %448
+  %467 = tail call ptr @proto_tree_add_item(ptr noundef %448, i32 noundef %466, ptr noundef %1, i32 noundef %453, i32 noundef %465, i32 noundef 0)
+  %468 = add i32 %465, %453
   br label %add_ff_action_ht.exit
 
 switch.lookup379:                                 ; preds = %319
   %469 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %325)
-  %470 = trunc i16 %469 to i8
-  %471 = and i8 %470, 3
-  %472 = add nuw nsw i8 %471, 1
-  %473 = load i32, ptr @hf_ieee80211_ff_mimo_cntrl, align 4
-  %474 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %473, ptr noundef %1, i32 noundef %325, i32 noundef 6, i32 noundef 0)
-  %475 = load i32, ptr @ett_ff_mimo_cntrl, align 4
-  %476 = tail call ptr @proto_item_add_subtree(ptr noundef %474, i32 noundef %475)
-  tail call void @proto_tree_add_bitmask_list(ptr noundef %476, ptr noundef %1, i32 noundef %325, i32 noundef 2, ptr noundef nonnull @add_ff_mimo_cntrl.ieee80211_mimo_fields, i32 noundef -2147483648)
-  %477 = add i32 %3, 4
-  %478 = load i32, ptr @hf_ieee80211_ff_mimo_cntrl_sounding_timestamp, align 4
-  %479 = tail call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %478, ptr noundef %1, i32 noundef %477, i32 noundef 4, i32 noundef -2147483648)
-  %480 = add i32 %3, 8
-  %481 = zext nneg i8 %472 to i32
-  %482 = load i32, ptr @ett_mimo_report, align 4
-  %483 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %480, i32 noundef %481, i32 noundef %482, ptr noundef null, ptr noundef nonnull @.str.7710)
+  %470 = lshr i16 %469, 2
+  %471 = and i16 %470, 24
+  %switch.shiftamt380 = zext nneg i16 %471 to i32
+  %switch.downshift381 = lshr i32 17039873, %switch.shiftamt380
+  %472 = trunc i16 %469 to i8
+  %473 = and i8 %472, 3
+  %474 = add nuw nsw i8 %473, 1
+  %475 = load i32, ptr @hf_ieee80211_ff_mimo_cntrl, align 4
+  %476 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %475, ptr noundef %1, i32 noundef %325, i32 noundef 6, i32 noundef 0)
+  %477 = load i32, ptr @ett_ff_mimo_cntrl, align 4
+  %478 = tail call ptr @proto_item_add_subtree(ptr noundef %476, i32 noundef %477)
+  tail call void @proto_tree_add_bitmask_list(ptr noundef %478, ptr noundef %1, i32 noundef %325, i32 noundef 2, ptr noundef nonnull @add_ff_mimo_cntrl.ieee80211_mimo_fields, i32 noundef -2147483648)
+  %479 = add i32 %3, 4
+  %480 = load i32, ptr @hf_ieee80211_ff_mimo_cntrl_sounding_timestamp, align 4
+  %481 = tail call ptr @proto_tree_add_item(ptr noundef %478, i32 noundef %480, ptr noundef %1, i32 noundef %479, i32 noundef 4, i32 noundef -2147483648)
+  %482 = add i32 %3, 8
+  %483 = zext nneg i8 %474 to i32
+  %484 = load i32, ptr @ett_mimo_report, align 4
+  %485 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %482, i32 noundef %483, i32 noundef %484, ptr noundef null, ptr noundef nonnull @.str.7710)
   br label %.lr.ph.i158.i
 
 .lr.ph.i158.i:                                    ; preds = %.lr.ph.i158.i, %switch.lookup379
-  %.03038.i.i = phi i32 [ %491, %.lr.ph.i158.i ], [ %480, %switch.lookup379 ]
-  %.03137.i.i = phi i32 [ %492, %.lr.ph.i158.i ], [ 1, %switch.lookup379 ]
-  %484 = tail call signext i8 @tvb_get_int8(ptr noundef %1, i32 noundef %.03038.i.i)
-  %485 = sext i8 %484 to i32
-  %switch.selectcmp.i.i = icmp eq i8 %484, 127
+  %.03038.i.i = phi i32 [ %493, %.lr.ph.i158.i ], [ %482, %switch.lookup379 ]
+  %.03137.i.i = phi i32 [ %494, %.lr.ph.i158.i ], [ 1, %switch.lookup379 ]
+  %486 = tail call signext i8 @tvb_get_int8(ptr noundef %1, i32 noundef %.03038.i.i)
+  %487 = sext i8 %486 to i32
+  %switch.selectcmp.i.i = icmp eq i8 %486, 127
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, i32 62, i32 32
-  %switch.selectcmp32.i.i = icmp eq i8 %484, -128
+  %switch.selectcmp32.i.i = icmp eq i8 %486, -128
   %switch.select33.i.i = select i1 %switch.selectcmp32.i.i, i32 60, i32 %switch.select.i.i
-  %486 = load i32, ptr @hf_ieee80211_ff_mimo_csi_snr, align 4
-  %487 = sitofp i8 %484 to double
-  %488 = fmul double %487, 2.500000e-01
-  %489 = fadd double %488, 2.200000e+01
-  %490 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %483, i32 noundef %486, ptr noundef %1, i32 noundef %.03038.i.i, i32 noundef 1, i32 noundef %485, ptr noundef nonnull @.str.7713, i32 noundef %.03137.i.i, i32 noundef %switch.select33.i.i, double noundef %489)
-  %491 = add i32 %.03038.i.i, 1
-  %492 = add nuw nsw i32 %.03137.i.i, 1
-  %exitcond.not.i159.i = icmp eq i32 %.03137.i.i, %481
+  %488 = load i32, ptr @hf_ieee80211_ff_mimo_csi_snr, align 4
+  %489 = sitofp i8 %486 to double
+  %490 = fmul double %489, 2.500000e-01
+  %491 = fadd double %490, 2.200000e+01
+  %492 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %485, i32 noundef %488, ptr noundef %1, i32 noundef %.03038.i.i, i32 noundef 1, i32 noundef %487, ptr noundef nonnull @.str.7713, i32 noundef %.03137.i.i, i32 noundef %switch.select33.i.i, double noundef %491)
+  %493 = add i32 %.03038.i.i, 1
+  %494 = add nuw nsw i32 %.03137.i.i, 1
+  %exitcond.not.i159.i = icmp eq i32 %.03137.i.i, %483
   br i1 %exitcond.not.i159.i, label %._crit_edge.i160.i, label %.lr.ph.i158.i, !llvm.loop !13
 
 ._crit_edge.i160.i:                               ; preds = %.lr.ph.i158.i
-  %493 = lshr i16 %469, 2
-  %494 = and i16 %493, 24
-  %switch.shiftamt380 = zext nneg i16 %494 to i32
-  %switch.downshift381 = lshr i32 17039873, %switch.shiftamt380
-  %495 = lshr i8 %470, 2
+  %495 = lshr i8 %472, 2
   %496 = and i8 %495, 3
   %497 = add nuw nsw i8 %496, 1
   %498 = icmp eq i8 %497, 2
-  %499 = icmp eq i8 %471, 0
+  %499 = icmp eq i8 %473, 0
   %or.cond.i.i.i = and i1 %499, %498
   br i1 %or.cond.i.i.i, label %get_mimo_na.exit.i.i, label %500
 
 500:                                              ; preds = %._crit_edge.i160.i
-  %501 = icmp eq i8 %472, 2
+  %501 = icmp eq i8 %474, 2
   %or.cond5.i.i.i = and i1 %501, %498
   br i1 %or.cond5.i.i.i, label %get_mimo_na.exit.i.i, label %502
 
@@ -17158,7 +17158,7 @@ switch.lookup379:                                 ; preds = %319
   br i1 %or.cond11.i.i.i, label %get_mimo_na.exit.i.i, label %505
 
 505:                                              ; preds = %504
-  %506 = icmp eq i8 %472, 3
+  %506 = icmp eq i8 %474, 3
   %or.cond14.i.i.i = and i1 %506, %503
   br i1 %or.cond14.i.i.i, label %get_mimo_na.exit.i.i, label %507
 
@@ -17176,14 +17176,14 @@ switch.lookup379:                                 ; preds = %319
   br i1 %or.cond23.i.i.i, label %get_mimo_na.exit.i.i, label %511
 
 511:                                              ; preds = %510
-  %512 = icmp eq i8 %472, 4
+  %512 = icmp eq i8 %474, 4
   %or.cond26.i.i.i = and i1 %512, %508
   %..i.i.i = select i1 %or.cond26.i.i.i, i32 12, i32 0
   br label %get_mimo_na.exit.i.i
 
 get_mimo_na.exit.i.i:                             ; preds = %511, %510, %509, %507, %505, %504, %502, %500, %._crit_edge.i160.i
   %.0.i.i164.i = phi i32 [ 2, %._crit_edge.i160.i ], [ 2, %500 ], [ 4, %502 ], [ 6, %504 ], [ 6, %505 ], [ 6, %507 ], [ 10, %509 ], [ 12, %510 ], [ %..i.i.i, %511 ]
-  %513 = and i8 %470, 16
+  %513 = and i8 %472, 16
   %.not35.i.i = icmp eq i8 %513, 0
   %switch.table.add_ff_action.230.switch.table.add_ff_action.229 = select i1 %.not35.i.i, ptr @switch.table.add_ff_action.230, ptr @switch.table.add_ff_action.229
   %narrow398 = add nuw nsw i32 %switch.downshift381, 255
@@ -17201,8 +17201,8 @@ get_mimo_na.exit.i.i:                             ; preds = %511, %510, %509, %5
   %520 = add nuw nsw i32 %519, 7
   %521 = lshr i32 %520, 3
   %522 = load i32, ptr @hf_ieee80211_ff_mimo_csi_cbf_matrices, align 4
-  %523 = tail call ptr @proto_tree_add_item(ptr noundef %483, i32 noundef %522, ptr noundef %1, i32 noundef %491, i32 noundef %521, i32 noundef 0)
-  %524 = add i32 %521, %491
+  %523 = tail call ptr @proto_tree_add_item(ptr noundef %485, i32 noundef %522, ptr noundef %1, i32 noundef %493, i32 noundef %521, i32 noundef 0)
+  %524 = add i32 %521, %493
   br label %add_ff_action_ht.exit
 
 525:                                              ; preds = %319

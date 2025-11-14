@@ -785,18 +785,18 @@ realloc_polldata.exit:                            ; preds = %54
 
 60:                                               ; preds = %58, %45
   %61 = phi i64 [ %55, %58 ], [ %46, %45 ]
+  %62 = mul nuw nsw i32 %.089, 1000
+  %spec.select123 = select i1 %42, i32 %62, i32 %.089
   %.not153 = icmp eq i64 %61, 0
   br i1 %.not153, label %.preheader140, label %.lr.ph148
 
 .lr.ph148:                                        ; preds = %60
-  %62 = load ptr, ptr %13, align 8, !tbaa !24
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %64 = load ptr, ptr %63, align 8, !tbaa !28
+  %63 = load ptr, ptr %13, align 8, !tbaa !24
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %65 = load ptr, ptr %64, align 8, !tbaa !28
   br label %74
 
 .preheader140:                                    ; preds = %74, %60
-  %65 = mul nuw nsw i32 %.089, 1000
-  %spec.select123 = select i1 %42, i32 %65, i32 %.089
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -809,10 +809,10 @@ realloc_polldata.exit:                            ; preds = %54
 
 74:                                               ; preds = %.lr.ph148, %74
   %.2100146 = phi i64 [ 0, %.lr.ph148 ], [ %81, %74 ]
-  %75 = getelementptr inbounds nuw %struct.fd_buf, ptr %62, i64 %.2100146
+  %75 = getelementptr inbounds nuw %struct.fd_buf, ptr %63, i64 %.2100146
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load i32, ptr %76, align 8, !tbaa !29
-  %78 = getelementptr inbounds nuw %struct.pollfd, ptr %64, i64 %.2100146
+  %78 = getelementptr inbounds nuw %struct.pollfd, ptr %65, i64 %.2100146
   store i32 %77, ptr %78, align 4, !tbaa !41
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i16 1, ptr %79, align 4, !tbaa !44

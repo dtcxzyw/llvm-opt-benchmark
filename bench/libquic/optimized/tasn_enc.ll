@@ -362,40 +362,40 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   br i1 %.not109, label %105, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call i64 @sk_num(ptr noundef nonnull %26) #11
-  %.not146 = icmp eq i64 %28, 0
-  br i1 %.not146, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %27
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  br label %30
-
-30:                                               ; preds = %.lr.ph, %30
-  %.088130 = phi i32 [ 0, %.lr.ph ], [ %34, %30 ]
-  %.092129 = phi i64 [ 0, %.lr.ph ], [ %35, %30 ]
-  %31 = call ptr @sk_value(ptr noundef nonnull %26, i64 noundef %.092129) #11
-  store ptr %31, ptr %8, align 8, !tbaa !6
-  %32 = load ptr, ptr %29, align 8, !tbaa !36
-  %33 = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %8, ptr noundef null, ptr noundef %32, i32 noundef -1, i32 noundef %21)
-  %34 = add nsw i32 %33, %.088130
-  %35 = add nuw i64 %.092129, 1
-  %36 = call i64 @sk_num(ptr noundef nonnull %26) #11
-  %37 = icmp ult i64 %35, %36
-  br i1 %37, label %30, label %._crit_edge, !llvm.loop !37
-
-._crit_edge:                                      ; preds = %30, %27
-  %.088.lcssa = phi i32 [ 0, %27 ], [ %34, %30 ]
-  %38 = and i32 %10, 2
-  %.not110 = icmp eq i32 %38, 0
-  %39 = and i32 %10, 4
-  %.not111.not = icmp eq i32 %39, 0
+  %28 = and i32 %10, 2
+  %.not110 = icmp eq i32 %28, 0
+  %29 = and i32 %10, 4
+  %.not111.not = icmp eq i32 %29, 0
   %.not112 = icmp ne i32 %.095, -1
-  %40 = and i32 %10, 16
-  %.not113 = icmp eq i32 %40, 0
+  %30 = and i32 %10, 16
+  %.not113 = icmp eq i32 %30, 0
   %or.cond117 = and i1 %.not113, %.not112
   %. = select i1 %.not110, i32 16, i32 17
   %.090 = select i1 %or.cond117, i32 %.095, i32 %.
   %.089 = select i1 %or.cond117, i32 %.094, i32 0
+  %31 = tail call i64 @sk_num(ptr noundef nonnull %26) #11
+  %.not146 = icmp eq i64 %31, 0
+  br i1 %.not146, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  br label %33
+
+33:                                               ; preds = %.lr.ph, %33
+  %.088130 = phi i32 [ 0, %.lr.ph ], [ %37, %33 ]
+  %.092129 = phi i64 [ 0, %.lr.ph ], [ %38, %33 ]
+  %34 = call ptr @sk_value(ptr noundef nonnull %26, i64 noundef %.092129) #11
+  store ptr %34, ptr %8, align 8, !tbaa !6
+  %35 = load ptr, ptr %32, align 8, !tbaa !36
+  %36 = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %8, ptr noundef null, ptr noundef %35, i32 noundef -1, i32 noundef %21)
+  %37 = add nsw i32 %36, %.088130
+  %38 = add nuw i64 %.092129, 1
+  %39 = call i64 @sk_num(ptr noundef nonnull %26) #11
+  %40 = icmp ult i64 %38, %39
+  br i1 %40, label %33, label %._crit_edge, !llvm.loop !37
+
+._crit_edge:                                      ; preds = %33, %27
+  %.088.lcssa = phi i32 [ 0, %27 ], [ %37, %33 ]
   %41 = call i32 @ASN1_object_size(i32 noundef %spec.select120, i32 noundef %.088.lcssa, i32 noundef %.090) #11
   br i1 %.not113, label %42, label %.thread
 

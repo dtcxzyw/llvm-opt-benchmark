@@ -1031,14 +1031,14 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
           to label %.preheader.preheader unwind label %123
 
 .preheader.preheader:                             ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %87
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %88, i8 0, i64 %87, i1 false)
-  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %86
+  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %86
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 %87
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %88, ptr %67, align 8
-  store ptr %89, ptr %91, align 8
-  store ptr %90, ptr %92, align 8
+  store ptr %90, ptr %91, align 8
+  store ptr %89, ptr %92, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
@@ -5863,8 +5863,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %30 = getelementptr inbounds nuw double, ptr %28, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc4, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i

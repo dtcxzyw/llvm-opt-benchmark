@@ -4707,8 +4707,11 @@ define dso_local void @XLOGShmemInit() local_unnamed_addr #0 {
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 304
   store ptr %20, ptr %21, align 8
   %22 = load i32, ptr @XLOGbuffers, align 4
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph.preheader, label %._crit_edge
+  %23 = sext i32 %22 to i64
+  %24 = shl nsw i64 %23, 3
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %24
+  %26 = icmp sgt i32 %22, 0
+  br i1 %26, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %18
   %wide.trip.count = zext nneg i32 %22 to i64
@@ -4716,21 +4719,18 @@ define dso_local void @XLOGShmemInit() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %24 = load ptr, ptr %21, align 8
-  %25 = getelementptr inbounds nuw %struct.pg_atomic_uint64, ptr %24, i64 %indvars.iv
-  store volatile i64 0, ptr %25, align 8
+  %27 = load ptr, ptr %21, align 8
+  %28 = getelementptr inbounds nuw %struct.pg_atomic_uint64, ptr %27, i64 %indvars.iv
+  store volatile i64 0, ptr %28, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
-  %26 = sext i32 %22 to i64
-  %27 = shl nsw i64 %26, 3
-  %28 = getelementptr inbounds nuw i8, ptr %20, i64 %27
-  %29 = ptrtoint ptr %28 to i64
+  %29 = ptrtoint ptr %25 to i64
   %30 = and i64 %29, 127
   %31 = sub nuw nsw i64 128, %30
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 176
   store ptr %32, ptr %33, align 8
   store ptr %32, ptr @WALInsertLocks, align 8

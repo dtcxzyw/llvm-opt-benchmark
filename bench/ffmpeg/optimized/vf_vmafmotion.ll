@@ -568,13 +568,15 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
   %9 = lshr i64 %6, 1
   %10 = lshr i64 %7, 1
   %11 = sdiv i32 %1, 2
-  %12 = icmp sgt i32 %1, 1
-  br i1 %12, label %.preheader137.lr.ph, label %.preheader135
+  %.neg = sub i32 %11, %1
+  %12 = add i32 %5, %.neg
+  %13 = icmp sgt i32 %1, 1
+  br i1 %13, label %.preheader137.lr.ph, label %.preheader135
 
 .preheader137.lr.ph:                              ; preds = %8
-  %13 = icmp sgt i32 %4, 0
+  %14 = icmp sgt i32 %4, 0
   %reass.add129 = shl i32 %5, 1
-  br i1 %13, label %.preheader137.us.us.preheader, label %.preheader135
+  br i1 %14, label %.preheader137.us.us.preheader, label %.preheader135
 
 .preheader137.us.us.preheader:                    ; preds = %.preheader137.lr.ph
   %wide.trip.count190 = zext nneg i32 %11 to i64
@@ -584,46 +586,46 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
 
 .preheader137.us.us:                              ; preds = %.preheader137.us.us.preheader, %._crit_edge141.split.us.us.us
   %indvars.iv187 = phi i64 [ 0, %.preheader137.us.us.preheader ], [ %indvars.iv.next188, %._crit_edge141.split.us.us.us ]
-  %14 = mul nuw nsw i64 %10, %indvars.iv187
-  %15 = getelementptr inbounds nuw i16, ptr %3, i64 %14
-  %16 = trunc i64 %indvars.iv187 to i32
-  %17 = sub i32 %16, %11
+  %15 = mul nuw nsw i64 %10, %indvars.iv187
+  %16 = getelementptr inbounds nuw i16, ptr %3, i64 %15
+  %17 = trunc i64 %indvars.iv187 to i32
+  %18 = sub i32 %17, %11
   br label %.preheader136.us.us.us
 
 .preheader136.us.us.us:                           ; preds = %._crit_edge.us.us.us, %.preheader137.us.us
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %._crit_edge.us.us.us ], [ 0, %.preheader137.us.us ]
   %invariant.gep.us.us.us = getelementptr i16, ptr %2, i64 %indvars.iv182
-  br label %18
+  br label %19
 
-18:                                               ; preds = %18, %.preheader136.us.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %.preheader136.us.us.us ]
-  %.0103139.us.us.us = phi i32 [ %32, %18 ], [ 0, %.preheader136.us.us.us ]
-  %19 = trunc nuw nsw i64 %indvars.iv to i32
-  %20 = add nsw i32 %17, %19
-  %21 = tail call i32 @llvm.abs.i32(i32 %20, i1 true)
-  %.not127.us.us.us = icmp slt i32 %21, %5
-  %22 = xor i32 %21, -1
-  %23 = add i32 %reass.add129, %22
-  %.0102.us.us.us = select i1 %.not127.us.us.us, i32 %21, i32 %23
-  %24 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  %25 = load i16, ptr %24, align 2, !tbaa !28
-  %26 = zext i16 %25 to i32
-  %27 = sext i32 %.0102.us.us.us to i64
-  %28 = mul nsw i64 %9, %27
-  %gep.us.us.us = getelementptr i16, ptr %invariant.gep.us.us.us, i64 %28
-  %29 = load i16, ptr %gep.us.us.us, align 2, !tbaa !28
-  %30 = zext i16 %29 to i32
-  %31 = mul nuw nsw i32 %30, %26
-  %32 = add nuw nsw i32 %31, %.0103139.us.us.us
+19:                                               ; preds = %19, %.preheader136.us.us.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader136.us.us.us ]
+  %.0103139.us.us.us = phi i32 [ %33, %19 ], [ 0, %.preheader136.us.us.us ]
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
+  %21 = add nsw i32 %18, %20
+  %22 = tail call i32 @llvm.abs.i32(i32 %21, i1 true)
+  %.not127.us.us.us = icmp slt i32 %22, %5
+  %23 = xor i32 %22, -1
+  %24 = add i32 %reass.add129, %23
+  %.0102.us.us.us = select i1 %.not127.us.us.us, i32 %22, i32 %24
+  %25 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %26 = load i16, ptr %25, align 2, !tbaa !28
+  %27 = zext i16 %26 to i32
+  %28 = sext i32 %.0102.us.us.us to i64
+  %29 = mul nsw i64 %9, %28
+  %gep.us.us.us = getelementptr i16, ptr %invariant.gep.us.us.us, i64 %29
+  %30 = load i16, ptr %gep.us.us.us, align 2, !tbaa !28
+  %31 = zext i16 %30 to i32
+  %32 = mul nuw nsw i32 %31, %27
+  %33 = add nuw nsw i32 %32, %.0103139.us.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %18, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %19, !llvm.loop !67
 
-._crit_edge.us.us.us:                             ; preds = %18
-  %33 = lshr i32 %32, 10
-  %34 = trunc i32 %33 to i16
-  %35 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv182
-  store i16 %34, ptr %35, align 2, !tbaa !28
+._crit_edge.us.us.us:                             ; preds = %19
+  %34 = lshr i32 %33, 10
+  %35 = trunc i32 %34 to i16
+  %36 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv182
+  store i16 %35, ptr %36, align 2, !tbaa !28
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
   br i1 %exitcond186.not, label %._crit_edge141.split.us.us.us, label %.preheader136.us.us.us, !llvm.loop !68
@@ -634,9 +636,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
   br i1 %exitcond191.not, label %.preheader135, label %.preheader137.us.us, !llvm.loop !69
 
 .preheader135:                                    ; preds = %._crit_edge141.split.us.us.us, %.preheader137.lr.ph, %8
-  %.neg = sub i32 %11, %1
-  %36 = add i32 %5, %.neg
-  %37 = icmp slt i32 %11, %36
+  %37 = icmp slt i32 %11, %12
   %38 = icmp sgt i32 %4, 0
   %or.cond = and i1 %37, %38
   br i1 %or.cond, label %.preheader134.lr.ph.split.us, label %.preheader132
@@ -659,7 +659,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
 
 .preheader134.us.us.preheader:                    ; preds = %.preheader134.lr.ph.split.us
   %48 = zext nneg i32 %11 to i64
-  %wide.trip.count210 = sext i32 %36 to i64
+  %wide.trip.count210 = sext i32 %12 to i64
   %wide.trip.count205 = zext nneg i32 %4 to i64
   %wide.trip.count200 = zext nneg i32 %1 to i64
   br label %.preheader134.us.us
@@ -719,7 +719,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
   br i1 %exitcond196.not, label %.preheader132, label %.preheader134.us, !llvm.loop !72
 
 .preheader132:                                    ; preds = %.preheader134.us, %._crit_edge150.split.us.us.us, %.preheader135
-  %68 = icmp slt i32 %36, %5
+  %68 = icmp slt i32 %12, %5
   br i1 %68, label %.preheader131.lr.ph, label %._crit_edge
 
 .preheader131.lr.ph:                              ; preds = %.preheader132
@@ -729,7 +729,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
 
 .preheader131.lr.ph.split.us:                     ; preds = %.preheader131.lr.ph
   %70 = icmp sgt i32 %1, 0
-  %71 = sext i32 %36 to i64
+  %71 = sext i32 %12 to i64
   br i1 %70, label %.preheader131.us.us.preheader, label %.preheader131.us.preheader
 
 .preheader131.us.preheader:                       ; preds = %.preheader131.lr.ph.split.us
@@ -817,13 +817,15 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
 define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, i64 noundef %7) #4 {
   %9 = lshr i64 %7, 1
   %10 = sdiv i32 %1, 2
-  %11 = icmp sgt i32 %1, 1
-  br i1 %11, label %.preheader137.lr.ph, label %.preheader135
+  %.neg = sub i32 %10, %1
+  %11 = add i32 %5, %.neg
+  %12 = icmp sgt i32 %1, 1
+  br i1 %12, label %.preheader137.lr.ph, label %.preheader135
 
 .preheader137.lr.ph:                              ; preds = %8
-  %12 = icmp sgt i32 %4, 0
+  %13 = icmp sgt i32 %4, 0
   %reass.add129 = shl i32 %5, 1
-  br i1 %12, label %.preheader137.us.us.preheader, label %.preheader135
+  br i1 %13, label %.preheader137.us.us.preheader, label %.preheader135
 
 .preheader137.us.us.preheader:                    ; preds = %.preheader137.lr.ph
   %wide.trip.count190 = zext nneg i32 %10 to i64
@@ -833,46 +835,46 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
 
 .preheader137.us.us:                              ; preds = %.preheader137.us.us.preheader, %._crit_edge141.split.us.us.us
   %indvars.iv187 = phi i64 [ 0, %.preheader137.us.us.preheader ], [ %indvars.iv.next188, %._crit_edge141.split.us.us.us ]
-  %13 = mul nuw nsw i64 %9, %indvars.iv187
-  %14 = getelementptr inbounds nuw i16, ptr %3, i64 %13
-  %15 = trunc i64 %indvars.iv187 to i32
-  %16 = sub i32 %15, %10
+  %14 = mul nuw nsw i64 %9, %indvars.iv187
+  %15 = getelementptr inbounds nuw i16, ptr %3, i64 %14
+  %16 = trunc i64 %indvars.iv187 to i32
+  %17 = sub i32 %16, %10
   br label %.preheader136.us.us.us
 
 .preheader136.us.us.us:                           ; preds = %._crit_edge.us.us.us, %.preheader137.us.us
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %._crit_edge.us.us.us ], [ 0, %.preheader137.us.us ]
   %invariant.gep.us.us.us = getelementptr i8, ptr %2, i64 %indvars.iv182
-  br label %17
+  br label %18
 
-17:                                               ; preds = %17, %.preheader136.us.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader136.us.us.us ]
-  %.0103139.us.us.us = phi i32 [ %31, %17 ], [ 0, %.preheader136.us.us.us ]
-  %18 = trunc nuw nsw i64 %indvars.iv to i32
-  %19 = add nsw i32 %16, %18
-  %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
-  %.not127.us.us.us = icmp slt i32 %20, %5
-  %21 = xor i32 %20, -1
-  %22 = add i32 %reass.add129, %21
-  %.0102.us.us.us = select i1 %.not127.us.us.us, i32 %20, i32 %22
-  %23 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  %24 = load i16, ptr %23, align 2, !tbaa !28
-  %25 = zext i16 %24 to i32
-  %26 = sext i32 %.0102.us.us.us to i64
-  %27 = mul nsw i64 %6, %26
-  %gep.us.us.us = getelementptr i8, ptr %invariant.gep.us.us.us, i64 %27
-  %28 = load i8, ptr %gep.us.us.us, align 1, !tbaa !76
-  %29 = zext i8 %28 to i32
-  %30 = mul nuw nsw i32 %29, %25
-  %31 = add nuw nsw i32 %30, %.0103139.us.us.us
+18:                                               ; preds = %18, %.preheader136.us.us.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %.preheader136.us.us.us ]
+  %.0103139.us.us.us = phi i32 [ %32, %18 ], [ 0, %.preheader136.us.us.us ]
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
+  %20 = add nsw i32 %17, %19
+  %21 = tail call i32 @llvm.abs.i32(i32 %20, i1 true)
+  %.not127.us.us.us = icmp slt i32 %21, %5
+  %22 = xor i32 %21, -1
+  %23 = add i32 %reass.add129, %22
+  %.0102.us.us.us = select i1 %.not127.us.us.us, i32 %21, i32 %23
+  %24 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %25 = load i16, ptr %24, align 2, !tbaa !28
+  %26 = zext i16 %25 to i32
+  %27 = sext i32 %.0102.us.us.us to i64
+  %28 = mul nsw i64 %6, %27
+  %gep.us.us.us = getelementptr i8, ptr %invariant.gep.us.us.us, i64 %28
+  %29 = load i8, ptr %gep.us.us.us, align 1, !tbaa !76
+  %30 = zext i8 %29 to i32
+  %31 = mul nuw nsw i32 %30, %26
+  %32 = add nuw nsw i32 %31, %.0103139.us.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %17, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %18, !llvm.loop !77
 
-._crit_edge.us.us.us:                             ; preds = %17
-  %32 = lshr i32 %31, 8
-  %33 = trunc i32 %32 to i16
-  %34 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv182
-  store i16 %33, ptr %34, align 2, !tbaa !28
+._crit_edge.us.us.us:                             ; preds = %18
+  %33 = lshr i32 %32, 8
+  %34 = trunc i32 %33 to i16
+  %35 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv182
+  store i16 %34, ptr %35, align 2, !tbaa !28
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
   br i1 %exitcond186.not, label %._crit_edge141.split.us.us.us, label %.preheader136.us.us.us, !llvm.loop !78
@@ -883,9 +885,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
   br i1 %exitcond191.not, label %.preheader135, label %.preheader137.us.us, !llvm.loop !79
 
 .preheader135:                                    ; preds = %._crit_edge141.split.us.us.us, %.preheader137.lr.ph, %8
-  %.neg = sub i32 %10, %1
-  %35 = add i32 %5, %.neg
-  %36 = icmp slt i32 %10, %35
+  %36 = icmp slt i32 %10, %11
   %37 = icmp sgt i32 %4, 0
   %or.cond = and i1 %36, %37
   br i1 %or.cond, label %.preheader134.lr.ph.split.us, label %.preheader132
@@ -908,7 +908,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
 
 .preheader134.us.us.preheader:                    ; preds = %.preheader134.lr.ph.split.us
   %47 = zext nneg i32 %10 to i64
-  %wide.trip.count210 = sext i32 %35 to i64
+  %wide.trip.count210 = sext i32 %11 to i64
   %wide.trip.count205 = zext nneg i32 %4 to i64
   %wide.trip.count200 = zext nneg i32 %1 to i64
   br label %.preheader134.us.us
@@ -968,7 +968,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
   br i1 %exitcond196.not, label %.preheader132, label %.preheader134.us, !llvm.loop !82
 
 .preheader132:                                    ; preds = %.preheader134.us, %._crit_edge150.split.us.us.us, %.preheader135
-  %67 = icmp slt i32 %35, %5
+  %67 = icmp slt i32 %11, %5
   br i1 %67, label %.preheader131.lr.ph, label %._crit_edge
 
 .preheader131.lr.ph:                              ; preds = %.preheader132
@@ -978,7 +978,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
 
 .preheader131.lr.ph.split.us:                     ; preds = %.preheader131.lr.ph
   %69 = icmp sgt i32 %1, 0
-  %70 = sext i32 %35 to i64
+  %70 = sext i32 %11 to i64
   br i1 %69, label %.preheader131.us.us.preheader, label %.preheader131.us.preheader
 
 .preheader131.us.preheader:                       ; preds = %.preheader131.lr.ph.split.us

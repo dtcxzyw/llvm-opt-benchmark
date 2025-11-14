@@ -26334,8 +26334,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit302: ; preds = %91
   %919 = getelementptr inbounds nuw i8, ptr %45, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(212) %45, i8 0, i64 128, i1 false)
   store i32 1, ptr %919, align 8, !tbaa !1289
-  %scevgep.i = getelementptr inbounds nuw i8, ptr %45, i64 132
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %scevgep.i, i8 0, i64 80, i1 false)
+  %.ptr13.i = getelementptr inbounds nuw i8, ptr %45, i64 132
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %.ptr13.i, i8 0, i64 80, i1 false)
   %920 = getelementptr inbounds nuw i8, ptr %45, i64 184
   store i32 1, ptr %920, align 8, !tbaa !66
   %921 = load ptr, ptr %48, align 8, !tbaa !589

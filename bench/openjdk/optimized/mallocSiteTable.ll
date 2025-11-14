@@ -504,85 +504,85 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
   %5 = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
   %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
-  %.not44 = icmp eq ptr %7, null
-  br i1 %.not44, label %._crit_edge, label %.lr.ph
+  %8 = icmp eq ptr %7, null
+  %9 = zext i1 %8 to i32
+  %spec.select = add nuw nsw i32 %.03952, %9
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.148 = phi i32 [ %8, %.lr.ph ], [ %.03554, %4 ]
-  %.03647 = phi ptr [ %20, %.lr.ph ], [ %7, %4 ]
-  %.03746 = phi i32 [ %9, %.lr.ph ], [ 0, %4 ]
+  %.148 = phi i32 [ %10, %.lr.ph ], [ %.03554, %4 ]
+  %.03647 = phi ptr [ %22, %.lr.ph ], [ %7, %4 ]
+  %.03746 = phi i32 [ %11, %.lr.ph ], [ 0, %4 ]
   %.14245 = phi i32 [ %spec.select43, %.lr.ph ], [ %.04151, %4 ]
-  %8 = add nsw i32 %.148, 1
-  %9 = add nuw nsw i32 %.03746, 1
-  %10 = getelementptr inbounds nuw i8, ptr %.03647, i64 48
-  %11 = load volatile i64, ptr %10, align 8
-  %12 = icmp eq i64 %11, 0
-  %13 = zext i1 %12 to i32
-  %spec.select43 = add nsw i32 %.14245, %13
-  %14 = tail call noundef i32 @_ZNK15NativeCallStack6framesEv(ptr noundef nonnull align 8 dereferenceable(32) %.03647) #14
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %2, i64 %15
-  %17 = load i32, ptr %16, align 4
-  %18 = add nsw i32 %17, 1
-  store i32 %18, ptr %16, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %.03647, i64 80
-  %20 = load volatile ptr, ptr %19, align 8
-  %.not = icmp eq ptr %20, null
+  %10 = add nsw i32 %.148, 1
+  %11 = add nuw nsw i32 %.03746, 1
+  %12 = getelementptr inbounds nuw i8, ptr %.03647, i64 48
+  %13 = load volatile i64, ptr %12, align 8
+  %14 = icmp eq i64 %13, 0
+  %15 = zext i1 %14 to i32
+  %spec.select43 = add nsw i32 %.14245, %15
+  %16 = tail call noundef i32 @_ZNK15NativeCallStack6framesEv(ptr noundef nonnull align 8 dereferenceable(32) %.03647) #14
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+  %19 = load i32, ptr %18, align 4
+  %20 = add nsw i32 %19, 1
+  store i32 %20, ptr %18, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %.03647, i64 80
+  %22 = load volatile ptr, ptr %21, align 8
+  %.not = icmp eq ptr %22, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %21 = tail call i32 @llvm.smin.i32(i32 %9, i32 65535)
-  %22 = trunc nuw i32 %21 to i16
+  %23 = tail call i32 @llvm.smin.i32(i32 %11, i32 65535)
+  %24 = trunc nuw i32 %23 to i16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
   %.142.lcssa = phi i32 [ %.04151, %4 ], [ %spec.select43, %._crit_edge.loopexit ]
-  %.037.lcssa = phi i16 [ 0, %4 ], [ %22, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i32 [ %.03554, %4 ], [ %8, %._crit_edge.loopexit ]
-  %23 = zext i1 %.not44 to i32
-  %spec.select = add nuw nsw i32 %.03952, %23
-  %24 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
-  store i16 %.037.lcssa, ptr %24, align 2
+  %.037.lcssa = phi i16 [ 0, %4 ], [ %24, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %.03554, %4 ], [ %10, %._crit_edge.loopexit ]
+  %25 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  store i16 %.037.lcssa, ptr %25, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4099
-  br i1 %exitcond.not, label %25, label %4, !llvm.loop !16
+  br i1 %exitcond.not, label %26, label %4, !llvm.loop !16
 
-25:                                               ; preds = %._crit_edge
+26:                                               ; preds = %._crit_edge
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str) #14
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i32 noundef %.1.lcssa) #14
-  %26 = sitofp i32 %.142.lcssa to float
-  %27 = fmul float %26, 1.000000e+02
-  %28 = sitofp i32 %.1.lcssa to float
-  %29 = fdiv float %27, %28
-  %30 = fpext float %29 to double
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.5, i32 noundef %.142.lcssa, double noundef %30) #14
+  %27 = sitofp i32 %.142.lcssa to float
+  %28 = fmul float %27, 1.000000e+02
+  %29 = sitofp i32 %.1.lcssa to float
+  %30 = fdiv float %28, %29
+  %31 = fpext float %30 to double
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.5, i32 noundef %.142.lcssa, double noundef %31) #14
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   call void @qsort(ptr noundef nonnull %3, i64 noundef 4099, i64 noundef 2, ptr noundef nonnull @_ZL12qsort_helperPKvS0_) #14
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.6) #14
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.7, i32 noundef %spec.select) #14
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8196
-  %32 = load i16, ptr %31, align 4
-  %33 = zext i16 %32 to i32
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.8, i32 noundef %33) #14
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 4098
-  %35 = load i16, ptr %34, align 2
-  %36 = zext i16 %35 to i32
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.9, i32 noundef %36) #14
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8196
+  %33 = load i16, ptr %32, align 4
+  %34 = zext i16 %33 to i32
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.8, i32 noundef %34) #14
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 4098
+  %36 = load i16, ptr %35, align 2
+  %37 = zext i16 %36 to i32
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.9, i32 noundef %37) #14
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.10) #14
-  br label %37
+  br label %38
 
-37:                                               ; preds = %25, %37
-  %indvars.iv58 = phi i64 [ 0, %25 ], [ %indvars.iv.next59, %37 ]
-  %38 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv58
-  %39 = load i32, ptr %38, align 4
-  %40 = trunc nuw nsw i64 %indvars.iv58 to i32
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.11, i32 noundef %40, i32 noundef %39) #14
+38:                                               ; preds = %26, %38
+  %indvars.iv58 = phi i64 [ 0, %26 ], [ %indvars.iv.next59, %38 ]
+  %39 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv58
+  %40 = load i32, ptr %39, align 4
+  %41 = trunc nuw nsw i64 %indvars.iv58 to i32
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.11, i32 noundef %41, i32 noundef %40) #14
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 5
-  br i1 %exitcond61.not, label %41, label %37, !llvm.loop !17
+  br i1 %exitcond61.not, label %42, label %38, !llvm.loop !17
 
-41:                                               ; preds = %37
+42:                                               ; preds = %38
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   ret void
 }

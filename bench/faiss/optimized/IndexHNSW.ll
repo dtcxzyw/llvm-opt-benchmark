@@ -660,8 +660,8 @@ _ZNSt6vectorI10omp_lock_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i: ; preds = 
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i.i:             ; preds = %.noexc89.i
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %114, 3
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx.i.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %113, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !59
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx.i.i.i.i.i.i.i.i
   br label %.lr.ph.preheader.i
 
 117:                                              ; preds = %_ZNSt6vectorI10omp_lock_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i
@@ -704,8 +704,8 @@ _ZNSt6vectorI10omp_lock_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i: ; preds = 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc94.i
   %.idx.i.i.i.i.i.i.i91.i = shl nuw nsw i64 %127, 2
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx.i.i.i.i.i.i.i91.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %126, i8 0, i64 %.idx.i.i.i.i.i.i.i91.i, i1 false), !tbaa !62
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx.i.i.i.i.i.i.i91.i
   br label %137
 
 .lr.ph.i:                                         ; preds = %132, %.lr.ph.preheader.i
@@ -6956,8 +6956,8 @@ _ZNSt6vectorI10omp_lock_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %4
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc16
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %17, 3
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !59
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.preheader
 
 20:                                               ; preds = %_ZNSt6vectorI10omp_lock_tSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i

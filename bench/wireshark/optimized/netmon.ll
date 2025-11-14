@@ -1849,13 +1849,13 @@ define internal noundef zeroext i1 @netmon_dump(ptr noundef %0, ptr noundef read
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %59 = load i8, ptr %58, align 1, !range !11, !noundef !12
   %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %._crit_edge108, label %61
+  br i1 %60, label %._crit_edge109, label %61
 
-._crit_edge108:                                   ; preds = %57
-  %.phi.trans.insert109 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.pre110 = load i64, ptr %.phi.trans.insert109, align 8
-  %.phi.trans.insert111 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.pre112 = load i32, ptr %.phi.trans.insert111, align 8
+._crit_edge109:                                   ; preds = %57
+  %.phi.trans.insert110 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.pre111 = load i64, ptr %.phi.trans.insert110, align 8
+  %.phi.trans.insert112 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.pre113 = load i32, ptr %.phi.trans.insert112, align 8
   br label %70
 
 61:                                               ; preds = %57
@@ -1871,45 +1871,46 @@ define internal noundef zeroext i1 @netmon_dump(ptr noundef %0, ptr noundef read
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %68, ptr %69, align 8
   store i8 1, ptr %58, align 1
+  %.pre108 = load i32, ptr %34, align 8
   br label %70
 
-70:                                               ; preds = %._crit_edge108, %61
-  %71 = phi i32 [ %.pre112, %._crit_edge108 ], [ %68, %61 ]
-  %72 = phi i64 [ %.pre110, %._crit_edge108 ], [ %63, %61 ]
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %74 = load i64, ptr %73, align 8
-  %75 = sub i64 %74, %72
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %77 = load i32, ptr %76, align 8
-  %78 = sub i32 %77, %71
-  %79 = icmp slt i32 %78, 0
-  br i1 %79, label %.lr.ph.preheader, label %._crit_edge
+70:                                               ; preds = %._crit_edge109, %61
+  %71 = phi i32 [ %68, %61 ], [ %.pre113, %._crit_edge109 ]
+  %72 = phi i64 [ %63, %61 ], [ %.pre111, %._crit_edge109 ]
+  %73 = phi i32 [ %.pre108, %61 ], [ %33, %._crit_edge109 ]
+  %74 = icmp eq i32 %73, 13
+  %. = select i1 %74, i32 16, i32 0
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %76 = load i64, ptr %75, align 8
+  %77 = sub i64 %76, %72
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %79 = load i32, ptr %78, align 8
+  %80 = sub i32 %79, %71
+  %81 = icmp slt i32 %80, 0
+  br i1 %81, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %70
-  %80 = tail call i32 @llvm.umax.i32(i32 %78, i32 -1000000000)
-  %81 = add i32 %71, %80
-  %82 = icmp ne i32 %81, %77
-  %umin = zext i1 %82 to i32
-  %83 = add i32 %77, %umin
-  %84 = sub i32 %81, %83
-  %85 = udiv i32 %84, 1000000000
-  %86 = add nuw nsw i32 %85, %umin
-  %87 = mul i32 %86, 1000000000
-  %88 = add i32 %77, %87
-  %89 = add i32 %88, 1000000000
-  %90 = sub i32 %89, %71
-  %91 = xor i64 %72, -1
-  %92 = add i64 %74, %91
-  %93 = zext nneg i32 %86 to i64
-  %94 = sub i64 %92, %93
+  %82 = tail call i32 @llvm.umax.i32(i32 %80, i32 -1000000000)
+  %83 = add i32 %71, %82
+  %84 = icmp ne i32 %83, %79
+  %umin = zext i1 %84 to i32
+  %85 = add i32 %79, %umin
+  %86 = sub i32 %83, %85
+  %87 = udiv i32 %86, 1000000000
+  %88 = add nuw nsw i32 %87, %umin
+  %89 = mul i32 %88, 1000000000
+  %90 = add i32 %79, %89
+  %91 = add i32 %90, 1000000000
+  %92 = sub i32 %91, %71
+  %93 = xor i64 %72, -1
+  %94 = add i64 %76, %93
+  %95 = zext nneg i32 %88 to i64
+  %96 = sub i64 %94, %95
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %70
-  %.090.lcssa = phi i64 [ %75, %70 ], [ %94, %.lr.ph.preheader ]
-  %.0.lcssa = phi i32 [ %78, %70 ], [ %90, %.lr.ph.preheader ]
-  %95 = load i32, ptr %34, align 8
-  %96 = icmp eq i32 %95, 13
-  %. = select i1 %96, i32 16, i32 0
+  %.090.lcssa = phi i64 [ %77, %70 ], [ %96, %.lr.ph.preheader ]
+  %.0.lcssa = phi i32 [ %80, %70 ], [ %92, %.lr.ph.preheader ]
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 68
   br i1 %17, label %98, label %110
 
@@ -2020,11 +2021,11 @@ define internal noundef zeroext i1 @netmon_dump(ptr noundef %0, ptr noundef read
   %161 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %162 = load i32, ptr %161, align 8
   %.not102 = icmp ult i32 %162, %155
-  br i1 %.not102, label %._crit_edge113, label %163
+  br i1 %.not102, label %._crit_edge114, label %163
 
-._crit_edge113:                                   ; preds = %160
-  %.phi.trans.insert114 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.pre115 = load ptr, ptr %.phi.trans.insert114, align 8
+._crit_edge114:                                   ; preds = %160
+  %.phi.trans.insert115 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.pre116 = load ptr, ptr %.phi.trans.insert115, align 8
   br label %170
 
 163:                                              ; preds = %160
@@ -2038,8 +2039,8 @@ define internal noundef zeroext i1 @netmon_dump(ptr noundef %0, ptr noundef read
   store ptr %169, ptr %165, align 8
   br label %170
 
-170:                                              ; preds = %._crit_edge113, %163, %157
-  %171 = phi ptr [ %.pre115, %._crit_edge113 ], [ %169, %163 ], [ %158, %157 ]
+170:                                              ; preds = %._crit_edge114, %163, %157
+  %171 = phi ptr [ %.pre116, %._crit_edge114 ], [ %169, %163 ], [ %158, %157 ]
   %172 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %173 = load i32, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %12, i64 40

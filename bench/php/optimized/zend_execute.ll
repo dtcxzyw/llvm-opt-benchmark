@@ -67234,32 +67234,32 @@ zend_string_release_ex.exit:                      ; preds = %.preheader, %44, %4
 
 58:                                               ; preds = %zval_ptr_dtor_nogc.exit._crit_edge, %15
   %59 = phi i32 [ %.pre, %zval_ptr_dtor_nogc.exit._crit_edge ], [ %17, %15 ]
-  br label %60
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  br label %61
 
-60:                                               ; preds = %58, %60
-  %.172 = phi i32 [ 0, %58 ], [ %70, %60 ]
-  %.05971 = phi i32 [ 512, %58 ], [ %66, %60 ]
-  %.06070 = phi i64 [ 0, %58 ], [ %69, %60 ]
-  %61 = zext i32 %.172 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %6, i64 %61
-  %63 = load ptr, ptr %62, align 8, !tbaa !132
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %65 = load i32, ptr %64, align 4, !tbaa !55
-  %66 = and i32 %.05971, %65
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %68 = load i64, ptr %67, align 8, !tbaa !93
-  %69 = add i64 %68, %.06070
-  %70 = add i32 %.172, 1
-  %.not62 = icmp ugt i32 %70, %59
-  br i1 %.not62, label %zend_string_alloc.exit, label %60
+61:                                               ; preds = %58, %61
+  %.172 = phi i32 [ 0, %58 ], [ %71, %61 ]
+  %.05971 = phi i32 [ 512, %58 ], [ %67, %61 ]
+  %.06070 = phi i64 [ 0, %58 ], [ %70, %61 ]
+  %62 = zext i32 %.172 to i64
+  %63 = getelementptr inbounds nuw ptr, ptr %6, i64 %62
+  %64 = load ptr, ptr %63, align 8, !tbaa !132
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %66 = load i32, ptr %65, align 4, !tbaa !55
+  %67 = and i32 %.05971, %66
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %69 = load i64, ptr %68, align 8, !tbaa !93
+  %70 = add i64 %69, %.06070
+  %71 = add i32 %.172, 1
+  %.not62 = icmp ugt i32 %71, %59
+  br i1 %.not62, label %zend_string_alloc.exit, label %61
 
-zend_string_alloc.exit:                           ; preds = %60
-  %71 = getelementptr inbounds nuw i8, ptr %2, i64 20
+zend_string_alloc.exit:                           ; preds = %61
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %73 = load i32, ptr %72, align 8, !tbaa !55
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds i8, ptr %0, i64 %74
-  %76 = and i64 %69, -8
+  %76 = and i64 %70, -8
   %77 = add i64 %76, 32
   %78 = tail call noalias ptr @_emalloc(i64 noundef %77) #31
   store i32 1, ptr %78, align 4, !tbaa !56
@@ -67267,11 +67267,11 @@ zend_string_alloc.exit:                           ; preds = %60
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 0, ptr %80, align 8, !tbaa !217
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  store i64 %69, ptr %81, align 8, !tbaa !93
+  store i64 %70, ptr %81, align 8, !tbaa !93
   store ptr %78, ptr %75, align 8, !tbaa !55
   %82 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i32 262, ptr %82, align 8, !tbaa !55
-  %83 = or disjoint i32 %66, 22
+  %83 = or disjoint i32 %67, 22
   store i32 %83, ptr %79, align 4, !tbaa !55
   %84 = getelementptr inbounds nuw i8, ptr %78, i64 24
   br label %85
@@ -67309,7 +67309,7 @@ zend_string_alloc.exit:                           ; preds = %60
 
 zend_string_release_ex.exit68:                    ; preds = %85, %97, %102
   %103 = add i32 %.273, 1
-  %104 = load i32, ptr %71, align 4, !tbaa !126
+  %104 = load i32, ptr %60, align 4, !tbaa !126
   %.not64 = icmp ugt i32 %103, %104
   br i1 %.not64, label %105, label %85
 
@@ -67421,32 +67421,32 @@ zend_string_release_ex.exit:                      ; preds = %.preheader, %40, %4
 
 54:                                               ; preds = %26, %zend_string_copy.exit
   %55 = phi i32 [ %29, %26 ], [ %22, %zend_string_copy.exit ]
-  br label %56
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  br label %57
 
-56:                                               ; preds = %54, %56
-  %.172 = phi i32 [ 0, %54 ], [ %66, %56 ]
-  %.05971 = phi i32 [ 512, %54 ], [ %62, %56 ]
-  %.06070 = phi i64 [ 0, %54 ], [ %65, %56 ]
-  %57 = zext i32 %.172 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %6, i64 %57
-  %59 = load ptr, ptr %58, align 8, !tbaa !132
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %61 = load i32, ptr %60, align 4, !tbaa !55
-  %62 = and i32 %.05971, %61
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %64 = load i64, ptr %63, align 8, !tbaa !93
-  %65 = add i64 %64, %.06070
-  %66 = add i32 %.172, 1
-  %.not62 = icmp ugt i32 %66, %55
-  br i1 %.not62, label %zend_string_alloc.exit, label %56
+57:                                               ; preds = %54, %57
+  %.172 = phi i32 [ 0, %54 ], [ %67, %57 ]
+  %.05971 = phi i32 [ 512, %54 ], [ %63, %57 ]
+  %.06070 = phi i64 [ 0, %54 ], [ %66, %57 ]
+  %58 = zext i32 %.172 to i64
+  %59 = getelementptr inbounds nuw ptr, ptr %6, i64 %58
+  %60 = load ptr, ptr %59, align 8, !tbaa !132
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %62 = load i32, ptr %61, align 4, !tbaa !55
+  %63 = and i32 %.05971, %62
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %65 = load i64, ptr %64, align 8, !tbaa !93
+  %66 = add i64 %65, %.06070
+  %67 = add i32 %.172, 1
+  %.not62 = icmp ugt i32 %67, %55
+  br i1 %.not62, label %zend_string_alloc.exit, label %57
 
-zend_string_alloc.exit:                           ; preds = %56
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 20
+zend_string_alloc.exit:                           ; preds = %57
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %69 = load i32, ptr %68, align 8, !tbaa !55
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %0, i64 %70
-  %72 = and i64 %65, -8
+  %72 = and i64 %66, -8
   %73 = add i64 %72, 32
   %74 = tail call noalias ptr @_emalloc(i64 noundef %73) #31
   store i32 1, ptr %74, align 4, !tbaa !56
@@ -67454,11 +67454,11 @@ zend_string_alloc.exit:                           ; preds = %56
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i64 0, ptr %76, align 8, !tbaa !217
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store i64 %65, ptr %77, align 8, !tbaa !93
+  store i64 %66, ptr %77, align 8, !tbaa !93
   store ptr %74, ptr %71, align 8, !tbaa !55
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i32 262, ptr %78, align 8, !tbaa !55
-  %79 = or disjoint i32 %62, 22
+  %79 = or disjoint i32 %63, 22
   store i32 %79, ptr %75, align 4, !tbaa !55
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 24
   br label %81
@@ -67496,7 +67496,7 @@ zend_string_alloc.exit:                           ; preds = %56
 
 zend_string_release_ex.exit67:                    ; preds = %81, %93, %98
   %99 = add i32 %.273, 1
-  %100 = load i32, ptr %67, align 4, !tbaa !126
+  %100 = load i32, ptr %56, align 4, !tbaa !126
   %.not64 = icmp ugt i32 %99, %100
   br i1 %.not64, label %101, label %81
 

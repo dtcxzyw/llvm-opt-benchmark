@@ -7369,38 +7369,38 @@ _ZN4Luau6detail14DenseHashTableISt4pairIPKNS_4TypeES5_ES2_IS6_bES2_IKS6_bENS0_16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %3 = load ptr, ptr %2, align 8, !tbaa !252
-  %.not.i.i.i56 = icmp eq ptr %3, null
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %4 = load ptr, ptr %3, align 8, !tbaa !252
+  %.not.i.i.i56 = icmp eq ptr %4, null
   br i1 %.not.i.i.i56, label %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_St10unique_ptrINS0_14NormalizedTypeESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.noexc.i.i
-  %.0.i.i.i7 = phi ptr [ %4, %.noexc.i.i ], [ %3, %1 ]
-  %4 = load ptr, ptr %.0.i.i.i7, align 8, !tbaa !97
-  %5 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !188
-  %.not.i.i = icmp eq ptr %6, null
+  %.0.i.i.i7 = phi ptr [ %5, %.noexc.i.i ], [ %4, %1 ]
+  %5 = load ptr, ptr %.0.i.i.i7, align 8, !tbaa !97
+  %6 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 16
+  %7 = load ptr, ptr %6, align 8, !tbaa !188
+  %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %.noexc.i.i, label %_ZNKSt14default_deleteIN4Luau14NormalizedTypeEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN4Luau14NormalizedTypeEEclEPS1_.exit.i.i: ; preds = %.lr.ph
-  tail call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %6) #32
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 408) #31
+  tail call void @_ZN4Luau14NormalizedTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %7) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 408) #31
   br label %.noexc.i.i
 
 .noexc.i.i:                                       ; preds = %_ZNKSt14default_deleteIN4Luau14NormalizedTypeEEclEPS1_.exit.i.i, %.lr.ph
   tail call void @_ZdlPvm(ptr noundef nonnull %.0.i.i.i7, i64 noundef 24) #31
-  %.not.i.i.i5 = icmp eq ptr %4, null
+  %.not.i.i.i5 = icmp eq ptr %5, null
   br i1 %.not.i.i.i5, label %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_St10unique_ptrINS0_14NormalizedTypeESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i, label %.lr.ph, !llvm.loop !253
 
 _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_St10unique_ptrINS0_14NormalizedTypeESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i: ; preds = %.noexc.i.i, %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %8 = load ptr, ptr %7, align 8, !tbaa !133
+  %8 = load ptr, ptr %2, align 8, !tbaa !133
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %10 = load i64, ptr %9, align 8, !tbaa !134
   %11 = shl i64 %10, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %11, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %12 = load ptr, ptr %7, align 8, !tbaa !133
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  %12 = load ptr, ptr %2, align 8, !tbaa !133
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %14 = icmp eq ptr %12, %13
   br i1 %14, label %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_St10unique_ptrINS0_14NormalizedTypeESt14default_deleteIS7_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit, label %15

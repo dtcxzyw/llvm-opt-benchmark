@@ -1127,6 +1127,10 @@ define void @_ZN4AAHD12evaluate_ahdEv(ptr noundef nonnull readonly align 8 captu
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %33 = load float, ptr %32, align 8
   %.pre = load i32, ptr %0, align 8, !tbaa !73
+  %indvars.iv383.sroa.gep431 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %indvars.iv372.sroa.gep432 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %indvars.iv383.sroa.gep435 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %indvars.iv372.sroa.gep438 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %.preheader326
 
 .preheader326:                                    ; preds = %1, %._crit_edge
@@ -1146,10 +1150,6 @@ define void @_ZN4AAHD12evaluate_ahdEv(ptr noundef nonnull readonly align 8 captu
   br label %56
 
 .preheader325:                                    ; preds = %._crit_edge
-  %indvars.iv383.sroa.gep431 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %indvars.iv372.sroa.gep432 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %indvars.iv383.sroa.gep435 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %indvars.iv372.sroa.gep438 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %44 = load ptr, ptr %43, align 8, !tbaa !95
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 28

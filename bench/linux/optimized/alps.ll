@@ -5236,6 +5236,7 @@ define internal noundef range(i32 -1, 2) i32 @alps_decode_packet_v7(ptr noundef 
   %82 = select i1 %80, i1 %81, i1 false
   %spec.store.select = select i1 %82, i16 0, i16 %67
   store i16 %spec.store.select, ptr %57, align 2
+  %spec.select6 = select i1 %82, i16 0, i16 %67
   %83 = xor i16 %51, 2047
   store i16 %83, ptr %52, align 2
   %84 = xor i16 %78, 2032
@@ -5285,17 +5286,13 @@ define internal noundef range(i32 -1, 2) i32 @alps_decode_packet_v7(ptr noundef 
   %111 = phi i32 [ %109, %108 ], [ %100, %104 ]
   %112 = add nuw nsw i64 %99, 1
   %113 = icmp eq i64 %112, 4
-  br i1 %113, label %.loopexit.loopexit, label %98, !llvm.loop !24
+  br i1 %113, label %.loopexit, label %98, !llvm.loop !24
 
-.loopexit.loopexit:                               ; preds = %110
-  %spec.select6 = select i1 %82, i16 0, i16 %67
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.thread3
-  %114 = phi i16 [ %85, %.thread3 ], [ %spec.select6, %.loopexit.loopexit ]
-  %115 = phi i16 [ %93, %.thread3 ], [ %84, %.loopexit.loopexit ]
-  %116 = phi i16 [ %91, %.thread3 ], [ %83, %.loopexit.loopexit ]
-  %117 = phi i32 [ %97, %.thread3 ], [ %111, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %110, %.thread3
+  %114 = phi i16 [ %85, %.thread3 ], [ %spec.select6, %110 ]
+  %115 = phi i16 [ %93, %.thread3 ], [ %84, %110 ]
+  %116 = phi i16 [ %91, %.thread3 ], [ %83, %110 ]
+  %117 = phi i32 [ %97, %.thread3 ], [ %111, %110 ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %117, ptr %118, align 4
   %119 = load i8, ptr %1, align 1

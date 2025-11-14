@@ -1507,6 +1507,7 @@ define void @ff_h264_luma_dc_dequant_idct_8_c(ptr noundef writeonly captures(non
 define void @ff_h264_chroma422_dc_dequant_idct_8_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %indvars.iv46.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %4
 
 4:                                                ; preds = %2, %4
@@ -1527,16 +1528,12 @@ define void @ff_h264_chroma422_dc_dequant_idct_8_c(ptr noundef captures(none) %0
   store i32 %13, ptr %14, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !34
+  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !34
 
-.preheader.preheader:                             ; preds = %4
-  %indvars.iv46.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %15 = phi i1 [ false, %.preheader ], [ true, %.preheader.preheader ]
-  %indvars.iv46.sroa.phi = phi ptr [ %indvars.iv46.sroa.gep, %.preheader ], [ %3, %.preheader.preheader ]
-  %indvars.iv46 = phi i64 [ 1, %.preheader ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %4, %.preheader
+  %15 = phi i1 [ false, %.preheader ], [ true, %4 ]
+  %indvars.iv46.sroa.phi = phi ptr [ %indvars.iv46.sroa.gep, %.preheader ], [ %3, %4 ]
+  %indvars.iv46 = phi i64 [ 1, %.preheader ], [ 0, %4 ]
   %16 = getelementptr inbounds nuw i8, ptr @ff_h264_chroma422_dc_dequant_idct_14_c.x_offset, i64 %indvars.iv46
   %17 = load i8, ptr %16, align 1, !tbaa !10
   %18 = zext i8 %17 to i64
@@ -2990,6 +2987,7 @@ define void @ff_h264_luma_dc_dequant_idct_9_c(ptr noundef writeonly captures(non
 define void @ff_h264_chroma422_dc_dequant_idct_9_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %indvars.iv46.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %4
 
 4:                                                ; preds = %2, %4
@@ -3008,16 +3006,12 @@ define void @ff_h264_chroma422_dc_dequant_idct_9_c(ptr noundef captures(none) %0
   store i32 %11, ptr %12, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !55
+  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !55
 
-.preheader.preheader:                             ; preds = %4
-  %indvars.iv46.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %13 = phi i1 [ false, %.preheader ], [ true, %.preheader.preheader ]
-  %indvars.iv46.sroa.phi = phi ptr [ %indvars.iv46.sroa.gep, %.preheader ], [ %3, %.preheader.preheader ]
-  %indvars.iv46 = phi i64 [ 1, %.preheader ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %4, %.preheader
+  %13 = phi i1 [ false, %.preheader ], [ true, %4 ]
+  %indvars.iv46.sroa.phi = phi ptr [ %indvars.iv46.sroa.gep, %.preheader ], [ %3, %4 ]
+  %indvars.iv46 = phi i64 [ 1, %.preheader ], [ 0, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr @ff_h264_chroma422_dc_dequant_idct_14_c.x_offset, i64 %indvars.iv46
   %15 = load i8, ptr %14, align 1, !tbaa !10
   %16 = zext i8 %15 to i64
@@ -4459,6 +4453,7 @@ define void @ff_h264_luma_dc_dequant_idct_10_c(ptr noundef writeonly captures(no
 define void @ff_h264_chroma422_dc_dequant_idct_10_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %indvars.iv46.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %4
 
 4:                                                ; preds = %2, %4
@@ -4477,16 +4472,12 @@ define void @ff_h264_chroma422_dc_dequant_idct_10_c(ptr noundef captures(none) %
   store i32 %11, ptr %12, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !76
+  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !76
 
-.preheader.preheader:                             ; preds = %4
-  %indvars.iv46.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %13 = phi i1 [ false, %.preheader ], [ true, %.preheader.preheader ]
-  %indvars.iv46.sroa.phi = phi ptr [ %indvars.iv46.sroa.gep, %.preheader ], [ %3, %.preheader.preheader ]
-  %indvars.iv46 = phi i64 [ 1, %.preheader ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %4, %.preheader
+  %13 = phi i1 [ false, %.preheader ], [ true, %4 ]
+  %indvars.iv46.sroa.phi = phi ptr [ %indvars.iv46.sroa.gep, %.preheader ], [ %3, %4 ]
+  %indvars.iv46 = phi i64 [ 1, %.preheader ], [ 0, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr @ff_h264_chroma422_dc_dequant_idct_14_c.x_offset, i64 %indvars.iv46
   %15 = load i8, ptr %14, align 1, !tbaa !10
   %16 = zext i8 %15 to i64
@@ -5928,6 +5919,7 @@ define void @ff_h264_luma_dc_dequant_idct_12_c(ptr noundef writeonly captures(no
 define void @ff_h264_chroma422_dc_dequant_idct_12_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %indvars.iv46.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %4
 
 4:                                                ; preds = %2, %4
@@ -5946,16 +5938,12 @@ define void @ff_h264_chroma422_dc_dequant_idct_12_c(ptr noundef captures(none) %
   store i32 %11, ptr %12, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !97
+  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !97
 
-.preheader.preheader:                             ; preds = %4
-  %indvars.iv46.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %13 = phi i1 [ false, %.preheader ], [ true, %.preheader.preheader ]
-  %indvars.iv46.sroa.phi = phi ptr [ %indvars.iv46.sroa.gep, %.preheader ], [ %3, %.preheader.preheader ]
-  %indvars.iv46 = phi i64 [ 1, %.preheader ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %4, %.preheader
+  %13 = phi i1 [ false, %.preheader ], [ true, %4 ]
+  %indvars.iv46.sroa.phi = phi ptr [ %indvars.iv46.sroa.gep, %.preheader ], [ %3, %4 ]
+  %indvars.iv46 = phi i64 [ 1, %.preheader ], [ 0, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr @ff_h264_chroma422_dc_dequant_idct_14_c.x_offset, i64 %indvars.iv46
   %15 = load i8, ptr %14, align 1, !tbaa !10
   %16 = zext i8 %15 to i64
@@ -7397,6 +7385,7 @@ define void @ff_h264_luma_dc_dequant_idct_14_c(ptr noundef writeonly captures(no
 define void @ff_h264_chroma422_dc_dequant_idct_14_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %indvars.iv46.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %4
 
 4:                                                ; preds = %2, %4
@@ -7415,16 +7404,12 @@ define void @ff_h264_chroma422_dc_dequant_idct_14_c(ptr noundef captures(none) %
   store i32 %11, ptr %12, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !118
+  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !118
 
-.preheader.preheader:                             ; preds = %4
-  %indvars.iv46.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %13 = phi i1 [ false, %.preheader ], [ true, %.preheader.preheader ]
-  %indvars.iv46.sroa.phi = phi ptr [ %indvars.iv46.sroa.gep, %.preheader ], [ %3, %.preheader.preheader ]
-  %indvars.iv46 = phi i64 [ 1, %.preheader ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %4, %.preheader
+  %13 = phi i1 [ false, %.preheader ], [ true, %4 ]
+  %indvars.iv46.sroa.phi = phi ptr [ %indvars.iv46.sroa.gep, %.preheader ], [ %3, %4 ]
+  %indvars.iv46 = phi i64 [ 1, %.preheader ], [ 0, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr @ff_h264_chroma422_dc_dequant_idct_14_c.x_offset, i64 %indvars.iv46
   %15 = load i8, ptr %14, align 1, !tbaa !10
   %16 = zext i8 %15 to i64

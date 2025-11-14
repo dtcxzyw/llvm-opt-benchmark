@@ -1399,61 +1399,61 @@ thread-pre-split:                                 ; preds = %51, %54
   br i1 %or.cond3, label %163, label %270
 
 163:                                              ; preds = %160
-  %164 = load i32, ptr %133, align 8, !tbaa !5
-  %165 = icmp slt i32 %164, %13
-  br i1 %165, label %.lr.ph412, label %._crit_edge413
+  %164 = getelementptr inbounds nuw i8, ptr %.0303, i64 80
+  %165 = load i32, ptr %133, align 8, !tbaa !5
+  %166 = icmp slt i32 %165, %13
+  br i1 %166, label %.lr.ph412, label %._crit_edge413
 
 .lr.ph412:                                        ; preds = %163
-  %166 = load ptr, ptr %8, align 8, !tbaa !13
-  %167 = sext i32 %164 to i64
-  %168 = shl nsw i64 %167, 3
-  %scevgep = getelementptr i8, ptr %166, i64 %168
-  %169 = xor i32 %164, -1
-  %170 = add i32 %13, %169
-  %171 = zext i32 %170 to i64
-  %172 = shl nuw nsw i64 %171, 3
-  %173 = add nuw nsw i64 %172, 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %173, i1 false), !tbaa !14
+  %167 = load ptr, ptr %8, align 8, !tbaa !13
+  %168 = sext i32 %165 to i64
+  %169 = shl nsw i64 %168, 3
+  %scevgep = getelementptr i8, ptr %167, i64 %169
+  %170 = xor i32 %165, -1
+  %171 = add i32 %13, %170
+  %172 = zext i32 %171 to i64
+  %173 = shl nuw nsw i64 %172, 3
+  %174 = add nuw nsw i64 %173, 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %174, i1 false), !tbaa !14
   br label %._crit_edge413
 
 ._crit_edge413:                                   ; preds = %.lr.ph412, %163
-  %174 = load i32, ptr %134, align 8, !tbaa !5
-  %175 = icmp slt i32 %174, %13
-  br i1 %175, label %.lr.ph416, label %.lr.ph420
+  %175 = load i32, ptr %134, align 8, !tbaa !5
+  %176 = icmp slt i32 %175, %13
+  br i1 %176, label %.lr.ph416, label %.lr.ph420
 
 .lr.ph416:                                        ; preds = %._crit_edge413
-  %176 = load ptr, ptr %7, align 8, !tbaa !13
-  %177 = sext i32 %174 to i64
-  %178 = shl nsw i64 %177, 3
-  %scevgep445 = getelementptr i8, ptr %176, i64 %178
-  %179 = xor i32 %174, -1
-  %180 = add i32 %13, %179
-  %181 = zext i32 %180 to i64
-  %182 = shl nuw nsw i64 %181, 3
-  %183 = add nuw nsw i64 %182, 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep445, i8 0, i64 %183, i1 false), !tbaa !14
+  %177 = load ptr, ptr %7, align 8, !tbaa !13
+  %178 = sext i32 %175 to i64
+  %179 = shl nsw i64 %178, 3
+  %scevgep445 = getelementptr i8, ptr %177, i64 %179
+  %180 = xor i32 %175, -1
+  %181 = add i32 %13, %180
+  %182 = zext i32 %181 to i64
+  %183 = shl nuw nsw i64 %182, 3
+  %184 = add nuw nsw i64 %183, 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep445, i8 0, i64 %184, i1 false), !tbaa !14
   br label %.lr.ph420
 
 .lr.ph420:                                        ; preds = %._crit_edge413, %.lr.ph416
-  %184 = load ptr, ptr %8, align 8, !tbaa !13
-  %185 = getelementptr inbounds nuw i64, ptr %184, i64 %127
-  %186 = getelementptr inbounds nuw i8, ptr %.0303, i64 32
-  %187 = load ptr, ptr %186, align 8, !tbaa !31
+  %185 = load ptr, ptr %8, align 8, !tbaa !13
+  %186 = getelementptr inbounds nuw i64, ptr %185, i64 %127
+  %187 = getelementptr inbounds nuw i8, ptr %.0303, i64 32
+  %188 = load ptr, ptr %187, align 8, !tbaa !31
   %wide.trip.count452 = zext nneg i32 %13 to i64
-  br label %188
+  br label %189
 
-188:                                              ; preds = %.lr.ph420, %188
-  %indvars.iv449 = phi i64 [ 0, %.lr.ph420 ], [ %indvars.iv.next450, %188 ]
-  %189 = getelementptr inbounds nuw i64, ptr %187, i64 %indvars.iv449
-  %190 = load i64, ptr %189, align 8, !tbaa !14
-  %191 = getelementptr inbounds nuw i64, ptr %185, i64 %indvars.iv449
-  store i64 %190, ptr %191, align 8, !tbaa !14
+189:                                              ; preds = %.lr.ph420, %189
+  %indvars.iv449 = phi i64 [ 0, %.lr.ph420 ], [ %indvars.iv.next450, %189 ]
+  %190 = getelementptr inbounds nuw i64, ptr %188, i64 %indvars.iv449
+  %191 = load i64, ptr %190, align 8, !tbaa !14
+  %192 = getelementptr inbounds nuw i64, ptr %186, i64 %indvars.iv449
+  store i64 %191, ptr %192, align 8, !tbaa !14
   %indvars.iv.next450 = add nuw nsw i64 %indvars.iv449, 1
   %exitcond453.not = icmp eq i64 %indvars.iv.next450, %wide.trip.count452
-  br i1 %exitcond453.not, label %._crit_edge421, label %188, !llvm.loop !32
+  br i1 %exitcond453.not, label %._crit_edge421, label %189, !llvm.loop !32
 
-._crit_edge421:                                   ; preds = %188
-  %192 = getelementptr inbounds nuw i8, ptr %.0303, i64 80
+._crit_edge421:                                   ; preds = %189
   %193 = load ptr, ptr %7, align 8, !tbaa !13
   call void @bn_scatter5(ptr noundef %193, i64 noundef %127, ptr noundef nonnull %125, i64 noundef 0) #6
   %194 = load ptr, ptr %8, align 8, !tbaa !13
@@ -1462,7 +1462,7 @@ thread-pre-split:                                 ; preds = %51, %54
   call void @bn_scatter5(ptr noundef %194, i64 noundef %196, ptr noundef nonnull %125, i64 noundef 1) #6
   %197 = load ptr, ptr %7, align 8, !tbaa !13
   %198 = load ptr, ptr %8, align 8, !tbaa !13
-  %199 = call i32 @bn_mul_mont(ptr noundef %197, ptr noundef %198, ptr noundef %198, ptr noundef nonnull %185, ptr noundef nonnull %192, i32 noundef %13) #6
+  %199 = call i32 @bn_mul_mont(ptr noundef %197, ptr noundef %198, ptr noundef %198, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13) #6
   %200 = load ptr, ptr %7, align 8, !tbaa !13
   call void @bn_scatter5(ptr noundef %200, i64 noundef %127, ptr noundef nonnull %125, i64 noundef 2) #6
   br label %201
@@ -1470,7 +1470,7 @@ thread-pre-split:                                 ; preds = %51, %54
 201:                                              ; preds = %._crit_edge421, %201
   %.4422 = phi i32 [ 4, %._crit_edge421 ], [ %206, %201 ]
   %202 = load ptr, ptr %7, align 8, !tbaa !13
-  %203 = call i32 @bn_mul_mont(ptr noundef %202, ptr noundef %202, ptr noundef %202, ptr noundef nonnull %185, ptr noundef nonnull %192, i32 noundef %13) #6
+  %203 = call i32 @bn_mul_mont(ptr noundef %202, ptr noundef %202, ptr noundef %202, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13) #6
   %204 = load ptr, ptr %7, align 8, !tbaa !13
   %205 = zext nneg i32 %.4422 to i64
   call void @bn_scatter5(ptr noundef %204, i64 noundef %127, ptr noundef nonnull %125, i64 noundef %205) #6
@@ -1484,7 +1484,7 @@ thread-pre-split:                                 ; preds = %51, %54
   %209 = load ptr, ptr %8, align 8, !tbaa !13
   %210 = trunc nuw nsw i64 %indvars.iv454 to i32
   %211 = add nsw i32 %210, -1
-  call void @bn_mul_mont_gather5(ptr noundef %208, ptr noundef %209, ptr noundef nonnull %125, ptr noundef nonnull %185, ptr noundef nonnull %192, i32 noundef %13, i32 noundef %211) #6
+  call void @bn_mul_mont_gather5(ptr noundef %208, ptr noundef %209, ptr noundef nonnull %125, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13, i32 noundef %211) #6
   %212 = load ptr, ptr %7, align 8, !tbaa !13
   call void @bn_scatter5(ptr noundef %212, i64 noundef %127, ptr noundef nonnull %125, i64 noundef %indvars.iv454) #6
   %213 = trunc nuw nsw i64 %indvars.iv454 to i32
@@ -1494,7 +1494,7 @@ thread-pre-split:                                 ; preds = %51, %54
   %.0.in423 = phi i32 [ %213, %.preheader408 ], [ %.0, %214 ]
   %.0 = shl nuw nsw i32 %.0.in423, 1
   %215 = load ptr, ptr %7, align 8, !tbaa !13
-  %216 = call i32 @bn_mul_mont(ptr noundef %215, ptr noundef %215, ptr noundef %215, ptr noundef nonnull %185, ptr noundef nonnull %192, i32 noundef %13) #6
+  %216 = call i32 @bn_mul_mont(ptr noundef %215, ptr noundef %215, ptr noundef %215, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13) #6
   %217 = load ptr, ptr %7, align 8, !tbaa !13
   %218 = zext nneg i32 %.0 to i64
   call void @bn_scatter5(ptr noundef %217, i64 noundef %127, ptr noundef nonnull %125, i64 noundef %218) #6
@@ -1512,11 +1512,11 @@ thread-pre-split:                                 ; preds = %51, %54
   %223 = load ptr, ptr %8, align 8, !tbaa !13
   %224 = trunc nuw nsw i64 %indvars.iv457 to i32
   %225 = add nsw i32 %224, -1
-  call void @bn_mul_mont_gather5(ptr noundef %222, ptr noundef %223, ptr noundef nonnull %125, ptr noundef nonnull %185, ptr noundef nonnull %192, i32 noundef %13, i32 noundef %225) #6
+  call void @bn_mul_mont_gather5(ptr noundef %222, ptr noundef %223, ptr noundef nonnull %125, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13, i32 noundef %225) #6
   %226 = load ptr, ptr %7, align 8, !tbaa !13
   call void @bn_scatter5(ptr noundef %226, i64 noundef %127, ptr noundef nonnull %125, i64 noundef %indvars.iv457) #6
   %227 = load ptr, ptr %7, align 8, !tbaa !13
-  %228 = call i32 @bn_mul_mont(ptr noundef %227, ptr noundef %227, ptr noundef %227, ptr noundef nonnull %185, ptr noundef nonnull %192, i32 noundef %13) #6
+  %228 = call i32 @bn_mul_mont(ptr noundef %227, ptr noundef %227, ptr noundef %227, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13) #6
   %229 = load ptr, ptr %7, align 8, !tbaa !13
   %230 = shl nuw nsw i64 %indvars.iv457, 1
   call void @bn_scatter5(ptr noundef %229, i64 noundef %127, ptr noundef nonnull %125, i64 noundef %230) #6
@@ -1530,7 +1530,7 @@ thread-pre-split:                                 ; preds = %51, %54
   %233 = load ptr, ptr %8, align 8, !tbaa !13
   %234 = trunc nuw nsw i64 %indvars.iv460 to i32
   %235 = add nsw i32 %234, -1
-  call void @bn_mul_mont_gather5(ptr noundef %232, ptr noundef %233, ptr noundef nonnull %125, ptr noundef nonnull %185, ptr noundef nonnull %192, i32 noundef %13, i32 noundef %235) #6
+  call void @bn_mul_mont_gather5(ptr noundef %232, ptr noundef %233, ptr noundef nonnull %125, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13, i32 noundef %235) #6
   %236 = load ptr, ptr %7, align 8, !tbaa !13
   call void @bn_scatter5(ptr noundef %236, i64 noundef %127, ptr noundef nonnull %125, i64 noundef %indvars.iv460) #6
   %indvars.iv.next461 = add nuw nsw i64 %indvars.iv460, 2
@@ -1564,20 +1564,20 @@ thread-pre-split:                                 ; preds = %51, %54
 .lr.ph431:                                        ; preds = %.preheader404, %.lr.ph431
   %.0300430 = phi i32 [ %262, %.lr.ph431 ], [ %242, %.preheader404 ]
   %250 = load ptr, ptr %7, align 8, !tbaa !13
-  %251 = call i32 @bn_mul_mont(ptr noundef %250, ptr noundef %250, ptr noundef %250, ptr noundef nonnull %185, ptr noundef nonnull %192, i32 noundef %13) #6
+  %251 = call i32 @bn_mul_mont(ptr noundef %250, ptr noundef %250, ptr noundef %250, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13) #6
   %252 = load ptr, ptr %7, align 8, !tbaa !13
-  %253 = call i32 @bn_mul_mont(ptr noundef %252, ptr noundef %252, ptr noundef %252, ptr noundef nonnull %185, ptr noundef nonnull %192, i32 noundef %13) #6
+  %253 = call i32 @bn_mul_mont(ptr noundef %252, ptr noundef %252, ptr noundef %252, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13) #6
   %254 = load ptr, ptr %7, align 8, !tbaa !13
-  %255 = call i32 @bn_mul_mont(ptr noundef %254, ptr noundef %254, ptr noundef %254, ptr noundef nonnull %185, ptr noundef nonnull %192, i32 noundef %13) #6
+  %255 = call i32 @bn_mul_mont(ptr noundef %254, ptr noundef %254, ptr noundef %254, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13) #6
   %256 = load ptr, ptr %7, align 8, !tbaa !13
-  %257 = call i32 @bn_mul_mont(ptr noundef %256, ptr noundef %256, ptr noundef %256, ptr noundef nonnull %185, ptr noundef nonnull %192, i32 noundef %13) #6
+  %257 = call i32 @bn_mul_mont(ptr noundef %256, ptr noundef %256, ptr noundef %256, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13) #6
   %258 = load ptr, ptr %7, align 8, !tbaa !13
-  %259 = call i32 @bn_mul_mont(ptr noundef %258, ptr noundef %258, ptr noundef %258, ptr noundef nonnull %185, ptr noundef nonnull %192, i32 noundef %13) #6
+  %259 = call i32 @bn_mul_mont(ptr noundef %258, ptr noundef %258, ptr noundef %258, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13) #6
   %260 = load ptr, ptr %7, align 8, !tbaa !13
   %261 = load ptr, ptr %2, align 8, !tbaa !13
   %262 = add nsw i32 %.0300430, -5
   %263 = call i32 @bn_get_bits5(ptr noundef %261, i32 noundef %262) #6
-  call void @bn_mul_mont_gather5(ptr noundef %260, ptr noundef %260, ptr noundef nonnull %125, ptr noundef nonnull %185, ptr noundef nonnull %192, i32 noundef %13, i32 noundef %263) #6
+  call void @bn_mul_mont_gather5(ptr noundef %260, ptr noundef %260, ptr noundef nonnull %125, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13, i32 noundef %263) #6
   %264 = icmp samesign ugt i32 %.0300430, 5
   br i1 %264, label %.lr.ph431, label %.loopexit403, !llvm.loop !38
 
@@ -1587,7 +1587,7 @@ thread-pre-split:                                 ; preds = %51, %54
   %266 = load ptr, ptr %2, align 8, !tbaa !13
   %267 = add nsw i32 %.1301432, -5
   %268 = call i32 @bn_get_bits5(ptr noundef %266, i32 noundef %267) #6
-  call void @bn_power5(ptr noundef %265, ptr noundef %265, ptr noundef nonnull %125, ptr noundef nonnull %185, ptr noundef nonnull %192, i32 noundef %13, i32 noundef %268) #6
+  call void @bn_power5(ptr noundef %265, ptr noundef %265, ptr noundef nonnull %125, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13, i32 noundef %268) #6
   %269 = icmp samesign ugt i32 %.1301432, 5
   br i1 %269, label %.lr.ph433, label %.loopexit403, !llvm.loop !39
 

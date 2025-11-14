@@ -7524,9 +7524,12 @@ sub_12453:                                        ; preds = %sub_02452
   %.01267 = phi ptr [ null, %77 ], [ null, %80 ], [ null, %107 ], [ null, %124 ], [ null, %140 ], [ null, %541 ], [ null, %549 ], [ null, %590 ], [ null, %602 ], [ null, %622 ], [ null, %637 ], [ %680, %1570 ], [ %680, %1548 ], [ %680, %1469 ], [ %680, %911 ], [ null, %609 ], [ null, %596 ], [ null, %555 ], [ null, %._crit_edge2950 ], [ null, %246 ], [ null, %227 ], [ null, %205 ], [ null, %320 ], [ null, %288 ], [ null, %270 ], [ %680, %.thread2342 ], [ %680, %.thread2350 ], [ null, %.loopexit2544 ], [ %.11268, %._crit_edge3148 ], [ %.11268, %3432 ], [ %680, %1573 ]
   %.2 = phi ptr [ %.01264, %77 ], [ %.01264, %80 ], [ %.01264, %107 ], [ %.01264, %124 ], [ %.01264, %140 ], [ %.01264, %541 ], [ %.01264, %549 ], [ %.01264, %590 ], [ %.01264, %602 ], [ %.01264, %622 ], [ %.01264, %637 ], [ %.01264, %1570 ], [ %.01264, %1548 ], [ %.01264, %1469 ], [ %.01264, %911 ], [ %.01264, %609 ], [ %.01264, %596 ], [ %.01264, %555 ], [ %.01264, %._crit_edge2950 ], [ %.01264, %246 ], [ %.01264, %227 ], [ %.01264, %205 ], [ %.01264, %320 ], [ %.01264, %288 ], [ %.01264, %270 ], [ %.01264, %.thread2342 ], [ %.01264, %.thread2350 ], [ %.2.ph, %.loopexit2544 ], [ %.01264, %._crit_edge3148 ], [ %.01264, %3432 ], [ %.01264, %1573 ]
   %.b1577 = load i1, ptr @testmode, align 4
+  %or.cond82 = select i1 %3437, i1 %.b1577, i1 false
   %.b1627 = load i1, ptr @testmoderesult, align 4
-  %3438 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  call void @ERR_print_errors(ptr noundef %3438) #14
+  %3438 = zext i1 %.b1627 to i32
+  %.31326 = select i1 %or.cond82, i32 %3438, i32 %.01323
+  %3439 = load ptr, ptr @bio_err, align 8, !tbaa !19
+  call void @ERR_print_errors(ptr noundef %3439) #14
   %.not3220 = icmp eq i32 %.01417, 0
   br i1 %.not3220, label %._crit_edge3166, label %.lr.ph3165.preheader
 
@@ -7536,260 +7539,257 @@ sub_12453:                                        ; preds = %sub_02452
 
 .lr.ph3165:                                       ; preds = %.lr.ph3165.preheader, %._crit_edge3162
   %indvars.iv3862 = phi i64 [ 0, %.lr.ph3165.preheader ], [ %indvars.iv.next3863, %._crit_edge3162 ]
-  %3439 = getelementptr inbounds nuw %struct.loopargs_st, ptr %.01274, i64 %indvars.iv3862
-  %3440 = getelementptr inbounds nuw i8, ptr %3439, i64 32
-  %3441 = load ptr, ptr %3440, align 8, !tbaa !51
-  call void @CRYPTO_free(ptr noundef %3441, ptr noundef nonnull @.str.112, i32 noundef 4657) #14
-  %3442 = getelementptr inbounds nuw i8, ptr %3439, i64 40
-  %3443 = load ptr, ptr %3442, align 8, !tbaa !52
-  call void @CRYPTO_free(ptr noundef %3443, ptr noundef nonnull @.str.112, i32 noundef 4658) #14
+  %3440 = getelementptr inbounds nuw %struct.loopargs_st, ptr %.01274, i64 %indvars.iv3862
+  %3441 = getelementptr inbounds nuw i8, ptr %3440, i64 32
+  %3442 = load ptr, ptr %3441, align 8, !tbaa !51
+  call void @CRYPTO_free(ptr noundef %3442, ptr noundef nonnull @.str.112, i32 noundef 4657) #14
+  %3443 = getelementptr inbounds nuw i8, ptr %3440, i64 40
+  %3444 = load ptr, ptr %3443, align 8, !tbaa !52
+  call void @CRYPTO_free(ptr noundef %3444, ptr noundef nonnull @.str.112, i32 noundef 4658) #14
   call void @BN_free(ptr noundef null) #14
-  %3444 = load ptr, ptr %11, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3444) #14
-  %3445 = getelementptr inbounds nuw i8, ptr %3439, i64 96
-  %3446 = getelementptr inbounds nuw i8, ptr %3439, i64 152
-  %3447 = getelementptr inbounds nuw i8, ptr %3439, i64 208
-  %3448 = getelementptr inbounds nuw i8, ptr %3439, i64 264
-  br label %3449
+  %3445 = load ptr, ptr %11, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3445) #14
+  %3446 = getelementptr inbounds nuw i8, ptr %3440, i64 96
+  %3447 = getelementptr inbounds nuw i8, ptr %3440, i64 152
+  %3448 = getelementptr inbounds nuw i8, ptr %3440, i64 208
+  %3449 = getelementptr inbounds nuw i8, ptr %3440, i64 264
+  br label %3450
 
-3449:                                             ; preds = %.lr.ph3165, %3449
-  %indvars.iv3840 = phi i64 [ 0, %.lr.ph3165 ], [ %indvars.iv.next3841, %3449 ]
-  %3450 = getelementptr inbounds nuw ptr, ptr %3445, i64 %indvars.iv3840
-  %3451 = load ptr, ptr %3450, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3451) #14
-  %3452 = getelementptr inbounds nuw ptr, ptr %3446, i64 %indvars.iv3840
-  %3453 = load ptr, ptr %3452, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3453) #14
-  %3454 = getelementptr inbounds nuw ptr, ptr %3447, i64 %indvars.iv3840
-  %3455 = load ptr, ptr %3454, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3455) #14
-  %3456 = getelementptr inbounds nuw ptr, ptr %3448, i64 %indvars.iv3840
-  %3457 = load ptr, ptr %3456, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3457) #14
+3450:                                             ; preds = %.lr.ph3165, %3450
+  %indvars.iv3840 = phi i64 [ 0, %.lr.ph3165 ], [ %indvars.iv.next3841, %3450 ]
+  %3451 = getelementptr inbounds nuw ptr, ptr %3446, i64 %indvars.iv3840
+  %3452 = load ptr, ptr %3451, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3452) #14
+  %3453 = getelementptr inbounds nuw ptr, ptr %3447, i64 %indvars.iv3840
+  %3454 = load ptr, ptr %3453, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3454) #14
+  %3455 = getelementptr inbounds nuw ptr, ptr %3448, i64 %indvars.iv3840
+  %3456 = load ptr, ptr %3455, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3456) #14
+  %3457 = getelementptr inbounds nuw ptr, ptr %3449, i64 %indvars.iv3840
+  %3458 = load ptr, ptr %3457, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3458) #14
   %indvars.iv.next3841 = add nuw nsw i64 %indvars.iv3840, 1
   %exitcond3843.not = icmp eq i64 %indvars.iv.next3841, 7
-  br i1 %exitcond3843.not, label %3458, label %3449, !llvm.loop !166
+  br i1 %exitcond3843.not, label %3459, label %3450, !llvm.loop !166
 
-3458:                                             ; preds = %3449
-  %3459 = getelementptr inbounds nuw i8, ptr %3439, i64 1200
-  %3460 = load ptr, ptr %3459, align 8, !tbaa !59
-  call void @CRYPTO_free(ptr noundef %3460, ptr noundef nonnull @.str.112, i32 noundef 4669) #14
-  %3461 = getelementptr inbounds nuw i8, ptr %3439, i64 1208
-  %3462 = load ptr, ptr %3461, align 8, !tbaa !60
-  call void @CRYPTO_free(ptr noundef %3462, ptr noundef nonnull @.str.112, i32 noundef 4670) #14
-  %3463 = getelementptr inbounds nuw i8, ptr %3439, i64 1160
-  br label %3474
+3459:                                             ; preds = %3450
+  %3460 = getelementptr inbounds nuw i8, ptr %3440, i64 1200
+  %3461 = load ptr, ptr %3460, align 8, !tbaa !59
+  call void @CRYPTO_free(ptr noundef %3461, ptr noundef nonnull @.str.112, i32 noundef 4669) #14
+  %3462 = getelementptr inbounds nuw i8, ptr %3440, i64 1208
+  %3463 = load ptr, ptr %3462, align 8, !tbaa !60
+  call void @CRYPTO_free(ptr noundef %3463, ptr noundef nonnull @.str.112, i32 noundef 4670) #14
+  %3464 = getelementptr inbounds nuw i8, ptr %3440, i64 1160
+  br label %3475
 
-.preheader2466:                                   ; preds = %3474
-  %3464 = getelementptr inbounds nuw i8, ptr %3439, i64 320
-  %3465 = getelementptr inbounds nuw i8, ptr %3439, i64 336
-  %3466 = load ptr, ptr %3464, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3466) #14
+.preheader2466:                                   ; preds = %3475
+  %3465 = getelementptr inbounds nuw i8, ptr %3440, i64 320
+  %3466 = getelementptr inbounds nuw i8, ptr %3440, i64 336
   %3467 = load ptr, ptr %3465, align 8, !tbaa !15
   call void @EVP_PKEY_CTX_free(ptr noundef %3467) #14
-  %3468 = getelementptr inbounds nuw i8, ptr %3439, i64 328
-  %3469 = load ptr, ptr %3468, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3469) #14
-  %3470 = getelementptr inbounds nuw i8, ptr %3439, i64 344
-  %3471 = load ptr, ptr %3470, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3471) #14
-  %3472 = getelementptr inbounds nuw i8, ptr %3439, i64 352
-  %3473 = getelementptr inbounds nuw i8, ptr %3439, i64 528
-  br label %3478
+  %3468 = load ptr, ptr %3466, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3468) #14
+  %3469 = getelementptr inbounds nuw i8, ptr %3440, i64 328
+  %3470 = load ptr, ptr %3469, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3470) #14
+  %3471 = getelementptr inbounds nuw i8, ptr %3440, i64 344
+  %3472 = load ptr, ptr %3471, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3472) #14
+  %3473 = getelementptr inbounds nuw i8, ptr %3440, i64 352
+  %3474 = getelementptr inbounds nuw i8, ptr %3440, i64 528
+  br label %3479
 
-3474:                                             ; preds = %3458, %3474
-  %indvars.iv3844 = phi i64 [ 0, %3458 ], [ %indvars.iv.next3845, %3474 ]
-  %3475 = getelementptr inbounds nuw ptr, ptr %3463, i64 %indvars.iv3844
-  %3476 = load ptr, ptr %3475, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3476) #14
+3475:                                             ; preds = %3459, %3475
+  %indvars.iv3844 = phi i64 [ 0, %3459 ], [ %indvars.iv.next3845, %3475 ]
+  %3476 = getelementptr inbounds nuw ptr, ptr %3464, i64 %indvars.iv3844
+  %3477 = load ptr, ptr %3476, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3477) #14
   %indvars.iv.next3845 = add nuw nsw i64 %indvars.iv3844, 1
   %exitcond3847.not = icmp eq i64 %indvars.iv.next3845, 5
-  br i1 %exitcond3847.not, label %.preheader2466, label %3474, !llvm.loop !167
+  br i1 %exitcond3847.not, label %.preheader2466, label %3475, !llvm.loop !167
 
-.preheader2464:                                   ; preds = %3478
-  %3477 = getelementptr inbounds nuw i8, ptr %3439, i64 704
-  br label %3495
+.preheader2464:                                   ; preds = %3479
+  %3478 = getelementptr inbounds nuw i8, ptr %3440, i64 704
+  br label %3496
 
-3478:                                             ; preds = %.preheader2466, %3478
-  %indvars.iv3851 = phi i64 [ 0, %.preheader2466 ], [ %indvars.iv.next3852, %3478 ]
-  %3479 = getelementptr inbounds nuw ptr, ptr %3472, i64 %indvars.iv3851
-  %3480 = load ptr, ptr %3479, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3480) #14
-  %3481 = getelementptr inbounds nuw ptr, ptr %3473, i64 %indvars.iv3851
-  %3482 = load ptr, ptr %3481, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3482) #14
+3479:                                             ; preds = %.preheader2466, %3479
+  %indvars.iv3851 = phi i64 [ 0, %.preheader2466 ], [ %indvars.iv.next3852, %3479 ]
+  %3480 = getelementptr inbounds nuw ptr, ptr %3473, i64 %indvars.iv3851
+  %3481 = load ptr, ptr %3480, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3481) #14
+  %3482 = getelementptr inbounds nuw ptr, ptr %3474, i64 %indvars.iv3851
+  %3483 = load ptr, ptr %3482, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3483) #14
   %indvars.iv.next3852 = add nuw nsw i64 %indvars.iv3851, 1
   %exitcond3854.not = icmp eq i64 %indvars.iv.next3852, 22
-  br i1 %exitcond3854.not, label %.preheader2464, label %3478, !llvm.loop !168
+  br i1 %exitcond3854.not, label %.preheader2464, label %3479, !llvm.loop !168
 
-.preheader2463:                                   ; preds = %3495
-  %3483 = getelementptr inbounds nuw i8, ptr %3439, i64 896
-  %3484 = getelementptr inbounds nuw i8, ptr %3439, i64 912
-  %3485 = load ptr, ptr %3483, align 8, !tbaa !132
-  call void @EVP_MD_CTX_free(ptr noundef %3485) #14
+.preheader2463:                                   ; preds = %3496
+  %3484 = getelementptr inbounds nuw i8, ptr %3440, i64 896
+  %3485 = getelementptr inbounds nuw i8, ptr %3440, i64 912
   %3486 = load ptr, ptr %3484, align 8, !tbaa !132
   call void @EVP_MD_CTX_free(ptr noundef %3486) #14
-  %3487 = getelementptr inbounds nuw i8, ptr %3439, i64 904
-  %3488 = load ptr, ptr %3487, align 8, !tbaa !132
-  call void @EVP_MD_CTX_free(ptr noundef %3488) #14
-  %3489 = getelementptr inbounds nuw i8, ptr %3439, i64 920
-  %3490 = load ptr, ptr %3489, align 8, !tbaa !132
-  call void @EVP_MD_CTX_free(ptr noundef %3490) #14
-  %3491 = getelementptr inbounds nuw i8, ptr %3439, i64 928
-  %3492 = getelementptr inbounds nuw i8, ptr %3439, i64 936
-  %3493 = getelementptr inbounds nuw i8, ptr %3439, i64 944
-  %3494 = load ptr, ptr %3491, align 8, !tbaa !132
-  %.not1856 = icmp eq ptr %3494, null
-  br i1 %.not1856, label %3507, label %3504
+  %3487 = load ptr, ptr %3485, align 8, !tbaa !132
+  call void @EVP_MD_CTX_free(ptr noundef %3487) #14
+  %3488 = getelementptr inbounds nuw i8, ptr %3440, i64 904
+  %3489 = load ptr, ptr %3488, align 8, !tbaa !132
+  call void @EVP_MD_CTX_free(ptr noundef %3489) #14
+  %3490 = getelementptr inbounds nuw i8, ptr %3440, i64 920
+  %3491 = load ptr, ptr %3490, align 8, !tbaa !132
+  call void @EVP_MD_CTX_free(ptr noundef %3491) #14
+  %3492 = getelementptr inbounds nuw i8, ptr %3440, i64 928
+  %3493 = getelementptr inbounds nuw i8, ptr %3440, i64 936
+  %3494 = getelementptr inbounds nuw i8, ptr %3440, i64 944
+  %3495 = load ptr, ptr %3492, align 8, !tbaa !132
+  %.not1856 = icmp eq ptr %3495, null
+  br i1 %.not1856, label %3508, label %3505
 
-3495:                                             ; preds = %.preheader2464, %3495
-  %indvars.iv3855 = phi i64 [ 0, %.preheader2464 ], [ %indvars.iv.next3856, %3495 ]
-  %3496 = getelementptr inbounds nuw ptr, ptr %3477, i64 %indvars.iv3855
-  %3497 = load ptr, ptr %3496, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3497) #14
+3496:                                             ; preds = %.preheader2464, %3496
+  %indvars.iv3855 = phi i64 [ 0, %.preheader2464 ], [ %indvars.iv.next3856, %3496 ]
+  %3497 = getelementptr inbounds nuw ptr, ptr %3478, i64 %indvars.iv3855
+  %3498 = load ptr, ptr %3497, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3498) #14
   %indvars.iv.next3856 = add nuw nsw i64 %indvars.iv3855, 1
   %exitcond3858.not = icmp eq i64 %indvars.iv.next3856, 24
-  br i1 %exitcond3858.not, label %.preheader2463, label %3495, !llvm.loop !169
+  br i1 %exitcond3858.not, label %.preheader2463, label %3496, !llvm.loop !169
 
 .lr.ph3159:                                       ; preds = %.preheader2461
-  %3498 = getelementptr inbounds nuw i8, ptr %3439, i64 1232
-  %3499 = getelementptr inbounds nuw i8, ptr %3439, i64 2120
-  %3500 = getelementptr inbounds nuw i8, ptr %3439, i64 3008
-  %3501 = getelementptr inbounds nuw i8, ptr %3439, i64 5672
-  %3502 = getelementptr inbounds nuw i8, ptr %3439, i64 6560
-  %3503 = getelementptr inbounds nuw i8, ptr %3439, i64 7448
-  br label %3521
+  %3499 = getelementptr inbounds nuw i8, ptr %3440, i64 1232
+  %3500 = getelementptr inbounds nuw i8, ptr %3440, i64 2120
+  %3501 = getelementptr inbounds nuw i8, ptr %3440, i64 3008
+  %3502 = getelementptr inbounds nuw i8, ptr %3440, i64 5672
+  %3503 = getelementptr inbounds nuw i8, ptr %3440, i64 6560
+  %3504 = getelementptr inbounds nuw i8, ptr %3440, i64 7448
+  br label %3522
 
-3504:                                             ; preds = %.preheader2463
-  %3505 = call ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef nonnull %3494) #14
-  %.not1857 = icmp eq ptr %3505, null
-  br i1 %.not1857, label %3507, label %3506
+3505:                                             ; preds = %.preheader2463
+  %3506 = call ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef nonnull %3495) #14
+  %.not1857 = icmp eq ptr %3506, null
+  br i1 %.not1857, label %3508, label %3507
 
-3506:                                             ; preds = %3504
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %3505) #14
-  br label %3507
+3507:                                             ; preds = %3505
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %3506) #14
+  br label %3508
 
-3507:                                             ; preds = %3506, %3504, %.preheader2463
-  %3508 = load ptr, ptr %3491, align 8, !tbaa !132
-  call void @EVP_MD_CTX_free(ptr noundef %3508) #14
+3508:                                             ; preds = %3507, %3505, %.preheader2463
   %3509 = load ptr, ptr %3492, align 8, !tbaa !132
-  %.not1858 = icmp eq ptr %3509, null
-  br i1 %.not1858, label %.preheader2461, label %3510
+  call void @EVP_MD_CTX_free(ptr noundef %3509) #14
+  %3510 = load ptr, ptr %3493, align 8, !tbaa !132
+  %.not1858 = icmp eq ptr %3510, null
+  br i1 %.not1858, label %.preheader2461, label %3511
 
-3510:                                             ; preds = %3507
-  %3511 = call ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef nonnull %3509) #14
-  %.not1859 = icmp eq ptr %3511, null
-  br i1 %.not1859, label %.preheader2461, label %3512
+3511:                                             ; preds = %3508
+  %3512 = call ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef nonnull %3510) #14
+  %.not1859 = icmp eq ptr %3512, null
+  br i1 %.not1859, label %.preheader2461, label %3513
 
-3512:                                             ; preds = %3510
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %3511) #14
+3513:                                             ; preds = %3511
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %3512) #14
   br label %.preheader2461
 
-.preheader2461:                                   ; preds = %3512, %3510, %3507
-  %3513 = load ptr, ptr %3492, align 8, !tbaa !132
-  call void @EVP_MD_CTX_free(ptr noundef %3513) #14
-  %3514 = load ptr, ptr %3493, align 8, !tbaa !4
-  call void @EVP_PKEY_free(ptr noundef %3514) #14
-  %3515 = load i64, ptr @kems_algs_len, align 8, !tbaa !28
-  %.not3221 = icmp eq i64 %3515, 0
+.preheader2461:                                   ; preds = %3513, %3511, %3508
+  %3514 = load ptr, ptr %3493, align 8, !tbaa !132
+  call void @EVP_MD_CTX_free(ptr noundef %3514) #14
+  %3515 = load ptr, ptr %3494, align 8, !tbaa !4
+  call void @EVP_PKEY_free(ptr noundef %3515) #14
+  %3516 = load i64, ptr @kems_algs_len, align 8, !tbaa !28
+  %.not3221 = icmp eq i64 %3516, 0
   br i1 %.not3221, label %.preheader2460, label %.lr.ph3159
 
-.preheader2460:                                   ; preds = %3521, %.preheader2461
-  %3516 = load i64, ptr @sigs_algs_len, align 8, !tbaa !28
-  %.not3222 = icmp eq i64 %3516, 0
+.preheader2460:                                   ; preds = %3522, %.preheader2461
+  %3517 = load i64, ptr @sigs_algs_len, align 8, !tbaa !28
+  %.not3222 = icmp eq i64 %3517, 0
   br i1 %.not3222, label %._crit_edge3162, label %.lr.ph3161
 
 .lr.ph3161:                                       ; preds = %.preheader2460
-  %3517 = getelementptr inbounds nuw i8, ptr %3439, i64 8336
-  %3518 = getelementptr inbounds nuw i8, ptr %3439, i64 9224
-  %3519 = getelementptr inbounds nuw i8, ptr %3439, i64 10112
-  %3520 = getelementptr inbounds nuw i8, ptr %3439, i64 12776
-  br label %3539
+  %3518 = getelementptr inbounds nuw i8, ptr %3440, i64 8336
+  %3519 = getelementptr inbounds nuw i8, ptr %3440, i64 9224
+  %3520 = getelementptr inbounds nuw i8, ptr %3440, i64 10112
+  %3521 = getelementptr inbounds nuw i8, ptr %3440, i64 12776
+  br label %3540
 
-3521:                                             ; preds = %.lr.ph3159, %3521
-  %3522 = phi i64 [ 0, %.lr.ph3159 ], [ %3536, %3521 ]
-  %.2114393158 = phi i32 [ 0, %.lr.ph3159 ], [ %3535, %3521 ]
-  %3523 = getelementptr inbounds nuw ptr, ptr %3498, i64 %3522
-  %3524 = load ptr, ptr %3523, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3524) #14
-  %3525 = getelementptr inbounds nuw ptr, ptr %3499, i64 %3522
-  %3526 = load ptr, ptr %3525, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3526) #14
-  %3527 = getelementptr inbounds nuw ptr, ptr %3500, i64 %3522
-  %3528 = load ptr, ptr %3527, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3528) #14
-  %3529 = getelementptr inbounds nuw ptr, ptr %3501, i64 %3522
-  %3530 = load ptr, ptr %3529, align 8, !tbaa !23
-  call void @CRYPTO_free(ptr noundef %3530, ptr noundef nonnull @.str.112, i32 noundef 4714) #14
-  %3531 = getelementptr inbounds nuw ptr, ptr %3502, i64 %3522
-  %3532 = load ptr, ptr %3531, align 8, !tbaa !23
-  call void @CRYPTO_free(ptr noundef %3532, ptr noundef nonnull @.str.112, i32 noundef 4715) #14
-  %3533 = getelementptr inbounds nuw ptr, ptr %3503, i64 %3522
-  %3534 = load ptr, ptr %3533, align 8, !tbaa !23
-  call void @CRYPTO_free(ptr noundef %3534, ptr noundef nonnull @.str.112, i32 noundef 4716) #14
-  %3535 = add i32 %.2114393158, 1
-  %3536 = zext i32 %3535 to i64
-  %3537 = load i64, ptr @kems_algs_len, align 8, !tbaa !28
-  %3538 = icmp ugt i64 %3537, %3536
-  br i1 %3538, label %3521, label %.preheader2460, !llvm.loop !170
+3522:                                             ; preds = %.lr.ph3159, %3522
+  %3523 = phi i64 [ 0, %.lr.ph3159 ], [ %3537, %3522 ]
+  %.2114393158 = phi i32 [ 0, %.lr.ph3159 ], [ %3536, %3522 ]
+  %3524 = getelementptr inbounds nuw ptr, ptr %3499, i64 %3523
+  %3525 = load ptr, ptr %3524, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3525) #14
+  %3526 = getelementptr inbounds nuw ptr, ptr %3500, i64 %3523
+  %3527 = load ptr, ptr %3526, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3527) #14
+  %3528 = getelementptr inbounds nuw ptr, ptr %3501, i64 %3523
+  %3529 = load ptr, ptr %3528, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3529) #14
+  %3530 = getelementptr inbounds nuw ptr, ptr %3502, i64 %3523
+  %3531 = load ptr, ptr %3530, align 8, !tbaa !23
+  call void @CRYPTO_free(ptr noundef %3531, ptr noundef nonnull @.str.112, i32 noundef 4714) #14
+  %3532 = getelementptr inbounds nuw ptr, ptr %3503, i64 %3523
+  %3533 = load ptr, ptr %3532, align 8, !tbaa !23
+  call void @CRYPTO_free(ptr noundef %3533, ptr noundef nonnull @.str.112, i32 noundef 4715) #14
+  %3534 = getelementptr inbounds nuw ptr, ptr %3504, i64 %3523
+  %3535 = load ptr, ptr %3534, align 8, !tbaa !23
+  call void @CRYPTO_free(ptr noundef %3535, ptr noundef nonnull @.str.112, i32 noundef 4716) #14
+  %3536 = add i32 %.2114393158, 1
+  %3537 = zext i32 %3536 to i64
+  %3538 = load i64, ptr @kems_algs_len, align 8, !tbaa !28
+  %3539 = icmp ugt i64 %3538, %3537
+  br i1 %3539, label %3522, label %.preheader2460, !llvm.loop !170
 
-3539:                                             ; preds = %.lr.ph3161, %3539
-  %3540 = phi i64 [ 0, %.lr.ph3161 ], [ %3550, %3539 ]
-  %.2214403160 = phi i32 [ 0, %.lr.ph3161 ], [ %3549, %3539 ]
-  %3541 = getelementptr inbounds nuw ptr, ptr %3517, i64 %3540
-  %3542 = load ptr, ptr %3541, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3542) #14
-  %3543 = getelementptr inbounds nuw ptr, ptr %3518, i64 %3540
-  %3544 = load ptr, ptr %3543, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3544) #14
-  %3545 = getelementptr inbounds nuw ptr, ptr %3519, i64 %3540
-  %3546 = load ptr, ptr %3545, align 8, !tbaa !15
-  call void @EVP_PKEY_CTX_free(ptr noundef %3546) #14
-  %3547 = getelementptr inbounds nuw ptr, ptr %3520, i64 %3540
-  %3548 = load ptr, ptr %3547, align 8, !tbaa !23
-  call void @CRYPTO_free(ptr noundef %3548, ptr noundef nonnull @.str.112, i32 noundef 4722) #14
-  %3549 = add i32 %.2214403160, 1
-  %3550 = zext i32 %3549 to i64
-  %3551 = load i64, ptr @sigs_algs_len, align 8, !tbaa !28
-  %3552 = icmp ugt i64 %3551, %3550
-  br i1 %3552, label %3539, label %._crit_edge3162, !llvm.loop !171
+3540:                                             ; preds = %.lr.ph3161, %3540
+  %3541 = phi i64 [ 0, %.lr.ph3161 ], [ %3551, %3540 ]
+  %.2214403160 = phi i32 [ 0, %.lr.ph3161 ], [ %3550, %3540 ]
+  %3542 = getelementptr inbounds nuw ptr, ptr %3518, i64 %3541
+  %3543 = load ptr, ptr %3542, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3543) #14
+  %3544 = getelementptr inbounds nuw ptr, ptr %3519, i64 %3541
+  %3545 = load ptr, ptr %3544, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3545) #14
+  %3546 = getelementptr inbounds nuw ptr, ptr %3520, i64 %3541
+  %3547 = load ptr, ptr %3546, align 8, !tbaa !15
+  call void @EVP_PKEY_CTX_free(ptr noundef %3547) #14
+  %3548 = getelementptr inbounds nuw ptr, ptr %3521, i64 %3541
+  %3549 = load ptr, ptr %3548, align 8, !tbaa !23
+  call void @CRYPTO_free(ptr noundef %3549, ptr noundef nonnull @.str.112, i32 noundef 4722) #14
+  %3550 = add i32 %.2214403160, 1
+  %3551 = zext i32 %3550 to i64
+  %3552 = load i64, ptr @sigs_algs_len, align 8, !tbaa !28
+  %3553 = icmp ugt i64 %3552, %3551
+  br i1 %3553, label %3540, label %._crit_edge3162, !llvm.loop !171
 
-._crit_edge3162:                                  ; preds = %3539, %.preheader2460
-  %3553 = getelementptr inbounds nuw i8, ptr %3439, i64 952
-  %3554 = load ptr, ptr %3553, align 8, !tbaa !57
-  call void @CRYPTO_free(ptr noundef %3554, ptr noundef nonnull @.str.112, i32 noundef 4724) #14
-  %3555 = getelementptr inbounds nuw i8, ptr %3439, i64 960
-  %3556 = load ptr, ptr %3555, align 8, !tbaa !58
-  call void @CRYPTO_free(ptr noundef %3556, ptr noundef nonnull @.str.112, i32 noundef 4725) #14
+._crit_edge3162:                                  ; preds = %3540, %.preheader2460
+  %3554 = getelementptr inbounds nuw i8, ptr %3440, i64 952
+  %3555 = load ptr, ptr %3554, align 8, !tbaa !57
+  call void @CRYPTO_free(ptr noundef %3555, ptr noundef nonnull @.str.112, i32 noundef 4724) #14
+  %3556 = getelementptr inbounds nuw i8, ptr %3440, i64 960
+  %3557 = load ptr, ptr %3556, align 8, !tbaa !58
+  call void @CRYPTO_free(ptr noundef %3557, ptr noundef nonnull @.str.112, i32 noundef 4725) #14
   %indvars.iv.next3863 = add nuw nsw i64 %indvars.iv3862, 1
   %exitcond3866.not = icmp eq i64 %indvars.iv.next3863, %wide.trip.count3865
   br i1 %exitcond3866.not, label %._crit_edge3166, label %.lr.ph3165, !llvm.loop !172
 
 ._crit_edge3166:                                  ; preds = %._crit_edge3162, %.loopexit2467
-  %3557 = load ptr, ptr @evp_hmac_name, align 8, !tbaa !23
-  call void @CRYPTO_free(ptr noundef %3557, ptr noundef nonnull @.str.112, i32 noundef 4727) #14
-  %3558 = load ptr, ptr @evp_cmac_name, align 8, !tbaa !23
-  call void @CRYPTO_free(ptr noundef %3558, ptr noundef nonnull @.str.112, i32 noundef 4728) #14
-  %3559 = load i64, ptr @kems_algs_len, align 8, !tbaa !28
-  %.not3223 = icmp eq i64 %3559, 0
+  %3558 = load ptr, ptr @evp_hmac_name, align 8, !tbaa !23
+  call void @CRYPTO_free(ptr noundef %3558, ptr noundef nonnull @.str.112, i32 noundef 4727) #14
+  %3559 = load ptr, ptr @evp_cmac_name, align 8, !tbaa !23
+  call void @CRYPTO_free(ptr noundef %3559, ptr noundef nonnull @.str.112, i32 noundef 4728) #14
+  %3560 = load i64, ptr @kems_algs_len, align 8, !tbaa !28
+  %.not3223 = icmp eq i64 %3560, 0
   br i1 %.not3223, label %._crit_edge3170, label %.lr.ph3169
 
 .lr.ph3169:                                       ; preds = %._crit_edge3166, %.lr.ph3169
-  %3560 = phi i64 [ %3564, %.lr.ph3169 ], [ 0, %._crit_edge3166 ]
-  %.2314413167 = phi i32 [ %3563, %.lr.ph3169 ], [ 0, %._crit_edge3166 ]
-  %3561 = getelementptr inbounds nuw ptr, ptr @kems_algname, i64 %3560
-  %3562 = load ptr, ptr %3561, align 8, !tbaa !23
-  call void @CRYPTO_free(ptr noundef %3562, ptr noundef nonnull @.str.112, i32 noundef 4730) #14
-  %3563 = add i32 %.2314413167, 1
-  %3564 = zext i32 %3563 to i64
-  %3565 = load i64, ptr @kems_algs_len, align 8, !tbaa !28
-  %3566 = icmp ugt i64 %3565, %3564
-  br i1 %3566, label %.lr.ph3169, label %._crit_edge3170, !llvm.loop !173
+  %3561 = phi i64 [ %3565, %.lr.ph3169 ], [ 0, %._crit_edge3166 ]
+  %.2314413167 = phi i32 [ %3564, %.lr.ph3169 ], [ 0, %._crit_edge3166 ]
+  %3562 = getelementptr inbounds nuw ptr, ptr @kems_algname, i64 %3561
+  %3563 = load ptr, ptr %3562, align 8, !tbaa !23
+  call void @CRYPTO_free(ptr noundef %3563, ptr noundef nonnull @.str.112, i32 noundef 4730) #14
+  %3564 = add i32 %.2314413167, 1
+  %3565 = zext i32 %3564 to i64
+  %3566 = load i64, ptr @kems_algs_len, align 8, !tbaa !28
+  %3567 = icmp ugt i64 %3566, %3565
+  br i1 %3567, label %.lr.ph3169, label %._crit_edge3170, !llvm.loop !173
 
 ._crit_edge3170:                                  ; preds = %.lr.ph3169, %._crit_edge3166
-  %or.cond82 = select i1 %3437, i1 %.b1577, i1 false
-  %3567 = zext i1 %.b1627 to i32
-  %.31326 = select i1 %or.cond82, i32 %3567, i32 %.01323
   %.not1851 = icmp eq ptr %.01338, null
   br i1 %.not1851, label %3569, label %3568
 

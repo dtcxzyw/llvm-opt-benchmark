@@ -85,7 +85,7 @@ define dso_local i64 @meshopt_encodeVertexBufferLevel(ptr noundef %0, i64 nounde
   %.04461.i = phi ptr [ %43, %42 ], [ %scevgep, %62 ]
   %.04660.i = phi i32 [ %44, %42 ], [ %57, %62 ]
   %.04859.i = phi i64 [ 0, %42 ], [ %65, %62 ]
-  %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i, i64 15)
+  %umin.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i, i64 15)
   br label %45
 
 45:                                               ; preds = %45, %.preheader53.i
@@ -109,11 +109,11 @@ define dso_local i64 @meshopt_encodeVertexBufferLevel(ptr noundef %0, i64 nounde
   %59 = or i32 %58, %.05054.i
   %60 = getelementptr inbounds nuw i8, ptr %.157.i, i64 %4
   %61 = add nuw nsw i64 %.04955.i, 1
-  %exitcond.not.i = icmp eq i64 %.04955.i, %umin
+  %exitcond.not.i = icmp eq i64 %.04955.i, %umin.i
   br i1 %exitcond.not.i, label %.critedge.i, label %45, !llvm.loop !9
 
 62:                                               ; preds = %.critedge.i
-  %63 = add nuw nsw i64 %umin, 1
+  %63 = add nuw nsw i64 %umin.i, 1
   %64 = mul i64 %4, %63
   %scevgep = getelementptr i8, ptr %.04461.i, i64 %64
   %65 = add nuw i64 %.04859.i, 16
@@ -741,53 +741,53 @@ _ZN7meshoptL19estimateControlZeroEPKhm.exit.i.i:  ; preds = %.lr.ph.i.i71.i
   %.04460.i.i = phi i64 [ %422, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit55.i.i ], [ %284, %_ZN7meshoptL19estimateControlZeroEPKhm.exit.i.i ]
   %.04559.i.i = phi i64 [ %423, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit55.i.i ], [ 0, %_ZN7meshoptL19estimateControlZeroEPKhm.exit.i.i ]
   %393 = getelementptr inbounds nuw i8, ptr %7, i64 %.04559.i.i
-  br label %394
+  %.val.i47.i.i = load i64, ptr %393, align 16
+  %394 = getelementptr i8, ptr %393, i64 8
+  %.val15.i.i.i = load i64, ptr %394, align 8
+  br label %395
 
-394:                                              ; preds = %394, %.preheader135.i
-  %.017.i.i.i = phi i64 [ 0, %.preheader135.i ], [ %400, %394 ]
-  %.01316.i.i.i = phi i64 [ 2, %.preheader135.i ], [ %399, %394 ]
-  %395 = getelementptr inbounds nuw i8, ptr %393, i64 %.017.i.i.i
-  %396 = load i8, ptr %395, align 1, !tbaa !8
-  %397 = icmp ne i8 %396, 0
-  %398 = zext i1 %397 to i64
-  %399 = add i64 %.01316.i.i.i, %398
-  %400 = add nuw nsw i64 %.017.i.i.i, 1
-  %exitcond.not.i.i72.i = icmp eq i64 %400, 16
-  br i1 %exitcond.not.i.i72.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i, label %394, !llvm.loop !24
+395:                                              ; preds = %395, %.preheader135.i
+  %.017.i.i.i = phi i64 [ 0, %.preheader135.i ], [ %401, %395 ]
+  %.01316.i.i.i = phi i64 [ 2, %.preheader135.i ], [ %400, %395 ]
+  %396 = getelementptr inbounds nuw i8, ptr %393, i64 %.017.i.i.i
+  %397 = load i8, ptr %396, align 1, !tbaa !8
+  %398 = icmp ne i8 %397, 0
+  %399 = zext i1 %398 to i64
+  %400 = add i64 %.01316.i.i.i, %399
+  %401 = add nuw nsw i64 %.017.i.i.i, 1
+  %exitcond.not.i.i72.i = icmp eq i64 %401, 16
+  br i1 %exitcond.not.i.i72.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i, label %395, !llvm.loop !24
 
-_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i: ; preds = %394, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i
-  %.017.i48.i.i = phi i64 [ %406, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ], [ 0, %394 ]
-  %.01316.i49.i.i = phi i64 [ %405, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ], [ 4, %394 ]
-  %401 = getelementptr inbounds nuw i8, ptr %393, i64 %.017.i48.i.i
-  %402 = load i8, ptr %401, align 1, !tbaa !8
-  %403 = icmp ugt i8 %402, 2
-  %404 = zext i1 %403 to i64
-  %405 = add i64 %.01316.i49.i.i, %404
-  %406 = add nuw nsw i64 %.017.i48.i.i, 1
-  %exitcond.not.i50.i.i = icmp eq i64 %406, 16
+_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i: ; preds = %395, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i
+  %.017.i48.i.i = phi i64 [ %407, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ], [ 0, %395 ]
+  %.01316.i49.i.i = phi i64 [ %406, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ], [ 4, %395 ]
+  %402 = getelementptr inbounds nuw i8, ptr %393, i64 %.017.i48.i.i
+  %403 = load i8, ptr %402, align 1, !tbaa !8
+  %404 = icmp ugt i8 %403, 2
+  %405 = zext i1 %404 to i64
+  %406 = add i64 %.01316.i49.i.i, %405
+  %407 = add nuw nsw i64 %.017.i48.i.i, 1
+  %exitcond.not.i50.i.i = icmp eq i64 %407, 16
   br i1 %exitcond.not.i50.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i, !llvm.loop !24
 
 _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i: ; preds = %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i
-  %.017.i52.i.i = phi i64 [ %412, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i ], [ 0, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ]
-  %.01316.i53.i.i = phi i64 [ %411, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i ], [ 8, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ]
-  %407 = getelementptr inbounds nuw i8, ptr %393, i64 %.017.i52.i.i
-  %408 = load i8, ptr %407, align 1, !tbaa !8
-  %409 = icmp ugt i8 %408, 14
-  %410 = zext i1 %409 to i64
-  %411 = add i64 %.01316.i53.i.i, %410
-  %412 = add nuw nsw i64 %.017.i52.i.i, 1
-  %exitcond.not.i54.i.i = icmp eq i64 %412, 16
+  %.017.i52.i.i = phi i64 [ %413, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i ], [ 0, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ]
+  %.01316.i53.i.i = phi i64 [ %412, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i ], [ 8, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ]
+  %408 = getelementptr inbounds nuw i8, ptr %393, i64 %.017.i52.i.i
+  %409 = load i8, ptr %408, align 1, !tbaa !8
+  %410 = icmp ugt i8 %409, 14
+  %411 = zext i1 %410 to i64
+  %412 = add i64 %.01316.i53.i.i, %411
+  %413 = add nuw nsw i64 %.017.i52.i.i, 1
+  %exitcond.not.i54.i.i = icmp eq i64 %413, 16
   br i1 %exitcond.not.i54.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit55.i.i, label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i, !llvm.loop !24
 
 _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit55.i.i: ; preds = %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit51.i.i
-  %.val.i47.i.i = load i64, ptr %393, align 16
-  %413 = getelementptr i8, ptr %393, i64 8
-  %.val15.i.i.i = load i64, ptr %413, align 8
   %414 = or i64 %.val15.i.i.i, %.val.i47.i.i
   %415 = icmp ne i64 %414, 0
   %416 = sext i1 %415 to i64
-  %417 = tail call i64 @llvm.umin.i64(i64 %399, i64 %405)
-  %418 = tail call i64 @llvm.umin.i64(i64 %417, i64 %411)
+  %417 = tail call i64 @llvm.umin.i64(i64 %400, i64 %406)
+  %418 = tail call i64 @llvm.umin.i64(i64 %417, i64 %412)
   %419 = tail call i64 @llvm.umin.i64(i64 %418, i64 %416)
   %420 = add i64 %419, %.04361.i.i
   %421 = tail call i64 @llvm.umin.i64(i64 %418, i64 16)

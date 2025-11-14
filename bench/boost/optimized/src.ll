@@ -31288,58 +31288,58 @@ _ZNK5boost4json12_GLOBAL__N_112value_hasherclIRKNS0_6stringEEEvOT_.exit: ; preds
 85:                                               ; preds = %2
   %86 = load ptr, ptr %0, align 8, !tbaa !614
   %87 = load i64, ptr %86, align 8, !tbaa !11
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !35
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = load i32, ptr %89, align 8, !tbaa !40
-  %92 = zext i32 %91 to i64
-  %.idx53 = mul nuw nsw i64 %92, 24
-  %93 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx53
-  %.not.i.i48 = icmp eq i32 %91, 0
+  %88 = add i64 %87, 2654435769
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %90 = load ptr, ptr %89, align 8, !tbaa !35
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %92 = load i32, ptr %90, align 8, !tbaa !40
+  %93 = zext i32 %92 to i64
+  %.idx53 = mul nuw nsw i64 %93, 24
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx53
+  %.not.i.i48 = icmp eq i32 %92, 0
   br i1 %.not.i.i48, label %_ZNK5boost4json12_GLOBAL__N_112value_hasherclIRKNS0_5arrayEEEvOT_.exit, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %85, %.lr.ph51
-  %.0.i.i50 = phi ptr [ %117, %.lr.ph51 ], [ %90, %85 ]
-  %.049 = phi i64 [ %116, %.lr.ph51 ], [ 0, %85 ]
-  %94 = add i64 %.049, 2654435769
+  %.0.i.i50 = phi ptr [ %118, %.lr.ph51 ], [ %91, %85 ]
+  %.049 = phi i64 [ %117, %.lr.ph51 ], [ 0, %85 ]
+  %95 = add i64 %.049, 2654435769
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i50, i64 8
-  %96 = load i8, ptr %95, align 8, !tbaa !15
-  %97 = and i8 %96, 63
-  %.not.i.i.i = icmp eq i8 %97, 2
-  %98 = select i1 %.not.i.i.i, i8 3, i8 %97
-  %99 = zext nneg i8 %98 to i64
-  %100 = mul i64 %99, 1051668233026429277
-  %101 = add i64 %100, 1650762746860425525
-  %102 = lshr i64 %101, 32
-  %103 = xor i64 %102, %101
-  %104 = mul i64 %103, 1051668233026429277
-  %105 = lshr i64 %104, 28
-  %106 = xor i64 %105, %104
-  store i64 %106, ptr %4, align 8, !tbaa !11
+  %96 = getelementptr inbounds nuw i8, ptr %.0.i.i50, i64 8
+  %97 = load i8, ptr %96, align 8, !tbaa !15
+  %98 = and i8 %97, 63
+  %.not.i.i.i = icmp eq i8 %98, 2
+  %99 = select i1 %.not.i.i.i, i8 3, i8 %98
+  %100 = zext nneg i8 %99 to i64
+  %101 = mul i64 %100, 1051668233026429277
+  %102 = add i64 %101, 1650762746860425525
+  %103 = lshr i64 %102, 32
+  %104 = xor i64 %103, %102
+  %105 = mul i64 %104, 1051668233026429277
+  %106 = lshr i64 %105, 28
+  %107 = xor i64 %106, %105
+  store i64 %107, ptr %4, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !42
   call fastcc void @_ZN5boost4json5visitINS0_12_GLOBAL__N_112value_hasherEEEDTclscT_fp_clL_ZSt7declvalIRKDnEDTcl9__declvalIS4_ELi0EEEvEEEEOS4_RKNS0_5valueE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i50)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %107 = load i64, ptr %4, align 8, !tbaa !11
+  %108 = load i64, ptr %4, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %108 = add i64 %94, %107
-  %109 = lshr i64 %108, 32
-  %110 = xor i64 %109, %108
-  %111 = mul i64 %110, 1051668233026429277
-  %112 = lshr i64 %111, 32
-  %113 = xor i64 %112, %111
-  %114 = mul i64 %113, 1051668233026429277
-  %115 = lshr i64 %114, 28
-  %116 = xor i64 %115, %114
-  %117 = getelementptr inbounds nuw i8, ptr %.0.i.i50, i64 24
-  %.not.i.i = icmp eq ptr %117, %93
+  %109 = add i64 %95, %108
+  %110 = lshr i64 %109, 32
+  %111 = xor i64 %110, %109
+  %112 = mul i64 %111, 1051668233026429277
+  %113 = lshr i64 %112, 32
+  %114 = xor i64 %113, %112
+  %115 = mul i64 %114, 1051668233026429277
+  %116 = lshr i64 %115, 28
+  %117 = xor i64 %116, %115
+  %118 = getelementptr inbounds nuw i8, ptr %.0.i.i50, i64 24
+  %.not.i.i = icmp eq ptr %118, %94
   br i1 %.not.i.i, label %_ZNK5boost4json12_GLOBAL__N_112value_hasherclIRKNS0_5arrayEEEvOT_.exit, label %.lr.ph51, !llvm.loop !80
 
 _ZNK5boost4json12_GLOBAL__N_112value_hasherclIRKNS0_5arrayEEEvOT_.exit: ; preds = %.lr.ph51, %85
-  %.0.lcssa = phi i64 [ 0, %85 ], [ %116, %.lr.ph51 ]
-  %118 = add i64 %87, 2654435769
-  %119 = add i64 %118, %.0.lcssa
+  %.0.lcssa = phi i64 [ 0, %85 ], [ %117, %.lr.ph51 ]
+  %119 = add i64 %88, %.0.lcssa
   br label %176
 
 120:                                              ; preds = %2

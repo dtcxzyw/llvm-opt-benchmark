@@ -343,14 +343,14 @@ _ZN4llvm3opt14DerivedArgListD2Ev.exit:            ; preds = %_ZN4llvm11SmallVect
   br label %75
 
 75:                                               ; preds = %74, %70
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %77 = load ptr, ptr %76, align 8, !tbaa !64
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %.not3839 = icmp eq ptr %77, %78
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %78 = load ptr, ptr %77, align 8, !tbaa !64
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %.not3839 = icmp eq ptr %78, %79
   br i1 %.not3839, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %183, %75
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %81 = load ptr, ptr %80, align 8, !tbaa !150
   %.not.i8 = icmp eq ptr %81, null
@@ -411,7 +411,7 @@ _ZNSt6vectorISt8optionalIN4llvm9StringRefEESaIS3_EED2Ev.exit: ; preds = %_ZNSt14
 _ZN4llvm11SmallVectorIPKcLj16EED2Ev.exit:         ; preds = %_ZNSt6vectorISt8optionalIN4llvm9StringRefEESaIS3_EED2Ev.exit, %115
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %117 = load ptr, ptr %116, align 8, !tbaa !63
-  call void @_ZNSt8_Rb_treeIN5clang6driver11Compilation9TCArgsKeyESt4pairIKS3_PN4llvm3opt14DerivedArgListEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef %117)
+  call void @_ZNSt8_Rb_treeIN5clang6driver11Compilation9TCArgsKeyESt4pairIKS3_PN4llvm3opt14DerivedArgListEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef %117)
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %119 = load ptr, ptr %118, align 8, !tbaa !69
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -522,7 +522,7 @@ _ZNSt6vectorISt10unique_ptrIN5clang6driver6ActionESt14default_deleteIS3_EESaIS6_
   ret void
 
 .lr.ph:                                           ; preds = %75, %183
-  %.sroa.035.040 = phi ptr [ %184, %183 ], [ %77, %75 ]
+  %.sroa.035.040 = phi ptr [ %184, %183 ], [ %78, %75 ]
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.035.040, i64 64
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   %157 = load ptr, ptr %43, align 8, !tbaa !68
@@ -601,7 +601,7 @@ _ZN4llvm3opt14DerivedArgListD2Ev.exit33:          ; preds = %_ZN4llvm11SmallVect
 
 183:                                              ; preds = %_ZN4llvm3opt14DerivedArgListD2Ev.exit33, %.lr.ph
   %184 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.035.040) #22
-  %.not38 = icmp eq ptr %184, %78
+  %.not38 = icmp eq ptr %184, %79
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 }
 
@@ -2230,45 +2230,45 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6driver9JobActionEPKcNS_12DenseMapI
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 2894, ptr %104, align 8, !tbaa !291
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %111
+  br label %112
 
-106:                                              ; preds = %116
+106:                                              ; preds = %117
   %107 = load ptr, ptr %105, align 8, !tbaa !68
   call void @_ZNK4llvm3opt7ArgList12ClaimAllArgsEv(ptr noundef nonnull align 8 dereferenceable(176) %107) #20
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %109 = load ptr, ptr %108, align 8, !tbaa !64
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %.not4750 = icmp eq ptr %109, %110
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %110 = load ptr, ptr %109, align 8, !tbaa !64
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %.not4750 = icmp eq ptr %110, %111
   br i1 %.not4750, label %._crit_edge, label %.lr.ph
 
-111:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5clearEv.exit29, %116
-  %.0.idx49 = phi i64 [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5clearEv.exit29 ], [ %.0.add, %116 ]
+112:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5clearEv.exit29, %117
+  %.0.idx49 = phi i64 [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang6driver9JobActionEPKcNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E5clearEv.exit29 ], [ %.0.add, %117 ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.0.idx49
-  %112 = load ptr, ptr %105, align 8, !tbaa !68
+  %113 = load ptr, ptr %105, align 8, !tbaa !68
   %.sroa.05.0.copyload = load i32, ptr %.0.ptr, align 4, !tbaa !255
-  %113 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJNS0_12OptSpecifierEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %112, i32 %.sroa.05.0.copyload)
-  %.not46 = icmp eq ptr %113, null
-  br i1 %.not46, label %116, label %114
+  %114 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJNS0_12OptSpecifierEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %113, i32 %.sroa.05.0.copyload)
+  %.not46 = icmp eq ptr %114, null
+  br i1 %.not46, label %117, label %115
 
-114:                                              ; preds = %111
-  %115 = load ptr, ptr %105, align 8, !tbaa !68
-  call void @_ZN4llvm3opt7ArgList8eraseArgENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(176) %115, i32 %.sroa.05.0.copyload) #20
-  br label %116
+115:                                              ; preds = %112
+  %116 = load ptr, ptr %105, align 8, !tbaa !68
+  call void @_ZN4llvm3opt7ArgList8eraseArgENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(176) %116, i32 %.sroa.05.0.copyload) #20
+  br label %117
 
-116:                                              ; preds = %114, %111
+117:                                              ; preds = %115, %112
   %.0.add = add nuw nsw i64 %.0.idx49, 4
   %.not = icmp eq i64 %.0.add, 44
-  br i1 %.not, label %106, label %111
+  br i1 %.not, label %106, label %112
 
 ._crit_edge:                                      ; preds = %175, %106
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %119 = load ptr, ptr %118, align 8, !tbaa !63
-  call void @_ZNSt8_Rb_treeIN5clang6driver11Compilation9TCArgsKeyESt4pairIKS3_PN4llvm3opt14DerivedArgListEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %117, ptr noundef %119)
+  call void @_ZNSt8_Rb_treeIN5clang6driver11Compilation9TCArgsKeyESt4pairIKS3_PN4llvm3opt14DerivedArgListEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %108, ptr noundef %119)
   store ptr null, ptr %118, align 8, !tbaa !63
-  store ptr %110, ptr %108, align 8, !tbaa !64
+  store ptr %111, ptr %109, align 8, !tbaa !64
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr %110, ptr %120, align 8, !tbaa !65
+  store ptr %111, ptr %120, align 8, !tbaa !65
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i64 0, ptr %121, align 8, !tbaa !66
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -2353,7 +2353,7 @@ _ZNSt6vectorISt8optionalIN4llvm9StringRefEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_
   ret void
 
 .lr.ph:                                           ; preds = %106, %175
-  %.sroa.037.051 = phi ptr [ %176, %175 ], [ %109, %106 ]
+  %.sroa.037.051 = phi ptr [ %176, %175 ], [ %110, %106 ]
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.037.051, i64 64
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   %149 = load ptr, ptr %105, align 8, !tbaa !68
@@ -2432,7 +2432,7 @@ _ZN4llvm3opt14DerivedArgListD2Ev.exit:            ; preds = %_ZN4llvm11SmallVect
 
 175:                                              ; preds = %_ZN4llvm3opt14DerivedArgListD2Ev.exit, %.lr.ph
   %176 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.037.051) #22
-  %.not47 = icmp eq ptr %176, %110
+  %.not47 = icmp eq ptr %176, %111
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 }
 

@@ -865,18 +865,15 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE6resizeEm.exit: ; preds = %25
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6resizeEm.exit.thread51, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6resizeEm.exit
   %.shrunk = phi i32 [ %22, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6resizeEm.exit ], [ %22, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6resizeEm.exit.thread51 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ %22, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.i ]
   %.pre3847 = phi ptr [ %9, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6resizeEm.exit ], [ %.pre38.pre.pre, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6resizeEm.exit.thread51 ], [ %9, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ %.pre38.pre.pre, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.i ]
-  %31 = getelementptr inbounds i8, ptr %1, i64 -32
+  %31 = zext i32 %.shrunk to i64
+  %32 = getelementptr inbounds i8, ptr %1, i64 -32
   %wide.trip.count = zext i32 %.0.i.i21 to i64
   br label %40
 
-._crit_edge.loopexit:                             ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit24
-  %32 = zext i32 %.shrunk to i64
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6resizeEm.exit
-  %33 = phi i64 [ 1, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6resizeEm.exit ], [ %32, %._crit_edge.loopexit ]
-  %.pre3846 = phi ptr [ %9, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6resizeEm.exit ], [ %.pre3847, %._crit_edge.loopexit ]
-  %.pre-phi = phi i64 [ 0, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6resizeEm.exit ], [ %wide.trip.count, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit24, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6resizeEm.exit
+  %33 = phi i64 [ 1, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6resizeEm.exit ], [ %31, %_ZNK4llvm6MDNode10getOperandEj.exit24 ]
+  %.pre3846 = phi ptr [ %9, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6resizeEm.exit ], [ %.pre3847, %_ZNK4llvm6MDNode10getOperandEj.exit24 ]
+  %.pre-phi = phi i64 [ 0, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6resizeEm.exit ], [ %wide.trip.count, %_ZNK4llvm6MDNode10getOperandEj.exit24 ]
   %34 = getelementptr inbounds nuw ptr, ptr %.pre3846, i64 %.pre-phi
   store ptr %2, ptr %34, align 8, !tbaa !9
   %35 = load ptr, ptr %0, align 8, !tbaa !3
@@ -901,7 +898,7 @@ _ZN4llvm11SmallVectorIPNS_8MetadataELj4EED2Ev.exit: ; preds = %._crit_edge, %39
   br i1 %.not.i.i22, label %45, label %43
 
 43:                                               ; preds = %40
-  %44 = load ptr, ptr %31, align 8, !tbaa !13
+  %44 = load ptr, ptr %32, align 8, !tbaa !13
   br label %_ZNK4llvm6MDNode10getOperandEj.exit24
 
 45:                                               ; preds = %40
@@ -919,7 +916,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit24:            ; preds = %43, %45
   store ptr %51, ptr %52, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %40, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !36
 
 53:                                               ; preds = %_ZN4llvm11SmallVectorIPNS_8MetadataELj4EED2Ev.exit, %6
   %.0 = phi ptr [ %36, %_ZN4llvm11SmallVectorIPNS_8MetadataELj4EED2Ev.exit ], [ %8, %6 ]

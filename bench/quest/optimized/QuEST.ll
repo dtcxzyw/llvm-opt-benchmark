@@ -2940,43 +2940,43 @@ define void @createPauliHamilFromFile(ptr dead_on_unwind noalias writable sret(%
   %12 = icmp ne i8 %.058, 32
   %or.cond = and i1 %11, %12
   %13 = zext i1 %or.cond to i32
-  %spec.select = add nsw i32 %.061, %13
+  %spec.select = add i32 %.061, %13
   br label %8
 
 14:                                               ; preds = %8, %8
+  %.not = icmp ne i8 %.058, 32
+  %15 = zext i1 %.not to i32
+  %spec.select69 = add i32 %.061, %15
   tail call void @rewind(ptr noundef %5)
-  %15 = tail call i32 @getc(ptr noundef %5)
-  %sext6672 = shl i32 %15, 24
+  %16 = tail call i32 @getc(ptr noundef %5)
+  %sext6672 = shl i32 %16, 24
   %.not6773 = icmp eq i32 %sext6672, -16777216
   br i1 %.not6773, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
   %sext6676 = phi i32 [ %sext66, %.lr.ph ], [ %sext6672, %14 ]
-  %16 = phi i32 [ %21, %.lr.ph ], [ %15, %14 ]
+  %17 = phi i32 [ %22, %.lr.ph ], [ %16, %14 ]
   %.05775 = phi i32 [ %spec.select70, %.lr.ph ], [ 0, %14 ]
-  %.15974 = phi i8 [ %17, %.lr.ph ], [ 10, %14 ]
-  %17 = trunc i32 %16 to i8
-  %18 = icmp eq i32 %sext6676, 167772160
-  %19 = icmp ne i8 %.15974, 10
-  %or.cond5 = and i1 %19, %18
-  %20 = zext i1 %or.cond5 to i32
-  %spec.select70 = add nuw nsw i32 %.05775, %20
-  %21 = tail call i32 @getc(ptr noundef %5)
-  %sext66 = shl i32 %21, 24
+  %.15974 = phi i8 [ %18, %.lr.ph ], [ 10, %14 ]
+  %18 = trunc i32 %17 to i8
+  %19 = icmp eq i32 %sext6676, 167772160
+  %20 = icmp ne i8 %.15974, 10
+  %or.cond5 = and i1 %20, %19
+  %21 = zext i1 %or.cond5 to i32
+  %spec.select70 = add nuw nsw i32 %.05775, %21
+  %22 = tail call i32 @getc(ptr noundef %5)
+  %sext66 = shl i32 %22, 24
   %.not67 = icmp eq i32 %sext66, -16777216
   br i1 %.not67, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %22 = icmp ne i8 %17, 10
-  %23 = zext i1 %22 to i32
-  %24 = add nuw nsw i32 %spec.select70, %23
+  %23 = icmp ne i8 %18, 10
+  %24 = zext i1 %23 to i32
+  %25 = add nuw nsw i32 %spec.select70, %24
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
-  %spec.select71 = phi i32 [ 0, %14 ], [ %24, %._crit_edge.loopexit ]
-  %.not = icmp ne i8 %.058, 32
-  %25 = zext i1 %.not to i32
-  %spec.select69 = add nsw i32 %.061, %25
+  %spec.select71 = phi i32 [ 0, %14 ], [ %25, %._crit_edge.loopexit ]
   tail call void @validateHamilFileParams(i32 noundef %spec.select69, i32 noundef %spec.select71, ptr noundef %5, ptr noundef %1, ptr noundef nonnull @__func__.createPauliHamilFromFile) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   tail call void @validateHamilParams(i32 noundef %spec.select69, i32 noundef %spec.select71, ptr noundef nonnull @__func__.createPauliHamil) #17, !noalias !34

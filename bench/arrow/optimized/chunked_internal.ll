@@ -320,8 +320,8 @@ _ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds 
 
 _ZSt6fill_nIPPKN5arrow5ArrayEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %16, 3
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !41
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader
 
 19:                                               ; preds = %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
@@ -378,8 +378,8 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc6
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %10, 3
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !54
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph
 
 13:                                               ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -445,8 +445,8 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc9
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %16, 3
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !54
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph
 
 19:                                               ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
@@ -560,15 +560,15 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %14, %16, %20
   %34 = load ptr, ptr %33, align 8, !tbaa !111
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !116
-  %37 = lshr exact i64 %12, 3
+  %37 = ptrtoint ptr %34 to i64
+  %38 = ptrtoint ptr %36 to i64
+  %39 = sub i64 %37, %38
+  %40 = lshr exact i64 %12, 3
   %.not54 = icmp eq ptr %8, %9
   br i1 %.not54, label %._crit_edge44, label %.lr.ph43
 
 ._crit_edge44:                                    ; preds = %._crit_edge39, %._crit_edge
-  %38 = ptrtoint ptr %34 to i64
-  %39 = ptrtoint ptr %36 to i64
-  %40 = sub i64 %38, %39
-  %41 = getelementptr inbounds i8, ptr %36, i64 %40
+  %41 = getelementptr inbounds i8, ptr %36, i64 %39
   store ptr null, ptr %0, align 8, !tbaa !95
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %36, ptr %42, align 8
@@ -591,7 +591,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %14, %16, %20
 ._crit_edge39:                                    ; preds = %.lr.ph, %.lr.ph43
   %46 = add nsw i64 %44, %.02240
   %47 = add nuw nsw i64 %.02141, 1
-  %exitcond45.not = icmp eq i64 %47, %37
+  %exitcond45.not = icmp eq i64 %47, %40
   br i1 %exitcond45.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !117
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

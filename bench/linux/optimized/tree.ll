@@ -11904,34 +11904,34 @@ define internal fastcc void @print_cpu_stall_info(i32 noundef %0) unnamed_addr #
   %143 = getelementptr i8, ptr %128, i64 16
   %144 = load i64, ptr %143, align 8
   %145 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.87) #32
-  %146 = load i64, ptr %4, align 8
-  %147 = add i64 %146, ptrtoint (ptr @kstat to i64)
-  %148 = inttoptr i64 %147 to ptr
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  br label %150
+  %146 = getelementptr i64, ptr @__per_cpu_offset, i64 %63
+  %147 = load i64, ptr %146, align 8
+  %148 = add i64 %147, ptrtoint (ptr @kstat to i64)
+  %149 = inttoptr i64 %148 to ptr
+  %150 = load i64, ptr %149, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %133, i64 472
+  %152 = load i64, ptr %151, align 8
+  %153 = load i64, ptr %4, align 8
+  %154 = add i64 %153, ptrtoint (ptr @kstat to i64)
+  %155 = inttoptr i64 %154 to ptr
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
+  br label %157
 
-150:                                              ; preds = %150, %138
-  %151 = phi i64 [ 0, %138 ], [ %156, %150 ]
-  %152 = phi i32 [ 0, %138 ], [ %155, %150 ]
-  %153 = getelementptr i32, ptr %149, i64 %151
-  %154 = load i32, ptr %153, align 4
-  %155 = add i32 %154, %152
-  %156 = add nuw nsw i64 %151, 1
-  %157 = icmp eq i64 %156, 10
-  br i1 %157, label %158, label %150, !llvm.loop !414
+157:                                              ; preds = %157, %138
+  %158 = phi i64 [ 0, %138 ], [ %163, %157 ]
+  %159 = phi i32 [ 0, %138 ], [ %162, %157 ]
+  %160 = getelementptr i32, ptr %156, i64 %158
+  %161 = load i32, ptr %160, align 4
+  %162 = add i32 %161, %159
+  %163 = add nuw nsw i64 %158, 1
+  %164 = icmp eq i64 %163, 10
+  br i1 %164, label %165, label %157, !llvm.loop !414
 
-158:                                              ; preds = %150
-  %159 = getelementptr i64, ptr @__per_cpu_offset, i64 %63
-  %160 = load i64, ptr %159, align 8
-  %161 = add i64 %160, ptrtoint (ptr @kstat to i64)
-  %162 = inttoptr i64 %161 to ptr
-  %163 = load i64, ptr %162, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %133, i64 472
-  %165 = load i64, ptr %164, align 8
-  %166 = sub i64 %163, %165
+165:                                              ; preds = %157
+  %166 = sub i64 %150, %152
   %167 = getelementptr inbounds nuw i8, ptr %133, i64 480
   %168 = load i32, ptr %167, align 8
-  %169 = sub i32 %155, %168
+  %169 = sub i32 %162, %168
   %170 = call i64 @nr_context_switches_cpu(i32 noundef %0) #29
   %171 = getelementptr inbounds nuw i8, ptr %133, i64 488
   %172 = load i64, ptr %171, align 8
@@ -11957,7 +11957,7 @@ define internal fastcc void @print_cpu_stall_info(i32 noundef %0) unnamed_addr #
   %192 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.89, i64 noundef %178, i64 noundef %182, i64 noundef %186, i32 noundef %191) #32
   br label %193
 
-193:                                              ; preds = %158, %131, %99
+193:                                              ; preds = %165, %131, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

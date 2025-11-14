@@ -9,8 +9,12 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17ArchCloseAllFilesEiPKi(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.rlimit, align 8
   %4 = call i32 @getrlimit(i32 noundef 7, ptr noundef nonnull %3) #5
-  %5 = icmp sgt i32 %0, 0
-  br i1 %5, label %.lr.ph.preheader, label %.preheader48
+  %5 = load i64, ptr %3, align 8
+  %6 = icmp eq i64 %5, -1
+  %7 = trunc i64 %5 to i32
+  %.026 = select i1 %6, i32 256, i32 %7
+  %8 = icmp sgt i32 %0, 0
+  br i1 %8, label %.lr.ph.preheader, label %.preheader48
 
 .lr.ph.preheader:                                 ; preds = %2
   %wide.trip.count = zext nneg i32 %0 to i64
@@ -18,10 +22,6 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17ArchCloseAllFilesEiPK
 
 .preheader48:                                     ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ -1, %2 ], [ %spec.select, %.lr.ph ]
-  %6 = load i64, ptr %3, align 8
-  %7 = icmp eq i64 %6, -1
-  %8 = trunc i64 %6 to i32
-  %.026 = select i1 %7, i32 256, i32 %8
   %9 = icmp sgt i32 %.026, 0
   br i1 %9, label %.lr.ph63, label %._crit_edge
 

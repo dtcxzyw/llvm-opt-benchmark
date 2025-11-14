@@ -277,7 +277,7 @@ define internal range(i32 0, 2) i32 @kdf_pkcs12_derive(ptr noundef %0, ptr nound
 .lr.ph174.i:                                      ; preds = %.preheader153.i
   %69 = icmp ugt i64 %30, 1
   %.not186.i = icmp eq i64 %55, 0
-  br label %78
+  br label %76
 
 .lr.ph163.i:                                      ; preds = %.preheader155.i, %.lr.ph163.i
   %.2162.i = phi i64 [ %74, %.lr.ph163.i ], [ 0, %.preheader155.i ]
@@ -292,72 +292,72 @@ define internal range(i32 0, 2) i32 @kdf_pkcs12_derive(ptr noundef %0, ptr nound
   br i1 %exitcond.not.i, label %.preheader153.i, label %.lr.ph163.i, !llvm.loop !23
 
 .loopexit.i:                                      ; preds = %110, %.preheader.i
-  %75 = sub nuw i64 %.0118172.i, %39
-  %76 = getelementptr inbounds nuw i8, ptr %.0117173.i, i64 %39
-  %77 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %31, ptr noundef %20, ptr noundef null) #6
-  %.not142.i = icmp eq i32 %77, 0
-  br i1 %.not142.i, label %pkcs12kdf_derive.exit, label %78
+  %75 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %31, ptr noundef %20, ptr noundef null) #6
+  %.not142.i = icmp eq i32 %75, 0
+  br i1 %.not142.i, label %pkcs12kdf_derive.exit, label %76
 
-78:                                               ; preds = %.loopexit.i, %.lr.ph174.i
-  %.0117173.i = phi ptr [ %1, %.lr.ph174.i ], [ %76, %.loopexit.i ]
-  %.0118172.i = phi i64 [ %2, %.lr.ph174.i ], [ %75, %.loopexit.i ]
-  %79 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %31, ptr noundef %41, i64 noundef %40) #6
-  %.not143.i = icmp eq i32 %79, 0
-  br i1 %.not143.i, label %pkcs12kdf_derive.exit, label %80
+76:                                               ; preds = %.loopexit.i, %.lr.ph174.i
+  %.0117173.i = phi ptr [ %1, %.lr.ph174.i ], [ %91, %.loopexit.i ]
+  %.0118172.i = phi i64 [ %2, %.lr.ph174.i ], [ %90, %.loopexit.i ]
+  %77 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %31, ptr noundef %41, i64 noundef %40) #6
+  %.not143.i = icmp eq i32 %77, 0
+  br i1 %.not143.i, label %pkcs12kdf_derive.exit, label %78
+
+78:                                               ; preds = %76
+  %79 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %31, ptr noundef %56, i64 noundef %55) #6
+  %.not144.i = icmp eq i32 %79, 0
+  br i1 %.not144.i, label %pkcs12kdf_derive.exit, label %80
 
 80:                                               ; preds = %78
-  %81 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %31, ptr noundef %56, i64 noundef %55) #6
-  %.not144.i = icmp eq i32 %81, 0
-  br i1 %.not144.i, label %pkcs12kdf_derive.exit, label %82
-
-82:                                               ; preds = %80
-  %83 = tail call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %31, ptr noundef %42, ptr noundef null) #6
-  %.not145.i = icmp eq i32 %83, 0
+  %81 = tail call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %31, ptr noundef %42, ptr noundef null) #6
+  %.not145.i = icmp eq i32 %81, 0
   br i1 %.not145.i, label %pkcs12kdf_derive.exit, label %.preheader151.i
 
-.preheader151.i:                                  ; preds = %82
+.preheader151.i:                                  ; preds = %80
   br i1 %69, label %.lr.ph165.i, label %._crit_edge.i
 
-84:                                               ; preds = %89
-  %85 = add nuw i64 %.0121164.i, 1
-  %exitcond189.not.i = icmp eq i64 %85, %30
-  br i1 %exitcond189.not.i, label %._crit_edge.i, label %.lr.ph165.i, !llvm.loop !24
+82:                                               ; preds = %87
+  %83 = add nuw i64 %.0121164.i, 1
+  %exitcond188.not.i = icmp eq i64 %83, %30
+  br i1 %exitcond188.not.i, label %._crit_edge.i, label %.lr.ph165.i, !llvm.loop !24
 
-.lr.ph165.i:                                      ; preds = %.preheader151.i, %84
-  %.0121164.i = phi i64 [ %85, %84 ], [ 1, %.preheader151.i ]
-  %86 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %31, ptr noundef %20, ptr noundef null) #6
-  %.not148.i = icmp eq i32 %86, 0
-  br i1 %.not148.i, label %pkcs12kdf_derive.exit, label %87
+.lr.ph165.i:                                      ; preds = %.preheader151.i, %82
+  %.0121164.i = phi i64 [ %83, %82 ], [ 1, %.preheader151.i ]
+  %84 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %31, ptr noundef %20, ptr noundef null) #6
+  %.not148.i = icmp eq i32 %84, 0
+  br i1 %.not148.i, label %pkcs12kdf_derive.exit, label %85
 
-87:                                               ; preds = %.lr.ph165.i
-  %88 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %31, ptr noundef %42, i64 noundef %39) #6
-  %.not149.i = icmp eq i32 %88, 0
-  br i1 %.not149.i, label %pkcs12kdf_derive.exit, label %89
+85:                                               ; preds = %.lr.ph165.i
+  %86 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %31, ptr noundef %42, i64 noundef %39) #6
+  %.not149.i = icmp eq i32 %86, 0
+  br i1 %.not149.i, label %pkcs12kdf_derive.exit, label %87
 
-89:                                               ; preds = %87
-  %90 = tail call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %31, ptr noundef %42, ptr noundef null) #6
-  %.not150.i = icmp eq i32 %90, 0
-  br i1 %.not150.i, label %pkcs12kdf_derive.exit, label %84
+87:                                               ; preds = %85
+  %88 = tail call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %31, ptr noundef %42, ptr noundef null) #6
+  %.not150.i = icmp eq i32 %88, 0
+  br i1 %.not150.i, label %pkcs12kdf_derive.exit, label %82
 
-._crit_edge.i:                                    ; preds = %84, %.preheader151.i
-  %91 = tail call i64 @llvm.umin.i64(i64 %.0118172.i, i64 %39)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0117173.i, ptr align 1 %42, i64 %91, i1 false)
+._crit_edge.i:                                    ; preds = %82, %.preheader151.i
+  %89 = tail call i64 @llvm.umin.i64(i64 %.0118172.i, i64 %39)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0117173.i, ptr align 1 %42, i64 %89, i1 false)
   %.not146.i = icmp ugt i64 %.0118172.i, %39
-  br i1 %.not146.i, label %.preheader187.i, label %pkcs12kdf_derive.exit
+  br i1 %.not146.i, label %.preheader, label %pkcs12kdf_derive.exit
 
-.preheader.i:                                     ; preds = %.preheader187.i
+.preheader.i:                                     ; preds = %.preheader
+  %90 = sub nuw i64 %.0118172.i, %39
+  %91 = getelementptr inbounds nuw i8, ptr %.0117173.i, i64 %39
   br i1 %.not186.i, label %.loopexit.i, label %.lr.ph170.i
 
-.preheader187.i:                                  ; preds = %._crit_edge.i, %.preheader187.i
-  %.0125166.i = phi i64 [ %96, %.preheader187.i ], [ 0, %._crit_edge.i ]
+.preheader:                                       ; preds = %._crit_edge.i, %.preheader
+  %.0125166.i = phi i64 [ %96, %.preheader ], [ 0, %._crit_edge.i ]
   %92 = urem i64 %.0125166.i, %39
   %93 = getelementptr inbounds nuw i8, ptr %42, i64 %92
   %94 = load i8, ptr %93, align 1, !tbaa !20
   %95 = getelementptr inbounds nuw i8, ptr %44, i64 %.0125166.i
   store i8 %94, ptr %95, align 1, !tbaa !20
   %96 = add nuw nsw i64 %.0125166.i, 1
-  %exitcond191.not.i = icmp eq i64 %96, %40
-  br i1 %exitcond191.not.i, label %.preheader.i, label %.preheader187.i, !llvm.loop !25
+  %exitcond190.not.i = icmp eq i64 %96, %40
+  br i1 %exitcond190.not.i, label %.preheader.i, label %.preheader, !llvm.loop !25
 
 .lr.ph170.i:                                      ; preds = %.preheader.i, %110
   %.1169.i = phi i64 [ %111, %110 ], [ 0, %.preheader.i ]
@@ -388,19 +388,19 @@ define internal range(i32 0, 2) i32 @kdf_pkcs12_derive(ptr noundef %0, ptr nound
   br i1 %112, label %.lr.ph170.i, label %.loopexit.i, !llvm.loop !27
 
 .loopexit152.sink.split.i:                        ; preds = %33, %18
-  %.sink206.i = phi i32 [ 63, %18 ], [ 69, %33 ]
+  %.sink205.i = phi i32 [ 63, %18 ], [ 69, %33 ]
   %.sink.i = phi i32 [ 524294, %18 ], [ 218, %33 ]
   tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink206.i, ptr noundef nonnull @__func__.pkcs12kdf_derive) #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink205.i, ptr noundef nonnull @__func__.pkcs12kdf_derive) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink.i, ptr noundef null) #6
   br label %pkcs12kdf_derive.exit
 
-pkcs12kdf_derive.exit:                            ; preds = %.loopexit.i, %78, %80, %82, %._crit_edge.i, %.lr.ph165.i, %87, %89, %54, %.preheader153.i, %.loopexit152.sink.split.i
-  %.0131.i = phi ptr [ %42, %54 ], [ %42, %.preheader153.i ], [ null, %.loopexit152.sink.split.i ], [ %42, %89 ], [ %42, %87 ], [ %42, %.lr.ph165.i ], [ %42, %._crit_edge.i ], [ %42, %82 ], [ %42, %80 ], [ %42, %78 ], [ %42, %.loopexit.i ]
-  %.0123.i = phi ptr [ %56, %54 ], [ %56, %.preheader153.i ], [ null, %.loopexit152.sink.split.i ], [ %56, %89 ], [ %56, %87 ], [ %56, %.lr.ph165.i ], [ %56, %._crit_edge.i ], [ %56, %82 ], [ %56, %80 ], [ %56, %78 ], [ %56, %.loopexit.i ]
-  %.0122.i = phi ptr [ %41, %54 ], [ %41, %.preheader153.i ], [ null, %.loopexit152.sink.split.i ], [ %41, %89 ], [ %41, %87 ], [ %41, %.lr.ph165.i ], [ %41, %._crit_edge.i ], [ %41, %82 ], [ %41, %80 ], [ %41, %78 ], [ %41, %.loopexit.i ]
-  %.0120.i = phi i32 [ 0, %54 ], [ 0, %.preheader153.i ], [ 0, %.loopexit152.sink.split.i ], [ 0, %89 ], [ 0, %87 ], [ 0, %.lr.ph165.i ], [ 0, %.loopexit.i ], [ 0, %78 ], [ 0, %80 ], [ 0, %82 ], [ 1, %._crit_edge.i ]
-  %.0119.i = phi ptr [ %44, %54 ], [ %44, %.preheader153.i ], [ null, %.loopexit152.sink.split.i ], [ %44, %89 ], [ %44, %87 ], [ %44, %.lr.ph165.i ], [ %44, %._crit_edge.i ], [ %44, %82 ], [ %44, %80 ], [ %44, %78 ], [ %44, %.loopexit.i ]
+pkcs12kdf_derive.exit:                            ; preds = %.loopexit.i, %76, %78, %80, %._crit_edge.i, %.lr.ph165.i, %85, %87, %54, %.preheader153.i, %.loopexit152.sink.split.i
+  %.0131.i = phi ptr [ %42, %54 ], [ %42, %.preheader153.i ], [ null, %.loopexit152.sink.split.i ], [ %42, %87 ], [ %42, %85 ], [ %42, %.lr.ph165.i ], [ %42, %._crit_edge.i ], [ %42, %80 ], [ %42, %78 ], [ %42, %76 ], [ %42, %.loopexit.i ]
+  %.0123.i = phi ptr [ %56, %54 ], [ %56, %.preheader153.i ], [ null, %.loopexit152.sink.split.i ], [ %56, %87 ], [ %56, %85 ], [ %56, %.lr.ph165.i ], [ %56, %._crit_edge.i ], [ %56, %80 ], [ %56, %78 ], [ %56, %76 ], [ %56, %.loopexit.i ]
+  %.0122.i = phi ptr [ %41, %54 ], [ %41, %.preheader153.i ], [ null, %.loopexit152.sink.split.i ], [ %41, %87 ], [ %41, %85 ], [ %41, %.lr.ph165.i ], [ %41, %._crit_edge.i ], [ %41, %80 ], [ %41, %78 ], [ %41, %76 ], [ %41, %.loopexit.i ]
+  %.0120.i = phi i32 [ 0, %54 ], [ 0, %.preheader153.i ], [ 0, %.loopexit152.sink.split.i ], [ 0, %87 ], [ 0, %85 ], [ 0, %.lr.ph165.i ], [ 0, %.loopexit.i ], [ 0, %76 ], [ 0, %78 ], [ 0, %80 ], [ 1, %._crit_edge.i ]
+  %.0119.i = phi ptr [ %44, %54 ], [ %44, %.preheader153.i ], [ null, %.loopexit152.sink.split.i ], [ %44, %87 ], [ %44, %85 ], [ %44, %.lr.ph165.i ], [ %44, %._crit_edge.i ], [ %44, %80 ], [ %44, %78 ], [ %44, %76 ], [ %44, %.loopexit.i ]
   tail call void @CRYPTO_free(ptr noundef %.0131.i, ptr noundef nonnull @.str, i32 noundef 129) #6
   tail call void @CRYPTO_free(ptr noundef %.0119.i, ptr noundef nonnull @.str, i32 noundef 130) #6
   tail call void @CRYPTO_free(ptr noundef %.0122.i, ptr noundef nonnull @.str, i32 noundef 131) #6

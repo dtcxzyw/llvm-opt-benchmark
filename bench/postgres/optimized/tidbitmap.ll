@@ -2633,70 +2633,70 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %29, %tbm_advance_sc
 
 .thread80.thread:                                 ; preds = %58, %.thread80
   %72 = phi i32 [ %.pre, %.thread80 ], [ %55, %58 ]
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i32, ptr %9, i64 %73
-  %75 = load i32, ptr %74, align 4
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds %struct.PagetableEntry, ptr %spec.select, i64 %76
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  br label %80
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %74 = sext i32 %72 to i64
+  %75 = getelementptr inbounds i32, ptr %9, i64 %74
+  %76 = load i32, ptr %75, align 4
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds %struct.PagetableEntry, ptr %spec.select, i64 %77
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 42
+  br label %81
 
-80:                                               ; preds = %.loopexit.i, %.thread80.thread
+81:                                               ; preds = %.loopexit.i, %.thread80.thread
   %indvars.iv.i = phi i64 [ 0, %.thread80.thread ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.01423.i = phi i32 [ 0, %.thread80.thread ], [ %.1.i, %.loopexit.i ]
-  %81 = getelementptr inbounds nuw i64, ptr %78, i64 %indvars.iv.i
-  %82 = load i64, ptr %81, align 8
-  %.not.i74 = icmp eq i64 %82, 0
-  br i1 %.not.i74, label %.loopexit.i, label %83
+  %82 = getelementptr inbounds nuw i64, ptr %79, i64 %indvars.iv.i
+  %83 = load i64, ptr %82, align 8
+  %.not.i74 = icmp eq i64 %83, 0
+  br i1 %.not.i74, label %.loopexit.i, label %84
 
-83:                                               ; preds = %80
+84:                                               ; preds = %81
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i16
-  %84 = shl i16 %indvars.iv.tr.i, 6
-  %85 = or disjoint i16 %84, 1
-  br label %86
+  %85 = shl i16 %indvars.iv.tr.i, 6
+  %86 = or disjoint i16 %85, 1
+  br label %87
 
-86:                                               ; preds = %92, %83
-  %.021.i = phi i16 [ %85, %83 ], [ %93, %92 ]
-  %.01320.i = phi i64 [ %82, %83 ], [ %94, %92 ]
-  %.219.i = phi i32 [ %.01423.i, %83 ], [ %.3.i, %92 ]
-  %87 = and i64 %.01320.i, 1
-  %.not18.i = icmp eq i64 %87, 0
-  br i1 %.not18.i, label %92, label %88
+87:                                               ; preds = %93, %84
+  %.021.i = phi i16 [ %86, %84 ], [ %94, %93 ]
+  %.01320.i = phi i64 [ %83, %84 ], [ %95, %93 ]
+  %.219.i = phi i32 [ %.01423.i, %84 ], [ %.3.i, %93 ]
+  %88 = and i64 %.01320.i, 1
+  %.not18.i = icmp eq i64 %88, 0
+  br i1 %.not18.i, label %93, label %89
 
-88:                                               ; preds = %86
-  %89 = add i32 %.219.i, 1
-  %90 = sext i32 %.219.i to i64
-  %91 = getelementptr inbounds i16, ptr %79, i64 %90
-  store i16 %.021.i, ptr %91, align 2
-  br label %92
+89:                                               ; preds = %87
+  %90 = add i32 %.219.i, 1
+  %91 = sext i32 %.219.i to i64
+  %92 = getelementptr inbounds i16, ptr %80, i64 %91
+  store i16 %.021.i, ptr %92, align 2
+  br label %93
 
-92:                                               ; preds = %88, %86
-  %.3.i = phi i32 [ %89, %88 ], [ %.219.i, %86 ]
-  %93 = add nuw nsw i16 %.021.i, 1
-  %94 = lshr i64 %.01320.i, 1
+93:                                               ; preds = %89, %87
+  %.3.i = phi i32 [ %90, %89 ], [ %.219.i, %87 ]
+  %94 = add nuw nsw i16 %.021.i, 1
+  %95 = lshr i64 %.01320.i, 1
   %.not17.i = icmp ult i64 %.01320.i, 2
-  br i1 %.not17.i, label %.loopexit.i, label %86, !llvm.loop !21
+  br i1 %.not17.i, label %.loopexit.i, label %87, !llvm.loop !21
 
-.loopexit.i:                                      ; preds = %92, %80
-  %.1.i = phi i32 [ %.01423.i, %80 ], [ %.3.i, %92 ]
+.loopexit.i:                                      ; preds = %93, %81
+  %.1.i = phi i32 [ %.01423.i, %81 ], [ %.3.i, %93 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i75, label %tbm_extract_page_tuple.exit, label %80, !llvm.loop !22
+  br i1 %exitcond.not.i75, label %tbm_extract_page_tuple.exit, label %81, !llvm.loop !22
 
 tbm_extract_page_tuple.exit:                      ; preds = %.loopexit.i
-  %95 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %96 = load i32, ptr %77, align 8
+  %96 = load i32, ptr %78, align 8
   store i32 %96, ptr %2, align 4
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.1.i, ptr %97, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %77, i64 6
+  %98 = getelementptr inbounds nuw i8, ptr %78, i64 6
   %99 = load i8, ptr %98, align 2, !range !4, !noundef !5
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %99, ptr %100, align 4
-  %101 = load i32, ptr %95, align 8
+  %101 = load i32, ptr %73, align 8
   %102 = add i32 %101, 1
-  store i32 %102, ptr %95, align 8
+  store i32 %102, ptr %73, align 8
   br label %103
 
 103:                                              ; preds = %.thread80, %66, %tbm_extract_page_tuple.exit

@@ -684,12 +684,12 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   br i1 %.not14.i, label %_ZNK6open3d8geometry10Geometry3D17RotateCovariancesERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERSt6vectorIS4_SaIS4_EE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %27 = ptrtoint ptr %9 to i64
+  %22 = ptrtoint ptr %9 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -715,11 +715,11 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.011.015.i, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.011.015.i, i64 16
   %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %9, align 16, !tbaa !11
-  %.pre12.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %22, align 8, !tbaa !11
-  %.pre13.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %23, align 16, !tbaa !11
+  %.pre12.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %23, align 8, !tbaa !11
+  %.pre13.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %24, align 16, !tbaa !11
   %.pre14.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load double, ptr %10, align 16, !tbaa !16
-  %.pre15.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load double, ptr %25, align 8, !tbaa !16
-  %.pre16.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load double, ptr %26, align 16, !tbaa !16
+  %.pre15.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load double, ptr %26, align 8, !tbaa !16
+  %.pre16.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load double, ptr %27, align 16, !tbaa !16
   br label %46
 
 46:                                               ; preds = %46, %43
@@ -744,7 +744,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %63 = fmul <2 x double> %.pre13.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %62
   %64 = fadd <2 x double> %58, %63
   store <2 x double> %64, ptr %47, align 8, !tbaa !11
-  %65 = getelementptr i8, ptr %24, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %65 = getelementptr i8, ptr %25, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %66 = fmul double %.pre14.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %49
   %67 = fmul double %.pre15.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %54
   %68 = fmul double %.pre16.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %60
@@ -756,7 +756,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9TransposeIKS1_EELi0EEEEERS1_RKNS_9DenseBaseIT_EE.exit.i, label %46, !llvm.loop !51
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9TransposeIKS1_EELi0EEEEERS1_RKNS_9DenseBaseIT_EE.exit.i: ; preds = %46
-  store i64 %27, ptr %28, align 8
+  store i64 %22, ptr %28, align 8
   store ptr %4, ptr %29, align 8, !tbaa !52
   store ptr %9, ptr %30, align 8, !tbaa !52
   store i64 3, ptr %31, align 8, !tbaa !55
@@ -820,13 +820,13 @@ define void @_ZNK6open3d8geometry10Geometry3D17RotateCovariancesERKN5Eigen6Matri
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %18 = ptrtoint ptr %1 to i64
+  %12 = ptrtoint ptr %1 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -855,11 +855,11 @@ define void @_ZNK6open3d8geometry10Geometry3D17RotateCovariancesERKN5Eigen6Matri
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 16
   %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %1, align 8, !tbaa !11
-  %.pre12.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %12, align 8, !tbaa !11
-  %.pre13.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %13, align 8, !tbaa !11
-  %.pre14.i.i.i.i.i.i.i.i.i.i.i.i.i = load double, ptr %15, align 8, !tbaa !16
-  %.pre15.i.i.i.i.i.i.i.i.i.i.i.i.i = load double, ptr %16, align 8, !tbaa !16
-  %.pre16.i.i.i.i.i.i.i.i.i.i.i.i.i = load double, ptr %17, align 8, !tbaa !16
+  %.pre12.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %13, align 8, !tbaa !11
+  %.pre13.i.i.i.i.i.i.i.i.i.i.i.i.i = load <2 x double>, ptr %14, align 8, !tbaa !11
+  %.pre14.i.i.i.i.i.i.i.i.i.i.i.i.i = load double, ptr %16, align 8, !tbaa !16
+  %.pre15.i.i.i.i.i.i.i.i.i.i.i.i.i = load double, ptr %17, align 8, !tbaa !16
+  %.pre16.i.i.i.i.i.i.i.i.i.i.i.i.i = load double, ptr %18, align 8, !tbaa !16
   br label %37
 
 37:                                               ; preds = %37, %34
@@ -884,7 +884,7 @@ define void @_ZNK6open3d8geometry10Geometry3D17RotateCovariancesERKN5Eigen6Matri
   %54 = fmul <2 x double> %.pre13.i.i.i.i.i.i.i.i.i.i.i.i.i, %53
   %55 = fadd <2 x double> %49, %54
   store <2 x double> %55, ptr %38, align 8, !tbaa !11
-  %56 = getelementptr i8, ptr %14, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %56 = getelementptr i8, ptr %15, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %57 = fmul double %.pre14.i.i.i.i.i.i.i.i.i.i.i.i.i, %40
   %58 = fmul double %.pre15.i.i.i.i.i.i.i.i.i.i.i.i.i, %45
   %59 = fmul double %.pre16.i.i.i.i.i.i.i.i.i.i.i.i.i, %51
@@ -896,7 +896,7 @@ define void @_ZNK6open3d8geometry10Geometry3D17RotateCovariancesERKN5Eigen6Matri
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9TransposeIKS1_EELi0EEEEERS1_RKNS_9DenseBaseIT_EE.exit, label %37, !llvm.loop !51
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductINS3_IS1_S1_Li0EEENS_9TransposeIKS1_EELi0EEEEERS1_RKNS_9DenseBaseIT_EE.exit: ; preds = %37
-  store i64 %18, ptr %19, align 8
+  store i64 %12, ptr %19, align 8
   store ptr %4, ptr %20, align 8, !tbaa !52
   store ptr %1, ptr %21, align 8, !tbaa !52
   store i64 3, ptr %22, align 8, !tbaa !55

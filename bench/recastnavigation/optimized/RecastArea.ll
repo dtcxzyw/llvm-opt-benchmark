@@ -1128,11 +1128,14 @@ define void @_Z20rcMarkConvexPolyAreaP9rcContextPKfiffhR20rcCompactHeightfield(p
   br label %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
 
 _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
-  %20 = load float, ptr %1, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load float, ptr %21, align 4
-  %23 = icmp sgt i32 %2, 1
-  br i1 %23, label %.lr.ph.preheader, label %._crit_edge
+  %20 = load i32, ptr %6, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %22 = load i32, ptr %21, align 4
+  %23 = load float, ptr %1, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = load float, ptr %24, align 4
+  %26 = icmp sgt i32 %2, 1
+  br i1 %26, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -1140,35 +1143,32 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.sroa.9.0133 = phi float [ %22, %.lr.ph.preheader ], [ %31, %.lr.ph ]
-  %.sroa.0112.0131 = phi float [ %20, %.lr.ph.preheader ], [ %27, %.lr.ph ]
-  %.sroa.0109.0130 = phi float [ %20, %.lr.ph.preheader ], [ %33, %.lr.ph ]
-  %.sroa.8.0128 = phi float [ %22, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.sroa.9.0133 = phi float [ %25, %.lr.ph.preheader ], [ %34, %.lr.ph ]
+  %.sroa.0112.0131 = phi float [ %23, %.lr.ph.preheader ], [ %30, %.lr.ph ]
+  %.sroa.0109.0130 = phi float [ %23, %.lr.ph.preheader ], [ %36, %.lr.ph ]
+  %.sroa.8.0128 = phi float [ %25, %.lr.ph.preheader ], [ %38, %.lr.ph ]
   %.idx = mul nuw nsw i64 %indvars.iv, 12
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %25 = load float, ptr %24, align 4
-  %26 = fcmp olt float %.sroa.0112.0131, %25
-  %27 = select i1 %26, float %.sroa.0112.0131, float %25
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %29 = load float, ptr %28, align 4
-  %30 = fcmp olt float %.sroa.9.0133, %29
-  %31 = select i1 %30, float %.sroa.9.0133, float %29
-  %32 = fcmp ogt float %.sroa.0109.0130, %25
-  %33 = select i1 %32, float %.sroa.0109.0130, float %25
-  %34 = fcmp ogt float %.sroa.8.0128, %29
-  %35 = select i1 %34, float %.sroa.8.0128, float %29
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  %28 = load float, ptr %27, align 4
+  %29 = fcmp olt float %.sroa.0112.0131, %28
+  %30 = select i1 %29, float %.sroa.0112.0131, float %28
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %32 = load float, ptr %31, align 4
+  %33 = fcmp olt float %.sroa.9.0133, %32
+  %34 = select i1 %33, float %.sroa.9.0133, float %32
+  %35 = fcmp ogt float %.sroa.0109.0130, %28
+  %36 = select i1 %35, float %.sroa.0109.0130, float %28
+  %37 = fcmp ogt float %.sroa.8.0128, %32
+  %38 = select i1 %37, float %.sroa.8.0128, float %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
-  %.sroa.8.0.lcssa = phi float [ %22, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ %35, %.lr.ph ]
-  %.sroa.0109.0.lcssa = phi float [ %20, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ %33, %.lr.ph ]
-  %.sroa.0112.0.lcssa = phi float [ %20, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ %27, %.lr.ph ]
-  %.sroa.9.0.lcssa = phi float [ %22, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ %31, %.lr.ph ]
-  %36 = load i32, ptr %6, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %38 = load i32, ptr %37, align 4
+  %.sroa.8.0.lcssa = phi float [ %25, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ %38, %.lr.ph ]
+  %.sroa.0109.0.lcssa = phi float [ %23, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ %36, %.lr.ph ]
+  %.sroa.0112.0.lcssa = phi float [ %23, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ %30, %.lr.ph ]
+  %.sroa.9.0.lcssa = phi float [ %25, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ %34, %.lr.ph ]
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %40 = load float, ptr %39, align 4
   %41 = fsub float %.sroa.0112.0.lcssa, %40
@@ -1198,20 +1198,20 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
   %65 = fdiv float %64, %43
   %66 = fptosi float %65 to i32
   %67 = icmp sgt i32 %60, -1
-  %.not = icmp sgt i32 %36, %45
+  %.not = icmp sgt i32 %20, %45
   %or.cond104.not123.not127 = select i1 %67, i1 %.not, i1 false
   %68 = icmp sgt i32 %66, -1
   %or.cond105.not125 = select i1 %or.cond104.not123.not127, i1 %68, i1 false
-  %.not98 = icmp sgt i32 %38, %57
+  %.not98 = icmp sgt i32 %22, %57
   %or.cond106 = select i1 %or.cond105.not125, i1 %.not98, i1 false
   br i1 %or.cond106, label %69, label %.loopexit
 
 69:                                               ; preds = %._crit_edge
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %45, i32 0)
-  %70 = add nsw i32 %36, -1
+  %70 = add nsw i32 %20, -1
   %spec.select = tail call i32 @llvm.smin.i32(i32 %60, i32 %70)
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %57, i32 0)
-  %71 = add nsw i32 %38, -1
+  %71 = add nsw i32 %22, -1
   %.087 = tail call i32 @llvm.smin.i32(i32 %66, i32 %71)
   %.not101146 = icmp sgt i32 %spec.store.select1, %.087
   br i1 %.not101146, label %.loopexit, label %.preheader.lr.ph
@@ -1231,7 +1231,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
   %77 = zext nneg i32 %spec.store.select to i64
   %78 = add nuw nsw i32 %spec.select, 1
   %79 = zext nneg i32 %spec.store.select1 to i64
-  %80 = sext i32 %36 to i64
+  %80 = sext i32 %20 to i64
   %81 = add nuw nsw i32 %.087, 1
   %wide.trip.count173 = zext nneg i32 %81 to i64
   %wide.trip.count168 = zext nneg i32 %78 to i64

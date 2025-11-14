@@ -15286,16 +15286,16 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase14addPlaceholderEv.exit: ; preds 
   %66 = load ptr, ptr %8, align 8, !tbaa !917
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load i32, ptr %67, align 8, !tbaa !353
+  %69 = zext i32 %68 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 2184
-  %70 = load ptr, ptr %69, align 8, !tbaa !1617
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 2184
+  %71 = load ptr, ptr %70, align 8, !tbaa !1617
   call void @llvm.experimental.noalias.scope.decl(metadata !1618)
   store ptr %66, ptr %9, align 8, !tbaa !873, !alias.scope !1618
-  %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %8, ptr %71, align 8, !tbaa !907, !alias.scope !1618
-  %72 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %73 = zext i32 %68 to i64
-  store i64 %73, ptr %72, align 8, !tbaa !908, !alias.scope !1618
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %8, ptr %72, align 8, !tbaa !907, !alias.scope !1618
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 %69, ptr %73, align 8, !tbaa !908, !alias.scope !1618
   %74 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i64 0, ptr %75, align 8, !tbaa !875, !alias.scope !1618
@@ -15303,7 +15303,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase14addPlaceholderEv.exit: ; preds 
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 1, ptr %76, align 1, !tbaa !909, !noalias !1618
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr %70, ptr %77, align 8, !tbaa !910, !alias.scope !1618
+  store ptr %71, ptr %77, align 8, !tbaa !910, !alias.scope !1618
   %78 = load ptr, ptr %6, align 8, !tbaa !1612
   %79 = load ptr, ptr %11, align 8, !tbaa !1612
   %.not26 = icmp eq ptr %78, %79
@@ -15318,14 +15318,14 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase14addPlaceholderEv.exit: ; preds 
   br label %140
 
 ._crit_edge.loopexit:                             ; preds = %_ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit
-  %.pre = load ptr, ptr %69, align 8, !tbaa !1617
+  %.pre = load ptr, ptr %70, align 8, !tbaa !1617
   %.pre28 = zext i32 %186 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase14addPlaceholderEv.exit
-  %.pre-phi = phi i64 [ %.pre28, %._crit_edge.loopexit ], [ %73, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase14addPlaceholderEv.exit ]
-  %85 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %70, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase14addPlaceholderEv.exit ]
-  %86 = sub nsw i64 %.pre-phi, %73
+  %.pre-phi = phi i64 [ %.pre28, %._crit_edge.loopexit ], [ %69, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase14addPlaceholderEv.exit ]
+  %85 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %71, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase14addPlaceholderEv.exit ]
+  %86 = sub nsw i64 %.pre-phi, %69
   %87 = call noundef ptr @_ZN4llvm19ConstantPointerNull3getEPNS_11PointerTypeE(ptr noundef %85) #28
   %88 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %89 = load i32, ptr %67, align 8, !tbaa !353
@@ -15352,7 +15352,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase14addNullPointerEPN4llvm11Pointer
   %101 = load i32, ptr %67, align 8, !tbaa !353
   %102 = add i32 %101, 1
   store i32 %102, ptr %67, align 8, !tbaa !353
-  %103 = call noundef ptr @_ZN5clang7CodeGen28ConstantAggregateBuilderBase11finishArrayEPN4llvm4TypeE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef %70) #28
+  %103 = call noundef ptr @_ZN5clang7CodeGen28ConstantAggregateBuilderBase11finishArrayEPN4llvm4TypeE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef %71) #28
   %104 = load ptr, ptr %8, align 8, !tbaa !917
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
@@ -15386,7 +15386,7 @@ _ZN5clang7CodeGen36ConstantAggregateBuilderTemplateBaseINS0_20ConstantArrayBuild
   %124 = load ptr, ptr %8, align 8, !tbaa !917
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8, !tbaa !352
-  %127 = getelementptr ptr, ptr %126, i64 %73
+  %127 = getelementptr ptr, ptr %126, i64 %69
   %128 = getelementptr i8, ptr %127, i64 -8
   store ptr %123, ptr %128, align 8, !tbaa !1088
   %129 = load ptr, ptr %19, align 8, !tbaa !829
@@ -40322,15 +40322,15 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase14addPlaceholderEv.exit.i: ; pred
   %421 = load ptr, ptr %7, align 8, !tbaa !917
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 16
   %423 = load i32, ptr %422, align 8, !tbaa !353
+  %424 = zext i32 %423 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %424 = load ptr, ptr %379, align 8, !tbaa !2154
+  %425 = load ptr, ptr %379, align 8, !tbaa !2154
   call void @llvm.experimental.noalias.scope.decl(metadata !2155)
   store ptr %421, ptr %9, align 8, !tbaa !873, !alias.scope !2155
-  %425 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %7, ptr %425, align 8, !tbaa !907, !alias.scope !2155
-  %426 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %427 = zext i32 %423 to i64
-  store i64 %427, ptr %426, align 8, !tbaa !908, !alias.scope !2155
+  %426 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %7, ptr %426, align 8, !tbaa !907, !alias.scope !2155
+  %427 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 %424, ptr %427, align 8, !tbaa !908, !alias.scope !2155
   %428 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %429 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i64 0, ptr %429, align 8, !tbaa !875, !alias.scope !2155
@@ -40338,7 +40338,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase14addPlaceholderEv.exit.i: ; pred
   %430 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %430, align 1, !tbaa !909, !noalias !2155
   %431 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr %424, ptr %431, align 8, !tbaa !910, !alias.scope !2155
+  store ptr %425, ptr %431, align 8, !tbaa !910, !alias.scope !2155
   %432 = load ptr, ptr %295, align 8, !tbaa !996
   %433 = call noundef ptr @_ZN5clang17ObjCInterfaceDecl23all_declared_ivar_beginEv(ptr noundef nonnull align 8 dereferenceable(128) %432) #28
   %.not65.i = icmp eq ptr %433, null
@@ -40361,7 +40361,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase14addPlaceholderEv.exit.i: ; pred
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 16
   %444 = load i32, ptr %443, align 8, !tbaa !353
   %445 = zext i32 %444 to i64
-  %446 = load i64, ptr %426, align 8, !tbaa !908
+  %446 = load i64, ptr %427, align 8, !tbaa !908
   %447 = icmp eq i64 %446, %445
   br i1 %447, label %676, label %695
 
@@ -40753,7 +40753,7 @@ _ZN5clang7CodeGen36ConstantAggregateBuilderTemplateBaseINS0_21ConstantStructBuil
 676:                                              ; preds = %._crit_edge.i
   %677 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 1, ptr %677, align 8, !tbaa !1087
-  %678 = load ptr, ptr %425, align 8, !tbaa !907
+  %678 = load ptr, ptr %426, align 8, !tbaa !907
   %.not.i.i56.i = icmp eq ptr %678, null
   br i1 %.not.i.i56.i, label %681, label %679
 
@@ -40832,7 +40832,7 @@ _ZN5clang7CodeGen36ConstantAggregateBuilderTemplateBaseINS0_20ConstantArrayBuild
   %718 = load ptr, ptr %7, align 8, !tbaa !917
   %719 = getelementptr inbounds nuw i8, ptr %718, i64 8
   %720 = load ptr, ptr %719, align 8, !tbaa !352
-  %721 = getelementptr ptr, ptr %720, i64 %427
+  %721 = getelementptr ptr, ptr %720, i64 %424
   %722 = getelementptr i8, ptr %721, i64 -8
   store ptr %717, ptr %722, align 8, !tbaa !1088
   call void @llvm.lifetime.start.p0(ptr nonnull %12)

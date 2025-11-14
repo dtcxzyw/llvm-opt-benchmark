@@ -605,34 +605,34 @@ define internal i32 @dissect_p_mul(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %98, label %133, label %99
 
 99:                                               ; preds = %97
-  %100 = getelementptr i8, ptr %87, i64 %86
-  %101 = icmp ult ptr %87, %100
-  br i1 %101, label %.lr.ph.i, label %._crit_edge.i
+  %100 = trunc i32 %83 to i16
+  %101 = add i16 %100, -7
+  %102 = getelementptr i8, ptr %87, i64 %86
+  %103 = icmp ult ptr %87, %102
+  br i1 %103, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %99, %.lr.ph.i
-  %.02742.i = phi ptr [ %102, %.lr.ph.i ], [ %87, %99 ]
+  %.02742.i = phi ptr [ %104, %.lr.ph.i ], [ %87, %99 ]
   %.02941.i = phi i16 [ %spec.select.i, %.lr.ph.i ], [ 0, %99 ]
   %.03140.i = phi i16 [ %.132.i, %.lr.ph.i ], [ 0, %99 ]
-  %102 = getelementptr i8, ptr %.02742.i, i64 1
-  %103 = load i8, ptr %.02742.i, align 1
-  %104 = zext i8 %103 to i16
-  %105 = add i16 %.02941.i, %104
-  %106 = icmp ugt i16 %105, 254
-  %107 = add i16 %105, -255
-  %spec.select.i = select i1 %106, i16 %107, i16 %105
-  %108 = add i16 %spec.select.i, %.03140.i
-  %109 = icmp ugt i16 %108, 254
-  %110 = add i16 %108, -255
-  %.132.i = select i1 %109, i16 %110, i16 %108
-  %exitcond.not.i = icmp eq ptr %102, %100
+  %104 = getelementptr i8, ptr %.02742.i, i64 1
+  %105 = load i8, ptr %.02742.i, align 1
+  %106 = zext i8 %105 to i16
+  %107 = add i16 %.02941.i, %106
+  %108 = icmp ugt i16 %107, 254
+  %109 = add i16 %107, -255
+  %spec.select.i = select i1 %108, i16 %109, i16 %107
+  %110 = add i16 %spec.select.i, %.03140.i
+  %111 = icmp ugt i16 %110, 254
+  %112 = add i16 %110, -255
+  %.132.i = select i1 %111, i16 %112, i16 %110
+  %exitcond.not.i = icmp eq ptr %104, %102
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %99
   %.031.lcssa.i = phi i16 [ 0, %99 ], [ %.132.i, %.lr.ph.i ]
   %.029.lcssa.i = phi i16 [ 0, %99 ], [ %spec.select.i, %.lr.ph.i ]
-  %111 = trunc i32 %83 to i16
-  %112 = add i16 %111, -7
-  %113 = zext i16 %112 to i32
+  %113 = zext i16 %101 to i32
   %114 = zext i16 %.029.lcssa.i to i32
   %115 = mul nuw i32 %114, %113
   %116 = zext i16 %.031.lcssa.i to i32
@@ -643,7 +643,7 @@ define internal i32 @dissect_p_mul(ptr noundef %0, ptr noundef %1, ptr noundef %
   %121 = add nsw i32 %120, 65280
   %122 = select i1 %119, i32 %121, i32 %120
   %123 = zext i16 %.031.lcssa.i to i64
-  %124 = zext i16 %112 to i64
+  %124 = zext i16 %101 to i64
   %.neg.i = xor i64 %124, -1
   %125 = zext i16 %.029.lcssa.i to i64
   %.neg38.i = mul nsw i64 %125, %.neg.i

@@ -567,8 +567,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %84 = getelementptr inbounds nuw i32, ptr %82, i64 %76
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %84, ptr %85, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %82, i64 %81
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %82, i8 0, i64 %81, i1 false)
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 %81
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc16, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i

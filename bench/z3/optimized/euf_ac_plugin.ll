@@ -1903,9 +1903,9 @@ _ZN3euf9ac_plugin10monomial_t3endEv.exit:         ; preds = %2
   tail call fastcc void @"_ZSt16__introsort_loopIPPN3euf9ac_plugin4nodeElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_T0_T1_"(ptr noundef nonnull %3, ptr noundef nonnull %9, i64 noundef %14)
   %15 = icmp ugt i32 %6, 16
   %scevgep.i.i.i = getelementptr i8, ptr %3, i64 8
-  br i1 %15, label %.preheader.i.i.i, label %33
+  br i1 %15, label %.preheader.i, label %33
 
-.preheader.i.i.i:                                 ; preds = %10, %"_ZSt25__unguarded_linear_insertIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_.exit.i.i.i.i"
+.preheader.i:                                     ; preds = %10, %"_ZSt25__unguarded_linear_insertIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_.exit.i.i.i.i"
   %.020.i.idx.i.i.i = phi i64 [ %.020.i.add.i.i.i, %"_ZSt25__unguarded_linear_insertIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_.exit.i.i.i.i" ], [ 8, %10 ]
   %.pn19.i.i.i.i = phi ptr [ %.020.i.ptr.i.i.i, %"_ZSt25__unguarded_linear_insertIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %3, %10 ]
   %.020.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.020.i.idx.i.i.i
@@ -1924,11 +1924,11 @@ _ZN3euf9ac_plugin10monomial_t3endEv.exit:         ; preds = %2
   %18 = icmp ult i32 %.0.val.val.val.val.val.i.i.i.i, %.val.val.val.val.val.i.i.i.i
   br i1 %18, label %19, label %20
 
-19:                                               ; preds = %.preheader.i.i.i
+19:                                               ; preds = %.preheader.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %3, i64 %.020.i.idx.i.i.i, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_.exit.i.i.i.i"
 
-20:                                               ; preds = %.preheader.i.i.i
+20:                                               ; preds = %.preheader.i
   %.0.val11.i.i.i.i.i = load ptr, ptr %.pn19.i.i.i.i, align 8, !tbaa !148
   %21 = getelementptr i8, ptr %.0.val11.i.i.i.i.i, i64 8
   %.0.val.val13.i.i.i.i.i = load ptr, ptr %21, align 8, !tbaa !157
@@ -1962,7 +1962,7 @@ _ZN3euf9ac_plugin10monomial_t3endEv.exit:         ; preds = %2
   store ptr %.0.val.i.i.i.i, ptr %.sink.i.i.i.i, align 8, !tbaa !148
   %.020.i.add.i.i.i = add nuw nsw i64 %.020.i.idx.i.i.i, 8
   %.not.i.i.i.i = icmp eq i64 %.020.i.add.i.i.i, 128
-  br i1 %.not.i.i.i.i, label %"_ZSt16__insertion_sortIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_T0_.exit.i.i.i", label %.preheader.i.i.i, !llvm.loop !161
+  br i1 %.not.i.i.i.i, label %"_ZSt16__insertion_sortIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_T0_.exit.i.i.i", label %.preheader.i, !llvm.loop !161
 
 "_ZSt16__insertion_sortIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_T0_.exit.i.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_.exit.i.i.i.i"
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 128

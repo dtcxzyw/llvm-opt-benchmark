@@ -346,12 +346,12 @@ syrk_beta.exit:                                   ; preds = %48, %41, %38, %37
   %63 = sdiv i64 %62, 2
   %64 = add nsw i64 %63, 31
   %65 = sdiv i64 %64, 32
+  %66 = shl nsw i64 %65, 5
   store ptr %4, ptr %7, align 16, !tbaa !43
   %.idx309 = mul nsw i64 %65, 98304
-  %66 = getelementptr inbounds i8, ptr %4, i64 %.idx309
-  %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %66, ptr %67, align 8, !tbaa !43
-  %68 = shl nsw i64 %65, 5
+  %67 = getelementptr inbounds i8, ptr %4, i64 %.idx309
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %67, ptr %68, align 8, !tbaa !43
   %69 = icmp sgt i64 %11, 0
   br i1 %69, label %.lr.ph362, label %.preheader321..preheader313_crit_edge
 
@@ -428,7 +428,7 @@ syrk_beta.exit:                                   ; preds = %48, %41, %38, %37
   br label %.preheader316
 
 .preheader319:                                    ; preds = %._crit_edge, %.preheader320
-  %101 = add nsw i64 %.0272334, %68
+  %101 = add nsw i64 %.0272334, %66
   %102 = tail call i64 @llvm.smin.i64(i64 %.0278.fr, i64 %101)
   %103 = icmp slt i64 %.0272334, %102
   br i1 %103, label %.lr.ph327, label %.preheader318

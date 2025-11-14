@@ -189,27 +189,27 @@ define hidden void @_ZN5nlsat20interval_set_manager3delEPNS_12interval_setE(ptr 
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %1, align 8, !tbaa !18
+  %6 = shl i32 %5, 5
+  %7 = or disjoint i32 %6, 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %wide.trip.count = zext i32 %5 to i64
   br label %12
 
 ._crit_edge:                                      ; preds = %12, %4
-  %7 = shl i32 %5, 5
-  %8 = or disjoint i32 %7, 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !20
-  %11 = zext i32 %8 to i64
+  %11 = zext i32 %7 to i64
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %10, i64 noundef %11, ptr noundef nonnull %1)
   br label %18
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = load ptr, ptr %0, align 8, !tbaa !23
-  %14 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %6, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %8, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %13, ptr noundef nonnull align 8 dereferenceable(8) %15)
   %16 = load ptr, ptr %0, align 8, !tbaa !23
@@ -242,33 +242,33 @@ define hidden void @_ZN5nlsat20interval_set_manager7dec_refEPNS_12interval_setE(
 
 11:                                               ; preds = %2
   %12 = load i32, ptr %1, align 8, !tbaa !18
+  %13 = shl i32 %12, 5
+  %14 = or disjoint i32 %13, 8
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %_ZN5nlsat20interval_set_manager3delEPNS_12interval_setE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %wide.trip.count.i = zext i32 %12 to i64
-  br label %14
+  br label %16
 
-14:                                               ; preds = %14, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
-  %15 = load ptr, ptr %0, align 8, !tbaa !23
-  %16 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %13, i64 %indvars.iv.i
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  tail call void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %15, ptr noundef nonnull align 8 dereferenceable(8) %17)
-  %18 = load ptr, ptr %0, align 8, !tbaa !23
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  tail call void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+16:                                               ; preds = %16, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
+  %17 = load ptr, ptr %0, align 8, !tbaa !23
+  %18 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %15, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  tail call void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %17, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  %20 = load ptr, ptr %0, align 8, !tbaa !23
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  tail call void @_ZN17algebraic_numbers7manager3delERNS_4anumE(ptr noundef nonnull align 8 dereferenceable(17) %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5nlsat20interval_set_manager3delEPNS_12interval_setE.exit, label %14, !llvm.loop !24
+  br i1 %exitcond.not.i, label %_ZN5nlsat20interval_set_manager3delEPNS_12interval_setE.exit, label %16, !llvm.loop !24
 
-_ZN5nlsat20interval_set_manager3delEPNS_12interval_setE.exit: ; preds = %14, %11
-  %20 = shl i32 %12, 5
-  %21 = or disjoint i32 %20, 8
+_ZN5nlsat20interval_set_manager3delEPNS_12interval_setE.exit: ; preds = %16, %11
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !20
-  %24 = zext i32 %21 to i64
+  %24 = zext i32 %14 to i64
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %23, i64 noundef %24, ptr noundef nonnull %1)
   br label %25
 

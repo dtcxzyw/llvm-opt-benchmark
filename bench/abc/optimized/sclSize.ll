@@ -7165,47 +7165,47 @@ Abc_SclCountNonBufferFanouts.exit129:             ; preds = %Abc_SclCountNonBuff
   br label %Abc_SclCountNonBufferLoad.exit148
 
 .lr.ph.i137:                                      ; preds = %.lr.ph.i119
-  %.val18.i138 = load ptr, ptr %1, align 8, !tbaa !50
-  %216 = getelementptr i8, ptr %1, i64 48
-  %.val19.i139 = load ptr, ptr %216, align 8, !tbaa !147
-  %217 = getelementptr i8, ptr %.val18.i138, i64 32
-  %.val18.val.i140 = load ptr, ptr %217, align 8, !tbaa !52
-  %218 = getelementptr i8, ptr %.val18.val.i140, i64 8
-  %.val18.val.val.i141 = load ptr, ptr %218, align 8, !tbaa !36
-  %wide.trip.count.i142 = zext nneg i32 %.val.i104 to i64
-  br label %219
-
-219:                                              ; preds = %219, %.lr.ph.i137
-  %indvars.iv.i143 = phi i64 [ 0, %.lr.ph.i137 ], [ %indvars.iv.next.i145, %219 ]
-  %.01320.i144 = phi float [ 0.000000e+00, %.lr.ph.i137 ], [ %226, %219 ]
-  %220 = getelementptr inbounds nuw i32, ptr %.val19.i139, i64 %indvars.iv.i143
-  %221 = load i32, ptr %220, align 4, !tbaa !44
-  %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds ptr, ptr %.val18.val.val.i141, i64 %222
-  %224 = load ptr, ptr %223, align 8, !tbaa !38
-  %225 = tail call float @Abc_SclCountNonBufferLoadInt(ptr noundef nonnull readonly %0, ptr noundef %224)
-  %226 = fadd float %.01320.i144, %225
-  %indvars.iv.next.i145 = add nuw nsw i64 %indvars.iv.i143, 1
-  %exitcond.not.i146 = icmp eq i64 %indvars.iv.next.i145, %wide.trip.count.i142
-  br i1 %exitcond.not.i146, label %.critedge.loopexit.i147, label %219, !llvm.loop !203
-
-.critedge.loopexit.i147:                          ; preds = %219
-  %227 = sitofp i32 %214 to float
-  %228 = fdiv float %207, %227
-  %229 = fpext float %228 to double
+  %216 = sitofp i32 %214 to float
+  %217 = fdiv float %207, %216
+  %218 = fpext float %217 to double
   %.val.i130176 = load ptr, ptr %58, align 8, !tbaa !37
   %.val4.i131177 = load i32, ptr %7, align 8, !tbaa !39
-  %230 = zext i32 %.val4.i131177 to i64
-  %231 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val.i130176, i64 %230
-  %232 = load float, ptr %231, align 4, !tbaa !57
-  %233 = fpext float %232 to double
-  %234 = fsub double %229, %233
-  %235 = fpext float %226 to double
+  %219 = zext i32 %.val4.i131177 to i64
+  %220 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val.i130176, i64 %219
+  %221 = load float, ptr %220, align 4, !tbaa !57
+  %222 = fpext float %221 to double
+  %223 = fsub double %218, %222
+  %.val18.i138 = load ptr, ptr %1, align 8, !tbaa !50
+  %224 = getelementptr i8, ptr %1, i64 48
+  %.val19.i139 = load ptr, ptr %224, align 8, !tbaa !147
+  %225 = getelementptr i8, ptr %.val18.i138, i64 32
+  %.val18.val.i140 = load ptr, ptr %225, align 8, !tbaa !52
+  %226 = getelementptr i8, ptr %.val18.val.i140, i64 8
+  %.val18.val.val.i141 = load ptr, ptr %226, align 8, !tbaa !36
+  %wide.trip.count.i142 = zext nneg i32 %.val.i104 to i64
+  br label %227
+
+227:                                              ; preds = %227, %.lr.ph.i137
+  %indvars.iv.i143 = phi i64 [ 0, %.lr.ph.i137 ], [ %indvars.iv.next.i145, %227 ]
+  %.01320.i144 = phi float [ 0.000000e+00, %.lr.ph.i137 ], [ %234, %227 ]
+  %228 = getelementptr inbounds nuw i32, ptr %.val19.i139, i64 %indvars.iv.i143
+  %229 = load i32, ptr %228, align 4, !tbaa !44
+  %230 = sext i32 %229 to i64
+  %231 = getelementptr inbounds ptr, ptr %.val18.val.val.i141, i64 %230
+  %232 = load ptr, ptr %231, align 8, !tbaa !38
+  %233 = tail call float @Abc_SclCountNonBufferLoadInt(ptr noundef nonnull readonly %0, ptr noundef %232)
+  %234 = fadd float %.01320.i144, %233
+  %indvars.iv.next.i145 = add nuw nsw i64 %indvars.iv.i143, 1
+  %exitcond.not.i146 = icmp eq i64 %indvars.iv.next.i145, %wide.trip.count.i142
+  br i1 %exitcond.not.i146, label %.critedge.loopexit.i147, label %227, !llvm.loop !203
+
+.critedge.loopexit.i147:                          ; preds = %227
+  %235 = fpext float %234 to double
   br label %Abc_SclCountNonBufferLoad.exit148
 
 Abc_SclCountNonBufferLoad.exit148:                ; preds = %Abc_SclCountNonBufferFanouts.exit129, %.critedge.loopexit.i147
-  %236 = phi double [ 0x7FF8000000000000, %Abc_SclCountNonBufferFanouts.exit129 ], [ %234, %.critedge.loopexit.i147 ]
-  %237 = phi i64 [ %215, %Abc_SclCountNonBufferFanouts.exit129 ], [ %230, %.critedge.loopexit.i147 ]
+  %236 = phi double [ 0x7FF8000000000000, %Abc_SclCountNonBufferFanouts.exit129 ], [ %223, %.critedge.loopexit.i147 ]
+  %237 = phi i64 [ %215, %Abc_SclCountNonBufferFanouts.exit129 ], [ %219, %.critedge.loopexit.i147 ]
   %.013.lcssa.i134 = phi double [ 0.000000e+00, %Abc_SclCountNonBufferFanouts.exit129 ], [ %235, %.critedge.loopexit.i147 ]
   %.val16.i135 = load ptr, ptr %69, align 8, !tbaa !102
   %238 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val16.i135, i64 %237

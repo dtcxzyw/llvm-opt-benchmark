@@ -4309,29 +4309,29 @@ _ZNSt6vectorIN5clang7tooling5RangeESaIS2_EEC2ERKS4_.exit.thread: ; preds = %3
 _ZNSt12_Vector_baseIN5clang7tooling5RangeESaIS2_EEC2EmRKS3_.exit.i: ; preds = %21
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #27
   store ptr %24, ptr %5, align 8, !tbaa !269
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %17
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %25, ptr %26, align 8, !tbaa !270
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %17
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %26, ptr %27, align 8, !tbaa !270
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN5clang7tooling5RangeESaIS2_EEC2EmRKS3_.exit.i, %.lr.ph.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i ], [ %24, %_ZNSt12_Vector_baseIN5clang7tooling5RangeESaIS2_EEC2EmRKS3_.exit.i ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i.i ], [ %14, %_ZNSt12_Vector_baseIN5clang7tooling5RangeESaIS2_EEC2EmRKS3_.exit.i ]
-  %27 = load i64, ptr %.sroa.04.08.i.i.i.i.i, align 4
-  store i64 %27, ptr %.09.i.i.i.i.i, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
-  %29 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %28, %13
-  br i1 %.not.i.i.i.i.i, label %30, label %.lr.ph.i.i.i.i.i, !llvm.loop !271
+  %.09.i.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i.i ], [ %24, %_ZNSt12_Vector_baseIN5clang7tooling5RangeESaIS2_EEC2EmRKS3_.exit.i ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i ], [ %14, %_ZNSt12_Vector_baseIN5clang7tooling5RangeESaIS2_EEC2EmRKS3_.exit.i ]
+  %28 = load i64, ptr %.sroa.04.08.i.i.i.i.i, align 4
+  store i64 %28, ptr %.09.i.i.i.i.i, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %29, %13
+  br i1 %.not.i.i.i.i.i, label %31, label %.lr.ph.i.i.i.i.i, !llvm.loop !271
 
-30:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %29, ptr %31, align 8, !tbaa !266
+31:                                               ; preds = %.lr.ph.i.i.i.i.i
+  store ptr %30, ptr %25, align 8, !tbaa !266
   call fastcc void @_ZL20combineAndSortRangesSt6vectorIN5clang7tooling5RangeESaIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef %5)
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %17) #25
   br label %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EEC2ERKS4_.exit.thread, %30
+_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EEC2ERKS4_.exit.thread, %31
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %33 = load i64, ptr %32, align 8, !tbaa !190
   %34 = icmp eq i64 %33, 0

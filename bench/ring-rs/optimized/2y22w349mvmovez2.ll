@@ -1969,12 +1969,12 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %18
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit": ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 %17
   %.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %17, i64 %.sroa.4.0)
   %.not46 = icmp eq i64 %.0.sroa.speculated.i.i.i, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit"
-  %36 = getelementptr inbounds nuw i8, ptr %11, i64 %17
   call void @llvm.experimental.noalias.scope.decl(metadata !448)
   %37 = icmp eq i64 %17, 0
   br i1 %37, label %38, label %39, !prof !146

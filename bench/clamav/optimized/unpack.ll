@@ -1037,30 +1037,30 @@ define void @_ZN8ModelPPM14StartModelRareEi(ptr noundef nonnull align 8 derefere
 define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 dereferenceable(20) %0, ptr noundef captures(none) %1) local_unnamed_addr #11 align 2 {
   %3 = alloca %struct.RARPPM_STATE, align 1
   %4 = load i16, ptr %0, align 1, !tbaa !64
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1632
-  %6 = load ptr, ptr %5, align 8, !tbaa !65
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load ptr, ptr %7, align 1, !tbaa !27
-  %.not81 = icmp eq ptr %6, %8
+  %5 = zext i16 %4 to i32
+  %6 = add nsw i32 %5, -1
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1632
+  %8 = load ptr, ptr %7, align 8, !tbaa !65
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %10 = load ptr, ptr %9, align 1, !tbaa !27
+  %.not81 = icmp eq ptr %8, %10
   br i1 %.not81, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.06082 = phi ptr [ %9, %.lr.ph ], [ %6, %2 ]
-  %9 = getelementptr inbounds i8, ptr %.06082, i64 -10
+  %.06082 = phi ptr [ %11, %.lr.ph ], [ %8, %2 ]
+  %11 = getelementptr inbounds i8, ptr %.06082, i64 -10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) %.06082, i64 10, i1 false), !tbaa.struct !86
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.06082, ptr noundef nonnull align 1 dereferenceable(10) %9, i64 10, i1 false), !tbaa.struct !86
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %9, ptr noundef nonnull align 1 dereferenceable(10) %3, i64 10, i1 false), !tbaa.struct !86
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.06082, ptr noundef nonnull align 1 dereferenceable(10) %11, i64 10, i1 false), !tbaa.struct !86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %11, ptr noundef nonnull align 1 dereferenceable(10) %3, i64 10, i1 false), !tbaa.struct !86
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %10 = load ptr, ptr %7, align 1, !tbaa !27
-  %.not = icmp eq ptr %9, %10
+  %12 = load ptr, ptr %9, align 1, !tbaa !27
+  %.not = icmp eq ptr %11, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.060.lcssa = phi ptr [ %6, %2 ], [ %9, %.lr.ph ]
-  %.lcssa78 = phi ptr [ %8, %2 ], [ %10, %.lr.ph ]
-  %11 = zext i16 %4 to i32
-  %12 = add nsw i32 %11, -1
+  %.060.lcssa = phi ptr [ %8, %2 ], [ %11, %.lr.ph ]
+  %.lcssa78 = phi ptr [ %10, %2 ], [ %12, %.lr.ph ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = getelementptr inbounds nuw i8, ptr %.lcssa78, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !70
@@ -1089,7 +1089,7 @@ define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 
 32:                                               ; preds = %56, %._crit_edge
   %.161 = phi ptr [ %.060.lcssa, %._crit_edge ], [ %33, %56 ]
   %.057 = phi i32 [ %23, %._crit_edge ], [ %37, %56 ]
-  %.0 = phi i32 [ %12, %._crit_edge ], [ %57, %56 ]
+  %.0 = phi i32 [ %6, %._crit_edge ], [ %57, %56 ]
   %33 = getelementptr inbounds nuw i8, ptr %.161, i64 10
   %34 = getelementptr inbounds nuw i8, ptr %.161, i64 11
   %35 = load i8, ptr %34, align 1, !tbaa !70
@@ -1119,7 +1119,7 @@ define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 
   %.059 = phi ptr [ %33, %48 ], [ %50, %52 ]
   %50 = getelementptr inbounds i8, ptr %.059, i64 -10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.059, ptr noundef nonnull align 1 dereferenceable(10) %50, i64 10, i1 false), !tbaa.struct !86
-  %51 = load ptr, ptr %7, align 1, !tbaa !27
+  %51 = load ptr, ptr %9, align 1, !tbaa !27
   %.not70 = icmp eq ptr %50, %51
   br i1 %.not70, label %.critedge, label %52
 
@@ -1172,9 +1172,12 @@ define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 
   br i1 %72, label %73, label %91
 
 73:                                               ; preds = %67
-  %74 = load ptr, ptr %7, align 1, !tbaa !27
+  %74 = load ptr, ptr %9, align 1, !tbaa !27
+  %.sroa.0.0.copyload = load i8, ptr %74, align 1, !tbaa !27
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 1
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !27
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 2
+  %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 1, !tbaa !87
   br label %75
 
 75:                                               ; preds = %75, %73
@@ -1187,10 +1190,7 @@ define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 
   br i1 %79, label %75, label %80, !llvm.loop !92
 
 80:                                               ; preds = %75
-  %.sroa.0.0.copyload = load i8, ptr %74, align 1, !tbaa !27
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 2
-  %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 1, !tbaa !87
-  %81 = add nuw nsw i32 %11, 1
+  %81 = add nuw nsw i32 %5, 1
   %82 = lshr i32 %81, 1
   %83 = zext nneg i32 %82 to i64
   %84 = getelementptr i8, ptr %1, i64 %83
@@ -1202,11 +1202,11 @@ define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 
   %90 = load ptr, ptr %89, align 8, !tbaa !34
   store ptr %90, ptr %74, align 8, !tbaa !34
   store ptr %74, ptr %89, align 8, !tbaa !34
-  store ptr %13, ptr %5, align 8, !tbaa !65
+  store ptr %13, ptr %7, align 8, !tbaa !65
   store i8 %.sroa.0.0.copyload, ptr %13, align 1, !tbaa !27
   %.sroa.4.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %77, ptr %.sroa.4.0..sroa_idx5, align 1, !tbaa !27
-  store ptr %.sroa.7.0.copyload, ptr %7, align 1, !tbaa !87
+  store ptr %.sroa.7.0.copyload, ptr %9, align 1, !tbaa !87
   br label %160
 
 91:                                               ; preds = %._crit_edge90, %67
@@ -1218,13 +1218,13 @@ define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 
   %96 = trunc i32 %94 to i16
   %97 = add i16 %95, %96
   store i16 %97, ptr %13, align 1, !tbaa !27
-  %98 = add nuw nsw i32 %11, 1
+  %98 = add nuw nsw i32 %5, 1
   %99 = lshr i32 %98, 1
   %100 = zext i16 %92 to i32
   %101 = add nuw nsw i32 %100, 1
   %102 = lshr i32 %101, 1
   %.not72 = icmp eq i32 %99, %102
-  %.pre91 = load ptr, ptr %7, align 1, !tbaa !27
+  %.pre91 = load ptr, ptr %9, align 1, !tbaa !27
   br i1 %.not72, label %158, label %103
 
 103:                                              ; preds = %91
@@ -1313,12 +1313,12 @@ define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 
 
 _ZN12SubAllocator11ShrinkUnitsEPvii.exit:         ; preds = %103, %.sink.split.i
   %.0.i = phi ptr [ %.pre91, %103 ], [ %.0.ph.i, %.sink.split.i ]
-  store ptr %.0.i, ptr %7, align 1, !tbaa !27
+  store ptr %.0.i, ptr %9, align 1, !tbaa !27
   br label %158
 
 158:                                              ; preds = %_ZN12SubAllocator11ShrinkUnitsEPvii.exit, %91
   %159 = phi ptr [ %.0.i, %_ZN12SubAllocator11ShrinkUnitsEPvii.exit ], [ %.pre91, %91 ]
-  store ptr %159, ptr %5, align 8, !tbaa !65
+  store ptr %159, ptr %7, align 8, !tbaa !65
   br label %160
 
 160:                                              ; preds = %158, %80
@@ -2319,11 +2319,11 @@ _ZN14RARPPM_CONTEXT12makeEscFreq2EP8ModelPPMi.exit: ; preds = %9, %48
   br i1 %.not, label %66, label %.loopexit
 
 66:                                               ; preds = %65
+  %.048.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.048.idx
   %67 = getelementptr inbounds nuw i8, ptr %.1, i64 11
   %68 = load i8, ptr %67, align 1, !tbaa !70
   %69 = zext i8 %68 to i32
   %70 = add nuw nsw i32 %.054, %69
-  %.048.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.048.idx
   %.048.add = add nuw nsw i64 %.048.idx, 8
   store ptr %59, ptr %.048.ptr, align 8, !tbaa !137
   %71 = add nsw i32 %.052, -1
@@ -3619,43 +3619,43 @@ define void @_ZN6Unpack8InitHuffEv(ptr noundef nonnull align 8 captures(none) de
 
 6:                                                ; preds = %23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 21914
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 22170
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(768) %7, i8 0, i64 768, i1 false)
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %15, %6
-  %.01319.i = phi i32 [ 7, %6 ], [ %16, %15 ]
-  %.01418.i = phi ptr [ %2, %6 ], [ %14, %15 ]
-  %8 = trunc i32 %.01319.i to i16
-  br label %9
+.preheader.i:                                     ; preds = %16, %6
+  %.01319.i = phi i32 [ 7, %6 ], [ %17, %16 ]
+  %.01418.i = phi ptr [ %2, %6 ], [ %15, %16 ]
+  %9 = trunc i32 %.01319.i to i16
+  br label %10
 
-9:                                                ; preds = %9, %.preheader.i
-  %.017.i = phi i32 [ 0, %.preheader.i ], [ %13, %9 ]
-  %.11516.i = phi ptr [ %.01418.i, %.preheader.i ], [ %14, %9 ]
-  %10 = load i16, ptr %.11516.i, align 2, !tbaa !73
-  %11 = and i16 %10, -256
-  %12 = or i16 %11, %8
-  store i16 %12, ptr %.11516.i, align 2, !tbaa !73
-  %13 = add nuw nsw i32 %.017.i, 1
-  %14 = getelementptr inbounds nuw i8, ptr %.11516.i, i64 2
-  %exitcond.not.i = icmp eq i32 %13, 32
-  br i1 %exitcond.not.i, label %15, label %9, !llvm.loop !152
+10:                                               ; preds = %10, %.preheader.i
+  %.017.i = phi i32 [ 0, %.preheader.i ], [ %14, %10 ]
+  %.11516.i = phi ptr [ %.01418.i, %.preheader.i ], [ %15, %10 ]
+  %11 = load i16, ptr %.11516.i, align 2, !tbaa !73
+  %12 = and i16 %11, -256
+  %13 = or i16 %12, %9
+  store i16 %13, ptr %.11516.i, align 2, !tbaa !73
+  %14 = add nuw nsw i32 %.017.i, 1
+  %15 = getelementptr inbounds nuw i8, ptr %.11516.i, i64 2
+  %exitcond.not.i = icmp eq i32 %14, 32
+  br i1 %exitcond.not.i, label %16, label %10, !llvm.loop !152
 
-15:                                               ; preds = %9
-  %16 = add nsw i32 %.01319.i, -1
+16:                                               ; preds = %10
+  %17 = add nsw i32 %.01319.i, -1
   %.not.i = icmp eq i32 %.01319.i, 0
-  br i1 %.not.i, label %17, label %.preheader.i, !llvm.loop !153
+  br i1 %.not.i, label %18, label %.preheader.i, !llvm.loop !153
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 22170
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %18, i8 0, i64 256, i1 false)
+18:                                               ; preds = %16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %8, i8 0, i64 256, i1 false)
   br label %19
 
-19:                                               ; preds = %19, %17
-  %indvars.iv.i = phi i64 [ 6, %17 ], [ %indvars.iv.next.i, %19 ]
+19:                                               ; preds = %19, %18
+  %indvars.iv.i = phi i64 [ 6, %18 ], [ %indvars.iv.next.i, %19 ]
   %.1.tr.i = trunc i64 %indvars.iv.i to i8
   %20 = shl i8 %.1.tr.i, 5
   %21 = sub nuw nsw i8 -32, %20
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
   store i8 %21, ptr %22, align 1, !tbaa !27
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not22.i = icmp eq i64 %indvars.iv.i, 0

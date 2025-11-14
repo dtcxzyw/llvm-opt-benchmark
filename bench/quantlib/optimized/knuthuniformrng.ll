@@ -141,6 +141,7 @@ entry:
           to label %invoke.cont4 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 invoke.cont4:                                     ; preds = %entry
+  %incdec.ptr.i.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i70, i64 8
   %and = and i64 %seed, 1073741823
   %add = add nuw nsw i64 %and, 2
   %conv = uitofp nneg i64 %add to double
@@ -168,7 +169,6 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %entry
   resume { ptr, i32 } %0
 
 for.end21:                                        ; preds = %for.body
-  %incdec.ptr.i.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i70, i64 8
   %scevgep = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i70, i64 800
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(792) %scevgep, i8 0, i64 792, i1 false), !tbaa !18
   %scevgep193 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i64, i64 800

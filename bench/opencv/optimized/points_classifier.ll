@@ -820,42 +820,42 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i:          ; preds = %_ZNSt6vectorIiSaIiE
   %375 = ptrtoint ptr %374 to i64
   %376 = sub i64 %375, %367
   %377 = icmp ult i64 %376, 5
-  br i1 %377, label %379, label %.lr.ph.i.i.i.i12.i.preheader
+  br i1 %377, label %378, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i
 
-.lr.ph.i.i.i.i12.i.preheader:                     ; preds = %373
-  store i64 0, ptr %365, align 4
-  %378 = getelementptr inbounds nuw i8, ptr %365, i64 8
-  %.not.i.i310 = icmp eq ptr %374, %378
-  br i1 %.not.i.i310, label %_ZNSt6vectorIiSaIiEE14_M_fill_assignEmRKi.exit, label %389
-
-379:                                              ; preds = %373
+378:                                              ; preds = %373
   %.not5.i.i.i.i.i = icmp eq ptr %365, %374
   br i1 %.not5.i.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i, label %.lr.ph.i.i.i.i.i311.preheader
 
-.lr.ph.i.i.i.i.i311.preheader:                    ; preds = %379
-  %380 = add i64 %375, -4
-  %381 = sub i64 %380, %367
-  %382 = and i64 %381, -4
-  %383 = add i64 %382, 4
-  call void @llvm.memset.p0.i64(ptr align 4 %365, i8 0, i64 %383, i1 false), !tbaa !57
+.lr.ph.i.i.i.i.i311.preheader:                    ; preds = %378
+  %379 = add i64 %375, -4
+  %380 = sub i64 %379, %367
+  %381 = and i64 %380, -4
+  %382 = add i64 %381, 4
+  call void @llvm.memset.p0.i64(ptr align 4 %365, i8 0, i64 %382, i1 false), !tbaa !57
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i
 
-_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i311.preheader, %379
+_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i311.preheader, %378
+  %383 = add i64 %367, 4
+  %384 = sub i64 %383, %375
+  %385 = and i64 %384, -4
+  %386 = add i64 %385, 4
+  call void @llvm.memset.p0.i64(ptr align 4 %374, i8 0, i64 %386, i1 false), !tbaa !57
   %.idx.i.i.i.i.i.i = sub nuw nsw i64 8, %376
-  %384 = getelementptr inbounds nuw i8, ptr %374, i64 %.idx.i.i.i.i.i.i
-  %385 = add i64 %367, 4
-  %386 = sub i64 %385, %375
-  %387 = and i64 %386, -4
-  %388 = add i64 %387, 4
-  call void @llvm.memset.p0.i64(ptr align 4 %374, i8 0, i64 %388, i1 false), !tbaa !57
-  store ptr %384, ptr getelementptr inbounds nuw (i8, ptr @classCounters, i64 8), align 8, !tbaa !55
+  %387 = getelementptr inbounds nuw i8, ptr %374, i64 %.idx.i.i.i.i.i.i
+  store ptr %387, ptr getelementptr inbounds nuw (i8, ptr @classCounters, i64 8), align 8, !tbaa !55
   br label %_ZNSt6vectorIiSaIiEE14_M_fill_assignEmRKi.exit
 
-389:                                              ; preds = %.lr.ph.i.i.i.i12.i.preheader
-  store ptr %378, ptr getelementptr inbounds nuw (i8, ptr @classCounters, i64 8), align 8, !tbaa !55
+_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i:            ; preds = %373
+  store i64 0, ptr %365, align 4
+  %388 = getelementptr inbounds nuw i8, ptr %365, i64 8
+  %.not.i.i310 = icmp eq ptr %374, %388
+  br i1 %.not.i.i310, label %_ZNSt6vectorIiSaIiEE14_M_fill_assignEmRKi.exit, label %389
+
+389:                                              ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i
+  store ptr %388, ptr getelementptr inbounds nuw (i8, ptr @classCounters, i64 8), align 8, !tbaa !55
   br label %_ZNSt6vectorIiSaIiEE14_M_fill_assignEmRKi.exit
 
-_ZNSt6vectorIiSaIiEE14_M_fill_assignEmRKi.exit:   ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i, %372, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i, %.lr.ph.i.i.i.i12.i.preheader, %389
+_ZNSt6vectorIiSaIiEE14_M_fill_assignEmRKi.exit:   ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i, %372, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i, %389
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i32 0, ptr %216, align 8, !tbaa !48
   store i32 0, ptr %217, align 4, !tbaa !50

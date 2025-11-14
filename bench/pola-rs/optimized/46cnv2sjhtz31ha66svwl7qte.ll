@@ -249743,7 +249743,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops5index30is_positive_
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf6263f80e372b099E.exit, label %.lr.ph.i
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb1198cd7b12fe22bE.exit.loopexit.i": ; preds = %11
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb1198cd7b12fe22bE.exit.loopexit.i": ; preds = %.critedge.i.i.i.i
   %.not15.i = icmp eq ptr %8, %6
   br i1 %.not15.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf6263f80e372b099E.exit, label %.lr.ph.i
 
@@ -249755,38 +249755,38 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops5index30is_positive_
   %.val2.i.i = load ptr, ptr %9, align 8, !noalias !27266, !noundef !8
   %10 = getelementptr i8, ptr %.val.i, i64 48
   %.val3.i.i = load i64, ptr %10, align 8, !noalias !27266, !noundef !8
-  br label %11
+  br label %.critedge.i.i.i.i
 
-11:                                               ; preds = %._crit_edge.i.i.i.i, %.lr.ph.i
-  %.sroa.6.0.i.i.i.i = phi i64 [ %.val3.i.i, %.lr.ph.i ], [ %18, %._crit_edge.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %.val2.i.i, %.lr.ph.i ], [ %13, %._crit_edge.i.i.i.i ]
+.critedge.i.i.i.i:                                ; preds = %._crit_edge.i.i.i.i, %.lr.ph.i
+  %.sroa.6.0.i.i.i.i = phi i64 [ %.val3.i.i, %.lr.ph.i ], [ %17, %._crit_edge.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %.val2.i.i, %.lr.ph.i ], [ %12, %._crit_edge.i.i.i.i ]
   %.not.not.not.i.not.not.not.i.not.i.not = icmp eq i64 %.sroa.6.0.i.i.i.i, 0
   br i1 %.not.not.not.i.not.not.not.i.not.i.not, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb1198cd7b12fe22bE.exit.loopexit.i", label %.lr.ph.preheader.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i:                         ; preds = %11
+.lr.ph.preheader.i.i.i.i:                         ; preds = %.critedge.i.i.i.i
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i.i.i.i, i64 1024)
-  %12 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
+  %11 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
+  tail call void @llvm.assume(i1 %11)
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
-  %.sroa.0.29.i.i.i.i = phi i1 [ %16, %.lr.ph.i.i.i.i ], [ true, %.lr.ph.preheader.i.i.i.i ]
-  %.sroa.07.08.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.07.08.i.i.i.i, i64 1
+  %.sroa.0.29.i.i.i.i = phi i1 [ %15, %.lr.ph.i.i.i.i ], [ true, %.lr.ph.preheader.i.i.i.i ]
+  %.sroa.07.08.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.07.08.i.i.i.i, i64 1
   %.sroa.07.0.val.i.i.i.i = load i8, ptr %.sroa.07.08.i.i.i.i, align 1, !noalias !27266, !noundef !8
-  %15 = icmp sgt i8 %.sroa.07.0.val.i.i.i.i, -1
-  %16 = and i1 %.sroa.0.29.i.i.i.i, %15
-  %17 = icmp eq ptr %14, %13
-  br i1 %17, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %14 = icmp sgt i8 %.sroa.07.0.val.i.i.i.i, -1
+  %15 = and i1 %.sroa.0.29.i.i.i.i, %14
+  %16 = icmp eq ptr %13, %12
+  br i1 %16, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i
-  %18 = sub nuw i64 %.sroa.6.0.i.i.i.i, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
-  br i1 %16, label %11, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf6263f80e372b099E.exit
+  %17 = sub nuw i64 %.sroa.6.0.i.i.i.i, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
+  br i1 %15, label %.critedge.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf6263f80e372b099E.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hf6263f80e372b099E.exit: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb1198cd7b12fe22bE.exit.loopexit.i", %._crit_edge.i.i.i.i, %1
-  %19 = phi i1 [ true, %1 ], [ false, %._crit_edge.i.i.i.i ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb1198cd7b12fe22bE.exit.loopexit.i" ]
-  ret i1 %19
+  %18 = phi i1 [ true, %1 ], [ false, %._crit_edge.i.i.i.i ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb1198cd7b12fe22bE.exit.loopexit.i" ]
+  ret i1 %18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
@@ -249800,7 +249800,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops5index30is_positive_
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7ebf752dd48eeabcE.exit, label %.lr.ph.i
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h122f9723c124d1d7E.exit.loopexit.i": ; preds = %11
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h122f9723c124d1d7E.exit.loopexit.i": ; preds = %.critedge.i.i.i.i
   %.not15.i = icmp eq ptr %8, %6
   br i1 %.not15.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7ebf752dd48eeabcE.exit, label %.lr.ph.i
 
@@ -249812,40 +249812,40 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops5index30is_positive_
   %.val2.i.i = load ptr, ptr %9, align 8, !noalias !27269, !noundef !8
   %10 = getelementptr i8, ptr %.val.i, i64 48
   %.val3.i.i = load i64, ptr %10, align 8, !noalias !27269, !noundef !8
-  br label %11
+  br label %.critedge.i.i.i.i
 
-11:                                               ; preds = %._crit_edge.i.i.i.i, %.lr.ph.i
-  %.sroa.6.0.i.i.i.i = phi i64 [ %.val3.i.i, %.lr.ph.i ], [ %19, %._crit_edge.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %.val2.i.i, %.lr.ph.i ], [ %18, %._crit_edge.i.i.i.i ]
+.critedge.i.i.i.i:                                ; preds = %._crit_edge.i.i.i.i, %.lr.ph.i
+  %.sroa.6.0.i.i.i.i = phi i64 [ %.val3.i.i, %.lr.ph.i ], [ %18, %._crit_edge.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %.val2.i.i, %.lr.ph.i ], [ %17, %._crit_edge.i.i.i.i ]
   %.not.not.not.i.not.not.not.i.not.i.not = icmp eq i64 %.sroa.6.0.i.i.i.i, 0
   br i1 %.not.not.not.i.not.not.not.i.not.i.not, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h122f9723c124d1d7E.exit.loopexit.i", label %.lr.ph.preheader.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i:                         ; preds = %11
+.lr.ph.preheader.i.i.i.i:                         ; preds = %.critedge.i.i.i.i
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i.i.i.i, i64 1024)
-  %12 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %12)
+  %11 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
+  tail call void @llvm.assume(i1 %11)
   %.idx.i.i.i.i = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, 2
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 %.idx.i.i.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 %.idx.i.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
-  %.sroa.0.29.i.i.i.i = phi i1 [ %16, %.lr.ph.i.i.i.i ], [ true, %.lr.ph.preheader.i.i.i.i ]
-  %.sroa.07.08.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.07.08.i.i.i.i, i64 4
+  %.sroa.0.29.i.i.i.i = phi i1 [ %15, %.lr.ph.i.i.i.i ], [ true, %.lr.ph.preheader.i.i.i.i ]
+  %.sroa.07.08.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.07.08.i.i.i.i, i64 4
   %.sroa.07.0.val.i.i.i.i = load i32, ptr %.sroa.07.08.i.i.i.i, align 4, !noalias !27269, !noundef !8
-  %15 = icmp sgt i32 %.sroa.07.0.val.i.i.i.i, -1
-  %16 = and i1 %.sroa.0.29.i.i.i.i, %15
-  %17 = icmp eq ptr %14, %13
-  br i1 %17, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %14 = icmp sgt i32 %.sroa.07.0.val.i.i.i.i, -1
+  %15 = and i1 %.sroa.0.29.i.i.i.i, %14
+  %16 = icmp eq ptr %13, %12
+  br i1 %16, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i
-  %18 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
-  %19 = sub nuw i64 %.sroa.6.0.i.i.i.i, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
-  br i1 %16, label %11, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7ebf752dd48eeabcE.exit
+  %17 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
+  %18 = sub nuw i64 %.sroa.6.0.i.i.i.i, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
+  br i1 %15, label %.critedge.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7ebf752dd48eeabcE.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h7ebf752dd48eeabcE.exit: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h122f9723c124d1d7E.exit.loopexit.i", %._crit_edge.i.i.i.i, %1
-  %20 = phi i1 [ true, %1 ], [ false, %._crit_edge.i.i.i.i ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h122f9723c124d1d7E.exit.loopexit.i" ]
-  ret i1 %20
+  %19 = phi i1 [ true, %1 ], [ false, %._crit_edge.i.i.i.i ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h122f9723c124d1d7E.exit.loopexit.i" ]
+  ret i1 %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
@@ -249859,7 +249859,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops5index30is_positive_
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h26ee4b3a8ca4380eE.exit, label %.lr.ph.i
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb59bbde55006008bE.exit.loopexit.i": ; preds = %11
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb59bbde55006008bE.exit.loopexit.i": ; preds = %.critedge.i.i.i.i
   %.not15.i = icmp eq ptr %8, %6
   br i1 %.not15.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h26ee4b3a8ca4380eE.exit, label %.lr.ph.i
 
@@ -249871,40 +249871,40 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops5index30is_positive_
   %.val2.i.i = load ptr, ptr %9, align 8, !noalias !27272, !noundef !8
   %10 = getelementptr i8, ptr %.val.i, i64 48
   %.val3.i.i = load i64, ptr %10, align 8, !noalias !27272, !noundef !8
-  br label %11
+  br label %.critedge.i.i.i.i
 
-11:                                               ; preds = %._crit_edge.i.i.i.i, %.lr.ph.i
-  %.sroa.6.0.i.i.i.i = phi i64 [ %.val3.i.i, %.lr.ph.i ], [ %19, %._crit_edge.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %.val2.i.i, %.lr.ph.i ], [ %18, %._crit_edge.i.i.i.i ]
+.critedge.i.i.i.i:                                ; preds = %._crit_edge.i.i.i.i, %.lr.ph.i
+  %.sroa.6.0.i.i.i.i = phi i64 [ %.val3.i.i, %.lr.ph.i ], [ %18, %._crit_edge.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %.val2.i.i, %.lr.ph.i ], [ %17, %._crit_edge.i.i.i.i ]
   %.not.not.not.i.not.not.not.i.not.i.not = icmp eq i64 %.sroa.6.0.i.i.i.i, 0
   br i1 %.not.not.not.i.not.not.not.i.not.i.not, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb59bbde55006008bE.exit.loopexit.i", label %.lr.ph.preheader.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i:                         ; preds = %11
+.lr.ph.preheader.i.i.i.i:                         ; preds = %.critedge.i.i.i.i
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i.i.i.i, i64 1024)
-  %12 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %12)
+  %11 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
+  tail call void @llvm.assume(i1 %11)
   %.idx.i.i.i.i = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, 3
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 %.idx.i.i.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 %.idx.i.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
-  %.sroa.0.29.i.i.i.i = phi i1 [ %16, %.lr.ph.i.i.i.i ], [ true, %.lr.ph.preheader.i.i.i.i ]
-  %.sroa.07.08.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.07.08.i.i.i.i, i64 8
+  %.sroa.0.29.i.i.i.i = phi i1 [ %15, %.lr.ph.i.i.i.i ], [ true, %.lr.ph.preheader.i.i.i.i ]
+  %.sroa.07.08.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.07.08.i.i.i.i, i64 8
   %.sroa.07.0.val.i.i.i.i = load i64, ptr %.sroa.07.08.i.i.i.i, align 8, !noalias !27272, !noundef !8
-  %15 = icmp sgt i64 %.sroa.07.0.val.i.i.i.i, -1
-  %16 = and i1 %.sroa.0.29.i.i.i.i, %15
-  %17 = icmp eq ptr %14, %13
-  br i1 %17, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %14 = icmp sgt i64 %.sroa.07.0.val.i.i.i.i, -1
+  %15 = and i1 %.sroa.0.29.i.i.i.i, %14
+  %16 = icmp eq ptr %13, %12
+  br i1 %16, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
-  %19 = sub nuw i64 %.sroa.6.0.i.i.i.i, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
-  br i1 %16, label %11, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h26ee4b3a8ca4380eE.exit
+  %17 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
+  %18 = sub nuw i64 %.sroa.6.0.i.i.i.i, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
+  br i1 %15, label %.critedge.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h26ee4b3a8ca4380eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h26ee4b3a8ca4380eE.exit: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb59bbde55006008bE.exit.loopexit.i", %._crit_edge.i.i.i.i, %1
-  %20 = phi i1 [ true, %1 ], [ false, %._crit_edge.i.i.i.i ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb59bbde55006008bE.exit.loopexit.i" ]
-  ret i1 %20
+  %19 = phi i1 [ true, %1 ], [ false, %._crit_edge.i.i.i.i ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb59bbde55006008bE.exit.loopexit.i" ]
+  ret i1 %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
@@ -249918,7 +249918,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops5index30is_positive_
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0ceced3cc276d07aE.exit, label %.lr.ph.i
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda16ee623f1e5235E.exit.loopexit.i": ; preds = %11
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda16ee623f1e5235E.exit.loopexit.i": ; preds = %.critedge.i.i.i.i
   %.not15.i = icmp eq ptr %8, %6
   br i1 %.not15.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0ceced3cc276d07aE.exit, label %.lr.ph.i
 
@@ -249930,40 +249930,40 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops5index30is_positive_
   %.val2.i.i = load ptr, ptr %9, align 8, !noalias !27275, !noundef !8
   %10 = getelementptr i8, ptr %.val.i, i64 48
   %.val3.i.i = load i64, ptr %10, align 8, !noalias !27275, !noundef !8
-  br label %11
+  br label %.critedge.i.i.i.i
 
-11:                                               ; preds = %._crit_edge.i.i.i.i, %.lr.ph.i
-  %.sroa.6.0.i.i.i.i = phi i64 [ %.val3.i.i, %.lr.ph.i ], [ %19, %._crit_edge.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %.val2.i.i, %.lr.ph.i ], [ %18, %._crit_edge.i.i.i.i ]
+.critedge.i.i.i.i:                                ; preds = %._crit_edge.i.i.i.i, %.lr.ph.i
+  %.sroa.6.0.i.i.i.i = phi i64 [ %.val3.i.i, %.lr.ph.i ], [ %18, %._crit_edge.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %.val2.i.i, %.lr.ph.i ], [ %17, %._crit_edge.i.i.i.i ]
   %.not.not.not.i.not.not.not.i.not.i.not = icmp eq i64 %.sroa.6.0.i.i.i.i, 0
   br i1 %.not.not.not.i.not.not.not.i.not.i.not, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda16ee623f1e5235E.exit.loopexit.i", label %.lr.ph.preheader.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i:                         ; preds = %11
+.lr.ph.preheader.i.i.i.i:                         ; preds = %.critedge.i.i.i.i
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.6.0.i.i.i.i, i64 1024)
-  %12 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
-  tail call void @llvm.assume(i1 %12)
+  %11 = icmp ne ptr %.sroa.0.0.i.i.i.i, null
+  tail call void @llvm.assume(i1 %11)
   %.idx.i.i.i.i = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, 1
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 %.idx.i.i.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 %.idx.i.i.i.i
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
-  %.sroa.0.29.i.i.i.i = phi i1 [ %16, %.lr.ph.i.i.i.i ], [ true, %.lr.ph.preheader.i.i.i.i ]
-  %.sroa.07.08.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.07.08.i.i.i.i, i64 2
+  %.sroa.0.29.i.i.i.i = phi i1 [ %15, %.lr.ph.i.i.i.i ], [ true, %.lr.ph.preheader.i.i.i.i ]
+  %.sroa.07.08.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.07.08.i.i.i.i, i64 2
   %.sroa.07.0.val.i.i.i.i = load i16, ptr %.sroa.07.08.i.i.i.i, align 2, !noalias !27275, !noundef !8
-  %15 = icmp sgt i16 %.sroa.07.0.val.i.i.i.i, -1
-  %16 = and i1 %.sroa.0.29.i.i.i.i, %15
-  %17 = icmp eq ptr %14, %13
-  br i1 %17, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %14 = icmp sgt i16 %.sroa.07.0.val.i.i.i.i, -1
+  %15 = and i1 %.sroa.0.29.i.i.i.i, %14
+  %16 = icmp eq ptr %13, %12
+  br i1 %16, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i
-  %18 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
-  %19 = sub nuw i64 %.sroa.6.0.i.i.i.i, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
-  br i1 %16, label %11, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0ceced3cc276d07aE.exit
+  %17 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
+  %18 = sub nuw i64 %.sroa.6.0.i.i.i.i, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i
+  br i1 %15, label %.critedge.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0ceced3cc276d07aE.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h0ceced3cc276d07aE.exit: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda16ee623f1e5235E.exit.loopexit.i", %._crit_edge.i.i.i.i, %1
-  %20 = phi i1 [ true, %1 ], [ false, %._crit_edge.i.i.i.i ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda16ee623f1e5235E.exit.loopexit.i" ]
-  ret i1 %20
+  %19 = phi i1 [ true, %1 ], [ false, %._crit_edge.i.i.i.i ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hda16ee623f1e5235E.exit.loopexit.i" ]
+  ret i1 %19
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -3211,9 +3211,9 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit
 .noexc121:                                        ; preds = %153
   %160 = icmp ugt i32 %146, 16
   %scevgep.i.i.i = getelementptr i8, ptr %143, i64 8
-  br i1 %160, label %.preheader.i.i.i, label %189
+  br i1 %160, label %.preheader.i, label %189
 
-.preheader.i.i.i:                                 ; preds = %.noexc121, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN1q11model_fixer23add_projection_functionER5modelP9func_decljE2ltEEEvT_T0_.exit.i.i.i.i
+.preheader.i:                                     ; preds = %.noexc121, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN1q11model_fixer23add_projection_functionER5modelP9func_decljE2ltEEEvT_T0_.exit.i.i.i.i
   %.022.i.idx.i.i.i = phi i64 [ %.022.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN1q11model_fixer23add_projection_functionER5modelP9func_decljE2ltEEEvT_T0_.exit.i.i.i.i ], [ 8, %.noexc121 ]
   %.pn21.i.i.i.i = phi ptr [ %.022.i.ptr.i.i.i, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN1q11model_fixer23add_projection_functionER5modelP9func_decljE2ltEEEvT_T0_.exit.i.i.i.i ], [ %143, %.noexc121 ]
   %.022.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %143, i64 %.022.i.idx.i.i.i
@@ -3225,7 +3225,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit
   %164 = invoke noundef zeroext i1 %163(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef %.0.val.i.i.i.i, ptr noundef %.val18.i.i.i.i)
           to label %.noexc122 unwind label %.loopexit.split-lp171.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc122:                                        ; preds = %.preheader.i.i.i
+.noexc122:                                        ; preds = %.preheader.i
   %165 = load ptr, ptr %.022.i.ptr.i.i.i, align 8, !tbaa !438
   br i1 %164, label %166, label %167
 
@@ -3265,7 +3265,7 @@ _ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN1q11m
   store ptr %165, ptr %.sink.i.i.i.i, align 8, !tbaa !438
   %.022.i.add.i.i.i = add nuw nsw i64 %.022.i.idx.i.i.i, 8
   %.not.i.i.i.i = icmp eq i64 %.022.i.add.i.i.i, 128
-  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN1q11model_fixer23add_projection_functionER5modelP9func_decljE2ltEEEvT_SE_T0_.exit.i.i.i, label %.preheader.i.i.i, !llvm.loop !615
+  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN1q11model_fixer23add_projection_functionER5modelP9func_decljE2ltEEEvT_SE_T0_.exit.i.i.i, label %.preheader.i, !llvm.loop !615
 
 _ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN1q11model_fixer23add_projection_functionER5modelP9func_decljE2ltEEEvT_SE_T0_.exit.i.i.i: ; preds = %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN1q11model_fixer23add_projection_functionER5modelP9func_decljE2ltEEEvT_T0_.exit.i.i.i.i
   %177 = getelementptr inbounds nuw i8, ptr %143, i64 128
@@ -3447,7 +3447,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_re
           cleanup
   br label %.loopexit.split-lp171
 
-.loopexit.split-lp171.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %167, %.preheader.i.i.i
+.loopexit.split-lp171.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %167, %.preheader.i
   %lpad.loopexit181 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp171

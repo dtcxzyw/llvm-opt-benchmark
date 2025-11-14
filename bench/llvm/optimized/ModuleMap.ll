@@ -3600,29 +3600,29 @@ _ZN5clang6Module6HeaderD2Ev.exit:                 ; preds = %_ZNSt7__cxx1112basi
 
 .lr.ph:                                           ; preds = %115, %_ZNK5clang12FileEntryRef7getNameEv.exit
   %.038 = phi ptr [ %134, %_ZNK5clang12FileEntryRef7getNameEv.exit ], [ %117, %115 ]
-  %122 = load ptr, ptr %6, align 8, !tbaa !407
-  br label %123
+  %122 = load ptr, ptr %.038, align 8, !tbaa !408
+  %123 = load ptr, ptr %6, align 8, !tbaa !407
+  br label %124
 
-123:                                              ; preds = %123, %.lr.ph
-  %.05.i.i = phi ptr [ %122, %.lr.ph ], [ %127, %123 ]
-  %124 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %124, align 8
-  %125 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 4
-  %.not.i.i.i.i.i.i = icmp eq i64 %125, 0
-  %126 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -8
-  %127 = inttoptr i64 %126 to ptr
-  %.not7.i.i = icmp eq i64 %126, 0
+124:                                              ; preds = %124, %.lr.ph
+  %.05.i.i = phi ptr [ %123, %.lr.ph ], [ %128, %124 ]
+  %125 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %125, align 8
+  %126 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 4
+  %.not.i.i.i.i.i.i = icmp eq i64 %126, 0
+  %127 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -8
+  %128 = inttoptr i64 %127 to ptr
+  %.not7.i.i = icmp eq i64 %127, 0
   %.not.i.i = or i1 %.not.i.i.i.i.i.i, %.not7.i.i
-  br i1 %.not.i.i, label %_ZNK5clang12FileEntryRef7getNameEv.exit, label %123
+  br i1 %.not.i.i, label %_ZNK5clang12FileEntryRef7getNameEv.exit, label %124
 
-_ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %123
-  %128 = load ptr, ptr %.038, align 8, !tbaa !408
+_ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 32
   %130 = load i64, ptr %.05.i.i, align 8, !tbaa !21
-  %131 = load ptr, ptr %128, align 8, !tbaa !349
+  %131 = load ptr, ptr %122, align 8, !tbaa !349
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load ptr, ptr %132, align 8
-  call void %133(ptr noundef nonnull align 8 dereferenceable(8) %128, ptr nonnull %129, i64 %130) #24
+  call void %133(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr nonnull %129, i64 %130) #24
   %134 = getelementptr inbounds nuw i8, ptr %.038, i64 8
   %.not21 = icmp eq ptr %134, %121
   br i1 %.not21, label %.loopexit, label %.lr.ph

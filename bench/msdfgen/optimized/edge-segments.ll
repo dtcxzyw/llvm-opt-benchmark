@@ -2474,20 +2474,29 @@ _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit35: ; preds = %if.end10.i2
   %agg.tmp8.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp8.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp5.sroa.0.0.copyload, %agg.tmp8.sroa.0.0.copyload
+  %sub3.i = fsub double %agg.tmp5.sroa.2.0.copyload, %agg.tmp8.sroa.2.0.copyload
   %arrayidx15 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp13.sroa.0.0.copyload = load double, ptr %arrayidx15, align 8
   %agg.tmp13.sroa.2.0.arrayidx15.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   %agg.tmp13.sroa.2.0.copyload = load double, ptr %agg.tmp13.sroa.2.0.arrayidx15.sroa_idx, align 8
   %sub.i36 = fsub double %agg.tmp13.sroa.0.0.copyload, %agg.tmp5.sroa.0.0.copyload
+  %sub3.i37 = fsub double %agg.tmp13.sroa.2.0.copyload, %agg.tmp5.sroa.2.0.copyload
   %sub.i40 = fsub double %sub.i36, %sub.i
+  %sub3.i41 = fsub double %sub3.i37, %sub3.i
   %mul.i = fmul double %sub.i40, 2.000000e+00
+  %mul1.i = fmul double %sub3.i41, 2.000000e+00
   %agg.tmp25.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
   %agg.tmp25.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %mul.i46 = fmul double %agg.tmp13.sroa.0.0.copyload, 3.000000e+00
+  %mul1.i47 = fmul double %agg.tmp13.sroa.2.0.copyload, 3.000000e+00
   %sub.i50 = fsub double %agg.tmp25.sroa.0.0.copyload, %mul.i46
+  %sub3.i51 = fsub double %agg.tmp25.sroa.2.0.copyload, %mul1.i47
   %mul.i54 = fmul double %agg.tmp5.sroa.0.0.copyload, 3.000000e+00
+  %mul1.i55 = fmul double %agg.tmp5.sroa.2.0.copyload, 3.000000e+00
   %add.i = fadd double %mul.i54, %sub.i50
+  %add3.i = fadd double %mul1.i55, %sub3.i51
   %sub.i60 = fsub double %add.i, %agg.tmp8.sroa.0.0.copyload
+  %sub3.i61 = fsub double %add3.i, %agg.tmp8.sroa.2.0.copyload
   %call46 = call noundef i32 @_ZN7msdfgen14solveQuadraticEPdddd(ptr noundef nonnull %params, double noundef %sub.i60, double noundef %mul.i, double noundef %sub.i)
   %cmp88 = icmp sgt i32 %call46, 0
   br i1 %cmp88, label %for.body.preheader, label %for.end
@@ -2553,15 +2562,6 @@ for.inc:                                          ; preds = %if.then13.i71, %if.
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit35
-  %sub3.i = fsub double %agg.tmp5.sroa.2.0.copyload, %agg.tmp8.sroa.2.0.copyload
-  %sub3.i37 = fsub double %agg.tmp13.sroa.2.0.copyload, %agg.tmp5.sroa.2.0.copyload
-  %sub3.i41 = fsub double %sub3.i37, %sub3.i
-  %mul1.i = fmul double %sub3.i41, 2.000000e+00
-  %mul1.i47 = fmul double %agg.tmp13.sroa.2.0.copyload, 3.000000e+00
-  %sub3.i51 = fsub double %agg.tmp25.sroa.2.0.copyload, %mul1.i47
-  %mul1.i55 = fmul double %agg.tmp5.sroa.2.0.copyload, 3.000000e+00
-  %add3.i = fadd double %mul1.i55, %sub3.i51
-  %sub3.i61 = fsub double %add3.i, %agg.tmp8.sroa.2.0.copyload
   %call59 = call noundef i32 @_ZN7msdfgen14solveQuadraticEPdddd(ptr noundef nonnull %params, double noundef %sub3.i61, double noundef %mul1.i, double noundef %sub3.i)
   %cmp6290 = icmp sgt i32 %call59, 0
   br i1 %cmp6290, label %for.body63.preheader, label %for.end81

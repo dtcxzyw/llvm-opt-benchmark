@@ -264,6 +264,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #2 {
   %54 = load i32, ptr %53, align 8, !tbaa !66
   %55 = getelementptr inbounds nuw i8, ptr %.val.val43, i64 72
   %56 = load i64, ptr %55, align 8
+  %.sroa.01.0.insert.insert.i.i = call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 32)
   %57 = getelementptr inbounds nuw i8, ptr %.val.val43, i64 40
   %58 = load ptr, ptr %57, align 8, !tbaa !67
   %59 = getelementptr inbounds nuw i8, ptr %.val.val43, i64 60
@@ -284,7 +285,6 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #2 {
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %51
   %.087.lcssa.i = phi i32 [ %60, %51 ], [ %spec.store.select.i, %.lr.ph.i ]
-  %.sroa.01.0.insert.insert.i.i = call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 32)
   store i32 %.087.lcssa.i, ptr %59, align 4, !tbaa !68
   %69 = load ptr, ptr %39, align 8, !tbaa !72
   %.not.i.i = icmp eq ptr %69, null

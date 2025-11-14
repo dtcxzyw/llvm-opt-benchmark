@@ -5747,39 +5747,39 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %25,
 
 31:                                               ; preds = %2
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %33 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %34 = load i64, ptr %33, align 8, !tbaa !17
-  %35 = load ptr, ptr %32, align 8, !tbaa !14
-  %.not57 = icmp eq i64 %34, 0
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %35 = load i64, ptr %34, align 8, !tbaa !17
+  %36 = load ptr, ptr %32, align 8, !tbaa !14
+  %.not57 = icmp eq i64 %35, 0
   br i1 %.not57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %31
-  %36 = add i64 %34, 1
+  %37 = add i64 %35, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02955 = phi i64 [ %43, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.03054 = phi ptr [ %42, %.lr.ph ], [ %35, %.lr.ph.preheader ]
+  %.02955 = phi i64 [ %44, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.03054 = phi ptr [ %43, %.lr.ph ], [ %36, %.lr.ph.preheader ]
   %.03153 = phi i64 [ %.132, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.03352 = phi i64 [ %.134, %.lr.ph ], [ %36, %.lr.ph.preheader ]
-  %37 = load i8, ptr %.03054, align 1, !tbaa !16
-  %38 = zext i8 %37 to i32
-  %39 = tail call i32 @isspace(i32 noundef %38) #29
-  %.not51 = icmp eq i32 %39, 0
-  %40 = icmp ugt i64 %.03352, %34
-  %41 = select i1 %.not51, i1 %40, i1 false
-  %.134 = select i1 %41, i64 %.02955, i64 %.03352
+  %.03352 = phi i64 [ %.134, %.lr.ph ], [ %37, %.lr.ph.preheader ]
+  %38 = load i8, ptr %.03054, align 1, !tbaa !16
+  %39 = zext i8 %38 to i32
+  %40 = tail call i32 @isspace(i32 noundef %39) #29
+  %.not51 = icmp eq i32 %40, 0
+  %41 = icmp ugt i64 %.03352, %35
+  %42 = select i1 %.not51, i1 %41, i1 false
+  %.134 = select i1 %42, i64 %.02955, i64 %.03352
   %.132 = select i1 %.not51, i64 %.02955, i64 %.03153
-  %42 = getelementptr inbounds nuw i8, ptr %.03054, i64 1
-  %43 = add nuw i64 %.02955, 1
-  %exitcond.not = icmp eq i64 %43, %34
+  %43 = getelementptr inbounds nuw i8, ptr %.03054, i64 1
+  %44 = add nuw i64 %.02955, 1
+  %exitcond.not = icmp eq i64 %44, %35
   br i1 %exitcond.not, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i, label %.lr.ph, !llvm.loop !167
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ; preds = %.lr.ph, %31
   %.033.lcssa = phi i64 [ 1, %31 ], [ %.134, %.lr.ph ]
   %.031.lcssa = phi i64 [ 0, %31 ], [ %.132, %.lr.ph ]
-  %44 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %45 = icmp ugt i64 %.033.lcssa, %34
+  %45 = icmp ugt i64 %.033.lcssa, %35
   %reass.sub = sub i64 %.031.lcssa, %.033.lcssa
   %46 = add i64 %reass.sub, 1
   %.3 = select i1 %45, i64 0, i64 %.033.lcssa
@@ -5788,8 +5788,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %48, ptr %6, align 8, !tbaa !9, !alias.scope !168
-  %49 = getelementptr inbounds nuw i8, ptr %35, i64 %.3
-  %50 = sub nuw i64 %34, %.3
+  %49 = getelementptr inbounds nuw i8, ptr %36, i64 %.3
+  %50 = sub nuw i64 %35, %.3
   %51 = call i64 @llvm.umin.i64(i64 %46, i64 %50)
   %spec.select.i.i.i = select i1 %45, i64 0, i64 %51
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !168
@@ -5830,7 +5830,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !168
   %63 = load ptr, ptr %6, align 8, !tbaa !14
   %64 = load i64, ptr %60, align 8, !tbaa !17
-  invoke void @_ZN10cmMakefile13AddDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(2880) %47, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 %64, ptr %63)
+  invoke void @_ZN10cmMakefile13AddDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(2880) %47, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 %64, ptr %63)
           to label %65 unwind label %70
 
 65:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit

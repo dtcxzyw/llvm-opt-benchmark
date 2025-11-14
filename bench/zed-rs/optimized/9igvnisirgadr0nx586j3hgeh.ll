@@ -2114,38 +2114,38 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit.i: ; preds = %
   br label %.invoke.i.i
 
 748:                                              ; preds = %.noexc1.i42.i
+  %749 = getelementptr inbounds i64, ptr %742, i64 %746
   %.not36.i.i.i.i = icmp eq i64 %746, 0
   br i1 %.not36.i.i.i.i, label %"_ZN124_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$num_bigint_dig..biguint..BigUint$GT$$GT$10add_assign17h01a0a1970719c5b7E.exit.i.i", label %.lr.ph.i.i.i44.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i44.i
-  %749 = icmp samesign ult i128 %758, 18446744073709551616
-  br i1 %749, label %"_ZN124_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$num_bigint_dig..biguint..BigUint$GT$$GT$10add_assign17h01a0a1970719c5b7E.exit.i.i", label %761
+  %750 = icmp samesign ult i128 %759, 18446744073709551616
+  br i1 %750, label %"_ZN124_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$num_bigint_dig..biguint..BigUint$GT$$GT$10add_assign17h01a0a1970719c5b7E.exit.i.i", label %762
 
 .lr.ph.i.i.i44.i:                                 ; preds = %748, %.lr.ph.i.i.i44.i
-  %.sroa.04.035.i.i.i.i = phi i128 [ %760, %.lr.ph.i.i.i44.i ], [ 0, %748 ]
-  %.sroa.8.034.i.i.i.i = phi i64 [ %750, %.lr.ph.i.i.i44.i ], [ 0, %748 ]
-  %750 = add nuw i64 %.sroa.8.034.i.i.i.i, 1
-  %751 = getelementptr inbounds i64, ptr %742, i64 %.sroa.8.034.i.i.i.i
-  %752 = getelementptr inbounds i64, ptr %745, i64 %.sroa.8.034.i.i.i.i
-  %753 = load i64, ptr %751, align 8, !alias.scope !561, !noalias !567, !noundef !7
-  %754 = load i64, ptr %752, align 8, !alias.scope !564, !noalias !568, !noundef !7
-  %755 = zext i64 %753 to i128
-  %756 = add nuw nsw i128 %.sroa.04.035.i.i.i.i, %755
-  %757 = zext i64 %754 to i128
-  %758 = add nuw nsw i128 %756, %757
-  %759 = trunc i128 %758 to i64
-  %760 = lshr i128 %758, 64
-  store i64 %759, ptr %751, align 8, !alias.scope !561, !noalias !567
-  %exitcond.not.i.i.i45.i = icmp eq i64 %750, %746
+  %.sroa.04.035.i.i.i.i = phi i128 [ %761, %.lr.ph.i.i.i44.i ], [ 0, %748 ]
+  %.sroa.8.034.i.i.i.i = phi i64 [ %751, %.lr.ph.i.i.i44.i ], [ 0, %748 ]
+  %751 = add nuw i64 %.sroa.8.034.i.i.i.i, 1
+  %752 = getelementptr inbounds i64, ptr %742, i64 %.sroa.8.034.i.i.i.i
+  %753 = getelementptr inbounds i64, ptr %745, i64 %.sroa.8.034.i.i.i.i
+  %754 = load i64, ptr %752, align 8, !alias.scope !561, !noalias !567, !noundef !7
+  %755 = load i64, ptr %753, align 8, !alias.scope !564, !noalias !568, !noundef !7
+  %756 = zext i64 %754 to i128
+  %757 = add nuw nsw i128 %.sroa.04.035.i.i.i.i, %756
+  %758 = zext i64 %755 to i128
+  %759 = add nuw nsw i128 %757, %758
+  %760 = trunc i128 %759 to i64
+  %761 = lshr i128 %759, 64
+  store i64 %760, ptr %752, align 8, !alias.scope !561, !noalias !567
+  %exitcond.not.i.i.i45.i = icmp eq i64 %751, %746
   br i1 %exitcond.not.i.i.i45.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i44.i
 
-761:                                              ; preds = %._crit_edge.i.i.i.i
-  %762 = getelementptr inbounds i64, ptr %742, i64 %746
+762:                                              ; preds = %._crit_edge.i.i.i.i
   %763 = getelementptr inbounds i64, ptr %742, i64 %744
   br label %764
 
-764:                                              ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha6e28f292d5220afE.exit.i.i.i.i", %761
-  %.sroa.023.0.i.i.i.i = phi ptr [ %762, %761 ], [ %766, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha6e28f292d5220afE.exit.i.i.i.i" ]
+764:                                              ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha6e28f292d5220afE.exit.i.i.i.i", %762
+  %.sroa.023.0.i.i.i.i = phi ptr [ %749, %762 ], [ %766, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha6e28f292d5220afE.exit.i.i.i.i" ]
   %765 = icmp eq ptr %.sroa.023.0.i.i.i.i, %763
   br i1 %765, label %_ZN14num_bigint_dig10algorithms3add6__add217h6e3cc0f47dbc08b2E.exit.thread40.i.i.i, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha6e28f292d5220afE.exit.i.i.i.i"
 
@@ -2200,38 +2200,38 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit.i: ; preds = %
   br label %.invoke.i.i
 
 778:                                              ; preds = %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf53cb17c688ed34cE.exit.i.i.i"
+  %779 = getelementptr inbounds i64, ptr %770, i64 %.sink11.i.i.i.i
   %.not36.i6.i.i.i = icmp eq i64 %.sink11.i.i.i.i, 0
   br i1 %.not36.i6.i.i.i, label %_ZN14num_bigint_dig10algorithms3add6__add217h6e3cc0f47dbc08b2E.exit16.i.i.i, label %.lr.ph.i7.i.i.i
 
 ._crit_edge.i11.i.i.i:                            ; preds = %.lr.ph.i7.i.i.i
-  %779 = icmp samesign ult i128 %788, 18446744073709551616
-  br i1 %779, label %_ZN14num_bigint_dig10algorithms3add6__add217h6e3cc0f47dbc08b2E.exit16.i.i.i, label %791
+  %780 = icmp samesign ult i128 %789, 18446744073709551616
+  br i1 %780, label %_ZN14num_bigint_dig10algorithms3add6__add217h6e3cc0f47dbc08b2E.exit16.i.i.i, label %792
 
 .lr.ph.i7.i.i.i:                                  ; preds = %778, %.lr.ph.i7.i.i.i
-  %.sroa.04.035.i8.i.i.i = phi i128 [ %790, %.lr.ph.i7.i.i.i ], [ 0, %778 ]
-  %.sroa.8.034.i9.i.i.i = phi i64 [ %780, %.lr.ph.i7.i.i.i ], [ 0, %778 ]
-  %780 = add nuw i64 %.sroa.8.034.i9.i.i.i, 1
-  %781 = getelementptr inbounds i64, ptr %770, i64 %.sroa.8.034.i9.i.i.i
-  %782 = getelementptr inbounds i64, ptr %773, i64 %.sroa.8.034.i9.i.i.i
-  %783 = load i64, ptr %781, align 8, !alias.scope !576, !noalias !582, !noundef !7
-  %784 = load i64, ptr %782, align 8, !alias.scope !579, !noalias !583, !noundef !7
-  %785 = zext i64 %783 to i128
-  %786 = add nuw nsw i128 %.sroa.04.035.i8.i.i.i, %785
-  %787 = zext i64 %784 to i128
-  %788 = add nuw nsw i128 %786, %787
-  %789 = trunc i128 %788 to i64
-  %790 = lshr i128 %788, 64
-  store i64 %789, ptr %781, align 8, !alias.scope !576, !noalias !582
-  %exitcond.not.i10.i.i.i = icmp eq i64 %780, %.sink11.i.i.i.i
+  %.sroa.04.035.i8.i.i.i = phi i128 [ %791, %.lr.ph.i7.i.i.i ], [ 0, %778 ]
+  %.sroa.8.034.i9.i.i.i = phi i64 [ %781, %.lr.ph.i7.i.i.i ], [ 0, %778 ]
+  %781 = add nuw i64 %.sroa.8.034.i9.i.i.i, 1
+  %782 = getelementptr inbounds i64, ptr %770, i64 %.sroa.8.034.i9.i.i.i
+  %783 = getelementptr inbounds i64, ptr %773, i64 %.sroa.8.034.i9.i.i.i
+  %784 = load i64, ptr %782, align 8, !alias.scope !576, !noalias !582, !noundef !7
+  %785 = load i64, ptr %783, align 8, !alias.scope !579, !noalias !583, !noundef !7
+  %786 = zext i64 %784 to i128
+  %787 = add nuw nsw i128 %.sroa.04.035.i8.i.i.i, %786
+  %788 = zext i64 %785 to i128
+  %789 = add nuw nsw i128 %787, %788
+  %790 = trunc i128 %789 to i64
+  %791 = lshr i128 %789, 64
+  store i64 %790, ptr %782, align 8, !alias.scope !576, !noalias !582
+  %exitcond.not.i10.i.i.i = icmp eq i64 %781, %.sink11.i.i.i.i
   br i1 %exitcond.not.i10.i.i.i, label %._crit_edge.i11.i.i.i, label %.lr.ph.i7.i.i.i
 
-791:                                              ; preds = %._crit_edge.i11.i.i.i
-  %792 = getelementptr inbounds i64, ptr %770, i64 %.sink11.i.i.i.i
+792:                                              ; preds = %._crit_edge.i11.i.i.i
   %793 = getelementptr inbounds i64, ptr %770, i64 %772
   br label %794
 
-794:                                              ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha6e28f292d5220afE.exit.i13.i.i.i", %791
-  %.sroa.023.0.i12.i.i.i = phi ptr [ %792, %791 ], [ %796, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha6e28f292d5220afE.exit.i13.i.i.i" ]
+794:                                              ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha6e28f292d5220afE.exit.i13.i.i.i", %792
+  %.sroa.023.0.i12.i.i.i = phi ptr [ %779, %792 ], [ %796, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha6e28f292d5220afE.exit.i13.i.i.i" ]
   %795 = icmp eq ptr %.sroa.023.0.i12.i.i.i, %793
   br i1 %795, label %_ZN14num_bigint_dig10algorithms3add6__add217h6e3cc0f47dbc08b2E.exit16.i.i.i, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha6e28f292d5220afE.exit.i13.i.i.i"
 

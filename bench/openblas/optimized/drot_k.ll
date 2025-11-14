@@ -41,13 +41,13 @@ define noundef i32 @drot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   %23 = shufflevector <8 x double> %22, <8 x double> poison, <8 x i32> zeroinitializer
   %24 = insertelement <8 x double> poison, double %6, i64 0
   %25 = shufflevector <8 x double> %24, <8 x double> poison, <8 x i32> zeroinitializer
-  %26 = and i64 %0, 9223372036854775776
-  %.not143.i.i = icmp eq i64 %26, 0
+  %26 = and i64 %0, 9223372036854775800
+  %27 = and i64 %0, 9223372036854775776
+  %.not143.i.i = icmp eq i64 %27, 0
   br i1 %.not143.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %21
-  %27 = and i64 %0, 9223372036854775800
-  %28 = icmp samesign ult i64 %26, %27
+  %28 = icmp samesign ult i64 %27, %26
   br i1 %28, label %.lr.ph142.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %21, %.lr.ph.i.i
@@ -100,11 +100,11 @@ define noundef i32 @drot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   store <8 x double> %64, ptr %44, align 1, !tbaa !9
   store <8 x double> %67, ptr %46, align 1, !tbaa !9
   %68 = add nuw nsw i64 %.0140.i.i, 32
-  %69 = icmp samesign ult i64 %68, %26
+  %69 = icmp samesign ult i64 %68, %27
   br i1 %69, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !10
 
 .lr.ph142.i.i:                                    ; preds = %.preheader.i.i, %.lr.ph142.i.i
-  %.1141.i.i = phi i64 [ %79, %.lr.ph142.i.i ], [ %26, %.preheader.i.i ]
+  %.1141.i.i = phi i64 [ %79, %.lr.ph142.i.i ], [ %27, %.preheader.i.i ]
   %70 = getelementptr inbounds nuw double, ptr %1, i64 %.1141.i.i
   %71 = load <8 x double>, ptr %70, align 1, !tbaa !9
   %72 = getelementptr inbounds nuw double, ptr %3, i64 %.1141.i.i
@@ -117,7 +117,7 @@ define noundef i32 @drot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   %78 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %23, <8 x double> %73, <8 x double> %77)
   store <8 x double> %78, ptr %72, align 1, !tbaa !9
   %79 = add nuw nsw i64 %.1141.i.i, 8
-  %80 = icmp samesign ult i64 %79, %27
+  %80 = icmp samesign ult i64 %79, %26
   br i1 %80, label %.lr.ph142.i.i, label %._crit_edge.i.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph142.i.i, %.preheader.i.i
@@ -130,10 +130,10 @@ define noundef i32 @drot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   %84 = sub nuw nsw i16 8, %83
   %85 = lshr i16 255, %84
   %86 = trunc nuw nsw i16 %85 to i8
-  %87 = getelementptr inbounds nuw double, ptr %1, i64 %27
+  %87 = getelementptr inbounds nuw double, ptr %1, i64 %26
   %88 = bitcast i8 %86 to <8 x i1>
   %89 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr align 1 %87, <8 x i1> %88, <8 x double> zeroinitializer)
-  %90 = getelementptr inbounds nuw double, ptr %3, i64 %27
+  %90 = getelementptr inbounds nuw double, ptr %3, i64 %26
   %91 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr align 1 %90, <8 x i1> %88, <8 x double> zeroinitializer)
   %92 = fmul <8 x double> %25, %91
   %93 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %23, <8 x double> %89, <8 x double> %92)
@@ -207,13 +207,13 @@ define internal noundef i32 @rot_thread_function(ptr noundef readonly captures(n
   %22 = shufflevector <8 x double> %21, <8 x double> poison, <8 x i32> zeroinitializer
   %23 = insertelement <8 x double> poison, double %15, i64 0
   %24 = shufflevector <8 x double> %23, <8 x double> poison, <8 x i32> zeroinitializer
-  %25 = and i64 %3, 9223372036854775776
-  %.not143.i.i = icmp eq i64 %25, 0
+  %25 = and i64 %3, 9223372036854775800
+  %26 = and i64 %3, 9223372036854775776
+  %.not143.i.i = icmp eq i64 %26, 0
   br i1 %.not143.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %20
-  %26 = and i64 %3, 9223372036854775800
-  %27 = icmp samesign ult i64 %25, %26
+  %27 = icmp samesign ult i64 %26, %25
   br i1 %27, label %.lr.ph142.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %20, %.lr.ph.i.i
@@ -266,11 +266,11 @@ define internal noundef i32 @rot_thread_function(ptr noundef readonly captures(n
   store <8 x double> %63, ptr %43, align 1, !tbaa !9
   store <8 x double> %66, ptr %45, align 1, !tbaa !9
   %67 = add nuw nsw i64 %.0140.i.i, 32
-  %68 = icmp samesign ult i64 %67, %25
+  %68 = icmp samesign ult i64 %67, %26
   br i1 %68, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !10
 
 .lr.ph142.i.i:                                    ; preds = %.preheader.i.i, %.lr.ph142.i.i
-  %.1141.i.i = phi i64 [ %78, %.lr.ph142.i.i ], [ %25, %.preheader.i.i ]
+  %.1141.i.i = phi i64 [ %78, %.lr.ph142.i.i ], [ %26, %.preheader.i.i ]
   %69 = getelementptr inbounds nuw double, ptr %4, i64 %.1141.i.i
   %70 = load <8 x double>, ptr %69, align 1, !tbaa !9
   %71 = getelementptr inbounds nuw double, ptr %8, i64 %.1141.i.i
@@ -283,7 +283,7 @@ define internal noundef i32 @rot_thread_function(ptr noundef readonly captures(n
   %77 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %22, <8 x double> %72, <8 x double> %76)
   store <8 x double> %77, ptr %71, align 1, !tbaa !9
   %78 = add nuw nsw i64 %.1141.i.i, 8
-  %79 = icmp samesign ult i64 %78, %26
+  %79 = icmp samesign ult i64 %78, %25
   br i1 %79, label %.lr.ph142.i.i, label %._crit_edge.i.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph142.i.i, %.preheader.i.i
@@ -296,10 +296,10 @@ define internal noundef i32 @rot_thread_function(ptr noundef readonly captures(n
   %83 = sub nuw nsw i16 8, %82
   %84 = lshr i16 255, %83
   %85 = trunc nuw nsw i16 %84 to i8
-  %86 = getelementptr inbounds nuw double, ptr %4, i64 %26
+  %86 = getelementptr inbounds nuw double, ptr %4, i64 %25
   %87 = bitcast i8 %85 to <8 x i1>
   %88 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr align 1 %86, <8 x i1> %87, <8 x double> zeroinitializer)
-  %89 = getelementptr inbounds nuw double, ptr %8, i64 %26
+  %89 = getelementptr inbounds nuw double, ptr %8, i64 %25
   %90 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr align 1 %89, <8 x i1> %87, <8 x double> zeroinitializer)
   %91 = fmul <8 x double> %24, %90
   %92 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %22, <8 x double> %88, <8 x double> %91)

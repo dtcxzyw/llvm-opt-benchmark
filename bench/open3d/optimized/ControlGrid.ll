@@ -36116,10 +36116,13 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EE17_S_check_init_lenEm
 _ZNSt15__new_allocatorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEE8allocateEmPKv.exit.i.i.i.i: ; preds = %_ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %141 = shl nuw nsw i64 %138, 4
   %142 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %141) #39
-          to label %.lr.ph unwind label %252
+          to label %.lr.ph.preheader unwind label %252
+
+.lr.ph.preheader:                                 ; preds = %_ZNSt15__new_allocatorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEE8allocateEmPKv.exit.i.i.i.i
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %142, i64 %141
+  br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %142, i64 %141
   %143 = ptrtoint ptr %142 to i64
   %144 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %138, i1 true)
   %145 = shl nuw nsw i64 %144, 1
@@ -36452,8 +36455,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0E
           cleanup
   br label %_ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EED2Ev.exit78
 
-.lr.ph:                                           ; preds = %_ZNSt15__new_allocatorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEE8allocateEmPKv.exit.i.i.i.i, %.lr.ph
-  %.024100 = phi i64 [ %265, %.lr.ph ], [ 0, %_ZNSt15__new_allocatorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEE8allocateEmPKv.exit.i.i.i.i ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.024100 = phi i64 [ %265, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %254 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %134, i64 %.024100
   %255 = load i32, ptr %254, align 4, !tbaa !28
   %256 = getelementptr inbounds nuw %"class.Eigen::Matrix.250", ptr %142, i64 %.024100
@@ -36474,10 +36477,10 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0E
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !737
 
 .loopexit:                                        ; preds = %240, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EEEvT_T0_.exit.i18.i.i.i", %_ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %.preheader.i26.i.i.i
-  %.pre-phi.i147151 = phi i64 [ 16, %.preheader.i26.i.i.i ], [ 0, %_ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %141, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EEEvT_T0_.exit.i18.i.i.i" ], [ %141, %240 ]
+  %.pre-phi.i148153 = phi i64 [ 16, %.preheader.i26.i.i.i ], [ 0, %_ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %141, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EEEvT_T0_.exit.i18.i.i.i" ], [ %141, %240 ]
   %266 = phi ptr [ %142, %.preheader.i26.i.i.i ], [ null, %_ZNSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %142, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZN6open3d1t9pipelines4slac11ControlGrid10CompactifyEvE3$_0EEEvT_T0_.exit.i18.i.i.i" ], [ %142, %240 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %267 = lshr i64 %.pre-phi.i147151, 5
+  %267 = lshr i64 %.pre-phi.i148153, 5
   %268 = getelementptr inbounds nuw %"class.Eigen::Matrix.250", ptr %266, i64 %267
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 12
   %270 = load i32, ptr %269, align 4, !tbaa !28

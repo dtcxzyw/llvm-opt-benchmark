@@ -811,39 +811,39 @@ define dso_local void @_ZN3tev10UberShaderC2EPN7nanogui10RenderPassE(ptr noundef
   %19 = alloca %"struct.nanogui::Array.34", align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3tev10UberShaderE, i64 16), ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  br label %21
+  br label %22
 
-21:                                               ; preds = %21, %2
-  %.04.i.i = phi i64 [ 0, %2 ], [ %23, %21 ]
-  %22 = getelementptr inbounds nuw float, ptr %5, i64 %.04.i.i
-  store float 2.550000e+02, ptr %22, align 4
-  %23 = add nuw nsw i64 %.04.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %23, 4
-  br i1 %exitcond.not.i.i, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i, label %21, !llvm.loop !5
+22:                                               ; preds = %22, %2
+  %.04.i.i = phi i64 [ 0, %2 ], [ %24, %22 ]
+  %23 = getelementptr inbounds nuw float, ptr %5, i64 %.04.i.i
+  store float 2.550000e+02, ptr %23, align 4
+  %24 = add nuw nsw i64 %.04.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %24, 4
+  br i1 %exitcond.not.i.i, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i, label %22, !llvm.loop !5
 
-_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %21
+_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br label %24
+  br label %25
 
-24:                                               ; preds = %24, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i
-  %.06.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i ], [ %31, %24 ]
-  %25 = getelementptr inbounds nuw float, ptr %4, i64 %.06.i.i
-  %26 = load float, ptr %25, align 4
-  %27 = getelementptr inbounds nuw float, ptr %5, i64 %.06.i.i
-  %28 = load float, ptr %27, align 4
-  %29 = fdiv float %26, %28
-  %30 = getelementptr inbounds nuw float, ptr %3, i64 %.06.i.i
-  store float %29, ptr %30, align 4
-  %31 = add nuw nsw i64 %.06.i.i, 1
-  %exitcond.not.i4.i = icmp eq i64 %31, 4
-  br i1 %exitcond.not.i4.i, label %32, label %24, !llvm.loop !7
+25:                                               ; preds = %25, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i
+  %.06.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i ], [ %32, %25 ]
+  %26 = getelementptr inbounds nuw float, ptr %4, i64 %.06.i.i
+  %27 = load float, ptr %26, align 4
+  %28 = getelementptr inbounds nuw float, ptr %5, i64 %.06.i.i
+  %29 = load float, ptr %28, align 4
+  %30 = fdiv float %27, %29
+  %31 = getelementptr inbounds nuw float, ptr %3, i64 %.06.i.i
+  store float %30, ptr %31, align 4
+  %32 = add nuw nsw i64 %.06.i.i, 1
+  %exitcond.not.i4.i = icmp eq i64 %32, 4
+  br i1 %exitcond.not.i4.i, label %33, label %25, !llvm.loop !7
 
-32:                                               ; preds = %24
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+33:                                               ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.fca.0.load.i.i = load <2 x float>, ptr %3, align 8
   %.fca.1.gep.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -857,7 +857,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %21
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull @.str, i64 noundef 12)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit unwind label %108
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit: ; preds = %32
+_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit: ; preds = %33
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %35 = load i8, ptr %7, align 8, !noalias !8
   %36 = and i8 %35, 1
@@ -1036,7 +1036,7 @@ _ZN7nanogui3refINS_6ShaderEEaSEPS1_.exit:         ; preds = %98, %102
           cleanup
   br label %181
 
-108:                                              ; preds = %32
+108:                                              ; preds = %33
   %109 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt13runtime_error
@@ -1177,7 +1177,7 @@ _ZN7nanogui6Shader10set_bufferERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1
           to label %156 unwind label %179
 
 156:                                              ; preds = %145
-  %157 = load ptr, ptr %33, align 8
+  %157 = load ptr, ptr %21, align 8
   %.not.i62 = icmp eq ptr %157, %144
   br i1 %.not.i62, label %_ZN7nanogui3refINS_7TextureEEaSEPS1_.exit, label %158
 
@@ -1186,7 +1186,7 @@ _ZN7nanogui6Shader10set_bufferERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1
           to label %thread-pre-split.i63 unwind label %161
 
 thread-pre-split.i63:                             ; preds = %158
-  %.pr.i64 = load ptr, ptr %33, align 8
+  %.pr.i64 = load ptr, ptr %21, align 8
   %.not7.i65 = icmp eq ptr %.pr.i64, null
   br i1 %.not7.i65, label %160, label %159
 
@@ -1195,7 +1195,7 @@ thread-pre-split.i63:                             ; preds = %158
   br label %160
 
 160:                                              ; preds = %159, %thread-pre-split.i63
-  store ptr %144, ptr %33, align 8
+  store ptr %144, ptr %21, align 8
   br label %_ZN7nanogui3refINS_7TextureEEaSEPS1_.exit
 
 161:                                              ; preds = %158
@@ -1260,7 +1260,7 @@ _ZN7nanogui3refINS_7TextureEEaSEPS1_.exit:        ; preds = %156, %160
 
 181:                                              ; preds = %174, %179, %177, %175, %124, %106
   %.merged = phi { ptr, i32 } [ %107, %106 ], [ %180, %179 ], [ %178, %177 ], [ %176, %175 ], [ %.pn40.pn, %174 ], [ %.pn.pn.pn.pn.pn, %124 ]
-  %182 = load ptr, ptr %33, align 8
+  %182 = load ptr, ptr %21, align 8
   %.not.i66 = icmp eq ptr %182, null
   br i1 %.not.i66, label %_ZN7nanogui3refINS_7TextureEED2Ev.exit, label %183
 

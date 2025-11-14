@@ -2526,22 +2526,25 @@ _cmsQuickSaturateWord.exit:                       ; preds = %97, %104, %106
   %123 = call double @llvm.fmuladd.f64(double %122, double 2.000000e-02, double 5.000000e-01)
   %124 = call double @llvm.floor.f64(double %123)
   %125 = fptosi double %124 to i32
-  %126 = call i32 @cmsIsToneCurveDescending(ptr noundef %119) #11
-  %.not.i180 = icmp eq i32 %126, 0
+  %126 = xor i32 %125, -1
+  %127 = add i32 %121, %126
+  %128 = call i32 @cmsIsToneCurveDescending(ptr noundef %119) #11
+  %.not.i180 = icmp eq i32 %128, 0
+  %..i181 = select i1 %.not.i180, double 6.553500e+04, double 0.000000e+00
   %.38.i = select i1 %.not.i180, double 0.000000e+00, double 6.553500e+04
-  %127 = getelementptr inbounds nuw i8, ptr %119, i64 48
-  %128 = load ptr, ptr %127, align 8
-  %129 = sext i32 %125 to i64
-  %130 = getelementptr inbounds i16, ptr %128, i64 %129
-  %131 = load i16, ptr %130, align 2
-  %132 = uitofp i16 %131 to double
-  %133 = fsub double %132, %.38.i
-  %134 = sitofp i32 %125 to double
-  %135 = fdiv double %133, %134
-  %136 = fneg double %135
-  %137 = call double @llvm.fmuladd.f64(double %136, double %134, double %132)
-  %138 = icmp sgt i32 %125, 0
-  br i1 %138, label %.lr.ph.preheader.i, label %._crit_edge.i181
+  %129 = getelementptr inbounds nuw i8, ptr %119, i64 48
+  %130 = load ptr, ptr %129, align 8
+  %131 = sext i32 %125 to i64
+  %132 = getelementptr inbounds i16, ptr %130, i64 %131
+  %133 = load i16, ptr %132, align 2
+  %134 = uitofp i16 %133 to double
+  %135 = fsub double %134, %.38.i
+  %136 = sitofp i32 %125 to double
+  %137 = fdiv double %135, %136
+  %138 = fneg double %137
+  %139 = call double @llvm.fmuladd.f64(double %138, double %136, double %134)
+  %140 = icmp sgt i32 %125, 0
+  br i1 %140, label %.lr.ph.preheader.i, label %._crit_edge.i182
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph236
   %wide.trip.count.i183 = zext nneg i32 %125 to i64
@@ -2549,58 +2552,55 @@ _cmsQuickSaturateWord.exit:                       ; preds = %97, %104, %106
 
 .lr.ph.i184:                                      ; preds = %_cmsQuickSaturateWord.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i185 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i186, %_cmsQuickSaturateWord.exit.i ]
-  %139 = trunc nuw nsw i64 %indvars.iv.i185 to i32
-  %140 = uitofp nneg i32 %139 to double
-  %141 = call double @llvm.fmuladd.f64(double %140, double %135, double %137)
-  %142 = fadd double %141, 5.000000e-01
-  %143 = fcmp ugt double %142, 0.000000e+00
-  br i1 %143, label %144, label %_cmsQuickSaturateWord.exit.i
-
-144:                                              ; preds = %.lr.ph.i184
-  %145 = fcmp ult double %142, 6.553500e+04
+  %141 = trunc nuw nsw i64 %indvars.iv.i185 to i32
+  %142 = uitofp nneg i32 %141 to double
+  %143 = call double @llvm.fmuladd.f64(double %142, double %137, double %139)
+  %144 = fadd double %143, 5.000000e-01
+  %145 = fcmp ugt double %144, 0.000000e+00
   br i1 %145, label %146, label %_cmsQuickSaturateWord.exit.i
 
-146:                                              ; preds = %144
-  %147 = fadd double %142, -3.276700e+04
-  %148 = call double @llvm.floor.f64(double %147)
-  %149 = fptosi double %148 to i32
-  %150 = trunc i32 %149 to i16
-  %151 = add i16 %150, 32767
+146:                                              ; preds = %.lr.ph.i184
+  %147 = fcmp ult double %144, 6.553500e+04
+  br i1 %147, label %148, label %_cmsQuickSaturateWord.exit.i
+
+148:                                              ; preds = %146
+  %149 = fadd double %144, -3.276700e+04
+  %150 = call double @llvm.floor.f64(double %149)
+  %151 = fptosi double %150 to i32
+  %152 = trunc i32 %151 to i16
+  %153 = add i16 %152, 32767
   br label %_cmsQuickSaturateWord.exit.i
 
-_cmsQuickSaturateWord.exit.i:                     ; preds = %146, %144, %.lr.ph.i184
-  %.0.i.i = phi i16 [ %151, %146 ], [ 0, %.lr.ph.i184 ], [ -1, %144 ]
-  %152 = load ptr, ptr %127, align 8
-  %153 = getelementptr inbounds nuw i16, ptr %152, i64 %indvars.iv.i185
-  store i16 %.0.i.i, ptr %153, align 2
+_cmsQuickSaturateWord.exit.i:                     ; preds = %148, %146, %.lr.ph.i184
+  %.0.i.i = phi i16 [ %153, %148 ], [ 0, %.lr.ph.i184 ], [ -1, %146 ]
+  %154 = load ptr, ptr %129, align 8
+  %155 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv.i185
+  store i16 %.0.i.i, ptr %155, align 2
   %indvars.iv.next.i186 = add nuw nsw i64 %indvars.iv.i185, 1
   %exitcond.not.i187 = icmp eq i64 %indvars.iv.next.i186, %wide.trip.count.i183
   br i1 %exitcond.not.i187, label %._crit_edge.loopexit.i, label %.lr.ph.i184, !llvm.loop !43
 
 ._crit_edge.loopexit.i:                           ; preds = %_cmsQuickSaturateWord.exit.i
-  %.pre.i = load ptr, ptr %127, align 8
-  br label %._crit_edge.i181
+  %.pre.i = load ptr, ptr %129, align 8
+  br label %._crit_edge.i182
 
-._crit_edge.i181:                                 ; preds = %._crit_edge.loopexit.i, %.lr.ph236
-  %154 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %128, %.lr.ph236 ]
-  %155 = xor i32 %125, -1
-  %156 = add i32 %121, %155
-  %..i182 = select i1 %.not.i180, double 6.553500e+04, double 0.000000e+00
-  %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds i16, ptr %154, i64 %157
+._crit_edge.i182:                                 ; preds = %._crit_edge.loopexit.i, %.lr.ph236
+  %156 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %130, %.lr.ph236 ]
+  %157 = sext i32 %127 to i64
+  %158 = getelementptr inbounds i16, ptr %156, i64 %157
   %159 = load i16, ptr %158, align 2
   %160 = uitofp i16 %159 to double
-  %161 = fsub double %..i182, %160
-  %162 = fdiv double %161, %134
-  %163 = sitofp i32 %156 to double
+  %161 = fsub double %..i181, %160
+  %162 = fdiv double %161, %136
+  %163 = sitofp i32 %127 to double
   %164 = fneg double %162
   %165 = call double @llvm.fmuladd.f64(double %164, double %163, double %160)
   %166 = load i32, ptr %120, align 8
-  %167 = icmp slt i32 %156, %166
+  %167 = icmp slt i32 %127, %166
   br i1 %167, label %.lr.ph44.i, label %SlopeLimiting.exit
 
-.lr.ph44.i:                                       ; preds = %._crit_edge.i181, %_cmsQuickSaturateWord.exit40.i
-  %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %_cmsQuickSaturateWord.exit40.i ], [ %157, %._crit_edge.i181 ]
+.lr.ph44.i:                                       ; preds = %._crit_edge.i182, %_cmsQuickSaturateWord.exit40.i
+  %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %_cmsQuickSaturateWord.exit40.i ], [ %157, %._crit_edge.i182 ]
   %168 = trunc nsw i64 %indvars.iv47.i to i32
   %169 = sitofp i32 %168 to double
   %170 = call double @llvm.fmuladd.f64(double %169, double %162, double %165)
@@ -2622,7 +2622,7 @@ _cmsQuickSaturateWord.exit.i:                     ; preds = %146, %144, %.lr.ph.
 
 _cmsQuickSaturateWord.exit40.i:                   ; preds = %175, %173, %.lr.ph44.i
   %.0.i39.i = phi i16 [ %180, %175 ], [ 0, %.lr.ph44.i ], [ -1, %173 ]
-  %181 = load ptr, ptr %127, align 8
+  %181 = load ptr, ptr %129, align 8
   %182 = getelementptr inbounds i16, ptr %181, i64 %indvars.iv47.i
   store i16 %.0.i39.i, ptr %182, align 2
   %indvars.iv.next48.i = add nsw i64 %indvars.iv47.i, 1
@@ -2631,7 +2631,7 @@ _cmsQuickSaturateWord.exit40.i:                   ; preds = %175, %173, %.lr.ph4
   %185 = icmp slt i64 %indvars.iv.next48.i, %184
   br i1 %185, label %.lr.ph44.i, label %SlopeLimiting.exit, !llvm.loop !44
 
-SlopeLimiting.exit:                               ; preds = %_cmsQuickSaturateWord.exit40.i, %._crit_edge.i181
+SlopeLimiting.exit:                               ; preds = %_cmsQuickSaturateWord.exit40.i, %._crit_edge.i182
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %186 = load i32, ptr %70, align 8
   %187 = zext i32 %186 to i64

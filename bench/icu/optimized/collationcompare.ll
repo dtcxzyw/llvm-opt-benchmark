@@ -261,118 +261,115 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit:    ; preds = %85, %90
   ], !llvm.loop !40
 
 139:                                              ; preds = %139, %.outer
-  %indvars.iv = phi i64 [ %indvars.iv.next, %139 ], [ %180, %.outer ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %139 ], [ %179, %.outer ]
   %140 = getelementptr inbounds i64, ptr %119, i64 %indvars.iv
   %141 = load i64, ptr %140, align 8, !tbaa !27
   %142 = add i64 %141, -144115192370823168
   %143 = icmp ult i64 %142, -144115188075855872
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %143, label %139, label %.preheader366.preheader, !llvm.loop !41
+  br i1 %143, label %139, label %.preheader366, !llvm.loop !41
 
-.preheader366.preheader:                          ; preds = %139
-  %144 = sext i32 %.0245.ph to i64
-  br label %.preheader366
-
-.preheader366:                                    ; preds = %.preheader366.preheader, %.preheader366
-  %indvars.iv505 = phi i64 [ %indvars.iv.next506, %.preheader366 ], [ %144, %.preheader366.preheader ]
-  %145 = getelementptr inbounds i64, ptr %120, i64 %indvars.iv505
-  %146 = load i64, ptr %145, align 8, !tbaa !27
-  %147 = add i64 %146, -144115192370823168
-  %148 = icmp ult i64 %147, -144115188075855872
+.preheader366:                                    ; preds = %139, %.preheader366
+  %indvars.iv505 = phi i64 [ %indvars.iv.next506, %.preheader366 ], [ %180, %139 ]
+  %144 = getelementptr inbounds i64, ptr %120, i64 %indvars.iv505
+  %145 = load i64, ptr %144, align 8, !tbaa !27
+  %146 = add i64 %145, -144115192370823168
+  %147 = icmp ult i64 %146, -144115188075855872
   %indvars.iv.next506 = add nsw i64 %indvars.iv505, 1
-  br i1 %148, label %.preheader366, label %.preheader364, !llvm.loop !42
+  br i1 %147, label %.preheader366, label %.preheader364, !llvm.loop !42
 
 .preheader364:                                    ; preds = %.preheader366
-  %149 = trunc nsw i64 %indvars.iv to i32
-  %150 = trunc nsw i64 %indvars.iv505 to i32
-  br label %151
+  %148 = trunc nsw i64 %indvars.iv to i32
+  %149 = trunc nsw i64 %indvars.iv505 to i32
+  br label %150
 
-151:                                              ; preds = %.preheader364, %._crit_edge440
-  %.0241 = phi i32 [ %.1242.lcssa, %._crit_edge440 ], [ %149, %.preheader364 ]
-  %.0239 = phi i32 [ %.1240.lcssa, %._crit_edge440 ], [ %150, %.preheader364 ]
+150:                                              ; preds = %.preheader364, %._crit_edge440
+  %.0241 = phi i32 [ %.1242.lcssa, %._crit_edge440 ], [ %148, %.preheader364 ]
+  %.0239 = phi i32 [ %.1240.lcssa, %._crit_edge440 ], [ %149, %.preheader364 ]
   %.8 = phi i32 [ %.9, %._crit_edge440 ], [ %.7.ph, %.preheader364 ]
-  %152 = icmp sgt i32 %.0241, %.0247.ph
-  br i1 %152, label %.lr.ph434.preheader, label %.preheader363
+  %151 = icmp sgt i32 %.0241, %.0247.ph
+  br i1 %151, label %.lr.ph434.preheader, label %.preheader363
 
-.lr.ph434.preheader:                              ; preds = %151
-  %153 = sext i32 %.0241 to i64
+.lr.ph434.preheader:                              ; preds = %150
+  %152 = sext i32 %.0241 to i64
   br label %.lr.ph434
 
 .preheader363.loopexit:                           ; preds = %.lr.ph434
-  %154 = lshr i32 %161, 16
-  %155 = trunc nsw i64 %indvars.iv.next509 to i32
-  %156 = select i1 %162, i32 28, i32 0
+  %153 = lshr i32 %160, 16
+  %154 = trunc nsw i64 %indvars.iv.next509 to i32
+  %155 = select i1 %161, i32 28, i32 0
   br label %.preheader363
 
-.preheader363:                                    ; preds = %.preheader363.loopexit, %151
-  %.1242.lcssa = phi i32 [ %.0241, %151 ], [ %155, %.preheader363.loopexit ]
-  %.0238.lcssa = phi i32 [ 0, %151 ], [ %154, %.preheader363.loopexit ]
-  %.lcssa413 = phi i32 [ 28, %151 ], [ %156, %.preheader363.loopexit ]
-  %157 = icmp sgt i32 %.0239, %.0245.ph
-  br i1 %157, label %.lr.ph439.preheader, label %._crit_edge440
+.preheader363:                                    ; preds = %.preheader363.loopexit, %150
+  %.1242.lcssa = phi i32 [ %.0241, %150 ], [ %154, %.preheader363.loopexit ]
+  %.0238.lcssa = phi i32 [ 0, %150 ], [ %153, %.preheader363.loopexit ]
+  %.lcssa413 = phi i32 [ 28, %150 ], [ %155, %.preheader363.loopexit ]
+  %156 = icmp sgt i32 %.0239, %.0245.ph
+  br i1 %156, label %.lr.ph439.preheader, label %._crit_edge440
 
 .lr.ph439.preheader:                              ; preds = %.preheader363
-  %158 = sext i32 %.0239 to i64
+  %157 = sext i32 %.0239 to i64
   br label %.lr.ph439
 
 .lr.ph434:                                        ; preds = %.lr.ph434.preheader, %.lr.ph434
-  %indvars.iv508 = phi i64 [ %153, %.lr.ph434.preheader ], [ %indvars.iv.next509, %.lr.ph434 ]
+  %indvars.iv508 = phi i64 [ %152, %.lr.ph434.preheader ], [ %indvars.iv.next509, %.lr.ph434 ]
   %indvars.iv.next509 = add nsw i64 %indvars.iv508, -1
-  %159 = getelementptr inbounds i64, ptr %119, i64 %indvars.iv.next509
-  %160 = load i64, ptr %159, align 8, !tbaa !27
-  %161 = trunc i64 %160 to i32
-  %162 = icmp ult i32 %161, 65536
-  %163 = icmp sgt i64 %indvars.iv.next509, %180
-  %164 = select i1 %162, i1 %163, i1 false
-  br i1 %164, label %.lr.ph434, label %.preheader363.loopexit, !llvm.loop !43
+  %158 = getelementptr inbounds i64, ptr %119, i64 %indvars.iv.next509
+  %159 = load i64, ptr %158, align 8, !tbaa !27
+  %160 = trunc i64 %159 to i32
+  %161 = icmp ult i32 %160, 65536
+  %162 = icmp sgt i64 %indvars.iv.next509, %179
+  %163 = select i1 %161, i1 %162, i1 false
+  br i1 %163, label %.lr.ph434, label %.preheader363.loopexit, !llvm.loop !43
 
 .lr.ph439:                                        ; preds = %.lr.ph439.preheader, %.lr.ph439
-  %indvars.iv511 = phi i64 [ %158, %.lr.ph439.preheader ], [ %indvars.iv.next512, %.lr.ph439 ]
+  %indvars.iv511 = phi i64 [ %157, %.lr.ph439.preheader ], [ %indvars.iv.next512, %.lr.ph439 ]
   %indvars.iv.next512 = add nsw i64 %indvars.iv511, -1
-  %165 = getelementptr inbounds i64, ptr %120, i64 %indvars.iv.next512
-  %166 = load i64, ptr %165, align 8, !tbaa !27
-  %167 = trunc i64 %166 to i32
-  %168 = icmp ult i32 %167, 65536
-  %169 = icmp sgt i64 %indvars.iv.next512, %144
-  %170 = select i1 %168, i1 %169, i1 false
-  br i1 %170, label %.lr.ph439, label %._crit_edge440.loopexit, !llvm.loop !44
+  %164 = getelementptr inbounds i64, ptr %120, i64 %indvars.iv.next512
+  %165 = load i64, ptr %164, align 8, !tbaa !27
+  %166 = trunc i64 %165 to i32
+  %167 = icmp ult i32 %166, 65536
+  %168 = icmp sgt i64 %indvars.iv.next512, %180
+  %169 = select i1 %167, i1 %168, i1 false
+  br i1 %169, label %.lr.ph439, label %._crit_edge440.loopexit, !llvm.loop !44
 
 ._crit_edge440.loopexit:                          ; preds = %.lr.ph439
-  %171 = lshr i32 %167, 16
-  %172 = trunc nsw i64 %indvars.iv.next512 to i32
+  %170 = lshr i32 %166, 16
+  %171 = trunc nsw i64 %indvars.iv.next512 to i32
   br label %._crit_edge440
 
 ._crit_edge440:                                   ; preds = %._crit_edge440.loopexit, %.preheader363
-  %.1240.lcssa = phi i32 [ %.0239, %.preheader363 ], [ %172, %._crit_edge440.loopexit ]
-  %.0237.lcssa = phi i32 [ 0, %.preheader363 ], [ %171, %._crit_edge440.loopexit ]
+  %.1240.lcssa = phi i32 [ %.0239, %.preheader363 ], [ %171, %._crit_edge440.loopexit ]
+  %.0237.lcssa = phi i32 [ 0, %.preheader363 ], [ %170, %._crit_edge440.loopexit ]
   %.not280 = icmp eq i32 %.0238.lcssa, %.0237.lcssa
-  %173 = icmp samesign ult i32 %.0238.lcssa, %.0237.lcssa
-  %174 = select i1 %173, i32 -1, i32 1
+  %172 = icmp samesign ult i32 %.0238.lcssa, %.0237.lcssa
+  %173 = select i1 %172, i32 -1, i32 1
   %.3253 = select i1 %.not280, i32 %.lcssa413, i32 1
-  %.9 = select i1 %.not280, i32 %.8, i32 %174
+  %.9 = select i1 %.not280, i32 %.8, i32 %173
   switch i32 %.3253, label %.loopexit [
-    i32 0, label %151
-    i32 28, label %175
+    i32 0, label %150
+    i32 28, label %174
   ], !llvm.loop !45
 
-175:                                              ; preds = %._crit_edge440
-  %.mask = and i64 %146, 288230371856744448
-  %176 = icmp eq i64 %.mask, 4294967296
-  br i1 %176, label %.thread311, label %177
+174:                                              ; preds = %._crit_edge440
+  %.mask = and i64 %145, 288230371856744448
+  %175 = icmp eq i64 %.mask, 4294967296
+  br i1 %175, label %.thread311, label %176
 
-177:                                              ; preds = %175
+176:                                              ; preds = %174
+  %177 = add nsw i32 %148, 1
   %178 = add nsw i32 %149, 1
-  %179 = add nsw i32 %150, 1
   br label %.outer
 
-.outer:                                           ; preds = %116, %177
-  %.0247.ph = phi i32 [ %178, %177 ], [ 0, %116 ]
-  %.0245.ph = phi i32 [ %179, %177 ], [ 0, %116 ]
-  %.7.ph = phi i32 [ %.9, %177 ], [ undef, %116 ]
-  %180 = sext i32 %.0247.ph to i64
+.outer:                                           ; preds = %116, %176
+  %.0247.ph = phi i32 [ %177, %176 ], [ 0, %116 ]
+  %.0245.ph = phi i32 [ %178, %176 ], [ 0, %116 ]
+  %.7.ph = phi i32 [ %.9, %176 ], [ undef, %116 ]
+  %179 = sext i32 %.0247.ph to i64
+  %180 = sext i32 %.0245.ph to i64
   br label %139
 
-.thread311:                                       ; preds = %175, %133, %113
+.thread311:                                       ; preds = %174, %133, %113
   %181 = and i32 %9, 1024
   %.not282 = icmp eq i32 %181, 0
   br i1 %.not282, label %.thread330, label %.preheader359

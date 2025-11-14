@@ -6281,7 +6281,7 @@ _ZN4llvm9BitVectorC2ERKS0_.exit:                  ; preds = %2, %.sink.split.i.i
   br i1 %.not145, label %.thread86, label %.lr.ph149
 
 .lr.ph149:                                        ; preds = %36, %._crit_edge
-  %.143147 = phi i64 [ %82, %._crit_edge ], [ %.042, %36 ]
+  %.143147 = phi i64 [ %55, %._crit_edge ], [ %.042, %36 ]
   %.046146 = phi ptr [ %83, %._crit_edge ], [ %39, %36 ]
   %44 = load i32, ptr %.046146, align 4, !tbaa !68
   %45 = load ptr, ptr %27, align 8, !tbaa !709
@@ -6297,66 +6297,66 @@ _ZN4llvm9BitVectorC2ERKS0_.exit:                  ; preds = %2, %.sink.split.i.i
 
 53:                                               ; preds = %.lr.ph149
   %54 = load ptr, ptr %49, align 8, !tbaa !25
+  %55 = sub nuw i64 %.143147, %52
   %.idx162 = shl nuw nsw i64 %52, 2
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx162
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx162
   %.not56143 = icmp eq i32 %51, 0
   br i1 %.not56143, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %53, %80
-  %.053144 = phi ptr [ %81, %80 ], [ %54, %53 ]
-  %56 = load i32, ptr %.053144, align 4, !tbaa !68
-  %57 = and i32 %56, 63
-  %58 = zext nneg i32 %57 to i64
-  %59 = shl nuw i64 1, %58
-  %60 = lshr i32 %56, 6
-  %61 = zext nneg i32 %60 to i64
-  %62 = load ptr, ptr %3, align 8, !tbaa !25
-  %63 = getelementptr inbounds nuw i64, ptr %62, i64 %61
-  %64 = load i64, ptr %63, align 8, !tbaa !50
-  %65 = and i64 %59, %64
-  %.not105 = icmp eq i64 %65, 0
-  br i1 %.not105, label %80, label %66
+.lr.ph:                                           ; preds = %53, %81
+  %.053144 = phi ptr [ %82, %81 ], [ %54, %53 ]
+  %57 = load i32, ptr %.053144, align 4, !tbaa !68
+  %58 = and i32 %57, 63
+  %59 = zext nneg i32 %58 to i64
+  %60 = shl nuw i64 1, %59
+  %61 = lshr i32 %57, 6
+  %62 = zext nneg i32 %61 to i64
+  %63 = load ptr, ptr %3, align 8, !tbaa !25
+  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %62
+  %65 = load i64, ptr %64, align 8, !tbaa !50
+  %66 = and i64 %60, %65
+  %.not105 = icmp eq i64 %66, 0
+  br i1 %.not105, label %81, label %67
 
-66:                                               ; preds = %.lr.ph
-  %67 = xor i64 %59, -1
-  %68 = and i64 %64, %67
-  store i64 %68, ptr %63, align 8, !tbaa !50
-  %69 = load i32, ptr %28, align 8, !tbaa !26
-  %70 = load i32, ptr %29, align 4, !tbaa !27
-  %.not.i.i.not.i = icmp ult i32 %69, %70
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, label %71, !prof !33
+67:                                               ; preds = %.lr.ph
+  %68 = xor i64 %60, -1
+  %69 = and i64 %65, %68
+  store i64 %69, ptr %64, align 8, !tbaa !50
+  %70 = load i32, ptr %28, align 8, !tbaa !26
+  %71 = load i32, ptr %29, align 4, !tbaa !27
+  %.not.i.i.not.i = icmp ult i32 %70, %71
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, label %72, !prof !33
 
-71:                                               ; preds = %66
-  %72 = zext i32 %69 to i64
-  %73 = add nuw nsw i64 %72, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %30, i64 noundef %73, i64 noundef 4) #24
+72:                                               ; preds = %67
+  %73 = zext i32 %70 to i64
+  %74 = add nuw nsw i64 %73, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %30, i64 noundef %74, i64 noundef 4) #24
   %.pre.i69 = load i32, ptr %28, align 8, !tbaa !26
   br label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %66, %71
-  %74 = phi i32 [ %69, %66 ], [ %.pre.i69, %71 ]
-  %75 = load ptr, ptr %24, align 8, !tbaa !25
-  %76 = zext i32 %74 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %75, i64 %76
-  store i32 %56, ptr %77, align 1
-  %78 = load i32, ptr %28, align 8, !tbaa !26
-  %79 = add i32 %78, 1
-  store i32 %79, ptr %28, align 8, !tbaa !26
-  br label %80
+_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %67, %72
+  %75 = phi i32 [ %70, %67 ], [ %.pre.i69, %72 ]
+  %76 = load ptr, ptr %24, align 8, !tbaa !25
+  %77 = zext i32 %75 to i64
+  %78 = getelementptr inbounds nuw i32, ptr %76, i64 %77
+  store i32 %57, ptr %78, align 1
+  %79 = load i32, ptr %28, align 8, !tbaa !26
+  %80 = add i32 %79, 1
+  store i32 %80, ptr %28, align 8, !tbaa !26
+  br label %81
 
-80:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
-  %81 = getelementptr inbounds nuw i8, ptr %.053144, i64 4
-  %.not56 = icmp eq ptr %81, %55
+81:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
+  %82 = getelementptr inbounds nuw i8, ptr %.053144, i64 4
+  %.not56 = icmp eq ptr %82, %56
   br i1 %.not56, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %80, %53
-  %82 = sub nuw i64 %.143147, %52
+._crit_edge:                                      ; preds = %81, %53
   %83 = getelementptr inbounds nuw i8, ptr %.046146, i64 4
   %.not = icmp eq ptr %83, %43
   br i1 %.not, label %.thread86, label %.lr.ph149
 
 .thread86:                                        ; preds = %._crit_edge, %36
-  %.143.lcssa = phi i64 [ %.042, %36 ], [ %82, %._crit_edge ]
+  %.143.lcssa = phi i64 [ %.042, %36 ], [ %55, %._crit_edge ]
   %84 = load i32, ptr %28, align 8, !tbaa !26
   %85 = icmp eq i32 %84, %.039
   br i1 %85, label %.thread97, label %86
@@ -18184,52 +18184,52 @@ define hidden void @_ZN4llvm8RAGreedy11reportStatsEPNS_11MachineLoopE(ptr dead_o
 
 .lr.ph:                                           ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  br label %49
-
-._crit_edge:                                      ; preds = %49
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %65, ptr %23, align 4
-  store i32 %67, ptr %24, align 4
-  store i32 %69, ptr %25, align 4
-  store i32 %71, ptr %26, align 4
-  store i32 %73, ptr %27, align 4
-  store float %75, ptr %28, align 4
-  store float %77, ptr %29, align 4
-  store float %79, ptr %30, align 4
-  store float %81, ptr %31, align 4
-  store float %83, ptr %32, align 4
+  br label %59
+
+._crit_edge:                                      ; preds = %59
+  store i32 %75, ptr %14, align 4
+  store i32 %77, ptr %16, align 4
+  store i32 %79, ptr %18, align 4
+  store i32 %81, ptr %20, align 4
+  store i32 %83, ptr %22, align 4
+  store float %85, ptr %24, align 4
+  store float %87, ptr %26, align 4
+  store float %89, ptr %28, align 4
+  store float %91, ptr %30, align 4
+  store float %93, ptr %32, align 4
   br label %33
 
 33:                                               ; preds = %._crit_edge, %3
-  %.promoted75 = phi float [ %83, %._crit_edge ], [ 0.000000e+00, %3 ]
-  %.promoted73 = phi float [ %81, %._crit_edge ], [ 0.000000e+00, %3 ]
-  %.promoted71 = phi float [ %79, %._crit_edge ], [ 0.000000e+00, %3 ]
-  %.promoted69 = phi float [ %77, %._crit_edge ], [ 0.000000e+00, %3 ]
-  %.promoted67 = phi float [ %75, %._crit_edge ], [ 0.000000e+00, %3 ]
-  %.promoted65 = phi i32 [ %73, %._crit_edge ], [ 0, %3 ]
-  %.promoted63 = phi i32 [ %71, %._crit_edge ], [ 0, %3 ]
-  %.promoted61 = phi i32 [ %69, %._crit_edge ], [ 0, %3 ]
-  %.promoted59 = phi i32 [ %67, %._crit_edge ], [ 0, %3 ]
-  %.promoted57 = phi i32 [ %65, %._crit_edge ], [ 0, %3 ]
-  %.lcssa26 = phi i32 [ %63, %._crit_edge ], [ 0, %3 ]
+  %.promoted75 = phi float [ %93, %._crit_edge ], [ 0.000000e+00, %3 ]
+  %.promoted73 = phi float [ %91, %._crit_edge ], [ 0.000000e+00, %3 ]
+  %.promoted71 = phi float [ %89, %._crit_edge ], [ 0.000000e+00, %3 ]
+  %.promoted69 = phi float [ %87, %._crit_edge ], [ 0.000000e+00, %3 ]
+  %.promoted67 = phi float [ %85, %._crit_edge ], [ 0.000000e+00, %3 ]
+  %.promoted65 = phi i32 [ %83, %._crit_edge ], [ 0, %3 ]
+  %.promoted63 = phi i32 [ %81, %._crit_edge ], [ 0, %3 ]
+  %.promoted61 = phi i32 [ %79, %._crit_edge ], [ 0, %3 ]
+  %.promoted59 = phi i32 [ %77, %._crit_edge ], [ 0, %3 ]
+  %.promoted57 = phi i32 [ %75, %._crit_edge ], [ 0, %3 ]
+  %.lcssa26 = phi i32 [ %73, %._crit_edge ], [ 0, %3 ]
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !702
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -18240,81 +18240,81 @@ define hidden void @_ZN4llvm8RAGreedy11reportStatsEPNS_11MachineLoopE(ptr dead_o
 .lr.ph54:                                         ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 784
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %43 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %44 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %47 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %102
 
-49:                                               ; preds = %.lr.ph, %49
-  %50 = phi float [ 0.000000e+00, %.lr.ph ], [ %83, %49 ]
-  %51 = phi float [ 0.000000e+00, %.lr.ph ], [ %81, %49 ]
-  %52 = phi float [ 0.000000e+00, %.lr.ph ], [ %79, %49 ]
-  %53 = phi float [ 0.000000e+00, %.lr.ph ], [ %77, %49 ]
-  %54 = phi float [ 0.000000e+00, %.lr.ph ], [ %75, %49 ]
-  %55 = phi i32 [ 0, %.lr.ph ], [ %73, %49 ]
-  %56 = phi i32 [ 0, %.lr.ph ], [ %71, %49 ]
-  %57 = phi i32 [ 0, %.lr.ph ], [ %69, %49 ]
-  %58 = phi i32 [ 0, %.lr.ph ], [ %67, %49 ]
-  %59 = phi i32 [ 0, %.lr.ph ], [ %65, %49 ]
-  %.sroa.016.028 = phi ptr [ %10, %.lr.ph ], [ %84, %49 ]
-  %60 = phi i32 [ 0, %.lr.ph ], [ %63, %49 ]
-  %61 = load ptr, ptr %.sroa.016.028, align 8, !tbaa !717
+59:                                               ; preds = %.lr.ph, %59
+  %60 = phi float [ 0.000000e+00, %.lr.ph ], [ %93, %59 ]
+  %61 = phi float [ 0.000000e+00, %.lr.ph ], [ %91, %59 ]
+  %62 = phi float [ 0.000000e+00, %.lr.ph ], [ %89, %59 ]
+  %63 = phi float [ 0.000000e+00, %.lr.ph ], [ %87, %59 ]
+  %64 = phi float [ 0.000000e+00, %.lr.ph ], [ %85, %59 ]
+  %65 = phi i32 [ 0, %.lr.ph ], [ %83, %59 ]
+  %66 = phi i32 [ 0, %.lr.ph ], [ %81, %59 ]
+  %67 = phi i32 [ 0, %.lr.ph ], [ %79, %59 ]
+  %68 = phi i32 [ 0, %.lr.ph ], [ %77, %59 ]
+  %69 = phi i32 [ 0, %.lr.ph ], [ %75, %59 ]
+  %.sroa.016.028 = phi ptr [ %10, %.lr.ph ], [ %94, %59 ]
+  %70 = phi i32 [ 0, %.lr.ph ], [ %73, %59 ]
+  %71 = load ptr, ptr %.sroa.016.028, align 8, !tbaa !717
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @_ZN4llvm8RAGreedy11reportStatsEPNS_11MachineLoopE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::RAGreedy::RAGreedyStats") align 4 %7, ptr noundef nonnull align 8 dereferenceable(29026) %1, ptr noundef %61)
-  %62 = load i32, ptr %7, align 4, !tbaa !935
-  %63 = add i32 %60, %62
-  %64 = load i32, ptr %13, align 4, !tbaa !937
-  %65 = add i32 %59, %64
-  %66 = load i32, ptr %14, align 4, !tbaa !939
-  %67 = add i32 %58, %66
-  %68 = load i32, ptr %15, align 4, !tbaa !927
-  %69 = add i32 %57, %68
-  %70 = load i32, ptr %16, align 4, !tbaa !933
-  %71 = add i32 %56, %70
-  %72 = load i32, ptr %17, align 4, !tbaa !940
-  %73 = add i32 %55, %72
-  %74 = load float, ptr %18, align 4, !tbaa !936
-  %75 = fadd float %74, %54
-  %76 = load float, ptr %19, align 4, !tbaa !938
-  %77 = fadd float %76, %53
-  %78 = load float, ptr %20, align 4, !tbaa !932
-  %79 = fadd float %78, %52
-  %80 = load float, ptr %21, align 4, !tbaa !934
-  %81 = fadd float %80, %51
-  %82 = load float, ptr %22, align 4, !tbaa !941
-  %83 = fadd float %82, %50
+  call void @_ZN4llvm8RAGreedy11reportStatsEPNS_11MachineLoopE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::RAGreedy::RAGreedyStats") align 4 %7, ptr noundef nonnull align 8 dereferenceable(29026) %1, ptr noundef %71)
+  %72 = load i32, ptr %7, align 4, !tbaa !935
+  %73 = add i32 %70, %72
+  %74 = load i32, ptr %13, align 4, !tbaa !937
+  %75 = add i32 %69, %74
+  %76 = load i32, ptr %15, align 4, !tbaa !939
+  %77 = add i32 %68, %76
+  %78 = load i32, ptr %17, align 4, !tbaa !927
+  %79 = add i32 %67, %78
+  %80 = load i32, ptr %19, align 4, !tbaa !933
+  %81 = add i32 %66, %80
+  %82 = load i32, ptr %21, align 4, !tbaa !940
+  %83 = add i32 %65, %82
+  %84 = load float, ptr %23, align 4, !tbaa !936
+  %85 = fadd float %84, %64
+  %86 = load float, ptr %25, align 4, !tbaa !938
+  %87 = fadd float %86, %63
+  %88 = load float, ptr %27, align 4, !tbaa !932
+  %89 = fadd float %88, %62
+  %90 = load float, ptr %29, align 4, !tbaa !934
+  %91 = fadd float %90, %61
+  %92 = load float, ptr %31, align 4, !tbaa !941
+  %93 = fadd float %92, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.016.028, i64 8
-  %.not25 = icmp eq ptr %84, %12
-  br i1 %.not25, label %._crit_edge, label %49
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.016.028, i64 8
+  %.not25 = icmp eq ptr %94, %12
+  br i1 %.not25, label %._crit_edge, label %59
 
 ._crit_edge55:                                    ; preds = %169
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %179, ptr %85, align 4
-  store i32 %178, ptr %86, align 4
-  store i32 %177, ptr %87, align 4
-  store i32 %176, ptr %88, align 4
-  store i32 %175, ptr %89, align 4
-  store float %174, ptr %90, align 4
-  store float %173, ptr %91, align 4
-  store float %172, ptr %92, align 4
-  store float %171, ptr %93, align 4
-  store float %170, ptr %94, align 4
+  store i32 %179, ptr %40, align 4
+  store i32 %178, ptr %42, align 4
+  store i32 %177, ptr %44, align 4
+  store i32 %176, ptr %46, align 4
+  store i32 %175, ptr %48, align 4
+  store float %174, ptr %50, align 4
+  store float %173, ptr %52, align 4
+  store float %172, ptr %54, align 4
+  store float %171, ptr %56, align 4
+  store float %170, ptr %58, align 4
   br label %95
 
 95:                                               ; preds = %._crit_edge55, %33
@@ -18409,23 +18409,23 @@ _ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPK
   %148 = add i32 %113, %147
   %149 = load i32, ptr %39, align 4, !tbaa !937
   %150 = add i32 %112, %149
-  %151 = load i32, ptr %40, align 4, !tbaa !939
+  %151 = load i32, ptr %41, align 4, !tbaa !939
   %152 = add i32 %111, %151
-  %153 = load i32, ptr %41, align 4, !tbaa !927
+  %153 = load i32, ptr %43, align 4, !tbaa !927
   %154 = add i32 %110, %153
-  %155 = load i32, ptr %42, align 4, !tbaa !933
+  %155 = load i32, ptr %45, align 4, !tbaa !933
   %156 = add i32 %109, %155
-  %157 = load i32, ptr %43, align 4, !tbaa !940
+  %157 = load i32, ptr %47, align 4, !tbaa !940
   %158 = add i32 %108, %157
-  %159 = load float, ptr %44, align 4, !tbaa !936
+  %159 = load float, ptr %49, align 4, !tbaa !936
   %160 = fadd float %159, %107
-  %161 = load float, ptr %45, align 4, !tbaa !938
+  %161 = load float, ptr %51, align 4, !tbaa !938
   %162 = fadd float %161, %106
-  %163 = load float, ptr %46, align 4, !tbaa !932
+  %163 = load float, ptr %53, align 4, !tbaa !932
   %164 = fadd float %163, %105
-  %165 = load float, ptr %47, align 4, !tbaa !934
+  %165 = load float, ptr %55, align 4, !tbaa !934
   %166 = fadd float %165, %104
-  %167 = load float, ptr %48, align 4, !tbaa !941
+  %167 = load float, ptr %57, align 4, !tbaa !941
   %168 = fadd float %167, %103
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %169
@@ -18644,52 +18644,52 @@ _ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.e
 
 .lr.ph:                                           ; preds = %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  br label %74
-
-._crit_edge:                                      ; preds = %74
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 %90, ptr %49, align 4
-  store i32 %92, ptr %50, align 4
-  store i32 %94, ptr %51, align 4
-  store i32 %96, ptr %52, align 4
-  store i32 %98, ptr %53, align 4
-  store float %100, ptr %54, align 4
-  store float %102, ptr %55, align 4
-  store float %104, ptr %56, align 4
-  store float %106, ptr %57, align 4
-  store float %108, ptr %58, align 4
+  br label %84
+
+._crit_edge:                                      ; preds = %84
+  store i32 %100, ptr %40, align 4
+  store i32 %102, ptr %42, align 4
+  store i32 %104, ptr %44, align 4
+  store i32 %106, ptr %46, align 4
+  store i32 %108, ptr %48, align 4
+  store float %110, ptr %50, align 4
+  store float %112, ptr %52, align 4
+  store float %114, ptr %54, align 4
+  store float %116, ptr %56, align 4
+  store float %118, ptr %58, align 4
   br label %59
 
 59:                                               ; preds = %._crit_edge, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread
-  %.promoted74 = phi float [ %108, %._crit_edge ], [ 0.000000e+00, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
-  %.promoted72 = phi float [ %106, %._crit_edge ], [ 0.000000e+00, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
-  %.promoted70 = phi float [ %104, %._crit_edge ], [ 0.000000e+00, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
-  %.promoted68 = phi float [ %102, %._crit_edge ], [ 0.000000e+00, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
-  %.promoted66 = phi float [ %100, %._crit_edge ], [ 0.000000e+00, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
-  %.promoted64 = phi i32 [ %98, %._crit_edge ], [ 0, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
-  %.promoted62 = phi i32 [ %96, %._crit_edge ], [ 0, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
-  %.promoted60 = phi i32 [ %94, %._crit_edge ], [ 0, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
-  %.promoted58 = phi i32 [ %92, %._crit_edge ], [ 0, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
-  %.promoted56 = phi i32 [ %90, %._crit_edge ], [ 0, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
-  %.lcssa24 = phi i32 [ %88, %._crit_edge ], [ 0, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
+  %.promoted74 = phi float [ %118, %._crit_edge ], [ 0.000000e+00, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
+  %.promoted72 = phi float [ %116, %._crit_edge ], [ 0.000000e+00, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
+  %.promoted70 = phi float [ %114, %._crit_edge ], [ 0.000000e+00, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
+  %.promoted68 = phi float [ %112, %._crit_edge ], [ 0.000000e+00, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
+  %.promoted66 = phi float [ %110, %._crit_edge ], [ 0.000000e+00, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
+  %.promoted64 = phi i32 [ %108, %._crit_edge ], [ 0, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
+  %.promoted62 = phi i32 [ %106, %._crit_edge ], [ 0, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
+  %.promoted60 = phi i32 [ %104, %._crit_edge ], [ 0, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
+  %.promoted58 = phi i32 [ %102, %._crit_edge ], [ 0, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
+  %.promoted56 = phi i32 [ %100, %._crit_edge ], [ 0, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
+  %.lcssa24 = phi i32 [ %98, %._crit_edge ], [ 0, %_ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.exit.thread ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %61 = load ptr, ptr %60, align 8, !tbaa !325
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 328
@@ -18700,81 +18700,81 @@ _ZNK4llvm32MachineOptimizationRemarkEmitter18allowExtraAnalysisENS_9StringRefE.e
 
 .lr.ph53:                                         ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %65 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %66 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %68 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %69 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %70 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %72 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  %73 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 28
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %78 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 40
   br label %127
 
-74:                                               ; preds = %.lr.ph, %74
-  %75 = phi float [ 0.000000e+00, %.lr.ph ], [ %108, %74 ]
-  %76 = phi float [ 0.000000e+00, %.lr.ph ], [ %106, %74 ]
-  %77 = phi float [ 0.000000e+00, %.lr.ph ], [ %104, %74 ]
-  %78 = phi float [ 0.000000e+00, %.lr.ph ], [ %102, %74 ]
-  %79 = phi float [ 0.000000e+00, %.lr.ph ], [ %100, %74 ]
-  %80 = phi i32 [ 0, %.lr.ph ], [ %98, %74 ]
-  %81 = phi i32 [ 0, %.lr.ph ], [ %96, %74 ]
-  %82 = phi i32 [ 0, %.lr.ph ], [ %94, %74 ]
-  %83 = phi i32 [ 0, %.lr.ph ], [ %92, %74 ]
-  %84 = phi i32 [ 0, %.lr.ph ], [ %90, %74 ]
-  %.sroa.015.026 = phi ptr [ %36, %.lr.ph ], [ %109, %74 ]
-  %85 = phi i32 [ 0, %.lr.ph ], [ %88, %74 ]
-  %86 = load ptr, ptr %.sroa.015.026, align 8, !tbaa !717
+84:                                               ; preds = %.lr.ph, %84
+  %85 = phi float [ 0.000000e+00, %.lr.ph ], [ %118, %84 ]
+  %86 = phi float [ 0.000000e+00, %.lr.ph ], [ %116, %84 ]
+  %87 = phi float [ 0.000000e+00, %.lr.ph ], [ %114, %84 ]
+  %88 = phi float [ 0.000000e+00, %.lr.ph ], [ %112, %84 ]
+  %89 = phi float [ 0.000000e+00, %.lr.ph ], [ %110, %84 ]
+  %90 = phi i32 [ 0, %.lr.ph ], [ %108, %84 ]
+  %91 = phi i32 [ 0, %.lr.ph ], [ %106, %84 ]
+  %92 = phi i32 [ 0, %.lr.ph ], [ %104, %84 ]
+  %93 = phi i32 [ 0, %.lr.ph ], [ %102, %84 ]
+  %94 = phi i32 [ 0, %.lr.ph ], [ %100, %84 ]
+  %.sroa.015.026 = phi ptr [ %36, %.lr.ph ], [ %119, %84 ]
+  %95 = phi i32 [ 0, %.lr.ph ], [ %98, %84 ]
+  %96 = load ptr, ptr %.sroa.015.026, align 8, !tbaa !717
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @_ZN4llvm8RAGreedy11reportStatsEPNS_11MachineLoopE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::RAGreedy::RAGreedyStats") align 4 %7, ptr noundef nonnull align 8 dereferenceable(29026) %0, ptr noundef %86)
-  %87 = load i32, ptr %7, align 4, !tbaa !935
-  %88 = add i32 %85, %87
-  %89 = load i32, ptr %39, align 4, !tbaa !937
-  %90 = add i32 %84, %89
-  %91 = load i32, ptr %40, align 4, !tbaa !939
-  %92 = add i32 %83, %91
-  %93 = load i32, ptr %41, align 4, !tbaa !927
-  %94 = add i32 %82, %93
-  %95 = load i32, ptr %42, align 4, !tbaa !933
-  %96 = add i32 %81, %95
-  %97 = load i32, ptr %43, align 4, !tbaa !940
-  %98 = add i32 %80, %97
-  %99 = load float, ptr %44, align 4, !tbaa !936
-  %100 = fadd float %99, %79
-  %101 = load float, ptr %45, align 4, !tbaa !938
-  %102 = fadd float %101, %78
-  %103 = load float, ptr %46, align 4, !tbaa !932
-  %104 = fadd float %103, %77
-  %105 = load float, ptr %47, align 4, !tbaa !934
-  %106 = fadd float %105, %76
-  %107 = load float, ptr %48, align 4, !tbaa !941
-  %108 = fadd float %107, %75
+  call void @_ZN4llvm8RAGreedy11reportStatsEPNS_11MachineLoopE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::RAGreedy::RAGreedyStats") align 4 %7, ptr noundef nonnull align 8 dereferenceable(29026) %0, ptr noundef %96)
+  %97 = load i32, ptr %7, align 4, !tbaa !935
+  %98 = add i32 %95, %97
+  %99 = load i32, ptr %39, align 4, !tbaa !937
+  %100 = add i32 %94, %99
+  %101 = load i32, ptr %41, align 4, !tbaa !939
+  %102 = add i32 %93, %101
+  %103 = load i32, ptr %43, align 4, !tbaa !927
+  %104 = add i32 %92, %103
+  %105 = load i32, ptr %45, align 4, !tbaa !933
+  %106 = add i32 %91, %105
+  %107 = load i32, ptr %47, align 4, !tbaa !940
+  %108 = add i32 %90, %107
+  %109 = load float, ptr %49, align 4, !tbaa !936
+  %110 = fadd float %109, %89
+  %111 = load float, ptr %51, align 4, !tbaa !938
+  %112 = fadd float %111, %88
+  %113 = load float, ptr %53, align 4, !tbaa !932
+  %114 = fadd float %113, %87
+  %115 = load float, ptr %55, align 4, !tbaa !934
+  %116 = fadd float %115, %86
+  %117 = load float, ptr %57, align 4, !tbaa !941
+  %118 = fadd float %117, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %109 = getelementptr inbounds nuw i8, ptr %.sroa.015.026, i64 8
-  %.not22 = icmp eq ptr %109, %38
-  br i1 %.not22, label %._crit_edge, label %74
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.015.026, i64 8
+  %.not22 = icmp eq ptr %119, %38
+  br i1 %.not22, label %._crit_edge, label %84
 
 ._crit_edge54:                                    ; preds = %190
-  %110 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %111 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %112 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %113 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %114 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %115 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %116 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %117 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %118 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  %119 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 %200, ptr %110, align 4
-  store i32 %199, ptr %111, align 4
-  store i32 %198, ptr %112, align 4
-  store i32 %197, ptr %113, align 4
-  store i32 %196, ptr %114, align 4
-  store float %195, ptr %115, align 4
-  store float %194, ptr %116, align 4
-  store float %193, ptr %117, align 4
-  store float %192, ptr %118, align 4
-  store float %191, ptr %119, align 4
+  store i32 %200, ptr %65, align 4
+  store i32 %199, ptr %67, align 4
+  store i32 %198, ptr %69, align 4
+  store i32 %197, ptr %71, align 4
+  store i32 %196, ptr %73, align 4
+  store float %195, ptr %75, align 4
+  store float %194, ptr %77, align 4
+  store float %193, ptr %79, align 4
+  store float %192, ptr %81, align 4
+  store float %191, ptr %83, align 4
   br label %120
 
 120:                                              ; preds = %._crit_edge54, %59
@@ -18864,23 +18864,23 @@ _ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPK
   %169 = add i32 %138, %168
   %170 = load i32, ptr %64, align 4, !tbaa !937
   %171 = add i32 %137, %170
-  %172 = load i32, ptr %65, align 4, !tbaa !939
+  %172 = load i32, ptr %66, align 4, !tbaa !939
   %173 = add i32 %136, %172
-  %174 = load i32, ptr %66, align 4, !tbaa !927
+  %174 = load i32, ptr %68, align 4, !tbaa !927
   %175 = add i32 %135, %174
-  %176 = load i32, ptr %67, align 4, !tbaa !933
+  %176 = load i32, ptr %70, align 4, !tbaa !933
   %177 = add i32 %134, %176
-  %178 = load i32, ptr %68, align 4, !tbaa !940
+  %178 = load i32, ptr %72, align 4, !tbaa !940
   %179 = add i32 %133, %178
-  %180 = load float, ptr %69, align 4, !tbaa !936
+  %180 = load float, ptr %74, align 4, !tbaa !936
   %181 = fadd float %180, %132
-  %182 = load float, ptr %70, align 4, !tbaa !938
+  %182 = load float, ptr %76, align 4, !tbaa !938
   %183 = fadd float %182, %131
-  %184 = load float, ptr %71, align 4, !tbaa !932
+  %184 = load float, ptr %78, align 4, !tbaa !932
   %185 = fadd float %184, %130
-  %186 = load float, ptr %72, align 4, !tbaa !934
+  %186 = load float, ptr %80, align 4, !tbaa !934
   %187 = fadd float %186, %129
-  %188 = load float, ptr %73, align 4, !tbaa !941
+  %188 = load float, ptr %82, align 4, !tbaa !941
   %189 = fadd float %188, %128
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %190

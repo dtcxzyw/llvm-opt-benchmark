@@ -2052,25 +2052,25 @@ parse_grid_1_chunk.exit.thread361:                ; preds = %677
 1018:                                             ; preds = %1006
   %1019 = load i32, ptr %1010, align 1, !tbaa !14
   store i32 8, ptr %646, align 8, !tbaa !92
-  %1020 = load i32, ptr %650, align 8, !tbaa !39
-  %1021 = icmp sgt i32 %1020, 0
-  br i1 %1021, label %.lr.ph.i249, label %.preheader77.i
+  %1020 = and i32 %1019, 7
+  %1021 = load i32, ptr %650, align 8, !tbaa !39
+  %1022 = icmp sgt i32 %1021, 0
+  br i1 %1022, label %.lr.ph.i249, label %.preheader77.i
 
 .lr.ph.i249:                                      ; preds = %1018
-  %1022 = lshr i32 %1019, 6
-  %1023 = and i32 %1022, 3
-  %1024 = lshr i32 %1019, 3
-  %1025 = and i32 %1024, 7
-  %1026 = load i32, ptr %655, align 4, !tbaa !37
-  %1027 = mul nuw nsw i32 %1023, 40
-  %1028 = add nuw nsw i32 %1027, 100
-  %1029 = mul nuw nsw i32 %1025, 20
-  %wide.trip.count.i = zext nneg i32 %1020 to i64
+  %1023 = lshr i32 %1019, 6
+  %1024 = and i32 %1023, 3
+  %1025 = lshr i32 %1019, 3
+  %1026 = and i32 %1025, 7
+  %1027 = load i32, ptr %655, align 4, !tbaa !37
+  %1028 = mul nuw nsw i32 %1024, 40
+  %1029 = add nuw nsw i32 %1028, 100
+  %1030 = mul nuw nsw i32 %1026, 20
+  %wide.trip.count.i = zext nneg i32 %1021 to i64
   br label %1034
 
 .preheader77.i:                                   ; preds = %1059, %1018
-  %1030 = and i32 %1019, 7
-  %1031 = zext nneg i32 %1030 to i64
+  %1031 = zext nneg i32 %1020 to i64
   %1032 = getelementptr inbounds nuw [8 x i8], ptr @ff_dca_sb_reorder, i64 %1031
   %1033 = getelementptr inbounds nuw [32 x i8], ptr %314, i64 %indvars.iv424
   br label %1062
@@ -2078,13 +2078,13 @@ parse_grid_1_chunk.exit.thread361:                ; preds = %677
 1034:                                             ; preds = %1059, %.lr.ph.i249
   %indvars.iv.i250 = phi i64 [ 0, %.lr.ph.i249 ], [ %indvars.iv.next.i251, %1059 ]
   %1035 = trunc i64 %indvars.iv.i250 to i32
-  %1036 = mul i32 %1026, %1035
-  %1037 = sdiv i32 %1036, %1020
+  %1036 = mul i32 %1027, %1035
+  %1037 = sdiv i32 %1036, %1021
   %1038 = mul nsw i32 %1037, 12
   %1039 = sdiv i32 %1038, 1000
-  %1040 = add nsw i32 %1028, %1039
+  %1040 = add nsw i32 %1029, %1039
   %1041 = sdiv i32 18000, %1040
-  %1042 = add nsw i32 %1041, %1029
+  %1042 = add nsw i32 %1041, %1030
   %1043 = icmp slt i32 %1042, 96
   br i1 %1043, label %1044, label %1046
 
@@ -2130,11 +2130,11 @@ parse_grid_1_chunk.exit.thread361:                ; preds = %677
   br i1 %exitcond.not.i252, label %.preheader77.i, label %1034, !llvm.loop !108
 
 .preheader76.i:                                   ; preds = %1062
-  %1060 = icmp sgt i32 %1020, 8
+  %1060 = icmp sgt i32 %1021, 8
   br i1 %1060, label %.lr.ph82.i.preheader, label %._crit_edge.i244
 
 .lr.ph82.i.preheader:                             ; preds = %.preheader76.i
-  %1061 = zext nneg i32 %1020 to i64
+  %1061 = zext nneg i32 %1021 to i64
   br label %.lr.ph82.i
 
 1062:                                             ; preds = %1062, %.preheader77.i

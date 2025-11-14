@@ -2634,27 +2634,27 @@ define dso_local void @suggest_compaction_segment(ptr dead_on_unwind noalias wri
 .lr.ph:                                           ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0.in, ptr %16, align 8, !tbaa !129
-  br label %17
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %18
 
-17:                                               ; preds = %.lr.ph, %17
-  %18 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %17 ]
-  %.136 = phi i64 [ %.0, %.lr.ph ], [ %20, %17 ]
-  %.12535 = phi i64 [ %13, %.lr.ph ], [ %23, %17 ]
-  %19 = phi i64 [ 0, %.lr.ph ], [ %spec.select39, %17 ]
-  %20 = add i64 %.136, -1
-  %21 = getelementptr inbounds nuw i64, ptr %1, i64 %20
-  %22 = load i64, ptr %21, align 8, !tbaa !12
-  %23 = add i64 %22, %.12535
-  %24 = mul i64 %.12535, %6
-  %25 = icmp ult i64 %22, %24
-  %spec.select = select i1 %25, i64 %23, i64 %18
-  %spec.select39 = select i1 %25, i64 %20, i64 %19
-  %.not28 = icmp eq i64 %20, 0
-  br i1 %.not28, label %..loopexit_crit_edge, label %17, !llvm.loop !86
+18:                                               ; preds = %.lr.ph, %18
+  %19 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %18 ]
+  %.136 = phi i64 [ %.0, %.lr.ph ], [ %21, %18 ]
+  %.12535 = phi i64 [ %13, %.lr.ph ], [ %24, %18 ]
+  %20 = phi i64 [ 0, %.lr.ph ], [ %spec.select39, %18 ]
+  %21 = add i64 %.136, -1
+  %22 = getelementptr inbounds nuw i64, ptr %1, i64 %21
+  %23 = load i64, ptr %22, align 8, !tbaa !12
+  %24 = add i64 %23, %.12535
+  %25 = mul i64 %.12535, %6
+  %26 = icmp ult i64 %23, %25
+  %spec.select = select i1 %26, i64 %24, i64 %19
+  %spec.select39 = select i1 %26, i64 %21, i64 %20
+  %.not28 = icmp eq i64 %21, 0
+  br i1 %.not28, label %..loopexit_crit_edge, label %18, !llvm.loop !86
 
-..loopexit_crit_edge:                             ; preds = %17
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %spec.select, ptr %26, align 8
+..loopexit_crit_edge:                             ; preds = %18
+  store i64 %spec.select, ptr %17, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %..loopexit_crit_edge
@@ -3111,22 +3111,22 @@ stack_filename.exit:                              ; preds = %39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %8, i8 0, i64 96, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %9, i8 0, i64 144, i1 false)
+  %reass.sub = sub i64 %2, %1
+  %66 = add i64 %reass.sub, 1
   %.not86.i = icmp ugt i64 %1, %2
   %.pre.i = load ptr, ptr %19, align 8, !tbaa !38
   br i1 %.not86.i, label %._crit_edge199.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %.promoted.i = load i64, ptr %66, align 8, !tbaa !137
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %.promoted.i = load i64, ptr %67, align 8, !tbaa !137
   br label %82
 
 ._crit_edge.i:                                    ; preds = %82
-  store i64 %88, ptr %66, align 8, !tbaa !137
+  store i64 %88, ptr %67, align 8, !tbaa !137
   br label %._crit_edge199.i
 
 ._crit_edge199.i:                                 ; preds = %._crit_edge.i, %64
-  %reass.sub = sub i64 %2, %1
-  %67 = add i64 %reass.sub, 1
   %68 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %1
   %69 = load ptr, ptr %68, align 8, !tbaa !39
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
@@ -3140,7 +3140,7 @@ stack_filename.exit:                              ; preds = %39
   %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %1
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %79 = load i32, ptr %78, align 4, !tbaa !52
-  %80 = call i32 @reftable_merged_table_new(ptr noundef nonnull %6, ptr noundef %77, i64 noundef %67, i32 noundef %79) #16
+  %80 = call i32 @reftable_merged_table_new(ptr noundef nonnull %6, ptr noundef %77, i64 noundef %66, i32 noundef %79) #16
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %.loopexit.i, label %90
 

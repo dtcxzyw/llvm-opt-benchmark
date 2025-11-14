@@ -151,80 +151,80 @@ define dso_local noundef i64 @spg_quad_picksplit(ptr noundef readonly captures(n
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
-  %7 = tail call ptr @palloc0(i64 noundef 16) #6
-  %8 = load i32, ptr %4, align 8
-  %9 = icmp sgt i32 %8, 0
-  %.pre48 = load double, ptr %7, align 8
-  br i1 %9, label %.lr.ph, label %.._crit_edge_crit_edge
+  %7 = inttoptr i64 %6 to ptr
+  %8 = tail call ptr @palloc0(i64 noundef 16) #6
+  %9 = load i32, ptr %4, align 8
+  %10 = icmp sgt i32 %9, 0
+  %.pre48 = load double, ptr %8, align 8
+  br i1 %10, label %.lr.ph, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %1
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.pre = load double, ptr %.phi.trans.insert, align 8
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.pre47 = load double, ptr %11, align 8
-  br label %12
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.pre47 = load double, ptr %12, align 8
+  br label %13
 
-12:                                               ; preds = %.lr.ph, %12
-  %13 = phi double [ %.pre47, %.lr.ph ], [ %27, %12 ]
-  %14 = phi double [ %.pre48, %.lr.ph ], [ %20, %12 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
-  %17 = load i64, ptr %16, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %19 = load double, ptr %18, align 8
-  %20 = fadd double %19, %14
-  store double %20, ptr %7, align 8
-  %21 = load ptr, ptr %10, align 8
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv
-  %23 = load i64, ptr %22, align 8
-  %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load double, ptr %25, align 8
-  %27 = fadd double %26, %13
-  store double %27, ptr %11, align 8
+13:                                               ; preds = %.lr.ph, %13
+  %14 = phi double [ %.pre47, %.lr.ph ], [ %28, %13 ]
+  %15 = phi double [ %.pre48, %.lr.ph ], [ %21, %13 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
+  %16 = load ptr, ptr %11, align 8
+  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %18 = load i64, ptr %17, align 8
+  %19 = inttoptr i64 %18 to ptr
+  %20 = load double, ptr %19, align 8
+  %21 = fadd double %20, %15
+  store double %21, ptr %8, align 8
+  %22 = load ptr, ptr %11, align 8
+  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv
+  %24 = load i64, ptr %23, align 8
+  %25 = inttoptr i64 %24 to ptr
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load double, ptr %26, align 8
+  %28 = fadd double %27, %14
+  store double %28, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = load i32, ptr %4, align 8
-  %29 = sext i32 %28 to i64
-  %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %12, label %._crit_edge, !llvm.loop !6
+  %29 = load i32, ptr %4, align 8
+  %30 = sext i32 %29 to i64
+  %31 = icmp slt i64 %indvars.iv.next, %30
+  br i1 %31, label %13, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %12, %.._crit_edge_crit_edge
-  %31 = phi double [ %.pre, %.._crit_edge_crit_edge ], [ %27, %12 ]
-  %32 = phi double [ %.pre48, %.._crit_edge_crit_edge ], [ %20, %12 ]
-  %.lcssa = phi i32 [ %8, %.._crit_edge_crit_edge ], [ %28, %12 ]
-  %33 = inttoptr i64 %6 to ptr
+._crit_edge:                                      ; preds = %13, %.._crit_edge_crit_edge
+  %32 = phi double [ %.pre, %.._crit_edge_crit_edge ], [ %28, %13 ]
+  %33 = phi double [ %.pre48, %.._crit_edge_crit_edge ], [ %21, %13 ]
+  %.lcssa = phi i32 [ %9, %.._crit_edge_crit_edge ], [ %29, %13 ]
   %34 = sitofp i32 %.lcssa to double
-  %35 = fdiv double %32, %34
-  store double %35, ptr %7, align 8
+  %35 = fdiv double %33, %34
+  store double %35, ptr %8, align 8
   %36 = load i32, ptr %4, align 8
   %37 = sitofp i32 %36 to double
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %39 = fdiv double %31, %37
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %39 = fdiv double %32, %37
   store double %39, ptr %38, align 8
-  store i8 1, ptr %33, align 8
-  %40 = ptrtoint ptr %7 to i64
-  %41 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store i8 1, ptr %7, align 8
+  %40 = ptrtoint ptr %8 to i64
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 4, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr null, ptr %43, align 8
   %44 = load i32, ptr %4, align 8
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 2
   %47 = tail call ptr @palloc(i64 noundef %46) #6
-  %48 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %47, ptr %48, align 8
   %49 = load i32, ptr %4, align 8
   %50 = sext i32 %49 to i64
   %51 = shl nsw i64 %50, 3
   %52 = tail call ptr @palloc(i64 noundef %51) #6
-  %53 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %52, ptr %53, align 8
   %54 = load i32, ptr %4, align 8
   %55 = icmp sgt i32 %54, 0
@@ -240,7 +240,7 @@ define dso_local noundef i64 @spg_quad_picksplit(ptr noundef readonly captures(n
   %59 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv44
   %60 = load i64, ptr %59, align 8
   %61 = inttoptr i64 %60 to ptr
-  %62 = tail call fastcc signext i16 @getQuadrant(ptr noundef nonnull %7, ptr noundef %61)
+  %62 = tail call fastcc signext i16 @getQuadrant(ptr noundef nonnull %8, ptr noundef %61)
   %63 = zext nneg i16 %62 to i32
   %64 = add nsw i32 %63, -1
   %65 = load ptr, ptr %53, align 8

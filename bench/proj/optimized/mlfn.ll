@@ -107,32 +107,32 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_Z7pj_mlfndddPKd(double noundef %0, double noundef %1, double noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
-  %5 = fsub double %2, %1
-  %6 = fmul double %5, 2.000000e+00
-  %7 = fadd double %1, %2
-  %8 = fmul double %7, %6
-  br label %9
+  %5 = load double, ptr %3, align 8, !tbaa !3
+  %6 = fsub double %2, %1
+  %7 = fmul double %6, 2.000000e+00
+  %8 = fadd double %1, %2
+  %9 = fmul double %8, %7
+  br label %10
 
-9:                                                ; preds = %9, %4
-  %indvars.iv.i = phi i64 [ 6, %4 ], [ %indvars.iv.next.i, %9 ]
-  %.01417.i = phi double [ 0.000000e+00, %4 ], [ %14, %9 ]
-  %.01516.i = phi double [ 0.000000e+00, %4 ], [ %.01417.i, %9 ]
-  %10 = fneg double %.01516.i
-  %11 = tail call double @llvm.fmuladd.f64(double %8, double %.01417.i, double %10)
+10:                                               ; preds = %10, %4
+  %indvars.iv.i = phi i64 [ 6, %4 ], [ %indvars.iv.next.i, %10 ]
+  %.01417.i = phi double [ 0.000000e+00, %4 ], [ %15, %10 ]
+  %.01516.i = phi double [ 0.000000e+00, %4 ], [ %.01417.i, %10 ]
+  %11 = fneg double %.01516.i
+  %12 = tail call double @llvm.fmuladd.f64(double %9, double %.01417.i, double %11)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %12 = getelementptr double, ptr %3, i64 %indvars.iv.i
-  %13 = load double, ptr %12, align 8, !tbaa !3
-  %14 = fadd double %11, %13
-  %15 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %15, label %9, label %_ZL8clenshawddPKdi.exit, !llvm.loop !10
+  %13 = getelementptr double, ptr %3, i64 %indvars.iv.i
+  %14 = load double, ptr %13, align 8, !tbaa !3
+  %15 = fadd double %12, %14
+  %16 = icmp samesign ugt i64 %indvars.iv.i, 1
+  br i1 %16, label %10, label %_ZL8clenshawddPKdi.exit, !llvm.loop !10
 
-_ZL8clenshawddPKdi.exit:                          ; preds = %9
-  %16 = load double, ptr %3, align 8, !tbaa !3
+_ZL8clenshawddPKdi.exit:                          ; preds = %10
   %17 = fmul double %1, 2.000000e+00
   %18 = fmul double %17, %2
-  %19 = fmul double %18, %14
+  %19 = fmul double %18, %15
   %20 = fadd double %0, %19
-  %21 = fmul double %16, %20
+  %21 = fmul double %5, %20
   ret double %21
 }
 

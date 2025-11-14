@@ -42,17 +42,17 @@ define internal noundef i32 @init_decoder(ptr noundef writeonly captures(none) i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @decode(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef readonly captures(none) %3) #1 {
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %6 = load i32, ptr %5, align 8, !tbaa !27
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !29
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %6 = load ptr, ptr %5, align 8, !tbaa !27
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %8 = load i32, ptr %7, align 8, !tbaa !29
   store i32 0, ptr %2, align 4, !tbaa !30
-  %9 = icmp slt i32 %6, 3
+  %9 = icmp slt i32 %8, 3
   br i1 %9, label %display_end_segment.exit.thread.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %10 = zext nneg i32 %6 to i64
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %10
+  %10 = zext nneg i32 %8 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 %10
   %12 = ptrtoint ptr %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -65,7 +65,7 @@ define internal i32 @decode(ptr noundef %0, ptr noundef %1, ptr noundef captures
   br label %21
 
 21:                                               ; preds = %.lr.ph, %parse_palette_segment.exit
-  %.082110 = phi ptr [ %8, %.lr.ph ], [ %480, %parse_palette_segment.exit ]
+  %.082110 = phi ptr [ %6, %.lr.ph ], [ %480, %parse_palette_segment.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %.082110, i64 1
   %23 = load i8, ptr %.082110, align 1, !tbaa !31
   %24 = zext i8 %23 to i32
@@ -944,7 +944,7 @@ parse_palette_segment.exit:                       ; preds = %313, %58, %33, %dis
   br i1 %481, label %21, label %display_end_segment.exit.thread.thread, !llvm.loop !95
 
 display_end_segment.exit.thread.thread:           ; preds = %.thread, %display_end_segment.exit.thread, %parse_palette_segment.exit, %330, %21, %351, %decode_rle.exit.i, %400, %.thread88, %4
-  %.040 = phi i32 [ -1, %4 ], [ -12, %.thread88 ], [ -12, %400 ], [ -12, %decode_rle.exit.i ], [ -12, %351 ], [ %.0.ph87, %.thread ], [ -12, %display_end_segment.exit.thread ], [ %6, %parse_palette_segment.exit ], [ -12, %330 ], [ %6, %21 ]
+  %.040 = phi i32 [ -1, %4 ], [ -12, %.thread88 ], [ -12, %400 ], [ -12, %decode_rle.exit.i ], [ -12, %351 ], [ %.0.ph87, %.thread ], [ -12, %display_end_segment.exit.thread ], [ %8, %parse_palette_segment.exit ], [ -12, %330 ], [ %8, %21 ]
   ret i32 %.040
 }
 
@@ -1054,9 +1054,9 @@ attributes #7 = { nounwind }
 !24 = !{!"p1 int", !7, i64 0}
 !25 = !{!"p2 _ZTS15AVFrameSideData", !26, i64 0}
 !26 = !{!"any p2 pointer", !7, i64 0}
-!27 = !{!28, !10, i64 32}
+!27 = !{!28, !14, i64 24}
 !28 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
-!29 = !{!28, !14, i64 24}
+!29 = !{!28, !10, i64 32}
 !30 = !{!10, !10, i64 0}
 !31 = !{!8, !8, i64 0}
 !32 = !{!5, !7, i64 32}

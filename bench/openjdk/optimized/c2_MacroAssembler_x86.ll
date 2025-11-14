@@ -9570,27 +9570,27 @@ define hidden void @_ZN17C2_MacroAssembler15arrays_hashcodeE8RegisterS0_S0_S0_S0
   unreachable
 
 switch.lookup:                                    ; preds = %21
+  %72 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17C2_MacroAssembler15arrays_hashcodeE8RegisterS0_S0_S0_S0_S0_11XMMRegisterS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_9BasicType, i64 %72
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %73 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep288 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17C2_MacroAssembler15arrays_hashcodeE8RegisterS0_S0_S0_S0_S0_11XMMRegisterS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_9BasicType.1, i64 %73
+  %switch.load289 = load i32, ptr %switch.gep288, align 4
   tail call void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 noundef 32) #12
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(33) %26, i1 noundef zeroext true) #12
   call void @_ZN9Assembler4xorlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4, i32 %4) #12
-  br label %72
+  br label %74
 
-72:                                               ; preds = %switch.lookup, %72
-  %indvars.iv = phi i64 [ 0, %switch.lookup ], [ %indvars.iv.next, %72 ]
-  %73 = getelementptr inbounds nuw %class.XMMRegister, ptr %32, i64 %indvars.iv
-  %.sroa.0107.0.copyload = load i32, ptr %73, align 4
+74:                                               ; preds = %switch.lookup, %74
+  %indvars.iv = phi i64 [ 0, %switch.lookup ], [ %indvars.iv.next, %74 ]
+  %75 = getelementptr inbounds nuw %class.XMMRegister, ptr %32, i64 %indvars.iv
+  %.sroa.0107.0.copyload = load i32, ptr %75, align 4
   call void @_ZN9Assembler5vpxorE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %.sroa.0107.0.copyload, i32 %.sroa.0107.0.copyload, i32 %.sroa.0107.0.copyload, i32 noundef 1) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %74, label %72, !llvm.loop !13
+  br i1 %exitcond.not, label %76, label %74, !llvm.loop !13
 
-74:                                               ; preds = %72
-  %75 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17C2_MacroAssembler15arrays_hashcodeE8RegisterS0_S0_S0_S0_S0_11XMMRegisterS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_9BasicType, i64 %75
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %76 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep288 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17C2_MacroAssembler15arrays_hashcodeE8RegisterS0_S0_S0_S0_S0_11XMMRegisterS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_9BasicType.1, i64 %76
-  %switch.load289 = load i32, ptr %switch.gep288, align 4
+76:                                               ; preds = %74
   call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull @_ZN12StubRoutines3x8629_arrays_hashcode_powers_of_31E, i32 noundef 7) #12
   %77 = load ptr, ptr %35, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
@@ -9644,8 +9644,8 @@ switch.lookup:                                    ; preds = %21
   %switch.gep295 = getelementptr inbounds nuw i32, ptr @switch.table._ZN17C2_MacroAssembler15arrays_hashcodeE8RegisterS0_S0_S0_S0_S0_11XMMRegisterS1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_S1_9BasicType.2, i64 %102
   br label %_ZN7Address5timesEi.exit
 
-_ZN7Address5timesEi.exit:                         ; preds = %74, %switch.lookup292
-  %indvars.iv272 = phi i64 [ 0, %74 ], [ %indvars.iv.next273, %switch.lookup292 ]
+_ZN7Address5timesEi.exit:                         ; preds = %76, %switch.lookup292
+  %indvars.iv272 = phi i64 [ 0, %76 ], [ %indvars.iv.next273, %switch.lookup292 ]
   %103 = getelementptr inbounds nuw %class.XMMRegister, ptr %33, i64 %indvars.iv272
   %.sroa.081.0.copyload = load i32, ptr %103, align 4
   store i32 %1, ptr %37, align 8

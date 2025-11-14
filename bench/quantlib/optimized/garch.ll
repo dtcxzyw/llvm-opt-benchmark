@@ -884,8 +884,8 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i125, align 8, !tbaa !21
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i125, i64 8
   %add.ptr.idx.i.i.i.i.i.i.i = add i64 %sub.ptr.sub.i, -8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i125, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !21
+  %add.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i125, i64 %sub.ptr.sub.i
   %cmp.i.not5.i = icmp eq ptr %1, %0
   br i1 %cmp.i.not5.i, label %invoke.cont87, label %for.body.i
 
@@ -4274,8 +4274,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !21
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.i.preheader
 
 invoke.cont:                                      ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -4629,8 +4629,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !21
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %for.body.i.preheader
 
 invoke.cont:                                      ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -4859,6 +4859,10 @@ _ZSt4fillIPddEvT_S1_RKT0_.exit:                   ; preds = %for.body.i.i.i.preh
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %_M_finish.i, align 8, !tbaa !48
   %4 = load ptr, ptr %2, align 8, !tbaa !50
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.i.not31 = icmp eq ptr %4, %3
   br i1 %cmp.i.not31, label %for.cond.cleanup, label %for.body.lr.ph
 
@@ -4874,10 +4878,6 @@ for.body.lr.ph:                                   ; preds = %_ZSt4fillIPddEvT_S1
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %_ZSt4fillIPddEvT_S1_RKT0_.exit
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %conv = uitofp i64 %sub.ptr.div.i to double
   %mul = fmul double %conv, 2.000000e+00
   br i1 %cmp.not3.i.i.i, label %"_ZSt9transformIPdS0_ZNK8QuantLib12_GLOBAL__N_119Garch11CostFunction8gradientERNS1_5ArrayERKS4_E3$_0ET0_T_SA_S9_T1_.exit", label %for.body.i
@@ -4942,6 +4942,10 @@ _ZSt4fillIPddEvT_S1_RKT0_.exit:                   ; preds = %for.body.i.i.i.preh
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %_M_finish.i, align 8, !tbaa !48
   %4 = load ptr, ptr %2, align 8, !tbaa !50
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.i.not36 = icmp eq ptr %4, %3
   br i1 %cmp.i.not36, label %for.cond.cleanup, label %for.body.lr.ph
 
@@ -4958,10 +4962,6 @@ for.body.lr.ph:                                   ; preds = %_ZSt4fillIPddEvT_S1
 
 for.cond.cleanup:                                 ; preds = %for.body, %_ZSt4fillIPddEvT_S1_RKT0_.exit
   %retval3.0.lcssa = phi double [ 0.000000e+00, %_ZSt4fillIPddEvT_S1_RKT0_.exit ], [ %add17, %for.body ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %conv = uitofp i64 %sub.ptr.div.i to double
   %mul = fmul double %conv, 2.000000e+00
   br i1 %cmp.not3.i.i.i, label %"_ZSt9transformIPdS0_ZNK8QuantLib12_GLOBAL__N_119Garch11CostFunction16valueAndGradientERNS1_5ArrayERKS4_E3$_0ET0_T_SA_S9_T1_.exit", label %for.body.i
@@ -6715,8 +6715,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !21
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   br label %if.then.i.i.i.i.i21
 
 if.then.i.i.i.i.i21:                              ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %if.end.i.i.i.i.i.i.i
@@ -6739,8 +6739,8 @@ call5.i.i.i.i2.i.i.noexc36:                       ; preds = %if.then.i.i.i.i.i21
 
 if.end.i.i.i.i.i.i.i28:                           ; preds = %call5.i.i.i.i2.i.i.noexc36
   %add.ptr.idx.i.i.i.i.i.i.i29 = shl nuw nsw i64 %sub.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i25, i64 %add.ptr.idx.i.i.i.i.i.i.i29
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i25, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i29, i1 false), !tbaa !21
+  %add.ptr.i.i.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i25, i64 %add.ptr.idx.i.i.i.i.i.i.i29
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %if.end.i.i.i.i.i.i.i28, %call5.i.i.i.i2.i.i.noexc36
@@ -6858,12 +6858,9 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
+  %shl = shl nuw i64 1, %sub.ptr.div.i
   %cmp.i.not94 = icmp eq ptr %inBegin.coerce, %inEnd.coerce
-  br i1 %cmp.i.not94, label %do.body.thread, label %for.body.lr.ph
-
-do.body.thread:                                   ; preds = %entry
-  %shl114 = shl nuw i64 1, %sub.ptr.div.i
-  br label %for.cond37.preheader
+  br i1 %cmp.i.not94, label %for.cond37.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp5.not.i = icmp eq ptr %0, %1
@@ -6887,6 +6884,7 @@ for.body.us:                                      ; preds = %for.body.us, %for.b
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit
   %i.096 = phi i64 [ %inc, %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit ], [ 0, %for.body.lr.ph ]
   %inBegin.sroa.0.095 = phi ptr [ %incdec.ptr.i, %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit ], [ %inBegin.coerce, %for.body.lr.ph ]
+  %3 = load double, ptr %inBegin.sroa.0.095, align 8, !tbaa !21
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body, %for.body.i
@@ -6902,7 +6900,6 @@ for.body.i:                                       ; preds = %for.body, %for.body
   br i1 %exitcond.not.i, label %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit, label %for.body.i, !llvm.loop !122
 
 _ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit: ; preds = %for.body.i
-  %3 = load double, ptr %inBegin.sroa.0.095, align 8, !tbaa !21
   %add.ptr.i = getelementptr inbounds %"class.std::complex", ptr %out.coerce, i64 %or.i
   %_M_value.imagp.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   store double %3, ptr %add.ptr.i, align 8
@@ -6914,12 +6911,10 @@ _ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit: ; preds = %for
 
 do.body:                                          ; preds = %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit, %for.body.us
   %i.0.lcssa = phi i64 [ %inc.us, %for.body.us ], [ %inc, %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit ]
-  %shl = shl nuw i64 1, %sub.ptr.div.i
   %cmp.not = icmp ugt i64 %i.0.lcssa, %shl
   br i1 %cmp.not, label %if.then, label %for.cond37.preheader
 
-for.cond37.preheader:                             ; preds = %do.body.thread, %do.body
-  %shl116 = phi i64 [ %shl114, %do.body.thread ], [ %shl, %do.body ]
+for.cond37.preheader:                             ; preds = %entry, %do.body
   %cmp38.not103 = icmp eq ptr %0, %1
   br i1 %cmp38.not103, label %for.cond.cleanup, label %for.body39.lr.ph
 
@@ -7085,7 +7080,7 @@ for.cond52.preheader:                             ; preds = %for.cond52.preheade
   %j.0102 = phi i64 [ %inc92, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0, %for.cond52.preheader.preheader ]
   %w.sroa.6.0101 = phi double [ %imag_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0.000000e+00, %for.cond52.preheader.preheader ]
   %w.sroa.0.0100 = phi double [ %real_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 1.000000e+00, %for.cond52.preheader.preheader ]
-  %cmp5397 = icmp ult i64 %j.0102, %shl116
+  %cmp5397 = icmp ult i64 %j.0102, %shl
   br i1 %cmp5397, label %for.body55, label %for.cond.cleanup54
 
 for.cond.cleanup50:                               ; preds = %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, %for.body39
@@ -7161,7 +7156,7 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit:             ; preds = %for.body55, %comple
   store double %sub.r.i.i, ptr %add.ptr.i48, align 8
   store double %sub.i.i.i, ptr %_M_value.imagp.i.i.i, align 8, !tbaa !54
   %add = add nuw i64 %k.098, %shl40
-  %cmp53 = icmp ult i64 %add, %shl116
+  %cmp53 = icmp ult i64 %add, %shl
   br i1 %cmp53, label %for.body55, label %for.cond.cleanup54, !llvm.loop !126
 
 unreachable:                                      ; preds = %invoke.cont25
@@ -7186,12 +7181,9 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
+  %shl = shl nuw i64 1, %sub.ptr.div.i
   %cmp.not94 = icmp eq ptr %inBegin, %inEnd
-  br i1 %cmp.not94, label %do.body.thread, label %for.body.lr.ph
-
-do.body.thread:                                   ; preds = %entry
-  %shl114 = shl nuw i64 1, %sub.ptr.div.i
-  br label %for.cond33.preheader
+  br i1 %cmp.not94, label %for.cond33.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp5.not.i = icmp eq ptr %0, %1
@@ -7215,6 +7207,7 @@ for.body.us:                                      ; preds = %for.body.us, %for.b
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit
   %inBegin.addr.096 = phi ptr [ %incdec.ptr, %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit ], [ %inBegin, %for.body.lr.ph ]
   %i.095 = phi i64 [ %inc, %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit ], [ 0, %for.body.lr.ph ]
+  %3 = load double, ptr %inBegin.addr.096, align 8, !tbaa !21
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body, %for.body.i
@@ -7230,7 +7223,6 @@ for.body.i:                                       ; preds = %for.body, %for.body
   br i1 %exitcond.not.i, label %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit, label %for.body.i, !llvm.loop !122
 
 _ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit: ; preds = %for.body.i
-  %3 = load double, ptr %inBegin.addr.096, align 8, !tbaa !21
   %add.ptr.i = getelementptr inbounds %"class.std::complex", ptr %out.coerce, i64 %or.i
   %_M_value.imagp.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   store double %3, ptr %add.ptr.i, align 8
@@ -7242,12 +7234,10 @@ _ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit: ; preds = %for
 
 do.body:                                          ; preds = %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit, %for.body.us
   %i.0.lcssa = phi i64 [ %inc.us, %for.body.us ], [ %inc, %_ZN8QuantLib20FastFourierTransform11bit_reverseEmm.exit.loopexit ]
-  %shl = shl nuw i64 1, %sub.ptr.div.i
   %cmp7.not = icmp ugt i64 %i.0.lcssa, %shl
   br i1 %cmp7.not, label %if.then, label %for.cond33.preheader
 
-for.cond33.preheader:                             ; preds = %do.body.thread, %do.body
-  %shl116 = phi i64 [ %shl114, %do.body.thread ], [ %shl, %do.body ]
+for.cond33.preheader:                             ; preds = %entry, %do.body
   %cmp34.not103 = icmp eq ptr %0, %1
   br i1 %cmp34.not103, label %for.cond.cleanup, label %for.body35.lr.ph
 
@@ -7413,7 +7403,7 @@ for.cond48.preheader:                             ; preds = %for.cond48.preheade
   %j.0102 = phi i64 [ %inc88, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0, %for.cond48.preheader.preheader ]
   %w.sroa.6.0101 = phi double [ %imag_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 0.000000e+00, %for.cond48.preheader.preheader ]
   %w.sroa.0.0100 = phi double [ %real_mul_phi.i, %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit ], [ 1.000000e+00, %for.cond48.preheader.preheader ]
-  %cmp4997 = icmp ult i64 %j.0102, %shl116
+  %cmp4997 = icmp ult i64 %j.0102, %shl
   br i1 %cmp4997, label %for.body51, label %for.cond.cleanup50
 
 for.cond.cleanup46:                               ; preds = %_ZNSt7complexIdEmLIdEERS0_RKS_IT_E.exit, %for.body35
@@ -7489,7 +7479,7 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit:             ; preds = %for.body51, %comple
   store double %sub.r.i.i, ptr %add.ptr.i50, align 8
   store double %sub.i.i.i, ptr %_M_value.imagp.i.i.i, align 8, !tbaa !54
   %add = add nuw i64 %k.098, %shl36
-  %cmp49 = icmp ult i64 %add, %shl116
+  %cmp49 = icmp ult i64 %add, %shl
   br i1 %cmp49, label %for.body51, label %for.cond.cleanup50, !llvm.loop !130
 
 unreachable:                                      ; preds = %invoke.cont21

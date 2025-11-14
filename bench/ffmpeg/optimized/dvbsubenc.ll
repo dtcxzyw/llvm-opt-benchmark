@@ -86,68 +86,68 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 2
   store i8 16, ptr %47, align 1, !tbaa !34
   store i16 256, ptr %48, align 1, !tbaa !34
-  %49 = getelementptr inbounds nuw i8, ptr %41, i64 6
-  %50 = getelementptr inbounds nuw i8, ptr %41, i64 7
-  store i8 30, ptr %49, align 1, !tbaa !34
-  %51 = load i32, ptr %7, align 4, !tbaa !35
-  %.tr = trunc i32 %51 to i8
-  %52 = shl i8 %.tr, 4
-  %53 = or disjoint i8 %52, 11
-  %54 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %54, ptr %5, align 8, !tbaa !37
-  store i8 %53, ptr %50, align 1, !tbaa !34
-  %55 = load i32, ptr %8, align 4, !tbaa !27
-  %.not240 = icmp eq i32 %55, 0
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 7
+  store i8 30, ptr %50, align 1, !tbaa !34
+  %52 = load i32, ptr %7, align 4, !tbaa !35
+  %.tr = trunc i32 %52 to i8
+  %53 = shl i8 %.tr, 4
+  %54 = or disjoint i8 %53, 11
+  %55 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store ptr %55, ptr %5, align 8, !tbaa !37
+  store i8 %54, ptr %51, align 1, !tbaa !34
+  %56 = load i32, ptr %8, align 4, !tbaa !27
+  %.not240 = icmp eq i32 %56, 0
   br i1 %.not240, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %57
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  br label %58
 
-57:                                               ; preds = %.lr.ph, %57
-  %58 = phi ptr [ %54, %.lr.ph ], [ %77, %57 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
-  %59 = trunc i64 %indvars.iv to i8
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 1
-  store i8 %59, ptr %58, align 1, !tbaa !34
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 2
-  store ptr %61, ptr %5, align 8, !tbaa !37
-  store i8 -1, ptr %60, align 1, !tbaa !34
-  %62 = load ptr, ptr %56, align 8, !tbaa !31
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
-  %64 = load ptr, ptr %63, align 8, !tbaa !38
-  %65 = load i32, ptr %64, align 8, !tbaa !40
-  %66 = trunc i32 %65 to i16
-  %67 = tail call i16 @llvm.bswap.i16(i16 %66)
-  %68 = load ptr, ptr %5, align 8, !tbaa !37
-  store i16 %67, ptr %68, align 1, !tbaa !34
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 2
-  %70 = load ptr, ptr %56, align 8, !tbaa !31
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
-  %72 = load ptr, ptr %71, align 8, !tbaa !38
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  %74 = load i32, ptr %73, align 4, !tbaa !42
-  %75 = trunc i32 %74 to i16
-  %76 = tail call i16 @llvm.bswap.i16(i16 %75)
-  store i16 %76, ptr %69, align 1, !tbaa !34
-  %77 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  store ptr %77, ptr %5, align 8, !tbaa !37
+58:                                               ; preds = %.lr.ph, %58
+  %59 = phi ptr [ %55, %.lr.ph ], [ %78, %58 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
+  %60 = trunc i64 %indvars.iv to i8
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 1
+  store i8 %60, ptr %59, align 1, !tbaa !34
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 2
+  store ptr %62, ptr %5, align 8, !tbaa !37
+  store i8 -1, ptr %61, align 1, !tbaa !34
+  %63 = load ptr, ptr %57, align 8, !tbaa !31
+  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
+  %65 = load ptr, ptr %64, align 8, !tbaa !38
+  %66 = load i32, ptr %65, align 8, !tbaa !40
+  %67 = trunc i32 %66 to i16
+  %68 = tail call i16 @llvm.bswap.i16(i16 %67)
+  %69 = load ptr, ptr %5, align 8, !tbaa !37
+  store i16 %68, ptr %69, align 1, !tbaa !34
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 2
+  %71 = load ptr, ptr %57, align 8, !tbaa !31
+  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
+  %73 = load ptr, ptr %72, align 8, !tbaa !38
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  %75 = load i32, ptr %74, align 4, !tbaa !42
+  %76 = trunc i32 %75 to i16
+  %77 = tail call i16 @llvm.bswap.i16(i16 %76)
+  store i16 %77, ptr %70, align 1, !tbaa !34
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  store ptr %78, ptr %5, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = load i32, ptr %8, align 4, !tbaa !27
-  %79 = zext i32 %78 to i64
-  %80 = icmp samesign ult i64 %indvars.iv.next, %79
-  br i1 %80, label %57, label %._crit_edge, !llvm.loop !43
+  %79 = load i32, ptr %8, align 4, !tbaa !27
+  %80 = zext i32 %79 to i64
+  %81 = icmp samesign ult i64 %indvars.iv.next, %80
+  br i1 %81, label %58, label %._crit_edge, !llvm.loop !43
 
-._crit_edge:                                      ; preds = %57, %46
-  %81 = phi ptr [ %54, %46 ], [ %77, %57 ]
-  %82 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %83 = ptrtoint ptr %81 to i64
-  %84 = ptrtoint ptr %82 to i64
+._crit_edge:                                      ; preds = %58, %46
+  %82 = phi ptr [ %55, %46 ], [ %78, %58 ]
+  %83 = ptrtoint ptr %82 to i64
+  %84 = ptrtoint ptr %49 to i64
   %85 = sub i64 %83, %84
   %86 = trunc i64 %85 to i16
   %87 = add i16 %86, -2
   %88 = tail call i16 @llvm.bswap.i16(i16 %87)
-  store i16 %88, ptr %82, align 1, !tbaa !34
+  store i16 %88, ptr %49, align 1, !tbaa !34
   %89 = load i32, ptr %8, align 4, !tbaa !27
   %.neg = mul i32 %89, -6
   %.neg173 = add i32 %.0148, -8
@@ -161,7 +161,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   br label %92
 
 92:                                               ; preds = %.lr.ph228, %._crit_edge225
-  %93 = phi ptr [ %81, %.lr.ph228 ], [ %178, %._crit_edge225 ]
+  %93 = phi ptr [ %82, %.lr.ph228 ], [ %179, %._crit_edge225 ]
   %94 = phi ptr [ %.pre264, %.lr.ph228 ], [ %186, %._crit_edge225 ]
   %indvars.iv255 = phi i64 [ 0, %.lr.ph228 ], [ %indvars.iv.next256, %._crit_edge225 ]
   %.2150227 = phi i32 [ %90, %.lr.ph228 ], [ %191, %._crit_edge225 ]
@@ -195,104 +195,104 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 1
   store i8 18, ptr %110, align 1, !tbaa !34
   store i16 256, ptr %111, align 1, !tbaa !34
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 5
-  %113 = trunc i64 %indvars.iv255 to i8
-  %114 = getelementptr inbounds nuw i8, ptr %110, i64 6
-  store i8 %113, ptr %112, align 1, !tbaa !34
-  %115 = getelementptr inbounds nuw i8, ptr %110, i64 7
-  store ptr %115, ptr %5, align 8, !tbaa !37
-  store i8 15, ptr %114, align 1, !tbaa !34
-  %116 = load ptr, ptr %91, align 8, !tbaa !31
-  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv255
-  %118 = load ptr, ptr %117, align 8, !tbaa !38
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %120 = load i32, ptr %119, align 8, !tbaa !45
-  %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %.lr.ph224, label %._crit_edge225
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 3
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 5
+  %114 = trunc i64 %indvars.iv255 to i8
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 6
+  store i8 %114, ptr %113, align 1, !tbaa !34
+  %116 = getelementptr inbounds nuw i8, ptr %110, i64 7
+  store ptr %116, ptr %5, align 8, !tbaa !37
+  store i8 15, ptr %115, align 1, !tbaa !34
+  %117 = load ptr, ptr %91, align 8, !tbaa !31
+  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv255
+  %119 = load ptr, ptr %118, align 8, !tbaa !38
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  %121 = load i32, ptr %120, align 8, !tbaa !45
+  %122 = icmp sgt i32 %121, 0
+  br i1 %122, label %.lr.ph224, label %._crit_edge225
 
 .lr.ph224:                                        ; preds = %108
-  %122 = shl nuw i8 1, %.0158.neg
-  %123 = or i8 %122, 31
-  br label %124
+  %123 = shl nuw i8 1, %.0158.neg
+  %124 = or i8 %123, 31
+  br label %125
 
-124:                                              ; preds = %.lr.ph224, %124
-  %125 = phi ptr [ %115, %.lr.ph224 ], [ %170, %124 ]
-  %indvars.iv252 = phi i64 [ 0, %.lr.ph224 ], [ %indvars.iv.next253, %124 ]
-  %126 = trunc i64 %indvars.iv252 to i8
-  %127 = getelementptr inbounds nuw i8, ptr %125, i64 1
-  store i8 %126, ptr %125, align 1, !tbaa !34
-  %128 = getelementptr inbounds nuw i8, ptr %125, i64 2
-  store i8 %123, ptr %127, align 1, !tbaa !34
-  %129 = load ptr, ptr %91, align 8, !tbaa !31
-  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv255
-  %131 = load ptr, ptr %130, align 8, !tbaa !38
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
-  %133 = load ptr, ptr %132, align 8, !tbaa !37
-  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv252
-  %135 = load i32, ptr %134, align 4, !tbaa !46
-  %136 = lshr i32 %135, 16
-  %137 = and i32 %136, 255
-  %138 = lshr i32 %135, 8
-  %139 = and i32 %138, 255
-  %140 = and i32 %135, 255
-  %141 = mul nuw nsw i32 %137, 263
-  %142 = mul nuw nsw i32 %139, 516
-  %143 = mul nuw nsw i32 %140, 100
-  %144 = add nuw nsw i32 %143, 16896
-  %145 = add nuw nsw i32 %144, %142
-  %146 = add nuw nsw i32 %145, %141
-  %147 = lshr i32 %146, 10
-  %148 = trunc nuw i32 %147 to i8
-  %149 = getelementptr inbounds nuw i8, ptr %125, i64 3
-  store i8 %148, ptr %128, align 1, !tbaa !34
-  %150 = mul nuw nsw i32 %137, 450
-  %.neg180 = mul nuw nsw i32 %139, 261767
-  %.neg181 = mul nuw nsw i32 %140, 262071
-  %151 = add nuw nsw i32 %.neg181, 511
-  %152 = add nuw nsw i32 %151, %150
-  %153 = add nuw nsw i32 %152, %.neg180
-  %154 = lshr i32 %153, 10
-  %155 = trunc i32 %154 to i8
-  %156 = xor i8 %155, -128
-  %157 = getelementptr inbounds nuw i8, ptr %125, i64 4
-  store i8 %156, ptr %149, align 1, !tbaa !34
-  %158 = mul nuw nsw i32 %137, 261992
-  %.neg182 = mul nuw nsw i32 %139, 261846
-  %159 = mul nuw nsw i32 %140, 450
-  %160 = add nuw nsw i32 %159, 511
-  %161 = add nuw nsw i32 %160, %158
-  %162 = add nuw nsw i32 %161, %.neg182
-  %163 = lshr i32 %162, 10
-  %164 = trunc i32 %163 to i8
-  %165 = xor i8 %164, -128
-  %166 = getelementptr inbounds nuw i8, ptr %125, i64 5
-  store i8 %165, ptr %157, align 1, !tbaa !34
-  %167 = xor i32 %135, -1
-  %168 = lshr i32 %167, 24
-  %169 = trunc nuw i32 %168 to i8
-  %170 = getelementptr inbounds nuw i8, ptr %125, i64 6
-  store ptr %170, ptr %5, align 8, !tbaa !37
-  store i8 %169, ptr %166, align 1, !tbaa !34
+125:                                              ; preds = %.lr.ph224, %125
+  %126 = phi ptr [ %116, %.lr.ph224 ], [ %171, %125 ]
+  %indvars.iv252 = phi i64 [ 0, %.lr.ph224 ], [ %indvars.iv.next253, %125 ]
+  %127 = trunc i64 %indvars.iv252 to i8
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 1
+  store i8 %127, ptr %126, align 1, !tbaa !34
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 2
+  store i8 %124, ptr %128, align 1, !tbaa !34
+  %130 = load ptr, ptr %91, align 8, !tbaa !31
+  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv255
+  %132 = load ptr, ptr %131, align 8, !tbaa !38
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 32
+  %134 = load ptr, ptr %133, align 8, !tbaa !37
+  %135 = getelementptr inbounds nuw i32, ptr %134, i64 %indvars.iv252
+  %136 = load i32, ptr %135, align 4, !tbaa !46
+  %137 = lshr i32 %136, 16
+  %138 = and i32 %137, 255
+  %139 = lshr i32 %136, 8
+  %140 = and i32 %139, 255
+  %141 = and i32 %136, 255
+  %142 = mul nuw nsw i32 %138, 263
+  %143 = mul nuw nsw i32 %140, 516
+  %144 = mul nuw nsw i32 %141, 100
+  %145 = add nuw nsw i32 %144, 16896
+  %146 = add nuw nsw i32 %145, %143
+  %147 = add nuw nsw i32 %146, %142
+  %148 = lshr i32 %147, 10
+  %149 = trunc nuw i32 %148 to i8
+  %150 = getelementptr inbounds nuw i8, ptr %126, i64 3
+  store i8 %149, ptr %129, align 1, !tbaa !34
+  %151 = mul nuw nsw i32 %138, 450
+  %.neg180 = mul nuw nsw i32 %140, 261767
+  %.neg181 = mul nuw nsw i32 %141, 262071
+  %152 = add nuw nsw i32 %.neg181, 511
+  %153 = add nuw nsw i32 %152, %151
+  %154 = add nuw nsw i32 %153, %.neg180
+  %155 = lshr i32 %154, 10
+  %156 = trunc i32 %155 to i8
+  %157 = xor i8 %156, -128
+  %158 = getelementptr inbounds nuw i8, ptr %126, i64 4
+  store i8 %157, ptr %150, align 1, !tbaa !34
+  %159 = mul nuw nsw i32 %138, 261992
+  %.neg182 = mul nuw nsw i32 %140, 261846
+  %160 = mul nuw nsw i32 %141, 450
+  %161 = add nuw nsw i32 %160, 511
+  %162 = add nuw nsw i32 %161, %159
+  %163 = add nuw nsw i32 %162, %.neg182
+  %164 = lshr i32 %163, 10
+  %165 = trunc i32 %164 to i8
+  %166 = xor i8 %165, -128
+  %167 = getelementptr inbounds nuw i8, ptr %126, i64 5
+  store i8 %166, ptr %158, align 1, !tbaa !34
+  %168 = xor i32 %136, -1
+  %169 = lshr i32 %168, 24
+  %170 = trunc nuw i32 %169 to i8
+  %171 = getelementptr inbounds nuw i8, ptr %126, i64 6
+  store ptr %171, ptr %5, align 8, !tbaa !37
+  store i8 %170, ptr %167, align 1, !tbaa !34
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
-  %171 = load ptr, ptr %91, align 8, !tbaa !31
-  %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %indvars.iv255
-  %173 = load ptr, ptr %172, align 8, !tbaa !38
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  %175 = load i32, ptr %174, align 8, !tbaa !45
-  %176 = sext i32 %175 to i64
-  %177 = icmp slt i64 %indvars.iv.next253, %176
-  br i1 %177, label %124, label %._crit_edge225, !llvm.loop !47
+  %172 = load ptr, ptr %91, align 8, !tbaa !31
+  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv255
+  %174 = load ptr, ptr %173, align 8, !tbaa !38
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
+  %176 = load i32, ptr %175, align 8, !tbaa !45
+  %177 = sext i32 %176 to i64
+  %178 = icmp slt i64 %indvars.iv.next253, %177
+  br i1 %178, label %125, label %._crit_edge225, !llvm.loop !47
 
-._crit_edge225:                                   ; preds = %124, %108
-  %178 = phi ptr [ %115, %108 ], [ %170, %124 ]
-  %179 = getelementptr inbounds nuw i8, ptr %110, i64 3
-  %180 = ptrtoint ptr %178 to i64
-  %181 = ptrtoint ptr %179 to i64
+._crit_edge225:                                   ; preds = %125, %108
+  %179 = phi ptr [ %116, %108 ], [ %171, %125 ]
+  %180 = ptrtoint ptr %179 to i64
+  %181 = ptrtoint ptr %112 to i64
   %182 = sub i64 %180, %181
   %183 = trunc i64 %182 to i16
   %184 = add i16 %183, -2
   %185 = tail call i16 @llvm.bswap.i16(i16 %184)
-  store i16 %185, ptr %179, align 1, !tbaa !34
+  store i16 %185, ptr %112, align 1, !tbaa !34
   %186 = load ptr, ptr %91, align 8, !tbaa !31
   %187 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv255
   %188 = load ptr, ptr %187, align 8, !tbaa !38
@@ -321,7 +321,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   br label %198
 
 198:                                              ; preds = %.lr.ph232, %210
-  %199 = phi ptr [ %178, %.lr.ph232 ], [ %248, %210 ]
+  %199 = phi ptr [ %179, %.lr.ph232 ], [ %248, %210 ]
   %indvars.iv258 = phi i64 [ 0, %.lr.ph232 ], [ %indvars.iv.next259, %210 ]
   %200 = load ptr, ptr %197, align 8, !tbaa !31
   %201 = getelementptr inbounds nuw ptr, ptr %200, i64 %indvars.iv258

@@ -5208,8 +5208,8 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont6, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %sub.ptr.sub.i, i1 false)
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.ptr.sub.i
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i
@@ -5259,8 +5259,8 @@ call5.i.i.i.i2.i.i.noexc47:                       ; preds = %if.then.i.i.i.i.i34
   br i1 %cmp.i.i.i.i.i.i.i39, label %invoke.cont11, label %if.end.i.i.i.i.i.i.i40
 
 if.end.i.i.i.i.i.i.i40:                           ; preds = %call5.i.i.i.i2.i.i.noexc47
-  %add.ptr.i.i.i.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i38, i64 %sub.ptr.sub.i29
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i38, i8 0, i64 %sub.ptr.sub.i29, i1 false)
+  %add.ptr.i.i.i.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i38, i64 %sub.ptr.sub.i29
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %if.end.i.i.i.i.i.i.i40, %call5.i.i.i.i2.i.i.noexc47, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EEC2EmRKS5_.exit.thread.i44

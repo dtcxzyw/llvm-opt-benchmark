@@ -1868,23 +1868,23 @@ _ZNSt16allocator_traitsISaIN5boost6locale8boundary10break_infoEEE8allocateERS4_m
 
 .noexc48:                                         ; preds = %_ZNSt16allocator_traitsISaIN5boost6locale8boundary10break_infoEEE8allocateERS4_m.exit.i.i.i.i
   store ptr %102, ptr %0, align 8, !tbaa !3
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 %96
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %103, ptr %104, align 8, !tbaa !9
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 %96
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %104, ptr %105, align 8, !tbaa !9
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc48, %.lr.ph.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %106, %.lr.ph.i.i.i.i.i ], [ %102, %.noexc48 ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %105, %.lr.ph.i.i.i.i.i ], [ %93, %.noexc48 ]
+  %.09.i.i.i.i.i = phi ptr [ %107, %.lr.ph.i.i.i.i.i ], [ %102, %.noexc48 ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %106, %.lr.ph.i.i.i.i.i ], [ %93, %.noexc48 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !16
-  %105 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %106 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %105, %92
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %106, %92
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EEC2ERKS5_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !63
 
 _ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EEC2ERKS5_.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %106, ptr %107, align 8, !tbaa !8
+  store ptr %107, ptr %103, align 8, !tbaa !8
   %108 = lshr exact i64 %96, 4
   %109 = icmp ugt i64 %96, 16
   br i1 %109, label %.lr.ph.preheader, label %._crit_edge
@@ -2670,23 +2670,23 @@ _ZNSt16allocator_traitsISaIN5boost6locale8boundary10break_infoEEE8allocateERS4_m
 
 .noexc34:                                         ; preds = %_ZNSt16allocator_traitsISaIN5boost6locale8boundary10break_infoEEE8allocateERS4_m.exit.i.i.i.i
   store ptr %68, ptr %0, align 8, !tbaa !3
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %62
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %69, ptr %70, align 8, !tbaa !9
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %62
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %70, ptr %71, align 8, !tbaa !9
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc34, %.lr.ph.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %72, %.lr.ph.i.i.i.i.i ], [ %68, %.noexc34 ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %71, %.lr.ph.i.i.i.i.i ], [ %59, %.noexc34 ]
+  %.09.i.i.i.i.i = phi ptr [ %73, %.lr.ph.i.i.i.i.i ], [ %68, %.noexc34 ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %72, %.lr.ph.i.i.i.i.i ], [ %59, %.noexc34 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !16
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %72 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %71, %58
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %72, %58
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EEC2ERKS5_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !63
 
 _ZNSt6vectorIN5boost6locale8boundary10break_infoESaIS3_EEC2ERKS5_.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %72, ptr %73, align 8, !tbaa !8
+  store ptr %73, ptr %69, align 8, !tbaa !8
   %74 = lshr exact i64 %62, 4
   %75 = icmp ugt i64 %62, 16
   br i1 %75, label %.lr.ph.preheader, label %._crit_edge

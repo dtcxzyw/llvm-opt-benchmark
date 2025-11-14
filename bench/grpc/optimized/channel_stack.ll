@@ -440,28 +440,28 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_20240
   br label %142
 
 .lr.ph.i.preheader:                               ; preds = %._crit_edge
-  %124 = add nuw nsw i64 %65, 128
+  %124 = ptrtoint ptr %105 to i64
+  %125 = ptrtoint ptr %8 to i64
+  %126 = sub i64 %124, %125
+  %127 = add nuw nsw i64 %65, 128
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.09.i = phi i64 [ %132, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.078.i = phi i64 [ %131, %.lr.ph.i ], [ %124, %.lr.ph.i.preheader ]
-  %125 = getelementptr inbounds nuw ptr, ptr %4, i64 %.09.i
-  %126 = load ptr, ptr %125, align 8, !tbaa !3
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 48
-  %128 = load i64, ptr %127, align 8, !tbaa !8
-  %129 = add i64 %128, 15
-  %130 = and i64 %129, 4294967280
-  %131 = add i64 %130, %.078.i
-  %132 = add nuw i64 %.09.i, 1
-  %exitcond.not.i = icmp eq i64 %132, %5
+  %.09.i = phi i64 [ %135, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.078.i = phi i64 [ %134, %.lr.ph.i ], [ %127, %.lr.ph.i.preheader ]
+  %128 = getelementptr inbounds nuw ptr, ptr %4, i64 %.09.i
+  %129 = load ptr, ptr %128, align 8, !tbaa !3
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 48
+  %131 = load i64, ptr %130, align 8, !tbaa !8
+  %132 = add i64 %131, 15
+  %133 = and i64 %132, 4294967280
+  %134 = add i64 %133, %.078.i
+  %135 = add nuw i64 %.09.i, 1
+  %exitcond.not.i = icmp eq i64 %135, %5
   br i1 %exitcond.not.i, label %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit.loopexit, label %.lr.ph.i, !llvm.loop !14
 
 _Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit.loopexit: ; preds = %.lr.ph.i
-  %133 = ptrtoint ptr %105 to i64
-  %134 = ptrtoint ptr %8 to i64
-  %135 = sub i64 %133, %134
-  %136 = icmp eq i64 %135, %131
+  %136 = icmp eq i64 %126, %134
   br label %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit
 
 _Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit: ; preds = %56, %_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm.exit.loopexit

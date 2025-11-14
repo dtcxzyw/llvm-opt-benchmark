@@ -1287,11 +1287,11 @@ middle.block417.for.body.i.i.i.i.i.i.i.preheader495_crit_edge: ; preds = %middle
   br label %for.body.i.i.i.i.i.i.i.preheader495
 
 for.body.i.i.i.i.i.i.i.preheader495:              ; preds = %middle.block417.for.body.i.i.i.i.i.i.i.preheader495_crit_edge, %for.body.i.i.i.i.i.i.i.preheader
-  %__first.sroa.0.09.i.i.i.i.i.i.i.ph52.pre-phi = phi i64 [ %.pre57, %middle.block417.for.body.i.i.i.i.i.i.i.preheader495_crit_edge ], [ %15, %for.body.i.i.i.i.i.i.i.preheader ]
+  %__first.sroa.0.09.i.i.i.i.i.i.i.ph51.pre-phi = phi i64 [ %.pre57, %middle.block417.for.body.i.i.i.i.i.i.i.preheader495_crit_edge ], [ %15, %for.body.i.i.i.i.i.i.i.preheader ]
   %__cur.010.i.i.i.i.i.i.i.ph = phi ptr [ %ind.end423, %middle.block417.for.body.i.i.i.i.i.i.i.preheader495_crit_edge ], [ null, %for.body.i.i.i.i.i.i.i.preheader ]
   %__first.sroa.0.09.i.i.i.i.i.i.i.ph = phi ptr [ %ind.end425, %middle.block417.for.body.i.i.i.i.i.i.i.preheader495_crit_edge ], [ %12, %for.body.i.i.i.i.i.i.i.preheader ]
   %22 = add i64 %14, -8
-  %23 = sub i64 %22, %__first.sroa.0.09.i.i.i.i.i.i.i.ph52.pre-phi
+  %23 = sub i64 %22, %__first.sroa.0.09.i.i.i.i.i.i.i.ph51.pre-phi
   %24 = and i64 %23, -8
   %25 = add i64 %24, 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %__cur.010.i.i.i.i.i.i.i.ph, ptr align 4 %__first.sroa.0.09.i.i.i.i.i.i.i.ph, i64 %25, i1 false)

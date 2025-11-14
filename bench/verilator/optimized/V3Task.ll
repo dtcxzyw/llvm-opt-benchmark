@@ -8020,8 +8020,8 @@ _ZNKSt3mapIPK6AstVarPS0_St4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.i.i.i.i
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %631
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %633, 3
-  %635 = getelementptr inbounds nuw i8, ptr %632, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %632, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !272
+  %635 = getelementptr inbounds nuw i8, ptr %632, i64 %.idx.i.i.i.i.i.i.i
   br label %"_ZZN7AstNode11foreachImplI9AstVarRefZN6V3Task18taskConnectWrapNewEP12AstNodeFTaskRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt4pairIP6AstVarP6AstArgESaISJ_EERKSt3setIPKSF_St4lessISQ_ESaISQ_EEE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i"
 
 636:                                              ; preds = %620
@@ -46353,8 +46353,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_a
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !272
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i

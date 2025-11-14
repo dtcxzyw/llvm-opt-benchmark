@@ -2175,45 +2175,45 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit47:         ; preds = %_ZNSt6vectorIhSaIhE
   %159 = ptrtoint ptr %155 to i64
   %160 = sub i64 %158, %159
   %161 = trunc i64 %160 to i32
+  %162 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br label %162
+  br label %163
 
-162:                                              ; preds = %162, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit47
-  %indvars.iv.i.i48 = phi i64 [ %indvars.iv.next.i.i53, %162 ], [ 0, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit47 ]
-  %.0.i.i49 = phi i32 [ %165, %162 ], [ %161, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit47 ]
-  %163 = trunc i32 %.0.i.i49 to i8
-  %164 = and i8 %163, 127
-  %165 = lshr i32 %.0.i.i49, 7
+163:                                              ; preds = %163, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit47
+  %indvars.iv.i.i48 = phi i64 [ %indvars.iv.next.i.i53, %163 ], [ 0, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit47 ]
+  %.0.i.i49 = phi i32 [ %166, %163 ], [ %161, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit47 ]
+  %164 = trunc i32 %.0.i.i49 to i8
+  %165 = and i8 %164, 127
+  %166 = lshr i32 %.0.i.i49, 7
   %.not.i.i50 = icmp ult i32 %.0.i.i49, 128
   %masksel.i.i51 = select i1 %.not.i.i50, i8 0, i8 -128
-  %.09.i.i52 = or disjoint i8 %164, %masksel.i.i51
-  %166 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i48
-  store i8 %.09.i.i52, ptr %166, align 1
+  %.09.i.i52 = or disjoint i8 %165, %masksel.i.i51
+  %167 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i48
+  store i8 %.09.i.i52, ptr %167, align 1
   %indvars.iv.next.i.i53 = add nuw nsw i64 %indvars.iv.i.i48, 1
-  br i1 %.not.i.i50, label %167, label %162, !llvm.loop !19
+  br i1 %.not.i.i50, label %168, label %163, !llvm.loop !19
 
-167:                                              ; preds = %162
-  %168 = and i64 %indvars.iv.next.i.i53, 4294967295
-  %169 = getelementptr inbounds nuw i8, ptr %5, i64 %168
-  %170 = load ptr, ptr %3, align 8
-  %171 = ptrtoint ptr %153 to i64
-  %172 = ptrtoint ptr %170 to i64
-  %173 = sub i64 %171, %172
-  %174 = getelementptr inbounds i8, ptr %170, i64 %173
-  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %174, ptr noundef nonnull %5, ptr noundef nonnull %169)
-          to label %_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE.exit54 unwind label %175
+168:                                              ; preds = %163
+  %169 = and i64 %indvars.iv.next.i.i53, 4294967295
+  %170 = getelementptr inbounds nuw i8, ptr %5, i64 %169
+  %171 = load ptr, ptr %3, align 8
+  %172 = ptrtoint ptr %153 to i64
+  %173 = ptrtoint ptr %171 to i64
+  %174 = sub i64 %172, %173
+  %175 = getelementptr inbounds i8, ptr %171, i64 %174
+  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %175, ptr noundef nonnull %5, ptr noundef nonnull %170)
+          to label %_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE.exit54 unwind label %176
 
-175:                                              ; preds = %167
-  %176 = landingpad { ptr, i32 }
+176:                                              ; preds = %168
+  %177 = landingpad { ptr, i32 }
           catch ptr null
-  %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #20
+  %178 = extractvalue { ptr, i32 } %177, 0
+  call void @__clang_call_terminate(ptr %178) #20
   unreachable
 
-_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE.exit54: ; preds = %167
-  %178 = getelementptr inbounds nuw i8, ptr %3, i64 8
+_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE.exit54: ; preds = %168
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %179 = load ptr, ptr %178, align 8
+  %179 = load ptr, ptr %162, align 8
   %180 = load ptr, ptr %154, align 8
   %181 = load ptr, ptr %156, align 8
   %182 = ptrtoint ptr %181 to i64

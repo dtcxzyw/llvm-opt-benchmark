@@ -1870,9 +1870,9 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i: ; preds = %_ZN5arr
   br i1 %241, label %226, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge40.i:                                  ; preds = %.lr.ph39.i
-  %242 = trunc nuw nsw i64 %255 to i32
-  %243 = add i32 %.2.i, -1
-  %244 = add i32 %224, %242
+  %242 = add i32 %.2.i, -1
+  %243 = trunc nuw nsw i64 %255 to i32
+  %244 = add i32 %224, %243
   store i32 %244, ptr %192, align 4, !tbaa !15
   br label %._crit_edge.thread.i
 
@@ -1896,7 +1896,7 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i: ; preds = %_ZN5arr
   br i1 %257, label %.lr.ph39.i, label %._crit_edge40.i, !llvm.loop !23
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge40.i, %._crit_edge.i, %221
-  %.3.i = phi i32 [ %243, %._crit_edge40.i ], [ %.2.i, %._crit_edge.i ], [ %.2.i, %221 ]
+  %.3.i = phi i32 [ %242, %._crit_edge40.i ], [ %.2.i, %._crit_edge.i ], [ %.2.i, %221 ]
   %258 = getelementptr inbounds nuw i32, ptr %8, i64 %.08442.i
   store i32 %.3.i, ptr %258, align 4, !tbaa !15
   %exitcond.not.i = icmp eq i64 %194, %132
@@ -3969,9 +3969,9 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
   br i1 %.not263.i, label %._crit_edge.i, label %248, !llvm.loop !42
 
 ._crit_edge196.i:                                 ; preds = %.lr.ph195.i
-  %263 = trunc nuw nsw i64 %276 to i32
-  %264 = add i32 %.2.i, -1
-  %265 = add i32 %246, %263
+  %263 = add i32 %.2.i, -1
+  %264 = trunc nuw nsw i64 %276 to i32
+  %265 = add i32 %246, %264
   store i32 %265, ptr %214, align 4, !tbaa !15
   br label %._crit_edge.thread.i
 
@@ -3995,7 +3995,7 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
   br i1 %.not264.i, label %._crit_edge196.i, label %.lr.ph195.i, !llvm.loop !43
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge196.i, %._crit_edge.i, %243
-  %.3.i = phi i32 [ %264, %._crit_edge196.i ], [ %.2.i, %._crit_edge.i ], [ %.2.i, %243 ]
+  %.3.i = phi i32 [ %263, %._crit_edge196.i ], [ %.2.i, %._crit_edge.i ], [ %.2.i, %243 ]
   %278 = getelementptr inbounds nuw i32, ptr %13, i64 %.084198.i
   store i32 %.3.i, ptr %278, align 4, !tbaa !15
   %exitcond.not.i = icmp eq i64 %216, %132

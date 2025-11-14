@@ -1246,62 +1246,62 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %18 = shl nuw nsw i32 %17, 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %20 = load i8, ptr %19, align 1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %22 = load i8, ptr %21, align 1
-  %.fr74 = freeze i8 %22
-  %23 = icmp slt i8 %.fr74, 0
-  %24 = zext i8 %.fr74 to i32
-  %25 = shl nuw nsw i32 %24, 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1
-  %28 = zext i8 %27 to i32
-  %.masked.i = and i32 %25, 32512
-  %29 = or disjoint i32 %.masked.i, %28
-  %30 = zext i8 %16 to i64
-  %31 = zext i8 %20 to i64
-  %32 = shl nuw nsw i64 %30, 9
-  %33 = shl nuw nsw i64 %31, 1
-  %34 = getelementptr inbounds nuw i8, ptr %15, i64 %33
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %32
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
-  %37 = zext i8 %20 to i32
-  %38 = or disjoint i32 %18, %37
-  %39 = add nuw nsw i32 %29, %38
+  %21 = zext i8 %20 to i32
+  %22 = or disjoint i32 %18, %21
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %24 = load i8, ptr %23, align 1
+  %.fr74 = freeze i8 %24
+  %25 = icmp slt i8 %.fr74, 0
+  %26 = zext i8 %.fr74 to i32
+  %27 = shl nuw nsw i32 %26, 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %29 = load i8, ptr %28, align 1
+  %30 = zext i8 %29 to i32
+  %.masked.i = and i32 %27, 32512
+  %31 = or disjoint i32 %.masked.i, %30
+  %32 = select i1 %25, i32 %22, i32 %31
+  %33 = zext i8 %16 to i64
+  %34 = zext i8 %20 to i64
+  %35 = shl nuw nsw i64 %33, 9
+  %36 = shl nuw nsw i64 %34, 1
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %35
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 2
+  %40 = add nuw nsw i32 %31, %22
   %.lobit.i = lshr i8 %.fr74, 7
-  %40 = zext nneg i8 %.lobit.i to i32
-  %41 = shl nuw nsw i32 %39, %40
-  %42 = mul i32 %41, %1
-  %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw %"struct.OT::IntType.166", ptr %36, i64 %43
-  %45 = icmp ne i32 %29, 0
-  %46 = select i1 %23, i1 %45, i1 false
-  br i1 %46, label %.lr.ph.split.preheader, label %.preheader54
+  %41 = zext nneg i8 %.lobit.i to i32
+  %42 = shl nuw nsw i32 %40, %41
+  %43 = mul i32 %42, %1
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr inbounds nuw %"struct.OT::IntType.166", ptr %39, i64 %44
+  %46 = icmp ne i32 %31, 0
+  %47 = select i1 %25, i1 %46, i1 false
+  br i1 %47, label %.lr.ph.split.preheader, label %.preheader54
 
 .lr.ph.split.preheader:                           ; preds = %14
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %48 = or disjoint i32 %.masked.i, %28
-  %wide.trip.count = zext nneg i32 %48 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %49 = or disjoint i32 %.masked.i, %30
+  %wide.trip.count = zext nneg i32 %49 to i64
   br label %.lr.ph.split
 
 .preheader54:                                     ; preds = %.lr.ph.split, %14
-  %.052.lcssa = phi ptr [ %44, %14 ], [ %62, %.lr.ph.split ]
-  %.049.lcssa = phi i32 [ 0, %14 ], [ %48, %.lr.ph.split ]
+  %.052.lcssa = phi ptr [ %45, %14 ], [ %62, %.lr.ph.split ]
+  %.049.lcssa = phi i32 [ 0, %14 ], [ %49, %.lr.ph.split ]
   %.047.lcssa = phi float [ 0.000000e+00, %14 ], [ %81, %.lr.ph.split ]
-  %49 = select i1 %23, i32 %38, i32 %29
-  %50 = icmp samesign ult i32 %.049.lcssa, %49
+  %50 = icmp samesign ult i32 %.049.lcssa, %32
   br i1 %50, label %.lr.ph65, label %.preheader
 
 .lr.ph65:                                         ; preds = %.preheader54
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %52 = zext nneg i32 %.049.lcssa to i64
-  %wide.trip.count85 = zext nneg i32 %49 to i64
+  %wide.trip.count85 = zext nneg i32 %32 to i64
   br label %86
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %.04757 = phi float [ 0.000000e+00, %.lr.ph.split.preheader ], [ %81, %.lr.ph.split ]
-  %.05255 = phi ptr [ %44, %.lr.ph.split.preheader ], [ %62, %.lr.ph.split ]
-  %53 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %47, i64 %indvars.iv
+  %.05255 = phi ptr [ %45, %.lr.ph.split.preheader ], [ %62, %.lr.ph.split ]
+  %53 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %48, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
@@ -1335,16 +1335,16 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   br i1 %exitcond.not, label %.preheader54, label %.lr.ph.split, !llvm.loop !7
 
 .preheader:                                       ; preds = %86, %.preheader54
-  %.150.lcssa = phi i32 [ %.049.lcssa, %.preheader54 ], [ %49, %86 ]
+  %.150.lcssa = phi i32 [ %.049.lcssa, %.preheader54 ], [ %32, %86 ]
   %.048.lcssa = phi ptr [ %.052.lcssa, %.preheader54 ], [ %96, %86 ]
   %.1.lcssa = phi float [ %.047.lcssa, %.preheader54 ], [ %105, %86 ]
-  %82 = icmp samesign ult i32 %.150.lcssa, %38
+  %82 = icmp samesign ult i32 %.150.lcssa, %22
   br i1 %82, label %.lr.ph72, label %.loopexit
 
 .lr.ph72:                                         ; preds = %.preheader
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %84 = zext nneg i32 %.150.lcssa to i64
-  %85 = or disjoint i32 %18, %37
+  %85 = or disjoint i32 %18, %21
   %wide.trip.count90 = zext nneg i32 %85 to i64
   br label %106
 

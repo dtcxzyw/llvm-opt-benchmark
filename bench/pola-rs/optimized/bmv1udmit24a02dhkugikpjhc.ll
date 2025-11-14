@@ -10067,8 +10067,8 @@ common.resume:                                    ; preds = %.body.i54
 .split.us.i:                                      ; preds = %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.i", %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.us.i"
   %.us-phi.i = phi i64 [ %spec.select5470.i.us.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.us.i" ], [ %spec.select5470.i.i, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.i" ]
   %.us-phi4.i = phi i8 [ -1, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.us.i" ], [ 0, %"_ZN106_$LT$core..iter..sources..repeat_n..RepeatN$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcea794a05df97872E.exit32.i.i" ]
-  store i64 %.us-phi.i, ptr %8, align 8, !noalias !603
   %82 = add nuw nsw i64 %.sroa.021.046.i.i, 1
+  store i64 %.us-phi.i, ptr %8, align 8, !noalias !603
   %83 = load i64, ptr %33, align 8, !alias.scope !621, !noalias !624, !noundef !6
   %84 = load i64, ptr %9, align 8, !range !316, !alias.scope !621, !noalias !624, !noundef !6
   %85 = icmp eq i64 %83, %84

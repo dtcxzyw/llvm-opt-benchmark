@@ -1691,70 +1691,70 @@ avi_read_nikon.exit:                              ; preds = %.critedge2.i, %.lr.
 
 750:                                              ; preds = %749, %746, %743
   %751 = phi i32 [ %.pre909, %749 ], [ %741, %746 ], [ %741, %743 ]
+  %752 = load ptr, ptr %19, align 8, !tbaa !14
   %.not113.i = icmp eq i32 %751, 0
   br i1 %.not113.i, label %._crit_edge99.i, label %.lr.ph98.i
 
 .lr.ph98.i:                                       ; preds = %750
-  %752 = load ptr, ptr %54, align 8, !tbaa !55
+  %753 = load ptr, ptr %54, align 8, !tbaa !55
   %wide.trip.count122.i = zext i32 %751 to i64
-  br label %753
+  br label %754
 
-753:                                              ; preds = %772, %.lr.ph98.i
-  %indvars.iv119.i = phi i64 [ 0, %.lr.ph98.i ], [ %indvars.iv.next120.i, %772 ]
-  %.08095.i = phi i64 [ 0, %.lr.ph98.i ], [ %.181.i, %772 ]
-  %.08294.i = phi i64 [ 0, %.lr.ph98.i ], [ %.183.i, %772 ]
-  %754 = getelementptr inbounds nuw ptr, ptr %752, i64 %indvars.iv119.i
-  %755 = load ptr, ptr %754, align 8, !tbaa !56
-  %756 = getelementptr inbounds nuw i8, ptr %755, i64 328
-  %757 = load i32, ptr %756, align 8, !tbaa !105
-  %.not.i703 = icmp eq i32 %757, 0
-  br i1 %.not.i703, label %772, label %.preheader89.i
+754:                                              ; preds = %773, %.lr.ph98.i
+  %indvars.iv119.i = phi i64 [ 0, %.lr.ph98.i ], [ %indvars.iv.next120.i, %773 ]
+  %.08095.i = phi i64 [ 0, %.lr.ph98.i ], [ %.181.i, %773 ]
+  %.08294.i = phi i64 [ 0, %.lr.ph98.i ], [ %.183.i, %773 ]
+  %755 = getelementptr inbounds nuw ptr, ptr %753, i64 %indvars.iv119.i
+  %756 = load ptr, ptr %755, align 8, !tbaa !56
+  %757 = getelementptr inbounds nuw i8, ptr %756, i64 328
+  %758 = load i32, ptr %757, align 8, !tbaa !105
+  %.not.i703 = icmp eq i32 %758, 0
+  br i1 %.not.i703, label %773, label %.preheader89.i
 
-.preheader89.i:                                   ; preds = %753
-  %758 = icmp sgt i32 %757, 0
-  %759 = getelementptr inbounds nuw i8, ptr %755, i64 320
-  %760 = load ptr, ptr %759, align 8, !tbaa !106
-  br i1 %758, label %.lr.ph.i705, label %._crit_edge.i
+.preheader89.i:                                   ; preds = %754
+  %759 = icmp sgt i32 %758, 0
+  %760 = getelementptr inbounds nuw i8, ptr %756, i64 320
+  %761 = load ptr, ptr %760, align 8, !tbaa !106
+  br i1 %759, label %.lr.ph.i705, label %._crit_edge.i
 
 .lr.ph.i705:                                      ; preds = %.preheader89.i
-  %wide.trip.count.i = zext nneg i32 %757 to i64
-  br label %761
+  %wide.trip.count.i = zext nneg i32 %758 to i64
+  br label %762
 
-761:                                              ; preds = %761, %.lr.ph.i705
-  %indvars.iv.i706 = phi i64 [ 0, %.lr.ph.i705 ], [ %indvars.iv.next.i707, %761 ]
-  %.08491.i = phi i64 [ 0, %.lr.ph.i705 ], [ %767, %761 ]
-  %762 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %760, i64 %indvars.iv.i706
-  %763 = getelementptr inbounds nuw i8, ptr %762, i64 16
-  %764 = load i32, ptr %763, align 8
-  %765 = ashr i32 %764, 2
-  %766 = sext i32 %765 to i64
-  %767 = add nsw i64 %.08491.i, %766
+762:                                              ; preds = %762, %.lr.ph.i705
+  %indvars.iv.i706 = phi i64 [ 0, %.lr.ph.i705 ], [ %indvars.iv.next.i707, %762 ]
+  %.08491.i = phi i64 [ 0, %.lr.ph.i705 ], [ %768, %762 ]
+  %763 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %761, i64 %indvars.iv.i706
+  %764 = getelementptr inbounds nuw i8, ptr %763, i64 16
+  %765 = load i32, ptr %764, align 8
+  %766 = ashr i32 %765, 2
+  %767 = sext i32 %766 to i64
+  %768 = add nsw i64 %.08491.i, %767
   %indvars.iv.next.i707 = add nuw nsw i64 %indvars.iv.i706, 1
   %exitcond.not.i708 = icmp eq i64 %indvars.iv.next.i707, %wide.trip.count.i
-  br i1 %exitcond.not.i708, label %._crit_edge.i, label %761, !llvm.loop !107
+  br i1 %exitcond.not.i708, label %._crit_edge.i, label %762, !llvm.loop !107
 
-._crit_edge.i:                                    ; preds = %761, %.preheader89.i
-  %.084.lcssa.i = phi i64 [ 0, %.preheader89.i ], [ %767, %761 ]
-  %.078.lcssa.i = phi i64 [ 0, %.preheader89.i ], [ %wide.trip.count.i, %761 ]
-  %768 = getelementptr %struct.AVIndexEntry, ptr %760, i64 %.078.lcssa.i
-  %769 = getelementptr i8, ptr %768, i64 -24
-  %770 = load i64, ptr %769, align 8, !tbaa !108
-  %.082..i = call i64 @llvm.smax.i64(i64 %.08294.i, i64 %770)
-  %771 = add nsw i64 %.084.lcssa.i, %.08095.i
-  br label %772
+._crit_edge.i:                                    ; preds = %762, %.preheader89.i
+  %.084.lcssa.i = phi i64 [ 0, %.preheader89.i ], [ %768, %762 ]
+  %.078.lcssa.i = phi i64 [ 0, %.preheader89.i ], [ %wide.trip.count.i, %762 ]
+  %769 = getelementptr %struct.AVIndexEntry, ptr %761, i64 %.078.lcssa.i
+  %770 = getelementptr i8, ptr %769, i64 -24
+  %771 = load i64, ptr %770, align 8, !tbaa !108
+  %.082..i = call i64 @llvm.smax.i64(i64 %.08294.i, i64 %771)
+  %772 = add nsw i64 %.084.lcssa.i, %.08095.i
+  br label %773
 
-772:                                              ; preds = %._crit_edge.i, %753
-  %.183.i = phi i64 [ %.082..i, %._crit_edge.i ], [ %.08294.i, %753 ]
-  %.181.i = phi i64 [ %771, %._crit_edge.i ], [ %.08095.i, %753 ]
+773:                                              ; preds = %._crit_edge.i, %754
+  %.183.i = phi i64 [ %.082..i, %._crit_edge.i ], [ %.08294.i, %754 ]
+  %.181.i = phi i64 [ %772, %._crit_edge.i ], [ %.08095.i, %754 ]
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
   %exitcond123.not.i = icmp eq i64 %indvars.iv.next120.i, %wide.trip.count122.i
-  br i1 %exitcond123.not.i, label %._crit_edge99.i, label %753, !llvm.loop !110
+  br i1 %exitcond123.not.i, label %._crit_edge99.i, label %754, !llvm.loop !110
 
-._crit_edge99.i:                                  ; preds = %772, %750
-  %.082.lcssa.i = phi i64 [ 0, %750 ], [ %.183.i, %772 ]
-  %.080.lcssa.i = phi i64 [ 0, %750 ], [ %.181.i, %772 ]
-  %773 = load ptr, ptr %19, align 8, !tbaa !14
-  %774 = getelementptr inbounds nuw i8, ptr %773, i64 32
+._crit_edge99.i:                                  ; preds = %773, %750
+  %.082.lcssa.i = phi i64 [ 0, %750 ], [ %.183.i, %773 ]
+  %.080.lcssa.i = phi i64 [ 0, %750 ], [ %.181.i, %773 ]
+  %774 = getelementptr inbounds nuw i8, ptr %752, i64 32
   %775 = load i64, ptr %774, align 8, !tbaa !37
   %776 = call i64 @av_rescale(i64 noundef %775, i64 noundef 9, i64 noundef 10) #16
   %777 = icmp slt i64 %.082.lcssa.i, %776

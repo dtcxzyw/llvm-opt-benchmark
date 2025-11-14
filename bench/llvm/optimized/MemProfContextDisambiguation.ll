@@ -17847,8 +17847,9 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %463 = getelementptr inbounds nuw i8, ptr %14, i64 360
-  %.sroa.019.025.i = load ptr, ptr %463, align 8, !tbaa !1046
+  %463 = getelementptr inbounds nuw i8, ptr %14, i64 344
+  %464 = getelementptr inbounds nuw i8, ptr %14, i64 360
+  %.sroa.019.025.i = load ptr, ptr %464, align 8, !tbaa !1046
   %.not26.i = icmp eq ptr %.sroa.019.025.i, null
   br i1 %.not26.i, label %_ZNSt10_HashtableIPN4llvm15FunctionSummaryESt4pairIKS2_St3mapINS0_9ValueInfoESt10unique_ptrINS0_12CallsiteInfoESt14default_deleteIS8_EESt4lessIS6_ESaIS3_IKS6_SB_EEEESaISI_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSK_18_Mod_range_hashingENSK_20_Default_ranged_hashENSK_20_Prime_rehash_policyENSK_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph28.i
 
@@ -17858,30 +17859,29 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph28.i
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
-  %.pre.i = load ptr, ptr %463, align 8, !tbaa !1049
+  %.pre.i = load ptr, ptr %464, align 8, !tbaa !1049
   %.not5.i.i.i.i.i = icmp eq ptr %.pre.i, null
   br i1 %.not5.i.i.i.i.i, label %_ZNSt10_HashtableIPN4llvm15FunctionSummaryESt4pairIKS2_St3mapINS0_9ValueInfoESt10unique_ptrINS0_12CallsiteInfoESt14default_deleteIS8_EESt4lessIS6_ESaIS3_IKS6_SB_EEEESaISI_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSK_18_Mod_range_hashingENSK_20_Default_ranged_hashENSK_20_Prime_rehash_policyENSK_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i4
 
 .lr.ph.i.i.i.i.i4:                                ; preds = %._crit_edge.i, %.lr.ph.i.i.i.i.i4
-  %.06.i.i.i.i.i = phi ptr [ %464, %.lr.ph.i.i.i.i.i4 ], [ %.pre.i, %._crit_edge.i ]
-  %464 = load ptr, ptr %.06.i.i.i.i.i, align 8, !tbaa !1046
-  %465 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 16
-  %466 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 32
-  %467 = load ptr, ptr %466, align 8, !tbaa !233
-  call void @_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_St10unique_ptrINS0_12CallsiteInfoESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %465, ptr noundef %467)
+  %.06.i.i.i.i.i = phi ptr [ %465, %.lr.ph.i.i.i.i.i4 ], [ %.pre.i, %._crit_edge.i ]
+  %465 = load ptr, ptr %.06.i.i.i.i.i, align 8, !tbaa !1046
+  %466 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 16
+  %467 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 32
+  %468 = load ptr, ptr %467, align 8, !tbaa !233
+  call void @_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_St10unique_ptrINS0_12CallsiteInfoESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %466, ptr noundef %468)
   call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i.i, i64 noundef 64) #29
-  %.not.i.i.i.i.i = icmp eq ptr %464, null
+  %.not.i.i.i.i.i = icmp eq ptr %465, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt10_HashtableIPN4llvm15FunctionSummaryESt4pairIKS2_St3mapINS0_9ValueInfoESt10unique_ptrINS0_12CallsiteInfoESt14default_deleteIS8_EESt4lessIS6_ESaIS3_IKS6_SB_EEEESaISI_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSK_18_Mod_range_hashingENSK_20_Default_ranged_hashENSK_20_Prime_rehash_policyENSK_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i4, !llvm.loop !1054
 
-_ZNSt10_HashtableIPN4llvm15FunctionSummaryESt4pairIKS2_St3mapINS0_9ValueInfoESt10unique_ptrINS0_12CallsiteInfoESt14default_deleteIS8_EESt4lessIS6_ESaIS3_IKS6_SB_EEEESaISI_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSK_18_Mod_range_hashingENSK_20_Default_ranged_hashENSK_20_Prime_rehash_policyENSK_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i4, %_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE7processEv.exit, %._crit_edge.i
-  %468 = getelementptr inbounds nuw i8, ptr %14, i64 344
-  %469 = load ptr, ptr %468, align 8, !tbaa !1055
+_ZNSt10_HashtableIPN4llvm15FunctionSummaryESt4pairIKS2_St3mapINS0_9ValueInfoESt10unique_ptrINS0_12CallsiteInfoESt14default_deleteIS8_EESt4lessIS6_ESaIS3_IKS6_SB_EEEESaISI_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSK_18_Mod_range_hashingENSK_20_Default_ranged_hashENSK_20_Prime_rehash_policyENSK_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i4, %._crit_edge.i, %_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE7processEv.exit
+  %469 = load ptr, ptr %463, align 8, !tbaa !1055
   %470 = getelementptr inbounds nuw i8, ptr %14, i64 352
   %471 = load i64, ptr %470, align 8, !tbaa !1056
   %472 = shl i64 %471, 3
   call void @llvm.memset.p0.i64(ptr align 8 %469, i8 0, i64 %472, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %463, i8 0, i64 16, i1 false)
-  %473 = load ptr, ptr %468, align 8, !tbaa !1055
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %464, i8 0, i64 16, i1 false)
+  %473 = load ptr, ptr %463, align 8, !tbaa !1055
   %474 = getelementptr inbounds nuw i8, ptr %14, i64 392
   %475 = icmp eq ptr %473, %474
   br i1 %475, label %_ZNSt13unordered_mapIPN4llvm15FunctionSummaryESt3mapINS0_9ValueInfoESt10unique_ptrINS0_12CallsiteInfoESt14default_deleteIS6_EESt4lessIS4_ESaISt4pairIKS4_S9_EEESt4hashIS2_ESt8equal_toIS2_ESaISC_IKS2_SG_EEED2Ev.exit.i, label %476
@@ -44269,22 +44269,22 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26Modu
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.08.010.i.i.i.i.i, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %39, %.val6.i
-  br i1 %.not.i.i.i.i.i, label %.lr.ph, label %.lr.ph.i.i.i.i.i, !llvm.loop !1595
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE11ContextEdgeEESaISA_EEC2ERKSC_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !1595
 
-._crit_edge.loopexit:                             ; preds = %48
+_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE11ContextEdgeEESaISA_EEC2ERKSC_.exit: ; preds = %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE11ContextEdgeEEJRKSA_EEvPT_DpOT0_.exit.i.i.i.i.i
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 %23
-  br label %._crit_edge
+  br label %.lr.ph
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE11ContextEdgeEESaISA_EEC2ERKSC_.exit.thread
-  %.0.lcssa.i.i.i.i.i387 = phi ptr [ null, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE11ContextEdgeEESaISA_EEC2ERKSC_.exit.thread ], [ %40, %._crit_edge.loopexit ]
-  %42 = phi ptr [ null, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE11ContextEdgeEESaISA_EEC2ERKSC_.exit.thread ], [ %28, %._crit_edge.loopexit ]
-  %43 = phi ptr [ %24, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE11ContextEdgeEESaISA_EEC2ERKSC_.exit.thread ], [ %41, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %48, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE11ContextEdgeEESaISA_EEC2ERKSC_.exit.thread
+  %.0.lcssa.i.i.i.i.i387 = phi ptr [ null, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE11ContextEdgeEESaISA_EEC2ERKSC_.exit.thread ], [ %40, %48 ]
+  %42 = phi ptr [ null, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE11ContextEdgeEESaISA_EEC2ERKSC_.exit.thread ], [ %28, %48 ]
+  %43 = phi ptr [ %24, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE11ContextEdgeEESaISA_EEC2ERKSC_.exit.thread ], [ %41, %48 ]
   %44 = load i8, ptr %1, align 8, !tbaa !653, !range !51, !noundef !52
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS3_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE15CallContextInfoESaISA_EENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSC_EEEEmSC_SE_SH_E5countERKm.exit.thread, label %50
 
-.lr.ph:                                           ; preds = %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE11ContextEdgeEEJRKSA_EEvPT_DpOT0_.exit.i.i.i.i.i, %48
-  %.sroa.0252.0284 = phi ptr [ %49, %48 ], [ %28, %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE11ContextEdgeEEJRKSA_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+.lr.ph:                                           ; preds = %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE11ContextEdgeEESaISA_EEC2ERKSC_.exit, %48
+  %.sroa.0252.0284 = phi ptr [ %49, %48 ], [ %28, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE11ContextEdgeEESaISA_EEC2ERKSC_.exit ]
   %.val105 = load ptr, ptr %.sroa.0252.0284, align 8, !tbaa !792
   %.val120 = load ptr, ptr %.val105, align 8, !tbaa !824
   %46 = getelementptr i8, ptr %.val105, i64 8
@@ -44301,7 +44301,7 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26Modu
 48:                                               ; preds = %.lr.ph, %47
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0252.0284, i64 16
   %.not = icmp eq ptr %.sroa.0252.0284, %.011.i.i.i.i.i
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 50:                                               ; preds = %._crit_edge
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -68913,22 +68913,22 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25Inde
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.08.010.i.i.i.i.i, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %39, %.val6.i
-  br i1 %.not.i.i.i.i.i, label %.lr.ph, label %.lr.ph.i.i.i.i.i, !llvm.loop !2125
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE11ContextEdgeEESaIS9_EEC2ERKSB_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !2125
 
-._crit_edge.loopexit:                             ; preds = %48
+_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE11ContextEdgeEESaIS9_EEC2ERKSB_.exit: ; preds = %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE11ContextEdgeEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i.i
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 %23
-  br label %._crit_edge
+  br label %.lr.ph
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE11ContextEdgeEESaIS9_EEC2ERKSB_.exit.thread
-  %.0.lcssa.i.i.i.i.i388 = phi ptr [ null, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE11ContextEdgeEESaIS9_EEC2ERKSB_.exit.thread ], [ %40, %._crit_edge.loopexit ]
-  %42 = phi ptr [ null, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE11ContextEdgeEESaIS9_EEC2ERKSB_.exit.thread ], [ %28, %._crit_edge.loopexit ]
-  %43 = phi ptr [ %24, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE11ContextEdgeEESaIS9_EEC2ERKSB_.exit.thread ], [ %41, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %48, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE11ContextEdgeEESaIS9_EEC2ERKSB_.exit.thread
+  %.0.lcssa.i.i.i.i.i388 = phi ptr [ null, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE11ContextEdgeEESaIS9_EEC2ERKSB_.exit.thread ], [ %40, %48 ]
+  %42 = phi ptr [ null, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE11ContextEdgeEESaIS9_EEC2ERKSB_.exit.thread ], [ %28, %48 ]
+  %43 = phi ptr [ %24, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE11ContextEdgeEESaIS9_EEC2ERKSB_.exit.thread ], [ %41, %48 ]
   %44 = load i8, ptr %1, align 8, !tbaa !1035, !range !51, !noundef !52
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapImSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS3_25IndexCallsiteContextGraphENS_15FunctionSummaryENS3_9IndexCallEE15CallContextInfoESaIS9_EENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSB_EEEEmSB_SD_SG_E5countERKm.exit.thread, label %50
 
-.lr.ph:                                           ; preds = %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE11ContextEdgeEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i.i, %48
-  %.sroa.0253.0285 = phi ptr [ %49, %48 ], [ %28, %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE11ContextEdgeEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+.lr.ph:                                           ; preds = %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE11ContextEdgeEESaIS9_EEC2ERKSB_.exit, %48
+  %.sroa.0253.0285 = phi ptr [ %49, %48 ], [ %28, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE11ContextEdgeEESaIS9_EEC2ERKSB_.exit ]
   %.val111 = load ptr, ptr %.sroa.0253.0285, align 8, !tbaa !1171
   %.val126 = load ptr, ptr %.val111, align 8, !tbaa !1193
   %46 = getelementptr i8, ptr %.val111, i64 8
@@ -68945,7 +68945,7 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25Inde
 48:                                               ; preds = %.lr.ph, %47
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0253.0285, i64 16
   %.not = icmp eq ptr %.sroa.0253.0285, %.011.i.i.i.i.i
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 50:                                               ; preds = %._crit_edge
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40

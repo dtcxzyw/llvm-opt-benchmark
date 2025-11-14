@@ -4217,27 +4217,27 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinar
   store ptr %5, ptr %8, align 8, !tbaa !201
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %9, align 8, !tbaa !185
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %11 = load ptr, ptr %10, align 8, !tbaa !3
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %13 = load i32, ptr %12, align 8, !tbaa !127
-  %14 = zext i32 %13 to i64
-  %.idx = mul nuw nsw i64 %14, 48
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
-  %.not98 = icmp eq i32 %13, 0
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %12 = load ptr, ptr %11, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %14 = load i32, ptr %13, align 8, !tbaa !127
+  %15 = zext i32 %14 to i64
+  %.idx = mul nuw nsw i64 %15, 48
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
+  %.not98 = icmp eq i32 %14, 0
   br i1 %.not98, label %._crit_edge105, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre = load ptr, ptr %7, align 8, !tbaa !186
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %.not94100 = icmp eq ptr %.pre, %5
   br i1 %.not94100, label %._crit_edge105, label %.lr.ph104
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.099 = phi ptr [ %18, %.lr.ph ], [ %11, %1 ]
+  %.099 = phi ptr [ %18, %.lr.ph ], [ %12, %1 ]
   %17 = call { ptr, i8 } @_ZNSt8_Rb_treeIN4llvm10sampleprof13SampleContextES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIRKS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(40) %.099)
   %18 = getelementptr inbounds nuw i8, ptr %.099, i64 48
-  %.not = icmp eq ptr %18, %15
+  %.not = icmp eq ptr %18, %16
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge105:                                   ; preds = %.lr.ph104, %1, %._crit_edge
@@ -4283,7 +4283,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit: ; preds = %_ZN4llvm11raw_ostr
   %.sroa.082.0101 = phi ptr [ %38, %.lr.ph104 ], [ %.pre, %._crit_edge ]
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.082.0101, i64 32
   %36 = add i32 %.038102, 1
-  %37 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm9MapVectorINS_10sampleprof13SampleContextEjNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj0EEEEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %35)
+  %37 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm9MapVectorINS_10sampleprof13SampleContextEjNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj0EEEEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %35)
   store i32 %.038102, ptr %37, align 4, !tbaa !139
   %38 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.082.0101) #29
   %.not94 = icmp eq ptr %38, %5

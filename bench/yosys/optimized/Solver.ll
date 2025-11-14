@@ -9523,7 +9523,7 @@ define linkonce_odr void @_ZN7Minisat4sortINS_3LitENS_16LessThan_defaultIS1_EEEE
   br i1 %3, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
-  %.tr.lcssa = phi ptr [ %0, %2 ], [ %29, %tailrecurse ]
+  %.tr.lcssa = phi ptr [ %0, %2 ], [ %24, %tailrecurse ]
   %.tr41.lcssa = phi i32 [ %1, %2 ], [ %34, %tailrecurse ]
   %4 = icmp sgt i32 %.tr41.lcssa, 1
   br i1 %4, label %.lr.ph29.preheader.i, label %_ZN7Minisat13selectionSortINS_3LitENS_16LessThan_defaultIS1_EEEEvPT_iT0_.exit
@@ -9570,7 +9570,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
   %.tr4147 = phi i32 [ %34, %tailrecurse ], [ %1, %2 ]
-  %.tr46 = phi ptr [ %29, %tailrecurse ], [ %0, %2 ]
+  %.tr46 = phi ptr [ %24, %tailrecurse ], [ %0, %2 ]
   %16 = lshr i32 %.tr4147, 1
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.tr46, i64 %17
@@ -9593,30 +9593,30 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   br i1 %23, label %21, label %.preheader, !llvm.loop !273
 
 .preheader:                                       ; preds = %21
-  %24 = sext i32 %.034 to i64
-  br label %25
+  %24 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next
+  %25 = sext i32 %.034 to i64
+  br label %26
 
-25:                                               ; preds = %.preheader, %25
-  %indvars.iv55 = phi i64 [ %24, %.preheader ], [ %indvars.iv.next56, %25 ]
+26:                                               ; preds = %.preheader, %26
+  %indvars.iv55 = phi i64 [ %25, %.preheader ], [ %indvars.iv.next56, %26 ]
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
-  %26 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next56
-  %.sroa.0.0.copyload = load i32, ptr %26, align 4, !tbaa !65
-  %27 = icmp slt i32 %.sroa.018.0.copyload, %.sroa.0.0.copyload
-  br i1 %27, label %25, label %28, !llvm.loop !274
+  %27 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next56
+  %.sroa.0.0.copyload = load i32, ptr %27, align 4, !tbaa !65
+  %28 = icmp slt i32 %.sroa.018.0.copyload, %.sroa.0.0.copyload
+  br i1 %28, label %26, label %29, !llvm.loop !274
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next
+29:                                               ; preds = %26
   %.not = icmp slt i64 %indvars.iv.next, %indvars.iv.next56
   br i1 %.not, label %30, label %tailrecurse
 
-30:                                               ; preds = %28
+30:                                               ; preds = %29
   %31 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next56
   %32 = trunc nsw i64 %indvars.iv.next56 to i32
-  store i32 %.sroa.0.0.copyload, ptr %29, align 4, !tbaa !65
+  store i32 %.sroa.0.0.copyload, ptr %24, align 4, !tbaa !65
   store i32 %.sroa.03.0.copyload, ptr %31, align 4, !tbaa !65
   br label %19, !llvm.loop !275
 
-tailrecurse:                                      ; preds = %28
+tailrecurse:                                      ; preds = %29
   %33 = trunc nsw i64 %indvars.iv.next to i32
   tail call void @_ZN7Minisat4sortINS_3LitENS_16LessThan_defaultIS1_EEEEvPT_iT0_(ptr noundef nonnull %.tr46, i32 noundef %33)
   %34 = sub nsw i32 %.tr4147, %33

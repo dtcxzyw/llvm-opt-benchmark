@@ -4467,8 +4467,8 @@ entry:
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i8, i64 8
   %sub.i.i.i.i.i = shl nuw nsw i64 %div75, 3
   %add.ptr.idx.i.i.i.i.i.i.i = add nuw nsw i64 %sub.i.i.i.i.i, 56
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %pageAllocated_ = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -4508,8 +4508,8 @@ call5.i.i.i.i2.i.i.noexc24:                       ; preds = %if.then.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i17:                           ; preds = %call5.i.i.i.i2.i.i.noexc24
   %add.ptr.idx.i.i.i.i.i.i.i18 = shl nuw nsw i64 %sub.i.i.i.i.i15, 3
-  %add.ptr.i.i.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i14, i64 %add.ptr.idx.i.i.i.i.i.i.i18
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i14, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i18, i1 false)
+  %add.ptr.i.i.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i14, i64 %add.ptr.idx.i.i.i.i.i.i.i18
   br label %if.then.i.i.i.i.i30
 
 _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i42: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i10
@@ -4536,8 +4536,8 @@ call5.i.i.i.i2.i.i.noexc45:                       ; preds = %if.then.i.i.i.i.i30
 
 if.end.i.i.i.i.i.i.i37:                           ; preds = %call5.i.i.i.i2.i.i.noexc45
   %add.ptr.idx.i.i.i.i.i.i.i38 = shl nuw nsw i64 %sub.i.i.i.i.i15, 3
-  %add.ptr.i.i.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i34, i64 %add.ptr.idx.i.i.i.i.i.i.i38
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i34, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i38, i1 false)
+  %add.ptr.i.i.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i34, i64 %add.ptr.idx.i.i.i.i.i.i.i38
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %if.end.i.i.i.i.i.i.i37, %call5.i.i.i.i2.i.i.noexc45, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i42

@@ -5835,8 +5835,8 @@ _ZN12_GLOBAL__N_122ModuleAddressSanitizerC2ERN4llvm6ModuleEbbbbbNS1_12AsanDtorKi
   %376 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %.sroa.4.0..sroa_idx258.i = getelementptr inbounds nuw i8, ptr %26, i64 24
   %.ptr267.i = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %377 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  %378 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %377 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %378 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %379 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %380 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %381 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -7078,9 +7078,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit72.i: 
   store i32 2, ptr %375, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %.ptr267.i, ptr %27, align 8, !tbaa !25
-  store i32 2, ptr %377, align 4, !tbaa !27
+  store i32 2, ptr %378, align 4, !tbaa !27
   store ptr %1019, ptr %.ptr267.i, align 8, !tbaa !386
-  store i32 1, ptr %378, align 8, !tbaa !26
+  store i32 1, ptr %377, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr null, ptr %28, align 8, !tbaa !387
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -7112,8 +7112,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit.i: ; preds 
   %1033 = load i32, ptr %375, align 8, !tbaa !26
   %1034 = add i32 %1033, 1
   store i32 %1034, ptr %375, align 8, !tbaa !26
-  %1035 = load i32, ptr %378, align 8, !tbaa !26
-  %1036 = load i32, ptr %377, align 4, !tbaa !27
+  %1035 = load i32, ptr %377, align 8, !tbaa !26
+  %1036 = load i32, ptr %378, align 4, !tbaa !27
   %.not.i.i.not.i73.i = icmp ult i32 %1035, %1036
   br i1 %.not.i.i.not.i73.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit75.i, label %1037, !prof !33
 
@@ -7121,7 +7121,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit.i: ; preds 
   %1038 = zext i32 %1035 to i64
   %1039 = add nuw nsw i64 %1038, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %.ptr267.i, i64 noundef %1039, i64 noundef 8) #24
-  %.pre.i74.i = load i32, ptr %378, align 8, !tbaa !26
+  %.pre.i74.i = load i32, ptr %377, align 8, !tbaa !26
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit75.i
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit75.i: ; preds = %1037, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit.i
@@ -7130,9 +7130,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit75.i: ; pred
   %1042 = zext i32 %1040 to i64
   %1043 = getelementptr inbounds nuw ptr, ptr %1041, i64 %1042
   store i64 %1032, ptr %1043, align 1
-  %1044 = load i32, ptr %378, align 8, !tbaa !26
+  %1044 = load i32, ptr %377, align 8, !tbaa !26
   %1045 = add i32 %1044, 1
-  store i32 %1045, ptr %378, align 8, !tbaa !26
+  store i32 %1045, ptr %377, align 8, !tbaa !26
   %1046 = load ptr, ptr %955, align 8, !tbaa !390
   %1047 = getelementptr inbounds nuw i8, ptr %1046, i64 160
   %1048 = load i8, ptr %1047, align 8, !tbaa !395, !range !52, !noundef !53
@@ -7937,7 +7937,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_.ex
   %1362 = load ptr, ptr %358, align 8, !tbaa !333
   %1363 = call noundef ptr @_ZN4llvm4Type9getVoidTyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %1362) #24
   %1364 = load ptr, ptr %27, align 8, !tbaa !25
-  %1365 = load i32, ptr %378, align 8, !tbaa !26
+  %1365 = load i32, ptr %377, align 8, !tbaa !26
   %1366 = zext i32 %1365 to i64
   %1367 = call noundef ptr @_ZN4llvm12FunctionType3getEPNS_4TypeENS_8ArrayRefIS2_EEb(ptr noundef %1363, ptr %1364, i64 %1366, i1 noundef zeroext false) #24
   %.sroa.021.0.copyload.i = load ptr, ptr %29, align 8, !tbaa !405
@@ -8133,7 +8133,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_.ex
   %1443 = load ptr, ptr %358, align 8, !tbaa !333
   %1444 = call noundef ptr @_ZN4llvm4Type9getVoidTyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %1443) #24
   %1445 = load ptr, ptr %27, align 8, !tbaa !25
-  %1446 = load i32, ptr %378, align 8, !tbaa !26
+  %1446 = load i32, ptr %377, align 8, !tbaa !26
   %1447 = zext i32 %1446 to i64
   %1448 = call noundef ptr @_ZN4llvm12FunctionType3getEPNS_4TypeENS_8ArrayRefIS2_EEb(ptr noundef %1444, ptr %1445, i64 %1447, i1 noundef zeroext false) #24
   %.sroa.018.0.copyload.i = load ptr, ptr %29, align 8, !tbaa !405

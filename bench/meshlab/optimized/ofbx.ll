@@ -12908,32 +12908,32 @@ define linkonce_odr noundef i32 @_ZNK4ofbx5Scene17getAllObjectCountEv(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4ofbx5SceneD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4ofbx5SceneE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.sroa.08.011 = load ptr, ptr %2, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %.sroa.08.011 = load ptr, ptr %3, align 8
   %.not12 = icmp eq ptr %.sroa.08.011, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %8
-  %.sroa.08.013 = phi ptr [ %.sroa.08.0, %8 ], [ %.sroa.08.011, %1 ]
+.lr.ph:                                           ; preds = %1, %9
+  %.sroa.08.013 = phi ptr [ %.sroa.08.0, %9 ], [ %.sroa.08.011, %1 ]
   %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 24
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
-  %3 = icmp eq ptr %.sroa.1.0.copyload, null
-  br i1 %3, label %8, label %4
+  %4 = icmp eq ptr %.sroa.1.0.copyload, null
+  br i1 %4, label %9, label %5
 
-4:                                                ; preds = %.lr.ph
-  %5 = load ptr, ptr %.sroa.1.0.copyload, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(176) %.sroa.1.0.copyload) #30
-  br label %8
+5:                                                ; preds = %.lr.ph
+  %6 = load ptr, ptr %.sroa.1.0.copyload, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load ptr, ptr %7, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(176) %.sroa.1.0.copyload) #30
+  br label %9
 
-8:                                                ; preds = %.lr.ph, %4
+9:                                                ; preds = %.lr.ph, %5
   %.sroa.08.0 = load ptr, ptr %.sroa.08.013, align 8
   %.not = icmp eq ptr %.sroa.08.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %8, %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
+._crit_edge:                                      ; preds = %9, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call fastcc void @_ZN4ofbxL13deleteElementEPNS_7ElementE(ptr noundef %11)
@@ -12997,7 +12997,7 @@ _ZNSt6vectorIPN4ofbx4MeshESaIS2_EED2Ev.exit:      ; preds = %_ZNSt6vectorIPN4ofb
   br label %_ZNSt6vectorIPN4ofbx6ObjectESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN4ofbx6ObjectESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIPN4ofbx4MeshESaIS2_EED2Ev.exit, %29
-  %30 = load ptr, ptr %2, align 8
+  %30 = load ptr, ptr %3, align 8
   %.not5.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIySt4pairIKyN4ofbx5Scene10ObjectPairEESaIS5_ENSt8__detail10_Select1stESt8equal_toIyESt4hashIyENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
 
@@ -13009,13 +13009,13 @@ _ZNSt6vectorIPN4ofbx6ObjectESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIPN4ofb
   br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIySt4pairIKyN4ofbx5Scene10ObjectPairEESaIS5_ENSt8__detail10_Select1stESt8equal_toIyESt4hashIyENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !195
 
 _ZNSt10_HashtableIySt4pairIKyN4ofbx5Scene10ObjectPairEESaIS5_ENSt8__detail10_Select1stESt8equal_toIyESt4hashIyENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt6vectorIPN4ofbx6ObjectESaIS2_EED2Ev.exit
-  %32 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %2, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %34 = load i64, ptr %33, align 8
   %35 = shl i64 %34, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %32, i8 0, i64 %35, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %36 = load ptr, ptr %9, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  %36 = load ptr, ptr %2, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %38 = icmp eq ptr %36, %37
   br i1 %38, label %_ZNSt13unordered_mapIyN4ofbx5Scene10ObjectPairESt4hashIyESt8equal_toIyESaISt4pairIKyS2_EEED2Ev.exit, label %39
@@ -20811,8 +20811,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -20909,8 +20909,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -21735,8 +21735,8 @@ define linkonce_odr void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i

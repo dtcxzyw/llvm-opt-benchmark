@@ -15942,8 +15942,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %147 = getelementptr inbounds nuw i32, ptr %146, i64 %141
   %148 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %147, ptr %148, align 8, !tbaa !505
-  %149 = getelementptr inbounds nuw i8, ptr %146, i64 %145
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %146, i8 -1, i64 %145, i1 false), !tbaa !88
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 %145
   br label %.loopexit165
 
 .loopexit165:                                     ; preds = %.noexc94, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
@@ -20047,27 +20047,24 @@ _ZNSt16allocator_traitsISaISt4pairIidEEE8allocateERS2_m.exit.i.i.i.i: ; preds = 
 
 .noexc32:                                         ; preds = %_ZNSt16allocator_traitsISaISt4pairIidEEE8allocateERS2_m.exit.i.i.i.i
   store ptr %41, ptr %17, align 8, !tbaa !454
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %35
-  %43 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %42, ptr %43, align 8, !tbaa !653
+  %42 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %35
+  %44 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store ptr %43, ptr %44, align 8, !tbaa !653
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc32, %.lr.ph.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i.i ], [ %41, %.noexc32 ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i ], [ %32, %.noexc32 ]
+  %.09.i.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i.i ], [ %41, %.noexc32 ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i.i ], [ %32, %.noexc32 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i, i64 16, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %45 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %44, %31
-  br i1 %.not.i.i.i.i.i, label %.loopexit64.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !669
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %45, %31
+  br i1 %.not.i.i.i.i.i, label %.loopexit64, label %.lr.ph.i.i.i.i.i, !llvm.loop !669
 
-.loopexit64.loopexit:                             ; preds = %.lr.ph.i.i.i.i.i
-  %46 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  br label %.loopexit64
-
-.loopexit64:                                      ; preds = %.loopexit64.loopexit, %.noexc32.thread
-  %47 = phi ptr [ %36, %.noexc32.thread ], [ %46, %.loopexit64.loopexit ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.noexc32.thread ], [ %45, %.loopexit64.loopexit ]
+.loopexit64:                                      ; preds = %.lr.ph.i.i.i.i.i, %.noexc32.thread
+  %47 = phi ptr [ %36, %.noexc32.thread ], [ %42, %.lr.ph.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.noexc32.thread ], [ %46, %.lr.ph.i.i.i.i.i ]
   store ptr %.0.lcssa.i.i.i.i.i, ptr %47, align 8, !tbaa !452
   %48 = load i32, ptr %0, align 4, !tbaa !88
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %48, i32 34, ptr nonnull %16, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, i32 1, i32 1)
@@ -20175,8 +20172,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %89
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc38
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %98, 3
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 8 %97, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !421
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit
 
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc38, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i

@@ -343,7 +343,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %186
 
 186:                                              ; preds = %.lr.ph1993, %.loopexit1944
-  %.018321990 = phi i32 [ 0, %.lr.ph1993 ], [ %282, %.loopexit1944 ]
+  %.018321990 = phi i32 [ 0, %.lr.ph1993 ], [ %274, %.loopexit1944 ]
   %.118341989 = phi i32 [ %.0183319502151, %.lr.ph1993 ], [ %.21835, %.loopexit1944 ]
   %.218411988 = phi i32 [ %.018392152, %.lr.ph1993 ], [ %.41843, %.loopexit1944 ]
   %187 = sext i32 %.218411988 to i64
@@ -479,36 +479,36 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond2088.not, label %.loopexit, label %.lr.ph2011, !llvm.loop !15
 
 272:                                              ; preds = %._crit_edge1963
-  %273 = load double, ptr %188, align 8, !tbaa !7
+  %273 = sub i32 %.118341989, %.218411988
+  %274 = add i32 %273, %.018321990
+  %275 = load double, ptr %188, align 8, !tbaa !7
   store i32 %.118341989, ptr %30, align 4, !tbaa !3
-  %274 = add nsw i32 %.218411988, 1
+  %276 = add nsw i32 %.218411988, 1
   br i1 %.not1891.not1959, label %.lr.ph1969.preheader, label %._crit_edge1970
 
 .lr.ph1969.preheader:                             ; preds = %272
-  %275 = add nsw i64 %187, 1
-  %276 = add nuw i32 %.118341989, 1
+  %277 = add nsw i64 %187, 1
+  %278 = add nuw i32 %.118341989, 1
   br label %.lr.ph1969
 
 .lr.ph1969:                                       ; preds = %.lr.ph1969.preheader, %.lr.ph1969
-  %indvars.iv2042 = phi i64 [ %275, %.lr.ph1969.preheader ], [ %indvars.iv.next2043, %.lr.ph1969 ]
-  %.018261966 = phi double [ %273, %.lr.ph1969.preheader ], [ %.11827, %.lr.ph1969 ]
-  %.018281965 = phi double [ %273, %.lr.ph1969.preheader ], [ %.11829, %.lr.ph1969 ]
-  %277 = getelementptr inbounds double, ptr %46, i64 %indvars.iv2042
-  %278 = load double, ptr %277, align 8, !tbaa !7
-  %279 = fcmp ogt double %278, %.018261966
-  %.11827 = select i1 %279, double %278, double %.018261966
-  %280 = fcmp olt double %278, %.018281965
-  %.11829 = select i1 %280, double %278, double %.018281965
+  %indvars.iv2042 = phi i64 [ %277, %.lr.ph1969.preheader ], [ %indvars.iv.next2043, %.lr.ph1969 ]
+  %.018261966 = phi double [ %275, %.lr.ph1969.preheader ], [ %.11827, %.lr.ph1969 ]
+  %.018281965 = phi double [ %275, %.lr.ph1969.preheader ], [ %.11829, %.lr.ph1969 ]
+  %279 = getelementptr inbounds double, ptr %46, i64 %indvars.iv2042
+  %280 = load double, ptr %279, align 8, !tbaa !7
+  %281 = fcmp ogt double %280, %.018261966
+  %.11827 = select i1 %281, double %280, double %.018261966
+  %282 = fcmp olt double %280, %.018281965
+  %.11829 = select i1 %282, double %280, double %.018281965
   %indvars.iv.next2043 = add nsw i64 %indvars.iv2042, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next2043 to i32
-  %exitcond2046.not = icmp eq i32 %276, %lftr.wideiv
+  %exitcond2046.not = icmp eq i32 %278, %lftr.wideiv
   br i1 %exitcond2046.not, label %._crit_edge1970, label %.lr.ph1969, !llvm.loop !16
 
 ._crit_edge1970:                                  ; preds = %.lr.ph1969, %272
-  %.01828.lcssa = phi double [ %273, %272 ], [ %.11829, %.lr.ph1969 ]
-  %.01826.lcssa = phi double [ %273, %272 ], [ %.11827, %.lr.ph1969 ]
-  %281 = sub i32 %.118341989, %.218411988
-  %282 = add i32 %281, %.018321990
+  %.01828.lcssa = phi double [ %275, %272 ], [ %.11829, %.lr.ph1969 ]
+  %.01826.lcssa = phi double [ %275, %272 ], [ %.11827, %.lr.ph1969 ]
   %283 = fcmp ogt double %.01826.lcssa, %177
   br i1 %283, label %.thread2154.sink.split, label %284
 
@@ -611,7 +611,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %343, ptr %337, align 8, !tbaa !7
   store double %340, ptr %191, align 8, !tbaa !7
   %344 = load double, ptr %335, align 8, !tbaa !7
-  %345 = sext i32 %274 to i64
+  %345 = sext i32 %276 to i64
   %346 = getelementptr inbounds double, ptr %60, i64 %345
   %347 = load double, ptr %346, align 8, !tbaa !7
   %348 = fmul double %344, %347
@@ -769,7 +769,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %461 = call double @llvm.fmuladd.f64(double %449, double %456, double %460)
   store double %461, ptr %346, align 8, !tbaa !7
   store double %458, ptr %337, align 8, !tbaa !7
-  %462 = icmp sgt i32 %.118341989, %274
+  %462 = icmp sgt i32 %.118341989, %276
   br i1 %462, label %463, label %470
 
 463:                                              ; preds = %439
@@ -1584,7 +1584,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not1894, label %1029, label %1027
 
 1027:                                             ; preds = %1002
-  %1028 = add i32 %281, 1
+  %1028 = add i32 %273, 1
   store i32 %1028, ptr %30, align 4, !tbaa !3
   br i1 %.not, label %.thread1918, label %.thread1911
 
@@ -1607,7 +1607,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not18951912, label %1051, label %.thread1915
 
 1037:                                             ; preds = %1029
-  %.pre2113 = add i32 %281, 1
+  %.pre2113 = add i32 %273, 1
   br i1 %.not, label %.thread1920, label %.thread1915
 
 .thread1920:                                      ; preds = %1037, %.thread1918
@@ -1642,7 +1642,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not1896, label %1054, label %1052
 
 1052:                                             ; preds = %1051
-  %1053 = add i32 %281, 1
+  %1053 = add i32 %273, 1
   store i32 %1053, ptr %30, align 4, !tbaa !3
   br i1 %.not, label %.thread1925, label %.thread1923
 
@@ -1665,7 +1665,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not1934, label %1092, label %.thread1924
 
 1062:                                             ; preds = %1054
-  %.pre2109 = add i32 %281, 1
+  %.pre2109 = add i32 %273, 1
   br i1 %.not, label %.thread1926, label %.thread1924
 
 .thread1926:                                      ; preds = %1062, %.thread1925

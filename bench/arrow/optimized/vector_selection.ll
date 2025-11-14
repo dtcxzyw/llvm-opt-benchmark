@@ -8239,19 +8239,19 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE9VisitVoidIZNS_7c
   %206 = add nuw nsw i64 %.040.i.i.i.i.i, 1
   %207 = add nsw i64 %.439.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %206, %133
-  br i1 %exitcond.not.i.i.i.i.i, label %.loopexit.loopexit58.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !334
+  br i1 %exitcond.not.i.i.i.i.i, label %.loopexit.loopexit51.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !334
 
 .loopexit.loopexit.i.i.i.i.i:                     ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlbE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlbE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
   %208 = add i64 %.02449.i.i.i.i.i, %.pre-phi
   br label %.loopexit.i.i.i.i.i
 
-.loopexit.loopexit58.i.i.i.i.i:                   ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlbE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlbE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit30.i.i.i.i.i
+.loopexit.loopexit51.i.i.i.i.i:                   ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_11BooleanTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlbE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlbE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit30.i.i.i.i.i
   %209 = add i64 %.02449.i.i.i.i.i, %133
   br label %.loopexit.i.i.i.i.i
 
-.loopexit.i.i.i.i.i:                              ; preds = %.loopexit.loopexit58.i.i.i.i.i, %.loopexit.loopexit.i.i.i.i.i, %.lr.ph43.i.i.i.i.i, %.preheader35.i.i.i.i.i, %.preheader37.i.i.i.i.i, %.preheader.i.i.i.i.i
-  %.6.i = phi i64 [ %.3.i, %.loopexit.loopexit.i.i.i.i.i ], [ %.1.i, %.preheader.i.i.i.i.i ], [ %171, %.lr.ph43.i.i.i.i.i ], [ %.1.i, %.preheader35.i.i.i.i.i ], [ %.5.i, %.loopexit.loopexit58.i.i.i.i.i ], [ %.1.i, %.preheader37.i.i.i.i.i ]
-  %.2.i.i.i.i.i = phi i64 [ %208, %.loopexit.loopexit.i.i.i.i.i ], [ %.02449.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %172, %.lr.ph43.i.i.i.i.i ], [ %.02449.i.i.i.i.i, %.preheader35.i.i.i.i.i ], [ %209, %.loopexit.loopexit58.i.i.i.i.i ], [ %.02449.i.i.i.i.i, %.preheader37.i.i.i.i.i ]
+.loopexit.i.i.i.i.i:                              ; preds = %.loopexit.loopexit51.i.i.i.i.i, %.loopexit.loopexit.i.i.i.i.i, %.lr.ph43.i.i.i.i.i, %.preheader35.i.i.i.i.i, %.preheader37.i.i.i.i.i, %.preheader.i.i.i.i.i
+  %.6.i = phi i64 [ %.3.i, %.loopexit.loopexit.i.i.i.i.i ], [ %.1.i, %.preheader.i.i.i.i.i ], [ %171, %.lr.ph43.i.i.i.i.i ], [ %.1.i, %.preheader35.i.i.i.i.i ], [ %.5.i, %.loopexit.loopexit51.i.i.i.i.i ], [ %.1.i, %.preheader37.i.i.i.i.i ]
+  %.2.i.i.i.i.i = phi i64 [ %208, %.loopexit.loopexit.i.i.i.i.i ], [ %.02449.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %172, %.lr.ph43.i.i.i.i.i ], [ %.02449.i.i.i.i.i, %.preheader35.i.i.i.i.i ], [ %209, %.loopexit.loopexit51.i.i.i.i.i ], [ %.02449.i.i.i.i.i, %.preheader37.i.i.i.i.i ]
   %210 = icmp slt i64 %.2.i.i.i.i.i, %94
   br i1 %210, label %.lr.ph50.i.i.i.i.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_11BooleanTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlbE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i, !llvm.loop !335
 
@@ -8516,19 +8516,19 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compu
   %338 = add nuw nsw i64 %.010.i.i.i.i.i, 1
   %339 = add nsw i64 %.49.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i126 = icmp eq i64 %338, %274
-  br i1 %exitcond.not.i.i.i.i.i126, label %.loopexit.loopexit28.i.i.i.i.i, label %.lr.ph.i.i.i.i.i122, !llvm.loop !343
+  br i1 %exitcond.not.i.i.i.i.i126, label %.loopexit.loopexit21.i.i.i.i.i, label %.lr.ph.i.i.i.i.i122, !llvm.loop !343
 
 .loopexit.loopexit.i.i.i.i.i108:                  ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlaE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlaE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
   %340 = add i64 %.02419.i.i.i.i.i, %.pre-phi4
   br label %.loopexit.i.i.i.i.i103
 
-.loopexit.loopexit28.i.i.i.i.i:                   ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlaE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlaE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
+.loopexit.loopexit21.i.i.i.i.i:                   ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_8Int8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlaE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlaE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
   %341 = add i64 %.02419.i.i.i.i.i, %274
   br label %.loopexit.i.i.i.i.i103
 
-.loopexit.i.i.i.i.i103:                           ; preds = %.loopexit.loopexit28.i.i.i.i.i, %.loopexit.loopexit.i.i.i.i.i108, %.lr.ph13.i.i.i.i.i, %.preheader5.i.i.i.i.i, %.preheader7.i.i.i.i.i, %.preheader.i.i.i.i.i101
-  %.6.i104 = phi i64 [ %.3.i107, %.loopexit.loopexit.i.i.i.i.i108 ], [ %.1.i97, %.preheader.i.i.i.i.i101 ], [ %305, %.lr.ph13.i.i.i.i.i ], [ %.1.i97, %.preheader5.i.i.i.i.i ], [ %.5.i125, %.loopexit.loopexit28.i.i.i.i.i ], [ %.1.i97, %.preheader7.i.i.i.i.i ]
-  %.2.i.i.i.i.i105 = phi i64 [ %340, %.loopexit.loopexit.i.i.i.i.i108 ], [ %.02419.i.i.i.i.i, %.preheader.i.i.i.i.i101 ], [ %306, %.lr.ph13.i.i.i.i.i ], [ %.02419.i.i.i.i.i, %.preheader5.i.i.i.i.i ], [ %341, %.loopexit.loopexit28.i.i.i.i.i ], [ %.02419.i.i.i.i.i, %.preheader7.i.i.i.i.i ]
+.loopexit.i.i.i.i.i103:                           ; preds = %.loopexit.loopexit21.i.i.i.i.i, %.loopexit.loopexit.i.i.i.i.i108, %.lr.ph13.i.i.i.i.i, %.preheader5.i.i.i.i.i, %.preheader7.i.i.i.i.i, %.preheader.i.i.i.i.i101
+  %.6.i104 = phi i64 [ %.3.i107, %.loopexit.loopexit.i.i.i.i.i108 ], [ %.1.i97, %.preheader.i.i.i.i.i101 ], [ %305, %.lr.ph13.i.i.i.i.i ], [ %.1.i97, %.preheader5.i.i.i.i.i ], [ %.5.i125, %.loopexit.loopexit21.i.i.i.i.i ], [ %.1.i97, %.preheader7.i.i.i.i.i ]
+  %.2.i.i.i.i.i105 = phi i64 [ %340, %.loopexit.loopexit.i.i.i.i.i108 ], [ %.02419.i.i.i.i.i, %.preheader.i.i.i.i.i101 ], [ %306, %.lr.ph13.i.i.i.i.i ], [ %.02419.i.i.i.i.i, %.preheader5.i.i.i.i.i ], [ %341, %.loopexit.loopexit21.i.i.i.i.i ], [ %.02419.i.i.i.i.i, %.preheader7.i.i.i.i.i ]
   %342 = icmp slt i64 %.2.i.i.i.i.i105, %235
   br i1 %342, label %.lr.ph20.i.i.i.i.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_8Int8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlaE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i, !llvm.loop !344
 
@@ -8793,19 +8793,19 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7comp
   %470 = add nuw nsw i64 %.010.i.i.i.i.i171, 1
   %471 = add nsw i64 %.49.i.i.i.i.i172, 1
   %exitcond.not.i.i.i.i.i176 = icmp eq i64 %470, %406
-  br i1 %exitcond.not.i.i.i.i.i176, label %.loopexit.loopexit28.i.i.i.i.i177, label %.lr.ph.i.i.i.i.i169, !llvm.loop !352
+  br i1 %exitcond.not.i.i.i.i.i176, label %.loopexit.loopexit21.i.i.i.i.i177, label %.lr.ph.i.i.i.i.i169, !llvm.loop !352
 
 .loopexit.loopexit.i.i.i.i.i154:                  ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlhE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlhE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
   %472 = add i64 %.02419.i.i.i.i.i138, %.pre-phi6
   br label %.loopexit.i.i.i.i.i144
 
-.loopexit.loopexit28.i.i.i.i.i177:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlhE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlhE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
+.loopexit.loopexit21.i.i.i.i.i177:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9UInt8TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlhE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlhE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
   %473 = add i64 %.02419.i.i.i.i.i138, %406
   br label %.loopexit.i.i.i.i.i144
 
-.loopexit.i.i.i.i.i144:                           ; preds = %.loopexit.loopexit28.i.i.i.i.i177, %.loopexit.loopexit.i.i.i.i.i154, %.lr.ph13.i.i.i.i.i179, %.preheader5.i.i.i.i.i178, %.preheader7.i.i.i.i.i168, %.preheader.i.i.i.i.i142
-  %.6.i145 = phi i64 [ %.3.i152, %.loopexit.loopexit.i.i.i.i.i154 ], [ %.1.i137, %.preheader.i.i.i.i.i142 ], [ %437, %.lr.ph13.i.i.i.i.i179 ], [ %.1.i137, %.preheader5.i.i.i.i.i178 ], [ %.5.i175, %.loopexit.loopexit28.i.i.i.i.i177 ], [ %.1.i137, %.preheader7.i.i.i.i.i168 ]
-  %.2.i.i.i.i.i146 = phi i64 [ %472, %.loopexit.loopexit.i.i.i.i.i154 ], [ %.02419.i.i.i.i.i138, %.preheader.i.i.i.i.i142 ], [ %438, %.lr.ph13.i.i.i.i.i179 ], [ %.02419.i.i.i.i.i138, %.preheader5.i.i.i.i.i178 ], [ %473, %.loopexit.loopexit28.i.i.i.i.i177 ], [ %.02419.i.i.i.i.i138, %.preheader7.i.i.i.i.i168 ]
+.loopexit.i.i.i.i.i144:                           ; preds = %.loopexit.loopexit21.i.i.i.i.i177, %.loopexit.loopexit.i.i.i.i.i154, %.lr.ph13.i.i.i.i.i179, %.preheader5.i.i.i.i.i178, %.preheader7.i.i.i.i.i168, %.preheader.i.i.i.i.i142
+  %.6.i145 = phi i64 [ %.3.i152, %.loopexit.loopexit.i.i.i.i.i154 ], [ %.1.i137, %.preheader.i.i.i.i.i142 ], [ %437, %.lr.ph13.i.i.i.i.i179 ], [ %.1.i137, %.preheader5.i.i.i.i.i178 ], [ %.5.i175, %.loopexit.loopexit21.i.i.i.i.i177 ], [ %.1.i137, %.preheader7.i.i.i.i.i168 ]
+  %.2.i.i.i.i.i146 = phi i64 [ %472, %.loopexit.loopexit.i.i.i.i.i154 ], [ %.02419.i.i.i.i.i138, %.preheader.i.i.i.i.i142 ], [ %438, %.lr.ph13.i.i.i.i.i179 ], [ %.02419.i.i.i.i.i138, %.preheader5.i.i.i.i.i178 ], [ %473, %.loopexit.loopexit21.i.i.i.i.i177 ], [ %.02419.i.i.i.i.i138, %.preheader7.i.i.i.i.i168 ]
   %474 = icmp slt i64 %.2.i.i.i.i.i146, %367
   br i1 %474, label %.lr.ph20.i.i.i.i.i136, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9UInt8TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlhE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i, !llvm.loop !353
 
@@ -9070,19 +9070,19 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7comp
   %602 = add nuw nsw i64 %.010.i.i.i.i.i224, 1
   %603 = add nsw i64 %.49.i.i.i.i.i225, 1
   %exitcond.not.i.i.i.i.i229 = icmp eq i64 %602, %538
-  br i1 %exitcond.not.i.i.i.i.i229, label %.loopexit.loopexit28.i.i.i.i.i230, label %.lr.ph.i.i.i.i.i222, !llvm.loop !362
+  br i1 %exitcond.not.i.i.i.i.i229, label %.loopexit.loopexit21.i.i.i.i.i230, label %.lr.ph.i.i.i.i.i222, !llvm.loop !362
 
 .loopexit.loopexit.i.i.i.i.i207:                  ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
   %604 = add i64 %.02419.i.i.i.i.i191, %.pre-phi8
   br label %.loopexit.i.i.i.i.i197
 
-.loopexit.loopexit28.i.i.i.i.i230:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
+.loopexit.loopexit21.i.i.i.i.i230:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlsE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlsE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
   %605 = add i64 %.02419.i.i.i.i.i191, %538
   br label %.loopexit.i.i.i.i.i197
 
-.loopexit.i.i.i.i.i197:                           ; preds = %.loopexit.loopexit28.i.i.i.i.i230, %.loopexit.loopexit.i.i.i.i.i207, %.lr.ph13.i.i.i.i.i232, %.preheader5.i.i.i.i.i231, %.preheader7.i.i.i.i.i221, %.preheader.i.i.i.i.i195
-  %.6.i198 = phi i64 [ %.3.i205, %.loopexit.loopexit.i.i.i.i.i207 ], [ %.1.i190, %.preheader.i.i.i.i.i195 ], [ %569, %.lr.ph13.i.i.i.i.i232 ], [ %.1.i190, %.preheader5.i.i.i.i.i231 ], [ %.5.i228, %.loopexit.loopexit28.i.i.i.i.i230 ], [ %.1.i190, %.preheader7.i.i.i.i.i221 ]
-  %.2.i.i.i.i.i199 = phi i64 [ %604, %.loopexit.loopexit.i.i.i.i.i207 ], [ %.02419.i.i.i.i.i191, %.preheader.i.i.i.i.i195 ], [ %570, %.lr.ph13.i.i.i.i.i232 ], [ %.02419.i.i.i.i.i191, %.preheader5.i.i.i.i.i231 ], [ %605, %.loopexit.loopexit28.i.i.i.i.i230 ], [ %.02419.i.i.i.i.i191, %.preheader7.i.i.i.i.i221 ]
+.loopexit.i.i.i.i.i197:                           ; preds = %.loopexit.loopexit21.i.i.i.i.i230, %.loopexit.loopexit.i.i.i.i.i207, %.lr.ph13.i.i.i.i.i232, %.preheader5.i.i.i.i.i231, %.preheader7.i.i.i.i.i221, %.preheader.i.i.i.i.i195
+  %.6.i198 = phi i64 [ %.3.i205, %.loopexit.loopexit.i.i.i.i.i207 ], [ %.1.i190, %.preheader.i.i.i.i.i195 ], [ %569, %.lr.ph13.i.i.i.i.i232 ], [ %.1.i190, %.preheader5.i.i.i.i.i231 ], [ %.5.i228, %.loopexit.loopexit21.i.i.i.i.i230 ], [ %.1.i190, %.preheader7.i.i.i.i.i221 ]
+  %.2.i.i.i.i.i199 = phi i64 [ %604, %.loopexit.loopexit.i.i.i.i.i207 ], [ %.02419.i.i.i.i.i191, %.preheader.i.i.i.i.i195 ], [ %570, %.lr.ph13.i.i.i.i.i232 ], [ %.02419.i.i.i.i.i191, %.preheader5.i.i.i.i.i231 ], [ %605, %.loopexit.loopexit21.i.i.i.i.i230 ], [ %.02419.i.i.i.i.i191, %.preheader7.i.i.i.i.i221 ]
   %606 = icmp slt i64 %.2.i.i.i.i.i199, %499
   br i1 %606, label %.lr.ph20.i.i.i.i.i189, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlsE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i, !llvm.loop !363
 
@@ -9347,19 +9347,19 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7co
   %734 = add nuw nsw i64 %.010.i.i.i.i.i277, 1
   %735 = add nsw i64 %.49.i.i.i.i.i278, 1
   %exitcond.not.i.i.i.i.i282 = icmp eq i64 %734, %670
-  br i1 %exitcond.not.i.i.i.i.i282, label %.loopexit.loopexit28.i.i.i.i.i283, label %.lr.ph.i.i.i.i.i275, !llvm.loop !371
+  br i1 %exitcond.not.i.i.i.i.i282, label %.loopexit.loopexit21.i.i.i.i.i283, label %.lr.ph.i.i.i.i.i275, !llvm.loop !371
 
 .loopexit.loopexit.i.i.i.i.i260:                  ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
   %736 = add i64 %.02419.i.i.i.i.i244, %.pre-phi10
   br label %.loopexit.i.i.i.i.i250
 
-.loopexit.loopexit28.i.i.i.i.i283:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
+.loopexit.loopexit21.i.i.i.i.i283:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
   %737 = add i64 %.02419.i.i.i.i.i244, %670
   br label %.loopexit.i.i.i.i.i250
 
-.loopexit.i.i.i.i.i250:                           ; preds = %.loopexit.loopexit28.i.i.i.i.i283, %.loopexit.loopexit.i.i.i.i.i260, %.lr.ph13.i.i.i.i.i285, %.preheader5.i.i.i.i.i284, %.preheader7.i.i.i.i.i274, %.preheader.i.i.i.i.i248
-  %.6.i251 = phi i64 [ %.3.i258, %.loopexit.loopexit.i.i.i.i.i260 ], [ %.1.i243, %.preheader.i.i.i.i.i248 ], [ %701, %.lr.ph13.i.i.i.i.i285 ], [ %.1.i243, %.preheader5.i.i.i.i.i284 ], [ %.5.i281, %.loopexit.loopexit28.i.i.i.i.i283 ], [ %.1.i243, %.preheader7.i.i.i.i.i274 ]
-  %.2.i.i.i.i.i252 = phi i64 [ %736, %.loopexit.loopexit.i.i.i.i.i260 ], [ %.02419.i.i.i.i.i244, %.preheader.i.i.i.i.i248 ], [ %702, %.lr.ph13.i.i.i.i.i285 ], [ %.02419.i.i.i.i.i244, %.preheader5.i.i.i.i.i284 ], [ %737, %.loopexit.loopexit28.i.i.i.i.i283 ], [ %.02419.i.i.i.i.i244, %.preheader7.i.i.i.i.i274 ]
+.loopexit.i.i.i.i.i250:                           ; preds = %.loopexit.loopexit21.i.i.i.i.i283, %.loopexit.loopexit.i.i.i.i.i260, %.lr.ph13.i.i.i.i.i285, %.preheader5.i.i.i.i.i284, %.preheader7.i.i.i.i.i274, %.preheader.i.i.i.i.i248
+  %.6.i251 = phi i64 [ %.3.i258, %.loopexit.loopexit.i.i.i.i.i260 ], [ %.1.i243, %.preheader.i.i.i.i.i248 ], [ %701, %.lr.ph13.i.i.i.i.i285 ], [ %.1.i243, %.preheader5.i.i.i.i.i284 ], [ %.5.i281, %.loopexit.loopexit21.i.i.i.i.i283 ], [ %.1.i243, %.preheader7.i.i.i.i.i274 ]
+  %.2.i.i.i.i.i252 = phi i64 [ %736, %.loopexit.loopexit.i.i.i.i.i260 ], [ %.02419.i.i.i.i.i244, %.preheader.i.i.i.i.i248 ], [ %702, %.lr.ph13.i.i.i.i.i285 ], [ %.02419.i.i.i.i.i244, %.preheader5.i.i.i.i.i284 ], [ %737, %.loopexit.loopexit21.i.i.i.i.i283 ], [ %.02419.i.i.i.i.i244, %.preheader7.i.i.i.i.i274 ]
   %738 = icmp slt i64 %.2.i.i.i.i.i252, %631
   br i1 %738, label %.lr.ph20.i.i.i.i.i242, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt16TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i, !llvm.loop !372
 
@@ -9624,19 +9624,19 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7comp
   %866 = add nuw nsw i64 %.010.i.i.i.i.i330, 1
   %867 = add nsw i64 %.49.i.i.i.i.i331, 1
   %exitcond.not.i.i.i.i.i335 = icmp eq i64 %866, %802
-  br i1 %exitcond.not.i.i.i.i.i335, label %.loopexit.loopexit28.i.i.i.i.i336, label %.lr.ph.i.i.i.i.i328, !llvm.loop !380
+  br i1 %exitcond.not.i.i.i.i.i335, label %.loopexit.loopexit21.i.i.i.i.i336, label %.lr.ph.i.i.i.i.i328, !llvm.loop !380
 
 .loopexit.loopexit.i.i.i.i.i313:                  ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
   %868 = add i64 %.02419.i.i.i.i.i297, %.pre-phi12
   br label %.loopexit.i.i.i.i.i303
 
-.loopexit.loopexit28.i.i.i.i.i336:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
+.loopexit.loopexit21.i.i.i.i.i336:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUliE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUliE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
   %869 = add i64 %.02419.i.i.i.i.i297, %802
   br label %.loopexit.i.i.i.i.i303
 
-.loopexit.i.i.i.i.i303:                           ; preds = %.loopexit.loopexit28.i.i.i.i.i336, %.loopexit.loopexit.i.i.i.i.i313, %.lr.ph13.i.i.i.i.i338, %.preheader5.i.i.i.i.i337, %.preheader7.i.i.i.i.i327, %.preheader.i.i.i.i.i301
-  %.6.i304 = phi i64 [ %.3.i311, %.loopexit.loopexit.i.i.i.i.i313 ], [ %.1.i296, %.preheader.i.i.i.i.i301 ], [ %833, %.lr.ph13.i.i.i.i.i338 ], [ %.1.i296, %.preheader5.i.i.i.i.i337 ], [ %.5.i334, %.loopexit.loopexit28.i.i.i.i.i336 ], [ %.1.i296, %.preheader7.i.i.i.i.i327 ]
-  %.2.i.i.i.i.i305 = phi i64 [ %868, %.loopexit.loopexit.i.i.i.i.i313 ], [ %.02419.i.i.i.i.i297, %.preheader.i.i.i.i.i301 ], [ %834, %.lr.ph13.i.i.i.i.i338 ], [ %.02419.i.i.i.i.i297, %.preheader5.i.i.i.i.i337 ], [ %869, %.loopexit.loopexit28.i.i.i.i.i336 ], [ %.02419.i.i.i.i.i297, %.preheader7.i.i.i.i.i327 ]
+.loopexit.i.i.i.i.i303:                           ; preds = %.loopexit.loopexit21.i.i.i.i.i336, %.loopexit.loopexit.i.i.i.i.i313, %.lr.ph13.i.i.i.i.i338, %.preheader5.i.i.i.i.i337, %.preheader7.i.i.i.i.i327, %.preheader.i.i.i.i.i301
+  %.6.i304 = phi i64 [ %.3.i311, %.loopexit.loopexit.i.i.i.i.i313 ], [ %.1.i296, %.preheader.i.i.i.i.i301 ], [ %833, %.lr.ph13.i.i.i.i.i338 ], [ %.1.i296, %.preheader5.i.i.i.i.i337 ], [ %.5.i334, %.loopexit.loopexit21.i.i.i.i.i336 ], [ %.1.i296, %.preheader7.i.i.i.i.i327 ]
+  %.2.i.i.i.i.i305 = phi i64 [ %868, %.loopexit.loopexit.i.i.i.i.i313 ], [ %.02419.i.i.i.i.i297, %.preheader.i.i.i.i.i301 ], [ %834, %.lr.ph13.i.i.i.i.i338 ], [ %.02419.i.i.i.i.i297, %.preheader5.i.i.i.i.i337 ], [ %869, %.loopexit.loopexit21.i.i.i.i.i336 ], [ %.02419.i.i.i.i.i297, %.preheader7.i.i.i.i.i327 ]
   %870 = icmp slt i64 %.2.i.i.i.i.i305, %763
   br i1 %870, label %.lr.ph20.i.i.i.i.i295, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUliE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i, !llvm.loop !381
 
@@ -9901,19 +9901,19 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7co
   %998 = add nuw nsw i64 %.010.i.i.i.i.i383, 1
   %999 = add nsw i64 %.49.i.i.i.i.i384, 1
   %exitcond.not.i.i.i.i.i388 = icmp eq i64 %998, %934
-  br i1 %exitcond.not.i.i.i.i.i388, label %.loopexit.loopexit28.i.i.i.i.i389, label %.lr.ph.i.i.i.i.i381, !llvm.loop !389
+  br i1 %exitcond.not.i.i.i.i.i388, label %.loopexit.loopexit21.i.i.i.i.i389, label %.lr.ph.i.i.i.i.i381, !llvm.loop !389
 
 .loopexit.loopexit.i.i.i.i.i366:                  ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
   %1000 = add i64 %.02419.i.i.i.i.i350, %.pre-phi14
   br label %.loopexit.i.i.i.i.i356
 
-.loopexit.loopexit28.i.i.i.i.i389:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
+.loopexit.loopexit21.i.i.i.i.i389:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUljE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUljE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
   %1001 = add i64 %.02419.i.i.i.i.i350, %934
   br label %.loopexit.i.i.i.i.i356
 
-.loopexit.i.i.i.i.i356:                           ; preds = %.loopexit.loopexit28.i.i.i.i.i389, %.loopexit.loopexit.i.i.i.i.i366, %.lr.ph13.i.i.i.i.i391, %.preheader5.i.i.i.i.i390, %.preheader7.i.i.i.i.i380, %.preheader.i.i.i.i.i354
-  %.6.i357 = phi i64 [ %.3.i364, %.loopexit.loopexit.i.i.i.i.i366 ], [ %.1.i349, %.preheader.i.i.i.i.i354 ], [ %965, %.lr.ph13.i.i.i.i.i391 ], [ %.1.i349, %.preheader5.i.i.i.i.i390 ], [ %.5.i387, %.loopexit.loopexit28.i.i.i.i.i389 ], [ %.1.i349, %.preheader7.i.i.i.i.i380 ]
-  %.2.i.i.i.i.i358 = phi i64 [ %1000, %.loopexit.loopexit.i.i.i.i.i366 ], [ %.02419.i.i.i.i.i350, %.preheader.i.i.i.i.i354 ], [ %966, %.lr.ph13.i.i.i.i.i391 ], [ %.02419.i.i.i.i.i350, %.preheader5.i.i.i.i.i390 ], [ %1001, %.loopexit.loopexit28.i.i.i.i.i389 ], [ %.02419.i.i.i.i.i350, %.preheader7.i.i.i.i.i380 ]
+.loopexit.i.i.i.i.i356:                           ; preds = %.loopexit.loopexit21.i.i.i.i.i389, %.loopexit.loopexit.i.i.i.i.i366, %.lr.ph13.i.i.i.i.i391, %.preheader5.i.i.i.i.i390, %.preheader7.i.i.i.i.i380, %.preheader.i.i.i.i.i354
+  %.6.i357 = phi i64 [ %.3.i364, %.loopexit.loopexit.i.i.i.i.i366 ], [ %.1.i349, %.preheader.i.i.i.i.i354 ], [ %965, %.lr.ph13.i.i.i.i.i391 ], [ %.1.i349, %.preheader5.i.i.i.i.i390 ], [ %.5.i387, %.loopexit.loopexit21.i.i.i.i.i389 ], [ %.1.i349, %.preheader7.i.i.i.i.i380 ]
+  %.2.i.i.i.i.i358 = phi i64 [ %1000, %.loopexit.loopexit.i.i.i.i.i366 ], [ %.02419.i.i.i.i.i350, %.preheader.i.i.i.i.i354 ], [ %966, %.lr.ph13.i.i.i.i.i391 ], [ %.02419.i.i.i.i.i350, %.preheader5.i.i.i.i.i390 ], [ %1001, %.loopexit.loopexit21.i.i.i.i.i389 ], [ %.02419.i.i.i.i.i350, %.preheader7.i.i.i.i.i380 ]
   %1002 = icmp slt i64 %.2.i.i.i.i.i358, %895
   br i1 %1002, label %.lr.ph20.i.i.i.i.i348, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUljE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i, !llvm.loop !390
 
@@ -10178,19 +10178,19 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7comp
   %1130 = add nuw nsw i64 %.010.i.i.i.i.i436, 1
   %1131 = add nsw i64 %.49.i.i.i.i.i437, 1
   %exitcond.not.i.i.i.i.i441 = icmp eq i64 %1130, %1066
-  br i1 %exitcond.not.i.i.i.i.i441, label %.loopexit.loopexit28.i.i.i.i.i442, label %.lr.ph.i.i.i.i.i434, !llvm.loop !398
+  br i1 %exitcond.not.i.i.i.i.i441, label %.loopexit.loopexit21.i.i.i.i.i442, label %.lr.ph.i.i.i.i.i434, !llvm.loop !398
 
 .loopexit.loopexit.i.i.i.i.i419:                  ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
   %1132 = add i64 %.02419.i.i.i.i.i403, %.pre-phi16
   br label %.loopexit.i.i.i.i.i409
 
-.loopexit.loopexit28.i.i.i.i.i442:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
+.loopexit.loopexit21.i.i.i.i.i442:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9Int64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUllE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUllE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
   %1133 = add i64 %.02419.i.i.i.i.i403, %1066
   br label %.loopexit.i.i.i.i.i409
 
-.loopexit.i.i.i.i.i409:                           ; preds = %.loopexit.loopexit28.i.i.i.i.i442, %.loopexit.loopexit.i.i.i.i.i419, %.lr.ph13.i.i.i.i.i444, %.preheader5.i.i.i.i.i443, %.preheader7.i.i.i.i.i433, %.preheader.i.i.i.i.i407
-  %.6.i410 = phi i64 [ %.3.i417, %.loopexit.loopexit.i.i.i.i.i419 ], [ %.1.i402, %.preheader.i.i.i.i.i407 ], [ %1097, %.lr.ph13.i.i.i.i.i444 ], [ %.1.i402, %.preheader5.i.i.i.i.i443 ], [ %.5.i440, %.loopexit.loopexit28.i.i.i.i.i442 ], [ %.1.i402, %.preheader7.i.i.i.i.i433 ]
-  %.2.i.i.i.i.i411 = phi i64 [ %1132, %.loopexit.loopexit.i.i.i.i.i419 ], [ %.02419.i.i.i.i.i403, %.preheader.i.i.i.i.i407 ], [ %1098, %.lr.ph13.i.i.i.i.i444 ], [ %.02419.i.i.i.i.i403, %.preheader5.i.i.i.i.i443 ], [ %1133, %.loopexit.loopexit28.i.i.i.i.i442 ], [ %.02419.i.i.i.i.i403, %.preheader7.i.i.i.i.i433 ]
+.loopexit.i.i.i.i.i409:                           ; preds = %.loopexit.loopexit21.i.i.i.i.i442, %.loopexit.loopexit.i.i.i.i.i419, %.lr.ph13.i.i.i.i.i444, %.preheader5.i.i.i.i.i443, %.preheader7.i.i.i.i.i433, %.preheader.i.i.i.i.i407
+  %.6.i410 = phi i64 [ %.3.i417, %.loopexit.loopexit.i.i.i.i.i419 ], [ %.1.i402, %.preheader.i.i.i.i.i407 ], [ %1097, %.lr.ph13.i.i.i.i.i444 ], [ %.1.i402, %.preheader5.i.i.i.i.i443 ], [ %.5.i440, %.loopexit.loopexit21.i.i.i.i.i442 ], [ %.1.i402, %.preheader7.i.i.i.i.i433 ]
+  %.2.i.i.i.i.i411 = phi i64 [ %1132, %.loopexit.loopexit.i.i.i.i.i419 ], [ %.02419.i.i.i.i.i403, %.preheader.i.i.i.i.i407 ], [ %1098, %.lr.ph13.i.i.i.i.i444 ], [ %.02419.i.i.i.i.i403, %.preheader5.i.i.i.i.i443 ], [ %1133, %.loopexit.loopexit21.i.i.i.i.i442 ], [ %.02419.i.i.i.i.i403, %.preheader7.i.i.i.i.i433 ]
   %1134 = icmp slt i64 %.2.i.i.i.i.i411, %1027
   br i1 %1134, label %.lr.ph20.i.i.i.i.i401, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9Int64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUllE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i, !llvm.loop !399
 
@@ -10455,19 +10455,19 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7co
   %1262 = add nuw nsw i64 %.010.i.i.i.i.i489, 1
   %1263 = add nsw i64 %.49.i.i.i.i.i490, 1
   %exitcond.not.i.i.i.i.i494 = icmp eq i64 %1262, %1198
-  br i1 %exitcond.not.i.i.i.i.i494, label %.loopexit.loopexit28.i.i.i.i.i495, label %.lr.ph.i.i.i.i.i487, !llvm.loop !407
+  br i1 %exitcond.not.i.i.i.i.i494, label %.loopexit.loopexit21.i.i.i.i.i495, label %.lr.ph.i.i.i.i.i487, !llvm.loop !407
 
 .loopexit.loopexit.i.i.i.i.i472:                  ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
   %1264 = add i64 %.02419.i.i.i.i.i456, %.pre-phi18
   br label %.loopexit.i.i.i.i.i462
 
-.loopexit.loopexit28.i.i.i.i.i495:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
+.loopexit.loopexit21.i.i.i.i.i495:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlmE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlmE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
   %1265 = add i64 %.02419.i.i.i.i.i456, %1198
   br label %.loopexit.i.i.i.i.i462
 
-.loopexit.i.i.i.i.i462:                           ; preds = %.loopexit.loopexit28.i.i.i.i.i495, %.loopexit.loopexit.i.i.i.i.i472, %.lr.ph13.i.i.i.i.i497, %.preheader5.i.i.i.i.i496, %.preheader7.i.i.i.i.i486, %.preheader.i.i.i.i.i460
-  %.6.i463 = phi i64 [ %.3.i470, %.loopexit.loopexit.i.i.i.i.i472 ], [ %.1.i455, %.preheader.i.i.i.i.i460 ], [ %1229, %.lr.ph13.i.i.i.i.i497 ], [ %.1.i455, %.preheader5.i.i.i.i.i496 ], [ %.5.i493, %.loopexit.loopexit28.i.i.i.i.i495 ], [ %.1.i455, %.preheader7.i.i.i.i.i486 ]
-  %.2.i.i.i.i.i464 = phi i64 [ %1264, %.loopexit.loopexit.i.i.i.i.i472 ], [ %.02419.i.i.i.i.i456, %.preheader.i.i.i.i.i460 ], [ %1230, %.lr.ph13.i.i.i.i.i497 ], [ %.02419.i.i.i.i.i456, %.preheader5.i.i.i.i.i496 ], [ %1265, %.loopexit.loopexit28.i.i.i.i.i495 ], [ %.02419.i.i.i.i.i456, %.preheader7.i.i.i.i.i486 ]
+.loopexit.i.i.i.i.i462:                           ; preds = %.loopexit.loopexit21.i.i.i.i.i495, %.loopexit.loopexit.i.i.i.i.i472, %.lr.ph13.i.i.i.i.i497, %.preheader5.i.i.i.i.i496, %.preheader7.i.i.i.i.i486, %.preheader.i.i.i.i.i460
+  %.6.i463 = phi i64 [ %.3.i470, %.loopexit.loopexit.i.i.i.i.i472 ], [ %.1.i455, %.preheader.i.i.i.i.i460 ], [ %1229, %.lr.ph13.i.i.i.i.i497 ], [ %.1.i455, %.preheader5.i.i.i.i.i496 ], [ %.5.i493, %.loopexit.loopexit21.i.i.i.i.i495 ], [ %.1.i455, %.preheader7.i.i.i.i.i486 ]
+  %.2.i.i.i.i.i464 = phi i64 [ %1264, %.loopexit.loopexit.i.i.i.i.i472 ], [ %.02419.i.i.i.i.i456, %.preheader.i.i.i.i.i460 ], [ %1230, %.lr.ph13.i.i.i.i.i497 ], [ %.02419.i.i.i.i.i456, %.preheader5.i.i.i.i.i496 ], [ %1265, %.loopexit.loopexit21.i.i.i.i.i495 ], [ %.02419.i.i.i.i.i456, %.preheader7.i.i.i.i.i486 ]
   %1266 = icmp slt i64 %.2.i.i.i.i.i464, %1159
   br i1 %1266, label %.lr.ph20.i.i.i.i.i454, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10UInt64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlmE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i, !llvm.loop !408
 
@@ -10732,19 +10732,19 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_
   %1394 = add nuw nsw i64 %.010.i.i.i.i.i542, 1
   %1395 = add nsw i64 %.49.i.i.i.i.i543, 1
   %exitcond.not.i.i.i.i.i547 = icmp eq i64 %1394, %1330
-  br i1 %exitcond.not.i.i.i.i.i547, label %.loopexit.loopexit28.i.i.i.i.i548, label %.lr.ph.i.i.i.i.i540, !llvm.loop !416
+  br i1 %exitcond.not.i.i.i.i.i547, label %.loopexit.loopexit21.i.i.i.i.i548, label %.lr.ph.i.i.i.i.i540, !llvm.loop !416
 
 .loopexit.loopexit.i.i.i.i.i525:                  ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
   %1396 = add i64 %.02419.i.i.i.i.i509, %.pre-phi20
   br label %.loopexit.i.i.i.i.i515
 
-.loopexit.loopexit28.i.i.i.i.i548:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
+.loopexit.loopexit21.i.i.i.i.i548:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13HalfFloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUltE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUltE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit33.i.i.i.i.i
   %1397 = add i64 %.02419.i.i.i.i.i509, %1330
   br label %.loopexit.i.i.i.i.i515
 
-.loopexit.i.i.i.i.i515:                           ; preds = %.loopexit.loopexit28.i.i.i.i.i548, %.loopexit.loopexit.i.i.i.i.i525, %.lr.ph13.i.i.i.i.i550, %.preheader5.i.i.i.i.i549, %.preheader7.i.i.i.i.i539, %.preheader.i.i.i.i.i513
-  %.6.i516 = phi i64 [ %.3.i523, %.loopexit.loopexit.i.i.i.i.i525 ], [ %.1.i508, %.preheader.i.i.i.i.i513 ], [ %1361, %.lr.ph13.i.i.i.i.i550 ], [ %.1.i508, %.preheader5.i.i.i.i.i549 ], [ %.5.i546, %.loopexit.loopexit28.i.i.i.i.i548 ], [ %.1.i508, %.preheader7.i.i.i.i.i539 ]
-  %.2.i.i.i.i.i517 = phi i64 [ %1396, %.loopexit.loopexit.i.i.i.i.i525 ], [ %.02419.i.i.i.i.i509, %.preheader.i.i.i.i.i513 ], [ %1362, %.lr.ph13.i.i.i.i.i550 ], [ %.02419.i.i.i.i.i509, %.preheader5.i.i.i.i.i549 ], [ %1397, %.loopexit.loopexit28.i.i.i.i.i548 ], [ %.02419.i.i.i.i.i509, %.preheader7.i.i.i.i.i539 ]
+.loopexit.i.i.i.i.i515:                           ; preds = %.loopexit.loopexit21.i.i.i.i.i548, %.loopexit.loopexit.i.i.i.i.i525, %.lr.ph13.i.i.i.i.i550, %.preheader5.i.i.i.i.i549, %.preheader7.i.i.i.i.i539, %.preheader.i.i.i.i.i513
+  %.6.i516 = phi i64 [ %.3.i523, %.loopexit.loopexit.i.i.i.i.i525 ], [ %.1.i508, %.preheader.i.i.i.i.i513 ], [ %1361, %.lr.ph13.i.i.i.i.i550 ], [ %.1.i508, %.preheader5.i.i.i.i.i549 ], [ %.5.i546, %.loopexit.loopexit21.i.i.i.i.i548 ], [ %.1.i508, %.preheader7.i.i.i.i.i539 ]
+  %.2.i.i.i.i.i517 = phi i64 [ %1396, %.loopexit.loopexit.i.i.i.i.i525 ], [ %.02419.i.i.i.i.i509, %.preheader.i.i.i.i.i513 ], [ %1362, %.lr.ph13.i.i.i.i.i550 ], [ %.02419.i.i.i.i.i509, %.preheader5.i.i.i.i.i549 ], [ %1397, %.loopexit.loopexit21.i.i.i.i.i548 ], [ %.02419.i.i.i.i.i509, %.preheader7.i.i.i.i.i539 ]
   %1398 = icmp slt i64 %.2.i.i.i.i.i517, %1291
   br i1 %1398, label %.lr.ph20.i.i.i.i.i507, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_13HalfFloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUltE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i, !llvm.loop !417
 
@@ -11009,19 +11009,19 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7comp
   %1528 = add nuw nsw i64 %.010.i.i.i.i.i594, 1
   %1529 = add nsw i64 %.49.i.i.i.i.i595, 1
   %exitcond.not.i.i.i.i.i598 = icmp eq i64 %1528, %1462
-  br i1 %exitcond.not.i.i.i.i.i598, label %.loopexit.loopexit28.i.i.i.i.i599, label %.lr.ph.i.i.i.i.i592, !llvm.loop !427
+  br i1 %exitcond.not.i.i.i.i.i598, label %.loopexit.loopexit21.i.i.i.i.i599, label %.lr.ph.i.i.i.i.i592, !llvm.loop !427
 
 .loopexit.loopexit.i.i.i.i.i577:                  ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
   %1530 = add i64 %.02419.i.i.i.i.i562, %.pre-phi22
   br label %.loopexit.i.i.i.i.i568
 
-.loopexit.loopexit28.i.i.i.i.i599:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit32.i.i.i.i.i
+.loopexit.loopexit21.i.i.i.i.i599:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_9FloatTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlfE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUlfE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit32.i.i.i.i.i
   %1531 = add i64 %.02419.i.i.i.i.i562, %1462
   br label %.loopexit.i.i.i.i.i568
 
-.loopexit.i.i.i.i.i568:                           ; preds = %.loopexit.loopexit28.i.i.i.i.i599, %.loopexit.loopexit.i.i.i.i.i577, %.lr.ph13.i.i.i.i.i601, %.preheader5.i.i.i.i.i600, %.preheader7.i.i.i.i.i591, %.preheader.i.i.i.i.i566
-  %.6.i569 = phi i64 [ %.3.i575, %.loopexit.loopexit.i.i.i.i.i577 ], [ %.1.i561, %.preheader.i.i.i.i.i566 ], [ %1494, %.lr.ph13.i.i.i.i.i601 ], [ %.1.i561, %.preheader5.i.i.i.i.i600 ], [ %.5.i597, %.loopexit.loopexit28.i.i.i.i.i599 ], [ %.1.i561, %.preheader7.i.i.i.i.i591 ]
-  %.2.i.i.i.i.i570 = phi i64 [ %1530, %.loopexit.loopexit.i.i.i.i.i577 ], [ %.02419.i.i.i.i.i562, %.preheader.i.i.i.i.i566 ], [ %1495, %.lr.ph13.i.i.i.i.i601 ], [ %.02419.i.i.i.i.i562, %.preheader5.i.i.i.i.i600 ], [ %1531, %.loopexit.loopexit28.i.i.i.i.i599 ], [ %.02419.i.i.i.i.i562, %.preheader7.i.i.i.i.i591 ]
+.loopexit.i.i.i.i.i568:                           ; preds = %.loopexit.loopexit21.i.i.i.i.i599, %.loopexit.loopexit.i.i.i.i.i577, %.lr.ph13.i.i.i.i.i601, %.preheader5.i.i.i.i.i600, %.preheader7.i.i.i.i.i591, %.preheader.i.i.i.i.i566
+  %.6.i569 = phi i64 [ %.3.i575, %.loopexit.loopexit.i.i.i.i.i577 ], [ %.1.i561, %.preheader.i.i.i.i.i566 ], [ %1494, %.lr.ph13.i.i.i.i.i601 ], [ %.1.i561, %.preheader5.i.i.i.i.i600 ], [ %.5.i597, %.loopexit.loopexit21.i.i.i.i.i599 ], [ %.1.i561, %.preheader7.i.i.i.i.i591 ]
+  %.2.i.i.i.i.i570 = phi i64 [ %1530, %.loopexit.loopexit.i.i.i.i.i577 ], [ %.02419.i.i.i.i.i562, %.preheader.i.i.i.i.i566 ], [ %1495, %.lr.ph13.i.i.i.i.i601 ], [ %.02419.i.i.i.i.i562, %.preheader5.i.i.i.i.i600 ], [ %1531, %.loopexit.loopexit21.i.i.i.i.i599 ], [ %.02419.i.i.i.i.i562, %.preheader7.i.i.i.i.i591 ]
   %1532 = icmp slt i64 %.2.i.i.i.i.i570, %1423
   br i1 %1532, label %.lr.ph20.i.i.i.i.i560, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_9FloatTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlfE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i, !llvm.loop !428
 
@@ -11286,19 +11286,19 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7co
   %1662 = add nuw nsw i64 %.010.i.i.i.i.i645, 1
   %1663 = add nsw i64 %.49.i.i.i.i.i646, 1
   %exitcond.not.i.i.i.i.i649 = icmp eq i64 %1662, %1596
-  br i1 %exitcond.not.i.i.i.i.i649, label %.loopexit.loopexit28.i.i.i.i.i650, label %.lr.ph.i.i.i.i.i643, !llvm.loop !438
+  br i1 %exitcond.not.i.i.i.i.i649, label %.loopexit.loopexit21.i.i.i.i.i650, label %.lr.ph.i.i.i.i.i643, !llvm.loop !438
 
 .loopexit.loopexit.i.i.i.i.i628:                  ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit.i.i.i.i.i
   %1664 = add i64 %.02419.i.i.i.i.i613, %.pre-phi24
   br label %.loopexit.i.i.i.i.i619
 
-.loopexit.loopexit28.i.i.i.i.i650:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit32.i.i.i.i.i
+.loopexit.loopexit21.i.i.i.i.i650:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10DoubleTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUldE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSK_OT1_EUldE_SJ_EEvSQ_OSC_SR_ENKUllE_clEl.exit32.i.i.i.i.i
   %1665 = add i64 %.02419.i.i.i.i.i613, %1596
   br label %.loopexit.i.i.i.i.i619
 
-.loopexit.i.i.i.i.i619:                           ; preds = %.loopexit.loopexit28.i.i.i.i.i650, %.loopexit.loopexit.i.i.i.i.i628, %.lr.ph13.i.i.i.i.i652, %.preheader5.i.i.i.i.i651, %.preheader7.i.i.i.i.i642, %.preheader.i.i.i.i.i617
-  %.6.i620 = phi i64 [ %.3.i626, %.loopexit.loopexit.i.i.i.i.i628 ], [ %.1.i612, %.preheader.i.i.i.i.i617 ], [ %1628, %.lr.ph13.i.i.i.i.i652 ], [ %.1.i612, %.preheader5.i.i.i.i.i651 ], [ %.5.i648, %.loopexit.loopexit28.i.i.i.i.i650 ], [ %.1.i612, %.preheader7.i.i.i.i.i642 ]
-  %.2.i.i.i.i.i621 = phi i64 [ %1664, %.loopexit.loopexit.i.i.i.i.i628 ], [ %.02419.i.i.i.i.i613, %.preheader.i.i.i.i.i617 ], [ %1629, %.lr.ph13.i.i.i.i.i652 ], [ %.02419.i.i.i.i.i613, %.preheader5.i.i.i.i.i651 ], [ %1665, %.loopexit.loopexit28.i.i.i.i.i650 ], [ %.02419.i.i.i.i.i613, %.preheader7.i.i.i.i.i642 ]
+.loopexit.i.i.i.i.i619:                           ; preds = %.loopexit.loopexit21.i.i.i.i.i650, %.loopexit.loopexit.i.i.i.i.i628, %.lr.ph13.i.i.i.i.i652, %.preheader5.i.i.i.i.i651, %.preheader7.i.i.i.i.i642, %.preheader.i.i.i.i.i617
+  %.6.i620 = phi i64 [ %.3.i626, %.loopexit.loopexit.i.i.i.i.i628 ], [ %.1.i612, %.preheader.i.i.i.i.i617 ], [ %1628, %.lr.ph13.i.i.i.i.i652 ], [ %.1.i612, %.preheader5.i.i.i.i.i651 ], [ %.5.i648, %.loopexit.loopexit21.i.i.i.i.i650 ], [ %.1.i612, %.preheader7.i.i.i.i.i642 ]
+  %.2.i.i.i.i.i621 = phi i64 [ %1664, %.loopexit.loopexit.i.i.i.i.i628 ], [ %.02419.i.i.i.i.i613, %.preheader.i.i.i.i.i617 ], [ %1629, %.lr.ph13.i.i.i.i.i652 ], [ %.02419.i.i.i.i.i613, %.preheader5.i.i.i.i.i651 ], [ %1665, %.loopexit.loopexit21.i.i.i.i.i650 ], [ %.02419.i.i.i.i.i613, %.preheader7.i.i.i.i.i642 ]
   %1666 = icmp slt i64 %.2.i.i.i.i.i621, %1557
   br i1 %1666, label %.lr.ph20.i.i.i.i.i611, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_10DoubleTypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUldE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSG_OT1_.exit.i, !llvm.loop !439
 
@@ -12264,7 +12264,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal32TypeEvE9VisitVoidIZNS_
   %2055 = add nuw nsw i64 %.042.i.i.i.i.i, 1
   %2056 = add nsw i64 %.441.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i801 = icmp eq i64 %2055, %1993
-  br i1 %exitcond.not.i.i.i.i.i801, label %.loopexit.loopexit63.i.i.i.i.i, label %.lr.ph.i.i.i.i.i797, !llvm.loop !495
+  br i1 %exitcond.not.i.i.i.i.i801, label %.loopexit.loopexit54.i.i.i.i.i, label %.lr.ph.i.i.i.i.i797, !llvm.loop !495
 
 .loopexit.loopexit.i.i.i.i.i783:                  ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlNS_9Decimal32EE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSL_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SK_EEvSR_OSC_SS_ENKUllE_clEl.exit.i.i.i.i.i
   %2057 = mul nsw i64 %.pre-phi26, %1946
@@ -12272,16 +12272,16 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal32TypeEvE9VisitVoidIZNS_
   %2058 = add i64 %.02452.i.i.i.i.i, %.pre-phi26
   br label %.loopexit.i.i.i.i.i776
 
-.loopexit.loopexit63.i.i.i.i.i:                   ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlNS_9Decimal32EE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSL_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SK_EEvSR_OSC_SS_ENKUllE_clEl.exit31.i.i.i.i.i
+.loopexit.loopexit54.i.i.i.i.i:                   ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal32TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlNS_9Decimal32EE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSL_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SK_EEvSR_OSC_SS_ENKUllE_clEl.exit31.i.i.i.i.i
   %2059 = mul nsw i64 %1993, %1946
   %scevgep.i.i.i.i = getelementptr i8, ptr %.promoted2124.i.i.i.i, i64 %2059
   %2060 = add i64 %.02452.i.i.i.i.i, %1993
   br label %.loopexit.i.i.i.i.i776
 
-.loopexit.i.i.i.i.i776:                           ; preds = %.loopexit.loopexit63.i.i.i.i.i, %.loopexit.loopexit.i.i.i.i.i783, %.lr.ph45.i.i.i.i.i, %.preheader37.i.i.i.i.i802, %.preheader39.i.i.i.i.i, %.preheader.i.i.i.i.i775
-  %.6.i777 = phi i64 [ %.3.i782, %.loopexit.loopexit.i.i.i.i.i783 ], [ %.1.i771, %.preheader.i.i.i.i.i775 ], [ %2024, %.lr.ph45.i.i.i.i.i ], [ %.1.i771, %.preheader37.i.i.i.i.i802 ], [ %.5.i800, %.loopexit.loopexit63.i.i.i.i.i ], [ %.1.i771, %.preheader39.i.i.i.i.i ]
-  %.promoted2123.i.i.i.i = phi ptr [ %scevgep.i.i.i, %.loopexit.loopexit.i.i.i.i.i783 ], [ %.promoted2124.i.i.i.i, %.preheader.i.i.i.i.i775 ], [ %scevgep.i.i.i.i.i, %.lr.ph45.i.i.i.i.i ], [ %.promoted2124.i.i.i.i, %.preheader37.i.i.i.i.i802 ], [ %scevgep.i.i.i.i, %.loopexit.loopexit63.i.i.i.i.i ], [ %.promoted2124.i.i.i.i, %.preheader39.i.i.i.i.i ]
-  %.2.i.i.i.i.i778 = phi i64 [ %2058, %.loopexit.loopexit.i.i.i.i.i783 ], [ %.02452.i.i.i.i.i, %.preheader.i.i.i.i.i775 ], [ %2025, %.lr.ph45.i.i.i.i.i ], [ %.02452.i.i.i.i.i, %.preheader37.i.i.i.i.i802 ], [ %2060, %.loopexit.loopexit63.i.i.i.i.i ], [ %.02452.i.i.i.i.i, %.preheader39.i.i.i.i.i ]
+.loopexit.i.i.i.i.i776:                           ; preds = %.loopexit.loopexit54.i.i.i.i.i, %.loopexit.loopexit.i.i.i.i.i783, %.lr.ph45.i.i.i.i.i, %.preheader37.i.i.i.i.i802, %.preheader39.i.i.i.i.i, %.preheader.i.i.i.i.i775
+  %.6.i777 = phi i64 [ %.3.i782, %.loopexit.loopexit.i.i.i.i.i783 ], [ %.1.i771, %.preheader.i.i.i.i.i775 ], [ %2024, %.lr.ph45.i.i.i.i.i ], [ %.1.i771, %.preheader37.i.i.i.i.i802 ], [ %.5.i800, %.loopexit.loopexit54.i.i.i.i.i ], [ %.1.i771, %.preheader39.i.i.i.i.i ]
+  %.promoted2123.i.i.i.i = phi ptr [ %scevgep.i.i.i, %.loopexit.loopexit.i.i.i.i.i783 ], [ %.promoted2124.i.i.i.i, %.preheader.i.i.i.i.i775 ], [ %scevgep.i.i.i.i.i, %.lr.ph45.i.i.i.i.i ], [ %.promoted2124.i.i.i.i, %.preheader37.i.i.i.i.i802 ], [ %scevgep.i.i.i.i, %.loopexit.loopexit54.i.i.i.i.i ], [ %.promoted2124.i.i.i.i, %.preheader39.i.i.i.i.i ]
+  %.2.i.i.i.i.i778 = phi i64 [ %2058, %.loopexit.loopexit.i.i.i.i.i783 ], [ %.02452.i.i.i.i.i, %.preheader.i.i.i.i.i775 ], [ %2025, %.lr.ph45.i.i.i.i.i ], [ %.02452.i.i.i.i.i, %.preheader37.i.i.i.i.i802 ], [ %2060, %.loopexit.loopexit54.i.i.i.i.i ], [ %.02452.i.i.i.i.i, %.preheader39.i.i.i.i.i ]
   %2061 = icmp slt i64 %.2.i.i.i.i.i778, %1952
   br i1 %2061, label %.lr.ph53.i.i.i.i.i, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_13Decimal32TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_9Decimal32EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i, !llvm.loop !496
 
@@ -12559,7 +12559,7 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal64TypeEvE9VisitVoidIZNS_
   %2194 = add nuw nsw i64 %.042.i.i.i.i.i852, 1
   %2195 = add nsw i64 %.441.i.i.i.i.i853, 1
   %exitcond.not.i.i.i.i.i859 = icmp eq i64 %2194, %2132
-  br i1 %exitcond.not.i.i.i.i.i859, label %.loopexit.loopexit63.i.i.i.i.i860, label %.lr.ph.i.i.i.i.i849, !llvm.loop !504
+  br i1 %exitcond.not.i.i.i.i.i859, label %.loopexit.loopexit54.i.i.i.i.i860, label %.lr.ph.i.i.i.i.i849, !llvm.loop !504
 
 .loopexit.loopexit.i.i.i.i.i833:                  ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlNS_9Decimal64EE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSL_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SK_EEvSR_OSC_SS_ENKUllE_clEl.exit.i.i.i.i.i
   %2196 = mul nsw i64 %.pre-phi28, %2085
@@ -12567,16 +12567,16 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal64TypeEvE9VisitVoidIZNS_
   %2197 = add i64 %.02452.i.i.i.i.i816, %.pre-phi28
   br label %.loopexit.i.i.i.i.i822
 
-.loopexit.loopexit63.i.i.i.i.i860:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlNS_9Decimal64EE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSL_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SK_EEvSR_OSC_SS_ENKUllE_clEl.exit31.i.i.i.i.i
+.loopexit.loopexit54.i.i.i.i.i860:                ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal64TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlNS_9Decimal64EE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSL_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SK_EEvSR_OSC_SS_ENKUllE_clEl.exit31.i.i.i.i.i
   %2198 = mul nsw i64 %2132, %2085
   %scevgep.i.i.i.i861 = getelementptr i8, ptr %.promoted2124.i.i.i.i815, i64 %2198
   %2199 = add i64 %.02452.i.i.i.i.i816, %2132
   br label %.loopexit.i.i.i.i.i822
 
-.loopexit.i.i.i.i.i822:                           ; preds = %.loopexit.loopexit63.i.i.i.i.i860, %.loopexit.loopexit.i.i.i.i.i833, %.lr.ph45.i.i.i.i.i863, %.preheader37.i.i.i.i.i862, %.preheader39.i.i.i.i.i848, %.preheader.i.i.i.i.i820
-  %.6.i823 = phi i64 [ %.3.i831, %.loopexit.loopexit.i.i.i.i.i833 ], [ %.1.i814, %.preheader.i.i.i.i.i820 ], [ %2163, %.lr.ph45.i.i.i.i.i863 ], [ %.1.i814, %.preheader37.i.i.i.i.i862 ], [ %.5.i857, %.loopexit.loopexit63.i.i.i.i.i860 ], [ %.1.i814, %.preheader39.i.i.i.i.i848 ]
-  %.promoted2123.i.i.i.i824 = phi ptr [ %scevgep.i.i.i834, %.loopexit.loopexit.i.i.i.i.i833 ], [ %.promoted2124.i.i.i.i815, %.preheader.i.i.i.i.i820 ], [ %scevgep.i.i.i.i.i864, %.lr.ph45.i.i.i.i.i863 ], [ %.promoted2124.i.i.i.i815, %.preheader37.i.i.i.i.i862 ], [ %scevgep.i.i.i.i861, %.loopexit.loopexit63.i.i.i.i.i860 ], [ %.promoted2124.i.i.i.i815, %.preheader39.i.i.i.i.i848 ]
-  %.2.i.i.i.i.i825 = phi i64 [ %2197, %.loopexit.loopexit.i.i.i.i.i833 ], [ %.02452.i.i.i.i.i816, %.preheader.i.i.i.i.i820 ], [ %2164, %.lr.ph45.i.i.i.i.i863 ], [ %.02452.i.i.i.i.i816, %.preheader37.i.i.i.i.i862 ], [ %2199, %.loopexit.loopexit63.i.i.i.i.i860 ], [ %.02452.i.i.i.i.i816, %.preheader39.i.i.i.i.i848 ]
+.loopexit.i.i.i.i.i822:                           ; preds = %.loopexit.loopexit54.i.i.i.i.i860, %.loopexit.loopexit.i.i.i.i.i833, %.lr.ph45.i.i.i.i.i863, %.preheader37.i.i.i.i.i862, %.preheader39.i.i.i.i.i848, %.preheader.i.i.i.i.i820
+  %.6.i823 = phi i64 [ %.3.i831, %.loopexit.loopexit.i.i.i.i.i833 ], [ %.1.i814, %.preheader.i.i.i.i.i820 ], [ %2163, %.lr.ph45.i.i.i.i.i863 ], [ %.1.i814, %.preheader37.i.i.i.i.i862 ], [ %.5.i857, %.loopexit.loopexit54.i.i.i.i.i860 ], [ %.1.i814, %.preheader39.i.i.i.i.i848 ]
+  %.promoted2123.i.i.i.i824 = phi ptr [ %scevgep.i.i.i834, %.loopexit.loopexit.i.i.i.i.i833 ], [ %.promoted2124.i.i.i.i815, %.preheader.i.i.i.i.i820 ], [ %scevgep.i.i.i.i.i864, %.lr.ph45.i.i.i.i.i863 ], [ %.promoted2124.i.i.i.i815, %.preheader37.i.i.i.i.i862 ], [ %scevgep.i.i.i.i861, %.loopexit.loopexit54.i.i.i.i.i860 ], [ %.promoted2124.i.i.i.i815, %.preheader39.i.i.i.i.i848 ]
+  %.2.i.i.i.i.i825 = phi i64 [ %2197, %.loopexit.loopexit.i.i.i.i.i833 ], [ %.02452.i.i.i.i.i816, %.preheader.i.i.i.i.i820 ], [ %2164, %.lr.ph45.i.i.i.i.i863 ], [ %.02452.i.i.i.i.i816, %.preheader37.i.i.i.i.i862 ], [ %2199, %.loopexit.loopexit54.i.i.i.i.i860 ], [ %.02452.i.i.i.i.i816, %.preheader39.i.i.i.i.i848 ]
   %2200 = icmp slt i64 %.2.i.i.i.i.i825, %2091
   br i1 %2200, label %.lr.ph53.i.i.i.i.i813, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_13Decimal64TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_9Decimal64EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i, !llvm.loop !505
 
@@ -12875,20 +12875,20 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal128TypeEvE9VisitVoidIZNS
   %2339 = add nuw nsw i64 %.044.i.i.i.i.i, 1
   %2340 = add nsw i64 %.443.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i904 = icmp eq i64 %2339, %2274
-  br i1 %exitcond.not.i.i.i.i.i904, label %.loopexit.loopexit65.i.i.i.i.i, label %.lr.ph.i.i.i.i.i897, !llvm.loop !513
+  br i1 %exitcond.not.i.i.i.i.i904, label %.loopexit.loopexit56.i.i.i.i.i, label %.lr.ph.i.i.i.i.i897, !llvm.loop !513
 
 .loopexit.loopexit.i.i.i.i.i883:                  ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal128TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlNS_10Decimal128EE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSL_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SK_EEvSR_OSC_SS_ENKUllE_clEl.exit.i.i.i.i.i
   %2341 = add i64 %.02454.i.i.i.i.i, %.pre-phi30
   br label %.loopexit.i.i.i.i.i876
 
-.loopexit.loopexit65.i.i.i.i.i:                   ; preds = %2338
+.loopexit.loopexit56.i.i.i.i.i:                   ; preds = %2338
   %2342 = add i64 %.02454.i.i.i.i.i, %2274
   br label %.loopexit.i.i.i.i.i876
 
-.loopexit.i.i.i.i.i876:                           ; preds = %.loopexit.loopexit65.i.i.i.i.i, %.loopexit.loopexit.i.i.i.i.i883, %.lr.ph47.i.i.i.i.i906, %.preheader39.i.i.i.i.i905, %.preheader41.i.i.i.i.i, %.preheader.i.i.i.i.i875
-  %.7.i877 = phi i64 [ %.3.i882, %.loopexit.loopexit.i.i.i.i.i883 ], [ %.1.i870, %.preheader.i.i.i.i.i875 ], [ %2306, %.lr.ph47.i.i.i.i.i906 ], [ %.1.i870, %.preheader39.i.i.i.i.i905 ], [ %.6.i902, %.loopexit.loopexit65.i.i.i.i.i ], [ %.1.i870, %.preheader41.i.i.i.i.i ]
-  %.promoted2123.i.i.i.i878 = phi ptr [ %2300, %.loopexit.loopexit.i.i.i.i.i883 ], [ %.promoted2124.i.i.i.i871, %.preheader.i.i.i.i.i875 ], [ %scevgep.i.i.i.i.i907, %.lr.ph47.i.i.i.i.i906 ], [ %.promoted2124.i.i.i.i871, %.preheader39.i.i.i.i.i905 ], [ %.0.1820.i.i.i.i903, %.loopexit.loopexit65.i.i.i.i.i ], [ %.promoted2124.i.i.i.i871, %.preheader41.i.i.i.i.i ]
-  %.2.i.i.i.i.i879 = phi i64 [ %2341, %.loopexit.loopexit.i.i.i.i.i883 ], [ %.02454.i.i.i.i.i, %.preheader.i.i.i.i.i875 ], [ %2307, %.lr.ph47.i.i.i.i.i906 ], [ %.02454.i.i.i.i.i, %.preheader39.i.i.i.i.i905 ], [ %2342, %.loopexit.loopexit65.i.i.i.i.i ], [ %.02454.i.i.i.i.i, %.preheader41.i.i.i.i.i ]
+.loopexit.i.i.i.i.i876:                           ; preds = %.loopexit.loopexit56.i.i.i.i.i, %.loopexit.loopexit.i.i.i.i.i883, %.lr.ph47.i.i.i.i.i906, %.preheader39.i.i.i.i.i905, %.preheader41.i.i.i.i.i, %.preheader.i.i.i.i.i875
+  %.7.i877 = phi i64 [ %.3.i882, %.loopexit.loopexit.i.i.i.i.i883 ], [ %.1.i870, %.preheader.i.i.i.i.i875 ], [ %2306, %.lr.ph47.i.i.i.i.i906 ], [ %.1.i870, %.preheader39.i.i.i.i.i905 ], [ %.6.i902, %.loopexit.loopexit56.i.i.i.i.i ], [ %.1.i870, %.preheader41.i.i.i.i.i ]
+  %.promoted2123.i.i.i.i878 = phi ptr [ %2300, %.loopexit.loopexit.i.i.i.i.i883 ], [ %.promoted2124.i.i.i.i871, %.preheader.i.i.i.i.i875 ], [ %scevgep.i.i.i.i.i907, %.lr.ph47.i.i.i.i.i906 ], [ %.promoted2124.i.i.i.i871, %.preheader39.i.i.i.i.i905 ], [ %.0.1820.i.i.i.i903, %.loopexit.loopexit56.i.i.i.i.i ], [ %.promoted2124.i.i.i.i871, %.preheader41.i.i.i.i.i ]
+  %.2.i.i.i.i.i879 = phi i64 [ %2341, %.loopexit.loopexit.i.i.i.i.i883 ], [ %.02454.i.i.i.i.i, %.preheader.i.i.i.i.i875 ], [ %2307, %.lr.ph47.i.i.i.i.i906 ], [ %.02454.i.i.i.i.i, %.preheader39.i.i.i.i.i905 ], [ %2342, %.loopexit.loopexit56.i.i.i.i.i ], [ %.02454.i.i.i.i.i, %.preheader41.i.i.i.i.i ]
   %2343 = icmp slt i64 %.2.i.i.i.i.i879, %2232
   br i1 %2343, label %2236, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14Decimal128TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_10Decimal128EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i, !llvm.loop !514
 
@@ -13178,20 +13178,20 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   %2477 = add nuw nsw i64 %.042.i.i.i.i.i954, 1
   %2478 = add nsw i64 %.441.i.i.i.i.i955, 1
   %exitcond.not.i.i.i.i.i959 = icmp eq i64 %2477, %2414
-  br i1 %exitcond.not.i.i.i.i.i959, label %.loopexit.loopexit63.i.i.i.i.i960, label %.lr.ph.i.i.i.i.i951, !llvm.loop !522
+  br i1 %exitcond.not.i.i.i.i.i959, label %.loopexit.loopexit54.i.i.i.i.i960, label %.lr.ph.i.i.i.i.i951, !llvm.loop !522
 
 .loopexit.loopexit.i.i.i.i.i936:                  ; preds = %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_12_GLOBAL__N_114NonZeroVisitor5VisitIS2_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeISC_EE5valuesr15is_boolean_typeISC_EE5valueENS_6StatusEE4typeERKSC_EUlNS_10Decimal256EE_ZNSA_IS2_EESF_SH_EUlvE_EENSB_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSL_OT1_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_SK_EEvSR_OSC_SS_ENKUllE_clEl.exit.i.i.i.i.i
   %2479 = add i64 %.02452.i.i.i.i.i920, %.pre-phi32
   br label %.loopexit.i.i.i.i.i926
 
-.loopexit.loopexit63.i.i.i.i.i960:                ; preds = %2476
+.loopexit.loopexit54.i.i.i.i.i960:                ; preds = %2476
   %2480 = add i64 %.02452.i.i.i.i.i920, %2414
   br label %.loopexit.i.i.i.i.i926
 
-.loopexit.i.i.i.i.i926:                           ; preds = %.loopexit.loopexit63.i.i.i.i.i960, %.loopexit.loopexit.i.i.i.i.i936, %.lr.ph45.i.i.i.i.i962, %.preheader37.i.i.i.i.i961, %.preheader39.i.i.i.i.i950, %.preheader.i.i.i.i.i924
-  %.7.i927 = phi i64 [ %.3.i934, %.loopexit.loopexit.i.i.i.i.i936 ], [ %.1.i919, %.preheader.i.i.i.i.i924 ], [ %2445, %.lr.ph45.i.i.i.i.i962 ], [ %.1.i919, %.preheader37.i.i.i.i.i961 ], [ %.6.i957, %.loopexit.loopexit63.i.i.i.i.i960 ], [ %.1.i919, %.preheader39.i.i.i.i.i950 ]
-  %.lcssa23.i.i.i.i = phi ptr [ %2439, %.loopexit.loopexit.i.i.i.i.i936 ], [ %.lcssa24.i.i.i.i, %.preheader.i.i.i.i.i924 ], [ %scevgep.i.i.i.i.i963, %.lr.ph45.i.i.i.i.i962 ], [ %.lcssa24.i.i.i.i, %.preheader37.i.i.i.i.i961 ], [ %.0.1820.i.i.i.i958, %.loopexit.loopexit63.i.i.i.i.i960 ], [ %.lcssa24.i.i.i.i, %.preheader39.i.i.i.i.i950 ]
-  %.2.i.i.i.i.i928 = phi i64 [ %2479, %.loopexit.loopexit.i.i.i.i.i936 ], [ %.02452.i.i.i.i.i920, %.preheader.i.i.i.i.i924 ], [ %2446, %.lr.ph45.i.i.i.i.i962 ], [ %.02452.i.i.i.i.i920, %.preheader37.i.i.i.i.i961 ], [ %2480, %.loopexit.loopexit63.i.i.i.i.i960 ], [ %.02452.i.i.i.i.i920, %.preheader39.i.i.i.i.i950 ]
+.loopexit.i.i.i.i.i926:                           ; preds = %.loopexit.loopexit54.i.i.i.i.i960, %.loopexit.loopexit.i.i.i.i.i936, %.lr.ph45.i.i.i.i.i962, %.preheader37.i.i.i.i.i961, %.preheader39.i.i.i.i.i950, %.preheader.i.i.i.i.i924
+  %.7.i927 = phi i64 [ %.3.i934, %.loopexit.loopexit.i.i.i.i.i936 ], [ %.1.i919, %.preheader.i.i.i.i.i924 ], [ %2445, %.lr.ph45.i.i.i.i.i962 ], [ %.1.i919, %.preheader37.i.i.i.i.i961 ], [ %.6.i957, %.loopexit.loopexit54.i.i.i.i.i960 ], [ %.1.i919, %.preheader39.i.i.i.i.i950 ]
+  %.lcssa23.i.i.i.i = phi ptr [ %2439, %.loopexit.loopexit.i.i.i.i.i936 ], [ %.lcssa24.i.i.i.i, %.preheader.i.i.i.i.i924 ], [ %scevgep.i.i.i.i.i963, %.lr.ph45.i.i.i.i.i962 ], [ %.lcssa24.i.i.i.i, %.preheader37.i.i.i.i.i961 ], [ %.0.1820.i.i.i.i958, %.loopexit.loopexit54.i.i.i.i.i960 ], [ %.lcssa24.i.i.i.i, %.preheader39.i.i.i.i.i950 ]
+  %.2.i.i.i.i.i928 = phi i64 [ %2479, %.loopexit.loopexit.i.i.i.i.i936 ], [ %.02452.i.i.i.i.i920, %.preheader.i.i.i.i.i924 ], [ %2446, %.lr.ph45.i.i.i.i.i962 ], [ %.02452.i.i.i.i.i920, %.preheader37.i.i.i.i.i961 ], [ %2480, %.loopexit.loopexit54.i.i.i.i.i960 ], [ %.02452.i.i.i.i.i920, %.preheader39.i.i.i.i.i950 ]
   %2481 = icmp slt i64 %.2.i.i.i.i.i928, %2373
   br i1 %2481, label %.lr.ph53.i.i.i.i.i918, label %_ZN5arrow7compute8internalL22VisitArrayValuesInlineINS_14Decimal256TypeEZNS1_12_GLOBAL__N_114NonZeroVisitor5VisitIS3_EENSt9enable_ifIXoooosr15is_decimal_typeIT_EE5valuesr18is_primitive_ctypeIS8_EE5valuesr15is_boolean_typeIS8_EE5valueENS_6StatusEE4typeERKS8_EUlNS_10Decimal256EE_ZNS6_IS3_EESB_SD_EUlvE_EENS7_IXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeERKNS_9ArraySpanEOSH_OT1_.exit.i, !llvm.loop !523
 

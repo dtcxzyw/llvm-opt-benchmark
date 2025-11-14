@@ -2250,59 +2250,59 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %703
 
 703:                                              ; preds = %._crit_edge1428, %698
-  %.0984 = phi i32 [ 0, %698 ], [ %725, %._crit_edge1428 ]
+  %.0984 = phi i32 [ 0, %698 ], [ %706, %._crit_edge1428 ]
   %704 = call fastcc ptr @local_getline(ptr noundef %679)
   %.not1140 = icmp eq ptr %704, null
   br i1 %.not1140, label %.thread1240, label %705
 
 705:                                              ; preds = %703
+  %706 = add nuw nsw i32 %.0984, 1
   store ptr %704, ptr %691, align 8, !tbaa !81
-  %706 = load i8, ptr %704, align 1, !tbaa !18
-  %.not11411419 = icmp eq i8 %706, 0
+  %707 = load i8, ptr %704, align 1, !tbaa !18
+  %.not11411419 = icmp eq i8 %707, 0
   br i1 %.not11411419, label %._crit_edge1424, label %.lr.ph1423
 
-.lr.ph1423:                                       ; preds = %705, %721
-  %707 = phi i8 [ %723, %721 ], [ %706, %705 ]
-  %.19751421 = phi i32 [ %.2976, %721 ], [ 0, %705 ]
-  %.09881420 = phi ptr [ %722, %721 ], [ %704, %705 ]
-  %708 = load i8, ptr %.09861236, align 1, !tbaa !18
-  %709 = icmp eq i8 %707, %708
-  br i1 %709, label %710, label %721
+.lr.ph1423:                                       ; preds = %705, %722
+  %708 = phi i8 [ %724, %722 ], [ %707, %705 ]
+  %.19751421 = phi i32 [ %.2976, %722 ], [ 0, %705 ]
+  %.09881420 = phi ptr [ %723, %722 ], [ %704, %705 ]
+  %709 = load i8, ptr %.09861236, align 1, !tbaa !18
+  %710 = icmp eq i8 %708, %709
+  br i1 %710, label %711, label %722
 
-710:                                              ; preds = %.lr.ph1423
-  %711 = call i32 @strncmp(ptr noundef nonnull %.09881420, ptr noundef nonnull %.09861236, i64 noundef %601) #16
-  %712 = icmp eq i32 %711, 0
-  br i1 %712, label %713, label %721
+711:                                              ; preds = %.lr.ph1423
+  %712 = call i32 @strncmp(ptr noundef nonnull %.09881420, ptr noundef nonnull %.09861236, i64 noundef %601) #16
+  %713 = icmp eq i32 %712, 0
+  br i1 %713, label %714, label %722
 
-713:                                              ; preds = %710
+714:                                              ; preds = %711
   store i8 0, ptr %.09881420, align 1, !tbaa !18
-  %714 = add nsw i32 %.19751421, 1
-  %715 = icmp slt i32 %714, %642
-  br i1 %715, label %716, label %721
+  %715 = add nsw i32 %.19751421, 1
+  %716 = icmp slt i32 %715, %642
+  br i1 %716, label %717, label %722
 
-716:                                              ; preds = %713
-  %717 = getelementptr i8, ptr %.09881420, i64 %601
-  %718 = sext i32 %714 to i64
-  %719 = getelementptr inbounds ptr, ptr %691, i64 %718
-  store ptr %717, ptr %719, align 8, !tbaa !81
-  %720 = getelementptr i8, ptr %717, i64 -1
-  br label %721
+717:                                              ; preds = %714
+  %718 = getelementptr i8, ptr %.09881420, i64 %601
+  %719 = sext i32 %715 to i64
+  %720 = getelementptr inbounds ptr, ptr %691, i64 %719
+  store ptr %718, ptr %720, align 8, !tbaa !81
+  %721 = getelementptr i8, ptr %718, i64 -1
+  br label %722
 
-721:                                              ; preds = %.lr.ph1423, %710, %716, %713
-  %.1989 = phi ptr [ %720, %716 ], [ %.09881420, %713 ], [ %.09881420, %710 ], [ %.09881420, %.lr.ph1423 ]
-  %.2976 = phi i32 [ %714, %716 ], [ %714, %713 ], [ %.19751421, %710 ], [ %.19751421, %.lr.ph1423 ]
-  %722 = getelementptr inbounds nuw i8, ptr %.1989, i64 1
-  %723 = load i8, ptr %722, align 1, !tbaa !18
-  %.not1141 = icmp eq i8 %723, 0
+722:                                              ; preds = %.lr.ph1423, %711, %717, %714
+  %.1989 = phi ptr [ %721, %717 ], [ %.09881420, %714 ], [ %.09881420, %711 ], [ %.09881420, %.lr.ph1423 ]
+  %.2976 = phi i32 [ %715, %717 ], [ %715, %714 ], [ %.19751421, %711 ], [ %.19751421, %.lr.ph1423 ]
+  %723 = getelementptr inbounds nuw i8, ptr %.1989, i64 1
+  %724 = load i8, ptr %723, align 1, !tbaa !18
+  %.not1141 = icmp eq i8 %724, 0
   br i1 %.not1141, label %._crit_edge1424.loopexit, label %.lr.ph1423, !llvm.loop !82
 
-._crit_edge1424.loopexit:                         ; preds = %721
-  %724 = add nsw i32 %.2976, 1
+._crit_edge1424.loopexit:                         ; preds = %722
+  %725 = add nsw i32 %.2976, 1
   br label %._crit_edge1424
 
 ._crit_edge1424:                                  ; preds = %._crit_edge1424.loopexit, %705
-  %.1975.lcssa = phi i32 [ 1, %705 ], [ %724, %._crit_edge1424.loopexit ]
-  %725 = add nuw nsw i32 %.0984, 1
+  %.1975.lcssa = phi i32 [ 1, %705 ], [ %725, %._crit_edge1424.loopexit ]
   %.not1142 = icmp eq i32 %.1975.lcssa, %642
   br i1 %.not1142, label %.preheader1321, label %726
 
@@ -2320,7 +2320,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %.not1145, label %.thread1240, label %732
 
 732:                                              ; preds = %726
-  %733 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef %729, ptr noundef nonnull %731, ptr noundef nonnull @.str.120, ptr noundef nonnull %600, i32 noundef %725, i32 noundef %642, i32 noundef %.1975.lcssa) #15
+  %733 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef %729, ptr noundef nonnull %731, ptr noundef nonnull @.str.120, ptr noundef nonnull %600, i32 noundef %706, i32 noundef %642, i32 noundef %.1975.lcssa) #15
   %734 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %735 = getelementptr inbounds nuw i8, ptr %734, i64 576
   %736 = load ptr, ptr %735, align 8, !tbaa !17
@@ -2383,7 +2383,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.thread1240
 
 .thread1240:                                      ; preds = %703, %726, %732, %757
-  %.1985 = phi i32 [ %725, %757 ], [ %725, %732 ], [ %725, %726 ], [ %.0984, %703 ]
+  %.1985 = phi i32 [ %706, %757 ], [ %706, %732 ], [ %706, %726 ], [ %.0984, %703 ]
   %.1982 = phi ptr [ @.str.121, %757 ], [ @.str.121, %732 ], [ @.str.121, %726 ], [ @.str.119, %703 ]
   call void @free(ptr noundef %691) #15
   %763 = call i32 @fclose(ptr noundef nonnull %679)
@@ -4947,25 +4947,25 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %17 = load ptr, ptr %0, align 8, !tbaa !89
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !78
-  br label %18
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !39
+  br label %20
 
-18:                                               ; preds = %.critedge.i, %16
-  %.0153.i = phi ptr [ %13, %16 ], [ %20, %.critedge.i ]
-  %19 = load i8, ptr %.0153.i, align 1, !tbaa !18
-  switch i8 %19, label %21 [
+20:                                               ; preds = %.critedge.i, %16
+  %.0153.i = phi ptr [ %13, %16 ], [ %22, %.critedge.i ]
+  %21 = load i8, ptr %.0153.i, align 1, !tbaa !18
+  switch i8 %21, label %23 [
     i8 32, label %.critedge.i
     i8 13, label %.critedge.i
     i8 10, label %.critedge.i
     i8 9, label %.critedge.i
   ]
 
-.critedge.i:                                      ; preds = %18, %18, %18, %18
-  %20 = getelementptr inbounds nuw i8, ptr %.0153.i, i64 1
-  br label %18, !llvm.loop !138
+.critedge.i:                                      ; preds = %20, %20, %20, %20
+  %22 = getelementptr inbounds nuw i8, ptr %.0153.i, i64 1
+  br label %20, !llvm.loop !138
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !39
+23:                                               ; preds = %20
   %strlen.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0153.i)
   %24 = trunc i64 %strlen.i.i to i32
   %25 = and i32 %24, 1073741823
@@ -4974,8 +4974,8 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %.not270.i = icmp eq ptr %.0154269.i, null
   br i1 %.not270.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %21, %55
-  %.0154271.i = phi ptr [ %.0154.i, %55 ], [ %.0154269.i, %21 ]
+.lr.ph.i:                                         ; preds = %23, %55
+  %.0154271.i = phi ptr [ %.0154.i, %55 ], [ %.0154269.i, %23 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0154271.i, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !140
   %.not197.i = icmp slt i32 %25, %28
@@ -5047,7 +5047,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %60 = call i32 @sqlite3_bind_parameter_count(ptr noundef %44) #15
   br label %109
 
-._crit_edge.i:                                    ; preds = %55, %21
+._crit_edge.i:                                    ; preds = %55, %23
   %.val.i = load ptr, ptr %17, align 8, !tbaa !26
   %61 = getelementptr i8, ptr %17, i64 184
   %.val212.i = load i32, ptr %61, align 8, !tbaa !37
@@ -5066,7 +5066,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %70 = load ptr, ptr %17, align 8, !tbaa !26
   %71 = call ptr @sqlite3_errmsg(ptr noundef %70) #15
   %72 = call ptr %69(ptr noundef %71, i32 noundef -1) #15
-  call void %67(ptr noundef %23, ptr noundef %72) #15
+  call void %67(ptr noundef %19, ptr noundef %72) #15
   br label %dbPrepareAndBind.exit
 
 73:                                               ; preds = %._crit_edge.i
@@ -5089,7 +5089,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %85 = load ptr, ptr %17, align 8, !tbaa !26
   %86 = call ptr @sqlite3_errmsg(ptr noundef %85) #15
   %87 = call ptr %84(ptr noundef %86, i32 noundef -1) #15
-  call void %82(ptr noundef %23, ptr noundef %87) #15
+  call void %82(ptr noundef %19, ptr noundef %87) #15
   br label %dbPrepareAndBind.exit
 
 88:                                               ; preds = %73
@@ -5159,7 +5159,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 2464
   %121 = load ptr, ptr %120, align 8, !tbaa !147
   %122 = getelementptr inbounds nuw i8, ptr %115, i64 1
-  %123 = call ptr %121(ptr noundef %23, ptr noundef nonnull %122, ptr noundef null, i32 noundef 0) #15
+  %123 = call ptr %121(ptr noundef %19, ptr noundef nonnull %122, ptr noundef null, i32 noundef 0) #15
   %124 = icmp eq ptr %123, null
   br i1 %124, label %125, label %.thread235.i
 
@@ -5182,7 +5182,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 464
   %138 = load ptr, ptr %137, align 8, !tbaa !72
   %139 = call ptr %138(ptr noundef nonnull %115, i32 noundef -1) #15
-  %140 = call i32 %136(ptr noundef %23, ptr noundef nonnull %131, ptr noundef %139) #15
+  %140 = call i32 %136(ptr noundef %19, ptr noundef nonnull %131, ptr noundef %139) #15
   %.not205.i = icmp eq i32 %.0173273.i, 0
   br i1 %.not205.i, label %145, label %141
 
@@ -5190,14 +5190,14 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %142 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 1752
   %144 = load ptr, ptr %143, align 8, !tbaa !96
-  call void %144(ptr noundef %23) #15
+  call void %144(ptr noundef %19) #15
   br label %145
 
 145:                                              ; preds = %141, %127
   %146 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 2360
   %148 = load ptr, ptr %147, align 8, !tbaa !120
-  %149 = call i32 %148(ptr noundef %23, ptr noundef nonnull %131, i32 noundef 262144) #15
+  %149 = call i32 %148(ptr noundef %19, ptr noundef nonnull %131, i32 noundef 262144) #15
   %150 = load i32, ptr %131, align 8, !tbaa !61
   %151 = add nsw i32 %150, -1
   store i32 %151, ptr %131, align 8, !tbaa !61
@@ -5221,7 +5221,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %159 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 1344
   %161 = load ptr, ptr %160, align 8, !tbaa !52
-  %162 = call ptr %161(ptr noundef %23) #15
+  %162 = call ptr %161(ptr noundef %19) #15
   %.not206.i = icmp eq ptr %162, null
   br i1 %.not206.i, label %.thread229.i, label %.thread235.i
 
@@ -5300,7 +5300,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %202 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 272
   %204 = load ptr, ptr %203, align 8, !tbaa !20
-  %205 = call i32 %204(ptr noundef %23, ptr noundef nonnull %.0159240.i, ptr noundef nonnull %4) #15
+  %205 = call i32 %204(ptr noundef %19, ptr noundef nonnull %.0159240.i, ptr noundef nonnull %4) #15
   %206 = load ptr, ptr %2, align 8, !tbaa !78
   %207 = load i32, ptr %4, align 4, !tbaa !12
   %208 = call i32 @sqlite3_bind_int(ptr noundef %206, i32 noundef %.0172274.i, i32 noundef %207) #15
@@ -5317,7 +5317,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %213 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 296
   %215 = load ptr, ptr %214, align 8, !tbaa !152
-  %216 = call i32 %215(ptr noundef %23, ptr noundef nonnull %.0159240.i, ptr noundef nonnull %5) #15
+  %216 = call i32 %215(ptr noundef %19, ptr noundef nonnull %.0159240.i, ptr noundef nonnull %5) #15
   %217 = load ptr, ptr %2, align 8, !tbaa !78
   %218 = load double, ptr %5, align 8, !tbaa !153
   %219 = call i32 @sqlite3_bind_double(ptr noundef %217, i32 noundef %.0172274.i, double noundef %218) #15
@@ -5339,7 +5339,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %227 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 3912
   %229 = load ptr, ptr %228, align 8, !tbaa !86
-  %230 = call i32 %229(ptr noundef %23, ptr noundef nonnull %.0159240.i, ptr noundef nonnull %6) #15
+  %230 = call i32 %229(ptr noundef %19, ptr noundef nonnull %.0159240.i, ptr noundef nonnull %6) #15
   %231 = load ptr, ptr %2, align 8, !tbaa !78
   %232 = load i64, ptr %6, align 8, !tbaa !84
   %233 = call i32 @sqlite3_bind_int64(ptr noundef %231, i32 noundef %.0172274.i, i64 noundef %232) #15
@@ -5412,7 +5412,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %254 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 1752
   %256 = load ptr, ptr %255, align 8, !tbaa !96
-  %257 = load ptr, ptr %22, align 8, !tbaa !39
+  %257 = load ptr, ptr %18, align 8, !tbaa !39
   call void %256(ptr noundef %257) #15
   %exitcond.not299.i = icmp eq i32 %.0172274.i, %.3.i
   br i1 %exitcond.not299.i, label %._crit_edge280.thread302.i, label %.backedge.i
@@ -5434,7 +5434,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %262 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 1752
   %264 = load ptr, ptr %263, align 8, !tbaa !96
-  %265 = load ptr, ptr %22, align 8, !tbaa !39
+  %265 = load ptr, ptr %18, align 8, !tbaa !39
   call void %264(ptr noundef %265) #15
   br label %dbPrepareAndBind.exit.thread
 

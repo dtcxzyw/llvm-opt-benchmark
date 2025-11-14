@@ -853,9 +853,9 @@ define linkonce_odr dso_local void @_ZN11BounceHouse4StepER8Settings(ptr noundef
   br i1 %7, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !59
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i32, ptr %11, align 8, !tbaa !60
   %wide.trip.count = zext nneg i32 %6 to i64
@@ -871,7 +871,7 @@ define linkonce_odr dso_local void @_ZN11BounceHouse4StepER8Settings(ptr noundef
   br label %24
 
 16:                                               ; preds = %24
-  %17 = getelementptr inbounds nuw %struct.b2ContactHitEvent, ptr %10, i64 %indvars.iv33
+  %17 = getelementptr inbounds nuw %struct.b2ContactHitEvent, ptr %9, i64 %indvars.iv33
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 4
   store i64 %19, ptr %spec.select, align 4
@@ -887,8 +887,8 @@ define linkonce_odr dso_local void @_ZN11BounceHouse4StepER8Settings(ptr noundef
 
 24:                                               ; preds = %15, %24
   %indvars.iv = phi i64 [ 1, %15 ], [ %indvars.iv.next, %24 ]
-  %.02429 = phi ptr [ %8, %15 ], [ %spec.select, %24 ]
-  %25 = getelementptr inbounds nuw %"struct.BounceHouse::HitEvent", ptr %8, i64 %indvars.iv
+  %.02429 = phi ptr [ %10, %15 ], [ %spec.select, %24 ]
+  %25 = getelementptr inbounds nuw %"struct.BounceHouse::HitEvent", ptr %10, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !65
   %28 = getelementptr inbounds nuw i8, ptr %.02429, i64 12

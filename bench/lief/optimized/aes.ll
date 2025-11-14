@@ -673,7 +673,7 @@ define hidden i32 @mbedtls_aes_setkey_dec(ptr noundef initializes((8, 16)) %0, p
 46:                                               ; preds = %49
   %.03849 = add nsw i32 %.03849.in, -1
   %47 = getelementptr inbounds i8, ptr %.14143, i64 -28
-  %48 = icmp samesign ugt i32 %.03849.in, 2
+  %48 = icmp sgt i32 %.03849.in, 2
   br i1 %48, label %.preheader, label %._crit_edge, !llvm.loop !21
 
 49:                                               ; preds = %.preheader, %49

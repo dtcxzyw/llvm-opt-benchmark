@@ -26765,69 +26765,69 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi27casadi_detect_bounds_beforeI
 .critedge210:                                     ; preds = %53, %1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !500
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = load ptr, ptr %57, align 8, !tbaa !501
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %60 = load ptr, ptr %59, align 8, !tbaa !503
-  %61 = icmp sgt i64 %4, 0
-  br i1 %61, label %.lr.ph217, label %.preheader211
+  %57 = getelementptr inbounds double, ptr %56, i64 %4
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %59 = load ptr, ptr %58, align 8, !tbaa !501
+  %60 = getelementptr inbounds double, ptr %59, i64 %4
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %62 = load ptr, ptr %61, align 8, !tbaa !503
+  %63 = getelementptr inbounds double, ptr %62, i64 %4
+  %64 = icmp sgt i64 %4, 0
+  br i1 %64, label %.lr.ph217, label %.preheader211
 
 .lr.ph217:                                        ; preds = %.critedge210
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %63 = load ptr, ptr %62, align 8, !tbaa !502
-  %.not208 = icmp eq ptr %63, null
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %65 = load ptr, ptr %64, align 8, !tbaa !535
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %67 = load ptr, ptr %66, align 8, !tbaa !536
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %66 = load ptr, ptr %65, align 8, !tbaa !502
+  %.not208 = icmp eq ptr %66, null
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %68 = load ptr, ptr %67, align 8, !tbaa !535
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %70 = load ptr, ptr %69, align 8, !tbaa !536
   br i1 %.not208, label %.thread.us, label %.lr.ph217.split
 
 .thread.us:                                       ; preds = %.lr.ph217, %.thread.us
-  %.0180216.us = phi i64 [ %70, %.thread.us ], [ 0, %.lr.ph217 ]
-  %68 = getelementptr inbounds nuw double, ptr %67, i64 %.0180216.us
-  store double 0.000000e+00, ptr %68, align 8, !tbaa !181
-  %69 = getelementptr inbounds nuw double, ptr %65, i64 %.0180216.us
-  store double 0.000000e+00, ptr %69, align 8, !tbaa !181
-  %70 = add nuw nsw i64 %.0180216.us, 1
-  %exitcond232.not = icmp eq i64 %70, %4
+  %.0180216.us = phi i64 [ %73, %.thread.us ], [ 0, %.lr.ph217 ]
+  %71 = getelementptr inbounds nuw double, ptr %70, i64 %.0180216.us
+  store double 0.000000e+00, ptr %71, align 8, !tbaa !181
+  %72 = getelementptr inbounds nuw double, ptr %68, i64 %.0180216.us
+  store double 0.000000e+00, ptr %72, align 8, !tbaa !181
+  %73 = add nuw nsw i64 %.0180216.us, 1
+  %exitcond232.not = icmp eq i64 %73, %4
   br i1 %exitcond232.not, label %.lr.ph219, label %.thread.us, !llvm.loop !537
 
 .lr.ph219:                                        ; preds = %.lr.ph217.split, %.thread.us
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %72 = load ptr, ptr %71, align 8, !tbaa !538
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %74 = load ptr, ptr %73, align 8, !tbaa !539
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %75 = load ptr, ptr %74, align 8, !tbaa !538
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %77 = load ptr, ptr %76, align 8, !tbaa !539
   br label %104
 
 .lr.ph217.split:                                  ; preds = %.lr.ph217, %.lr.ph217.split
-  %.0180216 = phi i64 [ %86, %.lr.ph217.split ], [ 0, %.lr.ph217 ]
-  %75 = getelementptr inbounds nuw double, ptr %63, i64 %.0180216
-  %76 = load double, ptr %75, align 8, !tbaa !181
-  %77 = fcmp olt double %76, 0.000000e+00
-  %78 = uitofp i1 %77 to double
-  %79 = fmul double %76, %78
-  %80 = getelementptr inbounds nuw double, ptr %67, i64 %.0180216
-  store double %79, ptr %80, align 8, !tbaa !181
-  %81 = load double, ptr %75, align 8, !tbaa !181
-  %82 = fcmp ogt double %81, 0.000000e+00
-  %83 = uitofp i1 %82 to double
-  %84 = fmul double %81, %83
-  %85 = getelementptr inbounds nuw double, ptr %65, i64 %.0180216
-  store double %84, ptr %85, align 8, !tbaa !181
-  %86 = add nuw nsw i64 %.0180216, 1
-  %exitcond231.not = icmp eq i64 %86, %4
+  %.0180216 = phi i64 [ %89, %.lr.ph217.split ], [ 0, %.lr.ph217 ]
+  %78 = getelementptr inbounds nuw double, ptr %66, i64 %.0180216
+  %79 = load double, ptr %78, align 8, !tbaa !181
+  %80 = fcmp olt double %79, 0.000000e+00
+  %81 = uitofp i1 %80 to double
+  %82 = fmul double %79, %81
+  %83 = getelementptr inbounds nuw double, ptr %70, i64 %.0180216
+  store double %82, ptr %83, align 8, !tbaa !181
+  %84 = load double, ptr %78, align 8, !tbaa !181
+  %85 = fcmp ogt double %84, 0.000000e+00
+  %86 = uitofp i1 %85 to double
+  %87 = fmul double %84, %86
+  %88 = getelementptr inbounds nuw double, ptr %68, i64 %.0180216
+  store double %87, ptr %88, align 8, !tbaa !181
+  %89 = add nuw nsw i64 %.0180216, 1
+  %exitcond231.not = icmp eq i64 %89, %4
   br i1 %exitcond231.not, label %.lr.ph219, label %.lr.ph217.split, !llvm.loop !537
 
 .preheader211:                                    ; preds = %104, %.critedge210
-  %87 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %88 = load i64, ptr %87, align 8, !tbaa !540
-  %89 = icmp sgt i64 %88, 0
-  br i1 %89, label %.lr.ph226, label %.preheader
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %91 = load i64, ptr %90, align 8, !tbaa !540
+  %92 = icmp sgt i64 %91, 0
+  br i1 %92, label %.lr.ph226, label %.preheader
 
 .lr.ph226:                                        ; preds = %.preheader211
-  %90 = getelementptr inbounds double, ptr %60, i64 %4
-  %91 = getelementptr inbounds double, ptr %58, i64 %4
-  %92 = getelementptr inbounds double, ptr %56, i64 %4
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %94 = load ptr, ptr %93, align 8, !tbaa !541
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -26843,16 +26843,16 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi27casadi_detect_bounds_beforeI
 
 104:                                              ; preds = %.lr.ph219, %104
   %.0179218 = phi i64 [ 0, %.lr.ph219 ], [ %107, %104 ]
-  %105 = getelementptr inbounds nuw i64, ptr %72, i64 %.0179218
+  %105 = getelementptr inbounds nuw i64, ptr %75, i64 %.0179218
   store i64 %.0179218, ptr %105, align 8, !tbaa !87
-  %106 = getelementptr inbounds nuw i64, ptr %74, i64 %.0179218
+  %106 = getelementptr inbounds nuw i64, ptr %77, i64 %.0179218
   store i64 %.0179218, ptr %106, align 8, !tbaa !87
   %107 = add nuw nsw i64 %.0179218, 1
   %exitcond233.not = icmp eq i64 %107, %4
   br i1 %exitcond233.not, label %.preheader211, label %104, !llvm.loop !542
 
 .preheader:                                       ; preds = %213, %.preheader211
-  br i1 %61, label %.lr.ph228, label %.critedge
+  br i1 %64, label %.lr.ph228, label %.critedge
 
 .lr.ph228:                                        ; preds = %.preheader
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -26862,12 +26862,12 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi27casadi_detect_bounds_beforeI
   br label %217
 
 112:                                              ; preds = %.lr.ph226, %213
-  %113 = phi i64 [ %88, %.lr.ph226 ], [ %214, %213 ]
+  %113 = phi i64 [ %91, %.lr.ph226 ], [ %214, %213 ]
   %.0176224 = phi i64 [ 0, %.lr.ph226 ], [ %215, %213 ]
   %.0177223 = phi i64 [ 0, %.lr.ph226 ], [ %.1178, %213 ]
-  %.0181222 = phi ptr [ %90, %.lr.ph226 ], [ %.1182, %213 ]
-  %.0183221 = phi ptr [ %91, %.lr.ph226 ], [ %.1184, %213 ]
-  %.0185220 = phi ptr [ %92, %.lr.ph226 ], [ %.1186, %213 ]
+  %.0181222 = phi ptr [ %63, %.lr.ph226 ], [ %.1182, %213 ]
+  %.0183221 = phi ptr [ %60, %.lr.ph226 ], [ %.1184, %213 ]
+  %.0185220 = phi ptr [ %57, %.lr.ph226 ], [ %.1186, %213 ]
   %114 = getelementptr inbounds nuw i8, ptr %94, i64 %.0176224
   %115 = load i8, ptr %114, align 1, !tbaa !13
   %.not202 = icmp eq i8 %115, 0
@@ -26948,7 +26948,7 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi27casadi_detect_bounds_beforeI
   br label %170
 
 170:                                              ; preds = %155, %162, %157, %144, %146
-  %171 = getelementptr inbounds double, ptr %58, i64 %135
+  %171 = getelementptr inbounds double, ptr %59, i64 %135
   %172 = load double, ptr %171, align 8, !tbaa !181
   %173 = fcmp oeq double %140, %172
   br i1 %173, label %174, label %185
@@ -26997,7 +26997,7 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi27casadi_detect_bounds_beforeI
 
 200:                                              ; preds = %185, %192, %187, %174, %176
   %201 = add nsw i64 %.0177223, 1
-  %.pre = load i64, ptr %87, align 8, !tbaa !540
+  %.pre = load i64, ptr %90, align 8, !tbaa !540
   br label %213
 
 202:                                              ; preds = %112
@@ -27036,7 +27036,7 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi27casadi_detect_bounds_beforeI
   %220 = getelementptr inbounds nuw double, ptr %111, i64 %.0227
   %221 = load double, ptr %220, align 8, !tbaa !181
   %222 = fadd double %219, %221
-  %223 = getelementptr inbounds nuw double, ptr %60, i64 %.0227
+  %223 = getelementptr inbounds nuw double, ptr %62, i64 %.0227
   store double %222, ptr %223, align 8, !tbaa !181
   %224 = add nuw nsw i64 %.0227, 1
   %exitcond234.not = icmp eq i64 %224, %4
@@ -71951,8 +71951,8 @@ define linkonce_odr void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !87
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i

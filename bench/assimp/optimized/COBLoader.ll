@@ -3362,62 +3362,62 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; 
 
 72:                                               ; preds = %.lr.ph321, %.critedge
   %.sroa.0257.0319 = phi ptr [ %43, %.lr.ph321 ], [ %424, %.critedge ]
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0319, i64 56
-  %74 = load ptr, ptr %73, align 8, !noalias !25
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0319, i64 72
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0319, i64 80
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0319, i64 88
-  %78 = load ptr, ptr %77, align 8, !noalias !28
-  %.not267297 = icmp eq ptr %74, %78
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0319, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0319, i64 56
+  %75 = load ptr, ptr %74, align 8, !noalias !25
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0319, i64 72
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0319, i64 80
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0319, i64 88
+  %79 = load ptr, ptr %78, align 8, !noalias !28
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0319, i64 96
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0319, i64 112
+  %.not267297 = icmp eq ptr %75, %79
   br i1 %.not267297, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %72
-  %79 = load ptr, ptr %76, align 8, !noalias !25
-  %80 = load ptr, ptr %75, align 8, !noalias !25
+  %82 = load ptr, ptr %77, align 8, !noalias !25
+  %83 = load ptr, ptr %76, align 8, !noalias !25
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0319, i64 32
-  %.not170.not = icmp eq i64 %91, 0
-  br i1 %.not170.not, label %.critedge, label %98
+  %.not170.not = icmp eq i64 %93, 0
+  br i1 %.not170.not, label %.critedge, label %100
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit
-  %.0160301 = phi i64 [ %91, %_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit ], [ 0, %.lr.ph.preheader ]
-  %.sroa.13255.0300 = phi ptr [ %.sroa.13255.1, %_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit ], [ %79, %.lr.ph.preheader ]
-  %.sroa.10254.0299 = phi ptr [ %.sroa.10254.1, %_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit ], [ %80, %.lr.ph.preheader ]
-  %.sroa.0250.0298 = phi ptr [ %.sroa.0250.1, %_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit ], [ %74, %.lr.ph.preheader ]
-  %82 = load ptr, ptr %.sroa.0250.0298, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %83, align 8
-  %.fr = freeze ptr %85
-  %87 = ptrtoint ptr %.fr to i64
-  %.fr374 = freeze ptr %86
-  %88 = ptrtoint ptr %.fr374 to i64
-  %89 = sub i64 %87, %88
-  %90 = ashr i64 %89, 3
-  %91 = add i64 %90, %.0160301
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0250.0298, i64 8
-  %93 = icmp eq ptr %92, %.sroa.10254.0299
-  br i1 %93, label %94, label %_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit
+  %.0160301 = phi i64 [ %93, %_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit ], [ 0, %.lr.ph.preheader ]
+  %.sroa.13255.0300 = phi ptr [ %.sroa.13255.1, %_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit ], [ %82, %.lr.ph.preheader ]
+  %.sroa.10254.0299 = phi ptr [ %.sroa.10254.1, %_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit ], [ %83, %.lr.ph.preheader ]
+  %.sroa.0250.0298 = phi ptr [ %.sroa.0250.1, %_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit ], [ %75, %.lr.ph.preheader ]
+  %84 = load ptr, ptr %.sroa.0250.0298, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %87 = load ptr, ptr %86, align 8
+  %88 = load ptr, ptr %85, align 8
+  %.fr = freeze ptr %87
+  %89 = ptrtoint ptr %.fr to i64
+  %.fr374 = freeze ptr %88
+  %90 = ptrtoint ptr %.fr374 to i64
+  %91 = sub i64 %89, %90
+  %92 = ashr i64 %91, 3
+  %93 = add i64 %92, %.0160301
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0250.0298, i64 8
+  %95 = icmp eq ptr %94, %.sroa.10254.0299
+  br i1 %95, label %96, label %_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit
 
-94:                                               ; preds = %.lr.ph
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.13255.0300, i64 8
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 512
+96:                                               ; preds = %.lr.ph
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.13255.0300, i64 8
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 512
   br label %_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit
 
-_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit: ; preds = %.lr.ph, %94
-  %.sroa.0250.1 = phi ptr [ %96, %94 ], [ %92, %.lr.ph ]
-  %.sroa.10254.1 = phi ptr [ %97, %94 ], [ %.sroa.10254.0299, %.lr.ph ]
-  %.sroa.13255.1 = phi ptr [ %95, %94 ], [ %.sroa.13255.0300, %.lr.ph ]
-  %.not267 = icmp eq ptr %.sroa.0250.1, %78
+_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit: ; preds = %.lr.ph, %96
+  %.sroa.0250.1 = phi ptr [ %98, %96 ], [ %94, %.lr.ph ]
+  %.sroa.10254.1 = phi ptr [ %99, %96 ], [ %.sroa.10254.0299, %.lr.ph ]
+  %.sroa.13255.1 = phi ptr [ %97, %96 ], [ %.sroa.13255.0300, %.lr.ph ]
+  %.not267 = icmp eq ptr %.sroa.0250.1, %79
   br i1 %.not267, label %._crit_edge, label %.lr.ph
 
-98:                                               ; preds = %._crit_edge
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0319, i64 112
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0319, i64 96
+100:                                              ; preds = %._crit_edge
   %101 = call noalias noundef nonnull dereferenceable(1320) ptr @_Znwm(i64 noundef 1320) #31
   store i32 0, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
@@ -3442,7 +3442,7 @@ _ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit: ; preds = %.lr.ph
   %113 = load i32, ptr %47, align 8
   %114 = add i32 %113, 1
   store i32 %114, ptr %47, align 8
-  %115 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %91, i64 12)
+  %115 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %93, i64 12)
   %116 = extractvalue { i64, i1 } %115, 1
   %117 = extractvalue { i64, i1 } %115, 0
   %118 = select i1 %116, i64 -1, i64 %117
@@ -3457,8 +3457,8 @@ _ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit: ; preds = %.lr.ph
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %124, i8 0, i64 %123, i1 false)
   %125 = getelementptr inbounds nuw i8, ptr %101, i64 112
   store ptr %124, ptr %125, align 8
-  %126 = load ptr, ptr %99, align 8
-  %127 = load ptr, ptr %76, align 8
+  %126 = load ptr, ptr %81, align 8
+  %127 = load ptr, ptr %77, align 8
   %128 = ptrtoint ptr %126 to i64
   %129 = ptrtoint ptr %127 to i64
   %130 = sub i64 %128, %129
@@ -3467,15 +3467,15 @@ _ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit: ; preds = %.lr.ph
   %.neg.i.i = sext i1 %132 to i64
   %133 = add nsw i64 %131, %.neg.i.i
   %134 = shl nsw i64 %133, 6
-  %135 = load ptr, ptr %77, align 8
-  %136 = load ptr, ptr %100, align 8
+  %135 = load ptr, ptr %78, align 8
+  %136 = load ptr, ptr %80, align 8
   %137 = ptrtoint ptr %135 to i64
   %138 = ptrtoint ptr %136 to i64
   %139 = sub i64 %137, %138
   %140 = ashr exact i64 %139, 3
   %141 = add nsw i64 %134, %140
-  %142 = load ptr, ptr %75, align 8
-  %143 = load ptr, ptr %73, align 8
+  %142 = load ptr, ptr %76, align 8
+  %143 = load ptr, ptr %74, align 8
   %144 = ptrtoint ptr %142 to i64
   %145 = ptrtoint ptr %143 to i64
   %146 = sub i64 %144, %145
@@ -3491,7 +3491,7 @@ _ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit: ; preds = %.lr.ph
   %155 = icmp eq i64 %148, 0
   br i1 %155, label %.loopexit277, label %156
 
-156:                                              ; preds = %98
+156:                                              ; preds = %100
   %157 = getelementptr inbounds %struct.aiFace, ptr %154, i64 %148
   br label %158
 
@@ -3504,17 +3504,17 @@ _ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit: ; preds = %.lr.ph
   %162 = icmp eq ptr %161, %157
   br i1 %162, label %.loopexit277, label %158
 
-.loopexit277:                                     ; preds = %158, %98
+.loopexit277:                                     ; preds = %158, %100
   %163 = getelementptr inbounds nuw i8, ptr %101, i64 208
   store ptr %154, ptr %163, align 8
-  %164 = load ptr, ptr %73, align 8, !noalias !31
-  %165 = load ptr, ptr %77, align 8, !noalias !34
+  %164 = load ptr, ptr %74, align 8, !noalias !31
+  %165 = load ptr, ptr %78, align 8, !noalias !34
   %.not268306 = icmp eq ptr %164, %165
   br i1 %.not268306, label %._crit_edge312, label %.lr.ph311.preheader
 
 .lr.ph311.preheader:                              ; preds = %.loopexit277
-  %166 = load ptr, ptr %76, align 8, !noalias !31
-  %167 = load ptr, ptr %75, align 8, !noalias !31
+  %166 = load ptr, ptr %77, align 8, !noalias !31
+  %167 = load ptr, ptr %76, align 8, !noalias !31
   br label %.lr.ph311
 
 .lr.ph311:                                        ; preds = %.lr.ph311.preheader, %_ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit192
@@ -3731,7 +3731,7 @@ _ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit192: ; preds = %.lo
 273:                                              ; preds = %269
   %274 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0314, i64 80
   %275 = load i32, ptr %274, align 8
-  %276 = load i32, ptr %81, align 8
+  %276 = load i32, ptr %73, align 8
   %277 = icmp eq i32 %275, %276
   br i1 %277, label %280, label %278
 
@@ -3752,7 +3752,7 @@ _ZNSt15_Deque_iteratorIPN6Assimp3COB4FaceERKS3_PS4_EppEv.exit192: ; preds = %.lo
           to label %282 unwind label %297
 
 282:                                              ; preds = %._crit_edge317
-  invoke void @_ZN6Assimp6Logger12verboseDebugIJRA34_KcRKjRA43_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %281, ptr noundef nonnull align 1 dereferenceable(34) @.str.13, ptr noundef nonnull align 4 dereferenceable(4) %81, ptr noundef nonnull align 1 dereferenceable(43) @.str.14)
+  invoke void @_ZN6Assimp6Logger12verboseDebugIJRA34_KcRKjRA43_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %281, ptr noundef nonnull align 1 dereferenceable(34) @.str.13, ptr noundef nonnull align 4 dereferenceable(4) %73, ptr noundef nonnull align 1 dereferenceable(43) @.str.14)
           to label %283 unwind label %297
 
 283:                                              ; preds = %282

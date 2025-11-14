@@ -4297,48 +4297,48 @@ _ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagE
   %407 = call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %405, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i, i64 noundef %406, i64 noundef -1, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0) #21
   %.sroa.3.0.in.in.i.i = extractvalue { i64, i64 } %407, 1
   %408 = extractvalue { i64, i64 } %407, 0
-  %409 = srem i64 %408, 400
-  %410 = add nsw i64 %409, 2400
+  %409 = load i32, ptr %39, align 8, !tbaa !36
+  %410 = srem i64 %408, 400
+  %411 = add nsw i64 %410, 2400
   %.sroa.4.8.extract.trunc.i23.i = trunc i64 %.sroa.3.0.in.in.i.i to i8
-  %411 = icmp slt i8 %.sroa.4.8.extract.trunc.i23.i, 3
-  %.neg.i.i24.i = sext i1 %411 to i64
-  %412 = add nsw i64 %410, %.neg.i.i24.i
-  %413 = lshr i64 %412, 2
-  %.lhs.trunc.i.i25.i = trunc nuw nsw i64 %412 to i16
-  %414 = udiv i16 %.lhs.trunc.i.i25.i, 100
-  %.zext.i.i26.i = zext nneg i16 %414 to i64
-  %415 = udiv i16 %.lhs.trunc.i.i25.i, 400
-  %.zext10.i.i27.i = zext nneg i16 %415 to i64
+  %412 = icmp slt i8 %.sroa.4.8.extract.trunc.i23.i, 3
+  %.neg.i.i24.i = sext i1 %412 to i64
+  %413 = add nsw i64 %411, %.neg.i.i24.i
+  %414 = lshr i64 %413, 2
+  %.lhs.trunc.i.i25.i = trunc nuw nsw i64 %413 to i16
+  %415 = udiv i16 %.lhs.trunc.i.i25.i, 100
+  %.zext.i.i26.i = zext nneg i16 %415 to i64
+  %416 = udiv i16 %.lhs.trunc.i.i25.i, 400
+  %.zext10.i.i27.i = zext nneg i16 %416 to i64
   %sext.i28.i = shl i64 %.sroa.3.0.in.in.i.i, 56
-  %416 = ashr exact i64 %sext.i28.i, 54
-  %417 = getelementptr inbounds i8, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 %416
-  %418 = load i32, ptr %417, align 4, !tbaa !33
+  %417 = ashr exact i64 %sext.i28.i, 54
+  %418 = getelementptr inbounds i8, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 %417
+  %419 = load i32, ptr %418, align 4, !tbaa !33
   %.sroa.4.9.extract.shift15.i29.i = lshr i64 %.sroa.3.0.in.in.i.i, 8
   %.sroa.4.9.extract.trunc.i30.i = trunc i64 %.sroa.4.9.extract.shift15.i29.i to i8
-  %419 = sext i8 %.sroa.4.9.extract.trunc.i30.i to i32
-  %420 = add nsw i32 %418, %419
-  %421 = sext i32 %420 to i64
-  %422 = add nuw nsw i64 %413, %412
-  %423 = add nsw i64 %422, %421
-  %424 = sub nsw i64 %423, %.zext.i.i26.i
-  %425 = add nsw i64 %424, %.zext10.i.i27.i
-  %426 = srem i64 %425, 7
-  %427 = getelementptr i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %426
-  %428 = getelementptr i8, ptr %427, i64 24
-  %429 = load i32, ptr %428, align 4, !tbaa !34
-  br label %430
+  %420 = sext i8 %.sroa.4.9.extract.trunc.i30.i to i32
+  %421 = add nsw i32 %419, %420
+  %422 = sext i32 %421 to i64
+  %423 = add nuw nsw i64 %414, %413
+  %424 = add nsw i64 %423, %422
+  %425 = sub nsw i64 %424, %.zext.i.i26.i
+  %426 = add nsw i64 %425, %.zext10.i.i27.i
+  %427 = srem i64 %426, 7
+  %428 = getelementptr i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %427
+  %429 = getelementptr i8, ptr %428, i64 24
+  %430 = load i32, ptr %429, align 4, !tbaa !34
+  br label %431
 
-430:                                              ; preds = %430, %_ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit.i
-  %indvars.iv.i31.i = phi i64 [ %indvars.iv.next.i32.i, %430 ], [ 0, %_ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit.i ]
-  %431 = getelementptr inbounds nuw i32, ptr @__const._ZN4absl13time_internal4cctz6detail12next_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.k_weekdays_forw, i64 %indvars.iv.i31.i
-  %432 = load i32, ptr %431, align 4, !tbaa !34
-  %433 = icmp eq i32 %429, %432
+431:                                              ; preds = %431, %_ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit.i
+  %indvars.iv.i31.i = phi i64 [ %indvars.iv.next.i32.i, %431 ], [ 0, %_ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.exit.i ]
+  %432 = getelementptr inbounds nuw i32, ptr @__const._ZN4absl13time_internal4cctz6detail12next_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.k_weekdays_forw, i64 %indvars.iv.i31.i
+  %433 = load i32, ptr %432, align 4, !tbaa !34
+  %434 = icmp eq i32 %430, %433
   %indvars.iv.next.i32.i = add nuw nsw i64 %indvars.iv.i31.i, 1
-  br i1 %433, label %.preheader.i33.preheader.i, label %430, !llvm.loop !71
+  br i1 %434, label %.preheader.i33.preheader.i, label %431, !llvm.loop !71
 
-.preheader.i33.preheader.i:                       ; preds = %430
-  %434 = load i32, ptr %39, align 8, !tbaa !36
-  %switch.tableidx.i.i = add i32 %434, -1
+.preheader.i33.preheader.i:                       ; preds = %431
+  %switch.tableidx.i.i = add i32 %409, -1
   %switch.tableidx..i.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %switch.tableidx.i.i, i32 6)
   br label %.preheader.i33.i
 

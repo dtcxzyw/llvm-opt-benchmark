@@ -2699,19 +2699,6 @@ define noundef range(i32 0, 3) i32 @_Z21textFileFormatYyparsePN32pxrInternal_v0_
   store i64 0, ptr %88, align 8
   %202 = getelementptr inbounds nuw i8, ptr %88, i64 64
   store i8 0, ptr %202, align 8
-  br label %203
-
-203:                                              ; preds = %203, %1
-  %.idx = phi i64 [ 0, %1 ], [ %.add, %203 ]
-  %.ptr = getelementptr inbounds nuw i8, ptr %90, i64 %.idx
-  store i64 0, ptr %.ptr, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %.ptr, i64 64
-  store i8 0, ptr %204, align 8
-  %.add = add nuw nsw i64 %.idx, 72
-  %205 = icmp eq i64 %.add, 108000
-  br i1 %205, label %206, label %203
-
-206:                                              ; preds = %203
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %76, i64 8
   %.sink.sroa.gep4742 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %.sink.sroa.gep4743 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -2752,6 +2739,19 @@ define noundef range(i32 0, 3) i32 @_Z21textFileFormatYyparsePN32pxrInternal_v0_
   %.sink4632.sroa.gep4782 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %.sink4632.sroa.gep4784 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %.sink4632.sroa.gep4785 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  br label %203
+
+203:                                              ; preds = %203, %1
+  %.idx = phi i64 [ 0, %1 ], [ %.add, %203 ]
+  %.ptr = getelementptr inbounds nuw i8, ptr %90, i64 %.idx
+  store i64 0, ptr %.ptr, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %.ptr, i64 64
+  store i8 0, ptr %204, align 8
+  %.add = add nuw nsw i64 %.idx, 72
+  %205 = icmp eq i64 %.add, 108000
+  br i1 %205, label %206, label %203
+
+206:                                              ; preds = %203
   %207 = getelementptr inbounds nuw i8, ptr %90, i64 108000
   %.sink121.i.sroa.gep = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sink121.i.sroa.gep2304 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -50572,8 +50572,8 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.
   br i1 %.not.i.i.i.i.i.i14.i, label %68, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !329
 
 68:                                               ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
-  %.ptr.i.le.i = getelementptr inbounds nuw i8, ptr %49, i64 %.09.i.i.i.i.i.add.i.i
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.ptr.i.le.i = getelementptr inbounds nuw i8, ptr %49, i64 %.09.i.i.i.i.i.add.i.i
   store ptr %.ptr.i.le.i, ptr %69, align 8
   %70 = lshr exact i64 %.09.i.i.i.i.i.add.i.i, 3
   %71 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %70, i1 true)

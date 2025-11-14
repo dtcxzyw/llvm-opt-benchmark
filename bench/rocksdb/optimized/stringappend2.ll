@@ -894,23 +894,23 @@ define noundef zeroext i1 @_ZNK7rocksdb24StringAppendTESTOperator23_AssocPartial
   store i8 0, ptr %7, align 1, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !78, !noalias !81
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !84, !noalias !81
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !85, !noalias !81
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !78, !noalias !86
-  %.not34 = icmp eq ptr %9, %15
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = load ptr, ptr %11, align 8, !tbaa !84, !noalias !81
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %14 = load ptr, ptr %13, align 8, !tbaa !85, !noalias !81
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %16 = load ptr, ptr %15, align 8, !tbaa !78, !noalias !86
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %.not34 = icmp eq ptr %9, %16
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit, %5
   %.0.lcssa = phi i64 [ 0, %5 ], [ %79, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ]
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %19 = load ptr, ptr %18, align 8, !tbaa !85
   %20 = ptrtoint ptr %19 to i64
-  %21 = ptrtoint ptr %13 to i64
+  %21 = ptrtoint ptr %14 to i64
   %22 = sub i64 %20, %21
   %23 = ashr exact i64 %22, 3
   %24 = icmp ne ptr %19, null
@@ -918,11 +918,11 @@ define noundef zeroext i1 @_ZNK7rocksdb24StringAppendTESTOperator23_AssocPartial
   %25 = add nsw i64 %23, %.neg.i.i
   %26 = shl nsw i64 %25, 5
   %27 = load ptr, ptr %17, align 8, !tbaa !89
-  %28 = ptrtoint ptr %15 to i64
+  %28 = ptrtoint ptr %16 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 4
-  %32 = ptrtoint ptr %11 to i64
+  %32 = ptrtoint ptr %12 to i64
   %33 = ptrtoint ptr %9 to i64
   %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 4
@@ -942,9 +942,9 @@ define noundef zeroext i1 @_ZNK7rocksdb24StringAppendTESTOperator23_AssocPartial
   %48 = load i64, ptr %6, align 8, !tbaa !48
   %49 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef %48, ptr noundef %45, i64 noundef %47)
   %50 = load ptr, ptr %8, align 8, !tbaa !78, !noalias !93
-  %51 = load ptr, ptr %16, align 8, !tbaa !89, !noalias !93
-  %52 = load ptr, ptr %10, align 8, !tbaa !84, !noalias !93
-  %53 = load ptr, ptr %12, align 8, !tbaa !85, !noalias !93
+  %51 = load ptr, ptr %10, align 8, !tbaa !89, !noalias !93
+  %52 = load ptr, ptr %11, align 8, !tbaa !84, !noalias !93
+  %53 = load ptr, ptr %13, align 8, !tbaa !85, !noalias !93
   %54 = ptrtoint ptr %50 to i64
   %55 = ptrtoint ptr %51 to i64
   %56 = sub i64 %54, %55
@@ -983,14 +983,14 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_El.exit: ; preds = %62, %68
   %.sroa.12.1 = phi ptr [ %52, %62 ], [ %72, %68 ]
   %.sroa.16.1 = phi ptr [ %53, %62 ], [ %70, %68 ]
   %storemerge.i.i = phi ptr [ %63, %62 ], [ %75, %68 ]
-  %76 = load ptr, ptr %14, align 8, !tbaa !78, !noalias !99
+  %76 = load ptr, ptr %15, align 8, !tbaa !78, !noalias !99
   %.not3339 = icmp eq ptr %storemerge.i.i, %76
   br i1 %.not3339, label %._crit_edge44, label %.lr.ph43
 
 .lr.ph:                                           ; preds = %5, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit
   %.038 = phi i64 [ %79, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ 0, %5 ]
-  %.sroa.13.037 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %13, %5 ]
-  %.sroa.10.036 = phi ptr [ %.sroa.10.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %11, %5 ]
+  %.sroa.13.037 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %14, %5 ]
+  %.sroa.10.036 = phi ptr [ %.sroa.10.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %12, %5 ]
   %.sroa.029.035 = phi ptr [ %.sroa.029.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %9, %5 ]
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.029.035, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !73
@@ -1009,7 +1009,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit: ; preds = %.lr.ph, %
   %.sroa.029.1 = phi ptr [ %84, %82 ], [ %80, %.lr.ph ]
   %.sroa.10.1 = phi ptr [ %85, %82 ], [ %.sroa.10.036, %.lr.ph ]
   %.sroa.13.1 = phi ptr [ %83, %82 ], [ %.sroa.13.037, %.lr.ph ]
-  %.not = icmp eq ptr %.sroa.029.1, %15
+  %.not = icmp eq ptr %.sroa.029.1, %16
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge44:                                    ; preds = %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit17, %_ZStplRKSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_El.exit
@@ -1060,7 +1060,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit17: ; preds = %_ZNSt7_
   %.sroa.021.1 = phi ptr [ %105, %103 ], [ %101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ]
   %.sroa.12.2 = phi ptr [ %106, %103 ], [ %.sroa.12.041, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ]
   %.sroa.16.2 = phi ptr [ %104, %103 ], [ %.sroa.16.042, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ]
-  %107 = load ptr, ptr %14, align 8, !tbaa !78, !noalias !99
+  %107 = load ptr, ptr %15, align 8, !tbaa !78, !noalias !99
   %.not33 = icmp eq ptr %.sroa.021.1, %107
   br i1 %.not33, label %._crit_edge44, label %.lr.ph43, !llvm.loop !102
 }

@@ -12074,8 +12074,10 @@ define noundef zeroext i1 @_ZN5Ipopt24LimMemQuasiNewtonUpdater16SplitEigenvalues
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i8 1, ptr %12, align 8, !tbaa !327
   tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %13 = icmp sgt i32 %9, 0
-  br i1 %13, label %.lr.ph.preheader, label %._crit_edge
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %14 = load ptr, ptr %13, align 8, !tbaa !328
+  %15 = icmp sgt i32 %9, 0
+  br i1 %15, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %5
   %wide.trip.count = zext nneg i32 %9 to i64
@@ -12083,8 +12085,6 @@ define noundef zeroext i1 @_ZN5Ipopt24LimMemQuasiNewtonUpdater16SplitEigenvalues
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.095.lcssa = phi i32 [ 0, %5 ], [ %.196, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %15 = load ptr, ptr %14, align 8, !tbaa !328
   %16 = load double, ptr %11, align 8, !tbaa !252
   %17 = tail call noundef double @llvm.fabs.f64(double %16)
   %18 = sext i32 %9 to i64
@@ -12582,7 +12582,7 @@ _ZNK5Ipopt19DenseGenMatrixSpace21MakeNewDenseGenMatrixEv.exit: ; preds = %.noexc
 _ZN5Ipopt14DenseGenMatrix6ValuesEv.exit:          ; preds = %269
   %271 = getelementptr inbounds nuw i8, ptr %253, i64 80
   %272 = load ptr, ptr %271, align 8, !tbaa !328
-  br i1 %13, label %.lr.ph190.us.preheader, label %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit.split.preheader
+  br i1 %15, label %.lr.ph190.us.preheader, label %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit.split.preheader
 
 _ZN5Ipopt14DenseGenMatrix6ValuesEv.exit.split.preheader: ; preds = %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit
   %wide.trip.count206 = zext i32 %.095.lcssa to i64
@@ -12605,7 +12605,7 @@ _ZN5Ipopt14DenseGenMatrix6ValuesEv.exit.split.preheader: ; preds = %_ZN5Ipopt14D
 279:                                              ; preds = %.lr.ph190.us, %279
   %indvars.iv208 = phi i64 [ 0, %.lr.ph190.us ], [ %indvars.iv.next209, %279 ]
   %280 = add nuw nsw i64 %indvars.iv208, %278
-  %281 = getelementptr inbounds nuw double, ptr %15, i64 %280
+  %281 = getelementptr inbounds nuw double, ptr %14, i64 %280
   %282 = load double, ptr %281, align 8, !tbaa !252
   %283 = fdiv double %282, %277
   %284 = getelementptr inbounds nuw double, ptr %272, i64 %280
@@ -12711,7 +12711,7 @@ _ZN5Ipopt14DenseGenMatrix6ValuesEv.exit161:       ; preds = %318
 
 .lr.ph198:                                        ; preds = %_ZN5Ipopt14DenseGenMatrix6ValuesEv.exit161
   %wide.trip.count232 = zext nneg i32 %297 to i64
-  br i1 %13, label %.lr.ph195.us.preheader, label %.lr.ph198.split.preheader
+  br i1 %15, label %.lr.ph195.us.preheader, label %.lr.ph198.split.preheader
 
 .lr.ph198.split.preheader:                        ; preds = %.lr.ph198
   %323 = zext i32 %.095.lcssa to i64
@@ -12731,7 +12731,7 @@ _ZN5Ipopt14DenseGenMatrix6ValuesEv.exit161:       ; preds = %318
   %328 = tail call double @sqrt(double noundef %327) #26, !tbaa !56
   %329 = mul nsw i64 %325, %18
   %330 = mul nuw nsw i64 %indvars.iv229, %18
-  %invariant.gep243 = getelementptr double, ptr %15, i64 %329
+  %invariant.gep243 = getelementptr double, ptr %14, i64 %329
   %invariant.gep245 = getelementptr double, ptr %321, i64 %330
   br label %331
 
@@ -18349,8 +18349,8 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc21
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %25, 2
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %24, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !56
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i
 
 _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc21

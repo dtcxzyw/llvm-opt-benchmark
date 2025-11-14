@@ -671,35 +671,35 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds %struct.LockInstanceData, ptr %19, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph, label %._crit_edge
+  %24 = load ptr, ptr %15, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %26 = load i32, ptr %25, align 4
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i32, ptr %24, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
-  %27 = load i32, ptr %18, align 4
-  %wide.trip.count = zext nneg i32 %25 to i64
-  br label %28
+  %32 = load i32, ptr %18, align 4
+  %wide.trip.count = zext nneg i32 %30 to i64
+  br label %33
 
-28:                                               ; preds = %.lr.ph, %28
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %.05561 = phi ptr [ null, %.lr.ph ], [ %spec.select, %28 ]
-  %29 = getelementptr inbounds nuw %struct.LockInstanceData, ptr %23, i64 %indvars.iv
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp eq i32 %31, %27
-  %spec.select = select i1 %32, ptr %29, ptr %.05561
+33:                                               ; preds = %.lr.ph, %33
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
+  %.05561 = phi ptr [ null, %.lr.ph ], [ %spec.select, %33 ]
+  %34 = getelementptr inbounds nuw %struct.LockInstanceData, ptr %23, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp eq i32 %36, %32
+  %spec.select = select i1 %37, ptr %34, ptr %.05561
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %28, %16
-  %.055.lcssa = phi ptr [ null, %16 ], [ %spec.select, %28 ]
-  %33 = load ptr, ptr %15, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %35 = load i32, ptr %34, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %33, i64 %36
+._crit_edge:                                      ; preds = %33, %16
+  %.055.lcssa = phi ptr [ null, %16 ], [ %spec.select, %33 ]
   %38 = tail call ptr @GetLockTagsMethodTable(ptr noundef %.055.lcssa) #4
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
@@ -708,7 +708,7 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i32, ptr %40, i64 %43
   %45 = load i32, ptr %44, align 4
-  %46 = load i32, ptr %24, align 4
+  %46 = load i32, ptr %29, align 4
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph68, label %._crit_edge69
 
@@ -769,7 +769,7 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
 
 74:                                               ; preds = %.lr.ph64, %73
   %indvars.iv78 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next79, %73 ]
-  %75 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv78
+  %75 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv78
   %76 = load i32, ptr %75, align 4
   %77 = icmp eq i32 %76, %72
   br i1 %77, label %.loopexit, label %73
@@ -780,7 +780,7 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
   %80 = sext i32 %.166 to i64
   %81 = getelementptr inbounds i64, ptr %10, i64 %80
   store i64 %78, ptr %81, align 8
-  %.pre = load i32, ptr %24, align 4
+  %.pre = load i32, ptr %29, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %73, %.preheader, %63, %66, %54, %50, %.loopexit

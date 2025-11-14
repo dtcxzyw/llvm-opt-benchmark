@@ -890,14 +890,14 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
 .lr.ph97.split:                                   ; preds = %.lr.ph97.thread, %.lr.ph97.split
   %.08596 = phi i32 [ %104, %.lr.ph97.split ], [ %39, %.lr.ph97.thread ]
   %.08795 = phi ptr [ %103, %.lr.ph97.split ], [ %48, %.lr.ph97.thread ]
-  %.08894 = phi ptr [ %101, %.lr.ph97.split ], [ %55, %.lr.ph97.thread ]
+  %.08894 = phi ptr [ %100, %.lr.ph97.split ], [ %55, %.lr.ph97.thread ]
   %97 = load ptr, ptr %72, align 8, !tbaa !53
   call void %97(ptr noundef %.08795, ptr noundef %.08894, ptr noundef nonnull %5, i32 noundef %37, i32 noundef %14, i32 noundef %.fr100, i32 noundef %57, i32 noundef %59, ptr noundef nonnull %33) #11
   %98 = load i32, ptr %51, align 4, !tbaa !54
-  %99 = load i32, ptr %44, align 4, !tbaa !54
-  %100 = sext i32 %98 to i64
-  %101 = getelementptr inbounds i8, ptr %.08894, i64 %100
-  %102 = sext i32 %99 to i64
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds i8, ptr %.08894, i64 %99
+  %101 = load i32, ptr %44, align 4, !tbaa !54
+  %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i8, ptr %.08795, i64 %102
   %104 = add i32 %.08596, 1
   %exitcond103.not = icmp eq i32 %104, %41

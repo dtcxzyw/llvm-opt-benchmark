@@ -1397,8 +1397,8 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_blockC2ENS_10Array2DRefItEERKNS_16Fu
   %143 = getelementptr inbounds nuw i16, ptr %142, i64 %140
   %144 = getelementptr inbounds nuw i8, ptr %12, i64 2080
   store ptr %143, ptr %144, align 8, !tbaa !200
-  %145 = getelementptr inbounds nuw i8, ptr %142, i64 %141
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %142, i8 0, i64 %141, i1 false), !tbaa !90
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 %141
   %146 = getelementptr inbounds nuw i8, ptr %12, i64 2072
   store ptr %145, ptr %146, align 8, !tbaa !201
   %147 = getelementptr inbounds nuw i8, ptr %12, i64 2088

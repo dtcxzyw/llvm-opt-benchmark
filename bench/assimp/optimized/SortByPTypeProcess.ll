@@ -339,8 +339,8 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit:     ; preds = %14
   %26 = getelementptr inbounds nuw i32, ptr %24, i64 %21
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %24, i8 -1, i64 %23, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %23
   store ptr %28, ptr %25, align 8
   br label %.lr.ph968
 

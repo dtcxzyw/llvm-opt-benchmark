@@ -23,43 +23,43 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr %0, align 8, !tbaa !3
-  %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph, label %._crit_edge
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load i32, ptr %0, align 8, !tbaa !3
+  %8 = icmp sgt i32 %7, 0
+  br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %9 = load ptr, ptr %8, align 8, !tbaa !22
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %wide.trip.count = zext nneg i32 %6 to i64
-  br label %11
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %10 = load ptr, ptr %9, align 8, !tbaa !22
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %wide.trip.count = zext nneg i32 %7 to i64
+  br label %12
 
-11:                                               ; preds = %.lr.ph, %20
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %.083 = phi i32 [ 0, %.lr.ph ], [ %.1, %20 ]
-  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 4, !tbaa !23
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %20
+12:                                               ; preds = %.lr.ph, %21
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+  %.083 = phi i32 [ 0, %.lr.ph ], [ %.1, %21 ]
+  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %14 = load i32, ptr %13, align 4, !tbaa !23
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %21
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %10, align 8, !tbaa !24
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv
-  %18 = load i8, ptr %17, align 1, !tbaa !25
-  %.not77 = icmp ne i8 %18, 3
-  %19 = zext i1 %.not77 to i32
-  %spec.select = add nsw i32 %.083, %19
-  br label %20
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %11, align 8, !tbaa !24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv
+  %19 = load i8, ptr %18, align 1, !tbaa !25
+  %.not77 = icmp ne i8 %19, 3
+  %20 = zext i1 %.not77 to i32
+  %spec.select = add nsw i32 %.083, %20
+  br label %21
 
-20:                                               ; preds = %15, %11
-  %.1 = phi i32 [ %.083, %11 ], [ %spec.select, %15 ]
+21:                                               ; preds = %16, %12
+  %.1 = phi i32 [ %.083, %12 ], [ %spec.select, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %20, %5
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %.1, %20 ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+._crit_edge:                                      ; preds = %21, %5
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %.1, %21 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %24, label %22
 
@@ -82,7 +82,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
 
 30:                                               ; preds = %26
   %31 = load i32, ptr %0, align 8, !tbaa !3
-  %32 = load i32, ptr %21, align 8, !tbaa !23
+  %32 = load i32, ptr %6, align 8, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %34 = load i32, ptr %33, align 4, !tbaa !23
   %35 = ptrtoint ptr %3 to i64
@@ -415,54 +415,54 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = load i32, ptr %0, align 8, !tbaa !36
-  %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph, label %._crit_edge
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %7 = load i32, ptr %0, align 8, !tbaa !36
+  %8 = icmp sgt i32 %7, 0
+  br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %9 = load ptr, ptr %8, align 8, !tbaa !42
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %wide.trip.count = zext nneg i32 %6 to i64
-  br label %11
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %10 = load ptr, ptr %9, align 8, !tbaa !42
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %wide.trip.count = zext nneg i32 %7 to i64
+  br label %12
 
-11:                                               ; preds = %.lr.ph, %20
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %.079 = phi i32 [ 0, %.lr.ph ], [ %.1, %20 ]
-  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 4, !tbaa !23
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %20
+12:                                               ; preds = %.lr.ph, %21
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+  %.079 = phi i32 [ 0, %.lr.ph ], [ %.1, %21 ]
+  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %14 = load i32, ptr %13, align 4, !tbaa !23
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %21
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %10, align 8, !tbaa !43
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv
-  %18 = load i8, ptr %17, align 1, !tbaa !25
-  %.not73 = icmp ne i8 %18, 3
-  %19 = zext i1 %.not73 to i32
-  %spec.select = add nsw i32 %.079, %19
-  br label %20
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %11, align 8, !tbaa !43
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv
+  %19 = load i8, ptr %18, align 1, !tbaa !25
+  %.not73 = icmp ne i8 %19, 3
+  %20 = zext i1 %.not73 to i32
+  %spec.select = add nsw i32 %.079, %20
+  br label %21
 
-20:                                               ; preds = %15, %11
-  %.1 = phi i32 [ %.079, %11 ], [ %spec.select, %15 ]
+21:                                               ; preds = %16, %12
+  %.1 = phi i32 [ %.079, %12 ], [ %spec.select, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !44
 
-._crit_edge:                                      ; preds = %20, %5
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %.1, %20 ]
-  %21 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str)
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %24
+._crit_edge:                                      ; preds = %21, %5
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %.1, %21 ]
+  %22 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str)
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %25
 
-23:                                               ; preds = %._crit_edge
+24:                                               ; preds = %._crit_edge
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %190
 
-24:                                               ; preds = %._crit_edge
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
+25:                                               ; preds = %._crit_edge
   %26 = load i32, ptr %0, align 8, !tbaa !36
-  %27 = load i32, ptr %25, align 8, !tbaa !23
+  %27 = load i32, ptr %6, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %29 = load i32, ptr %28, align 4, !tbaa !23
   %30 = ptrtoint ptr %3 to i64
@@ -474,13 +474,13 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %36 = add i32 %35, %.0.lcssa
   %37 = add i32 %36, %27
   %38 = add i32 %37, %29
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.2, i32 noundef %26, i32 noundef %38) #7
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %22, ptr noundef nonnull @.str.2, i32 noundef %26, i32 noundef %38) #7
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %41 = load i32, ptr %40, align 8, !tbaa !23
   %.not83 = icmp slt i32 %41, 0
   br i1 %.not83, label %.preheader76, label %.preheader77.lr.ph
 
-.preheader77.lr.ph:                               ; preds = %24
+.preheader77.lr.ph:                               ; preds = %25
   %42 = getelementptr i8, ptr %0, i64 168
   %43 = icmp sgt i32 %4, 0
   %44 = zext i1 %43 to i32
@@ -533,7 +533,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %65 = select i1 %.not12.i.us.us.us, ptr @.str.5, ptr @.str.4
   %66 = ashr i32 %63, 1
   %67 = add nsw i32 %66, %44
-  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.16, ptr noundef nonnull %65, i32 noundef %67) #7
+  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %22, ptr noundef nonnull @.str.16, ptr noundef nonnull %65, i32 noundef %67) #7
   %indvars.iv.next.i.us.us.us = add nuw nsw i64 %indvars.iv.i.us.us.us, 1
   %69 = load i32, ptr %58, align 4
   %70 = lshr i32 %69, 11
@@ -542,7 +542,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   br i1 %72, label %61, label %._crit_edge.i.us.us.us, !llvm.loop !32
 
 ._crit_edge.i.us.us.us:                           ; preds = %61, %.lr.ph82.split.us.us.split.us
-  %fputc11.i.us.us.us = tail call i32 @fputc(i32 10, ptr nonnull %21)
+  %fputc11.i.us.us.us = tail call i32 @fputc(i32 10, ptr nonnull %22)
   %.val75.us.us.us = load i32, ptr %58, align 4
   %73 = lshr i32 %.val75.us.us.us, 11
   %74 = add nuw nsw i32 %73, 3
@@ -582,7 +582,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %93 = select i1 %.not12.i.us.us, ptr @.str.5, ptr @.str.4
   %94 = ashr i32 %91, 1
   %95 = add nsw i32 %94, %44
-  %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.16, ptr noundef nonnull %93, i32 noundef %95) #7
+  %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %22, ptr noundef nonnull @.str.16, ptr noundef nonnull %93, i32 noundef %95) #7
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %97 = load i32, ptr %84, align 4
   %98 = lshr i32 %97, 11
@@ -591,7 +591,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   br i1 %100, label %89, label %._crit_edge.i.us.us, !llvm.loop !32
 
 ._crit_edge.i.us.us:                              ; preds = %89, %86
-  %fputc11.i.us.us = tail call i32 @fputc(i32 10, ptr nonnull %21)
+  %fputc11.i.us.us = tail call i32 @fputc(i32 10, ptr nonnull %22)
   %.pre107 = load ptr, ptr %42, align 8, !tbaa !29
   br label %101
 
@@ -623,7 +623,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %116 = icmp eq i64 %indvars.iv95, 0
   br label %124
 
-.preheader76:                                     ; preds = %.critedge, %.critedge.us, %24
+.preheader76:                                     ; preds = %.critedge, %.critedge.us, %25
   %117 = load i32, ptr %0, align 8, !tbaa !36
   %118 = icmp sgt i32 %117, 0
   br i1 %118, label %.lr.ph86, label %._crit_edge87
@@ -665,7 +665,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %137 = select i1 %.not12.i, ptr @.str.5, ptr @.str.4
   %138 = ashr i32 %135, 1
   %139 = add nsw i32 %138, %44
-  %140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.16, ptr noundef nonnull %137, i32 noundef %139) #7
+  %140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %22, ptr noundef nonnull @.str.16, ptr noundef nonnull %137, i32 noundef %139) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %141 = load i32, ptr %128, align 4
   %142 = lshr i32 %141, 11
@@ -674,8 +674,8 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   br i1 %144, label %133, label %._crit_edge.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %133, %130
-  %fputc.i = tail call i32 @fputc(i32 48, ptr nonnull %21)
-  %fputc11.i = tail call i32 @fputc(i32 10, ptr nonnull %21)
+  %fputc.i = tail call i32 @fputc(i32 48, ptr nonnull %22)
+  %fputc11.i = tail call i32 @fputc(i32 10, ptr nonnull %22)
   %.pre102 = load ptr, ptr %42, align 8, !tbaa !29
   br label %145
 
@@ -726,7 +726,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %170 = select i1 %169, ptr @.str.4, ptr @.str.5
   %171 = add nuw nsw i64 %indvars.iv98, %123
   %172 = trunc nuw nsw i64 %171 to i32
-  %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.3, ptr noundef nonnull %170, i32 noundef %172, ptr noundef nonnull %122) #7
+  %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %22, ptr noundef nonnull @.str.3, ptr noundef nonnull %170, i32 noundef %172, ptr noundef nonnull %122) #7
   %.pre108 = load i32, ptr %0, align 8, !tbaa !36
   br label %174
 
@@ -758,17 +758,17 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %184 = select i1 %.not68, ptr @.str.5, ptr @.str.4
   %185 = ashr i32 %182, 1
   %186 = add nsw i32 %185, %179
-  %187 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.3, ptr noundef nonnull %184, i32 noundef %186, ptr noundef nonnull %180) #7
+  %187 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %22, ptr noundef nonnull @.str.3, ptr noundef nonnull %184, i32 noundef %186, ptr noundef nonnull %180) #7
   %188 = getelementptr inbounds nuw i8, ptr %.06189, i64 4
   %.not67 = icmp eq ptr %188, %3
   br i1 %.not67, label %.loopexit, label %181, !llvm.loop !48
 
 .loopexit:                                        ; preds = %181, %._crit_edge87
-  %fputc = tail call i32 @fputc(i32 10, ptr nonnull %21)
-  %189 = tail call i32 @fclose(ptr noundef nonnull %21)
+  %fputc = tail call i32 @fputc(i32 10, ptr nonnull %22)
+  %189 = tail call i32 @fclose(ptr noundef nonnull %22)
   br label %190
 
-190:                                              ; preds = %.loopexit, %23
+190:                                              ; preds = %.loopexit, %24
   ret void
 }
 

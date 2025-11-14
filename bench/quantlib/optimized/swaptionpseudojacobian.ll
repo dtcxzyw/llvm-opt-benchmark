@@ -2198,8 +2198,8 @@ call5.i.i.i.i2.i.i.noexc221:                      ; preds = %if.then.i.i.i.i.i20
 
 if.end.i.i.i.i.i.i.i213:                          ; preds = %call5.i.i.i.i2.i.i.noexc221
   %add.ptr.idx.i.i.i.i.i.i.i214 = shl nuw nsw i64 %sub.i.i.i.i.i, 3
-  %add.ptr.i.i.i.i.i.i.i215 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i210, i64 %add.ptr.idx.i.i.i.i.i.i.i214
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i210, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i214, i1 false), !tbaa !26
+  %add.ptr.i.i.i.i.i.i.i215 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i210, i64 %add.ptr.idx.i.i.i.i.i.i.i214
   br label %if.then.i.i.i.i.i227
 
 if.then.i.i.i.i.i227:                             ; preds = %call5.i.i.i.i2.i.i.noexc221, %if.end.i.i.i.i.i.i.i213

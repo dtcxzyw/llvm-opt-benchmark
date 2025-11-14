@@ -115,6 +115,7 @@ switch.lookup:                                    ; preds = %7
   %.sroa.7.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.8.0..sroa_idx72 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.sroa.9.0..sroa_idx74 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %.sroa.10.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %65 = fmul double %11, 4.296000e-01
   %66 = tail call double @llvm.fmuladd.f64(double %9, double 7.328000e-01, double %65)
   %67 = tail call double @llvm.fmuladd.f64(double %14, double -1.624000e-01, double %66)
@@ -150,7 +151,6 @@ switch.lookup:                                    ; preds = %7
   br i1 %exitcond.not.i, label %ChromaticAdaptation.exit, label %77, !llvm.loop !9
 
 ChromaticAdaptation.exit:                         ; preds = %77
-  %.sroa.10.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull align 8 dereferenceable(264) %4, i64 264, i1 false)
   %.sroa.482.0.copyload84 = load double, ptr %.sroa.10.0..sroa_idx76, align 8
   %.sroa.585.0..sroa_idx86 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -287,6 +287,23 @@ define hidden void @cmsCIECAM02Forward(ptr noundef readonly captures(none) %0, p
   %.sroa.14.sroa.13.0..sroa.14.0..sroa_idx64.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   store double %19, ptr %.sroa.14.sroa.13.0..sroa.14.0..sroa_idx64.sroa_idx, align 8
   %.sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %.sroa.14.sroa.15.sroa.11.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %.sroa.14.sroa.15.sroa.13.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %.sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %.sroa.14.sroa.15.sroa.21.sroa.11.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %.sroa.14.sroa.15.sroa.21.sroa.13.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %.sroa.14.sroa.15.sroa.21.sroa.15.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 120
+  %.sroa.1468.0..sroa_idx79 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  %.sroa.15.0..sroa_idx92 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  %.sroa.15.sroa.11.0..sroa.15.0..sroa_idx92.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 152
+  %.sroa.15.sroa.13.0..sroa.15.0..sroa_idx92.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 160
+  %.sroa.1596.0..sroa_idx107 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %.sroa.16.0..sroa_idx120 = getelementptr inbounds nuw i8, ptr %5, i64 176
+  %.sroa.16.sroa.11.0..sroa.16.0..sroa_idx120.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 184
+  %.sroa.16.sroa.13.0..sroa.16.0..sroa_idx120.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 192
+  %.sroa.16124.0..sroa_idx135 = getelementptr inbounds nuw i8, ptr %5, i64 200
+  %.sroa.17.0..sroa_idx148 = getelementptr inbounds nuw i8, ptr %5, i64 208
+  %.sroa.17.sroa.11.0..sroa.17.0..sroa_idx148.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 216
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx, i8 0, i64 216, i1 false)
   %21 = load double, ptr %20, align 8, !noalias !15
@@ -312,23 +329,6 @@ define hidden void @cmsCIECAM02Forward(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond.not.i, label %ChromaticAdaptation.exit, label %26, !llvm.loop !9
 
 ChromaticAdaptation.exit:                         ; preds = %26
-  %.sroa.14.sroa.15.sroa.11.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %.sroa.14.sroa.15.sroa.13.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %.sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %.sroa.14.sroa.15.sroa.21.sroa.11.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %.sroa.14.sroa.15.sroa.21.sroa.13.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %.sroa.14.sroa.15.sroa.21.sroa.15.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %.sroa.1468.0..sroa_idx79 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  %.sroa.15.0..sroa_idx92 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  %.sroa.15.sroa.11.0..sroa.15.0..sroa_idx92.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %.sroa.15.sroa.13.0..sroa.15.0..sroa_idx92.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 160
-  %.sroa.1596.0..sroa_idx107 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %.sroa.16.0..sroa_idx120 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  %.sroa.16.sroa.11.0..sroa.16.0..sroa_idx120.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 184
-  %.sroa.16.sroa.13.0..sroa.16.0..sroa_idx120.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 192
-  %.sroa.16124.0..sroa_idx135 = getelementptr inbounds nuw i8, ptr %5, i64 200
-  %.sroa.17.0..sroa_idx148 = getelementptr inbounds nuw i8, ptr %5, i64 208
-  %.sroa.17.sroa.11.0..sroa.17.0..sroa_idx148.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 216
   %.sroa.4176.sroa.4.sroa.0.0.copyload = load double, ptr %.sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx, align 8
   %.sroa.4176.sroa.4.sroa.2.0.copyload = load double, ptr %.sroa.14.sroa.15.sroa.11.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx, align 8
   %.sroa.4176.sroa.4.sroa.3.0.copyload = load double, ptr %.sroa.14.sroa.15.sroa.13.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx64.sroa_idx.sroa_idx, align 8
@@ -665,6 +665,8 @@ InverseCorrelates.exit:                           ; preds = %52, %68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.17, i8 0, i64 56, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.14.sroa.0.sroa.17.0..sroa.14.0..sroa_idx63.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %.sroa.14.sroa.0.sroa.19.0..sroa.14.0..sroa_idx63.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %.sroa.14.sroa.0.sroa.21.0..sroa.14.0..sroa_idx63.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 88
   %.sroa.14.sroa.11.0..sroa.14.0..sroa_idx63.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false)
   store double %84, ptr %.sroa.14.sroa.11.0..sroa.14.0..sroa_idx63.sroa_idx, align 8
@@ -716,8 +718,6 @@ InverseCorrelates.exit:                           ; preds = %52, %68
   br i1 %exitcond.not.i, label %InverseNonlinearity.exit, label %95, !llvm.loop !30
 
 InverseNonlinearity.exit:                         ; preds = %95
-  %.sroa.14.sroa.0.sroa.19.0..sroa.14.0..sroa_idx63.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %.sroa.14.sroa.0.sroa.21.0..sroa.14.0..sroa_idx63.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 88
   %.sroa.4175.sroa.0.sroa.5.0.copyload = load double, ptr %.sroa.14.sroa.0.sroa.17.0..sroa.14.0..sroa_idx63.sroa_idx, align 8
   %.sroa.4175.sroa.0.sroa.6.0.copyload = load double, ptr %.sroa.14.sroa.0.sroa.19.0..sroa.14.0..sroa_idx63.sroa_idx, align 8
   %.sroa.4175.sroa.0.sroa.7.0.copyload = load double, ptr %.sroa.14.sroa.0.sroa.21.0..sroa.14.0..sroa_idx63.sroa_idx, align 8
@@ -807,8 +807,8 @@ InverseNonlinearity.exit:                         ; preds = %95
   br i1 %exitcond.not.i12, label %InverseChromaticAdaptation.exit, label %123, !llvm.loop !34
 
 InverseChromaticAdaptation.exit:                  ; preds = %123
-  %.sroa.14.sroa.0.sroa.0.sroa.11.0..sroa.14.0..sroa_idx65.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.14.sroa.0.sroa.0.sroa.13.0..sroa.14.0..sroa_idx65.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sroa.14.sroa.0.sroa.0.sroa.11.0..sroa.14.0..sroa_idx65.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.4155.sroa.0.sroa.0.sroa.0.0.copyload = load double, ptr %.sroa.14.0..sroa_idx65, align 8
   %.sroa.4155.sroa.0.sroa.0.sroa.2.0.copyload = load double, ptr %.sroa.14.sroa.0.sroa.0.sroa.11.0..sroa.14.0..sroa_idx65.sroa_idx, align 8
   %.sroa.4155.sroa.0.sroa.0.sroa.3.0.copyload = load double, ptr %.sroa.14.sroa.0.sroa.0.sroa.13.0..sroa.14.0..sroa_idx65.sroa_idx, align 8

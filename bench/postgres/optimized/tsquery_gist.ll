@@ -125,30 +125,30 @@ define dso_local i64 @gtsquery_union(ptr noundef readonly captures(none) %0) loc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = load i32, ptr %4, align 8
-  %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph, label %._crit_edge
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = load i64, ptr %5, align 8
+  %7 = load i32, ptr %4, align 8
+  %8 = icmp sgt i32 %7, 0
+  br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %wide.trip.count = zext nneg i32 %5 to i64
-  br label %8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %wide.trip.count = zext nneg i32 %7 to i64
+  br label %10
 
-8:                                                ; preds = %.lr.ph, %8
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %.0910 = phi i64 [ 0, %.lr.ph ], [ %11, %8 ]
-  %9 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %7, i64 %indvars.iv
-  %10 = load i64, ptr %9, align 8
-  %11 = or i64 %10, %.0910
+10:                                               ; preds = %.lr.ph, %10
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
+  %.0910 = phi i64 [ 0, %.lr.ph ], [ %13, %10 ]
+  %11 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %9, i64 %indvars.iv
+  %12 = load i64, ptr %11, align 8
+  %13 = or i64 %12, %.0910
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %8, %1
-  %.09.lcssa = phi i64 [ 0, %1 ], [ %11, %8 ]
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load i64, ptr %12, align 8
-  %14 = inttoptr i64 %13 to ptr
+._crit_edge:                                      ; preds = %10, %1
+  %.09.lcssa = phi i64 [ 0, %1 ], [ %13, %10 ]
+  %14 = inttoptr i64 %6 to ptr
   store i32 8, ptr %14, align 4
   ret i64 %.09.lcssa
 }
@@ -178,27 +178,27 @@ define dso_local i64 @gtsquery_penalty(ptr noundef readonly captures(none) %0) l
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = load i64, ptr %8, align 8
-  %10 = xor i64 %9, %5
-  br label %11
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = load i64, ptr %10, align 8
+  %12 = xor i64 %9, %5
+  br label %13
 
-11:                                               ; preds = %11, %1
-  %indvars.iv.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i, %11 ]
-  %.067.i.i = phi i32 [ 0, %1 ], [ %15, %11 ]
-  %12 = lshr i64 %10, %indvars.iv.i.i
-  %13 = trunc i64 %12 to i32
-  %14 = and i32 %13, 1
-  %15 = add i32 %14, %.067.i.i
+13:                                               ; preds = %13, %1
+  %indvars.iv.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i, %13 ]
+  %.067.i.i = phi i32 [ 0, %1 ], [ %17, %13 ]
+  %14 = lshr i64 %12, %indvars.iv.i.i
+  %15 = trunc i64 %14 to i32
+  %16 = and i32 %15, 1
+  %17 = add i32 %16, %.067.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 64
-  br i1 %exitcond.not.i.i, label %hemdist.exit, label %11, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %hemdist.exit, label %13, !llvm.loop !8
 
-hemdist.exit:                                     ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = load i64, ptr %16, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %19 = sitofp i32 %15 to float
+hemdist.exit:                                     ; preds = %13
+  %18 = inttoptr i64 %11 to ptr
+  %19 = sitofp i32 %17 to float
   store float %19, ptr %18, align 4
-  ret i64 %17
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind uwtable

@@ -463,17 +463,17 @@ _ZNSt8_Rb_treeImSt4pairIKmPcESt10_Select1stIS3_ESt4lessImESaIS3_EED2Ev.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5mem_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV5mem_t, i64 16), ptr %0, align 8, !tbaa !27
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !14
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = icmp eq ptr %3, %4
-  br i1 %5, label %._crit_edge, label %.lr.ph
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = load ptr, ptr %3, align 8, !tbaa !14
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = icmp eq ptr %4, %5
+  br i1 %6, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !13
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmPcESt10_Select1stIS3_ESt4lessImESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %8)
+  invoke void @_ZNSt8_Rb_treeImSt4pairIKmPcESt10_Select1stIS3_ESt4lessImESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %8)
           to label %_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEED2Ev.exit unwind label %9
 
 9:                                                ; preds = %._crit_edge
@@ -487,12 +487,12 @@ _ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEED2Ev.exit: ; preds = %._crit_edge
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.sroa.04.07 = phi ptr [ %14, %.lr.ph ], [ %3, %1 ]
+  %.sroa.04.07 = phi ptr [ %14, %.lr.ph ], [ %4, %1 ]
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.04.07, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !38
   tail call void @free(ptr noundef %13) #21
   %14 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.04.07) #25
-  %15 = icmp eq ptr %14, %4
+  %15 = icmp eq ptr %14, %5
   br i1 %15, label %._crit_edge, label %.lr.ph
 }
 

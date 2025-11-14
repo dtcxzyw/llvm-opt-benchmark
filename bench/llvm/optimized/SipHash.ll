@@ -14,61 +14,61 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   %.val2 = load i64, ptr %5, align 1
   %6 = and i64 %1, -8
   %7 = getelementptr i8, ptr %0, i64 %6
-  %8 = xor i64 %.val2, 8387220255154660723
-  %9 = xor i64 %.val, 7816392313619706465
-  %10 = xor i64 %.val2, 7237128888997146477
-  %11 = xor i64 %.val, 8317987319222330741
+  %8 = trunc i64 %1 to i32
+  %9 = and i32 %8, 7
+  %10 = shl i64 %1, 56
+  %11 = xor i64 %.val2, 8387220255154660723
+  %12 = xor i64 %.val, 7816392313619706465
+  %13 = xor i64 %.val2, 7237128888997146477
+  %14 = xor i64 %.val, 8317987319222330741
   %.not6.i = icmp eq i64 %6, 0
   br i1 %.not6.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %4, %29
-  %.014011.i = phi ptr [ %31, %29 ], [ %0, %4 ]
-  %.014110.i = phi i64 [ %30, %29 ], [ %11, %4 ]
-  %.01489.i = phi i64 [ %27, %29 ], [ %10, %4 ]
-  %.01528.i = phi i64 [ %28, %29 ], [ %9, %4 ]
-  %.01567.i = phi i64 [ %24, %29 ], [ %8, %4 ]
+.lr.ph.i:                                         ; preds = %4, %32
+  %.014011.i = phi ptr [ %34, %32 ], [ %0, %4 ]
+  %.014110.i = phi i64 [ %33, %32 ], [ %14, %4 ]
+  %.01489.i = phi i64 [ %30, %32 ], [ %13, %4 ]
+  %.01528.i = phi i64 [ %31, %32 ], [ %12, %4 ]
+  %.01567.i = phi i64 [ %27, %32 ], [ %11, %4 ]
   %.0.copyload.i.i.i.i.i.i161.i = load i64, ptr %.014011.i, align 1
-  %12 = xor i64 %.0.copyload.i.i.i.i.i.i161.i, %.01567.i
-  br label %13
+  %15 = xor i64 %.0.copyload.i.i.i.i.i.i161.i, %.01567.i
+  br label %16
 
-13:                                               ; preds = %13, %.lr.ph.i
-  %.11425.i = phi i64 [ %.014110.i, %.lr.ph.i ], [ %22, %13 ]
-  %14 = phi i1 [ true, %.lr.ph.i ], [ false, %13 ]
-  %.11493.i = phi i64 [ %.01489.i, %.lr.ph.i ], [ %27, %13 ]
-  %.11532.i = phi i64 [ %.01528.i, %.lr.ph.i ], [ %28, %13 ]
-  %.11571.i = phi i64 [ %12, %.lr.ph.i ], [ %24, %13 ]
-  %15 = add i64 %.11493.i, %.11425.i
-  %16 = tail call i64 @llvm.fshl.i64(i64 %.11493.i, i64 %.11493.i, i64 13)
-  %17 = xor i64 %15, %16
-  %18 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 32)
-  %19 = add i64 %.11571.i, %.11532.i
-  %20 = tail call i64 @llvm.fshl.i64(i64 %.11571.i, i64 %.11571.i, i64 16)
-  %21 = xor i64 %19, %20
-  %22 = add i64 %21, %18
-  %23 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 21)
+16:                                               ; preds = %16, %.lr.ph.i
+  %.11425.i = phi i64 [ %.014110.i, %.lr.ph.i ], [ %25, %16 ]
+  %17 = phi i1 [ true, %.lr.ph.i ], [ false, %16 ]
+  %.11493.i = phi i64 [ %.01489.i, %.lr.ph.i ], [ %30, %16 ]
+  %.11532.i = phi i64 [ %.01528.i, %.lr.ph.i ], [ %31, %16 ]
+  %.11571.i = phi i64 [ %15, %.lr.ph.i ], [ %27, %16 ]
+  %18 = add i64 %.11493.i, %.11425.i
+  %19 = tail call i64 @llvm.fshl.i64(i64 %.11493.i, i64 %.11493.i, i64 13)
+  %20 = xor i64 %18, %19
+  %21 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 32)
+  %22 = add i64 %.11571.i, %.11532.i
+  %23 = tail call i64 @llvm.fshl.i64(i64 %.11571.i, i64 %.11571.i, i64 16)
   %24 = xor i64 %22, %23
-  %25 = add i64 %19, %17
-  %26 = tail call i64 @llvm.fshl.i64(i64 %17, i64 %17, i64 17)
+  %25 = add i64 %24, %21
+  %26 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 21)
   %27 = xor i64 %25, %26
-  %28 = tail call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 32)
-  br i1 %14, label %13, label %29, !llvm.loop !3
+  %28 = add i64 %22, %20
+  %29 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 17)
+  %30 = xor i64 %28, %29
+  %31 = tail call i64 @llvm.fshl.i64(i64 %28, i64 %28, i64 32)
+  br i1 %17, label %16, label %32, !llvm.loop !3
 
-29:                                               ; preds = %13
-  %30 = xor i64 %22, %.0.copyload.i.i.i.i.i.i161.i
-  %31 = getelementptr inbounds nuw i8, ptr %.014011.i, i64 8
-  %.not.i = icmp eq ptr %31, %7
+32:                                               ; preds = %16
+  %33 = xor i64 %25, %.0.copyload.i.i.i.i.i.i161.i
+  %34 = getelementptr inbounds nuw i8, ptr %.014011.i, i64 8
+  %.not.i = icmp eq ptr %34, %7
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
-._crit_edge.i:                                    ; preds = %29, %4
-  %.0156.lcssa.i = phi i64 [ %8, %4 ], [ %24, %29 ]
-  %.0152.lcssa.i = phi i64 [ %9, %4 ], [ %28, %29 ]
-  %.0148.lcssa.i = phi i64 [ %10, %4 ], [ %27, %29 ]
-  %.0141.lcssa.i = phi i64 [ %11, %4 ], [ %30, %29 ]
-  %.0140.lcssa.i = phi ptr [ %0, %4 ], [ %7, %29 ]
-  %32 = trunc i64 %1 to i32
-  %33 = and i32 %32, 7
-  %34 = shl i64 %1, 56
-  switch i32 %33, label %default.unreachable [
+._crit_edge.i:                                    ; preds = %32, %4
+  %.0156.lcssa.i = phi i64 [ %11, %4 ], [ %27, %32 ]
+  %.0152.lcssa.i = phi i64 [ %12, %4 ], [ %31, %32 ]
+  %.0148.lcssa.i = phi i64 [ %13, %4 ], [ %30, %32 ]
+  %.0141.lcssa.i = phi i64 [ %14, %4 ], [ %33, %32 ]
+  %.0140.lcssa.i = phi ptr [ %0, %4 ], [ %7, %32 ]
+  switch i32 %9, label %default.unreachable [
     i32 7, label %35
     i32 6, label %41
     i32 5, label %47
@@ -84,11 +84,11 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   %37 = load i8, ptr %36, align 1, !tbaa !6
   %38 = zext i8 %37 to i64
   %39 = shl nuw nsw i64 %38, 48
-  %40 = or disjoint i64 %39, %34
+  %40 = or disjoint i64 %39, %10
   br label %41
 
 41:                                               ; preds = %35, %._crit_edge.i
-  %.1.i = phi i64 [ %40, %35 ], [ %34, %._crit_edge.i ]
+  %.1.i = phi i64 [ %40, %35 ], [ %10, %._crit_edge.i ]
   %42 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 5
   %43 = load i8, ptr %42, align 1, !tbaa !6
   %44 = zext i8 %43 to i64
@@ -97,7 +97,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   br label %47
 
 47:                                               ; preds = %41, %._crit_edge.i
-  %.2.i = phi i64 [ %46, %41 ], [ %34, %._crit_edge.i ]
+  %.2.i = phi i64 [ %46, %41 ], [ %10, %._crit_edge.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 4
   %49 = load i8, ptr %48, align 1, !tbaa !6
   %50 = zext i8 %49 to i64
@@ -106,7 +106,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   br label %53
 
 53:                                               ; preds = %47, %._crit_edge.i
-  %.3.i = phi i64 [ %52, %47 ], [ %34, %._crit_edge.i ]
+  %.3.i = phi i64 [ %52, %47 ], [ %10, %._crit_edge.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 3
   %55 = load i8, ptr %54, align 1, !tbaa !6
   %56 = zext i8 %55 to i64
@@ -115,7 +115,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   br label %59
 
 59:                                               ; preds = %53, %._crit_edge.i
-  %.4.i = phi i64 [ %58, %53 ], [ %34, %._crit_edge.i ]
+  %.4.i = phi i64 [ %58, %53 ], [ %10, %._crit_edge.i ]
   %60 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 2
   %61 = load i8, ptr %60, align 1, !tbaa !6
   %62 = zext i8 %61 to i64
@@ -124,7 +124,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   br label %65
 
 65:                                               ; preds = %59, %._crit_edge.i
-  %.5.i = phi i64 [ %64, %59 ], [ %34, %._crit_edge.i ]
+  %.5.i = phi i64 [ %64, %59 ], [ %10, %._crit_edge.i ]
   %66 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 1
   %67 = load i8, ptr %66, align 1, !tbaa !6
   %68 = zext i8 %67 to i64
@@ -133,7 +133,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   br label %71
 
 71:                                               ; preds = %65, %._crit_edge.i
-  %.6.i = phi i64 [ %70, %65 ], [ %34, %._crit_edge.i ]
+  %.6.i = phi i64 [ %70, %65 ], [ %10, %._crit_edge.i ]
   %72 = load i8, ptr %.0140.lcssa.i, align 1, !tbaa !6
   %73 = zext i8 %72 to i64
   %74 = or i64 %.6.i, %73
@@ -143,7 +143,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 75:                                               ; preds = %71, %._crit_edge.i
-  %.0.i = phi i64 [ %34, %._crit_edge.i ], [ %74, %71 ]
+  %.0.i = phi i64 [ %10, %._crit_edge.i ], [ %74, %71 ]
   %76 = xor i64 %.0.i, %.0156.lcssa.i
   br label %77
 
@@ -212,61 +212,61 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   %.val2 = load i64, ptr %5, align 1
   %6 = and i64 %1, -8
   %7 = getelementptr i8, ptr %0, i64 %6
-  %8 = xor i64 %.val2, 8387220255154660723
-  %9 = xor i64 %.val, 7816392313619706465
-  %10 = xor i64 %.val, 8317987319222330741
-  %11 = xor i64 %.val2, 7237128888997146499
+  %8 = trunc i64 %1 to i32
+  %9 = and i32 %8, 7
+  %10 = shl i64 %1, 56
+  %11 = xor i64 %.val2, 8387220255154660723
+  %12 = xor i64 %.val, 7816392313619706465
+  %13 = xor i64 %.val, 8317987319222330741
+  %14 = xor i64 %.val2, 7237128888997146499
   %.not6.i = icmp eq i64 %6, 0
   br i1 %.not6.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %4, %29
-  %.017811.i = phi ptr [ %31, %29 ], [ %0, %4 ]
-  %.017910.i = phi i64 [ %30, %29 ], [ %10, %4 ]
-  %.01889.i = phi i64 [ %27, %29 ], [ %11, %4 ]
-  %.01938.i = phi i64 [ %28, %29 ], [ %9, %4 ]
-  %.01987.i = phi i64 [ %24, %29 ], [ %8, %4 ]
+.lr.ph.i:                                         ; preds = %4, %32
+  %.017811.i = phi ptr [ %34, %32 ], [ %0, %4 ]
+  %.017910.i = phi i64 [ %33, %32 ], [ %13, %4 ]
+  %.01889.i = phi i64 [ %30, %32 ], [ %14, %4 ]
+  %.01938.i = phi i64 [ %31, %32 ], [ %12, %4 ]
+  %.01987.i = phi i64 [ %27, %32 ], [ %11, %4 ]
   %.0.copyload.i.i.i.i.i.i204.i = load i64, ptr %.017811.i, align 1
-  %12 = xor i64 %.0.copyload.i.i.i.i.i.i204.i, %.01987.i
-  br label %13
+  %15 = xor i64 %.0.copyload.i.i.i.i.i.i204.i, %.01987.i
+  br label %16
 
-13:                                               ; preds = %13, %.lr.ph.i
-  %.11805.i = phi i64 [ %.017910.i, %.lr.ph.i ], [ %22, %13 ]
-  %14 = phi i1 [ true, %.lr.ph.i ], [ false, %13 ]
-  %.11893.i = phi i64 [ %.01889.i, %.lr.ph.i ], [ %27, %13 ]
-  %.11942.i = phi i64 [ %.01938.i, %.lr.ph.i ], [ %28, %13 ]
-  %.11991.i = phi i64 [ %12, %.lr.ph.i ], [ %24, %13 ]
-  %15 = add i64 %.11893.i, %.11805.i
-  %16 = tail call i64 @llvm.fshl.i64(i64 %.11893.i, i64 %.11893.i, i64 13)
-  %17 = xor i64 %15, %16
-  %18 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 32)
-  %19 = add i64 %.11991.i, %.11942.i
-  %20 = tail call i64 @llvm.fshl.i64(i64 %.11991.i, i64 %.11991.i, i64 16)
-  %21 = xor i64 %19, %20
-  %22 = add i64 %21, %18
-  %23 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 21)
+16:                                               ; preds = %16, %.lr.ph.i
+  %.11805.i = phi i64 [ %.017910.i, %.lr.ph.i ], [ %25, %16 ]
+  %17 = phi i1 [ true, %.lr.ph.i ], [ false, %16 ]
+  %.11893.i = phi i64 [ %.01889.i, %.lr.ph.i ], [ %30, %16 ]
+  %.11942.i = phi i64 [ %.01938.i, %.lr.ph.i ], [ %31, %16 ]
+  %.11991.i = phi i64 [ %15, %.lr.ph.i ], [ %27, %16 ]
+  %18 = add i64 %.11893.i, %.11805.i
+  %19 = tail call i64 @llvm.fshl.i64(i64 %.11893.i, i64 %.11893.i, i64 13)
+  %20 = xor i64 %18, %19
+  %21 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 32)
+  %22 = add i64 %.11991.i, %.11942.i
+  %23 = tail call i64 @llvm.fshl.i64(i64 %.11991.i, i64 %.11991.i, i64 16)
   %24 = xor i64 %22, %23
-  %25 = add i64 %19, %17
-  %26 = tail call i64 @llvm.fshl.i64(i64 %17, i64 %17, i64 17)
+  %25 = add i64 %24, %21
+  %26 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 21)
   %27 = xor i64 %25, %26
-  %28 = tail call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 32)
-  br i1 %14, label %13, label %29, !llvm.loop !11
+  %28 = add i64 %22, %20
+  %29 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 17)
+  %30 = xor i64 %28, %29
+  %31 = tail call i64 @llvm.fshl.i64(i64 %28, i64 %28, i64 32)
+  br i1 %17, label %16, label %32, !llvm.loop !11
 
-29:                                               ; preds = %13
-  %30 = xor i64 %22, %.0.copyload.i.i.i.i.i.i204.i
-  %31 = getelementptr inbounds nuw i8, ptr %.017811.i, i64 8
-  %.not.i = icmp eq ptr %31, %7
+32:                                               ; preds = %16
+  %33 = xor i64 %25, %.0.copyload.i.i.i.i.i.i204.i
+  %34 = getelementptr inbounds nuw i8, ptr %.017811.i, i64 8
+  %.not.i = icmp eq ptr %34, %7
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %29, %4
-  %.0198.lcssa.i = phi i64 [ %8, %4 ], [ %24, %29 ]
-  %.0193.lcssa.i = phi i64 [ %9, %4 ], [ %28, %29 ]
-  %.0188.lcssa.i = phi i64 [ %11, %4 ], [ %27, %29 ]
-  %.0179.lcssa.i = phi i64 [ %10, %4 ], [ %30, %29 ]
-  %.0178.lcssa.i = phi ptr [ %0, %4 ], [ %7, %29 ]
-  %32 = trunc i64 %1 to i32
-  %33 = and i32 %32, 7
-  %34 = shl i64 %1, 56
-  switch i32 %33, label %default.unreachable [
+._crit_edge.i:                                    ; preds = %32, %4
+  %.0198.lcssa.i = phi i64 [ %11, %4 ], [ %27, %32 ]
+  %.0193.lcssa.i = phi i64 [ %12, %4 ], [ %31, %32 ]
+  %.0188.lcssa.i = phi i64 [ %14, %4 ], [ %30, %32 ]
+  %.0179.lcssa.i = phi i64 [ %13, %4 ], [ %33, %32 ]
+  %.0178.lcssa.i = phi ptr [ %0, %4 ], [ %7, %32 ]
+  switch i32 %9, label %default.unreachable [
     i32 7, label %35
     i32 6, label %41
     i32 5, label %47
@@ -282,11 +282,11 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   %37 = load i8, ptr %36, align 1, !tbaa !6
   %38 = zext i8 %37 to i64
   %39 = shl nuw nsw i64 %38, 48
-  %40 = or disjoint i64 %39, %34
+  %40 = or disjoint i64 %39, %10
   br label %41
 
 41:                                               ; preds = %35, %._crit_edge.i
-  %.1.i = phi i64 [ %40, %35 ], [ %34, %._crit_edge.i ]
+  %.1.i = phi i64 [ %40, %35 ], [ %10, %._crit_edge.i ]
   %42 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 5
   %43 = load i8, ptr %42, align 1, !tbaa !6
   %44 = zext i8 %43 to i64
@@ -295,7 +295,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   br label %47
 
 47:                                               ; preds = %41, %._crit_edge.i
-  %.2.i = phi i64 [ %46, %41 ], [ %34, %._crit_edge.i ]
+  %.2.i = phi i64 [ %46, %41 ], [ %10, %._crit_edge.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 4
   %49 = load i8, ptr %48, align 1, !tbaa !6
   %50 = zext i8 %49 to i64
@@ -304,7 +304,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   br label %53
 
 53:                                               ; preds = %47, %._crit_edge.i
-  %.3.i = phi i64 [ %52, %47 ], [ %34, %._crit_edge.i ]
+  %.3.i = phi i64 [ %52, %47 ], [ %10, %._crit_edge.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 3
   %55 = load i8, ptr %54, align 1, !tbaa !6
   %56 = zext i8 %55 to i64
@@ -313,7 +313,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   br label %59
 
 59:                                               ; preds = %53, %._crit_edge.i
-  %.4.i = phi i64 [ %58, %53 ], [ %34, %._crit_edge.i ]
+  %.4.i = phi i64 [ %58, %53 ], [ %10, %._crit_edge.i ]
   %60 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 2
   %61 = load i8, ptr %60, align 1, !tbaa !6
   %62 = zext i8 %61 to i64
@@ -322,7 +322,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   br label %65
 
 65:                                               ; preds = %59, %._crit_edge.i
-  %.5.i = phi i64 [ %64, %59 ], [ %34, %._crit_edge.i ]
+  %.5.i = phi i64 [ %64, %59 ], [ %10, %._crit_edge.i ]
   %66 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 1
   %67 = load i8, ptr %66, align 1, !tbaa !6
   %68 = zext i8 %67 to i64
@@ -331,7 +331,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   br label %71
 
 71:                                               ; preds = %65, %._crit_edge.i
-  %.6.i = phi i64 [ %70, %65 ], [ %34, %._crit_edge.i ]
+  %.6.i = phi i64 [ %70, %65 ], [ %10, %._crit_edge.i ]
   %72 = load i8, ptr %.0178.lcssa.i, align 1, !tbaa !6
   %73 = zext i8 %72 to i64
   %74 = or i64 %.6.i, %73
@@ -341,7 +341,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
   unreachable
 
 75:                                               ; preds = %71, %._crit_edge.i
-  %.0.i = phi i64 [ %34, %._crit_edge.i ], [ %74, %71 ]
+  %.0.i = phi i64 [ %10, %._crit_edge.i ], [ %74, %71 ]
   %76 = xor i64 %.0.i, %.0198.lcssa.i
   br label %77
 

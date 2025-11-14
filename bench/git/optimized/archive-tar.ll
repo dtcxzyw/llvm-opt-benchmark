@@ -1138,26 +1138,26 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @strbuf_append_ext_header(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
-  %6 = add i64 %3, 3
-  %7 = add i64 %6, %5
-  %.02124 = add i64 %7, 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8, !tbaa !61
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
+  %8 = add i64 %3, 3
+  %9 = add i64 %8, %7
+  %.02124 = add i64 %9, 1
   %.not25 = icmp ult i64 %.02124, 10
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.02127 = phi i64 [ %.021, %.lr.ph ], [ %.02124, %4 ]
-  %.026 = phi i64 [ %8, %.lr.ph ], [ 1, %4 ]
-  %8 = mul nuw i64 %.026, 10
+  %.026 = phi i64 [ %10, %.lr.ph ], [ 1, %4 ]
+  %10 = mul nuw i64 %.026, 10
   %.021 = add i64 %.02127, 1
-  %9 = udiv i64 %.021, 10
-  %.not = icmp ult i64 %9, %8
+  %11 = udiv i64 %.021, 10
+  %.not = icmp ult i64 %11, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.021.lcssa = phi i64 [ %.02124, %4 ], [ %.021, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !61
   tail call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef %.021.lcssa) #11
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i64 noundef %.021.lcssa, ptr noundef nonnull %1) #11
   tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3) #11
@@ -1166,14 +1166,14 @@ define internal fastcc void @strbuf_append_ext_header(ptr noundef nonnull %0, pt
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %._crit_edge
-  %13 = load i64, ptr %10, align 8, !tbaa !61
+  %13 = load i64, ptr %5, align 8, !tbaa !61
   %.neg.i = add i64 %13, 1
   %.not.i = icmp eq i64 %12, %.neg.i
   br i1 %.not.i, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
 
 strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %._crit_edge
   tail call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef 1) #11
-  %.pre.i = load i64, ptr %10, align 8, !tbaa !61
+  %.pre.i = load i64, ptr %5, align 8, !tbaa !61
   %.pre7.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
 
@@ -1182,15 +1182,15 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %14 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %13, %strbuf_avail.exit.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !66
-  store i64 %.pre-phi.i, ptr %10, align 8, !tbaa !61
+  store i64 %.pre-phi.i, ptr %5, align 8, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %14
   store i8 10, ptr %17, align 1, !tbaa !63
   %18 = load ptr, ptr %15, align 8, !tbaa !66
-  %19 = load i64, ptr %10, align 8, !tbaa !61
+  %19 = load i64, ptr %5, align 8, !tbaa !61
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   store i8 0, ptr %20, align 1, !tbaa !63
-  %21 = load i64, ptr %10, align 8, !tbaa !61
-  %22 = sub i64 %21, %11
+  %21 = load i64, ptr %5, align 8, !tbaa !61
+  %22 = sub i64 %21, %6
   %.not23 = icmp eq i64 %.021.lcssa, %22
   br i1 %.not23, label %24, label %23
 

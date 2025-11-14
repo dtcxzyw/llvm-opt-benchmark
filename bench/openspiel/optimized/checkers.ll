@@ -1183,14 +1183,14 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %34, %52, %65, %_ZNS
           to label %_ZNSt6vectorIN10open_spiel8checkers9CellStateESaIS2_EED2Ev.exit unwind label %154
 
 _ZNSt6vectorIN10open_spiel8checkers9CellStateESaIS2_EED2Ev.exit: ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 %111
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %112, i8 0, i64 %111, i1 false)
-  %114 = getelementptr inbounds nuw i32, ptr %112, i64 %110
+  %113 = getelementptr inbounds nuw i32, ptr %112, i64 %110
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 %111
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %112, ptr %75, align 8
-  store ptr %113, ptr %115, align 8
-  store ptr %114, ptr %116, align 8
+  store ptr %114, ptr %115, align 8
+  store ptr %113, ptr %116, align 8
   invoke void @_ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef null, ptr noundef null)
           to label %_ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EEaSESt16initializer_listIS2_E.exit unwind label %83
 
@@ -7269,8 +7269,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %30 = getelementptr inbounds nuw double, ptr %28, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc4, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i

@@ -1866,41 +1866,41 @@ define void @_ZN3g2o10HyperGraphC2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3g2o10HyperGraph5clearEv(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.06.010 = load ptr, ptr %2, align 8, !tbaa !53
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.06.010 = load ptr, ptr %3, align 8, !tbaa !53
   %.not11 = icmp eq ptr %.sroa.06.010, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %13, %1
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load ptr, ptr %3, align 8, !tbaa !28
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.not913 = icmp eq ptr %4, %5
+._crit_edge:                                      ; preds = %15, %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %6 = load ptr, ptr %5, align 8, !tbaa !28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.not913 = icmp eq ptr %6, %7
   br i1 %.not913, label %._crit_edge17, label %.lr.ph16
 
-.lr.ph:                                           ; preds = %1, %13
-  %.sroa.06.012 = phi ptr [ %.sroa.06.0, %13 ], [ %.sroa.06.010, %1 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !60
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %13, label %9
+.lr.ph:                                           ; preds = %1, %15
+  %.sroa.06.012 = phi ptr [ %.sroa.06.0, %15 ], [ %.sroa.06.010, %1 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !60
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %15, label %11
 
-9:                                                ; preds = %.lr.ph
-  %10 = load ptr, ptr %7, align 8, !tbaa !3
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(64) %7) #19
-  br label %13
+11:                                               ; preds = %.lr.ph
+  %12 = load ptr, ptr %9, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = load ptr, ptr %13, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(64) %9) #19
+  br label %15
 
-13:                                               ; preds = %.lr.ph, %9
+15:                                               ; preds = %.lr.ph, %11
   %.sroa.06.0 = load ptr, ptr %.sroa.06.012, align 8, !tbaa !53
   %.not = icmp eq ptr %.sroa.06.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
 
 ._crit_edge17:                                    ; preds = %36, %._crit_edge
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = load ptr, ptr %2, align 8, !tbaa !88
+  %16 = load ptr, ptr %3, align 8, !tbaa !88
   %.not5.i.i.i = icmp eq ptr %16, null
   br i1 %.not5.i.i.i, label %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5clearEv.exit, label %.lr.ph.i.i.i
 
@@ -1912,15 +1912,15 @@ define void @_ZN3g2o10HyperGraph5clearEv(ptr noundef nonnull align 8 dereference
   br i1 %.not.i.i.i, label %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5clearEv.exit, label %.lr.ph.i.i.i, !llvm.loop !93
 
 _ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5clearEv.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge17
-  %18 = load ptr, ptr %14, align 8, !tbaa !57
+  %18 = load ptr, ptr %2, align 8, !tbaa !57
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8, !tbaa !56
   %21 = shl i64 %20, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 %21, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8, !tbaa !27
-  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %23)
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %23)
           to label %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5clearEv.exit unwind label %24
 
 24:                                               ; preds = %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5clearEv.exit
@@ -1932,15 +1932,15 @@ _ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pa
 
 _ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5clearEv.exit: ; preds = %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5clearEv.exit
   store ptr null, ptr %22, align 8, !tbaa !27
-  store ptr %5, ptr %3, align 8, !tbaa !28
+  store ptr %7, ptr %5, align 8, !tbaa !28
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %5, ptr %27, align 8, !tbaa !29
+  store ptr %7, ptr %27, align 8, !tbaa !29
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %28, align 8, !tbaa !30
   ret void
 
 .lr.ph16:                                         ; preds = %._crit_edge, %36
-  %.sroa.02.014 = phi ptr [ %37, %36 ], [ %4, %._crit_edge ]
+  %.sroa.02.014 = phi ptr [ %37, %36 ], [ %6, %._crit_edge ]
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.02.014, i64 32
   %30 = load ptr, ptr %29, align 8, !tbaa !74
   %31 = icmp eq ptr %30, null
@@ -1955,7 +1955,7 @@ _ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5clearEv.exit: ; preds = %
 
 36:                                               ; preds = %.lr.ph16, %32
   %37 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.02.014) #22
-  %.not9 = icmp eq ptr %37, %5
+  %.not9 = icmp eq ptr %37, %7
   br i1 %.not9, label %._crit_edge17, label %.lr.ph16, !llvm.loop !94
 }
 

@@ -17357,19 +17357,19 @@ _ZN4llvm11GraphTraitsIPNS_18BlockFrequencyInfoEE9child_endEPKNS_10BasicBlockE.ex
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm11GraphTraitsIPNS_18BlockFrequencyInfoEE9child_endEPKNS_10BasicBlockE.exit
   %112 = add i32 %111, -1
   %umin = call i32 @llvm.umin.i32(i32 %112, i32 63)
+  %113 = add nuw nsw i32 %umin, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0251 = phi i32 [ %113, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %113 = add nuw nsw i32 %.0251, 1
+  %.0251 = phi i32 [ %114, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %114 = add nuw nsw i32 %.0251, 1
   %exitcond.not = icmp eq i32 %.0251, %umin
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !731
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %114 = add nuw nsw i32 %umin, 1
-  %115 = icmp ne i32 %113, %111
+  %115 = icmp ne i32 %114, %111
   %116 = zext i1 %115 to i32
-  %117 = add nuw nsw i32 %114, %116
+  %117 = add nuw nsw i32 %113, %116
   %118 = zext nneg i32 %117 to i64
   br label %._crit_edge
 
@@ -17702,15 +17702,12 @@ _ZN4llvm11GraphTraitsIPNS_18BlockFrequencyInfoEE9child_endEPKNS_10BasicBlockE.ex
   %296 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %297 = add i32 %295, -1
   %umin266 = call i32 @llvm.umin.i32(i32 %297, i32 63)
+  %298 = add nuw nsw i32 %umin266, 1
   br label %300
 
-.preheader.loopexit:                              ; preds = %_ZN4llvm11GraphWriterIPNS_18BlockFrequencyInfoEE9writeEdgeEPKNS_10BasicBlockEjNS_12SuccIteratorIKNS_11InstructionES5_EE.exit
-  %298 = add nuw nsw i32 %umin266, 1
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.loopexit, %_ZN4llvm11GraphTraitsIPNS_18BlockFrequencyInfoEE9child_endEPKNS_10BasicBlockE.exit209
-  %.sink.i.i.i205300 = phi i32 [ 0, %_ZN4llvm11GraphTraitsIPNS_18BlockFrequencyInfoEE9child_endEPKNS_10BasicBlockE.exit209 ], [ %295, %.preheader.loopexit ]
-  %.sroa.7.0.lcssa = phi i32 [ 0, %_ZN4llvm11GraphTraitsIPNS_18BlockFrequencyInfoEE9child_endEPKNS_10BasicBlockE.exit209 ], [ %298, %.preheader.loopexit ]
+.preheader:                                       ; preds = %_ZN4llvm11GraphWriterIPNS_18BlockFrequencyInfoEE9writeEdgeEPKNS_10BasicBlockEjNS_12SuccIteratorIKNS_11InstructionES5_EE.exit, %_ZN4llvm11GraphTraitsIPNS_18BlockFrequencyInfoEE9child_endEPKNS_10BasicBlockE.exit209
+  %.sink.i.i.i205300 = phi i32 [ 0, %_ZN4llvm11GraphTraitsIPNS_18BlockFrequencyInfoEE9child_endEPKNS_10BasicBlockE.exit209 ], [ %295, %_ZN4llvm11GraphWriterIPNS_18BlockFrequencyInfoEE9writeEdgeEPKNS_10BasicBlockEjNS_12SuccIteratorIKNS_11InstructionES5_EE.exit ]
+  %.sroa.7.0.lcssa = phi i32 [ 0, %_ZN4llvm11GraphTraitsIPNS_18BlockFrequencyInfoEE9child_endEPKNS_10BasicBlockE.exit209 ], [ %298, %_ZN4llvm11GraphWriterIPNS_18BlockFrequencyInfoEE9writeEdgeEPKNS_10BasicBlockEjNS_12SuccIteratorIKNS_11InstructionES5_EE.exit ]
   %.not257 = icmp eq i32 %.sroa.7.0.lcssa, %.sink.i.i.i205300
   br i1 %.not257, label %._crit_edge260, label %.lr.ph259
 
@@ -17759,7 +17756,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36.i: ; preds = %_
 _ZN4llvm11GraphWriterIPNS_18BlockFrequencyInfoEE9writeEdgeEPKNS_10BasicBlockEjNS_12SuccIteratorIKNS_11InstructionES5_EE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36.i, %300
   %314 = add nuw nsw i32 %.055254, 1
   %exitcond267.not = icmp eq i32 %.055254, %umin266
-  br i1 %exitcond267.not, label %.preheader.loopexit, label %300, !llvm.loop !746
+  br i1 %exitcond267.not, label %.preheader, label %300, !llvm.loop !746
 
 315:                                              ; preds = %.lr.ph259, %_ZN4llvm11GraphWriterIPNS_18BlockFrequencyInfoEE9writeEdgeEPKNS_10BasicBlockEjNS_12SuccIteratorIKNS_11InstructionES5_EE.exit218
   %.sroa.7.1258 = phi i32 [ %.sroa.7.0.lcssa, %.lr.ph259 ], [ %329, %_ZN4llvm11GraphWriterIPNS_18BlockFrequencyInfoEE9writeEdgeEPKNS_10BasicBlockEjNS_12SuccIteratorIKNS_11InstructionES5_EE.exit218 ]

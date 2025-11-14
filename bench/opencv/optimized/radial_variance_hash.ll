@@ -835,31 +835,31 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
   %indvars.iv72 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next73, %._crit_edge.us ]
   %.03851.us = phi double [ 0.000000e+00, %.lr.ph.us.preheader ], [ %52, %._crit_edge.us ]
   %.03950.us = phi double [ 0.000000e+00, %.lr.ph.us.preheader ], [ %53, %._crit_edge.us ]
-  %34 = mul i64 %29, %indvars.iv72
-  %35 = getelementptr inbounds nuw i8, ptr %26, i64 %34
-  br label %36
+  %34 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv72
+  %35 = load i32, ptr %34, align 4, !tbaa !47
+  %36 = mul i64 %29, %indvars.iv72
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 %36
+  br label %38
 
-36:                                               ; preds = %.lr.ph.us, %36
-  %indvars.iv67 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next68, %36 ]
-  %.04246.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %40, %36 ]
-  %.04345.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %41, %36 ]
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv67
-  %38 = load i8, ptr %37, align 1, !tbaa !46
-  %39 = uitofp i8 %38 to double
-  %40 = fadd double %.04246.us, %39
-  %41 = tail call double @llvm.fmuladd.f64(double %39, double %39, double %.04345.us)
+38:                                               ; preds = %.lr.ph.us, %38
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next68, %38 ]
+  %.04246.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %42, %38 ]
+  %.04345.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %43, %38 ]
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv67
+  %40 = load i8, ptr %39, align 1, !tbaa !46
+  %41 = uitofp i8 %40 to double
+  %42 = fadd double %.04246.us, %41
+  %43 = tail call double @llvm.fmuladd.f64(double %41, double %41, double %.04345.us)
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %._crit_edge.us, label %36, !llvm.loop !60
+  br i1 %exitcond71.not, label %._crit_edge.us, label %38, !llvm.loop !60
 
-._crit_edge.us:                                   ; preds = %36
-  %42 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv72
-  %43 = load i32, ptr %42, align 4, !tbaa !47
-  %44 = sitofp i32 %43 to double
+._crit_edge.us:                                   ; preds = %38
+  %44 = sitofp i32 %35 to double
   %45 = fadd double %44, 1.000000e-05
   %46 = fmul double %45, %45
-  %47 = fdiv double %41, %45
-  %48 = fmul double %40, %40
+  %47 = fdiv double %43, %45
+  %48 = fmul double %42, %42
   %49 = fdiv double %48, %46
   %50 = fsub double %47, %49
   %51 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv72
@@ -2080,8 +2080,8 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !62
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i

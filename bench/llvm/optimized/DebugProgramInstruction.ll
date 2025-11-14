@@ -3687,30 +3687,30 @@ declare noundef ptr @_ZN4llvm10BasicBlock13getNextMarkerEPNS_11InstructionE(ptr 
 define dso_local void @_ZN4llvm9DbgMarker17absorbDebugValuesERS0_b(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !95
-  %.not10 = icmp eq ptr %8, %6
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.03.0 = select i1 %2, ptr %5, ptr %6
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !95
+  %.not10 = icmp eq ptr %9, %7
   br i1 %.not10, label %_ZN4llvm12simple_ilistINS_9DbgRecordEJEE6spliceENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb0ELb0EvLb0EvEELb0ELb0EEERS2_.exit, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.03.0 = select i1 %2, ptr %5, ptr %9
-  %10 = icmp eq ptr %.sroa.03.0, %6
+  %10 = icmp eq ptr %.sroa.03.0, %7
   br i1 %10, label %_ZN4llvm12simple_ilistINS_9DbgRecordEJEE6spliceENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb0ELb0EvLb0EvEELb0ELb0EEERS2_.exit, label %11
 
 11:                                               ; preds = %._crit_edge
-  %12 = load ptr, ptr %6, align 8, !tbaa !94
-  %13 = load ptr, ptr %8, align 8, !tbaa !94
+  %12 = load ptr, ptr %7, align 8, !tbaa !94
+  %13 = load ptr, ptr %9, align 8, !tbaa !94
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %6, ptr %14, align 8, !tbaa !95
-  store ptr %13, ptr %6, align 8, !tbaa !94
+  store ptr %7, ptr %14, align 8, !tbaa !95
+  store ptr %13, ptr %7, align 8, !tbaa !94
   %15 = load ptr, ptr %.sroa.03.0, align 8, !tbaa !94
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.sroa.03.0, ptr %16, align 8, !tbaa !95
-  store ptr %15, ptr %8, align 8, !tbaa !94
+  store ptr %15, ptr %9, align 8, !tbaa !94
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %8, ptr %17, align 8, !tbaa !95
+  store ptr %9, ptr %17, align 8, !tbaa !95
   store ptr %12, ptr %.sroa.03.0, align 8, !tbaa !94
   br label %_ZN4llvm12simple_ilistINS_9DbgRecordEJEE6spliceENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb0ELb0EvLb0EvEELb0ELb0EEERS2_.exit
 
@@ -3718,12 +3718,12 @@ _ZN4llvm12simple_ilistINS_9DbgRecordEJEE6spliceENS_14ilist_iteratorINS_12ilist_d
   ret void
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.07.011 = phi ptr [ %20, %.lr.ph ], [ %8, %3 ]
+  %.sroa.07.011 = phi ptr [ %20, %.lr.ph ], [ %9, %3 ]
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 16
   store ptr %0, ptr %18, align 8, !tbaa !93
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !95
-  %.not = icmp eq ptr %20, %6
+  %.not = icmp eq ptr %20, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

@@ -4088,31 +4088,29 @@ read_vlc_prefix.exit.thread:                      ; preds = %441
   %470 = add i32 %460, 2
   %471 = call i32 @llvm.umin.i32(i32 %450, i32 %470)
   store i32 %471, ptr %26, align 8, !tbaa !65
-  %472 = getelementptr inbounds nuw i8, ptr %443, i64 20
-  %473 = load i32, ptr %472, align 4, !tbaa !117
-  %.not.i.i.i = icmp eq i32 %473, 0
-  %474 = sub i32 32, %473
-  %475 = lshr i32 -1, %474
+  %472 = add nuw nsw i32 %469, 1
+  %473 = getelementptr inbounds nuw i8, ptr %443, i64 20
+  %474 = load i32, ptr %473, align 4, !tbaa !117
+  %.not.i.i.i = icmp eq i32 %474, 0
+  %475 = sub i32 32, %474
+  %476 = lshr i32 -1, %475
   br i1 %.not.i.i.i, label %get_bitsz.exit.us.preheader.i.i, label %.split.i.i
 
 get_bitsz.exit.us.preheader.i.i:                  ; preds = %462
-  %476 = shl i32 %468, 1
-  %477 = and i32 %476, 6
-  %narrow.i.i = add nuw nsw i32 %477, 2
-  %478 = zext nneg i32 %narrow.i.i to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %11, i8 0, i64 %478, i1 false), !tbaa !122
-  %.pre.i.i = add nuw nsw i32 %469, 1
+  %477 = shl i32 %468, 1
+  %478 = and i32 %477, 6
+  %narrow.i.i = add nuw nsw i32 %478, 2
+  %479 = zext nneg i32 %narrow.i.i to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %11, i8 0, i64 %479, i1 false), !tbaa !122
   br label %.split32.us.i.i
 
 .split.i.i:                                       ; preds = %462
-  %479 = add nuw nsw i32 %469, 1
-  %wide.trip.count.i.i = zext nneg i32 %479 to i64
+  %wide.trip.count.i.i = zext nneg i32 %472 to i64
   br label %get_bitsz.exit.i.i
 
 .split32.us.i.i:                                  ; preds = %get_bitsz.exit.i.i, %get_bitsz.exit.us.preheader.i.i
-  %.pre-phi.i.i = phi i32 [ %.pre.i.i, %get_bitsz.exit.us.preheader.i.i ], [ %479, %get_bitsz.exit.i.i ]
   %480 = phi i32 [ %471, %get_bitsz.exit.us.preheader.i.i ], [ %491, %get_bitsz.exit.i.i ]
-  %481 = icmp eq i32 %.pre-phi.i.i, 4
+  %481 = icmp eq i32 %472, 4
   br i1 %481, label %.thread.i.i, label %505
 
 get_bitsz.exit.i.i:                               ; preds = %get_bitsz.exit.i.i, %.split.i.i
@@ -4124,8 +4122,8 @@ get_bitsz.exit.i.i:                               ; preds = %get_bitsz.exit.i.i,
   %486 = load i32, ptr %485, align 1, !tbaa !28
   %487 = and i32 %482, 7
   %488 = lshr i32 %486, %487
-  %489 = and i32 %488, %475
-  %490 = add i32 %482, %473
+  %489 = and i32 %488, %476
+  %490 = add i32 %482, %474
   %491 = call i32 @llvm.umin.i32(i32 %450, i32 %490)
   store i32 %491, ptr %26, align 8, !tbaa !65
   %492 = trunc i32 %489 to i16
@@ -4243,7 +4241,7 @@ get_bitsz.exit.i.i:                               ; preds = %get_bitsz.exit.i.i,
   %.024.i.i = phi i32 [ 1, %515 ], [ 1, %511 ], [ 2, %520 ], [ 2, %516 ], [ 3, %525 ], [ 3, %521 ], [ 2, %.loopexit.i.i ]
   %535 = getelementptr inbounds nuw i8, ptr %443, i64 24
   %536 = load ptr, ptr %372, align 8, !tbaa !81
-  %537 = call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %535, i32 noundef %.024.i.i, i32 noundef %.pre-phi.i.i, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %11, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 12, ptr noundef %536) #11
+  %537 = call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %535, i32 noundef %.024.i.i, i32 noundef %472, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %11, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 12, ptr noundef %536) #11
   br label %read_simple_vlc_prefix.exit.i
 
 default.unreachable.i.i:                          ; preds = %505

@@ -1801,8 +1801,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %56 = getelementptr inbounds nuw i32, ptr %55, i64 %52
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %56, ptr %57, align 8, !tbaa !55
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %54
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %55, i8 -1, i64 %54, i1 false), !tbaa !26
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %54
   %59 = ptrtoint ptr %56 to i64
   br label %.loopexit183
 

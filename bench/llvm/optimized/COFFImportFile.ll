@@ -1374,25 +1374,25 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit210:            ; preds = %_ZN4llvm16NewArchiv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %256, i8 0, i64 29, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(98) %255, ptr noundef nonnull align 1 dereferenceable(98) %252, i64 98, i1 false), !noalias !116
   call void @_ZdlPvm(ptr noundef nonnull %252, i64 noundef 120) #19, !noalias !116
-  %257 = getelementptr inbounds nuw i8, ptr %255, i64 102
+  %257 = getelementptr inbounds nuw i8, ptr %255, i64 98
+  %258 = getelementptr inbounds nuw i8, ptr %255, i64 102
   br label %.lr.ph.i.i.i.i.i.i.i38
 
 .lr.ph.i.i.i.i.i.i.i38:                           ; preds = %.lr.ph.i.i.i.i.i.i.i38, %_ZNSt6vectorIhSaIhEE6resizeEm.exit210
-  %.0811.i.i.i.i.i.i.i40 = phi ptr [ %259, %.lr.ph.i.i.i.i.i.i.i38 ], [ %257, %_ZNSt6vectorIhSaIhEE6resizeEm.exit210 ]
+  %.0811.i.i.i.i.i.i.i40 = phi ptr [ %260, %.lr.ph.i.i.i.i.i.i.i38 ], [ %258, %_ZNSt6vectorIhSaIhEE6resizeEm.exit210 ]
   %.0910.i.i.i.i.i.i.i41.idx = phi i64 [ %.0910.i.i.i.i.i.i.i41.add, %.lr.ph.i.i.i.i.i.i.i38 ], [ 0, %_ZNSt6vectorIhSaIhEE6resizeEm.exit210 ]
   %.0910.i.i.i.i.i.i.i41.ptr = getelementptr inbounds nuw i8, ptr @.str.15, i64 %.0910.i.i.i.i.i.i.i41.idx
-  %258 = load i8, ptr %.0910.i.i.i.i.i.i.i41.ptr, align 1, !tbaa !11, !noalias !116
-  store i8 %258, ptr %.0811.i.i.i.i.i.i.i40, align 1, !tbaa !11, !noalias !116
+  %259 = load i8, ptr %.0910.i.i.i.i.i.i.i41.ptr, align 1, !tbaa !11, !noalias !116
+  store i8 %259, ptr %.0811.i.i.i.i.i.i.i40, align 1, !tbaa !11, !noalias !116
   %.0910.i.i.i.i.i.i.i41.add = add nuw nsw i64 %.0910.i.i.i.i.i.i.i41.idx, 1
-  %259 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i40, i64 1
+  %260 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i40, i64 1
   %exitcond.not = icmp eq i64 %.0910.i.i.i.i.i.i.i41.idx, 23
   br i1 %exitcond.not, label %_ZN4llvm6object12_GLOBAL__N_113ObjectFactory26createNullImportDescriptorERSt6vectorIhSaIhEE.exit, label %.lr.ph.i.i.i.i.i.i.i38, !llvm.loop !98
 
 _ZN4llvm6object12_GLOBAL__N_113ObjectFactory26createNullImportDescriptorERSt6vectorIhSaIhEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i38
-  %260 = getelementptr inbounds nuw i8, ptr %255, i64 98
   %261 = getelementptr inbounds nuw i8, ptr %255, i64 126
   store i8 0, ptr %261, align 1, !tbaa !11, !noalias !116
-  store i32 29, ptr %260, align 1, !noalias !116
+  store i32 29, ptr %257, align 1, !noalias !116
   %.sroa.0.0.copyload.i48 = load ptr, ptr %42, align 8, !tbaa !18, !noalias !116
   %.sroa.2.0.copyload.i49 = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !10, !noalias !116
   store ptr %255, ptr %11, align 8, !tbaa !18, !noalias !116

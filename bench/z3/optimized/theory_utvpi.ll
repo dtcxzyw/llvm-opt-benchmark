@@ -3378,6 +3378,7 @@ _ZNK4heapI9dl_var_ltIN3smt12theory_utvpiINS1_7idl_extEE4GExtEEE10get_boundsEv.ex
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK4heapI9dl_var_ltIN3smt12theory_utvpiINS1_7idl_extEE4GExtEEE10get_boundsEv.exit, %217
   %.ph67 = phi ptr [ null, %217 ], [ %219, %_ZNK4heapI9dl_var_ltIN3smt12theory_utvpiINS1_7idl_extEE4GExtEEE10get_boundsEv.exit ]
   %.0.i17.i.i.ph = phi i32 [ 0, %217 ], [ %222, %_ZNK4heapI9dl_var_ltIN3smt12theory_utvpiINS1_7idl_extEE4GExtEEE10get_boundsEv.exit ]
+  %.ph = add nuw nsw i32 %1, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i
@@ -3397,7 +3398,6 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIiLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !284
 
 227:                                              ; preds = %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i
-  %.ph = add nuw nsw i32 %1, 1
   %228 = getelementptr inbounds i8, ptr %223, i64 -4
   store i32 %.ph, ptr %228, align 4, !tbaa !14
   %.not1319.i.i = icmp eq i32 %.0.i17.i.i.ph, %.ph
@@ -23439,6 +23439,7 @@ _ZNK4heapI9dl_var_ltIN3smt12theory_utvpiINS1_7rdl_extEE4GExtEEE10get_boundsEv.ex
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK4heapI9dl_var_ltIN3smt12theory_utvpiINS1_7rdl_extEE4GExtEEE10get_boundsEv.exit, %223
   %.ph67 = phi ptr [ null, %223 ], [ %225, %_ZNK4heapI9dl_var_ltIN3smt12theory_utvpiINS1_7rdl_extEE4GExtEEE10get_boundsEv.exit ]
   %.0.i17.i.i.ph = phi i32 [ 0, %223 ], [ %228, %_ZNK4heapI9dl_var_ltIN3smt12theory_utvpiINS1_7rdl_extEE4GExtEEE10get_boundsEv.exit ]
+  %.ph = add nuw nsw i32 %1, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i
@@ -23458,7 +23459,6 @@ _ZNK6vectorIiLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIiLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !284
 
 233:                                              ; preds = %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i
-  %.ph = add nuw nsw i32 %1, 1
   %234 = getelementptr inbounds i8, ptr %229, i64 -4
   store i32 %.ph, ptr %234, align 4, !tbaa !14
   %.not1319.i.i = icmp eq i32 %.0.i17.i.i.ph, %.ph

@@ -1448,17 +1448,17 @@ _ZNSt6vectorISt17reference_wrapperI17DeviceInformationESaIS2_EED2Ev.exit.i: ; pr
   %336 = getelementptr inbounds nuw i8, ptr %.sroa.06.015.i, i64 16
   %337 = load ptr, ptr %336, align 8, !tbaa !76
   %338 = load ptr, ptr %335, align 8, !tbaa !73
-  %.not1011.i = icmp eq ptr %338, %337
-  br i1 %.not1011.i, label %._crit_edge.i, label %.lr.ph.i
-
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph19.i
-  %.1.lcssa.i = phi i32 [ %.05116.i, %.lr.ph19.i ], [ %355, %.lr.ph.i ]
   %339 = ptrtoint ptr %337 to i64
   %340 = ptrtoint ptr %338 to i64
   %341 = sub i64 %339, %340
   %342 = lshr exact i64 %341, 5
   %343 = trunc i64 %342 to i32
   %344 = add i32 %.017.i, %343
+  %.not1011.i = icmp eq ptr %338, %337
+  br i1 %.not1011.i, label %._crit_edge.i, label %.lr.ph.i
+
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph19.i
+  %.1.lcssa.i = phi i32 [ %.05116.i, %.lr.ph19.i ], [ %355, %.lr.ph.i ]
   %345 = getelementptr inbounds nuw i8, ptr %.sroa.06.015.i, i64 32
   %.not9.i = icmp eq ptr %345, %288
   br i1 %.not9.i, label %._crit_edge20.i, label %.lr.ph19.i

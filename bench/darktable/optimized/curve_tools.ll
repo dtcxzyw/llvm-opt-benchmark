@@ -656,50 +656,50 @@ define range(i32 0, 101) i32 @CurveDataSample(ptr noundef readonly captures(none
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i8, ptr %15, align 4, !tbaa !18
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %19, label %.preheader75
+  br i1 %17, label %20, label %.preheader75
 
 .preheader75:                                     ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = zext i8 %16 to i32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i8 %16 to i64
-  br label %22
+  br label %23
 
-19:                                               ; preds = %2
+20:                                               ; preds = %2
   store float %8, ptr %3, align 16, !tbaa !6
   store float %13, ptr %4, align 16, !tbaa !6
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float %6, ptr %20, align 4, !tbaa !6
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float %11, ptr %21, align 4, !tbaa !6
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store float %6, ptr %21, align 4, !tbaa !6
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store float %11, ptr %22, align 4, !tbaa !6
   br label %.loopexit
 
-22:                                               ; preds = %.preheader75, %22
-  %indvars.iv = phi i64 [ 0, %.preheader75 ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %18, i64 %indvars.iv
-  %24 = load float, ptr %23, align 4, !tbaa !19
-  %25 = fmul reassoc nsz arcp contract afn float %24, %9
-  %26 = fadd reassoc nsz arcp contract afn float %25, %8
-  %27 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
-  store float %26, ptr %27, align 4, !tbaa !6
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %29 = load float, ptr %28, align 4, !tbaa !21
-  %30 = fmul reassoc nsz arcp contract afn float %29, %14
-  %31 = fadd reassoc nsz arcp contract afn float %30, %13
-  %32 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
-  store float %31, ptr %32, align 4, !tbaa !6
+23:                                               ; preds = %.preheader75, %23
+  %indvars.iv = phi i64 [ 0, %.preheader75 ], [ %indvars.iv.next, %23 ]
+  %24 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %19, i64 %indvars.iv
+  %25 = load float, ptr %24, align 4, !tbaa !19
+  %26 = fmul reassoc nsz arcp contract afn float %25, %9
+  %27 = fadd reassoc nsz arcp contract afn float %26, %8
+  %28 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  store float %27, ptr %28, align 4, !tbaa !6
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %30 = load float, ptr %29, align 4, !tbaa !21
+  %31 = fmul reassoc nsz arcp contract afn float %30, %14
+  %32 = fadd reassoc nsz arcp contract afn float %31, %13
+  %33 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  store float %32, ptr %33, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %22
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %23
 
-.loopexit.loopexit:                               ; preds = %22
-  %33 = zext i8 %16 to i32
+.loopexit.loopexit:                               ; preds = %23
   %.pre = load float, ptr %3, align 16, !tbaa !6
   %.pre82 = load float, ptr %4, align 16, !tbaa !6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %19
-  %34 = phi float [ %13, %19 ], [ %.pre82, %.loopexit.loopexit ]
-  %35 = phi float [ %8, %19 ], [ %.pre, %.loopexit.loopexit ]
-  %.068 = phi i32 [ 2, %19 ], [ %33, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %20
+  %34 = phi float [ %13, %20 ], [ %.pre82, %.loopexit.loopexit ]
+  %35 = phi float [ %8, %20 ], [ %.pre, %.loopexit.loopexit ]
+  %.068 = phi i32 [ 2, %20 ], [ %18, %.loopexit.loopexit ]
   %36 = load i32, ptr %1, align 8, !tbaa !22
   %37 = add i32 %36, -1
   %38 = uitofp i32 %37 to float

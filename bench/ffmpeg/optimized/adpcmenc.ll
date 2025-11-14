@@ -455,18 +455,18 @@ define internal range(i32 -2147483648, 1) i32 @adpcm_encode_frame(ptr noundef %0
 44:                                               ; preds = %31
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %46 = load i32, ptr %45, align 8, !tbaa !60
-  %47 = icmp sgt i32 %11, 0
-  br i1 %47, label %.lr.ph1146, label %._crit_edge1147
+  %47 = add nsw i32 %46, -1
+  %48 = sdiv i32 %47, 8
+  %49 = icmp sgt i32 %11, 0
+  br i1 %49, label %.lr.ph1146, label %._crit_edge1147
 
 .lr.ph1146:                                       ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %wide.trip.count1299 = zext nneg i32 %11 to i64
   br label %56
 
 ._crit_edge1147:                                  ; preds = %56, %44
   %.0898.lcssa = phi ptr [ %33, %44 ], [ %68, %56 ]
-  %49 = add nsw i32 %46, -1
-  %50 = sdiv i32 %49, 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %52 = load i32, ptr %51, align 4, !tbaa !39
   %53 = icmp sgt i32 %52, 0
@@ -478,7 +478,7 @@ define internal range(i32 -2147483648, 1) i32 @adpcm_encode_frame(ptr noundef %0
 
 .preheader907.lr.ph:                              ; preds = %.preheader908
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %smax1312 = tail call i32 @llvm.smax.i32(i32 %50, i32 1)
+  %smax1312 = tail call i32 @llvm.smax.i32(i32 %48, i32 1)
   %wide.trip.count1313 = zext nneg i32 %smax1312 to i64
   %wide.trip.count1307 = zext nneg i32 %11 to i64
   br label %.preheader907
@@ -486,7 +486,7 @@ define internal range(i32 -2147483648, 1) i32 @adpcm_encode_frame(ptr noundef %0
 56:                                               ; preds = %.lr.ph1146, %56
   %indvars.iv1296 = phi i64 [ 0, %.lr.ph1146 ], [ %indvars.iv.next1297, %56 ]
   %.08981143 = phi ptr [ %33, %.lr.ph1146 ], [ %68, %56 ]
-  %57 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %48, i64 %indvars.iv1296
+  %57 = getelementptr inbounds nuw %struct.ADPCMChannelStatus, ptr %50, i64 %indvars.iv1296
   %58 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv1296
   %59 = load ptr, ptr %58, align 8, !tbaa !63
   %60 = load i16, ptr %59, align 2, !tbaa !64
@@ -508,17 +508,17 @@ define internal range(i32 -2147483648, 1) i32 @adpcm_encode_frame(ptr noundef %0
 
 69:                                               ; preds = %._crit_edge1147
   %70 = shl i32 %11, 3
-  %71 = mul i32 %70, %50
+  %71 = mul i32 %70, %48
   %72 = sext i32 %71 to i64
   %73 = tail call ptr @av_malloc_array(i64 noundef %72, i64 noundef 1) #10
   %.not548.not = icmp eq ptr %73, null
   br i1 %.not548.not, label %.critedge, label %.preheader906
 
 .preheader906:                                    ; preds = %69
-  br i1 %47, label %.lr.ph1159, label %.preheader905
+  br i1 %49, label %.lr.ph1159, label %.preheader905
 
 .lr.ph1159:                                       ; preds = %.preheader906
-  %74 = shl nsw i32 %50, 3
+  %74 = shl nsw i32 %48, 3
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %wide.trip.count1318 = zext nneg i32 %11 to i64
   br label %78
@@ -528,8 +528,8 @@ define internal range(i32 -2147483648, 1) i32 @adpcm_encode_frame(ptr noundef %0
   br i1 %76, label %.preheader.lr.ph, label %._crit_edge1169
 
 .preheader.lr.ph:                                 ; preds = %.preheader905
-  %77 = shl nsw i32 %50, 3
-  %smax1331 = tail call i32 @llvm.smax.i32(i32 %50, i32 1)
+  %77 = shl nsw i32 %48, 3
+  %smax1331 = tail call i32 @llvm.smax.i32(i32 %48, i32 1)
   %wide.trip.count1332 = zext nneg i32 %smax1331 to i64
   %wide.trip.count1326 = zext nneg i32 %11 to i64
   br label %.preheader
@@ -552,7 +552,7 @@ define internal range(i32 -2147483648, 1) i32 @adpcm_encode_frame(ptr noundef %0
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge1165
   %indvars.iv1328 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next1329, %._crit_edge1165 ]
   %.11167 = phi ptr [ %.0898.lcssa, %.preheader.lr.ph ], [ %.2.lcssa, %._crit_edge1165 ]
-  br i1 %47, label %.lr.ph1164, label %._crit_edge1165
+  br i1 %49, label %.lr.ph1164, label %._crit_edge1165
 
 .lr.ph1164:                                       ; preds = %.preheader
   %87 = shl nsw i64 %indvars.iv1328, 3
@@ -601,7 +601,7 @@ define internal range(i32 -2147483648, 1) i32 @adpcm_encode_frame(ptr noundef %0
 .preheader907:                                    ; preds = %.preheader907.lr.ph, %._crit_edge1154
   %indvars.iv1309 = phi i64 [ 0, %.preheader907.lr.ph ], [ %indvars.iv.next1310, %._crit_edge1154 ]
   %.41156 = phi ptr [ %.0898.lcssa, %.preheader907.lr.ph ], [ %.5.lcssa, %._crit_edge1154 ]
-  br i1 %47, label %.lr.ph1153, label %._crit_edge1154
+  br i1 %49, label %.lr.ph1153, label %._crit_edge1154
 
 .lr.ph1153:                                       ; preds = %.preheader907
   %.idx1370 = shl nsw i64 %indvars.iv1309, 4

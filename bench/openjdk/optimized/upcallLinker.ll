@@ -669,61 +669,61 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZNK6HandleclEv.exi
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 46
   %106 = load i16, ptr %105, align 2
-  %107 = zext i16 %106 to i64
-  %108 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %107, i32 noundef 0) #1
-  %109 = load ptr, ptr %103, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %109, i64 38
-  %113 = load i16, ptr %112, align 2
-  %114 = getelementptr inbounds nuw i8, ptr %111, i64 72
-  %115 = zext i16 %113 to i64
-  %116 = getelementptr inbounds nuw i64, ptr %114, i64 %115
-  %117 = load ptr, ptr %116, align 8
-  call void @_ZN15SignatureStreamC1EPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %117, i1 noundef zeroext true) #1
-  %118 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  %119 = load i32, ptr %118, align 4
-  %120 = icmp eq i32 %119, 3
-  br i1 %120, label %._crit_edge, label %.lr.ph
+  %107 = zext i16 %106 to i32
+  %108 = zext i16 %106 to i64
+  %109 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %108, i32 noundef 0) #1
+  %110 = load ptr, ptr %103, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 38
+  %114 = load i16, ptr %113, align 2
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 72
+  %116 = zext i16 %114 to i64
+  %117 = getelementptr inbounds nuw i64, ptr %115, i64 %116
+  %118 = load ptr, ptr %117, align 8
+  call void @_ZN15SignatureStreamC1EPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %118, i1 noundef zeroext true) #1
+  %119 = getelementptr inbounds nuw i8, ptr %9, i64 28
+  %120 = load i32, ptr %119, align 4
+  %121 = icmp eq i32 %120, 3
+  br i1 %121, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %102
-  %121 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  br label %122
+  %122 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  br label %123
 
-122:                                              ; preds = %.lr.ph, %131
-  %.041 = phi i32 [ 0, %.lr.ph ], [ %.1, %131 ]
-  %123 = load i8, ptr %121, align 8
-  %124 = add nsw i32 %.041, 1
-  %125 = sext i32 %.041 to i64
-  %126 = getelementptr inbounds i8, ptr %108, i64 %125
-  store i8 %123, ptr %126, align 1
-  switch i8 %123, label %131 [
-    i8 11, label %127
-    i8 7, label %127
+123:                                              ; preds = %.lr.ph, %132
+  %.041 = phi i32 [ 0, %.lr.ph ], [ %.1, %132 ]
+  %124 = load i8, ptr %122, align 8
+  %125 = add nsw i32 %.041, 1
+  %126 = sext i32 %.041 to i64
+  %127 = getelementptr inbounds i8, ptr %109, i64 %126
+  store i8 %124, ptr %127, align 1
+  switch i8 %124, label %132 [
+    i8 11, label %128
+    i8 7, label %128
   ]
 
-127:                                              ; preds = %122, %122
-  %128 = add nsw i32 %.041, 2
-  %129 = sext i32 %124 to i64
-  %130 = getelementptr inbounds i8, ptr %108, i64 %129
-  store i8 14, ptr %130, align 1
-  br label %131
+128:                                              ; preds = %123, %123
+  %129 = add nsw i32 %.041, 2
+  %130 = sext i32 %125 to i64
+  %131 = getelementptr inbounds i8, ptr %109, i64 %130
+  store i8 14, ptr %131, align 1
+  br label %132
 
-131:                                              ; preds = %122, %127
-  %.1 = phi i32 [ %128, %127 ], [ %124, %122 ]
+132:                                              ; preds = %123, %128
+  %.1 = phi i32 [ %129, %128 ], [ %125, %123 ]
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #1
-  %132 = load i32, ptr %118, align 4
-  %133 = icmp eq i32 %132, 3
-  br i1 %133, label %._crit_edge, label %122, !llvm.loop !9
+  %133 = load i32, ptr %119, align 4
+  %134 = icmp eq i32 %133, 3
+  br i1 %134, label %._crit_edge, label %123, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %131, %102
-  %134 = zext i16 %106 to i32
+._crit_edge:                                      ; preds = %132, %102
   %135 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %136 = load i8, ptr %135, align 8
   call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #1
   %137 = icmp ne i8 %5, 0
   %138 = trunc i64 %6 to i32
-  %139 = call noundef ptr @_ZN12UpcallLinker16make_upcall_stubEP8_jobjectP6MethodP9BasicTypeiS4_S1_S1_bi(ptr noundef %73, ptr noundef nonnull %77, ptr noundef %108, i32 noundef %134, i8 noundef zeroext %136, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %137, i32 noundef %138) #1
+  %139 = call noundef ptr @_ZN12UpcallLinker16make_upcall_stubEP8_jobjectP6MethodP9BasicTypeiS4_S1_S1_bi(ptr noundef %73, ptr noundef nonnull %77, ptr noundef %109, i32 noundef %107, i8 noundef zeroext %136, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %137, i32 noundef %138) #1
   %140 = ptrtoint ptr %139 to i64
   br label %141
 

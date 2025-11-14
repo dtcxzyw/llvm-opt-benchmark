@@ -3179,91 +3179,91 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 131072
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %42, ptr %43, align 8, !tbaa !69, !alias.scope !188
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(131072) %41, i8 0, i64 131072, i1 false), !noalias !188
   br label %.preheader.split.i
 
 .preheader.split.i:                               ; preds = %.preheader.split.i, %36
-  %.01877.i = phi i32 [ %53, %.preheader.split.i ], [ 0, %36 ]
+  %.01877.i = phi i32 [ %54, %.preheader.split.i ], [ 0, %36 ]
   %.sroa.7.076.i = phi double [ %.sroa.7.1.i, %.preheader.split.i ], [ 1.000000e+00, %36 ]
   %.sroa.0.075.i = phi double [ %.sroa.0.1.i, %.preheader.split.i ], [ 0.000000e+00, %36 ]
-  %44 = fadd double %.sroa.7.076.i, %.sroa.0.075.i
-  %45 = fmul double %44, 5.000000e-01
-  %46 = fdiv double %45, 1.292000e+01
-  %47 = tail call double @pow(double noundef %46, double noundef 0xBFDAAAAAAAAAAAAB) #33, !tbaa !31, !noalias !188
-  %48 = fadd double %47, -1.000000e+00
-  %49 = fdiv double %48, 0x3FDAAAAAAAAAAAAB
-  %50 = fdiv double 1.000000e+00, %45
-  %51 = fsub double %49, %50
-  %52 = fcmp ogt double %51, -1.000000e+00
-  %.sroa.0.1.i = select i1 %52, double %.sroa.0.075.i, double %45
-  %.sroa.7.1.i = select i1 %52, double %45, double %.sroa.7.076.i
-  %53 = add nuw nsw i32 %.01877.i, 1
-  %exitcond.not.i = icmp eq i32 %53, 48
+  %45 = fadd double %.sroa.7.076.i, %.sroa.0.075.i
+  %46 = fmul double %45, 5.000000e-01
+  %47 = fdiv double %46, 1.292000e+01
+  %48 = tail call double @pow(double noundef %47, double noundef 0xBFDAAAAAAAAAAAAB) #33, !tbaa !31, !noalias !188
+  %49 = fadd double %48, -1.000000e+00
+  %50 = fdiv double %49, 0x3FDAAAAAAAAAAAAB
+  %51 = fdiv double 1.000000e+00, %46
+  %52 = fsub double %50, %51
+  %53 = fcmp ogt double %52, -1.000000e+00
+  %.sroa.0.1.i = select i1 %53, double %.sroa.0.075.i, double %46
+  %.sroa.7.1.i = select i1 %53, double %46, double %.sroa.7.076.i
+  %54 = add nuw nsw i32 %.01877.i, 1
+  %exitcond.not.i = icmp eq i32 %54, 48
   br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !191
 
 .split.us.i:                                      ; preds = %.preheader.split.i
-  %54 = fmul double %45, 1.400000e+00
-  %55 = tail call double @pow(double noundef %46, double noundef 0x3FF6AAAAAAAAAAAB) #33, !tbaa !31, !noalias !188
-  %56 = fadd double %54, 1.000000e+00
+  %55 = fmul double %46, 1.400000e+00
+  %56 = tail call double @pow(double noundef %47, double noundef 0x3FF6AAAAAAAAAAAB) #33, !tbaa !31, !noalias !188
+  %57 = fadd double %55, 1.000000e+00
   br label %cdce.end.split.us.i
 
-cdce.end.split.us.i:                              ; preds = %73, %.split.us.i
-  %indvars.iv87.i = phi i64 [ 0, %.split.us.i ], [ %indvars.iv.next88.i, %73 ]
-  %57 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv87.i
-  store i16 -1, ptr %57, align 2, !tbaa !180, !noalias !188
-  %58 = trunc nuw nsw i64 %indvars.iv87.i to i32
-  %59 = uitofp nneg i32 %58 to double
-  %60 = fdiv double %59, 4.095000e+03
-  %61 = fcmp ult double %60, 1.000000e+00
-  br i1 %61, label %62, label %73
+cdce.end.split.us.i:                              ; preds = %74, %.split.us.i
+  %indvars.iv87.i = phi i64 [ 0, %.split.us.i ], [ %indvars.iv.next88.i, %74 ]
+  %58 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv87.i
+  store i16 -1, ptr %58, align 2, !tbaa !180, !noalias !188
+  %59 = trunc nuw nsw i64 %indvars.iv87.i to i32
+  %60 = uitofp nneg i32 %59 to double
+  %61 = fdiv double %60, 4.095000e+03
+  %62 = fcmp ult double %61, 1.000000e+00
+  br i1 %62, label %63, label %74
 
-62:                                               ; preds = %cdce.end.split.us.i
-  %63 = fcmp olt double %60, %45
-  br i1 %63, label %68, label %64
+63:                                               ; preds = %cdce.end.split.us.i
+  %64 = fcmp olt double %61, %46
+  br i1 %64, label %69, label %65
 
-64:                                               ; preds = %62
-  %65 = fadd double %54, %60
-  %66 = fdiv double %65, %56
-  %67 = tail call double @pow(double noundef %66, double noundef 2.400000e+00) #33, !tbaa !31, !noalias !188
-  br label %70
+65:                                               ; preds = %63
+  %66 = fadd double %55, %61
+  %67 = fdiv double %66, %57
+  %68 = tail call double @pow(double noundef %67, double noundef 2.400000e+00) #33, !tbaa !31, !noalias !188
+  br label %71
 
-68:                                               ; preds = %62
-  %69 = fdiv double %60, 1.292000e+01
-  br label %70
+69:                                               ; preds = %63
+  %70 = fdiv double %61, 1.292000e+01
+  br label %71
 
-70:                                               ; preds = %68, %64
-  %.0.us.i = phi double [ %69, %68 ], [ %67, %64 ]
-  %71 = fmul double %.0.us.i, 6.553600e+04
-  %72 = fptoui double %71 to i16
-  store i16 %72, ptr %57, align 2, !tbaa !180, !noalias !188
-  br label %73
+71:                                               ; preds = %69, %65
+  %.0.us.i = phi double [ %70, %69 ], [ %68, %65 ]
+  %72 = fmul double %.0.us.i, 6.553600e+04
+  %73 = fptoui double %72 to i16
+  store i16 %73, ptr %58, align 2, !tbaa !180, !noalias !188
+  br label %74
 
-73:                                               ; preds = %70, %cdce.end.split.us.i
+74:                                               ; preds = %71, %cdce.end.split.us.i
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %exitcond90.not.i = icmp eq i64 %indvars.iv.next88.i, 65536
   br i1 %exitcond90.not.i, label %_ZN8rawspeed10NefDecoder10gammaCurveEddi.exit, label %cdce.end.split.us.i, !llvm.loop !192
 
-_ZN8rawspeed10NefDecoder10gammaCurveEddi.exit:    ; preds = %73, %_ZN8rawspeed10NefDecoder10gammaCurveEddi.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN8rawspeed10NefDecoder10gammaCurveEddi.exit ], [ 0, %73 ]
-  %74 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv
-  %75 = load i16, ptr %74, align 2, !tbaa !180
-  %76 = zext i16 %75 to i32
-  %77 = shl nuw nsw i32 %76, 2
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %77, i32 65535)
-  %78 = trunc nuw i32 %.sroa.speculated.i to i16
-  store i16 %78, ptr %74, align 2, !tbaa !180
+_ZN8rawspeed10NefDecoder10gammaCurveEddi.exit:    ; preds = %74, %_ZN8rawspeed10NefDecoder10gammaCurveEddi.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN8rawspeed10NefDecoder10gammaCurveEddi.exit ], [ 0, %74 ]
+  %75 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv
+  %76 = load i16, ptr %75, align 2, !tbaa !180
+  %77 = zext i16 %76 to i32
+  %78 = shl nuw nsw i32 %77, 2
+  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %78, i32 65535)
+  %79 = trunc nuw i32 %.sroa.speculated.i to i16
+  store i16 %79, ptr %75, align 2, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4096
-  br i1 %exitcond.not, label %79, label %_ZN8rawspeed10NefDecoder10gammaCurveEddi.exit, !llvm.loop !193
+  br i1 %exitcond.not, label %80, label %_ZN8rawspeed10NefDecoder10gammaCurveEddi.exit, !llvm.loop !193
 
-79:                                               ; preds = %_ZN8rawspeed10NefDecoder10gammaCurveEddi.exit
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
+80:                                               ; preds = %_ZN8rawspeed10NefDecoder10gammaCurveEddi.exit
   %81 = fdiv float 1.024000e+03, %27
   %82 = fptosi float %81 to i32
   %83 = fdiv float 1.024000e+03, %28
   %84 = fptosi float %83 to i32
   %85 = getelementptr inbounds nuw i8, ptr %41, i64 8190
-  store ptr %85, ptr %80, align 8, !tbaa !194
+  store ptr %85, ptr %44, align 8, !tbaa !194
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %8, ptr %5, align 8, !tbaa !195
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3273,7 +3273,7 @@ _ZN8rawspeed10NefDecoder10gammaCurveEddi.exit:    ; preds = %73, %_ZN8rawspeed10
   invoke void @_ZN8rawspeed12RawImageData8setTableERKSt6vectorItSaItEEb(ptr noundef nonnull align 8 dereferenceable(616) %37, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext true)
           to label %_ZN8rawspeed18RawImageCurveGuardC2EPKNS_8RawImageERKSt6vectorItSaItEEb.exit unwind label %149
 
-_ZN8rawspeed18RawImageCurveGuardC2EPKNS_8RawImageERKSt6vectorItSaItEEb.exit: ; preds = %79
+_ZN8rawspeed18RawImageCurveGuardC2EPKNS_8RawImageERKSt6vectorItSaItEEb.exit: ; preds = %80
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %88 = load ptr, ptr %8, align 8, !tbaa !25
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 560
@@ -3394,7 +3394,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZN8rawspeed18RawIm
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-149:                                              ; preds = %79
+149:                                              ; preds = %80
   %150 = landingpad { ptr, i32 }
           cleanup
   br label %338

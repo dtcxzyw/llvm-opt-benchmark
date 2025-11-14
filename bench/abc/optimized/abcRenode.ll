@@ -1640,41 +1640,41 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   %.val28 = load i32, ptr %54, align 4, !tbaa !77
   %55 = getelementptr i8, ptr %48, i64 8
   %.val29 = load i32, ptr %55, align 8, !tbaa !81
+  %56 = sub nsw i32 %.val29, %.val28
   %.val2734 = load i64, ptr %4, align 4
-  %56 = and i64 %.val2734, 4278190080
-  %.not = icmp eq i64 %56, 0
+  %57 = and i64 %.val2734, 4278190080
+  %.not = icmp eq i64 %57, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %53
-  %57 = getelementptr i8, ptr %48, i64 16
-  br label %58
+  %58 = getelementptr i8, ptr %48, i64 16
+  br label %59
 
-58:                                               ; preds = %.lr.ph, %58
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
+59:                                               ; preds = %.lr.ph, %59
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
   %.val30 = load i32, ptr %55, align 8, !tbaa !81
-  %.val31 = load ptr, ptr %57, align 8, !tbaa !82
-  %59 = sext i32 %.val30 to i64
-  %60 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val31, i64 %59
-  %61 = getelementptr inbounds i8, ptr %60, i64 -24
-  %62 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val31, i64 %indvars.iv
-  %63 = tail call i32 @Kit_GraphLeafDepth_rec(ptr noundef nonnull %48, ptr noundef nonnull %61, ptr noundef %62) #8
-  %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
-  store i8 %64, ptr %65, align 1, !tbaa !43
+  %.val31 = load ptr, ptr %58, align 8, !tbaa !82
+  %60 = sext i32 %.val30 to i64
+  %61 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val31, i64 %60
+  %62 = getelementptr inbounds i8, ptr %61, i64 -24
+  %63 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val31, i64 %indvars.iv
+  %64 = tail call i32 @Kit_GraphLeafDepth_rec(ptr noundef nonnull %48, ptr noundef nonnull %62, ptr noundef %63) #8
+  %65 = trunc i32 %64 to i8
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
+  store i8 %65, ptr %66, align 1, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val27 = load i64, ptr %4, align 4
-  %66 = lshr i64 %.val27, 24
-  %67 = and i64 %66, 255
-  %68 = icmp samesign ult i64 %indvars.iv.next, %67
-  br i1 %68, label %58, label %._crit_edge, !llvm.loop !83
+  %67 = lshr i64 %.val27, 24
+  %68 = and i64 %67, 255
+  %69 = icmp samesign ult i64 %indvars.iv.next, %68
+  br i1 %69, label %59, label %._crit_edge, !llvm.loop !83
 
-._crit_edge:                                      ; preds = %58, %53
-  %69 = sub nsw i32 %.val29, %.val28
+._crit_edge:                                      ; preds = %59, %53
   tail call void @Kit_GraphFree(ptr noundef nonnull %48) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph37.preheader, %.preheader, %._crit_edge
-  %.0 = phi i32 [ %69, %._crit_edge ], [ 4095, %.preheader ], [ 4095, %.lr.ph37.preheader ]
+  %.0 = phi i32 [ %56, %._crit_edge ], [ 4095, %.preheader ], [ 4095, %.lr.ph37.preheader ]
   ret i32 %.0
 }
 

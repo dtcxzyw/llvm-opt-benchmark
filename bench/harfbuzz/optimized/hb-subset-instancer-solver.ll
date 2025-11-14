@@ -134,117 +134,122 @@ define hidden void @_Z11rebase_tent6TripleS_15TripleDistances(ptr dead_on_unwind
   %.idx = shl nuw nsw i64 %13, 5
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %.not52 = icmp eq i32 %12, 0
-  br i1 %.not52, label %68, label %.lr.ph
+  br i1 %.not52, label %69, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit
-  %15 = phi ptr [ %63, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit ], [ null, %5 ]
-  %16 = phi i32 [ %64, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit ], [ 0, %5 ]
-  %.054 = phi ptr [ %65, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit ], [ %10, %5 ]
-  %.sink.i.ph.i305153 = phi i32 [ %.sink.i.ph.i3046, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit ], [ 0, %5 ]
-  %17 = load double, ptr %.054, align 8, !tbaa !23
-  %18 = fcmp une double %17, 0.000000e+00
-  br i1 %18, label %19, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit
+.lr.ph:                                           ; preds = %5
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %17
 
-19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds nuw i8, ptr %.054, i64 8
-  %21 = load double, ptr %20, align 8, !tbaa !4
-  %22 = fcmp oeq double %21, 0.000000e+00
-  %23 = getelementptr inbounds nuw i8, ptr %.054, i64 16
-  %24 = load double, ptr %23, align 8, !tbaa !25
+17:                                               ; preds = %.lr.ph, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit
+  %18 = phi ptr [ null, %.lr.ph ], [ %66, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit ]
+  %19 = phi i32 [ 0, %.lr.ph ], [ %67, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit ]
+  %.054 = phi ptr [ %10, %.lr.ph ], [ %68, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit ]
+  %.sink.i.ph.i305153 = phi i32 [ 0, %.lr.ph ], [ %.sink.i.ph.i3046, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit ]
+  %20 = load double, ptr %.054, align 8, !tbaa !23
+  %21 = fcmp une double %20, 0.000000e+00
+  br i1 %21, label %22, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit
+
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw i8, ptr %.054, i64 8
+  %24 = load double, ptr %23, align 8, !tbaa !4
   %25 = fcmp oeq double %24, 0.000000e+00
-  %or.cond = select i1 %22, i1 %25, i1 false
+  %26 = getelementptr inbounds nuw i8, ptr %.054, i64 16
+  %27 = load double, ptr %26, align 8, !tbaa !25
+  %28 = fcmp oeq double %27, 0.000000e+00
+  %or.cond = select i1 %25, i1 %28, i1 false
   br i1 %or.cond, label %_ZNK6TripleeqERKS_.exit, label %_ZNK6TripleeqERKS_.exit.thread
 
-_ZNK6TripleeqERKS_.exit:                          ; preds = %19
-  %26 = getelementptr inbounds nuw i8, ptr %.054, i64 24
-  %27 = load double, ptr %26, align 8, !tbaa !10
-  %28 = fcmp oeq double %27, 0.000000e+00
-  br i1 %28, label %29, label %_ZNK6TripleeqERKS_.exit.thread
+_ZNK6TripleeqERKS_.exit:                          ; preds = %22
+  %29 = getelementptr inbounds nuw i8, ptr %.054, i64 24
+  %30 = load double, ptr %29, align 8, !tbaa !10
+  %31 = fcmp oeq double %30, 0.000000e+00
+  br i1 %31, label %32, label %_ZNK6TripleeqERKS_.exit.thread
 
-29:                                               ; preds = %_ZNK6TripleeqERKS_.exit
-  %.not.i = icmp slt i32 %16, %.sink.i.ph.i305153
-  %.pre66 = add i32 %16, 1
-  br i1 %.not.i, label %.critedge.i, label %30
+32:                                               ; preds = %_ZNK6TripleeqERKS_.exit
+  %.not.i = icmp slt i32 %19, %.sink.i.ph.i305153
+  %.pre66 = add i32 %19, 1
+  br i1 %.not.i, label %.critedge.i, label %33
 
-30:                                               ; preds = %29
-  %31 = icmp slt i32 %.sink.i.ph.i305153, 0
-  br i1 %31, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i, label %32, !prof !26
+33:                                               ; preds = %32
+  %34 = icmp slt i32 %.sink.i.ph.i305153, 0
+  br i1 %34, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i, label %35, !prof !26
 
-32:                                               ; preds = %30
+35:                                               ; preds = %33
   %.not.i.i = icmp ugt i32 %.pre66, %.sink.i.ph.i305153
   br i1 %.not.i.i, label %.preheader.i.i, label %.critedge.i, !prof !26
 
-.preheader.i.i:                                   ; preds = %32, %.preheader.i.i
-  %.11542.i.i = phi i32 [ %35, %.preheader.i.i ], [ %.sink.i.ph.i305153, %32 ]
-  %33 = lshr i32 %.11542.i.i, 1
-  %34 = add i32 %.11542.i.i, 8
-  %35 = add i32 %34, %33
-  %36 = icmp ugt i32 %.pre66, %35
-  br i1 %36, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !27
+.preheader.i.i:                                   ; preds = %35, %.preheader.i.i
+  %.11542.i.i = phi i32 [ %38, %.preheader.i.i ], [ %.sink.i.ph.i305153, %35 ]
+  %36 = lshr i32 %.11542.i.i, 1
+  %37 = add i32 %.11542.i.i, 8
+  %38 = add i32 %37, %36
+  %39 = icmp ugt i32 %.pre66, %38
+  br i1 %39, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !27
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
-  %37 = icmp ugt i32 %35, 134217727
-  br i1 %37, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i, !prof !26
+  %40 = icmp ugt i32 %38, 134217727
+  br i1 %40, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i, !prof !26
 
 _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i: ; preds = %.thread.i.i
-  %38 = shl nuw i32 %35, 5
-  %39 = zext i32 %38 to i64
-  %40 = call ptr @realloc(ptr noundef %15, i64 noundef %39) #11
-  %.not21.i.i = icmp eq ptr %40, null
+  %41 = shl nuw i32 %38, 5
+  %42 = zext i32 %41 to i64
+  %43 = call ptr @realloc(ptr noundef %18, i64 noundef %42) #11
+  %.not21.i.i = icmp eq ptr %43, null
   br i1 %.not21.i.i, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i, label %.critedge.i, !prof !29
 
 _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i: ; preds = %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i, %.thread.i.i
   %.sink.i.ph.i = xor i32 %.sink.i.ph.i305153, -1
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i
 
-_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i: ; preds = %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i, %30
-  %.sink.i.ph.i3049 = phi i32 [ %.sink.i.ph.i, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i ], [ %.sink.i.ph.i305153, %30 ]
+_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i: ; preds = %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i, %33
+  %.sink.i.ph.i3049 = phi i32 [ %.sink.i.ph.i, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i ], [ %.sink.i.ph.i305153, %33 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(32) @_hb_NullPool, i64 32, i1 false)
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit
 
-.critedge.i:                                      ; preds = %29, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i, %32
-  %41 = phi ptr [ %40, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i ], [ %15, %32 ], [ %15, %29 ]
-  %.sink.i.ph.i3050 = phi i32 [ %35, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i ], [ %.sink.i.ph.i305153, %32 ], [ %.sink.i.ph.i305153, %29 ]
-  %42 = zext i32 %16 to i64
-  %43 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %41, i64 %42
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %.054, i64 32, i1 false), !tbaa.struct !30
+.critedge.i:                                      ; preds = %32, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i, %35
+  %44 = phi ptr [ %43, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i ], [ %18, %35 ], [ %18, %32 ]
+  %.sink.i.ph.i3050 = phi i32 [ %38, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i ], [ %.sink.i.ph.i305153, %35 ], [ %.sink.i.ph.i305153, %32 ]
+  %45 = zext i32 %19 to i64
+  %46 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %44, i64 %45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %.054, i64 32, i1 false), !tbaa.struct !30
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit
 
-_ZNK6TripleeqERKS_.exit.thread:                   ; preds = %19, %_ZNK6TripleeqERKS_.exit
+_ZNK6TripleeqERKS_.exit.thread:                   ; preds = %22, %_ZNK6TripleeqERKS_.exit
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.054, i64 24
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !25
-  %44 = call noundef double @_Z16renormalizeValuedRK6TripleRK15TripleDistancesb(double noundef %21, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i1 noundef zeroext true)
-  %45 = call noundef double @_Z16renormalizeValuedRK6TripleRK15TripleDistancesb(double noundef %24, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i1 noundef zeroext true)
-  %46 = call noundef double @_Z16renormalizeValuedRK6TripleRK15TripleDistancesb(double noundef %.sroa.5.0.copyload, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i1 noundef zeroext true)
-  %.not.i17 = icmp slt i32 %16, %.sink.i.ph.i305153
-  %.pre67 = add i32 %16, 1
-  br i1 %.not.i17, label %.critedge.i19, label %47
+  %47 = call noundef double @_Z16renormalizeValuedRK6TripleRK15TripleDistancesb(double noundef %24, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i1 noundef zeroext true)
+  %48 = call noundef double @_Z16renormalizeValuedRK6TripleRK15TripleDistancesb(double noundef %27, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i1 noundef zeroext true)
+  %49 = call noundef double @_Z16renormalizeValuedRK6TripleRK15TripleDistancesb(double noundef %.sroa.5.0.copyload, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i1 noundef zeroext true)
+  %.not.i17 = icmp slt i32 %19, %.sink.i.ph.i305153
+  %.pre67 = add i32 %19, 1
+  br i1 %.not.i17, label %.critedge.i19, label %50
 
-47:                                               ; preds = %_ZNK6TripleeqERKS_.exit.thread
-  %48 = icmp slt i32 %.sink.i.ph.i305153, 0
-  br i1 %48, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i31, label %49, !prof !26
+50:                                               ; preds = %_ZNK6TripleeqERKS_.exit.thread
+  %51 = icmp slt i32 %.sink.i.ph.i305153, 0
+  br i1 %51, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i31, label %52, !prof !26
 
-49:                                               ; preds = %47
+52:                                               ; preds = %50
   %.not.i.i18 = icmp ugt i32 %.pre67, %.sink.i.ph.i305153
   br i1 %.not.i.i18, label %.preheader.i.i21, label %.critedge.i19, !prof !26
 
-.preheader.i.i21:                                 ; preds = %49, %.preheader.i.i21
-  %.11542.i.i22 = phi i32 [ %52, %.preheader.i.i21 ], [ %.sink.i.ph.i305153, %49 ]
-  %50 = lshr i32 %.11542.i.i22, 1
-  %51 = add i32 %.11542.i.i22, 8
-  %52 = add i32 %51, %50
-  %53 = icmp ugt i32 %.pre67, %52
-  br i1 %53, label %.preheader.i.i21, label %.thread.i.i23, !llvm.loop !27
+.preheader.i.i21:                                 ; preds = %52, %.preheader.i.i21
+  %.11542.i.i22 = phi i32 [ %55, %.preheader.i.i21 ], [ %.sink.i.ph.i305153, %52 ]
+  %53 = lshr i32 %.11542.i.i22, 1
+  %54 = add i32 %.11542.i.i22, 8
+  %55 = add i32 %54, %53
+  %56 = icmp ugt i32 %.pre67, %55
+  br i1 %56, label %.preheader.i.i21, label %.thread.i.i23, !llvm.loop !27
 
 .thread.i.i23:                                    ; preds = %.preheader.i.i21
-  %54 = icmp ugt i32 %52, 134217727
-  br i1 %54, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i28, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24, !prof !26
+  %57 = icmp ugt i32 %55, 134217727
+  br i1 %57, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i28, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24, !prof !26
 
 _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24: ; preds = %.thread.i.i23
-  %55 = shl nuw i32 %52, 5
-  %56 = zext i32 %55 to i64
-  %57 = call ptr @realloc(ptr noundef %15, i64 noundef %56) #11
-  %.not21.i.i25 = icmp eq ptr %57, null
+  %58 = shl nuw i32 %55, 5
+  %59 = zext i32 %58 to i64
+  %60 = call ptr @realloc(ptr noundef %18, i64 noundef %59) #11
+  %.not21.i.i25 = icmp eq ptr %60, null
   br i1 %.not21.i.i25, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i28, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge, !prof !29
 
 _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge: ; preds = %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24
@@ -255,56 +260,54 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i28: ; preds = 
   %.sink.i.ph.i30 = xor i32 %.sink.i.ph.i305153, -1
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i31
 
-_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i31: ; preds = %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i28, %47
-  %.sink.i.ph.i3047 = phi i32 [ %.sink.i.ph.i30, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i28 ], [ %.sink.i.ph.i305153, %47 ]
+_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i31: ; preds = %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i28, %50
+  %.sink.i.ph.i3047 = phi i32 [ %.sink.i.ph.i30, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread9.i28 ], [ %.sink.i.ph.i305153, %50 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(32) @_hb_NullPool, i64 32, i1 false)
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit
 
-.critedge.i19:                                    ; preds = %_ZNK6TripleeqERKS_.exit.thread, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge, %49
-  %58 = phi double [ %.pre, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge ], [ %17, %49 ], [ %17, %_ZNK6TripleeqERKS_.exit.thread ]
-  %59 = phi ptr [ %57, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge ], [ %15, %49 ], [ %15, %_ZNK6TripleeqERKS_.exit.thread ]
-  %.sink.i.ph.i3048 = phi i32 [ %52, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge ], [ %.sink.i.ph.i305153, %49 ], [ %.sink.i.ph.i305153, %_ZNK6TripleeqERKS_.exit.thread ]
-  %60 = zext i32 %16 to i64
-  %61 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %59, i64 %60
+.critedge.i19:                                    ; preds = %_ZNK6TripleeqERKS_.exit.thread, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge, %52
+  %61 = phi double [ %.pre, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge ], [ %20, %52 ], [ %20, %_ZNK6TripleeqERKS_.exit.thread ]
+  %62 = phi ptr [ %60, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge ], [ %18, %52 ], [ %18, %_ZNK6TripleeqERKS_.exit.thread ]
+  %.sink.i.ph.i3048 = phi i32 [ %55, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge ], [ %.sink.i.ph.i305153, %52 ], [ %.sink.i.ph.i305153, %_ZNK6TripleeqERKS_.exit.thread ]
+  %63 = zext i32 %19 to i64
+  %64 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %62, i64 %63
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store double %44, ptr %62, align 8
-  %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 16
-  store double %45, ptr %.sroa.6.8..sroa_idx, align 8
-  %.sroa.7.8..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 24
-  store double %46, ptr %.sroa.7.8..sroa_idx, align 8
-  store double %58, ptr %61, align 8, !tbaa !23, !alias.scope !31
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store double %47, ptr %65, align 8
+  %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 16
+  store double %48, ptr %.sroa.6.8..sroa_idx, align 8
+  %.sroa.7.8..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 24
+  store double %49, ptr %.sroa.7.8..sroa_idx, align 8
+  store double %61, ptr %64, align 8, !tbaa !23, !alias.scope !31
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit
 
-_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit: ; preds = %.critedge.i19, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i31, %.critedge.i, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i, %.lr.ph
-  %63 = phi ptr [ %59, %.critedge.i19 ], [ %15, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i31 ], [ %41, %.critedge.i ], [ %15, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i ], [ %15, %.lr.ph ]
-  %64 = phi i32 [ %.pre67, %.critedge.i19 ], [ %16, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i31 ], [ %.pre66, %.critedge.i ], [ %16, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i ], [ %16, %.lr.ph ]
-  %.sink.i.ph.i3046 = phi i32 [ %.sink.i.ph.i3048, %.critedge.i19 ], [ %.sink.i.ph.i3047, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i31 ], [ %.sink.i.ph.i3050, %.critedge.i ], [ %.sink.i.ph.i3049, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i ], [ %.sink.i.ph.i305153, %.lr.ph ]
-  %65 = getelementptr inbounds nuw i8, ptr %.054, i64 32
-  %.not = icmp eq ptr %65, %14
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit: ; preds = %.critedge.i19, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i31, %.critedge.i, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i, %17
+  %66 = phi ptr [ %62, %.critedge.i19 ], [ %18, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i31 ], [ %44, %.critedge.i ], [ %18, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i ], [ %18, %17 ]
+  %67 = phi i32 [ %.pre67, %.critedge.i19 ], [ %19, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i31 ], [ %.pre66, %.critedge.i ], [ %19, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i ], [ %19, %17 ]
+  %.sink.i.ph.i3046 = phi i32 [ %.sink.i.ph.i3048, %.critedge.i19 ], [ %.sink.i.ph.i3047, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i31 ], [ %.sink.i.ph.i3050, %.critedge.i ], [ %.sink.i.ph.i3049, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i ], [ %.sink.i.ph.i305153, %17 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.054, i64 32
+  %.not = icmp eq ptr %68, %14
+  br i1 %.not, label %._crit_edge, label %17
 
 ._crit_edge:                                      ; preds = %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %64, ptr %66, align 4
-  store ptr %63, ptr %67, align 8
-  br label %68
+  store i32 %67, ptr %15, align 4
+  store ptr %66, ptr %16, align 8
+  br label %69
 
-68:                                               ; preds = %._crit_edge, %5
+69:                                               ; preds = %._crit_edge, %5
   %.sink.i.ph.i3051.lcssa = phi i32 [ %.sink.i.ph.i3046, %._crit_edge ], [ 0, %5 ]
   store i32 %.sink.i.ph.i3051.lcssa, ptr %0, align 8
-  %69 = load i32, ptr %7, align 8, !tbaa !34
-  %.not.i.i32 = icmp eq i32 %69, 0
-  br i1 %.not.i.i32, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EED2Ev.exit, label %70
+  %70 = load i32, ptr %7, align 8, !tbaa !34
+  %.not.i.i32 = icmp eq i32 %70, 0
+  br i1 %.not.i.i32, label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EED2Ev.exit, label %71
 
-70:                                               ; preds = %68
+71:                                               ; preds = %69
   store i32 0, ptr %11, align 4, !tbaa !22
-  %71 = load ptr, ptr %9, align 8, !tbaa !17
-  call void @free(ptr noundef %71) #12
+  %72 = load ptr, ptr %9, align 8, !tbaa !17
+  call void @free(ptr noundef %72) #12
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EED2Ev.exit
 
-_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EED2Ev.exit: ; preds = %68, %70
+_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EED2Ev.exit: ; preds = %69, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }

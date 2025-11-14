@@ -26142,36 +26142,36 @@ define internal fastcc void @_ZN4ncnnL20compute_B_int8_scaleERKNS_3MatERf(ptr no
   br i1 %exitcond154.not.i.us, label %_ZN4ncnnL25compute_B_fp32_int8_scaleERKNS_3MatERf.exit, label %..preheader_crit_edge.us105.i.us, !llvm.loop !426
 
 ._crit_edge.us110.i.loopexit:                     ; preds = %.lr.ph73.us109.i
-  %56 = load <4 x i32>, ptr %67, align 1, !tbaa !86
-  %57 = and <4 x i32> %56, splat (i32 2147483647)
-  %58 = bitcast <4 x i32> %57 to <4 x float>
-  %59 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.03577.us88.i, <4 x float> nofpclass(nan inf) %58)
+  %56 = and <4 x i32> %67, splat (i32 2147483647)
+  %57 = bitcast <4 x i32> %56 to <4 x float>
+  %58 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.03577.us88.i, <4 x float> nofpclass(nan inf) %57)
   %indvars.iv.next151.i = add nuw nsw i64 %indvars.iv150.i, 1
   %exitcond154.not.i = icmp eq i64 %indvars.iv.next151.i, %wide.trip.count153.i
   br i1 %exitcond154.not.i, label %_ZN4ncnnL25compute_B_fp32_int8_scaleERKNS_3MatERf.exit, label %..preheader_crit_edge.us105.i, !llvm.loop !426
 
 .lr.ph73.us109.i:                                 ; preds = %..preheader_crit_edge.us105.i, %.lr.ph73.us109.i
-  %.272.us93.i = phi i32 [ %64, %.lr.ph73.us109.i ], [ 4, %..preheader_crit_edge.us105.i ]
-  %.24271.us94.i = phi ptr [ %63, %.lr.ph73.us109.i ], [ %68, %..preheader_crit_edge.us105.i ]
+  %.272.us93.i = phi i32 [ %63, %.lr.ph73.us109.i ], [ 4, %..preheader_crit_edge.us105.i ]
+  %.24271.us94.i = phi ptr [ %62, %.lr.ph73.us109.i ], [ %68, %..preheader_crit_edge.us105.i ]
   %.15670.us95.i = phi float [ %.sroa.speculated50.us96.i, %.lr.ph73.us109.i ], [ %.05575.us90.i, %..preheader_crit_edge.us105.i ]
-  %60 = load float, ptr %.24271.us94.i, align 4, !tbaa !61
-  %61 = tail call fast float @llvm.fabs.f32(float %60)
-  %62 = fcmp fast olt float %.15670.us95.i, %61
-  %.sroa.speculated50.us96.i = select i1 %62, float %61, float %.15670.us95.i
-  %63 = getelementptr inbounds nuw i8, ptr %.24271.us94.i, i64 4
-  %64 = add nuw nsw i32 %.272.us93.i, 1
-  %exitcond149.not.i = icmp eq i32 %64, %17
+  %59 = load float, ptr %.24271.us94.i, align 4, !tbaa !61
+  %60 = tail call fast float @llvm.fabs.f32(float %59)
+  %61 = fcmp fast olt float %.15670.us95.i, %60
+  %.sroa.speculated50.us96.i = select i1 %61, float %60, float %.15670.us95.i
+  %62 = getelementptr inbounds nuw i8, ptr %.24271.us94.i, i64 4
+  %63 = add nuw nsw i32 %.272.us93.i, 1
+  %exitcond149.not.i = icmp eq i32 %63, %17
   br i1 %exitcond149.not.i, label %._crit_edge.us110.i.loopexit, label %.lr.ph73.us109.i, !llvm.loop !427
 
 ..preheader_crit_edge.us105.i:                    ; preds = %.preheader57.us87.preheader.i, %._crit_edge.us110.i.loopexit
   %indvars.iv150.i = phi i64 [ %indvars.iv.next151.i, %._crit_edge.us110.i.loopexit ], [ 0, %.preheader57.us87.preheader.i ]
-  %.03577.us88.i = phi <4 x float> [ %59, %._crit_edge.us110.i.loopexit ], [ zeroinitializer, %.preheader57.us87.preheader.i ]
+  %.03577.us88.i = phi <4 x float> [ %58, %._crit_edge.us110.i.loopexit ], [ zeroinitializer, %.preheader57.us87.preheader.i ]
   %.05575.us90.i = phi float [ %.sroa.speculated50.us96.i, %._crit_edge.us110.i.loopexit ], [ 0.000000e+00, %.preheader57.us87.preheader.i ]
-  %65 = trunc nuw nsw i64 %indvars.iv150.i to i32
-  %.reass.us91.i = mul i32 %factor.op.mul.i, %65
-  %66 = sext i32 %.reass.us91.i to i64
-  %67 = getelementptr inbounds float, ptr %14, i64 %66
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %64 = trunc nuw nsw i64 %indvars.iv150.i to i32
+  %.reass.us91.i = mul i32 %factor.op.mul.i, %64
+  %65 = sext i32 %.reass.us91.i to i64
+  %66 = getelementptr inbounds float, ptr %14, i64 %65
+  %67 = load <4 x i32>, ptr %66, align 1, !tbaa !86
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 16
   br label %.lr.ph73.us109.i
 
 .lr.ph80.split.split.i:                           ; preds = %.lr.ph80.split.i
@@ -26211,7 +26211,7 @@ define internal fastcc void @_ZN4ncnnL20compute_B_int8_scaleERKNS_3MatERf(ptr no
 
 _ZN4ncnnL25compute_B_fp32_int8_scaleERKNS_3MatERf.exit: ; preds = %._crit_edge.us128.i, %._crit_edge.us110.i.loopexit, %..preheader_crit_edge.us105.i.us, %._crit_edge.us.i, %2, %.lr.ph80.split.split.i
   %.055.lcssa.i = phi float [ 0.000000e+00, %2 ], [ 0.000000e+00, %.lr.ph80.split.split.i ], [ %.156.lcssa.us.i, %._crit_edge.us.i ], [ 0.000000e+00, %..preheader_crit_edge.us105.i.us ], [ %.sroa.speculated50.us96.i, %._crit_edge.us110.i.loopexit ], [ %.sroa.speculated50.us126.i, %._crit_edge.us128.i ]
-  %.035.lcssa.i = phi <4 x float> [ zeroinitializer, %2 ], [ zeroinitializer, %.lr.ph80.split.split.i ], [ %.136.lcssa.us.i, %._crit_edge.us.i ], [ %55, %..preheader_crit_edge.us105.i.us ], [ %59, %._crit_edge.us110.i.loopexit ], [ zeroinitializer, %._crit_edge.us128.i ]
+  %.035.lcssa.i = phi <4 x float> [ zeroinitializer, %2 ], [ zeroinitializer, %.lr.ph80.split.split.i ], [ %.136.lcssa.us.i, %._crit_edge.us.i ], [ %55, %..preheader_crit_edge.us105.i.us ], [ %58, %._crit_edge.us110.i.loopexit ], [ zeroinitializer, %._crit_edge.us128.i ]
   %.0.lcssa.i = phi <8 x float> [ zeroinitializer, %2 ], [ zeroinitializer, %.lr.ph80.split.split.i ], [ %42, %._crit_edge.us.i ], [ zeroinitializer, %..preheader_crit_edge.us105.i.us ], [ zeroinitializer, %._crit_edge.us110.i.loopexit ], [ zeroinitializer, %._crit_edge.us128.i ]
   %79 = shufflevector <8 x float> %.0.lcssa.i, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %80 = shufflevector <8 x float> %.0.lcssa.i, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -31246,13 +31246,13 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %666 = shufflevector <4 x float> %665, <4 x float> poison, <4 x i32> zeroinitializer
   %667 = insertelement <4 x float> poison, float %664, i64 0
   %668 = shufflevector <4 x float> %667, <4 x float> poison, <4 x i32> zeroinitializer
+  %669 = shufflevector <4 x float> %665, <4 x float> %667, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
   br i1 %364, label %.lr.ph738.i, label %.preheader645.i
 
 .preheader645.i:                                  ; preds = %.lr.ph738.i, %659
   %.0517.lcssa.i = phi i32 [ 0, %659 ], [ %372, %.lr.ph738.i ]
   %.4512.lcssa.i = phi ptr [ %585, %659 ], [ %708, %.lr.ph738.i ]
   %.21.lcssa.i = phi ptr [ %.15755.i, %659 ], [ %707, %.lr.ph738.i ]
-  %669 = shufflevector <4 x float> %665, <4 x float> %667, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
   %670 = or disjoint i32 %.0517.lcssa.i, 1
   %671 = icmp slt i32 %670, %5
   br i1 %671, label %.lr.ph745.i, label %.preheader643.i
@@ -32216,13 +32216,13 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %461 = shufflevector <4 x float> %460, <4 x float> poison, <4 x i32> zeroinitializer
   %462 = insertelement <4 x float> poison, float %459, i64 0
   %463 = shufflevector <4 x float> %462, <4 x float> poison, <4 x i32> zeroinitializer
+  %464 = shufflevector <4 x float> %460, <4 x float> %462, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
   br i1 %435, label %.lr.ph560.i, label %.preheader457.i
 
 .preheader457.i:                                  ; preds = %.lr.ph560.i, %449
   %.0398.lcssa.i = phi ptr [ %454, %449 ], [ %487, %.lr.ph560.i ]
   %.0393.lcssa.i = phi i32 [ 0, %449 ], [ %437, %.lr.ph560.i ]
   %.17.lcssa.i = phi ptr [ %.16577.i, %449 ], [ %486, %.lr.ph560.i ]
-  %464 = shufflevector <4 x float> %460, <4 x float> %462, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
   %465 = or disjoint i32 %.0393.lcssa.i, 1
   %466 = icmp slt i32 %465, %5
   br i1 %466, label %.lr.ph567.i, label %.preheader456.i

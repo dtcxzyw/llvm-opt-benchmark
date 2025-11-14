@@ -3887,23 +3887,23 @@ define hidden void @_ZN2cv8tracking4impl15TrackerCSRTImpl18extract_histogramsERK
   %48 = mul nuw nsw i64 %47, 96
   %49 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #30
   store ptr %49, ptr %6, align 8, !tbaa !40
-  %50 = getelementptr inbounds nuw %"class.cv::Mat", ptr %49, i64 %47
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %50, ptr %51, align 8, !tbaa !105
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %51 = getelementptr inbounds nuw %"class.cv::Mat", ptr %49, i64 %47
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %51, ptr %52, align 8, !tbaa !105
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.noexc
-  %.08.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i ], [ %49, %.noexc ]
-  %.057.i.i.i.i.i = phi i64 [ %52, %.lr.ph.i.i.i.i.i ], [ %47, %.noexc ]
+  %.08.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i ], [ %49, %.noexc ]
+  %.057.i.i.i.i.i = phi i64 [ %53, %.lr.ph.i.i.i.i.i ], [ %47, %.noexc ]
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.08.i.i.i.i.i) #27
-  %52 = add nsw i64 %.057.i.i.i.i.i, -1
-  %53 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i = icmp eq i64 %52, 0
-  br i1 %.not.i.i.i.i.i, label %54, label %.lr.ph.i.i.i.i.i, !llvm.loop !154
+  %53 = add nsw i64 %.057.i.i.i.i.i, -1
+  %54 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
+  %.not.i.i.i.i.i = icmp eq i64 %53, 0
+  br i1 %.not.i.i.i.i.i, label %55, label %.lr.ph.i.i.i.i.i, !llvm.loop !154
 
-54:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %53, ptr %55, align 8, !tbaa !43
+55:                                               ; preds = %.lr.ph.i.i.i.i.i
+  store ptr %54, ptr %50, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %56, align 8, !tbaa !21
@@ -3921,10 +3921,10 @@ define hidden void @_ZN2cv8tracking4impl15TrackerCSRTImpl18extract_histogramsERK
   invoke void @_ZN2cv5splitERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %61 unwind label %66
 
-61:                                               ; preds = %54
+61:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %62 = load ptr, ptr %55, align 8, !tbaa !43
+  %62 = load ptr, ptr %50, align 8, !tbaa !43
   %63 = load ptr, ptr %6, align 8, !tbaa !40
   %.not = icmp eq ptr %62, %63
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3939,7 +3939,7 @@ define hidden void @_ZN2cv8tracking4impl15TrackerCSRTImpl18extract_histogramsERK
   invoke void @_ZN2cv9Histogram26extractForegroundHistogramERSt6vectorINS_3MatESaIS2_EES2_biiii(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %10, i1 noundef zeroext false, i32 noundef %.sroa.speculated144, i32 noundef %.sroa.speculated134, i32 noundef %.sroa.speculated122, i32 noundef %.sroa.speculated110)
           to label %82 unwind label %93
 
-66:                                               ; preds = %54
+66:                                               ; preds = %55
   %67 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3960,7 +3960,7 @@ define hidden void @_ZN2cv8tracking4impl15TrackerCSRTImpl18extract_histogramsERK
 71:                                               ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %72 = add nuw i64 %.0157, 1
-  %73 = load ptr, ptr %55, align 8, !tbaa !43
+  %73 = load ptr, ptr %50, align 8, !tbaa !43
   %74 = load ptr, ptr %6, align 8, !tbaa !40
   %75 = ptrtoint ptr %73 to i64
   %76 = ptrtoint ptr %74 to i64
@@ -3982,7 +3982,7 @@ define hidden void @_ZN2cv8tracking4impl15TrackerCSRTImpl18extract_histogramsERK
 
 83:                                               ; preds = %82
   %84 = load ptr, ptr %6, align 8, !tbaa !40
-  %85 = load ptr, ptr %55, align 8, !tbaa !43
+  %85 = load ptr, ptr %50, align 8, !tbaa !43
   %.not4.i.i.i.i = icmp eq ptr %84, %85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -4004,7 +4004,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %.lr.ph.i.i.i.i, %8
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %87
   %88 = load ptr, ptr %6, align 8, !tbaa !40
-  %89 = load ptr, ptr %55, align 8, !tbaa !43
+  %89 = load ptr, ptr %50, align 8, !tbaa !43
   %.not4.i.i.i.i77 = icmp eq ptr %88, %89
   br i1 %.not4.i.i.i.i77, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i83, label %.lr.ph.i.i.i.i78
 
@@ -6445,8 +6445,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %587
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc236
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %601, 2
-  %603 = getelementptr inbounds nuw i8, ptr %600, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %600, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !97
+  %603 = getelementptr inbounds nuw i8, ptr %600, i64 %.idx.i.i.i.i.i.i.i
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc236, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i

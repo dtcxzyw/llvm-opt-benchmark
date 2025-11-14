@@ -10435,16 +10435,16 @@ _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_1
   %55 = phi ptr [ %.pre44, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.loopexit ], [ %20, %23 ], [ %20, %32 ]
   %56 = phi i64 [ %.pre, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.loopexit ], [ %18, %23 ], [ %18, %32 ]
   %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit.loopexit ], [ %24, %23 ], [ %38, %32 ]
-  br label %57
+  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %.pre-phi
+  br label %58
 
-57:                                               ; preds = %57, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit
-  %.0.i.i.i.i = phi ptr [ %54, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit ], [ %58, %57 ]
-  %58 = load ptr, ptr %.0.i.i.i.i, align 8, !tbaa !414
-  %.not.i.i.i.i17 = icmp eq ptr %58, %.sroa.06.1.i.i
-  br i1 %.not.i.i.i.i17, label %_ZNSt10_HashtableISt17reference_wrapperIN6duckdb16AttachedDatabaseEESt4pairIKS3_S0_INS1_11TransactionEEESaIS8_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb1EEE.exit.i.i.i, label %57, !llvm.loop !698
+58:                                               ; preds = %58, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit
+  %.0.i.i.i.i = phi ptr [ %54, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit ], [ %59, %58 ]
+  %59 = load ptr, ptr %.0.i.i.i.i, align 8, !tbaa !414
+  %.not.i.i.i.i17 = icmp eq ptr %59, %.sroa.06.1.i.i
+  br i1 %.not.i.i.i.i17, label %_ZNSt10_HashtableISt17reference_wrapperIN6duckdb16AttachedDatabaseEESt4pairIKS3_S0_INS1_11TransactionEEESaIS8_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb1EEE.exit.i.i.i, label %58, !llvm.loop !698
 
-_ZNSt10_HashtableISt17reference_wrapperIN6duckdb16AttachedDatabaseEESt4pairIKS3_S0_INS1_11TransactionEEESaIS8_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb1EEE.exit.i.i.i: ; preds = %57
-  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %.pre-phi
+_ZNSt10_HashtableISt17reference_wrapperIN6duckdb16AttachedDatabaseEESt4pairIKS3_S0_INS1_11TransactionEEESaIS8_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb1EEE.exit.i.i.i: ; preds = %58
   %60 = icmp eq ptr %.0.i.i.i.i, %54
   %61 = load ptr, ptr %.sroa.06.1.i.i, align 8, !tbaa !414
   %.not18.i.i.i.i18 = icmp eq ptr %61, null
@@ -10475,7 +10475,7 @@ _ZNSt10_HashtableISt17reference_wrapperIN6duckdb16AttachedDatabaseEESt4pairIKS3_
   br label %72
 
 72:                                               ; preds = %71, %._crit_edge.i.i.i.i.i
-  store ptr null, ptr %59, align 8, !tbaa !529
+  store ptr null, ptr %57, align 8, !tbaa !529
   br label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE5eraseENSt8__detail14_Node_iteratorISC_Lb0ELb1EEE.exit
 
 73:                                               ; preds = %_ZNSt10_HashtableISt17reference_wrapperIN6duckdb16AttachedDatabaseEESt4pairIKS3_S0_INS1_11TransactionEEESaIS8_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE20_M_get_previous_nodeEmPNSA_10_Hash_nodeIS8_Lb1EEE.exit.i.i.i

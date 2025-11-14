@@ -28868,6 +28868,7 @@ if.then.i97:                                      ; preds = %do.body.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit99: ; preds = %do.body.i, %if.then.i97
   %retval.0.i98 = phi ptr [ %call.i, %if.then.i97 ], [ %ptr.addr.i80.0, %do.body.i ]
+  %incdec.ptr.i85 = getelementptr inbounds nuw i8, ptr %it.i.0, i64 4
   %7 = load i32, ptr %it.i.0, align 4
   %conv.i86 = sext i32 %7 to i64
   %cmp.i.i152 = icmp ugt i32 %7, 127
@@ -28887,7 +28888,6 @@ while.body.i.i:                                   ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i: ; preds = %while.body.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit99
   %ptr.addr.i.i.0.lcssa = phi ptr [ %retval.0.i98, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit99 ], [ %incdec.ptr.i.i, %while.body.i.i ]
   %value.addr.i.i.0.lcssa = phi i64 [ %conv.i86, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit99 ], [ %shr.i.i, %while.body.i.i ]
-  %incdec.ptr.i85 = getelementptr inbounds nuw i8, ptr %it.i.0, i64 4
   %conv1.i.i = trunc nuw nsw i64 %value.addr.i.i.0.lcssa to i8
   %incdec.ptr2.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.i.0.lcssa, i64 1
   store i8 %conv1.i.i, ptr %ptr.addr.i.i.0.lcssa, align 1
@@ -28956,6 +28956,7 @@ if.then.i107:                                     ; preds = %do.body.i106
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit110: ; preds = %do.body.i106, %if.then.i107
   %retval.0.i109 = phi ptr [ %call.i108, %if.then.i107 ], [ %ptr.addr.i95.0, %do.body.i106 ]
+  %incdec.ptr.i108 = getelementptr inbounds nuw i8, ptr %it.i97.0, i64 4
   %15 = load i32, ptr %it.i97.0, align 4
   %conv.i109 = sext i32 %15 to i64
   %cmp.i.i112164 = icmp ugt i32 %15, 127
@@ -28975,7 +28976,6 @@ while.body.i.i117:                                ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i113: ; preds = %while.body.i.i117, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit110
   %ptr.addr.i.i90.0.lcssa = phi ptr [ %retval.0.i109, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit110 ], [ %incdec.ptr.i.i121, %while.body.i.i117 ]
   %value.addr.i.i89.0.lcssa = phi i64 [ %conv.i109, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit110 ], [ %shr.i.i120, %while.body.i.i117 ]
-  %incdec.ptr.i108 = getelementptr inbounds nuw i8, ptr %it.i97.0, i64 4
   %conv1.i.i114 = trunc nuw nsw i64 %value.addr.i.i89.0.lcssa to i8
   %incdec.ptr2.i.i115 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.i90.0.lcssa, i64 1
   store i8 %conv1.i.i114, ptr %ptr.addr.i.i90.0.lcssa, align 1
@@ -30161,6 +30161,7 @@ if.then.i49:                                      ; preds = %do.body.i
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit52: ; preds = %do.body.i, %if.then.i49
   %retval.0.i51 = phi ptr [ %call.i50, %if.then.i49 ], [ %ptr.addr.i64.0, %do.body.i ]
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %it.i.0, i64 4
   %7 = load i32, ptr %it.i.0, align 4
   %conv.i = sext i32 %7 to i64
   %cmp.i.i96 = icmp ugt i32 %7, 127
@@ -30180,7 +30181,6 @@ while.body.i.i:                                   ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i: ; preds = %while.body.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit52
   %ptr.addr.i.i.0.lcssa = phi ptr [ %retval.0.i51, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit52 ], [ %incdec.ptr.i.i, %while.body.i.i ]
   %value.addr.i.i.0.lcssa = phi i64 [ %conv.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit52 ], [ %shr.i.i, %while.body.i.i ]
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %it.i.0, i64 4
   %conv1.i.i = trunc nuw nsw i64 %value.addr.i.i.0.lcssa to i8
   %incdec.ptr2.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.i.0.lcssa, i64 1
   store i8 %conv1.i.i, ptr %ptr.addr.i.i.0.lcssa, align 1

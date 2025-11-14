@@ -918,133 +918,136 @@ _ZNSt14_Bit_referenceaSEb.exit.i:                 ; preds = %345, %342
 
 _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader: ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i
   %349 = load ptr, ptr %9, align 8, !tbaa !20
-  br label %361
+  br label %362
 
-.lr.ph.i51:                                       ; preds = %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66, %.lr.ph.i51
-  %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i53, %.lr.ph.i51 ], [ %.pre, %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66 ]
-  %.03.i = phi i32 [ %spec.store.select.i, %.lr.ph.i51 ], [ 1, %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66 ]
-  %.0111.i = phi i32 [ %358, %.lr.ph.i51 ], [ 0, %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66 ]
+.lr.ph.preheader.i:                               ; preds = %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66
+  %350 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.lr.ph.i51
+
+.lr.ph.i51:                                       ; preds = %.lr.ph.i51, %.lr.ph.preheader.i
+  %indvars.iv.i52 = phi i64 [ %.pre, %.lr.ph.preheader.i ], [ %indvars.iv.next.i53, %.lr.ph.i51 ]
+  %.03.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %spec.store.select.i, %.lr.ph.i51 ]
+  %.0111.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %359, %.lr.ph.i51 ]
   %indvars.iv.next.i53 = add nsw i64 %indvars.iv.i52, -1
-  %350 = getelementptr inbounds nuw i8, ptr %349, i64 %indvars.iv.next.i53
-  %351 = load i8, ptr %350, align 1, !tbaa !19
-  %352 = sext i8 %351 to i32
-  %memchr.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN5ZXing4OneDL8ALPHABETE, i32 %352, i64 49)
+  %351 = getelementptr inbounds nuw i8, ptr %349, i64 %indvars.iv.next.i53
+  %352 = load i8, ptr %351, align 1, !tbaa !19
+  %353 = sext i8 %352 to i32
+  %memchr.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN5ZXing4OneDL8ALPHABETE, i32 %353, i64 49)
   %.not.i.i54 = icmp eq ptr %memchr.i, null
-  %353 = ptrtoint ptr %memchr.i to i64
-  %354 = trunc i64 %353 to i32
-  %355 = sub i32 %354, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i32)
-  %356 = select i1 %.not.i.i54, i32 -1, i32 %355
-  %357 = mul nsw i32 %356, %.03.i
-  %358 = add nsw i32 %357, %.0111.i
-  %359 = add nsw i32 %.03.i, 1
+  %354 = ptrtoint ptr %memchr.i to i64
+  %355 = trunc i64 %354 to i32
+  %356 = sub i32 %355, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i32)
+  %357 = select i1 %.not.i.i54, i32 -1, i32 %356
+  %358 = mul nsw i32 %357, %.03.i
+  %359 = add nsw i32 %358, %.0111.i
+  %360 = add nsw i32 %.03.i, 1
   %.not.i55 = icmp slt i32 %.03.i, 20
-  %spec.store.select.i = select i1 %.not.i55, i32 %359, i32 1
-  %360 = icmp samesign ugt i64 %indvars.iv.i52, 1
-  br i1 %360, label %.lr.ph.i51, label %_ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit, !llvm.loop !34
+  %spec.store.select.i = select i1 %.not.i55, i32 %360, i32 1
+  %361 = icmp samesign ugt i64 %indvars.iv.i52, 1
+  br i1 %361, label %.lr.ph.i51, label %_ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit, !llvm.loop !34
 
-361:                                              ; preds = %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader, %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66
+362:                                              ; preds = %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader, %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66
   %indvars.iv = phi i64 [ 9, %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader ], [ %indvars.iv.next, %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66 ]
-  %.031142 = phi i64 [ 0, %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader ], [ %390, %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66 ]
-  %362 = getelementptr inbounds nuw i8, ptr %349, i64 %.031142
-  %363 = load i8, ptr %362, align 1, !tbaa !19
-  %364 = sext i8 %363 to i32
-  %memchr = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN5ZXing4OneDL8ALPHABETE, i32 %364, i64 49)
+  %.031142 = phi i64 [ 0, %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit.preheader ], [ %391, %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66 ]
+  %363 = getelementptr inbounds nuw i8, ptr %349, i64 %.031142
+  %364 = load i8, ptr %363, align 1, !tbaa !19
+  %365 = sext i8 %364 to i32
+  %memchr = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN5ZXing4OneDL8ALPHABETE, i32 %365, i64 49)
   %.not.i56 = icmp eq ptr %memchr, null
-  %365 = ptrtoint ptr %memchr to i64
-  %366 = trunc i64 %365 to i32
-  %367 = sub i32 %366, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i32)
-  %368 = sext i32 %367 to i64
-  %369 = select i1 %.not.i56, i64 -1, i64 %368
-  %370 = getelementptr inbounds i32, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %369
-  %371 = load i32, ptr %370, align 4, !tbaa !35
-  br label %372
+  %366 = ptrtoint ptr %memchr to i64
+  %367 = trunc i64 %366 to i32
+  %368 = sub i32 %367, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i32)
+  %369 = sext i32 %368 to i64
+  %370 = select i1 %.not.i56, i64 -1, i64 %369
+  %371 = getelementptr inbounds i32, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %370
+  %372 = load i32, ptr %371, align 4, !tbaa !35
+  br label %373
 
-372:                                              ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i62, %361
-  %indvars.iv.i57 = phi i64 [ 0, %361 ], [ %indvars.iv.next.i64, %_ZNSt14_Bit_referenceaSEb.exit.i62 ]
-  %373 = trunc i64 %indvars.iv.i57 to i32
-  %374 = sub i32 8, %373
-  %375 = shl nuw nsw i32 1, %374
-  %376 = and i32 %375, %371
-  %.not.i58 = icmp eq i32 %376, 0
-  %377 = add nuw nsw i64 %indvars.iv.i57, %indvars.iv
-  %378 = trunc nsw i64 %377 to i32
-  %379 = sdiv i32 %378, 64
-  %.sext.i59 = sext i32 %379 to i64
-  %380 = getelementptr inbounds i64, ptr %323, i64 %.sext.i59
-  %381 = and i64 %377, 63
-  %382 = shl nuw i64 1, %381
-  br i1 %.not.i58, label %386, label %383
+373:                                              ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i62, %362
+  %indvars.iv.i57 = phi i64 [ 0, %362 ], [ %indvars.iv.next.i64, %_ZNSt14_Bit_referenceaSEb.exit.i62 ]
+  %374 = trunc i64 %indvars.iv.i57 to i32
+  %375 = sub i32 8, %374
+  %376 = shl nuw nsw i32 1, %375
+  %377 = and i32 %376, %372
+  %.not.i58 = icmp eq i32 %377, 0
+  %378 = add nuw nsw i64 %indvars.iv.i57, %indvars.iv
+  %379 = trunc nsw i64 %378 to i32
+  %380 = sdiv i32 %379, 64
+  %.sext.i59 = sext i32 %380 to i64
+  %381 = getelementptr inbounds i64, ptr %323, i64 %.sext.i59
+  %382 = and i64 %378, 63
+  %383 = shl nuw i64 1, %382
+  br i1 %.not.i58, label %387, label %384
 
-383:                                              ; preds = %372
-  %384 = load i64, ptr %380, align 8, !tbaa !32
-  %385 = or i64 %384, %382
+384:                                              ; preds = %373
+  %385 = load i64, ptr %381, align 8, !tbaa !32
+  %386 = or i64 %385, %383
   br label %_ZNSt14_Bit_referenceaSEb.exit.i62
 
-386:                                              ; preds = %372
-  %387 = xor i64 %382, -1
-  %388 = load i64, ptr %380, align 8, !tbaa !32
-  %389 = and i64 %388, %387
+387:                                              ; preds = %373
+  %388 = xor i64 %383, -1
+  %389 = load i64, ptr %381, align 8, !tbaa !32
+  %390 = and i64 %389, %388
   br label %_ZNSt14_Bit_referenceaSEb.exit.i62
 
-_ZNSt14_Bit_referenceaSEb.exit.i62:               ; preds = %386, %383
-  %storemerge.i63 = phi i64 [ %389, %386 ], [ %385, %383 ]
-  store i64 %storemerge.i63, ptr %380, align 8, !tbaa !32
+_ZNSt14_Bit_referenceaSEb.exit.i62:               ; preds = %387, %384
+  %storemerge.i63 = phi i64 [ %390, %387 ], [ %386, %384 ]
+  store i64 %storemerge.i63, ptr %381, align 8, !tbaa !32
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, 9
-  br i1 %exitcond.not.i65, label %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66, label %372, !llvm.loop !33
+  br i1 %exitcond.not.i65, label %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66, label %373, !llvm.loop !33
 
 _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit66: ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 9
-  %390 = add nuw nsw i64 %.031142, 1
-  %exitcond.not = icmp eq i64 %390, %.pre
-  br i1 %exitcond.not, label %.lr.ph.i51, label %361, !llvm.loop !36
+  %391 = add nuw nsw i64 %.031142, 1
+  %exitcond.not = icmp eq i64 %391, %.pre
+  br i1 %exitcond.not, label %.lr.ph.preheader.i, label %362, !llvm.loop !36
 
 _ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit: ; preds = %.lr.ph.i51
-  %391 = srem i32 %358, 47
-  %392 = sext i32 %391 to i64
-  %393 = getelementptr inbounds i32, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %392
-  %394 = load i32, ptr %393, align 4, !tbaa !35
-  %395 = and i64 %indvars.iv.next, 4294967295
-  br label %396
+  %392 = srem i32 %359, 47
+  %393 = sext i32 %392 to i64
+  %394 = getelementptr inbounds i32, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %393
+  %395 = load i32, ptr %394, align 4, !tbaa !35
+  %396 = and i64 %indvars.iv.next, 4294967295
+  br label %397
 
-396:                                              ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i72, %_ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
+397:                                              ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i72, %_ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
   %indvars.iv.i67 = phi i64 [ 0, %_ZN5ZXing4OneDL20ComputeChecksumIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit ], [ %indvars.iv.next.i74, %_ZNSt14_Bit_referenceaSEb.exit.i72 ]
-  %397 = trunc i64 %indvars.iv.i67 to i32
-  %398 = sub i32 8, %397
-  %399 = shl nuw nsw i32 1, %398
-  %400 = and i32 %399, %394
-  %.not.i68 = icmp eq i32 %400, 0
-  %401 = add nuw nsw i64 %indvars.iv.i67, %395
-  %402 = trunc nsw i64 %401 to i32
-  %403 = sdiv i32 %402, 64
-  %.sext.i69 = sext i32 %403 to i64
-  %404 = getelementptr inbounds i64, ptr %323, i64 %.sext.i69
-  %405 = and i64 %401, 63
-  %406 = shl nuw i64 1, %405
-  br i1 %.not.i68, label %410, label %407
+  %398 = trunc i64 %indvars.iv.i67 to i32
+  %399 = sub i32 8, %398
+  %400 = shl nuw nsw i32 1, %399
+  %401 = and i32 %400, %395
+  %.not.i68 = icmp eq i32 %401, 0
+  %402 = add nuw nsw i64 %indvars.iv.i67, %396
+  %403 = trunc nsw i64 %402 to i32
+  %404 = sdiv i32 %403, 64
+  %.sext.i69 = sext i32 %404 to i64
+  %405 = getelementptr inbounds i64, ptr %323, i64 %.sext.i69
+  %406 = and i64 %402, 63
+  %407 = shl nuw i64 1, %406
+  br i1 %.not.i68, label %411, label %408
 
-407:                                              ; preds = %396
-  %408 = load i64, ptr %404, align 8, !tbaa !32
-  %409 = or i64 %408, %406
+408:                                              ; preds = %397
+  %409 = load i64, ptr %405, align 8, !tbaa !32
+  %410 = or i64 %409, %407
   br label %_ZNSt14_Bit_referenceaSEb.exit.i72
 
-410:                                              ; preds = %396
-  %411 = xor i64 %406, -1
-  %412 = load i64, ptr %404, align 8, !tbaa !32
-  %413 = and i64 %412, %411
+411:                                              ; preds = %397
+  %412 = xor i64 %407, -1
+  %413 = load i64, ptr %405, align 8, !tbaa !32
+  %414 = and i64 %413, %412
   br label %_ZNSt14_Bit_referenceaSEb.exit.i72
 
-_ZNSt14_Bit_referenceaSEb.exit.i72:               ; preds = %410, %407
-  %storemerge.i73 = phi i64 [ %413, %410 ], [ %409, %407 ]
-  store i64 %storemerge.i73, ptr %404, align 8, !tbaa !32
+_ZNSt14_Bit_referenceaSEb.exit.i72:               ; preds = %411, %408
+  %storemerge.i73 = phi i64 [ %414, %411 ], [ %410, %408 ]
+  store i64 %storemerge.i73, ptr %405, align 8, !tbaa !32
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, 9
-  br i1 %exitcond.not.i75, label %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit76, label %396, !llvm.loop !33
+  br i1 %exitcond.not.i75, label %_ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit76, label %397, !llvm.loop !33
 
 _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit76: ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i72
-  %414 = trunc nuw nsw i64 %indvars.iv to i32
   %415 = add nuw i64 %indvars.iv, 18
-  %416 = getelementptr inbounds i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 %392
+  %416 = getelementptr inbounds i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 %393
   %417 = load i8, ptr %416, align 1, !tbaa !19
   %418 = add nuw nsw i64 %.pre, 1
   %419 = icmp eq ptr %349, %13
@@ -1195,7 +1198,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i107:              ; preds = %483, %480
   br i1 %exitcond.not.i110, label %487, label %469, !llvm.loop !33
 
 487:                                              ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i107
-  %488 = add nuw nsw i32 %414, 36
+  %488 = add nuw nsw i32 %350, 36
   %489 = lshr i32 %488, 6
   %.zext = zext nneg i32 %489 to i64
   %490 = getelementptr inbounds nuw i64, ptr %323, i64 %.zext

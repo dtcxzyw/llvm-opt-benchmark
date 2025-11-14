@@ -5120,33 +5120,33 @@ _ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %59, %61
   br label %80
 
 66:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit25
+  %67 = add i64 %4, 4294967295
+  %68 = and i64 %67, 4294967292
+  %reass.sub = sub i64 %68, %4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !370
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %9, ptr %10, align 8, !tbaa !371
-  %67 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %0, ptr %67, align 8, !tbaa !373
-  %68 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %6, ptr %68, align 8, !tbaa !302
-  %69 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %7, ptr %69, align 8, !tbaa !377
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %0, ptr %69, align 8, !tbaa !373
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %6, ptr %70, align 8, !tbaa !302
+  %71 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr %7, ptr %71, align 8, !tbaa !377
   %.not27 = icmp ult i64 %4, 4
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %66, %.lr.ph
-  %70 = phi i64 [ %72, %.lr.ph ], [ 4, %66 ]
-  %.028 = phi i64 [ %70, %.lr.ph ], [ 0, %66 ]
-  %71 = getelementptr inbounds nuw i8, ptr %3, i64 %.028
-  call fastcc void @"_ZZN12_GLOBAL__N_113MCAsmStreamer17emitXCOFFCInfoSymEN4llvm9StringRefES2_ENK3$_0clEPKh"(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %71)
-  %72 = add i64 %70, 4
-  %.not = icmp ugt i64 %72, %4
+  %72 = phi i64 [ %74, %.lr.ph ], [ 4, %66 ]
+  %.028 = phi i64 [ %72, %.lr.ph ], [ 0, %66 ]
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 %.028
+  call fastcc void @"_ZZN12_GLOBAL__N_113MCAsmStreamer17emitXCOFFCInfoSymEN4llvm9StringRefES2_ENK3$_0clEPKh"(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %73)
+  %74 = add i64 %72, 4
+  %.not = icmp ugt i64 %74, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !378
 
 ._crit_edge:                                      ; preds = %.lr.ph, %66
-  %.0.lcssa = phi i64 [ 0, %66 ], [ %70, %.lr.ph ]
-  %73 = add i64 %4, 4294967295
-  %74 = and i64 %73, 4294967292
-  %reass.sub = sub i64 %74, %4
+  %.0.lcssa = phi i64 [ 0, %66 ], [ %72, %.lr.ph ]
   %75 = and i64 %reass.sub, 4294967295
   %.not17 = icmp eq i64 %75, 4294967292
   br i1 %.not17, label %79, label %76

@@ -1139,31 +1139,31 @@ define internal fastcc i32 @update_pack_unpack_ptrs(ptr noundef nonnull %0) unna
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i16, ptr %3, align 8, !tbaa !43
-  %5 = icmp sgt i16 %4, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %4 = load i32, ptr %3, align 8, !tbaa !78
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %6 = load i32, ptr %5, align 4, !tbaa !64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %8 = load ptr, ptr %7, align 8, !tbaa !77
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = load i16, ptr %9, align 8, !tbaa !43
+  %11 = icmp sgt i16 %10, 0
+  br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %wide.trip.count = zext nneg i16 %4 to i64
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !44
+  %wide.trip.count = zext nneg i16 %10 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !44
   br label %36
 
 ._crit_edge:                                      ; preds = %36, %2
   %.093.lcssa = phi i64 [ 0, %2 ], [ %41, %36 ]
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %9 = load i32, ptr %8, align 8, !tbaa !78
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %11 = load i32, ptr %10, align 4, !tbaa !64
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %13 = load ptr, ptr %12, align 8, !tbaa !77
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %15 = load i16, ptr %14, align 2, !tbaa !74
   %16 = and i16 %15, 1
   %.not = icmp eq i16 %16, 0
-  %.not108161 = icmp sgt i32 %11, 0
-  %.not107.not154 = icmp sgt i32 %9, 0
+  %.not108161 = icmp sgt i32 %6, 0
+  %.not107.not154 = icmp sgt i32 %4, 0
   %or.cond221 = select i1 %.not108161, i1 %.not107.not154, i1 false
   br i1 %.not, label %.preheader, label %.preheader123
 
@@ -1171,15 +1171,15 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
   br i1 %or.cond221, label %.lr.ph141.us.preheader, label %.thread114
 
 .lr.ph141.us.preheader:                           ; preds = %.preheader123
-  %17 = zext nneg i32 %9 to i64
-  %wide.trip.count192 = zext nneg i32 %11 to i64
+  %17 = zext nneg i32 %4 to i64
+  %wide.trip.count192 = zext nneg i32 %6 to i64
   br label %.lr.ph141.us
 
 .lr.ph141.us:                                     ; preds = %.lr.ph141.us.preheader, %._crit_edge142.us
   %indvars.iv189 = phi i64 [ 0, %.lr.ph141.us.preheader ], [ %indvars.iv.next190, %._crit_edge142.us ]
   %.082146.us = phi i64 [ 0, %.lr.ph141.us.preheader ], [ %26, %._crit_edge142.us ]
   %18 = mul nuw nsw i64 %indvars.iv189, %17
-  %19 = getelementptr inbounds nuw i32, ptr %13, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %18
   br label %20
 
 20:                                               ; preds = %.lr.ph141.us, %23
@@ -1208,15 +1208,15 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
   br i1 %or.cond221, label %.lr.ph158.us.preheader, label %.thread119
 
 .lr.ph158.us.preheader:                           ; preds = %.preheader
-  %27 = zext nneg i32 %9 to i64
-  %wide.trip.count202 = zext nneg i32 %11 to i64
+  %27 = zext nneg i32 %4 to i64
+  %wide.trip.count202 = zext nneg i32 %6 to i64
   br label %.lr.ph158.us
 
 .lr.ph158.us:                                     ; preds = %.lr.ph158.us.preheader, %._crit_edge159.us
   %indvars.iv199 = phi i64 [ 0, %.lr.ph158.us.preheader ], [ %indvars.iv.next200, %._crit_edge159.us ]
   %.486162.us = phi i64 [ 0, %.lr.ph158.us.preheader ], [ %35, %._crit_edge159.us ]
   %28 = mul nuw nsw i64 %indvars.iv199, %27
-  %29 = getelementptr inbounds nuw i32, ptr %13, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %8, i64 %28
   br label %31
 
 30:                                               ; preds = %31
@@ -1242,7 +1242,7 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %.093136 = phi i64 [ 0, %.lr.ph ], [ %41, %36 ]
-  %37 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %7, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %13, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 25
   %39 = load i8, ptr %38, align 1, !tbaa !51
   %40 = sext i8 %39 to i64
@@ -1258,9 +1258,9 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
 
 43:                                               ; preds = %.thread114
   %44 = trunc nuw nsw i64 %.082134 to i32
-  %45 = mul nsw i32 %11, %9
+  %45 = mul nsw i32 %6, %4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i32, ptr %13, i64 %46
+  %47 = getelementptr inbounds i32, ptr %8, i64 %46
   store i32 %44, ptr %47, align 4, !tbaa !40
   br label %49
 

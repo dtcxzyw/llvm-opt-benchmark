@@ -1716,48 +1716,48 @@ clip_interval.exit:                               ; preds = %22, %14
 
 173:                                              ; preds = %164
   %174 = udiv i32 255, %78
+  %175 = load i16, ptr %.3254.us, align 1, !tbaa !15
   br label %.preheader.us.i.i.us
 
 .preheader.us.i.i.us:                             ; preds = %._crit_edge.us.i.i.us, %173
-  %.03240.us.i.i.us = phi i32 [ %191, %._crit_edge.us.i.i.us ], [ 0, %173 ]
-  %.03339.us.i.i.us = phi ptr [ %190, %._crit_edge.us.i.i.us ], [ %.3164253.us, %173 ]
-  %.03438.us.i.i.us = phi i32 [ %187, %._crit_edge.us.i.i.us ], [ 0, %173 ]
-  br label %175
+  %.03240.us.i.i.us = phi i32 [ %192, %._crit_edge.us.i.i.us ], [ 0, %173 ]
+  %.03339.us.i.i.us = phi ptr [ %191, %._crit_edge.us.i.i.us ], [ %.3164253.us, %173 ]
+  %.03438.us.i.i.us = phi i32 [ %188, %._crit_edge.us.i.i.us ], [ 0, %173 ]
+  br label %176
 
-175:                                              ; preds = %175, %.preheader.us.i.i.us
-  %.037.us.i.i.us = phi i32 [ 0, %.preheader.us.i.i.us ], [ %189, %175 ]
-  %.03136.us.i.i.us = phi i32 [ %.0244, %.preheader.us.i.i.us ], [ %188, %175 ]
-  %.135.us.i.i.us = phi i32 [ %.03438.us.i.i.us, %.preheader.us.i.i.us ], [ %187, %175 ]
-  %176 = lshr i32 %.03136.us.i.i.us, %75
-  %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds nuw i8, ptr %.03339.us.i.i.us, i64 %177
-  %179 = load i8, ptr %178, align 1, !tbaa !15
-  %180 = zext i8 %179 to i32
-  %181 = xor i32 %.03136.us.i.i.us, -1
-  %182 = and i32 %76, %181
-  %183 = shl i32 %182, %10
-  %184 = lshr i32 %180, %183
-  %185 = and i32 %184, %78
-  %186 = mul nuw nsw i32 %185, %174
-  %187 = add i32 %186, %.135.us.i.i.us
-  %188 = add i32 %.03136.us.i.i.us, 1
-  %189 = add nuw i32 %.037.us.i.i.us, 1
-  %exitcond.not.i.i.us = icmp eq i32 %189, %..i.us
-  br i1 %exitcond.not.i.i.us, label %._crit_edge.us.i.i.us, label %175, !llvm.loop !55
+176:                                              ; preds = %176, %.preheader.us.i.i.us
+  %.037.us.i.i.us = phi i32 [ 0, %.preheader.us.i.i.us ], [ %190, %176 ]
+  %.03136.us.i.i.us = phi i32 [ %.0244, %.preheader.us.i.i.us ], [ %189, %176 ]
+  %.135.us.i.i.us = phi i32 [ %.03438.us.i.i.us, %.preheader.us.i.i.us ], [ %188, %176 ]
+  %177 = lshr i32 %.03136.us.i.i.us, %75
+  %178 = zext i32 %177 to i64
+  %179 = getelementptr inbounds nuw i8, ptr %.03339.us.i.i.us, i64 %178
+  %180 = load i8, ptr %179, align 1, !tbaa !15
+  %181 = zext i8 %180 to i32
+  %182 = xor i32 %.03136.us.i.i.us, -1
+  %183 = and i32 %76, %182
+  %184 = shl i32 %183, %10
+  %185 = lshr i32 %181, %184
+  %186 = and i32 %185, %78
+  %187 = mul nuw nsw i32 %186, %174
+  %188 = add i32 %187, %.135.us.i.i.us
+  %189 = add i32 %.03136.us.i.i.us, 1
+  %190 = add nuw i32 %.037.us.i.i.us, 1
+  %exitcond.not.i.i.us = icmp eq i32 %190, %..i.us
+  br i1 %exitcond.not.i.i.us, label %._crit_edge.us.i.i.us, label %176, !llvm.loop !55
 
-._crit_edge.us.i.i.us:                            ; preds = %175
-  %190 = getelementptr inbounds i8, ptr %.03339.us.i.i.us, i64 %79
-  %191 = add nuw i32 %.03240.us.i.i.us, 1
-  %exitcond45.not.i.i.us = icmp eq i32 %191, %172
+._crit_edge.us.i.i.us:                            ; preds = %176
+  %191 = getelementptr inbounds i8, ptr %.03339.us.i.i.us, i64 %79
+  %192 = add nuw i32 %.03240.us.i.i.us, 1
+  %exitcond45.not.i.i.us = icmp eq i32 %192, %172
   br i1 %exitcond45.not.i.i.us, label %blend_pixel16.exit.i.us, label %.preheader.us.i.i.us, !llvm.loop !56
 
 blend_pixel16.exit.i.us:                          ; preds = %._crit_edge.us.i.i.us
-  %192 = add nuw nsw i32 %171, %170
-  %193 = load i16, ptr %.3254.us, align 1, !tbaa !15
-  %194 = lshr i32 %187, %192
+  %193 = add nuw nsw i32 %171, %170
+  %194 = lshr i32 %188, %193
   %195 = mul i32 %194, %.0157
   %196 = sub i32 65537, %195
-  %197 = zext i16 %193 to i32
+  %197 = zext i16 %175 to i32
   %198 = mul i32 %196, %197
   %199 = mul i32 %195, %168
   %200 = add i32 %198, %199
@@ -1784,47 +1784,47 @@ blend_pixel16.exit.i.us:                          ; preds = %._crit_edge.us.i.i.
   %.087.i.us = phi i32 [ %239, %blend_pixel16.exit66.loopexit.i.us ], [ 0, %.lr.ph.i.us ]
   %.186.i.us = phi ptr [ %237, %blend_pixel16.exit66.loopexit.i.us ], [ %.045.i.us, %.lr.ph.i.us ]
   %.14785.i.us = phi i32 [ %238, %blend_pixel16.exit66.loopexit.i.us ], [ %.046.i.us, %.lr.ph.i.us ]
+  %210 = load i16, ptr %.186.i.us, align 1, !tbaa !15
   br label %.preheader.us.i55.i.us
 
 .preheader.us.i55.i.us:                           ; preds = %._crit_edge.us.i63.i.us, %.preheader.lr.ph.i53.i.us
-  %.03240.us.i56.i.us = phi i32 [ %226, %._crit_edge.us.i63.i.us ], [ 0, %.preheader.lr.ph.i53.i.us ]
-  %.03339.us.i57.i.us = phi ptr [ %225, %._crit_edge.us.i63.i.us ], [ %.3164253.us, %.preheader.lr.ph.i53.i.us ]
-  %.03438.us.i58.i.us = phi i32 [ %222, %._crit_edge.us.i63.i.us ], [ 0, %.preheader.lr.ph.i53.i.us ]
-  br label %210
+  %.03240.us.i56.i.us = phi i32 [ %227, %._crit_edge.us.i63.i.us ], [ 0, %.preheader.lr.ph.i53.i.us ]
+  %.03339.us.i57.i.us = phi ptr [ %226, %._crit_edge.us.i63.i.us ], [ %.3164253.us, %.preheader.lr.ph.i53.i.us ]
+  %.03438.us.i58.i.us = phi i32 [ %223, %._crit_edge.us.i63.i.us ], [ 0, %.preheader.lr.ph.i53.i.us ]
+  br label %211
 
-210:                                              ; preds = %210, %.preheader.us.i55.i.us
-  %.037.us.i59.i.us = phi i32 [ 0, %.preheader.us.i55.i.us ], [ %224, %210 ]
-  %.03136.us.i60.i.us = phi i32 [ %.14785.i.us, %.preheader.us.i55.i.us ], [ %223, %210 ]
-  %.135.us.i61.i.us = phi i32 [ %.03438.us.i58.i.us, %.preheader.us.i55.i.us ], [ %222, %210 ]
-  %211 = lshr i32 %.03136.us.i60.i.us, %75
-  %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds nuw i8, ptr %.03339.us.i57.i.us, i64 %212
-  %214 = load i8, ptr %213, align 1, !tbaa !15
-  %215 = zext i8 %214 to i32
-  %216 = xor i32 %.03136.us.i60.i.us, -1
-  %217 = and i32 %76, %216
-  %218 = shl i32 %217, %10
-  %219 = lshr i32 %215, %218
-  %220 = and i32 %219, %78
-  %221 = mul nuw nsw i32 %220, %208
-  %222 = add i32 %221, %.135.us.i61.i.us
-  %223 = add i32 %.03136.us.i60.i.us, 1
-  %224 = add nuw i32 %.037.us.i59.i.us, 1
-  %exitcond.not.i62.i.us = icmp eq i32 %224, %206
-  br i1 %exitcond.not.i62.i.us, label %._crit_edge.us.i63.i.us, label %210, !llvm.loop !55
+211:                                              ; preds = %211, %.preheader.us.i55.i.us
+  %.037.us.i59.i.us = phi i32 [ 0, %.preheader.us.i55.i.us ], [ %225, %211 ]
+  %.03136.us.i60.i.us = phi i32 [ %.14785.i.us, %.preheader.us.i55.i.us ], [ %224, %211 ]
+  %.135.us.i61.i.us = phi i32 [ %.03438.us.i58.i.us, %.preheader.us.i55.i.us ], [ %223, %211 ]
+  %212 = lshr i32 %.03136.us.i60.i.us, %75
+  %213 = zext i32 %212 to i64
+  %214 = getelementptr inbounds nuw i8, ptr %.03339.us.i57.i.us, i64 %213
+  %215 = load i8, ptr %214, align 1, !tbaa !15
+  %216 = zext i8 %215 to i32
+  %217 = xor i32 %.03136.us.i60.i.us, -1
+  %218 = and i32 %76, %217
+  %219 = shl i32 %218, %10
+  %220 = lshr i32 %216, %219
+  %221 = and i32 %220, %78
+  %222 = mul nuw nsw i32 %221, %208
+  %223 = add i32 %222, %.135.us.i61.i.us
+  %224 = add i32 %.03136.us.i60.i.us, 1
+  %225 = add nuw i32 %.037.us.i59.i.us, 1
+  %exitcond.not.i62.i.us = icmp eq i32 %225, %206
+  br i1 %exitcond.not.i62.i.us, label %._crit_edge.us.i63.i.us, label %211, !llvm.loop !55
 
-._crit_edge.us.i63.i.us:                          ; preds = %210
-  %225 = getelementptr inbounds i8, ptr %.03339.us.i57.i.us, i64 %79
-  %226 = add nuw i32 %.03240.us.i56.i.us, 1
-  %exitcond45.not.i64.i.us = icmp eq i32 %226, %172
+._crit_edge.us.i63.i.us:                          ; preds = %211
+  %226 = getelementptr inbounds i8, ptr %.03339.us.i57.i.us, i64 %79
+  %227 = add nuw i32 %.03240.us.i56.i.us, 1
+  %exitcond45.not.i64.i.us = icmp eq i32 %227, %172
   br i1 %exitcond45.not.i64.i.us, label %blend_pixel16.exit66.loopexit.i.us, label %.preheader.us.i55.i.us, !llvm.loop !56
 
 blend_pixel16.exit66.loopexit.i.us:               ; preds = %._crit_edge.us.i63.i.us
-  %227 = load i16, ptr %.186.i.us, align 1, !tbaa !15
-  %228 = lshr i32 %222, %207
+  %228 = lshr i32 %223, %207
   %229 = mul i32 %228, %.0157
   %230 = sub i32 65537, %229
-  %231 = zext i16 %227 to i32
+  %231 = zext i16 %210 to i32
   %232 = mul i32 %230, %231
   %233 = mul i32 %229, %168
   %234 = add i32 %232, %233
@@ -1844,48 +1844,48 @@ blend_pixel16.exit66.loopexit.i.us:               ; preds = %._crit_edge.us.i63.
 
 240:                                              ; preds = %._crit_edge.i.us
   %241 = udiv i32 255, %78
+  %242 = load i16, ptr %.1.lcssa.i.us, align 1, !tbaa !15
   br label %.preheader.us.i71.i.us
 
 .preheader.us.i71.i.us:                           ; preds = %._crit_edge.us.i79.i.us, %240
-  %.03240.us.i72.i.us = phi i32 [ %258, %._crit_edge.us.i79.i.us ], [ 0, %240 ]
-  %.03339.us.i73.i.us = phi ptr [ %257, %._crit_edge.us.i79.i.us ], [ %.3164253.us, %240 ]
-  %.03438.us.i74.i.us = phi i32 [ %254, %._crit_edge.us.i79.i.us ], [ 0, %240 ]
-  br label %242
+  %.03240.us.i72.i.us = phi i32 [ %259, %._crit_edge.us.i79.i.us ], [ 0, %240 ]
+  %.03339.us.i73.i.us = phi ptr [ %258, %._crit_edge.us.i79.i.us ], [ %.3164253.us, %240 ]
+  %.03438.us.i74.i.us = phi i32 [ %255, %._crit_edge.us.i79.i.us ], [ 0, %240 ]
+  br label %243
 
-242:                                              ; preds = %242, %.preheader.us.i71.i.us
-  %.037.us.i75.i.us = phi i32 [ 0, %.preheader.us.i71.i.us ], [ %256, %242 ]
-  %.03136.us.i76.i.us = phi i32 [ %.147.lcssa.i.us, %.preheader.us.i71.i.us ], [ %255, %242 ]
-  %.135.us.i77.i.us = phi i32 [ %.03438.us.i74.i.us, %.preheader.us.i71.i.us ], [ %254, %242 ]
-  %243 = lshr i32 %.03136.us.i76.i.us, %75
-  %244 = zext i32 %243 to i64
-  %245 = getelementptr inbounds nuw i8, ptr %.03339.us.i73.i.us, i64 %244
-  %246 = load i8, ptr %245, align 1, !tbaa !15
-  %247 = zext i8 %246 to i32
-  %248 = xor i32 %.03136.us.i76.i.us, -1
-  %249 = and i32 %76, %248
-  %250 = shl i32 %249, %10
-  %251 = lshr i32 %247, %250
-  %252 = and i32 %251, %78
-  %253 = mul nuw nsw i32 %252, %241
-  %254 = add i32 %253, %.135.us.i77.i.us
-  %255 = add i32 %.03136.us.i76.i.us, 1
-  %256 = add nuw nsw i32 %.037.us.i75.i.us, 1
-  %exitcond.not.i78.i.us = icmp eq i32 %256, %108
-  br i1 %exitcond.not.i78.i.us, label %._crit_edge.us.i79.i.us, label %242, !llvm.loop !55
+243:                                              ; preds = %243, %.preheader.us.i71.i.us
+  %.037.us.i75.i.us = phi i32 [ 0, %.preheader.us.i71.i.us ], [ %257, %243 ]
+  %.03136.us.i76.i.us = phi i32 [ %.147.lcssa.i.us, %.preheader.us.i71.i.us ], [ %256, %243 ]
+  %.135.us.i77.i.us = phi i32 [ %.03438.us.i74.i.us, %.preheader.us.i71.i.us ], [ %255, %243 ]
+  %244 = lshr i32 %.03136.us.i76.i.us, %75
+  %245 = zext i32 %244 to i64
+  %246 = getelementptr inbounds nuw i8, ptr %.03339.us.i73.i.us, i64 %245
+  %247 = load i8, ptr %246, align 1, !tbaa !15
+  %248 = zext i8 %247 to i32
+  %249 = xor i32 %.03136.us.i76.i.us, -1
+  %250 = and i32 %76, %249
+  %251 = shl i32 %250, %10
+  %252 = lshr i32 %248, %251
+  %253 = and i32 %252, %78
+  %254 = mul nuw nsw i32 %253, %241
+  %255 = add i32 %254, %.135.us.i77.i.us
+  %256 = add i32 %.03136.us.i76.i.us, 1
+  %257 = add nuw nsw i32 %.037.us.i75.i.us, 1
+  %exitcond.not.i78.i.us = icmp eq i32 %257, %108
+  br i1 %exitcond.not.i78.i.us, label %._crit_edge.us.i79.i.us, label %243, !llvm.loop !55
 
-._crit_edge.us.i79.i.us:                          ; preds = %242
-  %257 = getelementptr inbounds i8, ptr %.03339.us.i73.i.us, i64 %79
-  %258 = add nuw i32 %.03240.us.i72.i.us, 1
-  %exitcond45.not.i80.i.us = icmp eq i32 %258, %172
+._crit_edge.us.i79.i.us:                          ; preds = %243
+  %258 = getelementptr inbounds i8, ptr %.03339.us.i73.i.us, i64 %79
+  %259 = add nuw i32 %.03240.us.i72.i.us, 1
+  %exitcond45.not.i80.i.us = icmp eq i32 %259, %172
   br i1 %exitcond45.not.i80.i.us, label %blend_pixel16.exit82.i.us, label %.preheader.us.i71.i.us, !llvm.loop !56
 
 blend_pixel16.exit82.i.us:                        ; preds = %._crit_edge.us.i79.i.us
-  %259 = add nuw nsw i32 %171, %170
-  %260 = load i16, ptr %.1.lcssa.i.us, align 1, !tbaa !15
-  %261 = lshr i32 %254, %259
+  %260 = add nuw nsw i32 %171, %170
+  %261 = lshr i32 %255, %260
   %262 = mul i32 %261, %.0157
   %263 = sub i32 65537, %262
-  %264 = zext i16 %260 to i32
+  %264 = zext i16 %242 to i32
   %265 = mul i32 %263, %264
   %266 = mul i32 %262, %168
   %267 = add i32 %265, %266
@@ -2257,53 +2257,53 @@ define internal fastcc void @blend_line_hv16(ptr noundef captures(none) %0, i32 
   %notmask.i = shl nsw i32 -1, %19
   %20 = xor i32 %notmask.i, -1
   %21 = udiv i32 255, %20
+  %22 = load i16, ptr %0, align 1, !tbaa !15
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %blend_pixel16.exit, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %15
-  %22 = sext i32 %5 to i64
+  %23 = sext i32 %5 to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %._crit_edge.us.i
-  %.03240.us.i = phi i32 [ %39, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.i ]
-  %.03339.us.i = phi ptr [ %38, %._crit_edge.us.i ], [ %4, %.preheader.lr.ph.i ]
-  %.03438.us.i = phi i32 [ %35, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.i ]
-  br label %23
+  %.03240.us.i = phi i32 [ %40, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.i ]
+  %.03339.us.i = phi ptr [ %39, %._crit_edge.us.i ], [ %4, %.preheader.lr.ph.i ]
+  %.03438.us.i = phi i32 [ %36, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.i ]
+  br label %24
 
-23:                                               ; preds = %23, %.preheader.us.i
-  %.037.us.i = phi i32 [ 0, %.preheader.us.i ], [ %37, %23 ]
-  %.03136.us.i = phi i32 [ %10, %.preheader.us.i ], [ %36, %23 ]
-  %.135.us.i = phi i32 [ %.03438.us.i, %.preheader.us.i ], [ %35, %23 ]
-  %24 = lshr i32 %.03136.us.i, %17
-  %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %.03339.us.i, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !15
-  %28 = zext i8 %27 to i32
-  %29 = xor i32 %.03136.us.i, -1
-  %30 = and i32 %18, %29
-  %31 = shl i32 %30, %6
-  %32 = lshr i32 %28, %31
-  %33 = and i32 %32, %20
-  %34 = mul nuw nsw i32 %33, %21
-  %35 = add i32 %34, %.135.us.i
-  %36 = add i32 %.03136.us.i, 1
-  %37 = add nuw i32 %.037.us.i, 1
-  %exitcond.not.i = icmp eq i32 %37, %11
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %23, !llvm.loop !55
+24:                                               ; preds = %24, %.preheader.us.i
+  %.037.us.i = phi i32 [ 0, %.preheader.us.i ], [ %38, %24 ]
+  %.03136.us.i = phi i32 [ %10, %.preheader.us.i ], [ %37, %24 ]
+  %.135.us.i = phi i32 [ %.03438.us.i, %.preheader.us.i ], [ %36, %24 ]
+  %25 = lshr i32 %.03136.us.i, %17
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %.03339.us.i, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !15
+  %29 = zext i8 %28 to i32
+  %30 = xor i32 %.03136.us.i, -1
+  %31 = and i32 %18, %30
+  %32 = shl i32 %31, %6
+  %33 = lshr i32 %29, %32
+  %34 = and i32 %33, %20
+  %35 = mul nuw nsw i32 %34, %21
+  %36 = add i32 %35, %.135.us.i
+  %37 = add i32 %.03136.us.i, 1
+  %38 = add nuw i32 %.037.us.i, 1
+  %exitcond.not.i = icmp eq i32 %38, %11
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %24, !llvm.loop !55
 
-._crit_edge.us.i:                                 ; preds = %23
-  %38 = getelementptr inbounds i8, ptr %.03339.us.i, i64 %22
-  %39 = add nuw i32 %.03240.us.i, 1
-  %exitcond45.not.i = icmp eq i32 %39, %13
+._crit_edge.us.i:                                 ; preds = %24
+  %39 = getelementptr inbounds i8, ptr %.03339.us.i, i64 %23
+  %40 = add nuw i32 %.03240.us.i, 1
+  %exitcond45.not.i = icmp eq i32 %40, %13
   br i1 %exitcond45.not.i, label %blend_pixel16.exit, label %.preheader.us.i, !llvm.loop !56
 
 blend_pixel16.exit:                               ; preds = %._crit_edge.us.i, %15
-  %.034.lcssa.i = phi i32 [ 0, %15 ], [ %35, %._crit_edge.us.i ]
-  %40 = load i16, ptr %0, align 1, !tbaa !15
+  %.034.lcssa.i = phi i32 [ 0, %15 ], [ %36, %._crit_edge.us.i ]
   %41 = lshr i32 %.034.lcssa.i, %16
   %42 = mul i32 %41, %3
   %43 = sub i32 65537, %42
-  %44 = zext i16 %40 to i32
+  %44 = zext i16 %22 to i32
   %45 = mul i32 %43, %44
   %46 = mul i32 %42, %2
   %47 = add i32 %45, %46
@@ -2354,47 +2354,47 @@ blend_pixel16.exit66.us.preheader:                ; preds = %.lr.ph
   %.087 = phi i32 [ %98, %blend_pixel16.exit66.loopexit ], [ 0, %.lr.ph ]
   %.186 = phi ptr [ %96, %blend_pixel16.exit66.loopexit ], [ %.045, %.lr.ph ]
   %.14785 = phi i32 [ %97, %blend_pixel16.exit66.loopexit ], [ %.046, %.lr.ph ]
+  %69 = load i16, ptr %.186, align 1, !tbaa !15
   br label %.preheader.us.i55
 
 .preheader.us.i55:                                ; preds = %.preheader.lr.ph.i53, %._crit_edge.us.i63
-  %.03240.us.i56 = phi i32 [ %85, %._crit_edge.us.i63 ], [ 0, %.preheader.lr.ph.i53 ]
-  %.03339.us.i57 = phi ptr [ %84, %._crit_edge.us.i63 ], [ %4, %.preheader.lr.ph.i53 ]
-  %.03438.us.i58 = phi i32 [ %81, %._crit_edge.us.i63 ], [ 0, %.preheader.lr.ph.i53 ]
-  br label %69
+  %.03240.us.i56 = phi i32 [ %86, %._crit_edge.us.i63 ], [ 0, %.preheader.lr.ph.i53 ]
+  %.03339.us.i57 = phi ptr [ %85, %._crit_edge.us.i63 ], [ %4, %.preheader.lr.ph.i53 ]
+  %.03438.us.i58 = phi i32 [ %82, %._crit_edge.us.i63 ], [ 0, %.preheader.lr.ph.i53 ]
+  br label %70
 
-69:                                               ; preds = %69, %.preheader.us.i55
-  %.037.us.i59 = phi i32 [ 0, %.preheader.us.i55 ], [ %83, %69 ]
-  %.03136.us.i60 = phi i32 [ %.14785, %.preheader.us.i55 ], [ %82, %69 ]
-  %.135.us.i61 = phi i32 [ %.03438.us.i58, %.preheader.us.i55 ], [ %81, %69 ]
-  %70 = lshr i32 %.03136.us.i60, %57
-  %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw i8, ptr %.03339.us.i57, i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !15
-  %74 = zext i8 %73 to i32
-  %75 = xor i32 %.03136.us.i60, -1
-  %76 = and i32 %58, %75
-  %77 = shl i32 %76, %6
-  %78 = lshr i32 %74, %77
-  %79 = and i32 %78, %60
-  %80 = mul nuw nsw i32 %79, %61
-  %81 = add i32 %80, %.135.us.i61
-  %82 = add i32 %.03136.us.i60, 1
-  %83 = add nuw i32 %.037.us.i59, 1
-  %exitcond.not.i62 = icmp eq i32 %83, %55
-  br i1 %exitcond.not.i62, label %._crit_edge.us.i63, label %69, !llvm.loop !55
+70:                                               ; preds = %70, %.preheader.us.i55
+  %.037.us.i59 = phi i32 [ 0, %.preheader.us.i55 ], [ %84, %70 ]
+  %.03136.us.i60 = phi i32 [ %.14785, %.preheader.us.i55 ], [ %83, %70 ]
+  %.135.us.i61 = phi i32 [ %.03438.us.i58, %.preheader.us.i55 ], [ %82, %70 ]
+  %71 = lshr i32 %.03136.us.i60, %57
+  %72 = zext i32 %71 to i64
+  %73 = getelementptr inbounds nuw i8, ptr %.03339.us.i57, i64 %72
+  %74 = load i8, ptr %73, align 1, !tbaa !15
+  %75 = zext i8 %74 to i32
+  %76 = xor i32 %.03136.us.i60, -1
+  %77 = and i32 %58, %76
+  %78 = shl i32 %77, %6
+  %79 = lshr i32 %75, %78
+  %80 = and i32 %79, %60
+  %81 = mul nuw nsw i32 %80, %61
+  %82 = add i32 %81, %.135.us.i61
+  %83 = add i32 %.03136.us.i60, 1
+  %84 = add nuw i32 %.037.us.i59, 1
+  %exitcond.not.i62 = icmp eq i32 %84, %55
+  br i1 %exitcond.not.i62, label %._crit_edge.us.i63, label %70, !llvm.loop !55
 
-._crit_edge.us.i63:                               ; preds = %69
-  %84 = getelementptr inbounds i8, ptr %.03339.us.i57, i64 %62
-  %85 = add nuw i32 %.03240.us.i56, 1
-  %exitcond45.not.i64 = icmp eq i32 %85, %13
+._crit_edge.us.i63:                               ; preds = %70
+  %85 = getelementptr inbounds i8, ptr %.03339.us.i57, i64 %62
+  %86 = add nuw i32 %.03240.us.i56, 1
+  %exitcond45.not.i64 = icmp eq i32 %86, %13
   br i1 %exitcond45.not.i64, label %blend_pixel16.exit66.loopexit, label %.preheader.us.i55, !llvm.loop !56
 
 blend_pixel16.exit66.loopexit:                    ; preds = %._crit_edge.us.i63
-  %86 = load i16, ptr %.186, align 1, !tbaa !15
-  %87 = lshr i32 %81, %56
+  %87 = lshr i32 %82, %56
   %88 = mul i32 %87, %3
   %89 = sub i32 65537, %88
-  %90 = zext i16 %86 to i32
+  %90 = zext i16 %69 to i32
   %91 = mul i32 %89, %90
   %92 = mul i32 %88, %2
   %93 = add i32 %91, %92
@@ -2415,53 +2415,53 @@ blend_pixel16.exit66.loopexit:                    ; preds = %._crit_edge.us.i63
   %notmask.i67 = shl nsw i32 -1, %103
   %104 = xor i32 %notmask.i67, -1
   %105 = udiv i32 255, %104
+  %106 = load i16, ptr %.1.lcssa, align 1, !tbaa !15
   %.not.i68 = icmp eq i32 %13, 0
   br i1 %.not.i68, label %blend_pixel16.exit82, label %.preheader.lr.ph.i69
 
 .preheader.lr.ph.i69:                             ; preds = %99
-  %106 = sext i32 %5 to i64
+  %107 = sext i32 %5 to i64
   br label %.preheader.us.i71
 
 .preheader.us.i71:                                ; preds = %.preheader.lr.ph.i69, %._crit_edge.us.i79
-  %.03240.us.i72 = phi i32 [ %123, %._crit_edge.us.i79 ], [ 0, %.preheader.lr.ph.i69 ]
-  %.03339.us.i73 = phi ptr [ %122, %._crit_edge.us.i79 ], [ %4, %.preheader.lr.ph.i69 ]
-  %.03438.us.i74 = phi i32 [ %119, %._crit_edge.us.i79 ], [ 0, %.preheader.lr.ph.i69 ]
-  br label %107
+  %.03240.us.i72 = phi i32 [ %124, %._crit_edge.us.i79 ], [ 0, %.preheader.lr.ph.i69 ]
+  %.03339.us.i73 = phi ptr [ %123, %._crit_edge.us.i79 ], [ %4, %.preheader.lr.ph.i69 ]
+  %.03438.us.i74 = phi i32 [ %120, %._crit_edge.us.i79 ], [ 0, %.preheader.lr.ph.i69 ]
+  br label %108
 
-107:                                              ; preds = %107, %.preheader.us.i71
-  %.037.us.i75 = phi i32 [ 0, %.preheader.us.i71 ], [ %121, %107 ]
-  %.03136.us.i76 = phi i32 [ %.147.lcssa, %.preheader.us.i71 ], [ %120, %107 ]
-  %.135.us.i77 = phi i32 [ %.03438.us.i74, %.preheader.us.i71 ], [ %119, %107 ]
-  %108 = lshr i32 %.03136.us.i76, %101
-  %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw i8, ptr %.03339.us.i73, i64 %109
-  %111 = load i8, ptr %110, align 1, !tbaa !15
-  %112 = zext i8 %111 to i32
-  %113 = xor i32 %.03136.us.i76, -1
-  %114 = and i32 %102, %113
-  %115 = shl i32 %114, %6
-  %116 = lshr i32 %112, %115
-  %117 = and i32 %116, %104
-  %118 = mul nuw nsw i32 %117, %105
-  %119 = add i32 %118, %.135.us.i77
-  %120 = add i32 %.03136.us.i76, 1
-  %121 = add nuw i32 %.037.us.i75, 1
-  %exitcond.not.i78 = icmp eq i32 %121, %12
-  br i1 %exitcond.not.i78, label %._crit_edge.us.i79, label %107, !llvm.loop !55
+108:                                              ; preds = %108, %.preheader.us.i71
+  %.037.us.i75 = phi i32 [ 0, %.preheader.us.i71 ], [ %122, %108 ]
+  %.03136.us.i76 = phi i32 [ %.147.lcssa, %.preheader.us.i71 ], [ %121, %108 ]
+  %.135.us.i77 = phi i32 [ %.03438.us.i74, %.preheader.us.i71 ], [ %120, %108 ]
+  %109 = lshr i32 %.03136.us.i76, %101
+  %110 = zext i32 %109 to i64
+  %111 = getelementptr inbounds nuw i8, ptr %.03339.us.i73, i64 %110
+  %112 = load i8, ptr %111, align 1, !tbaa !15
+  %113 = zext i8 %112 to i32
+  %114 = xor i32 %.03136.us.i76, -1
+  %115 = and i32 %102, %114
+  %116 = shl i32 %115, %6
+  %117 = lshr i32 %113, %116
+  %118 = and i32 %117, %104
+  %119 = mul nuw nsw i32 %118, %105
+  %120 = add i32 %119, %.135.us.i77
+  %121 = add i32 %.03136.us.i76, 1
+  %122 = add nuw i32 %.037.us.i75, 1
+  %exitcond.not.i78 = icmp eq i32 %122, %12
+  br i1 %exitcond.not.i78, label %._crit_edge.us.i79, label %108, !llvm.loop !55
 
-._crit_edge.us.i79:                               ; preds = %107
-  %122 = getelementptr inbounds i8, ptr %.03339.us.i73, i64 %106
-  %123 = add nuw i32 %.03240.us.i72, 1
-  %exitcond45.not.i80 = icmp eq i32 %123, %13
+._crit_edge.us.i79:                               ; preds = %108
+  %123 = getelementptr inbounds i8, ptr %.03339.us.i73, i64 %107
+  %124 = add nuw i32 %.03240.us.i72, 1
+  %exitcond45.not.i80 = icmp eq i32 %124, %13
   br i1 %exitcond45.not.i80, label %blend_pixel16.exit82, label %.preheader.us.i71, !llvm.loop !56
 
 blend_pixel16.exit82:                             ; preds = %._crit_edge.us.i79, %99
-  %.034.lcssa.i81 = phi i32 [ 0, %99 ], [ %119, %._crit_edge.us.i79 ]
-  %124 = load i16, ptr %.1.lcssa, align 1, !tbaa !15
+  %.034.lcssa.i81 = phi i32 [ 0, %99 ], [ %120, %._crit_edge.us.i79 ]
   %125 = lshr i32 %.034.lcssa.i81, %100
   %126 = mul i32 %125, %3
   %127 = sub i32 65537, %126
-  %128 = zext i16 %124 to i32
+  %128 = zext i16 %106 to i32
   %129 = mul i32 %127, %128
   %130 = mul i32 %126, %2
   %131 = add i32 %129, %130

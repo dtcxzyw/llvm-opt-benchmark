@@ -120031,17 +120031,17 @@ define hidden void @_ZN10polars_ops13chunked_array7strings4case19convert_while_a
   %9 = phi i64 [ 16, %.lr.ph ], [ %7, %.loopexit ]
   %.sroa.05.022 = phi i64 [ 0, %.lr.ph ], [ %9, %.loopexit ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.05.022
+  %11 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
+  %12 = load i64, ptr %5, align 8, !noundef !3
   br label %18
 
-._crit_edge:                                      ; preds = %.loopexit, %11, %4
-  %.sroa.05.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.05.022, %11 ], [ %9, %.loopexit ]
+._crit_edge:                                      ; preds = %.loopexit, %13, %4
+  %.sroa.05.0.lcssa = phi i64 [ 0, %4 ], [ %.sroa.05.022, %13 ], [ %9, %.loopexit ]
   store i64 %.sroa.05.0.lcssa, ptr %5, align 8
   ret void
 
-11:                                               ; preds = %18
-  %12 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
-  %13 = load i64, ptr %5, align 8, !noundef !3
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
+13:                                               ; preds = %18
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.sroa.05.022
   %16 = and i64 %21, -9187201950435737472
   %17 = icmp eq i64 %16, 0
@@ -120054,10 +120054,10 @@ define hidden void @_ZN10polars_ops13chunked_array7strings4case19convert_while_a
   %20 = getelementptr inbounds nuw i64, ptr %10, i64 %.sroa.014.019
   %.sroa.012.0.copyload = load i64, ptr %20, align 1
   %21 = or i64 %.sroa.012.0.copyload, %.sroa.01.018
-  br i1 %19, label %18, label %11
+  br i1 %19, label %18, label %13
 
-.preheader:                                       ; preds = %11, %.preheader
-  %.sroa.016.020 = phi i64 [ %22, %.preheader ], [ 0, %11 ]
+.preheader:                                       ; preds = %13, %.preheader
+  %.sroa.016.020 = phi i64 [ %22, %.preheader ], [ 0, %13 ]
   %22 = add nuw nsw i64 %.sroa.016.020, 1
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.016.020
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 %.sroa.016.020
@@ -120094,12 +120094,12 @@ define hidden void @_ZN10polars_ops13chunked_array7strings4case19to_lowercase_he
   %12 = phi i64 [ 16, %.lr.ph.i ], [ %10, %.loopexit.i ]
   %.sroa.05.022.i = phi i64 [ 0, %.lr.ph.i ], [ %12, %.loopexit.i ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.05.022.i
+  %14 = load ptr, ptr %9, align 8, !alias.scope !15175, !noalias !15172, !nonnull !3, !noundef !3
+  %15 = load i64, ptr %8, align 8, !alias.scope !15175, !noalias !15172, !noundef !3
   br label %21
 
-14:                                               ; preds = %21
-  %15 = load ptr, ptr %9, align 8, !alias.scope !15175, !noalias !15172, !nonnull !3, !noundef !3
-  %16 = load i64, ptr %8, align 8, !alias.scope !15175, !noalias !15172, !noundef !3
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
+16:                                               ; preds = %21
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.05.022.i
   %19 = and i64 %24, -9187201950435737472
   %20 = icmp eq i64 %19, 0
@@ -120112,10 +120112,10 @@ define hidden void @_ZN10polars_ops13chunked_array7strings4case19to_lowercase_he
   %23 = getelementptr inbounds nuw i64, ptr %13, i64 %.sroa.014.019.i
   %.sroa.012.0.copyload.i = load i64, ptr %23, align 1, !alias.scope !15172, !noalias !15175
   %24 = or i64 %.sroa.012.0.copyload.i, %.sroa.01.018.i
-  br i1 %22, label %21, label %14
+  br i1 %22, label %21, label %16
 
-.preheader.i:                                     ; preds = %14, %.preheader.i
-  %.sroa.016.020.i = phi i64 [ %25, %.preheader.i ], [ 0, %14 ]
+.preheader.i:                                     ; preds = %16, %.preheader.i
+  %.sroa.016.020.i = phi i64 [ %25, %.preheader.i ], [ 0, %16 ]
   %25 = add nuw nsw i64 %.sroa.016.020.i, 1
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 %.sroa.016.020.i
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.016.020.i
@@ -120128,8 +120128,8 @@ define hidden void @_ZN10polars_ops13chunked_array7strings4case19to_lowercase_he
   %exitcond.not.i = icmp eq i64 %25, 16
   br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i
 
-_ZN10polars_ops13chunked_array7strings4case19convert_while_ascii17he2f3618e47916a0bE.exit: ; preds = %.loopexit.i, %14, %3
-  %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %12, %.loopexit.i ], [ %.sroa.05.022.i, %14 ]
+_ZN10polars_ops13chunked_array7strings4case19convert_while_ascii17he2f3618e47916a0bE.exit: ; preds = %.loopexit.i, %16, %3
+  %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %12, %.loopexit.i ], [ %.sroa.05.022.i, %16 ]
   store i64 %.sroa.05.0.lcssa.i, ptr %8, align 8, !alias.scope !15175, !noalias !15172
   %32 = icmp sgt i64 %.sroa.05.0.lcssa.i, -1
   tail call void @llvm.assume(i1 %32)

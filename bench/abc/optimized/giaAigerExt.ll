@@ -25,26 +25,26 @@ define noalias noundef ptr @Gia_AigerReadEquivClasses(ptr noundef captures(none)
   br i1 %exitcond.not.i, label %Gia_AigerReadInt.exit, label %4, !llvm.loop !9
 
 Gia_AigerReadInt.exit:                            ; preds = %4
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store ptr %11, ptr %0, align 8, !tbaa !3
-  %12 = sext i32 %1 to i64
-  %13 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #15
-  %14 = icmp sgt i32 %1, 0
-  br i1 %14, label %.lr.ph.preheader, label %.preheader
+  %11 = sext i32 %9 to i64
+  %12 = getelementptr inbounds i8, ptr %3, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store ptr %13, ptr %0, align 8, !tbaa !3
+  %14 = sext i32 %1 to i64
+  %15 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 4) #15
+  %16 = icmp sgt i32 %1, 0
+  br i1 %16, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %Gia_AigerReadInt.exit
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %Gia_AigerReadInt.exit
-  %15 = sext i32 %9 to i64
-  %16 = getelementptr inbounds i8, ptr %3, i64 %15
   %17 = icmp sgt i32 %9, 4
   br i1 %17, label %.lr.ph37, label %.outer._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %18 = getelementptr inbounds nuw %struct.Gia_Rpr_t_, ptr %13, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %struct.Gia_Rpr_t_, ptr %15, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = or i32 %19, 268435455
   store i32 %20, ptr %18, align 4
@@ -97,12 +97,12 @@ Gia_AigerReadUnsigned.exit:                       ; preds = %21, %._crit_edge.lo
 .outer:                                           ; preds = %Gia_AigerReadUnsigned.exit
   %40 = ashr i32 %38, 1
   %41 = add nsw i32 %40, %.0.ph45
-  %42 = icmp ult ptr %.promoted40, %16
+  %42 = icmp ult ptr %.promoted40, %12
   br i1 %42, label %.lr.ph37, label %.outer._crit_edge, !llvm.loop !13
 
 .lr.ph37:                                         ; preds = %.preheader, %.outer
   %.0.ph45 = phi i32 [ %41, %.outer ], [ 0, %.preheader ]
-  %.promoted3943 = phi ptr [ %.promoted40, %.outer ], [ %11, %.preheader ]
+  %.promoted3943 = phi ptr [ %.promoted40, %.outer ], [ %13, %.preheader ]
   %43 = and i32 %.0.ph45, 268435455
   br label %21
 
@@ -110,7 +110,7 @@ Gia_AigerReadUnsigned.exit:                       ; preds = %21, %._crit_edge.lo
   %45 = ashr i32 %38, 2
   %46 = add nsw i32 %45, %.036
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %13, i64 %47
+  %48 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %15, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = shl i32 %38, 27
   %51 = and i32 %50, 268435456
@@ -118,11 +118,11 @@ Gia_AigerReadUnsigned.exit:                       ; preds = %21, %._crit_edge.lo
   %53 = or disjoint i32 %51, %43
   %54 = or disjoint i32 %53, %52
   store i32 %54, ptr %48, align 4
-  %55 = icmp ult ptr %.promoted40, %16
+  %55 = icmp ult ptr %.promoted40, %12
   br i1 %55, label %21, label %.outer._crit_edge, !llvm.loop !13
 
 .outer._crit_edge:                                ; preds = %.outer, %44, %.preheader
-  ret ptr %13
+  ret ptr %15
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
@@ -1616,24 +1616,24 @@ Gia_AigerWriteInt.exit124.preheader:              ; preds = %58
   %83 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(1) %82) #17
   %84 = call ptr @Mio_GateReadOutName(ptr noundef %70) #17
   %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #18
-  %86 = call ptr @Mio_GateReadPins(ptr noundef %70) #17
-  %.not109151 = icmp eq ptr %86, null
+  %86 = trunc i64 %85 to i32
+  %87 = add i32 %79, 1
+  %88 = add i32 %87, %86
+  %89 = call ptr @Mio_GateReadPins(ptr noundef %70) #17
+  %.not109151 = icmp eq ptr %89, null
   br i1 %.not109151, label %._crit_edge156, label %.lr.ph155
 
 .lr.ph155:                                        ; preds = %.lr.ph166, %.lr.ph155
-  %.0153 = phi ptr [ %88, %.lr.ph155 ], [ %86, %.lr.ph166 ]
-  %.091152 = phi i32 [ %87, %.lr.ph155 ], [ 0, %.lr.ph166 ]
-  %87 = add nuw nsw i32 %.091152, 1
-  %88 = call ptr @Mio_PinReadNext(ptr noundef nonnull %.0153) #17
-  %.not109 = icmp eq ptr %88, null
+  %.0153 = phi ptr [ %91, %.lr.ph155 ], [ %89, %.lr.ph166 ]
+  %.091152 = phi i32 [ %90, %.lr.ph155 ], [ 0, %.lr.ph166 ]
+  %90 = add nuw nsw i32 %.091152, 1
+  %91 = call ptr @Mio_PinReadNext(ptr noundef nonnull %.0153) #17
+  %.not109 = icmp eq ptr %91, null
   br i1 %.not109, label %._crit_edge156, label %.lr.ph155, !llvm.loop !70
 
 ._crit_edge156:                                   ; preds = %.lr.ph155, %.lr.ph166
-  %.091.lcssa = phi i32 [ 0, %.lr.ph166 ], [ %87, %.lr.ph155 ]
-  %89 = trunc i64 %85 to i32
-  %90 = add i32 %79, 1
-  %91 = add i32 %90, %89
-  %92 = sext i32 %91 to i64
+  %.091.lcssa = phi i32 [ 0, %.lr.ph166 ], [ %90, %.lr.ph155 ]
+  %92 = sext i32 %88 to i64
   %93 = getelementptr inbounds i8, ptr %50, i64 %92
   br label %94
 
@@ -1650,7 +1650,7 @@ Gia_AigerWriteInt.exit124.preheader:              ; preds = %58
   br i1 %.not.i127, label %Gia_AigerWriteInt.exit128, label %94, !llvm.loop !44
 
 Gia_AigerWriteInt.exit128:                        ; preds = %94
-  %100 = add nsw i32 %91, 4
+  %100 = add nsw i32 %88, 4
   %101 = call ptr @Mio_GateReadPins(ptr noundef %70) #17
   %.not110158 = icmp eq ptr %101, null
   br i1 %.not110158, label %Gia_AigerWriteInt.exit124, label %.lr.ph161

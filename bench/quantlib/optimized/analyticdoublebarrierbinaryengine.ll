@@ -2372,6 +2372,7 @@ _ZN8QuantLib12InterestRateD2Ev.exit144:           ; preds = %_ZNK5boost10shared_
   %mul = fmul double %sub, 2.000000e+00
   %div141 = fdiv double %mul, %div
   %sub142 = fadd double %div141, -1.000000e+00
+  %mul143 = fmul double %sub142, -5.000000e-01
   %square = fmul double %sub142, %sub142
   %91 = fmul double %70, -2.000000e+00
   %neg = fdiv double %91, %div
@@ -2390,7 +2391,6 @@ for.cond.cleanup.loopexit:                        ; preds = %for.body
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup.loopexit, %_ZN8QuantLib12InterestRateD2Ev.exit144
   %tot.0.lcssa = phi double [ 0.000000e+00, %_ZN8QuantLib12InterestRateD2Ev.exit144 ], [ %add, %for.cond.cleanup.loopexit ]
   %term.0.lcssa = phi double [ 0.000000e+00, %_ZN8QuantLib12InterestRateD2Ev.exit144 ], [ %93, %for.cond.cleanup.loopexit ]
-  %mul143 = fmul double %sub142, -5.000000e-01
   %call184 = call double @pow(double noundef %div153, double noundef %mul143) #25, !tbaa !70
   %cmp188 = fcmp olt double %term.0.lcssa, %requiredConvergence
   br i1 %cmp188, label %do.end227, label %if.then189

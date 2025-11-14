@@ -512,14 +512,14 @@ define noundef range(i64 -9223372036854775808, 9223372036854775744) i64 @_ZN5boo
   %13 = load i64, ptr %2, align 8, !tbaa !17
   %14 = load i64, ptr %4, align 8, !tbaa !25
   %15 = add i64 %14, %13
+  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.idx = shl nuw nsw i64 %15, 2
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.020.ptr48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not49 = icmp eq i64 %15, 0
   br i1 %.not49, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit
 
 _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit
-  %.020.ptr52 = phi ptr [ %.020.ptr, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit ], [ %.020.ptr48, %12 ]
+  %.020.ptr52 = phi ptr [ %.020.ptr, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit ], [ %.ptr, %12 ]
   %.020.idx51 = phi i64 [ %.2.idx, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit ], [ 64, %12 ]
   %.03450 = phi ptr [ %17, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit ], [ %3, %12 ]
   %17 = getelementptr inbounds nuw i8, ptr %.03450, i64 4
@@ -624,7 +624,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread: ; preds =
   %72 = trunc nuw i8 %71 to i1
   %73 = icmp sgt i64 %.020.idx.lcssa, 64
   %or.cond = select i1 %72, i1 %73, i1 false
-  %74 = load i8, ptr %.020.ptr48, align 8
+  %74 = load i8, ptr %.ptr, align 8
   %75 = icmp eq i8 %74, 26
   %or.cond30 = select i1 %or.cond, i1 %75, i1 false
   br i1 %or.cond30, label %76, label %81

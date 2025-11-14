@@ -8706,20 +8706,20 @@ _ZN4llvm15InstructionCostpLERKS0_.exit.i:         ; preds = %._crit_edge.i, %_ZN
   %69 = load i64, ptr %67, align 8, !tbaa !203, !noalias !471
   %70 = tail call noundef nonnull align 8 dereferenceable(8) ptr %68(i64 noundef %69, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.024.0.copyload.i) #19, !noalias !471
   %71 = tail call fastcc { i64, i32 } @_ZN12_GLOBAL__N_118PartialInlinerImpl19computeBBInlineCostEPN4llvm10BasicBlockEPNS1_19TargetTransformInfoE(ptr noundef %.sroa.4.0.copyload.i, ptr noundef %70), !noalias !471
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.024.0.copyload.i, i64 80
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.024.0.copyload.i, i64 72
-  %.sroa.064.076.i = load ptr, ptr %72, align 8, !tbaa !116, !noalias !471
-  %.not7577.i = icmp eq ptr %.sroa.064.076.i, %73
+  %.fca.0.extract15.i = extractvalue { i64, i32 } %71, 0
+  %.fca.1.extract16.i = extractvalue { i64, i32 } %71, 1
+  %72 = icmp eq i32 %.fca.1.extract16.i, 1
+  %spec.select.i = select i1 %72, i32 1, i32 %.sroa.7.086.i
+  %.0.i.i = tail call i64 @llvm.sadd.sat.i64(i64 %.sroa.073.085.i, i64 %.fca.0.extract15.i)
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.024.0.copyload.i, i64 80
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.024.0.copyload.i, i64 72
+  %.sroa.064.076.i = load ptr, ptr %73, align 8, !tbaa !116, !noalias !471
+  %.not7577.i = icmp eq ptr %.sroa.064.076.i, %74
   br i1 %.not7577.i, label %._crit_edge.i, label %_ZN4llvm15InstructionCostpLERKS0_.exit51.i
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit51.i, %_ZN4llvm15InstructionCostpLERKS0_.exit.i
   %.sroa.070.1.lcssa.i = phi i64 [ %.sroa.070.083.i, %_ZN4llvm15InstructionCostpLERKS0_.exit.i ], [ %.0.i50.i, %_ZN4llvm15InstructionCostpLERKS0_.exit51.i ]
   %.sroa.8.1.lcssa.i = phi i32 [ %.sroa.8.084.i, %_ZN4llvm15InstructionCostpLERKS0_.exit.i ], [ %spec.select74.i, %_ZN4llvm15InstructionCostpLERKS0_.exit51.i ]
-  %.fca.0.extract15.i = extractvalue { i64, i32 } %71, 0
-  %.fca.1.extract16.i = extractvalue { i64, i32 } %71, 1
-  %74 = icmp eq i32 %.fca.1.extract16.i, 1
-  %spec.select.i = select i1 %74, i32 1, i32 %.sroa.7.086.i
-  %.0.i.i = tail call i64 @llvm.sadd.sat.i64(i64 %.sroa.073.085.i, i64 %.fca.0.extract15.i)
   %75 = getelementptr inbounds nuw i8, ptr %.087.i, i64 16
   %.not.i50 = icmp eq ptr %75, %65
   br i1 %.not.i50, label %_ZNK12_GLOBAL__N_118PartialInlinerImpl21computeOutliningCostsERNS0_14FunctionClonerE.exit, label %_ZN4llvm15InstructionCostpLERKS0_.exit.i
@@ -8737,7 +8737,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit51.i:       ; preds = %_ZN4llvm15Instructi
   %.0.i50.i = tail call i64 @llvm.sadd.sat.i64(i64 %.sroa.070.178.i, i64 %.fca.0.extract9.i)
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.064.080.i, i64 8
   %.sroa.064.0.i = load ptr, ptr %79, align 8, !tbaa !116, !noalias !471
-  %.not75.i = icmp eq ptr %.sroa.064.0.i, %73
+  %.not75.i = icmp eq ptr %.sroa.064.0.i, %74
   br i1 %.not75.i, label %._crit_edge.i, label %_ZN4llvm15InstructionCostpLERKS0_.exit51.i
 
 _ZNK12_GLOBAL__N_118PartialInlinerImpl21computeOutliningCostsERNS0_14FunctionClonerE.exit: ; preds = %._crit_edge.i

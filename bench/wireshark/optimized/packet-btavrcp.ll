@@ -880,9 +880,9 @@ define internal noundef i32 @dissect_btavrcp(ptr noundef %0, ptr noundef %1, ptr
   %57 = load ptr, ptr %53, align 8
   %switch.selectcmp = icmp eq i32 %56, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.511, ptr @.str.512
-  %switch.selectcmp291 = icmp eq i32 %56, 0
-  %switch.select292 = select i1 %switch.selectcmp291, ptr @.str.510, ptr %switch.select
-  tail call void @col_set_str(ptr noundef %57, i32 noundef 25, ptr noundef nonnull %switch.select292)
+  %switch.selectcmp300 = icmp eq i32 %56, 0
+  %switch.select301 = select i1 %switch.selectcmp300, ptr @.str.510, ptr %switch.select
+  tail call void @col_set_str(ptr noundef %57, i32 noundef 25, ptr noundef nonnull %switch.select301)
   %58 = icmp eq i32 %44, 27
   br i1 %58, label %59, label %724
 
@@ -2456,7 +2456,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %1112 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %1111, ptr noundef %.1.i184, i32 noundef %.5921.i, i32 noundef 1, i32 noundef 0)
   %.5.i = add nuw nsw i32 %.5921.i, 1
   %exitcond965.not.i = icmp eq i32 %.5921.i, %1110
-  br i1 %exitcond965.not.i, label %.loopexit.loopexit.i, label %.lr.ph923.i, !llvm.loop !18
+  br i1 %exitcond965.not.i, label %dissect_vendor_dependent.exit.loopexit, label %.lr.ph923.i, !llvm.loop !18
 
 1113:                                             ; preds = %1079
   br i1 %.0168.in, label %1114, label %1118
@@ -2486,7 +2486,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %1125 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %1124, ptr noundef %.1.i184, i32 noundef %.6915.i, i32 noundef 1, i32 noundef 0)
   %.6.i = add nuw nsw i32 %.6915.i, 1
   %exitcond964.not.i = icmp eq i32 %.6915.i, %1123
-  br i1 %exitcond964.not.i, label %.loopexit.loopexit985.i, label %.lr.ph917.i, !llvm.loop !19
+  br i1 %exitcond964.not.i, label %dissect_vendor_dependent.exit.loopexit227, label %.lr.ph917.i, !llvm.loop !19
 
 1126:                                             ; preds = %1079
   %1127 = load i32, ptr @hf_btavrcp_number_of_settings, align 4
@@ -2510,7 +2510,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %1134 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %1133, ptr noundef %.1.i184, i32 noundef %.7909.i, i32 noundef 1, i32 noundef 0)
   %.7.i = add nuw nsw i32 %.7909.i, 1
   %exitcond963.not.i = icmp eq i32 %.7909.i, %1132
-  br i1 %exitcond963.not.i, label %.loopexit.loopexit986.i, label %.lr.ph911.i, !llvm.loop !20
+  br i1 %exitcond963.not.i, label %dissect_vendor_dependent.exit.loopexit228, label %.lr.ph911.i, !llvm.loop !20
 
 1135:                                             ; preds = %1126
   %1136 = zext i8 %1129 to i32
@@ -2580,7 +2580,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %1163 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %1162, ptr noundef %.1.i184, i32 noundef %.10889.i, i32 noundef 1, i32 noundef 0)
   %.10.i = add nuw nsw i32 %.10889.i, 1
   %exitcond960.not.i = icmp eq i32 %.10889.i, %1161
-  br i1 %exitcond960.not.i, label %.loopexit.loopexit989.i, label %.lr.ph891.i, !llvm.loop !23
+  br i1 %exitcond960.not.i, label %dissect_vendor_dependent.exit.loopexit231, label %.lr.ph891.i, !llvm.loop !23
 
 1164:                                             ; preds = %1155
   %1165 = zext i8 %1158 to i32
@@ -3306,25 +3306,25 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1618, i32 noundef 25, ptr noundef nonnull @.str.543, ptr noundef %1619)
   br label %dissect_vendor_dependent.exit
 
-.loopexit.loopexit.i:                             ; preds = %.lr.ph923.i
+dissect_vendor_dependent.exit.loopexit:           ; preds = %.lr.ph923.i
   %1620 = add nuw nsw i32 %1110, 1
   br label %dissect_vendor_dependent.exit
 
-.loopexit.loopexit985.i:                          ; preds = %.lr.ph917.i
+dissect_vendor_dependent.exit.loopexit227:        ; preds = %.lr.ph917.i
   %1621 = add nuw nsw i32 %1123, 1
   br label %dissect_vendor_dependent.exit
 
-.loopexit.loopexit986.i:                          ; preds = %.lr.ph911.i
+dissect_vendor_dependent.exit.loopexit228:        ; preds = %.lr.ph911.i
   %1622 = add nuw nsw i32 %1132, 1
   br label %dissect_vendor_dependent.exit
 
-.loopexit.loopexit989.i:                          ; preds = %.lr.ph891.i
+dissect_vendor_dependent.exit.loopexit231:        ; preds = %.lr.ph891.i
   %1623 = add nuw nsw i32 %1161, 1
   br label %dissect_vendor_dependent.exit
 
-dissect_vendor_dependent.exit:                    ; preds = %.lr.ph865.i, %.lr.ph870.i, %.lr.ph875.i, %.lr.ph880.i, %.lr.ph885.i, %.lr.ph898.i, %.lr.ph905.i, %803, %815, %825, %879, %951, %1071, %1079, %1085, %._crit_edge929.i, %1104, %1105, %1114, %1118, %1130, %1135, %1143, %1144, %1159, %1164, %1183, %1196, %1217, %1218, %1228, %1229, %1250, %1257, %1264, %1265, %1289, %1293, %1295, %1295, %1295, %1295, %1296, %1304, %1313, %1315, %1324, %1326, %1332, %1346, %1354, %1362, %1373, %1385, %1392, %1405, %1410, %1475, %1476, %1477, %1494, %1512, %1517, %1522, %1527, %1532, %1536, %1540, %1541, %1555, %1562, %1572, %1588, %1597, %1613, %.loopexit.loopexit.i, %.loopexit.loopexit985.i, %.loopexit.loopexit986.i, %.loopexit.loopexit989.i
-  %.1207 = phi i32 [ 0, %825 ], [ 0, %879 ], [ 0, %951 ], [ 0, %1071 ], [ 0, %1079 ], [ %1084, %1085 ], [ %1084, %._crit_edge929.i ], [ 0, %1104 ], [ 0, %1105 ], [ 0, %.loopexit.loopexit.i ], [ 0, %1114 ], [ 0, %1118 ], [ 0, %.loopexit.loopexit985.i ], [ 0, %1130 ], [ 0, %.loopexit.loopexit986.i ], [ 0, %1135 ], [ 0, %1144 ], [ 0, %1143 ], [ 0, %1159 ], [ 0, %.loopexit.loopexit989.i ], [ 0, %1164 ], [ 0, %1183 ], [ 0, %1196 ], [ 0, %1218 ], [ 0, %1217 ], [ 0, %1229 ], [ 0, %1228 ], [ 0, %1250 ], [ 0, %1257 ], [ 0, %1264 ], [ 0, %1265 ], [ %1283, %1289 ], [ %1283, %1405 ], [ 1, %1296 ], [ 2, %1304 ], [ 2, %1313 ], [ 2, %1315 ], [ 5, %1324 ], [ 5, %1332 ], [ 5, %1326 ], [ 6, %1346 ], [ 7, %1354 ], [ 8, %1362 ], [ %1283, %1295 ], [ %1283, %1295 ], [ %1283, %1295 ], [ %1283, %1295 ], [ 11, %1373 ], [ 12, %1385 ], [ 13, %1392 ], [ %1283, %1293 ], [ 0, %1475 ], [ 0, %1410 ], [ 0, %1494 ], [ 0, %1540 ], [ 0, %1536 ], [ 0, %1532 ], [ 0, %1527 ], [ 0, %1522 ], [ 0, %1517 ], [ 0, %1512 ], [ 0, %1477 ], [ 0, %1476 ], [ 0, %1541 ], [ 0, %1555 ], [ 0, %1562 ], [ 0, %1572 ], [ 0, %1588 ], [ 0, %1597 ], [ 0, %1613 ], [ 0, %815 ], [ 0, %803 ], [ 0, %.lr.ph905.i ], [ 0, %.lr.ph898.i ], [ 0, %.lr.ph885.i ], [ 0, %.lr.ph880.i ], [ 0, %.lr.ph875.i ], [ 0, %.lr.ph870.i ], [ 8, %.lr.ph865.i ]
-  %.0.i183 = phi i32 [ 10, %825 ], [ 10, %879 ], [ 10, %951 ], [ %1076, %1071 ], [ %.1805.i, %1079 ], [ %1088, %1085 ], [ %.3.lcssa.i, %._crit_edge929.i ], [ %.1805.i, %1104 ], [ %.5919.i, %1105 ], [ %1620, %.loopexit.loopexit.i ], [ %1117, %1114 ], [ %.6913.i, %1118 ], [ %1621, %.loopexit.loopexit985.i ], [ %.7907.i, %1130 ], [ %1622, %.loopexit.loopexit986.i ], [ %.8900.i, %1135 ], [ %.9893.i, %1144 ], [ %.1805.i, %1143 ], [ %.10887.i, %1159 ], [ %1623, %.loopexit.loopexit989.i ], [ %1166, %1164 ], [ %1190, %1183 ], [ %1201, %1196 ], [ %1223, %1218 ], [ %.1805.i, %1217 ], [ %1234, %1229 ], [ %.1805.i, %1228 ], [ %1256, %1250 ], [ %1263, %1257 ], [ %.1805.i, %1264 ], [ %1278, %1265 ], [ %1292, %1289 ], [ %1409, %1405 ], [ %1301, %1296 ], [ %1308, %1304 ], [ %1308, %1313 ], [ %1308, %1315 ], [ %1321, %1324 ], [ %1321, %1332 ], [ %1321, %1326 ], [ %1351, %1346 ], [ %1359, %1354 ], [ %.16860.i, %1362 ], [ %1288, %1295 ], [ %1288, %1295 ], [ %1288, %1295 ], [ %1288, %1295 ], [ %1383, %1373 ], [ %1390, %1385 ], [ %1403, %1392 ], [ %1288, %1293 ], [ %1421, %1475 ], [ %.1805.i, %1410 ], [ %1487, %1494 ], [ %1487, %1540 ], [ %1487, %1536 ], [ %1487, %1532 ], [ %1487, %1527 ], [ %1487, %1522 ], [ %1487, %1517 ], [ %1487, %1512 ], [ %1487, %1477 ], [ %.1805.i, %1476 ], [ %1552, %1541 ], [ %1560, %1555 ], [ %1567, %1562 ], [ %1585, %1572 ], [ %1571, %1588 ], [ %1610, %1597 ], [ %1596, %1613 ], [ 10, %815 ], [ 6, %803 ], [ %.8.i, %.lr.ph905.i ], [ %.9.i, %.lr.ph898.i ], [ %1180, %.lr.ph885.i ], [ %1192, %.lr.ph880.i ], [ %1215, %.lr.ph875.i ], [ %1226, %.lr.ph870.i ], [ %.16.i, %.lr.ph865.i ]
+dissect_vendor_dependent.exit:                    ; preds = %.lr.ph865.i, %.lr.ph870.i, %.lr.ph875.i, %.lr.ph880.i, %.lr.ph885.i, %.lr.ph898.i, %.lr.ph905.i, %dissect_vendor_dependent.exit.loopexit231, %dissect_vendor_dependent.exit.loopexit228, %dissect_vendor_dependent.exit.loopexit227, %dissect_vendor_dependent.exit.loopexit, %803, %815, %825, %879, %951, %1071, %1079, %1085, %._crit_edge929.i, %1104, %1105, %1114, %1118, %1130, %1135, %1143, %1144, %1159, %1164, %1183, %1196, %1217, %1218, %1228, %1229, %1250, %1257, %1264, %1265, %1289, %1293, %1295, %1295, %1295, %1295, %1296, %1304, %1313, %1315, %1324, %1326, %1332, %1346, %1354, %1362, %1373, %1385, %1392, %1405, %1410, %1475, %1476, %1477, %1494, %1512, %1517, %1522, %1527, %1532, %1536, %1540, %1541, %1555, %1562, %1572, %1588, %1597, %1613
+  %.1207 = phi i32 [ 0, %825 ], [ 0, %879 ], [ 0, %951 ], [ 0, %1071 ], [ 0, %1079 ], [ %1084, %1085 ], [ %1084, %._crit_edge929.i ], [ 0, %1104 ], [ 0, %1105 ], [ 0, %1114 ], [ 0, %1118 ], [ 0, %1130 ], [ 0, %1135 ], [ 0, %1144 ], [ 0, %1143 ], [ 0, %1159 ], [ 0, %1164 ], [ 0, %1183 ], [ 0, %1196 ], [ 0, %1218 ], [ 0, %1217 ], [ 0, %1229 ], [ 0, %1228 ], [ 0, %1250 ], [ 0, %1257 ], [ 0, %1264 ], [ 0, %1265 ], [ %1283, %1289 ], [ %1283, %1405 ], [ 1, %1296 ], [ 2, %1304 ], [ 2, %1313 ], [ 2, %1315 ], [ 5, %1324 ], [ 5, %1332 ], [ 5, %1326 ], [ 6, %1346 ], [ 7, %1354 ], [ 8, %1362 ], [ %1283, %1295 ], [ %1283, %1295 ], [ %1283, %1295 ], [ %1283, %1295 ], [ 11, %1373 ], [ 12, %1385 ], [ 13, %1392 ], [ %1283, %1293 ], [ 0, %1475 ], [ 0, %1410 ], [ 0, %1494 ], [ 0, %1540 ], [ 0, %1536 ], [ 0, %1532 ], [ 0, %1527 ], [ 0, %1522 ], [ 0, %1517 ], [ 0, %1512 ], [ 0, %1477 ], [ 0, %1476 ], [ 0, %1541 ], [ 0, %1555 ], [ 0, %1562 ], [ 0, %1572 ], [ 0, %1588 ], [ 0, %1597 ], [ 0, %1613 ], [ 0, %815 ], [ 0, %803 ], [ 0, %dissect_vendor_dependent.exit.loopexit ], [ 0, %dissect_vendor_dependent.exit.loopexit227 ], [ 0, %dissect_vendor_dependent.exit.loopexit228 ], [ 0, %dissect_vendor_dependent.exit.loopexit231 ], [ 0, %.lr.ph905.i ], [ 0, %.lr.ph898.i ], [ 0, %.lr.ph885.i ], [ 0, %.lr.ph880.i ], [ 0, %.lr.ph875.i ], [ 0, %.lr.ph870.i ], [ 8, %.lr.ph865.i ]
+  %.0.i183 = phi i32 [ 10, %825 ], [ 10, %879 ], [ 10, %951 ], [ %1076, %1071 ], [ %.1805.i, %1079 ], [ %1088, %1085 ], [ %.3.lcssa.i, %._crit_edge929.i ], [ %.1805.i, %1104 ], [ %.5919.i, %1105 ], [ %1117, %1114 ], [ %.6913.i, %1118 ], [ %.7907.i, %1130 ], [ %.8900.i, %1135 ], [ %.9893.i, %1144 ], [ %.1805.i, %1143 ], [ %.10887.i, %1159 ], [ %1166, %1164 ], [ %1190, %1183 ], [ %1201, %1196 ], [ %1223, %1218 ], [ %.1805.i, %1217 ], [ %1234, %1229 ], [ %.1805.i, %1228 ], [ %1256, %1250 ], [ %1263, %1257 ], [ %.1805.i, %1264 ], [ %1278, %1265 ], [ %1292, %1289 ], [ %1409, %1405 ], [ %1301, %1296 ], [ %1308, %1304 ], [ %1308, %1313 ], [ %1308, %1315 ], [ %1321, %1324 ], [ %1321, %1332 ], [ %1321, %1326 ], [ %1351, %1346 ], [ %1359, %1354 ], [ %.16860.i, %1362 ], [ %1288, %1295 ], [ %1288, %1295 ], [ %1288, %1295 ], [ %1288, %1295 ], [ %1383, %1373 ], [ %1390, %1385 ], [ %1403, %1392 ], [ %1288, %1293 ], [ %1421, %1475 ], [ %.1805.i, %1410 ], [ %1487, %1494 ], [ %1487, %1540 ], [ %1487, %1536 ], [ %1487, %1532 ], [ %1487, %1527 ], [ %1487, %1522 ], [ %1487, %1517 ], [ %1487, %1512 ], [ %1487, %1477 ], [ %.1805.i, %1476 ], [ %1552, %1541 ], [ %1560, %1555 ], [ %1567, %1562 ], [ %1585, %1572 ], [ %1571, %1588 ], [ %1610, %1597 ], [ %1596, %1613 ], [ 10, %815 ], [ 6, %803 ], [ %1620, %dissect_vendor_dependent.exit.loopexit ], [ %1621, %dissect_vendor_dependent.exit.loopexit227 ], [ %1622, %dissect_vendor_dependent.exit.loopexit228 ], [ %1623, %dissect_vendor_dependent.exit.loopexit231 ], [ %.8.i, %.lr.ph905.i ], [ %.9.i, %.lr.ph898.i ], [ %1180, %.lr.ph885.i ], [ %1192, %.lr.ph880.i ], [ %1215, %.lr.ph875.i ], [ %1226, %.lr.ph870.i ], [ %.16.i, %.lr.ph865.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3594,11 +3594,11 @@ dissect_unit.exit:                                ; preds = %792, %785, %771, %7
   %1771 = getelementptr inbounds nuw i8, ptr %1730, i64 40
   %1772 = load i32, ptr %1771, align 8
   %1773 = icmp sgt i32 %1769, %1772
-  %reass.sub221 = sub i32 %1772, %1769
+  %reass.sub225 = sub i32 %1772, %1769
   br i1 %1773, label %1774, label %1782
 
 1774:                                             ; preds = %1766
-  %1775 = add i32 %reass.sub221, 1000000000
+  %1775 = add i32 %reass.sub225, 1000000000
   %1776 = load i64, ptr %1770, align 8
   %1777 = trunc i64 %1776 to i32
   %1778 = load i64, ptr %1767, align 8
@@ -3616,11 +3616,11 @@ dissect_unit.exit:                                ; preds = %792, %785, %771, %7
   br label %1788
 
 1788:                                             ; preds = %1782, %1774
-  %.sink290 = phi i32 [ %1787, %1782 ], [ %1781, %1774 ]
-  %.sink289.in = phi i32 [ %reass.sub221, %1782 ], [ %1775, %1774 ]
-  %.sink289 = udiv i32 %.sink289.in, 1000000
-  %1789 = udiv i32 %.sink290, 1000
-  %1790 = add nuw nsw i32 %1789, %.sink289
+  %.sink299 = phi i32 [ %1787, %1782 ], [ %1781, %1774 ]
+  %.sink298.in = phi i32 [ %reass.sub225, %1782 ], [ %1775, %1774 ]
+  %.sink298 = udiv i32 %.sink298.in, 1000000
+  %1789 = udiv i32 %.sink299, 1000
+  %1790 = add nuw nsw i32 %1789, %.sink298
   %1791 = getelementptr inbounds nuw i8, ptr %1730, i64 24
   %1792 = load i32, ptr %1791, align 8
   %1793 = icmp eq i32 %1792, 0

@@ -206,49 +206,49 @@ define internal range(i32 -2147483648, 1) i32 @ra144_encode_frame(ptr noundef %0
   br i1 %.not.i, label %quantize.exit, label %.lr.ph.i
 
 quantize.exit:                                    ; preds = %.lr.ph.i
-  %81 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %82 = call i32 @ff_lpc_calc_coefs(ptr noundef nonnull %81, ptr noundef nonnull %18, i32 noundef 160, i32 noundef 10, i32 noundef 10, i32 noundef 16, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
-  %83 = getelementptr inbounds nuw i8, ptr %19, i64 1152
-  %84 = getelementptr inbounds nuw i8, ptr %20, i64 36
-  %85 = load i32, ptr %84, align 4, !tbaa !43
-  %86 = sub nsw i32 12, %85
-  %87 = getelementptr inbounds nuw i8, ptr %21, i64 60
-  br label %88
+  %81 = zext i32 %..021.i to i64
+  %82 = getelementptr inbounds nuw i16, ptr @ff_energy_tab, i64 %81
+  %83 = load i16, ptr %82, align 2, !tbaa !41
+  %84 = sext i16 %83 to i32
+  %85 = add nsw i32 %80, %84
+  %86 = icmp sgt i32 %85, %67
+  %87 = select i1 %86, i32 %.019..i, i32 %..021.i
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i16, ptr @ff_energy_tab, i64 %88
+  %90 = load i16, ptr %89, align 2, !tbaa !41
+  %91 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %92 = call i32 @ff_lpc_calc_coefs(ptr noundef nonnull %91, ptr noundef nonnull %18, i32 noundef 160, i32 noundef 10, i32 noundef 10, i32 noundef 16, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 12, i32 noundef 0) #9
+  %93 = getelementptr inbounds nuw i8, ptr %19, i64 1152
+  %94 = getelementptr inbounds nuw i8, ptr %20, i64 36
+  %95 = load i32, ptr %94, align 4, !tbaa !43
+  %96 = sub nsw i32 12, %95
+  %97 = getelementptr inbounds nuw i8, ptr %21, i64 60
+  br label %98
 
-88:                                               ; preds = %quantize.exit, %88
-  %indvars.iv267 = phi i64 [ 0, %quantize.exit ], [ %indvars.iv.next268, %88 ]
-  %89 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv267
-  %90 = load i32, ptr %89, align 4, !tbaa !43
-  %91 = shl i32 %90, %86
-  %92 = trunc i32 %91 to i16
-  %93 = sub i16 0, %92
-  %94 = getelementptr inbounds nuw i16, ptr %87, i64 %indvars.iv267
-  store i16 %93, ptr %94, align 2, !tbaa !41
+98:                                               ; preds = %quantize.exit, %98
+  %indvars.iv267 = phi i64 [ 0, %quantize.exit ], [ %indvars.iv.next268, %98 ]
+  %99 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv267
+  %100 = load i32, ptr %99, align 4, !tbaa !43
+  %101 = shl i32 %100, %96
+  %102 = trunc i32 %101 to i16
+  %103 = sub i16 0, %102
+  %104 = getelementptr inbounds nuw i16, ptr %97, i64 %indvars.iv267
+  store i16 %103, ptr %104, align 2, !tbaa !41
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %exitcond270.not = icmp eq i64 %indvars.iv.next268, 10
-  br i1 %exitcond270.not, label %95, label %88, !llvm.loop !52
+  br i1 %exitcond270.not, label %105, label %98, !llvm.loop !52
 
-95:                                               ; preds = %88
-  %96 = zext i32 %..021.i to i64
-  %97 = getelementptr inbounds nuw i16, ptr @ff_energy_tab, i64 %96
-  %98 = load i16, ptr %97, align 2, !tbaa !41
-  %99 = sext i16 %98 to i32
-  %100 = add nsw i32 %80, %99
-  %101 = icmp sgt i32 %100, %67
-  %102 = select i1 %101, i32 %.019..i, i32 %..021.i
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i16, ptr @ff_energy_tab, i64 %103
-  %105 = load i16, ptr %104, align 2, !tbaa !41
-  %106 = sext i16 %105 to i32
-  %107 = call i32 @ff_eval_refl(ptr noundef nonnull %22, ptr noundef nonnull %87, ptr noundef nonnull %0) #9
+105:                                              ; preds = %98
+  %106 = sext i16 %90 to i32
+  %107 = call i32 @ff_eval_refl(ptr noundef nonnull %22, ptr noundef nonnull %97, ptr noundef nonnull %0) #9
   %.not112 = icmp eq i32 %107, 0
   br i1 %.not112, label %113, label %108
 
-108:                                              ; preds = %95
+108:                                              ; preds = %105
   %109 = getelementptr inbounds nuw i8, ptr %25, i64 37904
   %110 = load ptr, ptr %109, align 8, !tbaa !30
-  call void @ff_int_to_int16(ptr noundef nonnull %87, ptr noundef %110) #9
-  %111 = call i32 @ff_eval_refl(ptr noundef nonnull %22, ptr noundef nonnull %87, ptr noundef nonnull %0) #9
+  call void @ff_int_to_int16(ptr noundef nonnull %97, ptr noundef %110) #9
+  %111 = call i32 @ff_eval_refl(ptr noundef nonnull %22, ptr noundef nonnull %97, ptr noundef nonnull %0) #9
   %.not113 = icmp eq i32 %111, 0
   br i1 %.not113, label %113, label %112
 
@@ -256,7 +256,7 @@ quantize.exit:                                    ; preds = %.lr.ph.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %22, i8 0, i64 40, i1 false)
   br label %113
 
-113:                                              ; preds = %108, %112, %95
+113:                                              ; preds = %108, %112, %105
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %115 = load ptr, ptr %114, align 8, !tbaa !53
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -400,7 +400,7 @@ put_bits.exit:                                    ; preds = %158, %173
   %200 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 %199, ptr %200, align 4, !tbaa !43
   %201 = load ptr, ptr %181, align 8, !tbaa !30
-  call void @ff_int_to_int16(ptr noundef nonnull %87, ptr noundef %201) #9
+  call void @ff_int_to_int16(ptr noundef nonnull %97, ptr noundef %201) #9
   %202 = sub nsw i32 %69, %106
   br label %.lr.ph.i121
 

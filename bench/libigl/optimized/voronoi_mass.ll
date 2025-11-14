@@ -1231,9 +1231,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   br i1 %173, label %.preheader.lr.ph, label %._crit_edge856
 
 .preheader.lr.ph:                                 ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit
-  %174 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %175 = getelementptr inbounds nuw i8, ptr %15, i64 128
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %176 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %177 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %178 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %179 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -1385,11 +1385,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   store double %274, ptr %15, align 16, !tbaa !39
   %275 = getelementptr inbounds double, ptr %272, i64 %273
   %276 = load double, ptr %275, align 8, !tbaa !39
-  store double %276, ptr %174, align 16, !tbaa !39
+  store double %276, ptr %175, align 16, !tbaa !39
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i242 = shl nsw i64 %273, 4
   %277 = getelementptr inbounds i8, ptr %272, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i242
   %278 = load double, ptr %277, align 8, !tbaa !39
-  store double %278, ptr %175, align 16, !tbaa !39
+  store double %278, ptr %176, align 16, !tbaa !39
   br label %279
 
 279:                                              ; preds = %263, %279
@@ -1409,14 +1409,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   %291 = getelementptr inbounds nuw i8, ptr %287, i64 64
   %292 = getelementptr inbounds double, ptr %286, i64 %273
   %293 = load double, ptr %292, align 8, !tbaa !39
-  %294 = load double, ptr %174, align 16, !tbaa !39
+  %294 = load double, ptr %175, align 16, !tbaa !39
   %295 = fadd double %293, %294
   %296 = fmul double %295, 5.000000e-01
   store double %296, ptr %291, align 8, !tbaa !39
   %297 = getelementptr inbounds nuw i8, ptr %287, i64 128
   %298 = getelementptr inbounds i8, ptr %286, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i242
   %299 = load double, ptr %298, align 8, !tbaa !39
-  %300 = load double, ptr %175, align 16, !tbaa !39
+  %300 = load double, ptr %176, align 16, !tbaa !39
   %301 = fadd double %299, %300
   %302 = fmul double %301, 5.000000e-01
   store double %302, ptr %297, align 8, !tbaa !39
@@ -1425,7 +1425,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   br i1 %exitcond875.not, label %303, label %279, !llvm.loop !99
 
 303:                                              ; preds = %279
-  %304 = load i64, ptr %176, align 8, !tbaa !100
+  %304 = load i64, ptr %174, align 8, !tbaa !100
   %indvars.iv.next877 = add nuw nsw i64 %indvars.iv876, 1
   %305 = and i64 %indvars.iv.next877, 3
   %306 = load ptr, ptr %5, align 8, !tbaa !28

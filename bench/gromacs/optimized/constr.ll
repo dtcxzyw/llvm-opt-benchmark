@@ -2856,8 +2856,8 @@ _ZN3gmxL20isConstraintFlexibleENS_8ArrayRefIK9t_iparamsEEi.exit.thread: ; preds 
 .lr.ph124:                                        ; preds = %.noexc76
   %81 = zext nneg i32 %1 to i64
   %.idx.i.i.i.i.i.i.i72 = shl nuw nsw i64 %81, 2
-  %82 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i.i.i.i.i.i.i72
   tail call void @llvm.memset.p0.i64(ptr align 4 %47, i8 0, i64 %.idx.i.i.i.i.i.i.i72, i1 false), !tbaa !61
+  %82 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i.i.i.i.i.i.i72
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %82, ptr %83, align 8, !tbaa !57
   %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
@@ -2905,8 +2905,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i83: ; preds = %_ZNSt6vectorIiS
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i80: ; preds = %.noexc85
   %.idx.i.i.i.i.i.i.i81 = shl nuw nsw i64 %95, 2
-  %97 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx.i.i.i.i.i.i.i81
   tail call void @llvm.memset.p0.i64(ptr align 4 %94, i8 0, i64 %.idx.i.i.i.i.i.i.i81, i1 false), !tbaa !61
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx.i.i.i.i.i.i.i81
   br label %106
 
 98:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i69
@@ -5377,8 +5377,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIiS
   store ptr %300, ptr %20, align 8, !tbaa !60, !alias.scope !468
   %301 = getelementptr inbounds nuw i32, ptr %300, i64 %297
   store ptr %301, ptr %275, align 8, !tbaa !377, !alias.scope !468
-  %302 = getelementptr inbounds nuw i8, ptr %300, i64 %299
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %300, i8 -1, i64 %299, i1 false), !tbaa !61, !noalias !468
+  %302 = getelementptr inbounds nuw i8, ptr %300, i64 %299
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.noexc77, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i
@@ -6347,15 +6347,15 @@ _ZN3gmx11Constraints5applyEblifNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEES4
   %87 = fptrunc double %86 to float
   %88 = load ptr, ptr %4, align 8, !tbaa !80
   %89 = load ptr, ptr %5, align 8, !tbaa !80
-  %90 = icmp sgt i32 %3, 0
-  br i1 %90, label %.lr.ph.preheader, label %._crit_edge
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %91 = icmp sgt i32 %3, 0
+  br i1 %91, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %84
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %84
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br i1 %.not77, label %121, label %115
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -6432,7 +6432,7 @@ _ZN3gmx11Constraints5applyEblifNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEES4
   %137 = load ptr, ptr %5, align 8, !tbaa !80
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %139 = load ptr, ptr %138, align 8, !tbaa !82
-  %140 = load ptr, ptr %91, align 8, !tbaa !83
+  %140 = load ptr, ptr %90, align 8, !tbaa !83
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -6462,7 +6462,7 @@ _ZN3gmx11Constraints5applyEblifNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEES4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %90, label %.lr.ph156.preheader, label %.loopexit
+  br i1 %91, label %.lr.ph156.preheader, label %.loopexit
 
 .lr.ph156.preheader:                              ; preds = %_ZN3gmx11Constraints5applyEblifNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEES4_NS_8ArrayRefIS3_EEPA3_KffPfS4_bPA3_fNS_18ConstraintVariableE.exit103
   %wide.trip.count161 = zext nneg i32 %3 to i64

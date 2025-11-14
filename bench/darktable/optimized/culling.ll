@@ -2218,7 +2218,7 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
 
 ._crit_edge494.i:                                 ; preds = %._crit_edge494.loopexit.i, %._crit_edge464.i
   %.0375.lcssa.i = phi i32 [ -1, %._crit_edge464.i ], [ %278, %._crit_edge494.loopexit.i ]
-  %.0369.lcssa.i = phi i32 [ 0, %._crit_edge464.i ], [ %321, %._crit_edge494.loopexit.i ]
+  %.0369.lcssa.i = phi i32 [ 0, %._crit_edge464.i ], [ %296, %._crit_edge494.loopexit.i ]
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %280 = load i32, ptr %279, align 4, !tbaa !128
   %281 = sitofp i32 %280 to float
@@ -2238,59 +2238,59 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   br label %341
 
 295:                                              ; preds = %._crit_edge482.i, %.lr.ph493.i
-  %.0369491.i = phi i32 [ 0, %.lr.ph493.i ], [ %321, %._crit_edge482.i ]
+  %.0369491.i = phi i32 [ 0, %.lr.ph493.i ], [ %296, %._crit_edge482.i ]
   %.0375489.i = phi i32 [ 0, %.lr.ph493.i ], [ %323, %._crit_edge482.i ]
   %.0387487.i = phi ptr [ %235, %.lr.ph493.i ], [ %325, %._crit_edge482.i ]
-  %296 = load ptr, ptr %.0387487.i, align 8, !tbaa !89
-  %.not425469.i = icmp eq ptr %296, null
+  %296 = add nuw nsw i32 %.0369491.i, 1
+  %297 = load ptr, ptr %.0387487.i, align 8, !tbaa !89
+  %.not425469.i = icmp eq ptr %297, null
   br i1 %.not425469.i, label %._crit_edge482.i, label %.lr.ph473.i
 
 .lr.ph481.i:                                      ; preds = %.lr.ph473.i
-  %297 = sitofp i32 %317 to float
-  %298 = fdiv reassoc nsz arcp contract afn float %237, %297
-  %299 = fpext reassoc nsz arcp contract afn float %298 to double
-  %300 = fcmp reassoc nsz arcp contract afn olt double %299, 1.200000e+00
-  %narrow.sel.i = select reassoc nsz arcp contract afn i1 %300, float %298, float 0x3FF3333340000000
+  %298 = sitofp i32 %318 to float
+  %299 = fdiv reassoc nsz arcp contract afn float %237, %298
+  %300 = fpext reassoc nsz arcp contract afn float %299 to double
+  %301 = fcmp reassoc nsz arcp contract afn olt double %300, 1.200000e+00
+  %narrow.sel.i = select reassoc nsz arcp contract afn i1 %301, float %299, float 0x3FF3333340000000
   br i1 %238, label %.lr.ph481.split.us.i, label %.lr.ph481.split.i
 
 .lr.ph481.split.us.i:                             ; preds = %.lr.ph481.i, %.lr.ph481.split.us.i
-  %.0394478.us.i = phi ptr [ %313, %.lr.ph481.split.us.i ], [ %296, %.lr.ph481.i ]
+  %.0394478.us.i = phi ptr [ %314, %.lr.ph481.split.us.i ], [ %297, %.lr.ph481.i ]
   %.0395477.us.i = phi i32 [ %.0395..us.i, %.lr.ph481.split.us.i ], [ 0, %.lr.ph481.i ]
-  %301 = load ptr, ptr %.0394478.us.i, align 8, !tbaa !89
-  %302 = getelementptr inbounds nuw i8, ptr %301, i64 12
-  %303 = load i32, ptr %302, align 4, !tbaa !119
-  %304 = sitofp i32 %303 to float
-  %305 = fmul reassoc nsz arcp contract afn float %narrow.sel.i, %304
-  %306 = fptosi float %305 to i32
-  store i32 %306, ptr %302, align 4, !tbaa !119
-  %307 = getelementptr inbounds nuw i8, ptr %301, i64 8
-  %308 = load i32, ptr %307, align 8, !tbaa !118
-  %309 = sitofp i32 %308 to float
-  %310 = fmul reassoc nsz arcp contract afn float %narrow.sel.i, %309
-  %311 = fptosi float %310 to i32
-  store i32 %311, ptr %307, align 8, !tbaa !118
-  %.0395..us.i = call i32 @llvm.smax.i32(i32 %.0395477.us.i, i32 %311)
-  %312 = getelementptr inbounds nuw i8, ptr %.0394478.us.i, i64 8
-  %313 = load ptr, ptr %312, align 8, !tbaa !164
-  %.not426.us.i = icmp eq ptr %313, null
+  %302 = load ptr, ptr %.0394478.us.i, align 8, !tbaa !89
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 12
+  %304 = load i32, ptr %303, align 4, !tbaa !119
+  %305 = sitofp i32 %304 to float
+  %306 = fmul reassoc nsz arcp contract afn float %narrow.sel.i, %305
+  %307 = fptosi float %306 to i32
+  store i32 %307, ptr %303, align 4, !tbaa !119
+  %308 = getelementptr inbounds nuw i8, ptr %302, i64 8
+  %309 = load i32, ptr %308, align 8, !tbaa !118
+  %310 = sitofp i32 %309 to float
+  %311 = fmul reassoc nsz arcp contract afn float %narrow.sel.i, %310
+  %312 = fptosi float %311 to i32
+  store i32 %312, ptr %308, align 8, !tbaa !118
+  %.0395..us.i = call i32 @llvm.smax.i32(i32 %.0395477.us.i, i32 %312)
+  %313 = getelementptr inbounds nuw i8, ptr %.0394478.us.i, i64 8
+  %314 = load ptr, ptr %313, align 8, !tbaa !164
+  %.not426.us.i = icmp eq ptr %314, null
   br i1 %.not426.us.i, label %._crit_edge482.i, label %.lr.ph481.split.us.i
 
 .lr.ph473.i:                                      ; preds = %295, %.lr.ph473.i
-  %.0391471.i = phi i32 [ %318, %.lr.ph473.i ], [ 0, %295 ]
-  %.0396470.i = phi ptr [ %320, %.lr.ph473.i ], [ %296, %295 ]
-  %314 = load ptr, ptr %.0396470.i, align 8, !tbaa !89
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 12
-  %316 = load i32, ptr %315, align 4, !tbaa !119
-  %317 = add i32 %316, %.0391471.i
-  %318 = add i32 %317, 1
-  %319 = getelementptr inbounds nuw i8, ptr %.0396470.i, i64 8
-  %320 = load ptr, ptr %319, align 8, !tbaa !164
-  %.not425.i = icmp eq ptr %320, null
+  %.0391471.i = phi i32 [ %319, %.lr.ph473.i ], [ 0, %295 ]
+  %.0396470.i = phi ptr [ %321, %.lr.ph473.i ], [ %297, %295 ]
+  %315 = load ptr, ptr %.0396470.i, align 8, !tbaa !89
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 12
+  %317 = load i32, ptr %316, align 4, !tbaa !119
+  %318 = add i32 %317, %.0391471.i
+  %319 = add i32 %318, 1
+  %320 = getelementptr inbounds nuw i8, ptr %.0396470.i, i64 8
+  %321 = load ptr, ptr %320, align 8, !tbaa !164
+  %.not425.i = icmp eq ptr %321, null
   br i1 %.not425.i, label %.lr.ph481.i, label %.lr.ph473.i
 
 ._crit_edge482.i:                                 ; preds = %.lr.ph481.split.i, %.lr.ph481.split.us.i, %295
   %.0395.lcssa.i = phi i32 [ 0, %295 ], [ %.0395..us.i, %.lr.ph481.split.us.i ], [ %.0395..i, %.lr.ph481.split.i ]
-  %321 = add nuw nsw i32 %.0369491.i, 1
   %322 = add nuw nsw i32 %.0375489.i, 1
   %323 = add nuw nsw i32 %322, %.0395.lcssa.i
   %324 = getelementptr inbounds nuw i8, ptr %.0387487.i, i64 8
@@ -2299,15 +2299,15 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   br i1 %.not411.i, label %._crit_edge494.loopexit.i, label %295
 
 .lr.ph481.split.i:                                ; preds = %.lr.ph481.i, %.lr.ph481.split.i
-  %.0394478.i = phi ptr [ %340, %.lr.ph481.split.i ], [ %296, %.lr.ph481.i ]
+  %.0394478.i = phi ptr [ %340, %.lr.ph481.split.i ], [ %297, %.lr.ph481.i ]
   %.0395477.i = phi i32 [ %.0395..i, %.lr.ph481.split.i ], [ 0, %.lr.ph481.i ]
   %326 = load ptr, ptr %.0394478.i, align 8, !tbaa !89
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 8
   %328 = load i32, ptr %327, align 8, !tbaa !118
   %329 = sitofp i32 %328 to float
   %330 = fdiv reassoc nsz arcp contract afn float %240, %329
-  %331 = fcmp reassoc nsz arcp contract afn olt float %298, %330
-  %..i = select reassoc nsz arcp contract afn i1 %331, float %298, float %330
+  %331 = fcmp reassoc nsz arcp contract afn olt float %299, %330
+  %..i = select reassoc nsz arcp contract afn i1 %331, float %299, float %330
   %332 = getelementptr inbounds nuw i8, ptr %326, i64 12
   %333 = load i32, ptr %332, align 4, !tbaa !119
   %334 = sitofp i32 %333 to float
@@ -2360,154 +2360,154 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
 
 .lr.ph521.i:                                      ; preds = %363
   %365 = sitofp i32 %344 to double
-  br label %369
+  br label %370
 
 ._crit_edge522.loopexit.i:                        ; preds = %._crit_edge510.i
-  %366 = add nsw i32 %423, -1
+  %366 = add nsw i32 %424, -1
   %367 = sitofp i32 %366 to float
   br label %._crit_edge522.i
 
 ._crit_edge522.i:                                 ; preds = %._crit_edge522.loopexit.i, %363
   %.0385.lcssa.i = phi float [ -1.000000e+00, %363 ], [ %367, %._crit_edge522.loopexit.i ]
-  %.0384.lcssa.i = phi i32 [ 0, %363 ], [ %426, %._crit_edge522.loopexit.i ]
+  %.0384.lcssa.i = phi i32 [ 0, %363 ], [ %427, %._crit_edge522.loopexit.i ]
   %.0382.lcssa.i = phi ptr [ %364, %363 ], [ %.1383.i, %._crit_edge522.loopexit.i ]
+  %368 = add nsw i32 %.0384.lcssa.i, -1
   call void @g_list_free(ptr noundef %235) #14
-  %368 = call ptr @g_list_first(ptr noundef %.0382.lcssa.i) #14
-  %.not413559.i = icmp eq ptr %368, null
+  %369 = call ptr @g_list_first(ptr noundef %.0382.lcssa.i) #14
+  %.not413559.i = icmp eq ptr %369, null
   br i1 %.not413559.i, label %._crit_edge563.i, label %.lr.ph562.i
 
-369:                                              ; preds = %._crit_edge510.i, %.lr.ph521.i
-  %.0374519.i = phi ptr [ %235, %.lr.ph521.i ], [ %428, %._crit_edge510.i ]
-  %.0376518.i = phi i32 [ 0, %.lr.ph521.i ], [ %422, %._crit_edge510.i ]
-  %.0378517.i = phi i32 [ 0, %.lr.ph521.i ], [ %425, %._crit_edge510.i ]
+370:                                              ; preds = %._crit_edge510.i, %.lr.ph521.i
+  %.0374519.i = phi ptr [ %235, %.lr.ph521.i ], [ %429, %._crit_edge510.i ]
+  %.0376518.i = phi i32 [ 0, %.lr.ph521.i ], [ %423, %._crit_edge510.i ]
+  %.0378517.i = phi i32 [ 0, %.lr.ph521.i ], [ %426, %._crit_edge510.i ]
   %.0380516.i = phi i32 [ 0, %.lr.ph521.i ], [ %.1381.i, %._crit_edge510.i ]
   %.0382515.i = phi ptr [ %364, %.lr.ph521.i ], [ %.1383.i, %._crit_edge510.i ]
-  %.0384514.i = phi i32 [ 0, %.lr.ph521.i ], [ %426, %._crit_edge510.i ]
-  %.0385513.i = phi i32 [ 0, %.lr.ph521.i ], [ %423, %._crit_edge510.i ]
-  %370 = load ptr, ptr %.0374519.i, align 8, !tbaa !89
-  %.not421497.i = icmp eq ptr %370, null
+  %.0384514.i = phi i32 [ 0, %.lr.ph521.i ], [ %427, %._crit_edge510.i ]
+  %.0385513.i = phi i32 [ 0, %.lr.ph521.i ], [ %424, %._crit_edge510.i ]
+  %371 = load ptr, ptr %.0374519.i, align 8, !tbaa !89
+  %.not421497.i = icmp eq ptr %371, null
   br i1 %.not421497.i, label %._crit_edge503.i, label %.lr.ph502.i
 
-._crit_edge503.i:                                 ; preds = %.lr.ph502.i, %369
-  %.0372.lcssa.i = phi i32 [ 0, %369 ], [ %.0372..i, %.lr.ph502.i ]
-  %.0371.lcssa.i = phi i32 [ -1, %369 ], [ %381, %.lr.ph502.i ]
-  %371 = uitofp nneg i32 %.0378517.i to double
-  %372 = uitofp nneg i32 %.0372.lcssa.i to double
-  %373 = fmul reassoc nsz arcp contract afn double %372, 4.000000e-01
-  %374 = fadd reassoc nsz arcp contract afn double %373, %371
-  %375 = fcmp reassoc nsz arcp contract afn ogt double %374, %365
-  br i1 %375, label %385, label %.critedge430.i
+._crit_edge503.i:                                 ; preds = %.lr.ph502.i, %370
+  %.0372.lcssa.i = phi i32 [ 0, %370 ], [ %.0372..i, %.lr.ph502.i ]
+  %.0371.lcssa.i = phi i32 [ -1, %370 ], [ %382, %.lr.ph502.i ]
+  %372 = uitofp nneg i32 %.0378517.i to double
+  %373 = uitofp nneg i32 %.0372.lcssa.i to double
+  %374 = fmul reassoc nsz arcp contract afn double %373, 4.000000e-01
+  %375 = fadd reassoc nsz arcp contract afn double %374, %372
+  %376 = fcmp reassoc nsz arcp contract afn ogt double %375, %365
+  br i1 %376, label %386, label %.critedge430.i
 
-.lr.ph502.i:                                      ; preds = %369, %.lr.ph502.i
-  %.0370500.i = phi ptr [ %384, %.lr.ph502.i ], [ %370, %369 ]
-  %.0371499.i = phi i32 [ %382, %.lr.ph502.i ], [ 0, %369 ]
-  %.0372498.i = phi i32 [ %.0372..i, %.lr.ph502.i ], [ 0, %369 ]
-  %376 = load ptr, ptr %.0370500.i, align 8, !tbaa !89
-  %377 = getelementptr inbounds nuw i8, ptr %376, i64 8
-  %378 = load i32, ptr %377, align 8, !tbaa !118
-  %.0372..i = call i32 @llvm.smax.i32(i32 %.0372498.i, i32 %378)
-  %379 = getelementptr inbounds nuw i8, ptr %376, i64 12
-  %380 = load i32, ptr %379, align 4, !tbaa !119
-  %381 = add i32 %380, %.0371499.i
-  %382 = add i32 %381, 1
-  %383 = getelementptr inbounds nuw i8, ptr %.0370500.i, i64 8
-  %384 = load ptr, ptr %383, align 8, !tbaa !164
-  %.not421.i = icmp eq ptr %384, null
+.lr.ph502.i:                                      ; preds = %370, %.lr.ph502.i
+  %.0370500.i = phi ptr [ %385, %.lr.ph502.i ], [ %371, %370 ]
+  %.0371499.i = phi i32 [ %383, %.lr.ph502.i ], [ 0, %370 ]
+  %.0372498.i = phi i32 [ %.0372..i, %.lr.ph502.i ], [ 0, %370 ]
+  %377 = load ptr, ptr %.0370500.i, align 8, !tbaa !89
+  %378 = getelementptr inbounds nuw i8, ptr %377, i64 8
+  %379 = load i32, ptr %378, align 8, !tbaa !118
+  %.0372..i = call i32 @llvm.smax.i32(i32 %.0372498.i, i32 %379)
+  %380 = getelementptr inbounds nuw i8, ptr %377, i64 12
+  %381 = load i32, ptr %380, align 4, !tbaa !119
+  %382 = add i32 %381, %.0371499.i
+  %383 = add i32 %382, 1
+  %384 = getelementptr inbounds nuw i8, ptr %.0370500.i, i64 8
+  %385 = load ptr, ptr %384, align 8, !tbaa !164
+  %.not421.i = icmp eq ptr %385, null
   br i1 %.not421.i, label %._crit_edge503.i, label %.lr.ph502.i
 
-385:                                              ; preds = %._crit_edge503.i
-  %386 = getelementptr inbounds nuw i8, ptr %.0374519.i, i64 8
-  %387 = load ptr, ptr %386, align 8, !tbaa !164
-  %.not422.i = icmp eq ptr %387, null
-  br i1 %.not422.i, label %388, label %.critedge.i
+386:                                              ; preds = %._crit_edge503.i
+  %387 = getelementptr inbounds nuw i8, ptr %.0374519.i, i64 8
+  %388 = load ptr, ptr %387, align 8, !tbaa !164
+  %.not422.i = icmp eq ptr %388, null
+  br i1 %.not422.i, label %389, label %.critedge.i
 
-388:                                              ; preds = %385
-  %389 = add nuw nsw i32 %.0372.lcssa.i, %.0378517.i
-  %390 = call i32 @llvm.smax.i32(i32 %.0384514.i, i32 %389)
-  %391 = uitofp nneg i32 %390 to float
-  %392 = add nsw i32 %.0371.lcssa.i, %.0380516.i
-  %393 = call i32 @llvm.smax.i32(i32 %.0385513.i, i32 %392)
-  %394 = uitofp nneg i32 %393 to float
-  %395 = fdiv reassoc nsz arcp contract afn float %391, %394
-  %396 = load i32, ptr %279, align 4, !tbaa !128
-  %397 = sitofp i32 %396 to float
-  %398 = load i32, ptr %282, align 8, !tbaa !157
-  %399 = sitofp i32 %398 to float
-  %400 = fdiv reassoc nsz arcp contract afn float %397, %399
-  %401 = fcmp reassoc nsz arcp contract afn ogt float %395, %400
-  %402 = fdiv reassoc nsz arcp contract afn float %395, %400
-  %403 = fdiv reassoc nsz arcp contract afn float %400, %395
-  %404 = select reassoc nsz arcp contract afn i1 %401, float %402, float %403
-  %405 = call i32 @llvm.smax.i32(i32 %.0384514.i, i32 %.0372.lcssa.i)
-  %406 = uitofp nneg i32 %405 to float
-  %407 = add nsw i32 %.0371.lcssa.i, %.0385513.i
-  %408 = sitofp i32 %407 to float
-  %409 = fdiv reassoc nsz arcp contract afn float %406, %408
-  %410 = fcmp reassoc nsz arcp contract afn ogt float %409, %400
-  %411 = fdiv reassoc nsz arcp contract afn float %409, %400
-  %412 = fdiv reassoc nsz arcp contract afn float %400, %409
-  %413 = select reassoc nsz arcp contract afn i1 %410, float %411, float %412
-  %414 = fcmp reassoc nsz arcp contract afn ogt float %413, %404
-  br i1 %414, label %.critedge430.i, label %.critedge.i
+389:                                              ; preds = %386
+  %390 = add nuw nsw i32 %.0372.lcssa.i, %.0378517.i
+  %391 = call i32 @llvm.smax.i32(i32 %.0384514.i, i32 %390)
+  %392 = uitofp nneg i32 %391 to float
+  %393 = add nsw i32 %.0371.lcssa.i, %.0380516.i
+  %394 = call i32 @llvm.smax.i32(i32 %.0385513.i, i32 %393)
+  %395 = uitofp nneg i32 %394 to float
+  %396 = fdiv reassoc nsz arcp contract afn float %392, %395
+  %397 = load i32, ptr %279, align 4, !tbaa !128
+  %398 = sitofp i32 %397 to float
+  %399 = load i32, ptr %282, align 8, !tbaa !157
+  %400 = sitofp i32 %399 to float
+  %401 = fdiv reassoc nsz arcp contract afn float %398, %400
+  %402 = fcmp reassoc nsz arcp contract afn ogt float %396, %401
+  %403 = fdiv reassoc nsz arcp contract afn float %396, %401
+  %404 = fdiv reassoc nsz arcp contract afn float %401, %396
+  %405 = select reassoc nsz arcp contract afn i1 %402, float %403, float %404
+  %406 = call i32 @llvm.smax.i32(i32 %.0384514.i, i32 %.0372.lcssa.i)
+  %407 = uitofp nneg i32 %406 to float
+  %408 = add nsw i32 %.0371.lcssa.i, %.0385513.i
+  %409 = sitofp i32 %408 to float
+  %410 = fdiv reassoc nsz arcp contract afn float %407, %409
+  %411 = fcmp reassoc nsz arcp contract afn ogt float %410, %401
+  %412 = fdiv reassoc nsz arcp contract afn float %410, %401
+  %413 = fdiv reassoc nsz arcp contract afn float %401, %410
+  %414 = select reassoc nsz arcp contract afn i1 %411, float %412, float %413
+  %415 = fcmp reassoc nsz arcp contract afn ogt float %414, %405
+  br i1 %415, label %.critedge430.i, label %.critedge.i
 
-.critedge.i:                                      ; preds = %388, %385
-  %415 = add nuw nsw i32 %.0380516.i, %.0376518.i
-  %416 = call ptr @g_list_append(ptr noundef %.0382515.i, ptr noundef null) #14
-  %417 = getelementptr inbounds nuw i8, ptr %416, i64 8
-  %418 = load ptr, ptr %417, align 8, !tbaa !164
+.critedge.i:                                      ; preds = %389, %386
+  %416 = add nuw nsw i32 %.0380516.i, %.0376518.i
+  %417 = call ptr @g_list_append(ptr noundef %.0382515.i, ptr noundef null) #14
+  %418 = getelementptr inbounds nuw i8, ptr %417, i64 8
+  %419 = load ptr, ptr %418, align 8, !tbaa !164
   br label %.critedge430.i
 
-.critedge430.i:                                   ; preds = %.critedge.i, %388, %._crit_edge503.i
-  %.1383.i = phi ptr [ %418, %.critedge.i ], [ %.0382515.i, %388 ], [ %.0382515.i, %._crit_edge503.i ]
-  %.1381.i = phi i32 [ %415, %.critedge.i ], [ %.0380516.i, %388 ], [ %.0380516.i, %._crit_edge503.i ]
-  %.1379.i = phi i32 [ 0, %.critedge.i ], [ %.0378517.i, %388 ], [ %.0378517.i, %._crit_edge503.i ]
-  %.1377.i = phi i32 [ 0, %.critedge.i ], [ %.0376518.i, %388 ], [ %.0376518.i, %._crit_edge503.i ]
+.critedge430.i:                                   ; preds = %.critedge.i, %389, %._crit_edge503.i
+  %.1383.i = phi ptr [ %419, %.critedge.i ], [ %.0382515.i, %389 ], [ %.0382515.i, %._crit_edge503.i ]
+  %.1381.i = phi i32 [ %416, %.critedge.i ], [ %.0380516.i, %389 ], [ %.0380516.i, %._crit_edge503.i ]
+  %.1379.i = phi i32 [ 0, %.critedge.i ], [ %.0378517.i, %389 ], [ %.0378517.i, %._crit_edge503.i ]
+  %.1377.i = phi i32 [ 0, %.critedge.i ], [ %.0376518.i, %389 ], [ %.0376518.i, %._crit_edge503.i ]
   br i1 %.not421497.i, label %._crit_edge510.i, label %.lr.ph509.i
 
 ._crit_edge510.i:                                 ; preds = %.lr.ph509.i, %.critedge430.i
-  %.0364.lcssa.i = phi i32 [ %.1381.i, %.critedge430.i ], [ %440, %.lr.ph509.i ]
-  %419 = load ptr, ptr %.1383.i, align 8, !tbaa !89
-  %420 = call ptr @g_list_append(ptr noundef %419, ptr noundef %370) #14
-  store ptr %420, ptr %.1383.i, align 8, !tbaa !89
-  %421 = sub nsw i32 %.0364.lcssa.i, %.1381.i
-  %422 = call i32 @llvm.smax.i32(i32 %.1377.i, i32 %421)
-  %423 = call i32 @llvm.smax.i32(i32 %.0385513.i, i32 %.0364.lcssa.i)
-  %424 = add nuw nsw i32 %.0372.lcssa.i, 1
-  %425 = add nuw nsw i32 %424, %.1379.i
-  %426 = call i32 @llvm.smax.i32(i32 %.0384514.i, i32 %425)
-  %427 = getelementptr inbounds nuw i8, ptr %.0374519.i, i64 8
-  %428 = load ptr, ptr %427, align 8, !tbaa !164
-  %.not412.i = icmp eq ptr %428, null
-  br i1 %.not412.i, label %._crit_edge522.loopexit.i, label %369
+  %.0364.lcssa.i = phi i32 [ %.1381.i, %.critedge430.i ], [ %441, %.lr.ph509.i ]
+  %420 = load ptr, ptr %.1383.i, align 8, !tbaa !89
+  %421 = call ptr @g_list_append(ptr noundef %420, ptr noundef %371) #14
+  store ptr %421, ptr %.1383.i, align 8, !tbaa !89
+  %422 = sub nsw i32 %.0364.lcssa.i, %.1381.i
+  %423 = call i32 @llvm.smax.i32(i32 %.1377.i, i32 %422)
+  %424 = call i32 @llvm.smax.i32(i32 %.0385513.i, i32 %.0364.lcssa.i)
+  %425 = add nuw nsw i32 %.0372.lcssa.i, 1
+  %426 = add nuw nsw i32 %425, %.1379.i
+  %427 = call i32 @llvm.smax.i32(i32 %.0384514.i, i32 %426)
+  %428 = getelementptr inbounds nuw i8, ptr %.0374519.i, i64 8
+  %429 = load ptr, ptr %428, align 8, !tbaa !164
+  %.not412.i = icmp eq ptr %429, null
+  br i1 %.not412.i, label %._crit_edge522.loopexit.i, label %370
 
 .lr.ph509.i:                                      ; preds = %.critedge430.i, %.lr.ph509.i
-  %.0363508.i = phi ptr [ %442, %.lr.ph509.i ], [ %370, %.critedge430.i ]
-  %.0364507.i = phi i32 [ %440, %.lr.ph509.i ], [ %.1381.i, %.critedge430.i ]
-  %429 = load ptr, ptr %.0363508.i, align 8, !tbaa !89
-  %430 = getelementptr inbounds nuw i8, ptr %429, i64 8
-  %431 = load i32, ptr %430, align 8, !tbaa !118
-  %432 = sub nsw i32 %.0372.lcssa.i, %431
-  %433 = sdiv i32 %432, 2
-  %434 = add nsw i32 %433, %.1379.i
-  %435 = getelementptr inbounds nuw i8, ptr %429, i64 16
-  store i32 %434, ptr %435, align 8, !tbaa !165
-  %436 = getelementptr inbounds nuw i8, ptr %429, i64 20
-  store i32 %.0364507.i, ptr %436, align 4, !tbaa !166
-  %437 = getelementptr inbounds nuw i8, ptr %429, i64 12
-  %438 = load i32, ptr %437, align 4, !tbaa !119
-  %439 = add i32 %.0364507.i, 1
-  %440 = add i32 %439, %438
-  %441 = getelementptr inbounds nuw i8, ptr %.0363508.i, i64 8
-  %442 = load ptr, ptr %441, align 8, !tbaa !164
-  %.not424.i = icmp eq ptr %442, null
+  %.0363508.i = phi ptr [ %443, %.lr.ph509.i ], [ %371, %.critedge430.i ]
+  %.0364507.i = phi i32 [ %441, %.lr.ph509.i ], [ %.1381.i, %.critedge430.i ]
+  %430 = load ptr, ptr %.0363508.i, align 8, !tbaa !89
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 8
+  %432 = load i32, ptr %431, align 8, !tbaa !118
+  %433 = sub nsw i32 %.0372.lcssa.i, %432
+  %434 = sdiv i32 %433, 2
+  %435 = add nsw i32 %434, %.1379.i
+  %436 = getelementptr inbounds nuw i8, ptr %430, i64 16
+  store i32 %435, ptr %436, align 8, !tbaa !165
+  %437 = getelementptr inbounds nuw i8, ptr %430, i64 20
+  store i32 %.0364507.i, ptr %437, align 4, !tbaa !166
+  %438 = getelementptr inbounds nuw i8, ptr %430, i64 12
+  %439 = load i32, ptr %438, align 4, !tbaa !119
+  %440 = add i32 %.0364507.i, 1
+  %441 = add i32 %440, %439
+  %442 = getelementptr inbounds nuw i8, ptr %.0363508.i, i64 8
+  %443 = load ptr, ptr %442, align 8, !tbaa !164
+  %.not424.i = icmp eq ptr %443, null
   br i1 %.not424.i, label %._crit_edge510.i, label %.lr.ph509.i
 
 ._crit_edge563.i:                                 ; preds = %._crit_edge558.i, %._crit_edge522.i
-  %443 = add nsw i32 %.0384.lcssa.i, -1
-  call void @g_list_free(ptr noundef %368) #14
+  call void @g_list_free(ptr noundef %369) #14
   %444 = load i32, ptr %279, align 4, !tbaa !128
   %445 = sitofp i32 %444 to float
-  %446 = sitofp i32 %443 to float
+  %446 = sitofp i32 %368 to float
   %447 = fdiv reassoc nsz arcp contract afn float %445, %446
   %448 = fmul reassoc nsz arcp contract afn float %447, %.0385.lcssa.i
   %449 = load i32, ptr %282, align 8, !tbaa !157
@@ -2534,7 +2534,7 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   br label %506
 
 .lr.ph562.i:                                      ; preds = %._crit_edge522.i, %._crit_edge558.i
-  %.0361560.i = phi ptr [ %483, %._crit_edge558.i ], [ %368, %._crit_edge522.i ]
+  %.0361560.i = phi ptr [ %483, %._crit_edge558.i ], [ %369, %._crit_edge522.i ]
   %463 = load ptr, ptr %.0361560.i, align 8, !tbaa !89
   %.not416535.i = icmp eq ptr %463, null
   br i1 %.not416535.i, label %._crit_edge558.i, label %.preheader.i

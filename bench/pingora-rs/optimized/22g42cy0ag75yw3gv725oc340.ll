@@ -719,39 +719,39 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h1c306631c1d6
   %17 = icmp ugt i64 %1, 1
   br i1 %17, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h800fb2c5825c0027E.exit"
-  %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %22, label %._crit_edge.thread
-
-._crit_edge.thread.loopexit:                      ; preds = %.lr.ph
+._crit_edge.thread:                               ; preds = %.lr.ph
   %18 = add i64 %12, %1
   %19 = add i64 %18, -1
-  br label %._crit_edge.thread
+  br label %20
 
-._crit_edge.thread:                               ; preds = %._crit_edge.thread.loopexit, %._crit_edge
-  %.sroa.0.0.lcssa33 = phi ptr [ %16, %._crit_edge ], [ %25, %._crit_edge.thread.loopexit ]
-  %storemerge.lcssa32 = phi i64 [ %12, %._crit_edge ], [ %19, %._crit_edge.thread.loopexit ]
+._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h800fb2c5825c0027E.exit"
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %23, label %20
+
+20:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %.sroa.0.0.lcssa33 = phi ptr [ %26, %._crit_edge.thread ], [ %16, %._crit_edge ]
+  %storemerge.lcssa32 = phi i64 [ %19, %._crit_edge.thread ], [ %12, %._crit_edge ]
   store i16 %2, ptr %.sroa.0.0.lcssa33, align 2
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa33, i64 2
-  store i16 %3, ptr %20, align 2
-  %21 = add i64 %storemerge.lcssa32, 1
-  br label %22
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa33, i64 2
+  store i16 %3, ptr %21, align 2
+  %22 = add i64 %storemerge.lcssa32, 1
+  br label %23
 
-22:                                               ; preds = %._crit_edge, %._crit_edge.thread
-  %storemerge23 = phi i64 [ %21, %._crit_edge.thread ], [ %12, %._crit_edge ]
+23:                                               ; preds = %._crit_edge, %20
+  %storemerge23 = phi i64 [ %22, %20 ], [ %12, %._crit_edge ]
   store i64 %storemerge23, ptr %6, align 8
   ret void
 
 .lr.ph:                                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h800fb2c5825c0027E.exit", %.lr.ph
-  %.sroa.0.026 = phi ptr [ %25, %.lr.ph ], [ %16, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h800fb2c5825c0027E.exit" ]
-  %.sroa.03.025 = phi i64 [ %23, %.lr.ph ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h800fb2c5825c0027E.exit" ]
-  %23 = add nuw i64 %.sroa.03.025, 1
+  %.sroa.0.026 = phi ptr [ %26, %.lr.ph ], [ %16, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h800fb2c5825c0027E.exit" ]
+  %.sroa.03.025 = phi i64 [ %24, %.lr.ph ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h800fb2c5825c0027E.exit" ]
+  %24 = add nuw i64 %.sroa.03.025, 1
   store i16 %2, ptr %.sroa.0.026, align 2
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.026, i64 2
-  store i16 %3, ptr %24, align 2
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.026, i64 4
-  %exitcond.not = icmp eq i64 %23, %1
-  br i1 %exitcond.not, label %._crit_edge.thread.loopexit, label %.lr.ph
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.026, i64 2
+  store i16 %3, ptr %25, align 2
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.026, i64 4
+  %exitcond.not = icmp eq i64 %24, %1
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3573,8 +3573,8 @@ define noundef i8 @_ZN13pingora_cache3key7hash_u817he16d72008c78a031E(ptr noalia
   br i1 %16, label %"_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17h194ce433d41ae759E.exit.i.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i"
 
 "_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17h194ce433d41ae759E.exit.i.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i", %15
-  %.sroa.0.025.i.i.i = phi ptr [ %28, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i" ], [ %0, %15 ]
-  %.sroa.5.024.i.i.i = phi i64 [ %29, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i" ], [ %1, %15 ]
+  %.sroa.0.025.i.i.i = phi ptr [ %0, %15 ], [ %28, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i" ]
+  %.sroa.5.024.i.i.i = phi i64 [ %1, %15 ], [ %29, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i" ]
   %17 = and i64 %.sroa.5.024.i.i.i, 127
   %18 = icmp eq i64 %17, 0
   %19 = lshr i64 %.sroa.5.024.i.i.i, 7
@@ -3701,8 +3701,8 @@ define void @_ZN13pingora_cache3key8hash_key17h55c3b09408d79528E(ptr dead_on_unw
   br i1 %17, label %"_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17h194ce433d41ae759E.exit.i.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i"
 
 "_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17h194ce433d41ae759E.exit.i.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i", %16
-  %.sroa.0.025.i.i.i = phi ptr [ %29, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i" ], [ %1, %16 ]
-  %.sroa.5.024.i.i.i = phi i64 [ %30, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i" ], [ %2, %16 ]
+  %.sroa.0.025.i.i.i = phi ptr [ %1, %16 ], [ %29, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i" ]
+  %.sroa.5.024.i.i.i = phi i64 [ %2, %16 ], [ %30, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i" ]
   %18 = and i64 %.sroa.5.024.i.i.i, 127
   %19 = icmp eq i64 %18, 0
   %20 = lshr i64 %.sroa.5.024.i.i.i, 7
@@ -4109,8 +4109,8 @@ define void @"_ZN81_$LT$pingora_cache..key..CacheKey$u20$as$u20$pingora_cache..k
   br i1 %24, label %"_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17h194ce433d41ae759E.exit.i.i.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i.i"
 
 "_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17h194ce433d41ae759E.exit.i.i.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i.i", %23
-  %.sroa.0.025.i.i.i.i = phi ptr [ %36, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i.i" ], [ %.val.i.i.i, %23 ]
-  %.sroa.5.024.i.i.i.i = phi i64 [ %37, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i.i" ], [ %.val1.i.i.i, %23 ]
+  %.sroa.0.025.i.i.i.i = phi ptr [ %.val.i.i.i, %23 ], [ %36, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i.i" ]
+  %.sroa.5.024.i.i.i.i = phi i64 [ %.val1.i.i.i, %23 ], [ %37, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i.i" ]
   %25 = and i64 %.sroa.5.024.i.i.i.i, 127
   %26 = icmp eq i64 %25, 0
   %27 = lshr i64 %.sroa.5.024.i.i.i.i, 7
@@ -4183,8 +4183,8 @@ define void @"_ZN81_$LT$pingora_cache..key..CacheKey$u20$as$u20$pingora_cache..k
   br i1 %53, label %"_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17h194ce433d41ae759E.exit.i.i.i8.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i7.i"
 
 "_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17h194ce433d41ae759E.exit.i.i.i8.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i7.i", %52
-  %.sroa.0.025.i.i.i9.i = phi ptr [ %65, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i7.i" ], [ %.val.i.i1.i, %52 ]
-  %.sroa.5.024.i.i.i10.i = phi i64 [ %66, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i7.i" ], [ %.val1.i.i2.i, %52 ]
+  %.sroa.0.025.i.i.i9.i = phi ptr [ %.val.i.i1.i, %52 ], [ %65, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i7.i" ]
+  %.sroa.5.024.i.i.i10.i = phi i64 [ %.val1.i.i2.i, %52 ], [ %66, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i7.i" ]
   %54 = and i64 %.sroa.5.024.i.i.i10.i, 127
   %55 = icmp eq i64 %54, 0
   %56 = lshr i64 %.sroa.5.024.i.i.i10.i, 7

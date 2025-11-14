@@ -704,32 +704,32 @@ Vec_PtrSort.exit:                                 ; preds = %._crit_edge40
   %71 = getelementptr inbounds nuw ptr, ptr %.val29, i64 %indvars.iv48
   %72 = load ptr, ptr %71, align 8, !tbaa !39
   tail call void @Extra_PrintHexadecimal(ptr noundef nonnull %3, ptr noundef %72, i32 noundef 6) #22
-  %73 = load i64, ptr %72, align 8, !tbaa !22
-  br label %74
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %74 = load i32, ptr %73, align 8, !tbaa !27
+  %75 = load i64, ptr %72, align 8, !tbaa !22
+  br label %76
 
-74:                                               ; preds = %74, %70
-  %indvars.iv.i = phi i64 [ 0, %70 ], [ %indvars.iv.next.i, %74 ]
-  %.010.i = phi i32 [ 0, %70 ], [ %spec.select.i, %74 ]
-  %75 = getelementptr inbounds nuw i64, ptr @Truth, i64 %indvars.iv.i
-  %76 = load i64, ptr %75, align 8, !tbaa !42
-  %77 = and i64 %76, %73
-  %78 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %79 = shl nuw nsw i32 1, %78
-  %80 = zext nneg i32 %79 to i64
-  %81 = lshr i64 %77, %80
-  %82 = xor i64 %76, -1
-  %83 = and i64 %73, %82
-  %.not8.i = icmp ne i64 %81, %83
-  %84 = zext i1 %.not8.i to i32
-  %spec.select.i = add nuw nsw i32 %.010.i, %84
+76:                                               ; preds = %76, %70
+  %indvars.iv.i = phi i64 [ 0, %70 ], [ %indvars.iv.next.i, %76 ]
+  %.010.i = phi i32 [ 0, %70 ], [ %spec.select.i, %76 ]
+  %77 = getelementptr inbounds nuw i64, ptr @Truth, i64 %indvars.iv.i
+  %78 = load i64, ptr %77, align 8, !tbaa !42
+  %79 = and i64 %78, %75
+  %80 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %81 = shl nuw nsw i32 1, %80
+  %82 = zext nneg i32 %81 to i64
+  %83 = lshr i64 %79, %82
+  %84 = xor i64 %78, -1
+  %85 = and i64 %75, %84
+  %.not8.i = icmp ne i64 %83, %85
+  %86 = zext i1 %.not8.i to i32
+  %spec.select.i = add nuw nsw i32 %.010.i, %86
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %Npn_TruthSuppSize.exit, label %74, !llvm.loop !43
+  br i1 %exitcond.not.i, label %Npn_TruthSuppSize.exit, label %76, !llvm.loop !43
 
-Npn_TruthSuppSize.exit:                           ; preds = %74
-  %85 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %86 = load i32, ptr %85, align 8, !tbaa !27
-  %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, i32 noundef %86, i32 noundef %spec.select.i) #22
+Npn_TruthSuppSize.exit:                           ; preds = %76
+  %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, i32 noundef %74, i32 noundef %spec.select.i) #22
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %70, !llvm.loop !44

@@ -9087,25 +9087,25 @@ define linkonce_odr hidden void @_ZN3fmt3v114scanIJNSt7__cxx1112basic_stringIcSt
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   store ptr %12, ptr %11, align 8, !tbaa !119
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 0, ptr %12, align 8, !tbaa !4
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false), !alias.scope !316
-  br label %14
+  br label %15
 
-14:                                               ; preds = %14, %5
-  %.idx.i.i = phi i64 [ 0, %5 ], [ %.add.i.i, %14 ]
+15:                                               ; preds = %15, %5
+  %.idx.i.i = phi i64 [ 0, %5 ], [ %.add.i.i, %15 ]
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i
   store i32 0, ptr %.ptr.i.i, align 8, !tbaa !263, !alias.scope !316
-  %15 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
-  store ptr null, ptr %15, align 8, !tbaa !4, !alias.scope !316
+  %16 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
+  store ptr null, ptr %16, align 8, !tbaa !4, !alias.scope !316
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 24
-  %16 = icmp eq i64 %.add.i.i, 48
-  br i1 %16, label %17, label %14
+  %17 = icmp eq i64 %.add.i.i, 48
+  br i1 %17, label %18, label %15
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
+18:                                               ; preds = %15
   store i32 5, ptr %9, align 8, !tbaa !65, !alias.scope !316
   %.sroa.44.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %.sroa.44.0..sroa_idx.i.i, align 8, !alias.scope !316
@@ -9137,7 +9137,7 @@ define linkonce_odr hidden void @_ZN3fmt3v114scanIJNSt7__cxx1112basic_stringIcSt
   invoke void @_ZN3fmt3v116detail19parse_format_stringIcRNS1_12scan_handlerEEEvNS0_17basic_string_viewIT_EEOT0_(ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(44) %6)
           to label %27 unwind label %50
 
-27:                                               ; preds = %17
+27:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -9148,7 +9148,7 @@ define linkonce_odr hidden void @_ZN3fmt3v114scanIJNSt7__cxx1112basic_stringIcSt
   br i1 %31, label %32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 32:                                               ; preds = %27
-  %33 = load i64, ptr %18, align 8, !tbaa !26
+  %33 = load i64, ptr %13, align 8, !tbaa !26
   %34 = icmp ult i64 %33, 16
   call void @llvm.assume(i1 %34)
   %35 = add nuw nsw i64 %33, 1
@@ -9158,14 +9158,14 @@ define linkonce_odr hidden void @_ZN3fmt3v114scanIJNSt7__cxx1112basic_stringIcSt
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %27
   %36 = load i64, ptr %12, align 8, !tbaa !4
   store i64 %36, ptr %29, align 8, !tbaa !4
-  %.pre = load i64, ptr %18, align 8, !tbaa !26
+  %.pre = load i64, ptr %13, align 8, !tbaa !26
   br label %_ZN3fmt3v119scan_dataINS0_17basic_string_viewIcEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEC2EOSA_.exit
 
 _ZN3fmt3v119scan_dataINS0_17basic_string_viewIcEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEC2EOSA_.exit: ; preds = %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
   %37 = phi ptr [ %29, %32 ], [ %30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ]
   %38 = phi i64 [ %33, %32 ], [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ]
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !239
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !239
   store i32 %28, ptr %0, align 8, !tbaa !43
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9190,13 +9190,13 @@ _ZN3fmt3v119scan_dataINS0_17basic_string_viewIcEEJNSt7__cxx1112basic_stringIcSt1
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %38, ptr %47, align 8, !tbaa !26
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 1, ptr %49, align 8, !tbaa !297
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
-50:                                               ; preds = %17
+50:                                               ; preds = %18
   %51 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

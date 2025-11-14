@@ -3407,49 +3407,49 @@ _ZL13_get_modifierPiiiPK18dt_iop_lens_data_tii.exit.i: ; preds = %17
   %64 = tail call i32 @llvm.abs.i32(i32 %62, i1 true)
   %.inv.i = icmp sgt i32 %60, -1
   %65 = select i1 %.inv.i, i32 1, i32 -1
-  %66 = add nuw i32 %64, %63
-  %67 = shl nuw i32 %66, 1
-  %68 = zext nneg i32 %67 to i64
-  %69 = mul nuw nsw i64 %68, 24
-  %70 = tail call noundef ptr @dt_alloc_aligned(i64 noundef %69)
-  call void @llvm.assume(i1 true) [ "align"(ptr %70, i64 64) ]
+  %.inv226.i = icmp sgt i32 %62, -1
+  %66 = select i1 %.inv226.i, i32 1, i32 -1
+  %67 = shl nuw nsw i32 %63, 1
+  %68 = add nuw i32 %64, %63
+  %69 = shl nuw i32 %68, 1
+  %70 = zext nneg i32 %69 to i64
+  %71 = mul nuw nsw i64 %70, 24
+  %72 = tail call noundef ptr @dt_alloc_aligned(i64 noundef %71)
+  call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 64) ]
   %.not27.i = icmp eq i32 %60, 0
   br i1 %.not27.i, label %.preheader5.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %55
-  %71 = sitofp i32 %58 to float
+  %73 = sitofp i32 %58 to float
   %wide.trip.count.i = zext nneg i32 %63 to i64
-  br label %75
+  br label %77
 
-.lr.ph9.i:                                        ; preds = %75
-  %72 = add i32 %58, -1
-  %73 = add i32 %72, %62
-  %74 = sitofp i32 %73 to float
+.lr.ph9.i:                                        ; preds = %77
+  %74 = add i32 %58, -1
+  %75 = add i32 %74, %62
+  %76 = sitofp i32 %75 to float
   br label %86
 
-75:                                               ; preds = %75, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %75 ]
-  %76 = trunc i64 %indvars.iv.i to i32
-  %77 = mul i32 %65, %76
-  %78 = add i32 %77, %56
-  %79 = sitofp i32 %78 to float
+77:                                               ; preds = %77, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %77 ]
+  %78 = trunc i64 %indvars.iv.i to i32
+  %79 = mul i32 %65, %78
+  %80 = add i32 %79, %56
+  %81 = sitofp i32 %80 to float
   %.idx54.i = mul nuw nsw i64 %indvars.iv.i, 24
-  %80 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx54.i
-  %81 = tail call noundef zeroext i1 @_ZNK10lfModifier31ApplySubpixelGeometryDistortionEffiiPf(ptr noundef nonnull align 8 dereferenceable(96) %32, float noundef %79, float noundef %71, i32 noundef 1, i32 noundef 1, ptr noundef %80)
+  %82 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx54.i
+  %83 = tail call noundef zeroext i1 @_ZNK10lfModifier31ApplySubpixelGeometryDistortionEffiiPf(ptr noundef nonnull align 8 dereferenceable(96) %32, float noundef %81, float noundef %73, i32 noundef 1, i32 noundef 1, ptr noundef %82)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph9.i, label %75, !llvm.loop !303
+  br i1 %exitcond.not.i, label %.lr.ph9.i, label %77, !llvm.loop !303
 
 .preheader5.i:                                    ; preds = %86, %55
-  %.inv226.i = icmp sgt i32 %62, -1
-  %82 = select i1 %.inv226.i, i32 1, i32 -1
-  %83 = shl nuw nsw i32 %63, 1
   %.not29.i = icmp eq i32 %62, 0
   br i1 %.not29.i, label %.preheader3.i, label %.lr.ph11.i
 
 .lr.ph11.i:                                       ; preds = %.preheader5.i
   %84 = sitofp i32 %56 to float
-  %85 = zext nneg i32 %83 to i64
+  %85 = zext nneg i32 %67 to i64
   %wide.trip.count44.i = zext nneg i32 %64 to i64
   br label %99
 
@@ -3461,8 +3461,8 @@ _ZL13_get_modifierPiiiPK18dt_iop_lens_data_tii.exit.i: ; preds = %17
   %90 = sitofp i32 %89 to float
   %91 = add nuw nsw i64 %indvars.iv36.i, %wide.trip.count.i
   %.idx55.i = mul nuw nsw i64 %91, 24
-  %92 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx55.i
-  %93 = tail call noundef zeroext i1 @_ZNK10lfModifier31ApplySubpixelGeometryDistortionEffiiPf(ptr noundef nonnull align 8 dereferenceable(96) %32, float noundef %90, float noundef %74, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %92)
+  %92 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx55.i
+  %93 = tail call noundef zeroext i1 @_ZNK10lfModifier31ApplySubpixelGeometryDistortionEffiiPf(ptr noundef nonnull align 8 dereferenceable(96) %32, float noundef %90, float noundef %76, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %92)
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count.i
   br i1 %exitcond40.not.i, label %.preheader5.i, label %86, !llvm.loop !304
@@ -3471,37 +3471,37 @@ _ZL13_get_modifierPiiiPK18dt_iop_lens_data_tii.exit.i: ; preds = %17
   %94 = add i32 %56, -1
   %95 = add i32 %94, %60
   %96 = sitofp i32 %95 to float
-  %97 = add nuw nsw i32 %83, %64
+  %97 = add nuw nsw i32 %67, %64
   %98 = zext nneg i32 %97 to i64
   br label %107
 
 99:                                               ; preds = %99, %.lr.ph11.i
   %indvars.iv41.i = phi i64 [ 0, %.lr.ph11.i ], [ %indvars.iv.next42.i, %99 ]
   %100 = trunc i64 %indvars.iv41.i to i32
-  %101 = mul i32 %82, %100
+  %101 = mul i32 %66, %100
   %102 = add i32 %101, %58
   %103 = sitofp i32 %102 to float
   %104 = add nuw nsw i64 %indvars.iv41.i, %85
   %.idx56.i = mul nuw nsw i64 %104, 24
-  %105 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx56.i
+  %105 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx56.i
   %106 = tail call noundef zeroext i1 @_ZNK10lfModifier31ApplySubpixelGeometryDistortionEffiiPf(ptr noundef nonnull align 8 dereferenceable(96) %32, float noundef %84, float noundef %103, i32 noundef 1, i32 noundef 1, ptr noundef %105)
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count44.i
   br i1 %exitcond45.not.i, label %.lr.ph13.i, label %99, !llvm.loop !305
 
 .preheader3.i:                                    ; preds = %107, %.preheader5.i
-  %.not31.i = icmp eq i32 %66, 0
+  %.not31.i = icmp eq i32 %68, 0
   br i1 %.not31.i, label %._crit_edge.i, label %.preheader.i
 
 107:                                              ; preds = %107, %.lr.ph13.i
   %indvars.iv46.i = phi i64 [ 0, %.lr.ph13.i ], [ %indvars.iv.next47.i, %107 ]
   %108 = trunc i64 %indvars.iv46.i to i32
-  %109 = mul i32 %82, %108
+  %109 = mul i32 %66, %108
   %110 = add i32 %109, %58
   %111 = sitofp i32 %110 to float
   %112 = add nuw nsw i64 %indvars.iv46.i, %98
   %.idx57.i = mul nuw nsw i64 %112, 24
-  %113 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx57.i
+  %113 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx57.i
   %114 = tail call noundef zeroext i1 @_ZNK10lfModifier31ApplySubpixelGeometryDistortionEffiiPf(ptr noundef nonnull align 8 dereferenceable(96) %32, float noundef %96, float noundef %111, i32 noundef 1, i32 noundef 1, ptr noundef %113)
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count44.i
@@ -3514,7 +3514,7 @@ _ZL13_get_modifierPiiiPK18dt_iop_lens_data_tii.exit.i: ; preds = %17
   %.020020.i = phi float [ %187, %170 ], [ 0x47EFFFFFE0000000, %.preheader3.i ]
   %.020319.i = phi float [ %190, %170 ], [ 0xC7EFFFFFE0000000, %.preheader3.i ]
   %.idx.i = mul nuw nsw i64 %.019521.i, 24
-  %115 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx.i
+  %115 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i
   br label %172
 
 ._crit_edge.i:                                    ; preds = %170, %.preheader3.i
@@ -3522,7 +3522,7 @@ _ZL13_get_modifierPiiiPK18dt_iop_lens_data_tii.exit.i: ; preds = %17
   %.0200.lcssa.i = phi float [ 0x47EFFFFFE0000000, %.preheader3.i ], [ %187, %170 ]
   %.0191.lcssa.i = phi float [ 0xC7EFFFFFE0000000, %.preheader3.i ], [ %183, %170 ]
   %.0.lcssa.i = phi float [ 0x47EFFFFFE0000000, %.preheader3.i ], [ %180, %170 ]
-  tail call void @free(ptr noundef %70) #30
+  tail call void @free(ptr noundef %72) #30
   %or.cond.i = tail call i1 @llvm.is.fpclass.f32(float %.0.lcssa.i, i32 480)
   %116 = fcmp reassoc nsz arcp contract afn olt float %.0.lcssa.i, %23
   %or.cond227.i = select i1 %or.cond.i, i1 %116, i1 false
@@ -3603,7 +3603,7 @@ _ZL13_get_modifierPiiiPK18dt_iop_lens_data_tii.exit.i: ; preds = %17
 
 170:                                              ; preds = %172
   %171 = add nuw nsw i64 %.019521.i, 1
-  %exitcond51.not.i = icmp eq i64 %171, %68
+  %exitcond51.not.i = icmp eq i64 %171, %70
   br i1 %exitcond51.not.i, label %._crit_edge.i, label %.preheader.i, !llvm.loop !310
 
 172:                                              ; preds = %172, %.preheader.i
@@ -5610,8 +5610,8 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit432.us489.i.i: ; preds = %._crit_edg
   br i1 %737, label %.lr.ph.i73.i, label %_ZL21_check_corrections_mdP18dt_iop_lens_data_t.exit.i
 
 .lr.ph.i73.i:                                     ; preds = %733
-  %738 = getelementptr inbounds nuw i8, ptr %174, i64 236
-  %739 = getelementptr inbounds nuw i8, ptr %174, i64 428
+  %738 = getelementptr inbounds nuw i8, ptr %174, i64 428
+  %739 = getelementptr inbounds nuw i8, ptr %174, i64 236
   %740 = getelementptr inbounds nuw i8, ptr %174, i64 300
   %741 = getelementptr inbounds nuw i8, ptr %174, i64 364
   %wide.trip.count.i74.i = zext nneg i32 %736 to i64
@@ -5628,13 +5628,13 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit432.us489.i.i: ; preds = %._crit_edg
   %.03145.i.i = phi i32 [ 0, %.lr.ph.i73.i ], [ %.1.i.i, %767 ]
   %.03244.i.i = phi i32 [ 0, %.lr.ph.i73.i ], [ %spec.select40.i.i, %767 ]
   %.03443.i.i = phi i32 [ 0, %.lr.ph.i73.i ], [ %spec.select.i.i, %767 ]
-  %invariant.gep.i75.i = getelementptr inbounds nuw float, ptr %738, i64 %indvars.iv50.i.i
+  %746 = getelementptr inbounds nuw float, ptr %738, i64 %indvars.iv50.i.i
+  %747 = load float, ptr %746, align 4, !tbaa !52
+  %invariant.gep.i75.i = getelementptr inbounds nuw float, ptr %739, i64 %indvars.iv50.i.i
   br label %756
 
-746:                                              ; preds = %756
-  %747 = getelementptr inbounds nuw float, ptr %739, i64 %indvars.iv50.i.i
-  %748 = load float, ptr %747, align 4, !tbaa !52
-  %749 = fadd reassoc nsz arcp contract afn float %748, -1.000000e+00
+748:                                              ; preds = %756
+  %749 = fadd reassoc nsz arcp contract afn float %747, -1.000000e+00
   %750 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %749)
   %751 = fcmp reassoc nsz arcp contract afn uge float %750, 0x3E7AD7F2A0000000
   %spec.select.i.i = select i1 %751, i32 1, i32 %.03443.i.i
@@ -5655,9 +5655,9 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit432.us489.i.i: ; preds = %._crit_edg
   %spec.select40.i.i = select i1 %760, i32 1, i32 %.13341.i.i
   %indvars.iv.next.i78.i = add nuw nsw i64 %indvars.iv.i76.i, 1
   %exitcond.not.i79.i = icmp eq i64 %indvars.iv.next.i78.i, 3
-  br i1 %exitcond.not.i79.i, label %746, label %756, !llvm.loop !403
+  br i1 %exitcond.not.i79.i, label %748, label %756, !llvm.loop !403
 
-761:                                              ; preds = %746
+761:                                              ; preds = %748
   %762 = getelementptr inbounds nuw float, ptr %741, i64 %indvars.iv50.i.i
   %763 = load float, ptr %762, align 4, !tbaa !52
   %764 = fcmp reassoc nsz arcp contract afn une float %752, %763
@@ -5665,7 +5665,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit432.us489.i.i: ; preds = %._crit_edg
   %or.cond.i80.i = or i1 %764, %765
   br i1 %or.cond.i80.i, label %766, label %767
 
-766:                                              ; preds = %761, %746
+766:                                              ; preds = %761, %748
   br label %767
 
 767:                                              ; preds = %766, %761

@@ -2409,7 +2409,7 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit.i: ; preds = %147, %145, %142
 ._crit_edge294.i:                                 ; preds = %._crit_edge294.loopexit.i, %_ZN9benchmark8internal18GetNullLogInstanceEv.exit.i
   %.0226.lcssa.i = phi i64 [ 1, %_ZN9benchmark8internal18GetNullLogInstanceEv.exit.i ], [ %154, %._crit_edge294.loopexit.i ]
   %.0.lcssa.i = phi i64 [ 10, %_ZN9benchmark8internal18GetNullLogInstanceEv.exit.i ], [ %.sroa.speculated212.i, %._crit_edge294.loopexit.i ]
-  %.0.in.lcssa.i = phi i1 [ %149, %_ZN9benchmark8internal18GetNullLogInstanceEv.exit.i ], [ %180, %._crit_edge294.loopexit.i ]
+  %.0.in.lcssa.i = phi i1 [ %149, %_ZN9benchmark8internal18GetNullLogInstanceEv.exit.i ], [ %175, %._crit_edge294.loopexit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN9benchmark17BenchmarkReporter7ContextC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %.noexc70 unwind label %.loopexit.split-lp
@@ -2436,7 +2436,7 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit.i: ; preds = %147, %145, %142
           to label %185 unwind label %234
 
 165:                                              ; preds = %._crit_edge.i, %.lr.ph293.i
-  %.0.in292.i = phi i1 [ %149, %.lr.ph293.i ], [ %180, %._crit_edge.i ]
+  %.0.in292.i = phi i1 [ %149, %.lr.ph293.i ], [ %175, %._crit_edge.i ]
   %.0291.i = phi i64 [ 10, %.lr.ph293.i ], [ %.sroa.speculated212.i, %._crit_edge.i ]
   %.0226290.i = phi i64 [ 0, %.lr.ph293.i ], [ %.1227.lcssa.i, %._crit_edge.i ]
   %.sroa.0216.0289.i = phi ptr [ %150, %.lr.ph293.i ], [ %181, %._crit_edge.i ]
@@ -2464,32 +2464,32 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %172 = getelementptr inbounds nuw i8, ptr %.sroa.0216.0289.i, i64 360
-  %173 = load ptr, ptr %172, align 8, !tbaa !168
-  %174 = load ptr, ptr %173, align 8, !tbaa !177
-  %175 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %176 = load ptr, ptr %175, align 8, !tbaa !177
-  %.not256285.i = icmp eq ptr %174, %176
+  %172 = getelementptr inbounds nuw i8, ptr %.sroa.0216.0289.i, i64 368
+  %173 = load i32, ptr %172, align 8, !tbaa !168
+  %174 = icmp sgt i32 %173, 1
+  %175 = or i1 %.0.in292.i, %174
+  %176 = getelementptr inbounds nuw i8, ptr %.sroa.0216.0289.i, i64 360
+  %177 = load ptr, ptr %176, align 8, !tbaa !177
+  %178 = load ptr, ptr %177, align 8, !tbaa !178
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %180 = load ptr, ptr %179, align 8, !tbaa !178
+  %.not256285.i = icmp eq ptr %178, %180
   br i1 %.not256285.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   %.1227.lcssa.i = phi i64 [ %.0226290.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.sroa.speculated.i, %.lr.ph.i ]
-  %177 = getelementptr inbounds nuw i8, ptr %.sroa.0216.0289.i, i64 368
-  %178 = load i32, ptr %177, align 8, !tbaa !179
-  %179 = icmp sgt i32 %178, 1
-  %180 = or i1 %.0.in292.i, %179
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.0216.0289.i, i64 424
   %.not249.i = icmp eq ptr %181, %151
   br i1 %.not249.i, label %._crit_edge294.loopexit.i, label %165
 
 .lr.ph.i:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.lr.ph.i
   %.1227287.i = phi i64 [ %.sroa.speculated.i, %.lr.ph.i ], [ %.0226290.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  %.sroa.0208.0286.i = phi ptr [ %184, %.lr.ph.i ], [ %174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
+  %.sroa.0208.0286.i = phi ptr [ %184, %.lr.ph.i ], [ %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   %182 = getelementptr inbounds nuw i8, ptr %.sroa.0208.0286.i, i64 8
   %183 = load i64, ptr %182, align 8, !tbaa !51
   %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %.1227287.i, i64 %183)
   %184 = getelementptr inbounds nuw i8, ptr %.sroa.0208.0286.i, i64 48
-  %.not256.i = icmp eq ptr %184, %176
+  %.not256.i = icmp eq ptr %184, %180
   br i1 %.not256.i, label %._crit_edge.i, label %.lr.ph.i
 
 185:                                              ; preds = %.noexc70
@@ -12187,7 +12187,7 @@ attributes #39 = { cold nounwind }
 !165 = !{!"_ZTSN9benchmark17BenchmarkReporter7ContextE", !166, i64 0, !167, i64 8, !12, i64 16}
 !166 = !{!"p1 _ZTSN9benchmark7CPUInfoE", !11, i64 0}
 !167 = !{!"p1 _ZTSN9benchmark10SystemInfoE", !11, i64 0}
-!168 = !{!169, !176, i64 360}
+!168 = !{!169, !31, i64 368}
 !169 = !{!"_ZTSN9benchmark8internal17BenchmarkInstanceE", !170, i64 0, !171, i64 256, !31, i64 264, !31, i64 268, !172, i64 272, !173, i64 280, !174, i64 288, !16, i64 292, !16, i64 293, !16, i64 294, !175, i64 296, !11, i64 304, !23, i64 312, !176, i64 360, !31, i64 368, !73, i64 376, !73, i64 384, !12, i64 392, !31, i64 400, !11, i64 408, !11, i64 416}
 !170 = !{!"_ZTSN9benchmark13BenchmarkNameE", !28, i64 0, !28, i64 32, !28, i64 64, !28, i64 96, !28, i64 128, !28, i64 160, !28, i64 192, !28, i64 224}
 !171 = !{!"p1 _ZTSN9benchmark8internal9BenchmarkE", !11, i64 0}
@@ -12196,9 +12196,9 @@ attributes #39 = { cold nounwind }
 !174 = !{!"_ZTSN9benchmark8TimeUnitE", !8, i64 0}
 !175 = !{!"_ZTSN9benchmark4BigOE", !8, i64 0}
 !176 = !{!"p1 _ZTSSt6vectorIN9benchmark8internal10StatisticsESaIS2_EE", !11, i64 0}
-!177 = !{!178, !178, i64 0}
-!178 = !{!"p1 _ZTSN9benchmark8internal10StatisticsE", !11, i64 0}
-!179 = !{!169, !31, i64 368}
+!177 = !{!169, !176, i64 360}
+!178 = !{!179, !179, i64 0}
+!179 = !{!"p1 _ZTSN9benchmark8internal10StatisticsE", !11, i64 0}
 !180 = !{!181, !162, i64 8}
 !181 = !{!"_ZTSNSt12_Vector_baseIN9benchmark8internal17BenchmarkInstanceESaIS2_EE17_Vector_impl_dataE", !162, i64 0, !162, i64 8, !162, i64 16}
 !182 = !{!181, !162, i64 0}

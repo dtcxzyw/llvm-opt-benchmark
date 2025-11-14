@@ -85,16 +85,16 @@ define void @_ZN3g2o18ParameterSE2OffsetC2Ev(ptr noundef nonnull align 16 derefe
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %3, align 16, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store <2 x double> <double -0.000000e+00, double 1.000000e+00>, ptr %4, align 8, !tbaa !6
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store double 0.000000e+00, ptr %5, align 16, !tbaa !8
-  store i64 0, ptr %6, align 8
-  store double 1.000000e+00, ptr %7, align 16, !tbaa !8
+  store double 0.000000e+00, ptr %10, align 16, !tbaa !8
+  store i64 0, ptr %9, align 8
+  store double 1.000000e+00, ptr %8, align 16, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store <2 x double> zeroinitializer, ptr %12, align 16, !tbaa !6
   %13 = load <2 x double>, ptr %3, align 16
@@ -113,13 +113,13 @@ define void @_ZN3g2o18ParameterSE2OffsetC2Ev(ptr noundef nonnull align 16 derefe
   %24 = fmul <2 x double> %.sroa.8.32.vec.insert.i, %23
   %25 = fsub <2 x double> %20, %24
   store <2 x double> %.sroa.0.8.vec.insert.i, ptr %11, align 8
-  store double 0.000000e+00, ptr %8, align 8
+  store double 0.000000e+00, ptr %7, align 8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 144
   store <2 x double> %.sroa.8.32.vec.insert.i, ptr %.sroa.8.0..sroa_idx.i, align 16
-  store double 0.000000e+00, ptr %9, align 16
+  store double 0.000000e+00, ptr %6, align 16
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   store <2 x double> %25, ptr %.sroa.13.0..sroa_idx.i, align 8
-  store double 1.000000e+00, ptr %10, align 8, !tbaa !6
+  store double 1.000000e+00, ptr %5, align 8, !tbaa !6
   ret void
 }
 
@@ -472,10 +472,10 @@ _ZN5Eigen9TransformIdLi2ELi1ELi0EEaSINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEERS1_RKN
   %.sroa.5128.16.vec.insert = insertelement <2 x double> poison, double %28, i64 0
   %.sroa.5128.24.vec.insert = insertelement <2 x double> %.sroa.5128.16.vec.insert, double %27, i64 1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %30 = extractelement <2 x double> %18, i64 0
   store <2 x double> %.sroa.0126.8.vec.insert, ptr %29, align 16, !tbaa !6
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store <2 x double> %.sroa.5128.24.vec.insert, ptr %30, align 8, !tbaa !6
-  %31 = extractelement <2 x double> %18, i64 0
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  store <2 x double> %.sroa.5128.24.vec.insert, ptr %31, align 8, !tbaa !6
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store double 0.000000e+00, ptr %32, align 16, !tbaa !8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -496,7 +496,7 @@ _ZN5Eigen9TransformIdLi2ELi1ELi0EEaSINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEERS1_RKN
   %.sroa.0.8.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i, double %39, i64 1
   %.sroa.5.16.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %41, i64 0
   %.sroa.5.24.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i.i, double %40, i64 1
-  %42 = fneg double %31
+  %42 = fneg double %30
   %43 = insertelement <2 x double> poison, double %42, i64 0
   %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
   %45 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i.i, %44

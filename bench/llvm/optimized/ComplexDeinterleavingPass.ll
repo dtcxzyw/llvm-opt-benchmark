@@ -14708,20 +14708,20 @@ _ZN12_GLOBAL__N_126ComplexDeinterleavingGraph18collectPartialMulsERKSt6vectorINS
   %223 = and i64 %222, 2305843009213693944
   %224 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %223) #28
   %225 = lshr i64 %221, 6
+  %226 = getelementptr inbounds nuw i64, ptr %224, i64 %225
   %.idx.i = shl nuw nsw i64 %225, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %224, i8 0, i64 %.idx.i, i1 false)
-  %226 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %227 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %274
 
 ._crit_edge615.loopexit:                          ; preds = %.loopexit
-  %228 = getelementptr inbounds nuw i64, ptr %224, i64 %225
   %.val104.pre = load ptr, ptr %2, align 8, !tbaa !457
   %.val105.pre = load ptr, ptr %13, align 8, !tbaa !526
   br label %._crit_edge615
 
 ._crit_edge615:                                   ; preds = %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph18collectPartialMulsERKSt6vectorINS0_7ProductESaIS2_EES6_RS1_INS0_19PartialMulCandidateESaIS7_EE.exit.thread, %._crit_edge615.loopexit
-  %.sroa.19468.0688 = phi ptr [ %228, %._crit_edge615.loopexit ], [ null, %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph18collectPartialMulsERKSt6vectorINS0_7ProductESaIS2_EES6_RS1_INS0_19PartialMulCandidateESaIS7_EE.exit.thread ]
+  %.sroa.19468.0688 = phi ptr [ %226, %._crit_edge615.loopexit ], [ null, %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph18collectPartialMulsERKSt6vectorINS0_7ProductESaIS2_EES6_RS1_INS0_19PartialMulCandidateESaIS7_EE.exit.thread ]
   %.sroa.0461.0687 = phi ptr [ %224, %._crit_edge615.loopexit ], [ null, %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph18collectPartialMulsERKSt6vectorINS0_7ProductESaIS2_EES6_RS1_INS0_19PartialMulCandidateESaIS7_EE.exit.thread ]
   %.val105 = phi ptr [ %.val105.pre, %._crit_edge615.loopexit ], [ %.val105647, %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph18collectPartialMulsERKSt6vectorINS0_7ProductESaIS2_EES6_RS1_INS0_19PartialMulCandidateESaIS7_EE.exit.thread ]
   %.val104 = phi ptr [ %.val104.pre, %._crit_edge615.loopexit ], [ %.val104645, %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph18collectPartialMulsERKSt6vectorINS0_7ProductESaIS2_EES6_RS1_INS0_19PartialMulCandidateESaIS7_EE.exit.thread ]
@@ -14873,11 +14873,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.
   %299 = load ptr, ptr %283, align 8, !tbaa !537
   call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef %298, ptr noundef %299)
   %300 = load ptr, ptr %10, align 8, !tbaa !198
-  %301 = load ptr, ptr %226, align 8, !tbaa !204
+  %301 = load ptr, ptr %227, align 8, !tbaa !204
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store ptr %300, ptr %9, align 8, !tbaa !205
-  %302 = load ptr, ptr %227, align 8, !tbaa !204
-  store ptr %301, ptr %227, align 8, !tbaa !204
+  %302 = load ptr, ptr %228, align 8, !tbaa !204
+  store ptr %301, ptr %228, align 8, !tbaa !204
   %.not.i.i.i.i144 = icmp eq ptr %302, null
   br i1 %.not.i.i.i.i144, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSEOS2_.exit, label %303
 
@@ -14926,7 +14926,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %320, %
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSEOS2_.exitthread-pre-split
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSEOS2_.exitthread-pre-split: ; preds = %323, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %308
-  %.val87.pr = load ptr, ptr %226, align 8, !tbaa !204
+  %.val87.pr = load ptr, ptr %227, align 8, !tbaa !204
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSEOS2_.exit
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSEOS2_.exit: ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSEOS2_.exitthread-pre-split, %297
@@ -14989,7 +14989,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %341, %339
   %.0506519 = phi ptr [ %283, %345 ], [ %294, %293 ]
   %346 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIPN4llvm5ValueESt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEESt4lessIS2_ESaISt4pairIKS2_S6_EEEixERSA_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(8) %.0505520)
   %.val98 = load ptr, ptr %9, align 8, !tbaa !198
-  %.val99 = load ptr, ptr %227, align 8, !tbaa !204
+  %.val99 = load ptr, ptr %228, align 8, !tbaa !204
   store ptr %.val98, ptr %346, align 8, !tbaa !198
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 8
   %348 = load ptr, ptr %347, align 8, !tbaa !204
@@ -15073,7 +15073,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i:
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSERKS2_.exit: ; preds = %.thread, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
   %380 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIPN4llvm5ValueESt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEESt4lessIS2_ESaISt4pairIKS2_S6_EEEixERSA_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(8) %.0506519)
   %.val96 = load ptr, ptr %9, align 8, !tbaa !198
-  %.val97 = load ptr, ptr %227, align 8, !tbaa !204
+  %.val97 = load ptr, ptr %228, align 8, !tbaa !204
   store ptr %.val96, ptr %380, align 8, !tbaa !198
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 8
   %382 = load ptr, ptr %381, align 8, !tbaa !204
@@ -15164,7 +15164,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSERKS2_.
   br label %418
 
 418:                                              ; preds = %345, %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSERKS2_.exit159
-  %.val86 = load ptr, ptr %227, align 8, !tbaa !204
+  %.val86 = load ptr, ptr %228, align 8, !tbaa !204
   %.not.i.i168 = icmp eq ptr %.val86, null
   br i1 %.not.i.i168, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172, label %419
 

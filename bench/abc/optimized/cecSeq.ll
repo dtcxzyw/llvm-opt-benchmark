@@ -212,9 +212,9 @@ define void @Cec_ManSeqDeriveInfoFromCex(ptr noundef readonly captures(none) %0,
 .lr.ph67.split:                                   ; preds = %.lr.ph67.split.preheader, %.lr.ph67.split
   %indvars.iv86 = phi i64 [ %41, %.lr.ph67.split.preheader ], [ %indvars.iv.next87, %.lr.ph67.split ]
   %.04365 = phi i32 [ %35, %.lr.ph67.split.preheader ], [ %87, %.lr.ph67.split ]
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %74 = getelementptr inbounds nuw ptr, ptr %.val47.pre, i64 %indvars.iv86
   %75 = load ptr, ptr %74, align 8, !tbaa !9
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %76 = load i32, ptr %75, align 4, !tbaa !14
   %77 = ashr i32 %.04365, 5
   %78 = sext i32 %77 to i64
@@ -571,6 +571,7 @@ define range(i32 0, 2) i32 @Cec_ManSeqResimulate(ptr noundef %0, ptr noundef rea
   %67 = phi i32 [ %56, %.lr.ph91.split.preheader ], [ %79, %._crit_edge86 ]
   %indvars.iv131 = phi i64 [ 0, %.lr.ph91.split.preheader ], [ %indvars.iv.next132, %._crit_edge86 ]
   %indvars.iv129 = phi i64 [ %58, %.lr.ph91.split.preheader ], [ %indvars.iv.next130, %._crit_edge86 ]
+  %indvars.iv.next130 = add nsw i64 %indvars.iv129, 1
   %68 = getelementptr inbounds ptr, ptr %.val60, i64 %indvars.iv129
   %69 = load ptr, ptr %68, align 8, !tbaa !9
   %70 = getelementptr inbounds nuw ptr, ptr %.val59, i64 %indvars.iv131
@@ -599,7 +600,6 @@ define range(i32 0, 2) i32 @Cec_ManSeqResimulate(ptr noundef %0, ptr noundef rea
   %.val70.val = phi i32 [ %.val70.val.pre, %._crit_edge86.loopexit ], [ %.val70.val143, %.lr.ph91.split ]
   %.val69 = phi i32 [ %.val69.pre, %._crit_edge86.loopexit ], [ %.val69141, %.lr.ph91.split ]
   %79 = phi i32 [ %76, %._crit_edge86.loopexit ], [ %67, %.lr.ph91.split ]
-  %indvars.iv.next130 = add nsw i64 %indvars.iv129, 1
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %80 = sub nsw i32 %.val70.val, %.val69
   %81 = sext i32 %80 to i64

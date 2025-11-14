@@ -540,20 +540,20 @@ decode_frame_header.exit:                         ; preds = %144, %141
   %.0102122.i = phi i32 [ %191, %.lr.ph.i ], [ %.3.i, %260 ]
   %238 = getelementptr inbounds nuw %struct.SliceContext, ptr %222, i64 %indvars.iv.i
   store ptr %.095125.i, ptr %238, align 8, !tbaa !62
-  %239 = sub i32 %234, %.099123.i
-  br label %240
+  %239 = shl nuw nsw i64 %indvars.iv.i, 1
+  %240 = getelementptr inbounds nuw i8, ptr %230, i64 %239
+  %241 = load i16, ptr %240, align 1, !tbaa !39
+  %242 = sub i32 %234, %.099123.i
+  br label %243
 
-240:                                              ; preds = %240, %237
-  %.1103.i = phi i32 [ %.0102122.i, %237 ], [ %242, %240 ]
-  %241 = icmp ult i32 %239, %.1103.i
-  %242 = lshr i32 %.1103.i, 1
-  br i1 %241, label %240, label %243, !llvm.loop !64
+243:                                              ; preds = %243, %237
+  %.1103.i = phi i32 [ %.0102122.i, %237 ], [ %245, %243 ]
+  %244 = icmp ult i32 %242, %.1103.i
+  %245 = lshr i32 %.1103.i, 1
+  br i1 %244, label %243, label %246, !llvm.loop !64
 
-243:                                              ; preds = %240
-  %244 = shl nuw nsw i64 %indvars.iv.i, 1
-  %245 = getelementptr inbounds nuw i8, ptr %230, i64 %244
-  %246 = load i16, ptr %245, align 1, !tbaa !39
-  %247 = tail call i16 @llvm.bswap.i16(i16 %246)
+246:                                              ; preds = %243
+  %247 = tail call i16 @llvm.bswap.i16(i16 %241)
   %248 = zext i16 %247 to i64
   %249 = getelementptr inbounds nuw i8, ptr %.095125.i, i64 %248
   %250 = getelementptr inbounds nuw i8, ptr %238, i64 8
@@ -568,11 +568,11 @@ decode_frame_header.exit:                         ; preds = %144, %141
   %255 = icmp ult i16 %247, 6
   br i1 %255, label %256, label %257
 
-256:                                              ; preds = %243
+256:                                              ; preds = %246
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.17) #10
   br label %decode_picture_header.exit.thread
 
-257:                                              ; preds = %243
+257:                                              ; preds = %246
   %258 = icmp ugt ptr %249, %236
   br i1 %258, label %259, label %260
 

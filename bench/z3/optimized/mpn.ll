@@ -1915,9 +1915,9 @@ _ZNK11mpn_manager5div_1ER7sbufferIjLj16EEjPj.exit: ; preds = %132, %95
   br i1 %.not31.i, label %_ZNK11mpn_manager15div_unnormalizeER7sbufferIjLj16EES2_jPj.exit, label %.lr.ph30.i
 
 .lr.ph30.i:                                       ; preds = %.preheader.i
-  %142 = zext i32 %136 to i64
-  %143 = load ptr, ptr %7, align 8, !tbaa !16
-  %144 = getelementptr i32, ptr %143, i64 %142
+  %142 = load ptr, ptr %7, align 8, !tbaa !16
+  %143 = zext i32 %136 to i64
+  %144 = getelementptr i32, ptr %142, i64 %143
   %145 = getelementptr i8, ptr %144, i64 -4
   %146 = load i32, ptr %145, align 4, !tbaa !3
   br label %_ZNK11mpn_manager15div_unnormalizeER7sbufferIjLj16EES2_jPj.exit

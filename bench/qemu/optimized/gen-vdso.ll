@@ -265,35 +265,35 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %113
 
 113:                                              ; preds = %73, %72
-  %114 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  %115 = load i16, ptr %114, align 4, !tbaa !27
-  %116 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %117 = load i32, ptr %116, align 4, !tbaa !21
+  %114 = getelementptr inbounds nuw i8, ptr %35, i64 44
+  %115 = load i16, ptr %114, align 4, !tbaa !25
+  %116 = getelementptr inbounds nuw i8, ptr %35, i64 28
+  %117 = load i32, ptr %116, align 4, !tbaa !20
   %118 = zext i32 %117 to i64
   %119 = getelementptr inbounds nuw i8, ptr %35, i64 %118
-  %.not203.i = icmp eq i16 %115, 0
+  %120 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  %121 = load i16, ptr %120, align 4, !tbaa !27
+  %122 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %123 = load i32, ptr %122, align 4, !tbaa !21
+  %124 = zext i32 %123 to i64
+  %125 = getelementptr inbounds nuw i8, ptr %35, i64 %124
+  %.not203.i = icmp eq i16 %121, 0
   br i1 %.not203.i, label %.preheader175.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %113
-  %wide.trip.count.i = zext i16 %115 to i64
+  %wide.trip.count.i = zext i16 %121 to i64
   br label %.lr.ph.i
 
 .preheader175.i:                                  ; preds = %137, %113
   %.0149.lcssa.i = phi i32 [ 0, %113 ], [ %.1150.i, %137 ]
   %.0135.lcssa.i = phi i32 [ 0, %113 ], [ %.1136.i, %137 ]
-  %120 = getelementptr inbounds nuw i8, ptr %35, i64 44
-  %121 = load i16, ptr %120, align 4, !tbaa !25
-  %122 = getelementptr inbounds nuw i8, ptr %35, i64 28
-  %123 = load i32, ptr %122, align 4, !tbaa !20
-  %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw i8, ptr %35, i64 %124
-  %.not204.i = icmp eq i16 %121, 0
+  %.not204.i = icmp eq i16 %115, 0
   br i1 %.not204.i, label %.preheader.i, label %.lr.ph183.i
 
 .lr.ph183.i:                                      ; preds = %.preheader175.i
   %126 = trunc i64 %33 to i32
   %127 = and i64 %33, 4294967295
-  %128 = zext i16 %121 to i64
+  %128 = zext i16 %115 to i64
   %129 = shl nuw nsw i64 %128, 5
   br label %138
 
@@ -301,7 +301,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %137 ]
   %.0135178.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1136.i, %137 ]
   %.0149176.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1150.i, %137 ]
-  %130 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %119, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %125, i64 %indvars.iv.i
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
   %132 = load i32, ptr %131, align 4, !tbaa !29
   switch i32 %132, label %137 [
@@ -328,7 +328,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %indvars.iv210.i = phi i64 [ 0, %.lr.ph183.i ], [ %indvars.iv.next211.i, %194 ]
   %.0144181.i = phi i32 [ 0, %.lr.ph183.i ], [ %.1145.i, %194 ]
   %.0147180.i = phi i32 [ 0, %.lr.ph183.i ], [ %.1148.i, %194 ]
-  %139 = getelementptr inbounds nuw %struct.Elf32_Phdr, ptr %125, i64 %indvars.iv210.i
+  %139 = getelementptr inbounds nuw %struct.Elf32_Phdr, ptr %119, i64 %indvars.iv210.i
   %140 = load i32, ptr %139, align 4, !tbaa !33
   %.not161.i = icmp eq i32 %140, 1
   br i1 %.not161.i, label %141, label %194
@@ -402,7 +402,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.6.i = phi i32 [ %176, %173 ], [ %.5.i, %169 ]
   store i32 %126, ptr %161, align 4, !tbaa !37
   store i32 %126, ptr %163, align 4, !tbaa !38
-  %178 = load i32, ptr %122, align 4, !tbaa !20
+  %178 = load i32, ptr %116, align 4, !tbaa !20
   %179 = zext i32 %178 to i64
   %180 = add nuw nsw i64 %129, %179
   %181 = icmp samesign ult i64 %127, %180
@@ -442,8 +442,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not.i, label %.preheader173.i, label %219
 
 .preheader173.i:                                  ; preds = %._crit_edge.i
-  %197 = add nuw nsw i64 %124, 8
-  %198 = add nuw nsw i64 %124, 12
+  %197 = add nuw nsw i64 %118, 8
+  %198 = add nuw nsw i64 %118, 12
   br label %221
 
 .lr.ph190.i:                                      ; preds = %194, %218
@@ -451,7 +451,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.0131189.i = phi i32 [ %.2.i, %218 ], [ 0, %194 ]
   %.0132188.i = phi i32 [ %.2134.i, %218 ], [ 0, %194 ]
   %.8186.i = phi i32 [ %.9.i, %218 ], [ %.1145.i, %194 ]
-  %199 = getelementptr inbounds nuw %struct.Elf32_Phdr, ptr %125, i64 %indvars.iv215.i
+  %199 = getelementptr inbounds nuw %struct.Elf32_Phdr, ptr %119, i64 %indvars.iv215.i
   %200 = load i32, ptr %199, align 4, !tbaa !33
   switch i32 %200, label %218 [
     i32 6, label %207
@@ -505,8 +505,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not203.i, label %._crit_edge198.i, label %.lr.ph197.i
 
 .lr.ph197.i:                                      ; preds = %.preheader.i
-  %220 = add nuw nsw i64 %118, 12
-  %wide.trip.count228.i = zext i16 %115 to i64
+  %220 = add nuw nsw i64 %124, 12
+  %wide.trip.count228.i = zext i16 %121 to i64
   br label %226
 
 221:                                              ; preds = %221, %.preheader173.i
@@ -654,7 +654,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 271:                                              ; preds = %270
   %272 = zext nneg i32 %.0149.lcssa.i to i64
-  %273 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %119, i64 %272
+  %273 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %125, i64 %272
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 20
   %275 = load i32, ptr %274, align 4, !tbaa !45
   %.not208.i = icmp ult i32 %275, 16
@@ -679,7 +679,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %exitcond234.not.i, label %._crit_edge202.i, label %281, !llvm.loop !47
 
 ._crit_edge202.i:                                 ; preds = %281, %271
-  tail call fastcc void @elf32_search_symtab(ptr noundef %119, i32 noundef %.0149.lcssa.i, ptr noundef nonnull %35, i1 noundef zeroext %.073)
+  tail call fastcc void @elf32_search_symtab(ptr noundef %125, i32 noundef %.0149.lcssa.i, ptr noundef nonnull %35, i1 noundef zeroext %.073)
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %._crit_edge202.i, %270
@@ -687,7 +687,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not160.i, label %285, label %284
 
 284:                                              ; preds = %.critedge.i
-  tail call fastcc void @elf32_search_symtab(ptr noundef %119, i32 noundef %.0135.lcssa.i, ptr noundef nonnull %35, i1 noundef zeroext %.073)
+  tail call fastcc void @elf32_search_symtab(ptr noundef %125, i32 noundef %.0135.lcssa.i, ptr noundef nonnull %35, i1 noundef zeroext %.073)
   br label %285
 
 285:                                              ; preds = %284, %.critedge.i
@@ -711,12 +711,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %297 = load i32, ptr %296, align 4, !tbaa !19
   %298 = tail call i32 @llvm.bswap.i32(i32 %297)
   store i32 %298, ptr %296, align 4, !tbaa !19
-  %299 = load i32, ptr %122, align 4, !tbaa !20
+  %299 = load i32, ptr %116, align 4, !tbaa !20
   %300 = tail call i32 @llvm.bswap.i32(i32 %299)
-  store i32 %300, ptr %122, align 4, !tbaa !20
-  %301 = load i32, ptr %116, align 4, !tbaa !21
+  store i32 %300, ptr %116, align 4, !tbaa !20
+  %301 = load i32, ptr %122, align 4, !tbaa !21
   %302 = tail call i32 @llvm.bswap.i32(i32 %301)
-  store i32 %302, ptr %116, align 4, !tbaa !21
+  store i32 %302, ptr %122, align 4, !tbaa !21
   %303 = getelementptr inbounds nuw i8, ptr %35, i64 36
   %304 = load i32, ptr %303, align 4, !tbaa !22
   %305 = tail call i32 @llvm.bswap.i32(i32 %304)
@@ -729,16 +729,16 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %310 = load i16, ptr %309, align 2, !tbaa !24
   %311 = tail call i16 @llvm.bswap.i16(i16 %310)
   store i16 %311, ptr %309, align 2, !tbaa !24
-  %312 = load i16, ptr %120, align 4, !tbaa !25
+  %312 = load i16, ptr %114, align 4, !tbaa !25
   %313 = tail call i16 @llvm.bswap.i16(i16 %312)
-  store i16 %313, ptr %120, align 4, !tbaa !25
+  store i16 %313, ptr %114, align 4, !tbaa !25
   %314 = getelementptr inbounds nuw i8, ptr %35, i64 46
   %315 = load i16, ptr %314, align 2, !tbaa !26
   %316 = tail call i16 @llvm.bswap.i16(i16 %315)
   store i16 %316, ptr %314, align 2, !tbaa !26
-  %317 = load i16, ptr %114, align 4, !tbaa !27
+  %317 = load i16, ptr %120, align 4, !tbaa !27
   %318 = tail call i16 @llvm.bswap.i16(i16 %317)
-  store i16 %318, ptr %114, align 4, !tbaa !27
+  store i16 %318, ptr %120, align 4, !tbaa !27
   br label %elf32_process.exit.sink.split
 
 319:                                              ; preds = %68
@@ -801,33 +801,33 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %360
 
 360:                                              ; preds = %320, %319
-  %361 = getelementptr inbounds nuw i8, ptr %35, i64 60
-  %362 = load i16, ptr %361, align 4, !tbaa !61
-  %363 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  %364 = load i64, ptr %363, align 8, !tbaa !55
+  %361 = getelementptr inbounds nuw i8, ptr %35, i64 56
+  %362 = load i16, ptr %361, align 8, !tbaa !59
+  %363 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %364 = load i64, ptr %363, align 8, !tbaa !54
   %365 = getelementptr inbounds nuw i8, ptr %35, i64 %364
-  %.not203.i89 = icmp eq i16 %362, 0
+  %366 = getelementptr inbounds nuw i8, ptr %35, i64 60
+  %367 = load i16, ptr %366, align 4, !tbaa !61
+  %368 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %369 = load i64, ptr %368, align 8, !tbaa !55
+  %370 = getelementptr inbounds nuw i8, ptr %35, i64 %369
+  %.not203.i89 = icmp eq i16 %367, 0
   br i1 %.not203.i89, label %.preheader175.i100, label %.lr.ph.preheader.i90
 
 .lr.ph.preheader.i90:                             ; preds = %360
-  %wide.trip.count.i91 = zext i16 %362 to i64
+  %wide.trip.count.i91 = zext i16 %367 to i64
   br label %.lr.ph.i92
 
 .preheader175.i100:                               ; preds = %382, %360
   %.0149.lcssa.i101 = phi i32 [ 0, %360 ], [ %.1150.i96, %382 ]
   %.0135.lcssa.i102 = phi i32 [ 0, %360 ], [ %.1136.i97, %382 ]
-  %366 = getelementptr inbounds nuw i8, ptr %35, i64 56
-  %367 = load i16, ptr %366, align 8, !tbaa !59
-  %368 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %369 = load i64, ptr %368, align 8, !tbaa !54
-  %370 = getelementptr inbounds nuw i8, ptr %35, i64 %369
-  %.not204.i103 = icmp eq i16 %367, 0
+  %.not204.i103 = icmp eq i16 %362, 0
   br i1 %.not204.i103, label %.preheader.i137, label %.lr.ph183.i104
 
 .lr.ph183.i104:                                   ; preds = %.preheader175.i100
   %371 = trunc i64 %33 to i32
   %372 = and i64 %33, 4294967295
-  %373 = zext i16 %367 to i64
+  %373 = zext i16 %362 to i64
   %374 = mul nuw nsw i64 %373, 56
   br label %384
 
@@ -835,7 +835,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %indvars.iv.i93 = phi i64 [ 0, %.lr.ph.preheader.i90 ], [ %indvars.iv.next.i98, %382 ]
   %.0135178.i94 = phi i32 [ 0, %.lr.ph.preheader.i90 ], [ %.1136.i97, %382 ]
   %.0149176.i95 = phi i32 [ 0, %.lr.ph.preheader.i90 ], [ %.1150.i96, %382 ]
-  %375 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %365, i64 %indvars.iv.i93
+  %375 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %370, i64 %indvars.iv.i93
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 4
   %377 = load i32, ptr %376, align 4, !tbaa !63
   switch i32 %377, label %382 [
@@ -866,7 +866,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %indvars.iv210.i106 = phi i64 [ 0, %.lr.ph183.i104 ], [ %indvars.iv.next211.i112, %438 ]
   %.0144181.i107 = phi i32 [ 0, %.lr.ph183.i104 ], [ %.1145.i111, %438 ]
   %.0147180.i108 = phi i32 [ 0, %.lr.ph183.i104 ], [ %.1148.i110, %438 ]
-  %385 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %370, i64 %indvars.iv210.i106
+  %385 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %365, i64 %indvars.iv210.i106
   %386 = load i32, ptr %385, align 8, !tbaa !66
   %.not161.i109 = icmp eq i32 %386, 1
   br i1 %.not161.i109, label %387, label %438
@@ -939,7 +939,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.6.i174 = phi i32 [ %421, %418 ], [ %.5.i173, %415 ]
   store i64 %33, ptr %407, align 8, !tbaa !70
   store i64 %33, ptr %409, align 8, !tbaa !71
-  %423 = load i64, ptr %368, align 8, !tbaa !54
+  %423 = load i64, ptr %363, align 8, !tbaa !54
   %424 = add i64 %423, %374
   %425 = icmp ult i64 %372, %424
   br i1 %425, label %426, label %430
@@ -978,8 +978,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not.i130, label %.preheader173.i131, label %466
 
 .preheader173.i131:                               ; preds = %._crit_edge.i129
-  %441 = add nuw nsw i64 %369, 16
-  %442 = add nuw nsw i64 %369, 24
+  %441 = add nuw nsw i64 %364, 16
+  %442 = add nuw nsw i64 %364, 24
   br label %468
 
 443:                                              ; preds = %465, %.preheader174.i114
@@ -987,7 +987,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.0131189.i118 = phi i32 [ 0, %.preheader174.i114 ], [ %.2.i126, %465 ]
   %.0132188.i119 = phi i32 [ 0, %.preheader174.i114 ], [ %.2134.i125, %465 ]
   %.8186.i120 = phi i32 [ %.1145.i111, %.preheader174.i114 ], [ %.9.i124, %465 ]
-  %444 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %370, i64 %indvars.iv215.i117
+  %444 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %365, i64 %indvars.iv215.i117
   %445 = load i32, ptr %444, align 8, !tbaa !66
   switch i32 %445, label %465 [
     i32 6, label %454
@@ -1043,8 +1043,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not203.i89, label %._crit_edge198.i144, label %.lr.ph197.i138
 
 .lr.ph197.i138:                                   ; preds = %.preheader.i137
-  %467 = add nuw nsw i64 %364, 16
-  %wide.trip.count228.i139 = zext i16 %362 to i64
+  %467 = add nuw nsw i64 %369, 16
+  %wide.trip.count228.i139 = zext i16 %367 to i64
   br label %473
 
 468:                                              ; preds = %468, %.preheader173.i131
@@ -1189,7 +1189,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 515:                                              ; preds = %514
   %516 = zext nneg i32 %.0149.lcssa.i101 to i64
-  %517 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %365, i64 %516
+  %517 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %370, i64 %516
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 32
   %519 = load i64, ptr %518, align 8, !tbaa !78
   %520 = udiv i64 %519, 24
@@ -1213,7 +1213,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %exitcond234.not.i159, label %._crit_edge202.i160, label %525, !llvm.loop !80
 
 ._crit_edge202.i160:                              ; preds = %525, %515
-  tail call fastcc void @elf64_search_symtab(ptr noundef %365, i32 noundef %.0149.lcssa.i101, ptr noundef nonnull %35, i1 noundef zeroext %.073)
+  tail call fastcc void @elf64_search_symtab(ptr noundef %370, i32 noundef %.0149.lcssa.i101, ptr noundef nonnull %35, i1 noundef zeroext %.073)
   br label %.critedge.i161
 
 .critedge.i161:                                   ; preds = %._crit_edge202.i160, %514
@@ -1221,7 +1221,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not160.i162, label %529, label %528
 
 528:                                              ; preds = %.critedge.i161
-  tail call fastcc void @elf64_search_symtab(ptr noundef %365, i32 noundef %.0135.lcssa.i102, ptr noundef nonnull %35, i1 noundef zeroext %.073)
+  tail call fastcc void @elf64_search_symtab(ptr noundef %370, i32 noundef %.0135.lcssa.i102, ptr noundef nonnull %35, i1 noundef zeroext %.073)
   br label %529
 
 529:                                              ; preds = %528, %.critedge.i161
@@ -1245,12 +1245,12 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %541 = load i64, ptr %540, align 8, !tbaa !53
   %542 = tail call i64 @llvm.bswap.i64(i64 %541)
   store i64 %542, ptr %540, align 8, !tbaa !53
-  %543 = load i64, ptr %368, align 8, !tbaa !54
+  %543 = load i64, ptr %363, align 8, !tbaa !54
   %544 = tail call i64 @llvm.bswap.i64(i64 %543)
-  store i64 %544, ptr %368, align 8, !tbaa !54
-  %545 = load i64, ptr %363, align 8, !tbaa !55
+  store i64 %544, ptr %363, align 8, !tbaa !54
+  %545 = load i64, ptr %368, align 8, !tbaa !55
   %546 = tail call i64 @llvm.bswap.i64(i64 %545)
-  store i64 %546, ptr %363, align 8, !tbaa !55
+  store i64 %546, ptr %368, align 8, !tbaa !55
   %547 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %548 = load i32, ptr %547, align 8, !tbaa !56
   %549 = tail call i32 @llvm.bswap.i32(i32 %548)
@@ -1263,16 +1263,16 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %554 = load i16, ptr %553, align 2, !tbaa !58
   %555 = tail call i16 @llvm.bswap.i16(i16 %554)
   store i16 %555, ptr %553, align 2, !tbaa !58
-  %556 = load i16, ptr %366, align 8, !tbaa !59
+  %556 = load i16, ptr %361, align 8, !tbaa !59
   %557 = tail call i16 @llvm.bswap.i16(i16 %556)
-  store i16 %557, ptr %366, align 8, !tbaa !59
+  store i16 %557, ptr %361, align 8, !tbaa !59
   %558 = getelementptr inbounds nuw i8, ptr %35, i64 58
   %559 = load i16, ptr %558, align 2, !tbaa !60
   %560 = tail call i16 @llvm.bswap.i16(i16 %559)
   store i16 %560, ptr %558, align 2, !tbaa !60
-  %561 = load i16, ptr %361, align 4, !tbaa !61
+  %561 = load i16, ptr %366, align 4, !tbaa !61
   %562 = tail call i16 @llvm.bswap.i16(i16 %561)
-  store i16 %562, ptr %361, align 4, !tbaa !61
+  store i16 %562, ptr %366, align 4, !tbaa !61
   br label %elf32_process.exit.sink.split
 
 563:                                              ; preds = %68
@@ -1381,18 +1381,18 @@ define internal fastcc void @elf32_bswap_ps_hdrs(ptr noundef nonnull captures(no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 4, !tbaa !21
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %9 = load i16, ptr %8, align 4, !tbaa !25
-  %.not = icmp eq i16 %9, 0
+  %8 = zext i32 %7 to i64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %11 = load i16, ptr %10, align 4, !tbaa !25
+  %.not = icmp eq i16 %11, 0
   br i1 %.not, label %.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %wide.trip.count = zext i16 %9 to i64
+  %wide.trip.count = zext i16 %11 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %1
-  %10 = zext i32 %7 to i64
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i16, ptr %12, align 4, !tbaa !27
   %.not16 = icmp eq i16 %13, 0
@@ -1442,7 +1442,7 @@ define internal fastcc void @elf32_bswap_ps_hdrs(ptr noundef nonnull captures(no
 
 .lr.ph15:                                         ; preds = %.lr.ph15.preheader, %.lr.ph15
   %indvars.iv18 = phi i64 [ 0, %.lr.ph15.preheader ], [ %indvars.iv.next19, %.lr.ph15 ]
-  %38 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %11, i64 %indvars.iv18
+  %38 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %9, i64 %indvars.iv18
   %39 = load i32, ptr %38, align 4, !tbaa !86
   %40 = tail call i32 @llvm.bswap.i32(i32 %39)
   store i32 %40, ptr %38, align 4, !tbaa !86
@@ -1690,17 +1690,17 @@ define internal fastcc void @elf64_bswap_ps_hdrs(ptr noundef nonnull captures(no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8, !tbaa !55
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %8 = load i16, ptr %7, align 8, !tbaa !59
-  %.not = icmp eq i16 %8, 0
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %9 = load i16, ptr %8, align 8, !tbaa !59
+  %.not = icmp eq i16 %9, 0
   br i1 %.not, label %.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %wide.trip.count = zext i16 %8 to i64
+  %wide.trip.count = zext i16 %9 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %11 = load i16, ptr %10, align 4, !tbaa !61
   %.not16 = icmp eq i16 %11, 0
@@ -1750,7 +1750,7 @@ define internal fastcc void @elf64_bswap_ps_hdrs(ptr noundef nonnull captures(no
 
 .lr.ph15:                                         ; preds = %.lr.ph15.preheader, %.lr.ph15
   %indvars.iv18 = phi i64 [ 0, %.lr.ph15.preheader ], [ %indvars.iv.next19, %.lr.ph15 ]
-  %36 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %9, i64 %indvars.iv18
+  %36 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %7, i64 %indvars.iv18
   %37 = load i32, ptr %36, align 8, !tbaa !98
   %38 = tail call i32 @llvm.bswap.i32(i32 %37)
   store i32 %38, ptr %36, align 8, !tbaa !98

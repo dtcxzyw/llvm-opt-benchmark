@@ -5584,69 +5584,65 @@ define internal fastcc ptr @avifImageCopyAndPad(ptr noundef %0, i32 noundef %1, 
   %29 = tail call i32 @avifImagePlaneRowBytes(ptr noundef nonnull %4, i32 noundef %.081109) #14
   %30 = tail call i32 @avifImagePlaneWidth(ptr noundef nonnull %4, i32 noundef %.081109) #14
   %31 = tail call i32 @avifImagePlaneHeight(ptr noundef nonnull %4, i32 noundef %.081109) #14
+  %32 = zext i32 %30 to i64
+  %33 = shl i64 %32, %20
   %.not110 = icmp eq i32 %25, 0
   br i1 %.not110, label %.preheader94, label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %21
-  %32 = icmp ugt i32 %30, %24
-  %33 = add i32 %24, -1
-  %34 = zext i32 %33 to i64
-  %35 = sub i32 %30, %24
+  %34 = icmp ugt i32 %30, %24
+  %35 = add i32 %24, -1
   %36 = zext i32 %35 to i64
-  %37 = zext i32 %23 to i64
-  %38 = zext i32 %29 to i64
-  br i1 %32, label %.lr.ph100.split.us, label %.lr.ph100.split
+  %37 = sub i32 %30, %24
+  %38 = zext i32 %37 to i64
+  %39 = zext i32 %23 to i64
+  %40 = zext i32 %29 to i64
+  br i1 %34, label %.lr.ph100.split.us, label %.lr.ph100.split
 
 .lr.ph100.split.us:                               ; preds = %.lr.ph100
-  br i1 %.not93, label %.lr.ph100.split.us.split.us, label %.preheader.us.us.preheader
+  br i1 %.not93, label %.lr.ph100.split.us.split.us, label %.preheader.us.us
 
 .lr.ph100.split.us.split.us:                      ; preds = %.lr.ph100.split.us, %.lr.ph100.split.us.split.us
-  %.08099.us.us = phi i32 [ %44, %.lr.ph100.split.us.split.us ], [ 0, %.lr.ph100.split.us ]
-  %.08298.us.us = phi ptr [ %42, %.lr.ph100.split.us.split.us ], [ %22, %.lr.ph100.split.us ]
-  %.08397.us.us = phi ptr [ %43, %.lr.ph100.split.us.split.us ], [ %28, %.lr.ph100.split.us ]
+  %.08099.us.us = phi i32 [ %46, %.lr.ph100.split.us.split.us ], [ 0, %.lr.ph100.split.us ]
+  %.08298.us.us = phi ptr [ %44, %.lr.ph100.split.us.split.us ], [ %22, %.lr.ph100.split.us ]
+  %.08397.us.us = phi ptr [ %45, %.lr.ph100.split.us.split.us ], [ %28, %.lr.ph100.split.us ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.08397.us.us, ptr align 1 %.08298.us.us, i64 %27, i1 false)
-  %39 = getelementptr inbounds nuw i8, ptr %.08397.us.us, i64 %26
-  %40 = getelementptr inbounds nuw i8, ptr %.08397.us.us, i64 %34
-  %41 = load i8, ptr %40, align 1
-  tail call void @llvm.memset.p0.i64(ptr align 1 %39, i8 %41, i64 %36, i1 false)
-  %42 = getelementptr inbounds nuw i8, ptr %.08298.us.us, i64 %37
-  %43 = getelementptr inbounds nuw i8, ptr %.08397.us.us, i64 %38
-  %44 = add nuw i32 %.08099.us.us, 1
-  %exitcond121.not = icmp eq i32 %44, %25
+  %41 = getelementptr inbounds nuw i8, ptr %.08397.us.us, i64 %26
+  %42 = getelementptr inbounds nuw i8, ptr %.08397.us.us, i64 %36
+  %43 = load i8, ptr %42, align 1
+  tail call void @llvm.memset.p0.i64(ptr align 1 %41, i8 %43, i64 %38, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %.08298.us.us, i64 %39
+  %45 = getelementptr inbounds nuw i8, ptr %.08397.us.us, i64 %40
+  %46 = add nuw i32 %.08099.us.us, 1
+  %exitcond121.not = icmp eq i32 %46, %25
   br i1 %exitcond121.not, label %.preheader94, label %.lr.ph100.split.us.split.us, !llvm.loop !50
 
-.preheader.us.us.preheader:                       ; preds = %.lr.ph100.split.us
-  %wide.trip.count = zext i32 %30 to i64
-  br label %.preheader.us.us
-
-.preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %..loopexit_crit_edge.us.us
-  %.08099.us.us102 = phi i32 [ %50, %..loopexit_crit_edge.us.us ], [ 0, %.preheader.us.us.preheader ]
-  %.08298.us.us103 = phi ptr [ %48, %..loopexit_crit_edge.us.us ], [ %22, %.preheader.us.us.preheader ]
-  %.08397.us.us104 = phi ptr [ %49, %..loopexit_crit_edge.us.us ], [ %28, %.preheader.us.us.preheader ]
+.preheader.us.us:                                 ; preds = %.lr.ph100.split.us, %..loopexit_crit_edge.us.us
+  %.08099.us.us102 = phi i32 [ %52, %..loopexit_crit_edge.us.us ], [ 0, %.lr.ph100.split.us ]
+  %.08298.us.us103 = phi ptr [ %50, %..loopexit_crit_edge.us.us ], [ %22, %.lr.ph100.split.us ]
+  %.08397.us.us104 = phi ptr [ %51, %..loopexit_crit_edge.us.us ], [ %28, %.lr.ph100.split.us ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.08397.us.us104, ptr align 1 %.08298.us.us103, i64 %27, i1 false)
-  %45 = getelementptr inbounds nuw i16, ptr %.08397.us.us104, i64 %34
-  %.pre = load i16, ptr %45, align 2
-  br label %46
+  %47 = getelementptr inbounds nuw i16, ptr %.08397.us.us104, i64 %36
+  %.pre = load i16, ptr %47, align 2
+  br label %48
 
-46:                                               ; preds = %.preheader.us.us, %46
-  %indvars.iv = phi i64 [ %26, %.preheader.us.us ], [ %indvars.iv.next, %46 ]
-  %47 = getelementptr inbounds nuw i16, ptr %.08397.us.us104, i64 %indvars.iv
-  store i16 %.pre, ptr %47, align 2
+48:                                               ; preds = %.preheader.us.us, %48
+  %indvars.iv = phi i64 [ %26, %.preheader.us.us ], [ %indvars.iv.next, %48 ]
+  %49 = getelementptr inbounds nuw i16, ptr %.08397.us.us104, i64 %indvars.iv
+  store i16 %.pre, ptr %49, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond119.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond119.not, label %..loopexit_crit_edge.us.us, label %46, !llvm.loop !51
+  %exitcond119.not = icmp eq i64 %indvars.iv.next, %32
+  br i1 %exitcond119.not, label %..loopexit_crit_edge.us.us, label %48, !llvm.loop !51
 
-..loopexit_crit_edge.us.us:                       ; preds = %46
-  %48 = getelementptr inbounds nuw i8, ptr %.08298.us.us103, i64 %37
-  %49 = getelementptr inbounds nuw i8, ptr %.08397.us.us104, i64 %38
-  %50 = add nuw i32 %.08099.us.us102, 1
-  %exitcond120.not = icmp eq i32 %50, %25
+..loopexit_crit_edge.us.us:                       ; preds = %48
+  %50 = getelementptr inbounds nuw i8, ptr %.08298.us.us103, i64 %39
+  %51 = getelementptr inbounds nuw i8, ptr %.08397.us.us104, i64 %40
+  %52 = add nuw i32 %.08099.us.us102, 1
+  %exitcond120.not = icmp eq i32 %52, %25
   br i1 %exitcond120.not, label %.preheader94, label %.preheader.us.us, !llvm.loop !50
 
 .preheader94:                                     ; preds = %.lr.ph100.split, %..loopexit_crit_edge.us.us, %.lr.ph100.split.us.split.us, %21
-  %.083.lcssa = phi ptr [ %28, %21 ], [ %43, %.lr.ph100.split.us.split.us ], [ %49, %..loopexit_crit_edge.us.us ], [ %57, %.lr.ph100.split ]
-  %51 = zext i32 %30 to i64
-  %52 = shl i64 %51, %20
+  %.083.lcssa = phi ptr [ %28, %21 ], [ %45, %.lr.ph100.split.us.split.us ], [ %51, %..loopexit_crit_edge.us.us ], [ %57, %.lr.ph100.split ]
   %53 = icmp ult i32 %25, %31
   br i1 %53, label %.lr.ph, label %._crit_edge
 
@@ -5660,8 +5656,8 @@ define internal fastcc ptr @avifImageCopyAndPad(ptr noundef %0, i32 noundef %1, 
   %.08298 = phi ptr [ %56, %.lr.ph100.split ], [ %22, %.lr.ph100 ]
   %.08397 = phi ptr [ %57, %.lr.ph100.split ], [ %28, %.lr.ph100 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.08397, ptr align 1 %.08298, i64 %27, i1 false)
-  %56 = getelementptr inbounds nuw i8, ptr %.08298, i64 %37
-  %57 = getelementptr inbounds nuw i8, ptr %.08397, i64 %38
+  %56 = getelementptr inbounds nuw i8, ptr %.08298, i64 %39
+  %57 = getelementptr inbounds nuw i8, ptr %.08397, i64 %40
   %58 = add nuw i32 %.08099, 1
   %exitcond.not = icmp eq i32 %58, %25
   br i1 %exitcond.not, label %.preheader94, label %.lr.ph100.split, !llvm.loop !50
@@ -5670,7 +5666,7 @@ define internal fastcc ptr @avifImageCopyAndPad(ptr noundef %0, i32 noundef %1, 
   %.0108 = phi i32 [ %25, %.lr.ph ], [ %62, %59 ]
   %.1107 = phi ptr [ %.083.lcssa, %.lr.ph ], [ %61, %59 ]
   %60 = getelementptr inbounds i8, ptr %.1107, i64 %55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1107, ptr align 1 %60, i64 %52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1107, ptr align 1 %60, i64 %33, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %.1107, i64 %54
   %62 = add nuw i32 %.0108, 1
   %exitcond122.not = icmp eq i32 %62, %31

@@ -1887,55 +1887,55 @@ define internal fastcc noundef align 8 ptr @_ZN5wasmi6engine8executor14EngineExe
   %171 = call { ptr, ptr } @_ZN5wasmi6engine8executor5stack6values11FrameParams3new17h8222beebbf9cd92fE(ptr noalias noundef nonnull align 8 %169, i64 noundef %170), !noalias !177
   %172 = extractvalue { ptr, ptr } %171, 0
   %173 = extractvalue { ptr, ptr } %171, 1
+  %174 = add i64 %125, %.sroa.5.sroa.4.0.copyload
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !180
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr %172, ptr %25, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %173, ptr %174, align 8
-  %175 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %2, i64 %3
+  %175 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store ptr %173, ptr %175, align 8
+  %176 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %2, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %2, ptr %24, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %175, ptr %176, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr %176, ptr %177, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !216
   call void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa8a4c1756bf46c1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(16) %24), !noalias !220
-  %177 = load i8, ptr %12, align 8, !range !221, !noalias !216, !noundef !3
-  %.not.i8599 = icmp eq i8 %177, 7
+  %178 = load i8, ptr %12, align 8, !range !221, !noalias !216, !noundef !3
+  %.not.i8599 = icmp eq i8 %178, 7
   br i1 %.not.i8599, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit98, %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !216
-  %178 = call { i64, i64 } @"_ZN5wasmi5value106_$LT$impl$u20$core..convert..From$LT$wasmi..value..Val$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h12d4afd44d02a1f0E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11), !noalias !220
-  %179 = extractvalue { i64, i64 } %178, 0
-  %180 = extractvalue { i64, i64 } %178, 1
+  %179 = call { i64, i64 } @"_ZN5wasmi5value106_$LT$impl$u20$core..convert..From$LT$wasmi..value..Val$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h12d4afd44d02a1f0E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11), !noalias !220
+  %180 = extractvalue { i64, i64 } %179, 0
+  %181 = extractvalue { i64, i64 } %179, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !216
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @_ZN5wasmi6engine8executor5stack6values11FrameParams9init_next17h66d3576668d4c0acE(ptr noalias noundef nonnull align 8 dereferenceable(16) %25, i64 noundef %179, i64 noundef %180)
+  call void @_ZN5wasmi6engine8executor5stack6values11FrameParams9init_next17h66d3576668d4c0acE(ptr noalias noundef nonnull align 8 dereferenceable(16) %25, i64 noundef %180, i64 noundef %181)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !216
   call void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa8a4c1756bf46c1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(16) %24), !noalias !220
-  %181 = load i8, ptr %12, align 8, !range !221, !noalias !216, !noundef !3
-  %.not.i85 = icmp eq i8 %181, 7
+  %182 = load i8, ptr %12, align 8, !range !221, !noalias !216, !noundef !3
+  %.not.i85 = icmp eq i8 %182, 7
   br i1 %.not.i85, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre102 = load ptr, ptr %25, align 8
-  %.pre103 = load ptr, ptr %174, align 8
+  %.pre103 = load ptr, ptr %175, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.loopexit98
-  %182 = phi ptr [ %.pre103, %._crit_edge.loopexit ], [ %173, %.loopexit98 ]
-  %183 = phi ptr [ %.pre102, %._crit_edge.loopexit ], [ %172, %.loopexit98 ]
-  %184 = add i64 %125, %.sroa.5.sroa.4.0.copyload
+  %183 = phi ptr [ %.pre103, %._crit_edge.loopexit ], [ %173, %.loopexit98 ]
+  %184 = phi ptr [ %.pre102, %._crit_edge.loopexit ], [ %172, %.loopexit98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !216
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  call void @_ZN5wasmi6engine8executor5stack6values11FrameParams11init_zeroes17h567995fd68679c02E(ptr noundef %183, ptr noundef %182)
+  call void @_ZN5wasmi6engine8executor5stack6values11FrameParams11init_zeroes17h567995fd68679c02E(ptr noundef %184, ptr noundef %183)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %185 = call noundef i16 @"_ZN71_$LT$wasmi_ir..index..Reg$u20$as$u20$core..convert..From$LT$i16$GT$$GT$4from17h149375b752cece7bE"(i16 noundef 0)
   %186 = call noundef i16 @_ZN8wasmi_ir4span7RegSpan3new17h2e0d12b5ffb4f6ceE(i16 noundef %185)
-  call void @_ZN5wasmi6engine8executor5stack5calls9CallFrame3new17he2f927a57f23772cE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %23, ptr noundef nonnull %124, i64 noundef %184, i64 noundef %125, i16 noundef %186)
+  call void @_ZN5wasmi6engine8executor5stack5calls9CallFrame3new17he2f927a57f23772cE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %23, ptr noundef nonnull %124, i64 noundef %174, i64 noundef %125, i16 noundef %186)
   call void @llvm.experimental.noalias.scope.decl(metadata !222)
   call void @llvm.experimental.noalias.scope.decl(metadata !225)
   %187 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16

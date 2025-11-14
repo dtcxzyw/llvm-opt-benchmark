@@ -10120,7 +10120,7 @@ define void @_ZN4LIEF2PE15SignatureParser24parse_pkcs9_counter_signERNS_12Binary
   %16 = load i8, ptr %15, align 8, !tbaa !113, !range !51, !noundef !52
   %17 = trunc nuw i8 %16 to i1
   %18 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4LIEF7logging6Logger8instanceEPKc(ptr noundef nonnull @.str.195) #23
-  br i1 %17, label %19, label %47
+  br i1 %17, label %19, label %48
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -10171,35 +10171,35 @@ define void @_ZN4LIEF2PE15SignatureParser24parse_pkcs9_counter_signERNS_12Binary
 _ZNSt12_Vector_baseIN4LIEF2PE10SignerInfoESaIS2_EEC2EmRKS3_.exit.i.i.i.i.i.i.i.i.i: ; preds = %38
   %42 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #25
   store ptr %42, ptr %0, align 8, !tbaa !184
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %33
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %43, ptr %44, align 8, !tbaa !182
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 %33
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %44, ptr %45, align 8, !tbaa !182
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZNSt12_Vector_baseIN4LIEF2PE10SignerInfoESaIS2_EEC2EmRKS3_.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %42, %_ZNSt12_Vector_baseIN4LIEF2PE10SignerInfoESaIS2_EEC2EmRKS3_.exit.i.i.i.i.i.i.i.i.i ]
-  %.sroa.04.08.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %30, %_ZNSt12_Vector_baseIN4LIEF2PE10SignerInfoESaIS2_EEC2EmRKS3_.exit.i.i.i.i.i.i.i.i.i ]
+  %.09.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %42, %_ZNSt12_Vector_baseIN4LIEF2PE10SignerInfoESaIS2_EEC2EmRKS3_.exit.i.i.i.i.i.i.i.i.i ]
+  %.sroa.04.08.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %30, %_ZNSt12_Vector_baseIN4LIEF2PE10SignerInfoESaIS2_EEC2EmRKS3_.exit.i.i.i.i.i.i.i.i.i ]
   call void @_ZN4LIEF2PE10SignerInfoC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(184) %.09.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(184) %.sroa.04.08.i.i.i.i.i.i.i.i.i.i.i.i.i) #23
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 184
-  %46 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 184
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %45, %29
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 184
+  %47 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 184
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %46, %29
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !299
 
-47:                                               ; preds = %2
-  %48 = load ptr, ptr %18, align 8, !tbaa !19
+48:                                               ; preds = %2
+  %49 = load ptr, ptr %18, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %48, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %4, i32 noundef 2, ptr nonnull @.str.120, i64 37)
+  call void @_ZN6spdlog6logger4log_IJEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %49, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %4, i32 noundef 2, ptr nonnull @.str.120, i64 37)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %49 = load i32, ptr %7, align 8, !tbaa !53
-  store i32 %49, ptr %0, align 8, !tbaa !24
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %50, align 8, !tbaa !113
+  %50 = load i32, ptr %7, align 8, !tbaa !53
+  store i32 %50, ptr %0, align 8, !tbaa !24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 0, ptr %51, align 8, !tbaa !113
   br label %_ZN2tl6detail21expected_storage_baseISt6vectorIN4LIEF2PE10SignerInfoESaIS5_EE11lief_errorsLb0ELb1EED2Ev.exit
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %46, ptr %51, align 8, !tbaa !181
+  store ptr %47, ptr %43, align 8, !tbaa !181
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %52, align 8, !tbaa !113
   br label %.lr.ph.i.i.i.i.i
@@ -10226,7 +10226,7 @@ _ZSt8_DestroyIPN4LIEF2PE10SignerInfoES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %.lr
   call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %61) #26
   br label %_ZN2tl6detail21expected_storage_baseISt6vectorIN4LIEF2PE10SignerInfoESaIS5_EE11lief_errorsLb0ELb1EED2Ev.exit
 
-_ZN2tl6detail21expected_storage_baseISt6vectorIN4LIEF2PE10SignerInfoESaIS5_EE11lief_errorsLb0ELb1EED2Ev.exit: ; preds = %47, %_ZSt8_DestroyIPN4LIEF2PE10SignerInfoES2_EvT_S4_RSaIT0_E.exit.i.i, %57
+_ZN2tl6detail21expected_storage_baseISt6vectorIN4LIEF2PE10SignerInfoESaIS5_EE11lief_errorsLb0ELb1EED2Ev.exit: ; preds = %48, %_ZSt8_DestroyIPN4LIEF2PE10SignerInfoES2_EvT_S4_RSaIT0_E.exit.i.i, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }

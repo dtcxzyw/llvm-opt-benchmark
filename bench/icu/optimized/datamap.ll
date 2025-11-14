@@ -717,7 +717,7 @@ define noundef ptr @_ZNK9RBDataMap14getStringArrayERiPKcR10UErrorCode(ptr nounde
   %18 = or disjoint i64 %17, 8
   %19 = tail call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef %18) #16
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %26, label %21
+  br i1 %20, label %.loopexit36, label %21
 
 21:                                               ; preds = %15
   store i64 %16, ptr %19, align 8
@@ -732,35 +732,35 @@ define noundef ptr @_ZNK9RBDataMap14getStringArrayERiPKcR10UErrorCode(ptr nounde
   %.add = add nuw nsw i64 %.idx, 64
   %24 = add nuw nsw i64 %.idx, 56
   %25 = icmp eq i64 %24, %17
-  br i1 %25, label %.loopexit36, label %22
+  br i1 %25, label %.loopexit36.loopexit, label %22
 
-.loopexit36:                                      ; preds = %22
+.loopexit36.loopexit:                             ; preds = %22
   %.ptr30 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  br label %26
+  br label %.loopexit36
 
-26:                                               ; preds = %.loopexit36, %15
-  %27 = phi ptr [ null, %15 ], [ %.ptr30, %.loopexit36 ]
-  %28 = load i32, ptr %1, align 4, !tbaa !25
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph, label %.loopexit
+.loopexit36:                                      ; preds = %.loopexit36.loopexit, %15
+  %26 = phi ptr [ null, %15 ], [ %.ptr30, %.loopexit36.loopexit ]
+  %27 = load i32, ptr %1, align 4, !tbaa !25
+  %28 = icmp sgt i32 %27, 0
+  br i1 %28, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %26, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %26 ]
+.lr.ph:                                           ; preds = %.loopexit36, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.loopexit36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %30 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @_ZNK6icu_7714ResourceBundle11getStringExEiR10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %30, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %31 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %27, i64 %indvars.iv
-  %32 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(64) %5) #16
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
+  call void @_ZNK6icu_7714ResourceBundle11getStringExEiR10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %29, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %30 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %26, i64 %indvars.iv
+  %31 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(64) %5) #16
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = load i32, ptr %1, align 4, !tbaa !25
-  %34 = sext i32 %33 to i64
-  %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !27
+  %32 = load i32, ptr %1, align 4, !tbaa !25
+  %33 = sext i32 %32 to i64
+  %34 = icmp slt i64 %indvars.iv.next, %33
+  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
-.loopexit:                                        ; preds = %.lr.ph, %26, %4, %12
-  %.1 = phi ptr [ null, %12 ], [ null, %4 ], [ %27, %26 ], [ %27, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.loopexit36, %4, %12
+  %.1 = phi ptr [ null, %12 ], [ null, %4 ], [ %26, %.loopexit36 ], [ %26, %.lr.ph ]
   ret ptr %.1
 }
 

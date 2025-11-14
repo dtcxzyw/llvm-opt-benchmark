@@ -434,16 +434,16 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i32, ptr %25, i64 %28
   %30 = sitofp i32 %9 to float
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 304
-  %32 = sext i32 %5 to i64
-  %33 = fdiv nsz float %6, %8
-  %34 = fpext nsz float %33 to double
-  %35 = tail call nsz double @llvm.sqrt.f64(double %34)
-  %36 = fdiv nsz float %7, %6
-  %37 = tail call nsz float @llvm.sqrt.f32(float %36)
-  %38 = fmul nsz float %36, %37
-  %39 = tail call nsz noundef float @llvm.sqrt.f32(float %38)
-  %40 = fmul nsz float %39, %30
+  %31 = fdiv nsz float %7, %6
+  %32 = tail call nsz float @llvm.sqrt.f32(float %31)
+  %33 = fmul nsz float %31, %32
+  %34 = tail call nsz noundef float @llvm.sqrt.f32(float %33)
+  %35 = fmul nsz float %34, %30
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 304
+  %37 = sext i32 %5 to i64
+  %38 = fdiv nsz float %6, %8
+  %39 = fpext nsz float %38 to double
+  %40 = tail call nsz double @llvm.sqrt.f64(double %39)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 567256
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 5916
   %43 = getelementptr inbounds i32, ptr %42, i64 %28
@@ -454,16 +454,16 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 52268
   %49 = getelementptr inbounds i32, ptr %48, i64 %28
   %50 = sext i32 %3 to i64
-  %.pre = load ptr, ptr %31, align 16, !tbaa !67
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 %32
+  %.pre = load ptr, ptr %36, align 16, !tbaa !67
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 %37
   %.pre201 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !35
   br label %51
 
 51:                                               ; preds = %.lr.ph185, %._crit_edge180
-  %52 = phi i8 [ %.pre201, %.lr.ph185 ], [ %141, %._crit_edge180 ]
-  %53 = phi ptr [ %.pre, %.lr.ph185 ], [ %139, %._crit_edge180 ]
+  %52 = phi i8 [ %.pre201, %.lr.ph185 ], [ %144, %._crit_edge180 ]
+  %53 = phi ptr [ %.pre, %.lr.ph185 ], [ %142, %._crit_edge180 ]
   %indvars.iv198 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next199, %._crit_edge180 ]
-  %.0165183 = phi float [ 0.000000e+00, %.lr.ph185 ], [ %154, %._crit_edge180 ]
+  %.0165183 = phi float [ 0.000000e+00, %.lr.ph185 ], [ %133, %._crit_edge180 ]
   %.0166182 = phi float [ 0.000000e+00, %.lr.ph185 ], [ %159, %._crit_edge180 ]
   %54 = load ptr, ptr %23, align 16, !tbaa !74
   %55 = load i32, ptr %24, align 16, !tbaa !75
@@ -472,13 +472,17 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
   %58 = add nsw i64 %indvars.iv198, %20
   %.idx = shl i64 %58, 8
   %59 = getelementptr i8, ptr %57, i64 %.idx
-  %60 = getelementptr %struct.FFPsyBand, ptr %59, i64 %32
+  %60 = getelementptr %struct.FFPsyBand, ptr %59, i64 %37
   %61 = load i32, ptr %29, align 4, !tbaa !38
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %63 = load float, ptr %62, align 4, !tbaa !76
-  %64 = getelementptr i8, ptr %60, i64 2060
-  %65 = load float, ptr %64, align 4, !tbaa !76
-  %66 = getelementptr inbounds i8, ptr %53, i64 %32
+  %62 = tail call i32 @llvm.smax.i32(i32 %61, i32 5)
+  %spec.select = add nsw i32 %62, -4
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %64 = load float, ptr %63, align 4, !tbaa !76
+  %65 = getelementptr i8, ptr %60, i64 2060
+  %66 = load float, ptr %65, align 4, !tbaa !76
+  %67 = fcmp nsz ogt float %64, %66
+  %68 = select nsz i1 %67, float %66, float %64
+  %69 = getelementptr inbounds i8, ptr %53, i64 %37
   %.not188 = icmp eq i8 %52, 0
   %.pre202 = shl nsw i64 %58, 7
   %.pre203 = add nsw i64 %.pre202, %50
@@ -486,51 +490,47 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
 
 .lr.ph:                                           ; preds = %51, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %51 ]
-  %67 = add nsw i64 %.pre203, %indvars.iv
-  %68 = getelementptr inbounds float, ptr %11, i64 %67
-  %69 = load float, ptr %68, align 4, !tbaa !68
-  %70 = getelementptr inbounds float, ptr %12, i64 %67
-  %71 = load float, ptr %70, align 4, !tbaa !68
-  %72 = tail call nsz float @llvm.fmuladd.f32(float %30, float %71, float %69)
-  %73 = fpext nsz float %72 to double
-  %74 = fmul nsz double %35, %73
-  %75 = fptrunc nsz double %74 to float
-  %76 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
-  store float %75, ptr %76, align 4, !tbaa !68
+  %70 = add nsw i64 %.pre203, %indvars.iv
+  %71 = getelementptr inbounds float, ptr %11, i64 %70
+  %72 = load float, ptr %71, align 4, !tbaa !68
+  %73 = getelementptr inbounds float, ptr %12, i64 %70
+  %74 = load float, ptr %73, align 4, !tbaa !68
+  %75 = tail call nsz float @llvm.fmuladd.f32(float %30, float %74, float %72)
+  %76 = fpext nsz float %75 to double
+  %77 = fmul nsz double %40, %76
+  %78 = fptrunc nsz double %77 to float
+  %79 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
+  store float %78, ptr %79, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = load i8, ptr %66, align 1, !tbaa !35
-  %78 = zext i8 %77 to i64
-  %79 = icmp samesign ult i64 %indvars.iv.next, %78
-  br i1 %79, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !78
+  %80 = load i8, ptr %69, align 1, !tbaa !35
+  %81 = zext i8 %80 to i64
+  %82 = icmp samesign ult i64 %indvars.iv.next, %81
+  br i1 %82, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !78
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %80 = zext i8 %77 to i32
+  %83 = zext i8 %80 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %51
-  %.lcssa.in = phi i32 [ 0, %51 ], [ %80, %._crit_edge.loopexit ]
-  %81 = tail call i32 @llvm.smax.i32(i32 %61, i32 5)
-  %spec.select = add nsw i32 %81, -4
-  %82 = fcmp nsz ogt float %63, %65
-  %83 = select nsz i1 %82, float %65, float %63
+  %.lcssa.in = phi i32 [ 0, %51 ], [ %83, %._crit_edge.loopexit ]
   %84 = load ptr, ptr %41, align 8, !tbaa !79
   %85 = getelementptr inbounds float, ptr %11, i64 %.pre203
   tail call void %84(ptr noundef nonnull %13, ptr noundef nonnull %85, i32 noundef %.lcssa.in) #6
   %86 = load ptr, ptr %41, align 8, !tbaa !79
   %87 = getelementptr inbounds float, ptr %12, i64 %.pre203
-  %88 = load ptr, ptr %31, align 16, !tbaa !67
-  %89 = getelementptr inbounds i8, ptr %88, i64 %32
+  %88 = load ptr, ptr %36, align 16, !tbaa !67
+  %89 = getelementptr inbounds i8, ptr %88, i64 %37
   %90 = load i8, ptr %89, align 1, !tbaa !35
   %91 = zext i8 %90 to i32
   tail call void %86(ptr noundef nonnull %14, ptr noundef nonnull %87, i32 noundef %91) #6
   %92 = load ptr, ptr %41, align 8, !tbaa !79
-  %93 = load ptr, ptr %31, align 16, !tbaa !67
-  %94 = getelementptr inbounds i8, ptr %93, i64 %32
+  %93 = load ptr, ptr %36, align 16, !tbaa !67
+  %94 = getelementptr inbounds i8, ptr %93, i64 %37
   %95 = load i8, ptr %94, align 1, !tbaa !35
   %96 = zext i8 %95 to i32
   tail call void %92(ptr noundef nonnull %16, ptr noundef nonnull %15, i32 noundef %96) #6
-  %97 = load ptr, ptr %31, align 16, !tbaa !67
-  %98 = getelementptr inbounds i8, ptr %97, i64 %32
+  %97 = load ptr, ptr %36, align 16, !tbaa !67
+  %98 = getelementptr inbounds i8, ptr %97, i64 %37
   %99 = load i8, ptr %98, align 1, !tbaa !35
   %100 = zext i8 %99 to i32
   %.not.i = icmp eq i8 %99, 0
@@ -553,7 +553,7 @@ define internal fastcc void @aac_is_encoding_err(ptr dead_on_unwind noalias nonn
 
 find_max_val.exit:                                ; preds = %.preheader.us.i, %._crit_edge
   %.us-phi.i = phi float [ 0.000000e+00, %._crit_edge ], [ %.1..us.i, %.preheader.us.i ]
-  %104 = sub nsw i32 308, %81
+  %104 = sub nsw i32 308, %62
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds float, ptr @ff_aac_pow34sf_tab, i64 %105
   %107 = load float, ptr %106, align 4, !tbaa !68
@@ -574,63 +574,63 @@ find_min_book.exit:                               ; preds = %find_max_val.exit, 
   %116 = load i32, ptr %29, align 4, !tbaa !38
   %117 = load i32, ptr %43, align 4, !tbaa !38
   %118 = load float, ptr %44, align 8, !tbaa !42
-  %119 = load float, ptr %62, align 4, !tbaa !76
+  %119 = load float, ptr %63, align 4, !tbaa !76
   %120 = fdiv nsz float %118, %119
   %121 = tail call nsz float @ff_quantize_and_encode_band_cost(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %85, ptr noundef null, ptr noundef nonnull %13, i32 noundef range(i32 0, 256) %100, i32 noundef %116, i32 noundef %117, float noundef %120, float noundef 0x7FF0000000000000, ptr noundef null, ptr noundef null) #6
-  %122 = load ptr, ptr %45, align 16, !tbaa !67
-  %123 = getelementptr inbounds i8, ptr %122, i64 %32
-  %124 = load i8, ptr %123, align 1, !tbaa !35
-  %125 = zext i8 %124 to i32
-  %126 = load i32, ptr %47, align 4, !tbaa !38
-  %127 = load i32, ptr %49, align 4, !tbaa !38
-  %128 = load float, ptr %44, align 8, !tbaa !42
-  %129 = load float, ptr %64, align 4, !tbaa !76
-  %130 = fdiv nsz float %128, %129
-  %131 = tail call nsz float @ff_quantize_and_encode_band_cost(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %87, ptr noundef null, ptr noundef nonnull %14, i32 noundef range(i32 0, 256) %125, i32 noundef %126, i32 noundef %127, float noundef %130, float noundef 0x7FF0000000000000, ptr noundef null, ptr noundef null) #6
-  %132 = load ptr, ptr %31, align 16, !tbaa !67
-  %133 = getelementptr inbounds i8, ptr %132, i64 %32
-  %134 = load i8, ptr %133, align 1, !tbaa !35
-  %135 = zext i8 %134 to i32
-  %136 = load float, ptr %44, align 8, !tbaa !42
-  %137 = fdiv nsz float %136, %83
-  %138 = tail call nsz float @ff_quantize_and_encode_band_cost(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %15, ptr noundef null, ptr noundef nonnull %16, i32 noundef range(i32 0, 256) %135, i32 noundef %spec.select, i32 noundef %.0.i, float noundef %137, float noundef 0x7FF0000000000000, ptr noundef null, ptr noundef null) #6
-  %139 = load ptr, ptr %31, align 16, !tbaa !67
-  %140 = getelementptr inbounds i8, ptr %139, i64 %32
-  %141 = load i8, ptr %140, align 1, !tbaa !35
-  %.not189 = icmp eq i8 %141, 0
+  %122 = fadd nsz float %.0165183, %121
+  %123 = load ptr, ptr %45, align 16, !tbaa !67
+  %124 = getelementptr inbounds i8, ptr %123, i64 %37
+  %125 = load i8, ptr %124, align 1, !tbaa !35
+  %126 = zext i8 %125 to i32
+  %127 = load i32, ptr %47, align 4, !tbaa !38
+  %128 = load i32, ptr %49, align 4, !tbaa !38
+  %129 = load float, ptr %44, align 8, !tbaa !42
+  %130 = load float, ptr %65, align 4, !tbaa !76
+  %131 = fdiv nsz float %129, %130
+  %132 = tail call nsz float @ff_quantize_and_encode_band_cost(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %87, ptr noundef null, ptr noundef nonnull %14, i32 noundef range(i32 0, 256) %126, i32 noundef %127, i32 noundef %128, float noundef %131, float noundef 0x7FF0000000000000, ptr noundef null, ptr noundef null) #6
+  %133 = fadd nsz float %122, %132
+  %134 = load ptr, ptr %36, align 16, !tbaa !67
+  %135 = getelementptr inbounds i8, ptr %134, i64 %37
+  %136 = load i8, ptr %135, align 1, !tbaa !35
+  %137 = zext i8 %136 to i32
+  %138 = load float, ptr %44, align 8, !tbaa !42
+  %139 = fdiv nsz float %138, %68
+  %140 = tail call nsz float @ff_quantize_and_encode_band_cost(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %15, ptr noundef null, ptr noundef nonnull %16, i32 noundef range(i32 0, 256) %137, i32 noundef %spec.select, i32 noundef %.0.i, float noundef %139, float noundef 0x7FF0000000000000, ptr noundef null, ptr noundef null) #6
+  %141 = fadd nsz float %.0166182, %140
+  %142 = load ptr, ptr %36, align 16, !tbaa !67
+  %143 = getelementptr inbounds i8, ptr %142, i64 %37
+  %144 = load i8, ptr %143, align 1, !tbaa !35
+  %.not189 = icmp eq i8 %144, 0
   br i1 %.not189, label %._crit_edge180, label %.lr.ph179.preheader
 
 .lr.ph179.preheader:                              ; preds = %find_min_book.exit
-  %wide.trip.count = zext i8 %141 to i64
+  %wide.trip.count = zext i8 %144 to i64
   br label %.lr.ph179
 
 .lr.ph179:                                        ; preds = %.lr.ph179.preheader, %.lr.ph179
   %indvars.iv195 = phi i64 [ 0, %.lr.ph179.preheader ], [ %indvars.iv.next196, %.lr.ph179 ]
-  %.0163177 = phi float [ 0.000000e+00, %.lr.ph179.preheader ], [ %152, %.lr.ph179 ]
-  %142 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv195
-  %143 = load float, ptr %142, align 4, !tbaa !68
-  %144 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv195
-  %145 = load float, ptr %144, align 4, !tbaa !68
-  %146 = fsub nsz float %143, %145
-  %147 = tail call nsz float @llvm.fmuladd.f32(float %146, float %146, float %.0163177)
-  %148 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv195
-  %149 = load float, ptr %148, align 4, !tbaa !68
-  %150 = fneg nsz float %145
-  %151 = tail call nsz float @llvm.fmuladd.f32(float %150, float %40, float %149)
-  %152 = tail call nsz float @llvm.fmuladd.f32(float %151, float %151, float %147)
+  %.0163177 = phi float [ 0.000000e+00, %.lr.ph179.preheader ], [ %155, %.lr.ph179 ]
+  %145 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv195
+  %146 = load float, ptr %145, align 4, !tbaa !68
+  %147 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv195
+  %148 = load float, ptr %147, align 4, !tbaa !68
+  %149 = fsub nsz float %146, %148
+  %150 = tail call nsz float @llvm.fmuladd.f32(float %149, float %149, float %.0163177)
+  %151 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv195
+  %152 = load float, ptr %151, align 4, !tbaa !68
+  %153 = fneg nsz float %148
+  %154 = tail call nsz float @llvm.fmuladd.f32(float %153, float %35, float %152)
+  %155 = tail call nsz float @llvm.fmuladd.f32(float %154, float %154, float %150)
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge180, label %.lr.ph179, !llvm.loop !81
 
 ._crit_edge180:                                   ; preds = %.lr.ph179, %find_min_book.exit
-  %.0163.lcssa = phi float [ 0.000000e+00, %find_min_book.exit ], [ %152, %.lr.ph179 ]
-  %153 = fadd nsz float %.0165183, %121
-  %154 = fadd nsz float %153, %131
-  %155 = fadd nsz float %.0166182, %138
+  %.0163.lcssa = phi float [ 0.000000e+00, %find_min_book.exit ], [ %155, %.lr.ph179 ]
   %156 = load float, ptr %44, align 8, !tbaa !42
-  %157 = fdiv nsz float %156, %83
+  %157 = fdiv nsz float %156, %68
   %158 = fmul nsz float %.0163.lcssa, %157
-  %159 = fadd nsz float %155, %158
+  %159 = fadd nsz float %141, %158
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %160 = load i8, ptr %21, align 1, !tbaa !35
   %161 = zext i8 %160 to i64
@@ -639,7 +639,7 @@ find_min_book.exit:                               ; preds = %find_max_val.exit, 
 
 ._crit_edge186:                                   ; preds = %._crit_edge180, %.preheader
   %.0166.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %159, %._crit_edge180 ]
-  %.0165.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %154, %._crit_edge180 ]
+  %.0165.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %133, %._crit_edge180 ]
   %163 = fcmp nsz ole float %.0166.lcssa, %.0165.lcssa
   %164 = zext i1 %163 to i32
   store i32 %164, ptr %0, align 4, !tbaa !83

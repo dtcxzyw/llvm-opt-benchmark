@@ -8052,27 +8052,27 @@ _ZN4llvm13LiveIntervals15insertMBBInMapsEPNS_17MachineBasicBlockE.exit: ; preds 
   %94 = load i32, ptr %81, align 8, !tbaa !26
   %95 = add i32 %94, 1
   store i32 %95, ptr %81, align 8, !tbaa !26
+  %96 = icmp eq ptr %.079129, %31
+  %spec.select87 = select i1 %96, ptr %56, ptr %.079129
   %.not86121 = icmp ugt i64 %indvars.iv, %41
   br i1 %.not86121, label %._crit_edge124, label %.lr.ph123
 
 .lr.ph123:                                        ; preds = %_ZN4llvm13LiveIntervals15insertMBBInMapsEPNS_17MachineBasicBlockE.exit
-  %96 = icmp eq i64 %indvars.iv, 1
-  %97 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %98 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %99 = load ptr, ptr %36, align 8, !tbaa !109
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 56
-  %101 = load ptr, ptr %100, align 8, !tbaa !256
-  %102 = getelementptr inbounds nuw i8, ptr %99, i64 48
-  %103 = icmp eq ptr %101, %102
-  br i1 %103, label %._crit_edge124, label %.lr.ph123.split.preheader
+  %97 = icmp eq i64 %indvars.iv, 1
+  %98 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %56, i64 48
+  %100 = load ptr, ptr %36, align 8, !tbaa !109
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
+  %102 = load ptr, ptr %101, align 8, !tbaa !256
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 48
+  %104 = icmp eq ptr %102, %103
+  br i1 %104, label %._crit_edge124, label %.lr.ph123.split.preheader
 
 .lr.ph123.split.preheader:                        ; preds = %.lr.ph123
-  %104 = trunc nuw i64 %indvars.iv to i32
+  %105 = trunc nuw i64 %indvars.iv to i32
   br label %.lr.ph123.split
 
 ._crit_edge124:                                   ; preds = %._crit_edge, %.lr.ph123, %_ZN4llvm13LiveIntervals15insertMBBInMapsEPNS_17MachineBasicBlockE.exit
-  %105 = icmp eq ptr %.079129, %31
-  %spec.select87 = select i1 %105, ptr %56, ptr %.079129
   %106 = add nsw i64 %indvars.iv, -1
   %107 = load ptr, ptr %7, align 8, !tbaa !25
   %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %106
@@ -8087,7 +8087,7 @@ _ZN4llvm13LiveIntervals15insertMBBInMapsEPNS_17MachineBasicBlockE.exit: ; preds 
   br i1 %.not.wide, label %._crit_edge134, label %54, !llvm.loop !340
 
 .lr.ph123.split:                                  ; preds = %.lr.ph123.split.preheader, %._crit_edge
-  %.080122 = phi i32 [ %117, %._crit_edge ], [ %104, %.lr.ph123.split.preheader ]
+  %.080122 = phi i32 [ %117, %._crit_edge ], [ %105, %.lr.ph123.split.preheader ]
   %114 = load ptr, ptr %36, align 8, !tbaa !109
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 48
@@ -8175,24 +8175,24 @@ _ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit: ; preds = %_ZN4llvm1
   %158 = load ptr, ptr %32, align 8, !tbaa !160
   %159 = call noundef ptr @_ZN4llvm15MachineFunction17CloneMachineInstrEPKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1065) %158, ptr noundef nonnull %.sroa.0105.0120) #19
   call void @_ZN4llvm22ModuloScheduleExpander17updateMemOperandsERNS_12MachineInstrES2_j(ptr noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(70) %159, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0105.0120, i32 noundef -1)
-  call void @_ZN4llvm22ModuloScheduleExpander17updateInstructionEPNS_12MachineInstrEbjjPNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %159, i1 noundef zeroext %96, i32 noundef %.081131, i32 noundef 0, ptr noundef %4)
-  call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(24) %97, ptr noundef nonnull %159) #19
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %98, align 8
+  call void @_ZN4llvm22ModuloScheduleExpander17updateInstructionEPNS_12MachineInstrEbjjPNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %159, i1 noundef zeroext %97, i32 noundef %.081131, i32 noundef 0, ptr noundef %4)
+  call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(24) %98, ptr noundef nonnull %159) #19
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %99, align 8
   %160 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
   %161 = inttoptr i64 %160 to ptr
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  store ptr %98, ptr %162, align 8, !tbaa !256
+  store ptr %99, ptr %162, align 8, !tbaa !256
   %.0.copyload.i.i.i.i9.i.i.i.i.i.i = load i64, ptr %159, align 8
   %163 = and i64 %.0.copyload.i.i.i.i9.i.i.i.i.i.i, 7
   %164 = or disjoint i64 %163, %160
   store i64 %164, ptr %159, align 8
   %165 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store ptr %159, ptr %165, align 8, !tbaa !256
-  %.0.copyload.i.i.i.i10.i.i.i.i.i.i = load i64, ptr %98, align 8
+  %.0.copyload.i.i.i.i10.i.i.i.i.i.i = load i64, ptr %99, align 8
   %166 = ptrtoint ptr %159 to i64
   %167 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i, 7
   %168 = or disjoint i64 %167, %166
-  store i64 %168, ptr %98, align 8
+  store i64 %168, ptr %99, align 8
   %169 = load ptr, ptr %12, align 8, !tbaa !263
   %170 = load i32, ptr %38, align 8, !tbaa !266
   %171 = icmp eq i32 %170, 0

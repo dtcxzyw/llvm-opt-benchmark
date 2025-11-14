@@ -2287,22 +2287,22 @@ define noundef i64 @_ZNK3zmq11mechanism_t20basic_properties_lenEv(ptr noundef no
   br label %_ZN3zmq11mechanism_t18socket_type_stringEi.exit
 
 _ZN3zmq11mechanism_t18socket_type_stringEi.exit:  ; preds = %1, %5
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %11 = load ptr, ptr %10, align 8, !tbaa !15
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %.not10 = icmp eq ptr %11, %12
+  %10 = sext i8 %3 to i64
+  %11 = getelementptr inbounds ptr, ptr @_ZZN3zmq11mechanism_t18socket_type_stringEiE5names, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !87
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %14 = load ptr, ptr %13, align 8, !tbaa !15
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %.not10 = icmp eq ptr %14, %15
   br i1 %.not10, label %_ZN3zmq11mechanism_t12property_lenEPKcm.exit, label %.lr.ph
 
 _ZN3zmq11mechanism_t12property_lenEPKcm.exit.loopexit: ; preds = %_ZN3zmq11mechanism_t12property_lenEPKcm.exit4
-  %13 = add i64 %33, 16
+  %16 = add i64 %33, 16
   br label %_ZN3zmq11mechanism_t12property_lenEPKcm.exit
 
 _ZN3zmq11mechanism_t12property_lenEPKcm.exit:     ; preds = %_ZN3zmq11mechanism_t12property_lenEPKcm.exit.loopexit, %_ZN3zmq11mechanism_t18socket_type_stringEi.exit
-  %.0.lcssa = phi i64 [ 16, %_ZN3zmq11mechanism_t18socket_type_stringEi.exit ], [ %13, %_ZN3zmq11mechanism_t12property_lenEPKcm.exit.loopexit ]
-  %14 = sext i8 %3 to i64
-  %15 = getelementptr inbounds ptr, ptr @_ZZN3zmq11mechanism_t18socket_type_stringEiE5names, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !87
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #35
+  %.0.lcssa = phi i64 [ 16, %_ZN3zmq11mechanism_t18socket_type_stringEi.exit ], [ %16, %_ZN3zmq11mechanism_t12property_lenEPKcm.exit.loopexit ]
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #35
   %18 = load i8, ptr %2, align 4, !tbaa !95
   switch i8 %18, label %39 [
     i8 3, label %_ZN3zmq11mechanism_t12property_lenEPKcm.exit5
@@ -2312,7 +2312,7 @@ _ZN3zmq11mechanism_t12property_lenEPKcm.exit:     ; preds = %_ZN3zmq11mechanism_
 
 .lr.ph:                                           ; preds = %_ZN3zmq11mechanism_t18socket_type_stringEi.exit, %_ZN3zmq11mechanism_t12property_lenEPKcm.exit4
   %.012 = phi i64 [ %33, %_ZN3zmq11mechanism_t12property_lenEPKcm.exit4 ], [ 0, %_ZN3zmq11mechanism_t18socket_type_stringEi.exit ]
-  %.sroa.06.011 = phi ptr [ %34, %_ZN3zmq11mechanism_t12property_lenEPKcm.exit4 ], [ %11, %_ZN3zmq11mechanism_t18socket_type_stringEi.exit ]
+  %.sroa.06.011 = phi ptr [ %34, %_ZN3zmq11mechanism_t12property_lenEPKcm.exit4 ], [ %14, %_ZN3zmq11mechanism_t18socket_type_stringEi.exit ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.06.011, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.06.011, i64 64
@@ -2335,7 +2335,7 @@ _ZN3zmq11mechanism_t12property_lenEPKcm.exit4:    ; preds = %.lr.ph, %26
   %32 = add i64 %31, %23
   %33 = add i64 %32, %24
   %34 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.011) #35
-  %.not = icmp eq ptr %34, %12
+  %.not = icmp eq ptr %34, %15
   br i1 %.not, label %_ZN3zmq11mechanism_t12property_lenEPKcm.exit.loopexit, label %.lr.ph, !llvm.loop !99
 
 _ZN3zmq11mechanism_t12property_lenEPKcm.exit5:    ; preds = %_ZN3zmq11mechanism_t12property_lenEPKcm.exit, %_ZN3zmq11mechanism_t12property_lenEPKcm.exit, %_ZN3zmq11mechanism_t12property_lenEPKcm.exit

@@ -219,29 +219,29 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define hidden noundef i64 @_ZNK3ue215SlotEntryHasherclERKNS_14SlotCacheEntryE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call noundef i64 @_ZN3ue211hash_holderERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136) %3)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %6
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i32, ptr %5, align 8
+  %9 = load i8, ptr %6, align 4, !range !5, !noundef !6
+  br label %10
 
-6:                                                ; preds = %6, %2
-  %.0.idx11.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %2 ], [ %.0.add.i.i.i.i.i.i.i.i.i.i.i, %6 ]
-  %.0910.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %2 ], [ %10, %6 ]
-  %.0.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.0.idx11.i.i.i.i.i.i.i.i.i.i.i
-  %7 = load i64, ptr %.0.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %8 = mul i64 %7, 814605021516865831
-  %9 = xor i64 %8, %.0910.i.i.i.i.i.i.i.i.i.i.i
-  %10 = add i64 %9, 3571081485394615273
+10:                                               ; preds = %10, %2
+  %.0.idx11.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %2 ], [ %.0.add.i.i.i.i.i.i.i.i.i.i.i, %10 ]
+  %.0910.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %2 ], [ %14, %10 ]
+  %.0.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.0.idx11.i.i.i.i.i.i.i.i.i.i.i
+  %11 = load i64, ptr %.0.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %12 = mul i64 %11, 814605021516865831
+  %13 = xor i64 %12, %.0910.i.i.i.i.i.i.i.i.i.i.i
+  %14 = add i64 %13, 3571081485394615273
   %.0.add.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i.i.i.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i.i.i.i.i.i.i, 32
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3ue28hash_allIJyRKjRKbRKNS_9CharReachEEEEmDpOT_.exit, label %6
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3ue28hash_allIJyRKjRKbRKNS_9CharReachEEEEmDpOT_.exit, label %10
 
-_ZN3ue28hash_allIJyRKjRKbRKNS_9CharReachEEEEmDpOT_.exit: ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load i32, ptr %12, align 8
-  %14 = load i8, ptr %11, align 4, !range !5, !noundef !6
-  %15 = zext nneg i8 %14 to i64
+_ZN3ue28hash_allIJyRKjRKbRKNS_9CharReachEEEEmDpOT_.exit: ; preds = %10
+  %15 = zext nneg i8 %9 to i64
   %16 = mul nuw nsw i64 %15, 814605021516865831
-  %17 = zext i32 %13 to i64
+  %17 = zext i32 %8 to i64
   %18 = mul i64 %17, 814605021516865831
   %19 = mul i64 %4, 814605021516865831
   %20 = add i64 %19, 3571081485394615273
@@ -249,8 +249,8 @@ _ZN3ue28hash_allIJyRKjRKbRKNS_9CharReachEEEEmDpOT_.exit: ; preds = %6
   %22 = add i64 %21, 3571081485394615273
   %23 = xor i64 %22, %16
   %24 = add i64 %23, 3571081485394615273
-  %25 = mul i64 %10, 814605021516865831
-  %26 = xor i64 %24, %25
+  %25 = mul i64 %14, 814605021516865831
+  %26 = xor i64 %25, %24
   %27 = add i64 %26, 3571081485394615273
   ret i64 %27
 }
@@ -2167,29 +2167,29 @@ _ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14Sl
           to label %.noexc32 unwind label %99
 
 .noexc32:                                         ; preds = %.critedge
-  %39 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  br label %40
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 52
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %42 = load i32, ptr %39, align 4
+  %43 = load i8, ptr %40, align 4, !range !5, !noundef !6
+  br label %44
 
-40:                                               ; preds = %40, %.noexc32
-  %.0.idx11.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc32 ], [ %.0.add.i.i.i.i.i.i.i.i.i.i.i.i.i, %40 ]
-  %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc32 ], [ %44, %40 ]
-  %.0.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %39, i64 %.0.idx11.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %41 = load i64, ptr %.0.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %42 = mul i64 %41, 814605021516865831
-  %43 = xor i64 %42, %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %44 = add i64 %43, 3571081485394615273
+44:                                               ; preds = %44, %.noexc32
+  %.0.idx11.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc32 ], [ %.0.add.i.i.i.i.i.i.i.i.i.i.i.i.i, %44 ]
+  %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc32 ], [ %48, %44 ]
+  %.0.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 %.0.idx11.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %45 = load i64, ptr %.0.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %46 = mul i64 %45, 814605021516865831
+  %47 = xor i64 %46, %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %48 = add i64 %47, 3571081485394615273
   %.0.add.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i.i.i.i.i.i.i.i.i, 32
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %45, label %40
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %49, label %44
 
-45:                                               ; preds = %40
-  %46 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  %47 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %48 = load i32, ptr %47, align 4
-  %49 = load i8, ptr %46, align 4, !range !5, !noundef !6
-  %50 = zext nneg i8 %49 to i64
+49:                                               ; preds = %44
+  %50 = zext nneg i8 %43 to i64
   %51 = mul nuw nsw i64 %50, 814605021516865831
-  %52 = zext i32 %48 to i64
+  %52 = zext i32 %42 to i64
   %53 = mul i64 %52, 814605021516865831
   %54 = mul i64 %38, 814605021516865831
   %55 = add i64 %54, 3571081485394615273
@@ -2197,8 +2197,8 @@ _ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14Sl
   %57 = add i64 %56, 3571081485394615273
   %58 = xor i64 %57, %51
   %59 = add i64 %58, 3571081485394615273
-  %60 = mul i64 %44, 814605021516865831
-  %61 = xor i64 %59, %60
+  %60 = mul i64 %48, 814605021516865831
+  %61 = xor i64 %60, %59
   %62 = add i64 %61, 3571081485394615273
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load i64, ptr %63, align 8
@@ -2207,7 +2207,7 @@ _ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14Sl
   %.not50 = icmp eq i64 %66, 0
   br i1 %.not50, label %.critedge31, label %67
 
-67:                                               ; preds = %45
+67:                                               ; preds = %49
   %68 = load ptr, ptr %0, align 8
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %65
   %70 = load ptr, ptr %69, align 8
@@ -2229,14 +2229,14 @@ _ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14Sl
   br i1 %76, label %77, label %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread.i.i
 
 77:                                               ; preds = %73
-  %78 = load i32, ptr %47, align 8
+  %78 = load i32, ptr %39, align 8
   %79 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   %80 = load i32, ptr %79, align 8
   %81 = icmp eq i32 %78, %80
   br i1 %81, label %82, label %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread.i.i
 
 82:                                               ; preds = %77
-  %83 = load i8, ptr %46, align 4, !range !5, !noundef !6
+  %83 = load i8, ptr %40, align 4, !range !5, !noundef !6
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 52
   %85 = load i8, ptr %84, align 4, !range !5, !noundef !6
   %86 = icmp eq i8 %83, %85
@@ -2244,7 +2244,7 @@ _ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14Sl
 
 87:                                               ; preds = %82
   %88 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %39, ptr noundef nonnull readonly align 8 dereferenceable(32) %88, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %41, ptr noundef nonnull readonly align 8 dereferenceable(32) %88, i64 32)
   %.not9.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread.i.i
 
@@ -2285,7 +2285,7 @@ _ZNKSt10_HashtableIN3ue214SlotCacheEntryES1_SaIS1_ENSt8__detail9_IdentityENS0_14
           cleanup
   br label %110
 
-.critedge31:                                      ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread.i.i, %93, %67, %_ZNKSt10_HashtableIN3ue214SlotCacheEntryES1_SaIS1_ENSt8__detail9_IdentityENS0_14SlotEntryEqualENS0_15SlotEntryHasherENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS1_m.exit, %45
+.critedge31:                                      ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread.i.i, %93, %67, %_ZNKSt10_HashtableIN3ue214SlotCacheEntryES1_SaIS1_ENSt8__detail9_IdentityENS0_14SlotEntryEqualENS0_15SlotEntryHasherENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS1_m.exit, %49
   %103 = invoke ptr @_ZNSt10_HashtableIN3ue214SlotCacheEntryES1_SaIS1_ENSt8__detail9_IdentityENS0_14SlotEntryEqualENS0_15SlotEntryHasherENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS3_10_Hash_nodeIS1_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %65, i64 noundef %62, ptr noundef %9, i64 noundef 1)
           to label %_ZNSt10_HashtableIN3ue214SlotCacheEntryES1_SaIS1_ENSt8__detail9_IdentityENS0_14SlotEntryEqualENS0_15SlotEntryHasherENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %104
 
@@ -2665,29 +2665,29 @@ _ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14Sl
 26:                                               ; preds = %2
   %27 = load ptr, ptr %1, align 8
   %28 = tail call noundef i64 @_ZN3ue211hash_holderERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136) %27)
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %30
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %32 = load i32, ptr %29, align 8
+  %33 = load i8, ptr %30, align 4, !range !5, !noundef !6
+  br label %34
 
-30:                                               ; preds = %30, %26
-  %.0.idx11.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %26 ], [ %.0.add.i.i.i.i.i.i.i.i.i.i.i.i.i, %30 ]
-  %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %26 ], [ %34, %30 ]
-  %.0.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 %.0.idx11.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %31 = load i64, ptr %.0.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %32 = mul i64 %31, 814605021516865831
-  %33 = xor i64 %32, %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %34 = add i64 %33, 3571081485394615273
+34:                                               ; preds = %34, %26
+  %.0.idx11.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %26 ], [ %.0.add.i.i.i.i.i.i.i.i.i.i.i.i.i, %34 ]
+  %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %26 ], [ %38, %34 ]
+  %.0.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 %.0.idx11.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %35 = load i64, ptr %.0.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %36 = mul i64 %35, 814605021516865831
+  %37 = xor i64 %36, %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %38 = add i64 %37, 3571081485394615273
   %.0.add.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i.i.i.i.i.i.i.i.i, 32
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS2_.exit, label %30
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS2_.exit, label %34
 
-_ZNKSt8__detail15_Hash_code_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS2_.exit: ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %37 = load i32, ptr %36, align 8
-  %38 = load i8, ptr %35, align 4, !range !5, !noundef !6
-  %39 = zext nneg i8 %38 to i64
+_ZNKSt8__detail15_Hash_code_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS2_.exit: ; preds = %34
+  %39 = zext nneg i8 %33 to i64
   %40 = mul nuw nsw i64 %39, 814605021516865831
-  %41 = zext i32 %37 to i64
+  %41 = zext i32 %32 to i64
   %42 = mul i64 %41, 814605021516865831
   %43 = mul i64 %28, 814605021516865831
   %44 = add i64 %43, 3571081485394615273
@@ -2695,8 +2695,8 @@ _ZNKSt8__detail15_Hash_code_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_15Sl
   %46 = add i64 %45, 3571081485394615273
   %47 = xor i64 %46, %40
   %48 = add i64 %47, 3571081485394615273
-  %49 = mul i64 %34, 814605021516865831
-  %50 = xor i64 %48, %49
+  %49 = mul i64 %38, 814605021516865831
+  %50 = xor i64 %49, %48
   %51 = add i64 %50, 3571081485394615273
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load i64, ptr %52, align 8
@@ -2722,14 +2722,14 @@ _ZNKSt8__detail15_Hash_code_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_15Sl
   br i1 %63, label %64, label %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread.i.i
 
 64:                                               ; preds = %60
-  %65 = load i32, ptr %36, align 8
+  %65 = load i32, ptr %29, align 8
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   %67 = load i32, ptr %66, align 8
   %68 = icmp eq i32 %65, %67
   br i1 %68, label %69, label %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread.i.i
 
 69:                                               ; preds = %64
-  %70 = load i8, ptr %35, align 4, !range !5, !noundef !6
+  %70 = load i8, ptr %30, align 4, !range !5, !noundef !6
   %71 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 52
   %72 = load i8, ptr %71, align 4, !range !5, !noundef !6
   %73 = icmp eq i8 %70, %72
@@ -2737,7 +2737,7 @@ _ZNKSt8__detail15_Hash_code_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_15Sl
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %29, ptr noundef nonnull readonly align 8 dereferenceable(32) %75, i64 32)
+  %bcmp.i.i.i.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %31, ptr noundef nonnull readonly align 8 dereferenceable(32) %75, i64 32)
   %.not9.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.i.i, label %_ZNKSt8__detail15_Hashtable_baseIN3ue214SlotCacheEntryES2_NS_9_IdentityENS1_14SlotEntryEqualENS1_15SlotEntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread.i.i
 

@@ -6273,32 +6273,32 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE17_M_reall
   %879 = phi ptr [ %855, %.lr.ph1329 ], [ %933, %.thread1011 ]
   %.02961327 = phi i32 [ %874, %.lr.ph1329 ], [ %.32991014, %.thread1011 ]
   %.sroa.0680.01326 = phi ptr [ %.sroa.0840.0.lcssa, %.lr.ph1329 ], [ %934, %.thread1011 ]
-  %880 = add nsw i32 %.02961327, -1
-  %881 = getelementptr inbounds nuw i8, ptr %879, i64 48
-  %882 = load ptr, ptr %881, align 8, !tbaa !92
-  %883 = zext i32 %880 to i64
-  %884 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %882, i64 %883
-  %.sroa.0.0.copyload.i6291311 = load i32, ptr %884, align 4, !tbaa !201
-  %885 = icmp eq i32 %.sroa.0.0.copyload.i6291311, -1
-  br i1 %885, label %.lr.ph1314, label %._crit_edge1315
+  %880 = load i32, ptr %.sroa.0680.01326, align 4, !tbaa !201
+  %881 = add nsw i32 %.02961327, -1
+  %882 = getelementptr inbounds nuw i8, ptr %879, i64 48
+  %883 = load ptr, ptr %882, align 8, !tbaa !92
+  %884 = zext i32 %881 to i64
+  %885 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %883, i64 %884
+  %.sroa.0.0.copyload.i6291311 = load i32, ptr %885, align 4, !tbaa !201
+  %886 = icmp eq i32 %.sroa.0.0.copyload.i6291311, -1
+  br i1 %886, label %.lr.ph1314, label %._crit_edge1315
 
 .lr.ph1314:                                       ; preds = %878, %.lr.ph1314
-  %.22981312 = phi i32 [ %886, %.lr.ph1314 ], [ %.02961327, %878 ]
-  %886 = add nsw i32 %.22981312, -1
-  %887 = add nsw i32 %.22981312, -2
-  %888 = zext i32 %887 to i64
-  %889 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %882, i64 %888
-  %.sroa.0.0.copyload.i629 = load i32, ptr %889, align 4, !tbaa !201
-  %890 = icmp eq i32 %.sroa.0.0.copyload.i629, -1
-  br i1 %890, label %.lr.ph1314, label %._crit_edge1315, !llvm.loop !304
+  %.22981312 = phi i32 [ %887, %.lr.ph1314 ], [ %.02961327, %878 ]
+  %887 = add nsw i32 %.22981312, -1
+  %888 = add nsw i32 %.22981312, -2
+  %889 = zext i32 %888 to i64
+  %890 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %883, i64 %889
+  %.sroa.0.0.copyload.i629 = load i32, ptr %890, align 4, !tbaa !201
+  %891 = icmp eq i32 %.sroa.0.0.copyload.i629, -1
+  br i1 %891, label %.lr.ph1314, label %._crit_edge1315, !llvm.loop !304
 
 ._crit_edge1315:                                  ; preds = %.lr.ph1314, %878
   %.sroa.0.0.copyload.i.i630 = phi i32 [ %.sroa.0.0.copyload.i6291311, %878 ], [ %.sroa.0.0.copyload.i629, %.lr.ph1314 ]
-  %.lcssa1310 = phi i64 [ %883, %878 ], [ %888, %.lr.ph1314 ]
-  %.sroa.0667.0.lcssa = phi i32 [ %880, %878 ], [ %887, %.lr.ph1314 ]
-  %.2298.lcssa = phi i32 [ %.02961327, %878 ], [ %886, %.lr.ph1314 ]
-  %891 = load i32, ptr %.sroa.0680.01326, align 4, !tbaa !201
-  %892 = icmp ult i32 %.sroa.0667.0.lcssa, %891
+  %.lcssa1310 = phi i64 [ %884, %878 ], [ %889, %.lr.ph1314 ]
+  %.sroa.0667.0.lcssa = phi i32 [ %881, %878 ], [ %888, %.lr.ph1314 ]
+  %.2298.lcssa = phi i32 [ %.02961327, %878 ], [ %887, %.lr.ph1314 ]
+  %892 = icmp ult i32 %.sroa.0667.0.lcssa, %880
   br i1 %892, label %.thread1011, label %.lr.ph1323.preheader
 
 .lr.ph1323.preheader:                             ; preds = %._crit_edge1315
@@ -6330,7 +6330,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE17_M_reall
   br label %.body
 
 900:                                              ; preds = %.lr.ph1323
-  store i32 %891, ptr %897, align 4, !tbaa !246
+  store i32 %880, ptr %897, align 4, !tbaa !246
   invoke void @_ZN5draco21VertexCornersIteratorINS_11CornerTableEE4NextEv(ptr noundef nonnull align 8 dereferenceable(17) %5)
           to label %_ZN5draco21VertexCornersIteratorINS_11CornerTableEEppEv.exit unwind label %898
 
@@ -6344,12 +6344,12 @@ _ZN5draco21VertexCornersIteratorINS_11CornerTableEEppEv.exit: ; preds = %900
   %902 = getelementptr inbounds nuw i8, ptr %.pre1498, i64 48
   %903 = load ptr, ptr %902, align 8, !tbaa !92
   %904 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %903, i64 %.lcssa1310
-  %.not.i637 = icmp eq i32 %891, -1
+  %.not.i637 = icmp eq i32 %880, -1
   br i1 %.not.i637, label %908, label %905
 
 905:                                              ; preds = %._crit_edge1324
   %.sroa.0.0.copyload.i636 = load i32, ptr %904, align 4, !tbaa !201
-  %906 = zext i32 %891 to i64
+  %906 = zext i32 %880 to i64
   %907 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %903, i64 %906
   store i32 %.sroa.0.0.copyload.i636, ptr %907, align 4, !tbaa !244
   br label %908
@@ -6361,10 +6361,10 @@ _ZN5draco21VertexCornersIteratorINS_11CornerTableEEppEv.exit: ; preds = %900
   %911 = getelementptr inbounds nuw i64, ptr %909, i64 %910
   %912 = and i64 %.lcssa1310, 63
   %913 = shl nuw i64 1, %912
-  %914 = lshr i32 %891, 6
+  %914 = lshr i32 %880, 6
   %.zext1033 = zext nneg i32 %914 to i64
   %915 = getelementptr inbounds nuw i64, ptr %909, i64 %.zext1033
-  %916 = and i32 %891, 63
+  %916 = and i32 %880, 63
   %917 = zext nneg i32 %916 to i64
   %918 = shl nuw i64 1, %917
   %919 = load i64, ptr %911, align 8, !tbaa !239
@@ -7240,15 +7240,15 @@ _ZN5draco4Mesh11SetNumFacesEm.exit:               ; preds = %30, %32, %34, %36
 .lr.ph385:                                        ; preds = %.lr.ph385.preheader, %_ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit
   %indvar421 = phi i64 [ 0, %.lr.ph385.preheader ], [ %indvar.next422, %_ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit ]
   %indvars424 = trunc i64 %indvar421 to i32
+  %57 = mul nuw nsw i64 %indvar421, 12
+  %scevgep423 = getelementptr i8, ptr %48, i64 %57
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !tbaa !341
-  %57 = mul i32 %indvars424, 3
-  %58 = load ptr, ptr %10, align 8
+  %58 = mul i32 %indvars424, 3
+  %59 = load ptr, ptr %10, align 8
   br label %60
 
 _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit: ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  %59 = mul nuw nsw i64 %indvar421, 12
-  %scevgep423 = getelementptr i8, ptr %48, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep423, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false), !tbaa !341
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvar.next422 = add nuw nsw i64 %indvar421, 1
@@ -7258,13 +7258,13 @@ _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_
 60:                                               ; preds = %.lr.ph385, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %indvars.iv417 = phi i64 [ 0, %.lr.ph385 ], [ %indvars.iv.next418, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ]
   %61 = trunc nuw nsw i64 %indvars.iv417 to i32
-  %62 = add i32 %57, %61
+  %62 = add i32 %58, %61
   %63 = icmp eq i32 %62, -1
   br i1 %63, label %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, label %64
 
 64:                                               ; preds = %60
   %65 = zext i32 %62 to i64
-  %66 = load ptr, ptr %58, align 8, !tbaa !196
+  %66 = load ptr, ptr %59, align 8, !tbaa !196
   %67 = getelementptr inbounds nuw %"class.draco::IndexType.130", ptr %66, i64 %65
   %.sroa.0.0.copyload.i.i = load i32, ptr %67, align 4, !tbaa !201
   br label %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
@@ -7828,14 +7828,14 @@ _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE
 
 .lr.ph381:                                        ; preds = %.lr.ph381.preheader, %_ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit159
   %indvar = phi i64 [ 0, %.lr.ph381.preheader ], [ %indvar.next, %_ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit159 ]
+  %300 = mul nuw nsw i64 %indvar, 12
+  %scevgep = getelementptr i8, ptr %103, i64 %300
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false), !tbaa !341
-  %300 = mul i64 %indvar, 3
+  %301 = mul i64 %indvar, 3
   br label %302
 
 _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit159: ; preds = %302
-  %301 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr i8, ptr %103, i64 %301
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa !341
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvar.next = add nuw nsw i64 %indvar, 1
@@ -7844,7 +7844,7 @@ _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_
 
 302:                                              ; preds = %.lr.ph381, %302
   %indvars.iv412 = phi i64 [ 0, %.lr.ph381 ], [ %indvars.iv.next413, %302 ]
-  %303 = add i64 %300, %indvars.iv412
+  %303 = add i64 %301, %indvars.iv412
   %304 = and i64 %303, 4294967295
   %305 = getelementptr inbounds nuw i32, ptr %.sroa.0212.0, i64 %304
   %306 = load i32, ptr %305, align 4, !tbaa !201
@@ -13508,32 +13508,32 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE17_M_reall
   %903 = phi ptr [ %879, %.lr.ph1345 ], [ %957, %.thread1013 ]
   %.02961343 = phi i32 [ %898, %.lr.ph1345 ], [ %.32991016, %.thread1013 ]
   %.sroa.0679.01342 = phi ptr [ %.sroa.0839.0.lcssa, %.lr.ph1345 ], [ %958, %.thread1013 ]
-  %904 = add nsw i32 %.02961343, -1
-  %905 = getelementptr inbounds nuw i8, ptr %903, i64 48
-  %906 = load ptr, ptr %905, align 8, !tbaa !92
-  %907 = zext i32 %904 to i64
-  %908 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %906, i64 %907
-  %.sroa.0.0.copyload.i6281327 = load i32, ptr %908, align 4, !tbaa !201
-  %909 = icmp eq i32 %.sroa.0.0.copyload.i6281327, -1
-  br i1 %909, label %.lr.ph1330, label %._crit_edge1331
+  %904 = load i32, ptr %.sroa.0679.01342, align 4, !tbaa !201
+  %905 = add nsw i32 %.02961343, -1
+  %906 = getelementptr inbounds nuw i8, ptr %903, i64 48
+  %907 = load ptr, ptr %906, align 8, !tbaa !92
+  %908 = zext i32 %905 to i64
+  %909 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %907, i64 %908
+  %.sroa.0.0.copyload.i6281327 = load i32, ptr %909, align 4, !tbaa !201
+  %910 = icmp eq i32 %.sroa.0.0.copyload.i6281327, -1
+  br i1 %910, label %.lr.ph1330, label %._crit_edge1331
 
 .lr.ph1330:                                       ; preds = %902, %.lr.ph1330
-  %.22981328 = phi i32 [ %910, %.lr.ph1330 ], [ %.02961343, %902 ]
-  %910 = add nsw i32 %.22981328, -1
-  %911 = add nsw i32 %.22981328, -2
-  %912 = zext i32 %911 to i64
-  %913 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %906, i64 %912
-  %.sroa.0.0.copyload.i628 = load i32, ptr %913, align 4, !tbaa !201
-  %914 = icmp eq i32 %.sroa.0.0.copyload.i628, -1
-  br i1 %914, label %.lr.ph1330, label %._crit_edge1331, !llvm.loop !457
+  %.22981328 = phi i32 [ %911, %.lr.ph1330 ], [ %.02961343, %902 ]
+  %911 = add nsw i32 %.22981328, -1
+  %912 = add nsw i32 %.22981328, -2
+  %913 = zext i32 %912 to i64
+  %914 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %907, i64 %913
+  %.sroa.0.0.copyload.i628 = load i32, ptr %914, align 4, !tbaa !201
+  %915 = icmp eq i32 %.sroa.0.0.copyload.i628, -1
+  br i1 %915, label %.lr.ph1330, label %._crit_edge1331, !llvm.loop !457
 
 ._crit_edge1331:                                  ; preds = %.lr.ph1330, %902
   %.sroa.0.0.copyload.i.i629 = phi i32 [ %.sroa.0.0.copyload.i6281327, %902 ], [ %.sroa.0.0.copyload.i628, %.lr.ph1330 ]
-  %.lcssa1326 = phi i64 [ %907, %902 ], [ %912, %.lr.ph1330 ]
-  %.sroa.0666.0.lcssa = phi i32 [ %904, %902 ], [ %911, %.lr.ph1330 ]
-  %.2298.lcssa = phi i32 [ %.02961343, %902 ], [ %910, %.lr.ph1330 ]
-  %915 = load i32, ptr %.sroa.0679.01342, align 4, !tbaa !201
-  %916 = icmp ult i32 %.sroa.0666.0.lcssa, %915
+  %.lcssa1326 = phi i64 [ %908, %902 ], [ %913, %.lr.ph1330 ]
+  %.sroa.0666.0.lcssa = phi i32 [ %905, %902 ], [ %912, %.lr.ph1330 ]
+  %.2298.lcssa = phi i32 [ %.02961343, %902 ], [ %911, %.lr.ph1330 ]
+  %916 = icmp ult i32 %.sroa.0666.0.lcssa, %904
   br i1 %916, label %.thread1013, label %.lr.ph1339.preheader
 
 .lr.ph1339.preheader:                             ; preds = %._crit_edge1331
@@ -13565,7 +13565,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE17_M_reall
   br label %.body
 
 924:                                              ; preds = %.lr.ph1339
-  store i32 %915, ptr %921, align 4, !tbaa !246
+  store i32 %904, ptr %921, align 4, !tbaa !246
   invoke void @_ZN5draco21VertexCornersIteratorINS_11CornerTableEE4NextEv(ptr noundef nonnull align 8 dereferenceable(17) %5)
           to label %_ZN5draco21VertexCornersIteratorINS_11CornerTableEEppEv.exit unwind label %922
 
@@ -13579,12 +13579,12 @@ _ZN5draco21VertexCornersIteratorINS_11CornerTableEEppEv.exit: ; preds = %924
   %926 = getelementptr inbounds nuw i8, ptr %.pre1533, i64 48
   %927 = load ptr, ptr %926, align 8, !tbaa !92
   %928 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %927, i64 %.lcssa1326
-  %.not.i636 = icmp eq i32 %915, -1
+  %.not.i636 = icmp eq i32 %904, -1
   br i1 %.not.i636, label %932, label %929
 
 929:                                              ; preds = %._crit_edge1340
   %.sroa.0.0.copyload.i635 = load i32, ptr %928, align 4, !tbaa !201
-  %930 = zext i32 %915 to i64
+  %930 = zext i32 %904 to i64
   %931 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %927, i64 %930
   store i32 %.sroa.0.0.copyload.i635, ptr %931, align 4, !tbaa !244
   br label %932
@@ -13596,10 +13596,10 @@ _ZN5draco21VertexCornersIteratorINS_11CornerTableEEppEv.exit: ; preds = %924
   %935 = getelementptr inbounds nuw i64, ptr %933, i64 %934
   %936 = and i64 %.lcssa1326, 63
   %937 = shl nuw i64 1, %936
-  %938 = lshr i32 %915, 6
+  %938 = lshr i32 %904, 6
   %.zext1035 = zext nneg i32 %938 to i64
   %939 = getelementptr inbounds nuw i64, ptr %933, i64 %.zext1035
-  %940 = and i32 %915, 63
+  %940 = and i32 %904, 63
   %941 = zext nneg i32 %940 to i64
   %942 = shl nuw i64 1, %941
   %943 = load i64, ptr %935, align 8, !tbaa !239
@@ -14349,15 +14349,15 @@ _ZN5draco4Mesh11SetNumFacesEm.exit:               ; preds = %30, %32, %34, %36
 .lr.ph385:                                        ; preds = %.lr.ph385.preheader, %_ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit
   %indvar421 = phi i64 [ 0, %.lr.ph385.preheader ], [ %indvar.next422, %_ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit ]
   %indvars424 = trunc i64 %indvar421 to i32
+  %57 = mul nuw nsw i64 %indvar421, 12
+  %scevgep423 = getelementptr i8, ptr %48, i64 %57
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !tbaa !341
-  %57 = mul i32 %indvars424, 3
-  %58 = load ptr, ptr %10, align 8
+  %58 = mul i32 %indvars424, 3
+  %59 = load ptr, ptr %10, align 8
   br label %60
 
 _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit: ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  %59 = mul nuw nsw i64 %indvar421, 12
-  %scevgep423 = getelementptr i8, ptr %48, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep423, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false), !tbaa !341
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvar.next422 = add nuw nsw i64 %indvar421, 1
@@ -14367,13 +14367,13 @@ _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_
 60:                                               ; preds = %.lr.ph385, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %indvars.iv417 = phi i64 [ 0, %.lr.ph385 ], [ %indvars.iv.next418, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ]
   %61 = trunc nuw nsw i64 %indvars.iv417 to i32
-  %62 = add i32 %57, %61
+  %62 = add i32 %58, %61
   %63 = icmp eq i32 %62, -1
   br i1 %63, label %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, label %64
 
 64:                                               ; preds = %60
   %65 = zext i32 %62 to i64
-  %66 = load ptr, ptr %58, align 8, !tbaa !196
+  %66 = load ptr, ptr %59, align 8, !tbaa !196
   %67 = getelementptr inbounds nuw %"class.draco::IndexType.130", ptr %66, i64 %65
   %.sroa.0.0.copyload.i.i = load i32, ptr %67, align 4, !tbaa !201
   br label %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
@@ -14937,14 +14937,14 @@ _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE
 
 .lr.ph381:                                        ; preds = %.lr.ph381.preheader, %_ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit159
   %indvar = phi i64 [ 0, %.lr.ph381.preheader ], [ %indvar.next, %_ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit159 ]
+  %300 = mul nuw nsw i64 %indvar, 12
+  %scevgep = getelementptr i8, ptr %103, i64 %300
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false), !tbaa !341
-  %300 = mul i64 %indvar, 3
+  %301 = mul i64 %indvar, 3
   br label %302
 
 _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit159: ; preds = %302
-  %301 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr i8, ptr %103, i64 %301
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa !341
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvar.next = add nuw nsw i64 %indvar, 1
@@ -14953,7 +14953,7 @@ _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_
 
 302:                                              ; preds = %.lr.ph381, %302
   %indvars.iv412 = phi i64 [ 0, %.lr.ph381 ], [ %indvars.iv.next413, %302 ]
-  %303 = add i64 %300, %indvars.iv412
+  %303 = add i64 %301, %indvars.iv412
   %304 = and i64 %303, 4294967295
   %305 = getelementptr inbounds nuw i32, ptr %.sroa.0212.0, i64 %304
   %306 = load i32, ptr %305, align 4, !tbaa !201
@@ -20994,32 +20994,32 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE17_M_reall
   %936 = phi ptr [ %912, %.lr.ph1348 ], [ %990, %.thread1016 ]
   %.02961346 = phi i32 [ %931, %.lr.ph1348 ], [ %.32991019, %.thread1016 ]
   %.sroa.0679.01345 = phi ptr [ %.sroa.0839.0.lcssa, %.lr.ph1348 ], [ %991, %.thread1016 ]
-  %937 = add nsw i32 %.02961346, -1
-  %938 = getelementptr inbounds nuw i8, ptr %936, i64 48
-  %939 = load ptr, ptr %938, align 8, !tbaa !92
-  %940 = zext i32 %937 to i64
-  %941 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %939, i64 %940
-  %.sroa.0.0.copyload.i6281330 = load i32, ptr %941, align 4, !tbaa !201
-  %942 = icmp eq i32 %.sroa.0.0.copyload.i6281330, -1
-  br i1 %942, label %.lr.ph1333, label %._crit_edge1334
+  %937 = load i32, ptr %.sroa.0679.01345, align 4, !tbaa !201
+  %938 = add nsw i32 %.02961346, -1
+  %939 = getelementptr inbounds nuw i8, ptr %936, i64 48
+  %940 = load ptr, ptr %939, align 8, !tbaa !92
+  %941 = zext i32 %938 to i64
+  %942 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %940, i64 %941
+  %.sroa.0.0.copyload.i6281330 = load i32, ptr %942, align 4, !tbaa !201
+  %943 = icmp eq i32 %.sroa.0.0.copyload.i6281330, -1
+  br i1 %943, label %.lr.ph1333, label %._crit_edge1334
 
 .lr.ph1333:                                       ; preds = %935, %.lr.ph1333
-  %.22981331 = phi i32 [ %943, %.lr.ph1333 ], [ %.02961346, %935 ]
-  %943 = add nsw i32 %.22981331, -1
-  %944 = add nsw i32 %.22981331, -2
-  %945 = zext i32 %944 to i64
-  %946 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %939, i64 %945
-  %.sroa.0.0.copyload.i628 = load i32, ptr %946, align 4, !tbaa !201
-  %947 = icmp eq i32 %.sroa.0.0.copyload.i628, -1
-  br i1 %947, label %.lr.ph1333, label %._crit_edge1334, !llvm.loop !584
+  %.22981331 = phi i32 [ %944, %.lr.ph1333 ], [ %.02961346, %935 ]
+  %944 = add nsw i32 %.22981331, -1
+  %945 = add nsw i32 %.22981331, -2
+  %946 = zext i32 %945 to i64
+  %947 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %940, i64 %946
+  %.sroa.0.0.copyload.i628 = load i32, ptr %947, align 4, !tbaa !201
+  %948 = icmp eq i32 %.sroa.0.0.copyload.i628, -1
+  br i1 %948, label %.lr.ph1333, label %._crit_edge1334, !llvm.loop !584
 
 ._crit_edge1334:                                  ; preds = %.lr.ph1333, %935
   %.sroa.0.0.copyload.i.i629 = phi i32 [ %.sroa.0.0.copyload.i6281330, %935 ], [ %.sroa.0.0.copyload.i628, %.lr.ph1333 ]
-  %.lcssa1329 = phi i64 [ %940, %935 ], [ %945, %.lr.ph1333 ]
-  %.sroa.0666.0.lcssa = phi i32 [ %937, %935 ], [ %944, %.lr.ph1333 ]
-  %.2298.lcssa = phi i32 [ %.02961346, %935 ], [ %943, %.lr.ph1333 ]
-  %948 = load i32, ptr %.sroa.0679.01345, align 4, !tbaa !201
-  %949 = icmp ult i32 %.sroa.0666.0.lcssa, %948
+  %.lcssa1329 = phi i64 [ %941, %935 ], [ %946, %.lr.ph1333 ]
+  %.sroa.0666.0.lcssa = phi i32 [ %938, %935 ], [ %945, %.lr.ph1333 ]
+  %.2298.lcssa = phi i32 [ %.02961346, %935 ], [ %944, %.lr.ph1333 ]
+  %949 = icmp ult i32 %.sroa.0666.0.lcssa, %937
   br i1 %949, label %.thread1016, label %.lr.ph1342.preheader
 
 .lr.ph1342.preheader:                             ; preds = %._crit_edge1334
@@ -21051,7 +21051,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE17_M_reall
   br label %.body
 
 957:                                              ; preds = %.lr.ph1342
-  store i32 %948, ptr %954, align 4, !tbaa !246
+  store i32 %937, ptr %954, align 4, !tbaa !246
   invoke void @_ZN5draco21VertexCornersIteratorINS_11CornerTableEE4NextEv(ptr noundef nonnull align 8 dereferenceable(17) %5)
           to label %_ZN5draco21VertexCornersIteratorINS_11CornerTableEEppEv.exit unwind label %955
 
@@ -21065,12 +21065,12 @@ _ZN5draco21VertexCornersIteratorINS_11CornerTableEEppEv.exit: ; preds = %957
   %959 = getelementptr inbounds nuw i8, ptr %.pre1536, i64 48
   %960 = load ptr, ptr %959, align 8, !tbaa !92
   %961 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %960, i64 %.lcssa1329
-  %.not.i636 = icmp eq i32 %948, -1
+  %.not.i636 = icmp eq i32 %937, -1
   br i1 %.not.i636, label %965, label %962
 
 962:                                              ; preds = %._crit_edge1343
   %.sroa.0.0.copyload.i635 = load i32, ptr %961, align 4, !tbaa !201
-  %963 = zext i32 %948 to i64
+  %963 = zext i32 %937 to i64
   %964 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %960, i64 %963
   store i32 %.sroa.0.0.copyload.i635, ptr %964, align 4, !tbaa !244
   br label %965
@@ -21082,10 +21082,10 @@ _ZN5draco21VertexCornersIteratorINS_11CornerTableEEppEv.exit: ; preds = %957
   %968 = getelementptr inbounds nuw i64, ptr %966, i64 %967
   %969 = and i64 %.lcssa1329, 63
   %970 = shl nuw i64 1, %969
-  %971 = lshr i32 %948, 6
+  %971 = lshr i32 %937, 6
   %.zext1038 = zext nneg i32 %971 to i64
   %972 = getelementptr inbounds nuw i64, ptr %966, i64 %.zext1038
-  %973 = and i32 %948, 63
+  %973 = and i32 %937, 63
   %974 = zext nneg i32 %973 to i64
   %975 = shl nuw i64 1, %974
   %976 = load i64, ptr %968, align 8, !tbaa !239
@@ -21835,15 +21835,15 @@ _ZN5draco4Mesh11SetNumFacesEm.exit:               ; preds = %30, %32, %34, %36
 .lr.ph385:                                        ; preds = %.lr.ph385.preheader, %_ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit
   %indvar421 = phi i64 [ 0, %.lr.ph385.preheader ], [ %indvar.next422, %_ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit ]
   %indvars424 = trunc i64 %indvar421 to i32
+  %57 = mul nuw nsw i64 %indvar421, 12
+  %scevgep423 = getelementptr i8, ptr %48, i64 %57
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !tbaa !341
-  %57 = mul i32 %indvars424, 3
-  %58 = load ptr, ptr %10, align 8
+  %58 = mul i32 %indvars424, 3
+  %59 = load ptr, ptr %10, align 8
   br label %60
 
 _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit: ; preds = %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  %59 = mul nuw nsw i64 %indvar421, 12
-  %scevgep423 = getelementptr i8, ptr %48, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep423, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false), !tbaa !341
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvar.next422 = add nuw nsw i64 %indvar421, 1
@@ -21853,13 +21853,13 @@ _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_
 60:                                               ; preds = %.lr.ph385, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %indvars.iv417 = phi i64 [ 0, %.lr.ph385 ], [ %indvars.iv.next418, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ]
   %61 = trunc nuw nsw i64 %indvars.iv417 to i32
-  %62 = add i32 %57, %61
+  %62 = add i32 %58, %61
   %63 = icmp eq i32 %62, -1
   br i1 %63, label %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, label %64
 
 64:                                               ; preds = %60
   %65 = zext i32 %62 to i64
-  %66 = load ptr, ptr %58, align 8, !tbaa !196
+  %66 = load ptr, ptr %59, align 8, !tbaa !196
   %67 = getelementptr inbounds nuw %"class.draco::IndexType.130", ptr %66, i64 %65
   %.sroa.0.0.copyload.i.i = load i32, ptr %67, align 4, !tbaa !201
   br label %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
@@ -22423,14 +22423,14 @@ _ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE
 
 .lr.ph381:                                        ; preds = %.lr.ph381.preheader, %_ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit159
   %indvar = phi i64 [ 0, %.lr.ph381.preheader ], [ %indvar.next, %_ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit159 ]
+  %300 = mul nuw nsw i64 %indvar, 12
+  %scevgep = getelementptr i8, ptr %103, i64 %300
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false), !tbaa !341
-  %300 = mul i64 %indvar, 3
+  %301 = mul i64 %indvar, 3
   br label %302
 
 _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit159: ; preds = %302
-  %301 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr i8, ptr %103, i64 %301
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa !341
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvar.next = add nuw nsw i64 %indvar, 1
@@ -22439,7 +22439,7 @@ _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_
 
 302:                                              ; preds = %.lr.ph381, %302
   %indvars.iv412 = phi i64 [ 0, %.lr.ph381 ], [ %indvars.iv.next413, %302 ]
-  %303 = add i64 %300, %indvars.iv412
+  %303 = add i64 %301, %indvars.iv412
   %304 = and i64 %303, 4294967295
   %305 = getelementptr inbounds nuw i32, ptr %.sroa.0212.0, i64 %304
   %306 = load i32, ptr %305, align 4, !tbaa !201
@@ -24355,8 +24355,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !201
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -24995,8 +24995,8 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !201
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i

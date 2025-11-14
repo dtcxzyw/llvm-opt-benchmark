@@ -5238,16 +5238,16 @@ _ZNK14PhaseIdealLoop8get_loopEP4Node.exit180.us:  ; preds = %_ZNK14PhaseIdealLoo
   %.9 = add i32 %287, %.8223
   %288 = getelementptr inbounds nuw i8, ptr %.0139222, i64 8
   %289 = icmp ult ptr %288, %208
-  br i1 %289, label %277, label %.loopexit203.loopexit308, !llvm.loop !21
+  br i1 %289, label %277, label %.loopexit203.loopexit257, !llvm.loop !21
 
-.loopexit203.loopexit308:                         ; preds = %277
+.loopexit203.loopexit257:                         ; preds = %277
   %290 = and i8 %.0125233, 1
   br label %.loopexit203
 
-.loopexit203:                                     ; preds = %272, %.loopexit203.loopexit308, %._crit_edge, %78, %62
-  %.1132 = phi i32 [ %69, %78 ], [ %.0131231, %62 ], [ %69, %._crit_edge ], [ %69, %.loopexit203.loopexit308 ], [ %69, %272 ]
-  %.1128 = phi i32 [ %.0127232, %78 ], [ %.0127232, %62 ], [ %.4.lcssa, %._crit_edge ], [ %.9, %.loopexit203.loopexit308 ], [ %.9.us, %272 ]
-  %.1 = phi i8 [ %.0125233, %78 ], [ %.0125233, %62 ], [ %.0125233, %._crit_edge ], [ %290, %.loopexit203.loopexit308 ], [ %.3.us, %272 ]
+.loopexit203:                                     ; preds = %272, %.loopexit203.loopexit257, %._crit_edge, %78, %62
+  %.1132 = phi i32 [ %69, %78 ], [ %.0131231, %62 ], [ %69, %._crit_edge ], [ %69, %.loopexit203.loopexit257 ], [ %69, %272 ]
+  %.1128 = phi i32 [ %.0127232, %78 ], [ %.0127232, %62 ], [ %.4.lcssa, %._crit_edge ], [ %.9, %.loopexit203.loopexit257 ], [ %.9.us, %272 ]
+  %.1 = phi i8 [ %.0125233, %78 ], [ %.0125233, %62 ], [ %.0125233, %._crit_edge ], [ %290, %.loopexit203.loopexit257 ], [ %.3.us, %272 ]
   %291 = getelementptr inbounds nuw i8, ptr %.0135230, i64 8
   %292 = icmp ult ptr %291, %59
   br i1 %292, label %62, label %._crit_edge235.loopexit, !llvm.loop !22

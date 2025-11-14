@@ -14281,6 +14281,7 @@ llvm_emit_array_gep_raw.exit129:                  ; preds = %111, %123
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 104
   %175 = load ptr, ptr %174, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %176
 
 176:                                              ; preds = %176, %170
@@ -14299,7 +14300,6 @@ llvm_emit_array_gep_raw.exit129:                  ; preds = %111, %123
   br i1 %exitcond.not.i, label %llvm_value_struct_gep.exit, label %176, !llvm.loop !46
 
 llvm_value_struct_gep.exit:                       ; preds = %176
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %183 = load ptr, ptr %166, align 8
   %184 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef nonnull %171) #10
   %185 = load i32, ptr %167, align 4
@@ -18444,122 +18444,122 @@ bitstruct_requires_bitswap.exit.i:                ; preds = %79, %77
   %92 = tail call fastcc ptr @type_lowering(ptr noundef %91)
   %93 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %92) #10
   %94 = tail call i32 @type_size(ptr noundef %92) #10
+  %95 = shl i32 %94, 3
   %.not134.i = icmp samesign ugt i32 %89, %90
   br i1 %.not134.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %bitstruct_requires_bitswap.exit.i
-  %95 = and i32 %82, 7
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %98 = zext nneg i32 %89 to i64
-  %99 = zext nneg i32 %95 to i64
-  %100 = add nuw nsw i32 %90, 1
-  %wide.trip.count.i = zext nneg i32 %100 to i64
-  br label %101
+  %96 = and i32 %82, 7
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %99 = zext nneg i32 %89 to i64
+  %100 = zext nneg i32 %96 to i64
+  %101 = add nuw nsw i32 %90, 1
+  %wide.trip.count.i = zext nneg i32 %101 to i64
+  br label %102
 
-101:                                              ; preds = %156, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %98, %.lr.ph.i ], [ %indvars.iv.next.i, %156 ]
-  %.0118135.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i95, %156 ]
-  %102 = load ptr, ptr %24, align 8
-  %103 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %102) #10
-  %104 = load i32, ptr %96, align 4
+102:                                              ; preds = %157, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %99, %.lr.ph.i ], [ %indvars.iv.next.i, %157 ]
+  %.0118135.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i95, %157 ]
+  %103 = load ptr, ptr %24, align 8
+  %104 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %103) #10
+  %105 = load i32, ptr %97, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %105 = load ptr, ptr @type_usz, align 8
-  %106 = call fastcc ptr @type_lowering(ptr noundef %105)
-  %107 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %106) #10
-  %108 = load i32, ptr %106, align 8
-  %109 = icmp eq i32 %108, 31
-  br i1 %109, label %110, label %llvm_emit_array_gep_raw.exit.i
+  %106 = load ptr, ptr @type_usz, align 8
+  %107 = call fastcc ptr @type_lowering(ptr noundef %106)
+  %108 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %107) #10
+  %109 = load i32, ptr %107, align 8
+  %110 = icmp eq i32 %109, 31
+  br i1 %110, label %111, label %llvm_emit_array_gep_raw.exit.i
 
-110:                                              ; preds = %101
-  %111 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %112 = load ptr, ptr %111, align 8
-  %113 = load i32, ptr %112, align 8
+111:                                              ; preds = %102
+  %112 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = load i32, ptr %113, align 8
   br label %llvm_emit_array_gep_raw.exit.i
 
-llvm_emit_array_gep_raw.exit.i:                   ; preds = %110, %101
-  %.0.i131.i = phi i32 [ %113, %110 ], [ %108, %101 ]
-  %114 = add i32 %.0.i131.i, -3
-  %115 = icmp ult i32 %114, 5
-  %116 = zext i1 %115 to i32
-  %117 = call ptr @LLVMConstInt(ptr noundef %107, i64 noundef %indvars.iv.i, i32 noundef %116) #10
-  %118 = load ptr, ptr @type_usz, align 8
-  call void @llvm_value_set(ptr noundef nonnull %4, ptr noundef %117, ptr noundef %118) #10
-  %119 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %86, ptr noundef %103, ptr noundef nonnull %4, i32 noundef %104, ptr noundef nonnull %7)
+llvm_emit_array_gep_raw.exit.i:                   ; preds = %111, %102
+  %.0.i131.i = phi i32 [ %114, %111 ], [ %109, %102 ]
+  %115 = add i32 %.0.i131.i, -3
+  %116 = icmp ult i32 %115, 5
+  %117 = zext i1 %116 to i32
+  %118 = call ptr @LLVMConstInt(ptr noundef %108, i64 noundef %indvars.iv.i, i32 noundef %117) #10
+  %119 = load ptr, ptr @type_usz, align 8
+  call void @llvm_value_set(ptr noundef nonnull %4, ptr noundef %118, ptr noundef %119) #10
+  %120 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %86, ptr noundef %104, ptr noundef nonnull %4, i32 noundef %105, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %120 = load i32, ptr %7, align 4
-  %121 = call ptr @llvm_load(ptr noundef %0, ptr noundef %88, ptr noundef %119, i32 noundef %120, ptr noundef nonnull @.str.3) #10
-  %122 = call ptr @LLVMTypeOf(ptr noundef %121) #10
-  %123 = icmp eq ptr %122, %93
-  br i1 %123, label %133, label %124
+  %121 = load i32, ptr %7, align 4
+  %122 = call ptr @llvm_load(ptr noundef %0, ptr noundef %88, ptr noundef %120, i32 noundef %121, ptr noundef nonnull @.str.3) #10
+  %123 = call ptr @LLVMTypeOf(ptr noundef %122) #10
+  %124 = icmp eq ptr %123, %93
+  br i1 %124, label %134, label %125
 
-124:                                              ; preds = %llvm_emit_array_gep_raw.exit.i
-  %125 = call i64 @llvm_bitsize(ptr noundef %0, ptr noundef %122) #10
-  %126 = call i64 @llvm_bitsize(ptr noundef %0, ptr noundef %93) #10
-  %127 = icmp ult i64 %125, %126
-  %128 = load ptr, ptr %97, align 8
-  br i1 %127, label %129, label %131
+125:                                              ; preds = %llvm_emit_array_gep_raw.exit.i
+  %126 = call i64 @llvm_bitsize(ptr noundef %0, ptr noundef %123) #10
+  %127 = call i64 @llvm_bitsize(ptr noundef %0, ptr noundef %93) #10
+  %128 = icmp ult i64 %126, %127
+  %129 = load ptr, ptr %98, align 8
+  br i1 %128, label %130, label %132
 
-129:                                              ; preds = %124
-  %130 = call ptr @LLVMBuildZExt(ptr noundef %128, ptr noundef %121, ptr noundef %93, ptr noundef nonnull @.str.77) #10
-  br label %133
+130:                                              ; preds = %125
+  %131 = call ptr @LLVMBuildZExt(ptr noundef %129, ptr noundef %122, ptr noundef %93, ptr noundef nonnull @.str.77) #10
+  br label %134
 
-131:                                              ; preds = %124
-  %132 = call ptr @LLVMBuildTrunc(ptr noundef %128, ptr noundef %121, ptr noundef %93, ptr noundef nonnull @.str.78) #10
-  br label %133
+132:                                              ; preds = %125
+  %133 = call ptr @LLVMBuildTrunc(ptr noundef %129, ptr noundef %122, ptr noundef %93, ptr noundef nonnull @.str.78) #10
+  br label %134
 
-133:                                              ; preds = %131, %129, %llvm_emit_array_gep_raw.exit.i
-  %.0116.i = phi ptr [ %130, %129 ], [ %132, %131 ], [ %121, %llvm_emit_array_gep_raw.exit.i ]
-  %134 = sub nuw nsw i64 %indvars.iv.i, %98
-  %135 = shl nsw i64 %134, 3
-  %136 = sub nsw i64 %135, %99
-  %137 = icmp slt i64 %136, 0
-  br i1 %137, label %138, label %142
+134:                                              ; preds = %132, %130, %llvm_emit_array_gep_raw.exit.i
+  %.0116.i = phi ptr [ %131, %130 ], [ %133, %132 ], [ %122, %llvm_emit_array_gep_raw.exit.i ]
+  %135 = sub nuw nsw i64 %indvars.iv.i, %99
+  %136 = shl nsw i64 %135, 3
+  %137 = sub nsw i64 %136, %100
+  %138 = icmp slt i64 %137, 0
+  br i1 %138, label %139, label %143
 
-138:                                              ; preds = %133
-  %139 = trunc i64 %136 to i32
-  %140 = sub i32 0, %139
-  %141 = call ptr @llvm_emit_lshr_fixed(ptr noundef %0, ptr noundef %.0116.i, i32 noundef %140) #10
-  br label %147
+139:                                              ; preds = %134
+  %140 = trunc i64 %137 to i32
+  %141 = sub i32 0, %140
+  %142 = call ptr @llvm_emit_lshr_fixed(ptr noundef %0, ptr noundef %.0116.i, i32 noundef %141) #10
+  br label %148
 
-142:                                              ; preds = %133
-  %143 = icmp eq i64 %135, %99
-  br i1 %143, label %147, label %144
+143:                                              ; preds = %134
+  %144 = icmp eq i64 %136, %100
+  br i1 %144, label %148, label %145
 
-144:                                              ; preds = %142
-  %145 = trunc nsw i64 %136 to i32
-  %146 = call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %.0116.i, i32 noundef %145) #10
-  br label %147
+145:                                              ; preds = %143
+  %146 = trunc nsw i64 %137 to i32
+  %147 = call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %.0116.i, i32 noundef %146) #10
+  br label %148
 
-147:                                              ; preds = %144, %142, %138
-  %.0115.i = phi ptr [ %141, %138 ], [ %146, %144 ], [ %.0116.i, %142 ]
-  %148 = icmp eq ptr %.0118135.i, null
-  br i1 %148, label %156, label %149
+148:                                              ; preds = %145, %143, %139
+  %.0115.i = phi ptr [ %142, %139 ], [ %147, %145 ], [ %.0116.i, %143 ]
+  %149 = icmp eq ptr %.0118135.i, null
+  br i1 %149, label %157, label %150
 
-149:                                              ; preds = %147
-  %150 = call i32 @LLVMIsNull(ptr noundef %.0115.i) #10
-  %.not127.i = icmp eq i32 %150, 0
-  br i1 %.not127.i, label %151, label %156
+150:                                              ; preds = %148
+  %151 = call i32 @LLVMIsNull(ptr noundef %.0115.i) #10
+  %.not127.i = icmp eq i32 %151, 0
+  br i1 %.not127.i, label %152, label %157
 
-151:                                              ; preds = %149
-  %152 = call i32 @LLVMIsNull(ptr noundef nonnull %.0118135.i) #10
-  %.not128.i = icmp eq i32 %152, 0
-  br i1 %.not128.i, label %153, label %156
+152:                                              ; preds = %150
+  %153 = call i32 @LLVMIsNull(ptr noundef nonnull %.0118135.i) #10
+  %.not128.i = icmp eq i32 %153, 0
+  br i1 %.not128.i, label %154, label %157
 
-153:                                              ; preds = %151
-  %154 = load ptr, ptr %97, align 8
-  %155 = call ptr @LLVMBuildOr(ptr noundef %154, ptr noundef %.0115.i, ptr noundef nonnull %.0118135.i, ptr noundef nonnull @.str.3) #10
-  br label %156
+154:                                              ; preds = %152
+  %155 = load ptr, ptr %98, align 8
+  %156 = call ptr @LLVMBuildOr(ptr noundef %155, ptr noundef %.0115.i, ptr noundef nonnull %.0118135.i, ptr noundef nonnull @.str.3) #10
+  br label %157
 
-156:                                              ; preds = %153, %151, %149, %147
-  %.1.i95 = phi ptr [ %.0115.i, %147 ], [ %155, %153 ], [ %.0118135.i, %149 ], [ %.0115.i, %151 ]
+157:                                              ; preds = %154, %152, %150, %148
+  %.1.i95 = phi ptr [ %.0115.i, %148 ], [ %156, %154 ], [ %.0118135.i, %150 ], [ %.0115.i, %152 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %101, !llvm.loop !68
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %102, !llvm.loop !68
 
-._crit_edge.i:                                    ; preds = %156, %bitstruct_requires_bitswap.exit.i
-  %.0118.lcssa.i = phi ptr [ null, %bitstruct_requires_bitswap.exit.i ], [ %.1.i95, %156 ]
-  %157 = shl i32 %94, 3
+._crit_edge.i:                                    ; preds = %157, %bitstruct_requires_bitswap.exit.i
+  %.0118.lcssa.i = phi ptr [ null, %bitstruct_requires_bitswap.exit.i ], [ %.1.i95, %157 ]
   br i1 %.0.i.i, label %158, label %llvm_bswap_non_integral.exit.i
 
 158:                                              ; preds = %._crit_edge.i
@@ -18599,7 +18599,7 @@ llvm_bswap_non_integral.exit.i:                   ; preds = %162, %158, %._crit_
 .critedge.i:                                      ; preds = %172, %llvm_bswap_non_integral.exit.i
   %178 = xor i32 %84, -1
   %179 = add i32 %82, %178
-  %180 = add i32 %179, %157
+  %180 = add i32 %179, %95
   %.not125.i = icmp eq i32 %180, 0
   br i1 %.not125.i, label %191, label %181
 

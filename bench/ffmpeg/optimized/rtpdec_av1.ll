@@ -568,27 +568,27 @@ write_leb.exit:                                   ; preds = %.lr.ph.i, %197
   %221 = add i32 %218, %.0335353365
   %222 = load i32, ptr %90, align 4, !tbaa !52
   %223 = sub i32 %221, %222
-  br label %224
+  %224 = load ptr, ptr %89, align 8, !tbaa !51
+  %225 = load i32, ptr %91, align 4, !tbaa !53
+  br label %226
 
-224:                                              ; preds = %224, %220
-  %.04.i320 = phi i32 [ %223, %220 ], [ %226, %224 ]
-  %.0.i321 = phi i32 [ 0, %220 ], [ %225, %224 ]
-  %225 = add nuw nsw i32 %.0.i321, 1
-  %226 = lshr i32 %.04.i320, 7
+226:                                              ; preds = %226, %220
+  %.04.i320 = phi i32 [ %223, %220 ], [ %228, %226 ]
+  %.0.i321 = phi i32 [ 0, %220 ], [ %227, %226 ]
+  %227 = add nuw nsw i32 %.0.i321, 1
+  %228 = lshr i32 %.04.i320, 7
   %.not.i322 = icmp ult i32 %.04.i320, 128
-  br i1 %.not.i322, label %calc_leb_size.exit323, label %224, !llvm.loop !50
+  br i1 %.not.i322, label %calc_leb_size.exit323, label %226, !llvm.loop !50
 
-calc_leb_size.exit323:                            ; preds = %224
-  %227 = load ptr, ptr %89, align 8, !tbaa !51
-  %228 = load i32, ptr %91, align 4, !tbaa !53
-  %229 = zext i32 %228 to i64
-  %230 = getelementptr inbounds nuw i8, ptr %227, i64 %229
+calc_leb_size.exit323:                            ; preds = %226
+  %229 = zext i32 %225 to i64
+  %230 = getelementptr inbounds nuw i8, ptr %224, i64 %229
   %231 = load i32, ptr %92, align 4, !tbaa !54
   %.not450 = icmp ult i32 %.0.i321, %231
   br i1 %.not450, label %247, label %232
 
 232:                                              ; preds = %calc_leb_size.exit323
-  %233 = sub nuw i32 %225, %231
+  %233 = sub nuw i32 %227, %231
   %234 = tail call i32 @av_grow_packet(ptr noundef nonnull %3, i32 noundef %233) #8
   %235 = icmp sgt i32 %234, -1
   br i1 %235, label %.thread422, label %.thread432

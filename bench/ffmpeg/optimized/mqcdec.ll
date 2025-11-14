@@ -161,71 +161,71 @@ mqc_decode_bypass.exit:                           ; preds = %5, %18, %20, %25
   %56 = load i16, ptr %55, align 2, !tbaa !15
   %57 = zext i16 %56 to i32
   %.not31 = icmp ult i32 %42, %57
+  %58 = and i8 %49, 1
   %ff_mqc_nlps.sink = select i1 %.not31, ptr @ff_mqc_nlps, ptr @ff_mqc_nmps
-  %58 = getelementptr inbounds nuw i8, ptr %ff_mqc_nlps.sink, i64 %54
-  %storemerge.i = load i8, ptr %58, align 1, !tbaa !12
+  %59 = zext i1 %.not31 to i8
+  %.0.in.i = xor i8 %58, %59
+  %60 = getelementptr inbounds nuw i8, ptr %ff_mqc_nlps.sink, i64 %54
+  %storemerge.i = load i8, ptr %60, align 1, !tbaa !12
   store i8 %storemerge.i, ptr %1, align 1, !tbaa !12
   %.promoted.i = load i32, ptr %43, align 4, !tbaa !13
   %.promoted27.i = load i32, ptr %40, align 8, !tbaa !14
-  br label %59
+  br label %61
 
-59:                                               ; preds = %bytein.exit.i, %53
-  %60 = phi i32 [ %85, %bytein.exit.i ], [ %.promoted27.i, %53 ]
-  %61 = phi i32 [ %86, %bytein.exit.i ], [ %.promoted.i, %53 ]
-  %62 = and i32 %61, 255
-  %.not24.i = icmp eq i32 %62, 0
-  br i1 %.not24.i, label %63, label %bytein.exit.i
+61:                                               ; preds = %bytein.exit.i, %53
+  %62 = phi i32 [ %87, %bytein.exit.i ], [ %.promoted27.i, %53 ]
+  %63 = phi i32 [ %88, %bytein.exit.i ], [ %.promoted.i, %53 ]
+  %64 = and i32 %63, 255
+  %.not24.i = icmp eq i32 %64, 0
+  br i1 %.not24.i, label %65, label %bytein.exit.i
 
-63:                                               ; preds = %59
-  %64 = add i32 %61, -256
-  store i32 %64, ptr %43, align 4, !tbaa !13
-  %65 = load ptr, ptr %0, align 8, !tbaa !11
-  %66 = load i8, ptr %65, align 1, !tbaa !12
-  %67 = icmp eq i8 %66, -1
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 1
-  br i1 %67, label %69, label %79
+65:                                               ; preds = %61
+  %66 = add i32 %63, -256
+  store i32 %66, ptr %43, align 4, !tbaa !13
+  %67 = load ptr, ptr %0, align 8, !tbaa !11
+  %68 = load i8, ptr %67, align 1, !tbaa !12
+  %69 = icmp eq i8 %68, -1
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 1
+  br i1 %69, label %71, label %81
 
-69:                                               ; preds = %63
-  %70 = load i8, ptr %68, align 1, !tbaa !12
-  %71 = icmp ugt i8 %70, -113
-  br i1 %71, label %72, label %74
+71:                                               ; preds = %65
+  %72 = load i8, ptr %70, align 1, !tbaa !12
+  %73 = icmp ugt i8 %72, -113
+  br i1 %73, label %74, label %76
 
-72:                                               ; preds = %69
-  %73 = add i32 %61, -255
+74:                                               ; preds = %71
+  %75 = add i32 %63, -255
   br label %bytein.exit.i
 
-74:                                               ; preds = %69
-  store ptr %68, ptr %0, align 8, !tbaa !11
-  %75 = load i8, ptr %68, align 1, !tbaa !12
-  %76 = zext i8 %75 to i32
-  %reass.sub9.i.i17 = add i32 %61, 64770
-  %77 = shl nuw nsw i32 %76, 9
-  %78 = sub i32 %reass.sub9.i.i17, %77
+76:                                               ; preds = %71
+  store ptr %70, ptr %0, align 8, !tbaa !11
+  %77 = load i8, ptr %70, align 1, !tbaa !12
+  %78 = zext i8 %77 to i32
+  %reass.sub9.i.i17 = add i32 %63, 64770
+  %79 = shl nuw nsw i32 %78, 9
+  %80 = sub i32 %reass.sub9.i.i17, %79
   br label %bytein.exit.i
 
-79:                                               ; preds = %63
-  store ptr %68, ptr %0, align 8, !tbaa !11
-  %80 = load i8, ptr %68, align 1, !tbaa !12
-  %81 = zext i8 %80 to i32
-  %reass.sub.i.i16 = add i32 %61, 65025
-  %82 = shl nuw nsw i32 %81, 8
-  %83 = sub i32 %reass.sub.i.i16, %82
+81:                                               ; preds = %65
+  store ptr %70, ptr %0, align 8, !tbaa !11
+  %82 = load i8, ptr %70, align 1, !tbaa !12
+  %83 = zext i8 %82 to i32
+  %reass.sub.i.i16 = add i32 %63, 65025
+  %84 = shl nuw nsw i32 %83, 8
+  %85 = sub i32 %reass.sub.i.i16, %84
   br label %bytein.exit.i
 
-bytein.exit.i:                                    ; preds = %79, %74, %72, %59
-  %84 = phi i32 [ %83, %79 ], [ %78, %74 ], [ %73, %72 ], [ %61, %59 ]
-  %85 = shl i32 %60, 1
-  store i32 %85, ptr %40, align 8, !tbaa !14
-  %86 = shl i32 %84, 1
-  store i32 %86, ptr %43, align 4, !tbaa !13
-  %87 = and i32 %60, 16384
-  %.not25.i = icmp eq i32 %87, 0
-  br i1 %.not25.i, label %59, label %exchange.exit, !llvm.loop !17
+bytein.exit.i:                                    ; preds = %81, %76, %74, %61
+  %86 = phi i32 [ %85, %81 ], [ %80, %76 ], [ %75, %74 ], [ %63, %61 ]
+  %87 = shl i32 %62, 1
+  store i32 %87, ptr %40, align 8, !tbaa !14
+  %88 = shl i32 %86, 1
+  store i32 %88, ptr %43, align 4, !tbaa !13
+  %89 = and i32 %62, 16384
+  %.not25.i = icmp eq i32 %89, 0
+  br i1 %.not25.i, label %61, label %exchange.exit, !llvm.loop !17
 
 exchange.exit:                                    ; preds = %bytein.exit.i
-  %88 = and i8 %49, 1
-  %89 = zext i1 %.not31 to i8
-  %.0.in.i = xor i8 %88, %89
   %.0.i = zext nneg i8 %.0.in.i to i32
   br label %131
 
@@ -242,71 +242,71 @@ exchange.exit:                                    ; preds = %bytein.exit.i
   store i32 %97, ptr %40, align 8, !tbaa !14
   %.pre29.i = load i8, ptr %1, align 1, !tbaa !12
   %.pre30.i = zext i8 %.pre29.i to i64
+  %99 = and i8 %.pre29.i, 1
   %ff_mqc_nlps.sink41 = select i1 %98, ptr @ff_mqc_nlps, ptr @ff_mqc_nmps
-  %99 = getelementptr inbounds nuw i8, ptr %ff_mqc_nlps.sink41, i64 %.pre30.i
-  %storemerge.i21 = load i8, ptr %99, align 1, !tbaa !12
+  %100 = zext i1 %98 to i8
+  %.0.in.i20 = xor i8 %99, %100
+  %101 = getelementptr inbounds nuw i8, ptr %ff_mqc_nlps.sink41, i64 %.pre30.i
+  %storemerge.i21 = load i8, ptr %101, align 1, !tbaa !12
   store i8 %storemerge.i21, ptr %1, align 1, !tbaa !12
   %.promoted.i22 = load i32, ptr %43, align 4, !tbaa !13
   %.promoted27.i23 = load i32, ptr %40, align 8, !tbaa !14
-  br label %100
+  br label %102
 
-100:                                              ; preds = %bytein.exit.i25, %90
-  %101 = phi i32 [ %126, %bytein.exit.i25 ], [ %.promoted27.i23, %90 ]
-  %102 = phi i32 [ %127, %bytein.exit.i25 ], [ %.promoted.i22, %90 ]
-  %103 = and i32 %102, 255
-  %.not24.i24 = icmp eq i32 %103, 0
-  br i1 %.not24.i24, label %104, label %bytein.exit.i25
+102:                                              ; preds = %bytein.exit.i25, %90
+  %103 = phi i32 [ %128, %bytein.exit.i25 ], [ %.promoted27.i23, %90 ]
+  %104 = phi i32 [ %129, %bytein.exit.i25 ], [ %.promoted.i22, %90 ]
+  %105 = and i32 %104, 255
+  %.not24.i24 = icmp eq i32 %105, 0
+  br i1 %.not24.i24, label %106, label %bytein.exit.i25
 
-104:                                              ; preds = %100
-  %105 = add i32 %102, -256
-  store i32 %105, ptr %43, align 4, !tbaa !13
-  %106 = load ptr, ptr %0, align 8, !tbaa !11
-  %107 = load i8, ptr %106, align 1, !tbaa !12
-  %108 = icmp eq i8 %107, -1
-  %109 = getelementptr inbounds nuw i8, ptr %106, i64 1
-  br i1 %108, label %110, label %120
+106:                                              ; preds = %102
+  %107 = add i32 %104, -256
+  store i32 %107, ptr %43, align 4, !tbaa !13
+  %108 = load ptr, ptr %0, align 8, !tbaa !11
+  %109 = load i8, ptr %108, align 1, !tbaa !12
+  %110 = icmp eq i8 %109, -1
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 1
+  br i1 %110, label %112, label %122
 
-110:                                              ; preds = %104
-  %111 = load i8, ptr %109, align 1, !tbaa !12
-  %112 = icmp ugt i8 %111, -113
-  br i1 %112, label %113, label %115
+112:                                              ; preds = %106
+  %113 = load i8, ptr %111, align 1, !tbaa !12
+  %114 = icmp ugt i8 %113, -113
+  br i1 %114, label %115, label %117
 
-113:                                              ; preds = %110
-  %114 = add i32 %102, -255
+115:                                              ; preds = %112
+  %116 = add i32 %104, -255
   br label %bytein.exit.i25
 
-115:                                              ; preds = %110
-  store ptr %109, ptr %0, align 8, !tbaa !11
-  %116 = load i8, ptr %109, align 1, !tbaa !12
-  %117 = zext i8 %116 to i32
-  %reass.sub9.i.i29 = add i32 %102, 64770
-  %118 = shl nuw nsw i32 %117, 9
-  %119 = sub i32 %reass.sub9.i.i29, %118
+117:                                              ; preds = %112
+  store ptr %111, ptr %0, align 8, !tbaa !11
+  %118 = load i8, ptr %111, align 1, !tbaa !12
+  %119 = zext i8 %118 to i32
+  %reass.sub9.i.i29 = add i32 %104, 64770
+  %120 = shl nuw nsw i32 %119, 9
+  %121 = sub i32 %reass.sub9.i.i29, %120
   br label %bytein.exit.i25
 
-120:                                              ; preds = %104
-  store ptr %109, ptr %0, align 8, !tbaa !11
-  %121 = load i8, ptr %109, align 1, !tbaa !12
-  %122 = zext i8 %121 to i32
-  %reass.sub.i.i28 = add i32 %102, 65025
-  %123 = shl nuw nsw i32 %122, 8
-  %124 = sub i32 %reass.sub.i.i28, %123
+122:                                              ; preds = %106
+  store ptr %111, ptr %0, align 8, !tbaa !11
+  %123 = load i8, ptr %111, align 1, !tbaa !12
+  %124 = zext i8 %123 to i32
+  %reass.sub.i.i28 = add i32 %104, 65025
+  %125 = shl nuw nsw i32 %124, 8
+  %126 = sub i32 %reass.sub.i.i28, %125
   br label %bytein.exit.i25
 
-bytein.exit.i25:                                  ; preds = %120, %115, %113, %100
-  %125 = phi i32 [ %124, %120 ], [ %119, %115 ], [ %114, %113 ], [ %102, %100 ]
-  %126 = shl i32 %101, 1
-  store i32 %126, ptr %40, align 8, !tbaa !14
-  %127 = shl i32 %125, 1
-  store i32 %127, ptr %43, align 4, !tbaa !13
-  %128 = and i32 %101, 16384
-  %.not25.i26 = icmp eq i32 %128, 0
-  br i1 %.not25.i26, label %100, label %exchange.exit30, !llvm.loop !17
+bytein.exit.i25:                                  ; preds = %122, %117, %115, %102
+  %127 = phi i32 [ %126, %122 ], [ %121, %117 ], [ %116, %115 ], [ %104, %102 ]
+  %128 = shl i32 %103, 1
+  store i32 %128, ptr %40, align 8, !tbaa !14
+  %129 = shl i32 %127, 1
+  store i32 %129, ptr %43, align 4, !tbaa !13
+  %130 = and i32 %103, 16384
+  %.not25.i26 = icmp eq i32 %130, 0
+  br i1 %.not25.i26, label %102, label %exchange.exit30, !llvm.loop !17
 
 exchange.exit30:                                  ; preds = %bytein.exit.i25
-  %129 = and i8 %.pre29.i, 1
-  %130 = zext i1 %98 to i8
-  %.0.in.i20 = xor i8 %129, %130
   %.0.i27 = zext nneg i8 %.0.in.i20 to i32
   br label %131
 

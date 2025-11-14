@@ -2249,7 +2249,7 @@ thread-pre-split:                                 ; preds = %201, %190
   %224 = ptrtoint ptr %223 to i64
   store i64 %224, ptr %2, align 8, !tbaa !164
   %.not.i.i.i = icmp eq i64 %220, 0
-  br i1 %.not.i.i.i, label %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit131, label %.lr.ph.i.i.i, !llvm.loop !176
+  br i1 %.not.i.i.i, label %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit136, label %.lr.ph.i.i.i, !llvm.loop !176
 
 225:                                              ; preds = %214
   %226 = icmp eq i64 %216, 28
@@ -2285,12 +2285,12 @@ _ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit: ; preds = %.lr.ph.i.i.i85
   %239 = sub i32 0, %238
   br label %_ZN4llvm18DIExpressionCursor7consumeEj.exit
 
-_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit131: ; preds = %.lr.ph.i.i.i
+_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit136: ; preds = %.lr.ph.i.i.i
   %240 = trunc nuw nsw i64 %210 to i32
   br label %_ZN4llvm18DIExpressionCursor7consumeEj.exit
 
-_ZN4llvm18DIExpressionCursor7consumeEj.exit:      ; preds = %196, %193, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit131, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit, %227, %225, %208, %183, %thread-pre-split
-  %.2 = phi i32 [ %.054.ph, %thread-pre-split ], [ 0, %183 ], [ %.054.ph, %227 ], [ %.054.ph, %225 ], [ %.054.ph, %208 ], [ %239, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit ], [ %240, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit131 ], [ %197, %196 ], [ 0, %193 ]
+_ZN4llvm18DIExpressionCursor7consumeEj.exit:      ; preds = %196, %193, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit136, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit, %227, %225, %208, %183, %thread-pre-split
+  %.2 = phi i32 [ %.054.ph, %thread-pre-split ], [ 0, %183 ], [ %.054.ph, %227 ], [ %.054.ph, %225 ], [ %.054.ph, %208 ], [ %239, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit ], [ %240, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit136 ], [ %197, %196 ], [ 0, %193 ]
   %241 = sext i32 %.2 to i64
   br i1 %189, label %242, label %245
 

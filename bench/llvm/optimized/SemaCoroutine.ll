@@ -1921,9 +1921,9 @@ _ZN4llvm11SmallVectorIPKN5clang4DeclELj4EEC2INS_19SmallPtrSetIteratorIS4_EEvEET_
   call fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_T0_T1_"(ptr noundef %.val, ptr noundef nonnull %39, i64 noundef %44)
   %45 = icmp ugt i32 %37, 16
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %.val, i64 8
-  br i1 %45, label %.preheader.i.i.i.i.i, label %88
+  br i1 %45, label %.preheader.i.i.i, label %88
 
-.preheader.i.i.i.i.i:                             ; preds = %40, %"_ZSt25__unguarded_linear_insertIPPKN5clang4DeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
+.preheader.i.i.i:                                 ; preds = %40, %"_ZSt25__unguarded_linear_insertIPPKN5clang4DeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
   %.020.i.idx.i.i.i.i.i = phi i64 [ %.020.i.add.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPKN5clang4DeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ], [ 8, %40 ]
   %.pn19.i.i.i.i.i.i = phi ptr [ %.020.i.ptr.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPKN5clang4DeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ], [ %.val, %40 ]
   %.020.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 %.020.i.idx.i.i.i.i.i
@@ -1942,11 +1942,11 @@ _ZN4llvm11SmallVectorIPKN5clang4DeclELj4EEC2INS_19SmallPtrSetIteratorIS4_EEvEET_
   %54 = icmp samesign ult i64 %.sroa.3.0.extract.shift.i.i.i.i.i.i.i.i.i, %.sroa.3.0.extract.shift.i2.i.i.i.i.i.i.i.i
   br i1 %54, label %55, label %56
 
-55:                                               ; preds = %.preheader.i.i.i.i.i
+55:                                               ; preds = %.preheader.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %.val, i64 %.020.i.idx.i.i.i.i.i, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPKN5clang4DeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
 
-56:                                               ; preds = %.preheader.i.i.i.i.i
+56:                                               ; preds = %.preheader.i.i.i
   %.0.val11.i.i.i.i.i.i.i = load ptr, ptr %.pn19.i.i.i.i.i.i, align 8, !tbaa !894
   %57 = load ptr, ptr %.0.val11.i.i.i.i.i.i.i, align 8, !tbaa !756
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
@@ -1979,7 +1979,7 @@ _ZN4llvm11SmallVectorIPKN5clang4DeclELj4EEC2INS_19SmallPtrSetIteratorIS4_EEvEET_
   store ptr %.0.val.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i, align 8, !tbaa !894
   %.020.i.add.i.i.i.i.i = add nuw nsw i64 %.020.i.idx.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i = icmp eq i64 %.020.i.add.i.i.i.i.i, 128
-  br i1 %.not.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i.i.i, !llvm.loop !897
+  br i1 %.not.i.i.i.i.i.i, label %"_ZSt16__insertion_sortIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i, !llvm.loop !897
 
 "_ZSt16__insertion_sortIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_T0_.exit.i.i.i.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPPKN5clang4DeclEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
   %69 = getelementptr inbounds nuw i8, ptr %.val, i64 128

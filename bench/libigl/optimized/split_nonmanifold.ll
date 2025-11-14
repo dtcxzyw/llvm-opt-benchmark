@@ -749,8 +749,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i197: ; preds = %230
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i200: ; preds = %.noexc223
   %.idx.i.i.i.i.i.i.i.i.i201 = shl nuw nsw i64 %269, 2
-  %271 = getelementptr inbounds nuw i8, ptr %268, i64 %.idx.i.i.i.i.i.i.i.i.i201
   call void @llvm.memset.p0.i64(ptr align 4 %268, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i201, i1 false), !tbaa !15, !noalias !75
+  %271 = getelementptr inbounds nuw i8, ptr %268, i64 %.idx.i.i.i.i.i.i.i.i.i201
   br label %.lr.ph.i.i202
 
 .lr.ph.i.i202:                                    ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i200, %.noexc223
@@ -891,8 +891,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %.noexc140.
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc196
   %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %333, 2
-  %335 = getelementptr inbounds nuw i8, ptr %332, i64 %.idx.i.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %332, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !15, !noalias !81
+  %335 = getelementptr inbounds nuw i8, ptr %332, i64 %.idx.i.i.i.i.i.i.i.i.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i, %.noexc196
@@ -2896,8 +2896,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %2
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc11.i
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %37, 2
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %36, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !15, !noalias !141
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i.i.i.i.i.i.i.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc11.i
@@ -3061,8 +3061,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %21
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc51
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %39, 2
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %38, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !15, !noalias !146
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i.i.i.i.i.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc51

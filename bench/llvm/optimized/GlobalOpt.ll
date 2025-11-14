@@ -15535,252 +15535,254 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIPSt5tupleIJmPN4llvm4TypeE
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
   %6 = icmp sgt i64 %5, 384
-  br i1 %6, label %7, label %74
+  br i1 %6, label %7, label %76
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
-10:                                               ; preds = %50, %7
-  %.019.i.idx = phi i64 [ 24, %7 ], [ %.019.i.add, %50 ]
-  %.pn18.i = phi ptr [ %0, %7 ], [ %.019.i.ptr, %50 ]
+10:                                               ; preds = %52, %7
+  %.019.i.idx = phi i64 [ 24, %7 ], [ %.019.i.add, %52 ]
+  %.pn18.i = phi ptr [ %0, %7 ], [ %.019.i.ptr, %52 ]
   %.019.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.019.i.idx
   %11 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 40
   %12 = load i64, ptr %11, align 8, !tbaa !45
   %13 = load i64, ptr %8, align 8, !tbaa !45
   %14 = icmp ult i64 %12, %13
   %15 = load i64, ptr %.019.i.ptr, align 8, !tbaa !465
-  %16 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 32
-  %17 = load i64, ptr %16, align 8, !tbaa !316
   br i1 %14, label %.lr.ph.preheader.i.i.i.i.i.i, label %33
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %10
-  %18 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 48
-  %19 = udiv exact i64 %.019.i.idx, 24
+  %16 = inttoptr i64 %15 to ptr
+  %17 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 32
+  %18 = load i64, ptr %17, align 8, !tbaa !316
+  %19 = inttoptr i64 %18 to ptr
+  %20 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 48
+  %21 = udiv exact i64 %.019.i.idx, 24
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i
-  %.010.i.i.i.i.i.i = phi i64 [ %29, %.lr.ph.i.i.i.i.i.i ], [ %19, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.069.i.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i.i ], [ %18, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.078.i.i.i.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i.i.i.i ], [ %.019.i.ptr, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %20 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -24
-  %21 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -24
-  %22 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -8
-  %23 = load i64, ptr %22, align 8, !tbaa !45
-  %24 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
-  store i64 %23, ptr %24, align 8, !tbaa !45
-  %25 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -16
-  %26 = load ptr, ptr %25, align 8, !tbaa !316
-  %27 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -16
-  store ptr %26, ptr %27, align 8, !tbaa !316
-  %28 = load ptr, ptr %20, align 8, !tbaa !465
-  store ptr %28, ptr %21, align 8, !tbaa !465
-  %29 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
-  br i1 %30, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEES7_ET0_T_S9_S8_.exit.i, !llvm.loop !586
+  %.010.i.i.i.i.i.i = phi i64 [ %31, %.lr.ph.i.i.i.i.i.i ], [ %21, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.069.i.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i.i ], [ %20, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.078.i.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i.i ], [ %.019.i.ptr, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %22 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -24
+  %23 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -24
+  %24 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -8
+  %25 = load i64, ptr %24, align 8, !tbaa !45
+  %26 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
+  store i64 %25, ptr %26, align 8, !tbaa !45
+  %27 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -16
+  %28 = load ptr, ptr %27, align 8, !tbaa !316
+  %29 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -16
+  store ptr %28, ptr %29, align 8, !tbaa !316
+  %30 = load ptr, ptr %22, align 8, !tbaa !465
+  store ptr %30, ptr %23, align 8, !tbaa !465
+  %31 = add nsw i64 %.010.i.i.i.i.i.i, -1
+  %32 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
+  br i1 %32, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEES7_ET0_T_S9_S8_.exit.i, !llvm.loop !586
 
 _ZSt13move_backwardIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEES7_ET0_T_S9_S8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %31 = inttoptr i64 %15 to ptr
-  %32 = inttoptr i64 %17 to ptr
   store i64 %12, ptr %8, align 8, !tbaa !45
-  store ptr %32, ptr %9, align 8, !tbaa !316
-  store ptr %31, ptr %0, align 8, !tbaa !465
-  br label %50
+  store ptr %19, ptr %9, align 8, !tbaa !316
+  store ptr %16, ptr %0, align 8, !tbaa !465
+  br label %52
 
 33:                                               ; preds = %10
-  %34 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !45
-  %36 = icmp ult i64 %12, %35
-  br i1 %36, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i
+  %34 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 32
+  %35 = load i64, ptr %34, align 8, !tbaa !316
+  %36 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 16
+  %37 = load i64, ptr %36, align 8, !tbaa !45
+  %38 = icmp ult i64 %12, %37
+  br i1 %38, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %33, %.lr.ph.i.i
-  %37 = phi i64 [ %44, %.lr.ph.i.i ], [ %35, %33 ]
+  %39 = phi i64 [ %46, %.lr.ph.i.i ], [ %37, %33 ]
   %.0911.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.019.i.ptr, %33 ]
   %.0.i.i = getelementptr inbounds i8, ptr %.0911.i.i, i64 -24
-  %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i, i64 16
-  store i64 %37, ptr %38, align 8, !tbaa !45
-  %39 = getelementptr inbounds i8, ptr %.0911.i.i, i64 -16
-  %40 = load ptr, ptr %39, align 8, !tbaa !316
-  %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i, i64 8
-  store ptr %40, ptr %41, align 8, !tbaa !316
-  %42 = load ptr, ptr %.0.i.i, align 8, !tbaa !465
-  store ptr %42, ptr %.0911.i.i, align 8, !tbaa !465
-  %43 = getelementptr inbounds i8, ptr %.0911.i.i, i64 -32
-  %44 = load i64, ptr %43, align 8, !tbaa !45
-  %45 = icmp ult i64 %12, %44
-  br i1 %45, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i, !llvm.loop !587
+  %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i, i64 16
+  store i64 %39, ptr %40, align 8, !tbaa !45
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i, i64 -16
+  %42 = load ptr, ptr %41, align 8, !tbaa !316
+  %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i, i64 8
+  store ptr %42, ptr %43, align 8, !tbaa !316
+  %44 = load ptr, ptr %.0.i.i, align 8, !tbaa !465
+  store ptr %44, ptr %.0911.i.i, align 8, !tbaa !465
+  %45 = getelementptr inbounds i8, ptr %.0911.i.i, i64 -32
+  %46 = load i64, ptr %45, align 8, !tbaa !45
+  %47 = icmp ult i64 %12, %46
+  br i1 %47, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i, !llvm.loop !587
 
 _ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %33
   %.09.lcssa.i.i = phi ptr [ %.019.i.ptr, %33 ], [ %.0.i.i, %.lr.ph.i.i ]
-  %46 = inttoptr i64 %17 to ptr
-  %47 = inttoptr i64 %15 to ptr
-  %48 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i, i64 16
-  store i64 %12, ptr %48, align 8, !tbaa !45
-  %49 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i, i64 8
-  store ptr %46, ptr %49, align 8, !tbaa !316
-  store ptr %47, ptr %.09.lcssa.i.i, align 8, !tbaa !465
-  br label %50
+  %48 = inttoptr i64 %35 to ptr
+  %49 = inttoptr i64 %15 to ptr
+  %50 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i, i64 16
+  store i64 %12, ptr %50, align 8, !tbaa !45
+  %51 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i, i64 8
+  store ptr %48, ptr %51, align 8, !tbaa !316
+  store ptr %49, ptr %.09.lcssa.i.i, align 8, !tbaa !465
+  br label %52
 
-50:                                               ; preds = %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i, %_ZSt13move_backwardIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEES7_ET0_T_S9_S8_.exit.i
+52:                                               ; preds = %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i, %_ZSt13move_backwardIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEES7_ET0_T_S9_S8_.exit.i
   %.019.i.add = add nuw nsw i64 %.019.i.idx, 24
   %.not.i = icmp eq i64 %.019.i.add, 384
   br i1 %.not.i, label %_ZSt16__insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit, label %10, !llvm.loop !588
 
-_ZSt16__insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit: ; preds = %50
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %.not6.i = icmp eq ptr %51, %1
+_ZSt16__insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit: ; preds = %52
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %.not6.i = icmp eq ptr %53, %1
   br i1 %.not6.i, label %_ZSt26__unguarded_insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit, %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i13
-  %.07.i = phi ptr [ %73, %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i13 ], [ %51, %_ZSt16__insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit ]
-  %52 = load i64, ptr %.07.i, align 8, !tbaa !465
-  %53 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
-  %54 = load i64, ptr %53, align 8, !tbaa !316
-  %55 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
-  %56 = load i64, ptr %55, align 8, !tbaa !45
-  %57 = getelementptr inbounds i8, ptr %.07.i, i64 -8
+  %.07.i = phi ptr [ %75, %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i13 ], [ %53, %_ZSt16__insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit ]
+  %54 = load i64, ptr %.07.i, align 8, !tbaa !465
+  %55 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
+  %56 = load i64, ptr %55, align 8, !tbaa !316
+  %57 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %58 = load i64, ptr %57, align 8, !tbaa !45
-  %59 = icmp ult i64 %56, %58
-  br i1 %59, label %.lr.ph.i.i16, label %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i13
+  %59 = getelementptr inbounds i8, ptr %.07.i, i64 -8
+  %60 = load i64, ptr %59, align 8, !tbaa !45
+  %61 = icmp ult i64 %58, %60
+  br i1 %61, label %.lr.ph.i.i16, label %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i13
 
 .lr.ph.i.i16:                                     ; preds = %.lr.ph.i, %.lr.ph.i.i16
-  %60 = phi i64 [ %67, %.lr.ph.i.i16 ], [ %58, %.lr.ph.i ]
+  %62 = phi i64 [ %69, %.lr.ph.i.i16 ], [ %60, %.lr.ph.i ]
   %.0911.i.i17 = phi ptr [ %.0.i.i18, %.lr.ph.i.i16 ], [ %.07.i, %.lr.ph.i ]
   %.0.i.i18 = getelementptr inbounds i8, ptr %.0911.i.i17, i64 -24
-  %61 = getelementptr inbounds nuw i8, ptr %.0911.i.i17, i64 16
-  store i64 %60, ptr %61, align 8, !tbaa !45
-  %62 = getelementptr inbounds i8, ptr %.0911.i.i17, i64 -16
-  %63 = load ptr, ptr %62, align 8, !tbaa !316
-  %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i17, i64 8
-  store ptr %63, ptr %64, align 8, !tbaa !316
-  %65 = load ptr, ptr %.0.i.i18, align 8, !tbaa !465
-  store ptr %65, ptr %.0911.i.i17, align 8, !tbaa !465
-  %66 = getelementptr inbounds i8, ptr %.0911.i.i17, i64 -32
-  %67 = load i64, ptr %66, align 8, !tbaa !45
-  %68 = icmp ult i64 %56, %67
-  br i1 %68, label %.lr.ph.i.i16, label %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i13, !llvm.loop !587
+  %63 = getelementptr inbounds nuw i8, ptr %.0911.i.i17, i64 16
+  store i64 %62, ptr %63, align 8, !tbaa !45
+  %64 = getelementptr inbounds i8, ptr %.0911.i.i17, i64 -16
+  %65 = load ptr, ptr %64, align 8, !tbaa !316
+  %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i17, i64 8
+  store ptr %65, ptr %66, align 8, !tbaa !316
+  %67 = load ptr, ptr %.0.i.i18, align 8, !tbaa !465
+  store ptr %67, ptr %.0911.i.i17, align 8, !tbaa !465
+  %68 = getelementptr inbounds i8, ptr %.0911.i.i17, i64 -32
+  %69 = load i64, ptr %68, align 8, !tbaa !45
+  %70 = icmp ult i64 %58, %69
+  br i1 %70, label %.lr.ph.i.i16, label %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i13, !llvm.loop !587
 
 _ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i13: ; preds = %.lr.ph.i.i16, %.lr.ph.i
   %.09.lcssa.i.i14 = phi ptr [ %.07.i, %.lr.ph.i ], [ %.0.i.i18, %.lr.ph.i.i16 ]
-  %69 = inttoptr i64 %54 to ptr
-  %70 = inttoptr i64 %52 to ptr
-  %71 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i14, i64 16
-  store i64 %56, ptr %71, align 8, !tbaa !45
-  %72 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i14, i64 8
-  store ptr %69, ptr %72, align 8, !tbaa !316
-  store ptr %70, ptr %.09.lcssa.i.i14, align 8, !tbaa !465
-  %73 = getelementptr inbounds nuw i8, ptr %.07.i, i64 24
-  %.not.i15 = icmp eq ptr %73, %1
+  %71 = inttoptr i64 %56 to ptr
+  %72 = inttoptr i64 %54 to ptr
+  %73 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i14, i64 16
+  store i64 %58, ptr %73, align 8, !tbaa !45
+  %74 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i14, i64 8
+  store ptr %71, ptr %74, align 8, !tbaa !316
+  store ptr %72, ptr %.09.lcssa.i.i14, align 8, !tbaa !465
+  %75 = getelementptr inbounds nuw i8, ptr %.07.i, i64 24
+  %.not.i15 = icmp eq ptr %75, %1
   br i1 %.not.i15, label %_ZSt26__unguarded_insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit, label %.lr.ph.i, !llvm.loop !589
 
-74:                                               ; preds = %2
-  %75 = icmp eq ptr %0, %1
-  br i1 %75, label %_ZSt26__unguarded_insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit, label %.preheader.i
+76:                                               ; preds = %2
+  %77 = icmp eq ptr %0, %1
+  br i1 %77, label %_ZSt26__unguarded_insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %74
+.preheader.i:                                     ; preds = %76
   %.016.i19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not17.i = icmp eq ptr %.016.i19, %1
   br i1 %.not17.i, label %_ZSt26__unguarded_insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit, label %.lr.ph.i20
 
 .lr.ph.i20:                                       ; preds = %.preheader.i
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %78
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %80
 
-78:                                               ; preds = %124, %.lr.ph.i20
-  %.019.i21 = phi ptr [ %.016.i19, %.lr.ph.i20 ], [ %.0.i25, %124 ]
-  %.pn18.i22 = phi ptr [ %0, %.lr.ph.i20 ], [ %.019.i21, %124 ]
-  %79 = getelementptr inbounds nuw i8, ptr %.pn18.i22, i64 40
-  %80 = load i64, ptr %79, align 8, !tbaa !45
-  %81 = load i64, ptr %76, align 8, !tbaa !45
-  %82 = icmp ult i64 %80, %81
-  %83 = load i64, ptr %.019.i21, align 8, !tbaa !465
-  br i1 %82, label %84, label %105
+80:                                               ; preds = %126, %.lr.ph.i20
+  %.019.i21 = phi ptr [ %.016.i19, %.lr.ph.i20 ], [ %.0.i25, %126 ]
+  %.pn18.i22 = phi ptr [ %0, %.lr.ph.i20 ], [ %.019.i21, %126 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.pn18.i22, i64 40
+  %82 = load i64, ptr %81, align 8, !tbaa !45
+  %83 = load i64, ptr %78, align 8, !tbaa !45
+  %84 = icmp ult i64 %82, %83
+  %85 = load i64, ptr %.019.i21, align 8, !tbaa !465
+  br i1 %84, label %86, label %107
 
-84:                                               ; preds = %78
-  %85 = inttoptr i64 %83 to ptr
-  %86 = getelementptr inbounds nuw i8, ptr %.pn18.i22, i64 32
-  %87 = load i64, ptr %86, align 8, !tbaa !316
-  %88 = inttoptr i64 %87 to ptr
-  %89 = ptrtoint ptr %.019.i21 to i64
-  %90 = sub i64 %89, %4
-  %91 = icmp sgt i64 %90, 0
-  br i1 %91, label %.lr.ph.preheader.i.i.i.i.i.i31, label %_ZSt13move_backwardIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEES7_ET0_T_S9_S8_.exit.i30
+86:                                               ; preds = %80
+  %87 = inttoptr i64 %85 to ptr
+  %88 = getelementptr inbounds nuw i8, ptr %.pn18.i22, i64 32
+  %89 = load i64, ptr %88, align 8, !tbaa !316
+  %90 = inttoptr i64 %89 to ptr
+  %91 = ptrtoint ptr %.019.i21 to i64
+  %92 = sub i64 %91, %4
+  %93 = icmp sgt i64 %92, 0
+  br i1 %93, label %.lr.ph.preheader.i.i.i.i.i.i31, label %_ZSt13move_backwardIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEES7_ET0_T_S9_S8_.exit.i30
 
-.lr.ph.preheader.i.i.i.i.i.i31:                   ; preds = %84
-  %92 = getelementptr inbounds nuw i8, ptr %.pn18.i22, i64 48
-  %93 = udiv exact i64 %90, 24
+.lr.ph.preheader.i.i.i.i.i.i31:                   ; preds = %86
+  %94 = getelementptr inbounds nuw i8, ptr %.pn18.i22, i64 48
+  %95 = udiv exact i64 %92, 24
   br label %.lr.ph.i.i.i.i.i.i32
 
 .lr.ph.i.i.i.i.i.i32:                             ; preds = %.lr.ph.i.i.i.i.i.i32, %.lr.ph.preheader.i.i.i.i.i.i31
-  %.010.i.i.i.i.i.i33 = phi i64 [ %103, %.lr.ph.i.i.i.i.i.i32 ], [ %93, %.lr.ph.preheader.i.i.i.i.i.i31 ]
-  %.069.i.i.i.i.i.i34 = phi ptr [ %95, %.lr.ph.i.i.i.i.i.i32 ], [ %92, %.lr.ph.preheader.i.i.i.i.i.i31 ]
-  %.078.i.i.i.i.i.i35 = phi ptr [ %94, %.lr.ph.i.i.i.i.i.i32 ], [ %.019.i21, %.lr.ph.preheader.i.i.i.i.i.i31 ]
-  %94 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i35, i64 -24
-  %95 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i34, i64 -24
-  %96 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i35, i64 -8
-  %97 = load i64, ptr %96, align 8, !tbaa !45
-  %98 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i34, i64 -8
-  store i64 %97, ptr %98, align 8, !tbaa !45
-  %99 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i35, i64 -16
-  %100 = load ptr, ptr %99, align 8, !tbaa !316
-  %101 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i34, i64 -16
-  store ptr %100, ptr %101, align 8, !tbaa !316
-  %102 = load ptr, ptr %94, align 8, !tbaa !465
-  store ptr %102, ptr %95, align 8, !tbaa !465
-  %103 = add nsw i64 %.010.i.i.i.i.i.i33, -1
-  %104 = icmp samesign ugt i64 %.010.i.i.i.i.i.i33, 1
-  br i1 %104, label %.lr.ph.i.i.i.i.i.i32, label %_ZSt13move_backwardIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEES7_ET0_T_S9_S8_.exit.i30, !llvm.loop !586
+  %.010.i.i.i.i.i.i33 = phi i64 [ %105, %.lr.ph.i.i.i.i.i.i32 ], [ %95, %.lr.ph.preheader.i.i.i.i.i.i31 ]
+  %.069.i.i.i.i.i.i34 = phi ptr [ %97, %.lr.ph.i.i.i.i.i.i32 ], [ %94, %.lr.ph.preheader.i.i.i.i.i.i31 ]
+  %.078.i.i.i.i.i.i35 = phi ptr [ %96, %.lr.ph.i.i.i.i.i.i32 ], [ %.019.i21, %.lr.ph.preheader.i.i.i.i.i.i31 ]
+  %96 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i35, i64 -24
+  %97 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i34, i64 -24
+  %98 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i35, i64 -8
+  %99 = load i64, ptr %98, align 8, !tbaa !45
+  %100 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i34, i64 -8
+  store i64 %99, ptr %100, align 8, !tbaa !45
+  %101 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i35, i64 -16
+  %102 = load ptr, ptr %101, align 8, !tbaa !316
+  %103 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i34, i64 -16
+  store ptr %102, ptr %103, align 8, !tbaa !316
+  %104 = load ptr, ptr %96, align 8, !tbaa !465
+  store ptr %104, ptr %97, align 8, !tbaa !465
+  %105 = add nsw i64 %.010.i.i.i.i.i.i33, -1
+  %106 = icmp samesign ugt i64 %.010.i.i.i.i.i.i33, 1
+  br i1 %106, label %.lr.ph.i.i.i.i.i.i32, label %_ZSt13move_backwardIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEES7_ET0_T_S9_S8_.exit.i30, !llvm.loop !586
 
-_ZSt13move_backwardIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEES7_ET0_T_S9_S8_.exit.i30: ; preds = %.lr.ph.i.i.i.i.i.i32, %84
-  store i64 %80, ptr %76, align 8, !tbaa !45
-  store ptr %88, ptr %77, align 8, !tbaa !316
-  store ptr %85, ptr %0, align 8, !tbaa !465
-  br label %124
+_ZSt13move_backwardIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEES7_ET0_T_S9_S8_.exit.i30: ; preds = %.lr.ph.i.i.i.i.i.i32, %86
+  store i64 %82, ptr %78, align 8, !tbaa !45
+  store ptr %90, ptr %79, align 8, !tbaa !316
+  store ptr %87, ptr %0, align 8, !tbaa !465
+  br label %126
 
-105:                                              ; preds = %78
-  %106 = getelementptr inbounds nuw i8, ptr %.pn18.i22, i64 32
-  %107 = load i64, ptr %106, align 8, !tbaa !316
-  %108 = getelementptr inbounds nuw i8, ptr %.pn18.i22, i64 16
-  %109 = load i64, ptr %108, align 8, !tbaa !45
-  %110 = icmp ult i64 %80, %109
-  br i1 %110, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i23
+107:                                              ; preds = %80
+  %108 = getelementptr inbounds nuw i8, ptr %.pn18.i22, i64 32
+  %109 = load i64, ptr %108, align 8, !tbaa !316
+  %110 = getelementptr inbounds nuw i8, ptr %.pn18.i22, i64 16
+  %111 = load i64, ptr %110, align 8, !tbaa !45
+  %112 = icmp ult i64 %82, %111
+  br i1 %112, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i23
 
-.lr.ph.i.i27:                                     ; preds = %105, %.lr.ph.i.i27
-  %111 = phi i64 [ %118, %.lr.ph.i.i27 ], [ %109, %105 ]
-  %.0911.i.i28 = phi ptr [ %.0.i.i29, %.lr.ph.i.i27 ], [ %.019.i21, %105 ]
+.lr.ph.i.i27:                                     ; preds = %107, %.lr.ph.i.i27
+  %113 = phi i64 [ %120, %.lr.ph.i.i27 ], [ %111, %107 ]
+  %.0911.i.i28 = phi ptr [ %.0.i.i29, %.lr.ph.i.i27 ], [ %.019.i21, %107 ]
   %.0.i.i29 = getelementptr inbounds i8, ptr %.0911.i.i28, i64 -24
-  %112 = getelementptr inbounds nuw i8, ptr %.0911.i.i28, i64 16
-  store i64 %111, ptr %112, align 8, !tbaa !45
-  %113 = getelementptr inbounds i8, ptr %.0911.i.i28, i64 -16
-  %114 = load ptr, ptr %113, align 8, !tbaa !316
-  %115 = getelementptr inbounds nuw i8, ptr %.0911.i.i28, i64 8
-  store ptr %114, ptr %115, align 8, !tbaa !316
-  %116 = load ptr, ptr %.0.i.i29, align 8, !tbaa !465
-  store ptr %116, ptr %.0911.i.i28, align 8, !tbaa !465
-  %117 = getelementptr inbounds i8, ptr %.0911.i.i28, i64 -32
-  %118 = load i64, ptr %117, align 8, !tbaa !45
-  %119 = icmp ult i64 %80, %118
-  br i1 %119, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i23, !llvm.loop !587
+  %114 = getelementptr inbounds nuw i8, ptr %.0911.i.i28, i64 16
+  store i64 %113, ptr %114, align 8, !tbaa !45
+  %115 = getelementptr inbounds i8, ptr %.0911.i.i28, i64 -16
+  %116 = load ptr, ptr %115, align 8, !tbaa !316
+  %117 = getelementptr inbounds nuw i8, ptr %.0911.i.i28, i64 8
+  store ptr %116, ptr %117, align 8, !tbaa !316
+  %118 = load ptr, ptr %.0.i.i29, align 8, !tbaa !465
+  store ptr %118, ptr %.0911.i.i28, align 8, !tbaa !465
+  %119 = getelementptr inbounds i8, ptr %.0911.i.i28, i64 -32
+  %120 = load i64, ptr %119, align 8, !tbaa !45
+  %121 = icmp ult i64 %82, %120
+  br i1 %121, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i23, !llvm.loop !587
 
-_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i23: ; preds = %.lr.ph.i.i27, %105
-  %.09.lcssa.i.i24 = phi ptr [ %.019.i21, %105 ], [ %.0.i.i29, %.lr.ph.i.i27 ]
-  %120 = inttoptr i64 %107 to ptr
-  %121 = inttoptr i64 %83 to ptr
-  %122 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i24, i64 16
-  store i64 %80, ptr %122, align 8, !tbaa !45
-  %123 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i24, i64 8
-  store ptr %120, ptr %123, align 8, !tbaa !316
-  store ptr %121, ptr %.09.lcssa.i.i24, align 8, !tbaa !465
-  br label %124
+_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i23: ; preds = %.lr.ph.i.i27, %107
+  %.09.lcssa.i.i24 = phi ptr [ %.019.i21, %107 ], [ %.0.i.i29, %.lr.ph.i.i27 ]
+  %122 = inttoptr i64 %109 to ptr
+  %123 = inttoptr i64 %85 to ptr
+  %124 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i24, i64 16
+  store i64 %82, ptr %124, align 8, !tbaa !45
+  %125 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i24, i64 8
+  store ptr %122, ptr %125, align 8, !tbaa !316
+  store ptr %123, ptr %.09.lcssa.i.i24, align 8, !tbaa !465
+  br label %126
 
-124:                                              ; preds = %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i23, %_ZSt13move_backwardIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEES7_ET0_T_S9_S8_.exit.i30
+126:                                              ; preds = %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i23, %_ZSt13move_backwardIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEES7_ET0_T_S9_S8_.exit.i30
   %.0.i25 = getelementptr inbounds nuw i8, ptr %.019.i21, i64 24
   %.not.i26 = icmp eq ptr %.0.i25, %1
-  br i1 %.not.i26, label %_ZSt26__unguarded_insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit, label %78, !llvm.loop !588
+  br i1 %.not.i26, label %_ZSt26__unguarded_insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit, label %80, !llvm.loop !588
 
-_ZSt26__unguarded_insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit: ; preds = %124, %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i13, %.preheader.i, %74, %_ZSt16__insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit
+_ZSt26__unguarded_insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit: ; preds = %126, %_ZSt25__unguarded_linear_insertIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_10less_firstEEEEvT_T0_.exit.i13, %.preheader.i, %76, %_ZSt16__insertion_sortIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_.exit
   ret void
 }
 
@@ -15899,9 +15901,9 @@ _ZSt22__move_median_to_firstIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_c
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %64
 
-64:                                               ; preds = %76, %_ZSt22__move_median_to_firstIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_SD_SD_T0_.exit
-  %.013.i = phi ptr [ %1, %_ZSt22__move_median_to_firstIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_SD_SD_T0_.exit ], [ %.114.i, %76 ]
-  %.0.i = phi ptr [ %8, %_ZSt22__move_median_to_firstIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_SD_SD_T0_.exit ], [ %70, %76 ]
+64:                                               ; preds = %77, %_ZSt22__move_median_to_firstIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_SD_SD_T0_.exit
+  %.013.i = phi ptr [ %1, %_ZSt22__move_median_to_firstIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_SD_SD_T0_.exit ], [ %.114.i, %77 ]
+  %.0.i = phi ptr [ %8, %_ZSt22__move_median_to_firstIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_SD_SD_T0_.exit ], [ %70, %77 ]
   %65 = load i64, ptr %63, align 8, !tbaa !45
   br label %66
 
@@ -15911,25 +15913,28 @@ _ZSt22__move_median_to_firstIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_c
   %68 = load i64, ptr %67, align 8, !tbaa !45
   %69 = icmp ult i64 %68, %65
   %70 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
-  br i1 %69, label %66, label %.preheader.i, !llvm.loop !590
+  br i1 %69, label %66, label %.preheader.i.preheader, !llvm.loop !590
 
-.preheader.i:                                     ; preds = %66, %.preheader.i
-  %.013.pn.i = phi ptr [ %.114.i, %.preheader.i ], [ %.013.i, %66 ]
+.preheader.i.preheader:                           ; preds = %66
+  %71 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
+  %.013.pn.i = phi ptr [ %.114.i, %.preheader.i ], [ %.013.i, %.preheader.i.preheader ]
   %.114.i = getelementptr inbounds i8, ptr %.013.pn.i, i64 -24
-  %71 = getelementptr inbounds i8, ptr %.013.pn.i, i64 -8
-  %72 = load i64, ptr %71, align 8, !tbaa !45
-  %73 = icmp ult i64 %65, %72
-  br i1 %73, label %.preheader.i, label %74, !llvm.loop !591
+  %72 = getelementptr inbounds i8, ptr %.013.pn.i, i64 -8
+  %73 = load i64, ptr %72, align 8, !tbaa !45
+  %74 = icmp ult i64 %65, %73
+  br i1 %74, label %.preheader.i, label %75, !llvm.loop !591
 
-74:                                               ; preds = %.preheader.i
-  %75 = icmp ult ptr %.1.i, %.114.i
-  br i1 %75, label %76, label %_ZSt21__unguarded_partitionIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SD_SD_SD_T0_.exit
+75:                                               ; preds = %.preheader.i
+  %76 = icmp ult ptr %.1.i, %.114.i
+  br i1 %76, label %77, label %_ZSt21__unguarded_partitionIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SD_SD_SD_T0_.exit
 
-76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %.013.pn.i, i64 -8
-  %78 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
-  store i64 %72, ptr %78, align 8, !tbaa !45
-  store i64 %68, ptr %77, align 8, !tbaa !45
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds i8, ptr %.013.pn.i, i64 -8
+  store i64 %73, ptr %71, align 8, !tbaa !45
+  store i64 %68, ptr %78, align 8, !tbaa !45
   %79 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %80 = getelementptr inbounds i8, ptr %.013.pn.i, i64 -16
   %81 = load ptr, ptr %79, align 8, !tbaa !316
@@ -15942,7 +15947,7 @@ _ZSt22__move_median_to_firstIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_c
   store ptr %83, ptr %.114.i, align 8, !tbaa !465
   br label %64, !llvm.loop !592
 
-_ZSt21__unguarded_partitionIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SD_SD_SD_T0_.exit: ; preds = %74
+_ZSt21__unguarded_partitionIPSt5tupleIJmPN4llvm4TypeEPNS1_8ConstantEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET_SD_SD_SD_T0_.exit: ; preds = %75
   ret ptr %.1.i
 }
 

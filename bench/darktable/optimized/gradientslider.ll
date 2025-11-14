@@ -3354,37 +3354,37 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   %109 = getelementptr double, ptr %104, i64 %108
   %110 = getelementptr i8, ptr %109, i64 -8
   %111 = load double, ptr %110, align 8, !tbaa !37
-  %112 = icmp sgt i32 %1, 1
-  br i1 %112, label %.lr.ph, label %.preheader
+  %112 = fsub reassoc nsz arcp contract afn double %111, %103
+  %113 = fsub reassoc nsz arcp contract afn double %111, %107
+  %114 = icmp sgt i32 %1, 1
+  br i1 %114, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %102
-  %113 = load double, ptr %104, align 8, !tbaa !37
-  %114 = fsub reassoc nsz arcp contract afn double %107, %113
-  %115 = fsub reassoc nsz arcp contract afn double %103, %113
+  %115 = load double, ptr %104, align 8, !tbaa !37
+  %116 = fsub reassoc nsz arcp contract afn double %107, %115
+  %117 = fsub reassoc nsz arcp contract afn double %103, %115
   %wide.trip.count = zext nneg i32 %1 to i64
-  %116 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %114
+  %118 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %116
   br label %122
 
 .preheader:                                       ; preds = %122, %102
   %.0128 = add nsw i32 %1, 1
-  %117 = icmp slt i32 %.0128, %81
-  br i1 %117, label %.lr.ph130, label %.loopexit
+  %119 = icmp slt i32 %.0128, %81
+  br i1 %119, label %.lr.ph130, label %.loopexit
 
 .lr.ph130:                                        ; preds = %.preheader
-  %118 = fsub reassoc nsz arcp contract afn double %111, %107
-  %119 = fsub reassoc nsz arcp contract afn double %111, %103
   %120 = sext i32 %.0128 to i64
-  %121 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %118
+  %121 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %113
   br label %129
 
 122:                                              ; preds = %.lr.ph, %122
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %122 ]
   %123 = getelementptr inbounds nuw double, ptr %104, i64 %indvars.iv
   %124 = load double, ptr %123, align 8, !tbaa !37
-  %125 = fsub reassoc nsz arcp contract afn double %124, %113
-  %126 = fmul reassoc nsz arcp contract afn double %115, %125
-  %127 = fmul reassoc nsz arcp contract afn double %126, %116
-  %128 = fadd reassoc nsz arcp contract afn double %127, %113
+  %125 = fsub reassoc nsz arcp contract afn double %124, %115
+  %126 = fmul reassoc nsz arcp contract afn double %117, %125
+  %127 = fmul reassoc nsz arcp contract afn double %126, %118
+  %128 = fadd reassoc nsz arcp contract afn double %127, %115
   store double %128, ptr %123, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3396,7 +3396,7 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   %131 = getelementptr inbounds double, ptr %104, i64 %indvars.iv134
   %132 = load double, ptr %131, align 8, !tbaa !37
   %133 = fsub reassoc nsz arcp contract afn double %130, %132
-  %134 = fmul reassoc nsz arcp contract afn double %119, %133
+  %134 = fmul reassoc nsz arcp contract afn double %112, %133
   %135 = fmul reassoc nsz arcp contract afn double %134, %121
   %136 = fsub reassoc nsz arcp contract afn double %130, %135
   store double %136, ptr %131, align 8, !tbaa !37

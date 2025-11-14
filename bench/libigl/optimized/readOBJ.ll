@@ -1541,8 +1541,8 @@ _ZSteqIcSt11char_traitsIcESaIcEEbPKT_RKNSt7__cxx1112basic_stringIS3_T0_T1_EE.exi
   store double 0.000000e+00, ptr %353, align 8, !tbaa !69
   %355 = getelementptr i8, ptr %353, i64 8
   %.idx.i.i.i.i.i.i.i = add nsw i64 %352, -8
-  %356 = getelementptr i8, ptr %353, i64 %352
   call void @llvm.memset.p0.i64(ptr align 8 %355, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !69
+  %356 = getelementptr i8, ptr %353, i64 %352
   store ptr %356, ptr %140, align 8, !tbaa !65
   br label %380
 

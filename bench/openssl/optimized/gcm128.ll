@@ -321,14 +321,14 @@ define range(i32 -2, 1) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef %1, i
   store i8 %54, ptr %52, align 1, !tbaa !12
   %55 = add nuw i64 %.04566, 1
   %exitcond.not = icmp eq i64 %55, %.248
-  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %49, !llvm.loop !30
 
-.loopexit:                                        ; preds = %49
+.loopexit.loopexit:                               ; preds = %49
   %56 = trunc nuw nsw i64 %.248 to i32
   br label %.sink.split
 
-.sink.split:                                      ; preds = %46, %.loopexit, %._crit_edge, %.preheader
-  %.2.sink = phi i32 [ %25, %._crit_edge ], [ %14, %.preheader ], [ 0, %46 ], [ %56, %.loopexit ]
+.sink.split:                                      ; preds = %46, %.loopexit.loopexit, %._crit_edge, %.preheader
+  %.2.sink = phi i32 [ %25, %._crit_edge ], [ %14, %.preheader ], [ 0, %46 ], [ %56, %.loopexit.loopexit ]
   store i32 %.2.sink, ptr %13, align 4, !tbaa !18
   br label %57
 

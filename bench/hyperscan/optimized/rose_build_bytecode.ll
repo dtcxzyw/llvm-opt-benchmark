@@ -16327,8 +16327,8 @@ _ZN3ue214RoseEngineBlob3addI4HWLMEEjRKNS_12bytecode_ptrIT_EE.exit848: ; preds = 
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc980
   %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %5499, 2
-  %5501 = getelementptr inbounds nuw i8, ptr %5498, i64 %.idx.i.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %5498, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !noalias !277
+  %5501 = getelementptr inbounds nuw i8, ptr %5498, i64 %.idx.i.i.i.i.i.i.i.i.i
   br label %5502
 
 5502:                                             ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i, %.noexc980

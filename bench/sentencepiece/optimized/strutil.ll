@@ -7412,58 +7412,58 @@ define noundef i32 @_ZN6google8protobuf20Base64EscapeInternalEPKhiPciPKcb(ptr no
   br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %10
-  %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 -3
-  %18 = icmp samesign ugt i32 %1, 3
-  br i1 %18, label %.lr.ph, label %._crit_edge
+  %15 = sext i32 %3 to i64
+  %16 = getelementptr inbounds i8, ptr %2, i64 %15
+  %17 = zext nneg i32 %1 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
+  %19 = getelementptr inbounds i8, ptr %18, i64 -3
+  %20 = icmp samesign ugt i32 %1, 3
+  br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
-  %.098113 = phi ptr [ %42, %.lr.ph ], [ %2, %14 ]
-  %.0102112 = phi ptr [ %43, %.lr.ph ], [ %0, %14 ]
+  %.098113 = phi ptr [ %44, %.lr.ph ], [ %2, %14 ]
+  %.0102112 = phi ptr [ %45, %.lr.ph ], [ %0, %14 ]
   %.0.copyload.i.i = load i32, ptr %.0102112, align 1
-  %19 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i)
-  %20 = lshr i32 %19, 8
-  %21 = lshr i32 %19, 26
-  %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !11
-  store i8 %24, ptr %.098113, align 1, !tbaa !11
-  %25 = lshr i32 %19, 20
-  %26 = and i32 %25, 63
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !11
-  %30 = getelementptr inbounds nuw i8, ptr %.098113, i64 1
-  store i8 %29, ptr %30, align 1, !tbaa !11
-  %31 = lshr i32 %19, 14
-  %32 = and i32 %31, 63
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !11
-  %36 = getelementptr inbounds nuw i8, ptr %.098113, i64 2
-  store i8 %35, ptr %36, align 1, !tbaa !11
-  %37 = and i32 %20, 63
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 %38
-  %40 = load i8, ptr %39, align 1, !tbaa !11
-  %41 = getelementptr inbounds nuw i8, ptr %.098113, i64 3
-  store i8 %40, ptr %41, align 1, !tbaa !11
-  %42 = getelementptr inbounds nuw i8, ptr %.098113, i64 4
-  %43 = getelementptr inbounds nuw i8, ptr %.0102112, i64 3
-  %44 = icmp ult ptr %43, %17
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !103
+  %21 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i)
+  %22 = lshr i32 %21, 8
+  %23 = lshr i32 %21, 26
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 %24
+  %26 = load i8, ptr %25, align 1, !tbaa !11
+  store i8 %26, ptr %.098113, align 1, !tbaa !11
+  %27 = lshr i32 %21, 20
+  %28 = and i32 %27, 63
+  %29 = zext nneg i32 %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %29
+  %31 = load i8, ptr %30, align 1, !tbaa !11
+  %32 = getelementptr inbounds nuw i8, ptr %.098113, i64 1
+  store i8 %31, ptr %32, align 1, !tbaa !11
+  %33 = lshr i32 %21, 14
+  %34 = and i32 %33, 63
+  %35 = zext nneg i32 %34 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
+  %37 = load i8, ptr %36, align 1, !tbaa !11
+  %38 = getelementptr inbounds nuw i8, ptr %.098113, i64 2
+  store i8 %37, ptr %38, align 1, !tbaa !11
+  %39 = and i32 %22, 63
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %40
+  %42 = load i8, ptr %41, align 1, !tbaa !11
+  %43 = getelementptr inbounds nuw i8, ptr %.098113, i64 3
+  store i8 %42, ptr %43, align 1, !tbaa !11
+  %44 = getelementptr inbounds nuw i8, ptr %.098113, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.0102112, i64 3
+  %46 = icmp ult ptr %45, %19
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
-  %.0102.lcssa = phi ptr [ %0, %14 ], [ %43, %.lr.ph ]
-  %.098.lcssa = phi ptr [ %2, %14 ], [ %42, %.lr.ph ]
-  %45 = sext i32 %3 to i64
-  %46 = getelementptr inbounds i8, ptr %2, i64 %45
-  %47 = ptrtoint ptr %46 to i64
+  %.0102.lcssa = phi ptr [ %0, %14 ], [ %45, %.lr.ph ]
+  %.098.lcssa = phi ptr [ %2, %14 ], [ %44, %.lr.ph ]
+  %47 = ptrtoint ptr %16 to i64
   %48 = ptrtoint ptr %.098.lcssa to i64
   %49 = sub i64 %47, %48
   %50 = trunc i64 %49 to i32
-  %51 = ptrtoint ptr %16 to i64
+  %51 = ptrtoint ptr %18 to i64
   %52 = ptrtoint ptr %.0102.lcssa to i64
   %53 = sub i64 %51, %52
   %54 = trunc i64 %53 to i32

@@ -210,7 +210,7 @@ bytestream2_get_be16.exit92:                      ; preds = %bytestream2_get_be1
 .preheader:                                       ; preds = %.preheader.preheader, %101
   %indvars.iv142 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next143, %101 ]
   %.081128 = phi i32 [ 0, %.preheader.preheader ], [ %99, %101 ]
-  %.sroa.0.3127 = phi ptr [ %93, %.preheader.preheader ], [ %117, %101 ]
+  %.sroa.0.3127 = phi ptr [ %93, %.preheader.preheader ], [ %106, %101 ]
   %98 = mul nuw nsw i32 %.081128, %.0.i
   %99 = add nuw nsw i32 %.081128, 20
   br label %104
@@ -229,28 +229,28 @@ bytestream2_get_be16.exit92:                      ; preds = %bytestream2_get_be1
 104:                                              ; preds = %.preheader, %._crit_edge
   %indvars.iv149 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next150, %._crit_edge ]
   %indvars.iv144 = phi i64 [ %indvars.iv142, %.preheader ], [ %indvars.iv.next145, %._crit_edge ]
-  %.sroa.0.4125 = phi ptr [ %.sroa.0.3127, %.preheader ], [ %117, %._crit_edge ]
+  %.sroa.0.4125 = phi ptr [ %.sroa.0.3127, %.preheader ], [ %106, %._crit_edge ]
   %105 = getelementptr inbounds nuw %struct.QOAChannel, ptr %6, i64 %indvars.iv149
-  %106 = load i32, ptr %57, align 8, !tbaa !39
-  %..i = tail call i32 @llvm.smin.i32(i32 %99, i32 %106)
-  %107 = mul nsw i32 %..i, %.0.i
-  %108 = trunc nuw nsw i64 %indvars.iv149 to i32
-  %109 = add nsw i32 %107, %108
-  %110 = icmp slt i32 %98, %107
-  br i1 %110, label %.lr.ph, label %._crit_edge
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.0.4125, i64 8
+  %107 = load i32, ptr %57, align 8, !tbaa !39
+  %..i = tail call i32 @llvm.smin.i32(i32 %99, i32 %107)
+  %108 = mul nsw i32 %..i, %.0.i
+  %109 = trunc nuw nsw i64 %indvars.iv149 to i32
+  %110 = add nsw i32 %108, %109
+  %111 = icmp slt i32 %98, %108
+  br i1 %111, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %104
-  %111 = load i64, ptr %.sroa.0.4125, align 1, !tbaa !31
-  %112 = tail call noundef i64 @llvm.bswap.i64(i64 %111)
-  %113 = lshr i64 %112, 60
-  %114 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %115 = getelementptr inbounds nuw [8 x i16], ptr @qoa_dequant_tab, i64 %113
+  %112 = load i64, ptr %.sroa.0.4125, align 1, !tbaa !31
+  %113 = tail call noundef i64 @llvm.bswap.i64(i64 %112)
+  %114 = lshr i64 %113, 60
+  %115 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  %116 = getelementptr inbounds nuw [8 x i16], ptr @qoa_dequant_tab, i64 %114
   %scevgep.i = getelementptr i8, ptr %105, i64 4
-  %116 = getelementptr inbounds nuw i8, ptr %105, i64 12
+  %117 = getelementptr inbounds nuw i8, ptr %105, i64 12
   br label %118
 
 ._crit_edge:                                      ; preds = %qoa_lms_update.exit, %104
-  %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.4125, i64 8
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count
@@ -258,13 +258,13 @@ bytestream2_get_be16.exit92:                      ; preds = %bytestream2_get_be1
 
 118:                                              ; preds = %.lr.ph, %qoa_lms_update.exit
   %indvars.iv146 = phi i64 [ %indvars.iv144, %.lr.ph ], [ %indvars.iv.next147, %qoa_lms_update.exit ]
-  %.082123 = phi i64 [ %112, %.lr.ph ], [ %146, %qoa_lms_update.exit ]
+  %.082123 = phi i64 [ %113, %.lr.ph ], [ %146, %qoa_lms_update.exit ]
   br label %119
 
 119:                                              ; preds = %119, %118
   %indvars.iv.i = phi i64 [ 0, %118 ], [ %indvars.iv.next.i, %119 ]
   %.078.i = phi i32 [ 0, %118 ], [ %125, %119 ]
-  %120 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv.i
+  %120 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv.i
   %121 = load i32, ptr %120, align 4, !tbaa !41
   %122 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv.i
   %123 = load i32, ptr %122, align 4, !tbaa !41
@@ -278,7 +278,7 @@ qoa_lms_predict.exit:                             ; preds = %119
   %126 = ashr i32 %125, 13
   %127 = lshr i64 %.082123, 57
   %128 = and i64 %127, 7
-  %129 = getelementptr inbounds nuw i16, ptr %115, i64 %128
+  %129 = getelementptr inbounds nuw i16, ptr %116, i64 %128
   %130 = load i16, ptr %129, align 2, !tbaa !49
   %131 = sext i16 %130 to i32
   %132 = add nsw i32 %126, %131
@@ -297,7 +297,7 @@ qoa_lms_predict.exit:                             ; preds = %119
   %140 = load i32, ptr %139, align 4, !tbaa !41
   %141 = icmp slt i32 %140, 0
   %142 = select i1 %141, i32 %137, i32 %136
-  %143 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv.i95
+  %143 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv.i95
   %144 = load i32, ptr %143, align 4, !tbaa !41
   %145 = add nsw i32 %142, %144
   store i32 %145, ptr %143, align 4, !tbaa !41
@@ -308,10 +308,10 @@ qoa_lms_predict.exit:                             ; preds = %119
 qoa_lms_update.exit:                              ; preds = %138
   %146 = shl i64 %.082123, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %105, ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i, i64 12, i1 false), !tbaa !41
-  store i32 %134, ptr %116, align 4, !tbaa !41
+  store i32 %134, ptr %117, align 4, !tbaa !41
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, %wide.trip.count
   %147 = trunc nuw i64 %indvars.iv.next147 to i32
-  %148 = icmp sgt i32 %109, %147
+  %148 = icmp sgt i32 %110, %147
   br i1 %148, label %118, label %._crit_edge, !llvm.loop !52
 
 bytestream2_get_be24.exit.thread:                 ; preds = %bytestream2_get_byte.exit, %74, %67, %bytestream2_get_be16.exit92, %41, %bytestream2_get_be24.exit, %._crit_edge129

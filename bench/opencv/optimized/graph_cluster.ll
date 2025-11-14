@@ -177,6 +177,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %_ZNKSt6vector
   %.sroa.23.1 = phi i64 [ %37, %.noexc ], [ 0, %_ZNSt6vectorIdSaIdEE5clearEv.exit ]
   %.sroa.0203.2 = phi ptr [ %32, %.noexc ], [ null, %_ZNSt6vectorIdSaIdEE5clearEv.exit ]
   store double 0.000000e+00, ptr %.sroa.0203.2, align 8, !tbaa !19
+  %indvars.iv.next411 = add nuw nsw i64 %indvars.iv410, 1
   %38 = load ptr, ptr %0, align 8, !tbaa !12
   %39 = getelementptr inbounds nuw %"class.cv::Point_", ptr %38, i64 %indvars.iv410
   %.val = load i32, ptr %39, align 4, !tbaa !21
@@ -189,7 +190,6 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %_ZNKSt6vector
   br label %48
 
 ._crit_edge:                                      ; preds = %48
-  %indvars.iv.next411 = add nuw nsw i64 %indvars.iv410, 1
   %45 = load ptr, ptr %11, align 8, !tbaa !3
   %46 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv410
   %47 = load i32, ptr %46, align 4, !tbaa !17
@@ -1378,8 +1378,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !17
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i

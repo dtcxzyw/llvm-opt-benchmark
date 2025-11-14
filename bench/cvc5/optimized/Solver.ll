@@ -4724,21 +4724,21 @@ define hidden void @_ZN4cvc58internal7Minisat6Solver11cancelUntilEi(ptr noundef 
   br i1 %5, label %6, label %92
 
 6:                                                ; preds = %2
-  %7 = sub nsw i32 %4, %1
-  %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %8 = sub nsw i32 %4, %1
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %27
 
 ._crit_edge:                                      ; preds = %27, %6
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %13 = load i32, ptr %12, align 8, !tbaa !94
   %14 = sext i32 %1 to i64
-  %15 = load ptr, ptr %10, align 8, !tbaa !106
+  %15 = load ptr, ptr %7, align 8, !tbaa !106
   %16 = getelementptr inbounds i32, ptr %15, i64 %14
   %17 = load i32, ptr %16, align 4, !tbaa !66
   %.not.not62 = icmp sgt i32 %13, %17
@@ -4757,8 +4757,8 @@ define hidden void @_ZN4cvc58internal7Minisat6Solver11cancelUntilEi(ptr noundef 
   br label %43
 
 27:                                               ; preds = %.lr.ph, %27
-  %.058 = phi i32 [ %7, %.lr.ph ], [ %29, %27 ]
-  %28 = load ptr, ptr %9, align 8, !tbaa !52
+  %.058 = phi i32 [ %8, %.lr.ph ], [ %29, %27 ]
+  %28 = load ptr, ptr %10, align 8, !tbaa !52
   tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %28)
   %29 = add nsw i32 %.058, -1
   %30 = icmp samesign ugt i32 %.058, 1
@@ -4832,7 +4832,7 @@ _ZN4cvc58internal7Minisat3vecIiE6shrinkEi.exit38: ; preds = %_ZN4cvc58internal7M
   br i1 %56, label %57, label %77
 
 57:                                               ; preds = %55
-  %58 = load ptr, ptr %10, align 8, !tbaa !106
+  %58 = load ptr, ptr %7, align 8, !tbaa !106
   %59 = load i32, ptr %3, align 8, !tbaa !92
   %60 = sext i32 %59 to i64
   %61 = getelementptr i32, ptr %58, i64 %60
@@ -4883,7 +4883,7 @@ _ZNK4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i
   br label %_ZN4cvc58internal7Minisat6Solver14insertVarOrderEi.exit
 
 _ZN4cvc58internal7Minisat6Solver14insertVarOrderEi.exit: ; preds = %_ZNK4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE6inHeapEi.exit.i, %_ZNK4cvc58internal7Minisat4HeapINS1_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i, %87
-  %88 = load ptr, ptr %10, align 8, !tbaa !106
+  %88 = load ptr, ptr %7, align 8, !tbaa !106
   %89 = getelementptr inbounds i32, ptr %88, i64 %14
   %90 = load i32, ptr %89, align 4, !tbaa !66
   %91 = sext i32 %90 to i64
@@ -13925,7 +13925,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat4sortINS1_3LitENS1_16L
   br i1 %3, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
-  %.tr.lcssa = phi ptr [ %0, %2 ], [ %29, %tailrecurse ]
+  %.tr.lcssa = phi ptr [ %0, %2 ], [ %24, %tailrecurse ]
   %.tr41.lcssa = phi i32 [ %1, %2 ], [ %34, %tailrecurse ]
   %4 = icmp sgt i32 %.tr41.lcssa, 1
   br i1 %4, label %.lr.ph29.preheader.i, label %_ZN4cvc58internal7Minisat13selectionSortINS1_3LitENS1_16LessThan_defaultIS3_EEEEvPT_iT0_.exit
@@ -13972,7 +13972,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
   %.tr4147 = phi i32 [ %34, %tailrecurse ], [ %1, %2 ]
-  %.tr46 = phi ptr [ %29, %tailrecurse ], [ %0, %2 ]
+  %.tr46 = phi ptr [ %24, %tailrecurse ], [ %0, %2 ]
   %16 = lshr i32 %.tr4147, 1
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds nuw %"struct.cvc5::internal::Minisat::Lit", ptr %.tr46, i64 %17
@@ -13995,30 +13995,30 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   br i1 %23, label %21, label %.preheader, !llvm.loop !537
 
 .preheader:                                       ; preds = %21
-  %24 = sext i32 %.034 to i64
-  br label %25
+  %24 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next
+  %25 = sext i32 %.034 to i64
+  br label %26
 
-25:                                               ; preds = %.preheader, %25
-  %indvars.iv55 = phi i64 [ %24, %.preheader ], [ %indvars.iv.next56, %25 ]
+26:                                               ; preds = %.preheader, %26
+  %indvars.iv55 = phi i64 [ %25, %.preheader ], [ %indvars.iv.next56, %26 ]
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
-  %26 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next56
-  %.sroa.0.0.copyload = load i32, ptr %26, align 4, !tbaa !66
-  %27 = icmp slt i32 %.sroa.018.0.copyload, %.sroa.0.0.copyload
-  br i1 %27, label %25, label %28, !llvm.loop !538
+  %27 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next56
+  %.sroa.0.0.copyload = load i32, ptr %27, align 4, !tbaa !66
+  %28 = icmp slt i32 %.sroa.018.0.copyload, %.sroa.0.0.copyload
+  br i1 %28, label %26, label %29, !llvm.loop !538
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next
+29:                                               ; preds = %26
   %.not = icmp slt i64 %indvars.iv.next, %indvars.iv.next56
   br i1 %.not, label %30, label %tailrecurse
 
-30:                                               ; preds = %28
+30:                                               ; preds = %29
   %31 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %.tr46, i64 %indvars.iv.next56
   %32 = trunc nsw i64 %indvars.iv.next56 to i32
-  store i32 %.sroa.0.0.copyload, ptr %29, align 4, !tbaa !66
+  store i32 %.sroa.0.0.copyload, ptr %24, align 4, !tbaa !66
   store i32 %.sroa.03.0.copyload, ptr %31, align 4, !tbaa !66
   br label %19, !llvm.loop !539
 
-tailrecurse:                                      ; preds = %28
+tailrecurse:                                      ; preds = %29
   %33 = trunc nsw i64 %indvars.iv.next to i32
   tail call void @_ZN4cvc58internal7Minisat4sortINS1_3LitENS1_16LessThan_defaultIS3_EEEEvPT_iT0_(ptr noundef nonnull %.tr46, i32 noundef %33)
   %34 = sub nsw i32 %.tr4147, %33

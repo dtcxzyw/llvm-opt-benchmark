@@ -4680,7 +4680,7 @@ define internal fastcc i64 @_ZN6memchr6memmem4find17hafe8180c1595ec0eE(ptr noali
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %12 = load i64, ptr %11, align 16
   %13 = icmp ult i64 %1, %12
-  br i1 %13, label %75, label %65
+  br i1 %13, label %74, label %64
 
 14:                                               ; preds = %4
   %.not.i = icmp eq i64 %3, 0
@@ -4733,15 +4733,11 @@ _ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit: ; preds = %21
   br i1 %36, label %_ZN6memchr4arch3all9rabinkarp6Finder4find17h0198749bac52d2bdE.exit, label %37
 
 37:                                               ; preds = %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %35
+  %38 = sub nsw i64 0, %35
+  %39 = getelementptr inbounds i8, ptr %32, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 %35
   %.not3.i.i = icmp eq i64 %35, 0
-  br i1 %.not3.i.i, label %.preheader.i.i, label %.lr.ph.i.i
-
-.preheader.i.i:                                   ; preds = %.lr.ph.i.i, %37
-  %.sroa.013.0.lcssa.i.i = phi i32 [ 0, %37 ], [ %44, %.lr.ph.i.i ]
-  %39 = sub nsw i64 0, %35
-  %40 = getelementptr inbounds i8, ptr %32, i64 %39
-  br label %47
+  br i1 %.not3.i.i, label %.preheader.i.i.preheader, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %37, %.lr.ph.i.i
   %.sroa.010.02.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %0, %37 ]
@@ -4751,76 +4747,80 @@ _ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit: ; preds = %21
   %43 = zext i8 %41 to i32
   %44 = add i32 %42, %43
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.010.02.i.i, i64 1
-  %46 = icmp ult ptr %45, %38
-  br i1 %46, label %.lr.ph.i.i, label %.preheader.i.i
+  %46 = icmp ult ptr %45, %40
+  br i1 %46, label %.lr.ph.i.i, label %.preheader.i.i.preheader
 
-47:                                               ; preds = %52, %.preheader.i.i
-  %.sroa.013.1.i.i = phi i32 [ %61, %52 ], [ %.sroa.013.0.lcssa.i.i, %.preheader.i.i ]
-  %.sroa.0.0.i.i = phi ptr [ %62, %52 ], [ %0, %.preheader.i.i ]
-  %48 = icmp eq i32 %.sroa.0.0.i, %.sroa.013.1.i.i
-  br i1 %48, label %50, label %49, !prof !310
+.preheader.i.i.preheader:                         ; preds = %.lr.ph.i.i, %37
+  %.sroa.013.1.i.i.ph = phi i32 [ 0, %37 ], [ %44, %.lr.ph.i.i ]
+  br label %.preheader.i.i
 
-49:                                               ; preds = %50, %47
-  %.not.i.i = icmp ult ptr %.sroa.0.0.i.i, %40
-  br i1 %.not.i.i, label %52, label %_ZN6memchr4arch3all9rabinkarp6Finder4find17h0198749bac52d2bdE.exit
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %51
+  %.sroa.013.1.i.i = phi i32 [ %60, %51 ], [ %.sroa.013.1.i.i.ph, %.preheader.i.i.preheader ]
+  %.sroa.0.0.i.i = phi ptr [ %61, %51 ], [ %0, %.preheader.i.i.preheader ]
+  %47 = icmp eq i32 %.sroa.0.0.i, %.sroa.013.1.i.i
+  br i1 %47, label %49, label %48, !prof !310
 
-50:                                               ; preds = %47
-  %51 = tail call noundef zeroext i1 @_ZN6memchr4arch3all9rabinkarp12is_equal_raw17h5a7e97eb2ec9221dE(ptr noundef nonnull %.sroa.0.0.i.i, ptr noundef nonnull readonly align 1 %2, i64 noundef %35)
-  br i1 %51, label %63, label %49
+48:                                               ; preds = %49, %.preheader.i.i
+  %.not.i.i = icmp ult ptr %.sroa.0.0.i.i, %39
+  br i1 %.not.i.i, label %51, label %_ZN6memchr4arch3all9rabinkarp6Finder4find17h0198749bac52d2bdE.exit
 
-52:                                               ; preds = %49
-  %53 = load i8, ptr %.sroa.0.0.i.i, align 1, !alias.scope !308, !noalias !305, !noundef !59
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %35
-  %55 = load i8, ptr %54, align 1, !alias.scope !308, !noalias !305, !noundef !59
-  %56 = zext i8 %53 to i32
-  %57 = mul i32 %.sroa.6.0.i, %56
-  %58 = sub i32 %.sroa.013.1.i.i, %57
-  %59 = shl i32 %58, 1
-  %60 = zext i8 %55 to i32
-  %61 = add i32 %59, %60
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 1
-  br label %47
+49:                                               ; preds = %.preheader.i.i
+  %50 = tail call noundef zeroext i1 @_ZN6memchr4arch3all9rabinkarp12is_equal_raw17h5a7e97eb2ec9221dE(ptr noundef nonnull %.sroa.0.0.i.i, ptr noundef nonnull readonly align 1 %2, i64 noundef %35)
+  br i1 %50, label %62, label %48
 
-63:                                               ; preds = %50
-  %64 = tail call noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17hf1215c550ab5959aE"(ptr noundef nonnull %.sroa.0.0.i.i, ptr noundef nonnull readonly align 1 %0)
+51:                                               ; preds = %48
+  %52 = load i8, ptr %.sroa.0.0.i.i, align 1, !alias.scope !308, !noalias !305, !noundef !59
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %35
+  %54 = load i8, ptr %53, align 1, !alias.scope !308, !noalias !305, !noundef !59
+  %55 = zext i8 %52 to i32
+  %56 = mul i32 %.sroa.6.0.i, %55
+  %57 = sub i32 %.sroa.013.1.i.i, %56
+  %58 = shl i32 %57, 1
+  %59 = zext i8 %54 to i32
+  %60 = add i32 %58, %59
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 1
+  br label %.preheader.i.i
+
+62:                                               ; preds = %49
+  %63 = tail call noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17hf1215c550ab5959aE"(ptr noundef nonnull %.sroa.0.0.i.i, ptr noundef nonnull readonly align 1 %0)
   br label %_ZN6memchr4arch3all9rabinkarp6Finder4find17h0198749bac52d2bdE.exit
 
-65:                                               ; preds = %9
-  %66 = getelementptr inbounds nuw i8, ptr %7, i64 264
-  %67 = load ptr, ptr %66, align 8, !nonnull !59
-  %68 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %69 = load ptr, ptr %68, align 8, !nonnull !59, !noundef !59
-  %70 = invoke { i64, i64 } %69(ptr noalias noundef nonnull readonly align 32 dereferenceable(256) %7, ptr noalias noundef nonnull align 4 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %67, i64 noundef %12)
-          to label %73 unwind label %71
+64:                                               ; preds = %9
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 264
+  %66 = load ptr, ptr %65, align 8, !nonnull !59
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 232
+  %68 = load ptr, ptr %67, align 8, !nonnull !59, !noundef !59
+  %69 = invoke { i64, i64 } %68(ptr noalias noundef nonnull readonly align 32 dereferenceable(256) %7, ptr noalias noundef nonnull align 4 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %66, i64 noundef %12)
+          to label %72 unwind label %70
 
-71:                                               ; preds = %65
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %64
+  %71 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$memchr..memmem..Finder$GT$17hca6ed02419663872E"(ptr noalias noundef nonnull align 32 dereferenceable(288) %7) #32
-          to label %78 unwind label %76
+          to label %77 unwind label %75
 
-73:                                               ; preds = %65
-  %74 = extractvalue { i64, i64 } %70, 0
-  br label %75
+72:                                               ; preds = %64
+  %73 = extractvalue { i64, i64 } %69, 0
+  br label %74
 
-75:                                               ; preds = %9, %73
-  %.sroa.0.1 = phi i64 [ %74, %73 ], [ 0, %9 ]
+74:                                               ; preds = %9, %72
+  %.sroa.0.1 = phi i64 [ %73, %72 ], [ 0, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN4core3ptr43drop_in_place$LT$memchr..memmem..Finder$GT$17hca6ed02419663872E"(ptr noalias noundef nonnull align 32 dereferenceable(288) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN6memchr4arch3all9rabinkarp6Finder4find17h0198749bac52d2bdE.exit
 
-76:                                               ; preds = %71
-  %77 = landingpad { ptr, i32 }
+75:                                               ; preds = %70
+  %76 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #33
   unreachable
 
-78:                                               ; preds = %71
-  resume { ptr, i32 } %72
+77:                                               ; preds = %70
+  resume { ptr, i32 } %71
 
-_ZN6memchr4arch3all9rabinkarp6Finder4find17h0198749bac52d2bdE.exit: ; preds = %49, %63, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit, %75
-  %.sroa.0.0.i6.pn = phi i64 [ %.sroa.0.1, %75 ], [ 1, %63 ], [ 0, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit ], [ 0, %49 ]
+_ZN6memchr4arch3all9rabinkarp6Finder4find17h0198749bac52d2bdE.exit: ; preds = %48, %62, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit, %74
+  %.sroa.0.0.i6.pn = phi i64 [ %.sroa.0.1, %74 ], [ 1, %62 ], [ 0, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit ], [ 0, %48 ]
   ret i64 %.sroa.0.0.i6.pn
 }
 
@@ -17281,12 +17281,12 @@ _ZN18ty_python_semantic5types5infer20TypeInferenceBuilder38check_import_from_mod
   br i1 %724, label %_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder15infer_statement17hd8775c5ff1aa5299E.exit, label %.lr.ph6.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph6.i
-  %725 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i, i64 72
-  %726 = icmp eq ptr %725, %723
-  br i1 %726, label %_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder15infer_statement17hd8775c5ff1aa5299E.exit, label %.lr.ph6.i
+  %725 = icmp eq ptr %726, %723
+  br i1 %725, label %_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder15infer_statement17hd8775c5ff1aa5299E.exit, label %.lr.ph6.i
 
 .lr.ph6.i:                                        ; preds = %_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder38check_import_from_module_is_resolvable17h61a3e89caaf3267aE.exit.i, %.loopexit.i
-  %.sroa.02.05.i = phi ptr [ %725, %.loopexit.i ], [ %720, %_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder38check_import_from_module_is_resolvable17h61a3e89caaf3267aE.exit.i ]
+  %.sroa.02.05.i = phi ptr [ %726, %.loopexit.i ], [ %720, %_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder38check_import_from_module_is_resolvable17h61a3e89caaf3267aE.exit.i ]
+  %726 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i, i64 72
   %727 = load ptr, ptr %155, align 8, !alias.scope !1369, !noalias !1372, !nonnull !59, !align !61, !noundef !59
   %728 = call noundef align 8 dereferenceable(24) ptr @_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h5cf697ee06512a26E(ptr noalias noundef nonnull readonly align 8 dereferenceable(408) %727, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.02.05.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b22f7a4a6befd6a140fbc3f6d86bdef.392)
   %729 = call { ptr, ptr } @"_ZN125_$LT$$RF$ty_python_semantic..semantic_index..definition..Definitions$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hce84e85bb10f9064E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %728)

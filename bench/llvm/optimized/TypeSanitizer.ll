@@ -1131,6 +1131,10 @@ _ZN4llvm13SmallDenseMapIPKNS_6MDNodeEPNS_14GlobalVariableELj8ENS_12DenseMapInfoI
   br i1 %.not.i.i.i45.i, label %_ZN4llvm13SmallDenseMapIPKNS_6MDNodeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEC2Ej.exit.i, label %.lr.ph.i.i.i43.i, !llvm.loop !254
 
 _ZN4llvm13SmallDenseMapIPKNS_6MDNodeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEC2Ej.exit.i: ; preds = %.lr.ph.i.i.i43.i
+  %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %.phi.trans.insert.i.i39.ptr.i = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %.phi.trans.insert3.i.i41.i = getelementptr inbounds nuw i8, ptr %60, i64 16
   %111 = call noundef i32 @_ZNK4llvm11NamedMDNode14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(64) %89) #19, !noalias !255
   %.not8586.i = icmp eq i32 %111, 0
   br i1 %.not8586.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1143,10 +1147,6 @@ _ZN4llvm13SmallDenseMapIPKNS_6MDNodeENSt7__cxx1112basic_stringIcSt11char_traitsI
   br label %116
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm7mdconst19dyn_extract_or_nullINS_14GlobalVariableERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.thread.i, %_ZN4llvm13SmallDenseMapIPKNS_6MDNodeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEC2Ej.exit.i
-  %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %.phi.trans.insert.i.i39.ptr.i = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %.phi.trans.insert3.i.i41.i = getelementptr inbounds nuw i8, ptr %60, i64 16
   %115 = load ptr, ptr %88, align 8, !tbaa !246
   %.not37.i = icmp eq ptr %115, null
   br i1 %.not37.i, label %198, label %172

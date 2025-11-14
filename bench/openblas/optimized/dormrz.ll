@@ -146,42 +146,43 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %77, label %.lr.ph327, label %.lr.ph332.preheader
 
 .preheader319:                                    ; preds = %._crit_edge
-  %78 = icmp sgt i32 %92, 0
+  %78 = icmp sgt i32 %83, 0
   br i1 %78, label %.lr.ph332.preheader, label %.thread285
 
 .lr.ph332.preheader:                              ; preds = %73, %.preheader319
   %.0216.lcssa387 = phi ptr [ %.1217.lcssa, %.preheader319 ], [ %18, %73 ]
-  %.0220.lcssa386 = phi i32 [ %92, %.preheader319 ], [ 2, %73 ]
+  %.0220.lcssa386 = phi i32 [ %83, %.preheader319 ], [ 2, %73 ]
   %79 = zext nneg i32 %.0220.lcssa386 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0216.lcssa387, i8 32, i64 %79, i1 false), !tbaa !10
   br label %.thread285
 
 .lr.ph327:                                        ; preds = %73, %._crit_edge
-  %80 = phi i32 [ %91, %._crit_edge ], [ %76, %73 ]
+  %80 = phi i32 [ %92, %._crit_edge ], [ %76, %73 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %73 ]
   %.0216325 = phi ptr [ %.1217.lcssa, %._crit_edge ], [ %18, %73 ]
-  %.0220324 = phi i32 [ %92, %._crit_edge ], [ 2, %73 ]
+  %.0220324 = phi i32 [ %83, %._crit_edge ], [ 2, %73 ]
   %81 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4, !tbaa !3
   %spec.select275 = tail call i32 @llvm.smin.i32(i32 %82, i32 %.0220324)
-  %83 = icmp sgt i32 %spec.select275, 0
-  br i1 %83, label %.lr.ph.preheader, label %._crit_edge
+  %83 = sub nsw i32 %.0220324, %spec.select275
+  %84 = icmp sgt i32 %spec.select275, 0
+  br i1 %84, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph327
-  %84 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
-  %85 = load ptr, ptr %84, align 8, !tbaa !7
-  %86 = zext nneg i32 %spec.select275 to i64
-  %87 = getelementptr i8, ptr %.0216325, i64 %86
-  %scevgep = getelementptr i8, ptr %87, i64 -1
+  %85 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %86 = load ptr, ptr %85, align 8, !tbaa !7
+  %87 = zext nneg i32 %spec.select275 to i64
+  %88 = getelementptr i8, ptr %.0216325, i64 %87
+  %scevgep = getelementptr i8, ptr %88, i64 -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.1217322 = phi ptr [ %90, %.lr.ph ], [ %.0216325, %.lr.ph.preheader ]
-  %.0219321 = phi ptr [ %88, %.lr.ph ], [ %85, %.lr.ph.preheader ]
-  %88 = getelementptr inbounds nuw i8, ptr %.0219321, i64 1
-  %89 = load i8, ptr %.0219321, align 1, !tbaa !10
-  %90 = getelementptr inbounds nuw i8, ptr %.1217322, i64 1
-  store i8 %89, ptr %.1217322, align 1, !tbaa !10
+  %.1217322 = phi ptr [ %91, %.lr.ph ], [ %.0216325, %.lr.ph.preheader ]
+  %.0219321 = phi ptr [ %89, %.lr.ph ], [ %86, %.lr.ph.preheader ]
+  %89 = getelementptr inbounds nuw i8, ptr %.0219321, i64 1
+  %90 = load i8, ptr %.0219321, align 1, !tbaa !10
+  %91 = getelementptr inbounds nuw i8, ptr %.1217322, i64 1
+  store i8 %90, ptr %.1217322, align 1, !tbaa !10
   %exitcond.not = icmp eq ptr %.1217322, %scevgep
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
@@ -190,11 +191,10 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph327
-  %91 = phi i32 [ %80, %.lr.ph327 ], [ %.pre, %._crit_edge.loopexit ]
-  %.1217.lcssa = phi ptr [ %.0216325, %.lr.ph327 ], [ %90, %._crit_edge.loopexit ]
-  %92 = sub nsw i32 %.0220324, %spec.select275
+  %92 = phi i32 [ %80, %.lr.ph327 ], [ %.pre, %._crit_edge.loopexit ]
+  %.1217.lcssa = phi ptr [ %.0216325, %.lr.ph327 ], [ %91, %._crit_edge.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %93 = sext i32 %91 to i64
+  %93 = sext i32 %92 to i64
   %94 = icmp slt i64 %indvars.iv.next, %93
   br i1 %94, label %.lr.ph327, label %.preheader319, !llvm.loop !13
 
@@ -262,53 +262,56 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %120, label %121, label %.thread296
 
 121:                                              ; preds = %116
+  %122 = add nsw i32 %117, -4160
+  %123 = sdiv i32 %122, %.0227283
   store i32 1, ptr %17, align 4, !tbaa !3
   store ptr %0, ptr %15, align 16, !tbaa !7
-  %122 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 1, ptr %122, align 4, !tbaa !3
-  %123 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %1, ptr %123, align 8, !tbaa !7
-  %124 = load i32, ptr @c__2, align 4, !tbaa !3
-  %125 = icmp sgt i32 %124, 0
-  br i1 %125, label %.lr.ph345, label %.lr.ph350.preheader
+  %124 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  store i32 1, ptr %124, align 4, !tbaa !3
+  %125 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr %1, ptr %125, align 8, !tbaa !7
+  %126 = load i32, ptr @c__2, align 4, !tbaa !3
+  %127 = icmp sgt i32 %126, 0
+  br i1 %127, label %.lr.ph345, label %.lr.ph350.preheader
 
 .preheader:                                       ; preds = %._crit_edge339
-  %126 = icmp sgt i32 %140, 0
-  br i1 %126, label %.lr.ph350.preheader, label %._crit_edge351
+  %128 = icmp sgt i32 %133, 0
+  br i1 %128, label %.lr.ph350.preheader, label %._crit_edge351
 
 .lr.ph350.preheader:                              ; preds = %121, %.preheader
   %.0.lcssa395 = phi ptr [ %.1.lcssa, %.preheader ], [ %18, %121 ]
-  %.0211.lcssa394 = phi i32 [ %140, %.preheader ], [ 2, %121 ]
-  %127 = zext nneg i32 %.0211.lcssa394 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.lcssa395, i8 32, i64 %127, i1 false), !tbaa !10
+  %.0211.lcssa394 = phi i32 [ %133, %.preheader ], [ 2, %121 ]
+  %129 = zext nneg i32 %.0211.lcssa394 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.lcssa395, i8 32, i64 %129, i1 false), !tbaa !10
   br label %._crit_edge351
 
 .lr.ph345:                                        ; preds = %121, %._crit_edge339
-  %128 = phi i32 [ %139, %._crit_edge339 ], [ %124, %121 ]
+  %130 = phi i32 [ %142, %._crit_edge339 ], [ %126, %121 ]
   %indvars.iv368 = phi i64 [ %indvars.iv.next369, %._crit_edge339 ], [ 0, %121 ]
   %.0343 = phi ptr [ %.1.lcssa, %._crit_edge339 ], [ %18, %121 ]
-  %.0211342 = phi i32 [ %140, %._crit_edge339 ], [ 2, %121 ]
-  %129 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv368
-  %130 = load i32, ptr %129, align 4, !tbaa !3
-  %spec.select276 = call i32 @llvm.smin.i32(i32 %130, i32 %.0211342)
-  %131 = icmp sgt i32 %spec.select276, 0
-  br i1 %131, label %.lr.ph338.preheader, label %._crit_edge339
+  %.0211342 = phi i32 [ %133, %._crit_edge339 ], [ 2, %121 ]
+  %131 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv368
+  %132 = load i32, ptr %131, align 4, !tbaa !3
+  %spec.select276 = call i32 @llvm.smin.i32(i32 %132, i32 %.0211342)
+  %133 = sub nsw i32 %.0211342, %spec.select276
+  %134 = icmp sgt i32 %spec.select276, 0
+  br i1 %134, label %.lr.ph338.preheader, label %._crit_edge339
 
 .lr.ph338.preheader:                              ; preds = %.lr.ph345
-  %132 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv368
-  %133 = load ptr, ptr %132, align 8, !tbaa !7
-  %134 = zext nneg i32 %spec.select276 to i64
-  %135 = getelementptr i8, ptr %.0343, i64 %134
-  %scevgep366 = getelementptr i8, ptr %135, i64 -1
+  %135 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv368
+  %136 = load ptr, ptr %135, align 8, !tbaa !7
+  %137 = zext nneg i32 %spec.select276 to i64
+  %138 = getelementptr i8, ptr %.0343, i64 %137
+  %scevgep366 = getelementptr i8, ptr %138, i64 -1
   br label %.lr.ph338
 
 .lr.ph338:                                        ; preds = %.lr.ph338.preheader, %.lr.ph338
-  %.1336 = phi ptr [ %138, %.lr.ph338 ], [ %.0343, %.lr.ph338.preheader ]
-  %.0210335 = phi ptr [ %136, %.lr.ph338 ], [ %133, %.lr.ph338.preheader ]
-  %136 = getelementptr inbounds nuw i8, ptr %.0210335, i64 1
-  %137 = load i8, ptr %.0210335, align 1, !tbaa !10
-  %138 = getelementptr inbounds nuw i8, ptr %.1336, i64 1
-  store i8 %137, ptr %.1336, align 1, !tbaa !10
+  %.1336 = phi ptr [ %141, %.lr.ph338 ], [ %.0343, %.lr.ph338.preheader ]
+  %.0210335 = phi ptr [ %139, %.lr.ph338 ], [ %136, %.lr.ph338.preheader ]
+  %139 = getelementptr inbounds nuw i8, ptr %.0210335, i64 1
+  %140 = load i8, ptr %.0210335, align 1, !tbaa !10
+  %141 = getelementptr inbounds nuw i8, ptr %.1336, i64 1
+  store i8 %140, ptr %.1336, align 1, !tbaa !10
   %exitcond367.not = icmp eq ptr %.1336, %scevgep366
   br i1 %exitcond367.not, label %._crit_edge339.loopexit, label %.lr.ph338, !llvm.loop !16
 
@@ -317,20 +320,17 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %._crit_edge339
 
 ._crit_edge339:                                   ; preds = %._crit_edge339.loopexit, %.lr.ph345
-  %139 = phi i32 [ %128, %.lr.ph345 ], [ %.pre375, %._crit_edge339.loopexit ]
-  %.1.lcssa = phi ptr [ %.0343, %.lr.ph345 ], [ %138, %._crit_edge339.loopexit ]
-  %140 = sub nsw i32 %.0211342, %spec.select276
+  %142 = phi i32 [ %130, %.lr.ph345 ], [ %.pre375, %._crit_edge339.loopexit ]
+  %.1.lcssa = phi ptr [ %.0343, %.lr.ph345 ], [ %141, %._crit_edge339.loopexit ]
   %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
-  %141 = sext i32 %139 to i64
-  %142 = icmp slt i64 %indvars.iv.next369, %141
-  br i1 %142, label %.lr.ph345, label %.preheader, !llvm.loop !17
+  %143 = sext i32 %142 to i64
+  %144 = icmp slt i64 %indvars.iv.next369, %143
+  br i1 %144, label %.lr.ph345, label %.preheader, !llvm.loop !17
 
 ._crit_edge351:                                   ; preds = %.lr.ph350.preheader, %.preheader
-  %143 = add nsw i32 %117, -4160
-  %144 = sdiv i32 %143, %.0227283
   %145 = call i32 @ilaenv_(ptr noundef nonnull @c__2, ptr noundef nonnull @.str.4, ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @c_n1, i32 noundef 6, i32 noundef 2) #5
   %146 = call i32 @llvm.smax.i32(i32 %145, i32 2)
-  %147 = icmp slt i32 %144, %146
+  %147 = icmp slt i32 %123, %146
   br i1 %147, label %.thread300, label %._crit_edge351..thread296_crit_edge
 
 ._crit_edge351..thread296_crit_edge:              ; preds = %._crit_edge351
@@ -339,7 +339,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .thread296:                                       ; preds = %._crit_edge351..thread296_crit_edge, %113, %116
   %148 = phi i32 [ %.pre376, %._crit_edge351..thread296_crit_edge ], [ %114, %116 ], [ %114, %113 ]
-  %.2231299 = phi i32 [ %144, %._crit_edge351..thread296_crit_edge ], [ %.1230314, %116 ], [ %.1230314, %113 ]
+  %.2231299 = phi i32 [ %123, %._crit_edge351..thread296_crit_edge ], [ %.1230314, %116 ], [ %.1230314, %113 ]
   %.fr267 = freeze i32 %148
   %.not266 = icmp slt i32 %.2231299, %.fr267
   br i1 %.not266, label %149, label %.thread300

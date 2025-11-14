@@ -1352,8 +1352,8 @@ define internal fastcc void @process_data(ptr noundef captures(none) %0, ptr nou
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %81, %7
-  %.0149.lcssa = phi i32 [ 0, %7 ], [ %.1150, %81 ]
+._crit_edge:                                      ; preds = %82, %7
+  %.0149.lcssa = phi i32 [ 0, %7 ], [ %.1150, %82 ]
   %43 = load ptr, ptr @stderr, align 8, !tbaa !25
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.16, i32 noundef %.0149.lcssa, i32 noundef %5) #26
   %45 = sext i32 %.0149.lcssa to i64
@@ -1366,60 +1366,61 @@ define internal fastcc void @process_data(ptr noundef captures(none) %0, ptr nou
   store double 1.000000e+02, ptr %48, align 8, !tbaa !30
   %49 = getelementptr inbounds double, ptr %38, i64 %47
   store double 1.000000e+02, ptr %49, align 8, !tbaa !30
-  %50 = icmp sgt i32 %.0149.lcssa, 0
-  br i1 %50, label %.lr.ph196.preheader, label %._crit_edge199
+  %50 = add nsw i32 %.0149.lcssa, 2
+  %51 = icmp sgt i32 %.0149.lcssa, 0
+  br i1 %51, label %.lr.ph196.preheader, label %._crit_edge199
 
 .lr.ph196.preheader:                              ; preds = %._crit_edge
   %wide.trip.count219 = zext nneg i32 %.0149.lcssa to i64
   br label %.lr.ph196
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %81
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %81 ]
-  %.0149193 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1150, %81 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %82
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %82 ]
+  %.0149193 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1150, %82 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 24
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = load double, ptr %52, align 8, !tbaa !30
-  %54 = fmul reassoc nsz arcp contract afn double %53, %53
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %56 = load double, ptr %55, align 8, !tbaa !30
-  %57 = fmul reassoc nsz arcp contract afn double %56, %56
-  %58 = fadd reassoc nsz arcp contract afn double %57, %54
-  %59 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %60 = load double, ptr %59, align 8, !tbaa !30
-  %61 = fmul reassoc nsz arcp contract afn double %60, %60
-  %62 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
-  %63 = load double, ptr %62, align 8, !tbaa !30
-  %64 = fmul reassoc nsz arcp contract afn double %63, %63
-  %65 = fadd reassoc nsz arcp contract afn double %64, %61
-  %66 = fcmp reassoc nsz arcp contract afn olt double %58, 1.500000e+01
-  %67 = fcmp reassoc nsz arcp contract afn olt double %65, 1.500000e+01
-  %or.cond = select i1 %66, i1 %67, i1 false
-  br i1 %or.cond, label %68, label %81
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %54 = load double, ptr %53, align 8, !tbaa !30
+  %55 = fmul reassoc nsz arcp contract afn double %54, %54
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %57 = load double, ptr %56, align 8, !tbaa !30
+  %58 = fmul reassoc nsz arcp contract afn double %57, %57
+  %59 = fadd reassoc nsz arcp contract afn double %58, %55
+  %60 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %61 = load double, ptr %60, align 8, !tbaa !30
+  %62 = fmul reassoc nsz arcp contract afn double %61, %61
+  %63 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %64 = load double, ptr %63, align 8, !tbaa !30
+  %65 = fmul reassoc nsz arcp contract afn double %64, %64
+  %66 = fadd reassoc nsz arcp contract afn double %65, %62
+  %67 = fcmp reassoc nsz arcp contract afn olt double %59, 1.500000e+01
+  %68 = fcmp reassoc nsz arcp contract afn olt double %66, 1.500000e+01
+  %or.cond = select i1 %67, i1 %68, i1 false
+  br i1 %or.cond, label %69, label %82
 
-68:                                               ; preds = %.lr.ph
-  %69 = add nsw i32 %.0149193, 1
-  %70 = load double, ptr %51, align 8, !tbaa !30
-  %71 = mul nsw i32 %69, 6
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds double, ptr %41, i64 %72
-  store double %70, ptr %73, align 8, !tbaa !30
-  %74 = getelementptr i8, ptr %73, i64 8
-  store double %53, ptr %74, align 8, !tbaa !30
-  %75 = getelementptr i8, ptr %73, i64 16
-  store double %56, ptr %75, align 8, !tbaa !30
-  %76 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %77 = load double, ptr %76, align 8, !tbaa !30
-  %78 = getelementptr i8, ptr %73, i64 24
-  store double %77, ptr %78, align 8, !tbaa !30
-  %79 = getelementptr i8, ptr %73, i64 32
-  store double %60, ptr %79, align 8, !tbaa !30
-  %80 = getelementptr i8, ptr %73, i64 40
-  store double %63, ptr %80, align 8, !tbaa !30
-  br label %81
+69:                                               ; preds = %.lr.ph
+  %70 = add nsw i32 %.0149193, 1
+  %71 = load double, ptr %52, align 8, !tbaa !30
+  %72 = mul nsw i32 %70, 6
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds double, ptr %41, i64 %73
+  store double %71, ptr %74, align 8, !tbaa !30
+  %75 = getelementptr i8, ptr %74, i64 8
+  store double %54, ptr %75, align 8, !tbaa !30
+  %76 = getelementptr i8, ptr %74, i64 16
+  store double %57, ptr %76, align 8, !tbaa !30
+  %77 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %78 = load double, ptr %77, align 8, !tbaa !30
+  %79 = getelementptr i8, ptr %74, i64 24
+  store double %78, ptr %79, align 8, !tbaa !30
+  %80 = getelementptr i8, ptr %74, i64 32
+  store double %61, ptr %80, align 8, !tbaa !30
+  %81 = getelementptr i8, ptr %74, i64 40
+  store double %64, ptr %81, align 8, !tbaa !30
+  br label %82
 
-81:                                               ; preds = %68, %.lr.ph
-  %.1150 = phi i32 [ %69, %68 ], [ %.0149193, %.lr.ph ]
+82:                                               ; preds = %69, %.lr.ph
+  %.1150 = phi i32 [ %70, %69 ], [ %.0149193, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -1431,19 +1432,18 @@ define internal fastcc void @process_data(ptr noundef captures(none) %0, ptr nou
 .lr.ph196:                                        ; preds = %.lr.ph196.preheader, %.lr.ph196
   %indvars.iv216 = phi i64 [ 0, %.lr.ph196.preheader ], [ %indvars.iv.next217, %.lr.ph196 ]
   %.idx248 = mul nuw nsw i64 %indvars.iv216, 48
-  %82 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx248
-  %83 = load double, ptr %82, align 8, !tbaa !30
+  %83 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx248
+  %84 = load double, ptr %83, align 8, !tbaa !30
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
-  %84 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv.next217
-  store double %83, ptr %84, align 8, !tbaa !30
+  %85 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv.next217
+  store double %84, ptr %85, align 8, !tbaa !30
   %exitcond220.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count219
   br i1 %exitcond220.not, label %.lr.ph198.preheader, label %.lr.ph196
 
 ._crit_edge199:                                   ; preds = %.lr.ph198, %._crit_edge
-  %85 = add nsw i32 %.0149.lcssa, 2
-  call void @tonecurve_create(ptr noundef nonnull %26, ptr noundef nonnull %38, ptr noundef nonnull %39, i32 noundef %85) #24
+  call void @tonecurve_create(ptr noundef nonnull %26, ptr noundef nonnull %38, ptr noundef nonnull %39, i32 noundef %50) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %86 = sext i32 %85 to i64
+  %86 = sext i32 %50 to i64
   %87 = shl nsw i64 %86, 3
   %88 = call noalias ptr @malloc(i64 noundef %87) #30
   %89 = call noalias ptr @malloc(i64 noundef %87) #30
@@ -1485,7 +1485,7 @@ define internal fastcc void @process_data(ptr noundef captures(none) %0, ptr nou
   br i1 %exitcond225.not, label %._crit_edge199, label %.lr.ph198
 
 ._crit_edge204:                                   ; preds = %dt_Lab_to_prophotorgb.exit169, %._crit_edge199
-  call void @tonecurve_create(ptr noundef nonnull %27, ptr noundef nonnull %88, ptr noundef nonnull %89, i32 noundef %85) #24
+  call void @tonecurve_create(ptr noundef nonnull %27, ptr noundef nonnull %88, ptr noundef nonnull %89, i32 noundef %50) #24
   call void @free(ptr noundef %41) #24
   br i1 %42, label %.lr.ph207, label %._crit_edge208
 

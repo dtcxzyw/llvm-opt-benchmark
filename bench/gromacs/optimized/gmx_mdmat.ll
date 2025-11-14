@@ -779,29 +779,29 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit237:       ; preds = %_ZNSt10filesystem7_
           to label %.noexc244 unwind label %.loopexit.split-lp.loopexit
 
 .noexc244:                                        ; preds = %292
+  %298 = fmul float %296, %296
   br i1 %274, label %.preheader71.us.i, label %.preheader70.i
 
 .preheader71.us.i:                                ; preds = %.noexc244, %._crit_edge.us.i
   %indvars.iv82.i = phi i64 [ %indvars.iv.next83.i, %._crit_edge.us.i ], [ 0, %.noexc244 ]
-  %298 = getelementptr inbounds nuw ptr, ptr %212, i64 %indvars.iv82.i
-  %299 = load ptr, ptr %298, align 8, !tbaa !65
-  br label %300
+  %299 = getelementptr inbounds nuw ptr, ptr %212, i64 %indvars.iv82.i
+  %300 = load ptr, ptr %299, align 8, !tbaa !65
+  br label %301
 
-300:                                              ; preds = %300, %.preheader71.us.i
-  %indvars.iv.i242 = phi i64 [ 0, %.preheader71.us.i ], [ %indvars.iv.next.i243, %300 ]
-  %301 = getelementptr inbounds nuw float, ptr %299, i64 %indvars.iv.i242
-  store float 1.000000e+04, ptr %301, align 4, !tbaa !23
+301:                                              ; preds = %301, %.preheader71.us.i
+  %indvars.iv.i242 = phi i64 [ 0, %.preheader71.us.i ], [ %indvars.iv.next.i243, %301 ]
+  %302 = getelementptr inbounds nuw float, ptr %300, i64 %indvars.iv.i242
+  store float 1.000000e+04, ptr %302, align 4, !tbaa !23
   %indvars.iv.next.i243 = add nuw nsw i64 %indvars.iv.i242, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i243, %wide.trip.count85.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %300, !llvm.loop !73
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %301, !llvm.loop !73
 
-._crit_edge.us.i:                                 ; preds = %300
+._crit_edge.us.i:                                 ; preds = %301
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next83.i, %wide.trip.count85.i
   br i1 %exitcond86.not.i, label %.preheader70.i, label %.preheader71.us.i, !llvm.loop !74
 
 .preheader70.i:                                   ; preds = %._crit_edge.us.i, %.noexc244
-  %302 = fmul float %296, %296
   br i1 %275, label %.lr.ph76.i, label %.preheader.i238
 
 .loopexit69.i:                                    ; preds = %338, %.lr.ph76.i
@@ -854,7 +854,7 @@ _ZL8calc_matiiPKiPA3_fS0_fPPfPPi7PbcTypeS2_.exit.thread: ; preds = %.preheader.i
   %323 = call float @llvm.fmuladd.f32(float %320, float %320, float %322)
   %324 = load float, ptr %277, align 4, !tbaa !23
   %325 = call noundef float @llvm.fmuladd.f32(float %324, float %324, float %323)
-  %326 = fcmp olt float %325, %302
+  %326 = fcmp olt float %325, %298
   br i1 %326, label %327, label %._crit_edge111.i
 
 ._crit_edge111.i:                                 ; preds = %.noexc245

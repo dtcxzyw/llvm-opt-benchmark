@@ -1228,23 +1228,23 @@ define hidden void @_ZN11quinn_proto20transport_parameters19TransportParameters5
   %8 = alloca [8 x i8], align 8
   %9 = alloca [32 x i8], align 8
   %10 = alloca [21 x i8], align 1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 306
+  %12 = load i8, ptr %11, align 2, !range !99, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br label %11
+  br label %13
 
-11:                                               ; preds = %11, %2
-  %.sroa.6.04.i.i = phi i64 [ 0, %2 ], [ %14, %11 ]
-  %12 = trunc nuw nsw i64 %.sroa.6.04.i.i to i8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.6.04.i.i
-  store i8 %12, ptr %13, align 1, !noalias !117
-  %14 = add nuw nsw i64 %.sroa.6.04.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %14, 21
-  br i1 %exitcond.not.i.i, label %_ZN4core5array11try_from_fn17h72244280611cd1b7E.exit, label %11
+13:                                               ; preds = %13, %2
+  %.sroa.6.04.i.i = phi i64 [ 0, %2 ], [ %16, %13 ]
+  %14 = trunc nuw nsw i64 %.sroa.6.04.i.i to i8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.6.04.i.i
+  store i8 %14, ptr %15, align 1, !noalias !117
+  %16 = add nuw nsw i64 %.sroa.6.04.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %16, 21
+  br i1 %exitcond.not.i.i, label %_ZN4core5array11try_from_fn17h72244280611cd1b7E.exit, label %13
 
-_ZN4core5array11try_from_fn17h72244280611cd1b7E.exit: ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 306
-  %16 = load i8, ptr %15, align 2, !range !99, !noundef !3
-  %17 = trunc nuw i8 %16 to i1
+_ZN4core5array11try_from_fn17h72244280611cd1b7E.exit: ; preds = %13
+  %17 = trunc nuw i8 %12 to i1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 307
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %10, ptr noundef nonnull readonly align 1 dereferenceable(21) %5, i64 21, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

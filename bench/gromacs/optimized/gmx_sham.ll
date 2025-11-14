@@ -3119,7 +3119,7 @@ _ZL6indexniPKiS0_.exit227.i:                      ; preds = %._crit_edge.i218.i
 
 _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit228.thread.i: ; preds = %_ZL6indexniPKiS0_.exit227.i
   store i32 1, ptr %714, align 4, !tbaa !4
-  br label %.lr.ph23.i232.i.preheader
+  br label %.lr.ph23.i232.preheader.i
 
 727:                                              ; preds = %_ZL6indexniPKiS0_.exit227.i
   %728 = icmp sgt i32 %715, 0
@@ -3138,44 +3138,44 @@ _ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit228.i: ; preds = %727
   %733 = fcmp olt float %713, %732
   %734 = add nuw nsw i32 %715, 1
   store i32 %734, ptr %714, align 4, !tbaa !4
-  br i1 %733, label %.lr.ph23.i232.i.preheader, label %._crit_edge313.thread.i
+  br i1 %733, label %.lr.ph23.i232.preheader.i, label %._crit_edge313.thread.i
 
-.lr.ph23.i232.i.preheader:                        ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit228.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit228.thread.i
+.lr.ph23.i232.preheader.i:                        ; preds = %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit228.i, %_ZL27is_local_minimum_from_belowPK9t_minimumiiiPKf.exit228.thread.i
+  %735 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv339.i
+  %736 = load i32, ptr %735, align 4, !tbaa !4
   br label %.lr.ph23.i232.i
 
-.lr.ph23.i232.i:                                  ; preds = %.lr.ph23.i232.i.preheader, %._crit_edge.i237.i
-  %indvars.iv30.i233.i = phi i64 [ %indvars.iv.next31.i236.i, %._crit_edge.i237.i ], [ 0, %.lr.ph23.i232.i.preheader ]
-  %indvars.iv.i234.i = phi i64 [ %indvars.iv.next.i239.i, %._crit_edge.i237.i ], [ 1, %.lr.ph23.i232.i.preheader ]
-  %.01620.i235.i = phi i64 [ %743, %._crit_edge.i237.i ], [ 0, %.lr.ph23.i232.i.preheader ]
-  %735 = getelementptr inbounds nuw i32, ptr %689, i64 %indvars.iv30.i233.i
-  %736 = load i32, ptr %735, align 4, !tbaa !4
-  %737 = zext i32 %736 to i64
+.lr.ph23.i232.i:                                  ; preds = %._crit_edge.i237.i, %.lr.ph23.i232.preheader.i
+  %indvars.iv30.i233.i = phi i64 [ %indvars.iv.next31.i236.i, %._crit_edge.i237.i ], [ 0, %.lr.ph23.i232.preheader.i ]
+  %indvars.iv.i234.i = phi i64 [ %indvars.iv.next.i239.i, %._crit_edge.i237.i ], [ 1, %.lr.ph23.i232.preheader.i ]
+  %.01620.i235.i = phi i64 [ %745, %._crit_edge.i237.i ], [ 0, %.lr.ph23.i232.preheader.i ]
+  %737 = getelementptr inbounds nuw i32, ptr %689, i64 %indvars.iv30.i233.i
+  %738 = load i32, ptr %737, align 4, !tbaa !4
+  %739 = zext i32 %738 to i64
   %indvars.iv.next31.i236.i = add nuw nsw i64 %indvars.iv30.i233.i, 1
-  %738 = icmp samesign ult i64 %indvars.iv.next31.i236.i, %693
-  br i1 %738, label %.lr.ph.i241.i, label %._crit_edge.i237.i
+  %740 = icmp samesign ult i64 %indvars.iv.next31.i236.i, %693
+  br i1 %740, label %.lr.ph.i241.i, label %._crit_edge.i237.i
 
 .lr.ph.i241.i:                                    ; preds = %.lr.ph23.i232.i, %.lr.ph.i241.i
   %indvars.iv27.i242.i = phi i64 [ %indvars.iv.next28.i244.i, %.lr.ph.i241.i ], [ %indvars.iv.i234.i, %.lr.ph23.i232.i ]
-  %.01518.i243.i = phi i64 [ %742, %.lr.ph.i241.i ], [ %737, %.lr.ph23.i232.i ]
-  %739 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv27.i242.i
-  %740 = load i32, ptr %739, align 4, !tbaa !4
-  %741 = zext i32 %740 to i64
-  %742 = mul i64 %.01518.i243.i, %741
+  %.01518.i243.i = phi i64 [ %744, %.lr.ph.i241.i ], [ %739, %.lr.ph23.i232.i ]
+  %741 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv27.i242.i
+  %742 = load i32, ptr %741, align 4, !tbaa !4
+  %743 = zext i32 %742 to i64
+  %744 = mul i64 %.01518.i243.i, %743
   %indvars.iv.next28.i244.i = add nuw nsw i64 %indvars.iv27.i242.i, 1
   %exitcond.not.i245.i = icmp eq i64 %indvars.iv.next28.i244.i, %693
   br i1 %exitcond.not.i245.i, label %._crit_edge.i237.i, label %.lr.ph.i241.i, !llvm.loop !64
 
 ._crit_edge.i237.i:                               ; preds = %.lr.ph.i241.i, %.lr.ph23.i232.i
-  %.015.lcssa.i238.i = phi i64 [ %737, %.lr.ph23.i232.i ], [ %742, %.lr.ph.i241.i ]
-  %743 = add i64 %.015.lcssa.i238.i, %.01620.i235.i
+  %.015.lcssa.i238.i = phi i64 [ %739, %.lr.ph23.i232.i ], [ %744, %.lr.ph.i241.i ]
+  %745 = add i64 %.015.lcssa.i238.i, %.01620.i235.i
   %indvars.iv.next.i239.i = add nuw nsw i64 %indvars.iv.i234.i, 1
   %exitcond34.not.i240.i = icmp eq i64 %indvars.iv.next31.i236.i, %693
   br i1 %exitcond34.not.i240.i, label %_ZL6indexniPKiS0_.exit246.i, label %.lr.ph23.i232.i, !llvm.loop !65
 
 _ZL6indexniPKiS0_.exit246.i:                      ; preds = %._crit_edge.i237.i
-  %744 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv339.i
-  %745 = load i32, ptr %744, align 4, !tbaa !4
-  %746 = add nsw i32 %745, -1
+  %746 = add nsw i32 %736, -1
   %747 = icmp eq i32 %715, %746
   br i1 %747, label %_ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit247.i.thread, label %748
 
@@ -3188,7 +3188,7 @@ _ZL6indexniPKiS0_.exit246.i:                      ; preds = %._crit_edge.i237.i
   br label %764
 
 _ZL27is_local_minimum_from_abovePK9t_minimumiiiPKf.exit247.i: ; preds = %748
-  %sext271.i = shl i64 %743, 32
+  %sext271.i = shl i64 %745, 32
   %750 = ashr exact i64 %sext271.i, 30
   %751 = getelementptr inbounds i8, ptr %199, i64 %750
   %752 = load float, ptr %751, align 4, !tbaa !26

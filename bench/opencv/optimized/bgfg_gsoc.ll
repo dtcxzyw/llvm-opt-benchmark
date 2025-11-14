@@ -4235,8 +4235,8 @@ define hidden void @_ZN2cv6bgsegm28BackgroundSubtractorLSBPImplC2Eiiiffffffffii(
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %41) #29
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i64 4294967295, ptr %42, align 8, !tbaa !71
-  %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 392
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %scevgep, i8 0, i64 256, i1 false), !tbaa !9
+  %.ptr33 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %.ptr33, i8 0, i64 256, i1 false), !tbaa !9
   %43 = load i32, ptr %27, align 4, !tbaa !218
   %44 = add i32 %43, -2
   %or.cond = icmp ult i32 %44, 1022
@@ -4468,7 +4468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %106
   %123 = tail call double @sin(double noundef %115) #29, !tbaa !9
   %124 = fmul double %123, %122
   %125 = fptosi double %124 to i32
-  %126 = getelementptr inbounds nuw %"class.cv::Point_.13", ptr %scevgep, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw %"class.cv::Point_.13", ptr %.ptr33, i64 %indvars.iv
   %.sroa.4.0.insert.ext = zext i32 %125 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %120 to i64

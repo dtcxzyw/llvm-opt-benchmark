@@ -2727,13 +2727,13 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit17: ; preds = %_ZN6duck
   %35 = add i64 %34, %33
   %36 = sub i64 %32, %35
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 %36
-  %38 = and i64 %34, -32
-  %.not26.i = icmp eq i64 %38, 0
+  %38 = and i64 %34, 31
+  %39 = and i64 %34, -32
+  %.not26.i = icmp eq i64 %39, 0
   br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZN6duckdb20BitpackingPrimitives9PackGroupIhEEvPhPT_h.exit.i, %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit17
-  %39 = and i64 %34, 31
-  %.not.i = icmp eq i64 %39, 0
+  %.not.i = icmp eq i64 %38, 0
   br i1 %.not.i, label %_ZN6duckdb20BitpackingPrimitives10PackBufferIhLb0EEEvPhPT_mh.exit, label %51
 
 .lr.ph.i:                                         ; preds = %_ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit17, %_ZN6duckdb20BitpackingPrimitives9PackGroupIhEEvPhPT_h.exit.i
@@ -2757,16 +2757,16 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit17: ; preds = %_ZN6duck
 
 _ZN6duckdb20BitpackingPrimitives9PackGroupIhEEvPhPT_h.exit.i: ; preds = %44
   %49 = add nuw i64 %.025.i, 32
-  %50 = icmp ult i64 %49, %38
+  %50 = icmp ult i64 %49, %39
   br i1 %50, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !297
 
 51:                                               ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %52 = getelementptr inbounds nuw i8, ptr %37, i64 %38
-  %53 = sub nuw nsw i64 32, %39
-  %54 = getelementptr i8, ptr %4, i64 %39
+  %52 = getelementptr inbounds nuw i8, ptr %37, i64 %39
+  %53 = sub nuw nsw i64 32, %38
+  %54 = getelementptr i8, ptr %4, i64 %38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %54, i8 0, i64 %53, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %52, i64 %39, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %52, i64 %38, i1 false)
   %55 = lshr i64 %34, 2
   %56 = and i64 %55, 2305843009213693944
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 %56
@@ -2803,13 +2803,13 @@ _ZN6duckdb20BitpackingPrimitives10PackBufferIhLb0EEEvPhPT_mh.exit: ; preds = %._
   %73 = add i64 %72, %71
   %74 = sub i64 %70, %73
   %75 = getelementptr inbounds nuw i8, ptr %65, i64 %74
-  %76 = and i64 %72, -32
-  %.not26.i18 = icmp eq i64 %76, 0
+  %76 = and i64 %72, 31
+  %77 = and i64 %72, -32
+  %.not26.i18 = icmp eq i64 %77, 0
   br i1 %.not26.i18, label %._crit_edge.i25, label %.lr.ph.i19
 
 ._crit_edge.i25:                                  ; preds = %_ZN6duckdb20BitpackingPrimitives9PackGroupIhEEvPhPT_h.exit.i24, %69
-  %77 = and i64 %72, 31
-  %.not.i26 = icmp eq i64 %77, 0
+  %.not.i26 = icmp eq i64 %76, 0
   br i1 %.not.i26, label %_ZN6duckdb20BitpackingPrimitives10PackBufferIhLb0EEEvPhPT_mh.exit31, label %89
 
 .lr.ph.i19:                                       ; preds = %69, %_ZN6duckdb20BitpackingPrimitives9PackGroupIhEEvPhPT_h.exit.i24
@@ -2833,17 +2833,17 @@ _ZN6duckdb20BitpackingPrimitives10PackBufferIhLb0EEEvPhPT_mh.exit: ; preds = %._
 
 _ZN6duckdb20BitpackingPrimitives9PackGroupIhEEvPhPT_h.exit.i24: ; preds = %82
   %87 = add nuw i64 %.025.i20, 32
-  %88 = icmp ult i64 %87, %76
+  %88 = icmp ult i64 %87, %77
   br i1 %88, label %.lr.ph.i19, label %._crit_edge.i25, !llvm.loop !297
 
 89:                                               ; preds = %._crit_edge.i25
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %90 = getelementptr inbounds nuw i8, ptr %75, i64 %76
-  %91 = sub nuw nsw i64 32, %77
-  %92 = getelementptr i8, ptr %3, i64 %77
+  %90 = getelementptr inbounds nuw i8, ptr %75, i64 %77
+  %91 = sub nuw nsw i64 32, %76
+  %92 = getelementptr i8, ptr %3, i64 %76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %92, i8 0, i64 %91, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %90, i64 %77, i1 false)
-  %93 = mul i64 %76, 7
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %90, i64 %76, i1 false)
+  %93 = mul i64 %77, 7
   %94 = lshr exact i64 %93, 3
   %95 = getelementptr inbounds nuw i8, ptr %63, i64 %94
   br label %96
@@ -10457,28 +10457,28 @@ declare void @_ZN6duckdb6Vector15ToUnifiedFormatEmRNS_19UnifiedVectorFormatE(ptr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb7roaring20RoaringStateAppenderINS0_19RoaringAnalyzeStateEE11AppendBytesERS2_mm(ptr noundef nonnull align 8 dereferenceable(208) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = lshr i64 %2, 3
+  %5 = and i64 %2, 7
   %.not26 = icmp ult i64 %2, 8
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 64), align 16, !tbaa !21
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !312
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %.promoted = load i16, ptr %8, align 8, !tbaa !116
-  %.promoted21 = load i8, ptr %9, align 2
-  %.promoted22 = load i16, ptr %10, align 4, !tbaa !119
-  %.promoted23 = load i16, ptr %11, align 8, !tbaa !118
-  %.promoted24 = load i16, ptr %12, align 2, !tbaa !117
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 64), align 16, !tbaa !21
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load ptr, ptr %7, align 8, !tbaa !312
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 30
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %.promoted = load i16, ptr %9, align 8, !tbaa !116
+  %.promoted21 = load i8, ptr %10, align 2
+  %.promoted22 = load i16, ptr %11, align 4, !tbaa !119
+  %.promoted23 = load i16, ptr %12, align 8, !tbaa !118
+  %.promoted24 = load i16, ptr %13, align 2, !tbaa !117
   br label %_ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit
 
 ._crit_edge:                                      ; preds = %_ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit, %3
-  %13 = and i64 %2, 7
-  %.not = icmp eq i64 %13, 0
+  %.not = icmp eq i64 %5, 0
   br i1 %.not, label %48, label %40, !prof !301
 
 _ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit: ; preds = %.lr.ph, %_ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit
@@ -10490,11 +10490,11 @@ _ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit: ; preds = %.lr.p
   %.020 = phi i64 [ 0, %.lr.ph ], [ %39, %_ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit ]
   %19 = shl i64 %.020, 3
   %20 = sub i64 56, %19
-  %21 = lshr i64 %5, %20
+  %21 = lshr i64 %6, %20
   %22 = and i64 %21, %1
   %23 = lshr i64 %22, %19
   %24 = and i64 %23, 255
-  %25 = getelementptr inbounds nuw %"struct.duckdb::roaring::BitmaskTableEntry", ptr %7, i64 %24
+  %25 = getelementptr inbounds nuw %"struct.duckdb::roaring::BitmaskTableEntry", ptr %8, i64 %24
   %.sroa.0.0.copyload.i = load i8, ptr %25, align 1, !tbaa !294
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 1
   %.sroa.7.0.copyload.i = load i8, ptr %.sroa.7.0..sroa_idx.i, align 1, !tbaa !294
@@ -10507,19 +10507,19 @@ _ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit: ; preds = %.lr.p
   %30 = zext i8 %.sroa.7.0.copyload.i to i16
   %31 = add nuw nsw i16 %29, %30
   %32 = add i16 %31, %16
-  store i16 %32, ptr %10, align 4, !tbaa !119
+  store i16 %32, ptr %11, align 4, !tbaa !119
   %33 = lshr i8 %.sroa.0.0.copyload.i, 2
   %34 = zext nneg i8 %33 to i16
   %35 = add i16 %15, %34
-  store i16 %35, ptr %11, align 8, !tbaa !118
+  store i16 %35, ptr %12, align 8, !tbaa !118
   %reass.sub = sub i16 %14, %34
   %36 = add i16 %reass.sub, 8
-  store i16 %36, ptr %12, align 2, !tbaa !117
+  store i16 %36, ptr %13, align 2, !tbaa !117
   %37 = lshr i8 %.sroa.0.0.copyload.i, 1
   %.lobit.i = and i8 %37, 1
-  store i8 %.lobit.i, ptr %9, align 2, !tbaa !317
+  store i8 %.lobit.i, ptr %10, align 2, !tbaa !317
   %38 = add i16 %18, 8
-  store i16 %38, ptr %8, align 8, !tbaa !116
+  store i16 %38, ptr %9, align 8, !tbaa !116
   %39 = add nuw nsw i64 %.020, 1
   %exitcond.not = icmp eq i64 %39, %4
   br i1 %exitcond.not, label %._crit_edge, label %_ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit, !llvm.loop !321
@@ -10532,7 +10532,7 @@ _ZN6duckdb7roaring19RoaringAnalyzeState10HandleByteERS1_h.exit: ; preds = %.lr.p
   %45 = and i64 %44, %1
   %46 = lshr i64 %45, %42
   %47 = trunc i64 %46 to i8
-  tail call void @_ZN6duckdb7roaring19RoaringAnalyzeState16HandleRaggedByteERS1_hm(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 noundef zeroext %47, i64 noundef %13)
+  tail call void @_ZN6duckdb7roaring19RoaringAnalyzeState16HandleRaggedByteERS1_hm(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 noundef zeroext %47, i64 noundef %5)
   br label %48
 
 48:                                               ; preds = %40, %._crit_edge
@@ -10904,23 +10904,23 @@ _ZN6duckdb20ExceptionFormatValueD2Ev.exit9:       ; preds = %33, %_ZNKSt7__cxx11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb7roaring20RoaringStateAppenderINS0_20RoaringCompressStateEE11AppendBytesERS2_mm(ptr noundef nonnull align 8 dereferenceable(1144) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = lshr i64 %2, 3
+  %5 = and i64 %2, 7
   %.not21 = icmp ult i64 %2, 8
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 64), align 16, !tbaa !21
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 64), align 16, !tbaa !21
   br label %7
 
 ._crit_edge:                                      ; preds = %7, %3
-  %6 = and i64 %2, 7
-  %.not = icmp eq i64 %6, 0
+  %.not = icmp eq i64 %5, 0
   br i1 %.not, label %23, label %15, !prof !301
 
 7:                                                ; preds = %.lr.ph, %7
   %.020 = phi i64 [ 0, %.lr.ph ], [ %14, %7 ]
   %8 = shl i64 %.020, 3
   %9 = sub i64 56, %8
-  %10 = lshr i64 %5, %9
+  %10 = lshr i64 %6, %9
   %11 = and i64 %10, %1
   %12 = lshr i64 %11, %8
   %13 = trunc i64 %12 to i8
@@ -10937,7 +10937,7 @@ define linkonce_odr void @_ZN6duckdb7roaring20RoaringStateAppenderINS0_20Roaring
   %20 = and i64 %19, %1
   %21 = lshr i64 %20, %17
   %22 = trunc i64 %21 to i8
-  tail call void @_ZN6duckdb7roaring20RoaringCompressState16HandleRaggedByteERS1_hm(ptr noundef nonnull align 8 dereferenceable(1144) %0, i8 noundef zeroext %22, i64 noundef %6)
+  tail call void @_ZN6duckdb7roaring20RoaringCompressState16HandleRaggedByteERS1_hm(ptr noundef nonnull align 8 dereferenceable(1144) %0, i8 noundef zeroext %22, i64 noundef %5)
   br label %23
 
 23:                                               ; preds = %15, %._crit_edge

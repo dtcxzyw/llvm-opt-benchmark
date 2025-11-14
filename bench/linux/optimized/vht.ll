@@ -501,84 +501,84 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %121 = load i16, ptr %120, align 4
   %122 = zext i16 %121 to i32
-  br label %123
+  %123 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  br label %124
 
-123:                                              ; preds = %160, %115
-  %124 = phi i32 [ 0, %115 ], [ %175, %160 ]
-  %125 = phi i16 [ %104, %115 ], [ %169, %160 ]
-  %126 = phi i16 [ %106, %115 ], [ %174, %160 ]
-  %127 = shl nuw nsw i32 %124, 1
-  %128 = lshr i32 %119, %127
-  %129 = trunc nuw i32 %128 to i16
-  %130 = and i16 %129, 3
-  %131 = lshr i32 %122, %127
-  %132 = trunc nuw i32 %131 to i16
-  %133 = and i16 %132, 3
-  %134 = zext i16 %125 to i32
-  %135 = lshr i32 %134, %127
-  %136 = trunc nuw i32 %135 to i16
-  %137 = and i16 %136, 3
-  %138 = zext i16 %126 to i32
-  %139 = lshr i32 %138, %127
-  %140 = trunc nuw i32 %139 to i16
-  %141 = and i16 %140, 3
-  %142 = and i32 %139, 3
-  %143 = icmp eq i32 %142, 3
-  br i1 %143, label %150, label %144
+124:                                              ; preds = %161, %115
+  %125 = phi i32 [ 0, %115 ], [ %176, %161 ]
+  %126 = phi i16 [ %104, %115 ], [ %170, %161 ]
+  %127 = phi i16 [ %106, %115 ], [ %175, %161 ]
+  %128 = shl nuw nsw i32 %125, 1
+  %129 = lshr i32 %119, %128
+  %130 = trunc nuw i32 %129 to i16
+  %131 = and i16 %130, 3
+  %132 = lshr i32 %122, %128
+  %133 = trunc nuw i32 %132 to i16
+  %134 = and i16 %133, 3
+  %135 = zext i16 %126 to i32
+  %136 = lshr i32 %135, %128
+  %137 = trunc nuw i32 %136 to i16
+  %138 = and i16 %137, 3
+  %139 = zext i16 %127 to i32
+  %140 = lshr i32 %139, %128
+  %141 = trunc nuw i32 %140 to i16
+  %142 = and i16 %141, 3
+  %143 = and i32 %140, 3
+  %144 = icmp eq i32 %143, 3
+  br i1 %144, label %151, label %145
 
-144:                                              ; preds = %123
-  %145 = and i32 %128, 3
-  %146 = icmp eq i32 %145, 3
-  br i1 %146, label %150, label %147
+145:                                              ; preds = %124
+  %146 = and i32 %129, 3
+  %147 = icmp eq i32 %146, 3
+  br i1 %147, label %151, label %148
 
-147:                                              ; preds = %144
-  %148 = icmp samesign ult i32 %145, %142
-  %149 = select i1 %148, i16 %130, i16 %141
-  br label %150
+148:                                              ; preds = %145
+  %149 = icmp samesign ult i32 %146, %143
+  %150 = select i1 %149, i16 %131, i16 %142
+  br label %151
 
-150:                                              ; preds = %147, %144, %123
-  %151 = phi i16 [ %141, %123 ], [ 3, %144 ], [ %149, %147 ]
-  %152 = and i32 %135, 3
-  %153 = icmp eq i32 %152, 3
-  br i1 %153, label %160, label %154
+151:                                              ; preds = %148, %145, %124
+  %152 = phi i16 [ %142, %124 ], [ 3, %145 ], [ %150, %148 ]
+  %153 = and i32 %136, 3
+  %154 = icmp eq i32 %153, 3
+  br i1 %154, label %161, label %155
 
-154:                                              ; preds = %150
-  %155 = and i32 %131, 3
-  %156 = icmp eq i32 %155, 3
-  br i1 %156, label %160, label %157
+155:                                              ; preds = %151
+  %156 = and i32 %132, 3
+  %157 = icmp eq i32 %156, 3
+  br i1 %157, label %161, label %158
 
-157:                                              ; preds = %154
-  %158 = icmp samesign ult i32 %155, %152
-  %159 = select i1 %158, i16 %133, i16 %137
-  br label %160
+158:                                              ; preds = %155
+  %159 = icmp samesign ult i32 %156, %153
+  %160 = select i1 %159, i16 %134, i16 %138
+  br label %161
 
-160:                                              ; preds = %157, %154, %150
-  %161 = phi i16 [ %137, %150 ], [ 3, %154 ], [ %159, %157 ]
-  %162 = shl nuw nsw i32 3, %127
-  %163 = trunc i32 %162 to i16
-  %164 = xor i16 %163, -1
-  %165 = and i16 %125, %164
-  %166 = zext nneg i16 %161 to i32
-  %167 = shl nuw nsw i32 %166, %127
-  %168 = trunc i32 %167 to i16
-  %169 = or i16 %165, %168
-  %170 = and i16 %126, %164
-  %171 = zext nneg i16 %151 to i32
-  %172 = shl nuw nsw i32 %171, %127
-  %173 = trunc i32 %172 to i16
-  %174 = or i16 %170, %173
-  %175 = add nuw nsw i32 %124, 1
-  %176 = icmp eq i32 %175, 8
-  br i1 %176, label %177, label %123, !llvm.loop !11
+161:                                              ; preds = %158, %155, %151
+  %162 = phi i16 [ %138, %151 ], [ 3, %155 ], [ %160, %158 ]
+  %163 = shl nuw nsw i32 3, %128
+  %164 = trunc i32 %163 to i16
+  %165 = xor i16 %164, -1
+  %166 = and i16 %126, %165
+  %167 = zext nneg i16 %162 to i32
+  %168 = shl nuw nsw i32 %167, %128
+  %169 = trunc i32 %168 to i16
+  %170 = or i16 %166, %169
+  %171 = and i16 %127, %165
+  %172 = zext nneg i16 %152 to i32
+  %173 = shl nuw nsw i32 %172, %128
+  %174 = trunc i32 %173 to i16
+  %175 = or i16 %171, %174
+  %176 = add nuw nsw i32 %125, 1
+  %177 = icmp eq i32 %176, 8
+  br i1 %177, label %178, label %124, !llvm.loop !11
 
-177:                                              ; preds = %160
-  %178 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i16 %169, ptr %95, align 4
-  store i16 %174, ptr %178, align 4
-  %179 = icmp eq i16 %169, -1
+178:                                              ; preds = %161
+  store i16 %170, ptr %95, align 4
+  store i16 %175, ptr %123, align 4
+  %179 = icmp eq i16 %170, -1
   br i1 %179, label %180, label %186
 
-180:                                              ; preds = %177
+180:                                              ; preds = %178
   store i8 0, ptr %9, align 4
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %182 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -587,7 +587,7 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
   %185 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull %181, ptr noundef nonnull %184, ptr noundef %4) #12
   br label %.loopexit
 
-186:                                              ; preds = %177
+186:                                              ; preds = %178
   %187 = and i32 %116, 12
   switch i32 %187, label %190 [
     i32 4, label %188
@@ -1042,35 +1042,35 @@ define dso_local void @ieee80211_sta_set_rx_nss(ptr noundef readonly captures(no
   br i1 %28, label %71, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 106
-  %31 = load i16, ptr %30, align 1
-  %32 = zext i16 %31 to i32
-  br label %33
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 102
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 106
+  %32 = load i16, ptr %31, align 1
+  %33 = load i16, ptr %30, align 1
+  %34 = zext i16 %32 to i32
+  br label %35
 
-33:                                               ; preds = %33, %29
-  %34 = phi i32 [ 7, %29 ], [ %43, %33 ]
-  %35 = phi i8 [ 0, %29 ], [ %42, %33 ]
-  %36 = shl nuw i32 %34, 1
-  %37 = lshr i32 %32, %36
-  %38 = and i32 %37, 3
-  %39 = icmp ne i32 %38, 3
-  %40 = trunc i32 %34 to i8
-  %41 = add i8 %40, 1
-  %42 = select i1 %39, i8 %41, i8 %35
-  %43 = add nsw i32 %34, -1
-  %44 = icmp eq i32 %34, 0
-  %45 = or i1 %44, %39
-  br i1 %45, label %46, label %33, !llvm.loop !21
+35:                                               ; preds = %35, %29
+  %36 = phi i32 [ 7, %29 ], [ %45, %35 ]
+  %37 = phi i8 [ 0, %29 ], [ %44, %35 ]
+  %38 = shl nuw i32 %36, 1
+  %39 = lshr i32 %34, %38
+  %40 = and i32 %39, 3
+  %41 = icmp ne i32 %40, 3
+  %42 = trunc i32 %36 to i8
+  %43 = add i8 %42, 1
+  %44 = select i1 %41, i8 %43, i8 %37
+  %45 = add nsw i32 %36, -1
+  %46 = icmp eq i32 %36, 0
+  %47 = or i1 %46, %41
+  br i1 %47, label %48, label %35, !llvm.loop !21
 
-46:                                               ; preds = %33
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 102
-  %48 = load i16, ptr %47, align 1
-  %49 = zext i16 %48 to i32
+48:                                               ; preds = %35
+  %49 = zext i16 %33 to i32
   br label %50
 
-50:                                               ; preds = %50, %46
-  %51 = phi i32 [ 7, %46 ], [ %60, %50 ]
-  %52 = phi i8 [ 0, %46 ], [ %59, %50 ]
+50:                                               ; preds = %50, %48
+  %51 = phi i32 [ 7, %48 ], [ %60, %50 ]
+  %52 = phi i8 [ 0, %48 ], [ %59, %50 ]
   %53 = shl nuw i32 %51, 1
   %54 = lshr i32 %49, %53
   %55 = and i32 %54, 3
@@ -1088,7 +1088,7 @@ define dso_local void @ieee80211_sta_set_rx_nss(ptr noundef readonly captures(no
   %65 = load i8, ptr %64, align 1
   %66 = and i8 %65, 8
   %67 = icmp eq i8 %66, 0
-  %68 = tail call i8 @llvm.umin.i8(i8 %59, i8 %42)
+  %68 = tail call i8 @llvm.umin.i8(i8 %59, i8 %44)
   %69 = select i1 %67, i8 %59, i8 %68
   %70 = zext i8 %69 to i32
   br label %71

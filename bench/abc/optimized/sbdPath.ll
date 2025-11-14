@@ -704,58 +704,54 @@ Vec_BitStart.exit:                                ; preds = %1, %9
   br i1 %.not78, label %.critedge2, label %64
 
 64:                                               ; preds = %54
-  %65 = sext i32 %53 to i64
-  %66 = getelementptr inbounds i32, ptr %.val91.val, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !29
-  %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %.lr.ph104, label %.critedge2.loopexit
+  %65 = add nsw i32 %.064107, 1
+  %66 = sext i32 %53 to i64
+  %67 = getelementptr inbounds i32, ptr %.val91.val, i64 %66
+  %68 = load i32, ptr %67, align 4, !tbaa !29
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %.lr.ph104, label %.critedge2
 
 .lr.ph104:                                        ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  %70 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.next131
-  %71 = load i32, ptr %70, align 4, !tbaa !29
-  %wide.trip.count128 = zext nneg i32 %67 to i64
-  br label %72
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  %71 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.next131
+  %72 = load i32, ptr %71, align 4, !tbaa !29
+  %wide.trip.count128 = zext nneg i32 %68 to i64
+  br label %73
 
-72:                                               ; preds = %.lr.ph104, %89
-  %indvars.iv125 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next126, %89 ]
-  %.263103 = phi i32 [ %.061108, %.lr.ph104 ], [ %.3, %89 ]
-  %73 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv125
-  %74 = load i32, ptr %73, align 4, !tbaa !29
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i32, ptr %48, i64 %75
-  %77 = load i32, ptr %76, align 4, !tbaa !29
-  %78 = add nsw i32 %77, 1
-  %79 = icmp slt i32 %78, %71
-  br i1 %79, label %89, label %80
+73:                                               ; preds = %.lr.ph104, %90
+  %indvars.iv125 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next126, %90 ]
+  %.263103 = phi i32 [ %.061108, %.lr.ph104 ], [ %.3, %90 ]
+  %74 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv125
+  %75 = load i32, ptr %74, align 4, !tbaa !29
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds i32, ptr %48, i64 %76
+  %78 = load i32, ptr %77, align 4, !tbaa !29
+  %79 = add nsw i32 %78, 1
+  %80 = icmp slt i32 %79, %72
+  br i1 %80, label %90, label %81
 
-80:                                               ; preds = %72
-  %81 = and i32 %74, 31
-  %82 = shl nuw i32 1, %81
-  %83 = ashr i32 %74, 5
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i32, ptr %13, i64 %84
-  %86 = load i32, ptr %85, align 4, !tbaa !29
-  %87 = or i32 %86, %82
-  store i32 %87, ptr %85, align 4, !tbaa !29
-  %88 = add nsw i32 %.263103, 1
-  br label %89
+81:                                               ; preds = %73
+  %82 = and i32 %75, 31
+  %83 = shl nuw i32 1, %82
+  %84 = ashr i32 %75, 5
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds i32, ptr %13, i64 %85
+  %87 = load i32, ptr %86, align 4, !tbaa !29
+  %88 = or i32 %87, %83
+  store i32 %88, ptr %86, align 4, !tbaa !29
+  %89 = add nsw i32 %.263103, 1
+  br label %90
 
-89:                                               ; preds = %72, %80
-  %.3 = phi i32 [ %.263103, %72 ], [ %88, %80 ]
+90:                                               ; preds = %73, %81
+  %.3 = phi i32 [ %.263103, %73 ], [ %89, %81 ]
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %.critedge2.loopexit, label %72, !llvm.loop !51
+  br i1 %exitcond129.not, label %.critedge2, label %73, !llvm.loop !51
 
-.critedge2.loopexit:                              ; preds = %89, %64
-  %.263.lcssa = phi i32 [ %.061108, %64 ], [ %.3, %89 ]
-  %90 = add nsw i32 %.064107, 1
-  br label %.critedge2
-
-.critedge2:                                       ; preds = %.critedge2.loopexit, %51, %54
-  %.167 = phi i32 [ %55, %54 ], [ %.066106, %51 ], [ %55, %.critedge2.loopexit ]
-  %.165 = phi i32 [ %.064107, %54 ], [ %.064107, %51 ], [ %90, %.critedge2.loopexit ]
-  %.162 = phi i32 [ %.061108, %54 ], [ %.061108, %51 ], [ %.263.lcssa, %.critedge2.loopexit ]
+.critedge2:                                       ; preds = %90, %64, %51, %54
+  %.167 = phi i32 [ %55, %54 ], [ %.066106, %51 ], [ %55, %64 ], [ %55, %90 ]
+  %.165 = phi i32 [ %.064107, %54 ], [ %.064107, %51 ], [ %65, %64 ], [ %65, %90 ]
+  %.162 = phi i32 [ %.061108, %54 ], [ %.061108, %51 ], [ %.061108, %64 ], [ %.3, %90 ]
   %91 = icmp sgt i64 %indvars.iv130, 2
   br i1 %91, label %51, label %.lr.ph121, !llvm.loop !52
 

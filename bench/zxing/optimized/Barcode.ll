@@ -435,8 +435,8 @@ _ZN5ZXing20StructuredAppendInfoC2ERKS0_.exit:     ; preds = %_ZN5ZXing5ErrorC2EO
   store i32 %3, ptr %60, align 8, !tbaa !36
   %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i32 0, ptr %scevgep, align 4
-  %scevgep20 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i32 0, ptr %scevgep20, align 8
+  %.ptr19 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i32 0, ptr %.ptr19, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %63 = load i32, ptr %62, align 8, !tbaa !60
@@ -457,7 +457,7 @@ _ZN5ZXing20StructuredAppendInfoC2ERKS0_.exit:     ; preds = %_ZN5ZXing5ErrorC2EO
   br i1 %.not, label %81, label %73
 
 73:                                               ; preds = %_ZN5ZXing20StructuredAppendInfoC2ERKS0_.exit
-  %74 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %scevgep20, i64 noundef 4, ptr noundef nonnull @.str, i32 noundef %72) #29
+  %74 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.ptr19, i64 noundef 4, ptr noundef nonnull @.str, i32 noundef %72) #29
   br label %81
 
 75:                                               ; preds = %_ZN5ZXing5ErrorC2EOS0_.exit

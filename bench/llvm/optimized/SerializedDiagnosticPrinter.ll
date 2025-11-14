@@ -11796,16 +11796,16 @@ define internal void @_ZN12_GLOBAL__N_114SDiagsRenderer15emitCodeContextEN5clang
   %.val2 = load i32, ptr %11, align 8, !tbaa !91
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.val37.i = load ptr, ptr %12, align 8, !tbaa !30
-  %13 = zext i32 %.val2 to i64
-  %.idx.i = mul nuw nsw i64 %13, 12
-  %14 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
+  %13 = getelementptr inbounds nuw i8, ptr %.val37.i, i64 1056
+  %14 = getelementptr inbounds nuw i8, ptr %.val37.i, i64 1264
+  %15 = getelementptr inbounds nuw i8, ptr %.val37.i, i64 1240
+  %16 = zext i32 %.val2 to i64
+  %.idx.i = mul nuw nsw i64 %16, 12
+  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %.not3.i = icmp eq i32 %.val2, 0
   br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %51, %6
-  %15 = getelementptr inbounds nuw i8, ptr %.val37.i, i64 1056
-  %16 = getelementptr inbounds nuw i8, ptr %.val37.i, i64 1264
-  %17 = getelementptr inbounds nuw i8, ptr %.val37.i, i64 1240
   %.idx10.i = shl nuw nsw i64 %.sroa.2.0.copyload, 6
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.idx10.i
   %.not355.i = icmp eq i64 %.sroa.2.0.copyload, 0
@@ -11877,7 +11877,7 @@ _ZN12_GLOBAL__N_112SDiagsWriter19EmitCharSourceRangeEN5clang15CharSourceRangeERK
 
 51:                                               ; preds = %_ZN12_GLOBAL__N_112SDiagsWriter19EmitCharSourceRangeEN5clang15CharSourceRangeERKNS1_13SourceManagerE.exit.i, %.lr.ph.i
   %52 = getelementptr inbounds nuw i8, ptr %.04.i, i64 12
-  %.not.i = icmp eq ptr %52, %14
+  %.not.i = icmp eq ptr %52, %17
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !460
 
 53:                                               ; preds = %89, %.lr.ph8.i
@@ -11897,14 +11897,14 @@ _ZN12_GLOBAL__N_112SDiagsWriter19EmitCharSourceRangeEN5clang15CharSourceRangeERK
   br i1 %.not.i.i.not.i.not.i, label %61, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i, !prof !147
 
 61:                                               ; preds = %59
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %21, i64 noundef 1, i64 noundef 8) #20
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %21, i64 noundef 1, i64 noundef 8) #20
   %.pre.i.i = load i32, ptr %19, align 8, !tbaa !91
   %62 = zext i32 %.pre.i.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %61, %59
   %63 = phi i64 [ 0, %59 ], [ %62, %61 ]
-  %64 = load ptr, ptr %16, align 8, !tbaa !89
+  %64 = load ptr, ptr %14, align 8, !tbaa !89
   %65 = getelementptr inbounds nuw i64, ptr %64, i64 %63
   store i64 7, ptr %65, align 1
   %66 = load i32, ptr %19, align 8, !tbaa !91
@@ -11913,7 +11913,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %61, %59
   %.sroa.01.0.copyload.i = load i64, ptr %.0346.i, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0346.i, i64 8
   %.sroa.22.0.copyload.i = load i8, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !395
-  call fastcc void @_ZN12_GLOBAL__N_112SDiagsWriter26AddCharSourceRangeToRecordEN5clang15CharSourceRangeERN4llvm15SmallVectorImplImEERKNS1_13SourceManagerE(ptr noundef nonnull readonly align 8 dereferenceable(48) %10, i64 %.sroa.01.0.copyload.i, i8 %.sroa.22.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(696) %2)
+  call fastcc void @_ZN12_GLOBAL__N_112SDiagsWriter26AddCharSourceRangeToRecordEN5clang15CharSourceRangeERN4llvm15SmallVectorImplImEERKNS1_13SourceManagerE(ptr noundef nonnull readonly align 8 dereferenceable(48) %10, i64 %.sroa.01.0.copyload.i, i8 %.sroa.22.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(696) %2)
   %68 = getelementptr inbounds nuw i8, ptr %.0346.i, i64 24
   %69 = getelementptr inbounds nuw i8, ptr %.0346.i, i64 32
   %70 = load i64, ptr %69, align 8, !tbaa !83
@@ -11925,13 +11925,13 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %61, %59
 73:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i
   %74 = zext i32 %71 to i64
   %75 = add nuw nsw i64 %74, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %21, i64 noundef %75, i64 noundef 8) #20
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %21, i64 noundef %75, i64 noundef 8) #20
   %.pre.i39.i = load i32, ptr %19, align 8, !tbaa !91
   br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit40.i
 
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit40.i: ; preds = %73, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i
   %76 = phi i32 [ %71, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %.pre.i39.i, %73 ]
-  %77 = load ptr, ptr %16, align 8, !tbaa !89
+  %77 = load ptr, ptr %14, align 8, !tbaa !89
   %78 = zext i32 %76 to i64
   %79 = getelementptr inbounds nuw i64, ptr %77, i64 %78
   store i64 %70, ptr %79, align 1
@@ -11940,15 +11940,15 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit40.i: ; preds = %73, %_
   store i32 %81, ptr %19, align 8, !tbaa !91
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 7, ptr %7, align 4, !tbaa !160
-  %82 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %82 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %83 = load i32, ptr %82, align 4, !tbaa !160
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %84 = load ptr, ptr %68, align 8, !tbaa !88
   %85 = load i64, ptr %69, align 8, !tbaa !83
-  %86 = load ptr, ptr %16, align 8, !tbaa !89
+  %86 = load ptr, ptr %14, align 8, !tbaa !89
   %87 = load i32, ptr %19, align 8, !tbaa !91
   %88 = zext i32 %87 to i64
-  call void @_ZN4llvm15BitstreamWriter24EmitRecordWithAbbrevImplImEEvjNS_8ArrayRefIT_EENS_9StringRefESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(152) %15, i32 noundef %83, ptr %86, i64 %88, ptr %84, i64 %85, i64 0)
+  call void @_ZN4llvm15BitstreamWriter24EmitRecordWithAbbrevImplImEEvjNS_8ArrayRefIT_EENS_9StringRefESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(152) %13, i32 noundef %83, ptr %86, i64 %88, ptr %84, i64 %85, i64 0)
   br label %89
 
 89:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit40.i, %53

@@ -37,104 +37,104 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %narrow = xor i32 %29, -1
   %30 = sext i32 %narrow to i64
   %31 = getelementptr inbounds double, ptr %3, i64 %30
-  %32 = load i32, ptr %10, align 4, !tbaa !3
-  %narrow885 = xor i32 %32, -1
-  %33 = sext i32 %narrow885 to i64
-  %34 = getelementptr inbounds double, ptr %9, i64 %33
+  %32 = getelementptr inbounds i8, ptr %7, i64 -8
+  %33 = getelementptr inbounds i8, ptr %8, i64 -8
+  %34 = load i32, ptr %10, align 4, !tbaa !3
+  %narrow885 = xor i32 %34, -1
+  %35 = sext i32 %narrow885 to i64
+  %36 = getelementptr inbounds double, ptr %9, i64 %35
+  %37 = getelementptr inbounds i8, ptr %11, i64 -8
   store i32 0, ptr %15, align 4, !tbaa !3
-  %35 = load i32, ptr %2, align 4, !tbaa !3
-  %36 = sitofp i32 %35 to double
-  %37 = tail call double @sqrt(double noundef %36) #7, !tbaa !3
+  %38 = load i32, ptr %2, align 4, !tbaa !3
+  %39 = sitofp i32 %38 to double
+  %40 = tail call double @sqrt(double noundef %39) #7, !tbaa !3
+  %41 = fdiv double 1.000000e-01, %40
   store double 1.000000e+00, ptr %20, align 8, !tbaa !7
-  %38 = load double, ptr %12, align 8, !tbaa !7
-  %39 = fmul double %37, %38
-  store double %39, ptr %21, align 8, !tbaa !7
-  %40 = load double, ptr %13, align 8, !tbaa !7
-  %41 = load i32, ptr %2, align 4, !tbaa !3
-  %.not902 = icmp slt i32 %41, 1
-  br i1 %.not902, label %63, label %.lr.ph905
+  %42 = load double, ptr %12, align 8, !tbaa !7
+  %43 = fmul double %40, %42
+  store double %43, ptr %21, align 8, !tbaa !7
+  %44 = fcmp ole double %43, 1.000000e+00
+  %45 = select i1 %44, double 1.000000e+00, double %43
+  %46 = load double, ptr %13, align 8, !tbaa !7
+  %47 = fmul double %46, %45
+  %48 = load i32, ptr %2, align 4, !tbaa !3
+  %.not902 = icmp slt i32 %48, 1
+  br i1 %.not902, label %70, label %.lr.ph905
 
 .lr.ph905:                                        ; preds = %16
-  %42 = add i32 %29, 1
-  %43 = add i32 %32, 1
-  %44 = sext i32 %29 to i64
-  %45 = sext i32 %32 to i64
-  %46 = add nuw i32 %41, 1
-  %wide.trip.count1052 = zext i32 %46 to i64
-  br label %47
+  %49 = add i32 %29, 1
+  %50 = add i32 %34, 1
+  %51 = sext i32 %29 to i64
+  %52 = sext i32 %34 to i64
+  %53 = add nuw i32 %48, 1
+  %wide.trip.count1052 = zext i32 %53 to i64
+  br label %54
 
-47:                                               ; preds = %.lr.ph905, %._crit_edge
+54:                                               ; preds = %.lr.ph905, %._crit_edge
   %indvars.iv1049 = phi i64 [ 1, %.lr.ph905 ], [ %indvars.iv.next1050, %._crit_edge ]
   %.not889.not900 = icmp samesign ugt i64 %indvars.iv1049, 1
   br i1 %.not889.not900, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %47
-  %48 = mul nsw i64 %indvars.iv1049, %44
-  %49 = mul nsw i64 %indvars.iv1049, %45
-  %invariant.gep = getelementptr double, ptr %31, i64 %48
-  %invariant.gep1238 = getelementptr double, ptr %34, i64 %49
-  br label %50
+.lr.ph:                                           ; preds = %54
+  %55 = mul nsw i64 %indvars.iv1049, %51
+  %56 = mul nsw i64 %indvars.iv1049, %52
+  %invariant.gep = getelementptr double, ptr %31, i64 %55
+  %invariant.gep1238 = getelementptr double, ptr %36, i64 %56
+  br label %57
 
-50:                                               ; preds = %.lr.ph, %50
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %50 ]
+57:                                               ; preds = %.lr.ph, %57
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
-  %51 = load double, ptr %gep, align 8, !tbaa !7
+  %58 = load double, ptr %gep, align 8, !tbaa !7
   %gep1239 = getelementptr double, ptr %invariant.gep1238, i64 %indvars.iv
-  store double %51, ptr %gep1239, align 8, !tbaa !7
+  store double %58, ptr %gep1239, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv1049
-  br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %57, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %50, %47
-  %52 = trunc nuw nsw i64 %indvars.iv1049 to i32
-  %53 = mul i32 %42, %52
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds double, ptr %31, i64 %54
-  %56 = load double, ptr %55, align 8, !tbaa !7
-  %57 = load double, ptr %5, align 8, !tbaa !7
-  %58 = fsub double %56, %57
-  %59 = mul i32 %43, %52
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds double, ptr %34, i64 %60
-  store double %58, ptr %61, align 8, !tbaa !7
+._crit_edge:                                      ; preds = %57, %54
+  %59 = trunc nuw nsw i64 %indvars.iv1049 to i32
+  %60 = mul i32 %49, %59
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds double, ptr %31, i64 %61
+  %63 = load double, ptr %62, align 8, !tbaa !7
+  %64 = load double, ptr %5, align 8, !tbaa !7
+  %65 = fsub double %63, %64
+  %66 = mul i32 %50, %59
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds double, ptr %36, i64 %67
+  store double %65, ptr %68, align 8, !tbaa !7
   %indvars.iv.next1050 = add nuw nsw i64 %indvars.iv1049, 1
   %exitcond1053.not = icmp eq i64 %indvars.iv.next1050, %wide.trip.count1052
-  br i1 %exitcond1053.not, label %._crit_edge906, label %47, !llvm.loop !11
+  br i1 %exitcond1053.not, label %._crit_edge906, label %54, !llvm.loop !11
 
 ._crit_edge906:                                   ; preds = %._crit_edge
-  %62 = add nsw i32 %41, -1
-  store i32 %62, ptr %18, align 4, !tbaa !3
-  br label %63
+  %69 = add nsw i32 %48, -1
+  store i32 %69, ptr %18, align 4, !tbaa !3
+  br label %70
 
-63:                                               ; preds = %._crit_edge906, %16
-  %64 = getelementptr inbounds i8, ptr %7, i64 -8
-  %65 = getelementptr inbounds i8, ptr %8, i64 -8
-  %66 = getelementptr inbounds i8, ptr %11, i64 -8
-  %67 = fdiv double 1.000000e-01, %37
-  %68 = fcmp ole double %39, 1.000000e+00
-  %69 = select i1 %68, double 1.000000e+00, double %39
-  %70 = fmul double %40, %69
+70:                                               ; preds = %._crit_edge906, %16
   %71 = load double, ptr %6, align 8, !tbaa !7
   %72 = fcmp oeq double %71, 0.000000e+00
   %73 = load i32, ptr %1, align 4, !tbaa !3
   %.not878 = icmp eq i32 %73, 0
   br i1 %72, label %74, label %219
 
-74:                                               ; preds = %63
+74:                                               ; preds = %70
   br i1 %.not878, label %78, label %75
 
 75:                                               ; preds = %74
   br i1 %.not902, label %.loopexit894, label %.lr.ph996.preheader
 
 .lr.ph996.preheader:                              ; preds = %75
-  %76 = add nuw i32 %41, 1
+  %76 = add nuw i32 %48, 1
   %wide.trip.count1136 = zext i32 %76 to i64
   %.pre1186 = load double, ptr %12, align 8, !tbaa !7
   br label %.lr.ph996
 
 .lr.ph996:                                        ; preds = %.lr.ph996.preheader, %.lr.ph996
   %indvars.iv1132 = phi i64 [ 1, %.lr.ph996.preheader ], [ %indvars.iv.next1133, %.lr.ph996 ]
-  %77 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv1132
+  %77 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv1132
   store double %.pre1186, ptr %77, align 8, !tbaa !7
   %indvars.iv.next1133 = add nuw nsw i64 %indvars.iv1132, 1
   %exitcond1137.not = icmp eq i64 %indvars.iv.next1133, %wide.trip.count1136
@@ -143,9 +143,9 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 78:                                               ; preds = %74
   %79 = tail call double @dnrm2_(ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull @c__1) #7
   %80 = load double, ptr %12, align 8, !tbaa !7
-  %81 = fmul double %37, %80
-  %82 = fcmp oge double %79, %70
-  %83 = select i1 %82, double %79, double %70
+  %81 = fmul double %40, %80
+  %82 = fcmp oge double %79, %47
+  %83 = select i1 %82, double %79, double %47
   %84 = fdiv double %81, %83
   store double %84, ptr %20, align 8, !tbaa !7
   call void @dscal_(ptr noundef nonnull %2, ptr noundef nonnull %20, ptr noundef %7, ptr noundef nonnull @c__1) #7
@@ -159,18 +159,18 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not880, label %144, label %88
 
 88:                                               ; preds = %.loopexit894
-  %89 = add i32 %32, 1
+  %89 = add i32 %34, 1
   br i1 %87, label %.lr.ph1008, label %._crit_edge1196
 
 .lr.ph1008:                                       ; preds = %88
-  %90 = sext i32 %32 to i64
+  %90 = sext i32 %34 to i64
   %91 = add nuw i32 %86, 1
   %92 = sext i32 %29 to i64
   %wide.trip.count1156 = zext nneg i32 %86 to i64
   %wide.trip.count1144 = zext i32 %91 to i64
   %wide.trip.count1150 = zext i32 %91 to i64
-  %ident.check.not = icmp eq i32 %32, 1
-  %ident.check1314.not = icmp eq i32 %32, 1
+  %ident.check.not = icmp eq i32 %34, 1
+  %ident.check1314.not = icmp eq i32 %34, 1
   br label %93
 
 93:                                               ; preds = %.lr.ph1008, %.loopexit892
@@ -191,7 +191,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %102 = trunc nuw nsw i64 %indvars.iv1152 to i32
   %103 = mul i32 %89, %102
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds double, ptr %34, i64 %104
+  %105 = getelementptr inbounds double, ptr %36, i64 %104
   %106 = load double, ptr %105, align 8, !tbaa !7
   %107 = call double @llvm.fabs.f64(double %106)
   %108 = call double @llvm.fabs.f64(double %101)
@@ -202,8 +202,8 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %101, ptr %105, align 8, !tbaa !7
   %110 = fneg double %106
   %111 = fdiv double %110, %101
-  %invariant.gep1288 = getelementptr double, ptr %34, i64 %indvars.iv.next1153
-  %invariant.gep1290 = getelementptr double, ptr %34, i64 %indvars.iv1152
+  %invariant.gep1288 = getelementptr double, ptr %36, i64 %indvars.iv.next1153
+  %invariant.gep1290 = getelementptr double, ptr %36, i64 %indvars.iv1152
   br i1 %ident.check1314.not, label %.ph1316, label %.ph1316.lver.orig
 
 .ph1316.lver.orig:                                ; preds = %.lver.check1315, %.ph1316.lver.orig
@@ -255,8 +255,8 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .lver.check:                                      ; preds = %124
   %128 = fneg double %126
-  %invariant.gep1284 = getelementptr double, ptr %34, i64 %indvars.iv1152
-  %invariant.gep1286 = getelementptr double, ptr %34, i64 %indvars.iv.next1153
+  %invariant.gep1284 = getelementptr double, ptr %36, i64 %indvars.iv1152
+  %invariant.gep1286 = getelementptr double, ptr %36, i64 %indvars.iv.next1153
   br i1 %ident.check.not, label %.ph, label %.ph.lver.orig
 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
@@ -301,7 +301,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 ._crit_edge1196:                                  ; preds = %88, %._crit_edge1009
   %137 = mul i32 %86, %89
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds double, ptr %34, i64 %138
+  %139 = getelementptr inbounds double, ptr %36, i64 %138
   %140 = load double, ptr %139, align 8, !tbaa !7
   %141 = fcmp oeq double %140, 0.000000e+00
   br i1 %141, label %142, label %188
@@ -316,7 +316,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .lr.ph1021.preheader:                             ; preds = %144
   %145 = zext nneg i32 %86 to i64
-  %146 = sext i32 %32 to i64
+  %146 = sext i32 %34 to i64
   br label %.lr.ph1021
 
 .lr.ph1021:                                       ; preds = %.lr.ph1021.preheader, %.loopexit890
@@ -330,9 +330,9 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %150 = getelementptr double, ptr %149, i64 %148
   %151 = load double, ptr %150, align 8, !tbaa !7
   %152 = mul nsw i64 %indvars.iv1172, %146
-  %153 = mul nsw i32 %32, %indvars1175
+  %153 = mul nsw i32 %34, %indvars1175
   %154 = sext i32 %153 to i64
-  %155 = getelementptr double, ptr %34, i64 %indvars.iv1172
+  %155 = getelementptr double, ptr %36, i64 %indvars.iv1172
   %156 = getelementptr double, ptr %155, i64 %154
   %157 = load double, ptr %156, align 8, !tbaa !7
   %158 = call double @llvm.fabs.f64(double %157)
@@ -346,8 +346,8 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %161 = mul nsw i64 %indvars.iv.next1173, %146
   %162 = fneg double %157
   %163 = fdiv double %162, %151
-  %invariant.gep1296 = getelementptr double, ptr %34, i64 %161
-  %invariant.gep1298 = getelementptr double, ptr %34, i64 %152
+  %invariant.gep1296 = getelementptr double, ptr %36, i64 %161
+  %invariant.gep1298 = getelementptr double, ptr %36, i64 %152
   br label %164
 
 164:                                              ; preds = %.lr.ph1018, %164
@@ -382,8 +382,8 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i32 %indvars1174, ptr %17, align 4, !tbaa !3
   %176 = mul nsw i64 %indvars.iv.next1173, %146
   %177 = fneg double %174
-  %invariant.gep1292 = getelementptr double, ptr %34, i64 %152
-  %invariant.gep1294 = getelementptr double, ptr %34, i64 %176
+  %invariant.gep1292 = getelementptr double, ptr %36, i64 %152
+  %invariant.gep1294 = getelementptr double, ptr %36, i64 %176
   br label %178
 
 178:                                              ; preds = %.lr.ph1014, %178
@@ -425,7 +425,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not8841029, label %._crit_edge1033, label %.lr.ph1032
 
 .lr.ph1032:                                       ; preds = %188
-  %189 = fadd double %37, 1.000000e+00
+  %189 = fadd double %40, 1.000000e+00
   br label %190
 
 190:                                              ; preds = %.lr.ph1032, %._crit_edge1028
@@ -434,7 +434,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i8 89, ptr %27, align 1, !tbaa !19
   %191 = call double @dasum_(ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull @c__1) #7
   %192 = load double, ptr %23, align 8, !tbaa !7
-  %193 = fmul double %67, %192
+  %193 = fmul double %41, %192
   %194 = fcmp ult double %191, %193
   br i1 %194, label %195, label %.loopexit
 
@@ -453,7 +453,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .lr.ph1027:                                       ; preds = %.lr.ph1027.preheader, %.lr.ph1027
   %indvars.iv1176 = phi i64 [ 2, %.lr.ph1027.preheader ], [ %indvars.iv.next1177, %.lr.ph1027 ]
-  %200 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv1176
+  %200 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv1176
   store double %197, ptr %200, align 8, !tbaa !7
   %indvars.iv.next1177 = add nuw nsw i64 %indvars.iv1176, 1
   %exitcond1181.not = icmp eq i64 %indvars.iv.next1177, %wide.trip.count1180
@@ -467,11 +467,11 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %201 = phi double [ %.pre1189, %._crit_edge1028.loopexit ], [ %196, %195 ]
   %202 = sub nsw i32 %198, %.01030
   %203 = sext i32 %202 to i64
-  %204 = getelementptr double, ptr %64, i64 %203
+  %204 = getelementptr double, ptr %32, i64 %203
   %205 = getelementptr i8, ptr %204, i64 8
   %206 = load double, ptr %205, align 8, !tbaa !7
   %207 = fneg double %201
-  %208 = call double @llvm.fmuladd.f64(double %207, double %37, double %206)
+  %208 = call double @llvm.fmuladd.f64(double %207, double %40, double %206)
   store double %208, ptr %205, align 8, !tbaa !7
   %209 = add nuw nsw i32 %.01030, 1
   %210 = load i32, ptr %17, align 4, !tbaa !3
@@ -485,7 +485,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .loopexit:                                        ; preds = %190, %._crit_edge1033
   %211 = call i32 @idamax_(ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull @c__1) #7
   %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds double, ptr %64, i64 %212
+  %213 = getelementptr inbounds double, ptr %32, i64 %212
   %214 = load double, ptr %213, align 8, !tbaa !7
   store double %214, ptr %20, align 8, !tbaa !7
   %215 = fcmp oge double %214, 0.000000e+00
@@ -496,23 +496,23 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   call void @dscal_(ptr noundef nonnull %2, ptr noundef nonnull %21, ptr noundef %7, ptr noundef nonnull @c__1) #7
   br label %690
 
-219:                                              ; preds = %63
+219:                                              ; preds = %70
   br i1 %.not878, label %225, label %220
 
 220:                                              ; preds = %219
   br i1 %.not902, label %.loopexit899, label %.lr.ph910.preheader
 
 .lr.ph910.preheader:                              ; preds = %220
-  %221 = add nuw i32 %41, 1
+  %221 = add nuw i32 %48, 1
   %wide.trip.count = zext i32 %221 to i64
   br label %.lr.ph910
 
 .lr.ph910:                                        ; preds = %.lr.ph910.preheader, %.lr.ph910
   %indvars.iv1054 = phi i64 [ 1, %.lr.ph910.preheader ], [ %indvars.iv.next1055, %.lr.ph910 ]
   %222 = load double, ptr %12, align 8, !tbaa !7
-  %223 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv1054
+  %223 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv1054
   store double %222, ptr %223, align 8, !tbaa !7
-  %224 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv1054
+  %224 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv1054
   store double 0.000000e+00, ptr %224, align 8, !tbaa !7
   %indvars.iv.next1055 = add nuw nsw i64 %indvars.iv1054, 1
   %exitcond1057.not = icmp eq i64 %indvars.iv.next1055, %wide.trip.count
@@ -525,9 +525,9 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %227, ptr %21, align 8, !tbaa !7
   %228 = call double @dlapy2_(ptr noundef nonnull %20, ptr noundef nonnull %21) #7
   %229 = load double, ptr %12, align 8, !tbaa !7
-  %230 = fmul double %37, %229
-  %231 = fcmp oge double %228, %70
-  %232 = select i1 %231, double %228, double %70
+  %230 = fmul double %40, %229
+  %231 = fcmp oge double %228, %47
+  %232 = select i1 %231, double %228, double %47
   %233 = fdiv double %230, %232
   store double %233, ptr %28, align 8, !tbaa !7
   call void @dscal_(ptr noundef nonnull %2, ptr noundef nonnull %28, ptr noundef %7, ptr noundef nonnull @c__1) #7
@@ -542,8 +542,8 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 236:                                              ; preds = %.loopexit899
   %237 = fneg double %235
-  %238 = sext i32 %32 to i64
-  %239 = getelementptr double, ptr %34, i64 %238
+  %238 = sext i32 %34 to i64
+  %239 = getelementptr double, ptr %36, i64 %238
   %240 = getelementptr i8, ptr %239, i64 16
   store double %237, ptr %240, align 8, !tbaa !7
   %241 = load i32, ptr %2, align 4, !tbaa !3
@@ -551,9 +551,9 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not867911, label %._crit_edge930, label %.lr.ph929.preheader
 
 .lr.ph929.preheader:                              ; preds = %236
-  %242 = add i32 %32, 3
+  %242 = add i32 %34, 3
   %243 = sext i32 %242 to i64
-  %244 = add nsw i64 %33, %243
+  %244 = add nsw i64 %35, %243
   %245 = shl nsw i64 %244, 3
   %scevgep = getelementptr i8, ptr %9, i64 %245
   %246 = add nsw i32 %241, -1
@@ -562,8 +562,8 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %248, i1 false), !tbaa !7
   store i32 %246, ptr %17, align 4, !tbaa !3
   %249 = sext i32 %29 to i64
-  %ident.check1337.not = icmp eq i32 %32, 1
-  %ident.check1348.not = icmp eq i32 %32, 1
+  %ident.check1337.not = icmp eq i32 %34, 1
+  %ident.check1348.not = icmp eq i32 %34, 1
   br label %.lr.ph929
 
 .lr.ph929:                                        ; preds = %.lr.ph929.preheader, %349
@@ -578,13 +578,13 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %scevgep1343 = getelementptr i8, ptr %253, i64 16
   %indvars1077 = trunc i64 %indvars.iv1075 to i32
   %254 = mul nsw i64 %indvars.iv1075, %238
-  %255 = mul nsw i32 %32, %indvars1077
+  %255 = mul nsw i32 %34, %indvars1077
   %256 = sext i32 %255 to i64
-  %257 = getelementptr double, ptr %34, i64 %indvars.iv1075
+  %257 = getelementptr double, ptr %36, i64 %indvars.iv1075
   %258 = getelementptr double, ptr %257, i64 %256
   %indvars.iv.next1076 = add nuw nsw i64 %indvars.iv1075, 1
   %indvars = trunc i64 %indvars.iv.next1076 to i32
-  %259 = getelementptr double, ptr %34, i64 %indvars.iv.next1076
+  %259 = getelementptr double, ptr %36, i64 %indvars.iv.next1076
   %260 = getelementptr double, ptr %259, i64 %254
   %261 = call double @dlapy2_(ptr noundef %258, ptr noundef %260) #7
   %262 = mul nsw i64 %indvars.iv1075, %249
@@ -619,10 +619,10 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %277 = mul nsw i64 %indvars.iv.next1076, %238
   %278 = add i32 %273, 1
   %wide.trip.count1073 = zext i32 %278 to i64
-  %invariant.gep1248 = getelementptr double, ptr %34, i64 %indvars.iv.next1076
-  %invariant.gep1250 = getelementptr double, ptr %34, i64 %indvars.iv1075
-  %invariant.gep1252 = getelementptr double, ptr %34, i64 %254
-  %invariant.gep1254 = getelementptr double, ptr %34, i64 %277
+  %invariant.gep1248 = getelementptr double, ptr %36, i64 %indvars.iv.next1076
+  %invariant.gep1250 = getelementptr double, ptr %36, i64 %indvars.iv1075
+  %invariant.gep1252 = getelementptr double, ptr %36, i64 %254
+  %invariant.gep1254 = getelementptr double, ptr %36, i64 %277
   br i1 %ident.check1348.not, label %.ph1350, label %.ph1350.lver.orig
 
 .ph1350.lver.orig:                                ; preds = %.lver.check1349, %.ph1350.lver.orig
@@ -675,16 +675,16 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %292 = fneg double %291
   %293 = add nuw nsw i64 %indvars.iv1075, 2
   %294 = add nsw i64 %293, %254
-  %295 = getelementptr inbounds double, ptr %34, i64 %294
+  %295 = getelementptr inbounds double, ptr %36, i64 %294
   store double %292, ptr %295, align 8, !tbaa !7
   %296 = load double, ptr %6, align 8, !tbaa !7
-  %297 = getelementptr double, ptr %34, i64 %.pre-phi1202
+  %297 = getelementptr double, ptr %36, i64 %.pre-phi1202
   %298 = getelementptr double, ptr %297, i64 %indvars.iv.next1076
   %299 = load double, ptr %298, align 8, !tbaa !7
   %300 = call double @llvm.fmuladd.f64(double %275, double %296, double %299)
   store double %300, ptr %298, align 8, !tbaa !7
   %301 = load double, ptr %6, align 8, !tbaa !7
-  %302 = getelementptr double, ptr %34, i64 %.pre-phi1202
+  %302 = getelementptr double, ptr %36, i64 %.pre-phi1202
   %303 = getelementptr double, ptr %302, i64 %293
   %304 = load double, ptr %303, align 8, !tbaa !7
   %305 = call double @llvm.fmuladd.f64(double %270, double %301, double %304)
@@ -731,10 +731,10 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %322 = mul nsw i64 %indvars.iv.next1076, %238
   %323 = add i32 %319, 1
   %wide.trip.count1066 = zext i32 %323 to i64
-  %invariant.gep1240 = getelementptr double, ptr %34, i64 %indvars.iv.next1076
-  %invariant.gep1242 = getelementptr double, ptr %34, i64 %indvars.iv1075
-  %invariant.gep1244 = getelementptr double, ptr %34, i64 %254
-  %invariant.gep1246 = getelementptr double, ptr %34, i64 %322
+  %invariant.gep1240 = getelementptr double, ptr %36, i64 %indvars.iv.next1076
+  %invariant.gep1242 = getelementptr double, ptr %36, i64 %indvars.iv1075
+  %invariant.gep1244 = getelementptr double, ptr %36, i64 %254
+  %invariant.gep1246 = getelementptr double, ptr %36, i64 %322
   br i1 %ident.check1337.not, label %.ph1339, label %.ph1339.lver.orig
 
 .ph1339.lver.orig:                                ; preds = %.lver.check1338, %.ph1339.lver.orig
@@ -788,7 +788,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.pre-phi1206 = phi i64 [ %.pre1205, %.._crit_edge920_crit_edge ], [ %322, %334 ], [ %322, %.ph1339.lver.orig ]
   %343 = load double, ptr %6, align 8, !tbaa !7
   %344 = add nuw nsw i64 %indvars.iv1075, 2
-  %345 = getelementptr double, ptr %34, i64 %344
+  %345 = getelementptr double, ptr %36, i64 %344
   %346 = getelementptr double, ptr %345, i64 %.pre-phi1206
   %347 = load double, ptr %346, align 8, !tbaa !7
   %348 = fsub double %347, %343
@@ -802,15 +802,15 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %351 = sub nsw i32 %350, %indvars1077
   store i32 %351, ptr %18, align 4, !tbaa !3
   store i32 %351, ptr %19, align 4, !tbaa !3
-  %352 = mul nsw i32 %32, %indvars
+  %352 = mul nsw i32 %34, %indvars
   %353 = sext i32 %352 to i64
-  %354 = getelementptr double, ptr %34, i64 %indvars.iv1075
+  %354 = getelementptr double, ptr %36, i64 %indvars.iv1075
   %355 = getelementptr double, ptr %354, i64 %353
   %356 = call double @dasum_(ptr noundef nonnull %18, ptr noundef %355, ptr noundef nonnull %10) #7
-  %357 = getelementptr inbounds double, ptr %34, i64 %.pre-phi1195
+  %357 = getelementptr inbounds double, ptr %36, i64 %.pre-phi1195
   %358 = call double @dasum_(ptr noundef nonnull %19, ptr noundef %357, ptr noundef nonnull @c__1) #7
   %359 = fadd double %356, %358
-  %360 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv1075
+  %360 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv1075
   store double %359, ptr %360, align 8, !tbaa !7
   %361 = load i32, ptr %17, align 4, !tbaa !3
   %362 = sext i32 %361 to i64
@@ -825,10 +825,10 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 ._crit_edge930:                                   ; preds = %236, %._crit_edge930.loopexit
   %363 = phi i32 [ %.pre1183, %._crit_edge930.loopexit ], [ %241, %236 ]
-  %364 = add i32 %32, 1
+  %364 = add i32 %34, 1
   %365 = mul i32 %363, %364
   %366 = sext i32 %365 to i64
-  %367 = getelementptr inbounds double, ptr %34, i64 %366
+  %367 = getelementptr inbounds double, ptr %36, i64 %366
   %368 = load double, ptr %367, align 8, !tbaa !7
   %369 = fcmp oeq double %368, 0.000000e+00
   br i1 %369, label %370, label %378
@@ -836,7 +836,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 370:                                              ; preds = %._crit_edge930
   %371 = add i32 %365, 1
   %372 = sext i32 %371 to i64
-  %373 = getelementptr inbounds double, ptr %34, i64 %372
+  %373 = getelementptr inbounds double, ptr %36, i64 %372
   %374 = load double, ptr %373, align 8, !tbaa !7
   %375 = fcmp oeq double %374, 0.000000e+00
   br i1 %375, label %376, label %378
@@ -848,17 +848,17 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 378:                                              ; preds = %376, %370, %._crit_edge930
   %379 = sext i32 %363 to i64
-  %380 = getelementptr inbounds double, ptr %66, i64 %379
+  %380 = getelementptr inbounds double, ptr %37, i64 %379
   store double 0.000000e+00, ptr %380, align 8, !tbaa !7
   br label %514
 
 381:                                              ; preds = %.loopexit899
   %382 = load i32, ptr %2, align 4, !tbaa !3
   %383 = add nsw i32 %382, 1
-  %384 = mul nsw i32 %382, %32
+  %384 = mul nsw i32 %382, %34
   %385 = add nsw i32 %383, %384
   %386 = sext i32 %385 to i64
-  %387 = getelementptr inbounds double, ptr %34, i64 %386
+  %387 = getelementptr inbounds double, ptr %36, i64 %386
   store double %235, ptr %387, align 8, !tbaa !7
   %388 = add nsw i32 %382, -1
   store i32 %388, ptr %17, align 4, !tbaa !3
@@ -866,22 +866,22 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not864.not931, label %.lr.ph934.preheader, label %._crit_edge947
 
 .lr.ph934.preheader:                              ; preds = %381
-  %389 = sext i32 %32 to i64
+  %389 = sext i32 %34 to i64
   %390 = zext nneg i32 %383 to i64
   %wide.trip.count1082 = zext nneg i32 %382 to i64
-  %invariant.gep1256 = getelementptr double, ptr %34, i64 %390
+  %invariant.gep1256 = getelementptr double, ptr %36, i64 %390
   br label %.lr.ph934
 
 .lr.ph946.preheader:                              ; preds = %.lr.ph934
-  %391 = sext i32 %32 to i64
+  %391 = sext i32 %34 to i64
   %392 = zext nneg i32 %382 to i64
-  %invariant.gep1274 = getelementptr double, ptr %34, i64 %391
+  %invariant.gep1274 = getelementptr double, ptr %36, i64 %391
   %393 = shl nuw nsw i64 %wide.trip.count1082, 3
   %394 = add nsw i64 %393, -16
   %395 = shl nuw nsw i64 %wide.trip.count1082, 3
   %396 = add nsw i64 %395, -8
-  %ident.check1321.not = icmp eq i32 %32, 1
-  %ident.check1330.not = icmp eq i32 %32, 1
+  %ident.check1321.not = icmp eq i32 %34, 1
+  %ident.check1330.not = icmp eq i32 %34, 1
   br label %.lr.ph946
 
 .lr.ph934:                                        ; preds = %.lr.ph934.preheader, %.lr.ph934
@@ -911,12 +911,12 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %405 = getelementptr double, ptr %404, i64 %403
   %406 = load double, ptr %405, align 8, !tbaa !7
   %407 = mul nsw i64 %indvars.iv1098, %391
-  %408 = mul nsw i32 %32, %indvars1101
+  %408 = mul nsw i32 %34, %indvars1101
   %409 = sext i32 %408 to i64
-  %410 = getelementptr double, ptr %34, i64 %indvars.iv1098
+  %410 = getelementptr double, ptr %36, i64 %indvars.iv1098
   %411 = getelementptr double, ptr %410, i64 %409
   %412 = add nuw nsw i64 %indvars.iv1098, 1
-  %413 = getelementptr double, ptr %34, i64 %412
+  %413 = getelementptr double, ptr %36, i64 %412
   %414 = getelementptr double, ptr %413, i64 %407
   %415 = call double @dlapy2_(ptr noundef %411, ptr noundef %414) #7
   %416 = call double @llvm.fabs.f64(double %406)
@@ -935,10 +935,10 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %422 = mul nsw i64 %indvars.iv.next1099, %391
   %423 = fneg double %419
   %424 = fneg double %421
-  %invariant.gep1266 = getelementptr double, ptr %34, i64 %422
-  %invariant.gep1268 = getelementptr double, ptr %34, i64 %407
-  %invariant.gep1270 = getelementptr double, ptr %34, i64 %412
-  %invariant.gep1272 = getelementptr double, ptr %34, i64 %indvars.iv1098
+  %invariant.gep1266 = getelementptr double, ptr %36, i64 %422
+  %invariant.gep1268 = getelementptr double, ptr %36, i64 %407
+  %invariant.gep1270 = getelementptr double, ptr %36, i64 %412
+  %invariant.gep1272 = getelementptr double, ptr %36, i64 %indvars.iv1098
   br i1 %ident.check1330.not, label %.ph1332, label %.ph1332.lver.orig
 
 .ph1332.lver.orig:                                ; preds = %.lver.check1331, %.ph1332.lver.orig
@@ -987,18 +987,18 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 ._crit_edge944:                                   ; preds = %.ph1332.lver.orig, %431
   %437 = load double, ptr %6, align 8, !tbaa !7
-  %438 = mul nsw i32 %32, %indvars1100
-  %439 = getelementptr double, ptr %34, i64 %422
+  %438 = mul nsw i32 %34, %indvars1100
+  %439 = getelementptr double, ptr %36, i64 %422
   %440 = getelementptr double, ptr %439, i64 %412
   store double %437, ptr %440, align 8, !tbaa !7
-  %441 = getelementptr double, ptr %34, i64 %422
+  %441 = getelementptr double, ptr %36, i64 %422
   %442 = getelementptr double, ptr %441, i64 %indvars.iv.next1099
   %443 = load double, ptr %442, align 8, !tbaa !7
   %444 = call double @llvm.fmuladd.f64(double %421, double %437, double %443)
   store double %444, ptr %442, align 8, !tbaa !7
   %445 = load double, ptr %6, align 8, !tbaa !7
   %446 = sext i32 %438 to i64
-  %447 = getelementptr double, ptr %34, i64 %indvars.iv1098
+  %447 = getelementptr double, ptr %36, i64 %indvars.iv1098
   %448 = getelementptr double, ptr %447, i64 %446
   %449 = load double, ptr %448, align 8, !tbaa !7
   %450 = call double @llvm.fmuladd.f64(double %423, double %445, double %449)
@@ -1033,10 +1033,10 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %462, ptr %25, align 8, !tbaa !7
   %463 = mul nsw i64 %indvars.iv.next1099, %391
   %464 = fneg double %460
-  %invariant.gep1258 = getelementptr double, ptr %34, i64 %463
-  %invariant.gep1260 = getelementptr double, ptr %34, i64 %407
-  %invariant.gep1262 = getelementptr double, ptr %34, i64 %412
-  %invariant.gep1264 = getelementptr double, ptr %34, i64 %indvars.iv1098
+  %invariant.gep1258 = getelementptr double, ptr %36, i64 %463
+  %invariant.gep1260 = getelementptr double, ptr %36, i64 %407
+  %invariant.gep1262 = getelementptr double, ptr %36, i64 %412
+  %invariant.gep1264 = getelementptr double, ptr %36, i64 %indvars.iv1098
   br i1 %ident.check1321.not, label %.ph1323, label %.ph1323.lver.orig
 
 .ph1323.lver.orig:                                ; preds = %.lver.check1322, %.ph1323.lver.orig
@@ -1091,9 +1091,9 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 ._crit_edge939:                                   ; preds = %.ph1323.lver.orig, %476
   %487 = load double, ptr %6, align 8, !tbaa !7
-  %488 = mul nsw i32 %32, %indvars1100
+  %488 = mul nsw i32 %34, %indvars1100
   %489 = sext i32 %488 to i64
-  %490 = getelementptr double, ptr %34, i64 %indvars.iv1098
+  %490 = getelementptr double, ptr %36, i64 %indvars.iv1098
   %491 = getelementptr double, ptr %490, i64 %489
   %492 = load double, ptr %491, align 8, !tbaa !7
   %493 = fadd double %487, %492
@@ -1103,13 +1103,13 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 494:                                              ; preds = %._crit_edge939, %._crit_edge944
   store i32 %indvars1100, ptr %17, align 4, !tbaa !3
   store i32 %indvars1100, ptr %18, align 4, !tbaa !3
-  %495 = getelementptr double, ptr %34, i64 %407
+  %495 = getelementptr double, ptr %36, i64 %407
   %496 = getelementptr i8, ptr %495, i64 8
   %497 = call double @dasum_(ptr noundef nonnull %17, ptr noundef %496, ptr noundef nonnull @c__1) #7
   %gep1275 = getelementptr double, ptr %invariant.gep1274, i64 %412
   %498 = call double @dasum_(ptr noundef nonnull %18, ptr noundef %gep1275, ptr noundef nonnull %10) #7
   %499 = fadd double %497, %498
-  %500 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv1098
+  %500 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv1098
   store double %499, ptr %500, align 8, !tbaa !7
   %501 = icmp sgt i64 %indvars.iv1098, 2
   %indvar.next1326 = add i64 %indvar1325, 1
@@ -1121,8 +1121,8 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %503, label %504, label %512
 
 504:                                              ; preds = %._crit_edge947
-  %505 = sext i32 %32 to i64
-  %506 = getelementptr double, ptr %34, i64 %505
+  %505 = sext i32 %34 to i64
+  %506 = getelementptr double, ptr %36, i64 %505
   %507 = getelementptr i8, ptr %506, i64 16
   %508 = load double, ptr %507, align 8, !tbaa !7
   %509 = fcmp oeq double %508, 0.000000e+00
@@ -1148,8 +1148,8 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not869980, label %._crit_edge984, label %.lr.ph983
 
 .lr.ph983:                                        ; preds = %514
-  %516 = fadd double %37, 1.000000e+00
-  %517 = sext i32 %32 to i64
+  %516 = fadd double %40, 1.000000e+00
+  %517 = sext i32 %34 to i64
   %518 = icmp sge i32 %.0835, %.0834
   %519 = icmp sle i32 %.0835, %.0834
   %.in967 = select i1 %.not863.not, i1 %519, i1 %518
@@ -1168,7 +1168,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.11969 = phi i32 [ %645, %642 ], [ %.0835, %520 ]
   %.0851968 = phi double [ %.3854, %642 ], [ 1.000000e+00, %520 ]
   %523 = sext i32 %.11969 to i64
-  %524 = getelementptr inbounds double, ptr %66, i64 %523
+  %524 = getelementptr inbounds double, ptr %37, i64 %523
   %525 = load double, ptr %524, align 8, !tbaa !7
   %526 = fcmp ogt double %525, %.0836971
   br i1 %526, label %527, label %531
@@ -1185,10 +1185,10 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 531:                                              ; preds = %527, %.lr.ph973
   %532 = phi double [ %530, %527 ], [ %522, %.lr.ph973 ]
   %.1852 = phi double [ 1.000000e+00, %527 ], [ %.0851968, %.lr.ph973 ]
-  %533 = getelementptr inbounds double, ptr %64, i64 %523
+  %533 = getelementptr inbounds double, ptr %32, i64 %523
   %534 = load double, ptr %533, align 8, !tbaa !7
   store double %534, ptr %26, align 8, !tbaa !7
-  %535 = getelementptr inbounds double, ptr %65, i64 %523
+  %535 = getelementptr inbounds double, ptr %33, i64 %523
   %536 = load double, ptr %535, align 8, !tbaa !7
   store double %536, ptr %25, align 8, !tbaa !7
   %537 = load i32, ptr %0, align 4, !tbaa !3
@@ -1200,12 +1200,12 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not873.not957, label %.lr.ph959, label %.loopexit895
 
 .lr.ph959:                                        ; preds = %.preheader
-  %538 = mul nsw i32 %.11969, %32
+  %538 = mul nsw i32 %.11969, %34
   %539 = sext i32 %538 to i64
   %wide.trip.count1111 = zext nneg i32 %.11969 to i64
-  %invariant.gep1280 = getelementptr double, ptr %34, i64 %539
+  %invariant.gep1280 = getelementptr double, ptr %36, i64 %539
   %540 = zext nneg i32 %.11969 to i64
-  %invariant.gep1282 = getelementptr double, ptr %34, i64 %540
+  %invariant.gep1282 = getelementptr double, ptr %36, i64 %540
   br label %563
 
 541:                                              ; preds = %531
@@ -1214,12 +1214,12 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not874949.not, label %.lr.ph952, label %.loopexit895
 
 .lr.ph952:                                        ; preds = %541
-  %543 = mul nsw i32 %.11969, %32
+  %543 = mul nsw i32 %.11969, %34
   %544 = add nsw i64 %523, 1
   %545 = sext i32 %543 to i64
   %546 = add i32 %542, 1
-  %invariant.gep1276 = getelementptr double, ptr %34, i64 %523
-  %invariant.gep1278 = getelementptr double, ptr %34, i64 %545
+  %invariant.gep1276 = getelementptr double, ptr %36, i64 %523
+  %invariant.gep1278 = getelementptr double, ptr %36, i64 %545
   br label %547
 
 547:                                              ; preds = %.lr.ph952, %547
@@ -1229,14 +1229,14 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %550 = mul nsw i64 %indvars.iv1102, %517
   %gep1277 = getelementptr double, ptr %invariant.gep1276, i64 %550
   %551 = load double, ptr %gep1277, align 8, !tbaa !7
-  %552 = getelementptr inbounds double, ptr %64, i64 %indvars.iv1102
+  %552 = getelementptr inbounds double, ptr %32, i64 %indvars.iv1102
   %553 = load double, ptr %552, align 8, !tbaa !7
   %554 = fneg double %551
   %555 = call double @llvm.fmuladd.f64(double %554, double %553, double %548)
   %indvars.iv.next1103 = add nsw i64 %indvars.iv1102, 1
   %gep1279 = getelementptr double, ptr %invariant.gep1278, i64 %indvars.iv.next1103
   %556 = load double, ptr %gep1279, align 8, !tbaa !7
-  %557 = getelementptr inbounds double, ptr %65, i64 %indvars.iv1102
+  %557 = getelementptr inbounds double, ptr %33, i64 %indvars.iv1102
   %558 = load double, ptr %557, align 8, !tbaa !7
   %559 = call double @llvm.fmuladd.f64(double %556, double %558, double %555)
   %560 = call double @llvm.fmuladd.f64(double %554, double %558, double %549)
@@ -1252,7 +1252,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %565 = phi double [ %536, %.lr.ph959 ], [ %579, %563 ]
   %gep1281 = getelementptr double, ptr %invariant.gep1280, i64 %indvars.iv1107
   %566 = load double, ptr %gep1281, align 8, !tbaa !7
-  %567 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv1107
+  %567 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv1107
   %568 = load double, ptr %567, align 8, !tbaa !7
   %569 = fneg double %566
   %570 = call double @llvm.fmuladd.f64(double %569, double %568, double %564)
@@ -1260,7 +1260,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %gep1283 = getelementptr double, ptr %invariant.gep1282, i64 %571
   %572 = getelementptr i8, ptr %gep1283, i64 8
   %573 = load double, ptr %572, align 8, !tbaa !7
-  %574 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv1107
+  %574 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv1107
   %575 = load double, ptr %574, align 8, !tbaa !7
   %576 = call double @llvm.fmuladd.f64(double %573, double %575, double %570)
   %577 = call double @llvm.fmuladd.f64(double %569, double %575, double %565)
@@ -1280,10 +1280,10 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .loopexit895:                                     ; preds = %.loopexit895.sink.split, %541, %.preheader
   %580 = phi double [ %536, %541 ], [ %536, %.preheader ], [ %.lcssa1233.sink, %.loopexit895.sink.split ]
   %581 = phi double [ %534, %541 ], [ %534, %.preheader ], [ %.lcssa1234.sink, %.loopexit895.sink.split ]
-  %582 = mul nsw i32 %.11969, %32
+  %582 = mul nsw i32 %.11969, %34
   %583 = add nsw i32 %582, %.11969
   %584 = sext i32 %583 to i64
-  %585 = getelementptr inbounds double, ptr %34, i64 %584
+  %585 = getelementptr inbounds double, ptr %36, i64 %584
   %586 = load double, ptr %585, align 8, !tbaa !7
   store double %586, ptr %20, align 8, !tbaa !7
   %587 = fcmp oge double %586, 0.000000e+00
@@ -1292,7 +1292,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %590 = add nsw i32 %.11969, 1
   %591 = add nsw i32 %590, %582
   %592 = sext i32 %591 to i64
-  %593 = getelementptr inbounds double, ptr %34, i64 %592
+  %593 = getelementptr inbounds double, ptr %36, i64 %592
   %594 = load double, ptr %593, align 8, !tbaa !7
   store double %594, ptr %21, align 8, !tbaa !7
   %595 = fcmp oge double %594, 0.000000e+00
@@ -1367,9 +1367,9 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .lr.ph965:                                        ; preds = %.lr.ph965.preheader, %.lr.ph965
   %indvars.iv1113 = phi i64 [ 1, %.lr.ph965.preheader ], [ %indvars.iv.next1114, %.lr.ph965 ]
-  %639 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv1113
+  %639 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv1113
   store double 0.000000e+00, ptr %639, align 8, !tbaa !7
-  %640 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv1113
+  %640 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv1113
   store double 0.000000e+00, ptr %640, align 8, !tbaa !7
   %indvars.iv.next1114 = add nuw nsw i64 %indvars.iv1113, 1
   %exitcond1118.not = icmp eq i64 %indvars.iv.next1114, %wide.trip.count1117
@@ -1399,7 +1399,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %651 = call double @dasum_(ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull @c__1) #7
   %652 = call double @dasum_(ptr noundef nonnull %2, ptr noundef %8, ptr noundef nonnull @c__1) #7
   %653 = fadd double %651, %652
-  %654 = fmul double %67, %650
+  %654 = fmul double %41, %650
   %655 = fcmp ult double %653, %654
   br i1 %655, label %656, label %.loopexit897
 
@@ -1420,9 +1420,9 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .lr.ph978:                                        ; preds = %.lr.ph978.preheader, %.lr.ph978
   %indvars.iv1120 = phi i64 [ 2, %.lr.ph978.preheader ], [ %indvars.iv.next1121, %.lr.ph978 ]
-  %661 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv1120
+  %661 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv1120
   store double %658, ptr %661, align 8, !tbaa !7
-  %662 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv1120
+  %662 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv1120
   store double 0.000000e+00, ptr %662, align 8, !tbaa !7
   %indvars.iv.next1121 = add nuw nsw i64 %indvars.iv1120, 1
   %exitcond1125.not = icmp eq i64 %indvars.iv.next1121, %wide.trip.count1124
@@ -1432,11 +1432,11 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %663 = load double, ptr %12, align 8, !tbaa !7
   %664 = sub nsw i32 %659, %.1981
   %665 = sext i32 %664 to i64
-  %666 = getelementptr double, ptr %64, i64 %665
+  %666 = getelementptr double, ptr %32, i64 %665
   %667 = getelementptr i8, ptr %666, i64 8
   %668 = load double, ptr %667, align 8, !tbaa !7
   %669 = fneg double %663
-  %670 = call double @llvm.fmuladd.f64(double %669, double %37, double %668)
+  %670 = call double @llvm.fmuladd.f64(double %669, double %40, double %668)
   store double %670, ptr %667, align 8, !tbaa !7
   %671 = add nuw nsw i32 %.1981, 1
   %672 = load i32, ptr %17, align 4, !tbaa !3
@@ -1461,12 +1461,12 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph989:                                        ; preds = %.lr.ph989.preheader, %.lr.ph989
   %indvars.iv1126 = phi i64 [ 1, %.lr.ph989.preheader ], [ %indvars.iv.next1127, %.lr.ph989 ]
   %.0832987 = phi double [ 0.000000e+00, %.lr.ph989.preheader ], [ %687, %.lr.ph989 ]
-  %675 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv1126
+  %675 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv1126
   %676 = load double, ptr %675, align 8, !tbaa !7
   %677 = fcmp oge double %676, 0.000000e+00
   %678 = fneg double %676
   %679 = select i1 %677, double %676, double %678
-  %680 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv1126
+  %680 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv1126
   %681 = load double, ptr %680, align 8, !tbaa !7
   %682 = fcmp oge double %681, 0.000000e+00
   %683 = fneg double %681

@@ -1113,33 +1113,33 @@ define dso_local void @_ZN4llvm14CodeGenHwModesC2ERKNS_12RecordKeeperE(ptr nound
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 0, ptr %10, align 8, !tbaa !118
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr null, ptr %11, align 8, !tbaa !123
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %10, ptr %12, align 8, !tbaa !124
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %10, ptr %13, align 8, !tbaa !125
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 0, ptr %14, align 8, !tbaa !126
-  %15 = tail call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %1, ptr nonnull @.str.10, i64 6) #18
-  %16 = extractvalue { ptr, i64 } %15, 0
-  %17 = extractvalue { ptr, i64 } %15, 1
-  %.idx = shl nuw nsw i64 %17, 3
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
-  %.not33 = icmp eq i64 %17, 0
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 0, ptr %11, align 8, !tbaa !118
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr null, ptr %12, align 8, !tbaa !123
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %11, ptr %13, align 8, !tbaa !124
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr %11, ptr %14, align 8, !tbaa !125
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i64 0, ptr %15, align 8, !tbaa !126
+  %16 = tail call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %1, ptr nonnull @.str.10, i64 6) #18
+  %17 = extractvalue { ptr, i64 } %16, 0
+  %18 = extractvalue { ptr, i64 } %16, 1
+  %.idx = shl nuw nsw i64 %18, 3
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
+  %.not33 = icmp eq i64 %18, 0
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.07.0.copyload.pre41 = load ptr, ptr @_ZN4llvm14CodeGenHwModes15DefaultModeNameE, align 8, !tbaa !51
   %.sroa.28.0.copyload.pre44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm14CodeGenHwModes15DefaultModeNameE, i64 8), align 8, !tbaa !52
   br label %28
 
 ._crit_edge:                                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %2
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %0, align 8, !tbaa !127
   %23 = call { ptr, i64 } @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %22, ptr nonnull @.str.11, i64 12) #18
   %24 = extractvalue { ptr, i64 } %23, 0
@@ -1156,7 +1156,7 @@ define dso_local void @_ZN4llvm14CodeGenHwModesC2ERKNS_12RecordKeeperE(ptr nound
 28:                                               ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %.sroa.28.0.copyload = phi i64 [ %.sroa.28.0.copyload.pre44, %.lr.ph ], [ %.sroa.28.0.copyload45, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
   %.sroa.07.0.copyload = phi ptr [ %.sroa.07.0.copyload.pre41, %.lr.ph ], [ %.sroa.07.0.copyload42, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
-  %.034 = phi ptr [ %16, %.lr.ph ], [ %47, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
+  %.034 = phi ptr [ %17, %.lr.ph ], [ %47, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = load ptr, ptr %.034, align 8, !tbaa !78
   store ptr %29, ptr %3, align 8, !tbaa !78
@@ -1178,21 +1178,21 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %32
   br i1 %34, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread31
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread31:       ; preds = %28, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %35 = load ptr, ptr %19, align 8, !tbaa !139
-  %36 = load ptr, ptr %20, align 8, !tbaa !140
+  %35 = load ptr, ptr %20, align 8, !tbaa !139
+  %36 = load ptr, ptr %21, align 8, !tbaa !140
   %.not.i21 = icmp eq ptr %35, %36
   br i1 %.not.i21, label %40, label %37
 
 37:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread31
   call void @_ZN4llvm6HwModeC1EPKNS_6RecordE(ptr noundef nonnull align 8 dereferenceable(80) %35, ptr noundef nonnull %29) #18
-  %38 = load ptr, ptr %19, align 8, !tbaa !139
+  %38 = load ptr, ptr %20, align 8, !tbaa !139
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  store ptr %39, ptr %19, align 8, !tbaa !139
+  store ptr %39, ptr %20, align 8, !tbaa !139
   br label %_ZNSt6vectorIN4llvm6HwModeESaIS1_EE12emplace_backIJRPKNS0_6RecordEEEERS1_DpOT_.exit
 
 40:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread31
   call void @_ZNSt6vectorIN4llvm6HwModeESaIS1_EE17_M_realloc_insertIJRPKNS0_6RecordEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %35, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.pre = load ptr, ptr %19, align 8, !tbaa !139
+  %.pre = load ptr, ptr %20, align 8, !tbaa !139
   br label %_ZNSt6vectorIN4llvm6HwModeESaIS1_EE12emplace_backIJRPKNS0_6RecordEEEERS1_DpOT_.exit
 
 _ZNSt6vectorIN4llvm6HwModeESaIS1_EE12emplace_backIJRPKNS0_6RecordEEEERS1_DpOT_.exit: ; preds = %37, %40
@@ -1217,7 +1217,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %32, %_ZN4llvmeqENS_
   %.sroa.07.0.copyload42 = phi ptr [ %.sroa.07.0.copyload, %32 ], [ %.sroa.07.0.copyload, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.sroa.07.0.copyload.pre, %_ZNSt6vectorIN4llvm6HwModeESaIS1_EE12emplace_backIJRPKNS0_6RecordEEEERS1_DpOT_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %47 = getelementptr inbounds nuw i8, ptr %.034, i64 8
-  %.not = icmp eq ptr %47, %18
+  %.not = icmp eq ptr %47, %19
   br i1 %.not, label %._crit_edge, label %28
 
 ._crit_edge39:                                    ; preds = %_ZN4llvm12HwModeSelectD2Ev.exit, %._crit_edge
@@ -1230,7 +1230,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %32, %_ZN4llvmeqENS_
   store ptr %49, ptr %6, align 8, !tbaa !78
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4llvm12HwModeSelectC1EPKNS_6RecordERNS_14CodeGenHwModesE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %49, ptr noundef nonnull align 8 dereferenceable(104) %0) #18
-  %50 = load ptr, ptr %11, align 8, !tbaa !123
+  %50 = load ptr, ptr %12, align 8, !tbaa !123
   %.not10.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
@@ -1240,7 +1240,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %32, %_ZN4llvmeqENS_
 
 52:                                               ; preds = %52, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %52 ]
-  %.0811.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %52 ]
+  %.0811.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %52 ]
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %54 = load ptr, ptr %53, align 8, !tbaa !78
   %55 = icmp ult ptr %54, %51
@@ -1252,7 +1252,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %32, %_ZN4llvmeqENS_
   br i1 %.not.i.i.i.i, label %_ZNSt3mapIPKN4llvm6RecordENS0_12HwModeSelectESt4lessIS3_ESaISt4pairIKS3_S4_EEE11lower_boundERS8_.exit.i, label %52, !llvm.loop !143
 
 _ZNSt3mapIPKN4llvm6RecordENS0_12HwModeSelectESt4lessIS3_ESaISt4pairIKS3_S4_EEE11lower_boundERS8_.exit.i: ; preds = %52
-  %56 = icmp eq ptr %.19.i.i.i.i, %10
+  %56 = icmp eq ptr %.19.i.i.i.i, %11
   br i1 %56, label %.critedge.i, label %57
 
 57:                                               ; preds = %_ZNSt3mapIPKN4llvm6RecordENS0_12HwModeSelectESt4lessIS3_ESaISt4pairIKS3_S4_EEE11lower_boundERS8_.exit.i
@@ -1262,8 +1262,8 @@ _ZNSt3mapIPKN4llvm6RecordENS0_12HwModeSelectESt4lessIS3_ESaISt4pairIKS3_S4_EEE11
   br i1 %60, label %.critedge.i, label %_ZNSt3mapIPKN4llvm6RecordENS0_12HwModeSelectESt4lessIS3_ESaISt4pairIKS3_S4_EEE7emplaceIJRS3_S4_EEES7_ISt17_Rb_tree_iteratorIS9_EbEDpOT_.exit
 
 .critedge.i:                                      ; preds = %57, %_ZNSt3mapIPKN4llvm6RecordENS0_12HwModeSelectESt4lessIS3_ESaISt4pairIKS3_S4_EEE11lower_boundERS8_.exit.i, %48
-  %.08.lcssa.i.i.i20.i = phi ptr [ %.19.i.i.i.i, %57 ], [ %.19.i.i.i.i, %_ZNSt3mapIPKN4llvm6RecordENS0_12HwModeSelectESt4lessIS3_ESaISt4pairIKS3_S4_EEE11lower_boundERS8_.exit.i ], [ %10, %48 ]
-  %61 = call ptr @_ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_NS0_12HwModeSelectEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE22_M_emplace_hint_uniqueIJRS3_S6_EEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr %.08.lcssa.i.i.i20.i, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  %.08.lcssa.i.i.i20.i = phi ptr [ %.19.i.i.i.i, %57 ], [ %.19.i.i.i.i, %_ZNSt3mapIPKN4llvm6RecordENS0_12HwModeSelectESt4lessIS3_ESaISt4pairIKS3_S4_EEE11lower_boundERS8_.exit.i ], [ %11, %48 ]
+  %61 = call ptr @_ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_NS0_12HwModeSelectEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE22_M_emplace_hint_uniqueIJRS3_S6_EEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr %.08.lcssa.i.i.i20.i, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   br label %_ZNSt3mapIPKN4llvm6RecordENS0_12HwModeSelectESt4lessIS3_ESaISt4pairIKS3_S4_EEE7emplaceIJRS3_S4_EEES7_ISt17_Rb_tree_iteratorIS9_EbEDpOT_.exit
 
 _ZNSt3mapIPKN4llvm6RecordENS0_12HwModeSelectESt4lessIS3_ESaISt4pairIKS3_S4_EEE7emplaceIJRS3_S4_EEES7_ISt17_Rb_tree_iteratorIS9_EbEDpOT_.exit: ; preds = %57, %.critedge.i

@@ -308,13 +308,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_yuv_frame(ptr nound
 42:                                               ; preds = %.preheader64
   br i1 %37, label %.preheader64, label %.preheader63, !llvm.loop !50
 
-43:                                               ; preds = %.lr.ph, %223
-  %44 = phi ptr [ %.pre91, %.lr.ph ], [ %214, %223 ]
-  %45 = phi i32 [ %.pre, %.lr.ph ], [ %.050.lcssa.i52, %223 ]
-  %.13974 = phi i32 [ 0, %.lr.ph ], [ %226, %223 ]
-  %.sroa.0.073 = phi i32 [ 128, %.lr.ph ], [ %213, %223 ]
-  %.sroa.5.072 = phi i32 [ 128, %.lr.ph ], [ %224, %223 ]
-  %.sroa.8.071 = phi i32 [ 128, %.lr.ph ], [ %225, %223 ]
+43:                                               ; preds = %.lr.ph, %224
+  %44 = phi ptr [ %.pre91, %.lr.ph ], [ %214, %224 ]
+  %45 = phi i32 [ %.pre, %.lr.ph ], [ %.050.lcssa.i52, %224 ]
+  %.13974 = phi i32 [ 0, %.lr.ph ], [ %226, %224 ]
+  %.sroa.0.073 = phi i32 [ 128, %.lr.ph ], [ %213, %224 ]
+  %.sroa.5.072 = phi i32 [ 128, %.lr.ph ], [ %215, %224 ]
+  %.sroa.8.071 = phi i32 [ 128, %.lr.ph ], [ %225, %224 ]
   %46 = load ptr, ptr %4, align 16, !tbaa !49
   %47 = load i32, ptr %16, align 8, !tbaa !41
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 112
@@ -556,32 +556,32 @@ read_yuv_component_line.exit61:                   ; preds = %200, %read_yuv_comp
   %213 = phi i32 [ %105, %read_yuv_component_line.exit51 ], [ %.ph101, %read_yuv_component_line.exit51.thread ], [ %105, %200 ]
   %214 = phi ptr [ %151, %read_yuv_component_line.exit51 ], [ %.ph102, %read_yuv_component_line.exit51.thread ], [ %206, %200 ]
   %.050.lcssa.i52 = phi i32 [ %147, %read_yuv_component_line.exit51 ], [ %.050.lcssa.i42.ph, %read_yuv_component_line.exit51.thread ], [ %202, %200 ]
+  %215 = zext i8 %.in to i32
   store i32 %.050.lcssa.i52, ptr %14, align 8, !tbaa !43
-  %215 = load i8, ptr %212, align 1, !tbaa !36
-  br label %216
+  %216 = load i8, ptr %212, align 1, !tbaa !36
+  br label %217
 
-216:                                              ; preds = %read_yuv_component_line.exit61, %216
-  %indvars.iv85 = phi i64 [ 0, %read_yuv_component_line.exit61 ], [ %indvars.iv.next86, %216 ]
-  %217 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv85
-  %218 = load i32, ptr %217, align 4, !tbaa !48
-  %219 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv85
-  %220 = load ptr, ptr %219, align 8, !tbaa !49
-  %221 = sext i32 %218 to i64
-  %222 = getelementptr inbounds i8, ptr %220, i64 %221
-  store ptr %222, ptr %219, align 8, !tbaa !49
+217:                                              ; preds = %read_yuv_component_line.exit61, %217
+  %indvars.iv85 = phi i64 [ 0, %read_yuv_component_line.exit61 ], [ %indvars.iv.next86, %217 ]
+  %218 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv85
+  %219 = load i32, ptr %218, align 4, !tbaa !48
+  %220 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv85
+  %221 = load ptr, ptr %220, align 8, !tbaa !49
+  %222 = sext i32 %219 to i64
+  %223 = getelementptr inbounds i8, ptr %221, i64 %222
+  store ptr %223, ptr %220, align 8, !tbaa !49
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next86, 3
-  br i1 %exitcond.not, label %223, label %216, !llvm.loop !56
+  br i1 %exitcond.not, label %224, label %217, !llvm.loop !56
 
-223:                                              ; preds = %216
-  %224 = zext i8 %.in to i32
-  %225 = zext i8 %215 to i32
+224:                                              ; preds = %217
+  %225 = zext i8 %216 to i32
   %226 = add nuw nsw i32 %.13974, 1
   %227 = load i32, ptr %31, align 4, !tbaa !44
   %228 = icmp slt i32 %226, %227
   br i1 %228, label %43, label %.preheader62, !llvm.loop !57
 
-.preheader62:                                     ; preds = %223, %.preheader63
+.preheader62:                                     ; preds = %224, %.preheader63
   call void @ff_vlc_free(ptr noundef nonnull %5) #5
   %229 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @ff_vlc_free(ptr noundef nonnull %229) #5

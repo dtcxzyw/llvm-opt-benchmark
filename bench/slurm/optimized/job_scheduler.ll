@@ -4138,51 +4138,51 @@ define dso_local range(i32 0, 2072) i32 @update_job_dependency(ptr noundef %0, p
 
 92:                                               ; preds = %84
   %93 = load ptr, ptr %11, align 8
+  %94 = ptrtoint ptr %74 to i64
+  %95 = ptrtoint ptr %93 to i64
+  %96 = sub i64 %94, %95
+  %97 = trunc i64 %96 to i32
+  %98 = add i32 %70, %97
   call void @slurm_xfree(ptr noundef nonnull %11) #16
-  %94 = load ptr, ptr %12, align 8
-  %95 = call i64 @bit_fls(ptr noundef %94) #16
-  %96 = trunc i64 %95 to i32
-  %.not4954.i = icmp sgt i32 %87, %96
+  %99 = load ptr, ptr %12, align 8
+  %100 = call i64 @bit_fls(ptr noundef %99) #16
+  %101 = trunc i64 %100 to i32
+  %.not4954.i = icmp sgt i32 %87, %101
   br i1 %.not4954.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %92
   %sext.i = shl i64 %86, 32
-  %97 = ashr exact i64 %sext.i, 32
-  %98 = add i32 %96, 1
+  %102 = ashr exact i64 %sext.i, 32
+  %103 = add i32 %101, 1
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %106, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %97, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %106 ]
-  %99 = load ptr, ptr %12, align 8
-  %100 = call i32 @slurm_bit_test(ptr noundef %99, i64 noundef %indvars.iv.i) #16
-  %.not51.i = icmp eq i32 %100, 0
-  br i1 %.not51.i, label %106, label %101
+.lr.ph.i:                                         ; preds = %111, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ %102, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %111 ]
+  %104 = load ptr, ptr %12, align 8
+  %105 = call i32 @slurm_bit_test(ptr noundef %104, i64 noundef %indvars.iv.i) #16
+  %.not51.i = icmp eq i32 %105, 0
+  br i1 %.not51.i, label %111, label %106
 
-101:                                              ; preds = %.lr.ph.i
-  %102 = icmp eq i64 %indvars.iv.i, %97
-  br i1 %102, label %103, label %104
+106:                                              ; preds = %.lr.ph.i
+  %107 = icmp eq i64 %indvars.iv.i, %102
+  br i1 %107, label %108, label %109
 
-103:                                              ; preds = %101
+108:                                              ; preds = %106
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.61, i32 noundef %87) #16
-  br label %106
+  br label %111
 
-104:                                              ; preds = %101
-  %105 = trunc nsw i64 %indvars.iv.i to i32
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.113, i32 noundef %69, i32 noundef %105) #16
-  br label %106
+109:                                              ; preds = %106
+  %110 = trunc nsw i64 %indvars.iv.i to i32
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.113, i32 noundef %69, i32 noundef %110) #16
+  br label %111
 
-106:                                              ; preds = %104, %103, %.lr.ph.i
+111:                                              ; preds = %109, %108, %.lr.ph.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %98, %lftr.wideiv.i
+  %exitcond.not.i = icmp eq i32 %103, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
-._crit_edge.i:                                    ; preds = %106, %92
-  %107 = ptrtoint ptr %74 to i64
-  %108 = ptrtoint ptr %93 to i64
-  %109 = sub i64 %107, %108
-  %110 = trunc i64 %109 to i32
-  %111 = add i32 %70, %110
+._crit_edge.i:                                    ; preds = %111, %92
   %112 = load ptr, ptr %12, align 8
   %.not50.i = icmp eq ptr %112, null
   br i1 %.not50.i, label %114, label %113
@@ -4196,7 +4196,7 @@ define dso_local range(i32 0, 2072) i32 @update_job_dependency(ptr noundef %0, p
   br label %115
 
 115:                                              ; preds = %114, %62, %60, %58
-  %.141.i = phi i32 [ %111, %114 ], [ %.04057.i, %58 ], [ %.04057.i, %62 ], [ %.04057.i, %60 ]
+  %.141.i = phi i32 [ %98, %114 ], [ %.04057.i, %58 ], [ %.04057.i, %62 ], [ %.04057.i, %60 ]
   %.1.i = phi ptr [ null, %114 ], [ %spec.select.i, %58 ], [ null, %62 ], [ null, %60 ]
   %116 = add nsw i32 %.141.i, 1
   %117 = sext i32 %116 to i64

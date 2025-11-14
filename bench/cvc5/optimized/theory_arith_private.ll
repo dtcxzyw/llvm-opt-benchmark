@@ -92745,8 +92745,8 @@ define linkonce_odr hidden void @_ZNSt6vectorIPKN4cvc58internal6theory5arith6lin
 
 _ZSt6fill_nIPPKN4cvc58internal6theory5arith6linear10ConstraintEmS7_ET_S9_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !1018
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPKN4cvc58internal6theory5arith6linear10ConstraintEmS7_ET_S9_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPKN4cvc58internal6theory5arith6linear10ConstraintEmS7_ET_S9_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPKN4cvc58internal6theory5arith6linear10ConstraintEmS7_ET_S9_T0_RKT1_.exit.loopexit.i.i.i
@@ -103055,9 +103055,9 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4cvc58internal6
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaISA_EES2_ISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterINS7_7SizeOrdEEEEvT_SL_SL_SL_T0_(ptr %0, ptr nonnull %10, ptr %46, ptr nonnull %47)
   br label %48
 
-48:                                               ; preds = %72, %44
-  %.sroa.010.0.i.i = phi ptr [ %10, %44 ], [ %62, %72 ]
-  %.sroa.0.0.i.i = phi ptr [ %storemerge29, %44 ], [ %.sroa.0.1.i.i, %72 ]
+48:                                               ; preds = %73, %44
+  %.sroa.010.0.i.i = phi ptr [ %10, %44 ], [ %62, %73 ]
+  %.sroa.0.0.i.i = phi ptr [ %storemerge29, %44 ], [ %.sroa.0.1.i.i, %73 ]
   %49 = load ptr, ptr %11, align 8, !tbaa !1253
   %50 = load ptr, ptr %0, align 8, !tbaa !1251
   %51 = ptrtoint ptr %49 to i64
@@ -103075,40 +103075,43 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4cvc58internal6
   %60 = sub i64 %58, %59
   %61 = icmp ult i64 %60, %53
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 24
-  br i1 %61, label %54, label %.preheader.i.i, !llvm.loop !2089
+  br i1 %61, label %54, label %.preheader.i.i.preheader, !llvm.loop !2089
 
-.preheader.i.i:                                   ; preds = %54, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %54 ]
+.preheader.i.i.preheader:                         ; preds = %54
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 8
+  br label %.preheader.i.i
+
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %.preheader.i.i.preheader ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -24
-  %63 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
-  %64 = load ptr, ptr %63, align 8, !tbaa !1253
-  %65 = load ptr, ptr %.sroa.0.1.i.i, align 8, !tbaa !1251
-  %66 = ptrtoint ptr %64 to i64
+  %64 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
+  %65 = load ptr, ptr %64, align 8, !tbaa !1253
+  %66 = load ptr, ptr %.sroa.0.1.i.i, align 8, !tbaa !1251
   %67 = ptrtoint ptr %65 to i64
-  %68 = sub i64 %66, %67
-  %69 = icmp ult i64 %53, %68
-  br i1 %69, label %.preheader.i.i, label %70, !llvm.loop !2090
+  %68 = ptrtoint ptr %66 to i64
+  %69 = sub i64 %67, %68
+  %70 = icmp ult i64 %53, %69
+  br i1 %70, label %.preheader.i.i, label %71, !llvm.loop !2090
 
-70:                                               ; preds = %.preheader.i.i
-  %71 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
-  br i1 %71, label %72, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaISA_EES2_ISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterINS7_7SizeOrdEEEET_SL_SL_T0_.exit
+71:                                               ; preds = %.preheader.i.i
+  %72 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
+  br i1 %72, label %73, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaISA_EES2_ISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterINS7_7SizeOrdEEEET_SL_SL_T0_.exit
 
-72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 8
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 16
   %76 = load ptr, ptr %75, align 8, !tbaa !1252
-  store ptr %65, ptr %.sroa.010.1.i.i, align 8, !tbaa !1251
-  store ptr %64, ptr %74, align 8, !tbaa !1253
+  store ptr %66, ptr %.sroa.010.1.i.i, align 8, !tbaa !1251
+  store ptr %65, ptr %63, align 8, !tbaa !1253
   %77 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   %78 = load ptr, ptr %77, align 8, !tbaa !1252
   store ptr %78, ptr %75, align 8, !tbaa !1252
   store ptr %57, ptr %.sroa.0.1.i.i, align 8, !tbaa !1251
-  store ptr %56, ptr %73, align 8, !tbaa !1253
+  store ptr %56, ptr %74, align 8, !tbaa !1253
   store ptr %76, ptr %77, align 8, !tbaa !1252
   br label %48, !llvm.loop !2091
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaISA_EES2_ISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterINS7_7SizeOrdEEEET_SL_SL_T0_.exit: ; preds = %70
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaISA_EES2_ISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterINS7_7SizeOrdEEEET_SL_SL_T0_.exit: ; preds = %71
   %79 = add nsw i64 %.030, -1
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaISA_EES2_ISC_SaISC_EEEElNS0_5__ops15_Iter_comp_iterINS7_7SizeOrdEEEEvT_SL_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge29, i64 noundef %79)
   %80 = ptrtoint ptr %.sroa.010.1.i.i to i64
@@ -104593,8 +104596,8 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !371
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i

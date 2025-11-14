@@ -647,9 +647,11 @@ define dso_local noundef i64 @_ZNK4llvm16MachineFrameInfo17estimateStackSizeERKN
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 200
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(304) %9) #16
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load i32, ptr %14, align 8, !tbaa !46
-  %.not54 = icmp eq i32 %15, 0
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.sroa.0.0.copyload.i = load i8, ptr %14, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %16 = load i32, ptr %15, align 8, !tbaa !46
+  %.not54 = icmp eq i32 %16, 0
   br i1 %.not54, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %2
@@ -658,40 +660,38 @@ define dso_local noundef i64 @_ZNK4llvm16MachineFrameInfo17estimateStackSizeERKN
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %16 = sub i32 0, %15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !38
-  %19 = zext i32 %16 to i64
+  %17 = sub i32 0, %16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !38
+  %20 = zext i32 %17 to i64
   br label %32
 
 ._crit_edge:                                      ; preds = %42, %.._crit_edge_crit_edge
-  %20 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %18, %42 ]
+  %21 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %19, %42 ]
   %.0.lcssa = phi i64 [ 0, %.._crit_edge_crit_edge ], [ %.1, %42 ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.sroa.0.0.copyload.i = load i8, ptr %21, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = ptrtoint ptr %24 to i64
-  %26 = ptrtoint ptr %20 to i64
+  %26 = ptrtoint ptr %21 to i64
   %27 = sub i64 %25, %26
   %28 = sdiv exact i64 %27, 40
   %29 = trunc i64 %28 to i32
-  %.not3257 = icmp eq i32 %15, %29
+  %.not3257 = icmp eq i32 %16, %29
   br i1 %.not3257, label %._crit_edge63, label %.lr.ph62.preheader
 
 .lr.ph62.preheader:                               ; preds = %._crit_edge
-  %30 = sub i32 %29, %15
+  %30 = sub i32 %29, %16
   %31 = zext i32 %30 to i64
   br label %.lr.ph62
 
 32:                                               ; preds = %.lr.ph, %42
-  %indvars.iv = phi i64 [ %19, %.lr.ph ], [ %indvars.iv.next, %42 ]
+  %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %.056 = phi i64 [ 0, %.lr.ph ], [ %.1, %42 ]
   %33 = trunc nuw i64 %indvars.iv to i32
-  %34 = add i32 %15, %33
+  %34 = add i32 %16, %33
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %18, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %19, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %38 = load i8, ptr %37, align 4, !tbaa !60
   %.not35 = icmp eq i8 %38, 0
@@ -723,9 +723,9 @@ define dso_local noundef i64 @_ZNK4llvm16MachineFrameInfo17estimateStackSizeERKN
   %.360 = phi i64 [ %.0.lcssa, %.lr.ph62.preheader ], [ %.4, %66 ]
   %.sroa.048.058 = phi i8 [ %.sroa.0.0.copyload.i, %.lr.ph62.preheader ], [ %.sroa.048.1, %66 ]
   %47 = trunc nuw i64 %indvars.iv67 to i32
-  %48 = add i32 %15, %47
+  %48 = add i32 %16, %47
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %20, i64 %49
+  %50 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %21, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8, !tbaa !56
   %53 = icmp eq i64 %52, -1
@@ -804,7 +804,7 @@ _ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit:
   %96 = sub i64 %94, %95
   %97 = sdiv exact i64 %96, 40
   %98 = trunc i64 %97 to i32
-  %99 = load i32, ptr %14, align 8, !tbaa !46
+  %99 = load i32, ptr %15, align 8, !tbaa !46
   %.not33 = icmp eq i32 %99, %98
   br i1 %.not33, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread, label %100
 

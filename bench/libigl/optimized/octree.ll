@@ -246,8 +246,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %24
 
 40:                                               ; preds = %.noexc112
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %37, 2
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %36, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !4
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i.i.i.i.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %41, ptr %42, align 8, !tbaa !40
   %43 = add nuw i64 %.idx.i.i.i.i.i.i.i, 4
@@ -1338,8 +1338,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %24
 
 40:                                               ; preds = %.noexc112
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %37, 2
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr align 4 %36, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !4
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i.i.i.i.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %41, ptr %42, align 8, !tbaa !40
   %43 = add nuw i64 %.idx.i.i.i.i.i.i.i, 4

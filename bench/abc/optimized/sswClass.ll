@@ -2398,16 +2398,17 @@ Aig_ManObj.exit92:                                ; preds = %46
   %51 = getelementptr inbounds ptr, ptr %16, i64 %50
   %52 = getelementptr i8, ptr %48, i64 4
   %.val81 = load i32, ptr %52, align 4, !tbaa !87
-  %53 = getelementptr i8, ptr %48, i64 8
-  %.val85 = load ptr, ptr %53, align 8, !tbaa !90
-  %54 = load i32, ptr %.val85, align 4, !tbaa !44
+  %53 = add nsw i32 %.val81, %.0106
+  %54 = getelementptr i8, ptr %48, i64 8
+  %.val85 = load ptr, ptr %54, align 8, !tbaa !90
+  %55 = load i32, ptr %.val85, align 4, !tbaa !44
   %.val.i91 = load ptr, ptr %40, align 8, !tbaa !29
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr %.val.i91, i64 %55
-  %57 = load ptr, ptr %56, align 8, !tbaa !46
-  store ptr %57, ptr %51, align 8, !tbaa !45
-  %58 = icmp sgt i32 %.val81, 1
-  br i1 %58, label %Aig_ManObj.exit95.lr.ph, label %.critedge2
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds ptr, ptr %.val.i91, i64 %56
+  %58 = load ptr, ptr %57, align 8, !tbaa !46
+  store ptr %58, ptr %51, align 8, !tbaa !45
+  %59 = icmp sgt i32 %.val81, 1
+  br i1 %59, label %Aig_ManObj.exit95.lr.ph, label %.critedge2
 
 Aig_ManObj.exit95.lr.ph:                          ; preds = %Aig_ManObj.exit92
   %.val73 = load ptr, ptr %41, align 8, !tbaa !33
@@ -2416,25 +2417,24 @@ Aig_ManObj.exit95.lr.ph:                          ; preds = %Aig_ManObj.exit92
 
 Aig_ManObj.exit95:                                ; preds = %Aig_ManObj.exit95.lr.ph, %Aig_ManObj.exit95
   %indvars.iv116 = phi i64 [ 1, %Aig_ManObj.exit95.lr.ph ], [ %indvars.iv.next117, %Aig_ManObj.exit95 ]
-  %59 = getelementptr inbounds nuw i32, ptr %.val85, i64 %indvars.iv116
-  %60 = load i32, ptr %59, align 4, !tbaa !44
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds ptr, ptr %.val.i91, i64 %61
-  %63 = load ptr, ptr %62, align 8, !tbaa !46
-  %64 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv116
-  store ptr %63, ptr %64, align 8, !tbaa !45
-  %65 = getelementptr i8, ptr %63, i64 36
-  %.val74 = load i32, ptr %65, align 4, !tbaa !42
-  %66 = sext i32 %.val74 to i64
-  %67 = getelementptr inbounds ptr, ptr %.val73, i64 %66
-  store ptr %57, ptr %67, align 8, !tbaa !45
+  %60 = getelementptr inbounds nuw i32, ptr %.val85, i64 %indvars.iv116
+  %61 = load i32, ptr %60, align 4, !tbaa !44
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds ptr, ptr %.val.i91, i64 %62
+  %64 = load ptr, ptr %63, align 8, !tbaa !46
+  %65 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv116
+  store ptr %64, ptr %65, align 8, !tbaa !45
+  %66 = getelementptr i8, ptr %64, i64 36
+  %.val74 = load i32, ptr %66, align 4, !tbaa !42
+  %67 = sext i32 %.val74 to i64
+  %68 = getelementptr inbounds ptr, ptr %.val73, i64 %67
+  store ptr %58, ptr %68, align 8, !tbaa !45
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
   br i1 %exitcond120.not, label %.critedge2, label %Aig_ManObj.exit95, !llvm.loop !92
 
 .critedge2:                                       ; preds = %Aig_ManObj.exit95, %Aig_ManObj.exit92
-  %68 = add nsw i32 %.val81, %.0106
-  %69 = getelementptr i8, ptr %57, i64 36
+  %69 = getelementptr i8, ptr %58, i64 36
   %.val78 = load i32, ptr %69, align 4, !tbaa !42
   %70 = load ptr, ptr %42, align 8, !tbaa !26
   %71 = sext i32 %.val78 to i64
@@ -2455,7 +2455,7 @@ Aig_ManObj.exit95:                                ; preds = %Aig_ManObj.exit95.l
 
 80:                                               ; preds = %46, %.critedge2
   %.val.val = phi i32 [ %.val.val124, %46 ], [ %.val.val.pre, %.critedge2 ]
-  %.1 = phi i32 [ %.0106, %46 ], [ %68, %.critedge2 ]
+  %.1 = phi i32 [ %.0106, %46 ], [ %53, %.critedge2 ]
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %81 = sext i32 %.val.val to i64
   %82 = icmp slt i64 %indvars.iv.next122, %81
