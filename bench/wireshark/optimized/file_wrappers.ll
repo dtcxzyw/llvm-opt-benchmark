@@ -2096,7 +2096,7 @@ fill_in_buffer.exit.thread.i.thread:              ; preds = %247
 
 296:                                              ; preds = %273
   %297 = getelementptr inbounds nuw i8, ptr %279, i64 28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32768) %297, ptr noundef nonnull readonly align 1 dereferenceable(32768) %217, i64 noundef 32768, i1 noundef false) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32768) %297, ptr noundef nonnull readonly align 1 dereferenceable(32768) %217, i64 noundef 32768, i1 noundef false) #22
   br label %298
 
 298:                                              ; preds = %296, %285
@@ -2611,7 +2611,7 @@ fill_in_buffer.exit.i27:                          ; preds = %buf_read.exit.i.i38
   %573 = getelementptr inbounds nuw i8, ptr %553, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %573, ptr noundef nonnull readonly align 8 dereferenceable(32) %438, i64 32, i1 false)
   %574 = getelementptr inbounds nuw i8, ptr %553, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %574, ptr noundef nonnull readonly align 1 dereferenceable(19) %444, i64 noundef 19, i1 noundef false) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %574, ptr noundef nonnull readonly align 1 dereferenceable(19) %444, i64 noundef 19, i1 noundef false) #22
   %575 = load ptr, ptr %443, align 8
   call void @g_ptr_array_add(ptr noundef %575, ptr noundef %553)
   %.pre.i32 = load i32, ptr %439, align 8
@@ -3700,12 +3700,12 @@ define hidden i32 @gzwfile_geterr(ptr noundef readonly captures(none) %0) local_
 define hidden noundef ptr @lz4wfile_open(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 577, i32 noundef 438)
   %3 = icmp eq i32 %2, -1
-  br i1 %3, label %23, label %4
+  br i1 %3, label %22, label %4
 
 4:                                                ; preds = %1
   %5 = tail call noalias dereferenceable_or_null(136) ptr @g_try_malloc(i64 noundef 136) #21
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %19, label %lz4wfile_fdopen.exit
+  br i1 %6, label %18, label %lz4wfile_fdopen.exit
 
 lz4wfile_fdopen.exit:                             ; preds = %4
   store i32 %2, ptr %5, align 8
@@ -3717,32 +3717,31 @@ lz4wfile_fdopen.exit:                             ; preds = %4
   %10 = tail call i64 @LZ4F_compressBound(i64 noundef 4194304, ptr noundef nonnull %9)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %12, i8 noundef 0, i64 noundef 44, i1 noundef false) #22
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 noundef 0, i64 noundef 48, i1 noundef false) #22
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 76
   store i32 1, ptr %13, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i32 1, ptr %14, align 8
+  store i32 1, ptr %12, align 8
   store i32 7, ptr %9, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i32 1, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  br label %23
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  store i32 1, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i32 0, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr null, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  br label %22
 
-19:                                               ; preds = %4
-  %20 = tail call ptr @__errno_location() #23
-  %21 = load i32, ptr %20, align 4
-  %22 = tail call i32 @close(i32 noundef %2)
-  store i32 %21, ptr %20, align 4
-  br label %23
+18:                                               ; preds = %4
+  %19 = tail call ptr @__errno_location() #23
+  %20 = load i32, ptr %19, align 4
+  %21 = tail call i32 @close(i32 noundef %2)
+  store i32 %20, ptr %19, align 4
+  br label %22
 
-23:                                               ; preds = %lz4wfile_fdopen.exit, %19, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %19 ], [ %5, %lz4wfile_fdopen.exit ]
+22:                                               ; preds = %lz4wfile_fdopen.exit, %18, %1
+  %.0 = phi ptr [ null, %1 ], [ null, %18 ], [ %5, %lz4wfile_fdopen.exit ]
   ret ptr %.0
 }
 
@@ -3762,8 +3761,8 @@ define hidden noundef ptr @lz4wfile_fdopen(i32 noundef %0) local_unnamed_addr #0
   %8 = tail call i64 @LZ4F_compressBound(i64 noundef 4194304, ptr noundef nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %10, i8 noundef 0, i64 noundef 44, i1 noundef false) #22
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 noundef 0, i64 noundef 48, i1 noundef false) #22
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 76
   store i32 1, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -4160,7 +4159,7 @@ define internal fastcc void @fast_seek_header(ptr noundef readonly captures(none
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %26, ptr noundef nonnull align 1 dereferenceable(19) %27, i64 noundef 19, i1 noundef false) #22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %26, ptr noundef nonnull align 1 dereferenceable(19) %27, i64 noundef 19, i1 noundef false) #22
   br label %28
 
 28:                                               ; preds = %23, %.thread

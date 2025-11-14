@@ -13041,9 +13041,8 @@ define hidden void @_ZN12polars_arrow6legacy7kernels14sort_partition29partition_
   %30 = lshr exact i64 %29, 2
   %31 = trunc i64 %30 to i32
   %.sroa.426.0.insert.ext = shl i64 %29, 30
-  %.sroa.426.0.insert.shift = and i64 %.sroa.426.0.insert.ext, -4294967296
   %.sroa.025.0.insert.ext = zext i32 %.sroa.012.043 to i64
-  %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.426.0.insert.shift, %.sroa.025.0.insert.ext
+  %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.426.0.insert.ext, %.sroa.025.0.insert.ext
   %32 = load i64, ptr %5, align 8, !range !75, !alias.scope !915, !noalias !918, !noundef !6
   %33 = icmp eq i64 %22, %32
   br i1 %33, label %34, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd893bfb9f938c828E.exit36"
@@ -13204,9 +13203,8 @@ define hidden void @_ZN12polars_arrow6legacy7kernels14sort_partition29partition_
   %30 = lshr exact i64 %29, 3
   %31 = trunc i64 %30 to i32
   %.sroa.426.0.insert.ext = shl i64 %29, 29
-  %.sroa.426.0.insert.shift = and i64 %.sroa.426.0.insert.ext, -4294967296
   %.sroa.025.0.insert.ext = zext i32 %.sroa.012.043 to i64
-  %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.426.0.insert.shift, %.sroa.025.0.insert.ext
+  %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.426.0.insert.ext, %.sroa.025.0.insert.ext
   %32 = load i64, ptr %5, align 8, !range !75, !alias.scope !945, !noalias !948, !noundef !6
   %33 = icmp eq i64 %22, %32
   br i1 %33, label %34, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd893bfb9f938c828E.exit36"
@@ -13367,9 +13365,8 @@ define hidden void @_ZN12polars_arrow6legacy7kernels14sort_partition29partition_
   %30 = lshr exact i64 %29, 4
   %31 = trunc i64 %30 to i32
   %.sroa.426.0.insert.ext = shl i64 %29, 28
-  %.sroa.426.0.insert.shift = and i64 %.sroa.426.0.insert.ext, -4294967296
   %.sroa.025.0.insert.ext = zext i32 %.sroa.012.043 to i64
-  %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.426.0.insert.shift, %.sroa.025.0.insert.ext
+  %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.426.0.insert.ext, %.sroa.025.0.insert.ext
   %32 = load i64, ptr %5, align 8, !range !75, !alias.scope !975, !noalias !978, !noundef !6
   %33 = icmp eq i64 %22, %32
   br i1 %33, label %34, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd893bfb9f938c828E.exit36"
@@ -13850,9 +13847,8 @@ define hidden void @_ZN12polars_arrow6legacy7kernels14sort_partition29partition_
   %30 = lshr exact i64 %29, 1
   %31 = trunc i64 %30 to i32
   %.sroa.426.0.insert.ext = shl i64 %29, 31
-  %.sroa.426.0.insert.shift = and i64 %.sroa.426.0.insert.ext, -4294967296
   %.sroa.025.0.insert.ext = zext i32 %.sroa.012.043 to i64
-  %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.426.0.insert.shift, %.sroa.025.0.insert.ext
+  %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.426.0.insert.ext, %.sroa.025.0.insert.ext
   %32 = load i64, ptr %5, align 8, !range !75, !alias.scope !1065, !noalias !1068, !noundef !6
   %33 = icmp eq i64 %22, %32
   br i1 %33, label %34, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd893bfb9f938c828E.exit36"
@@ -14013,9 +14009,8 @@ define hidden void @_ZN12polars_arrow6legacy7kernels14sort_partition29partition_
   %30 = lshr exact i64 %29, 1
   %31 = trunc i64 %30 to i32
   %.sroa.426.0.insert.ext = shl i64 %29, 31
-  %.sroa.426.0.insert.shift = and i64 %.sroa.426.0.insert.ext, -4294967296
   %.sroa.025.0.insert.ext = zext i32 %.sroa.012.043 to i64
-  %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.426.0.insert.shift, %.sroa.025.0.insert.ext
+  %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.426.0.insert.ext, %.sroa.025.0.insert.ext
   %32 = load i64, ptr %5, align 8, !range !75, !alias.scope !1095, !noalias !1098, !noundef !6
   %33 = icmp eq i64 %22, %32
   br i1 %33, label %34, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd893bfb9f938c828E.exit36"
@@ -14176,9 +14171,8 @@ define hidden void @_ZN12polars_arrow6legacy7kernels14sort_partition29partition_
   %30 = lshr exact i64 %29, 2
   %31 = trunc i64 %30 to i32
   %.sroa.426.0.insert.ext = shl i64 %29, 30
-  %.sroa.426.0.insert.shift = and i64 %.sroa.426.0.insert.ext, -4294967296
   %.sroa.025.0.insert.ext = zext i32 %.sroa.012.043 to i64
-  %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.426.0.insert.shift, %.sroa.025.0.insert.ext
+  %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.426.0.insert.ext, %.sroa.025.0.insert.ext
   %32 = load i64, ptr %5, align 8, !range !75, !alias.scope !1125, !noalias !1128, !noundef !6
   %33 = icmp eq i64 %22, %32
   br i1 %33, label %34, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd893bfb9f938c828E.exit36"
@@ -14339,9 +14333,8 @@ define hidden void @_ZN12polars_arrow6legacy7kernels14sort_partition29partition_
   %30 = lshr exact i64 %29, 3
   %31 = trunc i64 %30 to i32
   %.sroa.426.0.insert.ext = shl i64 %29, 29
-  %.sroa.426.0.insert.shift = and i64 %.sroa.426.0.insert.ext, -4294967296
   %.sroa.025.0.insert.ext = zext i32 %.sroa.012.043 to i64
-  %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.426.0.insert.shift, %.sroa.025.0.insert.ext
+  %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.426.0.insert.ext, %.sroa.025.0.insert.ext
   %32 = load i64, ptr %5, align 8, !range !75, !alias.scope !1155, !noalias !1158, !noundef !6
   %33 = icmp eq i64 %22, %32
   br i1 %33, label %34, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd893bfb9f938c828E.exit36"

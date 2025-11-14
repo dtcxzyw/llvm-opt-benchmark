@@ -420,16 +420,16 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   br label %.sink.split
 
 27:                                               ; preds = %._crit_edge117, %._crit_edge117, %._crit_edge117, %._crit_edge117, %._crit_edge117, %._crit_edge117, %._crit_edge117, %._crit_edge117
-  %28 = load ptr, ptr %6, align 8, !tbaa !34
+  %28 = load ptr, ptr %6, align 16, !tbaa !34
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 16, !tbaa !40
   %31 = load ptr, ptr %8, align 8, !tbaa !34
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 16, !tbaa !40
   %34 = tail call fastcc ptr @get_common_type(ptr noundef %30, ptr noundef %33)
-  %35 = load ptr, ptr %6, align 8, !tbaa !34
+  %35 = load ptr, ptr %6, align 16, !tbaa !34
   %36 = tail call ptr @new_cast(ptr noundef %35, ptr noundef %34) #12
-  store ptr %36, ptr %6, align 8, !tbaa !34
+  store ptr %36, ptr %6, align 16, !tbaa !34
   %37 = load ptr, ptr %8, align 8, !tbaa !34
   %38 = tail call ptr @new_cast(ptr noundef %37, ptr noundef %34) #12
   store ptr %38, ptr %8, align 8, !tbaa !34
@@ -475,16 +475,16 @@ define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_
   br label %.sink.split
 
 61:                                               ; preds = %._crit_edge117, %._crit_edge117, %._crit_edge117, %._crit_edge117
-  %62 = load ptr, ptr %6, align 8, !tbaa !34
+  %62 = load ptr, ptr %6, align 16, !tbaa !34
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 16, !tbaa !40
   %65 = load ptr, ptr %8, align 8, !tbaa !34
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 16, !tbaa !40
   %68 = tail call fastcc ptr @get_common_type(ptr noundef %64, ptr noundef %67)
-  %69 = load ptr, ptr %6, align 8, !tbaa !34
+  %69 = load ptr, ptr %6, align 16, !tbaa !34
   %70 = tail call ptr @new_cast(ptr noundef %69, ptr noundef %68) #12
-  store ptr %70, ptr %6, align 8, !tbaa !34
+  store ptr %70, ptr %6, align 16, !tbaa !34
   %71 = load ptr, ptr %8, align 8, !tbaa !34
   %72 = tail call ptr @new_cast(ptr noundef %71, ptr noundef %68) #12
   store ptr %72, ptr %8, align 8, !tbaa !34

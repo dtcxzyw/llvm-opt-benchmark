@@ -23,19 +23,15 @@ define dso_local noundef i64 @brin_minmax_opcinfo(ptr noundef readonly captures(
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 1, ptr %6, align 2
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %8 = ptrtoint ptr %7 to i64
-  %9 = add i64 %8, 7
-  %10 = and i64 %9, -8
-  %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %11, ptr %12, align 8
-  %13 = tail call ptr @lookup_type_cache(i32 noundef %4, i32 noundef 0) #3
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %13, ptr %15, align 8
-  store ptr %13, ptr %14, align 8
-  %16 = ptrtoint ptr %5 to i64
-  ret i64 %16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %7, ptr %8, align 8
+  %9 = tail call ptr @lookup_type_cache(i32 noundef %4, i32 noundef 0) #3
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %9, ptr %11, align 8
+  store ptr %9, ptr %10, align 8
+  %12 = ptrtoint ptr %5 to i64
+  ret i64 %12
 }
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1

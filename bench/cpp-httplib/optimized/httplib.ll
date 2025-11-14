@@ -4299,7 +4299,7 @@ define linkonce_odr void @_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEC2EP
 
 30:                                               ; preds = %28
   %31 = add nsw i32 %19, -1
-  store i32 %31, ptr %16, align 4, !tbaa !3
+  store i32 %31, ptr %16, align 8, !tbaa !3
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 32:                                               ; preds = %28
@@ -4364,7 +4364,7 @@ define linkonce_odr void @_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEED2Ev
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !3
+  store i32 %20, ptr %5, align 8, !tbaa !3
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -41247,9 +41247,9 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7httplib6detail4mmapESaIv
   br i1 %.not.i.i.i.i, label %187, label %184
 
 184:                                              ; preds = %182
-  %185 = load i32, ptr %160, align 4, !tbaa !3
+  %185 = load i32, ptr %160, align 8, !tbaa !3
   %186 = add nsw i32 %185, 1
-  store i32 %186, ptr %160, align 4, !tbaa !3
+  store i32 %186, ptr %160, align 8, !tbaa !3
   br label %_ZNSt10shared_ptrIN7httplib6detail4mmapEEC2ERKS3_.exit
 
 187:                                              ; preds = %182
@@ -41428,7 +41428,7 @@ _ZNKSt8functionIFvRKN7httplib7RequestERNS0_8ResponseEEEclES3_S5_.exit: ; preds =
 
 252:                                              ; preds = %250
   %253 = add nsw i32 %241, -1
-  store i32 %253, ptr %238, align 4, !tbaa !3
+  store i32 %253, ptr %238, align 8, !tbaa !3
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 254:                                              ; preds = %250
@@ -41688,7 +41688,7 @@ define internal fastcc void @"_ZZN7httplib6Server19handle_file_requestERKNS_7Req
 
 16:                                               ; preds = %14
   %17 = add nsw i32 %5, -1
-  store i32 %17, ptr %2, align 4, !tbaa !3
+  store i32 %17, ptr %2, align 8, !tbaa !3
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 18:                                               ; preds = %14
@@ -41743,7 +41743,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN7httplib6detail4mmapELN9__gnu_cxx
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !3
+  store i32 %20, ptr %5, align 8, !tbaa !3
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -45676,7 +45676,7 @@ define internal fastcc void @"_ZZN7httplib6Server15process_requestERNS_6StreamER
 
 16:                                               ; preds = %14
   %17 = add nsw i32 %5, -1
-  store i32 %17, ptr %2, align 4, !tbaa !3
+  store i32 %17, ptr %2, align 8, !tbaa !3
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 18:                                               ; preds = %14
@@ -83950,7 +83950,7 @@ define linkonce_odr void @_ZN7httplib6detail12RegexMatcherD2Ev(ptr noundef nonnu
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !3
+  store i32 %20, ptr %5, align 8, !tbaa !3
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 21:                                               ; preds = %17
@@ -84007,7 +84007,7 @@ define linkonce_odr void @_ZN7httplib6detail12RegexMatcherD0Ev(ptr noundef nonnu
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !3
+  store i32 %20, ptr %5, align 8, !tbaa !3
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 21:                                               ; preds = %17
@@ -88679,7 +88679,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 
 41:                                               ; preds = %39
   %42 = add nsw i32 %30, -1
-  store i32 %42, ptr %27, align 4, !tbaa !3
+  store i32 %42, ptr %27, align 8, !tbaa !3
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 43:                                               ; preds = %39
@@ -89554,7 +89554,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrINSt8__detail4_NFAINSt7__cxx1112reg
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !3
+  store i32 %20, ptr %5, align 8, !tbaa !3
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -98694,7 +98694,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %.021.ptr43, i64 8
-  %52 = load i16, ptr %51, align 2, !tbaa !1471
+  %52 = load i16, ptr %51, align 8, !tbaa !1471
   %53 = and i16 %52, 768
   %.not38 = icmp eq i16 %53, 0
   br i1 %.not38, label %.critedge, label %.critedge28
@@ -113395,7 +113395,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIKNSt8__detail4_NFAINSt7__cxx1112re
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !3
+  store i32 %20, ptr %5, align 8, !tbaa !3
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -124779,7 +124779,7 @@ define linkonce_odr void @_ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEEC2IS
 
 32:                                               ; preds = %30
   %33 = add nsw i32 %21, -1
-  store i32 %33, ptr %18, align 4, !tbaa !3
+  store i32 %33, ptr %18, align 8, !tbaa !3
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 34:                                               ; preds = %30
@@ -133959,7 +133959,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbmmRN7httplib8Dat
 
 37:                                               ; preds = %35
   %38 = add nsw i32 %26, -1
-  store i32 %38, ptr %23, align 4, !tbaa !3
+  store i32 %38, ptr %23, align 8, !tbaa !3
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 39:                                               ; preds = %35
@@ -134936,7 +134936,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbmmRN7httplib8Dat
 
 37:                                               ; preds = %35
   %38 = add nsw i32 %26, -1
-  store i32 %38, ptr %23, align 4, !tbaa !3
+  store i32 %38, ptr %23, align 8, !tbaa !3
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 39:                                               ; preds = %35

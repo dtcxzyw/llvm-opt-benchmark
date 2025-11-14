@@ -2589,7 +2589,7 @@ _ZNSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEE9_M_createERmm.exit.i.
 
 113:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
   %114 = load i8, ptr %105, align 1, !tbaa !34
-  store i8 %114, ptr %106, align 1, !tbaa !34
+  store i8 %114, ptr %106, align 8, !tbaa !34
   br label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEEEE9constructIS6_JRPKhRmEEEvRS7_PT_DpOT0_.exit.i
 
 _ZSt8__copy_nIPKhmPhET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.i.i.i.i.i.thread, %._crit_edge.i.i.i.i.i.i.i
@@ -3638,9 +3638,9 @@ _ZNKSt8__detail15_Hashtable_baseIN4evmc7bytes32ESt4pairIKS2_NS1_12StorageValueEE
   %60 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #23
   store ptr null, ptr %60, align 8, !tbaa !97
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %61, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %61, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %62, i8 0, i64 68, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %62, i8 0, i64 68, i1 false)
   %63 = invoke ptr @_ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_NS0_12StorageValueEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeERS3_mmPNS7_10_Hash_nodeIS5_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 noundef %20, i64 noundef %17, ptr noundef nonnull %60, i64 noundef 1)
           to label %_ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_NS0_12StorageValueEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_NS0_12StorageValueEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit24
 
@@ -5320,9 +5320,9 @@ _ZNKSt8__detail15_Hashtable_baseIN4evmc7bytes32ESt4pairIKS2_S2_ENS_10_Select1stE
   %60 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
   store ptr null, ptr %60, align 8, !tbaa !97
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %61, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %61, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %62, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, i8 0, i64 32, i1 false)
   %63 = invoke ptr @_ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeERS3_mmPNS6_10_Hash_nodeIS4_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 noundef %20, i64 noundef %17, ptr noundef nonnull %60, i64 noundef 1)
           to label %_ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit24
 

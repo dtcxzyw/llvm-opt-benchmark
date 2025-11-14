@@ -5737,7 +5737,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK5clang4ento14ObjCMethodCall14g
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !881
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %36
+  br i1 %.not, label %4, label %35
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5789,31 +5789,30 @@ _ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit: ; pre
 .critedge:                                        ; preds = %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit, %29
   %.013.ph = phi i32 [ 0, %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit ], [ 1, %29 ]
   %30 = ptrtoint ptr %14 to i64
-  %31 = and i64 %30, -7
-  %32 = shl nuw nsw i32 %.013.ph, 1
-  %33 = zext nneg i32 %32 to i64
-  %34 = or disjoint i64 %31, %33
-  %35 = inttoptr i64 %34 to ptr
-  store ptr %35, ptr %2, align 8, !tbaa !881
-  br label %42
+  %31 = shl nuw nsw i32 %.013.ph, 1
+  %32 = zext nneg i32 %31 to i64
+  %33 = or disjoint i64 %32, %30
+  %34 = inttoptr i64 %33 to ptr
+  store ptr %34, ptr %2, align 8, !tbaa !881
+  br label %41
 
 _ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit.thread: ; preds = %4, %15, %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit
   store ptr inttoptr (i64 2 to ptr), ptr %2, align 8, !tbaa !881
-  br label %42
+  br label %41
 
-36:                                               ; preds = %1
+35:                                               ; preds = %1
   %.not19 = icmp ult ptr %3, inttoptr (i64 8 to ptr)
-  br i1 %.not19, label %42, label %37
+  br i1 %.not19, label %41, label %36
 
-37:                                               ; preds = %36
-  %38 = ptrtoint ptr %3 to i64
-  %39 = trunc i64 %38 to i32
-  %40 = lshr i32 %39, 1
-  %41 = and i32 %40, 3
-  br label %42
+36:                                               ; preds = %35
+  %37 = ptrtoint ptr %3 to i64
+  %38 = trunc i64 %37 to i32
+  %39 = lshr i32 %38, 1
+  %40 = and i32 %39, 3
+  br label %41
 
-42:                                               ; preds = %37, %36, %.critedge, %_ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit.thread
-  %.4 = phi i32 [ 2, %_ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit.thread ], [ %.013.ph, %.critedge ], [ %41, %37 ], [ 2, %36 ]
+41:                                               ; preds = %36, %35, %.critedge, %_ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit.thread
+  %.4 = phi i32 [ 2, %_ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit.thread ], [ %.013.ph, %.critedge ], [ %40, %36 ], [ 2, %35 ]
   ret i32 %.4
 }
 
@@ -10120,7 +10119,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   store ptr %1, ptr %35, align 8, !tbaa !971
   %36 = ptrtoint ptr %.0.i.i.i.i.i.i to i64
-  %37 = or i64 %36, 4
+  %37 = or disjoint i64 %36, 4
   br label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEEC2ERKNS_10ASTContextES4_.exit
 
 38:                                               ; preds = %10
@@ -10246,7 +10245,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_17ObjCInterf
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   store ptr %1, ptr %35, align 8, !tbaa !971
   %36 = ptrtoint ptr %.0.i.i.i.i.i.i to i64
-  %37 = or i64 %36, 4
+  %37 = or disjoint i64 %36, 4
   br label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEEC2ERKNS_10ASTContextES4_.exit
 
 38:                                               ; preds = %10

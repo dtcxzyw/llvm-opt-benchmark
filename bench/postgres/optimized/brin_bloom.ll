@@ -29,17 +29,13 @@ define dso_local noundef i64 @brin_bloom_opcinfo(ptr noundef readnone captures(n
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 1, ptr %3, align 2
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %5 = ptrtoint ptr %4 to i64
-  %6 = add i64 %5, 7
-  %7 = and i64 %6, -8
-  %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %8, ptr %9, align 8
-  %10 = tail call ptr @lookup_type_cache(i32 noundef 4600, i32 noundef 0) #7
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %10, ptr %11, align 8
-  %12 = ptrtoint ptr %2 to i64
-  ret i64 %12
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %4, ptr %5, align 8
+  %6 = tail call ptr @lookup_type_cache(i32 noundef 4600, i32 noundef 0) #7
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %6, ptr %7, align 8
+  %8 = ptrtoint ptr %2 to i64
+  ret i64 %8
 }
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1

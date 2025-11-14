@@ -3267,8 +3267,8 @@ define void @Gia_IsoRecognizeMuxes(ptr noundef readonly captures(none) %0) local
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %1, %55
-  %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %49
+  %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %1 ]
   %.val = load ptr, ptr %4, align 8, !tbaa !42
   %8 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
   %.not = icmp eq ptr %.val, null
@@ -3281,12 +3281,12 @@ define void @Gia_IsoRecognizeMuxes(ptr noundef readonly captures(none) %0) local
   %11 = and i64 %.val14, 536870911
   %12 = icmp eq i64 %11, 536870911
   %narrow.i.not = or i1 %.not.i, %12
-  br i1 %narrow.i.not, label %55, label %13
+  br i1 %narrow.i.not, label %49, label %13
 
 13:                                               ; preds = %9
   %14 = call i32 @Gia_ObjIsMuxType(ptr noundef nonnull %8) #27
   %.not13 = icmp eq i32 %14, 0
-  br i1 %.not13, label %55, label %15
+  br i1 %.not13, label %49, label %15
 
 15:                                               ; preds = %13
   %16 = call ptr @Gia_ObjRecognizeMux(ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef nonnull %3) #27
@@ -3298,61 +3298,55 @@ define void @Gia_IsoRecognizeMuxes(ptr noundef readonly captures(none) %0) local
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, -2
   %24 = icmp eq i64 %19, %23
-  br i1 %24, label %25, label %35
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %15
-  %26 = ptrtoint ptr %8 to i64
-  %27 = and i64 %26, -2
-  %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i32, ptr %29, align 4, !tbaa !44
-  %31 = add i32 %30, 305768917
-  store i32 %31, ptr %29, align 4, !tbaa !44
-  %32 = ptrtoint ptr %16 to i64
-  %33 = and i64 %32, -2
-  %34 = inttoptr i64 %33 to ptr
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %27 = load i32, ptr %26, align 4, !tbaa !44
+  %28 = add i32 %27, 305768917
+  store i32 %28, ptr %26, align 4, !tbaa !44
+  %29 = ptrtoint ptr %16 to i64
+  %30 = and i64 %29, -2
+  %31 = inttoptr i64 %30 to ptr
   br label %.sink.split
 
-35:                                               ; preds = %15
-  %36 = inttoptr i64 %23 to ptr
-  %37 = ptrtoint ptr %8 to i64
+32:                                               ; preds = %15
+  %33 = inttoptr i64 %23 to ptr
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %35 = load i32, ptr %34, align 4, !tbaa !44
+  %36 = add i32 %35, -1354043385
+  store i32 %36, ptr %34, align 4, !tbaa !44
+  %37 = ptrtoint ptr %16 to i64
   %38 = and i64 %37, -2
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 4, !tbaa !44
-  %42 = add i32 %41, -1354043385
+  %42 = add i32 %41, 1142962969
   store i32 %42, ptr %40, align 4, !tbaa !44
-  %43 = ptrtoint ptr %16 to i64
-  %44 = and i64 %43, -2
-  %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load i32, ptr %46, align 4, !tbaa !44
-  %48 = add i32 %47, 1142962969
-  store i32 %48, ptr %46, align 4, !tbaa !44
   br label %.sink.split
 
-.sink.split:                                      ; preds = %25, %35
-  %.sink26 = phi ptr [ %20, %35 ], [ %34, %25 ]
-  %.sink25 = phi i32 [ 597285205, %35 ], [ 1731962334, %25 ]
-  %.sink22 = phi ptr [ %36, %35 ], [ %20, %25 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
-  %50 = load i32, ptr %49, align 4, !tbaa !44
-  %51 = add i32 %50, %.sink25
-  store i32 %51, ptr %49, align 4, !tbaa !44
-  %52 = getelementptr inbounds nuw i8, ptr %.sink22, i64 8
-  %53 = load i32, ptr %52, align 4, !tbaa !44
-  %54 = add i32 %53, %.sink25
-  store i32 %54, ptr %52, align 4, !tbaa !44
-  br label %55
+.sink.split:                                      ; preds = %25, %32
+  %.sink26 = phi ptr [ %20, %32 ], [ %31, %25 ]
+  %.sink25 = phi i32 [ 597285205, %32 ], [ 1731962334, %25 ]
+  %.sink22 = phi ptr [ %33, %32 ], [ %20, %25 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
+  %44 = load i32, ptr %43, align 4, !tbaa !44
+  %45 = add i32 %44, %.sink25
+  store i32 %45, ptr %43, align 4, !tbaa !44
+  %46 = getelementptr inbounds nuw i8, ptr %.sink22, i64 8
+  %47 = load i32, ptr %46, align 4, !tbaa !44
+  %48 = add i32 %47, %.sink25
+  store i32 %48, ptr %46, align 4, !tbaa !44
+  br label %49
 
-55:                                               ; preds = %.sink.split, %9, %13
+49:                                               ; preds = %.sink.split, %9, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = load i32, ptr %5, align 8, !tbaa !14
-  %57 = sext i32 %56 to i64
-  %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph, label %.critedge, !llvm.loop !102
+  %50 = load i32, ptr %5, align 8, !tbaa !14
+  %51 = sext i32 %50 to i64
+  %52 = icmp slt i64 %indvars.iv.next, %51
+  br i1 %52, label %.lr.ph, label %.critedge, !llvm.loop !102
 
-.critedge:                                        ; preds = %.lr.ph, %55, %1
+.critedge:                                        ; preds = %.lr.ph, %49, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

@@ -1064,7 +1064,7 @@ define internal fastcc void @exp2reg(ptr noundef %0, ptr noundef captures(none) 
   br i1 %10, label %luaK_concat.exit, label %11
 
 11:                                               ; preds = %6
-  %12 = load i32, ptr %7, align 4, !tbaa !53
+  %12 = load i32, ptr %7, align 8, !tbaa !53
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %15, label %.preheader.i
 
@@ -1075,7 +1075,7 @@ define internal fastcc void @exp2reg(ptr noundef %0, ptr noundef captures(none) 
   br label %16
 
 15:                                               ; preds = %11
-  store i32 %9, ptr %7, align 4, !tbaa !53
+  store i32 %9, ptr %7, align 8, !tbaa !53
   br label %luaK_concat.exit
 
 16:                                               ; preds = %16, %.preheader.i
@@ -1867,7 +1867,7 @@ define hidden void @luaK_goiffalse(ptr noundef %0, ptr noundef captures(none) %1
   br i1 %11, label %luaK_concat.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %10, align 4, !tbaa !53
+  %13 = load i32, ptr %10, align 8, !tbaa !53
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %16, label %.preheader.i
 
@@ -1878,7 +1878,7 @@ define hidden void @luaK_goiffalse(ptr noundef %0, ptr noundef captures(none) %1
   br label %17
 
 16:                                               ; preds = %12
-  store i32 %.0, ptr %10, align 4, !tbaa !53
+  store i32 %.0, ptr %10, align 8, !tbaa !53
   br label %luaK_concat.exit
 
 17:                                               ; preds = %17, %.preheader.i

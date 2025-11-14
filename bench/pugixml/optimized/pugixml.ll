@@ -1600,7 +1600,7 @@ _ZN4pugi4impl12_GLOBAL__N_113xml_allocator15allocate_stringEm.exit: ; preds = %_
   store i16 %103, ptr %104, align 2, !tbaa !43
   %105 = getelementptr inbounds nuw i8, ptr %.0.i15.i, i64 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %105, ptr align 1 %3, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %105, ptr align 1 %3, i64 %4, i1 false)
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 %4
   store i8 0, ptr %106, align 1, !tbaa !28
   %107 = load i64, ptr %1, align 8, !tbaa !34
@@ -21190,7 +21190,7 @@ _ZN4pugi4impl12_GLOBAL__N_111hash_stringEPKc.exit.i: ; preds = %._crit_edge.loop
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %38 = add i64 %29, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull readonly align 1 %1, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull readonly align 1 %1, i64 %38, i1 false)
   %39 = load ptr, ptr %18, align 8, !tbaa !330
   store ptr %39, ptr %36, align 8, !tbaa !320
   store ptr %34, ptr %18, align 8, !tbaa !330
@@ -21282,7 +21282,7 @@ _ZN4pugi4impl12_GLOBAL__N_111hash_stringEPKc.exit.i: ; preds = %._crit_edge.loop
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %38 = add i64 %29, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull readonly align 1 %1, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull readonly align 1 %1, i64 %38, i1 false)
   %39 = load ptr, ptr %18, align 8, !tbaa !330
   store ptr %39, ptr %36, align 8, !tbaa !320
   store ptr %34, ptr %18, align 8, !tbaa !330
@@ -21410,7 +21410,7 @@ _ZN4pugi18xpath_variable_set3addEPKcNS_16xpath_value_typeE.exit: ; preds = %33
   tail call void @_ZN4pugi14xpath_node_setC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %38)
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %40 = add i64 %31, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull readonly align 1 %1, i64 %40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull readonly align 1 %1, i64 %40, i1 false)
   %41 = load ptr, ptr %18, align 8, !tbaa !330
   store ptr %41, ptr %37, align 8, !tbaa !320
   store ptr %36, ptr %18, align 8, !tbaa !330
@@ -35115,7 +35115,7 @@ define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_119xml_buffered_writer5fl
   store i16 %37, ptr %34, align 2, !tbaa !115
   %38 = getelementptr inbounds nuw i8, ptr %.164.i.i.i.ptr, i64 4
   %39 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 2
-  %40 = load i8, ptr %39, align 1, !tbaa !28
+  %40 = load i8, ptr %39, align 2, !tbaa !28
   %41 = zext i8 %40 to i16
   store i16 %41, ptr %38, align 2, !tbaa !115
   %42 = getelementptr inbounds nuw i8, ptr %.164.i.i.i.ptr, i64 6
@@ -35352,7 +35352,7 @@ _ZN4pugi4impl12_GLOBAL__N_129convert_buffer_output_genericINS1_12utf8_decoderENS
   store i8 %172, ptr %170, align 1, !tbaa !28
   %173 = getelementptr inbounds nuw i8, ptr %.164.i.i37.i, i64 2
   %174 = getelementptr inbounds nuw i8, ptr %.1.i.i39.i, i64 2
-  %175 = load i8, ptr %174, align 1, !tbaa !28
+  %175 = load i8, ptr %174, align 2, !tbaa !28
   store i8 %175, ptr %173, align 1, !tbaa !28
   %176 = getelementptr inbounds nuw i8, ptr %.164.i.i37.i, i64 3
   %177 = getelementptr inbounds nuw i8, ptr %.1.i.i39.i, i64 3
@@ -35539,7 +35539,7 @@ define internal fastcc noundef nonnull ptr @_ZN4pugi4impl12_GLOBAL__N_112utf8_de
   store i32 %23, ptr %20, align 4, !tbaa !120
   %24 = getelementptr inbounds nuw i8, ptr %.164, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %.1, i64 2
-  %26 = load i8, ptr %25, align 1, !tbaa !28
+  %26 = load i8, ptr %25, align 2, !tbaa !28
   %27 = zext i8 %26 to i32
   store i32 %27, ptr %24, align 4, !tbaa !120
   %28 = getelementptr inbounds nuw i8, ptr %.164, i64 12

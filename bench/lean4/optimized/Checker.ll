@@ -106,50 +106,47 @@ lean_inc.exit:                                    ; preds = %33, %32, %30, %25
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %20) #4
   br label %lean_inc.exit31
 
-lean_inc.exit31:                                  ; preds = %41, %40, %38, %lean_inc.exit
-  br i1 %.not.i32, label %42, label %lean_dec.exit
+lean_inc.exit31:                                  ; preds = %lean_inc.exit, %38, %40, %41
+  %42 = load i32, ptr %.0, align 4, !tbaa !4
+  %43 = icmp sgt i32 %42, 1
+  br i1 %43, label %44, label %46, !prof !11
 
-42:                                               ; preds = %lean_inc.exit31
-  %43 = load i32, ptr %.0, align 4, !tbaa !4
-  %44 = icmp sgt i32 %43, 1
-  br i1 %44, label %45, label %47, !prof !11
-
-45:                                               ; preds = %42
-  %46 = add nsw i32 %43, -1
-  store i32 %46, ptr %.0, align 4, !tbaa !4
+44:                                               ; preds = %lean_inc.exit31
+  %45 = add nsw i32 %42, -1
+  store i32 %45, ptr %.0, align 4, !tbaa !4
   br label %lean_dec.exit
 
-47:                                               ; preds = %42
-  %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %lean_dec.exit, label %48
+46:                                               ; preds = %lean_inc.exit31
+  %.not.i = icmp eq i32 %42, 0
+  br i1 %.not.i, label %lean_dec.exit, label %47
 
-48:                                               ; preds = %47
+47:                                               ; preds = %46
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0) #4
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %48, %47, %45, %lean_inc.exit31
-  %49 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_intActionToDefaultClauseAction(ptr noundef %1, ptr noundef %20) #4
+lean_dec.exit:                                    ; preds = %47, %46, %44
+  %48 = tail call ptr @l_Std_Tactic_BVDecide_LRAT_Internal_intActionToDefaultClauseAction(ptr noundef %1, ptr noundef %20) #4
   tail call void @lean_inc_heartbeat() #4
-  %50 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %lean_alloc_ctor.exit
+  %49 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %lean_alloc_ctor.exit
 
-52:                                               ; preds = %lean_dec.exit
+51:                                               ; preds = %lean_dec.exit
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 1, ptr %50, align 4, !tbaa !4
-  store i32 16908312, ptr %53, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %49, ptr %54, align 8, !tbaa !9
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store ptr %.029, ptr %55, align 8, !tbaa !9
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  store i32 1, ptr %49, align 4, !tbaa !4
+  store i32 16908312, ptr %52, align 4
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store ptr %48, ptr %53, align 8, !tbaa !9
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  store ptr %.029, ptr %54, align 8, !tbaa !9
   br label %.backedge
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %23
-  %.029.be = phi ptr [ %.0, %23 ], [ %50, %lean_alloc_ctor.exit ]
+  %.029.be = phi ptr [ %.0, %23 ], [ %49, %lean_alloc_ctor.exit ]
   br label %5
 }
 

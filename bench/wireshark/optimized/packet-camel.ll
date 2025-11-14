@@ -2566,7 +2566,7 @@ define hidden void @camelsrt_call_matching(ptr noundef %0, ptr noundef %1, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %20 = getelementptr i8, ptr %3, i64 18
-  store i8 1, ptr %20, align 1
+  store i8 1, ptr %20, align 2
   %21 = load i32, ptr %3, align 8
   store i32 %21, ptr %11, align 4
   %22 = load ptr, ptr @srt_calls, align 8
@@ -2636,7 +2636,7 @@ camelsrt_close_call_matching.exit:                ; preds = %19, %24, %34
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %46 = getelementptr i8, ptr %3, i64 18
-  store i8 1, ptr %46, align 1
+  store i8 1, ptr %46, align 2
   %47 = load i32, ptr %3, align 8
   store i32 %47, ptr %9, align 4
   %48 = load ptr, ptr @srt_calls, align 8
@@ -2676,7 +2676,7 @@ camelsrt_close_call_matching.exit70:              ; preds = %45, %50, %60
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %64 = getelementptr i8, ptr %3, i64 18
-  store i8 1, ptr %64, align 1
+  store i8 1, ptr %64, align 2
   %65 = load i32, ptr %3, align 8
   store i32 %65, ptr %7, align 4
   %66 = load ptr, ptr @srt_calls, align 8
@@ -2719,7 +2719,7 @@ camelsrt_close_call_matching.exit72:              ; preds = %63, %68, %78
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %84 = getelementptr i8, ptr %3, i64 18
-  store i8 1, ptr %84, align 1
+  store i8 1, ptr %84, align 2
   %85 = load i32, ptr %3, align 8
   store i32 %85, ptr %5, align 4
   %86 = load ptr, ptr @srt_calls, align 8
@@ -2764,13 +2764,13 @@ define internal fastcc void @camelsrt_begin_call_matching(ptr noundef readonly c
   %3 = alloca %struct.camelsrt_call_info_key_t, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %1, i64 18
-  store i8 1, ptr %4, align 1
+  store i8 1, ptr %4, align 2
   %5 = load i32, ptr %1, align 8
   store i32 %5, ptr %3, align 4
   %6 = load ptr, ptr @srt_calls, align 8
   %7 = call ptr @wmem_map_lookup(ptr noundef %6, ptr noundef nonnull %3)
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %30
+  br i1 %.not, label %8, label %29
 
 8:                                                ; preds = %2
   %9 = call ptr @wmem_file_scope()
@@ -2779,34 +2779,33 @@ define internal fastcc void @camelsrt_begin_call_matching(ptr noundef readonly c
   store i32 %11, ptr %10, align 4
   %12 = call ptr @wmem_file_scope()
   %13 = call noalias dereferenceable_or_null(336) ptr @wmem_alloc(ptr noundef %12, i64 noundef 336) #12
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(332) %14, i8 noundef 0, i64 noundef 332, i1 noundef false) #13
-  %15 = load i32, ptr @camelsrt_global_SessionId, align 4
-  %16 = add i32 %15, 1
-  store i32 %16, ptr @camelsrt_global_SessionId, align 4
-  store i32 %15, ptr %13, align 8
-  %17 = load ptr, ptr @srt_calls, align 8
-  %18 = call ptr @wmem_map_insert(ptr noundef %17, ptr noundef %10, ptr noundef %13)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %23 = load i32, ptr %22, align 4
-  %24 = getelementptr i8, ptr %13, i64 48
-  store i32 %23, ptr %24, align 8
-  %25 = getelementptr i8, ptr %13, i64 52
-  store i32 0, ptr %25, align 4
-  %26 = getelementptr i8, ptr %13, i64 72
-  store i8 0, ptr %26, align 8
-  %27 = getelementptr i8, ptr %13, i64 56
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull readonly align 8 dereferenceable(16) %28, i64 16, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  store ptr @camelsrt_tcap_matching, ptr %29, align 8
-  br label %30
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(336) %13, i8 noundef 0, i64 noundef 336, i1 noundef false) #13
+  %14 = load i32, ptr @camelsrt_global_SessionId, align 4
+  %15 = add i32 %14, 1
+  store i32 %15, ptr @camelsrt_global_SessionId, align 4
+  store i32 %14, ptr %13, align 8
+  %16 = load ptr, ptr @srt_calls, align 8
+  %17 = call ptr @wmem_map_insert(ptr noundef %16, ptr noundef %10, ptr noundef %13)
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %19, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr i8, ptr %13, i64 48
+  store i32 %22, ptr %23, align 8
+  %24 = getelementptr i8, ptr %13, i64 52
+  store i32 0, ptr %24, align 4
+  %25 = getelementptr i8, ptr %13, i64 72
+  store i8 0, ptr %25, align 8
+  %26 = getelementptr i8, ptr %13, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull readonly align 8 dereferenceable(16) %27, i64 16, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 96
+  store ptr @camelsrt_tcap_matching, ptr %28, align 8
+  br label %29
 
-30:                                               ; preds = %2, %8
+29:                                               ; preds = %2, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

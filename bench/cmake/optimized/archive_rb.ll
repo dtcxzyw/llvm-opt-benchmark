@@ -115,7 +115,6 @@ define dso_local range(i32 0, 2) i32 @__archive_rb_tree_insert_node(ptr noundef 
 .thread105:                                       ; preds = %2
   %6 = ptrtoint ptr %0 to i64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.masked97 = and i64 %6, -3
   br label %.critedge50
 
 .lr.ph:                                           ; preds = %2, %9
@@ -368,7 +367,7 @@ __archive_rb_tree_reparent_nodes.exit36.i:        ; preds = %.sink.split.i32.i, 
   br label %.critedge
 
 .critedge50:                                      ; preds = %.thread105, %13
-  %156 = phi i64 [ %.masked97, %.thread105 ], [ %17, %13 ]
+  %156 = phi i64 [ %6, %.thread105 ], [ %17, %13 ]
   %.043.lcssa99111 = phi ptr [ %0, %.thread105 ], [ %.04156, %13 ]
   %.039.lcssa101110 = phi i64 [ 0, %.thread105 ], [ %14, %13 ]
   %157 = phi ptr [ %7, %.thread105 ], [ %16, %13 ]
@@ -745,10 +744,10 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef rea
   %56 = ptrtoint ptr %17 to i64
   %57 = load i64, ptr %20, align 8, !tbaa !20
   %58 = and i64 %57, 3
-  %59 = or i64 %58, %56
+  %59 = or disjoint i64 %58, %56
   store i64 %59, ptr %20, align 8, !tbaa !20
   %60 = load i64, ptr %42, align 8, !tbaa !20
-  %61 = xor i64 %60, %59
+  %61 = xor i64 %60, %57
   %62 = and i64 %61, 3
   %63 = xor i64 %62, %60
   store i64 %63, ptr %42, align 8, !tbaa !20

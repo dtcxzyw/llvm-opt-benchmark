@@ -2427,7 +2427,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 
 269:                                              ; preds = %263
   %270 = getelementptr inbounds nuw i8, ptr %.11528, i64 8
-  %271 = load i8, ptr %270, align 1, !tbaa !56
+  %271 = load i8, ptr %270, align 8, !tbaa !56
   %272 = load i8, ptr %264, align 1, !tbaa !56
   %.not1922 = icmp eq i8 %271, %272
   br i1 %.not1922, label %273, label %backref_check_at_nested_level.exit.thread
@@ -2448,7 +2448,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 
 282:                                              ; preds = %276
   %283 = getelementptr inbounds nuw i8, ptr %.11528, i64 8
-  %284 = load i8, ptr %283, align 1, !tbaa !56
+  %284 = load i8, ptr %283, align 8, !tbaa !56
   %285 = load i8, ptr %277, align 1, !tbaa !56
   %.not1920 = icmp eq i8 %284, %285
   br i1 %.not1920, label %286, label %backref_check_at_nested_level.exit.thread
@@ -2478,7 +2478,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 
 300:                                              ; preds = %294
   %301 = getelementptr inbounds nuw i8, ptr %.11528, i64 8
-  %302 = load i8, ptr %301, align 1, !tbaa !56
+  %302 = load i8, ptr %301, align 8, !tbaa !56
   %303 = load i8, ptr %295, align 1, !tbaa !56
   %.not1917 = icmp eq i8 %302, %303
   br i1 %.not1917, label %304, label %backref_check_at_nested_level.exit.thread
@@ -2496,7 +2496,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %310 = getelementptr inbounds nuw i8, ptr %.11528, i64 10
   %311 = getelementptr inbounds nuw i8, ptr %295, i64 2
   store ptr %311, ptr %15, align 8, !tbaa !106
-  %312 = load i8, ptr %310, align 1, !tbaa !56
+  %312 = load i8, ptr %310, align 2, !tbaa !56
   %313 = load i8, ptr %311, align 1, !tbaa !56
   %.not1919 = icmp eq i8 %312, %313
   br i1 %.not1919, label %314, label %backref_check_at_nested_level.exit.thread
@@ -2517,7 +2517,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 
 323:                                              ; preds = %317
   %324 = getelementptr inbounds nuw i8, ptr %.11528, i64 8
-  %325 = load i8, ptr %324, align 1, !tbaa !56
+  %325 = load i8, ptr %324, align 8, !tbaa !56
   %326 = load i8, ptr %318, align 1, !tbaa !56
   %.not1913 = icmp eq i8 %325, %326
   br i1 %.not1913, label %327, label %backref_check_at_nested_level.exit.thread
@@ -2535,7 +2535,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %333 = getelementptr inbounds nuw i8, ptr %.11528, i64 10
   %334 = getelementptr inbounds nuw i8, ptr %318, i64 2
   store ptr %334, ptr %15, align 8, !tbaa !106
-  %335 = load i8, ptr %333, align 1, !tbaa !56
+  %335 = load i8, ptr %333, align 2, !tbaa !56
   %336 = load i8, ptr %334, align 1, !tbaa !56
   %.not1915 = icmp eq i8 %335, %336
   br i1 %.not1915, label %337, label %backref_check_at_nested_level.exit.thread
@@ -2565,7 +2565,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 
 351:                                              ; preds = %345
   %352 = getelementptr inbounds nuw i8, ptr %.11528, i64 8
-  %353 = load i8, ptr %352, align 1, !tbaa !56
+  %353 = load i8, ptr %352, align 8, !tbaa !56
   %354 = load i8, ptr %346, align 1, !tbaa !56
   %.not1908 = icmp eq i8 %353, %354
   br i1 %.not1908, label %355, label %backref_check_at_nested_level.exit.thread
@@ -2583,7 +2583,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %361 = getelementptr inbounds nuw i8, ptr %.11528, i64 10
   %362 = getelementptr inbounds nuw i8, ptr %346, i64 2
   store ptr %362, ptr %15, align 8, !tbaa !106
-  %363 = load i8, ptr %361, align 1, !tbaa !56
+  %363 = load i8, ptr %361, align 2, !tbaa !56
   %364 = load i8, ptr %362, align 1, !tbaa !56
   %.not1910 = icmp eq i8 %363, %364
   br i1 %.not1910, label %365, label %backref_check_at_nested_level.exit.thread
@@ -2601,7 +2601,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %371 = getelementptr inbounds nuw i8, ptr %.11528, i64 12
   %372 = getelementptr inbounds nuw i8, ptr %346, i64 4
   store ptr %372, ptr %15, align 8, !tbaa !106
-  %373 = load i8, ptr %371, align 1, !tbaa !56
+  %373 = load i8, ptr %371, align 4, !tbaa !56
   %374 = load i8, ptr %372, align 1, !tbaa !56
   %.not1912 = icmp eq i8 %373, %374
   br i1 %.not1912, label %375, label %backref_check_at_nested_level.exit.thread
@@ -2659,7 +2659,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 
 407:                                              ; preds = %401
   %408 = getelementptr inbounds nuw i8, ptr %.11528, i64 8
-  %409 = load i8, ptr %408, align 1, !tbaa !56
+  %409 = load i8, ptr %408, align 8, !tbaa !56
   %410 = load i8, ptr %402, align 1, !tbaa !56
   %.not1905 = icmp eq i8 %409, %410
   br i1 %.not1905, label %411, label %backref_check_at_nested_level.exit.thread
@@ -2689,7 +2689,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 
 425:                                              ; preds = %419
   %426 = getelementptr inbounds nuw i8, ptr %.11528, i64 8
-  %427 = load i8, ptr %426, align 1, !tbaa !56
+  %427 = load i8, ptr %426, align 8, !tbaa !56
   %428 = load i8, ptr %420, align 1, !tbaa !56
   %.not1901 = icmp eq i8 %427, %428
   br i1 %.not1901, label %429, label %backref_check_at_nested_level.exit.thread
@@ -2707,7 +2707,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %435 = getelementptr inbounds nuw i8, ptr %.11528, i64 10
   %436 = getelementptr inbounds nuw i8, ptr %420, i64 2
   store ptr %436, ptr %15, align 8, !tbaa !106
-  %437 = load i8, ptr %435, align 1, !tbaa !56
+  %437 = load i8, ptr %435, align 2, !tbaa !56
   %438 = load i8, ptr %436, align 1, !tbaa !56
   %.not1903 = icmp eq i8 %437, %438
   br i1 %.not1903, label %439, label %backref_check_at_nested_level.exit.thread
@@ -2737,7 +2737,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 
 453:                                              ; preds = %447
   %454 = getelementptr inbounds nuw i8, ptr %.11528, i64 8
-  %455 = load i8, ptr %454, align 1, !tbaa !56
+  %455 = load i8, ptr %454, align 8, !tbaa !56
   %456 = load i8, ptr %448, align 1, !tbaa !56
   %.not1895 = icmp eq i8 %455, %456
   br i1 %.not1895, label %457, label %backref_check_at_nested_level.exit.thread
@@ -2755,7 +2755,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %463 = getelementptr inbounds nuw i8, ptr %.11528, i64 10
   %464 = getelementptr inbounds nuw i8, ptr %448, i64 2
   store ptr %464, ptr %15, align 8, !tbaa !106
-  %465 = load i8, ptr %463, align 1, !tbaa !56
+  %465 = load i8, ptr %463, align 2, !tbaa !56
   %466 = load i8, ptr %464, align 1, !tbaa !56
   %.not1897 = icmp eq i8 %465, %466
   br i1 %.not1897, label %467, label %backref_check_at_nested_level.exit.thread
@@ -2773,7 +2773,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %473 = getelementptr inbounds nuw i8, ptr %.11528, i64 12
   %474 = getelementptr inbounds nuw i8, ptr %448, i64 4
   store ptr %474, ptr %15, align 8, !tbaa !106
-  %475 = load i8, ptr %473, align 1, !tbaa !56
+  %475 = load i8, ptr %473, align 4, !tbaa !56
   %476 = load i8, ptr %474, align 1, !tbaa !56
   %.not1899 = icmp eq i8 %475, %476
   br i1 %.not1899, label %477, label %backref_check_at_nested_level.exit.thread
@@ -5143,7 +5143,7 @@ string_cmp_ic.exit1984.thread:                    ; preds = %.lr.ph2227, %.lr.ph
 .lr.ph.preheader.i.us.i:                          ; preds = %1800
   %1803 = getelementptr inbounds i8, ptr %.pn7.us.i, i64 -28
   %1804 = load i32, ptr %1803, align 4, !tbaa !128
-  %1805 = load i32, ptr %1787, align 4, !tbaa !24
+  %1805 = load i32, ptr %1787, align 8, !tbaa !24
   %1806 = icmp eq i32 %1804, %1805
   br i1 %1806, label %backref_check_at_nested_level.exit, label %mem_is_in_memp.exit.thread.us.i
 

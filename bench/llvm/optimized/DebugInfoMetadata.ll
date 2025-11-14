@@ -5199,7 +5199,7 @@ _ZNK4llvm10DISubrange15getRawCountNodeEv.exit:    ; preds = %5, %8
 
 22:                                               ; preds = %.critedge
   %23 = ptrtoint ptr %13 to i64
-  %24 = and i64 %23, -7
+  %24 = and i64 %23, -8
   %25 = or disjoint i64 %24, 2
   br label %.critedge25
 
@@ -5209,12 +5209,11 @@ _ZNK4llvm10DISubrange15getRawCountNodeEv.exit:    ; preds = %5, %8
 
 26:                                               ; preds = %.critedge23
   %27 = ptrtoint ptr %13 to i64
-  %28 = and i64 %27, -7
-  %29 = or disjoint i64 %28, 4
+  %28 = or i64 %27, 4
   br label %.critedge25
 
 .critedge25:                                      ; preds = %.critedge23, %_ZNK4llvm10DISubrange15getRawCountNodeEv.exit, %26, %22, %16
-  %.sroa.0.0 = phi i64 [ %29, %26 ], [ %25, %22 ], [ %20, %16 ], [ 0, %_ZNK4llvm10DISubrange15getRawCountNodeEv.exit ], [ 0, %.critedge23 ]
+  %.sroa.0.0 = phi i64 [ %28, %26 ], [ %25, %22 ], [ %20, %16 ], [ 0, %_ZNK4llvm10DISubrange15getRawCountNodeEv.exit ], [ 0, %.critedge23 ]
   ret i64 %.sroa.0.0
 }
 
@@ -5264,7 +5263,7 @@ _ZNK4llvm10DISubrange16getRawLowerBoundEv.exit:   ; preds = %5, %8
 
 23:                                               ; preds = %.critedge
   %24 = ptrtoint ptr %14 to i64
-  %25 = and i64 %24, -7
+  %25 = and i64 %24, -8
   %26 = or disjoint i64 %25, 2
   br label %.critedge25
 
@@ -5274,12 +5273,11 @@ _ZNK4llvm10DISubrange16getRawLowerBoundEv.exit:   ; preds = %5, %8
 
 27:                                               ; preds = %.critedge23
   %28 = ptrtoint ptr %14 to i64
-  %29 = and i64 %28, -7
-  %30 = or disjoint i64 %29, 4
+  %29 = or i64 %28, 4
   br label %.critedge25
 
 .critedge25:                                      ; preds = %.critedge23, %_ZNK4llvm10DISubrange16getRawLowerBoundEv.exit, %27, %23, %17
-  %.sroa.0.0 = phi i64 [ %30, %27 ], [ %26, %23 ], [ %21, %17 ], [ 0, %_ZNK4llvm10DISubrange16getRawLowerBoundEv.exit ], [ 0, %.critedge23 ]
+  %.sroa.0.0 = phi i64 [ %29, %27 ], [ %26, %23 ], [ %21, %17 ], [ 0, %_ZNK4llvm10DISubrange16getRawLowerBoundEv.exit ], [ 0, %.critedge23 ]
   ret i64 %.sroa.0.0
 }
 
@@ -5329,7 +5327,7 @@ _ZNK4llvm10DISubrange16getRawUpperBoundEv.exit:   ; preds = %5, %8
 
 23:                                               ; preds = %.critedge
   %24 = ptrtoint ptr %14 to i64
-  %25 = and i64 %24, -7
+  %25 = and i64 %24, -8
   %26 = or disjoint i64 %25, 2
   br label %.critedge25
 
@@ -5339,12 +5337,11 @@ _ZNK4llvm10DISubrange16getRawUpperBoundEv.exit:   ; preds = %5, %8
 
 27:                                               ; preds = %.critedge23
   %28 = ptrtoint ptr %14 to i64
-  %29 = and i64 %28, -7
-  %30 = or disjoint i64 %29, 4
+  %29 = or i64 %28, 4
   br label %.critedge25
 
 .critedge25:                                      ; preds = %.critedge23, %_ZNK4llvm10DISubrange16getRawUpperBoundEv.exit, %27, %23, %17
-  %.sroa.0.0 = phi i64 [ %30, %27 ], [ %26, %23 ], [ %21, %17 ], [ 0, %_ZNK4llvm10DISubrange16getRawUpperBoundEv.exit ], [ 0, %.critedge23 ]
+  %.sroa.0.0 = phi i64 [ %29, %27 ], [ %26, %23 ], [ %21, %17 ], [ 0, %_ZNK4llvm10DISubrange16getRawUpperBoundEv.exit ], [ 0, %.critedge23 ]
   ret i64 %.sroa.0.0
 }
 
@@ -5394,7 +5391,7 @@ _ZNK4llvm10DISubrange12getRawStrideEv.exit:       ; preds = %5, %8
 
 23:                                               ; preds = %.critedge
   %24 = ptrtoint ptr %14 to i64
-  %25 = and i64 %24, -7
+  %25 = and i64 %24, -8
   %26 = or disjoint i64 %25, 2
   br label %.critedge25
 
@@ -5404,12 +5401,11 @@ _ZNK4llvm10DISubrange12getRawStrideEv.exit:       ; preds = %5, %8
 
 27:                                               ; preds = %.critedge23
   %28 = ptrtoint ptr %14 to i64
-  %29 = and i64 %28, -7
-  %30 = or disjoint i64 %29, 4
+  %29 = or i64 %28, 4
   br label %.critedge25
 
 .critedge25:                                      ; preds = %.critedge23, %_ZNK4llvm10DISubrange12getRawStrideEv.exit, %27, %23, %17
-  %.sroa.0.0 = phi i64 [ %30, %27 ], [ %26, %23 ], [ %21, %17 ], [ 0, %_ZNK4llvm10DISubrange12getRawStrideEv.exit ], [ 0, %.critedge23 ]
+  %.sroa.0.0 = phi i64 [ %29, %27 ], [ %26, %23 ], [ %21, %17 ], [ 0, %_ZNK4llvm10DISubrange12getRawStrideEv.exit ], [ 0, %.critedge23 ]
   ret i64 %.sroa.0.0
 }
 
@@ -5545,7 +5541,7 @@ _ZNK4llvm17DIGenericSubrange15getRawCountNodeEv.exit: ; preds = %5, %8
 
 17:                                               ; preds = %14
   %18 = ptrtoint ptr %13 to i64
-  %19 = and i64 %18, -5
+  %19 = and i64 %18, -8
   br label %.critedge16
 
 .critedge:                                        ; preds = %14
@@ -5597,7 +5593,7 @@ _ZNK4llvm17DIGenericSubrange16getRawLowerBoundEv.exit: ; preds = %5, %8
 
 18:                                               ; preds = %15
   %19 = ptrtoint ptr %14 to i64
-  %20 = and i64 %19, -5
+  %20 = and i64 %19, -8
   br label %.critedge16
 
 .critedge:                                        ; preds = %15
@@ -5649,7 +5645,7 @@ _ZNK4llvm17DIGenericSubrange16getRawUpperBoundEv.exit: ; preds = %5, %8
 
 18:                                               ; preds = %15
   %19 = ptrtoint ptr %14 to i64
-  %20 = and i64 %19, -5
+  %20 = and i64 %19, -8
   br label %.critedge16
 
 .critedge:                                        ; preds = %15
@@ -5701,7 +5697,7 @@ _ZNK4llvm17DIGenericSubrange12getRawStrideEv.exit: ; preds = %5, %8
 
 18:                                               ; preds = %15
   %19 = ptrtoint ptr %14 to i64
-  %20 = and i64 %19, -5
+  %20 = and i64 %19, -8
   br label %.critedge16
 
 .critedge:                                        ; preds = %15
@@ -18297,7 +18293,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPKNS_12DISubprogramEPKNS_10DIL
   store ptr %19, ptr %86, align 8, !tbaa !142
   %87 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %88 = getelementptr inbounds nuw i8, ptr %.023, i64 16
-  %89 = load i32, ptr %88, align 4, !tbaa !143
+  %89 = load i32, ptr %88, align 8, !tbaa !143
   store i32 %89, ptr %87, align 8, !tbaa !143
   %90 = load i32, ptr %0, align 8
   %91 = and i32 %90, -2

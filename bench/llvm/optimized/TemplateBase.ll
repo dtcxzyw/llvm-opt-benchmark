@@ -3750,8 +3750,7 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %21, %24
   store i32 %4, ptr %26, align 8, !tbaa !127
   store i32 %5, ptr %27, align 4, !tbaa !127
   %29 = ptrtoint ptr %.0.i.i.i.i to i64
-  %30 = and i64 %29, -4
-  store i64 %30, ptr %0, align 8, !tbaa !3
+  store i64 %29, ptr %0, align 8, !tbaa !3
   ret void
 }
 

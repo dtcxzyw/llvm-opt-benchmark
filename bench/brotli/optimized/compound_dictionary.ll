@@ -174,7 +174,7 @@ define hidden noundef ptr @CreatePreparedDictionary(ptr noundef %0, ptr noundef 
   store i32 %.013.lcssa, ptr %95, align 4, !tbaa !19
   %96 = getelementptr inbounds nuw i8, ptr %86, i64 20
   store i32 %.014.lcssa, ptr %96, align 4, !tbaa !20
-  store ptr %1, ptr %90, align 1
+  store ptr %1, ptr %90, align 2
   br label %97
 
 97:                                               ; preds = %97, %80
@@ -318,7 +318,7 @@ define hidden range(i32 0, 2) i32 @AttachPreparedDictionary(ptr noundef captures
   br i1 %32, label %34, label %33
 
 33:                                               ; preds = %5
-  %.0.copyload.i = load ptr, ptr %30, align 1
+  %.0.copyload.i = load ptr, ptr %30, align 2
   br label %34
 
 34:                                               ; preds = %5, %33

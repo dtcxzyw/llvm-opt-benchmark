@@ -4701,7 +4701,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit: ; preds
   %68 = ptrtoint ptr %63 to i64
   %69 = ptrtoint ptr %.pre205 to i64
   %70 = sub i64 %68, %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %67, ptr noundef nonnull align 1 %.pre205, i64 noundef %70, i1 noundef false) #34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 %67, ptr noundef nonnull align 1 %.pre205, i64 noundef %70, i1 noundef false) #34
   br label %71
 
 71:                                               ; preds = %66, %62
@@ -11312,7 +11312,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit: ; preds
   %68 = ptrtoint ptr %63 to i64
   %69 = ptrtoint ptr %.pre204 to i64
   %70 = sub i64 %68, %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %67, ptr noundef nonnull align 1 %.pre204, i64 noundef %70, i1 noundef false) #34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 %67, ptr noundef nonnull align 1 %.pre204, i64 noundef %70, i1 noundef false) #34
   br label %71
 
 71:                                               ; preds = %66, %62
@@ -15494,7 +15494,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit: ; preds
   %68 = ptrtoint ptr %63 to i64
   %69 = ptrtoint ptr %.pre202 to i64
   %70 = sub i64 %68, %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %67, ptr noundef nonnull align 1 %.pre202, i64 noundef %70, i1 noundef false) #34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 %67, ptr noundef nonnull align 1 %.pre202, i64 noundef %70, i1 noundef false) #34
   br label %71
 
 71:                                               ; preds = %66, %62
@@ -17941,7 +17941,7 @@ _ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThread
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 0, ptr %54, align 4, !tbaa !10
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i32 0, ptr %55, align 4, !tbaa !10
+  store i32 0, ptr %55, align 8, !tbaa !10
   store i32 1, ptr %53, align 8, !tbaa !307
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %57 = load i32, ptr %56, align 8, !tbaa !87
@@ -18565,7 +18565,7 @@ _ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThread
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 0, ptr %26, align 4, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i32 0, ptr %27, align 4, !tbaa !10
+  store i32 0, ptr %27, align 8, !tbaa !10
   store i32 1, ptr %25, align 8, !tbaa !307
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !87
@@ -20334,7 +20334,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit: ; preds
   %68 = ptrtoint ptr %63 to i64
   %69 = ptrtoint ptr %.pre195 to i64
   %70 = sub i64 %68, %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %67, ptr noundef nonnull align 1 %.pre195, i64 noundef %70, i1 noundef false) #34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 %67, ptr noundef nonnull align 1 %.pre195, i64 noundef %70, i1 noundef false) #34
   br label %71
 
 71:                                               ; preds = %66, %62
@@ -22306,7 +22306,7 @@ _ZNSt6vectorISt4pairImiESaIS1_EE9push_backEOS1_.exit: ; preds = %7, %_ZNSt6vecto
 
 .lr.ph._ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessISt4pairImiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread_crit_edge.i.i: ; preds = %.lr.ph.i.i
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !10
+  %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessISt4pairImiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread.i.i
 
 42:                                               ; preds = %.lr.ph.i.i
@@ -22427,7 +22427,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessISt4pairImiEEEclINS_17__normal_itera
 
 .lr.ph._ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessISt4pairImiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread_crit_edge.i: ; preds = %.lr.ph.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !10
+  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessISt4pairImiEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread.i
 
 52:                                               ; preds = %.lr.ph.i
@@ -22501,7 +22501,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_
 ._ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairImiESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread_crit_edge.i: ; preds = %17
   %.sroa.4.0..sroa_idx.i10.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 8
   %.sroa.4.0.copyload.i11.pre.i = load i32, ptr %.sroa.4.0..sroa_idx.i10.phi.trans.insert.i, align 8
-  %.pre.i = load i32, ptr %16, align 4, !tbaa !10
+  %.pre.i = load i32, ptr %16, align 8, !tbaa !10
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairImiESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i
 
 21:                                               ; preds = %17
@@ -22648,7 +22648,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairImiESt6ve
 
 .lr.ph._ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairImiESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.thread_crit_edge.i: ; preds = %.lr.ph.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !10
+  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !10
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairImiESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.thread.i
 
 52:                                               ; preds = %.lr.ph.i
@@ -24986,7 +24986,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit: ; preds
   %68 = ptrtoint ptr %63 to i64
   %69 = ptrtoint ptr %.pre204 to i64
   %70 = sub i64 %68, %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %67, ptr noundef nonnull align 1 %.pre204, i64 noundef %70, i1 noundef false) #34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 %67, ptr noundef nonnull align 1 %.pre204, i64 noundef %70, i1 noundef false) #34
   br label %71
 
 71:                                               ; preds = %66, %62

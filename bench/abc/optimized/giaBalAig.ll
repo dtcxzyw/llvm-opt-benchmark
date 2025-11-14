@@ -311,9 +311,9 @@ Gia_ObjIsXor.exit.lr.ph:                          ; preds = %3
   br label %Gia_ObjIsXor.exit
 
 Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsXor.exit.lr.ph, %tailrecurse
-  %10 = phi i64 [ %6, %Gia_ObjIsXor.exit.lr.ph ], [ %102, %tailrecurse ]
+  %10 = phi i64 [ %6, %Gia_ObjIsXor.exit.lr.ph ], [ %98, %tailrecurse ]
   %.val2245 = phi i64 [ %.val2241, %Gia_ObjIsXor.exit.lr.ph ], [ %.val22, %tailrecurse ]
-  %.tr3944 = phi ptr [ %1, %Gia_ObjIsXor.exit.lr.ph ], [ %100, %tailrecurse ]
+  %.tr3944 = phi ptr [ %1, %Gia_ObjIsXor.exit.lr.ph ], [ %96, %tailrecurse ]
   %11 = trunc i64 %.val2245 to i32
   %12 = and i32 %11, 536870911
   %13 = lshr i64 %.val2245, 32
@@ -384,7 +384,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsXor.exit.l
   br i1 %50, label %Gia_ObjIsXor.exit.thread, label %tailrecurse
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsXor.exit, %17, %._crit_edge, %26, %36, %47, %tailrecurse, %3
-  %.tr39.lcssa = phi ptr [ %1, %3 ], [ %100, %tailrecurse ], [ %.tr3944, %47 ], [ %.tr3944, %36 ], [ %.tr3944, %26 ], [ %.tr3944, %._crit_edge ], [ %.tr3944, %17 ], [ %.tr3944, %Gia_ObjIsXor.exit ]
+  %.tr39.lcssa = phi ptr [ %1, %3 ], [ %96, %tailrecurse ], [ %.tr3944, %47 ], [ %.tr3944, %36 ], [ %.tr3944, %26 ], [ %.tr3944, %._crit_edge ], [ %.tr3944, %17 ], [ %.tr3944, %Gia_ObjIsXor.exit ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %52 = load ptr, ptr %51, align 8, !tbaa !36
   %.val33 = load ptr, ptr %4, align 8, !tbaa !16
@@ -449,38 +449,34 @@ Vec_IntGrow.exit.i:                               ; preds = %64, %62
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %77
   %79 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %78, %77 ], [ %66, %Vec_IntGrow.exit.i ]
   %80 = ptrtoint ptr %.tr39.lcssa to i64
-  %81 = and i64 %80, -2
-  %82 = ptrtoint ptr %.val33 to i64
-  %83 = sub i64 %81, %82
-  %84 = sdiv exact i64 %83, 12
-  %85 = trunc i64 %84 to i32
-  %86 = shl nsw i32 %85, 1
-  %87 = trunc i64 %80 to i32
-  %88 = and i32 %87, 1
-  %89 = or disjoint i32 %86, %88
-  %90 = load i32, ptr %53, align 4, !tbaa !3
-  %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %53, align 4, !tbaa !3
-  %92 = sext i32 %90 to i64
-  %93 = getelementptr inbounds i32, ptr %79, i64 %92
-  store i32 %89, ptr %93, align 4, !tbaa !11
+  %81 = ptrtoint ptr %.val33 to i64
+  %82 = sub i64 %80, %81
+  %83 = sdiv exact i64 %82, 12
+  %84 = trunc i64 %83 to i32
+  %85 = shl nsw i32 %84, 1
+  %86 = load i32, ptr %53, align 4, !tbaa !3
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %53, align 4, !tbaa !3
+  %88 = sext i32 %86 to i64
+  %89 = getelementptr inbounds i32, ptr %79, i64 %88
+  store i32 %85, ptr %89, align 4, !tbaa !11
   ret void
 
 tailrecurse:                                      ; preds = %47
-  %94 = sub nsw i64 0, %10
-  %95 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr3944, i64 %94
-  tail call void @Gia_ManSuperCollectXor_rec(ptr noundef nonnull %0, ptr noundef nonnull %95, i32 noundef %2)
-  %96 = load i64, ptr %.tr3944, align 4
-  %97 = lshr i64 %96, 32
-  %98 = and i64 %97, 536870911
-  %99 = sub nsw i64 0, %98
-  %100 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr3944, i64 %99
-  %.val22 = load i64, ptr %100, align 4
-  %101 = and i64 %.val22, 2147483648
-  %.not.i.i = icmp ne i64 %101, 0
-  %102 = and i64 %.val22, 536870911
-  %103 = icmp eq i64 %102, 536870911
-  %narrow.i.not.i = or i1 %.not.i.i, %103
+  %90 = sub nsw i64 0, %10
+  %91 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr3944, i64 %90
+  tail call void @Gia_ManSuperCollectXor_rec(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %2)
+  %92 = load i64, ptr %.tr3944, align 4
+  %93 = lshr i64 %92, 32
+  %94 = and i64 %93, 536870911
+  %95 = sub nsw i64 0, %94
+  %96 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr3944, i64 %95
+  %.val22 = load i64, ptr %96, align 4
+  %97 = and i64 %.val22, 2147483648
+  %.not.i.i = icmp ne i64 %97, 0
+  %98 = and i64 %.val22, 536870911
+  %99 = icmp eq i64 %98, 536870911
+  %narrow.i.not.i = or i1 %.not.i.i, %99
   br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit.thread, label %Gia_ObjIsXor.exit
 }
 
@@ -682,9 +678,9 @@ tailrecurse:                                      ; preds = %59
   %105 = lshr i64 %.val.i, 29
   %106 = and i64 %105, 1
   %107 = ptrtoint ptr %104 to i64
-  %108 = xor i64 %106, %107
+  %108 = or disjoint i64 %106, %107
   %109 = inttoptr i64 %108 to ptr
-  tail call void @Gia_ManSuperCollectAnd_rec(ptr noundef nonnull %0, ptr noundef %109, i32 noundef %2)
+  tail call void @Gia_ManSuperCollectAnd_rec(ptr noundef nonnull %0, ptr noundef nonnull %109, i32 noundef %2)
   %110 = load i64, ptr %.tr4448, align 4
   %111 = lshr i64 %110, 32
   %112 = and i64 %111, 536870911
@@ -693,9 +689,9 @@ tailrecurse:                                      ; preds = %59
   %115 = lshr i64 %110, 61
   %116 = and i64 %115, 1
   %117 = ptrtoint ptr %114 to i64
-  %118 = xor i64 %116, %117
+  %118 = or disjoint i64 %116, %117
   %119 = inttoptr i64 %118 to ptr
-  %120 = and i64 %118, 1
+  %120 = and i64 %110, 2305843009213693952
   %.not = icmp eq i64 %120, 0
   br i1 %.not, label %10, label %Gia_ObjIsAndReal.exit.thread
 }
@@ -792,9 +788,9 @@ Gia_ObjIsAndReal.exit.thread30:                   ; preds = %38, %Gia_ObjIsAndRe
   %50 = lshr i64 %.val, 29
   %51 = and i64 %50, 1
   %52 = ptrtoint ptr %49 to i64
-  %53 = xor i64 %51, %52
+  %53 = or disjoint i64 %51, %52
   %54 = inttoptr i64 %53 to ptr
-  tail call void @Gia_ManSuperCollectAnd_rec(ptr noundef nonnull %0, ptr noundef %54, i32 noundef %2)
+  tail call void @Gia_ManSuperCollectAnd_rec(ptr noundef nonnull %0, ptr noundef nonnull %54, i32 noundef %2)
   %55 = load i64, ptr %1, align 4
   %56 = lshr i64 %55, 32
   %57 = and i64 %56, 536870911
@@ -803,9 +799,9 @@ Gia_ObjIsAndReal.exit.thread30:                   ; preds = %38, %Gia_ObjIsAndRe
   %60 = lshr i64 %55, 61
   %61 = and i64 %60, 1
   %62 = ptrtoint ptr %59 to i64
-  %63 = xor i64 %61, %62
+  %63 = or disjoint i64 %61, %62
   %64 = inttoptr i64 %63 to ptr
-  tail call void @Gia_ManSuperCollectAnd_rec(ptr noundef nonnull %0, ptr noundef %64, i32 noundef %2)
+  tail call void @Gia_ManSuperCollectAnd_rec(ptr noundef nonnull %0, ptr noundef nonnull %64, i32 noundef %2)
   %65 = load ptr, ptr %4, align 8, !tbaa !36
   %66 = getelementptr i8, ptr %65, i64 4
   %.val24 = load i32, ptr %66, align 4, !tbaa !3

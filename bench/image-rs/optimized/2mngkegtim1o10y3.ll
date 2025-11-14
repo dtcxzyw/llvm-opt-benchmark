@@ -20796,7 +20796,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
 18:                                               ; preds = %.lr.ph.i.i.i.i.i
   %19 = add nuw nsw i64 %.sroa.01.012.i.i.i.i.i, 1
   %indvars.i = trunc nuw nsw i64 %19 to i8
-  store i8 %indvars.i, ptr %.sroa.3.sroa.4.0..8.val.sroa_idx.i, align 1, !alias.scope !2113, !noalias !2130
+  store i8 %indvars.i, ptr %.sroa.3.sroa.4.0..8.val.sroa_idx.i, align 8, !alias.scope !2113, !noalias !2130
   %exitcond.not.i.i.i.i.i = icmp eq i64 %19, %.0
   br i1 %exitcond.not.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.thread", label %.lr.ph.i.i.i.i.i
 
@@ -32347,7 +32347,7 @@ define hidden { i64, i64 } @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %19 = add nuw nsw i64 %.sroa.01.012.i.i.i.i.i.i, 1
   %indvars.i.i = trunc nuw nsw i64 %19 to i8
-  store i8 %indvars.i.i, ptr %.sroa.3.sroa.4.0..8.val.sroa_idx.i.i, align 1, !alias.scope !4215, !noalias !4232
+  store i8 %indvars.i.i, ptr %.sroa.3.sroa.4.0..8.val.sroa_idx.i.i, align 8, !alias.scope !4215, !noalias !4232
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %19, %.0.i
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h758d893f2e813e6dE.llvm.15361875792781664197.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -34092,7 +34092,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = add i64 %13, 17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %10, i64 %14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 16 %10, i64 %14, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4537)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load i64, ptr %15, align 8, !alias.scope !4537, !noalias !4540, !noundef !4

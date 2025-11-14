@@ -311,7 +311,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit15: ; preds =
 
 86:                                               ; preds = %80
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i282, i64 16
-  %88 = load i8, ptr %87, align 1, !alias.scope !21, !noalias !24, !noundef !4
+  %88 = load i8, ptr %87, align 16, !alias.scope !21, !noalias !24, !noundef !4
   %89 = icmp eq i8 %88, -123
   br i1 %89, label %90, label %91
 
@@ -371,7 +371,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit15: ; preds =
 
 120:                                              ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i282, i64 16
-  %122 = load i8, ptr %121, align 1, !alias.scope !21, !noalias !24, !noundef !4
+  %122 = load i8, ptr %121, align 16, !alias.scope !21, !noalias !24, !noundef !4
   %.mask.i16 = and i8 %122, -2
   %123 = icmp eq i8 %.mask.i16, -88
   br i1 %123, label %124, label %.thread251
@@ -384,7 +384,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit15: ; preds =
 
 126:                                              ; preds = %114
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i282, i64 16
-  %128 = load i8, ptr %127, align 1, !alias.scope !21, !noalias !24, !noundef !4
+  %128 = load i8, ptr %127, align 16, !alias.scope !21, !noalias !24, !noundef !4
   %129 = icmp eq i8 %128, -128
   br i1 %129, label %130, label %.thread251
 
@@ -424,7 +424,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit15: ; preds =
 
 144:                                              ; preds = %140
   %145 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i282, i64 16
-  %146 = load i8, ptr %145, align 1, !alias.scope !21, !noalias !24, !noundef !4
+  %146 = load i8, ptr %145, align 16, !alias.scope !21, !noalias !24, !noundef !4
   %147 = icmp eq i8 %146, 10
   br i1 %147, label %148, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit
 
@@ -1027,7 +1027,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit10: ; preds =
 
 200:                                              ; preds = %194
   %201 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i505, i64 16
-  %202 = load i8, ptr %201, align 1, !alias.scope !70, !noalias !73, !noundef !4
+  %202 = load i8, ptr %201, align 16, !alias.scope !70, !noalias !73, !noundef !4
   %203 = icmp eq i8 %202, -123
   br i1 %203, label %204, label %205
 
@@ -1087,7 +1087,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit10: ; preds =
 
 234:                                              ; preds = %231
   %235 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i505, i64 16
-  %236 = load i8, ptr %235, align 1, !alias.scope !70, !noalias !73, !noundef !4
+  %236 = load i8, ptr %235, align 16, !alias.scope !70, !noalias !73, !noundef !4
   %.mask.i11 = and i8 %236, -2
   %237 = icmp eq i8 %.mask.i11, -88
   br i1 %237, label %238, label %.thread450
@@ -1100,7 +1100,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit10: ; preds =
 
 240:                                              ; preds = %228
   %241 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i505, i64 16
-  %242 = load i8, ptr %241, align 1, !alias.scope !70, !noalias !73, !noundef !4
+  %242 = load i8, ptr %241, align 16, !alias.scope !70, !noalias !73, !noundef !4
   %243 = icmp eq i8 %242, -128
   br i1 %243, label %244, label %.thread450
 
@@ -1140,7 +1140,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit10: ; preds =
 
 258:                                              ; preds = %254
   %259 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i505, i64 16
-  %260 = load i8, ptr %259, align 1, !alias.scope !70, !noalias !73, !noundef !4
+  %260 = load i8, ptr %259, align 16, !alias.scope !70, !noalias !73, !noundef !4
   %261 = icmp eq i8 %260, 10
   br i1 %261, label %262, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit
 
@@ -1669,7 +1669,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit10: ; preds =
 
 200:                                              ; preds = %194
   %201 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i501, i64 16
-  %202 = load i8, ptr %201, align 1, !alias.scope !102, !noalias !105, !noundef !4
+  %202 = load i8, ptr %201, align 16, !alias.scope !102, !noalias !105, !noundef !4
   %203 = icmp eq i8 %202, -123
   br i1 %203, label %204, label %205
 
@@ -1729,7 +1729,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit10: ; preds =
 
 234:                                              ; preds = %231
   %235 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i501, i64 16
-  %236 = load i8, ptr %235, align 1, !alias.scope !102, !noalias !105, !noundef !4
+  %236 = load i8, ptr %235, align 16, !alias.scope !102, !noalias !105, !noundef !4
   %.mask.i11 = and i8 %236, -2
   %237 = icmp eq i8 %.mask.i11, -88
   br i1 %237, label %238, label %.thread446
@@ -1742,7 +1742,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit10: ; preds =
 
 240:                                              ; preds = %228
   %241 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i501, i64 16
-  %242 = load i8, ptr %241, align 1, !alias.scope !102, !noalias !105, !noundef !4
+  %242 = load i8, ptr %241, align 16, !alias.scope !102, !noalias !105, !noundef !4
   %243 = icmp eq i8 %242, -128
   br i1 %243, label %244, label %.thread446
 
@@ -1782,7 +1782,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit10: ; preds =
 
 258:                                              ; preds = %254
   %259 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i501, i64 16
-  %260 = load i8, ptr %259, align 1, !alias.scope !102, !noalias !105, !noundef !4
+  %260 = load i8, ptr %259, align 16, !alias.scope !102, !noalias !105, !noundef !4
   %261 = icmp eq i8 %260, 10
   br i1 %261, label %262, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit
 
@@ -3990,7 +3990,7 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %16
 
 151:                                              ; preds = %.noexc54
   %152 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i, i64 16
-  %153 = load i8, ptr %152, align 1, !alias.scope !324, !noalias !327, !noundef !4
+  %153 = load i8, ptr %152, align 16, !alias.scope !324, !noalias !327, !noundef !4
   %154 = icmp eq i8 %153, -123
   br i1 %154, label %.noexc55, label %.noexc56
 
@@ -4050,7 +4050,7 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %16
 
 181:                                              ; preds = %178
   %182 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i, i64 16
-  %183 = load i8, ptr %182, align 1, !alias.scope !324, !noalias !327, !noundef !4
+  %183 = load i8, ptr %182, align 16, !alias.scope !324, !noalias !327, !noundef !4
   %.mask.i44 = and i8 %183, -2
   %184 = icmp eq i8 %.mask.i44, -88
   br i1 %184, label %.noexc68, label %.noexc72
@@ -4063,7 +4063,7 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %16
 
 186:                                              ; preds = %176
   %187 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i, i64 16
-  %188 = load i8, ptr %187, align 1, !alias.scope !324, !noalias !327, !noundef !4
+  %188 = load i8, ptr %187, align 16, !alias.scope !324, !noalias !327, !noundef !4
   %189 = icmp eq i8 %188, -128
   br i1 %189, label %190, label %.noexc72
 
@@ -4103,7 +4103,7 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %16
 
 203:                                              ; preds = %.noexc76
   %204 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i, i64 16
-  %205 = load i8, ptr %204, align 1, !alias.scope !324, !noalias !327, !noundef !4
+  %205 = load i8, ptr %204, align 16, !alias.scope !324, !noalias !327, !noundef !4
   %206 = icmp eq i8 %205, 10
   br i1 %206, label %.noexc77, label %.noexc25
 
@@ -4637,7 +4637,7 @@ define void @_ZN5ropey4iter5Lines11from_str_at17h2ce6559dd1a6f370E(ptr dead_on_u
 
 76:                                               ; preds = %.noexc34
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i, i64 16
-  %78 = load i8, ptr %77, align 1, !alias.scope !364, !noalias !367, !noundef !4
+  %78 = load i8, ptr %77, align 16, !alias.scope !364, !noalias !367, !noundef !4
   %79 = icmp eq i8 %78, -123
   br i1 %79, label %.noexc35, label %.noexc36
 
@@ -4697,7 +4697,7 @@ define void @_ZN5ropey4iter5Lines11from_str_at17h2ce6559dd1a6f370E(ptr dead_on_u
 
 106:                                              ; preds = %103
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i, i64 16
-  %108 = load i8, ptr %107, align 1, !alias.scope !364, !noalias !367, !noundef !4
+  %108 = load i8, ptr %107, align 16, !alias.scope !364, !noalias !367, !noundef !4
   %.mask.i24 = and i8 %108, -2
   %109 = icmp eq i8 %.mask.i24, -88
   br i1 %109, label %.noexc48, label %.noexc52
@@ -4710,7 +4710,7 @@ define void @_ZN5ropey4iter5Lines11from_str_at17h2ce6559dd1a6f370E(ptr dead_on_u
 
 111:                                              ; preds = %101
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i, i64 16
-  %113 = load i8, ptr %112, align 1, !alias.scope !364, !noalias !367, !noundef !4
+  %113 = load i8, ptr %112, align 16, !alias.scope !364, !noalias !367, !noundef !4
   %114 = icmp eq i8 %113, -128
   br i1 %114, label %115, label %.noexc52
 
@@ -4750,7 +4750,7 @@ define void @_ZN5ropey4iter5Lines11from_str_at17h2ce6559dd1a6f370E(ptr dead_on_u
 
 128:                                              ; preds = %.noexc56
   %129 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i, i64 16
-  %130 = load i8, ptr %129, align 1, !alias.scope !364, !noalias !367, !noundef !4
+  %130 = load i8, ptr %129, align 16, !alias.scope !364, !noalias !367, !noundef !4
   %131 = icmp eq i8 %130, 10
   br i1 %131, label %.noexc57, label %.noexc5
 
@@ -6721,7 +6721,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit187: ; preds 
 
 127:                                              ; preds = %120
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i174, i64 16
-  %129 = load i8, ptr %128, align 1, !alias.scope !557, !noalias !560, !noundef !4
+  %129 = load i8, ptr %128, align 16, !alias.scope !557, !noalias !560, !noundef !4
   %130 = icmp eq i8 %129, -123
   br i1 %130, label %131, label %132
 
@@ -6781,7 +6781,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit187: ; preds 
 
 161:                                              ; preds = %158
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i174, i64 16
-  %163 = load i8, ptr %162, align 1, !alias.scope !557, !noalias !560, !noundef !4
+  %163 = load i8, ptr %162, align 16, !alias.scope !557, !noalias !560, !noundef !4
   %.mask.i220 = and i8 %163, -2
   %164 = icmp eq i8 %.mask.i220, -88
   br i1 %164, label %165, label %.thread1395
@@ -6794,7 +6794,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit187: ; preds 
 
 167:                                              ; preds = %156
   %168 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i174, i64 16
-  %169 = load i8, ptr %168, align 1, !alias.scope !557, !noalias !560, !noundef !4
+  %169 = load i8, ptr %168, align 16, !alias.scope !557, !noalias !560, !noundef !4
   %170 = icmp eq i8 %169, -128
   br i1 %170, label %171, label %.thread1395
 
@@ -6834,7 +6834,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit187: ; preds 
 
 186:                                              ; preds = %181
   %187 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i174, i64 16
-  %188 = load i8, ptr %187, align 1, !alias.scope !557, !noalias !560, !noundef !4
+  %188 = load i8, ptr %187, align 16, !alias.scope !557, !noalias !560, !noundef !4
   %189 = icmp eq i8 %188, 10
   br i1 %189, label %190, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit
 
@@ -8105,7 +8105,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit203: ; preds 
 
 778:                                              ; preds = %771
   %779 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i159, i64 16
-  %780 = load i8, ptr %779, align 1, !alias.scope !697, !noalias !700, !noundef !4
+  %780 = load i8, ptr %779, align 16, !alias.scope !697, !noalias !700, !noundef !4
   %781 = icmp eq i8 %780, -123
   br i1 %781, label %782, label %783
 
@@ -8165,7 +8165,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit203: ; preds 
 
 812:                                              ; preds = %809
   %813 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i159, i64 16
-  %814 = load i8, ptr %813, align 1, !alias.scope !697, !noalias !700, !noundef !4
+  %814 = load i8, ptr %813, align 16, !alias.scope !697, !noalias !700, !noundef !4
   %.mask.i222 = and i8 %814, -2
   %815 = icmp eq i8 %.mask.i222, -88
   br i1 %815, label %816, label %.thread1433
@@ -8178,7 +8178,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit203: ; preds 
 
 818:                                              ; preds = %807
   %819 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i159, i64 16
-  %820 = load i8, ptr %819, align 1, !alias.scope !697, !noalias !700, !noundef !4
+  %820 = load i8, ptr %819, align 16, !alias.scope !697, !noalias !700, !noundef !4
   %821 = icmp eq i8 %820, -128
   br i1 %821, label %822, label %.thread1433
 
@@ -8218,7 +8218,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit203: ; preds 
 
 837:                                              ; preds = %832
   %838 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i159, i64 16
-  %839 = load i8, ptr %838, align 1, !alias.scope !697, !noalias !700, !noundef !4
+  %839 = load i8, ptr %838, align 16, !alias.scope !697, !noalias !700, !noundef !4
   %840 = icmp eq i8 %839, 10
   br i1 %840, label %841, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit223
 
@@ -8634,7 +8634,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit219: ; preds 
 
 1016:                                             ; preds = %1009
   %1017 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i, i64 16
-  %1018 = load i8, ptr %1017, align 1, !alias.scope !725, !noalias !728, !noundef !4
+  %1018 = load i8, ptr %1017, align 16, !alias.scope !725, !noalias !728, !noundef !4
   %1019 = icmp eq i8 %1018, -123
   br i1 %1019, label %1020, label %1021
 
@@ -8694,7 +8694,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit219: ; preds 
 
 1050:                                             ; preds = %1047
   %1051 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i, i64 16
-  %1052 = load i8, ptr %1051, align 1, !alias.scope !725, !noalias !728, !noundef !4
+  %1052 = load i8, ptr %1051, align 16, !alias.scope !725, !noalias !728, !noundef !4
   %.mask.i225 = and i8 %1052, -2
   %1053 = icmp eq i8 %.mask.i225, -88
   br i1 %1053, label %1054, label %.thread1443
@@ -8707,7 +8707,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit219: ; preds 
 
 1056:                                             ; preds = %1045
   %1057 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i, i64 16
-  %1058 = load i8, ptr %1057, align 1, !alias.scope !725, !noalias !728, !noundef !4
+  %1058 = load i8, ptr %1057, align 16, !alias.scope !725, !noalias !728, !noundef !4
   %1059 = icmp eq i8 %1058, -128
   br i1 %1059, label %1060, label %.thread1443
 
@@ -8747,7 +8747,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit219: ; preds 
 
 1075:                                             ; preds = %1070
   %1076 = getelementptr inbounds nuw i8, ptr %.sroa.011.2.i, i64 16
-  %1077 = load i8, ptr %1076, align 1, !alias.scope !725, !noalias !728, !noundef !4
+  %1077 = load i8, ptr %1076, align 16, !alias.scope !725, !noalias !728, !noundef !4
   %1078 = icmp eq i8 %1077, 10
   br i1 %1078, label %1079, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit226
 

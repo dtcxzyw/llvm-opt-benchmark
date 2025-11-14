@@ -4874,7 +4874,7 @@ define linkonce_odr void @_ZN4toml2v313source_regionD2Ev(ptr noundef nonnull ali
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -4970,7 +4970,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN4toml2v34nodeaSERKS1_
 
 21:                                               ; preds = %19
   %22 = add nsw i32 %10, -1
-  store i32 %22, ptr %7, align 4, !tbaa !145
+  store i32 %22, ptr %7, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 23:                                               ; preds = %19
@@ -5043,7 +5043,7 @@ _ZSt8exchangeIN4toml2v313source_regionES2_ET_RS3_OT0_.exit: ; preds = %2
 
 27:                                               ; preds = %25
   %28 = add nsw i32 %16, -1
-  store i32 %28, ptr %13, align 4, !tbaa !145
+  store i32 %28, ptr %13, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 29:                                               ; preds = %25
@@ -5963,7 +5963,7 @@ _ZN4toml2v34impl10fpclassifyERKd.exit13.thr_comm.thread.i.i.i.i.i: ; preds = %_Z
   %70 = tail call noundef ptr %69(ptr noundef nonnull readonly align 8 dereferenceable(40) %1) #55
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %73 = load i16, ptr %72, align 2, !tbaa !76
+  %73 = load i16, ptr %72, align 8, !tbaa !76
   %74 = load i16, ptr %71, align 2, !tbaa !76
   %75 = icmp eq i16 %73, %74
   br i1 %75, label %76, label %"_ZNKR4toml2v34node5visitIZNS0_4impl18node_deep_equalityEPKS1_S5_E3$_0EEDcOT_.exit"
@@ -5990,7 +5990,7 @@ _ZN4toml2v34impl10fpclassifyERKd.exit13.thr_comm.thread.i.i.i.i.i: ; preds = %_Z
   %91 = tail call noundef ptr %90(ptr noundef nonnull readonly align 8 dereferenceable(40) %1) #55
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 40
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %94 = load i8, ptr %93, align 4, !tbaa !82
+  %94 = load i8, ptr %93, align 8, !tbaa !82
   %95 = load i8, ptr %92, align 4, !tbaa !82
   %96 = icmp eq i8 %94, %95
   br i1 %96, label %97, label %"_ZNKR4toml2v34node5visitIZNS0_4impl18node_deep_equalityEPKS1_S5_E3$_0EEDcOT_.exit"
@@ -6025,7 +6025,7 @@ _ZN4toml2v34impl10fpclassifyERKd.exit13.thr_comm.thread.i.i.i.i.i: ; preds = %_Z
   %118 = tail call noundef ptr %117(ptr noundef nonnull readonly align 8 dereferenceable(40) %1) #55
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 40
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %121 = load i16, ptr %120, align 2, !tbaa !76
+  %121 = load i16, ptr %120, align 8, !tbaa !76
   %122 = load i16, ptr %119, align 2, !tbaa !76
   %123 = icmp eq i16 %121, %122
   br i1 %123, label %124, label %"_ZNKR4toml2v34node5visitIZNS0_4impl18node_deep_equalityEPKS1_S5_E3$_0EEDcOT_.exit"
@@ -6072,7 +6072,7 @@ _ZN4toml2v3eqERKNS0_4dateES3_.exit.i.i.i.i.i.i:   ; preds = %124
 
 _ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i.i:   ; preds = %147
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %154 = load i32, ptr %153, align 4, !tbaa !86
+  %154 = load i32, ptr %153, align 8, !tbaa !86
   %155 = getelementptr inbounds nuw i8, ptr %118, i64 48
   %156 = load i32, ptr %155, align 4, !tbaa !86
   %157 = icmp eq i32 %154, %156
@@ -6091,7 +6091,7 @@ _ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i.i:   ; preds = %147
 165:                                              ; preds = %158
   %166 = getelementptr inbounds nuw i8, ptr %118, i64 52
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %.sroa.01.0.copyload.i.i.i.i.i.i.i = load i16, ptr %167, align 2, !tbaa !197
+  %.sroa.01.0.copyload.i.i.i.i.i.i.i = load i16, ptr %167, align 4, !tbaa !197
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i16, ptr %166, align 2, !tbaa !197
   %168 = icmp eq i16 %.sroa.01.0.copyload.i.i.i.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i.i
   br label %"_ZNKR4toml2v34node5visitIZNS0_4impl18node_deep_equalityEPKS1_S5_E3$_0EEDcOT_.exit"
@@ -8599,7 +8599,7 @@ _ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EED2Ev.
 
 35:                                               ; preds = %33
   %36 = add nsw i32 %24, -1
-  store i32 %36, ptr %21, align 4, !tbaa !145
+  store i32 %36, ptr %21, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 37:                                               ; preds = %33
@@ -9052,7 +9052,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN4toml2v35arrayaSERKS1
 
 23:                                               ; preds = %21
   %24 = add nsw i32 %12, -1
-  store i32 %24, ptr %9, align 4, !tbaa !145
+  store i32 %24, ptr %9, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 25:                                               ; preds = %21
@@ -9339,7 +9339,7 @@ _ZSt8exchangeIN4toml2v313source_regionES2_ET_RS3_OT0_.exit.i: ; preds = %2
 
 27:                                               ; preds = %25
   %28 = add nsw i32 %16, -1
-  store i32 %28, ptr %13, align 4, !tbaa !145
+  store i32 %28, ptr %13, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 29:                                               ; preds = %25
@@ -10980,8 +10980,8 @@ _ZN4toml2v34impl10fpclassifyERKd.exit13.i.i.i.i:  ; preds = %_ZN4toml2v34impl10f
 62:                                               ; preds = %33
   %63 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %64 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %65 = load i16, ptr %64, align 2, !tbaa !76
-  %66 = load i16, ptr %63, align 2, !tbaa !76
+  %65 = load i16, ptr %64, align 8, !tbaa !76
+  %66 = load i16, ptr %63, align 8, !tbaa !76
   %67 = icmp eq i16 %65, %66
   br i1 %67, label %68, label %.critedge
 
@@ -11004,8 +11004,8 @@ _ZN4toml2v34impl10fpclassifyERKd.exit13.i.i.i.i:  ; preds = %_ZN4toml2v34impl10f
 80:                                               ; preds = %33
   %81 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %82 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %83 = load i8, ptr %82, align 4, !tbaa !82
-  %84 = load i8, ptr %81, align 4, !tbaa !82
+  %83 = load i8, ptr %82, align 8, !tbaa !82
+  %84 = load i8, ptr %81, align 8, !tbaa !82
   %85 = icmp eq i8 %83, %84
   br i1 %85, label %86, label %.critedge
 
@@ -11036,8 +11036,8 @@ _ZN4toml2v34impl10fpclassifyERKd.exit13.i.i.i.i:  ; preds = %_ZN4toml2v34impl10f
 104:                                              ; preds = %33
   %105 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %106 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %107 = load i16, ptr %106, align 2, !tbaa !76
-  %108 = load i16, ptr %105, align 2, !tbaa !76
+  %107 = load i16, ptr %106, align 8, !tbaa !76
+  %108 = load i16, ptr %105, align 8, !tbaa !76
   %109 = icmp eq i16 %107, %108
   br i1 %109, label %110, label %.critedge
 
@@ -11083,9 +11083,9 @@ _ZN4toml2v3eqERKNS0_4dateES3_.exit.i.i.i.i.i:     ; preds = %110
 
 _ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i:     ; preds = %133
   %139 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %140 = load i32, ptr %139, align 4, !tbaa !86
+  %140 = load i32, ptr %139, align 8, !tbaa !86
   %141 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %142 = load i32, ptr %141, align 4, !tbaa !86
+  %142 = load i32, ptr %141, align 8, !tbaa !86
   %143 = icmp eq i32 %140, %142
   br i1 %143, label %144, label %.critedge
 
@@ -11102,8 +11102,8 @@ _ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i:     ; preds = %133
 151:                                              ; preds = %144
   %152 = getelementptr inbounds nuw i8, ptr %28, i64 52
   %153 = getelementptr inbounds nuw i8, ptr %22, i64 52
-  %.sroa.01.0.copyload.i.i.i.i.i.i = load i16, ptr %153, align 2, !tbaa !197
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i16, ptr %152, align 2, !tbaa !197
+  %.sroa.01.0.copyload.i.i.i.i.i.i = load i16, ptr %153, align 4, !tbaa !197
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i16, ptr %152, align 4, !tbaa !197
   %154 = icmp eq i16 %.sroa.01.0.copyload.i.i.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i
   br i1 %154, label %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31", label %.critedge
 
@@ -11194,7 +11194,7 @@ _ZNSt3mapIN4toml2v33keyESt10unique_ptrINS1_4nodeESt14default_deleteIS4_EESt4less
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !145
+  store i32 %26, ptr %11, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -11615,7 +11615,7 @@ define noundef nonnull align 8 dereferenceable(89) ptr @_ZN4toml2v35tableaSERKS1
 
 24:                                               ; preds = %22
   %25 = add nsw i32 %13, -1
-  store i32 %25, ptr %10, align 4, !tbaa !145
+  store i32 %25, ptr %10, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 26:                                               ; preds = %22
@@ -11775,7 +11775,7 @@ _ZSt8exchangeIN4toml2v313source_regionES2_ET_RS3_OT0_.exit.i: ; preds = %2
 
 27:                                               ; preds = %25
   %28 = add nsw i32 %16, -1
-  store i32 %28, ptr %13, align 4, !tbaa !145
+  store i32 %28, ptr %13, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 29:                                               ; preds = %25
@@ -12757,8 +12757,8 @@ _ZN4toml2v34impl10fpclassifyERKd.exit13.i.i.i.i:  ; preds = %_ZN4toml2v34impl10f
 67:                                               ; preds = %38
   %68 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %69 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %70 = load i16, ptr %69, align 2, !tbaa !76
-  %71 = load i16, ptr %68, align 2, !tbaa !76
+  %70 = load i16, ptr %69, align 8, !tbaa !76
+  %71 = load i16, ptr %68, align 8, !tbaa !76
   %72 = icmp eq i16 %70, %71
   br i1 %72, label %73, label %.critedge
 
@@ -12781,8 +12781,8 @@ _ZN4toml2v34impl10fpclassifyERKd.exit13.i.i.i.i:  ; preds = %_ZN4toml2v34impl10f
 85:                                               ; preds = %38
   %86 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %87 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %88 = load i8, ptr %87, align 4, !tbaa !82
-  %89 = load i8, ptr %86, align 4, !tbaa !82
+  %88 = load i8, ptr %87, align 8, !tbaa !82
+  %89 = load i8, ptr %86, align 8, !tbaa !82
   %90 = icmp eq i8 %88, %89
   br i1 %90, label %91, label %.critedge
 
@@ -12813,8 +12813,8 @@ _ZN4toml2v34impl10fpclassifyERKd.exit13.i.i.i.i:  ; preds = %_ZN4toml2v34impl10f
 109:                                              ; preds = %38
   %110 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %111 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %112 = load i16, ptr %111, align 2, !tbaa !76
-  %113 = load i16, ptr %110, align 2, !tbaa !76
+  %112 = load i16, ptr %111, align 8, !tbaa !76
+  %113 = load i16, ptr %110, align 8, !tbaa !76
   %114 = icmp eq i16 %112, %113
   br i1 %114, label %115, label %.critedge
 
@@ -12860,9 +12860,9 @@ _ZN4toml2v3eqERKNS0_4dateES3_.exit.i.i.i.i.i:     ; preds = %115
 
 _ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i:     ; preds = %138
   %144 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %145 = load i32, ptr %144, align 4, !tbaa !86
+  %145 = load i32, ptr %144, align 8, !tbaa !86
   %146 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  %147 = load i32, ptr %146, align 4, !tbaa !86
+  %147 = load i32, ptr %146, align 8, !tbaa !86
   %148 = icmp eq i32 %145, %147
   br i1 %148, label %149, label %.critedge
 
@@ -12879,8 +12879,8 @@ _ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i:     ; preds = %138
 156:                                              ; preds = %149
   %157 = getelementptr inbounds nuw i8, ptr %33, i64 52
   %158 = getelementptr inbounds nuw i8, ptr %27, i64 52
-  %.sroa.01.0.copyload.i.i.i.i.i.i = load i16, ptr %158, align 2, !tbaa !197
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i16, ptr %157, align 2, !tbaa !197
+  %.sroa.01.0.copyload.i.i.i.i.i.i = load i16, ptr %158, align 4, !tbaa !197
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i16, ptr %157, align 4, !tbaa !197
   %159 = icmp eq i16 %.sroa.01.0.copyload.i.i.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i
   br i1 %159, label %"_ZN4toml2v34node8do_visitIZNS0_5table5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread33", label %.critedge
 
@@ -15200,7 +15200,7 @@ _ZNSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS7_
 
 447:                                              ; preds = %445
   %448 = add nsw i32 %436, -1
-  store i32 %448, ptr %433, align 4, !tbaa !145
+  store i32 %448, ptr %433, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 449:                                              ; preds = %445
@@ -16332,7 +16332,7 @@ _ZNK4toml2v34impl14table_iteratorILb0EE9get_proxyEv.exit86: ; preds = %.loopexit
 
 225:                                              ; preds = %223
   %226 = add nsw i32 %214, -1
-  store i32 %226, ptr %211, align 4, !tbaa !145
+  store i32 %226, ptr %211, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 227:                                              ; preds = %223
@@ -16432,7 +16432,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 271:                                              ; preds = %269
   %272 = add nsw i32 %260, -1
-  store i32 %272, ptr %257, align 4, !tbaa !145
+  store i32 %272, ptr %257, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i95
 
 273:                                              ; preds = %269
@@ -16747,7 +16747,7 @@ _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %3
 
 384:                                              ; preds = %382
   %385 = add nsw i32 %373, -1
-  store i32 %385, ptr %370, align 4, !tbaa !145
+  store i32 %385, ptr %370, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i138
 
 386:                                              ; preds = %382
@@ -16935,7 +16935,7 @@ _ZN12_GLOBAL__N_111utf8_readerISt17basic_string_viewIcSt11char_traitsIcEEEC2IRS4
 
 51:                                               ; preds = %49
   %52 = add nsw i32 %40, -1
-  store i32 %52, ptr %37, align 4, !tbaa !145
+  store i32 %52, ptr %37, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i4
 
 53:                                               ; preds = %49
@@ -17076,7 +17076,7 @@ _ZNSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS7_
 
 60:                                               ; preds = %58
   %61 = add nsw i32 %49, -1
-  store i32 %61, ptr %46, align 4, !tbaa !145
+  store i32 %61, ptr %46, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 62:                                               ; preds = %58
@@ -17333,7 +17333,7 @@ define internal void @_ZN12_GLOBAL__N_111utf8_readerISt17basic_string_viewIcSt11
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -17483,7 +17483,7 @@ _ZN12_GLOBAL__N_111utf8_readerISt17basic_string_viewIcSt11char_traitsIcEEEC2IRS4
 
 59:                                               ; preds = %57
   %60 = add nsw i32 %48, -1
-  store i32 %60, ptr %45, align 4, !tbaa !145
+  store i32 %60, ptr %45, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 61:                                               ; preds = %57
@@ -17590,7 +17590,7 @@ define void @_ZN4toml2v32ex5parseERSiSt17basic_string_viewIcSt11char_traitsIcEE(
 
 41:                                               ; preds = %39
   %42 = add nsw i32 %30, -1
-  store i32 %42, ptr %27, align 4, !tbaa !145
+  store i32 %42, ptr %27, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 43:                                               ; preds = %39
@@ -17639,7 +17639,7 @@ _ZNSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_.
 
 63:                                               ; preds = %61
   %64 = add nsw i32 %52, -1
-  store i32 %64, ptr %49, align 4, !tbaa !145
+  store i32 %64, ptr %49, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 65:                                               ; preds = %61
@@ -17708,7 +17708,7 @@ _ZN12_GLOBAL__N_111utf8_readerISiEC2IRSiRSt17basic_string_viewIcSt11char_traitsI
 
 89:                                               ; preds = %87
   %90 = add nsw i32 %78, -1
-  store i32 %90, ptr %75, align 4, !tbaa !145
+  store i32 %90, ptr %75, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i4
 
 91:                                               ; preds = %87
@@ -17771,7 +17771,7 @@ define internal void @_ZN12_GLOBAL__N_111utf8_readerISiED2Ev(ptr noundef nonnull
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -17907,7 +17907,7 @@ _ZN12_GLOBAL__N_111utf8_readerISiEC2IRSiNSt7__cxx1112basic_stringIcSt11char_trai
 
 52:                                               ; preds = %50
   %53 = add nsw i32 %41, -1
-  store i32 %53, ptr %38, align 4, !tbaa !145
+  store i32 %53, ptr %38, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 54:                                               ; preds = %50
@@ -22118,7 +22118,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIKNSt7__cxx1112basic_stringIcSt11ch
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -22865,7 +22865,7 @@ _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EED2Ev.exit.i.i.i.i: ; pr
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !145
+  store i32 %27, ptr %12, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -22933,7 +22933,7 @@ define linkonce_odr void @_ZN4toml2v33keyD2Ev(ptr noundef nonnull align 8 derefe
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 21:                                               ; preds = %17
@@ -23284,7 +23284,7 @@ define linkonce_odr void @_ZN4toml2v32ex11parse_errorD2Ev(ptr noundef nonnull al
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 21:                                               ; preds = %17
@@ -23343,7 +23343,7 @@ define linkonce_odr void @_ZN4toml2v32ex11parse_errorD0Ev(ptr noundef nonnull al
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 21:                                               ; preds = %17
@@ -33259,7 +33259,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !145
+  store i32 %26, ptr %11, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -33329,7 +33329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %1, 
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !145
+  store i32 %26, ptr %11, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -33745,7 +33745,7 @@ define linkonce_odr void @_ZN4toml2v35valueIbED0Ev(ptr noundef nonnull align 8 d
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 21:                                               ; preds = %17
@@ -34001,7 +34001,7 @@ define linkonce_odr void @_ZN4toml2v35valueIlED0Ev(ptr noundef nonnull align 8 d
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 21:                                               ; preds = %17
@@ -34248,7 +34248,7 @@ define linkonce_odr void @_ZN4toml2v35valueIdED0Ev(ptr noundef nonnull align 8 d
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 21:                                               ; preds = %17
@@ -35052,7 +35052,7 @@ define linkonce_odr void @_ZN4toml2v35valueINS0_4timeEED0Ev(ptr noundef nonnull 
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 21:                                               ; preds = %17
@@ -35397,7 +35397,7 @@ define linkonce_odr void @_ZN4toml2v35valueINS0_4dateEED0Ev(ptr noundef nonnull 
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 21:                                               ; preds = %17
@@ -36266,7 +36266,7 @@ define void @_ZN4toml2v34nodeD2Ev(ptr noundef nonnull align 8 captures(none) der
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 21:                                               ; preds = %17
@@ -36322,7 +36322,7 @@ define linkonce_odr void @_ZN4toml2v35valueINS0_6stdopt9date_timeEED0Ev(ptr noun
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 21:                                               ; preds = %17
@@ -37335,7 +37335,7 @@ _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %_
 
 52:                                               ; preds = %50
   %53 = add nsw i32 %41, -1
-  store i32 %53, ptr %38, align 4, !tbaa !145
+  store i32 %53, ptr %38, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 54:                                               ; preds = %50
@@ -37673,7 +37673,7 @@ _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %_
 
 53:                                               ; preds = %51
   %54 = add nsw i32 %42, -1
-  store i32 %54, ptr %39, align 4, !tbaa !145
+  store i32 %54, ptr %39, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 55:                                               ; preds = %51
@@ -39386,7 +39386,7 @@ _ZN4toml2v34impl4findIN9__gnu_cxx17__normal_iteratorIPPNS0_5arrayESt6vectorIS6_S
 
 378:                                              ; preds = %376
   %379 = add nsw i32 %367, -1
-  store i32 %379, ptr %364, align 4, !tbaa !145
+  store i32 %379, ptr %364, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 380:                                              ; preds = %376
@@ -39485,7 +39485,7 @@ _ZNSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS7_
 
 424:                                              ; preds = %422
   %425 = add nsw i32 %413, -1
-  store i32 %425, ptr %410, align 4, !tbaa !145
+  store i32 %425, ptr %410, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 426:                                              ; preds = %422
@@ -39719,7 +39719,7 @@ _ZNSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS7_
 
 520:                                              ; preds = %518
   %521 = add nsw i32 %509, -1
-  store i32 %521, ptr %506, align 4, !tbaa !145
+  store i32 %521, ptr %506, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i268
 
 522:                                              ; preds = %518
@@ -40084,7 +40084,7 @@ _ZNSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS7_
 
 667:                                              ; preds = %665
   %668 = add nsw i32 %656, -1
-  store i32 %668, ptr %653, align 4, !tbaa !145
+  store i32 %668, ptr %653, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i305
 
 669:                                              ; preds = %665
@@ -40172,7 +40172,7 @@ _ZNSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS7_
 
 709:                                              ; preds = %707
   %710 = add nsw i32 %698, -1
-  store i32 %710, ptr %695, align 4, !tbaa !145
+  store i32 %710, ptr %695, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i318
 
 711:                                              ; preds = %707
@@ -40290,7 +40290,7 @@ _ZNSt10shared_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS7_
 
 763:                                              ; preds = %761
   %764 = add nsw i32 %752, -1
-  store i32 %764, ptr %749, align 4, !tbaa !145
+  store i32 %764, ptr %749, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i332
 
 765:                                              ; preds = %761
@@ -40347,7 +40347,7 @@ _ZN4toml2v313source_regionD2Ev.exit325:           ; preds = %_ZNSt10shared_ptrIK
 
 788:                                              ; preds = %786
   %789 = add nsw i32 %777, -1
-  store i32 %789, ptr %774, align 4, !tbaa !145
+  store i32 %789, ptr %774, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i342
 
 790:                                              ; preds = %786
@@ -40782,7 +40782,7 @@ _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %_
 
 52:                                               ; preds = %50
   %53 = add nsw i32 %41, -1
-  store i32 %53, ptr %38, align 4, !tbaa !145
+  store i32 %53, ptr %38, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 54:                                               ; preds = %50
@@ -46543,7 +46543,7 @@ define internal void @_ZN12_GLOBAL__N_111utf8_readerISt17basic_string_viewIcSt11
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 21:                                               ; preds = %17
@@ -47243,7 +47243,7 @@ define internal void @_ZN12_GLOBAL__N_111utf8_readerISiED0Ev(ptr noundef nonnull
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !145
+  store i32 %20, ptr %5, align 8, !tbaa !145
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 21:                                               ; preds = %17

@@ -11594,7 +11594,7 @@ _ZNK5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(27) %3, ptr noundef nonnull align 16 dereferenceable(27) %10, i64 16, i1 false), !tbaa.struct !151
   store i128 %.sroa.0.0.copyload.i, ptr %10, align 16, !tbaa !103
   store i8 %654, ptr %236, align 8, !tbaa !152
-  store i8 %652, ptr %393, align 1, !tbaa !152
+  store i8 %652, ptr %393, align 8, !tbaa !152
   %684 = load i8, ptr %211, align 1, !tbaa !152, !range !10, !noundef !11
   %685 = load i8, ptr %394, align 1, !tbaa !152, !range !10, !noundef !11
   store i8 %685, ptr %211, align 1, !tbaa !152
@@ -53494,29 +53494,27 @@ _ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20
 57:                                               ; preds = %45
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %58, align 8, !tbaa !1122
-  br label %68
+  br label %66
 
 59:                                               ; preds = %45
   %60 = ptrtoint ptr %11 to i64
-  %61 = and i64 %60, -4
-  %62 = or disjoint i64 %61, 1
-  %63 = inttoptr i64 %62 to ptr
-  store ptr %63, ptr %47, align 8, !tbaa !242
-  %64 = ptrtoint ptr %47 to i64
-  %65 = and i64 %64, -4
-  %66 = or disjoint i64 %65, 1
-  %67 = inttoptr i64 %66 to ptr
-  br label %68
+  %61 = or disjoint i64 %60, 1
+  %62 = inttoptr i64 %61 to ptr
+  store ptr %62, ptr %47, align 8, !tbaa !242
+  %63 = ptrtoint ptr %47 to i64
+  %64 = or disjoint i64 %63, 1
+  %65 = inttoptr i64 %64 to ptr
+  br label %66
 
-68:                                               ; preds = %59, %57
-  %.sink = phi ptr [ inttoptr (i64 3 to ptr), %57 ], [ %67, %59 ]
+66:                                               ; preds = %59, %57
+  %.sink = phi ptr [ inttoptr (i64 3 to ptr), %57 ], [ %65, %59 ]
   %.pn = getelementptr inbounds nuw %"class.CGAL::Convex_hull_vertex_base_2", ptr %11, i64 %40
   %.sink20 = getelementptr inbounds nuw i8, ptr %.pn, i64 40
   store ptr %.sink20, ptr %46, align 8, !tbaa !1120
   store ptr %.sink, ptr %11, align 8, !tbaa !242
   store ptr inttoptr (i64 3 to ptr), ptr %.sink20, align 8, !tbaa !242
-  %69 = add i64 %40, 16
-  store i64 %69, ptr %2, align 8, !tbaa !239
+  %67 = add i64 %40, 16
+  store i64 %67, ptr %2, align 8, !tbaa !239
   ret void
 }
 
@@ -63076,7 +63074,7 @@ _ZNK4CGAL31Halfedge_around_target_iteratorINS_12Polyhedron_3INS_5EpickENS_18Poly
 
 1175:                                             ; preds = %1173
   %1176 = add nsw i32 %1164, -1
-  store i32 %1176, ptr %1161, align 4, !tbaa !30
+  store i32 %1176, ptr %1161, align 8, !tbaa !30
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 1177:                                             ; preds = %1173
@@ -63130,7 +63128,7 @@ _ZN4CGAL8internal20Dynamic_property_mapINS0_22In_place_list_iteratorINS_33Halfed
 
 1197:                                             ; preds = %1195
   %1198 = add nsw i32 %1186, -1
-  store i32 %1198, ptr %1183, align 4, !tbaa !30
+  store i32 %1198, ptr %1183, align 8, !tbaa !30
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i577
 
 1199:                                             ; preds = %1195
@@ -63232,7 +63230,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
 
 1236:                                             ; preds = %1234
   %1237 = add nsw i32 %1225, -1
-  store i32 %1237, ptr %1222, align 4, !tbaa !30
+  store i32 %1237, ptr %1222, align 8, !tbaa !30
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i587
 
 1238:                                             ; preds = %1234
@@ -63346,7 +63344,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
 
 1273:                                             ; preds = %1271
   %1274 = add nsw i32 %1262, -1
-  store i32 %1274, ptr %1259, align 4, !tbaa !30
+  store i32 %1274, ptr %1259, align 8, !tbaa !30
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i599
 
 1275:                                             ; preds = %1271

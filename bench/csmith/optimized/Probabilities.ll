@@ -589,7 +589,7 @@ _ZNSt3mapI8ProbNameP8ProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEE11lower_boundERS6_
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %25 = load i32, ptr %15, align 4, !tbaa !21
+  %25 = load i32, ptr %15, align 8, !tbaa !21
   %26 = load i32, ptr %24, align 4, !tbaa !21
   %27 = icmp slt i32 %25, %26
   br label %.thread.i
@@ -1928,7 +1928,7 @@ _ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEE11lower_bou
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %25 = load i32, ptr %15, align 4, !tbaa !21
+  %25 = load i32, ptr %15, align 8, !tbaa !21
   %26 = load i32, ptr %24, align 4, !tbaa !21
   %27 = icmp slt i32 %25, %26
   br label %.thread.i
@@ -7102,7 +7102,7 @@ _ZNSt3mapI8ProbNameP6FilterSt4lessIS0_ESaISt4pairIKS0_S2_EEE11lower_boundERS6_.e
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %25 = load i32, ptr %15, align 4, !tbaa !21
+  %25 = load i32, ptr %15, align 8, !tbaa !21
   %26 = load i32, ptr %24, align 4, !tbaa !21
   %27 = icmp slt i32 %25, %26
   br label %.thread.i
@@ -9591,8 +9591,8 @@ define linkonce_odr dso_local noundef ptr @_ZNSt8_Rb_treeI8ProbNameSt4pairIKS0_i
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load i64, ptr %5, align 4
-  store i64 %8, ptr %7, align 4
+  %8 = load i64, ptr %5, align 8
+  store i64 %8, ptr %7, align 8
   %9 = load i32, ptr %1, align 8, !tbaa !178
   store i32 %9, ptr %6, align 8, !tbaa !178
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -9633,8 +9633,8 @@ define linkonce_odr dso_local noundef ptr @_ZNSt8_Rb_treeI8ProbNameSt4pairIKS0_i
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %.039, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %25 = load i64, ptr %23, align 4
-  store i64 %25, ptr %24, align 4
+  %25 = load i64, ptr %23, align 8
+  store i64 %25, ptr %24, align 8
   %26 = load i32, ptr %.039, align 8, !tbaa !178
   store i32 %26, ptr %21, align 8, !tbaa !178
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -11092,7 +11092,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeI8ProbNameSt4pairIKS0_NSt7__cxx
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %25 = load i32, ptr %9, align 4, !tbaa !21
+  %25 = load i32, ptr %9, align 8, !tbaa !21
   %26 = load i32, ptr %24, align 4, !tbaa !21
   %27 = icmp slt i32 %25, %26
   br label %.thread

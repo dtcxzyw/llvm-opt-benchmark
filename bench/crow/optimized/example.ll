@@ -54844,7 +54844,7 @@ _ZNSt6vectorISt6futureIvESaIS1_EE9push_backEOS1_.exit: ; preds = %85, %90
 
 107:                                              ; preds = %105
   %108 = add nsw i32 %96, -1
-  store i32 %108, ptr %93, align 4, !tbaa !130
+  store i32 %108, ptr %93, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 109:                                              ; preds = %105
@@ -55341,7 +55341,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %269
 
 291:                                              ; preds = %289
   %292 = add nsw i32 %280, -1
-  store i32 %292, ptr %277, align 4, !tbaa !130
+  store i32 %292, ptr %277, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
 293:                                              ; preds = %289
@@ -66843,7 +66843,7 @@ _ZN4asio6detail11executor_opINS0_17executor_functionESaIvENS0_19scheduler_operat
   %.sink27.i.i.i = phi ptr [ %44, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i ], [ %40, %41 ]
   %.sink.i.i.i = phi i8 [ 10, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i ], [ %42, %41 ]
   %46 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i, i64 40
-  store i8 %.sink.i.i.i, ptr %46, align 1, !tbaa !14
+  store i8 %.sink.i.i.i, ptr %46, align 8, !tbaa !14
   store ptr %.sink27.i.i.i, ptr %45, align 8, !tbaa !1329
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %.sink27.i.i.i, align 8, !tbaa !249
@@ -68557,7 +68557,7 @@ _ZN4asio6detail11executor_opINS0_17executor_functionESaIvENS0_19scheduler_operat
   %.sink27.i.i.i = phi ptr [ %44, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i ], [ %40, %41 ]
   %.sink.i.i.i = phi i8 [ 10, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i ], [ %42, %41 ]
   %46 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i, i64 40
-  store i8 %.sink.i.i.i, ptr %46, align 1, !tbaa !14
+  store i8 %.sink.i.i.i, ptr %46, align 8, !tbaa !14
   store ptr %.sink27.i.i.i, ptr %45, align 8, !tbaa !1329
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %.sink27.i.i.i, align 8, !tbaa !249
@@ -72144,9 +72144,9 @@ _ZSt11make_sharedINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5t
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt10shared_ptrINSt13__future_base13_State_baseV2EEC2ERKS2_.exit.i.i, label %_ZNSt10shared_ptrINSt13__future_base13_State_baseV2EEC2ERKS2_.exit.i.i.thread
 
 _ZNSt10shared_ptrINSt13__future_base13_State_baseV2EEC2ERKS2_.exit.i.i.thread: ; preds = %_ZSt11make_sharedINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN4crow6ServerINS5_4CrowIJ17ExampleMiddlewareEEENS5_13SocketAdaptorEJS8_EE3runEvEUlvE_EEEEvEEJSC_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESI_E4typeEEDpOT0_.exit
-  %57 = load i32, ptr %55, align 4, !tbaa !130
+  %57 = load i32, ptr %55, align 8, !tbaa !130
   %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %55, align 4, !tbaa !130
+  store i32 %58, ptr %55, align 8, !tbaa !130
   br label %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i.i
 
 _ZNSt10shared_ptrINSt13__future_base13_State_baseV2EEC2ERKS2_.exit.i.i: ; preds = %_ZSt11make_sharedINSt13__future_base17_Async_state_implINSt6thread8_InvokerISt5tupleIJZN4crow6ServerINS5_4CrowIJ17ExampleMiddlewareEEENS5_13SocketAdaptorEJS8_EE3runEvEUlvE_EEEEvEEJSC_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESI_E4typeEEDpOT0_.exit
@@ -72214,7 +72214,7 @@ _ZNSt6futureIvEC2ERKSt10shared_ptrINSt13__future_base13_State_baseV2EE.exit: ; p
 
 84:                                               ; preds = %82
   %85 = add nsw i32 %73, -1
-  store i32 %85, ptr %70, align 4, !tbaa !130
+  store i32 %85, ptr %70, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i27
 
 86:                                               ; preds = %82
@@ -72286,7 +72286,7 @@ define linkonce_odr dso_local void @_ZNSt14__basic_futureIvED2Ev(ptr noundef non
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !130
+  store i32 %20, ptr %5, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -72576,7 +72576,7 @@ _ZN4asio21basic_socket_acceptorINS_2ip3tcpENS_9execution12any_executorIJNS3_12co
 
 120:                                              ; preds = %118
   %121 = add nsw i32 %109, -1
-  store i32 %121, ptr %106, align 4, !tbaa !130
+  store i32 %121, ptr %106, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 122:                                              ; preds = %118
@@ -72626,7 +72626,7 @@ _ZZN4crow6ServerINS_4CrowIJ17ExampleMiddlewareEEENS_13SocketAdaptorEJS2_EE9do_ac
 
 142:                                              ; preds = %140
   %143 = add nsw i32 %131, -1
-  store i32 %143, ptr %128, align 4, !tbaa !130
+  store i32 %143, ptr %128, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 144:                                              ; preds = %140
@@ -72708,7 +72708,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt6futureIvESaIS1_EED2Ev(ptr no
 
 22:                                               ; preds = %20
   %23 = add nsw i32 %11, -1
-  store i32 %23, ptr %8, align 4, !tbaa !130
+  store i32 %23, ptr %8, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 24:                                               ; preds = %20
@@ -73282,7 +73282,7 @@ define linkonce_odr dso_local void @_ZNSt12__shared_ptrINSt13__future_base13_Sta
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !130
+  store i32 %20, ptr %5, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -76750,7 +76750,7 @@ _ZN4asio6detail17executor_functionC2INS0_7binder1ISt5_BindIFMN4crow6detail10task
   %.sink27.i.i.i.i = phi ptr [ %24, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i ], [ %21, %22 ]
   %.sink.i.i.i.i = phi i8 [ 14, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i ], [ %23, %22 ]
   %25 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 56
-  store i8 %.sink.i.i.i.i, ptr %25, align 1, !tbaa !14
+  store i8 %.sink.i.i.i.i, ptr %25, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 8
   store i64 %.unpack.i.i, ptr %26, align 8, !tbaa !1727
   %.repack5.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 16
@@ -78454,7 +78454,7 @@ _ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJ17ExampleMiddlewareEEENS
   %.sink27.i.i.i.i.i.i = phi ptr [ %16, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i ], [ %13, %14 ]
   %.sink.i.i.i.i.i.i = phi i8 [ 24, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i ], [ %15, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i.i.i, i64 96
-  store i8 %.sink.i.i.i.i.i.i, ptr %17, align 1, !tbaa !14
+  store i8 %.sink.i.i.i.i.i.i, ptr %17, align 8, !tbaa !14
   store ptr %.sink27.i.i.i.i.i.i, ptr %7, align 8, !tbaa !1820
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %.sink27.i.i.i.i.i.i, align 8, !tbaa !249
@@ -79148,7 +79148,7 @@ _ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJ17ExampleMiddlewareEEENS
   %.sink27.i.i.i.i.i.i = phi ptr [ %16, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i ], [ %13, %14 ]
   %.sink.i.i.i.i.i.i = phi i8 [ 24, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i ], [ %15, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i.i.i, i64 96
-  store i8 %.sink.i.i.i.i.i.i, ptr %17, align 1, !tbaa !14
+  store i8 %.sink.i.i.i.i.i.i, ptr %17, align 8, !tbaa !14
   store ptr %.sink27.i.i.i.i.i.i, ptr %7, align 8, !tbaa !1840
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %.sink27.i.i.i.i.i.i, align 8, !tbaa !249
@@ -79640,7 +79640,7 @@ _ZN4asio6detail17executor_functionC2INS0_7binder1IZN4crow6ServerINS4_4CrowIJ17Ex
   %.sink27.i.i.i.i = phi ptr [ %23, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i ], [ %20, %21 ]
   %.sink.i.i.i.i = phi i8 [ 10, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i ], [ %22, %21 ]
   %24 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 40
-  store i8 %.sink.i.i.i.i, ptr %24, align 1, !tbaa !14
+  store i8 %.sink.i.i.i.i, ptr %24, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 8
   store i64 %12, ptr %25, align 8, !tbaa !143
   %26 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 16
@@ -79892,7 +79892,7 @@ _ZN4asio6detail17executor_functionC2INS0_7binder1IZN4crow6ServerINS4_4CrowIJ17Ex
   %.sink27.i.i.i.i = phi ptr [ %23, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i ], [ %20, %21 ]
   %.sink.i.i.i.i = phi i8 [ 10, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i ], [ %22, %21 ]
   %24 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 40
-  store i8 %.sink.i.i.i.i, ptr %24, align 1, !tbaa !14
+  store i8 %.sink.i.i.i.i, ptr %24, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 8
   store i64 %12, ptr %25, align 8, !tbaa !143
   %26 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 16
@@ -80782,7 +80782,7 @@ _ZN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJ17ExampleMiddlewareEEE
   %.sink27.i.i.i.i.i.i = phi ptr [ %16, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i ], [ %13, %14 ]
   %.sink.i.i.i.i.i.i = phi i8 [ 26, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i ], [ %15, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i.i.i, i64 104
-  store i8 %.sink.i.i.i.i.i.i, ptr %17, align 1, !tbaa !14
+  store i8 %.sink.i.i.i.i.i.i, ptr %17, align 8, !tbaa !14
   store ptr %.sink27.i.i.i.i.i.i, ptr %7, align 8, !tbaa !1877
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %.sink27.i.i.i.i.i.i, align 8, !tbaa !249
@@ -81616,7 +81616,7 @@ _ZN4asio6detail17executor_functionC2INS0_7binder2IZN4crow6ServerINS4_4CrowIJ17Ex
   %.sink27.i.i.i.i = phi ptr [ %25, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i ], [ %22, %23 ]
   %.sink.i.i.i.i = phi i8 [ 12, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i ], [ %24, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 48
-  store i8 %.sink.i.i.i.i, ptr %26, align 1, !tbaa !14
+  store i8 %.sink.i.i.i.i, ptr %26, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 8
   store i64 %12, ptr %27, align 8, !tbaa !143
   %28 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 16
@@ -81967,7 +81967,7 @@ define linkonce_odr dso_local void @_ZZN4crow6ServerINS_4CrowIJ17ExampleMiddlewa
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !130
+  store i32 %20, ptr %5, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -82022,7 +82022,7 @@ define linkonce_odr dso_local void @_ZNSt12__shared_ptrIN4crow10ConnectionINS0_1
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !130
+  store i32 %20, ptr %5, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -83421,7 +83421,7 @@ _ZN4asio6detail12handler_workIZN4crow6ServerINS2_4CrowIJ17ExampleMiddlewareEEENS
 
 79:                                               ; preds = %77
   %80 = add nsw i32 %68, -1
-  store i32 %80, ptr %65, align 4, !tbaa !130
+  store i32 %80, ptr %65, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 81:                                               ; preds = %77
@@ -83631,7 +83631,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail7binder1IZN4crow6ServerINS2_4
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !130
+  store i32 %20, ptr %5, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 21:                                               ; preds = %17
@@ -83836,7 +83836,7 @@ _ZN4asio6detail17handler_work_baseINS_9execution12any_executorIJNS2_12context_as
 
 28:                                               ; preds = %26
   %29 = add nsw i32 %17, -1
-  store i32 %29, ptr %14, align 4, !tbaa !130
+  store i32 %29, ptr %14, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 30:                                               ; preds = %26
@@ -84070,7 +84070,7 @@ _ZNSt10shared_ptrIN4crow10ConnectionINS0_13SocketAdaptorENS0_4CrowIJ17ExampleMid
 
 42:                                               ; preds = %40
   %43 = add nsw i32 %31, -1
-  store i32 %43, ptr %28, align 4, !tbaa !130
+  store i32 %43, ptr %28, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 44:                                               ; preds = %40
@@ -84228,7 +84228,7 @@ define linkonce_odr dso_local void @_ZZZN4crow6ServerINS_4CrowIJ17ExampleMiddlew
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !130
+  store i32 %20, ptr %5, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -84375,7 +84375,7 @@ _ZN27asio_handler_invoke_helpers6invokeIZZN4crow6ServerINS1_4CrowIJ17ExampleMidd
 
 57:                                               ; preds = %55
   %58 = add nsw i32 %46, -1
-  store i32 %58, ptr %43, align 4, !tbaa !130
+  store i32 %58, ptr %43, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 59:                                               ; preds = %55
@@ -84442,7 +84442,7 @@ _ZN4asio6detail11executor_opIZZN4crow6ServerINS2_4CrowIJ17ExampleMiddlewareEEENS
   %.sink27.i.i.i = phi ptr [ %73, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i ], [ %69, %70 ]
   %.sink.i.i.i = phi i8 [ 12, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i ], [ %71, %70 ]
   %75 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i, i64 48
-  store i8 %.sink.i.i.i, ptr %75, align 1, !tbaa !14
+  store i8 %.sink.i.i.i, ptr %75, align 8, !tbaa !14
   store ptr %.sink27.i.i.i, ptr %74, align 8, !tbaa !1997
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %.sink27.i.i.i, align 8, !tbaa !249
@@ -84613,7 +84613,7 @@ _ZNSt10shared_ptrIN4crow10ConnectionINS0_13SocketAdaptorENS0_4CrowIJ17ExampleMid
 
 49:                                               ; preds = %47
   %50 = add nsw i32 %38, -1
-  store i32 %50, ptr %35, align 4, !tbaa !130
+  store i32 %50, ptr %35, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 51:                                               ; preds = %47
@@ -84662,7 +84662,7 @@ _ZZN4crow10ConnectionINS_13SocketAdaptorENS_4CrowIJ17ExampleMiddlewareEEEJS3_EE5
 
 71:                                               ; preds = %69
   %72 = add nsw i32 %60, -1
-  store i32 %72, ptr %57, align 4, !tbaa !130
+  store i32 %72, ptr %57, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 73:                                               ; preds = %69
@@ -84726,7 +84726,7 @@ define linkonce_odr dso_local void @_ZZN4crow10ConnectionINS_13SocketAdaptorENS_
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !130
+  store i32 %20, ptr %5, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -85228,7 +85228,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %86, %83, %81
 
 118:                                              ; preds = %116
   %119 = add nsw i32 %107, -1
-  store i32 %119, ptr %104, align 4, !tbaa !130
+  store i32 %119, ptr %104, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 120:                                              ; preds = %116
@@ -85366,7 +85366,7 @@ _ZN4asio19basic_stream_socketINS_2ip3tcpENS_9execution12any_executorIJNS3_12cont
 
 53:                                               ; preds = %51
   %54 = add nsw i32 %42, -1
-  store i32 %54, ptr %39, align 4, !tbaa !130
+  store i32 %54, ptr %39, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 55:                                               ; preds = %51
@@ -85417,7 +85417,7 @@ _ZZN4crow10ConnectionINS_13SocketAdaptorENS_4CrowIJ17ExampleMiddlewareEEEJS3_EE7
 
 75:                                               ; preds = %73
   %76 = add nsw i32 %64, -1
-  store i32 %76, ptr %61, align 4, !tbaa !130
+  store i32 %76, ptr %61, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 77:                                               ; preds = %73
@@ -85600,7 +85600,7 @@ define linkonce_odr dso_local void @_ZZN4crow10ConnectionINS_13SocketAdaptorENS_
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !130
+  store i32 %20, ptr %5, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -86498,7 +86498,7 @@ _ZNSt14_Function_base13_Base_managerIZN4crow10ConnectionINS1_13SocketAdaptorENS1
 
 43:                                               ; preds = %41
   %44 = add nsw i32 %32, -1
-  store i32 %44, ptr %29, align 4, !tbaa !130
+  store i32 %44, ptr %29, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 45:                                               ; preds = %41
@@ -87059,7 +87059,7 @@ define linkonce_odr dso_local void @_ZZN4crow10ConnectionINS_13SocketAdaptorENS_
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !130
+  store i32 %20, ptr %5, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -87120,7 +87120,7 @@ _ZN4asio6detail23reactive_socket_recv_opINS_17mutable_buffers_1EZN4crow10Connect
   %.sink27.i.i.i.i.i.i = phi ptr [ %18, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i ], [ %15, %16 ]
   %.sink.i.i.i.i.i.i = phi i8 [ 38, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i.i ], [ %17, %16 ]
   %19 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i.i.i, i64 152
-  store i8 %.sink.i.i.i.i.i.i, ptr %19, align 1, !tbaa !14
+  store i8 %.sink.i.i.i.i.i.i, ptr %19, align 8, !tbaa !14
   store ptr %.sink27.i.i.i.i.i.i, ptr %9, align 8, !tbaa !2024
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %20, align 8, !tbaa !2025
@@ -87424,7 +87424,7 @@ _ZN4asio6detail12handler_workIZN4crow10ConnectionINS2_13SocketAdaptorENS2_4CrowI
 
 64:                                               ; preds = %62
   %65 = add nsw i32 %53, -1
-  store i32 %65, ptr %50, align 4, !tbaa !130
+  store i32 %65, ptr %50, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 66:                                               ; preds = %62
@@ -87559,7 +87559,7 @@ _ZN4asio6detail17handler_work_baseINS_9execution12any_executorIJNS2_12context_as
 
 29:                                               ; preds = %27
   %30 = add nsw i32 %18, -1
-  store i32 %30, ptr %15, align 4, !tbaa !130
+  store i32 %30, ptr %15, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 31:                                               ; preds = %27
@@ -87656,7 +87656,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail7binder2IZN4crow10ConnectionI
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !130
+  store i32 %20, ptr %5, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 21:                                               ; preds = %17
@@ -106752,7 +106752,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153: ; preds = %_Z
 
 590:                                              ; preds = %588
   %591 = add nsw i32 %579, -1
-  store i32 %591, ptr %576, align 4, !tbaa !130
+  store i32 %591, ptr %576, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 592:                                              ; preds = %588
@@ -106908,7 +106908,7 @@ define linkonce_odr dso_local void @_ZZN4crow10ConnectionINS_13SocketAdaptorENS_
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !130
+  store i32 %20, ptr %5, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -106963,7 +106963,7 @@ define linkonce_odr dso_local void @_ZZN4crow10ConnectionINS_13SocketAdaptorENS_
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !130
+  store i32 %20, ptr %5, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -108919,7 +108919,7 @@ _ZNSt14_Function_base13_Base_managerIZN4crow10ConnectionINS1_13SocketAdaptorENS1
 
 43:                                               ; preds = %41
   %44 = add nsw i32 %32, -1
-  store i32 %44, ptr %29, align 4, !tbaa !130
+  store i32 %44, ptr %29, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 45:                                               ; preds = %41
@@ -109064,7 +109064,7 @@ _ZNSt14_Function_base13_Base_managerIZN4crow10ConnectionINS1_13SocketAdaptorENS1
 
 43:                                               ; preds = %41
   %44 = add nsw i32 %32, -1
-  store i32 %44, ptr %29, align 4, !tbaa !130
+  store i32 %44, ptr %29, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 45:                                               ; preds = %41
@@ -110477,7 +110477,7 @@ _ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.
   %.sink27.i.i.i.i = phi ptr [ %28, %29 ], [ %31, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i ]
   %.sink.i.i.i.i = phi i8 [ %30, %29 ], [ 14, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 56
-  store i8 %.sink.i.i.i.i, ptr %33, align 1, !tbaa !14
+  store i8 %.sink.i.i.i.i, ptr %33, align 8, !tbaa !14
   %34 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 8
   store ptr %13, ptr %34, align 8, !tbaa !1604
   %35 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 16
@@ -110678,7 +110678,7 @@ _ZN27asio_handler_invoke_helpers6invokeIN4asio6detail7binder2IZN4crow10Connectio
 
 51:                                               ; preds = %49
   %52 = add nsw i32 %40, -1
-  store i32 %52, ptr %37, align 4, !tbaa !130
+  store i32 %52, ptr %37, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 53:                                               ; preds = %49
@@ -110734,7 +110734,7 @@ _ZN4asio6detail7binder2IZN4crow10ConnectionINS2_13SocketAdaptorENS2_4CrowIJ17Exa
 
 76:                                               ; preds = %74
   %77 = add nsw i32 %65, -1
-  store i32 %77, ptr %62, align 4, !tbaa !130
+  store i32 %77, ptr %62, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i10
 
 78:                                               ; preds = %74
@@ -110831,7 +110831,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail17executor_function4implINS0_
 
 22:                                               ; preds = %20
   %23 = add nsw i32 %11, -1
-  store i32 %23, ptr %8, align 4, !tbaa !130
+  store i32 %23, ptr %8, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 24:                                               ; preds = %20
@@ -111601,7 +111601,7 @@ _ZN27asio_handler_invoke_helpers6invokeIZZN4crow6ServerINS1_4CrowIJ17ExampleMidd
 
 44:                                               ; preds = %42
   %45 = add nsw i32 %33, -1
-  store i32 %45, ptr %30, align 4, !tbaa !130
+  store i32 %45, ptr %30, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 46:                                               ; preds = %42
@@ -111657,7 +111657,7 @@ _ZZZN4crow6ServerINS_4CrowIJ17ExampleMiddlewareEEENS_13SocketAdaptorEJS2_EE9do_a
 
 69:                                               ; preds = %67
   %70 = add nsw i32 %58, -1
-  store i32 %70, ptr %55, align 4, !tbaa !130
+  store i32 %70, ptr %55, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i13
 
 71:                                               ; preds = %67
@@ -111765,7 +111765,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail11executor_opIZZN4crow6Server
 
 22:                                               ; preds = %20
   %23 = add nsw i32 %11, -1
-  store i32 %23, ptr %8, align 4, !tbaa !130
+  store i32 %23, ptr %8, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 24:                                               ; preds = %20
@@ -111899,7 +111899,7 @@ _ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.
   %.sink27.i.i.i.i = phi ptr [ %30, %31 ], [ %33, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i ]
   %.sink.i.i.i.i = phi i8 [ %32, %31 ], [ 18, %_ZN4asio6detail10call_stackINS0_14thread_contextENS0_16thread_info_baseEE3topEv.exit.thread.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 72
-  store i8 %.sink.i.i.i.i, ptr %35, align 1, !tbaa !14
+  store i8 %.sink.i.i.i.i, ptr %35, align 8, !tbaa !14
   %36 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 8
   store ptr %13, ptr %36, align 8, !tbaa !1607
   %37 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i, i64 16
@@ -112109,7 +112109,7 @@ _ZN27asio_handler_invoke_helpers6invokeIN4asio6detail7binder1IZN4crow6ServerINS4
 
 53:                                               ; preds = %51
   %54 = add nsw i32 %42, -1
-  store i32 %54, ptr %39, align 4, !tbaa !130
+  store i32 %54, ptr %39, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 55:                                               ; preds = %51
@@ -112165,7 +112165,7 @@ _ZN4asio6detail7binder1IZN4crow6ServerINS2_4CrowIJ17ExampleMiddlewareEEENS2_13So
 
 78:                                               ; preds = %76
   %79 = add nsw i32 %67, -1
-  store i32 %79, ptr %64, align 4, !tbaa !130
+  store i32 %79, ptr %64, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i10
 
 80:                                               ; preds = %76
@@ -112262,7 +112262,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail17executor_function4implINS0_
 
 22:                                               ; preds = %20
   %23 = add nsw i32 %11, -1
-  store i32 %23, ptr %8, align 4, !tbaa !130
+  store i32 %23, ptr %8, align 8, !tbaa !130
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 24:                                               ; preds = %20
@@ -112364,7 +112364,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4asio6detail30reactive_socket_acce
 
 _ZN4asio6detail13socket_holder5resetEi.exit:      ; preds = %1, %18
   %22 = zext i1 %14 to i32
-  store i32 %16, ptr %15, align 4, !tbaa !1545
+  store i32 %16, ptr %15, align 8, !tbaa !1545
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %22
 }

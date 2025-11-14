@@ -358,7 +358,7 @@ pfr_header_check.exit:                            ; preds = %32
   %85 = trunc i64 %82 to i32
   store i32 %79, ptr %63, align 4, !tbaa !62
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  store i32 %85, ptr %86, align 4, !tbaa !63
+  store i32 %85, ptr %86, align 8, !tbaa !63
   %87 = and i64 %82, 4294967295
   %88 = call i32 @FT_Stream_Seek(ptr noundef nonnull %0, i64 noundef %87) #12
   store i32 %88, ptr %8, align 4, !tbaa !49
@@ -413,7 +413,7 @@ pfr_header_check.exit:                            ; preds = %32
   %127 = or disjoint i32 %122, %126
   %128 = ashr exact i32 %127, 8
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  store i32 %128, ptr %129, align 4, !tbaa !49
+  store i32 %128, ptr %129, align 8, !tbaa !49
   %130 = getelementptr inbounds nuw i8, ptr %94, i64 9
   %131 = load i8, ptr %114, align 1, !tbaa !65
   %132 = zext i8 %131 to i32
@@ -447,7 +447,7 @@ pfr_header_check.exit:                            ; preds = %32
   %159 = or disjoint i32 %154, %158
   %160 = ashr exact i32 %159, 8
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  store i32 %160, ptr %161, align 4, !tbaa !49
+  store i32 %160, ptr %161, align 8, !tbaa !49
   %162 = getelementptr inbounds nuw i8, ptr %94, i64 13
   %163 = load i8, ptr %146, align 1, !tbaa !65
   %164 = zext i8 %163 to i32
@@ -508,7 +508,7 @@ pfr_header_check.exit:                            ; preds = %32
   %.1.i = phi ptr [ %191, %190 ], [ %182, %181 ]
   %194 = phi i32 [ %192, %190 ], [ %189, %181 ]
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  store i32 %194, ptr %195, align 4, !tbaa !66
+  store i32 %194, ptr %195, align 8, !tbaa !66
   %196 = and i32 %164, 3
   %197 = icmp eq i32 %196, 0
   br i1 %197, label %198, label %215
@@ -530,7 +530,7 @@ pfr_header_check.exit:                            ; preds = %32
   %212 = or disjoint i32 %207, %211
   %213 = ashr exact i32 %212, 8
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 392
-  store i32 %213, ptr %214, align 4, !tbaa !67
+  store i32 %213, ptr %214, align 8, !tbaa !67
   br label %215
 
 215:                                              ; preds = %198, %193, %177
@@ -642,7 +642,7 @@ pfr_extra_items_skip.exit.i:                      ; preds = %.thread.us.i.i.i, %
   %272 = zext i8 %271 to i32
   %273 = or disjoint i32 %269, %272
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  store i32 %273, ptr %274, align 4, !tbaa !71
+  store i32 %273, ptr %274, align 8, !tbaa !71
   br i1 %.not, label %pfr_log_font_load.exit, label %275
 
 275:                                              ; preds = %252
@@ -678,7 +678,7 @@ pfr_log_font_load.exit:                           ; preds = %pfr_extra_items_ski
 284:                                              ; preds = %pfr_log_font_load.exit
   %285 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %286 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %287 = load i32, ptr %286, align 4, !tbaa !72
+  %287 = load i32, ptr %286, align 8, !tbaa !72
   %288 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %289 = load i32, ptr %288, align 4, !tbaa !73
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1794,7 +1794,7 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr noundef readonly captures
   %71 = load ptr, ptr %70, align 8, !tbaa !64
   %72 = load i32, ptr %64, align 4, !tbaa !191
   %73 = load i32, ptr %27, align 4, !tbaa !44
-  %74 = load i32, ptr %49, align 4, !tbaa !49
+  %74 = load i32, ptr %49, align 8, !tbaa !49
   %75 = and i32 %74, 1
   %.not.i.i = icmp eq i32 %75, 0
   %spec.select.i.i = or disjoint i32 %75, 4
@@ -1813,7 +1813,7 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr noundef readonly captures
   %82 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %83 = load ptr, ptr %82, align 8, !tbaa !192
   %84 = or i32 %74, 128
-  store i32 %84, ptr %49, align 4, !tbaa !49
+  store i32 %84, ptr %49, align 8, !tbaa !49
   %85 = mul i32 %.291.i.i, %72
   %86 = zext i32 %85 to i64
   %87 = getelementptr inbounds nuw i8, ptr %71, i64 %86
@@ -1870,7 +1870,7 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr noundef readonly captures
 .loopexit114.i.i:                                 ; preds = %105, %92, %.split.us.i.i, %95, %.preheader.i.i
   %108 = phi i32 [ %84, %.preheader.i.i ], [ %104, %.split.us.i.i ], [ %96, %95 ], [ %84, %92 ], [ %84, %105 ]
   %109 = or i32 %108, 64
-  store i32 %109, ptr %49, align 4, !tbaa !49
+  store i32 %109, ptr %49, align 8, !tbaa !49
   br label %110
 
 110:                                              ; preds = %.loopexit114.i.i, %69

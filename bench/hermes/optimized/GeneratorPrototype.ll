@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @.str = private unnamed_addr constant [49 x i8] c"Generator functions must be called on generators\00", align 1
 @.str.1 = private unnamed_addr constant [62 x i8] c"Generator functions may not be called on executing generators\00", align 1
-@_ZN6hermes2vm15HandleRootOwner12nullPointer_E = external global %"class.hermes::vm::PinnedHermesValue", align 8
+@_ZN6hermes2vm15HandleRootOwner12nullPointer_E = external local_unnamed_addr global %"class.hermes::vm::PinnedHermesValue", align 8
 @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E = external global %"class.hermes::vm::PinnedHermesValue", align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -130,10 +130,6 @@ _ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE
 _ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp13.i)
-  %cmp.i.i.not = icmp eq ptr %retval.sroa.0.0.i.i, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.i.not, label %return, label %if.end
-
-if.end:                                           ; preds = %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
   %and.i.i.i.i5 = and i64 %retval.sroa.0.0.copyload.i.i, 281474976710655
   %9 = inttoptr i64 %and.i.i.i.i5 to ptr
@@ -154,13 +150,13 @@ if.end:                                           ; preds = %_ZN6hermes2vmL17gen
   %cmp.i.i.i.i.i.i = icmp ult ptr %13, %14
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %if.end
+if.then.i.i.i.i.i.i:                              ; preds = %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
   store i64 %or.i.i.i.i.i, ptr %13, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_22GeneratorInnerFunctionEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
 
-if.end.i.i.i.i.i.i:                               ; preds = %if.end
+if.end.i.i.i.i.i.i:                               ; preds = %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit
   %call7.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %12, i64 %or.i.i.i.i.i) #3
   %agg.tmp.sroa.0.0.copyload.i.i.i8.pre = load i64, ptr %call7.i.i.i.i.i.i, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_22GeneratorInnerFunctionEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
@@ -266,9 +262,9 @@ if.end31:                                         ; preds = %_ZN6hermes2vmL15gen
   %retval.sroa.0.0.copyload.i = load i64, ptr %retval.sroa.0.0.i14, align 8
   br label %return
 
-return:                                           ; preds = %_ZN6hermes2vmL15generatorResumeERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEE.exit.thread, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread, %_ZN6hermes2vmL15generatorResumeERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEE.exit, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit, %if.end31
-  %retval.sroa.0.0 = phi i32 [ 1, %if.end31 ], [ 0, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ 0, %_ZN6hermes2vmL15generatorResumeERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEE.exit ], [ 0, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread ], [ 0, %_ZN6hermes2vmL15generatorResumeERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEE.exit.thread ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %if.end31 ], [ undef, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ undef, %_ZN6hermes2vmL15generatorResumeERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEE.exit ], [ undef, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread ], [ undef, %_ZN6hermes2vmL15generatorResumeERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEE.exit.thread ]
+return:                                           ; preds = %_ZN6hermes2vmL15generatorResumeERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEE.exit.thread, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread, %_ZN6hermes2vmL15generatorResumeERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEE.exit, %if.end31
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end31 ], [ 0, %_ZN6hermes2vmL15generatorResumeERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEE.exit ], [ 0, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread ], [ 0, %_ZN6hermes2vmL15generatorResumeERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEE.exit.thread ]
+  %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %if.end31 ], [ undef, %_ZN6hermes2vmL15generatorResumeERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEE.exit ], [ undef, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread ], [ undef, %_ZN6hermes2vmL15generatorResumeERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEE.exit.thread ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -351,10 +347,6 @@ _ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE
 _ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp13.i)
-  %cmp.i.i.not = icmp eq ptr %retval.sroa.0.0.i.i, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.i.not, label %return, label %if.end
-
-if.end:                                           ; preds = %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit
   %tobool.not = icmp eq ptr %ctx, null
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %retval.sroa.0.0.i.i, align 8
   %and.i.i.i.i5 = and i64 %retval.sroa.0.0.copyload.i.i, 281474976710655
@@ -376,13 +368,13 @@ if.end:                                           ; preds = %_ZN6hermes2vmL17gen
   %cmp.i.i.i.i.i.i = icmp ult ptr %12, %13
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %if.end
+if.then.i.i.i.i.i.i:                              ; preds = %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
   store i64 %or.i.i.i.i.i, ptr %12, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_22GeneratorInnerFunctionEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
 
-if.end.i.i.i.i.i.i:                               ; preds = %if.end
+if.end.i.i.i.i.i.i:                               ; preds = %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit
   %call7.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %11, i64 %or.i.i.i.i.i) #3
   %agg.tmp.sroa.0.0.copyload.i.i.i8.pre = load i64, ptr %call7.i.i.i.i.i.i, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_22GeneratorInnerFunctionEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
@@ -512,9 +504,9 @@ if.end32:                                         ; preds = %_ZN6hermes2vmL21gen
   %retval.sroa.0.0.copyload.i = load i64, ptr %retval.sroa.0.0.i14, align 8
   br label %return
 
-return:                                           ; preds = %if.then35.i, %if.end19.i, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread, %_ZN6hermes2vmL21generatorResumeAbruptERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEEb.exit, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit, %if.end32
-  %retval.sroa.0.0 = phi i32 [ 1, %if.end32 ], [ 0, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ 0, %_ZN6hermes2vmL21generatorResumeAbruptERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEEb.exit ], [ 0, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread ], [ 0, %if.end19.i ], [ 0, %if.then35.i ]
-  %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %if.end32 ], [ undef, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ undef, %_ZN6hermes2vmL21generatorResumeAbruptERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEEb.exit ], [ undef, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread ], [ undef, %if.end19.i ], [ undef, %if.then35.i ]
+return:                                           ; preds = %if.then35.i, %if.end19.i, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread, %_ZN6hermes2vmL21generatorResumeAbruptERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEEb.exit, %if.end32
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end32 ], [ 0, %_ZN6hermes2vmL21generatorResumeAbruptERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEEb.exit ], [ 0, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread ], [ 0, %if.end19.i ], [ 0, %if.then35.i ]
+  %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %if.end32 ], [ undef, %_ZN6hermes2vmL21generatorResumeAbruptERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEEb.exit ], [ undef, %_ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread ], [ undef, %if.end19.i ], [ undef, %if.then35.i ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert

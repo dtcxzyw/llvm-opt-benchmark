@@ -5141,7 +5141,7 @@ alloc_scratch_buffers.exit:                       ; preds = %48
 
 145:                                              ; preds = %140
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %147 = load i32, ptr %146, align 8, !tbaa !190
+  %147 = load i32, ptr %146, align 16, !tbaa !190
   %148 = add i32 %144, %.val.i
   %149 = tail call i32 @llvm.umin.i32(i32 %147, i32 %148)
   store i32 %149, ptr %142, align 8, !tbaa !166
@@ -5250,7 +5250,7 @@ er_add_slice.exit:                                ; preds = %338, %160
   %211 = load i32, ptr %163, align 4, !tbaa !367
   %212 = add nsw i32 %211, -2
   store i32 %212, ptr %163, align 4, !tbaa !367
-  %213 = load i32, ptr %151, align 8, !tbaa !368
+  %213 = load i32, ptr %151, align 16, !tbaa !368
   %214 = shl i32 %212, 17
   %215 = icmp slt i32 %213, %214
   br i1 %215, label %216, label %238
@@ -5261,40 +5261,36 @@ er_add_slice.exit:                                ; preds = %338, %160
   %219 = shl i32 %212, %218
   store i32 %219, ptr %163, align 4, !tbaa !367
   %220 = shl i32 %213, %218
-  store i32 %220, ptr %151, align 8, !tbaa !368
+  store i32 %220, ptr %151, align 16, !tbaa !368
   %221 = and i32 %220, 65535
   %.not.i.i = icmp eq i32 %221, 0
-  br i1 %.not.i.i, label %222, label %.get_cabac_terminate.exit_crit_edge
+  %222 = load ptr, ptr %164, align 16, !tbaa !369
+  br i1 %.not.i.i, label %223, label %get_cabac_terminate.exit
 
-.get_cabac_terminate.exit_crit_edge:              ; preds = %216
-  %.pre387.pre = load ptr, ptr %164, align 16, !tbaa !369
-  br label %get_cabac_terminate.exit
-
-222:                                              ; preds = %216
-  %223 = load ptr, ptr %164, align 8, !tbaa !370
-  %224 = load i8, ptr %223, align 1, !tbaa !136
+223:                                              ; preds = %216
+  %224 = load i8, ptr %222, align 1, !tbaa !136
   %225 = zext i8 %224 to i32
   %226 = shl nuw nsw i32 %225, 9
-  %227 = getelementptr inbounds nuw i8, ptr %223, i64 1
+  %227 = getelementptr inbounds nuw i8, ptr %222, i64 1
   %228 = load i8, ptr %227, align 1, !tbaa !136
   %229 = zext i8 %228 to i32
   %230 = shl nuw nsw i32 %229, 1
   %231 = or disjoint i32 %230, %226
   %232 = add i32 %220, -65535
   %233 = add i32 %232, %231
-  store i32 %233, ptr %151, align 8, !tbaa !368
-  %234 = load ptr, ptr %166, align 8, !tbaa !371
-  %235 = icmp ult ptr %223, %234
+  store i32 %233, ptr %151, align 16, !tbaa !368
+  %234 = load ptr, ptr %166, align 8, !tbaa !370
+  %235 = icmp ult ptr %222, %234
   br i1 %235, label %236, label %get_cabac_terminate.exit
 
-236:                                              ; preds = %222
-  %237 = getelementptr inbounds nuw i8, ptr %223, i64 2
-  store ptr %237, ptr %164, align 8, !tbaa !370
+236:                                              ; preds = %223
+  %237 = getelementptr inbounds nuw i8, ptr %222, i64 2
+  store ptr %237, ptr %164, align 16, !tbaa !369
   br label %get_cabac_terminate.exit
 
 238:                                              ; preds = %.critedge
-  %239 = load ptr, ptr %164, align 8, !tbaa !370
-  %240 = load ptr, ptr %165, align 8, !tbaa !372
+  %239 = load ptr, ptr %164, align 16, !tbaa !369
+  %240 = load ptr, ptr %165, align 8, !tbaa !371
   %241 = ptrtoint ptr %239 to i64
   %242 = ptrtoint ptr %240 to i64
   %243 = sub i64 %241, %242
@@ -5302,13 +5298,13 @@ er_add_slice.exit:                                ; preds = %338, %160
   %245 = icmp eq i64 %244, 0
   br label %get_cabac_terminate.exit
 
-get_cabac_terminate.exit:                         ; preds = %.get_cabac_terminate.exit_crit_edge, %222, %236, %238
-  %.pre387 = phi ptr [ %239, %238 ], [ %.pre387.pre, %.get_cabac_terminate.exit_crit_edge ], [ %223, %222 ], [ %237, %236 ]
-  %.0.i290 = phi i1 [ %245, %238 ], [ true, %.get_cabac_terminate.exit_crit_edge ], [ true, %222 ], [ true, %236 ]
+get_cabac_terminate.exit:                         ; preds = %216, %223, %236, %238
+  %.pre387 = phi ptr [ %239, %238 ], [ %222, %223 ], [ %237, %236 ], [ %222, %216 ]
+  %.0.i290 = phi i1 [ %245, %238 ], [ true, %223 ], [ true, %236 ], [ true, %216 ]
   %246 = load i32, ptr %167, align 8, !tbaa !106
   %247 = and i32 %246, 16384
   %.not267 = icmp ne i32 %247, 0
-  %.pre388 = load ptr, ptr %166, align 8, !tbaa !373
+  %.pre388 = load ptr, ptr %166, align 8, !tbaa !372
   %248 = getelementptr inbounds nuw i8, ptr %.pre388, i64 2
   %249 = icmp ugt ptr %.pre387, %248
   %or.cond = select i1 %.not267, i1 %249, i1 false
@@ -5355,8 +5351,8 @@ er_add_slice.exit292:                             ; preds = %250, %254
   %273 = ptrtoint ptr %.pre387 to i64
   %274 = sub i64 %272, %273
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %271, i32 noundef 48, ptr noundef nonnull @.str.59, i64 noundef %274) #12
-  %.pre391.pre = load ptr, ptr %166, align 8, !tbaa !373
-  %.pre392.pre = load ptr, ptr %164, align 16, !tbaa !369
+  %.pre391.pre = load ptr, ptr %166, align 8, !tbaa !372
+  %.pre392.pre = load ptr, ptr %164, align 16, !tbaa !373
   br label %275
 
 275:                                              ; preds = %270, %267
@@ -7230,24 +7226,24 @@ fill_filter_caches_inter.exit189.i:               ; preds = %801, %800, %fill_fi
   %941 = trunc nuw nsw i16 %940 to i8
   %942 = and i8 %941, 1
   store i8 %942, ptr %124, align 1, !tbaa !136
-  store i8 %942, ptr %110, align 1, !tbaa !136
+  store i8 %942, ptr %110, align 4, !tbaa !136
   store i8 %942, ptr %125, align 1, !tbaa !136
-  store i8 %942, ptr %109, align 1, !tbaa !136
+  store i8 %942, ptr %109, align 4, !tbaa !136
   %943 = and i8 %941, 2
   store i8 %943, ptr %126, align 1, !tbaa !136
-  store i8 %943, ptr %127, align 1, !tbaa !136
+  store i8 %943, ptr %127, align 2, !tbaa !136
   store i8 %943, ptr %128, align 1, !tbaa !136
-  store i8 %943, ptr %129, align 1, !tbaa !136
+  store i8 %943, ptr %129, align 2, !tbaa !136
   %944 = and i8 %941, 4
   store i8 %944, ptr %130, align 1, !tbaa !136
-  store i8 %944, ptr %112, align 1, !tbaa !136
+  store i8 %944, ptr %112, align 4, !tbaa !136
   store i8 %944, ptr %131, align 1, !tbaa !136
-  store i8 %944, ptr %111, align 1, !tbaa !136
+  store i8 %944, ptr %111, align 4, !tbaa !136
   %945 = and i8 %941, 8
   store i8 %945, ptr %132, align 1, !tbaa !136
-  store i8 %945, ptr %133, align 1, !tbaa !136
+  store i8 %945, ptr %133, align 2, !tbaa !136
   store i8 %945, ptr %134, align 1, !tbaa !136
-  store i8 %945, ptr %135, align 1, !tbaa !136
+  store i8 %945, ptr %135, align 2, !tbaa !136
   br label %946
 
 946:                                              ; preds = %512, %937, %939, %901, %897
@@ -9117,11 +9113,11 @@ attributes #13 = { noreturn nounwind }
 !366 = !{!153, !10, i64 20}
 !367 = !{!156, !10, i64 4}
 !368 = !{!156, !10, i64 0}
-!369 = !{!151, !14, i64 33680}
-!370 = !{!156, !14, i64 16}
-!371 = !{!156, !14, i64 24}
-!372 = !{!156, !14, i64 8}
-!373 = !{!151, !14, i64 33688}
+!369 = !{!156, !14, i64 16}
+!370 = !{!156, !14, i64 24}
+!371 = !{!156, !14, i64 8}
+!372 = !{!151, !14, i64 33688}
+!373 = !{!151, !14, i64 33680}
 !374 = !{!28, !24, i64 729312}
 !375 = !{!151, !10, i64 21040}
 !376 = !{!28, !37, i64 729208}

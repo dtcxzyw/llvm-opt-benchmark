@@ -228,7 +228,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit15: ; preds =
 
 86:                                               ; preds = %80
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i282, i64 16
-  %88 = load i8, ptr %87, align 1, !alias.scope !17, !noalias !20, !noundef !7
+  %88 = load i8, ptr %87, align 16, !alias.scope !17, !noalias !20, !noundef !7
   %89 = icmp eq i8 %88, -123
   br i1 %89, label %90, label %91
 
@@ -288,7 +288,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit15: ; preds =
 
 120:                                              ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i282, i64 16
-  %122 = load i8, ptr %121, align 1, !alias.scope !17, !noalias !20, !noundef !7
+  %122 = load i8, ptr %121, align 16, !alias.scope !17, !noalias !20, !noundef !7
   %.mask.i16 = and i8 %122, -2
   %123 = icmp eq i8 %.mask.i16, -88
   br i1 %123, label %124, label %.thread251
@@ -301,7 +301,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit15: ; preds =
 
 126:                                              ; preds = %114
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i282, i64 16
-  %128 = load i8, ptr %127, align 1, !alias.scope !17, !noalias !20, !noundef !7
+  %128 = load i8, ptr %127, align 16, !alias.scope !17, !noalias !20, !noundef !7
   %129 = icmp eq i8 %128, -128
   br i1 %129, label %130, label %.thread251
 
@@ -341,7 +341,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit15: ; preds =
 
 144:                                              ; preds = %140
   %145 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i282, i64 16
-  %146 = load i8, ptr %145, align 1, !alias.scope !17, !noalias !20, !noundef !7
+  %146 = load i8, ptr %145, align 16, !alias.scope !17, !noalias !20, !noundef !7
   %147 = icmp eq i8 %146, 10
   br i1 %147, label %148, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit
 
@@ -1036,7 +1036,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126: ; preds 
 
 222:                                              ; preds = %216
   %223 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141819, i64 16
-  %224 = load i8, ptr %223, align 1, !alias.scope !141, !noalias !144, !noundef !7
+  %224 = load i8, ptr %223, align 16, !alias.scope !141, !noalias !144, !noundef !7
   %225 = icmp eq i8 %224, -123
   br i1 %225, label %226, label %227
 
@@ -1096,7 +1096,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126: ; preds 
 
 256:                                              ; preds = %253
   %257 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141819, i64 16
-  %258 = load i8, ptr %257, align 1, !alias.scope !141, !noalias !144, !noundef !7
+  %258 = load i8, ptr %257, align 16, !alias.scope !141, !noalias !144, !noundef !7
   %.mask.i143 = and i8 %258, -2
   %259 = icmp eq i8 %.mask.i143, -88
   br i1 %259, label %260, label %.thread1446
@@ -1109,7 +1109,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126: ; preds 
 
 262:                                              ; preds = %250
   %263 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141819, i64 16
-  %264 = load i8, ptr %263, align 1, !alias.scope !141, !noalias !144, !noundef !7
+  %264 = load i8, ptr %263, align 16, !alias.scope !141, !noalias !144, !noundef !7
   %265 = icmp eq i8 %264, -128
   br i1 %265, label %266, label %.thread1446
 
@@ -1149,7 +1149,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126: ; preds 
 
 280:                                              ; preds = %276
   %281 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141819, i64 16
-  %282 = load i8, ptr %281, align 1, !alias.scope !141, !noalias !144, !noundef !7
+  %282 = load i8, ptr %281, align 16, !alias.scope !141, !noalias !144, !noundef !7
   %283 = icmp eq i8 %282, 10
   br i1 %283, label %284, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit
 
@@ -2110,7 +2110,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142: ; preds 
 
 726:                                              ; preds = %720
   %727 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061727, i64 16
-  %728 = load i8, ptr %727, align 1, !alias.scope !232, !noalias !235, !noundef !7
+  %728 = load i8, ptr %727, align 16, !alias.scope !232, !noalias !235, !noundef !7
   %729 = icmp eq i8 %728, -123
   br i1 %729, label %730, label %731
 
@@ -2170,7 +2170,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142: ; preds 
 
 760:                                              ; preds = %757
   %761 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061727, i64 16
-  %762 = load i8, ptr %761, align 1, !alias.scope !232, !noalias !235, !noundef !7
+  %762 = load i8, ptr %761, align 16, !alias.scope !232, !noalias !235, !noundef !7
   %.mask.i145 = and i8 %762, -2
   %763 = icmp eq i8 %.mask.i145, -88
   br i1 %763, label %764, label %.thread1495
@@ -2183,7 +2183,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142: ; preds 
 
 766:                                              ; preds = %754
   %767 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061727, i64 16
-  %768 = load i8, ptr %767, align 1, !alias.scope !232, !noalias !235, !noundef !7
+  %768 = load i8, ptr %767, align 16, !alias.scope !232, !noalias !235, !noundef !7
   %769 = icmp eq i8 %768, -128
   br i1 %769, label %770, label %.thread1495
 
@@ -2223,7 +2223,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142: ; preds 
 
 784:                                              ; preds = %780
   %785 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061727, i64 16
-  %786 = load i8, ptr %785, align 1, !alias.scope !232, !noalias !235, !noundef !7
+  %786 = load i8, ptr %785, align 16, !alias.scope !232, !noalias !235, !noundef !7
   %787 = icmp eq i8 %786, 10
   br i1 %787, label %788, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit146
 
@@ -3438,7 +3438,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154: ; preds 
 
 303:                                              ; preds = %297
   %304 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431441, i64 16
-  %305 = load i8, ptr %304, align 1, !alias.scope !380, !noalias !383, !noundef !7
+  %305 = load i8, ptr %304, align 16, !alias.scope !380, !noalias !383, !noundef !7
   %306 = icmp eq i8 %305, -123
   br i1 %306, label %307, label %308
 
@@ -3498,7 +3498,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154: ; preds 
 
 337:                                              ; preds = %334
   %338 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431441, i64 16
-  %339 = load i8, ptr %338, align 1, !alias.scope !380, !noalias !383, !noundef !7
+  %339 = load i8, ptr %338, align 16, !alias.scope !380, !noalias !383, !noundef !7
   %.mask.i171 = and i8 %339, -2
   %340 = icmp eq i8 %.mask.i171, -88
   br i1 %340, label %341, label %.thread1201
@@ -3511,7 +3511,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154: ; preds 
 
 343:                                              ; preds = %331
   %344 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431441, i64 16
-  %345 = load i8, ptr %344, align 1, !alias.scope !380, !noalias !383, !noundef !7
+  %345 = load i8, ptr %344, align 16, !alias.scope !380, !noalias !383, !noundef !7
   %346 = icmp eq i8 %345, -128
   br i1 %346, label %347, label %.thread1201
 
@@ -3551,7 +3551,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154: ; preds 
 
 361:                                              ; preds = %357
   %362 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431441, i64 16
-  %363 = load i8, ptr %362, align 1, !alias.scope !380, !noalias !383, !noundef !7
+  %363 = load i8, ptr %362, align 16, !alias.scope !380, !noalias !383, !noundef !7
   %364 = icmp eq i8 %363, 10
   br i1 %364, label %365, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit
 
@@ -4238,7 +4238,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170: ; preds 
 
 688:                                              ; preds = %682
   %689 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1395, i64 16
-  %690 = load i8, ptr %689, align 1, !alias.scope !442, !noalias !445, !noundef !7
+  %690 = load i8, ptr %689, align 16, !alias.scope !442, !noalias !445, !noundef !7
   %691 = icmp eq i8 %690, -123
   br i1 %691, label %692, label %693
 
@@ -4298,7 +4298,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170: ; preds 
 
 722:                                              ; preds = %719
   %723 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1395, i64 16
-  %724 = load i8, ptr %723, align 1, !alias.scope !442, !noalias !445, !noundef !7
+  %724 = load i8, ptr %723, align 16, !alias.scope !442, !noalias !445, !noundef !7
   %.mask.i173 = and i8 %724, -2
   %725 = icmp eq i8 %.mask.i173, -88
   br i1 %725, label %726, label %.thread1223
@@ -4311,7 +4311,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170: ; preds 
 
 728:                                              ; preds = %716
   %729 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1395, i64 16
-  %730 = load i8, ptr %729, align 1, !alias.scope !442, !noalias !445, !noundef !7
+  %730 = load i8, ptr %729, align 16, !alias.scope !442, !noalias !445, !noundef !7
   %731 = icmp eq i8 %730, -128
   br i1 %731, label %732, label %.thread1223
 
@@ -4351,7 +4351,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170: ; preds 
 
 746:                                              ; preds = %742
   %747 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1395, i64 16
-  %748 = load i8, ptr %747, align 1, !alias.scope !442, !noalias !445, !noundef !7
+  %748 = load i8, ptr %747, align 16, !alias.scope !442, !noalias !445, !noundef !7
   %749 = icmp eq i8 %748, 10
   br i1 %749, label %750, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit174
 

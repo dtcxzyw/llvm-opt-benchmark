@@ -27609,7 +27609,7 @@ stbi__malloc_mad3.exit.thread.i:                  ; preds = %stbi__malloc_mad3.e
 452:                                              ; preds = %437
   %453 = sext i32 %441 to i64
   %454 = getelementptr inbounds i8, ptr %22, i64 %453
-  %.pre.i.i49 = load i8, ptr %22, align 1
+  %.pre.i.i49 = load i8, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i.i
 
 stbi__refill_buffer.exit.i.i:                     ; preds = %452, %451
@@ -27667,7 +27667,7 @@ stbi__get8.exit.i:                                ; preds = %stbi__refill_buffer
 483:                                              ; preds = %468
   %484 = sext i32 %472 to i64
   %485 = getelementptr inbounds i8, ptr %22, i64 %484
-  %.pre.i387.i = load i8, ptr %22, align 1
+  %.pre.i387.i = load i8, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i388.i
 
 stbi__refill_buffer.exit.i388.i:                  ; preds = %483, %482
@@ -27724,7 +27724,7 @@ stbi__get8.exit391.i:                             ; preds = %stbi__refill_buffer
 513:                                              ; preds = %498
   %514 = sext i32 %502 to i64
   %515 = getelementptr inbounds i8, ptr %22, i64 %514
-  %.pre.i393.i = load i8, ptr %22, align 1
+  %.pre.i393.i = load i8, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i394.i
 
 stbi__refill_buffer.exit.i394.i:                  ; preds = %513, %512
@@ -27913,7 +27913,7 @@ stbi__get8.exit403.i:                             ; preds = %stbi__get8.exit403.
 607:                                              ; preds = %592
   %608 = sext i32 %596 to i64
   %609 = getelementptr inbounds i8, ptr %22, i64 %608
-  %.pre.i405.i = load i8, ptr %22, align 1
+  %.pre.i405.i = load i8, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i406.i
 
 stbi__refill_buffer.exit.i406.i:                  ; preds = %607, %606
@@ -28021,7 +28021,7 @@ stbi__get8.exit409.i:                             ; preds = %stbi__refill_buffer
 665:                                              ; preds = %650
   %666 = sext i32 %654 to i64
   %667 = getelementptr inbounds i8, ptr %22, i64 %666
-  %.pre.i411.i = load i8, ptr %22, align 1
+  %.pre.i411.i = load i8, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i412.i
 
 stbi__refill_buffer.exit.i412.i:                  ; preds = %665, %664
@@ -28146,7 +28146,7 @@ stbi__skip.exit.i:                                ; preds = %.thread.i.i, %686, 
 721:                                              ; preds = %706
   %722 = sext i32 %710 to i64
   %723 = getelementptr inbounds i8, ptr %22, i64 %722
-  %.pre.i419.i = load i8, ptr %22, align 1
+  %.pre.i419.i = load i8, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i420.i
 
 stbi__refill_buffer.exit.i420.i:                  ; preds = %721, %720
@@ -28241,7 +28241,7 @@ stbi__get8.exit423.i:                             ; preds = %stbi__refill_buffer
 775:                                              ; preds = %760
   %776 = sext i32 %764 to i64
   %777 = getelementptr inbounds i8, ptr %22, i64 %776
-  %.pre.i425.i = load i8, ptr %22, align 1
+  %.pre.i425.i = load i8, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i426.i
 
 stbi__refill_buffer.exit.i426.i:                  ; preds = %775, %774
@@ -28573,7 +28573,7 @@ stbi__skip.exit441.i:                             ; preds = %.thread.i437.i, %84
 947:                                              ; preds = %932
   %948 = sext i32 %936 to i64
   %949 = getelementptr inbounds i8, ptr %22, i64 %948
-  %.pre.i443.i = load i8, ptr %22, align 1
+  %.pre.i443.i = load i8, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i444.i
 
 stbi__refill_buffer.exit.i444.i:                  ; preds = %947, %946
@@ -28632,7 +28632,7 @@ stbi__get8.exit447.i:                             ; preds = %stbi__refill_buffer
 979:                                              ; preds = %964
   %980 = sext i32 %968 to i64
   %981 = getelementptr inbounds i8, ptr %22, i64 %980
-  %.pre.i449.i = load i8, ptr %22, align 1
+  %.pre.i449.i = load i8, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i450.i
 
 stbi__refill_buffer.exit.i450.i:                  ; preds = %979, %978
@@ -28689,7 +28689,7 @@ stbi__get8.exit453.i:                             ; preds = %stbi__refill_buffer
 1009:                                             ; preds = %994
   %1010 = sext i32 %998 to i64
   %1011 = getelementptr inbounds i8, ptr %22, i64 %1010
-  %.pre.i455.i = load i8, ptr %22, align 1
+  %.pre.i455.i = load i8, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i456.i
 
 stbi__refill_buffer.exit.i456.i:                  ; preds = %1009, %1008
@@ -28749,7 +28749,7 @@ stbi__get8.exit459.i:                             ; preds = %stbi__refill_buffer
 1040:                                             ; preds = %1025
   %1041 = sext i32 %1029 to i64
   %1042 = getelementptr inbounds i8, ptr %22, i64 %1041
-  %.pre.i461.i = load i8, ptr %22, align 1
+  %.pre.i461.i = load i8, ptr %22, align 8
   br label %stbi__refill_buffer.exit.i462.i
 
 stbi__refill_buffer.exit.i462.i:                  ; preds = %1040, %1039
@@ -33034,7 +33034,7 @@ stbi__check_png_header.exit:                      ; preds = %22
 136:                                              ; preds = %121
   %137 = sext i32 %125 to i64
   %138 = getelementptr inbounds i8, ptr %17, i64 %137
-  %.pre.i310 = load i8, ptr %17, align 1
+  %.pre.i310 = load i8, ptr %17, align 8
   br label %stbi__refill_buffer.exit.i
 
 stbi__refill_buffer.exit.i:                       ; preds = %136, %135
@@ -33101,7 +33101,7 @@ stbi__get8.exit:                                  ; preds = %116, %119, %stbi__r
 169:                                              ; preds = %154
   %170 = sext i32 %158 to i64
   %171 = getelementptr inbounds i8, ptr %17, i64 %170
-  %.pre.i312 = load i8, ptr %17, align 1
+  %.pre.i312 = load i8, ptr %17, align 8
   br label %stbi__refill_buffer.exit.i313
 
 stbi__refill_buffer.exit.i313:                    ; preds = %169, %168
@@ -37367,7 +37367,7 @@ stbi__skip.exit.i.backedge:                       ; preds = %.thread.i140.i, %37
 
 393:                                              ; preds = %388
   %394 = trunc i32 %.087.i.ph to i16
-  store i16 %394, ptr %391, align 2
+  store i16 %394, ptr %391, align 4
   %395 = zext nneg i32 %.087.i.ph to i64
   %396 = getelementptr inbounds nuw %struct.stbi__gif_lzw, ptr %233, i64 %395
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 2
@@ -40769,7 +40769,7 @@ stbi__get8.exit.thread:                           ; preds = %16, %stbi__get8.exi
 91:                                               ; preds = %69
   %92 = sext i32 %77 to i64
   %93 = getelementptr inbounds i8, ptr %74, i64 %92
-  %.pre.i199 = load i8, ptr %74, align 1
+  %.pre.i199 = load i8, ptr %74, align 8
   br label %stbi__refill_buffer.exit.i200
 
 stbi__refill_buffer.exit.i200:                    ; preds = %91, %89
@@ -40884,7 +40884,7 @@ stbi__get8.exit203.thread:                        ; preds = %66, %stbi__get8.exi
 143:                                              ; preds = %128
   %144 = sext i32 %132 to i64
   %145 = getelementptr inbounds i8, ptr %113, i64 %144
-  %.pre.i205 = load i8, ptr %113, align 1
+  %.pre.i205 = load i8, ptr %113, align 8
   br label %stbi__refill_buffer.exit.i206
 
 stbi__refill_buffer.exit.i206:                    ; preds = %143, %142
@@ -40962,7 +40962,7 @@ stbi__get8.exit215.thread:                        ; preds = %165
 183:                                              ; preds = %168
   %184 = sext i32 %172 to i64
   %185 = getelementptr inbounds i8, ptr %113, i64 %184
-  %.pre.i211 = load i8, ptr %113, align 1
+  %.pre.i211 = load i8, ptr %113, align 8
   br label %stbi__refill_buffer.exit.i212
 
 stbi__refill_buffer.exit.i212:                    ; preds = %183, %182
@@ -41045,7 +41045,7 @@ stbi__get8.exit221.thread:                        ; preds = %203
 221:                                              ; preds = %206
   %222 = sext i32 %210 to i64
   %223 = getelementptr inbounds i8, ptr %113, i64 %222
-  %.pre.i217 = load i8, ptr %113, align 1
+  %.pre.i217 = load i8, ptr %113, align 8
   br label %stbi__refill_buffer.exit.i218
 
 stbi__refill_buffer.exit.i218:                    ; preds = %221, %220
@@ -57777,9 +57777,9 @@ define internal fastcc void @stbir__calculate_filters(ptr noundef nonnull captur
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %26 = load float, ptr %11, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = load float, ptr %27, align 4
+  %28 = load float, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %30 = load i32, ptr %29, align 4
+  %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %32 = load i32, ptr %31, align 4
   %.not65.i = icmp eq i32 %32, 0
@@ -57940,7 +57940,7 @@ stbir__calculate_coefficients_for_gather_upsample.exit: ; preds = %._crit_edge.i
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %121 = load i32, ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %121, ptr %122, align 4
+  store i32 %121, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %124 = load i32, ptr %123, align 4
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -57964,13 +57964,13 @@ stbir__calculate_coefficients_for_gather_upsample.exit: ; preds = %._crit_edge.i
   %.0138 = phi ptr [ %15, %100 ], [ %128, %126 ]
   %.0135 = phi i32 [ %14, %100 ], [ %134, %126 ]
   %136 = sub nsw i32 0, %105
-  %137 = load float, ptr %5, align 4
+  %137 = load float, ptr %5, align 8
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %139 = load float, ptr %138, align 4
+  %139 = load float, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %141 = load i32, ptr %140, align 4
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %143 = load i32, ptr %142, align 4
+  %143 = load i32, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %145 = load i32, ptr %144, align 4
   %146 = icmp ne i32 %145, 0

@@ -814,7 +814,7 @@ define dso_local noundef i32 @main() local_unnamed_addr #4 personality ptr @__gx
 
 32:                                               ; preds = %30
   %33 = add nsw i32 %21, -1
-  store i32 %33, ptr %18, align 4, !tbaa !10
+  store i32 %33, ptr %18, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 34:                                               ; preds = %30
@@ -1792,7 +1792,7 @@ _ZNSt10__weak_ptrIN2tf8TopologyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; pre
 
 407:                                              ; preds = %405
   %408 = add nsw i32 %396, -1
-  store i32 %408, ptr %393, align 4, !tbaa !10
+  store i32 %408, ptr %393, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 409:                                              ; preds = %405
@@ -2273,7 +2273,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %106
 
 140:                                              ; preds = %138
   %141 = add nsw i32 %129, -1
-  store i32 %141, ptr %126, align 4, !tbaa !10
+  store i32 %141, ptr %126, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 142:                                              ; preds = %138
@@ -2366,7 +2366,7 @@ define linkonce_odr dso_local void @_ZNSt12__shared_ptrIN2tf15WorkerInterfaceELN
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !10
+  store i32 %20, ptr %5, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -2455,7 +2455,7 @@ _ZNSt10__weak_ptrIN2tf8TopologyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds
 
 34:                                               ; preds = %32
   %35 = add nsw i32 %23, -1
-  store i32 %35, ptr %20, align 4, !tbaa !10
+  store i32 %35, ptr %20, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 36:                                               ; preds = %32
@@ -2658,7 +2658,7 @@ _ZN2tf21NonblockingNotifierV210notify_allEv.exit: ; preds = %24
 
 49:                                               ; preds = %47
   %50 = add nsw i32 %38, -1
-  store i32 %50, ptr %35, align 4, !tbaa !10
+  store i32 %50, ptr %35, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 51:                                               ; preds = %47
@@ -3140,9 +3140,9 @@ _ZSt8_DestroyIPSt5stackINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durat
   br i1 %.not.i.i.i.i.i, label %60, label %57
 
 57:                                               ; preds = %53
-  %58 = load i32, ptr %6, align 4, !tbaa !10, !noalias !333
+  %58 = load i32, ptr %6, align 8, !tbaa !10, !noalias !333
   %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %6, align 4, !tbaa !10, !noalias !333
+  store i32 %59, ptr %6, align 8, !tbaa !10, !noalias !333
   br label %_ZSt19static_pointer_castIN2tf17ObserverInterfaceENS0_14TFProfObserverEESt10shared_ptrIT_ERKS3_IT0_E.exit
 
 60:                                               ; preds = %53
@@ -3186,7 +3186,7 @@ _ZNSt13unordered_setISt10shared_ptrIN2tf17ObserverInterfaceEESt4hashIS3_ESt8equa
 
 79:                                               ; preds = %77
   %80 = add nsw i32 %68, -1
-  store i32 %80, ptr %65, align 4, !tbaa !10
+  store i32 %80, ptr %65, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 81:                                               ; preds = %77
@@ -3259,7 +3259,7 @@ define linkonce_odr dso_local void @_ZNSt12__shared_ptrIN2tf14TFProfObserverELN9
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !10
+  store i32 %20, ptr %5, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -6097,7 +6097,7 @@ define linkonce_odr dso_local void @_ZN2tf8Executor19_tear_down_topologyERNS_6Wo
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %11 = load atomic i32, ptr %10 monotonic, align 4
+  %11 = load atomic i32, ptr %10 monotonic, align 8
   %12 = and i32 %11, 536870912
   %.not66 = icmp eq i32 %12, 0
   br i1 %.not66, label %13, label %42
@@ -6452,7 +6452,7 @@ _ZNSt11scoped_lockIJSt5mutexEEC2ERS0_.exit:       ; preds = %155
 
 184:                                              ; preds = %182
   %185 = add nsw i32 %173, -1
-  store i32 %185, ptr %170, align 4, !tbaa !10
+  store i32 %185, ptr %170, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 186:                                              ; preds = %182
@@ -6747,7 +6747,7 @@ define linkonce_odr dso_local void @_ZNSt12__shared_ptrIN2tf8TopologyELN9__gnu_c
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !10
+  store i32 %20, ptr %5, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -8348,7 +8348,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt10shared_ptrIN2tf8TopologyEESa
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !10
+  store i32 %26, ptr %11, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -8400,7 +8400,7 @@ _ZNSt16allocator_traitsISaISt10shared_ptrIN2tf8TopologyEEEE7destroyIS3_EEvRS4_PT
 
 49:                                               ; preds = %47
   %50 = add nsw i32 %38, -1
-  store i32 %50, ptr %35, align 4, !tbaa !10
+  store i32 %50, ptr %35, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 51:                                               ; preds = %47
@@ -10872,7 +10872,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit25: ; preds = %_ZStl
 
 203:                                              ; preds = %201
   %204 = add nsw i32 %192, -1
-  store i32 %204, ptr %189, align 4, !tbaa !10
+  store i32 %204, ptr %189, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 205:                                              ; preds = %201
@@ -14702,7 +14702,7 @@ define linkonce_odr dso_local void @_ZNSt12__shared_ptrIN2tf17ObserverInterfaceE
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !10
+  store i32 %20, ptr %5, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -16664,7 +16664,7 @@ _ZNKSt10_HashtableISt10shared_ptrIN2tf17ObserverInterfaceEES3_SaIS3_ENSt8__detai
 
 65:                                               ; preds = %63
   %66 = add nsw i32 %54, -1
-  store i32 %66, ptr %51, align 4, !tbaa !10
+  store i32 %66, ptr %51, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 67:                                               ; preds = %63
@@ -16831,7 +16831,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableISt10shared_ptrIN2tf17Obser
 
 22:                                               ; preds = %20
   %23 = add nsw i32 %11, -1
-  store i32 %23, ptr %8, align 4, !tbaa !10
+  store i32 %23, ptr %8, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 24:                                               ; preds = %20
@@ -16999,7 +16999,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableISt10shared_ptrIN2tf17Obser
 
 22:                                               ; preds = %20
   %23 = add nsw i32 %11, -1
-  store i32 %23, ptr %8, align 4, !tbaa !10
+  store i32 %23, ptr %8, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 24:                                               ; preds = %20
@@ -17764,7 +17764,7 @@ _ZN2tf8Executor16_set_up_topologyEPNS_6WorkerEPNS_8TopologyE.exit: ; preds = %21
 
 241:                                              ; preds = %239
   %242 = add nsw i32 %230, -1
-  store i32 %242, ptr %227, align 4, !tbaa !10
+  store i32 %242, ptr %227, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i68
 
 243:                                              ; preds = %239
@@ -17902,7 +17902,7 @@ _ZNSt10unique_ptrINSt13__future_base7_ResultIvEENS0_12_Result_base8_DeleterEED2E
 
 46:                                               ; preds = %44
   %47 = add nsw i32 %35, -1
-  store i32 %47, ptr %32, align 4, !tbaa !10
+  store i32 %47, ptr %32, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 48:                                               ; preds = %44
@@ -17964,7 +17964,7 @@ define linkonce_odr dso_local void @_ZNSt12__shared_ptrINSt13__future_base13_Sta
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !10
+  store i32 %20, ptr %5, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -18933,7 +18933,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt10shared_ptrIN2tf8TopologyEESa
 
 29:                                               ; preds = %27
   %30 = add nsw i32 %18, -1
-  store i32 %30, ptr %15, align 4, !tbaa !10
+  store i32 %30, ptr %15, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 31:                                               ; preds = %27
@@ -19001,7 +19001,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN2tf8TopologyEES3_EvT_S5_RSaIT0_E.exit: ; preds = 
 
 57:                                               ; preds = %55
   %58 = add nsw i32 %46, -1
-  store i32 %58, ptr %43, align 4, !tbaa !10
+  store i32 %58, ptr %43, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i10
 
 59:                                               ; preds = %55
@@ -19064,7 +19064,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN2tf8TopologyEES3_EvT_S5_RSaIT0_E.exit14: ; preds 
 
 84:                                               ; preds = %82
   %85 = add nsw i32 %73, -1
-  store i32 %85, ptr %70, align 4, !tbaa !10
+  store i32 %85, ptr %70, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i20
 
 86:                                               ; preds = %82
@@ -19125,7 +19125,7 @@ _ZSt8_DestroyISt10shared_ptrIN2tf8TopologyEEEvPT_.exit.i.i.i22: ; preds = %89, %
 
 110:                                              ; preds = %108
   %111 = add nsw i32 %99, -1
-  store i32 %111, ptr %96, align 4, !tbaa !10
+  store i32 %111, ptr %96, align 8, !tbaa !10
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i30
 
 112:                                              ; preds = %108

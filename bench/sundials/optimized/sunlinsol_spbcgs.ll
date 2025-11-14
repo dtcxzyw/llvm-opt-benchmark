@@ -252,7 +252,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   br i1 %.not292, label %55, label %50
 
 50:                                               ; preds = %48
-  store i32 0, ptr %36, align 4, !tbaa !49
+  store i32 0, ptr %36, align 8, !tbaa !49
   %51 = icmp slt i32 %49, 0
   %52 = select i1 %51, i32 -805, i32 803
   %53 = load ptr, ptr %0, align 8, !tbaa !26
@@ -276,7 +276,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   br i1 %.not293, label %65, label %59
 
 59:                                               ; preds = %57
-  store i32 0, ptr %36, align 4, !tbaa !49
+  store i32 0, ptr %36, align 8, !tbaa !49
   %60 = icmp slt i32 %58, 0
   %61 = select i1 %60, i32 -808, i32 805
   %62 = load ptr, ptr %0, align 8, !tbaa !26
@@ -315,7 +315,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   br i1 %75, label %79, label %76
 
 76:                                               ; preds = %73
-  store i32 0, ptr %36, align 4, !tbaa !49
+  store i32 0, ptr %36, align 8, !tbaa !49
   %77 = load ptr, ptr %0, align 8, !tbaa !26
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   store i32 0, ptr %78, align 8, !tbaa !27
@@ -327,7 +327,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   br i1 %.not, label %83, label %80
 
 80:                                               ; preds = %79
-  %81 = load i32, ptr %36, align 4, !tbaa !49
+  %81 = load i32, ptr %36, align 8, !tbaa !49
   %.not294 = icmp eq i32 %81, 0
   br i1 %.not294, label %82, label %83
 
@@ -372,7 +372,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   br i1 %.not295, label %102, label %97
 
 97:                                               ; preds = %95
-  store i32 0, ptr %36, align 4, !tbaa !49
+  store i32 0, ptr %36, align 8, !tbaa !49
   %98 = icmp slt i32 %96, 0
   %99 = select i1 %98, i32 -808, i32 805
   %100 = load ptr, ptr %0, align 8, !tbaa !26
@@ -386,7 +386,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   br i1 %.not296, label %109, label %104
 
 104:                                              ; preds = %102
-  store i32 0, ptr %36, align 4, !tbaa !49
+  store i32 0, ptr %36, align 8, !tbaa !49
   %105 = icmp slt i32 %103, 0
   %106 = select i1 %105, i32 -805, i32 803
   %107 = load ptr, ptr %0, align 8, !tbaa !26
@@ -406,7 +406,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   br i1 %.not297, label %118, label %112
 
 112:                                              ; preds = %110
-  store i32 0, ptr %36, align 4, !tbaa !49
+  store i32 0, ptr %36, align 8, !tbaa !49
   %113 = icmp slt i32 %111, 0
   %114 = select i1 %113, i32 -808, i32 805
   %115 = load ptr, ptr %0, align 8, !tbaa !26
@@ -454,7 +454,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   br i1 %.not298, label %135, label %130
 
 130:                                              ; preds = %128
-  store i32 0, ptr %36, align 4, !tbaa !49
+  store i32 0, ptr %36, align 8, !tbaa !49
   %131 = icmp slt i32 %129, 0
   %132 = select i1 %131, i32 -808, i32 805
   %133 = load ptr, ptr %0, align 8, !tbaa !26
@@ -468,7 +468,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   br i1 %.not299, label %142, label %137
 
 137:                                              ; preds = %135
-  store i32 0, ptr %36, align 4, !tbaa !49
+  store i32 0, ptr %36, align 8, !tbaa !49
   %138 = icmp slt i32 %136, 0
   %139 = select i1 %138, i32 -805, i32 803
   %140 = load ptr, ptr %0, align 8, !tbaa !26
@@ -488,7 +488,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   br i1 %.not300, label %151, label %145
 
 145:                                              ; preds = %143
-  store i32 0, ptr %36, align 4, !tbaa !49
+  store i32 0, ptr %36, align 8, !tbaa !49
   %146 = icmp slt i32 %144, 0
   %147 = select i1 %146, i32 -808, i32 805
   %148 = load ptr, ptr %0, align 8, !tbaa !26
@@ -521,7 +521,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   br i1 %159, label %160, label %163
 
 160:                                              ; preds = %154
-  %161 = load i32, ptr %36, align 4, !tbaa !49
+  %161 = load i32, ptr %36, align 8, !tbaa !49
   %.not301 = icmp eq i32 %161, 0
   br i1 %.not301, label %163, label %162
 
@@ -594,7 +594,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   br i1 %.not302, label %193, label %188
 
 188:                                              ; preds = %186
-  store i32 0, ptr %36, align 4, !tbaa !49
+  store i32 0, ptr %36, align 8, !tbaa !49
   %189 = icmp slt i32 %187, 0
   %190 = select i1 %189, i32 -808, i32 805
   %191 = load ptr, ptr %0, align 8, !tbaa !26
@@ -607,7 +607,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   br label %194
 
 194:                                              ; preds = %185, %193
-  store i32 0, ptr %36, align 4, !tbaa !49
+  store i32 0, ptr %36, align 8, !tbaa !49
   %195 = load ptr, ptr %0, align 8, !tbaa !26
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 24
   br i1 %174, label %197, label %198
@@ -621,7 +621,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPBCGS(ptr noundef readonly cap
   br label %201
 
 ._crit_edge.thread:                               ; preds = %83, %._crit_edge
-  store i32 0, ptr %36, align 4, !tbaa !49
+  store i32 0, ptr %36, align 8, !tbaa !49
   %199 = load ptr, ptr %0, align 8, !tbaa !26
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 24
   store i32 802, ptr %200, align 8, !tbaa !27

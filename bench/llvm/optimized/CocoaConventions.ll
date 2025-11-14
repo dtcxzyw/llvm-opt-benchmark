@@ -14,7 +14,6 @@ $_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv = comdat any
 @.str.2 = private unnamed_addr constant [3 x i8] c"CF\00", align 1
 @.str.3 = private unnamed_addr constant [3 x i8] c"CG\00", align 1
 @.str.4 = private unnamed_addr constant [3 x i8] c"CM\00", align 1
-@.str.5 = private unnamed_addr constant [9 x i8] c"NSObject\00", align 1
 @.str.6 = private unnamed_addr constant [6 x i8] c"reate\00", align 1
 @.str.7 = private unnamed_addr constant [4 x i8] c"opy\00", align 1
 @.str.8 = private unnamed_addr constant [7 x i8] c"DADisk\00", align 1
@@ -466,7 +465,7 @@ _ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit.thread: ; pre
   br i1 %122, label %.preheader, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 .preheader:                                       ; preds = %_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread48
-  %.01150 = phi ptr [ %133, %_ZN4llvmeqENS_9StringRefES0_.exit.thread48 ], [ %121, %_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit.thread ]
+  %.01150 = phi ptr [ %132, %_ZN4llvmeqENS_9StringRefES0_.exit.thread48 ], [ %121, %_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit.thread ]
   %123 = getelementptr inbounds nuw i8, ptr %.01150, i64 40
   %124 = load i64, ptr %123, align 8, !tbaa !17
   %125 = and i64 %124, -8
@@ -480,13 +479,13 @@ _ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit.thread: ; pre
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %.preheader
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %131, ptr noundef nonnull dereferenceable(8) @.str.5, i64 8)
-  %132 = icmp eq i32 %bcmp.i, 0
-  br i1 %132, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread48
+  %lhsv = load i64, ptr %131, align 8
+  %.not53 = icmp eq i64 %lhsv, 8386658438684300110
+  br i1 %.not53, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread48
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread48:       ; preds = %.preheader, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %133 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128) %.01150) #5
-  %.not13 = icmp eq ptr %133, null
+  %132 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128) %.01150) #5
+  %.not13 = icmp eq ptr %132, null
   br i1 %.not13, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.preheader, !llvm.loop !27
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread48, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit, %_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit, %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit, %_ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit, %_ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit.thread, %1

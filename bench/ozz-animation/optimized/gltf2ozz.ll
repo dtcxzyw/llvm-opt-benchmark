@@ -58717,7 +58717,7 @@ define linkonce_odr dso_local void @_ZNK8nlohmann16json_abi_v3_11_310basic_jsonI
   br i1 %.not.i.i.i.i.i, label %22, label %21
 
 21:                                               ; preds = %13
-  store i32 2, ptr %14, align 4, !tbaa !282, !noalias !1758
+  store i32 2, ptr %14, align 8, !tbaa !282, !noalias !1758
   br label %_ZN8nlohmann16json_abi_v3_11_36detail14output_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt10shared_ptrINS1_23output_adapter_protocolIcEEEEv.exit
 
 22:                                               ; preds = %13
@@ -58817,7 +58817,7 @@ _ZNSt12__shared_ptrIN8nlohmann16json_abi_v3_11_36detail23output_adapter_protocol
 
 66:                                               ; preds = %64
   %67 = add nsw i32 %55, -1
-  store i32 %67, ptr %52, align 4, !tbaa !282
+  store i32 %67, ptr %52, align 8, !tbaa !282
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 68:                                               ; preds = %64
@@ -58900,7 +58900,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %79,
 
 100:                                              ; preds = %98
   %101 = add nsw i32 %89, -1
-  store i32 %101, ptr %86, align 4, !tbaa !282
+  store i32 %101, ptr %86, align 8, !tbaa !282
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i19
 
 102:                                              ; preds = %98
@@ -86454,13 +86454,12 @@ _ZN3ozz4math8ToAffineERKNS0_8Float4x4EPNS0_9TransformE.exit.thread.i: ; preds = 
   store float %74, ptr %.sroa.469.0..sroa_idx.i, align 1, !tbaa !294
   store <4 x float> %.v118.i, ptr %.sroa.570.0..sroa_idx.i, align 1, !tbaa !294
   %246 = extractelement <4 x float> %.v.i, i64 0
-  store float %246, ptr %.sroa.7.0..sroa_idx.i, align 1, !tbaa !294
+  store float %246, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !294
   %247 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %248 = extractelement <4 x float> %.v.i, i64 1
-  store float %248, ptr %247, align 1, !tbaa !294
+  store float %248, ptr %247, align 4, !tbaa !294
   %249 = extractelement <4 x float> %.v.i, i64 2
-  store float %249, ptr %.sroa.872.0..sroa_idx.i, align 1, !tbaa !294
-  br label %326
+  br label %.sink.split
 
 _ZN3ozz4math8ToAffineERKNS0_8Float4x4EPNS0_9TransformE.exit.i: ; preds = %130, %96
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -86606,15 +86605,19 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i: ; preds = %.noexc46.i, %
   store float %319, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !2189
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 88
   store float %322, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !2189
-  store float %325, ptr %.sroa.872.0..sroa_idx.i, align 4, !tbaa !2189
-  br label %326
+  br label %.sink.split
 
 _ZN12_GLOBAL__N_119CreateNodeTransformERKN8tinygltf4NodeEPN3ozz4math9TransformE.exit: ; preds = %.noexc48.i
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %4) #39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-326:                                              ; preds = %317, %311, %_ZN3ozz4math8ToAffineERKNS0_8Float4x4EPNS0_9TransformE.exit.thread.i
+.sink.split:                                      ; preds = %_ZN3ozz4math8ToAffineERKNS0_8Float4x4EPNS0_9TransformE.exit.thread.i, %317
+  %.sink = phi float [ %325, %317 ], [ %249, %_ZN3ozz4math8ToAffineERKNS0_8Float4x4EPNS0_9TransformE.exit.thread.i ]
+  store float %.sink, ptr %.sroa.872.0..sroa_idx.i, align 4, !tbaa !294
+  br label %326
+
+326:                                              ; preds = %.sink.split, %311
   %327 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %328 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %329 = load ptr, ptr %328, align 8, !tbaa !244
@@ -121890,7 +121893,7 @@ define linkonce_odr dso_local void @_ZNSt12__shared_ptrIN8nlohmann16json_abi_v3_
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !282
+  store i32 %20, ptr %5, align 8, !tbaa !282
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -121945,7 +121948,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail14outpu
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !282
+  store i32 %20, ptr %5, align 8, !tbaa !282
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -123214,7 +123217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !282
+  store i32 %26, ptr %11, align 8, !tbaa !282
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 27:                                               ; preds = %23

@@ -310,9 +310,9 @@ define i32 @Cbs_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) loca
   %61 = lshr i64 %.val.i, 29
   %62 = and i64 %61, 1
   %63 = ptrtoint ptr %25 to i64
-  %64 = xor i64 %62, %63
+  %64 = or disjoint i64 %62, %63
   %65 = inttoptr i64 %64 to ptr
-  tail call fastcc void @Cbs_ManAssign(ptr noundef nonnull %0, ptr noundef %65, i32 noundef %1, ptr noundef nonnull %20, ptr noundef null)
+  tail call fastcc void @Cbs_ManAssign(ptr noundef nonnull %0, ptr noundef nonnull %65, i32 noundef %1, ptr noundef nonnull %20, ptr noundef null)
   br label %66
 
 66:                                               ; preds = %60, %59
@@ -327,9 +327,9 @@ define i32 @Cbs_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) loca
   %73 = lshr i64 %68, 61
   %74 = and i64 %73, 1
   %75 = ptrtoint ptr %72 to i64
-  %76 = xor i64 %74, %75
+  %76 = or disjoint i64 %74, %75
   %77 = inttoptr i64 %76 to ptr
-  tail call fastcc void @Cbs_ManAssign(ptr noundef nonnull %0, ptr noundef %77, i32 noundef %1, ptr noundef nonnull %20, ptr noundef null)
+  tail call fastcc void @Cbs_ManAssign(ptr noundef nonnull %0, ptr noundef nonnull %77, i32 noundef %1, ptr noundef nonnull %20, ptr noundef null)
   br label %Cbs_ManPropagateOne.exit.thread
 
 78:                                               ; preds = %22
@@ -356,7 +356,7 @@ define i32 @Cbs_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) loca
   %87 = lshr i64 %.val.i, 29
   %88 = and i64 %87, 1
   %89 = ptrtoint ptr %25 to i64
-  %90 = xor i64 %88, %89
+  %90 = or disjoint i64 %88, %89
   %91 = xor i64 %90, 1
   %92 = inttoptr i64 %91 to ptr
   tail call fastcc void @Cbs_ManAssign(ptr noundef %0, ptr noundef %92, i32 noundef %1, ptr noundef nonnull %20, ptr noundef nonnull %37)
@@ -374,7 +374,7 @@ define i32 @Cbs_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) loca
   %100 = lshr i64 %95, 61
   %101 = and i64 %100, 1
   %102 = ptrtoint ptr %99 to i64
-  %103 = xor i64 %101, %102
+  %103 = or disjoint i64 %101, %102
   %104 = xor i64 %103, 1
   %105 = inttoptr i64 %104 to ptr
   %106 = and i64 %95, 536870911
@@ -546,7 +546,7 @@ Cbs_VarIsJust.exit.thread:                        ; preds = %.lr.ph113, %147, %C
   %186 = lshr i64 %.val6.i, 29
   %187 = and i64 %186, 1
   %188 = ptrtoint ptr %159 to i64
-  %189 = xor i64 %187, %188
+  %189 = or disjoint i64 %187, %188
   %190 = xor i64 %189, 1
   %191 = inttoptr i64 %190 to ptr
   tail call fastcc void @Cbs_ManAssign(ptr noundef nonnull %0, ptr noundef %191, i32 noundef %1, ptr noundef nonnull %142, ptr noundef nonnull %171)
@@ -564,7 +564,7 @@ Cbs_VarIsJust.exit.thread:                        ; preds = %.lr.ph113, %147, %C
   %199 = lshr i64 %194, 61
   %200 = and i64 %199, 1
   %201 = ptrtoint ptr %198 to i64
-  %202 = xor i64 %200, %201
+  %202 = or disjoint i64 %200, %201
   %203 = xor i64 %202, 1
   %204 = inttoptr i64 %203 to ptr
   %205 = and i64 %194, 536870911
@@ -796,7 +796,7 @@ Cbs_ManDecideHighest.exit:                        ; preds = %54, %51, %67, %64, 
   %.106 = select i1 %100, i64 %83, i64 %94
   %101 = lshr i64 %77, %.
   %102 = and i64 %101, 1
-  %103 = xor i64 %102, %.106
+  %103 = or disjoint i64 %102, %.106
   %.052.in = xor i64 %103, 1
   %.052 = inttoptr i64 %.052.in to ptr
   %104 = add nsw i32 %1, 1
@@ -811,38 +811,37 @@ Cbs_ManDecideHighest.exit:                        ; preds = %54, %51, %67, %64, 
   %109 = sext i32 %105 to i64
   %110 = getelementptr inbounds ptr, ptr %108, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !45
-  %112 = and i64 %.106, -2
-  %113 = inttoptr i64 %112 to ptr
-  %.not62 = icmp eq ptr %111, %113
-  br i1 %.not62, label %114, label %Cbs_ManCheckLimits.exit.thread
+  %112 = inttoptr i64 %.106 to ptr
+  %.not62 = icmp eq ptr %111, %112
+  br i1 %.not62, label %113, label %Cbs_ManCheckLimits.exit.thread
 
-114:                                              ; preds = %106
+113:                                              ; preds = %106
   tail call fastcc void @Cbs_ManCancelUntil(ptr noundef nonnull %0, i32 noundef %20)
   store i32 %.val, ptr %5, align 8, !tbaa !55
   store i32 %.val65, ptr %6, align 4, !tbaa !49
-  %115 = inttoptr i64 %103 to ptr
-  tail call fastcc void @Cbs_ManAssign(ptr noundef nonnull %0, ptr noundef %115, i32 noundef %104, ptr noundef null, ptr noundef null)
-  %116 = tail call i32 @Cbs_ManSolve_rec(ptr noundef nonnull %0, i32 noundef %104)
-  %.not63 = icmp eq i32 %116, 0
-  br i1 %.not63, label %Cbs_ManCheckLimits.exit.thread, label %117
+  %114 = inttoptr i64 %103 to ptr
+  tail call fastcc void @Cbs_ManAssign(ptr noundef nonnull %0, ptr noundef nonnull %114, i32 noundef %104, ptr noundef null, ptr noundef null)
+  %115 = tail call i32 @Cbs_ManSolve_rec(ptr noundef nonnull %0, i32 noundef %104)
+  %.not63 = icmp eq i32 %115, 0
+  br i1 %.not63, label %Cbs_ManCheckLimits.exit.thread, label %116
 
-117:                                              ; preds = %114
-  %118 = load ptr, ptr %107, align 8, !tbaa !51
-  %119 = sext i32 %116 to i64
-  %120 = getelementptr inbounds ptr, ptr %118, i64 %119
-  %121 = load ptr, ptr %120, align 8, !tbaa !45
-  %.not64 = icmp eq ptr %121, %111
-  br i1 %.not64, label %122, label %Cbs_ManCheckLimits.exit.thread
+116:                                              ; preds = %113
+  %117 = load ptr, ptr %107, align 8, !tbaa !51
+  %118 = sext i32 %115 to i64
+  %119 = getelementptr inbounds ptr, ptr %117, i64 %118
+  %120 = load ptr, ptr %119, align 8, !tbaa !45
+  %.not64 = icmp eq ptr %120, %111
+  br i1 %.not64, label %121, label %Cbs_ManCheckLimits.exit.thread
 
-122:                                              ; preds = %117
-  %123 = tail call fastcc i32 @Cbs_ManResolve(ptr noundef nonnull %0, i32 noundef %105, i32 noundef %116)
-  %124 = load i32, ptr %15, align 8, !tbaa !58
-  %125 = add nsw i32 %124, 1
-  store i32 %125, ptr %15, align 8, !tbaa !58
+121:                                              ; preds = %116
+  %122 = tail call fastcc i32 @Cbs_ManResolve(ptr noundef nonnull %0, i32 noundef %105, i32 noundef %115)
+  %123 = load i32, ptr %15, align 8, !tbaa !58
+  %124 = add nsw i32 %123, 1
+  store i32 %124, ptr %15, align 8, !tbaa !58
   br label %Cbs_ManCheckLimits.exit.thread
 
-Cbs_ManCheckLimits.exit.thread:                   ; preds = %7, %117, %114, %106, %Cbs_ManDecideHighest.exit, %Cbs_ManCheckLimits.exit, %4, %2, %122
-  %.0 = phi i32 [ %123, %122 ], [ %3, %2 ], [ 0, %4 ], [ 0, %Cbs_ManCheckLimits.exit ], [ 0, %Cbs_ManDecideHighest.exit ], [ %105, %106 ], [ 0, %114 ], [ %116, %117 ], [ 0, %7 ]
+Cbs_ManCheckLimits.exit.thread:                   ; preds = %7, %116, %113, %106, %Cbs_ManDecideHighest.exit, %Cbs_ManCheckLimits.exit, %4, %2, %121
+  %.0 = phi i32 [ %122, %121 ], [ %3, %2 ], [ 0, %4 ], [ 0, %Cbs_ManCheckLimits.exit ], [ 0, %Cbs_ManDecideHighest.exit ], [ %105, %106 ], [ 0, %113 ], [ %115, %116 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -2445,9 +2444,9 @@ Abc_Clock.exit88:                                 ; preds = %130, %133
   %140 = lshr i64 %136, 29
   %141 = and i64 %140, 1
   %142 = ptrtoint ptr %139 to i64
-  %143 = xor i64 %141, %142
+  %143 = or disjoint i64 %141, %142
   %144 = inttoptr i64 %143 to ptr
-  %145 = call i32 @Cbs_ManSolve(ptr noundef nonnull %18, ptr noundef %144)
+  %145 = call i32 @Cbs_ManSolve(ptr noundef nonnull %18, ptr noundef nonnull %144)
   %146 = trunc nsw i32 %145 to i8
   %147 = load i32, ptr %25, align 4, !tbaa !116
   %148 = load i32, ptr %23, align 8, !tbaa !118

@@ -367,33 +367,36 @@ define hidden ptr @je_tcache_alloc_small_hard(ptr noundef %0, ptr noundef %1, pt
   %19 = load ptr, ptr %3, align 8, !tbaa !41
   %20 = load ptr, ptr %19, align 8, !tbaa !49
   %21 = ptrtoint ptr %19 to i64
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %24 = load i16, ptr %23, align 8, !tbaa !35
-  %25 = trunc i64 %21 to i16
-  %.not.i = icmp eq i16 %24, %25
-  br i1 %.not.i, label %27, label %26, !prof !4
+  %22 = trunc i64 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %24 = and i32 %22, 65528
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %26 = load i16, ptr %25, align 8, !tbaa !35
+  %27 = zext i16 %26 to i32
+  %.not.i = icmp eq i32 %24, %27
+  br i1 %.not.i, label %29, label %28, !prof !4
 
-26:                                               ; preds = %6
-  store ptr %22, ptr %3, align 8, !tbaa !41
+28:                                               ; preds = %6
+  store ptr %23, ptr %3, align 8, !tbaa !41
   br label %cache_bin_alloc_impl.exit
 
-27:                                               ; preds = %6
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %29 = load i16, ptr %28, align 4, !tbaa !39
-  %.not21.i = icmp eq i16 %29, %24
-  br i1 %.not21.i, label %cache_bin_alloc_impl.exit, label %30, !prof !4
+29:                                               ; preds = %6
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %31 = load i16, ptr %30, align 4, !tbaa !39
+  %32 = zext i16 %31 to i32
+  %.not21.i = icmp eq i32 %24, %32
+  br i1 %.not21.i, label %cache_bin_alloc_impl.exit, label %33, !prof !4
 
-30:                                               ; preds = %27
-  store ptr %22, ptr %3, align 8, !tbaa !41
-  %31 = ptrtoint ptr %22 to i64
-  %32 = trunc i64 %31 to i16
-  store i16 %32, ptr %23, align 8, !tbaa !35
+33:                                               ; preds = %29
+  store ptr %23, ptr %3, align 8, !tbaa !41
+  %34 = ptrtoint ptr %23 to i64
+  %35 = trunc i64 %34 to i16
+  store i16 %35, ptr %25, align 8, !tbaa !35
   br label %cache_bin_alloc_impl.exit
 
-cache_bin_alloc_impl.exit:                        ; preds = %27, %26, %30
-  %.sink = phi i8 [ 1, %26 ], [ 1, %30 ], [ 0, %27 ]
-  %.0.i = phi ptr [ %20, %26 ], [ %20, %30 ], [ null, %27 ]
+cache_bin_alloc_impl.exit:                        ; preds = %29, %28, %33
+  %.sink = phi i8 [ 1, %28 ], [ 1, %33 ], [ 0, %29 ]
+  %.0.i = phi ptr [ %20, %28 ], [ %20, %33 ], [ null, %29 ]
   store i8 %.sink, ptr %5, align 1, !tbaa !20
   ret ptr %.0.i
 }

@@ -1599,84 +1599,76 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i: ; preds = %_ZN8LightGBM9Th
 .lver.check:                                      ; preds = %34
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %44 = load ptr, ptr %43, align 8, !tbaa !102
-  %bound0 = icmp ne ptr %36, inttoptr (i64 -1 to ptr)
-  %bound1 = icmp ne ptr %38, inttoptr (i64 -1 to ptr)
-  %found.conflict = and i1 %bound0, %bound1
-  br i1 %found.conflict, label %.ph.lver.orig, label %.ph
+  br label %45
 
-.ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
-  %indvars.iv.lver.orig = phi i64 [ %indvars.iv.next.lver.orig, %.ph.lver.orig ], [ 1, %.lver.check ]
-  %45 = add nsw i64 %indvars.iv.lver.orig, -1
-  %46 = getelementptr inbounds nuw i32, ptr %36, i64 %45
-  %47 = load i32, ptr %46, align 4, !tbaa !145
-  %48 = getelementptr inbounds nuw i32, ptr %42, i64 %45
-  %49 = load i32, ptr %48, align 4, !tbaa !145
-  %50 = add nsw i32 %49, %47
-  %51 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.lver.orig
-  store i32 %50, ptr %51, align 4, !tbaa !145
-  %52 = getelementptr inbounds nuw i32, ptr %38, i64 %45
-  %53 = load i32, ptr %52, align 4, !tbaa !145
-  %54 = getelementptr inbounds nuw i32, ptr %44, i64 %45
-  %55 = load i32, ptr %54, align 4, !tbaa !145
-  %56 = add nsw i32 %55, %53
-  %57 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.lver.orig
-  store i32 %56, ptr %57, align 4, !tbaa !145
+45:                                               ; preds = %45, %.lver.check
+  %indvars.iv.lver.orig = phi i64 [ 1, %.lver.check ], [ %indvars.iv.next.lver.orig, %45 ]
+  %46 = add nsw i64 %indvars.iv.lver.orig, -1
+  %47 = getelementptr inbounds nuw i32, ptr %36, i64 %46
+  %48 = load i32, ptr %47, align 4, !tbaa !145
+  %49 = getelementptr inbounds nuw i32, ptr %42, i64 %46
+  %50 = load i32, ptr %49, align 4, !tbaa !145
+  %51 = add nsw i32 %50, %48
+  %52 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.lver.orig
+  store i32 %51, ptr %52, align 4, !tbaa !145
+  %53 = getelementptr inbounds nuw i32, ptr %38, i64 %46
+  %54 = load i32, ptr %53, align 4, !tbaa !145
+  %55 = getelementptr inbounds nuw i32, ptr %44, i64 %46
+  %56 = load i32, ptr %55, align 4, !tbaa !145
+  %57 = add nsw i32 %56, %54
+  %58 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.lver.orig
+  store i32 %57, ptr %58, align 4, !tbaa !145
   %indvars.iv.next.lver.orig = add nuw nsw i64 %indvars.iv.lver.orig, 1
-  %58 = load i32, ptr %9, align 4, !tbaa !145
-  %59 = sext i32 %58 to i64
-  %60 = icmp slt i64 %indvars.iv.next.lver.orig, %59
-  br i1 %60, label %.ph.lver.orig, label %._crit_edge, !llvm.loop !154
+  %59 = load i32, ptr %9, align 4, !tbaa !145
+  %60 = sext i32 %59 to i64
+  %61 = icmp slt i64 %indvars.iv.next.lver.orig, %60
+  br i1 %61, label %45, label %._crit_edge, !llvm.loop !154
 
-.ph:                                              ; preds = %.lver.check
-  %load_initial = load i32, ptr %36, align 4
-  %load_initial23 = load i32, ptr %38, align 4
-  br label %78
-
-._crit_edge:                                      ; preds = %78, %.ph.lver.orig, %34
-  %.lcssa = phi i32 [ %39, %34 ], [ %58, %.ph.lver.orig ], [ %88, %78 ]
-  %61 = add nsw i32 %.lcssa, -1
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %36, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !145
-  %65 = getelementptr inbounds nuw i32, ptr %42, i64 %62
-  %66 = load i32, ptr %65, align 4, !tbaa !145
-  %67 = add nsw i32 %66, %64
+._crit_edge:                                      ; preds = %45, %34
+  %.lcssa = phi i32 [ %39, %34 ], [ %59, %45 ]
+  %62 = add nsw i32 %.lcssa, -1
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds nuw i32, ptr %36, i64 %63
+  %65 = load i32, ptr %64, align 4, !tbaa !145
+  %66 = getelementptr inbounds nuw i32, ptr %42, i64 %63
+  %67 = load i32, ptr %66, align 4, !tbaa !145
+  %68 = add nsw i32 %67, %65
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i32, ptr %3, i64 %68
-  store ptr %69, ptr %12, align 8, !tbaa !98
-  %70 = load i32, ptr %0, align 8, !tbaa !150
-  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %13, i32 %70)
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds i32, ptr %3, i64 %69
+  store ptr %70, ptr %12, align 8, !tbaa !98
+  %71 = load i32, ptr %0, align 8, !tbaa !150
+  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %13, i32 %71)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZN8LightGBM23ParallelPartitionRunnerIiLb0EE3RunILb1EEEiiRKSt8functionIFiiiiPiS4_EES4_.omp_outlined.3, ptr nonnull %9, ptr nonnull %0, ptr nonnull %8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %71 = load ptr, ptr %11, align 8, !tbaa !152
-  %.not.i.i = icmp eq ptr %71, null
+  %72 = load ptr, ptr %11, align 8, !tbaa !152
+  %.not.i.i = icmp eq ptr %72, null
   br i1 %.not.i.i, label %_ZN21ThreadExceptionHelperD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i
 
 _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i: ; preds = %._crit_edge
-  store ptr %71, ptr %5, align 8, !tbaa !152
+  store ptr %72, ptr %5, align 8, !tbaa !152
   call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
   invoke void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull %5) #34
-          to label %72 unwind label %73
-
-72:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i
-  unreachable
+          to label %73 unwind label %74
 
 73:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i
-  %74 = landingpad { ptr, i32 }
-          catch ptr null
-  %75 = load ptr, ptr %5, align 8, !tbaa !152
-  %.not.i3.i.i = icmp eq ptr %75, null
-  br i1 %.not.i3.i.i, label %.body.i, label %76
+  unreachable
 
-76:                                               ; preds = %73
+74:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i
+  %75 = landingpad { ptr, i32 }
+          catch ptr null
+  %76 = load ptr, ptr %5, align 8, !tbaa !152
+  %.not.i3.i.i = icmp eq ptr %76, null
+  br i1 %.not.i3.i.i, label %.body.i, label %77
+
+77:                                               ; preds = %74
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
   br label %.body.i
 
-.body.i:                                          ; preds = %76, %73
-  %77 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %77) #33
+.body.i:                                          ; preds = %77, %74
+  %78 = extractvalue { ptr, i32 } %75, 0
+  call void @__clang_call_terminate(ptr %78) #33
   unreachable
 
 _ZN21ThreadExceptionHelperD2Ev.exit:              ; preds = %._crit_edge
@@ -1684,7 +1676,7 @@ _ZN21ThreadExceptionHelperD2Ev.exit:              ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret i32 %67
+  ret i32 %68
 
 .body:                                            ; preds = %30, %33
   call void @_ZN21ThreadExceptionHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #16
@@ -1692,27 +1684,6 @@ _ZN21ThreadExceptionHelperD2Ev.exit:              ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %31
-
-78:                                               ; preds = %.ph, %78
-  %store_forwarded24 = phi i32 [ %load_initial23, %.ph ], [ %86, %78 ]
-  %store_forwarded = phi i32 [ %load_initial, %.ph ], [ %82, %78 ]
-  %indvars.iv = phi i64 [ 1, %.ph ], [ %indvars.iv.next, %78 ]
-  %79 = add nsw i64 %indvars.iv, -1
-  %80 = getelementptr inbounds nuw i32, ptr %42, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !145
-  %82 = add nsw i32 %81, %store_forwarded
-  %83 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
-  store i32 %82, ptr %83, align 4, !tbaa !145
-  %84 = getelementptr inbounds nuw i32, ptr %44, i64 %79
-  %85 = load i32, ptr %84, align 4, !tbaa !145
-  %86 = add nsw i32 %85, %store_forwarded24
-  %87 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
-  store i32 %86, ptr %87, align 4, !tbaa !145
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = load i32, ptr %9, align 4, !tbaa !145
-  %89 = sext i32 %88 to i64
-  %90 = icmp slt i64 %indvars.iv.next, %89
-  br i1 %90, label %78, label %._crit_edge, !llvm.loop !154
 }
 
 declare void @_ZN8LightGBM7Dataset6ReSizeEi(ptr noundef nonnull align 8 dereferenceable(864), i32 noundef) local_unnamed_addr #0

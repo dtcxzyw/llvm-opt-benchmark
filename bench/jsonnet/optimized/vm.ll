@@ -32548,7 +32548,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %32, %35
 
 57:                                               ; preds = %55
   %58 = add nsw i32 %46, -1
-  store i32 %58, ptr %43, align 4, !tbaa !328
+  store i32 %58, ptr %43, align 8, !tbaa !328
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 59:                                               ; preds = %55
@@ -46652,7 +46652,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %49, %_ZNSt7__cxx111
 
 72:                                               ; preds = %70
   %73 = add nsw i32 %61, -1
-  store i32 %73, ptr %58, align 4, !tbaa !328
+  store i32 %73, ptr %58, align 8, !tbaa !328
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 74:                                               ; preds = %70
@@ -46734,7 +46734,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN8nlohmann6detail
 
 107:                                              ; preds = %105
   %108 = add nsw i32 %96, -1
-  store i32 %108, ptr %93, align 4, !tbaa !328
+  store i32 %108, ptr %93, align 8, !tbaa !328
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 109:                                              ; preds = %105
@@ -46828,7 +46828,7 @@ define linkonce_odr void @_ZN8nlohmann6detail13input_adapterD2Ev(ptr noundef non
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !328
+  store i32 %20, ptr %5, align 8, !tbaa !328
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -48756,7 +48756,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt7__cxx1112basi
 
 33:                                               ; preds = %31
   %34 = add nsw i32 %22, -1
-  store i32 %34, ptr %19, align 4, !tbaa !328
+  store i32 %34, ptr %19, align 8, !tbaa !328
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 35:                                               ; preds = %31
@@ -59264,7 +59264,7 @@ _ZNKSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char
   %.0911.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEESaISA_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !857)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !860)
-  %26 = load i8, ptr %.0911.i.i.i, align 1, !tbaa !563, !alias.scope !860, !noalias !857
+  %26 = load i8, ptr %.0911.i.i.i, align 8, !tbaa !563, !alias.scope !860, !noalias !857
   store i8 %26, ptr %.012.i.i.i, align 8, !tbaa !507, !alias.scope !857, !noalias !860
   %27 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
@@ -59288,7 +59288,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %.0911.i.i.i19 = phi ptr [ %37, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !863)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !866)
-  %33 = load i8, ptr %.0911.i.i.i19, align 1, !tbaa !563, !alias.scope !866, !noalias !863
+  %33 = load i8, ptr %.0911.i.i.i19, align 8, !tbaa !563, !alias.scope !866, !noalias !863
   store i8 %33, ptr %.012.i.i.i18, align 8, !tbaa !507, !alias.scope !863, !noalias !866
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
@@ -59823,7 +59823,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann10basic_
   %.012.i.i.i.i.i.i.i = phi i64 [ %92, %.lr.ph.i.i.i.i.i.i.i ], [ %103, %95 ]
   %.0811.i.i.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i.i.i ], [ %102, %95 ]
   %.0910.i.i.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i.i.i ], [ %101, %95 ]
-  %96 = load i8, ptr %.0910.i.i.i.i.i.i.i, align 1, !tbaa !563
+  %96 = load i8, ptr %.0910.i.i.i.i.i.i.i, align 8, !tbaa !563
   %97 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
   %98 = load i64, ptr %97, align 8, !tbaa !21
   store i8 0, ptr %.0910.i.i.i.i.i.i.i, align 8, !tbaa !507
@@ -64097,7 +64097,7 @@ _ZNSt16allocator_traitsISaIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112ba
   %.0911.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEEEE9constructISB_JNS0_6detail7value_tEEEEvRSC_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !906)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !909)
-  %41 = load i8, ptr %.0911.i.i.i, align 1, !tbaa !563, !alias.scope !909, !noalias !906
+  %41 = load i8, ptr %.0911.i.i.i, align 8, !tbaa !563, !alias.scope !909, !noalias !906
   store i8 %41, ptr %.012.i.i.i, align 8, !tbaa !507, !alias.scope !906, !noalias !909
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
@@ -64121,7 +64121,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %.0911.i.i.i31 = phi ptr [ %52, %.lr.ph.i.i.i29 ], [ %1, %_ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !911)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !914)
-  %48 = load i8, ptr %.0911.i.i.i31, align 1, !tbaa !563, !alias.scope !914, !noalias !911
+  %48 = load i8, ptr %.0911.i.i.i31, align 8, !tbaa !563, !alias.scope !914, !noalias !911
   store i8 %48, ptr %.012.i.i.i30, align 8, !tbaa !507, !alias.scope !911, !noalias !914
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i30, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i31, i64 8
@@ -64314,7 +64314,7 @@ _ZNKSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char
   %.0911.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEESaISA_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !916)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !919)
-  %24 = load i8, ptr %.0911.i.i.i, align 1, !tbaa !563, !alias.scope !919, !noalias !916
+  %24 = load i8, ptr %.0911.i.i.i, align 8, !tbaa !563, !alias.scope !919, !noalias !916
   store i8 %24, ptr %.012.i.i.i, align 8, !tbaa !507, !alias.scope !916, !noalias !919
   %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
@@ -64338,7 +64338,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %.0911.i.i.i19 = phi ptr [ %35, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !921)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !924)
-  %31 = load i8, ptr %.0911.i.i.i19, align 1, !tbaa !563, !alias.scope !924, !noalias !921
+  %31 = load i8, ptr %.0911.i.i.i19, align 8, !tbaa !563, !alias.scope !924, !noalias !921
   store i8 %31, ptr %.012.i.i.i18, align 8, !tbaa !507, !alias.scope !921, !noalias !924
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
@@ -64507,7 +64507,7 @@ _ZNKSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char
   %.0911.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEESaISA_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !926)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !929)
-  %24 = load i8, ptr %.0911.i.i.i, align 1, !tbaa !563, !alias.scope !929, !noalias !926
+  %24 = load i8, ptr %.0911.i.i.i, align 8, !tbaa !563, !alias.scope !929, !noalias !926
   store i8 %24, ptr %.012.i.i.i, align 8, !tbaa !507, !alias.scope !926, !noalias !929
   %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
@@ -64531,7 +64531,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %.0911.i.i.i19 = phi ptr [ %35, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !931)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !934)
-  %31 = load i8, ptr %.0911.i.i.i19, align 1, !tbaa !563, !alias.scope !934, !noalias !931
+  %31 = load i8, ptr %.0911.i.i.i19, align 8, !tbaa !563, !alias.scope !934, !noalias !931
   store i8 %31, ptr %.012.i.i.i18, align 8, !tbaa !507, !alias.scope !931, !noalias !934
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
@@ -64691,7 +64691,7 @@ _ZNKSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char
   %.0911.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEESaISA_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !936)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !939)
-  %23 = load i8, ptr %.0911.i.i.i, align 1, !tbaa !563, !alias.scope !939, !noalias !936
+  %23 = load i8, ptr %.0911.i.i.i, align 8, !tbaa !563, !alias.scope !939, !noalias !936
   store i8 %23, ptr %.012.i.i.i, align 8, !tbaa !507, !alias.scope !936, !noalias !939
   %24 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
@@ -64715,7 +64715,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %.0911.i.i.i19 = phi ptr [ %34, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !941)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !944)
-  %30 = load i8, ptr %.0911.i.i.i19, align 1, !tbaa !563, !alias.scope !944, !noalias !941
+  %30 = load i8, ptr %.0911.i.i.i19, align 8, !tbaa !563, !alias.scope !944, !noalias !941
   store i8 %30, ptr %.012.i.i.i18, align 8, !tbaa !507, !alias.scope !941, !noalias !944
   %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
@@ -64880,7 +64880,7 @@ _ZNKSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char
   %.0911.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEESaISA_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !946)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !949)
-  %24 = load i8, ptr %.0911.i.i.i, align 1, !tbaa !563, !alias.scope !949, !noalias !946
+  %24 = load i8, ptr %.0911.i.i.i, align 8, !tbaa !563, !alias.scope !949, !noalias !946
   store i8 %24, ptr %.012.i.i.i, align 8, !tbaa !507, !alias.scope !946, !noalias !949
   %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
@@ -64904,7 +64904,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %.0911.i.i.i19 = phi ptr [ %35, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !951)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !954)
-  %31 = load i8, ptr %.0911.i.i.i19, align 1, !tbaa !563, !alias.scope !954, !noalias !951
+  %31 = load i8, ptr %.0911.i.i.i19, align 8, !tbaa !563, !alias.scope !954, !noalias !951
   store i8 %31, ptr %.012.i.i.i18, align 8, !tbaa !507, !alias.scope !951, !noalias !954
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
@@ -65300,7 +65300,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN8nlohman
   %.0911.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i ], [ %7, %39 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !956)
   call void @llvm.experimental.noalias.scope.decl(metadata !959)
-  %45 = load i8, ptr %.0911.i.i.i, align 1, !tbaa !563, !alias.scope !959, !noalias !956
+  %45 = load i8, ptr %.0911.i.i.i, align 8, !tbaa !563, !alias.scope !959, !noalias !956
   store i8 %45, ptr %.012.i.i.i, align 8, !tbaa !507, !alias.scope !956, !noalias !959
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
@@ -65324,7 +65324,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %.0911.i.i.i29 = phi ptr [ %56, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !961)
   call void @llvm.experimental.noalias.scope.decl(metadata !964)
-  %52 = load i8, ptr %.0911.i.i.i29, align 1, !tbaa !563, !alias.scope !964, !noalias !961
+  %52 = load i8, ptr %.0911.i.i.i29, align 8, !tbaa !563, !alias.scope !964, !noalias !961
   store i8 %52, ptr %.012.i.i.i28, align 8, !tbaa !507, !alias.scope !961, !noalias !964
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 8
@@ -65522,7 +65522,7 @@ _ZNKSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char
   %.0911.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEESaISA_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !966)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !969)
-  %24 = load i8, ptr %.0911.i.i.i, align 1, !tbaa !563, !alias.scope !969, !noalias !966
+  %24 = load i8, ptr %.0911.i.i.i, align 8, !tbaa !563, !alias.scope !969, !noalias !966
   store i8 %24, ptr %.012.i.i.i, align 8, !tbaa !507, !alias.scope !966, !noalias !969
   %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
@@ -65546,7 +65546,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %.0911.i.i.i19 = phi ptr [ %35, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !971)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !974)
-  %31 = load i8, ptr %.0911.i.i.i19, align 1, !tbaa !563, !alias.scope !974, !noalias !971
+  %31 = load i8, ptr %.0911.i.i.i19, align 8, !tbaa !563, !alias.scope !974, !noalias !971
   store i8 %31, ptr %.012.i.i.i18, align 8, !tbaa !507, !alias.scope !971, !noalias !974
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
@@ -65737,7 +65737,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shar
 
 23:                                               ; preds = %21
   %24 = add nsw i32 %12, -1
-  store i32 %24, ptr %9, align 4, !tbaa !328
+  store i32 %24, ptr %9, align 8, !tbaa !328
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 25:                                               ; preds = %21
@@ -65792,7 +65792,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN8nlohmann6detail20input_buffer_ad
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !328
+  store i32 %20, ptr %5, align 8, !tbaa !328
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -65941,7 +65941,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN8nlohmann6detail22input_adapter_p
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !328
+  store i32 %20, ptr %5, align 8, !tbaa !328
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -67615,7 +67615,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %38, %41
 
 63:                                               ; preds = %61
   %64 = add nsw i32 %52, -1
-  store i32 %64, ptr %49, align 4, !tbaa !328
+  store i32 %64, ptr %49, align 8, !tbaa !328
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 65:                                               ; preds = %61
@@ -73676,7 +73676,7 @@ _ZNSt16allocator_traitsISaIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112ba
   %.0911.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEEEE9constructISB_JRKSB_EEEvRSC_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1142)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1145)
-  %22 = load i8, ptr %.0911.i.i.i, align 1, !tbaa !563, !alias.scope !1145, !noalias !1142
+  %22 = load i8, ptr %.0911.i.i.i, align 8, !tbaa !563, !alias.scope !1145, !noalias !1142
   store i8 %22, ptr %.012.i.i.i, align 8, !tbaa !507, !alias.scope !1142, !noalias !1145
   %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
@@ -73700,7 +73700,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %.0911.i.i.i29 = phi ptr [ %33, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1147)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1150)
-  %29 = load i8, ptr %.0911.i.i.i29, align 1, !tbaa !563, !alias.scope !1150, !noalias !1147
+  %29 = load i8, ptr %.0911.i.i.i29, align 8, !tbaa !563, !alias.scope !1150, !noalias !1147
   store i8 %29, ptr %.012.i.i.i28, align 8, !tbaa !507, !alias.scope !1147, !noalias !1150
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 8

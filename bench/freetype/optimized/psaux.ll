@@ -4865,7 +4865,7 @@ cf2_getGlyphOutline.exit:                         ; preds = %542, %563, %596, %6
   %613 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %614 = load ptr, ptr %613, align 8, !tbaa !367
   call void @FT_GlyphLoader_Add(ptr noundef %614) #21
-  %.pr = load i32, ptr %137, align 4, !tbaa !16
+  %.pr = load i32, ptr %137, align 8, !tbaa !16
   %615 = load i32, ptr %7, align 4, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -8260,9 +8260,9 @@ ps_builder_init.exit:                             ; preds = %3
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 133
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 134
-  %.sink.i = load i8, ptr %32, align 1, !tbaa !37
+  %.sink.i = load i8, ptr %32, align 2, !tbaa !37
   %.sink65.i = load i8, ptr %31, align 1, !tbaa !37
-  %.sink66.i = load i8, ptr %30, align 1, !tbaa !37
+  %.sink66.i = load i8, ptr %30, align 4, !tbaa !37
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 89
   store i8 %.sink66.i, ptr %33, align 1, !tbaa !96
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 90
@@ -10082,7 +10082,7 @@ cf2_stack_init.exit.thread:                       ; preds = %125, %115
   %130 = load i32, ptr %11, align 4, !tbaa !16
   %.not.i.i = icmp eq i32 %130, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.pr = load i32, ptr %33, align 4, !tbaa !16
+  %.pr = load i32, ptr %33, align 8, !tbaa !16
   %.not1137 = icmp eq i32 %.pr, 0
   br i1 %.not.i.i, label %cf2_arrstack_setCount.exit, label %131
 
@@ -10231,7 +10231,7 @@ cf2_buf_readByte.exit.thread:                     ; preds = %192, %cf2_buf_readB
 219:                                              ; preds = %212, %cf2_buf_readByte.exit.thread
   %.11019 = phi i32 [ %.01018, %cf2_buf_readByte.exit.thread ], [ %spec.select1237, %212 ]
   %.11010 = phi i8 [ %.01009, %cf2_buf_readByte.exit.thread ], [ %spec.select1266, %212 ]
-  %220 = load i32, ptr %33, align 4, !tbaa !16
+  %220 = load i32, ptr %33, align 8, !tbaa !16
   %.not1142 = icmp eq i32 %220, 0
   br i1 %.not1142, label %221, label %cf2_setError.exit
 
@@ -11237,7 +11237,7 @@ cf2_glyphpath_closeOpenPath.exit:                 ; preds = %617, %628
   br i1 %.not.i1435, label %cf2_arrstack_getPointer.exit, label %634
 
 634:                                              ; preds = %631
-  store i32 130, ptr %33, align 4, !tbaa !16
+  store i32 130, ptr %33, align 8, !tbaa !16
   br label %cf2_arrstack_getPointer.exit
 
 cf2_arrstack_getPointer.exit:                     ; preds = %631, %634
@@ -11415,7 +11415,7 @@ cf2_initGlobalRegionBuffer.exit:                  ; preds = %cf2_initGlobalRegio
   br i1 %.not.i1451, label %cf2_arrstack_getPointer.exit1455, label %718
 
 718:                                              ; preds = %715
-  store i32 130, ptr %33, align 4, !tbaa !16
+  store i32 130, ptr %33, align 8, !tbaa !16
   br label %cf2_arrstack_getPointer.exit1455
 
 cf2_arrstack_getPointer.exit1455:                 ; preds = %715, %718
@@ -13694,12 +13694,12 @@ cf2_stack_popFixed.exit1582:                      ; preds = %1799, %1801, %1803,
   br i1 %.not.i1583, label %cf2_arrstack_getPointer.exit1587, label %1832
 
 1832:                                             ; preds = %.lr.ph2113
-  %1833 = load i32, ptr %33, align 4, !tbaa !16
+  %1833 = load i32, ptr %33, align 8, !tbaa !16
   %.not3.i.i1585 = icmp eq i32 %1833, 0
   br i1 %.not3.i.i1585, label %1834, label %cf2_arrstack_getPointer.exit1587
 
 1834:                                             ; preds = %1832
-  store i32 130, ptr %33, align 4, !tbaa !16
+  store i32 130, ptr %33, align 8, !tbaa !16
   br label %cf2_arrstack_getPointer.exit1587
 
 cf2_arrstack_getPointer.exit1587:                 ; preds = %.lr.ph2113, %1832, %1834
@@ -13938,12 +13938,12 @@ cf2_buf_readByte.exit.i:                          ; preds = %1924, %1922, %1920,
   br i1 %1930, label %1931, label %cf2_hintmask_setCounts.exit.i1590
 
 1931:                                             ; preds = %1927
-  %1932 = load i32, ptr %33, align 4, !tbaa !16
+  %1932 = load i32, ptr %33, align 8, !tbaa !16
   %.not3.i.i.i1599 = icmp eq i32 %1932, 0
   br i1 %.not3.i.i.i1599, label %1933, label %cf2_hintmask_read.exit1600
 
 1933:                                             ; preds = %1931
-  store i32 18, ptr %33, align 4, !tbaa !16
+  store i32 18, ptr %33, align 8, !tbaa !16
   br label %cf2_hintmask_read.exit1600
 
 cf2_hintmask_setCounts.exit.i1590:                ; preds = %1927
@@ -16140,7 +16140,7 @@ cf2_arrstack_setCount.exit.thread:                ; preds = %1420, %1416, %ps_bu
   %.0.i1931.ph.ph = phi ptr [ %117, %962 ], [ %117, %1892 ], [ %117, %1863 ], [ %117, %1861 ], [ %117, %1859 ], [ %117, %1857 ], [ null, %cf2_stack_init.exit.thread ], [ %117, %cf2_stack_setReal.exit1467 ], [ %117, %.thread1945 ], [ %117, %.thread1946 ], [ %117, %326 ], [ %117, %1899 ], [ %117, %1970 ], [ %117, %2033 ], [ %117, %228 ], [ %117, %713 ], [ %117, %cf2_stack_popFixed.exit1582 ], [ %117, %252 ], [ %117, %262 ], [ %117, %cf2_stack_popInt.exit1337 ], [ %117, %629 ], [ %117, %664 ], [ %117, %678 ], [ %117, %1520 ], [ %117, %964 ], [ %117, %1138 ], [ %117, %1151 ], [ %117, %1153 ], [ %117, %ps_builder_check_points.exit ], [ %117, %1149 ], [ %117, %1186 ], [ %117, %1237 ], [ %117, %1505 ], [ %117, %1241 ], [ %117, %1243 ], [ %117, %1307 ], [ %117, %1303 ], [ %117, %1324 ], [ %117, %1344 ], [ %117, %1364 ], [ %117, %1392 ], [ %117, %1391 ], [ %117, %1433 ], [ %117, %1429 ], [ %117, %1457 ], [ %117, %1479 ], [ %117, %1200 ], [ %117, %1202 ], [ %117, %ps_builder_check_points.exit1510 ], [ %117, %1416 ], [ %117, %1420 ]
   %.sroa.28.0.ph.ph = phi ptr [ %129, %962 ], [ %129, %1892 ], [ %129, %1863 ], [ %129, %1861 ], [ %129, %1859 ], [ %129, %1857 ], [ null, %cf2_stack_init.exit.thread ], [ %129, %cf2_stack_setReal.exit1467 ], [ %129, %.thread1945 ], [ %129, %.thread1946 ], [ %129, %326 ], [ %129, %1899 ], [ %129, %1970 ], [ %129, %2033 ], [ %129, %228 ], [ %129, %713 ], [ %129, %cf2_stack_popFixed.exit1582 ], [ %129, %252 ], [ %129, %262 ], [ %129, %cf2_stack_popInt.exit1337 ], [ %129, %629 ], [ %129, %664 ], [ %129, %678 ], [ %129, %1520 ], [ %129, %964 ], [ %129, %1138 ], [ %129, %1151 ], [ %129, %1153 ], [ %129, %ps_builder_check_points.exit ], [ %129, %1149 ], [ %129, %1186 ], [ %129, %1237 ], [ %129, %1505 ], [ %129, %1241 ], [ %129, %1243 ], [ %129, %1307 ], [ %129, %1303 ], [ %129, %1324 ], [ %129, %1344 ], [ %129, %1364 ], [ %129, %1392 ], [ %129, %1391 ], [ %129, %1433 ], [ %129, %1429 ], [ %129, %1457 ], [ %129, %1479 ], [ %129, %1200 ], [ %129, %1202 ], [ %129, %ps_builder_check_points.exit1510 ], [ %129, %1416 ], [ %129, %1420 ]
   %.0.ph.ph = phi i32 [ %.7, %962 ], [ %.14, %1892 ], [ 0, %1863 ], [ 0, %1861 ], [ 0, %1859 ], [ 0, %1857 ], [ 64, %cf2_stack_init.exit.thread ], [ 18, %1420 ], [ 18, %1416 ], [ 18, %ps_builder_check_points.exit1510 ], [ 18, %1202 ], [ 18, %1200 ], [ 18, %1479 ], [ 18, %1457 ], [ 18, %1429 ], [ 18, %1433 ], [ 18, %1391 ], [ 18, %1392 ], [ 18, %1364 ], [ 18, %1344 ], [ 18, %1324 ], [ 18, %1303 ], [ 18, %1307 ], [ 18, %1243 ], [ 18, %1241 ], [ 18, %1505 ], [ 18, %1237 ], [ 18, %1186 ], [ 18, %1149 ], [ 0, %ps_builder_check_points.exit ], [ 18, %1153 ], [ 18, %1151 ], [ 18, %1138 ], [ 0, %964 ], [ 18, %1520 ], [ 18, %678 ], [ 18, %664 ], [ 18, %629 ], [ 18, %cf2_stack_popInt.exit1337 ], [ %269, %262 ], [ 18, %252 ], [ 0, %cf2_stack_popFixed.exit1582 ], [ 18, %713 ], [ 18, %228 ], [ 0, %2033 ], [ 0, %1970 ], [ 0, %1899 ], [ 0, %326 ], [ 0, %.thread1946 ], [ 0, %.thread1945 ], [ 0, %cf2_stack_setReal.exit1467 ]
-  %.pr2022.pr = load i32, ptr %33, align 4, !tbaa !16
+  %.pr2022.pr = load i32, ptr %33, align 8, !tbaa !16
   %.not3.i = icmp eq i32 %.pr2022.pr, 0
   br i1 %.not3.i, label %cf2_setError.exit.sink.split, label %cf2_setError.exit
 
@@ -16149,7 +16149,7 @@ cf2_setError.exit.sink.split:                     ; preds = %221, %cf2_arrstack_
   %.sroa.28.02033.ph = phi ptr [ %129, %131 ], [ %.sroa.28.0.ph.ph, %cf2_arrstack_setCount.exit.thread ], [ %129, %221 ]
   %.0.i19312032.ph = phi ptr [ %117, %131 ], [ %.0.i1931.ph.ph, %cf2_arrstack_setCount.exit.thread ], [ %117, %221 ]
   %.not113619322031.ph = phi i1 [ false, %131 ], [ %.not11361932.ph.ph, %cf2_arrstack_setCount.exit.thread ], [ false, %221 ]
-  store i32 %.sink2517, ptr %33, align 4, !tbaa !16
+  store i32 %.sink2517, ptr %33, align 8, !tbaa !16
   br label %cf2_setError.exit
 
 cf2_setError.exit:                                ; preds = %219, %cf2_setError.exit.sink.split, %131, %cf2_arrstack_setCount.exit, %cf2_arrstack_setCount.exit.thread

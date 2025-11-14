@@ -2394,7 +2394,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i: ; 
 
 240:                                              ; preds = %238
   %241 = add nsw i32 %229, -1
-  store i32 %241, ptr %226, align 4, !tbaa !21
+  store i32 %241, ptr %226, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
 242:                                              ; preds = %238
@@ -2443,7 +2443,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit.i.i.i.i.i: ; pred
 
 262:                                              ; preds = %260
   %263 = add nsw i32 %251, -1
-  store i32 %263, ptr %248, align 4, !tbaa !21
+  store i32 %263, ptr %248, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3.i.i.i.i.i
 
 264:                                              ; preds = %260
@@ -2504,7 +2504,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3.i.i.i.i.i: ; preds 
 
 286:                                              ; preds = %284
   %287 = add nsw i32 %275, -1
-  store i32 %287, ptr %272, align 4, !tbaa !21
+  store i32 %287, ptr %272, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 288:                                              ; preds = %284
@@ -2553,7 +2553,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit.i.i.i: ; preds = 
 
 308:                                              ; preds = %306
   %309 = add nsw i32 %297, -1
-  store i32 %309, ptr %294, align 4, !tbaa !21
+  store i32 %309, ptr %294, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13.i.i.i
 
 310:                                              ; preds = %306
@@ -2604,7 +2604,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13.i.i.i: ; preds = %
 
 331:                                              ; preds = %329
   %332 = add nsw i32 %320, -1
-  store i32 %332, ptr %317, align 4, !tbaa !21
+  store i32 %332, ptr %317, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 333:                                              ; preds = %329
@@ -2653,7 +2653,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit: ; preds = %314, 
 
 353:                                              ; preds = %351
   %354 = add nsw i32 %342, -1
-  store i32 %354, ptr %339, align 4, !tbaa !21
+  store i32 %354, ptr %339, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i44
 
 355:                                              ; preds = %351
@@ -2766,7 +2766,7 @@ _ZN5boost6system12system_errorD2Ev.exit.i.i.i:    ; preds = %372, %_ZNKSt7__cxx1
 
 395:                                              ; preds = %393
   %396 = add nsw i32 %384, -1
-  store i32 %396, ptr %381, align 4, !tbaa !21
+  store i32 %396, ptr %381, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i53
 
 397:                                              ; preds = %393
@@ -2816,7 +2816,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit55: ; preds = %378
 
 417:                                              ; preds = %415
   %418 = add nsw i32 %406, -1
-  store i32 %418, ptr %403, align 4, !tbaa !21
+  store i32 %418, ptr %403, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i58
 
 419:                                              ; preds = %415
@@ -2866,7 +2866,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit60: ; preds = %_ZN
 
 439:                                              ; preds = %437
   %440 = add nsw i32 %428, -1
-  store i32 %440, ptr %425, align 4, !tbaa !21
+  store i32 %440, ptr %425, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i63
 
 441:                                              ; preds = %437
@@ -3909,7 +3909,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio2ip23basic_resolver_iteratorIN
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !21
+  store i32 %20, ptr %5, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -9128,7 +9128,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i.i.i
 
 116:                                              ; preds = %114
   %117 = add nsw i32 %105, -1
-  store i32 %117, ptr %102, align 4, !tbaa !21
+  store i32 %117, ptr %102, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
 
 118:                                              ; preds = %114
@@ -9175,7 +9175,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit.i.i.i.i.i.i: ; pr
 
 137:                                              ; preds = %135
   %138 = add nsw i32 %126, -1
-  store i32 %138, ptr %123, align 4, !tbaa !21
+  store i32 %138, ptr %123, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3.i.i.i.i.i.i
 
 139:                                              ; preds = %135
@@ -9246,7 +9246,7 @@ _ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3
   %.sink27.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %157, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i ], [ %154, %155 ]
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ 46, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i ], [ %156, %155 ]
   %158 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 184
-  store i8 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %158, align 1, !tbaa !19
+  store i8 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %158, align 8, !tbaa !19
   store ptr %.sink27.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %148, align 8, !tbaa !344
   %159 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr null, ptr %159, align 8, !tbaa !345
@@ -9587,7 +9587,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i: ; pred
 
 319:                                              ; preds = %317
   %320 = add nsw i32 %308, -1
-  store i32 %320, ptr %305, align 4, !tbaa !21
+  store i32 %320, ptr %305, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 321:                                              ; preds = %317
@@ -9634,7 +9634,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit.i.i: ; preds = %3
 
 340:                                              ; preds = %338
   %341 = add nsw i32 %329, -1
-  store i32 %341, ptr %326, align 4, !tbaa !21
+  store i32 %341, ptr %326, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3.i.i
 
 342:                                              ; preds = %338
@@ -9779,7 +9779,7 @@ _ZN5boost4asio2ipeqERKNS1_23basic_resolver_iteratorINS1_3tcpEEES6_.exit.thread36
 
 409:                                              ; preds = %407
   %410 = add nsw i32 %398, -1
-  store i32 %410, ptr %395, align 4, !tbaa !21
+  store i32 %410, ptr %395, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i14
 
 411:                                              ; preds = %407
@@ -10105,7 +10105,7 @@ _ZN7msgpack2v16packerINS0_7sbufferEE4packISt5tupleIJibPKcdEEEERS3_RKT_.exit.i.i:
 
 536:                                              ; preds = %534
   %537 = add nsw i32 %525, -1
-  store i32 %537, ptr %522, align 4, !tbaa !21
+  store i32 %537, ptr %522, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 538:                                              ; preds = %534
@@ -10170,7 +10170,7 @@ define internal fastcc void @"_ZN5boost4asio6detail19iterator_connect_opINS0_2ip
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !21
+  store i32 %20, ptr %5, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 21:                                               ; preds = %17
@@ -10220,7 +10220,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit: ; preds = %1, %9
 
 42:                                               ; preds = %40
   %43 = add nsw i32 %31, -1
-  store i32 %43, ptr %28, align 4, !tbaa !21
+  store i32 %43, ptr %28, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3
 
 44:                                               ; preds = %40
@@ -10777,7 +10777,7 @@ define internal fastcc void @"_ZN5boost4asio6detail7binder1INS1_19iterator_conne
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !21
+  store i32 %20, ptr %5, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 21:                                               ; preds = %17
@@ -10827,7 +10827,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit.i: ; preds = %24,
 
 42:                                               ; preds = %40
   %43 = add nsw i32 %31, -1
-  store i32 %43, ptr %28, align 4, !tbaa !21
+  store i32 %43, ptr %28, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3.i
 
 44:                                               ; preds = %40
@@ -12524,7 +12524,7 @@ _ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit4.i.i: ; preds = %112
 
 140:                                              ; preds = %138
   %141 = add nsw i32 %129, -1
-  store i32 %141, ptr %126, align 4, !tbaa !21
+  store i32 %141, ptr %126, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 142:                                              ; preds = %138
@@ -12573,7 +12573,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit.i.i: ; preds = %1
 
 162:                                              ; preds = %160
   %163 = add nsw i32 %151, -1
-  store i32 %163, ptr %148, align 4, !tbaa !21
+  store i32 %163, ptr %148, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3.i.i
 
 164:                                              ; preds = %160
@@ -12679,7 +12679,7 @@ _ZN5boost4asio6detail17handler_work_baseINS0_9execution12any_executorIJNS3_12con
 
 29:                                               ; preds = %27
   %30 = add nsw i32 %18, -1
-  store i32 %30, ptr %15, align 4, !tbaa !21
+  store i32 %30, ptr %15, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 31:                                               ; preds = %27
@@ -12729,7 +12729,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit.i.i: ; preds = %3
 
 52:                                               ; preds = %50
   %53 = add nsw i32 %41, -1
-  store i32 %53, ptr %38, align 4, !tbaa !21
+  store i32 %53, ptr %38, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3.i.i
 
 54:                                               ; preds = %50
@@ -13878,7 +13878,7 @@ _ZN5boost4asio6detail17executor_functionD2Ev.exit.i: ; preds = %100, %98
 
 120:                                              ; preds = %118
   %121 = add nsw i32 %109, -1
-  store i32 %121, ptr %106, align 4, !tbaa !21
+  store i32 %121, ptr %106, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 122:                                              ; preds = %118
@@ -13925,7 +13925,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit.i.i.i: ; preds = 
 
 141:                                              ; preds = %139
   %142 = add nsw i32 %130, -1
-  store i32 %142, ptr %127, align 4, !tbaa !21
+  store i32 %142, ptr %127, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3.i.i.i
 
 143:                                              ; preds = %139
@@ -14135,7 +14135,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i: ; preds 
 
 72:                                               ; preds = %70
   %73 = add nsw i32 %61, -1
-  store i32 %73, ptr %58, align 4, !tbaa !21
+  store i32 %73, ptr %58, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 74:                                               ; preds = %70
@@ -14184,7 +14184,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit.i.i: ; preds = %7
 
 94:                                               ; preds = %92
   %95 = add nsw i32 %83, -1
-  store i32 %95, ptr %80, align 4, !tbaa !21
+  store i32 %95, ptr %80, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3.i.i
 
 96:                                               ; preds = %92
@@ -14249,7 +14249,7 @@ define internal fastcc void @"_ZN5boost4asio6detail17executor_function4implINS1_
 
 22:                                               ; preds = %20
   %23 = add nsw i32 %11, -1
-  store i32 %23, ptr %8, align 4, !tbaa !21
+  store i32 %23, ptr %8, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 24:                                               ; preds = %20
@@ -14299,7 +14299,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit.i.i.i: ; preds = 
 
 45:                                               ; preds = %43
   %46 = add nsw i32 %34, -1
-  store i32 %46, ptr %31, align 4, !tbaa !21
+  store i32 %46, ptr %31, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3.i.i.i
 
 47:                                               ; preds = %43
@@ -14956,7 +14956,7 @@ _ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit: ; preds = %1
 
 26:                                               ; preds = %24
   %27 = add nsw i32 %15, -1
-  store i32 %27, ptr %12, align 4, !tbaa !21
+  store i32 %27, ptr %12, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
 28:                                               ; preds = %24
@@ -15006,7 +15006,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEED2Ev.exit.i.i: ; preds = %3
 
 49:                                               ; preds = %47
   %50 = add nsw i32 %38, -1
-  store i32 %50, ptr %35, align 4, !tbaa !21
+  store i32 %50, ptr %35, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3.i.i
 
 51:                                               ; preds = %47
@@ -18539,7 +18539,7 @@ _ZN5boost4asio6detail11executor_opINS1_17executor_functionESaIvENS1_19scheduler_
   %.sink27.i.i.i = phi ptr [ %44, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i ], [ %40, %41 ]
   %.sink.i.i.i = phi i8 [ 10, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i ], [ %42, %41 ]
   %46 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i, i64 40
-  store i8 %.sink.i.i.i, ptr %46, align 1, !tbaa !19
+  store i8 %.sink.i.i.i, ptr %46, align 8, !tbaa !19
   store ptr %.sink27.i.i.i, ptr %45, align 8, !tbaa !533
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %.sink27.i.i.i, align 8, !tbaa !266
@@ -19585,7 +19585,7 @@ _ZN5boost4asio6detail11executor_opINS1_17executor_functionESaIvENS1_19scheduler_
   %.sink27.i.i.i = phi ptr [ %44, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i ], [ %40, %41 ]
   %.sink.i.i.i = phi i8 [ 10, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i ], [ %42, %41 ]
   %46 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i, i64 40
-  store i8 %.sink.i.i.i, ptr %46, align 1, !tbaa !19
+  store i8 %.sink.i.i.i, ptr %46, align 8, !tbaa !19
   store ptr %.sink27.i.i.i, ptr %45, align 8, !tbaa !533
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %.sink27.i.i.i, align 8, !tbaa !266
@@ -20255,7 +20255,7 @@ _ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3
   %.sink27.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %26, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i ], [ %23, %24 ]
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ 44, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i ], [ %25, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 176
-  store i8 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %27, align 1, !tbaa !19
+  store i8 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %27, align 8, !tbaa !19
   store ptr %.sink27.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %17, align 8, !tbaa !757
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %28, align 8, !tbaa !758
@@ -20644,7 +20644,7 @@ _ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3
   %.sink27.i.i.i.i.i.i.i.i = phi ptr [ %82, %83 ], [ %85, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i.i.i.i ]
   %.sink.i.i.i.i.i.i.i.i = phi i8 [ %84, %83 ], [ 14, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i.i.i.i ]
   %86 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i.i.i.i.i, i64 56
-  store i8 %.sink.i.i.i.i.i.i.i.i, ptr %86, align 1, !tbaa !19
+  store i8 %.sink.i.i.i.i.i.i.i.i, ptr %86, align 8, !tbaa !19
   %87 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i.i.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.i.i.i.i, i64 24, i1 false), !tbaa.struct !763
   %88 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i.i.i.i.i, i64 32
@@ -21379,7 +21379,7 @@ _ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3
   %.sink27.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %33, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i ], [ %30, %31 ]
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ 38, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i ], [ %32, %31 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 152
-  store i8 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %34, align 1, !tbaa !19
+  store i8 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %34, align 8, !tbaa !19
   store ptr %.sink27.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %24, align 8, !tbaa !794
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 48
@@ -21652,7 +21652,7 @@ thread-pre-split:                                 ; preds = %8, %13
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %60 = load ptr, ptr %59, align 8, !tbaa !182
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr align 1 %61, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %58, ptr align 1 %61, i64 %46, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %63 = load i8, ptr %62, align 8, !tbaa !227, !range !132, !noundef !133
   %64 = trunc nuw i8 %63 to i1
@@ -22157,7 +22157,7 @@ _ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3
   %.sink27.i.i.i.i.i.i.i.i = phi ptr [ %99, %100 ], [ %102, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i.i.i.i ]
   %.sink.i.i.i.i.i.i.i.i = phi i8 [ %101, %100 ], [ 14, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i.i.i.i ]
   %103 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i.i.i.i.i, i64 56
-  store i8 %.sink.i.i.i.i.i.i.i.i, ptr %103, align 1, !tbaa !19
+  store i8 %.sink.i.i.i.i.i.i.i.i, ptr %103, align 8, !tbaa !19
   %104 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i.i.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i.i.i, i64 16, i1 false), !tbaa.struct !800
   %105 = getelementptr inbounds nuw i8, ptr %.sink27.i.i.i.i.i.i.i.i, i64 24
@@ -29665,7 +29665,7 @@ define linkonce_odr dso_local noundef i32 @_ZN5boost4asio6detail30reactive_socke
 
 _ZN5boost4asio6detail13socket_holder5resetEi.exit: ; preds = %1, %18
   %22 = zext i1 %14 to i32
-  store i32 %16, ptr %15, align 4, !tbaa !473
+  store i32 %16, ptr %15, align 8, !tbaa !473
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %22
 }
@@ -29863,7 +29863,7 @@ define linkonce_odr dso_local void @_ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_pol
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !21
+  store i32 %20, ptr %5, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -30632,7 +30632,7 @@ _ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EEC2IvN5boost4asio6detail10sock
 
 35:                                               ; preds = %33
   %36 = add nsw i32 %24, -1
-  store i32 %36, ptr %21, align 4, !tbaa !21
+  store i32 %36, ptr %21, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 37:                                               ; preds = %33
@@ -30734,7 +30734,7 @@ define linkonce_odr dso_local void @_ZN5boost4asio6detail14io_object_implINS1_16
 
 20:                                               ; preds = %18
   %21 = add nsw i32 %9, -1
-  store i32 %21, ptr %6, align 4, !tbaa !21
+  store i32 %21, ptr %6, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 22:                                               ; preds = %18
@@ -30798,7 +30798,7 @@ _ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit: ; preds = %_ZN5boos
 
 49:                                               ; preds = %47
   %50 = add nsw i32 %38, -1
-  store i32 %50, ptr %35, align 4, !tbaa !21
+  store i32 %50, ptr %35, align 8, !tbaa !21
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 51:                                               ; preds = %47
