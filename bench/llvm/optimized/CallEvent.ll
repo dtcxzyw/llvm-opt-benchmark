@@ -5737,7 +5737,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK5clang4ento14ObjCMethodCall14g
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !881
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %35
+  br i1 %.not, label %4, label %36
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5798,21 +5798,21 @@ _ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit: ; pre
 
 _ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit.thread: ; preds = %4, %15, %_ZL35getSyntacticFromForPseudoObjectExprPKN5clang16PseudoObjectExprE.exit
   store ptr inttoptr (i64 2 to ptr), ptr %2, align 8, !tbaa !881
-  br label %41
+  br label %42
 
-35:                                               ; preds = %1
+36:                                               ; preds = %1
   %.not19 = icmp ult ptr %3, inttoptr (i64 8 to ptr)
-  br i1 %.not19, label %41, label %36
+  br i1 %.not19, label %42, label %37
 
-36:                                               ; preds = %35
-  %37 = ptrtoint ptr %3 to i64
-  %38 = trunc i64 %37 to i32
-  %39 = lshr i32 %38, 1
-  %40 = and i32 %39, 3
-  br label %41
+37:                                               ; preds = %36
+  %38 = ptrtoint ptr %3 to i64
+  %39 = trunc i64 %38 to i32
+  %40 = lshr i32 %39, 1
+  %41 = and i32 %40, 3
+  br label %42
 
-41:                                               ; preds = %36, %35, %.critedge, %_ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit.thread
-  %.4 = phi i32 [ 2, %_ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit.thread ], [ %.013.ph, %.critedge ], [ %40, %36 ], [ 2, %35 ]
+42:                                               ; preds = %37, %36, %.critedge, %_ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit.thread
+  %.4 = phi i32 [ 2, %_ZN4llvm16dyn_cast_or_nullIN5clang16PseudoObjectExprEKNS1_4StmtEEEDaPT0_.exit.thread ], [ %.013.ph, %.critedge ], [ %41, %36 ], [ 2, %35 ]
   ret i32 %.4
 }
 

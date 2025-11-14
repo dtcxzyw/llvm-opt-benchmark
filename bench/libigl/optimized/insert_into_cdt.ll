@@ -44861,7 +44861,7 @@ _ZNSt6vectorISt4pairIPN4CGAL27Triangulation_vertex_base_2INS1_5EpickENS1_30Trian
 57:                                               ; preds = %45
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %58, align 8, !tbaa !939
-  br label %66
+  br label %68
 
 59:                                               ; preds = %45
   %60 = ptrtoint ptr %11 to i64
@@ -44873,15 +44873,15 @@ _ZNSt6vectorISt4pairIPN4CGAL27Triangulation_vertex_base_2INS1_5EpickENS1_30Trian
   %65 = inttoptr i64 %64 to ptr
   br label %66
 
-66:                                               ; preds = %59, %57
+68:                                               ; preds = %59, %57
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %57 ], [ %65, %59 ]
   %.pn = getelementptr inbounds nuw %"class.CGAL::Triangulation_vertex_base_2", ptr %11, i64 %40
   %.sink20 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   store ptr %.sink20, ptr %46, align 8, !tbaa !938
   store ptr %.sink, ptr %11, align 8, !tbaa !412
   store ptr inttoptr (i64 3 to ptr), ptr %.sink20, align 8, !tbaa !412
-  %67 = add i64 %40, 16
-  store i64 %67, ptr %2, align 8, !tbaa !1033
+  %69 = add i64 %40, 16
+  store i64 %69, ptr %2, align 8, !tbaa !1033
   ret void
 }
 
@@ -81121,7 +81121,7 @@ _ZNSt6vectorISt4pairIPN4CGAL27Triangulation_vertex_base_2INS1_5EpeckENS1_30Trian
 57:                                               ; preds = %45
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %58, align 8, !tbaa !2007
-  br label %66
+  br label %68
 
 59:                                               ; preds = %45
   %60 = ptrtoint ptr %11 to i64
@@ -81133,15 +81133,15 @@ _ZNSt6vectorISt4pairIPN4CGAL27Triangulation_vertex_base_2INS1_5EpeckENS1_30Trian
   %65 = inttoptr i64 %64 to ptr
   br label %66
 
-66:                                               ; preds = %59, %57
+68:                                               ; preds = %59, %57
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %57 ], [ %65, %59 ]
   %.pn = getelementptr inbounds nuw %"class.CGAL::Triangulation_vertex_base_2.515", ptr %11, i64 %40
   %.sink20 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   store ptr %.sink20, ptr %46, align 8, !tbaa !2006
   store ptr %.sink, ptr %11, align 8, !tbaa !1512
   store ptr inttoptr (i64 3 to ptr), ptr %.sink20, align 8, !tbaa !1512
-  %67 = add i64 %40, 16
-  store i64 %67, ptr %2, align 8, !tbaa !2149
+  %69 = add i64 %40, 16
+  store i64 %69, ptr %2, align 8, !tbaa !2149
   ret void
 }
 

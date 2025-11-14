@@ -27,8 +27,8 @@ define dso_local noundef i64 @brin_minmax_opcinfo(ptr noundef readonly captures(
   store ptr %7, ptr %8, align 8
   %9 = tail call ptr @lookup_type_cache(i32 noundef %4, i32 noundef 0) #3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %9, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %9, ptr %12, align 8
   store ptr %9, ptr %10, align 8
   %12 = ptrtoint ptr %5 to i64
   ret i64 %12

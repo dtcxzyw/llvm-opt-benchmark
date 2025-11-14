@@ -745,7 +745,7 @@ define internal fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef %1, i32 n
 
 11:                                               ; preds = %4
   %12 = tail call i32 @inflateEnd(ptr noundef nonnull %5) #8
-  br label %exit_zlib.exit.sink.split
+  br label %56
 
 13:                                               ; preds = %4, %4, %4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -876,15 +876,15 @@ exit_zlib.exit77.thread:                          ; preds = %30, %51, %process_z
 53:                                               ; preds = %exit_zlib.exit77.thread
   %54 = load i32, ptr %9, align 8, !tbaa !95
   %55 = icmp eq i32 %54, 1
-  br i1 %55, label %exit_zlib.exit.sink.split, label %exit_zlib.exit
+  br i1 %55, label %56, label %exit_zlib.exit
 
-exit_zlib.exit.sink.split:                        ; preds = %53, %11
+56:                                               ; preds = %53, %11
   %.sink = phi i32 [ 0, %11 ], [ %3, %53 ]
   %.0.ph = phi i32 [ 23, %11 ], [ %.1, %53 ]
   store i32 %.sink, ptr %9, align 8, !tbaa !101
   br label %exit_zlib.exit
 
-exit_zlib.exit:                                   ; preds = %exit_zlib.exit.sink.split, %4, %exit_zlib.exit77.thread, %53
+exit_zlib.exit:                                   ; preds = %56, %4, %exit_zlib.exit77.thread, %53
   %.0 = phi i32 [ %.1, %53 ], [ %.1, %exit_zlib.exit77.thread ], [ 23, %4 ], [ %.0.ph, %exit_zlib.exit.sink.split ]
   ret i32 %.0
 }

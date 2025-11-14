@@ -3700,12 +3700,12 @@ define hidden i32 @gzwfile_geterr(ptr noundef readonly captures(none) %0) local_
 define hidden noundef ptr @lz4wfile_open(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 577, i32 noundef 438)
   %3 = icmp eq i32 %2, -1
-  br i1 %3, label %22, label %4
+  br i1 %3, label %23, label %4
 
 4:                                                ; preds = %1
   %5 = tail call noalias dereferenceable_or_null(136) ptr @g_try_malloc(i64 noundef 136) #21
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %18, label %lz4wfile_fdopen.exit
+  br i1 %6, label %19, label %lz4wfile_fdopen.exit
 
 lz4wfile_fdopen.exit:                             ; preds = %4
   store i32 %2, ptr %5, align 8
@@ -3723,24 +3723,24 @@ lz4wfile_fdopen.exit:                             ; preds = %4
   store i32 1, ptr %13, align 4
   store i32 1, ptr %12, align 8
   store i32 7, ptr %9, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i32 1, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  br label %22
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  store i32 1, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  br label %23
 
-18:                                               ; preds = %4
-  %19 = tail call ptr @__errno_location() #23
-  %20 = load i32, ptr %19, align 4
-  %21 = tail call i32 @close(i32 noundef %2)
-  store i32 %20, ptr %19, align 4
-  br label %22
+19:                                               ; preds = %4
+  %20 = tail call ptr @__errno_location() #23
+  %21 = load i32, ptr %20, align 4
+  %22 = tail call i32 @close(i32 noundef %2)
+  store i32 %21, ptr %20, align 4
+  br label %23
 
-22:                                               ; preds = %lz4wfile_fdopen.exit, %18, %1
+23:                                               ; preds = %lz4wfile_fdopen.exit, %19, %1
   %.0 = phi ptr [ null, %1 ], [ null, %18 ], [ %5, %lz4wfile_fdopen.exit ]
   ret ptr %.0
 }

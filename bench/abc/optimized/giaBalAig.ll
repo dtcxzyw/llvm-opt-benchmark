@@ -311,9 +311,9 @@ Gia_ObjIsXor.exit.lr.ph:                          ; preds = %3
   br label %Gia_ObjIsXor.exit
 
 Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsXor.exit.lr.ph, %tailrecurse
-  %10 = phi i64 [ %6, %Gia_ObjIsXor.exit.lr.ph ], [ %98, %tailrecurse ]
+  %10 = phi i64 [ %6, %Gia_ObjIsXor.exit.lr.ph ], [ %102, %tailrecurse ]
   %.val2245 = phi i64 [ %.val2241, %Gia_ObjIsXor.exit.lr.ph ], [ %.val22, %tailrecurse ]
-  %.tr3944 = phi ptr [ %1, %Gia_ObjIsXor.exit.lr.ph ], [ %96, %tailrecurse ]
+  %.tr3944 = phi ptr [ %1, %Gia_ObjIsXor.exit.lr.ph ], [ %100, %tailrecurse ]
   %11 = trunc i64 %.val2245 to i32
   %12 = and i32 %11, 536870911
   %13 = lshr i64 %.val2245, 32
@@ -384,7 +384,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsXor.exit.l
   br i1 %50, label %Gia_ObjIsXor.exit.thread, label %tailrecurse
 
 Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsXor.exit, %17, %._crit_edge, %26, %36, %47, %tailrecurse, %3
-  %.tr39.lcssa = phi ptr [ %1, %3 ], [ %96, %tailrecurse ], [ %.tr3944, %47 ], [ %.tr3944, %36 ], [ %.tr3944, %26 ], [ %.tr3944, %._crit_edge ], [ %.tr3944, %17 ], [ %.tr3944, %Gia_ObjIsXor.exit ]
+  %.tr39.lcssa = phi ptr [ %1, %3 ], [ %100, %tailrecurse ], [ %.tr3944, %47 ], [ %.tr3944, %36 ], [ %.tr3944, %26 ], [ %.tr3944, %._crit_edge ], [ %.tr3944, %17 ], [ %.tr3944, %Gia_ObjIsXor.exit ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %52 = load ptr, ptr %51, align 8, !tbaa !36
   %.val33 = load ptr, ptr %4, align 8, !tbaa !16
@@ -463,20 +463,20 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   ret void
 
 tailrecurse:                                      ; preds = %47
-  %90 = sub nsw i64 0, %10
-  %91 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr3944, i64 %90
-  tail call void @Gia_ManSuperCollectXor_rec(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %2)
-  %92 = load i64, ptr %.tr3944, align 4
-  %93 = lshr i64 %92, 32
-  %94 = and i64 %93, 536870911
-  %95 = sub nsw i64 0, %94
-  %96 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr3944, i64 %95
-  %.val22 = load i64, ptr %96, align 4
-  %97 = and i64 %.val22, 2147483648
-  %.not.i.i = icmp ne i64 %97, 0
-  %98 = and i64 %.val22, 536870911
-  %99 = icmp eq i64 %98, 536870911
-  %narrow.i.not.i = or i1 %.not.i.i, %99
+  %94 = sub nsw i64 0, %10
+  %95 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr3944, i64 %94
+  tail call void @Gia_ManSuperCollectXor_rec(ptr noundef nonnull %0, ptr noundef nonnull %95, i32 noundef %2)
+  %96 = load i64, ptr %.tr3944, align 4
+  %97 = lshr i64 %96, 32
+  %98 = and i64 %97, 536870911
+  %99 = sub nsw i64 0, %98
+  %100 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.tr3944, i64 %99
+  %.val22 = load i64, ptr %100, align 4
+  %101 = and i64 %.val22, 2147483648
+  %.not.i.i = icmp ne i64 %101, 0
+  %102 = and i64 %.val22, 536870911
+  %103 = icmp eq i64 %102, 536870911
+  %narrow.i.not.i = or i1 %.not.i.i, %103
   br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit.thread, label %Gia_ObjIsXor.exit
 }
 

@@ -53494,7 +53494,7 @@ _ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20
 57:                                               ; preds = %45
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %58, align 8, !tbaa !1122
-  br label %66
+  br label %68
 
 59:                                               ; preds = %45
   %60 = ptrtoint ptr %11 to i64
@@ -53506,15 +53506,15 @@ _ZNSt6vectorISt4pairIPN4CGAL25Convex_hull_vertex_base_2INS1_11GT3_for_CH3INS1_20
   %65 = inttoptr i64 %64 to ptr
   br label %66
 
-66:                                               ; preds = %59, %57
+68:                                               ; preds = %59, %57
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %57 ], [ %65, %59 ]
   %.pn = getelementptr inbounds nuw %"class.CGAL::Convex_hull_vertex_base_2", ptr %11, i64 %40
   %.sink20 = getelementptr inbounds nuw i8, ptr %.pn, i64 40
   store ptr %.sink20, ptr %46, align 8, !tbaa !1120
   store ptr %.sink, ptr %11, align 8, !tbaa !242
   store ptr inttoptr (i64 3 to ptr), ptr %.sink20, align 8, !tbaa !242
-  %67 = add i64 %40, 16
-  store i64 %67, ptr %2, align 8, !tbaa !239
+  %69 = add i64 %40, 16
+  store i64 %69, ptr %2, align 8, !tbaa !239
   ret void
 }
 

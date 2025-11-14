@@ -5267,8 +5267,8 @@ er_add_slice.exit:                                ; preds = %338, %160
   %222 = load ptr, ptr %164, align 16, !tbaa !369
   br i1 %.not.i.i, label %223, label %get_cabac_terminate.exit
 
-223:                                              ; preds = %216
-  %224 = load i8, ptr %222, align 1, !tbaa !136
+.get_cabac_terminate.exit_crit_edge:              ; preds = %216
+  %.pre387.pre = load i8, ptr %222, align 1, !tbaa !136
   %225 = zext i8 %224 to i32
   %226 = shl nuw nsw i32 %225, 9
   %227 = getelementptr inbounds nuw i8, ptr %222, i64 1
@@ -5298,7 +5298,7 @@ er_add_slice.exit:                                ; preds = %338, %160
   %245 = icmp eq i64 %244, 0
   br label %get_cabac_terminate.exit
 
-get_cabac_terminate.exit:                         ; preds = %216, %223, %236, %238
+get_cabac_terminate.exit:                         ; preds = %216, %.get_cabac_terminate.exit_crit_edge, %236, %238
   %.pre387 = phi ptr [ %239, %238 ], [ %222, %223 ], [ %237, %236 ], [ %222, %216 ]
   %.0.i290 = phi i1 [ %245, %238 ], [ true, %223 ], [ true, %236 ], [ true, %216 ]
   %246 = load i32, ptr %167, align 8, !tbaa !106

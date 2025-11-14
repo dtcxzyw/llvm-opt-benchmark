@@ -584,7 +584,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
   store i64 1, ptr %6, align 8, !noalias !37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !noalias !37
   store ptr %17, ptr %0, align 8, !alias.scope !37
-  br label %37
+  br label %38
 
 23:                                               ; preds = %.backedge, %20
   %.sroa.04.0 = phi ptr [ %19, %20 ], [ %.sroa.04.0.be, %.backedge ]
@@ -614,7 +614,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
 33:                                               ; preds = %35, %29
   call void @_ZN21intrusive_collections6rbtree11post_insert17hf52b6df28515867cE(ptr noalias noundef nonnull align 1 %18, ptr noundef nonnull %17, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %37
+  br label %38
 
 34:                                               ; preds = %23
   %.sroa.04.0.val14 = load ptr, ptr %.sroa.04.0, align 8, !noundef !4
@@ -632,7 +632,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
   store ptr %17, ptr %.sroa.04.0, align 8, !noalias !44
   br label %33
 
-37:                                               ; preds = %33, %22
+38:                                               ; preds = %33, %22
   ret void
 }
 
@@ -2514,7 +2514,7 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$15insert_readable17hd4
 9:                                                ; preds = %2
   %10 = atomicrmw add ptr %6, i64 1 monotonic, align 8
   %11 = icmp slt i64 %10, 0
-  br i1 %11, label %44, label %12
+  br i1 %11, label %45, label %12
 
 "_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$6insert17h99bed0a0738d6167E.exit": ; preds = %40, %29, %2
   ret void
@@ -2613,7 +2613,7 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$15insert_readable17hd4
   store ptr %24, ptr %.sroa.04.0.i, align 8, !noalias !214
   br label %40
 
-44:                                               ; preds = %9
+45:                                               ; preds = %9
   tail call void @llvm.trap()
   unreachable
 }
@@ -2784,7 +2784,7 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$16insert_flushable17ha
 9:                                                ; preds = %2
   %10 = atomicrmw add ptr %6, i64 1 monotonic, align 8
   %11 = icmp slt i64 %10, 0
-  br i1 %11, label %44, label %12
+  br i1 %11, label %45, label %12
 
 "_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$6insert17hb28eb3efddc9d313E.exit": ; preds = %40, %29, %2
   ret void
@@ -2883,7 +2883,7 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$16insert_flushable17ha
   store ptr %24, ptr %.sroa.04.0.i, align 8, !noalias !256
   br label %40
 
-44:                                               ; preds = %9
+45:                                               ; preds = %9
   tail call void @llvm.trap()
   unreachable
 }

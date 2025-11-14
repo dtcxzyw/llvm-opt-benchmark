@@ -7491,28 +7491,28 @@ _ZN10moodycamel17ReaderWriterQueueIiLm512EE10make_blockEm.exit: ; preds = %40
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 128
   store ptr null, ptr %56, align 8, !tbaa !146
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 136
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 136
   store i64 0, ptr %53, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 72
-  store i64 0, ptr %58, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 72
+  store i64 0, ptr %62, align 8
   store ptr %54, ptr %57, align 8, !tbaa !69
-  %59 = getelementptr inbounds nuw i8, ptr %53, i64 144
-  %60 = add i64 %45, -1
-  store i64 %60, ptr %59, align 8, !tbaa !70
-  %61 = getelementptr inbounds nuw i8, ptr %53, i64 152
-  store ptr %48, ptr %61, align 8, !tbaa !71
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 144
+  %64 = add i64 %45, -1
+  store i64 %64, ptr %63, align 8, !tbaa !70
+  %65 = getelementptr inbounds nuw i8, ptr %53, i64 152
+  store ptr %48, ptr %65, align 8, !tbaa !71
   store i64 %45, ptr %41, align 8, !tbaa !142
-  %62 = load i32, ptr %1, align 4, !tbaa !4
-  store i32 %62, ptr %54, align 8, !tbaa !4
-  %63 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i64 1, ptr %63, align 8, !tbaa !59
+  %66 = load i32, ptr %1, align 4, !tbaa !4
+  store i32 %66, ptr %54, align 8, !tbaa !4
+  %67 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store i64 1, ptr %67, align 8, !tbaa !59
   store atomic i64 1, ptr %55 monotonic, align 8
-  %64 = load atomic i64, ptr %22 monotonic, align 8
-  store atomic i64 %64, ptr %56 monotonic, align 8
-  %65 = ptrtoint ptr %53 to i64
-  store atomic i64 %65, ptr %22 monotonic, align 8
+  %68 = load atomic i64, ptr %22 monotonic, align 8
+  store atomic i64 %68, ptr %56 monotonic, align 8
+  %69 = ptrtoint ptr %53 to i64
+  store atomic i64 %69, ptr %22 monotonic, align 8
   fence release
-  store atomic i64 %65, ptr %3 monotonic, align 64
+  store atomic i64 %69, ptr %3 monotonic, align 64
   br label %.critedge
 
 .critedge:                                        ; preds = %40, %15, %25, %_ZN10moodycamel17ReaderWriterQueueIiLm512EE10make_blockEm.exit

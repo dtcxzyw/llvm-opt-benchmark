@@ -289,8 +289,8 @@ define ptr @l___aux__Lean__Util__SearchPath______elabRules__termCompile__time__s
 13:                                               ; preds = %9
   %14 = ptrtoint ptr %6 to i64
   %15 = and i64 %14, 1
-  %.not59 = icmp eq i64 %15, 0
-  br i1 %.not59, label %16, label %lean_dec.exit42
+  %.not60 = icmp eq i64 %15, 0
+  br i1 %.not60, label %16, label %lean_dec.exit42
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %6, align 4, !tbaa !8
@@ -329,7 +329,7 @@ l_Lean_Elab_throwUnsupportedSyntax___at___aux__Lean__Util__SearchPath______elabR
   store ptr %23, ptr %28, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %8, ptr %29, align 8, !tbaa !4
-  br label %95
+  br label %98
 
 30:                                               ; preds = %9
   %31 = load ptr, ptr @l___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___closed__3, align 8, !tbaa !4
@@ -397,7 +397,7 @@ lean_dec.exit41:                                  ; preds = %51, %50, %48, %lean
   %59 = load ptr, ptr @l___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___closed__16, align 8, !tbaa !4
   %60 = tail call ptr @l___private_Lean_ToExpr_0__Lean_List_toExprAux___at___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___spec__2(ptr noundef %58, ptr noundef %59, ptr noundef %56)
   store ptr %60, ptr %55, align 8, !tbaa !4
-  br label %95
+  br label %98
 
 61:                                               ; preds = %lean_dec.exit41
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -459,39 +459,39 @@ lean_inc.exit:                                    ; preds = %lean_inc.exit43, %7
   store i32 %83, ptr %53, align 4, !tbaa !8
   br label %lean_dec.exit
 
-84:                                               ; preds = %lean_inc.exit
+87:                                               ; preds = %lean_inc.exit
   %.not.i47 = icmp eq i32 %80, 0
-  br i1 %.not.i47, label %lean_dec.exit, label %85
+  br i1 %.not.i47, label %lean_dec.exit, label %88
 
-85:                                               ; preds = %84
+88:                                               ; preds = %87
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %53) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %85, %84, %82
-  %86 = load ptr, ptr @l___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___closed__12, align 8, !tbaa !4
-  %87 = load ptr, ptr @l___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___closed__16, align 8, !tbaa !4
-  %88 = tail call ptr @l___private_Lean_ToExpr_0__Lean_List_toExprAux___at___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___spec__2(ptr noundef %86, ptr noundef %87, ptr noundef %56)
+lean_dec.exit:                                    ; preds = %88, %87, %82
+  %89 = load ptr, ptr @l___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___closed__12, align 8, !tbaa !4
+  %90 = load ptr, ptr @l___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___closed__16, align 8, !tbaa !4
+  %91 = tail call ptr @l___private_Lean_ToExpr_0__Lean_List_toExprAux___at___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___spec__2(ptr noundef %89, ptr noundef %90, ptr noundef %56)
   tail call void @lean_inc_heartbeat() #3
-  %89 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %91, label %lean_alloc_ctor.exit
+  %92 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %94, label %lean_alloc_ctor.exit
 
-91:                                               ; preds = %lean_dec.exit
+94:                                               ; preds = %lean_dec.exit
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  store i32 1, ptr %89, align 4, !tbaa !8
-  store i32 131096, ptr %92, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store ptr %88, ptr %93, align 8, !tbaa !4
-  %94 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store ptr %63, ptr %94, align 8, !tbaa !4
-  br label %95
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  store i32 1, ptr %92, align 4, !tbaa !8
+  store i32 131096, ptr %95, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store ptr %91, ptr %96, align 8, !tbaa !4
+  %97 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store ptr %63, ptr %97, align 8, !tbaa !4
+  br label %98
 
-95:                                               ; preds = %57, %lean_alloc_ctor.exit, %l_Lean_Elab_throwUnsupportedSyntax___at___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___spec__1___rarg.exit
-  %.0 = phi ptr [ %24, %l_Lean_Elab_throwUnsupportedSyntax___at___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___spec__1___rarg.exit ], [ %53, %57 ], [ %89, %lean_alloc_ctor.exit ]
+98:                                               ; preds = %57, %lean_alloc_ctor.exit, %l_Lean_Elab_throwUnsupportedSyntax___at___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___spec__1___rarg.exit
+  %.0 = phi ptr [ %24, %l_Lean_Elab_throwUnsupportedSyntax___at___aux__Lean__Util__SearchPath______elabRules__termCompile__time__search__path_x25__1___spec__1___rarg.exit ], [ %53, %57 ], [ %92, %lean_alloc_ctor.exit ]
   ret ptr %.0
 }
 

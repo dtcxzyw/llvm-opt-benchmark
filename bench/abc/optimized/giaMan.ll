@@ -5118,7 +5118,7 @@ define void @Gia_ManPrintMiterStatus(ptr noundef readonly captures(none) %0) loc
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %11
 
-11:                                               ; preds = %.lr.ph.split, %43
+11:                                               ; preds = %.lr.ph.split, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %43 ]
   %.02348 = phi i32 [ 0, %.lr.ph.split ], [ %.124, %43 ]
   %.02547 = phi i32 [ 0, %.lr.ph.split ], [ %.126, %43 ]
@@ -5141,7 +5141,7 @@ define void @Gia_ManPrintMiterStatus(ptr noundef readonly captures(none) %0) loc
 
 26:                                               ; preds = %11
   %27 = add nsw i32 %.02547, 1
-  br label %43
+  br label %45
 
 28:                                               ; preds = %11
   %29 = xor i64 %23, %8
@@ -5150,7 +5150,7 @@ define void @Gia_ManPrintMiterStatus(ptr noundef readonly captures(none) %0) loc
 
 31:                                               ; preds = %28
   %32 = add nsw i32 %.02746, 1
-  br label %43
+  br label %45
 
 33:                                               ; preds = %28
   %.val40 = load i64, ptr %19, align 4
@@ -5159,33 +5159,33 @@ define void @Gia_ManPrintMiterStatus(ptr noundef readonly captures(none) %0) loc
   br i1 %narrow.i.not.i, label %Gia_ObjIsPi.exit, label %Gia_ObjIsPi.exit.thread
 
 Gia_ObjIsPi.exit:                                 ; preds = %33
-  %35 = lshr i64 %.val40, 32
-  %36 = trunc nuw i64 %35 to i32
-  %37 = and i32 %36, 536870911
+  %37 = lshr i64 %.val40, 32
+  %38 = trunc nuw i64 %37 to i32
+  %39 = and i32 %38, 536870911
   %.val3.i = load ptr, ptr %9, align 8, !tbaa !33
-  %38 = getelementptr i8, ptr %.val3.i, i64 4
-  %.val3.val.i = load i32, ptr %38, align 4, !tbaa !30
-  %39 = sub nsw i32 %.val3.val.i, %.val36
-  %.not43 = icmp slt i32 %37, %39
-  br i1 %.not43, label %40, label %Gia_ObjIsPi.exit.thread
+  %40 = getelementptr i8, ptr %.val3.i, i64 4
+  %.val3.val.i = load i32, ptr %40, align 4, !tbaa !30
+  %41 = sub nsw i32 %.val3.val.i, %.val36
+  %.not43 = icmp slt i32 %39, %41
+  br i1 %.not43, label %42, label %Gia_ObjIsPi.exit.thread
 
-40:                                               ; preds = %Gia_ObjIsPi.exit
-  %41 = add nsw i32 %.02746, 1
-  br label %43
+42:                                               ; preds = %Gia_ObjIsPi.exit
+  %43 = add nsw i32 %.02746, 1
+  br label %45
 
 Gia_ObjIsPi.exit.thread:                          ; preds = %33, %Gia_ObjIsPi.exit
-  %42 = add nsw i32 %.02348, 1
-  br label %43
+  %44 = add nsw i32 %.02348, 1
+  br label %45
 
-43:                                               ; preds = %40, %31, %26, %Gia_ObjIsPi.exit.thread
-  %.128 = phi i32 [ %.02746, %26 ], [ %.02746, %Gia_ObjIsPi.exit.thread ], [ %32, %31 ], [ %41, %40 ]
+45:                                               ; preds = %42, %31, %26, %Gia_ObjIsPi.exit.thread
+  %.128 = phi i32 [ %.02746, %26 ], [ %.02746, %Gia_ObjIsPi.exit.thread ], [ %32, %31 ], [ %43, %40 ]
   %.126 = phi i32 [ %27, %26 ], [ %.02547, %Gia_ObjIsPi.exit.thread ], [ %.02547, %31 ], [ %.02547, %40 ]
-  %.124 = phi i32 [ %.02348, %26 ], [ %42, %Gia_ObjIsPi.exit.thread ], [ %.02348, %31 ], [ %.02348, %40 ]
+  %.124 = phi i32 [ %.02348, %26 ], [ %44, %Gia_ObjIsPi.exit.thread ], [ %.02348, %31 ], [ %.02348, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !158
 
-.critedge:                                        ; preds = %43, %.lr.ph, %1
+.critedge:                                        ; preds = %45, %.lr.ph, %1
   %.027.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %.128, %43 ]
   %.025.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %.126, %43 ]
   %.023.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %.124, %43 ]

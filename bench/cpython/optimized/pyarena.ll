@@ -29,22 +29,22 @@ define dso_local ptr @_PyArena_New() local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %3, ptr %9, align 8, !tbaa !15
   %10 = tail call ptr @PyList_New(i64 noundef 0) #3
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %10, ptr %11, align 8, !tbaa !16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %10, ptr %13, align 8, !tbaa !16
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %12, label %17
 
-12:                                               ; preds = %5
+12:; preds = %5
   %13 = load ptr, ptr %1, align 8, !tbaa !12
   %.not4.i = icmp eq ptr %13, null
   br i1 %.not4.i, label %.sink.split.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
-  %.05.i = phi ptr [ %15, %.lr.ph.i ], [ %13, %12 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.05.i, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !17
+  %.05.i = phi ptr [ %20, %.lr.ph.i ], [ %13, %12 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.05.i, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !17
   tail call void @PyMem_Free(ptr noundef nonnull %.05.i) #3
-  %.not.i15 = icmp eq ptr %15, null
+  %.not.i15 = icmp eq ptr %20, null
   br i1 %.not.i15, label %.sink.split.sink.split, label %.lr.ph.i, !llvm.loop !18
 
 .sink.split.sink.split:                           ; preds = %.lr.ph.i, %12, %4
@@ -52,11 +52,11 @@ define dso_local ptr @_PyArena_New() local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %0
-  %16 = tail call ptr @PyErr_NoMemory() #3
-  br label %17
+  %21 = tail call ptr @PyErr_NoMemory() #3
+  br label %22
 
-17:                                               ; preds = %.sink.split, %5
-  %.0 = phi ptr [ %1, %5 ], [ %16, %.sink.split ]
+22:                                               ; preds = %.sink.split, %5
+  %.0 = phi ptr [ %1, %5 ], [ %21, %.sink.split ]
   ret ptr %.0
 }
 
@@ -142,33 +142,33 @@ define dso_local ptr @_PyArena_Malloc(ptr noundef captures(none) %0, i64 noundef
   br label %block_alloc.exit
 
 block_alloc.exit:                                 ; preds = %._crit_edge.i, %17
-  %22 = phi i64 [ 0, %17 ], [ %8, %._crit_edge.i ]
-  %23 = phi ptr [ %18, %17 ], [ %.pre.i, %._crit_edge.i ]
-  %.017.i = phi ptr [ %16, %17 ], [ %4, %._crit_edge.i ]
-  %24 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
-  %25 = getelementptr i8, ptr %23, i64 %22
+  %.pre-phi.i = phi i64 [ 0, %17 ], [ %8, %._crit_edge.i ]
+  %27 = phi ptr [ %18, %17 ], [ %.pre.i, %._crit_edge.i ]
+  %28 = phi ptr [ %16, %17 ], [ %4, %._crit_edge.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %29 = getelementptr i8, ptr %27, i64 %22
   %26 = add i64 %22, %6
   store i64 %26, ptr %24, align 8, !tbaa !21
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %block_alloc.exit.thread, label %28
+  br i1 %.not, label %block_alloc.exit.thread, label %32
 
 block_alloc.exit.thread:                          ; preds = %12, %block_alloc.exit
-  %27 = tail call ptr @PyErr_NoMemory() #3
-  br label %33
+  %31 = tail call ptr @PyErr_NoMemory() #3
+  br label %37
 
-28:                                               ; preds = %block_alloc.exit
-  %29 = load ptr, ptr %3, align 8, !tbaa !15
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !17
-  %.not9 = icmp eq ptr %31, null
-  br i1 %.not9, label %33, label %32
+32:                                               ; preds = %block_alloc.exit
+  %33 = load ptr, ptr %3, align 8, !tbaa !15
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !17
+  %.not9 = icmp eq ptr %35, null
+  br i1 %.not9, label %37, label %36
 
-32:                                               ; preds = %28
-  store ptr %31, ptr %3, align 8, !tbaa !15
-  br label %33
+36:                                               ; preds = %32
+  store ptr %35, ptr %3, align 8, !tbaa !15
+  br label %37
 
-33:                                               ; preds = %28, %32, %block_alloc.exit.thread
-  %.0 = phi ptr [ %27, %block_alloc.exit.thread ], [ %25, %32 ], [ %25, %28 ]
+37:                                               ; preds = %32, %36, %block_alloc.exit.thread
+  %.0 = phi ptr [ %31, %block_alloc.exit.thread ], [ %25, %32 ], [ %25, %28 ]
   ret ptr %.0
 }
 

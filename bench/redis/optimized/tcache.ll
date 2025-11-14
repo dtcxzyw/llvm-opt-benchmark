@@ -380,21 +380,21 @@ define hidden ptr @je_tcache_alloc_small_hard(ptr noundef %0, ptr noundef %1, pt
   store ptr %23, ptr %3, align 8, !tbaa !41
   br label %cache_bin_alloc_impl.exit
 
-29:                                               ; preds = %6
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %31 = load i16, ptr %30, align 4, !tbaa !39
-  %32 = zext i16 %31 to i32
+27:                                               ; preds = %6
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %29 = load i16, ptr %28, align 4, !tbaa !39
+  %32 = zext i16 %29 to i32
   %.not21.i = icmp eq i32 %24, %32
   br i1 %.not21.i, label %cache_bin_alloc_impl.exit, label %33, !prof !4
 
-33:                                               ; preds = %29
+33:; preds = %29
   store ptr %23, ptr %3, align 8, !tbaa !41
   %34 = ptrtoint ptr %23 to i64
   %35 = trunc i64 %34 to i16
   store i16 %35, ptr %25, align 8, !tbaa !35
   br label %cache_bin_alloc_impl.exit
 
-cache_bin_alloc_impl.exit:                        ; preds = %29, %28, %33
+cache_bin_alloc_impl.exit:                        ; preds = %27, %28, %33
   %.sink = phi i8 [ 1, %28 ], [ 1, %33 ], [ 0, %29 ]
   %.0.i = phi ptr [ %20, %28 ], [ %20, %33 ], [ null, %29 ]
   store i8 %.sink, ptr %5, align 1, !tbaa !20

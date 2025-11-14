@@ -5864,7 +5864,7 @@ define internal fastcc void @H5Z__scaleoffset_precompress_fd(ptr noundef capture
   %14 = trunc nuw i8 %13 to i1
   %15 = xor i1 %14, true
   %16 = select i1 %12, i1 true, i1 %15
-  br i1 %16, label %17, label %230, !prof !9
+  br i1 %16, label %17, label %234, !prof !9
 
 17:                                               ; preds = %8
   switch i32 %2, label %230 [
@@ -5963,7 +5963,7 @@ define internal fastcc void @H5Z__scaleoffset_precompress_fd(ptr noundef capture
 
 54:                                               ; preds = %._crit_edge444
   store i32 32, ptr %5, align 4, !tbaa !12
-  br label %230
+  br label %234
 
 55:                                               ; preds = %._crit_edge444
   %56 = tail call i64 @llroundf(float noundef %51) #14, !tbaa !12
@@ -6067,7 +6067,7 @@ H5Z__scaleoffset_log2.exit:                       ; preds = %.lr.ph.i, %55
 
 96:                                               ; preds = %._crit_edge421
   store i32 32, ptr %5, align 4, !tbaa !12
-  br label %230
+  br label %234
 
 97:                                               ; preds = %._crit_edge421
   %98 = tail call i64 @llroundf(float noundef %93) #14, !tbaa !12
@@ -6124,12 +6124,12 @@ H5Z__scaleoffset_log2.exit349:                    ; preds = %.lr.ph.i341, %97
 
 116:                                              ; preds = %.loopexit
   store float %.3308, ptr %6, align 8
-  br label %230
+  br label %234
 
 117:                                              ; preds = %.loopexit
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %.3308, ptr %118, align 4
-  br label %230
+  br label %234
 
 119:                                              ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -6264,7 +6264,7 @@ H5Z__scaleoffset_log2.exit349:                    ; preds = %.lr.ph.i341, %97
 
 170:                                              ; preds = %._crit_edge411
   store i32 64, ptr %5, align 4, !tbaa !12
-  br label %229
+  br label %233
 
 171:                                              ; preds = %._crit_edge411
   %172 = tail call i64 @llround(double noundef %167) #14, !tbaa !12
@@ -6368,7 +6368,7 @@ H5Z__scaleoffset_log2.exit359:                    ; preds = %.lr.ph.i351, %171
 
 212:                                              ; preds = %._crit_edge
   store i32 64, ptr %5, align 4, !tbaa !12
-  br label %229
+  br label %233
 
 213:                                              ; preds = %._crit_edge
   %214 = tail call i64 @llround(double noundef %209) #14, !tbaa !12
@@ -6419,13 +6419,13 @@ H5Z__scaleoffset_log2.exit369:                    ; preds = %.lr.ph.i361, %213
 .loopexit376:                                     ; preds = %.lr.ph394, %199, %H5Z__scaleoffset_log2.exit369, %H5Z__scaleoffset_log2.exit359
   %.3279 = phi double [ %.1277.lcssa, %H5Z__scaleoffset_log2.exit359 ], [ %.4280.lcssa, %H5Z__scaleoffset_log2.exit369 ], [ %.1277.lcssa, %199 ], [ %.4280.lcssa, %.lr.ph394 ]
   store double %.3279, ptr %6, align 8
-  br label %229
+  br label %233
 
-229:                                              ; preds = %.loopexit376, %212, %170
+233:                                              ; preds = %.loopexit376, %212, %170
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %230
+  br label %234
 
-230:                                              ; preds = %54, %96, %117, %116, %8, %17, %229
+234:                                              ; preds = %54, %96, %117, %116, %8, %17, %233
   ret void
 }
 

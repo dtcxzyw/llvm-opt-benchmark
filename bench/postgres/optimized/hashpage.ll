@@ -822,23 +822,23 @@ define dso_local void @_hash_init_metabuffer(i32 noundef %0, double noundef %1, 
 
 BufferGetPage.exit:                               ; preds = %18, %24
   %.0.i.i = phi ptr [ %23, %18 ], [ %29, %24 ]
-  br i1 %4, label %30, label %31
+  br i1 %4, label %30, label %.loopexit
 
 30:                                               ; preds = %BufferGetPage.exit
   tail call void @PageInit(ptr noundef %.0.i.i, i64 noundef 8192, i64 noundef 16) #9
-  br label %31
+  br label %.loopexit
 
-31:                                               ; preds = %30, %BufferGetPage.exit
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %33 = load i16, ptr %32, align 4
-  %34 = zext i16 %33 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %34
+.loopexit:                                        ; preds = %30, %BufferGetPage.exit
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %32 = load i16, ptr %31, align 4
+  %33 = zext i16 %32 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %33
   store i32 -1, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 -1, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 -1, ptr %37, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i16 8, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 14
   store i16 -128, ptr %39, align 2
@@ -875,8 +875,8 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   store i32 %59, ptr %60, align 8
   %61 = add i32 %.0, 1
-  %62 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %61)
-  %63 = icmp samesign ult i32 %62, 2
+  %63 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %61)
+  %63 = icmp samesign ult i32 %63, 2
   %64 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %61, i1 true)
   %65 = xor i32 %64, 31
   %66 = shl nuw i32 2, %65
@@ -885,19 +885,19 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 52
   store i32 %68, ptr %69, align 4
   %70 = lshr i32 %68, 1
-  %71 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 56
-  store i32 %70, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 76
+  %.ptr85 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 56
+  store i32 %70, ptr %.ptr85, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 76
   %73 = zext i32 %16 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4488) %72, i8 0, i64 4488, i1 false)
+  %74 = getelementptr inbounds nuw i32, ptr %71, i64 %73
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4488) %.ptr85, i8 0, i64 4488, i1 false)
   store i32 1, ptr %74, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 60
-  store i32 %16, ptr %75, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
-  store i32 0, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
-  store i16 4568, ptr %77, align 4
+  %74 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 60
+  store i32 %16, ptr %74, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
+  store i32 0, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
+  store i16 4568, ptr %76, align 4
   ret void
 }
 

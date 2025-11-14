@@ -442,7 +442,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
   store i64 1, ptr %6, align 8, !noalias !28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false), !noalias !28
   store ptr %16, ptr %0, align 8, !alias.scope !28
-  br label %36
+  br label %37
 
 22:                                               ; preds = %.backedge, %19
   %.sroa.04.0 = phi ptr [ %18, %19 ], [ %.sroa.04.0.be, %.backedge ]
@@ -472,7 +472,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
 32:                                               ; preds = %34, %28
   call void @_ZN21intrusive_collections6rbtree11post_insert17h46c6a0c9d8ad8beaE(ptr noalias noundef nonnull align 1 %17, ptr noundef nonnull %16, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %36
+  br label %37
 
 33:                                               ; preds = %22
   %.sroa.04.0.val14 = load ptr, ptr %.sroa.04.0, align 8, !noundef !7
@@ -490,7 +490,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
   store ptr %16, ptr %.sroa.04.0, align 8, !noalias !35
   br label %32
 
-36:                                               ; preds = %32, %21
+37:                                               ; preds = %32, %21
   ret void
 }
 
@@ -3353,7 +3353,7 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$16insert_flushable17h7
 9:                                                ; preds = %2
   %10 = atomicrmw add ptr %6, i64 1 monotonic, align 8
   %11 = icmp slt i64 %10, 0
-  br i1 %11, label %43, label %12
+  br i1 %11, label %44, label %12
 
 "_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$6insert17hb324437a44bfe805E.exit": ; preds = %39, %28, %2
   ret void
@@ -3452,7 +3452,7 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$16insert_flushable17h7
   store ptr %23, ptr %.sroa.04.0.i, align 8, !noalias !115
   br label %39
 
-43:                                               ; preds = %9
+44:                                               ; preds = %9
   tail call void @llvm.trap()
   unreachable
 }

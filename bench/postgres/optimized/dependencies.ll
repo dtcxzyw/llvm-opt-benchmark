@@ -354,38 +354,38 @@ define dso_local noundef ptr @statext_dependencies_serialize(ptr noundef readonl
   br i1 %.not44, label %._crit_edge43, label %.lr.ph42
 
 .lr.ph42:                                         ; preds = %._crit_edge
-  %26 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %28
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %29
 
-28:                                               ; preds = %.lr.ph42, %28
-  %.140 = phi i32 [ 0, %.lr.ph42 ], [ %45, %28 ]
-  %.03639 = phi ptr [ %26, %.lr.ph42 ], [ %44, %28 ]
-  %29 = sext i32 %.140 to i64
-  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  %32 = load i64, ptr %31, align 8
-  store i64 %32, ptr %.03639, align 1
-  %33 = getelementptr inbounds nuw i8, ptr %.03639, i64 8
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = load i16, ptr %34, align 8
-  store i16 %35, ptr %33, align 1
-  %36 = getelementptr inbounds nuw i8, ptr %.03639, i64 10
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 10
-  %38 = load i16, ptr %34, align 8
-  %39 = sext i16 %38 to i64
-  %40 = shl nsw i64 %39, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull align 2 %37, i64 %40, i1 false)
-  %41 = load i16, ptr %34, align 8
-  %42 = sext i16 %41 to i64
-  %43 = shl nsw i64 %42, 1
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 %43
-  %45 = add nuw i32 %.140, 1
-  %46 = load i32, ptr %2, align 8
-  %47 = icmp ult i32 %45, %46
-  br i1 %47, label %28, label %._crit_edge43, !llvm.loop !12
+29:                                               ; preds = %.lr.ph42, %29
+  %.140 = phi i32 [ 0, %.lr.ph42 ], [ %46, %28 ]
+  %.03639 = phi ptr [ %27, %.lr.ph42 ], [ %45, %28 ]
+  %30 = sext i32 %.140 to i64
+  %31 = getelementptr inbounds ptr, ptr %28, i64 %30
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i64, ptr %32, align 8
+  store i64 %33, ptr %.03639, align 1
+  %34 = getelementptr inbounds nuw i8, ptr %.03639, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %36 = load i16, ptr %35, align 8
+  store i16 %36, ptr %34, align 1
+  %37 = getelementptr inbounds nuw i8, ptr %.03639, i64 10
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 10
+  %39 = load i16, ptr %35, align 8
+  %40 = sext i16 %39 to i64
+  %41 = shl nsw i64 %40, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 2 %38, i64 %41, i1 false)
+  %42 = load i16, ptr %35, align 8
+  %43 = sext i16 %42 to i64
+  %44 = shl nsw i64 %43, 1
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 %44
+  %46 = add nuw i32 %.140, 1
+  %47 = load i32, ptr %2, align 8
+  %48 = icmp ult i32 %46, %47
+  br i1 %48, label %29, label %._crit_edge43, !llvm.loop !12
 
-._crit_edge43:                                    ; preds = %28, %._crit_edge
+._crit_edge43:                                    ; preds = %29, %._crit_edge
   ret ptr %16
 }
 

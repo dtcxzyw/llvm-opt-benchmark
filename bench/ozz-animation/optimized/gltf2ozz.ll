@@ -86612,7 +86612,7 @@ _ZN12_GLOBAL__N_119CreateNodeTransformERKN8tinygltf4NodeEPN3ozz4math9TransformE.
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-.sink.split:                                      ; preds = %_ZN3ozz4math8ToAffineERKNS0_8Float4x4EPNS0_9TransformE.exit.thread.i, %317
+326:                                              ; preds = %_ZN3ozz4math8ToAffineERKNS0_8Float4x4EPNS0_9TransformE.exit.thread.i, %317
   %.sink = phi float [ %325, %317 ], [ %249, %_ZN3ozz4math8ToAffineERKNS0_8Float4x4EPNS0_9TransformE.exit.thread.i ]
   store float %.sink, ptr %.sroa.872.0..sroa_idx.i, align 4, !tbaa !294
   br label %326

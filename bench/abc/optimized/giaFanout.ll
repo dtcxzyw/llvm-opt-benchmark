@@ -33,9 +33,9 @@ define void @Gia_ManFanoutStart(ptr noundef captures(none) initializes((232, 244
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %1 ]
   %.val23 = load ptr, ptr %12, align 8, !tbaa !30
   %.not = icmp eq ptr %.val23, null
-  br i1 %.not, label %.critedge, label %14
+  br i1 %.not, label %.critedge, label %15
 
-14:                                               ; preds = %.lr.ph
+15:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val23, i64 %indvars.iv
   %16 = load i64, ptr %15, align 4
   %17 = and i64 %16, 536870911
@@ -49,10 +49,10 @@ define void @Gia_ManFanoutStart(ptr noundef captures(none) initializes((232, 244
   %24 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %15, i64 %23
   tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = load i32, ptr %2, align 8, !tbaa !3
-  %26 = sext i32 %25 to i64
-  %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %.critedge, !llvm.loop !31
+  %35 = load i32, ptr %2, align 8, !tbaa !3
+  %36 = sext i32 %35 to i64
+  %37 = icmp slt i64 %indvars.iv.next, %36
+  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %.lr.ph, %14, %1
   ret void

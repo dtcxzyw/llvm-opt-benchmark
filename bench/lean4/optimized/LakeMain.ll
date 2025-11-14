@@ -10,7 +10,7 @@ define ptr @_lean_main(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @l_Lake_cli(ptr noundef %0, ptr noundef %1) #3
   %.val = load i32, ptr %3, align 4, !tbaa !4
   %4 = icmp eq i32 %.val, 1
-  br i1 %4, label %38, label %5
+  br i1 %4, label %41, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -74,36 +74,36 @@ lean_inc.exit15:                                  ; preds = %lean_inc.exit, %22,
   store i32 %29, ptr %3, align 4, !tbaa !4
   br label %lean_dec.exit
 
-30:                                               ; preds = %lean_inc.exit15
+33:                                               ; preds = %lean_inc.exit15
   %.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i, label %lean_dec.exit, label %31
+  br i1 %.not.i, label %lean_dec.exit, label %34
 
-31:                                               ; preds = %30
+34:                                               ; preds = %33
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %31, %30, %28
+lean_dec.exit:                                    ; preds = %34, %33, %28
   tail call void @lean_inc_heartbeat() #3
-  %32 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %lean_alloc_ctor.exit
+  %35 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %lean_alloc_ctor.exit
 
-34:                                               ; preds = %lean_dec.exit
+37:                                               ; preds = %lean_dec.exit
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  store i32 1, ptr %32, align 4, !tbaa !4
-  store i32 131096, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %7, ptr %36, align 8, !tbaa !9
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store ptr %9, ptr %37, align 8, !tbaa !9
-  br label %38
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  store i32 1, ptr %35, align 4, !tbaa !4
+  store i32 131096, ptr %38, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store ptr %7, ptr %39, align 8, !tbaa !9
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  store ptr %9, ptr %40, align 8, !tbaa !9
+  br label %41
 
-38:                                               ; preds = %2, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %32, %lean_alloc_ctor.exit ], [ %3, %2 ]
+41:                                               ; preds = %2, %lean_alloc_ctor.exit
+  %.0 = phi ptr [ %35, %lean_alloc_ctor.exit ], [ %3, %2 ]
   ret ptr %.0
 }
 

@@ -445,11 +445,11 @@ alloc_node.exit:                                  ; preds = %1, %26
   store ptr %37, ptr %35, align 8, !tbaa !43
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %36, i8 0, i64 72, i1 false)
   store i32 2, ptr %36, align 8
-  %38 = load i32, ptr @alloc_commit_index.parsed_commits_count, align 4, !tbaa !48
-  %39 = add i32 %38, 1
-  store i32 %39, ptr @alloc_commit_index.parsed_commits_count, align 4, !tbaa !48
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  store i32 %38, ptr %40, align 8, !tbaa !49
+  %39 = load i32, ptr @alloc_commit_index.parsed_commits_count, align 4, !tbaa !48
+  %40 = add i32 %39, 1
+  store i32 %40, ptr @alloc_commit_index.parsed_commits_count, align 4, !tbaa !48
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 64
+  store i32 %39, ptr %41, align 8, !tbaa !49
   ret ptr %36
 }
 

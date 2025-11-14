@@ -3298,7 +3298,7 @@ define void @Gia_IsoRecognizeMuxes(ptr noundef readonly captures(none) %0) local
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, -2
   %24 = icmp eq i64 %19, %23
-  br i1 %24, label %25, label %32
+  br i1 %24, label %25, label %35
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3310,8 +3310,8 @@ define void @Gia_IsoRecognizeMuxes(ptr noundef readonly captures(none) %0) local
   %31 = inttoptr i64 %30 to ptr
   br label %.sink.split
 
-32:                                               ; preds = %15
-  %33 = inttoptr i64 %23 to ptr
+35:                                               ; preds = %15
+  %36 = inttoptr i64 %23 to ptr
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %35 = load i32, ptr %34, align 4, !tbaa !44
   %36 = add i32 %35, -1354043385
@@ -3325,7 +3325,7 @@ define void @Gia_IsoRecognizeMuxes(ptr noundef readonly captures(none) %0) local
   store i32 %42, ptr %40, align 4, !tbaa !44
   br label %.sink.split
 
-.sink.split:                                      ; preds = %25, %32
+.sink.split:; preds = %25, %32
   %.sink26 = phi ptr [ %20, %32 ], [ %31, %25 ]
   %.sink25 = phi i32 [ 597285205, %32 ], [ 1731962334, %25 ]
   %.sink22 = phi ptr [ %33, %32 ], [ %20, %25 ]
@@ -3337,14 +3337,14 @@ define void @Gia_IsoRecognizeMuxes(ptr noundef readonly captures(none) %0) local
   %47 = load i32, ptr %46, align 4, !tbaa !44
   %48 = add i32 %47, %.sink25
   store i32 %48, ptr %46, align 4, !tbaa !44
-  br label %49
+  br label %.sink.split
 
-49:                                               ; preds = %.sink.split, %9, %13
+.sink.split:                                      ; preds = %.sink.split, %9, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = load i32, ptr %5, align 8, !tbaa !14
-  %51 = sext i32 %50 to i64
-  %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %.lr.ph, label %.critedge, !llvm.loop !102
+  %56 = load i32, ptr %5, align 8, !tbaa !14
+  %57 = sext i32 %56 to i64
+  %58 = icmp slt i64 %indvars.iv.next, %57
+  br i1 %58, label %.lr.ph, label %.critedge, !llvm.loop !102
 
 .critedge:                                        ; preds = %.lr.ph, %49, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

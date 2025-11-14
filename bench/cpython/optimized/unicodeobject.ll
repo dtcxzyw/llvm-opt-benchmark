@@ -56976,71 +56976,71 @@ ucs2lib_fastsearch.exit.i:                        ; preds = %103, %131, %122
   %137 = getelementptr i16, ptr %92, i64 %.0.i.i29
   br i1 %136, label %.thread.i30, label %ucs1lib_replace_1char_inplace.exit
 
-.thread.i30:                                      ; preds = %85, %ucs2lib_fastsearch.exit.i, %80
+.thread.i30:; preds = %85, %ucs2lib_fastsearch.exit.i, %80
   %.1.i31 = phi ptr [ %79, %80 ], [ %137, %ucs2lib_fastsearch.exit.i ], [ %83, %85 ]
   store i16 %44, ptr %.1.i31, align 2, !tbaa !199
   %138 = add nsw i64 %78, -1
-  %.not.i32 = icmp eq i64 %138, 0
-  br i1 %.not.i32, label %ucs1lib_replace_1char_inplace.exit, label %.lr.ph.split.i, !llvm.loop !646
+  %.not.i31 = icmp eq i64 %138, 0
+  br i1 %.not.i31, label %ucs1lib_replace_1char_inplace.exit, label %.lr.ph.split.i, !llvm.loop !646
 
 139:                                              ; preds = %_PyUnicode_DATA.exit
   %140 = getelementptr i32, ptr %.0.i, i64 %1
   %141 = getelementptr i32, ptr %.0.i, i64 %.val
   store i32 %3, ptr %140, align 4, !tbaa !200
   %142 = add nsw i64 %4, -1
-  %.not47.i33 = icmp eq i64 %142, 0
-  br i1 %.not47.i33, label %ucs1lib_replace_1char_inplace.exit, label %.lr.ph.i34
+  %.not47.i32 = icmp eq i64 %142, 0
+  br i1 %.not47.i32, label %ucs1lib_replace_1char_inplace.exit, label %.lr.ph.i33
 
-.lr.ph.i34:                                       ; preds = %139
+.lr.ph.i33:                                       ; preds = %139
   %143 = ptrtoint ptr %141 to i64
   br label %144
 
-144:                                              ; preds = %.thread.i43, %.lr.ph.i34
+144:                                              ; preds = %.thread.i42, %.lr.ph.i33
   %145 = phi i64 [ %142, %.lr.ph.i34 ], [ %162, %.thread.i43 ]
-  %.02248.i35 = phi ptr [ %140, %.lr.ph.i34 ], [ %.1.i44, %.thread.i43 ]
-  %146 = getelementptr i8, ptr %.02248.i35, i64 4
-  %.not32.i36 = icmp eq ptr %146, %141
-  br i1 %.not32.i36, label %ucs1lib_replace_1char_inplace.exit, label %147
+  %.02248.i34 = phi ptr [ %140, %.lr.ph.i34 ], [ %.1.i43, %.thread.i43 ]
+  %146 = getelementptr i8, ptr %.02248.i34, i64 4
+  %.not32.i35 = icmp eq ptr %146, %141
+  br i1 %.not32.i35, label %ucs1lib_replace_1char_inplace.exit, label %147
 
 147:                                              ; preds = %144
   %148 = load i32, ptr %146, align 4, !tbaa !200
-  %.not33.i37 = icmp eq i32 %148, %2
-  br i1 %.not33.i37, label %.thread.i43, label %.preheader.i38
+  %.not33.i36 = icmp eq i32 %148, %2
+  br i1 %.not33.i36, label %.thread.i42, label %.preheader.i37
 
-.preheader.i38:                                   ; preds = %147, %154
-  %.2.i39 = phi ptr [ %149, %154 ], [ %146, %147 ]
-  %.020.i40 = phi i32 [ %155, %154 ], [ 10, %147 ]
-  %149 = getelementptr i8, ptr %.2.i39, i64 4
+.preheader.i37:                                   ; preds = %147, %154
+  %.2.i38 = phi ptr [ %149, %154 ], [ %146, %147 ]
+  %.020.i39 = phi i32 [ %155, %154 ], [ 10, %147 ]
+  %149 = getelementptr i8, ptr %.2.i38, i64 4
   %150 = icmp eq ptr %149, %141
   br i1 %150, label %ucs1lib_replace_1char_inplace.exit, label %151
 
-151:                                              ; preds = %.preheader.i38
+151:                                              ; preds = %.preheader.i37
   %152 = load i32, ptr %149, align 4, !tbaa !200
   %153 = icmp eq i32 %152, %2
-  br i1 %153, label %.thread.i43, label %154
+  br i1 %153, label %.thread.i42, label %154
 
 154:                                              ; preds = %151
-  %155 = add nsw i32 %.020.i40, -1
-  %.not34.i41 = icmp eq i32 %155, 0
-  br i1 %.not34.i41, label %156, label %.preheader.i38
+  %155 = add nsw i32 %.020.i39, -1
+  %.not34.i40 = icmp eq i32 %155, 0
+  br i1 %.not34.i40, label %156, label %.preheader.i37
 
 156:                                              ; preds = %154
-  %157 = getelementptr i8, ptr %.02248.i35, i64 48
+  %157 = getelementptr i8, ptr %.02248.i34, i64 48
   %158 = ptrtoint ptr %157 to i64
   %159 = sub i64 %143, %158
   %160 = ashr exact i64 %159, 2
   %161 = tail call ptr @wmemchr(ptr noundef %157, i32 noundef %2, i64 noundef %160) #43
-  %.not41.i42 = icmp eq ptr %161, null
-  br i1 %.not41.i42, label %ucs1lib_replace_1char_inplace.exit, label %.thread.i43
+  %.not41.i41 = icmp eq ptr %161, null
+  br i1 %.not41.i41, label %ucs1lib_replace_1char_inplace.exit, label %.thread.i42
 
-.thread.i43:                                      ; preds = %151, %156, %147
-  %.1.i44 = phi ptr [ %161, %156 ], [ %146, %147 ], [ %149, %151 ]
-  store i32 %3, ptr %.1.i44, align 4, !tbaa !200
+.thread.i42:                                      ; preds = %151, %156, %147
+  %.1.i43 = phi ptr [ %161, %156 ], [ %146, %147 ], [ %149, %151 ]
+  store i32 %3, ptr %.1.i43, align 4, !tbaa !200
   %162 = add nsw i64 %145, -1
-  %.not.i45 = icmp eq i64 %162, 0
-  br i1 %.not.i45, label %ucs1lib_replace_1char_inplace.exit, label %144, !llvm.loop !647
+  %.not.i44 = icmp eq i64 %162, 0
+  br i1 %.not.i44, label %ucs1lib_replace_1char_inplace.exit, label %144, !llvm.loop !647
 
-ucs1lib_replace_1char_inplace.exit:               ; preds = %.thread.i30, %ucs2lib_fastsearch.exit.i, %.thread63.i.i.i, %91, %.lr.ph.split.i, %.preheader.i27, %.preheader.i.i.i, %133, %.thread.us.i, %ucs2lib_fastsearch.exit.us.i, %63, %.lr.ph.split.us.i, %.preheader.us.i, %71, %.thread.i, %35, %21, %.preheader.i, %.thread.i43, %156, %144, %.preheader.i38, %139, %41, %15
+ucs1lib_replace_1char_inplace.exit:               ; preds = %.thread.i30, %ucs2lib_fastsearch.exit.i, %.thread63.i.i.i, %91, %.lr.ph.split.i, %.preheader.i27, %.preheader.i.i.i, %133, %.thread.us.i, %ucs2lib_fastsearch.exit.us.i, %63, %.lr.ph.split.us.i, %.preheader.us.i, %71, %.thread.i, %35, %21, %.preheader.i, %.thread.i42, %156, %144, %.preheader.i37, %139, %41, %15
   ret void
 }
 

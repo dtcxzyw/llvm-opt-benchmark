@@ -18621,30 +18621,30 @@ GC_lock.exit42:                                   ; preds = %.preheader.i.i40, %
 137:                                              ; preds = %GC_lock.exit42.thread, %135, %GC_lock.exit42
   %138 = phi ptr [ %115, %GC_lock.exit42.thread ], [ %134, %135 ], [ %134, %GC_lock.exit42 ]
   %.b35 = load i1, ptr @GC_manual_vdb, align 1
-  br i1 %.b35, label %139, label %GC_general_register_disappearing_link.exit
+  br i1 %.b35, label %139, label %._crit_edge
 
-139:                                              ; preds = %137
+140:                                              ; preds = %137
   %140 = ptrtoint ptr %138 to i64
-  %141 = lshr i64 %140, 12
+  %142 = lshr i64 %140, 12
   %142 = lshr i64 %140, 18
   %143 = and i64 %142, 4095
   %144 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 59912), i64 %143
   %145 = and i64 %141, 63
   %146 = shl nuw i64 1, %145
   %147 = atomicrmw volatile or ptr %144, i64 %146 monotonic, align 8
-  br label %GC_general_register_disappearing_link.exit
+  br label %._crit_edge
 
-GC_general_register_disappearing_link.exit:       ; preds = %137, %139
+._crit_edge:                                      ; preds = %137, %140
   %148 = load ptr, ptr %0, align 8, !tbaa !279
   tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %148) #47, !srcloc !280
   %149 = tail call fastcc range(i32 0, 4) i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 336), ptr noundef nonnull %138, ptr noundef nonnull %57, ptr noundef nonnull @.str.42)
-  %150 = icmp eq i32 %149, 2
+  %.not.i43 = icmp eq i32 %149, 2
   br i1 %150, label %151, label %GC_malloc_explicitly_typed.exit, !prof !44
 
-151:                                              ; preds = %GC_general_register_disappearing_link.exit
+150:                                              ; preds = %._crit_edge
   %152 = tail call ptr @GC_get_oom_fn()
   %153 = load i64, ptr %54, align 8, !tbaa !261
-  %154 = tail call ptr %152(i64 noundef %153) #47
+  %154 = tail call ptr %152(i64 noundef %153) #51
   br label %GC_malloc_explicitly_typed.exit
 
 GC_malloc_explicitly_typed.exit:                  ; preds = %GC_lock.exit.thread, %GC_size.exit.i.i, %17, %GC_general_register_disappearing_link.exit, %111, %GC_lock.exit, %53, %48, %151, %5

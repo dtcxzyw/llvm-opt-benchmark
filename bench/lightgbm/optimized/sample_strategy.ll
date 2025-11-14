@@ -1601,7 +1601,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i: ; preds = %_ZN8LightGBM9Th
   %44 = load ptr, ptr %43, align 8, !tbaa !102
   br label %45
 
-45:                                               ; preds = %45, %.lver.check
+45:; preds = %45, %.lver.check
   %indvars.iv.lver.orig = phi i64 [ 1, %.lver.check ], [ %indvars.iv.next.lver.orig, %45 ]
   %46 = add nsw i64 %indvars.iv.lver.orig, -1
   %47 = getelementptr inbounds nuw i32, ptr %36, i64 %46
@@ -1609,22 +1609,22 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i: ; preds = %_ZN8LightGBM9Th
   %49 = getelementptr inbounds nuw i32, ptr %42, i64 %46
   %50 = load i32, ptr %49, align 4, !tbaa !145
   %51 = add nsw i32 %50, %48
-  %52 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.lver.orig
-  store i32 %51, ptr %52, align 4, !tbaa !145
+  %48 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.lver.orig
+  store i32 %51, ptr %48, align 4, !tbaa !145
   %53 = getelementptr inbounds nuw i32, ptr %38, i64 %46
   %54 = load i32, ptr %53, align 4, !tbaa !145
   %55 = getelementptr inbounds nuw i32, ptr %44, i64 %46
   %56 = load i32, ptr %55, align 4, !tbaa !145
   %57 = add nsw i32 %56, %54
-  %58 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.lver.orig
-  store i32 %57, ptr %58, align 4, !tbaa !145
+  %54 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.lver.orig
+  store i32 %57, ptr %54, align 4, !tbaa !145
   %indvars.iv.next.lver.orig = add nuw nsw i64 %indvars.iv.lver.orig, 1
-  %59 = load i32, ptr %9, align 4, !tbaa !145
-  %60 = sext i32 %59 to i64
-  %61 = icmp slt i64 %indvars.iv.next.lver.orig, %60
-  br i1 %61, label %45, label %._crit_edge, !llvm.loop !154
+  %58 = load i32, ptr %9, align 4, !tbaa !145
+  %59 = sext i32 %58 to i64
+  %60 = icmp slt i64 %indvars.iv.next.lver.orig, %59
+  br i1 %60, label %45, label %._crit_edge, !llvm.loop !154
 
-._crit_edge:                                      ; preds = %45, %34
+.ph:                                              ; preds = %45, %34
   %.lcssa = phi i32 [ %39, %34 ], [ %59, %45 ]
   %62 = add nsw i32 %.lcssa, -1
   %63 = sext i32 %62 to i64
@@ -1634,41 +1634,41 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i: ; preds = %_ZN8LightGBM9Th
   %67 = load i32, ptr %66, align 4, !tbaa !145
   %68 = add nsw i32 %67, %65
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i32, ptr %3, i64 %69
-  store ptr %70, ptr %12, align 8, !tbaa !98
-  %71 = load i32, ptr %0, align 8, !tbaa !150
-  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %13, i32 %71)
+  %68 = sext i32 %68 to i64
+  %69 = getelementptr inbounds i32, ptr %3, i64 %68
+  store ptr %69, ptr %12, align 8, !tbaa !98
+  %70 = load i32, ptr %0, align 8, !tbaa !150
+  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %13, i32 %70)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZN8LightGBM23ParallelPartitionRunnerIiLb0EE3RunILb1EEEiiRKSt8functionIFiiiiPiS4_EES4_.omp_outlined.3, ptr nonnull %9, ptr nonnull %0, ptr nonnull %8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %72 = load ptr, ptr %11, align 8, !tbaa !152
-  %.not.i.i = icmp eq ptr %72, null
+  %71 = load ptr, ptr %11, align 8, !tbaa !152
+  %.not.i.i = icmp eq ptr %71, null
   br i1 %.not.i.i, label %_ZN21ThreadExceptionHelperD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i
 
 _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i: ; preds = %._crit_edge
-  store ptr %72, ptr %5, align 8, !tbaa !152
+  store ptr %71, ptr %5, align 8, !tbaa !152
   call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
   invoke void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull %5) #34
-          to label %73 unwind label %74
+          to label %73 unwind label %73
 
-73:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i
+72:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i
   unreachable
 
-74:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i
-  %75 = landingpad { ptr, i32 }
+73:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i.i
+  %74 = landingpad { ptr, i32 }
           catch ptr null
-  %76 = load ptr, ptr %5, align 8, !tbaa !152
-  %.not.i3.i.i = icmp eq ptr %76, null
-  br i1 %.not.i3.i.i, label %.body.i, label %77
+  %75 = load ptr, ptr %5, align 8, !tbaa !152
+  %.not.i3.i.i = icmp eq ptr %75, null
+  br i1 %.not.i3.i.i, label %.body.i, label %76
 
-77:                                               ; preds = %74
+76:                                               ; preds = %73
   call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
   br label %.body.i
 
-.body.i:                                          ; preds = %77, %74
-  %78 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %78) #33
+.body.i:                                          ; preds = %76, %73
+  %77 = extractvalue { ptr, i32 } %74, 0
+  call void @__clang_call_terminate(ptr %77) #33
   unreachable
 
 _ZN21ThreadExceptionHelperD2Ev.exit:              ; preds = %._crit_edge
