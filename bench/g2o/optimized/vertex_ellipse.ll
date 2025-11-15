@@ -709,85 +709,84 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(38) ptr @_ZN5Eigen2
   br label %.preheader.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i:                         ; preds = %18, %3
-  %.01012.i.i.i.i.i.i.i = phi i64 [ 2, %3 ], [ %19, %18 ]
-  br label %20
+  %.not.i.i.i.i.i.i.i = phi i1 [ false, %3 ], [ true, %18 ]
+  %.01012.i.i.i.i.i.i.i = phi i64 [ 2, %3 ], [ 1, %18 ]
+  br label %19
 
-18:                                               ; preds = %20
-  %19 = lshr i64 %.01012.i.i.i.i.i.i.i, 1
-  %.not.i.i.i.i.i.i.i = icmp samesign ult i64 %.01012.i.i.i.i.i.i.i, 2
+18:                                               ; preds = %19
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEEEEE8maxCoeffEv.exit, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !73
 
-20:                                               ; preds = %20, %.preheader.i.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %27, %20 ]
-  %21 = getelementptr inbounds nuw float, ptr %6, i64 %.011.i.i.i.i.i.i.i
-  %22 = getelementptr inbounds nuw float, ptr %21, i64 %.01012.i.i.i.i.i.i.i
+19:                                               ; preds = %19, %.preheader.i.i.i.i.i.i.i
+  %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %26, %19 ]
+  %20 = getelementptr inbounds nuw float, ptr %6, i64 %.011.i.i.i.i.i.i.i
+  %21 = getelementptr inbounds nuw float, ptr %20, i64 %.01012.i.i.i.i.i.i.i
+  %22 = load float, ptr %20, align 4, !tbaa !6
   %23 = load float, ptr %21, align 4, !tbaa !6
-  %24 = load float, ptr %22, align 4, !tbaa !6
-  %25 = fcmp olt float %23, %24
-  %26 = select i1 %25, float %24, float %23
-  store float %26, ptr %21, align 4, !tbaa !6
-  %27 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %27, %.01012.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %18, label %20, !llvm.loop !74
+  %24 = fcmp olt float %22, %23
+  %25 = select i1 %24, float %23, float %22
+  store float %25, ptr %20, align 4, !tbaa !6
+  %26 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %26, %.01012.i.i.i.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %18, label %19, !llvm.loop !74
 
 _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEEEEE8maxCoeffEv.exit: ; preds = %18
-  %28 = and i32 %2, 128
-  %29 = icmp ne i32 %28, 0
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = load float, ptr %6, align 16, !tbaa !6
+  %27 = and i32 %2, 128
+  %28 = icmp ne i32 %27, 0
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = load float, ptr %6, align 16, !tbaa !6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %32 = fcmp oeq float %31, 0.000000e+00
-  %storemerge = select i1 %32, float 1.000000e+00, float %31
-  %33 = fdiv float %17, %storemerge
-  store float %33, ptr %0, align 16, !tbaa !6
-  %34 = fdiv float %10, %storemerge
-  store float %34, ptr %8, align 4, !tbaa !6
-  %35 = fdiv float %14, %storemerge
-  store float %35, ptr %12, align 4, !tbaa !6
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  tail call void @_ZN5Eigen8internal26tridiagonalization_inplaceINS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEENS2_IfLi1ELi1ELi0ELi1ELi1EEEEEvRT_RT0_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %37)
-  %38 = load float, ptr %0, align 16, !tbaa !6
-  store float %38, ptr %30, align 16, !tbaa !6
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %40 = load float, ptr %12, align 4, !tbaa !6
-  store float %40, ptr %39, align 4, !tbaa !6
-  %41 = load float, ptr %8, align 4, !tbaa !6
-  store float %41, ptr %36, align 8, !tbaa !6
-  br i1 %29, label %42, label %47
+  %31 = fcmp oeq float %30, 0.000000e+00
+  %storemerge = select i1 %31, float 1.000000e+00, float %30
+  %32 = fdiv float %17, %storemerge
+  store float %32, ptr %0, align 16, !tbaa !6
+  %33 = fdiv float %10, %storemerge
+  store float %33, ptr %8, align 4, !tbaa !6
+  %34 = fdiv float %14, %storemerge
+  store float %34, ptr %12, align 4, !tbaa !6
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  tail call void @_ZN5Eigen8internal26tridiagonalization_inplaceINS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEENS2_IfLi1ELi1ELi0ELi1ELi1EEEEEvRT_RT0_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %36)
+  %37 = load float, ptr %0, align 16, !tbaa !6
+  store float %37, ptr %29, align 16, !tbaa !6
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %39 = load float, ptr %12, align 4, !tbaa !6
+  store float %39, ptr %38, align 4, !tbaa !6
+  %40 = load float, ptr %8, align 4, !tbaa !6
+  store float %40, ptr %35, align 8, !tbaa !6
+  br i1 %28, label %41, label %46
 
-42:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEEEEE8maxCoeffEv.exit
+41:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEEEEE8maxCoeffEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !75
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %37, ptr %43, align 8, !tbaa !77
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 0, ptr %44, align 8, !tbaa !79
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 1, ptr %45, align 8, !tbaa !81
-  store i64 1, ptr %46, align 8, !tbaa !82
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %36, ptr %42, align 8, !tbaa !77
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i8 0, ptr %43, align 8, !tbaa !79
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 1, ptr %44, align 8, !tbaa !81
+  store i64 1, ptr %45, align 8, !tbaa !82
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEENS1_IfLi1ELi1ELi0ELi1ELi1EEELi1EE6evalToIS2_NS1_IfLi2ELi1ELi0ELi2ELi1EEEEEvRT_RT0_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %47
+  br label %46
 
-47:                                               ; preds = %42, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEEEEE8maxCoeffEv.exit
-  %48 = zext i1 %29 to i8
-  %49 = call noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_implINS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEENS2_IfLi2ELi1ELi0ELi2ELi1EEENS2_IfLi1ELi1ELi0ELi1ELi1EEEEENS_15ComputationInfoERT0_RT1_lbRT_(ptr noundef nonnull align 4 dereferenceable(8) %30, ptr noundef nonnull align 4 dereferenceable(4) %36, i64 noundef 30, i1 noundef zeroext %29, ptr noundef nonnull align 16 dereferenceable(16) %0)
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %49, ptr %50, align 16, !tbaa !83
-  %51 = load float, ptr %30, align 16, !tbaa !6
-  %52 = fmul float %storemerge, %51
-  store float %52, ptr %30, align 16, !tbaa !6
-  %53 = load float, ptr %39, align 4, !tbaa !6
-  %54 = fmul float %storemerge, %53
-  store float %54, ptr %39, align 4, !tbaa !6
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i8 1, ptr %55, align 4, !tbaa !31
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 37
-  store i8 %48, ptr %56, align 1, !tbaa !47
+46:                                               ; preds = %41, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEEEEE8maxCoeffEv.exit
+  %47 = zext i1 %28 to i8
+  %48 = call noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_implINS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEENS2_IfLi2ELi1ELi0ELi2ELi1EEENS2_IfLi1ELi1ELi0ELi1ELi1EEEEENS_15ComputationInfoERT0_RT1_lbRT_(ptr noundef nonnull align 4 dereferenceable(8) %29, ptr noundef nonnull align 4 dereferenceable(4) %35, i64 noundef 30, i1 noundef zeroext %28, ptr noundef nonnull align 16 dereferenceable(16) %0)
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %48, ptr %49, align 16, !tbaa !83
+  %50 = load float, ptr %29, align 16, !tbaa !6
+  %51 = fmul float %storemerge, %50
+  store float %51, ptr %29, align 16, !tbaa !6
+  %52 = load float, ptr %38, align 4, !tbaa !6
+  %53 = fmul float %storemerge, %52
+  store float %53, ptr %38, align 4, !tbaa !6
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i8 1, ptr %54, align 4, !tbaa !31
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  store i8 %47, ptr %55, align 1, !tbaa !47
   ret ptr %0
 }
 

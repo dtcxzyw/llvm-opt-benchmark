@@ -35,7 +35,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit"
 
 19:                                               ; preds = %10
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %3, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac4fd1d65e6e66d260219a31c252ffb6.3) #4
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %3, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac4fd1d65e6e66d260219a31c252ffb6.3) #3
   unreachable
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph", %104
@@ -138,12 +138,8 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %63, %32
-  %.not194 = icmp ult i64 %.078.ph.lcssa165, 2
-  br i1 %.not194, label %.split81, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %69
-  %umax = tail call i64 @llvm.umax.i64(i64 %34, i64 1)
-  br label %.lr.ph
+  %.not194 = icmp eq i64 %34, 0
+  br i1 %.not194, label %.split81, label %.lr.ph
 
 70:                                               ; preds = %63
   %71 = add i64 %3, -1
@@ -169,10 +165,10 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   store i64 %.0.lcssa, ptr %.sroa.7.0..sroa_idx, align 8
   br label %75
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %76
-  %.0192 = phi i64 [ %82, %76 ], [ %6, %.lr.ph.preheader ]
-  %.077191 = phi i32 [ %78, %76 ], [ %52, %.lr.ph.preheader ]
-  %.sroa.024.0190 = phi i64 [ %81, %76 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %69, %76
+  %.0192 = phi i64 [ %82, %76 ], [ %6, %69 ]
+  %.077191 = phi i32 [ %78, %76 ], [ %52, %69 ]
+  %.sroa.024.0190 = phi i64 [ %81, %76 ], [ 0, %69 ]
   %.not143 = icmp ult i64 %.0192, %5
   br i1 %.not143, label %76, label %83
 
@@ -188,7 +184,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   %81 = add nuw nsw i64 %.sroa.024.0190, 1
   store i8 %80, ptr %77, align 1
   %82 = add nuw i64 %.0192, 1
-  %exitcond233.not = icmp eq i64 %81, %umax
+  %exitcond233.not = icmp eq i64 %81, %34
   br i1 %exitcond233.not, label %.split81, label %.lr.ph
 
 83:                                               ; preds = %.lr.ph
@@ -245,7 +241,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   br i1 %102, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph"
 
 103:                                              ; preds = %96
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 4, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac4fd1d65e6e66d260219a31c252ffb6.2) #4
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 4, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac4fd1d65e6e66d260219a31c252ffb6.2) #3
   unreachable
 
 104:                                              ; preds = %86
@@ -281,14 +277,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #3
-
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { noreturn }
+attributes #3 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

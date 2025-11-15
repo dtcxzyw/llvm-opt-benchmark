@@ -1806,16 +1806,13 @@ do.body.i:                                        ; preds = %do.body.i, %invoke.
   br i1 %cmp.not.i, label %_ZNK5eastl19intrusive_list_base4sizeEv.exit, label %do.body.i, !llvm.loop !175
 
 _ZNK5eastl19intrusive_list_base4sizeEv.exit:      ; preds = %do.body.i
-  %tobool.not1.i.i.i = icmp ult i64 %inc.i, 2
-  br i1 %tobool.not1.i.i.i, label %invoke.cont17, label %while.body.i.i.i.preheader
-
-while.body.i.i.i.preheader:                       ; preds = %_ZNK5eastl19intrusive_list_base4sizeEv.exit
   %div1 = lshr i64 %inc.i, 1
-  br label %while.body.i.i.i
+  %tobool.not1.i.i.i = icmp eq i64 %div1, 0
+  br i1 %tobool.not1.i.i.i, label %invoke.cont17, label %while.body.i.i.i
 
-while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %while.body.i.i.i
-  %n.addr.02.i.i.i = phi i64 [ %dec.i.i.i, %while.body.i.i.i ], [ %div1, %while.body.i.i.i.preheader ]
-  %3 = phi ptr [ %4, %while.body.i.i.i ], [ %0, %while.body.i.i.i.preheader ]
+while.body.i.i.i:                                 ; preds = %_ZNK5eastl19intrusive_list_base4sizeEv.exit, %while.body.i.i.i
+  %n.addr.02.i.i.i = phi i64 [ %dec.i.i.i, %while.body.i.i.i ], [ %div1, %_ZNK5eastl19intrusive_list_base4sizeEv.exit ]
+  %3 = phi ptr [ %4, %while.body.i.i.i ], [ %0, %_ZNK5eastl19intrusive_list_base4sizeEv.exit ]
   %dec.i.i.i = add nsw i64 %n.addr.02.i.i.i, -1
   %4 = load ptr, ptr %3, align 8
   %tobool.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -1996,16 +1993,13 @@ do.body.i:                                        ; preds = %do.body.i, %invoke.
   br i1 %cmp.not.i, label %_ZNK5eastl19intrusive_list_base4sizeEv.exit, label %do.body.i, !llvm.loop !175
 
 _ZNK5eastl19intrusive_list_base4sizeEv.exit:      ; preds = %do.body.i
-  %tobool.not1.i.i.i = icmp ult i64 %inc.i, 2
-  br i1 %tobool.not1.i.i.i, label %invoke.cont17, label %while.body.i.i.i.preheader
-
-while.body.i.i.i.preheader:                       ; preds = %_ZNK5eastl19intrusive_list_base4sizeEv.exit
   %div1 = lshr i64 %inc.i, 1
-  br label %while.body.i.i.i
+  %tobool.not1.i.i.i = icmp eq i64 %div1, 0
+  br i1 %tobool.not1.i.i.i, label %invoke.cont17, label %while.body.i.i.i
 
-while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %while.body.i.i.i
-  %n.addr.02.i.i.i = phi i64 [ %dec.i.i.i, %while.body.i.i.i ], [ %div1, %while.body.i.i.i.preheader ]
-  %3 = phi ptr [ %4, %while.body.i.i.i ], [ %0, %while.body.i.i.i.preheader ]
+while.body.i.i.i:                                 ; preds = %_ZNK5eastl19intrusive_list_base4sizeEv.exit, %while.body.i.i.i
+  %n.addr.02.i.i.i = phi i64 [ %dec.i.i.i, %while.body.i.i.i ], [ %div1, %_ZNK5eastl19intrusive_list_base4sizeEv.exit ]
+  %3 = phi ptr [ %4, %while.body.i.i.i ], [ %0, %_ZNK5eastl19intrusive_list_base4sizeEv.exit ]
   %dec.i.i.i = add nsw i64 %n.addr.02.i.i.i, -1
   %4 = load ptr, ptr %3, align 8
   %tobool.not.i.i.i = icmp eq i64 %dec.i.i.i, 0

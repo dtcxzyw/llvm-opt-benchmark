@@ -7237,11 +7237,11 @@ _ZN4pbrt13InlinedVectorISt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %35 = select i1 %.not.i14, ptr %14, ptr %34
   %.idx24 = shl nuw nsw i64 %28, 4
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx24
-  %.not23 = icmp ult i64 %28, 4
+  %37 = lshr i64 %28, 2
+  %.not23 = icmp eq i64 %37, 0
   br i1 %.not23, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %33
-  %37 = lshr i64 %28, 2
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !33
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -7455,11 +7455,10 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %33
   %.pre-phi121.i.i.i = phi i64 [ %133, %._crit_edge.loopexit.i.i.i ], [ %28, %33 ]
   %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %35, %33 ]
-  switch i64 %.pre-phi121.i.i.i, label %._crit_edge.i.i.i.unreachabledefault [
+  switch i64 %.pre-phi121.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_.exit76.thread.i.i.i" [
     i64 3, label %134
     i64 2, label %._crit_edge._crit_edge.i.i.i
     i64 1, label %._crit_edge._crit_edge115.i.i.i
-    i64 0, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_.exit76.thread.i.i.i"
   ]
 
 ._crit_edge._crit_edge115.i.i.i:                  ; preds = %._crit_edge.i.i.i
@@ -7606,10 +7605,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %202 = icmp eq i32 %bcmp.i1.i.i75.i.i.i, 0
   br i1 %202, label %"_ZSt7find_ifIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0ET_SE_SE_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_.exit76.thread.i.i.i"
 
-._crit_edge.i.i.i.unreachabledefault:             ; preds = %._crit_edge.i.i.i
-  unreachable
-
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_.exit76.thread.i.i.i": ; preds = %._crit_edge.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_.exit76.i.i.i", %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i74.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i72.i.i.i, %181
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_.exit76.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_.exit76.i.i.i", %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i74.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i72.i.i.i, %181, %._crit_edge.i.i.i
   br label %"_ZSt7find_ifIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0ET_SE_SE_T0_.exit"
 
 "_ZSt7find_ifIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit": ; preds = %100

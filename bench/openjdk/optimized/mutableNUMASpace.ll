@@ -346,16 +346,13 @@ define hidden void @_ZN16MutableNUMASpace18ensure_parsabilityEv(ptr noundef nonn
   %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
-  %.not1920 = icmp ult i64 %31, 8
-  br i1 %.not1920, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %24
   %32 = lshr i64 %31, 3
-  br label %.lr.ph
+  %.not1920 = icmp eq i64 %32, 0
+  br i1 %.not1920, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01722 = phi i64 [ %36, %.lr.ph ], [ %32, %.lr.ph.preheader ]
-  %.01821 = phi ptr [ %35, %.lr.ph ], [ %25, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %24, %.lr.ph
+  %.01722 = phi i64 [ %36, %.lr.ph ], [ %32, %24 ]
+  %.01821 = phi ptr [ %35, %.lr.ph ], [ %25, %24 ]
   %33 = load i64, ptr @_ZN13CollectedHeap22_filler_array_max_sizeE, align 8
   %34 = tail call noundef i64 @llvm.umin.i64(i64 %.01722, i64 %33)
   tail call void @_ZN13CollectedHeap16fill_with_objectEPP12HeapWordImplmb(ptr noundef %.01821, i64 noundef %34, i1 noundef zeroext true) #11
@@ -1568,21 +1565,21 @@ define hidden void @_ZN16MutableNUMASpace10initializeE9MemRegionbbbP13WorkerThre
   %69 = ptrtoint ptr %62 to i64
   %70 = ptrtoint ptr %63 to i64
   %71 = sub i64 %69, %70
-  %72 = icmp ult i64 %16, 8
-  %73 = icmp ult i64 %71, 8
-  %or.cond.i = select i1 %72, i1 %73, i1 false
-  br i1 %or.cond.i, label %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77, label %74
+  %72 = lshr i64 %71, 3
+  %73 = icmp eq i64 %17, 0
+  %74 = icmp eq i64 %72, 0
+  %or.cond.i = select i1 %73, i1 %74, i1 false
+  br i1 %or.cond.i, label %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77, label %75
 
-74:                                               ; preds = %67
-  %75 = lshr i64 %71, 3
+75:                                               ; preds = %67
   %76 = icmp eq ptr %11, %63
   %77 = getelementptr inbounds nuw ptr, ptr %11, i64 %17
-  %78 = getelementptr inbounds nuw ptr, ptr %63, i64 %75
+  %78 = getelementptr inbounds nuw ptr, ptr %63, i64 %72
   %79 = icmp eq ptr %77, %78
   %or.cond169 = select i1 %76, i1 %79, i1 false
   br i1 %or.cond169, label %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77, label %_ZNK9MemRegion6equalsES_.exit.thread154
 
-_ZNK9MemRegion6equalsES_.exit.thread154:          ; preds = %74
+_ZNK9MemRegion6equalsES_.exit.thread154:          ; preds = %75
   %80 = sub i64 %.064.in, %.0.in
   %81 = lshr i64 %80, 3
   store ptr %.0, ptr %9, align 8
@@ -1777,8 +1774,8 @@ _ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit: ; preds = %_ZN16MutableNUMA
   %.pre186.pre = load ptr, ptr %38, align 8
   br label %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77
 
-_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77: ; preds = %74, %67, %179, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit
-  %.pre186 = phi ptr [ %64, %74 ], [ %64, %67 ], [ %.pre186.pre, %179 ], [ %.pre186.pre192, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit ]
+_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77: ; preds = %75, %67, %179, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit
+  %.pre186 = phi ptr [ %64, %75 ], [ %64, %67 ], [ %.pre186.pre, %179 ], [ %.pre186.pre192, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit ]
   %194 = load i8, ptr @UseAdaptiveNUMAChunkSizing, align 1
   %195 = trunc i8 %194 to i1
   %.pre187 = load i32, ptr %.pre186, align 4
@@ -2259,7 +2256,7 @@ define hidden void @_ZN16MutableNUMASpace7set_topEPP12HeapWordImpl(ptr noundef n
   %38 = and i32 %36, %37
   %39 = sext i32 %38 to i64
   %40 = icmp ult i64 %34, %39
-  %41 = icmp ugt i64 %33, 7
+  %41 = icmp ne i64 %34, 0
   %or.cond = and i1 %41, %40
   br i1 %or.cond, label %42, label %48
 
@@ -2419,7 +2416,7 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread: ; preds = %15, %2
   %43 = and i32 %41, %42
   %44 = sext i32 %43 to i64
   %45 = icmp ult i64 %39, %44
-  %46 = icmp ugt i64 %38, 7
+  %46 = icmp ne i64 %39, 0
   %or.cond = and i1 %46, %45
   br i1 %or.cond, label %47, label %51
 

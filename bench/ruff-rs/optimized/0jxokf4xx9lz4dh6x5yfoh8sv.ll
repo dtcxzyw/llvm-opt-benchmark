@@ -8936,9 +8936,10 @@ define hidden void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17h303
           to label %.preheader unwind label %30
 
 .preheader:                                       ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h7dc146d65fdaa478E.exit"
-  %.not8 = icmp eq i64 %3, 1
-  %.pre10 = load i64, ptr %27, align 8
-  br i1 %.not8, label %._crit_edge, label %.lr.ph
+  %.sroa.01.08 = lshr i64 %3, 1
+  %.not9 = icmp eq i64 %.sroa.01.08, 0
+  %.pre11 = load i64, ptr %27, align 8
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 29:                                               ; preds = %11
   tail call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.bd069b0397abcbf5d72b25326b9d08c3.66, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd069b0397abcbf5d72b25326b9d08c3.67) #30
@@ -8951,16 +8952,15 @@ define hidden void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17h303
           to label %48 unwind label %46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %32 = phi i64 [ %.pre10, %.preheader ], [ %40, %.lr.ph ]
+  %32 = phi i64 [ %.pre11, %.preheader ], [ %40, %.lr.ph ]
   %33 = icmp sgt i64 %32, -1
   call void @llvm.assume(i1 %33)
   %.not7 = icmp eq i64 %13, %32
   br i1 %.not7, label %41, label %42
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %34 = phi i64 [ %40, %.lr.ph ], [ %.pre10, %.preheader ]
-  %.sroa.01.0.in9 = phi i64 [ %.sroa.01.0, %.lr.ph ], [ %3, %.preheader ]
-  %.sroa.01.0 = lshr i64 %.sroa.01.0.in9, 1
+  %34 = phi i64 [ %40, %.lr.ph ], [ %.pre11, %.preheader ]
+  %.sroa.01.010 = phi i64 [ %.sroa.01.0, %.lr.ph ], [ %.sroa.01.08, %.preheader ]
   %35 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
   %36 = icmp sgt i64 %34, -1
   call void @llvm.assume(i1 %36)
@@ -8971,7 +8971,8 @@ define hidden void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17h303
   call void @llvm.assume(i1 %39)
   %40 = shl nuw i64 %38, 1
   store i64 %40, ptr %27, align 8
-  %.not = icmp ult i64 %.sroa.01.0.in9, 4
+  %.sroa.01.0 = lshr i64 %.sroa.01.010, 1
+  %.not = icmp eq i64 %.sroa.01.0, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 41:                                               ; preds = %42, %._crit_edge
@@ -42523,7 +42524,7 @@ define internal fastcc noundef nonnull align 128 ptr @"_ZN18ty_python_semantic14
 7:                                                ; preds = %1
   %8 = lshr i64 %5, 32
   %9 = trunc nuw i64 %8 to i32
-  %10 = icmp ugt i64 %5, 4294967295
+  %10 = icmp ne i64 %8, 0
   tail call void @llvm.assume(i1 %10)
   %11 = trunc i64 %5 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2272
@@ -44117,7 +44118,7 @@ define internal fastcc noundef nonnull align 128 ptr @"_ZN18ty_python_semantic14
 7:                                                ; preds = %1
   %8 = lshr i64 %5, 32
   %9 = trunc nuw i64 %8 to i32
-  %10 = icmp ugt i64 %5, 4294967295
+  %10 = icmp ne i64 %8, 0
   tail call void @llvm.assume(i1 %10)
   %11 = trunc i64 %5 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2272
@@ -44314,7 +44315,7 @@ define internal fastcc noundef nonnull align 128 ptr @"_ZN18ty_python_semantic14
 7:                                                ; preds = %1
   %8 = lshr i64 %5, 32
   %9 = trunc nuw i64 %8 to i32
-  %10 = icmp ugt i64 %5, 4294967295
+  %10 = icmp ne i64 %8, 0
   tail call void @llvm.assume(i1 %10)
   %11 = trunc i64 %5 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2272
@@ -45215,7 +45216,7 @@ define hidden noundef nonnull align 8 ptr @_ZN18ty_python_semantic11suppression1
 13:                                               ; preds = %2
   %14 = lshr i64 %11, 32
   %15 = trunc nuw i64 %14 to i32
-  %16 = icmp ugt i64 %11, 4294967295
+  %16 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %16)
   %17 = trunc i64 %11 to i32
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2272

@@ -1959,11 +1959,11 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2192
   %.idx28 = shl nuw nsw i64 %6, 4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx28
-  %.not27 = icmp ult i64 %6, 4
+  %13 = lshr i64 %6, 2
+  %.not27 = icmp eq i64 %13, 0
   br i1 %.not27, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %8
-  %13 = lshr i64 %6, 2
   %14 = and i64 %.idx28, 9223372036854775744
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %11, i64 %14
   br label %.lr.ph.i.i.i.i.i
@@ -1983,7 +1983,7 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
   %19 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 48
   %.val.val.i.i.i.i.i = load i8, ptr %19, align 8, !tbaa !163
   %20 = icmp slt i8 %.val.val.i.i.i.i.i, 0
-  br i1 %20, label %.loopexit.loopexit.split.loop.exit44, label %21
+  br i1 %20, label %.loopexit.loopexit.split.loop.exit45, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 32
@@ -1991,7 +1991,7 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
   %23 = getelementptr i8, ptr %.val30.i.i.i.i.i, i64 48
   %.val30.val.i.i.i.i.i = load i8, ptr %23, align 8, !tbaa !163
   %24 = icmp slt i8 %.val30.val.i.i.i.i.i, 0
-  br i1 %24, label %.loopexit.loopexit.split.loop.exit42, label %25
+  br i1 %24, label %.loopexit.loopexit.split.loop.exit43, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 48
@@ -2014,11 +2014,10 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %8
   %.pre-phi50.i.i.i.i.i = phi i64 [ %33, %._crit_edge.loopexit.i.i.i.i.i ], [ %6, %8 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %11, %8 ]
-  switch i64 %.pre-phi50.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.unreachabledefault [
+  switch i64 %.pre-phi50.i.i.i.i.i, label %47 [
     i64 3, label %34
     i64 2, label %39
     i64 1, label %44
-    i64 0, label %47
   ]
 
 34:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -2032,7 +2031,7 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
   %38 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 16
   br label %39
 
-39:                                               ; preds = %._crit_edge.i.i.i.i.i, %37
+39:                                               ; preds = %37, %._crit_edge.i.i.i.i.i
   %.1.i.i.i.i.i = phi ptr [ %38, %37 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.1.val.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i, align 8, !tbaa !168
   %40 = getelementptr i8, ptr %.1.val.i.i.i.i.i, i64 48
@@ -2044,7 +2043,7 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
   %43 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 16
   br label %44
 
-44:                                               ; preds = %._crit_edge.i.i.i.i.i, %42
+44:                                               ; preds = %42, %._crit_edge.i.i.i.i.i
   %.2.i.i.i.i.i = phi ptr [ %43, %42 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.2.val.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i, align 8, !tbaa !168
   %45 = getelementptr i8, ptr %.2.val.i.i.i.i.i, i64 48
@@ -2052,26 +2051,23 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
   %46 = icmp slt i8 %.2.val.val.i.i.i.i.i, 0
   br i1 %46, label %.loopexit, label %47
 
-._crit_edge.i.i.i.i.i.unreachabledefault:         ; preds = %._crit_edge.i.i.i.i.i
-  unreachable
-
-47:                                               ; preds = %._crit_edge.i.i.i.i.i, %44
+47:                                               ; preds = %44, %._crit_edge.i.i.i.i.i
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %25
   %48 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 48
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit42:             ; preds = %21
+.loopexit.loopexit.split.loop.exit43:             ; preds = %21
   %49 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 32
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit44:             ; preds = %17
+.loopexit.loopexit.split.loop.exit45:             ; preds = %17
   %50 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit42, %.loopexit.loopexit.split.loop.exit44, %47, %44, %39, %34
-  %.028.i.i.i.i.i = phi ptr [ %12, %47 ], [ %.029.lcssa.i.i.i.i.i, %34 ], [ %.1.i.i.i.i.i, %39 ], [ %.2.i.i.i.i.i, %44 ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ %49, %.loopexit.loopexit.split.loop.exit42 ], [ %50, %.loopexit.loopexit.split.loop.exit44 ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit43, %.loopexit.loopexit.split.loop.exit45, %47, %44, %39, %34
+  %.028.i.i.i.i.i = phi ptr [ %12, %47 ], [ %.029.lcssa.i.i.i.i.i, %34 ], [ %.1.i.i.i.i.i, %39 ], [ %.2.i.i.i.i.i, %44 ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ %49, %.loopexit.loopexit.split.loop.exit43 ], [ %50, %.loopexit.loopexit.split.loop.exit45 ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not29 = icmp eq ptr %12, %.028.i.i.i.i.i
   %51 = load ptr, ptr %0, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -8748,7 +8744,7 @@ define noundef zeroext i1 @_ZN11hgatp_csr_t14unlogged_writeEm(ptr noundef nonnul
 18:                                               ; preds = %7
   %19 = select i1 %.not12, i64 17592186044415, i64 288230376151711743
   %20 = lshr i64 %1, 60
-  %21 = icmp ult i64 %1, 1152921504606846976
+  %21 = icmp eq i64 %20, 0
   br i1 %21, label %34, label %22
 
 22:                                               ; preds = %18

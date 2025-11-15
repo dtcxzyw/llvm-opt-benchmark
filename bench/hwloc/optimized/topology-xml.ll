@@ -11094,15 +11094,15 @@ define internal fastcc range(i32 0, 2) i32 @hwloc_filter_check_keep_object(ptr n
   store i32 1, ptr %3, align 4, !tbaa !3
   %5 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef %4, ptr noundef nonnull %3) #23
   %6 = load i32, ptr %3, align 4, !tbaa !3
-  switch i32 %6, label %30 [
-    i32 1, label %31
+  switch i32 %6, label %29 [
+    i32 1, label %30
     i32 3, label %7
   ]
 
 7:                                                ; preds = %2
-  switch i32 %4, label %30 [
+  switch i32 %4, label %29 [
     i32 17, label %8
-    i32 18, label %24
+    i32 18, label %23
   ]
 
 8:                                                ; preds = %7
@@ -11114,36 +11114,34 @@ define internal fastcc range(i32 0, 2) i32 @hwloc_filter_check_keep_object(ptr n
   %14 = lshr i32 %13, 8
   %15 = and i32 %13, 65024
   %or.cond.i = icmp eq i32 %15, 512
-  %16 = icmp eq i32 %14, 1
-  %or.cond3.i = or i1 %or.cond.i, %16
-  %17 = icmp ult i16 %12, 256
-  %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %17
-  %18 = icmp eq i32 %14, 11
-  %or.cond7.i = or i1 %18, %or.cond5.i
-  %19 = and i32 %13, 65533
-  %20 = icmp eq i32 %19, 3076
-  %or.cond11.i = or i1 %20, %or.cond7.i
-  %21 = icmp eq i16 %12, 1282
-  %or.cond13.i = or i1 %21, %or.cond11.i
-  %22 = icmp eq i32 %14, 6
-  %or.cond15.i = or i1 %22, %or.cond13.i
-  %23 = icmp eq i32 %14, 18
-  %narrow.i = or i1 %23, %or.cond15.i
-  br label %31
+  %16 = icmp ult i16 %12, 512
+  %or.cond5.i = or i1 %16, %or.cond.i
+  %17 = icmp eq i32 %14, 11
+  %or.cond7.i = or i1 %17, %or.cond5.i
+  %18 = and i32 %13, 65533
+  %19 = icmp eq i32 %18, 3076
+  %or.cond11.i = or i1 %19, %or.cond7.i
+  %20 = icmp eq i16 %12, 1282
+  %or.cond13.i = or i1 %20, %or.cond11.i
+  %21 = icmp eq i32 %14, 6
+  %or.cond15.i = or i1 %21, %or.cond13.i
+  %22 = icmp eq i32 %14, 18
+  %narrow.i = or i1 %22, %or.cond15.i
+  br label %30
 
-24:                                               ; preds = %7
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !161
-  %27 = load i64, ptr %26, align 8, !tbaa !27
-  %28 = and i64 %27, -65
-  %29 = icmp ne i64 %28, 0
-  br label %31
+23:                                               ; preds = %7
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = load ptr, ptr %24, align 8, !tbaa !161
+  %26 = load i64, ptr %25, align 8, !tbaa !27
+  %27 = and i64 %26, -65
+  %28 = icmp ne i64 %27, 0
+  br label %30
 
-30:                                               ; preds = %7, %2
-  br label %31
+29:                                               ; preds = %7, %2
+  br label %30
 
-31:                                               ; preds = %2, %30, %24, %8
-  %.0.shrunk = phi i1 [ %narrow.i, %8 ], [ %29, %24 ], [ true, %30 ], [ false, %2 ]
+30:                                               ; preds = %2, %29, %23, %8
+  %.0.shrunk = phi i1 [ %narrow.i, %8 ], [ %28, %23 ], [ true, %29 ], [ false, %2 ]
   %.0 = zext i1 %.0.shrunk to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

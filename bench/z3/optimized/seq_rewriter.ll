@@ -87724,7 +87724,7 @@ _ZN12seq_rewriter10min_lengthERK10ref_vectorI4expr11ast_managerE.exit44: ; preds
 
 34:                                               ; preds = %33
   %35 = icmp ne i64 %.sroa.5107.0.extract.shift, %.sroa.599.0.extract.shift
-  %.not = icmp ult i64 %20, 4294967296
+  %.not = icmp eq i64 %.sroa.5107.0.extract.shift, 0
   %or.cond = or i1 %.not, %35
   br i1 %or.cond, label %_ZN12seq_rewriter7has_varERK10ref_vectorI4expr11ast_managerE.exit.thread, label %36
 
@@ -87926,7 +87926,7 @@ _ZN12seq_rewriter7has_varERK10ref_vectorI4expr11ast_managerE.exit.thread: ; pred
 
 119:                                              ; preds = %_ZN12seq_rewriter7has_varERK10ref_vectorI4expr11ast_managerE.exit.thread
   %120 = icmp ne i64 %.sroa.5107.0.extract.shift, %.sroa.599.0.extract.shift
-  %.not40 = icmp ult i64 %20, 4294967296
+  %.not40 = icmp eq i64 %.sroa.5107.0.extract.shift, 0
   %or.cond41 = or i1 %.not40, %120
   br i1 %or.cond41, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit55, label %121
 
@@ -93614,8 +93614,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryIN12seq
   %23 = icmp ugt i32 %11, 16
   %24 = mul i32 %11, 3
   %25 = icmp ugt i32 %22, %24
-  %or.cond18 = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond18, label %26, label %._crit_edge.thread
+  %or.cond19 = select i1 %23, i1 %25, i1 false
+  br i1 %or.cond19, label %26, label %._crit_edge.thread
 
 26:                                               ; preds = %._crit_edge
   %27 = icmp eq ptr %9, null
@@ -93634,7 +93634,7 @@ _ZN14core_hashtableI18default_hash_entryIN12seq_rewriter8op_cache8op_entryEENS2_
   %31 = zext nneg i32 %30 to i64
   %32 = mul nuw nsw i64 %31, 48
   %33 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %32)
-  %.not11.i.i.i.i.i = icmp ult i32 %29, 2
+  %.not11.i.i.i.i.i = icmp eq i32 %30, 0
   br i1 %.not11.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIN12seq_rewriter8op_cache8op_entryEENS2_10hash_entryENS2_8eq_entryEE11alloc_tableEj.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN14core_hashtableI18default_hash_entryIN12seq_rewriter8op_cache8op_entryEENS2_10hash_entryENS2_8eq_entryEE12delete_tableEv.exit, %.lr.ph.i.i.i.i.i
@@ -101939,11 +101939,11 @@ _ZN6vectorIjLb0EjE3endEv.exit.i:                  ; preds = %_ZN8uint_set6remove
   %.idx9.i = shl nuw nsw i64 %23, 2
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx9.i
   %25 = ptrtoint ptr %19 to i64
-  %.not8.i = icmp ult i32 %22, 4
+  %26 = lshr i64 %23, 2
+  %.not8.i = icmp eq i64 %26, 0
   br i1 %.not8.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN6vectorIjLb0EjE3endEv.exit.i
-  %26 = lshr i64 %23, 2
   %27 = and i64 %.idx9.i, 17179869168
   %scevgep.i.i.i.i = getelementptr i8, ptr %19, i64 %27
   br label %28
@@ -101986,11 +101986,10 @@ _ZN6vectorIjLb0EjE3endEv.exit.i:                  ; preds = %_ZN8uint_set6remove
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %_ZN6vectorIjLb0EjE3endEv.exit.i
   %.pre-phi56.i.i.i.i = phi i32 [ %47, %._crit_edge.loopexit.i.i.i.i ], [ %22, %_ZN6vectorIjLb0EjE3endEv.exit.i ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %19, %_ZN6vectorIjLb0EjE3endEv.exit.i ]
-  switch i32 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi56.i.i.i.i, label %_ZSt4findIPjjET_S1_S1_RKT0_.exit.i [
     i32 3, label %48
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i32 0, label %_ZSt4findIPjjET_S1_S1_RKT0_.exit.i
   ]
 
 48:                                               ; preds = %._crit_edge.i.i.i.i
@@ -102018,9 +102017,6 @@ _ZN6vectorIjLb0EjE3endEv.exit.i:                  ; preds = %_ZN8uint_set6remove
   %58 = icmp eq i32 %57, %1
   %spec.select.i = select i1 %58, ptr %.2.i.i.i.i, ptr %24
   br label %_ZSt4findIPjjET_S1_S1_RKT0_.exit.i
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 _ZSt4findIPjjET_S1_S1_RKT0_.exit.i.loopexit.split.loop.exit: ; preds = %31
   %59 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 4

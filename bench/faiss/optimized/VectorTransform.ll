@@ -7672,11 +7672,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_13eigEmPdS0_i(i64 noundef %0, ptr n
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %38 = lshr i64 %0, 1
-  %.not70 = icmp ult i64 %0, 2
-  br i1 %.not70, label %._crit_edge67, label %.lr.ph62.us
+  %.not70 = icmp eq i64 %38, 0
+  br i1 %.not70, label %._crit_edge67, label %.lr.ph62.us.preheader
 
-.lr.ph62.us:                                      ; preds = %.loopexit, %._crit_edge63.us
-  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %._crit_edge63.us ], [ 0, %.loopexit ]
+.lr.ph62.us.preheader:                            ; preds = %.loopexit
+  %umax = call i64 @llvm.umax.i64(i64 %0, i64 1)
+  br label %.lr.ph62.us
+
+.lr.ph62.us:                                      ; preds = %.lr.ph62.us.preheader, %._crit_edge63.us
+  %indvars.iv84 = phi i64 [ 0, %.lr.ph62.us.preheader ], [ %indvars.iv.next85, %._crit_edge63.us ]
   %39 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv84
   %40 = xor i64 %indvars.iv84, -1
   %41 = add i64 %0, %40
@@ -7700,7 +7704,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_13eigEmPdS0_i(i64 noundef %0, ptr n
   store double %53, ptr %50, align 8, !tbaa !64
   store double %52, ptr %51, align 8, !tbaa !64
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next81, %0
+  %exitcond83.not = icmp eq i64 %indvars.iv.next81, %umax
   br i1 %exitcond83.not, label %._crit_edge63.us, label %49, !llvm.loop !156
 
 ._crit_edge63.us:                                 ; preds = %49

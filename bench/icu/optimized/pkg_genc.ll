@@ -781,18 +781,14 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %.in = phi i32 [ %68, %.preheader.lr.ph ], [ %71, %.loopexit ]
   %.03955 = phi i32 [ -1, %.preheader.lr.ph ], [ %.140.lcssa, %.loopexit ]
-  %.not58 = icmp ult i32 %.in, 4
-  br i1 %.not58, label %.loopexit, label %.lr.ph54.preheader
-
-.lr.ph54.preheader:                               ; preds = %.preheader
   %73 = sext i32 %.in to i64
   %74 = lshr i64 %73, 2
-  %umax = call i64 @llvm.umax.i64(i64 %74, i64 1)
-  br label %.lr.ph54
+  %.not58 = icmp eq i64 %74, 0
+  br i1 %.not58, label %.loopexit, label %.lr.ph54
 
-.lr.ph54:                                         ; preds = %.lr.ph54.preheader, %_ZL7write32P11_FileStreamjj.exit
-  %.153 = phi i64 [ %129, %_ZL7write32P11_FileStreamjj.exit ], [ 0, %.lr.ph54.preheader ]
-  %.14052 = phi i32 [ %.0.i, %_ZL7write32P11_FileStreamjj.exit ], [ %.03955, %.lr.ph54.preheader ]
+.lr.ph54:                                         ; preds = %.preheader, %_ZL7write32P11_FileStreamjj.exit
+  %.153 = phi i64 [ %129, %_ZL7write32P11_FileStreamjj.exit ], [ 0, %.preheader ]
+  %.14052 = phi i32 [ %.0.i, %_ZL7write32P11_FileStreamjj.exit ], [ %.03955, %.preheader ]
   %75 = getelementptr inbounds nuw i32, ptr %10, i64 %.153
   %76 = load i32, ptr %75, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -838,7 +834,7 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
 
 98:                                               ; preds = %91
   %99 = load i32, ptr @_ZL7hexType, align 4, !tbaa !12
-  switch i32 %99, label %.preheader70 [
+  switch i32 %99, label %.preheader71 [
     i32 0, label %100
     i32 1, label %103
   ]
@@ -848,21 +844,21 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
   store i8 48, ptr %.028.i, align 1, !tbaa !23
   %102 = getelementptr inbounds nuw i8, ptr %.028.i, i64 2
   store i8 120, ptr %101, align 1, !tbaa !23
-  br label %.preheader70
+  br label %.preheader71
 
 103:                                              ; preds = %98
   %104 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
   store i8 48, ptr %.028.i, align 1, !tbaa !23
-  br label %.preheader70
+  br label %.preheader71
 
-.preheader70:                                     ; preds = %103, %100, %98
+.preheader71:                                     ; preds = %103, %100, %98
   %.333.i.ph = phi ptr [ %.028.i, %98 ], [ %102, %100 ], [ %104, %103 ]
   br label %105
 
-105:                                              ; preds = %.preheader70, %122
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %122 ], [ 3, %.preheader70 ]
-  %.02635.i = phi i32 [ %.1.i, %122 ], [ 0, %.preheader70 ]
-  %.333.i = phi ptr [ %.4.i, %122 ], [ %.333.i.ph, %.preheader70 ]
+105:                                              ; preds = %.preheader71, %122
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %122 ], [ 3, %.preheader71 ]
+  %.02635.i = phi i32 [ %.1.i, %122 ], [ 0, %.preheader71 ]
+  %.333.i = phi ptr [ %.4.i, %122 ], [ %.333.i.ph, %.preheader71 ]
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i
   %107 = load i8, ptr %106, align 1, !tbaa !23
   %108 = icmp ne i8 %107, 0
@@ -910,7 +906,7 @@ _ZL7write32P11_FileStreamjj.exit:                 ; preds = %93, %123, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %129 = add nuw nsw i64 %.153, 1
-  %exitcond59.not = icmp eq i64 %129, %umax
+  %exitcond59.not = icmp eq i64 %129, %74
   br i1 %exitcond59.not, label %.loopexit, label %.lr.ph54, !llvm.loop !29
 
 ._crit_edge56:                                    ; preds = %.loopexit, %60
@@ -1831,9 +1827,6 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #20
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -48,18 +48,15 @@ define void @_ZN6icu_776BMPSetC2EPKii(ptr noundef nonnull align 8 captures(none)
   %16 = getelementptr i8, ptr %15, i64 -4
   %17 = load i32, ptr %16, align 4, !tbaa !13
   %.not28.i = icmp slt i32 %17, 2049
-  %18 = icmp eq i32 %2, 2
-  %or.cond = or i1 %18, %.not28.i
-  br i1 %or.cond, label %_ZNK6icu_776BMPSet13findCodePointEiii.exit, label %.lr.ph.i.preheader
+  %18 = lshr i32 %9, 1
+  %19 = icmp eq i32 %18, 0
+  %or.cond = select i1 %.not28.i, i1 true, i1 %19
+  br i1 %or.cond, label %_ZNK6icu_776BMPSet13findCodePointEiii.exit, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %13
-  %19 = lshr i32 %9, 1
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %20 = phi i32 [ %26, %.lr.ph.i ], [ %19, %.lr.ph.i.preheader ]
-  %.02033.i = phi i32 [ %..020.i, %.lr.ph.i ], [ %9, %.lr.ph.i.preheader ]
-  %.02132.i = phi i32 [ %.021..i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %13, %.lr.ph.i
+  %20 = phi i32 [ %26, %.lr.ph.i ], [ %18, %13 ]
+  %.02033.i = phi i32 [ %..020.i, %.lr.ph.i ], [ %9, %13 ]
+  %.02132.i = phi i32 [ %.021..i, %.lr.ph.i ], [ 0, %13 ]
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i32, ptr %1, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !13

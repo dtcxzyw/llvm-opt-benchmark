@@ -3128,7 +3128,7 @@ _ZNSt12__shared_ptrIN5arrow12ChunkedArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 
 _ZNSt6vectorIS_ISt10shared_ptrIN5arrow5ArrayEESaIS3_EESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i: ; preds = %58
   store i64 0, ptr %5, align 8
-  %.not.i.i.i.i46 = icmp ult i64 %sext, 4294967296
+  %.not.i.i.i.i46 = icmp eq i64 %66, 0
   br i1 %.not.i.i.i.i46, label %_ZNSt12_Vector_baseISt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS4_EESaIS6_EEC2EmRKS7_.exit.thread.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIS_ISt10shared_ptrIN5arrow5ArrayEESaIS3_EESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
@@ -3154,11 +3154,7 @@ _ZNSt12_Vector_baseISt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS4_EESaIS6_EEC2Em
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !58
   %.not122141 = icmp eq ptr %74, %76
-  br i1 %.not122141, label %.critedge.thread, label %.lr.ph144
-
-.critedge.thread:                                 ; preds = %_ZNSt12_Vector_baseISt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS4_EESaIS6_EEC2EmRKS7_.exit.thread.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br label %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
+  br i1 %.not122141, label %.critedge, label %.lr.ph144
 
 .lr.ph144:                                        ; preds = %_ZNSt12_Vector_baseISt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS4_EESaIS6_EEC2EmRKS7_.exit.thread.i
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3465,9 +3461,9 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE9push_backERKS3_.exit: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %197 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0142, i64 16
   %.not122 = icmp eq ptr %197, %76
-  br i1 %.not122, label %.critedge, label %84
+  br i1 %.not122, label %.critedge.loopexit, label %84
 
-.critedge:                                        ; preds = %196
+.critedge.loopexit:                               ; preds = %196
   %.pre160 = load ptr, ptr %10, align 8, !tbaa !38
   %.phi.trans.insert161 = getelementptr inbounds nuw i8, ptr %.pre160, i64 56
   %.pre162 = load ptr, ptr %.phi.trans.insert161, align 8, !tbaa !140
@@ -3477,42 +3473,40 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE9push_backERKS3_.exit: ; pred
   %.pre167 = ptrtoint ptr %.pre164 to i64
   %.pre169 = sub i64 %.pre166, %.pre167
   %.pre171 = shl i64 %.pre169, 28
-  %.pre172 = ashr i64 %.pre171, 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %198 = icmp ugt i64 %.pre172, 576460752303423487
-  br i1 %198, label %199, label %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
+  br label %.critedge
 
-199:                                              ; preds = %.critedge
+.critedge:                                        ; preds = %.critedge.loopexit, %_ZNSt12_Vector_baseISt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS4_EESaIS6_EEC2EmRKS7_.exit.thread.i
+  %sext123.pre-phi = phi i64 [ %.pre171, %.critedge.loopexit ], [ %sext, %_ZNSt12_Vector_baseISt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS4_EESaIS6_EEC2EmRKS7_.exit.thread.i ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %198 = ashr i64 %sext123.pre-phi, 32
+  %199 = icmp ugt i64 %198, 576460752303423487
+  br i1 %199, label %200, label %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
+
+200:                                              ; preds = %.critedge
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #24
           to label %.noexc67 unwind label %211
 
-.noexc67:                                         ; preds = %199
+.noexc67:                                         ; preds = %200
   unreachable
 
-_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %.critedge.thread, %.critedge
-  %sext123.pre-phi201 = phi i64 [ %sext, %.critedge.thread ], [ %.pre171, %.critedge ]
-  %.pre-phi173200 = phi i64 [ %66, %.critedge.thread ], [ %.pre172, %.critedge ]
-  %.not.i.i.i.i62 = icmp ult i64 %sext123.pre-phi201, 4294967296
+_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %.critedge
+  %.not.i.i.i.i62 = icmp eq i64 %198, 0
   br i1 %.not.i.i.i.i62, label %_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80, label %.lr.ph.preheader.i.i.i.i.i63
 
 .lr.ph.preheader.i.i.i.i.i63:                     ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
-  %200 = shl nuw nsw i64 %.pre-phi173200, 4
-  %201 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %200) #22
-          to label %202 unwind label %211
+  %201 = shl nuw nsw i64 %198, 4
+  %202 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %201) #22
+          to label %.lr.ph147 unwind label %211
 
-202:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i63
-  store ptr %201, ptr %8, align 8, !tbaa !184
-  %203 = getelementptr inbounds nuw %"class.std::shared_ptr.29", ptr %201, i64 %.pre-phi173200
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %201, i8 0, i64 %200, i1 false)
-  %scevgep.i.i.i.i.i64 = getelementptr i8, ptr %201, i64 %200
+.lr.ph147:                                        ; preds = %.lr.ph.preheader.i.i.i.i.i63
+  store ptr %202, ptr %8, align 8, !tbaa !184
+  %203 = getelementptr inbounds nuw %"class.std::shared_ptr.29", ptr %202, i64 %198
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %202, i8 0, i64 %201, i1 false)
+  %scevgep.i.i.i.i.i64 = getelementptr i8, ptr %202, i64 %201
   %204 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %205 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %203, ptr %205, align 8, !tbaa !188
   store ptr %scevgep.i.i.i.i.i64, ptr %204, align 8, !tbaa !187
-  %.not151 = icmp eq i64 %.pre-phi173200, 0
-  br i1 %.not151, label %_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80, label %.lr.ph147
-
-.lr.ph147:                                        ; preds = %202
   %206 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %213
 
@@ -3520,10 +3514,10 @@ _ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80
   %.pre165 = load ptr, ptr %205, align 8, !tbaa !188
   br label %_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80
 
-_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, %_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80.loopexit, %202
-  %207 = phi ptr [ %203, %202 ], [ %.pre165, %_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80.loopexit ], [ null, %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
-  %.lcssa127 = phi ptr [ %scevgep.i.i.i.i.i64, %202 ], [ %287, %_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80.loopexit ], [ null, %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
-  %.lcssa = phi ptr [ %201, %202 ], [ %288, %_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80.loopexit ], [ null, %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
+_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, %_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80.loopexit
+  %207 = phi ptr [ %.pre165, %_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80.loopexit ], [ null, %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
+  %.lcssa127 = phi ptr [ %287, %_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80.loopexit ], [ null, %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
+  %.lcssa = phi ptr [ %288, %_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80.loopexit ], [ null, %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
   store ptr null, ptr %0, align 8, !tbaa !96
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.lcssa, ptr %208, align 8, !tbaa !184
@@ -3534,7 +3528,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %297
 
-211:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i63, %199
+211:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i63, %200
   %212 = landingpad { ptr, i32 }
           cleanup
   br label %296
@@ -4175,7 +4169,7 @@ define void @_ZNK5arrow12ChunkedArray4ViewERKSt10shared_ptrINS_8DataTypeEE(ptr d
 
 _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %3
   store i64 0, ptr %4, align 8
-  %.not.i.i.i.i = icmp ult i64 %sext, 4294967296
+  %.not.i.i.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EEC2EmRKS4_.exit.thread.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i

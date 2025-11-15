@@ -183,17 +183,16 @@ define internal range(i32 -2147483648, 2147483647) i32 @Abc_NtkRenodeEvalBdd(ptr
   %8 = and i64 %7, 255
   %9 = getelementptr i32, ptr %4, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %10 = and i64 %6, 4278190080
-  %.not = icmp eq i64 %10, 0
+  %10 = trunc i64 %6 to i32
+  %11 = lshr i32 %10, 24
+  %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %11 = lshr i64 %6, 24
   %12 = lshr i64 %6, 24
   %13 = and i64 %12, 255
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %9, i8 -100, i64 %umax, i1 false), !tbaa !43
-  %wide.trip.count = and i64 %11, 255
+  tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 -100, i64 %13, i1 false), !tbaa !43
+  %wide.trip.count = zext nneg i32 %11 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -291,19 +290,19 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   %57 = call ptr @Extra_Reorder(ptr noundef %55, ptr noundef %56, ptr noundef %54, ptr noundef nonnull %3) #8
   call void @Cudd_Ref(ptr noundef %57) #8
   %.val29 = load i64, ptr %5, align 4
-  %58 = and i64 %.val29, 4278190080
-  %.not36 = icmp eq i64 %58, 0
+  %58 = trunc i64 %.val29 to i32
+  %59 = lshr i32 %58, 24
+  %.not36 = icmp eq i32 %59, 0
   br i1 %.not36, label %._crit_edge35, label %.lr.ph34.preheader
 
 .lr.ph34.preheader:                               ; preds = %If_CutTruth.exit
-  %59 = lshr i64 %.val29, 24
-  %wide.trip.count43 = and i64 %59, 255
+  %wide.trip.count41 = zext nneg i32 %59 to i64
   br label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %67
-  %indvars.iv40 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next41, %67 ]
+  %indvars.iv39 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next40, %67 ]
   %.02332 = phi i8 [ 0, %.lr.ph34.preheader ], [ %.124, %67 ]
-  %60 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv40
+  %60 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv39
   %61 = load i32, ptr %60, align 4, !tbaa !44
   %62 = icmp sgt i32 %61, -1
   br i1 %62, label %63, label %67
@@ -317,9 +316,9 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
 
 67:                                               ; preds = %.lr.ph34, %63
   %.124 = phi i8 [ %64, %63 ], [ %.02332, %.lr.ph34 ]
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
-  br i1 %exitcond44.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !75
+  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
+  %exitcond42.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count41
+  br i1 %exitcond42.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !75
 
 ._crit_edge35:                                    ; preds = %67, %If_CutTruth.exit
   %68 = call i32 @Cudd_DagSize(ptr noundef %57) #8
@@ -347,8 +346,7 @@ define internal i32 @Abc_NtkRenodeEvalSop(ptr noundef readonly captures(none) %0
   %9 = getelementptr i32, ptr %8, i64 %6
   %10 = lshr i64 %4, 24
   %11 = and i64 %10, 255
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %9, i8 1, i64 %umax, i1 false), !tbaa !43
+  tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 1, i64 %11, i1 false), !tbaa !43
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %2
@@ -461,8 +459,7 @@ define internal i32 @Abc_NtkRenodeEvalCnf(ptr noundef readonly captures(none) %0
   %9 = getelementptr i32, ptr %8, i64 %6
   %10 = lshr i64 %4, 24
   %11 = and i64 %10, 255
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %9, i8 1, i64 %umax, i1 false), !tbaa !43
+  tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 1, i64 %11, i1 false), !tbaa !43
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %2
@@ -1003,8 +1000,7 @@ define internal range(i32 -2147483648, 4096) i32 @Abc_NtkRenodeEvalMv(ptr nounde
   %9 = getelementptr i32, ptr %8, i64 %6
   %10 = lshr i64 %4, 24
   %11 = and i64 %10, 255
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %9, i8 1, i64 %umax, i1 false), !tbaa !43
+  tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 1, i64 %11, i1 false), !tbaa !43
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %2
@@ -1631,8 +1627,7 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
 .lr.ph37.preheader:                               ; preds = %.preheader
   %51 = lshr i64 %.val26, 24
   %52 = and i64 %51, 255
-  %umax = tail call i64 @llvm.umax.i64(i64 %52, i64 1)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %8, i8 100, i64 %umax, i1 false), !tbaa !43
+  tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 100, i64 %52, i1 false), !tbaa !43
   br label %.loopexit
 
 53:                                               ; preds = %If_CutTruth.exit
@@ -1722,9 +1717,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7

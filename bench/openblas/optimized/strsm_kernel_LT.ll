@@ -222,7 +222,7 @@ solve.exit187:                                    ; preds = %.split47.us.i172
   %.2131 = phi ptr [ %82, %solve.exit187 ], [ %.1130262, %.preheader246 ]
   %.2127 = phi i64 [ %83, %solve.exit187 ], [ %.1126263, %.preheader246 ]
   %85 = lshr i64 %.1124264, 1
-  %.not154 = icmp samesign ult i64 %.1124264, 2
+  %.not154 = icmp eq i64 %85, 0
   br i1 %.not154, label %.loopexit247, label %.preheader246, !llvm.loop !12
 
 .loopexit247:                                     ; preds = %84, %._crit_edge
@@ -248,7 +248,8 @@ solve.exit187:                                    ; preds = %.split47.us.i172
   br label %94
 
 94:                                               ; preds = %.preheader242, %173
-  %.1289 = phi i64 [ 2, %.preheader242 ], [ %174, %173 ]
+  %.not147 = phi i1 [ false, %.preheader242 ], [ true, %173 ]
+  %.1289 = phi i64 [ 2, %.preheader242 ], [ 1, %173 ]
   %.1142288 = phi ptr [ %.0141.lcssa, %.preheader242 ], [ %.2143, %173 ]
   %.1145287 = phi ptr [ %.0144.lcssa, %.preheader242 ], [ %.2146, %173 ]
   %95 = and i64 %.1289, %1
@@ -455,7 +456,7 @@ solve.exit239:                                    ; preds = %.split47.us.i224
   %.5134 = phi ptr [ %165, %solve.exit239 ], [ %.4133284, %.preheader ]
   %.5 = phi i64 [ %166, %solve.exit239 ], [ %.4285, %.preheader ]
   %168 = lshr i64 %.3286, 1
-  %.not150 = icmp samesign ult i64 %.3286, 2
+  %.not150 = icmp eq i64 %168, 0
   br i1 %.not150, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %167, %._crit_edge279
@@ -468,8 +469,6 @@ solve.exit239:                                    ; preds = %.split47.us.i224
 173:                                              ; preds = %.loopexit, %94
   %.2146 = phi ptr [ %172, %.loopexit ], [ %.1145287, %94 ]
   %.2143 = phi ptr [ %170, %.loopexit ], [ %.1142288, %94 ]
-  %174 = lshr i64 %.1289, 1
-  %.not147 = icmp samesign ult i64 %.1289, 2
   br i1 %.not147, label %.loopexit243, label %94, !llvm.loop !16
 
 .loopexit243:                                     ; preds = %173, %._crit_edge270

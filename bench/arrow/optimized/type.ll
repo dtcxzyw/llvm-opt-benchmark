@@ -73949,20 +73949,17 @@ _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i:           ; preds = %_ZL20XXH3_accumulat
 
 ._crit_edge:                                      ; preds = %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i, %115
   %160 = mul nuw nsw i64 %117, 576
-  %161 = icmp ult i64 %.recomposed, 1152
-  tail call void @llvm.assume(i1 %161)
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 %160
-  %.not10 = icmp samesign ult i64 %.recomposed, 64
-  br i1 %.not10, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph8.preheader
+  %161 = lshr i64 %.recomposed, 6
+  %162 = icmp ult i64 %.recomposed, 1152
+  tail call void @llvm.assume(i1 %162)
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 %160
+  %.not10 = icmp eq i64 %161, 0
+  br i1 %.not10, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph8
 
-.lr.ph8.preheader:                                ; preds = %._crit_edge
-  %163 = lshr i64 %.recomposed, 6
-  br label %.lr.ph8
-
-.lr.ph8:                                          ; preds = %.lr.ph8.preheader, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7
-  %.0.i.i6 = phi i64 [ %186, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7 ], [ 0, %.lr.ph8.preheader ]
+.lr.ph8:                                          ; preds = %._crit_edge, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7
+  %.0.i.i6 = phi i64 [ %186, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7 ], [ 0, %._crit_edge ]
   %164 = shl nuw nsw i64 %.0.i.i6, 6
-  %165 = getelementptr inbounds nuw i8, ptr %162, i64 %164
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 %164
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull %166, i32 0, i32 3, i32 1)
   %167 = shl nuw nsw i64 %.0.i.i6, 3
@@ -73994,7 +73991,7 @@ _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i:           ; preds = %_ZL20XXH3_accumulat
 
 _ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7:      ; preds = %169
   %186 = add nuw nsw i64 %.0.i.i6, 1
-  %exitcond15.not = icmp eq i64 %186, %163
+  %exitcond15.not = icmp eq i64 %186, %161
   br i1 %exitcond15.not, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph8, !llvm.loop !2685
 
 _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7, %._crit_edge
@@ -77202,7 +77199,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 50:                                               ; preds = %.lr.ph.i.i.i.i.i
   %51 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i.i.i.i
   store i32 %48, ptr %51, align 4, !tbaa !358
-  %.not7.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  %.not7.i.i.i = icmp eq i64 %.0920.i.i56.i.i.i, 0
   br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !2783
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i: ; preds = %50, %.lr.ph.i.i.i.i.i, %46
@@ -77400,7 +77397,7 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPiS
 40:                                               ; preds = %.lr.ph.i.i.i.us
   %41 = getelementptr inbounds i32, ptr %.fr27, i64 %.019.i.i.i.us
   store i32 %38, ptr %41, align 4, !tbaa !358
-  %.not7.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  %.not7.i.us = icmp eq i64 %.0920.i.i56.i.us, 0
   br i1 %.not7.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !2783
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %40, %35
@@ -81380,7 +81377,7 @@ define linkonce_odr void @_ZN5arrow14NestedSelectorINS_12ChunkedArrayELb0EE8GetC
 
 19:                                               ; preds = %4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.not67 = icmp ult i64 %sext, 4294967296
+  %.not67 = icmp eq i64 %16, 0
   br i1 %.not67, label %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_M_allocateEm.exit.i: ; preds = %19
@@ -87301,7 +87298,7 @@ define linkonce_odr void @_ZN5arrow14NestedSelectorINS_12ChunkedArrayELb1EE8GetC
 
 19:                                               ; preds = %4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.not62 = icmp ult i64 %sext, 4294967296
+  %.not62 = icmp eq i64 %16, 0
   br i1 %.not62, label %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_M_allocateEm.exit.i: ; preds = %19

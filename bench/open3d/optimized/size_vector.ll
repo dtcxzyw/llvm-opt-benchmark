@@ -40835,11 +40835,11 @@ define linkonce_odr hidden void @_ZZN8pybind116detail24vector_if_equal_operatorI
   %.idx11 = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx11
   %9 = ptrtoint ptr %8 to i64
-  %.not10 = icmp ult i32 %6, 4
+  %10 = lshr i64 %7, 2
+  %.not10 = icmp eq i64 %10, 0
   br i1 %.not10, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
-  %10 = lshr i64 %7, 2
   %11 = load i64, ptr %2, align 8, !tbaa !124
   %12 = and i64 %.idx11, 34359738336
   %scevgep.i.i.i = getelementptr i8, ptr %4, i64 %12
@@ -40862,13 +40862,13 @@ define linkonce_odr hidden void @_ZZN8pybind116detail24vector_if_equal_operatorI
   %21 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
   %22 = load i64, ptr %21, align 8, !tbaa !124
   %23 = icmp eq i64 %22, %11
-  br i1 %23, label %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit27, label %24
+  br i1 %23, label %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit28, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 24
   %26 = load i64, ptr %25, align 8, !tbaa !124
   %27 = icmp eq i64 %26, %11
-  br i1 %27, label %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit29, label %28
+  br i1 %27, label %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit30, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 32
@@ -40883,11 +40883,10 @@ define linkonce_odr hidden void @_ZZN8pybind116detail24vector_if_equal_operatorI
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %3
   %.pre-phi56.i.i.i = phi i32 [ %32, %._crit_edge.loopexit.i.i.i ], [ %6, %3 ]
   %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %4, %3 ]
-  switch i32 %.pre-phi56.i.i.i, label %._crit_edge.i.i.i.unreachabledefault [
+  switch i32 %.pre-phi56.i.i.i, label %_ZSt4findIPllET_S1_S1_RKT0_.exit.thread [
     i32 3, label %33
     i32 2, label %._crit_edge._crit_edge.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i
-    i32 0, label %_ZSt4findIPllET_S1_S1_RKT0_.exit.thread
   ]
 
 ._crit_edge._crit_edge52.i.i.i:                   ; preds = %._crit_edge.i.i.i
@@ -40930,16 +40929,16 @@ _ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit: ; preds = %16
   %49 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
   br label %_ZSt4findIPllET_S1_S1_RKT0_.exit
 
-_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit27: ; preds = %20
+_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit28: ; preds = %20
   %50 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
   br label %_ZSt4findIPllET_S1_S1_RKT0_.exit
 
-_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit29: ; preds = %24
+_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit30: ; preds = %24
   %51 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 24
   br label %_ZSt4findIPllET_S1_S1_RKT0_.exit
 
-_ZSt4findIPllET_S1_S1_RKT0_.exit:                 ; preds = %13, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit27, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit29, %33, %39, %45
-  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %33 ], [ %.1.i.i.i, %39 ], [ %.2.i.i.i, %45 ], [ %49, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit27 ], [ %51, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit29 ], [ %.02946.i.i.i, %13 ]
+_ZSt4findIPllET_S1_S1_RKT0_.exit:                 ; preds = %13, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit28, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit30, %33, %39, %45
+  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %33 ], [ %.1.i.i.i, %39 ], [ %.2.i.i.i, %45 ], [ %49, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit28 ], [ %51, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit30 ], [ %.02946.i.i.i, %13 ]
   %.not = icmp eq ptr %.028.i.i.i, %8
   br i1 %.not, label %_ZSt4findIPllET_S1_S1_RKT0_.exit.thread, label %52
 
@@ -40970,10 +40969,7 @@ _ZN6open3d4core15SmallVectorImplIlE5eraseEPKl.exit: ; preds = %57, %58, %60
   store i32 %63, ptr %5, align 8, !tbaa !1342
   ret void
 
-._crit_edge.i.i.i.unreachabledefault:             ; preds = %._crit_edge.i.i.i
-  unreachable
-
-_ZSt4findIPllET_S1_S1_RKT0_.exit.thread:          ; preds = %._crit_edge.i.i.i, %45, %_ZSt4findIPllET_S1_S1_RKT0_.exit
+_ZSt4findIPllET_S1_S1_RKT0_.exit.thread:          ; preds = %45, %._crit_edge.i.i.i, %_ZSt4findIPllET_S1_S1_RKT0_.exit
   %64 = tail call ptr @__cxa_allocate_exception(i64 16) #31
   invoke void @_ZN8pybind1111value_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %64)
           to label %65 unwind label %66
@@ -41184,11 +41180,11 @@ _ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_
   %14 = zext i32 %13 to i64
   %.idx4.i = shl nuw nsw i64 %14, 3
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx4.i
-  %.not.i = icmp ult i32 %13, 4
+  %16 = lshr i64 %14, 2
+  %.not.i = icmp eq i64 %16, 0
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit
-  %16 = lshr i64 %14, 2
   %17 = load i64, ptr %0, align 8, !tbaa !124
   %18 = and i64 %.idx4.i, 34359738336
   %scevgep.i.i.i.i = getelementptr i8, ptr %11, i64 %18
@@ -41232,11 +41228,10 @@ _ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %_ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit
   %.pre-phi56.i.i.i.i = phi i32 [ %38, %._crit_edge.loopexit.i.i.i.i ], [ %13, %_ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %11, %_ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS9_E4typeEEEOSC_.exit ]
-  switch i32 %.pre-phi56.i.i.i.i, label %default.unreachable [
+  switch i32 %.pre-phi56.i.i.i.i, label %55 [
     i32 3, label %39
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i
-    i32 0, label %55
   ]
 
 ._crit_edge._crit_edge52.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i
@@ -41274,9 +41269,6 @@ _ZN8pybind116detail7cast_opIRKN6open3d4core10SizeVectorEEENS0_11type_casterINS0_
   %53 = load i64, ptr %.2.i.i.i.i, align 8, !tbaa !124
   %54 = icmp eq i64 %53, %52
   br i1 %54, label %_ZZN8pybind116detail24vector_if_equal_operatorIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEENKUlRKS4_RKlE0_clESI_SK_.exit, label %55
-
-default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
-  unreachable
 
 55:                                               ; preds = %51, %._crit_edge.i.i.i.i
   br label %_ZZN8pybind116detail24vector_if_equal_operatorIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEENKUlRKS4_RKlE0_clESI_SK_.exit

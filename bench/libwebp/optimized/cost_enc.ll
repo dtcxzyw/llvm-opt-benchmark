@@ -119,7 +119,7 @@ define hidden void @VP8CalculateLevelCosts(ptr noundef %0) local_unnamed_addr #0
   %43 = lshr i16 %.01217.i, 1
   %44 = lshr i32 %.01316.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not.i = icmp samesign ult i32 %.01316.i, 2
+  %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %VariableLevelCost.exit, label %.lr.ph.i, !llvm.loop !11
 
 VariableLevelCost.exit:                           ; preds = %42, %26
@@ -431,11 +431,11 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr noundef r
   %.0.i = select i1 %17, i32 %20, i32 %16
   %21 = add nuw i32 %.0.i, 65536
   store i32 %21, ptr %9, align 4, !tbaa !38
-  br label %110
+  br label %112
 
 22:                                               ; preds = %.lr.ph65, %._crit_edge61
   %.03764 = phi i32 [ %3, %.lr.ph65 ], [ %.lcssa51, %._crit_edge61 ]
-  %.03863 = phi ptr [ %9, %.lr.ph65 ], [ %100, %._crit_edge61 ]
+  %.03863 = phi ptr [ %9, %.lr.ph65 ], [ %102, %._crit_edge61 ]
   %23 = load i32, ptr %.03863, align 4, !tbaa !38
   %24 = icmp ugt i32 %23, -131073
   %25 = add nsw i32 %23, 1
@@ -519,75 +519,77 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr noundef r
   %74 = load i16, ptr %73, align 2, !tbaa !9
   %75 = zext i16 %74 to i32
   %76 = load i16, ptr %72, align 4, !tbaa !9
-  %.not4356 = icmp ult i16 %76, 2
+  %77 = zext i16 %76 to i32
+  %78 = lshr i32 %77, 1
+  %.not4356 = icmp eq i32 %78, 0
   br i1 %.not4356, label %._crit_edge61, label %.lr.ph60
 
 .lr.ph60:                                         ; preds = %68
-  %77 = zext i16 %76 to i32
-  %78 = getelementptr inbounds nuw i8, ptr %.139.lcssa, i64 12
-  br label %79
+  %79 = getelementptr inbounds nuw i8, ptr %.139.lcssa, i64 12
+  br label %80
 
-79:                                               ; preds = %.lr.ph60, %94
-  %indvars.iv73 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next74, %94 ]
-  %.03657 = phi i32 [ %77, %.lr.ph60 ], [ %80, %94 ]
-  %80 = lshr i32 %.03657, 1
-  %81 = and i32 %.03657, 2
-  %.not44 = icmp eq i32 %81, 0
-  br i1 %.not44, label %94, label %82
+80:                                               ; preds = %.lr.ph60, %95
+  %indvars.iv73 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next74, %95 ]
+  %81 = phi i32 [ %78, %.lr.ph60 ], [ %96, %95 ]
+  %.03657 = phi i32 [ %77, %.lr.ph60 ], [ %81, %95 ]
+  %82 = and i32 %.03657, 2
+  %.not44 = icmp eq i32 %82, 0
+  br i1 %.not44, label %95, label %83
 
-82:                                               ; preds = %79
-  %83 = trunc nuw nsw i64 %indvars.iv73 to i32
-  %84 = shl i32 2, %83
-  %85 = and i32 %84, %75
-  %.not69 = icmp eq i32 %85, 0
-  %86 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv73
-  %87 = load i32, ptr %86, align 4, !tbaa !38
-  %88 = icmp ugt i32 %87, -131073
-  %89 = add nsw i32 %87, 1
-  %90 = lshr i32 %89, 1
-  %91 = and i32 %90, 2147450879
-  %.0.i49 = select i1 %88, i32 %91, i32 %87
-  %92 = select i1 %.not69, i32 65536, i32 65537
-  %93 = add nuw i32 %92, %.0.i49
-  store i32 %93, ptr %86, align 4, !tbaa !38
-  br label %94
+83:                                               ; preds = %80
+  %84 = trunc nuw nsw i64 %indvars.iv73 to i32
+  %85 = shl i32 2, %84
+  %86 = and i32 %85, %75
+  %.not69 = icmp eq i32 %86, 0
+  %87 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv73
+  %88 = load i32, ptr %87, align 4, !tbaa !38
+  %89 = icmp ugt i32 %88, -131073
+  %90 = add nsw i32 %88, 1
+  %91 = lshr i32 %90, 1
+  %92 = and i32 %91, 2147450879
+  %.0.i49 = select i1 %89, i32 %92, i32 %88
+  %93 = select i1 %.not69, i32 65536, i32 65537
+  %94 = add nuw i32 %93, %.0.i49
+  store i32 %94, ptr %87, align 4, !tbaa !38
+  br label %95
 
-94:                                               ; preds = %82, %79
+95:                                               ; preds = %83, %80
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %.not43 = icmp samesign ult i32 %.03657, 4
-  br i1 %.not43, label %._crit_edge61, label %79, !llvm.loop !48
+  %96 = lshr i32 %81, 1
+  %.not43 = icmp eq i32 %96, 0
+  br i1 %.not43, label %._crit_edge61, label %80, !llvm.loop !48
 
-._crit_edge61:                                    ; preds = %94, %68, %._crit_edge
-  %.sink82 = phi i64 [ 44, %._crit_edge ], [ 88, %68 ], [ 88, %94 ]
-  %95 = sext i32 %.lcssa51 to i64
-  %96 = getelementptr inbounds i8, ptr @VP8EncBands, i64 %95
-  %97 = load i8, ptr %96, align 1, !tbaa !8
-  %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %5, i64 %98
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 %.sink82
-  %101 = load i32, ptr %10, align 4, !tbaa !40
-  %.not = icmp sgt i32 %.lcssa51, %101
+._crit_edge61:                                    ; preds = %95, %68, %._crit_edge
+  %.sink83 = phi i64 [ 44, %._crit_edge ], [ 88, %68 ], [ 88, %95 ]
+  %97 = sext i32 %.lcssa51 to i64
+  %98 = getelementptr inbounds i8, ptr @VP8EncBands, i64 %97
+  %99 = load i8, ptr %98, align 1, !tbaa !8
+  %100 = zext i8 %99 to i64
+  %101 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %5, i64 %100
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 %.sink83
+  %103 = load i32, ptr %10, align 4, !tbaa !40
+  %.not = icmp sgt i32 %.lcssa51, %103
   br i1 %.not, label %._crit_edge66, label %22, !llvm.loop !49
 
 ._crit_edge66:                                    ; preds = %._crit_edge61, %.preheader
-  %.038.lcssa = phi ptr [ %9, %.preheader ], [ %100, %._crit_edge61 ]
+  %.038.lcssa = phi ptr [ %9, %.preheader ], [ %102, %._crit_edge61 ]
   %.037.lcssa = phi i32 [ %3, %.preheader ], [ %.lcssa51, %._crit_edge61 ]
-  %102 = icmp slt i32 %.037.lcssa, 16
-  br i1 %102, label %103, label %110
+  %104 = icmp slt i32 %.037.lcssa, 16
+  br i1 %104, label %105, label %112
 
-103:                                              ; preds = %._crit_edge66
-  %104 = load i32, ptr %.038.lcssa, align 4, !tbaa !38
-  %105 = icmp ugt i32 %104, -131073
-  %106 = add nsw i32 %104, 1
-  %107 = lshr i32 %106, 1
-  %108 = and i32 %107, 2147450879
-  %.0.i50 = select i1 %105, i32 %108, i32 %104
-  %109 = add nuw i32 %.0.i50, 65536
-  store i32 %109, ptr %.038.lcssa, align 4, !tbaa !38
-  br label %110
+105:                                              ; preds = %._crit_edge66
+  %106 = load i32, ptr %.038.lcssa, align 4, !tbaa !38
+  %107 = icmp ugt i32 %106, -131073
+  %108 = add nsw i32 %106, 1
+  %109 = lshr i32 %108, 1
+  %110 = and i32 %109, 2147450879
+  %.0.i50 = select i1 %107, i32 %110, i32 %106
+  %111 = add nuw i32 %.0.i50, 65536
+  store i32 %111, ptr %.038.lcssa, align 4, !tbaa !38
+  br label %112
 
-110:                                              ; preds = %._crit_edge66, %103, %15
-  %.0 = phi i32 [ 0, %15 ], [ 1, %103 ], [ 1, %._crit_edge66 ]
+112:                                              ; preds = %._crit_edge66, %105, %15
+  %.0 = phi i32 [ 0, %15 ], [ 1, %105 ], [ 1, %._crit_edge66 ]
   ret i32 %.0
 }
 

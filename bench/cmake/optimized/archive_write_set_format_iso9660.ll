@@ -4743,7 +4743,7 @@ define internal fastcc range(i32 -30, 1) i32 @isofile_gen_utility_names(ptr noun
   %.pr = load i64, ptr %4, align 8, !tbaa !226
   %50 = icmp ugt i64 %.pr, 1
   %.pre213 = load ptr, ptr %3, align 8, !tbaa !227
-  br i1 %50, label %.lr.ph, label %._crit_edge.thread
+  br i1 %50, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %49, %61
   %51 = phi i64 [ %52, %61 ], [ %.pr, %49 ]
@@ -4751,34 +4751,32 @@ define internal fastcc range(i32 -30, 1) i32 @isofile_gen_utility_names(ptr noun
   %53 = getelementptr inbounds nuw i8, ptr %.pre213, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !68
   %55 = icmp eq i8 %54, 0
-  br i1 %55, label %56, label %.lr.ph208.preheader
+  br i1 %55, label %56, label %._crit_edge
 
 56:                                               ; preds = %.lr.ph
   %57 = getelementptr i8, ptr %.pre213, i64 %51
   %58 = getelementptr i8, ptr %57, i64 -1
   %59 = load i8, ptr %58, align 1, !tbaa !68
   %60 = icmp eq i8 %59, 47
-  br i1 %60, label %61, label %.lr.ph208.preheader
+  br i1 %60, label %61, label %._crit_edge
 
 61:                                               ; preds = %56
   store i64 %52, ptr %4, align 8, !tbaa !226
   %62 = icmp ugt i64 %52, 1
-  br i1 %62, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !228
+  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !228
 
-._crit_edge.thread:                               ; preds = %61, %49
-  store i64 0, ptr %4, align 8, !tbaa !226
-  br label %._crit_edge209
-
-.lr.ph208.preheader:                              ; preds = %.lr.ph, %56
-  %63 = lshr i64 %51, 1
+._crit_edge:                                      ; preds = %61, %56, %.lr.ph, %49
+  %.lcssa = phi i64 [ %.pr, %49 ], [ %51, %.lr.ph ], [ %51, %56 ], [ %52, %61 ]
+  %63 = lshr i64 %.lcssa, 1
   store i64 %63, ptr %4, align 8, !tbaa !226
-  br label %.lr.ph208
+  %.not187203 = icmp eq i64 %63, 0
+  br i1 %.not187203, label %._crit_edge209, label %.lr.ph208
 
-.lr.ph208:                                        ; preds = %.lr.ph208.preheader, %74
-  %.0157206 = phi i64 [ %.1158, %74 ], [ %63, %.lr.ph208.preheader ]
-  %.0159205 = phi ptr [ %.1160, %74 ], [ %.pre213, %.lr.ph208.preheader ]
-  %storemerge204 = phi i64 [ %76, %74 ], [ %63, %.lr.ph208.preheader ]
-  %64 = phi ptr [ %75, %74 ], [ %.pre213, %.lr.ph208.preheader ]
+.lr.ph208:                                        ; preds = %._crit_edge, %74
+  %.0157206 = phi i64 [ %.1158, %74 ], [ %63, %._crit_edge ]
+  %.0159205 = phi ptr [ %.1160, %74 ], [ %.pre213, %._crit_edge ]
+  %storemerge204 = phi i64 [ %76, %74 ], [ %63, %._crit_edge ]
+  %64 = phi ptr [ %75, %74 ], [ %.pre213, %._crit_edge ]
   %65 = load i8, ptr %64, align 1, !tbaa !68
   %66 = icmp eq i8 %65, 0
   br i1 %66, label %67, label %74
@@ -4805,12 +4803,12 @@ define internal fastcc range(i32 -30, 1) i32 @isofile_gen_utility_names(ptr noun
   br i1 %.not187, label %._crit_edge209.loopexit, label %.lr.ph208, !llvm.loop !229
 
 ._crit_edge209.loopexit:                          ; preds = %74
-  %77 = shl i64 %.1158, 1
+  %77 = shl nuw i64 %.1158, 1
   br label %._crit_edge209
 
-._crit_edge209:                                   ; preds = %._crit_edge209.loopexit, %._crit_edge.thread
-  %.0159.lcssa = phi ptr [ %.pre213, %._crit_edge.thread ], [ %.1160, %._crit_edge209.loopexit ]
-  %.0157.lcssa = phi i64 [ 0, %._crit_edge.thread ], [ %77, %._crit_edge209.loopexit ]
+._crit_edge209:                                   ; preds = %._crit_edge209.loopexit, %._crit_edge
+  %.0159.lcssa = phi ptr [ %.pre213, %._crit_edge ], [ %.1160, %._crit_edge209.loopexit ]
+  %.0157.lcssa = phi i64 [ 0, %._crit_edge ], [ %77, %._crit_edge209.loopexit ]
   %78 = call ptr @archive_string_ensure(ptr noundef nonnull %11, i64 noundef %.0157.lcssa) #23
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.critedge.sink.split, label %80
@@ -4878,20 +4876,20 @@ define internal fastcc range(i32 -30, 1) i32 @isofile_gen_utility_names(ptr noun
 
 .thread195:                                       ; preds = %94, %91, %87
   %.not190 = icmp eq ptr %.0170, %86
-  br i1 %.not190, label %.preheader230, label %103
+  br i1 %.not190, label %.preheader225, label %103
 
 103:                                              ; preds = %.thread195
   %104 = add i64 %.0165, 1
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %86, ptr nonnull align 1 %.0170, i64 %104, i1 false)
-  br label %.preheader230
+  br label %.preheader225
 
-.preheader230:                                    ; preds = %103, %.thread195
+.preheader225:                                    ; preds = %103, %.thread195
   br label %105
 
-105:                                              ; preds = %.preheader230, %.thread196
-  %.2167 = phi i64 [ %.5, %.thread196 ], [ %.0165, %.preheader230 ]
+105:                                              ; preds = %.preheader225, %.thread196
+  %.2167 = phi i64 [ %.5, %.thread196 ], [ %.0165, %.preheader225 ]
   %.not191 = icmp eq i64 %.2167, 0
-  br i1 %.not191, label %.preheader229, label %106
+  br i1 %.not191, label %.preheader224, label %106
 
 106:                                              ; preds = %105
   %107 = getelementptr i8, ptr %86, i64 %.2167
@@ -4960,13 +4958,13 @@ define internal fastcc range(i32 -30, 1) i32 @isofile_gen_utility_names(ptr noun
 .thread196:                                       ; preds = %113, %142, %138, %133, %128, %126
   %.5 = phi i64 [ %129, %142 ], [ %.4, %138 ], [ %.4, %133 ], [ %.4, %128 ], [ %.4, %126 ], [ %.3, %113 ]
   %143 = icmp eq i64 %.2167, %.5
-  br i1 %143, label %.preheader229, label %105
+  br i1 %143, label %.preheader224, label %105
 
-.preheader229:                                    ; preds = %.thread196, %105
+.preheader224:                                    ; preds = %.thread196, %105
   br label %144
 
-144:                                              ; preds = %.backedge, %.preheader229
-  %.3173 = phi ptr [ %86, %.preheader229 ], [ %.3173.be, %.backedge ]
+144:                                              ; preds = %.backedge, %.preheader224
+  %.3173 = phi ptr [ %86, %.preheader224 ], [ %.3173.be, %.backedge ]
   %145 = load i8, ptr %.3173, align 1, !tbaa !68
   switch i8 %145, label %172 [
     i8 0, label %174

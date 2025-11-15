@@ -984,81 +984,80 @@ define void @WebPBlendAlpha(ptr noundef readonly captures(address_is_null) %0, i
   br label %.preheader162
 
 .preheader162:                                    ; preds = %.preheader162.preheader, %._crit_edge
-  %193 = phi i32 [ %232, %._crit_edge ], [ %185, %.preheader162.preheader ]
-  %194 = phi i32 [ %233, %._crit_edge ], [ %189, %.preheader162.preheader ]
-  %.1142166 = phi i32 [ %237, %._crit_edge ], [ 0, %.preheader162.preheader ]
-  %.0147165 = phi ptr [ %236, %._crit_edge ], [ %192, %.preheader162.preheader ]
+  %193 = phi i32 [ %231, %._crit_edge ], [ %185, %.preheader162.preheader ]
+  %194 = phi i32 [ %232, %._crit_edge ], [ %189, %.preheader162.preheader ]
+  %.1142166 = phi i32 [ %236, %._crit_edge ], [ 0, %.preheader162.preheader ]
+  %.0147165 = phi ptr [ %235, %._crit_edge ], [ %192, %.preheader162.preheader ]
   %195 = icmp sgt i32 %194, 0
   br i1 %195, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader162, %228
-  %indvars.iv = phi i64 [ %indvars.iv.next, %228 ], [ 0, %.preheader162 ]
+.lr.ph:                                           ; preds = %.preheader162, %227
+  %indvars.iv = phi i64 [ %indvars.iv.next, %227 ], [ 0, %.preheader162 ]
   %196 = getelementptr inbounds nuw i32, ptr %.0147165, i64 %indvars.iv
   %197 = load i32, ptr %196, align 4, !tbaa !19
   %198 = lshr i32 %197, 24
-  %.not159 = icmp eq i32 %198, 255
-  br i1 %.not159, label %228, label %199
+  %trunc = trunc nuw i32 %198 to i8
+  switch i8 %trunc, label %199 [
+    i8 -1, label %227
+    i8 0, label %.sink.split
+  ]
 
 199:                                              ; preds = %.lr.ph
-  %.not160 = icmp ult i32 %197, 16777216
-  br i1 %.not160, label %.sink.split, label %200
-
-200:                                              ; preds = %199
-  %201 = lshr i32 %197, 16
-  %202 = and i32 %201, 255
-  %203 = lshr i32 %197, 8
-  %204 = and i32 %203, 255
-  %205 = and i32 %197, 255
-  %206 = xor i32 %198, 255
-  %207 = mul nuw nsw i32 %206, %4
-  %208 = mul nuw nsw i32 %202, %198
-  %209 = add nuw nsw i32 %207, %208
-  %210 = mul nuw nsw i32 %209, 257
-  %211 = add nuw nsw i32 %210, 256
-  %212 = and i32 %211, 16711680
-  %213 = mul nuw nsw i32 %206, %6
-  %214 = mul nuw nsw i32 %204, %198
-  %215 = add nuw nsw i32 %213, %214
-  %216 = mul nuw nsw i32 %215, 257
-  %217 = add nuw nsw i32 %216, 256
-  %218 = mul nuw nsw i32 %206, %7
-  %219 = mul nuw nsw i32 %205, %198
-  %220 = add nuw nsw i32 %218, %219
-  %221 = mul nuw nsw i32 %220, 257
-  %222 = add nuw nsw i32 %221, 256
-  %223 = lshr i32 %222, 16
-  %224 = lshr i32 %217, 8
-  %225 = and i32 %224, 261888
-  %226 = or disjoint i32 %212, %223
-  %227 = or i32 %226, %225
+  %200 = lshr i32 %197, 16
+  %201 = and i32 %200, 255
+  %202 = lshr i32 %197, 8
+  %203 = and i32 %202, 255
+  %204 = and i32 %197, 255
+  %205 = xor i32 %198, 255
+  %206 = mul nuw nsw i32 %205, %4
+  %207 = mul nuw nsw i32 %201, %198
+  %208 = add nuw nsw i32 %206, %207
+  %209 = mul nuw nsw i32 %208, 257
+  %210 = add nuw nsw i32 %209, 256
+  %211 = and i32 %210, 16711680
+  %212 = mul nuw nsw i32 %205, %6
+  %213 = mul nuw nsw i32 %203, %198
+  %214 = add nuw nsw i32 %212, %213
+  %215 = mul nuw nsw i32 %214, 257
+  %216 = add nuw nsw i32 %215, 256
+  %217 = mul nuw nsw i32 %205, %7
+  %218 = mul nuw nsw i32 %204, %198
+  %219 = add nuw nsw i32 %217, %218
+  %220 = mul nuw nsw i32 %219, 257
+  %221 = add nuw nsw i32 %220, 256
+  %222 = lshr i32 %221, 16
+  %223 = lshr i32 %216, 8
+  %224 = and i32 %223, 261888
+  %225 = or disjoint i32 %211, %222
+  %226 = or i32 %225, %224
   br label %.sink.split
 
-.sink.split:                                      ; preds = %199, %200
-  %.sink.in = phi i32 [ %227, %200 ], [ %183, %199 ]
+.sink.split:                                      ; preds = %.lr.ph, %199
+  %.sink.in = phi i32 [ %226, %199 ], [ %183, %.lr.ph ]
   %.sink = or disjoint i32 %.sink.in, -16777216
   store i32 %.sink, ptr %196, align 4, !tbaa !19
-  br label %228
+  br label %227
 
-228:                                              ; preds = %.sink.split, %.lr.ph
+227:                                              ; preds = %.sink.split, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %229 = load i32, ptr %187, align 8, !tbaa !15
-  %230 = sext i32 %229 to i64
-  %231 = icmp slt i64 %indvars.iv.next, %230
-  br i1 %231, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !46
+  %228 = load i32, ptr %187, align 8, !tbaa !15
+  %229 = sext i32 %228 to i64
+  %230 = icmp slt i64 %indvars.iv.next, %229
+  br i1 %230, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !46
 
-._crit_edge.loopexit:                             ; preds = %228
+._crit_edge.loopexit:                             ; preds = %227
   %.pre = load i32, ptr %184, align 4, !tbaa !12
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader162
-  %232 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %193, %.preheader162 ]
-  %233 = phi i32 [ %229, %._crit_edge.loopexit ], [ %194, %.preheader162 ]
-  %234 = load i32, ptr %188, align 8, !tbaa !16
-  %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds i32, ptr %.0147165, i64 %235
-  %237 = add nuw nsw i32 %.1142166, 1
-  %238 = icmp slt i32 %237, %232
-  br i1 %238, label %.preheader162, label %.critedge, !llvm.loop !47
+  %231 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %193, %.preheader162 ]
+  %232 = phi i32 [ %228, %._crit_edge.loopexit ], [ %194, %.preheader162 ]
+  %233 = load i32, ptr %188, align 8, !tbaa !16
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds i32, ptr %.0147165, i64 %234
+  %236 = add nuw nsw i32 %.1142166, 1
+  %237 = icmp slt i32 %236, %231
+  br i1 %237, label %.preheader162, label %.critedge, !llvm.loop !47
 
 .critedge:                                        ; preds = %._crit_edge, %167, %.preheader162.lr.ph, %179, %40, %11, %2
   ret void

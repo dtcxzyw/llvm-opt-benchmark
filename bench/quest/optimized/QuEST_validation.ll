@@ -685,13 +685,11 @@ define range(i32 0, 2) i32 @areUniqueQubits(ptr noundef readonly captures(none) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 0, 64) i32 @calcLog2(i64 noundef %0) local_unnamed_addr #4 {
-._crit_edge:
-  %.not5 = icmp ult i64 %0, 2
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 true)
-  %2 = trunc nuw nsw i64 %1 to i32
-  %3 = xor i32 %2, 63
-  %.0.lcssa = select i1 %.not5, i32 0, i32 %3
-  ret i32 %.0.lcssa
+  %2 = lshr i64 %0, 1
+  %3 = tail call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
+  %4 = trunc nuw nsw i64 %3 to i32
+  %5 = sub nuw nsw i32 64, %4
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable

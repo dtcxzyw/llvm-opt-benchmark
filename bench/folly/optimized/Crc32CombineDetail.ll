@@ -10,17 +10,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN5folly6detail16crc32_combine_swEjjm(i32 noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %.not1.i = icmp ult i64 %2, 4
-  br i1 %.not1.i, label %_ZN5follyL19crc32_append_zeroesIPFjjjjEEEjT_jmjRKSt5arrayIjLm62EE.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %3
   %4 = lshr i64 %2, 2
-  br label %.lr.ph.i
+  %.not1.i = icmp eq i64 %4, 0
+  br i1 %.not1.i, label %_ZN5follyL19crc32_append_zeroesIPFjjjjEEEjT_jmjRKSt5arrayIjLm62EE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN5follyL14gf_multiply_swEjjj.exit.i, %.lr.ph.preheader.i
-  %.04.i = phi i32 [ %10, %_ZN5follyL14gf_multiply_swEjjj.exit.i ], [ %0, %.lr.ph.preheader.i ]
-  %.0143.i = phi ptr [ %20, %_ZN5follyL14gf_multiply_swEjjj.exit.i ], [ @_ZN5follyL12crc32_powersE, %.lr.ph.preheader.i ]
-  %.0152.i = phi i64 [ %19, %_ZN5follyL14gf_multiply_swEjjj.exit.i ], [ %4, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %3, %_ZN5follyL14gf_multiply_swEjjj.exit.i
+  %.04.i = phi i32 [ %10, %_ZN5follyL14gf_multiply_swEjjj.exit.i ], [ %0, %3 ]
+  %.0143.i = phi ptr [ %20, %_ZN5follyL14gf_multiply_swEjjj.exit.i ], [ @_ZN5follyL12crc32_powersE, %3 ]
+  %.0152.i = phi i64 [ %19, %_ZN5follyL14gf_multiply_swEjjj.exit.i ], [ %4, %3 ]
   %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0152.i, i1 true)
   %6 = getelementptr inbounds nuw i32, ptr %.0143.i, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
@@ -48,7 +45,7 @@ _ZN5follyL14gf_multiply_swEjjj.exit.i:            ; preds = %tailrecurse.i.i.i
   %18 = lshr exact i64 %.0152.i, %5
   %19 = lshr i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.not.i = icmp samesign ult i64 %18, 2
+  %.not.i = icmp eq i64 %19, 0
   br i1 %.not.i, label %_ZN5follyL19crc32_append_zeroesIPFjjjjEEEjT_jmjRKSt5arrayIjLm62EE.exit, label %.lr.ph.i, !llvm.loop !11
 
 _ZN5follyL19crc32_append_zeroesIPFjjjjEEEjT_jmjRKSt5arrayIjLm62EE.exit: ; preds = %_ZN5follyL14gf_multiply_swEjjj.exit.i, %3
@@ -71,17 +68,14 @@ _ZN5follyL19crc32_append_zeroesIPFjmmjEEEjT_jmjRKSt5arrayIjLm62EE.exit:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN5folly6detail17crc32c_combine_swEjjm(i32 noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %.not1.i = icmp ult i64 %2, 4
-  br i1 %.not1.i, label %_ZN5follyL19crc32_append_zeroesIPFjjjjEEEjT_jmjRKSt5arrayIjLm62EE.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %3
   %4 = lshr i64 %2, 2
-  br label %.lr.ph.i
+  %.not1.i = icmp eq i64 %4, 0
+  br i1 %.not1.i, label %_ZN5follyL19crc32_append_zeroesIPFjjjjEEEjT_jmjRKSt5arrayIjLm62EE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN5follyL14gf_multiply_swEjjj.exit.i, %.lr.ph.preheader.i
-  %.04.i = phi i32 [ %10, %_ZN5follyL14gf_multiply_swEjjj.exit.i ], [ %0, %.lr.ph.preheader.i ]
-  %.0143.i = phi ptr [ %20, %_ZN5follyL14gf_multiply_swEjjj.exit.i ], [ @_ZN5follyL13crc32c_powersE, %.lr.ph.preheader.i ]
-  %.0152.i = phi i64 [ %19, %_ZN5follyL14gf_multiply_swEjjj.exit.i ], [ %4, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %3, %_ZN5follyL14gf_multiply_swEjjj.exit.i
+  %.04.i = phi i32 [ %10, %_ZN5follyL14gf_multiply_swEjjj.exit.i ], [ %0, %3 ]
+  %.0143.i = phi ptr [ %20, %_ZN5follyL14gf_multiply_swEjjj.exit.i ], [ @_ZN5follyL13crc32c_powersE, %3 ]
+  %.0152.i = phi i64 [ %19, %_ZN5follyL14gf_multiply_swEjjj.exit.i ], [ %4, %3 ]
   %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0152.i, i1 true)
   %6 = getelementptr inbounds nuw i32, ptr %.0143.i, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
@@ -109,7 +103,7 @@ _ZN5follyL14gf_multiply_swEjjj.exit.i:            ; preds = %tailrecurse.i.i.i
   %18 = lshr exact i64 %.0152.i, %5
   %19 = lshr i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.not.i = icmp samesign ult i64 %18, 2
+  %.not.i = icmp eq i64 %19, 0
   br i1 %.not.i, label %_ZN5follyL19crc32_append_zeroesIPFjjjjEEEjT_jmjRKSt5arrayIjLm62EE.exit, label %.lr.ph.i, !llvm.loop !11
 
 _ZN5follyL19crc32_append_zeroesIPFjjjjEEEjT_jmjRKSt5arrayIjLm62EE.exit: ; preds = %_ZN5follyL14gf_multiply_swEjjj.exit.i, %3

@@ -3894,7 +3894,7 @@ define void @duckdb_je_je_free_aligned_sized(ptr noundef %0, i64 noundef %1, i64
   %7 = lshr i64 %1, 32
   %8 = trunc nuw i64 %7 to i32
   %cttz = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %8, i1 true)
-  %.not = icmp ult i64 %1, 4294967296
+  %.not = icmp eq i64 %7, 0
   %9 = or disjoint i32 %cttz, 32
   %10 = select i1 %.not, i32 31, i32 %9
   br label %.split.i.i
@@ -9451,22 +9451,20 @@ define internal void @jemalloc_constructor() #2 {
   %.0.in = phi i32 [ %7, %6 ], [ %4, %0 ]
   %.0 = zext i32 %.0.in to i64
   %9 = lshr i64 %.0, 1
-  %10 = icmp ult i32 %.0.in, 2
-  %spec.store.select = select i1 %10, i64 1, i64 %9
-  %11 = lshr i64 %.0, 4
-  %12 = icmp ult i32 %.0.in, 16
-  %spec.store.select1 = select i1 %12, i64 1, i64 %11
-  %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @duckdb_je_JE_MALLOC_CONF_BUFFER, i64 noundef 200, ptr noundef nonnull @.str.78, i64 noundef 5000, i64 noundef 5000, i64 noundef %spec.store.select, i64 noundef %spec.store.select1) #22
+  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
+  %10 = lshr i64 %.0, 4
+  %spec.store.select1 = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
+  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @duckdb_je_JE_MALLOC_CONF_BUFFER, i64 noundef 200, ptr noundef nonnull @.str.78, i64 noundef 5000, i64 noundef 5000, i64 noundef %spec.store.select, i64 noundef %spec.store.select1) #22
   store ptr @duckdb_je_JE_MALLOC_CONF_BUFFER, ptr @duckdb_je_malloc_conf, align 8, !tbaa !199
-  %14 = load i32, ptr @duckdb_je_malloc_init_state, align 4, !tbaa !3
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %malloc_init.exit, label %16, !prof !9
+  %12 = load i32, ptr @duckdb_je_malloc_init_state, align 4, !tbaa !3
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %malloc_init.exit, label %14, !prof !9
 
-16:                                               ; preds = %8
-  %17 = tail call fastcc zeroext i1 @malloc_init_hard()
+14:                                               ; preds = %8
+  %15 = tail call fastcc zeroext i1 @malloc_init_hard()
   br label %malloc_init.exit
 
-malloc_init.exit:                                 ; preds = %16, %8
+malloc_init.exit:                                 ; preds = %14, %8
   ret void
 }
 
@@ -15454,13 +15452,13 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #21
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #21
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #21

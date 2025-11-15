@@ -227,16 +227,16 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   %108 = and i64 %105, 3074457345618258602
   %109 = call range(i64 0, 32) i64 @llvm.ctpop.i64(i64 %108)
   %110 = trunc nuw nsw i64 %109 to i32
-  %.not42.i = icmp ult i32 %88, 32
-  br i1 %.not42.i, label %.preheader.i, label %.lr.ph.i53
+  %.not42.i = icmp eq i32 %97, 0
+  br i1 %.not42.i, label %.lr.ph48.preheader.i, label %.lr.ph.i53
 
-.preheader.i:                                     ; preds = %.lr.ph.i53, %96
-  %.041.lcssa.i = phi i32 [ %107, %96 ], [ %116, %.lr.ph.i53 ]
-  %.040.lcssa.i = phi i32 [ %110, %96 ], [ %120, %.lr.ph.i53 ]
+.preheader.i:                                     ; preds = %.lr.ph.i53
   %.not49.i = icmp eq i32 %97, 7
   br i1 %.not49.i, label %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit, label %.lr.ph48.preheader.i
 
-.lr.ph48.preheader.i:                             ; preds = %.preheader.i
+.lr.ph48.preheader.i:                             ; preds = %.preheader.i, %96
+  %.040.lcssa61.i = phi i32 [ %120, %.preheader.i ], [ %110, %96 ]
+  %.041.lcssa59.i = phi i32 [ %116, %.preheader.i ], [ %107, %96 ]
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !16
   br label %.lr.ph48.i
 
@@ -276,10 +276,12 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   br i1 %127, label %.lr.ph48.i, label %._crit_edge.loopexit.i, !llvm.loop !24
 
 _ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit: ; preds = %.preheader.i, %._crit_edge.loopexit.i
+  %.040.lcssa62.i = phi i32 [ %.040.lcssa61.i, %._crit_edge.loopexit.i ], [ %120, %.preheader.i ]
+  %.041.lcssa60.i = phi i32 [ %.041.lcssa59.i, %._crit_edge.loopexit.i ], [ %116, %.preheader.i ]
   %.pre-phi.i = phi i64 [ %.pre55.i, %._crit_edge.loopexit.i ], [ %105, %.preheader.i ]
   %128 = phi i64 [ %.pre54.i, %._crit_edge.loopexit.i ], [ %104, %.preheader.i ]
-  %129 = add nuw i32 %.041.lcssa.i, %spec.store.select.i
-  %130 = add nuw i32 %129, %.040.lcssa.i
+  %129 = add nuw i32 %.040.lcssa62.i, %spec.store.select.i
+  %130 = add nuw i32 %129, %.041.lcssa60.i
   %131 = icmp ugt i32 %90, 4
   %132 = add nsw i32 %90, -1
   %133 = select i1 %131, i32 0, i32 %132

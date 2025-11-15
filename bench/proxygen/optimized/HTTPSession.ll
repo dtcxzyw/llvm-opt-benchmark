@@ -16215,7 +16215,7 @@ entry:
   %1 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i, align 8
   %shr.i.i.i.i = lshr i64 %1, 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %ids, i64 16
-  %cmp3.i.not = icmp ult i64 %1, 256
+  %cmp3.i.not = icmp eq i64 %shr.i.i.i.i, 0
   br i1 %cmp3.i.not, label %invoke.cont9, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i: ; preds = %entry
@@ -26662,7 +26662,7 @@ entry:
   %0 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i, align 8
   %shr.i.i.i.i = lshr i64 %0, 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %ids, i64 16
-  %cmp3.i.not = icmp ult i64 %0, 256
+  %cmp3.i.not = icmp eq i64 %shr.i.i.i.i, 0
   br i1 %cmp3.i.not, label %invoke.cont9, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i: ; preds = %entry
@@ -32353,11 +32353,11 @@ entry:
   %and.i.i.i = and i64 %0, 4611686018427387903
   %add.ptr.i.idx18 = shl nuw nsw i64 %and.i.i.i, 4
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %add.ptr.i.idx18
-  %cmp48.i.i.i.not = icmp samesign ult i64 %and.i.i.i, 4
+  %shr.i.i.i = lshr i64 %and.i.i.i, 2
+  %cmp48.i.i.i.not = icmp eq i64 %shr.i.i.i, 0
   br i1 %cmp48.i.i.i.not, label %for.end.i.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
-  %shr.i.i.i = lshr i64 %and.i.i.i, 2
   %2 = load ptr, ptr %observer, align 8
   %3 = and i64 %add.ptr.i.idx18, 9223372036854775744
   %scevgep.i.i.i = getelementptr i8, ptr %cond.i.i, i64 %3
@@ -32401,11 +32401,10 @@ for.end.loopexit.i.i.i:                           ; preds = %if.end11.i.i.i
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %entry
   %sub.ptr.sub15.pre-phi.i.i.i = phi i64 [ %8, %for.end.loopexit.i.i.i ], [ %and.i.i.i, %entry ]
   %__first.addr.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %for.end.loopexit.i.i.i ], [ %cond.i.i, %entry ]
-  switch i64 %sub.ptr.sub15.pre-phi.i.i.i, label %for.end.i.i.i.unreachabledefault [
+  switch i64 %sub.ptr.sub15.pre-phi.i.i.i, label %if.end [
     i64 3, label %sw.bb.i.i.i
     i64 2, label %for.end.sw.bb21_crit_edge.i.i.i
     i64 1, label %for.end.sw.bb26_crit_edge.i.i.i
-    i64 0, label %if.end
   ]
 
 for.end.sw.bb26_crit_edge.i.i.i:                  ; preds = %for.end.i.i.i
@@ -32461,10 +32460,7 @@ _ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSession
   %cmp.not = icmp eq ptr %retval.0.i.i.i, %add.ptr.i
   br i1 %cmp.not, label %if.end, label %return
 
-for.end.i.i.i.unreachabledefault:                 ; preds = %for.end.i.i.i
-  unreachable
-
-if.end:                                           ; preds = %for.end.i.i.i, %sw.bb26.i.i.i, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit
+if.end:                                           ; preds = %sw.bb26.i.i.i, %for.end.i.i.i, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit
   %iterating_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %15 = load i8, ptr %iterating_, align 8
   %tobool = trunc i8 %15 to i1
@@ -32534,11 +32530,11 @@ entry:
   %and.i.i.i = and i64 %0, 4611686018427387903
   %add.ptr.i.idx20 = shl nuw nsw i64 %and.i.i.i, 4
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %add.ptr.i.idx20
-  %cmp48.i.i.i.not = icmp samesign ult i64 %and.i.i.i, 4
+  %shr.i.i.i = lshr i64 %and.i.i.i, 2
+  %cmp48.i.i.i.not = icmp eq i64 %shr.i.i.i, 0
   br i1 %cmp48.i.i.i.not, label %for.end.i.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
-  %shr.i.i.i = lshr i64 %and.i.i.i, 2
   %2 = load ptr, ptr %observer, align 8
   %3 = and i64 %add.ptr.i.idx20, 9223372036854775744
   %scevgep.i.i.i = getelementptr i8, ptr %cond.i.i, i64 %3
@@ -32582,11 +32578,10 @@ for.end.loopexit.i.i.i:                           ; preds = %if.end11.i.i.i
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %entry
   %sub.ptr.sub15.pre-phi.i.i.i = phi i64 [ %8, %for.end.loopexit.i.i.i ], [ %and.i.i.i, %entry ]
   %__first.addr.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %for.end.loopexit.i.i.i ], [ %cond.i.i, %entry ]
-  switch i64 %sub.ptr.sub15.pre-phi.i.i.i, label %for.end.i.i.i.unreachabledefault [
+  switch i64 %sub.ptr.sub15.pre-phi.i.i.i, label %return [
     i64 3, label %sw.bb.i.i.i
     i64 2, label %for.end.sw.bb21_crit_edge.i.i.i
     i64 1, label %for.end.sw.bb26_crit_edge.i.i.i
-    i64 0, label %return
   ]
 
 for.end.sw.bb26_crit_edge.i.i.i:                  ; preds = %for.end.i.i.i
@@ -32768,10 +32763,7 @@ if.else:                                          ; preds = %if.end
   %call24 = tail call noundef ptr @_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEELm2EvE5eraseEPKSB_(ptr noundef nonnull align 8 dereferenceable(40) %observers_, ptr noundef nonnull %retval.0.i.i.i)
   br label %return
 
-for.end.i.i.i.unreachabledefault:                 ; preds = %for.end.i.i.i
-  unreachable
-
-return:                                           ; preds = %for.end.i.i.i, %sw.bb26.i.i.i, %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit, %if.else, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit
+return:                                           ; preds = %sw.bb26.i.i.i, %for.end.i.i.i, %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit, %if.else, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit
   %cmp19 = phi i1 [ true, %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit ], [ true, %if.else ], [ false, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit ], [ false, %for.end.i.i.i ], [ false, %sw.bb26.i.i.i ]
   ret i1 %cmp19
 }
@@ -36924,7 +36916,7 @@ entry:
   %sizeAndChunkShiftAndPackedBegin_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %shr.i.i.i = lshr i64 %0, 8
-  %cmp.not = icmp ult i64 %0, 256
+  %cmp.not = icmp eq i64 %shr.i.i.i, 0
   %.pre = load ptr, ptr %this, align 8
   br i1 %cmp.not, label %if.end5, label %if.then
 
@@ -39186,7 +39178,7 @@ entry:
   %sizeAndChunkShiftAndPackedBegin_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %shr.i.i.i = lshr i64 %0, 8
-  %cmp.not = icmp ult i64 %0, 256
+  %cmp.not = icmp eq i64 %shr.i.i.i, 0
   %.pre = load ptr, ptr %this, align 8
   br i1 %cmp.not, label %if.end9, label %if.then
 

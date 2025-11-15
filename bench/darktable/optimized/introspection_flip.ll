@@ -896,9 +896,10 @@ define void @reload_defaults(ptr noundef captures(none) initializes((676, 680)) 
   %7 = load ptr, ptr %6, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1784
   %9 = load i32, ptr %8, align 8
-  %10 = add i32 %9, 16777216
-  %or.cond = icmp ult i32 %10, 33554432
-  br i1 %or.cond, label %56, label %11
+  %10 = lshr i32 %9, 24
+  %.off = add nsw i32 %10, -1
+  %switch = icmp ult i32 %.off, 254
+  br i1 %switch, label %11, label %56
 
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -984,7 +985,7 @@ merge_two_orientations.exit:                      ; preds = %40, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %56
 
-56:                                               ; preds = %53, %1
+56:                                               ; preds = %1, %53
   ret void
 }
 

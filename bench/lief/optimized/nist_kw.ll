@@ -38,7 +38,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_nist_kw_setkey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
-  %6 = tail call ptr @mbedtls_cipher_info_from_values(i32 noundef %1, i32 noundef %3, i32 noundef 1) #11
+  %6 = tail call ptr @mbedtls_cipher_info_from_values(i32 noundef %1, i32 noundef %3, i32 noundef 1) #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %17, label %8
 
@@ -54,15 +54,15 @@ define hidden i32 @mbedtls_nist_kw_setkey(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not17, label %12, label %17
 
 12:                                               ; preds = %11
-  tail call void @mbedtls_cipher_free(ptr noundef %0) #11
-  %13 = tail call i32 @mbedtls_cipher_setup(ptr noundef %0, ptr noundef nonnull %6) #11
+  tail call void @mbedtls_cipher_free(ptr noundef %0) #10
+  %13 = tail call i32 @mbedtls_cipher_setup(ptr noundef %0, ptr noundef nonnull %6) #10
   %.not18 = icmp eq i32 %13, 0
   br i1 %.not18, label %14, label %17
 
 14:                                               ; preds = %12
   %.not19 = icmp ne i32 %4, 0
   %15 = zext i1 %.not19 to i32
-  %16 = tail call i32 @mbedtls_cipher_setkey(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %15) #11
+  %16 = tail call i32 @mbedtls_cipher_setkey(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %15) #10
   br label %17
 
 17:                                               ; preds = %14, %12, %11, %8, %5
@@ -84,8 +84,8 @@ define hidden void @mbedtls_nist_kw_free(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @mbedtls_cipher_free(ptr noundef nonnull %0) #11
-  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 96) #11
+  tail call void @mbedtls_cipher_free(ptr noundef nonnull %0) #10
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 96) #10
   br label %4
 
 4:                                                ; preds = %1, %3
@@ -163,21 +163,24 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noun
 
 40:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 16, i1 false)
-  %41 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %4, ptr noundef nonnull %8) #11
+  %41 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %4, ptr noundef nonnull %8) #10
   %.not87 = icmp eq i32 %41, 0
   br i1 %.not87, label %.loopexit, label %.thread
 
 42:                                               ; preds = %33
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %44 = icmp samesign ult i64 %34, 16
-  br i1 %44, label %.thread, label %.lr.ph
+  br i1 %44, label %.thread, label %.preheader
 
-.lr.ph:                                           ; preds = %42
+.preheader:                                       ; preds = %42
+  %.not84101 = icmp eq i64 %35, 0
+  br i1 %.not84101, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %47 = shl nuw nsw i64 %36, 3
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 %47
-  %umax = tail call i64 @llvm.umax.i64(i64 %37, i64 1)
   br label %49
 
 49:                                               ; preds = %.lr.ph, %calc_a_xor_t.exit
@@ -187,7 +190,7 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noun
   store i64 %50, ptr %10, align 16
   %51 = load i64, ptr %.067103, align 1
   store i64 %51, ptr %45, align 8
-  %52 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull %8) #11
+  %52 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull %8) #10
   %.not85 = icmp eq i32 %52, 0
   br i1 %.not85, label %53, label %.thread
 
@@ -217,10 +220,10 @@ calc_a_xor_t.exit:                                ; preds = %55
   %.not86 = icmp ult ptr %65, %48
   %spec.select90 = select i1 %.not86, ptr %65, ptr %43
   %66 = add nuw i64 %.069102, 1
-  %exitcond.not = icmp eq i64 %.069102, %umax
+  %exitcond.not = icmp eq i64 %.069102, %37
   br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !10
 
-.loopexit:                                        ; preds = %calc_a_xor_t.exit, %40
+.loopexit:                                        ; preds = %calc_a_xor_t.exit, %.preheader, %40
   %67 = shl i64 %36, 3
   store i64 %67, ptr %5, align 8, !tbaa !3
   br label %69
@@ -233,8 +236,8 @@ calc_a_xor_t.exit:                                ; preds = %55
 
 69:                                               ; preds = %.loopexit, %.thread
   %.072100 = phi i32 [ %.072.ph, %.thread ], [ 0, %.loopexit ]
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 16) #11
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16) #11
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 16) #10
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16) #10
   br label %70
 
 70:                                               ; preds = %20, %15, %12, %69
@@ -292,7 +295,7 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not71, label %22, label %.thread85
 
 22:                                               ; preds = %19
-  %23 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull @NIST_KW_ICV1, ptr noundef nonnull %9, i64 noundef 8) #11
+  %23 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull @NIST_KW_ICV1, ptr noundef nonnull %9, i64 noundef 8) #10
   store i32 %23, ptr %10, align 4, !tbaa !11
   %.not72 = icmp eq i32 %23, 0
   br i1 %.not72, label %.thread90, label %.thread85
@@ -311,7 +314,7 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
 
 29:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %30 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef %2, i64 noundef 16, ptr noundef nonnull %11, ptr noundef nonnull %8) #11
+  %30 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef %2, i64 noundef 16, ptr noundef nonnull %11, ptr noundef nonnull %8) #10
   %.not66 = icmp eq i32 %30, 0
   br i1 %.not66, label %.thread, label %34
 
@@ -321,7 +324,7 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %33 = load i64, ptr %32, align 8
   store i64 %33, ptr %4, align 1
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %11, i64 noundef 16) #11
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %11, i64 noundef 16) #10
   store i64 8, ptr %5, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %38
@@ -337,7 +340,7 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not65, label %38, label %.thread85
 
 38:                                               ; preds = %.thread, %35
-  %39 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull @NIST_KW_ICV2, ptr noundef nonnull %9, i64 noundef 4) #11
+  %39 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull @NIST_KW_ICV2, ptr noundef nonnull %9, i64 noundef 4) #10
   %.not67 = icmp eq i32 %39, 0
   %spec.select76.neg = select i1 %.not67, i64 0, i64 25344
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -345,9 +348,9 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
   %41 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i)
   %42 = zext i32 %41 to i64
   %43 = sub nsw i64 %13, %42
-  %44 = call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 7, i64 %43) #11, !srcloc !13
+  %44 = call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 7, i64 %43) #10, !srcloc !13
   %45 = extractvalue { i64, i64, i64 } %44, 1
-  %46 = call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %45, i64 25344, i64 range(i64 -2147483647, 2147483648) %spec.select76.neg) #11, !srcloc !14
+  %46 = call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %45, i64 25344, i64 range(i64 -2147483647, 2147483648) %spec.select76.neg) #10, !srcloc !14
   %47 = extractvalue { i64, i64, i64 } %46, 2
   %48 = trunc i64 %47 to i32
   %49 = sub nsw i32 0, %48
@@ -358,7 +361,7 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
   %52 = getelementptr i8, ptr %4, i64 %51
   %53 = getelementptr i8, ptr %52, i64 -8
   %54 = sub nuw nsw i64 8, %50
-  %55 = call i32 @mbedtls_ct_memcmp_partial(ptr noundef %53, ptr noundef nonnull %12, i64 noundef 8, i64 noundef %54, i64 noundef 0) #11
+  %55 = call i32 @mbedtls_ct_memcmp_partial(ptr noundef %53, ptr noundef nonnull %12, i64 noundef 8, i64 noundef %54, i64 noundef 0) #10
   store i32 %55, ptr %10, align 4, !tbaa !11
   %.not68 = icmp eq i32 %55, 0
   %.4 = select i1 %.not68, i32 %49, i32 -25344
@@ -385,8 +388,8 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
 
 .thread90:                                        ; preds = %22, %.thread93, %.thread85
   %.05589 = phi i32 [ %.05588, %.thread85 ], [ 0, %.thread93 ], [ 0, %22 ]
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 4) #11
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 8) #11
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 4) #10
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 8) #10
   br label %.thread81
 
 .thread81:                                        ; preds = %24, %16, %7, %.thread90
@@ -448,7 +451,7 @@ calc_a_xor_t.exit:                                ; preds = %21
   store i64 %30, ptr %9, align 16
   %31 = load i64, ptr %.046, align 1
   store i64 %31, ptr %19, align 8
-  %32 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 16, ptr noundef nonnull %8, ptr noundef nonnull %7) #11
+  %32 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 16, ptr noundef nonnull %8, ptr noundef nonnull %7) #10
   %.not39 = icmp eq i32 %32, 0
   br i1 %.not39, label %33, label %39
 
@@ -473,8 +476,8 @@ calc_a_xor_t.exit:                                ; preds = %21
   br label %40
 
 40:                                               ; preds = %.thread, %39
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16) #11
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef 16) #11
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16) #10
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef 16) #10
   br label %41
 
 41:                                               ; preds = %6, %40
@@ -516,7 +519,7 @@ define hidden i32 @mbedtls_nist_kw_self_test(i32 noundef %0) local_unnamed_addr 
 
 ._crit_edge:                                      ; preds = %7, %8
   %10 = getelementptr inbounds nuw [32 x i8], ptr @kw_key, i64 %indvars.iv
-  %11 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre136, i32 noundef 1) #11
+  %11 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre136, i32 noundef 1) #10
   %12 = icmp eq ptr %11, null
   br i1 %12, label %mbedtls_nist_kw_setkey.exit.thread, label %13
 
@@ -528,13 +531,13 @@ define hidden i32 @mbedtls_nist_kw_self_test(i32 noundef %0) local_unnamed_addr 
   br i1 %.not.i, label %16, label %mbedtls_nist_kw_setkey.exit.thread
 
 16:                                               ; preds = %13
-  call void @mbedtls_cipher_free(ptr noundef nonnull %4) #11
-  %17 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %4, ptr noundef nonnull %11) #11
+  call void @mbedtls_cipher_free(ptr noundef nonnull %4) #10
+  %17 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %4, ptr noundef nonnull %11) #10
   %.not18.i = icmp eq i32 %17, 0
   br i1 %.not18.i, label %mbedtls_nist_kw_setkey.exit, label %mbedtls_nist_kw_setkey.exit.thread
 
 mbedtls_nist_kw_setkey.exit:                      ; preds = %16
-  %18 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %4, ptr noundef nonnull %10, i32 noundef %.pre136, i32 noundef 1) #11
+  %18 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %4, ptr noundef nonnull %10, i32 noundef %.pre136, i32 noundef 1) #10
   %.not72 = icmp eq i32 %18, 0
   br i1 %.not72, label %21, label %mbedtls_nist_kw_setkey.exit.thread
 
@@ -575,7 +578,7 @@ mbedtls_nist_kw_setkey.exit.thread:               ; preds = %16, %13, %._crit_ed
   br label %.loopexit
 
 35:                                               ; preds = %30
-  %36 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre136, i32 noundef 1) #11
+  %36 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre136, i32 noundef 1) #10
   %37 = icmp eq ptr %36, null
   br i1 %37, label %mbedtls_nist_kw_setkey.exit89.thread, label %38
 
@@ -587,13 +590,13 @@ mbedtls_nist_kw_setkey.exit.thread:               ; preds = %16, %13, %._crit_ed
   br i1 %.not.i86, label %41, label %mbedtls_nist_kw_setkey.exit89.thread
 
 41:                                               ; preds = %38
-  call void @mbedtls_cipher_free(ptr noundef nonnull %4) #11
-  %42 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %4, ptr noundef nonnull %36) #11
+  call void @mbedtls_cipher_free(ptr noundef nonnull %4) #10
+  %42 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %4, ptr noundef nonnull %36) #10
   %.not18.i88 = icmp eq i32 %42, 0
   br i1 %.not18.i88, label %mbedtls_nist_kw_setkey.exit89, label %mbedtls_nist_kw_setkey.exit89.thread
 
 mbedtls_nist_kw_setkey.exit89:                    ; preds = %41
-  %43 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %4, ptr noundef nonnull %10, i32 noundef %.pre136, i32 noundef 0) #11
+  %43 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %4, ptr noundef nonnull %10, i32 noundef %.pre136, i32 noundef 0) #10
   %.not77 = icmp eq i32 %43, 0
   br i1 %.not77, label %46, label %mbedtls_nist_kw_setkey.exit89.thread
 
@@ -619,7 +622,7 @@ mbedtls_nist_kw_setkey.exit89.thread:             ; preds = %41, %38, %35, %mbed
   br i1 %.not71.i, label %51, label %.thread85.i
 
 51:                                               ; preds = %48
-  %52 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull @NIST_KW_ICV1, ptr noundef nonnull %2, i64 noundef 8) #11
+  %52 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull @NIST_KW_ICV1, ptr noundef nonnull %2, i64 noundef 8) #10
   store i32 %52, ptr %3, align 4, !tbaa !11
   %.not72.i = icmp eq i32 %52, 0
   br i1 %.not72.i, label %.mbedtls_nist_kw_unwrap.exit_crit_edge, label %.thread85.i
@@ -642,8 +645,8 @@ mbedtls_nist_kw_unwrap.exit.thread:               ; preds = %46
 mbedtls_nist_kw_unwrap.exit:                      ; preds = %.mbedtls_nist_kw_unwrap.exit_crit_edge, %.thread85.i
   %54 = phi i64 [ 0, %.thread85.i ], [ %.pre132, %.mbedtls_nist_kw_unwrap.exit_crit_edge ]
   %.not78 = phi i1 [ false, %.thread85.i ], [ true, %.mbedtls_nist_kw_unwrap.exit_crit_edge ]
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 4) #11
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 8) #11
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 4) #10
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 8) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not79 = icmp eq i64 %54, %24
@@ -687,7 +690,7 @@ mbedtls_nist_kw_unwrap.exit:                      ; preds = %.mbedtls_nist_kw_un
 
 ._crit_edge133:                                   ; preds = %.preheader, %60
   %62 = getelementptr inbounds nuw [32 x i8], ptr @kwp_key, i64 %indvars.iv128
-  %63 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre137, i32 noundef 1) #11
+  %63 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre137, i32 noundef 1) #10
   %64 = icmp eq ptr %63, null
   br i1 %64, label %mbedtls_nist_kw_setkey.exit95.thread, label %65
 
@@ -699,13 +702,13 @@ mbedtls_nist_kw_unwrap.exit:                      ; preds = %.mbedtls_nist_kw_un
   br i1 %.not.i92, label %68, label %mbedtls_nist_kw_setkey.exit95.thread
 
 68:                                               ; preds = %65
-  call void @mbedtls_cipher_free(ptr noundef nonnull %4) #11
-  %69 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %4, ptr noundef nonnull %63) #11
+  call void @mbedtls_cipher_free(ptr noundef nonnull %4) #10
+  %69 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %4, ptr noundef nonnull %63) #10
   %.not18.i94 = icmp eq i32 %69, 0
   br i1 %.not18.i94, label %mbedtls_nist_kw_setkey.exit95, label %mbedtls_nist_kw_setkey.exit95.thread
 
 mbedtls_nist_kw_setkey.exit95:                    ; preds = %68
-  %70 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %4, ptr noundef nonnull %62, i32 noundef %.pre137, i32 noundef 1) #11
+  %70 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %4, ptr noundef nonnull %62, i32 noundef %.pre137, i32 noundef 1) #10
   %.not62 = icmp eq i32 %70, 0
   br i1 %.not62, label %73, label %mbedtls_nist_kw_setkey.exit95.thread
 
@@ -746,7 +749,7 @@ mbedtls_nist_kw_setkey.exit95.thread:             ; preds = %68, %65, %._crit_ed
   br label %.loopexit
 
 87:                                               ; preds = %82
-  %88 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre137, i32 noundef 1) #11
+  %88 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre137, i32 noundef 1) #10
   %89 = icmp eq ptr %88, null
   br i1 %89, label %mbedtls_nist_kw_setkey.exit100.thread, label %90
 
@@ -758,13 +761,13 @@ mbedtls_nist_kw_setkey.exit95.thread:             ; preds = %68, %65, %._crit_ed
   br i1 %.not.i97, label %93, label %mbedtls_nist_kw_setkey.exit100.thread
 
 93:                                               ; preds = %90
-  call void @mbedtls_cipher_free(ptr noundef nonnull %4) #11
-  %94 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %4, ptr noundef nonnull %88) #11
+  call void @mbedtls_cipher_free(ptr noundef nonnull %4) #10
+  %94 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %4, ptr noundef nonnull %88) #10
   %.not18.i99 = icmp eq i32 %94, 0
   br i1 %.not18.i99, label %mbedtls_nist_kw_setkey.exit100, label %mbedtls_nist_kw_setkey.exit100.thread
 
 mbedtls_nist_kw_setkey.exit100:                   ; preds = %93
-  %95 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %4, ptr noundef nonnull %62, i32 noundef %.pre137, i32 noundef 0) #11
+  %95 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %4, ptr noundef nonnull %62, i32 noundef %.pre137, i32 noundef 0) #10
   %.not66 = icmp eq i32 %95, 0
   br i1 %.not66, label %98, label %mbedtls_nist_kw_setkey.exit100.thread
 
@@ -810,8 +813,8 @@ mbedtls_nist_kw_setkey.exit100.thread:            ; preds = %93, %90, %87, %mbed
 
 .loopexit:                                        ; preds = %107, %102, %103, %84, %85, %.loopexit116, %56, %32, %33, %mbedtls_nist_kw_setkey.exit100.thread, %96, %mbedtls_nist_kw_setkey.exit95.thread, %71, %mbedtls_nist_kw_setkey.exit89.thread, %44, %mbedtls_nist_kw_setkey.exit.thread, %19
   %.1 = phi i32 [ %.0.i103, %19 ], [ %.0.i103, %mbedtls_nist_kw_setkey.exit.thread ], [ %.0.i87106, %44 ], [ %.0.i87106, %mbedtls_nist_kw_setkey.exit89.thread ], [ %.0.i93111, %71 ], [ %.0.i93111, %mbedtls_nist_kw_setkey.exit95.thread ], [ %.0.i98114, %96 ], [ %.0.i98114, %mbedtls_nist_kw_setkey.exit100.thread ], [ 1, %33 ], [ 1, %32 ], [ 1, %56 ], [ 1, %.loopexit116 ], [ 1, %85 ], [ 1, %84 ], [ 1, %103 ], [ 1, %102 ], [ 0, %107 ]
-  call void @mbedtls_cipher_free(ptr noundef nonnull %4) #11
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 96) #11
+  call void @mbedtls_cipher_free(ptr noundef nonnull %4) #10
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 96) #10
   br i1 %.not71, label %109, label %108
 
 108:                                              ; preds = %.loopexit
@@ -843,9 +846,6 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #9
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -856,8 +856,7 @@ attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buf
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #9 = { nofree nounwind }
-attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

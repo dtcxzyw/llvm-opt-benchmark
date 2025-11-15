@@ -135,20 +135,16 @@ define hidden range(i32 -1, 1) i32 @output_shmem(ptr noundef captures(none) %0, 
 
 60:                                               ; preds = %56, %54
   %61 = lshr i64 %.014.i, 1
-  %.not17.i = icmp ult i64 %.014.i, 2
-  br i1 %.not17.i, label %.thread39, label %48
-
-.thread39:                                        ; preds = %60
-  store i64 0, ptr %43, align 8, !tbaa !23
-  br label %64
+  %.not17.i = icmp eq i64 %61, 0
+  br i1 %.not17.i, label %64, label %48
 
 62:                                               ; preds = %51
   %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i64 noundef %.014.i)
   store i64 %.014.i, ptr %43, align 8, !tbaa !23
-  %.not36 = icmp eq i64 %.014.i, 0
-  br i1 %.not36, label %64, label %.thread
+  br label %.thread
 
-64:                                               ; preds = %.thread39, %62
+64:                                               ; preds = %60
+  store i64 0, ptr %43, align 8, !tbaa !23
   %65 = load ptr, ptr @stderr, align 8, !tbaa !4
   %66 = call i64 @fwrite(ptr nonnull @.str.6, i64 45, i64 1, ptr %65) #10
   %67 = call i32 @close(i32 noundef %34) #11

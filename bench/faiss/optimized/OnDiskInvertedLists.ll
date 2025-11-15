@@ -4067,12 +4067,9 @@ _ZN5faiss19OnDiskInvertedLists15OngoingPrefetch13get_next_listEv.exit: ; preds =
   %45 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !33
   %47 = mul i64 %46, %36
-  %.not43 = icmp ult i64 %47, 8
-  br i1 %.not43, label %._crit_edge40, label %.lr.ph39.preheader
-
-.lr.ph39.preheader:                               ; preds = %._crit_edge
   %48 = lshr i64 %47, 3
-  br label %.lr.ph39
+  %.not43 = icmp eq i64 %48, 0
+  br i1 %.not43, label %._crit_edge40, label %.lr.ph39
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.02935 = phi i64 [ %53, %.lr.ph ], [ 0, %26 ]
@@ -4117,9 +4114,9 @@ _ZN5faiss10LockLevels8unlock_1Ei.exit:            ; preds = %61, %64
   store i32 %70, ptr @_ZN5faiss19OnDiskInvertedLists15OngoingPrefetch9global_csE, align 4, !tbaa !46
   br label %76
 
-.lr.ph39:                                         ; preds = %.lr.ph39.preheader, %.lr.ph39
-  %.037 = phi i64 [ %75, %.lr.ph39 ], [ 0, %.lr.ph39.preheader ]
-  %.136 = phi i32 [ %74, %.lr.ph39 ], [ %.030.lcssa, %.lr.ph39.preheader ]
+.lr.ph39:                                         ; preds = %._crit_edge, %.lr.ph39
+  %.037 = phi i64 [ %75, %.lr.ph39 ], [ 0, %._crit_edge ]
+  %.136 = phi i32 [ %74, %.lr.ph39 ], [ %.030.lcssa, %._crit_edge ]
   %71 = getelementptr inbounds nuw i64, ptr %44, i64 %.037
   %72 = load i64, ptr %71, align 8, !tbaa !57
   %73 = trunc i64 %72 to i32

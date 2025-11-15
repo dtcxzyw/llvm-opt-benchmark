@@ -16137,7 +16137,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %25, %32, %38
   unreachable
 
 _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %43
-  %.not.i.i.i.i = icmp samesign ult i64 %50, 2
+  %.not.i.i.i.i = icmp eq i64 %51, 0
   br i1 %.not.i.i.i.i, label %70, label %54
 
 54:                                               ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
@@ -16195,8 +16195,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i29: ; preds = %.noexc34
   %.0.i.i.i.i.i31.ph = phi ptr [ %69, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i29 ], [ %68, %.noexc34 ]
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i31.ph, ptr %71, align 8, !tbaa !249
-  %umax = call i64 @llvm.umax.i64(i64 %51, i64 2)
-  %72 = add nsw i64 %umax, -1
+  %72 = add nsw i64 %51, -1
   %73 = lshr i64 %72, 1
   br label %82
 

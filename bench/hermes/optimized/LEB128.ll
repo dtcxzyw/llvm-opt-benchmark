@@ -153,8 +153,10 @@ do.body:                                          ; preds = %_ZN4llvh11raw_ostre
   %0 = trunc i64 %Value.addr.0 to i8
   %conv = and i8 %0, 127
   %shr = ashr i64 %Value.addr.0, 7
+  %cmp = icmp eq i64 %shr, 0
   %cmp3 = icmp ult i64 %Value.addr.0, 64
-  br i1 %cmp3, label %lor.end, label %lor.rhs
+  %or.cond = and i1 %cmp3, %cmp
+  br i1 %or.cond, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %do.body
   %cmp4 = icmp ne i64 %shr, -1

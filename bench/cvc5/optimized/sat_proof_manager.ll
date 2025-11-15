@@ -4537,14 +4537,14 @@ define hidden void @_ZN4cvc58internal4prop15SatProofManager11endResChainERKNS0_7
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %10, align 8, !tbaa !120
   %11 = load i64, ptr %1, align 4
-  %12 = and i64 %11, 4294967264
-  %.not = icmp eq i64 %12, 0
+  %12 = trunc i64 %11 to i32
+  %13 = lshr i32 %12, 5
+  %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %13 = lshr i64 %11, 5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %wide.trip.count = and i64 %13, 134217727
+  %wide.trip.count = zext nneg i32 %13 to i64
   br label %15
 
 ._crit_edge:                                      ; preds = %_ZNSt3setIN4cvc58internal4prop10SatLiteralESt4lessIS3_ESaIS3_EE6insertEOS3_.exit, %2
@@ -6424,7 +6424,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
 208:                                              ; preds = %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit.i.i288
   %209 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %205, ptr %209, align 8, !tbaa !181
-  %.not719 = icmp ult i32 %138, 32
+  %.not719 = icmp eq i32 %139, 0
   br i1 %.not719, label %.critedge188, label %.lr.ph
 
 .lr.ph:                                           ; preds = %208
@@ -6435,8 +6435,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %214 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %215 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %216 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %umax = call i32 @llvm.umax.i32(i32 %139, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %139 to i64
   br label %223
 
 217:                                              ; preds = %.critedge184
@@ -6904,23 +6903,23 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
   br i1 %472, label %.invoke, label %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit, !prof !122
 
 .invoke:                                          ; preds = %471, %463
-  %.sink806 = phi i64 [ %458, %463 ], [ %466, %471 ]
-  %.sink805 = phi ptr [ %457, %463 ], [ %405, %471 ]
-  %473 = or i64 %.sink806, 1152920405095219200
-  store i64 %473, ptr %.sink805, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink805)
+  %.sink807 = phi i64 [ %458, %463 ], [ %466, %471 ]
+  %.sink806 = phi ptr [ %457, %463 ], [ %405, %471 ]
+  %473 = or i64 %.sink807, 1152920405095219200
+  store i64 %473, ptr %.sink806, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink806)
           to label %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit unwind label %594
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit.sink.split: ; preds = %465, %.noexc323
-  %.sink803 = phi i32 [ %461, %.noexc323 ], [ %469, %465 ]
+  %.sink804 = phi i32 [ %461, %.noexc323 ], [ %469, %465 ]
   %.sink = phi i64 [ %458, %.noexc323 ], [ %466, %465 ]
-  %.sink798 = phi ptr [ %457, %.noexc323 ], [ %405, %465 ]
-  %474 = add nuw nsw i32 %.sink803, 1
+  %.sink799 = phi ptr [ %457, %.noexc323 ], [ %405, %465 ]
+  %474 = add nuw nsw i32 %.sink804, 1
   %475 = zext nneg i32 %474 to i64
   %476 = shl nuw nsw i64 %475, 40
   %477 = and i64 %.sink, -1152920405095219201
   %478 = or i64 %476, %477
-  store i64 %478, ptr %.sink798, align 8
+  store i64 %478, ptr %.sink799, align 8
   br label %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %.invoke, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit.sink.split, %471, %463
@@ -10621,16 +10620,16 @@ define hidden void @_ZN4cvc58internal4prop15SatProofManager13finalizeProofERKNS0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %10 = load i64, ptr %1, align 4
-  %11 = and i64 %10, 4294967264
-  %.not = icmp eq i64 %11, 0
+  %11 = trunc i64 %10 to i32
+  %12 = lshr i32 %11, 5
+  %.not = icmp eq i32 %12, 0
   br i1 %.not, label %16, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %12 = lshr i64 %10, 5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %wide.trip.count = and i64 %12, 134217727
+  %wide.trip.count = zext nneg i32 %12 to i64
   br label %19
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE9push_backEOS3_.exit
@@ -23817,9 +23816,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

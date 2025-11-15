@@ -28,11 +28,11 @@ declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed
 define noundef zeroext i1 @_ZN5folly4simd6detail11containsU16ENS_6detail13fallback_span4spanIKtLm18446744073709551615EEEt(ptr readonly captures(address) %0, i64 %1, i16 noundef zeroext %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %.idx13 = shl nuw nsw i64 %1, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx13
-  %.not = icmp ult i64 %1, 4
+  %5 = lshr i64 %1, 2
+  %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
-  %5 = lshr i64 %1, 2
   %6 = and i64 %.idx13, 9223372036854775800
   %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %6
   br label %7
@@ -75,11 +75,10 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU16ENS_6detail13fallba
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %3
   %.pre-phi56.i.i.i = phi i64 [ %26, %._crit_edge.loopexit.i.i.i ], [ %1, %3 ]
   %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %0, %3 ]
-  switch i64 %.pre-phi56.i.i.i, label %._crit_edge.i.i.i.unreachabledefault [
+  switch i64 %.pre-phi56.i.i.i, label %38 [
     i64 3, label %27
     i64 2, label %._crit_edge._crit_edge.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i
-    i64 0, label %38
   ]
 
 27:                                               ; preds = %._crit_edge.i.i.i
@@ -107,10 +106,7 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU16ENS_6detail13fallba
   %37 = icmp eq i16 %36, %2
   br i1 %37, label %.loopexit, label %38
 
-._crit_edge.i.i.i.unreachabledefault:             ; preds = %._crit_edge.i.i.i
-  unreachable
-
-38:                                               ; preds = %._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i
+38:                                               ; preds = %._crit_edge._crit_edge52.i.i.i, %._crit_edge.i.i.i
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %18
@@ -153,11 +149,11 @@ declare ptr @wmemchr(ptr noundef, i32 noundef signext, i64 noundef) local_unname
 define noundef zeroext i1 @_ZN5folly4simd6detail11containsU64ENS_6detail13fallback_span4spanIKmLm18446744073709551615EEEm(ptr readonly captures(address) %0, i64 %1, i64 noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %.idx13 = shl nuw nsw i64 %1, 3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx13
-  %.not = icmp ult i64 %1, 4
+  %5 = lshr i64 %1, 2
+  %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3
-  %5 = lshr i64 %1, 2
   %6 = and i64 %.idx13, 9223372036854775776
   %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %6
   br label %7
@@ -200,11 +196,10 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU64ENS_6detail13fallba
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %3
   %.pre-phi56.i.i.i = phi i64 [ %26, %._crit_edge.loopexit.i.i.i ], [ %1, %3 ]
   %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %0, %3 ]
-  switch i64 %.pre-phi56.i.i.i, label %._crit_edge.i.i.i.unreachabledefault [
+  switch i64 %.pre-phi56.i.i.i, label %38 [
     i64 3, label %27
     i64 2, label %._crit_edge._crit_edge.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i
-    i64 0, label %38
   ]
 
 27:                                               ; preds = %._crit_edge.i.i.i
@@ -232,10 +227,7 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU64ENS_6detail13fallba
   %37 = icmp eq i64 %36, %2
   br i1 %37, label %.loopexit, label %38
 
-._crit_edge.i.i.i.unreachabledefault:             ; preds = %._crit_edge.i.i.i
-  unreachable
-
-38:                                               ; preds = %._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i
+38:                                               ; preds = %._crit_edge._crit_edge52.i.i.i, %._crit_edge.i.i.i
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %18

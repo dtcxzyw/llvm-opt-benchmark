@@ -281,12 +281,10 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %.not47.i.i, label %.preheader.i.i, label %mxpeg_decode_com.exit
 
 .preheader.i.i:                                   ; preds = %117
-  %.not51.i.i = icmp eq i32 %98, 0
+  %.not51.i.i = icmp eq i32 %100, 0
   br i1 %.not51.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %umax.i.i = call i32 @llvm.umax.i32(i32 %100, i32 1)
-  %wide.trip.count.i.i = zext nneg i32 %umax.i.i to i64
   %.pre.i.i = load ptr, ptr %45, align 16, !tbaa !62
   br label %121
 
@@ -306,7 +304,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   %131 = load i8, ptr %130, align 1, !tbaa !56
   %132 = and i8 %131, %.050.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %.pre-phi.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %121, !llvm.loop !64
 
 ._crit_edge.loopexit.i.i:                         ; preds = %121
@@ -656,9 +654,6 @@ declare i16 @llvm.bswap.i16(i16) #5
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #5
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
