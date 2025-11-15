@@ -1581,7 +1581,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %48 = shl nuw nsw i64 %indvars.iv231.i, 3
   br i1 %43, label %.split.split.split.preheader.i, label %.split.split.us.i
 
-.split.split.us.i:                                ; preds = %.split.i
+.split.split.us.split.i:                          ; preds = %.split.i
   br i1 %.not181.not.i, label %.split.split.us.split.us.i, label %.split.split.us.split.preheader.i
 
 .split.split.us.split.preheader.i:                ; preds = %.split.split.us.i

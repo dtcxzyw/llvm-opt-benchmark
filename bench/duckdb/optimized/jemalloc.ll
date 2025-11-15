@@ -9456,15 +9456,15 @@ define internal void @jemalloc_constructor() #2 {
   %spec.store.select1 = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @duckdb_je_JE_MALLOC_CONF_BUFFER, i64 noundef 200, ptr noundef nonnull @.str.78, i64 noundef 5000, i64 noundef 5000, i64 noundef %spec.store.select, i64 noundef %spec.store.select1) #22
   store ptr @duckdb_je_JE_MALLOC_CONF_BUFFER, ptr @duckdb_je_malloc_conf, align 8, !tbaa !199
-  %12 = load i32, ptr @duckdb_je_malloc_init_state, align 4, !tbaa !3
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %malloc_init.exit, label %14, !prof !9
+  %14 = load i32, ptr @duckdb_je_malloc_init_state, align 4, !tbaa !3
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %malloc_init.exit, label %16, !prof !9
 
-14:                                               ; preds = %8
-  %15 = tail call fastcc zeroext i1 @malloc_init_hard()
+16:                                               ; preds = %8
+  %17 = tail call fastcc zeroext i1 @malloc_init_hard()
   br label %malloc_init.exit
 
-malloc_init.exit:                                 ; preds = %14, %8
+malloc_init.exit:                                 ; preds = %16, %8
   ret void
 }
 

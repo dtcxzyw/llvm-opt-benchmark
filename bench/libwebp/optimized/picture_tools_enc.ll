@@ -984,14 +984,14 @@ define void @WebPBlendAlpha(ptr noundef readonly captures(address_is_null) %0, i
   br label %.preheader162
 
 .preheader162:                                    ; preds = %.preheader162.preheader, %._crit_edge
-  %193 = phi i32 [ %231, %._crit_edge ], [ %185, %.preheader162.preheader ]
-  %194 = phi i32 [ %232, %._crit_edge ], [ %189, %.preheader162.preheader ]
-  %.1142166 = phi i32 [ %236, %._crit_edge ], [ 0, %.preheader162.preheader ]
-  %.0147165 = phi ptr [ %235, %._crit_edge ], [ %192, %.preheader162.preheader ]
+  %193 = phi i32 [ %232, %._crit_edge ], [ %185, %.preheader162.preheader ]
+  %194 = phi i32 [ %233, %._crit_edge ], [ %189, %.preheader162.preheader ]
+  %.1142166 = phi i32 [ %237, %._crit_edge ], [ 0, %.preheader162.preheader ]
+  %.0147165 = phi ptr [ %236, %._crit_edge ], [ %192, %.preheader162.preheader ]
   %195 = icmp sgt i32 %194, 0
   br i1 %195, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader162, %227
+.lr.ph:                                           ; preds = %.preheader162, %228
   %indvars.iv = phi i64 [ %indvars.iv.next, %227 ], [ 0, %.preheader162 ]
   %196 = getelementptr inbounds nuw i32, ptr %.0147165, i64 %indvars.iv
   %197 = load i32, ptr %196, align 4, !tbaa !19
@@ -1016,11 +1016,11 @@ define void @WebPBlendAlpha(ptr noundef readonly captures(address_is_null) %0, i
   %210 = add nuw nsw i32 %209, 256
   %211 = and i32 %210, 16711680
   %212 = mul nuw nsw i32 %205, %6
-  %213 = mul nuw nsw i32 %203, %198
-  %214 = add nuw nsw i32 %212, %213
-  %215 = mul nuw nsw i32 %214, 257
+  %210 = mul nuw nsw i32 %203, %198
+  %211 = add nuw nsw i32 %212, %213
+  %215 = mul nuw nsw i32 %211, 257
   %216 = add nuw nsw i32 %215, 256
-  %217 = mul nuw nsw i32 %205, %7
+  %214 = mul nuw nsw i32 %205, %7
   %218 = mul nuw nsw i32 %204, %198
   %219 = add nuw nsw i32 %217, %218
   %220 = mul nuw nsw i32 %219, 257
@@ -1036,28 +1036,28 @@ define void @WebPBlendAlpha(ptr noundef readonly captures(address_is_null) %0, i
   %.sink.in = phi i32 [ %226, %199 ], [ %183, %.lr.ph ]
   %.sink = or disjoint i32 %.sink.in, -16777216
   store i32 %.sink, ptr %196, align 4, !tbaa !19
-  br label %227
+  br label %228
 
-227:                                              ; preds = %.sink.split, %.lr.ph
+228:                                              ; preds = %.sink.split, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %228 = load i32, ptr %187, align 8, !tbaa !15
-  %229 = sext i32 %228 to i64
-  %230 = icmp slt i64 %indvars.iv.next, %229
-  br i1 %230, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !46
+  %229 = load i32, ptr %187, align 8, !tbaa !15
+  %230 = sext i32 %229 to i64
+  %231 = icmp slt i64 %indvars.iv.next, %230
+  br i1 %231, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !46
 
-._crit_edge.loopexit:                             ; preds = %227
+._crit_edge.loopexit:                             ; preds = %228
   %.pre = load i32, ptr %184, align 4, !tbaa !12
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader162
-  %231 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %193, %.preheader162 ]
-  %232 = phi i32 [ %228, %._crit_edge.loopexit ], [ %194, %.preheader162 ]
-  %233 = load i32, ptr %188, align 8, !tbaa !16
-  %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds i32, ptr %.0147165, i64 %234
-  %236 = add nuw nsw i32 %.1142166, 1
-  %237 = icmp slt i32 %236, %231
-  br i1 %237, label %.preheader162, label %.critedge, !llvm.loop !47
+  %232 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %193, %.preheader162 ]
+  %233 = phi i32 [ %229, %._crit_edge.loopexit ], [ %194, %.preheader162 ]
+  %234 = load i32, ptr %188, align 8, !tbaa !16
+  %235 = sext i32 %234 to i64
+  %236 = getelementptr inbounds i32, ptr %.0147165, i64 %235
+  %237 = add nuw nsw i32 %.1142166, 1
+  %238 = icmp slt i32 %237, %232
+  br i1 %238, label %.preheader162, label %.critedge, !llvm.loop !47
 
 .critedge:                                        ; preds = %._crit_edge, %167, %.preheader162.lr.ph, %179, %40, %11, %2
   ret void

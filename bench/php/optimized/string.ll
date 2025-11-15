@@ -249,9 +249,9 @@ define hidden void @zif_hex2bin(ptr noundef %0, ptr noundef writeonly captures(n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8, !tbaa !10
   %10 = icmp eq i8 %9, 6
-  br i1 %10, label %.thread76, label %zend_parse_arg_str_ex.exit, !prof !12
+  br i1 %10, label %.thread74, label %zend_parse_arg_str_ex.exit, !prof !12
 
-.thread76:                                        ; preds = %6
+.thread74:                                        ; preds = %6
   %11 = load ptr, ptr %7, align 8, !tbaa !10
   store ptr %11, ptr %3, align 8, !tbaa !13
   br label %.critedge
@@ -271,9 +271,9 @@ zend_parse_arg_str_ex.exit..critedge_crit_edge:   ; preds = %zend_parse_arg_str_
   %.04269 = phi ptr [ null, %.thread62 ], [ %7, %zend_parse_arg_str_ex.exit ]
   %.04368 = phi i32 [ 0, %.thread62 ], [ 4, %zend_parse_arg_str_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.04170, i32 noundef %.071, ptr noundef null, i32 noundef %.04368, ptr noundef %.04269) #29
-  br label %72
+  br label %69
 
-.critedge:                                        ; preds = %zend_parse_arg_str_ex.exit..critedge_crit_edge, %.thread76
+.critedge:                                        ; preds = %zend_parse_arg_str_ex.exit..critedge_crit_edge, %.thread74
   %14 = phi ptr [ %.pre, %zend_parse_arg_str_ex.exit..critedge_crit_edge ], [ %11, %.thread76 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !16
@@ -285,7 +285,7 @@ zend_parse_arg_str_ex.exit..critedge_crit_edge:   ; preds = %zend_parse_arg_str_
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str) #29
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %19, align 8, !tbaa !10
-  br label %72
+  br label %69
 
 zend_string_alloc.exit.i:                         ; preds = %.critedge
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -302,7 +302,7 @@ zend_string_alloc.exit.i:                         ; preds = %.critedge
   store i64 %21, ptr %27, align 8, !tbaa !16
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %.not45.i = icmp eq i64 %16, 0
-  br i1 %.not45.i, label %php_hex2bin.exit.thread74, label %.lr.ph.i
+  br i1 %.not45.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %zend_string_alloc.exit.i, %56
   %.03444.i = phi i64 [ %57, %56 ], [ 0, %zend_string_alloc.exit.i ]
@@ -321,7 +321,7 @@ zend_string_alloc.exit.i:                         ; preds = %.critedge
   %40 = ashr i32 %39, 31
   %41 = or i32 %36, %40
   %.not.i = icmp eq i32 %41, 0
-  br i1 %.not.i, label %php_hex2bin.exit.thread, label %42, !prof !23
+  br i1 %.not.i, label %65, label %42, !prof !23
 
 42:                                               ; preds = %.lr.ph.i
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 1
@@ -338,7 +338,7 @@ zend_string_alloc.exit.i:                         ; preds = %.critedge
   %54 = ashr i32 %53, 31
   %55 = or i32 %50, %54
   %.not38.i = icmp eq i32 %55, 0
-  br i1 %.not38.i, label %php_hex2bin.exit.thread, label %56, !prof !23
+  br i1 %.not38.i, label %65, label %56, !prof !23
 
 56:                                               ; preds = %42
   %57 = add nuw i64 %.03444.i, 2
@@ -355,21 +355,21 @@ zend_string_alloc.exit.i:                         ; preds = %.critedge
   store i8 %62, ptr %63, align 1, !tbaa !10
   %64 = add nuw nsw i64 %.03543.i, 1
   %exitcond.not.i = icmp eq i64 %64, %21
-  br i1 %exitcond.not.i, label %php_hex2bin.exit.thread74, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
 
-php_hex2bin.exit.thread:                          ; preds = %42, %.lr.ph.i
+65:                                               ; preds = %42, %.lr.ph.i
   call void @_efree(ptr noundef nonnull %24) #29
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1) #29
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %65, align 8, !tbaa !10
-  br label %72
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 2, ptr %66, align 8, !tbaa !10
+  br label %69
 
-php_hex2bin.exit.thread74:                        ; preds = %56, %zend_string_alloc.exit.i
+.loopexit:                                        ; preds = %56, %zend_string_alloc.exit.i
   %66 = getelementptr inbounds nuw i8, ptr %28, i64 %21
   store i8 0, ptr %66, align 1, !tbaa !10
   store ptr %24, ptr %1, align 8, !tbaa !10
-  %67 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %68 = load i32, ptr %67, align 4, !tbaa !10
+  %68 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %68 = load i32, ptr %68, align 4, !tbaa !10
   %69 = and i32 %68, 64
   %.not49 = icmp eq i32 %69, 0
   %70 = select i1 %.not49, i32 262, i32 6
@@ -377,7 +377,7 @@ php_hex2bin.exit.thread74:                        ; preds = %56, %zend_string_al
   store i32 %70, ptr %71, align 8, !tbaa !10
   br label %72
 
-72:                                               ; preds = %13, %php_hex2bin.exit.thread74, %php_hex2bin.exit.thread, %18
+69:                                               ; preds = %13, %.loopexit, %65, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

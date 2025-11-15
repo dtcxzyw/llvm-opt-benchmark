@@ -1518,7 +1518,7 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %16 = load i8, ptr %15, align 4
   %.sroa.0170.0.extract.trunc = and i8 %16, 1
-  br label %302
+  br label %301
 
 17:                                               ; preds = %5
   %18 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath24IsAbsoluteRootOrPrimPathEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
@@ -1548,13 +1548,13 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   store i32 0, ptr %12, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i8 0, ptr %28, align 4
-  br label %302
+  br label %301
 
 29:                                               ; preds = %21
   %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
-  br label %303
+  br label %302
 
 31:                                               ; preds = %19, %17
   %32 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
@@ -1571,14 +1571,14 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
 
 40:                                               ; preds = %38
   %41 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-  br i1 %41, label %302, label %42
+  br i1 %41, label %301, label %42
 
 42:                                               ; preds = %40
   %43 = trunc i64 %33 to i32
   store i32 %43, ptr %12, align 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i8 0, ptr %44, align 4
-  br label %302
+  br label %301
 
 45:                                               ; preds = %38, %31
   %46 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath18IsPrimPropertyPathEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
@@ -1586,12 +1586,12 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   %48 = load i8, ptr %47, align 2
   %49 = icmp ne i8 %48, 2
   %or.cond = or i1 %46, %49
-  br i1 %or.cond, label %50, label %302
+  br i1 %or.cond, label %50, label %301
 
 50:                                               ; preds = %45
   %51 = icmp eq i8 %48, 1
   %or.cond3 = and i1 %46, %51
-  br i1 %or.cond3, label %302, label %52
+  br i1 %or.cond3, label %301, label %52
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1615,17 +1615,17 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   store i32 0, ptr %12, align 8
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i8 1, ptr %66, align 4
-  br label %302
+  br label %301
 
 67:                                               ; preds = %58
   %68 = icmp ugt i64 %32, %33
-  br i1 %68, label %69, label %302
+  br i1 %68, label %69, label %301
 
 69:                                               ; preds = %67
   store i32 0, ptr %12, align 8
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i8 0, ptr %70, align 4
-  br label %302
+  br label %301
 
 71:                                               ; preds = %52
   %72 = load ptr, ptr %35, align 8
@@ -1676,7 +1676,7 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   %101 = load i64, ptr %92, align 8
   %102 = sub i64 %100, %101
   %103 = icmp ult i64 %98, %102
-  br i1 %103, label %302, label %104
+  br i1 %103, label %301, label %104
 
 104:                                              ; preds = %.critedge
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1692,7 +1692,7 @@ define i64 @_ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_PathExpressionEvalBase16
   store i32 %110, ptr %12, align 8
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i8 0, ptr %111, align 4
-  br label %302
+  br label %301
 
 112:                                              ; preds = %104
   %113 = load i32, ptr %2, align 4
@@ -2096,16 +2096,16 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit232, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp233, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %8) #21
-  br label %303
+  br label %302
 
-302:                                              ; preds = %.critedge, %67, %50, %45, %40, %14, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, %109, %69, %65, %42, %27
+301:                                              ; preds = %.critedge, %67, %50, %45, %40, %14, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, %109, %69, %65, %42, %27
   %.sroa.0170.0 = phi i8 [ 1, %65 ], [ 0, %69 ], [ %.sroa.0170.1, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ], [ 0, %109 ], [ 0, %42 ], [ 0, %27 ], [ %.sroa.0170.0.extract.trunc, %14 ], [ 0, %40 ], [ 0, %45 ], [ 0, %50 ], [ 1, %67 ], [ 0, %.critedge ]
   %.sroa.24200.0 = phi i64 [ 0, %65 ], [ 0, %69 ], [ %301, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ], [ 0, %109 ], [ 0, %42 ], [ 0, %27 ], [ 0, %14 ], [ 4294967296, %40 ], [ 4294967296, %45 ], [ 0, %50 ], [ 4294967296, %67 ], [ 4294967296, %.critedge ]
   %.sroa.0170.0.insert.ext = zext i8 %.sroa.0170.0 to i64
   %.sroa.0170.0.insert.insert = or i64 %.sroa.24200.0, %.sroa.0170.0.insert.ext
   ret i64 %.sroa.0170.0.insert.insert
 
-303:                                              ; preds = %.loopexit.split-lp, %29
+302:                                              ; preds = %.loopexit.split-lp, %29
   %.pn124 = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %30, %29 ]
   resume { ptr, i32 } %.pn124
 }

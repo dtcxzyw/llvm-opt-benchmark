@@ -94,9 +94,9 @@ define hidden void @"_ZN101_$LT$alloc..collections..binary_heap..RebuildOnDrop$L
   br i1 %.not.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$12rebuild_tail17hb7143ca925179505E.exit", label %.lr.ph.i.i
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i
-  %.sroa.01.09.i = phi i64 [ %29, %.lr.ph.i ], [ %4, %23 ]
-  %29 = add i64 %.sroa.01.09.i, 1
-  %30 = tail call noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17h6d2bd23fb0cfecadE.llvm.11083375685992158394"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 0, i64 noundef %.sroa.01.09.i)
+  %.sroa.01.010.i = phi i64 [ %29, %.lr.ph.i ], [ %4, %23 ]
+  %29 = add i64 %.sroa.01.010.i, 1
+  %30 = tail call noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17h6d2bd23fb0cfecadE.llvm.11083375685992158394"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 0, i64 noundef %.sroa.01.010.i)
   %exitcond.not.i = icmp eq i64 %29, %6
   br i1 %exitcond.not.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$12rebuild_tail17hb7143ca925179505E.exit", label %.lr.ph.i
 
@@ -3763,9 +3763,9 @@ define hidden void @"_ZN4core3ptr111drop_in_place$LT$alloc..collections..binary_
   br i1 %.not.i.i.i, label %"_ZN101_$LT$alloc..collections..binary_heap..RebuildOnDrop$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hac8a1a3a856753c0E.llvm.1287153784043347726.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i:                                       ; preds = %23, %.lr.ph.i.i
-  %.sroa.01.09.i.i = phi i64 [ %29, %.lr.ph.i.i ], [ %4, %23 ]
-  %29 = add i64 %.sroa.01.09.i.i, 1
-  %30 = tail call noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17h6d2bd23fb0cfecadE.llvm.11083375685992158394"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 0, i64 noundef %.sroa.01.09.i.i), !noalias !1078
+  %.sroa.01.010.i.i = phi i64 [ %29, %.lr.ph.i.i ], [ %4, %23 ]
+  %29 = add i64 %.sroa.01.010.i.i, 1
+  %30 = tail call noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17h6d2bd23fb0cfecadE.llvm.11083375685992158394"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 0, i64 noundef %.sroa.01.010.i.i), !noalias !1078
   %exitcond.not.i.i = icmp eq i64 %29, %6
   br i1 %exitcond.not.i.i, label %"_ZN101_$LT$alloc..collections..binary_heap..RebuildOnDrop$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hac8a1a3a856753c0E.llvm.1287153784043347726.exit", label %.lr.ph.i.i
 

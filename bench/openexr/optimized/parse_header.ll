@@ -1086,7 +1086,7 @@ priv_init_scratch.exit.thread:                    ; preds = %69, %priv_init_scra
   %or.cond185 = and i1 %.not101, %.not100
   br i1 %or.cond185, label %.sink.split, label %124
 
-.thread161:                                       ; preds = %113
+.sink.split:                                      ; preds = %113
   %.not101162 = icmp eq i32 %110, 0
   br i1 %.not101162, label %.sink.split, label %124
 

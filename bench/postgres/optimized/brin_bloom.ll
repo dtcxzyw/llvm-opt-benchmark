@@ -477,14 +477,14 @@ define dso_local noundef i64 @brin_bloom_union(ptr noundef readonly captures(non
 ._crit_edge:                                      ; preds = %1
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %30 = icmp ult i32 %19, 64
-  br i1 %30, label %pg_popcount.exit, label %41
+  br i1 %30, label %pg_popcount.exit, label %39
 
-._crit_edge.thread:                               ; preds = %23
+.lr.ph.i:                                         ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %32 = icmp ult i32 %19, 64
-  br i1 %32, label %.lr.ph.i, label %41
+  br i1 %32, label %.lr.ph.i, label %39
 
-.lr.ph.i:                                         ; preds = %._crit_edge.thread, %.lr.ph.i
+.lr.ph.i:; preds = %.lr.ph.i, %.lr.ph.i
   %.015.i = phi i64 [ %40, %.lr.ph.i ], [ 0, %._crit_edge.thread ]
   %.0914.i = phi i32 [ %33, %.lr.ph.i ], [ %20, %._crit_edge.thread ]
   %.01013.i = phi ptr [ %34, %.lr.ph.i ], [ %31, %._crit_edge.thread ]
@@ -499,17 +499,17 @@ define dso_local noundef i64 @brin_bloom_union(ptr noundef readonly captures(non
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %pg_popcount.exit, label %.lr.ph.i, !llvm.loop !11
 
-41:                                               ; preds = %._crit_edge.thread, %._crit_edge
+39:                                               ; preds = %.lr.ph.i, %._crit_edge
   %42 = phi ptr [ %31, %._crit_edge.thread ], [ %29, %._crit_edge ]
   %43 = load ptr, ptr @pg_popcount_optimized, align 8
   %44 = tail call i64 %43(ptr noundef nonnull %42, i32 noundef range(i32 0, 536870912) %20) #7
   br label %pg_popcount.exit
 
-pg_popcount.exit:                                 ; preds = %.lr.ph.i, %._crit_edge, %41
+pg_popcount.exit:                                 ; preds = %.lr.ph.i, %._crit_edge, %39
   %.08.i = phi i64 [ %44, %41 ], [ 0, %._crit_edge ], [ %40, %.lr.ph.i ]
-  %45 = trunc i64 %.08.i to i32
-  %46 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 %45, ptr %46, align 4
+  %42 = trunc i64 %.08.i to i32
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  store i32 %42, ptr %43, align 4
   ret i64 0
 }
 

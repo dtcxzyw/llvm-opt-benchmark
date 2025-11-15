@@ -5103,8 +5103,8 @@ Vec_StrPush.exit.i46:                             ; preds = %114, %Vec_StrGrow.e
   %124 = load i32, ptr %123, align 8
   %125 = lshr i32 %124, 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %.preheader24.i
+  %125 = icmp eq i32 %125, 0
+  br i1 %125, label %127, label %.preheader24.i
 
 127:                                              ; preds = %Vec_StrPush.exit.i46
   %128 = load i32, ptr %92, align 4, !tbaa !10

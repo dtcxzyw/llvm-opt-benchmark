@@ -7222,8 +7222,8 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
   %71 = icmp eq i32 %70, 0
   %.pre = load i32, ptr %2, align 4, !tbaa !25
   %72 = icmp slt i32 %.pre, 41
-  %or.cond292 = select i1 %71, i1 %72, i1 false
-  br i1 %or.cond292, label %73, label %.thread
+  %or.cond291 = select i1 %71, i1 %72, i1 false
+  br i1 %or.cond291, label %73, label %.thread
 
 73:                                               ; preds = %68
   switch i16 %55, label %.thread [
@@ -7463,20 +7463,20 @@ decNumberFromInt32.exit:                          ; preds = %138, %decNumberFrom
   %187 = zext nneg i32 %184 to i64
   %.idx.i.i.i189 = shl nuw nsw i64 %187, 1
   %.add.i.i190 = add nuw nsw i64 %.idx.i.i.i189, 10
-  %.01317.i.ptr.i.i194307 = getelementptr inbounds nuw i8, ptr %.0, i64 %.add.i.i190
-  %188 = load i16, ptr %.01317.i.ptr.i.i194307, align 2, !tbaa !11
+  %.01317.i.ptr.i.i194306 = getelementptr inbounds nuw i8, ptr %.0, i64 %.add.i.i190
+  %188 = load i16, ptr %.01317.i.ptr.i.i194306, align 2, !tbaa !11
   %189 = icmp eq i16 %188, 0
   br i1 %189, label %.lr.ph, label %.lr.ph.i.i.i191._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i.i.i188, %.lr.ph.i.i.i191
-  %.01317.i.idx.i.i193309 = phi i64 [ %.01317.i.add.i.i199, %.lr.ph.i.i.i191 ], [ %.add.i.i190, %.lr.ph.preheader.i.i.i188 ]
-  %.018.i.i.i192308 = phi i32 [ %191, %.lr.ph.i.i.i191 ], [ %186, %.lr.ph.preheader.i.i.i188 ]
-  %190 = icmp eq i32 %.018.i.i.i192308, 1
+  %.01317.i.idx.i.i193308 = phi i64 [ %.01317.i.add.i.i199, %.lr.ph.i.i.i191 ], [ %.add.i.i190, %.lr.ph.preheader.i.i.i188 ]
+  %.018.i.i.i192307 = phi i32 [ %191, %.lr.ph.i.i.i191 ], [ %186, %.lr.ph.preheader.i.i.i188 ]
+  %190 = icmp eq i32 %.018.i.i.i192307, 1
   br i1 %190, label %decNumberFromInt32.exit201, label %.lr.ph.i.i.i191
 
 .lr.ph.i.i.i191:                                  ; preds = %.lr.ph
-  %191 = add nsw i32 %.018.i.i.i192308, -3
-  %.01317.i.add.i.i199 = add nsw i64 %.01317.i.idx.i.i193309, -2
+  %191 = add nsw i32 %.018.i.i.i192307, -3
+  %.01317.i.add.i.i199 = add nsw i64 %.01317.i.idx.i.i193308, -2
   %.01317.i.ptr.i.i194 = getelementptr inbounds i8, ptr %.0, i64 %.01317.i.add.i.i199
   %192 = load i16, ptr %.01317.i.ptr.i.i194, align 2, !tbaa !11
   %193 = icmp eq i16 %192, 0
@@ -7484,12 +7484,12 @@ decNumberFromInt32.exit:                          ; preds = %138, %decNumberFrom
 
 .lr.ph.i.i.i191._crit_edge:                       ; preds = %.lr.ph.i.i.i191, %.lr.ph.preheader.i.i.i188
   %.018.i.i.i192.lcssa = phi i32 [ %186, %.lr.ph.preheader.i.i.i188 ], [ %191, %.lr.ph.i.i.i191 ]
-  %.lcssa299 = phi i16 [ %188, %.lr.ph.preheader.i.i.i188 ], [ %192, %.lr.ph.i.i.i191 ]
-  %194 = icmp ult i16 %.lcssa299, 10
+  %.lcssa298 = phi i16 [ %188, %.lr.ph.preheader.i.i.i188 ], [ %192, %.lr.ph.i.i.i191 ]
+  %194 = icmp ult i16 %.lcssa298, 10
   br i1 %194, label %decNumberFromInt32.exit201, label %195
 
 195:                                              ; preds = %.lr.ph.i.i.i191._crit_edge
-  %196 = icmp ult i16 %.lcssa299, 100
+  %196 = icmp ult i16 %.lcssa298, 100
   %spec.select.v.i.i.i195 = select i1 %196, i32 1, i32 2
   %spec.select.i.i.i196 = add nsw i32 %spec.select.v.i.i.i195, %.018.i.i.i192.lcssa
   br label %decNumberFromInt32.exit201
@@ -7522,10 +7522,10 @@ decNumberFromInt32.exit201:                       ; preds = %.lr.ph, %178, %.lr.
   %210 = lshr i32 %209, 2
   store i32 1, ptr %.0, align 4, !tbaa !10
   store i16 0, ptr %.ptr17.i.i181, align 2, !tbaa !11
-  %211 = icmp eq i32 %210, 0
-  br i1 %211, label %decNumberFromInt32.exit223, label %.preheader.i.i205
+  %210 = icmp eq i32 %210, 0
+  br i1 %210, label %decNumberFromInt32.exit223, label %.preheader.i.i205.preheader
 
-.preheader.i.i205:                                ; preds = %decNumberFromInt32.exit201, %.preheader.i.i205
+.preheader.i.i205.preheader:                      ; preds = %decNumberFromInt32.exit201, %.preheader.i.i205
   %.022.i.i206 = phi ptr [ %215, %.preheader.i.i205 ], [ %.ptr17.i.i181, %decNumberFromInt32.exit201 ]
   %.01421.i.i207 = phi i32 [ %214, %.preheader.i.i205 ], [ %210, %decNumberFromInt32.exit201 ]
   %212 = urem i32 %.01421.i.i207, 1000
@@ -7619,12 +7619,12 @@ decNumberFromInt32.exit223:                       ; preds = %decNumberFromInt32.
   br label %.outer
 
 .outer:                                           ; preds = %317, %decNumberFromInt32.exit223
-  %spec.select180.sink293 = phi i32 [ %spec.select180, %317 ], [ 9, %decNumberFromInt32.exit223 ]
-  store i32 %spec.select180.sink293, ptr %11, align 4, !tbaa !25
+  %spec.select180.sink292 = phi i32 [ %spec.select180, %317 ], [ 9, %decNumberFromInt32.exit223 ]
+  store i32 %spec.select180.sink292, ptr %11, align 4, !tbaa !25
   %250 = load i32, ptr %1, align 4, !tbaa !10
-  %251 = add nsw i32 %250, %spec.select180.sink293
+  %251 = add nsw i32 %250, %spec.select180.sink292
   store i32 %251, ptr %12, align 4, !tbaa !25
-  %252 = icmp eq i32 %spec.select180.sink293, %91
+  %252 = icmp eq i32 %spec.select180.sink292, %91
   br label %253
 
 253:                                              ; preds = %.outer, %315
@@ -7641,8 +7641,8 @@ decNumberFromInt32.exit223:                       ; preds = %decNumberFromInt32.
   %262 = icmp eq i16 %261, 0
   %.pre255 = load i32, ptr %.0, align 4, !tbaa !10
   %263 = icmp eq i32 %.pre255, 1
-  %or.cond294 = select i1 %262, i1 %263, i1 false
-  br i1 %or.cond294, label %264, label %268
+  %or.cond293 = select i1 %262, i1 %263, i1 false
+  br i1 %or.cond293, label %264, label %268
 
 264:                                              ; preds = %253
   %265 = load i8, ptr %172, align 4, !tbaa !4
@@ -7692,13 +7692,13 @@ decNumberFromInt32.exit223:                       ; preds = %decNumberFromInt32.
 290:                                              ; preds = %287
   %291 = call fastcc i32 @decCompare(ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %9, i8 noundef zeroext 0)
   %292 = icmp eq i32 %291, -2147483648
-  br i1 %292, label %decCompareOp.exit.thread280, label %.thread.i224
+  br i1 %292, label %decCompareOp.exit.thread279, label %.thread.i224
 
-decCompareOp.exit.thread280:                      ; preds = %290
+decCompareOp.exit.thread279:                      ; preds = %290
   %293 = load i32, ptr %5, align 4, !tbaa !16
   %294 = or i32 %293, 16
   store i32 %294, ptr %5, align 4, !tbaa !16
-  br label %decCompareOp.exit.thread279
+  br label %decCompareOp.exit.thread278
 
 .thread.i224:                                     ; preds = %290
   %295 = icmp eq i32 %291, 0
@@ -7709,7 +7709,7 @@ decCompareOp.exit.thread280:                      ; preds = %290
   store i32 1, ptr %10, align 4, !tbaa !10
   %298 = getelementptr inbounds nuw i8, ptr %10, i64 10
   store i16 0, ptr %298, align 2, !tbaa !11
-  br i1 %295, label %decCompareOp.exit.thread279, label %299
+  br i1 %295, label %decCompareOp.exit.thread278, label %299
 
 299:                                              ; preds = %.thread.i224
   store i16 1, ptr %298, align 2, !tbaa !11
@@ -7725,9 +7725,9 @@ decCompareOp.exit:                                ; preds = %287
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 10
   %.pre257 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !11
   %303 = icmp eq i16 %.pre257, 0
-  br i1 %303, label %decCompareOp.exit.thread279, label %decCompareOp.exit.thread
+  br i1 %303, label %decCompareOp.exit.thread278, label %decCompareOp.exit.thread
 
-decCompareOp.exit.thread279:                      ; preds = %.thread.i224, %decCompareOp.exit.thread280, %decCompareOp.exit
+decCompareOp.exit.thread278:                      ; preds = %.thread.i224, %decCompareOp.exit.thread279, %decCompareOp.exit
   store i32 0, ptr %144, align 4, !tbaa !9
   br label %.loopexit
 
@@ -7739,8 +7739,8 @@ decCompareOp.exit.thread:                         ; preds = %301, %299, %decComp
 
 306:                                              ; preds = %283, %279
   %307 = icmp eq i32 %.pre255, 1
-  %or.cond295 = select i1 %262, i1 %307, i1 false
-  br i1 %or.cond295, label %308, label %315
+  %or.cond294 = select i1 %262, i1 %307, i1 false
+  br i1 %or.cond294, label %308, label %315
 
 308:                                              ; preds = %306
   %309 = load i8, ptr %172, align 4, !tbaa !4
@@ -7759,11 +7759,11 @@ decCompareOp.exit.thread:                         ; preds = %301, %299, %decComp
   br i1 %252, label %253, label %317
 
 317:                                              ; preds = %315
-  %318 = shl nsw i32 %spec.select180.sink293, 1
+  %318 = shl nsw i32 %spec.select180.sink292, 1
   %spec.select180 = call i32 @llvm.smin.i32(i32 %318, i32 %91)
   br label %.outer
 
-.loopexit:                                        ; preds = %276, %decCompareOp.exit.thread279, %decCompareOp.exit.thread
+.loopexit:                                        ; preds = %276, %decCompareOp.exit.thread278, %decCompareOp.exit.thread
   store i32 1, ptr %6, align 4, !tbaa !16
   %319 = load i16, ptr %.ptr17.i.i, align 2, !tbaa !11
   %320 = icmp eq i16 %319, 0

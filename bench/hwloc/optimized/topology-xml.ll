@@ -11115,21 +11115,21 @@ define internal fastcc range(i32 0, 2) i32 @hwloc_filter_check_keep_object(ptr n
   %15 = and i32 %13, 65024
   %or.cond.i = icmp eq i32 %15, 512
   %16 = icmp ult i16 %12, 512
-  %or.cond5.i = or i1 %16, %or.cond.i
+  %or.cond3.i = or i1 %16, %or.cond.i
   %17 = icmp eq i32 %14, 11
-  %or.cond7.i = or i1 %17, %or.cond5.i
+  %or.cond7.i = or i1 %17, %or.cond3.i
   %18 = and i32 %13, 65533
   %19 = icmp eq i32 %18, 3076
   %or.cond11.i = or i1 %19, %or.cond7.i
   %20 = icmp eq i16 %12, 1282
-  %or.cond13.i = or i1 %20, %or.cond11.i
+  %or.cond11.i = or i1 %20, %or.cond11.i
   %21 = icmp eq i32 %14, 6
-  %or.cond15.i = or i1 %21, %or.cond13.i
+  %or.cond13.i = or i1 %21, %or.cond11.i
   %22 = icmp eq i32 %14, 18
-  %narrow.i = or i1 %22, %or.cond15.i
+  %or.cond15.i = or i1 %22, %or.cond13.i
   br label %30
 
-23:                                               ; preds = %7
+23:; preds = %7
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !161
   %26 = load i64, ptr %25, align 8, !tbaa !27
@@ -11137,10 +11137,10 @@ define internal fastcc range(i32 0, 2) i32 @hwloc_filter_check_keep_object(ptr n
   %28 = icmp ne i64 %27, 0
   br label %30
 
-29:                                               ; preds = %7, %2
+29:; preds = %7, %2
   br label %30
 
-30:                                               ; preds = %2, %29, %23, %8
+30:; preds = %2, %29, %23, %8
   %.0.shrunk = phi i1 [ %narrow.i, %8 ], [ %28, %23 ], [ true, %29 ], [ false, %2 ]
   %.0 = zext i1 %.0.shrunk to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

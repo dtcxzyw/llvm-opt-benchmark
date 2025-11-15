@@ -762,7 +762,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKh(ptr noundef readonly captures(none)
   br i1 %.not36.i, label %_Z10IsTextUtf8PKhm.exit, label %.lr.ph41.i
 
 .loopexit.i:                                      ; preds = %.preheader.i
-  br i1 %13, label %_Z10IsTextUtf8PKhm.exit, label %.lr.ph41.i
+  br i1 %16, label %_Z10IsTextUtf8PKhm.exit, label %.lr.ph41.i
 
 .lr.ph41.i:                                       ; preds = %1, %.loopexit.i
   %.01838.i = phi i64 [ %.220.i, %.loopexit.i ], [ %2, %1 ]
@@ -788,26 +788,26 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKh(ptr noundef readonly captures(none)
   %.not46.i = icmp eq i32 %10, 0
   br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
 
-.preheader.i:                                     ; preds = %._crit_edge.i, %15
+.preheader.i:; preds = %._crit_edge.i, %15
   %.021.pn.i = phi ptr [ %.223.i, %15 ], [ %.02137.i, %._crit_edge.i ]
   %.220.in.i = phi i64 [ %.220.i, %15 ], [ %.01838.i, %._crit_edge.i ]
-  %.1.i = phi i32 [ %11, %15 ], [ %.015.lcssa.i, %._crit_edge.i ]
+  %.021.pn.i = phi i32 [ %11, %15 ], [ %.015.lcssa.i, %._crit_edge.i ]
   %.220.i = add i64 %.220.in.i, -1
   %.223.i = getelementptr inbounds nuw i8, ptr %.021.pn.i, i64 1
-  %11 = add nsw i32 %.1.i, -1
-  %12 = icmp sgt i32 %.1.i, 1
-  %13 = icmp eq i64 %.220.i, 0
-  br i1 %12, label %14, label %.loopexit.i
+  %14 = add nsw i32 %.1.i, -1
+  %15 = icmp sgt i32 %.1.i, 1
+  %16 = icmp eq i64 %.220.i, 0
+  br i1 %15, label %17, label %.loopexit.i
 
-14:                                               ; preds = %.preheader.i
-  br i1 %13, label %_Z10IsTextUtf8PKhm.exit, label %15
+17:                                               ; preds = %.preheader.i
+  br i1 %16, label %_Z10IsTextUtf8PKhm.exit, label %18
 
-15:                                               ; preds = %14
-  %16 = load i8, ptr %.223.i, align 1, !tbaa !3
-  %.not26.i = icmp slt i8 %16, -64
+18:                                               ; preds = %17
+  %19 = load i8, ptr %.223.i, align 1, !tbaa !3
+  %.not26.i = icmp slt i8 %19, -64
   br i1 %.not26.i, label %.preheader.i, label %_Z10IsTextUtf8PKhm.exit, !llvm.loop !23
 
-_Z10IsTextUtf8PKhm.exit:                          ; preds = %.loopexit.i, %._crit_edge.i, %14, %15, %1
+_Z10IsTextUtf8PKhm.exit:                          ; preds = %.loopexit.i, %._crit_edge.i, %17, %18, %1
   %.not34.i = phi i1 [ true, %1 ], [ false, %15 ], [ false, %14 ], [ %or.cond.not.i, %._crit_edge.i ], [ %or.cond.not.i, %.loopexit.i ]
   ret i1 %.not34.i
 }
@@ -818,7 +818,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKhm(ptr noundef readonly captures(none
   br i1 %.not36, label %.thread, label %.lr.ph41
 
 .loopexit:                                        ; preds = %.preheader
-  br i1 %13, label %.thread, label %.lr.ph41
+  br i1 %16, label %.thread, label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %2, %.loopexit
   %.01838 = phi i64 [ %.220, %.loopexit ], [ %1, %2 ]
@@ -844,26 +844,26 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKhm(ptr noundef readonly captures(none
   %.not46 = icmp eq i32 %10, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
-.preheader:                                       ; preds = %._crit_edge, %15
+.preheader:; preds = %._crit_edge, %15
   %.021.pn = phi ptr [ %.223, %15 ], [ %.02137, %._crit_edge ]
   %.220.in = phi i64 [ %.220, %15 ], [ %.01838, %._crit_edge ]
-  %.1 = phi i32 [ %11, %15 ], [ %.015.lcssa, %._crit_edge ]
+  %.021.pn = phi i32 [ %11, %15 ], [ %.015.lcssa, %._crit_edge ]
   %.220 = add i64 %.220.in, -1
   %.223 = getelementptr inbounds nuw i8, ptr %.021.pn, i64 1
-  %11 = add nsw i32 %.1, -1
-  %12 = icmp sgt i32 %.1, 1
-  %13 = icmp eq i64 %.220, 0
-  br i1 %12, label %14, label %.loopexit
+  %14 = add nsw i32 %.1, -1
+  %15 = icmp sgt i32 %.1, 1
+  %16 = icmp eq i64 %.220, 0
+  br i1 %15, label %17, label %.loopexit
 
-14:                                               ; preds = %.preheader
-  br i1 %13, label %.thread, label %15
+17:                                               ; preds = %.preheader
+  br i1 %16, label %.thread, label %18
 
-15:                                               ; preds = %14
-  %16 = load i8, ptr %.223, align 1, !tbaa !3
-  %.not26 = icmp slt i8 %16, -64
+18:                                               ; preds = %17
+  %19 = load i8, ptr %.223, align 1, !tbaa !3
+  %.not26 = icmp slt i8 %19, -64
   br i1 %.not26, label %.preheader, label %.thread, !llvm.loop !23
 
-.thread:                                          ; preds = %.loopexit, %._crit_edge, %14, %15, %2
+.thread:                                          ; preds = %.loopexit, %._crit_edge, %17, %18, %2
   %.not34 = phi i1 [ true, %2 ], [ false, %15 ], [ false, %14 ], [ %or.cond.not, %._crit_edge ], [ %or.cond.not, %.loopexit ]
   ret i1 %.not34
 }

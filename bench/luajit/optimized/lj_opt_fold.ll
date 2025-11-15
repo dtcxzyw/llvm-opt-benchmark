@@ -2061,7 +2061,7 @@ ctype_raw.exit:                                   ; preds = %19
   %or.cond24 = select i1 %25, i1 %switch.lobit, i1 false
   br i1 %or.cond24, label %switch.lookup, label %26
 
-26:                                               ; preds = %ctype_raw.exit
+26:; preds = %ctype_raw.exit
   %27 = and i32 %20, -201326592
   %28 = icmp eq i32 %27, 872415232
   %29 = and i32 %20, -134217728
@@ -2069,10 +2069,10 @@ ctype_raw.exit:                                   ; preds = %19
   %or.cond = or i1 %28, %30
   br i1 %or.cond, label %switch.lookup, label %.thread
 
-.thread:                                          ; preds = %26, %1
+.thread:; preds = %26, %1
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %ctype_raw.exit, %26, %.thread
+switch.lookup: ; preds = %ctype_raw.exit, %26, %.thread
   %.sink = phi i32 [ 25, %.thread ], [ 26, %26 ], [ 26, %ctype_raw.exit ]
   %31 = getelementptr inbounds i8, ptr %4, i64 %6
   %32 = tail call i32 @lj_ir_kptr_(ptr noundef nonnull %0, i32 noundef %.sink, ptr noundef %31) #13

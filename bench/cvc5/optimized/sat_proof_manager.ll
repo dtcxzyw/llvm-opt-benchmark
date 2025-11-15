@@ -6903,23 +6903,23 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
   br i1 %472, label %.invoke, label %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit, !prof !122
 
 .invoke:                                          ; preds = %471, %463
-  %.sink807 = phi i64 [ %458, %463 ], [ %466, %471 ]
-  %.sink806 = phi ptr [ %457, %463 ], [ %405, %471 ]
-  %473 = or i64 %.sink807, 1152920405095219200
-  store i64 %473, ptr %.sink806, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink806)
+  %.sink806 = phi i64 [ %458, %463 ], [ %466, %471 ]
+  %.sink805 = phi ptr [ %457, %463 ], [ %405, %471 ]
+  %473 = or i64 %.sink806, 1152920405095219200
+  store i64 %473, ptr %.sink805, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink805)
           to label %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit unwind label %594
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit.sink.split: ; preds = %465, %.noexc323
-  %.sink804 = phi i32 [ %461, %.noexc323 ], [ %469, %465 ]
+  %.sink803 = phi i32 [ %461, %.noexc323 ], [ %469, %465 ]
   %.sink = phi i64 [ %458, %.noexc323 ], [ %466, %465 ]
-  %.sink799 = phi ptr [ %457, %.noexc323 ], [ %405, %465 ]
-  %474 = add nuw nsw i32 %.sink804, 1
+  %.sink798 = phi ptr [ %457, %.noexc323 ], [ %405, %465 ]
+  %474 = add nuw nsw i32 %.sink803, 1
   %475 = zext nneg i32 %474 to i64
   %476 = shl nuw nsw i64 %475, 40
   %477 = and i64 %.sink, -1152920405095219201
   %478 = or i64 %476, %477
-  store i64 %478, ptr %.sink799, align 8
+  store i64 %478, ptr %.sink798, align 8
   br label %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %.invoke, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit.sink.split, %471, %463

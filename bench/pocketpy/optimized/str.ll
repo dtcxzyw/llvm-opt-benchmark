@@ -5947,60 +5947,60 @@ define void @_ZN4pkpy7SStream9write_hexEhb(ptr noundef nonnull align 8 captures(
   br i1 %2, label %6, label %53
 
 6:                                                ; preds = %3
-  %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %31, label %7
+  %7 = icmp eq i8 %4, 0
+  br i1 %7, label %31, label %7
 
-7:                                                ; preds = %6
-  %8 = load ptr, ptr @_ZN4pkpy12PK_HEX_TABLEE, align 8
-  %9 = zext nneg i8 %4 to i64
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = load i32, ptr %0, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %14 = load i32, ptr %13, align 4
-  %15 = icmp eq i32 %12, %14
-  br i1 %15, label %16, label %_ZN4pkpy7SStreamlsEc.exit
+8:                                                ; preds = %6
+  %9 = load ptr, ptr @_ZN4pkpy12PK_HEX_TABLEE, align 8
+  %10 = zext nneg i8 %4 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
+  %12 = load i8, ptr %11, align 1
+  %13 = load i32, ptr %0, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp eq i32 %13, %15
+  br i1 %16, label %17, label %.thread
 
-16:                                               ; preds = %7
-  %17 = shl nsw i32 %12, 1
-  %.not.i.i.i = icmp sgt i32 %17, %12
-  br i1 %.not.i.i.i, label %18, label %_ZN4pkpy7SStreamlsEc.exit
+17:                                               ; preds = %8
+  %18 = shl nsw i32 %13, 1
+  %.not.i.i.i = icmp sgt i32 %18, %13
+  br i1 %.not.i.i.i, label %19, label %.thread
 
-18:                                               ; preds = %16
-  store i32 %17, ptr %13, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = sext i32 %17 to i64
-  %22 = tail call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef %21) #26
-  store ptr %22, ptr %19, align 8
-  %.not6.i.i.i = icmp eq ptr %20, null
+19:                                               ; preds = %17
+  store i32 %18, ptr %14, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = sext i32 %18 to i64
+  %23 = tail call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef %22) #26
+  store ptr %23, ptr %20, align 8
+  %.not6.i.i.i = icmp eq ptr %21, null
   %.pre2.i.i = load i32, ptr %0, align 8
-  br i1 %.not6.i.i.i, label %_ZN4pkpy7SStreamlsEc.exit, label %23
+  br i1 %.not6.i.i.i, label %.thread, label %24
 
-23:                                               ; preds = %18
-  %24 = sext i32 %.pre2.i.i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull align 1 %20, i64 %24, i1 false)
-  tail call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %20) #26
+24:                                               ; preds = %19
+  %25 = sext i32 %.pre2.i.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr nonnull align 1 %21, i64 %25, i1 false)
+  tail call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %21) #26
   %.pre.i.i = load i32, ptr %0, align 8
-  br label %_ZN4pkpy7SStreamlsEc.exit
+  br label %.thread
 
-_ZN4pkpy7SStreamlsEc.exit:                        ; preds = %7, %16, %18, %23
-  %25 = phi i32 [ %.pre.i.i, %23 ], [ %.pre2.i.i, %18 ], [ %12, %16 ], [ %12, %7 ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = add nsw i32 %25, 1
-  store i32 %28, ptr %0, align 8
-  %29 = sext i32 %25 to i64
-  %30 = getelementptr inbounds i8, ptr %27, i64 %29
-  store i8 %11, ptr %30, align 1
+.thread:                                          ; preds = %8, %16, %18, %23
+  %26 = phi i32 [ %.pre.i.i, %23 ], [ %.pre2.i.i, %18 ], [ %13, %16 ], [ %13, %7 ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = add nsw i32 %26, 1
+  store i32 %29, ptr %0, align 8
+  %30 = sext i32 %26 to i64
+  %31 = getelementptr inbounds i8, ptr %28, i64 %30
+  store i8 %12, ptr %31, align 1
   br label %31
 
-31:                                               ; preds = %_ZN4pkpy7SStreamlsEc.exit, %6
+32:                                               ; preds = %.thread, %6
   %32 = or i8 %4, %5
   %or.cond.not = icmp eq i8 %32, 0
   br i1 %or.cond.not, label %95, label %33
 
-33:                                               ; preds = %31
+33:                                               ; preds = %32
   %34 = load ptr, ptr @_ZN4pkpy12PK_HEX_TABLEE, align 8
   %35 = zext nneg i8 %5 to i64
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 %35
@@ -6114,18 +6114,18 @@ _ZN4pkpy7SStreamlsEc.exit20:                      ; preds = %53, %62, %64, %69
   br label %.sink.split
 
 .sink.split:                                      ; preds = %90, %86, %84, %_ZN4pkpy7SStreamlsEc.exit20, %_ZN4pkpy7SStreamlsEc.exit15
-  %.sink46 = phi i32 [ %51, %_ZN4pkpy7SStreamlsEc.exit15 ], [ %.pre.i.i24, %90 ], [ %.pre2.i.i23, %86 ], [ %81, %84 ], [ %81, %_ZN4pkpy7SStreamlsEc.exit20 ]
-  %.sink42.in = phi ptr [ %52, %_ZN4pkpy7SStreamlsEc.exit15 ], [ %72, %90 ], [ %72, %86 ], [ %72, %84 ], [ %72, %_ZN4pkpy7SStreamlsEc.exit20 ]
+  %.sink47 = phi i32 [ %51, %_ZN4pkpy7SStreamlsEc.exit15 ], [ %.pre.i.i24, %90 ], [ %.pre2.i.i23, %86 ], [ %81, %84 ], [ %81, %_ZN4pkpy7SStreamlsEc.exit20 ]
+  %.sink43.in = phi ptr [ %52, %_ZN4pkpy7SStreamlsEc.exit15 ], [ %72, %90 ], [ %72, %86 ], [ %72, %84 ], [ %72, %_ZN4pkpy7SStreamlsEc.exit20 ]
   %.sink = phi i8 [ %37, %_ZN4pkpy7SStreamlsEc.exit15 ], [ %80, %90 ], [ %80, %86 ], [ %80, %84 ], [ %80, %_ZN4pkpy7SStreamlsEc.exit20 ]
-  %.sink42 = load ptr, ptr %.sink42.in, align 8
-  %92 = add nsw i32 %.sink46, 1
+  %.sink43 = load ptr, ptr %.sink43.in, align 8
+  %92 = add nsw i32 %.sink47, 1
   store i32 %92, ptr %0, align 8
-  %93 = sext i32 %.sink46 to i64
-  %94 = getelementptr inbounds i8, ptr %.sink42, i64 %93
+  %93 = sext i32 %.sink47 to i64
+  %94 = getelementptr inbounds i8, ptr %.sink43, i64 %93
   store i8 %.sink, ptr %94, align 1
   br label %95
 
-95:                                               ; preds = %.sink.split, %31
+95:                                               ; preds = %.sink.split, %32
   ret void
 }
 

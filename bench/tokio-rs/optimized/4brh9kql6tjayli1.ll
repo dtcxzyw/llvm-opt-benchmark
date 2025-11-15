@@ -11915,11 +11915,11 @@ define hidden void @_ZN5tokio7runtime4task5waker10drop_waker17h9412626e8e4268f0E
     i64 1, label %6
   ]
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.149.llvm.5542961546488995764, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.150.llvm.5542961546488995764) #35
   unreachable
 
-6:                                                ; preds = %1
+_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !7, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -11927,7 +11927,7 @@ define hidden void @_ZN5tokio7runtime4task5waker10drop_waker17h9412626e8e4268f0E
   tail call void %10(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtime..task..raw..RawTask$GT$14drop_reference17hb11b1191b0e49c09E.exit"
 
-"_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtime..task..raw..RawTask$GT$14drop_reference17hb11b1191b0e49c09E.exit": ; preds = %1, %6
+"_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtime..task..raw..RawTask$GT$14drop_reference17hb11b1191b0e49c09E.exit": ; preds = %1, %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
   ret void
 }
 
@@ -11944,7 +11944,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 "_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtime..task..raw..RawTask$GT$14drop_reference17hb11b1191b0e49c09E.exit.sink.split.i": ; preds = %5, %13
-  %.sink.in.i = phi ptr [ %14, %13 ], [ %6, %5 ]
+  %.sink.in.i = phi ptr [ %14, %13 ], [ %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i, %5 ]
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !noalias !2079, !nonnull !4, !align !7, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   %4 = load ptr, ptr %3, align 8, !noalias !2079, !nonnull !4, !noundef !4
@@ -11964,7 +11964,7 @@ default.unreachable:                              ; preds = %1
     i64 1, label %"_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtime..task..raw..RawTask$GT$14drop_reference17hb11b1191b0e49c09E.exit.sink.split.i"
   ]
 
-12:                                               ; preds = %5
+11:                                               ; preds = %5
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.149.llvm.5542961546488995764, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.150.llvm.5542961546488995764) #35, !noalias !2079
   unreachable
 

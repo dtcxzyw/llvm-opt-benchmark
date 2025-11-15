@@ -140807,76 +140807,76 @@ define linkonce_odr dso_local void @_ZNSt5dequeIcSaIcEE24_M_new_elements_at_fron
   %34 = sub i64 %10, %33
   %35 = ashr exact i64 %34, 3
   %36 = icmp ugt i64 %31, %35
-  br i1 %36, label %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit.thread, label %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit
+  br i1 %36, label %37, label %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit
 
-_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit.thread: ; preds = %29
+37:                                               ; preds = %29
   tail call void @_ZNSt5dequeIcSaIcEE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %31, i1 noundef zeroext true)
-  br label %.lr.ph.preheader
+  br label %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit
 
 _ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit: ; preds = %29
   %.not25 = icmp eq i64 %31, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit.thread, %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit
+_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit: ; preds = %37, %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt11_Deque_baseIcSaIcEE16_M_allocate_nodeEv.exit
-  %.01426 = phi i64 [ %41, %_ZNSt11_Deque_baseIcSaIcEE16_M_allocate_nodeEv.exit ], [ 1, %.lr.ph.preheader ]
-  %37 = invoke noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #61
-          to label %_ZNSt11_Deque_baseIcSaIcEE16_M_allocate_nodeEv.exit unwind label %42
+.lr.ph:                                           ; preds = %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit, %_ZNSt11_Deque_baseIcSaIcEE16_M_allocate_nodeEv.exit
+  %.01426 = phi i64 [ %42, %_ZNSt11_Deque_baseIcSaIcEE16_M_allocate_nodeEv.exit ], [ 1, %.lr.ph.preheader ]
+  %38 = invoke noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #61
+          to label %_ZNSt11_Deque_baseIcSaIcEE16_M_allocate_nodeEv.exit unwind label %43
 
 _ZNSt11_Deque_baseIcSaIcEE16_M_allocate_nodeEv.exit: ; preds = %.lr.ph
-  %38 = load ptr, ptr %7, align 8, !tbaa !2564
-  %39 = sub nsw i64 0, %.01426
-  %40 = getelementptr inbounds ptr, ptr %38, i64 %39
-  store ptr %37, ptr %40, align 8, !tbaa !174
-  %41 = add nuw nsw i64 %.01426, 1
+  %39 = load ptr, ptr %7, align 8, !tbaa !2564
+  %40 = sub nsw i64 0, %.01426
+  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
+  store ptr %38, ptr %41, align 8, !tbaa !174
+  %42 = add nuw nsw i64 %.01426, 1
   %exitcond = icmp eq i64 %.01426, %31
   br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !2760
 
-42:                                               ; preds = %.lr.ph
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %.lr.ph
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  %45 = tail call ptr @__cxa_begin_catch(ptr %44) #58
-  %46 = icmp samesign ugt i64 %.01426, 1
-  br i1 %46, label %.lr.ph29, label %._crit_edge30
+  %45 = extractvalue { ptr, i32 } %44, 0
+  %46 = tail call ptr @__cxa_begin_catch(ptr %45) #58
+  %47 = icmp samesign ugt i64 %.01426, 1
+  br i1 %47, label %.lr.ph29, label %._crit_edge30
 
-._crit_edge30:                                    ; preds = %.lr.ph29, %42
+._crit_edge30:                                    ; preds = %.lr.ph29, %43
   invoke void @__cxa_rethrow() #57
-          to label %58 unwind label %52
+          to label %58 unwind label %53
 
-.lr.ph29:                                         ; preds = %42, %.lr.ph29
-  %.027 = phi i64 [ %51, %.lr.ph29 ], [ 1, %42 ]
-  %47 = load ptr, ptr %7, align 8, !tbaa !2564
-  %48 = sub nsw i64 0, %.027
-  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
-  %50 = load ptr, ptr %49, align 8, !tbaa !174
-  tail call void @_ZdlPvm(ptr noundef %50, i64 noundef 512) #60
-  %51 = add nuw nsw i64 %.027, 1
-  %exitcond35.not = icmp eq i64 %51, %.01426
+.lr.ph29:                                         ; preds = %43, %.lr.ph29
+  %.027 = phi i64 [ %52, %.lr.ph29 ], [ 1, %42 ]
+  %48 = load ptr, ptr %7, align 8, !tbaa !2564
+  %49 = sub nsw i64 0, %.027
+  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
+  %51 = load ptr, ptr %50, align 8, !tbaa !174
+  tail call void @_ZdlPvm(ptr noundef %51, i64 noundef 512) #60
+  %52 = add nuw nsw i64 %.027, 1
+  %exitcond35.not = icmp eq i64 %52, %.01426
   br i1 %exitcond35.not, label %._crit_edge30, label %.lr.ph29, !llvm.loop !2761
 
-52:                                               ; preds = %._crit_edge30
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %._crit_edge30
+  %54 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %54 unwind label %55
+          to label %54 unwind label %56
 
-54:                                               ; preds = %52
-  resume { ptr, i32 } %53
+55:                                               ; preds = %53
+  resume { ptr, i32 } %54
 
 ._crit_edge:                                      ; preds = %_ZNSt11_Deque_baseIcSaIcEE16_M_allocate_nodeEv.exit, %_ZNSt5dequeIcSaIcEE23_M_reserve_map_at_frontEm.exit
   ret void
 
-55:                                               ; preds = %52
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %53
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #59
+  %58 = extractvalue { ptr, i32 } %57, 0
+  tail call void @__clang_call_terminate(ptr %58) #59
   unreachable
 
-58:                                               ; preds = %._crit_edge30
+59:                                               ; preds = %._crit_edge30
   unreachable
 }
 

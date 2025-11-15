@@ -1983,7 +1983,7 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
   %19 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 48
   %.val.val.i.i.i.i.i = load i8, ptr %19, align 8, !tbaa !163
   %20 = icmp slt i8 %.val.val.i.i.i.i.i, 0
-  br i1 %20, label %.loopexit.loopexit.split.loop.exit45, label %21
+  br i1 %20, label %.loopexit.loopexit.split.loop.exit44, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 32
@@ -1991,7 +1991,7 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
   %23 = getelementptr i8, ptr %.val30.i.i.i.i.i, i64 48
   %.val30.val.i.i.i.i.i = load i8, ptr %23, align 8, !tbaa !163
   %24 = icmp slt i8 %.val30.val.i.i.i.i.i, 0
-  br i1 %24, label %.loopexit.loopexit.split.loop.exit43, label %25
+  br i1 %24, label %.loopexit.loopexit.split.loop.exit42, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 48
@@ -2051,22 +2051,22 @@ define noundef zeroext i1 @_ZN13mseccfg_csr_t14unlogged_writeEm(ptr noundef nonn
   %46 = icmp slt i8 %.2.val.val.i.i.i.i.i, 0
   br i1 %46, label %.loopexit, label %47
 
-47:                                               ; preds = %44, %._crit_edge.i.i.i.i.i
+._crit_edge.i.i.i.i.i.unreachabledefault:         ; preds = %44, %._crit_edge.i.i.i.i.i
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %25
   %48 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 48
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit43:             ; preds = %21
+.loopexit.loopexit.split.loop.exit42:             ; preds = %21
   %49 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 32
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit45:             ; preds = %17
+.loopexit.loopexit.split.loop.exit44:             ; preds = %17
   %50 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i, i64 16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit43, %.loopexit.loopexit.split.loop.exit45, %47, %44, %39, %34
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit42, %.loopexit.loopexit.split.loop.exit44, %47, %44, %39, %34
   %.028.i.i.i.i.i = phi ptr [ %12, %47 ], [ %.029.lcssa.i.i.i.i.i, %34 ], [ %.1.i.i.i.i.i, %39 ], [ %.2.i.i.i.i.i, %44 ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ %49, %.loopexit.loopexit.split.loop.exit43 ], [ %50, %.loopexit.loopexit.split.loop.exit45 ], [ %.02943.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not29 = icmp eq ptr %12, %.028.i.i.i.i.i
   %51 = load ptr, ptr %0, align 8, !tbaa !3

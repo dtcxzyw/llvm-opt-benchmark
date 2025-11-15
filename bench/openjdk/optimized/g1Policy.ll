@@ -1243,7 +1243,7 @@ define hidden noundef i32 @_ZNK8G1Policy38calculate_desired_eden_length_by_pause
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.i
   %.01522.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %.01518.i, %25 ]
   %.021.i = phi i32 [ %..0.i, %.lr.ph.i ], [ %2, %25 ]
-  %.01620.i = phi i32 [ %.016..i, %.lr.ph.i ], [ %3, %25 ]
+  %.015.in20.i = phi i32 [ %.016..i, %.lr.ph.i ], [ %3, %25 ]
   %27 = add i32 %.021.i, %.01522.i
   %28 = call noundef zeroext i1 @_ZNK22G1YoungLengthPredictor8will_fitEj(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %27)
   %.016..i = select i1 %28, i32 %.01620.i, i32 %27
@@ -1310,7 +1310,7 @@ define hidden noundef i32 @_ZNK8G1Policy47calculate_desired_eden_length_before_y
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %.01522 = phi i32 [ %.015, %.lr.ph ], [ %.01518, %20 ]
   %.021 = phi i32 [ %..0, %.lr.ph ], [ %2, %20 ]
-  %.01620 = phi i32 [ %.016., %.lr.ph ], [ %3, %20 ]
+  %.015.in20 = phi i32 [ %.016., %.lr.ph ], [ %3, %20 ]
   %22 = add i32 %.021, %.01522
   %23 = call noundef zeroext i1 @_ZNK22G1YoungLengthPredictor8will_fitEj(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %22)
   %.016. = select i1 %23, i32 %.01620, i32 %22
@@ -1410,7 +1410,7 @@ define hidden noundef i32 @_ZNK8G1Policy42calculate_desired_eden_length_before_m
 .lr.ph.i:                                         ; preds = %54, %.lr.ph.i
   %.01522.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %.01518.i, %54 ]
   %.021.i = phi i32 [ %..0.i, %.lr.ph.i ], [ %2, %54 ]
-  %.01620.i = phi i32 [ %.016..i, %.lr.ph.i ], [ %3, %54 ]
+  %.015.in20.i = phi i32 [ %.016..i, %.lr.ph.i ], [ %3, %54 ]
   %56 = add i32 %.021.i, %.01522.i
   %57 = call noundef zeroext i1 @_ZNK22G1YoungLengthPredictor8will_fitEj(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %56)
   %.016..i = select i1 %57, i32 %.01620.i, i32 %56

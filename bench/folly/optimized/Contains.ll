@@ -106,7 +106,7 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU16ENS_6detail13fallba
   %37 = icmp eq i16 %36, %2
   br i1 %37, label %.loopexit, label %38
 
-38:                                               ; preds = %._crit_edge._crit_edge52.i.i.i, %._crit_edge.i.i.i
+._crit_edge.i.i.i.unreachabledefault:             ; preds = %._crit_edge._crit_edge52.i.i.i, %._crit_edge.i.i.i
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %18
@@ -227,7 +227,7 @@ define noundef zeroext i1 @_ZN5folly4simd6detail11containsU64ENS_6detail13fallba
   %37 = icmp eq i64 %36, %2
   br i1 %37, label %.loopexit, label %38
 
-38:                                               ; preds = %._crit_edge._crit_edge52.i.i.i, %._crit_edge.i.i.i
+._crit_edge.i.i.i.unreachabledefault:             ; preds = %._crit_edge._crit_edge52.i.i.i, %._crit_edge.i.i.i
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %18

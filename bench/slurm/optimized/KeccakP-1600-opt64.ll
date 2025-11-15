@@ -6971,9 +6971,9 @@ define dso_local void @KeccakP1600_ExtractAndAddBytes(ptr noundef readonly captu
 9:                                                ; preds = %5
   %10 = lshr i32 %4, 3
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %KeccakP1600_ExtractAndAddLanes.exit, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %KeccakP1600_ExtractAndAddLanes.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %9
+.lr.ph.i:                                         ; preds = %9
   %wide.trip.count.i = zext nneg i32 %10 to i64
   br label %.lr.ph.i
 

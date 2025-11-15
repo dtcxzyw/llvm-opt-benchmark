@@ -160,7 +160,7 @@ define void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr re
   %.not41.i.i.i.i.i = icmp eq ptr %.2.val.i.i.i.i.i, %.2.val39.i.i.i.i.i
   br i1 %.not41.i.i.i.i.i, label %37, label %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit"
 
-37:                                               ; preds = %35, %._crit_edge.i.i.i.i.i
+._crit_edge.i.i.i.i.i.unreachabledefault:         ; preds = %35, %._crit_edge.i.i.i.i.i
   br label %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit"
 
 "_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit": ; preds = %13

@@ -32427,27 +32427,27 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %47
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
-  %68 = phi i64 [ %65, %.lr.ph ], [ %.be, %.backedge.backedge ]
+  %.in = phi i64 [ %65, %.lr.ph ], [ %.be, %.backedge.backedge ]
   call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef readonly %0, ptr noundef readonly %0, ptr noundef nonnull readonly %4, ptr noundef nonnull %7)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull readonly %4, ptr noundef nonnull %7)
-  %69 = and i64 %68, %2
-  %.not25 = icmp eq i64 %69, 0
-  br i1 %.not25, label %71, label %70
+  %68 = and i64 %68, %2
+  %.not25 = icmp eq i64 %68, 0
+  br i1 %.not25, label %70, label %69
 
-70:                                               ; preds = %.backedge
+69:                                               ; preds = %.backedge
   call fastcc void @_mpd_qmul(ptr noundef %0, ptr noundef readonly %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %4, ptr noundef nonnull %7)
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull readonly %4, ptr noundef nonnull %7)
-  br label %71
+  br label %70
 
-71:                                               ; preds = %70, %.backedge
-  %72 = load i8, ptr %0, align 8, !tbaa !19
-  %73 = and i8 %72, 14
-  %.not26 = icmp eq i8 %73, 0
+70:                                               ; preds = %69, %.backedge
+  %71 = load i8, ptr %0, align 8, !tbaa !19
+  %72 = and i8 %71, 14
+  %.not26 = icmp eq i8 %72, 0
   br i1 %.not26, label %74, label %._crit_edge.loopexit
 
 74:                                               ; preds = %71
@@ -32459,8 +32459,8 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   %.not = icmp eq i64 %79, 0
   br i1 %.not, label %80, label %84
 
-80:                                               ; preds = %74
-  %81 = load i32, ptr %7, align 4, !tbaa !23
+73:                                               ; preds = %74
+  %74 = load i32, ptr %7, align 4, !tbaa !23
   %82 = and i32 %81, 1
   %.not28 = icmp ne i32 %82, 0
   %83 = lshr i64 %68, 1
@@ -32468,28 +32468,28 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   %or.cond = select i1 %.not28, i1 true, i1 %.not24
   br i1 %or.cond, label %._crit_edge.loopexit, label %.backedge.backedge
 
-84:                                               ; preds = %74
-  %.old = lshr i64 %68, 1
+82:                                               ; preds = %74
+  %.old = lshr i64 %.in, 1
   %.not24.old = icmp eq i64 %.old, 0
   br i1 %.not24.old, label %._crit_edge.loopexit, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %84, %80
+.backedge.backedge:                               ; preds = %82, %73
   %.be = phi i64 [ %.old, %84 ], [ %83, %80 ]
   br label %.backedge, !llvm.loop !96
 
-._crit_edge.loopexit:                             ; preds = %71, %80, %84
+._crit_edge.loopexit:                             ; preds = %70, %73, %82
   %.pre = load i32, ptr %7, align 4, !tbaa !23
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %._crit_edge.loopexit
-  %85 = phi i8 [ %72, %._crit_edge.loopexit ], [ %.pre35, %.._crit_edge_crit_edge ]
-  %86 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ 0, %.._crit_edge_crit_edge ]
-  %87 = load i32, ptr %5, align 4, !tbaa !23
-  %88 = or i32 %87, %86
-  store i32 %88, ptr %5, align 4, !tbaa !23
-  %89 = and i8 %85, -2
-  %90 = or disjoint i8 %89, %3
-  store i8 %90, ptr %0, align 8, !tbaa !19
+  %83 = phi i8 [ %71, %._crit_edge.loopexit ], [ %.pre35, %.._crit_edge_crit_edge ]
+  %84 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ 0, %.._crit_edge_crit_edge ]
+  %85 = load i32, ptr %5, align 4, !tbaa !23
+  %86 = or i32 %85, %84
+  store i32 %86, ptr %5, align 4, !tbaa !23
+  %87 = and i8 %83, -2
+  %88 = or disjoint i8 %87, %3
+  store i8 %88, ptr %0, align 8, !tbaa !19
   br label %mpd_qcopy.exit
 
 mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i, %._crit_edge, %9

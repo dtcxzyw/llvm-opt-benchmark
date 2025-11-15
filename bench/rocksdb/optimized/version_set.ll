@@ -23786,7 +23786,7 @@ _ZSt12partial_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15Fsize
   %874 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %875 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %.pre = load ptr, ptr %874, align 8, !tbaa !967
-  %.pre537 = load ptr, ptr %875, align 8, !tbaa !370
+  %.pre538 = load ptr, ptr %875, align 8, !tbaa !370
   br label %885
 
 ._crit_edge366:                                   ; preds = %284, %333, %712, %_ZSt12partial_sortIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEEPFbRKS4_SB_EEvT_SE_SE_T0_.exit
@@ -23811,7 +23811,7 @@ _ZNSt6vectorIN7rocksdb12_GLOBAL__N_15FsizeESaIS2_EED2Ev.exit: ; preds = %._crit_
   br i1 %884, label %61, label %.loopexit203, !llvm.loop !1364
 
 885:                                              ; preds = %.lr.ph365, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
-  %886 = phi ptr [ %.pre537, %.lr.ph365 ], [ %913, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
+  %886 = phi ptr [ %.pre538, %.lr.ph365 ], [ %913, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %887 = phi ptr [ %.pre, %.lr.ph365 ], [ %914, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %.0364 = phi i64 [ 0, %.lr.ph365 ], [ %915, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %888 = getelementptr inbounds nuw %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %.sroa.0182.1, i64 %.0364
@@ -23884,8 +23884,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %913 = phi ptr [ %912, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %886, %891 ]
   %914 = phi ptr [ %910, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %892, %891 ]
   %915 = add nuw i64 %.0364, 1
-  %exitcond535.not = icmp eq i64 %915, %92
-  br i1 %exitcond535.not, label %._crit_edge366.thread, label %885, !llvm.loop !1365
+  %exitcond536.not = icmp eq i64 %915, %92
+  br i1 %exitcond536.not, label %._crit_edge366.thread, label %885, !llvm.loop !1365
 
 ._crit_edge366.thread:                            ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
   %916 = load ptr, ptr %60, align 16, !tbaa !369

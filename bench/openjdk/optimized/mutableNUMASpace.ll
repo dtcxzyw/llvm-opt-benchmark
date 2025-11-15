@@ -1571,7 +1571,7 @@ define hidden void @_ZN16MutableNUMASpace10initializeE9MemRegionbbbP13WorkerThre
   %or.cond.i = select i1 %73, i1 %74, i1 false
   br i1 %or.cond.i, label %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77, label %75
 
-75:                                               ; preds = %67
+74:                                               ; preds = %67
   %76 = icmp eq ptr %11, %63
   %77 = getelementptr inbounds nuw ptr, ptr %11, i64 %17
   %78 = getelementptr inbounds nuw ptr, ptr %63, i64 %72
@@ -1579,7 +1579,7 @@ define hidden void @_ZN16MutableNUMASpace10initializeE9MemRegionbbbP13WorkerThre
   %or.cond169 = select i1 %76, i1 %79, i1 false
   br i1 %or.cond169, label %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77, label %_ZNK9MemRegion6equalsES_.exit.thread154
 
-_ZNK9MemRegion6equalsES_.exit.thread154:          ; preds = %75
+_ZNK9MemRegion6equalsES_.exit.thread154:          ; preds = %74
   %80 = sub i64 %.064.in, %.0.in
   %81 = lshr i64 %80, 3
   store ptr %.0, ptr %9, align 8
@@ -1774,7 +1774,7 @@ _ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit: ; preds = %_ZN16MutableNUMA
   %.pre186.pre = load ptr, ptr %38, align 8
   br label %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77
 
-_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77: ; preds = %75, %67, %179, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit
+_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77: ; preds = %74, %67, %179, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit
   %.pre186 = phi ptr [ %64, %75 ], [ %64, %67 ], [ %.pre186.pre, %179 ], [ %.pre186.pre192, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit ]
   %194 = load i8, ptr @UseAdaptiveNUMAChunkSizing, align 1
   %195 = trunc i8 %194 to i1

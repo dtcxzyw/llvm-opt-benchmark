@@ -9778,7 +9778,7 @@ define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEE
   br i1 %.not6.i.i.i.i.i, label %_ZN3tbb6detail2d06invokeIRKNS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPN4mold8CompunitESt6vectorIS8_SaIS8_EEEEZNS7_L14read_compunitsINS7_6X86_64EEESC_RNS7_7ContextIT_EEEUlRS8_E0_S8_EEJRNS0_2d113blocked_rangeImEEEEENSt13invoke_resultISH_JDpT0_EE4typeEOSH_DpOSU_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %1, %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4moldL14read_compunitsINS3_6X86_64EEESt6vectorINS3_8CompunitESaIS7_EERNS3_7ContextIT_EEEUlRS7_E0_E4callISE_NS1_11feeder_implISF_S7_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardISB_Efp0_EEcvv_EERKSF_OSB_PT0_.exit.i.i.i.i.i
-  %.07.i.i.i.i.i = phi i64 [ %33, %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4moldL14read_compunitsINS3_6X86_64EEESt6vectorINS3_8CompunitESaIS7_EERNS3_7ContextIT_EEEUlRS7_E0_E4callISE_NS1_11feeder_implISF_S7_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardISB_Efp0_EEcvv_EERKSF_OSB_PT0_.exit.i.i.i.i.i ], [ %.8.val, %1 ]
+  %.07.i.i.i.i.i = phi i64 [ %32, %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4moldL14read_compunitsINS3_6X86_64EEESt6vectorINS3_8CompunitESaIS7_EERNS3_7ContextIT_EEEUlRS7_E0_E4callISE_NS1_11feeder_implISF_S7_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardISB_Efp0_EEcvv_EERKSF_OSB_PT0_.exit.i.i.i.i.i ], [ %.8.val, %1 ]
   %3 = load ptr, ptr %2, align 8, !tbaa !550
   %4 = getelementptr inbounds %"struct.mold::Compunit", ptr %3, i64 %.07.i.i.i.i.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -9803,42 +9803,42 @@ define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEE
   %16 = shl nuw nsw i64 %.010.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 5
   %17 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #32
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %select.unfold.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %19
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %select.unfold.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %18
 
 select.unfold.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %18 = icmp eq i64 %.010.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %18, label %.loopexit19.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !793
+  %.not14.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.010.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %.not14.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit19.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !793
 
-19:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %16
+18:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !717
   %.not18.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.010.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %.not18.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %19
+.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %18
   %.01317.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.01320.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.013.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.01317.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %.019.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %17, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.019.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %17, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.01320.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.019.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !tbaa.struct !717
-  %21 = getelementptr inbounds nuw i8, ptr %.019.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.019.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32
   %.013.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01320.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.013.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %20
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.013.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %19
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !794
 
 .loopexit19.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %select.unfold.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_(ptr %6, ptr %8)
-  br label %22
+  br label %21
 
-.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %19
-  %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %17, %19 ], [ %21, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %18
+  %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %17, %19 ], [ %20, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false), !tbaa.struct !717
   tail call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_(ptr nonnull %6, ptr %8, ptr noundef nonnull %17, i64 noundef %.010.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  br label %22
+  br label %21
 
-22:                                               ; preds = %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.loopexit19.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+21:                                               ; preds = %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.loopexit19.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.sroa.3.017.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %16, %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.loopexit19.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.sroa.7.015.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %17, %.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %.loopexit19.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   tail call void @_ZdlPvm(ptr noundef %.sroa.7.015.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %.sroa.3.017.i.i.i.i.i.i.i.i.i.i.i.i.i.i) #13
@@ -9846,26 +9846,26 @@ select.unfold.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:    ; preds = %.lr.ph.i.i.i.i.i.i.
   %.pre13.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !792
   br label %_ZN4mold4sortISt6vectorINS_8NameTypeESaIS2_EEEEvRT_.exit.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN4mold4sortISt6vectorINS_8NameTypeESaIS2_EEEEvRT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %22, %.lr.ph.i.i.i.i.i
-  %23 = phi ptr [ %8, %.lr.ph.i.i.i.i.i ], [ %.pre13.i.i.i.i.i.i.i.i.i.i.i, %22 ]
-  %24 = phi ptr [ %6, %.lr.ph.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i.i.i, %22 ]
-  %25 = tail call ptr @_ZSt8__uniqueIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_(ptr %24, ptr %23)
-  %26 = load ptr, ptr %7, align 8, !tbaa !792
-  %27 = icmp eq ptr %25, %26
-  br i1 %27, label %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4moldL14read_compunitsINS3_6X86_64EEESt6vectorINS3_8CompunitESaIS7_EERNS3_7ContextIT_EEEUlRS7_E0_E4callISE_NS1_11feeder_implISF_S7_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardISB_Efp0_EEcvv_EERKSF_OSB_PT0_.exit.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+_ZN4mold4sortISt6vectorINS_8NameTypeESaIS2_EEEEvRT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %21, %.lr.ph.i.i.i.i.i
+  %22 = phi ptr [ %8, %.lr.ph.i.i.i.i.i ], [ %.pre13.i.i.i.i.i.i.i.i.i.i.i, %22 ]
+  %23 = phi ptr [ %6, %.lr.ph.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i.i.i, %22 ]
+  %24 = tail call ptr @_ZSt8__uniqueIN9__gnu_cxx17__normal_iteratorIPN4mold8NameTypeESt6vectorIS3_SaIS3_EEEENS0_5__ops19_Iter_equal_to_iterEET_SB_SB_T0_(ptr %23, ptr %22)
+  %25 = load ptr, ptr %7, align 8, !tbaa !792
+  %26 = icmp eq ptr %24, %25
+  br i1 %26, label %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4moldL14read_compunitsINS3_6X86_64EEESt6vectorINS3_8CompunitESaIS7_EERNS3_7ContextIT_EEEUlRS7_E0_E4callISE_NS1_11feeder_implISF_S7_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardISB_Efp0_EEcvv_EERKSF_OSB_PT0_.exit.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %_ZN4mold4sortISt6vectorINS_8NameTypeESaIS2_EEEEvRT_.exit.i.i.i.i.i.i.i.i.i.i.i
-  %28 = load ptr, ptr %5, align 8, !tbaa !792
-  %29 = ptrtoint ptr %25 to i64
-  %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %32 = getelementptr inbounds i8, ptr %28, i64 %31
-  store ptr %32, ptr %7, align 8, !tbaa !121
+  %27 = load ptr, ptr %5, align 8, !tbaa !792
+  %28 = ptrtoint ptr %24 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = getelementptr inbounds i8, ptr %27, i64 %30
+  store ptr %31, ptr %7, align 8, !tbaa !121
   br label %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4moldL14read_compunitsINS3_6X86_64EEESt6vectorINS3_8CompunitESaIS7_EERNS3_7ContextIT_EEEUlRS7_E0_E4callISE_NS1_11feeder_implISF_S7_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardISB_Efp0_EEcvv_EERKSF_OSB_PT0_.exit.i.i.i.i.i
 
 _ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4moldL14read_compunitsINS3_6X86_64EEESt6vectorINS3_8CompunitESaIS7_EERNS3_7ContextIT_EEEUlRS7_E0_E4callISE_NS1_11feeder_implISF_S7_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardISB_Efp0_EEcvv_EERKSF_OSB_PT0_.exit.i.i.i.i.i: ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4mold4sortISt6vectorINS_8NameTypeESaIS2_EEEEvRT_.exit.i.i.i.i.i.i.i.i.i.i.i
-  %33 = add i64 %.07.i.i.i.i.i, 1
-  %.not.i.i.i.i.i = icmp eq i64 %33, %.0.val
+  %32 = add i64 %.07.i.i.i.i.i, 1
+  %.not.i.i.i.i.i = icmp eq i64 %32, %.0.val
   br i1 %.not.i.i.i.i.i, label %_ZN3tbb6detail2d06invokeIRKNS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPN4mold8CompunitESt6vectorIS8_SaIS8_EEEEZNS7_L14read_compunitsINS7_6X86_64EEESC_RNS7_7ContextIT_EEEUlRS8_E0_S8_EEJRNS0_2d113blocked_rangeImEEEEENSt13invoke_resultISH_JDpT0_EE4typeEOSH_DpOSU_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !795
 
 _ZN3tbb6detail2d06invokeIRKNS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPN4mold8CompunitESt6vectorIS8_SaIS8_EEEEZNS7_L14read_compunitsINS7_6X86_64EEESC_RNS7_7ContextIT_EEEUlRS8_E0_S8_EEJRNS0_2d113blocked_rangeImEEEEENSt13invoke_resultISH_JDpT0_EE4typeEOSH_DpOSU_.exit: ; preds = %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4moldL14read_compunitsINS3_6X86_64EEESt6vectorINS3_8CompunitESaIS7_EERNS3_7ContextIT_EEEUlRS7_E0_E4callISE_NS1_11feeder_implISF_S7_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardISB_Efp0_EEcvv_EERKSF_OSB_PT0_.exit.i.i.i.i.i, %1

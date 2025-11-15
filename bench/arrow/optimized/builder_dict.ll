@@ -21671,7 +21671,7 @@ _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i:           ; preds = %_ZL20XXH3_accumulat
   %.not10 = icmp eq i64 %161, 0
   br i1 %.not10, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %.lr.ph8
 
-.lr.ph8:                                          ; preds = %._crit_edge, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7
+.lr.ph8:; preds = %._crit_edge, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7
   %.0.i.i6 = phi i64 [ %186, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7 ], [ 0, %._crit_edge ]
   %164 = shl nuw nsw i64 %.0.i.i6, 6
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 %164

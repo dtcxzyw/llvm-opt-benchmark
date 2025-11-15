@@ -23577,7 +23577,7 @@ _ZL36ImFontAtlasBuildRenderDefaultTexDataP11ImFontAtlas.exit: ; preds = %._crit_
   br label %149
 
 149:                                              ; preds = %.loopexit.i, %138
-  %indvars.iv126.i = phi i32 [ 0, %138 ], [ %indvars.iv.next127.i, %.loopexit.i ]
+  %indvars.iv = phi i32 [ 0, %138 ], [ %indvars.iv.next127.i, %.loopexit.i ]
   %indvar.i = phi i64 [ 0, %138 ], [ %indvar.next.i, %.loopexit.i ]
   %150 = shl nuw nsw i64 %indvar.i, 2
   %151 = load i16, ptr %143, align 8, !tbaa !298
@@ -23589,7 +23589,7 @@ _ZL36ImFontAtlasBuildRenderDefaultTexDataP11ImFontAtlas.exit: ; preds = %._crit_
   %157 = sub i32 %152, %156
   %158 = load ptr, ptr %144, align 8, !tbaa !246
   %.not82.i = icmp eq ptr %158, null
-  br i1 %.not82.i, label %177, label %159
+  br i1 %.not82.i, label %176, label %159
 
 159:                                              ; preds = %149
   %160 = load i16, ptr %145, align 4, !tbaa !293
@@ -23606,8 +23606,8 @@ _ZL36ImFontAtlasBuildRenderDefaultTexDataP11ImFontAtlas.exit: ; preds = %._crit_
   br i1 %.not115.i, label %.preheader100.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %159
-  %170 = zext nneg i32 %155 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %169, i8 0, i64 %170, i1 false), !tbaa !23
+  %umax.i = zext nneg i32 %155 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %169, i8 0, i64 %umax.i, i1 false), !tbaa !23
   br label %.preheader100.i
 
 .preheader100.i:                                  ; preds = %.lr.ph.preheader.i, %159
@@ -23615,9 +23615,9 @@ _ZL36ImFontAtlasBuildRenderDefaultTexDataP11ImFontAtlas.exit: ; preds = %._crit_
   br i1 %.not116.i, label %.preheader98.i, label %.lr.ph104.i
 
 .lr.ph104.i:                                      ; preds = %.preheader100.i
-  %171 = zext nneg i32 %155 to i64
-  %172 = getelementptr inbounds nuw i8, ptr %169, i64 %171
-  tail call void @llvm.memset.p0.i64(ptr align 1 %172, i8 -1, i64 %indvar.i, i1 false), !tbaa !23
+  %170 = zext nneg i32 %155 to i64
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 %170
+  tail call void @llvm.memset.p0.i64(ptr align 1 %171, i8 -1, i64 %indvar.i, i1 false), !tbaa !23
   br label %.preheader98.i
 
 .preheader98.i:                                   ; preds = %.lr.ph104.i, %.preheader100.i
@@ -23625,51 +23625,51 @@ _ZL36ImFontAtlasBuildRenderDefaultTexDataP11ImFontAtlas.exit: ; preds = %._crit_
   br i1 %.not117.i, label %.loopexit.i, label %.lr.ph106.i
 
 .lr.ph106.i:                                      ; preds = %.preheader98.i
-  %173 = zext nneg i32 %155 to i64
-  %174 = getelementptr inbounds nuw i8, ptr %169, i64 %173
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 %indvar.i
-  %176 = zext i32 %157 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %175, i8 0, i64 %176, i1 false), !tbaa !23
+  %172 = zext nneg i32 %155 to i64
+  %173 = getelementptr inbounds nuw i8, ptr %169, i64 %172
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 %indvar.i
+  %175 = zext i32 %157 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %174, i8 0, i64 %175, i1 false), !tbaa !23
   br label %.loopexit.i
 
-177:                                              ; preds = %149
-  %178 = load ptr, ptr %148, align 8, !tbaa !247
-  %179 = load i16, ptr %145, align 4, !tbaa !293
-  %180 = zext i16 %179 to i32
-  %181 = load i16, ptr %146, align 2, !tbaa !296
-  %182 = zext i16 %181 to i32
-  %183 = add nuw nsw i32 %182, %153
-  %184 = load i32, ptr %8, align 8, !tbaa !272
-  %185 = mul i32 %183, %184
-  %186 = add i32 %185, %180
-  %187 = zext i32 %186 to i64
-  %188 = getelementptr inbounds nuw i32, ptr %178, i64 %187
+176:                                              ; preds = %149
+  %177 = load ptr, ptr %148, align 8, !tbaa !247
+  %178 = load i16, ptr %145, align 4, !tbaa !293
+  %179 = zext i16 %178 to i32
+  %180 = load i16, ptr %146, align 2, !tbaa !296
+  %181 = zext i16 %180 to i32
+  %182 = add nuw nsw i32 %181, %153
+  %183 = load i32, ptr %8, align 8, !tbaa !272
+  %184 = mul i32 %182, %183
+  %185 = add i32 %184, %179
+  %186 = zext i32 %185 to i64
+  %187 = getelementptr inbounds nuw i32, ptr %177, i64 %186
   %.not118.i = icmp eq i32 %155, 0
   br i1 %.not118.i, label %.preheader97.i, label %.lr.ph108.preheader.i
 
-.lr.ph108.preheader.i:                            ; preds = %177
-  %189 = add i32 %indvars.iv126.i, %152
-  %190 = lshr i32 %189, 1
-  %wide.trip.count.i = zext nneg i32 %190 to i64
+.lr.ph108.preheader.i:                            ; preds = %176
+  %188 = add i32 %indvars.iv, %152
+  %189 = lshr i32 %188, 1
+  %wide.trip.count.i = zext nneg i32 %189 to i64
   br label %.lr.ph108.i
 
-.preheader97.i:                                   ; preds = %.lr.ph108.i, %177
+.preheader97.i:                                   ; preds = %.lr.ph108.i, %176
   %.not119.i = icmp eq i64 %indvar.i, 0
   br i1 %.not119.i, label %.preheader.i, label %.lr.ph110.i
 
 .lr.ph110.i:                                      ; preds = %.preheader97.i
   %191 = zext nneg i32 %155 to i64
-  %192 = getelementptr inbounds nuw i32, ptr %188, i64 %191
+  %192 = getelementptr inbounds nuw i32, ptr %187, i64 %191
   tail call void @llvm.memset.p0.i64(ptr align 4 %192, i8 -1, i64 %150, i1 false), !tbaa !19
   br label %.preheader.i
 
 .lr.ph108.i:                                      ; preds = %.lr.ph108.i, %.lr.ph108.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph108.preheader.i ], [ %indvars.iv.next.i, %.lr.ph108.i ]
-  %193 = getelementptr inbounds nuw i32, ptr %188, i64 %indvars.iv.i
+  %193 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv.i
   store i32 16777215, ptr %193, align 4, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader97.i, label %.lr.ph108.i, !llvm.loop !532
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not, label %.preheader97.i, label %.lr.ph108.i, !llvm.loop !532
 
 .preheader.i:                                     ; preds = %.lr.ph110.i, %.preheader97.i
   %.not120.i = icmp eq i32 %156, %152
@@ -23677,22 +23677,22 @@ _ZL36ImFontAtlasBuildRenderDefaultTexDataP11ImFontAtlas.exit: ; preds = %._crit_
 
 .lr.ph112.i:                                      ; preds = %.preheader.i
   %194 = zext nneg i32 %155 to i64
-  %195 = getelementptr inbounds nuw i32, ptr %188, i64 %194
+  %195 = getelementptr inbounds nuw i32, ptr %187, i64 %194
   %196 = getelementptr inbounds nuw i32, ptr %195, i64 %indvar.i
-  %197 = add i32 %indvars.iv126.i, %152
+  %197 = add i32 %indvars.iv, %152
   %198 = lshr i32 %197, 1
   %199 = sub i32 %197, %198
   %200 = tail call i32 @llvm.umax.i32(i32 %199, i32 1)
-  %umax = zext i32 %200 to i64
+  %umax43 = zext i32 %200 to i64
   br label %201
 
 201:                                              ; preds = %201, %.lr.ph112.i
-  %indvars.iv131.i = phi i64 [ 0, %.lr.ph112.i ], [ %indvars.iv.next132.i, %201 ]
-  %202 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv131.i
+  %indvars.iv130.i = phi i64 [ 0, %.lr.ph112.i ], [ %indvars.iv.next131.i, %201 ]
+  %202 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv130.i
   store i32 16777215, ptr %202, align 4, !tbaa !19
-  %indvars.iv.next132.i = add nuw nsw i64 %indvars.iv131.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next132.i, %umax
-  br i1 %exitcond.not, label %.loopexit.i, label %201, !llvm.loop !533
+  %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
+  %exitcond44.not = icmp eq i64 %indvars.iv.next131.i, %umax43
+  br i1 %exitcond44.not, label %.loopexit.i, label %201, !llvm.loop !533
 
 .loopexit.i:                                      ; preds = %201, %.preheader.i, %.lr.ph106.i, %.preheader98.i
   %203 = load i16, ptr %145, align 4, !tbaa !293
@@ -23726,7 +23726,7 @@ _ZL36ImFontAtlasBuildRenderDefaultTexDataP11ImFontAtlas.exit: ; preds = %._crit_
   store float %219, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !4
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %223, i64 12
   store float %222, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !4
-  %indvars.iv.next127.i = add nsw i32 %indvars.iv126.i, -1
+  %indvars.iv.next127.i = add nsw i32 %indvars.iv, -1
   %exitcond135.not.i = icmp eq i64 %indvar.next.i, 64
   br i1 %exitcond135.not.i, label %_ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit, label %149, !llvm.loop !534
 
@@ -23749,9 +23749,9 @@ _ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit: ; preds = %.loopexit
 
 .lr.ph:                                           ; preds = %_ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit, %278
   %233 = phi i32 [ %279, %278 ], [ %225, %_ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %278 ], [ 0, %_ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit ]
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %278 ], [ 0, %_ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit ]
   %234 = load ptr, ptr %4, align 8, !tbaa !244
-  %235 = getelementptr inbounds nuw %struct.ImFontAtlasCustomRect, ptr %234, i64 %indvars.iv
+  %235 = getelementptr inbounds nuw %struct.ImFontAtlasCustomRect, ptr %234, i64 %indvars.iv45
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 24
   %237 = load ptr, ptr %236, align 8, !tbaa !536
   %238 = icmp eq ptr %237, null
@@ -23804,9 +23804,9 @@ _ZL34ImFontAtlasBuildRenderLinesTexDataP11ImFontAtlas.exit: ; preds = %.loopexit
 
 278:                                              ; preds = %.lr.ph, %239, %243
   %279 = phi i32 [ %233, %.lr.ph ], [ %233, %239 ], [ %.pre, %243 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %280 = sext i32 %279 to i64
-  %281 = icmp slt i64 %indvars.iv.next, %280
+  %281 = icmp slt i64 %indvars.iv.next46, %280
   br i1 %281, label %.lr.ph, label %._crit_edge, !llvm.loop !541
 
 ._crit_edge40:                                    ; preds = %288, %._crit_edge

@@ -25,27 +25,27 @@ define i8 @_ZN4core4iter6traits8iterator8Iterator12try_for_each17h63acabb5468ca6
   store ptr %1, ptr %3, align 8
   br label %4
 
-4:                                                ; preds = %6, %2
+4:                                                ; preds = %7, %2
   %5 = call i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr align 8 %0)
-  %.not.i = icmp ult i64 %5, 4294967296
-  br i1 %.not.i, label %12, label %6
+  %6 = icmp ult i64 %5, 4294967296
+  br i1 %6, label %12, label %6
 
-6:                                                ; preds = %4
-  %7 = call i8 @"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h525025bf7d854130E"(ptr nonnull align 8 %3, i64 %5)
-  %8 = call i8 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h71444cfb85e14f1eE"(i8 %7)
-  %9 = icmp eq i8 %8, 3
-  br i1 %9, label %4, label %10
+7:                                                ; preds = %4
+  %8 = call i8 @"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h525025bf7d854130E"(ptr nonnull align 8 %3, i64 %5)
+  %9 = call i8 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h71444cfb85e14f1eE"(i8 %8)
+  %10 = icmp eq i8 %9, 3
+  br i1 %10, label %4, label %11
 
-10:                                               ; preds = %6
-  %11 = call i8 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hffdcbd52cbb4f5eeE"(i8 %8)
+11:                                               ; preds = %7
+  %12 = call i8 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hffdcbd52cbb4f5eeE"(i8 %9)
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd4486bf195de736E.exit
 
-12:                                               ; preds = %4
-  %13 = call i8 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h2a89a5569557c1dcE"()
+13:                                               ; preds = %4
+  %14 = call i8 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h2a89a5569557c1dcE"()
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd4486bf195de736E.exit
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd4486bf195de736E.exit: ; preds = %10, %12
-  %.sroa.0.0.i = phi i8 [ %11, %10 ], [ %13, %12 ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd4486bf195de736E.exit: ; preds = %11, %13
+  %.sroa.0.0.i = phi i8 [ %12, %10 ], [ %14, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i8 %.sroa.0.0.i
 }
@@ -63,28 +63,28 @@ define i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd4486bf195de736E(p
   store ptr %1, ptr %3, align 8
   br label %4
 
-4:                                                ; preds = %6, %2
+4:                                                ; preds = %7, %2
   %5 = call i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr align 8 %0)
-  %.not = icmp ult i64 %5, 4294967296
-  br i1 %.not, label %13, label %6
+  %6 = icmp ult i64 %5, 4294967296
+  br i1 %6, label %14, label %6
 
-6:                                                ; preds = %4
-  %7 = call i8 @"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h525025bf7d854130E"(ptr nonnull align 8 %3, i64 %5)
-  %8 = call i8 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h71444cfb85e14f1eE"(i8 %7)
-  %9 = icmp eq i8 %8, 3
-  br i1 %9, label %4, label %10
+7:                                                ; preds = %4
+  %8 = call i8 @"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h525025bf7d854130E"(ptr nonnull align 8 %3, i64 %5)
+  %9 = call i8 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h71444cfb85e14f1eE"(i8 %8)
+  %10 = icmp eq i8 %9, 3
+  br i1 %10, label %4, label %11
 
-10:                                               ; preds = %6
-  %11 = call i8 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hffdcbd52cbb4f5eeE"(i8 %8)
-  br label %12
+11:                                               ; preds = %7
+  %12 = call i8 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hffdcbd52cbb4f5eeE"(i8 %9)
+  br label %13
 
-12:                                               ; preds = %13, %10
-  %.sroa.0.0 = phi i8 [ %11, %10 ], [ %14, %13 ]
+13:                                               ; preds = %14, %11
+  %.sroa.0.0 = phi i8 [ %12, %10 ], [ %15, %14 ]
   ret i8 %.sroa.0.0
 
-13:                                               ; preds = %4
-  %14 = call i8 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h2a89a5569557c1dcE"()
-  br label %12
+14:                                               ; preds = %4
+  %15 = call i8 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h2a89a5569557c1dcE"()
+  br label %13
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -500,7 +500,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5shake17h5a6a26b142589daaE
   ret void
 
 .lr.ph:                                           ; preds = %11, %.backedge
-  %.sroa.2.0.extract.trunc14.in = phi i64 [ %.sroa.2.0.extract.shift, %.backedge ], [ %.sroa.2.0.extract.shift12, %11 ]
+  %.sroa.2.0.extract.trunc14.in.in = phi i64 [ %.sroa.2.0.extract.shift, %.backedge ], [ %.sroa.2.0.extract.shift12, %11 ]
   %.sroa.2.0.extract.trunc14 = trunc nuw i64 %.sroa.2.0.extract.trunc14.in to i32
   %30 = call i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %.sroa.2.0.extract.trunc14)
   %31 = icmp ult i64 %30, %3

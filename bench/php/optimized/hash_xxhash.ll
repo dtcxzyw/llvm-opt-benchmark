@@ -1941,9 +1941,9 @@ XXH3_accumulate_512_sse2.exit.i31.i.i:            ; preds = %80
   %100 = getelementptr inbounds nuw i8, ptr %9, i64 %99
   tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
   %.not61.i = icmp eq i32 %19, 0
-  br i1 %.not61.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph57.i
+  br i1 %.not61.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph57.preheader.i
 
-.lr.ph57.i:                                       ; preds = %98, %XXH3_accumulate_512_sse2.exit.i.i.i
+.lr.ph57.preheader.i:                             ; preds = %98, %XXH3_accumulate_512_sse2.exit.i.i.i
   %.0.i27.i56.i = phi i64 [ %123, %XXH3_accumulate_512_sse2.exit.i.i.i ], [ 0, %98 ]
   %101 = shl i64 %.0.i27.i56.i, 6
   %102 = getelementptr inbounds nuw i8, ptr %25, i64 %101
@@ -1979,8 +1979,8 @@ XXH3_accumulate_512_sse2.exit.i31.i.i:            ; preds = %80
 
 XXH3_accumulate_512_sse2.exit.i.i.i:              ; preds = %106
   %123 = add nuw nsw i64 %.0.i27.i56.i, 1
-  %exitcond69.not.i = icmp eq i64 %123, %20
-  br i1 %exitcond69.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph57.i
+  %exitcond70.not.i = icmp eq i64 %123, %20
+  br i1 %exitcond70.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph57.i
 
 XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512_sse2.exit.i31.i.i, %XXH3_accumulate_512_sse2.exit.i.i.i, %98, %XXH3_scrambleAcc_sse2.exit.i.i.i
   %124 = zext i32 %15 to i64
@@ -2011,8 +2011,8 @@ XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512
   %144 = add <2 x i64> %143, %139
   store <2 x i64> %144, ptr %141, align 16, !tbaa !4, !alias.scope !270, !noalias !273
   %145 = add nuw nsw i64 %.0.i25.i58.i, 1
-  %exitcond70.not.i = icmp eq i64 %145, 4
-  br i1 %exitcond70.not.i, label %XXH3_digest_long.exit.i, label %129
+  %exitcond71.not.i = icmp eq i64 %145, 4
+  br i1 %exitcond71.not.i, label %XXH3_digest_long.exit.i, label %129
 
 146:                                              ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3922,8 +3922,8 @@ XXH3_accumulate_512_sse2.exit.i31.i.i:            ; preds = %80
 
 XXH3_accumulate_512_sse2.exit.i.i.i:              ; preds = %106
   %123 = add nuw nsw i64 %.0.i27.i67.i, 1
-  %exitcond81.not.i = icmp eq i64 %123, %20
-  br i1 %exitcond81.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph68.i
+  %exitcond82.not.i = icmp eq i64 %123, %20
+  br i1 %exitcond82.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph68.i
 
 XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512_sse2.exit.i31.i.i, %XXH3_accumulate_512_sse2.exit.i.i.i, %98, %XXH3_scrambleAcc_sse2.exit.i.i.i
   %124 = zext i32 %15 to i64
@@ -3954,8 +3954,8 @@ XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512
   %144 = add <2 x i64> %143, %139
   store <2 x i64> %144, ptr %141, align 16, !tbaa !4, !alias.scope !564, !noalias !567
   %145 = add nuw nsw i64 %.0.i25.i69.i, 1
-  %exitcond82.not.i = icmp eq i64 %145, 4
-  br i1 %exitcond82.not.i, label %XXH3_digest_long.exit.i, label %129
+  %exitcond83.not.i = icmp eq i64 %145, 4
+  br i1 %exitcond83.not.i, label %XXH3_digest_long.exit.i, label %129
 
 146:                                              ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

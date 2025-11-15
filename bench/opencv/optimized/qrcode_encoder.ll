@@ -3829,58 +3829,58 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl12padBitStreamEv(ptr noundef nonnul
   %.neg = sub i64 %.pre-phi31, %.pre-phi
   %.neg24 = trunc i64 %.neg to i32
   %48 = add i32 %18, %.neg24
-  %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %50, label %.loopexit
+  %or.cond = icmp sgt i32 %48, 0
+  br i1 %or.cond, label %50, label %.loopexit
 
-50:                                               ; preds = %47
-  %51 = lshr i32 %48, 3
+.lr.ph.preheader:                                 ; preds = %47
+  %49 = lshr i32 %48, 3
   %.not26 = icmp eq i32 %51, 0
   br i1 %.not26, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %50, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit
-  %.025 = phi i32 [ %72, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit ], [ 0, %50 ]
-  %52 = and i32 %.025, 1
-  %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv17QRCodeEncoderImpl12padBitStreamEv.pad_patterns, i64 %53
-  %55 = load i32, ptr %54, align 4, !tbaa !23
-  %56 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i64 0, ptr %56, align 1
-  br label %58
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit
+  %.025 = phi i32 [ %70, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit ], [ 0, %50 ]
+  %50 = and i32 %.025, 1
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv17QRCodeEncoderImpl12padBitStreamEv.pad_patterns, i64 %51
+  %53 = load i32, ptr %52, align 4, !tbaa !23
+  %54 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store i64 0, ptr %54, align 1
+  br label %56
 
-58:                                               ; preds = %58, %.lr.ph
+56:                                               ; preds = %56, %.lr.ph
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i.i, %58 ]
-  %59 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %60 = ashr i32 %55, %59
-  %61 = srem i32 %60, 2
-  %62 = trunc nsw i32 %61 to i8
-  %63 = xor i64 %indvars.iv.i.i, -1
-  %64 = getelementptr i8, ptr %57, i64 %63
-  store i8 %62, ptr %64, align 1, !tbaa !57
+  %57 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %58 = ashr i32 %53, %57
+  %59 = srem i32 %58, 2
+  %60 = trunc nsw i32 %59 to i8
+  %61 = xor i64 %indvars.iv.i.i, -1
+  %62 = getelementptr i8, ptr %55, i64 %61
+  store i8 %60, ptr %62, align 1, !tbaa !57
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i, label %58, !llvm.loop !98
+  br i1 %exitcond.not.i.i, label %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i, label %56, !llvm.loop !98
 
-_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i:     ; preds = %58
-  %65 = load ptr, ptr %20, align 8, !tbaa !103
-  %66 = load ptr, ptr %19, align 8, !tbaa !103
-  %67 = ptrtoint ptr %65 to i64
-  %68 = ptrtoint ptr %66 to i64
-  %69 = sub i64 %67, %68
-  %70 = getelementptr inbounds i8, ptr %66, i64 %69
-  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %70, ptr nonnull %56, ptr nonnull %57)
+_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i:     ; preds = %56
+  %63 = load ptr, ptr %20, align 8, !tbaa !103
+  %64 = load ptr, ptr %19, align 8, !tbaa !103
+  %65 = ptrtoint ptr %63 to i64
+  %66 = ptrtoint ptr %64 to i64
+  %67 = sub i64 %65, %66
+  %68 = getelementptr inbounds i8, ptr %64, i64 %67
+  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %68, ptr nonnull %54, ptr nonnull %55)
           to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit12.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit12.i:                ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i
-  %71 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %56) #30
-  resume { ptr, i32 } %71
+  call void @_ZdlPv(ptr noundef nonnull %54) #30
+  resume { ptr, i32 } %69
 
 _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit: ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %56) #30
-  %72 = add nuw nsw i32 %.025, 1
-  %exitcond.not = icmp eq i32 %72, %51
+  call void @_ZdlPv(ptr noundef nonnull %54) #30
+  %70 = add nuw nsw i32 %.025, 1
+  %exitcond.not = icmp eq i32 %70, %49
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !114
 
 .loopexit:                                        ; preds = %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit, %50, %31, %47, %1

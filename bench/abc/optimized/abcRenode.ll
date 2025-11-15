@@ -300,9 +300,9 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   br label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %67
-  %indvars.iv39 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next40, %67 ]
+  %indvars.iv40 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next41, %67 ]
   %.02332 = phi i8 [ 0, %.lr.ph34.preheader ], [ %.124, %67 ]
-  %60 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv39
+  %60 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv40
   %61 = load i32, ptr %60, align 4, !tbaa !44
   %62 = icmp sgt i32 %61, -1
   br i1 %62, label %63, label %67
@@ -316,9 +316,9 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
 
 67:                                               ; preds = %.lr.ph34, %63
   %.124 = phi i8 [ %64, %63 ], [ %.02332, %.lr.ph34 ]
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %exitcond42.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count41
-  br i1 %exitcond42.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !75
+  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
+  %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count41
+  br i1 %exitcond44.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !75
 
 ._crit_edge35:                                    ; preds = %67, %If_CutTruth.exit
   %68 = call i32 @Cudd_DagSize(ptr noundef %57) #8

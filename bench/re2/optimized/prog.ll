@@ -1322,8 +1322,8 @@ invoke.cont56:                                    ; preds = %invoke.cont56.lr.ph
   %shr.i118 = lshr i32 %20, 4
   %cmp.not.i119 = icmp ne i32 %shr.i118, 0
   %cmp.not19.i.i.i124 = icmp ugt i32 %0, %shr.i118
-  %or.cond260 = and i1 %cmp.not.i119, %cmp.not19.i.i.i124
-  br i1 %or.cond260, label %if.end.i.i.i126, label %invoke.cont60
+  %or.cond262 = and i1 %cmp.not.i119, %cmp.not19.i.i.i124
+  br i1 %or.cond262, label %if.end.i.i.i126, label %invoke.cont60
 
 if.end.i.i.i126:                                  ; preds = %invoke.cont56
   %conv.i.i8.i.i.i127 = zext nneg i32 %shr.i118 to i64

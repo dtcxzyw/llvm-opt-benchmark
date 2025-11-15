@@ -2292,9 +2292,9 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %110 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i43 = icmp eq i8 %110, 0
   %111 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i.i.i.i.i.i43, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i, label %.thread210
+  br i1 %.not.i.i.i.i.i.i43, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i, label %.thread209
 
-.thread210:                                       ; preds = %108
+.thread209:                                       ; preds = %108
   %112 = load i32, ptr %109, align 4
   %113 = add nsw i32 %112, 1
   store i32 %113, ptr %109, align 4
@@ -2336,11 +2336,11 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %125 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br i1 %123, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.i, label %.thread.i
 
-.thread.i:                                        ; preds = %.thread210, %122
+.thread.i:                                        ; preds = %.thread209, %122
   %126 = phi ptr [ %116, %.thread210 ], [ %125, %122 ]
   %127 = phi ptr [ %115, %.thread210 ], [ %124, %122 ]
   %128 = phi ptr [ %102, %.thread210 ], [ %.pre.i, %122 ]
-  %.pr113.i213 = phi ptr [ %104, %.thread210 ], [ %.pr.pre.i, %122 ]
+  %.pr113.i212 = phi ptr [ %104, %.thread210 ], [ %.pr.pre.i, %122 ]
   %129 = phi ptr [ %114, %.thread210 ], [ %118, %122 ]
   %130 = load i32, ptr %127, align 4
   %131 = add nsw i32 %130, 1
@@ -2348,7 +2348,7 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 16, i1 false)
   store ptr %128, ptr %126, align 8
-  store ptr %.pr113.i213, ptr %129, align 8
+  store ptr %.pr113.i212, ptr %129, align 8
   br label %136
 
 _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.i: ; preds = %122

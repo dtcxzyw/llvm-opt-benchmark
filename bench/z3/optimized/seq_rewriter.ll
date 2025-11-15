@@ -93614,8 +93614,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryIN12seq
   %23 = icmp ugt i32 %11, 16
   %24 = mul i32 %11, 3
   %25 = icmp ugt i32 %22, %24
-  %or.cond19 = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond19, label %26, label %._crit_edge.thread
+  %or.cond18 = select i1 %23, i1 %25, i1 false
+  br i1 %or.cond18, label %26, label %._crit_edge.thread
 
 26:                                               ; preds = %._crit_edge
   %27 = icmp eq ptr %9, null

@@ -809,7 +809,7 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_18CoalescingIterator19WideC
   %.0.i12 = select i1 %34, ptr %35, ptr %37
   br i1 %33, label %38, label %.thread.thread
 
-38:                                               ; preds = %12
+38:; preds = %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i12, ptr noundef nonnull align 8 dereferenceable(16) %.0.i10, i64 16, i1 false), !tbaa.struct !59
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %..thread.loopexit_crit_edge, label %12
@@ -819,14 +819,14 @@ define linkonce_odr void @_ZN7rocksdb10BinaryHeapINS_18CoalescingIterator19WideC
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %12, %..thread.loopexit_crit_edge, %2
-  %39 = phi ptr [ %.pre.pre, %..thread.loopexit_crit_edge ], [ %5, %2 ], [ %.0.i12, %12 ]
-  store ptr %.sroa.0.0.copyload, ptr %39, align 8, !tbaa !38
-  %.sroa.5.0..0.i13.sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %45 = phi ptr [ %.pre.pre, %..thread.loopexit_crit_edge ], [ %5, %2 ], [ %.0.i12, %12 ]
+  store ptr %.sroa.0.0.copyload, ptr %45, align 8, !tbaa !38
+  %.sroa.5.0..0.i13.sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %.sroa.5.0.copyload, ptr %.sroa.5.0..0.i13.sroa_idx, align 8, !tbaa !41
-  %.sroa.6.0..0.i13.sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 12
+  %.sroa.6.0..0.i13.sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %.sroa.6.0.copyload, ptr %.sroa.6.0..0.i13.sroa_idx, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i64 -1, ptr %40, align 8, !tbaa !16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i64 -1, ptr %46, align 8, !tbaa !16
   ret void
 }
 

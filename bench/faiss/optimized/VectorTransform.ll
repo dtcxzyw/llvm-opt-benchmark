@@ -7673,9 +7673,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_13eigEmPdS0_i(i64 noundef %0, ptr n
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %38 = lshr i64 %0, 1
   %.not70 = icmp eq i64 %38, 0
-  br i1 %.not70, label %._crit_edge67, label %.lr.ph62.us.preheader
+  br i1 %.not70, label %._crit_edge67, label %.lr.ph62.us
 
-.lr.ph62.us.preheader:                            ; preds = %.loopexit
+.lr.ph62.us:                                      ; preds = %.loopexit
   %umax = call i64 @llvm.umax.i64(i64 %0, i64 1)
   br label %.lr.ph62.us
 

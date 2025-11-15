@@ -3950,7 +3950,7 @@ declare void @malloc_stats_print(ptr noundef, ptr noundef, ptr noundef) local_un
 define hidden zeroext i1 @je_stats_boot() local_unnamed_addr #0 {
   %1 = load i64, ptr @je_opt_stats_interval, align 8, !tbaa !4
   %2 = icmp slt i64 %1, 0
-  br i1 %2, label %7, label %3
+  br i1 %2, label %8, label %3
 
 3:                                                ; preds = %0
   %4 = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
@@ -3958,14 +3958,14 @@ define hidden zeroext i1 @je_stats_boot() local_unnamed_addr #0 {
   %6 = lshr i64 %4, 6
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %6, i64 1)
   %.0 = select i1 %5, i64 4194304, i64 %spec.store.select
-  br label %7
+  br label %8
 
-7:                                                ; preds = %0, %3
+8:                                                ; preds = %0, %3
   %storemerge = phi i64 [ %.0, %3 ], [ 0, %0 ]
   %.05 = phi i64 [ %4, %3 ], [ 0, %0 ]
   store i64 %storemerge, ptr @stats_interval_accum_batch, align 8, !tbaa !4
-  %8 = tail call zeroext i1 @je_counter_accum_init(ptr noundef nonnull @stats_interval_accumulated, i64 noundef %.05) #14
-  ret i1 %8
+  %9 = tail call zeroext i1 @je_counter_accum_init(ptr noundef nonnull @stats_interval_accumulated, i64 noundef %.05) #14
+  ret i1 %9
 }
 
 declare zeroext i1 @je_counter_accum_init(ptr noundef, i64 noundef) local_unnamed_addr #2

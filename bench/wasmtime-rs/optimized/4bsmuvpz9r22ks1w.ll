@@ -3854,10 +3854,10 @@ define hidden void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$fo
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17h9fd6803339c63f15E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
-  %.not27.i = icmp eq i64 %1, 0
-  br i1 %.not27.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h180b45e156f9b69cE.llvm.17911367524062806024.exit", label %.lr.ph.i
+  %.not.i = icmp eq i64 %1, 0
+  br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h180b45e156f9b69cE.llvm.17911367524062806024.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %2, %10
+.lr.ph.i:                                         ; preds = %2, %9
   %.026.i = phi i64 [ %12, %10 ], [ %1, %2 ]
   %.01925.i = phi i64 [ %.022.i, %10 ], [ 0, %2 ]
   %.02024.i = phi i64 [ %.021.i, %10 ], [ %1, %2 ]
@@ -3871,20 +3871,20 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %8 = icmp eq i8 %7, 3
   br i1 %8, label %9, label %10
 
-9:                                                ; preds = %.lr.ph.i
+8:                                                ; preds = %.lr.ph.i
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.93d33193ed412401645690e7206ea482.204.llvm.6890334928246803750) #38, !noalias !332
   unreachable
 
-10:                                               ; preds = %.lr.ph.i
-  %.not.i = icmp eq i8 %7, 0
+9:                                                ; preds = %.lr.ph.i
+  %10 = icmp eq i8 %7, 0
   %11 = add nuw i64 %4, 1
-  %.022.i = select i1 %.not.i, i64 %11, i64 %.01925.i
-  %.021.i = select i1 %.not.i, i64 %.02024.i, i64 %4
+  %.022.i = select i1 %10, i64 %11, i64 %.01925.i
+  %.021.i = select i1 %10, i64 %.02024.i, i64 %4
   %12 = sub i64 %.021.i, %.022.i
   %13 = icmp ult i64 %.022.i, %.021.i
   br i1 %13, label %.lr.ph.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h180b45e156f9b69cE.llvm.17911367524062806024.exit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h180b45e156f9b69cE.llvm.17911367524062806024.exit": ; preds = %10, %2
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h180b45e156f9b69cE.llvm.17911367524062806024.exit": ; preds = %9, %2
   %.019.lcssa.i = phi i64 [ 0, %2 ], [ %.022.i, %10 ]
   %14 = icmp ule i64 %.019.lcssa.i, %1
   tail call void @llvm.assume(i1 %14)
@@ -3893,10 +3893,10 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h180b45e156f9b69cE.llvm.17911367524062806024"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readnone align 1 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.not27 = icmp eq i64 %1, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %13
+.lr.ph:                                           ; preds = %3, %12
   %.026 = phi i64 [ %15, %13 ], [ %1, %3 ]
   %.01925 = phi i64 [ %.022, %13 ], [ 0, %3 ]
   %.02024 = phi i64 [ %.021, %13 ], [ %1, %3 ]
@@ -3910,22 +3910,22 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %9 = icmp eq i8 %8, 3
   br i1 %9, label %10, label %13
 
-10:                                               ; preds = %.lr.ph
+9:                                                ; preds = %.lr.ph
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.93d33193ed412401645690e7206ea482.204.llvm.6890334928246803750) #38
   unreachable
 
-._crit_edge:                                      ; preds = %13, %3
+._crit_edge:                                      ; preds = %12, %3
   %.019.lcssa = phi i64 [ 0, %3 ], [ %.022, %13 ]
-  %11 = icmp ule i64 %.019.lcssa, %1
-  tail call void @llvm.assume(i1 %11)
-  %12 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.019.lcssa, 1
-  ret { i64, i64 } %12
+  %10 = icmp ule i64 %.019.lcssa, %1
+  tail call void @llvm.assume(i1 %10)
+  %11 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.019.lcssa, 1
+  ret { i64, i64 } %11
 
-13:                                               ; preds = %.lr.ph
-  %.not = icmp eq i8 %8, 0
+12:                                               ; preds = %.lr.ph
+  %13 = icmp eq i8 %8, 0
   %14 = add nuw i64 %5, 1
-  %.022 = select i1 %.not, i64 %14, i64 %.01925
-  %.021 = select i1 %.not, i64 %.02024, i64 %5
+  %.022 = select i1 %13, i64 %14, i64 %.01925
+  %.021 = select i1 %13, i64 %.02024, i64 %5
   %15 = sub i64 %.021, %.022
   %16 = icmp ult i64 %.022, %.021
   br i1 %16, label %.lr.ph, label %._crit_edge

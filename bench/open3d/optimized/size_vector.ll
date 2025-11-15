@@ -40862,13 +40862,13 @@ define linkonce_odr hidden void @_ZZN8pybind116detail24vector_if_equal_operatorI
   %21 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
   %22 = load i64, ptr %21, align 8, !tbaa !124
   %23 = icmp eq i64 %22, %11
-  br i1 %23, label %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit28, label %24
+  br i1 %23, label %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit27, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 24
   %26 = load i64, ptr %25, align 8, !tbaa !124
   %27 = icmp eq i64 %26, %11
-  br i1 %27, label %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit30, label %28
+  br i1 %27, label %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit29, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 32
@@ -40929,15 +40929,15 @@ _ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit: ; preds = %16
   %49 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
   br label %_ZSt4findIPllET_S1_S1_RKT0_.exit
 
-_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit28: ; preds = %20
+_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit27: ; preds = %20
   %50 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
   br label %_ZSt4findIPllET_S1_S1_RKT0_.exit
 
-_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit30: ; preds = %24
+_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit29: ; preds = %24
   %51 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 24
   br label %_ZSt4findIPllET_S1_S1_RKT0_.exit
 
-_ZSt4findIPllET_S1_S1_RKT0_.exit:                 ; preds = %13, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit28, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit30, %33, %39, %45
+_ZSt4findIPllET_S1_S1_RKT0_.exit:                 ; preds = %13, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit27, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit29, %33, %39, %45
   %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %33 ], [ %.1.i.i.i, %39 ], [ %.2.i.i.i, %45 ], [ %49, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit28 ], [ %51, %_ZSt4findIPllET_S1_S1_RKT0_.exit.loopexit.split.loop.exit30 ], [ %.02946.i.i.i, %13 ]
   %.not = icmp eq ptr %.028.i.i.i, %8
   br i1 %.not, label %_ZSt4findIPllET_S1_S1_RKT0_.exit.thread, label %52
@@ -40969,7 +40969,7 @@ _ZN6open3d4core15SmallVectorImplIlE5eraseEPKl.exit: ; preds = %57, %58, %60
   store i32 %63, ptr %5, align 8, !tbaa !1342
   ret void
 
-_ZSt4findIPllET_S1_S1_RKT0_.exit.thread:          ; preds = %45, %._crit_edge.i.i.i, %_ZSt4findIPllET_S1_S1_RKT0_.exit
+._crit_edge.i.i.i.unreachabledefault:             ; preds = %45, %._crit_edge.i.i.i, %_ZSt4findIPllET_S1_S1_RKT0_.exit
   %64 = tail call ptr @__cxa_allocate_exception(i64 16) #31
   invoke void @_ZN8pybind1111value_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %64)
           to label %65 unwind label %66

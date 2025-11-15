@@ -844,18 +844,18 @@ define void @writeAssemblyCode(ptr noundef %0, ptr noundef %1, ptr noundef reado
   store i8 48, ptr %.028.i, align 1, !tbaa !23
   %102 = getelementptr inbounds nuw i8, ptr %.028.i, i64 2
   store i8 120, ptr %101, align 1, !tbaa !23
-  br label %.preheader71
+  br label %.preheader70
 
 103:                                              ; preds = %98
   %104 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
   store i8 48, ptr %.028.i, align 1, !tbaa !23
-  br label %.preheader71
+  br label %.preheader70
 
-.preheader71:                                     ; preds = %103, %100, %98
+.preheader70:                                     ; preds = %103, %100, %98
   %.333.i.ph = phi ptr [ %.028.i, %98 ], [ %102, %100 ], [ %104, %103 ]
   br label %105
 
-105:                                              ; preds = %.preheader71, %122
+105:                                              ; preds = %.preheader70, %122
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %122 ], [ 3, %.preheader71 ]
   %.02635.i = phi i32 [ %.1.i, %122 ], [ 0, %.preheader71 ]
   %.333.i = phi ptr [ %.4.i, %122 ], [ %.333.i.ph, %.preheader71 ]

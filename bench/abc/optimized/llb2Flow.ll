@@ -1338,13 +1338,13 @@ define i32 @Llb_ManCutLiNum(ptr noundef readonly captures(none) %0, ptr noundef 
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %.val31 = load ptr, ptr %7, align 8, !tbaa !35
   %.not.i = icmp eq ptr %.val31, null
-  br i1 %.not.i, label %.lr.ph.split.us.split.preheader, label %.lr.ph.split
+  br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph
+.lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val30.us.sink = load ptr, ptr %6, align 8, !tbaa !62
   br label %.lr.ph.split.us.split
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %Aig_ManObj.exit.us
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %Aig_ManObj.exit.us
   %.238.us = phi i32 [ %28, %Aig_ManObj.exit.us ], [ %.02144, %.lr.ph.split.us.split.preheader ]
   %.02337.us = phi i32 [ %29, %Aig_ManObj.exit.us ], [ 0, %.lr.ph.split.us.split.preheader ]
   %.not25.us = icmp eq i32 %.02337.us, 0
@@ -1369,8 +1369,8 @@ Aig_ManObj.exit.us:                               ; preds = %23, %17
   %27 = getelementptr inbounds i32, ptr %.val30.us.sink, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !43
   %29 = add nuw nsw i32 %.02337.us, 1
-  %exitcond53.not = icmp eq i32 %29, %15
-  br i1 %exitcond53.not, label %.critedge2, label %.lr.ph.split.us.split, !llvm.loop !63
+  %exitcond54.not = icmp eq i32 %29, %15
+  br i1 %exitcond54.not, label %.critedge2, label %.lr.ph.split.us.split, !llvm.loop !63
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %30 = getelementptr i8, ptr %.val31, i64 8
@@ -1431,8 +1431,8 @@ Saig_ObjIsLi.exit.thread:                         ; preds = %Aig_ManObj.exit, %S
   %.122 = phi i32 [ %.02144, %9 ], [ %43, %.split ], [ %.02144, %.preheader ], [ %28, %Aig_ManObj.exit.us ], [ %43, %Saig_ObjIsLi.exit.thread ]
   %.1 = phi i32 [ %.045, %9 ], [ %50, %.split ], [ %.045, %.preheader ], [ %.045, %Aig_ManObj.exit.us ], [ %.045, %Saig_ObjIsLi.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond55.not, label %.critedge, label %9, !llvm.loop !64
+  %exitcond56.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond56.not, label %.critedge, label %9, !llvm.loop !64
 
 .critedge:                                        ; preds = %.critedge2, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %.critedge2 ]
@@ -2296,8 +2296,8 @@ define range(i32 0, 2) i32 @Llb_ManFlowBwdPath2_rec(ptr noundef %0, ptr noundef 
   br label %Aig_ManObj.exit.i
 
 Aig_ManObj.exit.i:                                ; preds = %52, %46
-  %.sink23.i = phi i32 [ %54, %52 ], [ %51, %46 ]
-  %55 = sext i32 %.sink23.i to i64
+  %.sink22.i = phi i32 [ %54, %52 ], [ %51, %46 ]
+  %55 = sext i32 %.sink22.i to i64
   %56 = getelementptr inbounds i32, ptr %.val15.sink.i, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !43
   %58 = ashr i32 %57, 1

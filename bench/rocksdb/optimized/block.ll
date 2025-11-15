@@ -6163,9 +6163,9 @@ _ZNK7rocksdb5Block9IndexTypeEv.exit.thread:       ; preds = %.thread, %_ZNK7rock
   br i1 %.not8.i, label %102, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.noexc17
-  %99 = call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %98, i1 true)
-  %100 = trunc nuw nsw i64 %99 to i8
-  %reass.sub.i = sub i8 %.promoted.i, %100
+  %98 = call range(i64 1, 65) i64 @llvm.ctlz.i64(i64 %98, i1 true)
+  %99 = trunc nuw nsw i64 %98 to i8
+  %reass.sub.i = sub i8 %.promoted.i, %99
   %101 = add i8 %reass.sub.i, 64
   store i8 %101, ptr %83, align 8, !tbaa !120
   br label %102

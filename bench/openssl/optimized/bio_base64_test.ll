@@ -156,26 +156,26 @@ define internal range(i32 0, 2) i32 @test_bio_base64_corner_case_bug(i32 noundef
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %13, label %10
 
-10:                                               ; preds = %1
+10:; preds = %1
   %11 = load ptr, ptr @stderr, align 8, !tbaa !13
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.2, i32 noundef %0) #9
   br label %19
 
 13:                                               ; preds = %1
   store ptr @.str.22, ptr %2, align 8, !tbaa !16
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @.str.23, ptr %14, align 8, !tbaa !17
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr @.str.5, ptr %15, align 8, !tbaa !21
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 6, ptr %16, align 8, !tbaa !19
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 0, ptr %17, align 4, !tbaa !20
-  %18 = call fastcc i32 @generic_case(ptr noundef %2)
-  br label %19
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr @.str.23, ptr %12, align 8, !tbaa !17
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr @.str.5, ptr %13, align 8, !tbaa !21
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 6, ptr %14, align 8, !tbaa !19
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i32 0, ptr %15, align 4, !tbaa !20
+  %16 = call fastcc i32 @generic_case(ptr noundef %2)
+  br label %17
 
-19:                                               ; preds = %13, %10
-  %.0 = phi i32 [ 0, %10 ], [ %18, %13 ]
+17:                                               ; preds = %13, %10
+  %.0 = phi i32 [ 0, %10 ], [ %16, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

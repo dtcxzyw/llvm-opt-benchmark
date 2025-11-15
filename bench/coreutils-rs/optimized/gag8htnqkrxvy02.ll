@@ -3196,14 +3196,14 @@ define hidden void @"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$
   %9 = lshr i64 %8, 1
   %.not3.i = icmp ne i64 %9, 0
   %or.cond.not = select i1 %3, i1 %.not3.i, i1 false
-  br i1 %or.cond.not, label %.lr.ph.i, label %"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$7rebuild17hfbd94813339c092fE.llvm.12150801376095413471.exit"
+  br i1 %or.cond.not, label %.lr.ph.preheader.i, label %"_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$7rebuild17hfbd94813339c092fE.llvm.12150801376095413471.exit"
 
 "_ZN16binary_heap_plus11binary_heap23BinaryHeap$LT$T$C$C$GT$7rebuild17hfbd94813339c092fE.llvm.12150801376095413471.exit": ; preds = %.noexc, %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-.lr.ph.i:                                         ; preds = %4, %.noexc
+.lr.ph.preheader.i:                               ; preds = %4, %.noexc
   %.04.i = phi i64 [ %10, %.noexc ], [ %9, %4 ]
   %10 = add nsw i64 %.04.i, -1
   %11 = load i64, ptr %7, align 8, !alias.scope !337, !noundef !4

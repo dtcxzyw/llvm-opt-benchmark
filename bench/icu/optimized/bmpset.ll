@@ -53,7 +53,7 @@ define void @_ZN6icu_776BMPSetC2EPKii(ptr noundef nonnull align 8 captures(none)
   %or.cond = select i1 %.not28.i, i1 true, i1 %19
   br i1 %or.cond, label %_ZNK6icu_776BMPSet13findCodePointEiii.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %13, %.lr.ph.i
+.lr.ph.i:; preds = %13, %.lr.ph.i
   %20 = phi i32 [ %26, %.lr.ph.i ], [ %18, %13 ]
   %.02033.i = phi i32 [ %..020.i, %.lr.ph.i ], [ %9, %13 ]
   %.02132.i = phi i32 [ %.021..i, %.lr.ph.i ], [ 0, %13 ]

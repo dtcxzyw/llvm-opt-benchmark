@@ -3543,7 +3543,7 @@ define hidden void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17h983
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %34 = phi i64 [ %41, %.lr.ph ], [ %.pre11, %.preheader ]
-  %.sroa.01.010 = phi i64 [ %.sroa.01.0, %.lr.ph ], [ %.sroa.01.08, %.preheader ]
+  %.sroa.01.0.in9 = phi i64 [ %.sroa.01.0, %.lr.ph ], [ %.sroa.01.08, %.preheader ]
   %35 = load ptr, ptr %26, align 8, !nonnull !7, !noundef !7
   %36 = icmp ult i64 %34, 2305843009213693952
   call void @llvm.assume(i1 %36)
@@ -3555,7 +3555,7 @@ define hidden void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17h983
   call void @llvm.assume(i1 %40)
   %41 = shl nuw nsw i64 %39, 1
   store i64 %41, ptr %27, align 8
-  %.sroa.01.0 = lshr i64 %.sroa.01.010, 1
+  %.sroa.01.0 = lshr i64 %.sroa.01.0.in9, 1
   %.not = icmp eq i64 %.sroa.01.0, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -3662,7 +3662,7 @@ define hidden void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17hc94
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %34 = phi i64 [ %40, %.lr.ph ], [ %.pre11, %.preheader ]
-  %.sroa.01.010 = phi i64 [ %.sroa.01.0, %.lr.ph ], [ %.sroa.01.08, %.preheader ]
+  %.sroa.01.0.in9 = phi i64 [ %.sroa.01.0, %.lr.ph ], [ %.sroa.01.08, %.preheader ]
   %35 = load ptr, ptr %26, align 8, !nonnull !7, !noundef !7
   %36 = icmp sgt i64 %34, -1
   call void @llvm.assume(i1 %36)
@@ -3673,7 +3673,7 @@ define hidden void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17hc94
   call void @llvm.assume(i1 %39)
   %40 = shl nuw i64 %38, 1
   store i64 %40, ptr %27, align 8
-  %.sroa.01.0 = lshr i64 %.sroa.01.010, 1
+  %.sroa.01.0 = lshr i64 %.sroa.01.0.in9, 1
   %.not = icmp eq i64 %.sroa.01.0, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

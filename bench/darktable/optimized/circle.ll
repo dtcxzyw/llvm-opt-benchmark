@@ -1235,8 +1235,8 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %16
   %.0357449 = phi float [ 0x47EFFFFFE0000000, %.lr.ph452.preheader ], [ %.1358, %229 ]
   %.0360448 = phi float [ 0x3810000000000000, %.lr.ph452.preheader ], [ %.1361, %229 ]
   %.0362447 = phi float [ 0x3810000000000000, %.lr.ph452.preheader ], [ %.1363, %229 ]
-  %.idx533 = shl nuw nsw i64 %indvars.iv485, 3
-  %214 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx533
+  %.idx532 = shl nuw nsw i64 %indvars.iv485, 3
+  %214 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx532
   %215 = load float, ptr %214, align 8, !tbaa !20
   %216 = tail call i1 @llvm.is.fpclass.f32(float %215, i32 759)
   br i1 %216, label %229, label %217

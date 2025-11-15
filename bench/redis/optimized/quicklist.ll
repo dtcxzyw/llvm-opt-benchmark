@@ -426,10 +426,10 @@ define dso_local void @__quicklistCompress(ptr noundef readonly captures(none) %
   %or.cond52 = select i1 %.not, i1 true, i1 %26
   br i1 %or.cond52, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %19, %78
-  %.038 = phi ptr [ %82, %78 ], [ %7, %19 ]
-  %.037.in = phi ptr [ %.037, %78 ], [ %13, %19 ]
-  %.036 = phi i32 [ %27, %78 ], [ 0, %19 ]
+.preheader:; preds = %19, %78
+  %.037.in = phi ptr [ %82, %78 ], [ %7, %19 ]
+  %.036 = phi ptr [ %.037, %78 ], [ %13, %19 ]
+  %.0 = phi i32 [ %27, %78 ], [ 0, %19 ]
   %.0 = phi i32 [ %.1, %78 ], [ 0, %19 ]
   %.037 = load ptr, ptr %.037.in, align 8, !tbaa !16
   %27 = add nuw nsw i32 %.036, 1

@@ -394,7 +394,7 @@ mulinv.exit108:                                   ; preds = %.lr.ph121
   %.not105.not = icmp eq i32 %2, 0
   br i1 %.not105.not, label %.loopexit, label %.lr.ph136
 
-.lr.ph136:                                        ; preds = %.loopexit113
+.lr.ph133.us.preheader:                           ; preds = %.loopexit113
   %72 = add nsw i32 %3, -1
   %73 = lshr i32 %72, 1
   %.not173 = icmp eq i32 %73, 0

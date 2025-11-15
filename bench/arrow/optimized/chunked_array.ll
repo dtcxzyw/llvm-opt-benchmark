@@ -3461,9 +3461,9 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE9push_backERKS3_.exit: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %197 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0142, i64 16
   %.not122 = icmp eq ptr %197, %76
-  br i1 %.not122, label %.critedge.loopexit, label %84
+  br i1 %.not122, label %.critedge, label %84
 
-.critedge.loopexit:                               ; preds = %196
+.critedge:                                        ; preds = %196
   %.pre160 = load ptr, ptr %10, align 8, !tbaa !38
   %.phi.trans.insert161 = getelementptr inbounds nuw i8, ptr %.pre160, i64 56
   %.pre162 = load ptr, ptr %.phi.trans.insert161, align 8, !tbaa !140
@@ -3482,11 +3482,11 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE9push_backERKS3_.exit: ; pred
   %199 = icmp ugt i64 %198, 576460752303423487
   br i1 %199, label %200, label %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
 
-200:                                              ; preds = %.critedge
+199:                                              ; preds = %.critedge
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #24
           to label %.noexc67 unwind label %211
 
-.noexc67:                                         ; preds = %200
+.noexc67:                                         ; preds = %199
   unreachable
 
 _ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %.critedge
@@ -3494,15 +3494,15 @@ _ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEm
   br i1 %.not.i.i.i.i62, label %_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80, label %.lr.ph.preheader.i.i.i.i.i63
 
 .lr.ph.preheader.i.i.i.i.i63:                     ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
-  %201 = shl nuw nsw i64 %198, 4
-  %202 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %201) #22
+  %200 = shl nuw nsw i64 %198, 4
+  %201 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %200) #22
           to label %.lr.ph147 unwind label %211
 
-.lr.ph147:                                        ; preds = %.lr.ph.preheader.i.i.i.i.i63
-  store ptr %202, ptr %8, align 8, !tbaa !184
-  %203 = getelementptr inbounds nuw %"class.std::shared_ptr.29", ptr %202, i64 %198
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %202, i8 0, i64 %201, i1 false)
-  %scevgep.i.i.i.i.i64 = getelementptr i8, ptr %202, i64 %201
+202:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i63
+  store ptr %201, ptr %8, align 8, !tbaa !184
+  %203 = getelementptr inbounds nuw %"class.std::shared_ptr.29", ptr %201, i64 %198
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %201, i8 0, i64 %200, i1 false)
+  %scevgep.i.i.i.i.i64 = getelementptr i8, ptr %201, i64 %200
   %204 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %205 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %203, ptr %205, align 8, !tbaa !188
@@ -3528,7 +3528,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %297
 
-211:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i63, %200
+211:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i63, %199
   %212 = landingpad { ptr, i32 }
           cleanup
   br label %296

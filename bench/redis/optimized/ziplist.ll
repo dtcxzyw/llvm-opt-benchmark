@@ -4017,7 +4017,7 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.i,
   %88 = getelementptr inbounds nuw %struct.rand_pick, ptr %14, i64 %indvars.iv65
   %89 = load i32, ptr %88, align 4, !tbaa !42
   %90 = icmp eq i32 %.04054, %89
-  br i1 %90, label %91, label %.critedge.loopexit.split.loop.exit79
+  br i1 %90, label %91, label %.critedge.loopexit.split.loop.exit80
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -4039,11 +4039,11 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.i,
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, %12
   br i1 %exitcond68.not, label %.critedge, label %87, !llvm.loop !50
 
-.critedge.loopexit.split.loop.exit79:             ; preds = %87
+.critedge.loopexit.split.loop.exit80:             ; preds = %87
   %101 = trunc nuw i64 %indvars.iv65 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %91, %.critedge.loopexit.split.loop.exit79, %.preheader
+.critedge:                                        ; preds = %91, %.critedge.loopexit.split.loop.exit80, %.preheader
   %.1.lcssa = phi i32 [ %.03956, %.preheader ], [ %101, %.critedge.loopexit.split.loop.exit79 ], [ %1, %91 ]
   %102 = add i32 %.04054, 2
   %103 = call ptr @ziplistNext(ptr noundef nonnull %0, ptr noundef %77)

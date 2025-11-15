@@ -87,7 +87,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidget4drawEv(ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i8, ptr %6, align 8, !tbaa !16, !range !26, !noundef !27
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %350
+  br i1 %8, label %9, label %351
 
 9:                                                ; preds = %1
   tail call void @_ZN5ImGui12PushStyleVarEif(i32 noundef 4, float noundef 0.000000e+00)
@@ -469,17 +469,17 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidget4drawEv(ptr noun
   br label %.preheader.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i:                         ; preds = %330, %45
-  %.not.i.i.i.i.i.i.i = phi i1 [ false, %45 ], [ true, %330 ]
+  %.01012.i.i.i.i.i.i.i = phi i1 [ false, %45 ], [ true, %330 ]
   %.01012.i.i.i.i.i.i.i = phi i64 [ 2, %45 ], [ 1, %330 ]
   br label %331
 
-330:                                              ; preds = %331
+330:                                              ; preds = %332
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIffEEKNS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEESB_EEEEEEE8maxCoeffEv.exit, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !77
 
-331:                                              ; preds = %331, %.preheader.i.i.i.i.i.i.i
+332:                                              ; preds = %332, %.preheader.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %338, %331 ]
-  %332 = getelementptr inbounds nuw float, ptr %2, i64 %.011.i.i.i.i.i.i.i
-  %333 = getelementptr inbounds nuw float, ptr %332, i64 %.01012.i.i.i.i.i.i.i
+  %333 = getelementptr inbounds nuw float, ptr %2, i64 %.011.i.i.i.i.i.i.i
+  %334 = getelementptr inbounds nuw float, ptr %333, i64 %.01012.i.i.i.i.i.i.i
   %334 = load float, ptr %332, align 4, !tbaa !31
   %335 = load float, ptr %333, align 4, !tbaa !31
   %336 = fcmp olt float %334, %335
@@ -490,35 +490,35 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidget4drawEv(ptr noun
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %330, label %331, !llvm.loop !79
 
 _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIffEEKNS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEESB_EEEEEEE8maxCoeffEv.exit: ; preds = %330
-  %339 = load float, ptr %2, align 16, !tbaa !31
+  %340 = load float, ptr %2, align 16, !tbaa !31
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %340 = fpext float %339 to double
-  %341 = fcmp ogt double %340, 0x3E7AD7F29ABCAF48
-  br i1 %341, label %342, label %349
+  %341 = fpext float %340 to double
+  %342 = fcmp ogt double %341, 0x3E7AD7F29ABCAF48
+  br i1 %342, label %343, label %350
 
-342:                                              ; preds = %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIffEEKNS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEESB_EEEEEEE8maxCoeffEv.exit
-  %343 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %344 = load ptr, ptr %343, align 8, !tbaa !80
-  %.not.i.i = icmp eq ptr %344, null
-  br i1 %.not.i.i, label %345, label %_ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit
+343:                                              ; preds = %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIffEEKNS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEESB_EEEEEEE8maxCoeffEv.exit
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %345 = load ptr, ptr %344, align 8, !tbaa !80
+  %.not.i.i = icmp eq ptr %345, null
+  br i1 %.not.i.i, label %346, label %_ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit
 
-345:                                              ; preds = %342
+346:                                              ; preds = %343
   call void @_ZSt25__throw_bad_function_callv() #14
   unreachable
 
-_ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit: ; preds = %342
-  %346 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %347 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %348 = load ptr, ptr %347, align 16, !tbaa !81
-  call void %348(ptr noundef nonnull align 8 dereferenceable(32) %346, ptr noundef nonnull align 16 dereferenceable(64) %192)
-  br label %349
-
-349:                                              ; preds = %_ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIffEEKNS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEESB_EEEEEEE8maxCoeffEv.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+_ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit: ; preds = %343
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %349 = load ptr, ptr %348, align 16, !tbaa !81
+  call void %348(ptr noundef nonnull align 8 dereferenceable(32) %347, ptr noundef nonnull align 16 dereferenceable(64) %192)
   br label %350
 
-350:                                              ; preds = %1, %349
+350:                                              ; preds = %_ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIffEEKNS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEESB_EEEEEEE8maxCoeffEv.exit
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %351
+
+351:                                              ; preds = %1, %350
   ret void
 }
 

@@ -177,7 +177,7 @@ define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0
 20:                                               ; preds = %4
   %21 = tail call ptr @PMIx_Error_string(i32 noundef -27) #7
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %21, ptr noundef nonnull @.str.4, i32 noundef 262) #7
-  br label %33
+  br label %34
 
 22:                                               ; preds = %.preheader, %26
   %.016.i = phi i64 [ %24, %26 ], [ %.016.i.ph, %.preheader ]
@@ -205,15 +205,15 @@ define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0
 
 flex_pack_integer.exit:                           ; preds = %.thread22.i, %30
   %.015.lcssa.sink.i = phi i64 [ %.015.i, %.thread22.i ], [ 8, %30 ]
-  %.lcssa33.sink.i = phi i8 [ %23, %.thread22.i ], [ %31, %30 ]
+  %.lcssa.sink.i = phi i8 [ %23, %.thread22.i ], [ %31, %30 ]
   %.1.i = phi i64 [ %25, %.thread22.i ], [ 9, %30 ]
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 %.015.lcssa.sink.i
-  store i8 %.lcssa33.sink.i, ptr %32, align 1, !tbaa !37
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 %.015.lcssa.sink.i
+  store i8 %.lcssa.sink.i, ptr %33, align 1, !tbaa !37
   store i64 %.1.i, ptr %3, align 8, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %5, i64 %.1.i, i1 false)
-  br label %33
+  br label %34
 
-33:                                               ; preds = %flex_pack_integer.exit, %20
+34:                                               ; preds = %flex_pack_integer.exit, %20
   %.04560 = phi i32 [ 0, %flex_pack_integer.exit ], [ -27, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.04560

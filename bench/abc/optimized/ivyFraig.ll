@@ -8417,7 +8417,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %19 = load i32, ptr %18, align 8
   %20 = lshr i32 %19, 11
   %.not28 = icmp eq ptr %1, null
-  br i1 %.not28, label %21, label %.thread
+  br i1 %.not28, label %20, label %.thread
 
 .thread36:                                        ; preds = %Abc_Clock.exit
   %.not2837 = icmp eq ptr %1, null
@@ -8429,11 +8429,11 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %.pre54 = lshr i32 %.pre, 11
   br label %.thread35
 
-21:                                               ; preds = %17
+20:                                               ; preds = %17
   %.not49 = icmp eq i32 %20, 0
-  br i1 %.not49, label %.thread45, label %.thread57
+  br i1 %.not49, label %.thread45, label %.thread61
 
-.thread57:                                        ; preds = %21
+.thread61:                                        ; preds = %20
   %22 = uitofp nneg i32 %20 to double
   %23 = load ptr, ptr %0, align 8, !tbaa !85
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -8450,7 +8450,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %spec.select = call i32 @llvm.umax.i32(i32 %20, i32 %31)
   br label %.thread35
 
-.thread45:                                        ; preds = %21, %.thread36
+.thread45:                                        ; preds = %20, %.thread36
   %32 = load ptr, ptr %0, align 8, !tbaa !85
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load double, ptr %33, align 8, !tbaa !12
@@ -8481,7 +8481,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %49 = phi i32 [ %.sink, %45 ], [ %.sink, %.thread35 ], [ 0, %.thread45 ]
   br i1 %.not, label %.thread47, label %.thread48
 
-.thread48:                                        ; preds = %.thread57, %47
+.thread48:                                        ; preds = %.thread61, %47
   %50 = phi i32 [ %49, %47 ], [ %20, %.thread57 ]
   %51 = phi i32 [ %48, %47 ], [ %28, %.thread57 ]
   %.val = load i32, ptr %2, align 8, !tbaa !121
