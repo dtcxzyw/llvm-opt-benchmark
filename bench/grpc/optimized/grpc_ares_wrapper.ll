@@ -1867,8 +1867,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %.critedge8, %23
   %28 = call i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %25)
   %.off = add i64 %28, -9223372036854775807
   %switch = icmp ult i64 %.off, 2
-  %29 = call i64 @llvm.smin.i64(i64 %28, i64 9223372036854774807)
-  %spec.select = add nsw i64 %29, 1000
+  %spec.select = call i64 @llvm.sadd.sat.i64(i64 %28, i64 1000)
   %.0.i.i = select i1 %switch, i64 %28, i64 %spec.select
   ret i64 %.0.i.i
 }
@@ -9557,7 +9556,7 @@ declare i64 @llvm.umax.i64(i64, i64) #27
 declare i64 @llvm.umin.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #27
+declare i64 @llvm.sadd.sat.i64(i64, i64) #27
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

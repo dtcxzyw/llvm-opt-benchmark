@@ -298,9 +298,7 @@ define range(i64 -9223372036854775805, -9223372036854775807) i64 @_ZN17grpc_even
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %8
   %12 = add nsw i64 %.sroa.01.0.copyload.sroa.speculated, %0
-  %13 = icmp eq i64 %12, 9223372036854775807
-  %14 = add nsw i64 %12, 1
-  %spec.select = select i1 %13, i64 9223372036854775807, i64 %14
+  %spec.select = tail call i64 @llvm.sadd.sat.i64(i64 %12, i64 1)
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit9
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit9: ; preds = %2, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, %8
@@ -852,6 +850,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #15
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.sadd.sat.i64(i64, i64) #15
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

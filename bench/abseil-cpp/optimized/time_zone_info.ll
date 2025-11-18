@@ -3206,40 +3206,37 @@ define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneInfo9TimeLocalERKN
   store i64 9223372036854775807, ptr %12, align 8, !tbaa !74
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 9223372036854775807, ptr %13, align 8, !tbaa !74
-  br label %27
+  br label %24
 
 14:                                               ; preds = %4
   %15 = mul nsw i64 %3, 12622780800
-  %16 = sub nsw i64 9223372036854775807, %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %17, ptr %5, align 8, !tbaa !155
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %19, ptr %18, align 8, !tbaa !155
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %21, ptr %20, align 8, !tbaa !155
-  br label %23
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %16, ptr %5, align 8, !tbaa !155
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %18, ptr %17, align 8, !tbaa !155
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %20, ptr %19, align 8, !tbaa !155
+  br label %22
 
-22:                                               ; preds = %23
+21:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %27
+  br label %24
 
-23:                                               ; preds = %14, %23
-  %.0.idx20 = phi i64 [ 0, %14 ], [ %.0.add, %23 ]
+22:                                               ; preds = %14, %22
+  %.0.idx20 = phi i64 [ 0, %14 ], [ %.0.add, %22 ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0.idx20
-  %24 = load ptr, ptr %.0.ptr, align 8, !tbaa !155
-  %.sroa.0.0.copyload.i2.i.i = load i64, ptr %24, align 8, !tbaa !74
-  %25 = icmp slt i64 %16, %.sroa.0.0.copyload.i2.i.i
-  %26 = add nsw i64 %.sroa.0.0.copyload.i2.i.i, %15
-  %storemerge = select i1 %25, i64 9223372036854775807, i64 %26
-  store i64 %storemerge, ptr %24, align 8, !tbaa !74
+  %23 = load ptr, ptr %.0.ptr, align 8, !tbaa !155
+  %.sroa.0.0.copyload.i2.i.i = load i64, ptr %23, align 8, !tbaa !74
+  %storemerge = tail call i64 @llvm.sadd.sat.i64(i64 %15, i64 %.sroa.0.0.copyload.i2.i.i)
+  store i64 %storemerge, ptr %23, align 8, !tbaa !74
   %.0.add = add nuw nsw i64 %.0.idx20, 8
   %.not = icmp eq i64 %.0.add, 24
-  br i1 %.not, label %22, label %23
+  br i1 %.not, label %21, label %22
 
-27:                                               ; preds = %22, %10
+24:                                               ; preds = %21, %10
   ret void
 }
 
@@ -4130,7 +4127,7 @@ _ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -9223372036854775808, ptr %328, align 8, !tbaa !74, !alias.scope !175
   store i64 -9223372036854775808, ptr %326, align 8, !tbaa !74, !alias.scope !175
-  br label %826
+  br label %823
 
 _ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit75.thread215: ; preds = %319, %311, %303, %295, %287, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit75
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4178,7 +4175,7 @@ _ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %351, ptr %354, align 8, !tbaa !74, !alias.scope !178
   store i64 %351, ptr %352, align 8, !tbaa !74, !alias.scope !178
-  br label %826
+  br label %823
 
 _ZN4absl13time_internal4cctz6detailgeINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit74.thread213: ; preds = %266, %258, %250, %242, %.thread209, %_ZN4absl13time_internal4cctz6detailgeINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit74
   tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
@@ -4259,11 +4256,11 @@ _ZN4absl13time_internal4cctz6detailgeINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   %397 = add i64 %.neg25.i, %.pn.i.i24.neg.i
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %397, ptr %398, align 8, !tbaa !74, !alias.scope !183
-  br label %826
+  br label %823
 
 399:                                              ; preds = %_ZN4absl13time_internal4cctz6detailgeINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread
   %400 = icmp eq ptr %.0, %8
-  br i1 %400, label %401, label %623
+  br i1 %400, label %401, label %620
 
 401:                                              ; preds = %399
   %402 = getelementptr inbounds i8, ptr %.0, i64 -48
@@ -4337,13 +4334,13 @@ _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   %446 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %447 = load i8, ptr %446, align 8, !tbaa !34, !range !25, !noundef !26
   %448 = trunc nuw i8 %447 to i1
-  br i1 %448, label %449, label %499
+  br i1 %448, label %449, label %496
 
 449:                                              ; preds = %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread
   %450 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %451 = load i64, ptr %450, align 8, !tbaa !64
   %452 = icmp sgt i64 %405, %451
-  br i1 %452, label %453, label %499
+  br i1 %452, label %453, label %496
 
 453:                                              ; preds = %449
   %454 = xor i64 %451, -1
@@ -4394,127 +4391,124 @@ _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeI
 
 486:                                              ; preds = %453
   %487 = mul nsw i64 %457, 12622780800
-  %488 = sub nsw i64 9223372036854775807, %487
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !186
-  %489 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %489, ptr %4, align 8, !tbaa !155, !noalias !186
-  %490 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %491 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %491, ptr %490, align 8, !tbaa !155, !noalias !186
-  %492 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %493 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %493, ptr %492, align 8, !tbaa !155, !noalias !186
-  br label %495
+  %488 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %488, ptr %4, align 8, !tbaa !155, !noalias !186
+  %489 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %490 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %490, ptr %489, align 8, !tbaa !155, !noalias !186
+  %491 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %492 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %492, ptr %491, align 8, !tbaa !155, !noalias !186
+  br label %494
 
-494:                                              ; preds = %495
+493:                                              ; preds = %494
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !186
   br label %_ZNK4absl13time_internal4cctz12TimeZoneInfo9TimeLocalERKNS1_6detail10civil_timeINS3_10second_tagEEEl.exit
 
-495:                                              ; preds = %495, %486
-  %.0.idx20.i = phi i64 [ 0, %486 ], [ %.0.add.i, %495 ]
+494:                                              ; preds = %494, %486
+  %.0.idx20.i = phi i64 [ 0, %486 ], [ %.0.add.i, %494 ]
   %.0.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.0.idx20.i
-  %496 = load ptr, ptr %.0.ptr.i, align 8, !tbaa !155, !noalias !186
-  %.sroa.0.0.copyload.i2.i.i.i = load i64, ptr %496, align 8, !tbaa !74
-  %497 = icmp slt i64 %488, %.sroa.0.0.copyload.i2.i.i.i
-  %498 = add nsw i64 %.sroa.0.0.copyload.i2.i.i.i, %487
-  %storemerge.i = select i1 %497, i64 9223372036854775807, i64 %498
-  store i64 %storemerge.i, ptr %496, align 8, !tbaa !74
+  %495 = load ptr, ptr %.0.ptr.i, align 8, !tbaa !155, !noalias !186
+  %.sroa.0.0.copyload.i2.i.i.i = load i64, ptr %495, align 8, !tbaa !74
+  %storemerge.i = call i64 @llvm.sadd.sat.i64(i64 %487, i64 %.sroa.0.0.copyload.i2.i.i.i)
+  store i64 %storemerge.i, ptr %495, align 8, !tbaa !74
   %.0.add.i = add nuw nsw i64 %.0.idx20.i, 8
   %.not.i = icmp eq i64 %.0.add.i, 24
-  br i1 %.not.i, label %494, label %495
+  br i1 %.not.i, label %493, label %494
 
-_ZNK4absl13time_internal4cctz12TimeZoneInfo9TimeLocalERKNS1_6detail10civil_timeINS3_10second_tagEEEl.exit: ; preds = %482, %494
+_ZNK4absl13time_internal4cctz12TimeZoneInfo9TimeLocalERKNS1_6detail10civil_timeINS3_10second_tagEEEl.exit: ; preds = %482, %493
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %826
+  br label %823
 
-499:                                              ; preds = %449, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread
-  %500 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %501 = getelementptr inbounds i8, ptr %.0, i64 -40
-  %502 = load i8, ptr %501, align 8, !tbaa !55
-  %503 = zext i8 %502 to i64
-  %504 = load ptr, ptr %500, align 8, !tbaa !15
-  %505 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %504, i64 %503
-  %506 = getelementptr inbounds nuw i8, ptr %505, i64 8
-  %507 = load i64, ptr %506, align 8, !tbaa !63
-  %508 = icmp slt i64 %507, %405
-  br i1 %508, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread, label %509
+496:                                              ; preds = %449, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread
+  %497 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %498 = getelementptr inbounds i8, ptr %.0, i64 -40
+  %499 = load i8, ptr %498, align 8, !tbaa !55
+  %500 = zext i8 %499 to i64
+  %501 = load ptr, ptr %497, align 8, !tbaa !15
+  %502 = getelementptr inbounds nuw %"struct.absl::time_internal::cctz::TransitionType", ptr %501, i64 %500
+  %503 = getelementptr inbounds nuw i8, ptr %502, i64 8
+  %504 = load i64, ptr %503, align 8, !tbaa !63
+  %505 = icmp slt i64 %504, %405
+  br i1 %505, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread, label %506
 
-509:                                              ; preds = %499
-  %510 = icmp eq i64 %507, %405
-  br i1 %510, label %511, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219
+506:                                              ; preds = %496
+  %507 = icmp eq i64 %504, %405
+  br i1 %507, label %508, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219
 
-511:                                              ; preds = %509
-  %512 = getelementptr inbounds nuw i8, ptr %505, i64 16
-  %513 = load i8, ptr %512, align 8, !tbaa !94
-  %514 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %515 = load i8, ptr %514, align 8, !tbaa !94
-  %516 = icmp slt i8 %513, %515
-  br i1 %516, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread, label %517
+508:                                              ; preds = %506
+  %509 = getelementptr inbounds nuw i8, ptr %502, i64 16
+  %510 = load i8, ptr %509, align 8, !tbaa !94
+  %511 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %512 = load i8, ptr %511, align 8, !tbaa !94
+  %513 = icmp slt i8 %510, %512
+  br i1 %513, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread, label %514
 
-517:                                              ; preds = %511
-  %518 = icmp eq i8 %513, %515
-  br i1 %518, label %519, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219
+514:                                              ; preds = %508
+  %515 = icmp eq i8 %510, %512
+  br i1 %515, label %516, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219
 
-519:                                              ; preds = %517
-  %520 = getelementptr inbounds nuw i8, ptr %505, i64 17
-  %521 = load i8, ptr %520, align 1, !tbaa !95
-  %522 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %523 = load i8, ptr %522, align 1, !tbaa !95
-  %524 = icmp slt i8 %521, %523
-  br i1 %524, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread, label %525
+516:                                              ; preds = %514
+  %517 = getelementptr inbounds nuw i8, ptr %502, i64 17
+  %518 = load i8, ptr %517, align 1, !tbaa !95
+  %519 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %520 = load i8, ptr %519, align 1, !tbaa !95
+  %521 = icmp slt i8 %518, %520
+  br i1 %521, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread, label %522
 
-525:                                              ; preds = %519
-  %526 = icmp eq i8 %521, %523
-  br i1 %526, label %527, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219
+522:                                              ; preds = %516
+  %523 = icmp eq i8 %518, %520
+  br i1 %523, label %524, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219
 
-527:                                              ; preds = %525
-  %528 = getelementptr inbounds nuw i8, ptr %505, i64 18
-  %529 = load i8, ptr %528, align 2, !tbaa !143
-  %530 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %531 = load i8, ptr %530, align 2, !tbaa !143
-  %532 = icmp slt i8 %529, %531
-  br i1 %532, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread, label %533
+524:                                              ; preds = %522
+  %525 = getelementptr inbounds nuw i8, ptr %502, i64 18
+  %526 = load i8, ptr %525, align 2, !tbaa !143
+  %527 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %528 = load i8, ptr %527, align 2, !tbaa !143
+  %529 = icmp slt i8 %526, %528
+  br i1 %529, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread, label %530
 
-533:                                              ; preds = %527
-  %534 = icmp eq i8 %529, %531
-  br i1 %534, label %535, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219
+530:                                              ; preds = %524
+  %531 = icmp eq i8 %526, %528
+  br i1 %531, label %532, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219
 
-535:                                              ; preds = %533
-  %536 = getelementptr inbounds nuw i8, ptr %505, i64 19
-  %537 = load i8, ptr %536, align 1, !tbaa !144
-  %538 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  %539 = load i8, ptr %538, align 1, !tbaa !144
-  %540 = icmp slt i8 %537, %539
-  br i1 %540, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread, label %541
+532:                                              ; preds = %530
+  %533 = getelementptr inbounds nuw i8, ptr %502, i64 19
+  %534 = load i8, ptr %533, align 1, !tbaa !144
+  %535 = getelementptr inbounds nuw i8, ptr %2, i64 11
+  %536 = load i8, ptr %535, align 1, !tbaa !144
+  %537 = icmp slt i8 %534, %536
+  br i1 %537, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread, label %538
 
-541:                                              ; preds = %535
-  %542 = icmp eq i8 %537, %539
-  br i1 %542, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219
+538:                                              ; preds = %532
+  %539 = icmp eq i8 %534, %536
+  br i1 %539, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219
 
-_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81: ; preds = %541
-  %543 = getelementptr inbounds nuw i8, ptr %505, i64 20
-  %544 = load i8, ptr %543, align 4, !tbaa !145
-  %545 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %546 = load i8, ptr %545, align 4, !tbaa !145
-  %547 = icmp slt i8 %544, %546
-  br i1 %547, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219
+_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81: ; preds = %538
+  %540 = getelementptr inbounds nuw i8, ptr %502, i64 20
+  %541 = load i8, ptr %540, align 4, !tbaa !145
+  %542 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %543 = load i8, ptr %542, align 4, !tbaa !145
+  %544 = icmp slt i8 %541, %543
+  br i1 %544, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219
 
-_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread: ; preds = %535, %527, %519, %511, %499, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81
-  %548 = getelementptr inbounds nuw i8, ptr %0, i64 8
+_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread: ; preds = %532, %524, %516, %508, %496, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81
+  %545 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %0, align 8, !tbaa !171, !alias.scope !189
-  %549 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 9223372036854775807, ptr %549, align 8, !tbaa !74, !alias.scope !189
-  %550 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 9223372036854775807, ptr %550, align 8, !tbaa !74, !alias.scope !189
-  store i64 9223372036854775807, ptr %548, align 8, !tbaa !74, !alias.scope !189
-  br label %826
+  %546 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 9223372036854775807, ptr %546, align 8, !tbaa !74, !alias.scope !189
+  %547 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 9223372036854775807, ptr %547, align 8, !tbaa !74, !alias.scope !189
+  store i64 9223372036854775807, ptr %545, align 8, !tbaa !74, !alias.scope !189
+  br label %823
 
-_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219: ; preds = %541, %533, %525, %517, %509, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81
-  %551 = load i64, ptr %402, align 8, !tbaa !62
+_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219: ; preds = %538, %530, %522, %514, %506, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81
+  %548 = load i64, ptr %402, align 8, !tbaa !62
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8
-  %552 = getelementptr inbounds i8, ptr %.0, i64 -32
-  %.sroa.03.0.copyload = load i64, ptr %552, align 8, !tbaa !74
+  %549 = getelementptr inbounds i8, ptr %.0, i64 -32
+  %.sroa.03.0.copyload = load i64, ptr %549, align 8, !tbaa !74
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %.0, i64 -24
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8
   %.sroa.22.8.extract.trunc.i.i.i.i.i82 = trunc i64 %.sroa.26.0.copyload to i8
@@ -4523,43 +4517,43 @@ _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   %.sroa.2.8.extract.trunc.i.i.i.i.i85 = trunc i64 %.sroa.24.0.copyload to i8
   %.sroa.4.8.extract.shift.i.i.i.i.i86 = lshr i64 %.sroa.24.0.copyload, 8
   %.sroa.4.8.extract.trunc.i.i.i.i.i87 = trunc i64 %.sroa.4.8.extract.shift.i.i.i.i.i86 to i8
-  %553 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %405, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i82, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i84, i64 noundef %.sroa.03.0.copyload, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i85, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i87) #25
-  %554 = shl i64 %.sroa.26.0.copyload, 40
-  %555 = ashr i64 %554, 56
-  %556 = shl i64 %.sroa.24.0.copyload, 40
-  %557 = ashr i64 %556, 56
-  %558 = sub nsw i64 %555, %557
-  %.pn.i.i.i.i88 = mul i64 %553, 24
-  %559 = add i64 %558, %.pn.i.i.i.i88
-  %560 = shl i64 %.sroa.26.0.copyload, 32
-  %561 = ashr i64 %560, 56
-  %562 = shl i64 %.sroa.24.0.copyload, 32
-  %563 = ashr i64 %562, 56
-  %564 = sub nsw i64 %561, %563
-  %.pn.i.i.i89 = mul i64 %559, 60
-  %565 = add i64 %564, %.pn.i.i.i89
-  %566 = shl i64 %.sroa.26.0.copyload, 24
-  %567 = ashr i64 %566, 56
-  %568 = shl i64 %.sroa.24.0.copyload, 24
-  %569 = ashr i64 %568, 56
-  %.pn.i.i90 = mul i64 %565, 60
-  %570 = add i64 %567, %551
-  %571 = sub i64 %570, %569
-  %572 = add i64 %571, %.pn.i.i90
-  %573 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %550 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %405, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i82, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i84, i64 noundef %.sroa.03.0.copyload, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i85, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i87) #25
+  %551 = shl i64 %.sroa.26.0.copyload, 40
+  %552 = ashr i64 %551, 56
+  %553 = shl i64 %.sroa.24.0.copyload, 40
+  %554 = ashr i64 %553, 56
+  %555 = sub nsw i64 %552, %554
+  %.pn.i.i.i.i88 = mul i64 %550, 24
+  %556 = add i64 %555, %.pn.i.i.i.i88
+  %557 = shl i64 %.sroa.26.0.copyload, 32
+  %558 = ashr i64 %557, 56
+  %559 = shl i64 %.sroa.24.0.copyload, 32
+  %560 = ashr i64 %559, 56
+  %561 = sub nsw i64 %558, %560
+  %.pn.i.i.i89 = mul i64 %556, 60
+  %562 = add i64 %561, %.pn.i.i.i89
+  %563 = shl i64 %.sroa.26.0.copyload, 24
+  %564 = ashr i64 %563, 56
+  %565 = shl i64 %.sroa.24.0.copyload, 24
+  %566 = ashr i64 %565, 56
+  %.pn.i.i90 = mul i64 %562, 60
+  %567 = add i64 %564, %548
+  %568 = sub i64 %567, %566
+  %569 = add i64 %568, %.pn.i.i90
+  %570 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %0, align 8, !tbaa !171, !alias.scope !192
-  %574 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %572, ptr %574, align 8, !tbaa !74, !alias.scope !192
-  %575 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %572, ptr %575, align 8, !tbaa !74, !alias.scope !192
-  store i64 %572, ptr %573, align 8, !tbaa !74, !alias.scope !192
-  br label %826
+  %571 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %569, ptr %571, align 8, !tbaa !74, !alias.scope !192
+  %572 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %569, ptr %572, align 8, !tbaa !74, !alias.scope !192
+  store i64 %569, ptr %570, align 8, !tbaa !74, !alias.scope !192
+  br label %823
 
 _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread217: ; preds = %439, %431, %423, %415, %407, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
-  %576 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %573 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %0, align 8, !tbaa !171, !alias.scope !197
-  %577 = load i64, ptr %402, align 8, !tbaa !62, !noalias !197
+  %574 = load i64, ptr %402, align 8, !tbaa !62, !noalias !197
   %.sroa.28.0..sroa_idx.i92 = getelementptr inbounds i8, ptr %.0, i64 -8
   %.sroa.28.0.copyload.i93 = load i64, ptr %.sroa.28.0..sroa_idx.i92, align 8, !noalias !197
   %.sroa.26.0..sroa_idx.i95 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4570,38 +4564,38 @@ _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   %.sroa.2.8.extract.trunc.i.i.i.i.i.i100 = trunc i64 %.sroa.26.0.copyload.i96 to i8
   %.sroa.4.8.extract.shift.i.i.i.i.i.i101 = lshr i64 %.sroa.26.0.copyload.i96, 8
   %.sroa.4.8.extract.trunc.i.i.i.i.i.i102 = trunc i64 %.sroa.4.8.extract.shift.i.i.i.i.i.i101 to i8
-  %578 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %404, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i.i97, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i.i99, i64 noundef %405, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i.i100, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i.i102) #25, !noalias !197
-  %579 = shl i64 %.sroa.28.0.copyload.i93, 40
-  %580 = ashr i64 %579, 56
-  %581 = shl i64 %.sroa.26.0.copyload.i96, 40
-  %582 = ashr i64 %581, 56
-  %583 = sub nsw i64 %580, %582
-  %.pn.i.i.i.i.i103 = mul i64 %578, 24
-  %584 = add i64 %583, %.pn.i.i.i.i.i103
-  %585 = shl i64 %.sroa.28.0.copyload.i93, 32
-  %586 = ashr i64 %585, 56
-  %587 = shl i64 %.sroa.26.0.copyload.i96, 32
-  %588 = ashr i64 %587, 56
-  %589 = sub nsw i64 %586, %588
-  %.pn.i.i.i.i104 = mul i64 %584, 60
-  %590 = add i64 %589, %.pn.i.i.i.i104
-  %591 = shl i64 %.sroa.28.0.copyload.i93, 24
-  %592 = ashr i64 %591, 56
-  %593 = shl i64 %.sroa.26.0.copyload.i96, 24
-  %594 = ashr i64 %593, 56
-  %595 = sub nsw i64 %592, %594
-  %.pn.i.i.i105 = mul i64 %590, 60
-  %596 = add i64 %595, %.pn.i.i.i105
-  %597 = xor i64 %596, -1
-  %598 = add i64 %577, %597
-  store i64 %598, ptr %576, align 8, !tbaa !74, !alias.scope !197
-  %599 = load i64, ptr %402, align 8, !tbaa !62, !noalias !197
-  %600 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %599, ptr %600, align 8, !tbaa !74, !alias.scope !197
+  %575 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %404, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i.i97, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i.i99, i64 noundef %405, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i.i100, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i.i102) #25, !noalias !197
+  %576 = shl i64 %.sroa.28.0.copyload.i93, 40
+  %577 = ashr i64 %576, 56
+  %578 = shl i64 %.sroa.26.0.copyload.i96, 40
+  %579 = ashr i64 %578, 56
+  %580 = sub nsw i64 %577, %579
+  %.pn.i.i.i.i.i103 = mul i64 %575, 24
+  %581 = add i64 %580, %.pn.i.i.i.i.i103
+  %582 = shl i64 %.sroa.28.0.copyload.i93, 32
+  %583 = ashr i64 %582, 56
+  %584 = shl i64 %.sroa.26.0.copyload.i96, 32
+  %585 = ashr i64 %584, 56
+  %586 = sub nsw i64 %583, %585
+  %.pn.i.i.i.i104 = mul i64 %581, 60
+  %587 = add i64 %586, %.pn.i.i.i.i104
+  %588 = shl i64 %.sroa.28.0.copyload.i93, 24
+  %589 = ashr i64 %588, 56
+  %590 = shl i64 %.sroa.26.0.copyload.i96, 24
+  %591 = ashr i64 %590, 56
+  %592 = sub nsw i64 %589, %591
+  %.pn.i.i.i105 = mul i64 %587, 60
+  %593 = add i64 %592, %.pn.i.i.i105
+  %594 = xor i64 %593, -1
+  %595 = add i64 %574, %594
+  store i64 %595, ptr %573, align 8, !tbaa !74, !alias.scope !197
+  %596 = load i64, ptr %402, align 8, !tbaa !62, !noalias !197
+  %597 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %596, ptr %597, align 8, !tbaa !74, !alias.scope !197
   %.sroa.01.0.copyload.i106 = load i64, ptr %2, align 8, !tbaa !74, !noalias !197
   %.sroa.22.0.copyload.i107 = load i64, ptr %.sroa.26.0..sroa_idx.i95, align 8, !noalias !197
-  %601 = getelementptr inbounds i8, ptr %.0, i64 -32
-  %.sroa.0.0.copyload.i108 = load i64, ptr %601, align 8, !tbaa !74, !noalias !197
+  %598 = getelementptr inbounds i8, ptr %.0, i64 -32
+  %.sroa.0.0.copyload.i108 = load i64, ptr %598, align 8, !tbaa !74, !noalias !197
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0, i64 -24
   %.sroa.2.0.copyload.i109 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !197
   %.sroa.22.8.extract.trunc.i.i.i.i.i16.i110 = trunc i64 %.sroa.22.0.copyload.i107 to i8
@@ -4610,105 +4604,105 @@ _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   %.sroa.2.8.extract.trunc.i.i.i.i.i19.i113 = trunc i64 %.sroa.2.0.copyload.i109 to i8
   %.sroa.4.8.extract.shift.i.i.i.i.i20.i114 = lshr i64 %.sroa.2.0.copyload.i109, 8
   %.sroa.4.8.extract.trunc.i.i.i.i.i21.i115 = trunc i64 %.sroa.4.8.extract.shift.i.i.i.i.i20.i114 to i8
-  %602 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %.sroa.01.0.copyload.i106, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i16.i110, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i18.i112, i64 noundef %.sroa.0.0.copyload.i108, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i19.i113, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i21.i115) #25, !noalias !197
-  %603 = shl i64 %.sroa.22.0.copyload.i107, 40
-  %604 = ashr i64 %603, 56
-  %605 = shl i64 %.sroa.2.0.copyload.i109, 40
-  %606 = ashr i64 %605, 56
-  %607 = sub nsw i64 %604, %606
-  %.pn.i.i.i.i22.i116 = mul i64 %602, 24
-  %608 = add i64 %607, %.pn.i.i.i.i22.i116
-  %609 = shl i64 %.sroa.22.0.copyload.i107, 32
-  %610 = ashr i64 %609, 56
-  %611 = shl i64 %.sroa.2.0.copyload.i109, 32
-  %612 = ashr i64 %611, 56
-  %613 = sub nsw i64 %610, %612
-  %.pn.i.i.i23.i117 = mul i64 %608, 60
-  %614 = add i64 %613, %.pn.i.i.i23.i117
-  %615 = shl i64 %.sroa.22.0.copyload.i107, 24
-  %616 = ashr i64 %615, 56
-  %617 = shl i64 %.sroa.2.0.copyload.i109, 24
-  %618 = ashr i64 %617, 56
-  %.pn.i.i24.i = mul i64 %614, 60
-  %619 = add i64 %616, %599
-  %620 = sub i64 %619, %618
-  %621 = add i64 %620, %.pn.i.i24.i
-  %622 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %621, ptr %622, align 8, !tbaa !74, !alias.scope !197
-  br label %826
+  %599 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %.sroa.01.0.copyload.i106, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i16.i110, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i18.i112, i64 noundef %.sroa.0.0.copyload.i108, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i19.i113, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i21.i115) #25, !noalias !197
+  %600 = shl i64 %.sroa.22.0.copyload.i107, 40
+  %601 = ashr i64 %600, 56
+  %602 = shl i64 %.sroa.2.0.copyload.i109, 40
+  %603 = ashr i64 %602, 56
+  %604 = sub nsw i64 %601, %603
+  %.pn.i.i.i.i22.i116 = mul i64 %599, 24
+  %605 = add i64 %604, %.pn.i.i.i.i22.i116
+  %606 = shl i64 %.sroa.22.0.copyload.i107, 32
+  %607 = ashr i64 %606, 56
+  %608 = shl i64 %.sroa.2.0.copyload.i109, 32
+  %609 = ashr i64 %608, 56
+  %610 = sub nsw i64 %607, %609
+  %.pn.i.i.i23.i117 = mul i64 %605, 60
+  %611 = add i64 %610, %.pn.i.i.i23.i117
+  %612 = shl i64 %.sroa.22.0.copyload.i107, 24
+  %613 = ashr i64 %612, 56
+  %614 = shl i64 %.sroa.2.0.copyload.i109, 24
+  %615 = ashr i64 %614, 56
+  %.pn.i.i24.i = mul i64 %611, 60
+  %616 = add i64 %613, %596
+  %617 = sub i64 %616, %615
+  %618 = add i64 %617, %.pn.i.i24.i
+  %619 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %618, ptr %619, align 8, !tbaa !74, !alias.scope !197
+  br label %823
 
-623:                                              ; preds = %399
-  %624 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %625 = load i64, ptr %624, align 8, !tbaa !63
-  %626 = load i64, ptr %2, align 8, !tbaa !63
-  %627 = icmp slt i64 %625, %626
-  br i1 %627, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread, label %628
+620:                                              ; preds = %399
+  %621 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %622 = load i64, ptr %621, align 8, !tbaa !63
+  %623 = load i64, ptr %2, align 8, !tbaa !63
+  %624 = icmp slt i64 %622, %623
+  br i1 %624, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread, label %625
 
-628:                                              ; preds = %623
-  %629 = icmp eq i64 %625, %626
-  br i1 %629, label %630, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221
+625:                                              ; preds = %620
+  %626 = icmp eq i64 %622, %623
+  br i1 %626, label %627, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221
 
-630:                                              ; preds = %628
-  %631 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  %632 = load i8, ptr %631, align 8, !tbaa !94
-  %633 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %634 = load i8, ptr %633, align 8, !tbaa !94
-  %635 = icmp slt i8 %632, %634
-  br i1 %635, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread, label %636
+627:                                              ; preds = %625
+  %628 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  %629 = load i8, ptr %628, align 8, !tbaa !94
+  %630 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %631 = load i8, ptr %630, align 8, !tbaa !94
+  %632 = icmp slt i8 %629, %631
+  br i1 %632, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread, label %633
 
-636:                                              ; preds = %630
-  %637 = icmp eq i8 %632, %634
-  br i1 %637, label %638, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221
+633:                                              ; preds = %627
+  %634 = icmp eq i8 %629, %631
+  br i1 %634, label %635, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221
 
-638:                                              ; preds = %636
-  %639 = getelementptr inbounds nuw i8, ptr %.0, i64 41
-  %640 = load i8, ptr %639, align 1, !tbaa !95
-  %641 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %642 = load i8, ptr %641, align 1, !tbaa !95
-  %643 = icmp slt i8 %640, %642
-  br i1 %643, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread, label %644
+635:                                              ; preds = %633
+  %636 = getelementptr inbounds nuw i8, ptr %.0, i64 41
+  %637 = load i8, ptr %636, align 1, !tbaa !95
+  %638 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %639 = load i8, ptr %638, align 1, !tbaa !95
+  %640 = icmp slt i8 %637, %639
+  br i1 %640, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread, label %641
 
-644:                                              ; preds = %638
-  %645 = icmp eq i8 %640, %642
-  br i1 %645, label %646, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221
+641:                                              ; preds = %635
+  %642 = icmp eq i8 %637, %639
+  br i1 %642, label %643, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221
 
-646:                                              ; preds = %644
-  %647 = getelementptr inbounds nuw i8, ptr %.0, i64 42
-  %648 = load i8, ptr %647, align 2, !tbaa !143
-  %649 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %650 = load i8, ptr %649, align 2, !tbaa !143
-  %651 = icmp slt i8 %648, %650
-  br i1 %651, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread, label %652
+643:                                              ; preds = %641
+  %644 = getelementptr inbounds nuw i8, ptr %.0, i64 42
+  %645 = load i8, ptr %644, align 2, !tbaa !143
+  %646 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %647 = load i8, ptr %646, align 2, !tbaa !143
+  %648 = icmp slt i8 %645, %647
+  br i1 %648, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread, label %649
 
-652:                                              ; preds = %646
-  %653 = icmp eq i8 %648, %650
-  br i1 %653, label %654, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221
+649:                                              ; preds = %643
+  %650 = icmp eq i8 %645, %647
+  br i1 %650, label %651, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221
 
-654:                                              ; preds = %652
-  %655 = getelementptr inbounds nuw i8, ptr %.0, i64 43
-  %656 = load i8, ptr %655, align 1, !tbaa !144
-  %657 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  %658 = load i8, ptr %657, align 1, !tbaa !144
-  %659 = icmp slt i8 %656, %658
-  br i1 %659, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread, label %660
+651:                                              ; preds = %649
+  %652 = getelementptr inbounds nuw i8, ptr %.0, i64 43
+  %653 = load i8, ptr %652, align 1, !tbaa !144
+  %654 = getelementptr inbounds nuw i8, ptr %2, i64 11
+  %655 = load i8, ptr %654, align 1, !tbaa !144
+  %656 = icmp slt i8 %653, %655
+  br i1 %656, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread, label %657
 
-660:                                              ; preds = %654
-  %661 = icmp eq i8 %656, %658
-  br i1 %661, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221
+657:                                              ; preds = %651
+  %658 = icmp eq i8 %653, %655
+  br i1 %658, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221
 
-_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118: ; preds = %660
-  %662 = getelementptr inbounds nuw i8, ptr %.0, i64 44
-  %663 = load i8, ptr %662, align 4, !tbaa !145
-  %664 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %665 = load i8, ptr %664, align 4, !tbaa !145
-  %666 = icmp slt i8 %663, %665
-  br i1 %666, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221
+_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118: ; preds = %657
+  %659 = getelementptr inbounds nuw i8, ptr %.0, i64 44
+  %660 = load i8, ptr %659, align 4, !tbaa !145
+  %661 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %662 = load i8, ptr %661, align 4, !tbaa !145
+  %663 = icmp slt i8 %660, %662
+  br i1 %663, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221
 
-_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread: ; preds = %654, %646, %638, %630, %623, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118
+_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread: ; preds = %651, %643, %635, %627, %620, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  %667 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %664 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %0, align 8, !tbaa !171, !alias.scope !200
-  %668 = load i64, ptr %.0, align 8, !tbaa !62, !noalias !200
+  %665 = load i64, ptr %.0, align 8, !tbaa !62, !noalias !200
   %.sroa.28.0..sroa_idx.i120 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.28.0.copyload.i121 = load i64, ptr %.sroa.28.0..sroa_idx.i120, align 8, !noalias !200
   %.sroa.26.0..sroa_idx.i123 = getelementptr inbounds nuw i8, ptr %.0, i64 40
@@ -4719,36 +4713,36 @@ _ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   %.sroa.2.8.extract.trunc.i.i.i.i.i.i128 = trunc i64 %.sroa.26.0.copyload.i124 to i8
   %.sroa.4.8.extract.shift.i.i.i.i.i.i129 = lshr i64 %.sroa.26.0.copyload.i124, 8
   %.sroa.4.8.extract.trunc.i.i.i.i.i.i130 = trunc i64 %.sroa.4.8.extract.shift.i.i.i.i.i.i129 to i8
-  %669 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %626, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i.i125, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i.i127, i64 noundef %625, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i.i128, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i.i130) #25, !noalias !200
-  %670 = shl i64 %.sroa.28.0.copyload.i121, 40
-  %671 = ashr i64 %670, 56
-  %672 = shl i64 %.sroa.26.0.copyload.i124, 40
-  %673 = ashr i64 %672, 56
-  %674 = sub nsw i64 %671, %673
-  %.pn.i.i.i.i.i131 = mul i64 %669, 24
-  %675 = add i64 %674, %.pn.i.i.i.i.i131
-  %676 = shl i64 %.sroa.28.0.copyload.i121, 32
-  %677 = ashr i64 %676, 56
-  %678 = shl i64 %.sroa.26.0.copyload.i124, 32
-  %679 = ashr i64 %678, 56
-  %680 = sub nsw i64 %677, %679
-  %.pn.i.i.i.i132 = mul i64 %675, 60
-  %681 = add i64 %680, %.pn.i.i.i.i132
-  %682 = shl i64 %.sroa.28.0.copyload.i121, 24
-  %683 = ashr i64 %682, 56
-  %684 = shl i64 %.sroa.26.0.copyload.i124, 24
-  %685 = ashr i64 %684, 56
-  %.pn.i.i.i133 = mul i64 %681, 60
-  %686 = add i64 %668, -1
-  %687 = add i64 %686, %683
-  %688 = sub i64 %687, %685
-  %689 = add i64 %688, %.pn.i.i.i133
-  store i64 %689, ptr %667, align 8, !tbaa !74, !alias.scope !200
-  %690 = load i64, ptr %.0, align 8, !tbaa !62, !noalias !200
-  %691 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %690, ptr %691, align 8, !tbaa !74, !alias.scope !200
-  %692 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %.sroa.01.0.copyload.i134 = load i64, ptr %692, align 8, !tbaa !74, !noalias !200
+  %666 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %623, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i.i125, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i.i127, i64 noundef %622, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i.i128, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i.i130) #25, !noalias !200
+  %667 = shl i64 %.sroa.28.0.copyload.i121, 40
+  %668 = ashr i64 %667, 56
+  %669 = shl i64 %.sroa.26.0.copyload.i124, 40
+  %670 = ashr i64 %669, 56
+  %671 = sub nsw i64 %668, %670
+  %.pn.i.i.i.i.i131 = mul i64 %666, 24
+  %672 = add i64 %671, %.pn.i.i.i.i.i131
+  %673 = shl i64 %.sroa.28.0.copyload.i121, 32
+  %674 = ashr i64 %673, 56
+  %675 = shl i64 %.sroa.26.0.copyload.i124, 32
+  %676 = ashr i64 %675, 56
+  %677 = sub nsw i64 %674, %676
+  %.pn.i.i.i.i132 = mul i64 %672, 60
+  %678 = add i64 %677, %.pn.i.i.i.i132
+  %679 = shl i64 %.sroa.28.0.copyload.i121, 24
+  %680 = ashr i64 %679, 56
+  %681 = shl i64 %.sroa.26.0.copyload.i124, 24
+  %682 = ashr i64 %681, 56
+  %.pn.i.i.i133 = mul i64 %678, 60
+  %683 = add i64 %665, -1
+  %684 = add i64 %683, %680
+  %685 = sub i64 %684, %682
+  %686 = add i64 %685, %.pn.i.i.i133
+  store i64 %686, ptr %664, align 8, !tbaa !74, !alias.scope !200
+  %687 = load i64, ptr %.0, align 8, !tbaa !62, !noalias !200
+  %688 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %687, ptr %688, align 8, !tbaa !74, !alias.scope !200
+  %689 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %.sroa.01.0.copyload.i134 = load i64, ptr %689, align 8, !tbaa !74, !noalias !200
   %.sroa.22.0..sroa_idx.i135 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %.sroa.22.0.copyload.i136 = load i64, ptr %.sroa.22.0..sroa_idx.i135, align 8, !noalias !200
   %.sroa.0.0.copyload.i137 = load i64, ptr %2, align 8, !tbaa !74, !noalias !200
@@ -4759,105 +4753,105 @@ _ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   %.sroa.2.8.extract.trunc.i.i.i.i.i19.i142 = trunc i64 %.sroa.2.0.copyload.i138 to i8
   %.sroa.4.8.extract.shift.i.i.i.i.i20.i143 = lshr i64 %.sroa.2.0.copyload.i138, 8
   %.sroa.4.8.extract.trunc.i.i.i.i.i21.i144 = trunc i64 %.sroa.4.8.extract.shift.i.i.i.i.i20.i143 to i8
-  %693 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %.sroa.01.0.copyload.i134, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i16.i139, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i18.i141, i64 noundef %.sroa.0.0.copyload.i137, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i19.i142, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i21.i144) #25, !noalias !200
-  %694 = shl i64 %.sroa.22.0.copyload.i136, 40
-  %695 = ashr i64 %694, 56
-  %696 = shl i64 %.sroa.2.0.copyload.i138, 40
-  %697 = ashr i64 %696, 56
-  %698 = sub nsw i64 %695, %697
-  %.pn.i.i.i.i22.i145 = mul i64 %693, 24
-  %699 = add i64 %698, %.pn.i.i.i.i22.i145
-  %700 = shl i64 %.sroa.22.0.copyload.i136, 32
-  %701 = ashr i64 %700, 56
-  %702 = shl i64 %.sroa.2.0.copyload.i138, 32
-  %703 = ashr i64 %702, 56
-  %704 = sub nsw i64 %701, %703
-  %.pn.i.i.i23.i146 = mul i64 %699, 60
-  %705 = add i64 %704, %.pn.i.i.i23.i146
-  %706 = shl i64 %.sroa.22.0.copyload.i136, 24
-  %707 = ashr i64 %706, 56
-  %708 = shl i64 %.sroa.2.0.copyload.i138, 24
-  %709 = ashr i64 %708, 56
-  %.pn.i.i24.neg.i147 = mul i64 %705, -60
-  %.neg.i148 = sub i64 %690, %707
-  %.neg25.i149 = add i64 %.neg.i148, %709
-  %710 = add i64 %.neg25.i149, %.pn.i.i24.neg.i147
-  %711 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %710, ptr %711, align 8, !tbaa !74, !alias.scope !200
-  br label %826
+  %690 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %.sroa.01.0.copyload.i134, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i16.i139, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i18.i141, i64 noundef %.sroa.0.0.copyload.i137, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i19.i142, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i21.i144) #25, !noalias !200
+  %691 = shl i64 %.sroa.22.0.copyload.i136, 40
+  %692 = ashr i64 %691, 56
+  %693 = shl i64 %.sroa.2.0.copyload.i138, 40
+  %694 = ashr i64 %693, 56
+  %695 = sub nsw i64 %692, %694
+  %.pn.i.i.i.i22.i145 = mul i64 %690, 24
+  %696 = add i64 %695, %.pn.i.i.i.i22.i145
+  %697 = shl i64 %.sroa.22.0.copyload.i136, 32
+  %698 = ashr i64 %697, 56
+  %699 = shl i64 %.sroa.2.0.copyload.i138, 32
+  %700 = ashr i64 %699, 56
+  %701 = sub nsw i64 %698, %700
+  %.pn.i.i.i23.i146 = mul i64 %696, 60
+  %702 = add i64 %701, %.pn.i.i.i23.i146
+  %703 = shl i64 %.sroa.22.0.copyload.i136, 24
+  %704 = ashr i64 %703, 56
+  %705 = shl i64 %.sroa.2.0.copyload.i138, 24
+  %706 = ashr i64 %705, 56
+  %.pn.i.i24.neg.i147 = mul i64 %702, -60
+  %.neg.i148 = sub i64 %687, %704
+  %.neg25.i149 = add i64 %.neg.i148, %706
+  %707 = add i64 %.neg25.i149, %.pn.i.i24.neg.i147
+  %708 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %707, ptr %708, align 8, !tbaa !74, !alias.scope !200
+  br label %823
 
-_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221: ; preds = %660, %652, %644, %636, %628, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118
-  %712 = getelementptr inbounds i8, ptr %.0, i64 -48
-  %713 = getelementptr inbounds i8, ptr %.0, i64 -16
-  %714 = load i64, ptr %713, align 8, !tbaa !63
-  %715 = icmp slt i64 %714, %626
-  br i1 %715, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread223, label %716
+_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221: ; preds = %657, %649, %641, %633, %625, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118
+  %709 = getelementptr inbounds i8, ptr %.0, i64 -48
+  %710 = getelementptr inbounds i8, ptr %.0, i64 -16
+  %711 = load i64, ptr %710, align 8, !tbaa !63
+  %712 = icmp slt i64 %711, %623
+  br i1 %712, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread223, label %713
 
-716:                                              ; preds = %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221
-  %717 = icmp eq i64 %714, %626
-  br i1 %717, label %718, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread
+713:                                              ; preds = %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221
+  %714 = icmp eq i64 %711, %623
+  br i1 %714, label %715, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread
 
-718:                                              ; preds = %716
-  %719 = getelementptr inbounds i8, ptr %.0, i64 -8
-  %720 = load i8, ptr %719, align 8, !tbaa !94
-  %721 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %722 = load i8, ptr %721, align 8, !tbaa !94
-  %723 = icmp slt i8 %720, %722
-  br i1 %723, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread223, label %724
+715:                                              ; preds = %713
+  %716 = getelementptr inbounds i8, ptr %.0, i64 -8
+  %717 = load i8, ptr %716, align 8, !tbaa !94
+  %718 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %719 = load i8, ptr %718, align 8, !tbaa !94
+  %720 = icmp slt i8 %717, %719
+  br i1 %720, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread223, label %721
 
-724:                                              ; preds = %718
-  %725 = icmp eq i8 %720, %722
-  br i1 %725, label %726, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread
+721:                                              ; preds = %715
+  %722 = icmp eq i8 %717, %719
+  br i1 %722, label %723, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread
 
-726:                                              ; preds = %724
-  %727 = getelementptr inbounds i8, ptr %.0, i64 -7
-  %728 = load i8, ptr %727, align 1, !tbaa !95
-  %729 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %730 = load i8, ptr %729, align 1, !tbaa !95
-  %731 = icmp slt i8 %728, %730
-  br i1 %731, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread223, label %732
+723:                                              ; preds = %721
+  %724 = getelementptr inbounds i8, ptr %.0, i64 -7
+  %725 = load i8, ptr %724, align 1, !tbaa !95
+  %726 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %727 = load i8, ptr %726, align 1, !tbaa !95
+  %728 = icmp slt i8 %725, %727
+  br i1 %728, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread223, label %729
 
-732:                                              ; preds = %726
-  %733 = icmp eq i8 %728, %730
-  br i1 %733, label %734, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread
+729:                                              ; preds = %723
+  %730 = icmp eq i8 %725, %727
+  br i1 %730, label %731, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread
 
-734:                                              ; preds = %732
-  %735 = getelementptr inbounds i8, ptr %.0, i64 -6
-  %736 = load i8, ptr %735, align 2, !tbaa !143
-  %737 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %738 = load i8, ptr %737, align 2, !tbaa !143
-  %739 = icmp slt i8 %736, %738
-  br i1 %739, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread223, label %740
+731:                                              ; preds = %729
+  %732 = getelementptr inbounds i8, ptr %.0, i64 -6
+  %733 = load i8, ptr %732, align 2, !tbaa !143
+  %734 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %735 = load i8, ptr %734, align 2, !tbaa !143
+  %736 = icmp slt i8 %733, %735
+  br i1 %736, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread223, label %737
 
-740:                                              ; preds = %734
-  %741 = icmp eq i8 %736, %738
-  br i1 %741, label %742, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread
+737:                                              ; preds = %731
+  %738 = icmp eq i8 %733, %735
+  br i1 %738, label %739, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread
 
-742:                                              ; preds = %740
-  %743 = getelementptr inbounds i8, ptr %.0, i64 -5
-  %744 = load i8, ptr %743, align 1, !tbaa !144
-  %745 = getelementptr inbounds nuw i8, ptr %2, i64 11
-  %746 = load i8, ptr %745, align 1, !tbaa !144
-  %747 = icmp slt i8 %744, %746
-  br i1 %747, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread223, label %748
+739:                                              ; preds = %737
+  %740 = getelementptr inbounds i8, ptr %.0, i64 -5
+  %741 = load i8, ptr %740, align 1, !tbaa !144
+  %742 = getelementptr inbounds nuw i8, ptr %2, i64 11
+  %743 = load i8, ptr %742, align 1, !tbaa !144
+  %744 = icmp slt i8 %741, %743
+  br i1 %744, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread223, label %745
 
-748:                                              ; preds = %742
-  %749 = icmp eq i8 %744, %746
-  br i1 %749, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread
+745:                                              ; preds = %739
+  %746 = icmp eq i8 %741, %743
+  br i1 %746, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread
 
-_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150: ; preds = %748
-  %750 = getelementptr inbounds i8, ptr %.0, i64 -4
-  %751 = load i8, ptr %750, align 4, !tbaa !145
-  %752 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %753 = load i8, ptr %752, align 4, !tbaa !145
-  %.not229 = icmp slt i8 %751, %753
+_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150: ; preds = %745
+  %747 = getelementptr inbounds i8, ptr %.0, i64 -4
+  %748 = load i8, ptr %747, align 4, !tbaa !145
+  %749 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %750 = load i8, ptr %749, align 4, !tbaa !145
+  %.not229 = icmp slt i8 %748, %750
   br i1 %.not229, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread223, label %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread
 
-_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread: ; preds = %748, %740, %732, %724, %716, %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150
+_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread: ; preds = %745, %737, %729, %721, %713, %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150
   tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
-  %754 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %751 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %0, align 8, !tbaa !171, !alias.scope !203
-  %755 = load i64, ptr %712, align 8, !tbaa !62, !noalias !203
+  %752 = load i64, ptr %709, align 8, !tbaa !62, !noalias !203
   %.sroa.28.0..sroa_idx.i152 = getelementptr inbounds i8, ptr %.0, i64 -8
   %.sroa.28.0.copyload.i153 = load i64, ptr %.sroa.28.0..sroa_idx.i152, align 8, !noalias !203
   %.sroa.26.0..sroa_idx.i155 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4868,38 +4862,38 @@ _ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   %.sroa.2.8.extract.trunc.i.i.i.i.i.i160 = trunc i64 %.sroa.26.0.copyload.i156 to i8
   %.sroa.4.8.extract.shift.i.i.i.i.i.i161 = lshr i64 %.sroa.26.0.copyload.i156, 8
   %.sroa.4.8.extract.trunc.i.i.i.i.i.i162 = trunc i64 %.sroa.4.8.extract.shift.i.i.i.i.i.i161 to i8
-  %756 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %714, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i.i157, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i.i159, i64 noundef %626, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i.i160, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i.i162) #25, !noalias !203
-  %757 = shl i64 %.sroa.28.0.copyload.i153, 40
-  %758 = ashr i64 %757, 56
-  %759 = shl i64 %.sroa.26.0.copyload.i156, 40
-  %760 = ashr i64 %759, 56
-  %761 = sub nsw i64 %758, %760
-  %.pn.i.i.i.i.i163 = mul i64 %756, 24
-  %762 = add i64 %761, %.pn.i.i.i.i.i163
-  %763 = shl i64 %.sroa.28.0.copyload.i153, 32
-  %764 = ashr i64 %763, 56
-  %765 = shl i64 %.sroa.26.0.copyload.i156, 32
-  %766 = ashr i64 %765, 56
-  %767 = sub nsw i64 %764, %766
-  %.pn.i.i.i.i164 = mul i64 %762, 60
-  %768 = add i64 %767, %.pn.i.i.i.i164
-  %769 = shl i64 %.sroa.28.0.copyload.i153, 24
-  %770 = ashr i64 %769, 56
-  %771 = shl i64 %.sroa.26.0.copyload.i156, 24
-  %772 = ashr i64 %771, 56
-  %773 = sub nsw i64 %770, %772
-  %.pn.i.i.i165 = mul i64 %768, 60
-  %774 = add i64 %773, %.pn.i.i.i165
-  %775 = xor i64 %774, -1
-  %776 = add i64 %755, %775
-  store i64 %776, ptr %754, align 8, !tbaa !74, !alias.scope !203
-  %777 = load i64, ptr %712, align 8, !tbaa !62, !noalias !203
-  %778 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %777, ptr %778, align 8, !tbaa !74, !alias.scope !203
+  %753 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %711, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i.i157, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i.i159, i64 noundef %623, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i.i160, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i.i162) #25, !noalias !203
+  %754 = shl i64 %.sroa.28.0.copyload.i153, 40
+  %755 = ashr i64 %754, 56
+  %756 = shl i64 %.sroa.26.0.copyload.i156, 40
+  %757 = ashr i64 %756, 56
+  %758 = sub nsw i64 %755, %757
+  %.pn.i.i.i.i.i163 = mul i64 %753, 24
+  %759 = add i64 %758, %.pn.i.i.i.i.i163
+  %760 = shl i64 %.sroa.28.0.copyload.i153, 32
+  %761 = ashr i64 %760, 56
+  %762 = shl i64 %.sroa.26.0.copyload.i156, 32
+  %763 = ashr i64 %762, 56
+  %764 = sub nsw i64 %761, %763
+  %.pn.i.i.i.i164 = mul i64 %759, 60
+  %765 = add i64 %764, %.pn.i.i.i.i164
+  %766 = shl i64 %.sroa.28.0.copyload.i153, 24
+  %767 = ashr i64 %766, 56
+  %768 = shl i64 %.sroa.26.0.copyload.i156, 24
+  %769 = ashr i64 %768, 56
+  %770 = sub nsw i64 %767, %769
+  %.pn.i.i.i165 = mul i64 %765, 60
+  %771 = add i64 %770, %.pn.i.i.i165
+  %772 = xor i64 %771, -1
+  %773 = add i64 %752, %772
+  store i64 %773, ptr %751, align 8, !tbaa !74, !alias.scope !203
+  %774 = load i64, ptr %709, align 8, !tbaa !62, !noalias !203
+  %775 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %774, ptr %775, align 8, !tbaa !74, !alias.scope !203
   %.sroa.01.0.copyload.i166 = load i64, ptr %2, align 8, !tbaa !74, !noalias !203
   %.sroa.22.0.copyload.i167 = load i64, ptr %.sroa.26.0..sroa_idx.i155, align 8, !noalias !203
-  %779 = getelementptr inbounds i8, ptr %.0, i64 -32
-  %.sroa.0.0.copyload.i168 = load i64, ptr %779, align 8, !tbaa !74, !noalias !203
+  %776 = getelementptr inbounds i8, ptr %.0, i64 -32
+  %.sroa.0.0.copyload.i168 = load i64, ptr %776, align 8, !tbaa !74, !noalias !203
   %.sroa.2.0..sroa_idx.i169 = getelementptr inbounds i8, ptr %.0, i64 -24
   %.sroa.2.0.copyload.i170 = load i64, ptr %.sroa.2.0..sroa_idx.i169, align 8, !noalias !203
   %.sroa.22.8.extract.trunc.i.i.i.i.i16.i171 = trunc i64 %.sroa.22.0.copyload.i167 to i8
@@ -4908,39 +4902,39 @@ _ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   %.sroa.2.8.extract.trunc.i.i.i.i.i19.i174 = trunc i64 %.sroa.2.0.copyload.i170 to i8
   %.sroa.4.8.extract.shift.i.i.i.i.i20.i175 = lshr i64 %.sroa.2.0.copyload.i170, 8
   %.sroa.4.8.extract.trunc.i.i.i.i.i21.i176 = trunc i64 %.sroa.4.8.extract.shift.i.i.i.i.i20.i175 to i8
-  %780 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %.sroa.01.0.copyload.i166, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i16.i171, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i18.i173, i64 noundef %.sroa.0.0.copyload.i168, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i19.i174, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i21.i176) #25, !noalias !203
-  %781 = shl i64 %.sroa.22.0.copyload.i167, 40
-  %782 = ashr i64 %781, 56
-  %783 = shl i64 %.sroa.2.0.copyload.i170, 40
-  %784 = ashr i64 %783, 56
-  %785 = sub nsw i64 %782, %784
-  %.pn.i.i.i.i22.i177 = mul i64 %780, 24
-  %786 = add i64 %785, %.pn.i.i.i.i22.i177
-  %787 = shl i64 %.sroa.22.0.copyload.i167, 32
-  %788 = ashr i64 %787, 56
-  %789 = shl i64 %.sroa.2.0.copyload.i170, 32
-  %790 = ashr i64 %789, 56
-  %791 = sub nsw i64 %788, %790
-  %.pn.i.i.i23.i178 = mul i64 %786, 60
-  %792 = add i64 %791, %.pn.i.i.i23.i178
-  %793 = shl i64 %.sroa.22.0.copyload.i167, 24
-  %794 = ashr i64 %793, 56
-  %795 = shl i64 %.sroa.2.0.copyload.i170, 24
-  %796 = ashr i64 %795, 56
-  %.pn.i.i24.i179 = mul i64 %792, 60
-  %797 = add i64 %794, %777
-  %798 = sub i64 %797, %796
-  %799 = add i64 %798, %.pn.i.i24.i179
-  %800 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %799, ptr %800, align 8, !tbaa !74, !alias.scope !203
-  br label %826
+  %777 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %.sroa.01.0.copyload.i166, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i16.i171, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i18.i173, i64 noundef %.sroa.0.0.copyload.i168, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i19.i174, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i21.i176) #25, !noalias !203
+  %778 = shl i64 %.sroa.22.0.copyload.i167, 40
+  %779 = ashr i64 %778, 56
+  %780 = shl i64 %.sroa.2.0.copyload.i170, 40
+  %781 = ashr i64 %780, 56
+  %782 = sub nsw i64 %779, %781
+  %.pn.i.i.i.i22.i177 = mul i64 %777, 24
+  %783 = add i64 %782, %.pn.i.i.i.i22.i177
+  %784 = shl i64 %.sroa.22.0.copyload.i167, 32
+  %785 = ashr i64 %784, 56
+  %786 = shl i64 %.sroa.2.0.copyload.i170, 32
+  %787 = ashr i64 %786, 56
+  %788 = sub nsw i64 %785, %787
+  %.pn.i.i.i23.i178 = mul i64 %783, 60
+  %789 = add i64 %788, %.pn.i.i.i23.i178
+  %790 = shl i64 %.sroa.22.0.copyload.i167, 24
+  %791 = ashr i64 %790, 56
+  %792 = shl i64 %.sroa.2.0.copyload.i170, 24
+  %793 = ashr i64 %792, 56
+  %.pn.i.i24.i179 = mul i64 %789, 60
+  %794 = add i64 %791, %774
+  %795 = sub i64 %794, %793
+  %796 = add i64 %795, %.pn.i.i24.i179
+  %797 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %796, ptr %797, align 8, !tbaa !74, !alias.scope !203
+  br label %823
 
-_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread223: ; preds = %742, %734, %726, %718, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221, %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150
-  %801 = load i64, ptr %712, align 8, !tbaa !62
+_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread223: ; preds = %739, %731, %723, %715, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread221, %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150
+  %798 = load i64, ptr %709, align 8, !tbaa !62
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
-  %802 = getelementptr inbounds i8, ptr %.0, i64 -32
-  %.sroa.0.0.copyload = load i64, ptr %802, align 8, !tbaa !74
+  %799 = getelementptr inbounds i8, ptr %.0, i64 -32
+  %.sroa.0.0.copyload = load i64, ptr %799, align 8, !tbaa !74
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0, i64 -24
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.22.8.extract.trunc.i.i.i.i.i180 = trunc i64 %.sroa.22.0.copyload to i8
@@ -4949,39 +4943,39 @@ _ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   %.sroa.2.8.extract.trunc.i.i.i.i.i183 = trunc i64 %.sroa.2.0.copyload to i8
   %.sroa.4.8.extract.shift.i.i.i.i.i184 = lshr i64 %.sroa.2.0.copyload, 8
   %.sroa.4.8.extract.trunc.i.i.i.i.i185 = trunc i64 %.sroa.4.8.extract.shift.i.i.i.i.i184 to i8
-  %803 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %626, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i180, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i182, i64 noundef %.sroa.0.0.copyload, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i183, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i185) #25
-  %804 = shl i64 %.sroa.22.0.copyload, 40
-  %805 = ashr i64 %804, 56
-  %806 = shl i64 %.sroa.2.0.copyload, 40
-  %807 = ashr i64 %806, 56
-  %808 = sub nsw i64 %805, %807
-  %.pn.i.i.i.i186 = mul i64 %803, 24
-  %809 = add i64 %808, %.pn.i.i.i.i186
-  %810 = shl i64 %.sroa.22.0.copyload, 32
-  %811 = ashr i64 %810, 56
-  %812 = shl i64 %.sroa.2.0.copyload, 32
-  %813 = ashr i64 %812, 56
-  %814 = sub nsw i64 %811, %813
-  %.pn.i.i.i187 = mul i64 %809, 60
-  %815 = add i64 %814, %.pn.i.i.i187
-  %816 = shl i64 %.sroa.22.0.copyload, 24
-  %817 = ashr i64 %816, 56
-  %818 = shl i64 %.sroa.2.0.copyload, 24
-  %819 = ashr i64 %818, 56
-  %.pn.i.i188 = mul i64 %815, 60
-  %820 = add i64 %817, %801
-  %821 = sub i64 %820, %819
-  %822 = add i64 %821, %.pn.i.i188
-  %823 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %800 = tail call noundef i64 @_ZN4absl13time_internal4cctz6detail4impl14day_differenceElaalaa(i64 noundef %623, i8 noundef signext %.sroa.22.8.extract.trunc.i.i.i.i.i180, i8 noundef signext %.sroa.43.8.extract.trunc.i.i.i.i.i182, i64 noundef %.sroa.0.0.copyload, i8 noundef signext %.sroa.2.8.extract.trunc.i.i.i.i.i183, i8 noundef signext %.sroa.4.8.extract.trunc.i.i.i.i.i185) #25
+  %801 = shl i64 %.sroa.22.0.copyload, 40
+  %802 = ashr i64 %801, 56
+  %803 = shl i64 %.sroa.2.0.copyload, 40
+  %804 = ashr i64 %803, 56
+  %805 = sub nsw i64 %802, %804
+  %.pn.i.i.i.i186 = mul i64 %800, 24
+  %806 = add i64 %805, %.pn.i.i.i.i186
+  %807 = shl i64 %.sroa.22.0.copyload, 32
+  %808 = ashr i64 %807, 56
+  %809 = shl i64 %.sroa.2.0.copyload, 32
+  %810 = ashr i64 %809, 56
+  %811 = sub nsw i64 %808, %810
+  %.pn.i.i.i187 = mul i64 %806, 60
+  %812 = add i64 %811, %.pn.i.i.i187
+  %813 = shl i64 %.sroa.22.0.copyload, 24
+  %814 = ashr i64 %813, 56
+  %815 = shl i64 %.sroa.2.0.copyload, 24
+  %816 = ashr i64 %815, 56
+  %.pn.i.i188 = mul i64 %812, 60
+  %817 = add i64 %814, %798
+  %818 = sub i64 %817, %816
+  %819 = add i64 %818, %.pn.i.i188
+  %820 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %0, align 8, !tbaa !171, !alias.scope !206
-  %824 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %822, ptr %824, align 8, !tbaa !74, !alias.scope !206
-  %825 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %822, ptr %825, align 8, !tbaa !74, !alias.scope !206
-  store i64 %822, ptr %823, align 8, !tbaa !74, !alias.scope !206
-  br label %826
+  %821 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %819, ptr %821, align 8, !tbaa !74, !alias.scope !206
+  %822 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %819, ptr %822, align 8, !tbaa !74, !alias.scope !206
+  store i64 %819, ptr %820, align 8, !tbaa !74, !alias.scope !206
+  br label %823
 
-826:                                              ; preds = %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit75.thread, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit75.thread215, %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread223, %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread217, %_ZNK4absl13time_internal4cctz12TimeZoneInfo9TimeLocalERKNS1_6detail10civil_timeINS3_10second_tagEEEl.exit, %_ZN4absl13time_internal4cctz6detailgeINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit74.thread213
+823:                                              ; preds = %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit81.thread219, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit75.thread, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit75.thread215, %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread223, %_ZN4absl13time_internal4cctz6detailleINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit150.thread, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit118.thread, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread217, %_ZNK4absl13time_internal4cctz12TimeZoneInfo9TimeLocalERKNS1_6detail10civil_timeINS3_10second_tagEEEl.exit, %_ZN4absl13time_internal4cctz6detailgeINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit74.thread213
   ret void
 }
 
@@ -8172,6 +8166,9 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.sadd.sat.i64(i64, i64) #23
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

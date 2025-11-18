@@ -26100,7 +26100,7 @@ unicode_fill.exit:                                ; preds = %.lr.ph.i, %.lr.ph30
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -1, -9223372036854775807) i64 @PyUnicode_Count(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @PyUnicode_Count(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 8
   %.val6 = load ptr, ptr %5, align 8, !tbaa !187
   %6 = getelementptr i8, ptr %.val6, i64 168
@@ -26142,7 +26142,7 @@ ensure_unicode.exit10:                            ; preds = %ensure_unicode.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, -9223372036854775807) i64 @unicode_count_impl(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @unicode_count_impl(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 7
@@ -26152,7 +26152,7 @@ define internal fastcc range(i64 -1, -9223372036854775807) i64 @unicode_count_im
   %11 = and i16 %10, 7
   %12 = zext nneg i16 %11 to i32
   %13 = icmp samesign ult i16 %7, %11
-  br i1 %13, label %70, label %14
+  br i1 %13, label %67, label %14
 
 14:                                               ; preds = %4
   %15 = getelementptr i8, ptr %0, i64 16
@@ -26179,7 +26179,7 @@ define internal fastcc range(i64 -1, -9223372036854775807) i64 @unicode_count_im
   %.056 = select i1 %23, i64 %spec.store.select1, i64 %2
   %25 = sub i64 %.058, %.056
   %26 = icmp slt i64 %25, %.val
-  br i1 %26, label %70, label %27
+  br i1 %26, label %67, label %27
 
 27:                                               ; preds = %22
   %28 = and i16 %6, 8
@@ -26229,10 +26229,10 @@ _PyUnicode_DATA.exit79:                           ; preds = %34, %36
 40:                                               ; preds = %38, %_PyUnicode_DATA.exit79
   %.057 = phi ptr [ %39, %38 ], [ %.0.i77, %_PyUnicode_DATA.exit79 ]
   %41 = icmp slt i64 %25, 0
-  switch i16 %7, label %69 [
+  switch i16 %7, label %66 [
     i16 1, label %42
-    i16 2, label %51
-    i16 4, label %60
+    i16 2, label %50
+    i16 4, label %58
   ]
 
 42:                                               ; preds = %40
@@ -26241,71 +26241,65 @@ _PyUnicode_DATA.exit79:                           ; preds = %34, %36
 
 44:                                               ; preds = %42
   %45 = icmp eq i64 %.val, 0
-  br i1 %45, label %46, label %49
+  br i1 %45, label %46, label %48
 
 46:                                               ; preds = %44
-  %.not87 = icmp eq i64 %25, 9223372036854775807
-  %47 = add nuw i64 %25, 1
-  %48 = select i1 %.not87, i64 9223372036854775807, i64 %47
+  %47 = tail call i64 @llvm.sadd.sat.i64(i64 %25, i64 1)
   br label %ucs1lib_count.exit
 
-49:                                               ; preds = %44
-  %50 = tail call fastcc i64 @ucs1lib_fastsearch(ptr noundef %43, i64 noundef %25, ptr noundef %.057, i64 noundef %.val, i64 noundef 9223372036854775807, i32 noundef 0)
-  %..i = tail call i64 @llvm.smax.i64(i64 %50, i64 0)
+48:                                               ; preds = %44
+  %49 = tail call fastcc i64 @ucs1lib_fastsearch(ptr noundef %43, i64 noundef %25, ptr noundef %.057, i64 noundef %.val, i64 noundef 9223372036854775807, i32 noundef 0)
+  %..i = tail call i64 @llvm.smax.i64(i64 %49, i64 0)
   br label %ucs1lib_count.exit
 
-51:                                               ; preds = %40
-  %52 = getelementptr i16, ptr %.0.i, i64 %.056
-  br i1 %41, label %ucs1lib_count.exit, label %53
+50:                                               ; preds = %40
+  %51 = getelementptr i16, ptr %.0.i, i64 %.056
+  br i1 %41, label %ucs1lib_count.exit, label %52
 
-53:                                               ; preds = %51
-  %54 = icmp eq i64 %.val, 0
-  br i1 %54, label %55, label %58
+52:                                               ; preds = %50
+  %53 = icmp eq i64 %.val, 0
+  br i1 %53, label %54, label %56
 
-55:                                               ; preds = %53
-  %.not86 = icmp eq i64 %25, 9223372036854775807
-  %56 = add nuw i64 %25, 1
-  %57 = select i1 %.not86, i64 9223372036854775807, i64 %56
+54:                                               ; preds = %52
+  %55 = tail call i64 @llvm.sadd.sat.i64(i64 %25, i64 1)
   br label %ucs1lib_count.exit
 
-58:                                               ; preds = %53
-  %59 = tail call fastcc i64 @ucs2lib_fastsearch(ptr noundef %52, i64 noundef %25, ptr noundef %.057, i64 noundef %.val, i64 noundef 9223372036854775807, i32 noundef 0)
-  %..i81 = tail call i64 @llvm.smax.i64(i64 %59, i64 0)
+56:                                               ; preds = %52
+  %57 = tail call fastcc i64 @ucs2lib_fastsearch(ptr noundef %51, i64 noundef %25, ptr noundef %.057, i64 noundef %.val, i64 noundef 9223372036854775807, i32 noundef 0)
+  %..i81 = tail call i64 @llvm.smax.i64(i64 %57, i64 0)
   br label %ucs1lib_count.exit
 
-60:                                               ; preds = %40
-  %61 = getelementptr i32, ptr %.0.i, i64 %.056
-  br i1 %41, label %ucs1lib_count.exit, label %62
+58:                                               ; preds = %40
+  %59 = getelementptr i32, ptr %.0.i, i64 %.056
+  br i1 %41, label %ucs1lib_count.exit, label %60
+
+60:                                               ; preds = %58
+  %61 = icmp eq i64 %.val, 0
+  br i1 %61, label %62, label %64
 
 62:                                               ; preds = %60
-  %63 = icmp eq i64 %.val, 0
-  br i1 %63, label %64, label %67
-
-64:                                               ; preds = %62
-  %.not85 = icmp eq i64 %25, 9223372036854775807
-  %65 = add nuw i64 %25, 1
-  %66 = select i1 %.not85, i64 9223372036854775807, i64 %65
+  %63 = tail call i64 @llvm.sadd.sat.i64(i64 %25, i64 1)
   br label %ucs1lib_count.exit
 
-67:                                               ; preds = %62
-  %68 = tail call fastcc i64 @ucs4lib_fastsearch(ptr noundef %61, i64 noundef %25, ptr noundef %.057, i64 noundef %.val, i64 noundef 9223372036854775807, i32 noundef 0)
-  %..i83 = tail call i64 @llvm.smax.i64(i64 %68, i64 0)
+64:                                               ; preds = %60
+  %65 = tail call fastcc i64 @ucs4lib_fastsearch(ptr noundef %59, i64 noundef %25, ptr noundef %.057, i64 noundef %.val, i64 noundef 9223372036854775807, i32 noundef 0)
+  %..i83 = tail call i64 @llvm.smax.i64(i64 %65, i64 0)
   br label %ucs1lib_count.exit
 
-69:                                               ; preds = %40
+66:                                               ; preds = %40
   unreachable
 
-ucs1lib_count.exit:                               ; preds = %67, %64, %60, %58, %55, %51, %49, %46, %42
-  %.059 = phi i64 [ %48, %46 ], [ 0, %42 ], [ %..i, %49 ], [ %57, %55 ], [ 0, %51 ], [ %..i81, %58 ], [ %66, %64 ], [ 0, %60 ], [ %..i83, %67 ]
-  br i1 %.not, label %70, label %.sink.split
+ucs1lib_count.exit:                               ; preds = %64, %62, %58, %56, %54, %50, %48, %46, %42
+  %.059 = phi i64 [ %47, %46 ], [ 0, %42 ], [ %..i, %48 ], [ %55, %54 ], [ 0, %50 ], [ %..i81, %56 ], [ %63, %62 ], [ 0, %58 ], [ %..i83, %64 ]
+  br i1 %.not, label %67, label %.sink.split
 
 .sink.split:                                      ; preds = %38, %ucs1lib_count.exit
   %.057.sink = phi ptr [ %.057, %ucs1lib_count.exit ], [ null, %38 ]
   %.0.ph = phi i64 [ %.059, %ucs1lib_count.exit ], [ -1, %38 ]
   tail call void @PyMem_Free(ptr noundef %.057.sink) #42
-  br label %70
+  br label %67
 
-70:                                               ; preds = %.sink.split, %ucs1lib_count.exit, %22, %4
+67:                                               ; preds = %.sink.split, %ucs1lib_count.exit, %22, %4
   %.0 = phi i64 [ 0, %4 ], [ 0, %22 ], [ %.059, %ucs1lib_count.exit ], [ %.0.ph, %.sink.split ]
   ret i64 %.0
 }
@@ -103154,6 +103148,9 @@ declare i64 @llvm.umin.i64(i64, i64) #38
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #38
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.sadd.sat.i64(i64, i64) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #40
